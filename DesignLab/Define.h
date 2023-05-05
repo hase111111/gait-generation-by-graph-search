@@ -1,5 +1,8 @@
 #pragma once
 
+//	クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策
+//	https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81
+
 class Define 
 {
 	Define() = delete;
@@ -29,6 +32,6 @@ public:
 	const static bool FLAG_DO_PRUNING;
 
 //Hexapod.h
-	const static int LEG_NUM;
+	inline constexpr static int LEG_NUM = 6;
 
 };

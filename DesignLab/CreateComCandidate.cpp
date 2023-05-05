@@ -1,12 +1,38 @@
 ﻿#include "CreateComCandidate.h"
 #include "pch.h"
+#include "LegState.h"
 
 CreateComCandidate::CreateComCandidate()
 {
 }
 
-int CreateComCandidate::getMovementPossibilityArea() 
+int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
 {
+	//各種変数を初期化する
+
+	//重心から脚先の位置の計算(座標,(x,y,z)→(x,z,y)),node->Legはcoxaからの脚先位置
+	myvector::SVector _temp_leg_rot[Define::LEG_NUM];
+
+	for (int i = 0; i < Define::LEG_NUM; i++)
+	{
+		_temp_leg_rot[i] = myvector::VRot(_node.Leg[i], myvector::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
+
+		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
+		m_leg_pos[i].x = _temp_leg_rot[i].x + phantomX.getGlobalCoxaJointPos(i).x;
+		m_leg_pos[i].y = _temp_leg_rot[i].z + phantomX.getGlobalCoxaJointPos(i).z;
+		m_leg_pos[i].z = _temp_leg_rot[i].y + phantomX.getGlobalCoxaJointPos(i).y;
+	}
+
+	//重心位置の設定
+	m_global_com = _node.global_center_of_mass;
+
+	//CreateComCandidate の変数にコピー．2次階層の状態コピー(例:101010)
+	for (int i = 0; i < Define::LEG_NUM; i++) 
+	{
+		m_ground_leg[i] = LegState::isGrounded(_node.leg_state, i); 
+	}
+
+
 	int getCOG = 0;
 
 	candidatePointNum = getInsidePolygon();//脚位置による重心タイプ(多角形要素)の数(7)
@@ -15,7 +41,7 @@ int CreateComCandidate::getMovementPossibilityArea()
 
 	for (int i = 0; i < candidatePointNum; i++) 
 	{
-		switch (phantomX.showTargetType()) 
+		switch (phantomX.getTargetType()) 
 		{
 		case ETargetMode::STRAIGHT_VECOTR:
 		case ETargetMode::STRAIGHT_POSITION:
@@ -278,7 +304,7 @@ int CreateComCandidate::getComInPolygon(IntersectionPolygon* polygon)
 	myvector::SVector G_legposi[6];
 	for (int ileg = 0; ileg < 6; ileg++) 
 	{
-		G_legposi[ileg] = phantomX.showGlobalCoxaJointPosi(ileg);
+		G_legposi[ileg] = phantomX.getGlobalCoxaJointPos(ileg);
 	}
 
 	//for(int ix = 0; ix< DIVIDE_NUM; ix++){
@@ -298,7 +324,7 @@ int CreateComCandidate::getComInPolygon(IntersectionPolygon* polygon)
 
 			//取ることがでる体勢かつ転倒しない体勢
 			//脚の可動範囲内かどうか							脚がクロスしないかどうか							
-			if (phantomX.isAblePause(L_legposi, groundingLeg) && phantomX.isAbleCOM(L_legposi, groundingLeg)) {
+			if (phantomX.isAblePause(L_legposi, m_ground_leg) && phantomX.isAbleCOM(L_legposi, m_ground_leg)) {
 				polygon->COMPoint.x = comCandidatePoint[ix][iz].x;
 				polygon->COMPoint.y = comCandidatePoint[ix][iz].z;
 				polygon->COMPoint.z = comCandidatePoint[ix][iz].y;
@@ -312,8 +338,8 @@ int CreateComCandidate::getComInPolygon(IntersectionPolygon* polygon)
 }
 
 //各ポリゴン内で、代表点を１つ決める
-int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* polygon) {
-
+int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* polygon) 
+{
 	myvector::SVector comCandidatePoint[DIVIDE_NUM][DIVIDE_NUM] = {};//comCandidate[x][z]
 	int adleComCandidate[DIVIDE_NUM][DIVIDE_NUM] = {};//無効な点は0，有効な点は1
 
@@ -339,48 +365,53 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 			zMin = polygon->VertexNode[i]->Point.z;
 		}
 	}
+
 	//------------------------------------半径からの距離で除外やつ--------------------//
-	//myvector::VECTOR CtoGcan;// = myvector::VSub(gcom, phantomX.showTurningCenter);//旋回中心から重心へのベクトル
+	//myvector::VECTOR CtoGcan;// = myvector::VSub(gcom, phantomX.getTurningCenter);//旋回中心から重心へのベクトル
 	//myvector::VECTOR Gadd;
 	//double CtoGcandist;// = sqrt(Vtemp1.x*Vtemp1.x + Vtemp1.y*Vtemp1.y + Vtemp1.z*Vtemp1.z);	//重心位置と回転中心との距離
-	//double radiusDiff;// = fabs(CtoGdist - phantomX.showTurningRadius);	
+	//double radiusDiff;// = fabs(CtoGdist - phantomX.getTurningRadius);	
 	//------------------------------------------------------------------------------------//
-	//DIVIDE_NUM=10等分する
 	dx = (xMax - xMin) / double(DIVIDE_NUM);
 	dz = (zMax - zMin) / double(DIVIDE_NUM);
 
 
-	//std::cout<<"zMax = "<<zMax<<"\n";
-	//std::cout<<"zMin = "<<zMin<<"\n";
-
-	for (int ix = 0; ix< DIVIDE_NUM; ix++) {
-		for (int iz = 0; iz< DIVIDE_NUM; iz++) {
-		//------------------------------------平面内の半径からの距離で除外やつ--------------------//
-			//Gadd = myvector::VGet(xMin + dx * ix, zMin + dz * iz, 0);//グローバルにするとzがy　重心の移動量
-			//CtoGcan = myvector::VSub(myvector::VAdd(gcom, Gadd), phantomX.showTurningCenter());
-			//CtoGcandist = sqrt(CtoGcan.x*CtoGcan.x + CtoGcan.y*CtoGcan.y);//高さ方向は考えない
-			//radiusDiff = fabs(CtoGcandist - phantomX.showTurningRadius());
-			//	if (radiusDiff < ALLOW_RADIUS_DIFF) {
-					adleComCandidate[ix][iz] = 1;
-					comCandidatePoint[ix][iz] = myvector::VGet(xMin + dx * ix, 0, zMin + dz * iz);//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標
-			//	}
-		//------------------------------------------------------------------------------------//
+	for (int ix = 0; ix< DIVIDE_NUM; ix++) 
+	{
+		for (int iz = 0; iz< DIVIDE_NUM; iz++) 
+		{
+		//平面内の半径からの距離で除外するやつ
+		//Gadd = myvector::VGet(xMin + dx * ix, zMin + dz * iz, 0);//グローバルにするとzがy　重心の移動量
+		//CtoGcan = myvector::VSub(myvector::VAdd(gcom, Gadd), phantomX.getTurningCenter());
+		//CtoGcandist = sqrt(CtoGcan.x*CtoGcan.x + CtoGcan.y*CtoGcan.y);//高さ方向は考えない
+		//radiusDiff = fabs(CtoGcandist - phantomX.getTurningRadius());
+		//	if (radiusDiff < ALLOW_RADIUS_DIFF) {
+			adleComCandidate[ix][iz] = 1;
+			comCandidatePoint[ix][iz] = myvector::VGet(xMin + dx * ix, 0, zMin + dz * iz);//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標
+		//	}
 		}
 	}
 
-
 	//ポリゴンマージン外の点を無効にする
 	myvector::SVector v1, v1n, vMap;
-	//std::cout<<"polygon->nOfVertex = "<<polygon->nOfVertex<<"\n";
+
 	//ポリゴンごとに、安定余裕を計算。
-	for (int i = 0; i < polygon->nOfVertex; i++) {//頂点の数だけループ
+	for (int i = 0; i < polygon->nOfVertex; i++) 
+	{
+		//頂点の数だけループ
 		v1 = myvector::VSub(polygon->VertexNode[(i + 1) % polygon->nOfVertex]->Point, polygon->VertexNode[i]->Point);//多角形の辺
 		v1n = myvector::VUnit(v1);
-		for (int ix = 0; ix< DIVIDE_NUM; ix++) {
-			for (int iz = 0; iz< DIVIDE_NUM; iz++) {//map総当たり
+		
+		for (int ix = 0; ix< DIVIDE_NUM; ix++) 
+		{
+			for (int iz = 0; iz< DIVIDE_NUM; iz++) 
+			{
+				//map総当たり
 				vMap = myvector::VSub(myvector::VSub(comCandidatePoint[ix][iz], polygon->VertexNode[i]->Point), COMPOSI);//頂点からの重心のベクトル,composiが中心以外ならcomposiの位置を回転する必要ある
 
-				if (myvector::VCross(vMap, v1n).y > -m_stability_margin) {//ポリゴンのマージン外にある場合adleComCandidateを0//辺の単位ベクトル(=1)とvMapからなる面積=辺から重心への垂線の長さ>マージン10.0f
+				if (myvector::VCross(vMap, v1n).y > -m_stability_margin) 
+				{
+					//ポリゴンのマージン外にある場合adleComCandidateを0//辺の単位ベクトル(=1)とvMapからなる面積=辺から重心への垂線の長さ>マージン10.0f
 					adleComCandidate[ix][iz] = 0;//無効
 				}
 			}
@@ -391,10 +422,10 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 									//CCCは　					胴体前方がz,鉛直上向きにy、なぜが左手系でx　本当にやめていただきたい
 	myvector::SVector L_coxa[6];//PFの座標系　					胴体前方がy,鉛直上向きにz,右手系でx
 	for (int ileg = 0; ileg < 6; ileg++) {
-		L_coxa[ileg] = phantomX.showLocalCoxaJointPosi(ileg);
+		L_coxa[ileg] = phantomX.getLocalCoxaJointPos(ileg);
 	}
 
-	double thY = phantomX.showGlobalMyDirectionthY();
+	double thY = phantomX.getGlobalMyDirectionthY();
 	//重心をうごかしたときに、脚が可動範囲外にでない、かつ、脚同士がぶつからないかの判定。
 	for (int iz = DIVIDE_NUM - 1; iz >= 0; iz--) {
 		for (int ix = 0; ix< DIVIDE_NUM; ix++) {//map総当たり
@@ -402,7 +433,7 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 
 			for (int ileg = 0; ileg < 6; ileg++) {
 				//重心からの座標(x,y,z)→(x,y,z)脚の付け根からの座標
-				if (/*leg[ileg].y == -80*/!groundingLeg[ileg]) {//遊脚は胴体と一緒に移動
+				if (/*leg[ileg].y == -80*/!m_ground_leg[ileg]) {//遊脚は胴体と一緒に移動
 					L_legposi[ileg].x = (m_leg_pos[ileg].z)*cos(thY) - (m_leg_pos[ileg].x)*sin(thY) - L_coxa[ileg].y;
 					L_legposi[ileg].y = (m_leg_pos[ileg].z)*sin(thY) + (m_leg_pos[ileg].x)*cos(thY) - L_coxa[ileg].x;
 
@@ -416,7 +447,7 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 			//std::cerr << "comできる" << ix << "," << iz << "," << phantomX.isAblePause(L_legposi, groundingLeg) << std::endl;
 			//		取ることができない体勢もしくは，転倒する体勢
 			//脚の可動範囲内かどうか							脚がクロスしないかどうか							
-			if (!phantomX.isAblePause(L_legposi, groundingLeg) || !phantomX.isAbleCOM(L_legposi, groundingLeg)) {
+			if (!phantomX.isAblePause(L_legposi, m_ground_leg) || !phantomX.isAbleCOM(L_legposi, m_ground_leg)) {
 				adleComCandidate[ix][iz] = 0;
 			}
 		}
@@ -433,15 +464,15 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 		for (int ix = 0; ix < DIVIDE_NUM; ix++) {//map総当たり
 			if (adleComCandidate[ix][iz] == 0)continue;
 			//重心移動後の重心位置を代入
-			com_buf = myvector::VAdd(S_P_L_P2.phantomX.showGlobalMyPosition(), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));
+			com_buf = myvector::VAdd(S_P_L_P2.phantomX.getGlobalMyPosition(), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));
 			//重心移動後の脚位置を代入
 			for (int i = 0; i < 6; ++i) {
 				//重心からの座標(x,y,z)→(x,y,z)脚の付け根からの座標
-				if (!groundingLeg[i]) {//遊脚は胴体と一緒に移動
-					L_legposi_buf[i] = S_P_L_P2.phantomX.showLocalLegPosition(i);
+				if (!m_ground_leg[i]) {//遊脚は胴体と一緒に移動
+					L_legposi_buf[i] = S_P_L_P2.phantomX.getLocalLegPosition(i);
 				}
 				else {//支持脚は、重心の移動量だけ後退
-					L_legposi_buf[i] = myvector::VSub(S_P_L_P2.phantomX.showLocalLegPosition(i), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));;
+					L_legposi_buf[i] = myvector::VSub(S_P_L_P2.phantomX.getLocalLegPosition(i), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));;
 				}
 
 			}
@@ -478,7 +509,7 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 
 	//std::cout<<"polygon->COMtype"<<polygon->COMtype<<"\n";
 
-	//phantomX.showTravelingDirection();----
+	//phantomX.getTravelingDirection();----
 	//double distance = -1, distanceA;    //変更20200619hato　もともとのやつ一番遠いやつにしてない？←これがすべての元凶だった。。。
 	//もはや、ALLOW_RADIUS_DIFFいらなくなった。。。。。。
 	double distance = ALLOW_RADIUS_DIFF, distanceA;
@@ -491,11 +522,11 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 		for (int ix = 0; ix< DIVIDE_NUM; ix++) {
 			//std::cout<<adleComCandidate[ix][iz];
 			if (adleComCandidate[ix][iz] == 1) {
-				//distanceA = pow((phantomX.showTurningCenter().x - comCandidatePoint[ix][iz].x), 2) + pow((phantomX.showTurningCenter().y - comCandidatePoint[ix][iz].z), 2) - phantomX.showTurningRadius() * phantomX.showTurningRadius();
-				CtoG_can = myvector::VSub(myvector::VAdd(m_global_com, comCandidatePoint[ix][iz]), phantomX.showTurningCenter());
+				//distanceA = pow((phantomX.getTurningCenter().x - comCandidatePoint[ix][iz].x), 2) + pow((phantomX.getTurningCenter().y - comCandidatePoint[ix][iz].z), 2) - phantomX.getTurningRadius() * phantomX.getTurningRadius();
+				CtoG_can = myvector::VSub(myvector::VAdd(m_global_com, comCandidatePoint[ix][iz]), phantomX.getTurningCenter());
 				CtoG_can_radius = sqrt(CtoG_can.x*CtoG_can.x + CtoG_can.y*CtoG_can.y);
-				distanceA = fabs(CtoG_can_radius - phantomX.showTurningRadius());
-			//	distanceA = pow((phantomX.showTurningCenter().x - comCandidatePoint[ix][iz].x), 2) + pow((comCandidatePoint[ix][iz].z), 2) - phantomX.showTurningRadius() * phantomX.showTurningRadius();//これはちょっと仮決め20200619
+				distanceA = fabs(CtoG_can_radius - phantomX.getTurningRadius());
+			//	distanceA = pow((phantomX.getTurningCenter().x - comCandidatePoint[ix][iz].x), 2) + pow((comCandidatePoint[ix][iz].z), 2) - phantomX.getTurningRadius() * phantomX.getTurningRadius();//これはちょっと仮決め20200619
 			//	distanceA = sqrt(distanceA);
 				//polygon->COMPoint = comCandidatePoint[ix][iz];
 				//if (distanceA > distance) {
@@ -512,7 +543,7 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 	for (int ileg = 0; ileg < 6; ileg++) 
 	{
 		//重心からの座標(x,y,z)→(x,y,z)脚の付け根からの座標
-		if (/*leg[ileg].y == -80*/!groundingLeg[ileg]) {//遊脚
+		if (/*leg[ileg].y == -80*/!m_ground_leg[ileg]) {//遊脚
 			polygon->Leg[ileg].y = (m_leg_pos[ileg].z)*cos(thY) - (m_leg_pos[ileg].x)*sin(thY) - L_coxa[ileg].y;
 			polygon->Leg[ileg].x = (m_leg_pos[ileg].z)*sin(thY) + (m_leg_pos[ileg].x)*cos(thY) - L_coxa[ileg].x;
 		} else {
@@ -537,26 +568,25 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 //leginはcoxa座標系における脚先位置のベクトル190419
 //このクラスではyzの座標が違うことに注意、重心座標は(0,0,0) phantomXクラスに値を入力してから使う
 //重心座標を原点にセットしているから、出力されるのは、ロボット座標系の脚先座標です、現状20200619
-void CreateComCandidate::setLegPosition(myvector::SVector legIn[LEGCOUNT])
-{
-	myvector::SVector rotationLeg[6];
+//void CreateComCandidate::setLegPosition(myvector::SVector legIn[Define::LEG_NUM])
+//{
+//	myvector::SVector rotationLeg[6];
+//
+//	for (int i = 0; i < 6; i++)
+//	{
+//		rotationLeg[i] = myvector::VRot(legIn[i], myvector::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
+//
+//		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
+//		m_leg_pos[i].x = rotationLeg[i].x + phantomX.getGlobalCoxaJointPos(i).x;
+//		m_leg_pos[i].y = rotationLeg[i].z + phantomX.getGlobalCoxaJointPos(i).z;
+//		m_leg_pos[i].z = rotationLeg[i].y + phantomX.getGlobalCoxaJointPos(i).y;
+//	}
+//}
 
-	for (int i = 0; i < 6; i++)
-	{
-		rotationLeg[i] = myvector::VRot(legIn[i], myvector::VGet(0, 0, 0), phantomX.showGlobalMyDirectionthP(), phantomX.showGlobalMyDirectionthR(), phantomX.showGlobalMyDirectionthY());
-
-		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
-		m_leg_pos[i].x = rotationLeg[i].x + phantomX.showGlobalCoxaJointPosi(i).x;
-		m_leg_pos[i].y = rotationLeg[i].z + phantomX.showGlobalCoxaJointPosi(i).z;
-		m_leg_pos[i].z = rotationLeg[i].y + phantomX.showGlobalCoxaJointPosi(i).y;
-	}
-}
-
-void CreateComCandidate::setGroundingLeg(int In_groundingLeg[6]) {
-
-	for (int i = 0; i < 6; i++)
-	{
-		groundingLeg[i] = In_groundingLeg[i];
-		//groundingLeg[i] = 1;
-	}
-}
+//void CreateComCandidate::setGroundingLeg(int In_groundingLeg[Define::LEG_NUM]) 
+//{
+//	for (int i = 0; i < 6; i++)
+//	{
+//		In_groundingLeg = In_groundingLeg[i];
+//	}
+//}

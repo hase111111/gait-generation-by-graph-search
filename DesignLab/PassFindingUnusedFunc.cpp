@@ -11,35 +11,37 @@
 //資料として大変貴重であるといえるだろう
 
 //ノードの脚位置から，comtypeの重心位置が可能な場合1
-bool PassFinding::isAbleLegPosComType(LNODE* node) {
-	myvector::SVector ret_4_GCOM[35];
-	int ret_4_COMType[35] = { 0 }, ret_4_transition_kaisou[35] = { 0 }, passnum = 0;
+bool PassFinding::isAbleLegPosComType(LNODE* node) 
+{
+	//myvector::SVector ret_4_GCOM[35];
+	//int ret_4_COMType[35] = { 0 }, ret_4_transition_kaisou[35] = { 0 }, passnum = 0;
 
-	myvector::SVector legPosi[6];//重心移動後の脚位置
-	int groundLegInd[6];		//接地している脚は1
+	//myvector::SVector legPosi[6];//重心移動後の脚位置
+	//int groundLegInd[6];		//接地している脚は1
 
-	for (int le = 0; le < 6; le++) {
-		//groundLegInd[le] = HX2[node->v][le];
-		groundLegInd[le] = LegState::isGrounded(node->leg_state, le);
-	}
+	//for (int le = 0; le < 6; le++) {
+	//	//groundLegInd[le] = HX2[node->v][le];
+	//	groundLegInd[le] = LegState::isGrounded(node->leg_state, le);
+	//}
 
-	myvector::SVector ret_Leg[6][20];
-	pass_transitions_4zi_zyuusinidou(node, ret_Leg, ret_4_GCOM, ret_4_COMType, passnum);	//これだめな気がする180823
+	//myvector::SVector ret_Leg[6][20];
+	//pass_transitions_4zi_zyuusinidou(node, ret_Leg, ret_4_GCOM, ret_4_COMType, passnum);	//これだめな気がする180823
 
-	for (int i = 0; i < passnum; i++) {
-		//if(ret_4_COMType[i] == node->COM_type){
-		if (ret_4_COMType[i] == numOfCOMType(node->leg_state)) {
-			for (int le = 0; le < 6; le++) {
-				legPosi[le] = myvector::VSub(node->Leg[le], ret_4_GCOM[i]);			//重心移動後の脚位置
-			}
-			return 1;
-		}
-	}
-	//if(node->COM_type == 0){
-	if (numOfCOMType(node->leg_state) == 0) {
-		return 1;
-	}
-	return 0;
+	//for (int i = 0; i < passnum; i++) {
+	//	//if(ret_4_COMType[i] == node->COM_type){
+	//	if (ret_4_COMType[i] == numOfCOMType(node->leg_state)) {
+	//		for (int le = 0; le < 6; le++) {
+	//			legPosi[le] = myvector::VSub(node->Leg[le], ret_4_GCOM[i]);			//重心移動後の脚位置
+	//		}
+	//		return 1;
+	//	}
+	//}
+	////if(node->COM_type == 0){
+	//if (numOfCOMType(node->leg_state) == 0) {
+	//	return 1;
+	//}
+	//return 0;
+	return false;
 }
 
 //二次方向移動(旋回)

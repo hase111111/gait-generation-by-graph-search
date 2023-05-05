@@ -24,6 +24,7 @@
     <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="HexapodMemo.h" />
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />

@@ -9,5 +9,3 @@ const int Define::GOAL_TAPE = 1200;
 const bool Define::FLAG_GRAPHIC_AVAILABLE = true;
 
 const bool Define::FLAG_DO_PRUNING = false;
-
-const int Define::LEG_NUM = 6;

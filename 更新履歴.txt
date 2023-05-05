@@ -483,3 +483,6 @@ floatとdoubleの統一を行いたいのだが，SVectorをfloatにするとhex
 おそらくポインタでのやり取りが悪さをしていると感じる．doubleよりかはfloatでプログラムを統一したかったのだが，ひとまずfloatで更新していこうと思う．
 searchGaitPattern関数の脚平行移動のリファクタリングが完了．内容の理解を終えた．
 次は重心平行移動か．
+
+2023/05/05
+githubを使用し始めた．masterには基本的にはpushせず．devにpushする．リファクタリングはrefで行うようにする．

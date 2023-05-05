@@ -123,6 +123,9 @@
     <ClInclude Include="LegState.h">
       <Filter>ソース ファイル\walking_pattern\LegState</Filter>
     </ClInclude>
+    <ClInclude Include="HexapodMemo.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
