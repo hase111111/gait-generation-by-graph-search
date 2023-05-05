@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\detectLandingPoint">
+      <UniqueIdentifier>{963b7257-aab8-4ca3-b214-747bbbca482c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mainfunction">
+      <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common">
+      <UniqueIdentifier>{abdfdf39-b790-4b8d-882b-014efbb3c240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\walking_pattern">
+      <UniqueIdentifier>{91e531ac-e200-40d2-936c-cd0b20117d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\walking_pattern\Sin">
+      <UniqueIdentifier>{38117e6f-0767-4424-8084-ea550c77144a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\phantomX">
+      <UniqueIdentifier>{39493255-5b06-4c98-80e6-cfc66f595f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Hexapod">
+      <UniqueIdentifier>{e6718033-9dd2-4cc9-94c3-f4dff54cca6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\HexapodGraphic">
+      <UniqueIdentifier>{e82cdec7-b284-4796-a376-b8bca6e611ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\FileIO">
+      <UniqueIdentifier>{c3a615e3-7f3c-4f90-a4ed-bc6bc201f418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\walking_pattern\LegState">
+      <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapodGraphic.h">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClInclude>
+    <ClInclude Include="mapData.h">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClInclude>
+    <ClInclude Include="listFunc.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="S_NE.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="mainfunction.h">
+      <Filter>ソース ファイル\mainfunction</Filter>
+    </ClInclude>
+    <ClInclude Include="vectorFunc.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="functionPassFinding.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="function_walking_pattern_generator.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BFSinHierarchy.h">
+      <Filter>ソース ファイル\walking_pattern\Sin</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomxCommander.h">
+      <Filter>ソース ファイル\phantomX</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>ソース ファイル\phantomX</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdIO.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulateResult.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeFileIO.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFileIO.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeFileIO.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="PassFinding.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateComCandidate.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchLegPosition.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchBodyRotation.h">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="LegState.h">
+      <Filter>ソース ファイル\walking_pattern\LegState</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="hexapod.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClCompile>
+    <ClCompile Include="hexapodGraphic.cpp">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClCompile>
+    <ClCompile Include="mapData.cpp">
+      <Filter>ソース ファイル\HexapodGraphic</Filter>
+    </ClCompile>
+    <ClCompile Include="listFunc.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="mainfunction.cpp">
+      <Filter>ソース ファイル\mainfunction</Filter>
+    </ClCompile>
+    <ClCompile Include="vectorFunc.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="function_walking_pattern_generator.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="functionPassFinding.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="BFSinHierarchy.cpp">
+      <Filter>ソース ファイル\walking_pattern\Sin</Filter>
+    </ClCompile>
+    <ClCompile Include="phantomxCommander.cpp">
+      <Filter>ソース ファイル\phantomX</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>ソース ファイル\phantomX</Filter>
+    </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulateResult.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdIO.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeFileIO.cpp">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFileIO.cpp">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeFileIO.cpp">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinding.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateComCandidate.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchLegPosition.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchBodyRotation.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFindingUnusedFunc.cpp">
+      <Filter>ソース ファイル\walking_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="LegState.cpp">
+      <Filter>ソース ファイル\walking_pattern\LegState</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
