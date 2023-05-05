@@ -170,8 +170,10 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 	v = myvector::VSub(s1, s2);
 
 	//2つのベクトルが平行//外積が0なら平行,xyz空間で並行でなくてもxy平面で平行な可能性あり
-	if (myvector::VSquareSize(myvector::VCross(v1, v2)) < 0.01) {//ベクトルの外積の大きさの2乗
-		return 0;	//2つのアークの始点，終点のどれも一致していない
+	if (myvector::VSquareSize(myvector::VCross(v1, v2)) < 0.01) 
+	{
+		//ベクトルの外積の大きさの2乗
+		return false;	//2つのアークの始点，終点のどれも一致していない
 	}
 
 	//t1=s1s2e2の頂点からなる三角形の面積の2倍/s1s2e1e2の頂点からなる四角形の面積の2倍→四角形の面積における三角形の面積の割合→s1から交点の距離/s1からe2の距離
@@ -184,12 +186,13 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 	{		
 		if ( VectorEqual(s1, s2) || VectorEqual(s1, e2) || VectorEqual(s2, e1) || VectorEqual(e1, e2) ) 
 		{
-			return 0;//ポリゴンの頂点が一致しているとき
+			return false;//ポリゴンの頂点が一致しているとき
 		}
 
-		return 1;
+		return true;
 	}
-	return 0;
+
+	return false;
 }
 
 //水平要素のベクトルの外積→ベクトルで作る平行四辺形を水平面に射影した面積
