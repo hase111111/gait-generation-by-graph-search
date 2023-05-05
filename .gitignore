@@ -364,7 +364,7 @@ FodyWeavers.xsd
 
 
 # Add by Hasegawa
-.DesignLab/mainfunction/
-.DesignLab/mapdataset/
-.DesignLab/phantomxCommander/
-.DesignLab/*.csv
+DesignLab/mainfunction/
+DesignLab/mapdataset/
+DesignLab/phantomxCommander/
+DesignLab/*.csv
