@@ -276,7 +276,8 @@ int CreateComCandidate::getComInPolygon(IntersectionPolygon* polygon)
 	myvector::SVector L_legposi[6];
 
 	myvector::SVector G_legposi[6];
-	for (int ileg = 0; ileg < 6; ileg++) {
+	for (int ileg = 0; ileg < 6; ileg++) 
+	{
 		G_legposi[ileg] = phantomX.showGlobalCoxaJointPosi(ileg);
 	}
 
