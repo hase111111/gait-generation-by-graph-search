@@ -367,4 +367,4 @@ FodyWeavers.xsd
 DesignLab/mainfunction/
 DesignLab/mapdataset/
 DesignLab/phantomxCommander/
-DesignLab/*.csv
+*.csv
