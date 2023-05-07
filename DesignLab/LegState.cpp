@@ -1,4 +1,5 @@
 #include "LegState.h"
+#include "Define.h"
 
 bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 {
@@ -6,7 +7,7 @@ bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 	int v_bit = 0b1000;							//遊脚を示すbitの位置だけ立ててある
 
 	//_leg_numは0～5の範囲にある必要があるので
-	if (_leg_num < 0 || _leg_num > 5) 
+	if (isAbleLegNum(_leg_num) == false) 
 	{
 		//範囲外ならばfalseを出力する
 		return false; 
@@ -67,4 +68,61 @@ void LegState::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>&
 			_res_number.push_back(i);
 		}
 	}
+}
+
+bool LegState::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
+{
+	//_leg_num か _new_state がおかしいならば falseを返す
+	if (isAbleLegNum(_leg_num) == false ||isAbleLegState(_new_state) == false ) 
+	{
+		return false;
+	}
+
+	//新しい脚状態を生成する
+	int _mask = LEG_STATE_MASKBIT << (_leg_num * 4);	//4bitのデータを変更する地点までマスクをずらす
+	int _state = _new_state << (_leg_num * 4);			//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+
+	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
+	int _res = (_leg_state ^ _state) & _mask;
+	_leg_state ^= _res;
+
+	return true;
+}
+
+bool LegState::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
+{
+	//_leg_num か _new_state がおかしいならば falseを返す
+	if (isAbleLegNum(_leg_num) == false || isAbleLegState(_new_state) == false)
+	{
+		return false;
+	}
+
+	//新しい脚状態を生成する
+	int _mask = LEG_POS_MASKBIT << (_leg_num * 4);	//4bitのデータを変更する地点までマスクをずらす
+	int _state = _new_state << (_leg_num * 4);			//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+
+	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
+	int _res = (_leg_state ^ _state) & _mask;
+	_leg_state ^= _res;
+
+	return true;
+}
+
+bool LegState::isAbleLegNum(const int _num)
+{
+	// 0 ～ 5なら true
+	if (0 <= _num && _num < Define::LEG_NUM) { return true; }
+
+	return false;
+}
+
+bool LegState::isAbleLegState(const int _state)
+{
+	// 8 (0b1000) なら false
+	if (_state == 8) { return false; }
+
+	// 1 ～ 15なら true
+	if (0 < _state && _state < 15) { return true; }
+
+	return false;
 }

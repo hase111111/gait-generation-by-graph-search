@@ -25,7 +25,7 @@ bool PassFinding::isAbleLegPosComType(LNODE* node)
 	//}
 
 	//myvector::SVector ret_Leg[6][20];
-	//pass_transitions_4zi_zyuusinidou(node, ret_Leg, ret_4_GCOM, ret_4_COMType, passnum);	//‚±‚ê‚¾‚ß‚È‹C‚ª‚·‚é180823
+	//searchTransitionCoM(node, ret_Leg, ret_4_GCOM, ret_4_COMType, passnum);	//‚±‚ê‚¾‚ß‚È‹C‚ª‚·‚é180823
 
 	//for (int i = 0; i < passnum; i++) {
 	//	//if(ret_4_COMType[i] == node->COM_type){

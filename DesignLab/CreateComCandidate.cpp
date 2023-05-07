@@ -35,9 +35,9 @@ int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
 
 	int getCOG = 0;
 
-	candidatePointNum = getInsidePolygon();//脚位置による重心タイプ(多角形要素)の数(7)
+	candidatePointNum = getInsidePolygon();	//脚位置による重心タイプ(多角形要素)の数(7)
 
-	int trueCandidatePointNum = 0;//マージンを満たさないものを除外した重心移動可能点の数
+	int trueCandidatePointNum = 0;			//マージンを満たさないものを除外した重心移動可能点の数
 
 	for (int i = 0; i < candidatePointNum; i++) 
 	{
@@ -67,7 +67,7 @@ int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
 			p_candidatePointType[trueCandidatePointNum] = IPolygon[i].COMtype;//各ポリゴンの番号を代入
 			p_candidatePoint[trueCandidatePointNum] = IPolygon[i].COMPoint;//各ポリゴンへの重心の移動量を代入
 			
-			for (int j = 0; j < 6; j++) 
+			for (int j = 0; j < Define::LEG_NUM; j++) 
 			{
 				p_candidatePointLeg[j][trueCandidatePointNum] = IPolygon[i].Leg[j];//各ポリゴンへ移動後の脚座標を代入(ローカルcoxa)
 			}
@@ -564,29 +564,3 @@ int CreateComCandidate::getComInPolygon_circlingTarget(IntersectionPolygon* poly
 
 	return 0;
 }
-
-//leginはcoxa座標系における脚先位置のベクトル190419
-//このクラスではyzの座標が違うことに注意、重心座標は(0,0,0) phantomXクラスに値を入力してから使う
-//重心座標を原点にセットしているから、出力されるのは、ロボット座標系の脚先座標です、現状20200619
-//void CreateComCandidate::setLegPosition(myvector::SVector legIn[Define::LEG_NUM])
-//{
-//	myvector::SVector rotationLeg[6];
-//
-//	for (int i = 0; i < 6; i++)
-//	{
-//		rotationLeg[i] = myvector::VRot(legIn[i], myvector::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
-//
-//		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
-//		m_leg_pos[i].x = rotationLeg[i].x + phantomX.getGlobalCoxaJointPos(i).x;
-//		m_leg_pos[i].y = rotationLeg[i].z + phantomX.getGlobalCoxaJointPos(i).z;
-//		m_leg_pos[i].z = rotationLeg[i].y + phantomX.getGlobalCoxaJointPos(i).y;
-//	}
-//}
-
-//void CreateComCandidate::setGroundingLeg(int In_groundingLeg[Define::LEG_NUM]) 
-//{
-//	for (int i = 0; i < 6; i++)
-//	{
-//		In_groundingLeg = In_groundingLeg[i];
-//	}
-//}
