@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="ComType.h" />
     <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="ComType.cpp" />
     <ClCompile Include="CreateComCandidate.cpp" />
     <ClCompile Include="CmdIO.cpp" />
     <ClCompile Include="LegState.cpp" />

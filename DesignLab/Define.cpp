@@ -8,4 +8,6 @@ const int Define::GOAL_TAPE = 1200;
 
 const bool Define::FLAG_GRAPHIC_AVAILABLE = true;
 
+const double Define::ALLOWABLE_ERROR = 0.0001;
+
 const bool Define::FLAG_DO_PRUNING = false;

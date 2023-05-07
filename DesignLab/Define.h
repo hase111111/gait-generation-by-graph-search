@@ -23,6 +23,9 @@ public:
 	//グラフィックを表示するときはtrue
 	const static bool FLAG_GRAPHIC_AVAILABLE;
 
+	//これ以上小さい値は0とみなす．allowable error，許容誤差のこと
+	const static double ALLOWABLE_ERROR;
+
 //mapData.h
 	enum { MAPDATA3D_MAX = 15000 };		//enumハック．邪悪な解決法
 

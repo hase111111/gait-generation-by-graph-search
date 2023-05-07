@@ -12,7 +12,7 @@
 //	5   1
 // 
 //	1111    1111		1111 1111 1111 1111 1111 1111
-//	余り    重心タイプ  脚5  脚4  脚3  脚2  脚1  脚0
+//	余り    重心パターン脚5  脚4  脚3  脚2  脚1  脚0
 
 namespace LegState
 {
@@ -38,7 +38,7 @@ namespace LegState
 	// _leg_state 変更する脚状態．_leg_num どの脚を変更するか 0～5．_new_state 新しい脚状態 1～15
 	bool changeLegState(int &_leg_state, const int _leg_num, const int _new_state);
 
-	// 脚の情報を 0～7 の状態に変更する．引数の値がおかしいならばfalseを出力する．
+	// 脚の情報を 0～7 の状態に変更する．引数の値がおかしいならばfalseを出力する．遊脚を表すbitはそのまま
 	// _leg_state 変更する脚状態．_leg_num どの脚を変更するか 0～5．_new_state 新しい脚状態 1～7
 	bool changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state);
 
@@ -47,4 +47,6 @@ namespace LegState
 
 	//脚状態が 1(0001)～15(1111) の間に入っているならばtrue
 	bool isAbleLegState(const int _state);
+
+	//重心位置によって
 }

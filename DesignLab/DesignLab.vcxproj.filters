@@ -43,6 +43,9 @@
     <Filter Include="ソース ファイル\walking_pattern\LegState">
       <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\walking_pattern\CenterOfMass">
+      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -108,9 +111,6 @@
     <ClInclude Include="PassFinding.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
-    <ClInclude Include="CreateComCandidate.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
     <ClInclude Include="Target.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
@@ -125,6 +125,12 @@
     </ClInclude>
     <ClInclude Include="HexapodMemo.h">
       <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateComCandidate.h">
+      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="ComType.h">
+      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -191,9 +197,6 @@
     <ClCompile Include="PassFinding.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="CreateComCandidate.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClCompile>
     <ClCompile Include="SearchLegPosition.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
@@ -205,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="LegState.cpp">
       <Filter>ソース ファイル\walking_pattern\LegState</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateComCandidate.cpp">
+      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+    </ClCompile>
+    <ClCompile Include="ComType.cpp">
+      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
