@@ -141,7 +141,7 @@ int CreateComCandidate::getInsidePolygon()
 			_node_cnt++;
 		}
 
-		//ポリゴンの重心タイプを代入
+		//ポリゴンの重心タイプを代入 (1 ～ 6が出力される)
 		IPolygon[_polygon_cnt].COMtype = i + 1;
 
 		_polygon_cnt++;
@@ -211,7 +211,7 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 	//線分同士が交差しているならば
 	if ( ContactJudgment(t1, t2) ) 
 	{		
-		if ( VectorEqual(s1, s2) || VectorEqual(s1, e2) || VectorEqual(s2, e1) || VectorEqual(e1, e2) ) 
+		if (myvector::isEqualVector(s1, s2) || myvector::isEqualVector(s1, e2) || myvector::isEqualVector(s2, e1) || myvector::isEqualVector(e1, e2) )
 		{
 			return false;//ポリゴンの頂点が一致しているとき
 		}
@@ -233,12 +233,6 @@ bool CreateComCandidate::ContactJudgment(double t1, double t2)
 	return (-HITDETECTIONMARGIN <= t1 && t1 < 1.0 + HITDETECTIONMARGIN && -HITDETECTIONMARGIN <= t2 && t2 < 1.0 + HITDETECTIONMARGIN);
 }
 
-//1 2つのベクトルの全ての成分が等しい
-//0 2つのベクトルが異なる
-bool CreateComCandidate::VectorEqual(myvector::SVector v1, myvector::SVector v2) 
-{
-	return (abs(v1.x - v2.x) + abs(v1.y - v2.y) + abs(v1.z - v2.z)) < 0.01;
-}
 
 
 bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon) 
