@@ -53,7 +53,7 @@
 //*/
 //myvector::SVector Hexapod::rotation(myvector::SVector In, myvector::SVector center, double thP, double thR, double thY) {
 //	myvector::SVector ans, buf;
-//	buf = VSub(In, center);
+//	buf = subVec(In, center);
 //	ans.x = (cos(thR) * cos(thY) + sin(thR) * sin(thP) * sin(thY)) * buf.x +
 //		(cos(thY) * sin(thR) * sin(thP) - cos(thR) * sin(thY)) * buf.y +
 //		(cos(thP) * sin(thR)) * buf.z;
@@ -223,7 +223,7 @@
 //
 //
 //
-//		double Permission = VSquareSize(VSub(kinematics, legposi));
+//		double Permission = VSquareSize(subVec(kinematics, legposi));
 //
 //		if (PERMISSION < Permission) { std::cout << "Error PERMISSION OVER \n"; return 1; };
 //	}
@@ -699,9 +699,9 @@
 //		myvector::SVector x_y_changedL_leg[6];
 //		for (int iLeg = 0; iLeg < 6; iLeg++)x_y_changedL_leg[iLeg] = myvector::VGet(L_leg[iLeg].y, L_leg[iLeg].x, L_leg[iLeg].z);//x→y,y→x
 //
-//		n_np1 = myvector::VSub(myvector::VAdd(G_CoxaJointPosi[landingLegInd[i + 1]], x_y_changedL_leg[landingLegInd[i + 1]]), myvector::VAdd(G_CoxaJointPosi[landingLegInd[i]], x_y_changedL_leg[landingLegInd[i]]));//n番目の脚先からn+1へのベクトル
+//		n_np1 = myvector::subVec(myvector::VAdd(G_CoxaJointPosi[landingLegInd[i + 1]], x_y_changedL_leg[landingLegInd[i + 1]]), myvector::VAdd(G_CoxaJointPosi[landingLegInd[i]], x_y_changedL_leg[landingLegInd[i]]));//n番目の脚先からn+1へのベクトル
 //		n_np1.z = 0;
-//		n_g = myvector::VSub(COMPOSI, myvector::VAdd(G_CoxaJointPosi[landingLegInd[i]], x_y_changedL_leg[landingLegInd[i]]));//n番目の脚先からロボットの重心方向のベクトル
+//		n_g = myvector::subVec(COMPOSI, myvector::VAdd(G_CoxaJointPosi[landingLegInd[i]], x_y_changedL_leg[landingLegInd[i]]));//n番目の脚先からロボットの重心方向のベクトル
 //		n_g.z = 0;
 //		//myvector::VectorOutPut(n_np1);
 //		//myvector::VectorOutPut(n_g);
@@ -795,7 +795,7 @@
 //			//std::cout << kinematics.y << std::endl;
 //			kinematics.z = -(L_FEMUR * sin(femur) + L_TIBIA * sin(femur + tibia - 1.570796326795));//おｋ
 //
-//			double Permission = VSquareSize(VSub(kinematics, LineEnd));
+//			double Permission = VSquareSize(subVec(kinematics, LineEnd));
 //
 //			if (PERMISSION > Permission) {
 //

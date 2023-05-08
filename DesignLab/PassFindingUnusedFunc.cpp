@@ -31,7 +31,7 @@ bool PassFinding::isAbleLegPosComType(LNODE* node)
 	//	//if(ret_4_COMType[i] == node->COM_type){
 	//	if (ret_4_COMType[i] == numOfCOMType(node->leg_state)) {
 	//		for (int le = 0; le < 6; le++) {
-	//			legPosi[le] = myvector::VSub(node->Leg[le], ret_4_GCOM[i]);			//重心移動後の脚位置
+	//			legPosi[le] = myvector::subVec(node->Leg[le], ret_4_GCOM[i]);			//重心移動後の脚位置
 	//		}
 	//		return 1;
 	//	}
@@ -187,11 +187,11 @@ void PassFinding::calculatePassLegRotation() {
 	//				////まずは重心タイプなかったらノード消去で
 	//				//myvector::VECTOR myComPosi, beforeLeg2Posi[6];
 	//				//if( isAbleLegPosComType(&route[LastNodeNum], &myComPosi) && route[LastNodeNum].parent->node_height > 0){
-	//				//	//route[LastNodeNum].global_center_of_mass = myvector::VAdd(myComPosi, route[LastNodeNum].global_center_of_mass);
+	//				//	//route[LastNodeNum].global_center_of_mass = myvector::addVec(myComPosi, route[LastNodeNum].global_center_of_mass);
 	//				//	//for(int le = 0;le < 6; le++){
-	//				//	//	route[LastNodeNum].Leg[le] = myvector::VSub(route[LastNodeNum].Leg[le], myComPosi) ;			//脚位置を更新
+	//				//	//	route[LastNodeNum].Leg[le] = myvector::subVec(route[LastNodeNum].Leg[le], myComPosi) ;			//脚位置を更新
 	//				//	//	//beforeLeg2Posi[le] = route[LastNodeNum].Leg2[le];
-	//				//	//	route[LastNodeNum].Leg2[le] = myvector::VSub(route[LastNodeNum].Leg2[le], myComPosi) ;			//脚位置を更新
+	//				//	//	route[LastNodeNum].Leg2[le] = myvector::subVec(route[LastNodeNum].Leg2[le], myComPosi) ;			//脚位置を更新
 	//				//	//	//route[LastNodeNum].Leg2[le].z = beforeLeg2Posi[le].z;
 	//				//	//}
 	//				//	route[LastNodeNum].debug = 20;
