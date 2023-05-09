@@ -1,29 +1,28 @@
 ﻿#include "CreateComCandidate.h"
 #include "pch.h"
 #include "LegState.h"
+#include "ComType.h"
 
 CreateComCandidate::CreateComCandidate()
 {
 }
 
-int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
+void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvector::SLegVector>& _res_leg_pos, std::vector<myvector::SVector>& _res_com_pos, std::vector<int>& _res_state)
 {
 	//各種変数を初期化する
 	init(_node);
 
 	candidatePointNum = getInsidePolygon();	//脚位置による重心タイプ(多角形要素)の数(7)
 
-	int trueCandidatePointNum = 0;			//マージンを満たさないものを除外した重心移動可能点の数を代入する
-
 	for (int i = 0; i < candidatePointNum; i++) 
 	{
-		bool getCOG = false;
+		bool _is_able_polygon = false;
 
 		switch (phantomX.getTargetType()) 
 		{
 		case ETargetMode::STRAIGHT_VECOTR:
 		case ETargetMode::STRAIGHT_POSITION:
-			getCOG = isComInPolygon(&IPolygon[i]);
+			_is_able_polygon = isComInPolygon(&IPolygon[i]);
 			break;
 
 		case ETargetMode::TURN_ON_SPOT_DIRECTION:
@@ -32,7 +31,13 @@ int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
 
 		case ETargetMode::TURN_DIRECTION:
 		case ETargetMode::TURN_ANGLE:
-			getCOG = isComInPolygon_circlingTarget(&IPolygon[i]);
+
+			//今の支持脚の組み合わせで移動できないポリゴンは消去。
+			if (ComType::isAbleCoM(IPolygon[i].COMtype, m_ground_leg) == true && isComInPolygon_circlingTarget(&IPolygon[i]) == true)
+			{
+				_is_able_polygon = true;
+			}
+
 			break;
 
 		default:
@@ -40,21 +45,32 @@ int CreateComCandidate::getMovementPossibilityArea(const LNODE _node)
 		}
 
 		//それぞれの重心タイプ(多角形要素)から重心移動できる座標を選定し、その中でzが大きくxが小さいもの,重心タイプごとに安定余裕を考えている
-		if (getCOG == true) 
+		if (_is_able_polygon == true) 
 		{
-			p_candidatePointType[trueCandidatePointNum] = IPolygon[i].COMtype;	//各ポリゴンの番号を代入
-			p_candidatePoint[trueCandidatePointNum] = IPolygon[i].COMPoint;		//各ポリゴンへの重心の移動量を代入
-			
-			for (int j = 0; j < Define::LEG_NUM; j++) 
+			// 移動後の脚座標を記録する．ローカル座標coxa
+			myvector::SLegVector _temp_leg;
+			for (int j = 0; j < Define::LEG_NUM; j++)
 			{
-				p_candidatePointLeg[j][trueCandidatePointNum] = IPolygon[i].Leg[j];//各ポリゴンへ移動後の脚座標を代入(ローカルcoxa)
+				_temp_leg.leg[j] = IPolygon[i].Leg[j];
 			}
+			_res_leg_pos.push_back(_temp_leg);
 
-			trueCandidatePointNum++;
+			// 重心の移動量を記録する.
+			_res_com_pos.push_back(IPolygon[i].COMPoint);
+			
+			// 脚状態を記録する.
+			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << shift_COM)) & COM_bit);
+			_res_state.back() = _node.leg_state ^ _res_state.back();
+
+			for (int j = 0; j < Define::LEG_NUM; ++j)
+			{
+				//全部の脚位置を4に変更
+				LegState::changeLegStateKeepTopBit(_res_state.back(), j, 4);
+			}
 		}
 	}
 
-	return trueCandidatePointNum;
+	return;
 }
 
 void CreateComCandidate::init(const LNODE _node)
