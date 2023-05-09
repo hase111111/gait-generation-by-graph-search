@@ -67,6 +67,7 @@ void CreateComCandidate::init(const LNODE _node)
 		_temp_leg_rot[i] = myvector::VRot(_node.Leg[i], myvector::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
 
 		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
+		// CCC ← PF
 		m_leg_pos[i].x = _temp_leg_rot[i].x + phantomX.getGlobalCoxaJointPos(i).x;
 		m_leg_pos[i].y = _temp_leg_rot[i].z + phantomX.getGlobalCoxaJointPos(i).z;
 		m_leg_pos[i].z = _temp_leg_rot[i].y + phantomX.getGlobalCoxaJointPos(i).y;
