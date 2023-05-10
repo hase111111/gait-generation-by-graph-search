@@ -1,5 +1,6 @@
 #include "LogFileIO.h"
 #include "LegState.h"
+#include <bitset>
 
 LogFileIO::LogFileIO()
 {

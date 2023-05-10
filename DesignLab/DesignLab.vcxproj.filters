@@ -48,9 +48,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="hexapod.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -134,9 +131,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="hexapod.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>

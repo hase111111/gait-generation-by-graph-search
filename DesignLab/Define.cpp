@@ -10,4 +10,6 @@ const bool Define::FLAG_GRAPHIC_AVAILABLE = true;
 
 const double Define::ALLOWABLE_ERROR = 0.0001;
 
+const double Define::MY_PI = 3.141592653589793;
+
 const bool Define::FLAG_DO_PRUNING = false;

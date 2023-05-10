@@ -37,7 +37,6 @@
     <ClInclude Include="mainfunction.h" />
     <ClInclude Include="mapData.h" />
     <ClInclude Include="NodeFileIO.h" />
-    <ClInclude Include="pch.h" />
     <ClInclude Include="PassFinding.h" />
     <ClInclude Include="phantomxCommander.h" />
     <ClInclude Include="SearchBodyRotation.h" />
@@ -66,7 +65,6 @@
     <ClCompile Include="mapData.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
     <ClCompile Include="PassFindingUnusedFunc.cpp" />
-    <ClCompile Include="pch.cpp" />
     <ClCompile Include="PassFinding.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="SearchBodyRotation.cpp" />

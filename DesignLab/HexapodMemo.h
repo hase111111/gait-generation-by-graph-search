@@ -6,7 +6,6 @@
 
 
 
-//#include "pch.h"
 //#include "hexapod.h"
 //
 //
@@ -816,8 +815,8 @@
 ////扇形が内接するxy軸に平行な長方形の左下p1と右上p2の頂点を導出している。//hato20200710
 //void Hexapod::calculateRangeOfMovement(int legnum, myvector::SVector& p1, myvector::SVector& p2) {	//現在の位置と向きにおける脚到達範囲を返す p1:最小角度の時の座標 p2:最大角度の時の座標 ピッチ・ロール回転は考慮していない 扇形であること前提
 //	double coxaDefoAngle[6] = { 45.0, 0.0, -45.0, -135.0, 180, 135.0 };	//脚関節の基準角度（ロボット座標系） -180~180度内であること
-//	for (int i = 0; i < 6; ++i)coxaDefoAngle[i] = coxaDefoAngle[i] * M_PI / 180.0;	//[rad]に変換
-//	double rangeOfAngle = 40.0 * M_PI / 180.0;	//[rad] 脚の可動範囲 今は基準角度より±40度に動くと仮定
+//	for (int i = 0; i < 6; ++i)coxaDefoAngle[i] = coxaDefoAngle[i] * Define::MY_PI / 180.0;	//[rad]に変換
+//	double rangeOfAngle = 40.0 * Define::MY_PI / 180.0;	//[rad] 脚の可動範囲 今は基準角度より±40度に動くと仮定
 //	//double r = LegROM_r[int(this->ziki.com.z)];	//現在の胴体高さにおける脚到達距離　これは、地面がz=0にあることを前提としているからダメ。20200618
 //	//↑グローバルで胴体高さ196mm以上とかになったら、バグる原因
 //	//とりあえず網羅することが大事。実際にとれるかどうかは、checktouchdownpointで脚設置可能点の高さを考慮して判定しているから。
@@ -827,9 +826,9 @@
 //
 //	t1 = coxaDefoAngle[legnum] - rangeOfAngle + this->ziki.thY;	//[rad]
 //	t2 = coxaDefoAngle[legnum] + rangeOfAngle + this->ziki.thY;
-//	if ((t1 < -2 * M_PI) || (t1 > 2 * M_PI)) t1 = fmod(t1, 2 * M_PI);	//-2pi~2pに
-//	if (t1 < -M_PI) t1 = t1 + 2 * M_PI;	//-piより小さければ
-//	if (t2 > M_PI) t2 = t2 - 2 * M_PI;
+//	if ((t1 < -2 * Define::MY_PI) || (t1 > 2 * Define::MY_PI)) t1 = fmod(t1, 2 * Define::MY_PI);	//-2pi~2pに
+//	if (t1 < -Define::MY_PI) t1 = t1 + 2 * Define::MY_PI;	//-piより小さければ
+//	if (t2 > Define::MY_PI) t2 = t2 - 2 * Define::MY_PI;
 //
 //	p1 = myvector::VGet(0, 0, 0); //初期化
 //	p2 = myvector::VGet(0, 0, 0);
@@ -864,9 +863,9 @@
 //	}
 //
 //	//90 180 -90 -180度の時の処理
-//	if ((t2 > M_PI / 4 && t1 < M_PI / 4) || (t1 > 0 && t1 < M_PI / 4 && t2 < -M_PI / 4)) p2.y = r;	//r*sin(90)
+//	if ((t2 > Define::MY_PI / 4 && t1 < Define::MY_PI / 4) || (t1 > 0 && t1 < Define::MY_PI / 4 && t2 < -Define::MY_PI / 4)) p2.y = r;	//r*sin(90)
 //	if (t2 > 0 && t1 < 0) p2.x = r;																	//r*con(0)
-//	if ((t2 > -M_PI / 4 && t1 < -M_PI / 4) || (t1 > M_PI / 4 && t2 < 0 && t2 > -M_PI / 4)) p1.y = -r;	//r*sin(-90)
+//	if ((t2 > -Define::MY_PI / 4 && t1 < -Define::MY_PI / 4) || (t1 > Define::MY_PI / 4 && t2 < 0 && t2 > -Define::MY_PI / 4)) p1.y = -r;	//r*sin(-90)
 //	if (t2 < t1) p1.x = -r;																				//r*cos(180)
 //
 //	//グローバル座標に変換

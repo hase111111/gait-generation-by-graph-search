@@ -26,6 +26,9 @@ public:
 	//これ以上小さい値は0とみなす．allowable error，許容誤差のこと
 	const static double ALLOWABLE_ERROR;
 
+	// 円周率
+	const static double MY_PI;
+
 //mapData.h
 	enum { MAPDATA3D_MAX = 15000 };		//enumハック．邪悪な解決法
 

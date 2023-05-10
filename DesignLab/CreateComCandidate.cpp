@@ -1,5 +1,4 @@
 ﻿#include "CreateComCandidate.h"
-#include "pch.h"
 #include "LegState.h"
 #include "ComType.h"
 
