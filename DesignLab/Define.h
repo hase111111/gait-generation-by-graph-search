@@ -1,5 +1,13 @@
 #pragma once
 
+// Effective C++ という本 (私が持っているのはかなり古い版のものなので正直正しいのかはよくわからないけど) によると，
+// C++においてはあまり #defineを使用するべきではないようです．
+// 結構いろんなサイトでも同じことが言われています
+// https://qiita.com/jonichonpa/items/595ed7914751787ebaee
+// https://myon.info/blog/2015/12/18/avoid-defining-macros/
+// const statisな定数．inline 関数．constexpr定数を使うべきです．
+// 以下参考資料．
+//
 //	クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策
 //	https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81
 
