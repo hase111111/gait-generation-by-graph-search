@@ -17,7 +17,7 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 	{
 		bool _is_able_polygon = false;
 
-		switch (phantomX.getTargetType()) 
+		switch (phantomX.getTargetMode()) 
 		{
 		case ETargetMode::STRAIGHT_VECOTR:
 		case ETargetMode::STRAIGHT_POSITION:
@@ -502,10 +502,10 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 			for (int i = 0; i < 6; ++i) {
 				//重心からの座標(x,y,z)→(x,y,z)脚の付け根からの座標
 				if (!m_ground_leg[i]) {//遊脚は胴体と一緒に移動
-					L_legposi_buf[i] = S_P_L_P2.phantomX.getLocalLegPosition(i);
+					L_legposi_buf[i] = S_P_L_P2.phantomX.getLocalLegPos(i);
 				}
 				else {//支持脚は、重心の移動量だけ後退
-					L_legposi_buf[i] = myvector::subVec(S_P_L_P2.phantomX.getLocalLegPosition(i), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));;
+					L_legposi_buf[i] = myvector::subVec(S_P_L_P2.phantomX.getLocalLegPos(i), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));;
 				}
 
 			}
@@ -531,7 +531,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 		{
 			if (adleComCandidate[ix][iz] == 1) 
 			{
-				CtoG_can = myvector::subVec(myvector::addVec(m_global_com, comCandidatePoint[ix][iz]), phantomX.getTurningCenter());
+				CtoG_can = myvector::subVec(myvector::addVec(m_global_com, comCandidatePoint[ix][iz]), phantomX.getRotaionCenter());
 				CtoG_can_radius = sqrt(CtoG_can.x*CtoG_can.x + CtoG_can.y*CtoG_can.y);
 				distanceA = fabs(CtoG_can_radius - phantomX.getTurningRadius());
 

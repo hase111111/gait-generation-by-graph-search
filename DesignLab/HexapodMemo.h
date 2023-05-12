@@ -89,7 +89,7 @@
 //{
 //	for (int i = 0; i < Define::LEG_NUM; i++)
 //	{
-//		L_Position_of_2[i] = _pos[i];
+//		m_local_leg2_pos[i] = _pos[i];
 //	}
 //}
 //
@@ -97,25 +97,25 @@
 //{
 //	for (int i = 0; i < Define::LEG_NUM; i++)
 //	{
-//		L_Leg_Position[i] = _pos[i];
+//		m_local_leg_pos[i] = _pos[i];
 //	}
 //}
 //
 //
-//myvector::SVector Hexapod::getLocalPosition_of_2(int legNum) {	//ローカル座標を返す
-//	return this->L_Position_of_2[legNum];
+//myvector::SVector Hexapod::getLocalLeg2Pos(int legNum) {	//ローカル座標を返す
+//	return this->m_local_leg2_pos[legNum];
 //}
 //
-//myvector::SVector Hexapod::getPosition_of_2(int legNum) {	//グローバル座標を返す
+//myvector::SVector Hexapod::getGlobalLeg2Pos(int legNum) {	//グローバル座標を返す
 //	myvector::SVector ans, rotatePosition_of_2;
-//	rotatePosition_of_2 = rotation(L_Position_of_2[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
+//	rotatePosition_of_2 = rotation(m_local_leg2_pos[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
 //	ans = VAdd(rotatePosition_of_2, getGlobalCoxaJointPos(legNum));
 //	return ans;
 //}
 //
 //myvector::SVector Hexapod::getGlobalLegPos(int legNum) {	//グローバル座標を返す
 //	myvector::SVector ans, rotateLegPosition;
-//	rotateLegPosition = rotation(L_Leg_Position[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
+//	rotateLegPosition = rotation(m_local_leg_pos[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
 //	ans = VAdd(rotateLegPosition, getGlobalCoxaJointPos(legNum));//重心から脚の付け根+付け根から脚先
 //	return ans;
 //}
@@ -140,7 +140,7 @@
 //
 //myvector::SVector Hexapod::getGlobalTibiaJointPos(int legNum) {	//グローバル座標を返す
 //	myvector::SVector ans, rotateTibiaJointPosi;
-//	rotateTibiaJointPosi = rotation(this->L_TibiaJoint_posi[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
+//	rotateTibiaJointPosi = rotation(this->m_local_tibiajoint_pos[legNum], myvector::VGet(0, 0, 0), this->ziki.thP, this->ziki.thR, this->ziki.thY);
 //	ans = VAdd(rotateTibiaJointPosi, this->ziki.com);
 //	return ans;
 //}
@@ -178,7 +178,7 @@
 //	myvector::SVector legposi;
 //
 //	for (int legNum = 0; legNum < 6; legNum++) {
-//		legposi = myvector::VGet(L_Leg_Position[legNum].x, L_Leg_Position[legNum].y, -L_Leg_Position[legNum].z);
+//		legposi = myvector::VGet(m_local_leg_pos[legNum].x, m_local_leg_pos[legNum].y, -m_local_leg_pos[legNum].z);
 //
 //		//std::cout<<"L_Leg_PositionNum["<<legNum<<"] ="<<legposi.x<<"\t"<<legposi.y<<"\t"<<legposi.z<<"\n";
 //		//逆運動学
@@ -215,10 +215,10 @@
 //
 //
 //		m_local_femurjoint_pos[legNum] = myvector::VAdd(m_local_coxajoint_pos[legNum], myvector::VGet(L_COXA * cos(coxa), L_COXA * sin(coxa), 0));
-//		L_TibiaJoint_posi[legNum] = myvector::VAdd(m_local_femurjoint_pos[legNum], myvector::VGet(L_FEMUR * cos(femur) * cos(coxa), L_FEMUR * cos(femur) * sin(coxa), L_FEMUR * sin(femur)));
+//		m_local_tibiajoint_pos[legNum] = myvector::VAdd(m_local_femurjoint_pos[legNum], myvector::VGet(L_FEMUR * cos(femur) * cos(coxa), L_FEMUR * cos(femur) * sin(coxa), L_FEMUR * sin(femur)));
 //
 //		//m_local_femurjoint_pos[legNum] = m_local_coxajoint_pos[legNum];
-//		//L_TibiaJoint_posi[legNum] = m_local_femurjoint_pos[legNum];
+//		//m_local_tibiajoint_pos[legNum] = m_local_femurjoint_pos[legNum];
 //
 //
 //
