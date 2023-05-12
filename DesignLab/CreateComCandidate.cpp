@@ -72,6 +72,18 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 	return;
 }
 
+void CreateComCandidate::initHexapod()
+{
+	phantomX.makeLegROM_r();
+}
+
+void CreateComCandidate::initHexapodJustBeforeSearch(const LNODE _node, const STarget _t)
+{
+	phantomX.setMyDirection(_node.pitch, _node.roll, _node.yaw);	//自機の角度
+	phantomX.setMyPosition(myvector::VGet(0, 0, 0));				//自機の重心位置(0,0,0)
+	phantomX.setTarget(_t);											//目標
+}
+
 void CreateComCandidate::init(const LNODE _node)
 {
 	//重心から脚先の位置の計算(座標,(x,y,z)→(x,z,y)),node->Legはcoxaからの脚先位置
