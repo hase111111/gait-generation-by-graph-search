@@ -511,7 +511,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 			}
 
 			S_P_L_P2.phantomX.setMyPosition(com_buf);//重心位置グローバル セット
-			S_P_L_P2.phantomX.setMyLegPosition(L_legposi_buf);//脚先位置ローカル　セット
+			S_P_L_P2.phantomX.setLocalLegPos(L_legposi_buf);//脚先位置ローカル　セット
 			//すねと地形の衝突判定
 			if (S_P_L_P2.Collision_judgment_with_shin()) {
 				adleComCandidate[ix][iz] = 0;//

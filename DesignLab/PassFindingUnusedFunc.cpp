@@ -230,8 +230,8 @@ void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector:
 	//_SearchPossibleBodyRotation.phantomX.setMyPosition(myvector::VGet(0,0,100));	
 	_SearchPossibleBodyRotation.phantomX.setTarget(m_target);	//進行方向
 	_SearchPossibleBodyRotation.phantomX.setMyDirection(node->pitch, node->roll, node->yaw);	//姿勢
-	_SearchPossibleBodyRotation.phantomX.setPosition_of_2(node->Leg2);					//脚位置z=接地
-	_SearchPossibleBodyRotation.phantomX.setMyLegPosition(node->Leg);					//脚位置
+	_SearchPossibleBodyRotation.phantomX.setLocalLeg2Pos(node->Leg2);					//脚位置z=接地
+	_SearchPossibleBodyRotation.phantomX.setLocalLegPos(node->Leg);					//脚位置
 	myvector::SVector Rotation_Center = node->global_center_of_mass;	//回転中心
 	//double leg_th[6] = {45,0,-45,-135,180,135};
 

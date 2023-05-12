@@ -85,7 +85,7 @@
 //	ziki.thY = _thY;
 //}
 //
-//void Hexapod::setPosition_of_2(const myvector::SVector _pos[Define::LEG_NUM])
+//void Hexapod::setLocalLeg2Pos(const myvector::SVector _pos[Define::LEG_NUM])
 //{
 //	for (int i = 0; i < Define::LEG_NUM; i++)
 //	{
@@ -93,7 +93,7 @@
 //	}
 //}
 //
-//void Hexapod::setMyLegPosition(const myvector::SVector _pos[Define::LEG_NUM])
+//void Hexapod::setLocalLegPos(const myvector::SVector _pos[Define::LEG_NUM])
 //{
 //	for (int i = 0; i < Define::LEG_NUM; i++)
 //	{
@@ -234,7 +234,7 @@
 //
 ////可動範囲と脚の接地点から  脚の接地点が可動範囲内ならば1 外だったら0を返す 	扇形であるという仮定から算術する方式 ロボット固有 LineEndは多分普通に回転させてないからグローバル(coxa座標系で見たとき)のcoxaから接地点までのベクトル
 ////大木さんのやつでしか使ってない
-//bool Hexapod::check_touchdown_point(int legNum, const myvector::SVector& LineEnd)
+//bool Hexapod::isLegWithinRange(int legNum, const myvector::SVector& LineEnd)
 //{
 //	//if (int(LineEnd.z) < MIN_DELTAZ || MAX_DELTAZ < int(LineEnd.z)) return 0;
 //
@@ -653,7 +653,7 @@
 //	{
 //		if (groundingLeg[i] == 1)
 //		{
-//			if (check_touchdown_point(i, leg[i]) == 0)
+//			if (isLegWithinRange(i, leg[i]) == 0)
 //			{
 //				return 0;
 //			}
