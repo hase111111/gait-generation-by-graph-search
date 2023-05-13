@@ -129,6 +129,9 @@
     <ClInclude Include="ComType.h">
       <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
     </ClInclude>
+    <ClInclude Include="MyMath.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">

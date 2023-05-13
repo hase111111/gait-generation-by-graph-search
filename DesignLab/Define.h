@@ -32,13 +32,13 @@ public:
 	const static bool FLAG_GRAPHIC_AVAILABLE;
 
 	//これ以上小さい値は0とみなす．allowable error，許容誤差のこと
-	const static double ALLOWABLE_ERROR;
+	inline constexpr static double ALLOWABLE_ERROR = 0.0001;
 
 	// 円周率
 	const static double MY_PI;
 
 //mapData.h
-	enum { MAPDATA3D_MAX = 15000 };		//enumハック．邪悪な解決法
+	inline constexpr static int  MAPDATA3D_MAX = 15000 ;		//enumハック．邪悪な解決法
 
 //PassFinding.h
 
@@ -48,4 +48,14 @@ public:
 //Hexapod.h
 	inline constexpr static int LEG_NUM = 6;
 
+//phantomXを表現する定数
+
+	const static double COXA_LENGTH;
+	const static double FEMUR_LENGTH;
+	const static double TIBIA_LENGTH;
+	const static double BODY_FRONT_WIDTH;	//前方の幅[mm]．phantomXの横幅.
+	const static double BODY_CENTER_WIDTH;	//中心の幅[mm]．phantomXの横幅.
+	const static double BODY_REAR_WIDTH;	//後方の幅[mm]．phantomXの横幅.
+	const static double BODY_FRONT_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
+	const static double BODY_REAR_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
 };

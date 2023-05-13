@@ -30,6 +30,7 @@
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="function_walking_pattern_generator.h" />
+    <ClInclude Include="MyMath.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="hexapodGraphic.h" />
