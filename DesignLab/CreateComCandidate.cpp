@@ -58,7 +58,7 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 			_res_com_pos.push_back(IPolygon[i].COMPoint);
 			
 			// 脚状態を記録する.
-			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << shift_COM)) & COM_bit);
+			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << LegState::SHIFT_TO_COM_NUM)) & LegState::COM_STATE_MASKBIT);
 			_res_state.back() = _node.leg_state ^ _res_state.back();
 
 			for (int j = 0; j < Define::LEG_NUM; ++j)
@@ -239,7 +239,9 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 	//線分同士が交差しているならば
 	if ( ContactJudgment(t1, t2) ) 
 	{		
-		if (myvector::isEqualVector(s1, s2) || myvector::isEqualVector(s1, e2) || myvector::isEqualVector(s2, e1) || myvector::isEqualVector(e1, e2) )
+		// isEqualVectorの許容誤差の値が 1である理由は分からない．もともとマジックナンバーだった．
+
+		if (myvector::isEqualVector(s1, s2, 1.0) || myvector::isEqualVector(s1, e2, 1.0) || myvector::isEqualVector(s2, e1, 1.0) || myvector::isEqualVector(e1, e2, 1.0))
 		{
 			return false;//ポリゴンの頂点が一致しているとき
 		}

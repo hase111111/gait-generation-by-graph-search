@@ -22,6 +22,12 @@ namespace LegState
 	//脚状態は4bitで管理されるので，そこをマスクする
 	const int LEG_STATE_MASKBIT = 0b1111;
 
+	//重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
+	const int SHIFT_TO_COM_NUM = 24;
+
+	//重心パターンを保存するビットをマスクするビット．
+	const int COM_STATE_MASKBIT = (0b1111 << SHIFT_TO_COM_NUM);
+
 	//脚番号_leg_num 0～5に応じて，その脚が接地しているかを調べる
 	bool isGrounded(const int _leg_state, const int _leg_num);
 
@@ -33,6 +39,12 @@ namespace LegState
 
 	//遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数
 	void getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number);
+
+	// 脚状態を取得する．
+	int getLegState(const int _leg_state, const int _leg_num);
+
+	//重心パターンを取得する．0b0000 ～ 0b1000 まで
+	int getComPatternState(const int _leg_state);
 
 	// 脚の情報を 0～15 の状態に変更する．引数の値がおかしいならばfalseを出力する．
 	// _leg_state 変更する脚状態．_leg_num どの脚を変更するか 0～5．_new_state 新しい脚状態 1～15

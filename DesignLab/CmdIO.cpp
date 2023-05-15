@@ -15,11 +15,11 @@ void CmdIO::outputLNODE(const LNODE _node)
 
 	std::cout << "\n";
 	//std::cout << "leg_condition = " << std::bitset<24>(LNODE1.leg_state) << "\n";
-	std::cout << "COM_type = " << (_node.leg_state >> shift_COM) << "\n";
+	std::cout << "COM_type = " << (_node.leg_state >> LegState::SHIFT_TO_COM_NUM) << "\n";
 	std::cout << "Legs(0,1,2,3,4,5) \nv =\t";
 	for (int i = 0; i < 6; ++i) std::cout << isGrounded(_node.leg_state, i);
 	std::cout << std::endl << "kaisou =";
-	for (int i = 0; i < 6; ++i)	std::cout << numOfLegPosi(_node.leg_state, i);
+	for (int i = 0; i < 6; ++i)	std::cout << LegState::getLegState(_node.leg_state, i);
 	std::cout << std::endl;
 	//std::cout << "center_of_mass = " << LNODE1.center_of_mass << "\n";
 	for (int i = 0; i < 6; i++) { std::cout << "Leg[" << i << "] = "; myvector::VectorOutPut(_node.Leg[i]); }
