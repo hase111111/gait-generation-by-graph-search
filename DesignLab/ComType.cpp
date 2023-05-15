@@ -1,7 +1,7 @@
 #include "ComType.h"
 
 
-bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[Define::LEG_NUM])
+bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
 {
 	//重心位置のパターンとvの関係　　v=18,19,20．．．　のときパターン1の重心位置は取れない．ここに書かれている番号の脚状態は取れない。
 	const char _comType1[9] = { 18, 19,             23, 24, 25,             29, 30, 31,             35 };	//パターン6
@@ -33,13 +33,13 @@ bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[Define::L
 	return true;
 }
 
-char ComType::getComTypeFromGroundLeg(const bool _ground_leg[Define::LEG_NUM])
+char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_NUM])
 {
 	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
 
 	int _compare_bit = 0;	//値を比較するためにboolをbitに変換する
 
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地しているならば
 		if (_ground_leg[i] == true) 

@@ -1,9 +1,9 @@
 #include "LegState.h"
-#include "Define.h"
+#include "HexapodConst.h"
 
 bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 {
-	int _shift_bit[Define::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
+	int _shift_bit[HexapodConst::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
 	int v_bit = 0b1000;							//遊脚を示すbitの位置だけ立ててある
 
 	//_leg_numは0～5の範囲にある必要があるので
@@ -32,7 +32,7 @@ int LegState::getGroundedLegNum(const int _leg_state)
 	int _res = 0;
 
 	//脚は6本あるので6回ループする
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (isGrounded(_leg_state, i) == true)
 		{
@@ -47,7 +47,7 @@ int LegState::getGroundedLegNum(const int _leg_state)
 void LegState::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (isGrounded(_leg_state, i) == true)
 		{
@@ -60,7 +60,7 @@ void LegState::getGroundedLegNumWithVector(const int _leg_state, std::vector<int
 void LegState::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (isGrounded(_leg_state, i) == false)
 		{
@@ -72,7 +72,7 @@ void LegState::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>&
 
 int LegState::getLegState(const int _leg_state, const int _leg_num)
 {
-	const int _shift_bit[Define::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
+	const int _shift_bit[HexapodConst::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
 	const int kaisou_bit = 0b0111;	//脚位置を示す部分
 	return ((_leg_state & (kaisou_bit << _shift_bit[_leg_num])) >> _shift_bit[_leg_num]);
 }
@@ -124,7 +124,7 @@ bool LegState::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, con
 bool LegState::isAbleLegNum(const int _num)
 {
 	// 0 ～ 5なら true
-	if (0 <= _num && _num < Define::LEG_NUM) { return true; }
+	if (0 <= _num && _num < HexapodConst::LEG_NUM) { return true; }
 
 	return false;
 }

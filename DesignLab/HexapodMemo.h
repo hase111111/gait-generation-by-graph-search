@@ -85,17 +85,17 @@
 //	ziki.thY = _thY;
 //}
 //
-//void Hexapod::setLocalLeg2Pos(const myvector::SVector _pos[Define::LEG_NUM])
+//void Hexapod::setLocalLeg2Pos(const myvector::SVector _pos[HexapodConst::LEG_NUM])
 //{
-//	for (int i = 0; i < Define::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 //	{
 //		m_local_leg2_pos[i] = _pos[i];
 //	}
 //}
 //
-//void Hexapod::setLocalLegPos(const myvector::SVector _pos[Define::LEG_NUM])
+//void Hexapod::setLocalLegPos(const myvector::SVector _pos[HexapodConst::LEG_NUM])
 //{
-//	for (int i = 0; i < Define::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 //	{
 //		m_local_leg_pos[i] = _pos[i];
 //	}

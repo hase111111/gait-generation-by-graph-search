@@ -48,8 +48,8 @@ bool PassFinding::isAbleLegPosComType(LNODE* node)
 void PassFinding::calculatePassLegRotation() {
 
 	//int ret_2_transition_v[36][6]={};												//関数に渡す2次方向移動を保存する配列　36通りある　6は適当にきめた ret_2_transition_v[][0]は格納されているルートの長さ
-	//int LegGroundablePointNum[LEGCOUNT][3]={};										//脚の前後の脚接地可能点 LegGroundablePointNum[LEGCOUNT][0] が１の位置を表す。
-	//myvector::VECTOR LegGroundablePoint[LEGCOUNT][3][100]={};									//複数ある脚位置1，2，3に位置する点群の中の代表する1点
+	//int LegGroundablePointNum[HexapodConst::LEG_NUM][3]={};										//脚の前後の脚接地可能点 LegGroundablePointNum[HexapodConst::LEG_NUM][0] が１の位置を表す。
+	//myvector::VECTOR LegGroundablePoint[HexapodConst::LEG_NUM][3][100]={};									//複数ある脚位置1，2，3に位置する点群の中の代表する1点
 	//int i_F[6]={};																	//i_F[6]は足をつけるかどうか
 	//int passnum_2zi;															//関数から帰ってきた2次方向移動の数
 	//for(int to = LastNodeNum; to >= 0 ;to--){
@@ -105,7 +105,7 @@ void PassFinding::calculatePassLegRotation() {
 	//				route[LastNodeNum].roll = route[to].roll;
 	//				route[LastNodeNum].yaw = route[to].yaw;
 	//				route[LastNodeNum].debug = route[to].debug / 10 + 20;
-	//				int legPosiInd[6] = {0};												//LegGroundablePoint[LEGCOUNT][3][100]　に格納されている脚位置のインデックス[100]基本0だが不能な脚位置の場合は順次++1
+	//				int legPosiInd[6] = {0};												//LegGroundablePoint[HexapodConst::LEG_NUM][3][100]　に格納されている脚位置のインデックス[100]基本0だが不能な脚位置の場合は順次++1
 	//				myvector::VECTOR myCom;
 	//				//std::cout<<"v="<<route[LastNodeNum].v<<std::endl;
 	//				//					for(;;){
@@ -218,11 +218,11 @@ void PassFinding::calculatePassLegRotation() {
 }
 
 //胴体回転の探索
-void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector::SVector ret_leg_move[LEGCOUNT][20], int* Rotation_passnum) 
+void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector::SVector ret_leg_move[HexapodConst::LEG_NUM][20], int* Rotation_passnum) 
 {
 	int i, Rotation_num;
 	int groundLeg[6];
-	for (i = 0; i < LEGCOUNT; i++) {
+	for (i = 0; i < HexapodConst::LEG_NUM; i++) {
 		//groundLeg[i] = HX2[node->v][i];	//接地か遊脚状態かをコピー
 		groundLeg[i] = LegState::isGrounded(node->leg_state, i);	//接地か遊脚状態かをコピー
 	}
@@ -237,7 +237,7 @@ void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector:
 
 	Rotation_num = _SearchPossibleBodyRotation.pass_body_rotation(groundLeg);	//胴体回転の探索
 	for (int i = 0; i < Rotation_num; i++) {		//探索した胴体回転量とロボット座標での脚位置を記録
-		for (int ii = 0; ii < LEGCOUNT; ii++) {
+		for (int ii = 0; ii < HexapodConst::LEG_NUM; ii++) {
 			ret_leg_move[ii][i] = _SearchPossibleBodyRotation.Leg_move[ii][i];
 		}
 		thPRY[0][i] = _SearchPossibleBodyRotation.C_thPRY[0][i];

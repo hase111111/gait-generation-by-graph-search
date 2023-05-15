@@ -132,6 +132,9 @@
     <ClInclude Include="MyMath.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
+    <ClInclude Include="HexapodConst.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -211,6 +214,9 @@
     </ClCompile>
     <ClCompile Include="ComType.cpp">
       <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+    </ClCompile>
+    <ClCompile Include="HexapodConst.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

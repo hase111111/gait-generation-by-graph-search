@@ -48,7 +48,7 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 		{
 			// 移動後の脚座標を記録する．ローカル座標coxa
 			myvector::SLegVector _temp_leg;
-			for (int j = 0; j < Define::LEG_NUM; j++)
+			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
 				_temp_leg.leg[j] = IPolygon[i].Leg[j];
 			}
@@ -61,7 +61,7 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << LegState::SHIFT_TO_COM_NUM)) & LegState::COM_STATE_MASKBIT);
 			_res_state.back() = _node.leg_state ^ _res_state.back();
 
-			for (int j = 0; j < Define::LEG_NUM; ++j)
+			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
 				//全部の脚位置を4に変更
 				LegState::changeLegStateKeepTopBit(_res_state.back(), j, 4);
@@ -87,9 +87,9 @@ void CreateComCandidate::initHexapodJustBeforeSearch(const LNODE _node, const ST
 void CreateComCandidate::init(const LNODE _node)
 {
 	//重心から脚先の位置の計算(座標,(x,y,z)→(x,z,y)),node->Legはcoxaからの脚先位置
-	myvector::SVector _temp_leg_rot[Define::LEG_NUM];
+	myvector::SVector _temp_leg_rot[HexapodConst::LEG_NUM];
 
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		_temp_leg_rot[i] = myvector::VRot(_node.Leg[i], myvector::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
 
@@ -104,7 +104,7 @@ void CreateComCandidate::init(const LNODE _node)
 	m_global_com = _node.global_center_of_mass;
 
 	//CreateComCandidate の変数にコピー．2次階層の状態コピー(例:101010)
-	for (int i = 0; i < Define::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		m_ground_leg[i] = LegState::isGrounded(_node.leg_state, i);
 	}
@@ -117,7 +117,7 @@ int CreateComCandidate::getInsidePolygon()
 	int _node_cnt = 0;
 	myvector::SVector crosspoint;//ロボット座標系
 
-	for (int i = 0; i < Define::LEG_NUM; ++i)
+	for (int i = 0; i < HexapodConst::LEG_NUM; ++i)
 	{
 		//脚位置を入力　ロボット座標系
 		INode[i].Point = m_leg_pos[i];		
@@ -126,7 +126,7 @@ int CreateComCandidate::getInsidePolygon()
 	_node_cnt = 6;
 
 	//隣りあう２つの脚位置(i,i+1)に対応する4角形or5角形の領域を求める.
-	for (int i = 0; i < Define::LEG_NUM; ++i) 
+	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) 
 	{
 		//重心タイプの頂点座標を求める
 		IPolygon[_polygon_cnt].nOfVertex = 4;
