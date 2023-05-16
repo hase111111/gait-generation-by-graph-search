@@ -4,7 +4,7 @@
 //このプログラムでは脚状態をint型(32bit)の情報で表す
 //そのデータを処理するための関数をまとめたもの
 
-//脚状態って言ってるけど重心タイプも入ってる．C++だからint型は32bit．	1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地　
+//脚状態って言ってるけど重心タイプも入ってる．C++だからint型は32bit．1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地　
 //残り3bitで離散化した脚位置．脚は右前脚を0として時計回りに0~5
 // 
 //	7   3    (0は使わない)
@@ -16,17 +16,20 @@
 
 namespace LegState
 {
+	//脚状態の離散化数．LegState.hの通り7通り．
+	constexpr int DISCRETE_NUM = 7;
+
 	//脚位置は4bitの下位三桁で管理されるので，そこをマスクする
-	const int LEG_POS_MASKBIT = 0b0111;
+	constexpr int LEG_POS_MASKBIT = 0b0111;
 
 	//脚状態は4bitで管理されるので，そこをマスクする
-	const int LEG_STATE_MASKBIT = 0b1111;
+	constexpr int LEG_STATE_MASKBIT = 0b1111;
 
 	//重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
-	const int SHIFT_TO_COM_NUM = 24;
+	constexpr int SHIFT_TO_COM_NUM = 24;
 
 	//重心パターンを保存するビットをマスクするビット．
-	const int COM_STATE_MASKBIT = (0b1111 << SHIFT_TO_COM_NUM);
+	constexpr int COM_STATE_MASKBIT = (0b1111 << SHIFT_TO_COM_NUM);
 
 	//脚番号_leg_num 0～5に応じて，その脚が接地しているかを調べる
 	bool isGrounded(const int _leg_state, const int _leg_num);
