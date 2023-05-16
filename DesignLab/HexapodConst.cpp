@@ -15,3 +15,7 @@ const double HexapodConst::BODY_REAR_WIDTH = 60.0;
 const double HexapodConst::BODY_FRONT_LENGTH = 120;
 
 const double HexapodConst::BODY_REAR_LENGTH = 120;
+
+const double HexapodConst::VERTICAL_MAX_RANGE = 190;
+
+const double HexapodConst::VERTICAL_MIN_RANGE = 30;
