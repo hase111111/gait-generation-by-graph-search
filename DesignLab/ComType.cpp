@@ -1,5 +1,5 @@
 #include "ComType.h"
-
+#include <iostream>
 
 bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
 {
@@ -22,9 +22,11 @@ bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodCo
 		n = 18;
 	}
 
+	char _com_type = getComTypeFromGroundLeg(_ground_leg);
+
 	for (int i = 0; i < n; i++)
 	{
-		if (_comType[_com_pattern][i] == getComTypeFromGroundLeg(_ground_leg))
+		if (_comType[_com_pattern][i] == _com_type)
 		{
 			return false;
 		}
@@ -42,7 +44,7 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//Ú’n‚µ‚Ä‚¢‚é‚È‚ç‚Î
-		if (_ground_leg[i] == true) 
+		if (_ground_leg[i] == true)
 		{
 			// i”Ô–Ú‚Ìbit‚ð—§‚Ä‚é
 			_compare_bit |= (1 << i);
@@ -124,6 +126,7 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 	case 0b010110:
 		return  35;	//HX35
 	default:
+		std::cout << "\n ‚æ‚Î‚ê‚½!\n";
 		break;
 	}
 
