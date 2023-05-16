@@ -220,29 +220,29 @@ void PassFinding::calculatePassLegRotation() {
 //胴体回転の探索
 void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector::SVector ret_leg_move[HexapodConst::LEG_NUM][20], int* Rotation_passnum) 
 {
-	int i, Rotation_num;
-	int groundLeg[6];
-	for (i = 0; i < HexapodConst::LEG_NUM; i++) {
-		//groundLeg[i] = HX2[node->v][i];	//接地か遊脚状態かをコピー
-		groundLeg[i] = LegState::isGrounded(node->leg_state, i);	//接地か遊脚状態かをコピー
-	}
-	_SearchPossibleBodyRotation.phantomX.setMyPosition(node->global_center_of_mass);					//重心位置
-	//_SearchPossibleBodyRotation.phantomX.setMyPosition(myvector::VGet(0,0,100));	
-	_SearchPossibleBodyRotation.phantomX.setTarget(m_target);	//進行方向
-	_SearchPossibleBodyRotation.phantomX.setMyDirection(node->pitch, node->roll, node->yaw);	//姿勢
-	_SearchPossibleBodyRotation.phantomX.setLocalLeg2Pos(node->Leg2);					//脚位置z=接地
-	_SearchPossibleBodyRotation.phantomX.setLocalLegPos(node->Leg);					//脚位置
-	myvector::SVector Rotation_Center = node->global_center_of_mass;	//回転中心
-	//double leg_th[6] = {45,0,-45,-135,180,135};
+	//int i, Rotation_num;
+	//int groundLeg[6];
+	//for (i = 0; i < HexapodConst::LEG_NUM; i++) {
+	//	//groundLeg[i] = HX2[node->v][i];	//接地か遊脚状態かをコピー
+	//	groundLeg[i] = LegState::isGrounded(node->leg_state, i);	//接地か遊脚状態かをコピー
+	//}
+	//_SearchPossibleBodyRotation.phantomX.setMyPosition(node->global_center_of_mass);					//重心位置
+	////_SearchPossibleBodyRotation.phantomX.setMyPosition(myvector::VGet(0,0,100));	
+	//_SearchPossibleBodyRotation.phantomX.setTarget(m_target);	//進行方向
+	//_SearchPossibleBodyRotation.phantomX.setMyDirection(node->pitch, node->roll, node->yaw);	//姿勢
+	//_SearchPossibleBodyRotation.phantomX.setLocalLeg2Pos(node->Leg2);					//脚位置z=接地
+	//_SearchPossibleBodyRotation.phantomX.setLocalLegPos(node->Leg);					//脚位置
+	//myvector::SVector Rotation_Center = node->global_center_of_mass;	//回転中心
+	////double leg_th[6] = {45,0,-45,-135,180,135};
 
-	Rotation_num = _SearchPossibleBodyRotation.pass_body_rotation(groundLeg);	//胴体回転の探索
-	for (int i = 0; i < Rotation_num; i++) {		//探索した胴体回転量とロボット座標での脚位置を記録
-		for (int ii = 0; ii < HexapodConst::LEG_NUM; ii++) {
-			ret_leg_move[ii][i] = _SearchPossibleBodyRotation.Leg_move[ii][i];
-		}
-		thPRY[0][i] = _SearchPossibleBodyRotation.C_thPRY[0][i];
-		thPRY[1][i] = _SearchPossibleBodyRotation.C_thPRY[1][i];
-		thPRY[2][i] = _SearchPossibleBodyRotation.C_thPRY[2][i];
-	}
-	*Rotation_passnum = Rotation_num;
+	//Rotation_num = _SearchPossibleBodyRotation.pass_body_rotation(groundLeg);	//胴体回転の探索
+	//for (int i = 0; i < Rotation_num; i++) {		//探索した胴体回転量とロボット座標での脚位置を記録
+	//	for (int ii = 0; ii < HexapodConst::LEG_NUM; ii++) {
+	//		ret_leg_move[ii][i] = _SearchPossibleBodyRotation.Leg_move[ii][i];
+	//	}
+	//	thPRY[0][i] = _SearchPossibleBodyRotation.C_thPRY[0][i];
+	//	thPRY[1][i] = _SearchPossibleBodyRotation.C_thPRY[1][i];
+	//	thPRY[2][i] = _SearchPossibleBodyRotation.C_thPRY[2][i];
+	//}
+	//*Rotation_passnum = Rotation_num;
 }

@@ -260,7 +260,9 @@ double CreateComCandidate::VCrossXZ(myvector::SVector In1, myvector::SVector In2
 
 bool CreateComCandidate::ContactJudgment(double t1, double t2) 
 {
-	return (-HITDETECTIONMARGIN <= t1 && t1 < 1.0 + HITDETECTIONMARGIN && -HITDETECTIONMARGIN <= t2 && t2 < 1.0 + HITDETECTIONMARGIN);
+	const double _err = 0.01;
+
+	return (-_err <= t1 && t1 < 1.0 + _err && -_err <= t2 && t2 < 1.0 + _err);
 }
 
 
