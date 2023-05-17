@@ -13,5 +13,3 @@
 #define HOLE_RANDOM
 
 //#define RANDOM_ADD_Z 3		// ±MAGNIFICATION(0~n)←乱数×RANDOM_ADD_Z分だけ高さ方向に加える。高さ[mm] 高さ変えないときは、CO
-
-#define READMAPDATA_FROM_CSV //csvファイル（excelファイル）からマップデータを読み取るときはdefine

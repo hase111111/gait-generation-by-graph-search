@@ -66,6 +66,7 @@
     <ClCompile Include="hexapodGraphic.cpp" />
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapConst.cpp" />
     <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="mapData.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />

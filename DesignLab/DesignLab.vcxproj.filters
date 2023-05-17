@@ -227,5 +227,8 @@
     <ClCompile Include="MapCreator.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
+    <ClCompile Include="MapConst.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
