@@ -4,11 +4,11 @@
 //mainfunction.hは様々なファイルでインクルードされているせいで影響が凄い．
 //cppでのみ使用するようにここに非難させる．
 
-//#define SLOPE	//斜面を不整地とするときdefine
+//#define MAKE_SLOPE_MAP	//斜面を不整地とするときdefine
 
 //#define ISOSELES_TRIANGLE	//2等辺三角形の不整地にするときはdefine
 
-#define STEP	//階段を吸整地とするときはdefine
+#define MAKE_STEP_MAP	//階段を吸整地とするときはdefine
 
 #define HOLE_RANDOM
 
