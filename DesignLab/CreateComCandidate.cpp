@@ -506,35 +506,8 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 
 	//suneと脚設置可能点の接触判定．干渉する重心候補点は除外する。
 
-#ifdef COLLISION_CHECK_SHIN
-	myvector::SVector L_legposi_buf[6];//PFの座標系 股関節から足先へのベクトル
-	myvector::SVector com_buf;//PFの座標系　グローバル座標系から見た重心位置
-	for (int iz = DIVIDE_NUM - 1; iz >= 0; iz--) {
-		for (int ix = 0; ix < DIVIDE_NUM; ix++) {//map総当たり
-			if (adleComCandidate[ix][iz] == 0)continue;
-			//重心移動後の重心位置を代入
-			com_buf = myvector::addVec(S_P_L_P2.phantomX.getGlobalMyPosition(), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));
-			//重心移動後の脚位置を代入
-			for (int i = 0; i < 6; ++i) {
-				//重心からの座標(x,y,z)→(x,y,z)脚の付け根からの座標
-				if (!m_ground_leg[i]) {//遊脚は胴体と一緒に移動
-					L_legposi_buf[i] = S_P_L_P2.phantomX.getLocalLegPos(i);
-				}
-				else {//支持脚は、重心の移動量だけ後退
-					L_legposi_buf[i] = myvector::subVec(S_P_L_P2.phantomX.getLocalLegPos(i), myvector::VGet(comCandidatePoint[ix][iz].x, comCandidatePoint[ix][iz].z, comCandidatePoint[ix][iz].y));;
-				}
+	//かつてはここにSPLPの処理があったが，使用されていなかったので削除した．
 
-			}
-
-			S_P_L_P2.phantomX.setMyPosition(com_buf);//重心位置グローバル セット
-			S_P_L_P2.phantomX.setLocalLegPos(L_legposi_buf);//脚先位置ローカル　セット
-			//すねと地形の衝突判定
-			if (S_P_L_P2.Collision_judgment_with_shin()) {
-				adleComCandidate[ix][iz] = 0;//
-			}
-		}
-	}
-#endif
 	double distance = ALLOW_RADIUS_DIFF, distanceA;
 	myvector::SVector CtoG_can;
 	double CtoG_can_radius;
