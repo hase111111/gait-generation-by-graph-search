@@ -13,6 +13,8 @@ public:
 	constexpr static int FOOT_HOLD_XY_DIST = 20;		//z軸からみたときの足場（脚接地可能点）の間隔[mm]、格子点状
 	constexpr static int START_ROUGH_TARRAIN_Y = 400;	//直進移動のときの、不整地と水平面の境界[mm]
 
+	constexpr static int STRIPE_INTERVAL = 5;	//しま模様を作成する際，これで指定したマス分あなをあける．
+
 	constexpr static int HEIGHT_STEP = -140;	//段差高さ[mm]
 	constexpr static int  DEPTH_STEP = 500;		//奥行き[mm]
 
