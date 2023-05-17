@@ -66,9 +66,6 @@
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="mainfunction.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="vectorFunc.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -144,6 +141,9 @@
     <ClInclude Include="MapDefine.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
+    <ClInclude Include="MapCreator.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -160,9 +160,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="mainfunction.cpp">
-      <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="vectorFunc.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -226,6 +223,9 @@
     </ClCompile>
     <ClCompile Include="mapData.cpp">
       <Filter>ソース ファイル\UnusedFile</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCreator.cpp">
+      <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

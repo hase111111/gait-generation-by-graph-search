@@ -1,7 +1,7 @@
 #pragma once
 
-//mainfunction.h内で大量に宣言ざれていた #defineを移したもの
-//mainfunction.hは様々なファイルでインクルードされているせいで影響が凄い．
+//MapCreator.h内で大量に宣言ざれていた #defineを移したもの
+//MapCreator.hは様々なファイルでインクルードされているせいで影響が凄い．
 //cppでのみ使用するようにここに非難させる．
 
 //#define MAKE_SLOPE_MAP	//斜面を不整地とするときdefine

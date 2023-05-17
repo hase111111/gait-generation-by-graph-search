@@ -38,7 +38,7 @@
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="hexapodGraphic.h" />
     <ClInclude Include="listFunc.h" />
-    <ClInclude Include="mainfunction.h" />
+    <ClInclude Include="MapCreator.h" />
     <ClInclude Include="mapData.h" />
     <ClInclude Include="NodeFileIO.h" />
     <ClInclude Include="PassFinding.h" />
@@ -66,7 +66,7 @@
     <ClCompile Include="hexapodGraphic.cpp" />
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainfunction.cpp" />
+    <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="mapData.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
     <ClCompile Include="PassFindingUnusedFunc.cpp" />

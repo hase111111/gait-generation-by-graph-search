@@ -1,6 +1,6 @@
 #pragma once
 
-class MapConst
+class MapConst final
 {
 public:
 	//デフォルトコンストラクタとコピーコンストラクタを削除する．実体が生成できないようする
