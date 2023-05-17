@@ -37,25 +37,8 @@ public:
 	// 円周率
 	const static double MY_PI;
 
-//mapData.h
-	inline constexpr static int  MAPDATA3D_MAX = 15000 ;		//enumハック．邪悪な解決法
-
 //PassFinding.h
 
 	//グラフ探索において枝刈りを行うときはtrue
 	const static bool FLAG_DO_PRUNING;
-
-//Hexapod.h
-	inline constexpr static int LEG_NUM = 6;
-
-//phantomXを表現する定数
-
-	const static double COXA_LENGTH;
-	const static double FEMUR_LENGTH;
-	const static double TIBIA_LENGTH;
-	const static double BODY_FRONT_WIDTH;	//前方の幅[mm]．phantomXの横幅.
-	const static double BODY_CENTER_WIDTH;	//中心の幅[mm]．phantomXの横幅.
-	const static double BODY_REAR_WIDTH;	//後方の幅[mm]．phantomXの横幅.
-	const static double BODY_FRONT_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
-	const static double BODY_REAR_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
 };

@@ -26,6 +26,7 @@ public:
 	constexpr static int MAP_X_MAX = 1000;
 	constexpr static int MAP_Y_MIN = -400;
 	constexpr static int MAP_Y_MAX = 2600;
+	constexpr static int MAPDATA3D_MAX = (MAP_X_MAX - MAP_X_MIN) / FOOT_HOLD_XY_DIST * (MAP_Y_MAX - MAP_Y_MIN) / FOOT_HOLD_XY_DIST;
 
 	constexpr static int HOLE_RATE = 60;				//不整地上の足場を除外する割合。ホール率[%]
 	constexpr static int HEIGHT_MAGNIFICATION = 10;		//高さ方向のランダムな倍率と刻み数[-]　ここ後で名前変える、有りそうだから
