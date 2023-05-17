@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\detectLandingPoint">
       <UniqueIdentifier>{963b7257-aab8-4ca3-b214-747bbbca482c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\mainfunction">
-      <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common">
       <UniqueIdentifier>{abdfdf39-b790-4b8d-882b-014efbb3c240}</UniqueIdentifier>
     </Filter>
@@ -46,6 +43,12 @@
     <Filter Include="ソース ファイル\walking_pattern\CenterOfMass">
       <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Map">
+      <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UnusedFile">
+      <UniqueIdentifier>{bf220f2c-2374-4bb5-8621-49e6873898c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -57,9 +60,6 @@
     <ClInclude Include="hexapodGraphic.h">
       <Filter>ソース ファイル\HexapodGraphic</Filter>
     </ClInclude>
-    <ClInclude Include="mapData.h">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
-    </ClInclude>
     <ClInclude Include="listFunc.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -67,7 +67,7 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="mainfunction.h">
-      <Filter>ソース ファイル\mainfunction</Filter>
+      <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="vectorFunc.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -114,9 +114,6 @@
     <ClInclude Include="SearchLegPosition.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
-    <ClInclude Include="SearchBodyRotation.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
     <ClInclude Include="LegState.h">
       <Filter>ソース ファイル\walking_pattern\LegState</Filter>
     </ClInclude>
@@ -135,6 +132,18 @@
     <ClInclude Include="HexapodConst.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="MapConst.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchBodyRotation.h">
+      <Filter>ソース ファイル\UnusedFile</Filter>
+    </ClInclude>
+    <ClInclude Include="mapData.h">
+      <Filter>ソース ファイル\UnusedFile</Filter>
+    </ClInclude>
+    <ClInclude Include="MapDefine.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -146,9 +155,6 @@
     <ClCompile Include="hexapodGraphic.cpp">
       <Filter>ソース ファイル\HexapodGraphic</Filter>
     </ClCompile>
-    <ClCompile Include="mapData.cpp">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
-    </ClCompile>
     <ClCompile Include="listFunc.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
@@ -156,7 +162,7 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="mainfunction.cpp">
-      <Filter>ソース ファイル\mainfunction</Filter>
+      <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="vectorFunc.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -200,9 +206,6 @@
     <ClCompile Include="SearchLegPosition.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="SearchBodyRotation.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClCompile>
     <ClCompile Include="PassFindingUnusedFunc.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
@@ -217,6 +220,12 @@
     </ClCompile>
     <ClCompile Include="HexapodConst.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchBodyRotation.cpp">
+      <Filter>ソース ファイル\UnusedFile</Filter>
+    </ClCompile>
+    <ClCompile Include="mapData.cpp">
+      <Filter>ソース ファイル\UnusedFile</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
