@@ -5,7 +5,7 @@ const std::string MapConst::OUTPUT_FILE_NAME = "map.csv";
 
 const unsigned int MapConst::HOLE_RATE = 60;
 
-const double MapConst::STEP_HEIGHT = -140;		//段差高さ[mm]．負の値にすると下りの階段になる．
+const double MapConst::STEP_HEIGHT = -70;		//段差高さ[mm]．負の値にすると下りの階段になる．
 const double MapConst::STEP_LENGTH = 500;		//階段縦幅[mm]
 
 const double MapConst::SLOPE_ANGLE = 10;		//傾斜角[deg]．

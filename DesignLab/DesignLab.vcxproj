@@ -32,6 +32,7 @@
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="function_walking_pattern_generator.h" />
     <ClInclude Include="MapConst.h" />
+    <ClInclude Include="MapController.h" />
     <ClInclude Include="MyMath.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
@@ -66,6 +67,7 @@
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
+    <ClCompile Include="MapController.cpp" />
     <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="mapData.cpp" />
     <ClCompile Include="MyMath.cpp" />

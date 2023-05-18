@@ -28,19 +28,9 @@ public:
 	const static double ROUGH_MAX_HEIGHT;	//デコボコな地形の最大高さ[mm]
 	const static double ROUGH_MIN_HEIGHT;	//デコボコな地形の最小高さ[mm]
 
-	constexpr static int WIDE_TRI = 400;		//2等辺三角形の底辺の長さ/2[mm]
-	constexpr static int DEPTH_TRI = 400;		//2等辺三角形の奥行き
-	constexpr static int THETA_TRI = 10;		//底角[°]
-
-	constexpr static int LP_DIVIDE_NUM = 40;	//脚接地可能点を平方分割する際の１辺の分割数
-
-
-
-	constexpr static int HEIGHT_MAGNIFICATION = 10;		//高さ方向のランダムな倍率と刻み数[-]　ここ後で名前変える、有りそうだから
+	constexpr static int LP_DIVIDE_NUM = 40;			//脚接地可能点を平方分割する際の１辺の分割数
 	constexpr static int START_RANDOM_R = 200;			//初期位置のランダムで配置される範囲、半径[mm]。
 	constexpr static int INVALID_FOOT_HOLD = -10000;	//ホール部にあった脚設置可能点を飛ばす座標
-
-	constexpr static int SQUARE_SIZE = 100;		//＝FOOT_HOLD_XY_DIST*n(n=1,2,3...)n=1なら1点ずつ、2なら4点、nならn^2点の正方形が対象になる正方形の一片の長さ[mm]
 
 private:
 	//デフォルトコンストラクタとコピーコンストラクタを削除する．実体が生成できないようする
