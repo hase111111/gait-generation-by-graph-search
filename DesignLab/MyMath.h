@@ -9,4 +9,8 @@ namespace my_math
 	constexpr int squared(const int _num) { return _num * _num; }
 	constexpr char squared(const char _num) { return _num * _num; }
 	constexpr short squared(const short _num) { return _num * _num; }
+
+	double generateRandomNumber(const double _min, const double _max);	//w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚é.
+	float generateRandomNumber(const float _min, const float _max);		//w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚é.
+	int generateRandomNumber(const int _min, const int _max);			//w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚é.
 }

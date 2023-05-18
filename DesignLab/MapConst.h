@@ -1,42 +1,50 @@
 #pragma once
 #include <string>
 
+// ここに定義されている数値は変更はあまりしないもの．
+// よく変更するであろう数値は .cppのほうで定義している
+
 class MapConst final
 {
 public:
-	//デフォルトコンストラクタとコピーコンストラクタを削除する．実体が生成できないようする
-	MapConst() = delete;
-	MapConst(MapConst& _other) = delete;
-
+	const static std::string INPUT_FILE_NAME;
 	const static std::string OUTPUT_FILE_NAME;
-	
-	constexpr static int FOOT_HOLD_XY_DIST = 20;		//z軸からみたときの足場（脚接地可能点）の間隔[mm]、格子点状
+
+	constexpr static int FOOT_HOLD_XY_DIST = 20;	//z軸からみたときの足場（脚接地可能点）の間隔[mm]、格子点状
+	constexpr static int MAP_X_MIN = -1000;			//マップの横の最小値点
+	constexpr static int MAP_X_MAX = 1000;			//マップの横の最大値点
+	constexpr static int MAP_Y_MIN = -400;			//マップの縦の最小値点
+	constexpr static int MAP_Y_MAX = 2600;			//マップの縦の最大値点
+	constexpr static int MAPDATA3D_MAX = (MAP_X_MAX - MAP_X_MIN) / FOOT_HOLD_XY_DIST * (MAP_Y_MAX - MAP_Y_MIN) / FOOT_HOLD_XY_DIST;
+
 	constexpr static int START_ROUGH_TARRAIN_Y = 400;	//直進移動のときの、不整地と水平面の境界[mm]
+	constexpr static int STRIPE_INTERVAL = 5;			//各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 
-	constexpr static int STRIPE_INTERVAL = 5;	//しま模様を作成する際，これで指定したマス分あなをあける．
-
-	constexpr static int HEIGHT_STEP = -140;	//段差高さ[mm]
-	constexpr static int  DEPTH_STEP = 500;		//奥行き[mm]
-
-	constexpr static double THETA_SLOPE = 20;	//最大傾斜角[°]	斜面の最大傾斜角
-	constexpr static double XI_SLOPE = 0;		//最大傾斜方位角ξ[°]　y軸(グローバル)と最大傾斜方向へのベクトル（勾配ベクトル）のなす角 ±90°は89.9くらいにしとく
+	const static unsigned int HOLE_RATE;	//不整地上の足場を除外する割合。ホール率[%]
+	const static double STEP_HEIGHT;		//段差高さ[mm]．負の値にすると下りの階段になる．
+	const static double STEP_LENGTH;		//階段縦幅[mm]
+	const static double SLOPE_ANGLE;		//斜面の傾斜角[deg]．
+	const static double TILT_ANGLE;			//地形を傾ける角度[deg]．
+	const static double ROUGH_MAX_HEIGHT;	//デコボコな地形の最大高さ[mm]
+	const static double ROUGH_MIN_HEIGHT;	//デコボコな地形の最小高さ[mm]
 
 	constexpr static int WIDE_TRI = 400;		//2等辺三角形の底辺の長さ/2[mm]
 	constexpr static int DEPTH_TRI = 400;		//2等辺三角形の奥行き
 	constexpr static int THETA_TRI = 10;		//底角[°]
 
 	constexpr static int LP_DIVIDE_NUM = 40;	//脚接地可能点を平方分割する際の１辺の分割数
-	constexpr static int MAP_X_MIN = -1000;
-	constexpr static int MAP_X_MAX = 1000;
-	constexpr static int MAP_Y_MIN = -400;
-	constexpr static int MAP_Y_MAX = 2600;
-	constexpr static int MAPDATA3D_MAX = (MAP_X_MAX - MAP_X_MIN) / FOOT_HOLD_XY_DIST * (MAP_Y_MAX - MAP_Y_MIN) / FOOT_HOLD_XY_DIST;
 
-	constexpr static int HOLE_RATE = 60;				//不整地上の足場を除外する割合。ホール率[%]
+
+
 	constexpr static int HEIGHT_MAGNIFICATION = 10;		//高さ方向のランダムな倍率と刻み数[-]　ここ後で名前変える、有りそうだから
 	constexpr static int START_RANDOM_R = 200;			//初期位置のランダムで配置される範囲、半径[mm]。
 	constexpr static int INVALID_FOOT_HOLD = -10000;	//ホール部にあった脚設置可能点を飛ばす座標
 
 	constexpr static int SQUARE_SIZE = 100;		//＝FOOT_HOLD_XY_DIST*n(n=1,2,3...)n=1なら1点ずつ、2なら4点、nならn^2点の正方形が対象になる正方形の一片の長さ[mm]
+
+private:
+	//デフォルトコンストラクタとコピーコンストラクタを削除する．実体が生成できないようする
+	MapConst() = delete;
+	MapConst(MapConst& _other) = delete;
 };
 
