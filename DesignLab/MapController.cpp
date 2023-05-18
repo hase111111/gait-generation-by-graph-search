@@ -65,69 +65,14 @@ void MapSqrtDivide(const myvector::SVector mapData[MapConst::MAPDATA3D_MAX], std
 	}
 }
 
-
-void GetRandom(int mapDataNum, int min, int max, int* Random)
+void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const LNODE& _current_condition, const  LNODE& _past_condition)
 {
-	srand((unsigned int)time(NULL));
-
-	for (int i = 0; i < mapDataNum; i++)
-	{
-		Random[i] = min + (int)(rand() * (max - min + 1.0) / (1.0 + RAND_MAX));
-	}
-}
-
-void SetConditionForStripe(LNODE& node)
-{
-	double COM_Z = 130;
-	int random_r[MapConst::START_RANDOM_R];
-	int random_theta[360];
-	int random_l[1000];
-	GetRandom(MapConst::START_RANDOM_R, 0, MapConst::START_RANDOM_R, random_r);
-	GetRandom(360, 0, 360, random_theta);
-	GetRandom(1000, 0, 1000, random_l);
-
-	for (int i = 0; i < 1000; ++i)
-	{
-		if (random_l[i] > 500) { random_l[i] -= 1000; }
-	}
-
-	//重心位置グローバル
-	node.global_center_of_mass = myvector::VGet(random_l[1] + random_r[1] * cos(random_theta[1] * Define::MY_PI / 180), random_r[1] * sin(random_theta[1] * Define::MY_PI / 180), COM_Z);
-
-	node.Leg[0] = myvector::VGet(120, 100, -COM_Z);//付け根から脚先の位置
-	node.Leg[1] = myvector::VGet(130, 0, -COM_Z);
-	node.Leg[2] = myvector::VGet(120, -100, -COM_Z);
-	node.Leg[3] = myvector::VGet(-120, -100, -COM_Z);
-	node.Leg[4] = myvector::VGet(-130, 0, -COM_Z);
-	node.Leg[5] = myvector::VGet(-120, 100, -COM_Z);
-	//脚の位置(z方向固定)
-	node.Leg2[0] = myvector::VGet(120, 100, -COM_Z);
-	node.Leg2[1] = myvector::VGet(130, 0, -COM_Z);
-	node.Leg2[2] = myvector::VGet(120, -100, -COM_Z);
-	node.Leg2[3] = myvector::VGet(-120, -100, -COM_Z);
-	node.Leg2[4] = myvector::VGet(-130, 0, -COM_Z);
-	node.Leg2[5] = myvector::VGet(-120, 100, -COM_Z);
-
-	//姿勢テイトブライアン角グローバル
-	node.pitch = 0.0;		//x軸回転
-	node.roll = 0.0;		//y軸回転
-	node.yaw = 0.0;			//z軸回転
-	node.center_of_mass = 0;//重心位置int
-	node.leg_state = 0b00000000110011001100110011001100;
-	node.parent = NULL;		//親ノードのポインタ
-	node.node_height = 1;	//ノード高さ
-	node.debug = 24;		//現在運動履歴として使用,前回の脚上下ノード(上下運動をした場合)2桁,前回の動作1桁,前々回の動作1桁
-	node.delta_comz = 0;
-}
-
-void recalMap(myvector::SVector* p_mapData3D, int mapData3D_MAX, LNODE* CurrentCondition, LNODE* PastCondition)
-{
-	for (int i = 0; i < mapData3D_MAX; i++)
+	for (int i = 0; i < MapConst::MAPDATA3D_MAX; i++)
 	{
 		//ひとつ前のロボット座標→グローバル座標→現在のロボット座標
-		p_mapData3D[i] = myvector::VRot(p_mapData3D[i], PastCondition->global_center_of_mass, PastCondition->pitch, PastCondition->roll, PastCondition->yaw);
-		p_mapData3D[i] = p_mapData3D[i] + PastCondition->global_center_of_mass;
-		p_mapData3D[i] = p_mapData3D[i] - CurrentCondition->global_center_of_mass;
-		p_mapData3D[i] = myvector::VRot(p_mapData3D[i], CurrentCondition->global_center_of_mass, -CurrentCondition->pitch, -CurrentCondition->roll, -CurrentCondition->yaw);
+		p_mapData3D[i] = myvector::VRot(p_mapData3D[i], _past_condition.global_center_of_mass, _past_condition.pitch, _past_condition.roll, _past_condition.yaw);
+		p_mapData3D[i] = p_mapData3D[i] + _past_condition.global_center_of_mass;
+		p_mapData3D[i] = p_mapData3D[i] - _current_condition.global_center_of_mass;
+		p_mapData3D[i] = myvector::VRot(p_mapData3D[i], _current_condition.global_center_of_mass, -_current_condition.pitch, -_current_condition.roll, -_current_condition.yaw);
 	}
 }

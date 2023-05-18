@@ -10,8 +10,5 @@ void AreaDivide(const myvector::SVector& p1, const myvector::SVector& p2, int& x
 // main.cpp
 void MapSqrtDivide(const myvector::SVector mapData[MapConst::MAPDATA3D_MAX], std::vector< std::vector< std::vector<myvector::SVector> > >& divideMapData, int pointNum[MapConst::LP_DIVIDE_NUM][MapConst::LP_DIVIDE_NUM]);
 
-// main.cpp
-void SetConditionForStripe(LNODE& node);
-
 //マップの平行移動 main.cpp
-void recalMap(myvector::SVector* p_mapData3D, int mapData3D_MAX, LNODE* CurrentCondition, LNODE* PastCondition);
+void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const LNODE& _current_condition, const  LNODE& _past_condition);

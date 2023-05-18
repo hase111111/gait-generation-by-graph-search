@@ -15,9 +15,12 @@ public:
 	constexpr static int MAP_X_MAX = 1000;			//マップの横の最大値点
 	constexpr static int MAP_Y_MIN = -400;			//マップの縦の最小値点
 	constexpr static int MAP_Y_MAX = 2600;			//マップの縦の最大値点
+	constexpr static double MAX_Z_BASE = 0;			// Z座標の基準位置
 	constexpr static int MAPDATA3D_MAX = (MAP_X_MAX - MAP_X_MIN) / FOOT_HOLD_XY_DIST * (MAP_Y_MAX - MAP_Y_MIN) / FOOT_HOLD_XY_DIST;
 
-	constexpr static int START_ROUGH_TARRAIN_Y = 400;	//直進移動のときの、不整地と水平面の境界[mm]
+	constexpr static int START_ROUGH_TARRAIN_Y = 400;									//直進移動のときの、不整地と水平面の境界[mm]
+	constexpr static double START_RANDOM_R = (START_ROUGH_TARRAIN_Y - MAP_Y_MIN) / 4.0;	//初期位置のランダムで配置される範囲，半径[mm]．
+
 	constexpr static int STRIPE_INTERVAL = 5;			//各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 
 	const static unsigned int HOLE_RATE;	//不整地上の足場を除外する割合。ホール率[%]
@@ -29,7 +32,6 @@ public:
 	const static double ROUGH_MIN_HEIGHT;	//デコボコな地形の最小高さ[mm]
 
 	constexpr static int LP_DIVIDE_NUM = 40;			//脚接地可能点を平方分割する際の１辺の分割数
-	constexpr static int START_RANDOM_R = 200;			//初期位置のランダムで配置される範囲、半径[mm]。
 	constexpr static int INVALID_FOOT_HOLD = -10000;	//ホール部にあった脚設置可能点を飛ばす座標
 
 private:
