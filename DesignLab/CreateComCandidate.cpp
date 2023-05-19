@@ -72,11 +72,6 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 	return;
 }
 
-void CreateComCandidate::initHexapod()
-{
-	phantomX.makeLegROM_r();
-}
-
 void CreateComCandidate::initHexapodJustBeforeSearch(const LNODE _node, const STarget _t)
 {
 	phantomX.setMyDirection(_node.pitch, _node.roll, _node.yaw);	//自機の角度

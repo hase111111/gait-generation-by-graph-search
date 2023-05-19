@@ -322,18 +322,18 @@
 //	myvector::SVector xy_LineEnd;
 //	xy_LineEnd = LineEnd;
 //	xy_LineEnd.z = 0;
-//	/*std::cout << "lineendってローカル？" << LegROM_r[int(-LineEnd.z)] << std::endl;
+//	/*std::cout << "lineendってローカル？" << m_leg_rom_r[int(-LineEnd.z)] << std::endl;
 //	std::string wait;
 //	std::cin >> wait*/;
 //
-//	/*if (VMag(xy_LineEnd) < LegROM_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
+//	/*if (VMag(xy_LineEnd) < m_leg_rom_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
 //
-//	// LegROM_r その胴体高さにおける脚の到達半径の長さ
+//	// m_leg_rom_r その胴体高さにおける脚の到達半径の長さ
 //	//std::cerr << LineEnd.z - m_local_coxajoint_pos[legNum].z << std::endl;
 //	//double delta = VMag(LineEnd);
 //	double delta = VMag(xy_LineEnd);//X0Y0平面に投影した脚の根元から脚先までの半径
 //		//付け根からxy平面の距離<胴体高さに対する可動範囲の半径//胴体から近い場合は体勢がきついので使用しない20180312
-//	if (MIN_LEG_RADIUS < delta && delta < LegROM_r[int(LineEnd.z)]) {//
+//	if (MIN_LEG_RADIUS < delta && delta < m_leg_rom_r[int(LineEnd.z)]) {//
 //	//std::cout<<"ok2\n";
 //
 //	//double	coxa = atan2(LineEnd.x,LineEnd.y);
@@ -456,18 +456,18 @@
 //	myvector::SVector xy_LineEnd;
 //	xy_LineEnd = LineEnd;
 //	xy_LineEnd.z = 0;
-//	/*std::cout << "lineendってローカル？" << LegROM_r[int(-LineEnd.z)] << std::endl;
+//	/*std::cout << "lineendってローカル？" << m_leg_rom_r[int(-LineEnd.z)] << std::endl;
 //	std::string wait;
 //	std::cin >> wait*/;
 //
-//	/*if (VMag(xy_LineEnd) < LegROM_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
+//	/*if (VMag(xy_LineEnd) < m_leg_rom_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
 //
-//	// LegROM_r その胴体高さにおける脚の到達半径の長さ
+//	// m_leg_rom_r その胴体高さにおける脚の到達半径の長さ
 //	//std::cerr << LineEnd.z - m_local_coxajoint_pos[legNum].z << std::endl;
 //	//double delta = VMag(LineEnd);
 //	double delta = VMag(xy_LineEnd);//X0Y0平面に投影した脚の根元から脚先までの半径
 //		//付け根からxy平面の距離<胴体高さに対する可動範囲の半径//胴体から近い場合は体勢がきついので使用しない20180312
-//	if (MIN_LEG_RADIUS < delta && delta < LegROM_r[int(delta_z)]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
+//	if (MIN_LEG_RADIUS < delta && delta < m_leg_rom_r[int(delta_z)]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
 //		//今のLegROM_rの計算じゃ73mmより上にあげると探索不可能　後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。
 //	//std::cout<<"ok2\n";
 //
@@ -507,7 +507,7 @@
 //
 //	double delta = VMag(xy_LineEnd);//X0Y0平面に投影した脚の根元から脚先までの半径
 //		//付け根からxy平面の距離<胴体高さに対する可動範囲の半径//胴体から近い場合は体勢がきついので使用しない20180312
-//	if (MIN_LEG_RADIUS < delta && delta < LegROM_r[int(delta_z)]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
+//	if (MIN_LEG_RADIUS < delta && delta < m_leg_rom_r[int(delta_z)]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
 //		return 1;
 //
 //
@@ -603,18 +603,18 @@
 //	myvector::SVector xy_LineEnd;
 //	xy_LineEnd = LineEnd;
 //	xy_LineEnd.z = 0;
-//	/*std::cout << "lineendってローカル？" << LegROM_r[int(-LineEnd.z)] << std::endl;
+//	/*std::cout << "lineendってローカル？" << m_leg_rom_r[int(-LineEnd.z)] << std::endl;
 //	std::string wait;
 //	std::cin >> wait*/;
 //
-//	/*if (VMag(xy_LineEnd) < LegROM_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
+//	/*if (VMag(xy_LineEnd) < m_leg_rom_r[int(LineEnd.z)] && VMag(xy_LineEnd) > 50) {*/
 //
-//	// LegROM_r その胴体高さにおける脚の到達半径の長さ
+//	// m_leg_rom_r その胴体高さにおける脚の到達半径の長さ
 //	//std::cerr << LineEnd.z - m_local_coxajoint_pos[legNum].z << std::endl;
 //	//double delta = VMag(LineEnd);
 //	double delta = VMag(xy_LineEnd);//X0Y0平面に投影した脚の根元から脚先までの半径
 //		//付け根からxy平面の距離<胴体高さに対する可動範囲の半径//胴体から近い場合は体勢がきついので使用しない20180312
-//	if (50 < delta && delta < LegROM_r[0]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
+//	if (50 < delta && delta < m_leg_rom_r[0]) {//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。
 //		//今のLegROM_rの計算じゃ73mmより上にあげると探索不可能　後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。
 //	//std::cout<<"ok2\n";
 //
@@ -722,7 +722,7 @@
 //void Hexapod::makeLegROM_r() {
 //	// 逆運動学coxaなしの計算結果を用いて準運動学を計算する
 //
-//	for (int i = 0; i < 200; i++)LegROM_r[i] = 0;
+//	for (int i = 0; i < 200; i++)m_leg_rom_r[i] = 0;
 //
 //
 //	const double PERMISSION = 0.5;			//逆運動学と運動学を行った結果が半径Permission^0.5の円の中なら等しいと考える
@@ -798,15 +798,15 @@
 //
 //			if (PERMISSION > Permission) {
 //
-//				LegROM_r[iz] = ix - LEGROM_RMARGIN;//y=0のとき，脚高さzのときのx方向の最大の範囲
+//				m_leg_rom_r[iz] = ix - LEGROM_RMARGIN;//y=0のとき，脚高さzのときのx方向の最大の範囲
 //#ifdef  MAX_LEG_RADIUS
-//				if (iz <= 115) LegROM_r[iz] = MAX_LEG_RADIUS;//脚を置く位置が遠すぎるとトルクが足りなくて沈み込みが激しいから200までにした2020/11/09hato
+//				if (iz <= 115) m_leg_rom_r[iz] = MAX_LEG_RADIUS;//脚を置く位置が遠すぎるとトルクが足りなくて沈み込みが激しいから200までにした2020/11/09hato
 //				   //if (ix < LegROM_rmin[iz]) LegROM_rmin[iz] = ix;	//rminを求めたかったけどいらないかな190606
 //#endif
 //			}
 //		}
 //		//if (LegROM_rmin[iz] < 50) LegROM_rmin[iz] = 50;
-//		//std::cout << "legRom[" << iz << "]= " << LegROM_r[iz] << std::endl;
+//		//std::cout << "legRom[" << iz << "]= " << m_leg_rom_r[iz] << std::endl;
 //	}
 //	//std::string wait;
 //	//std::cin >> wait;
@@ -817,10 +817,10 @@
 //	double coxaDefoAngle[6] = { 45.0, 0.0, -45.0, -135.0, 180, 135.0 };	//脚関節の基準角度（ロボット座標系） -180~180度内であること
 //	for (int i = 0; i < 6; ++i)coxaDefoAngle[i] = coxaDefoAngle[i] * Define::MY_PI / 180.0;	//[rad]に変換
 //	double rangeOfAngle = 40.0 * Define::MY_PI / 180.0;	//[rad] 脚の可動範囲 今は基準角度より±40度に動くと仮定
-//	//double r = LegROM_r[int(this->ziki.com.z)];	//現在の胴体高さにおける脚到達距離　これは、地面がz=0にあることを前提としているからダメ。20200618
+//	//double r = m_leg_rom_r[int(this->ziki.com.z)];	//現在の胴体高さにおける脚到達距離　これは、地面がz=0にあることを前提としているからダメ。20200618
 //	//↑グローバルで胴体高さ196mm以上とかになったら、バグる原因
 //	//とりあえず網羅することが大事。実際にとれるかどうかは、checktouchdownpointで脚設置可能点の高さを考慮して判定しているから。
-//	double r = 240;// LegROM_r[0]; //0だと237indexを73くらいにすると、r=223くらい。後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。
+//	double r = 240;// m_leg_rom_r[0]; //0だと237indexを73くらいにすると、r=223くらい。後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。
 //	//rは脚設置可能点を参照する領域の大きさの要素。rの値によって挙動は変化する。
 //	double t1, t2;	//t1:その脚における最小角度 t2:最大角度
 //
