@@ -126,7 +126,6 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 	case 0b010110:
 		return  35;	//HX35
 	default:
-		std::cout << "\n ‚æ‚Î‚ê‚½!\n";
 		break;
 	}
 

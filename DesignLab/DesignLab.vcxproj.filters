@@ -144,6 +144,9 @@
     <ClInclude Include="MapController.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
+    <ClInclude Include="MapState.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -234,6 +237,9 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="MapController.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapState.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
   </ItemGroup>
