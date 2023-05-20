@@ -27,4 +27,10 @@ namespace ComType
 
 	//接地している脚をtrueした配列から，重心タイプを出力する関数．該当しないならば負の値を返す
 	char getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_NUM]);
+
+	//脚状態から，重心タイプを出力する関数．該当しないならば負の値を返す
+	char getComTypeFromLegState(const int _leg_state);
+
+	//接地脚を1，遊脚を0としたビットから，重心タイプを出力する関数．該当しないならば負の値を返す
+	char getComTypeFromBit(const int _bit);
 }

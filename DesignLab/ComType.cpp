@@ -1,4 +1,5 @@
 #include "ComType.h"
+#include "LegState.h"
 #include <iostream>
 
 bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
@@ -41,7 +42,8 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 
 	int _compare_bit = 0;	//値を比較するためにboolをbitに変換する
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	//右上が最上位のbit，そこから時計回りに下位bitにデータが入る．
+	for (int i = HexapodConst::LEG_NUM - 1; i >= 0; i -= 1)
 	{
 		//接地しているならば
 		if (_ground_leg[i] == true)
@@ -51,9 +53,36 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 		}
 	}
 
-	switch (_compare_bit)
+	return getComTypeFromBit(_compare_bit);
+}
+
+char ComType::getComTypeFromLegState(const int _leg_state)
+{
+	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
+
+	int _compare_bit = 0;	//値を比較するためにboolをbitに変換する
+
+	//右上が最上位のbit，そこから時計回りに下位bitにデータが入る．
+	for (int i = HexapodConst::LEG_NUM - 1; i >= 0; i -= 1)
 	{
-	case 0b111111: 
+		//接地しているならば
+		if (LegState::isGrounded(_leg_state, i) == true)
+		{
+			// i番目のbitを立てる
+			_compare_bit |= (1 << i);
+		}
+	}
+
+	return getComTypeFromBit(_compare_bit);
+}
+
+char ComType::getComTypeFromBit(const int _bit)
+{
+	//右上が最上位bit，それから時計回りに下位ビットにデータが入っている．
+
+	switch (_bit)
+	{
+	case 0b111111:
 		return  0;		//HX0
 	case 0b101111:
 		return  1;		//HX1
@@ -65,25 +94,25 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 		return  4;		//HX4
 	case 0b111110:
 		return  5;		//HX5
-	case 0b011111: 
+	case 0b011111:
 		return  6;		//HX6
-	case 0b011011: 
+	case 0b011011:
 		return  7;		//HX7
 	case 0b110110:
 		return  8;		//HX8
 	case 0b101101:
 		return  9;		//HX9
-	case 0b101011: 
+	case 0b101011:
 		return  10;	//HX10
-	case 0b110101: 
+	case 0b110101:
 		return  11;	//HX11
-	case 0b111010: 
+	case 0b111010:
 		return  12;	//HX12
-	case 0b011101: 
+	case 0b011101:
 		return  13;	//HX13
 	case 0b101110:
 		return  14;	//HX14
-	case 0b010111: 
+	case 0b010111:
 		return  15;	//HX15
 	case 0b101010:
 		return  16;	//HX16
@@ -107,11 +136,11 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 		return  25;	//HX25
 	case 0b010011:
 		return  26;	//HX26
-	case 0b101001: 
+	case 0b101001:
 		return  27;	//HX27
-	case 0b110100: 
+	case 0b110100:
 		return  28;	//HX28
-	case 0b011010: 
+	case 0b011010:
 		return  29;	//HX29
 	case 0b001011:
 		return  30;	//HX30
