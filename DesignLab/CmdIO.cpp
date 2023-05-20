@@ -9,7 +9,7 @@ void CmdIO::outputString(const std::string _str)
 	std::cout << _str << std::endl;
 }
 
-void CmdIO::outputLNODE(const LNODE _node)
+void CmdIO::outputLNODE(const SNode _node)
 {
 	std::cout << "-------------------------グラフ探索で得られた歩容パターン---------------------------" << std::endl;
 

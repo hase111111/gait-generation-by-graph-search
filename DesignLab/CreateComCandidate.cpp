@@ -6,7 +6,7 @@ CreateComCandidate::CreateComCandidate()
 {
 }
 
-void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvector::SLegVector>& _res_leg_pos, std::vector<myvector::SVector>& _res_com_pos, std::vector<int>& _res_state)
+void CreateComCandidate::getComMovableArea(const SNode _node, std::vector<myvector::SLegVector>& _res_leg_pos, std::vector<myvector::SVector>& _res_com_pos, std::vector<int>& _res_state)
 {
 	//各種変数を初期化する
 	init(_node);
@@ -72,14 +72,14 @@ void CreateComCandidate::getComMovableArea(const LNODE _node, std::vector<myvect
 	return;
 }
 
-void CreateComCandidate::initHexapodJustBeforeSearch(const LNODE _node, const STarget _t)
+void CreateComCandidate::initHexapodJustBeforeSearch(const SNode _node, const STarget _t)
 {
 	phantomX.setMyDirection(_node.pitch, _node.roll, _node.yaw);	//自機の角度
 	phantomX.setMyPosition(myvector::VGet(0, 0, 0));				//自機の重心位置(0,0,0)
 	phantomX.setTarget(_t);											//目標
 }
 
-void CreateComCandidate::init(const LNODE _node)
+void CreateComCandidate::init(const SNode _node)
 {
 	//重心から脚先の位置の計算(座標,(x,y,z)→(x,z,y)),node->Legはcoxaからの脚先位置
 	myvector::SVector _temp_leg_rot[HexapodConst::LEG_NUM];

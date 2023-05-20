@@ -22,7 +22,7 @@ void AreaDivide(const myvector::SVector& p1, const myvector::SVector& p2, int& x
 	if (y2 < 0) { y2 = 0; }
 }
 
-void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const LNODE& _current_condition, const  LNODE& _past_condition)
+void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const SNode& _current_condition, const  SNode& _past_condition)
 {
 	for (int i = 0; i < MapConst::MAPDATA3D_MAX; i++)
 	{

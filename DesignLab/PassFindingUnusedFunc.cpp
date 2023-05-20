@@ -11,7 +11,7 @@
 //資料として大変貴重であるといえるだろう
 
 //ノードの脚位置から，comtypeの重心位置が可能な場合1
-bool PassFinding::isAbleLegPosComType(LNODE* node) 
+bool PassFinding::isAbleLegPosComType(SNode* node)
 {
 	//myvector::SVector ret_4_GCOM[35];
 	//int ret_4_COMType[35] = { 0 }, ret_4_transition_kaisou[35] = { 0 }, passnum = 0;
@@ -218,7 +218,7 @@ void PassFinding::calculatePassLegRotation() {
 }
 
 //胴体回転の探索
-void PassFinding::pass_body_rotation(LNODE* node, double thPRY[3][20], myvector::SVector ret_leg_move[HexapodConst::LEG_NUM][20], int* Rotation_passnum) 
+void PassFinding::pass_body_rotation(SNode* node, double thPRY[3][20], myvector::SVector ret_leg_move[HexapodConst::LEG_NUM][20], int* Rotation_passnum)
 {
 	//int i, Rotation_num;
 	//int groundLeg[6];

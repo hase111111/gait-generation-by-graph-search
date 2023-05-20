@@ -8,4 +8,4 @@
 void AreaDivide(const myvector::SVector& p1, const myvector::SVector& p2, int& x1, int& x2, int& y1, int& y2);
 
 //マップの平行移動 main.cpp
-void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const LNODE& _current_condition, const  LNODE& _past_condition);
+void recalMap(myvector::SVector p_mapData3D[MapConst::MAPDATA3D_MAX], const SNode& _current_condition, const  SNode& _past_condition);

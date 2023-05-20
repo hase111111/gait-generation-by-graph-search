@@ -22,7 +22,7 @@ public:
 	void addLogStringWithInt(const int _data);
 
 	//Logファイルにノードの情報を書き込む
-	void addLogStringWithNode(const int num, const LNODE& node_log);
+	void addLogStringWithNode(const int num, const SNode& node_log);
 
 	//Logファイルに文字列を書き込む
 	void addLogString(const std::string _str);

@@ -38,7 +38,7 @@ void LogFileIO::addLogStringWithInt(const int _data)
 	m_all_log << _data << std::endl;
 }
 
-void LogFileIO::addLogStringWithNode(const int num, const LNODE& node_log)
+void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 {
 	m_all_log << num << ",";
 
@@ -51,7 +51,7 @@ void LogFileIO::addLogStringWithNode(const int num, const LNODE& node_log)
 		m_all_log << LegState::getLegState(node_log.leg_state, j) << ",";
 	}
 
-	m_all_log << LegState::getComPatternState(node_log.leg_state) << "," << node_log.center_of_mass << "," << node_log.pitch << "," << node_log.roll << "," << node_log.yaw << ",";
+	m_all_log << LegState::getComPatternState(node_log.leg_state) << "," << node_log.pitch << "," << node_log.roll << "," << node_log.yaw << ",";
 
 	for (int j = 0; j < 6; ++j) 
 	{
