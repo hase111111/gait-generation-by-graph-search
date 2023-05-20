@@ -40,11 +40,9 @@
     <ClInclude Include="hexapodGraphic.h" />
     <ClInclude Include="listFunc.h" />
     <ClInclude Include="MapCreator.h" />
-    <ClInclude Include="mapData.h" />
     <ClInclude Include="NodeFileIO.h" />
     <ClInclude Include="PassFinding.h" />
     <ClInclude Include="phantomxCommander.h" />
-    <ClInclude Include="SearchBodyRotation.h" />
     <ClInclude Include="SimulateResult.h" />
     <ClInclude Include="SearchLegPosition.h" />
     <ClInclude Include="S_NE.h" />
@@ -70,14 +68,11 @@
     <ClCompile Include="MapConst.cpp" />
     <ClCompile Include="MapController.cpp" />
     <ClCompile Include="MapCreator.cpp" />
-    <ClCompile Include="mapData.cpp" />
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="MyMath.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
-    <ClCompile Include="PassFindingUnusedFunc.cpp" />
     <ClCompile Include="PassFinding.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
-    <ClCompile Include="SearchBodyRotation.cpp" />
     <ClCompile Include="SimulateResult.cpp" />
     <ClCompile Include="SearchLegPosition.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />

@@ -32,10 +32,10 @@ public:
 	const static bool FLAG_GRAPHIC_AVAILABLE;
 
 	//これ以上小さい値は0とみなす．allowable error，許容誤差のこと
-	inline constexpr static double ALLOWABLE_ERROR = 0.0001;
+	inline constexpr static float ALLOWABLE_ERROR = 0.0001f;
 
 	// 円周率
-	const static double MY_PI;
+	const static float MY_PI;
 
 //PassFinding.h
 

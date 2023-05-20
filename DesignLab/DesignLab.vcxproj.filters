@@ -46,9 +46,6 @@
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\UnusedFile">
-      <UniqueIdentifier>{bf220f2c-2374-4bb5-8621-49e6873898c9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -132,12 +129,6 @@
     <ClInclude Include="MapConst.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="SearchBodyRotation.h">
-      <Filter>ソース ファイル\UnusedFile</Filter>
-    </ClInclude>
-    <ClInclude Include="mapData.h">
-      <Filter>ソース ファイル\UnusedFile</Filter>
-    </ClInclude>
     <ClInclude Include="MapCreator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
@@ -206,9 +197,6 @@
     <ClCompile Include="SearchLegPosition.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="PassFindingUnusedFunc.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClCompile>
     <ClCompile Include="LegState.cpp">
       <Filter>ソース ファイル\walking_pattern\LegState</Filter>
     </ClCompile>
@@ -220,12 +208,6 @@
     </ClCompile>
     <ClCompile Include="HexapodConst.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchBodyRotation.cpp">
-      <Filter>ソース ファイル\UnusedFile</Filter>
-    </ClCompile>
-    <ClCompile Include="mapData.cpp">
-      <Filter>ソース ファイル\UnusedFile</Filter>
     </ClCompile>
     <ClCompile Include="MapCreator.cpp">
       <Filter>ソース ファイル\Map</Filter>

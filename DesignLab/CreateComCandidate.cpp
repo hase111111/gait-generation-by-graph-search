@@ -214,7 +214,7 @@ int CreateComCandidate::getInsidePolygon()
 bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector::SVector e1, myvector::SVector s2, myvector::SVector e2, myvector::SVector *crossPoint) 
 {
 	myvector::SVector v, v1, v2;
-	double t1, t2;
+	float t1, t2;
 	v1 = myvector::subVec(e1, s1);
 	v2 = myvector::subVec(e2, s2);
 	v = myvector::subVec(s1, s2);
@@ -248,16 +248,16 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 }
 
 //水平要素のベクトルの外積→ベクトルで作る平行四辺形を水平面に射影した面積
-double CreateComCandidate::VCrossXZ(myvector::SVector In1, myvector::SVector In2)
+float CreateComCandidate::VCrossXZ(myvector::SVector In1, myvector::SVector In2)
 {
 	return In1.x * In2.z - In1.z * In2.x;
 }
 
-bool CreateComCandidate::ContactJudgment(double t1, double t2) 
+bool CreateComCandidate::ContactJudgment(float t1, float t2) 
 {
-	const double _err = 0.01;
+	const float _err = 0.01f;
 
-	return (-_err <= t1 && t1 < 1.0 + _err && -_err <= t2 && t2 < 1.0 + _err);
+	return (-_err <= t1 && t1 < 1.0f + _err && -_err <= t2 && t2 < 1.0f + _err);
 }
 
 
@@ -270,7 +270,7 @@ bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon)
 	//無効な点は0，有効な点は1
 	int adleComCandidate[DIVIDE_NUM][DIVIDE_NUM];
 
-	double xMax, xMin, zMax, zMin, dx, dz;
+	float xMax, xMin, zMax, zMin, dx, dz;
 	//多角形頂点の最大・最少座標を探す,グローバル座標
 	xMax = polygon->VertexNode[0]->Point.x;
 	xMin = polygon->VertexNode[0]->Point.x;
@@ -301,8 +301,8 @@ bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon)
 	}
 
 	//DIVIDE_NUM=10等分する
-	dx = (xMax - xMin) / double(DIVIDE_NUM);
-	dz = (zMax - zMin) / double(DIVIDE_NUM);
+	dx = (xMax - xMin) / float(DIVIDE_NUM);
+	dz = (zMax - zMin) / float(DIVIDE_NUM);
 
 	for (int ix = 0; ix< DIVIDE_NUM; ix++) 
 	{
@@ -385,7 +385,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 	int adleComCandidate[DIVIDE_NUM][DIVIDE_NUM] = {};					//無効な点は0，有効な点は1
 
 	//多角形頂点の最大・最少座標を探す,ロボット座標
-	double xMax, xMin, zMax, zMin, dx, dz;
+	float xMax, xMin, zMax, zMin, dx, dz;
 	xMax = polygon->VertexNode[0]->Point.x;
 	xMin = polygon->VertexNode[0]->Point.x;
 
@@ -414,8 +414,8 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 	}
 
 	//半径からの距離で除外するやつ
-	dx = (xMax - xMin) / double(DIVIDE_NUM);
-	dz = (zMax - zMin) / double(DIVIDE_NUM);
+	dx = (xMax - xMin) / float(DIVIDE_NUM);
+	dz = (zMax - zMin) / float(DIVIDE_NUM);
 
 	for (int ix = 0; ix < DIVIDE_NUM; ix++)
 	{
@@ -462,7 +462,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 		L_coxa[ileg] = phantomX.getLocalCoxaJointPos(ileg);
 	}
 
-	double thY = phantomX.getGlobalMyDirectionthY();
+	float thY = phantomX.getGlobalMyDirectionthY();
 
 	//重心をうごかしたときに、脚が可動範囲外にでない、かつ、脚同士がぶつからないかの判定。
 	for (int iz = DIVIDE_NUM - 1; iz >= 0; iz--) 
@@ -503,9 +503,9 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 
 	//かつてはここにSPLPの処理があったが，使用されていなかったので削除した．
 
-	double distance = ALLOW_RADIUS_DIFF, distanceA;
+	float distance = ALLOW_RADIUS_DIFF, distanceA;
 	myvector::SVector CtoG_can;
-	double CtoG_can_radius;
+	float CtoG_can_radius;
 	int x_best=-1, z_best=-1;
 	//選択可能な残りの重心候補点に対して、
 	//旋回半径といちばん近い場所を重心移動位置とする

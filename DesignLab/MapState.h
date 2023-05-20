@@ -21,15 +21,15 @@ public:
 	myvector::SVector getPos(const int _num) const;
 
 	// x座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumX(const double _posx)
+	inline static int getDevideMapNumX(const float _posx)
 	{
-		return (int)( (_posx - MapConst::MAP_X_MIN) / ( ((double)MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / MapConst::LP_DIVIDE_NUM) );
+		return (int)( (_posx - MapConst::MAP_X_MIN) / ( ((float)MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / MapConst::LP_DIVIDE_NUM) );
 	}
 
 	// y座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumY(const double _posy)
+	inline static int getDevideMapNumY(const float _posy)
 	{
-		return (int)( (_posy - MapConst::MAP_Y_MIN) / ( ((double)MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / MapConst::LP_DIVIDE_NUM) );
+		return (int)( (_posy - MapConst::MAP_Y_MIN) / ( ((float)MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / MapConst::LP_DIVIDE_NUM) );
 	}
 
 private:

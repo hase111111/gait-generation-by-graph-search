@@ -3,14 +3,14 @@
 void AreaDivide(const myvector::SVector& p1, const myvector::SVector& p2, int& x1, int& x2, int& y1, int& y2)
 {
 	//脚設置可能点が入っている領域の大さ
-	double _lengthX = (MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / (double)MapConst::LP_DIVIDE_NUM;
-	double _lengthY = (MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / (double)MapConst::LP_DIVIDE_NUM;
+	float _lengthX = (MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / (float)MapConst::LP_DIVIDE_NUM;
+	float _lengthY = (MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / (float)MapConst::LP_DIVIDE_NUM;
 
 	//ブロック番号計算
-	x1 = (int)((p1.x - MapConst::MAP_X_MIN) / _lengthX);
-	x2 = (int)((p2.x - MapConst::MAP_X_MIN) / _lengthX);
-	y1 = (int)((p1.y - MapConst::MAP_Y_MIN) / _lengthY);
-	y2 = (int)((p2.y - MapConst::MAP_Y_MIN) / _lengthY);
+	x1 = (int)((p1.x - (float)MapConst::MAP_X_MIN) / _lengthX);
+	x2 = (int)((p2.x - (float)MapConst::MAP_X_MIN) / _lengthX);
+	y1 = (int)((p1.y - (float)MapConst::MAP_Y_MIN) / _lengthY);
+	y2 = (int)((p2.y - (float)MapConst::MAP_Y_MIN) / _lengthY);
 
 	if (x1 >= MapConst::LP_DIVIDE_NUM) { x1 = MapConst::LP_DIVIDE_NUM - 1; }//想定外の範囲の場合は端っこのブロックに収めるようにする
 	if (x1 < 0) { x1 = 0; }
