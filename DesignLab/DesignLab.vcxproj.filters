@@ -46,7 +46,7 @@
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Dxlib">
+    <Filter Include="ソース ファイル\Graphic">
       <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -142,10 +142,16 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="GraphicConst.h">
-      <Filter>ソース ファイル\Dxlib</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="GraphicMain.h">
-      <Filter>ソース ファイル\Dxlib</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicLoop.h">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Fps.h">
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -234,10 +240,16 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="GraphicMain.cpp">
-      <Filter>ソース ファイル\Dxlib</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="GraphicConst.cpp">
-      <Filter>ソース ファイル\Dxlib</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicLoop.cpp">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Fps.cpp">
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
