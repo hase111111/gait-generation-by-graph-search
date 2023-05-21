@@ -4,7 +4,7 @@
 bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 {
 	int _shift_bit[HexapodConst::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
-	int v_bit = 0b1000;							//遊脚を示すbitの位置だけ立ててある
+	int v_bit = 0b1000;												//接地脚を示すbitの位置だけ立ててある
 
 	//_leg_numは0～5の範囲にある必要があるので
 	if (isAbleLegNum(_leg_num) == false) 
@@ -14,7 +14,7 @@ bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 	}
 	else 
 	{
-		//指定された脚の遊脚のbitが立っているか調べる
+		//指定された脚の接地脚のbitが立っているか調べる
 		if ((_leg_state & (v_bit << _shift_bit[_leg_num])))
 		{
 			return true;
@@ -31,7 +31,7 @@ int LegState::getGroundedLegNum(const int _leg_state)
 {
 	int _res = 0;
 
-	//脚は6本あるので6回ループする
+	//脚の本数分ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (isGrounded(_leg_state, i) == true)

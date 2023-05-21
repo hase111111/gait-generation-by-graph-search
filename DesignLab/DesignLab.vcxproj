@@ -25,6 +25,8 @@
     <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="GraphicMain.h" />
+    <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
     <ClInclude Include="HexapodMemo.h" />
     <ClInclude Include="LegState.h" />
@@ -56,6 +58,8 @@
     <ClCompile Include="ComType.cpp" />
     <ClCompile Include="CreateComCandidate.cpp" />
     <ClCompile Include="CmdIO.cpp" />
+    <ClCompile Include="GraphicConst.cpp" />
+    <ClCompile Include="GraphicMain.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
