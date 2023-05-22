@@ -13,6 +13,8 @@ public:
 	//60より大きい値にしても意味はない．30とかにしてもいいけどそこまで処理負荷は変わらないと思う．
 	constexpr static unsigned int GRAPHIC_FPS = 60;
 
+	const static float CAMERA_FAR;	//カメラが表示できる最も遠い座標．
+	const static float CAMERA_NEAR;	//カメラが表示できる最も近い座標．
 private:
 
 	//コンストラクタとコピーコンストラクタを削除して実体を生成できないようにする．

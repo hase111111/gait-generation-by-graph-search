@@ -141,19 +141,10 @@
     <ClInclude Include="MapCreator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="MapController.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="MapState.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicConst.h">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicLoop.h">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="Fps.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="GraphicSystem.h">
@@ -172,6 +163,21 @@
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="Dxlib3DFunction.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicCamera.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicConst.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Fps.h">
       <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
   </ItemGroup>
@@ -254,19 +260,10 @@
     <ClCompile Include="MyMath.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="MapController.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
     <ClCompile Include="MapState.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicConst.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicLoop.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="Fps.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="GraphicSystem.cpp">
@@ -283,6 +280,21 @@
     </ClCompile>
     <ClCompile Include="GraphicMainBasic.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicCamera.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Dxlib3DFunction.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicConst.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Fps.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

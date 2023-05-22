@@ -13,5 +13,6 @@ public:
 	void draw() const override;
 
 private:
-	MapState m_Map;
+
+	MapState m_Map;	//マップを表示する．
 };

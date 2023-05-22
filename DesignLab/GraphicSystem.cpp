@@ -3,6 +3,8 @@
 #include "GraphicConst.h"
 #include "GraphicLoop.h"
 #include "GraphicMainSample.h"
+#include "GraphicMainBasic.h"
+#include "Define.h"
 
 //注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにしましょう．
 //まぁ，ぶっちゃけ小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難です．
@@ -23,6 +25,9 @@ bool GraphicSystem::init(const GraphicDataBroker* _p_broker)
 
 void GraphicSystem::main()
 {
+	//そもそも描画処理を使わないならば即終了
+	if (Define::FLAG_GRAPHIC_AVAILABLE == false) { return; }
+
 	//初期化をしていない or 失敗した場合則終了．
 	if (mp_Broker == nullptr) { return; }
 
@@ -31,7 +36,7 @@ void GraphicSystem::main()
 	if (dxlibInit() == false) { return; }
 	
 	//描画の処理を行うクラスをセットする．
-	GraphicLoop _Looper(std::make_unique<GraphicMainSample>(mp_Broker));
+	GraphicLoop _Looper(std::make_unique<GraphicMainBasic>(mp_Broker));
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．

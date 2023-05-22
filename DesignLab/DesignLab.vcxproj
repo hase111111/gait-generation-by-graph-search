@@ -28,6 +28,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dxlib3DFunction.h" />
     <ClInclude Include="Fps.h" />
+    <ClInclude Include="GraphicCamera.h" />
     <ClInclude Include="GraphicDataBroker.h" />
     <ClInclude Include="GraphicLoop.h" />
     <ClInclude Include="GraphicMainBasic.h" />
@@ -36,14 +37,15 @@
     <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
     <ClInclude Include="HexapodMemo.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="function_walking_pattern_generator.h" />
     <ClInclude Include="MapConst.h" />
-    <ClInclude Include="MapController.h" />
     <ClInclude Include="MapState.h" />
     <ClInclude Include="MyMath.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="hexapodGraphic.h" />
@@ -66,7 +68,9 @@
     <ClCompile Include="ComType.cpp" />
     <ClCompile Include="CreateComCandidate.cpp" />
     <ClCompile Include="CmdIO.cpp" />
+    <ClCompile Include="Dxlib3DFunction.cpp" />
     <ClCompile Include="Fps.cpp" />
+    <ClCompile Include="GraphicCamera.cpp" />
     <ClCompile Include="GraphicConst.cpp" />
     <ClCompile Include="GraphicDataBroker.cpp" />
     <ClCompile Include="GraphicLoop.cpp" />
@@ -74,6 +78,7 @@
     <ClCompile Include="GraphicMainSample.cpp" />
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
@@ -83,7 +88,6 @@
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
-    <ClCompile Include="MapController.cpp" />
     <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="MyMath.cpp" />

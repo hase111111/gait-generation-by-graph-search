@@ -1,6 +1,7 @@
 #include "GraphicLoop.h"
 #include "DxLib.h"
 #include "GraphicMainSample.h"
+#include "Keyboard.h"
 
 //描画の処理について，
 // ScreenFlip関数とClearDrawScreen関数について．ウィンドウの画像表示はパラパラ漫画の様に画面を素早く切り替えることでアニメーションを再現している．
@@ -19,6 +20,9 @@ bool GraphicLoop::loop()
 {
 	//グラフィックメインクラスが空ならfalseを返す．
 	if (!mp_GraphicMain) { return false; }
+
+	//キー入力を更新する．
+	Keyboard::getIns()->update();
 
 	//処理を行う
 	mp_GraphicMain->update();
