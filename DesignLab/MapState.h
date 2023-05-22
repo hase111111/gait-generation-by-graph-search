@@ -10,7 +10,6 @@ public:
 	MapState() = delete;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
 
 	MapState(const EMapCreateMode _mode, const int _option, const bool _do_output);
-	MapState(const MapState& _other) = delete;	//コピーコンストラクタ
 
 	//正方形状に切り分けられたマップから，脚設置可能点の数を取得する．
 	int getPointNumFromDevideMap(const int _x, const int _y) const;

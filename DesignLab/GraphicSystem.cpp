@@ -1,7 +1,8 @@
-#include "GraphicMain.h"
+#include "GraphicSystem.h"
 #include "DxLib.h"
 #include "GraphicConst.h"
 #include "GraphicLoop.h"
+#include "GraphicMainSample.h"
 
 //注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにしましょう．
 //まぁ，ぶっちゃけ小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難です．
@@ -10,8 +11,13 @@
 //混乱の元です(涙)．Dxlibのエラーはboolではなく，int型の負の値ということを覚えておいてください．
 
 
-bool GraphicMain::init()
+bool GraphicSystem::init(const GraphicDataBroker* _p_broker)
 {	
+	//ブローカーがnull(存在しない)ならfalse
+	if (_p_broker == nullptr) { return false; }
+
+	mp_Broker = _p_broker;
+
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．
 
 	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	//タイトルを変更．ウィンドウの左上に表示されるものです．
@@ -39,12 +45,13 @@ bool GraphicMain::init()
 	return true;
 }
 
-void GraphicMain::main()
+void GraphicSystem::main()
 {
 	//初期化をしていない or 失敗した場合終了
 	if (m_is_init_success == false) { return; }
 
-	GraphicLoop _Looper;
+
+	GraphicLoop _Looper(std::make_unique<GraphicMainSample>(mp_Broker));
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
@@ -61,7 +68,7 @@ void GraphicMain::main()
 	finalize();
 }
 
-void GraphicMain::finalize() const
+void GraphicSystem::finalize() const
 {
 	// DXライブラリの終了処理を呼ぶ.
 	DxLib_End();

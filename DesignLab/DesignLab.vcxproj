@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="ComType.h" />
@@ -26,8 +27,10 @@
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Fps.h" />
+    <ClInclude Include="GraphicDataBroker.h" />
     <ClInclude Include="GraphicLoop.h" />
-    <ClInclude Include="GraphicMain.h" />
+    <ClInclude Include="GraphicMainSample.h" />
+    <ClInclude Include="GraphicSystem.h" />
     <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
     <ClInclude Include="HexapodMemo.h" />
@@ -55,6 +58,7 @@
     <ClInclude Include="vectorFunc.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="ComType.cpp" />
@@ -62,8 +66,10 @@
     <ClCompile Include="CmdIO.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="GraphicConst.cpp" />
+    <ClCompile Include="GraphicDataBroker.cpp" />
     <ClCompile Include="GraphicLoop.cpp" />
-    <ClCompile Include="GraphicMain.cpp" />
+    <ClCompile Include="GraphicMainSample.cpp" />
+    <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LogFileIO.cpp" />

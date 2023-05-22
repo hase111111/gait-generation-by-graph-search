@@ -1,4 +1,5 @@
 #pragma once
+#include "GraphicDataBroker.h"
 
 // GraphicMainは Dxlibの処理を行ってくれるクラスです．
 // Dxlib(デラックス ライブラリ)はウィンドウを表示して，所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつです．
@@ -10,14 +11,14 @@
 // https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも
 // https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(目次的なもの)．
 
-class GraphicMain final
+class GraphicSystem final
 {
 public:
-	GraphicMain() = default;
-	~GraphicMain() = default;
+	GraphicSystem() = default;
+	~GraphicSystem() = default;
 
 	//Dxlibの初期化を行います．失敗するとfalseを返します．
-	bool init();
+	bool init(const GraphicDataBroker* _p_broker);
 
 	// ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
 	void main();
@@ -27,4 +28,7 @@ private:
 	void finalize() const;	//Dxlibの終了処理を行います．
 
 	bool m_is_init_success = false;
+
+	//画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐブローカークラスのポインタを受け取る．
+	const GraphicDataBroker* mp_Broker;
 };

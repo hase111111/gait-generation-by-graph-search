@@ -49,6 +49,9 @@
     <Filter Include="ソース ファイル\Graphic">
       <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Graphic\Main">
+      <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -144,13 +147,22 @@
     <ClInclude Include="GraphicConst.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicMain.h">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicLoop.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="Fps.h">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicSystem.h">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractGraphicMain.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicMainSample.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicDataBroker.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
@@ -239,9 +251,6 @@
     <ClCompile Include="MapState.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicMain.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicConst.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
@@ -249,6 +258,18 @@
       <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="Fps.cpp">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicSystem.cpp">
+      <Filter>ソース ファイル\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicMainSample.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractGraphicMain.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicDataBroker.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
   </ItemGroup>
