@@ -52,6 +52,9 @@
     <Filter Include="ソース ファイル\Graphic\Main">
       <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Graphic\Common">
+      <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -165,6 +168,12 @@
     <ClInclude Include="GraphicDataBroker.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicMainBasic.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Dxlib3DFunction.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -271,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="GraphicDataBroker.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicMainBasic.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

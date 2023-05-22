@@ -26,9 +26,11 @@
     <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Dxlib3DFunction.h" />
     <ClInclude Include="Fps.h" />
     <ClInclude Include="GraphicDataBroker.h" />
     <ClInclude Include="GraphicLoop.h" />
+    <ClInclude Include="GraphicMainBasic.h" />
     <ClInclude Include="GraphicMainSample.h" />
     <ClInclude Include="GraphicSystem.h" />
     <ClInclude Include="GraphicConst.h" />
@@ -68,6 +70,7 @@
     <ClCompile Include="GraphicConst.cpp" />
     <ClCompile Include="GraphicDataBroker.cpp" />
     <ClCompile Include="GraphicLoop.cpp" />
+    <ClCompile Include="GraphicMainBasic.cpp" />
     <ClCompile Include="GraphicMainSample.cpp" />
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />

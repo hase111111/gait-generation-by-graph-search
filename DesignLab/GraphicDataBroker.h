@@ -10,6 +10,7 @@
 class GraphicDataBroker final
 {
 public:
+
 	GraphicDataBroker() = default;
 	~GraphicDataBroker() = default;
 

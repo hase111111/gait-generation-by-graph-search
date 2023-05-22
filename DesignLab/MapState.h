@@ -7,7 +7,7 @@
 class MapState final
 {
 public:
-	MapState() = delete;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
+	MapState() = default;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
 
 	MapState(const EMapCreateMode _mode, const int _option, const bool _do_output);
 

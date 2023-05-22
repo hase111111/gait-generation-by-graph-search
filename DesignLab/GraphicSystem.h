@@ -25,9 +25,8 @@ public:
 
 private:
 
-	void finalize() const;	//Dxlibの終了処理を行います．
-
-	bool m_is_init_success = false;
+	bool dxlibInit();		//Dxlibの初期化処理を行います．失敗した場合falseを返します．
+	void dxlibFinalize() const;	//Dxlibの終了処理を行います．
 
 	//画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐブローカークラスのポインタを受け取る．
 	const GraphicDataBroker* mp_Broker;

@@ -18,6 +18,38 @@ bool GraphicSystem::init(const GraphicDataBroker* _p_broker)
 
 	mp_Broker = _p_broker;
 
+	return true;
+}
+
+void GraphicSystem::main()
+{
+	//初期化をしていない or 失敗した場合則終了．
+	if (mp_Broker == nullptr) { return; }
+
+	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．
+	//そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
+	if (dxlibInit() == false) { return; }
+	
+	//描画の処理を行うクラスをセットする．
+	GraphicLoop _Looper(std::make_unique<GraphicMainSample>(mp_Broker));
+
+	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
+	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
+	while (!ProcessMessage())
+	{
+		//falseが帰った場合，ループを抜ける．
+		if (_Looper.loop() == false) 
+		{
+			break;
+		}
+	}
+
+	//終了処理を行う．
+	dxlibFinalize();
+}
+
+bool GraphicSystem::dxlibInit()
+{
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．
 
 	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	//タイトルを変更．ウィンドウの左上に表示されるものです．
@@ -32,43 +64,16 @@ bool GraphicSystem::init(const GraphicDataBroker* _p_broker)
 	//ＤＸライブラリ初期化処理
 	if (DxLib_Init() < 0)
 	{
-		//エラーが出ると負の値を返すので，その場合はfalse．
-		m_is_init_success = false;
 		return false;
 	}
 
 	//描画先を裏画面にする．説明が難しいのですが，画面のちらつきを押えてくれる効果があり，Dxlibを使う以上必須の項目です．
-	SetDrawScreen(DX_SCREEN_BACK);						
+	SetDrawScreen(DX_SCREEN_BACK);
 
-	//初期化に成功したので，フラグを立てて終了.
-	m_is_init_success = true;
 	return true;
 }
 
-void GraphicSystem::main()
-{
-	//初期化をしていない or 失敗した場合終了
-	if (m_is_init_success == false) { return; }
-
-
-	GraphicLoop _Looper(std::make_unique<GraphicMainSample>(mp_Broker));
-
-	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
-	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
-	while (!ProcessMessage())
-	{
-		//falseが帰った場合，ループを抜ける．
-		if (_Looper.loop() == false) 
-		{
-			break;
-		}
-	}
-
-	//終了する
-	finalize();
-}
-
-void GraphicSystem::finalize() const
+void GraphicSystem::dxlibFinalize() const
 {
 	// DXライブラリの終了処理を呼ぶ.
 	DxLib_End();
