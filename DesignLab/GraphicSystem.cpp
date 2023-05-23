@@ -75,6 +75,9 @@ bool GraphicSystem::dxlibInit()
 	//描画先を裏画面にする．説明が難しいのですが，画面のちらつきを押えてくれる効果があり，Dxlibを使う以上必須の項目です．
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	// 背景色の設定
+	SetBackgroundColor(GraphicConst::BACK_COLOR_R, GraphicConst::BACK_COLOR_G, GraphicConst::BACK_COLOR_B);
+
 	return true;
 }
 

@@ -9,6 +9,10 @@ const int GraphicConst::WIN_Y = 720;
 
 const int GraphicConst::COLOR_BIT = 32;
 
+const int GraphicConst::BACK_COLOR_R = 170;
+const int GraphicConst::BACK_COLOR_G = 255;
+const int GraphicConst::BACK_COLOR_B = 255;
+
 const float GraphicConst::CAMERA_FAR = 3000.0f;
 
 const float GraphicConst::CAMERA_NEAR = 0.1f;

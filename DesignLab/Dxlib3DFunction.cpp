@@ -12,7 +12,6 @@ void myDxlib3DFunc::initDxlib3D()
 	SetUseZBuffer3D(TRUE);					// Ｚバッファを有効にする
 	SetWriteZBuffer3D(TRUE);				// Ｚバッファへの書き込みを有効にする
 	SetFogEnable(FALSE);					// フォグは使用しない．
-	SetBackgroundColor(0xDA, 0xEC, 0xED);	// 背景色の設定
 }
 
 void myDxlib3DFunc::drawCube3D(const VECTOR _center_pos, const float _side_len, const unsigned int _color)

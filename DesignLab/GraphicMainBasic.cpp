@@ -27,7 +27,7 @@ bool GraphicMainBasic::update()
         m_display_node++;
 
         //’l‚ª‘å‚«‚·‚¬‚½‚çŠÛ‚ß‚éD
-        if (m_display_node >= m_node.size()) { m_display_node = m_node.size() - 1; }
+        if (m_display_node >= (int)m_node.size()) { m_display_node = (int)m_node.size() - 1; }
     }
 
     if (m_node.empty() == false) 

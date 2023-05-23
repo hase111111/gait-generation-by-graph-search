@@ -9,6 +9,10 @@ public:
 	const static int WIN_Y;				//ウィンドウの縦幅．dxlibではウィンドウの縦方向に，下向きを正として Y 軸をとります．
 	const static int COLOR_BIT;			//色を表現するbit数．通常32で良いが軽くするなら16にする．
 
+	const static int BACK_COLOR_R;		//ウィンドウ背景色． 赤色成分
+	const static int BACK_COLOR_G;		//ウィンドウ背景色． 緑色成分
+	const static int BACK_COLOR_B;		//ウィンドウ背景色． 青色成分
+
 	//ウィンドウのFPS(フレーム / 秒．秒間画面を何回更新するか．TVは30fps，Nintendo Switchは60fps)．
 	//60より大きい値にしても意味はない．30とかにしてもいいけどそこまで処理負荷は変わらないと思う．
 	constexpr static unsigned int GRAPHIC_FPS = 60;

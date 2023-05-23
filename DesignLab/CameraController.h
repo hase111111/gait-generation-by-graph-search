@@ -10,6 +10,7 @@ private:
 	VECTOR m_camera_up;		//カメラの上方向を設定する．
 	float m_length_camera_to_target;	//カメラと目標物との距離．
 	float m_angle;			//カメラの回転角度
+
 public:
 	CameraController();
 	~CameraController() = default;

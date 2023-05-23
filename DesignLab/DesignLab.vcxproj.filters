@@ -31,9 +31,6 @@
     <Filter Include="ソース ファイル\Hexapod">
       <UniqueIdentifier>{e6718033-9dd2-4cc9-94c3-f4dff54cca6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\HexapodGraphic">
-      <UniqueIdentifier>{e82cdec7-b284-4796-a376-b8bca6e611ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common\FileIO">
       <UniqueIdentifier>{c3a615e3-7f3c-4f90-a4ed-bc6bc201f418}</UniqueIdentifier>
     </Filter>
@@ -62,12 +59,6 @@
   <ItemGroup>
     <ClInclude Include="hexapod.h">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapodGraphic.h">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
     </ClInclude>
     <ClInclude Include="listFunc.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -193,12 +184,6 @@
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
-    </ClCompile>
-    <ClCompile Include="hexapodGraphic.cpp">
-      <Filter>ソース ファイル\HexapodGraphic</Filter>
     </ClCompile>
     <ClCompile Include="listFunc.cpp">
       <Filter>ソース ファイル\Common</Filter>

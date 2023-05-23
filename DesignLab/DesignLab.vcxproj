@@ -22,7 +22,6 @@
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
-    <ClInclude Include="camera.h" />
     <ClInclude Include="ComType.h" />
     <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
@@ -50,7 +49,6 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
-    <ClInclude Include="hexapodGraphic.h" />
     <ClInclude Include="listFunc.h" />
     <ClInclude Include="MapCreator.h" />
     <ClInclude Include="NodeFileIO.h" />
@@ -67,7 +65,6 @@
     <ClCompile Include="HexapodRenderer.cpp" />
     <ClCompile Include="InterfaceGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
-    <ClCompile Include="camera.cpp" />
     <ClCompile Include="ComType.cpp" />
     <ClCompile Include="CreateComCandidate.cpp" />
     <ClCompile Include="CmdIO.cpp" />
@@ -87,7 +84,6 @@
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="function_walking_pattern_generator.cpp" />
     <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="hexapodGraphic.cpp" />
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
