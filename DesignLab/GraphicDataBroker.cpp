@@ -55,9 +55,8 @@ void GraphicDataBroker::copyOnlyNewNode(std::vector<SNode>& _node_vec) const
     if (_node_vec.size() < m_node.size()) 
     {
         const size_t start_num = _node_vec.size();
-        const size_t loop_num = m_node.size() - _node_vec.size();
 
-        for (size_t i = start_num; i < loop_num; i++)
+        for (size_t i = start_num; i < m_node.size(); i++)
         {
             _node_vec.push_back(m_node.at(i));
         }

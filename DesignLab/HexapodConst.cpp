@@ -16,6 +16,8 @@ const float HexapodConst::BODY_FRONT_LENGTH = 120.0f;
 
 const float HexapodConst::BODY_REAR_LENGTH = 120.0f;
 
+const float HexapodConst::BODY_HEIGHT = 40.0f;
+
 const float HexapodConst::VERTICAL_MAX_RANGE = 190.0f;
 
 const float HexapodConst::VERTICAL_MIN_RANGE = 30.0f;

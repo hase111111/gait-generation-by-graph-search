@@ -18,6 +18,7 @@ public:
 	const static float BODY_REAR_WIDTH;		//後方の幅[mm]．phantomXの横幅.
 	const static float BODY_FRONT_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
 	const static float BODY_REAR_LENGTH;	//中央から前方までの距離[mm]．phantomXの縦幅.
+	const static float BODY_HEIGHT;			//胴体の高さ[mm]．
 
 	//ロボットの可動範囲
 	const static float VERTICAL_MAX_RANGE;	//地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ

@@ -6,30 +6,6 @@
 
 class MapState final
 {
-public:
-	MapState() = default;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
-
-	MapState(const EMapCreateMode _mode, const int _option, const bool _do_output);
-
-	//正方形状に切り分けられたマップから，脚設置可能点の数を取得する．
-	int getPointNumFromDevideMap(const int _x, const int _y) const;
-
-	//正方形状に切り分けられたマップから，脚設置可能点の座標を取得する
-	myvector::SVector getPosFromDevideMap(const int _x, const int _y, const int _num) const;
-
-	myvector::SVector getPos(const int _num) const;
-
-	// x座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumX(const float _posx)
-	{
-		return (int)( (_posx - MapConst::MAP_X_MIN) / ( ((float)MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / MapConst::LP_DIVIDE_NUM) );
-	}
-
-	// y座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumY(const float _posy)
-	{
-		return (int)( (_posy - MapConst::MAP_Y_MIN) / ( ((float)MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / MapConst::LP_DIVIDE_NUM) );
-	}
 
 private:
 
@@ -45,5 +21,34 @@ private:
 
 	// m_devide_mapでは要素は1次元の配列として並んでいるので，2つの入力から，どの値を参照すればよいのかを計算する．
 	inline int getDevideMapNum(const int _x, const int _y) const { return _x * MapConst::LP_DIVIDE_NUM + _y; }
+
+public:
+	MapState() = default;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
+
+	MapState(const EMapCreateMode _mode, const int _option, const bool _do_output);
+
+	//正方形状に切り分けられたマップから，脚設置可能点の数を取得する．
+	int getPointNumFromDevideMap(const int _x, const int _y) const;
+
+	//正方形状に切り分けられたマップから，脚設置可能点の座標を取得する
+	myvector::SVector getPosFromDevideMap(const int _x, const int _y, const int _num) const;
+
+	//脚設置可能点の座標を出力する．描画にのみ利用．
+	myvector::SVector getPos(const int _num) const;
+
+	//脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
+	inline size_t getPosNum() const { return m_map_data.size();; }
+
+	// x座標の値から，m_devide_mapのどこをさしているか計算して返す
+	inline static int getDevideMapNumX(const float _posx)
+	{
+		return (int)( (_posx - MapConst::MAP_X_MIN) / ( ((float)MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / MapConst::LP_DIVIDE_NUM) );
+	}
+
+	// y座標の値から，m_devide_mapのどこをさしているか計算して返す
+	inline static int getDevideMapNumY(const float _posy)
+	{
+		return (int)( (_posy - MapConst::MAP_Y_MIN) / ( ((float)MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / MapConst::LP_DIVIDE_NUM) );
+	}
 
 };

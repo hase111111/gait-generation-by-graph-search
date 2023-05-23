@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractGraphicMain.h" />
+    <ClInclude Include="HexapodRenderer.h" />
+    <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="ComType.h" />
@@ -28,7 +29,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dxlib3DFunction.h" />
     <ClInclude Include="Fps.h" />
-    <ClInclude Include="GraphicCamera.h" />
+    <ClInclude Include="CameraController.h" />
     <ClInclude Include="GraphicDataBroker.h" />
     <ClInclude Include="GraphicLoop.h" />
     <ClInclude Include="GraphicMainBasic.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="function_walking_pattern_generator.h" />
     <ClInclude Include="MapConst.h" />
+    <ClInclude Include="MapRenderer.h" />
     <ClInclude Include="MapState.h" />
     <ClInclude Include="MyMath.h" />
     <ClInclude Include="Singleton.h" />
@@ -62,7 +64,8 @@
     <ClInclude Include="vectorFunc.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractGraphicMain.cpp" />
+    <ClCompile Include="HexapodRenderer.cpp" />
+    <ClCompile Include="InterfaceGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="ComType.cpp" />
@@ -70,7 +73,7 @@
     <ClCompile Include="CmdIO.cpp" />
     <ClCompile Include="Dxlib3DFunction.cpp" />
     <ClCompile Include="Fps.cpp" />
-    <ClCompile Include="GraphicCamera.cpp" />
+    <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="GraphicConst.cpp" />
     <ClCompile Include="GraphicDataBroker.cpp" />
     <ClCompile Include="GraphicLoop.cpp" />
@@ -89,6 +92,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
     <ClCompile Include="MapCreator.cpp" />
+    <ClCompile Include="MapRenderer.cpp" />
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="MyMath.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />

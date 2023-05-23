@@ -15,6 +15,8 @@ public:
 
 	const static float CAMERA_FAR;	//カメラが表示できる最も遠い座標．
 	const static float CAMERA_NEAR;	//カメラが表示できる最も近い座標．
+
+	const static float CAMERA_TO_TARGET_MAX;	//カメラと注視目標の最大距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
 private:
 
 	//コンストラクタとコピーコンストラクタを削除して実体を生成できないようにする．

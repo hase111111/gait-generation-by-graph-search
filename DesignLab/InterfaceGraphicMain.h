@@ -7,12 +7,13 @@
 //よくわからないなら，「クラスの継承」「関数のオーバーライド（オーバーロードとは別物です）」「完全仮想関数」あたりを調べてみてください．ぶっちゃけ，よくわからなくても大丈夫です．
 //ひとまず，GraphicMainSampleを確認していただければなんとなくわかると思います．
 
-class AbstractGraphicMain
+//GraphicMainのインターフェース
+class IGraphicMain
 {
 public:
 	//このクラスの継承先では，const GraphicDataBroker* _brokerを引数に持つコンストラクタを実装する必要があります．
-	AbstractGraphicMain(const GraphicDataBroker* _broker);
-	virtual ~AbstractGraphicMain() = default;
+	IGraphicMain(const GraphicDataBroker* _broker);
+	virtual ~IGraphicMain() = default;
 
 	//描画画面の更新を行う．完全仮想関数のため，継承先では必ずoverrideする必要がある．
 	virtual bool update() = 0;

@@ -10,7 +10,7 @@
 // ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，以下の様な書き方となる．
 
 
-GraphicLoop::GraphicLoop(std::unique_ptr<AbstractGraphicMain>&& mp_graphic_main)
+GraphicLoop::GraphicLoop(std::unique_ptr<IGraphicMain>&& mp_graphic_main)
 {
 	//グラフィックメインクラスをセットする．ユニークポインタを代入する場合はmoveを行う．参考 https://nojima.hatenablog.com/entry/2014/12/10/014131
 	mp_GraphicMain = std::move(mp_graphic_main);

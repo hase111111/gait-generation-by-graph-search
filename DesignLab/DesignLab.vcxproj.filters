@@ -55,6 +55,9 @@
     <Filter Include="ソース ファイル\Graphic\Common">
       <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Graphic\Render3D">
+      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -150,9 +153,6 @@
     <ClInclude Include="GraphicSystem.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractGraphicMain.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicMainSample.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
@@ -161,12 +161,6 @@
     </ClInclude>
     <ClInclude Include="GraphicMainBasic.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Dxlib3DFunction.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicCamera.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="GraphicConst.h">
       <Filter>ソース ファイル\Graphic\Common</Filter>
@@ -179,6 +173,21 @@
     </ClInclude>
     <ClInclude Include="Fps.h">
       <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MapRenderer.h">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraController.h">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Dxlib3DFunction.h">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceGraphicMain.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="HexapodRenderer.h">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -272,20 +281,11 @@
     <ClCompile Include="GraphicMainSample.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
-    <ClCompile Include="AbstractGraphicMain.cpp">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicDataBroker.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="GraphicMainBasic.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicCamera.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Dxlib3DFunction.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClCompile>
     <ClCompile Include="GraphicConst.cpp">
       <Filter>ソース ファイル\Graphic\Common</Filter>
@@ -295,6 +295,21 @@
     </ClCompile>
     <ClCompile Include="Fps.cpp">
       <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="MapRenderer.cpp">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Dxlib3DFunction.cpp">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceGraphicMain.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="HexapodRenderer.cpp">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
