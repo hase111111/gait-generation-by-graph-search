@@ -55,6 +55,12 @@
     <Filter Include="ソース ファイル\Graphic\Render3D">
       <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Hexapod\Common">
+      <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Map\Common">
+      <UniqueIdentifier>{4cbf193f-9b99-4485-b951-d73d36506f65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -114,9 +120,6 @@
     <ClInclude Include="LegState.h">
       <Filter>ソース ファイル\walking_pattern\LegState</Filter>
     </ClInclude>
-    <ClInclude Include="HexapodMemo.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
     <ClInclude Include="CreateComCandidate.h">
       <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
     </ClInclude>
@@ -125,12 +128,6 @@
     </ClInclude>
     <ClInclude Include="MyMath.h">
       <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="HexapodConst.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="MapConst.h">
-      <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="MapCreator.h">
       <Filter>ソース ファイル\Map</Filter>
@@ -178,6 +175,21 @@
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="HexapodRenderer.h">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="HexapodConst.h">
+      <Filter>ソース ファイル\Hexapod\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MapConst.h">
+      <Filter>ソース ファイル\Map\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonController.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIController.h">
       <Filter>ソース ファイル\Graphic\Render3D</Filter>
     </ClInclude>
   </ItemGroup>
@@ -242,13 +254,7 @@
     <ClCompile Include="ComType.cpp">
       <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="HexapodConst.cpp">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
     <ClCompile Include="MapCreator.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="MapConst.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="MyMath.cpp">
@@ -294,6 +300,21 @@
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
     <ClCompile Include="HexapodRenderer.cpp">
+      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="HexapodConst.cpp">
+      <Filter>ソース ファイル\Hexapod\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MapConst.cpp">
+      <Filter>ソース ファイル\Map\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonController.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>ソース ファイル\Graphic\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIController.cpp">
       <Filter>ソース ファイル\Graphic\Render3D</Filter>
     </ClCompile>
   </ItemGroup>

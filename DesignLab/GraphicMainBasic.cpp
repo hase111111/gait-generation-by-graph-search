@@ -33,15 +33,19 @@ bool GraphicMainBasic::update()
     if (m_node.empty() == false) 
     {
         //ノードが存在しているならば，カメラの処理を行う．
-        m_Camera.update();
         m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));
 
         //ロボットの状態を更新する．
+        m_hexapod.setMyDirection(m_node.at(m_display_node).pitch, m_node.at(m_display_node).roll, m_node.at(m_display_node).yaw);
         m_hexapod.setMyPosition(m_node.at(m_display_node).global_center_of_mass);
         m_hexapod.setLocalLegPos(m_node.at(m_display_node).Leg);
     }
 
     m_counter++;    //カウンタを進める．
+
+    m_GUI.update(m_Camera); //GUIを更新する．
+
+    m_Camera.update();  //カメラを更新する
 
     return false;
 }
@@ -57,5 +61,8 @@ void GraphicMainBasic::draw() const
         //ノードが存在しているならば，ロボットを描画する．
         HexapodRenderer _hexapod_render;
         _hexapod_render.draw(m_hexapod, m_node.at(m_display_node).leg_state);
+
+        //UIを表示する．
+        m_GUI.draw(m_node.at(m_display_node));
     }
 }

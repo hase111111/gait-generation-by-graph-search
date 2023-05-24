@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ButtonController.h" />
+    <ClInclude Include="GUIController.h" />
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
@@ -36,7 +38,6 @@
     <ClInclude Include="GraphicSystem.h" />
     <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
-    <ClInclude Include="HexapodMemo.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LogFileIO.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="MapConst.h" />
     <ClInclude Include="MapRenderer.h" />
     <ClInclude Include="MapState.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyMath.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Target.h" />
@@ -62,6 +64,8 @@
     <ClInclude Include="vectorFunc.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ButtonController.cpp" />
+    <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="HexapodRenderer.cpp" />
     <ClCompile Include="InterfaceGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
@@ -90,6 +94,7 @@
     <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="MapRenderer.cpp" />
     <ClCompile Include="MapState.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyMath.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
     <ClCompile Include="PassFinding.cpp" />

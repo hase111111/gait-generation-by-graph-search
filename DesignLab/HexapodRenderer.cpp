@@ -32,8 +32,8 @@ void HexapodRenderer::draw(const Hexapod& _hexapod, const int _leg_state) const
 		const VECTOR _femur = convertToDxVec(_hexapod.getGlobalFemurJointPos(i));
 		const VECTOR _tibia = convertToDxVec(_hexapod.getGlobalTibiaJointPos(i));
 
-		const unsigned int _color = isGrounded(_leg_state, i) == true ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int _joint_color = isGrounded(_leg_state, i) == true ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+		const unsigned int _color = isGrounded(_leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
+		const unsigned int _joint_color = isGrounded(_leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 		const unsigned int _spec_color = GetColor(255, 255, 255);
 
 		//Še‹r‚Ì•`‰æ

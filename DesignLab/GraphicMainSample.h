@@ -6,6 +6,7 @@
 // public AbstractGraphicMain … AbstractGraphicMainクラスを継承した，という意味
 // override … 継承元の関数をオーバーライドしたという意味，付けなくとも問題ないが付けておくとコンパイラに明示的にオーバーライドを知らせられるのでバグを防ぎやすい．
 
+//サンプル描画クラス．サンプルメッセージを表示します．
 class GraphicMainSample final : public IGraphicMain
 {
 public:

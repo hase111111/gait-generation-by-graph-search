@@ -6,7 +6,6 @@
 
 class MapState final
 {
-
 private:
 
 	// m_map_data をもとに m_devide_mapに値をセットする
