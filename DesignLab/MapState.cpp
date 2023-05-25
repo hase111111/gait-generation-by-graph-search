@@ -12,7 +12,6 @@ MapState::MapState(const EMapCreateMode _mode, const int _option, const bool _do
 int MapState::getPointNumFromDevideMap(const int _x, const int _y) const
 {
 	if (getDevideMapNum(_x, _y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return 0; }
-
 	return (int)m_devide_map.at(getDevideMapNum(_x, _y)).size();
 }
 

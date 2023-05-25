@@ -34,16 +34,15 @@ void HexapodRenderer::draw(const Hexapod& _hexapod, const int _leg_state) const
 
 		const unsigned int _color = isGrounded(_leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
 		const unsigned int _joint_color = isGrounded(_leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
-		const unsigned int _spec_color = GetColor(255, 255, 255);
 
 		//äeãrÇÃï`âÊ
-		DrawCapsule3D(_coxa,	_femur, LEG_R, CAPSULE_DIV_NUM, _color, _spec_color, TRUE);	//coxa
-		DrawCapsule3D(_femur,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _spec_color, TRUE);	//femur
-		DrawCone3D(_leg_end,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _spec_color, TRUE);	//tibia 
+		DrawCapsule3D(_coxa,	_femur, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//coxa
+		DrawCapsule3D(_femur,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//femur
+		DrawCone3D(_leg_end,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//tibia 
 
 		//ä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(_coxa,	 JOINT_R, SPHERE_DIV_NUM, _joint_color, _spec_color, TRUE);
-		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _spec_color, TRUE);
-		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, _spec_color, TRUE);
+		DrawSphere3D(_coxa,	 JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
+		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
+		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 	}
 }

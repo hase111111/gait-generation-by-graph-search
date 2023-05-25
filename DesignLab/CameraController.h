@@ -8,7 +8,9 @@ enum class ECameraMode : int
 {
 	TopView,
 	OverheadView,
-	SideView
+	SideView,
+	OverheadViewFlip,
+	SideViewFlip,
 };
 
 

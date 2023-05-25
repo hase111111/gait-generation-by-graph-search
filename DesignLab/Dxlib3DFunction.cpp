@@ -51,6 +51,11 @@ void myDxlib3DFunc::drawCube3D(const VECTOR _center_pos, const float _side_len, 
 
 }
 
+void myDxlib3DFunc::drawCube3DWithTopPos(const VECTOR _top_pos, const float _side_len, const unsigned int _color)
+{
+	drawCube3D(VSub(_top_pos, VGet(0, 0, _side_len / 2)), _side_len, _color);
+}
+
 void myDxlib3DFunc::drawHexagon(const VECTOR _vertex[6], const unsigned int _color)
 {
 	// 3D描画の関数は3角形を基本単位とするので，6角形の面を張りたい場合は，4つの三角形を組み合わせる必要がある．
