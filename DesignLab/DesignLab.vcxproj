@@ -42,7 +42,6 @@
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
-    <ClInclude Include="function_walking_pattern_generator.h" />
     <ClInclude Include="MapConst.h" />
     <ClInclude Include="MapRenderer.h" />
     <ClInclude Include="MapState.h" />
@@ -86,7 +85,6 @@
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
-    <ClCompile Include="function_walking_pattern_generator.cpp" />
     <ClCompile Include="hexapod.cpp" />
     <ClCompile Include="listFunc.cpp" />
     <ClCompile Include="main.cpp" />

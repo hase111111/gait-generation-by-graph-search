@@ -78,9 +78,6 @@
     <ClInclude Include="functionPassFinding.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
-    <ClInclude Include="function_walking_pattern_generator.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
     <ClInclude Include="BFSinHierarchy.h">
       <Filter>ソース ファイル\walking_pattern\Sin</Filter>
     </ClInclude>
@@ -205,9 +202,6 @@
     </ClCompile>
     <ClCompile Include="vectorFunc.cpp">
       <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="function_walking_pattern_generator.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
     <ClCompile Include="functionPassFinding.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>

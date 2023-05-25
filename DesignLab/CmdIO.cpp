@@ -12,19 +12,33 @@ void CmdIO::outputString(const std::string _str)
 void CmdIO::outputLNODE(const SNode _node)
 {
 	std::cout << "-------------------------ƒOƒ‰ƒt’Tõ‚Å“¾‚ç‚ê‚½•à—eƒpƒ^[ƒ“---------------------------" << std::endl;
-
-	std::cout << "\n";
-	//std::cout << "leg_condition = " << std::bitset<24>(LNODE1.leg_state) << "\n";
-	std::cout << "COM_type = " << (_node.leg_state >> LegState::SHIFT_TO_COM_NUM) << "\n";
-	std::cout << "Legs(0,1,2,3,4,5) \nv =\t";
-	for (int i = 0; i < 6; ++i) std::cout << isGrounded(_node.leg_state, i);
-	std::cout << std::endl << "kaisou =";
-	for (int i = 0; i < 6; ++i)	std::cout << LegState::getLegState(_node.leg_state, i);
 	std::cout << std::endl;
-	//std::cout << "center_of_mass = " << LNODE1.center_of_mass << "\n";
-	for (int i = 0; i < 6; i++) { std::cout << "Leg[" << i << "] = "; myvector::VectorOutPut(_node.Leg[i]); }
-	std::cout << "global_center_of_mass = "; myvector::VectorOutPut(_node.global_center_of_mass);
-	//std::cout << "parent = " << LNODE1.parent << "\n";
+	
+	//dSƒpƒ^[ƒ“
+	std::cout << "COM_type = " << LegState::getComPatternState(_node.leg_state) << std::endl;
+
+	//‹r‚Ì—V‹rEÚ’nó‘Ô
+	std::cout << "Legs(0,1,2,3,4,5)" << std::endl;
+	std::cout << "Leg is Grounded : ";
+	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << (isGrounded(_node.leg_state, i) ? "ground " : "lifted "); }
+	std::cout << std::endl;
+
+	//‹r‚ÌŠK‘w
+	std::cout << "Hierarchy : ";
+	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << LegState::getLegState(_node.leg_state, i); }
+	std::cout << std::endl;
+
+	//‹rˆÊ’u
+	std::cout << "Leg Postion : " << std::endl;
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++) 
+	{
+		std::cout << "Leg[" << i << "] = " << _node.Leg[i] << std::endl;
+	}
+	std::cout << std::endl;
+
+	//dSˆÊ’u
+	std::cout << "global_center_of_mass = " << _node.global_center_of_mass << std::endl;
+
 	std::cout << "node_height = " << _node.node_height << "\n";
 	std::cout << "debug = " << _node.debug << "\n";
 	if (_node.debug % 100 / 10 == 2) std::cout << "¡‰ñ2 ‹r‚Ì“¥‚Ý‚©‚¦“®ì" << std::endl;
@@ -40,9 +54,6 @@ void CmdIO::outputLNODE(const SNode _node)
 	std::cout << "ŽÀÛ‚Ì‚‚³ˆÚ“®—Ê = " << _node.delta_comz << "\n";
 	std::cout << "’Tõ‚µ‚½ƒm[ƒh” = " << _node.last_node_num << "\n";
 	std::cout << "’TõŽžŠÔ = " << _node.time << "\n";
-	//std::cout << "pitch = " << LNODE1.pitch << "\n";
-	//std::cout << "roll = " << LNODE1.roll << "\n";
-	//std::cout << "yaw = " << LNODE1.yaw << "\n";
 
 	std::cout << "---------------------------------1“®ì•ªI—¹----------------------------------------------" << std::endl;
 }

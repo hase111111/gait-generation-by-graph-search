@@ -215,12 +215,12 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 {
 	myvector::SVector v, v1, v2;
 	float t1, t2;
-	v1 = myvector::subVec(e1, s1);
-	v2 = myvector::subVec(e2, s2);
-	v = myvector::subVec(s1, s2);
+	v1 = e1 - s1;
+	v2 = e2 - s2;
+	v  = s1 - s2;
 
 	//2つのベクトルが平行//外積が0なら平行,xyz空間で並行でなくてもxy平面で平行な可能性あり
-	if (myvector::VSquareSize(myvector::VCross(v1, v2)) < 0.01) 
+	if ((myvector::VCross(v1, v2)).lengthSquare() < 0.01) 
 	{
 		//ベクトルの外積の大きさの2乗
 		return false;	//2つのアークの始点，終点のどれも一致していない
@@ -229,7 +229,7 @@ bool CreateComCandidate::lineSegmentHitDetection(myvector::SVector s1, myvector:
 	//t1=s1s2e2の頂点からなる三角形の面積の2倍/s1s2e1e2の頂点からなる四角形の面積の2倍→四角形の面積における三角形の面積の割合→s1から交点の距離/s1からe2の距離
 	t1 = -VCrossXZ(v, v2) / VCrossXZ(v1, v2);
 	t2 = -VCrossXZ(v, v1) / VCrossXZ(v1, v2);
-	*crossPoint = myvector::addVec(s1, myvector::VScale(v1, t1));
+	*crossPoint = s1 + v1 * t1;
 
 	//線分同士が交差しているならば
 	if ( ContactJudgment(t1, t2) ) 
@@ -319,15 +319,15 @@ bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon)
 	//頂点の数だけループ
 	for (int i = 0; i < polygon->nOfVertex; i++) 
 	{
-		v1 = myvector::subVec(polygon->VertexNode[(i + 1) % polygon->nOfVertex]->Point, polygon->VertexNode[i]->Point);//多角形の辺
-		v1n = myvector::VUnit(v1);
+		v1 = polygon->VertexNode[(i + 1) % polygon->nOfVertex]->Point - polygon->VertexNode[i]->Point;	//多角形の辺
+		v1n = v1.normalized();
 
 		for (int ix = 0; ix< DIVIDE_NUM; ix++) 
 		{
 			for (int iz = 0; iz< DIVIDE_NUM; iz++) 
 			{
 				//map総当たり
-				vMap = myvector::subVec(myvector::subVec(comCandidatePoint[ix][iz], polygon->VertexNode[i]->Point), COMPOSI);//頂点からの重心のベクトル,composiがy方向にずれたらzとxを変換する必要があり？
+				vMap = comCandidatePoint[ix][iz] - polygon->VertexNode[i]->Point - COMPOSI;		//頂点からの重心のベクトル,composiがy方向にずれたらzとxを変換する必要があり？
 
 				//ポリゴンのマージン外にある場合adleComCandidateを0//辺の単位ベクトル(=1)とvMapからなる面積=辺から重心への垂線の長さ>マージン10.0f
 				if (myvector::VCross(vMap, v1n).y > -m_stability_margin) 
@@ -434,15 +434,15 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 	for (int i = 0; i < polygon->nOfVertex; i++) 
 	{
 		//頂点の数だけループ
-		v1 = myvector::subVec(polygon->VertexNode[(i + 1) % polygon->nOfVertex]->Point, polygon->VertexNode[i]->Point);//多角形の辺
-		v1n = myvector::VUnit(v1);
+		v1 = polygon->VertexNode[(i + 1) % polygon->nOfVertex]->Point - polygon->VertexNode[i]->Point;	//多角形の辺
+		v1n = v1.normalized();
 		
 		for (int ix = 0; ix< DIVIDE_NUM; ix++) 
 		{
 			for (int iz = 0; iz< DIVIDE_NUM; iz++) 
 			{
 				//map総当たり
-				vMap = myvector::subVec(myvector::subVec(comCandidatePoint[ix][iz], polygon->VertexNode[i]->Point), COMPOSI);//頂点からの重心のベクトル,composiが中心以外ならcomposiの位置を回転する必要ある
+				vMap = comCandidatePoint[ix][iz] - polygon->VertexNode[i]->Point - COMPOSI;	//頂点からの重心のベクトル,composiが中心以外ならcomposiの位置を回転する必要ある
 
 				if (myvector::VCross(vMap, v1n).y > -m_stability_margin) 
 				{
@@ -515,7 +515,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 		{
 			if (adleComCandidate[ix][iz] == 1) 
 			{
-				CtoG_can = myvector::subVec(myvector::addVec(m_global_com, comCandidatePoint[ix][iz]), phantomX.getRotaionCenter());
+				CtoG_can = m_global_com + comCandidatePoint[ix][iz] - phantomX.getRotaionCenter();
 				CtoG_can_radius = sqrt(CtoG_can.x*CtoG_can.x + CtoG_can.y*CtoG_can.y);
 				distanceA = fabs(CtoG_can_radius - phantomX.getTurningRadius());
 
