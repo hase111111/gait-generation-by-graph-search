@@ -61,6 +61,9 @@
     <Filter Include="ソース ファイル\Map\Common">
       <UniqueIdentifier>{4cbf193f-9b99-4485-b951-d73d36506f65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearch">
+      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -189,6 +192,12 @@
     <ClInclude Include="GUIController.h">
       <Filter>ソース ファイル\Graphic\Render3D</Filter>
     </ClInclude>
+    <ClInclude Include="GraphSearch.h">
+      <Filter>ソース ファイル\GraphSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphTreeCreator.h">
+      <Filter>ソース ファイル\GraphSearch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -310,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="GUIController.cpp">
       <Filter>ソース ファイル\Graphic\Render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearch.cpp">
+      <Filter>ソース ファイル\GraphSearch</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ButtonController.h" />
+    <ClInclude Include="GraphSearch.h" />
     <ClInclude Include="GUIController.h" />
     <ClInclude Include="HexapodRenderer.h" />
+    <ClInclude Include="IGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="ComType.h" />
@@ -64,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
+    <ClCompile Include="GraphSearch.cpp" />
     <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="HexapodRenderer.cpp" />
     <ClCompile Include="InterfaceGraphicMain.cpp" />
