@@ -10,9 +10,7 @@ public:
 	IGraphTreeCreator() = default;
 	virtual ~IGraphTreeCreator() = default;		//継承をするクラスのデストラクタはvirtualにしておく．参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 
-	//グラフ木を作成するクラス．
+	//グラフ木を作成するクラス．完成したグラフは参照渡しする．
 	virtual bool createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph) = 0;
-
-private:
 
 };

@@ -21,8 +21,13 @@
   <ItemGroup>
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="GraphSearch.h" />
+    <ClInclude Include="GraphSearcherSample.h" />
+    <ClInclude Include="GraphSearchInitializer.h" />
+    <ClInclude Include="GraphTreeCreatorHato.h" />
+    <ClInclude Include="GraphTreeCreatorSample.h" />
     <ClInclude Include="GUIController.h" />
     <ClInclude Include="HexapodRenderer.h" />
+    <ClInclude Include="IGraphSearcher.h" />
     <ClInclude Include="IGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
@@ -67,6 +72,9 @@
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
     <ClCompile Include="GraphSearch.cpp" />
+    <ClCompile Include="GraphSearcherSample.cpp" />
+    <ClCompile Include="GraphSearchInitializer.cpp" />
+    <ClCompile Include="GraphTreeCreatorSample.cpp" />
     <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="HexapodRenderer.cpp" />
     <ClCompile Include="InterfaceGraphicMain.cpp" />

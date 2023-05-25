@@ -64,6 +64,12 @@
     <Filter Include="ソース ファイル\GraphSearch">
       <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearch\TreeCreator">
+      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphSearch\GraphSearcher">
+      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -195,8 +201,23 @@
     <ClInclude Include="GraphSearch.h">
       <Filter>ソース ファイル\GraphSearch</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphTreeCreator.h">
+    <ClInclude Include="GraphSearchInitializer.h">
       <Filter>ソース ファイル\GraphSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphTreeCreator.h">
+      <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphSearcher.h">
+      <Filter>ソース ファイル\GraphSearch\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSearcherSample.h">
+      <Filter>ソース ファイル\GraphSearch\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphTreeCreatorSample.h">
+      <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphTreeCreatorHato.h">
+      <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +343,15 @@
     </ClCompile>
     <ClCompile Include="GraphSearch.cpp">
       <Filter>ソース ファイル\GraphSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearchInitializer.cpp">
+      <Filter>ソース ファイル\GraphSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearcherSample.cpp">
+      <Filter>ソース ファイル\GraphSearch\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphTreeCreatorSample.cpp">
+      <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "MapState.h"
 #include "listFunc.h"
 #include "IGraphTreeCreator.h"
+#include "IGraphSearcher.h"
 #include <memory>
 
 //グラフ探索を行うクラス．名前通り
@@ -18,4 +19,5 @@ public:
 
 private:
 	std::unique_ptr<IGraphTreeCreator> mp_GraphTreeCreator;
+	std::unique_ptr<IGraphSearcher> mp_GraphSearcher;
 };
