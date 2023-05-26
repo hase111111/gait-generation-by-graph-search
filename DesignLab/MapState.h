@@ -22,9 +22,10 @@ private:
 	inline int getDevideMapNum(const int _x, const int _y) const { return _x * MapConst::LP_DIVIDE_NUM + _y; }
 
 public:
-	MapState() = default;	//デフォルトコンストラクタは消去して，必ず下のコンストラクタでマップ生成をしないと実体を生成できないようにする．
+	MapState() = default;
 
-	MapState(const EMapCreateMode _mode, const int _option, const bool _do_output);
+	//初期化を行う．
+	void init(const EMapCreateMode _mode, const int _option, const bool _do_output);
 
 	//正方形状に切り分けられたマップから，脚設置可能点の数を取得する．
 	int getPointNumFromDevideMap(const int _x, const int _y) const;

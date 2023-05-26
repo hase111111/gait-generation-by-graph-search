@@ -54,7 +54,10 @@
     <ClInclude Include="MapState.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyMath.h" />
+    <ClInclude Include="NodeEdit.h" />
+    <ClInclude Include="NodeValidityChecker.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SystemMain.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="listFunc.h" />
@@ -74,6 +77,7 @@
     <ClCompile Include="GraphSearch.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="GraphSearchInitializer.cpp" />
+    <ClCompile Include="GraphTreeCreatorHato.cpp" />
     <ClCompile Include="GraphTreeCreatorSample.cpp" />
     <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="HexapodRenderer.cpp" />
@@ -105,11 +109,14 @@
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyMath.cpp" />
+    <ClCompile Include="NodeEdit.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
+    <ClCompile Include="NodeValidityChecker.cpp" />
     <ClCompile Include="PassFinding.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="SimulateResult.cpp" />
     <ClCompile Include="SearchLegPosition.cpp" />
+    <ClCompile Include="SystemMain.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="vectorFunc.cpp" />

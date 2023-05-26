@@ -70,13 +70,13 @@
     <Filter Include="ソース ファイル\GraphSearch\GraphSearcher">
       <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearch\Node">
+      <UniqueIdentifier>{b124c590-c0f6-4d4f-a8e8-9277ec9952a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="listFunc.h">
-      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
@@ -219,13 +219,22 @@
     <ClInclude Include="GraphTreeCreatorHato.h">
       <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
     </ClInclude>
+    <ClInclude Include="SystemMain.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="listFunc.h">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeValidityChecker.h">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeEdit.h">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
-    <ClCompile Include="listFunc.cpp">
-      <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
@@ -352,6 +361,21 @@
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorSample.cpp">
       <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="listFunc.cpp">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeValidityChecker.cpp">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphTreeCreatorHato.cpp">
+      <Filter>ソース ファイル\GraphSearch\TreeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeEdit.cpp">
+      <Filter>ソース ファイル\GraphSearch\Node</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

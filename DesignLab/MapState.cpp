@@ -1,9 +1,10 @@
 #include "MapState.h"
 
-MapState::MapState(const EMapCreateMode _mode, const int _option, const bool _do_output)
+void MapState::init(const EMapCreateMode _mode, const int _option, const bool _do_output)
 {
-	//コンストラクタの指定通りにマップを生成する．
-	map_creator::createMap(_mode, _option, m_map_data, _do_output);
+	//引数の指定通りにマップを生成する．
+	MapCreator _creator;
+	_creator.create(_mode, _option, m_map_data, _do_output);
 
 	//地形を分ける．
 	makeDevideMap();

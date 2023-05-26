@@ -13,10 +13,10 @@ GUIController::GUIController()
 	const int _camera_buttomy = 50;
 	const int _camera_y = RIGHTY + 150;
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 6 / 4, _camera_y, _camera_buttomx, _camera_buttomy, "真上カメラ"));
-	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "俯瞰カメラ"));
-	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "真横カメラ"));
-	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "俯瞰(反転)"));
-	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横(反転)"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "俯瞰カメラ"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横カメラ"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "俯瞰(反転)"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横(反転)"));
 }
 
 void GUIController::update(CameraController& _camera)

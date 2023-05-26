@@ -13,14 +13,13 @@
 //混乱の元です(涙)．Dxlibのエラーはboolではなく，int型の負の値ということを覚えておいてください．
 
 
-bool GraphicSystem::init(const GraphicDataBroker* _p_broker)
+void GraphicSystem::init(const GraphicDataBroker* _p_broker)
 {	
-	//ブローカーがnull(存在しない)ならfalse
-	if (_p_broker == nullptr) { return false; }
+	//ブローカーがnull(存在しない)なら終了
+	if (_p_broker == nullptr) { return ; }
 
+	//ブローカーを受け取る．
 	mp_Broker = _p_broker;
-
-	return true;
 }
 
 void GraphicSystem::main()
@@ -28,7 +27,7 @@ void GraphicSystem::main()
 	//そもそも描画処理を使わないならば即終了
 	if (Define::FLAG_GRAPHIC_AVAILABLE == false) { return; }
 
-	//初期化をしていない or 失敗した場合則終了．
+	//ブローカーがnull(存在しない)なら終了
 	if (mp_Broker == nullptr) { return; }
 
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．

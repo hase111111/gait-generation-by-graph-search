@@ -18,8 +18,8 @@ public:
 	GraphicSystem() = default;
 	~GraphicSystem() = default;
 
-	//Dxlibの初期化を行います．失敗するとfalseを返します．
-	bool init(const GraphicDataBroker* _p_broker);
+	//Dxlibの初期化を行います．
+	void init(const GraphicDataBroker* _p_broker);
 
 	// ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
 	void main();
