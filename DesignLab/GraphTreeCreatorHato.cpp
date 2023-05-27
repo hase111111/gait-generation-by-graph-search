@@ -38,14 +38,19 @@ void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node,
 	switch (_current_node.next_move)
 	{
 	case EHexapodMove::LEG_UP_DOWN:
+
+		//脚を上下移動させ，接地したり遊脚したりする．
 		break;
 
-	case EHexapodMove::LEG_TRANSLATION:
+	case EHexapodMove::LEG_HIERARCHY_CHANGE:
 
+		//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
 		m_LegHierarchy.create(_current_node, _current_num, _output_graph);
 		break;
 
 	case EHexapodMove::COM_TRANSLATION:
+
+		//重心を平行移動する．
 		break;
 
 	case EHexapodMove::COM_UP_DOWN:
@@ -54,10 +59,13 @@ void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node,
 		break;
 
 	default:
+
 		//定義されていないならば，同じノードをそのまま追加する．
 		SNode _new_node = _current_node;
-		_new_node.depth++;
-		_new_node.parent_num = _current_num;
+
+		node_edit::changeNextNode(_new_node, _current_num, _current_node.next_move);
+
+		_output_graph.push_back(_new_node);
 		break;
 	}
 }

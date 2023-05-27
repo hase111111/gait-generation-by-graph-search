@@ -237,6 +237,12 @@
     <ClInclude Include="LegHierarchyNodeCreator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
+    <ClInclude Include="ComMoveNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="HexapodStateCalculator.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -387,6 +393,9 @@
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
     <ClCompile Include="LegHierarchyNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="ComMoveNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
   </ItemGroup>
