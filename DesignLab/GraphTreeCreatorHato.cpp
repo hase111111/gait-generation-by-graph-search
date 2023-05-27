@@ -41,12 +41,16 @@ void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node,
 		break;
 
 	case EHexapodMove::LEG_TRANSLATION:
+
+		m_LegHierarchy.create(_current_node, _current_num, _output_graph);
 		break;
 
 	case EHexapodMove::COM_TRANSLATION:
 		break;
 
 	case EHexapodMove::COM_UP_DOWN:
+
+		m_ComUpDown.create(_current_node, _current_num, _output_graph);
 		break;
 
 	default:

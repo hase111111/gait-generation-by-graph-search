@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ButtonController.h" />
+    <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphSearch.h" />
     <ClInclude Include="GraphSearcherSample.h" />
     <ClInclude Include="GraphSearchInitializer.h" />
@@ -46,6 +47,7 @@
     <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="LegHierarchyNodeCreator.h" />
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
@@ -74,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
+    <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphSearch.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="GraphSearchInitializer.cpp" />
@@ -97,6 +100,7 @@
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="LegHierarchyNodeCreator.cpp" />
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
