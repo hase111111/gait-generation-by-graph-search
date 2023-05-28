@@ -4,6 +4,8 @@
 
 using namespace myvector;
 
+float HexapodStateCalclator::m_leg_rom_r[200] = {};
+
 HexapodStateCalclator::HexapodStateCalclator()
 {
 	//ジョイントの位置を初期化する．
@@ -61,6 +63,39 @@ myvector::SVector HexapodStateCalclator::getGlobalFemurJointPos(const SNode& _no
 myvector::SVector HexapodStateCalclator::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
+}
+
+void HexapodStateCalclator::initLegRomR()
+{
+	using namespace my_math;
+
+	for (int _z = 0; _z < 200; _z++)
+	{
+		for (int _x = 53; _x < 248; _x++)
+		{
+			SVector _tmp_leg((float)_x, 0, -(float)_z);
+			_tmp_leg.z += (_tmp_leg.z == 0) ? 0.001f : 0;	
+
+			SVector _local_femurjoint_pos = SVector(HexapodConst::COXA_LENGTH, 0, 0);
+
+			const float _leg_to_coxa_len = sqrt(squared(_tmp_leg.x) + squared(_tmp_leg.y));		//真上から見たときの，脚先から脚の付け根までの長さ．
+			float _leg_to_fumur_len = _leg_to_coxa_len - HexapodConst::COXA_LENGTH;				//真上から見たときの，脚先から第一関節までの長さ．
+			_leg_to_fumur_len += (_leg_to_fumur_len == 0) ? 0.001f : 0;
+
+			const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::FEMUR_LENGTH) + squared(_tmp_leg.z) - squared(HexapodConst::TIBIA_LENGTH);
+			const float _s2 = 2 * HexapodConst::FEMUR_LENGTH * _leg_to_fumur_len * sqrt(squared(_leg_to_fumur_len) + squared(_tmp_leg.z));
+
+			const float _fumur_joint_angle = -atan(_leg_to_fumur_len / _tmp_leg.z) + asin(_s1 / _s2);
+
+			SVector _local_tibiajoint_pos = _local_femurjoint_pos +	SVector(HexapodConst::FEMUR_LENGTH * cos(_fumur_joint_angle),
+																			0,
+																			HexapodConst::FEMUR_LENGTH * sin(_fumur_joint_angle));
+
+			if ((_tmp_leg - _local_tibiajoint_pos).length() < HexapodConst::TIBIA_LENGTH) { m_leg_rom_r[_z] = _x; }
+		}
+	}
+
+
 }
 
 myvector::SVector HexapodStateCalclator::getLocalCoxaJointPos(const int _leg_num) const

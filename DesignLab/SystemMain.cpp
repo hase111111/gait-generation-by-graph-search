@@ -5,12 +5,14 @@
 #include "GraphSearch.h"
 #include "CmdIO.h"
 #include "hexapod.h"
+#include "HexapodStateCalculator.h"
 #include "NodeEdit.h"
 
 SystemMain::SystemMain()
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
+	HexapodStateCalclator::initLegRomR();
 
 	//マップを生成する．
 	m_Map.init(EMapCreateMode::Mesh, MapCreator::OPTION_ROUGH, true);

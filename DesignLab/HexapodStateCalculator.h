@@ -23,9 +23,14 @@ public:
 	//【calclateJointPos関数を使用してから使うこと!!】tibia joint (第3関節) の座標を返す．回転を考慮したグローバル座標.
 	myvector::SVector getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const;
 
+	//静的メンバ変数のm_leg_rom_rの値を計算して初期化する．この関数自体が静的なのでSystemMainで一度だけ実行すればよい．
+	static void initLegRomR();
+
 private:
 	myvector::SVector getLocalCoxaJointPos(const int _leg_num) const;	// coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．
 
 	myvector::SVector m_local_femurjoint_pos[HexapodConst::LEG_NUM];	//FemurJoint(第2関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
 	myvector::SVector m_local_tibiajoint_pos[HexapodConst::LEG_NUM];	//TibiaJoint(第3関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
+
+	static float m_leg_rom_r[200];	//重心高さから脚位置を下げた時の，脚の取りうる最大半径を記録したもの．旧名 Leg_ROM_R
 };

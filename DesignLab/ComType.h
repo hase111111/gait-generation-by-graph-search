@@ -1,5 +1,6 @@
 #pragma once
 #include "HexapodConst.h"
+#include <vector>
 
 //
 //leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で．
@@ -12,8 +13,8 @@
 //　脚の遊脚のパターンは，
 //　　全接地  1通り
 //　　1本遊脚 6通り
-//　　2本遊脚 15通り → 実現可能なものは
-//　　3本遊脚 20通り → 実現可能なものは
+//　　2本遊脚 15通り → 実現可能なものは??通り
+//　　3本遊脚 20通り → 実現可能なものは??通り
 //		なので全部で36通りある．
 //
 
@@ -33,4 +34,10 @@ namespace ComType
 
 	//接地脚を1，遊脚を0としたビットから，重心タイプを出力する関数．該当しないならば負の値を返す
 	char getComTypeFromBit(const int _bit);
+
+	// CCCより得られるcom patternを用いて，とりえないcom typeをvectorで返す
+	void getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output);
+
+	// CCCより得られるcom patternを用いて，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．
+	void checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM]);
 }
