@@ -1,5 +1,5 @@
 #pragma once
-#include "listFunc.h"
+#include "Node.h"
 
 
 //ノードの状態を編集する関数をまとめたもの．

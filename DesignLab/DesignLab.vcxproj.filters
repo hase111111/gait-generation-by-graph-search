@@ -222,7 +222,7 @@
     <ClInclude Include="SystemMain.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="listFunc.h">
+    <ClInclude Include="Node.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="NodeValidityChecker.h">
@@ -245,6 +245,9 @@
     </ClInclude>
     <ClInclude Include="GraphSearcherRandom.h">
       <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemTest.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -380,7 +383,7 @@
     <ClCompile Include="SystemMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="listFunc.cpp">
+    <ClCompile Include="Node.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="NodeValidityChecker.cpp">
@@ -406,6 +409,9 @@
     </ClCompile>
     <ClCompile Include="GraphSearcherRandom.cpp">
       <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemTest.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

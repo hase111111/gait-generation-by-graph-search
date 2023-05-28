@@ -36,28 +36,37 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	std::cout << "\tLeg Postion : " << std::endl;
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		std::cout << "\t\tLeg[" << i << "] = " << _node.Leg[i] << std::endl;
+		std::cout << "\t\tLeg[" << i << "] = " << _node.Leg[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
 	}
 	std::cout << std::endl;
 
 	//dSˆÊ’u
 	std::cout << "\tglobal_center_of_mass = " << _node.global_center_of_mass << std::endl;
 
-	std::cout << "\tnode_height = " << _node.node_height << "\n";
-	std::cout << "\tdebug = " << _node.debug << "\n";
-	if (_node.debug % 100 / 10 == 2) std::cout << "\t¡‰ñ2 ‹r‚Ì“¥‚Ý‚©‚¦“®ì" << std::endl;
-	if (_node.debug % 100 / 10 == 3) std::cout << "\t¡‰ñ3 dS‚Ì…•½ˆÚ“®" << std::endl;
-	if (_node.debug % 100 / 10 == 4) std::cout << "\t¡‰ñ4 ‹r‚Ì…•½ˆÚ“®" << std::endl;
-	if (_node.debug % 100 / 10 == 6) std::cout << "\t¡‰ñ6 dS‚Ìã‰ºˆÚ“®" << std::endl;
-	if (_node.debug % 10 == 2) std::cout << "\t‘O‰ñ2 ‹r‚Ì“¥‚Ý‚©‚¦“®ì\t";
-	if (_node.debug % 10 == 3) std::cout << "\t‘O‰ñ3 dS‚Ì…•½ˆÚ“®\t";
-	if (_node.debug % 10 == 4) std::cout << "\t‘O‰ñ4 ‹r‚Ì…•½ˆÚ“®\t";
-	if (_node.debug % 10 == 6) std::cout << "\t‘O‰ñ6 dS‚Ìã‰ºˆÚ“®\t";
+	//‰ñ“]Žp¨
+	std::cout << "\tRotate : roll = " << _node.rot.roll << ", pitch = " << _node.rot.pitch << ", yaw = " << _node.rot.yaw << std::endl;
 
-	std::cout << "\t•K—v‚È‚‚³ˆÚ“®—Ê = " << _node.target_delta_comz << std::endl;
-	std::cout << "\tŽÀÛ‚Ì‚‚³ˆÚ“®—Ê = " << _node.delta_comz << std::endl;
-	std::cout << "\t’Tõ‚µ‚½ƒm[ƒh” = " << _node.last_node_num << std::endl;
-	std::cout << "\t’TõŽžŠÔ = " << _node.time << std::endl;
+	//ŽŸ“®ì
+	std::cout << "\tNext Move : " << (int)static_cast<char>(_node.next_move) << std::endl;
+	std::cout << "\t(Depth : " << _node.depth << ")" << std::endl;
+	std::cout << "\t(parent number : " << _node.parent_num << ")" << std::endl;
+
+
+	//std::cout << "\tnode_height = " << _node.node_height << "\n";
+	//std::cout << "\tdebug = " << _node.debug << "\n";
+	//if (_node.debug % 100 / 10 == 2) std::cout << "\t¡‰ñ2 ‹r‚Ì“¥‚Ý‚©‚¦“®ì" << std::endl;
+	//if (_node.debug % 100 / 10 == 3) std::cout << "\t¡‰ñ3 dS‚Ì…•½ˆÚ“®" << std::endl;
+	//if (_node.debug % 100 / 10 == 4) std::cout << "\t¡‰ñ4 ‹r‚Ì…•½ˆÚ“®" << std::endl;
+	//if (_node.debug % 100 / 10 == 6) std::cout << "\t¡‰ñ6 dS‚Ìã‰ºˆÚ“®" << std::endl;
+	//if (_node.debug % 10 == 2) std::cout << "\t‘O‰ñ2 ‹r‚Ì“¥‚Ý‚©‚¦“®ì\t";
+	//if (_node.debug % 10 == 3) std::cout << "\t‘O‰ñ3 dS‚Ì…•½ˆÚ“®\t";
+	//if (_node.debug % 10 == 4) std::cout << "\t‘O‰ñ4 ‹r‚Ì…•½ˆÚ“®\t";
+	//if (_node.debug % 10 == 6) std::cout << "\t‘O‰ñ6 dS‚Ìã‰ºˆÚ“®\t";
+
+	//std::cout << "\t•K—v‚È‚‚³ˆÚ“®—Ê = " << _node.target_delta_comz << std::endl;
+	//std::cout << "\tŽÀÛ‚Ì‚‚³ˆÚ“®—Ê = " << _node.delta_comz << std::endl;
+	//std::cout << "\t’Tõ‚µ‚½ƒm[ƒh” = " << _node.last_node_num << std::endl;
+	//std::cout << "\t’TõŽžŠÔ = " << _node.time << std::endl;
 	std::cout << std::endl;
 }
 

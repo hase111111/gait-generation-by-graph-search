@@ -1,6 +1,6 @@
 #pragma once
 #include "vectorFunc.h"
-#include "listFunc.h"
+#include "Node.h"
 
 //ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスの進化版
 class HexapodStateCalclator

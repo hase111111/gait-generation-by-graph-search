@@ -1,6 +1,6 @@
 #pragma once
 #include "SimulateResult.h"
-#include "listFunc.h"
+#include "Node.h"
 #include <string>
 
 //コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．

@@ -2,7 +2,7 @@
 #include "InterfaceGraphicMain.h"
 #include "MapState.h"
 #include <vector>
-#include "listFunc.h"
+#include "Node.h"
 #include "GraphicConst.h"
 #include "CameraController.h"
 #include "Hexapod.h"

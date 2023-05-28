@@ -1,6 +1,6 @@
 #pragma once
 #include "MapState.h"
-#include "listFunc.h"
+#include "Node.h"
 #include <vector>
 
 //グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください．

@@ -1,5 +1,5 @@
 #pragma once
-#include "listFunc.h"
+#include "Node.h"
 #include "hexapod.h"
 
 // ロボットの描画を行うクラス．

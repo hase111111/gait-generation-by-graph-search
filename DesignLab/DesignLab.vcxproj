@@ -63,9 +63,10 @@
     <ClInclude Include="NodeValidityChecker.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SystemMain.h" />
+    <ClInclude Include="SystemTest.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
-    <ClInclude Include="listFunc.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="MapCreator.h" />
     <ClInclude Include="NodeFileIO.h" />
     <ClInclude Include="PassFinding.h" />
@@ -111,7 +112,7 @@
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="listFunc.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
     <ClCompile Include="MapCreator.cpp" />
@@ -127,6 +128,7 @@
     <ClCompile Include="SimulateResult.cpp" />
     <ClCompile Include="SearchLegPosition.cpp" />
     <ClCompile Include="SystemMain.cpp" />
+    <ClCompile Include="SystemTest.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="vectorFunc.cpp" />

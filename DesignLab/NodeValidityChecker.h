@@ -1,5 +1,5 @@
 #pragma once
-#include "listFunc.h"
+#include "Node.h"
 #include <deque>
 
 //グラフ探索を用いてロボットの歩容生成をしていると，最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある．

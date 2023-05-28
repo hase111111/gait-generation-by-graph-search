@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <fstream>
-#include "listFunc.h"
+#include "Node.h"
 #include "SimulateResult.h"
 
 // File Input Output つまりファイル入出力のこと

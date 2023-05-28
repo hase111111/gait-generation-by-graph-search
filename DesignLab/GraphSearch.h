@@ -1,6 +1,6 @@
 #pragma once
 #include "MapState.h"
-#include "listFunc.h"
+#include "Node.h"
 #include "IGraphTreeCreator.h"
 #include "IGraphSearcher.h"
 #include <memory>

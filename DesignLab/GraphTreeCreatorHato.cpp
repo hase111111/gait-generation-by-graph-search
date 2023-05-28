@@ -24,8 +24,18 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 		//探索深さが足りていないノードにのみ処理をする．
 		if (_output_graph.at(_cnt).depth < Define::GRAPH_SEARCH_DEPTH)
 		{
-			//現在のノードから次の動作を生成して，後ろにどんどん追加する．
-			pushNewNodesByCurrentNode(_output_graph.at(_cnt), _cnt, _output_graph);
+			std::vector<SNode> _res_vec;	// _cnt番目のノードの子ノードを入れるベクター
+
+			makeNewNodesByCurrentNode(_output_graph.at(_cnt), _cnt, _res_vec);		//子ノードを生成する．
+
+			for (const auto &i : _res_vec)
+			{
+				//深さが一つ下で，親が正しく設定されているもののみ追加する．
+				if (i.depth == (_output_graph.at(_cnt).depth + 1) && i.parent_num == _cnt)
+				{
+					_output_graph.push_back(i);		//子ノードを結果に追加する．
+				}
+			}
 		}
 
 		_cnt++;	//カウンタを進める．
@@ -35,8 +45,9 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 }
 
 
-void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
+
 	switch (_current_node.next_move)
 	{
 
@@ -64,7 +75,6 @@ void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node,
 	case EHexapodMove::LEG_UP_DOWN:
 	case EHexapodMove::LEG_HIERARCHY_CHANGE:
 	case EHexapodMove::COM_TRANSLATION:
-	//case EHexapodMove::COM_UP_DOWN:
 	default:
 
 		//定義されていないならば，同じノードをそのまま追加する．
