@@ -52,6 +52,7 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="LegHierarchyNodeCreator.h" />
     <ClInclude Include="LegState.h" />
+    <ClInclude Include="LegUpDownNodeCreator.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="MapConst.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="LegHierarchyNodeCreator.cpp" />
     <ClCompile Include="LegState.cpp" />
+    <ClCompile Include="LegUpDownNodeCreator.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />

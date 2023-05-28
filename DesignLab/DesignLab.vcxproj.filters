@@ -31,12 +31,6 @@
     <Filter Include="ソース ファイル\Common\FileIO">
       <UniqueIdentifier>{c3a615e3-7f3c-4f90-a4ed-bc6bc201f418}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\walking_pattern\LegState">
-      <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\walking_pattern\CenterOfMass">
-      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
     </Filter>
@@ -72,6 +66,12 @@
     </Filter>
     <Filter Include="ソース ファイル\Node\NodeCreator">
       <UniqueIdentifier>{33a12a61-307b-4f44-be6c-797f8141ec5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\CenterOfMass">
+      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\LegState">
+      <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -124,13 +124,13 @@
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
     <ClInclude Include="LegState.h">
-      <Filter>ソース ファイル\walking_pattern\LegState</Filter>
+      <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
     <ClInclude Include="CreateComCandidate.h">
-      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
     <ClInclude Include="ComType.h">
-      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
     <ClInclude Include="MyMath.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -249,6 +249,9 @@
     <ClInclude Include="SystemTest.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="LegUpDownNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -297,13 +300,13 @@
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
     <ClCompile Include="LegState.cpp">
-      <Filter>ソース ファイル\walking_pattern\LegState</Filter>
+      <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
     <ClCompile Include="CreateComCandidate.cpp">
-      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="ComType.cpp">
-      <Filter>ソース ファイル\walking_pattern\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="MapCreator.cpp">
       <Filter>ソース ファイル\Map</Filter>
@@ -412,6 +415,9 @@
     </ClCompile>
     <ClCompile Include="SystemTest.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="LegUpDownNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -47,6 +47,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 
 void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
+	_output_graph.clear();
 
 	switch (_current_node.next_move)
 	{
@@ -63,7 +64,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 	//	break;
 
 
-	//case EHexapodMove::COM_TRANSLATION:
+	//case EHexapodMove::COM_MOVE:
 	//	//重心を平行移動する．
 	//	break;
 
@@ -74,7 +75,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 
 	case EHexapodMove::LEG_UP_DOWN:
 	case EHexapodMove::LEG_HIERARCHY_CHANGE:
-	case EHexapodMove::COM_TRANSLATION:
+	case EHexapodMove::COM_MOVE:
 	default:
 
 		//定義されていないならば，同じノードをそのまま追加する．
