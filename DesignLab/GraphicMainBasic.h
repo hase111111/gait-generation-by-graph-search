@@ -1,12 +1,12 @@
 #pragma once
 #include "InterfaceGraphicMain.h"
-#include "MapState.h"
 #include <vector>
+#include "MapState.h"
 #include "Node.h"
 #include "GraphicConst.h"
 #include "CameraController.h"
-#include "Hexapod.h"
 #include "GUIController.h"
+#include "HexapodRenderer.h"
 
 //このプロジェクトにおける標準的なロボットの描画機能を持つクラス．
 class GraphicMainBasic final : public IGraphicMain
@@ -23,9 +23,9 @@ private:
 
 	CameraController m_Camera;	//カメラ制御クラス．
 
-	GUIController m_GUI;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
+	HexapodRenderer m_HexapodRender;
 
-	Hexapod m_hexapod;			//ロボットの状態を管理するクラス．
+	GUIController m_GUI;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
 	
 	int m_counter = 0;			// このクラスが実行されてから何回update関数が呼ばれたかカウントする
 

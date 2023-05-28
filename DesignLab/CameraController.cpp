@@ -38,28 +38,28 @@ void CameraController::setGoalCameraPos()
 	switch (m_mode)
 	{
 	case ECameraMode::TopView:
-		m_goal_upvec = VGet(0.0f, 1.0f, 0.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(0, m_goal_upvec.z * m_length_camera_to_target * -1, m_goal_upvec.y * m_length_camera_to_target));
+		m_goal_upvec = VGet(1.0f, 0.0f, 0.0f);
+		m_goal_pos = VAdd(m_now_target_pos, VGet(0, 0, m_length_camera_to_target));
 		break;
 
 	case ECameraMode::OverheadView:
-		m_goal_upvec = VGet(1.0f * sin(CAMERA_ANGLE), 0.0f, 1.0f * cos(CAMERA_ANGLE));
-		m_goal_pos = VAdd(m_now_target_pos, VGet(m_length_camera_to_target * -1 * cos(CAMERA_ANGLE), 0, m_length_camera_to_target * sin(CAMERA_ANGLE)));
+		m_goal_upvec = VGet(0.0f, -1.0f * sin(CAMERA_ANGLE), 1.0f * cos(CAMERA_ANGLE));
+		m_goal_pos = VAdd(m_now_target_pos, VGet(0, m_length_camera_to_target * cos(CAMERA_ANGLE), m_length_camera_to_target * sin(CAMERA_ANGLE)));
 		break;
 
 	case ECameraMode::SideView:
 		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(m_goal_upvec.z * m_length_camera_to_target * -1, 0, 0));
+		m_goal_pos = VAdd(m_now_target_pos, VGet(0, m_length_camera_to_target, 0));
 		break;
 
 	case ECameraMode::OverheadViewFlip:
-		m_goal_upvec = VGet(-1.0f * sin(CAMERA_ANGLE), 0.0f, 1.0f * cos(CAMERA_ANGLE));
-		m_goal_pos = VAdd(m_now_target_pos, VGet(m_length_camera_to_target * cos(CAMERA_ANGLE), 0, m_length_camera_to_target * sin(CAMERA_ANGLE)));
+		m_goal_upvec = VGet(0.0f, 1.0f * sin(CAMERA_ANGLE), 1.0f * cos(CAMERA_ANGLE));
+		m_goal_pos = VAdd(m_now_target_pos, VGet(0, m_length_camera_to_target * -1 * cos(CAMERA_ANGLE), m_length_camera_to_target * sin(CAMERA_ANGLE)));
 		break;
 
 	case ECameraMode::SideViewFlip:
 		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(m_goal_upvec.z * m_length_camera_to_target, 0, 0));
+		m_goal_pos = VAdd(m_now_target_pos, VGet(0, -m_length_camera_to_target, 0));
 		break;
 
 	default:

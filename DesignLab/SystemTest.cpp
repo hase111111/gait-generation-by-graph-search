@@ -1,11 +1,12 @@
 #include "SystemTest.h"
 #include "ComUpDownNodeCreator.h"
 #include "CmdIO.h"
+#include "NodeEdit.h"
 
 void SystemTest::main()
 {
 	SNode _first;
-	initNode(_first, false);
+	node_edit::initNode(_first, false);
 
 	CmdIO _cmd;
 	_cmd.outputNode(_first, 0);

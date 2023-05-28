@@ -39,8 +39,8 @@ myvector::SVector MapState::getPos(const int _num) const
 void MapState::makeDevideMap()
 {
 	//マップを切り分ける四角形の辺の長さを算出する．
-	const float _lengthX = (MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / (float)MapConst::LP_DIVIDE_NUM;
-	const float _lengthY = (MapConst::MAP_Y_MAX - MapConst::MAP_Y_MIN) / (float)MapConst::LP_DIVIDE_NUM;
+	const float _lengthX = (MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / (float)MapConst::LP_DIVIDE_NUM;
+	const float _lengthY = (MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / (float)MapConst::LP_DIVIDE_NUM;
 
 	m_devide_map.resize(MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM);
 
@@ -48,8 +48,8 @@ void MapState::makeDevideMap()
 	for (const auto &i : m_map_data)
 	{
 		//xy方向のブロック番号をそれぞれ求める
-		int x = (int)((i.x - (float)MapConst::MAP_X_MIN) / _lengthX);
-		int y = (int)((i.y - (float)MapConst::MAP_Y_MIN) / _lengthY);
+		int x = (int)((i.x - (float)MapConst::MAP_MIN_FORWARD) / _lengthX);
+		int y = (int)((i.y - (float)MapConst::MAP_MIN_HORIZONTAL) / _lengthY);
 
 		//マップの範囲内にいる時のみ追加する
 		if (0 <= x && x < MapConst::LP_DIVIDE_NUM) 

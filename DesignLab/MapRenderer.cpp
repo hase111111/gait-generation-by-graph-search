@@ -21,11 +21,11 @@ void MapRenderer::draw(const MapState& _map) const
 				//縞縞模様を作成するために，位置に応じて色を変える．
 				if ((x + y) % 2 == 0) 
 				{
-					drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), 15.0f, COLOR_GRAY);
+					drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_GRAY);
 				}
 				else
 				{
-					drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), 15.0f, COLOR_LIGHT_GRAY);
+					drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_LIGHT_GRAY);
 				}
 
 			}

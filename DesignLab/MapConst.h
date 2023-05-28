@@ -11,14 +11,15 @@ public:
 	const static std::string OUTPUT_FILE_NAME;
 
 	constexpr static int FOOT_HOLD_XY_DIST = 20;	//z軸からみたときの足場（脚接地可能点）の間隔[mm]、格子点状
-	constexpr static int MAP_X_MIN = -1000;			//マップの横の最小値点
-	constexpr static int MAP_X_MAX = 1000;			//マップの横の最大値点
-	constexpr static int MAP_Y_MIN = -400;			//マップの縦の最小値点
-	constexpr static int MAP_Y_MAX = 2600;			//マップの縦の最大値点
-	constexpr static float MAX_Z_BASE = 0.0f;		// Z座標の基準位置
-	constexpr static int MAPDATA3D_MAX = (MAP_X_MAX - MAP_X_MIN) / FOOT_HOLD_XY_DIST * (MAP_Y_MAX - MAP_Y_MIN) / FOOT_HOLD_XY_DIST;
 
-	constexpr static int START_ROUGH_TARRAIN_Y = 400;									//直進移動のときの、不整地と水平面の境界[mm]
+	constexpr static int MAP_MIN_HORIZONTAL = -1000;	//マップの横の最小値点
+	constexpr static int MAP_MAX_HORIZONTAL = 1000;		//マップの横の最大値点
+	constexpr static int MAP_MIN_FORWARD = -400;		//マップの縦の最小値点
+	constexpr static int MAP_START_ROUGH = 400;			//マップの縦の不整地と水平面の境界[mm]
+	constexpr static int MAP_MAX_FORWARD = 2600;		//マップの縦の最大値点
+	constexpr static float MAX_Z_BASE = 0.0f;			//ロボットが最初に待機している場所の Z 座標．
+
+	//constexpr static int MAPDATA3D_MAX = (MAP_MAX_HORIZONTAL - MAP_MIN_HORIZONTAL) / FOOT_HOLD_XY_DIST * (MAP_MAX_FORWARD - MAP_MIN_FORWARD) / FOOT_HOLD_XY_DIST;
 
 	constexpr static int STRIPE_INTERVAL = 5;			//各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 

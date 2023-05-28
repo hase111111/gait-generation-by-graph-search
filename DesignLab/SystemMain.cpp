@@ -5,6 +5,7 @@
 #include "GraphSearch.h"
 #include "CmdIO.h"
 #include "hexapod.h"
+#include "NodeEdit.h"
 
 SystemMain::SystemMain()
 {
@@ -12,7 +13,7 @@ SystemMain::SystemMain()
 	Hexapod::makeLegROM_r();
 
 	//マップを生成する．
-	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_PERFORATED | MapCreator::OPTION_STEP, false);
+	m_Map.init(EMapCreateMode::Mesh, MapCreator::OPTION_ROUGH, true);
 
 	//仲介人にマップを渡す．
 	m_Broker.setMapState(m_Map);
@@ -45,7 +46,7 @@ void SystemMain::main()
 	{
 		SNode _current_node;									//現在のノードの状態を格納する変数．
 		const bool _do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
-		initNode(_current_node, _do_random_init);				//ノードの位置を初期化する．
+		node_edit::initNode(_current_node, _do_random_init);	//ノードの位置を初期化する．
 
 		if (Define::FLAG_GRAPHIC_AVAILABLE == true) { m_Broker.pushNode(_current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
 

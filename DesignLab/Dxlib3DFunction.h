@@ -9,7 +9,7 @@ namespace myDxlib3DFunc
 	void initDxlib3D();
 
 	// Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する．
-	inline VECTOR convertToDxVec(const myvector::SVector _vec) { return VGet(-_vec.x, _vec.y, _vec.z); }
+	inline VECTOR convertToDxVec(const myvector::SVector& _vec) { return VGet(_vec.x, _vec.y, _vec.z); }
 
 	// 3D空間に立方体を描画する．_center_pos…立方体の中心の座標．_side_len…立方体の1辺の長さ．_color…立方体の色．dxlibのGetColorで取得する.
 	void drawCube3D(const VECTOR _center_pos, const float _side_len, const unsigned int _color);

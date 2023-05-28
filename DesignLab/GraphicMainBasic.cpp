@@ -2,7 +2,6 @@
 #include "Dxlib3DFunction.h"
 #include "DxLib.h"
 #include "MapRenderer.h"
-#include "HexapodRenderer.h"
 
 GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* _broker)
     : IGraphicMain(_broker), m_Map(mp_Broker->getMapState())
@@ -36,9 +35,7 @@ bool GraphicMainBasic::update()
         m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));
 
         //ロボットの状態を更新する．
-        m_hexapod.setMyDirection(m_node.at(m_display_node).pitch, m_node.at(m_display_node).roll, m_node.at(m_display_node).yaw);
-        m_hexapod.setMyPosition(m_node.at(m_display_node).global_center_of_mass);
-        m_hexapod.setLocalLegPos(m_node.at(m_display_node).Leg);
+        m_HexapodRender.update(m_node.at(m_display_node));
     }
 
     m_counter++;    //カウンタを進める．
@@ -59,8 +56,7 @@ void GraphicMainBasic::draw() const
     if (m_node.empty() == false) 
     {
         //ノードが存在しているならば，ロボットを描画する．
-        HexapodRenderer _hexapod_render;
-        _hexapod_render.draw(m_hexapod, m_node.at(m_display_node).leg_state);
+        m_HexapodRender.draw(m_node.at(m_display_node));
 
         //UIを表示する．
         m_GUI.draw(m_node.at(m_display_node));
