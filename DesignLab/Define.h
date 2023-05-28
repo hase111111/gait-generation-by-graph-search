@@ -23,7 +23,7 @@ public:
 	const static int SIMURATE_NUM;
 
 	//グラフ探索の探索深さ
-	const static int GRAPH_SEARCH_DEPTH;
+	const static char GRAPH_SEARCH_DEPTH;
 
 	//1シミュレーション当たりの最大歩容生成回数
 	const static int GATE_PATTERN_GENERATE_NUM;

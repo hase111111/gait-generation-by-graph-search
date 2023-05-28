@@ -23,6 +23,7 @@
     <ClInclude Include="ComMoveNodeCreator.h" />
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphSearch.h" />
+    <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
     <ClInclude Include="GraphSearchInitializer.h" />
     <ClInclude Include="GraphTreeCreatorHato.h" />
@@ -81,12 +82,14 @@
     <ClCompile Include="ComMoveNodeCreator.cpp" />
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphSearch.cpp" />
+    <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="GraphSearchInitializer.cpp" />
     <ClCompile Include="GraphTreeCreatorHato.cpp" />
     <ClCompile Include="GraphTreeCreatorSample.cpp" />
     <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="HexapodRenderer.cpp" />
+    <ClCompile Include="HexapodStateCalculator.cpp" />
     <ClCompile Include="InterfaceGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="ComType.cpp" />

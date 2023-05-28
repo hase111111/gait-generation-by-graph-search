@@ -18,6 +18,9 @@ private:
 	//要素は https://atcoder.jp/contests/APG4b/tasks/APG4b_t の 「1次元の配列を多次元配列として使う」の要領で並んでいる．
 	std::vector<std::vector<myvector::SVector> > m_devide_map;
 
+	//m_devide_mapの中の最も高いz座標をまとめたもの，要素が存在しないなら，float型の最小値が入る．
+	std::vector<float> m_devide_map_top_z;
+
 	// m_devide_mapでは要素は1次元の配列として並んでいるので，2つの入力から，どの値を参照すればよいのかを計算する．
 	inline int getDevideMapNum(const int _x, const int _y) const { return _x * MapConst::LP_DIVIDE_NUM + _y; }
 
@@ -33,6 +36,9 @@ public:
 	//正方形状に切り分けられたマップから，脚設置可能点の座標を取得する
 	myvector::SVector getPosFromDevideMap(const int _x, const int _y, const int _num) const;
 
+	//正方形状に切り分けられたマップから，最も高いZ座標を返す．
+	inline float getTopZFromDevideMap(const int _x, const int _y) const { return m_devide_map_top_z.at(getDevideMapNum(_x, _y)); };
+
 	//脚設置可能点の座標を出力する．描画にのみ利用．
 	myvector::SVector getPos(const int _num) const;
 
@@ -43,8 +49,8 @@ public:
 	inline static int getDevideMapNumX(const float _posx)
 	{
 		int tmp = (int)((_posx - MapConst::MAP_X_MIN) / (((float)MapConst::MAP_X_MAX - MapConst::MAP_X_MIN) / MapConst::LP_DIVIDE_NUM));
-		if (tmp < 0)return 0;
-		if (tmp >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM)return MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM - 1;
+		if (tmp < 0) { return 0; }
+		if (tmp >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM - 1; }
 		return tmp;
 	}
 

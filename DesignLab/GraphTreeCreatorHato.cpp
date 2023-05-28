@@ -7,6 +7,8 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 	//マップのポインタを受け取る．
 	mp_Map = _p_map;
 
+	m_ComUpDown.init(mp_Map);
+
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
 
@@ -37,27 +39,32 @@ void GraphTreeCreatorHato::pushNewNodesByCurrentNode(const SNode& _current_node,
 {
 	switch (_current_node.next_move)
 	{
-	case EHexapodMove::LEG_UP_DOWN:
 
-		//脚を上下移動させ，接地したり遊脚したりする．
-		break;
+	//case EHexapodMove::LEG_UP_DOWN:
+	//	//脚を上下移動させ，接地したり遊脚したりする．
 
-	case EHexapodMove::LEG_HIERARCHY_CHANGE:
+	//	break;
 
-		//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
-		m_LegHierarchy.create(_current_node, _current_num, _output_graph);
-		break;
 
-	case EHexapodMove::COM_TRANSLATION:
+	//case EHexapodMove::LEG_HIERARCHY_CHANGE:
+	//	//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
+	//	m_LegHierarchy.create(_current_node, _current_num, _output_graph);
+	//	break;
 
-		//重心を平行移動する．
-		break;
+
+	//case EHexapodMove::COM_TRANSLATION:
+	//	//重心を平行移動する．
+	//	break;
+
 
 	case EHexapodMove::COM_UP_DOWN:
-
 		m_ComUpDown.create(_current_node, _current_num, _output_graph);
 		break;
 
+	case EHexapodMove::LEG_UP_DOWN:
+	case EHexapodMove::LEG_HIERARCHY_CHANGE:
+	case EHexapodMove::COM_TRANSLATION:
+	//case EHexapodMove::COM_UP_DOWN:
 	default:
 
 		//定義されていないならば，同じノードをそのまま追加する．

@@ -1,4 +1,6 @@
 #include "MapState.h"
+#include <cfloat>
+#include <algorithm>
 
 void MapState::init(const EMapCreateMode _mode, const int _option, const bool _do_output)
 {
@@ -57,6 +59,20 @@ void MapState::makeDevideMap()
 				//値を挿入する
 				m_devide_map.at(getDevideMapNum(x, y)).push_back(i);
 			}
+		}
+	}
+
+	// m_devide_map_top_zを更新する．
+	for (int i = 0; i < MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM; i++)
+	{
+		//floatの最小値を追加する．
+		m_devide_map_top_z.push_back(-FLT_MAX);
+
+		//全ての要素を参照する．
+		for (const auto& i : m_devide_map.at(i)) 
+		{
+			//現在値と比べて大きいものを追加．
+			m_devide_map_top_z.back() = std::max(i.z, m_devide_map_top_z.back());
 		}
 	}
 }

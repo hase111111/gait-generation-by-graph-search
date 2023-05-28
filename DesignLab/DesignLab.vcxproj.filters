@@ -243,6 +243,9 @@
     <ClInclude Include="HexapodStateCalculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="GraphSearcherRandom.h">
+      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -397,6 +400,12 @@
     </ClCompile>
     <ClCompile Include="ComMoveNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="HexapodStateCalculator.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearcherRandom.cpp">
+      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

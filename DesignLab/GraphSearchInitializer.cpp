@@ -1,12 +1,13 @@
 #include "GraphSearchInitializer.h"
 #include "GraphTreeCreatorSample.h"
+#include "GraphTreeCreatorHato.h"
 #include "GraphSearcherSample.h"
-
+#include "GraphSearcherRandom.h"
 
 bool GraphSearchInitializer::init(std::unique_ptr<IGraphTreeCreator>& _p_tree_creator, std::unique_ptr<IGraphSearcher>& _p_graph_searcher)
 {
-	_p_tree_creator = std::make_unique<GraphTreeCreatorSample>();
-	_p_graph_searcher = std::make_unique<GraphSearcherSample>();
+	_p_tree_creator = std::make_unique<GraphTreeCreatorHato>();
+	_p_graph_searcher = std::make_unique<GraphSearcherRandom>();
 
 	return true;
 }
