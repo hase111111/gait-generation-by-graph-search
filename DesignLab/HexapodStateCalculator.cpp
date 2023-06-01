@@ -4,7 +4,8 @@
 
 using namespace myvector;
 
-float HexapodStateCalclator::m_leg_rom_r[200] = {};
+float HexapodStateCalclator::m_leg_max_r[200] = {};
+float HexapodStateCalclator::m_leg_min_r[200] = {};
 
 HexapodStateCalclator::HexapodStateCalclator()
 {
@@ -18,6 +19,11 @@ HexapodStateCalclator::HexapodStateCalclator()
 myvector::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg[_leg_num],_node.rot) + _node.global_center_of_mass;
+}
+
+myvector::SVector HexapodStateCalclator::getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const
+{
+	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg2[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
 myvector::SVector HexapodStateCalclator::getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const
@@ -65,37 +71,63 @@ myvector::SVector HexapodStateCalclator::getGlobalTibiaJointPos(const SNode& _no
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
-void HexapodStateCalclator::initLegRomR()
+void HexapodStateCalclator::initLegR()
 {
 	using namespace my_math;
 
-	for (int _z = 0; _z < 200; _z++)
+	for (int _z = 0; _z < MAX_DIF_Z; _z++)
 	{
-		for (int _x = 53; _x < 248; _x++)
+		float _max_r = 0;
+		float _min_r = 0;
+
+		for (float _x = HexapodConst::COXA_LENGTH; _x < HexapodConst::COXA_LENGTH + HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH; _x++)
 		{
 			SVector _tmp_leg((float)_x, 0, -(float)_z);
-			_tmp_leg.z += (_tmp_leg.z == 0) ? 0.001f : 0;	
+			
+			// 以下の三変数を辺とする三角形が成立するか調べる．
+			int _a = HexapodConst::TIBIA_LENGTH;
+			int _b = HexapodConst::FEMUR_LENGTH;
+			int _c = sqrt(squared(_tmp_leg.x - HexapodConst::COXA_LENGTH) + squared(_tmp_leg.z));
 
-			SVector _local_femurjoint_pos = SVector(HexapodConst::COXA_LENGTH, 0, 0);
+			bool _is_vaild_triangle = true;
+			if (_a + _b < _c)_is_vaild_triangle = false;
+			if (_a + _c < _b)_is_vaild_triangle = false;
+			if (_c + _b < _a)_is_vaild_triangle = false;
 
-			const float _leg_to_coxa_len = sqrt(squared(_tmp_leg.x) + squared(_tmp_leg.y));		//真上から見たときの，脚先から脚の付け根までの長さ．
-			float _leg_to_fumur_len = _leg_to_coxa_len - HexapodConst::COXA_LENGTH;				//真上から見たときの，脚先から第一関節までの長さ．
-			_leg_to_fumur_len += (_leg_to_fumur_len == 0) ? 0.001f : 0;
+			//成立するのならば，そこに脚を伸ばすことができるはず．
+			if (_is_vaild_triangle) 
+			{
+				if (_min_r == 0)_min_r = _x;
+				_max_r = _x; 
+			}
 
-			const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::FEMUR_LENGTH) + squared(_tmp_leg.z) - squared(HexapodConst::TIBIA_LENGTH);
-			const float _s2 = 2 * HexapodConst::FEMUR_LENGTH * _leg_to_fumur_len * sqrt(squared(_leg_to_fumur_len) + squared(_tmp_leg.z));
-
-			const float _fumur_joint_angle = -atan(_leg_to_fumur_len / _tmp_leg.z) + asin(_s1 / _s2);
-
-			SVector _local_tibiajoint_pos = _local_femurjoint_pos +	SVector(HexapodConst::FEMUR_LENGTH * cos(_fumur_joint_angle),
-																			0,
-																			HexapodConst::FEMUR_LENGTH * sin(_fumur_joint_angle));
-
-			if ((_tmp_leg - _local_tibiajoint_pos).length() < HexapodConst::TIBIA_LENGTH) { m_leg_rom_r[_z] = _x; }
 		}
+
+		m_leg_max_r[_z] = _max_r;
+		m_leg_min_r[_z] = _min_r;
 	}
+}
 
+float HexapodStateCalclator::getMaxLegR(const float _coxa_z_to_leg_z) const
+{
+	int _dif_z = (int)abs(_coxa_z_to_leg_z);		// Z座標の差異を正の整数の値に変換する．誤差はでるけど高速に処理できるようになる．
 
+	//値が範囲外であるならば，0を返す．
+	if (_dif_z < 0) { return 0.0f; }
+	if (MAX_DIF_Z < _dif_z ) { return 0.0f; }
+
+	return m_leg_max_r[_dif_z];
+}
+
+float HexapodStateCalclator::getMinLegR(const float _coxa_z_to_leg_z) const
+{
+	int _dif_z = (int)abs(_coxa_z_to_leg_z);		// Z座標の差異を正の整数の値に変換する．誤差はでるけど高速に処理できるようになる．
+
+	//値が範囲外であるならば，0を返す．
+	if (_dif_z < 0) { return 0.0f; }
+	if (MAX_DIF_Z < _dif_z) { return 0.0f; }
+
+	return m_leg_min_r[_dif_z];
 }
 
 myvector::SVector HexapodStateCalclator::getLocalCoxaJointPos(const int _leg_num) const

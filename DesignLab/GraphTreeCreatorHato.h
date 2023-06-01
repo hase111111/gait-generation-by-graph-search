@@ -3,6 +3,7 @@
 #include "MapState.h"
 #include "ComUpDownNodeCreator.h"
 #include "LegHierarchyNodeCreator.h"
+#include "LegUpDownNodeCreator.h"
 
 //波東さんのグラフを作成するプログラムを移植したものです．
 //もともとのプログラムで行われた処理の中でコメントアウトされたものはすべて削除したので，知りたければ過去のプログラムを参照してください．
@@ -22,5 +23,6 @@ private:
 	const MapState * mp_Map;
 
 	LegHierarchyNodeCreator m_LegHierarchy;
+	LegUpDownNodeCreator m_LegUpDown;
 	ComUpDownNodeCreator m_ComUpDown;
 };

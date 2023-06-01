@@ -57,6 +57,9 @@ namespace LegState
 	// _leg_state •ÏX‚·‚é‹ró‘ÔD_leg_num ‚Ç‚Ì‹r‚ğ•ÏX‚·‚é‚© 0`5D_new_state V‚µ‚¢‹ró‘Ô 1`7
 	bool changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state);
 
+	//‹r‚ÌÚ’nE—V‹rî•ñ‚ğ•ÏX‚·‚éD‘æ1ˆø”‚Ì_leg_state‚ğQÆ“n‚µ‚µ‚Ä•ÏX‚·‚é
+	void changeGround(int& _leg_state, const int _leg_num, const bool _ground);
+
 	//‹r”Ô†‚ª 0`5 ‚ÌŠÔ‚É“ü‚Á‚Ä‚¢‚é‚È‚ç‚Îtrue
 	bool isAbleLegNum(const int _num);
 

@@ -12,7 +12,7 @@ SystemMain::SystemMain()
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
-	HexapodStateCalclator::initLegRomR();
+	HexapodStateCalclator::initLegR();
 
 	//マップを生成する．
 	m_Map.init(EMapCreateMode::Mesh, MapCreator::OPTION_ROUGH, true);

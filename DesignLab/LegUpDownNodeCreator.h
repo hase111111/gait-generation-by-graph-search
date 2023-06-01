@@ -18,7 +18,11 @@ private:
 	EHexapodMove getNextMove(const EHexapodMove& _last_move) const;
 
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
-	bool isGroundableLeg(const int _leg_num, const SNode& _current_node, SNode& _output_ground_pos);
+	bool isGroundableLeg(const int _leg_num, const SNode& _current_node, myvector::SVector& _output_ground_pos);
 
-	const float HORIZONTAL_MARGIN = 50.0f;	//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
+	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が適しているか調べる．
+	bool isAbleLegPos(const myvector::SVector& _4pos, const myvector::SVector& _candiatepos, const myvector::SVector& _coxapos, const int _leg_state);
+
+	const float LEG_MARGIN = 50.0f;		//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
+	const float HIGH_MARGIN = 10.0f;	//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
 };

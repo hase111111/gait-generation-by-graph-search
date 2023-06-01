@@ -121,6 +121,21 @@ bool LegState::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, con
 	return true;
 }
 
+void LegState::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
+{
+	//_leg_num ‚ª‚¨‚©‚µ‚¢‚È‚ç‚ÎCI—¹D
+	if (isAbleLegNum(_leg_num) == false) { return; }
+
+	if (_ground == true) 
+	{
+		_leg_state |= 0b1000 << (_leg_num * 4);
+	}
+	else 
+	{
+		_leg_state &= ~(0b1000 << (_leg_num * 4));
+	}
+}
+
 bool LegState::isAbleLegNum(const int _num)
 {
 	// 0 ` 5‚È‚ç true
