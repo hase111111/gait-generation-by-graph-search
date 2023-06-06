@@ -79,3 +79,26 @@ void node_edit::changeNextNode(SNode& _node, const int _parent_num, const EHexap
 	_node.parent_num = _parent_num;
 	_node.next_move = _next_move;
 }
+
+std::string node_edit::getTextHexapodMove(const EHexapodMove _move)
+{
+	switch (_move)
+	{
+	case EHexapodMove::COM_MOVE:
+		return "重心の平行移動";
+
+	case EHexapodMove::COM_UP_DOWN:
+		return "重心の上下移動";
+
+	case EHexapodMove::LEG_HIERARCHY_CHANGE:
+		return "脚の階層変更";
+
+	case EHexapodMove::LEG_UP_DOWN:
+		return "脚の上下移動";
+
+	default:
+		return "定義されてない動作です";
+		break;
+	}
+	return "";
+}

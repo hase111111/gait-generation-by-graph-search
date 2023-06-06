@@ -51,6 +51,7 @@ void GraphicMainBasic::draw() const
 {
     //マップを描画する．
     MapRenderer _map_render;
+    _map_render.setNode(m_node.at(m_display_node));
     _map_render.draw(m_Map);
 
     if (m_node.empty() == false) 

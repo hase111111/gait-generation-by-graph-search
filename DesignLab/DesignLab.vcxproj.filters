@@ -34,32 +34,11 @@
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Graphic">
-      <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Graphic\Main">
-      <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Graphic\Common">
-      <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Graphic\Render3D">
-      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Hexapod\Common">
       <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Map\Common">
       <UniqueIdentifier>{4cbf193f-9b99-4485-b951-d73d36506f65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchMain">
-      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchMain\GraphSearcher">
-      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchMain\GraphTreeCreator">
-      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Node">
       <UniqueIdentifier>{b124c590-c0f6-4d4f-a8e8-9277ec9952a6}</UniqueIdentifier>
@@ -72,6 +51,27 @@
     </Filter>
     <Filter Include="ソース ファイル\Node\LegState">
       <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem">
+      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\GraphSearcher">
+      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\GraphTreeCreator">
+      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem">
+      <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main">
+      <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Common">
+      <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Render3D">
+      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -142,46 +142,46 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="GraphicLoop.h">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphicSystem.h">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphicMainSample.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="GraphicDataBroker.h">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphicMainBasic.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="GraphicConst.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="Fps.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="MapRenderer.h">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
     <ClInclude Include="CameraController.h">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
     <ClInclude Include="Dxlib3DFunction.h">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphicMain.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="HexapodRenderer.h">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
     <ClInclude Include="HexapodConst.h">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
@@ -190,34 +190,34 @@
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClInclude>
     <ClInclude Include="ButtonController.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="GUIController.h">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearch.h">
-      <Filter>ソース ファイル\GraphSearchMain</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearchInitializer.h">
-      <Filter>ソース ファイル\GraphSearchMain</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
     <ClInclude Include="IGraphTreeCreator.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="IGraphSearcher.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherSample.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorSample.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorHato.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="SystemMain.h">
       <Filter>ソース ファイル</Filter>
@@ -244,7 +244,7 @@
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherRandom.h">
-      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="SystemTest.h">
       <Filter>ソース ファイル</Filter>
@@ -318,43 +318,43 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="GraphicLoop.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphicSystem.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphicMainSample.cpp">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="GraphicDataBroker.cpp">
-      <Filter>ソース ファイル\Graphic</Filter>
+      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphicMainBasic.cpp">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="GraphicConst.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="Fps.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="CameraController.cpp">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
     <ClCompile Include="MapRenderer.cpp">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
     <ClCompile Include="Dxlib3DFunction.cpp">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
     <ClCompile Include="InterfaceGraphicMain.cpp">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="HexapodRenderer.cpp">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
     <ClCompile Include="HexapodConst.cpp">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
@@ -363,25 +363,25 @@
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClCompile>
     <ClCompile Include="ButtonController.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="GUIController.cpp">
-      <Filter>ソース ファイル\Graphic\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearch.cpp">
-      <Filter>ソース ファイル\GraphSearchMain</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearchInitializer.cpp">
-      <Filter>ソース ファイル\GraphSearchMain</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherSample.cpp">
-      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorSample.cpp">
-      <Filter>ソース ファイル\GraphSearchMain\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="SystemMain.cpp">
       <Filter>ソース ファイル</Filter>
@@ -393,7 +393,7 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorHato.cpp">
-      <Filter>ソース ファイル\GraphSearchMain\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="NodeEdit.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -411,7 +411,7 @@
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherRandom.cpp">
-      <Filter>ソース ファイル\GraphSearchMain\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="SystemTest.cpp">
       <Filter>ソース ファイル</Filter>

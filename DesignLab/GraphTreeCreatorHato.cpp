@@ -8,6 +8,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 	mp_Map = _p_map;
 
 	m_ComUpDown.init(mp_Map);
+	m_LegUpDown.init(mp_Map);
 
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
@@ -58,10 +59,10 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 		break;
 
 
-	//case EHexapodMove::LEG_HIERARCHY_CHANGE:
-	//	//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
-	//	m_LegHierarchy.create(_current_node, _current_num, _output_graph);
-	//	break;
+	case EHexapodMove::LEG_HIERARCHY_CHANGE:
+		//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
+		m_LegHierarchy.create(_current_node, _current_num, _output_graph);
+		break;
 
 
 	//case EHexapodMove::COM_MOVE:
@@ -73,7 +74,6 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 		m_ComUpDown.create(_current_node, _current_num, _output_graph);
 		break;
 
-	case EHexapodMove::LEG_HIERARCHY_CHANGE:
 	case EHexapodMove::COM_MOVE:
 	default:
 

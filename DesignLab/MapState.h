@@ -46,20 +46,20 @@ public:
 	inline size_t getPosNum() const { return m_map_data.size();; }
 
 	// x座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumX(const float _posx)
+	inline static int getDevideMapNumY(const float _posx)
 	{
 		int tmp = (int)((_posx - MapConst::MAP_MIN_HORIZONTAL) / (((float)MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / MapConst::LP_DIVIDE_NUM));
 		if (tmp < 0) { return 0; }
-		if (tmp >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM - 1; }
+		if (tmp >= MapConst::LP_DIVIDE_NUM) { return MapConst::LP_DIVIDE_NUM - 1; }
 		return tmp;
 	}
 
 	// y座標の値から，m_devide_mapのどこをさしているか計算して返す
-	inline static int getDevideMapNumY(const float _posy)
+	inline static int getDevideMapNumX(const float _posy)
 	{
 		int tmp = (int)( (_posy - MapConst::MAP_MIN_FORWARD) / ( ((float)MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / MapConst::LP_DIVIDE_NUM) );
 		if (tmp < 0)return 0;
-		if (tmp >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM)return MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM - 1;
+		if (tmp >= MapConst::LP_DIVIDE_NUM)return MapConst::LP_DIVIDE_NUM - 1;
 		return tmp;
 	}
 

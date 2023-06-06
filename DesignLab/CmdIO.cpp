@@ -1,6 +1,7 @@
 #include "CmdIO.h"
 #include <iostream>
 #include "LegState.h"
+#include "NodeEdit.h"
 
 using namespace LegState;
 
@@ -45,9 +46,9 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 
 	//âÒì]épê®
 	std::cout << "\tRotate : roll = " << _node.rot.roll << ", pitch = " << _node.rot.pitch << ", yaw = " << _node.rot.yaw << std::endl;
-
+	
 	//éüìÆçÏ
-	std::cout << "\tNext Move : " << (int)static_cast<char>(_node.next_move) << std::endl;
+	std::cout << "\tNext Move : " << node_edit::getTextHexapodMove(_node.next_move) << std::endl;
 	std::cout << "\t(Depth : " << _node.depth << ")" << std::endl;
 	std::cout << "\t(parent number : " << _node.parent_num << ")" << std::endl;
 

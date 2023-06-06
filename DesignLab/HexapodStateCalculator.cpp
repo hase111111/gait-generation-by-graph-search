@@ -21,6 +21,11 @@ myvector::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, con
 	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg[_leg_num],_node.rot) + _node.global_center_of_mass;
 }
 
+myvector::SVector HexapodStateCalclator::getLocalLegPos(const SNode& _node, myvector::SVector _global_pos, const int _leg_num) const
+{
+	return rotVector(_global_pos - _node.global_center_of_mass, _node.rot * -1) - getLocalCoxaJointPos(_leg_num);
+}
+
 myvector::SVector HexapodStateCalclator::getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg2[_leg_num], _node.rot) + _node.global_center_of_mass;
@@ -85,9 +90,9 @@ void HexapodStateCalclator::initLegR()
 			SVector _tmp_leg((float)_x, 0, -(float)_z);
 			
 			// 以下の三変数を辺とする三角形が成立するか調べる．
-			int _a = HexapodConst::TIBIA_LENGTH;
-			int _b = HexapodConst::FEMUR_LENGTH;
-			int _c = sqrt(squared(_tmp_leg.x - HexapodConst::COXA_LENGTH) + squared(_tmp_leg.z));
+			float _a = HexapodConst::TIBIA_LENGTH;
+			float _b = HexapodConst::FEMUR_LENGTH;
+			float _c = sqrt(squared(_tmp_leg.x - HexapodConst::COXA_LENGTH) + squared(_tmp_leg.z));
 
 			bool _is_vaild_triangle = true;
 			if (_a + _b < _c)_is_vaild_triangle = false;

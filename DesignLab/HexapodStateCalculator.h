@@ -11,6 +11,9 @@ public:
 	//脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．また，ロボットの回転を考慮する．
 	myvector::SVector getGlobalLegPos(const SNode& _node, const int _leg_num) const;	
 
+	//第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
+	myvector::SVector getLocalLegPos(const SNode& _node, myvector::SVector _global_pos, const int _leg_num) const;
+
 	//脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．
 	myvector::SVector getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const;
 
