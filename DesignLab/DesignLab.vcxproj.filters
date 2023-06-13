@@ -252,6 +252,9 @@
     <ClInclude Include="LegUpDownNodeCreator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicMainTest.h">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -418,6 +421,9 @@
     </ClCompile>
     <ClCompile Include="LegUpDownNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicMainTest.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

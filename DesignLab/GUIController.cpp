@@ -17,48 +17,88 @@ GUIController::GUIController()
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横カメラ"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "俯瞰(反転)"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横(反転)"));
+
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 6 / 4, _camera_y + _camera_buttomy * 20 / 4, _camera_buttomx*2, _camera_buttomy, "ノード表示切り替え"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 25 / 4, _camera_buttomx, _camera_buttomy, "←"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 25 / 4, _camera_buttomx, _camera_buttomy, "→"));
 }
 
-void GUIController::update(CameraController& _camera)
+void GUIController::update(CameraController& _camera, const int _max_node, int& _display_node, const int _counter)
 {
+	if (m_mode == ENodeDisplayNode::AutoUpdate) 
+	{
+		if (_counter % CHANGE_NEXT_NODE == 0)
+		{
+			_display_node++;
+		}
+	}
+	else if (m_mode == ENodeDisplayNode::AlwaysNew) 
+	{
+		_display_node = _max_node - 1;
+	}
+
+
 	//表示切替キーが押されたならば，表示切り返えフラグの値をさかさまにする．
 	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1) { m_is_displayed = !m_is_displayed; }
 
-	//表示していない時にボタンの処理を行わない
-	if (m_is_displayed == false) { return; }
-
-	//ボタンを更新する．
-	for (int i = 0; i < (int)m_buttom.size(); i++)
+	if (m_is_displayed == true) 
 	{
-		m_buttom.at(i)->update();
+		//表示していない時にボタンの処理を行わない
 
-		//ボタンの追加された順番ごとに処理をする．クソみたいな実装でスマソ
-		switch (i)
+		//ボタンを更新する．
+		for (int i = 0; i < (int)m_buttom.size(); i++)
 		{
-		case 0:
-			if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::TopView); }
-			break;
+			m_buttom.at(i)->update();
 
-		case 1:
-			if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::OverheadView); }
-			break;
+			//ボタンの追加された順番ごとに処理をする．クソみたいな実装でスマソ
+			switch (i)
+			{
+			case 0:
+				if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::TopView); }
+				break;
 
-		case 2:
-			if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::SideView); }
-			break;
+			case 1:
+				if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::OverheadView); }
+				break;
 
-		case 3:
-			if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::OverheadViewFlip); }
-			break;
+			case 2:
+				if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::SideView); }
+				break;
 
-		case 4:
-			if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::SideViewFlip); }
-			break;
+			case 3:
+				if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::OverheadViewFlip); }
+				break;
 
-		default:
-			break;
+			case 4:
+				if (m_buttom.at(i)->isPushedNow() == true) { _camera.setCameraMode(ECameraMode::SideViewFlip); }
+				break;
+
+			case 5:
+				if (m_buttom.at(i)->isPushedNow() == true) 
+				{
+					if (m_mode == ENodeDisplayNode::Selectable)m_mode = ENodeDisplayNode::AlwaysNew;
+					else if (m_mode == ENodeDisplayNode::AlwaysNew)m_mode = ENodeDisplayNode::AutoUpdate;
+					else if (m_mode == ENodeDisplayNode::AutoUpdate)m_mode = ENodeDisplayNode::Selectable;
+				}
+				break;
+
+			case 6:
+				if (m_buttom.at(i)->isPushedNow() == true) { _display_node--; }
+				break;
+
+			case 7:
+				if (m_buttom.at(i)->isPushedNow() == true) { _display_node++; }
+				break;
+
+			default:
+				break;
+			}
 		}
 	}
+
+
+	if (_display_node < 0) { _display_node = 0; }
+	if (_display_node >= _max_node) { _display_node = _max_node - 1; }
 }
 
 void GUIController::draw(const SNode _node) const
@@ -211,4 +251,17 @@ void GUIController::drawExplanationByStr() const
 	DrawFormatString(RIGHTX, CENTER_Y - BOX_Y / 2 + line(), _str_color, "もう一度Zキーを押すことで戻ります.");
 	DrawFormatString(RIGHTX, CENTER_Y - BOX_Y / 2 + line(), _str_color, "基本的にはクリックで操作をします．");
 	DrawFormatString(RIGHTX, CENTER_Y - BOX_Y / 2 + line(), _str_color, "以下のボタンでカメラの視点を変更．");
+
+	//ボタンが置いてある分だけ改行する
+	for (int i = 0; i < 7; i++) { line(); }
+
+	{
+		std::string _str = "表示方法：";
+
+		if (m_mode == ENodeDisplayNode::AlwaysNew) { _str += "常に最新．"; }
+		else if (m_mode == ENodeDisplayNode::AutoUpdate) { _str += "自動で更新"; }
+		else if (m_mode == ENodeDisplayNode::Selectable) { _str += "ボタンで選択"; }
+		DrawFormatString(RIGHTX, CENTER_Y - BOX_Y / 2 + line(), _str_color, _str.c_str());
+	}
+
 }

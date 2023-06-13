@@ -32,7 +32,6 @@ SystemMain::SystemMain()
 	m_target.TargetMode = ETargetMode::TURN_DIRECTION;					// ETargetModeの中から目標の評価方法を設定する．
 	m_target.TurningRadius = abs(m_target.RotationCenter.x);
 	m_target.TurningRadius = myvector::VMag(m_target.RotationCenter);	//旋回半径 これだと、原点と旋回中心との距離,いや更新してないから現状では一応よさげ、y軸上を直進させるなら、ｘの距離つまり、旋回中心とy軸との距離
-
 }
 
 void SystemMain::main()

@@ -10,14 +10,6 @@ void LegUpDownNodeCreator::init(const MapState* const _p_Map)
 
 void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
-	//まずは重心の変化が一切ないものを追加する．
-	{
-		//SNode _same_node = _current_node;
-		//node_edit::changeNextNode(_same_node, _current_num, getNextMove(_current_node.next_move));
-		//_output_graph.push_back(_same_node);
-	}
-
-
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	bool _is_able_type[ComType::COM_TYPE_NUM];
 
@@ -126,7 +118,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
 	std::vector<myvector::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
-	const myvector::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);			//離散化した時の4の座標をあらかじめ計算しておく
+	const myvector::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
 	const myvector::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
 	const int _leg_state = LegState::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
 

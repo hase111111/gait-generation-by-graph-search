@@ -20,42 +20,31 @@ bool GraphicMainBasic::update()
         mp_Broker->copyOnlyNewNode(m_node);
     }
 
-    if (m_counter % CHANGE_NEXT_NODE == 0) 
-    {
-        //表示するノードを更新する時間になったら更新する．
-        m_display_node++;
-
-        //値が大きすぎたら丸める．
-        if (m_display_node >= (int)m_node.size()) { m_display_node = (int)m_node.size() - 1; }
-    }
+    m_GUI.update(m_Camera, m_node.size(), m_display_node, m_counter); //GUIを更新する．
 
     if (m_node.empty() == false) 
     {
-        //ノードが存在しているならば，カメラの処理を行う．
-        m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));
+        m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));      //ノードが存在しているならば，カメラの処理を行う．
 
-        //ロボットの状態を更新する．
-        m_HexapodRender.update(m_node.at(m_display_node));
+        m_HexapodRender.update(m_node.at(m_display_node));      //ロボットの状態を更新する．
     }
 
-    m_counter++;    //カウンタを進める．
+    m_counter++;            //カウンタを進める．
 
-    m_GUI.update(m_Camera); //GUIを更新する．
-
-    m_Camera.update();  //カメラを更新する
+    m_Camera.update();      //カメラを更新する
 
     return false;
 }
 
 void GraphicMainBasic::draw() const
 {
-    //マップを描画する．
-    MapRenderer _map_render;
-    _map_render.setNode(m_node.at(m_display_node));
-    _map_render.draw(m_Map);
-
     if (m_node.empty() == false) 
     {
+        //マップを描画する．
+        MapRenderer _map_render;
+        _map_render.setNode(m_node.at(m_display_node));
+        _map_render.draw(m_Map);
+
         //ノードが存在しているならば，ロボットを描画する．
         m_HexapodRender.draw(m_node.at(m_display_node));
 

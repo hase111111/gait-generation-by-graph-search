@@ -9,7 +9,7 @@
 // 以下参考ページ
 // https://dixq.net/rp2/ ←C++用の資料．少々難しいかも．
 // https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも
-// https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(目次的なもの)．
+// https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次的なもの)．
 
 //Dxlibの処理を行うクラス．
 class GraphicSystem final

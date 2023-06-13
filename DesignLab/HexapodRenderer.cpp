@@ -3,6 +3,25 @@
 #include "Dxlib3DFunction.h"
 #include "LegState.h"
 
+
+bool HexapodRenderer::isAbleCoxaLeg(const myvector::SVector _coxa_joint, const myvector::SVector _femur_joint) const
+{
+	if (abs((_coxa_joint - _femur_joint).length() - HexapodConst::COXA_LENGTH) < Define::ALLOWABLE_ERROR) { return true; }
+	return false;
+}
+
+bool HexapodRenderer::isAbleFemurLeg(const myvector::SVector _femur_joint, const myvector::SVector _tibia_joint) const
+{
+	if (abs((_femur_joint - _tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < Define::ALLOWABLE_ERROR) { return true; }
+	return false;
+}
+
+bool HexapodRenderer::isAbleTibiaLeg(const myvector::SVector _tibia_joint, const myvector::SVector _leg_joint) const
+{
+	if (abs((_tibia_joint - _leg_joint).length() - HexapodConst::TIBIA_LENGTH) < 10) { return true; }
+	return false;
+}
+
 HexapodRenderer::HexapodRenderer() :
 	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)), 
 	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16)
@@ -19,6 +38,8 @@ void HexapodRenderer::draw(const SNode& _node) const
 	//旧verのhexapodGraphicの記述にしたがって描画する．
 	using namespace myDxlib3DFunc;
 	using namespace LegState;
+
+	if (DO_OUTPUT_DEBUG_LOG) { clsDx(); }	// printfDx()の出力をきれいにする．
 
 	//胴体を描画する．
 	VECTOR _vertex[6];
@@ -38,6 +59,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 		const VECTOR _femur = convertToDxVec( m_HexaCalc.getGlobalFemurJointPos(_node, i) );
 		const VECTOR _tibia = convertToDxVec( m_HexaCalc.getGlobalTibiaJointPos(_node, i) );
 
+		//脚の色を遊脚・接地で変更する．
 		const unsigned int _color = isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
 		const unsigned int _joint_color = isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
@@ -50,5 +72,27 @@ void HexapodRenderer::draw(const SNode& _node) const
 		DrawSphere3D(_coxa,	 JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, COLOR_LIFTED_JOINT, TRUE);
+
+		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false) 
+		{
+			DrawString(ConvWorldPosToScreenPos(_coxa).x, ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
+		}
+
+		if (isAbleFemurLeg( m_HexaCalc.getGlobalFemurJointPos(_node, i), m_HexaCalc.getGlobalTibiaJointPos(_node, i)) == false)
+		{
+			DrawString(ConvWorldPosToScreenPos(_femur).x, ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
+		}
+
+		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(_node, i), m_HexaCalc.getGlobalLegPos(_node, i)) == false)
+		{
+			DrawString(ConvWorldPosToScreenPos(_femur).x, ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
+		}
+
+		if (DO_OUTPUT_DEBUG_LOG) 
+		{
+			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.Leg[i].z)), m_HexaCalc.getMinLegR(abs(_node.Leg[i].z))); 
+			printfDx("%.3f\n", _node.Leg[i].length());
+		}
+		
 	}
 }

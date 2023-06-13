@@ -17,7 +17,13 @@ private:
 	const float LEG_R = 10.0f;				//脚の半径．このクラスでは脚を円柱に近似して描画している．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
 	const float JOINT_R = 20.0f;			//ジョイントの半径．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
 
+	const bool DO_OUTPUT_DEBUG_LOG = false;	//脚状態を文字列で出力するかどうか
+
 	HexapodStateCalclator m_HexaCalc;		//ロボットの姿勢や座標を計算する．
+
+	bool isAbleCoxaLeg(const myvector::SVector _coxa_joint, const myvector::SVector _femur_joint) const;
+	bool isAbleFemurLeg(const myvector::SVector _femur_joint, const myvector::SVector _tibia_joint) const;
+	bool isAbleTibiaLeg(const myvector::SVector _tibia_joint, const myvector::SVector _leg_joint) const;
 
 public:
 	HexapodRenderer();

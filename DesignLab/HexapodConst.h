@@ -21,8 +21,10 @@ public:
 	const static float BODY_HEIGHT;			//胴体の高さ[mm]．
 
 	//ロボットの可動範囲
-	const static float VERTICAL_MAX_RANGE;	//地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ
-	const static float VERTICAL_MIN_RANGE;	//地面の最高点と胴体下方の隙間の最小値を示す．旧名 MIN_DELTAZ
+	const static float VERTICAL_MAX_RANGE;			//地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ
+	const static float VERTICAL_MIN_RANGE;			//地面の最高点と胴体下方の隙間の最小値を示す．旧名 MIN_DELTAZ
+	const static float MOVABLE_LEG_RANGE;			//coxa関節(第1関節)の稼働可能な角度 [rad]
+	const static float DEFAULT_LEG_ANGLE[LEG_NUM];	//脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
 
 private:
 	//コンストラクタとコピーコンストラクタを削除し，実体を生成できないようにする．

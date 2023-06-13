@@ -4,6 +4,7 @@
 #include "GraphicLoop.h"
 #include "GraphicMainSample.h"
 #include "GraphicMainBasic.h"
+#include "GraphicMainTest.h"
 #include "Define.h"
 
 //注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにしましょう．
@@ -25,10 +26,18 @@ void GraphicSystem::init(const GraphicDataBroker* _p_broker)
 void GraphicSystem::main()
 {
 	//そもそも描画処理を使わないならば即終了
-	if (Define::FLAG_GRAPHIC_AVAILABLE == false) { return; }
+	if (Define::FLAG_GRAPHIC_AVAILABLE == false) 
+	{
+		std::cout << "画像表示を行わない設定になっているため，画像表示を終了します．Defineクラスの変数：FLAG_GRAPHIC_AVAILABLEで変更できます．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
+		return; 
+	}
 
 	//ブローカーがnull(存在しない)なら終了
-	if (mp_Broker == nullptr) { return; }
+	if (mp_Broker == nullptr) 
+	{
+		std::cout << "GraphicDataBrokerクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
+		return; 
+	}
 
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．
 	//そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．

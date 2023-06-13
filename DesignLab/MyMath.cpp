@@ -24,3 +24,4 @@ int my_math::generateRandomNumber(const int _min, const int _max)
     std::uniform_real_distribution<> dis(_min, _max);
     return (int)dis(gen);
 }
+

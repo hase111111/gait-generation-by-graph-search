@@ -8,6 +8,7 @@
 #include "GUIController.h"
 #include "HexapodRenderer.h"
 
+
 //このプロジェクトにおける標準的なロボットの描画機能を持つクラス．
 class GraphicMainBasic final : public IGraphicMain
 {
@@ -26,8 +27,6 @@ private:
 	HexapodRenderer m_HexapodRender;
 
 	GUIController m_GUI;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
-	
-	int m_counter = 0;			// このクラスが実行されてから何回update関数が呼ばれたかカウントする
 
 	std::vector<SNode> m_node;	//ロボットの動きの遷移を記録するvector
 
@@ -35,8 +34,7 @@ private:
 
 	MapState m_Map;				//表示するマップ．
 
-
-	const int CHANGE_NEXT_NODE = (int)(0.2 * GraphicConst::GRAPHIC_FPS);	//次のノードを再生するまでの時間．
+	int m_counter = 0;				//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
 
 	const int GET_NODE_COUNT = 2 * GraphicConst::GRAPHIC_FPS;	//2秒ごとに読み出す．
 };

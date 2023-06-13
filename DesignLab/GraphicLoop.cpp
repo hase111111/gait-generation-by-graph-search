@@ -13,7 +13,7 @@
 
 GraphicLoop::GraphicLoop(std::unique_ptr<IGraphicMain>&& mp_graphic_main)
 {
-	//グラフィックメインクラスをセットする．ユニークポインタを代入する場合はmoveを行う．参考 https://nojima.hatenablog.com/entry/2014/12/10/014131
+	//グラフィックメインクラスを代入する．ユニークポインタを代入する場合はmoveを行う．参考 https://nojima.hatenablog.com/entry/2014/12/10/014131
 	mp_GraphicMain = std::move(mp_graphic_main);
 }
 
@@ -29,17 +29,18 @@ bool GraphicLoop::loop()
 	//処理を行う
 	mp_GraphicMain->update();
 
+	//描画する
 	if (m_Fps.skipDrawScene() == false) 
 	{
 		if (ClearDrawScreen() < 0) { return false; }	//裏画面に描画した絵を消す
 
-		//描画する
 		mp_GraphicMain->draw();
 		
 		if (ScreenFlip() < 0) { return false; }		//スクリーンに裏画面に描画した内容を移す
 	}
 
-	m_Fps.wait();	//FPSを一定に保つために待つ．
+	//FPSを一定に保つために待つ．
+	m_Fps.wait();	
 
 	return true;
 }
