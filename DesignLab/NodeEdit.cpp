@@ -11,7 +11,7 @@ void node_edit::initNode(SNode& _node, const bool _do_random)
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		// 脚の状態は全て，脚位置 4 で接地している状態 ( つまり bitで 1100 ) に初期化する．
-		LegState::changeLegState(_node.leg_state, i, 0b1100);
+		leg_state::changeLegState(_node.leg_state, i, 0b1100);
 	}
 
 	//脚付け根を原点とした，脚先の位置を初期化する．
@@ -97,8 +97,7 @@ std::string node_edit::getTextHexapodMove(const EHexapodMove _move)
 		return "脚の上下移動";
 
 	default:
-		return "定義されてない動作です";
+		return "定義されてない動作です．NodeEdit.hのgetTextHexapodMove関数に動作を追加してください";
 		break;
 	}
-	return "";
 }

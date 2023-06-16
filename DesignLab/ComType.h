@@ -20,8 +20,10 @@
 
 namespace ComType 
 {
-	//重心タイプの数
-	constexpr int COM_TYPE_NUM = 36;
+	constexpr int COM_PATTERN_NUM = 10;		//重心パターンの数
+
+	constexpr int COM_TYPE_NUM = 36;		//重心タイプの数
+
 
 	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する
 	bool isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM]);

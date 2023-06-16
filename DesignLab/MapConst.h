@@ -19,8 +19,6 @@ public:
 	constexpr static int MAP_MAX_FORWARD = 2600;		//マップの縦の最大値点
 	constexpr static float MAX_Z_BASE = 0.0f;			//ロボットが最初に待機している場所の Z 座標．
 
-	//constexpr static int MAPDATA3D_MAX = (MAP_MAX_HORIZONTAL - MAP_MIN_HORIZONTAL) / FOOT_HOLD_XY_DIST * (MAP_MAX_FORWARD - MAP_MIN_FORWARD) / FOOT_HOLD_XY_DIST;
-
 	constexpr static int STRIPE_INTERVAL = 5;			//各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 
 	const static unsigned int HOLE_RATE;	//不整地上の足場を除外する割合。ホール率[%]

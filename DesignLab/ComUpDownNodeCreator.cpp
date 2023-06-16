@@ -72,7 +72,7 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地している脚についてのみ考える．
-		if (LegState::isGrounded(_current_node.leg_state, i) == true)
+		if (leg_state::isGrounded(_current_node.leg_state, i) == true)
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float _c = HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH - MARGIN;
@@ -118,7 +118,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
 			{
 				//遊脚は胴体と一緒に移動するから，変更しなくて大丈夫．
-				if (LegState::isGrounded(_new_node.leg_state, l) == true)
+				if (leg_state::isGrounded(_new_node.leg_state, l) == true)
 				{
 					_new_node.Leg[l].z -= _dif;
 				}

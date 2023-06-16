@@ -37,7 +37,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 {
 	//旧verのhexapodGraphicの記述にしたがって描画する．
 	using namespace myDxlib3DFunc;
-	using namespace LegState;
+	using namespace leg_state;
 
 	if (DO_OUTPUT_DEBUG_LOG) { clsDx(); }	// printfDx()の出力をきれいにする．
 

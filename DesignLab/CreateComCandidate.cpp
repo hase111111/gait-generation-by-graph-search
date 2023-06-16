@@ -58,13 +58,13 @@ void CreateComCandidate::getComMovableArea(const SNode _node, std::vector<myvect
 			_res_com_pos.push_back(IPolygon[i].COMPoint);
 			
 			// 脚状態を記録する.
-			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << LegState::SHIFT_TO_COM_NUM)) & LegState::COM_STATE_MASKBIT);
+			_res_state.push_back((_node.leg_state ^ (IPolygon[i].COMtype << leg_state::SHIFT_TO_COM_NUM)) & leg_state::COM_STATE_MASKBIT);
 			_res_state.back() = _node.leg_state ^ _res_state.back();
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
 				//全部の脚位置を4に変更
-				LegState::changeLegStateKeepTopBit(_res_state.back(), j, 4);
+				leg_state::changeLegStateKeepTopBit(_res_state.back(), j, 4);
 			}
 		}
 	}
@@ -101,7 +101,7 @@ void CreateComCandidate::init(const SNode _node)
 	//CreateComCandidate の変数にコピー．2次階層の状態コピー(例:101010)
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		m_ground_leg[i] = LegState::isGrounded(_node.leg_state, i);
+		m_ground_leg[i] = leg_state::isGrounded(_node.leg_state, i);
 	}
 }
 

@@ -19,7 +19,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	int _com_pattern = LegState::getComPatternState(_current_node.leg_state);
+	int _com_pattern = leg_state::getComPatternState(_current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
 	ComType::checkAbleComTypeFromComPattern(_com_pattern, _is_able_type);
@@ -35,7 +35,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegState::isGrounded(_current_node.leg_state, i) == true) 
+		if (leg_state::isGrounded(_current_node.leg_state, i) == true) 
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			_is_groundable[i] = true; 
@@ -75,7 +75,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
 			{
-				LegState::changeGround(_res_node.leg_state, l, _temp_ground[l]);
+				leg_state::changeGround(_res_node.leg_state, l, _temp_ground[l]);
 
 				_res_node.Leg[l] = _ground_pos[l];
 
@@ -120,7 +120,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	std::vector<myvector::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
 	const myvector::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
 	const myvector::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
-	const int _leg_state = LegState::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
+	const int _leg_state = leg_state::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
 
 	//範囲内の点を全て調べる．
 	for (int x = _min_x_dev; x < _max_x_dev; x++)

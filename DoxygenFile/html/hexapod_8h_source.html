@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/hexapod.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('hexapod_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">hexapod.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Target.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;vectorFunc.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;HexapodConst.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//phantomXを用いて矩形脚先軌道で脚を動かすことを想定した場合は,以下の値に設定すること（実機実験のでも使える）</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//また、SPLP.hの BODY_MARGINはMIN_DELTAZと値を合わせて、安定余裕は15mmにすること（CreateComCandidate.hのSTABILITYMARGINの値）</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//ヨー軸の可動域±40°</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//#define LEGROM_RMARGIN        10  //脚可動範囲のマージン(外側）</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//#define LEG_HIEGHT            -25.0f//脚の振り上げ高さ</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//#define MIN_LEG_RADIUS        130</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//#define MAX_LEG_RADIUS        200//コメントアウトすれば運動学通り</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//#define MIN_DELTAZ            50</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//#define MAX_DELTAZ            190</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define LEGROM_RMARGIN      10      </span><span class="comment">//脚可動範囲のマージン(外側）これは一応そのまま</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define LEG_HIEGHT          -20     </span><span class="comment">//脚の振り上げ高さ</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define MIN_LEG_RADIUS      120</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//#define MAX_LEG_RADIUS    200     //脚を伸ばし切らない程度200orコメントアウト</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//安定余裕は0mm(CreateComCandidate.hのSTABILITYMARGINの値)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//SPLP.hの BODY_MARGINはMIN_DELTAZと値を合わせる</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> COMPOSI = myvector::VGet(0.0f, 0.0f, 0.0f); <span class="comment">//myvector::VGet(0.0, 0.0, 0.0);//重心位置</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// 自機の状態型</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_s_transform.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_transform.html">STransform</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   com;        <span class="comment">//3次元位置 z上 右手座標系 yが前</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">float</span>               thR, thP, thY;  <span class="comment">//3次元回転 テイトブライアン角</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_hexapod.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="class_hexapod.html">Hexapod</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">/*  脚番号の設定</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">            \        /</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">             \______/           座標系 座標系混ざりすぎて草　</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">              |5   0|           x</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">              |     |           ⇑</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">           ---|4   1|---       z✖⇒y</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">              |     |           (z軸はロボットから見て鉛直下向きが正)</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">              |3___2|</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">             /      \</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">            /        \</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_struct" href="struct_s_transform.html">STransform</a> ziki;                                <span class="comment">//自機の位置と向き</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="struct_s_target.html">STarget</a> m_target;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   m_local_leg_pos[HexapodConst::LEG_NUM];         <span class="comment">//各脚の位置     ローカル座標 coxaJointが原点</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   m_local_leg2_pos[HexapodConst::LEG_NUM];        <span class="comment">//各脚の基準位置   ローカル座標 coxaJointが原点 （旧名 L_Position_of_2）</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   m_local_coxajoint_pos[HexapodConst::LEG_NUM];   <span class="comment">//coxaJointの位置  ローカル座標 重心が原点 x横 y前方 z縦</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   m_local_femurjoint_pos[HexapodConst::LEG_NUM];  <span class="comment">//FemurJointの位置     ローカル座標 重心が原点</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>   m_local_tibiajoint_pos[HexapodConst::LEG_NUM];  <span class="comment">//TibiaJointの位置     ローカル座標 重心が原点</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">//脚可動範囲の半径 胴体高さについてのテーブル 200の意味は胴体中心から鉛直下向きに200mm</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> m_leg_max_r[200];</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">//可動範囲と脚の接地点から  脚の接地点が可動範囲内ならば1 外だったら0を返す．全然setJointPosじゃない．</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> setJointPosi();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="class_hexapod.html">Hexapod</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="class_hexapod.html">~Hexapod</a>() = <span class="keywordflow">default</span>;                   </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// PFで使用</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> rotation(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; In, <span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; center, <span class="keyword">const</span> <span class="keywordtype">float</span> thP, <span class="keyword">const</span> <span class="keywordtype">float</span> thR, <span class="keyword">const</span>  <span class="keywordtype">float</span> thY) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// 可動範囲と脚の接地点から，脚の接地点が可動範囲内ならばtrue 外だったらfalseを返す．</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// 扇形であるという仮定から算術する方式 ロボット固有 LineEndは多分普通に回転させてないからグローバル(coxa座標系で見たとき)のcoxaから接地点までのベクトル</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// 脚先が可動範囲内かどうか(脚番号,coxaからの位置)．大木さんのやつでしか使ってない．（旧名 check_touchdown_point）</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// SPBR と SPLPで使用．間接的にCCCでも使用．</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">bool</span> isLegWithinRange(<span class="keyword">const</span> <span class="keywordtype">int</span> legNum, <span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; LineEnd) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">// 脚先、接地可能点、重心高さが一定でないときの可動範囲を修正したもの今のところSPLPのpossibleLegPointRotationで使う予定．</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// delta_zは重心高さ（グローバル）と足先の高さ（グローバル）の差で、大きくとっても0~200mmの間に収まらなきゃダメ。LegROM_r[]のインデックス</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// 多分↑の関数とやってること変わらなげ。。後々delta_zは接地面座標系で見た重心と脚先高さの差にしなければならない。</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// SPLPで使用</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">bool</span> check_touchdown_point2(<span class="keywordtype">int</span> legNum, <span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; LineEnd, <span class="keyword">const</span> <span class="keywordtype">float</span> delta_z) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">//実行可能な体勢ならばtrue．legはCoxaJointを(0,0,0)としたときの位置．CCCで使用．</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">bool</span> isAblePause(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> _leg[HexapodConst::LEG_NUM], <span class="keyword">const</span> <span class="keywordtype">bool</span> _is_leg_grounded[HexapodConst::LEG_NUM]);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">//脚位置と重心位置から転倒しないか判断し，転倒しないならばtrueを返す．CCCで使用．</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> isAbleCOM(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> _leg[HexapodConst::LEG_NUM], <span class="keyword">const</span> <span class="keywordtype">bool</span> _is_leg_grounded[HexapodConst::LEG_NUM]);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">//初期姿勢。下向きにZの正、胴体前方にX、右手座標系でY　正直、体勢によらずロボット固有のものだから、計算結果を定数でコピーでもいい。。可動域を変えないのであれば、</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// PFで使用</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> makeLegROM_r();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">//扇形が内接するxy軸に平行な長方形の左下p1と右上p2の頂点を導出している。//hato20200710</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">//現在の位置と向きにおける脚到達範囲を返す p1:最小角度の時の座標 p2:最大角度の時の座標 ピッチ・ロール回転は考慮していない 扇形であること前提</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// SPLPで使用</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> calculateRangeOfMovement(<span class="keyword">const</span> <span class="keywordtype">int</span> legnum, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; p1, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; p2) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">//setter と getter．数が多すぎる．減らしたい</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> setMyDirection(<span class="keyword">const</span> <span class="keywordtype">float</span> _thP, <span class="keyword">const</span> <span class="keywordtype">float</span> _thR, <span class="keyword">const</span> <span class="keywordtype">float</span> _thY);  <span class="comment">//姿勢</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> setMyPosition(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> _com) { this-&gt;ziki.com = _com; }     <span class="comment">//重心位置</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> setTarget(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_target.html">STarget</a> _target) { this-&gt;m_target = _target; }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> setLocalLeg2Pos(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> posi2[HexapodConst::LEG_NUM]);         <span class="comment">//旧名 setPosition_of_2</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> setLocalLegPos(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> posi[HexapodConst::LEG_NUM]);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">//ロボットの姿勢を出力</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getTargetDirection()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.TargetDirection; }  <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getTargetRotation()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.TargetRotation; }    <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getTargetAngle()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.TargetAngle; }          <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getRotaionCenter()<span class="keyword">const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.RotationCenter; }      <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> getTurningRadius()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.TurningRadius; }                  <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">inline</span> ETargetMode getTargetMode()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_target.TargetMode; }                  <span class="comment">//Targetの値を受け取る</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getLocalLegPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_local_leg_pos[_leg_num]; }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getLocalLeg2Pos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;m_local_leg2_pos[_leg_num]; } <span class="comment">//旧名 getLocalPosition_of_2</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getLocalCoxaJointPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_coxajoint_pos[_leg_num]; }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">//旧名 getGlobalLeg2Pos</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalLegPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalLeg2Pos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalCoxaJointPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalFemurJointPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalTibiaJointPos(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> getGlobalMyDirectionthP()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;ziki.thP; }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> getGlobalMyDirectionthR()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;ziki.thR; }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> getGlobalMyDirectionthY()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;ziki.thY; }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> getGlobalMyPosition()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ziki.com; }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="ttc" id="aclass_hexapod_html"><div class="ttname"><a href="class_hexapod.html">Hexapod</a></div><div class="ttdef"><b>Definition</b> hexapod.h:35</div></div>
+<div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:29</div></div>
+<div class="ttc" id="astruct_s_transform_html"><div class="ttname"><a href="struct_s_transform.html">STransform</a></div><div class="ttdef"><b>Definition</b> hexapod.h:29</div></div>
+<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdef"><b>Definition</b> vectorFunc.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>hexapod.h</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

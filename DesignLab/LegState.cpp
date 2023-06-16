@@ -1,7 +1,35 @@
 #include "LegState.h"
-#include "HexapodConst.h"
+#include "ComType.h"
 
-bool LegState::isGrounded(const int _leg_state, const int _leg_num)
+int leg_state::makeLegState(const int _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])
+{
+	int res = 0;
+
+	if (0 <= _com_pattern && _com_pattern < ComType::COM_PATTERN_NUM) 
+	{
+		res |= _com_pattern << SHIFT_TO_COM_NUM;	//重心パターンの数値だけbitを立てる
+	}
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		if (_ground[i] == true) { res |= 0b1000 << (i * 4); }	//接地しているならば上位bitを立てる
+
+		if (0 < _leg_pos[i] && _leg_pos[i] <= DISCRETE_NUM)
+		{
+			// 1 ～ 7 の範囲ならばその値だけbitを立てる．
+			res |= _leg_pos[i] << (i * 4);
+		}
+		else 
+		{
+			//範囲外ならば 4 (基準位置)にする．
+			res |= 4 << (i * 4); 
+		}
+	}
+
+	return res;
+}
+
+bool leg_state::isGrounded(const int _leg_state, const int _leg_num)
 {
 	int _shift_bit[HexapodConst::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
 	int v_bit = 0b1000;												//接地脚を示すbitの位置だけ立ててある
@@ -27,7 +55,7 @@ bool LegState::isGrounded(const int _leg_state, const int _leg_num)
 	
 }
 
-int LegState::getGroundedLegNum(const int _leg_state)
+int leg_state::getGroundedLegNum(const int _leg_state)
 {
 	int _res = 0;
 
@@ -44,7 +72,7 @@ int LegState::getGroundedLegNum(const int _leg_state)
 	return _res;
 }
 
-void LegState::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
+void leg_state::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -57,7 +85,7 @@ void LegState::getGroundedLegNumWithVector(const int _leg_state, std::vector<int
 	}
 }
 
-void LegState::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
+void leg_state::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -70,20 +98,20 @@ void LegState::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>&
 	}
 }
 
-int LegState::getLegState(const int _leg_state, const int _leg_num)
+int leg_state::getLegState(const int _leg_state, const int _leg_num)
 {
 	const int _shift_bit[HexapodConst::LEG_NUM] = { 0, 4, 8, 12, 16, 20 };//4bitずつずらすために使用する
 	const int kaisou_bit = 0b0111;	//脚位置を示す部分
 	return ((_leg_state & (kaisou_bit << _shift_bit[_leg_num])) >> _shift_bit[_leg_num]);
 }
 
-int LegState::getComPatternState(const int _leg_state)
+int leg_state::getComPatternState(const int _leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	return ((_leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM);
 }
 
-bool LegState::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
+bool leg_state::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
 {
 	//_leg_num か _new_state がおかしいならば falseを返す
 	if (isAbleLegNum(_leg_num) == false ||isAbleLegState(_new_state) == false ) 
@@ -102,7 +130,7 @@ bool LegState::changeLegState(int& _leg_state, const int _leg_num, const int _ne
 	return true;
 }
 
-bool LegState::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
+bool leg_state::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
 {
 	//_leg_num か _new_state がおかしいならば falseを返す
 	if (isAbleLegNum(_leg_num) == false || isAbleLegState(_new_state) == false)
@@ -121,7 +149,7 @@ bool LegState::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, con
 	return true;
 }
 
-void LegState::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
+void leg_state::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
 {
 	//_leg_num がおかしいならば，終了．
 	if (isAbleLegNum(_leg_num) == false) { return; }
@@ -134,23 +162,4 @@ void LegState::changeGround(int& _leg_state, const int _leg_num, const bool _gro
 	{
 		_leg_state &= ~(0b1000 << (_leg_num * 4));
 	}
-}
-
-bool LegState::isAbleLegNum(const int _num)
-{
-	// 0 ～ 5なら true
-	if (0 <= _num && _num < HexapodConst::LEG_NUM) { return true; }
-
-	return false;
-}
-
-bool LegState::isAbleLegState(const int _state)
-{
-	// 8 (0b1000) なら false
-	if (_state == 8) { return false; }
-
-	// 1 ～ 15なら true
-	if (0 < _state && _state < 15) { return true; }
-
-	return false;
 }
