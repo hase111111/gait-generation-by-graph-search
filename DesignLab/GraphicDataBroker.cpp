@@ -2,7 +2,7 @@
 
 void GraphicDataBroker::setMapState(const MapState& _map)
 {
-    //書き込み用のロックをかける．まずは，upgrade_lockを用意して，それをunique_lockに変更する．参考 https://iorate.hatenablog.com/entry/20130222/1361538198
+    //書き込み用のロックをかける．まずは，upgrade_lockを用意して，それをunique_lockに変更する．
     boost::upgrade_lock<boost::shared_mutex> upgrade_lock(m_mtx);
 
     {
@@ -21,7 +21,7 @@ MapState GraphicDataBroker::getMapState() const
     return m_Map;
 }
 
-void GraphicDataBroker::pushNode(const SNode _node)
+void GraphicDataBroker::pushNode(const SNode &_node)
 {
     //書き込み用のロックをかける．
     boost::upgrade_lock<boost::shared_mutex> upgrade_lock(m_mtx);
@@ -34,7 +34,7 @@ void GraphicDataBroker::pushNode(const SNode _node)
     }
 }
 
-void GraphicDataBroker::copyNode(std::vector<SNode>& _node_vec) const
+void GraphicDataBroker::copyAllNode(std::vector<SNode>& _node_vec) const
 {
     //読み取り用のロックをかける．
     boost::shared_lock<boost::shared_mutex> read_lock(m_mtx);

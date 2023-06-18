@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shift_5fto_5fcom_5fnum_0',['SHIFT_TO_COM_NUM',['../namespaceleg__state.html#aa7ea7c1d32bfdef5eb147ba39348e63a',1,'leg_state']]]
+  ['discrete_5fnum_0',['DISCRETE_NUM',['../namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f',1,'leg_state']]]
 ];

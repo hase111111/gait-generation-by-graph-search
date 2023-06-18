@@ -20,7 +20,7 @@ bool GraphicMainBasic::update()
         mp_Broker->copyOnlyNewNode(m_node);
     }
 
-    m_GUI.update(m_Camera, m_node.size(), m_display_node, m_counter); //GUIを更新する．
+    m_GUI.update(m_Camera, (int)m_node.size(), m_display_node, m_counter); //GUIを更新する．
 
     if (m_node.empty() == false) 
     {
@@ -33,7 +33,7 @@ bool GraphicMainBasic::update()
 
     m_Camera.update();      //カメラを更新する
 
-    return false;
+    return true;
 }
 
 void GraphicMainBasic::draw() const

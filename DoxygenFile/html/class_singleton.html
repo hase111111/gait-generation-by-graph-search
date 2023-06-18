@@ -96,6 +96,11 @@ $(document).ready(function(){initNavTree('class_singleton.html',''); initResizab
   <div class="headertitle"><div class="title">Singleton&lt; _T &gt; クラステンプレート</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと!  
+ <a href="class_singleton.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_singleton_8h_source.html">Singleton.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -112,8 +117,17 @@ static _T *&#160;</td><td class="memItemRight" valign="bottom"><b>getIns</b> ()<
 <a class="el" href="class_singleton.html">Singleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_singleton.html">Singleton</a> &amp;r)=default</td></tr>
 <tr class="separator:a6202ce3d5dac0c4ab56e9a91ef1a7708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_singleton_8h_source.html">Singleton.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename _T&gt;<br />
+class Singleton&lt; _T &gt;</div><p>このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと! </p>
+<p>Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である．<br  />
+ Singletonパターンは悪しき構築の一つなのでなるべく使わないほうがよい．<br  />
+ このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．<br  />
+ <br  />
+ グラフ探索では""絶対""に使わないこと!! <br  />
+ 絶対だよ!!!! </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_singleton_8h_source.html">Singleton.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

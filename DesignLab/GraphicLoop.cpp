@@ -4,12 +4,6 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 
-//描画の処理について，
-// ScreenFlip関数とClearDrawScreen関数について．ウィンドウの画像表示はパラパラ漫画の様に画面を素早く切り替えることでアニメーションを再現している．
-// しかし，単に画面を切り替えた場合，本物のパラパラ漫画の様にウィンドウにちらつきがでてしまう．
-// そこでinit関数の中で呼ばれている SetDrawScreen(DX_SCREEN_BACK) によっていったん裏画面に絵を描画してから，ScreenFlip関数でウィンドウに絵を戻すことで画面のちらつきをなくしている．
-// ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，以下の様な書き方となる．
-
 
 GraphicLoop::GraphicLoop(std::unique_ptr<IGraphicMain>&& mp_graphic_main)
 {
@@ -27,7 +21,7 @@ bool GraphicLoop::loop()
 	Mouse::getIns()->update();
 
 	//処理を行う
-	mp_GraphicMain->update();
+	if (mp_GraphicMain->update() == false) { return false; }
 
 	//描画する
 	if (m_Fps.skipDrawScene() == false) 

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicDataBroker.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_graphic_data_broker_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a>  </div>
+  <div class="headertitle"><div class="title">GraphicDataBroker.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>GraphicDataBrokerクラスの実装を行っている．  
+<a href="#details">[詳解]</a></p>
+<div class="textblock"><code>#include &quot;boost/thread.hpp&quot;</code><br />
+<code>#include &quot;MapState.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+GraphicDataBroker.h の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_graphic_data_broker_8h__incl.png" border="0" usemap="#a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8h" alt=""/></div>
+<map name="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8h" id="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8h">
+<area shape="rect" title="GraphicDataBrokerクラスの実装を行っている．" alt="" coords="164,5,380,64"/>
+<area shape="rect" title=" " alt="" coords="149,112,267,139"/>
+<area shape="poly" title=" " alt="" coords="254,66,228,101,223,98,249,63"/>
+<area shape="rect" href="_map_state_8h_source.html" title=" " alt="" coords="292,112,380,139"/>
+<area shape="poly" title=" " alt="" coords="295,63,321,98,316,101,290,66"/>
+<area shape="rect" href="vector_func_8h.html" title=" " alt="" coords="211,485,306,512"/>
+<area shape="poly" title=" " alt="" coords="343,138,358,196,364,234,367,273,367,351,359,390,339,425,314,455,289,478,285,474,310,451,335,422,354,388,361,350,361,273,359,235,352,197,337,140"/>
+<area shape="rect" title=" " alt="" coords="271,261,326,288"/>
+<area shape="poly" title=" " alt="" coords="335,140,308,247,303,246,330,139"/>
+<area shape="rect" title=" " alt="" coords="401,187,447,213"/>
+<area shape="poly" title=" " alt="" coords="353,137,399,175,396,179,350,141"/>
+<area shape="rect" href="_map_creator_8h_source.html" title=" " alt="" coords="165,187,264,213"/>
+<area shape="poly" title=" " alt="" coords="316,142,250,181,247,176,314,137"/>
+<area shape="rect" href="_hexapod_const_8h_source.html" title=" " alt="" coords="5,560,123,587"/>
+<area shape="poly" title=" " alt="" coords="226,515,113,557,111,552,224,510"/>
+<area shape="rect" href="_define_8h.html" title="プロジェクト全体の定数" alt="" coords="242,560,310,587"/>
+<area shape="poly" title=" " alt="" coords="264,512,272,545,267,546,259,513"/>
+<area shape="rect" title=" " alt="" coords="334,560,391,587"/>
+<area shape="poly" title=" " alt="" coords="278,510,334,549,331,553,275,515"/>
+<area shape="rect" title=" " alt="" coords="416,560,480,587"/>
+<area shape="poly" title=" " alt="" coords="293,510,403,552,401,557,291,515"/>
+<area shape="rect" title=" " alt="" coords="147,560,218,587"/>
+<area shape="poly" title=" " alt="" coords="247,514,208,552,204,548,244,511"/>
+<area shape="poly" title=" " alt="" coords="165,208,136,214,106,225,79,241,57,263,43,288,39,311,43,334,56,361,86,401,125,434,167,459,207,477,205,482,165,464,122,438,82,405,51,364,38,336,34,311,38,286,53,260,75,237,104,220,135,209,164,203"/>
+<area shape="poly" title=" " alt="" coords="231,212,275,250,272,254,228,216"/>
+<area shape="rect" href="_node_8h_source.html" title=" " alt="" coords="184,261,246,288"/>
+<area shape="poly" title=" " alt="" coords="217,214,217,246,212,246,212,214"/>
+<area shape="rect" href="_map_const_8h_source.html" title=" " alt="" coords="66,261,158,288"/>
+<area shape="poly" title=" " alt="" coords="198,216,143,255,140,250,195,212"/>
+<area shape="poly" title=" " alt="" coords="227,287,262,338,279,373,291,410,293,424,291,438,277,473,272,471,285,437,287,424,285,411,274,375,257,341,223,290"/>
+<area shape="rect" href="hexapod_8h_source.html" title=" " alt="" coords="143,336,225,363"/>
+<area shape="poly" title=" " alt="" coords="212,290,197,323,192,321,207,287"/>
+<area shape="rect" href="_target_8h_source.html" title=" " alt="" coords="207,411,276,437"/>
+<area shape="poly" title=" " alt="" coords="223,288,240,335,245,395,240,396,235,337,218,289"/>
+<area shape="rect" title=" " alt="" coords="65,336,119,363"/>
+<area shape="poly" title=" " alt="" coords="195,291,127,330,125,326,192,286"/>
+<area shape="poly" title=" " alt="" coords="186,363,187,398,190,417,197,436,212,457,230,474,226,478,208,460,192,439,185,419,181,398,180,363"/>
+<area shape="poly" title=" " alt="" coords="180,364,80,548,75,545,175,362"/>
+<area shape="poly" title=" " alt="" coords="196,362,224,397,220,401,192,365"/>
+<area shape="poly" title=" " alt="" coords="247,437,255,470,250,471,242,438"/>
+<area shape="poly" title=" " alt="" coords="111,289,102,322,97,321,106,288"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+被依存関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_graphic_data_broker_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8hdep" alt=""/></div>
+<map name="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8hdep" id="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2_graphic_data_broker_8hdep">
+<area shape="rect" title="GraphicDataBrokerクラスの実装を行っている．" alt="" coords="151,5,366,64"/>
+<area shape="rect" href="_graphic_system_8h.html" title="Dxlibの処理を行ってくれるGraphicSystemクラスを実装している．" alt="" coords="5,112,221,171"/>
+<area shape="poly" title=" " alt="" coords="209,75,154,114,151,109,206,70"/>
+<area shape="rect" href="_system_main_8h_source.html" title=" " alt="" coords="5,219,221,277"/>
+<area shape="poly" title=" " alt="" coords="262,79,255,126,247,150,235,172,210,199,180,220,177,216,207,195,231,169,242,148,250,124,256,78"/>
+<area shape="rect" href="_interface_graphic_main_8h.html" title="IGraphicMainクラスの宣言．IGraphicMainはインターフェイスであるので実態が作れない．" alt="" coords="481,112,705,171"/>
+<area shape="poly" title=" " alt="" coords="364,66,502,109,501,114,363,71"/>
+<area shape="poly" title=" " alt="" coords="116,186,116,218,110,218,110,186"/>
+<area shape="rect" href="_graphic_loop_8h.html" title="GraphicLoopクラスの実装を行っている．" alt="" coords="245,219,461,277"/>
+<area shape="poly" title=" " alt="" coords="515,179,420,221,418,216,513,174"/>
+<area shape="rect" href="_graphic_main_basic_8h_source.html" title=" " alt="" coords="485,219,701,277"/>
+<area shape="poly" title=" " alt="" coords="596,186,596,218,590,218,590,186"/>
+<area shape="rect" href="_graphic_main_sample_8h_source.html" title=" " alt="" coords="725,219,944,277"/>
+<area shape="poly" title=" " alt="" coords="673,174,769,216,767,221,671,179"/>
+<area shape="rect" href="_graphic_main_test_8h_source.html" title=" " alt="" coords="968,219,1183,277"/>
+<area shape="poly" title=" " alt="" coords="720,166,956,216,968,219,967,224,955,221,719,171"/>
+</map>
+</div>
+</div>
+<p><a href="_graphic_data_broker_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像表示部と，データ処理部を結びつける仲介人クラス  <a href="class_graphic_data_broker.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>GraphicDataBrokerクラスの実装を行っている． </p>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

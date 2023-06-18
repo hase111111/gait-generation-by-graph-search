@@ -7,12 +7,6 @@
 #include "GraphicMainTest.h"
 #include "Define.h"
 
-//注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにしましょう．
-//まぁ，ぶっちゃけ小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難です．
-//また，Dxlibはエラーが出たときに -1 を返す関数が非常に多いです．そのため例えば if(DxLib_Init() == false) と書いてもエラーを受け取れないことがあります．
-//正しくは if(DxLib_Init() < 0) となります．これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，C++で書かれている本コードにおいては
-//混乱の元です(涙)．Dxlibのエラーはboolではなく，int型の負の値ということを覚えておいてください．
-
 
 void GraphicSystem::init(const GraphicDataBroker* _p_broker)
 {	

@@ -1,9 +1,9 @@
 var annotated_dup =
 [
-    [ "myvector", null, [
+    [ "myvector", "namespacemyvector.html", [
       [ "SLegVector", "structmyvector_1_1_s_leg_vector.html", null ],
       [ "SRotator", "structmyvector_1_1_s_rotator.html", null ],
-      [ "SVector", "structmyvector_1_1_s_vector.html", null ],
+      [ "SVector", "structmyvector_1_1_s_vector.html", "structmyvector_1_1_s_vector" ],
       [ "SVector2", "structmyvector_1_1_s_vector2.html", null ]
     ] ],
     [ "S_NE", null, [
@@ -234,14 +234,14 @@ var annotated_dup =
     [ "CreateComCandidate", "class_create_com_candidate.html", null ],
     [ "Define", "class_define.html", null ],
     [ "detectLandingPoint", "classdetect_landing_point.html", "classdetect_landing_point" ],
-    [ "Fps", "class_fps.html", null ],
+    [ "Fps", "class_fps.html", "class_fps" ],
     [ "GraphicConst", "class_graphic_const.html", null ],
-    [ "GraphicDataBroker", "class_graphic_data_broker.html", null ],
-    [ "GraphicLoop", "class_graphic_loop.html", null ],
-    [ "GraphicMainBasic", "class_graphic_main_basic.html", null ],
-    [ "GraphicMainSample", "class_graphic_main_sample.html", null ],
-    [ "GraphicMainTest", "class_graphic_main_test.html", null ],
-    [ "GraphicSystem", "class_graphic_system.html", null ],
+    [ "GraphicDataBroker", "class_graphic_data_broker.html", "class_graphic_data_broker" ],
+    [ "GraphicLoop", "class_graphic_loop.html", "class_graphic_loop" ],
+    [ "GraphicMainBasic", "class_graphic_main_basic.html", "class_graphic_main_basic" ],
+    [ "GraphicMainSample", "class_graphic_main_sample.html", "class_graphic_main_sample" ],
+    [ "GraphicMainTest", "class_graphic_main_test.html", "class_graphic_main_test" ],
+    [ "GraphicSystem", "class_graphic_system.html", "class_graphic_system" ],
     [ "GraphSearch", "class_graph_search.html", null ],
     [ "GraphSearcherRandom", "class_graph_searcher_random.html", null ],
     [ "GraphSearcherSample", "class_graph_searcher_sample.html", null ],
@@ -254,7 +254,7 @@ var annotated_dup =
     [ "HexapodGraphic", "class_hexapod_graphic.html", null ],
     [ "HexapodRenderer", "class_hexapod_renderer.html", null ],
     [ "HexapodStateCalclator", "class_hexapod_state_calclator.html", null ],
-    [ "IGraphicMain", "class_i_graphic_main.html", null ],
+    [ "IGraphicMain", "class_i_graphic_main.html", "class_i_graphic_main" ],
     [ "IGraphSearcher", "class_i_graph_searcher.html", null ],
     [ "IGraphTreeCreator", "class_i_graph_tree_creator.html", null ],
     [ "Keyboard", "class_keyboard.html", "class_keyboard" ],

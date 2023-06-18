@@ -1,0 +1,18 @@
+<map id="C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicDataBroker.h" name="C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicDataBroker.h">
+<area shape="rect" id="Node000001" title="GraphicDataBrokerクラスの実装を行っている．" alt="" coords="151,5,366,64"/>
+<area shape="rect" id="Node000002" href="$_graphic_system_8h.html" title="Dxlibの処理を行ってくれるGraphicSystemクラスを実装している．" alt="" coords="5,112,221,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,75,154,114,151,109,206,70"/>
+<area shape="rect" id="Node000003" href="$_system_main_8h_source.html" title=" " alt="" coords="5,219,221,277"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="262,79,255,126,247,150,235,172,210,199,180,220,177,216,207,195,231,169,242,148,250,124,256,78"/>
+<area shape="rect" id="Node000004" href="$_interface_graphic_main_8h.html" title="IGraphicMainクラスの宣言．IGraphicMainはインターフェイスであるので実態が作れない．" alt="" coords="481,112,705,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="364,66,502,109,501,114,363,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,186,116,218,110,218,110,186"/>
+<area shape="rect" id="Node000005" href="$_graphic_loop_8h.html" title="GraphicLoopクラスの実装を行っている．" alt="" coords="245,219,461,277"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="515,179,420,221,418,216,513,174"/>
+<area shape="rect" id="Node000006" href="$_graphic_main_basic_8h_source.html" title=" " alt="" coords="485,219,701,277"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="596,186,596,218,590,218,590,186"/>
+<area shape="rect" id="Node000007" href="$_graphic_main_sample_8h_source.html" title=" " alt="" coords="725,219,944,277"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="673,174,769,216,767,221,671,179"/>
+<area shape="rect" id="Node000008" href="$_graphic_main_test_8h_source.html" title=" " alt="" coords="968,219,1183,277"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="720,166,956,216,968,219,967,224,955,221,719,171"/>
+</map>

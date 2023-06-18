@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: DesignLab/GraphicSystem.h ソースファイル</title>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicSystem.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,48 +92,39 @@ $(document).ready(function(){initNavTree('_graphic_system_8h_source.html',''); i
   <div class="headertitle"><div class="title">GraphicSystem.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;GraphicDataBroker.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// GraphicSystemは Dxlibの処理を行ってくれるクラスです．</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Dxlib(デラックス ライブラリ)はウィンドウを表示して，所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつです．</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// 主にゲームプログラミングをする際に，ウィンドウを表示するためのライブラリとして使用されます．</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// Dxlib以外にも OpenCVなどにもウィンドウを表示する機能がありますが，今回のプログラムではDxlibを用いて結果を表示します．</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Dxlibは WinAPI というWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリです．</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// 以下参考ページ</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// https://dixq.net/rp2/ ←C++用の資料．少々難しいかも．</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次的なもの)．</span></div>
+<a href="_graphic_system_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//Dxlibの処理を行うクラス．</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_graphic_system.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> final</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_graphic_system.html">~GraphicSystem</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//Dxlibの初期化を行います．</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a>* _p_broker);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> main();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> dxlibInit();           <span class="comment">//Dxlibの初期化処理を行います．失敗した場合falseを返します．</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> dxlibFinalize() <span class="keyword">const</span>; <span class="comment">//Dxlibの終了処理を行います．</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐブローカー(仲介人)クラスのポインタを受け取る．</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a>* mp_Broker;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
-<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:11</div></div>
-<div class="ttc" id="aclass_graphic_system_html"><div class="ttname"><a href="class_graphic_system.html">GraphicSystem</a></div><div class="ttdef"><b>Definition</b> GraphicSystem.h:16</div></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_graphic_system.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> final</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="class_graphic_system.html">~GraphicSystem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_system.html#af300c252227dd7592177e16ab20f834a">init</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a>* _p_broker);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">main</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> dxlibInit();           <span class="comment">//Dxlibの初期化処理を行います．失敗した場合falseを返します．</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> dxlibFinalize() <span class="keyword">const</span>; <span class="comment">//Dxlibの終了処理を行います．</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a>* mp_Broker; <span class="comment">// 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐブローカー(仲介人)クラスのポインタを受け取るための変数．</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="ttc" id="a_graphic_data_broker_8h_html"><div class="ttname"><a href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a></div><div class="ttdoc">GraphicDataBrokerクラスの実装を行っている．</div></div>
+<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:21</div></div>
+<div class="ttc" id="aclass_graphic_system_html"><div class="ttname"><a href="class_graphic_system.html">GraphicSystem</a></div><div class="ttdoc">Dxlibの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> GraphicSystem.h:28</div></div>
+<div class="ttc" id="aclass_graphic_system_html_a1d38633900a8cbcacaf9c3afbe728976"><div class="ttname"><a href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">GraphicSystem::main</a></div><div class="ttdeci">void main()</div><div class="ttdef"><b>Definition</b> GraphicSystem.cpp:20</div></div>
+<div class="ttc" id="aclass_graphic_system_html_af300c252227dd7592177e16ab20f834a"><div class="ttname"><a href="class_graphic_system.html#af300c252227dd7592177e16ab20f834a">GraphicSystem::init</a></div><div class="ttdeci">void init(const GraphicDataBroker *_p_broker)</div><div class="ttdef"><b>Definition</b> GraphicSystem.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>GraphicSystem.h</b></li>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_graphic_system_8h.html">GraphicSystem.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

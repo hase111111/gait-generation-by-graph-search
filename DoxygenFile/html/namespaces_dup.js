@@ -10,5 +10,6 @@ var namespaces_dup =
       [ "LEG_POS_MASKBIT", "namespaceleg__state.html#a29e70b278c1371aa383bb662c4a478e5", null ],
       [ "LEG_STATE_MASKBIT", "namespaceleg__state.html#a0420112661efe4431504aa7e663a3f3b", null ],
       [ "SHIFT_TO_COM_NUM", "namespaceleg__state.html#aa7ea7c1d32bfdef5eb147ba39348e63a", null ]
-    ] ]
+    ] ],
+    [ "myvector", "namespacemyvector.html", "namespacemyvector" ]
 ];

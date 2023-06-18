@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: DesignLab/CameraController.h ソースファイル</title>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/CameraController.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,8 +94,8 @@ $(document).ready(function(){initNavTree('_camera_controller_8h_source.html','')
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;DxLib.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;vectorFunc.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Define.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_define_8h.html">Define.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//カメラの視点を表現する列挙子</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">enum class</span> ECameraMode : <span class="keywordtype">int</span></div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('_camera_controller_8h_source.html','')
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> CAMERA_SPEED = 3.0f;                <span class="comment">//カメラが移動する速さ．</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> CAMERA_HIGH_SPEED = 25.0f;          <span class="comment">//カメラが高速で移動するときの速さ.</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> CAMERA_HIGH_DIF = 150.0f;           <span class="comment">//目標座標とこの値以上に離れているならば，CAMERA_HIGH_SPEEDの値で急いで近づく．</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> CAMERA_ANGLE = Define::MY_PI / 4;   <span class="comment">//斜めからのカメラの角度</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> CAMERA_ANGLE = <a class="code hl_variable" href="class_define.html#a14f41943331fc74f8ad9ae1060c1892c">Define::MY_PI</a> / 4;   <span class="comment">//斜めからのカメラの角度</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">//カメラの目標座標を設定する．その座標に徐々に近づくようにカメラは移動する．</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setGoalCameraPos();</div>
@@ -159,13 +159,16 @@ $(document).ready(function(){initNavTree('_camera_controller_8h_source.html','')
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">//引数の値を徐々に目標値に近づける．上の関数より更にゆっくり近づく．</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">float</span> approachSlowlyTargetValue(<span class="keyword">const</span> <span class="keywordtype">float</span> _current, <span class="keyword">const</span> <span class="keywordtype">float</span> _target) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+<div class="ttc" id="a_define_8h_html"><div class="ttname"><a href="_define_8h.html">Define.h</a></div><div class="ttdoc">プロジェクト全体の定数</div></div>
 <div class="ttc" id="aclass_camera_controller_html"><div class="ttname"><a href="class_camera_controller.html">CameraController</a></div><div class="ttdef"><b>Definition</b> CameraController.h:19</div></div>
+<div class="ttc" id="aclass_define_html_a14f41943331fc74f8ad9ae1060c1892c"><div class="ttname"><a href="class_define.html#a14f41943331fc74f8ad9ae1060c1892c">Define::MY_PI</a></div><div class="ttdeci">static const float MY_PI</div><div class="ttdoc">円周率</div><div class="ttdef"><b>Definition</b> Define.h:33</div></div>
+<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>CameraController.h</b></li>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>CameraController.h</b></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

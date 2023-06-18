@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['com_5fstate_5fmaskbit_0',['COM_STATE_MASKBIT',['../namespaceleg__state.html#a2a5853012375eefe9e437c95fcc29162',1,'leg_state']]]
+  ['allowable_5ferror_0',['ALLOWABLE_ERROR',['../class_define.html#a35aa6ac924364c71c1d33a90d5f3bf74',1,'Define']]]
 ];

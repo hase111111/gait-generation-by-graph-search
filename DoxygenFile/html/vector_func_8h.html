@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/vectorFunc.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('vector_func_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#namespaces">名前空間</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">vectorFunc.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;HexapodConst.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_define_8h_source.html">Define.h</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+vectorFunc.h の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="vector_func_8h__incl.png" border="0" usemap="#a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8h" alt=""/></div>
+<map name="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8h" id="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8h">
+<area shape="rect" title=" " alt="" coords="160,5,376,64"/>
+<area shape="rect" href="_hexapod_const_8h_source.html" title=" " alt="" coords="5,112,123,139"/>
+<area shape="poly" title=" " alt="" coords="203,67,107,108,105,103,201,62"/>
+<area shape="rect" href="_define_8h.html" title="プロジェクト全体の定数" alt="" coords="147,112,216,139"/>
+<area shape="poly" title=" " alt="" coords="242,66,206,103,202,99,238,62"/>
+<area shape="rect" title=" " alt="" coords="239,112,297,139"/>
+<area shape="poly" title=" " alt="" coords="271,64,271,97,265,97,265,64"/>
+<area shape="rect" title=" " alt="" coords="321,112,386,139"/>
+<area shape="poly" title=" " alt="" coords="297,62,333,99,329,103,294,66"/>
+<area shape="rect" title=" " alt="" coords="410,112,481,139"/>
+<area shape="poly" title=" " alt="" coords="327,62,408,103,406,107,324,67"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+被依存関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="vector_func_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8hdep" alt=""/></div>
+<map name="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8hdep" id="a_c_1_2_users_2taisei_2_desktop_2main_2program_2_xE7_xA0_x94_xE7_xA9_xB6_2_design_lab_2_design_lab_2vector_func_8hdep">
+<area shape="rect" title=" " alt="" coords="3350,5,3565,64"/>
+<area shape="rect" href="_camera_controller_8h_source.html" title=" " alt="" coords="156,661,372,720"/>
+<area shape="poly" title=" " alt="" coords="3335,40,2555,51,2011,63,1440,83,897,110,654,126,439,145,260,167,124,192,74,205,37,219,15,233,8,247,8,478,12,511,24,540,43,567,66,590,122,630,181,658,178,663,119,634,62,594,39,570,20,543,7,512,3,479,3,246,11,229,35,214,72,200,123,186,260,162,439,140,654,121,897,104,1440,77,2011,58,2555,45,3335,34"/>
+<area shape="rect" href="_create_com_candidate_8h_source.html" title=" " alt="" coords="3640,448,3864,507"/>
+<area shape="poly" title=" " alt="" coords="3566,68,3597,87,3624,110,3744,447,3739,448,3619,114,3593,91,3563,73"/>
+<area shape="rect" href="function_pass_finding_8h_source.html" title=" " alt="" coords="3188,875,3407,933"/>
+<area shape="poly" title=" " alt="" coords="3377,74,3356,92,3340,113,3334,128,3334,140,3340,170,3359,239,3385,296,3446,392,3472,439,3490,488,3494,516,3495,546,3491,578,3483,614,3469,654,3451,693,3408,767,3364,829,3325,876,3321,873,3359,826,3404,764,3446,691,3464,652,3477,613,3486,577,3489,546,3489,516,3484,490,3467,441,3442,395,3381,299,3354,241,3335,171,3328,141,3329,127,3335,111,3352,88,3374,70"/>
+<area shape="rect" href="_dxlib3_d_function_8h_source.html" title=" " alt="" coords="1607,112,1822,171"/>
+<area shape="poly" title=" " alt="" coords="3335,42,2574,67,2151,88,1975,101,1842,115,1823,117,1823,112,1841,109,1975,96,2151,83,2574,62,3335,36"/>
+<area shape="rect" href="_hexapod_state_calculator_8h_source.html" title=" " alt="" coords="1243,555,1485,613"/>
+<area shape="poly" title=" " alt="" coords="3335,47,3012,71,2593,110,2380,134,2183,161,2015,190,1889,221,1761,265,1666,309,1577,366,1472,450,1422,503,1384,556,1379,553,1417,500,1469,446,1574,361,1663,304,1760,260,1887,216,2014,185,2183,155,2380,129,2592,105,3012,66,3335,41"/>
+<area shape="rect" href="_map_creator_8h_source.html" title=" " alt="" coords="1483,448,1698,507"/>
+<area shape="poly" title=" " alt="" coords="3335,39,2900,43,2335,54,2065,64,1835,77,1671,94,1621,103,1596,114,1570,151,1554,194,1547,241,1547,288,1553,335,1562,378,1582,447,1577,448,1556,380,1547,336,1542,289,1542,240,1549,193,1565,149,1593,110,1619,98,1670,88,1835,71,2065,59,2335,49,2900,38,3334,34"/>
+<area shape="rect" href="_map_state_8h_source.html" title=" " alt="" coords="1508,555,1724,613"/>
+<area shape="poly" title=" " alt="" coords="3335,41,2896,50,2321,65,1808,87,1636,100,1582,107,1554,114,1509,139,1476,165,1464,181,1455,199,1450,221,1448,247,1448,364,1446,440,1453,471,1473,505,1499,532,1532,552,1529,556,1496,536,1469,508,1448,472,1441,440,1443,364,1443,247,1445,220,1450,197,1459,178,1472,162,1506,135,1552,110,1581,102,1636,95,1808,82,2321,60,2896,44,3335,35"/>
+<area shape="rect" href="_search_leg_position_8h_source.html" title=" " alt="" coords="3594,661,3809,720"/>
+<area shape="poly" title=" " alt="" coords="3537,70,3560,88,3580,110,3598,145,3605,175,3605,247,3605,364,3608,407,3615,450,3637,534,3664,606,3689,660,3684,662,3659,608,3632,535,3609,451,3602,408,3600,364,3600,247,3600,176,3593,147,3575,114,3557,92,3534,74"/>
+<area shape="rect" href="_my_math_8h_source.html" title=" " alt="" coords="3350,112,3565,171"/>
+<area shape="poly" title=" " alt="" coords="3460,79,3460,112,3455,112,3455,79"/>
+<area shape="rect" href="_node_8h_source.html" title=" " alt="" coords="2406,333,2621,392"/>
+<area shape="poly" title=" " alt="" coords="3335,41,3241,48,3134,61,3022,83,2913,115,2858,137,2803,164,2700,225,2613,286,2549,335,2546,331,2610,281,2698,220,2801,159,2856,132,2911,109,3020,77,3133,56,3240,43,3334,36"/>
+<area shape="rect" href="_target_8h_source.html" title=" " alt="" coords="2924,112,3140,171"/>
+<area shape="poly" title=" " alt="" coords="3336,68,3141,116,3140,111,3335,63"/>
+<area shape="rect" href="hexapod_8h_source.html" title=" " alt="" coords="3694,219,3909,277"/>
+<area shape="poly" title=" " alt="" coords="3580,65,3629,85,3675,110,3707,134,3737,163,3783,216,3779,220,3733,166,3704,138,3672,114,3626,89,3578,70"/>
+<area shape="rect" href="_search_body_rotation_8h_source.html" title=" " alt="" coords="4131,333,4355,392"/>
+<area shape="poly" title=" " alt="" coords="3580,62,3653,84,3725,110,3829,155,3871,180,3923,217,3940,233,3951,247,3963,261,3980,275,4042,298,4146,330,4144,335,4041,303,3977,280,3959,265,3947,251,3936,236,3920,221,3868,184,3826,159,3723,114,3651,89,3579,67"/>
+<area shape="rect" href="function__walking__pattern__generator_8h_source.html" title=" " alt="" coords="4379,325,4594,400"/>
+<area shape="poly" title=" " alt="" coords="3580,49,3692,72,3750,89,3806,110,3856,133,3893,156,3970,217,3987,234,3999,249,4011,262,4031,275,4078,295,4119,306,4157,310,4194,311,4271,311,4316,314,4367,323,4380,326,4378,331,4366,328,4315,319,4271,316,4194,317,4157,316,4118,311,4076,300,4028,280,4008,267,3995,252,3983,237,3966,221,3890,160,3854,138,3804,114,3749,94,3691,77,3579,54"/>
+<area shape="rect" href="map_data_8h_source.html" title=" " alt="" coords="4619,333,4834,392"/>
+<area shape="poly" title=" " alt="" coords="3580,52,3722,77,3875,109,3975,137,4074,168,4607,323,4632,330,4631,335,4606,328,4073,173,3974,142,3874,115,3721,82,3579,57"/>
+<area shape="rect" href="detect_landing_point_8h_source.html" title=" " alt="" coords="4086,112,4301,171"/>
+<area shape="poly" title=" " alt="" coords="3580,45,3807,71,4067,109,4086,113,4085,118,4066,115,3806,77,3580,51"/>
+<area shape="rect" href="phantomx_commander_8h_source.html" title=" " alt="" coords="4325,112,4553,171"/>
+<area shape="poly" title=" " alt="" coords="3580,39,3912,63,4113,83,4314,109,4324,111,4324,116,4313,115,4112,88,3912,68,3580,44"/>
+<area shape="rect" href="_g_u_i_controller_8h_source.html" title=" " alt="" coords="195,768,410,827"/>
+<area shape="poly" title=" " alt="" coords="282,733,295,767,290,769,277,735"/>
+<area shape="rect" href="_graphic_main_basic_8h_source.html" title=" " alt="" coords="123,875,338,933"/>
+<area shape="poly" title=" " alt="" coords="213,732,197,749,185,769,179,797,185,826,196,851,210,873,205,876,191,853,180,827,173,797,180,767,193,746,209,728"/>
+<area shape="rect" href="_graphic_main_test_8h_source.html" title=" " alt="" coords="502,875,717,933"/>
+<area shape="poly" title=" " alt="" coords="354,724,390,743,424,766,440,781,450,795,460,810,475,825,511,850,549,872,547,876,508,855,472,829,456,813,446,799,436,785,421,770,387,748,351,729"/>
+<area shape="poly" title=" " alt="" coords="277,840,253,876,248,873,273,837"/>
+<area shape="poly" title=" " alt="" coords="401,829,526,872,524,877,399,834"/>
+<area shape="rect" href="_pass_finding_8h_source.html" title=" " alt="" coords="3594,768,3809,827"/>
+<area shape="poly" title=" " alt="" coords="3784,517,3809,561,3830,613,3836,640,3838,668,3834,695,3824,721,3801,749,3773,770,3770,765,3798,745,3819,719,3829,694,3832,668,3831,641,3825,614,3804,563,3779,520"/>
+<area shape="poly" title=" " alt="" coords="3580,833,3408,877,3406,872,3578,828"/>
+<area shape="rect" href="_com_up_down_node_creator_8h_source.html" title=" " alt="" coords="1492,661,1740,720"/>
+<area shape="poly" title=" " alt="" coords="1447,617,1548,658,1546,663,1445,622"/>
+<area shape="rect" href="_hexapod_renderer_8h_source.html" title=" " alt="" coords="486,768,701,827"/>
+<area shape="poly" title=" " alt="" coords="1229,593,1054,602,864,617,704,637,650,650,620,663,604,686,595,713,592,742,592,768,587,768,587,742,590,712,599,684,617,659,648,645,704,632,864,611,1054,597,1228,588"/>
+<area shape="rect" href="_leg_up_down_node_creator_8h_source.html" title=" " alt="" coords="1226,661,1468,720"/>
+<area shape="poly" title=" " alt="" coords="1360,628,1354,661,1349,661,1354,627"/>
+<area shape="rect" href="_graph_tree_creator_hato_8h_source.html" title=" " alt="" coords="1662,768,1893,827"/>
+<area shape="poly" title=" " alt="" coords="1674,726,1735,765,1732,770,1671,730"/>
+<area shape="poly" title=" " alt="" coords="481,834,331,877,329,872,479,829"/>
+<area shape="poly" title=" " alt="" coords="603,841,608,874,602,875,597,842"/>
+<area shape="poly" title=" " alt="" coords="1480,721,1662,765,1661,771,1479,727"/>
+<area shape="poly" title=" " alt="" coords="1604,521,1612,554,1606,555,1598,522"/>
+<area shape="poly" title=" " alt="" coords="1494,616,1221,620,777,624,550,628,353,636,210,647,166,655,146,663,130,687,125,713,128,742,138,771,170,827,206,873,202,876,166,830,133,773,123,743,120,713,126,685,142,659,165,650,209,642,353,630,550,623,777,618,1221,614,1494,610"/>
+<area shape="poly" title=" " alt="" coords="1494,616,1412,625,1341,627,1219,622,1162,621,1101,626,1035,639,959,664,886,715,816,770,789,800,759,829,719,855,677,876,675,872,716,850,756,825,785,796,813,766,883,710,956,659,1033,634,1100,621,1161,616,1219,616,1341,621,1411,620,1493,611"/>
+<area shape="poly" title=" " alt="" coords="1739,593,1833,603,1931,617,2018,636,2053,647,2079,659,2095,673,2103,688,2110,703,2123,718,2168,757,2205,784,2246,804,2301,824,2376,842,2476,857,2721,878,2977,891,3188,898,3187,903,2977,897,2721,884,2476,862,2375,847,2299,829,2244,809,2202,788,2164,761,2119,722,2106,705,2098,690,2090,676,2076,664,2051,652,2017,641,1930,622,1833,608,1738,598"/>
+<area shape="poly" title=" " alt="" coords="1619,628,1619,661,1613,661,1613,628"/>
+<area shape="poly" title=" " alt="" coords="1708,619,1733,637,1754,660,1768,686,1776,715,1781,767,1776,768,1771,716,1763,688,1750,663,1729,641,1704,623"/>
+<area shape="poly" title=" " alt="" coords="1529,622,1421,663,1419,658,1527,617"/>
+<area shape="rect" href="_com_move_node_creator_8h_source.html" title=" " alt="" coords="630,661,861,720"/>
+<area shape="poly" title=" " alt="" coords="1494,616,1321,636,1185,641,1050,646,879,664,862,667,861,661,878,659,1050,641,1185,636,1321,630,1493,611"/>
+<area shape="rect" href="_graph_search_8h_source.html" title=" " alt="" coords="2584,768,2800,827"/>
+<area shape="poly" title=" " alt="" coords="1739,589,1825,598,1922,611,2023,631,2122,659,2154,673,2177,689,2199,704,2230,717,2280,732,2324,741,2399,749,2475,753,2572,765,2585,768,2584,773,2572,771,2475,758,2399,754,2323,746,2279,737,2228,723,2197,708,2174,693,2151,678,2120,664,2022,636,1921,616,1824,603,1738,594"/>
+<area shape="rect" href="_graphic_data_broker_8h.html" title="GraphicDataBrokerクラスの実装を行っている．" alt="" coords="986,661,1201,720"/>
+<area shape="poly" title=" " alt="" coords="1494,617,1353,640,1214,664,1202,666,1201,661,1213,659,1352,635,1493,611"/>
+<area shape="rect" href="_system_main_8h_source.html" title=" " alt="" coords="1271,875,1486,933"/>
+<area shape="poly" title=" " alt="" coords="1494,616,1210,628,1057,641,1003,650,985,657,975,663,967,676,964,689,968,703,976,718,994,738,1014,745,1038,752,1064,766,1080,782,1089,797,1099,811,1115,824,1142,837,1180,851,1271,876,1270,881,1178,856,1140,842,1112,829,1095,814,1085,800,1076,785,1061,770,1036,757,1013,750,991,742,971,722,963,705,959,690,962,675,971,659,983,652,1002,645,1056,635,1210,623,1494,611"/>
+<area shape="rect" href="_i_graph_tree_creator_8h_source.html" title=" " alt="" coords="2532,661,2748,720"/>
+<area shape="poly" title=" " alt="" coords="1738,591,2069,617,2269,636,2470,659,2532,668,2531,673,2469,664,2269,641,2068,622,1738,596"/>
+<area shape="rect" href="_leg_hierarchy_node_creator_8h_source.html" title=" " alt="" coords="1815,661,2065,720"/>
+<area shape="poly" title=" " alt="" coords="1719,616,1852,658,1850,663,1718,621"/>
+<area shape="rect" href="_map_renderer_8h_source.html" title=" " alt="" coords="2242,661,2457,720"/>
+<area shape="poly" title=" " alt="" coords="1738,595,1964,621,2223,659,2242,662,2241,667,2222,664,1963,626,1738,600"/>
+<area shape="poly" title=" " alt="" coords="1739,589,2175,611,3593,681,3593,687,2175,616,1739,594"/>
+<area shape="rect" href="_graphic_system_8h.html" title="Dxlibの処理を行ってくれるGraphicSystemクラスを実装している．" alt="" coords="1126,768,1341,827"/>
+<area shape="poly" title=" " alt="" coords="1145,727,1197,765,1194,770,1142,731"/>
+<area shape="poly" title=" " alt="" coords="1216,719,1305,744,1337,756,1355,766,1371,791,1380,820,1384,874,1379,874,1375,821,1367,794,1351,770,1335,761,1303,749,1215,724"/>
+<area shape="rect" href="_interface_graphic_main_8h.html" title="IGraphicMainクラスの宣言．IGraphicMainはインターフェイスであるので実態が作れない．" alt="" coords="827,768,1050,827"/>
+<area shape="poly" title=" " alt="" coords="1040,731,982,770,979,765,1037,726"/>
+<area shape="poly" title=" " alt="" coords="1286,833,1341,872,1337,876,1283,837"/>
+<area shape="poly" title=" " alt="" coords="812,820,339,889,338,884,812,815"/>
+<area shape="poly" title=" " alt="" coords="835,834,700,877,699,872,834,829"/>
+<area shape="rect" href="_graphic_loop_8h.html" title="GraphicLoopクラスの実装を行っている．" alt="" coords="1015,875,1230,933"/>
+<area shape="poly" title=" " alt="" coords="1003,832,1074,872,1071,877,1000,836"/>
+<area shape="rect" href="_graphic_main_sample_8h_source.html" title=" " alt="" coords="772,875,991,933"/>
+<area shape="poly" title=" " alt="" coords="918,841,899,876,895,873,914,838"/>
+<area shape="poly" title=" " alt="" coords="2518,716,2470,723,2157,761,1893,788,1892,783,2156,755,2469,717,2517,710"/>
+<area shape="poly" title=" " alt="" coords="2663,732,2680,766,2675,769,2658,735"/>
+<area shape="rect" href="_graph_search_initializer_8h_source.html" title=" " alt="" coords="2823,768,3052,827"/>
+<area shape="poly" title=" " alt="" coords="2736,723,2857,765,2855,770,2734,728"/>
+<area shape="rect" href="_graph_tree_creator_sample_8h_source.html" title=" " alt="" coords="2312,768,2560,827"/>
+<area shape="poly" title=" " alt="" coords="2573,729,2493,770,2491,765,2570,725"/>
+<area shape="poly" title=" " alt="" coords="1885,730,1823,770,1820,765,1882,726"/>
+<area shape="poly" title=" " alt="" coords="3704,735,3704,768,3699,768,3699,735"/>
+<area shape="poly" title=" " alt="" coords="2391,368,1994,379,1736,391,1461,409,1189,433,937,465,824,485,723,506,637,530,567,557,335,769,332,765,564,552,635,525,722,501,823,479,936,460,1188,428,1461,404,1735,386,1994,374,2391,363"/>
+<area shape="poly" title=" " alt="" coords="2391,366,2093,368,1677,378,1441,389,1197,404,952,424,711,451,655,455,598,455,484,446,374,431,273,420,227,419,186,422,149,430,118,444,93,465,74,494,63,533,59,583,59,692,62,721,71,748,85,774,103,798,144,840,185,872,182,876,140,844,98,801,81,777,66,750,57,722,53,692,53,583,57,532,70,492,89,461,115,439,148,425,185,417,227,414,273,415,374,426,484,440,598,450,655,450,710,445,951,419,1197,399,1441,384,1677,373,2093,362,2391,360"/>
+<area shape="poly" title=" " alt="" coords="2391,370,2239,378,2069,393,1914,416,1852,432,1807,450,1792,463,1784,479,1775,495,1759,509,1710,526,1648,538,1576,545,1499,548,1348,551,1231,557,916,594,814,609,724,626,656,644,633,654,621,663,612,677,610,690,613,703,621,719,631,730,641,736,667,741,693,747,705,754,716,767,723,782,726,797,716,828,695,855,669,876,666,872,691,852,711,825,720,797,718,784,711,769,701,758,691,752,665,747,639,741,627,734,616,721,608,705,605,690,607,675,617,660,631,649,654,639,723,621,813,604,915,589,1230,552,1347,546,1499,543,1576,539,1647,533,1709,521,1756,504,1771,491,1779,476,1787,460,1804,446,1851,427,1913,411,2069,388,2239,373,2390,365"/>
+<area shape="poly" title=" " alt="" coords="2636,368,3051,396,3310,418,3571,445,3640,455,3639,460,3570,451,3310,424,3051,402,2636,373"/>
+<area shape="poly" title=" " alt="" coords="2636,372,2847,395,3096,432,3217,456,3326,484,3417,516,3453,534,3482,553,3503,573,3518,593,3536,633,3552,675,3565,696,3583,718,3614,744,3646,765,3643,770,3610,748,3579,722,3560,699,3547,677,3531,635,3514,596,3499,576,3478,557,3450,538,3415,521,3325,489,3216,461,3095,437,2846,400,2635,377"/>
+<area shape="poly" title=" " alt="" coords="2636,380,2725,405,2770,423,2812,446,2862,484,2894,523,2923,564,2965,611,3130,761,3264,872,3260,876,3126,765,2961,615,2919,567,2890,526,2858,488,2809,450,2768,428,2724,410,2635,385"/>
+<area shape="poly" title=" " alt="" coords="2391,375,2292,385,2178,400,2058,422,1939,451,1901,465,1873,480,1845,495,1806,509,1720,530,1652,539,1584,545,1496,557,1486,559,1485,554,1496,552,1583,539,1652,533,1719,524,1805,504,1843,490,1871,475,1899,460,1938,445,2056,417,2177,395,2291,380,2390,370"/>
+<area shape="poly" title=" " alt="" coords="2391,371,2232,379,2051,394,1885,417,1819,432,1769,450,1752,464,1742,479,1731,495,1712,509,1675,522,1632,533,1531,545,1414,550,1289,550,1044,546,939,549,856,557,802,565,753,568,667,574,630,583,594,598,560,624,526,663,519,677,517,689,526,719,541,744,560,766,556,769,536,747,522,721,512,690,514,675,522,660,556,620,592,594,628,577,667,569,752,563,801,560,856,552,939,543,1044,541,1289,544,1413,545,1530,540,1631,527,1674,517,1709,504,1727,492,1737,476,1748,460,1767,446,1817,427,1884,412,2051,389,2231,374,2391,365"/>
+<area shape="poly" title=" " alt="" coords="2391,375,2085,403,1901,424,1718,451,1699,454,1699,449,1717,445,1900,419,2084,398,2391,370"/>
+<area shape="poly" title=" " alt="" coords="2637,369,2677,379,2716,394,2752,416,2781,446,2801,481,2808,503,2812,531,2810,566,2802,608,2787,659,2762,721,2747,747,2728,769,2724,766,2743,744,2758,719,2782,658,2797,607,2805,565,2807,532,2803,505,2796,483,2777,450,2748,421,2714,399,2675,384,2635,374"/>
+<area shape="poly" title=" " alt="" coords="2636,375,2669,385,2702,400,2731,420,2756,447,2769,475,2771,504,2765,535,2752,564,2714,619,2674,663,2670,659,2710,616,2747,562,2760,533,2766,504,2764,476,2751,449,2728,424,2699,405,2667,390,2634,380"/>
+<area shape="poly" title=" " alt="" coords="2391,370,2283,377,2172,392,2120,402,2076,415,2040,431,2017,450,2005,467,1999,484,1998,500,2001,515,2021,545,2054,573,2097,599,2146,622,2246,658,2244,663,2144,627,2094,604,2051,578,2017,549,1996,517,1992,500,1994,482,2000,464,2013,446,2038,426,2074,410,2119,397,2171,386,2283,372,2391,364"/>
+<area shape="rect" href="_cmd_i_o_8h_source.html" title=" " alt="" coords="2046,448,2261,507"/>
+<area shape="poly" title=" " alt="" coords="2409,399,2246,450,2244,445,2407,394"/>
+<area shape="rect" href="_i_graph_searcher_8h_source.html" title=" " alt="" coords="2924,448,3140,507"/>
+<area shape="poly" title=" " alt="" coords="2636,387,2906,445,2924,449,2923,455,2905,451,2635,393"/>
+<area shape="rect" href="_log_file_i_o_8h_source.html" title=" " alt="" coords="2286,448,2501,507"/>
+<area shape="poly" title=" " alt="" coords="2474,404,2426,449,2422,445,2471,400"/>
+<area shape="rect" href="_node_edit_8h_source.html" title=" " alt="" coords="2526,448,2741,507"/>
+<area shape="poly" title=" " alt="" coords="2556,400,2604,445,2601,449,2552,404"/>
+<area shape="rect" href="_node_validity_checker_8h_source.html" title=" " alt="" coords="2186,555,2409,613"/>
+<area shape="poly" title=" " alt="" coords="2391,371,2288,379,2182,393,2133,404,2091,417,2058,432,2035,450,2027,464,2024,477,2027,491,2035,505,2058,522,2094,538,2186,562,2185,567,2092,543,2055,527,2031,508,2022,492,2018,477,2022,462,2031,446,2055,427,2089,412,2132,399,2181,388,2287,373,2391,365"/>
+<area shape="poly" title=" " alt="" coords="2984,518,2941,557,2901,601,2875,640,2847,678,2806,722,2742,770,2739,765,2802,718,2843,675,2870,637,2897,598,2937,553,2980,514"/>
+<area shape="poly" title=" " alt="" coords="2990,519,2965,556,2947,612,2938,670,2936,724,2937,767,2932,767,2931,724,2933,670,2942,611,2960,553,2986,516"/>
+<area shape="rect" href="_graph_searcher_random_8h_source.html" title=" " alt="" coords="3231,555,3468,613"/>
+<area shape="poly" title=" " alt="" coords="3134,509,3263,552,3262,557,3132,514"/>
+<area shape="rect" href="_graph_searcher_sample_8h_source.html" title=" " alt="" coords="2975,555,3207,613"/>
+<area shape="poly" title=" " alt="" coords="3057,518,3077,553,3072,556,3053,521"/>
+<area shape="poly" title=" " alt="" coords="2423,617,2450,635,2472,660,2480,676,2483,691,2480,706,2471,722,2453,741,2435,753,2415,759,2395,761,2352,762,2301,771,2212,802,2173,816,2122,829,1949,860,1775,881,1616,894,1487,902,1487,896,1616,889,1775,875,1948,854,2121,824,2172,811,2210,797,2299,765,2351,757,2395,756,2414,754,2432,748,2450,737,2467,718,2475,704,2478,691,2475,678,2467,663,2446,639,2420,621"/>
+<area shape="poly" title=" " alt="" coords="2910,156,2630,186,2465,208,2299,233,2148,261,2023,293,1975,309,1939,327,1917,344,1909,362,1909,479,1912,504,1919,524,1931,539,1945,552,1983,578,2024,611,2040,624,2055,633,2068,643,2080,660,2089,691,2087,705,2080,721,2063,748,2045,768,2027,783,2007,794,1962,811,1905,829,1796,861,1685,882,1579,896,1487,902,1487,897,1578,890,1684,877,1795,856,1903,824,1960,806,2005,789,2024,778,2042,764,2059,744,2075,719,2082,704,2083,691,2075,662,2064,646,2052,637,2037,629,2021,615,1980,582,1942,557,1927,543,1915,526,1907,505,1904,479,1904,361,1913,341,1936,322,1973,304,2022,288,2147,256,2298,227,2464,202,2630,181,2909,151"/>
+<area shape="poly" title=" " alt="" coords="2971,181,2877,230,2770,280,2691,310,2613,335,2612,330,2689,305,2768,275,2875,225,2968,176"/>
+<area shape="poly" title=" " alt="" coords="3035,186,3035,448,3029,448,3029,186"/>
+<area shape="poly" title=" " alt="" coords="3155,157,3694,229,3693,235,3154,162"/>
+<area shape="poly" title=" " alt="" coords="3794,293,3787,326,3760,448,3755,447,3781,325,3789,291"/>
+<area shape="poly" title=" " alt="" coords="3825,290,3871,382,3900,447,3903,477,3900,507,3893,621,3881,669,3868,694,3849,722,3820,749,3786,770,3783,765,3817,745,3845,718,3863,691,3876,667,3888,620,3895,506,3898,477,3895,449,3866,384,3820,292"/>
+<area shape="poly" title=" " alt="" coords="3808,292,3818,344,3837,399,3847,413,3858,421,3869,431,3878,447,3886,477,3878,508,3852,556,3818,598,3780,635,3745,663,3742,659,3776,631,3814,595,3848,553,3874,506,3880,477,3874,449,3865,435,3855,426,3843,416,3832,401,3812,346,3803,293"/>
+<area shape="poly" title=" " alt="" coords="3679,263,2622,355,2621,349,3679,257"/>
+<area shape="poly" title=" " alt="" coords="3924,275,4119,323,4146,330,4145,335,4118,328,3923,280"/>
+<area shape="poly" title=" " alt="" coords="3924,267,3979,275,4088,287,4174,294,4259,304,4367,323,4380,325,4378,331,4366,328,4258,309,4173,300,4088,293,3978,280,3923,272"/>
+<area shape="rect" href="hexapod_graphic_8h_source.html" title=" " alt="" coords="3891,333,4106,392"/>
+<area shape="poly" title=" " alt="" coords="3866,283,3950,331,3947,335,3863,287"/>
+<area shape="poly" title=" " alt="" coords="3924,263,4030,275,4192,287,4319,291,4446,299,4607,323,4639,330,4638,335,4606,328,4445,304,4319,296,4192,292,4029,280,3923,268"/>
+</map>
+</div>
+</div>
+<p><a href="vector_func_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルを表す構造体  <a href="structmyvector_1_1_s_vector.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmyvector_1_1_s_rotator.html">myvector::SRotator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmyvector_1_1_s_leg_vector.html">myvector::SLegVector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmyvector_1_1_s_vector2.html">myvector::SVector2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+名前空間</h2></td></tr>
+<tr class="memitem:namespacemyvector"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemyvector.html">myvector</a></td></tr>
+<tr class="memdesc:namespacemyvector"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置ベクトルを表現する構造体の実装 <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a13c7a6894458cccc658b20e263c25f40"><td class="memItemLeft" align="right" valign="top"><a id="a13c7a6894458cccc658b20e263c25f40" name="a13c7a6894458cccc658b20e263c25f40"></a>
+<a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::operator*</b> (const float _s, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_v)</td></tr>
+<tr class="memdesc:a13c7a6894458cccc658b20e263c25f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">スカラーが先に来る場合の掛け算演算子 <br /></td></tr>
+<tr class="separator:a13c7a6894458cccc658b20e263c25f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8091fcb85dc9e58610f25c87ce24bedd"><td class="memItemLeft" align="right" valign="top"><a id="a8091fcb85dc9e58610f25c87ce24bedd" name="a8091fcb85dc9e58610f25c87ce24bedd"></a>
+<a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::getCross</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_a, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_b)</td></tr>
+<tr class="memdesc:a8091fcb85dc9e58610f25c87ce24bedd"><td class="mdescLeft">&#160;</td><td class="mdescRight">a×b の外積の結果を返す． <br /></td></tr>
+<tr class="separator:a8091fcb85dc9e58610f25c87ce24bedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe695b968089c5947dd34f0804b94ef"><td class="memTemplParams" colspan="2"><a id="adbe695b968089c5947dd34f0804b94ef" name="adbe695b968089c5947dd34f0804b94ef"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:adbe695b968089c5947dd34f0804b94ef"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>myvector::operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;v)</td></tr>
+<tr class="separator:adbe695b968089c5947dd34f0804b94ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bcfd6adb817cc63bd840078ca70c53d"><td class="memTemplParams" colspan="2"><a id="a0bcfd6adb817cc63bd840078ca70c53d" name="a0bcfd6adb817cc63bd840078ca70c53d"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:a0bcfd6adb817cc63bd840078ca70c53d"><td class="memTemplItemLeft" align="right" valign="top">std::basic_istream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>myvector::operator&gt;&gt;</b> (std::basic_istream&lt; Char &gt; &amp;is, <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;v)</td></tr>
+<tr class="separator:a0bcfd6adb817cc63bd840078ca70c53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c94b7fe7f7cad01eb9c9f0b754155f"><td class="memItemLeft" align="right" valign="top"><a id="af4c94b7fe7f7cad01eb9c9f0b754155f" name="af4c94b7fe7f7cad01eb9c9f0b754155f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::isEqualVector</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_v1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_v2, const float _error)</td></tr>
+<tr class="separator:af4c94b7fe7f7cad01eb9c9f0b754155f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d4035b82b89c7529efffbcc44ccb3b"><td class="memItemLeft" align="right" valign="top"><a id="a99d4035b82b89c7529efffbcc44ccb3b" name="a99d4035b82b89c7529efffbcc44ccb3b"></a>
+<a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::rotVector</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_v, const <a class="el" href="structmyvector_1_1_s_rotator.html">SRotator</a> &amp;_rot)</td></tr>
+<tr class="separator:a99d4035b82b89c7529efffbcc44ccb3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f499e2a265937bec85fba8e018e6cc6"><td class="memItemLeft" align="right" valign="top"><a id="a2f499e2a265937bec85fba8e018e6cc6" name="a2f499e2a265937bec85fba8e018e6cc6"></a>
+<a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VGet</b> (const float x, const float y, const float z)</td></tr>
+<tr class="separator:a2f499e2a265937bec85fba8e018e6cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdde3999b37ba71306d83636b142312c"><td class="memItemLeft" align="right" valign="top"><a id="acdde3999b37ba71306d83636b142312c" name="acdde3999b37ba71306d83636b142312c"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::subVec</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:acdde3999b37ba71306d83636b142312c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f3e759457ac9b25d2ccf744fa8b217"><td class="memItemLeft" align="right" valign="top"><a id="a45f3e759457ac9b25d2ccf744fa8b217" name="a45f3e759457ac9b25d2ccf744fa8b217"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VDot</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:a45f3e759457ac9b25d2ccf744fa8b217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade25256b79dc2b0252013113ce9f4b42"><td class="memItemLeft" align="right" valign="top"><a id="ade25256b79dc2b0252013113ce9f4b42" name="ade25256b79dc2b0252013113ce9f4b42"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VCross</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_a, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;_b)</td></tr>
+<tr class="separator:ade25256b79dc2b0252013113ce9f4b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b39712aa18e811d0abef4033b8f982"><td class="memItemLeft" align="right" valign="top"><a id="a78b39712aa18e811d0abef4033b8f982" name="a78b39712aa18e811d0abef4033b8f982"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VMag</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1)</td></tr>
+<tr class="separator:a78b39712aa18e811d0abef4033b8f982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ac6b0af464c6b0c411207c90ebaa9c"><td class="memItemLeft" align="right" valign="top"><a id="ab6ac6b0af464c6b0c411207c90ebaa9c" name="ab6ac6b0af464c6b0c411207c90ebaa9c"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VUnit</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1)</td></tr>
+<tr class="separator:ab6ac6b0af464c6b0c411207c90ebaa9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc618b9f519fea58470ea599e882948"><td class="memItemLeft" align="right" valign="top"><a id="a0cc618b9f519fea58470ea599e882948" name="a0cc618b9f519fea58470ea599e882948"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VMag2</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:a0cc618b9f519fea58470ea599e882948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfdaada983f5df41f66ef3a514d5aaf5"><td class="memItemLeft" align="right" valign="top"><a id="abfdaada983f5df41f66ef3a514d5aaf5" name="abfdaada983f5df41f66ef3a514d5aaf5"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VRot</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> In, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> center, const float thP, const float thR, const float thY)</td></tr>
+<tr class="separator:abfdaada983f5df41f66ef3a514d5aaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1742b693ad5a21140e8165952f344c0"><td class="memItemLeft" align="right" valign="top"><a id="ad1742b693ad5a21140e8165952f344c0" name="ad1742b693ad5a21140e8165952f344c0"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VRot</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In, const float thP, const float thR, const float thY)</td></tr>
+<tr class="separator:ad1742b693ad5a21140e8165952f344c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0e6f7803133cac53584df58a444eae"><td class="memItemLeft" align="right" valign="top"><a id="abc0e6f7803133cac53584df58a444eae" name="abc0e6f7803133cac53584df58a444eae"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::VRot_R</b> (<a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> In, <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> center, const float thP, const float thR, const float thY)</td></tr>
+<tr class="separator:abc0e6f7803133cac53584df58a444eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab54bc5095ba2d8cce388c426a8bb808"><td class="memItemLeft" align="right" valign="top"><a id="aab54bc5095ba2d8cce388c426a8bb808" name="aab54bc5095ba2d8cce388c426a8bb808"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::V2Dot</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:aab54bc5095ba2d8cce388c426a8bb808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ca55fabcf830c825faa18e0f334ab6"><td class="memItemLeft" align="right" valign="top"><a id="a42ca55fabcf830c825faa18e0f334ab6" name="a42ca55fabcf830c825faa18e0f334ab6"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::getVecCrossXY</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:a42ca55fabcf830c825faa18e0f334ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0072f74a81fd3301d5a5777304071988"><td class="memItemLeft" align="right" valign="top"><a id="a0072f74a81fd3301d5a5777304071988" name="a0072f74a81fd3301d5a5777304071988"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::V2SquareSize</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In)</td></tr>
+<tr class="separator:a0072f74a81fd3301d5a5777304071988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aebed38d9e00bbc615a4cb9805944bf"><td class="memItemLeft" align="right" valign="top"><a id="a9aebed38d9e00bbc615a4cb9805944bf" name="a9aebed38d9e00bbc615a4cb9805944bf"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::V2Mag</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1)</td></tr>
+<tr class="separator:a9aebed38d9e00bbc615a4cb9805944bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4743c7a1904488458d72493b10d6641c"><td class="memItemLeft" align="right" valign="top"><a id="a4743c7a1904488458d72493b10d6641c" name="a4743c7a1904488458d72493b10d6641c"></a>
+__inline <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::V2Unit</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1)</td></tr>
+<tr class="separator:a4743c7a1904488458d72493b10d6641c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ff93243fed66b2f85af7fa886d8350"><td class="memItemLeft" align="right" valign="top"><a id="a02ff93243fed66b2f85af7fa886d8350" name="a02ff93243fed66b2f85af7fa886d8350"></a>
+__inline float&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::V2Mag2</b> (const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In1, const <a class="el" href="structmyvector_1_1_s_vector.html">SVector</a> &amp;In2)</td></tr>
+<tr class="separator:a02ff93243fed66b2f85af7fa886d8350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae998e18b7a4193be5a0b3ea2d5befd8f"><td class="memItemLeft" align="right" valign="top"><a id="ae998e18b7a4193be5a0b3ea2d5befd8f" name="ae998e18b7a4193be5a0b3ea2d5befd8f"></a>
+constexpr <a class="el" href="structmyvector_1_1_s_vector2.html">SVector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>myvector::operator*</b> (float s, const <a class="el" href="structmyvector_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
+<tr class="separator:ae998e18b7a4193be5a0b3ea2d5befd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a913fe083ed4b018365e8b79311922e47"><td class="memTemplParams" colspan="2"><a id="a913fe083ed4b018365e8b79311922e47" name="a913fe083ed4b018365e8b79311922e47"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:a913fe083ed4b018365e8b79311922e47"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>myvector::operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="structmyvector_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
+<tr class="separator:a913fe083ed4b018365e8b79311922e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaacf46fe74943d372a70a7157b3d2ad7"><td class="memTemplParams" colspan="2"><a id="aaacf46fe74943d372a70a7157b3d2ad7" name="aaacf46fe74943d372a70a7157b3d2ad7"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:aaacf46fe74943d372a70a7157b3d2ad7"><td class="memTemplItemLeft" align="right" valign="top">std::basic_istream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>myvector::operator&gt;&gt;</b> (std::basic_istream&lt; Char &gt; &amp;is, <a class="el" href="structmyvector_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
+<tr class="separator:aaacf46fe74943d372a70a7157b3d2ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="vector_func_8h.html">vectorFunc.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

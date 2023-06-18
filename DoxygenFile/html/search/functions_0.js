@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['getgroundedlegnum_0',['getGroundedLegNum',['../namespaceleg__state.html#afd052a18c20b9e292894e32fbb0d9c59',1,'leg_state']]],
-  ['getpressingcount_1',['getPressingCount',['../class_keyboard.html#ac10c13870ba471f267d5ced0f233a398',1,'Keyboard']]],
-  ['getreleasingcount_2',['getReleasingCount',['../class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e',1,'Keyboard']]]
+  ['copyallnode_0',['copyAllNode',['../class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258',1,'GraphicDataBroker']]],
+  ['copyonlynewnode_1',['copyOnlyNewNode',['../class_graphic_data_broker.html#ac076bd5b7fa1bbd157b19a915efdbed9',1,'GraphicDataBroker']]]
 ];

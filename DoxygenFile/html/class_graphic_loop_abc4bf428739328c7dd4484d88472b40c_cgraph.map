@@ -1,0 +1,7 @@
+<map id="GraphicLoop::loop" name="GraphicLoop::loop">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,132,57"/>
+<area shape="rect" id="Node000002" href="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title=" " alt="" coords="180,5,321,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,33,165,28,165,33,132,38"/>
+<area shape="rect" id="Node000003" href="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b" title="処理が早すぎる場合，FPSを一定にするために待つ．" alt="" coords="213,56,288,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,50,199,60,198,65,132,55"/>
+</map>
