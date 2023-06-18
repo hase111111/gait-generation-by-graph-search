@@ -9,5 +9,11 @@ digraph "myvector::SVector::lengthSquare"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="myvector::SVector::\llength",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmyvector_1_1_s_vector.html#a7c2dad84de911c174680b7c377a02d9b",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="myvector::SVector::\lnormalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmyvector_1_1_s_vector.html#a652b6c3711a21f9c8e427c4314e04684",tooltip=" "];
+  Node3 [id="Node000003",label="HexapodRenderer::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503",tooltip="ロボットを3D空間に描画する．"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="GraphicMainBasic::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="myvector::SVector::\lnormalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmyvector_1_1_s_vector.html#a652b6c3711a21f9c8e427c4314e04684",tooltip=" "];
 }

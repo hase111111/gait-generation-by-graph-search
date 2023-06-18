@@ -13,7 +13,7 @@ Mouse::Mouse()
     m_releasing_count_right = 0;
 }
 
-bool Mouse::update()
+void Mouse::update()
 {
     //マウスの位置取得
     GetMousePoint(&m_posx, &m_poy);
@@ -60,7 +60,6 @@ bool Mouse::update()
         m_releasing_count_middle++;
     }
 
-    return false;
 }
 
 int Mouse::getPosX() const

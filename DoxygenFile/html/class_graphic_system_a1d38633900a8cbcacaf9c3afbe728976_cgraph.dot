@@ -9,7 +9,11 @@ digraph "GraphicSystem::main"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="GraphicLoop::loop",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Fps::skipDrawScene",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5",tooltip=" "];
+  Node3 [id="Node000003",label="Fps::skipDrawScene",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5",tooltip="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．"];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="Fps::wait",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b",tooltip="処理が早すぎる場合，FPSを一定にするために待つ．"];
+  Node4 [id="Node000004",label="Keyboard::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab",tooltip="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．"];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="Mouse::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a",tooltip="マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．"];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Fps::wait",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b",tooltip="処理が早すぎる場合，FPSを一定にするために待つ．"];
 }

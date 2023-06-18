@@ -1,28 +1,18 @@
-//! @file Fps.h
-//! @brief Fpsクラスの実装．
-//! @author 長谷川
-
 #pragma once
 #include <list>
 #include "GraphicConst.h"
 
-//! @class Fps
-//! @brief FPSを一定にキープするためのクラス．
-//! @details 基本的には何もしなくともFPSは一定になるのだけど，144Fpsとか240Fpsくらいのゲーミングモニターを使っている場合，画面がおかしくなることがある．
-//! よってこのクラスを使ってFPSを制御する．FPSは Frames per Second：1秒当たりの画面更新回数のこと．First Person Shootingのことではない．<br>
-//! 当方のPCのモニターの問題なので，必要ないならば消してしまってもかまわないが，あったところで問題はないので放置しておいてもらって構わない．<br> <br>
-//! [参考] <br> FPSの制御を行う https://dixq.net/rp2/07.html ←このサイトのプログラムをだいぶパクっているが，機能を色々追加している．<br>
-//!  DxlibのFPSとリフレッシュレートについて https://dixq.net/forum/viewtopic.php?t=20224
+
 class Fps final
 {
 public:
     Fps() = default;
     ~Fps() = default;
 
-    //! 処理が早すぎる場合，FPSを一定にするために待つ．
+    //! @brief 処理が早すぎる場合，FPSを一定にするために待つ．
     void wait();
 
-    //! 60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかのフラグ．
+    //! @brief 60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．
     //! @return bool 処理が詰まって描画を飛ばしたいときにtrueを返す．
     bool skipDrawScene();
 
@@ -41,3 +31,17 @@ private:
     const int LIST_MAX = (int)(GraphicConst::GRAPHIC_FPS * 2);                     //リストに2秒分のデータをしまっておく
 };
 
+
+//! @file Fps.h
+//! @brief Fpsクラスの実装．
+//! @author 長谷川
+
+//! @class Fps
+//! @brief FPSを一定にキープするためのクラス．
+//! @details 基本的には何もしなくともFPSは一定になるのだけど，144Fpsとか240Fpsくらいのゲーミングモニターを使っている場合，画面がおかしくなることがある．
+//! よってこのクラスを使ってFPSを制御する．FPSは Frames per Second：1秒当たりの画面更新回数のこと．First Person Shootingのことではない．<br>
+//! 当方のPCのモニターの問題なので，必要ないならば消してしまってもかまわないが，あったところで問題はないので放置しておいてもらって構わない．<br> 
+//! <br>
+//! [参考] <br> 
+//! FPSの制御を行う https://dixq.net/rp2/07.html ←このサイトのプログラムをだいぶパクっているが，機能を色々追加している．<br>
+//! DxlibのFPSとリフレッシュレートについて https://dixq.net/forum/viewtopic.php?t=20224

@@ -1,6 +1,5 @@
 #pragma once
 #include "MapState.h"
-
 #include "Node.h"
 
 // Mapの描画を行うクラス．

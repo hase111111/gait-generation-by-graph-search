@@ -75,17 +75,17 @@ void HexapodRenderer::draw(const SNode& _node) const
 
 		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false) 
 		{
-			DrawString(ConvWorldPosToScreenPos(_coxa).x, ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
+			DrawString((int)ConvWorldPosToScreenPos(_coxa).x, (int)ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
 		}
 
 		if (isAbleFemurLeg( m_HexaCalc.getGlobalFemurJointPos(_node, i), m_HexaCalc.getGlobalTibiaJointPos(_node, i)) == false)
 		{
-			DrawString(ConvWorldPosToScreenPos(_femur).x, ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
+			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
 		}
 
 		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(_node, i), m_HexaCalc.getGlobalLegPos(_node, i)) == false)
 		{
-			DrawString(ConvWorldPosToScreenPos(_femur).x, ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
+			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
 		}
 
 		if (DO_OUTPUT_DEBUG_LOG) 

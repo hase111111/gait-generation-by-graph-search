@@ -1,0 +1,11 @@
+<map id="DesignLab/CameraController.h" name="DesignLab/CameraController.h">
+<area shape="rect" id="Node000001" title="画像表示処理においてカメラを制御するクラス．" alt="" coords="120,5,318,32"/>
+<area shape="rect" id="Node000002" href="$_g_u_i_controller_8h_source.html" title=" " alt="" coords="132,80,306,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,47,222,80,216,80,216,47"/>
+<area shape="rect" id="Node000003" href="$_graphic_main_basic_8h.html" title="基本的な描画クラスの実装．" alt="" coords="5,155,209,181"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="172,41,145,58,123,82,114,100,110,119,108,154,103,154,104,119,109,98,118,78,141,54,169,36"/>
+<area shape="rect" id="Node000004" href="$_graphic_main_test_8h_source.html" title=" " alt="" coords="239,155,434,181"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="268,37,296,54,320,78,330,98,336,118,339,154,334,155,330,119,325,100,316,82,293,58,265,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="189,117,128,156,125,152,186,113"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="253,112,317,152,314,156,250,117"/>
+</map>

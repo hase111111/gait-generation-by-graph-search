@@ -1,0 +1,5 @@
+<map id="myDxlib3DFunc::drawHexagonalPrism" name="myDxlib3DFunc::drawHexagonalPrism">
+<area shape="rect" id="Node000001" title="3D空間に六角柱を描画する．" alt="" coords="5,5,215,48"/>
+<area shape="rect" id="Node000002" href="$namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae" title="3D空間に六角形を描画する．" alt="" coords="263,13,462,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,24,247,24,247,29,215,29"/>
+</map>

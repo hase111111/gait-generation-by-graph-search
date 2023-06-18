@@ -108,6 +108,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> ()</td></tr>
 <tr class="memdesc:a81d2d44e8747ed7978b47b66f4896f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">処理が早すぎる場合，FPSを一定にするために待つ． <br /></td></tr>
 <tr class="separator:a81d2d44e8747ed7978b47b66f4896f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60bfd959c6c583ab180a1edba81e43a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fps.html#a60bfd959c6c583ab180a1edba81e43a5">skipDrawScene</a> ()</td></tr>
+<tr class="memdesc:a60bfd959c6c583ab180a1edba81e43a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．  <br /></td></tr>
 <tr class="separator:a60bfd959c6c583ab180a1edba81e43a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -133,25 +134,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> ()</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかのフラグ． </p><dl class="section return"><dt>戻り値</dt><dd>bool 処理が詰まって描画を飛ばしたいときにtrueを返す． </dd></dl>
+
+<p>60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool 処理が詰まって描画を飛ばしたいときにtrueを返す． </dd></dl>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_fps_a60bfd959c6c583ab180a1edba81e43a5_icgraph.png" border="0" usemap="#aclass_fps_a60bfd959c6c583ab180a1edba81e43a5_icgraph" alt=""/></div>
 <map name="aclass_fps_a60bfd959c6c583ab180a1edba81e43a5_icgraph" id="aclass_fps_a60bfd959c6c583ab180a1edba81e43a5_icgraph">
-<area shape="rect" title=" " alt="" coords="375,5,516,32"/>
-<area shape="rect" href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title=" " alt="" coords="201,5,327,32"/>
-<area shape="poly" title=" " alt="" coords="360,21,327,21,327,16,360,16"/>
-<area shape="rect" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976" title=" " alt="" coords="5,5,153,32"/>
-<area shape="poly" title=" " alt="" coords="186,21,153,21,153,16,186,16"/>
+<area shape="rect" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="553,5,695,32"/>
+<area shape="rect" href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title=" " alt="" coords="379,5,505,32"/>
+<area shape="poly" title=" " alt="" coords="539,21,506,21,506,16,539,16"/>
+<area shape="rect" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976" title=" " alt="" coords="184,5,331,32"/>
+<area shape="poly" title=" " alt="" coords="364,21,331,21,331,16,364,16"/>
+<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
+<area shape="poly" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_fps_8h_source.html">Fps.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Fps.cpp</li>
+<li>DesignLab/<a class="el" href="_fps_8h_source.html">Fps.h</a></li>
+<li>DesignLab/Fps.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

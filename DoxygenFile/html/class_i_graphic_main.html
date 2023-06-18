@@ -107,9 +107,9 @@ IGraphicMain の継承関係図</div>
 <div class="center"><img src="class_i_graphic_main__inherit__graph.png" border="0" usemap="#a_i_graphic_main_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_graphic_main_inherit__map" id="a_i_graphic_main_inherit__map">
 <area shape="rect" title="GraphicMainのインターフェース" alt="" coords="178,5,275,32"/>
-<area shape="rect" href="class_graphic_main_basic.html" title=" " alt="" coords="5,80,133,107"/>
+<area shape="rect" href="class_graphic_main_basic.html" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="5,80,133,107"/>
 <area shape="poly" title=" " alt="" coords="187,41,98,82,96,77,185,36"/>
-<area shape="rect" href="class_graphic_main_sample.html" title=" " alt="" coords="157,80,296,107"/>
+<area shape="rect" href="class_graphic_main_sample.html" title="サンプル描画クラス．サンプルメッセージを表示する．" alt="" coords="157,80,296,107"/>
 <area shape="poly" title=" " alt="" coords="229,47,229,80,224,80,224,47"/>
 <area shape="rect" href="class_graphic_main_test.html" title=" " alt="" coords="320,80,439,107"/>
 <area shape="poly" title=" " alt="" coords="267,36,354,77,352,82,265,41"/>
@@ -130,9 +130,10 @@ IGraphicMain 連携図</div>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a8dbe916fafdf83e31495423abf2f4182"><td class="memItemLeft" align="right" valign="top"><a id="a8dbe916fafdf83e31495423abf2f4182" name="a8dbe916fafdf83e31495423abf2f4182"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IGraphicMain</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *_broker)</td></tr>
-<tr class="memdesc:a8dbe916fafdf83e31495423abf2f4182"><td class="mdescLeft">&#160;</td><td class="mdescRight">このクラスの継承先では，const GraphicDataBroker* _brokerを引数に持つコンストラクタを実装する必要があります． <br /></td></tr>
+<tr class="memdesc:a8dbe916fafdf83e31495423abf2f4182"><td class="mdescLeft">&#160;</td><td class="mdescRight">このクラスの継承先では，const GraphicDataBroker* _brokerを引数に持つコンストラクタを実装する必要がある． <br /></td></tr>
 <tr class="separator:a8dbe916fafdf83e31495423abf2f4182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">update</a> ()=0</td></tr>
+<tr class="memdesc:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
 <tr class="separator:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc0393789ce333b1f1992982f437166"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">draw</a> () const =0</td></tr>
 <tr class="memdesc:aebc0393789ce333b1f1992982f437166"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
@@ -147,17 +148,17 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>GraphicMainのインターフェース </p>
-<p>描画の処理を行うクラスは必ずこのクラスを継承すること．逆に言えば継承すれば自由に処理が交換可能になります．<br  />
+<p>描画の処理を行うクラスは必ずこのクラスを継承すること．逆に言えば継承すれば自由に処理が交換可能になる．<br  />
  <br  />
  [インターフェイスについて] <br  />
- このクラスはインターフェース(純粋仮想関数のみをもつ実体を生成できないクラス)といえます．<br  />
- 所謂「依存性の注入」というやつです．GraphicLoopはGraphicMainの処理に依存してしまうため，これをインターフェイスにすることでGraphicLoopはGraphicMainの インターフェイス(update関数の戻り値)にのみ関心を持つようになり依存性を解消できるようになります．<br  />
- まぁ「依存性の注入」については正直自分もよくわかっていないので，理解しなくても大丈夫だと思います．<br  />
- ともかく，交換可能なグラフィックのパーツを作るための型がこの親クラスだということです．<br  />
+ このクラスはインターフェース(純粋仮想関数のみをもつ実体を生成できないクラス)といえる．<br  />
+ 所謂「依存性の注入」というやつ．GraphicLoopはGraphicMainの処理に依存してしまうため，これをインターフェイスにすることでGraphicLoopはGraphicMainの インターフェイス(update関数の戻り値)にのみ関心を持つようになり，依存性を解消できるようになる．<br  />
+ まぁ「依存性の注入」については正直自分もよくわかっていないので，理解しなくても大丈夫．<br  />
+ ともかく，交換可能なグラフィックのパーツを作るための型がこの親クラスだということ．<br  />
  <br  />
- 継承先のクラスではupdateとdrawをoverrideする必要があります．<br  />
- よくわからないなら，「クラスの継承」「関数のオーバーライド（オーバーロードとは別物です）」「完全仮想関数」あたりを調べてみてください．ぶっちゃけ，よくわからなくても大丈夫です．<br  />
- ひとまず，GraphicMainSampleを確認していただければなんとなくわかると思います．<br  />
+ 継承先のクラスではupdateとdrawをoverrideする必要がある．<br  />
+ よくわからないなら，「クラスの継承」「関数のオーバーライド（オーバーロードとは別物）」「完全仮想関数」あたりを調べてみるとよいと思う．ぶっちゃけ，よくわからなくても大丈夫．<br  />
+ ひとまず，GraphicMainSampleを確認すればなんとなくわかると思う．<br  />
  </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="aebc0393789ce333b1f1992982f437166" name="aebc0393789ce333b1f1992982f437166"></a>
@@ -211,7 +212,9 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">bool</td><td>ループを抜け，グラフィックの表示を終了するならばfalseをかえす． </td></tr>
   </table>
@@ -223,8 +226,8 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_graphic_main_8h_source.html">InterfaceGraphicMain.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/InterfaceGraphicMain.cpp</li>
+<li>DesignLab/<a class="el" href="_interface_graphic_main_8h_source.html">InterfaceGraphicMain.h</a></li>
+<li>DesignLab/InterfaceGraphicMain.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

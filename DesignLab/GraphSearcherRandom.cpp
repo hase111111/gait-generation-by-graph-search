@@ -25,7 +25,7 @@ bool GraphSearcherRandom::searchGraphTree(const std::vector<SNode>& _graph, cons
 
 	if (_depth1_node.empty()) { return false; }		//深さ1のノードが存在しないなら，終了．
 
-	_output_result = _depth1_node.at(my_math::generateRandomNumber(0, _depth1_node.size() - 1));		// ランダムなやつを一つ選択する．
+	_output_result = _depth1_node.at(my_math::generateRandomNumber(0, (int)_depth1_node.size() - 1));		// ランダムなやつを一つ選択する．
 	
 	return true;
 }

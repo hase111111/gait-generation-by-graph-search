@@ -95,16 +95,25 @@ $(document).ready(function(){initNavTree('class_system_main.html',''); initResiz
   <div class="headertitle"><div class="title">SystemMain クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．  
+ <a href="class_system_main.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_system_main_8h_source.html">SystemMain.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:afd6aec5b53eb29cd818a8cdc014302c2"><td class="memItemLeft" align="right" valign="top"><a id="afd6aec5b53eb29cd818a8cdc014302c2" name="afd6aec5b53eb29cd818a8cdc014302c2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
+<tr class="memdesc:afd6aec5b53eb29cd818a8cdc014302c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する． <br /></td></tr>
 <tr class="separator:afd6aec5b53eb29cd818a8cdc014302c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_system_main_8h_source.html">SystemMain.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/SystemMain.cpp</li>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる． </p>
+<p>処理の内容を書き換えるときには，int mainから呼ぶクラスを変えるだけでいい． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>DesignLab/<a class="el" href="_system_main_8h_source.html">SystemMain.h</a></li>
+<li>DesignLab/SystemMain.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

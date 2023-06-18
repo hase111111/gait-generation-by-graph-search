@@ -1,0 +1,7 @@
+<map id="GraphicMainTest::update" name="GraphicMainTest::update">
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,31,172,57"/>
+<area shape="rect" id="Node000002" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="221,5,390,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,32,206,28,207,33,172,37"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="220,56,391,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,51,205,55,205,60,172,56"/>
+</map>

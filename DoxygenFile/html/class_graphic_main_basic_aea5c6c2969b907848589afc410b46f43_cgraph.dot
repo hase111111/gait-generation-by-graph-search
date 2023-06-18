@@ -5,7 +5,15 @@ digraph "GraphicMainBasic::update"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [id="Node000001",label="GraphicMainBasic::update",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="GraphicMainBasic::update",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="GraphicDataBroker::\lcopyOnlyNewNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html#ac076bd5b7fa1bbd157b19a915efdbed9",tooltip=" "];
+  Node2 [id="Node000002",label="myDxlib3DFunc::convertTo\lDxVec",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacemy_dxlib3_d_func.html#acde229fdc9c28f3a09c411b9f608e622",tooltip="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GraphicDataBroker::\lcopyOnlyNewNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html#ac076bd5b7fa1bbd157b19a915efdbed9",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="CameraController::setTargetPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a216677edea0d4c002f5d23da7f33a22b",tooltip="カメラの注視する目標の座標をセットする．"];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="CameraController::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af",tooltip="カメラの位置などの更新を行う．毎フレーム実行すること．"];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="HexapodRenderer::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600",tooltip="ロボットの状態を更新する．"];
 }

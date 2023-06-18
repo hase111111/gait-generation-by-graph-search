@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['singleton_2eh_0',['Singleton.h',['../_singleton_8h.html',1,'']]]
+  ['interfacegraphicmain_2eh_0',['InterfaceGraphicMain.h',['../_interface_graphic_main_8h.html',1,'']]]
 ];

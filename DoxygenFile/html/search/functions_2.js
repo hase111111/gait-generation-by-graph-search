@@ -1,8 +1,23 @@
 var searchData=
 [
   ['getcross_0',['getCross',['../namespacemyvector.html#a8091fcb85dc9e58610f25c87ce24bedd',1,'myvector']]],
-  ['getgroundedlegnum_1',['getGroundedLegNum',['../namespaceleg__state.html#afd052a18c20b9e292894e32fbb0d9c59',1,'leg_state']]],
-  ['getmapstate_2',['getMapState',['../class_graphic_data_broker.html#adbd11507b8b6b55a66a7f4388dfa6c48',1,'GraphicDataBroker']]],
-  ['getpressingcount_3',['getPressingCount',['../class_keyboard.html#ac10c13870ba471f267d5ced0f233a398',1,'Keyboard']]],
-  ['getreleasingcount_4',['getReleasingCount',['../class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e',1,'Keyboard']]]
+  ['getdevidemapnumx_1',['getDevideMapNumX',['../class_map_state.html#ae68b6c30514160b4660f6ffcd845438e',1,'MapState']]],
+  ['getdevidemapnumy_2',['getDevideMapNumY',['../class_map_state.html#a095b2aedc582a318a8d63aef603ec958',1,'MapState']]],
+  ['getgroundedlegnum_3',['getGroundedLegNum',['../namespaceleg__state.html#afd052a18c20b9e292894e32fbb0d9c59',1,'leg_state']]],
+  ['getmapstate_4',['getMapState',['../class_graphic_data_broker.html#adbd11507b8b6b55a66a7f4388dfa6c48',1,'GraphicDataBroker']]],
+  ['getpointnumfromdevidemap_5',['getPointNumFromDevideMap',['../class_map_state.html#af38b7f869b9afe8447cfa7463d4c317d',1,'MapState']]],
+  ['getpos_6',['getPos',['../class_map_state.html#a89c5d28f4cc98c696616e3242f217155',1,'MapState']]],
+  ['getposfromdevidemap_7',['getPosFromDevideMap',['../class_map_state.html#acbdf0d3a37c6efe66de8c40b2d6f63f3',1,'MapState']]],
+  ['getposnum_8',['getPosNum',['../class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa',1,'MapState']]],
+  ['getposx_9',['getPosX',['../class_mouse.html#abace333bdddc677a648742d8236b7bf9',1,'Mouse']]],
+  ['getposy_10',['getPosY',['../class_mouse.html#a5ec119583778ba83c7ac9d55f0b4e7b6',1,'Mouse']]],
+  ['getpressingcount_11',['getPressingCount',['../class_keyboard.html#ac10c13870ba471f267d5ced0f233a398',1,'Keyboard']]],
+  ['getpushingcountleft_12',['getPushingCountLeft',['../class_mouse.html#a88f764c3748530fcf9b0e82366fb5ce2',1,'Mouse']]],
+  ['getpushingcountmiddle_13',['getPushingCountMiddle',['../class_mouse.html#a107630060d9a520f3b34b9b9d6caac5a',1,'Mouse']]],
+  ['getpushingcountright_14',['getPushingCountRight',['../class_mouse.html#aa978f70f61bb2895f91dd24135db7b00',1,'Mouse']]],
+  ['getreleasingcount_15',['getReleasingCount',['../class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e',1,'Keyboard']]],
+  ['getreleasingcountleft_16',['getReleasingCountLeft',['../class_mouse.html#ac1c71b146b4d48ff70a913a37c79248c',1,'Mouse']]],
+  ['getreleasingcountmiddle_17',['getReleasingCountMiddle',['../class_mouse.html#a622c859d87aa26d5bdf479d4ae02bd0e',1,'Mouse']]],
+  ['getreleasingcountright_18',['getReleasingCountRight',['../class_mouse.html#ad604790fcfc5905132c1257d87283f6d',1,'Mouse']]],
+  ['gettopzfromdevidemap_19',['getTopZFromDevideMap',['../class_map_state.html#ab19cb0ce79c7a7fddfc3b3c260166b48',1,'MapState']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Node.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/Node.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('_node_8h_source.html',''); initResizab
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//ロボットが次にどの動作をするのかを表す列挙体．サイズは 2 byte．sizeofで確認済み</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum class</span> EHexapodMove : <span class="keywordtype">short</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum class</span> EHexapodMove : <span class="keywordtype">char</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    NONE = 0,                   <span class="comment">// 何も動作をしない</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    LEG_UP_DOWN = 1,            <span class="comment">// 脚の上下移動.</span></div>
@@ -130,9 +130,9 @@ $(document).ready(function(){initNavTree('_node_8h_source.html',''); initResizab
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_struct" href="structmyvector_1_1_s_rotator.html">myvector::SRotator</a> rot;                         <span class="comment">// [4 * 3 = 12byte] ロール(X軸) ピッチ(Y軸) ヨー(Z軸)　右ねじの方向を正回転とし，ロボットの重心を原点に回転する．旧名 ThP ThR ThY</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    EHexapodMove next_move;     <span class="comment">// [2 byte] 次の動作を代入する．元のプログラムではint debugが担っていた仕事を行う．</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    EHexapodMove next_move;     <span class="comment">// [1 byte] 次の動作を代入する．元のプログラムではint debugが担っていた仕事を行う．</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> parent_num;             <span class="comment">// [4 byte] 自身の親がvector配列のどこにいるのかを記録する．親がいないなら負の値をとる．</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">short</span> depth;                <span class="comment">// [2 byte] 自身の深さ．一番上の親が深さ0となる．おそらく128を超えるような値をとらないと思うので一番小さなchar型を使用する．</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">char</span> depth;                 <span class="comment">// [1 byte] 自身の深さ．一番上の親が深さ0となる．おそらく128を超えるような値をとらないと思うので一番小さなchar型を使用する．</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_s_node.html">SNode</a>* parent;                           <span class="comment">//親ノードへのポインタ</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">short</span> node_height;                              <span class="comment">//葉ノードならば1，1回前葉ノードならば2</span></div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('_node_8h_source.html',''); initResizab
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// ノードが等しいならtrue.</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">bool</span> isNodeEqual(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> &amp;node1, <span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> &amp;node2);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="ttc" id="anamespaceleg__state_html"><div class="ttname"><a href="namespaceleg__state.html">leg_state</a></div><div class="ttdoc">脚状態を編集するための関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> LegState.h:27</div></div>
+<div class="ttc" id="anamespaceleg__state_html"><div class="ttname"><a href="namespaceleg__state.html">leg_state</a></div><div class="ttdoc">脚状態を編集するための関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> LegState.h:7</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
 <div class="ttc" id="astructmyvector_1_1_s_rotator_html"><div class="ttname"><a href="structmyvector_1_1_s_rotator.html">myvector::SRotator</a></div><div class="ttdef"><b>Definition</b> vectorFunc.h:116</div></div>
 <div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('_node_8h_source.html',''); initResizab
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>Node.h</b></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>Node.h</b></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

@@ -2,7 +2,7 @@
 #include "Node.h"
 #include "HexapodStateCalculator.h"
 
-// ロボットの描画を行うクラス．
+
 class HexapodRenderer
 {
 private:
@@ -29,10 +29,22 @@ public:
 	HexapodRenderer();
 	~HexapodRenderer() = default;
 
-	//ロボットの状態を更新する．
+	//! @brief ロボットの状態を更新する．
+	//! @param [in] _node 描画するロボットの状態
 	void update(const SNode& _node);
 
-	//ロボットを3D空間に描画する．
+	//! @brief ロボットを3D空間に描画する．
+	//! @param [in] _node 描画するロボットの状態
 	void draw(const SNode& _node) const;
 
 };
+
+
+//! @file HexapodRenderer.h
+//! @brief ロボットの描画を行うクラスの実装．
+//! @author 長谷川
+
+//! @class HexapodRenderer
+//! @brief ロボットの描画を行うクラス．
+//! @details 
+//! @author 長谷川

@@ -95,12 +95,17 @@ $(document).ready(function(){initNavTree('class_keyboard.html',''); initResizabl
   <div class="headertitle"><div class="title">Keyboard クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Dxlibのキー入力を取得するクラス．  
+ <a href="class_keyboard.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_keyboard_8h_source.html">Keyboard.h</a>&gt;</code></p>
 <div class="dynheader">
 Keyboard の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_keyboard__inherit__graph.png" border="0" usemap="#a_keyboard_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_keyboard_inherit__map" id="a_keyboard_inherit__map">
-<area shape="rect" title=" " alt="" coords="44,80,121,107"/>
+<area shape="rect" title="Dxlibのキー入力を取得するクラス．" alt="" coords="44,80,121,107"/>
 <area shape="rect" href="class_singleton.html" title=" " alt="" coords="5,5,160,32"/>
 <area shape="poly" title=" " alt="" coords="85,47,85,80,80,80,80,47"/>
 </map>
@@ -110,7 +115,7 @@ Keyboard 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_keyboard__coll__graph.png" border="0" usemap="#a_keyboard_coll__map" alt="Collaboration graph"/></div>
 <map name="a_keyboard_coll__map" id="a_keyboard_coll__map">
-<area shape="rect" title=" " alt="" coords="44,80,121,107"/>
+<area shape="rect" title="Dxlibのキー入力を取得するクラス．" alt="" coords="44,80,121,107"/>
 <area shape="rect" href="class_singleton.html" title=" " alt="" coords="5,5,160,32"/>
 <area shape="poly" title=" " alt="" coords="85,47,85,80,80,80,80,47"/>
 </map>
@@ -118,16 +123,15 @@ Keyboard 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:afd8f963dbd5113fa9630e40b6c179eff"><td class="memItemLeft" align="right" valign="top"><a id="afd8f963dbd5113fa9630e40b6c179eff" name="afd8f963dbd5113fa9630e40b6c179eff"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="separator:afd8f963dbd5113fa9630e40b6c179eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac10c13870ba471f267d5ced0f233a398"><td class="memItemLeft" align="right" valign="top"><a id="ac10c13870ba471f267d5ced0f233a398" name="ac10c13870ba471f267d5ced0f233a398"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPressingCount</b> (int keyCode)</td></tr>
-<tr class="memdesc:ac10c13870ba471f267d5ced0f233a398"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を返す <br /></td></tr>
+<tr class="memitem:a6410f07ddc53561a82d5328d8b330aab"><td class="memItemLeft" align="right" valign="top"><a id="a6410f07ddc53561a82d5328d8b330aab" name="a6410f07ddc53561a82d5328d8b330aab"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a6410f07ddc53561a82d5328d8b330aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない． <br /></td></tr>
+<tr class="separator:a6410f07ddc53561a82d5328d8b330aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac10c13870ba471f267d5ced0f233a398"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#ac10c13870ba471f267d5ced0f233a398">getPressingCount</a> (int keyCode)</td></tr>
+<tr class="memdesc:ac10c13870ba471f267d5ced0f233a398"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:ac10c13870ba471f267d5ced0f233a398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="memItemLeft" align="right" valign="top"><a id="a0c6cbe2c73c4aa8be1e15c5dd1874e0e" name="a0c6cbe2c73c4aa8be1e15c5dd1874e0e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getReleasingCount</b> (int keyCode)</td></tr>
-<tr class="memdesc:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を返す <br /></td></tr>
+<tr class="memitem:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e">getReleasingCount</a> (int keyCode)</td></tr>
+<tr class="memdesc:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -144,9 +148,74 @@ static <a class="el" href="class_keyboard.html">Keyboard</a> *&#160;</td><td cla
 <a class="el" href="class_singleton.html">Singleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_singleton.html">Singleton</a> &amp;r)=default</td></tr>
 <tr class="separator:a6202ce3d5dac0c4ab56e9a91ef1a7708 inherit pro_methods_class_singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibのキー入力を取得するクラス． </p>
+<p>詳しい処理の内容はこちら <a href="https://dixq.net/rp2/08.html">https://dixq.net/rp2/08.html</a> <br  />
+ <br  />
+ Keyboardはシングルトンクラスなので実体を生成することができない．<br  />
+ getIns()を用いて関数を呼び出す必要がある．<br  />
+ <br  />
+ 注意点としては，あくまでDxlibの処理を行うため，コマンドラインでは呼び出せない．<br  />
+ というか呼び出せるけれどうまく動作するかは保証されない．致命的なバグやエラーを誘発する可能性があるので呼ぶべきでない．<br  />
+ std::cinとかを使うべき． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="ac10c13870ba471f267d5ced0f233a398" name="ac10c13870ba471f267d5ced0f233a398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10c13870ba471f267d5ced0f233a398">&#9670;&#160;</a></span>getPressingCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Keyboard::getPressingCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>keyCodeのキーが押されているフレーム数を取得する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか，例えばZキーだったら，KEY_INPUT_Zとなる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>int 押されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="a0c6cbe2c73c4aa8be1e15c5dd1874e0e" name="a0c6cbe2c73c4aa8be1e15c5dd1874e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6cbe2c73c4aa8be1e15c5dd1874e0e">&#9670;&#160;</a></span>getReleasingCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Keyboard::getReleasingCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>keyCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>keyCodeのキーが離されているフレーム数を取得する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか，例えばZキーだったら，KEY_INPUT_Zとなる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>int 離されているフレーム数． </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_keyboard_8h_source.html">Keyboard.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Keyboard.cpp</li>
+<li>DesignLab/<a class="el" href="_keyboard_8h_source.html">Keyboard.h</a></li>
+<li>DesignLab/Keyboard.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

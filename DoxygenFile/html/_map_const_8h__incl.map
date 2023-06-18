@@ -1,0 +1,5 @@
+<map id="DesignLab/MapConst.h" name="DesignLab/MapConst.h">
+<area shape="rect" id="Node000001" title="地形状態を表す定数の実装．" alt="" coords="5,5,162,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="57,80,110,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,33,86,65,81,65,81,33"/>
+</map>

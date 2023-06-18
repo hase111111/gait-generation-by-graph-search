@@ -1,5 +1,6 @@
 #pragma once
 #include "MapState.h"
+#include "Node.h"
 
 class ComMoveNodeCreator final
 {

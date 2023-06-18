@@ -95,12 +95,17 @@ $(document).ready(function(){initNavTree('class_mouse.html',''); initResizable()
   <div class="headertitle"><div class="title">Mouse クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Dxlibのマウス入力を取得するクラス．  
+ <a href="class_mouse.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mouse_8h_source.html">Mouse.h</a>&gt;</code></p>
 <div class="dynheader">
 Mouse の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_mouse__inherit__graph.png" border="0" usemap="#a_mouse_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_mouse_inherit__map" id="a_mouse_inherit__map">
-<area shape="rect" title=" " alt="" coords="44,80,105,107"/>
+<area shape="rect" title="Dxlibのマウス入力を取得するクラス．" alt="" coords="44,80,105,107"/>
 <area shape="rect" href="class_singleton.html" title=" " alt="" coords="5,5,144,32"/>
 <area shape="poly" title=" " alt="" coords="77,47,77,80,72,80,72,47"/>
 </map>
@@ -110,7 +115,7 @@ Mouse 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_mouse__coll__graph.png" border="0" usemap="#a_mouse_coll__map" alt="Collaboration graph"/></div>
 <map name="a_mouse_coll__map" id="a_mouse_coll__map">
-<area shape="rect" title=" " alt="" coords="44,80,105,107"/>
+<area shape="rect" title="Dxlibのマウス入力を取得するクラス．" alt="" coords="44,80,105,107"/>
 <area shape="rect" href="class_singleton.html" title=" " alt="" coords="5,5,144,32"/>
 <area shape="poly" title=" " alt="" coords="77,47,77,80,72,80,72,47"/>
 </map>
@@ -118,32 +123,33 @@ Mouse 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a573a7541042c8b95984e2d7a6bf9a715"><td class="memItemLeft" align="right" valign="top"><a id="a573a7541042c8b95984e2d7a6bf9a715" name="a573a7541042c8b95984e2d7a6bf9a715"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="separator:a573a7541042c8b95984e2d7a6bf9a715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abace333bdddc677a648742d8236b7bf9"><td class="memItemLeft" align="right" valign="top"><a id="abace333bdddc677a648742d8236b7bf9" name="abace333bdddc677a648742d8236b7bf9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPosX</b> () const</td></tr>
+<tr class="memitem:a8cf3dbfaa0ed80eea91f0d598a35654a"><td class="memItemLeft" align="right" valign="top"><a id="a8cf3dbfaa0ed80eea91f0d598a35654a" name="a8cf3dbfaa0ed80eea91f0d598a35654a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a8cf3dbfaa0ed80eea91f0d598a35654a"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない． <br /></td></tr>
+<tr class="separator:a8cf3dbfaa0ed80eea91f0d598a35654a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abace333bdddc677a648742d8236b7bf9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#abace333bdddc677a648742d8236b7bf9">getPosX</a> () const</td></tr>
+<tr class="memdesc:abace333bdddc677a648742d8236b7bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
 <tr class="separator:abace333bdddc677a648742d8236b7bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="memItemLeft" align="right" valign="top"><a id="a5ec119583778ba83c7ac9d55f0b4e7b6" name="a5ec119583778ba83c7ac9d55f0b4e7b6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPosY</b> () const</td></tr>
+<tr class="memitem:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a5ec119583778ba83c7ac9d55f0b4e7b6">getPosY</a> () const</td></tr>
+<tr class="memdesc:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
 <tr class="separator:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88f764c3748530fcf9b0e82366fb5ce2"><td class="memItemLeft" align="right" valign="top"><a id="a88f764c3748530fcf9b0e82366fb5ce2" name="a88f764c3748530fcf9b0e82366fb5ce2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPushingCountLeft</b> () const</td></tr>
+<tr class="memitem:a88f764c3748530fcf9b0e82366fb5ce2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a88f764c3748530fcf9b0e82366fb5ce2">getPushingCountLeft</a> () const</td></tr>
+<tr class="memdesc:a88f764c3748530fcf9b0e82366fb5ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスの左クリックの押され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a88f764c3748530fcf9b0e82366fb5ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa978f70f61bb2895f91dd24135db7b00"><td class="memItemLeft" align="right" valign="top"><a id="aa978f70f61bb2895f91dd24135db7b00" name="aa978f70f61bb2895f91dd24135db7b00"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPushingCountRight</b> () const</td></tr>
+<tr class="memitem:aa978f70f61bb2895f91dd24135db7b00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#aa978f70f61bb2895f91dd24135db7b00">getPushingCountRight</a> () const</td></tr>
+<tr class="memdesc:aa978f70f61bb2895f91dd24135db7b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスの右クリックの押され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:aa978f70f61bb2895f91dd24135db7b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a107630060d9a520f3b34b9b9d6caac5a"><td class="memItemLeft" align="right" valign="top"><a id="a107630060d9a520f3b34b9b9d6caac5a" name="a107630060d9a520f3b34b9b9d6caac5a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPushingCountMiddle</b> () const</td></tr>
+<tr class="memitem:a107630060d9a520f3b34b9b9d6caac5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a107630060d9a520f3b34b9b9d6caac5a">getPushingCountMiddle</a> () const</td></tr>
+<tr class="memdesc:a107630060d9a520f3b34b9b9d6caac5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのホイールボタンの押され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a107630060d9a520f3b34b9b9d6caac5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c71b146b4d48ff70a913a37c79248c"><td class="memItemLeft" align="right" valign="top"><a id="ac1c71b146b4d48ff70a913a37c79248c" name="ac1c71b146b4d48ff70a913a37c79248c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getReleasingCountLeft</b> () const</td></tr>
+<tr class="memitem:ac1c71b146b4d48ff70a913a37c79248c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#ac1c71b146b4d48ff70a913a37c79248c">getReleasingCountLeft</a> () const</td></tr>
+<tr class="memdesc:ac1c71b146b4d48ff70a913a37c79248c"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスの左クリックの離され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:ac1c71b146b4d48ff70a913a37c79248c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad604790fcfc5905132c1257d87283f6d"><td class="memItemLeft" align="right" valign="top"><a id="ad604790fcfc5905132c1257d87283f6d" name="ad604790fcfc5905132c1257d87283f6d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getReleasingCountRight</b> () const</td></tr>
+<tr class="memitem:ad604790fcfc5905132c1257d87283f6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#ad604790fcfc5905132c1257d87283f6d">getReleasingCountRight</a> () const</td></tr>
+<tr class="memdesc:ad604790fcfc5905132c1257d87283f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスの右クリックの離され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:ad604790fcfc5905132c1257d87283f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="memItemLeft" align="right" valign="top"><a id="a622c859d87aa26d5bdf479d4ae02bd0e" name="a622c859d87aa26d5bdf479d4ae02bd0e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getReleasingCountMiddle</b> () const</td></tr>
+<tr class="memitem:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a622c859d87aa26d5bdf479d4ae02bd0e">getReleasingCountMiddle</a> () const</td></tr>
+<tr class="memdesc:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのホイールボタンの離され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -160,9 +166,173 @@ static <a class="el" href="class_mouse.html">Mouse</a> *&#160;</td><td class="me
 <a class="el" href="class_singleton.html">Singleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_singleton.html">Singleton</a> &amp;r)=default</td></tr>
 <tr class="separator:a6202ce3d5dac0c4ab56e9a91ef1a7708 inherit pro_methods_class_singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibのマウス入力を取得するクラス． </p>
+<p>注意点はKeyboardクラスと全く同じ．そちらを参照して確認してほしい． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="abace333bdddc677a648742d8236b7bf9" name="abace333bdddc677a648742d8236b7bf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abace333bdddc677a648742d8236b7bf9">&#9670;&#160;</a></span>getPosX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getPosX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの位置を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスカーソルのX座標． </dd></dl>
+
+</div>
+</div>
+<a id="a5ec119583778ba83c7ac9d55f0b4e7b6" name="a5ec119583778ba83c7ac9d55f0b4e7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec119583778ba83c7ac9d55f0b4e7b6">&#9670;&#160;</a></span>getPosY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getPosY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの位置を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスカーソルのY座標． </dd></dl>
+
+</div>
+</div>
+<a id="a88f764c3748530fcf9b0e82366fb5ce2" name="a88f764c3748530fcf9b0e82366fb5ce2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f764c3748530fcf9b0e82366fb5ce2">&#9670;&#160;</a></span>getPushingCountLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getPushingCountLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスの左クリックの押され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 押されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="a107630060d9a520f3b34b9b9d6caac5a" name="a107630060d9a520f3b34b9b9d6caac5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a107630060d9a520f3b34b9b9d6caac5a">&#9670;&#160;</a></span>getPushingCountMiddle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getPushingCountMiddle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスのホイールボタンの押され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 押されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="aa978f70f61bb2895f91dd24135db7b00" name="aa978f70f61bb2895f91dd24135db7b00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa978f70f61bb2895f91dd24135db7b00">&#9670;&#160;</a></span>getPushingCountRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getPushingCountRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスの右クリックの押され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 押されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="ac1c71b146b4d48ff70a913a37c79248c" name="ac1c71b146b4d48ff70a913a37c79248c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1c71b146b4d48ff70a913a37c79248c">&#9670;&#160;</a></span>getReleasingCountLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getReleasingCountLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスの左クリックの離され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 離されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="a622c859d87aa26d5bdf479d4ae02bd0e" name="a622c859d87aa26d5bdf479d4ae02bd0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622c859d87aa26d5bdf479d4ae02bd0e">&#9670;&#160;</a></span>getReleasingCountMiddle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getReleasingCountMiddle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスのホイールボタンの離され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 離されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="ad604790fcfc5905132c1257d87283f6d" name="ad604790fcfc5905132c1257d87283f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad604790fcfc5905132c1257d87283f6d">&#9670;&#160;</a></span>getReleasingCountRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getReleasingCountRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスの右クリックの離され続けているフレーム数を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 離されているフレーム数． </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_mouse_8h_source.html">Mouse.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Mouse.cpp</li>
+<li>DesignLab/<a class="el" href="_mouse_8h_source.html">Mouse.h</a></li>
+<li>DesignLab/Mouse.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

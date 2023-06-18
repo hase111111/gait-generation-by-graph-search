@@ -1,5 +1,5 @@
 <map id="GraphicMainSample" name="GraphicMainSample">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="Node000001" title="サンプル描画クラス．サンプルメッセージを表示する．" alt="" coords="5,80,144,107"/>
 <area shape="rect" id="Node000002" href="$class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="26,5,123,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,47,77,80,72,80,72,47"/>
 </map>

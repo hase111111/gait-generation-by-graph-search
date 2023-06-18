@@ -96,37 +96,112 @@ $(document).ready(function(){initNavTree('class_map_creator.html',''); initResiz
   <div class="headertitle"><div class="title">MapCreator クラス</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>マップを生成するクラス．  
+ <a href="class_map_creator.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_map_creator_8h_source.html">MapCreator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a9e121b58161bde90984cf750e93f4859"><td class="memItemLeft" align="right" valign="top"><a id="a9e121b58161bde90984cf750e93f4859" name="a9e121b58161bde90984cf750e93f4859"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const EMapCreateMode _mode, const int _option, std::vector&lt; <a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> &gt; &amp;_map_data, const bool _do_output)</td></tr>
+<tr class="memitem:a9e121b58161bde90984cf750e93f4859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#a9e121b58161bde90984cf750e93f4859">create</a> (const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> _mode, const int _option, std::vector&lt; <a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> &gt; &amp;_map_data, const bool _do_output)</td></tr>
 <tr class="separator:a9e121b58161bde90984cf750e93f4859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
 <tr class="memitem:a199c52f70900199f80187e3e5ee30eed"><td class="memItemLeft" align="right" valign="top"><a id="a199c52f70900199f80187e3e5ee30eed" name="a199c52f70900199f80187e3e5ee30eed"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_NONE</b> = 0b00000</td></tr>
+<tr class="memdesc:a199c52f70900199f80187e3e5ee30eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：特にオプションを指定しない． <br /></td></tr>
 <tr class="separator:a199c52f70900199f80187e3e5ee30eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fdb6c92853ab99a12fb996b5804b5f3"><td class="memItemLeft" align="right" valign="top"><a id="a3fdb6c92853ab99a12fb996b5804b5f3" name="a3fdb6c92853ab99a12fb996b5804b5f3"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_PERFORATED</b> = 0b00001</td></tr>
+<tr class="memdesc:a3fdb6c92853ab99a12fb996b5804b5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：穴の空いた面を生成する． <br /></td></tr>
 <tr class="separator:a3fdb6c92853ab99a12fb996b5804b5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444176d8641f44633015a2fee2ef2844"><td class="memItemLeft" align="right" valign="top"><a id="a444176d8641f44633015a2fee2ef2844" name="a444176d8641f44633015a2fee2ef2844"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_STEP</b> = 0b00010</td></tr>
+<tr class="memdesc:a444176d8641f44633015a2fee2ef2844"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：階段状の地形を生成する． <br /></td></tr>
 <tr class="separator:a444176d8641f44633015a2fee2ef2844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67da4fd674d54b52527f5d5fb9ab266f"><td class="memItemLeft" align="right" valign="top"><a id="a67da4fd674d54b52527f5d5fb9ab266f" name="a67da4fd674d54b52527f5d5fb9ab266f"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_SLOPE</b> = 0b00100</td></tr>
+<tr class="memdesc:a67da4fd674d54b52527f5d5fb9ab266f"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：スロープ状の地形を生成する． <br /></td></tr>
 <tr class="separator:a67da4fd674d54b52527f5d5fb9ab266f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a579f7af09efd9286e647c24d27f6ecc2"><td class="memItemLeft" align="right" valign="top"><a id="a579f7af09efd9286e647c24d27f6ecc2" name="a579f7af09efd9286e647c24d27f6ecc2"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_TILT</b> = 0b01000</td></tr>
+<tr class="memdesc:a579f7af09efd9286e647c24d27f6ecc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：縦軸を中心軸として回転させた地形を生成する． <br /></td></tr>
 <tr class="separator:a579f7af09efd9286e647c24d27f6ecc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeafe1fe4aab823fb908b41d9b0cd4f4"><td class="memItemLeft" align="right" valign="top"><a id="afeafe1fe4aab823fb908b41d9b0cd4f4" name="afeafe1fe4aab823fb908b41d9b0cd4f4"></a>
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTION_ROUGH</b> = 0b10000</td></tr>
+<tr class="memdesc:afeafe1fe4aab823fb908b41d9b0cd4f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプション：凸凹の地形を生成する． <br /></td></tr>
 <tr class="separator:afeafe1fe4aab823fb908b41d9b0cd4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>マップを生成するクラス． </p>
+<p>MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス．<br  />
+ 先行研究のプログラムでは mainfunction.h で実装されていた処理である． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a9e121b58161bde90984cf750e93f4859" name="a9e121b58161bde90984cf750e93f4859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e121b58161bde90984cf750e93f4859">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">﻿ void MapCreator::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
+          <td class="paramname"><em>_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_map_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>_do_output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>マップ情報を与える関数 <br  />
+ getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_mode</td><td>列挙体 EMapCreateModeでどのような地形を生成するか指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_option</td><td>メンバ変数の OPTION_????で生成するマップのオプションを指定する．_modeでReadFromFileが指定されているなら無視される． </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">_map_data</td><td>生成したマップはこの変数で参照しする． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_do_output</td><td>生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される． </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_creator_a9e121b58161bde90984cf750e93f4859_icgraph.png" border="0" usemap="#aclass_map_creator_a9e121b58161bde90984cf750e93f4859_icgraph" alt=""/></div>
+<map name="aclass_map_creator_a9e121b58161bde90984cf750e93f4859_icgraph" id="aclass_map_creator_a9e121b58161bde90984cf750e93f4859_icgraph">
+<area shape="rect" title=" " alt="" coords="156,5,288,32"/>
+<area shape="rect" href="class_map_state.html#ae98e9d5bb4096d8125e618f13ff0134b" title=" " alt="" coords="5,5,108,32"/>
+<area shape="poly" title=" " alt="" coords="141,21,108,21,108,16,141,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_map_creator_8h_source.html">MapCreator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/MapCreator.cpp</li>
+<li>DesignLab/<a class="el" href="_map_creator_8h_source.html">MapCreator.h</a></li>
+<li>DesignLab/MapCreator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/SystemMain.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/SystemMain.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,43 +92,50 @@ $(document).ready(function(){initNavTree('_system_main_8h_source.html',''); init
   <div class="headertitle"><div class="title">SystemMain.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;MapState.h&quot;</span></div>
+<a href="_system_main_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_map_state_8h.html">MapState.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_system_8h.html">GraphicSystem.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;NodeValidityChecker.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_node_validity_checker_8h.html">NodeValidityChecker.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Target.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//このプログラムの処理をまとめたもの．処理の内容を大きく変えたい場合はint main()から，全く別のクラスを呼べばよい．</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_system_main.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_system_main.html">SystemMain</a> final</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_system_main.html">SystemMain</a>();</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_system_main.html">~SystemMain</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> main();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_Map;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_struct" href="struct_s_target.html">STarget</a> m_target;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a> m_Broker;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> m_Graphic;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_node_validity_checker.html">NodeValidityChecker</a> m_Checker;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2">main</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_Map;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="struct_s_target.html">STarget</a> m_target;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a> m_Broker;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> m_Graphic;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_node_validity_checker.html">NodeValidityChecker</a> m_Checker;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="ttc" id="a_graphic_data_broker_8h_html"><div class="ttname"><a href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a></div><div class="ttdoc">GraphicDataBrokerクラスの実装を行っている．</div></div>
 <div class="ttc" id="a_graphic_system_8h_html"><div class="ttname"><a href="_graphic_system_8h.html">GraphicSystem.h</a></div><div class="ttdoc">Dxlibの処理を行ってくれるGraphicSystemクラスを実装している．</div></div>
-<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:21</div></div>
+<div class="ttc" id="a_map_state_8h_html"><div class="ttname"><a href="_map_state_8h.html">MapState.h</a></div><div class="ttdoc">マップを表すクラスの実装．</div></div>
+<div class="ttc" id="a_node_validity_checker_8h_html"><div class="ttname"><a href="_node_validity_checker_8h.html">NodeValidityChecker.h</a></div><div class="ttdoc">動作のループを感知するクラスの実装．</div></div>
+<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:8</div></div>
 <div class="ttc" id="aclass_graphic_system_html"><div class="ttname"><a href="class_graphic_system.html">GraphicSystem</a></div><div class="ttdoc">Dxlibの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> GraphicSystem.h:28</div></div>
-<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
-<div class="ttc" id="aclass_node_validity_checker_html"><div class="ttname"><a href="class_node_validity_checker.html">NodeValidityChecker</a></div><div class="ttdef"><b>Definition</b> NodeValidityChecker.h:8</div></div>
-<div class="ttc" id="aclass_system_main_html"><div class="ttname"><a href="class_system_main.html">SystemMain</a></div><div class="ttdef"><b>Definition</b> SystemMain.h:10</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
+<div class="ttc" id="aclass_node_validity_checker_html"><div class="ttname"><a href="class_node_validity_checker.html">NodeValidityChecker</a></div><div class="ttdoc">動作のループを感知するクラス</div><div class="ttdef"><b>Definition</b> NodeValidityChecker.h:7</div></div>
+<div class="ttc" id="aclass_system_main_html"><div class="ttname"><a href="class_system_main.html">SystemMain</a></div><div class="ttdoc">中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．</div><div class="ttdef"><b>Definition</b> SystemMain.h:10</div></div>
+<div class="ttc" id="aclass_system_main_html_afd6aec5b53eb29cd818a8cdc014302c2"><div class="ttname"><a href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2">SystemMain::main</a></div><div class="ttdeci">void main()</div><div class="ttdoc">いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．</div><div class="ttdef"><b>Definition</b> SystemMain.cpp:37</div></div>
 <div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>SystemMain.h</b></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="_system_main_8h.html">SystemMain.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

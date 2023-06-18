@@ -1,22 +1,9 @@
-//! @file GraphicDataBroker.h
-//! @brief GraphicDataBrokerクラスの実装を行っている．
-//! @author 長谷川
-
 #pragma once
-#include "boost/thread.hpp"
+#include <boost/thread.hpp>
 #include "MapState.h"
+#include "Node.h"
 
 
-//! @class GraphicDataBroker
-//! @brief 画像表示部と，データ処理部を結びつける仲介人クラス
-//! @details Broker:ブローカー，仲介人のこと．<br> データ処理部(グラフ探索)が更新したデータをこのクラスに渡し，画像表示部がこのクラスから更新されたデータを持っていき，描画します．<br>
-//! 何をしているか分からない場合，「Pub / Subパターン」で調べてみてください．<br> <br> [非同期処理について] <br>
-//! 非同期処理(同時に処理を行うこと)を行う際に，一つのにデータに同じタイミングでアクセスすると危険です(未定義処理になり，成功か失敗かが不定になる)．<br>
-//! このクラスはそれを防ぐためにboost::shared_mutexを使用しています．<br>詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章をみてください．<br>
-//! このクラス内ではread lock, write lockを使っています．<br> 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 <br> <br>
-//! メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表します．<br>
-//! 通常絶対使うべきではないですが，今回のような場合(boost::shared_mutexを使う場合)は有効的です．
-//! @author 長谷川
 class GraphicDataBroker final
 {
 public:
@@ -53,3 +40,25 @@ private:
 
 	std::vector<SNode> m_node;
 };
+
+
+//! @file GraphicDataBroker.h
+//! @brief GraphicDataBrokerクラスの実装を行っている．
+//! @author 長谷川
+
+//! @class GraphicDataBroker
+//! @brief 画像表示部と，データ処理部を結びつける仲介人クラス
+//! @details Broker:ブローカー，仲介人のこと．<br> データ処理部(グラフ探索)が更新したデータをこのクラスに渡し，画像表示部がこのクラスから更新されたデータを持っていき，描画します．<br>
+//! 何をしているか分からない場合，「Pub / Subパターン」で調べてみてください．<br> 
+//! <br> 
+//! [非同期処理について] <br>
+//! 非同期処理(同時に処理を行うこと)を行う際に，一つのにデータに同じタイミングでアクセスすると危険です(未定義処理になり，成功か失敗かが不定になる)．<br>
+//! このクラスはそれを防ぐためにboost::shared_mutexを使用しています．<br>
+//! 詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章をみてください．<br>
+//! このクラス内ではread lock, write lockを使っています．<br> 
+//! 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 <br> 
+//! <br>
+//! メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表します．<br>
+//! 通常絶対使うべきではないですが，今回のような場合(boost::shared_mutexを使う場合)は有効的です．
+//! @author 長谷川
+
