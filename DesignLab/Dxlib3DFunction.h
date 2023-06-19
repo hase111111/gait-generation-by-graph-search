@@ -1,6 +1,6 @@
 #pragma once
 #include "Dxlib.h"
-#include "vectorFunc.h"
+#include "MyVector.h"
 
 
 namespace myDxlib3DFunc 

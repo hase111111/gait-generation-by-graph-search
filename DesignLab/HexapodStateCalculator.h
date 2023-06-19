@@ -1,5 +1,5 @@
 #pragma once
-#include "vectorFunc.h"
+#include "MyVector.h"
 #include "Node.h"
 
 //ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．

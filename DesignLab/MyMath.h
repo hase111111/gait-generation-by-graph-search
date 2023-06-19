@@ -1,5 +1,5 @@
 #pragma once
-#include "vectorFunc.h"
+#include "MyVector.h"
 #include <vector>
 
 //基本的な計算を行う関数

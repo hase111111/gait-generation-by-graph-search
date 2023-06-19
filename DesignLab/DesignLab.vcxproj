@@ -78,7 +78,7 @@
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
-    <ClInclude Include="vectorFunc.h" />
+    <ClInclude Include="MyVector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
@@ -135,7 +135,7 @@
     <ClCompile Include="SystemTest.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
-    <ClCompile Include="vectorFunc.cpp" />
+    <ClCompile Include="MyVector.cpp" />
     <ClCompile Include="Define.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,6 +1,6 @@
 #pragma once
 #include "DxLib.h"
-#include "vectorFunc.h"
+#include "MyVector.h"
 #include "Define.h"
 
 
