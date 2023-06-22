@@ -13,10 +13,12 @@ TEST(LegStateTest, makeLegStateTest)
 
 	EXPECT_EQ(makeLegState(_com_pattern, _ground, _leg_pos), 0b00000000110011001100110011001100);
 
+
 	//全脚遊脚のデータを作成する．
 	bool _lifted[HexapodConst::LEG_NUM] = { false, false, false, false, false, false };
 
 	EXPECT_EQ(makeLegState(_com_pattern, _lifted, _leg_pos), 0b00000000010001000100010001000100);
+
 
 	//重心パターンの値を正しく反映できるか
 	EXPECT_EQ(makeLegState(-2, _ground, _leg_pos),							 0b00000000110011001100110011001100);
