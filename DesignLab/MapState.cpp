@@ -18,20 +18,20 @@ int MapState::getPointNumFromDevideMap(const int _x, const int _y) const
 	return (int)m_devide_map.at(getDevideMapNum(_x, _y)).size();
 }
 
-myvector::SVector MapState::getPosFromDevideMap(const int _x, const int _y, const int _num) const
+my_vec::SVector MapState::getPosFromDevideMap(const int _x, const int _y, const int _num) const
 {
 	//存在していなければ全て0のベクトルを返す．
-	if (getDevideMapNum(_x, _y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return myvector::SVector(0, 0, 0); }
+	if (getDevideMapNum(_x, _y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return my_vec::SVector(0, 0, 0); }
 
-	if (_num < 0 || m_devide_map.at(getDevideMapNum(_x, _y)).size() <= _num ) { return myvector::SVector(0, 0, 0); }
+	if (_num < 0 || m_devide_map.at(getDevideMapNum(_x, _y)).size() <= _num ) { return my_vec::SVector(0, 0, 0); }
 
 	//存在しているならば値を返す．
 	return m_devide_map.at(getDevideMapNum(_x, _y)).at(_num);
 }
 
-myvector::SVector MapState::getPos(const int _num) const
+my_vec::SVector MapState::getPos(const int _num) const
 {
-	if (_num < 0 || m_map_data.size() <= _num) { return myvector::SVector(0, 0, 0); }
+	if (_num < 0 || m_map_data.size() <= _num) { return my_vec::SVector(0, 0, 0); }
 
 	return m_map_data.at(_num);
 }

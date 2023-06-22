@@ -2,7 +2,7 @@
 #include "MyMath.h"
 #include <cmath>
 
-using namespace myvector;
+using namespace my_vec;
 
 float HexapodStateCalclator::m_leg_max_r[200] = {};
 float HexapodStateCalclator::m_leg_min_r[200] = {};
@@ -16,22 +16,22 @@ HexapodStateCalclator::HexapodStateCalclator()
 	}
 }
 
-myvector::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg[_leg_num],_node.rot) + _node.global_center_of_mass;
 }
 
-myvector::SVector HexapodStateCalclator::getLocalLegPos(const SNode& _node, myvector::SVector _global_pos, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getLocalLegPos(const SNode& _node, my_vec::SVector _global_pos, const int _leg_num) const
 {
 	return rotVector(_global_pos - _node.global_center_of_mass, _node.rot * -1) - getLocalCoxaJointPos(_leg_num);
 }
 
-myvector::SVector HexapodStateCalclator::getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg2[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
-myvector::SVector HexapodStateCalclator::getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num), _node.rot) + _node.global_center_of_mass;
 }
@@ -64,7 +64,7 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 												HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 												HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
 
-		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::FEMUR_LENGTH) > Define::ALLOWABLE_ERROR) 
+		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::FEMUR_LENGTH) > my_math::ALLOWABLE_ERROR)
 		{
 			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.Leg[i].z / _L));
 
@@ -77,12 +77,12 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 
 }
 
-myvector::SVector HexapodStateCalclator::getGlobalFemurJointPos(const SNode& _node,const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getGlobalFemurJointPos(const SNode& _node,const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_femurjoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
-myvector::SVector HexapodStateCalclator::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
@@ -146,7 +146,7 @@ float HexapodStateCalclator::getMinLegR(const float _coxa_z_to_leg_z) const
 	return m_leg_min_r[_dif_z];
 }
 
-myvector::SVector HexapodStateCalclator::getLocalCoxaJointPos(const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::getLocalCoxaJointPos(const int _leg_num) const
 {
 	//重心を原点とした座標．ロボットの正面をxの正，ロボットの上をzの正，右手座標系でy座標をとっている．
 	//グローバル座標系のxyz軸とは別の軸なので，回転は考慮されていない．
@@ -158,5 +158,5 @@ myvector::SVector HexapodStateCalclator::getLocalCoxaJointPos(const int _leg_num
 	else if (_leg_num == 4)	{ return SVector(0.0f,								HexapodConst::BODY_CENTER_WIDTH,	0.0f); }	// 脚4 左横
 	else if (_leg_num == 5)	{ return SVector(HexapodConst::BODY_FRONT_LENGTH,	HexapodConst::BODY_FRONT_WIDTH,		0.0f); }	// 脚5 左上
 
-	return myvector::SVector(0, 0, 0);
+	return my_vec::SVector(0, 0, 0);
 }

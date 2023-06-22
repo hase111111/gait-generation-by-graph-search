@@ -15,10 +15,6 @@ public:
 
 	const static bool FLAG_GRAPHIC_AVAILABLE;	//!< グラフィックを表示するときはtrue
 
-	constexpr static float ALLOWABLE_ERROR = 0.0001f;	//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと
-
-	const static float MY_PI;	//!< 円周率
-
 	const static bool FLAG_DO_PRUNING;	//!< グラフ探索において枝刈りを行うときはtrue
 
 private:

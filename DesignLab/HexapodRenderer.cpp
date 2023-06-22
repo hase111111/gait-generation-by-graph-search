@@ -2,21 +2,22 @@
 #include "DxLib.h"
 #include "Dxlib3DFunction.h"
 #include "LegState.h"
+#include "MyMath.h"
 
 
-bool HexapodRenderer::isAbleCoxaLeg(const myvector::SVector _coxa_joint, const myvector::SVector _femur_joint) const
+bool HexapodRenderer::isAbleCoxaLeg(const my_vec::SVector _coxa_joint, const my_vec::SVector _femur_joint) const
 {
-	if (abs((_coxa_joint - _femur_joint).length() - HexapodConst::COXA_LENGTH) < Define::ALLOWABLE_ERROR) { return true; }
+	if (abs((_coxa_joint - _femur_joint).length() - HexapodConst::COXA_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
 	return false;
 }
 
-bool HexapodRenderer::isAbleFemurLeg(const myvector::SVector _femur_joint, const myvector::SVector _tibia_joint) const
+bool HexapodRenderer::isAbleFemurLeg(const my_vec::SVector _femur_joint, const my_vec::SVector _tibia_joint) const
 {
-	if (abs((_femur_joint - _tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < Define::ALLOWABLE_ERROR) { return true; }
+	if (abs((_femur_joint - _tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
 	return false;
 }
 
-bool HexapodRenderer::isAbleTibiaLeg(const myvector::SVector _tibia_joint, const myvector::SVector _leg_joint) const
+bool HexapodRenderer::isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const my_vec::SVector _leg_joint) const
 {
 	if (abs((_tibia_joint - _leg_joint).length() - HexapodConst::TIBIA_LENGTH) < 10) { return true; }
 	return false;

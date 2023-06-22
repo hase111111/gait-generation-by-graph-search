@@ -21,9 +21,9 @@ private:
 
 	HexapodStateCalclator m_HexaCalc;		//ロボットの姿勢や座標を計算する．
 
-	bool isAbleCoxaLeg(const myvector::SVector _coxa_joint, const myvector::SVector _femur_joint) const;
-	bool isAbleFemurLeg(const myvector::SVector _femur_joint, const myvector::SVector _tibia_joint) const;
-	bool isAbleTibiaLeg(const myvector::SVector _tibia_joint, const myvector::SVector _leg_joint) const;
+	bool isAbleCoxaLeg(const my_vec::SVector _coxa_joint, const my_vec::SVector _femur_joint) const;
+	bool isAbleFemurLeg(const my_vec::SVector _femur_joint, const my_vec::SVector _tibia_joint) const;
+	bool isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const my_vec::SVector _leg_joint) const;
 
 public:
 	HexapodRenderer();

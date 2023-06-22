@@ -8,9 +8,9 @@ class MapState final
 {
 private:
 
-	std::vector<myvector::SVector> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
+	std::vector<my_vec::SVector> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
 
-	std::vector<std::vector<myvector::SVector> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+	std::vector<std::vector<my_vec::SVector> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
 
 	std::vector<float> m_devide_map_top_z;						//m_devide_mapの中の最も高いz座標をまとめたもの，要素が存在しないなら，float型の最小値が入る．
 
@@ -42,7 +42,7 @@ public:
 	//! @param [in] _y Y座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] _num 何番目の脚設置可能点か． 
 	//! @return SVector 脚設置可能点の座標．
-	myvector::SVector getPosFromDevideMap(const int _x, const int _y, const int _num) const;
+	my_vec::SVector getPosFromDevideMap(const int _x, const int _y, const int _num) const;
 
 	//! 長方形状に切り分けられたマップから，最も高いZ座標を返す．
 	//! @param [in] _x X座標，切り分けられたタイルの位置で指定する．
@@ -56,7 +56,7 @@ public:
 	//! 脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画にのみ利用することを推奨．
 	//! @param [in] _num 
 	//! @return SVector 脚設置可能点の座標．
-	myvector::SVector getPos(const int _num) const;
+	my_vec::SVector getPos(const int _num) const;
 
 	//! 脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
 	//! @return int 脚設置可能点の数

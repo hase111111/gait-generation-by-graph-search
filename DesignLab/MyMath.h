@@ -1,19 +1,39 @@
 #pragma once
-#include "MyVector.h"
 #include <vector>
 
 //基本的な計算を行う関数
 namespace my_math
 {
-	constexpr float MY_FLT_PI = 3.141592653589793f;
-	constexpr double MY_DBL_PI = 3.141592653589793;
+	constexpr float MY_FLT_PI = 3.141592653589793f;		//!< float型の円周率
+	constexpr double MY_DBL_PI = 3.141592653589793;		//!< double型の円周率
+	constexpr float ALLOWABLE_ERROR = 0.0001f;			//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと
 
-	//2乗した値を返す関数．メジャーな型はオーバーロードした．
-	constexpr double squared(const double _num) { return _num * _num; }
+
+	//! @brief 2乗した値を返す関数．
+	//! @param [in] _num 2乗する数．
+	//! @return double 2乗した値． 
+	constexpr double squared(const double _num) { return _num * _num; }	
+
+	//! @brief 2乗した値を返す関数．
+	//! @param [in] _num 2乗する数．
+	//! @return float 2乗した値． 
 	constexpr float squared(const float _num) { return _num * _num; }
+
+	//! @brief 2乗した値を返す関数．
+	//! @param [in] _num 2乗する数．
+	//! @return int 2乗した値． 
 	constexpr int squared(const int _num) { return _num * _num; }
+
+	//! @brief 2乗した値を返す関数．
+	//! @param [in] _num 2乗する数．
+	//! @return char 2乗した値． 
 	constexpr char squared(const char _num) { return _num * _num; }
+
+	//! @brief 2乗した値を返す関数．
+	//! @param [in] _num 2乗する数．
+	//! @return short 2乗した値．
 	constexpr short squared(const short _num) { return _num * _num; }
+
 
 	double generateRandomNumber(const double _min, const double _max);	//指定した範囲内の乱数を生成する.
 	float generateRandomNumber(const float _min, const float _max);		//指定した範囲内の乱数を生成する.

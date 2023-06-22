@@ -11,7 +11,7 @@ namespace myDxlib3DFunc
 	//! @brief Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する．<br>ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 	//! @param [in] _vec 変換前の座標．
 	//! @return VECTOR 変換後の座標．
-	inline VECTOR convertToDxVec(const myvector::SVector& _vec) { return VGet(_vec.x, -_vec.y, _vec.z); }
+	inline VECTOR convertToDxVec(const my_vec::SVector& _vec) { return VGet(_vec.x, -_vec.y, _vec.z); }
 
 	//! @brief 3D空間に立方体を描画する．
 	//! @param [in] _center_pos 立方体の中心の座標．

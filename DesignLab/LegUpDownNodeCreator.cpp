@@ -29,7 +29,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	//次に脚が地面に接地可能か調べる．
 
 	bool _is_groundable[HexapodConst::LEG_NUM];				//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	myvector::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	my_vec::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.Leg[i]; }
 
@@ -44,7 +44,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		else 
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			myvector::SVector _res_ground_pos;
+			my_vec::SVector _res_ground_pos;
 
 			if (isGroundableLeg(i, _current_node, _res_ground_pos) == true) 
 			{
@@ -98,7 +98,7 @@ EHexapodMove LegUpDownNodeCreator::getNextMove(const EHexapodMove& _last_move) c
 	else { return EHexapodMove::COM_UP_DOWN; }
 }
 
-bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, myvector::SVector& _output_ground_pos)
+bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
 {
 	if (mp_Map == nullptr) { return false; }
 
@@ -117,9 +117,9 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	std::vector<myvector::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
-	const myvector::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
-	const myvector::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
+	std::vector<my_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
+	const my_vec::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
+	const my_vec::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
 	const int _leg_state = leg_state::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
 
 	//範囲内の点を全て調べる．
@@ -132,7 +132,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 			for (int n = 0; n < _pos_num; n++)
 			{
 				//脚設置可能点の座標を取り出す．
-				myvector::SVector _pos = mp_Map->getPosFromDevideMap(x, y, n);
+				my_vec::SVector _pos = mp_Map->getPosFromDevideMap(x, y, n);
 
 				float _len = (_coxa_pos - _pos).length();	//付け根から脚設置可能点までの長さを取得する．
 
@@ -163,7 +163,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	return true;
 }
 
-bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const myvector::SVector& _candiatepos, const myvector::SVector& _coxapos, const int _leg_state)
+bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_vec::SVector& _candiatepos, const my_vec::SVector& _coxapos, const int _leg_state)
 {
 	//Leg2と比較して，どこにあるかによって以下のように離散化している．
 	switch (_leg_state)
@@ -178,7 +178,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0) 
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0) 
 			{
 				return true;
 			}
@@ -196,7 +196,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -214,7 +214,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -240,7 +240,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
 			{
 				return true;
 			}
@@ -258,7 +258,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
 			{
 				return true;
 			}
@@ -276,7 +276,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const myvector::SVector& _4pos, const my
 		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (myvector::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
 			{
 				return true;
 			}
