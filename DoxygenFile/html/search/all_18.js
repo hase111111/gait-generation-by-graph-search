@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_0',['z',['../structmyvector_1_1_s_vector.html#a32840b6c3431065a0f1931502c3b9884',1,'myvector::SVector']]]
+  ['z_0',['z',['../structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212',1,'my_vec::SVector']]]
 ];

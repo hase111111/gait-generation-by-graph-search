@@ -1,10 +1,10 @@
 var annotated_dup =
 [
-    [ "myvector", "namespacemyvector.html", [
-      [ "SLegVector", "structmyvector_1_1_s_leg_vector.html", null ],
-      [ "SRotator", "structmyvector_1_1_s_rotator.html", null ],
-      [ "SVector", "structmyvector_1_1_s_vector.html", "structmyvector_1_1_s_vector" ],
-      [ "SVector2", "structmyvector_1_1_s_vector2.html", null ]
+    [ "my_vec", "namespacemy__vec.html", [
+      [ "SLegVector", "structmy__vec_1_1_s_leg_vector.html", null ],
+      [ "SRotator", "structmy__vec_1_1_s_rotator.html", null ],
+      [ "SVector", "structmy__vec_1_1_s_vector.html", "structmy__vec_1_1_s_vector" ],
+      [ "SVector2", "structmy__vec_1_1_s_vector2.html", null ]
     ] ],
     [ "S_NE", null, [
       [ "POINT", "struct_s___n_e_1_1_p_o_i_n_t.html", null ],

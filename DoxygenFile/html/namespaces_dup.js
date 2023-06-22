@@ -11,13 +11,13 @@ var namespaces_dup =
       [ "LEG_STATE_MASKBIT", "namespaceleg__state.html#a0420112661efe4431504aa7e663a3f3b", null ],
       [ "SHIFT_TO_COM_NUM", "namespaceleg__state.html#aa7ea7c1d32bfdef5eb147ba39348e63a", null ]
     ] ],
+    [ "my_vec", "namespacemy__vec.html", "namespacemy__vec" ],
     [ "myDxlib3DFunc", "namespacemy_dxlib3_d_func.html", [
-      [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#acde229fdc9c28f3a09c411b9f608e622", null ],
+      [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f", null ],
       [ "drawCube3D", "namespacemy_dxlib3_d_func.html#aceb2c05bbccc6ab1e30e0c8f250fde4d", null ],
       [ "drawCube3DWithTopPos", "namespacemy_dxlib3_d_func.html#a90d39c1e130a2a6ba1d39da07105c62c", null ],
       [ "drawHexagon", "namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae", null ],
       [ "drawHexagonalPrism", "namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60", null ],
       [ "initDxlib3D", "namespacemy_dxlib3_d_func.html#ac8fddebad36820b30eda0b08e02f214a", null ]
-    ] ],
-    [ "myvector", "namespacemyvector.html", "namespacemyvector" ]
+    ] ]
 ];

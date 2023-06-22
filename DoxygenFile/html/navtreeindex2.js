@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"structtesting_1_1internal_1_1_const_ref_3_01_t_01_6_01_4.html":[2,0,3,0,10],
+"structtesting_1_1internal_1_1_enable_if.html":[2,0,3,0,11],
+"structtesting_1_1internal_1_1_enable_if_3_01true_01_4.html":[2,0,3,0,12],
+"structtesting_1_1internal_1_1_has_value_type.html":[2,0,3,0,20],
 "structtesting_1_1internal_1_1_has_value_type_3_01_t_00_01_void_t_3_01typename_01_t_1_1value__type_01_4_01_4.html":[2,0,3,0,21],
 "structtesting_1_1internal_1_1_is_a_protocol_message.html":[2,0,3,0,27],
 "structtesting_1_1internal_1_1_is_hash_table.html":[2,0,3,0,28],
@@ -31,9 +35,5 @@ var NAVTREEINDEX2 =
 "structtesting_1_1internal_1_1is__pointer.html":[2,0,3,0,23],
 "structtesting_1_1internal_1_1is__pointer_3_01_t_01_5_01_4.html":[2,0,3,0,24],
 "structtesting_1_1internal_1_1is__same.html":[2,0,3,0,25],
-"structtesting_1_1internal_1_1is__same_3_01_t_00_01_t_01_4.html":[2,0,3,0,26],
-"vector_func_8h.html":[3,0,0,61],
-"vector_func_8h.html#a13c7a6894458cccc658b20e263c25f40":[3,0,0,61,5],
-"vector_func_8h.html#a8091fcb85dc9e58610f25c87ce24bedd":[3,0,0,61,4],
-"vector_func_8h_source.html":[3,0,0,61]
+"structtesting_1_1internal_1_1is__same_3_01_t_00_01_t_01_4.html":[2,0,3,0,26]
 };

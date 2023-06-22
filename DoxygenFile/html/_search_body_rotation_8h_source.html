@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_search_body_rotation_8h_source.html',
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;vectorFunc.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;hexapod.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//このクラスは現在のプログラムでは全く使用されていないため，全ての関数をコメントアウトしてある．</span></div>
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('_search_body_rotation_8h_source.html',
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">//メンバ変数</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_hexapod.html">Hexapod</a> phantomX;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> Leg_move[6][20];</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    myvector::SVector Leg_move[6][20];</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">double</span> C_thPRY[3][20];</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//メンバ関数</span></div>
@@ -121,13 +121,11 @@ $(document).ready(function(){initNavTree('_search_body_rotation_8h_source.html',
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">//メンバ変数</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">//メンバ関数</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> VCangeBodyToLeg(<span class="keyword">const</span> <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; Vin, <span class="keyword">const</span> <span class="keywordtype">double</span> thP, <span class="keyword">const</span> <span class="keywordtype">double</span> thR, <span class="keyword">const</span> <span class="keywordtype">double</span> thY) <span class="keyword">const</span>;    <span class="comment">//胴体の回転に合わせてVinを回転</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    myvector::SVector VCangeBodyToLeg(<span class="keyword">const</span> myvector::SVector&amp; Vin, <span class="keyword">const</span> <span class="keywordtype">double</span> thP, <span class="keyword">const</span> <span class="keywordtype">double</span> thR, <span class="keyword">const</span> <span class="keywordtype">double</span> thY) <span class="keyword">const</span>;    <span class="comment">//胴体の回転に合わせてVinを回転</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 <div class="ttc" id="aclass_hexapod_html"><div class="ttname"><a href="class_hexapod.html">Hexapod</a></div><div class="ttdef"><b>Definition</b> hexapod.h:35</div></div>
 <div class="ttc" id="aclass_search_possible_body_rotation_html"><div class="ttname"><a href="class_search_possible_body_rotation.html">SearchPossibleBodyRotation</a></div><div class="ttdef"><b>Definition</b> SearchBodyRotation.h:10</div></div>
 <div class="ttc" id="aclass_search_possible_body_rotation_html_a282523e4af8fb7900ed72b8b9951031a"><div class="ttname"><a href="class_search_possible_body_rotation.html#a282523e4af8fb7900ed72b8b9951031a">SearchPossibleBodyRotation::pass_body_rotation</a></div><div class="ttdeci">int pass_body_rotation(int groundLeg[6])</div><div class="ttdef"><b>Definition</b> SearchBodyRotation.cpp:15</div></div>
-<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

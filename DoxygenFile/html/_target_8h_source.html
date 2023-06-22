@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('_target_8h_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;MyVector.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//●列挙子について</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  以下で定義されているETargetModeが列挙子に当たります</span></div>
@@ -121,17 +121,16 @@ $(document).ready(function(){initNavTree('_target_8h_source.html',''); initResiz
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">//探索において目標となる座標や角度，評価する値についてまとめた構造体</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_s_target.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_target.html">STarget</a></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> TargetDirection;      <span class="comment">//目標方向x,y,z</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> TargetPosition;       <span class="comment">//目標位置</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> TargetRotation;       <span class="comment">//目標角度P,R,Y</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> TargetAngle;          <span class="comment">//目標旋回方向（反時計回り→正）</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> RotationCenter;       <span class="comment">//回転中心x,y,z</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> TargetDirection;        <span class="comment">//目標方向x,y,z</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> TargetPosition;     <span class="comment">//目標位置</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> TargetRotation;     <span class="comment">//目標角度P,R,Y</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> TargetAngle;            <span class="comment">//目標旋回方向（反時計回り→正）</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> RotationCenter;     <span class="comment">//回転中心x,y,z</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">float</span> TurningRadius;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    ETargetMode TargetMode;                 <span class="comment">//1:直線移動（ベクトル）,2:直線移動（座標）,3:その場旋回（回転方向）,4:その場旋回（回転角度）,5:旋回（方向）,6:旋回（角度）</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 <div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:29</div></div>
-<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

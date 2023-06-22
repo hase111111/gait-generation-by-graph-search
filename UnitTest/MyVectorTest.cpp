@@ -53,8 +53,6 @@ TEST(SVectorTest, ComparisonOperatorTest)
 
 TEST(SVectorTest, PlusOperatorTest)
 {
-	//ベクトルの四則演算のテスト．
-
 	//足し算
 	EXPECT_EQ(my_vec::SVector(2, 2, 2), my_vec::SVector(1, 1, 0) + my_vec::SVector(1, 1, 2));
 	EXPECT_EQ(my_vec::SVector(10, 0, 0), my_vec::SVector(5, 0, 0) + my_vec::SVector(5, 0, 0));
@@ -67,6 +65,8 @@ TEST(SVectorTest, PlusOperatorTest)
 TEST(SVectorTest, MinusOperatorTest)
 {
 	//引き算
+	EXPECT_EQ(my_vec::SVector(10, 6, 10), my_vec::SVector(15, 66, 1010) - my_vec::SVector(5, 60, 1000));
+	EXPECT_EQ(my_vec::SVector(-5, 150, 50), my_vec::SVector(0, 210, -50) - my_vec::SVector(5, 60, -100));
 	EXPECT_EQ(my_vec::SVector(10, 6, 10), my_vec::SVector(15, 66, 1010) - my_vec::SVector(5, 60, 1000));
 }
 

@@ -51,7 +51,6 @@ var searchData=
   ['valuearray8_48',['ValueArray8',['../classtesting_1_1internal_1_1_value_array8.html',1,'testing::internal']]],
   ['valuearray9_49',['ValueArray9',['../classtesting_1_1internal_1_1_value_array9.html',1,'testing::internal']]],
   ['valuesiniteratorrangegenerator_50',['ValuesInIteratorRangeGenerator',['../classtesting_1_1internal_1_1_values_in_iterator_range_generator.html',1,'testing::internal']]],
-  ['vectorfunc_2eh_51',['vectorFunc.h',['../vector_func_8h.html',1,'']]],
-  ['verticalstripe_52',['VerticalStripe',['../_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369ae22a45168ab332a8549d8119de7aba3b',1,'MapCreator.h']]],
-  ['voidt_53',['VoidT',['../structtesting_1_1internal_1_1_void_t.html',1,'testing::internal']]]
+  ['verticalstripe_51',['VerticalStripe',['../_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369ae22a45168ab332a8549d8119de7aba3b',1,'MapCreator.h']]],
+  ['voidt_52',['VoidT',['../structtesting_1_1internal_1_1_void_t.html',1,'testing::internal']]]
 ];

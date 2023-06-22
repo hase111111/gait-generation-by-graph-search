@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('map_data_8h_source.html',''); initResi
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;boost\thread.hpp&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;vectorFunc.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;hexapod.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_define_8h.html">Define.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_map_const_8h.html">MapConst.h</a>&quot;</span></div>
@@ -106,8 +106,8 @@ $(document).ready(function(){initNavTree('map_data_8h_source.html',''); initResi
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="classmap_data.html">~mapData</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">int</span> getSize();</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> operator()();                  <span class="comment">//これがメインとなる関数</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>* mapDatafront;    <span class="comment">//セマフォで守られている方リソースを占拠する時間短縮のためbackを更新frontにcopy</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>* center_of_mass;  <span class="comment">//重心位置　デバックでしか使わないかも</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    myvector::SVector* mapDatafront;    <span class="comment">//セマフォで守られている方リソースを占拠する時間短縮のためbackを更新frontにcopy</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    myvector::SVector* center_of_mass;  <span class="comment">//重心位置　デバックでしか使わないかも</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">float</span> *thP, *thR, *thY;             <span class="comment">//自機の向き </span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    boost::mutex* mtxMapData;           <span class="comment">//ミューテックス Data通信用</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> SetdummyMapData();</div>
@@ -115,16 +115,14 @@ $(document).ready(function(){initNavTree('map_data_8h_source.html',''); initResi
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> mapData_Max;              <span class="comment">//歩容生成部と共有するmapDataの個数</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>* mapDataBack;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> rowMapData[MapConst::MAPDATA3D_MAX];</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    myvector::SVector* mapDataBack;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    myvector::SVector rowMapData[MapConst::MAPDATA3D_MAX];</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_hexapod.html">Hexapod</a> phantomX;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 <div class="ttc" id="a_define_8h_html"><div class="ttname"><a href="_define_8h.html">Define.h</a></div><div class="ttdoc">プロジェクト全体の定数</div></div>
 <div class="ttc" id="a_map_const_8h_html"><div class="ttname"><a href="_map_const_8h.html">MapConst.h</a></div><div class="ttdoc">地形状態を表す定数の実装．</div></div>
 <div class="ttc" id="aclass_hexapod_html"><div class="ttname"><a href="class_hexapod.html">Hexapod</a></div><div class="ttdef"><b>Definition</b> hexapod.h:35</div></div>
 <div class="ttc" id="aclassmap_data_html"><div class="ttname"><a href="classmap_data.html">mapData</a></div><div class="ttdef"><b>Definition</b> mapData.h:9</div></div>
-<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

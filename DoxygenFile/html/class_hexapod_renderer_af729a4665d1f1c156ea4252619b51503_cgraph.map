@@ -1,7 +1,7 @@
 <map id="HexapodRenderer::draw" name="HexapodRenderer::draw">
-<area shape="rect" id="Node000001" title="ロボットを3D空間に描画する．" alt="" coords="5,13,165,40"/>
-<area shape="rect" id="Node000002" href="$structmyvector_1_1_s_vector.html#a7c2dad84de911c174680b7c377a02d9b" title=" " alt="" coords="213,5,349,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,24,198,24,198,29,165,29"/>
-<area shape="rect" id="Node000003" href="$structmyvector_1_1_s_vector.html#af8ef8b5baa64d7e2eaaad12707cdbc5d" title=" " alt="" coords="397,5,533,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,24,382,24,382,29,349,29"/>
+<area shape="rect" id="Node000001" title="ロボットを3D空間に描画する．" alt="" coords="5,5,165,32"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title=" " alt="" coords="213,5,376,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title=" " alt="" coords="424,5,628,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,16,409,16,409,21,376,21"/>
 </map>

@@ -120,14 +120,6 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>GOAL_TAPE
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>FLAG_GRAPHIC_AVAILABLE</b> = true</td></tr>
 <tr class="memdesc:ae3407e15646bc0278ac23247dc7d405f"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックを表示するときはtrue <br /></td></tr>
 <tr class="separator:ae3407e15646bc0278ac23247dc7d405f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35aa6ac924364c71c1d33a90d5f3bf74"><td class="memItemLeft" align="right" valign="top"><a id="a35aa6ac924364c71c1d33a90d5f3bf74" name="a35aa6ac924364c71c1d33a90d5f3bf74"></a>
-static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>ALLOWABLE_ERROR</b> = 0.0001f</td></tr>
-<tr class="memdesc:a35aa6ac924364c71c1d33a90d5f3bf74"><td class="mdescLeft">&#160;</td><td class="mdescRight">これ以上小さい値は0とみなす．allowable error，許容誤差のこと <br /></td></tr>
-<tr class="separator:a35aa6ac924364c71c1d33a90d5f3bf74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14f41943331fc74f8ad9ae1060c1892c"><td class="memItemLeft" align="right" valign="top"><a id="a14f41943331fc74f8ad9ae1060c1892c" name="a14f41943331fc74f8ad9ae1060c1892c"></a>
-static const float&#160;</td><td class="memItemRight" valign="bottom"><b>MY_PI</b> = 3.141592653589793f</td></tr>
-<tr class="memdesc:a14f41943331fc74f8ad9ae1060c1892c"><td class="mdescLeft">&#160;</td><td class="mdescRight">円周率 <br /></td></tr>
-<tr class="separator:a14f41943331fc74f8ad9ae1060c1892c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfe22effeaa9849142ad09bdbe10ab98"><td class="memItemLeft" align="right" valign="top"><a id="adfe22effeaa9849142ad09bdbe10ab98" name="adfe22effeaa9849142ad09bdbe10ab98"></a>
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>FLAG_DO_PRUNING</b> = false</td></tr>
 <tr class="memdesc:adfe22effeaa9849142ad09bdbe10ab98"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索において枝刈りを行うときはtrue <br /></td></tr>
@@ -143,7 +135,10 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>FLAG_DO_
  <br  />
  以下参考資料．<br  />
  クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策<br  />
- <a href="https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81">https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81</a> </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+ <a href="https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81">https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81</a> </p><dl class="section attention"><dt>注意</dt><dd>GRAPH_SEARCH_DEPTHの値を大きくしすぎると動作しなくなる．<br  />
+ 先行研究では深さ4〜5あたりで動作せていたのでそのあたりで，<br  />
+ ちなみに，深さを1つ深くしただけで，探索する範囲は膨大に増えるので注意が必要．深さ6以上を実時間内に探索し終わるのは，そこそこの性能のPCが必要． </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_define_8h_source.html">Define.h</a></li>
 <li>DesignLab/Define.cpp</li>

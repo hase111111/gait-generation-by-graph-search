@@ -8,6 +8,6 @@ digraph "_intersectionpolygon"
   Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" VertexNode",fontcolor="grey" ];
   Node2 [id="Node000002",label="_tagInterNode",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$struct__tag_inter_node.html",tooltip=" "];
   Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" Point",fontcolor="grey" ];
-  Node3 [id="Node000003",label="myvector::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structmyvector_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
+  Node3 [id="Node000003",label="my_vec::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
   Node3 -> Node1 [id="edge3_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" COMPoint\nLeg",fontcolor="grey" ];
 }

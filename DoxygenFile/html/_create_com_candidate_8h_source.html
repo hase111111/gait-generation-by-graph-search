@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;MyVector.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;hexapod.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_define_8h.html">Define.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Node.h&quot;</span></div>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//重心位置を求める際に使うグラフのノード</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct__tag_inter_node.html">   30</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__tag_inter_node.html">_tagInterNode</a></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> Point;        <span class="comment">//3D位置</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> Point;      <span class="comment">//3D位置</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <a class="code hl_struct" href="struct__tag_inter_node.html">IntersectionNode</a>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//多角形の座標を格納</span></div>
@@ -131,18 +131,18 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> nOfVertex;                                      <span class="comment">//頂点の数</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct__tag_inter_node.html">_tagInterNode</a>*  VertexNode[HexapodConst::LEG_NUM];   <span class="comment">//ポリゴンを形成する頂点の座標ロボット座標系　6角形の場合内部の領域は最大6角形のはず…　確証がない </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> COMPoint;                         <span class="comment">//重心位置 重心の移動量</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> COMPoint;                           <span class="comment">//重心位置 重心の移動量</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> COMtype;                                        <span class="comment">//重心タイプ</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> Leg[HexapodConst::LEG_NUM];       <span class="comment">//重心移動後の脚座標 ローカル座標系(coxa)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> Leg[HexapodConst::LEG_NUM];     <span class="comment">//重心移動後の脚座標 ローカル座標系(coxa)</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="struct__intersectionpolygon.html">IntersectionPolygon</a>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// X-Y平面にまたがる多角形を表現する構造体</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_s_polygon.html">   46</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_polygon.html">SPolygon</a> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;myvector::SVector&gt; vertex;  <span class="comment">//頂点の座標</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> com_pos;              <span class="comment">//重心の位置</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;my_vec::SVector&gt; vertex;    <span class="comment">//頂点の座標</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> com_pos;                <span class="comment">//重心の位置</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">int</span> com_pattern;                        <span class="comment">//重心パターン</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="structmyvector_1_1_s_leg_vector.html">myvector::SLegVector</a> leg_pos;           <span class="comment">//脚位置</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_leg_vector.html">my_vec::SLegVector</a> leg_pos;         <span class="comment">//脚位置</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//重心位置の候補を生成するクラス</span></div>
@@ -153,20 +153,20 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="class_create_com_candidate.html">~CreateComCandidate</a>()= <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">//これも消したい</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> p_candidatePointLeg[HexapodConst::LEG_NUM][20];</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> p_candidatePoint[POLYGONNUM]; <span class="comment">//重心移動可能点群</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> p_candidatePointLeg[HexapodConst::LEG_NUM][20];</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> p_candidatePoint[POLYGONNUM];   <span class="comment">//重心移動可能点群</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">int</span> p_candidatePointType[POLYGONNUM];           <span class="comment">//重心移動が可能な点を探索　もろもろデータを入力後実行</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// 重心位置の候補を出力する関数．引数で結果を参照渡しする．旧名 getMovementPossibilityArea</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> getComMovableArea(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> _node, std::vector&lt;myvector::SLegVector&gt;&amp; _res_leg_pos, std::vector&lt;myvector::SVector&gt;&amp; _res_com_pos, std::vector&lt;int&gt;&amp; _res_state);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> getComMovableArea(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> _node, std::vector&lt;my_vec::SLegVector&gt;&amp; _res_leg_pos, std::vector&lt;my_vec::SVector&gt;&amp; _res_com_pos, std::vector&lt;int&gt;&amp; _res_state);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> initHexapodJustBeforeSearch(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> _node,<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_target.html">STarget</a> _t);   <span class="comment">//探索の直前に実行する</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">//メンバ変数</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> m_leg_pos[HexapodConst::LEG_NUM]; <span class="comment">//ロボット座標系　20200619 CCC座標系</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> m_leg_pos[HexapodConst::LEG_NUM];   <span class="comment">//ロボット座標系　20200619 CCC座標系</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">float</span> m_stability_margin;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> m_global_com;                 <span class="comment">//PF座標系のハズ</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> m_global_com;                   <span class="comment">//PF座標系のハズ</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> m_ground_leg[HexapodConst::LEG_NUM];               <span class="comment">//遊脚はfalse，接地脚はtrue</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_struct" href="struct_s_polygon.html">SPolygon</a> m_polygon;                             <span class="comment">//重心がどこにあるか判定するための多角形領域を表すクラス</span></div>
@@ -188,8 +188,8 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> isComInPolygon_circlingTarget(<a class="code hl_struct" href="struct__intersectionpolygon.html">IntersectionPolygon</a>* polygon);   <span class="comment">//各ポリゴン内で、代表点を１つ決める</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">//図形計算用関数．一つもいらない.</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">bool</span> lineSegmentHitDetection(<a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> s1, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> e1, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> s2, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> e2, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> *crossPoint);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">float</span> VCrossXZ(<a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> In1, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> In2);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">bool</span> lineSegmentHitDetection(<a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> s1, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> e1, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> s2, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> e2, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> *crossPoint);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">float</span> VCrossXZ(<a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> In1, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> In2);</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">bool</span> ContactJudgment(<span class="keywordtype">float</span> t1, <span class="keywordtype">float</span> t2);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">public</span>:</div>
@@ -206,9 +206,8 @@ $(document).ready(function(){initNavTree('_create_com_candidate_8h_source.html',
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
 <div class="ttc" id="astruct_s_polygon_html"><div class="ttname"><a href="struct_s_polygon.html">SPolygon</a></div><div class="ttdef"><b>Definition</b> CreateComCandidate.h:47</div></div>
 <div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:29</div></div>
-<div class="ttc" id="astructmyvector_1_1_s_leg_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_leg_vector.html">myvector::SLegVector</a></div><div class="ttdef"><b>Definition</b> vectorFunc.h:205</div></div>
-<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_leg_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_leg_vector.html">my_vec::SLegVector</a></div><div class="ttdef"><b>Definition</b> MyVector.h:187</div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('_map_creator_8h_source.html',''); init
 </div><!--header-->
 <div class="contents">
 <a href="_map_creator_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;MyVector.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_map_creator_8h_source.html',''); init
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_map_creator.html#a9e121b58161bde90984cf750e93f4859">create</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> _mode, <span class="keyword">const</span> <span class="keywordtype">int</span> _option, std::vector&lt;myvector::SVector&gt;&amp; _map_data, <span class="keyword">const</span> <span class="keywordtype">bool</span> _do_output);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc">create</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> _mode, <span class="keyword">const</span> <span class="keywordtype">int</span> _option, std::vector&lt;my_vec::SVector&gt;&amp; _map_data, <span class="keyword">const</span> <span class="keywordtype">bool</span> _do_output);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_map_creator.html#a199c52f70900199f80187e3e5ee30eed">   31</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_map_creator.html#a199c52f70900199f80187e3e5ee30eed">OPTION_NONE</a>        = 0b00000;  </div>
@@ -126,43 +126,43 @@ $(document).ready(function(){initNavTree('_map_creator_8h_source.html',''); init
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//フラットなマップを生成する</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> createFlatMap(std::vector&lt;myvector::SVector&gt; &amp;_map);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> createFlatMap(std::vector&lt;my_vec::SVector&gt; &amp;_map);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">//縦じま模様の穴が開いたマップを生成する</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> createVerticalStripeMap(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> createVerticalStripeMap(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">//横じま模様の穴が開いたマップを生成する</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> createHorizontalStripeMap(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> createHorizontalStripeMap(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//斜めじま模様の穴が開いたマップを生成する</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> createDiagonalStripeMap(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> createDiagonalStripeMap(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">//網目模様の穴が開いたマップを生成する</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> createMeshMap(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> createMeshMap(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">//網目模様の穴が開いたマップを生成する</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> createLatticePointMap(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> createLatticePointMap(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">//ファイルからmapのデータを読みだして，それをもとにマップを作成する．</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> createMapFromFile(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> createMapFromFile(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">//生成されたマップにランダムな穴をあける</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> changeMapPerforated(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> changeMapPerforated(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">//生成されたマップを階段状にする</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> changeMapStep(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> changeMapStep(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">//生成されたマップを坂道にする</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> changeMapSlope(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> changeMapSlope(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//生成されたマップを傾ける</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> changeMapTilt(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> changeMapTilt(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">//生成されたマップをデコボコにする</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> changeMapRough(std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> changeMapRough(std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">//現在のmapのデータファイルに書き出す．</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> writeMapToFile(<span class="keyword">const</span> std::vector&lt;myvector::SVector&gt;&amp; _map);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> writeMapToFile(<span class="keyword">const</span> std::vector&lt;my_vec::SVector&gt;&amp; _map);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
@@ -182,9 +182,8 @@ $(document).ready(function(){initNavTree('_map_creator_8h_source.html',''); init
 <div class="ttc" id="aclass_map_creator_html_a444176d8641f44633015a2fee2ef2844"><div class="ttname"><a href="class_map_creator.html#a444176d8641f44633015a2fee2ef2844">MapCreator::OPTION_STEP</a></div><div class="ttdeci">static constexpr int OPTION_STEP</div><div class="ttdoc">マップ生成のオプション：階段状の地形を生成する．</div><div class="ttdef"><b>Definition</b> MapCreator.h:33</div></div>
 <div class="ttc" id="aclass_map_creator_html_a579f7af09efd9286e647c24d27f6ecc2"><div class="ttname"><a href="class_map_creator.html#a579f7af09efd9286e647c24d27f6ecc2">MapCreator::OPTION_TILT</a></div><div class="ttdeci">static constexpr int OPTION_TILT</div><div class="ttdoc">マップ生成のオプション：縦軸を中心軸として回転させた地形を生成する．</div><div class="ttdef"><b>Definition</b> MapCreator.h:35</div></div>
 <div class="ttc" id="aclass_map_creator_html_a67da4fd674d54b52527f5d5fb9ab266f"><div class="ttname"><a href="class_map_creator.html#a67da4fd674d54b52527f5d5fb9ab266f">MapCreator::OPTION_SLOPE</a></div><div class="ttdeci">static constexpr int OPTION_SLOPE</div><div class="ttdoc">マップ生成のオプション：スロープ状の地形を生成する．</div><div class="ttdef"><b>Definition</b> MapCreator.h:34</div></div>
-<div class="ttc" id="aclass_map_creator_html_a9e121b58161bde90984cf750e93f4859"><div class="ttname"><a href="class_map_creator.html#a9e121b58161bde90984cf750e93f4859">MapCreator::create</a></div><div class="ttdeci">void create(const EMapCreateMode _mode, const int _option, std::vector&lt; myvector::SVector &gt; &amp;_map_data, const bool _do_output)</div><div class="ttdef"><b>Definition</b> MapCreator.cpp:10</div></div>
+<div class="ttc" id="aclass_map_creator_html_a8ada8a3b2bc1ae7befd62e94b8579fbc"><div class="ttname"><a href="class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc">MapCreator::create</a></div><div class="ttdeci">void create(const EMapCreateMode _mode, const int _option, std::vector&lt; my_vec::SVector &gt; &amp;_map_data, const bool _do_output)</div><div class="ttdef"><b>Definition</b> MapCreator.cpp:10</div></div>
 <div class="ttc" id="aclass_map_creator_html_afeafe1fe4aab823fb908b41d9b0cd4f4"><div class="ttname"><a href="class_map_creator.html#afeafe1fe4aab823fb908b41d9b0cd4f4">MapCreator::OPTION_ROUGH</a></div><div class="ttdeci">static constexpr int OPTION_ROUGH</div><div class="ttdoc">マップ生成のオプション：凸凹の地形を生成する．</div><div class="ttdef"><b>Definition</b> MapCreator.h:36</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

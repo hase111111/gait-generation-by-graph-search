@@ -45,7 +45,10 @@ var dir_1e53131e08597babefb58bbbf2c6daa5 =
     [ "MapRenderer.h", "_map_renderer_8h_source.html", null ],
     [ "MapState.h", "_map_state_8h.html", "_map_state_8h" ],
     [ "Mouse.h", "_mouse_8h.html", "_mouse_8h" ],
+    [ "MyMath.cpp", "_my_math_8cpp_source.html", null ],
     [ "MyMath.h", "_my_math_8h_source.html", null ],
+    [ "MyVector.cpp", "_my_vector_8cpp_source.html", null ],
+    [ "MyVector.h", "_my_vector_8h_source.html", null ],
     [ "Node.h", "_node_8h_source.html", null ],
     [ "NodeEdit.h", "_node_edit_8h_source.html", null ],
     [ "NodeFileIO.h", "_node_file_i_o_8h_source.html", null ],
@@ -60,6 +63,5 @@ var dir_1e53131e08597babefb58bbbf2c6daa5 =
     [ "SystemTest.h", "_system_test_8h_source.html", null ],
     [ "Target.h", "_target_8h_source.html", null ],
     [ "TimeFileIO.h", "_time_file_i_o_8h_source.html", null ],
-    [ "TimeManager.h", "_time_manager_8h_source.html", null ],
-    [ "vectorFunc.h", "vector_func_8h.html", "vector_func_8h" ]
+    [ "TimeManager.h", "_time_manager_8h_source.html", null ]
 ];

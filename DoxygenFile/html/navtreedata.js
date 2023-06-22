@@ -69,8 +69,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_b_f_sin_hierarchy_8h_source.html",
-"classtesting_1_1internal_1_1_g_test_log.html",
-"structtesting_1_1internal_1_1_has_value_type_3_01_t_00_01_void_t_3_01typename_01_t_1_1value__type_01_4_01_4.html"
+"classtesting_1_1internal_1_1_floating_point.html",
+"structtesting_1_1internal_1_1_const_ref_3_01_t_01_6_01_4.html"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

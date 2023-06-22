@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('function__walking__pattern__generator_
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;listFunc.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="vector_func_8h.html">vectorFunc.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;vectorFunc.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;hexapod.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -110,15 +110,13 @@ $(document).ready(function(){initNavTree('function__walking__pattern__generator_
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> output_log(<span class="keyword">const</span> <span class="keywordtype">char</span> *str, std::ofstream&amp; fout_log);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//進行方向を取得する</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> getWalkingDirection(<a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>* walkingDirection);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> getWalkingDirection(myvector::SVector* walkingDirection);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//マップを取得する</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> getMap(<a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> *&amp;p_mapData3D, <span class="keywordtype">int</span>* mapData3D_MAX, <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> legPosi[6], <a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> center_of_mass);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> getMap(myvector::SVector *&amp;p_mapData3D, <span class="keywordtype">int</span>* mapData3D_MAX, myvector::SVector legPosi[6], myvector::SVector center_of_mass);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//座法変換と回転</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> VCangeBodyToLeg(<a class="code hl_struct" href="structmyvector_1_1_s_vector.html">myvector::SVector</a>&amp; Vin, <span class="keywordtype">float</span> thP, <span class="keywordtype">float</span> thR, <span class="keywordtype">float</span> thY);</div>
-<div class="ttc" id="astructmyvector_1_1_s_vector_html"><div class="ttname"><a href="structmyvector_1_1_s_vector.html">myvector::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> vectorFunc.h:29</div></div>
-<div class="ttc" id="avector_func_8h_html"><div class="ttname"><a href="vector_func_8h.html">vectorFunc.h</a></div></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>myvector::SVector VCangeBodyToLeg(myvector::SVector&amp; Vin, <span class="keywordtype">float</span> thP, <span class="keywordtype">float</span> thR, <span class="keywordtype">float</span> thY);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

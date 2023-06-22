@@ -6,5 +6,5 @@ var searchData=
   ['isablelegnum_3',['isAbleLegNum',['../namespaceleg__state.html#a9eab87ff1052b25a0803ce42ce2a8ed4',1,'leg_state']]],
   ['isgrounded_4',['isGrounded',['../namespaceleg__state.html#a8661d4432b9e7521f1c8c7506b220e09',1,'leg_state']]],
   ['isloopmove_5',['isLoopMove',['../class_node_validity_checker.html#aaae516036316439b7617d347531667e0',1,'NodeValidityChecker']]],
-  ['iszero_6',['isZero',['../structmyvector_1_1_s_vector.html#a4e308e5cf720a3fcc9b9bd5b52c871d6',1,'myvector::SVector']]]
+  ['iszero_6',['isZero',['../structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277',1,'my_vec::SVector']]]
 ];

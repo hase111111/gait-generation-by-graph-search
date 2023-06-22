@@ -24,7 +24,7 @@ var searchData=
   ['isrecursivecontainerimpl_3c_20c_2c_20true_2c_20true_20_3e_21',['IsRecursiveContainerImpl&lt; C, true, true &gt;',['../structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_00_01true_01_4.html',1,'testing::internal']]],
   ['issame_22',['IsSame',['../structtesting_1_1internal_1_1_is_same.html',1,'testing::internal']]],
   ['issame_3c_20t_2c_20t_20_3e_23',['IsSame&lt; T, T &gt;',['../structtesting_1_1internal_1_1_is_same_3_01_t_00_01_t_01_4.html',1,'testing::internal']]],
-  ['iszero_24',['isZero',['../structmyvector_1_1_s_vector.html#a4e308e5cf720a3fcc9b9bd5b52c871d6',1,'myvector::SVector']]],
+  ['iszero_24',['isZero',['../structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277',1,'my_vec::SVector']]],
   ['iteratortraits_25',['IteratorTraits',['../structtesting_1_1internal_1_1_iterator_traits.html',1,'testing::internal']]],
   ['iteratortraits_3c_20const_20t_20_2a_20_3e_26',['IteratorTraits&lt; const T * &gt;',['../structtesting_1_1internal_1_1_iterator_traits_3_01const_01_t_01_5_01_4.html',1,'testing::internal']]],
   ['iteratortraits_3c_20t_20_2a_20_3e_27',['IteratorTraits&lt; T * &gt;',['../structtesting_1_1internal_1_1_iterator_traits_3_01_t_01_5_01_4.html',1,'testing::internal']]]

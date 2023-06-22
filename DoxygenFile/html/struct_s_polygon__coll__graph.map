@@ -1,8 +1,8 @@
 <map id="SPolygon" name="SPolygon">
-<area shape="rect" id="Node000001" title=" " alt="" coords="31,187,108,213"/>
-<area shape="rect" id="Node000002" href="$structmyvector_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,134,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,47,64,83,63,123,70,186,65,187,58,123,58,82,62,46"/>
-<area shape="rect" id="Node000003" href="$structmyvector_1_1_s_leg_vector.html" title=" " alt="" coords="130,96,279,123"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="102,38,186,93,183,98,100,43"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,133,90,188,87,184,171,129"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,187,104,213"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,126,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,47,60,83,59,123,66,186,61,187,54,123,54,82,58,46"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_leg_vector.html" title=" " alt="" coords="126,96,267,123"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="98,38,179,93,176,98,95,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,133,86,188,83,184,164,129"/>
 </map>

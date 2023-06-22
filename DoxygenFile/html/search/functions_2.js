@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['getcross_0',['getCross',['../namespacemyvector.html#a8091fcb85dc9e58610f25c87ce24bedd',1,'myvector']]],
+  ['getcross_0',['getCross',['../namespacemy__vec.html#af3e06cf74871f5b5cc0044fa8e8b32a3',1,'my_vec']]],
   ['getdevidemapnumx_1',['getDevideMapNumX',['../class_map_state.html#ae68b6c30514160b4660f6ffcd845438e',1,'MapState']]],
   ['getdevidemapnumy_2',['getDevideMapNumY',['../class_map_state.html#a095b2aedc582a318a8d63aef603ec958',1,'MapState']]],
   ['getgroundedlegnum_3',['getGroundedLegNum',['../namespaceleg__state.html#afd052a18c20b9e292894e32fbb0d9c59',1,'leg_state']]],
   ['getmapstate_4',['getMapState',['../class_graphic_data_broker.html#adbd11507b8b6b55a66a7f4388dfa6c48',1,'GraphicDataBroker']]],
   ['getpointnumfromdevidemap_5',['getPointNumFromDevideMap',['../class_map_state.html#af38b7f869b9afe8447cfa7463d4c317d',1,'MapState']]],
-  ['getpos_6',['getPos',['../class_map_state.html#a89c5d28f4cc98c696616e3242f217155',1,'MapState']]],
-  ['getposfromdevidemap_7',['getPosFromDevideMap',['../class_map_state.html#acbdf0d3a37c6efe66de8c40b2d6f63f3',1,'MapState']]],
+  ['getpos_6',['getPos',['../class_map_state.html#af2b115fcc461be814df34a6da7a87998',1,'MapState']]],
+  ['getposfromdevidemap_7',['getPosFromDevideMap',['../class_map_state.html#a1ce3da7274aca09e06e740abe894a5e0',1,'MapState']]],
   ['getposnum_8',['getPosNum',['../class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa',1,'MapState']]],
   ['getposx_9',['getPosX',['../class_mouse.html#abace333bdddc677a648742d8236b7bf9',1,'Mouse']]],
   ['getposy_10',['getPosY',['../class_mouse.html#a5ec119583778ba83c7ac9d55f0b4e7b6',1,'Mouse']]],

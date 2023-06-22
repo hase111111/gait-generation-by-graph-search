@@ -157,17 +157,17 @@ var hierarchy =
     [ "Singleton< Mouse >", "class_singleton.html", [
       [ "Mouse", "class_mouse.html", null ]
     ] ],
-    [ "myvector::SLegVector", "structmyvector_1_1_s_leg_vector.html", null ],
+    [ "my_vec::SLegVector", "structmy__vec_1_1_s_leg_vector.html", null ],
     [ "SNode", "struct_s_node.html", null ],
     [ "SPolygon", "struct_s_polygon.html", null ],
-    [ "myvector::SRotator", "structmyvector_1_1_s_rotator.html", null ],
+    [ "my_vec::SRotator", "structmy__vec_1_1_s_rotator.html", null ],
     [ "STarget", "struct_s_target.html", null ],
     [ "testing::internal::StaticAssertTypeEqHelper< T1, T2 >", "structtesting_1_1internal_1_1_static_assert_type_eq_helper.html", null ],
     [ "testing::internal::StaticAssertTypeEqHelper< T, T >", "structtesting_1_1internal_1_1_static_assert_type_eq_helper_3_01_t_00_01_t_01_4.html", null ],
     [ "STransform", "struct_s_transform.html", null ],
     [ "testing::internal::String", "classtesting_1_1internal_1_1_string.html", null ],
-    [ "myvector::SVector", "structmyvector_1_1_s_vector.html", null ],
-    [ "myvector::SVector2", "structmyvector_1_1_s_vector2.html", null ],
+    [ "my_vec::SVector", "structmy__vec_1_1_s_vector.html", null ],
+    [ "my_vec::SVector2", "structmy__vec_1_1_s_vector2.html", null ],
     [ "SystemMain", "class_system_main.html", null ],
     [ "SystemTest", "class_system_test.html", null ],
     [ "testing::Test", "classtesting_1_1_test.html", [

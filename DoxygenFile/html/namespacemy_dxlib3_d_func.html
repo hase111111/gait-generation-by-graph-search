@@ -104,10 +104,10 @@ $(document).ready(function(){initNavTree('namespacemy_dxlib3_d_func.html',''); i
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initDxlib3D</b> ()</td></tr>
 <tr class="memdesc:ac8fddebad36820b30eda0b08e02f214a"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D処理を行う上で必要な初期化処理をまとめたもの． <br /></td></tr>
 <tr class="separator:ac8fddebad36820b30eda0b08e02f214a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acde229fdc9c28f3a09c411b9f608e622"><td class="memItemLeft" align="right" valign="top">VECTOR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemy_dxlib3_d_func.html#acde229fdc9c28f3a09c411b9f608e622">convertToDxVec</a> (const <a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> &amp;_vec)</td></tr>
-<tr class="memdesc:acde229fdc9c28f3a09c411b9f608e622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する．<br  />
+<tr class="memitem:ac2915c6b26f654cd06cef50f8466352f"><td class="memItemLeft" align="right" valign="top">VECTOR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f">convertToDxVec</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;_vec)</td></tr>
+<tr class="memdesc:ac2915c6b26f654cd06cef50f8466352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する．<br  />
 ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．  <br /></td></tr>
-<tr class="separator:acde229fdc9c28f3a09c411b9f608e622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac2915c6b26f654cd06cef50f8466352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb2c05bbccc6ab1e30e0c8f250fde4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemy_dxlib3_d_func.html#aceb2c05bbccc6ab1e30e0c8f250fde4d">drawCube3D</a> (const VECTOR _center_pos, const float _side_len, const unsigned int _color)</td></tr>
 <tr class="memdesc:aceb2c05bbccc6ab1e30e0c8f250fde4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間に立方体を描画する．  <br /></td></tr>
 <tr class="separator:aceb2c05bbccc6ab1e30e0c8f250fde4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,8 +125,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initDxlib3D</b> ()</t
 <div class="textblock"><p>Dxlibの3D表示を行う処理を書き直したもの． </p>
 <p>Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので，ここである程度使いやすくなるように書き直す． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="acde229fdc9c28f3a09c411b9f608e622" name="acde229fdc9c28f3a09c411b9f608e622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acde229fdc9c28f3a09c411b9f608e622">&#9670;&#160;</a></span>convertToDxVec()</h2>
+<a id="ac2915c6b26f654cd06cef50f8466352f" name="ac2915c6b26f654cd06cef50f8466352f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2915c6b26f654cd06cef50f8466352f">&#9670;&#160;</a></span>convertToDxVec()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +137,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initDxlib3D</b> ()</t
         <tr>
           <td class="memname">VECTOR myDxlib3DFunc::convertToDxVec </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmyvector_1_1_s_vector.html">myvector::SVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
           <td class="paramname"><em>_vec</em></td><td>)</td>
           <td></td>
         </tr>
@@ -161,8 +161,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initDxlib3D</b> ()</t
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacemy_dxlib3_d_func_acde229fdc9c28f3a09c411b9f608e622_icgraph.png" border="0" usemap="#anamespacemy_dxlib3_d_func_acde229fdc9c28f3a09c411b9f608e622_icgraph" alt=""/></div>
-<map name="anamespacemy_dxlib3_d_func_acde229fdc9c28f3a09c411b9f608e622_icgraph" id="anamespacemy_dxlib3_d_func_acde229fdc9c28f3a09c411b9f608e622_icgraph">
+<div class="center"><img src="namespacemy_dxlib3_d_func_ac2915c6b26f654cd06cef50f8466352f_icgraph.png" border="0" usemap="#anamespacemy_dxlib3_d_func_ac2915c6b26f654cd06cef50f8466352f_icgraph" alt=""/></div>
+<map name="anamespacemy_dxlib3_d_func_ac2915c6b26f654cd06cef50f8466352f_icgraph" id="anamespacemy_dxlib3_d_func_ac2915c6b26f654cd06cef50f8466352f_icgraph">
 <area shape="rect" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="228,5,404,48"/>
 <area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,180,40"/>
 <area shape="poly" title=" " alt="" coords="213,29,180,29,180,24,213,24"/>
