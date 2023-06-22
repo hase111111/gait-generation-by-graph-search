@@ -91,8 +91,8 @@ void HexapodRenderer::draw(const SNode& _node) const
 
 		if (DO_OUTPUT_DEBUG_LOG) 
 		{
-			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.Leg[i].z)), m_HexaCalc.getMinLegR(abs(_node.Leg[i].z))); 
-			printfDx("%.3f\n", _node.Leg[i].length());
+			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z))); 
+			printfDx("%.3f\n", _node.leg_pos[i].length());
 		}
 		
 	}

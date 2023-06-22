@@ -37,7 +37,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	std::cout << "\tLeg Postion : " << std::endl;
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		std::cout << "\t\tLeg[" << i << "] = " << _node.Leg[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
+		std::cout << "\t\tLeg[" << i << "] = " << _node.leg_pos[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
 	}
 	std::cout << std::endl;
 

@@ -50,7 +50,7 @@ void CreateComCandidate::getComMovableArea(const SNode _node, std::vector<my_vec
 			my_vec::SLegVector _temp_leg;
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				_temp_leg.leg[j] = IPolygon[i].Leg[j];
+				_temp_leg.leg[j] = IPolygon[i].leg_pos[j];
 			}
 			_res_leg_pos.push_back(_temp_leg);
 
@@ -86,7 +86,7 @@ void CreateComCandidate::init(const SNode _node)
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		_temp_leg_rot[i] = my_vec::VRot(_node.Leg[i], my_vec::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
+		_temp_leg_rot[i] = my_vec::VRot(_node.leg_pos[i], my_vec::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
 
 		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
 		// CCC ← PF
@@ -537,17 +537,17 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 		if (!m_ground_leg[ileg]) 
 		{
 			//遊脚
-			polygon->Leg[ileg].y = (m_leg_pos[ileg].z)*cos(thY) - (m_leg_pos[ileg].x)*sin(thY) - L_coxa[ileg].y;
-			polygon->Leg[ileg].x = (m_leg_pos[ileg].z)*sin(thY) + (m_leg_pos[ileg].x)*cos(thY) - L_coxa[ileg].x;
+			polygon->leg_pos[ileg].y = (m_leg_pos[ileg].z)*cos(thY) - (m_leg_pos[ileg].x)*sin(thY) - L_coxa[ileg].y;
+			polygon->leg_pos[ileg].x = (m_leg_pos[ileg].z)*sin(thY) + (m_leg_pos[ileg].x)*cos(thY) - L_coxa[ileg].x;
 		} 
 		else 
 		{
-			polygon->Leg[ileg].y = (m_leg_pos[ileg].z - comCandidatePoint[x_best][z_best].z)*cos(thY) - (m_leg_pos[ileg].x - comCandidatePoint[x_best][z_best].x)*sin(thY) - L_coxa[ileg].y;
-			polygon->Leg[ileg].x = (m_leg_pos[ileg].z - comCandidatePoint[x_best][z_best].z)*sin(thY) + (m_leg_pos[ileg].x - comCandidatePoint[x_best][z_best].x)*cos(thY) - L_coxa[ileg].x;
+			polygon->leg_pos[ileg].y = (m_leg_pos[ileg].z - comCandidatePoint[x_best][z_best].z)*cos(thY) - (m_leg_pos[ileg].x - comCandidatePoint[x_best][z_best].x)*sin(thY) - L_coxa[ileg].y;
+			polygon->leg_pos[ileg].x = (m_leg_pos[ileg].z - comCandidatePoint[x_best][z_best].z)*sin(thY) + (m_leg_pos[ileg].x - comCandidatePoint[x_best][z_best].x)*cos(thY) - L_coxa[ileg].x;
 		}
 
 		//z方向の重心移動は行わない
-		polygon->Leg[ileg].z = m_leg_pos[ileg].y;					
+		polygon->leg_pos[ileg].z = m_leg_pos[ileg].y;					
 	}
 
 	if (distance < ALLOW_RADIUS_DIFF) 

@@ -18,7 +18,7 @@ HexapodStateCalclator::HexapodStateCalclator()
 
 my_vec::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, const int _leg_num) const
 {
-	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.Leg[_leg_num],_node.rot) + _node.global_center_of_mass;
+	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num],_node.rot) + _node.global_center_of_mass;
 }
 
 my_vec::SVector HexapodStateCalclator::getLocalLegPos(const SNode& _node, my_vec::SVector _global_pos, const int _leg_num) const
@@ -46,29 +46,29 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const float _coxa_joint_angle = atan2(_node.Leg[i].y,_node.Leg[i].x);
+		const float _coxa_joint_angle = atan2(_node.leg_pos[i].y,_node.leg_pos[i].x);
 
 		m_local_femurjoint_pos[i] = SVector(HexapodConst::COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::COXA_LENGTH * sin(_coxa_joint_angle), 0);
 
 
-		const float _L = std::sqrt(squared(_node.Leg[i].x - m_local_femurjoint_pos[i].x) + squared(_node.Leg[i].y - m_local_femurjoint_pos[i].y));				//‹ræ‚©‚ç‘æˆêŠÖß‚Ü‚Å‚Ì’·‚³D
-		const float _leg_to_fumur_len = std::sqrt(squared(_L) + squared(_node.Leg[i].z));
+		const float _L = std::sqrt(squared(_node.leg_pos[i].x - m_local_femurjoint_pos[i].x) + squared(_node.leg_pos[i].y - m_local_femurjoint_pos[i].y));				//‹ræ‚©‚ç‘æˆêŠÖß‚Ü‚Å‚Ì’·‚³D
+		const float _leg_to_fumur_len = std::sqrt(squared(_L) + squared(_node.leg_pos[i].z));
 
 		const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::TIBIA_LENGTH) - squared(HexapodConst::FEMUR_LENGTH);
 		const float _s2 = 2 * HexapodConst::TIBIA_LENGTH * _leg_to_fumur_len;
 		
-		const float _fumur_joint_angle = -(std::acos(_s1 / _s2) + std::atan(-_node.Leg[i].z / _L));
+		const float _fumur_joint_angle = -(std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
-		m_local_tibiajoint_pos[i] = _node.Leg[i] - 
+		m_local_tibiajoint_pos[i] = _node.leg_pos[i] - 
 										SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle), 
 												HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 												HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
 
 		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::FEMUR_LENGTH) > my_math::ALLOWABLE_ERROR)
 		{
-			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.Leg[i].z / _L));
+			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
-			m_local_tibiajoint_pos[i] = _node.Leg[i] -
+			m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
 				SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
 					HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 					HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));

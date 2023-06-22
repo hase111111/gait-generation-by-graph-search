@@ -31,7 +31,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	bool _is_groundable[HexapodConst::LEG_NUM];				//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
 	my_vec::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.Leg[i]; }
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.leg_pos[i]; }
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -39,7 +39,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			_is_groundable[i] = true; 
-			_ground_pos[i] = _current_node.Leg[i];
+			_ground_pos[i] = _current_node.leg_pos[i];
 		}
 		else 
 		{
@@ -77,9 +77,9 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 			{
 				leg_state::changeGround(_res_node.leg_state, l, _temp_ground[l]);
 
-				_res_node.Leg[l] = _ground_pos[l];
+				_res_node.leg_pos[l] = _ground_pos[l];
 
-				if (_temp_ground[l] == false) { _res_node.Leg[l].z = -40; }
+				if (_temp_ground[l] == false) { _res_node.leg_pos[l].z = -40; }
 			}
 
 			_output_graph.push_back(_res_node);
@@ -103,10 +103,10 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	if (mp_Map == nullptr) { return false; }
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	int _max_x_dev = mp_Map->getDevideMapNumX(_current_node.Leg[_leg_num].x) + 2;
-	int _min_x_dev = mp_Map->getDevideMapNumX(_current_node.Leg[_leg_num].x) - 2;
-	int _max_y_dev = mp_Map->getDevideMapNumY(_current_node.Leg[_leg_num].y) + 2;
-	int _min_y_dev = mp_Map->getDevideMapNumY(_current_node.Leg[_leg_num].y) - 2;
+	int _max_x_dev = mp_Map->getDevideMapNumX(_current_node.leg_pos[_leg_num].x) + 2;
+	int _min_x_dev = mp_Map->getDevideMapNumX(_current_node.leg_pos[_leg_num].x) - 2;
+	int _max_y_dev = mp_Map->getDevideMapNumY(_current_node.leg_pos[_leg_num].y) + 2;
+	int _min_y_dev = mp_Map->getDevideMapNumY(_current_node.leg_pos[_leg_num].y) - 2;
 
 	//値がdevide mapの範囲外にあるときは丸める．
 	_max_x_dev = (_max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_x_dev;

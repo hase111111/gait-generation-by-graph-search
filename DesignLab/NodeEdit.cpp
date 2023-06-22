@@ -17,12 +17,12 @@ void node_edit::initNode(SNode& _node, const bool _do_random)
 	//脚付け根を原点とした，脚先の位置を初期化する．
 	const float COM_Z = HexapodConst::VERTICAL_MIN_RANGE + MapConst::MAX_Z_BASE;	// ロボットの重心のZ座標
 
-	_node.Leg[0] = my_vec::SVector(100.0f,	-120.0f,	-COM_Z);
-	_node.Leg[1] = my_vec::SVector(0.0f,		-130.0f,	-COM_Z);
-	_node.Leg[2] = my_vec::SVector(-100.0f,	-120.0f,	-COM_Z);
-	_node.Leg[3] = my_vec::SVector(-100.0f,	120.0f,		-COM_Z);
-	_node.Leg[4] = my_vec::SVector(0.0f,		130.0f,		-COM_Z);
-	_node.Leg[5] = my_vec::SVector(100.0f,	120.0f,		-COM_Z);
+	_node.leg_pos[0] = my_vec::SVector(100.0f,	-120.0f,	-COM_Z);
+	_node.leg_pos[1] = my_vec::SVector(0.0f,		-130.0f,	-COM_Z);
+	_node.leg_pos[2] = my_vec::SVector(-100.0f,	-120.0f,	-COM_Z);
+	_node.leg_pos[3] = my_vec::SVector(-100.0f,	120.0f,		-COM_Z);
+	_node.leg_pos[4] = my_vec::SVector(0.0f,		130.0f,		-COM_Z);
+	_node.leg_pos[5] = my_vec::SVector(100.0f,	120.0f,		-COM_Z);
 
 	//脚付け根を原点とした，脚位置4に該当する座標を初期化する．
 	_node.Leg2[0] = my_vec::SVector(100.0f,	-120.0f,	-COM_Z);
