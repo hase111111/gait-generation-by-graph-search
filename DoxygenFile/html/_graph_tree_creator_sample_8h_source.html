@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('_graph_tree_creator_sample_8h_source.h
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;IGraphTreeCreator.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_i_graph_tree_creator_8h.html">IGraphTreeCreator.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// IGraphTreeCreator を継承したい場合．以下のように</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// </span></div>
@@ -113,13 +113,15 @@ $(document).ready(function(){initNavTree('_graph_tree_creator_sample_8h_source.h
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_graph_tree_creator_sample.html">GraphTreeCreatorSample</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_graph_tree_creator_sample.html">~GraphTreeCreatorSample</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> createGraphTree(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; _current_node, <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* <span class="keyword">const</span> _p_map, std::vector&lt;SNode&gt;&amp; _output_graph) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_graph_tree_creator_sample.html#ac835ec6f06a9890e0b994a2e0c40683e">createGraphTree</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; _current_node, <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* <span class="keyword">const</span> _p_map, std::vector&lt;SNode&gt;&amp; _output_graph) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="ttc" id="a_i_graph_tree_creator_8h_html"><div class="ttname"><a href="_i_graph_tree_creator_8h.html">IGraphTreeCreator.h</a></div><div class="ttdoc">グラフ木の探索を行うクラスのインターフェイス．</div></div>
 <div class="ttc" id="aclass_graph_tree_creator_sample_html"><div class="ttname"><a href="class_graph_tree_creator_sample.html">GraphTreeCreatorSample</a></div><div class="ttdef"><b>Definition</b> GraphTreeCreatorSample.h:17</div></div>
-<div class="ttc" id="aclass_i_graph_tree_creator_html"><div class="ttname"><a href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div><div class="ttdef"><b>Definition</b> IGraphTreeCreator.h:8</div></div>
+<div class="ttc" id="aclass_graph_tree_creator_sample_html_ac835ec6f06a9890e0b994a2e0c40683e"><div class="ttname"><a href="class_graph_tree_creator_sample.html#ac835ec6f06a9890e0b994a2e0c40683e">GraphTreeCreatorSample::createGraphTree</a></div><div class="ttdeci">bool createGraphTree(const SNode &amp;_current_node, const MapState *const _p_map, std::vector&lt; SNode &gt; &amp;_output_graph) override</div><div class="ttdoc">木グラフを作成するクラス．完成したグラフは参照渡しする．</div><div class="ttdef"><b>Definition</b> GraphTreeCreatorSample.cpp:5</div></div>
+<div class="ttc" id="aclass_i_graph_tree_creator_html"><div class="ttname"><a href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div><div class="ttdoc">グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．</div><div class="ttdef"><b>Definition</b> IGraphTreeCreator.h:7</div></div>
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->

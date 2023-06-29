@@ -95,13 +95,84 @@ $(document).ready(function(){initNavTree('class_graph_search.html',''); initResi
   <div class="headertitle"><div class="title">GraphSearch クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>グラフ探索を行うクラス．名前通り  
+ <a href="class_graph_search.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graph_search_8h_source.html">GraphSearch.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ad991ee63ab9d62f04cff952b7ea86f9b"><td class="memItemLeft" align="right" valign="top"><a id="ad991ee63ab9d62f04cff952b7ea86f9b" name="ad991ee63ab9d62f04cff952b7ea86f9b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getNextNodebyGraphSearch</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;_target, <a class="el" href="struct_s_node.html">SNode</a> &amp;_output_node)</td></tr>
+<tr class="memitem:ad991ee63ab9d62f04cff952b7ea86f9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_search.html#ad991ee63ab9d62f04cff952b7ea86f9b">getNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;_target, <a class="el" href="struct_s_node.html">SNode</a> &amp;_output_node)</td></tr>
+<tr class="memdesc:ad991ee63ab9d62f04cff952b7ea86f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
 <tr class="separator:ad991ee63ab9d62f04cff952b7ea86f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ探索を行うクラス．名前通り </p>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="ad991ee63ab9d62f04cff952b7ea86f9b" name="ad991ee63ab9d62f04cff952b7ea86f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad991ee63ab9d62f04cff952b7ea86f9b">&#9670;&#160;</a></span>getNextNodebyGraphSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GraphSearch::getNextNodebyGraphSearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> *const&#160;</td>
+          <td class="paramname"><em>_p_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_target.html">STarget</a> &amp;&#160;</td>
+          <td class="paramname"><em>_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_output_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>グラフ探索を行い，次の動作として最適なノードを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_current_node</td><td>現在の状態を表すノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p_map</td><td>マップの状態を表すクラスへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_target</td><td>動作の目標 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">_output_node</td><td>結果のノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool グラフ探索に失敗した場合falseを返す </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_search_ad991ee63ab9d62f04cff952b7ea86f9b_icgraph.png" border="0" usemap="#aclass_graph_search_ad991ee63ab9d62f04cff952b7ea86f9b_icgraph" alt=""/></div>
+<map name="aclass_graph_search_ad991ee63ab9d62f04cff952b7ea86f9b_icgraph" id="aclass_graph_search_ad991ee63ab9d62f04cff952b7ea86f9b_icgraph">
+<area shape="rect" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="184,5,378,48"/>
+<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,13,136,40"/>
+<area shape="poly" title=" " alt="" coords="169,29,136,29,136,24,169,24"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_graph_search_8h_source.html">GraphSearch.h</a></li>
 <li>DesignLab/GraphSearch.cpp</li>

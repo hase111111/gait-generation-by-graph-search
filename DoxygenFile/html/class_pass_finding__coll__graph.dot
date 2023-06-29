@@ -7,7 +7,7 @@ digraph "PassFinding"
   Node1 [id="Node000001",label="PassFinding",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" CurrentCondition\nresultRoute\nroute",fontcolor="grey" ];
   Node2 [id="Node000002",label="SNode",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$struct_s_node.html",tooltip=" "];
-  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" Leg\nLeg2\nglobal_center\l_of_mass",fontcolor="grey" ];
+  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" Leg2\nglobal_center_of\l_mass\nleg_pos",fontcolor="grey" ];
   Node3 [id="Node000003",label="my_vec::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
   Node4 -> Node2 [id="edge3_Node000002_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" rot",fontcolor="grey" ];
   Node4 [id="Node000004",label="my_vec::SRotator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_rotator.html",tooltip="回転を表す構造体．XYZオイラー角"];

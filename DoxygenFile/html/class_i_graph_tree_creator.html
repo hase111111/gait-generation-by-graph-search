@@ -95,13 +95,18 @@ $(document).ready(function(){initNavTree('class_i_graph_tree_creator.html',''); 
   <div class="headertitle"><div class="title">IGraphTreeCreator クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．  
+ <a href="class_i_graph_tree_creator.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_graph_tree_creator_8h_source.html">IGraphTreeCreator.h</a>&gt;</code></p>
 <div class="dynheader">
 IGraphTreeCreator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_graph_tree_creator__inherit__graph.png" border="0" usemap="#a_i_graph_tree_creator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_graph_tree_creator_inherit__map" id="a_i_graph_tree_creator_inherit__map">
-<area shape="rect" title=" " alt="" coords="108,5,234,32"/>
-<area shape="rect" href="class_graph_tree_creator_hato.html" title=" " alt="" coords="5,80,156,107"/>
+<area shape="rect" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="108,5,234,32"/>
+<area shape="rect" href="class_graph_tree_creator_hato.html" title="波東さんのグラフを作成するプログラムを移植したもの" alt="" coords="5,80,156,107"/>
 <area shape="poly" title=" " alt="" coords="146,43,98,82,94,78,143,39"/>
 <area shape="rect" href="class_graph_tree_creator_sample.html" title=" " alt="" coords="180,80,347,107"/>
 <area shape="poly" title=" " alt="" coords="200,39,249,78,246,82,197,43"/>
@@ -110,10 +115,70 @@ IGraphTreeCreator の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a5bc5780eb04ee92c821b270c057c239d"><td class="memItemLeft" align="right" valign="top"><a id="a5bc5780eb04ee92c821b270c057c239d" name="a5bc5780eb04ee92c821b270c057c239d"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>createGraphTree</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)=0</td></tr>
+<tr class="memitem:a5bc5780eb04ee92c821b270c057c239d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a5bc5780eb04ee92c821b270c057c239d">createGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)=0</td></tr>
+<tr class="memdesc:a5bc5780eb04ee92c821b270c057c239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
 <tr class="separator:a5bc5780eb04ee92c821b270c057c239d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
+<p>継承をするクラスのデストラクタはvirtualにしておく．<br  />
+ 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a5bc5780eb04ee92c821b270c057c239d" name="a5bc5780eb04ee92c821b270c057c239d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc5780eb04ee92c821b270c057c239d">&#9670;&#160;</a></span>createGraphTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IGraphTreeCreator::createGraphTree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> *const&#160;</td>
+          <td class="paramname"><em>_p_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_output_graph</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>木グラフを作成するクラス．完成したグラフは参照渡しする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_current_node</td><td>[in] 現在の状態を表すノード </td></tr>
+    <tr><td class="paramname">_p_map</td><td>[in] 現在のマップの状態 </td></tr>
+    <tr><td class="paramname">_output_graph</td><td>[out] 出力される木グラフ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool 生成に成功したならばtrue </dd></dl>
+
+<p><a class="el" href="class_graph_tree_creator_hato.html#a6b9924e816e8bd0b6eea8cec61d0972e">GraphTreeCreatorHato</a>, <a class="el" href="class_graph_tree_creator_sample.html#ac835ec6f06a9890e0b994a2e0c40683e">GraphTreeCreatorSample</a>で実装されています。</p>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_i_graph_tree_creator_8h_source.html">IGraphTreeCreator.h</a></li>
 </ul>

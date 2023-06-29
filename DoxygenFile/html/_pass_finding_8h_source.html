@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> LastNodeNum;                        <span class="comment">//現在使用しているノード中最大の番号</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> HX2[36][HexapodConst::LEG_NUM];                 <span class="comment">//2次方向のグラフ</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> LegHeight;                          <span class="comment">//脚上げ高さ</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    ETargetMode m_evaluation_mode;      <span class="comment">//評価をどのように行うか表す変数</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_enumeration" href="_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a> m_evaluation_mode;      <span class="comment">//評価をどのように行うか表す変数</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    ESearchMode m_search_mode;          <span class="comment">//探索をどのように行うか表す変数</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">int</span> m_search_depth;                 <span class="comment">//探索の深さをどうするか決定する変数</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">int</span> m_result_route_limit;           <span class="comment">//探索するノード数の上限,一度に探索する数が大きくなると変える必要ありCurrentCondition[??]も変える</span></div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Getter と Setter まとめ，&quot;Tell. Don&#39;t Ask.&quot; なプログラムにしたいので余り健全ではない </span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">//評価方法を設定する関数</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> setEvaluationMode(<span class="keyword">const</span> ETargetMode _mode) { m_evaluation_mode = _mode; }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> setEvaluationMode(<span class="keyword">const</span> <a class="code hl_enumeration" href="_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a> _mode) { m_evaluation_mode = _mode; }</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">//探索方法を設定する関数</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> setSearchMode(<span class="keyword">const</span> ESearchMode _mode) { m_search_mode = _mode; }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">//探索の深さを設定する関数</span></div>
@@ -218,6 +218,7 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
 <div class="ttc" id="a_define_8h_html"><div class="ttname"><a href="_define_8h.html">Define.h</a></div><div class="ttdoc">プロジェクト全体の定数</div></div>
 <div class="ttc" id="a_map_const_8h_html"><div class="ttname"><a href="_map_const_8h.html">MapConst.h</a></div><div class="ttdoc">地形状態を表す定数の実装．</div></div>
+<div class="ttc" id="a_target_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6"><div class="ttname"><a href="_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a></div><div class="ttdeci">ETargetMode</div><div class="ttdoc">Targetへの移動をどのように評価するか表す列挙子</div><div class="ttdef"><b>Definition</b> Target.h:6</div></div>
 <div class="ttc" id="aclass_create_com_candidate_html"><div class="ttname"><a href="class_create_com_candidate.html">CreateComCandidate</a></div><div class="ttdef"><b>Definition</b> CreateComCandidate.h:56</div></div>
 <div class="ttc" id="aclass_hexapod_html"><div class="ttname"><a href="class_hexapod.html">Hexapod</a></div><div class="ttdef"><b>Definition</b> hexapod.h:35</div></div>
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
@@ -226,7 +227,7 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="ttc" id="anamespaceleg__state_html"><div class="ttname"><a href="namespaceleg__state.html">leg_state</a></div><div class="ttdoc">脚状態を編集するための関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> LegState.h:7</div></div>
 <div class="ttc" id="anamespaceleg__state_html_abe5bfa3aa6b239c6116875b412f67e5f"><div class="ttname"><a href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a></div><div class="ttdeci">constexpr int DISCRETE_NUM</div><div class="ttdoc">脚状態の離散化数．LegState.hの通り7通り．</div><div class="ttdef"><b>Definition</b> LegState.h:8</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
-<div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:29</div></div>
+<div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:18</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

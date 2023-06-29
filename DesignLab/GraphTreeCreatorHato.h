@@ -5,8 +5,6 @@
 #include "LegHierarchyNodeCreator.h"
 #include "LegUpDownNodeCreator.h"
 
-//波東さんのグラフを作成するプログラムを移植したものです．
-//もともとのプログラムで行われた処理の中でコメントアウトされたものはすべて削除したので，知りたければ過去のプログラムを参照してください．
 class GraphTreeCreatorHato final : public IGraphTreeCreator
 {
 public:
@@ -26,3 +24,11 @@ private:
 	LegUpDownNodeCreator m_LegUpDown;
 	ComUpDownNodeCreator m_ComUpDown;
 };
+
+
+//! @file GraphTreeCreatorHato.h 
+//! @brief 波東さんのグラフを作成するプログラムを移植したクラスの実装
+
+//! @class GraphTreeCreatorHato
+//! @brief 波東さんのグラフを作成するプログラムを移植したもの
+//! @details もともとのプログラムで行われた処理の中でコメントアウトされていたものはすべて削除したので，知りたければ過去のプログラムを参照すること．
