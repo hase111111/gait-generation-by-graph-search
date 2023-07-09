@@ -1,5 +1,5 @@
 <map id="my_vec::SVector::length" name="my_vec::SVector::length">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,169,32"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title=" " alt="" coords="217,5,421,32"/>
+<area shape="rect" id="Node000001" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="5,5,169,32"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="217,5,421,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,16,202,16,202,21,169,21"/>
 </map>

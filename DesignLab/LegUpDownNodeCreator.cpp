@@ -178,7 +178,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0) 
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -196,7 +196,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -214,7 +214,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z < 0)
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -240,7 +240,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -258,7 +258,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}
@@ -276,7 +276,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
 		{
 			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if (my_vec::getCross(_4pos - _coxapos, _candiatepos - _coxapos).z > 0)
+			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
 			{
 				return true;
 			}

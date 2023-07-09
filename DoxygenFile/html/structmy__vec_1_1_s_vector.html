@@ -108,13 +108,26 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_vector.html',''); 
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>SVector</b> (const float _x, const float _y, const float _z)</td></tr>
 <tr class="separator:a14e50855aeb02fd01974b7a5191d7587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0873be2086aeb705197892cbace0b38"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38">lengthSquare</a> () const</td></tr>
+<tr class="memdesc:ad0873be2086aeb705197892cbace0b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．  <br /></td></tr>
 <tr class="separator:ad0873be2086aeb705197892cbace0b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7e048615bd7e965e0be62a3e92a32c1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1">length</a> () const</td></tr>
+<tr class="memdesc:ab7e048615bd7e965e0be62a3e92a32c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．  <br /></td></tr>
 <tr class="separator:ab7e048615bd7e965e0be62a3e92a32c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcf2a594a221408b09e8fb06eb2be37f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f">normalized</a> () const</td></tr>
+<tr class="memdesc:adcf2a594a221408b09e8fb06eb2be37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!  <br /></td></tr>
 <tr class="separator:adcf2a594a221408b09e8fb06eb2be37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2055cb59bc783426b01da98be3275277"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277">isZero</a> () const</td></tr>
+<tr class="memdesc:a2055cb59bc783426b01da98be3275277"><td class="mdescLeft">&#160;</td><td class="mdescRight">x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．  <br /></td></tr>
 <tr class="separator:a2055cb59bc783426b01da98be3275277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618281b63ff3149e27d44a9120f289b0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#a618281b63ff3149e27d44a9120f289b0">distanceFrom</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;_other) const</td></tr>
+<tr class="memdesc:a618281b63ff3149e27d44a9120f289b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">別のベクトルとこのベクトルの距離を返す．  <br /></td></tr>
+<tr class="separator:a618281b63ff3149e27d44a9120f289b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f5d4d8bc05979719ccb33a26ee3e41"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#af7f5d4d8bc05979719ccb33a26ee3e41">dot</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;_other) const</td></tr>
+<tr class="memdesc:af7f5d4d8bc05979719ccb33a26ee3e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">自分・引数 の内積の結果を返す．  <br /></td></tr>
+<tr class="separator:af7f5d4d8bc05979719ccb33a26ee3e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ef43db15962e9b965d0289d46e3302"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_vector.html#a49ef43db15962e9b965d0289d46e3302">cross</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;_other) const</td></tr>
+<tr class="memdesc:a49ef43db15962e9b965d0289d46e3302"><td class="mdescLeft">&#160;</td><td class="mdescRight">自分×引数 の外積の結果を返す．  <br /></td></tr>
+<tr class="separator:a49ef43db15962e9b965d0289d46e3302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd4d81a2af5070ef823b3e777a858150"><td class="memItemLeft" align="right" valign="top"><a id="abd4d81a2af5070ef823b3e777a858150" name="abd4d81a2af5070ef823b3e777a858150"></a>
 constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;_v) const</td></tr>
 <tr class="separator:abd4d81a2af5070ef823b3e777a858150"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,6 +207,111 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
  <a href="http://marupeke296.com/COL_main.html">http://marupeke296.com/COL_main.html</a> ←先輩がおそらく衝突判定の参考資料にしたであろうサイト <br  />
  </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
+<a id="a49ef43db15962e9b965d0289d46e3302" name="a49ef43db15962e9b965d0289d46e3302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ef43db15962e9b965d0289d46e3302">&#9670;&#160;</a></span>cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> my_vec::SVector::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>_other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>自分×引数 の外積の結果を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_other</td><td>外積の掛け算：後ろのベクトル </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体">SVector</a> 外積の結果．ちなみに，自分→引数へ回転する右ねじが進む方向のベクトルが出力される </dd></dl>
+
+</div>
+</div>
+<a id="a618281b63ff3149e27d44a9120f289b0" name="a618281b63ff3149e27d44a9120f289b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618281b63ff3149e27d44a9120f289b0">&#9670;&#160;</a></span>distanceFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float my_vec::SVector::distanceFrom </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>_other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>別のベクトルとこのベクトルの距離を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_other</td><td>[in] 別のベクトル </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>float 距離 </dd></dl>
+
+</div>
+</div>
+<a id="af7f5d4d8bc05979719ccb33a26ee3e41" name="af7f5d4d8bc05979719ccb33a26ee3e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f5d4d8bc05979719ccb33a26ee3e41">&#9670;&#160;</a></span>dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float my_vec::SVector::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">SVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>_other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>自分・引数 の内積の結果を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">もう一方のベクトル</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>float 内積の結果 </dd></dl>
+
+</div>
+</div>
 <a id="a2055cb59bc783426b01da98be3275277" name="a2055cb59bc783426b01da98be3275277"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2055cb59bc783426b01da98be3275277">&#9670;&#160;</a></span>isZero()</h2>
 
@@ -208,7 +326,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す． </p><dl class="section return"><dt>戻り値</dt><dd>bool 0ならばtrue そうでなければfalse </dd></dl>
+
+<p>x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool 0ならばtrue そうでなければfalse </dd></dl>
 
 </div>
 </div>
@@ -234,14 +354,16 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき． </p><dl class="section return"><dt>戻り値</dt><dd>float ベクトルの長さ </dd></dl>
+
+<p>ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき． </p>
+<dl class="section return"><dt>戻り値</dt><dd>float ベクトルの長さ </dd></dl>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_cgraph.png" border="0" usemap="#astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_cgraph" alt=""/></div>
 <map name="astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_cgraph" id="astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,169,32"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title=" " alt="" coords="217,5,421,32"/>
+<area shape="rect" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="5,5,169,32"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="217,5,421,32"/>
 <area shape="poly" title=" " alt="" coords="169,16,202,16,202,21,169,21"/>
 </map>
 </div>
@@ -250,10 +372,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
 <div class="dyncontent">
 <div class="center"><img src="structmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_icgraph.png" border="0" usemap="#astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_icgraph" alt=""/></div>
 <map name="astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_icgraph" id="astructmy__vec_1_1_s_vector_ab7e048615bd7e965e0be62a3e92a32c1_icgraph">
-<area shape="rect" title=" " alt="" coords="455,56,618,83"/>
+<area shape="rect" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="455,56,618,83"/>
 <area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="232,31,391,57"/>
 <area shape="poly" title=" " alt="" coords="440,61,391,56,392,50,441,56"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f" title=" " alt="" coords="216,81,407,108"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="216,81,407,108"/>
 <area shape="poly" title=" " alt="" coords="441,83,408,87,407,81,440,77"/>
 <area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,5,168,32"/>
 <area shape="poly" title=" " alt="" coords="217,36,168,30,168,25,217,31"/>
@@ -286,18 +408,20 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき． </p><dl class="section return"><dt>戻り値</dt><dd>float x,y,zの値を2乗にして足し合わせたスカラー値 </dd></dl>
+
+<p>ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき． </p>
+<dl class="section return"><dt>戻り値</dt><dd>float x,y,zの値を2乗にして足し合わせたスカラー値 </dd></dl>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmy__vec_1_1_s_vector_ad0873be2086aeb705197892cbace0b38_icgraph.png" border="0" usemap="#astructmy__vec_1_1_s_vector_ad0873be2086aeb705197892cbace0b38_icgraph" alt=""/></div>
 <map name="astructmy__vec_1_1_s_vector_ad0873be2086aeb705197892cbace0b38_icgraph" id="astructmy__vec_1_1_s_vector_ad0873be2086aeb705197892cbace0b38_icgraph">
-<area shape="rect" title=" " alt="" coords="666,56,871,83"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title=" " alt="" coords="455,56,618,83"/>
+<area shape="rect" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="666,56,871,83"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="455,56,618,83"/>
 <area shape="poly" title=" " alt="" coords="651,72,619,72,619,67,651,67"/>
 <area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="232,31,391,57"/>
 <area shape="poly" title=" " alt="" coords="440,61,391,56,392,50,441,56"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f" title=" " alt="" coords="216,81,407,108"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="216,81,407,108"/>
 <area shape="poly" title=" " alt="" coords="441,83,408,87,407,81,440,77"/>
 <area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,5,168,32"/>
 <area shape="poly" title=" " alt="" coords="217,36,168,30,168,25,217,31"/>
@@ -330,16 +454,18 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>z</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． </p><dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体">SVector</a> 正規化されたベクトル </dd></dl>
+
+<p>単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと! </p>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体">SVector</a> 正規化されたベクトル </dd></dl>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmy__vec_1_1_s_vector_adcf2a594a221408b09e8fb06eb2be37f_cgraph.png" border="0" usemap="#astructmy__vec_1_1_s_vector_adcf2a594a221408b09e8fb06eb2be37f_cgraph" alt=""/></div>
 <map name="astructmy__vec_1_1_s_vector_adcf2a594a221408b09e8fb06eb2be37f_cgraph" id="astructmy__vec_1_1_s_vector_adcf2a594a221408b09e8fb06eb2be37f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,197,32"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title=" " alt="" coords="245,5,408,32"/>
+<area shape="rect" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="5,5,197,32"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="245,5,408,32"/>
 <area shape="poly" title=" " alt="" coords="197,16,230,16,230,21,197,21"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title=" " alt="" coords="456,5,660,32"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="456,5,660,32"/>
 <area shape="poly" title=" " alt="" coords="408,16,441,16,441,21,408,21"/>
 </map>
 </div>

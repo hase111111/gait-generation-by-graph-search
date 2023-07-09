@@ -13,16 +13,16 @@
 //　脚の遊脚のパターンは，
 //　　全接地  1通り
 //　　1本遊脚 6通り
-//　　2本遊脚 15通り → 実現可能なものは??通り
-//　　3本遊脚 20通り → 実現可能なものは??通り
+//　　2本遊脚 15通り
+//　　3本遊脚 20通り → 実現可能なものは14通り
 //		なので全部で36通りある．
 //
 
 namespace ComType 
 {
-	constexpr int COM_PATTERN_NUM = 10;		//重心パターンの数
+	constexpr int COM_PATTERN_NUM = 10;		//!< 重心パターンの数
 
-	constexpr int COM_TYPE_NUM = 36;		//重心タイプの数
+	constexpr int COM_TYPE_NUM = 36;		//!< 重心タイプの数
 
 
 	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する

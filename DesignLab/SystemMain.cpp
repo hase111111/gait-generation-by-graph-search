@@ -25,14 +25,14 @@ SystemMain::SystemMain()
 	m_Graphic.init(&m_Broker);
 
 	//この探索での目標を設定する．
-	m_target.TargetDirection = my_vec::VGet(0, 1, 0);					//目標方向x,y,z(直進移動)
-	m_target.TargetPosition = my_vec::VGet(0, 10000, 0);				//目標位置
-	m_target.TargetRotation = my_vec::VGet(0, 0, 1);					//目標旋回方向P,R,Y(現在Y方向しか考えていない値は1が左回転、-1が右回転)
-	m_target.TargetAngle = my_vec::VGet(0, 0, my_math::MY_FLT_PI / 2.0f);	//目標旋回角度(胴体の角度)
-	m_target.RotationCenter = my_vec::VGet(-10000, 0, 0);				//回転中心x,y,z
+	m_target.TargetDirection = my_vec::SVector(0, 1, 0);				//目標方向x,y,z(直進移動)
+	m_target.TargetPosition = my_vec::SVector(0, 10000, 0);				//目標位置
+	m_target.TargetRotation = my_vec::SVector(0, 0, 1);					//目標旋回方向P,R,Y(現在Y方向しか考えていない値は1が左回転、-1が右回転)
+	m_target.TargetAngle = my_vec::SVector(0, 0, my_math::MY_FLT_PI / 2.0f);	//目標旋回角度(胴体の角度)
+	m_target.RotationCenter = my_vec::SVector(-10000, 0, 0);				//回転中心x,y,z
 	m_target.TargetMode = ETargetMode::TURN_DIRECTION;					// ETargetModeの中から目標の評価方法を設定する．
 	m_target.TurningRadius = abs(m_target.RotationCenter.x);
-	m_target.TurningRadius = my_vec::VMag(m_target.RotationCenter);	//旋回半径 これだと、原点と旋回中心との距離,いや更新してないから現状では一応よさげ、y軸上を直進させるなら、ｘの距離つまり、旋回中心とy軸との距離
+	m_target.TurningRadius = m_target.RotationCenter.length();	//旋回半径 これだと、原点と旋回中心との距離,いや更新してないから現状では一応よさげ、y軸上を直進させるなら、ｘの距離つまり、旋回中心とy軸との距離
 }
 
 void SystemMain::main()

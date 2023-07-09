@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "../DesignLab/MyVector.h"
-#include "../DesignLab/MyVector.cpp"
 
 TEST(SVectorTest, EqualityOperatorTest)
 {

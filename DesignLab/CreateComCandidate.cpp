@@ -75,7 +75,7 @@ void CreateComCandidate::getComMovableArea(const SNode _node, std::vector<my_vec
 void CreateComCandidate::initHexapodJustBeforeSearch(const SNode _node, const STarget _t)
 {
 	phantomX.setMyDirection(_node.pitch, _node.roll, _node.yaw);	//自機の角度
-	phantomX.setMyPosition(my_vec::VGet(0, 0, 0));				//自機の重心位置(0,0,0)
+	phantomX.setMyPosition(my_vec::SVector(0, 0, 0));				//自機の重心位置(0,0,0)
 	phantomX.setTarget(_t);											//目標
 }
 
@@ -86,7 +86,7 @@ void CreateComCandidate::init(const SNode _node)
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		_temp_leg_rot[i] = my_vec::VRot(_node.leg_pos[i], my_vec::VGet(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
+		_temp_leg_rot[i] = my_vec::VRot(_node.leg_pos[i], my_vec::SVector(0, 0, 0), phantomX.getGlobalMyDirectionthP(), phantomX.getGlobalMyDirectionthR(), phantomX.getGlobalMyDirectionthY());
 
 		//CreateComCandidateの座標(x,y,z)は，PassFindingにおける(x,z,y)となる
 		// CCC ← PF
@@ -189,11 +189,11 @@ int CreateComCandidate::getInsidePolygon()
 	_node_cnt++;
 
 	//ポリゴンの重心タイプを代入 leg[2]から交点の距離で判定
-	if (my_vec::VMag2(INode[2].Point, INode[_node_cnt - 1].Point) > my_vec::VMag2(INode[2].Point, INode[_node_cnt - 2].Point)) 
+	if (INode[2].Point.distanceFrom(INode[_node_cnt - 1].Point) > INode[2].Point.distanceFrom(INode[_node_cnt - 2].Point))
 	{
 		//逆三角形
 		IPolygon[_polygon_cnt].COMtype = 7;
-	} 
+	}
 	else 
 	{
 		IPolygon[_polygon_cnt].COMtype = 8;
@@ -220,7 +220,7 @@ bool CreateComCandidate::lineSegmentHitDetection(my_vec::SVector s1, my_vec::SVe
 	v  = s1 - s2;
 
 	//2つのベクトルが平行//外積が0なら平行,xyz空間で並行でなくてもxy平面で平行な可能性あり
-	if ((my_vec::VCross(v1, v2)).lengthSquare() < 0.01) 
+	if ((v1.cross(v2)).lengthSquare() < 0.01)
 	{
 		//ベクトルの外積の大きさの2乗
 		return false;	//2つのアークの始点，終点のどれも一致していない
@@ -309,7 +309,7 @@ bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon)
 		for (int iz = 0; iz< DIVIDE_NUM; iz++) 
 		{
 			adleComCandidate[ix][iz] = 1;//すべて有効
-			comCandidatePoint[ix][iz] = my_vec::VGet(xMin + dx * ix, 0, zMin + dz * iz);//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標 190419
+			comCandidatePoint[ix][iz] = my_vec::SVector(xMin + dx * ix, 0, zMin + dz * iz);//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標 190419
 		}
 	}
 
@@ -330,7 +330,7 @@ bool CreateComCandidate::isComInPolygon(IntersectionPolygon* polygon)
 				vMap = comCandidatePoint[ix][iz] - polygon->VertexNode[i]->Point - COMPOSI;		//頂点からの重心のベクトル,composiがy方向にずれたらzとxを変換する必要があり？
 
 				//ポリゴンのマージン外にある場合adleComCandidateを0//辺の単位ベクトル(=1)とvMapからなる面積=辺から重心への垂線の長さ>マージン10.0f
-				if (my_vec::VCross(vMap, v1n).y > -m_stability_margin) 
+				if (vMap.cross(v1n).y > -m_stability_margin)
 				{
 					adleComCandidate[ix][iz] = 0;//無効
 				}
@@ -423,7 +423,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 		{
 			//平面内の半径からの距離で除外するやつ
 			adleComCandidate[ix][iz] = 1;
-			comCandidatePoint[ix][iz] = my_vec::VGet(xMin + dx * ix, 0, zMin + dz * iz);	//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標
+			comCandidatePoint[ix][iz] = my_vec::SVector(xMin + dx * ix, 0, zMin + dz * iz);	//DIVIDE_NUM×DIVIDE_NUMに分割した重心位置候補の座標
 		}
 	}
 
@@ -444,7 +444,7 @@ bool CreateComCandidate::isComInPolygon_circlingTarget(IntersectionPolygon* poly
 				//map総当たり
 				vMap = comCandidatePoint[ix][iz] - polygon->VertexNode[i]->Point - COMPOSI;	//頂点からの重心のベクトル,composiが中心以外ならcomposiの位置を回転する必要ある
 
-				if (my_vec::VCross(vMap, v1n).y > -m_stability_margin) 
+				if (vMap.cross(v1n).y > -m_stability_margin)
 				{
 					//ポリゴンのマージン外にある場合adleComCandidateを0//辺の単位ベクトル(=1)とvMapからなる面積=辺から重心への垂線の長さ>マージン10.0f
 					adleComCandidate[ix][iz] = 0;//無効

@@ -95,12 +95,17 @@ $(document).ready(function(){initNavTree('class_graph_tree_creator_sample.html',
   <div class="headertitle"><div class="title">GraphTreeCreatorSample クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>グラフを作成するクラスのサンプルです．テキトーにグラフを作成します．  
+ <a href="class_graph_tree_creator_sample.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graph_tree_creator_sample_8h_source.html">GraphTreeCreatorSample.h</a>&gt;</code></p>
 <div class="dynheader">
 GraphTreeCreatorSample の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_tree_creator_sample__inherit__graph.png" border="0" usemap="#a_graph_tree_creator_sample_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_graph_tree_creator_sample_inherit__map" id="a_graph_tree_creator_sample_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,173,107"/>
+<area shape="rect" title="グラフを作成するクラスのサンプルです．テキトーにグラフを作成します．" alt="" coords="5,80,173,107"/>
 <area shape="rect" href="class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="26,5,152,32"/>
 <area shape="poly" title=" " alt="" coords="92,47,92,80,86,80,86,47"/>
 </map>
@@ -110,7 +115,7 @@ GraphTreeCreatorSample 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_tree_creator_sample__coll__graph.png" border="0" usemap="#a_graph_tree_creator_sample_coll__map" alt="Collaboration graph"/></div>
 <map name="a_graph_tree_creator_sample_coll__map" id="a_graph_tree_creator_sample_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,173,107"/>
+<area shape="rect" title="グラフを作成するクラスのサンプルです．テキトーにグラフを作成します．" alt="" coords="5,80,173,107"/>
 <area shape="rect" href="class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="26,5,152,32"/>
 <area shape="poly" title=" " alt="" coords="92,47,92,80,86,80,86,47"/>
 </map>
@@ -125,7 +130,20 @@ GraphTreeCreatorSample 連携図</div>
 <tr class="memdesc:a5bc5780eb04ee92c821b270c057c239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
 <tr class="separator:a5bc5780eb04ee92c821b270c057c239d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフを作成するクラスのサンプルです．テキトーにグラフを作成します． </p>
+<p><a class="el" href="class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．">IGraphTreeCreator</a> を継承したい場合．以下のように<br  />
+ <br  />
+ class 好きな名前 final : public <a class="el" href="class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．">IGraphTreeCreator</a> <br  />
+ { <br  />
+ } <br  />
+ <br  />
+ と宣言する．<br  />
+finalはもうこれ以上継承しないよという意味．public <a class="el" href="class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．">IGraphTreeCreator</a> はこのクラスを継承したよという意味．<br  />
+ IGraphTreeCreatorを継承したクラスに課せられる制約はただ一つ，IGraphTreeCreator の純粋仮想関数，createGraphTreeを実装すること．<br  />
+ 以下のようにcreateGraphTreeをpublicなところに宣言して，後ろにoverrideとつけるように．<br  />
+ </p>
+</div><h2 class="groupheader">関数詳解</h2>
 <a id="ac835ec6f06a9890e0b994a2e0c40683e" name="ac835ec6f06a9890e0b994a2e0c40683e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac835ec6f06a9890e0b994a2e0c40683e">&#9670;&#160;</a></span>createGraphTree()</h2>
 

@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('hexapod_8h_source.html',''); initResiz
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//安定余裕は0mm(CreateComCandidate.hのSTABILITYMARGINの値)</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//SPLP.hの BODY_MARGINはMIN_DELTAZと値を合わせる</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> COMPOSI = my_vec::VGet(0.0f, 0.0f, 0.0f); <span class="comment">//my_vec::VGet(0.0, 0.0, 0.0);//重心位置</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> COMPOSI = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0.0f, 0.0f, 0.0f);  <span class="comment">//my_vec::VGet(0.0, 0.0, 0.0);//重心位置</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// 自機の状態型</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_s_transform.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_transform.html">STransform</a></div>
