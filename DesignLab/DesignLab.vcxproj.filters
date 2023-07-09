@@ -73,6 +73,12 @@
     <Filter Include="ソース ファイル\GraphicSystem\Render3D">
       <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface">
+      <UniqueIdentifier>{2ad2045b-b61b-481b-b844-38fceaac38d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\Interface">
+      <UniqueIdentifier>{87bf686e-8697-4f3e-bc3e-8afde531cb04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -204,9 +210,6 @@
     <ClInclude Include="GraphSearchInitializer.h">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphTreeCreator.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
-    </ClInclude>
     <ClInclude Include="IGraphSearcher.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
@@ -254,6 +257,12 @@
     </ClInclude>
     <ClInclude Include="GraphicMainTest.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphTreeCreator.h">
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphSearch.h">
+      <Filter>ソース ファイル\GraphSearchSystem\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

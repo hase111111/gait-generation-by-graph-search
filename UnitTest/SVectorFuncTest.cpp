@@ -4,9 +4,9 @@
 
 using namespace my_vec;
 
-namespace 
+namespace SVectorTest
 {
-	TEST(SVectorTest, LengthSquare)
+	TEST(SVectorFunc, LengthSquare)
 	{
 		SVector _v;
 
@@ -35,7 +35,7 @@ namespace
 		EXPECT_TRUE(my_math::isEqual(_v.lengthSquare(), 12.75f));
 	}
 
-	TEST(SVectorTest, Length)
+	TEST(SVectorFunc, Length)
 	{
 		SVector _v;
 
@@ -61,7 +61,7 @@ namespace
 		EXPECT_TRUE(my_math::isEqual(_v.length(), 45.4351f));
 	}
 
-	TEST(SVectorTest, Normalized)
+	TEST(SVectorFunc, Normalized)
 	{
 		SVector _v;
 
@@ -97,7 +97,7 @@ namespace
 		EXPECT_TRUE(my_math::isEqual(_v.normalized().length(), 1));
 	}
 
-	TEST(SVectorTest, IsZero)
+	TEST(SVectorFunc, IsZero)
 	{
 		SVector _v;
 
@@ -135,7 +135,7 @@ namespace
 		EXPECT_FALSE(_v.isZero());
 	}
 
-	TEST(SVectorTest, DistanceFrom)
+	TEST(SVectorFunc, DistanceFrom)
 	{
 		SVector _v1, _v2;
 

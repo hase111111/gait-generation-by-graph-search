@@ -32,6 +32,7 @@
     <ClInclude Include="GUIController.h" />
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="HexapodStateCalculator.h" />
+    <ClInclude Include="IGraphSearch.h" />
     <ClInclude Include="IGraphSearcher.h" />
     <ClInclude Include="IGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />

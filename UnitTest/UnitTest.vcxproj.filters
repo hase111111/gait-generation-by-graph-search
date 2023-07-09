@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="LegStateTest.cpp" />
-    <ClCompile Include="MyMathTest.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="SVectorFuncTest.cpp">
       <Filter>SVector</Filter>
@@ -10,16 +8,15 @@
     <ClCompile Include="SVectorTest.cpp">
       <Filter>SVector</Filter>
     </ClCompile>
+    <ClCompile Include="LegStateTest.cpp" />
+    <ClCompile Include="MyMathTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="SVector">
-      <UniqueIdentifier>{24d899c5-f13e-487d-8908-59aecd0b7620}</UniqueIdentifier>
+      <UniqueIdentifier>{6af5b4c4-b496-4759-b698-38b3cd0491f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

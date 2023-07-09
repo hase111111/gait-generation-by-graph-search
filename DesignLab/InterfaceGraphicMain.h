@@ -37,6 +37,8 @@ protected:
 //! 所謂「依存性の注入」というやつ．GraphicLoopはGraphicMainの処理に依存してしまうため，これをインターフェイスにすることでGraphicLoopはGraphicMainの
 //! インターフェイス(update関数の戻り値)にのみ関心を持つようになり，依存性を解消できるようになる．<br>
 //! まぁ「依存性の注入」については正直自分もよくわかっていないので，理解しなくても大丈夫．<br>
+//! 参考: https://qiita.com/okazuki/items/a0f2fb0a63ca88340ff6 <br>
+//! https://qiita.com/okazuki/items/0c17a161a921847cd080 <br>
 //! ともかく，交換可能なグラフィックのパーツを作るための型がこの親クラスだということ．<br> 
 //! <br>
 //! 継承先のクラスではupdateとdrawをoverrideする必要がある．<br>

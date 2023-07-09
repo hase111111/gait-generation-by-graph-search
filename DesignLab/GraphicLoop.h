@@ -1,19 +1,8 @@
-//! @file GraphicLoop.h
-//! @brief GraphicLoopクラスの実装を行っている．
-//! @author 長谷川
-
 #pragma once
 #include "Fps.h"
 #include "InterfaceGraphicMain.h"
 #include <memory>
 
-
-//! @class GraphicLoop
-//! @brief GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理を実装している．いわゆるゲームループである．
-//! @details どんな描画処理を行うかをコンストラクタで受け取る．万が一受け取れなかった場合，処理がされない．<br>
-//! 通常のコンストラクタは呼べないように削除されており，必ずstd::unique_ptr<AbstractGraphicMain>を引数にとる必要がある．<br> <br>
-//! unique_ptr(ユニークポインタ)については，参照→ https://qiita.com/seriru13/items/06d044cbe5bcc44cca10
-//! @author 長谷川
 class GraphicLoop final
 {
 public:
@@ -38,3 +27,14 @@ private:
 
 	std::unique_ptr<IGraphicMain> mp_GraphicMain;	//描画処理を行うメインのクラス．
 };
+
+//! @class GraphicLoop
+//! @brief GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理を実装している．いわゆるゲームループである．
+//! @details どんな描画処理を行うかをコンストラクタで受け取る．万が一受け取れなかった場合，処理がされない．<br>
+//! 通常のコンストラクタは呼べないように削除されており，必ずstd::unique_ptr<AbstractGraphicMain>を引数にとる必要がある．<br> <br>
+//! unique_ptr(ユニークポインタ)については，参照→ https://qiita.com/seriru13/items/06d044cbe5bcc44cca10
+//! @author 長谷川
+
+//! @file GraphicLoop.h
+//! @brief GraphicLoopクラスの実装を行っている．
+//! @author 長谷川
