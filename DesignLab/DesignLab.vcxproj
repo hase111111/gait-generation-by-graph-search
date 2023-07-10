@@ -62,6 +62,7 @@
     <ClInclude Include="MapState.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyMath.h" />
+    <ClInclude Include="MyVector2.h" />
     <ClInclude Include="NodeEdit.h" />
     <ClInclude Include="NodeValidityChecker.h" />
     <ClInclude Include="Singleton.h" />

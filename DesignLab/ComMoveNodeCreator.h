@@ -11,6 +11,4 @@ public:
 private:
 
 	const MapState* mp_Map;
-
-	const int DISCRETIZATION = 5;	//離散化数．最大位置を最小位置を何分割するのか．
 };

@@ -79,6 +79,9 @@
     <Filter Include="ソース ファイル\GraphSearchSystem\Interface">
       <UniqueIdentifier>{87bf686e-8697-4f3e-bc3e-8afde531cb04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\GraphSearcher\Interface">
+      <UniqueIdentifier>{1a84f879-c847-4011-8ed0-40eff98b9d3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -210,9 +213,6 @@
     <ClInclude Include="GraphSearchInitializer.h">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphSearcher.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
-    </ClInclude>
     <ClInclude Include="GraphSearcherSample.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
@@ -263,6 +263,12 @@
     </ClInclude>
     <ClInclude Include="InterfaceGraphSearch.h">
       <Filter>ソース ファイル\GraphSearchSystem\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphSearcher.h">
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector2.h">
+      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

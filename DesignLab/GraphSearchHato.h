@@ -12,12 +12,6 @@ public:
 	GraphSearchHato() = default;
 	~GraphSearchHato() = default;
 
-	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
-	//! @param [in] _current_node 現在の状態を表すノード
-	//! @param [in] _p_map マップの状態を表すクラスへのポインタ
-	//! @param [in] _target 動作の目標
-	//! @param [out] _output_node 結果のノード
-	//! @return bool グラフ探索に失敗した場合falseを返す
 	bool getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) override;
 
 private:
@@ -26,10 +20,10 @@ private:
 };
 
 
-//! @file GraphSearch.h 
-//! @brief グラフ探索を行うクラスの実装．
+//! @file GraphSearchHato.h 
+//! @brief 波東さんの手法でグラフ探索を行うクラスの実装．
 //! @author 長谷川
 
-//! @class GraphSearch
-//! @brief グラフ探索を行うクラス．名前通り
+//! @class GraphSearchHato
+//! @brief 波東先輩の手法で，グラフ探索を行うクラス．
 //! @author 長谷川
