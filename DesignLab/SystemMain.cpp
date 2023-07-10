@@ -3,13 +3,13 @@
 #include <boost/timer/timer.hpp>
 #include "Define.h"
 #include "MyMath.h"
-#include "GraphSearch.h"
 #include "CmdIO.h"
 #include "hexapod.h"
 #include "HexapodStateCalculator.h"
+#include "NodeValidityChecker.h"
 #include "NodeEdit.h"
 
-SystemMain::SystemMain()
+SystemMain::SystemMain(std::unique_ptr<IGraphSearch> &&_graph_search)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
@@ -20,6 +20,9 @@ SystemMain::SystemMain()
 
 	//仲介人にマップを渡す．
 	m_Broker.setMapState(m_Map);
+
+	//グラフ探索クラスをセットする
+	m_GraphSearch = std::move(_graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
 	m_Graphic.init(&m_Broker);
@@ -37,11 +40,19 @@ SystemMain::SystemMain()
 
 void SystemMain::main()
 {
-	//画像表示ウィンドウを別スレッドで立ち上げる．初期化に失敗したり，そもそも画像表示をしない設定になっていると立ち上がらない．
-	boost::thread _thread_graphic(&GraphicSystem::main, &m_Graphic);
+	if (!m_GraphSearch) 
+	{
+		//グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
+		std::cout << "GraphSearch is not set." << std::endl;
+		return;
+	}
 
 	CmdIO _cmd;	//コマンドラインに文字を描画するクラスを用意する．
 
+	NodeValidityChecker _node_checker;	//ノードの妥当性をチェックするクラスを用意する．
+
+	//画像表示ウィンドウを別スレッドで立ち上げる．初期化に失敗したり，そもそも画像表示をしない設定になっていると立ち上がらない．
+	boost::thread _thread_graphic(&GraphicSystem::main, &m_Graphic);
 
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < Define::SIMURATE_NUM; i++)
@@ -59,13 +70,11 @@ void SystemMain::main()
 		//最大歩容生成回数分までループする．
 		for (int i = 0; i < Define::GATE_PATTERN_GENERATE_NUM; i++)
 		{
-			GraphSearch _GraphSearch;		//グラフ探索用クラスを用意する．
 			SNode _result_node;				//グラフ探索の結果を格納する変数．
 			boost::timer::cpu_timer _timer;	//グラフ探索にかかった時間を出力するためのタイマー
 
-
 			_timer.start();		//タイマースタート．
-			bool _is_sucess = _GraphSearch.getNextNodebyGraphSearch(_current_node, &m_Map, m_target, _result_node);		//グラフ探索を行う．
+			bool _is_sucess = m_GraphSearch->getNextNodebyGraphSearch(_current_node, &m_Map, m_target, _result_node);		//グラフ探索を行う．
 			_timer.stop();		//タイマーストップ．
 
 
@@ -82,9 +91,9 @@ void SystemMain::main()
 			_cmd.outputNode(_current_node, i + 1);												//コマンドラインに現在のノードを出力する．
 
 
-			m_Checker.setNode(_current_node);		//動作チェッカーにもノードを通達する．
+			_node_checker.setNode(_current_node);		//動作チェッカーにもノードを通達する．
 
-			if (m_Checker.isLoopMove() == true) 
+			if (_node_checker.isLoopMove() == true)
 			{
 				//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
 				_cmd.outputErrorMessageInGraphSearch("Motion stuck in a loop.");

@@ -17,6 +17,14 @@ public:
 	//! @param [out] _output_node 結果のノード
 	//! @return bool グラフ探索に失敗した場合falseを返す
 	virtual bool getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) = 0;
+
+	//! @brief 作成したグラフの数を返す
+	//! @return int 作成したグラフの数
+	int getMadeNodeNum() const { return m_made_node_num; }
+
+protected:
+
+	int m_made_node_num = 0;	//!< 作成したグラフの数
 };
 
 //! @file IGraphSearch

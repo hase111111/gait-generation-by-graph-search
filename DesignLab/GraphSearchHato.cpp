@@ -1,7 +1,7 @@
-#include "GraphSearch.h"
+#include "GraphSearchHato.h"
 #include "GraphSearchInitializer.h"
 
-bool GraphSearch::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
+bool GraphSearchHato::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
 {
 	//イニシャライザークラスに初期化をしてもらう．
 	GraphSearchInitializer _initializer;

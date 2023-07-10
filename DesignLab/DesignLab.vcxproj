@@ -23,7 +23,7 @@
     <ClInclude Include="ComMoveNodeCreator.h" />
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainTest.h" />
-    <ClInclude Include="GraphSearch.h" />
+    <ClInclude Include="GraphSearchHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
     <ClInclude Include="GraphSearchInitializer.h" />
@@ -32,7 +32,7 @@
     <ClInclude Include="GUIController.h" />
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="HexapodStateCalculator.h" />
-    <ClInclude Include="IGraphSearch.h" />
+    <ClInclude Include="InterfaceGraphSearch.h" />
     <ClInclude Include="IGraphSearcher.h" />
     <ClInclude Include="IGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
@@ -86,7 +86,7 @@
     <ClCompile Include="ComMoveNodeCreator.cpp" />
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
-    <ClCompile Include="GraphSearch.cpp" />
+    <ClCompile Include="GraphSearchHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="GraphSearchInitializer.cpp" />

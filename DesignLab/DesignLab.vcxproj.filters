@@ -204,7 +204,7 @@
     <ClInclude Include="GUIController.h">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
-    <ClInclude Include="GraphSearch.h">
+    <ClInclude Include="GraphSearchHato.h">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearchInitializer.h">
@@ -261,7 +261,7 @@
     <ClInclude Include="IGraphTreeCreator.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphSearch.h">
+    <ClInclude Include="InterfaceGraphSearch.h">
       <Filter>ソース ファイル\GraphSearchSystem\Interface</Filter>
     </ClInclude>
   </ItemGroup>
@@ -383,7 +383,7 @@
     <ClCompile Include="GUIController.cpp">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
-    <ClCompile Include="GraphSearch.cpp">
+    <ClCompile Include="GraphSearchHato.cpp">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearchInitializer.cpp">

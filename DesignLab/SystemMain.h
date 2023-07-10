@@ -1,15 +1,16 @@
 #pragma once
+#include <memory>
 #include "MapState.h"
+#include "Target.h"
 #include "GraphicDataBroker.h"
 #include "GraphicSystem.h"
-#include "NodeValidityChecker.h"
-#include "Target.h"
+#include "InterfaceGraphSearch.h"
 
 
 class SystemMain final
 {
 public:
-	SystemMain();
+	SystemMain(std::unique_ptr<IGraphSearch> &&_graph_search);
 	~SystemMain() = default;
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．
@@ -20,7 +21,7 @@ private:
 	STarget m_target;
 	GraphicDataBroker m_Broker;
 	GraphicSystem m_Graphic;
-	NodeValidityChecker m_Checker;
+	std::unique_ptr<IGraphSearch> m_GraphSearch;
 };
 
 
