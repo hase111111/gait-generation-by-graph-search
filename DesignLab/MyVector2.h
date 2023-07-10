@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include "MyMath.h"
 
 namespace my_vec
 {
@@ -58,6 +59,11 @@ namespace my_vec
 			y /= s;
 			return *this;
 		}
+
+		constexpr bool operator==(const SVector2& other) const
+		{
+			return my_math::isEqual(x, other.x) && my_math::isEqual(y, other.y);
+		}
 	};
 
 	inline constexpr SVector2 operator *(float s, const SVector2& v)
@@ -82,29 +88,76 @@ namespace my_vec
 	{
 		SLine2() = default;
 
+		constexpr SLine2(const SVector2& start, const SVector2& end)
+			: start(start), end(end)
+		{}
+
 		SVector2 start;
 		SVector2 end;
 
-		//他の線分との交点を求める
-SVector2 intersection(const SLine2& other) const
+		//! @brief 他の線分との交点を求める
+		//! @param[in] other 他の線分
+		//! @return 交点．交点がない場合は(0, 0)を返す．
+		constexpr SVector2 getIntersection(const SLine2& other) const
 		{
 			const auto v1 = end - start;
 			const auto v2 = other.end - other.start;
 			const auto v3 = other.start - start;
 			const auto d = v1.cross(v2);
-			if (d == 0.0f)
+
+			if (my_math::isEqual(d, 0.0f) == true)
 			{
-				//平行
-				return SVector2();
+				return SVector2(0,0);	//平行
 			}
+
 			const auto t1 = v2.cross(v3) / d;
 			const auto t2 = v1.cross(v3) / d;
-			if (t1 < 0.0f || t1 > 1.0f || t2 < 0.0f || t2 > 1.0f)
+			
+			if (t1 < 0.0f + my_math::ALLOWABLE_ERROR || t1 > 1.0f - my_math::ALLOWABLE_ERROR || t2 < 0.0f + my_math::ALLOWABLE_ERROR || t2 > 1.0f - my_math::ALLOWABLE_ERROR)
 			{
-				//交点は線分の外
-				return SVector2();
+				return SVector2(0, 0);	//交点は線分の外
 			}
+
 			return start + v1 * t1;
+		}
+
+		//! @brief 線分が接触しているかどうか調べる関数
+		//! @param[in] other 他の線分
+		//!	@return 接触しているかどうか
+		constexpr bool isContact(const SLine2& other) const
+		{
+			const auto v1 = end - start;
+			const auto v2 = other.end - other.start;
+			const auto v3 = other.start - start;
+			const auto d = v1.cross(v2);
+
+			if (my_math::isEqual(d, 0.0f) == true)
+			{
+				return false;	//平行
+			}
+
+			const auto t1 = v2.cross(v3) / d;
+			const auto t2 = v1.cross(v3) / d;
+
+			if (t1 < 0.0f + my_math::ALLOWABLE_ERROR || t1 > 1.0f - my_math::ALLOWABLE_ERROR || t2 < 0.0f + my_math::ALLOWABLE_ERROR || t2 > 1.0f - my_math::ALLOWABLE_ERROR)
+			{
+				return false;	//交点は線分の外
+			}
+
+			return true;
+		}
+
+		//! @brief 線分の長さを求める関数
+		//! @return 線分の長さ
+		inline float getLength() const
+		{
+			return (end - start).length();
+		}
+
+
+		bool operator==(const SLine2& other) const
+		{
+			return start == other.start && end == other.end;
 		}
 	};
 
