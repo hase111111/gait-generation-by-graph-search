@@ -1,6 +1,8 @@
 #pragma once
 #include "MapState.h"
 #include "Node.h"
+#include <vector>
+#include "MyPolygon.h"
 
 class ComMoveNodeCreator final
 {
@@ -15,4 +17,6 @@ public:
 private:
 
 	const MapState* mp_Map;
+
+	std::vector<my_vec::SPolygon2> m_Polygons;
 };

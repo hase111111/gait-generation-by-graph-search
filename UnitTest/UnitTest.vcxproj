@@ -45,9 +45,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SLineTest.cpp" />
+    <ClCompile Include="SLineFuncTest.cpp" />
+    <ClCompile Include="SPolygonTest.cpp" />
     <ClCompile Include="SVector2ArithmeticOperatorTest.cpp" />
-    <ClCompile Include="SVector2Func.cpp" />
+    <ClCompile Include="SVector2FuncTest.cpp" />
     <ClCompile Include="SVector2UnaryOperatorTest.cpp" />
     <ClCompile Include="SVectorFuncTest.cpp" />
     <ClCompile Include="SVectorTest.cpp" />

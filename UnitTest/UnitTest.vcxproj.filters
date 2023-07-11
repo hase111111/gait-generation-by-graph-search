@@ -10,7 +10,7 @@
     </ClCompile>
     <ClCompile Include="LegStateTest.cpp" />
     <ClCompile Include="MyMathTest.cpp" />
-    <ClCompile Include="SLineTest.cpp">
+    <ClCompile Include="SLineFuncTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
     <ClCompile Include="SVector2ArithmeticOperatorTest.cpp">
@@ -19,7 +19,10 @@
     <ClCompile Include="SVector2UnaryOperatorTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
-    <ClCompile Include="SVector2Func.cpp">
+    <ClCompile Include="SPolygonTest.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
+    <ClCompile Include="SVector2FuncTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
   </ItemGroup>

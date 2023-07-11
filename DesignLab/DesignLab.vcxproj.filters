@@ -82,6 +82,9 @@
     <Filter Include="ソース ファイル\GraphSearchSystem\GraphSearcher\Interface">
       <UniqueIdentifier>{1a84f879-c847-4011-8ed0-40eff98b9d3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\MyVector">
+      <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -89,9 +92,6 @@
     </ClInclude>
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="MyVector.h">
-      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="functionPassFinding.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
@@ -268,7 +268,19 @@
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="MyVector2.h">
-      <Filter>ソース ファイル\Common</Filter>
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector.h">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPolygon.h">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLine.h">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClInclude>
+    <ClInclude Include="ComCandidatePolygonMaker.h">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -277,9 +289,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="MyVector.cpp">
-      <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="functionPassFinding.cpp">
       <Filter>ソース ファイル\walking_pattern</Filter>
@@ -439,6 +448,15 @@
     </ClCompile>
     <ClCompile Include="GraphicMainTest.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MyVector.cpp">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClCompile>
+    <ClCompile Include="ComCandidatePolygonMaker.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLine.cpp">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

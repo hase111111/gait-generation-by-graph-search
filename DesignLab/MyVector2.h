@@ -6,6 +6,10 @@
 
 namespace my_vec
 {
+	//! @struct my_vec::SVector2
+	//! @brief 2次元のベクトルを表す構造体
+	//! @details https://qiita.com/Reputeless/items/96226cfe1282a014b147 をほぼもらってきたもの．<br>
+	//! 本当はテンプレート構造体にするべきだけど，めんどいし...型たぶんfloatのままかえないし.... 
 	struct SVector2 final
 	{
 		float x;
@@ -17,10 +21,29 @@ namespace my_vec
 			: x(_x)
 			, y(_y) {}
 
+		//! @brief このベクトルの長さを返す
+		//! @return このベクトルの長さ
+		//! @note sqrtは重いので，長さの2乗を返すlengthSquare()を使うことを推奨
 		float length() const { return std::sqrt(lengthSquare()); }
+
+		//! @brief このベクトルの長さの2乗を返す
+		//! @return このベクトルの長さの2乗
 		constexpr float lengthSquare() const { return dot(*this); }
+
+		//! @brief このベクトルとotherの内積を返す
+		//! @param[in] other 他のベクトル
+		//! @return このベクトルとotherの内積
 		constexpr float dot(const SVector2& other) const { return x * other.x + y * other.y; }
+
+		//! @brief このベクトルとotherの外積を返す
+		//! @param[in] other 他のベクトル
+		//! @return このベクトルとotherの外積
+		//! @note 2次元なので，外積はスカラー
 		constexpr float cross(const SVector2& other) const { return x * other.y - y * other.x; }
+
+		//! @brief このベクトルとotherの距離を返す
+		//! @param[in] other 他のベクトル
+		//! @return このベクトルとotherの距離
 		float distanceFrom(const SVector2& other) const { return (other - *this).length(); }
 
 		//! @brief このベクトルを正規化したベクトルを返す
@@ -28,6 +51,9 @@ namespace my_vec
 		//! @note 長さが0の場合を考慮していないので注意
 		SVector2 normalized() const { return *this / length(); }
 
+		//! @brief このベクトルが0ならばtrue
+		//! @return このベクトルが0ならばtrue
+		//! @note 誤差を考慮している
 		constexpr bool isZero() const { return my_math::isEqual(x, 0.0f) && my_math::isEqual(y, 0.0f); }
 
 		constexpr SVector2 operator +() const { return *this; }
@@ -90,99 +116,4 @@ namespace my_vec
 		Char unused;
 		return is >> unused >> v.x >> unused >> v.y >> unused;
 	}
-
-	struct SLine2 final
-	{
-		SLine2() = default;
-
-		constexpr SLine2(const SVector2& start, const SVector2& end)
-			: start(start), end(end)
-		{}
-
-		SVector2 start;
-		SVector2 end;
-
-		//! @brief 他の線分との交点を求める
-		//! @param[in] other 他の線分
-		//! @return 交点．交点がない場合は(0, 0)を返す．
-		constexpr SVector2 getIntersection(const SLine2& other) const
-		{
-			const SVector2 v1 = end - start;
-			const SVector2 v2 = other.end - other.start;
-			const float d = v1.cross(v2);
-
-			if (my_math::isEqual(d, 0.0f) == true)
-			{
-				return SVector2(0,0);	//平行
-			}
-
-			const SVector2 v3 = other.start - start;
-
-			const float t1 = v2.cross(v3) / d;
-			const float t2 = v1.cross(v3) / d;
-			
-			if (t1 < 0.0f - my_math::ALLOWABLE_ERROR || t1 > 1.0f + my_math::ALLOWABLE_ERROR || t2 < 0.0f - my_math::ALLOWABLE_ERROR || t2 > 1.0f + my_math::ALLOWABLE_ERROR)
-			{
-				return SVector2(0, 0);	//交点は線分の外
-			}
-
-			return start + v1 * t1;
-		}
-
-		//! @brief 線分が接触しているかどうか調べる関数
-		//! @param[in] other 他の線分
-		//!	@return 接触しているかどうか
-		constexpr bool isContact(const SLine2& other) const
-		{
-			const auto v1 = end - start;
-			const auto v2 = other.end - other.start;
-			const auto v3 = other.start - start;
-			const auto d = v1.cross(v2);
-
-			if (my_math::isEqual(d, 0.0f) == true)
-			{
-				return false;	//平行
-			}
-
-			const auto t1 = v2.cross(v3) / d;
-			const auto t2 = v1.cross(v3) / d;
-
-			if (t1 < 0.0f + my_math::ALLOWABLE_ERROR || t1 > 1.0f - my_math::ALLOWABLE_ERROR || t2 < 0.0f + my_math::ALLOWABLE_ERROR || t2 > 1.0f - my_math::ALLOWABLE_ERROR)
-			{
-				return false;	//交点は線分の外
-			}
-
-			return true;
-		}
-
-		//! @brief 線分の長さを求める関数
-		//! @return 線分の長さ
-		inline float getLength() const
-		{
-			return (end - start).length();
-		}
-
-
-		bool operator==(const SLine2& other) const
-		{
-			return start == other.start && end == other.end;
-		}
-	};
-
-	struct SPolygon2 final
-	{
-		SPolygon2() = default;
-
-		std::vector<SVector2> vertex;
-
-	};
 }
-
-//! @struct my_vec::SVector2
-//! @brief 2次元のベクトルを表す構造体
-//! @details https://qiita.com/Reputeless/items/96226cfe1282a014b147 をほぼもらってきたもの．<br>
-//! 本当はテンプレート構造体にするべきだけど，めんどいし...型たぶんfloatのままかえないし.... 
-
-//! @struct my_vec::SPolygon2
-//! @brief 2次元の多角形を表す構造体
-//! @details 2次元の多角形を表す構造体．

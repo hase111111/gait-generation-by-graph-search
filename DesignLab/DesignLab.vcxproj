@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ButtonController.h" />
+    <ClInclude Include="ComCandidatePolygonMaker.h" />
     <ClInclude Include="ComMoveNodeCreator.h" />
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainTest.h" />
@@ -61,7 +62,9 @@
     <ClInclude Include="MapRenderer.h" />
     <ClInclude Include="MapState.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MyLine.h" />
     <ClInclude Include="MyMath.h" />
+    <ClInclude Include="MyPolygon.h" />
     <ClInclude Include="MyVector2.h" />
     <ClInclude Include="NodeEdit.h" />
     <ClInclude Include="NodeValidityChecker.h" />
@@ -84,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
+    <ClCompile Include="ComCandidatePolygonMaker.cpp" />
     <ClCompile Include="ComMoveNodeCreator.cpp" />
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
@@ -118,6 +122,7 @@
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />
+    <ClCompile Include="MyLine.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />
