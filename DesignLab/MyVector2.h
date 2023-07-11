@@ -22,13 +22,20 @@ namespace my_vec
 		constexpr float dot(const SVector2& other) const { return x * other.x + y * other.y; }
 		constexpr float cross(const SVector2& other) const { return x * other.y - y * other.x; }
 		float distanceFrom(const SVector2& other) const { return (other - *this).length(); }
+
+		//! @brief このベクトルを正規化したベクトルを返す
+		//! @return 正規化されたベクトル
+		//! @note 長さが0の場合を考慮していないので注意
 		SVector2 normalized() const { return *this / length(); }
-		constexpr bool isZero() const { return x == 0.0 && y == 0.0; }
+
+		constexpr bool isZero() const { return my_math::isEqual(x, 0.0f) && my_math::isEqual(y, 0.0f); }
 
 		constexpr SVector2 operator +() const { return *this; }
 		constexpr SVector2 operator -() const { return{ -x, -y }; }
 		constexpr SVector2 operator +(const SVector2& other) const { return{ x + other.x, y + other.y }; }
+		constexpr SVector2 operator +(const float s) const { return{ x + s, y + s }; }
 		constexpr SVector2 operator -(const SVector2& other) const { return{ x - other.x, y - other.y }; }
+		constexpr SVector2 operator -(const float s) const { return{ x - s, y - s }; }
 		constexpr SVector2 operator *(float s) const { return{ x * s, y * s }; }
 		constexpr SVector2 operator /(float s) const { return{ x / s, y / s }; }
 
@@ -100,20 +107,21 @@ namespace my_vec
 		//! @return 交点．交点がない場合は(0, 0)を返す．
 		constexpr SVector2 getIntersection(const SLine2& other) const
 		{
-			const auto v1 = end - start;
-			const auto v2 = other.end - other.start;
-			const auto v3 = other.start - start;
-			const auto d = v1.cross(v2);
+			const SVector2 v1 = end - start;
+			const SVector2 v2 = other.end - other.start;
+			const float d = v1.cross(v2);
 
 			if (my_math::isEqual(d, 0.0f) == true)
 			{
 				return SVector2(0,0);	//平行
 			}
 
-			const auto t1 = v2.cross(v3) / d;
-			const auto t2 = v1.cross(v3) / d;
+			const SVector2 v3 = other.start - start;
+
+			const float t1 = v2.cross(v3) / d;
+			const float t2 = v1.cross(v3) / d;
 			
-			if (t1 < 0.0f + my_math::ALLOWABLE_ERROR || t1 > 1.0f - my_math::ALLOWABLE_ERROR || t2 < 0.0f + my_math::ALLOWABLE_ERROR || t2 > 1.0f - my_math::ALLOWABLE_ERROR)
+			if (t1 < 0.0f - my_math::ALLOWABLE_ERROR || t1 > 1.0f + my_math::ALLOWABLE_ERROR || t2 < 0.0f - my_math::ALLOWABLE_ERROR || t2 > 1.0f + my_math::ALLOWABLE_ERROR)
 			{
 				return SVector2(0, 0);	//交点は線分の外
 			}

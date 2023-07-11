@@ -3,20 +3,35 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="SVectorFuncTest.cpp">
-      <Filter>SVector</Filter>
+      <Filter>my_vec</Filter>
     </ClCompile>
     <ClCompile Include="SVectorTest.cpp">
-      <Filter>SVector</Filter>
+      <Filter>my_vec</Filter>
     </ClCompile>
     <ClCompile Include="LegStateTest.cpp" />
     <ClCompile Include="MyMathTest.cpp" />
+    <ClCompile Include="SLineTest.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
+    <ClCompile Include="SVector2ArithmeticOperatorTest.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
+    <ClCompile Include="SVector2UnaryOperatorTest.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
+    <ClCompile Include="SVector2Func.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="SVector">
+    <Filter Include="my_vec">
       <UniqueIdentifier>{6af5b4c4-b496-4759-b698-38b3cd0491f0}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
