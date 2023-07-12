@@ -8,7 +8,6 @@
     <ClCompile Include="SVectorTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateTest.cpp" />
     <ClCompile Include="MyMathTest.cpp" />
     <ClCompile Include="SLineFuncTest.cpp">
       <Filter>my_vec</Filter>
@@ -25,7 +24,18 @@
     <ClCompile Include="SVector2FuncTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateIsGroundTest.cpp" />
+    <ClCompile Include="LegStateTest.cpp">
+      <Filter>LegState</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateIsGroundTest.cpp">
+      <Filter>LegState</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateMakeLegStateTest.cpp">
+      <Filter>LegState</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateGetGroundNum.cpp">
+      <Filter>LegState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -36,6 +46,9 @@
     </Filter>
     <Filter Include="com_type">
       <UniqueIdentifier>{0e31f8b6-bec5-4077-954b-5edc5a75edbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LegState">
+      <UniqueIdentifier>{5f19d473-30be-42a0-873c-27689b00bfff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
