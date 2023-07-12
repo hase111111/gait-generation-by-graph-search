@@ -9,14 +9,14 @@
 #include "NodeValidityChecker.h"
 #include "NodeEdit.h"
 
-SystemMain::SystemMain(std::unique_ptr<IGraphSearch> &&_graph_search)
+SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
 	HexapodStateCalclator::initLegR();
 
 	//マップを生成する．
-	m_Map.init(EMapCreateMode::Mesh, MapCreator::OPTION_ROUGH, true);
+	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_NONE, true);
 
 	//仲介人にマップを渡す．
 	m_Broker.setMapState(m_Map);
@@ -28,19 +28,19 @@ SystemMain::SystemMain(std::unique_ptr<IGraphSearch> &&_graph_search)
 	m_Graphic.init(&m_Broker);
 
 	//この探索での目標を設定する．
-	m_target.TargetDirection = my_vec::SVector(0, 1, 0);				//目標方向x,y,z(直進移動)
-	m_target.TargetPosition = my_vec::SVector(0, 10000, 0);				//目標位置
-	m_target.TargetRotation = my_vec::SVector(0, 0, 1);					//目標旋回方向P,R,Y(現在Y方向しか考えていない値は1が左回転、-1が右回転)
+	m_target.TargetDirection = my_vec::SVector(0, 1, 0);						//目標方向x,y,z(直進移動)
+	m_target.TargetPosition = my_vec::SVector(0, 10000, 0);						//目標位置
+	m_target.TargetRotation = my_vec::SVector(0, 0, 1);							//目標旋回方向P,R,Y(現在Y方向しか考えていない値は1が左回転、-1が右回転)
 	m_target.TargetAngle = my_vec::SVector(0, 0, my_math::MY_FLT_PI / 2.0f);	//目標旋回角度(胴体の角度)
-	m_target.RotationCenter = my_vec::SVector(-10000, 0, 0);				//回転中心x,y,z
-	m_target.TargetMode = ETargetMode::TURN_DIRECTION;					// ETargetModeの中から目標の評価方法を設定する．
+	m_target.RotationCenter = my_vec::SVector(-10000, 0, 0);					//回転中心x,y,z
+	m_target.TargetMode = ETargetMode::TURN_DIRECTION;							// ETargetModeの中から目標の評価方法を設定する．
 	m_target.TurningRadius = abs(m_target.RotationCenter.x);
-	m_target.TurningRadius = m_target.RotationCenter.length();	//旋回半径 これだと、原点と旋回中心との距離,いや更新してないから現状では一応よさげ、y軸上を直進させるなら、ｘの距離つまり、旋回中心とy軸との距離
+	m_target.TurningRadius = m_target.RotationCenter.length();					//旋回半径 これだと、原点と旋回中心との距離,いや更新してないから現状では一応よさげ、y軸上を直進させるなら、ｘの距離つまり、旋回中心とy軸との距離
 }
 
 void SystemMain::main()
 {
-	if (!m_GraphSearch) 
+	if (!m_GraphSearch)
 	{
 		//グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
 		std::cout << "GraphSearch is not set." << std::endl;
@@ -78,7 +78,7 @@ void SystemMain::main()
 			_timer.stop();		//タイマーストップ．
 
 
-			if (_is_sucess == false) 
+			if (_is_sucess == false)
 			{
 				//次の歩容が生成できなかったら，ループを一つ抜け，次のシミュレーションへ進む．
 				_cmd.outputErrorMessageInGraphSearch("Failed to generate the next gait.");
@@ -105,5 +105,6 @@ void SystemMain::main()
 	}
 
 	//画像表示ウィンドウの終了を待つ．
+	std::cout << "Waiting for dxlib to finish." << std::endl;
 	_thread_graphic.join();
 }

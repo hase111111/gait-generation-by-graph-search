@@ -3,6 +3,7 @@
 #include "Node.h"
 #include <vector>
 #include "MyPolygon.h"
+#include "ComType.h"
 
 class ComMoveNodeCreator final
 {
@@ -15,6 +16,8 @@ public:
 	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
 
 private:
+
+	SNode makeNextNode(const SNode& _current_node, const int _current_num, const my_vec::SVector _next_com_pos, const ComType::EComPattern _com_pattern);
 
 	const MapState* mp_Map;
 

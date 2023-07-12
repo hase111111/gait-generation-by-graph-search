@@ -37,6 +37,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LegStateIsGroundTest.cpp" />
     <ClCompile Include="LegStateTest.cpp" />
     <ClCompile Include="MyMathTest.cpp" />
     <ClCompile Include="pch.cpp">

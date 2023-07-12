@@ -15,7 +15,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	std::cout << std::endl;
 	if (_num < 0) { std::cout << "Node parameter is ..." << std::endl; }
 	else if (_num == 0) { std::cout << "First node parameter is ..." << std::endl; }
-	else  { std::cout << "[Node Number " << _num << " ] Node parameter is ..." << std::endl; }
+	else { std::cout << "[Node Number " << _num << " ] Node parameter is ..." << std::endl; }
 
 
 	//dSƒpƒ^[ƒ“
@@ -24,7 +24,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 
 	//‹r‚Ì—V‹rEÚ’nó‘Ô
 	std::cout << "\tLegs(0,1,2,3,4,5)" << std::endl;
-	std::cout << "\tLeg is Grounded : ";
+	std::cout << "\tGround : ";
 	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << (isGrounded(_node.leg_state, i) ? "ground " : "lifted "); }
 	std::cout << std::endl;
 
@@ -34,7 +34,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	std::cout << std::endl;
 
 	//‹rˆÊ’u
-	std::cout << "\tLeg Postion : " << std::endl;
+	std::cout << "\tLeg Position : " << std::endl;
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		std::cout << "\t\tLeg[" << i << "] = " << _node.leg_pos[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
@@ -46,10 +46,11 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 
 	//‰ñ“]Žp¨
 	std::cout << "\tRotate : roll = " << _node.rot.roll << ", pitch = " << _node.rot.pitch << ", yaw = " << _node.rot.yaw << std::endl;
-	
+
 	//ŽŸ“®ì
-	std::cout << "\tNext Move : " << node_edit::getTextHexapodMove(_node.next_move) << std::endl;
-	std::cout << "\t(Depth : " << _node.depth << ")" << std::endl;
+	std::cout << std::endl;
+	std::cout << "\t(Next Move : " << node_edit::getTextHexapodMove(_node.next_move) << ")" << std::endl;
+	std::cout << "\t(Depth : " << static_cast<int>(_node.depth) << ")" << std::endl;
 	std::cout << "\t(parent number : " << _node.parent_num << ")" << std::endl;
 
 

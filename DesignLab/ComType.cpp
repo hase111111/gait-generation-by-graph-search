@@ -2,6 +2,74 @@
 #include "LegState.h"
 #include <iostream>
 
+int ComType::convertComPatternToBit(const EComPattern _com_pattern)
+{
+	switch (_com_pattern)
+	{
+	case EComPattern::front:
+		return 0b0110;
+		break;
+	case EComPattern::left_front:
+		return 0b0001;
+		break;
+	case EComPattern::left_back:
+		return 0b0010;
+		break;
+	case EComPattern::back:
+		return 0b0011;
+		break;
+	case EComPattern::right_back:
+		return 0b0100;
+		break;
+	case EComPattern::right_front:
+		return 0b0101;
+		break;
+	case EComPattern::center_front:
+		return 0b1000;
+		break;
+	case EComPattern::center_back:
+		return 0b0111;
+		break;
+	default:
+		return 0;
+		break;
+	}
+}
+
+ComType::EComPattern ComType::convertBitToComPattern(const int _bit)
+{
+	switch (_bit)
+	{
+	case 0b0110:
+		return EComPattern::front;
+		break;
+	case 0b0001:
+		return EComPattern::left_front;
+		break;
+	case 0b0010:
+		return EComPattern::left_back;
+		break;
+	case 0b0011:
+		return EComPattern::back;
+		break;
+	case 0b0100:
+		return EComPattern::right_back;
+		break;
+	case 0b0101:
+		return EComPattern::right_front;
+		break;
+	case 0b1000:
+		return EComPattern::center_front;
+		break;
+	case 0b0111:
+		return EComPattern::center_back;
+		break;
+	default:
+		return EComPattern();
+		break;
+	}
+}
+
 bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
 {
 	//重心位置のパターンとvの関係　　v=18,19,20．．．　のときパターン1の重心位置は取れない．ここに書かれている番号の脚状態は取れない。
@@ -168,7 +236,7 @@ void ComType::getGroundLegFromComType(const int _com_type, bool _output_ground_l
 	{
 	case 0:
 		_output_ground_leg[0] = true; _output_ground_leg[1] = true; _output_ground_leg[2] = true;
-		_output_ground_leg[3] = true; _output_ground_leg[4] = true; _output_ground_leg[5] = true; 
+		_output_ground_leg[3] = true; _output_ground_leg[4] = true; _output_ground_leg[5] = true;
 		break;
 
 	case 1:
@@ -363,15 +431,15 @@ void ComType::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vect
 	_ban_list.push_back({ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 });	//パターン0 どの隣りあった足も上げることができない
 	_ban_list.push_back({ 18, 19,             23, 24, 25,             29, 30, 31,             35 });	//パターン6
 	_ban_list.push_back({ 18, 19, 20,             24, 25, 26,             30, 31, 32 });				//パターン1
-	_ban_list.push_back({     19, 20, 21,             25, 26, 27,             31, 32, 33 });			//パターン2
-	_ban_list.push_back({         20, 21, 22,             26, 27, 28,             32, 33, 34 });		//パターン3
-	_ban_list.push_back({             21, 22, 23,             27, 28, 29,             33, 34, 35 });	//パターン4
+	_ban_list.push_back({ 19, 20, 21,             25, 26, 27,             31, 32, 33 });			//パターン2
+	_ban_list.push_back({ 20, 21, 22,             26, 27, 28,             32, 33, 34 });		//パターン3
+	_ban_list.push_back({ 21, 22, 23,             27, 28, 29,             33, 34, 35 });	//パターン4
 	_ban_list.push_back({ 18,             22, 23, 24,             28, 29, 30,             34, 35 });	//パターン5
 	_ban_list.push_back({ 18,     20,     22,     24,     26,     28,     30,     32,     34, });		//パターン7
-	_ban_list.push_back({     19,     21,     23,     25,     27,     29,     31,     33,     35 });	//パターン8
+	_ban_list.push_back({ 19,     21,     23,     25,     27,     29,     31,     33,     35 });	//パターン8
 
 	//com patternから使用不可能なcom typeを取得して出力する．
-	for (const auto &i : _ban_list.at(_com_pattern))
+	for (const auto& i : _ban_list.at(_com_pattern))
 	{
 		_output.push_back(i);
 	}
@@ -382,7 +450,7 @@ void ComType::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_t
 	std::vector<int> _cannot_use_type;
 	getDonotUseComTypeFromComPattern(_com_pattern, _cannot_use_type);
 
-	for (const auto &i :_cannot_use_type)
+	for (const auto& i : _cannot_use_type)
 	{
 		_com_type_able_array[i] = false;
 	}
@@ -409,7 +477,7 @@ void ComType::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg,
 	//とることのできないcom typeを全てfalseに変更する．
 	for (int i = 0; i < ARRAY_NUM; i++)
 	{
-		_com_type_able_array[ _ban_list[_not_groundble_leg][i] ] = false;
+		_com_type_able_array[_ban_list[_not_groundble_leg][i]] = false;
 	}
 
 }

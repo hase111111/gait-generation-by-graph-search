@@ -15,7 +15,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& _node, std::vec
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			_leg_pos_xy[j] = _node.leg_pos[(i + 0) % HexapodConst::LEG_NUM].projectedXY();	//‹rˆÊ’u‚ðXY•½–Ê‚ÉŽË‰e‚·‚é
+			_leg_pos_xy[j] = _node.leg_pos[(j + i) % HexapodConst::LEG_NUM].projectedXY();	//‹rˆÊ’u‚ðXY•½–Ê‚ÉŽË‰e‚·‚é
 		}
 
 		//‹rˆÊ’u‚ðü‚ÅŒ‹‚ÔD‚±‚ÌŒð“_‚©‚çdSŒó•â’n“_‚ª‘¶Ý‚·‚é‘½ŠpŒ`‚ð‹‚ß‚é
@@ -58,7 +58,5 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& _node, std::vec
 			_poly.addVertex(_intersection_03_14);
 			_output_poly.push_back(_poly);
 		}
-
 	}
-
 }
