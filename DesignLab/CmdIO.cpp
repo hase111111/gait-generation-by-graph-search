@@ -3,7 +3,7 @@
 #include "LegState.h"
 #include "NodeEdit.h"
 
-using namespace leg_state;
+using namespace LegStateEdit;
 
 void CmdIO::outputString(const std::string _str)
 {
@@ -19,7 +19,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 
 
 	//dSƒpƒ^[ƒ“
-	std::cout << "\tCOM_type = " << leg_state::getComPatternState(_node.leg_state) << std::endl;
+	std::cout << "\tCOM_type = " << LegStateEdit::getComPatternState(_node.leg_state) << std::endl;
 	std::cout << std::endl;
 
 	//‹r‚Ì—V‹rEÚ’nó‘Ô
@@ -30,7 +30,7 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 
 	//‹r‚ÌŠK‘w
 	std::cout << "\tHierarchy : ";
-	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << leg_state::getLegState(_node.leg_state, i); }
+	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << LegStateEdit::getLegState(_node.leg_state, i); }
 	std::cout << std::endl;
 
 	//‹rˆÊ’u

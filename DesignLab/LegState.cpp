@@ -1,13 +1,11 @@
 #include "LegState.h"
 
-int leg_state::makeLegState(const int _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])
+int LegStateEdit::makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])
 {
 	int res = 0;
 
-	if (0 <= _com_pattern && _com_pattern < ComType::COM_PATTERN_NUM)
-	{
-		res |= _com_pattern << SHIFT_TO_COM_NUM;	//重心パターンの数値だけbitを立てる
-	}
+	res |= ComType::convertComPatternToBit(_com_pattern) << SHIFT_TO_COM_NUM;	//重心パターンの数値だけbitを立てる
+
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -28,7 +26,7 @@ int leg_state::makeLegState(const int _com_pattern, const bool _ground[HexapodCo
 	return res;
 }
 
-bool leg_state::isGrounded(const int _leg_state, const int _leg_num)
+bool LegStateEdit::isGrounded(const int _leg_state, const int _leg_num)
 {
 	//_leg_numは0～5の範囲にある必要があるので，範囲外ならばfalseを出力する
 	if (isAbleLegNum(_leg_num) == false)
@@ -47,7 +45,7 @@ bool leg_state::isGrounded(const int _leg_state, const int _leg_num)
 	}
 }
 
-int leg_state::getGroundedLegNum(const int _leg_state)
+int LegStateEdit::getGroundedLegNum(const int _leg_state)
 {
 	int _res = 0;
 
@@ -64,12 +62,12 @@ int leg_state::getGroundedLegNum(const int _leg_state)
 	return _res;
 }
 
-int leg_state::getLiftedLegNum(const int _leg_state)
+int LegStateEdit::getLiftedLegNum(const int _leg_state)
 {
 	return HexapodConst::LEG_NUM - getGroundedLegNum(_leg_state);
 }
 
-void leg_state::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
+void LegStateEdit::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -82,7 +80,7 @@ void leg_state::getGroundedLegNumWithVector(const int _leg_state, std::vector<in
 	}
 }
 
-void leg_state::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
+void LegStateEdit::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -95,20 +93,20 @@ void leg_state::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>
 	}
 }
 
-int leg_state::getLegState(const int _leg_state, const int _leg_num)
+int LegStateEdit::getLegState(const int _leg_state, const int _leg_num)
 {
 	const int _shift_num = 4 * _leg_num;	//4bitずつずらす
 
 	return ((_leg_state & (LEG_POS_MASKBIT << _shift_num)) >> _shift_num);
 }
 
-int leg_state::getComPatternState(const int _leg_state)
+int LegStateEdit::getComPatternState(const int _leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	return ((_leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM);
 }
 
-bool leg_state::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
+bool LegStateEdit::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
 {
 	//_leg_num か _new_state がおかしいならば falseを返す
 	if (isAbleLegNum(_leg_num) == false || isAbleLegState(_new_state) == false)
@@ -127,7 +125,7 @@ bool leg_state::changeLegState(int& _leg_state, const int _leg_num, const int _n
 	return true;
 }
 
-bool leg_state::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
+bool LegStateEdit::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
 {
 	//_leg_num か _new_state がおかしいならば falseを返す
 	if (isAbleLegNum(_leg_num) == false || isAbleLegState(_new_state) == false)
@@ -146,7 +144,7 @@ bool leg_state::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, co
 	return true;
 }
 
-void leg_state::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
+void LegStateEdit::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
 {
 	//_leg_num がおかしいならば，終了．
 	if (isAbleLegNum(_leg_num) == false) { return; }

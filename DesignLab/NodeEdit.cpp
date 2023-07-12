@@ -11,26 +11,26 @@ void node_edit::initNode(SNode& _node, const bool _do_random)
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		// 脚の状態は全て，脚位置 4 で接地している状態 ( つまり bitで 1100 ) に初期化する．
-		leg_state::changeLegState(_node.leg_state, i, 0b1100);
+		LegStateEdit::changeLegState(_node.leg_state, i, 0b1100);
 	}
 
 	//脚付け根を原点とした，脚先の位置を初期化する．
 	const float COM_Z = HexapodConst::VERTICAL_MIN_RANGE + MapConst::MAX_Z_BASE;	// ロボットの重心のZ座標
 
-	_node.leg_pos[0] = my_vec::SVector(100.0f,	-120.0f,	-COM_Z);
-	_node.leg_pos[1] = my_vec::SVector(0.0f,		-130.0f,	-COM_Z);
-	_node.leg_pos[2] = my_vec::SVector(-100.0f,	-120.0f,	-COM_Z);
-	_node.leg_pos[3] = my_vec::SVector(-100.0f,	120.0f,		-COM_Z);
-	_node.leg_pos[4] = my_vec::SVector(0.0f,		130.0f,		-COM_Z);
-	_node.leg_pos[5] = my_vec::SVector(100.0f,	120.0f,		-COM_Z);
+	_node.leg_pos[0] = my_vec::SVector(100.0f, -120.0f, -COM_Z);
+	_node.leg_pos[1] = my_vec::SVector(0.0f, -130.0f, -COM_Z);
+	_node.leg_pos[2] = my_vec::SVector(-100.0f, -120.0f, -COM_Z);
+	_node.leg_pos[3] = my_vec::SVector(-100.0f, 120.0f, -COM_Z);
+	_node.leg_pos[4] = my_vec::SVector(0.0f, 130.0f, -COM_Z);
+	_node.leg_pos[5] = my_vec::SVector(100.0f, 120.0f, -COM_Z);
 
 	//脚付け根を原点とした，脚位置4に該当する座標を初期化する．
-	_node.Leg2[0] = my_vec::SVector(100.0f,	-120.0f,	-COM_Z);
-	_node.Leg2[1] = my_vec::SVector(0.0f,		-130.0f,	-COM_Z);
-	_node.Leg2[2] = my_vec::SVector(-100.0f,	-120.0f,	-COM_Z);
-	_node.Leg2[3] = my_vec::SVector(-100.0f,	120.0f,		-COM_Z);
-	_node.Leg2[4] = my_vec::SVector(0.0f,		130.0f,		-COM_Z);
-	_node.Leg2[5] = my_vec::SVector(100.0f,	120.0f,		-COM_Z);
+	_node.Leg2[0] = my_vec::SVector(100.0f, -120.0f, -COM_Z);
+	_node.Leg2[1] = my_vec::SVector(0.0f, -130.0f, -COM_Z);
+	_node.Leg2[2] = my_vec::SVector(-100.0f, -120.0f, -COM_Z);
+	_node.Leg2[3] = my_vec::SVector(-100.0f, 120.0f, -COM_Z);
+	_node.Leg2[4] = my_vec::SVector(0.0f, 130.0f, -COM_Z);
+	_node.Leg2[5] = my_vec::SVector(100.0f, 120.0f, -COM_Z);
 
 	//グローバル座標の重心位置．グローバル座標(0,0,0)を中心とした，下の変数 _x，_yを半径とする楕円形のなかに重心を移動する．
 	const float _angle = _do_random ? my_math::generateRandomNumber(0.0f, 2.0f * my_math::MY_FLT_PI) : 0;

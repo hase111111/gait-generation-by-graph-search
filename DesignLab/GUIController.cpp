@@ -18,21 +18,21 @@ GUIController::GUIController()
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 5 / 4, _camera_buttomx, _camera_buttomy, "俯瞰(反転)"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 10 / 4, _camera_buttomx, _camera_buttomy, "真横(反転)"));
 
-	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 6 / 4, _camera_y + _camera_buttomy * 20 / 4, _camera_buttomx*2, _camera_buttomy, "ノード表示切り替え"));
+	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 6 / 4, _camera_y + _camera_buttomy * 20 / 4, _camera_buttomx * 2, _camera_buttomy, "ノード表示切り替え"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 3 / 4, _camera_y + _camera_buttomy * 25 / 4, _camera_buttomx, _camera_buttomy, "←"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + _camera_buttomx * 9 / 4, _camera_y + _camera_buttomy * 25 / 4, _camera_buttomx, _camera_buttomy, "→"));
 }
 
 void GUIController::update(CameraController& _camera, const int _max_node, int& _display_node, const int _counter)
 {
-	if (m_mode == ENodeDisplayNode::AutoUpdate) 
+	if (m_mode == ENodeDisplayNode::AutoUpdate)
 	{
 		if (_counter % CHANGE_NEXT_NODE == 0)
 		{
 			_display_node++;
 		}
 	}
-	else if (m_mode == ENodeDisplayNode::AlwaysNew) 
+	else if (m_mode == ENodeDisplayNode::AlwaysNew)
 	{
 		_display_node = _max_node - 1;
 	}
@@ -41,7 +41,7 @@ void GUIController::update(CameraController& _camera, const int _max_node, int& 
 	//表示切替キーが押されたならば，表示切り返えフラグの値をさかさまにする．
 	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1) { m_is_displayed = !m_is_displayed; }
 
-	if (m_is_displayed == true) 
+	if (m_is_displayed == true)
 	{
 		//表示していない時にボタンの処理を行わない
 
@@ -74,7 +74,7 @@ void GUIController::update(CameraController& _camera, const int _max_node, int& 
 				break;
 
 			case 5:
-				if (m_buttom.at(i)->isPushedNow() == true) 
+				if (m_buttom.at(i)->isPushedNow() == true)
 				{
 					if (m_mode == ENodeDisplayNode::Selectable)m_mode = ENodeDisplayNode::AlwaysNew;
 					else if (m_mode == ENodeDisplayNode::AlwaysNew)m_mode = ENodeDisplayNode::AutoUpdate;
@@ -181,32 +181,32 @@ void GUIController::drawNodeByStr(const SNode _node) const
 		std::string temp_str = "";
 		auto _ground_or_lift = [](int _state, int _num) -> std::string
 		{
-			if (leg_state::isGrounded(_state, _num) == true) { return "接地"; }
+			if (LegStateEdit::isGrounded(_state, _num) == true) { return "接地"; }
 			else { return "遊脚"; }
 		};
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, "脚５　　　　　　脚０");
 		temp_str = "　" + _ground_or_lift(_node.leg_state, 5) + "　　　　　　" + _ground_or_lift(_node.leg_state, 0);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 5)) + " 離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 0));
+		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 5)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 0));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, "脚４　　　　　　脚１");
 		temp_str = "　" + _ground_or_lift(_node.leg_state, 4) + "　　　　　　" + _ground_or_lift(_node.leg_state, 1);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 4)) + " 離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 1));
+		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 4)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 1));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, "脚３　　　　　　脚２");
 		temp_str = "　" + _ground_or_lift(_node.leg_state, 3) + "　　　　　　" + _ground_or_lift(_node.leg_state, 2);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 3)) + " 離散化位置：" + std::to_string(leg_state::getLegState(_node.leg_state, 2));
+		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 3)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(_node.leg_state, 2));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, temp_str.c_str());
 	}
 
 	//重心について
 	{
-		std::string str = "重心パターン" + std::to_string(leg_state::getComPatternState(_node.leg_state));
+		std::string str = "重心パターン" + std::to_string(LegStateEdit::getComPatternState(_node.leg_state));
 
 		line();	//改行
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, str.c_str());

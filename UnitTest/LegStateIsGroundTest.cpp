@@ -2,7 +2,7 @@
 #include "../DesignLab/LegState.h"
 #include "../DesignLab/LegState.cpp"
 
-using namespace leg_state;
+using namespace LegStateEdit;
 
 namespace LegStateTest
 {

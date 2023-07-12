@@ -4,18 +4,18 @@
 
 LogFileIO::LogFileIO()
 {
-    //開くファイルの名前をセットする
-    m_file_name = LOG_NAME + std::to_string(m_log_num) + LOG_EXTENSION;
+	//開くファイルの名前をセットする
+	m_file_name = LOG_NAME + std::to_string(m_log_num) + LOG_EXTENSION;
 
-    //もとのプロクラムにあった描写，必要性がわからん
-    m_log_num++;
+	//もとのプロクラムにあった描写，必要性がわからん
+	m_log_num++;
 }
 
 bool LogFileIO::openLogFile()
 {
 	m_all_log.open(m_file_name);
 
-	if (!m_all_log) 
+	if (!m_all_log)
 	{
 		//ファイル作成に失敗するとここを実行する
 		return false;
@@ -25,7 +25,7 @@ bool LogFileIO::openLogFile()
 	m_all_log << "number, v,,,,,,kaisou,,,,,, COMTYPE, center_of_mass, thP, thR, thY, leg[0],,, leg_pos[1],,, leg[2],,, leg[3],,, leg[4],,, leg[5],,, leg2[0],,, Leg2[1],,, leg2[2],,, leg2[3],,, leg2[4],,, leg2[5],,, global_center_of_mass,,, debug, kaisoubit,,,,,last_node_num,time" << std::endl;
 	m_all_log << ", leg0, leg1, leg2, leg3, leg4, leg5, leg0, leg1, leg2, leg3, leg4, leg5, , , , , , x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z," << std::endl;
 
-    return true;
+	return true;
 }
 
 void LogFileIO::closeLogFile()
@@ -42,32 +42,32 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 {
 	m_all_log << num << ",";
 
-	for (int j = 0; j < 6; ++j) 
+	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << leg_state::isGrounded(node_log.leg_state, j) << ",";
+		m_all_log << LegStateEdit::isGrounded(node_log.leg_state, j) << ",";
 	}
-	for (int j = 0; j < 6; ++j) 
+	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << leg_state::getLegState(node_log.leg_state, j) << ",";
+		m_all_log << LegStateEdit::getLegState(node_log.leg_state, j) << ",";
 	}
 
-	m_all_log << leg_state::getComPatternState(node_log.leg_state) << "," << node_log.pitch << "," << node_log.roll << "," << node_log.yaw << ",";
+	m_all_log << LegStateEdit::getComPatternState(node_log.leg_state) << "," << node_log.pitch << "," << node_log.roll << "," << node_log.yaw << ",";
 
-	for (int j = 0; j < 6; ++j) 
+	for (int j = 0; j < 6; ++j)
 	{
 		m_all_log << node_log.leg_pos[j].x << "," << node_log.leg_pos[j].y << "," << node_log.leg_pos[j].z << ",";
 	}
 
-	for (int j = 0; j < 6; ++j) 
+	for (int j = 0; j < 6; ++j)
 	{
 		m_all_log << node_log.Leg2[j].x << "," << node_log.Leg2[j].y << "," << node_log.Leg2[j].z << ",";
 	}
 
 	m_all_log << node_log.global_center_of_mass.x << "," << node_log.global_center_of_mass.y << "," << node_log.global_center_of_mass.z << "," << node_log.debug << ",";
 
-	for (int j = 0; j < 6; ++j) 
+	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << std::bitset<4>(leg_state::getLegState(node_log.leg_state, j)) << ",";
+		m_all_log << std::bitset<4>(LegStateEdit::getLegState(node_log.leg_state, j)) << ",";
 	}
 
 	m_all_log << node_log.last_node_num << ",";

@@ -3,7 +3,7 @@
 #include "HexapodConst.h"
 #include "ComType.h"
 
-namespace leg_state
+namespace LegStateEdit
 {
 	constexpr int DISCRETE_NUM = 7;					//!< 脚状態の離散化数．LegState.hの通り7通り．
 
@@ -20,11 +20,11 @@ namespace leg_state
 
 
 	//! @brief 脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．
-	//! @param [in] _com_pattern どの重心パターンか．0 ～ 9 の整数の範囲．詳しくはComType.hに記述．範囲外ならば自動的に 0 になる．
+	//! @param [in] _com_pattern どの重心パターンか．詳しくはComType.hに記述．
 	//! @param [in] _ground 脚が接地しているかを表すbool型の配列．接地しているならばtrue．遊脚しているならばfalse
 	//! @param [in] _leg_pos 離散化した脚位置を表す変数． 1 ～ 7 の範囲で与える．範囲外ならば自動的に 4 になる．
 	//! @return int 作成した脚状態を返す．
-	int makeLegState(const int _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM]);
+	int makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM]);
 
 	//! @brief 脚番号_leg_num 0 ～ 5 に応じて，その脚が接地しているかを調べる．<br>脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．
 	//! @param [in] _leg_state 現在の脚状態

@@ -134,7 +134,7 @@ char ComType::getComTypeFromLegState(const int _leg_state)
 	for (int i = HexapodConst::LEG_NUM - 1; i >= 0; i -= 1)
 	{
 		//Ú’n‚µ‚Ä‚¢‚é‚È‚ç‚Î
-		if (leg_state::isGrounded(_leg_state, i) == true)
+		if (LegStateEdit::isGrounded(_leg_state, i) == true)
 		{
 			// i”Ô–Ú‚Ìbit‚ğ—§‚Ä‚é
 			_compare_bit |= (1 << i);

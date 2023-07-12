@@ -6,7 +6,7 @@
 void LegHierarchyNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
 	//Œ»İCÚ’n‚µ‚Ä‚¢‚é‹r‚Ì–{”‚ğ”‚¦‚é
-	const int _touch_ground_leg_num = leg_state::getGroundedLegNum(_current_node.leg_state);
+	const int _touch_ground_leg_num = LegStateEdit::getGroundedLegNum(_current_node.leg_state);
 
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚Ì–{”‚É‚æ‚Á‚Äˆ—‚ğ‚·‚é
 	if (_touch_ground_leg_num == HexapodConst::LEG_NUM - 1)
@@ -40,14 +40,14 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& _current_node, const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í1‚È‚Ì‚Å1‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> _lifted_leg;
-	leg_state::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
+	LegStateEdit::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
-	for (int i = 1; i <= leg_state::DISCRETE_NUM; i++)
+	for (int i = 1; i <= LegStateEdit::DISCRETE_NUM; i++)
 	{
 		SNode _new_node = _current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-		leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
+		LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
 
 		node_edit::changeNextNode(_new_node, _current_num, m_next_move);		//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 
@@ -59,17 +59,17 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& _current_node, const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í2‚È‚Ì‚Å2‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> _lifted_leg;
-	leg_state::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
+	LegStateEdit::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
-	for (int i = 1; i <= leg_state::DISCRETE_NUM; i++)
+	for (int i = 1; i <= LegStateEdit::DISCRETE_NUM; i++)
 	{
-		for (int j = 1; j <= leg_state::DISCRETE_NUM; j++)
+		for (int j = 1; j <= LegStateEdit::DISCRETE_NUM; j++)
 		{
 			SNode _new_node = _current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-			leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);			//‹ró‘Ô‚ğ•ÏX‚·‚éD
-			leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
+			LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);			//‹ró‘Ô‚ğ•ÏX‚·‚éD
+			LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
 
 			node_edit::changeNextNode(_new_node, _current_num, m_next_move);	//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 
@@ -82,20 +82,20 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& _current_node, const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í3‚È‚Ì‚Å3‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> _lifted_leg;
-	leg_state::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
+	LegStateEdit::getLiftedLegNumWithVector(_current_node.leg_state, _lifted_leg);
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
-	for (int i = 1; i <= leg_state::DISCRETE_NUM; i++)
+	for (int i = 1; i <= LegStateEdit::DISCRETE_NUM; i++)
 	{
-		for (int j = 1; j <= leg_state::DISCRETE_NUM; j++)
+		for (int j = 1; j <= LegStateEdit::DISCRETE_NUM; j++)
 		{
-			for (int k = 1; k <= leg_state::DISCRETE_NUM; k++)
+			for (int k = 1; k <= LegStateEdit::DISCRETE_NUM; k++)
 			{
 				SNode _new_node = _current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-				leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
-				leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
-				leg_state::changeLegState(_new_node.leg_state, _lifted_leg.at(2), k);
+				LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
+				LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
+				LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(2), k);
 
 				node_edit::changeNextNode(_new_node, _current_num, m_next_move);		//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 

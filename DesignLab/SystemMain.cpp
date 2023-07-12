@@ -59,7 +59,7 @@ void SystemMain::main()
 	{
 		SNode _current_node;									//現在のノードの状態を格納する変数．
 		const bool _do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
-		node_edit::initNode(_current_node, _do_random_init);	//ノードの位置を初期化する．
+		_current_node.init(_do_random_init);
 
 		if (Define::FLAG_GRAPHIC_AVAILABLE == true) { m_Broker.pushNode(_current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
 

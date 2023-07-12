@@ -13,13 +13,13 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	bool _is_able_type[ComType::COM_TYPE_NUM];
 
-	for (int i = 0; i < ComType::COM_TYPE_NUM; i++) 
+	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
-		_is_able_type[i] = true; 
+		_is_able_type[i] = true;
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	int _com_pattern = leg_state::getComPatternState(_current_node.leg_state);
+	int _com_pattern = LegStateEdit::getComPatternState(_current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
 	ComType::checkAbleComTypeFromComPattern(_com_pattern, _is_able_type);
@@ -35,23 +35,23 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (leg_state::isGrounded(_current_node.leg_state, i) == true) 
+		if (LegStateEdit::isGrounded(_current_node.leg_state, i) == true)
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
-			_is_groundable[i] = true; 
+			_is_groundable[i] = true;
 			_ground_pos[i] = _current_node.leg_pos[i];
 		}
-		else 
+		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
 			my_vec::SVector _res_ground_pos;
 
-			if (isGroundableLeg(i, _current_node, _res_ground_pos) == true) 
+			if (isGroundableLeg(i, _current_node, _res_ground_pos) == true)
 			{
 				_is_groundable[i] = true;	//接地可能にする．
 				_ground_pos[i] = _res_ground_pos;
 			}
-			else 
+			else
 			{
 				_is_groundable[i] = false;	//接地不可能にする．
 				ComType::checkAbleComTypeFromNotGroundableLeg(i, _is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
@@ -64,7 +64,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
 		//その重心タイプが可能であれば，
-		if (_is_able_type[i] == true) 
+		if (_is_able_type[i] == true)
 		{
 			SNode _res_node = _current_node;
 			node_edit::changeNextNode(_res_node, _current_num, getNextMove(_current_node.next_move));
@@ -75,7 +75,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
 			{
-				leg_state::changeGround(_res_node.leg_state, l, _temp_ground[l]);
+				LegStateEdit::changeGround(_res_node.leg_state, l, _temp_ground[l]);
 
 				_res_node.leg_pos[l] = _ground_pos[l];
 
@@ -113,14 +113,14 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	_min_x_dev = (_min_x_dev < 0) ? 0 : _min_x_dev;
 	_max_y_dev = (_max_y_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_y_dev;
 	_min_y_dev = (_min_y_dev < 0) ? 0 : _min_y_dev;
-	 
+
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
 	std::vector<my_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
 	const my_vec::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
 	const my_vec::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
-	const int _leg_state = leg_state::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
+	const int _leg_state = LegStateEdit::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
 
 	//範囲内の点を全て調べる．
 	for (int x = _min_x_dev; x < _max_x_dev; x++)
@@ -137,13 +137,13 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 				float _len = (_coxa_pos - _pos).length();	//付け根から脚設置可能点までの長さを取得する．
 
 				//最小より近い，または，最大より遠いならば，追加せずに続行．continueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html ちなみに読みづらくなるので本当は使わないほうがいいです．
-				if (_len < m_Calc.getMinLegR(_coxa_pos.z - _pos.z) || m_Calc.getMaxLegR(_coxa_pos.z - _pos.z) < _len) 
+				if (_len < m_Calc.getMinLegR(_coxa_pos.z - _pos.z) || m_Calc.getMaxLegR(_coxa_pos.z - _pos.z) < _len)
 				{
 					continue;
 				}
 
 				//候補座標として，適していないならば追加せずに続行．
-				if (isAbleLegPos(_leg_pos, _pos, _coxa_pos, _leg_state) == false) 
+				if (isAbleLegPos(_leg_pos, _pos, _coxa_pos, _leg_state) == false)
 				{
 					continue;
 				}
@@ -235,7 +235,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 
 		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
 		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-		
+
 		//離散化した脚位置 4 より下にあるか確かめる．
 		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
 		{
@@ -250,10 +250,10 @@ bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_v
 
 	case 6:
 		//　前，中
-		
+
 		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
 		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-		
+
 		//離散化した脚位置 4 と同じ高さにあるか確かめる．
 		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
 		{

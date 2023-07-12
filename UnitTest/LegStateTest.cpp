@@ -2,7 +2,7 @@
 #include "../DesignLab/LegState.h"
 #include "../DesignLab/LegState.cpp"
 
-using namespace leg_state;
+using namespace LegStateEdit;
 
 TEST(LegStateTest, makeLegStateTest)
 {
@@ -21,9 +21,9 @@ TEST(LegStateTest, makeLegStateTest)
 
 
 	//dSƒpƒ^[ƒ“‚Ì’l‚ğ³‚µ‚­”½‰f‚Å‚«‚é‚©
-	EXPECT_EQ(makeLegState(-2, _ground, _leg_pos),							 0b00000000110011001100110011001100);
-	EXPECT_EQ(makeLegState(-1, _ground, _leg_pos),							 0b00000000110011001100110011001100);
-	EXPECT_EQ(makeLegState(ComType::COM_PATTERN_NUM, _ground, _leg_pos),	 0b00000000110011001100110011001100);
+	EXPECT_EQ(makeLegState(-2, _ground, _leg_pos), 0b00000000110011001100110011001100);
+	EXPECT_EQ(makeLegState(-1, _ground, _leg_pos), 0b00000000110011001100110011001100);
+	EXPECT_EQ(makeLegState(ComType::COM_PATTERN_NUM, _ground, _leg_pos), 0b00000000110011001100110011001100);
 	EXPECT_EQ(makeLegState(ComType::COM_PATTERN_NUM + 1, _ground, _leg_pos), 0b00000000110011001100110011001100);	//”ÍˆÍŠO
 
 	EXPECT_EQ(makeLegState(0, _ground, _leg_pos), 0b00000000110011001100110011001100);
@@ -68,7 +68,7 @@ TEST(LegStateTest, isGroundedTest)
 
 	//‹r 0 ‚Æ‹r 3 C‹r 5 ‚ªÚ’n
 	//							    —]‚èdS‹r‚T‹r‚S‹r‚R‹r‚Q‹r‚P‹r‚O
-	const int sample_leg_state	= 0b11110000100001101001001000001000;
+	const int sample_leg_state = 0b11110000100001101001001000001000;
 	EXPECT_FALSE(isGrounded(sample_leg_state, -1));
 	EXPECT_TRUE(isGrounded(sample_leg_state, 0));
 	EXPECT_FALSE(isGrounded(sample_leg_state, 1));
@@ -79,7 +79,7 @@ TEST(LegStateTest, isGroundedTest)
 	EXPECT_FALSE(isGrounded(sample_leg_state, 6));
 }
 
-TEST(LegStateTest, getGroundedLegNumTest) 
+TEST(LegStateTest, getGroundedLegNumTest)
 {
 
 }

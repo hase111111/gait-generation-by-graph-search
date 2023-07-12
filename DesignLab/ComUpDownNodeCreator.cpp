@@ -50,11 +50,11 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	{
 		for (int y = _devide_y_min; y < _devide_y_max; y++)
 		{
-			if (_is_init_map_highest == true) 
+			if (_is_init_map_highest == true)
 			{
 				_map_highest_z = std::max(_map_highest_z, mp_Map->getTopZFromDevideMap(x, y));
 			}
-			else 
+			else
 			{
 				_map_highest_z = mp_Map->getTopZFromDevideMap(x, y);
 				_is_init_map_highest = true;
@@ -65,14 +65,14 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 	//ロボットの重心の最も低く下げることのできるz座標と，高くあげることができるz座標を求める．どちらもグローバル座標．
 	float _highest_body_zpos = _map_highest_z + HexapodConst::VERTICAL_MAX_RANGE;
-	float _lowest_body_zpos  = _map_highest_z + HexapodConst::VERTICAL_MIN_RANGE;
+	float _lowest_body_zpos = _map_highest_z + HexapodConst::VERTICAL_MIN_RANGE;
 
 
 	// 最も高い地点を修正する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地している脚についてのみ考える．
-		if (leg_state::isGrounded(_current_node.leg_state, i) == true)
+		if (LegStateEdit::isGrounded(_current_node.leg_state, i) == true)
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float _c = HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH - MARGIN;
@@ -118,7 +118,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
 			{
 				//遊脚は胴体と一緒に移動するから，変更しなくて大丈夫．
-				if (leg_state::isGrounded(_new_node.leg_state, l) == true)
+				if (LegStateEdit::isGrounded(_new_node.leg_state, l) == true)
 				{
 					_new_node.leg_pos[l].z -= _dif;
 				}

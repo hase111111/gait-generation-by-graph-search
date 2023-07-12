@@ -24,7 +24,7 @@ bool HexapodRenderer::isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const m
 }
 
 HexapodRenderer::HexapodRenderer() :
-	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)), 
+	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
 	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16)
 {
 }
@@ -38,7 +38,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 {
 	//旧verのhexapodGraphicの記述にしたがって描画する．
 	using namespace myDxlib3DFunc;
-	using namespace leg_state;
+	using namespace LegStateEdit;
 
 	if (DO_OUTPUT_DEBUG_LOG) { clsDx(); }	// printfDx()の出力をきれいにする．
 
@@ -47,7 +47,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//_vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		_vertex[i] = convertToDxVec( m_HexaCalc.getGlobalCoxaJointPos(_node, i) );
+		_vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i));
 	}
 
 	drawHexagonalPrism(_vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
@@ -55,31 +55,31 @@ void HexapodRenderer::draw(const SNode& _node) const
 	//脚を描画する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR _leg_end = convertToDxVec( m_HexaCalc.getGlobalLegPos(_node, i) );
-		const VECTOR _coxa = convertToDxVec( m_HexaCalc.getGlobalCoxaJointPos(_node, i) );
-		const VECTOR _femur = convertToDxVec( m_HexaCalc.getGlobalFemurJointPos(_node, i) );
-		const VECTOR _tibia = convertToDxVec( m_HexaCalc.getGlobalTibiaJointPos(_node, i) );
+		const VECTOR _leg_end = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i));
+		const VECTOR _coxa = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i));
+		const VECTOR _femur = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
+		const VECTOR _tibia = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
 
 		//脚の色を遊脚・接地で変更する．
 		const unsigned int _color = isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
 		const unsigned int _joint_color = isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
 		//各脚の描画
-		DrawCapsule3D(_coxa,	_femur, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//coxa
-		DrawCapsule3D(_femur,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//femur
-		DrawCone3D(_leg_end,	_tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//tibia 
+		DrawCapsule3D(_coxa, _femur, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//coxa
+		DrawCapsule3D(_femur, _tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//femur
+		DrawCone3D(_leg_end, _tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//tibia 
 
 		//間接の描画
-		DrawSphere3D(_coxa,	 JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
+		DrawSphere3D(_coxa, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, COLOR_LIFTED_JOINT, TRUE);
 
-		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false) 
+		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false)
 		{
 			DrawString((int)ConvWorldPosToScreenPos(_coxa).x, (int)ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
 		}
 
-		if (isAbleFemurLeg( m_HexaCalc.getGlobalFemurJointPos(_node, i), m_HexaCalc.getGlobalTibiaJointPos(_node, i)) == false)
+		if (isAbleFemurLeg(m_HexaCalc.getGlobalFemurJointPos(_node, i), m_HexaCalc.getGlobalTibiaJointPos(_node, i)) == false)
 		{
 			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
 		}
@@ -89,11 +89,11 @@ void HexapodRenderer::draw(const SNode& _node) const
 			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
 		}
 
-		if (DO_OUTPUT_DEBUG_LOG) 
+		if (DO_OUTPUT_DEBUG_LOG)
 		{
-			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z))); 
+			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z)));
 			printfDx("%.3f\n", _node.leg_pos[i].length());
 		}
-		
+
 	}
 }
