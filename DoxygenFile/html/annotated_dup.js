@@ -2,9 +2,11 @@ var annotated_dup =
 [
     [ "my_vec", "namespacemy__vec.html", [
       [ "SLegVector", "structmy__vec_1_1_s_leg_vector.html", null ],
+      [ "SLine2", "structmy__vec_1_1_s_line2.html", "structmy__vec_1_1_s_line2" ],
+      [ "SPolygon2", "structmy__vec_1_1_s_polygon2.html", "structmy__vec_1_1_s_polygon2" ],
       [ "SRotator", "structmy__vec_1_1_s_rotator.html", null ],
       [ "SVector", "structmy__vec_1_1_s_vector.html", "structmy__vec_1_1_s_vector" ],
-      [ "SVector2", "structmy__vec_1_1_s_vector2.html", null ]
+      [ "SVector2", "structmy__vec_1_1_s_vector2.html", "structmy__vec_1_1_s_vector2" ]
     ] ],
     [ "S_NE", null, [
       [ "POINT", "struct_s___n_e_1_1_p_o_i_n_t.html", null ],
@@ -229,7 +231,9 @@ var annotated_dup =
     [ "ButtomController", "class_buttom_controller.html", null ],
     [ "CameraController", "class_camera_controller.html", "class_camera_controller" ],
     [ "CmdIO", "class_cmd_i_o.html", null ],
-    [ "ComMoveNodeCreator", "class_com_move_node_creator.html", null ],
+    [ "ComCandidatePolygonMaker", "class_com_candidate_polygon_maker.html", "class_com_candidate_polygon_maker" ],
+    [ "ComMoveNodeCreator", "class_com_move_node_creator.html", "class_com_move_node_creator" ],
+    [ "ComSelecter", "class_com_selecter.html", "class_com_selecter" ],
     [ "ComUpDownNodeCreator", "class_com_up_down_node_creator.html", null ],
     [ "CreateComCandidate", "class_create_com_candidate.html", null ],
     [ "Define", "class_define.html", null ],
@@ -242,9 +246,9 @@ var annotated_dup =
     [ "GraphicMainSample", "class_graphic_main_sample.html", "class_graphic_main_sample" ],
     [ "GraphicMainTest", "class_graphic_main_test.html", "class_graphic_main_test" ],
     [ "GraphicSystem", "class_graphic_system.html", "class_graphic_system" ],
-    [ "GraphSearch", "class_graph_search.html", "class_graph_search" ],
     [ "GraphSearcherRandom", "class_graph_searcher_random.html", null ],
     [ "GraphSearcherSample", "class_graph_searcher_sample.html", null ],
+    [ "GraphSearchHato", "class_graph_search_hato.html", "class_graph_search_hato" ],
     [ "GraphSearchInitializer", "class_graph_search_initializer.html", null ],
     [ "GraphTreeCreatorHato", "class_graph_tree_creator_hato.html", "class_graph_tree_creator_hato" ],
     [ "GraphTreeCreatorSample", "class_graph_tree_creator_sample.html", "class_graph_tree_creator_sample" ],
@@ -253,8 +257,9 @@ var annotated_dup =
     [ "HexapodConst", "class_hexapod_const.html", null ],
     [ "HexapodGraphic", "class_hexapod_graphic.html", null ],
     [ "HexapodRenderer", "class_hexapod_renderer.html", "class_hexapod_renderer" ],
-    [ "HexapodStateCalclator", "class_hexapod_state_calclator.html", null ],
+    [ "HexapodStateCalclator", "class_hexapod_state_calclator.html", "class_hexapod_state_calclator" ],
     [ "IGraphicMain", "class_i_graphic_main.html", "class_i_graphic_main" ],
+    [ "IGraphSearch", "class_i_graph_search.html", "class_i_graph_search" ],
     [ "IGraphSearcher", "class_i_graph_searcher.html", null ],
     [ "IGraphTreeCreator", "class_i_graph_tree_creator.html", "class_i_graph_tree_creator" ],
     [ "Keyboard", "class_keyboard.html", "class_keyboard" ],

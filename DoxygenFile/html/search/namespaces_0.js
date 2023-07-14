@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leg_5fstate_0',['leg_state',['../namespaceleg__state.html',1,'']]]
+  ['comtype_0',['ComType',['../namespace_com_type.html',1,'']]]
 ];

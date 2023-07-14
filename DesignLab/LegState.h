@@ -74,6 +74,12 @@ namespace LegStateEdit
 	//脚の接地・遊脚情報を変更する．第1引数の_leg_stateを参照渡しして変更する
 	void changeGround(int& _leg_state, const int _leg_num, const bool _ground);
 
+	//! @brief 重心のデータを変更する．
+	//! @param [in] _leg_state 現在の脚状態
+	//! @param [in] _new_com_pattern 新しい重心パターン
+	//! @return bool 変更に成功したらtrue
+	void changeComPattern(int& _leg_state, const ComType::EComPattern _new_com_pattern);
+
 	//! @brief 脚を表す番号は，右前脚を 0 として， 0 ～ 5 の範囲．その範囲外ならばfalseを返す．
 	//! @param [in] _num 脚の本数
 	//! @return bool 0 ～ 5 の範囲内ならばtrue

@@ -282,6 +282,9 @@
     <ClInclude Include="ComCandidatePolygonMaker.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
+    <ClInclude Include="ComSelecter.h">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -456,6 +459,12 @@
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="MyLine.cpp">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClCompile>
+    <ClCompile Include="ComSelecter.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClCompile>
+    <ClCompile Include="MyPolygon.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
   </ItemGroup>

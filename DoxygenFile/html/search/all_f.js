@@ -15,5 +15,6 @@ var searchData=
   ['phantomxcommander_12',['phantomxCommander',['../classphantomx_commander.html',1,'']]],
   ['point_13',['POINT',['../struct_s___n_e_1_1_p_o_i_n_t.html',1,'S_NE']]],
   ['printtostringparamname_14',['PrintToStringParamName',['../structtesting_1_1_print_to_string_param_name.html',1,'testing']]],
-  ['pushnode_15',['pushNode',['../class_graphic_data_broker.html#a92e8c4f74acde9172c4db4b8fd813cd6',1,'GraphicDataBroker']]]
+  ['projectedxy_15',['projectedXY',['../structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7',1,'my_vec::SVector']]],
+  ['pushnode_16',['pushNode',['../class_graphic_data_broker.html#a92e8c4f74acde9172c4db4b8fd813cd6',1,'GraphicDataBroker']]]
 ];

@@ -9,9 +9,9 @@
 
 
 void GraphicSystem::init(const GraphicDataBroker* _p_broker)
-{	
+{
 	//ブローカーがnull(存在しない)なら終了
-	if (_p_broker == nullptr) { return ; }
+	if (_p_broker == nullptr) { return; }
 
 	//ブローカーを受け取る．
 	mp_Broker = _p_broker;
@@ -20,35 +20,35 @@ void GraphicSystem::init(const GraphicDataBroker* _p_broker)
 void GraphicSystem::main()
 {
 	//そもそも描画処理を使わないならば即終了
-	if (Define::FLAG_GRAPHIC_AVAILABLE == false) 
+	if (Define::FLAG_GRAPHIC_AVAILABLE == false)
 	{
 		std::cout << "画像表示を行わない設定になっているため，画像表示を終了します．Defineクラスの変数：FLAG_GRAPHIC_AVAILABLEで変更できます．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
-		return; 
+		return;
 	}
 
 	//ブローカーがnull(存在しない)なら終了
-	if (mp_Broker == nullptr) 
+	if (mp_Broker == nullptr)
 	{
 		std::cout << "GraphicDataBrokerクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
-		return; 
+		return;
 	}
 
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
-	if (dxlibInit() == false) 
-	{ 
+	if (dxlibInit() == false)
+	{
 		std::cout << "DxLib_Init関数に失敗したため，画像表示を終了します．2重起動している可能性があります" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
-		return; 
+		return;
 	}
-	
+
 	//描画の処理を行うクラスをセットする．実行する描画の内容を変更したいならば，このようにIGraphicMainを継承した他のクラスを<>に入れてください．
 	GraphicLoop _Looper(std::make_unique<GraphicMainBasic>(mp_Broker));
-	
+
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
 	while (!ProcessMessage())
 	{
 		//falseが帰った場合，ループを抜ける．
-		if (_Looper.loop() == false) 
+		if (_Looper.loop() == false)
 		{
 			break;
 		}

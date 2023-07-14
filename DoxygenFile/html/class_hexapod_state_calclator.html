@@ -126,6 +126,18 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxLegR</b> (cons
 <tr class="memitem:a7b0b290ffb41628fe175c7d94e34d5e9"><td class="memItemLeft" align="right" valign="top"><a id="a7b0b290ffb41628fe175c7d94e34d5e9" name="a7b0b290ffb41628fe175c7d94e34d5e9"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getMinLegR</b> (const float _coxa_z_to_leg_z) const</td></tr>
 <tr class="separator:a7b0b290ffb41628fe175c7d94e34d5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7626cfcaab44e79148c5f5b4acd30f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f">isLegInterfering</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
+<tr class="memdesc:a4b7626cfcaab44e79148c5f5b4acd30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の干渉をチェックする．  <br /></td></tr>
+<tr class="separator:a4b7626cfcaab44e79148c5f5b4acd30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b81247eee6784742703a394716739d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d">isLegInRange</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num) const</td></tr>
+<tr class="memdesc:a44b81247eee6784742703a394716739d"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
+<tr class="separator:a44b81247eee6784742703a394716739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9">isAllLegInRange</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
+<tr class="memdesc:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
+<tr class="separator:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e34910a6da418efdc1e1632672f15e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">isAblePause</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
+<tr class="memdesc:a5e34910a6da418efdc1e1632672f15e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">転ばない姿勢かどうか調べる．  <br /></td></tr>
+<tr class="separator:a5e34910a6da418efdc1e1632672f15e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -133,6 +145,236 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getMinLegR</b> (cons
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> ()</td></tr>
 <tr class="separator:af58abdadfcfd9e7b3bd33b7f43966e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5e34910a6da418efdc1e1632672f15e7" name="a5e34910a6da418efdc1e1632672f15e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e34910a6da418efdc1e1632672f15e7">&#9670;&#160;</a></span>isAblePause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HexapodStateCalclator::isAblePause </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>転ばない姿勢かどうか調べる． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>転ばない姿勢ならtrueを返す． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_cgraph" id="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_cgraph">
+<area shape="rect" title="転ばない姿勢かどうか調べる．" alt="" coords="5,23,160,65"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="223,5,390,32"/>
+<area shape="poly" title=" " alt="" coords="160,33,207,27,208,32,160,38"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,56,405,83"/>
+<area shape="poly" title=" " alt="" coords="160,50,193,54,192,59,160,55"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph" id="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph">
+<area shape="rect" title="転ばない姿勢かどうか調べる．" alt="" coords="478,5,632,48"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,13,430,40"/>
+<area shape="poly" title=" " alt="" coords="463,29,430,29,430,24,463,24"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af82fbd4d79a2f6e2204a79878ca84dc9" name="af82fbd4d79a2f6e2204a79878ca84dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af82fbd4d79a2f6e2204a79878ca84dc9">&#9670;&#160;</a></span>isAllLegInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HexapodStateCalclator::isAllLegInRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>可動範囲内ならtrueを返す． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph" id="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph">
+<area shape="rect" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,56,160,99"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="208,56,362,99"/>
+<area shape="poly" title=" " alt="" coords="160,75,193,75,193,80,160,80"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="425,5,592,32"/>
+<area shape="poly" title=" " alt="" coords="361,54,409,41,438,34,440,39,411,47,363,59"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="424,56,594,99"/>
+<area shape="poly" title=" " alt="" coords="362,75,409,75,409,80,362,80"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="410,123,607,149"/>
+<area shape="poly" title=" " alt="" coords="363,95,411,108,440,116,438,121,409,113,361,100"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="655,64,809,91"/>
+<area shape="poly" title=" " alt="" coords="594,75,640,75,640,80,594,80"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph" id="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph">
+<area shape="rect" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="478,5,632,48"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,13,430,40"/>
+<area shape="poly" title=" " alt="" coords="463,29,430,29,430,24,463,24"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a44b81247eee6784742703a394716739d" name="a44b81247eee6784742703a394716739d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b81247eee6784742703a394716739d">&#9670;&#160;</a></span>isLegInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HexapodStateCalclator::isLegInRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_leg_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
+    <tr><td class="paramname">_leg_num</td><td>脚番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>可動範囲内ならtrueを返す． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a44b81247eee6784742703a394716739d_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_cgraph" id="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_cgraph">
+<area shape="rect" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,56,160,99"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="223,5,390,32"/>
+<area shape="poly" title=" " alt="" coords="159,54,207,41,236,34,237,39,208,47,160,59"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="221,56,392,99"/>
+<area shape="poly" title=" " alt="" coords="160,75,207,75,207,80,160,80"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,123,405,149"/>
+<area shape="poly" title=" " alt="" coords="160,95,208,108,237,116,236,121,207,113,159,100"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="453,64,606,91"/>
+<area shape="poly" title=" " alt="" coords="392,75,438,75,438,80,392,80"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph" id="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph">
+<area shape="rect" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="680,5,835,48"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="478,5,632,48"/>
+<area shape="poly" title=" " alt="" coords="666,29,632,29,632,24,666,24"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,13,430,40"/>
+<area shape="poly" title=" " alt="" coords="463,29,430,29,430,24,463,24"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b7626cfcaab44e79148c5f5b4acd30f" name="a4b7626cfcaab44e79148c5f5b4acd30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7626cfcaab44e79148c5f5b4acd30f">&#9670;&#160;</a></span>isLegInterfering()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HexapodStateCalclator::isLegInterfering </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚の干渉をチェックする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>干渉している場合はtrueを返す． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_cgraph" id="aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_cgraph">
+<area shape="rect" title="脚の干渉をチェックする．" alt="" coords="5,23,160,65"/>
+<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="208,5,417,32"/>
+<area shape="poly" title=" " alt="" coords="160,33,192,29,193,35,160,38"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="214,56,411,83"/>
+<area shape="poly" title=" " alt="" coords="160,50,199,54,199,59,160,55"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="465,5,632,32"/>
+<area shape="poly" title=" " alt="" coords="418,16,450,16,450,21,418,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_icgraph" id="aclass_hexapod_state_calclator_a4b7626cfcaab44e79148c5f5b4acd30f_icgraph">
+<area shape="rect" title="脚の干渉をチェックする．" alt="" coords="478,5,632,48"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,13,430,40"/>
+<area shape="poly" title=" " alt="" coords="463,29,430,29,430,24,463,24"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_hexapod_state_calculator_8h_source.html">HexapodStateCalculator.h</a></li>
 <li>DesignLab/HexapodStateCalculator.cpp</li>

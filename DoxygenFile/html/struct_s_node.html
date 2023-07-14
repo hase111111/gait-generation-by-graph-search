@@ -115,9 +115,29 @@ SNode 連携図</div>
 <tr class="memitem:ac918f397020ebdacaa8b333e4b07e8ea"><td class="memItemLeft" align="right" valign="top"><a id="ac918f397020ebdacaa8b333e4b07e8ea" name="ac918f397020ebdacaa8b333e4b07e8ea"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SNode</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
 <tr class="separator:ac918f397020ebdacaa8b333e4b07e8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46138292e7866a7a80a854e923d1626b"><td class="memItemLeft" align="right" valign="top"><a id="a46138292e7866a7a80a854e923d1626b" name="a46138292e7866a7a80a854e923d1626b"></a>
-<a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
-<tr class="separator:a46138292e7866a7a80a854e923d1626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6ba9791340a497e87e9c3f131fd147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#aef6ba9791340a497e87e9c3f131fd147">init</a> (const bool _random)</td></tr>
+<tr class="memdesc:aef6ba9791340a497e87e9c3f131fd147"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化関数  <br /></td></tr>
+<tr class="separator:aef6ba9791340a497e87e9c3f131fd147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f90c6637f104befbeba45eb2c2f14f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a9f90c6637f104befbeba45eb2c2f14f3">changeGlobalCenterOfMass</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;_new_com)</td></tr>
+<tr class="memdesc:a9f90c6637f104befbeba45eb2c2f14f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心位置を変更する関数．  <br /></td></tr>
+<tr class="separator:a9f90c6637f104befbeba45eb2c2f14f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753735f1b4c1cfd5526f38cd426c7e73"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73">changeParentNode</a> ()</td></tr>
+<tr class="memdesc:a753735f1b4c1cfd5526f38cd426c7e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">自身を親ノードに変更する関数．  <br /></td></tr>
+<tr class="separator:a753735f1b4c1cfd5526f38cd426c7e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159d1bc69cbe150d48b5578433fb5fa3"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a159d1bc69cbe150d48b5578433fb5fa3">changeNextNode</a> (const int _parent_num, const EHexapodMove _next_move)</td></tr>
+<tr class="memdesc:a159d1bc69cbe150d48b5578433fb5fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">次の動作を設定する関数．  <br /></td></tr>
+<tr class="separator:a159d1bc69cbe150d48b5578433fb5fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98edfd52e3b5fe659114e4d3ea568b23"><td class="memItemLeft" align="right" valign="top"><a id="a98edfd52e3b5fe659114e4d3ea568b23" name="a98edfd52e3b5fe659114e4d3ea568b23"></a>
+constexpr <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
+<tr class="memdesc:a98edfd52e3b5fe659114e4d3ea568b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">代入演算子 <br /></td></tr>
+<tr class="separator:a98edfd52e3b5fe659114e4d3ea568b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5734b5d807a0ab81d992d1b8d7907003"><td class="memItemLeft" align="right" valign="top"><a id="a5734b5d807a0ab81d992d1b8d7907003" name="a5734b5d807a0ab81d992d1b8d7907003"></a>
+constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
+<tr class="memdesc:a5734b5d807a0ab81d992d1b8d7907003"><td class="mdescLeft">&#160;</td><td class="mdescRight">比較演算子 <br /></td></tr>
+<tr class="separator:a5734b5d807a0ab81d992d1b8d7907003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcff98a83cabba478ce301d81c63eb13"><td class="memItemLeft" align="right" valign="top"><a id="abcff98a83cabba478ce301d81c63eb13" name="abcff98a83cabba478ce301d81c63eb13"></a>
+constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
+<tr class="separator:abcff98a83cabba478ce301d81c63eb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
@@ -184,6 +204,168 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>delta_comz</b></td><
 float&#160;</td><td class="memItemRight" valign="bottom"><b>target_delta_comz</b></td></tr>
 <tr class="separator:a7dc0e2943009616d63f1578d6234a736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a9f90c6637f104befbeba45eb2c2f14f3" name="a9f90c6637f104befbeba45eb2c2f14f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f90c6637f104befbeba45eb2c2f14f3">&#9670;&#160;</a></span>changeGlobalCenterOfMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SNode::changeGlobalCenterOfMass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>_new_com</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>重心位置を変更する関数． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_new_com</td><td>新しい重心位置</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>脚位置は脚の付け根からの相対座標で表現されている． <br  />
+ 遊脚している脚は一緒に移動するが，接地脚は移動しないため座標を変更してやる必要がある． </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_s_node_a9f90c6637f104befbeba45eb2c2f14f3_icgraph.png" border="0" usemap="#astruct_s_node_a9f90c6637f104befbeba45eb2c2f14f3_icgraph" alt=""/></div>
+<map name="astruct_s_node_a9f90c6637f104befbeba45eb2c2f14f3_icgraph" id="astruct_s_node_a9f90c6637f104befbeba45eb2c2f14f3_icgraph">
+<area shape="rect" title="重心位置を変更する関数．" alt="" coords="478,5,663,48"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="463,29,156,29,156,24,463,24"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,39,430,65"/>
+<area shape="poly" title=" " alt="" coords="463,40,431,43,430,38,463,35"/>
+<area shape="poly" title=" " alt="" coords="188,41,156,37,157,32,189,36"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a159d1bc69cbe150d48b5578433fb5fa3" name="a159d1bc69cbe150d48b5578433fb5fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159d1bc69cbe150d48b5578433fb5fa3">&#9670;&#160;</a></span>changeNextNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void SNode::changeNextNode </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_parent_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EHexapodMove&#160;</td>
+          <td class="paramname"><em>_next_move</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>次の動作を設定する関数． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_parent_num</td><td>親ノードの番号 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_next_move</td><td>次の動作</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>深さを一つ深くして，親と次の動作を設定する． </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph.png" border="0" usemap="#astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph" alt=""/></div>
+<map name="astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph" id="astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph">
+<area shape="rect" title="次の動作を設定する関数．" alt="" coords="204,13,371,40"/>
+<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a753735f1b4c1cfd5526f38cd426c7e73" name="a753735f1b4c1cfd5526f38cd426c7e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a753735f1b4c1cfd5526f38cd426c7e73">&#9670;&#160;</a></span>changeParentNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void SNode::changeParentNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>自身を親ノードに変更する関数． </p>
+<p>depthを0に，parent_numを-1に初期化する． </p>
+
+</div>
+</div>
+<a id="aef6ba9791340a497e87e9c3f131fd147" name="aef6ba9791340a497e87e9c3f131fd147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6ba9791340a497e87e9c3f131fd147">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SNode::init </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>_random</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初期化関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_random</td><td>初期位置をランダムにするかどうか </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph.png" border="0" usemap="#astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph" alt=""/></div>
+<map name="astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph" id="astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph">
+<area shape="rect" title="初期化関数" alt="" coords="184,5,269,32"/>
+<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
+<area shape="poly" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_node_8h_source.html">Node.h</a></li>
 <li>DesignLab/Node.cpp</li>

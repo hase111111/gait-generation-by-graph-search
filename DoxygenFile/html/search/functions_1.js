@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['distancefrom_0',['distanceFrom',['../structmy__vec_1_1_s_vector.html#a618281b63ff3149e27d44a9120f289b0',1,'my_vec::SVector']]],
-  ['dot_1',['dot',['../structmy__vec_1_1_s_vector.html#af7f5d4d8bc05979719ccb33a26ee3e41',1,'my_vec::SVector']]],
-  ['draw_2',['draw',['../class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd',1,'GraphicMainBasic::draw()'],['../class_graphic_main_sample.html#a6a21a7479e2055aa7f6e14e102bf9ef0',1,'GraphicMainSample::draw()'],['../class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5',1,'GraphicMainTest::draw()'],['../class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503',1,'HexapodRenderer::draw()'],['../class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166',1,'IGraphicMain::draw()']]],
-  ['drawcube3d_3',['drawCube3D',['../namespacemy_dxlib3_d_func.html#aceb2c05bbccc6ab1e30e0c8f250fde4d',1,'myDxlib3DFunc']]],
-  ['drawcube3dwithtoppos_4',['drawCube3DWithTopPos',['../namespacemy_dxlib3_d_func.html#a90d39c1e130a2a6ba1d39da07105c62c',1,'myDxlib3DFunc']]],
-  ['drawhexagon_5',['drawHexagon',['../namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae',1,'myDxlib3DFunc']]],
-  ['drawhexagonalprism_6',['drawHexagonalPrism',['../namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60',1,'myDxlib3DFunc']]]
+  ['changecompattern_0',['changeComPattern',['../_leg_state_8h.html#a4dc3b8d8d957f1baa53f440a7afc02b5',1,'LegStateEdit']]],
+  ['changeglobalcenterofmass_1',['changeGlobalCenterOfMass',['../struct_s_node.html#a9f90c6637f104befbeba45eb2c2f14f3',1,'SNode']]],
+  ['changenextnode_2',['changeNextNode',['../struct_s_node.html#a159d1bc69cbe150d48b5578433fb5fa3',1,'SNode']]],
+  ['changeparentnode_3',['changeParentNode',['../struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73',1,'SNode']]],
+  ['convertbittocompattern_4',['convertBitToComPattern',['../namespace_com_type.html#aebec406cea03001cb1749cc04ae99304',1,'ComType']]],
+  ['convertcompatterntobit_5',['convertComPatternToBit',['../namespace_com_type.html#a0cdc2584ee0d9a82c3cb4582d3033d7d',1,'ComType']]],
+  ['converttodxvec_6',['convertToDxVec',['../namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f',1,'myDxlib3DFunc']]],
+  ['copyallnode_7',['copyAllNode',['../class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258',1,'GraphicDataBroker']]],
+  ['copyonlynewnode_8',['copyOnlyNewNode',['../class_graphic_data_broker.html#ac076bd5b7fa1bbd157b19a915efdbed9',1,'GraphicDataBroker']]],
+  ['create_9',['create',['../class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311',1,'ComMoveNodeCreator::create()'],['../class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc',1,'MapCreator::create()']]],
+  ['creategraphtree_10',['createGraphTree',['../class_graph_tree_creator_hato.html#a6b9924e816e8bd0b6eea8cec61d0972e',1,'GraphTreeCreatorHato::createGraphTree()'],['../class_graph_tree_creator_sample.html#ac835ec6f06a9890e0b994a2e0c40683e',1,'GraphTreeCreatorSample::createGraphTree()'],['../class_i_graph_tree_creator.html#a5bc5780eb04ee92c821b270c057c239d',1,'IGraphTreeCreator::createGraphTree()']]],
+  ['cross_11',['cross',['../structmy__vec_1_1_s_vector.html#a49ef43db15962e9b965d0289d46e3302',1,'my_vec::SVector::cross()'],['../structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2',1,'my_vec::SVector2::cross()']]]
 ];

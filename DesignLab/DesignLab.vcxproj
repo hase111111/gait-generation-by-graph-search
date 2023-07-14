@@ -22,6 +22,7 @@
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ComCandidatePolygonMaker.h" />
     <ClInclude Include="ComMoveNodeCreator.h" />
+    <ClInclude Include="ComSelecter.h" />
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainTest.h" />
     <ClInclude Include="GraphSearchHato.h" />
@@ -89,6 +90,7 @@
     <ClCompile Include="ButtonController.cpp" />
     <ClCompile Include="ComCandidatePolygonMaker.cpp" />
     <ClCompile Include="ComMoveNodeCreator.cpp" />
+    <ClCompile Include="ComSelecter.cpp" />
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
     <ClCompile Include="GraphSearchHato.cpp" />
@@ -123,6 +125,7 @@
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />
     <ClCompile Include="MyLine.cpp" />
+    <ClCompile Include="MyPolygon.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapConst.cpp" />

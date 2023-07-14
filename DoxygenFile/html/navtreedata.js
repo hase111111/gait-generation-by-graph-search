@@ -38,12 +38,26 @@ var NAVTREE =
       ] ],
       [ "Header <tt>gtest-printers.h</tt>", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_84_2buil317b5ca0ed2c3277dc5518289442b974.html#autotoc_md9", null ]
     ] ],
+    [ "Customization Points", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html", [
+      [ "Header <tt>gtest.h</tt>", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md11", [
+        [ "The following macros can be defined:", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md12", null ]
+      ] ],
+      [ "Header <tt>gtest-port.h</tt>", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md13", [
+        [ "Flag related macros:", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md14", null ],
+        [ "Logging:", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md15", null ],
+        [ "Threading:", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md16", null ],
+        [ "Underlying library support features", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md17", null ],
+        [ "Exporting API symbols:", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md18", null ]
+      ] ],
+      [ "Header <tt>gtest-printers.h</tt>", "md_packages_2_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build32ff9ed2ab46485244cc9248e60fdb8.html#autotoc_md19", null ]
+    ] ],
     [ "名前空間", "namespaces.html", [
       [ "名前空間一覧", "namespaces.html", "namespaces_dup" ],
       [ "名前空間メンバ", "namespacemembers.html", [
         [ "全て", "namespacemembers.html", null ],
         [ "関数", "namespacemembers_func.html", null ],
-        [ "変数", "namespacemembers_vars.html", null ]
+        [ "変数", "namespacemembers_vars.html", null ],
+        [ "列挙型", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "クラス", "annotated.html", [
@@ -69,8 +83,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_b_f_sin_hierarchy_8h_source.html",
-"classtesting_1_1_scoped_trace.html",
-"structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_012_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html"
+"class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9",
+"namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

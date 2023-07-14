@@ -9,7 +9,7 @@ public:
 	HexapodStateCalclator();
 
 	//脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．また，ロボットの回転を考慮する．
-	my_vec::SVector getGlobalLegPos(const SNode& _node, const int _leg_num) const;	
+	my_vec::SVector getGlobalLegPos(const SNode& _node, const int _leg_num) const;
 
 	//第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
 	my_vec::SVector getLocalLegPos(const SNode& _node, my_vec::SVector _global_pos, const int _leg_num) const;
@@ -18,7 +18,7 @@ public:
 	my_vec::SVector getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const;
 
 	// coxa joint (脚の付け根 : 第1関節) の座標を返す．回転を考慮したグローバル座標.
-	my_vec::SVector getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const;	
+	my_vec::SVector getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const;
 
 	//ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．
 	void calclateJointPos(const SNode& _node);
@@ -37,6 +37,27 @@ public:
 
 	//【initLegR関数を使用してから使うこと!!】付け根から脚先までのZ座標の差を利用して，付け根から脚先までの最小半径を取得する．付け根の方が上にある前提で動きます．
 	float getMinLegR(const float _coxa_z_to_leg_z) const;
+
+	//! @brief 脚の干渉をチェックする．
+	//! @param _node ノード情報
+	//! @return 干渉している場合はtrueを返す．
+	bool isLegInterfering(const SNode& _node) const;
+
+	//! @brief 脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
+	//! @param _node ノード情報
+	//! @param _leg_num 脚番号
+	//! @return 可動範囲内ならtrueを返す．
+	bool isLegInRange(const SNode& _node, const int _leg_num) const;
+
+	//! @brief 全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
+	//! @param _node ノード情報
+	//! @return 可動範囲内ならtrueを返す．
+	bool isAllLegInRange(const SNode& _node) const;
+
+	//! @brief 転ばない姿勢かどうか調べる．
+	//! @param _node ノード情報
+	//! @return 転ばない姿勢ならtrueを返す．
+	bool isAblePause(const SNode& _node) const;
 
 private:
 	my_vec::SVector getLocalCoxaJointPos(const int _leg_num) const;	// coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．

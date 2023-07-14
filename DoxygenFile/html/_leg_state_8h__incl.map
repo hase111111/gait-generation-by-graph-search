@@ -1,7 +1,0 @@
-<map id="DesignLab/LegState.h" name="DesignLab/LegState.h">
-<area shape="rect" id="Node000001" title="このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの" alt="" coords="13,5,162,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,61,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,34,53,70,49,67,76,31"/>
-<area shape="rect" id="Node000003" href="$_hexapod_const_8h_source.html" title=" " alt="" coords="85,80,202,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,31,127,67,123,70,95,34"/>
-</map>

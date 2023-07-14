@@ -1,0 +1,25 @@
+<map id="ComSelecter::getComFromPolygon" name="ComSelecter::getComFromPolygon">
+<area shape="rect" id="Node000001" title="重心を求める" alt="" coords="5,109,232,136"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a9f90c6637f104befbeba45eb2c2f14f3" title="重心位置を変更する関数．" alt="" coords="280,5,465,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,106,279,58,296,51,298,56,281,62,156,111"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="541,131,695,173"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,127,526,144,526,149,232,132"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="295,193,450,236"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="159,134,299,185,297,190,157,139"/>
+<area shape="rect" id="Node000010" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="295,72,450,115"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="232,107,280,101,281,107,233,112"/>
+<area shape="rect" id="Node000004" href="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="785,92,953,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="695,135,779,119,780,125,696,140"/>
+<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="770,143,968,169"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="695,151,756,152,756,157,695,156"/>
+<area shape="rect" id="Node000007" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="541,197,695,240"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="450,213,526,215,526,220,450,219"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="694,197,721,183,735,170,744,156,753,142,769,128,780,122,783,127,772,133,757,146,748,159,739,173,724,188,696,202"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="695,197,798,171,799,176,696,202"/>
+<area shape="rect" id="Node000008" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="784,197,954,240"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="695,216,769,216,769,221,695,221"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="450,92,578,99,723,116,801,136,800,141,722,121,578,105,450,98"/>
+<area shape="rect" id="Node000011" href="$structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="513,29,722,56"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="449,75,535,57,536,62,450,80"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="675,54,799,85,798,90,674,59"/>
+</map>

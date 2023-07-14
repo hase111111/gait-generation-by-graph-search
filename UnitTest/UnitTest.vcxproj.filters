@@ -36,6 +36,9 @@
     <ClCompile Include="LegStateGetGroundNum.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
+    <ClCompile Include="SPolygonIsInsideTets.cpp">
+      <Filter>my_vec</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

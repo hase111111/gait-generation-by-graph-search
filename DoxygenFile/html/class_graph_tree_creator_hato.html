@@ -124,7 +124,7 @@ GraphTreeCreatorHato 連携図</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a6b9924e816e8bd0b6eea8cec61d0972e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_tree_creator_hato.html#a6b9924e816e8bd0b6eea8cec61d0972e">createGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph) override</td></tr>
-<tr class="memdesc:a6b9924e816e8bd0b6eea8cec61d0972e"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
+<tr class="memdesc:a6b9924e816e8bd0b6eea8cec61d0972e"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフを作成する  <br /></td></tr>
 <tr class="separator:a6b9924e816e8bd0b6eea8cec61d0972e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bc5780eb04ee92c821b270c057c239d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a5bc5780eb04ee92c821b270c057c239d">createGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)=0</td></tr>
 <tr class="memdesc:a5bc5780eb04ee92c821b270c057c239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
@@ -174,16 +174,20 @@ GraphTreeCreatorHato 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p>木グラフを作成するクラス．完成したグラフは参照渡しする． </p>
+<p>グラフを作成する </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_current_node</td><td>[in] 現在の状態を表すノード </td></tr>
-    <tr><td class="paramname">_p_map</td><td>[in] 現在のマップの状態 </td></tr>
-    <tr><td class="paramname">_output_graph</td><td>[out] 出力される木グラフ </td></tr>
+    <tr><td class="paramname">_current_node</td><td>現在のノード </td></tr>
+    <tr><td class="paramname">_p_map</td><td>マップの状態 </td></tr>
+    <tr><td class="paramname">_output_graph</td><td>作成したグラフを格納する </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>bool 生成に成功したならばtrue </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>グラフの作成に成功したかどうか</dd></dl>
+<p>この関数は，_current_nodeの子ノードを生成して，_output_graphに代入する．<br  />
+ _output_graphの値をリセットしてから代入する．<br  />
+ この関数は，_current_nodeの子ノードを生成するために，makeNewNodesByCurrentNode関数を呼び出す．<br  />
+ </p>
 
 <p><a class="el" href="class_i_graph_tree_creator.html#a5bc5780eb04ee92c821b270c057c239d">IGraphTreeCreator</a>を実装しています。</p>
 

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update_0',['update',['../class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af',1,'CameraController::update()'],['../class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43',1,'GraphicMainBasic::update()'],['../class_graphic_main_sample.html#a1a14421a8f47822935b752d11d824c1f',1,'GraphicMainSample::update()'],['../class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6',1,'GraphicMainTest::update()'],['../class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600',1,'HexapodRenderer::update()'],['../class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e',1,'IGraphicMain::update()'],['../class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab',1,'Keyboard::update()'],['../class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a',1,'Mouse::update()']]]
+  ['removelastvertex_0',['removeLastVertex',['../structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96',1,'my_vec::SPolygon2']]],
+  ['removevertex_1',['removeVertex',['../structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f',1,'my_vec::SPolygon2']]],
+  ['rotvector_2',['rotVector',['../namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35',1,'my_vec']]]
 ];

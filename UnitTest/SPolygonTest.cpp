@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../DesignLab/MyPolygon.h"
+#include "../DesignLab/MyPolygon.cpp"
 
 using namespace my_vec;
 
@@ -251,7 +252,7 @@ namespace SPolygon2Test
 	}
 
 	//isConvex関数のテスト
-	TEST(SPolygon2Func, IsConvex)
+	TEST(SPolygon2Func, IsConvex_TurnRight)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
 		SPolygon2 polygon;
@@ -264,10 +265,10 @@ namespace SPolygon2Test
 
 		//6角形を作成し，凸多角形かどうかを確認する
 		SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
+		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
+		polygon2.addVertex({ 0, 1.5f });
 		polygon2.addVertex({ -1, 1 });
 		polygon2.addVertex({ -1, 0 });
 
@@ -291,61 +292,45 @@ namespace SPolygon2Test
 		EXPECT_FALSE(polygon4.isConvex());
 	}
 
-	//isInside関数のテスト
-	TEST(SPolygon2Func, IsInside)
+	//isConvex関数のテスト(左回り)
+	TEST(SPolygon2Func, IsConvex_TurnLeft)
 	{
-		//4角形を作成し，内部にある点と外部にある点を確認する
+		//4角形を作成し，凸多角形かどうかを確認する
 		SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
-		polygon.addVertex({ 1, 0 });
-		polygon.addVertex({ 1, 1 });
 		polygon.addVertex({ 0, 1 });
+		polygon.addVertex({ 1, 1 });
+		polygon.addVertex({ 1, 0 });
 
-		EXPECT_TRUE(polygon.isInside({ 0.5f, 0.5f }));		//内部にある点
-		EXPECT_TRUE(polygon.isInside({ 0.3f, 0.7f }));
+		EXPECT_TRUE(polygon.isConvex());
 
-		EXPECT_TRUE(polygon.isInside({ 0.5f, 0.0f }));		//辺の上にある点
-		EXPECT_TRUE(polygon.isInside({ 1.0f, 0.5f }));
-		EXPECT_TRUE(polygon.isInside({ 0.5f, 1.0f }));
-		EXPECT_TRUE(polygon.isInside({ 0.0f, 0.5f }));
-
-		EXPECT_TRUE(polygon.isInside({ 0.0f, 0.0f }));		//頂点にある点
-		EXPECT_TRUE(polygon.isInside({ 1.0f, 0.0f }));
-		EXPECT_TRUE(polygon.isInside({ 1.0f, 1.0f }));
-		EXPECT_TRUE(polygon.isInside({ 0.0f, 1.0f }));
-
-		EXPECT_FALSE(polygon.isInside({ 1.5f, 1.5f }));		//外部にある点
-		EXPECT_FALSE(polygon.isInside({ -0.5f, 1.5f }));
-		EXPECT_FALSE(polygon.isInside({ 1.5f, -0.5f }));
-		EXPECT_FALSE(polygon.isInside({ -0.5f, -0.5f }));
-
-		EXPECT_FALSE(polygon.isInside({ 0.0f, -0.5f }));	//辺の延長線上にある点
-		EXPECT_FALSE(polygon.isInside({ 0.0f, 1.5f }));
-
-		EXPECT_FALSE(polygon.isInside({ 10000.0f, 10000.0f }));	//かなり外部にある点
-		EXPECT_FALSE(polygon.isInside({ -10000.0f, 10000.0f }));
-		EXPECT_FALSE(polygon.isInside({ 10000.0f, -10000.0f }));
-		EXPECT_FALSE(polygon.isInside({ -10000.0f, -10000.0f }));
-
-
-		//6角形を作成し，内部にある点と外部にある点を確認する
+		//6角形を作成し，凸多角形かどうかを確認する
 		SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
-		polygon2.addVertex({ 1, 0 });
-		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
-		polygon2.addVertex({ -1, 1 });
+		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ -1, 0 });
+		polygon2.addVertex({ -1, 1 });
+		polygon2.addVertex({ 0, 1.5f });
+		polygon2.addVertex({ 1, 1 });
+		polygon2.addVertex({ 1, 0 });
 
-		EXPECT_TRUE(polygon2.isInside({ 0.5f, 0.5f }));
-		EXPECT_FALSE(polygon2.isInside({ 1.5f, 0.5f }));
+		EXPECT_TRUE(polygon2.isConvex());
 
-		//頂点が2以下の多角形では必ず失敗する．
+		//凸多角形でない多角形を作成し，凸多角形かどうかを確認する
 		SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
+		polygon3.addVertex({ 0, 1 });
+		polygon3.addVertex({ 1, 1 });
 		polygon3.addVertex({ 1, 0 });
+		polygon3.addVertex({ 0.5f, 0.5f });
 
-		EXPECT_FALSE(polygon3.isInside({ 0.5f, 0.5f }));
 
+		EXPECT_FALSE(polygon3.isConvex());
+
+		//頂点数が3未満の多角形を作成し，凸多角形かどうかを確認する
+		SPolygon2 polygon4;
+		polygon4.addVertex({ 0, 0 });
+		polygon4.addVertex({ 1, 0 });
+
+		EXPECT_FALSE(polygon4.isConvex());
 	}
 }

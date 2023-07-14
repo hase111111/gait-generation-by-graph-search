@@ -1,0 +1,7 @@
+<map id="LegStateEdit::getGroundedLegNum" name="LegStateEdit::getGroundedLegNum">
+<area shape="rect" id="Node000001" title="接地している脚の本数を返す関数．" alt="" coords="255,29,433,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="383,17,369,10,344,8,321,10,308,15,302,21,304,28,299,29,297,19,305,10,320,5,344,3,370,5,386,12"/>
+<area shape="rect" id="Node000002" href="$_leg_state_8h.html#a1a2770790d5219d848b95f2c18c3aacf" title="遊脚している脚の本数を返す関数．" alt="" coords="5,37,207,64"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="240,53,207,53,207,48,240,48"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="148,26,134,19,106,16,81,18,67,23,64,28,70,35,66,39,59,29,64,19,80,13,106,11,136,14,150,21"/>
+</map>

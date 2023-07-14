@@ -1,5 +1,0 @@
-<map id="DesignLab/NodeValidityChecker.h" name="DesignLab/NodeValidityChecker.h">
-<area shape="rect" id="Node000001" title="動作のループを感知するクラスの実装．" alt="" coords="5,5,224,32"/>
-<area shape="rect" id="Node000002" href="$_system_main_8h.html" title="このプログラムの処理をまとめたもの．処理の内容を大きく変えたい場合はint main()から，全く別のクラスを呼べばよい．" alt="" coords="29,80,200,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,47,117,80,112,80,112,47"/>
-</map>

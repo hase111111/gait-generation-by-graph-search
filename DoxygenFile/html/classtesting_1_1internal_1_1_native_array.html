@@ -108,6 +108,15 @@ typedef Element *&#160;</td><td class="memItemRight" valign="bottom"><b>iterator
 <tr class="memitem:a9ce7c8408460d7158a2870456d134557"><td class="memItemLeft" align="right" valign="top"><a id="a9ce7c8408460d7158a2870456d134557" name="a9ce7c8408460d7158a2870456d134557"></a>
 typedef const Element *&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
 <tr class="separator:a9ce7c8408460d7158a2870456d134557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12216d686e16e4cc63d952fada5b2ba9"><td class="memItemLeft" align="right" valign="top"><a id="a12216d686e16e4cc63d952fada5b2ba9" name="a12216d686e16e4cc63d952fada5b2ba9"></a>
+typedef Element&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="separator:a12216d686e16e4cc63d952fada5b2ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1301a57977b57a1ad013e4e25fc2a72"><td class="memItemLeft" align="right" valign="top"><a id="ac1301a57977b57a1ad013e4e25fc2a72" name="ac1301a57977b57a1ad013e4e25fc2a72"></a>
+typedef Element *&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b></td></tr>
+<tr class="separator:ac1301a57977b57a1ad013e4e25fc2a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce7c8408460d7158a2870456d134557"><td class="memItemLeft" align="right" valign="top"><a id="a9ce7c8408460d7158a2870456d134557" name="a9ce7c8408460d7158a2870456d134557"></a>
+typedef const Element *&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
+<tr class="separator:a9ce7c8408460d7158a2870456d134557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -132,9 +141,31 @@ const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () 
 <tr class="memitem:a81b90f5739ed812610e68dc34c9e3850"><td class="memItemLeft" align="right" valign="top"><a id="a81b90f5739ed812610e68dc34c9e3850" name="a81b90f5739ed812610e68dc34c9e3850"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classtesting_1_1internal_1_1_native_array.html">NativeArray</a> &amp;rhs) const</td></tr>
 <tr class="separator:a81b90f5739ed812610e68dc34c9e3850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b3689c62532703d11e9d82939a7141"><td class="memItemLeft" align="right" valign="top"><a id="a52b3689c62532703d11e9d82939a7141" name="a52b3689c62532703d11e9d82939a7141"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NativeArray</b> (const Element *array, size_t count, <a class="el" href="structtesting_1_1internal_1_1_relation_to_source_reference.html">RelationToSourceReference</a>)</td></tr>
+<tr class="separator:a52b3689c62532703d11e9d82939a7141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac184ee5741af5be3402213819c834405"><td class="memItemLeft" align="right" valign="top"><a id="ac184ee5741af5be3402213819c834405" name="ac184ee5741af5be3402213819c834405"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NativeArray</b> (const Element *array, size_t count, <a class="el" href="structtesting_1_1internal_1_1_relation_to_source_copy.html">RelationToSourceCopy</a>)</td></tr>
+<tr class="separator:ac184ee5741af5be3402213819c834405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb346ac3040f5da733f594cc2d5958bc"><td class="memItemLeft" align="right" valign="top"><a id="abb346ac3040f5da733f594cc2d5958bc" name="abb346ac3040f5da733f594cc2d5958bc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NativeArray</b> (const <a class="el" href="classtesting_1_1internal_1_1_native_array.html">NativeArray</a> &amp;rhs)</td></tr>
+<tr class="separator:abb346ac3040f5da733f594cc2d5958bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96a4a5ca0cdd5d163c47a081f08bd89"><td class="memItemLeft" align="right" valign="top"><a id="af96a4a5ca0cdd5d163c47a081f08bd89" name="af96a4a5ca0cdd5d163c47a081f08bd89"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:af96a4a5ca0cdd5d163c47a081f08bd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3046d93cfa23097e7b7c91f5f982dc78"><td class="memItemLeft" align="right" valign="top"><a id="a3046d93cfa23097e7b7c91f5f982dc78" name="a3046d93cfa23097e7b7c91f5f982dc78"></a>
+const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
+<tr class="separator:a3046d93cfa23097e7b7c91f5f982dc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1cda748e49c6906421c6183c4d07c5a"><td class="memItemLeft" align="right" valign="top"><a id="ae1cda748e49c6906421c6183c4d07c5a" name="ae1cda748e49c6906421c6183c4d07c5a"></a>
+const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<tr class="separator:ae1cda748e49c6906421c6183c4d07c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b90f5739ed812610e68dc34c9e3850"><td class="memItemLeft" align="right" valign="top"><a id="a81b90f5739ed812610e68dc34c9e3850" name="a81b90f5739ed812610e68dc34c9e3850"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classtesting_1_1internal_1_1_native_array.html">NativeArray</a> &amp;rhs) const</td></tr>
+<tr class="separator:a81b90f5739ed812610e68dc34c9e3850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/internal/<a class="el" href="gtest-internal_8h_source.html">gtest-internal.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/internal/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_84_2build_2native_2ind40973f19417996d92f877aa8f0dc6d0_source.html">gtest-internal.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7/build/native/include/gtest/internal/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build_2native_2incbc2095161998ea2c90c9c6e53c56ab3_source.html">gtest-internal.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

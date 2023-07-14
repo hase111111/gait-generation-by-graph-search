@@ -118,9 +118,36 @@ typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="b
 <tr class="memitem:aa0f532e93b9f3500144c53f31466976c"><td class="memItemLeft" align="right" valign="top"><a id="aa0f532e93b9f3500144c53f31466976c" name="aa0f532e93b9f3500144c53f31466976c"></a>
 typedef internal::TearDownTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCaseFunc</b></td></tr>
 <tr class="separator:aa0f532e93b9f3500144c53f31466976c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2a051d1d99c9b784c666c586186cf9"><td class="memItemLeft" align="right" valign="top"><a id="a5f2a051d1d99c9b784c666c586186cf9" name="a5f2a051d1d99c9b784c666c586186cf9"></a>
+typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCaseFunc</b></td></tr>
+<tr class="separator:a5f2a051d1d99c9b784c666c586186cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f532e93b9f3500144c53f31466976c"><td class="memItemLeft" align="right" valign="top"><a id="aa0f532e93b9f3500144c53f31466976c" name="aa0f532e93b9f3500144c53f31466976c"></a>
+typedef internal::TearDownTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCaseFunc</b></td></tr>
+<tr class="separator:aa0f532e93b9f3500144c53f31466976c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memItemLeft" align="right" valign="top"><a id="a5ccbac42fee8c5b00b0bfe89b6c49d79" name="a5ccbac42fee8c5b00b0bfe89b6c49d79"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCase</b> ()</td></tr>
+<tr class="separator:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af374706cbaf0ffc460f4fd04e7c150f1"><td class="memItemLeft" align="right" valign="top"><a id="af374706cbaf0ffc460f4fd04e7c150f1" name="af374706cbaf0ffc460f4fd04e7c150f1"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCase</b> ()</td></tr>
+<tr class="separator:af374706cbaf0ffc460f4fd04e7c150f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a89846458f0e8ed1c9457c957e8182a"><td class="memItemLeft" align="right" valign="top"><a id="a0a89846458f0e8ed1c9457c957e8182a" name="a0a89846458f0e8ed1c9457c957e8182a"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFatalFailure</b> ()</td></tr>
+<tr class="separator:a0a89846458f0e8ed1c9457c957e8182a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e896f1b1836f8ac075c26d7b7c9fb8"><td class="memItemLeft" align="right" valign="top"><a id="a07e896f1b1836f8ac075c26d7b7c9fb8" name="a07e896f1b1836f8ac075c26d7b7c9fb8"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasNonfatalFailure</b> ()</td></tr>
+<tr class="separator:a07e896f1b1836f8ac075c26d7b7c9fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a00be7dd0a6bfdc8d47a1b784623613"><td class="memItemLeft" align="right" valign="top"><a id="a7a00be7dd0a6bfdc8d47a1b784623613" name="a7a00be7dd0a6bfdc8d47a1b784623613"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFailure</b> ()</td></tr>
+<tr class="separator:a7a00be7dd0a6bfdc8d47a1b784623613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0448aec9e389fab70f6a75a59ff6aa2"><td class="memItemLeft" align="right" valign="top"><a id="ae0448aec9e389fab70f6a75a59ff6aa2" name="ae0448aec9e389fab70f6a75a59ff6aa2"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr class="separator:ae0448aec9e389fab70f6a75a59ff6aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af602903efb17730b977304fc56500881"><td class="memItemLeft" align="right" valign="top"><a id="af602903efb17730b977304fc56500881" name="af602903efb17730b977304fc56500881"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, int value)</td></tr>
+<tr class="separator:af602903efb17730b977304fc56500881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memItemLeft" align="right" valign="top"><a id="a5ccbac42fee8c5b00b0bfe89b6c49d79" name="a5ccbac42fee8c5b00b0bfe89b6c49d79"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCase</b> ()</td></tr>
 <tr class="separator:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,15 +178,22 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUp</b> ()<
 <tr class="memitem:aab3c02c9f81afe1357adfc45afccd474"><td class="memItemLeft" align="right" valign="top"><a id="aab3c02c9f81afe1357adfc45afccd474" name="aab3c02c9f81afe1357adfc45afccd474"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDown</b> ()</td></tr>
 <tr class="separator:aab3c02c9f81afe1357adfc45afccd474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b38992669fb844864807cf32e416853"><td class="memItemLeft" align="right" valign="top"><a id="a8b38992669fb844864807cf32e416853" name="a8b38992669fb844864807cf32e416853"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUp</b> ()</td></tr>
+<tr class="separator:a8b38992669fb844864807cf32e416853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3c02c9f81afe1357adfc45afccd474"><td class="memItemLeft" align="right" valign="top"><a id="aab3c02c9f81afe1357adfc45afccd474" name="aab3c02c9f81afe1357adfc45afccd474"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDown</b> ()</td></tr>
+<tr class="separator:aab3c02c9f81afe1357adfc45afccd474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 フレンド</h2></td></tr>
-<tr class="memitem:a4c49c2cdb6c328e6b709b4542f23de3c"><td class="memItemLeft" align="right" valign="top"><a id="a4c49c2cdb6c328e6b709b4542f23de3c" name="a4c49c2cdb6c328e6b709b4542f23de3c"></a>
+<tr class="memitem:aed3c96e2bd5a46339c1cbe49a4a233ee"><td class="memItemLeft" align="right" valign="top"><a id="aed3c96e2bd5a46339c1cbe49a4a233ee" name="aed3c96e2bd5a46339c1cbe49a4a233ee"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>TestInfo</b></td></tr>
-<tr class="separator:a4c49c2cdb6c328e6b709b4542f23de3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aed3c96e2bd5a46339c1cbe49a4a233ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/<a class="el" href="gtest_8h_source.html">gtest.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_84_2build_2native_2include_2gtest_2gtest_8h_source.html">gtest.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7/build/native/include/gtest/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build_2native_2include_2gtest_2gtest_8h_source.html">gtest.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

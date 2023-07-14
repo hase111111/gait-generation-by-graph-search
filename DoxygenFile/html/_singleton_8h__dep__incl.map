@@ -1,7 +1,0 @@
-<map id="DesignLab/Singleton.h" name="DesignLab/Singleton.h">
-<area shape="rect" id="Node000001" title="Singletonクラスの実装．" alt="" coords="90,5,241,32"/>
-<area shape="rect" id="Node000002" href="$_keyboard_8h.html" title="Dxlibのキー入力を取得するクラスの実装．" alt="" coords="5,80,158,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,44,98,82,94,78,138,40"/>
-<area shape="rect" id="Node000003" href="$_mouse_8h.html" title="Dxlibのマウス入力を取得するクラスの実装．" alt="" coords="181,80,318,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,40,237,78,233,82,189,44"/>
-</map>

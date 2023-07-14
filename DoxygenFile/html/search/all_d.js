@@ -6,5 +6,5 @@ var searchData=
   ['nodevaliditychecker_3',['NodeValidityChecker',['../class_node_validity_checker.html',1,'']]],
   ['nodevaliditychecker_2eh_4',['NodeValidityChecker.h',['../_node_validity_checker_8h.html',1,'']]],
   ['none_5',['NONE',['../_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6ab50339a10e1de285ac99d4c3990b8693',1,'Target.h']]],
-  ['normalized_6',['normalized',['../structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f',1,'my_vec::SVector']]]
+  ['normalized_6',['normalized',['../structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f',1,'my_vec::SVector::normalized()'],['../structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c',1,'my_vec::SVector2::normalized()']]]
 ];

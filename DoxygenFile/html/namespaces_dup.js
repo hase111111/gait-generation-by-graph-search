@@ -1,16 +1,22 @@
 var namespaces_dup =
 [
-    [ "leg_state", "namespaceleg__state.html", [
-      [ "getGroundedLegNum", "namespaceleg__state.html#afd052a18c20b9e292894e32fbb0d9c59", null ],
-      [ "isAbleLegNum", "namespaceleg__state.html#a9eab87ff1052b25a0803ce42ce2a8ed4", null ],
-      [ "isGrounded", "namespaceleg__state.html#a8661d4432b9e7521f1c8c7506b220e09", null ],
-      [ "makeLegState", "namespaceleg__state.html#afb7e56b67c98bf6df9f68b9e543b28ea", null ],
-      [ "COM_STATE_MASKBIT", "namespaceleg__state.html#a2a5853012375eefe9e437c95fcc29162", null ],
-      [ "DISCRETE_NUM", "namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f", null ],
-      [ "LEG_POS_MASKBIT", "namespaceleg__state.html#a29e70b278c1371aa383bb662c4a478e5", null ],
-      [ "LEG_STATE_MASKBIT", "namespaceleg__state.html#a0420112661efe4431504aa7e663a3f3b", null ],
-      [ "SHIFT_TO_COM_NUM", "namespaceleg__state.html#aa7ea7c1d32bfdef5eb147ba39348e63a", null ]
+    [ "ComType", "namespace_com_type.html", [
+      [ "EComPattern", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621", [
+        [ "front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ae6ec529ba185279aa0adcf93e645c7cd", null ],
+        [ "left_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a44c1d480323e011a9d1eafcb1e8c2a66", null ],
+        [ "left_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a6edbe6619078b13d0b1a951dacdd530a", null ],
+        [ "back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a469bba0a564235dfceede42db14f17b0", null ],
+        [ "right_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621adf6b57e12f281995439844ed46662183", null ],
+        [ "right_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a06f1b16d831f614c851c8d0b5e7c7a52", null ],
+        [ "center_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ad11d142a4f7d89a886cdb4f1c931531d", null ],
+        [ "center_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a2efab30e939fdbe2f33c52ffd64bad85", null ]
+      ] ],
+      [ "convertBitToComPattern", "namespace_com_type.html#aebec406cea03001cb1749cc04ae99304", null ],
+      [ "convertComPatternToBit", "namespace_com_type.html#a0cdc2584ee0d9a82c3cb4582d3033d7d", null ],
+      [ "COM_PATTERN_NUM", "namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c", null ],
+      [ "COM_TYPE_NUM", "namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224", null ]
     ] ],
+    [ "leg_state", "namespaceleg__state.html", null ],
     [ "my_vec", "namespacemy__vec.html", "namespacemy__vec" ],
     [ "myDxlib3DFunc", "namespacemy_dxlib3_d_func.html", [
       [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f", null ],

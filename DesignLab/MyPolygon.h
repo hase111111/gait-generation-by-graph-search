@@ -80,78 +80,95 @@ namespace my_vec
 			return vertex[i];
 		}
 
-		//! @brief 多角形が凸かどうか調べる関数
-		//! @return 凸ならtrue，凹ならfalse
-		bool isConvex() const
+		//! @brief 頂点の中で最大のx座標を返す関数
+		//! @return 頂点の中で最大のx座標
+		inline float getMaxX() const
 		{
-			const int n = getVertexNum();
+			float _max = vertex[0].x;
 
-			//早期リターン.頂点数が3未満の場合は多角形ではない
-			if (n < 3)
+			for (int i = 1; i < getVertexNum(); ++i)
 			{
-				return false;
+				_max = std::max(_max, vertex[i].x);
 			}
 
-			for (int i = 0; i < n; ++i)
-			{
-				const auto& v1 = vertex[(i + 1) % n] - vertex[i];
-				const auto& v2 = vertex[(i + 2) % n] - vertex[(i + 1) % n];
-
-				if (v1.cross(v2) < 0.0f)
-				{
-					return false;
-				}
-			}
-			return true;
+			return _max;
 		}
 
-		//! @brief 点が多角形の内部にあるかどうか調べる関数
+		//! @brief 頂点の中で最小のx座標を返す関数
+		//! @return 頂点の中で最小のx座標
+		inline float getMinX() const
+		{
+			float _min = vertex[0].x;
+
+			for (int i = 1; i < getVertexNum(); ++i)
+			{
+				_min = std::min(_min, vertex[i].x);
+			}
+
+			return _min;
+		}
+
+		//! @brief 頂点の中で最大のy座標を返す関数
+		//! @return 頂点の中で最大のy座標
+		inline float getMaxY() const
+		{
+			float _max = vertex[0].y;
+
+			for (int i = 1; i < getVertexNum(); ++i)
+			{
+				_max = std::max(_max, vertex[i].y);
+			}
+
+			return _max;
+		}
+
+		//! @brief 頂点の中で最小のy座標を返す関数
+		//! @return 頂点の中で最小のy座標
+		inline float getMinY() const
+		{
+			float _min = vertex[0].y;
+
+			for (int i = 1; i < getVertexNum(); ++i)
+			{
+				_min = std::min(_min, vertex[i].y);
+			}
+
+			return _min;
+		}
+
+		//! @brief 多角形が凸かどうか調べる関数
+		//! @return 凸ならtrue，凹ならfalse
+		bool isConvex() const;
+
+		//! @brief 点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．
 		//! @param[in] p 調べる点
 		//! @return 内部にあるならtrue，外部にあるならfalse
 		//! @note 点が多角形の辺上にある場合は内部にあると判定する．
 		//! @note 多角形が凸でない場合は正しく判定できない．
-		bool isInside(const SVector2& _p) const
-		{
-			const int _num = getVertexNum();
-
-			//早期リターン.頂点数が3未満の場合は多角形ではない
-			if (_num < 3)
-			{
-				return false;
-			}
-
-			int _cnt = 0;
-
-			for (int i = 0; i < _num; ++i)
-			{
-				const auto& v1 = vertex[i] - _p;
-				const auto& v2 = vertex[(i + 1) % _num] - _p;
-
-				if (v1.cross(v2) == 0.0f && v1.dot(v2) <= 0.0f)
-				{
-					return true;	//点が辺上にある
-				}
-
-				if (v1.y > v2.y)
-				{
-					if (v2.y < 0.0f && 0.0f <= v1.y && v1.cross(v2) < 0.0f)
-					{
-						--_cnt;
-					}
-				}
-				else
-				{
-					if (v1.y < 0.0f && 0.0f <= v2.y && v1.cross(v2) > 0.0f)
-					{
-						++_cnt;
-					}
-				}
-			}
-
-			return (_cnt % 2 == 1);
-		}
+		bool isInside(const SVector2& _p) const;
 
 	private:
 		std::vector<SVector2> vertex;	//!< 頂点座標
 	};
+
+	// 出力ストリーム
+	template <class Char>
+	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const SPolygon2& v)
+	{
+		os << "Vertex Num : " << v.getVertexNum() << "\n";
+
+		for (int i = 0; i < v.getVertexNum(); ++i)
+		{
+			os << "Vertex " << i << " : " << v.getVertex(i) << "\n";
+		}
+
+		os << "Max X : " << v.getMaxX() << "\n";
+		os << "Min X : " << v.getMinX() << "\n";
+		os << "Max Y : " << v.getMaxY() << "\n";
+		os << "Min Y : " << v.getMinY() << "\n";
+
+		os << "Convex :" << (v.isConvex() ? "True" : "False") << "\n";
+
+		return os;
+	}
 }

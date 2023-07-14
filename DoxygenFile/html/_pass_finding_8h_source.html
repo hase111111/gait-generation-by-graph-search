@@ -110,11 +110,11 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// 先輩の残した説明↓</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//m_search_mode=0 2次から探索マルチスレッド用    //m_search_mode=1 4次から探索マルチスレッド用    //m_search_mode=2 4次から探索一般用</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    OLDTYPE_ZERO  = 0,  <span class="comment">//探索タイプ0:2次方向から直線移動探索,</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    OLDTYPE_ONE   = 1,  <span class="comment">//1:4次方向から,</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    OLDTYPE_TWO   = 2,  <span class="comment">//2:シングルスレッド用,ここまで大木さん,</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    OLDTYPE_ZERO = 0,   <span class="comment">//探索タイプ0:2次方向から直線移動探索,</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    OLDTYPE_ONE = 1,    <span class="comment">//1:4次方向から,</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    OLDTYPE_TWO = 2,    <span class="comment">//2:シングルスレッド用,ここまで大木さん,</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    OLDTYPE_THREE = 3,  <span class="comment">//3:2次方向からその場旋回,</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    OLDTYPE_FOUR  = 4,  <span class="comment">//4:4次方向から,</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    OLDTYPE_FOUR = 4,   <span class="comment">//4:4次方向から,</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    EACH_OPERATION = 5, <span class="comment">//5:1動作ごと探索,</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    SANE_TIME = 6,      <span class="comment">//6:水平移動と上下移動を一度に探索</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
@@ -134,10 +134,10 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="struct_s_node.html">SNode</a> CurrentCondition[100];            <span class="comment">//ルート探索の初期値</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_struct" href="struct_s_node.html">SNode</a>* resultRoute;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">float</span> *retPriority; <span class="comment">//評価の優先度が1番</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">float</span> *retSecond;   <span class="comment">//2番目</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">float</span> *retThird;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">float</span> *retFourth;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">float</span>* retPriority; <span class="comment">//評価の優先度が1番</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">float</span>* retSecond;   <span class="comment">//2番目</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">float</span>* retThird;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">float</span>* retFourth;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">//メンバ関数</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="class_pass_finding.html">PassFinding</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _route_num, <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* _p_map_state);</div>
@@ -161,13 +161,13 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">//メンバ関数</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">//HX2の初期化</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> initHX2();</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">//グラフ探索において最初に呼ばれる関数</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">//_search_type に基づいて探索を行い， m_search_depth に基づいて探索の深さを決定する</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> getOptimalRoute(ESearchMode _search_type, <span class="keywordtype">int</span> m_search_depth); </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> getOptimalRoute(ESearchMode _search_type, <span class="keywordtype">int</span> m_search_depth);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">//ノードを列挙する関数．20180327時点で使用している探索方法らしい．旧名 GaitPatternSearch</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> searchGaitPattern();</div>
@@ -191,11 +191,11 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">float</span> limitRangeAngle(<span class="keyword">const</span> <span class="keywordtype">float</span> angle) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> pass_transitions_2zi(<span class="keywordtype">int</span> v, <span class="keywordtype">bool</span>*visited, <span class="keywordtype">int</span> ret_2_transition_v[ComType::COM_TYPE_NUM][6], <span class="keywordtype">int</span>* passnum);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> getGraph(<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_namespace" href="namespaceleg__state.html">leg_state</a>, <span class="keywordtype">bool</span> i_F[HexapodConst::LEG_NUM], <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][<a class="code hl_variable" href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a>], <span class="keywordtype">bool</span> visited[ComType::COM_TYPE_NUM]);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> getLegGroundablePoint(<a class="code hl_struct" href="struct_s_node.html">SNode</a>* route, <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][<a class="code hl_variable" href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a>], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> LegGroundablePoint[HexapodConst::LEG_NUM][<a class="code hl_variable" href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a>][100]);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> pass_transitions_2zi(<span class="keywordtype">int</span> v, <span class="keywordtype">bool</span>* visited, <span class="keywordtype">int</span> ret_2_transition_v[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a>][6], <span class="keywordtype">int</span>* passnum);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> getGraph(<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_namespace" href="namespaceleg__state.html">leg_state</a>, <span class="keywordtype">bool</span> i_F[HexapodConst::LEG_NUM], <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][LegStateEdit::DISCRETE_NUM], <span class="keywordtype">bool</span> visited[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a>]);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> getLegGroundablePoint(<a class="code hl_struct" href="struct_s_node.html">SNode</a>* route, <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][LegStateEdit::DISCRETE_NUM], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> LegGroundablePoint[HexapodConst::LEG_NUM][LegStateEdit::DISCRETE_NUM][100]);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> SelectLegPoint_Rotation(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node, <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][<a class="code hl_variable" href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a>], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> LegGroundablePoint[HexapodConst::LEG_NUM][<a class="code hl_variable" href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a>][100]);<span class="comment">//旋回時の脚位置計算</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> SelectLegPoint_Rotation(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node, <span class="keywordtype">int</span> LegGroundablePointNum[HexapodConst::LEG_NUM][LegStateEdit::DISCRETE_NUM], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> LegGroundablePoint[HexapodConst::LEG_NUM][LegStateEdit::DISCRETE_NUM][100]);<span class="comment">//旋回時の脚位置計算</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">float</span> Stability_Margin(<a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> leg[6], <span class="keywordtype">int</span> v[6]);<span class="comment">//安定余裕計算</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
@@ -212,7 +212,7 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> setResultRouteLimit(<span class="keyword">const</span> <span class="keywordtype">int</span> _limit) { m_result_route_limit = _limit; }</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">//探索の目標値を設定する関数</span></div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> setTarget(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_target.html">STarget</a> _target) { m_target = _target; }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">//探索に使用したノードの数を取得する関数</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">int</span> getNodeNum()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_node_num; }</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
@@ -224,11 +224,11 @@ $(document).ready(function(){initNavTree('_pass_finding_8h_source.html',''); ini
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
 <div class="ttc" id="aclass_pass_finding_html"><div class="ttname"><a href="class_pass_finding.html">PassFinding</a></div><div class="ttdef"><b>Definition</b> PassFinding.h:29</div></div>
 <div class="ttc" id="aclass_search_possible_leg_position_html"><div class="ttname"><a href="class_search_possible_leg_position.html">SearchPossibleLegPosition</a></div><div class="ttdef"><b>Definition</b> SearchLegPosition.h:14</div></div>
-<div class="ttc" id="anamespaceleg__state_html"><div class="ttname"><a href="namespaceleg__state.html">leg_state</a></div><div class="ttdoc">脚状態を編集するための関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> LegState.h:7</div></div>
-<div class="ttc" id="anamespaceleg__state_html_abe5bfa3aa6b239c6116875b412f67e5f"><div class="ttname"><a href="namespaceleg__state.html#abe5bfa3aa6b239c6116875b412f67e5f">leg_state::DISCRETE_NUM</a></div><div class="ttdeci">constexpr int DISCRETE_NUM</div><div class="ttdoc">脚状態の離散化数．LegState.hの通り7通り．</div><div class="ttdef"><b>Definition</b> LegState.h:8</div></div>
+<div class="ttc" id="anamespace_com_type_html_ab824570eb6c7d8e6fb26f9478e582224"><div class="ttname"><a href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a></div><div class="ttdeci">constexpr int COM_TYPE_NUM</div><div class="ttdoc">重心タイプの数</div><div class="ttdef"><b>Definition</b> ComType.h:9</div></div>
+<div class="ttc" id="anamespaceleg__state_html"><div class="ttname"><a href="namespaceleg__state.html">leg_state</a></div><div class="ttdoc">脚状態を編集するための関数をまとめた名前空間．</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
 <div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdef"><b>Definition</b> Target.h:18</div></div>
-<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:11</div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -105,9 +105,33 @@ $(document).ready(function(){initNavTree('classtesting_1_1internal_1_1_floating_
 <tr class="memitem:abf228bf6cd48f12c8b44c85b4971a731"><td class="memItemLeft" align="right" valign="top"><a id="abf228bf6cd48f12c8b44c85b4971a731" name="abf228bf6cd48f12c8b44c85b4971a731"></a>
 typedef <a class="el" href="classtesting_1_1internal_1_1_type_with_size.html">TypeWithSize</a>&lt; sizeof(RawType)&gt;::UInt&#160;</td><td class="memItemRight" valign="bottom"><b>Bits</b></td></tr>
 <tr class="separator:abf228bf6cd48f12c8b44c85b4971a731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf228bf6cd48f12c8b44c85b4971a731"><td class="memItemLeft" align="right" valign="top"><a id="abf228bf6cd48f12c8b44c85b4971a731" name="abf228bf6cd48f12c8b44c85b4971a731"></a>
+typedef <a class="el" href="classtesting_1_1internal_1_1_type_with_size.html">TypeWithSize</a>&lt; sizeof(RawType)&gt;::UInt&#160;</td><td class="memItemRight" valign="bottom"><b>Bits</b></td></tr>
+<tr class="separator:abf228bf6cd48f12c8b44c85b4971a731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:a0dabf840863e0df84046f171c891fe71"><td class="memItemLeft" align="right" valign="top"><a id="a0dabf840863e0df84046f171c891fe71" name="a0dabf840863e0df84046f171c891fe71"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FloatingPoint</b> (const RawType &amp;x)</td></tr>
+<tr class="separator:a0dabf840863e0df84046f171c891fe71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed49c6dadf8dff4f65fbebef29bb1ae9"><td class="memItemLeft" align="right" valign="top"><a id="aed49c6dadf8dff4f65fbebef29bb1ae9" name="aed49c6dadf8dff4f65fbebef29bb1ae9"></a>
+const Bits &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>bits</b> () const</td></tr>
+<tr class="separator:aed49c6dadf8dff4f65fbebef29bb1ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bf8fab8df572ecb137a3516ff390ae"><td class="memItemLeft" align="right" valign="top"><a id="af6bf8fab8df572ecb137a3516ff390ae" name="af6bf8fab8df572ecb137a3516ff390ae"></a>
+Bits&#160;</td><td class="memItemRight" valign="bottom"><b>exponent_bits</b> () const</td></tr>
+<tr class="separator:af6bf8fab8df572ecb137a3516ff390ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17337e50a2ac855719bc0676529558f"><td class="memItemLeft" align="right" valign="top"><a id="aa17337e50a2ac855719bc0676529558f" name="aa17337e50a2ac855719bc0676529558f"></a>
+Bits&#160;</td><td class="memItemRight" valign="bottom"><b>fraction_bits</b> () const</td></tr>
+<tr class="separator:aa17337e50a2ac855719bc0676529558f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8a816bb598225d775caaf43a893ef0"><td class="memItemLeft" align="right" valign="top"><a id="afb8a816bb598225d775caaf43a893ef0" name="afb8a816bb598225d775caaf43a893ef0"></a>
+Bits&#160;</td><td class="memItemRight" valign="bottom"><b>sign_bit</b> () const</td></tr>
+<tr class="separator:afb8a816bb598225d775caaf43a893ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fc654fd206efa98e480aa1e034f30d5"><td class="memItemLeft" align="right" valign="top"><a id="a1fc654fd206efa98e480aa1e034f30d5" name="a1fc654fd206efa98e480aa1e034f30d5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_nan</b> () const</td></tr>
+<tr class="separator:a1fc654fd206efa98e480aa1e034f30d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a965214c1af2f9ac5adb1393794aa81e5"><td class="memItemLeft" align="right" valign="top"><a id="a965214c1af2f9ac5adb1393794aa81e5" name="a965214c1af2f9ac5adb1393794aa81e5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>AlmostEquals</b> (const <a class="el" href="classtesting_1_1internal_1_1_floating_point.html">FloatingPoint</a> &amp;rhs) const</td></tr>
+<tr class="separator:a965214c1af2f9ac5adb1393794aa81e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dabf840863e0df84046f171c891fe71"><td class="memItemLeft" align="right" valign="top"><a id="a0dabf840863e0df84046f171c891fe71" name="a0dabf840863e0df84046f171c891fe71"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FloatingPoint</b> (const RawType &amp;x)</td></tr>
 <tr class="separator:a0dabf840863e0df84046f171c891fe71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +159,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
 <tr class="memitem:a93b5901a99236ad6eded827f76bf3a44"><td class="memItemLeft" align="right" valign="top"><a id="a93b5901a99236ad6eded827f76bf3a44" name="a93b5901a99236ad6eded827f76bf3a44"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
 <tr class="separator:a93b5901a99236ad6eded827f76bf3a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145158f48d527cfc83150cc53bfd979f"><td class="memItemLeft" align="right" valign="top"><a id="a145158f48d527cfc83150cc53bfd979f" name="a145158f48d527cfc83150cc53bfd979f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
+<tr class="separator:a145158f48d527cfc83150cc53bfd979f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b5901a99236ad6eded827f76bf3a44"><td class="memItemLeft" align="right" valign="top"><a id="a93b5901a99236ad6eded827f76bf3a44" name="a93b5901a99236ad6eded827f76bf3a44"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
+<tr class="separator:a93b5901a99236ad6eded827f76bf3a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -147,32 +177,41 @@ static RawType&#160;</td><td class="memItemRight" valign="bottom"><b>Infinity</b
 <tr class="memitem:aae5954d8a57d3ff0987c6930cb68e114"><td class="memItemLeft" align="right" valign="top"><a id="aae5954d8a57d3ff0987c6930cb68e114" name="aae5954d8a57d3ff0987c6930cb68e114"></a>
 static RawType&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
 <tr class="separator:aae5954d8a57d3ff0987c6930cb68e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac551f793522e54fbd8a25acb79eac5b1"><td class="memItemLeft" align="right" valign="top"><a id="ac551f793522e54fbd8a25acb79eac5b1" name="ac551f793522e54fbd8a25acb79eac5b1"></a>
+static RawType&#160;</td><td class="memItemRight" valign="bottom"><b>ReinterpretBits</b> (const Bits bits)</td></tr>
+<tr class="separator:ac551f793522e54fbd8a25acb79eac5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460027cc19cf01ae8e09cc3796b2b575"><td class="memItemLeft" align="right" valign="top"><a id="a460027cc19cf01ae8e09cc3796b2b575" name="a460027cc19cf01ae8e09cc3796b2b575"></a>
+static RawType&#160;</td><td class="memItemRight" valign="bottom"><b>Infinity</b> ()</td></tr>
+<tr class="separator:a460027cc19cf01ae8e09cc3796b2b575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae5954d8a57d3ff0987c6930cb68e114"><td class="memItemLeft" align="right" valign="top"><a id="aae5954d8a57d3ff0987c6930cb68e114" name="aae5954d8a57d3ff0987c6930cb68e114"></a>
+static RawType&#160;</td><td class="memItemRight" valign="bottom"><b>Max</b> ()</td></tr>
+<tr class="separator:aae5954d8a57d3ff0987c6930cb68e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
-<tr class="memitem:ab819d2e8f93e9e482373999f0f8d71b9"><td class="memItemLeft" align="right" valign="top"><a id="ab819d2e8f93e9e482373999f0f8d71b9" name="ab819d2e8f93e9e482373999f0f8d71b9"></a>
+<tr class="memitem:ad730b49e322aec20c46ebf017a106afc"><td class="memItemLeft" align="right" valign="top"><a id="ad730b49e322aec20c46ebf017a106afc" name="ad730b49e322aec20c46ebf017a106afc"></a>
 static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kBitCount</b> = 8*sizeof(RawType)</td></tr>
-<tr class="separator:ab819d2e8f93e9e482373999f0f8d71b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b756a6d2a4f5f5b41ca79651c06c043"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1internal_1_1_floating_point.html#a0b756a6d2a4f5f5b41ca79651c06c043">kFractionBitCount</a></td></tr>
-<tr class="separator:a0b756a6d2a4f5f5b41ca79651c06c043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1973d843c00781053d3073daa8a40119"><td class="memItemLeft" align="right" valign="top"><a id="a1973d843c00781053d3073daa8a40119" name="a1973d843c00781053d3073daa8a40119"></a>
+<tr class="separator:ad730b49e322aec20c46ebf017a106afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d98c93a74099d1a422e8fa34761d354"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1internal_1_1_floating_point.html#a2d98c93a74099d1a422e8fa34761d354">kFractionBitCount</a></td></tr>
+<tr class="separator:a2d98c93a74099d1a422e8fa34761d354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a6c6f2dd2d6aa335034738290dd9506"><td class="memItemLeft" align="right" valign="top"><a id="a6a6c6f2dd2d6aa335034738290dd9506" name="a6a6c6f2dd2d6aa335034738290dd9506"></a>
 static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kExponentBitCount</b> = kBitCount - 1 - kFractionBitCount</td></tr>
-<tr class="separator:a1973d843c00781053d3073daa8a40119"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca98b5ea6f2222a66a82e52421682efa"><td class="memItemLeft" align="right" valign="top"><a id="aca98b5ea6f2222a66a82e52421682efa" name="aca98b5ea6f2222a66a82e52421682efa"></a>
+<tr class="separator:a6a6c6f2dd2d6aa335034738290dd9506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf87d32d03b1b7e7237e72e3ab1dd830"><td class="memItemLeft" align="right" valign="top"><a id="abf87d32d03b1b7e7237e72e3ab1dd830" name="abf87d32d03b1b7e7237e72e3ab1dd830"></a>
 static const Bits&#160;</td><td class="memItemRight" valign="bottom"><b>kSignBitMask</b> = static_cast&lt;Bits&gt;(1) &lt;&lt; (kBitCount - 1)</td></tr>
-<tr class="separator:aca98b5ea6f2222a66a82e52421682efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac75d4ffd24f14bca452abe8a718da1"><td class="memItemLeft" align="right" valign="top">static const Bits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1internal_1_1_floating_point.html#a0ac75d4ffd24f14bca452abe8a718da1">kFractionBitMask</a></td></tr>
-<tr class="separator:a0ac75d4ffd24f14bca452abe8a718da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66065dfc4d5f41100f686159637af23b"><td class="memItemLeft" align="right" valign="top"><a id="a66065dfc4d5f41100f686159637af23b" name="a66065dfc4d5f41100f686159637af23b"></a>
+<tr class="separator:abf87d32d03b1b7e7237e72e3ab1dd830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f3ae7ced0ef045915fa8d1c6148ab13"><td class="memItemLeft" align="right" valign="top">static const Bits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1internal_1_1_floating_point.html#a2f3ae7ced0ef045915fa8d1c6148ab13">kFractionBitMask</a></td></tr>
+<tr class="separator:a2f3ae7ced0ef045915fa8d1c6148ab13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f30cbc7629ed32999f97a4b614962f3"><td class="memItemLeft" align="right" valign="top"><a id="a4f30cbc7629ed32999f97a4b614962f3" name="a4f30cbc7629ed32999f97a4b614962f3"></a>
 static const Bits&#160;</td><td class="memItemRight" valign="bottom"><b>kExponentBitMask</b> = ~(kSignBitMask | kFractionBitMask)</td></tr>
-<tr class="separator:a66065dfc4d5f41100f686159637af23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac498b3714d93f8e88cdc30e4c5935f6"><td class="memItemLeft" align="right" valign="top"><a id="aac498b3714d93f8e88cdc30e4c5935f6" name="aac498b3714d93f8e88cdc30e4c5935f6"></a>
+<tr class="separator:a4f30cbc7629ed32999f97a4b614962f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60226288e04df52433c032065df28ea"><td class="memItemLeft" align="right" valign="top"><a id="ab60226288e04df52433c032065df28ea" name="ab60226288e04df52433c032065df28ea"></a>
 static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxUlps</b> = 4</td></tr>
-<tr class="separator:aac498b3714d93f8e88cdc30e4c5935f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ab60226288e04df52433c032065df28ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">メンバ詳解</h2>
-<a id="a0b756a6d2a4f5f5b41ca79651c06c043" name="a0b756a6d2a4f5f5b41ca79651c06c043"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b756a6d2a4f5f5b41ca79651c06c043">&#9670;&#160;</a></span>kFractionBitCount</h2>
+<a id="a2d98c93a74099d1a422e8fa34761d354" name="a2d98c93a74099d1a422e8fa34761d354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d98c93a74099d1a422e8fa34761d354">&#9670;&#160;</a></span>kFractionBitCount</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +222,7 @@ template&lt;typename RawType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t <a class="el" href="classtesting_1_1internal_1_1_floating_point.html">testing::internal::FloatingPoint</a>&lt; RawType &gt;::kFractionBitCount</td>
+          <td class="memname">static const size_t <a class="el" href="classtesting_1_1internal_1_1_floating_point.html">testing::internal::FloatingPoint</a>&lt; RawType &gt;::kFractionBitCount</td>
         </tr>
       </table>
   </td>
@@ -197,8 +236,8 @@ template&lt;typename RawType &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a0ac75d4ffd24f14bca452abe8a718da1" name="a0ac75d4ffd24f14bca452abe8a718da1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ac75d4ffd24f14bca452abe8a718da1">&#9670;&#160;</a></span>kFractionBitMask</h2>
+<a id="a2f3ae7ced0ef045915fa8d1c6148ab13" name="a2f3ae7ced0ef045915fa8d1c6148ab13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3ae7ced0ef045915fa8d1c6148ab13">&#9670;&#160;</a></span>kFractionBitMask</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +248,7 @@ template&lt;typename RawType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const Bits <a class="el" href="classtesting_1_1internal_1_1_floating_point.html">testing::internal::FloatingPoint</a>&lt; RawType &gt;::kFractionBitMask</td>
+          <td class="memname">static const Bits <a class="el" href="classtesting_1_1internal_1_1_floating_point.html">testing::internal::FloatingPoint</a>&lt; RawType &gt;::kFractionBitMask</td>
         </tr>
       </table>
   </td>
@@ -224,7 +263,8 @@ template&lt;typename RawType &gt; </div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/internal/<a class="el" href="gtest-internal_8h_source.html">gtest-internal.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/internal/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_84_2build_2native_2ind40973f19417996d92f877aa8f0dc6d0_source.html">gtest-internal.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7/build/native/include/gtest/internal/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_87_2build_2native_2incbc2095161998ea2c90c9c6e53c56ab3_source.html">gtest-internal.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

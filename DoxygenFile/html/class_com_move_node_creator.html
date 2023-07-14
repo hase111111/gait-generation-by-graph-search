@@ -98,10 +98,93 @@ $(document).ready(function(){initNavTree('class_com_move_node_creator.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a49a0609daa16dab9b73f3d2e5ccb7311"><td class="memItemLeft" align="right" valign="top"><a id="a49a0609daa16dab9b73f3d2e5ccb7311" name="a49a0609daa16dab9b73f3d2e5ccb7311"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const int _current_num, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)</td></tr>
+<tr class="memitem:a49a0609daa16dab9b73f3d2e5ccb7311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311">create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const int _current_num, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)</td></tr>
+<tr class="memdesc:a49a0609daa16dab9b73f3d2e5ccb7311"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を平行移動したノードを生成する  <br /></td></tr>
 <tr class="separator:a49a0609daa16dab9b73f3d2e5ccb7311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a49a0609daa16dab9b73f3d2e5ccb7311" name="a49a0609daa16dab9b73f3d2e5ccb7311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a0609daa16dab9b73f3d2e5ccb7311">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComMoveNodeCreator::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_current_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_output_graph</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>重心を平行移動したノードを生成する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_current_node</td><td>重心を平行移動するノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_current_num</td><td>重心を平行移動するノードの番号 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">_output_graph</td><td>重心を平行移動したノードを格納するコンテナ </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_com_move_node_creator_a49a0609daa16dab9b73f3d2e5ccb7311_cgraph.png" border="0" usemap="#aclass_com_move_node_creator_a49a0609daa16dab9b73f3d2e5ccb7311_cgraph" alt=""/></div>
+<map name="aclass_com_move_node_creator_a49a0609daa16dab9b73f3d2e5ccb7311_cgraph" id="aclass_com_move_node_creator_a49a0609daa16dab9b73f3d2e5ccb7311_cgraph">
+<area shape="rect" title="重心を平行移動したノードを生成する" alt="" coords="5,163,156,205"/>
+<area shape="rect" href="struct_s_node.html#a9f90c6637f104befbeba45eb2c2f14f3" title="重心位置を変更する関数．" alt="" coords="480,5,665,48"/>
+<area shape="poly" title=" " alt="" coords="109,160,152,132,203,106,269,82,338,63,465,38,466,43,339,68,271,87,205,110,154,136,112,165"/>
+<area shape="rect" href="struct_s_node.html#a159d1bc69cbe150d48b5578433fb5fa3" title="次の動作を設定する関数．" alt="" coords="233,221,401,248"/>
+<area shape="poly" title=" " alt="" coords="156,197,237,215,236,220,155,203"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,120,430,147"/>
+<area shape="poly" title=" " alt="" coords="155,165,236,148,237,153,156,171"/>
+<area shape="rect" href="class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="478,256,667,299"/>
+<area shape="poly" title=" " alt="" coords="156,175,217,174,287,177,360,188,431,207,446,215,456,223,479,242,491,247,489,252,477,246,453,227,443,219,429,212,359,193,286,183,217,179,156,181"/>
+<area shape="rect" href="class_com_selecter.html#a13235fe5edd57ea3d10ade9b4c84d567" title="現在のノードを設定する" alt="" coords="220,272,414,299"/>
+<area shape="poly" title=" " alt="" coords="112,203,154,232,205,258,225,265,223,270,203,262,152,236,109,208"/>
+<area shape="poly" title=" " alt="" coords="345,117,477,58,493,51,495,56,479,62,347,122"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="743,147,897,189"/>
+<area shape="poly" title=" " alt="" coords="431,138,728,159,728,164,430,144"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="496,72,650,115"/>
+<area shape="poly" title=" " alt="" coords="406,117,480,105,481,110,407,122"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="496,189,650,232"/>
+<area shape="poly" title=" " alt="" coords="369,145,431,163,492,182,490,187,429,168,368,150"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="988,96,1155,123"/>
+<area shape="poly" title=" " alt="" coords="897,147,996,124,997,129,898,153"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="973,184,1170,211"/>
+<area shape="poly" title=" " alt="" coords="898,174,958,181,958,187,897,180"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="743,29,897,72"/>
+<area shape="poly" title=" " alt="" coords="650,77,728,64,729,69,651,83"/>
+<area shape="poly" title=" " alt="" coords="898,66,997,89,996,95,897,71"/>
+<area shape="poly" title=" " alt="" coords="899,68,926,82,942,94,952,106,974,133,1034,174,1031,178,971,137,948,110,938,98,923,86,897,73"/>
+<area shape="poly" title=" " alt="" coords="650,206,925,199,958,198,958,203,925,204,650,211"/>
+<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="715,96,925,123"/>
+<area shape="poly" title=" " alt="" coords="608,186,657,158,714,132,737,125,738,130,716,137,660,163,610,191"/>
+<area shape="poly" title=" " alt="" coords="925,107,973,107,973,112,925,112"/>
+<area shape="poly" title=" " alt="" coords="667,260,969,211,970,216,668,265"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>DesignLab/<a class="el" href="_com_move_node_creator_8h_source.html">ComMoveNodeCreator.h</a></li>
 <li>DesignLab/ComMoveNodeCreator.cpp</li>

@@ -128,7 +128,16 @@ typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="b
 <tr class="memitem:aa0f532e93b9f3500144c53f31466976c inherit pub_types_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
 typedef internal::TearDownTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCaseFunc</b></td></tr>
 <tr class="separator:aa0f532e93b9f3500144c53f31466976c inherit pub_types_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2a051d1d99c9b784c666c586186cf9 inherit pub_types_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCaseFunc</b></td></tr>
+<tr class="separator:a5f2a051d1d99c9b784c666c586186cf9 inherit pub_types_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f532e93b9f3500144c53f31466976c inherit pub_types_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+typedef internal::TearDownTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCaseFunc</b></td></tr>
+<tr class="separator:aa0f532e93b9f3500144c53f31466976c inherit pub_types_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classtesting_1_1_with_param_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classtesting_1_1_with_param_interface')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classtesting_1_1_with_param_interface.html">testing::WithParamInterface&lt; T &gt;</a> に属する継承公開型</td></tr>
+<tr class="memitem:a343febaaebf1f025bda484f841d4fec1 inherit pub_types_classtesting_1_1_with_param_interface"><td class="memItemLeft" align="right" valign="top">
+typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>ParamType</b></td></tr>
+<tr class="separator:a343febaaebf1f025bda484f841d4fec1 inherit pub_types_classtesting_1_1_with_param_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a343febaaebf1f025bda484f841d4fec1 inherit pub_types_classtesting_1_1_with_param_interface"><td class="memItemLeft" align="right" valign="top">
 typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>ParamType</b></td></tr>
 <tr class="separator:a343febaaebf1f025bda484f841d4fec1 inherit pub_types_classtesting_1_1_with_param_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,7 +145,31 @@ typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>ParamType</b></t
 <tr class="memitem:a672a0902e8b65aedd0d98c7f5d65b9e1 inherit pub_methods_classtesting_1_1_with_param_interface"><td class="memItemLeft" align="right" valign="top">
 const ParamType &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetParam</b> () const</td></tr>
 <tr class="separator:a672a0902e8b65aedd0d98c7f5d65b9e1 inherit pub_methods_classtesting_1_1_with_param_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672a0902e8b65aedd0d98c7f5d65b9e1 inherit pub_methods_classtesting_1_1_with_param_interface"><td class="memItemLeft" align="right" valign="top">
+const ParamType &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetParam</b> () const</td></tr>
+<tr class="separator:a672a0902e8b65aedd0d98c7f5d65b9e1 inherit pub_methods_classtesting_1_1_with_param_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classtesting_1_1_test"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classtesting_1_1_test')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classtesting_1_1_test.html">testing::Test</a> に属する継承静的公開メンバ関数</td></tr>
+<tr class="memitem:a5ccbac42fee8c5b00b0bfe89b6c49d79 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCase</b> ()</td></tr>
+<tr class="separator:a5ccbac42fee8c5b00b0bfe89b6c49d79 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af374706cbaf0ffc460f4fd04e7c150f1 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCase</b> ()</td></tr>
+<tr class="separator:af374706cbaf0ffc460f4fd04e7c150f1 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a89846458f0e8ed1c9457c957e8182a inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFatalFailure</b> ()</td></tr>
+<tr class="separator:a0a89846458f0e8ed1c9457c957e8182a inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e896f1b1836f8ac075c26d7b7c9fb8 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasNonfatalFailure</b> ()</td></tr>
+<tr class="separator:a07e896f1b1836f8ac075c26d7b7c9fb8 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a00be7dd0a6bfdc8d47a1b784623613 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFailure</b> ()</td></tr>
+<tr class="separator:a7a00be7dd0a6bfdc8d47a1b784623613 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0448aec9e389fab70f6a75a59ff6aa2 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr class="separator:ae0448aec9e389fab70f6a75a59ff6aa2 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af602903efb17730b977304fc56500881 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, int value)</td></tr>
+<tr class="separator:af602903efb17730b977304fc56500881 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ccbac42fee8c5b00b0bfe89b6c49d79 inherit pub_static_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCase</b> ()</td></tr>
 <tr class="separator:a5ccbac42fee8c5b00b0bfe89b6c49d79 inherit pub_static_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,9 +198,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUp</b> ()<
 <tr class="memitem:aab3c02c9f81afe1357adfc45afccd474 inherit pro_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDown</b> ()</td></tr>
 <tr class="separator:aab3c02c9f81afe1357adfc45afccd474 inherit pro_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b38992669fb844864807cf32e416853 inherit pro_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUp</b> ()</td></tr>
+<tr class="separator:a8b38992669fb844864807cf32e416853 inherit pro_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3c02c9f81afe1357adfc45afccd474 inherit pro_methods_classtesting_1_1_test"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDown</b> ()</td></tr>
+<tr class="separator:aab3c02c9f81afe1357adfc45afccd474 inherit pro_methods_classtesting_1_1_test"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/<a class="el" href="gtest_8h_source.html">gtest.h</a></li>
+<li>packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4/build/native/include/gtest/<a class="el" href="_microsoft_8googletest_8v140_8windesktop_8msvcstl_8static_8rt-dyn_81_88_81_84_2build_2native_2include_2gtest_2gtest_8h_source.html">gtest.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

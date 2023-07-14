@@ -95,23 +95,31 @@ $(document).ready(function(){initNavTree('_com_move_node_creator_8h_source.html'
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_map_state_8h.html">MapState.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Node.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_com_move_node_creator.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_com_move_node_creator.html">ComMoveNodeCreator</a> final</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">void</span> create(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; _current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> _current_num, std::vector&lt;SNode&gt;&amp; _output_graph);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* mp_Map;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> DISCRETIZATION = 5;   <span class="comment">//離散化数．最大位置を最小位置を何分割するのか．</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;MyPolygon.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;ComType.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_com_move_node_creator.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_com_move_node_creator.html">ComMoveNodeCreator</a> final</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311">create</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; _current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> _current_num, std::vector&lt;SNode&gt;&amp; _output_graph);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="struct_s_node.html">SNode</a> makeNextNode(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; _current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> _current_num, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> _next_com_pos, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* mp_Map;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;my_vec::SPolygon2&gt; m_Polygons;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 <div class="ttc" id="a_map_state_8h_html"><div class="ttname"><a href="_map_state_8h.html">MapState.h</a></div><div class="ttdoc">マップを表すクラスの実装．</div></div>
-<div class="ttc" id="aclass_com_move_node_creator_html"><div class="ttname"><a href="class_com_move_node_creator.html">ComMoveNodeCreator</a></div><div class="ttdef"><b>Definition</b> ComMoveNodeCreator.h:6</div></div>
+<div class="ttc" id="aclass_com_move_node_creator_html"><div class="ttname"><a href="class_com_move_node_creator.html">ComMoveNodeCreator</a></div><div class="ttdef"><b>Definition</b> ComMoveNodeCreator.h:9</div></div>
+<div class="ttc" id="aclass_com_move_node_creator_html_a49a0609daa16dab9b73f3d2e5ccb7311"><div class="ttname"><a href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311">ComMoveNodeCreator::create</a></div><div class="ttdeci">void create(const SNode &amp;_current_node, const int _current_num, std::vector&lt; SNode &gt; &amp;_output_graph)</div><div class="ttdoc">重心を平行移動したノードを生成する</div><div class="ttdef"><b>Definition</b> ComMoveNodeCreator.cpp:6</div></div>
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a></div><div class="ttdeci">EComPattern</div><div class="ttdef"><b>Definition</b> ComType.h:14</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

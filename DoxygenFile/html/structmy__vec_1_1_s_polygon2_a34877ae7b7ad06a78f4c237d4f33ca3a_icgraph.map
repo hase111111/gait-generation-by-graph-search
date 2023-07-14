@@ -1,0 +1,21 @@
+<map id="my_vec::SPolygon2::getVertexNum" name="my_vec::SPolygon2::getVertexNum">
+<area shape="rect" id="Node000001" title="多角形の頂点数を返す関数" alt="" coords="198,272,342,315"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_polygon2.html#ae63935b86d36a389db46eb754b649380" title="頂点の中で最大のx座標を返す関数" alt="" coords="5,5,150,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,259,241,215,218,163,187,109,148,62,133,51,137,46,152,58,191,106,222,160,246,213,261,257"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_polygon2.html#a0a8636becb75ea8b634208a409c5b352" title="頂点の中で最大のy座標を返す関数" alt="" coords="5,72,150,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,261,208,195,180,160,148,129,132,118,135,113,151,125,184,156,212,192,253,258"/>
+<area shape="rect" id="Node000004" href="$structmy__vec_1_1_s_polygon2.html#a1945feae4f91bbd55c5d2e809225396b" title="頂点の中で最小のx座標を返す関数" alt="" coords="5,139,150,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,264,194,229,148,196,128,184,131,180,151,191,197,225,238,260"/>
+<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_polygon2.html#a2b363b955e336824d8e1b7ba1f439b4d" title="頂点の中で最小のy座標を返す関数" alt="" coords="5,205,150,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="192,269,140,251,142,246,194,264"/>
+<area shape="rect" id="Node000006" href="$structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="5,272,150,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="183,296,150,296,150,291,183,291"/>
+<area shape="rect" id="Node000007" href="$structmy__vec_1_1_s_polygon2.html#aaaa76fbcbe7c9ca7cc98f608955af392" title="多角形が凸かどうか調べる関数" alt="" coords="5,339,150,381"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="194,322,142,341,140,336,192,317"/>
+<area shape="rect" id="Node000008" href="$structmy__vec_1_1_s_polygon2.html#ad49346b48fb4c45f703f5b3f09c72937" title="点が多角形の内部にあるかどうか調べる関数" alt="" coords="5,405,150,448"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="238,327,197,362,151,396,131,407,128,402,148,391,194,357,234,323"/>
+<area shape="rect" id="Node000009" href="$structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96" title="1番最後の頂点を削除する関数" alt="" coords="5,472,150,515"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="253,329,212,395,184,430,151,462,135,474,132,469,148,458,180,427,208,392,249,326"/>
+<area shape="rect" id="Node000010" href="$structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f" title="頂点を削除する関数" alt="" coords="5,539,150,581"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="261,330,246,374,222,426,191,480,152,529,137,540,133,536,148,525,187,477,218,424,241,372,256,328"/>
+</map>

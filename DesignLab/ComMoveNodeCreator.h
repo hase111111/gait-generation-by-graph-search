@@ -17,8 +17,6 @@ public:
 
 private:
 
-	SNode makeNextNode(const SNode& _current_node, const int _current_num, const my_vec::SVector _next_com_pos, const ComType::EComPattern _com_pattern);
-
 	const MapState* mp_Map;
 
 	std::vector<my_vec::SPolygon2> m_Polygons;

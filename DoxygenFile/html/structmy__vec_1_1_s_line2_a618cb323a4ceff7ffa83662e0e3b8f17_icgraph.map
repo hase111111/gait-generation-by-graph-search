@@ -1,0 +1,5 @@
+<map id="my_vec::SLine2::isParallel" name="my_vec::SLine2::isParallel">
+<area shape="rect" id="Node000001" title="線分が平行かどうか調べる関数" alt="" coords="260,5,434,32"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_line2.html#a2ce181e967e3b1918da067056196eac4" title="他の線分との交点を求める．" alt="" coords="5,5,212,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,21,212,21,212,16,245,16"/>
+</map>

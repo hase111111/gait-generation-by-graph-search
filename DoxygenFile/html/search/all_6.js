@@ -8,5 +8,6 @@ var searchData=
   ['formatforcomparison_5',['FormatForComparison',['../classtesting_1_1internal_1_1_format_for_comparison.html',1,'testing::internal']]],
   ['formatforcomparison_3c_20toprint_5bn_5d_2c_20otheroperand_20_3e_6',['FormatForComparison&lt; ToPrint[N], OtherOperand &gt;',['../classtesting_1_1internal_1_1_format_for_comparison_3_01_to_print_0f_n_0e_00_01_other_operand_01_4.html',1,'testing::internal']]],
   ['fps_7',['Fps',['../class_fps.html',1,'']]],
-  ['fps_2eh_8',['Fps.h',['../_fps_8h.html',1,'']]]
+  ['fps_2eh_8',['Fps.h',['../_fps_8h.html',1,'']]],
+  ['front_9',['front',['../namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ae6ec529ba185279aa0adcf93e645c7cd',1,'ComType']]]
 ];

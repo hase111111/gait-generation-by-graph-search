@@ -158,3 +158,10 @@ void LegStateEdit::changeGround(int& _leg_state, const int _leg_num, const bool 
 		_leg_state &= ~(0b1000 << (_leg_num * 4));
 	}
 }
+
+void LegStateEdit::changeComPattern(int& _leg_state, const ComType::EComPattern _new_com_pattern)
+{
+	const int _state = ComType::convertComPatternToBit(_new_com_pattern) << SHIFT_TO_COM_NUM;
+	int _res = (_leg_state ^ _state) & COM_STATE_MASKBIT;
+	_leg_state ^= _res;
+}

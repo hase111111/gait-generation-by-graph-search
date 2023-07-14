@@ -1,0 +1,31 @@
+digraph "ComSelecter::getComFromPolygon"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ComSelecter::getComFromPolygon",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="重心を求める"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="SNode::changeGlobalCenter\lOfMass",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_s_node.html#a9f90c6637f104befbeba45eb2c2f14f3",tooltip="重心位置を変更する関数．"];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="HexapodStateCalclator\l::isAblePause",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7",tooltip="転ばない姿勢かどうか調べる．"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="my_vec::SVector2::cross",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2",tooltip="このベクトルとotherの外積を返す"];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="my_vec::SVector::projectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7",tooltip="XY平面に射影したベクトルを返す．"];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="HexapodStateCalclator\l::isAllLegInRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9",tooltip="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．"];
+  Node6 -> Node7 [id="edge6_Node000006_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="HexapodStateCalclator\l::isLegInRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d",tooltip="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．"];
+  Node7 -> Node4 [id="edge7_Node000007_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node7 -> Node8 [id="edge8_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="my_vec::SVector2::length\lSquare",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3",tooltip="このベクトルの長さの2乗を返す"];
+  Node7 -> Node5 [id="edge9_Node000007_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node10 [id="edge10_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="HexapodStateCalclator\l::isLegInterfering",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f",tooltip="脚の干渉をチェックする．"];
+  Node10 -> Node11 [id="edge11_Node000010_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="my_vec::SLine2::hasIntersection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7",tooltip="交点が存在しているかどうか調べる関数"];
+  Node11 -> Node4 [id="edge12_Node000011_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node10 -> Node5 [id="edge13_Node000010_Node000005",color="steelblue1",style="solid",tooltip=" "];
+}

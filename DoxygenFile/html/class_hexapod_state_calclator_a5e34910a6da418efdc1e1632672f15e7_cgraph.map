@@ -1,0 +1,7 @@
+<map id="HexapodStateCalclator::isAblePause" name="HexapodStateCalclator::isAblePause">
+<area shape="rect" id="Node000001" title="転ばない姿勢かどうか調べる．" alt="" coords="5,23,160,65"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="223,5,390,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,33,207,27,208,32,160,38"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,56,405,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,50,193,54,192,59,160,55"/>
+</map>
