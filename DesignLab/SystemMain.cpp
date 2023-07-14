@@ -7,7 +7,6 @@
 #include "hexapod.h"
 #include "HexapodStateCalculator.h"
 #include "NodeValidityChecker.h"
-#include "NodeEdit.h"
 
 SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 {

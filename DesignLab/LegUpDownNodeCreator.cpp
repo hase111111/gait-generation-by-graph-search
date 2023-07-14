@@ -1,5 +1,4 @@
 #include "LegUpDownNodeCreator.h"
-#include "NodeEdit.h"
 #include "ComType.h"
 #include "LegState.h"
 
@@ -67,7 +66,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		if (_is_able_type[i] == true)
 		{
 			SNode _res_node = _current_node;
-			node_edit::changeNextNode(_res_node, _current_num, getNextMove(_current_node.next_move));
+			_res_node.changeNextNode(_current_num, getNextMove(_current_node.next_move));
 
 			//—V‹rEÚ’n‚ğ‘‚«Š·‚¦‚éD
 			bool _temp_ground[HexapodConst::LEG_NUM] = {};

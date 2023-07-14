@@ -1,5 +1,4 @@
 #include "GraphTreeCreatorSample.h"
-#include "NodeEdit.h"
 #include "Define.h"
 
 bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph)
@@ -9,7 +8,7 @@ bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const M
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
 
-	node_edit::changeParentNode(_parent_node);
+	_parent_node.changeParentNode();
 	_output_graph.push_back(_parent_node);
 
 	//設定された探索深さまでの深さを持つグラフを作る．実際にグラフを作成する時もおそらくこんな感じでループする処理を書く．
@@ -17,10 +16,10 @@ bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const M
 	int _cnt = 0;	//カウンタを用意
 
 	//カウンタがvectorのサイズを超えるまでループする．
-	while ( _cnt < _output_graph.size())
+	while (_cnt < _output_graph.size())
 	{
 		//探索深さが足りていないノードのみ，処理をする．
-		if (_output_graph.at(_cnt).depth < Define::GRAPH_SEARCH_DEPTH) 
+		if (_output_graph.at(_cnt).depth < Define::GRAPH_SEARCH_DEPTH)
 		{
 			SNode _new_node = _output_graph.at(_cnt);
 

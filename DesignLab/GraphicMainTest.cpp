@@ -1,6 +1,5 @@
 #include "GraphicMainTest.h"
 #include "Dxlib3DFunction.h"
-#include "NodeEdit.h"
 #include "MapRenderer.h"
 #include "Keyboard.h"
 
@@ -9,7 +8,7 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* _broker) : IGraphicMai
 	//3DŒn‚Ìˆ—s‚¤‘O‚É‰Šú‰»‚·‚éD
 	myDxlib3DFunc::initDxlib3D();
 
-	node_edit::initNode(m_node, false);
+	m_node.init(false);
 
 	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.global_center_of_mass));
 

@@ -1,6 +1,5 @@
 #include "LegHierarchyNodeCreator.h"
 #include "LegState.h"
-#include "NodeEdit.h"
 
 
 void LegHierarchyNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
@@ -30,7 +29,7 @@ void LegHierarchyNodeCreator::create(const SNode& _current_node, const int _curr
 		//また6本接地しているならば脚を動かせない(遊脚する必要がある)．よって処理を行わない．(そのままの状態を次のノードにする．)
 		SNode _new_node = _current_node;
 
-		node_edit::changeNextNode(_new_node, _current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
+		_new_node.changeNextNode(_current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 		_output_graph.push_back(_new_node);		//追加する．
 	}
 }
@@ -49,7 +48,7 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& _current_node, const
 
 		LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);	//脚状態を変更する．
 
-		node_edit::changeNextNode(_new_node, _current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
+		_new_node.changeNextNode(_current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
 		_output_graph.push_back(_new_node);	//追加する．
 	}
@@ -71,7 +70,7 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& _current_node, const
 			LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(0), i);			//脚状態を変更する．
 			LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
 
-			node_edit::changeNextNode(_new_node, _current_num, m_next_move);	//次のノード用に，深さ・親・次の動作を更新する．
+			_new_node.changeNextNode(_current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
 			_output_graph.push_back(_new_node);	//追加する．
 		}
@@ -97,7 +96,7 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& _current_node, const
 				LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(1), j);
 				LegStateEdit::changeLegState(_new_node.leg_state, _lifted_leg.at(2), k);
 
-				node_edit::changeNextNode(_new_node, _current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
+				_new_node.changeNextNode(_current_num, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
 				_output_graph.push_back(_new_node);	//追加する．
 			}

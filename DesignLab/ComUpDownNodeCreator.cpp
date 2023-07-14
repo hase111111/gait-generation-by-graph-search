@@ -4,7 +4,6 @@
 #include <cfloat>
 #include <algorithm>
 #include "MyMath.h"
-#include "NodeEdit.h"
 #include "LegState.h"
 
 void ComUpDownNodeCreator::init(const MapState* const _p_Map)
@@ -95,7 +94,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 	//まずは重心の変化が一切ないものを追加する．
 	{
 		SNode _same_node = _current_node;
-		node_edit::changeNextNode(_same_node, _current_num, m_next_move);
+		_same_node.changeNextNode(_current_num, m_next_move);
 		_output_graph.push_back(_same_node);
 	}
 
@@ -127,7 +126,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 			}
 
 			//ノードを追加する．
-			node_edit::changeNextNode(_new_node, _current_num, m_next_move);
+			_new_node.changeNextNode(_current_num, m_next_move);
 			_output_graph.push_back(_new_node);
 		}
 	}

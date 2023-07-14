@@ -1,5 +1,4 @@
 #include "GraphTreeCreatorHato.h"
-#include "NodeEdit.h"
 #include "Define.h"
 
 bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph)
@@ -13,7 +12,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
 
-	node_edit::changeParentNode(_parent_node);
+	_parent_node.changeParentNode();
 	_output_graph.clear();					//出力する結果を空にする．
 	_output_graph.push_back(_parent_node);	//親を追加する．
 
@@ -29,7 +28,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 
 			makeNewNodesByCurrentNode(_output_graph.at(_cnt), _cnt, _res_vec);		//子ノードを生成する．
 
-			for (const auto &i : _res_vec)
+			for (const auto& i : _res_vec)
 			{
 				//深さが一つ下で，親が正しく設定されているもののみ追加する．少々冗長だが，安全のため．
 				if (i.depth == (_output_graph.at(_cnt).depth + 1) && i.parent_num == _cnt)
@@ -81,7 +80,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 		//定義されていないならば，同じノードをそのまま追加する．
 		SNode _new_node = _current_node;
 
-		node_edit::changeNextNode(_new_node, _current_num, _current_node.next_move);
+		_new_node.changeNextNode(_current_num, _current_node.next_move);
 
 		_output_graph.push_back(_new_node);
 		break;

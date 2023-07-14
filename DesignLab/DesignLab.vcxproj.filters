@@ -228,9 +228,6 @@
     <ClInclude Include="NodeValidityChecker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="NodeEdit.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
     <ClInclude Include="ComUpDownNodeCreator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
@@ -281,6 +278,9 @@
     </ClInclude>
     <ClInclude Include="ComSelecter.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="HexapodNextMove.h">
+      <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -419,9 +419,6 @@
     <ClCompile Include="GraphTreeCreatorHato.cpp">
       <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="NodeEdit.cpp">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClCompile>
     <ClCompile Include="ComUpDownNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
@@ -460,6 +457,9 @@
     </ClCompile>
     <ClCompile Include="MyPolygon.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClCompile>
+    <ClCompile Include="HexapodNextMove.cpp">
+      <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

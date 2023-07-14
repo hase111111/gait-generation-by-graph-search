@@ -1,12 +1,11 @@
 #include "SystemTest.h"
 #include "ComUpDownNodeCreator.h"
 #include "CmdIO.h"
-#include "NodeEdit.h"
 
 void SystemTest::main()
 {
 	SNode _first;
-	node_edit::initNode(_first, false);
+	_first.init(false);
 
 	CmdIO _cmd;
 	_cmd.outputNode(_first, 0);
@@ -22,7 +21,7 @@ void SystemTest::main()
 
 	int _cnt = 0;
 
-	for (auto &i : _vec)
+	for (auto& i : _vec)
 	{
 		_cnt++;
 		_cmd.outputNode(i, _cnt);
