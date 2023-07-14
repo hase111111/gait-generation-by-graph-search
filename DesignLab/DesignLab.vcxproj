@@ -40,7 +40,6 @@
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="ComType.h" />
-    <ClInclude Include="CreateComCandidate.h" />
     <ClInclude Include="CmdIO.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dxlib3DFunction.h" />
@@ -105,7 +104,6 @@
     <ClCompile Include="InterfaceGraphicMain.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="ComType.cpp" />
-    <ClCompile Include="CreateComCandidate.cpp" />
     <ClCompile Include="CmdIO.cpp" />
     <ClCompile Include="Dxlib3DFunction.cpp" />
     <ClCompile Include="Fps.cpp" />

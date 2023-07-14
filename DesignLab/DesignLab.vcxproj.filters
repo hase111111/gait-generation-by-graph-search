@@ -135,9 +135,6 @@
     <ClInclude Include="LegState.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
-    <ClInclude Include="CreateComCandidate.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
-    </ClInclude>
     <ClInclude Include="ComType.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
@@ -331,9 +328,6 @@
     </ClCompile>
     <ClCompile Include="LegState.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateComCandidate.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="ComType.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
