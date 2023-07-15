@@ -34,5 +34,5 @@ void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_n
 		}
 	}
 
-	std::cout << "ComMoveNodeCreator::create() : " << _output_graph.size() << std::endl;
+	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreator::create() : " << _output_graph.size() << std::endl;
 }

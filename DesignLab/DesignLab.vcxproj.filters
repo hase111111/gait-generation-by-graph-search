@@ -85,6 +85,9 @@
     <Filter Include="ソース ファイル\Common\MyVector">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main\Interface">
+      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -183,9 +186,6 @@
     <ClInclude Include="Dxlib3DFunction.h">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceGraphicMain.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClInclude>
     <ClInclude Include="HexapodRenderer.h">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
@@ -243,7 +243,7 @@
     <ClInclude Include="GraphSearcherRandom.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="SystemTest.h">
+    <ClInclude Include="GraphViewerSystemMain.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="LegUpDownNodeCreator.h">
@@ -281,6 +281,18 @@
     </ClInclude>
     <ClInclude Include="HexapodNextMove.h">
       <Filter>ソース ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSearchNone.h">
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceGraphicMain.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicMainGraphViewer.h">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphViewerGUIController.h">
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -374,9 +386,6 @@
     <ClCompile Include="Dxlib3DFunction.cpp">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceGraphicMain.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClCompile>
     <ClCompile Include="HexapodRenderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
@@ -434,7 +443,7 @@
     <ClCompile Include="GraphSearcherRandom.cpp">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClCompile>
-    <ClCompile Include="SystemTest.cpp">
+    <ClCompile Include="GraphViewerSystemMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="LegUpDownNodeCreator.cpp">
@@ -460,6 +469,18 @@
     </ClCompile>
     <ClCompile Include="HexapodNextMove.cpp">
       <Filter>ソース ファイル\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearchNone.cpp">
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceGraphicMain.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicMainGraphViewer.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphViewerGUIController.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

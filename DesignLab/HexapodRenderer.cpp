@@ -91,9 +91,13 @@ void HexapodRenderer::draw(const SNode& _node) const
 
 		if (DO_OUTPUT_DEBUG_LOG)
 		{
-			printfDx("LegNum: %d \t", i);
+			if (m_HexaCalc.isLegInRange(_node, i))printfDx("ÅZ");
+			else printfDx("Å~");
+
+			printfDx(" LegNum: %d \t", i);
 			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z)));
 			printfDx("%.3f\t", _node.leg_pos[i].length());
+
 			if (m_HexaCalc.isLegInRange(_node, i))printfDx("is in range   \n");
 			else printfDx("isnot in range\n");
 		}
@@ -102,11 +106,11 @@ void HexapodRenderer::draw(const SNode& _node) const
 	if (DO_OUTPUT_DEBUG_LOG)
 	{
 		//is Able Pause
-		if (m_HexaCalc.isAblePause(_node)) { printfDx("is Able Pause\n"); }
-		else { printfDx("isnot Able Pause\n"); }
+		if (m_HexaCalc.isAblePause(_node)) { printfDx("ÅZ is Able Pause\n"); }
+		else { printfDx("Å~ isnot Able Pause\n"); }
 
 		// leg Interfering
-		if (m_HexaCalc.isLegInterfering(_node)) { printfDx("is Leg Interfering\n"); }
-		else { printfDx("isnot Leg Interfering\n"); }
+		if (m_HexaCalc.isLegInterfering(_node)) { printfDx("Å~ is Leg Interfering\n"); }
+		else { printfDx("ÅZ isnot Leg Interfering\n"); }
 	}
 }

@@ -51,8 +51,9 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 
 	switch (_current_node.next_move)
 	{
-
 	case EHexapodMove::LEG_UP_DOWN:
+	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE:
+	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN:
 		//‹r‚ğã‰ºˆÚ“®‚³‚¹CÚ’n‚µ‚½‚è—V‹r‚µ‚½‚è‚·‚éD
 		m_LegUpDown.create(_current_node, _current_num, _output_graph);
 		break;

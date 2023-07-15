@@ -6,7 +6,11 @@ namespace my_vec
 {
 	//! @struct my_vec::SPolygon2
 	//! @brief 2次元の多角形を表す構造体
-	//! @details 2次元の多角形を表す構造体．
+	//! @details 2次元の多角形を表す構造体．<br>
+	//! 頂点は反時計回り，或いは時計回りに並んでいる必要がある．<br>
+	//! そうでない場合はいくつかの関数が正常に動作しない．<br>
+	//! max関数，min関数については以下を参照．<br>
+	//! 参照 : https://cpprefjp.github.io/reference/algorithm/max.html
 	struct SPolygon2 final
 	{
 		SPolygon2() = default;
@@ -88,7 +92,7 @@ namespace my_vec
 
 			for (int i = 1; i < getVertexNum(); ++i)
 			{
-				_max = std::max(_max, vertex[i].x);
+				_max = (std::max)(_max, vertex[i].x);
 			}
 
 			return _max;
@@ -102,7 +106,7 @@ namespace my_vec
 
 			for (int i = 1; i < getVertexNum(); ++i)
 			{
-				_min = std::min(_min, vertex[i].x);
+				_min = (std::min)(_min, vertex[i].x);
 			}
 
 			return _min;
@@ -116,7 +120,7 @@ namespace my_vec
 
 			for (int i = 1; i < getVertexNum(); ++i)
 			{
-				_max = std::max(_max, vertex[i].y);
+				_max = (std::max)(_max, vertex[i].y);
 			}
 
 			return _max;
@@ -130,7 +134,7 @@ namespace my_vec
 
 			for (int i = 1; i < getVertexNum(); ++i)
 			{
-				_min = std::min(_min, vertex[i].y);
+				_min = (std::min)(_min, vertex[i].y);
 			}
 
 			return _min;

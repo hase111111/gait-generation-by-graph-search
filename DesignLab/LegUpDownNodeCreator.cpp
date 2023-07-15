@@ -27,7 +27,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 	//次に脚が地面に接地可能か調べる．
 
-	bool _is_groundable[HexapodConst::LEG_NUM];				//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
+	bool _is_groundable[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
 	my_vec::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.leg_pos[i]; }
@@ -89,17 +89,23 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 EHexapodMove LegUpDownNodeCreator::getNextMove(const EHexapodMove& _last_move) const
 {
-	//重心の上下移動→これ→重心の平行移動
-	//脚の平行移動→これ→重心の上下移動
-	return EHexapodMove::LEG_HIERARCHY_CHANGE;
-
-	if (_last_move == EHexapodMove::COM_UP_DOWN) { return EHexapodMove::COM_MOVE; }
-	else { return EHexapodMove::COM_UP_DOWN; }
+	if (_last_move == EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE)
+	{
+		return EHexapodMove::COM_MOVE;
+	}
+	else
+	{
+		return EHexapodMove::COM_UP_DOWN;
+	}
 }
 
 bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
 {
-	if (mp_Map == nullptr) { return false; }
+	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
+
+	using my_vec::SVector;
+
+	if (mp_Map == nullptr) { return false; }	//マップがないときはfalseを返す．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
 	int _max_x_dev = mp_Map->getDevideMapNumX(_current_node.leg_pos[_leg_num].x) + 2;
@@ -116,9 +122,9 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	std::vector<my_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
-	const my_vec::SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
-	const my_vec::SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
+	std::vector<SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
+	const SVector _leg_pos = m_Calc.getGlobalLeg2Pos(_current_node, _leg_num);		//離散化した時の4の座標をあらかじめ計算しておく
+	const SVector _coxa_pos = m_Calc.getGlobalCoxaJointPos(_current_node, _leg_num);	//脚の付け根の座標．
 	const int _leg_state = LegStateEdit::getLegState(_current_node.leg_state, _leg_num);			//脚位置を取得(1～7)
 
 	//範囲内の点を全て調べる．
@@ -130,13 +136,14 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 			for (int n = 0; n < _pos_num; n++)
 			{
-				//脚設置可能点の座標を取り出す．
-				my_vec::SVector _pos = mp_Map->getPosFromDevideMap(x, y, n);
+				SVector _pos = mp_Map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
 
-				float _len = (_coxa_pos - _pos).length();	//付け根から脚設置可能点までの長さを取得する．
+				//脚位置を更新したノードを作成する．
+				SNode _new_node = _current_node;
 
-				//最小より近い，または，最大より遠いならば，追加せずに続行．continueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html ちなみに読みづらくなるので本当は使わないほうがいいです．
-				if (_len < m_Calc.getMinLegR(_coxa_pos.z - _pos.z) || m_Calc.getMaxLegR(_coxa_pos.z - _pos.z) < _len)
+				_new_node.leg_pos[_leg_num] = _pos - _coxa_pos;	//脚設置可能点を脚の付け根に合わせる．
+
+				if (m_Calc.isLegInRange(_new_node, _leg_num) == false)
 				{
 					continue;
 				}

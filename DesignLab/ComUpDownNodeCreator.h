@@ -21,5 +21,5 @@ private:
 
 	const int DISCRETIZATION = 5;	//離散化数．最大位置を最小位置を何分割するのか．
 	const float MARGIN = 10.0f;		//脚を伸ばし切らないようにするためのマージン[mm]．数値は先輩のプログラムからとってきたのでなぜこの数値が良いのかはわからない．
-	const EHexapodMove m_next_move = EHexapodMove::LEG_UP_DOWN;	//次の動作
+	const EHexapodMove m_next_move = EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE;	//次の動作
 };

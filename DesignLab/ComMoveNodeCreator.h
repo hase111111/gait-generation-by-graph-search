@@ -20,4 +20,6 @@ private:
 	const MapState* mp_Map;
 
 	std::vector<my_vec::SPolygon2> m_Polygons;
+
+	const bool DO_DEBUG_PRINT = false;
 };

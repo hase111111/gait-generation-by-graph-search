@@ -5,6 +5,7 @@
 #include "GraphicMainSample.h"
 #include "GraphicMainBasic.h"
 #include "GraphicMainTest.h"
+#include "GraphicMainGraphViewer.h"
 #include "Define.h"
 
 
@@ -41,7 +42,7 @@ void GraphicSystem::main()
 	}
 
 	//描画の処理を行うクラスをセットする．実行する描画の内容を変更したいならば，このようにIGraphicMainを継承した他のクラスを<>に入れてください．
-	GraphicLoop _Looper(std::make_unique<GraphicMainBasic>(mp_Broker));
+	GraphicLoop _Looper(std::make_unique<GraphicMainGraphViewer>(mp_Broker));
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．

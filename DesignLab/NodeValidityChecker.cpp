@@ -22,7 +22,8 @@ bool NodeValidityChecker::isLoopMove() const
 	for (_itr; _itr != m_node.end(); _itr++)
 	{
 		//同じノードがあれば，動作がループしているとみなし，trueを返す．
-		if (isNodeEqual(m_node.front(), (*_itr)) == true) { return true; }
+		//if (isNodeEqual(m_node.front(), (*_itr)) == true) { return true; }
+		if (m_node.front() == (*_itr)) { return true; }
 	}
 
 	return false;
