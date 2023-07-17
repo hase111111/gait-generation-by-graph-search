@@ -27,17 +27,20 @@
     <ClCompile Include="LegStateTest.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateIsGroundTest.cpp">
-      <Filter>LegState</Filter>
-    </ClCompile>
     <ClCompile Include="LegStateMakeLegStateTest.cpp">
-      <Filter>LegState</Filter>
-    </ClCompile>
-    <ClCompile Include="LegStateGetGroundNum.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
     <ClCompile Include="SPolygonIsInsideTets.cpp">
       <Filter>my_vec</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateIsGroundTest.cpp">
+      <Filter>LegState\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateGetGroundNum.cpp">
+      <Filter>LegState\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="LegStateGetGroundLegTest.cpp">
+      <Filter>LegState\Ground</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +55,9 @@
     </Filter>
     <Filter Include="LegState">
       <UniqueIdentifier>{5f19d473-30be-42a0-873c-27689b00bfff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LegState\Ground">
+      <UniqueIdentifier>{6290727c-da48-408b-89e6-26f233dd40e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

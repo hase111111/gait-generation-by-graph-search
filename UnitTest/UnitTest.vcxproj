@@ -37,6 +37,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LegStateGetGroundLegTest.cpp" />
     <ClCompile Include="LegStateGetGroundNum.cpp" />
     <ClCompile Include="LegStateIsGroundTest.cpp" />
     <ClCompile Include="LegStateMakeLegStateTest.cpp" />
