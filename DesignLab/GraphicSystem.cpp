@@ -9,14 +9,8 @@
 #include "Define.h"
 
 
-void GraphicSystem::init(const GraphicDataBroker* _p_broker, std::unique_ptr<IGraphicMain>&& _graphic_main)
+void GraphicSystem::init(std::unique_ptr<IGraphicMain>&& _graphic_main)
 {
-	//ブローカーがnull(存在しない)なら終了
-	if (_p_broker == nullptr) { return; }
-
-	//ブローカーを受け取る．
-	mp_Broker = _p_broker;
-
 	mp_InterfaceGraphicMain = std::move(_graphic_main);
 }
 
@@ -30,9 +24,9 @@ void GraphicSystem::main()
 	}
 
 	//ブローカーがnull(存在しない)なら終了
-	if (mp_Broker == nullptr)
+	if (!mp_InterfaceGraphicMain)
 	{
-		std::cout << "GraphicDataBrokerクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
+		std::cout << "IGraphicMainクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
 		return;
 	}
 

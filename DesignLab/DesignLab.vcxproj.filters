@@ -294,6 +294,12 @@
     <ClInclude Include="GraphViewerGUIController.h">
       <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
     </ClInclude>
+    <ClInclude Include="MyTimer.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToValue.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">

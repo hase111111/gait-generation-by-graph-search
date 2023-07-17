@@ -69,9 +69,11 @@
     <ClInclude Include="MyLine.h" />
     <ClInclude Include="MyMath.h" />
     <ClInclude Include="MyPolygon.h" />
+    <ClInclude Include="MyTimer.h" />
     <ClInclude Include="MyVector2.h" />
     <ClInclude Include="NodeValidityChecker.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="StringToValue.h" />
     <ClInclude Include="SystemMain.h" />
     <ClInclude Include="GraphViewerSystemMain.h" />
     <ClInclude Include="Target.h" />

@@ -7,6 +7,7 @@
 #include "hexapod.h"
 #include "HexapodStateCalculator.h"
 #include "NodeValidityChecker.h"
+#include "GraphicMainBasic.h"
 
 SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 {
@@ -24,7 +25,7 @@ SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 	m_GraphSearch = std::move(_graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_Graphic.init(&m_Broker);
+	m_Graphic.init(std::make_unique<GraphicMainBasic>(&m_Broker));
 
 	//この探索での目標を設定する．
 	m_target.TargetDirection = my_vec::SVector(0, 1, 0);						//目標方向x,y,z(直進移動)

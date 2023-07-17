@@ -13,27 +13,33 @@ public:
 
 	//! マップの状態を仲介人に渡す．
 	//! @param [in] _map マップを参照渡しする
-	void setMapState(const MapState& _map);	
+	void setMapState(const MapState& _map);
 
 	//! マップの状態を返す
 	//! @return MapState マップの状態を値渡しする．<br>基本的には大きなクラスは値渡しするべきでないが，マップは何度も更新されないデータだし値渡しする．
 	MapState getMapState() const;
 
 
-	//! ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．
+	//! @brief ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．
 	//! @param [in] _node ロボットの新しい状態
-	void pushNode(const SNode &_node);				
+	void pushNode(const SNode& _node);
 
-	//! ノードの集合をvectorを用いて参照渡しする．全データをコピーする．
+	//! @brief ノードの集合を全て削除する．
+	void deleteAllNode();
+
+	//! @brief ノードの集合をvectorを用いて参照渡しする．全データをコピーする．
 	//! @param [out] _node_vec この関数の中で一度中身を空にしてから，データを代入する．
 	void copyAllNode(std::vector<SNode>& _node_vec) const;
 
-	//! ノードの集合をvectorを用いて参照渡しする．渡したvectorより，持っているデータが多い場合のみ差分をコピーする．<br> copyAllNodeより軽い処理になります．
+	//! @brief ノードの集合をvectorを用いて参照渡しする．渡したvectorより，持っているデータが多い場合のみ差分をコピーする．<br> copyAllNodeより軽い処理になります．
 	//! @param [out] _node_vec 差分以外に変更はされない．差分のみpushされる
 	void copyOnlyNewNode(std::vector<SNode>& _node_vec) const;
 
+	//! @brief セットされているノードの数を返す．
+	//! @return size_t ノードの数
+	size_t getNodeNum() const;
 private:
-	
+
 	mutable boost::shared_mutex m_mtx;
 
 	MapState m_Map;

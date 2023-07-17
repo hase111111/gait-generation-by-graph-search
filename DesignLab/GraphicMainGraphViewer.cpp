@@ -6,30 +6,21 @@
 #include <memory>
 #include "Keyboard.h"
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* _broker) : IGraphicMain(_broker)
+GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* _broker) : IGraphicMain(_broker), m_Map(_broker->getMapState())
 {
 	//3D系の処理行う前に初期化する．
 	myDxlib3DFunc::initDxlib3D();
 
-	m_node.init(true);
-	m_parent_node.init(false);
+	m_display_node.init(false);
+	m_HexapodRender.update(m_display_node);
 
-	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.global_center_of_mass));
-
-	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_NONE, false);
+	//カメラのターゲット座標をセットする
+	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_display_node.global_center_of_mass));
 }
 
 bool GraphicMainGraphViewer::update()
 {
-	m_HexapodRender.update(m_node);
-	m_HexapodRender.update(m_parent_node);
-
 	m_Camera.update();
-
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
-	{
-		makeGraph(m_node);
-	}
 
 	return true;
 }
@@ -37,26 +28,10 @@ bool GraphicMainGraphViewer::update()
 void GraphicMainGraphViewer::draw() const
 {
 	MapRenderer mapRenderer;
-	mapRenderer.setNode(m_node);
+	mapRenderer.setNode(m_display_node);
 	mapRenderer.draw(m_Map);
 
-	m_HexapodRender.draw(m_node);
-
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-	m_HexapodRender.draw(m_parent_node);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	m_HexapodRender.draw(m_display_node);
 
 	m_GUIController.draw();
-}
-
-void GraphicMainGraphViewer::makeGraph(SNode _parent)
-{
-	m_graph.clear();
-
-	_parent.changeParentNode();
-	m_graph.push_back(_parent);
-
-	std::unique_ptr<IGraphTreeCreator> graphCreator = std::make_unique<GraphTreeCreatorHato>();
-
-	graphCreator->createGraphTree(_parent, &m_Map, m_graph);
 }

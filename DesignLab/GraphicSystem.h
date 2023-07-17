@@ -1,5 +1,4 @@
 #pragma once
-#include "GraphicDataBroker.h"
 #include "InterfaceGraphicMain.h"
 #include <memory>
 
@@ -11,8 +10,7 @@ public:
 
 
 	//! @brief GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタを受け取る.
-	//! @param[in] _p_broker
-	void init(const GraphicDataBroker* _p_broker, std::unique_ptr<IGraphicMain>&& _graphic_main);
+	void init(std::unique_ptr<IGraphicMain>&& _graphic_main);
 
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br>initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br>
@@ -23,8 +21,6 @@ private:
 
 	bool dxlibInit();			//Dxlibの初期化処理を行います．失敗した場合falseを返します．
 	void dxlibFinalize() const;	//Dxlibの終了処理を行います．
-
-	const GraphicDataBroker* mp_Broker;	// 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐブローカー(仲介人)クラスのポインタを受け取るための変数．
 
 	std::unique_ptr<IGraphicMain> mp_InterfaceGraphicMain;	// グラフィックの表示を行うクラスのポインタ．
 };
