@@ -72,13 +72,20 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 			bool _temp_ground[HexapodConst::LEG_NUM] = {};
 			ComType::getGroundLegFromComType(i, _temp_ground);
 
-			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
+			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				LegStateEdit::changeGround(_res_node.leg_state, l, _temp_ground[l]);
+				LegStateEdit::changeGround(_res_node.leg_state, j, _temp_ground[j]);
 
-				_res_node.leg_pos[l] = _ground_pos[l];
-
-				if (_temp_ground[l] == false) { _res_node.leg_pos[l].z = -40; }
+				if (_temp_ground[j] == true)
+				{
+					_res_node.leg_pos[j] = _ground_pos[j];
+				}
+				else
+				{
+					_res_node.leg_pos[j].x = (HexapodConst::COXA_LENGTH + HexapodConst::FEMUR_LENGTH) * cos(HexapodConst::DEFAULT_LEG_ANGLE[j]);
+					_res_node.leg_pos[j].y = (HexapodConst::COXA_LENGTH + HexapodConst::FEMUR_LENGTH) * sin(HexapodConst::DEFAULT_LEG_ANGLE[j]);
+					_res_node.leg_pos[j].z = -40;
+				}
 			}
 
 			_output_graph.push_back(_res_node);

@@ -14,53 +14,13 @@ void ComUpDownNodeCreator::init(const MapState* const _p_Map)
 void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．
-
-
 	//マップを確認して地面の最高点を求め，そこからMAX_RANGE，MIN_RANGEの分だけ離す．
-	//胴体が存在する xの最大最小，yの最大最小を求め，その間に存在するマップの最大z座標を求める．
-	float _x_min = m_HexaCalc.getGlobalLegPos(_current_node, 0).x;
-	float _y_min = m_HexaCalc.getGlobalLegPos(_current_node, 0).y;
-	float _x_max = m_HexaCalc.getGlobalLegPos(_current_node, 0).x;
-	float _y_max = m_HexaCalc.getGlobalLegPos(_current_node, 0).y;
 
-	for (int i = 1; i < HexapodConst::LEG_NUM; i++)
-	{
-		const float _x_pos = m_HexaCalc.getGlobalCoxaJointPos(_current_node, i).x;
-		const float _y_pos = m_HexaCalc.getGlobalCoxaJointPos(_current_node, i).y;
-
-		_x_max = std::max(_x_max, _x_pos);
-		_x_min = std::min(_x_min, _x_pos);
-
-		_y_max = std::max(_y_max, _y_pos);
-		_y_min = std::min(_y_min, _y_pos);
-	}
-
-	//分割されたマップのどのマスに存在するかを調べる．
-	int _devide_x_min = mp_Map->getDevideMapNumX(_x_min);
-	int _devide_x_max = mp_Map->getDevideMapNumX(_x_max);
-	int _devide_y_min = mp_Map->getDevideMapNumY(_y_min);
-	int _devide_y_max = mp_Map->getDevideMapNumY(_y_max);
 
 	//マップの最大z座標を求める．
-	float _map_highest_z = 0;
-	bool _is_init_map_highest = false;
-
-	for (int x = _devide_x_min; x < _devide_x_max; x++)
-	{
-		for (int y = _devide_y_min; y < _devide_y_max; y++)
-		{
-			if (_is_init_map_highest == true)
-			{
-				_map_highest_z = std::max(_map_highest_z, mp_Map->getTopZFromDevideMap(x, y));
-			}
-			else
-			{
-				_map_highest_z = mp_Map->getTopZFromDevideMap(x, y);
-				_is_init_map_highest = true;
-			}
-		}
-	}
-
+	const int _map_x = mp_Map->getDevideMapNumX(_current_node.global_center_of_mass.x);
+	const int _map_y = mp_Map->getDevideMapNumY(_current_node.global_center_of_mass.y);
+	const float _map_highest_z = mp_Map->getTopZFromDevideMap(_map_x, _map_y);
 
 	//ロボットの重心の最も低く下げることのできるz座標と，高くあげることができるz座標を求める．どちらもグローバル座標．
 	float _highest_body_zpos = _map_highest_z + HexapodConst::VERTICAL_MAX_RANGE;
@@ -68,6 +28,8 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 
 	// 最も高い地点を修正する．
+	using my_math::squared;
+
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地している脚についてのみ考える．
@@ -75,9 +37,9 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float _c = HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH - MARGIN;
-			const float _b = sqrt(my_math::squared(_current_node.leg_pos[i].x) + my_math::squared(_current_node.leg_pos[i].y)) - HexapodConst::COXA_LENGTH;
+			const float _b = _current_node.leg_pos[i].projectedXY().length() - HexapodConst::COXA_LENGTH;
 
-			const float _a = sqrt(_c * _c - _b * _b);
+			const float _a = sqrt(squared(_c) - squared(_b));
 
 			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚からどれだけ上げられるかを表しているので，グローバル座標に変更する．
 			_highest_body_zpos = std::min(_a + _current_node.global_center_of_mass.z + _current_node.leg_pos[i].z, _highest_body_zpos);

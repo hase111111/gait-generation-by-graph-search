@@ -158,7 +158,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 			(*mp_display_node_index) = mp_graph->at(*mp_display_node_index).parent_num;
 		}
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) == 1)
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) == 1 && m_childen_list.second.empty() == false)
 	{
 		m_display_children_list_index--;
 
@@ -167,7 +167,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 
 		(*mp_display_node_index) = m_childen_list.second.at(m_display_children_list_index);
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) == 1)
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) == 1 && m_childen_list.second.empty() == false)
 	{
 		m_display_children_list_index++;
 
