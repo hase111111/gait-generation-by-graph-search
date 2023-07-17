@@ -70,9 +70,6 @@
     <Filter Include="ソース ファイル\GraphicSystem\Common">
       <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Render3D">
-      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface">
       <UniqueIdentifier>{2ad2045b-b61b-481b-b844-38fceaac38d5}</UniqueIdentifier>
     </Filter>
@@ -87,6 +84,9 @@
     </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Main\Interface">
       <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\3DRender">
+      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -178,16 +178,16 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="MapRenderer.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="CameraController.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="Dxlib3DFunction.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="HexapodRenderer.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="HexapodConst.h">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
@@ -202,7 +202,7 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="GUIController.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearchHato.h">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
@@ -292,7 +292,7 @@
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="GraphViewerGUIController.h">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="MyTimer.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -384,16 +384,16 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="CameraController.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="MapRenderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="Dxlib3DFunction.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="HexapodRenderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="HexapodConst.cpp">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
@@ -408,7 +408,7 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="GUIController.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearchHato.cpp">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
@@ -486,7 +486,7 @@
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="GraphViewerGUIController.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Render3D</Filter>
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

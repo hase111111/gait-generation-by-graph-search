@@ -40,8 +40,6 @@ void HexapodRenderer::draw(const SNode& _node) const
 	using namespace myDxlib3DFunc;
 	using namespace LegStateEdit;
 
-	if (DO_OUTPUT_DEBUG_LOG) { clsDx(); }	// printfDx()‚Ìo—Í‚ğ‚«‚ê‚¢‚É‚·‚éD
-
 	//“·‘Ì‚ğ•`‰æ‚·‚éD
 	VECTOR _vertex[6];
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)

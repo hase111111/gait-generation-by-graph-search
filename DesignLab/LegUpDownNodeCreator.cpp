@@ -87,18 +87,6 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	}
 }
 
-EHexapodMove LegUpDownNodeCreator::getNextMove(const EHexapodMove& _last_move) const
-{
-	if (_last_move == EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE)
-	{
-		return EHexapodMove::COM_MOVE;
-	}
-	else
-	{
-		return EHexapodMove::COM_UP_DOWN;
-	}
-}
-
 bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．

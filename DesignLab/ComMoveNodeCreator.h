@@ -21,5 +21,7 @@ private:
 
 	std::vector<my_vec::SPolygon2> m_Polygons;
 
+	EHexapodMove m_next_move = EHexapodMove::LEG_HIERARCHY_CHANGE;
+
 	const bool DO_DEBUG_PRINT = false;
 };

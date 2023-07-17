@@ -11,16 +11,40 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* _broker)
 	//3D系の処理行う前に初期化する．
 	myDxlib3DFunc::initDxlib3D();
 
-	m_display_node.init(false);
-	m_HexapodRender.update(m_display_node);
+	//適当なノードを生成して，描画クラスを初期化する
+	SNode _temp;
+	_temp.init(false);
 
-	//カメラのターゲット座標をセットする
-	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_display_node.global_center_of_mass));
+	m_HexapodRender.update(_temp);
+	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(_temp.global_center_of_mass));
+
+	// GUI にグラフのポインタを渡す.
+	mp_GUIController = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index);
 }
 
 bool GraphicMainGraphViewer::update()
 {
 	m_Camera.update();
+
+	mp_GUIController->update();
+
+	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
+	if (mp_Broker->getNodeNum() != m_graph.size())
+	{
+		mp_Broker->copyAllNode(m_graph);	//データを更新する
+
+		//グラフの中身が空でないならば，表示するノードを初期化する
+		if (m_graph.size() > 0) { m_display_node_index = 0; }
+
+		mp_GUIController->updateGraphNodeDepthData();
+
+	}
+
+	//HexapodReanderの更新
+	if (m_display_node_index < m_graph.size() && m_graph.size() > 0)
+	{
+		m_HexapodRender.update(m_graph.at(m_display_node_index));
+	}
 
 	return true;
 }
@@ -28,10 +52,13 @@ bool GraphicMainGraphViewer::update()
 void GraphicMainGraphViewer::draw() const
 {
 	MapRenderer mapRenderer;
-	mapRenderer.setNode(m_display_node);
 	mapRenderer.draw(m_Map);
 
-	m_HexapodRender.draw(m_display_node);
+	if (m_display_node_index < m_graph.size())
+	{
+		m_HexapodRender.draw(m_graph.at(m_display_node_index));
+	}
 
-	m_GUIController.draw();
+
+	mp_GUIController->draw();
 }

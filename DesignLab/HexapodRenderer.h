@@ -17,7 +17,7 @@ private:
 	const float LEG_R = 10.0f;				//脚の半径．このクラスでは脚を円柱に近似して描画している．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
 	const float JOINT_R = 20.0f;			//ジョイントの半径．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
 
-	const bool DO_OUTPUT_DEBUG_LOG = true;	//脚状態を文字列で出力するかどうか
+	const bool DO_OUTPUT_DEBUG_LOG = false;	//脚状態を文字列で出力するかどうか
 
 	HexapodStateCalclator m_HexaCalc;		//ロボットの姿勢や座標を計算する．
 

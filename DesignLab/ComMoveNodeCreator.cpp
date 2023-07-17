@@ -28,7 +28,7 @@ void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_n
 
 			LegStateEdit::changeComPattern(_next_node.leg_state, i.second);		//leg_stateのcom_patternを変更する
 
-			_next_node.changeNextNode(_current_num, EHexapodMove::LEG_HIERARCHY_CHANGE);	//深さや親ノードを変更する
+			_next_node.changeNextNode(_current_num, m_next_move);	//深さや親ノードを変更する
 
 			_output_graph.push_back(_next_node);
 		}

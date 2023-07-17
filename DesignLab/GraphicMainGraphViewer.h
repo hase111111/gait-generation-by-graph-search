@@ -20,6 +20,8 @@ private:
 	HexapodRenderer m_HexapodRender;
 	MapState m_Map;
 	CameraController m_Camera;
-	GraphViewerGUIController m_GUIController;
-	SNode m_display_node;
+	std::unique_ptr<GraphViewerGUIController> mp_GUIController;
+
+	std::vector<SNode> m_graph;
+	size_t m_display_node_index = 0;
 };

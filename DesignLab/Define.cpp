@@ -2,7 +2,7 @@
 
 const int Define::SIMURATE_NUM = 10;
 
-const char Define::GRAPH_SEARCH_DEPTH = 4;
+const char Define::GRAPH_SEARCH_DEPTH = 5;
 
 const int Define::GATE_PATTERN_GENERATE_NUM = 1000;
 
