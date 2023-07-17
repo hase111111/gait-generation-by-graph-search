@@ -16,41 +16,42 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	else if (_num == 0) { std::cout << "First node parameter is ..." << std::endl; }
 	else { std::cout << "[Node Number " << _num << " ] Node parameter is ..." << std::endl; }
 
+	std::cout << _node << std::endl;
 
-	//dSƒpƒ^[ƒ“
-	std::cout << "\tCOM_type = " << LegStateEdit::getComPatternState(_node.leg_state) << std::endl;
-	std::cout << std::endl;
+	////dSƒpƒ^[ƒ“
+	//std::cout << "\tCOM_type = " << LegStateEdit::getComPatternState(_node.leg_state) << std::endl;
+	//std::cout << std::endl;
 
-	//‹r‚Ì—V‹rEÚ’nó‘Ô
-	std::cout << "\tLegs(0,1,2,3,4,5)" << std::endl;
-	std::cout << "\tGround : ";
-	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << (isGrounded(_node.leg_state, i) ? "ground " : "lifted "); }
-	std::cout << std::endl;
+	////‹r‚Ì—V‹rEÚ’nó‘Ô
+	//std::cout << "\tLegs(0,1,2,3,4,5)" << std::endl;
+	//std::cout << "\tGround : ";
+	//for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << (isGrounded(_node.leg_state, i) ? "ground " : "lifted "); }
+	//std::cout << std::endl;
 
-	//‹r‚ÌŠK‘w
-	std::cout << "\tHierarchy : ";
-	for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << LegStateEdit::getLegState(_node.leg_state, i); }
-	std::cout << std::endl;
+	////‹r‚ÌŠK‘w
+	//std::cout << "\tHierarchy : ";
+	//for (int i = 0; i < HexapodConst::LEG_NUM; ++i) { std::cout << LegStateEdit::getLegState(_node.leg_state, i); }
+	//std::cout << std::endl;
 
-	//‹rˆÊ’u
-	std::cout << "\tLeg Position : " << std::endl;
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
-	{
-		std::cout << "\t\tLeg[" << i << "] = " << _node.leg_pos[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
-	}
-	std::cout << std::endl;
+	////‹rˆÊ’u
+	//std::cout << "\tLeg Position : " << std::endl;
+	//for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	//{
+	//	std::cout << "\t\tLeg[" << i << "] = " << _node.leg_pos[i] << "\t\tLeg2[" << i << "] = " << _node.Leg2[i] << std::endl;
+	//}
+	//std::cout << std::endl;
 
-	//dSˆÊ’u
-	std::cout << "\tglobal_center_of_mass = " << _node.global_center_of_mass << std::endl;
+	////dSˆÊ’u
+	//std::cout << "\tglobal_center_of_mass = " << _node.global_center_of_mass << std::endl;
 
-	//‰ñ“]Žp¨
-	std::cout << "\tRotate : roll = " << _node.rot.roll << ", pitch = " << _node.rot.pitch << ", yaw = " << _node.rot.yaw << std::endl;
+	////‰ñ“]Žp¨
+	//std::cout << "\tRotate : roll = " << _node.rot.roll << ", pitch = " << _node.rot.pitch << ", yaw = " << _node.rot.yaw << std::endl;
 
-	//ŽŸ“®ì
-	std::cout << std::endl;
-	std::cout << "\t(Next Move : " << std::to_string(_node.next_move) << ")" << std::endl;
-	std::cout << "\t(Depth : " << static_cast<int>(_node.depth) << ")" << std::endl;
-	std::cout << "\t(parent number : " << _node.parent_num << ")" << std::endl;
+	////ŽŸ“®ì
+	//std::cout << std::endl;
+	//std::cout << "\t(Next Move : " << std::to_string(_node.next_move) << ")" << std::endl;
+	//std::cout << "\t(Depth : " << static_cast<int>(_node.depth) << ")" << std::endl;
+	//std::cout << "\t(parent number : " << _node.parent_num << ")" << std::endl;
 
 
 	//std::cout << "\tnode_height = " << _node.node_height << "\n";
@@ -63,7 +64,6 @@ void CmdIO::outputNode(const SNode& _node, const int _num) const
 	//if (_node.debug % 10 == 3) std::cout << "\t‘O‰ñ3 dS‚Ì…•½ˆÚ“®\t";
 	//if (_node.debug % 10 == 4) std::cout << "\t‘O‰ñ4 ‹r‚Ì…•½ˆÚ“®\t";
 	//if (_node.debug % 10 == 6) std::cout << "\t‘O‰ñ6 dS‚Ìã‰ºˆÚ“®\t";
-
 	//std::cout << "\t•K—v‚È‚‚³ˆÚ“®—Ê = " << _node.target_delta_comz << std::endl;
 	//std::cout << "\tŽÀÛ‚Ì‚‚³ˆÚ“®—Ê = " << _node.delta_comz << std::endl;
 	//std::cout << "\t’Tõ‚µ‚½ƒm[ƒh” = " << _node.last_node_num << std::endl;

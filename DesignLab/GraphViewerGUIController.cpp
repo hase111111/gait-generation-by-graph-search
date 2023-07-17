@@ -53,7 +53,7 @@ void GraphViewerGUIController::drawGraphData() const
 		//深さごとのノードの数
 		for (size_t i = 0; i < m_graph_node_depth_data.size(); i++)
 		{
-			DrawFormatString(_box_min_x + 10, _box_min_y + 50 + 20 * i, _text_color, "　(深さ%dのノード:%d)", i, (int)m_graph_node_depth_data.at(i));
+			DrawFormatString(_box_min_x + 10, _box_min_y + 50 + 20 * (int)i, _text_color, "　(深さ%dのノード:%d)", (int)i, (int)m_graph_node_depth_data.at(i));
 		}
 	}
 }

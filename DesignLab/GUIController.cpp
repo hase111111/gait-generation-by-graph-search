@@ -228,11 +228,11 @@ void GUIController::drawNodeByStr(const SNode _node) const
 		line();	//改行
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, str.c_str());
 
-		str = "　pitch = " + std::to_string(_node.pitch);
+		str = "　pitch = " + std::to_string(_node.rot.pitch);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, str.c_str());
-		str = "　roll  = " + std::to_string(_node.roll);
+		str = "　roll  = " + std::to_string(_node.rot.roll);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, str.c_str());
-		str = "　yaw   = " + std::to_string(_node.yaw);
+		str = "　yaw   = " + std::to_string(_node.rot.yaw);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), _str_color, str.c_str());
 	}
 }

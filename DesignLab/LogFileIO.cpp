@@ -51,7 +51,7 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 		m_all_log << LegStateEdit::getLegState(node_log.leg_state, j) << ",";
 	}
 
-	m_all_log << LegStateEdit::getComPatternState(node_log.leg_state) << "," << node_log.pitch << "," << node_log.roll << "," << node_log.yaw << ",";
+	m_all_log << LegStateEdit::getComPatternState(node_log.leg_state) << "," << node_log.rot.pitch << "," << node_log.rot.roll << "," << node_log.rot.yaw << ",";
 
 	for (int j = 0; j < 6; ++j)
 	{
@@ -63,16 +63,16 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 		m_all_log << node_log.Leg2[j].x << "," << node_log.Leg2[j].y << "," << node_log.Leg2[j].z << ",";
 	}
 
-	m_all_log << node_log.global_center_of_mass.x << "," << node_log.global_center_of_mass.y << "," << node_log.global_center_of_mass.z << "," << node_log.debug << ",";
+	m_all_log << node_log.global_center_of_mass.x << "," << node_log.global_center_of_mass.y << "," << node_log.global_center_of_mass.z << "," << /*node_log.debug*/ "0" << ",";
 
 	for (int j = 0; j < 6; ++j)
 	{
 		m_all_log << std::bitset<4>(LegStateEdit::getLegState(node_log.leg_state, j)) << ",";
 	}
 
-	m_all_log << node_log.last_node_num << ",";
+	m_all_log << /*node_log.last_node_num*/"0" << ",";
 
-	m_all_log << node_log.time << ",";
+	m_all_log << /*node_log.time*/"0" << ",";
 
 	m_all_log << std::endl;
 }
