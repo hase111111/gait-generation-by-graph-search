@@ -25,6 +25,7 @@ private:
 
 	void drawGraphData() const;
 	void drawNodeControllPanel() const;
+	void drawNodeData(const SNode _node) const;
 
 	void inputNumber();
 	void changeDisplayNodeIndex();

@@ -24,7 +24,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* _broker)
 
 bool GraphicMainGraphViewer::update()
 {
-	m_Camera.update();
+	updateCameraState();
 
 	mp_GUIController->update();
 
@@ -61,4 +61,21 @@ void GraphicMainGraphViewer::draw() const
 
 
 	mp_GUIController->draw();
+}
+
+void GraphicMainGraphViewer::updateCameraState()
+{
+	m_Camera.update();
+
+	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
+	{
+		m_camera_mode++;
+		m_camera_mode %= 5;
+		m_Camera.setCameraMode(static_cast<ECameraMode>(m_camera_mode));
+	}
+
+	if (m_display_node_index < m_graph.size())
+	{
+		m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
+	}
 }

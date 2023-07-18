@@ -17,7 +17,7 @@ GraphViewerSystemMain::GraphViewerSystemMain()
 {
 	std::cout << "--------------------------------------------------" << std::endl;
 	std::cout << std::endl;
-	std::cout << "GraphViewerSystemMain : GraphViewer起動" << std::endl;
+	std::cout << "     GraphViewerSystemMain : GraphViewer起動" << std::endl;
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------" << std::endl;
 	std::cout << std::endl;
@@ -121,8 +121,79 @@ void GraphViewerSystemMain::main()
 		{
 			std::cout << "GraphViewerSystemMain : グラフを操作します" << std::endl;
 
-			//終了するか質問する
-			if (askYesNo("GraphViewerSystemMain : 終了しますか？")) { break; }
+			//操作メニューを表示する
+			std::cout << "GraphViewerSystemMain : 操作メニューを表示します" << std::endl;
+			std::cout << "GraphViewerSystemMain : 1 : ノード選択し，そのノードを親にしてグラフを生成する" << std::endl;
+			std::cout << "GraphViewerSystemMain : 2 : ノード選択して表示する" << std::endl;
+			std::cout << "GraphViewerSystemMain : 3 : グラフを全削除する" << std::endl;
+			std::cout << "GraphViewerSystemMain : other : 終了する" << std::endl;
+			std::cout << std::endl;
+			std::cout << "input : ";
+			std::string _str;
+			std::cin >> _str;
+			int _menu = StrToInt(_str);
+			std::cout << std::endl;
+
+			if (_menu == 1 || _menu == 2)
+			{
+				std::cout << "GraphViewerSystemMain : ノードを選択してください" << std::endl;
+				std::cout << "GraphViewerSystemMain : 0 ～ " << _graph.size() - 1 << " の数字を入力してください" << std::endl;
+				std::cout << std::endl;
+				std::cout << "input : ";
+
+				std::string _str_node;
+				std::cin >> _str_node;
+				int _node_num = StrToInt(_str_node);
+				std::cout << std::endl;
+
+				if (_node_num < 0 || _node_num >= _graph.size())
+				{
+					std::cout << "GraphViewerSystemMain : 無効なノード番号です" << std::endl;
+					std::cout << std::endl;
+					continue;
+				}
+				else
+				{
+					if (_menu == 1)
+					{
+						std::cout << "--------------------------------------------------" << std::endl;
+						std::cout << "GraphViewerSystemMain : ノードを選択し，そのノードを親にしてグラフを生成します" << std::endl;
+						std::cout << std::endl;
+						std::cout << _graph[_node_num];
+						std::cout << std::endl;
+						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
+
+						MyTimer _timer;
+						_timer.start();
+						createGraph(_graph[_node_num], _graph);
+						_timer.end();
+						setGraphToBroker(_graph);
+						std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
+						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
+						std::cout << std::endl;
+					}
+					else
+					{
+						std::cout << "--------------------------------------------------" << std::endl;
+						std::cout << "GraphViewerSystemMain : ノードを表示します" << std::endl;
+						std::cout << std::endl;
+						std::cout << _graph[_node_num];
+						std::cout << std::endl;
+					}
+				}
+			}
+			else if (_menu == 3)
+			{
+				m_GraphicDataBroker.deleteAllNode();
+				_graph.clear();
+				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
+				std::cout << std::endl;
+			}
+			else
+			{
+				//終了するか質問する
+				if (askYesNo("GraphViewerSystemMain : 終了しますか？")) { break; }
+			}
 		}
 	}
 }
@@ -149,6 +220,7 @@ void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)
 bool GraphViewerSystemMain::askYesNo(const std::string& question) const
 {
 	std::cout << question << " ( y / n )" << std::endl;
+	std::cout << std::endl;
 	std::cout << "input : ";
 	std::string _input;
 	std::cin >> _input;

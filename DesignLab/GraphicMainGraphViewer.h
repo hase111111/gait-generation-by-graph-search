@@ -24,4 +24,7 @@ private:
 
 	std::vector<SNode> m_graph;
 	size_t m_display_node_index = 0;
+
+	void updateCameraState();
+	int m_camera_mode = 0;
 };

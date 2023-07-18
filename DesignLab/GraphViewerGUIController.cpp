@@ -4,6 +4,7 @@
 #include "GraphicConst.h"
 #include "Define.h"
 #include "Keyboard.h"
+#include "LegState.h"
 
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const _p_graph, size_t* const _p_display_node_index)
 	: mp_graph(_p_graph)
@@ -22,6 +23,11 @@ void GraphViewerGUIController::draw() const
 {
 	drawGraphData();
 	drawNodeControllPanel();
+
+	if (mp_graph->size() != 0 && *mp_display_node_index < mp_graph->size())
+	{
+		drawNodeData(mp_graph->at(*mp_display_node_index));
+	}
 }
 
 void GraphViewerGUIController::drawGraphData() const
@@ -95,6 +101,26 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 		DrawFormatString(_box_min_x + 10, _box_min_y + 130, _text_color, _str.c_str());
 		DrawFormatString(_box_min_x + 10, _box_min_y + 230, _text_color, "　(子ノードリストの更新は U )");
 	}
+}
+
+void GraphViewerGUIController::drawNodeData(const SNode _node) const
+{
+	const int _box_size_x = 300;
+	const int _box_size_y = 300;
+	const int _box_min_x = GraphicConst::WIN_X - 25 - _box_size_x;
+	const int _box_min_y = 25;
+	const unsigned int _color = GetColor(255, 255, 255);
+
+	// 枠
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+	DrawBox(_box_min_x, _box_min_y, _box_min_x + _box_size_x, _box_min_y + _box_size_y, _color, TRUE);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+	// テキスト
+	const unsigned int _text_color = GetColor(10, 10, 10);
+	DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", LegStateEdit::getComPatternState(_node.leg_state),
+		LegStateEdit::getLegState(_node.leg_state, 0), LegStateEdit::getLegState(_node.leg_state, 1), LegStateEdit::getLegState(_node.leg_state, 2),
+		LegStateEdit::getLegState(_node.leg_state, 3), LegStateEdit::getLegState(_node.leg_state, 4), LegStateEdit::getLegState(_node.leg_state, 5));
 }
 
 void GraphViewerGUIController::inputNumber()

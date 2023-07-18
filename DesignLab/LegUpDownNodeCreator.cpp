@@ -92,6 +92,9 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		}
 
 	}
+
+	//出力されるグラフが1つだけならば(自身と同じグラフしか生成されない場合は)グラフを追加しない．
+	if (_output_graph.size() == 1) { _output_graph.clear(); }
 }
 
 bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
