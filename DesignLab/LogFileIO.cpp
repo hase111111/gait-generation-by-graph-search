@@ -22,7 +22,7 @@ bool LogFileIO::openLogFile()
 	}
 
 	//Å‰‚ÉƒƒO‚É“ü—Í‚·‚é
-	m_all_log << "number, v,,,,,,kaisou,,,,,, COMTYPE, center_of_mass, thP, thR, thY, leg[0],,, leg_pos[1],,, leg[2],,, leg[3],,, leg[4],,, leg[5],,, leg2[0],,, Leg2[1],,, leg2[2],,, leg2[3],,, leg2[4],,, leg2[5],,, global_center_of_mass,,, debug, kaisoubit,,,,,last_node_num,time" << std::endl;
+	m_all_log << "number, v,,,,,,kaisou,,,,,, COMTYPE, center_of_mass, thP, thR, thY, leg[0],,, leg_pos[1],,, leg[2],,, leg[3],,, leg[4],,, leg[5],,, leg2[0],,, leg_base_pos[1],,, leg2[2],,, leg2[3],,, leg2[4],,, leg2[5],,, global_center_of_mass,,, debug, kaisoubit,,,,,last_node_num,time" << std::endl;
 	m_all_log << ", leg0, leg1, leg2, leg3, leg4, leg5, leg0, leg1, leg2, leg3, leg4, leg5, , , , , , x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z, x, y, z," << std::endl;
 
 	return true;
@@ -60,7 +60,7 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 
 	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << node_log.Leg2[j].x << "," << node_log.Leg2[j].y << "," << node_log.Leg2[j].z << ",";
+		m_all_log << node_log.leg_base_pos[j].x << "," << node_log.leg_base_pos[j].y << "," << node_log.leg_base_pos[j].z << ",";
 	}
 
 	m_all_log << node_log.global_center_of_mass.x << "," << node_log.global_center_of_mass.y << "," << node_log.global_center_of_mass.z << "," << /*node_log.debug*/ "0" << ",";

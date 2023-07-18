@@ -84,7 +84,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 					_new_node.leg_pos[l].z -= _dif;
 				}
 
-				_new_node.Leg2[l].z -= _dif;
+				_new_node.leg_base_pos[l].z -= _dif;
 			}
 
 			//ÉmÅ[ÉhÇí«â¡Ç∑ÇÈÅD
