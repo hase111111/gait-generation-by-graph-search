@@ -141,16 +141,14 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 				_new_node.leg_pos[_leg_num] = _pos - _coxa_pos;	//脚設置可能点を脚の付け根に合わせる．
 
-				if (m_Calc.isLegInRange(_new_node, _leg_num) == false)
-				{
-					continue;
-				}
+				if (m_Calc.isLegInRange(_new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
 
-				//候補座標として，適していないならば追加せずに続行．
-				if (isAbleLegPos(_leg_pos, _pos, _coxa_pos, _leg_state) == false)
-				{
-					continue;
-				}
+				if (m_Calc.isAblePause(_new_node) == false) { continue; }						//転ぶ姿勢ならば追加せずに続行．
+
+				if (m_Calc.isLegInterfering(_new_node) == true) { continue; }					//脚が干渉しているならば追加せずに続行．
+
+				if (isAbleLegPos(_leg_pos, _pos, _coxa_pos, _leg_state) == false) { continue; }	//候補座標として，適していないならば追加せずに続行．
+
 
 				_candidate_pos.push_back(_pos);
 			}
@@ -161,9 +159,9 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	//候補点を全列挙したのち，候補点が一つもなければfalse
 	if (_candidate_pos.size() == 0) { return false; }
 
+	//存在するなら，その中で最も適したものを結果として返し，true
 	_output_ground_pos = m_Calc.getLocalLegPos(_current_node, _candidate_pos.front(), _leg_num);
 
-	//存在するなら，その中で最も適したものを結果として返し，true
 	return true;
 }
 

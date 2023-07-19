@@ -25,7 +25,7 @@ bool ComSelecter::getComFromPolygon(const my_vec::SPolygon2& polygon, const ComT
 		//現在の重心を移動させたものを作成する
 		SNode _temp = m_current_node;
 		my_vec::SVector _next_com = { i.x ,i.y,m_current_node.global_center_of_mass.z };
-		_temp.changeGlobalCenterOfMass(_next_com);
+		_temp.changeGlobalCenterOfMass(_next_com, false);
 
 		//if (isInMargin(polygon, i) == false) { continue; }	//安定余裕を満たさなければ次の候補点へ
 

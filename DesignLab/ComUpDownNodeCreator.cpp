@@ -41,8 +41,8 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 			const float _a = sqrt(squared(_c) - squared(_b));
 
-			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚からどれだけ上げられるかを表しているので，グローバル座標に変更する．
-			_highest_body_zpos = std::min(_a + _current_node.global_center_of_mass.z + _current_node.leg_pos[i].z, _highest_body_zpos);
+			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
+			_highest_body_zpos = (std::min)(_a + _current_node.global_center_of_mass.z + _current_node.leg_pos[i].z, _highest_body_zpos);
 		}
 	}
 
@@ -71,24 +71,13 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 		{
 			SNode _new_node = _current_node;
 
-			const float _dif = (_low + _div_z * i) - _current_node.global_center_of_mass.z;		//現在の重心のz座標と目標のZ座標の差異(difference)を求める．
+			//重心の位置を変更する．
+			_new_node.changeGlobalCenterOfMass(_current_node.global_center_of_mass + my_vec::SVector{ 0, 0, (_low + _div_z * i) }, true);
 
-			_new_node.global_center_of_mass.z += _dif;		//重心位置を更新する．
-
-			//脚位置を更新する．本来脚は移動しないので更新する必要はないのだが，脚位置は脚の付け根を基準位置にしているのであげた分下げないと元の位置にならない．
-			for (int l = 0; l < HexapodConst::LEG_NUM; l++)
-			{
-				//遊脚は胴体と一緒に移動するから，変更しなくて大丈夫．
-				if (LegStateEdit::isGrounded(_new_node.leg_state, l) == true)
-				{
-					_new_node.leg_pos[l].z -= _dif;
-				}
-
-				_new_node.leg_base_pos[l].z -= _dif;
-			}
+			//current_numを親とする，新しいノードに変更する
+			_new_node.changeNextNode(_current_num, m_next_move);
 
 			//ノードを追加する．
-			_new_node.changeNextNode(_current_num, m_next_move);
 			_output_graph.push_back(_new_node);
 		}
 	}

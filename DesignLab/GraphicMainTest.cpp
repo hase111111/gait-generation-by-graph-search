@@ -36,37 +36,37 @@ bool GraphicMainTest::update()
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.z += _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E) > 0)
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.z -= _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_A) > 0)
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.y += _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_D) > 0)
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.y -= _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_W) > 0)
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.x += _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_S) > 0)
 		{
 			auto _com = m_node.global_center_of_mass;
 			_com.x -= _com_s;
-			m_node.changeGlobalCenterOfMass(_com);
+			m_node.changeGlobalCenterOfMass(_com, false);
 		}
 	}
 	else
