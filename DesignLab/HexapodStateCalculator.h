@@ -2,25 +2,40 @@
 #include "MyVector.h"
 #include "Node.h"
 
-//ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．
+
 class HexapodStateCalclator
 {
 public:
 	HexapodStateCalclator();
 
-	//脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．また，ロボットの回転を考慮する．
-	my_vec::SVector getGlobalLegPos(const SNode& _node, const int _leg_num) const;
+	//! @brief 脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．
+	//! @param [in] _node ロボットの状態を表すノード
+	//! @param [in] _leg_num 脚番号 0～5
+	//! @param [in] _consider_rot 回転を考慮するかどうか
+	//! @return my_vec::SVector グローバル座標の脚座標
+	inline my_vec::SVector getGlobalLegPos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+	{
+		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
+		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num]; }
+	}
 
-	//第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
-	my_vec::SVector getLocalLegPos(const SNode& _node, my_vec::SVector _global_pos, const int _leg_num) const;
+	//! @brief 第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
+	//! @param [in] _node ロボットの状態を表すノード
+	//! @param [in] _global_pos 変換するグローバル座標
+	//! @param [in] _leg_num 脚番号 0～5
+	//! @return my_vec::SVector ローカル座標の脚座標
+	my_vec::SVector convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const;
 
-	//脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．
+	//! @brief 脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．
 	my_vec::SVector getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const;
 
 	// coxa joint (脚の付け根 : 第1関節) の座標を返す．回転を考慮したグローバル座標.
 	my_vec::SVector getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const;
 
-	//ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．
+	//! @brief ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．<br>
+	//! 三角関数を多く使用するので，計算量が多い．
+	//! @param [in] _node ロボットの状態を表すノード
+	//! @details この関数を使用すると，メンバ変数が更新される．
 	void calclateJointPos(const SNode& _node);
 
 	//【calclateJointPos関数を使用してから使うこと!!】femur joint (第2関節) の座標を返す．回転を考慮したグローバル座標.
@@ -70,3 +85,14 @@ private:
 	static float m_leg_max_r[MAX_DIF_Z];	//重心高さから脚位置を下げた時の，脚の取りうる最大半径を記録したもの．旧名 Leg_ROM_R
 	static float m_leg_min_r[MAX_DIF_Z];	//重心高さから脚位置を下げた時の，脚の取りうる最小半径を記録したもの．旧名 Leg_ROM_R
 };
+
+
+//! @file HexapodStateCalclator.h
+//! @brief HexapodStateCalclatorクラスのヘッダファイル．
+//! @date 2023/07/19
+//! @auther 長谷川
+
+//! @class HexapodStateCalclator
+//! @brief ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．
+//! @date 2023/07/19
+//! @auther 長谷川

@@ -11,6 +11,7 @@ private:
 	const unsigned int COLOR_LIFTED_LEG;	//遊脚している脚の色
 	const unsigned int COLOR_JOINT;			//ジョイントの色
 	const unsigned int COLOR_LIFTED_JOINT;	//遊脚しているジョイントの色
+	const unsigned int COLOR_LEG_BASE;		//脚の基部の色
 
 	const int CAPSULE_DIV_NUM;				//ロボットのモデルの円柱をどれだけ細かく描画するか．4 ～ 20ぐらいがちょうどよいと思う．
 	const int SPHERE_DIV_NUM;				//ロボットのモデルの球をどれだけ細かく描画するか．16 ～ 32ぐらいがちょうどよいと思う．

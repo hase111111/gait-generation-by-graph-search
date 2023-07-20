@@ -6,6 +6,11 @@
 //脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．胴体の回転を一切考慮していないので，それを考慮したい場合作り直すか新しいものを作ってください．
 class LegUpDownNodeCreator final
 {
+private:
+
+	const float LEG_MARGIN = 10.0f;		//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
+	const float HIGH_MARGIN = 10.0f;	//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
+
 public:
 
 	void init(const MapState* const _p_Map);
@@ -37,6 +42,5 @@ private:
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
 	bool isAbleLegPos(const my_vec::SVector& _4pos, const my_vec::SVector& _candiatepos, const my_vec::SVector& _coxapos, const int _leg_state);
 
-	const float LEG_MARGIN = 50.0f;		//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
-	const float HIGH_MARGIN = 10.0f;	//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
+
 };

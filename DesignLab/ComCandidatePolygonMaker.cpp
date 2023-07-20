@@ -13,7 +13,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& _node, std::vec
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		_leg_pos_xy[i] = _calc.getGlobalLegPos(_node, i).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
+		_leg_pos_xy[i] = _calc.getGlobalLegPos(_node, i, false).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
 	}
 
 	//中心を囲むように4角形を作成する

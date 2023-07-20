@@ -25,7 +25,8 @@ bool HexapodRenderer::isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const m
 
 HexapodRenderer::HexapodRenderer() :
 	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
-	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16)
+	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16),
+	COLOR_LEG_BASE(GetColor(100, 200, 100))
 {
 }
 
@@ -53,7 +54,8 @@ void HexapodRenderer::draw(const SNode& _node) const
 	//脚を描画する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR _leg_end = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i));
+		const VECTOR _leg_end = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
+		const VECTOR _leg_base = convertToDxVec(m_HexaCalc.getGlobalLeg2Pos(_node, i));
 		const VECTOR _coxa = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i));
 		const VECTOR _femur = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
 		const VECTOR _tibia = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
@@ -72,6 +74,13 @@ void HexapodRenderer::draw(const SNode& _node) const
 		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
 		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, COLOR_LIFTED_JOINT, TRUE);
 
+		//脚のベース座標の描画
+		if (_node.leg_pos[i] != _node.leg_base_pos[i])
+		{
+			DrawSphere3D(_leg_base, JOINT_R, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+		}
+
+		//エラー出力
 		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false)
 		{
 			DrawString((int)ConvWorldPosToScreenPos(_coxa).x, (int)ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
@@ -82,7 +91,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
 		}
 
-		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(_node, i), m_HexaCalc.getGlobalLegPos(_node, i)) == false)
+		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(_node, i), m_HexaCalc.getGlobalLegPos(_node, i, true)) == false)
 		{
 			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
 		}

@@ -160,137 +160,63 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	if (_candidate_pos.size() == 0) { return false; }
 
 	//存在するなら，その中で最も適したものを結果として返し，true
-	_output_ground_pos = m_Calc.getLocalLegPos(_current_node, _candidate_pos.front(), _leg_num);
+	_output_ground_pos = m_Calc.convertLocalLegPos(_current_node, _candidate_pos.front(), _leg_num);
 
 	return true;
 }
 
 bool LegUpDownNodeCreator::isAbleLegPos(const my_vec::SVector& _4pos, const my_vec::SVector& _candiatepos, const my_vec::SVector& _coxapos, const int _leg_state)
 {
-	//Leg2と比較して，どこにあるかによって以下のように離散化している．
-	switch (_leg_state)
+	//まず最初に脚位置4のところにないか確かめる．
+	if ((_4pos - _candiatepos).lengthSquare() < my_math::squared(LEG_MARGIN))
 	{
-	case 1:
-		//後ろ，下
+		if (_leg_state == 4) { return true; }
+		else { return false; }
+	}
+	else
+	{
+		if (_leg_state == 4) { return false; }
+	}
 
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
+	//脚位置4と比較して前か後ろか
+	my_vec::SVector2 _front_vec = { 1,0 };	//@todo 回転姿勢を考慮するならば，このベクトルを回転させる必要がある．
 
-		//離散化した脚位置 4 より下にあるか確かめる．
-		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
+	if (_leg_state == 7 || _leg_state == 6 || _leg_state == 5)
+	{
+		if ((_4pos - _coxapos).projectedXY().cross(_front_vec) * (_candiatepos - _coxapos).projectedXY().cross(_front_vec) > 0) {}
+		else { return false; }
+	}
+	else
+	{
+		if ((_4pos - _coxapos).projectedXY().cross(_front_vec) * (_candiatepos - _coxapos).projectedXY().cross(_front_vec) < 0) {}
+		else { return false; }
+	}
+
+
+	//脚位置4と比較して上か下か
+	if (_leg_state == 1 || _leg_state == 5)
+	{
+		//脚位置4と比較して下
+		if (_4pos.z - HIGH_MARGIN >= _candiatepos.z)
 		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
+			return true;
 		}
-
-		break;
-
-	case 2:
-		//後ろ，中
-
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-
-		//離散化した脚位置 4 と同じ高さにあるか確かめる．
-		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
+	}
+	else if (_leg_state == 3 || _leg_state == 7)
+	{
+		//脚位置4と比較して上
+		if (_4pos.z + HIGH_MARGIN <= _candiatepos.z)
 		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
+			return true;
 		}
-
-		break;
-
-	case 3:
-		//後ろ，上
-
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-
-		//離散化した脚位置 4 より上にあるか確かめる．
-		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
+	}
+	else
+	{
+		//脚位置4と同じくらい
+		if (std::abs(_4pos.z - _candiatepos.z) <= HIGH_MARGIN)
 		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，下向きになるならば後ろにあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
+			return true;
 		}
-
-		break;
-
-	case 4:
-		//真ん中
-
-		//十分近いならば，追加する．
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return true; }
-
-		break;
-
-	case 5:
-		//　前，下
-
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-
-		//離散化した脚位置 4 より下にあるか確かめる．
-		if (_4pos.z - HIGH_MARGIN > _candiatepos.z)
-		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
-		}
-
-		break;
-
-	case 6:
-		//　前，中
-
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-
-		//離散化した脚位置 4 と同じ高さにあるか確かめる．
-		if (_4pos.z - HIGH_MARGIN < _candiatepos.z && _candiatepos.z < _4pos.z + HIGH_MARGIN)
-		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
-		}
-
-		break;
-
-	case 7:
-		//　前，上
-
-		//十分近いならば，離散化した脚位置 4 の場所なので適さない．false
-		if (LEG_MARGIN > (_4pos - _candiatepos).length()) { return false; }
-
-		//離散化した脚位置 4 より上にあるか確かめる．
-		if (_4pos.z + HIGH_MARGIN < _candiatepos.z)
-		{
-			//ベクトルの外積a×bはa→bと回転する右ねじの上方向になる．脚位置 4をa，候補点をbとしたときに，上向きになるならば前にあるはず．
-			if ((_4pos - _coxapos).cross(_candiatepos - _coxapos).z < 0)
-			{
-				return true;
-			}
-		}
-
-		break;
-
-	default:
-		//該当しないならばfalse
-		return false;
-		break;
-
 	}
 
 	return false;

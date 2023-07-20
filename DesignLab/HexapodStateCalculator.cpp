@@ -18,12 +18,7 @@ HexapodStateCalclator::HexapodStateCalclator()
 	}
 }
 
-my_vec::SVector HexapodStateCalclator::getGlobalLegPos(const SNode& _node, const int _leg_num) const
-{
-	return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
-}
-
-my_vec::SVector HexapodStateCalclator::getLocalLegPos(const SNode& _node, my_vec::SVector _global_pos, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const
 {
 	return rotVector(_global_pos - _node.global_center_of_mass, _node.rot * -1) - getLocalCoxaJointPos(_leg_num);
 }
