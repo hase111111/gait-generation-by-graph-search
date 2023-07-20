@@ -137,12 +137,16 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 <tr class="memdesc:aaaa76fbcbe7c9ca7cc98f608955af392"><td class="mdescLeft">&#160;</td><td class="mdescRight">多角形が凸かどうか調べる関数  <br /></td></tr>
 <tr class="separator:aaaa76fbcbe7c9ca7cc98f608955af392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad49346b48fb4c45f703f5b3f09c72937"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmy__vec_1_1_s_polygon2.html#ad49346b48fb4c45f703f5b3f09c72937">isInside</a> (const <a class="el" href="structmy__vec_1_1_s_vector2.html">SVector2</a> &amp;_p) const</td></tr>
-<tr class="memdesc:ad49346b48fb4c45f703f5b3f09c72937"><td class="mdescLeft">&#160;</td><td class="mdescRight">点が多角形の内部にあるかどうか調べる関数  <br /></td></tr>
+<tr class="memdesc:ad49346b48fb4c45f703f5b3f09c72937"><td class="mdescLeft">&#160;</td><td class="mdescRight">点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．  <br /></td></tr>
 <tr class="separator:ad49346b48fb4c45f703f5b3f09c72937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>2次元の多角形を表す構造体 </p>
-<p>2次元の多角形を表す構造体． </p>
+<p>2次元の多角形を表す構造体．<br  />
+ 頂点は反時計回り，或いは時計回りに並んでいる必要がある．<br  />
+ そうでない場合はいくつかの関数が正常に動作しない．<br  />
+ max関数，min関数については以下を参照．<br  />
+ 参照 : <a href="https://cpprefjp.github.io/reference/algorithm/max.html">https://cpprefjp.github.io/reference/algorithm/max.html</a> </p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a147b5e400d362a6390dae084243ddec7" name="a147b5e400d362a6390dae084243ddec7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a147b5e400d362a6390dae084243ddec7">&#9670;&#160;</a></span>addVertex()</h2>
@@ -443,25 +447,23 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 <div class="dyncontent">
 <div class="center"><img src="structmy__vec_1_1_s_polygon2_a34877ae7b7ad06a78f4c237d4f33ca3a_icgraph.png" border="0" usemap="#astructmy__vec_1_1_s_polygon2_a34877ae7b7ad06a78f4c237d4f33ca3a_icgraph" alt=""/></div>
 <map name="astructmy__vec_1_1_s_polygon2_a34877ae7b7ad06a78f4c237d4f33ca3a_icgraph" id="astructmy__vec_1_1_s_polygon2_a34877ae7b7ad06a78f4c237d4f33ca3a_icgraph">
-<area shape="rect" title="多角形の頂点数を返す関数" alt="" coords="198,272,342,315"/>
+<area shape="rect" title="多角形の頂点数を返す関数" alt="" coords="198,239,342,281"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#ae63935b86d36a389db46eb754b649380" title="頂点の中で最大のx座標を返す関数" alt="" coords="5,5,150,48"/>
-<area shape="poly" title=" " alt="" coords="256,259,241,215,218,163,187,109,148,62,133,51,137,46,152,58,191,106,222,160,246,213,261,257"/>
+<area shape="poly" title=" " alt="" coords="253,226,213,145,183,101,148,62,132,51,136,46,151,58,187,98,217,142,258,224"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a0a8636becb75ea8b634208a409c5b352" title="頂点の中で最大のy座標を返す関数" alt="" coords="5,72,150,115"/>
-<area shape="poly" title=" " alt="" coords="249,261,208,195,180,160,148,129,132,118,135,113,151,125,184,156,212,192,253,258"/>
+<area shape="poly" title=" " alt="" coords="243,228,201,178,148,129,130,117,133,113,151,125,205,174,247,225"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a1945feae4f91bbd55c5d2e809225396b" title="頂点の中で最小のx座標を返す関数" alt="" coords="5,139,150,181"/>
-<area shape="poly" title=" " alt="" coords="234,264,194,229,148,196,128,184,131,180,151,191,197,225,238,260"/>
+<area shape="poly" title=" " alt="" coords="218,233,148,196,126,184,128,180,151,191,220,229"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a2b363b955e336824d8e1b7ba1f439b4d" title="頂点の中で最小のy座標を返す関数" alt="" coords="5,205,150,248"/>
-<area shape="poly" title=" " alt="" coords="192,269,140,251,142,246,194,264"/>
+<area shape="poly" title=" " alt="" coords="182,248,149,242,150,237,183,242"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="5,272,150,315"/>
-<area shape="poly" title=" " alt="" coords="183,296,150,296,150,291,183,291"/>
+<area shape="poly" title=" " alt="" coords="183,278,150,283,149,278,182,272"/>
 <area shape="rect" href="structmy__vec_1_1_s_polygon2.html#aaaa76fbcbe7c9ca7cc98f608955af392" title="多角形が凸かどうか調べる関数" alt="" coords="5,339,150,381"/>
-<area shape="poly" title=" " alt="" coords="194,322,142,341,140,336,192,317"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#ad49346b48fb4c45f703f5b3f09c72937" title="点が多角形の内部にあるかどうか調べる関数" alt="" coords="5,405,150,448"/>
-<area shape="poly" title=" " alt="" coords="238,327,197,362,151,396,131,407,128,402,148,391,194,357,234,323"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96" title="1番最後の頂点を削除する関数" alt="" coords="5,472,150,515"/>
-<area shape="poly" title=" " alt="" coords="253,329,212,395,184,430,151,462,135,474,132,469,148,458,180,427,208,392,249,326"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f" title="頂点を削除する関数" alt="" coords="5,539,150,581"/>
-<area shape="poly" title=" " alt="" coords="261,330,246,374,222,426,191,480,152,529,137,540,133,536,148,525,187,477,218,424,241,372,256,328"/>
+<area shape="poly" title=" " alt="" coords="220,291,151,329,128,340,126,336,148,324,218,287"/>
+<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96" title="1番最後の頂点を削除する関数" alt="" coords="5,405,150,448"/>
+<area shape="poly" title=" " alt="" coords="247,295,205,346,151,395,133,407,130,403,148,391,201,342,243,292"/>
+<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f" title="頂点を削除する関数" alt="" coords="5,472,150,515"/>
+<area shape="poly" title=" " alt="" coords="258,296,217,378,187,422,151,462,136,474,132,469,148,458,183,419,213,375,253,294"/>
 </map>
 </div>
 
@@ -472,9 +474,6 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool my_vec::SPolygon2::isConvex </td>
@@ -483,11 +482,6 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>多角形が凸かどうか調べる関数 </p>
@@ -510,9 +504,6 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool my_vec::SPolygon2::isInside </td>
@@ -522,14 +513,9 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>点が多角形の内部にあるかどうか調べる関数 </p>
+<p>点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>調べる点 </td></tr>
@@ -540,16 +526,6 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 <dl class="section note"><dt>覚え書き</dt><dd>点が多角形の辺上にある場合は内部にあると判定する． </dd>
 <dd>
 多角形が凸でない場合は正しく判定できない． </dd></dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="structmy__vec_1_1_s_polygon2_ad49346b48fb4c45f703f5b3f09c72937_cgraph.png" border="0" usemap="#astructmy__vec_1_1_s_polygon2_ad49346b48fb4c45f703f5b3f09c72937_cgraph" alt=""/></div>
-<map name="astructmy__vec_1_1_s_polygon2_ad49346b48fb4c45f703f5b3f09c72937_cgraph" id="astructmy__vec_1_1_s_polygon2_ad49346b48fb4c45f703f5b3f09c72937_cgraph">
-<area shape="rect" title="点が多角形の内部にあるかどうか調べる関数" alt="" coords="5,5,150,48"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a34877ae7b7ad06a78f4c237d4f33ca3a" title="多角形の頂点数を返す関数" alt="" coords="198,5,342,48"/>
-<area shape="poly" title=" " alt="" coords="150,24,183,24,183,29,150,29"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -639,7 +615,8 @@ $(document).ready(function(){initNavTree('structmy__vec_1_1_s_polygon2.html','')
 </div>
 </div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_my_polygon_8h_source.html">MyPolygon.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_my_polygon_8h_source.html">MyPolygon.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_my_polygon_8cpp_source.html">MyPolygon.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

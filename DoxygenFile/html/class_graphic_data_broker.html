@@ -108,11 +108,22 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
 <tr class="memitem:adbd11507b8b6b55a66a7f4388dfa6c48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_state.html">MapState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html#adbd11507b8b6b55a66a7f4388dfa6c48">getMapState</a> () const</td></tr>
 <tr class="separator:adbd11507b8b6b55a66a7f4388dfa6c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e8c4f74acde9172c4db4b8fd813cd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html#a92e8c4f74acde9172c4db4b8fd813cd6">pushNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node)</td></tr>
+<tr class="memdesc:a92e8c4f74acde9172c4db4b8fd813cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．  <br /></td></tr>
 <tr class="separator:a92e8c4f74acde9172c4db4b8fd813cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2403327f0715daebbf8244e476064b"><td class="memItemLeft" align="right" valign="top"><a id="a5f2403327f0715daebbf8244e476064b" name="a5f2403327f0715daebbf8244e476064b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteAllNode</b> ()</td></tr>
+<tr class="memdesc:a5f2403327f0715daebbf8244e476064b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードの集合を全て削除する． <br /></td></tr>
+<tr class="separator:a5f2403327f0715daebbf8244e476064b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc27dcf146fcb057e15479df0d085258"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258">copyAllNode</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_node_vec) const</td></tr>
+<tr class="memdesc:abc27dcf146fcb057e15479df0d085258"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードの集合をvectorを用いて参照渡しする．全データをコピーする．  <br /></td></tr>
 <tr class="separator:abc27dcf146fcb057e15479df0d085258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac076bd5b7fa1bbd157b19a915efdbed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html#ac076bd5b7fa1bbd157b19a915efdbed9">copyOnlyNewNode</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_node_vec) const</td></tr>
+<tr class="memdesc:ac076bd5b7fa1bbd157b19a915efdbed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードの集合をvectorを用いて参照渡しする．渡したvectorより，持っているデータが多い場合のみ差分をコピーする．<br  />
+ copyAllNodeより軽い処理になります．  <br /></td></tr>
 <tr class="separator:ac076bd5b7fa1bbd157b19a915efdbed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f41abf3764375ce605de858038485e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_data_broker.html#a26f41abf3764375ce605de858038485e">getNodeNum</a> () const</td></tr>
+<tr class="memdesc:a26f41abf3764375ce605de858038485e"><td class="mdescLeft">&#160;</td><td class="mdescRight">セットされているノードの数を返す．  <br /></td></tr>
+<tr class="separator:a26f41abf3764375ce605de858038485e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>画像表示部と，データ処理部を結びつける仲介人クラス </p>
@@ -145,12 +156,24 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ノードの集合をvectorを用いて参照渡しする．全データをコピーする． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>ノードの集合をvectorを用いて参照渡しする．全データをコピーする． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">_node_vec</td><td>この関数の中で一度中身を空にしてから，データを代入する． </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_data_broker_abc27dcf146fcb057e15479df0d085258_icgraph.png" border="0" usemap="#aclass_graphic_data_broker_abc27dcf146fcb057e15479df0d085258_icgraph" alt=""/></div>
+<map name="aclass_graphic_data_broker_abc27dcf146fcb057e15479df0d085258_icgraph" id="aclass_graphic_data_broker_abc27dcf146fcb057e15479df0d085258_icgraph">
+<area shape="rect" title="ノードの集合をvectorを用いて参照渡しする．全データをコピーする．" alt="" coords="222,5,361,48"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -169,8 +192,10 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>ノードの集合をvectorを用いて参照渡しする．渡したvectorより，持っているデータが多い場合のみ差分をコピーする．<br  />
- copyAllNodeより軽い処理になります． </p><dl class="params"><dt>引数</dt><dd>
+ copyAllNodeより軽い処理になります． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">_node_vec</td><td>差分以外に変更はされない．差分のみpushされる </td></tr>
   </table>
@@ -181,7 +206,7 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_data_broker_ac076bd5b7fa1bbd157b19a915efdbed9_icgraph.png" border="0" usemap="#aclass_graphic_data_broker_ac076bd5b7fa1bbd157b19a915efdbed9_icgraph" alt=""/></div>
 <map name="aclass_graphic_data_broker_ac076bd5b7fa1bbd157b19a915efdbed9_icgraph" id="aclass_graphic_data_broker_ac076bd5b7fa1bbd157b19a915efdbed9_icgraph">
-<area shape="rect" title=" " alt="" coords="228,5,367,48"/>
+<area shape="rect" title="ノードの集合をvectorを用いて参照渡しする．渡したvectorより，持っているデータが多い場合のみ差分をコピーする． &#160;copyAllNodeより軽い処理になります．" alt="" coords="228,5,367,48"/>
 <area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,180,40"/>
 <area shape="poly" title=" " alt="" coords="213,29,180,29,180,24,213,24"/>
 </map>
@@ -208,6 +233,36 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
 
 </div>
 </div>
+<a id="a26f41abf3764375ce605de858038485e" name="a26f41abf3764375ce605de858038485e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f41abf3764375ce605de858038485e">&#9670;&#160;</a></span>getNodeNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GraphicDataBroker::getNodeNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>セットされているノードの数を返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>size_t ノードの数 </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_data_broker_a26f41abf3764375ce605de858038485e_icgraph.png" border="0" usemap="#aclass_graphic_data_broker_a26f41abf3764375ce605de858038485e_icgraph" alt=""/></div>
+<map name="aclass_graphic_data_broker_a26f41abf3764375ce605de858038485e_icgraph" id="aclass_graphic_data_broker_a26f41abf3764375ce605de858038485e_icgraph">
+<area shape="rect" title="セットされているノードの数を返す．" alt="" coords="222,5,361,48"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a92e8c4f74acde9172c4db4b8fd813cd6" name="a92e8c4f74acde9172c4db4b8fd813cd6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92e8c4f74acde9172c4db4b8fd813cd6">&#9670;&#160;</a></span>pushNode()</h2>
 
@@ -223,7 +278,9 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td>ロボットの新しい状態 </td></tr>
   </table>
@@ -234,7 +291,7 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_data_broker_a92e8c4f74acde9172c4db4b8fd813cd6_icgraph.png" border="0" usemap="#aclass_graphic_data_broker_a92e8c4f74acde9172c4db4b8fd813cd6_icgraph" alt=""/></div>
 <map name="aclass_graphic_data_broker_a92e8c4f74acde9172c4db4b8fd813cd6_icgraph" id="aclass_graphic_data_broker_a92e8c4f74acde9172c4db4b8fd813cd6_icgraph">
-<area shape="rect" title=" " alt="" coords="184,5,323,48"/>
+<area shape="rect" title="ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．" alt="" coords="184,5,323,48"/>
 <area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,13,136,40"/>
 <area shape="poly" title=" " alt="" coords="169,29,136,29,136,24,169,24"/>
 </map>
@@ -267,8 +324,8 @@ $(document).ready(function(){initNavTree('class_graphic_data_broker.html',''); i
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_graphic_data_broker_8h_source.html">GraphicDataBroker.h</a></li>
-<li>DesignLab/GraphicDataBroker.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_graphic_data_broker_8h_source.html">GraphicDataBroker.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicDataBroker.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

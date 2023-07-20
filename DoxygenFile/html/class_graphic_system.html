@@ -103,9 +103,16 @@ $(document).ready(function(){initNavTree('class_graphic_system.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:af300c252227dd7592177e16ab20f834a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#af300c252227dd7592177e16ab20f834a">init</a> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *_p_broker)</td></tr>
-<tr class="separator:af300c252227dd7592177e16ab20f834a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d38633900a8cbcacaf9c3afbe728976"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">main</a> ()</td></tr>
+<tr class="memitem:a311a1576d43f89534acae06ad988cbdb"><td class="memItemLeft" align="right" valign="top"><a id="a311a1576d43f89534acae06ad988cbdb" name="a311a1576d43f89534acae06ad988cbdb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;_graphic_main)</td></tr>
+<tr class="memdesc:a311a1576d43f89534acae06ad988cbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタを受け取る. <br /></td></tr>
+<tr class="separator:a311a1576d43f89534acae06ad988cbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d38633900a8cbcacaf9c3afbe728976"><td class="memItemLeft" align="right" valign="top"><a id="a1d38633900a8cbcacaf9c3afbe728976" name="a1d38633900a8cbcacaf9c3afbe728976"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
+<tr class="memdesc:a1d38633900a8cbcacaf9c3afbe728976"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br  />
+initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br  />
+ またメンバ関数のdxlibInit関数に失敗した場合も終了します．<br  />
+dxlibは2窓できないので失敗する場合はタスクマネージャーからdxlibを落としてください． <br /></td></tr>
 <tr class="separator:a1d38633900a8cbcacaf9c3afbe728976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -114,90 +121,16 @@ $(document).ready(function(){initNavTree('class_graphic_system.html',''); initRe
  しかし，Dxlibは非同期処理を考慮して設計されていないので，動かし方によってはうまく動作しません．<br  />
  このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで，エラーを防いでいますが，予期せぬエラーが発生する可能性はあります．<br  />
  <br  />
- [Dxlibの注意] <br  />
+[Dxlibの注意] <br  />
  注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにしましょう．<br  />
  まぁ，ぶっちゃけ小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難です．<br  />
- また，Dxlibはエラーが出たときに -1 を返す関数が非常に多いです．そのため例えば if(DxLib_Init() == false) と書いてもエラーを受け取れないことがあります．<br  />
- 正しくは if(DxLib_Init() &lt; 0) となります．これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，C++で書かれている本コードにおいては<br  />
+ また，Dxlibはエラーが出たときに - 1 を返す関数が非常に多いです．そのため例えば if (DxLib_Init() == false) と書いてもエラーを受け取れないことがあります．<br  />
+ 正しくは if (DxLib_Init() &lt; 0) となります．これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，C++で書かれている本コードにおいては<br  />
  混乱の元です(涙)．Dxlibのエラーはboolではなく，int型の負の値ということを覚えておいてください．<br  />
  </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-</div><h2 class="groupheader">関数詳解</h2>
-<a id="af300c252227dd7592177e16ab20f834a" name="af300c252227dd7592177e16ab20f834a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af300c252227dd7592177e16ab20f834a">&#9670;&#160;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GraphicSystem::init </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *&#160;</td>
-          <td class="paramname"><em>_p_broker</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタを受け取る. </p><dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_p_broker</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1d38633900a8cbcacaf9c3afbe728976" name="a1d38633900a8cbcacaf9c3afbe728976"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d38633900a8cbcacaf9c3afbe728976">&#9670;&#160;</a></span>main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GraphicSystem::main </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br  />
-initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br  />
- またメンバ関数のdxlibInit関数に失敗した場合も終了します．<br  />
-dxlibは2窓できないので失敗する場合はタスクマネージャーからdxlibを落としてください． </p>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_cgraph.png" border="0" usemap="#aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_cgraph" alt=""/></div>
-<map name="aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_cgraph" id="aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_cgraph">
-<area shape="rect" title=" " alt="" coords="5,81,153,108"/>
-<area shape="rect" href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title=" " alt="" coords="201,81,327,108"/>
-<area shape="poly" title=" " alt="" coords="153,92,186,92,186,97,153,97"/>
-<area shape="rect" href="class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="375,5,516,32"/>
-<area shape="poly" title=" " alt="" coords="293,78,374,42,390,35,392,40,376,46,295,83"/>
-<area shape="rect" href="class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="384,56,507,83"/>
-<area shape="poly" title=" " alt="" coords="327,83,369,77,370,83,328,89"/>
-<area shape="rect" href="class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a" title="マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．" alt="" coords="392,107,499,133"/>
-<area shape="poly" title=" " alt="" coords="328,101,378,108,377,113,327,106"/>
-<area shape="rect" href="class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b" title="処理が早すぎる場合，FPSを一定にするために待つ．" alt="" coords="409,157,483,184"/>
-<area shape="poly" title=" " alt="" coords="295,106,376,143,396,151,394,156,374,148,293,111"/>
-</map>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_icgraph.png" border="0" usemap="#aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_icgraph" alt=""/></div>
-<map name="aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_icgraph" id="aclass_graphic_system_a1d38633900a8cbcacaf9c3afbe728976_icgraph">
-<area shape="rect" title=" " alt="" coords="184,5,331,32"/>
-<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
-<area shape="poly" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
-</map>
-</div>
-
-</div>
-</div>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_graphic_system_8h_source.html">GraphicSystem.h</a></li>
-<li>DesignLab/GraphicSystem.cpp</li>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_graphic_system_8h_source.html">GraphicSystem.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicSystem.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,7 +1,13 @@
 <map id="GraphicMainTest::update" name="GraphicMainTest::update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,31,172,57"/>
-<area shape="rect" id="Node000002" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="221,5,390,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,32,206,28,207,33,172,37"/>
-<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="220,56,391,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,51,205,55,205,60,172,56"/>
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,109,172,136"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a387104614d1d5a653448128698ab609a" title="重心位置を変更する関数．" alt="" coords="220,5,405,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,107,219,58,234,51,236,56,221,62,117,111"/>
+<area shape="rect" id="Node000003" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する．" alt="" coords="241,72,384,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,109,226,102,227,107,173,114"/>
+<area shape="rect" id="Node000004" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="228,139,397,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,131,214,136,213,142,172,136"/>
+<area shape="rect" id="Node000005" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="227,189,398,216"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="121,134,221,175,243,182,242,187,219,180,119,139"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="453,181,607,224"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="398,200,438,200,438,205,398,205"/>
 </map>

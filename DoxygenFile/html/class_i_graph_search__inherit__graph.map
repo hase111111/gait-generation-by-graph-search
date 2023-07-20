@@ -1,5 +1,7 @@
 <map id="IGraphSearch" name="IGraphSearch">
-<area shape="rect" id="Node000001" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="17,5,118,32"/>
+<area shape="rect" id="Node000001" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="92,5,192,32"/>
 <area shape="rect" id="Node000002" href="$class_graph_search_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="5,80,130,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,47,70,80,65,80,65,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,44,82,82,79,78,117,41"/>
+<area shape="rect" id="Node000003" href="$class_graph_search_none.html" title="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．" alt="" coords="153,80,281,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,41,206,78,202,82,164,44"/>
 </map>

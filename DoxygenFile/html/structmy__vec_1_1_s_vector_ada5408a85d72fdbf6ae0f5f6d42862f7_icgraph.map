@@ -1,20 +1,30 @@
 <map id="my_vec::SVector::projectedXY" name="my_vec::SVector::projectedXY">
-<area shape="rect" id="Node000001" title="XY平面に射影したベクトルを返す．" alt="" coords="883,109,1080,136"/>
-<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="680,5,835,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="934,105,808,51,811,46,936,101"/>
-<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="680,72,835,115"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="868,110,834,106,835,101,868,105"/>
-<area shape="rect" id="Node000007" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="478,131,632,173"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="868,133,633,149,633,144,868,128"/>
-<area shape="rect" id="Node000008" href="$class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="222,156,412,199"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="890,142,835,152,734,173,633,188,555,191,478,188,412,185,412,180,478,183,555,186,632,183,733,168,834,147,889,137"/>
-<area shape="rect" id="Node000003" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,89,430,116"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="666,33,575,40,479,55,413,72,355,91,354,86,411,67,477,49,574,35,665,27"/>
-<area shape="rect" id="Node000004" href="$class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,127,156,169"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,122,157,136,156,131,229,117"/>
-<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="478,64,632,107"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="666,92,632,91,632,86,666,87"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="464,95,431,97,430,92,463,89"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="463,136,384,119,385,114,464,131"/>
-<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="207,166,156,160,156,155,208,161"/>
+<area shape="rect" id="Node000001" title="XY平面に射影したベクトルを返す．" alt="" coords="918,143,1115,169"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="715,168,870,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="909,175,871,180,870,175,908,169"/>
+<area shape="rect" id="Node000009" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="715,235,870,277"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="973,179,871,225,845,236,843,232,869,220,971,174"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="715,101,870,144"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="908,143,870,137,871,132,909,137"/>
+<area shape="rect" id="Node000012" href="$class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="478,5,667,48"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="976,138,925,114,869,92,765,64,667,44,668,38,767,58,871,87,928,109,978,133"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="493,109,652,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="705,166,619,139,620,134,707,161"/>
+<area shape="rect" id="Node000007" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,219,430,245"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="701,200,431,225,430,219,701,195"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="236,51,398,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="498,108,429,92,380,81,381,75,431,87,499,103"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="233,101,401,144"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="478,125,402,125,402,120,478,120"/>
+<area shape="rect" id="Node000006" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="240,168,394,195"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="499,143,431,159,381,170,380,165,429,153,498,137"/>
+<area shape="rect" id="Node000008" href="$class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,101,156,144"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="222,216,203,209,149,179,106,147,109,142,152,175,205,204,224,211"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="723,230,714,225,644,179,589,139,593,134,647,175,717,220,726,225"/>
+<area shape="rect" id="Node000010" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="496,261,650,304"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="701,270,651,276,650,271,700,264"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="480,267,387,249,388,243,481,262"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="701,125,653,125,653,120,701,120"/>
+<area shape="poly" id="edge14_Node000011_Node000007" title=" " alt="" coords="701,144,479,195,431,209,384,221,383,215,429,204,477,189,700,139"/>
+<area shape="poly" id="edge16_Node000012_Node000008" title=" " alt="" coords="463,17,403,15,337,17,270,25,205,41,176,53,150,69,106,103,103,99,147,65,174,48,203,36,269,20,336,12,403,10,463,12"/>
 </map>

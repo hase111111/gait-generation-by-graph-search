@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['normalized_0',['normalized',['../structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f',1,'my_vec::SVector::normalized()'],['../structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c',1,'my_vec::SVector2::normalized()']]]
+  ['main_0',['main',['../class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976',1,'GraphicSystem::main()'],['../class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2',1,'SystemMain::main()']]],
+  ['makecandidatepolygon_1',['makeCandidatePolygon',['../class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b',1,'ComCandidatePolygonMaker']]],
+  ['makelegstate_2',['makeLegState',['../_leg_state_8h.html#ab5a59d93f0d7d639e1be3bb0e1d24aa6',1,'LegStateEdit']]]
 ];

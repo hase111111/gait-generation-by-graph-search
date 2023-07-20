@@ -1,19 +1,17 @@
 <map id="my_vec::SVector2::cross" name="my_vec::SVector2::cross">
-<area shape="rect" id="Node000001" title="このベクトルとotherの外積を返す" alt="" coords="739,81,907,108"/>
+<area shape="rect" id="Node000001" title="このベクトルとotherの外積を返す" alt="" coords="739,56,907,83"/>
 <area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_line2.html#a2ce181e967e3b1918da067056196eac4" title="他の線分との交点を求める．" alt="" coords="484,5,690,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="775,78,691,47,650,35,651,30,692,41,777,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="742,55,652,35,653,30,744,50"/>
 <area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="482,56,691,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="725,87,691,83,692,78,725,82"/>
-<area shape="rect" id="Node000007" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="280,99,434,141"/>
-<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="724,103,435,118,434,113,724,97"/>
-<area shape="rect" id="Node000008" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="510,161,664,204"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="772,116,647,163,645,158,770,111"/>
-<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="280,32,434,75"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="467,64,434,61,435,56,467,58"/>
-<area shape="rect" id="Node000005" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="5,107,232,133"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="267,81,170,109,168,103,265,76"/>
-<area shape="poly" id="edge6_Node000007_Node000005" title=" " alt="" coords="265,123,232,123,232,117,265,117"/>
-<area shape="rect" id="Node000009" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="280,165,434,208"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="495,187,435,188,435,183,495,182"/>
-<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="265,164,168,137,170,131,267,159"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="725,72,692,72,692,67,725,67"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="280,111,434,153"/>
+<area shape="poly" id="edge6_Node000001_Node000011" title=" " alt="" coords="741,89,692,97,556,115,435,128,434,123,555,110,691,92,741,83"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="280,44,434,87"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="467,70,434,69,434,64,467,65"/>
+<area shape="rect" id="Node000005" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="39,56,198,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="265,70,199,71,199,65,265,64"/>
+<area shape="rect" id="Node000009" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="5,111,232,137"/>
+<area shape="poly" id="edge5_Node000004_Node000009" title=" " alt="" coords="266,90,176,113,175,107,265,85"/>
+<area shape="poly" id="edge7_Node000011_Node000005" title=" " alt="" coords="265,110,231,101,173,86,174,81,232,96,266,105"/>
+<area shape="poly" id="edge8_Node000011_Node000009" title=" " alt="" coords="265,132,232,130,232,125,265,126"/>
 </map>

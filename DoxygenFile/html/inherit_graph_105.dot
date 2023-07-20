@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="testing::Environment",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classtesting_1_1_environment.html",tooltip=" "];
+  Node0 [id="Node000000",label="SystemMain",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_system_main.html",tooltip="中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．"];
 }

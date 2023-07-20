@@ -95,31 +95,187 @@ $(document).ready(function(){initNavTree('class_log_file_i_o.html',''); initResi
   <div class="headertitle"><div class="title">LogFileIO クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ログファイルの入出力を行うクラス．  
+ <a href="class_log_file_i_o.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_log_file_i_o_8h_source.html">LogFileIO.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a18050ba6b3f400549ab81d9d4e6f9d2c"><td class="memItemLeft" align="right" valign="top"><a id="a18050ba6b3f400549ab81d9d4e6f9d2c" name="a18050ba6b3f400549ab81d9d4e6f9d2c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>openLogFile</b> ()</td></tr>
+<tr class="memitem:a18050ba6b3f400549ab81d9d4e6f9d2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_i_o.html#a18050ba6b3f400549ab81d9d4e6f9d2c">openLogFile</a> ()</td></tr>
+<tr class="memdesc:a18050ba6b3f400549ab81d9d4e6f9d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルを作成する．失敗するとfalseを返す  <br /></td></tr>
 <tr class="separator:a18050ba6b3f400549ab81d9d4e6f9d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0979b1a6defd027fdd4d27c83879b877"><td class="memItemLeft" align="right" valign="top"><a id="a0979b1a6defd027fdd4d27c83879b877" name="a0979b1a6defd027fdd4d27c83879b877"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>closeLogFile</b> ()</td></tr>
+<tr class="memdesc:a0979b1a6defd027fdd4d27c83879b877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルを閉じる <br /></td></tr>
 <tr class="separator:a0979b1a6defd027fdd4d27c83879b877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2eb0feb7a393db9cbba705c65c340bf"><td class="memItemLeft" align="right" valign="top"><a id="af2eb0feb7a393db9cbba705c65c340bf" name="af2eb0feb7a393db9cbba705c65c340bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addLogStringWithInt</b> (const int _data)</td></tr>
+<tr class="memitem:af2eb0feb7a393db9cbba705c65c340bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_i_o.html#af2eb0feb7a393db9cbba705c65c340bf">addLogStringWithInt</a> (const int _data)</td></tr>
+<tr class="memdesc:af2eb0feb7a393db9cbba705c65c340bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルに数値を書き込む  <br /></td></tr>
 <tr class="separator:af2eb0feb7a393db9cbba705c65c340bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32aab8cb6859a86ab047ff266340ae35"><td class="memItemLeft" align="right" valign="top"><a id="a32aab8cb6859a86ab047ff266340ae35" name="a32aab8cb6859a86ab047ff266340ae35"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addLogStringWithNode</b> (const int num, const <a class="el" href="struct_s_node.html">SNode</a> &amp;node_log)</td></tr>
+<tr class="memitem:a32aab8cb6859a86ab047ff266340ae35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35">addLogStringWithNode</a> (const int num, const <a class="el" href="struct_s_node.html">SNode</a> &amp;node_log)</td></tr>
+<tr class="memdesc:a32aab8cb6859a86ab047ff266340ae35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルにノードの情報を書き込む  <br /></td></tr>
 <tr class="separator:a32aab8cb6859a86ab047ff266340ae35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1288028a3b6499d853898a53b68a148f"><td class="memItemLeft" align="right" valign="top"><a id="a1288028a3b6499d853898a53b68a148f" name="a1288028a3b6499d853898a53b68a148f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addLogString</b> (const std::string _str)</td></tr>
+<tr class="memitem:a1288028a3b6499d853898a53b68a148f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_i_o.html#a1288028a3b6499d853898a53b68a148f">addLogString</a> (const std::string _str)</td></tr>
+<tr class="memdesc:a1288028a3b6499d853898a53b68a148f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルに文字列を書き込む  <br /></td></tr>
 <tr class="separator:a1288028a3b6499d853898a53b68a148f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26bd2e0cd5fe7260694771d27204ec9"><td class="memItemLeft" align="right" valign="top"><a id="af26bd2e0cd5fe7260694771d27204ec9" name="af26bd2e0cd5fe7260694771d27204ec9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addLogStringSimulation</b> (const int _loop_num, const <a class="el" href="class_simulate_result.html">SimulateResult</a> &amp;_res)</td></tr>
+<tr class="memitem:af26bd2e0cd5fe7260694771d27204ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log_file_i_o.html#af26bd2e0cd5fe7260694771d27204ec9">addLogStringSimulation</a> (const int _loop_num, const <a class="el" href="class_simulate_result.html">SimulateResult</a> &amp;_res)</td></tr>
+<tr class="memdesc:af26bd2e0cd5fe7260694771d27204ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logファイルにシミュレーションの結果を書き込む  <br /></td></tr>
 <tr class="separator:af26bd2e0cd5fe7260694771d27204ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>ログファイルの入出力を行うクラス． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/06/17 @auther 長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a1288028a3b6499d853898a53b68a148f" name="a1288028a3b6499d853898a53b68a148f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1288028a3b6499d853898a53b68a148f">&#9670;&#160;</a></span>addLogString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LogFileIO::addLogString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logファイルに文字列を書き込む </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_str</td><td>書き込む文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af26bd2e0cd5fe7260694771d27204ec9" name="af26bd2e0cd5fe7260694771d27204ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26bd2e0cd5fe7260694771d27204ec9">&#9670;&#160;</a></span>addLogStringSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LogFileIO::addLogStringSimulation </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_loop_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_simulate_result.html">SimulateResult</a> &amp;&#160;</td>
+          <td class="paramname"><em>_res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logファイルにシミュレーションの結果を書き込む </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_loop_num</td><td>ループ回数 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_res</td><td>シミュレーションの結果 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af2eb0feb7a393db9cbba705c65c340bf" name="af2eb0feb7a393db9cbba705c65c340bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2eb0feb7a393db9cbba705c65c340bf">&#9670;&#160;</a></span>addLogStringWithInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LogFileIO::addLogStringWithInt </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logファイルに数値を書き込む </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_data</td><td>書き込む数値 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32aab8cb6859a86ab047ff266340ae35" name="a32aab8cb6859a86ab047ff266340ae35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32aab8cb6859a86ab047ff266340ae35">&#9670;&#160;</a></span>addLogStringWithNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LogFileIO::addLogStringWithNode </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>node_log</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logファイルにノードの情報を書き込む </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>ノードの番号 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node_log</td><td>書き込むノードの情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a18050ba6b3f400549ab81d9d4e6f9d2c" name="a18050ba6b3f400549ab81d9d4e6f9d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18050ba6b3f400549ab81d9d4e6f9d2c">&#9670;&#160;</a></span>openLogFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LogFileIO::openLogFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logファイルを作成する．失敗するとfalseを返す </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool ファイル作成に成功したらtrue，失敗したらfalse </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_log_file_i_o_8h_source.html">LogFileIO.h</a></li>
-<li>DesignLab/LogFileIO.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_log_file_i_o_8h_source.html">LogFileIO.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/LogFileIO.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

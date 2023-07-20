@@ -27,17 +27,22 @@ private:
 //! @file Define.h
 //! @brief プロジェクト全体の定数
 //! @author 長谷川
+//! @date 2023/06/17
 
 //! @class Define
 //! @brief
 //! @details Effective C++ という本 (私が持っているのはかなり古い版のものなので正直正しいのかはよくわからないけど) によると，<br>
 //! C++においてはあまり #defineを使用するべきではないようである．結構いろんなサイトでも同じことが言われている．<br> 
 //! https://qiita.com/jonichonpa/items/595ed7914751787ebaee <br>
-//! https://myon.info/blog/2015/12/18/avoid-defining-macros/ <br> <br>
-//! const statisな定数．inline 関数．constexpr定数を使うべき．<br> <br>
-//! 以下参考資料．<br> クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策<br>
+//! https://myon.info/blog/2015/12/18/avoid-defining-macros/ <br>
+//! <br>
+//! const statisな定数．inline 関数．constexpr定数を使うべき．<br>
+//! <br>
+//! 以下参考資料．<br> 
+//! クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策<br>
 //! https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81
 //! @attention GRAPH_SEARCH_DEPTHの値を大きくしすぎると動作しなくなる．<br>
 //! 先行研究では深さ4～5あたりで動作せていたのでそのあたりで，<br>
 //! ちなみに，深さを1つ深くしただけで，探索する範囲は膨大に増えるので注意が必要．深さ6以上を実時間内に探索し終わるのは，そこそこの性能のPCが必要．
 //! @author 長谷川
+//! @date 2023/06/17

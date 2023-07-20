@@ -10,4 +10,6 @@ digraph "my_vec::SLine2::getIntersection"
   Node2 [id="Node000002",label="my_vec::SVector2::cross",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2",tooltip="このベクトルとotherの外積を返す"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="my_vec::SLine2::isParallel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_line2.html#a618cb323a4ceff7ffa83662e0e3b8f17",tooltip="線分が平行かどうか調べる関数"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="my_math::isEqual",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacemy__math.html#a9213fc924eef19511f8dd65b7b488f8d",tooltip="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．"];
 }

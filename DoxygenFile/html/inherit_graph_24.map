@@ -1,9 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="5,56,103,83"/>
-<area shape="rect" id="Node000001" href="$class_graphic_main_basic.html" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="156,5,284,32"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="113,49,173,30,174,35,115,54"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_sample.html" title="サンプル描画クラス．サンプルメッセージを表示する．" alt="" coords="151,56,289,83"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="117,67,150,67,150,72,117,72"/>
-<area shape="rect" id="Node000003" href="$class_graphic_main_test.html" title=" " alt="" coords="160,107,280,133"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="115,85,174,104,173,109,113,90"/>
+<area shape="rect" id="Node000000" href="$class_hexapod_renderer.html" title="ロボットの描画を行うクラス．" alt="" coords="5,5,130,32"/>
 </map>

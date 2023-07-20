@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: DesignLab/LogFileIO.h ソースファイル</title>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/LogFileIO.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,55 +92,56 @@ $(document).ready(function(){initNavTree('_log_file_i_o_8h_source.html',''); ini
   <div class="headertitle"><div class="title">LogFileIO.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="_log_file_i_o_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Node.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">Node.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;SimulateResult.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// File Input Output つまりファイル入出力のこと</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_log_file_i_o.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_log_file_i_o.html">LogFileIO</a> final</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_log_file_i_o.html">LogFileIO</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_log_file_i_o.html">~LogFileIO</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">//Logファイルを作成する．失敗するとfalseを返す</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> openLogFile();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//Logファイルを閉じる</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> closeLogFile();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//Logファイルに数値を書き込む</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> addLogStringWithInt(<span class="keyword">const</span> <span class="keywordtype">int</span> _data);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_log_file_i_o.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_log_file_i_o.html">LogFileIO</a> final</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_log_file_i_o.html">LogFileIO</a>();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_log_file_i_o.html">~LogFileIO</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_log_file_i_o.html#a18050ba6b3f400549ab81d9d4e6f9d2c">openLogFile</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_log_file_i_o.html#a0979b1a6defd027fdd4d27c83879b877">closeLogFile</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_log_file_i_o.html#af2eb0feb7a393db9cbba705c65c340bf">addLogStringWithInt</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _data);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//Logファイルにノードの情報を書き込む</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> addLogStringWithNode(<span class="keyword">const</span> <span class="keywordtype">int</span> num, <span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node_log);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">//Logファイルに文字列を書き込む</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> addLogString(<span class="keyword">const</span> std::string _str);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">//Logファイルにシミュレーションの結果を書き込む</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> addLogStringSimulation(<span class="keyword">const</span> <span class="keywordtype">int</span> _loop_num, <span class="keyword">const</span> <a class="code hl_class" href="class_simulate_result.html">SimulateResult</a>&amp; _res);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35">addLogStringWithNode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> num, <span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node_log);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_log_file_i_o.html#a1288028a3b6499d853898a53b68a148f">addLogString</a>(<span class="keyword">const</span> std::string _str);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> std::string LOG_NAME = <span class="stringliteral">&quot;WalkingPatternLog&quot;</span>;   <span class="comment">//出力するファイル名</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> std::string LOG_EXTENSION = <span class="stringliteral">&quot;.csv&quot;</span>;           <span class="comment">//拡張子</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> m_log_num = 1;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::string m_file_name;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::ofstream m_all_log;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-<div class="ttc" id="aclass_log_file_i_o_html"><div class="ttname"><a href="class_log_file_i_o.html">LogFileIO</a></div><div class="ttdef"><b>Definition</b> LogFileIO.h:10</div></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_log_file_i_o.html#af26bd2e0cd5fe7260694771d27204ec9">addLogStringSimulation</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _loop_num, <span class="keyword">const</span> <a class="code hl_class" href="class_simulate_result.html">SimulateResult</a>&amp; _res);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> std::string LOG_NAME = <span class="stringliteral">&quot;WalkingPatternLog&quot;</span>;   <span class="comment">//出力するファイル名</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> std::string LOG_EXTENSION = <span class="stringliteral">&quot;.csv&quot;</span>;           <span class="comment">//拡張子</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">int</span> m_log_num = 1;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    std::string m_file_name;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::ofstream m_all_log;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div><div class="ttdoc">ノードの構造体を定義する．</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html"><div class="ttname"><a href="class_log_file_i_o.html">LogFileIO</a></div><div class="ttdoc">ログファイルの入出力を行うクラス．</div><div class="ttdef"><b>Definition</b> LogFileIO.h:8</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_a0979b1a6defd027fdd4d27c83879b877"><div class="ttname"><a href="class_log_file_i_o.html#a0979b1a6defd027fdd4d27c83879b877">LogFileIO::closeLogFile</a></div><div class="ttdeci">void closeLogFile()</div><div class="ttdoc">Logファイルを閉じる</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:31</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_a1288028a3b6499d853898a53b68a148f"><div class="ttname"><a href="class_log_file_i_o.html#a1288028a3b6499d853898a53b68a148f">LogFileIO::addLogString</a></div><div class="ttdeci">void addLogString(const std::string _str)</div><div class="ttdoc">Logファイルに文字列を書き込む</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:80</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_a18050ba6b3f400549ab81d9d4e6f9d2c"><div class="ttname"><a href="class_log_file_i_o.html#a18050ba6b3f400549ab81d9d4e6f9d2c">LogFileIO::openLogFile</a></div><div class="ttdeci">bool openLogFile()</div><div class="ttdoc">Logファイルを作成する．失敗するとfalseを返す</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:14</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_a32aab8cb6859a86ab047ff266340ae35"><div class="ttname"><a href="class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35">LogFileIO::addLogStringWithNode</a></div><div class="ttdeci">void addLogStringWithNode(const int num, const SNode &amp;node_log)</div><div class="ttdoc">Logファイルにノードの情報を書き込む</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:41</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_af26bd2e0cd5fe7260694771d27204ec9"><div class="ttname"><a href="class_log_file_i_o.html#af26bd2e0cd5fe7260694771d27204ec9">LogFileIO::addLogStringSimulation</a></div><div class="ttdeci">void addLogStringSimulation(const int _loop_num, const SimulateResult &amp;_res)</div><div class="ttdoc">Logファイルにシミュレーションの結果を書き込む</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:85</div></div>
+<div class="ttc" id="aclass_log_file_i_o_html_af2eb0feb7a393db9cbba705c65c340bf"><div class="ttname"><a href="class_log_file_i_o.html#af2eb0feb7a393db9cbba705c65c340bf">LogFileIO::addLogStringWithInt</a></div><div class="ttdeci">void addLogStringWithInt(const int _data)</div><div class="ttdoc">Logファイルに数値を書き込む</div><div class="ttdef"><b>Definition</b> LogFileIO.cpp:36</div></div>
 <div class="ttc" id="aclass_simulate_result_html"><div class="ttname"><a href="class_simulate_result.html">SimulateResult</a></div><div class="ttdef"><b>Definition</b> SimulateResult.h:6</div></div>
-<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdef"><b>Definition</b> Node.h:24</div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> Node.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>LogFileIO.h</b></li>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_log_file_i_o_8h.html">LogFileIO.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

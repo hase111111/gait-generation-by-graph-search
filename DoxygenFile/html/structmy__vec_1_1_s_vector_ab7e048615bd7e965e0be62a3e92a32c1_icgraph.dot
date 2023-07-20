@@ -11,7 +11,9 @@ digraph "my_vec::SVector::length"
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="GraphicMainBasic::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
-  Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="my_vec::SVector::normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f",tooltip="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!"];
+  Node4 [id="Node000004",label="GraphicMainGraphViewer\l::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="my_vec::SVector::normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f",tooltip="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!"];
 }

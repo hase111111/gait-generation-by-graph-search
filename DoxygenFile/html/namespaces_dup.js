@@ -17,6 +17,19 @@ var namespaces_dup =
       [ "COM_TYPE_NUM", "namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224", null ]
     ] ],
     [ "leg_state", "namespaceleg__state.html", null ],
+    [ "my_math", "namespacemy__math.html", [
+      [ "isEqual", "namespacemy__math.html#a86f3078c559b4534510c3e4391c46a53", null ],
+      [ "isEqual", "namespacemy__math.html#a9213fc924eef19511f8dd65b7b488f8d", null ],
+      [ "squared", "namespacemy__math.html#a04a6fb9ca1f6decc3829e1c96fa9481d", null ],
+      [ "squared", "namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4", null ],
+      [ "squared", "namespacemy__math.html#a770d7518eae646cc4a17f065739886b8", null ],
+      [ "squared", "namespacemy__math.html#a9cad1af200436f2b7a0ec46ab3e880b7", null ],
+      [ "squared", "namespacemy__math.html#a5390686a78e784fb14035702c0e6d8fd", null ],
+      [ "ALLOWABLE_ERROR", "namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1", null ],
+      [ "DBL_ALLOWABLE_ERROR", "namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5", null ],
+      [ "MY_DBL_PI", "namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866", null ],
+      [ "MY_FLT_PI", "namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7", null ]
+    ] ],
     [ "my_vec", "namespacemy__vec.html", "namespacemy__vec" ],
     [ "myDxlib3DFunc", "namespacemy_dxlib3_d_func.html", [
       [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f", null ],

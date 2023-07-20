@@ -31,6 +31,5 @@ var searchData=
   ['string_28',['String',['../classtesting_1_1internal_1_1_string.html',1,'testing::internal']]],
   ['svector_29',['SVector',['../structmy__vec_1_1_s_vector.html',1,'my_vec']]],
   ['svector2_30',['SVector2',['../structmy__vec_1_1_s_vector2.html',1,'my_vec']]],
-  ['systemmain_31',['SystemMain',['../class_system_main.html',1,'']]],
-  ['systemtest_32',['SystemTest',['../class_system_test.html',1,'']]]
+  ['systemmain_31',['SystemMain',['../class_system_main.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['removelastvertex_0',['removeLastVertex',['../structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96',1,'my_vec::SPolygon2']]],
-  ['removevertex_1',['removeVertex',['../structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f',1,'my_vec::SPolygon2']]],
-  ['rotvector_2',['rotVector',['../namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35',1,'my_vec']]]
+  ['pass_5fbody_5frotation_0',['pass_body_rotation',['../class_search_possible_body_rotation.html#a282523e4af8fb7900ed72b8b9951031a',1,'SearchPossibleBodyRotation']]],
+  ['projectedxy_1',['projectedXY',['../structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7',1,'my_vec::SVector']]],
+  ['pushnode_2',['pushNode',['../class_graphic_data_broker.html#a92e8c4f74acde9172c4db4b8fd813cd6',1,'GraphicDataBroker']]]
 ];

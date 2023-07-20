@@ -7,5 +7,6 @@ var searchData=
   ['mapstate_4',['MapState',['../class_map_state.html',1,'']]],
   ['message_5',['Message',['../classtesting_1_1_message.html',1,'testing']]],
   ['mouse_6',['Mouse',['../class_mouse.html',1,'']]],
-  ['mutex_7',['Mutex',['../classtesting_1_1internal_1_1_mutex.html',1,'testing::internal']]]
+  ['mutex_7',['Mutex',['../classtesting_1_1internal_1_1_mutex.html',1,'testing::internal']]],
+  ['mytimer_8',['MyTimer',['../class_my_timer.html',1,'']]]
 ];

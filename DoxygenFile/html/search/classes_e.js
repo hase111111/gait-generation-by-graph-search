@@ -9,8 +9,7 @@ var searchData=
   ['paramiterator_6',['ParamIterator',['../classtesting_1_1internal_1_1_param_iterator.html',1,'testing::internal']]],
   ['paramiteratorinterface_7',['ParamIteratorInterface',['../classtesting_1_1internal_1_1_param_iterator_interface.html',1,'testing::internal']]],
   ['paramnamegenfunc_8',['ParamNameGenFunc',['../structtesting_1_1internal_1_1_param_name_gen_func.html',1,'testing::internal']]],
-  ['passfinding_9',['PassFinding',['../class_pass_finding.html',1,'']]],
-  ['phantomxcommander_10',['phantomxCommander',['../classphantomx_commander.html',1,'']]],
-  ['point_11',['POINT',['../struct_s___n_e_1_1_p_o_i_n_t.html',1,'S_NE']]],
-  ['printtostringparamname_12',['PrintToStringParamName',['../structtesting_1_1_print_to_string_param_name.html',1,'testing']]]
+  ['phantomxcommander_9',['phantomxCommander',['../classphantomx_commander.html',1,'']]],
+  ['point_10',['POINT',['../struct_s___n_e_1_1_p_o_i_n_t.html',1,'S_NE']]],
+  ['printtostringparamname_11',['PrintToStringParamName',['../structtesting_1_1_print_to_string_param_name.html',1,'testing']]]
 ];

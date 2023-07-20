@@ -3,7 +3,7 @@
 #include "Node.h"
 #include <string>
 
-//コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．
+
 class CmdIO final 
 {
 public:
@@ -29,3 +29,13 @@ private:
 	//英語の数字は序数 ( 1st，2nd，3rd，4thみたいなやつ)がつくので，受け取った数値に序数を付けた文字列を返す関数．
 	std::string getOrdinalNumber(const int _num) const;
 };
+
+//! @file CmdIO.h
+//! @brief コマンドラインに文字を出力するクラス．
+//! @date 2023/06/17
+//! @auther 長谷川
+
+//! @class CmdIO
+//! @brief コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．
+//! @date 2023/06/17
+//! @auther 長谷川

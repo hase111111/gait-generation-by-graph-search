@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="std::tr1::gtest_internal\l::TupleElement\< kIndexValid,\l kIndex, Tuple \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element.html",tooltip=" "];
+  Node0 [id="Node000000",label="std::tr1::gtest_internal\l::SameSizeTuplePrefixComparator\l\< k, k \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structstd_1_1tr1_1_1gtest__internal_1_1_same_size_tuple_prefix_comparator_3_01k_00_01k_01_4.html",tooltip=" "];
 }

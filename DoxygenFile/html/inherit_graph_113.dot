@@ -5,7 +5,21 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="testing::internal::\lbool_constant\< ImplicitlyConvertible\l\< const T *, const ::ProtocolMessage\l * \>::value\|\|ImplicitlyConvertible\l\< const T *, const ::proto2::Message\l * \>::value \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1bool__constant.html",tooltip=" "];
-  Node0 -> Node1 [id="edge20_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="testing::internal::\lIsAProtocolMessage\< T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1_is_a_protocol_message.html",tooltip=" "];
+  Node0 [id="Node000000",label="testing::internal::\lbool_constant\< bool\l_value \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1bool__constant.html",tooltip=" "];
+  Node0 -> Node1 [id="edge14_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="testing::internal::\lHasValueType\< T, typename \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1_has_value_type.html",tooltip=" "];
+  Node0 -> Node2 [id="edge15_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="testing::internal::\lHasValueType\< T, VoidT\l\< typename T::value_type \> \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1_has_value_type_3_01_t_00_01_void_t_3_01typename_01_t_1_1value__type_01_4_01_4.html",tooltip=" "];
+  Node0 -> Node3 [id="edge16_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="testing::internal::\lIsRecursiveContainerImpl\l\< C, false, HV \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01false_00_01_h_v_01_4.html",tooltip=" "];
+  Node0 -> Node4 [id="edge17_Node000000_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="testing::internal::\lIsRecursiveContainerImpl\l\< C, true, false \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_00_01false_01_4.html",tooltip=" "];
+  Node0 -> Node5 [id="edge18_Node000000_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="testing::internal::\lis_pointer\< T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1is__pointer.html",tooltip=" "];
+  Node0 -> Node6 [id="edge19_Node000000_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="testing::internal::\lis_pointer\< T * \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1is__pointer_3_01_t_01_5_01_4.html",tooltip=" "];
+  Node0 -> Node7 [id="edge20_Node000000_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="testing::internal::\lis_same\< T, U \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1is__same.html",tooltip=" "];
+  Node0 -> Node8 [id="edge21_Node000000_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="testing::internal::\lis_same\< T, T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structtesting_1_1internal_1_1is__same_3_01_t_00_01_t_01_4.html",tooltip=" "];
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-//基本的な計算を行う関数
+//! @namespacse my_math 基本的な計算を行う関数をまとめた名前空間．
 namespace my_math
 {
 	constexpr float MY_FLT_PI = 3.141592653589793f;		//!< float型の円周率

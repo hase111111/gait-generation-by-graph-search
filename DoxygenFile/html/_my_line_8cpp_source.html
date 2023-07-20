@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: DesignLab/MyLine.cpp ソースファイル</title>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/MyLine.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('_my_line_8cpp_source.html',''); initRe
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> t1 = v3.<a class="code hl_function" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2">cross</a>(v2) / d;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> t2 = v3.<a class="code hl_function" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2">cross</a>(v1) / d;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (t1 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t1 &gt; 1.0f + my_math::ALLOWABLE_ERROR || t2 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t2 &gt; 1.0f + my_math::ALLOWABLE_ERROR)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (t1 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t1 &gt; 1.0f + <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a> || t2 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t2 &gt; 1.0f + <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a>)</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">return</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">SVector2</a>(0, 0);  <span class="comment">//交点は線分の外</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
@@ -132,13 +132,14 @@ $(document).ready(function(){initNavTree('_my_line_8cpp_source.html',''); initRe
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> <span class="keyword">auto</span> t1 = v3.cross(v2) / d;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> <span class="keyword">auto</span> t2 = v3.cross(v1) / d;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (t1 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t1 &gt; 1.0f + my_math::ALLOWABLE_ERROR || t2 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t2 &gt; 1.0f + my_math::ALLOWABLE_ERROR)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (t1 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t1 &gt; 1.0f + <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a> || t2 &lt; 0.0f - my_math::ALLOWABLE_ERROR || t2 &gt; 1.0f + <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a>)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;   <span class="comment">//交点は線分の外</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="ttc" id="anamespacemy__math_html_a03c19d74d942bc6dca8febf9129adfc1"><div class="ttname"><a href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a></div><div class="ttdeci">constexpr float ALLOWABLE_ERROR</div><div class="ttdoc">これ以上小さい値は0とみなす．allowable error，許容誤差のこと．0.1とか，大きな値は非推奨．</div><div class="ttdef"><b>Definition</b> MyMath.h:10</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_line2_html"><div class="ttname"><a href="structmy__vec_1_1_s_line2.html">my_vec::SLine2</a></div><div class="ttdoc">2次元の線分を表す構造体</div><div class="ttdef"><b>Definition</b> MyLine.h:9</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_line2_html_a2ce181e967e3b1918da067056196eac4"><div class="ttname"><a href="structmy__vec_1_1_s_line2.html#a2ce181e967e3b1918da067056196eac4">my_vec::SLine2::getIntersection</a></div><div class="ttdeci">SVector2 getIntersection(const SLine2 &amp;other) const</div><div class="ttdoc">他の線分との交点を求める．</div><div class="ttdef"><b>Definition</b> MyLine.cpp:3</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_line2_html_a3599e0d2dcd3d912ccd5fb20ebdb67f7"><div class="ttname"><a href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7">my_vec::SLine2::hasIntersection</a></div><div class="ttdeci">bool hasIntersection(const SLine2 &amp;other) const</div><div class="ttdoc">交点が存在しているかどうか調べる関数</div><div class="ttdef"><b>Definition</b> MyLine.cpp:26</div></div>
@@ -150,7 +151,7 @@ $(document).ready(function(){initNavTree('_my_line_8cpp_source.html',''); initRe
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>MyLine.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>MyLine.cpp</b></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
