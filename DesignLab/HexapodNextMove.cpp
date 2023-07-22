@@ -16,6 +16,12 @@ std::string std::to_string(const EHexapodMove _move)
 	case EHexapodMove::LEG_UP_DOWN:
 		return "脚の上下移動";
 
+	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE:
+		return "脚の上下移動→重心の平行移動";
+
+	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN:
+		return "脚の上下移動→重心の上下移動";
+
 	default:
 		return "未定義動作";
 		break;

@@ -53,18 +53,14 @@ void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, const int _current_num, const float _high, const float _low, std::vector<SNode>& _output_graph)
 {
-	//まずは重心の変化が一切ないものを追加する．
-	{
-		SNode _same_node = _current_node;
-		_same_node.changeNextNode(_current_num, m_next_move);
-		_output_graph.push_back(_same_node);
-	}
-
-
-	//重心を変化させたものを追加する．
+	//重心を変化させたものを追加する．変化量が一番少ないノードは削除する．
 	{
 		//最大と最小の間を分割する．
 		const float _div_z = (_high - _low) / (float)DISCRETIZATION;
+
+		//現在の重心との差分が一番小さいものを探す．
+		float _dif_min = 100000.0f;
+		int _dif_min_index = -1;
 
 		//分割した分新しいノードを追加する．
 		for (int i = 0; i < DISCRETIZATION + 1; i++)
@@ -72,7 +68,16 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 			SNode _new_node = _current_node;
 
 			//重心の位置を変更する．
-			_new_node.changeGlobalCenterOfMass(_current_node.global_center_of_mass + my_vec::SVector{ 0, 0, (_low + _div_z * i) }, true);
+			my_vec::SVector _new_com = _current_node.global_center_of_mass;
+			_new_com.z = _low + _div_z * i;
+
+			_new_node.changeGlobalCenterOfMass(_new_com, true);
+
+			if (_dif_min > abs(_current_node.global_center_of_mass.z - _new_node.global_center_of_mass.z))
+			{
+				_dif_min = abs(_current_node.global_center_of_mass.z - _new_node.global_center_of_mass.z);
+				_dif_min_index = i;
+			}
 
 			//current_numを親とする，新しいノードに変更する
 			_new_node.changeNextNode(_current_num, m_next_move);
@@ -80,6 +85,15 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 			//ノードを追加する．
 			_output_graph.push_back(_new_node);
 		}
+
+		//一番差分が小さくものを消す
+		_output_graph.erase(_output_graph.begin() + _dif_min_index);
 	}
 
+	//重心の変化が一切ないものを追加する．
+	{
+		SNode _same_node = _current_node;
+		_same_node.changeNextNode(_current_num, m_next_move);
+		_output_graph.push_back(_same_node);
+	}
 }

@@ -46,7 +46,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//_vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		_vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i));
+		_vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
 	}
 
 	drawHexagonalPrism(_vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
@@ -55,8 +55,8 @@ void HexapodRenderer::draw(const SNode& _node) const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		const VECTOR _leg_end = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
-		const VECTOR _leg_base = convertToDxVec(m_HexaCalc.getGlobalLeg2Pos(_node, i));
-		const VECTOR _coxa = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i));
+		const VECTOR _leg_base = convertToDxVec(m_HexaCalc.getGlobalLegBasePos(_node, i, true));
+		const VECTOR _coxa = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
 		const VECTOR _femur = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
 		const VECTOR _tibia = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
 
@@ -81,7 +81,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 		}
 
 		//ƒGƒ‰[o—Í
-		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false)
+		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false)
 		{
 			DrawString((int)ConvWorldPosToScreenPos(_coxa).x, (int)ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
 		}
@@ -105,8 +105,17 @@ void HexapodRenderer::draw(const SNode& _node) const
 			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z)));
 			printfDx("%.3f\t", _node.leg_pos[i].length());
 
-			if (m_HexaCalc.isLegInRange(_node, i))printfDx("is in range   \n");
-			else printfDx("isnot in range\n");
+			if (m_HexaCalc.isLegInRange(_node, i))printfDx("is in range   ");
+			else printfDx("isnot in range");
+
+			if (_node.leg_base_pos[i].projectedXY().cross(_node.leg_pos[i].projectedXY()) * _node.leg_pos[i].projectedXY().cross({ 1,0 }) > 0)
+			{
+				printfDx("front - 567\n");
+			}
+			else
+			{
+				printfDx("back - 123\n");
+			}
 		}
 	}
 

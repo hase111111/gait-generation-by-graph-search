@@ -151,7 +151,7 @@ void LegStateEdit::changeGround(int& _leg_state, const int _leg_num, const bool 
 
 	if (_ground == true)
 	{
-		_leg_state |= 0b1000 << (_leg_num * 4);
+		_leg_state |= (0b1000 << (_leg_num * 4));
 	}
 	else
 	{

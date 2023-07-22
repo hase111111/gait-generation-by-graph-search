@@ -24,7 +24,7 @@ void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_n
 		{
 			SNode _next_node = _current_node;
 
-			_next_node.changeGlobalCenterOfMass(_res, false);							//重心位置を変更し，それに伴い接地脚の位置も変更する
+			_next_node.changeGlobalCenterOfMass(_res, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
 			LegStateEdit::changeComPattern(_next_node.leg_state, i.second);		//leg_stateのcom_patternを変更する
 

@@ -30,11 +30,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 
 			for (const auto& i : _res_vec)
 			{
-				//深さが一つ下で，親が正しく設定されているもののみ追加する．少々冗長だが，安全のため．
-				if (i.depth == (_output_graph.at(_cnt).depth + 1) && i.parent_num == _cnt)
-				{
-					_output_graph.push_back(i);		//子ノードを結果に追加する．
-				}
+				_output_graph.push_back(i);		//子ノードを結果に追加する．
 			}
 		}
 

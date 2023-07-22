@@ -1,12 +1,24 @@
 #pragma once
 #include "MyVector.h"
 #include "Node.h"
-
+#include "HexapodConst.h"
 
 class HexapodStateCalclator
 {
 public:
 	HexapodStateCalclator();
+
+	static constexpr my_vec::SVector getLocalBaseLegPos(const int _leg_num, const float _z)
+	{
+		return { 150 * HexapodConst::DEFAULT_LEG_ANGLE_COS[_leg_num],150 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[_leg_num],_z };
+	}
+
+	//! @brief 第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
+	//! @param [in] _node ロボットの状態を表すノード
+	//! @param [in] _global_pos 変換するグローバル座標
+	//! @param [in] _leg_num 脚番号 0～5
+	//! @return my_vec::SVector ローカル座標の脚座標
+	my_vec::SVector convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const;
 
 	//! @brief 脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．
 	//! @param [in] _node ロボットの状態を表すノード
@@ -19,18 +31,27 @@ public:
 		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num]; }
 	}
 
-	//! @brief 第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
+	//! @brief 脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．
 	//! @param [in] _node ロボットの状態を表すノード
-	//! @param [in] _global_pos 変換するグローバル座標
 	//! @param [in] _leg_num 脚番号 0～5
-	//! @return my_vec::SVector ローカル座標の脚座標
-	my_vec::SVector convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const;
+	//! @param [in] _consider_rot 回転を考慮するかどうか
+	//! @return my_vec::SVector グローバル座標の脚の基準地点の座標
+	inline my_vec::SVector getGlobalLegBasePos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+	{
+		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
+		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num]; }
+	}
 
-	//! @brief 脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．
-	my_vec::SVector getGlobalLeg2Pos(const SNode& _node, const int _leg_num) const;
-
-	// coxa joint (脚の付け根 : 第1関節) の座標を返す．回転を考慮したグローバル座標.
-	my_vec::SVector getGlobalCoxaJointPos(const SNode& _node, const int _leg_num) const;
+	// @brief coxa joint (脚の付け根 : 第1関節) をグローバル座標で返す．
+	// @param [in] _node ロボットの状態を表すノード
+	// @param [in] _leg_num 脚番号 0～5
+	// @param [in] _consider_rot 回転を考慮するかどうか
+	// @return my_vec::SVector グローバル座標の脚の付け根の座標
+	inline my_vec::SVector getGlobalCoxaJointPos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+	{
+		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num), _node.rot) + _node.global_center_of_mass; }
+		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num); }
+	}
 
 	//! @brief ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．<br>
 	//! 三角関数を多く使用するので，計算量が多い．
@@ -75,7 +96,21 @@ public:
 	bool isAblePause(const SNode& _node) const;
 
 private:
-	my_vec::SVector getLocalCoxaJointPos(const int _leg_num) const;	// coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．
+
+	//! @brief coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．
+	//! @param [in] _leg_num 脚番号
+	//! @return coxa jointのローカル座標
+	constexpr my_vec::SVector getLocalCoxaJointPos(const int _leg_num) const
+	{
+		if (_leg_num == 0) { return my_vec::SVector(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f); }	// 脚0 右上
+		else if (_leg_num == 1) { return my_vec::SVector(0.0f, -HexapodConst::BODY_CENTER_WIDTH, 0.0f); }	// 脚1 右横
+		else if (_leg_num == 2) { return my_vec::SVector(-HexapodConst::BODY_REAR_LENGTH, -HexapodConst::BODY_REAR_WIDTH, 0.0f); }	// 脚2 右下
+		else if (_leg_num == 3) { return my_vec::SVector(-HexapodConst::BODY_REAR_LENGTH, HexapodConst::BODY_REAR_WIDTH, 0.0f); }	// 脚3 左下
+		else if (_leg_num == 4) { return my_vec::SVector(0.0f, HexapodConst::BODY_CENTER_WIDTH, 0.0f); }	// 脚4 左横
+		else if (_leg_num == 5) { return my_vec::SVector(HexapodConst::BODY_FRONT_LENGTH, HexapodConst::BODY_FRONT_WIDTH, 0.0f); }	// 脚5 左上
+
+		return my_vec::SVector(0, 0, 0);
+	}
 
 	my_vec::SVector m_local_femurjoint_pos[HexapodConst::LEG_NUM];	//FemurJoint(第2関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
 	my_vec::SVector m_local_tibiajoint_pos[HexapodConst::LEG_NUM];	//TibiaJoint(第3関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
