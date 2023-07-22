@@ -1,0 +1,11 @@
+digraph "myDxlib3DFunc::drawHexagonalPrism"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="myDxlib3DFunc::drawHexagonal\lPrism",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="3D空間に六角柱を描画する．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="myDxlib3DFunc::drawHexagon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae",tooltip="3D空間に六角形を描画する．"];
+}

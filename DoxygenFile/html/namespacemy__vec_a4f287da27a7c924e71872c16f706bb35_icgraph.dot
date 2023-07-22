@@ -1,0 +1,21 @@
+digraph "my_vec::rotVector"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="my_vec::rotVector",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="HexapodStateCalclator\l::convertLocalLegPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a790fe50059866776c01cf15204e4b061",tooltip="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．"];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="HexapodStateCalclator\l::getGlobalLeg2Pos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a4419307fdde56645a1170d5b33a9e616",tooltip="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="HexapodRenderer::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503",tooltip="ロボットを3D空間に描画する．"];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GraphicMainBasic::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node4 -> Node6 [id="edge5_Node000004_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="GraphicMainGraphViewer\l::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node4 -> Node7 [id="edge6_Node000004_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+}

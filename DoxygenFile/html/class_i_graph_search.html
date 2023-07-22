@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: IGraphSearch クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_i_graph_search.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="class_i_graph_search-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">IGraphSearch クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．  
+ <a href="class_i_graph_search.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_interface_graph_search_8h_source.html">InterfaceGraphSearch.h</a>&gt;</code></p>
+<div class="dynheader">
+IGraphSearch の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_graph_search__inherit__graph.png" border="0" usemap="#a_i_graph_search_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_i_graph_search_inherit__map" id="a_i_graph_search_inherit__map">
+<area shape="rect" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="92,5,192,32"/>
+<area shape="rect" href="class_graph_search_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="5,80,130,107"/>
+<area shape="poly" title=" " alt="" coords="121,44,82,82,79,78,117,41"/>
+<area shape="rect" href="class_graph_search_none.html" title="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．" alt="" coords="153,80,281,107"/>
+<area shape="poly" title=" " alt="" coords="167,41,206,78,202,82,164,44"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a7295cb4d4dafb82cbf6c025c5ffe57ca"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_search.html#a7295cb4d4dafb82cbf6c025c5ffe57ca">getNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const <a class="el" href="class_map_state.html">MapState</a> *const _p_map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;_target, <a class="el" href="struct_s_node.html">SNode</a> &amp;_output_node)=0</td></tr>
+<tr class="memdesc:a7295cb4d4dafb82cbf6c025c5ffe57ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
+<tr class="separator:a7295cb4d4dafb82cbf6c025c5ffe57ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c26cd5acf9fafd17396da216269c6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_search.html#ad7c26cd5acf9fafd17396da216269c6f">getMadeNodeNum</a> () const</td></tr>
+<tr class="memdesc:ad7c26cd5acf9fafd17396da216269c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数を返す  <br /></td></tr>
+<tr class="separator:ad7c26cd5acf9fafd17396da216269c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:ad926b0ba5822b6941b19f0bbc56b08df"><td class="memItemLeft" align="right" valign="top"><a id="ad926b0ba5822b6941b19f0bbc56b08df" name="ad926b0ba5822b6941b19f0bbc56b08df"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_made_node_num</b> = 0</td></tr>
+<tr class="memdesc:ad926b0ba5822b6941b19f0bbc56b08df"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数 <br /></td></tr>
+<tr class="separator:ad926b0ba5822b6941b19f0bbc56b08df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/07/09</dd></dl>
+<p>継承をするクラスのデストラクタはvirtualにしておく．<br  />
+ 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="ad7c26cd5acf9fafd17396da216269c6f" name="ad7c26cd5acf9fafd17396da216269c6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c26cd5acf9fafd17396da216269c6f">&#9670;&#160;</a></span>getMadeNodeNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IGraphSearch::getMadeNodeNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>作成したグラフの数を返す </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 作成したグラフの数 </dd></dl>
+
+</div>
+</div>
+<a id="a7295cb4d4dafb82cbf6c025c5ffe57ca" name="a7295cb4d4dafb82cbf6c025c5ffe57ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7295cb4d4dafb82cbf6c025c5ffe57ca">&#9670;&#160;</a></span>getNextNodebyGraphSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IGraphSearch::getNextNodebyGraphSearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> *const&#160;</td>
+          <td class="paramname"><em>_p_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_target.html">STarget</a> &amp;&#160;</td>
+          <td class="paramname"><em>_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_output_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフ探索を行い，次の動作として最適なノードを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_current_node</td><td>現在の状態を表すノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p_map</td><td>現在のマップの状態 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_target</td><td>目標の状態 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">_output_node</td><td>結果のノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool グラフ探索に失敗した場合falseを返す </dd></dl>
+
+<p><a class="el" href="class_graph_search_hato.html#a92ebf09a8a4ffa451e998d342ec6ddab">GraphSearchHato</a>, <a class="el" href="class_graph_search_none.html#a24bc2ce9c530458b68ff2239bd45dc0b">GraphSearchNone</a>で実装されています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_graph_search_8h_source.html">InterfaceGraphSearch.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_i_graph_search.html">IGraphSearch</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<map id="my_vec::rotVector" name="my_vec::rotVector">
+<area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="631,47,758,73"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#a790fe50059866776c01cf15204e4b061" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="429,5,583,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,49,583,43,584,38,617,44"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator.html#a4419307fdde56645a1170d5b33a9e616" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．" alt="" coords="429,72,583,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="617,76,584,82,583,77,616,71"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="222,80,381,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="414,96,382,96,382,91,414,91"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,21,171,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,78,140,51,141,46,237,73"/>
+<area shape="rect" id="Node000006" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,72,174,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="207,96,174,96,174,91,207,91"/>
+<area shape="rect" id="Node000007" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,139,167,165"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="237,114,141,141,140,136,236,109"/>
+</map>

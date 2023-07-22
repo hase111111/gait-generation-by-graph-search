@@ -1,0 +1,17 @@
+digraph "クラス階層図"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="IGraphicMain",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_i_graphic_main.html",tooltip="GraphicMainのインターフェース"];
+  Node0 -> Node1 [id="edge1_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="GraphicMainBasic",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html",tooltip="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．"];
+  Node0 -> Node2 [id="edge2_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GraphicMainGraphViewer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_graph_viewer.html",tooltip=" "];
+  Node0 -> Node3 [id="edge3_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GraphicMainSample",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_sample.html",tooltip="サンプル描画クラス．サンプルメッセージを表示する．"];
+  Node0 -> Node4 [id="edge4_Node000000_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="GraphicMainTest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html",tooltip=" "];
+}

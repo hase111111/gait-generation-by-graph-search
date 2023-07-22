@@ -1,0 +1,4 @@
+<map id="LegStateEdit::getLiftedLegNum" name="LegStateEdit::getLiftedLegNum">
+<area shape="rect" id="Node000001" title="遊脚している脚の本数を返す関数．" alt="" coords="5,29,207,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="141,17,129,11,106,8,85,10,74,15,71,20,76,27,72,30,66,21,70,11,84,5,106,3,131,6,144,13"/>
+</map>

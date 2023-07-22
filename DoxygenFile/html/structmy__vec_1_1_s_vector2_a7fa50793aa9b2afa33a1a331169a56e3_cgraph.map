@@ -1,0 +1,5 @@
+<map id="my_vec::SVector2::lengthSquare" name="my_vec::SVector2::lengthSquare">
+<area shape="rect" id="Node000001" title="このベクトルの長さの2乗を返す" alt="" coords="5,5,176,48"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="224,13,377,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,24,209,24,209,29,176,29"/>
+</map>

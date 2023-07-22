@@ -1,0 +1,10 @@
+<map id="LegStateEdit::getGroundedLegNumWithVector" name="LegStateEdit::getGroundedLegNumWithVector">
+<area shape="rect" id="Node000001" title="接地している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="5,29,184,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="52,29,51,19,58,10,72,5,95,3,119,5,134,12,131,17,118,10,94,8,74,10,61,15,56,21,57,28"/>
+<area shape="rect" id="Node000002" href="$_leg_state_8h.html#a6c4d1e9f200ebdda4e76057e78026e36" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="232,37,402,64"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="184,48,217,48,217,53,184,53"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="279,38,273,29,277,19,292,13,317,11,345,14,359,21,356,26,343,19,317,16,293,18,281,23,278,28,284,35"/>
+<area shape="rect" id="Node000003" href="$_leg_state_8h.html#a15651b40127b0eb43616d6a342b1edec" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="450,37,638,64"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="402,48,435,48,435,53,402,53"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="506,38,499,29,504,19,519,13,544,11,573,14,587,21,584,26,571,19,544,16,520,18,507,23,504,28,510,35"/>
+</map>

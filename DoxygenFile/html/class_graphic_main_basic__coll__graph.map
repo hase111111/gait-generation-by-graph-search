@@ -1,0 +1,7 @@
+<map id="GraphicMainBasic" name="GraphicMainBasic">
+<area shape="rect" id="Node000001" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="7,172,135,199"/>
+<area shape="rect" id="Node000002" href="$class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="22,96,120,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,137,74,172,68,172,68,137"/>
+<area shape="rect" id="Node000003" href="$class_graphic_data_broker.html" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="5,5,137,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="74,47,74,95,68,95,68,47"/>
+</map>

@@ -2,49 +2,39 @@
 #include <iostream>
 #include "LegState.h"
 
-using namespace LegState;
+using namespace LegStateEdit;
 
 void CmdIO::outputString(const std::string _str)
 {
 	std::cout << _str << std::endl;
 }
 
-void CmdIO::outputLNODE(const LNODE _node)
+void CmdIO::outputNode(const SNode& _node, const int _num) const
 {
-	std::cout << "-------------------------グラフ探索で得られた歩容パターン---------------------------" << std::endl;
-
-	std::cout << "\n";
-	//std::cout << "leg_condition = " << std::bitset<24>(LNODE1.leg_state) << "\n";
-	std::cout << "COM_type = " << (_node.leg_state >> shift_COM) << "\n";
-	std::cout << "Legs(0,1,2,3,4,5) \nv =\t";
-	for (int i = 0; i < 6; ++i) std::cout << isGrounded(_node.leg_state, i);
-	std::cout << std::endl << "kaisou =";
-	for (int i = 0; i < 6; ++i)	std::cout << numOfLegPosi(_node.leg_state, i);
 	std::cout << std::endl;
-	//std::cout << "center_of_mass = " << LNODE1.center_of_mass << "\n";
-	for (int i = 0; i < 6; i++) { std::cout << "Leg[" << i << "] = "; myvector::VectorOutPut(_node.Leg[i]); }
-	std::cout << "global_center_of_mass = "; myvector::VectorOutPut(_node.global_center_of_mass);
-	//std::cout << "parent = " << LNODE1.parent << "\n";
-	std::cout << "node_height = " << _node.node_height << "\n";
-	std::cout << "debug = " << _node.debug << "\n";
-	if (_node.debug % 100 / 10 == 2) std::cout << "今回2 脚の踏みかえ動作" << std::endl;
-	if (_node.debug % 100 / 10 == 3) std::cout << "今回3 重心の水平移動" << std::endl;
-	if (_node.debug % 100 / 10 == 4) std::cout << "今回4 脚の水平移動" << std::endl;
-	if (_node.debug % 100 / 10 == 6) std::cout << "今回6 重心の上下移動" << std::endl;
-	if (_node.debug % 10 == 2) std::cout << "前回2 脚の踏みかえ動作\t";
-	if (_node.debug % 10 == 3) std::cout << "前回3 重心の水平移動\t";
-	if (_node.debug % 10 == 4) std::cout << "前回4 脚の水平移動\t";
-	if (_node.debug % 10 == 6) std::cout << "前回6 重心の上下移動\t";
+	if (_num < 0) { std::cout << "Node parameter is ..." << std::endl; }
+	else if (_num == 0) { std::cout << "First node parameter is ..." << std::endl; }
+	else { std::cout << "[Node Number " << _num << " ] Node parameter is ..." << std::endl; }
 
-	std::cout << "必要な高さ移動量 = " << _node.target_delta_comz << "\n";
-	std::cout << "実際の高さ移動量 = " << _node.delta_comz << "\n";
-	std::cout << "探索したノード数 = " << _node.last_node_num << "\n";
-	std::cout << "探索時間 = " << _node.time << "\n";
-	//std::cout << "pitch = " << LNODE1.pitch << "\n";
-	//std::cout << "roll = " << LNODE1.roll << "\n";
-	//std::cout << "yaw = " << LNODE1.yaw << "\n";
+	std::cout << _node << std::endl;
 
-	std::cout << "---------------------------------1動作分終了----------------------------------------------" << std::endl;
+	std::cout << std::endl;
+}
+
+void CmdIO::outputErrorMessageInGraphSearch(const std::string _err_mes) const
+{
+	std::cout << "Graph search failed." << std::endl;
+	std::cout << "\t" << "by " << _err_mes << std::endl;
+	std::cout << std::endl;
+}
+
+void CmdIO::outputGraphSearchStaretMessage(const int _simu_num) const
+{
+	std::cout << std::endl;
+	std::cout << "---------------------- Starting new graph search ----------------------" << std::endl;
+	std::cout << "This is the " << getOrdinalNumber(_simu_num) << " simulation." << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void CmdIO::outputSimulateResult(const int _loop_num, const SimulateResult& _res)
@@ -64,4 +54,36 @@ void CmdIO::outputSimulateResult(const int _loop_num, const SimulateResult& _res
 	std::cout << "Y方向への合計移動距離\t" << _res.getDistanceMoveYSum() << "mm" << std::endl;
 	std::cout << "1歩容パターン生成あたりの移動距離\t" << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateSum() << "mm/動作" << std::endl;
 	std::cout << "Y方向への平均移動速度\t" << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateTimeSum() << "mm/秒" << std::endl;
+}
+
+std::string CmdIO::getOrdinalNumber(const int _num) const
+{
+	//参考 https://qiita.com/Seiten_Minagawa/items/58a0b2b0cfd578c9bedc
+
+	std::string res = std::to_string(_num);
+
+	if (_num / 10 % 10 == 1) { res += "th"; }
+	else
+	{
+		switch (_num % 10)
+		{
+		case 1:
+			res += "st";
+			break;
+
+		case 2:
+			res += "nd";
+			break;
+
+		case 3:
+			res += "rd";
+			break;
+
+		default:
+			res += "th";
+			break;
+		}
+	}
+
+	return res;
 }

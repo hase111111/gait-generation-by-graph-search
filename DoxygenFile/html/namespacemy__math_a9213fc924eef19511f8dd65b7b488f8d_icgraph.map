@@ -1,0 +1,11 @@
+<map id="my_math::isEqual" name="my_math::isEqual">
+<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="482,56,608,83"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_line2.html#a618cb323a4ceff7ffa83662e0e3b8f17" title="線分が平行かどうか調べる関数" alt="" coords="260,5,434,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="475,54,401,35,403,30,477,49"/>
+<area shape="rect" id="Node000004" href="$structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277" title="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．" alt="" coords="265,56,429,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="467,72,429,72,429,67,467,67"/>
+<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector2.html#aec0c69d93a2840d3911027b38749e3ea" title="このベクトルが0ならばtrue" alt="" coords="262,107,432,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="477,89,403,109,401,103,475,84"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_line2.html#a2ce181e967e3b1918da067056196eac4" title="他の線分との交点を求める．" alt="" coords="5,5,212,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,21,212,21,212,16,245,16"/>
+</map>

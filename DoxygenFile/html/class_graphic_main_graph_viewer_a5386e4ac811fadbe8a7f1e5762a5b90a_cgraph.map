@@ -1,0 +1,11 @@
+<map id="GraphicMainGraphViewer::update" name="GraphicMainGraphViewer::update">
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,174,115"/>
+<area shape="rect" id="Node000002" href="$class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258" title="ノードの集合をvectorを用いて参照渡しする．全データをコピーする．" alt="" coords="238,5,377,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,69,223,50,224,55,162,74"/>
+<area shape="rect" id="Node000003" href="$class_graphic_data_broker.html#a26f41abf3764375ce605de858038485e" title="セットされているノードの数を返す．" alt="" coords="238,72,377,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,91,223,91,223,96,174,96"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="222,139,393,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,113,242,132,240,137,170,118"/>
+<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="441,131,595,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="393,149,427,149,427,155,393,155"/>
+</map>

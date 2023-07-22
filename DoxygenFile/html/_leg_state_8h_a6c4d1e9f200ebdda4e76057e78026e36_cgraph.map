@@ -1,0 +1,7 @@
+<map id="LegStateEdit::isGrounded" name="LegStateEdit::isGrounded">
+<area shape="rect" id="Node000001" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="5,29,176,56"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="52,30,45,21,50,11,65,5,91,3,119,6,133,13,131,18,118,11,90,8,67,10,54,15,51,20,57,27"/>
+<area shape="rect" id="Node000002" href="$_leg_state_8h.html#a15651b40127b0eb43616d6a342b1edec" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="224,29,412,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,40,209,40,209,45,176,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="280,30,273,21,277,11,293,5,318,3,347,6,360,13,358,18,345,11,318,8,294,10,281,15,278,20,284,27"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SNode::init" name="SNode::init">
+<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="184,5,269,32"/>
+<area shape="rect" id="Node000002" href="$class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
+</map>

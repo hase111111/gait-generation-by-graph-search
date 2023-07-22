@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: CameraController クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_camera_controller.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_camera_controller-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CameraController クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Dxlibの3Dのカメラの処理を行うクラス．  
+ <a href="class_camera_controller.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_camera_controller_8h_source.html">CameraController.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a98b0e77fc306636462fad5db5005a1af"><td class="memItemLeft" align="right" valign="top"><a id="a98b0e77fc306636462fad5db5005a1af" name="a98b0e77fc306636462fad5db5005a1af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a98b0e77fc306636462fad5db5005a1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの位置などの更新を行う．毎フレーム実行すること． <br /></td></tr>
+<tr class="separator:a98b0e77fc306636462fad5db5005a1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a216677edea0d4c002f5d23da7f33a22b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_controller.html#a216677edea0d4c002f5d23da7f33a22b">setTargetPos</a> (const VECTOR _pos)</td></tr>
+<tr class="memdesc:a216677edea0d4c002f5d23da7f33a22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの注視する目標の座標をセットする．  <br /></td></tr>
+<tr class="separator:a216677edea0d4c002f5d23da7f33a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb30190f4a720ec1039b2992c4210e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_controller.html#adb30190f4a720ec1039b2992c4210e7e">setCameraMode</a> (const <a class="el" href="_camera_controller_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a> _mode)</td></tr>
+<tr class="memdesc:adb30190f4a720ec1039b2992c4210e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのモードをセットする．  <br /></td></tr>
+<tr class="separator:adb30190f4a720ec1039b2992c4210e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibの3Dのカメラの処理を行うクラス． </p>
+<p>カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい．<br  />
+ このクラスはその処理をまとめたことで，処理を簡単にしている． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="adb30190f4a720ec1039b2992c4210e7e" name="adb30190f4a720ec1039b2992c4210e7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb30190f4a720ec1039b2992c4210e7e">&#9670;&#160;</a></span>setCameraMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraController::setCameraMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_camera_controller_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a>&#160;</td>
+          <td class="paramname"><em>_mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラのモードをセットする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_mode</td><td>カメラの視点のモード </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a216677edea0d4c002f5d23da7f33a22b" name="a216677edea0d4c002f5d23da7f33a22b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a216677edea0d4c002f5d23da7f33a22b">&#9670;&#160;</a></span>setTargetPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraController::setTargetPos </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR&#160;</td>
+          <td class="paramname"><em>_pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラの注視する目標の座標をセットする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pos</td><td>カメラの注視する目標の座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph.png" border="0" usemap="#aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph" alt=""/></div>
+<map name="aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph" id="aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph">
+<area shape="rect" title="カメラの注視する目標の座標をセットする．" alt="" coords="228,5,434,32"/>
+<area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
+<area shape="poly" title=" " alt="" coords="213,21,180,21,180,16,213,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_camera_controller_8h_source.html">CameraController.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/CameraController.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_camera_controller.html">CameraController</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

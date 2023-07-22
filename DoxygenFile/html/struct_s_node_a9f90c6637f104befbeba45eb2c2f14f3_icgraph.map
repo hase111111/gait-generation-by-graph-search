@@ -1,0 +1,8 @@
+<map id="SNode::changeGlobalCenterOfMass" name="SNode::changeGlobalCenterOfMass">
+<area shape="rect" id="Node000001" title="重心位置を変更する関数．" alt="" coords="478,5,663,48"/>
+<area shape="rect" id="Node000002" href="$class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="463,29,156,29,156,24,463,24"/>
+<area shape="rect" id="Node000003" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,39,430,65"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="463,40,431,43,430,38,463,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="188,41,156,37,157,32,189,36"/>
+</map>

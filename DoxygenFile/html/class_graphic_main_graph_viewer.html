@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: GraphicMainGraphViewer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_graphic_main_graph_viewer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_graphic_main_graph_viewer-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">GraphicMainGraphViewer クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+GraphicMainGraphViewer の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_main_graph_viewer__inherit__graph.png" border="0" usemap="#a_graphic_main_graph_viewer_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_graphic_main_graph_viewer_inherit__map" id="a_graphic_main_graph_viewer_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,80,174,107"/>
+<area shape="rect" href="class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="41,5,138,32"/>
+<area shape="poly" title=" " alt="" coords="92,47,92,80,87,80,87,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+GraphicMainGraphViewer 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_main_graph_viewer__coll__graph.png" border="0" usemap="#a_graphic_main_graph_viewer_coll__map" alt="Collaboration graph"/></div>
+<map name="a_graphic_main_graph_viewer_coll__map" id="a_graphic_main_graph_viewer_coll__map">
+<area shape="rect" title=" " alt="" coords="5,172,174,199"/>
+<area shape="rect" href="class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="41,96,138,123"/>
+<area shape="poly" title=" " alt="" coords="92,137,92,172,87,172,87,137"/>
+<area shape="rect" href="class_graphic_data_broker.html" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="24,5,155,32"/>
+<area shape="poly" title=" " alt="" coords="92,47,92,95,87,95,87,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:abb860236f79d559aee19360d1df4e775"><td class="memItemLeft" align="right" valign="top"><a id="abb860236f79d559aee19360d1df4e775" name="abb860236f79d559aee19360d1df4e775"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicMainGraphViewer</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *_broker)</td></tr>
+<tr class="separator:abb860236f79d559aee19360d1df4e775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5386e4ac811fadbe8a7f1e5762a5b90a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a">update</a> () override</td></tr>
+<tr class="memdesc:a5386e4ac811fadbe8a7f1e5762a5b90a"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
+<tr class="separator:a5386e4ac811fadbe8a7f1e5762a5b90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f964f335a3056e101dc8b27b3b26b8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a">draw</a> () const override</td></tr>
+<tr class="memdesc:a7f964f335a3056e101dc8b27b3b26b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
+<tr class="separator:a7f964f335a3056e101dc8b27b3b26b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_graphic_main"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_graphic_main')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a8dbe916fafdf83e31495423abf2f4182 inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphicMain</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *_broker)</td></tr>
+<tr class="memdesc:a8dbe916fafdf83e31495423abf2f4182 inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">このクラスの継承先では，const GraphicDataBroker* _brokerを引数に持つコンストラクタを実装する必要がある． <br /></td></tr>
+<tr class="separator:a8dbe916fafdf83e31495423abf2f4182 inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">update</a> ()=0</td></tr>
+<tr class="memdesc:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
+<tr class="separator:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">draw</a> () const =0</td></tr>
+<tr class="memdesc:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
+<tr class="separator:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_i_graphic_main"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_graphic_main')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a807216ad98adc2c4f6f415cac07a281d inherit pro_attribs_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">
+const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mp_Broker</b></td></tr>
+<tr class="memdesc:a807216ad98adc2c4f6f415cac07a281d inherit pro_attribs_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る． <br /></td></tr>
+<tr class="separator:a807216ad98adc2c4f6f415cac07a281d inherit pro_attribs_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a7f964f335a3056e101dc8b27b3b26b8a" name="a7f964f335a3056e101dc8b27b3b26b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f964f335a3056e101dc8b27b3b26b8a">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GraphicMainGraphViewer::draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数． </p>
+
+<p><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">IGraphicMain</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_main_graph_viewer_a7f964f335a3056e101dc8b27b3b26b8a_cgraph.png" border="0" usemap="#aclass_graphic_main_graph_viewer_a7f964f335a3056e101dc8b27b3b26b8a_cgraph" alt=""/></div>
+<map name="aclass_graphic_main_graph_viewer_a7f964f335a3056e101dc8b27b3b26b8a_cgraph" id="aclass_graphic_main_graph_viewer_a7f964f335a3056e101dc8b27b3b26b8a_cgraph">
+<area shape="rect" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,172,174,215"/>
+<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="222,180,381,207"/>
+<area shape="poly" title=" " alt="" coords="174,191,207,191,207,196,174,196"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a4419307fdde56645a1170d5b33a9e616" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．" alt="" coords="434,5,588,48"/>
+<area shape="poly" title=" " alt="" coords="311,178,357,121,390,88,427,58,435,53,438,58,431,62,394,92,361,125,315,181"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="434,72,588,115"/>
+<area shape="poly" title=" " alt="" coords="326,177,428,124,440,119,442,123,430,129,329,182"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="434,205,588,248"/>
+<area shape="poly" title=" " alt="" coords="382,203,419,209,418,215,381,209"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="434,272,588,315"/>
+<area shape="poly" title=" " alt="" coords="329,205,430,258,442,263,440,268,428,262,326,210"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="434,139,588,181"/>
+<area shape="poly" title=" " alt="" coords="381,178,418,172,419,177,382,183"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="429,360,592,387"/>
+<area shape="poly" title=" " alt="" coords="315,205,363,260,395,294,431,325,470,350,467,355,427,329,392,297,359,264,311,209"/>
+<area shape="rect" href="namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="682,13,808,40"/>
+<area shape="poly" title=" " alt="" coords="588,24,667,24,667,29,588,29"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="898,171,1065,197"/>
+<area shape="poly" title=" " alt="" coords="588,223,711,218,849,207,904,198,904,203,850,212,711,224,588,228"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="646,171,844,197"/>
+<area shape="poly" title=" " alt="" coords="588,210,654,198,655,203,589,215"/>
+<area shape="poly" title=" " alt="" coords="565,269,591,258,704,202,706,207,593,262,567,274"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="660,323,830,365"/>
+<area shape="poly" title=" " alt="" coords="589,307,646,320,644,325,588,313"/>
+<area shape="rect" href="namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4" title="2乗した値を返す関数．" alt="" coords="680,272,810,299"/>
+<area shape="poly" title=" " alt="" coords="588,288,666,285,666,291,589,293"/>
+<area shape="poly" title=" " alt="" coords="589,165,632,170,631,175,588,171"/>
+<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="640,120,850,147"/>
+<area shape="poly" title=" " alt="" coords="588,149,625,144,626,150,589,154"/>
+<area shape="poly" title=" " alt="" coords="811,145,902,164,901,170,810,150"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="643,389,847,416"/>
+<area shape="poly" title=" " alt="" coords="593,381,628,385,627,391,592,386"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5386e4ac811fadbe8a7f1e5762a5b90a" name="a5386e4ac811fadbe8a7f1e5762a5b90a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5386e4ac811fadbe8a7f1e5762a5b90a">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GraphicMainGraphViewer::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>ループを抜け，グラフィックの表示を終了するならばfalseをかえす． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">IGraphicMain</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_main_graph_viewer_a5386e4ac811fadbe8a7f1e5762a5b90a_cgraph.png" border="0" usemap="#aclass_graphic_main_graph_viewer_a5386e4ac811fadbe8a7f1e5762a5b90a_cgraph" alt=""/></div>
+<map name="aclass_graphic_main_graph_viewer_a5386e4ac811fadbe8a7f1e5762a5b90a_cgraph" id="aclass_graphic_main_graph_viewer_a5386e4ac811fadbe8a7f1e5762a5b90a_cgraph">
+<area shape="rect" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,174,115"/>
+<area shape="rect" href="class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258" title="ノードの集合をvectorを用いて参照渡しする．全データをコピーする．" alt="" coords="238,5,377,48"/>
+<area shape="poly" title=" " alt="" coords="160,69,223,50,224,55,162,74"/>
+<area shape="rect" href="class_graphic_data_broker.html#a26f41abf3764375ce605de858038485e" title="セットされているノードの数を返す．" alt="" coords="238,72,377,115"/>
+<area shape="poly" title=" " alt="" coords="174,91,223,91,223,96,174,96"/>
+<area shape="rect" href="class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="222,139,393,165"/>
+<area shape="poly" title=" " alt="" coords="172,113,242,132,240,137,170,118"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="441,131,595,173"/>
+<area shape="poly" title=" " alt="" coords="393,149,427,149,427,155,393,155"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_graphic_main_graph_viewer_8h_source.html">GraphicMainGraphViewer.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicMainGraphViewer.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_graphic_main_graph_viewer.html">GraphicMainGraphViewer</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

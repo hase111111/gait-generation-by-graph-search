@@ -17,9 +17,9 @@ SimulateResult::SimulateResult()
 	m_distance_move_Y_min = INT_MAX;
 
 	//“¯ã
-	m_gate_parttern_generate_time_sum = 0;
-	m_gate_parttern_generate_time_max = -(double)INT_MAX;
-	m_gate_parttern_generate_time_min = (double)INT_MAX;
+	m_gate_parttern_generate_time_sum = 0.0;
+	m_gate_parttern_generate_time_max = -100000.0;
+	m_gate_parttern_generate_time_min = 100000.0;
 }
 
 

@@ -1,0 +1,19 @@
+digraph "LegStateEdit::getLiftedLegNum"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="LegStateEdit::getLiftedLegNum",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="遊脚している脚の本数を返す関数．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LegStateEdit::getGrounded\lLegNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_leg_state_8h.html#a980c19048c3d2431c3c22b2cc8fb2e0a",tooltip="接地している脚の本数を返す関数．"];
+  Node2 -> Node2 [id="edge2_Node000002_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node3 [id="edge3_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LegStateEdit::isGrounded",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_leg_state_8h.html#a6c4d1e9f200ebdda4e76057e78026e36",tooltip="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．"];
+  Node3 -> Node4 [id="edge4_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LegStateEdit::isAbleLegNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_leg_state_8h.html#a15651b40127b0eb43616d6a342b1edec",tooltip="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．"];
+  Node4 -> Node4 [id="edge5_Node000004_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node3 [id="edge6_Node000003_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node1 [id="edge7_Node000001_Node000001",color="steelblue1",style="solid",tooltip=" "];
+}
