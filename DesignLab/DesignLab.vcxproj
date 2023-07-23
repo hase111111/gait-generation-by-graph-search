@@ -58,10 +58,13 @@
     <ClInclude Include="GraphicSystem.h" />
     <ClInclude Include="GraphicConst.h" />
     <ClInclude Include="HexapodConst.h" />
+    <ClInclude Include="InterfaceNodeCreator.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="LegDownNodeCreator.h" />
     <ClInclude Include="LegHierarchyNodeCreator.h" />
     <ClInclude Include="LegState.h" />
     <ClInclude Include="LegUpDownNodeCreator.h" />
+    <ClInclude Include="LegUpNodeCreator.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="functionPassFinding.h" />
     <ClInclude Include="MapConst.h" />
@@ -129,9 +132,11 @@
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="LegDownNodeCreator.cpp" />
     <ClCompile Include="LegHierarchyNodeCreator.cpp" />
     <ClCompile Include="LegState.cpp" />
     <ClCompile Include="LegUpDownNodeCreator.cpp" />
+    <ClCompile Include="LegUpNodeCreator.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />

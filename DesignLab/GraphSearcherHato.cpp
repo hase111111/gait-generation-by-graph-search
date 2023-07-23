@@ -16,11 +16,11 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 
 	for (size_t i = 0; i < _graph_size; i++)
 	{
-		if (_result_index < 0) { _result_index = i; }
-
 		//Å‘å[‚³‚Ìƒm[ƒh‚Ì‚Ý‚ð•]‰¿‚·‚é
 		if (_graph.at(i).depth == Define::GRAPH_SEARCH_DEPTH)
 		{
+			if (_result_index < 0) { _result_index = i; }
+
 			my_vec::SVector2 _move_dif = _target.TargetPosition.projectedXY() - _graph.at(i).global_center_of_mass.projectedXY();
 
 			if (_max_move_dif > _move_dif.lengthSquare())

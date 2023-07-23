@@ -1,10 +1,15 @@
 #include "GraphTreeCreatorHato.h"
 #include "Define.h"
+#include "LegUpNodeCreator.h"
+#include "LegDownNodeCreator.h"
 
 EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
 {
 	//マップのポインタを受け取る．
 	mp_Map = _p_map;
+
+	m_LegDown = std::make_unique<LegDownNodeCreator>(mp_Map);
+	m_LegUp = std::make_unique<LegUpNodeCreator>(mp_Map);
 
 	m_ComUpDown.init(mp_Map);
 	m_LegUpDown.init(mp_Map);
@@ -70,6 +75,16 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 	case EHexapodMove::COM_UP_DOWN:
 		//重心を上下移動させる．
 		m_ComUpDown.create(_current_node, _current_num, _output_graph);
+		break;
+
+	case EHexapodMove::LEG_UP:
+		//脚を上げる．
+		m_LegUp->create(_current_node, _current_num, _output_graph);
+		break;
+
+	case EHexapodMove::LEG_DOWN:
+		//脚を下げる．
+		m_LegDown->create(_current_node, _current_num, _output_graph);
 		break;
 
 	default:

@@ -458,26 +458,34 @@ void ComType::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_t
 
 void ComType::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg, bool _com_type_able_array[COM_TYPE_NUM])
 {
-	//その足を接地しないととることのできない重心タイプのリスト．
-	constexpr int ARRAY_NUM = 23;
-
-	//あまり良い実装ではない．書き直したい
-	const char _ban_list[HexapodConst::LEG_NUM][ARRAY_NUM] =
-	{
-
-	{ 0, 1, 2, 3, 4, 5,       8, 9,10,11,12,   14,   16,      19,20,21,22,      25,   27,28,      31,32,   34    },	//右前脚
-	{ 0,    2, 3, 4, 5, 6, 7, 8,      11,12,13,   15,   17,      20,21,22,23,      26,   28,29,      32,33,   35 },	//右中脚
-	{ 0, 1,    3, 4, 5, 6, 7,    9,10,   12,13,14,   16,   18,      21,22,23,24,      27,   29,30,      33,34    },	//右後脚
-	{ 0, 1, 2,    4, 5, 6,    8, 9,   11,   13,14,15,   17,18,19,      22,23,24,25,      28,      31,      34,35 },	//左後脚
-	{ 0, 1, 2, 3,    5, 6, 7, 8,   10,   12,   14,15,16,   18,19,20,      23,   25,26,      29,30,   32,      35 },	//左中脚
-	{ 0, 1, 2, 3, 4,    6, 7,    9,10,11,   13,   15,   17,18,19,20,21,      24,   26,27,      30,31,   33       }	//左前脚
-
-	};
-
 	//とることのできないcom typeを全てfalseに変更する．
-	for (int i = 0; i < ARRAY_NUM; i++)
+	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
 	{
-		_com_type_able_array[_ban_list[_not_groundble_leg][i]] = false;
+		_com_type_able_array[BAN_LIST[_not_groundble_leg][i]] = false;
+	}
+}
+
+void ComType::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_type_able_array[COM_TYPE_NUM])
+{
+	bool _reverse[COM_TYPE_NUM];
+
+	for (int i = 0; i < COM_TYPE_NUM; i++)
+	{
+		_reverse[i] = true;
 	}
 
+
+	//とることのできないcom typeを全てfalseに変更する．
+	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
+	{
+		_reverse[BAN_LIST[_not_free_leg][i]] = false;
+	}
+
+	for (int i = 0; i < COM_TYPE_NUM; i++)
+	{
+		if (_reverse[i] == true)
+		{
+			_com_type_able_array[i] = false;
+		}
+	}
 }

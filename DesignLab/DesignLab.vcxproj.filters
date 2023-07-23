@@ -88,6 +88,15 @@
     <Filter Include="ソース ファイル\GraphicSystem\3DRender">
       <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Node\NodeCreator\Interface">
+      <UniqueIdentifier>{b95cc367-6460-4da1-9ac0-28907b5b8ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger">
+      <UniqueIdentifier>{028b5f8b-3a6e-48d1-a3c9-e610d6a9bcd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\NodeCreator\ComChanger">
+      <UniqueIdentifier>{527ad95b-d1c1-4ac8-b586-46847f5a2a56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -228,15 +237,6 @@
     <ClInclude Include="NodeValidityChecker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="ComUpDownNodeCreator.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="LegHierarchyNodeCreator.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="ComMoveNodeCreator.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
     <ClInclude Include="HexapodStateCalculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -245,9 +245,6 @@
     </ClInclude>
     <ClInclude Include="GraphViewerSystemMain.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="LegUpDownNodeCreator.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
     <ClInclude Include="GraphicMainTest.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -305,6 +302,27 @@
     </ClInclude>
     <ClInclude Include="GraphSearcherHato.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="LegUpNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="LegHierarchyNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="LegUpDownNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="ComUpDownNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="ComMoveNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="LegDownNodeCreator.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -440,15 +458,6 @@
     <ClCompile Include="GraphTreeCreatorHato.cpp">
       <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="ComUpDownNodeCreator.cpp">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClCompile>
-    <ClCompile Include="LegHierarchyNodeCreator.cpp">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClCompile>
-    <ClCompile Include="ComMoveNodeCreator.cpp">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClCompile>
     <ClCompile Include="HexapodStateCalculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
@@ -457,9 +466,6 @@
     </ClCompile>
     <ClCompile Include="GraphViewerSystemMain.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="LegUpDownNodeCreator.cpp">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
     <ClCompile Include="GraphicMainTest.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -499,6 +505,24 @@
     </ClCompile>
     <ClCompile Include="GraphSearcherHato.cpp">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="LegHierarchyNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="LegUpDownNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="LegUpNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="ComMoveNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="ComUpDownNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="LegDownNodeCreator.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -98,19 +98,6 @@ bool GraphicMainTest::update()
 			m_node.rot = _rot;
 		}
 	}
-	else
-	{
-		if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Q) > 0)
-		{
-			m_node.global_center_of_mass.z += _s;
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++) { m_node.leg_pos[i].z -= _s; }
-		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E) > 0)
-		{
-			m_node.global_center_of_mass.z -= _s;
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++) { m_node.leg_pos[i].z += _s; }
-		}
-	}
 
 	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
 	{

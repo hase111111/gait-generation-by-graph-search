@@ -5,6 +5,8 @@
 #include "ComUpDownNodeCreator.h"
 #include "LegHierarchyNodeCreator.h"
 #include "LegUpDownNodeCreator.h"
+#include "InterfaceNodeCreator.h"
+#include <memory>
 
 class GraphTreeCreatorHato final : public IGraphTreeCreator
 {
@@ -23,6 +25,8 @@ private:
 
 	LegHierarchyNodeCreator m_LegHierarchy;
 	LegUpDownNodeCreator m_LegUpDown;
+	std::unique_ptr<INodeCreator> m_LegUp;
+	std::unique_ptr<INodeCreator> m_LegDown;
 	ComUpDownNodeCreator m_ComUpDown;
 	ComMoveNodeCreator m_ComMove;
 };
