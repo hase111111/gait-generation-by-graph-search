@@ -107,18 +107,18 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	if (mp_Map == nullptr) { return false; }	//マップがないときはfalseを返す．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const my_vec::SVector LEG_POS = m_Calc.getGlobalLegPos(_current_node, _leg_num, false);
+	const my_vec::SVector LEG_POS = m_Calc.getGlobalLegBasePos(_current_node, _leg_num, false);
 
 	int _max_x_dev = mp_Map->getDevideMapNumX(LEG_POS.x) + 1;
 	int _min_x_dev = mp_Map->getDevideMapNumX(LEG_POS.x) - 1;
 	int _max_y_dev = mp_Map->getDevideMapNumY(LEG_POS.y) + 1;
 	int _min_y_dev = mp_Map->getDevideMapNumY(LEG_POS.y) - 1;
 
-	//値がdevide mapの範囲外にあるときは丸める．
-	_max_x_dev = (_max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_x_dev;
-	_min_x_dev = (_min_x_dev < 0) ? 0 : _min_x_dev;
-	_max_y_dev = (_max_y_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_y_dev;
-	_min_y_dev = (_min_y_dev < 0) ? 0 : _min_y_dev;
+	////値がdevide mapの範囲外にあるときは丸める．
+	//_max_x_dev = (_max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_x_dev;
+	//_min_x_dev = (_min_x_dev < 0) ? 0 : _min_x_dev;
+	//_max_y_dev = (_max_y_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : _max_y_dev;
+	//_min_y_dev = (_min_y_dev < 0) ? 0 : _min_y_dev;
 
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
@@ -147,11 +147,13 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 				//前の候補地点と比較して，より良い候補地点の時のみ実行すする
 				if (_is_candidate_pos == true)
 				{
+					//反対方向をむいている場合は候補地点として採用しない．
 					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(_candidate_pos.projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(_pos.projectedXY()) < 0)
 					{
 						continue;
 					}
 
+					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
 					if (_pos.projectedXY().cross(_candidate_pos.projectedXY()) * _pos.projectedXY().cross(_new_node.leg_base_pos[_leg_num].projectedXY()) < 0)
 					{
 						continue;

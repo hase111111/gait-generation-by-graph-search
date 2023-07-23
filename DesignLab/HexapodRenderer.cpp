@@ -102,7 +102,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 			else printfDx("Å~");
 
 			printfDx(" LegNum: %d \t", i);
-			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(abs(_node.leg_pos[i].z)), m_HexaCalc.getMinLegR(abs(_node.leg_pos[i].z)));
+			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(_node.leg_pos[i].z), m_HexaCalc.getMinLegR(_node.leg_pos[i].z));
 			printfDx("%.3f\t", _node.leg_pos[i].length());
 
 			if (m_HexaCalc.isLegInRange(_node, i))printfDx("is in range   ");

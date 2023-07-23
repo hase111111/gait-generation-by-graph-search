@@ -24,4 +24,8 @@ private:
 	HexapodRenderer m_HexapodRender;
 	MapState m_Map;
 	GUIController m_GUI;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
+
+	int m_camera_mode = 0;		//カメラのモード．
+
+	int m_map_index = 0;
 };
