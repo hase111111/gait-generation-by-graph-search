@@ -303,6 +303,9 @@
     <ClInclude Include="GraphSearchResult.h">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
+    <ClInclude Include="GraphSearcherHato.h">
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -493,6 +496,9 @@
     </ClCompile>
     <ClCompile Include="GraphSearchResult.cpp">
       <Filter>ソース ファイル\GraphSearchSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearcherHato.cpp">
+      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -26,6 +26,7 @@
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainGraphViewer.h" />
     <ClInclude Include="GraphicMainTest.h" />
+    <ClInclude Include="GraphSearcherHato.h" />
     <ClInclude Include="GraphSearchHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
@@ -99,6 +100,7 @@
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphicMainGraphViewer.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
+    <ClCompile Include="GraphSearcherHato.cpp" />
     <ClCompile Include="GraphSearchHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
