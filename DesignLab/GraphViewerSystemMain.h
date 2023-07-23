@@ -2,7 +2,7 @@
 #include "MapState.h"
 #include "GraphicSystem.h"
 #include "GraphicDataBroker.h"
-#include "IGraphTreeCreator.h"
+#include "InterfaceGraphTreeCreator.h"
 
 class GraphViewerSystemMain final
 {

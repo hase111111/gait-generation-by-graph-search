@@ -75,11 +75,11 @@ void SystemMain::main()
 			boost::timer::cpu_timer _timer;	//グラフ探索にかかった時間を出力するためのタイマー
 
 			_timer.start();		//タイマースタート．
-			bool _is_sucess = m_GraphSearch->getNextNodebyGraphSearch(_current_node, &m_Map, m_target, _result_node);		//グラフ探索を行う．
+			EGraphSearchResult _result_state = m_GraphSearch->getNextNodebyGraphSearch(_current_node, &m_Map, m_target, _result_node);		//グラフ探索を行う．
 			_timer.stop();		//タイマーストップ．
 
 
-			if (_is_sucess == false)
+			if (graphSeachResultIsSuccessful(_result_state) == false)
 			{
 				//次の歩容が生成できなかったら，ループを一つ抜け，次のシミュレーションへ進む．
 				_cmd.outputErrorMessageInGraphSearch("Failed to generate the next gait.");

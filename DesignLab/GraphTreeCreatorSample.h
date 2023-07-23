@@ -1,5 +1,5 @@
 #pragma once
-#include "IGraphTreeCreator.h"
+#include "InterfaceGraphTreeCreator.h"
 
 
 class GraphTreeCreatorSample final : public IGraphTreeCreator
@@ -8,7 +8,7 @@ public:
 	GraphTreeCreatorSample() = default;
 	~GraphTreeCreatorSample() = default;
 
-	bool createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph) override;
+	EGraphSearchResult createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num) override;
 
 private:
 

@@ -1,7 +1,7 @@
 #include "GraphTreeCreatorHato.h"
 #include "Define.h"
 
-bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph)
+EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
 {
 	//マップのポインタを受け取る．
 	mp_Map = _p_map;
@@ -37,7 +37,7 @@ bool GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const Map
 		_cnt++;	//カウンタを進める．
 	}
 
-	return true;
+	return EGraphSearchResult::Success;
 }
 
 

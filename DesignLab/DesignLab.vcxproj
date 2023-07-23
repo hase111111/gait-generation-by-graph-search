@@ -31,6 +31,7 @@
     <ClInclude Include="GraphSearcherSample.h" />
     <ClInclude Include="GraphSearchInitializer.h" />
     <ClInclude Include="GraphSearchNone.h" />
+    <ClInclude Include="GraphSearchResult.h" />
     <ClInclude Include="GraphTreeCreatorHato.h" />
     <ClInclude Include="GraphTreeCreatorSample.h" />
     <ClInclude Include="GraphViewerGUIController.h" />
@@ -39,8 +40,8 @@
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="HexapodStateCalculator.h" />
     <ClInclude Include="InterfaceGraphSearch.h" />
-    <ClInclude Include="IGraphSearcher.h" />
-    <ClInclude Include="IGraphTreeCreator.h" />
+    <ClInclude Include="InterfaceGraphSearcher.h" />
+    <ClInclude Include="InterfaceGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="ComType.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="GraphSearchInitializer.cpp" />
     <ClCompile Include="GraphSearchNone.cpp" />
+    <ClCompile Include="GraphSearchResult.cpp" />
     <ClCompile Include="GraphTreeCreatorHato.cpp" />
     <ClCompile Include="GraphTreeCreatorSample.cpp" />
     <ClCompile Include="GraphViewerGUIController.cpp" />

@@ -10,7 +10,7 @@ public:
 	GraphSearchNone() = default;
 	~GraphSearchNone() = default;
 
-	bool getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) override;
+	EGraphSearchResult getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) override;
 
 private:
 

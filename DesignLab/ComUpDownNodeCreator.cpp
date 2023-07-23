@@ -87,7 +87,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& _current_node, c
 		}
 
 		//ˆê”Ô·•ª‚ª¬‚³‚­‚à‚Ì‚ğÁ‚·
-		_output_graph.erase(_output_graph.begin() + _dif_min_index);
+		if (_dif_min_index >= 0) { _output_graph.erase(_output_graph.begin() + _dif_min_index); }
 	}
 
 	//dS‚Ì•Ï‰»‚ªˆêØ‚È‚¢‚à‚Ì‚ğ’Ç‰Á‚·‚éD

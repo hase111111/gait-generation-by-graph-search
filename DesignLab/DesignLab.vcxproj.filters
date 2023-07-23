@@ -252,13 +252,13 @@
     <ClInclude Include="GraphicMainTest.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphTreeCreator.h">
+    <ClInclude Include="InterfaceGraphTreeCreator.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphSearch.h">
       <Filter>ソース ファイル\GraphSearchSystem\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphSearcher.h">
+    <ClInclude Include="InterfaceGraphSearcher.h">
       <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="MyVector2.h">
@@ -299,6 +299,9 @@
     </ClInclude>
     <ClInclude Include="StringToValue.h">
       <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSearchResult.h">
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -487,6 +490,9 @@
     </ClCompile>
     <ClCompile Include="GraphViewerGUIController.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearchResult.cpp">
+      <Filter>ソース ファイル\GraphSearchSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

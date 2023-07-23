@@ -1,7 +1,7 @@
 #include "GraphTreeCreatorSample.h"
 #include "Define.h"
 
-bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph)
+EGraphSearchResult GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
 {
 	//ここにグラフを作成する処理を書く．このクラスはサンプルなので動作をしないノードだけを返します．
 
@@ -25,8 +25,7 @@ bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const M
 
 			//ここに新しい姿勢を生成する処理を書く．今回は何の処理もせずに次のノードとする．
 
-			_new_node.depth++;				//深さを一つ深くして，
-			_new_node.parent_num = _cnt;	//親は現在処理しているvectorとなる．
+			_new_node.changeNextNode(_cnt, EHexapodMove::NONE);
 
 			//追加する．
 			_output_graph.push_back(_new_node);
@@ -35,5 +34,5 @@ bool GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const M
 		_cnt++;	//カウンタを進める．
 	}
 
-	return true;
+	return EGraphSearchResult::Success;
 }

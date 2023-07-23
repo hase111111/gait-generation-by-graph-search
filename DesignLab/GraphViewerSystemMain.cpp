@@ -201,10 +201,11 @@ void GraphViewerSystemMain::main()
 void GraphViewerSystemMain::createGraph(const SNode _parent, std::vector<SNode>& _graph)
 {
 	SNode _temp_node = _parent;
+	int _output_num = 0;
 
 	_temp_node.changeParentNode();
 
-	mp_GraphTreeCreator->createGraphTree(_temp_node, &m_MapState, _graph);
+	mp_GraphTreeCreator->createGraphTree(_temp_node, &m_MapState, _graph, _output_num);
 }
 
 void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)

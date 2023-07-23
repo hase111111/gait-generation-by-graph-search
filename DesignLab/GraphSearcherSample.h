@@ -1,5 +1,5 @@
 #pragma once
-#include "IGraphSearcher.h"
+#include "InterfaceGraphSearcher.h"
 
 // IGraphSearcher Çåpè≥ÇµÇΩÇ¢èÍçáÅDà»â∫ÇÃÇÊÇ§Ç…
 // 
@@ -17,10 +17,10 @@
 class GraphSearcherSample final : public IGraphSearcher
 {
 public:
-	GraphSearcherSample () = default;
+	GraphSearcherSample() = default;
 	~GraphSearcherSample() = default;
 
-	bool searchGraphTree(const std::vector<SNode>& _graph, const STarget& _target, SNode& _output_result) override;
+	EGraphSearchResult searchGraphTree(const std::vector<SNode>& _graph, const STarget& _target, SNode& _output_result) override;
 
 private:
 
