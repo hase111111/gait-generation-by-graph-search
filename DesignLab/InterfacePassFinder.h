@@ -7,12 +7,12 @@
 #include "InterfaceGraphSearcher.h"
 #include "AbstractPassFinderFactory.h"
 
-class IGraphSearch
+class IPassFinder
 {
 public:
 
-	IGraphSearch(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : mp_PassFinderFactory(std::move(_factory)) {};
-	virtual ~IGraphSearch() = default;
+	IPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : mp_PassFinderFactory(std::move(_factory)) {};
+	virtual ~IPassFinder() = default;
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] _current_node 現在の状態を表すノード
@@ -35,12 +35,12 @@ protected:
 	std::unique_ptr<IGraphSearcher> mp_GraphSearcher;	//!< グラフ探索クラス
 };
 
-//! @file IGraphSearch
+//! @file IPassFinder.h
 //! @brief グラフ探索を行うクラスのインターフェイスの実装
 //! @author 長谷川
 //! @date 2023/07/24
 
-//! @class IGraphSearch
+//! @class IPassFinder
 //! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
 //! @date 2023/07/24
 //! @auther 長谷川

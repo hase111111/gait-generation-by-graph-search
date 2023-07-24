@@ -1,7 +1,6 @@
 #include "PassFinderFactoryHato.h"
 #include "GraphTreeCreatorHato.h"
 #include "GraphSearcherHato.h"
-#include "GraphSearchHato.h"
 #include "LegUpDownNodeCreator.h"
 #include "LegHierarchyNodeCreator.h"
 #include "ComUpDownNodeCreator.h"

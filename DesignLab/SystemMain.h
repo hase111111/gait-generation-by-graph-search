@@ -4,13 +4,13 @@
 #include "Target.h"
 #include "GraphicDataBroker.h"
 #include "GraphicSystem.h"
-#include "InterfaceGraphSearch.h"
+#include "InterfacePassFinder.h"
 #include "InterfaceGraphicMain.h"
 
 class SystemMain final
 {
 public:
-	SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search);
+	SystemMain(std::unique_ptr<IPassFinder>&& _graph_search);
 	~SystemMain() = default;
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．
@@ -21,7 +21,7 @@ private:
 	STarget m_target;
 	GraphicDataBroker m_Broker;
 	GraphicSystem m_Graphic;
-	std::unique_ptr<IGraphSearch> m_GraphSearch;
+	std::unique_ptr<IPassFinder> m_GraphSearch;
 };
 
 

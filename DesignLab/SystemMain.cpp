@@ -10,7 +10,7 @@
 #include "GraphicMainBasic.h"
 #include "GraphicMainTest.h"
 
-SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
+SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& _graph_search)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();

@@ -1,6 +1,6 @@
-#include "GraphSearchHato.h"
+#include "PassFinderHato.h"
 
-EGraphSearchResult GraphSearchHato::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
+EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
 {
 	//‰Šú‰»ˆ—D
 	if (!mp_PassFinderFactory) { return EGraphSearchResult::FailureByInitializationFailed; }

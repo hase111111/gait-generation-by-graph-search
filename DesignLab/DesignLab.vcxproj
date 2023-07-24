@@ -28,11 +28,10 @@
     <ClInclude Include="GraphicMainGraphViewer.h" />
     <ClInclude Include="GraphicMainTest.h" />
     <ClInclude Include="GraphSearcherHato.h" />
-    <ClInclude Include="GraphSearchHato.h" />
+    <ClInclude Include="PassFinderHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
-    <ClInclude Include="GraphSearchInitializer.h" />
-    <ClInclude Include="GraphSearchNone.h" />
+    <ClInclude Include="PassFinderNone.h" />
     <ClInclude Include="GraphSearchResult.h" />
     <ClInclude Include="GraphTreeCreatorHato.h" />
     <ClInclude Include="GraphTreeCreatorSample.h" />
@@ -41,7 +40,7 @@
     <ClInclude Include="HexapodNextMove.h" />
     <ClInclude Include="HexapodRenderer.h" />
     <ClInclude Include="HexapodStateCalculator.h" />
-    <ClInclude Include="InterfaceGraphSearch.h" />
+    <ClInclude Include="InterfacePassFinder.h" />
     <ClInclude Include="InterfaceGraphSearcher.h" />
     <ClInclude Include="InterfaceGraphTreeCreator.h" />
     <ClInclude Include="InterfaceGraphicMain.h" />
@@ -106,11 +105,10 @@
     <ClCompile Include="GraphicMainGraphViewer.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
     <ClCompile Include="GraphSearcherHato.cpp" />
-    <ClCompile Include="GraphSearchHato.cpp" />
+    <ClCompile Include="PassFinderHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
-    <ClCompile Include="GraphSearchInitializer.cpp" />
-    <ClCompile Include="GraphSearchNone.cpp" />
+    <ClCompile Include="PassFinderNone.cpp" />
     <ClCompile Include="GraphSearchResult.cpp" />
     <ClCompile Include="GraphTreeCreatorHato.cpp" />
     <ClCompile Include="GraphTreeCreatorSample.cpp" />
