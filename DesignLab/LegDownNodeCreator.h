@@ -5,7 +5,7 @@
 class LegDownNodeCreator final : public INodeCreator
 {
 public:
-	LegDownNodeCreator(const MapState* const _p_map) : INodeCreator(_p_map), mp_map(_p_map) {};
+	LegDownNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_map(_p_map) {};
 	~LegDownNodeCreator() = default;
 
 	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
@@ -27,3 +27,13 @@ private:
 	bool isAbleLegPos(const SNode& _node, const int _leg_num);
 };
 
+
+//! @file LegUpDownNodeCreator.h
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @date 2023/7/24
+//! @auther 長谷川
+
+//! @class LegUpDownNodeCreator
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @date 2023/7/24
+//! @auther 長谷川

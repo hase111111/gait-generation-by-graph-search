@@ -165,3 +165,21 @@ void LegStateEdit::changeComPattern(int& _leg_state, const ComType::EComPattern 
 	int _res = (_leg_state ^ _state) & COM_STATE_MASKBIT;
 	_leg_state ^= _res;
 }
+
+int LegStateEdit::getLegUpDownCount(const int _leg_state_first, const int _leg_state_second)
+{
+	int _res = 0;
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		int _first_state = _leg_state_first & (LEG_GROUNDED_MASKBIT << (i * 4));
+		int _second_state = _leg_state_second & (LEG_GROUNDED_MASKBIT << (i * 4));
+
+		if (_first_state ^ _second_state)
+		{
+			_res++;
+		}
+	}
+
+	return _res;
+}

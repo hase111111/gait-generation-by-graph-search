@@ -39,6 +39,7 @@
   <ItemGroup>
     <ClCompile Include="LegStateGetGroundLegTest.cpp" />
     <ClCompile Include="LegStateGetGroundNum.cpp" />
+    <ClCompile Include="LegStateGetUpDownCountTest.cpp" />
     <ClCompile Include="LegStateIsGroundTest.cpp" />
     <ClCompile Include="LegStateMakeLegStateTest.cpp" />
     <ClCompile Include="LegStateTest.cpp" />

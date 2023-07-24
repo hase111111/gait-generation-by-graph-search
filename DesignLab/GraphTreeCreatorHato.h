@@ -7,6 +7,7 @@
 #include "LegUpDownNodeCreator.h"
 #include "InterfaceNodeCreator.h"
 #include <memory>
+#include <map>
 
 class GraphTreeCreatorHato final : public IGraphTreeCreator
 {
@@ -21,14 +22,10 @@ private:
 	//_out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，_output_graphに代入する．
 	void makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
 
-	const MapState* mp_Map;
+	const MapState* const mp_Map;
 
-	LegHierarchyNodeCreator m_LegHierarchy;
-	LegUpDownNodeCreator m_LegUpDown;
-	std::unique_ptr<INodeCreator> m_LegUp;
-	std::unique_ptr<INodeCreator> m_LegDown;
-	ComUpDownNodeCreator m_ComUpDown;
-	ComMoveNodeCreator m_ComMove;
+	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> m_node_creator_map;
+
 };
 
 

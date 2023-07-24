@@ -10,6 +10,7 @@ public:
 
 private:
 
+	const float MARGIN_OF_MOVE = 10;
 };
 
 //! @file GraphSearcherHato

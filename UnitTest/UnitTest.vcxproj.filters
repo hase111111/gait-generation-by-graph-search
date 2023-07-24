@@ -42,6 +42,9 @@
     <ClCompile Include="LegStateGetGroundLegTest.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
+    <ClCompile Include="LegStateGetUpDownCountTest.cpp">
+      <Filter>LegState\Ground</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

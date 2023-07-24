@@ -1,18 +1,19 @@
 #pragma once
-#include "MapState.h"
+#include "InterfaceNodeCreator.h"
 #include "HexapodStateCalculator.h"
 
-//重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．胴体の回転を一切考慮していないので，それを考慮したい場合作り直すか新しいものを作ってください．
-class ComUpDownNodeCreator final
+
+class ComUpDownNodeCreator final : public INodeCreator
 {
 public:
-	void init(const MapState* const _p_Map);
+	ComUpDownNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_Map(_p_map) {};
+	~ComUpDownNodeCreator() = default;
 
-	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
+	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
 
 private:
 
-	const MapState* mp_Map;
+	const MapState* const mp_Map;
 	HexapodStateCalclator m_HexaCalc;
 
 	// グローバル座標の重心の最低位置と最高位置から，重心を上下に変化させたノードを追加する．
@@ -23,3 +24,13 @@ private:
 	const float MARGIN = 10.0f;		//脚を伸ばし切らないようにするためのマージン[mm]．数値は先輩のプログラムからとってきたのでなぜこの数値が良いのかはわからない．
 	const EHexapodMove m_next_move = EHexapodMove::COM_MOVE;	//次の動作
 };
+
+//! @file ComUpDownNodeCreator.h
+//! @brief 重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @date 2023/7/24
+//! @auther 長谷川
+
+//! @class ComUpDownNodeCreator
+//! @brief 重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @date 2023/7/24
+//! @auther 長谷川

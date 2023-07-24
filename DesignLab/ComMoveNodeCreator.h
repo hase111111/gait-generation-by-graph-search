@@ -5,19 +5,19 @@
 #include "MyPolygon.h"
 #include "ComType.h"
 
-class ComMoveNodeCreator final
+
+class ComMoveNodeCreator final : public INodeCreator
 {
 public:
 
-	//! @brief 重心を平行移動したノードを生成する
-	//! @param[in] _current_node 重心を平行移動するノード
-	//! @param[in] _current_num 重心を平行移動するノードの番号
-	//! @param[out] _output_graph 重心を平行移動したノードを格納するコンテナ
-	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
+	ComMoveNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_Map(_p_map) {};
+	~ComMoveNodeCreator() = default;
+
+	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
 
 private:
 
-	const MapState* mp_Map;
+	const MapState* const mp_Map;
 
 	std::vector<my_vec::SPolygon2> m_Polygons;
 
@@ -25,3 +25,13 @@ private:
 
 	const bool DO_DEBUG_PRINT = false;
 };
+
+//! @file ComMoveNodeCreator.h
+//! @brief 脚の階層構造を作るためのクラス．
+//! @date 2023/7/24
+//!	@auther 長谷川
+
+//! @class ComMoveNodeCreator
+//! @brief 脚の階層構造を作るためのクラス．
+//! @date 2023/7/24
+//! @auther 長谷川

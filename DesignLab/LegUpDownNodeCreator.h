@@ -1,10 +1,9 @@
 #pragma once
-#include "MapState.h"
+#include "InterfaceNodeCreator.h"
 #include "HexapodStateCalculator.h"
-#include "MapState.h"
 
-//脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．胴体の回転を一切考慮していないので，それを考慮したい場合作り直すか新しいものを作ってください．
-class LegUpDownNodeCreator final
+
+class LegUpDownNodeCreator final : public INodeCreator
 {
 private:
 
@@ -13,14 +12,14 @@ private:
 
 public:
 
-	void init(const MapState* const _p_Map);
+	LegUpDownNodeCreator(const MapState* const _p_Map, const EHexapodMove _next_move) : INodeCreator(_p_Map, _next_move), mp_Map(_p_Map) {};
+	~LegUpDownNodeCreator() = default;
 
-	// _output_graphの後ろに脚を上下させた新しいノードをpushする．
-	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
+	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
 
 private:
 
-	const MapState* mp_Map;
+	const MapState* const mp_Map;
 
 	HexapodStateCalclator m_Calc;	//ロボットの座標計算クラス．
 
@@ -41,6 +40,16 @@ private:
 
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
 	bool isAbleLegPos(const SNode& _node, const int _leg_num);
-
-
 };
+
+
+//! @file LegUpDownNodeCreator.h
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @date 2023/7/24
+//! @auther 長谷川
+
+//! @class LegUpDownNodeCreator
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @note 回転を考慮していないので注意
+//! @date 2023/7/24
+//! @auther 長谷川

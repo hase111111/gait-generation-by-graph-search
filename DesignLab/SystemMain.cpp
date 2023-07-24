@@ -17,7 +17,7 @@ SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 	HexapodStateCalclator::initLegR();
 
 	//マップを生成する．
-	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_ROUGH | MapCreator::OPTION_SLOPE, true);
+	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_NONE, true);
 
 	//仲介人にマップを渡す．
 	m_Broker.setMapState(m_Map);
@@ -26,7 +26,7 @@ SystemMain::SystemMain(std::unique_ptr<IGraphSearch>&& _graph_search)
 	m_GraphSearch = std::move(_graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_Graphic.init(std::make_unique<GraphicMainBasic>(&m_Broker));
+	m_Graphic.init(std::make_unique<GraphicMainTest>(&m_Broker));
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;

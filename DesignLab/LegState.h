@@ -101,6 +101,12 @@ namespace LegStateEdit
 
 		return false;
 	}
+
+	//! @brief ‹r‚Ìã‰º‚Ì•Ï‰»‰ñ”‚ğo—Í‚·‚é
+	//! @param [in] _leg_state_first 1‚Â–Ú‚Ì‹ró‘Ô
+	//! @param [in] _leg_state_second 2‚Â–Ú‚Ì‹ró‘Ô
+	//! @return int ‹r‚Ìã‰º‚Ì•Ï‰»‰ñ”
+	int getLegUpDownCount(const int _leg_state_first, const int _leg_state_second);
 }
 
 
