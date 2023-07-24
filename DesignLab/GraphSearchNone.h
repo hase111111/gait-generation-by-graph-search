@@ -7,7 +7,7 @@
 class GraphSearchNone final :public IGraphSearch
 {
 public:
-	GraphSearchNone() = default;
+	GraphSearchNone(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : IGraphSearch(std::move(_factory)) {};
 	~GraphSearchNone() = default;
 
 	EGraphSearchResult getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) override;

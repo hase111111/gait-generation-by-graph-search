@@ -3,11 +3,6 @@
 #include "LegState.h"
 #include <algorithm>
 
-void LegUpDownNodeCreator::init(const MapState* const _p_Map)
-{
-	mp_Map = _p_Map;
-}
-
 void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
@@ -67,7 +62,7 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		if (_is_able_type[i] == true)
 		{
 			SNode _res_node = _current_node;
-			_res_node.changeNextNode(_current_num, getNextMove(_current_node.next_move));
+			_res_node.changeNextNode(_current_num, m_next_move);
 
 			//遊脚・接地を書き換える．
 			bool _temp_ground[HexapodConst::LEG_NUM] = {};

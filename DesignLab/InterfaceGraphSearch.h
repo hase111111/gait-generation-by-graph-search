@@ -3,12 +3,15 @@
 #include "Node.h"
 #include "Target.h"
 #include "GraphSearchResult.h"
+#include "InterfaceGraphTreeCreator.h"
+#include "InterfaceGraphSearcher.h"
+#include "AbstractPassFinderFactory.h"
 
 class IGraphSearch
 {
 public:
 
-	IGraphSearch() = default;
+	IGraphSearch(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : mp_PassFinderFactory(std::move(_factory)) {};
 	virtual ~IGraphSearch() = default;
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
@@ -26,15 +29,20 @@ public:
 protected:
 
 	int m_made_node_num = 0;	//!< 作成したグラフの数
+
+	std::unique_ptr<AbstractPassFinderFactory> mp_PassFinderFactory;	//!< パス探索クラスのファクトリー
+	std::unique_ptr<IGraphTreeCreator> mp_GraphTreeCreator;	//!< グラフ木の作成クラス
+	std::unique_ptr<IGraphSearcher> mp_GraphSearcher;	//!< グラフ探索クラス
 };
 
 //! @file IGraphSearch
 //! @brief グラフ探索を行うクラスのインターフェイスの実装
 //! @author 長谷川
-//! @date 2023/07/09
+//! @date 2023/07/24
 
 //! @class IGraphSearch
 //! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @date 2023/07/09
+//! @date 2023/07/24
+//! @auther 長谷川
 //! @details 継承をするクラスのデストラクタはvirtualにしておく．<br>
 //! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html

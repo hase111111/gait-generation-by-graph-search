@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractPassFinderFactory.h" />
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ComCandidatePolygonMaker.h" />
     <ClInclude Include="ComMoveNodeCreator.h" />
@@ -77,6 +78,7 @@
     <ClInclude Include="MyTimer.h" />
     <ClInclude Include="MyVector2.h" />
     <ClInclude Include="NodeValidityChecker.h" />
+    <ClInclude Include="PassFinderFactoryHato.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="SystemMain.h" />
@@ -131,6 +133,7 @@
     <ClCompile Include="GraphicMainSample.cpp" />
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
+    <ClCompile Include="InterfaceGraphTreeCreator.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="LegDownNodeCreator.cpp" />
     <ClCompile Include="LegHierarchyNodeCreator.cpp" />
@@ -152,6 +155,7 @@
     <ClCompile Include="MyMath.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
     <ClCompile Include="NodeValidityChecker.cpp" />
+    <ClCompile Include="PassFinderFactoryHato.cpp" />
     <ClCompile Include="PassFinding.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="SimulateResult.cpp" />

@@ -3,12 +3,13 @@
 #include "Node.h"
 #include <vector>
 #include "GraphSearchResult.h"
+#include "InterfaceNodeCreator.h"
 
 class IGraphTreeCreator
 {
 public:
 
-	IGraphTreeCreator() = default;
+	IGraphTreeCreator(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map);
 	virtual ~IGraphTreeCreator() = default;
 
 	//! @brief 木グラフを作成するクラス．完成したグラフは参照渡しする．
@@ -19,6 +20,9 @@ public:
 	//! @return EGraphSearchResult 生成に成功したならばtrue
 	virtual EGraphSearchResult createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num) = 0;
 
+protected:
+
+	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> m_node_creator_map;
 };
 
 

@@ -1,18 +1,10 @@
 #pragma once
 #include "InterfaceGraphTreeCreator.h"
-#include "MapState.h"
-#include "ComMoveNodeCreator.h"
-#include "ComUpDownNodeCreator.h"
-#include "LegHierarchyNodeCreator.h"
-#include "LegUpDownNodeCreator.h"
-#include "InterfaceNodeCreator.h"
-#include <memory>
-#include <map>
 
 class GraphTreeCreatorHato final : public IGraphTreeCreator
 {
 public:
-	GraphTreeCreatorHato() = default;
+	GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map) {};
 	~GraphTreeCreatorHato() = default;
 
 	EGraphSearchResult createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num) override;
@@ -21,10 +13,6 @@ private:
 
 	//_out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，_output_graphに代入する．
 	void makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph);
-
-	const MapState* const mp_Map;
-
-	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> m_node_creator_map;
 
 };
 

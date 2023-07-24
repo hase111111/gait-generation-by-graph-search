@@ -13,6 +13,4 @@ public:
 private:
 
 	HexapodStateCalclator m_calculator;
-
-	EHexapodMove m_next_move = EHexapodMove::COM_UP_DOWN;
 };

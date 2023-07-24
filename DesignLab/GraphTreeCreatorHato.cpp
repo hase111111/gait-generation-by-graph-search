@@ -5,15 +5,6 @@
 
 EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
 {
-	//マップのポインタを受け取る．
-	mp_Map = _p_map;
-
-	m_LegDown = std::make_unique<LegDownNodeCreator>(mp_Map);
-	m_LegUp = std::make_unique<LegUpNodeCreator>(mp_Map);
-
-	m_ComUpDown.init(mp_Map);
-	m_LegUpDown.init(mp_Map);
-
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
 
@@ -50,51 +41,18 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node,
 {
 	_output_graph.clear();
 
-	switch (_current_node.next_move)
+	if (m_node_creator_map.count(_current_node.next_move) > 0)
 	{
-	case EHexapodMove::LEG_UP_DOWN:
-	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE:
-	case EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN:
-		//脚を上下移動させ，接地したり遊脚したりする．
-		m_LegUpDown.create(_current_node, _current_num, _output_graph);
-		break;
-
-
-	case EHexapodMove::LEG_HIERARCHY_CHANGE:
-		//脚の階層を変更する．LegStateを変更し，脚を平行移動する．
-		m_LegHierarchy.create(_current_node, _current_num, _output_graph);
-		break;
-
-
-	case EHexapodMove::COM_MOVE:
-		//重心を平行移動する．
-		m_ComMove.create(_current_node, _current_num, _output_graph);
-		break;
-
-
-	case EHexapodMove::COM_UP_DOWN:
-		//重心を上下移動させる．
-		m_ComUpDown.create(_current_node, _current_num, _output_graph);
-		break;
-
-	case EHexapodMove::LEG_UP:
-		//脚を上げる．
-		m_LegUp->create(_current_node, _current_num, _output_graph);
-		break;
-
-	case EHexapodMove::LEG_DOWN:
-		//脚を下げる．
-		m_LegDown->create(_current_node, _current_num, _output_graph);
-		break;
-
-	default:
-
+		m_node_creator_map.at(_current_node.next_move)->create(_current_node, _current_num, _output_graph);
+		return;
+	}
+	else
+	{
 		//定義されていないならば，同じノードをそのまま追加する．
 		SNode _new_node = _current_node;
 
 		_new_node.changeNextNode(_current_num, _current_node.next_move);
 
 		_output_graph.push_back(_new_node);
-		break;
 	}
 }

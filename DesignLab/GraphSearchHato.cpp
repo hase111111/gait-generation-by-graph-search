@@ -1,12 +1,11 @@
 #include "GraphSearchHato.h"
-#include "GraphSearchInitializer.h"
 
 EGraphSearchResult GraphSearchHato::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
 {
-	//イニシャライザークラスに初期化をしてもらう．
-	GraphSearchInitializer _initializer;
+	//初期化処理．
+	if (!mp_PassFinderFactory) { return EGraphSearchResult::FailureByInitializationFailed; }
 
-	_initializer.init(mp_GraphTreeCreator, mp_GraphSearcher);
+	mp_PassFinderFactory->createPassFinder(mp_GraphTreeCreator, mp_GraphSearcher, _p_map);
 
 	//早期リターン．2つのクラスの初期化に失敗したならば，即座に終了する．
 	if (!mp_GraphTreeCreator) { return EGraphSearchResult::FailureByInitializationFailed; }

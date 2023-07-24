@@ -6,11 +6,6 @@
 #include "MyMath.h"
 #include "LegState.h"
 
-void ComUpDownNodeCreator::init(const MapState* const _p_Map)
-{
-	mp_Map = _p_Map;
-}
-
 void ComUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．

@@ -1,7 +1,5 @@
 #pragma once
-#include "MapState.h"
-#include "Node.h"
-#include <vector>
+#include "InterfaceNodeCreator.h"
 #include "MyPolygon.h"
 #include "ComType.h"
 

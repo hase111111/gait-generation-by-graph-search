@@ -23,18 +23,6 @@ private:
 
 	HexapodStateCalclator m_Calc;	//ロボットの座標計算クラス．
 
-	constexpr EHexapodMove getNextMove(const EHexapodMove& _last_move) const
-	{
-		if (_last_move == EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE)
-		{
-			return EHexapodMove::COM_MOVE;
-		}
-		else
-		{
-			return EHexapodMove::COM_UP_DOWN;
-		}
-	}
-
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
 	bool isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos);
 

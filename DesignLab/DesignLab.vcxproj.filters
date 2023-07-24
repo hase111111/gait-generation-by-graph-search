@@ -97,6 +97,9 @@
     <Filter Include="ソース ファイル\Node\NodeCreator\ComChanger">
       <UniqueIdentifier>{527ad95b-d1c1-4ac8-b586-46847f5a2a56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphSearchSystem\Factory">
+      <UniqueIdentifier>{4364fa0a-2126-484a-a492-89bf631fd781}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -324,6 +327,12 @@
     <ClInclude Include="LegDownNodeCreator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
+    <ClInclude Include="AbstractPassFinderFactory.h">
+      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="PassFinderFactoryHato.h">
+      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -523,6 +532,12 @@
     </ClCompile>
     <ClCompile Include="LegDownNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderFactoryHato.cpp">
+      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceGraphTreeCreator.cpp">
+      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

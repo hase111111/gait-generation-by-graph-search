@@ -1,6 +1,7 @@
 #include "GraphViewerSystemMain.h"
 #include "GraphicMainGraphViewer.h"
 #include "GraphTreeCreatorHato.h"
+#include "PassFinderFactoryHato.h"
 #include "HexapodStateCalculator.h"
 #include <iostream>
 #include <boost/thread.hpp>
@@ -52,7 +53,9 @@ GraphViewerSystemMain::GraphViewerSystemMain()
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;
-	mp_GraphTreeCreator = std::make_unique<GraphTreeCreatorHato>();
+	PassFinderFactoryHato _passFinderFactory;
+	std::unique_ptr<IGraphSearcher> _searcher;
+	_passFinderFactory.createPassFinder(mp_GraphTreeCreator, _searcher, &m_MapState);
 
 	//初期化終了
 	std::cout << "GraphViewerSystemMain : GraphViewer初期化終了．起動します" << std::endl << std::endl;

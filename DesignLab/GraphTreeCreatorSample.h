@@ -5,12 +5,10 @@
 class GraphTreeCreatorSample final : public IGraphTreeCreator
 {
 public:
-	GraphTreeCreatorSample() = default;
+	GraphTreeCreatorSample(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map) {};
 	~GraphTreeCreatorSample() = default;
 
 	EGraphSearchResult createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num) override;
-
-private:
 
 };
 

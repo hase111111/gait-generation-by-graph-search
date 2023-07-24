@@ -15,8 +15,6 @@ private:
 	HexapodStateCalclator m_calculator;
 	const MapState* const mp_map;
 
-	EHexapodMove m_next_move = EHexapodMove::LEG_UP;
-
 	const float LEG_MARGIN = 20.0f;		//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
 	const float HIGH_MARGIN = 5.0f;		//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
 
