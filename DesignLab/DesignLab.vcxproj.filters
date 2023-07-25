@@ -52,15 +52,6 @@
     <Filter Include="ソース ファイル\Node\LegState">
       <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem">
-      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\GraphSearcher">
-      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\GraphTreeCreator">
-      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem">
       <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
     </Filter>
@@ -69,15 +60,6 @@
     </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Common">
       <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface">
-      <UniqueIdentifier>{2ad2045b-b61b-481b-b844-38fceaac38d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\Interface">
-      <UniqueIdentifier>{87bf686e-8697-4f3e-bc3e-8afde531cb04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\GraphSearcher\Interface">
-      <UniqueIdentifier>{1a84f879-c847-4011-8ed0-40eff98b9d3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Common\MyVector">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
@@ -97,8 +79,29 @@
     <Filter Include="ソース ファイル\Node\NodeCreator\ComChanger">
       <UniqueIdentifier>{527ad95b-d1c1-4ac8-b586-46847f5a2a56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphSearchSystem\Factory">
+    <Filter Include="ソース ファイル\PassFinderSystem">
+      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\GraphSearcher">
+      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\GraphSearcher\Interface">
+      <UniqueIdentifier>{1a84f879-c847-4011-8ed0-40eff98b9d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\GraphTreeCreator">
+      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\GraphTreeCreator\Interface">
+      <UniqueIdentifier>{2ad2045b-b61b-481b-b844-38fceaac38d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\Interface">
+      <UniqueIdentifier>{87bf686e-8697-4f3e-bc3e-8afde531cb04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\Factory">
       <UniqueIdentifier>{4364fa0a-2126-484a-a492-89bf631fd781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\CenterOfMass\ComSelector">
+      <UniqueIdentifier>{91e9c015-fa69-4525-bc84-497dab4a352b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -217,16 +220,16 @@
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="PassFinderHato.h">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherSample.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorSample.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorHato.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="SystemMain.h">
       <Filter>ソース ファイル</Filter>
@@ -241,7 +244,7 @@
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherRandom.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="GraphViewerSystemMain.h">
       <Filter>ソース ファイル</Filter>
@@ -250,13 +253,13 @@
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphTreeCreator.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator\Interface</Filter>
     </ClInclude>
     <ClInclude Include="InterfacePassFinder.h">
-      <Filter>ソース ファイル\GraphSearchSystem\Interface</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\Interface</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphSearcher.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher\Interface</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="MyVector2.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
@@ -273,14 +276,11 @@
     <ClInclude Include="ComCandidatePolygonMaker.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="ComSelecter.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
-    </ClInclude>
     <ClInclude Include="HexapodNextMove.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="PassFinderNone.h">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphicMain.h">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
@@ -298,10 +298,10 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearchResult.h">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherHato.h">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceNodeCreator.h">
       <Filter>ソース ファイル\Node\NodeCreator\Interface</Filter>
@@ -325,10 +325,19 @@
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
     <ClInclude Include="AbstractPassFinderFactory.h">
-      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClInclude>
     <ClInclude Include="PassFinderFactoryHato.h">
-      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ComSelecterHato.h">
+      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="ComSelecter.h">
+      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="ComMoveNodeCreatorHato.h">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -441,13 +450,13 @@
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderHato.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherSample.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorSample.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="SystemMain.cpp">
       <Filter>ソース ファイル</Filter>
@@ -459,13 +468,13 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorHato.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="HexapodStateCalculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherRandom.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="GraphViewerSystemMain.cpp">
       <Filter>ソース ファイル</Filter>
@@ -482,9 +491,6 @@
     <ClCompile Include="MyLine.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
-    <ClCompile Include="ComSelecter.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
-    </ClCompile>
     <ClCompile Include="MyPolygon.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
@@ -492,7 +498,7 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderNone.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="InterfaceGraphicMain.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
@@ -504,10 +510,10 @@
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearchResult.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem</Filter>
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherHato.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphSearcher</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="LegHierarchyNodeCreator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
@@ -528,10 +534,19 @@
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderFactoryHato.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\Factory</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClCompile>
     <ClCompile Include="InterfaceGraphTreeCreator.cpp">
-      <Filter>ソース ファイル\GraphSearchSystem\GraphTreeCreator\Interface</Filter>
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="ComSelecter.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
+    </ClCompile>
+    <ClCompile Include="ComSelecterHato.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
+    </ClCompile>
+    <ClCompile Include="ComMoveNodeCreatorHato.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

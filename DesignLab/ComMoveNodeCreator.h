@@ -19,17 +19,15 @@ private:
 
 	std::vector<my_vec::SPolygon2> m_Polygons;
 
-	EHexapodMove m_next_move = EHexapodMove::LEG_HIERARCHY_CHANGE;
-
 	const bool DO_DEBUG_PRINT = false;
 };
 
 //! @file ComMoveNodeCreator.h
-//! @brief 脚の階層構造を作るためのクラス．
-//! @date 2023/7/24
+//! @brief 重心の平行移動を行うクラス．
+//! @date 2023/7/25
 //!	@auther 長谷川
 
 //! @class ComMoveNodeCreator
-//! @brief 脚の階層構造を作るためのクラス．
-//! @date 2023/7/24
+//! @brief 重心の平行移動を行うクラス．
+//! @date 2023/7/25
 //! @auther 長谷川

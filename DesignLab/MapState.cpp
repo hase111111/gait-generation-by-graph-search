@@ -23,7 +23,7 @@ my_vec::SVector MapState::getPosFromDevideMap(const int _x, const int _y, const 
 	//存在していなければ全て0のベクトルを返す．
 	if (getDevideMapNum(_x, _y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return my_vec::SVector(0, 0, 0); }
 
-	if (_num < 0 || m_devide_map.at(getDevideMapNum(_x, _y)).size() <= _num ) { return my_vec::SVector(0, 0, 0); }
+	if (_num < 0 || m_devide_map.at(getDevideMapNum(_x, _y)).size() <= _num) { return my_vec::SVector(0, 0, 0); }
 
 	//存在しているならば値を返す．
 	return m_devide_map.at(getDevideMapNum(_x, _y)).at(_num);
@@ -45,14 +45,14 @@ void MapState::makeDevideMap()
 	m_devide_map.resize(MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM);
 
 	//マップのデータ全てに処理をする．
-	for (const auto &i : m_map_data)
+	for (const auto& i : m_map_data)
 	{
 		//xy方向のブロック番号をそれぞれ求める
 		int x = (int)((i.x - (float)MapConst::MAP_MIN_FORWARD) / _lengthX);
 		int y = (int)((i.y - (float)MapConst::MAP_MIN_HORIZONTAL) / _lengthY);
 
 		//マップの範囲内にいる時のみ追加する
-		if (0 <= x && x < MapConst::LP_DIVIDE_NUM) 
+		if (0 <= x && x < MapConst::LP_DIVIDE_NUM)
 		{
 			if (0 <= y && y < MapConst::LP_DIVIDE_NUM)
 			{
@@ -66,10 +66,10 @@ void MapState::makeDevideMap()
 	for (int i = 0; i < MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM; i++)
 	{
 		//floatの最小値を追加する．
-		m_devide_map_top_z.push_back(-FLT_MAX);
+		m_devide_map_top_z.push_back(-1000000.0f);
 
 		//全ての要素を参照する．
-		for (const auto& i : m_devide_map.at(i)) 
+		for (const auto& i : m_devide_map.at(i))
 		{
 			//現在値と比べて大きいものを追加．
 			m_devide_map_top_z.back() = std::max(i.z, m_devide_map_top_z.back());

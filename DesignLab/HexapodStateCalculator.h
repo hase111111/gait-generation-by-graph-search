@@ -95,6 +95,12 @@ public:
 	//! @return 転ばない姿勢ならtrueを返す．
 	bool isAblePause(const SNode& _node) const;
 
+	//! @brief 静的安定余裕を計算する．
+	//! @param [in] _node ノード情報
+	//! @return float 静的安定余裕
+	//! @note 波東さんのプログラムに書いてあったままを移しているが，isAblePause関数と同じようなことをしているので，isAblePause関数を書き直すべきだと思う．
+	float calculateStaticMargin(const SNode& _node) const;
+
 private:
 
 	//! @brief coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．

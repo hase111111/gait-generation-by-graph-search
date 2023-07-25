@@ -5,15 +5,14 @@
 
 void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
+	std::vector<std::pair<my_vec::SPolygon2, ComType::EComPattern>> _candidate_polygons;
+
 	//重心移動先の候補地点の範囲を示す多角形を作成する
 	ComCandidatePolygonMaker _maker;
-
-	std::vector<std::pair<my_vec::SPolygon2, ComType::EComPattern>> _candidate_polygons;
 	_maker.makeCandidatePolygon(_current_node, _candidate_polygons);
 
-	//候補範囲から実際に移動する先の座標を決定する
+	//候補範囲から実際に移動する先の座標を選択する
 	ComSelecter _selecter;
-
 	_selecter.setCurrentNode(_current_node);
 
 	for (const auto& i : _candidate_polygons)

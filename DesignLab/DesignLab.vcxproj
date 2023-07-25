@@ -23,7 +23,9 @@
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ComCandidatePolygonMaker.h" />
     <ClInclude Include="ComMoveNodeCreator.h" />
+    <ClInclude Include="ComMoveNodeCreatorHato.h" />
     <ClInclude Include="ComSelecter.h" />
+    <ClInclude Include="ComSelecterHato.h" />
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainGraphViewer.h" />
     <ClInclude Include="GraphicMainTest.h" />
@@ -100,7 +102,9 @@
     <ClCompile Include="ButtonController.cpp" />
     <ClCompile Include="ComCandidatePolygonMaker.cpp" />
     <ClCompile Include="ComMoveNodeCreator.cpp" />
+    <ClCompile Include="ComMoveNodeCreatorHato.cpp" />
     <ClCompile Include="ComSelecter.cpp" />
+    <ClCompile Include="ComSelecterHato.cpp" />
     <ClCompile Include="ComUpDownNodeCreator.cpp" />
     <ClCompile Include="GraphicMainGraphViewer.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />

@@ -176,26 +176,6 @@ bool HexapodStateCalclator::isLegInRange(const SNode& _node, const int _leg_num)
 	if (my_math::squared(getMaxLegR(_node.leg_pos[_leg_num].z)) < _leg_pos_xy.lengthSquare()) { return false; }
 
 	return true;
-
-	////脚の付け根を原点とした座標系で，脚の角度が範囲内にあるか調べる．
-
-	////coxaジョイントの外側に脚が出ていないか調べる．
-	//const float _min_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] - HexapodConst::MOVABLE_LEG_RANGE;
-	//const float _max_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] + HexapodConst::MOVABLE_LEG_RANGE;
-
-	//my_vec::SVector2 _min_range(cos(_min_angle), sin(_min_angle));
-	//my_vec::SVector2 _max_range(cos(_max_angle), sin(_max_angle));
-	//my_vec::SVector2 _leg_pos_xy = _node.leg_pos[_leg_num].projectedXY();
-
-	//if (_min_range.cross(_leg_pos_xy) < 0) { return false; }
-
-	//if (_max_range.cross(_leg_pos_xy) > 0) { return false; }
-
-	////脚を伸ばすことのできない範囲に伸ばしていないか調べる．
-	//if (my_math::squared(getMinLegR(_node.leg_pos[_leg_num].z)) > _leg_pos_xy.lengthSquare()) { return false; }
-	//if (my_math::squared(getMaxLegR(_node.leg_pos[_leg_num].z)) < _leg_pos_xy.lengthSquare()) { return false; }
-
-	//return true;
 }
 
 bool HexapodStateCalclator::isAllLegInRange(const SNode& _node) const
@@ -232,4 +212,32 @@ bool HexapodStateCalclator::isAblePause(const SNode& _node) const
 	}
 
 	return true;
+}
+
+float HexapodStateCalclator::calculateStaticMargin(const SNode& _node) const
+{
+	//重心を原点とした座標系で，脚の位置を計算する．
+
+	std::vector<my_vec::SVector2> _leg_pos;
+
+	//接地脚のみ追加する
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		if (LegStateEdit::isGrounded(_node.leg_state, i) == true)
+		{
+			_leg_pos.push_back(_node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
+		}
+	}
+
+	float _min_margin = 1000000;
+
+	for (int i = 0; i < _leg_pos.size(); i++)
+	{
+		my_vec::SVector2 _i_to_i_plus_1 = _leg_pos.at((i + 1) % _leg_pos.size()) - _leg_pos.at(i);
+		my_vec::SVector2 _i_to_com = my_vec::SVector2{ 0,0 } - _leg_pos.at(i);
+
+		_min_margin = std::min(_min_margin, _i_to_com.cross(_i_to_i_plus_1));
+	}
+
+	return _min_margin;
 }

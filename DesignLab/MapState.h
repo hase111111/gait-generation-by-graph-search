@@ -48,9 +48,9 @@ public:
 	//! @param [in] _x X座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] _y Y座標，切り分けられたタイルの位置で指定する．
 	//! @return float 最も高いZ座標．
-	inline float getTopZFromDevideMap(const int _x, const int _y) const 
+	inline float getTopZFromDevideMap(const int _x, const int _y) const
 	{
-		return m_devide_map_top_z.at(getDevideMapNum(_x, _y)); 
+		return m_devide_map_top_z.at(getDevideMapNum(_x, _y));
 	};
 
 	//! 脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画にのみ利用することを推奨．
@@ -60,28 +60,28 @@ public:
 
 	//! 脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
 	//! @return int 脚設置可能点の数
-	inline int getPosNum() const 
-	{ 
-		return (int)m_map_data.size(); 
+	inline int getPosNum() const
+	{
+		return (int)m_map_data.size();
 	}
 
-	//! グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す．
-	//! @param [in] _posx グローバルのx座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照．
-	//! @return int m_devide_mapのX座標のどこをさしているか
-	inline static int getDevideMapNumY(const float _posx)
+	//! グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す．
+	//! @param [in] _posy グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照．
+	//! @return int m_devide_mapのy座標のどこをさしているか
+	inline static int getDevideMapNumY(const float _posy)
 	{
-		int tmp = (int)((_posx - MapConst::MAP_MIN_HORIZONTAL) / (((float)MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / MapConst::LP_DIVIDE_NUM));
+		int tmp = (int)((_posy - MapConst::MAP_MIN_HORIZONTAL) / (((float)MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / MapConst::LP_DIVIDE_NUM));
 		if (tmp < 0) { return 0; }
 		if (tmp >= MapConst::LP_DIVIDE_NUM) { return MapConst::LP_DIVIDE_NUM - 1; }
 		return tmp;
 	}
 
 	//! グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す．
-	//! @param [in] _posy グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照．
+	//! @param [in] _posx グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照．
 	//! @return int m_devide_mapのY座標のどこをさしているか
-	inline static int getDevideMapNumX(const float _posy)
+	inline static int getDevideMapNumX(const float _posx)
 	{
-		int tmp = (int)( (_posy - MapConst::MAP_MIN_FORWARD) / ( ((float)MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / MapConst::LP_DIVIDE_NUM) );
+		int tmp = (int)((_posx - MapConst::MAP_MIN_FORWARD) / (((float)MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / MapConst::LP_DIVIDE_NUM));
 		if (tmp < 0)return 0;
 		if (tmp >= MapConst::LP_DIVIDE_NUM)return MapConst::LP_DIVIDE_NUM - 1;
 		return tmp;
