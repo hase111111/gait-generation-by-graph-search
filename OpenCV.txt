@@ -1,9 +1,0 @@
-設定内容	値
-ソリューション構成	Debug or Release
-ソリューションプラットフォーム	x64
-構成プロパティ/デバッグ：環境	PATH=%OPENCV%\build\x64\vc15\bin;%PATH%
-構成プロパティ/VC++ ディレクトリ：インクルード ディレクトリ	%OPENCV%\build\include
-構成プロパティ/VC++ ディレクトリ：ライブラリ ディレクトリ	%OPENCV%\build\x64\vc15\lib
-構成プロパティ/リンカー/入力：追加の依存ファイル	opencv_world401d.lib or opencv_world401.lib
-
-https://qiita.com/h-adachi/items/aad3401b8900438b2acd
