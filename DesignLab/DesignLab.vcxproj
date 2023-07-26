@@ -30,6 +30,7 @@
     <ClInclude Include="GraphicMainGraphViewer.h" />
     <ClInclude Include="GraphicMainTest.h" />
     <ClInclude Include="GraphSearcherHato.h" />
+    <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="PassFinderHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include="GraphicMainGraphViewer.cpp" />
     <ClCompile Include="GraphicMainTest.cpp" />
     <ClCompile Include="GraphSearcherHato.cpp" />
+    <ClCompile Include="GraphTreeCreatorThread.cpp" />
     <ClCompile Include="PassFinderHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
@@ -168,6 +170,9 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="MyVector.cpp" />
     <ClCompile Include="Define.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -53,8 +53,8 @@ void GraphViewerGUIController::drawGraphData() const
 	}
 	else
 	{
-		DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "ノード数:%d", mp_graph->size());
-		DrawFormatString(_box_min_x + 10, _box_min_y + 30, _text_color, "表示ノード:%d", *mp_display_node_index);
+		DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "総ノード数:%d", mp_graph->size());
+		DrawFormatString(_box_min_x + 10, _box_min_y + 30, _text_color, "表示ノード:%d番", *mp_display_node_index);
 
 		//深さごとのノードの数
 		for (size_t i = 0; i < m_graph_node_depth_data.size(); i++)
@@ -66,8 +66,8 @@ void GraphViewerGUIController::drawGraphData() const
 
 void GraphViewerGUIController::drawNodeControllPanel() const
 {
-	const int _box_size_x = 300;
-	const int _box_size_y = 300;
+	const int _box_size_x = 350;
+	const int _box_size_y = 340;
 	const int _box_min_x = 50;
 	const int _box_min_y = 50;
 	const unsigned int _color = GetColor(255, 255, 255);
@@ -100,12 +100,15 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 		DrawFormatString(_box_min_x + 10, _box_min_y + 110, _text_color, "%d番ノードの子ノードリスト", m_childen_list.first);
 		DrawFormatString(_box_min_x + 10, _box_min_y + 130, _text_color, _str.c_str());
 		DrawFormatString(_box_min_x + 10, _box_min_y + 230, _text_color, "　(子ノードリストの更新は U )");
+		DrawFormatString(_box_min_x + 10, _box_min_y + 250, _text_color, "　(上下キーでノード移動)");
+		DrawFormatString(_box_min_x + 10, _box_min_y + 270, _text_color, "　(左右キーで表示する子ノード切り替え)");
+		DrawFormatString(_box_min_x + 10, _box_min_y + 290, _text_color, "　(Zキーでカメラ表示を切り替え)");
 	}
 }
 
-void GraphViewerGUIController::drawNodeData(const SNode _node) const
+void GraphViewerGUIController::drawNodeData(const SNode node) const
 {
-	const int _box_size_x = 300;
+	const int _box_size_x = 400;
 	const int _box_size_y = 300;
 	const int _box_min_x = GraphicConst::WIN_X - 25 - _box_size_x;
 	const int _box_min_y = 25;
@@ -118,9 +121,29 @@ void GraphViewerGUIController::drawNodeData(const SNode _node) const
 
 	// テキスト
 	const unsigned int _text_color = GetColor(10, 10, 10);
-	DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", LegStateEdit::getComPatternState(_node.leg_state),
-		LegStateEdit::getLegState(_node.leg_state, 0), LegStateEdit::getLegState(_node.leg_state, 1), LegStateEdit::getLegState(_node.leg_state, 2),
-		LegStateEdit::getLegState(_node.leg_state, 3), LegStateEdit::getLegState(_node.leg_state, 4), LegStateEdit::getLegState(_node.leg_state, 5));
+	DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", LegStateEdit::getComPatternState(node.leg_state),
+		LegStateEdit::getLegState(node.leg_state, 0), LegStateEdit::getLegState(node.leg_state, 1), LegStateEdit::getLegState(node.leg_state, 2),
+		LegStateEdit::getLegState(node.leg_state, 3), LegStateEdit::getLegState(node.leg_state, 4), LegStateEdit::getLegState(node.leg_state, 5));
+
+	// 重心を表示する
+	DrawFormatString(_box_min_x + 10, _box_min_y + 40, _text_color, "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
+
+	//遊脚か接地脚か
+	std::string str = "";
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		if (LegStateEdit::isGrounded(node.leg_state, i)) { str += "接地,"; }
+		else { str += "遊脚,"; }
+	}
+	DrawFormatString(_box_min_x + 10, _box_min_y + 70, _text_color, "脚の状態：%s", str.c_str());
+
+	// 脚の位置を表示する
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		DrawFormatString(_box_min_x + 10, _box_min_y + 100 + i * 30, _text_color, "%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
+	}
+
+
 }
 
 void GraphViewerGUIController::inputNumber()

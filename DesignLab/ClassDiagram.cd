@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PassFinderHato" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAACAA=</HashCode>
+      <FileName>PassFinderHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemMain" Collapsed="true">
+    <Position X="17.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAICABAAAAAAAAAAAQAAAAAAAAQAAAQ=</HashCode>
+      <FileName>SystemMain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphViewerSystemMain" Collapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAACAAAAAAAAAAACAQAAICAQAAAAAAAAAAAEAQ=</HashCode>
+      <FileName>GraphViewerSystemMain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CmdIO" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAgAAAAAIhAAAIEAgAAAAAAA=</HashCode>
+      <FileName>CmdIO.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Define" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAABAQAAgAAAAAAAAQAAQAAAAAAABBA=</HashCode>
+      <FileName>Define.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyTimer" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAADAAAAAAAgAAAAAAAAAAAAQAAAAABAACAAAAA=</HashCode>
+      <FileName>MyTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;_T&gt;" Collapsed="true">
+    <Position X="2.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAAgAAAAAAA=</HashCode>
+      <FileName>Singleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimulateResult" Collapsed="true">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAEQABAAAAUCGAEAQBAERBAQAAAUAACQIQAgAAA=</HashCode>
+      <FileName>SimulateResult.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogFileIO" Collapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEBAEAQAAQAAAAAAAAAAAAAgAQgEAAAIIAAAAAAAg=</HashCode>
+      <FileName>LogFileIO.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NodeFileIO" Collapsed="true">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAQAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NodeFileIO.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeFileIO" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAABAAAAQAAAAAAAAAAACAAA=</HashCode>
+      <FileName>TimeFileIO.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SearchPossibleLegPosition" Collapsed="true">
+    <Position X="24.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEgAACgAACAIAAAgAEICAAgAAIAgBQAAIIACAQ=</HashCode>
+      <FileName>SearchLegPosition.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="phantomxCommander" Collapsed="true">
+    <Position X="21" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAQAoAAAQA4BAQACIACAgAAAQGQAAAYAAAAAggAQA=</HashCode>
+      <FileName>phantomxCommander.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HexapodStateCalclator" Collapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hDAgKAAABAAIBAAgAABAAAAQCBBAAQAoAACAAAAQAEA=</HashCode>
+      <FileName>HexapodStateCalculator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hexapod" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBmgWgEgAAgBJASgAADAAUwAAEAEgQAIgADBARAAEEI=</HashCode>
+      <FileName>hexapod.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HexapodConst" Collapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAAAgAEAAkAIAwAAAAgIQBAQQAAAEAGEAgAEA=</HashCode>
+      <FileName>HexapodConst.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapState" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIAQAAAAAAABlQBgAQAAAAAAIAAIAAAAAAAAAIAA=</HashCode>
+      <FileName>MapState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapCreator" Collapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAGAQACAAIAAIAARMACEQAAARCAABBEAAAAIAA=</HashCode>
+      <FileName>MapCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapConst" Collapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAACEAAIAAhAAAAAAgABCAQAAgAAAAIFAEAAAgAEA=</HashCode>
+      <FileName>MapConst.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NodeValidityChecker" Collapsed="true">
+    <Position X="19.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAACQAAAgAAAAAAAAAgAAEAAAAAAAA=</HashCode>
+      <FileName>NodeValidityChecker.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="INodeCreator" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAEAAA=</HashCode>
+      <FileName>InterfaceNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LegDownNodeCreator" Collapsed="true">
+    <Position X="3.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAEAAACAAAAABACAAAAgAAAAABAAAAAAAM=</HashCode>
+      <FileName>LegDownNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LegHierarchyNodeCreator" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAKABAABAAAAA=</HashCode>
+      <FileName>LegHierarchyNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LegUpDownNodeCreator" Collapsed="true">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAEAAAAAAJEABAAgAAAAAAAAABAAAAAAAE=</HashCode>
+      <FileName>LegUpDownNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LegUpNodeCreator" Collapsed="true">
+    <Position X="10.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAIAAAAAAAAAAAAAAAAgAAAAABAAAAAAAA=</HashCode>
+      <FileName>LegUpNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComMoveNodeCreator" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAABAACAAEAA=</HashCode>
+      <FileName>ComMoveNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComMoveNodeCreatorHato" Collapsed="true">
+    <Position X="15" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAEAAAAAAEAAAIAAABAAAAQAAAEDABAAAAAEAA=</HashCode>
+      <FileName>ComMoveNodeCreatorHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComUpDownNodeCreator" Collapsed="true">
+    <Position X="1.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIBAACAAAAAgIAAEABAAAAAAAI=</HashCode>
+      <FileName>ComUpDownNodeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComSelecter" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAEAAQAAIAAAQAACACAQAAAAAEAA=</HashCode>
+      <FileName>ComSelecter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComSelecterHato" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAEAAQAAIAAAQAACACAQAAAAAEAA=</HashCode>
+      <FileName>ComSelecterHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicDataBroker" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACgAQAAAAAEAAAAAABAAAAACAgAAAAgAEIEAA=</HashCode>
+      <FileName>GraphicDataBroker.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicLoop" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAgAACAAAAAAACAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>GraphicLoop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicSystem" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAIAAAAAAAAAAAAABAAIAAAAAAAAQAAQ=</HashCode>
+      <FileName>GraphicSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicMainGraphViewer" Collapsed="true">
+    <Position X="3.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAIAAAEIAgiAAACACEAAAAAAAAAAEAAA=</HashCode>
+      <FileName>GraphicMainGraphViewer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicMainTest" Collapsed="true">
+    <Position X="5.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAABACABAAAAAIAAAAIAAAAAAAAAEAAgAAACAAAEAAA=</HashCode>
+      <FileName>GraphicMainTest.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicMainBasic" Collapsed="true">
+    <Position X="8" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAAAAAIAAAAIAABAAAAggEAAgAAAAAAAEAAA=</HashCode>
+      <FileName>GraphicMainBasic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicMainSample" Collapsed="true">
+    <Position X="1.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAACAAIAAAAAAAAAAAAEAAAAAAAEAAA=</HashCode>
+      <FileName>GraphicMainSample.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGraphicMain" Collapsed="true">
+    <Position X="4.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAgAAAAAAAAAAAAAACAMAAA=</HashCode>
+      <FileName>InterfaceGraphicMain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtomController" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAAEgAMAQMAAAAAAIABAAQAAAAAAAAMAIA=</HashCode>
+      <FileName>ButtonController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fps" Collapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAABIIgAAAAQAAAEQACAAAAQAAA=</HashCode>
+      <FileName>Fps.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicConst" Collapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAQAAQAAAgAAQAAJBAAAAAACAAAAAgA=</HashCode>
+      <FileName>GraphicConst.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Keyboard" Collapsed="true">
+    <Position X="1" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAAAAAAQAAAAAAAAAAAAAAAAAAQAAACAABCAEAAA=</HashCode>
+      <FileName>Keyboard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mouse" Collapsed="true">
+    <Position X="3.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABEAAIABAAAAAAOQAAAAAAQgAAAAAAACBBgAAAEAhA=</HashCode>
+      <FileName>Mouse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphViewerGUIController" Collapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABACAACAAAgAAAAAAIAAAAQwAAEAAAAAHgAAAAGgEA=</HashCode>
+      <FileName>GraphViewerGUIController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIController" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAIBCAAAAAEIAAIQAAQAAAAAgAAAAEAAEgAA=</HashCode>
+      <FileName>GUIController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HexapodRenderer" Collapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAEAAEAIAAJAAAAIASAQAgSAEAAAAQAGAAA=</HashCode>
+      <FileName>HexapodRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQgIAAAEgEAAAAIAAsEAgAgAAAAAAkACAABAA0AIg=</HashCode>
+      <FileName>CameraController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapRenderer" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACIAAAAAAAAAIBAAAIABAAAAAAAAAAgAAEAAAAAAAA=</HashCode>
+      <FileName>MapRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PassFinderNone" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAQACAAAAAAA=</HashCode>
+      <FileName>PassFinderNone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphSearcherHato" Collapsed="true">
+    <Position X="11.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAA=</HashCode>
+      <FileName>GraphSearcherHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphSearcherRandom" Collapsed="true">
+    <Position X="13.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>GraphSearcherRandom.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphSearcherSample" Collapsed="true">
+    <Position X="9.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAACAA=</HashCode>
+      <FileName>GraphSearcherSample.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGraphSearcher" Collapsed="true">
+    <Position X="11.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAACAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>InterfaceGraphSearcher.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphTreeCreatorThread" Collapsed="true">
+    <Position X="1.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgEAAAAQAAAA=</HashCode>
+      <FileName>GraphTreeCreatorThread.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphTreeCreatorHato" Collapsed="true">
+    <Position X="3.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQIAAA=</HashCode>
+      <FileName>GraphTreeCreatorHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphTreeCreatorSample" Collapsed="true">
+    <Position X="5.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEGAAAAAAAAA=</HashCode>
+      <FileName>GraphTreeCreatorSample.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGraphTreeCreator" Collapsed="true">
+    <Position X="3.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAABAAAAAAAABAAAAEAAAAAAAAA=</HashCode>
+      <FileName>InterfaceGraphTreeCreator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IPassFinder" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABACAEAAAIAAAAgAAAAAAACAAAAAAQCAAAAAAAA=</HashCode>
+      <FileName>InterfacePassFinder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbstractPassFinderFactory" Collapsed="true">
+    <Position X="6" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAA=</HashCode>
+      <FileName>AbstractPassFinderFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PassFinderFactoryHato" Collapsed="true">
+    <Position X="6" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>PassFinderFactoryHato.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="S_NE::S_NE_Calc" Collapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAQAAAAAIAAAQAUAAAAAAAA=</HashCode>
+      <FileName>S_NE.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="STarget" Collapsed="true">
+    <Position X="26.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAAAAEAAAAAAAAAAAAAAAAAAQQAEAAABAACAA=</HashCode>
+      <FileName>Target.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="__unnamed_struct_0475_1" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAAAAAAAEAAAAAAAAAAAAAEAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>TimeManager.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="STransform" Collapsed="true">
+    <Position X="17.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>hexapod.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SNode" Collapsed="true">
+    <Position X="21" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAgAQABAAAAAAAAgAQACAAAAAAIBAABgIAFAAAE=</HashCode>
+      <FileName>Node.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="S_NE::POINT" Collapsed="true">
+    <Position X="17.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>S_NE.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="my_vec::SLine2" Collapsed="true">
+    <Position X="19.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAEAAAgAEAAAQCQAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>MyLine.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="my_vec::SPolygon2" Collapsed="true">
+    <Position X="22.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAAAAEAIABAAAAQQAAAAACKAAAAAAAAgAAMAAREAA=</HashCode>
+      <FileName>MyPolygon.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="my_vec::SVector2" Collapsed="true">
+    <Position X="21" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAAAAAAAAAAAAMAIAQAAAAAAAIAAAABgAIAAAQA=</HashCode>
+      <FileName>MyVector2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="my_vec::SVector" Collapsed="true">
+    <Position X="19.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAAAAAIAAAAAAMAIAQAAQAAAAIAAAABgAYAAAAA=</HashCode>
+      <FileName>MyVector.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="my_vec::SRotator" Collapsed="true">
+    <Position X="24.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAQAgAAAAAEAAAAAgAAAAAIA=</HashCode>
+      <FileName>MyVector.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="S_NE::Array" Collapsed="true">
+    <Position X="17.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>S_NE.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="S_NE::Matrix" Collapsed="true">
+    <Position X="19.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>S_NE.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TimeInfo" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TimeManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="ETargetMode" Collapsed="true">
+    <Position X="17.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAQAAAAAQIAAAAiAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Target.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EMapCreateMode" Collapsed="true">
+    <Position X="24.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAQAAAAAAEAAAAAAAAAAAAQAAGAAAAAI=</HashCode>
+      <FileName>MapCreator.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EHexapodMove" Collapsed="true">
+    <Position X="22.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAICAAACAQAAAAIAAABAAAAAQAAAAAAgAAA=</HashCode>
+      <FileName>HexapodNextMove.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ENodeDisplayNode" Collapsed="true">
+    <Position X="26.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUIController.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ECameraMode" Collapsed="true">
+    <Position X="17.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAEAUAAACAAA=</HashCode>
+      <FileName>CameraController.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EGraphSearchResult" Collapsed="true">
+    <Position X="21" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIAAAAEAQgAAAQAAAAACAgiAAAACQAAAAAAAAAAA=</HashCode>
+      <FileName>GraphSearchResult.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ComType::EComPattern" Collapsed="true">
+    <Position X="19.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEACBAAASAAAAAAAAAAAAEAAAAAACAAAAgAQAA=</HashCode>
+      <FileName>ComType.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

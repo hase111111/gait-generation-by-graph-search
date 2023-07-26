@@ -29,7 +29,7 @@ void MapRenderer::draw(const MapState& _map) const
 			for (int i = 0; i < _map.getPointNumFromDevideMap(x, y); i++)
 			{
 
-				if (_x == x && _y == y) { drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, GetColor(255, 0, 0)); }
+				if (false/*_x == x && _y == y*/) { drawCube3DWithTopPos(convertToDxVec(_map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, GetColor(255, 0, 0)); }
 				else
 				{
 					//縞縞模様を作成するために，位置に応じて色を変える．

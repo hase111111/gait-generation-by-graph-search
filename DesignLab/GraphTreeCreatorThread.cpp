@@ -1,7 +1,7 @@
-#include "GraphTreeCreatorHato.h"
+#include "GraphTreeCreatorThread.h"
 #include "Define.h"
 
-EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
+EGraphSearchResult GraphTreeCreatorThread::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
 {
 	//現在のノードを親にする．
 	SNode _parent_node = _current_node;
@@ -34,8 +34,7 @@ EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_n
 	return EGraphSearchResult::Success;
 }
 
-
-void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void GraphTreeCreatorThread::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
 	_output_graph.clear();
 

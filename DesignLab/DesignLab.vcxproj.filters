@@ -339,6 +339,9 @@
     <ClInclude Include="ComMoveNodeCreatorHato.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
+    <ClInclude Include="GraphTreeCreatorThread.h">
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -548,5 +551,11 @@
     <ClCompile Include="ComMoveNodeCreatorHato.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
+    <ClCompile Include="GraphTreeCreatorThread.cpp">
+      <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
