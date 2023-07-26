@@ -4,8 +4,6 @@
 #include "MyLine.h"
 #include <cmath>
 
-using namespace my_vec;
-
 float HexapodStateCalclator::m_leg_max_r[200] = {};
 float HexapodStateCalclator::m_leg_min_r[200] = {};
 
@@ -14,13 +12,20 @@ HexapodStateCalclator::HexapodStateCalclator()
 	//ジョイントの位置を初期化する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		m_local_femurjoint_pos[i] = m_local_tibiajoint_pos[i] = SVector(0, 0, 0);
+		m_local_femurjoint_pos[i] = m_local_tibiajoint_pos[i] = my_vec::SVector(0, 0, 0);
 	}
 }
 
-my_vec::SVector HexapodStateCalclator::convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const
+my_vec::SVector HexapodStateCalclator::convertLocalLegPos(const SNode& node, const my_vec::SVector& global_pos, const int leg_num, const bool do_consider_rot) const
 {
-	return rotVector(_global_pos - _node.global_center_of_mass, _node.rot * -1) - getLocalCoxaJointPos(_leg_num);
+	if (do_consider_rot)
+	{
+		return rotVector(global_pos - node.global_center_of_mass, node.rot * -1) - getLocalCoxaJointPos(leg_num);
+	}
+	else
+	{
+		return global_pos - node.global_center_of_mass - getLocalCoxaJointPos(leg_num);
+	}
 }
 
 void HexapodStateCalclator::calclateJointPos(const SNode& _node)
@@ -35,7 +40,7 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 	{
 		const float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
 
-		m_local_femurjoint_pos[i] = SVector(HexapodConst::COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::COXA_LENGTH * sin(_coxa_joint_angle), 0);
+		m_local_femurjoint_pos[i] = my_vec::SVector(HexapodConst::COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::COXA_LENGTH * sin(_coxa_joint_angle), 0);
 
 
 		const float _L = std::sqrt(squared(_node.leg_pos[i].x - m_local_femurjoint_pos[i].x) + squared(_node.leg_pos[i].y - m_local_femurjoint_pos[i].y));				//脚先から第一関節までの長さ．
@@ -47,7 +52,7 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 		const float _fumur_joint_angle = -(std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
 		m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
-			SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
+			my_vec::SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
 				HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 				HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
 
@@ -56,7 +61,7 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
 			m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
-				SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
+				my_vec::SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
 					HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 					HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
 		}
@@ -85,7 +90,7 @@ void HexapodStateCalclator::initLegR()
 
 		for (float _x = HexapodConst::COXA_LENGTH; _x < HexapodConst::COXA_LENGTH + HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH; _x++)
 		{
-			SVector _tmp_leg((float)_x, 0, -(float)_z);
+			my_vec::SVector _tmp_leg((float)_x, 0, -(float)_z);
 
 			// 以下の三変数を辺とする三角形が成立するか調べる．
 			float _a = HexapodConst::TIBIA_LENGTH;
@@ -159,30 +164,42 @@ bool HexapodStateCalclator::isLegInterfering(const SNode& _node) const
 	return false;
 }
 
-bool HexapodStateCalclator::isLegInRange(const SNode& _node, const int _leg_num) const
+bool HexapodStateCalclator::isLegInRange(const SNode& node, const int leg_num) const
 {
-	const my_vec::SVector2 _leg_pos_xy = _node.leg_pos[_leg_num].projectedXY();
-	const float _leg_angle = atan2(_leg_pos_xy.y, _leg_pos_xy.x);
+	//const my_vec::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
+	//const float leg_angle = atan2(leg_pos_xy.y, leg_pos_xy.x);
 
-	const float _min_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] - HexapodConst::MOVABLE_LEG_RANGE;
-	const float _max_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] + HexapodConst::MOVABLE_LEG_RANGE;
+	//const float min_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] - HexapodConst::MOVABLE_LEG_RANGE;
+	//const float max_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] + HexapodConst::MOVABLE_LEG_RANGE;
 
-	//脚の角度が範囲内にあるか調べる．
-	if (_leg_angle < _min_angle) { return false; }
-	if (_max_angle < _leg_angle) { return false; }
+	////脚の角度が範囲内にあるか調べる．
+	//if (leg_angle < min_angle) { return false; }
+	//if (max_angle < leg_angle) { return false; }
+
+	const my_vec::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
+	const my_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
+	const my_vec::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
+
+	//脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
+	if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
+	if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+
 
 	////脚を伸ばすことのできない範囲に伸ばしていないか調べる．
-	if (my_math::squared(getMinLegR(_node.leg_pos[_leg_num].z)) > _leg_pos_xy.lengthSquare()) { return false; }
-	if (my_math::squared(getMaxLegR(_node.leg_pos[_leg_num].z)) < _leg_pos_xy.lengthSquare()) { return false; }
+	if (my_math::squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.lengthSquare()) { return false; }
+	if (my_math::squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.lengthSquare()) { return false; }
 
 	return true;
 }
 
-bool HexapodStateCalclator::isAllLegInRange(const SNode& _node) const
+bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
 {
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (isLegInRange(_node, i) == false) { return false; }
+		if (LegStateEdit::isGrounded(node.leg_state, i))
+		{
+			if (!isLegInRange(node, i)) { return false; }
+		}
 	}
 
 	return true;
@@ -214,30 +231,33 @@ bool HexapodStateCalclator::isAblePause(const SNode& _node) const
 	return true;
 }
 
-float HexapodStateCalclator::calculateStaticMargin(const SNode& _node) const
+float HexapodStateCalclator::calculateStaticMargin(const SNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
+	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
-	std::vector<my_vec::SVector2> _leg_pos;
+	std::vector<my_vec::SVector2> leg_pos;
 
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(_node.leg_state, i) == true)
+		if (LegStateEdit::isGrounded(node.leg_state, i) == true)
 		{
-			_leg_pos.push_back(_node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
+			leg_pos.push_back(node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
 		}
 	}
 
-	float _min_margin = 1000000;
+	float min_margin = 1000000;
 
-	for (int i = 0; i < _leg_pos.size(); i++)
+	for (int i = 0; i < leg_pos.size(); i++)
 	{
-		my_vec::SVector2 _i_to_i_plus_1 = _leg_pos.at((i + 1) % _leg_pos.size()) - _leg_pos.at(i);
-		my_vec::SVector2 _i_to_com = my_vec::SVector2{ 0,0 } - _leg_pos.at(i);
+		my_vec::SVector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
+		i_to_i_plus_1.normalized();
 
-		_min_margin = std::min(_min_margin, _i_to_com.cross(_i_to_i_plus_1));
+		my_vec::SVector2 i_to_com = my_vec::SVector2{ 0,0 } - leg_pos.at(i);
+
+		min_margin = (std::min)(min_margin, i_to_com.cross(i_to_i_plus_1));
 	}
 
-	return _min_margin;
+	return min_margin;
 }

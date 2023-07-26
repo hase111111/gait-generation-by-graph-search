@@ -26,7 +26,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& _graph_search)
 	m_GraphSearch = std::move(_graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_Graphic.init(std::make_unique<GraphicMainBasic>(&m_Broker));
+	m_Graphic.init(std::make_unique<GraphicMainTest>(&m_Broker));
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;

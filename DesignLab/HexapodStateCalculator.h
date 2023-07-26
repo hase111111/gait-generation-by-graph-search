@@ -14,11 +14,12 @@ public:
 	}
 
 	//! @brief 第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．
-	//! @param [in] _node ロボットの状態を表すノード
-	//! @param [in] _global_pos 変換するグローバル座標
-	//! @param [in] _leg_num 脚番号 0～5
+	//! @param [in] node ロボットの状態を表すノード
+	//! @param [in] global_pos 変換するグローバル座標
+	//! @param [in] leg_num 脚番号 0～5
+	//! @param [in] do_consider_rot 回転を考慮するかどうか
 	//! @return my_vec::SVector ローカル座標の脚座標
-	my_vec::SVector convertLocalLegPos(const SNode& _node, const my_vec::SVector& _global_pos, const int _leg_num) const;
+	my_vec::SVector convertLocalLegPos(const SNode& node, const my_vec::SVector& global_pos, const int leg_num, const bool do_consider_rot) const;
 
 	//! @brief 脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．
 	//! @param [in] _node ロボットの状態を表すノード
@@ -85,7 +86,7 @@ public:
 	//! @return 可動範囲内ならtrueを返す．
 	bool isLegInRange(const SNode& _node, const int _leg_num) const;
 
-	//! @brief 全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
+	//! @brief 全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
 	//! @param _node ノード情報
 	//! @return 可動範囲内ならtrueを返す．
 	bool isAllLegInRange(const SNode& _node) const;

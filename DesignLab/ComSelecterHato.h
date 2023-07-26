@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <memory>
 #include "MyVector.h"
 #include "MyPolygon.h"
 #include "ComType.h"
@@ -12,7 +14,7 @@ class ComSelecterHato final
 {
 private:
 
-	const int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数
+	static constexpr int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数
 
 	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
 
@@ -44,8 +46,8 @@ public:
 private:
 
 	//! @brief 候補地点を生成する
-	void makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::vector<my_vec::SVector2>& _output_coms) const;
+	void makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::vector<std::pair<bool, my_vec::SVector2>>* output_coms) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const my_vec::SPolygon2& polygon, const my_vec::SVector2& _com) const;
+	bool isInMargin(const my_vec::SPolygon2& polygon, const my_vec::SVector2& candidate_point) const;
 };

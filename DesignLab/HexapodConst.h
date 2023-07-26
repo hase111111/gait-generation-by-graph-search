@@ -26,6 +26,19 @@ public:
 
 	constexpr static float MOVABLE_LEG_RANGE = my_math::convertDegToRad(40.0f);			//coxa関節(第1関節)の稼働可能な角度 [rad]
 
+	//MOVABLE_LEG_RANGEのcos値 -85°，-130°，-175°，95°，50°，5°
+	constexpr static float MOVABLE_LEG_RANGE_COS_MAX[LEG_NUM] = { 0.08715574f , -0.6427876f, -0.9961947f, -0.08715574f, 0.6427876f, 0.9961947f };
+
+	//MOVABLE_LEG_RANGEのcos値 -5°，-50°，-95°，175°，130°，85°
+	constexpr static float MOVABLE_LEG_RANGE_COS_MIN[LEG_NUM] = { 0.9961947f,  0.6427876f, -0.08715574f, -0.9961947f, -0.6427876f, 0.08715574f };
+
+	//MOVABLE_LEG_RANGEのsin値 -5°，-50°，-95°，175°，130°，85°
+	constexpr static float MOVABLE_LEG_RANGE_SIN_MAX[LEG_NUM] = { -0.08715574f, -0.76604444f, -0.9961947f, 0.0871557f, 0.76604444f, 0.9961946f };
+
+	//MOVABLE_LEG_RANGEのsin値 -85°，-130°，-175°，95°，50°，5°
+	constexpr static float MOVABLE_LEG_RANGE_SIN_MIN[LEG_NUM] = { -0.9961947f, -0.76604444f, -0.08715574f, 0.9961947f, 0.76604444f,0.08715574f };
+
+
 	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
 	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { my_math::convertDegToRad(-45.0f),	my_math::convertDegToRad(-90.0f),	my_math::convertDegToRad(-135.0f),
 													my_math::convertDegToRad(135.0f),	my_math::convertDegToRad(90.0f),	my_math::convertDegToRad(45.0f) };

@@ -131,7 +131,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 			for (int n = 0; n < _pos_num; n++)
 			{
 				SVector map_point_pos = mp_Map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = m_Calc.convertLocalLegPos(_current_node, map_point_pos, _leg_num);
+				map_point_pos = m_Calc.convertLocalLegPos(_current_node, map_point_pos, _leg_num, false);
 
 				//脚位置を更新したノードを作成する．
 				SNode _new_node = _current_node;

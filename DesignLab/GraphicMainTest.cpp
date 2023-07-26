@@ -46,7 +46,7 @@ bool GraphicMainTest::update()
 				my_vec::SVector _map_pos = m_Map.getPosFromDevideMap(_map_x, _map_y, m_map_index % m_Map.getPointNumFromDevideMap(_map_x, _map_y));
 				m_map_index++;
 
-				m_node.leg_pos[i] = _calclator.convertLocalLegPos(m_node, _map_pos, i);
+				m_node.leg_pos[i] = _calclator.convertLocalLegPos(m_node, _map_pos, i, true);
 			}
 		}
 	}
