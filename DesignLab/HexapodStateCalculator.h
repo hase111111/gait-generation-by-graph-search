@@ -86,13 +86,19 @@ public:
 	//! @return 可動範囲内ならtrueを返す．
 	bool isLegInRange(const SNode& _node, const int _leg_num) const;
 
+	//! @brief 脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
+	//! @param local_leg_pos 脚の付け根の座標を原点とした脚先の座標
+	//! @param leg_num 脚番号
+	//! @return 可動範囲内ならtrueを返す．
+	bool isLegInRange(const my_vec::SVector& local_leg_pos, const int leg_num) const;
+
 	//! @brief 全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
 	//! @param _node ノード情報
 	//! @return 可動範囲内ならtrueを返す．
 	bool isAllLegInRange(const SNode& _node) const;
 
 	//! @brief 転ばない姿勢かどうか調べる．
-	//! @param _node ノード情報
+	//! @param [in] _node ノード情報
 	//! @return 転ばない姿勢ならtrueを返す．
 	bool isAblePause(const SNode& _node) const;
 
@@ -107,7 +113,7 @@ private:
 	//! @brief coxa joint (脚の付け根)の座標を返す．重心を原点とするローカル座標．
 	//! @param [in] _leg_num 脚番号
 	//! @return coxa jointのローカル座標
-	constexpr my_vec::SVector getLocalCoxaJointPos(const int _leg_num) const
+	my_vec::SVector getLocalCoxaJointPos(const int _leg_num) const
 	{
 		if (_leg_num == 0) { return my_vec::SVector(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f); }	// 脚0 右上
 		else if (_leg_num == 1) { return my_vec::SVector(0.0f, -HexapodConst::BODY_CENTER_WIDTH, 0.0f); }	// 脚1 右横

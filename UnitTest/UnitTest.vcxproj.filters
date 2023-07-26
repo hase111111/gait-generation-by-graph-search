@@ -30,7 +30,7 @@
     <ClCompile Include="LegStateMakeLegStateTest.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
-    <ClCompile Include="SPolygonIsInsideTets.cpp">
+    <ClCompile Include="SPolygonIsInsideTest.cpp">
       <Filter>my_vec</Filter>
     </ClCompile>
     <ClCompile Include="LegStateIsGroundTest.cpp">
@@ -44,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="LegStateGetUpDownCountTest.cpp">
       <Filter>LegState\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="SPolygonMaxMinTest.cpp">
+      <Filter>my_vec</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

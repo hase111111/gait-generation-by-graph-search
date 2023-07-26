@@ -1,71 +1,104 @@
 #include "ComSelecterHato.h"
 #include <algorithm>
 #include <iostream>
+#include "LegState.h"
 
 bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, my_vec::SVector& output_com) const
 {
-	std::vector<std::pair<bool, my_vec::SVector2>> com_candidate;
+	std::pair<bool, my_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
 	//候補点を生成する
-	makeComCandidatePoint(polygon, &com_candidate);
+	if (!makeComCandidatePoint(polygon, com_candidate))
+	{
+		return false;
+	}
 
-	//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい
-	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
+	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
+	std::vector<my_vec::SVector2> edge_vec;
+	edge_vec.resize(polygon.getVertexNum());
 
-	//std::sort(com_candidate.begin(), com_candidate.end(),
-	//	[&](const my_vec::SVector2& _v1, const my_vec::SVector2& _v2)
-	//	{
-	//		const my_vec::SVector2 _rotate_center = { -10000,0 };
-	//		const float _rotate_r = 10000;
-	//		return fabsf((_v1 - _rotate_center).length() - _rotate_r) > fabsf((_v2 - _rotate_center).length() - _rotate_r);
-	//	}
-	//);
+	for (int i = 0; i < polygon.getVertexNum(); ++i)
+	{
+		my_vec::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
+		edge.normalized();
+		edge_vec[i] = edge;
+	}
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．
-	for (auto& i : com_candidate)
+	my_vec::SVector after_move_com;
+	my_vec::SVector after_move_leg_pos[HexapodConst::LEG_NUM];
+
+	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
 	{
-		if (!isInMargin(polygon, i.second))
+		if (!isInMargin(polygon, edge_vec, com_candidate[i].second))
 		{
 			//候補点が多角形の外側ならば次の候補点へ
-			i.first = false;
+			com_candidate[i].first = false;
 			continue;
 		}
 
 		//現在の重心を移動させたものを作成する
-		SNode _temp = m_current_node;
-		my_vec::SVector next_com = { i.second.x, i.second.y, m_current_node.global_center_of_mass.z };
-		_temp.changeGlobalCenterOfMass(next_com, false);
+		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, m_current_node.global_center_of_mass.z };
 
-		if (!m_calclator.isAllLegInRange(_temp))
+		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			//脚が可動範囲外ならば次の候補点へ
-			i.first = false;
-			continue;
+			if (LegStateEdit::isGrounded(m_current_node.leg_state, j))
+			{
+				after_move_leg_pos[j] = m_current_node.leg_pos[j] - (after_move_com - m_current_node.global_center_of_mass);
+
+				if (!m_calclator.isLegInRange(after_move_leg_pos[j], j))
+				{
+					//脚が可動範囲外ならば次の候補点へ
+					com_candidate[i].first = false;
+					continue;
+				}
+			}
 		}
 
-		if (!m_calclator.isAblePause(_temp))
-		{
-			//姿勢が安定できないならば次の候補点へ
-			i.first = false;
-			continue;
-		}
-
-		//ここまで来たら，脚が可動範囲内で，姿勢も安定できるということなので，その点を重心として採用する
-		output_com = next_com;
-		return true;
+		//if (!m_calclator.isAblePause(_temp))
+		//{
+		//	//姿勢が安定できないならば次の候補点へ
+		//	com_candidate[i].first = false;
+		//	continue;
+		//}
 	}
 
+	//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい
+	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
 
-	if (DO_DEBUG_PRINT)
+	const my_vec::SVector2 k_rotate_center = { -10000,0 };
+	const float k_rotate_r = 10000;
+
+	float min_dist = -100000;
+	int min_index = -1;
+
+	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
 	{
-		std::cout << ComType::convertComPatternToBit(com_pattren) << "の重心は見つからなかった" << std::endl;
+		if (com_candidate[i].first)
+		{
+			const float dist = fabsf((com_candidate[i].second - k_rotate_center).length() - k_rotate_r);
+
+			if (min_dist < dist)
+			{
+				min_dist = dist;
+				min_index = i;
+			}
+		}
+	}
+
+	if (min_index == -1)
+	{
+		return false;
 	}
 
 	//該当するものがなければfalseを返す
-	return false;
+	output_com.x = com_candidate[min_index].second.x;
+	output_com.y = com_candidate[min_index].second.y;
+	output_com.z = m_current_node.global_center_of_mass.z;
+	return true;
 }
 
-void ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::vector<std::pair<bool, my_vec::SVector2>>* coms) const
+bool ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::pair<bool, my_vec::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 	const float min_x = polygon.getMinX();
@@ -76,35 +109,32 @@ void ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, st
 	const float width = max_x - min_x;
 	const float height = max_y - min_y;
 
+	if (my_math::isEqual(width, 0.0f) || my_math::isEqual(height, 0.0f)) { return false; }
+
 	const float delta_width = width / (float)DISCRETIZATION_NUM;
 	const float delta_height = height / (float)DISCRETIZATION_NUM;
 
 	//上記の四角形の中にある点を全て候補に追加する．
-	(*coms).reserve(DISCRETIZATION_NUM * DISCRETIZATION_NUM);
-
 	for (int x = 0; x < DISCRETIZATION_NUM; ++x)
 	{
 		for (int y = 0; y < DISCRETIZATION_NUM; ++y)
 		{
-			(*coms).push_back(std::make_pair(true, my_vec::SVector2{ min_x + delta_width * x, min_y + delta_height * y }));
+			coms[x * DISCRETIZATION_NUM + y].first = true;
+			coms[x * DISCRETIZATION_NUM + y].second.x = min_x + delta_width * x;
+			coms[x * DISCRETIZATION_NUM + y].second.y = min_y + delta_height * y;
 		}
 	}
 
-	if (DO_DEBUG_PRINT) { std::cout << "CandidatePointNum is " << (*coms).size() << std::endl; }
+	return true;
 }
 
-bool ComSelecterHato::isInMargin(const my_vec::SPolygon2& polygon, const my_vec::SVector2& candidate_point) const
+bool ComSelecterHato::isInMargin(const my_vec::SPolygon2& polygon, const std::vector<my_vec::SVector2>& edge_vec, const my_vec::SVector2& candidate_point) const
 {
-	const int k_vertex_num = polygon.getVertexNum();	//頂点数．何度も使用するので，先に計算しておくことで軽くする．
-
-	for (int j = 0; j < k_vertex_num; ++j)
+	for (int i = 0; i < polygon.getVertexNum(); ++i)
 	{
-		my_vec::SVector2 v1 = polygon.getVertex((j + 1) % k_vertex_num) - polygon.getVertex(j);
-		v1 = v1.normalized() * -1;
+		my_vec::SVector2 v_map = candidate_point - polygon.getVertex(i);
 
-		my_vec::SVector2 v_map = candidate_point - polygon.getVertex(j);
-
-		if (v_map.cross(v1) > -STABILITY_MARGIN)
+		if (v_map.cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{
 			//安定余裕を満たさないならば候補から削除する．
 			return false;

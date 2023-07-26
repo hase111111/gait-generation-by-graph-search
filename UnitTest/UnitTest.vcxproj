@@ -51,7 +51,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SLineFuncTest.cpp" />
-    <ClCompile Include="SPolygonIsInsideTets.cpp" />
+    <ClCompile Include="SPolygonIsInsideTest.cpp" />
+    <ClCompile Include="SPolygonMaxMinTest.cpp" />
     <ClCompile Include="SPolygonTest.cpp" />
     <ClCompile Include="SVector2ArithmeticOperatorTest.cpp" />
     <ClCompile Include="SVector2FuncTest.cpp" />

@@ -18,17 +18,17 @@ private:
 
 	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
 
-	const bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
+	static constexpr bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
 
 	SNode m_current_node; //!< 現在のノード
 
-	HexapodStateCalclator m_calclator; //!< 状態計算クラス
+	const HexapodStateCalclator m_calclator; //!< 状態計算クラス
 
 public:
 
 	//! @brief 現在のノードを設定する
 	//! @param [in] _current_node 現在のノード
-	void setCurrentNode(const SNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
+	inline void setCurrentNode(const SNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
 
 	//! @brief 重心を求める
 	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
@@ -46,8 +46,8 @@ public:
 private:
 
 	//! @brief 候補地点を生成する
-	void makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::vector<std::pair<bool, my_vec::SVector2>>* output_coms) const;
+	bool makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::pair<bool, my_vec::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const my_vec::SPolygon2& polygon, const my_vec::SVector2& candidate_point) const;
+	bool isInMargin(const my_vec::SPolygon2& polygon, const std::vector<my_vec::SVector2>& edge_vec, const my_vec::SVector2& candidate_point) const;
 };

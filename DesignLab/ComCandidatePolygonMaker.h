@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "MyPolygon.h"
 #include "ComType.h"
+#include "HexapodStateCalculator.h"
 #include <vector>
 
 //! @brief 重心位置の候補地点を示す多角形を作成するクラス
@@ -11,30 +12,32 @@
 //! ロボットの回転・旋回は行うことができない
 class ComCandidatePolygonMaker final
 {
-private:
-
-	//デバッグ用に出力を行う場合はtrueにする．テストコードを書きたいけど抽象化できていない...
-	const bool DO_DEBUG_OUTPUT = false;
-
 public:
+
+	static constexpr int MAKE_POLYGON_NUM = 7;	//!< 作成する多角形の数
+
 	ComCandidatePolygonMaker() = default;
 
 	//! @brief 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する
 	//! @param[in] node 現在のロボットの状態を表すノード
-	//! @param[out] _output_poly 重心位置の候補地点を示す多角形
-	void makeCandidatePolygon(const SNode& node, std::vector<std::pair<my_vec::SPolygon2, ComType::EComPattern>>& _output_poly) const;
+	//! @param[out] output_poly 重心位置の候補地点を示す多角形
+	void makeCandidatePolygon(const SNode& node, std::pair<my_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const;
 
 private:
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は4角形か5角形を用いて表現する．
-	my_vec::SPolygon2 makeCandidateBox(const my_vec::SVector2 _leg_pos[HexapodConst::LEG_NUM], const int _start_leg_num) const;
+	void makeCandidateBox(const my_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, my_vec::SPolygon2* output_poly) const;
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は3角形を用いて表現する．
-	//! @param[in] _leg_pos 脚の位置
-	void makeCandidateTriangle(const my_vec::SVector2 _leg_pos[HexapodConst::LEG_NUM], my_vec::SPolygon2& _out_poly, ComType::EComPattern& _out_com_pattern) const;
+	void makeCandidateTriangle(const my_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], my_vec::SPolygon2* output_poly, ComType::EComPattern* output_com_pattern) const;
 
 	//! @brief 正しい多角形が生成されているかを確認する
 	//! @param[in] _poly 確認する多角形
 	//! @return 正しい多角形が生成されているか
 	bool checkPolygon(const my_vec::SPolygon2& _poly) const;
+
+	static constexpr bool DO_DEBUG_PRINT = false;	// デバッグ用に出力を行う場合はtrueにする．テストコードを書きたいけど抽象化できていない...
+
+	const HexapodStateCalclator m_calc;
+
 };

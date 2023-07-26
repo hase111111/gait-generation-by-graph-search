@@ -193,6 +193,11 @@ namespace SPolygon2Test
 
 		EXPECT_EQ(polygon.getVertexNum(), 4);
 
+		//頂点を全て削除し，頂点数を確認する
+		polygon.reset();
+
+		EXPECT_EQ(polygon.getVertexNum(), 0);
+
 		//6角形を作成し，頂点数を確認する
 		SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });

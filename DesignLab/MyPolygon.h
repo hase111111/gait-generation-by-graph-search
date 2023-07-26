@@ -13,14 +13,15 @@ namespace my_vec
 	//! 参照 : https://cpprefjp.github.io/reference/algorithm/max.html
 	struct SPolygon2 final
 	{
-		SPolygon2() = default;
+		SPolygon2() { vertex.resize(MAX_VERTEX_NUM); };
 
 		//! @brief 頂点を追加する関数
 		//! @param[in] v 追加する頂点
 		//! @note 他の頂点と重なっている場合でも追加する．
 		inline void addVertex(const SVector2& v)
 		{
-			vertex.push_back(v);
+			vertex[vertex_num] = v;
+			++vertex_num;
 		}
 
 		//! @brief 頂点を追加する関数．他の頂点と重なっている場合は追加しない
@@ -29,23 +30,24 @@ namespace my_vec
 		//! @return 追加できたかどうか
 		inline bool addVertexCheckForDuplicates(const SVector2& v)
 		{
-			for (const auto& i : vertex)
+			for (int i = 0; i < vertex_num; i++)
 			{
-				if (i == v)
+				if (vertex[i] == v)
 				{
 					return false;
 				}
 			}
 
-			vertex.push_back(v);
+			vertex[vertex_num] = v;
+			++vertex_num;
 			return true;
 		}
 
-		//! @brief 頂点を削除する関数
+		//! @brief 頂点を削除する関数．遅いので使用するべきではない
 		//! @param[in] i 削除する頂点のインデックス
 		//! @note 存在しない頂点を指定した場合は何もしない．
 		//! @note 削除した頂点のインデックスは変わるので注意．
-		inline void removeVertex(int i)
+		inline void removeVertex(const int i)
 		{
 			if (i < 0 || i >= getVertexNum())
 			{
@@ -53,6 +55,8 @@ namespace my_vec
 			}
 
 			vertex.erase(vertex.begin() + i);
+			vertex.push_back({ 0,0 });
+			--vertex_num;
 		}
 
 		//! @brief 1番最後の頂点を削除する関数
@@ -64,12 +68,12 @@ namespace my_vec
 				return;
 			}
 
-			vertex.pop_back();
+			--vertex_num;
 		}
 
 		//! @brief 多角形の頂点数を返す関数
 		//! @return 多角形の頂点数
-		inline int getVertexNum() const { return static_cast<int>(vertex.size()); }
+		constexpr int getVertexNum() const { return vertex_num; }
 
 		//! @brief 頂点の座標を返す関数
 		//! @param[in] i 頂点のインデックス
@@ -151,8 +155,13 @@ namespace my_vec
 		//! @note 多角形が凸でない場合は正しく判定できない．
 		bool isInside(const SVector2& _p) const;
 
+		//! @brief 多角形をリセットする関数
+		inline void reset() { vertex_num = 0; }
+
 	private:
+		static constexpr int MAX_VERTEX_NUM = 6;	//!< 速度を早くするためにあらかじめ最大サイズを決定しておく．
 		std::vector<SVector2> vertex;	//!< 頂点座標
+		int vertex_num = 0;					//!< 頂点数
 	};
 
 	// 出力ストリーム

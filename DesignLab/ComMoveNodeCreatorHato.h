@@ -2,7 +2,10 @@
 #include "InterfaceNodeCreator.h"
 #include "MyPolygon.h"
 #include "ComType.h"
+#include "ComCandidatePolygonMaker.h"
+#include "ComSelecterHato.h"
 #include "HexapodStateCalculator.h"
+
 
 class ComMoveNodeCreatorHato final : public INodeCreator
 {
@@ -21,13 +24,17 @@ private:
 
 	const HexapodStateCalclator m_Calclator;
 
-	const bool DO_DEBUG_PRINT = false;
+	const ComCandidatePolygonMaker m_maker;
 
-	const float STABLE_MARGIN = 10.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
+	ComSelecterHato m_selecter;
 
-	bool isStable(const SNode _node) const;
+	static constexpr bool DO_DEBUG_PRINT = false;
 
-	bool isIntersectGround(const SNode _node) const;
+	static constexpr float STABLE_MARGIN = 10.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
+
+	bool isStable(const SNode& _node) const;
+
+	bool isIntersectGround(const SNode& _node) const;
 };
 
 //! @file ComMoveNodeCreatorHato.h

@@ -166,16 +166,6 @@ bool HexapodStateCalclator::isLegInterfering(const SNode& _node) const
 
 bool HexapodStateCalclator::isLegInRange(const SNode& node, const int leg_num) const
 {
-	//const my_vec::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
-	//const float leg_angle = atan2(leg_pos_xy.y, leg_pos_xy.x);
-
-	//const float min_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] - HexapodConst::MOVABLE_LEG_RANGE;
-	//const float max_angle = HexapodConst::DEFAULT_LEG_ANGLE[_leg_num] + HexapodConst::MOVABLE_LEG_RANGE;
-
-	////脚の角度が範囲内にあるか調べる．
-	//if (leg_angle < min_angle) { return false; }
-	//if (max_angle < leg_angle) { return false; }
-
 	const my_vec::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
 	const my_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
 	const my_vec::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
@@ -192,13 +182,30 @@ bool HexapodStateCalclator::isLegInRange(const SNode& node, const int leg_num) c
 	return true;
 }
 
+bool HexapodStateCalclator::isLegInRange(const my_vec::SVector& local_leg_pos, const int leg_num) const
+{
+	const my_vec::SVector2 leg_pos_xy = local_leg_pos.projectedXY();
+	const my_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
+	const my_vec::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
+
+	//脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
+	if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
+	if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+
+	////脚を伸ばすことのできない範囲に伸ばしていないか調べる．
+	if (my_math::squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.lengthSquare()) { return false; }
+	if (my_math::squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.lengthSquare()) { return false; }
+
+	return true;
+}
+
 bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
 {
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (LegStateEdit::isGrounded(node.leg_state, i))
 		{
-			if (!isLegInRange(node, i)) { return false; }
+			if (!isLegInRange(node.leg_pos[i], i)) { return false; }
 		}
 	}
 
@@ -208,24 +215,27 @@ bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
 bool HexapodStateCalclator::isAblePause(const SNode& _node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
+	//かつてvectorを使っていたが，処理速度の問題で，配列を使うことにした．
 
-	std::vector<my_vec::SVector2> _leg_pos;
+	my_vec::SVector2 leg_pos[HexapodConst::LEG_NUM];
+	int leg_pos_index = 0;
 
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (LegStateEdit::isGrounded(_node.leg_state, i) == true)
 		{
-			_leg_pos.push_back(_node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
+			leg_pos[leg_pos_index] = _node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY();
+			++leg_pos_index;
 		}
 	}
 
-	for (int i = 0; i < _leg_pos.size(); i++)
+	for (int i = 0; i < leg_pos_index; i++)
 	{
-		my_vec::SVector2 _i_to_i_plus_1 = _leg_pos.at((i + 1) % _leg_pos.size()) - _leg_pos.at(i);
-		my_vec::SVector2 _i_to_com = my_vec::SVector2{ 0,0 } - _leg_pos.at(i);
+		my_vec::SVector2 i_to_i_plus_1 = leg_pos[(i + 1) % leg_pos_index] - leg_pos[i];
+		my_vec::SVector2 i_to_com = my_vec::SVector2{ 0,0 } - leg_pos[i];
 
-		if (_i_to_i_plus_1.cross(_i_to_com) > 0)return false;
+		if (i_to_i_plus_1.cross(i_to_com) > 0)return false;
 	}
 
 	return true;

@@ -1,74 +1,53 @@
 #include "ComMoveNodeCreatorHato.h"
-#include "ComCandidatePolygonMaker.h"
-#include "ComSelecterHato.h"
 #include "LegState.h"
 
 void ComMoveNodeCreatorHato::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
 {
-	std::vector<std::pair<my_vec::SPolygon2, ComType::EComPattern>> _candidate_polygons;
+	std::pair<my_vec::SPolygon2, ComType::EComPattern> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
 
 	//重心移動先の候補地点の範囲を示す多角形を作成する
-	ComCandidatePolygonMaker _maker;
-	_maker.makeCandidatePolygon(_current_node, _candidate_polygons);
+	m_maker.makeCandidatePolygon(_current_node, candidate_polygons);
 
 	//候補範囲から実際に移動する先の座標を選択する
-	ComSelecterHato _selecter;
-	_selecter.setCurrentNode(_current_node);
+	m_selecter.setCurrentNode(_current_node);
 
-	for (const auto& i : _candidate_polygons)
+	for (int i = 0; i < ComCandidatePolygonMaker::MAKE_POLYGON_NUM; ++i)
 	{
+		//そもそも多角形が候補点になりえないならば，その多角形は無視する
+		if (candidate_polygons[i].second == ComType::EComPattern::Error) { continue; }
+
+		//同様に脚の接地状態的に候補にならない場合も無視する．
+		//bool is_leg_ground[HexapodConst::LEG_NUM];
+		//for (int j = 0; j < HexapodConst::LEG_NUM; ++j) { is_leg_ground[j] = LegStateEdit::isGrounded(_current_node.leg_state, j); }
+		//int com_type = ComType::convertComPatternToBit(candidate_polygons->second);
+
+		//if (!ComType::isAbleCoM(com_type, is_leg_ground)) { continue; }
+
 		my_vec::SVector _res;
 
-		if (_selecter.getComFromPolygon(i.first, i.second, _res) == true)
+		if (m_selecter.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, _res) == true)
 		{
 			SNode _next_node = _current_node;
 
 			_next_node.changeGlobalCenterOfMass(_res, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
-			LegStateEdit::changeComPattern(_next_node.leg_state, i.second);		//leg_stateのcom_patternを変更する
+			LegStateEdit::changeComPattern(_next_node.leg_state, candidate_polygons[i].second);		//leg_stateのcom_patternを変更する
 
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++) { LegStateEdit::changeLegStateKeepTopBit(_next_node.leg_state, i, 4); }
+			for (int j = 0; j < HexapodConst::LEG_NUM; ++j) { LegStateEdit::changeLegStateKeepTopBit(_next_node.leg_state, j, 4); }
 
 			_next_node.changeNextNode(_current_num, m_next_move);	//深さや親ノードを変更する
 
-			_output_graph.push_back(_next_node);
+			if (isStable(_next_node) && !isIntersectGround(_next_node))
+			{
+				_output_graph.push_back(_next_node);
+			}
 		}
 	}
 
 	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreatorHato::create() : " << _output_graph.size() << std::endl;
-
-	//安定余裕を満たさない場合は枝刈りする．
-	for (auto i = _output_graph.begin(); i != _output_graph.end();)
-	{
-		if (isStable(*i) == false)
-		{
-			i = _output_graph.erase(i);
-		}
-		else
-		{
-			i++;
-		}
-	}
-
-	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreatorHato::isStable() : " << _output_graph.size() << std::endl;
-
-	//地面と干渉している場合は枝刈りする．
-	for (auto i = _output_graph.begin(); i != _output_graph.end();)
-	{
-		if (isIntersectGround(*i) == true)
-		{
-			i = _output_graph.erase(i);
-		}
-		else
-		{
-			i++;
-		}
-	}
-
-	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreatorHato::isIntersectGround() : " << _output_graph.size() << std::endl;
 }
 
-bool ComMoveNodeCreatorHato::isStable(const SNode _node) const
+bool ComMoveNodeCreatorHato::isStable(const SNode& _node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 
@@ -82,7 +61,7 @@ bool ComMoveNodeCreatorHato::isStable(const SNode _node) const
 	}
 }
 
-bool ComMoveNodeCreatorHato::isIntersectGround(const SNode _node) const
+bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& _node) const
 {
 	float _top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
 

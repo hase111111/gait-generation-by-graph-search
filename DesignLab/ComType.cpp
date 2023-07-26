@@ -424,22 +424,8 @@ void ComType::getGroundLegFromComType(const int _com_type, bool _output_ground_l
 
 void ComType::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output)
 {
-	std::vector< std::vector<int> > _ban_list;
-
-	//あまり良い実装ではない．どっかで先にこのリストを作っておくべき，
-
-	_ban_list.push_back({ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 });	//パターン0 どの隣りあった足も上げることができない
-	_ban_list.push_back({ 18, 19,             23, 24, 25,             29, 30, 31,             35 });	//パターン6
-	_ban_list.push_back({ 18, 19, 20,             24, 25, 26,             30, 31, 32 });				//パターン1
-	_ban_list.push_back({ 19, 20, 21,             25, 26, 27,             31, 32, 33 });			//パターン2
-	_ban_list.push_back({ 20, 21, 22,             26, 27, 28,             32, 33, 34 });		//パターン3
-	_ban_list.push_back({ 21, 22, 23,             27, 28, 29,             33, 34, 35 });	//パターン4
-	_ban_list.push_back({ 18,             22, 23, 24,             28, 29, 30,             34, 35 });	//パターン5
-	_ban_list.push_back({ 18,     20,     22,     24,     26,     28,     30,     32,     34, });		//パターン7
-	_ban_list.push_back({ 19,     21,     23,     25,     27,     29,     31,     33,     35 });	//パターン8
-
 	//com patternから使用不可能なcom typeを取得して出力する．
-	for (const auto& i : _ban_list.at(_com_pattern))
+	for (const auto& i : COMTYPE_BAN_LIST[_com_pattern])
 	{
 		_output.push_back(i);
 	}
