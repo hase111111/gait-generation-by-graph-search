@@ -1,6 +1,7 @@
 #include "PassFinderFactoryHato.h"
 #include "GraphTreeCreatorHato.h"
 #include "GraphSearcherHato.h"
+#include "GraphTreeCreatorThread.h"
 #include "LegUpDownNodeCreator.h"
 #include "LegHierarchyNodeCreator.h"
 #include "ComUpDownNodeCreator.h"
@@ -17,7 +18,7 @@ void PassFinderFactoryHato::createPassFinder(std::unique_ptr<IGraphTreeCreator>&
 	_node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(_map, EHexapodMove::LEG_HIERARCHY_CHANGE));
 
 	//木を作成するクラスと，木を探索するクラスを作成．
-	std::unique_ptr<IGraphTreeCreator> p_creator = std::make_unique<GraphTreeCreatorHato>(_node_creator_map);
+	std::unique_ptr<IGraphTreeCreator> p_creator = std::make_unique<GraphTreeCreatorThread>(_node_creator_map);
 	std::unique_ptr<IGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>();
 
 	//完成したクラスを引数に代入．
