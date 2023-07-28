@@ -78,8 +78,8 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 				}
 				else
 				{
-					_res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					_res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					//_res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					//_res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
 					_res_node.leg_pos[j].z = -10;
 				}
 			}
