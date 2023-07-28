@@ -64,7 +64,7 @@ void GraphTreeCreatorThread::makeNewNodesByCurrentNode(const SNode& _current_nod
 
 	if (m_node_creator_map.count(_current_node.next_move) > 0)
 	{
-		m_node_creator_map.at(_current_node.next_move)->create(_current_node, _current_num, _output_graph);
+		m_node_creator_map.at(_current_node.next_move)->create(_current_node, _current_num, &_output_graph);
 		return;
 	}
 	else

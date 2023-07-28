@@ -47,7 +47,7 @@ namespace ComType
 		right_front,	//!< 重心が右前方にある
 		center_front,	//!< 重心が中央前方にある．三角形
 		center_back,	//!< 重心が中央後方にある．逆三角径
-		Error			//!< エラー
+		error			//!< エラー
 	};
 
 	//! @brief 重心パターンをbitに変換する関数

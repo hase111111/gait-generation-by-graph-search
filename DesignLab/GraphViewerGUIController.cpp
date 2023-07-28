@@ -1,4 +1,5 @@
 #include "GraphViewerGUIController.h"
+#include <string>
 #include "DxLib.h"
 #include "Dxlib3DFunction.h"
 #include "GraphicConst.h"
@@ -108,25 +109,32 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 
 void GraphViewerGUIController::drawNodeData(const SNode node) const
 {
-	const int _box_size_x = 400;
-	const int _box_size_y = 300;
-	const int _box_min_x = GraphicConst::WIN_X - 25 - _box_size_x;
-	const int _box_min_y = 25;
-	const unsigned int _color = GetColor(255, 255, 255);
+	const int kBoxSizeX = 400;
+	const int KBoxSizeY = 300;
+	const int kBoxMinX = GraphicConst::WIN_X - 25 - kBoxSizeX;
+	const int kBoxMinY = 25;
+	const unsigned int kBoxColor = GetColor(255, 255, 255);
+	const unsigned int kBoxAlpha = 128;
 
 	// 枠
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-	DrawBox(_box_min_x, _box_min_y, _box_min_x + _box_size_x, _box_min_y + _box_size_y, _color, TRUE);
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
+	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + KBoxSizeY, kBoxColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	// テキスト
-	const unsigned int _text_color = GetColor(10, 10, 10);
-	DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", LegStateEdit::getComPatternState(node.leg_state),
+	const unsigned int kTextColor = GetColor(10, 10, 10);
+	const int kTextXPos = kBoxMinX + 10;
+	const int kTextYMinPos = kBoxMinY + 10;
+	const int kTextYInterval = 30;
+	int text_line = 0;
+
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", LegStateEdit::getComPatternState(node.leg_state),
 		LegStateEdit::getLegState(node.leg_state, 0), LegStateEdit::getLegState(node.leg_state, 1), LegStateEdit::getLegState(node.leg_state, 2),
 		LegStateEdit::getLegState(node.leg_state, 3), LegStateEdit::getLegState(node.leg_state, 4), LegStateEdit::getLegState(node.leg_state, 5));
 
 	// 重心を表示する
-	DrawFormatString(_box_min_x + 10, _box_min_y + 40, _text_color, "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
+		"重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
 
 	//遊脚か接地脚か
 	std::string str = "";
@@ -135,15 +143,18 @@ void GraphViewerGUIController::drawNodeData(const SNode node) const
 		if (LegStateEdit::isGrounded(node.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
-	DrawFormatString(_box_min_x + 10, _box_min_y + 70, _text_color, "脚の状態：%s", str.c_str());
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
 
 	// 脚の位置を表示する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		DrawFormatString(_box_min_x + 10, _box_min_y + 100 + i * 30, _text_color, "%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
+			"%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
 	}
 
-
+	// 深さと次の動作を表示する
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
+		"深さ：%d, 次の動作 : %s", static_cast<int>(node.depth), std::to_string(node.next_move).c_str());
 }
 
 void GraphViewerGUIController::inputNumber()

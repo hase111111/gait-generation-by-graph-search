@@ -5,7 +5,7 @@
 
 // @todo 現状動かないので，動くようにする
 
-void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {
 	std::vector<std::pair<my_vec::SPolygon2, ComType::EComPattern>> _candidate_polygons;
 
@@ -33,9 +33,9 @@ void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_n
 
 			_next_node.changeNextNode(_current_num, m_next_move);	//深さや親ノードを変更する
 
-			_output_graph.push_back(_next_node);
+			(*output_graph).push_back(_next_node);
 		}
 	}
 
-	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreator::create() : " << _output_graph.size() << std::endl;
+	if (DO_DEBUG_PRINT)std::cout << "ComMoveNodeCreator::create() : " << (*output_graph).size() << std::endl;
 }

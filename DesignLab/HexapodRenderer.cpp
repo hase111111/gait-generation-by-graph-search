@@ -77,7 +77,7 @@ void HexapodRenderer::draw(const SNode& _node) const
 		//脚のベース座標の描画
 		if (_node.leg_pos[i] != _node.leg_base_pos[i])
 		{
-			//DrawSphere3D(_leg_base, JOINT_R, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+			DrawSphere3D(_leg_base, JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
 		}
 
 		//エラー出力

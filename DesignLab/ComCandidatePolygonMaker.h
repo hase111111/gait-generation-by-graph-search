@@ -34,10 +34,12 @@ private:
 	//! @brief 正しい多角形が生成されているかを確認する
 	//! @param[in] _poly 確認する多角形
 	//! @return 正しい多角形が生成されているか
-	bool checkPolygon(const my_vec::SPolygon2& _poly) const;
+	bool checkPolygon(const my_vec::SPolygon2& poly) const;
 
 	static constexpr bool DO_DEBUG_PRINT = false;	// デバッグ用に出力を行う場合はtrueにする．テストコードを書きたいけど抽象化できていない...
 
-	const HexapodStateCalclator m_calc;
+	static constexpr bool DO_CHECK_POLYGON = true;	// 多角形のチェックを行う場合はtrueにする．重いのでfalseにしたいが，深さ5までなら問題なし．
+
+	const HexapodStateCalclator m_calclator;
 
 };

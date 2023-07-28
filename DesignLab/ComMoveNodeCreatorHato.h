@@ -11,18 +11,18 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_Map(_p_map) {};
+	ComMoveNodeCreatorHato(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_map(_p_map) {};
 	~ComMoveNodeCreatorHato() = default;
 
-	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
+	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
 
 private:
 
-	const MapState* const mp_Map;
+	const MapState* const mp_map;
 
 	std::vector<my_vec::SPolygon2> m_Polygons;
 
-	const HexapodStateCalclator m_Calclator;
+	const HexapodStateCalclator m_calclator;
 
 	const ComCandidatePolygonMaker m_maker;
 

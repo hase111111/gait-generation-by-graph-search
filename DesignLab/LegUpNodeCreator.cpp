@@ -3,7 +3,7 @@
 #include "LegState.h"
 
 
-void LegUpNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void LegUpNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	bool _is_able_type[ComType::COM_TYPE_NUM];
@@ -58,19 +58,19 @@ void LegUpNodeCreator::create(const SNode& _current_node, const int _current_num
 			//可能な姿勢ならば，子ノードとして追加する．
 			if (m_calculator.isAblePause(_res_node) == true)
 			{
-				_output_graph.push_back(_res_node);
+				(*output_graph).push_back(_res_node);
 			}
 		}
 	}
 
 	//出力されたノードがないならば，そのままのノードを出力する．
-	if (_output_graph.size() == 0)
+	if ((*output_graph).size() == 0)
 	{
 		SNode _res_node = _current_node;
 
 		_res_node.changeNextNode(_current_num, m_next_move);
 
-		_output_graph.push_back(_res_node);
+		(*output_graph).push_back(_res_node);
 	}
 
 }

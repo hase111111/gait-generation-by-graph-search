@@ -2,32 +2,35 @@
 #include "MyLine.h"
 #include "HexapodConst.h"
 
-void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& _node, std::pair<my_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const
+void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<my_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const
 {
-	my_vec::SVector2 _leg_pos_xy[HexapodConst::LEG_NUM];	//XY平面に射影した脚位置を算出する
+	my_vec::SVector2 leg_pos_xy[HexapodConst::LEG_NUM];	//XY平面に射影した脚位置を算出する
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		_leg_pos_xy[i] = m_calc.getGlobalLegPos(_node, i, false).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
+		leg_pos_xy[i] = m_calclator.getGlobalLegPos(node, i, false).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
 	}
 
 	//中心を囲むように4角形を作成する
-	makeCandidateBox(_leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = ComType::EComPattern::left_front;
-	makeCandidateBox(_leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = ComType::EComPattern::left_back;
-	makeCandidateBox(_leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = ComType::EComPattern::back;
-	makeCandidateBox(_leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = ComType::EComPattern::right_back;
-	makeCandidateBox(_leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = ComType::EComPattern::right_front;
-	makeCandidateBox(_leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = ComType::EComPattern::front;
+	makeCandidateBox(leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = ComType::EComPattern::left_front;
+	makeCandidateBox(leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = ComType::EComPattern::left_back;
+	makeCandidateBox(leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = ComType::EComPattern::back;
+	makeCandidateBox(leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = ComType::EComPattern::right_back;
+	makeCandidateBox(leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = ComType::EComPattern::right_front;
+	makeCandidateBox(leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = ComType::EComPattern::front;
 
 	//中心に3角形を作成する
-	makeCandidateTriangle(_leg_pos_xy, &output_poly[6].first, &output_poly[6].second);
+	makeCandidateTriangle(leg_pos_xy, &output_poly[6].first, &output_poly[6].second);
 
 	//生成した多角形が正しいかどうかをチェックし，異常なものは削除する
-	for (int i = 0; i < MAKE_POLYGON_NUM; ++i)
+	if (DO_CHECK_POLYGON)
 	{
-		if (output_poly[i].first.isConvex() == false)
+		for (int i = 0; i < MAKE_POLYGON_NUM; ++i)
 		{
-			output_poly[i].second = ComType::EComPattern::Error;
+			if (!checkPolygon(output_poly[i].first))
+			{
+				output_poly[i].second = ComType::EComPattern::error;
+			}
 		}
 	}
 
@@ -69,11 +72,11 @@ void ComCandidatePolygonMaker::makeCandidateBox(const my_vec::SVector2 leg_pos[H
 		my_vec::SVector2 _intersection_03_25 = _leg_line_03.getIntersection(_leg_line_25);
 		my_vec::SVector2 _intersection_14_25 = _leg_line_14.getIntersection(_leg_line_25);
 
-		(*output_poly).addVertex(_intersection_03_15);
-		(*output_poly).addVertex(_intersection_02_15);
-		(*output_poly).addVertex(_intersection_02_14);
-		(*output_poly).addVertex(_intersection_14_25);
-		(*output_poly).addVertex(_intersection_03_25);
+		(*output_poly).addVertexCheckForDuplicates(_intersection_03_15);
+		(*output_poly).addVertexCheckForDuplicates(_intersection_02_15);
+		(*output_poly).addVertexCheckForDuplicates(_intersection_02_14);
+		(*output_poly).addVertexCheckForDuplicates(_intersection_14_25);
+		(*output_poly).addVertexCheckForDuplicates(_intersection_03_25);
 	}
 	else
 	{

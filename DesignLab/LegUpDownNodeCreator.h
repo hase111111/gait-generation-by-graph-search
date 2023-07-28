@@ -12,22 +12,22 @@ private:
 
 public:
 
-	LegUpDownNodeCreator(const MapState* const _p_Map, const EHexapodMove _next_move) : INodeCreator(_p_Map, _next_move), mp_Map(_p_Map) {};
+	LegUpDownNodeCreator(const MapState* const p_Map, const EHexapodMove next_move) : INodeCreator(p_Map, next_move), mp_map(p_Map) {};
 	~LegUpDownNodeCreator() = default;
 
-	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph) override;
+	void create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) override;
 
 private:
 
-	const MapState* const mp_Map;
+	const MapState* const mp_map;
 
-	HexapodStateCalclator m_Calc;	//ロボットの座標計算クラス．
+	HexapodStateCalclator m_calclator;	//ロボットの座標計算クラス．
 
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
-	bool isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos);
+	bool isGroundableLeg(const int leg_num, const SNode& current_node, my_vec::SVector* output_ground_pos);
 
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
-	bool isAbleLegPos(const SNode& _node, const int _leg_num);
+	bool isAbleLegPos(const SNode& node, const int leg_num);
 };
 
 

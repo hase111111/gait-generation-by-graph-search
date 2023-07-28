@@ -35,22 +35,22 @@ EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& _current_n
 }
 
 
-void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, const int current_num, std::vector<SNode>& output_graph)
 {
-	_output_graph.clear();
+	output_graph.clear();
 
-	if (m_node_creator_map.count(_current_node.next_move) > 0)
+	if (m_node_creator_map.count(current_node.next_move) > 0)
 	{
-		m_node_creator_map.at(_current_node.next_move)->create(_current_node, _current_num, _output_graph);
+		m_node_creator_map.at(current_node.next_move)->create(current_node, current_num, &output_graph);
 		return;
 	}
 	else
 	{
 		//定義されていないならば，同じノードをそのまま追加する．
-		SNode _new_node = _current_node;
+		SNode new_node = current_node;
 
-		_new_node.changeNextNode(_current_num, _current_node.next_move);
+		new_node.changeNextNode(current_num, current_node.next_move);
 
-		_output_graph.push_back(_new_node);
+		output_graph.push_back(new_node);
 	}
 }

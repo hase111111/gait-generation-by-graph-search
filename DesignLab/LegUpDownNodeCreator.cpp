@@ -3,7 +3,7 @@
 #include "ComType.h"
 #include "LegState.h"
 
-void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	bool _is_able_type[ComType::COM_TYPE_NUM];
@@ -39,12 +39,12 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			my_vec::SVector _res_ground_pos;
+			my_vec::SVector res_ground_pos;
 
-			if (isGroundableLeg(i, _current_node, _res_ground_pos) == true)
+			if (isGroundableLeg(i, _current_node, &res_ground_pos) == true)
 			{
 				_is_groundable[i] = true;	//接地可能にする．
-				_ground_pos[i] = _res_ground_pos;
+				_ground_pos[i] = res_ground_pos;
 			}
 			else
 			{
@@ -84,30 +84,28 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 				}
 			}
 
-			_output_graph.push_back(_res_node);
+			(*output_graph).push_back(_res_node);
 		}
 
 	}
 
-	//出力されるグラフが1つだけならば(自身と同じグラフしか生成されない場合は)グラフを追加しない．
-	if (_output_graph.size() == 1) { _output_graph.clear(); }
 }
 
-bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
+bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector* output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
 
 	using my_vec::SVector;
 
-	if (mp_Map == nullptr) { return false; }	//マップがないときはfalseを返す．
+	if (mp_map == nullptr) { return false; }	//マップがないときはfalseを返す．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const my_vec::SVector global_legbase_pos = m_Calc.getGlobalLegBasePos(_current_node, _leg_num, false);
+	const my_vec::SVector global_legbase_pos = m_calclator.getGlobalLegBasePos(_current_node, _leg_num, false);
 
-	int max_x_dev = mp_Map->getDevideMapNumX(global_legbase_pos.x) + 1;
-	int min_x_dev = mp_Map->getDevideMapNumX(global_legbase_pos.x) - 1;
-	int max_y_dev = mp_Map->getDevideMapNumY(global_legbase_pos.y) + 1;
-	int min_y_dev = mp_Map->getDevideMapNumY(global_legbase_pos.y) - 1;
+	int max_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) + 1;
+	int min_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) - 1;
+	int max_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) + 1;
+	int min_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) - 1;
 
 	////値がdevide mapの範囲外にあるときは丸める．
 	max_x_dev = (max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : max_x_dev;
@@ -118,20 +116,20 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	my_vec::SVector _candidate_pos;		//現在の脚位置に合致する候補座標群．
-	bool _is_candidate_pos = false;		//候補座標が存在するかどうか．
+	my_vec::SVector candidate_pos;		//現在の脚位置に合致する候補座標群．
+	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
 	for (int x = min_x_dev; x < max_x_dev; x++)
 	{
 		for (int y = min_y_dev; y < max_y_dev; y++)
 		{
-			const int _pos_num = mp_Map->getPointNumFromDevideMap(x, y);
+			const int _pos_num = mp_map->getPointNumFromDevideMap(x, y);
 
 			for (int n = 0; n < _pos_num; n++)
 			{
-				SVector map_point_pos = mp_Map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = m_Calc.convertLocalLegPos(_current_node, map_point_pos, _leg_num, false);
+				SVector map_point_pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
+				map_point_pos = m_calclator.convertLocalLegPos(_current_node, map_point_pos, _leg_num, false);
 
 				//脚位置を更新したノードを作成する．
 				SNode _new_node = _current_node;
@@ -140,16 +138,16 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 
 				//前の候補地点と比較して，より良い候補地点の時のみ実行すする
-				if (_is_candidate_pos == true)
+				if (is_candidate_pos == true)
 				{
 					//反対方向をむいている場合は候補地点として採用しない．
-					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(_candidate_pos.projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(map_point_pos.projectedXY()) < 0)
+					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(candidate_pos.projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(map_point_pos.projectedXY()) < 0)
 					{
 						continue;
 					}
 
 					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
-					if (map_point_pos.projectedXY().cross(_candidate_pos.projectedXY()) * map_point_pos.projectedXY().cross(_new_node.leg_base_pos[_leg_num].projectedXY()) < 0)
+					if (map_point_pos.projectedXY().cross(candidate_pos.projectedXY()) * map_point_pos.projectedXY().cross(_new_node.leg_base_pos[_leg_num].projectedXY()) < 0)
 					{
 						continue;
 					}
@@ -157,26 +155,26 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 
 				LegStateEdit::changeGround(_new_node.leg_state, _leg_num, true);
 
-				if (m_Calc.isLegInRange(_new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
+				if (m_calclator.isLegInRange(_new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
 
-				//if (m_Calc.isLegInterfering(_new_node) == true) { continue; }					//脚が干渉しているならば追加せずに続行．
+				//if (m_calclator.isLegInterfering(_new_node) == true) { continue; }					//脚が干渉しているならば追加せずに続行．
 
-				//if (m_Calc.isAblePause(_new_node) == false) { continue; }						//脚が地面についているならば追加せずに続行．
+				//if (m_calclator.isAblePause(_new_node) == false) { continue; }						//脚が地面についているならば追加せずに続行．
 
 				if (isAbleLegPos(_new_node, _leg_num) == false) { continue; }	//候補座標として，適していないならば追加せずに続行．
 
-				_is_candidate_pos = true;
-				_candidate_pos = map_point_pos;
+				is_candidate_pos = true;
+				candidate_pos = map_point_pos;
 			}
 		}
 	}
 
 
 	//候補点を全列挙したのち，候補点が一つもなければfalse
-	if (_is_candidate_pos == false) { return false; }
+	if (is_candidate_pos == false) { return false; }
 
 	//存在するなら，その中で最も適したものを結果として返し，true
-	_output_ground_pos = _candidate_pos;
+	*output_ground_pos = candidate_pos;
 
 	return true;
 }

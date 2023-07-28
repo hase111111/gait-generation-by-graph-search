@@ -2,48 +2,49 @@
 #include "LegState.h"
 #include "ComType.h"
 
-void LegDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void LegDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
-	bool _is_able_type[ComType::COM_TYPE_NUM];
+	bool is_able_type[ComType::COM_TYPE_NUM];
 
 	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
-		_is_able_type[i] = true;
+		is_able_type[i] = true;
 	}
 
 
 	//脚が地面に接地可能か調べる．
 
-	bool _is_groundable[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	my_vec::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
+	my_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.leg_pos[i]; }
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(_current_node.leg_state, i) == true)
+		if (LegStateEdit::isGrounded(current_node.leg_state, i))
 		{
-			//すでに接地している脚は接地可能に決まっているのでtrueにする．
-			_is_groundable[i] = true;
-			_ground_pos[i] = _current_node.leg_pos[i];
+			//すでに接地している脚は接地可能に決まっているのでtrueにし，座標をそのまま入れる．
+			is_groundable_leg[i] = true;
+			ground_pos[i] = current_node.leg_pos[i];
 
-			ComType::checkAbleComTypeFromNotFreeLeg(i, _is_able_type);				//遊脚不可能な脚によって，とれないcom typeを全てけす．
+			//足を下ろす動作をさせるので，接地脚は遊脚不可能．よって，とれないcom typeを全てけす．
+			ComType::checkAbleComTypeFromNotFreeLeg(i, is_able_type);
 		}
 		else
 		{
 			//現在遊脚中の脚は現在の脚状態で接地できるか検討する．
-			my_vec::SVector _res_ground_pos;
+			my_vec::SVector res_ground_pos;
 
-			if (isGroundableLeg(i, _current_node, _res_ground_pos) == true)
+			if (isGroundableLeg(i, current_node, res_ground_pos) == true)
 			{
-				_is_groundable[i] = true;	//接地可能にする．
-				_ground_pos[i] = _res_ground_pos;
+				is_groundable_leg[i] = true;	//接地可能にする．
+				ground_pos[i] = res_ground_pos;
 			}
 			else
 			{
-				_is_groundable[i] = false;	//接地不可能にする．
-				ComType::checkAbleComTypeFromNotGroundableLeg(i, _is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
+				is_groundable_leg[i] = false;	//接地不可能にする．
+				ComType::checkAbleComTypeFromNotGroundableLeg(i, is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
 			}
 		}
 	}
@@ -51,45 +52,45 @@ void LegDownNodeCreator::create(const SNode& _current_node, const int _current_n
 	//子ノードを生成する．
 	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
-		//その重心タイプが可能であれば，
-		if (_is_able_type[i] == true)
+		//その重心タイプを取ることが可能であれば
+		if (is_able_type[i])
 		{
-			SNode _res_node = _current_node;
-			_res_node.changeNextNode(_current_num, m_next_move);
+			SNode res_node = current_node;
+			res_node.changeNextNode(current_num, m_next_move);
 
 			//遊脚・接地を書き換える．
-			bool _temp_ground[HexapodConst::LEG_NUM] = {};
-			ComType::getGroundLegFromComType(i, _temp_ground);
+			bool is_ground_list[HexapodConst::LEG_NUM] = {};
+			ComType::getGroundLegFromComType(i, is_ground_list);
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				LegStateEdit::changeGround(_res_node.leg_state, j, _temp_ground[j]);
+				LegStateEdit::changeGround(res_node.leg_state, j, is_ground_list[j]);
 
-				if (_temp_ground[j] == true)
+				if (is_ground_list[j])
 				{
-					_res_node.leg_pos[j] = _ground_pos[j];
+					res_node.leg_pos[j] = ground_pos[j];
 				}
 				else
 				{
-					_res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					_res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
-					_res_node.leg_pos[j].z = -10;
+					res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					res_node.leg_pos[j].z = -10;
 				}
 			}
 
-			_output_graph.push_back(_res_node);
+			(*output_graph).push_back(res_node);
 		}
 
 	}
 
 	//出力されたノードがないならば，そのままのノードを出力する．
-	if (_output_graph.size() == 0)
+	if ((*output_graph).size() == 0)
 	{
-		SNode _res_node = _current_node;
+		SNode same_node = current_node;
 
-		_res_node.changeNextNode(_current_num, m_next_move);
+		same_node.changeNextNode(current_num, m_next_move);
 
-		_output_graph.push_back(_res_node);
+		(*output_graph).emplace_back(same_node);
 	}
 }
 
