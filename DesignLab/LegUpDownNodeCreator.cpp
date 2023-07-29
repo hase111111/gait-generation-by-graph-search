@@ -27,35 +27,35 @@ LegUpDownNodeCreator::~LegUpDownNodeCreator()
 void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
-	bool _is_able_type[ComType::COM_TYPE_NUM];
+	bool is_able_type[ComType::COM_TYPE_NUM];
 
 	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
-		_is_able_type[i] = true;
+		is_able_type[i] = true;
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	int _com_pattern = LegStateEdit::getComPatternState(_current_node.leg_state);
+	int com_pattern = LegStateEdit::getComPatternState(_current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
-	ComType::checkAbleComTypeFromComPattern(_com_pattern, _is_able_type);
+	ComType::checkAbleComTypeFromComPattern(com_pattern, is_able_type);
 
 
 
 	//次に脚が地面に接地可能か調べる．
 
-	bool _is_groundable[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	my_vec::SVector _ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
+	my_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { _ground_pos[i] = _current_node.leg_pos[i]; }
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = _current_node.leg_pos[i]; }
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (LegStateEdit::isGrounded(_current_node.leg_state, i) == true)
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
-			_is_groundable[i] = true;
-			_ground_pos[i] = _current_node.leg_pos[i];
+			is_groundable_leg[i] = true;
+			ground_pos[i] = _current_node.leg_pos[i];
 		}
 		else
 		{
@@ -64,13 +64,13 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 			if (isGroundableLeg(i, _current_node, &res_ground_pos) == true)
 			{
-				_is_groundable[i] = true;	//接地可能にする．
-				_ground_pos[i] = res_ground_pos;
+				is_groundable_leg[i] = true;	//接地可能にする．
+				ground_pos[i] = res_ground_pos;
 			}
 			else
 			{
-				_is_groundable[i] = false;	//接地不可能にする．
-				ComType::checkAbleComTypeFromNotGroundableLeg(i, _is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
+				is_groundable_leg[i] = false;	//接地不可能にする．
+				ComType::checkAbleComTypeFromNotGroundableLeg(i, is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
 			}
 		}
 	}
@@ -80,10 +80,10 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
 	{
 		//その重心タイプが可能であれば，
-		if (_is_able_type[i] == true)
+		if (is_able_type[i] == true)
 		{
-			SNode _res_node = _current_node;
-			_res_node.changeNextNode(_current_num, m_next_move);
+			SNode res_node = _current_node;
+			res_node.changeNextNode(_current_num, m_next_move);
 
 			//遊脚・接地を書き換える．
 			bool _temp_ground[HexapodConst::LEG_NUM] = {};
@@ -91,21 +91,29 @@ void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				LegStateEdit::changeGround(_res_node.leg_state, j, _temp_ground[j]);
+				LegStateEdit::changeGround(res_node.leg_state, j, _temp_ground[j]);
 
 				if (_temp_ground[j] == true)
 				{
-					_res_node.leg_pos[j] = _ground_pos[j];
+					res_node.leg_pos[j] = ground_pos[j];
+					res_node.leg_base_pos[j] = ground_pos[j];
 				}
 				else
 				{
-					//_res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					//_res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
-					_res_node.leg_pos[j].z = -10;
+					res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					res_node.leg_pos[j].z = -10;
+					res_node.leg_base_pos[j].x = res_node.leg_pos[j].x;
+					res_node.leg_base_pos[j].y = res_node.leg_pos[j].y;
 				}
 			}
 
-			(*output_graph).push_back(_res_node);
+			if (m_calclator.isAblePause(res_node))
+			{
+				//脚が地面についているならば追加せずに続行．
+				(*output_graph).push_back(res_node);
+			}
+
 		}
 
 	}
@@ -123,10 +131,10 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
 	const my_vec::SVector global_legbase_pos = m_calclator.getGlobalLegBasePos(_current_node, _leg_num, false);
 
-	int max_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) + 1;
-	int min_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) - 1;
-	int max_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) + 1;
-	int min_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) - 1;
+	int max_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) + 2;
+	int min_x_dev = mp_map->getDevideMapNumX(global_legbase_pos.x) - 2;
+	int max_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) + 2;
+	int min_y_dev = mp_map->getDevideMapNumY(global_legbase_pos.y) - 2;
 
 	////値がdevide mapの範囲外にあるときは丸める．
 	max_x_dev = (max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : max_x_dev;
@@ -153,36 +161,34 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _cur
 				map_point_pos = m_calclator.convertLocalLegPos(_current_node, map_point_pos, _leg_num, false);
 
 				//脚位置を更新したノードを作成する．
-				SNode _new_node = _current_node;
+				SNode new_node = _current_node;
 
-				_new_node.leg_pos[_leg_num] = map_point_pos;
+				new_node.leg_pos[_leg_num] = map_point_pos;
 
 
 				//前の候補地点と比較して，より良い候補地点の時のみ実行すする
 				if (is_candidate_pos == true)
 				{
 					//反対方向をむいている場合は候補地点として採用しない．
-					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(candidate_pos.projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(map_point_pos.projectedXY()) < 0)
+					if (new_node.leg_base_pos[_leg_num].projectedXY().cross(candidate_pos.projectedXY()) * new_node.leg_base_pos[_leg_num].projectedXY().cross(map_point_pos.projectedXY()) < 0)
 					{
 						continue;
 					}
 
 					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
-					if (map_point_pos.projectedXY().cross(candidate_pos.projectedXY()) * map_point_pos.projectedXY().cross(_new_node.leg_base_pos[_leg_num].projectedXY()) < 0)
+					if (map_point_pos.projectedXY().cross(candidate_pos.projectedXY()) * map_point_pos.projectedXY().cross(new_node.leg_base_pos[_leg_num].projectedXY()) < 0)
 					{
 						continue;
 					}
 				}
 
-				LegStateEdit::changeGround(_new_node.leg_state, _leg_num, true);
+				LegStateEdit::changeGround(new_node.leg_state, _leg_num, true);
 
-				if (m_calclator.isLegInRange(_new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
+				if (m_calclator.isLegInRange(new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
 
-				//if (m_calclator.isLegInterfering(_new_node) == true) { continue; }					//脚が干渉しているならば追加せずに続行．
+				//if (m_calclator.isLegInterfering(new_node) == true) { continue; }					//脚が干渉しているならば追加せずに続行．
 
-				//if (m_calclator.isAblePause(_new_node) == false) { continue; }						//脚が地面についているならば追加せずに続行．
-
-				if (isAbleLegPos(_new_node, _leg_num) == false) { continue; }	//候補座標として，適していないならば追加せずに続行．
+				if (isAbleLegPos(new_node, _leg_num) == false) { continue; }	//候補座標として，適していないならば追加せずに続行．
 
 				is_candidate_pos = true;
 				candidate_pos = map_point_pos;

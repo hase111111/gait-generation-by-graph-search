@@ -5,9 +5,6 @@
 
 GraphicMainTest::GraphicMainTest(const GraphicDataBroker* _broker) : IGraphicMain(_broker)
 {
-	//3DŒn‚Ìˆ—s‚¤‘O‚É‰Šú‰»‚·‚éD
-	myDxlib3DFunc::initDxlib3D();
-
 	m_node.init(false);
 
 	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.global_center_of_mass));

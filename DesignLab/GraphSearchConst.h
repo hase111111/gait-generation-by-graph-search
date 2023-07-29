@@ -8,7 +8,7 @@ public:
 
 	static constexpr int MAX_NODE_NUM = 100000000;	//!< グラフ探索の最大ノード数
 
-	static constexpr bool DO_DEBUG_PRINT = true;	//!< デバッグ用の出力をするかどうか
+	static constexpr bool DO_DEBUG_PRINT = false;	//!< デバッグ用の出力をするかどうか
 
 private:
 

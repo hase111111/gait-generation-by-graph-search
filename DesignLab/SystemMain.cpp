@@ -17,7 +17,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& _graph_search)
 	HexapodStateCalclator::initLegR();
 
 	//マップを生成する．
-	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_NONE, true);
+	m_Map.init(EMapCreateMode::LatticePoint, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
 	m_Broker.setMapState(m_Map);
@@ -30,7 +30,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& _graph_search)
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;
-	m_target.TargetPosition = { 100000,0,0 };
+	m_target.TargetPosition = { 3000,0,0 };
 }
 
 void SystemMain::main()
@@ -94,6 +94,8 @@ void SystemMain::main()
 				_cmd.outputErrorMessageInGraphSearch("Motion stuck in a loop.");
 				break;
 			}
+
+			if (_current_node.global_center_of_mass.x > Define::GOAL_TAPE) { break; }
 		}
 
 

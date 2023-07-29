@@ -1,8 +1,8 @@
 #include "GraphSearcherHato.h"
 
 #include <iostream>
+#include <cmath>
 
-#include "Define.h"
 #include "GraphSearchConst.h"
 #include "LegState.h"
 
@@ -37,11 +37,69 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 	// ƒ^[ƒQƒbƒgƒ‚[ƒh‚ª’¼i‚Æ‰¼’è‚µ‚Äˆ—‚ğ‘‚¢‚Ä‚¢‚é
 
 	int result_index = -1;
-	float max_move_dif = target.TargetPosition.lengthSquare();
-	int max_leg_change = 0;
+	float max_rot_angle = 0;
+	float max_leg_rot_angle = 0;
 
 	const size_t kGraphSize = graph.size();
-	size_t parent_num = 0;
+	size_t parent_num = getParentNodeIndex(graph);
+
+	if (parent_num < 0) { return EGraphSearchResult::FailureByNoNode; }
+
+	initEvaluationValue(graph.at(parent_num), target);
+
+	for (size_t i = 0; i < kGraphSize; i++)
+	{
+		//Å‘å[‚³‚Ìƒm[ƒh‚Ì‚İ‚ğ•]‰¿‚·‚é
+		if (graph[i].depth == (char)GraphSearchConst::MAX_DEPTH)
+		{
+			//Œ‹‰Ê‚ªŒ©‚Â‚©‚Á‚Ä‚¢‚È‚¢ê‡‚ÍC•K‚¸Œ‹‰Ê‚ğXV‚·‚é
+			if (result_index < 0)
+			{
+				result_index = i;
+				max_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
+				max_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
+				continue;
+			}
+
+			float candiate_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
+			float candiate_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
+
+			if (max_rot_angle < candiate_rot_angle)
+			{
+				max_rot_angle = candiate_rot_angle;
+				max_leg_rot_angle = candiate_leg_rot_angle;
+				result_index = i;
+			}
+			else if (my_math::isEqual(max_rot_angle, candiate_rot_angle))
+			{
+				if (max_leg_rot_angle < candiate_leg_rot_angle)
+				{
+					max_rot_angle = candiate_rot_angle;
+					max_leg_rot_angle = candiate_leg_rot_angle;
+					result_index = i;
+				}
+			}
+		}
+	}
+
+	// index ‚ª”ÍˆÍŠO‚È‚ç‚Î¸”s
+	if (result_index < 0 || result_index >= kGraphSize) { return EGraphSearchResult::FailureByNoNode; }
+
+	//[‚³1‚Ü‚Å‘k‚Á‚Ä’l‚ğ•Ô‚·
+	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return EGraphSearchResult::FailureByNotReachedDepth; }
+
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() ’TõI—¹" << std::endl;
+	}
+
+	return EGraphSearchResult::Success;
+}
+
+size_t GraphSearcherHato::getParentNodeIndex(const std::vector<SNode>& graph) const
+{
+	const size_t kGraphSize = graph.size();
+	size_t parent_num = -1;
 
 	for (size_t i = 0; i < kGraphSize; i++)
 	{
@@ -52,47 +110,53 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 		}
 	}
 
-	for (size_t i = 0; i < kGraphSize; i++)
-	{
-		//Å‘å[‚³‚Ìƒm[ƒh‚Ì‚İ‚ğ•]‰¿‚·‚é
-		if (graph.at(i).depth == Define::GRAPH_SEARCH_DEPTH)
-		{
-			if (result_index < 0)
-			{
-				result_index = i;
-				max_move_dif = target.TargetPosition.lengthSquare();
-				max_leg_change = LegStateEdit::getLegUpDownCount(graph.at(parent_num).leg_state, graph.at(i).leg_state);
-			}
+	return parent_num;
+}
 
-			my_vec::SVector2 move_dif = target.TargetPosition.projectedXY() - graph.at(i).global_center_of_mass.projectedXY();
-			int leg_change = LegStateEdit::getLegUpDownCount(graph.at(parent_num).leg_state, graph.at(i).leg_state);
+bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<SNode>& graph, const size_t max_depth_node_index, SNode* output_node) const
+{
+	size_t result_index = max_depth_node_index;
+	const size_t kGraphSize = graph.size();
+	int count = 0;
 
-			if (max_move_dif + MARGIN_OF_MOVE > move_dif.lengthSquare())
-			{
-				max_move_dif = move_dif.lengthSquare();
-				result_index = i;
-				max_leg_change = leg_change;
-
-			}
-		}
-	}
-
-	// index ‚ª”ÍˆÍŠO‚È‚ç‚Î¸”s
-	if (result_index < 0 || result_index >= kGraphSize) { return EGraphSearchResult::Failure; }
-
-	//[‚³1‚Ü‚Å‘k‚Á‚Ä’l‚ğ•Ô‚·
 	while (graph.at(result_index).depth != 1)
 	{
 		result_index = graph.at(result_index).parent_num;
+
+		if (result_index < 0 || result_index >= kGraphSize) { return false; }
+
+		count++;
+		if (count > GraphSearchConst::MAX_DEPTH) { return false; }
 	}
 
-	(*output_result) = graph.at(result_index);
+	(*output_node) = graph.at(result_index);
+	return true;
+}
 
+void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STarget& target)
+{
+	m_parent_node = parent_node;
+}
 
-	if (GraphSearchConst::DO_DEBUG_PRINT)
+float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_node, const STarget& target) const
+{
+	my_vec::SVector center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
+	my_vec::SVector m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
+
+	return (int)(m_target_to_parent.projectedXY().length() - center_com_dif.projectedXY().length()) / 10 * 10.0f;
+}
+
+float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, const STarget& target) const
+{
+	float result = 0.0f;
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() ’TõI—¹" << std::endl;
+		if (LegStateEdit::isGrounded(current_node.leg_state, i))
+		{
+			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).length();
+		}
 	}
 
-	return EGraphSearchResult::Success;
+	return result / (float)HexapodConst::LEG_NUM;
 }

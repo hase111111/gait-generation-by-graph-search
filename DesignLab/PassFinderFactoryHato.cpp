@@ -17,10 +17,15 @@ void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, 
 
 	//木を作成するクラスのマップを作成．
 	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> node_creator_map;
-	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE));
-	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_MOVE));
+	//node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN));
+	//node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN_NEXT_COM_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_UP_DOWN));
+	//node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE));
+	//node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN_NEXT_COM_MOVE, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_MOVE));
+	//node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(p_map, EHexapodMove::LEG_HIERARCHY_CHANGE));
+
+	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(p_map, EHexapodMove::COM_MOVE));
 	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(p_map, EHexapodMove::LEG_HIERARCHY_CHANGE));
 
 	//木を作成するクラスと，木を探索するクラスを作成．

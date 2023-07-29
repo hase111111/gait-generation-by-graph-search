@@ -13,7 +13,7 @@ namespace my_math
 	//! @param [in] _num1 比較する数字1つ目 
 	//! @param [in] _num2 比較する数字2つ目
 	//! @return bool 等しいならばtrue 
-	constexpr bool isEqual(const float _num1, const float _num2) 
+	constexpr bool isEqual(const float _num1, const float _num2)
 	{
 		const float dif = _num1 - _num2;
 		if (dif > 0) { return (dif <= ALLOWABLE_ERROR); }
@@ -34,7 +34,7 @@ namespace my_math
 	//! @brief 2乗した値を返す関数．
 	//! @param [in] _num 2乗する数．
 	//! @return double 2乗した値． 
-	constexpr double squared(const double _num) { return _num * _num; }	
+	constexpr double squared(const double _num) { return _num * _num; }
 
 	//! @brief 2乗した値を返す関数．
 	//! @param [in] _num 2乗する数．
@@ -66,4 +66,6 @@ namespace my_math
 
 	constexpr double convertDegToRad(const double _deg) { return _deg * MY_DBL_PI / 180.0; }
 	constexpr float convertDegToRad(const float _deg) { return _deg * MY_FLT_PI / 180.0f; }
+
+	float limitRangeAngle(const float angle);
 }

@@ -7,9 +7,6 @@
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* _broker) : IGraphicMain(_broker), m_Map(_broker->getMapState())
 {
-	//3D系の処理行う前に初期化する．
-	myDxlib3DFunc::initDxlib3D();
-
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode _temp;
 	_temp.init(false);

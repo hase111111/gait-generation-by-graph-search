@@ -39,61 +39,61 @@ void HexapodRenderer::draw(const SNode& _node) const
 {
 	//旧verのhexapodGraphicの記述にしたがって描画する．
 	using namespace myDxlib3DFunc;
-	using namespace LegStateEdit;
 
 	//胴体を描画する．
-	VECTOR _vertex[6];
+	VECTOR vertex[6];
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		//_vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		_vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
+		//vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
+		vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
 	}
 
-	drawHexagonalPrism(_vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
+	drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
 
 	//脚を描画する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR _leg_end = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
-		const VECTOR _leg_base = convertToDxVec(m_HexaCalc.getGlobalLegBasePos(_node, i, true));
-		const VECTOR _coxa = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
-		const VECTOR _femur = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
-		const VECTOR _tibia = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
+		const VECTOR kLegEndPos = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
+		const VECTOR kLegBasePos = convertToDxVec(m_HexaCalc.getGlobalLegBasePos(_node, i, true));
+		const VECTOR kCoxaJointPos = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
+		const VECTOR kFemurJointPos = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
+		const VECTOR kTibiaJointPos = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
 
 		//脚の色を遊脚・接地で変更する．
-		const unsigned int _color = isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int _joint_color = isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+		const unsigned int kLegBaseColor = LegStateEdit::isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
+		const unsigned int kJointColor = LegStateEdit::isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
 		//各脚の描画
-		DrawCapsule3D(_coxa, _femur, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//coxa
-		DrawCapsule3D(_femur, _tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//femur
-		DrawCone3D(_leg_end, _tibia, LEG_R, CAPSULE_DIV_NUM, _color, _color, TRUE);	//tibia 
+		DrawCapsule3D(kCoxaJointPos, kFemurJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
+		DrawCapsule3D(kFemurJointPos, kTibiaJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//femur
+		DrawCone3D(kLegEndPos, kTibiaJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//tibia 
 
 		//間接の描画
-		DrawSphere3D(_coxa, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
-		DrawSphere3D(_femur, JOINT_R, SPHERE_DIV_NUM, _joint_color, _joint_color, TRUE);
-		DrawSphere3D(_tibia, JOINT_R, SPHERE_DIV_NUM, _joint_color, COLOR_LIFTED_JOINT, TRUE);
+		DrawSphere3D(kCoxaJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
+		DrawSphere3D(kFemurJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
+		DrawSphere3D(kTibiaJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, COLOR_LIFTED_JOINT, TRUE);
+
+		//脚先の描画
+		DrawSphere3D(kLegEndPos, JOINT_R / 2, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
 
 		//脚のベース座標の描画
-		if (_node.leg_pos[i] != _node.leg_base_pos[i])
-		{
-			DrawSphere3D(_leg_base, JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
-		}
+		DrawSphere3D(kLegBasePos, JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+
 
 		//エラー出力
 		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true), m_HexaCalc.getGlobalFemurJointPos(_node, i)) == false)
 		{
-			DrawString((int)ConvWorldPosToScreenPos(_coxa).x, (int)ConvWorldPosToScreenPos(_coxa).y, "Error:Coxa", GetColor(255, 64, 64));
+			DrawString((int)ConvWorldPosToScreenPos(kCoxaJointPos).x, (int)ConvWorldPosToScreenPos(kCoxaJointPos).y, "Error:Coxa", GetColor(255, 64, 64));
 		}
 
 		if (isAbleFemurLeg(m_HexaCalc.getGlobalFemurJointPos(_node, i), m_HexaCalc.getGlobalTibiaJointPos(_node, i)) == false)
 		{
-			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Femur", GetColor(64, 255, 64));
+			DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Femur", GetColor(64, 255, 64));
 		}
 
 		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(_node, i), m_HexaCalc.getGlobalLegPos(_node, i, true)) == false)
 		{
-			DrawString((int)ConvWorldPosToScreenPos(_femur).x, (int)ConvWorldPosToScreenPos(_femur).y, "Error:Tibia", GetColor(64, 64, 255));
+			DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Tibia", GetColor(64, 64, 255));
 		}
 
 		if (DO_OUTPUT_DEBUG_LOG)

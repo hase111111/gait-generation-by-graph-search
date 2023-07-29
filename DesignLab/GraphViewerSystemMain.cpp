@@ -208,12 +208,15 @@ void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& 
 	STarget target;
 	target.TargetMode = ETargetMode::StraightPosition;
 	target.TargetPosition = { 100000,0,0 };
+	target.RotationCenter = { 0,100000,0 };
 
 	SNode fake_result_node;
 
 	mp_pass_finder->getNextNodebyGraphSearch(parent_node, &m_map_state, target, fake_result_node);
 
 	mp_pass_finder->getGraphTree(&graph);
+
+	std::cout << fake_result_node;
 }
 
 void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)
