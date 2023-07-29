@@ -11,8 +11,10 @@ public:
 	virtual ~AbstractPassFinderFactory() = default;
 
 	//! @brief パス探索に必要なクラスを生成する．
-	//! @param [out] _tree 歩容パターン生成の探索に必要な木構造を生成するクラス．
-	//! @param [out] _searcher 歩容パターン生成の探索を行うクラス．
-	virtual void createPassFinder(std::unique_ptr<IGraphTreeCreator>& _tree, std::unique_ptr<IGraphSearcher>& _searcher, const MapState* const _map) = 0;
+	//! @param [in] map マップ情報．
+	//! @param [out] tree 歩容パターン生成の探索に必要な木構造を生成するクラス．
+	virtual void createGraphTreeCreator(const MapState* const map, std::unique_ptr<IGraphTreeCreator>& tree) = 0;
 
+	//! @param [out] searcher 歩容パターン生成の探索を行うクラス．
+	virtual void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) = 0;
 };

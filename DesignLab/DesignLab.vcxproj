@@ -29,11 +29,13 @@
     <ClInclude Include="ComUpDownNodeCreator.h" />
     <ClInclude Include="GraphicMainGraphViewer.h" />
     <ClInclude Include="GraphicMainTest.h" />
+    <ClInclude Include="GraphSearchConst.h" />
     <ClInclude Include="GraphSearcherHato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="PassFinderHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
+    <ClInclude Include="PassFinderHatoThread.h" />
     <ClInclude Include="PassFinderNone.h" />
     <ClInclude Include="GraphSearchResult.h" />
     <ClInclude Include="GraphTreeCreatorHato.h" />
@@ -114,6 +116,7 @@
     <ClCompile Include="PassFinderHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
+    <ClCompile Include="PassFinderHatoThread.cpp" />
     <ClCompile Include="PassFinderNone.cpp" />
     <ClCompile Include="GraphSearchResult.cpp" />
     <ClCompile Include="GraphTreeCreatorHato.cpp" />

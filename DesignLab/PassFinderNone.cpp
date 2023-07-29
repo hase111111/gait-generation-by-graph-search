@@ -1,7 +1,7 @@
 #include "PassFinderNone.h"
 
-EGraphSearchResult PassFinderNone::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
+EGraphSearchResult PassFinderNone::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
 {
-	_output_node = _current_node;
+	output_node = current_node;
 	return EGraphSearchResult::Success;
 }

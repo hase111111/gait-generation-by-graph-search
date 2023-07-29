@@ -1,30 +1,54 @@
 #include "PassFinderHato.h"
+#include "GraphSearchConst.h"
 
-EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node)
+
+PassFinderHato::PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory) : IPassFinder(std::move(factory))
 {
-	//初期化処理．
-	if (!mp_PassFinderFactory) { return EGraphSearchResult::FailureByInitializationFailed; }
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : コンストラクタが呼ばれた．\n"; }
+};
 
-	mp_PassFinderFactory->createPassFinder(mp_GraphTreeCreator, mp_GraphSearcher, _p_map);
+PassFinderHato::~PassFinderHato()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : デストラクタが呼ばれた．\n"; }
+};
+
+EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : getNextNodebyGraphSearch() グラフ探索開始，まずは初期化する\n"; }
+
+	//初期化処理．
+	if (!mp_factory) { return EGraphSearchResult::FailureByInitializationFailed; }
+
+	mp_factory->createGraphTreeCreator(p_map, mp_tree_creator);
+	mp_factory->createGraphSearcher(mp_searcher);
 
 	//早期リターン．2つのクラスの初期化に失敗したならば，即座に終了する．
-	if (!mp_GraphTreeCreator) { return EGraphSearchResult::FailureByInitializationFailed; }
-	if (!mp_GraphSearcher) { return EGraphSearchResult::FailureByInitializationFailed; }
+	if (!mp_tree_creator) { return EGraphSearchResult::FailureByInitializationFailed; }
+	if (!mp_searcher) { return EGraphSearchResult::FailureByInitializationFailed; }
 
 
-	std::vector<SNode> _graph_tree;		//グラフ探索に用いるグラフ．
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : 初期化終了．グラフ探索を開始する．\n"; }
+
+	m_graph_tree.clear();
 
 	//まずはグラフを作成する．_graph_tree 変数に結果を参照渡しされる．
 	{
-		EGraphSearchResult _result = mp_GraphTreeCreator->createGraphTree(_current_node, _p_map, _graph_tree, m_made_node_num);
-		if (graphSeachResultIsSuccessful(_result) == false) { return _result; }
+		SNode parent_node = current_node;
+		parent_node.changeParentNode();
+
+		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &m_graph_tree, &m_made_node_num);
+		if (graphSeachResultIsSuccessful(result) == false) { return result; }
 	}
+
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ作成終了．グラフを評価する．\n"; }
 
 	//次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
 	{
-		EGraphSearchResult _result = mp_GraphSearcher->searchGraphTree(_graph_tree, _target, _output_node);
-		if (graphSeachResultIsSuccessful(_result) == false) { return _result; }
+		EGraphSearchResult result = mp_searcher->searchGraphTree(m_graph_tree, target, &output_node);
+		if (graphSeachResultIsSuccessful(result) == false) { return result; }
 	}
+
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }
 
 	return EGraphSearchResult::Success;
 }

@@ -1,6 +1,6 @@
 #include "Define.h"
 
-const int Define::SIMURATE_NUM = 10;
+const int Define::SIMURATE_NUM = 1;
 
 const char Define::GRAPH_SEARCH_DEPTH = 4;
 

@@ -41,9 +41,11 @@ public:
 	//! そして，絶対安全余裕を計算し，マージンを外れた点を除外する． <br>
 	//! また，移動後の座標において，脚が他の脚と干渉する場合は除外する． <br>
 	//! 以上の処理を行った後，残った点の重心を求める． <br>
-	bool getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern _com_pattren, my_vec::SVector& _output_com) const;
+	bool getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern _com_pattren, my_vec::SVector* output_com) const;
 
 private:
+
+	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
 	bool makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::pair<bool, my_vec::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;

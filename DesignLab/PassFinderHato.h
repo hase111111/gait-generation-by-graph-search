@@ -1,16 +1,14 @@
 #pragma once
-#include "MapState.h"
-#include "Node.h"
 #include "InterfacePassFinder.h"
-#include <memory>
+
 
 class PassFinderHato final : public IPassFinder
 {
 public:
-	PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : IPassFinder(std::move(_factory)) {};
-	~PassFinderHato() = default;
+	PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory);
+	~PassFinderHato();
 
-	EGraphSearchResult getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) override;
+	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;
 
 private:
 

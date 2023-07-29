@@ -1,6 +1,6 @@
 #include "GraphViewerSystemMain.h"
 #include "GraphicMainGraphViewer.h"
-#include "GraphTreeCreatorHato.h"
+#include "PassFinderHatoThread.h"
 #include "PassFinderFactoryHato.h"
 #include "HexapodStateCalculator.h"
 #include <iostream>
@@ -40,22 +40,21 @@ GraphViewerSystemMain::GraphViewerSystemMain()
 	std::cout << std::endl << "input : ";
 	std::cin >> _option;
 	std::cout << std::endl;
-	m_MapState.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	m_map_state.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
-	m_GraphicDataBroker.setMapState(m_MapState);
+	m_graphic_data_broker.setMapState(m_map_state);
 
 	//グラフィックシステムを初期化する
 	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
-	m_GraphicSystem.init(std::make_unique<GraphicMainGraphViewer>(&m_GraphicDataBroker));
+	m_graphic_system.init(std::make_unique<GraphicMainGraphViewer>(&m_graphic_data_broker));
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;
-	PassFinderFactoryHato _passFinderFactory;
-	std::unique_ptr<IGraphSearcher> _searcher;
-	_passFinderFactory.createPassFinder(mp_GraphTreeCreator, _searcher, &m_MapState);
+
+	mp_pass_finder = std::make_unique<PassFinderHatoThread>(std::make_unique<PassFinderFactoryHato>());
 
 	//初期化終了
 	std::cout << "GraphViewerSystemMain : GraphViewer初期化終了．起動します" << std::endl << std::endl;
@@ -73,7 +72,7 @@ void GraphViewerSystemMain::main()
 {
 	//グラフィックシステムを起動する
 	std::cout << "GraphicSystem : 別スレッドでグラフィックシステムを起動します．" << std::endl << std::endl;
-	boost::thread _thread_graphic(&GraphicSystem::main, &m_GraphicSystem);
+	boost::thread _thread_graphic(&GraphicSystem::main, &m_graphic_system);
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
@@ -96,7 +95,7 @@ void GraphViewerSystemMain::main()
 
 			if (askYesNo("GraphViewerSystemMain : グラフを作成しますか？"))
 			{
-				if (!mp_GraphTreeCreator)
+				if (!mp_pass_finder)
 				{
 					std::cout << "GraphViewerSystemMain : グラフ木作成クラスが初期化されていません" << std::endl;
 					std::cout << "GraphViewerSystemMain : プログラムを終了します" << std::endl;
@@ -187,7 +186,7 @@ void GraphViewerSystemMain::main()
 			}
 			else if (_menu == 3)
 			{
-				m_GraphicDataBroker.deleteAllNode();
+				m_graphic_data_broker.deleteAllNode();
 				_graph.clear();
 				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
 				std::cout << std::endl;
@@ -201,23 +200,29 @@ void GraphViewerSystemMain::main()
 	}
 }
 
-void GraphViewerSystemMain::createGraph(const SNode _parent, std::vector<SNode>& _graph)
+void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& graph)
 {
-	SNode _temp_node = _parent;
-	int _output_num = 0;
+	SNode parent_node = parent;
+	parent_node.changeParentNode();
 
-	_temp_node.changeParentNode();
+	STarget target;
+	target.TargetMode = ETargetMode::StraightPosition;
+	target.TargetPosition = { 100000,0,0 };
 
-	mp_GraphTreeCreator->createGraphTree(_temp_node, &m_MapState, _graph, _output_num);
+	SNode fake_result_node;
+
+	mp_pass_finder->getNextNodebyGraphSearch(parent_node, &m_map_state, target, fake_result_node);
+
+	mp_pass_finder->getGraphTree(&graph);
 }
 
 void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)
 {
-	m_GraphicDataBroker.deleteAllNode();
+	m_graphic_data_broker.deleteAllNode();
 
 	for (auto& i : _graph)
 	{
-		m_GraphicDataBroker.pushNode(i);
+		m_graphic_data_broker.pushNode(i);
 	}
 }
 

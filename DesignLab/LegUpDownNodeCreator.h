@@ -12,8 +12,8 @@ private:
 
 public:
 
-	LegUpDownNodeCreator(const MapState* const p_Map, const EHexapodMove next_move) : INodeCreator(p_Map, next_move), mp_map(p_Map) {};
-	~LegUpDownNodeCreator() = default;
+	LegUpDownNodeCreator(const MapState* const p_Map, const EHexapodMove next_move);
+	~LegUpDownNodeCreator();
 
 	void create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) override;
 

@@ -1,10 +1,30 @@
 #include "ComUpDownNodeCreator.h"
+
 #include <cfloat>
 #include <algorithm>
+
+#include "GraphSearchConst.h"
 #include "HexapodConst.h"
 #include "HexapodStateCalculator.h"
 #include "LegState.h"
 #include "MyMath.h"
+
+
+ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] ComUpDownNodeCreator : コンストラクタが呼ばれた．\n";
+	}
+}
+
+ComUpDownNodeCreator::~ComUpDownNodeCreator()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] ComUpDownNodeCreator : デストラクタが呼ばれた．\n";
+	}
+}
 
 void ComUpDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {

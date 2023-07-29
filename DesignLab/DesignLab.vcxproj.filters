@@ -103,6 +103,9 @@
     <Filter Include="ソース ファイル\Node\CenterOfMass\ComSelector">
       <UniqueIdentifier>{91e9c015-fa69-4525-bc84-497dab4a352b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\PassFinderSystem\Common">
+      <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -297,9 +300,6 @@
     <ClInclude Include="StringToValue.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="GraphSearchResult.h">
-      <Filter>ソース ファイル\PassFinderSystem</Filter>
-    </ClInclude>
     <ClInclude Include="GraphSearcherHato.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
@@ -341,6 +341,15 @@
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorThread.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="PassFinderHatoThread.h">
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSearchResult.h">
+      <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSearchConst.h">
+      <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -512,9 +521,6 @@
     <ClCompile Include="GraphViewerGUIController.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="GraphSearchResult.cpp">
-      <Filter>ソース ファイル\PassFinderSystem</Filter>
-    </ClCompile>
     <ClCompile Include="GraphSearcherHato.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
@@ -553,6 +559,12 @@
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorThread.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderHatoThread.cpp">
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSearchResult.cpp">
+      <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

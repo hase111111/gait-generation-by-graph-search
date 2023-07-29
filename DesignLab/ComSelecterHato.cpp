@@ -3,7 +3,7 @@
 #include <iostream>
 #include "LegState.h"
 
-bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, my_vec::SVector& output_com) const
+bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, my_vec::SVector* output_com) const
 {
 	std::pair<bool, my_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
@@ -38,13 +38,13 @@ bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const 
 		}
 
 		//Œ»İ‚ÌdS‚ğˆÚ“®‚³‚¹‚½‚à‚Ì‚ğì¬‚·‚é
-		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, m_current_node.global_center_of_mass.z };
+		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, getCurrentNode().global_center_of_mass.z };
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			if (LegStateEdit::isGrounded(m_current_node.leg_state, j))
+			if (LegStateEdit::isGrounded(getCurrentNode().leg_state, j))
 			{
-				after_move_leg_pos[j] = m_current_node.leg_pos[j] - (after_move_com - m_current_node.global_center_of_mass);
+				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
 
 				if (!m_calclator.isLegInRange(after_move_leg_pos[j], j))
 				{
@@ -92,9 +92,9 @@ bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const 
 	}
 
 	//ŠY“–‚·‚é‚à‚Ì‚ª‚È‚¯‚ê‚Îfalse‚ğ•Ô‚·
-	output_com.x = com_candidate[min_index].second.x;
-	output_com.y = com_candidate[min_index].second.y;
-	output_com.z = m_current_node.global_center_of_mass.z;
+	(*output_com).x = com_candidate[min_index].second.x;
+	(*output_com).y = com_candidate[min_index].second.y;
+	(*output_com).z = getCurrentNode().global_center_of_mass.z;
 	return true;
 }
 

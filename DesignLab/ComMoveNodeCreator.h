@@ -8,8 +8,8 @@ class ComMoveNodeCreator final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_Map(_p_map) {};
-	~ComMoveNodeCreator() = default;
+	ComMoveNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move);
+	~ComMoveNodeCreator();
 
 	void create(const SNode& _current_node, const int _current_num, std::vector<SNode>* _output_graph) override;
 

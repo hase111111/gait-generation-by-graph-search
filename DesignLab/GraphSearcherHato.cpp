@@ -1,66 +1,98 @@
 #include "GraphSearcherHato.h"
+
+#include <iostream>
+
 #include "Define.h"
+#include "GraphSearchConst.h"
 #include "LegState.h"
 
-EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& _graph, const STarget& _target, SNode& _output_result)
+
+GraphSearcherHato::GraphSearcherHato()
 {
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[GraphSearcher] GraphSearcherHato : コンストラクタが呼ばれた" << std::endl;
+	}
+}
+
+GraphSearcherHato::~GraphSearcherHato()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[GraphSearcher] GraphSearcherHato : デストラクタが呼ばれた" << std::endl;
+	}
+}
+
+EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() 探索開始\n";
+	}
+
 	// _targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
 
 	// @todo initializerで初期化する処理を書く
 
 	// ターゲットモードが直進と仮定して処理を書いている
 
-	int _result_index = -1;
-	float _max_move_dif = _target.TargetPosition.lengthSquare();
-	int _max_leg_change = 0;
+	int result_index = -1;
+	float max_move_dif = target.TargetPosition.lengthSquare();
+	int max_leg_change = 0;
 
-	const size_t _graph_size = _graph.size();
-	size_t _parent_num = 0;
+	const size_t kGraphSize = graph.size();
+	size_t parent_num = 0;
 
-	for (size_t i = 0; i < _graph_size; i++)
+	for (size_t i = 0; i < kGraphSize; i++)
 	{
-		if (_graph.at(i).depth == 0)
+		if (graph.at(i).depth == 0)
 		{
-			_parent_num = i;
+			parent_num = i;
 			break;
 		}
 	}
 
-	for (size_t i = 0; i < _graph_size; i++)
+	for (size_t i = 0; i < kGraphSize; i++)
 	{
 		//最大深さのノードのみを評価する
-		if (_graph.at(i).depth == Define::GRAPH_SEARCH_DEPTH)
+		if (graph.at(i).depth == Define::GRAPH_SEARCH_DEPTH)
 		{
-			if (_result_index < 0)
+			if (result_index < 0)
 			{
-				_result_index = i;
-				_max_move_dif = _target.TargetPosition.lengthSquare();
-				_max_leg_change = LegStateEdit::getLegUpDownCount(_graph.at(_parent_num).leg_state, _graph.at(i).leg_state);
+				result_index = i;
+				max_move_dif = target.TargetPosition.lengthSquare();
+				max_leg_change = LegStateEdit::getLegUpDownCount(graph.at(parent_num).leg_state, graph.at(i).leg_state);
 			}
 
-			my_vec::SVector2 _move_dif = _target.TargetPosition.projectedXY() - _graph.at(i).global_center_of_mass.projectedXY();
-			int _leg_change = LegStateEdit::getLegUpDownCount(_graph.at(_parent_num).leg_state, _graph.at(i).leg_state);
+			my_vec::SVector2 move_dif = target.TargetPosition.projectedXY() - graph.at(i).global_center_of_mass.projectedXY();
+			int leg_change = LegStateEdit::getLegUpDownCount(graph.at(parent_num).leg_state, graph.at(i).leg_state);
 
-			if (_max_move_dif + MARGIN_OF_MOVE > _move_dif.lengthSquare())
+			if (max_move_dif + MARGIN_OF_MOVE > move_dif.lengthSquare())
 			{
-				_max_move_dif = _move_dif.lengthSquare();
-				_result_index = i;
-				_max_leg_change = _leg_change;
+				max_move_dif = move_dif.lengthSquare();
+				result_index = i;
+				max_leg_change = leg_change;
 
 			}
 		}
 	}
 
 	// index が範囲外ならば失敗
-	if (_result_index < 0 || _result_index >= _graph_size) { return EGraphSearchResult::Failure; }
+	if (result_index < 0 || result_index >= kGraphSize) { return EGraphSearchResult::Failure; }
 
 	//深さ1まで遡って値を返す
-	while (_graph.at(_result_index).depth != 1)
+	while (graph.at(result_index).depth != 1)
 	{
-		_result_index = _graph.at(_result_index).parent_num;
+		result_index = graph.at(result_index).parent_num;
 	}
 
-	_output_result = _graph.at(_result_index);
+	(*output_result) = graph.at(result_index);
+
+
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() 探索終了" << std::endl;
+	}
 
 	return EGraphSearchResult::Success;
 }

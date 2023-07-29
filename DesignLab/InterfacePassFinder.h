@@ -1,4 +1,7 @@
 #pragma once
+
+#include <vector>
+
 #include "MapState.h"
 #include "Node.h"
 #include "Target.h"
@@ -11,28 +14,42 @@ class IPassFinder
 {
 public:
 
-	IPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : mp_PassFinderFactory(std::move(_factory)) {};
+	IPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& factory) : mp_factory(std::move(factory)) {};
 	virtual ~IPassFinder() = default;
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
-	//! @param [in] _current_node 現在の状態を表すノード
-	//! @param [in] _p_map 現在のマップの状態
-	//!	@param [in] _target 目標の状態
-	//! @param [out] _output_node 結果のノード
+	//! @param [in] current_node 現在の状態を表すノード
+	//! @param [in] p_map 現在のマップの状態
+	//!	@param [in] target 目標の状態
+	//! @param [out] output_node 結果のノード
 	//! @return EGraphSearchResult グラフ探索の結果を返す．
-	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& _current_node, const MapState* const _p_map, const STarget& _target, SNode& _output_node) = 0;
+	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) = 0;
 
 	//! @brief 作成したグラフの数を返す
 	//! @return int 作成したグラフの数
 	int getMadeNodeNum() const { return m_made_node_num; }
 
+	//! @brief 作成したグラフ木を返す．<br>
+	//! この関数はデバッグ用なので，探索には使わないこと．
+	//! @param [out] output_graph 作成したグラフ木
+	void getGraphTree(std::vector<SNode>* output_graph) const
+	{
+		(*output_graph).clear();
+		for (auto& i : m_graph_tree)
+		{
+			(*output_graph).emplace_back(i);
+		}
+	}
+
 protected:
 
 	int m_made_node_num = 0;	//!< 作成したグラフの数
 
-	std::unique_ptr<AbstractPassFinderFactory> mp_PassFinderFactory;	//!< パス探索クラスのファクトリー
-	std::unique_ptr<IGraphTreeCreator> mp_GraphTreeCreator;	//!< グラフ木の作成クラス
-	std::unique_ptr<IGraphSearcher> mp_GraphSearcher;	//!< グラフ探索クラス
+	std::vector<SNode> m_graph_tree;	//!< グラフ木
+
+	std::unique_ptr<AbstractPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
+	std::unique_ptr<IGraphTreeCreator> mp_tree_creator;	//!< グラフ木の作成クラス
+	std::unique_ptr<IGraphSearcher> mp_searcher;	//!< グラフ探索クラス
 };
 
 //! @file IPassFinder.h

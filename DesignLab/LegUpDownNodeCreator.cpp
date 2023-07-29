@@ -1,7 +1,28 @@
 #include "LegUpDownNodeCreator.h"
+
 #include <algorithm>
+#include <iostream>
+
 #include "ComType.h"
+#include "GraphSearchConst.h"
 #include "LegState.h"
+
+
+LegUpDownNodeCreator::LegUpDownNodeCreator(const MapState* const p_Map, const EHexapodMove next_move) : INodeCreator(p_Map, next_move), mp_map(p_Map)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] LegUpDownNodeCreator : コンストラクタが呼ばれた．\n";
+	}
+};
+
+LegUpDownNodeCreator::~LegUpDownNodeCreator()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] LegUpDownNodeCreator : デストラクタが呼ばれた．\n";
+	}
+}
 
 void LegUpDownNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {

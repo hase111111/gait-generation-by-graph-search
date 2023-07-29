@@ -1,105 +1,82 @@
 #include "GraphTreeCreatorThread.h"
-#include <boost/thread.hpp>
 #include <vector>
-#include <array>
 #include <memory>
 #include "Define.h"
 
 //https://stackoverflow.com/questions/5416800/how-can-i-add-boost-threads-to-a-vector
 
-EGraphSearchResult GraphTreeCreatorThread::createGraphTree(const SNode& currentNode, const MapState* const pointerMap, std::vector<SNode>& outputGraph, int& _make_node_num)
+EGraphSearchResult GraphTreeCreatorThread::createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph, int* _make_node_num)
 {
-	//現在のノードを親にする．
-	SNode parentNode = currentNode;
+	//if (DO_DEBUG_PRINT) { std::cout << "\nGraphTreeCreatorThread : 処理開始\n"; }
 
-	parentNode.changeParentNode();
-	outputGraph.clear();				//出力する結果を空にする．
-	outputGraph.push_back(parentNode);	//親を追加する．
+	////現在のノードを親にする．
+	//SNode parent_node = current_node;
 
-	//深さ1のノードを生成する．
-	std::vector<SNode> depth1Nodes;
+	//parent_node.changeParentNode();
+	//output_graph.clear();				//出力する結果を空にする．
+	//output_graph.push_back(parent_node);	//親を追加する．
 
-	makeNewNodesByCurrentNode(parentNode, 0, depth1Nodes);
+	////深さ1のノードを生成する．
+	//std::vector<SNode> depth1_nodes;
 
-
-	//深さ最大まで，マルチスレッドでノードを生成する．
-	boost::thread_group graphMakerGroup;	//スレッドを格納するベクター
-
-	const size_t depth1NodesSize = depth1Nodes.size();	//深さ1のノードの数
-
-	std::vector<std::vector<SNode>> threadOutputGraph(depth1NodesSize);	//スレッドごとの結果を格納するベクター
+	//makeNewNodesByCurrentNode(parent_node, 0, &depth1_nodes);
 
 
-	//スレッドを生成する．
-	for (size_t i = 0; i < depth1NodesSize; ++i)
-	{
-		graphMakerGroup.create_thread(boost::bind(&GraphTreeCreatorThread::makeGraphToMaxDepth, this, depth1Nodes[i], &threadOutputGraph[i]));
-	}
+	////深さ最大まで，マルチスレッドでノードを生成する．
+	//boost::thread_group graph_make_threads;	//スレッドを格納するベクター
 
-	//スレッドの終了を待つ．
-	graphMakerGroup.join_all();
+	//const size_t kDepth1NodesSize = depth1_nodes.size();	//深さ1のノードの数
 
-	//スレッドごとの結果を結合する．
-	for (size_t i = 0; i < depth1NodesSize; ++i)
-	{
-		const int parentIndex = static_cast<int>(outputGraph.size());	//親のインデックス
+	//std::vector<std::vector<SNode>> thread_output_graph(kDepth1NodesSize);	//スレッドごとの結果を格納するベクター
 
-		for (auto& j : threadOutputGraph[i])
-		{
-			if (j.depth != 1)
-			{
-				j.parent_num = parentIndex + j.parent_num;
-			}
+	////スレッドを生成する．
+	//for (size_t i = 0; i < kDepth1NodesSize; ++i)
+	//{
+	//	graph_make_threads.create_thread(boost::bind(&GraphTreeCreatorThread::makeGraphToMaxDepth, this, depth1_nodes[i], &thread_output_graph[i]));
+	//}
 
-			outputGraph.push_back(j);
-		}
-	}
+	////スレッドの終了を待つ．
+	//graph_make_threads.join_all();
+
+	//if (DO_DEBUG_PRINT) { std::cout << "join all : スレッドの終了を待ちました．\n"; }
+
+	////スレッドごとの結果を結合する．
+	//for (size_t i = 0; i < kDepth1NodesSize; ++i)
+	//{
+	//	const int kParentIndex = static_cast<int>(output_graph.size());	//親のインデックス
+
+	//	for (auto j : thread_output_graph[i])
+	//	{
+	//		if (j.depth != 1)
+	//		{
+	//			j.parent_num += kParentIndex;
+	//		}
+
+	//		output_graph.emplace_back(j);
+	//	}
+	//}
+
+	//if (DO_DEBUG_PRINT) { std::cout << "スレッドごとの結果を結合しました．\n\n"; }
 
 	return EGraphSearchResult::Success;
 }
 
-void GraphTreeCreatorThread::makeNewNodesByCurrentNode(const SNode& _current_node, const int _current_num, std::vector<SNode>& _output_graph)
+void GraphTreeCreatorThread::makeNewNodesByCurrentNode(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) const
 {
-	_output_graph.clear();
+	(*output_graph).clear();
 
-	if (m_node_creator_map.count(_current_node.next_move) > 0)
+	if (m_node_creator_map.count(current_node.next_move) > 0)
 	{
-		m_node_creator_map.at(_current_node.next_move)->create(_current_node, _current_num, &_output_graph);
+		m_node_creator_map.at(current_node.next_move)->create(current_node, current_node_index, output_graph);
 		return;
 	}
 	else
 	{
 		//定義されていないならば，同じノードをそのまま追加する．
-		SNode _new_node = _current_node;
+		SNode new_node = current_node;
 
-		_new_node.changeNextNode(_current_num, _current_node.next_move);
+		new_node.changeNextNode(current_node_index, current_node.next_move);
 
-		_output_graph.push_back(_new_node);
-	}
-}
-
-void GraphTreeCreatorThread::makeGraphToMaxDepth(const SNode& currentNode, std::vector<SNode>* outputGraph)
-{
-	int cnt = 0;	//カウンタを用意
-
-	(*outputGraph).push_back(currentNode);	//親を追加する．
-
-	//カウンタがvectorのサイズを超えるまでループする．
-	while (cnt < (*outputGraph).size())
-	{
-		//探索深さが足りていないノードにのみ処理をする．
-		if ((*outputGraph)[cnt].depth < Define::GRAPH_SEARCH_DEPTH)
-		{
-			std::vector<SNode> resultGraph;	// _cnt番目のノードの子ノードを入れるベクター
-
-			makeNewNodesByCurrentNode((*outputGraph)[cnt], cnt, resultGraph);		//子ノードを生成する．
-
-			for (const auto& i : resultGraph)
-			{
-				(*outputGraph).push_back(i);		//子ノードを結果に追加する．
-			}
-		}
-
-		cnt++;	//カウンタを進める．
+		(*output_graph).emplace_back(new_node);
 	}
 }

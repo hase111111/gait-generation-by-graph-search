@@ -2,7 +2,7 @@
 #include "MapState.h"
 #include "GraphicSystem.h"
 #include "GraphicDataBroker.h"
-#include "InterfaceGraphTreeCreator.h"
+#include "InterfacePassFinder.h"
 
 class GraphViewerSystemMain final
 {
@@ -13,20 +13,20 @@ public:
 	void main();
 
 private:
-	MapState m_MapState;
-	GraphicDataBroker m_GraphicDataBroker;
-	GraphicSystem m_GraphicSystem;
-	std::unique_ptr<IGraphTreeCreator> mp_GraphTreeCreator;
+	MapState m_map_state;
+	GraphicDataBroker m_graphic_data_broker;
+	GraphicSystem m_graphic_system;
+	std::unique_ptr<IPassFinder> mp_pass_finder;
 
 	// グラフを作成する
-	void createGraph(const SNode _parent, std::vector<SNode>& _graph);
+	void createGraph(const SNode parent, std::vector<SNode>& graph);
 
 	//グラフを仲介人にセットする
-	void setGraphToBroker(const std::vector<SNode>& _graph);
+	void setGraphToBroker(const std::vector<SNode>& graph);
 
 	// y / n の質問をする
 	bool askYesNo(const std::string& question) const;
 
 	// グラフのステータスを表示する
-	void showGraphStatus(const std::vector<SNode>& _graph) const;
+	void showGraphStatus(const std::vector<SNode>& graph) const;
 };

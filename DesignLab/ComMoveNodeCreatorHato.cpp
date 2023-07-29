@@ -1,5 +1,24 @@
 #include "ComMoveNodeCreatorHato.h"
+#include <iostream>
+#include "GraphSearchConst.h"
 #include "LegState.h"
+
+
+ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_map(_p_map)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] ComMoveNodeCreatorHato : コンストラクタが呼ばれた\n";
+	}
+}
+
+ComMoveNodeCreatorHato::~ComMoveNodeCreatorHato()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] ComMoveNodeCreatorHato : デストラクタが呼ばれた\n";
+	}
+}
 
 void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
@@ -18,7 +37,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 
 		my_vec::SVector result_com;
 
-		if (m_selecter.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, result_com) == true)
+		if (m_selecter.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, &result_com) == true)
 		{
 			SNode next_node = current_node;
 
@@ -26,13 +45,16 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 
 			LegStateEdit::changeComPattern(next_node.leg_state, candidate_polygons[i].second);		//leg_stateのcom_patternを変更する
 
-			for (int j = 0; j < HexapodConst::LEG_NUM; ++j) { LegStateEdit::changeLegStateKeepTopBit(next_node.leg_state, j, 4); }
+			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
+			{
+				LegStateEdit::changeLegStateKeepTopBit(next_node.leg_state, j, 4);
+			}
 
 			next_node.changeNextNode(current_num, m_next_move);	//深さや親ノードを変更する
 
 			if (isStable(next_node) && !isIntersectGround(next_node))
 			{
-				(*output_graph).emplace_back(next_node);
+				(*output_graph).push_back(next_node);
 			}
 		}
 	}

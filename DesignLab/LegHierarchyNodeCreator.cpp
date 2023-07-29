@@ -1,6 +1,26 @@
 #include "LegHierarchyNodeCreator.h"
+
+#include <iostream>
+
+#include "GraphSearchConst.h"
 #include "LegState.h"
 
+
+LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] LegHierarchyNodeCreator : コンストラクタが呼ばれた\n";
+	}
+}
+
+LegHierarchyNodeCreator::~LegHierarchyNodeCreator()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT)
+	{
+		std::cout << "[NodeCreator] LegHierarchyNodeCreator : デストラクタが呼ばれた\n";
+	}
+}
 
 void LegHierarchyNodeCreator::create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph)
 {

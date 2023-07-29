@@ -11,8 +11,8 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_map(_p_map) {};
-	~ComMoveNodeCreatorHato() = default;
+	ComMoveNodeCreatorHato(const MapState* const _p_map, const EHexapodMove _next_move);
+	~ComMoveNodeCreatorHato();
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
 

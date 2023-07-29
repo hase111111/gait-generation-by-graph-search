@@ -7,5 +7,7 @@ public:
 	PassFinderFactoryHato() = default;
 	~PassFinderFactoryHato() = default;
 
-	void createPassFinder(std::unique_ptr<IGraphTreeCreator>& _tree, std::unique_ptr<IGraphSearcher>& _searcher, const MapState* const _map) override;
+	void createGraphTreeCreator(const MapState* const map, std::unique_ptr<IGraphTreeCreator>& tree) override;
+
+	void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) override;
 };

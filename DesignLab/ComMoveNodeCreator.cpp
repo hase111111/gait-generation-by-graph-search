@@ -1,9 +1,23 @@
 #include "ComMoveNodeCreator.h"
+
+#include <iostream>
+
 #include "ComCandidatePolygonMaker.h"
 #include "ComSelecter.h"
+#include "GraphSearchConst.h"
 #include "LegState.h"
 
 // @todo 現状動かないので，動くようにする
+
+ComMoveNodeCreator::ComMoveNodeCreator(const MapState* const _p_map, const EHexapodMove _next_move) : INodeCreator(_p_map, _next_move), mp_Map(_p_map)
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "ComMoveNodeCreator : コンストラクタが呼ばれた．\n"; }
+};
+
+ComMoveNodeCreator::~ComMoveNodeCreator()
+{
+	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "ComMoveNodeCreator : デストラクタが呼ばれた．\n"; }
+};
 
 void ComMoveNodeCreator::create(const SNode& _current_node, const int _current_num, std::vector<SNode>* output_graph)
 {

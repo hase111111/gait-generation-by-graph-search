@@ -1,37 +1,44 @@
 #include "GraphTreeCreatorSample.h"
-#include "Define.h"
+#include "GraphSearchConst.h"
 
-EGraphSearchResult GraphTreeCreatorSample::createGraphTree(const SNode& _current_node, const MapState* const _p_map, std::vector<SNode>& _output_graph, int& _make_node_num)
+EGraphSearchResult GraphTreeCreatorSample::createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph, int* make_node_num)
 {
 	//ここにグラフを作成する処理を書く．このクラスはサンプルなので動作をしないノードだけを返します．
 
 	//現在のノードを親にする．
-	SNode _parent_node = _current_node;
+	SNode parent_node = current_node;
 
-	_parent_node.changeParentNode();
-	_output_graph.push_back(_parent_node);
+	parent_node.changeParentNode();
+	(*output_graph).push_back(parent_node);
 
 	//設定された探索深さまでの深さを持つグラフを作る．実際にグラフを作成する時もおそらくこんな感じでループする処理を書く．
 
-	int _cnt = 0;	//カウンタを用意
+	int cnt = 0;	//カウンタを用意
 
 	//カウンタがvectorのサイズを超えるまでループする．
-	while (_cnt < _output_graph.size())
+	while (cnt < (*output_graph).size())
 	{
 		//探索深さが足りていないノードのみ，処理をする．
-		if (_output_graph.at(_cnt).depth < Define::GRAPH_SEARCH_DEPTH)
+		if ((*output_graph)[cnt].depth < getMaxDepth())
 		{
-			SNode _new_node = _output_graph.at(_cnt);
+			SNode new_node = (*output_graph)[cnt];
 
 			//ここに新しい姿勢を生成する処理を書く．今回は何の処理もせずに次のノードとする．
 
-			_new_node.changeNextNode(_cnt, EHexapodMove::NONE);
+			new_node.changeNextNode(cnt, EHexapodMove::NONE);
 
 			//追加する．
-			_output_graph.push_back(_new_node);
+			(*output_graph).emplace_back(new_node);
 		}
 
-		_cnt++;	//カウンタを進める．
+		cnt++;	//カウンタを進める．
+	}
+
+	(*make_node_num) = (int)(*output_graph).size();
+
+	if ((*make_node_num) > GraphSearchConst::MAX_NODE_NUM || (*make_node_num) < 0)
+	{
+		return EGraphSearchResult::FailureByNodeLimitExceeded;
 	}
 
 	return EGraphSearchResult::Success;
