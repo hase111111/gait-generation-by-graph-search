@@ -2,11 +2,11 @@
 #include <cfloat>
 #include <algorithm>
 
-void MapState::init(const EMapCreateMode _mode, const int _option, const bool _do_output)
+void MapState::init(const EMapCreateMode mode, const int option, const bool do_output)
 {
 	//引数の指定通りにマップを生成する．
-	MapCreator _creator;
-	_creator.create(_mode, _option, m_map_data, _do_output);
+	MapCreator creator;
+	creator.create(mode, option, m_map_data, do_output);
 
 	//地形を分ける．
 	makeDevideMap();

@@ -351,6 +351,12 @@
     <ClInclude Include="GraphSearchConst.h">
       <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClInclude>
+    <ClInclude Include="PassFinderFixed.h">
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PassFinderFactoryFixed.h">
+      <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -565,6 +571,12 @@
     </ClCompile>
     <ClCompile Include="GraphSearchResult.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderFixed.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderFactoryFixed.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -32,6 +32,8 @@
     <ClInclude Include="GraphSearchConst.h" />
     <ClInclude Include="GraphSearcherHato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
+    <ClInclude Include="PassFinderFactoryFixed.h" />
+    <ClInclude Include="PassFinderFixed.h" />
     <ClInclude Include="PassFinderHato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
@@ -113,6 +115,8 @@
     <ClCompile Include="GraphicMainTest.cpp" />
     <ClCompile Include="GraphSearcherHato.cpp" />
     <ClCompile Include="GraphTreeCreatorThread.cpp" />
+    <ClCompile Include="PassFinderFactoryFixed.cpp" />
+    <ClCompile Include="PassFinderFixed.cpp" />
     <ClCompile Include="PassFinderHato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
