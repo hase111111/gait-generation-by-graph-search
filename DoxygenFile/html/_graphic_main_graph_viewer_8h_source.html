@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphicMainGraphViewer.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/GraphicMainGraphViewer.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_graphic_main_graph_viewer_8h_source.h
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_interface_graphic_main_8h.html">InterfaceGraphicMain.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_hexapod_renderer_8h.html">HexapodRenderer.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_map_state_8h.html">MapState.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;map_state.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_camera_controller_8h.html">CameraController.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;GraphViewerGUIController.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -125,21 +125,20 @@ $(document).ready(function(){initNavTree('_graphic_main_graph_viewer_8h_source.h
 <div class="ttc" id="a_camera_controller_8h_html"><div class="ttname"><a href="_camera_controller_8h.html">CameraController.h</a></div><div class="ttdoc">画像表示処理においてカメラを制御するクラス．</div></div>
 <div class="ttc" id="a_hexapod_renderer_8h_html"><div class="ttname"><a href="_hexapod_renderer_8h.html">HexapodRenderer.h</a></div><div class="ttdoc">ロボットの描画を行うクラスの実装．</div></div>
 <div class="ttc" id="a_interface_graphic_main_8h_html"><div class="ttname"><a href="_interface_graphic_main_8h.html">InterfaceGraphicMain.h</a></div><div class="ttdoc">IGraphicMainクラスの宣言．IGraphicMainはインターフェイスであるので実態が作れない．</div></div>
-<div class="ttc" id="a_map_state_8h_html"><div class="ttname"><a href="_map_state_8h.html">MapState.h</a></div><div class="ttdoc">マップを表すクラスの実装．</div></div>
-<div class="ttc" id="aclass_camera_controller_html"><div class="ttname"><a href="class_camera_controller.html">CameraController</a></div><div class="ttdoc">Dxlibの3Dのカメラの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> CameraController.h:18</div></div>
+<div class="ttc" id="aclass_camera_controller_html"><div class="ttname"><a href="class_camera_controller.html">CameraController</a></div><div class="ttdoc">Dxlibの3Dのカメラの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> CameraController.h:20</div></div>
 <div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:8</div></div>
 <div class="ttc" id="aclass_graphic_main_graph_viewer_html"><div class="ttname"><a href="class_graphic_main_graph_viewer.html">GraphicMainGraphViewer</a></div><div class="ttdef"><b>Definition</b> GraphicMainGraphViewer.h:10</div></div>
-<div class="ttc" id="aclass_graphic_main_graph_viewer_html_a5386e4ac811fadbe8a7f1e5762a5b90a"><div class="ttname"><a href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a">GraphicMainGraphViewer::update</a></div><div class="ttdeci">bool update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．</div><div class="ttdef"><b>Definition</b> GraphicMainGraphViewer.cpp:25</div></div>
-<div class="ttc" id="aclass_graphic_main_graph_viewer_html_a7f964f335a3056e101dc8b27b3b26b8a"><div class="ttname"><a href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a">GraphicMainGraphViewer::draw</a></div><div class="ttdeci">void draw() const override</div><div class="ttdoc">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．</div><div class="ttdef"><b>Definition</b> GraphicMainGraphViewer.cpp:52</div></div>
+<div class="ttc" id="aclass_graphic_main_graph_viewer_html_a5386e4ac811fadbe8a7f1e5762a5b90a"><div class="ttname"><a href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a">GraphicMainGraphViewer::update</a></div><div class="ttdeci">bool update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．</div><div class="ttdef"><b>Definition</b> GraphicMainGraphViewer.cpp:21</div></div>
+<div class="ttc" id="aclass_graphic_main_graph_viewer_html_a7f964f335a3056e101dc8b27b3b26b8a"><div class="ttname"><a href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a">GraphicMainGraphViewer::draw</a></div><div class="ttdeci">void draw() const override</div><div class="ttdoc">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．</div><div class="ttdef"><b>Definition</b> GraphicMainGraphViewer.cpp:48</div></div>
 <div class="ttc" id="aclass_hexapod_renderer_html"><div class="ttname"><a href="class_hexapod_renderer.html">HexapodRenderer</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div><div class="ttdef"><b>Definition</b> HexapodRenderer.h:7</div></div>
 <div class="ttc" id="aclass_i_graphic_main_html"><div class="ttname"><a href="class_i_graphic_main.html">IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース</div><div class="ttdef"><b>Definition</b> InterfaceGraphicMain.h:6</div></div>
-<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>GraphicMainGraphViewer.h</b></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>GraphicMainGraphViewer.h</b></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

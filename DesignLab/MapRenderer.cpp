@@ -1,7 +1,7 @@
 #include "MapRenderer.h"
 #include "DxLib.h"
 #include "Dxlib3DFunction.h"
-#include "MapConst.h"
+#include "map_const.h"
 
 #include "HexapodStateCalculator.h"
 

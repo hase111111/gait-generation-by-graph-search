@@ -1,8 +1,11 @@
 #include "HexapodStateCalculator.h"
-#include "MyMath.h"
-#include "LegState.h"
-#include "MyLine.h"
+
 #include <cmath>
+
+#include "my_math.h"
+#include "my_line.h"
+#include "LegState.h"
+
 
 float HexapodStateCalclator::m_leg_max_r[200] = {};
 float HexapodStateCalclator::m_leg_min_r[200] = {};

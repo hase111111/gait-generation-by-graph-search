@@ -5,6 +5,7 @@ var _leg_state_8h =
     [ "getGroundedLegNum", "_leg_state_8h.html#a980c19048c3d2431c3c22b2cc8fb2e0a", null ],
     [ "getGroundedLegNumWithVector", "_leg_state_8h.html#a5ec33ea9b1965891f16d9871171e1d8c", null ],
     [ "getLegState", "_leg_state_8h.html#a1e76244e42356e81a090d3903c61a652", null ],
+    [ "getLegUpDownCount", "_leg_state_8h.html#ac2b8a251596565334c0e5e894f7f06f4", null ],
     [ "getLiftedLegNum", "_leg_state_8h.html#a1a2770790d5219d848b95f2c18c3aacf", null ],
     [ "getLiftedLegNumWithVector", "_leg_state_8h.html#ac6b1980ab9f9813cc38e8915845bf987", null ],
     [ "isAbleLegNum", "_leg_state_8h.html#a15651b40127b0eb43616d6a342b1edec", null ],

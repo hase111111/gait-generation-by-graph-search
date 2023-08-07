@@ -7,5 +7,5 @@ digraph "ComSelecter::setCurrentNode"
   rankdir="RL";
   Node1 [id="Node000001",label="ComSelecter::setCurrentNode",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="現在のノードを設定する"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="ComMoveNodeCreator\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311",tooltip="重心を平行移動したノードを生成する"];
+  Node2 [id="Node000002",label="ComMoveNodeCreator\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b",tooltip="重心を平行移動したノードを生成する"];
 }

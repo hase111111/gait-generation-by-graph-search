@@ -9,7 +9,7 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* _broker) : IGraphicMai
 
 	m_Camera.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.global_center_of_mass));
 
-	m_Map.init(EMapCreateMode::Flat, MapCreator::OPTION_NONE, false);
+	m_Map.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
 }
 
 bool GraphicMainTest::update()

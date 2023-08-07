@@ -1,12 +1,15 @@
 #include "GraphViewerSystemMain.h"
+
+#include <iostream>
+
+#include <boost/thread.hpp>
+
 #include "GraphicMainGraphViewer.h"
 #include "PassFinderHatoThread.h"
 #include "PassFinderFactoryHato.h"
 #include "HexapodStateCalculator.h"
-#include <iostream>
-#include <boost/thread.hpp>
 #include "Define.h"
-#include "MyTimer.h"
+#include "my_timer.h"
 #include "StringToValue.h"
 
 //二度と追記しないだろうと全てをべた書きしています．

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/LegState.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/LegState.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -157,11 +157,13 @@ $(document).ready(function(){initNavTree('_leg_state_8h_source.html',''); initRe
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="_leg_state_8h.html#ac2b8a251596565334c0e5e894f7f06f4">getLegUpDownCount</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_state_first, <span class="keyword">const</span> <span class="keywordtype">int</span> _leg_state_second);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
 <div class="ttc" id="a_leg_state_8h_html_a15651b40127b0eb43616d6a342b1edec"><div class="ttname"><a href="_leg_state_8h.html#a15651b40127b0eb43616d6a342b1edec">LegStateEdit::isAbleLegNum</a></div><div class="ttdeci">constexpr bool isAbleLegNum(const int _num)</div><div class="ttdoc">脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．</div><div class="ttdef"><b>Definition</b> LegState.h:86</div></div>
 <div class="ttc" id="a_leg_state_8h_html_a1a2770790d5219d848b95f2c18c3aacf"><div class="ttname"><a href="_leg_state_8h.html#a1a2770790d5219d848b95f2c18c3aacf">LegStateEdit::getLiftedLegNum</a></div><div class="ttdeci">int getLiftedLegNum(const int _leg_state)</div><div class="ttdoc">遊脚している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> LegState.cpp:65</div></div>
 <div class="ttc" id="a_leg_state_8h_html_a1e76244e42356e81a090d3903c61a652"><div class="ttname"><a href="_leg_state_8h.html#a1e76244e42356e81a090d3903c61a652">LegStateEdit::getLegState</a></div><div class="ttdeci">int getLegState(const int _leg_state, const int _leg_num)</div><div class="ttdoc">脚状態を取得する．</div><div class="ttdef"><b>Definition</b> LegState.cpp:96</div></div>
@@ -175,16 +177,17 @@ $(document).ready(function(){initNavTree('_leg_state_8h_source.html',''); initRe
 <div class="ttc" id="a_leg_state_8h_html_aac36a4f7be679370eb060e11cbfe9e26"><div class="ttname"><a href="_leg_state_8h.html#aac36a4f7be679370eb060e11cbfe9e26">LegStateEdit::COM_STATE_MASKBIT</a></div><div class="ttdeci">constexpr int COM_STATE_MASKBIT</div><div class="ttdoc">重心パターンを保存するビットをマスクするビット．</div><div class="ttdef"><b>Definition</b> LegState.h:18</div></div>
 <div class="ttc" id="a_leg_state_8h_html_ab5a59d93f0d7d639e1be3bb0e1d24aa6"><div class="ttname"><a href="_leg_state_8h.html#ab5a59d93f0d7d639e1be3bb0e1d24aa6">LegStateEdit::makeLegState</a></div><div class="ttdeci">int makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])</div><div class="ttdoc">脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．</div><div class="ttdef"><b>Definition</b> LegState.cpp:3</div></div>
 <div class="ttc" id="a_leg_state_8h_html_abe52decf2cfc05a9ef42f1adf3ece47f"><div class="ttname"><a href="_leg_state_8h.html#abe52decf2cfc05a9ef42f1adf3ece47f">LegStateEdit::DISCRETE_NUM</a></div><div class="ttdeci">constexpr int DISCRETE_NUM</div><div class="ttdoc">脚状態の離散化数．LegState.hの通り7通り．</div><div class="ttdef"><b>Definition</b> LegState.h:8</div></div>
+<div class="ttc" id="a_leg_state_8h_html_ac2b8a251596565334c0e5e894f7f06f4"><div class="ttname"><a href="_leg_state_8h.html#ac2b8a251596565334c0e5e894f7f06f4">LegStateEdit::getLegUpDownCount</a></div><div class="ttdeci">int getLegUpDownCount(const int _leg_state_first, const int _leg_state_second)</div><div class="ttdoc">脚の上下の変化回数を出力する</div><div class="ttdef"><b>Definition</b> LegState.cpp:169</div></div>
 <div class="ttc" id="a_leg_state_8h_html_ac6b1980ab9f9813cc38e8915845bf987"><div class="ttname"><a href="_leg_state_8h.html#ac6b1980ab9f9813cc38e8915845bf987">LegStateEdit::getLiftedLegNumWithVector</a></div><div class="ttdeci">void getLiftedLegNumWithVector(const int _leg_state, std::vector&lt; int &gt; &amp;_res_number)</div><div class="ttdoc">遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数</div><div class="ttdef"><b>Definition</b> LegState.cpp:83</div></div>
 <div class="ttc" id="a_leg_state_8h_html_ac77adee7ec774ebba50ce9622bd77b25"><div class="ttname"><a href="_leg_state_8h.html#ac77adee7ec774ebba50ce9622bd77b25">LegStateEdit::getComPatternState</a></div><div class="ttdeci">int getComPatternState(const int _leg_state)</div><div class="ttdoc">重心パターンを取得する．0b0000 〜 0b1000 まで</div><div class="ttdef"><b>Definition</b> LegState.cpp:103</div></div>
 <div class="ttc" id="a_leg_state_8h_html_ac8a1959f98dca5d6384dae64bfe26dd1"><div class="ttname"><a href="_leg_state_8h.html#ac8a1959f98dca5d6384dae64bfe26dd1">LegStateEdit::LEG_POS_MASKBIT</a></div><div class="ttdeci">constexpr int LEG_POS_MASKBIT</div><div class="ttdoc">脚位置は4bitの下位三桁で管理されるので，そこをマスクする</div><div class="ttdef"><b>Definition</b> LegState.h:10</div></div>
-<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a></div><div class="ttdeci">EComPattern</div><div class="ttdef"><b>Definition</b> ComType.h:14</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a></div><div class="ttdeci">EComPattern</div><div class="ttdef"><b>Definition</b> ComType.h:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_leg_state_8h.html">LegState.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="_leg_state_8h.html">LegState.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

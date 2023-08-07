@@ -2,7 +2,7 @@
 #include "InterfaceGraphTreeCreator.h"
 #include "InterfaceGraphSearcher.h"
 #include <memory>
-#include "MapState.h"
+#include "map_state.h"
 
 class AbstractPassFinderFactory
 {

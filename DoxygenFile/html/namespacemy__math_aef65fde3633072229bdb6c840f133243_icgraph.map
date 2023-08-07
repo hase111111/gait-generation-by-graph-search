@@ -1,0 +1,9 @@
+<map id="my_math::generateRandomNumber" name="my_math::generateRandomNumber">
+<area shape="rect" id="Node000001" title="指定した範囲内の乱数を生成する．" alt="" coords="388,35,614,61"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a12bd25c27bf8460a22087af5ae44838a" title="初期化関数" alt="" coords="219,5,305,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="373,35,305,27,305,21,373,30"/>
+<area shape="rect" id="Node000004" href="$class_graph_searcher_random.html#ac4072a51ccf865746d9b9a5e2b6d46a2" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="184,56,340,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="373,66,341,70,340,65,373,61"/>
+<area shape="rect" id="Node000003" href="$class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,21,136,21,136,16,204,16"/>
+</map>

@@ -1,7 +1,9 @@
 #pragma once
+
 #include "DxLib.h"
-#include "MyVector.h"
-#include "MyMath.h"
+
+#include "my_vector.h"
+#include "my_math.h"
 
 
 enum class ECameraMode : int

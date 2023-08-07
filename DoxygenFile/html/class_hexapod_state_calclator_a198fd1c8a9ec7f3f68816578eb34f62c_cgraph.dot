@@ -1,0 +1,19 @@
+digraph "HexapodStateCalclator::calculateStaticMargin"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="HexapodStateCalclator\l::calculateStaticMargin",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="静的安定余裕を計算する．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="my_vec::SVector2::cross",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2",tooltip="このベクトルとotherの外積を返す"];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="my_vec::SVector2::normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c",tooltip="このベクトルを正規化したベクトルを返す"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="my_vec::SVector2::length",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560",tooltip="このベクトルの長さを返す"];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="my_vec::SVector2::length\lSquare",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3",tooltip="このベクトルの長さの2乗を返す"];
+  Node1 -> Node7 [id="edge5_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="my_vec::SVector::projectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7",tooltip="XY平面に射影したベクトルを返す．"];
+}

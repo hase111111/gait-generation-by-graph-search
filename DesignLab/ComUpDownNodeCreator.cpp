@@ -7,7 +7,7 @@
 #include "HexapodConst.h"
 #include "HexapodStateCalculator.h"
 #include "LegState.h"
-#include "MyMath.h"
+#include "my_math.h"
 
 
 ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)

@@ -1,0 +1,5 @@
+<map id="ComMoveNodeCreator" name="ComMoveNodeCreator">
+<area shape="rect" id="Node000001" title="重心の平行移動を行うクラス．" alt="" coords="5,80,156,107"/>
+<area shape="rect" id="Node000002" href="$class_i_node_creator.html" title=" " alt="" coords="32,5,129,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,47,83,80,78,80,78,47"/>
+</map>

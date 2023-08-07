@@ -1,5 +1,5 @@
 #pragma once
-#include "MyMath.h"
+#include "my_math.h"
 
 //! @brief  Hexapod，phantomXのパラメータを定数で表現したもの．
 class HexapodConst final

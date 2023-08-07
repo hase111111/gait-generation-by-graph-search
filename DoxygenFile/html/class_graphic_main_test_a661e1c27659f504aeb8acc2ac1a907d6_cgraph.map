@@ -1,13 +1,27 @@
 <map id="GraphicMainTest::update" name="GraphicMainTest::update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,109,172,136"/>
-<area shape="rect" id="Node000002" href="$struct_s_node.html#a387104614d1d5a653448128698ab609a" title="重心位置を変更する関数．" alt="" coords="220,5,405,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,107,219,58,234,51,236,56,221,62,117,111"/>
-<area shape="rect" id="Node000003" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する．" alt="" coords="241,72,384,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,109,226,102,227,107,173,114"/>
-<area shape="rect" id="Node000004" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="228,139,397,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,131,214,136,213,142,172,136"/>
-<area shape="rect" id="Node000005" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="227,189,398,216"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="121,134,221,175,243,182,242,187,219,180,119,139"/>
-<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="453,181,607,224"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="398,200,438,200,438,205,398,205"/>
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,315,172,341"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51" title="重心位置を変更する関数．" alt="" coords="239,5,425,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,314,102,266,125,197,142,159,163,122,188,88,218,58,225,53,228,57,221,62,192,91,168,125,147,162,130,199,107,267,95,315"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator.html#aeec87882422f0d2006aabfdde446267d" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="255,72,409,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,313,108,276,134,225,171,171,193,146,218,125,240,112,243,116,221,129,197,150,175,174,139,228,113,278,97,315"/>
+<area shape="rect" id="Node000004" href="$class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="232,139,432,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="95,313,141,246,176,207,218,175,230,169,232,174,221,180,180,211,145,249,100,316"/>
+<area shape="rect" id="Node000005" href="$class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="231,189,433,216"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="102,312,151,269,183,246,219,226,236,219,238,224,221,230,186,250,154,273,105,316"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#a6929ec7484c6d43815c4b88ba6ab7024" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="253,240,411,283"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="140,311,237,284,239,289,141,317"/>
+<area shape="rect" id="Node000007" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する．" alt="" coords="261,307,403,349"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="172,325,246,325,246,331,172,331"/>
+<area shape="rect" id="Node000008" href="$class_map_state.html#afc4b1ab9248eb27e060296491ca898d7" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="237,373,427,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="141,339,238,366,237,371,140,345"/>
+<area shape="rect" id="Node000009" href="$class_map_state.html#abf19724d4f5f7f8f570cefb5f4f747a3" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="222,440,442,467"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="105,340,154,383,186,406,221,426,238,432,236,437,219,430,183,410,151,387,102,344"/>
+<area shape="rect" id="Node000010" href="$class_camera_controller.html#adb30190f4a720ec1039b2992c4210e7e" title="カメラのモードをセットする．" alt="" coords="220,491,444,517"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="100,340,145,407,180,445,221,476,232,482,230,487,218,481,176,449,141,410,95,343"/>
+<area shape="rect" id="Node000011" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="248,541,416,568"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="97,341,112,379,138,430,174,483,196,507,221,527,236,536,233,540,218,532,193,511,170,486,133,432,107,381,92,343"/>
+<area shape="rect" id="Node000012" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="246,592,418,619"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="95,341,107,387,131,452,148,486,168,520,193,551,221,578,234,586,231,591,218,582,189,555,164,523,143,489,126,454,102,388,90,342"/>
+<area shape="rect" id="Node000013" href="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="492,584,646,627"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="418,603,477,603,477,608,418,608"/>
 </map>

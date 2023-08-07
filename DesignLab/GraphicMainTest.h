@@ -4,7 +4,7 @@
 #include "HexapodRenderer.h"
 #include "GUIController.h"
 #include "Node.h"
-#include "MapState.h"
+#include "map_state.h"
 
 //MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン
 class GraphicMainTest final : public IGraphicMain

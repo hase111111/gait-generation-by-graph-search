@@ -116,15 +116,15 @@ SNode 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ac918f397020ebdacaa8b333e4b07e8ea"><td class="memItemLeft" align="right" valign="top"><a id="ac918f397020ebdacaa8b333e4b07e8ea" name="ac918f397020ebdacaa8b333e4b07e8ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SNode</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_other)</td></tr>
-<tr class="separator:ac918f397020ebdacaa8b333e4b07e8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef6ba9791340a497e87e9c3f131fd147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#aef6ba9791340a497e87e9c3f131fd147">init</a> (const bool _random)</td></tr>
-<tr class="memdesc:aef6ba9791340a497e87e9c3f131fd147"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化関数  <br /></td></tr>
-<tr class="separator:aef6ba9791340a497e87e9c3f131fd147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387104614d1d5a653448128698ab609a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a387104614d1d5a653448128698ab609a">changeGlobalCenterOfMass</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;_new_com, const bool _always_change_leg_base_pos)</td></tr>
-<tr class="memdesc:a387104614d1d5a653448128698ab609a"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心位置を変更する関数．  <br /></td></tr>
-<tr class="separator:a387104614d1d5a653448128698ab609a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abec54eca826dc3a5f7a054efcb2e41fd"><td class="memItemLeft" align="right" valign="top"><a id="abec54eca826dc3a5f7a054efcb2e41fd" name="abec54eca826dc3a5f7a054efcb2e41fd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SNode</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;other)</td></tr>
+<tr class="separator:abec54eca826dc3a5f7a054efcb2e41fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bd25c27bf8460a22087af5ae44838a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a12bd25c27bf8460a22087af5ae44838a">init</a> (const bool random)</td></tr>
+<tr class="memdesc:a12bd25c27bf8460a22087af5ae44838a"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化関数  <br /></td></tr>
+<tr class="separator:a12bd25c27bf8460a22087af5ae44838a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618c4b3bb706cf833e2355e3145fdc51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51">changeGlobalCenterOfMass</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;new_com, const bool do_change_leg_base_pos)</td></tr>
+<tr class="memdesc:a618c4b3bb706cf833e2355e3145fdc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心位置を変更する関数．  <br /></td></tr>
+<tr class="separator:a618c4b3bb706cf833e2355e3145fdc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a753735f1b4c1cfd5526f38cd426c7e73"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73">changeParentNode</a> ()</td></tr>
 <tr class="memdesc:a753735f1b4c1cfd5526f38cd426c7e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">自身を親ノードに変更する関数．  <br /></td></tr>
 <tr class="separator:a753735f1b4c1cfd5526f38cd426c7e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,13 +180,15 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>グラフ構造のためのノード(頂点)．旧名 LNODE </p>
-<p>//!</p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/06 @auther 長谷川</dd></dl>
 <p>この構造体は，グラフ構造のためのノード(頂点)である． <br  />
- 先行研究のプログラムに比べて大きく内容を変更したが，基本的な構造は同じである． <br  />
- </p><dl class="section date"><dt>日付</dt><dd>2023/07/19 @auther 長谷川 </dd></dl>
+ ノードは，脚の状態，脚先の座標，脚接地の基準点の座標，重心の位置，ロールピッチヨーの回転角度，親ノードの番号，次の動作，深さを持つ． <br  />
+ すなわちロボットの現在の状態を表している．しかし，脚の関節角度など一部の情報を持ってはいない． <br  />
+ これは実時間内に，グラフ探索を終えるための工夫である． <br  />
+ 先行研究のプログラムに比べて大きく内容を変更したが，基本的な構造は同じである． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a387104614d1d5a653448128698ab609a" name="a387104614d1d5a653448128698ab609a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a387104614d1d5a653448128698ab609a">&#9670;&#160;</a></span>changeGlobalCenterOfMass()</h2>
+<a id="a618c4b3bb706cf833e2355e3145fdc51" name="a618c4b3bb706cf833e2355e3145fdc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618c4b3bb706cf833e2355e3145fdc51">&#9670;&#160;</a></span>changeGlobalCenterOfMass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,13 +197,13 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
           <td class="memname">void SNode::changeGlobalCenterOfMass </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>_new_com</em>, </td>
+          <td class="paramname"><em>new_com</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>_always_change_leg_base_pos</em>&#160;</td>
+          <td class="paramname"><em>do_change_leg_base_pos</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,8 +216,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <p>重心位置を変更する関数． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_new_com</td><td>新しい重心位置 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_always_change_leg_base_pos</td><td>遊脚していても脚の接地基準地点の座標を変更するかどうか</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new_com</td><td>新しい重心位置 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_change_leg_base_pos</td><td>遊脚中の脚の接地基準地点の座標を変更するかどうか</td></tr>
   </table>
   </dd>
 </dl>
@@ -224,16 +226,18 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_s_node_a387104614d1d5a653448128698ab609a_icgraph.png" border="0" usemap="#astruct_s_node_a387104614d1d5a653448128698ab609a_icgraph" alt=""/></div>
-<map name="astruct_s_node_a387104614d1d5a653448128698ab609a_icgraph" id="astruct_s_node_a387104614d1d5a653448128698ab609a_icgraph">
-<area shape="rect" title="重心位置を変更する関数．" alt="" coords="478,31,663,73"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
-<area shape="poly" title=" " alt="" coords="463,33,430,29,284,23,156,25,156,20,284,18,430,24,464,28"/>
-<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,39,430,65"/>
-<area shape="poly" title=" " alt="" coords="463,55,431,55,431,49,463,49"/>
-<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="234,89,400,116"/>
-<area shape="poly" title=" " alt="" coords="464,76,388,91,387,86,463,71"/>
-<area shape="poly" title=" " alt="" coords="188,41,156,37,157,32,189,36"/>
+<div class="center"><img src="struct_s_node_a618c4b3bb706cf833e2355e3145fdc51_icgraph.png" border="0" usemap="#astruct_s_node_a618c4b3bb706cf833e2355e3145fdc51_icgraph" alt=""/></div>
+<map name="astruct_s_node_a618c4b3bb706cf833e2355e3145fdc51_icgraph" id="astruct_s_node_a618c4b3bb706cf833e2355e3145fdc51_icgraph">
+<area shape="rect" title="重心位置を変更する関数．" alt="" coords="478,60,663,103"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="5,31,156,73"/>
+<area shape="poly" title=" " alt="" coords="518,55,476,36,429,21,367,11,317,8,204,21,150,33,149,28,203,16,317,3,367,5,431,16,478,31,521,50"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="228,31,406,73"/>
+<area shape="poly" title=" " alt="" coords="463,72,406,65,406,60,463,66"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,97,430,124"/>
+<area shape="poly" title=" " alt="" coords="463,96,431,100,430,95,463,91"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="234,148,400,175"/>
+<area shape="poly" title=" " alt="" coords="507,111,431,139,388,150,387,145,429,134,505,106"/>
+<area shape="poly" title=" " alt="" coords="237,96,203,88,155,75,156,70,204,83,238,91"/>
 </map>
 </div>
 
@@ -287,9 +291,21 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <div class="dyncontent">
 <div class="center"><img src="struct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph.png" border="0" usemap="#astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph" alt=""/></div>
 <map name="astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph" id="astruct_s_node_a159d1bc69cbe150d48b5578433fb5fa3_icgraph">
-<area shape="rect" title="次の動作を設定する関数．" alt="" coords="204,13,371,40"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
-<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+<area shape="rect" title="次の動作を設定する関数．" alt="" coords="231,213,398,240"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="19,5,169,48"/>
+<area shape="poly" title=" " alt="" coords="297,202,251,133,218,95,181,62,163,51,165,46,184,58,222,91,255,130,301,199"/>
+<area shape="rect" href="class_leg_hierarchy_node_creator.html#a7d14b74b36b11760930014a9c54ea2cc" title="重心を平行移動したノードを生成する" alt="" coords="9,72,179,115"/>
+<area shape="poly" title=" " alt="" coords="286,205,239,167,181,129,158,118,160,113,184,124,242,163,289,201"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d" title="重心を平行移動したノードを生成する" alt="" coords="13,139,175,181"/>
+<area shape="poly" title=" " alt="" coords="253,211,166,185,168,179,254,206"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="5,205,183,248"/>
+<area shape="poly" title=" " alt="" coords="215,229,183,229,183,224,215,224"/>
+<area shape="rect" href="class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="21,272,167,315"/>
+<area shape="poly" title=" " alt="" coords="254,247,168,274,166,269,253,242"/>
+<area shape="rect" href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="7,339,181,365"/>
+<area shape="poly" title=" " alt="" coords="290,252,243,291,184,329,156,340,154,336,181,324,240,287,287,248"/>
+<area shape="rect" href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="10,389,178,432"/>
+<area shape="poly" title=" " alt="" coords="299,254,252,316,220,350,184,380,164,391,162,387,181,375,216,346,248,313,295,251"/>
 </map>
 </div>
 
@@ -325,18 +341,22 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <div class="dyncontent">
 <div class="center"><img src="struct_s_node_a753735f1b4c1cfd5526f38cd426c7e73_icgraph.png" border="0" usemap="#astruct_s_node_a753735f1b4c1cfd5526f38cd426c7e73_icgraph" alt=""/></div>
 <map name="astruct_s_node_a753735f1b4c1cfd5526f38cd426c7e73_icgraph" id="astruct_s_node_a753735f1b4c1cfd5526f38cd426c7e73_icgraph">
-<area shape="rect" title="自身を親ノードに変更する関数．" alt="" coords="221,47,399,73"/>
-<area shape="rect" href="class_graph_tree_creator_hato.html#a6b9924e816e8bd0b6eea8cec61d0972e" title="グラフを作成する" alt="" coords="14,5,164,48"/>
-<area shape="poly" title=" " alt="" coords="206,47,164,41,165,35,206,42"/>
-<area shape="rect" href="class_graph_tree_creator_sample.html#ac835ec6f06a9890e0b994a2e0c40683e" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="5,72,173,115"/>
-<area shape="poly" title=" " alt="" coords="206,78,174,83,173,78,206,73"/>
+<area shape="rect" title="自身を親ノードに変更する関数．" alt="" coords="485,80,663,107"/>
+<area shape="rect" href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="248,5,415,48"/>
+<area shape="poly" title=" " alt="" coords="508,78,411,51,412,46,509,73"/>
+<area shape="rect" href="class_pass_finder_hato_thread.html#a2563f6aa463b6e5969a29cd8a2e5a4b4" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="234,72,429,115"/>
+<area shape="poly" title=" " alt="" coords="470,96,429,96,429,91,470,91"/>
+<area shape="rect" href="class_pass_finder_hato.html#ac0ebb78cf6ca274c51d13f8eed9c4148" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="226,139,437,181"/>
+<area shape="poly" title=" " alt="" coords="509,114,412,141,411,135,508,109"/>
+<area shape="rect" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,178,115"/>
+<area shape="poly" title=" " alt="" coords="219,96,178,96,178,91,219,91"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aef6ba9791340a497e87e9c3f131fd147" name="aef6ba9791340a497e87e9c3f131fd147"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef6ba9791340a497e87e9c3f131fd147">&#9670;&#160;</a></span>init()</h2>
+<a id="a12bd25c27bf8460a22087af5ae44838a" name="a12bd25c27bf8460a22087af5ae44838a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bd25c27bf8460a22087af5ae44838a">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +365,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
           <td class="memname">void SNode::init </td>
           <td>(</td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>_random</em></td><td>)</td>
+          <td class="paramname"><em>random</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -354,15 +374,25 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <p>初期化関数 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_random</td><td>初期位置をランダムにするかどうか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">random</td><td>初期位置をランダムにするかどうか </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_s_node_a12bd25c27bf8460a22087af5ae44838a_cgraph.png" border="0" usemap="#astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_cgraph" alt=""/></div>
+<map name="astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_cgraph" id="astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_cgraph">
+<area shape="rect" title="初期化関数" alt="" coords="5,5,91,32"/>
+<area shape="rect" href="namespacemy__math.html#aef65fde3633072229bdb6c840f133243" title="指定した範囲内の乱数を生成する．" alt="" coords="139,5,365,32"/>
+<area shape="poly" title=" " alt="" coords="91,16,124,16,124,21,91,21"/>
+</map>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph.png" border="0" usemap="#astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph" alt=""/></div>
-<map name="astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph" id="astruct_s_node_aef6ba9791340a497e87e9c3f131fd147_icgraph">
+<div class="center"><img src="struct_s_node_a12bd25c27bf8460a22087af5ae44838a_icgraph.png" border="0" usemap="#astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_icgraph" alt=""/></div>
+<map name="astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_icgraph" id="astruct_s_node_a12bd25c27bf8460a22087af5ae44838a_icgraph">
 <area shape="rect" title="初期化関数" alt="" coords="184,5,269,32"/>
 <area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
 <area shape="poly" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
@@ -372,8 +402,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 </div>
 </div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_node_8h_source.html">Node.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Node.cpp</li>
+<li>DesignLab/<a class="el" href="_node_8h_source.html">Node.h</a></li>
+<li>DesignLab/Node.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

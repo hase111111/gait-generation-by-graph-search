@@ -2,6 +2,10 @@ var hierarchy =
 [
     [ "_intersectionpolygon", "struct__intersectionpolygon.html", null ],
     [ "_tagInterNode", "struct__tag_inter_node.html", null ],
+    [ "AbstractPassFinderFactory", "class_abstract_pass_finder_factory.html", [
+      [ "PassFinderFactoryFixed", "class_pass_finder_factory_fixed.html", null ],
+      [ "PassFinderFactoryHato", "class_pass_finder_factory_hato.html", null ]
+    ] ],
     [ "std::tr1::gtest_internal::AddRef< T >", "structstd_1_1tr1_1_1gtest__internal_1_1_add_ref.html", null ],
     [ "std::tr1::gtest_internal::AddRef< T & >", "structstd_1_1tr1_1_1gtest__internal_1_1_add_ref_3_01_t_01_6_01_4.html", null ],
     [ "testing::internal::AddReference< T >", "structtesting_1_1internal_1_1_add_reference.html", null ],
@@ -27,12 +31,11 @@ var hierarchy =
     [ "CmdIO", "class_cmd_i_o.html", null ],
     [ "testing::internal::CodeLocation", "structtesting_1_1internal_1_1_code_location.html", null ],
     [ "ComCandidatePolygonMaker", "class_com_candidate_polygon_maker.html", null ],
-    [ "ComMoveNodeCreator", "class_com_move_node_creator.html", null ],
     [ "testing::internal::CompileAssert< bool >", "structtesting_1_1internal_1_1_compile_assert.html", null ],
     [ "testing::internal::CompileAssertTypesEqual< T1, T2 >", "structtesting_1_1internal_1_1_compile_assert_types_equal.html", null ],
     [ "testing::internal::CompileAssertTypesEqual< T, T >", "structtesting_1_1internal_1_1_compile_assert_types_equal_3_01_t_00_01_t_01_4.html", null ],
     [ "ComSelecter", "class_com_selecter.html", null ],
-    [ "ComUpDownNodeCreator", "class_com_up_down_node_creator.html", null ],
+    [ "ComSelecterHato", "class_com_selecter_hato.html", null ],
     [ "testing::internal::ConstCharPtr", "structtesting_1_1internal_1_1_const_char_ptr.html", null ],
     [ "testing::internal::ConstRef< T >", "structtesting_1_1internal_1_1_const_ref.html", null ],
     [ "testing::internal::ConstRef< T & >", "structtesting_1_1internal_1_1_const_ref_3_01_t_01_6_01_4.html", null ],
@@ -63,7 +66,7 @@ var hierarchy =
     [ "GraphicDataBroker", "class_graphic_data_broker.html", null ],
     [ "GraphicLoop", "class_graphic_loop.html", null ],
     [ "GraphicSystem", "class_graphic_system.html", null ],
-    [ "GraphSearchInitializer", "class_graph_search_initializer.html", null ],
+    [ "GraphSearchConst", "class_graph_search_const.html", null ],
     [ "GraphViewerGUIController", "class_graph_viewer_g_u_i_controller.html", null ],
     [ "GraphViewerSystemMain", "class_graph_viewer_system_main.html", null ],
     [ "testing::internal::GTestLog", "classtesting_1_1internal_1_1_g_test_log.html", null ],
@@ -80,19 +83,32 @@ var hierarchy =
       [ "GraphicMainSample", "class_graphic_main_sample.html", null ],
       [ "GraphicMainTest", "class_graphic_main_test.html", null ]
     ] ],
-    [ "IGraphSearch", "class_i_graph_search.html", [
-      [ "GraphSearchHato", "class_graph_search_hato.html", null ],
-      [ "GraphSearchNone", "class_graph_search_none.html", null ]
-    ] ],
     [ "IGraphSearcher", "class_i_graph_searcher.html", [
+      [ "GraphSearcherHato", "class_graph_searcher_hato.html", null ],
       [ "GraphSearcherRandom", "class_graph_searcher_random.html", null ],
       [ "GraphSearcherSample", "class_graph_searcher_sample.html", null ]
     ] ],
     [ "IGraphTreeCreator", "class_i_graph_tree_creator.html", [
       [ "GraphTreeCreatorHato", "class_graph_tree_creator_hato.html", null ],
-      [ "GraphTreeCreatorSample", "class_graph_tree_creator_sample.html", null ]
+      [ "GraphTreeCreatorSample", "class_graph_tree_creator_sample.html", null ],
+      [ "GraphTreeCreatorThread", "class_graph_tree_creator_thread.html", null ]
     ] ],
     [ "testing::internal::ImplicitlyConvertible< From, To >", "classtesting_1_1internal_1_1_implicitly_convertible.html", null ],
+    [ "INodeCreator", "class_i_node_creator.html", [
+      [ "ComMoveNodeCreator", "class_com_move_node_creator.html", null ],
+      [ "ComMoveNodeCreatorHato", "class_com_move_node_creator_hato.html", null ],
+      [ "ComUpDownNodeCreator", "class_com_up_down_node_creator.html", null ],
+      [ "LegDownNodeCreator", "class_leg_down_node_creator.html", null ],
+      [ "LegHierarchyNodeCreator", "class_leg_hierarchy_node_creator.html", null ],
+      [ "LegUpDownNodeCreator", "class_leg_up_down_node_creator.html", null ],
+      [ "LegUpNodeCreator", "class_leg_up_node_creator.html", null ]
+    ] ],
+    [ "IPassFinder", "class_i_pass_finder.html", [
+      [ "PassFinderFixed", "class_pass_finder_fixed.html", null ],
+      [ "PassFinderHato", "class_pass_finder_hato.html", null ],
+      [ "PassFinderHatoThread", "class_pass_finder_hato_thread.html", null ],
+      [ "PassFinderNone", "class_pass_finder_none.html", null ]
+    ] ],
     [ "testing::internal::IsHashTable< T >", "structtesting_1_1internal_1_1_is_hash_table.html", null ],
     [ "testing::internal::IsRecursiveContainerImpl< C, bool, bool >", "structtesting_1_1internal_1_1_is_recursive_container_impl.html", null ],
     [ "testing::internal::IsRecursiveContainerImpl< C, true, true >", "structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_00_01true_01_4.html", null ],
@@ -101,8 +117,6 @@ var hierarchy =
     [ "testing::internal::IteratorTraits< Iterator >", "structtesting_1_1internal_1_1_iterator_traits.html", null ],
     [ "testing::internal::IteratorTraits< const T * >", "structtesting_1_1internal_1_1_iterator_traits_3_01const_01_t_01_5_01_4.html", null ],
     [ "testing::internal::IteratorTraits< T * >", "structtesting_1_1internal_1_1_iterator_traits_3_01_t_01_5_01_4.html", null ],
-    [ "LegHierarchyNodeCreator", "class_leg_hierarchy_node_creator.html", null ],
-    [ "LegUpDownNodeCreator", "class_leg_up_down_node_creator.html", null ],
     [ "testing::internal::linked_ptr< T >", "classtesting_1_1internal_1_1linked__ptr.html", null ],
     [ "testing::internal::linked_ptr< const testing::internal::ParamGeneratorInterface< T > >", "classtesting_1_1internal_1_1linked__ptr.html", null ],
     [ "testing::internal::linked_ptr_internal", "classtesting_1_1internal_1_1linked__ptr__internal.html", null ],
@@ -156,7 +170,6 @@ var hierarchy =
     [ "testing::internal::scoped_ptr< testing::internal::TestMetaFactoryBase< ParamType > >", "classtesting_1_1internal_1_1scoped__ptr.html", null ],
     [ "testing::ScopedTrace", "classtesting_1_1_scoped_trace.html", null ],
     [ "SearchPossibleBodyRotation", "class_search_possible_body_rotation.html", null ],
-    [ "SearchPossibleLegPosition", "class_search_possible_leg_position.html", null ],
     [ "SimulateResult", "class_simulate_result.html", null ],
     [ "Singleton< _T >", "class_singleton.html", null ],
     [ "Singleton< Keyboard >", "class_singleton.html", [
@@ -165,7 +178,6 @@ var hierarchy =
     [ "Singleton< Mouse >", "class_singleton.html", [
       [ "Mouse", "class_mouse.html", null ]
     ] ],
-    [ "my_vec::SLegVector", "structmy__vec_1_1_s_leg_vector.html", null ],
     [ "my_vec::SLine2", "structmy__vec_1_1_s_line2.html", null ],
     [ "SNode", "struct_s_node.html", null ],
     [ "SPolygon", "struct_s_polygon.html", null ],

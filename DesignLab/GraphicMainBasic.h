@@ -1,7 +1,7 @@
 #pragma once
 #include "InterfaceGraphicMain.h"
 #include <vector>
-#include "MapState.h"
+#include "map_state.h"
 #include "Node.h"
 #include "GraphicConst.h"
 #include "CameraController.h"

@@ -2,7 +2,7 @@
 #include "DxLib.h"
 #include "Dxlib3DFunction.h"
 #include "LegState.h"
-#include "MyMath.h"
+#include "my_math.h"
 
 
 bool HexapodRenderer::isAbleCoxaLeg(const my_vec::SVector _coxa_joint, const my_vec::SVector _femur_joint) const

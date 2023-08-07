@@ -1,6 +1,6 @@
 #pragma once
 #include <boost/thread.hpp>
-#include "MapState.h"
+#include "map_state.h"
 #include "Node.h"
 
 

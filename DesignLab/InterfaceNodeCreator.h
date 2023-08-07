@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "MapState.h"
+#include "map_state.h"
 #include "HexapodNextMove.h"
 
 class INodeCreator

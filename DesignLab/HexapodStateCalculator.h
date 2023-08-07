@@ -1,7 +1,10 @@
 #pragma once
-#include "MyVector.h"
+
+#include "my_vector.h"
+#include "my_rotator.h"
 #include "Node.h"
 #include "HexapodConst.h"
+
 
 class HexapodStateCalclator
 {

@@ -112,6 +112,8 @@ $(document).ready(function(){initNavTree('namespace_com_type.html',''); initResi
 , <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a06f1b16d831f614c851c8d0b5e7c7a52">right_front</a>
 , <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ad11d142a4f7d89a886cdb4f1c931531d">center_front</a>
 , <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a2efab30e939fdbe2f33c52ffd64bad85">center_back</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621acb5e100e5a9a3e7f6d1fd97512215282">error</a>
 <br />
  }</td></tr>
 <tr class="separator:a744d4b9d4257c8ca2f68bdbed54dd621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +150,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>checkAbleComTypeFromC
 <tr class="memitem:aa78eb8bb38a76dbf68821d5a2e8f1afd"><td class="memItemLeft" align="right" valign="top"><a id="aa78eb8bb38a76dbf68821d5a2e8f1afd" name="aa78eb8bb38a76dbf68821d5a2e8f1afd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>checkAbleComTypeFromNotGroundableLeg</b> (const int _not_groundble_leg, bool _com_type_able_array[<a class="el" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>])</td></tr>
 <tr class="separator:aa78eb8bb38a76dbf68821d5a2e8f1afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522c076e66f6a2f1b4d74e0cf2662823"><td class="memItemLeft" align="right" valign="top"><a id="a522c076e66f6a2f1b4d74e0cf2662823" name="a522c076e66f6a2f1b4d74e0cf2662823"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checkAbleComTypeFromNotFreeLeg</b> (const int _not_free_leg, bool _com_type_able_array[<a class="el" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>])</td></tr>
+<tr class="separator:a522c076e66f6a2f1b4d74e0cf2662823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 変数</h2></td></tr>
@@ -159,6 +164,13 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_PATTERN_
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_TYPE_NUM</b> = 36</td></tr>
 <tr class="memdesc:ab824570eb6c7d8e6fb26f9478e582224"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心タイプの数 <br /></td></tr>
 <tr class="separator:ab824570eb6c7d8e6fb26f9478e582224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b7d331c49dfd3394b936d22b695a624"><td class="memItemLeft" align="right" valign="top"><a id="a8b7d331c49dfd3394b936d22b695a624" name="a8b7d331c49dfd3394b936d22b695a624"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>BAN_LIST_ARRAY_SIZE</b> = 23</td></tr>
+<tr class="separator:a8b7d331c49dfd3394b936d22b695a624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a9f1641a1972fbf8fc580ca9e3fe56a95">BAN_LIST</a> [HexapodConst::LEG_NUM][BAN_LIST_ARRAY_SIZE]</td></tr>
+<tr class="separator:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af14075ad39cfe776d297f5644a4cad15"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#af14075ad39cfe776d297f5644a4cad15">COMTYPE_BAN_LIST</a></td></tr>
+<tr class="separator:af14075ad39cfe776d297f5644a4cad15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心タイプに関する名前空間 </p>
@@ -213,6 +225,8 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_TYPE_NUM
 <tr><td class="fieldname"><a id="a744d4b9d4257c8ca2f68bdbed54dd621ad11d142a4f7d89a886cdb4f1c931531d" name="a744d4b9d4257c8ca2f68bdbed54dd621ad11d142a4f7d89a886cdb4f1c931531d"></a>center_front&#160;</td><td class="fielddoc"><p>重心が中央前方にある．三角形 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a744d4b9d4257c8ca2f68bdbed54dd621a2efab30e939fdbe2f33c52ffd64bad85" name="a744d4b9d4257c8ca2f68bdbed54dd621a2efab30e939fdbe2f33c52ffd64bad85"></a>center_back&#160;</td><td class="fielddoc"><p>重心が中央後方にある．逆三角径 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a744d4b9d4257c8ca2f68bdbed54dd621acb5e100e5a9a3e7f6d1fd97512215282" name="a744d4b9d4257c8ca2f68bdbed54dd621acb5e100e5a9a3e7f6d1fd97512215282"></a>error&#160;</td><td class="fielddoc"><p>エラー </p>
 </td></tr>
 </table>
 
@@ -285,12 +299,72 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_TYPE_NUM
 <area shape="rect" href="_leg_state_8h.html#ab5a59d93f0d7d639e1be3bb0e1d24aa6" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="223,155,411,181"/>
 <area shape="poly" title=" " alt="" coords="485,122,367,157,365,151,484,117"/>
 <area shape="poly" title=" " alt="" coords="359,18,345,11,317,8,292,10,278,15,275,20,281,27,277,31,270,21,275,11,291,5,317,3,347,6,361,13"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,72,156,115"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="5,72,156,115"/>
 <area shape="poly" title=" " alt="" coords="189,96,156,96,156,91,189,91"/>
 <area shape="poly" title=" " alt="" coords="359,143,345,136,317,133,292,135,278,140,275,145,281,153,277,156,270,146,275,136,291,130,317,128,347,131,361,138"/>
 </map>
 </div>
 
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a9f1641a1972fbf8fc580ca9e3fe56a95" name="a9f1641a1972fbf8fc580ca9e3fe56a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f1641a1972fbf8fc580ca9e3fe56a95">&#9670;&#160;</a></span>BAN_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char ComType::BAN_LIST[HexapodConst::LEG_NUM][BAN_LIST_ARRAY_SIZE]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    {</div>
+<div class="line"> </div>
+<div class="line">    { 0, 1, 2, 3, 4, 5,       8, 9,10,11,12,   14,   16,      19,20,21,22,      25,   27,28,      31,32,   34    }, </div>
+<div class="line">    { 0,    2, 3, 4, 5, 6, 7, 8,      11,12,13,   15,   17,      20,21,22,23,      26,   28,29,      32,33,   35 }, </div>
+<div class="line">    { 0, 1,    3, 4, 5, 6, 7,    9,10,   12,13,14,   16,   18,      21,22,23,24,      27,   29,30,      33,34    }, </div>
+<div class="line">    { 0, 1, 2,    4, 5, 6,    8, 9,   11,   13,14,15,   17,18,19,      22,23,24,25,      28,      31,      34,35 }, </div>
+<div class="line">    { 0, 1, 2, 3,    5, 6, 7, 8,   10,   12,   14,15,16,   18,19,20,      23,   25,26,      29,30,   32,      35 }, </div>
+<div class="line">    { 0, 1, 2, 3, 4,    6, 7,    9,10,11,   13,   15,   17,18,19,20,21,      24,   26,27,      30,31,   33       }  </div>
+<div class="line"> </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af14075ad39cfe776d297f5644a4cad15" name="af14075ad39cfe776d297f5644a4cad15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14075ad39cfe776d297f5644a4cad15">&#9670;&#160;</a></span>COMTYPE_BAN_LIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::vector&lt;int&gt; &gt; ComType::COMTYPE_BAN_LIST</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    {</div>
+<div class="line">        { 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 }, </div>
+<div class="line">        { 18, 19,             23, 24, 25,             29, 30, 31,             35 }, </div>
+<div class="line">        { 18, 19, 20,             24, 25, 26,             30, 31, 32 },             </div>
+<div class="line">        { 19, 20, 21,             25, 26, 27,             31, 32, 33 },         </div>
+<div class="line">        { 20, 21, 22,             26, 27, 28,             32, 33, 34 },     </div>
+<div class="line">        { 21, 22, 23,             27, 28, 29,             33, 34, 35 }, </div>
+<div class="line">        { 18,             22, 23, 24,             28, 29, 30,             34, 35 }, </div>
+<div class="line">        { 18,     20,     22,     24,     26,     28,     30,     32,     34, },        </div>
+<div class="line">        { 19,     21,     23,     25,     27,     29,     31,     33,     35 }  </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

@@ -1,6 +1,6 @@
 #pragma once
 #include "InterfaceNodeCreator.h"
-#include "MyPolygon.h"
+#include "my_polygon.h"
 #include "ComType.h"
 #include "ComCandidatePolygonMaker.h"
 #include "ComSelecterHato.h"

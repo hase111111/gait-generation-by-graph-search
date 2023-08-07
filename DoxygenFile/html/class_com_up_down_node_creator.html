@@ -95,19 +95,140 @@ $(document).ready(function(){initNavTree('class_com_up_down_node_creator.html','
   <div class="headertitle"><div class="title">ComUpDownNodeCreator クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．  
+ <a href="class_com_up_down_node_creator.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_com_up_down_node_creator_8h_source.html">ComUpDownNodeCreator.h</a>&gt;</code></p>
+<div class="dynheader">
+ComUpDownNodeCreator の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_com_up_down_node_creator__inherit__graph.png" border="0" usemap="#a_com_up_down_node_creator_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_com_up_down_node_creator_inherit__map" id="a_com_up_down_node_creator_inherit__map">
+<area shape="rect" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="5,80,174,107"/>
+<area shape="rect" href="class_i_node_creator.html" title=" " alt="" coords="41,5,138,32"/>
+<area shape="poly" title=" " alt="" coords="92,47,92,80,87,80,87,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+ComUpDownNodeCreator 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_com_up_down_node_creator__coll__graph.png" border="0" usemap="#a_com_up_down_node_creator_coll__map" alt="Collaboration graph"/></div>
+<map name="a_com_up_down_node_creator_coll__map" id="a_com_up_down_node_creator_coll__map">
+<area shape="rect" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="5,80,174,107"/>
+<area shape="rect" href="class_i_node_creator.html" title=" " alt="" coords="41,5,138,32"/>
+<area shape="poly" title=" " alt="" coords="92,47,92,80,87,80,87,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ad475cbb818dc8ae9d09d991c6e3935d1"><td class="memItemLeft" align="right" valign="top"><a id="ad475cbb818dc8ae9d09d991c6e3935d1" name="ad475cbb818dc8ae9d09d991c6e3935d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const <a class="el" href="class_map_state.html">MapState</a> *const _p_Map)</td></tr>
-<tr class="separator:ad475cbb818dc8ae9d09d991c6e3935d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a762c904dda857f1e50b55cb5e5626"><td class="memItemLeft" align="right" valign="top"><a id="ad7a762c904dda857f1e50b55cb5e5626" name="ad7a762c904dda857f1e50b55cb5e5626"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node, const int _current_num, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_output_graph)</td></tr>
-<tr class="separator:ad7a762c904dda857f1e50b55cb5e5626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024955d8ebba7b4fdf8fc8f0d1743c1a"><td class="memItemLeft" align="right" valign="top"><a id="a024955d8ebba7b4fdf8fc8f0d1743c1a" name="a024955d8ebba7b4fdf8fc8f0d1743c1a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ComUpDownNodeCreator</b> (const <a class="el" href="class_map_state.html">MapState</a> *const p_map, const EHexapodMove next_move)</td></tr>
+<tr class="separator:a024955d8ebba7b4fdf8fc8f0d1743c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c5f59670bb04307602e98889262fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9">create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const int current_num, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) override</td></tr>
+<tr class="memdesc:a05c5f59670bb04307602e98889262fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を平行移動したノードを生成する  <br /></td></tr>
+<tr class="separator:a05c5f59670bb04307602e98889262fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_node_creator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_node_creator')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_node_creator.html">INodeCreator</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ae05aca798b48bda18aae52c0b9f37b46 inherit pub_methods_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>INodeCreator</b> (const <a class="el" href="class_map_state.html">MapState</a> *const p_map, const EHexapodMove next_move)</td></tr>
+<tr class="separator:ae05aca798b48bda18aae52c0b9f37b46 inherit pub_methods_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68585d4ef146720e494e0d4fc1961bdc inherit pub_methods_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#a68585d4ef146720e494e0d4fc1961bdc">create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const int current_node_index, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:a68585d4ef146720e494e0d4fc1961bdc inherit pub_methods_class_i_node_creator"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を平行移動したノードを生成する  <br /></td></tr>
+<tr class="separator:a68585d4ef146720e494e0d4fc1961bdc inherit pub_methods_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_i_node_creator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_node_creator')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_node_creator.html">INodeCreator</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:ab19dddbded0d73045d481ff4a89cbd50 inherit pro_attribs_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">
+const EHexapodMove&#160;</td><td class="memItemRight" valign="bottom"><b>m_next_move</b></td></tr>
+<tr class="separator:ab19dddbded0d73045d481ff4a89cbd50 inherit pro_attribs_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/7/24 @auther 長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a05c5f59670bb04307602e98889262fa9" name="a05c5f59670bb04307602e98889262fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c5f59670bb04307602e98889262fa9">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComUpDownNodeCreator::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>current_node_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramname"><em>output_graph</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重心を平行移動したノードを生成する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>重心を平行移動するノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node_index</td><td>重心を平行移動するノードの番号 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_graph</td><td>重心を平行移動したノードを格納するコンテナ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_node_creator.html#a68585d4ef146720e494e0d4fc1961bdc">INodeCreator</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_com_up_down_node_creator_a05c5f59670bb04307602e98889262fa9_cgraph.png" border="0" usemap="#aclass_com_up_down_node_creator_a05c5f59670bb04307602e98889262fa9_cgraph" alt=""/></div>
+<map name="aclass_com_up_down_node_creator_a05c5f59670bb04307602e98889262fa9_cgraph" id="aclass_com_up_down_node_creator_a05c5f59670bb04307602e98889262fa9_cgraph">
+<area shape="rect" title="重心を平行移動したノードを生成する" alt="" coords="5,124,174,167"/>
+<area shape="rect" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="234,5,434,32"/>
+<area shape="poly" title=" " alt="" coords="111,122,158,81,189,59,221,42,238,35,240,40,223,46,191,64,162,85,114,126"/>
+<area shape="rect" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="233,56,435,83"/>
+<area shape="poly" title=" " alt="" coords="142,121,221,92,250,84,251,89,222,97,143,126"/>
+<area shape="rect" href="class_map_state.html#a349a0161d371fcd804f46b695b2bdd26" title="長方形状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="222,107,446,133"/>
+<area shape="poly" title=" " alt="" coords="174,134,206,131,207,136,174,139"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="249,157,419,184"/>
+<area shape="poly" title=" " alt="" coords="174,151,234,158,234,163,174,157"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="235,208,433,235"/>
+<area shape="poly" title=" " alt="" coords="143,165,222,193,251,201,250,207,221,199,142,170"/>
+<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="269,259,399,285"/>
+<area shape="poly" title=" " alt="" coords="114,165,162,206,191,227,223,244,256,256,254,261,221,249,189,231,158,210,111,169"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="494,149,664,192"/>
+<area shape="poly" title=" " alt="" coords="419,168,479,168,479,173,419,173"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="712,157,866,184"/>
+<area shape="poly" title=" " alt="" coords="665,168,697,168,697,173,665,173"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_com_up_down_node_creator_8h_source.html">ComUpDownNodeCreator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/ComUpDownNodeCreator.cpp</li>
+<li>DesignLab/<a class="el" href="_com_up_down_node_creator_8h_source.html">ComUpDownNodeCreator.h</a></li>
+<li>DesignLab/ComUpDownNodeCreator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

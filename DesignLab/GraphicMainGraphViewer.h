@@ -1,7 +1,7 @@
 #pragma once
 #include "InterfaceGraphicMain.h"
 #include "HexapodRenderer.h"
-#include "MapState.h"
+#include "map_state.h"
 #include "CameraController.h"
 #include "GraphViewerGUIController.h"
 #include <memory>

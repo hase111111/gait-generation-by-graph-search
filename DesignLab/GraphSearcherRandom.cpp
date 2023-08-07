@@ -1,5 +1,5 @@
 #include "GraphSearcherRandom.h"
-#include"MyMath.h"
+#include"my_math.h"
 
 
 EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)

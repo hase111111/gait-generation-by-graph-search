@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/map_state.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('map__state_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">map_state.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="my__vector_8h.html">my_vector.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="map__creator_8h.html">map_creator.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="map__const_8h.html">map_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_map_state.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_map_state.html">MapState</a> final</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_map_state.html">MapState</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_map_state.html">MapState</a>&amp; operator = (<span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>&amp; other);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_map_state.html#a658eabf1dc87c473fc52693313168f53">init</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, <span class="keyword">const</span> <span class="keywordtype">int</span> option, <span class="keyword">const</span> <span class="keywordtype">bool</span> do_output);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6">   40</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6">getDevideMapNumX</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> posx)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> res = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>((posx - <a class="code hl_variable" href="class_map_const.html#acb4cfbfb3ba0fd97f42ff5afe49a6c85">MapConst::MAP_MIN_FORWARD</a>) / (((<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_map_const.html#ac1058a05465687985db28a75f5f393a1">MapConst::MAP_MAX_FORWARD</a> - <a class="code hl_variable" href="class_map_const.html#acb4cfbfb3ba0fd97f42ff5afe49a6c85">MapConst::MAP_MIN_FORWARD</a>) / <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a>));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> (res &lt; 0)<span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (res &gt;= <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a>)<span class="keywordflow">return</span> <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a> - 1;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa">   52</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa">getDevideMapNumY</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> posy)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> res = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>((posy - <a class="code hl_variable" href="class_map_const.html#aca4145a9caddd78a77ec428bb1a016f8">MapConst::MAP_MIN_HORIZONTAL</a>) / (((<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_map_const.html#a497565173ff90ff45526caeea952b23f">MapConst::MAP_MAX_HORIZONTAL</a> - <a class="code hl_variable" href="class_map_const.html#aca4145a9caddd78a77ec428bb1a016f8">MapConst::MAP_MIN_HORIZONTAL</a>) / <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a>));</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (res &lt; 0) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> (res &gt;= <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a> - 1; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7">getPointNumFromDevideMap</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_map_state.html#abf19724d4f5f7f8f570cefb5f4f747a3">getPosFromDevideMap</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y, <span class="keyword">const</span> <span class="keywordtype">int</span> num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_map_state.html#a349a0161d371fcd804f46b695b2bdd26">   79</a></span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_map_state.html#a349a0161d371fcd804f46b695b2bdd26">getTopZFromDevideMap</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> m_devide_map_top_z.at(getDevideMapNum(x, y));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_map_state.html#ae61a82c231eca4eae6aca0e929e00fc8">getPos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> num) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa">   91</a></span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa">getPosNum</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(m_map_data.size());</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMapMinZ = -100000.0f;      <span class="comment">//マップの最低のZ座標</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// m_map_data をもとに m_devide_mapに値をセットする</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> makeDevideMap();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// m_devide_mapでは要素は1次元の配列として並んでいるので，2つの入力から，どの値を参照すればよいのかを計算する．</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> getDevideMapNum(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> x * <a class="code hl_variable" href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a> + y; }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    std::vector&lt;my_vec::SVector&gt; m_map_data;                    <span class="comment">//ロボットが歩くマップ．脚設置可能点の集合で表現される．</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::vector&lt;std::vector&lt;my_vec::SVector&gt; &gt; m_devide_map;    <span class="comment">//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    std::vector&lt;float&gt; m_devide_map_top_z;                      <span class="comment">//m_devide_mapの中の最も高いz座標をまとめたもの，要素が存在しないなら，float型の最小値が入る．</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="ttc" id="aclass_map_const_html_a497565173ff90ff45526caeea952b23f"><div class="ttname"><a href="class_map_const.html#a497565173ff90ff45526caeea952b23f">MapConst::MAP_MAX_HORIZONTAL</a></div><div class="ttdeci">static constexpr int MAP_MAX_HORIZONTAL</div><div class="ttdoc">マップの横の最大値点</div><div class="ttdef"><b>Definition</b> map_const.h:21</div></div>
+<div class="ttc" id="aclass_map_const_html_ac1058a05465687985db28a75f5f393a1"><div class="ttname"><a href="class_map_const.html#ac1058a05465687985db28a75f5f393a1">MapConst::MAP_MAX_FORWARD</a></div><div class="ttdeci">static constexpr int MAP_MAX_FORWARD</div><div class="ttdoc">マップの縦の最大値点</div><div class="ttdef"><b>Definition</b> map_const.h:24</div></div>
+<div class="ttc" id="aclass_map_const_html_ac756fafd7f1b5257771da9809c88a6b3"><div class="ttname"><a href="class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3">MapConst::LP_DIVIDE_NUM</a></div><div class="ttdeci">static constexpr int LP_DIVIDE_NUM</div><div class="ttdoc">脚接地可能点を平方分割する際の１辺の分割数</div><div class="ttdef"><b>Definition</b> map_const.h:37</div></div>
+<div class="ttc" id="aclass_map_const_html_aca4145a9caddd78a77ec428bb1a016f8"><div class="ttname"><a href="class_map_const.html#aca4145a9caddd78a77ec428bb1a016f8">MapConst::MAP_MIN_HORIZONTAL</a></div><div class="ttdeci">static constexpr int MAP_MIN_HORIZONTAL</div><div class="ttdoc">マップの横の最小値点</div><div class="ttdef"><b>Definition</b> map_const.h:20</div></div>
+<div class="ttc" id="aclass_map_const_html_acb4cfbfb3ba0fd97f42ff5afe49a6c85"><div class="ttname"><a href="class_map_const.html#acb4cfbfb3ba0fd97f42ff5afe49a6c85">MapConst::MAP_MIN_FORWARD</a></div><div class="ttdeci">static constexpr int MAP_MIN_FORWARD</div><div class="ttdoc">マップの縦の最小値点</div><div class="ttdef"><b>Definition</b> map_const.h:22</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
+<div class="ttc" id="aclass_map_state_html_a349a0161d371fcd804f46b695b2bdd26"><div class="ttname"><a href="class_map_state.html#a349a0161d371fcd804f46b695b2bdd26">MapState::getTopZFromDevideMap</a></div><div class="ttdeci">float getTopZFromDevideMap(const int x, const int y) const</div><div class="ttdoc">長方形状に切り分けられたマップから，最も高いZ座標を返す．</div><div class="ttdef"><b>Definition</b> map_state.h:79</div></div>
+<div class="ttc" id="aclass_map_state_html_a52b6c1d7f4c007f79f65f5fb44dee7aa"><div class="ttname"><a href="class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa">MapState::getPosNum</a></div><div class="ttdeci">int getPosNum() const</div><div class="ttdoc">脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．</div><div class="ttdef"><b>Definition</b> map_state.h:91</div></div>
+<div class="ttc" id="aclass_map_state_html_a658eabf1dc87c473fc52693313168f53"><div class="ttname"><a href="class_map_state.html#a658eabf1dc87c473fc52693313168f53">MapState::init</a></div><div class="ttdeci">void init(const EMapCreateMode mode, const int option, const bool do_output)</div><div class="ttdef"><b>Definition</b> map_state.cpp:37</div></div>
+<div class="ttc" id="aclass_map_state_html_aa774afefe0a0cbf9a7bf2f8633ea65a6"><div class="ttname"><a href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6">MapState::getDevideMapNumX</a></div><div class="ttdeci">static int getDevideMapNumX(const float posx)</div><div class="ttdoc">グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す．   範囲外の値を指定した場合は，0またはマップの端の座標を返す．</div><div class="ttdef"><b>Definition</b> map_state.h:40</div></div>
+<div class="ttc" id="aclass_map_state_html_abf19724d4f5f7f8f570cefb5f4f747a3"><div class="ttname"><a href="class_map_state.html#abf19724d4f5f7f8f570cefb5f4f747a3">MapState::getPosFromDevideMap</a></div><div class="ttdeci">my_vec::SVector getPosFromDevideMap(const int x, const int y, const int num) const</div><div class="ttdoc">長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する．   範囲外の値を指定した場合は，(0,0,0)を返す．</div><div class="ttdef"><b>Definition</b> map_state.cpp:55</div></div>
+<div class="ttc" id="aclass_map_state_html_ae61a82c231eca4eae6aca0e929e00fc8"><div class="ttname"><a href="class_map_state.html#ae61a82c231eca4eae6aca0e929e00fc8">MapState::getPos</a></div><div class="ttdeci">my_vec::SVector getPos(const int num) const</div><div class="ttdoc">脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨．</div><div class="ttdef"><b>Definition</b> map_state.cpp:67</div></div>
+<div class="ttc" id="aclass_map_state_html_af032d022391628b0bcc6185ad02938aa"><div class="ttname"><a href="class_map_state.html#af032d022391628b0bcc6185ad02938aa">MapState::getDevideMapNumY</a></div><div class="ttdeci">static int getDevideMapNumY(const float posy)</div><div class="ttdoc">グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す．   範囲外の値を指定した場合は，0またはマップの端の座標を返す．</div><div class="ttdef"><b>Definition</b> map_state.h:52</div></div>
+<div class="ttc" id="aclass_map_state_html_afc4b1ab9248eb27e060296491ca898d7"><div class="ttname"><a href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7">MapState::getPointNumFromDevideMap</a></div><div class="ttdeci">int getPointNumFromDevideMap(const int x, const int y) const</div><div class="ttdoc">長方形状に切り分けられたマップから，脚設置可能点の数を取得する．   範囲外の値を指定した場合は，0を返す．</div><div class="ttdef"><b>Definition</b> map_state.cpp:48</div></div>
+<div class="ttc" id="amap__const_8h_html"><div class="ttname"><a href="map__const_8h.html">map_const.h</a></div><div class="ttdoc">地形状態を表す定数の実装．   行数 : 50</div></div>
+<div class="ttc" id="amap__creator_8h_html"><div class="ttname"><a href="map__creator_8h.html">map_creator.h</a></div><div class="ttdoc">マップ生成クラス及び，マップ生成のモードを指定する列挙体．   行数 : 102</div></div>
+<div class="ttc" id="amap__creator_8h_html_a9497d9831ff0ed2e52d62ea0e3fb6369"><div class="ttname"><a href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a></div><div class="ttdeci">EMapCreateMode</div><div class="ttdoc">getMap関数のマップ生成のモードを指定する列挙体．</div><div class="ttdef"><b>Definition</b> map_creator.h:13</div></div>
+<div class="ttc" id="amy__vector_8h_html"><div class="ttname"><a href="my__vector_8h.html">my_vector.h</a></div><div class="ttdoc">位置ベクトルを表現する構造体   行数 : 159</div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> my_vector.h:40</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>map_state.h</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

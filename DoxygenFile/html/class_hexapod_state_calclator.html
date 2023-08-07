@@ -104,19 +104,18 @@ $(document).ready(function(){initNavTree('class_hexapod_state_calclator.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:aeec87882422f0d2006aabfdde446267d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#aeec87882422f0d2006aabfdde446267d">convertLocalLegPos</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;global_pos, const int leg_num, const bool do_consider_rot) const</td></tr>
+<tr class="memdesc:aeec87882422f0d2006aabfdde446267d"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．  <br /></td></tr>
+<tr class="separator:aeec87882422f0d2006aabfdde446267d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07f1e2f659fb9c34344a6ba821f128cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf">getGlobalLegPos</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num, const bool _consider_rot) const</td></tr>
 <tr class="memdesc:a07f1e2f659fb9c34344a6ba821f128cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．  <br /></td></tr>
 <tr class="separator:a07f1e2f659fb9c34344a6ba821f128cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790fe50059866776c01cf15204e4b061"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a790fe50059866776c01cf15204e4b061">convertLocalLegPos</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;_global_pos, const int _leg_num) const</td></tr>
-<tr class="memdesc:a790fe50059866776c01cf15204e4b061"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．  <br /></td></tr>
-<tr class="separator:a790fe50059866776c01cf15204e4b061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4419307fdde56645a1170d5b33a9e616"><td class="memItemLeft" align="right" valign="top"><a id="a4419307fdde56645a1170d5b33a9e616" name="a4419307fdde56645a1170d5b33a9e616"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getGlobalLeg2Pos</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num) const</td></tr>
-<tr class="memdesc:a4419307fdde56645a1170d5b33a9e616"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する． <br /></td></tr>
-<tr class="separator:a4419307fdde56645a1170d5b33a9e616"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a895950f1490309d3084c54e873c449bd"><td class="memItemLeft" align="right" valign="top"><a id="a895950f1490309d3084c54e873c449bd" name="a895950f1490309d3084c54e873c449bd"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getGlobalCoxaJointPos</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num) const</td></tr>
-<tr class="separator:a895950f1490309d3084c54e873c449bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6929ec7484c6d43815c4b88ba6ab7024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a6929ec7484c6d43815c4b88ba6ab7024">getGlobalLegBasePos</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num, const bool _consider_rot) const</td></tr>
+<tr class="memdesc:a6929ec7484c6d43815c4b88ba6ab7024"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．  <br /></td></tr>
+<tr class="separator:a6929ec7484c6d43815c4b88ba6ab7024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87181dfbb69f6fc630ffa973c3cba184"><td class="memItemLeft" align="right" valign="top"><a id="a87181dfbb69f6fc630ffa973c3cba184" name="a87181dfbb69f6fc630ffa973c3cba184"></a>
+<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getGlobalCoxaJointPos</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num, const bool _consider_rot) const</td></tr>
+<tr class="separator:a87181dfbb69f6fc630ffa973c3cba184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7061397f796eec14959072beee21526"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526">calclateJointPos</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node)</td></tr>
 <tr class="memdesc:ab7061397f796eec14959072beee21526"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．<br  />
  三角関数を多く使用するので，計算量が多い．  <br /></td></tr>
@@ -139,15 +138,24 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getMinLegR</b> (cons
 <tr class="memitem:a44b81247eee6784742703a394716739d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d">isLegInRange</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node, const int _leg_num) const</td></tr>
 <tr class="memdesc:a44b81247eee6784742703a394716739d"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
 <tr class="separator:a44b81247eee6784742703a394716739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae447520915d36e937962038ea9e81a17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#ae447520915d36e937962038ea9e81a17">isLegInRange</a> (const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;local_leg_pos, const int leg_num) const</td></tr>
+<tr class="memdesc:ae447520915d36e937962038ea9e81a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
+<tr class="separator:ae447520915d36e937962038ea9e81a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9">isAllLegInRange</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
-<tr class="memdesc:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
+<tr class="memdesc:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．  <br /></td></tr>
 <tr class="separator:af82fbd4d79a2f6e2204a79878ca84dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e34910a6da418efdc1e1632672f15e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">isAblePause</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
 <tr class="memdesc:a5e34910a6da418efdc1e1632672f15e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">転ばない姿勢かどうか調べる．  <br /></td></tr>
 <tr class="separator:a5e34910a6da418efdc1e1632672f15e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a198fd1c8a9ec7f3f68816578eb34f62c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_state_calclator.html#a198fd1c8a9ec7f3f68816578eb34f62c">calculateStaticMargin</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node) const</td></tr>
+<tr class="memdesc:a198fd1c8a9ec7f3f68816578eb34f62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">静的安定余裕を計算する．  <br /></td></tr>
+<tr class="separator:a198fd1c8a9ec7f3f68816578eb34f62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a4b43a1f03690efd91478b2ec290a2e00"><td class="memItemLeft" align="right" valign="top"><a id="a4b43a1f03690efd91478b2ec290a2e00" name="a4b43a1f03690efd91478b2ec290a2e00"></a>
+static constexpr <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalBaseLegPos</b> (const int _leg_num, const float _z)</td></tr>
+<tr class="separator:a4b43a1f03690efd91478b2ec290a2e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af58abdadfcfd9e7b3bd33b7f43966e51"><td class="memItemLeft" align="right" valign="top"><a id="af58abdadfcfd9e7b3bd33b7f43966e51" name="af58abdadfcfd9e7b3bd33b7f43966e51"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> ()</td></tr>
 <tr class="separator:af58abdadfcfd9e7b3bd33b7f43966e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,8 +208,54 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 
 </div>
 </div>
-<a id="a790fe50059866776c01cf15204e4b061" name="a790fe50059866776c01cf15204e4b061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a790fe50059866776c01cf15204e4b061">&#9670;&#160;</a></span>convertLocalLegPos()</h2>
+<a id="a198fd1c8a9ec7f3f68816578eb34f62c" name="a198fd1c8a9ec7f3f68816578eb34f62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a198fd1c8a9ec7f3f68816578eb34f62c">&#9670;&#160;</a></span>calculateStaticMargin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float HexapodStateCalclator::calculateStaticMargin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>静的安定余裕を計算する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td>ノード情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>float 静的安定余裕 </dd></dl>
+<dl class="section note"><dt>覚え書き</dt><dd>波東さんのプログラムに書いてあったままを移しているが，isAblePause関数と同じようなことをしているので，isAblePause関数を書き直すべきだと思う． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a198fd1c8a9ec7f3f68816578eb34f62c_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a198fd1c8a9ec7f3f68816578eb34f62c_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a198fd1c8a9ec7f3f68816578eb34f62c_cgraph" id="aclass_hexapod_state_calclator_a198fd1c8a9ec7f3f68816578eb34f62c_cgraph">
+<area shape="rect" title="静的安定余裕を計算する．" alt="" coords="5,48,160,91"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="223,5,391,32"/>
+<area shape="poly" title=" " alt="" coords="160,49,230,33,231,38,161,54"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c" title="このベクトルを正規化したベクトルを返す" alt="" coords="208,56,406,83"/>
+<area shape="poly" title=" " alt="" coords="160,67,193,67,193,72,160,72"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,107,406,133"/>
+<area shape="poly" title=" " alt="" coords="161,84,231,100,230,105,160,89"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="454,56,624,83"/>
+<area shape="poly" title=" " alt="" coords="406,67,439,67,439,72,406,72"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="672,48,843,91"/>
+<area shape="poly" title=" " alt="" coords="624,67,657,67,657,72,624,72"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeec87882422f0d2006aabfdde446267d" name="aeec87882422f0d2006aabfdde446267d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec87882422f0d2006aabfdde446267d">&#9670;&#160;</a></span>convertLocalLegPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,19 +264,25 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
           <td class="memname"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> HexapodStateCalclator::convertLocalLegPos </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>_node</em>, </td>
+          <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>_global_pos</em>, </td>
+          <td class="paramname"><em>global_pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_leg_num</em>&#160;</td>
+          <td class="paramname"><em>leg_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>do_consider_rot</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -235,21 +295,93 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <p>第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td>ロボットの状態を表すノード </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_global_pos</td><td>変換するグローバル座標 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_leg_num</td><td>脚番号 0〜5 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ロボットの状態を表すノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">global_pos</td><td>変換するグローバル座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_num</td><td>脚番号 0〜5 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_consider_rot</td><td>回転を考慮するかどうか </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体">my_vec::SVector</a> ローカル座標の脚座標 </dd></dl>
 <div class="dynheader">
-呼び出し関係図:</div>
+被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_hexapod_state_calclator_a790fe50059866776c01cf15204e4b061_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a790fe50059866776c01cf15204e4b061_cgraph" alt=""/></div>
-<map name="aclass_hexapod_state_calclator_a790fe50059866776c01cf15204e4b061_cgraph" id="aclass_hexapod_state_calclator_a790fe50059866776c01cf15204e4b061_cgraph">
-<area shape="rect" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="5,5,160,48"/>
-<area shape="rect" href="namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="208,13,334,40"/>
-<area shape="poly" title=" " alt="" coords="160,24,193,24,193,29,160,29"/>
+<div class="center"><img src="class_hexapod_state_calclator_aeec87882422f0d2006aabfdde446267d_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_aeec87882422f0d2006aabfdde446267d_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_aeec87882422f0d2006aabfdde446267d_icgraph" id="aclass_hexapod_state_calclator_aeec87882422f0d2006aabfdde446267d_icgraph">
+<area shape="rect" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="220,5,374,48"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,172,40"/>
+<area shape="poly" title=" " alt="" coords="205,29,172,29,172,24,205,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6929ec7484c6d43815c4b88ba6ab7024" name="a6929ec7484c6d43815c4b88ba6ab7024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6929ec7484c6d43815c4b88ba6ab7024">&#9670;&#160;</a></span>getGlobalLegBasePos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> HexapodStateCalclator::getGlobalLegBasePos </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>_leg_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>_consider_rot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td>ロボットの状態を表すノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_leg_num</td><td>脚番号 0〜5 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_consider_rot</td><td>回転を考慮するかどうか </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体">my_vec::SVector</a> グローバル座標の脚の基準地点の座標 </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_a6929ec7484c6d43815c4b88ba6ab7024_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a6929ec7484c6d43815c4b88ba6ab7024_icgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_a6929ec7484c6d43815c4b88ba6ab7024_icgraph" id="aclass_hexapod_state_calclator_a6929ec7484c6d43815c4b88ba6ab7024_icgraph">
+<area shape="rect" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="436,81,594,124"/>
+<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="225,64,385,91"/>
+<area shape="poly" title=" " alt="" coords="421,94,385,90,385,84,422,89"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="222,115,388,141"/>
+<area shape="poly" title=" " alt="" coords="422,117,389,121,388,115,421,111"/>
+<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
+<area shape="poly" title=" " alt="" coords="238,62,141,35,142,30,240,57"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
+<area shape="poly" title=" " alt="" coords="210,80,174,80,174,75,210,75"/>
+<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
+<area shape="poly" title=" " alt="" coords="240,98,142,125,141,120,238,93"/>
 </map>
 </div>
 
@@ -310,19 +442,19 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_state_calclator_a07f1e2f659fb9c34344a6ba821f128cf_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a07f1e2f659fb9c34344a6ba821f128cf_icgraph" alt=""/></div>
 <map name="aclass_hexapod_state_calclator_a07f1e2f659fb9c34344a6ba821f128cf_icgraph" id="aclass_hexapod_state_calclator_a07f1e2f659fb9c34344a6ba821f128cf_icgraph">
-<area shape="rect" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="459,115,613,157"/>
-<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="237,79,396,105"/>
-<area shape="poly" title=" " alt="" coords="444,120,386,109,387,103,445,115"/>
-<area shape="rect" href="class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="222,144,411,187"/>
-<area shape="poly" title=" " alt="" coords="445,151,412,155,411,150,444,146"/>
-<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
-<area shape="poly" title=" " alt="" coords="260,76,173,47,137,35,138,30,174,41,262,71"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
-<area shape="poly" title=" " alt="" coords="222,89,174,85,174,80,222,83"/>
-<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
-<area shape="poly" title=" " alt="" coords="231,111,163,125,162,119,230,106"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="14,173,165,216"/>
-<area shape="poly" title=" " alt="" coords="207,182,165,188,165,182,207,177"/>
+<area shape="rect" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="468,115,622,157"/>
+<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="246,79,405,105"/>
+<area shape="poly" title=" " alt="" coords="453,120,395,109,396,103,454,115"/>
+<area shape="rect" href="class_com_candidate_polygon_maker.html#aaf673876af597577926164e4281c8b02" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="231,144,420,187"/>
+<area shape="poly" title=" " alt="" coords="454,151,421,155,420,150,453,146"/>
+<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="13,5,175,32"/>
+<area shape="poly" title=" " alt="" coords="270,76,182,47,144,35,146,30,183,41,272,71"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="10,56,178,99"/>
+<area shape="poly" title=" " alt="" coords="231,89,178,85,179,80,231,83"/>
+<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="17,123,171,149"/>
+<area shape="poly" title=" " alt="" coords="238,111,169,125,167,119,237,106"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="5,173,183,216"/>
+<area shape="poly" title=" " alt="" coords="216,182,184,186,183,181,216,177"/>
 </map>
 </div>
 
@@ -347,7 +479,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <p>転ばない姿勢かどうか調べる． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td>ノード情報 </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,19 +501,23 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph" alt=""/></div>
 <map name="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph" id="aclass_hexapod_state_calclator_a5e34910a6da418efdc1e1632672f15e7_icgraph">
-<area shape="rect" title="転ばない姿勢かどうか調べる．" alt="" coords="496,115,650,157"/>
-<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="255,93,415,120"/>
-<area shape="poly" title=" " alt="" coords="481,127,415,119,415,114,482,122"/>
-<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="222,148,448,175"/>
-<area shape="poly" title=" " alt="" coords="482,148,449,152,448,147,481,143"/>
-<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
-<area shape="poly" title=" " alt="" coords="286,90,173,47,138,35,140,30,175,41,288,85"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
-<area shape="poly" title=" " alt="" coords="240,98,174,90,175,85,241,93"/>
-<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
-<area shape="poly" title=" " alt="" coords="241,121,167,129,167,124,240,115"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="14,173,165,216"/>
-<area shape="poly" title=" " alt="" coords="218,180,165,187,165,182,217,175"/>
+<area shape="rect" title="転ばない姿勢かどうか調べる．" alt="" coords="496,89,650,132"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d" title="重心を平行移動したノードを生成する" alt="" coords="254,5,416,48"/>
+<area shape="poly" title=" " alt="" coords="508,86,447,63,413,51,414,46,449,57,510,81"/>
+<area shape="rect" href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="248,72,422,99"/>
+<area shape="poly" title=" " alt="" coords="481,104,422,97,423,92,482,98"/>
+<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="255,123,415,149"/>
+<area shape="poly" title=" " alt="" coords="482,123,415,130,415,125,481,118"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="222,177,448,204"/>
+<area shape="poly" title=" " alt="" coords="510,141,449,164,396,179,394,174,447,159,508,136"/>
+<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,35,171,61"/>
+<area shape="poly" title=" " alt="" coords="240,121,220,113,206,104,196,94,172,76,145,64,147,59,175,71,199,90,209,100,223,108,242,116"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,85,174,128"/>
+<area shape="poly" title=" " alt="" coords="240,127,174,119,175,114,241,122"/>
+<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,152,167,179"/>
+<area shape="poly" title=" " alt="" coords="241,150,167,159,167,153,240,145"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="14,203,165,245"/>
+<area shape="poly" title=" " alt="" coords="218,209,165,216,165,211,217,204"/>
 </map>
 </div>
 
@@ -403,7 +539,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
       </table>
 </div><div class="memdoc">
 
-<p>全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う． </p>
+<p>全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">_node</td><td>ノード情報 </td></tr>
@@ -416,14 +552,14 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph" alt=""/></div>
 <map name="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph" id="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_cgraph">
-<area shape="rect" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,64,160,107"/>
+<area shape="rect" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,64,160,107"/>
 <area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="208,64,362,107"/>
 <area shape="poly" title=" " alt="" coords="160,83,193,83,193,88,160,88"/>
 <area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="424,5,594,48"/>
 <area shape="poly" title=" " alt="" coords="362,63,410,50,411,55,363,68"/>
 <area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="410,72,607,99"/>
 <area shape="poly" title=" " alt="" coords="362,83,395,83,395,88,362,88"/>
-<area shape="rect" href="namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4" title="2乗した値を返す関数．" alt="" coords="444,123,573,149"/>
+<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="444,123,573,149"/>
 <area shape="poly" title=" " alt="" coords="363,100,433,116,432,121,362,105"/>
 <area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="655,13,809,40"/>
 <area shape="poly" title=" " alt="" coords="594,24,640,24,640,29,594,29"/>
@@ -434,18 +570,72 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph" alt=""/></div>
 <map name="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph" id="aclass_hexapod_state_calclator_af82fbd4d79a2f6e2204a79878ca84dc9_icgraph">
-<area shape="rect" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="478,5,632,48"/>
+<area shape="rect" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="478,5,632,48"/>
 <area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,13,430,40"/>
 <area shape="poly" title=" " alt="" coords="463,29,430,29,430,24,463,24"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
 <area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
 </map>
 </div>
 
 </div>
 </div>
+<a id="ae447520915d36e937962038ea9e81a17" name="ae447520915d36e937962038ea9e81a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae447520915d36e937962038ea9e81a17">&#9670;&#160;</a></span>isLegInRange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HexapodStateCalclator::isLegInRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>local_leg_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>leg_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">local_leg_pos</td><td>脚の付け根の座標を原点とした脚先の座標 </td></tr>
+    <tr><td class="paramname">leg_num</td><td>脚番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>可動範囲内ならtrueを返す． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hexapod_state_calclator_ae447520915d36e937962038ea9e81a17_cgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_ae447520915d36e937962038ea9e81a17_cgraph" alt=""/></div>
+<map name="aclass_hexapod_state_calclator_ae447520915d36e937962038ea9e81a17_cgraph" id="aclass_hexapod_state_calclator_ae447520915d36e937962038ea9e81a17_cgraph">
+<area shape="rect" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,64,160,107"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="221,5,392,48"/>
+<area shape="poly" title=" " alt="" coords="159,63,208,50,209,55,161,68"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,72,405,99"/>
+<area shape="poly" title=" " alt="" coords="160,83,193,83,193,88,160,88"/>
+<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="242,123,371,149"/>
+<area shape="poly" title=" " alt="" coords="161,100,231,116,230,121,159,105"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="453,13,606,40"/>
+<area shape="poly" title=" " alt="" coords="392,24,438,24,438,29,392,29"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a44b81247eee6784742703a394716739d" name="a44b81247eee6784742703a394716739d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44b81247eee6784742703a394716739d">&#9670;&#160;</a></span>isLegInRange()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b81247eee6784742703a394716739d">&#9670;&#160;</a></span>isLegInRange() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,7 +679,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <area shape="poly" title=" " alt="" coords="159,63,208,50,209,55,161,68"/>
 <area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,72,405,99"/>
 <area shape="poly" title=" " alt="" coords="160,83,193,83,193,88,160,88"/>
-<area shape="rect" href="namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4" title="2乗した値を返す関数．" alt="" coords="242,123,371,149"/>
+<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="242,123,371,149"/>
 <area shape="poly" title=" " alt="" coords="161,100,231,116,230,121,159,105"/>
 <area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="453,13,606,40"/>
 <area shape="poly" title=" " alt="" coords="392,24,438,24,438,29,392,29"/>
@@ -500,21 +690,25 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph.png" border="0" usemap="#aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph" alt=""/></div>
 <map name="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph" id="aclass_hexapod_state_calclator_a44b81247eee6784742703a394716739d_icgraph">
-<area shape="rect" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="685,111,840,153"/>
-<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="478,77,637,104"/>
-<area shape="poly" title=" " alt="" coords="670,116,626,107,627,102,671,111"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="481,140,635,183"/>
-<area shape="poly" title=" " alt="" coords="671,148,636,153,635,148,670,143"/>
+<area shape="rect" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="732,169,887,212"/>
+<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="502,93,661,120"/>
+<area shape="poly" title=" " alt="" coords="735,166,619,123,621,118,737,161"/>
+<area shape="rect" href="class_com_selecter_hato.html#ab1cbabfba81418e16751789157d759a9" title="重心を求める" alt="" coords="478,169,684,212"/>
+<area shape="poly" title=" " alt="" coords="717,193,685,193,685,188,717,188"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="504,236,658,279"/>
+<area shape="poly" title=" " alt="" coords="721,219,658,238,656,233,720,214"/>
 <area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="236,5,398,32"/>
-<area shape="poly" title=" " alt="" coords="508,74,429,47,386,35,387,30,431,41,510,69"/>
+<area shape="poly" title=" " alt="" coords="537,89,486,67,429,47,388,35,389,30,431,41,488,62,539,84"/>
 <area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="233,56,401,99"/>
-<area shape="poly" title=" " alt="" coords="463,88,401,85,402,79,463,83"/>
+<area shape="poly" title=" " alt="" coords="486,99,401,89,402,84,487,94"/>
 <area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="240,123,394,149"/>
-<area shape="poly" title=" " alt="" coords="469,110,392,125,391,119,468,105"/>
-<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,173,430,200"/>
-<area shape="poly" title=" " alt="" coords="466,174,431,177,430,172,466,168"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,165,156,208"/>
-<area shape="poly" title=" " alt="" coords="189,189,156,189,156,184,189,184"/>
+<area shape="poly" title=" " alt="" coords="487,120,395,130,394,125,486,114"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="228,173,406,216"/>
+<area shape="poly" title=" " alt="" coords="463,195,406,196,406,191,463,190"/>
+<area shape="rect" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="204,244,430,271"/>
+<area shape="poly" title=" " alt="" coords="489,260,431,260,431,255,489,255"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="5,236,156,279"/>
+<area shape="poly" title=" " alt="" coords="189,260,156,260,156,255,189,255"/>
 </map>
 </div>
 
@@ -574,7 +768,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 <area shape="poly" title=" " alt="" coords="240,98,174,90,175,85,241,93"/>
 <area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
 <area shape="poly" title=" " alt="" coords="241,121,167,129,167,124,240,115"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="14,173,165,216"/>
+<area shape="rect" href="class_com_move_node_creator.html#a54af2f9f812096d439d04e8eb4ce386b" title="重心を平行移動したノードを生成する" alt="" coords="14,173,165,216"/>
 <area shape="poly" title=" " alt="" coords="218,180,165,187,165,182,217,175"/>
 </map>
 </div>
@@ -582,8 +776,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>initLegR</b> (
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_hexapod_state_calculator_8h_source.html">HexapodStateCalculator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/HexapodStateCalculator.cpp</li>
+<li>DesignLab/<a class="el" href="_hexapod_state_calculator_8h_source.html">HexapodStateCalculator.h</a></li>
+<li>DesignLab/HexapodStateCalculator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

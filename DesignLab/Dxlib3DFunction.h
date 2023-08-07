@@ -1,9 +1,11 @@
 #pragma once
+
 #include "Dxlib.h"
-#include "MyVector.h"
+
+#include "my_vector.h"
 
 
-namespace myDxlib3DFunc 
+namespace myDxlib3DFunc
 {
 	//! @brief 3D処理を行う上で必要な初期化処理をまとめたもの．
 	void initDxlib3D();

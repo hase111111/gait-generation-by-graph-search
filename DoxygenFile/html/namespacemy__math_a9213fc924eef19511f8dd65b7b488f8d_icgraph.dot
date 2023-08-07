@@ -14,4 +14,6 @@ digraph "my_math::isEqual"
   Node4 [id="Node000004",label="my_vec::SVector::isZero",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277",tooltip="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="my_vec::SVector2::isZero",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#aec0c69d93a2840d3911027b38749e3ea",tooltip="このベクトルが0ならばtrue"];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="GraphSearcherHato::\lsearchGraphTree",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_searcher_hato.html#a5017564e8b231c787edf3020cc84ffdb",tooltip="グラフを受け取り，その中から最適な次の動作を出力する．"];
 }

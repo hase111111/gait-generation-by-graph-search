@@ -1,5 +1,7 @@
 <map id="STarget" name="STarget">
-<area shape="rect" id="Node000001" title=" " alt="" coords="32,160,99,187"/>
+<area shape="rect" id="Node000001" title="探索において目標となる座標や角度，評価する値についてまとめた構造体" alt="" coords="106,128,172,155"/>
 <area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,47,68,159,63,159,63,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,46,81,75,95,102,120,126,116,129,91,106,76,76,67,47"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="150,5,274,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,47,200,76,185,106,160,129,157,126,181,102,195,74,204,46"/>
 </map>

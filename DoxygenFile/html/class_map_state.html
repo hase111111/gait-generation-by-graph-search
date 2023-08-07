@@ -100,42 +100,58 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
 <p>マップを表すクラス．  
  <a href="class_map_state.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_map_state_8h_source.html">MapState.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="map__state_8h_source.html">map_state.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ae98e9d5bb4096d8125e618f13ff0134b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#ae98e9d5bb4096d8125e618f13ff0134b">init</a> (const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> _mode, const int _option, const bool _do_output)</td></tr>
-<tr class="separator:ae98e9d5bb4096d8125e618f13ff0134b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af38b7f869b9afe8447cfa7463d4c317d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#af38b7f869b9afe8447cfa7463d4c317d">getPointNumFromDevideMap</a> (const int _x, const int _y) const</td></tr>
-<tr class="separator:af38b7f869b9afe8447cfa7463d4c317d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce3da7274aca09e06e740abe894a5e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#a1ce3da7274aca09e06e740abe894a5e0">getPosFromDevideMap</a> (const int _x, const int _y, const int _num) const</td></tr>
-<tr class="separator:a1ce3da7274aca09e06e740abe894a5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19cb0ce79c7a7fddfc3b3c260166b48"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#ab19cb0ce79c7a7fddfc3b3c260166b48">getTopZFromDevideMap</a> (const int _x, const int _y) const</td></tr>
-<tr class="separator:ab19cb0ce79c7a7fddfc3b3c260166b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b115fcc461be814df34a6da7a87998"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#af2b115fcc461be814df34a6da7a87998">getPos</a> (const int _num) const</td></tr>
-<tr class="separator:af2b115fcc461be814df34a6da7a87998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c594a426dabe7dc5065a15fe1598520"><td class="memItemLeft" align="right" valign="top"><a id="a2c594a426dabe7dc5065a15fe1598520" name="a2c594a426dabe7dc5065a15fe1598520"></a>
+<a class="el" href="class_map_state.html">MapState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_map_state.html">MapState</a> &amp;other)</td></tr>
+<tr class="separator:a2c594a426dabe7dc5065a15fe1598520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658eabf1dc87c473fc52693313168f53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#a658eabf1dc87c473fc52693313168f53">init</a> (const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, const int option, const bool do_output)</td></tr>
+<tr class="separator:a658eabf1dc87c473fc52693313168f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4b1ab9248eb27e060296491ca898d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7">getPointNumFromDevideMap</a> (const int x, const int y) const</td></tr>
+<tr class="memdesc:afc4b1ab9248eb27e060296491ca898d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">長方形状に切り分けられたマップから，脚設置可能点の数を取得する． <br  />
+ 範囲外の値を指定した場合は，0を返す．  <br /></td></tr>
+<tr class="separator:afc4b1ab9248eb27e060296491ca898d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf19724d4f5f7f8f570cefb5f4f747a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#abf19724d4f5f7f8f570cefb5f4f747a3">getPosFromDevideMap</a> (const int x, const int y, const int num) const</td></tr>
+<tr class="memdesc:abf19724d4f5f7f8f570cefb5f4f747a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． <br  />
+ 範囲外の値を指定した場合は，(0,0,0)を返す．  <br /></td></tr>
+<tr class="separator:abf19724d4f5f7f8f570cefb5f4f747a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349a0161d371fcd804f46b695b2bdd26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#a349a0161d371fcd804f46b695b2bdd26">getTopZFromDevideMap</a> (const int x, const int y) const</td></tr>
+<tr class="memdesc:a349a0161d371fcd804f46b695b2bdd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">長方形状に切り分けられたマップから，最も高いZ座標を返す．  <br /></td></tr>
+<tr class="separator:a349a0161d371fcd804f46b695b2bdd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61a82c231eca4eae6aca0e929e00fc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#ae61a82c231eca4eae6aca0e929e00fc8">getPos</a> (const int num) const</td></tr>
+<tr class="memdesc:ae61a82c231eca4eae6aca0e929e00fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨．  <br /></td></tr>
+<tr class="separator:ae61a82c231eca4eae6aca0e929e00fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52b6c1d7f4c007f79f65f5fb44dee7aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa">getPosNum</a> () const</td></tr>
+<tr class="memdesc:a52b6c1d7f4c007f79f65f5fb44dee7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．  <br /></td></tr>
 <tr class="separator:a52b6c1d7f4c007f79f65f5fb44dee7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a095b2aedc582a318a8d63aef603ec958"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#a095b2aedc582a318a8d63aef603ec958">getDevideMapNumY</a> (const float _posx)</td></tr>
-<tr class="separator:a095b2aedc582a318a8d63aef603ec958"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae68b6c30514160b4660f6ffcd845438e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#ae68b6c30514160b4660f6ffcd845438e">getDevideMapNumX</a> (const float _posy)</td></tr>
-<tr class="separator:ae68b6c30514160b4660f6ffcd845438e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa774afefe0a0cbf9a7bf2f8633ea65a6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6">getDevideMapNumX</a> (const float posx)</td></tr>
+<tr class="memdesc:aa774afefe0a0cbf9a7bf2f8633ea65a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． <br  />
+ 範囲外の値を指定した場合は，0またはマップの端の座標を返す．  <br /></td></tr>
+<tr class="separator:aa774afefe0a0cbf9a7bf2f8633ea65a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af032d022391628b0bcc6185ad02938aa"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa">getDevideMapNumY</a> (const float posy)</td></tr>
+<tr class="memdesc:af032d022391628b0bcc6185ad02938aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． <br  />
+ 範囲外の値を指定した場合は，0またはマップの端の座標を返す．  <br /></td></tr>
+<tr class="separator:af032d022391628b0bcc6185ad02938aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>マップを表すクラス． </p>
-<p>このプログラムでは，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合．<br  />
- 脚設置可能地点のデータはベクトルの配列で実装している．<br  />
- また，処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものであるdevide_mapがメンバ変数にある．<br  />
+<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>このプログラムでは，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合． <br  />
+ 脚設置可能地点のデータはベクトルの配列で実装している． <br  />
+ また，処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものであるdevide_mapがメンバ変数にある． <br  />
  devide_mapの要素は <a href="https://atcoder.jp/contests/APG4b/tasks/APG4b_t">https://atcoder.jp/contests/APG4b/tasks/APG4b_t</a> の 「1次元の配列を多次元配列として使う」の要領で並んでいる．<br  />
  <br  />
- メンバ変数のデータへのアクセスは，メンバ関数のget????系の関数で行う．<br  />
- 直接データのやり取りを行わないのは，生データであると値を変更可能になってしまうからである．constな関数を使えば，間違って値の変更をしてしまう危険性が0になるので，データのやり取りに優れる． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+ メンバ変数のデータへのアクセスは，メンバ関数のget????系の関数で行う． <br  />
+ 直接データのやり取りを行わないのは，生データであると値を変更可能になってしまうからである．constな関数を使えば，間違っても値の変更ができないので，データのやり取りに優れる． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ae68b6c30514160b4660f6ffcd845438e" name="ae68b6c30514160b4660f6ffcd845438e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae68b6c30514160b4660f6ffcd845438e">&#9670;&#160;</a></span>getDevideMapNumX()</h2>
+<a id="aa774afefe0a0cbf9a7bf2f8633ea65a6" name="aa774afefe0a0cbf9a7bf2f8633ea65a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa774afefe0a0cbf9a7bf2f8633ea65a6">&#9670;&#160;</a></span>getDevideMapNumX()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +163,7 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname">static int MapState::getDevideMapNumX </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>_posy</em></td><td>)</td>
+          <td class="paramname"><em>posx</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -157,18 +173,33 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
   </tr>
 </table>
 </div><div class="memdoc">
-<p>グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． <br  />
+ 範囲外の値を指定した場合は，0またはマップの端の座標を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_posy</td><td>グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posx</td><td>グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照． </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>int m_devide_mapのY座標のどこをさしているか </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>int m_devide_mapのx座標のどこをさしているか </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_state_aa774afefe0a0cbf9a7bf2f8633ea65a6_icgraph.png" border="0" usemap="#aclass_map_state_aa774afefe0a0cbf9a7bf2f8633ea65a6_icgraph" alt=""/></div>
+<map name="aclass_map_state_aa774afefe0a0cbf9a7bf2f8633ea65a6_icgraph" id="aclass_map_state_aa774afefe0a0cbf9a7bf2f8633ea65a6_icgraph">
+<area shape="rect" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="222,43,422,69"/>
+<area shape="rect" href="class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="206,44,174,40,175,35,207,39"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="6,72,173,99"/>
+<area shape="poly" title=" " alt="" coords="207,73,173,77,173,72,206,68"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a095b2aedc582a318a8d63aef603ec958" name="a095b2aedc582a318a8d63aef603ec958"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a095b2aedc582a318a8d63aef603ec958">&#9670;&#160;</a></span>getDevideMapNumY()</h2>
+<a id="af032d022391628b0bcc6185ad02938aa" name="af032d022391628b0bcc6185ad02938aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af032d022391628b0bcc6185ad02938aa">&#9670;&#160;</a></span>getDevideMapNumY()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +211,7 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname">static int MapState::getDevideMapNumY </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>_posx</em></td><td>)</td>
+          <td class="paramname"><em>posy</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -190,18 +221,33 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
   </tr>
 </table>
 </div><div class="memdoc">
-<p>グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． <br  />
+ 範囲外の値を指定した場合は，0またはマップの端の座標を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_posx</td><td>グローバルのx座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posy</td><td>グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きは構造体SVectorを参照． </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>int m_devide_mapのX座標のどこをさしているか </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>int m_devide_mapのy座標のどこをさしているか </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_state_af032d022391628b0bcc6185ad02938aa_icgraph.png" border="0" usemap="#aclass_map_state_af032d022391628b0bcc6185ad02938aa_icgraph" alt=""/></div>
+<map name="aclass_map_state_af032d022391628b0bcc6185ad02938aa_icgraph" id="aclass_map_state_af032d022391628b0bcc6185ad02938aa_icgraph">
+<area shape="rect" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="222,43,424,69"/>
+<area shape="rect" href="class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,44,174,40,175,35,207,39"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="6,72,173,99"/>
+<area shape="poly" title=" " alt="" coords="207,73,174,77,173,72,207,68"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="af38b7f869b9afe8447cfa7463d4c317d" name="af38b7f869b9afe8447cfa7463d4c317d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af38b7f869b9afe8447cfa7463d4c317d">&#9670;&#160;</a></span>getPointNumFromDevideMap()</h2>
+<a id="afc4b1ab9248eb27e060296491ca898d7" name="afc4b1ab9248eb27e060296491ca898d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4b1ab9248eb27e060296491ca898d7">&#9670;&#160;</a></span>getPointNumFromDevideMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,13 +256,13 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname">int MapState::getPointNumFromDevideMap </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_x</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_y</em>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,19 +271,32 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
         </tr>
       </table>
 </div><div class="memdoc">
-<p>長方形状に切り分けられたマップから，脚設置可能点の数を取得する． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>長方形状に切り分けられたマップから，脚設置可能点の数を取得する． <br  />
+ 範囲外の値を指定した場合は，0を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_x</td><td>X座標，切り分けられたタイルの位置で指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_y</td><td>Y座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y座標，切り分けられたタイルの位置で指定する． </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>int 脚設置可能点の数 </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_state_afc4b1ab9248eb27e060296491ca898d7_icgraph.png" border="0" usemap="#aclass_map_state_afc4b1ab9248eb27e060296491ca898d7_icgraph" alt=""/></div>
+<map name="aclass_map_state_afc4b1ab9248eb27e060296491ca898d7_icgraph" id="aclass_map_state_afc4b1ab9248eb27e060296491ca898d7_icgraph">
+<area shape="rect" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="220,5,410,48"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,172,40"/>
+<area shape="poly" title=" " alt="" coords="205,29,172,29,172,24,205,24"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="af2b115fcc461be814df34a6da7a87998" name="af2b115fcc461be814df34a6da7a87998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2b115fcc461be814df34a6da7a87998">&#9670;&#160;</a></span>getPos()</h2>
+<a id="ae61a82c231eca4eae6aca0e929e00fc8" name="ae61a82c231eca4eae6aca0e929e00fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae61a82c231eca4eae6aca0e929e00fc8">&#9670;&#160;</a></span>getPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,14 +305,16 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> MapState::getPos </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_num</em></td><td>)</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画にのみ利用することを推奨． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_num</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -261,8 +322,8 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
 
 </div>
 </div>
-<a id="a1ce3da7274aca09e06e740abe894a5e0" name="a1ce3da7274aca09e06e740abe894a5e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ce3da7274aca09e06e740abe894a5e0">&#9670;&#160;</a></span>getPosFromDevideMap()</h2>
+<a id="abf19724d4f5f7f8f570cefb5f4f747a3" name="abf19724d4f5f7f8f570cefb5f4f747a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf19724d4f5f7f8f570cefb5f4f747a3">&#9670;&#160;</a></span>getPosFromDevideMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,19 +332,19 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> MapState::getPosFromDevideMap </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_x</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_y</em>, </td>
+          <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_num</em>&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -292,15 +353,28 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
         </tr>
       </table>
 </div><div class="memdoc">
-<p>長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． <br  />
+ 範囲外の値を指定した場合は，(0,0,0)を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_x</td><td>X座標，切り分けられたタイルの位置で指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_y</td><td>Y座標，切り分けられたタイルの位置で指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_num</td><td>何番目の脚設置可能点か． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>x座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>y座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>何番目の脚設置可能点か． </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>SVector 脚設置可能点の座標． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_state_abf19724d4f5f7f8f570cefb5f4f747a3_icgraph.png" border="0" usemap="#aclass_map_state_abf19724d4f5f7f8f570cefb5f4f747a3_icgraph" alt=""/></div>
+<map name="aclass_map_state_abf19724d4f5f7f8f570cefb5f4f747a3_icgraph" id="aclass_map_state_abf19724d4f5f7f8f570cefb5f4f747a3_icgraph">
+<area shape="rect" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="220,5,439,32"/>
+<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,172,32"/>
+<area shape="poly" title=" " alt="" coords="205,21,172,21,172,16,205,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -326,12 +400,14 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
   </tr>
 </table>
 </div><div class="memdoc">
-<p>脚設置可能点の座標の数を出力する．getPos関数と併用して使用する． </p><dl class="section return"><dt>戻り値</dt><dd>int 脚設置可能点の数 </dd></dl>
+
+<p>脚設置可能点の座標の数を出力する．getPos関数と併用して使用する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 脚設置可能点の総数 </dd></dl>
 
 </div>
 </div>
-<a id="ab19cb0ce79c7a7fddfc3b3c260166b48" name="ab19cb0ce79c7a7fddfc3b3c260166b48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab19cb0ce79c7a7fddfc3b3c260166b48">&#9670;&#160;</a></span>getTopZFromDevideMap()</h2>
+<a id="a349a0161d371fcd804f46b695b2bdd26" name="a349a0161d371fcd804f46b695b2bdd26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a349a0161d371fcd804f46b695b2bdd26">&#9670;&#160;</a></span>getTopZFromDevideMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,13 +419,13 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
           <td class="memname">float MapState::getTopZFromDevideMap </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_x</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_y</em>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -363,19 +439,31 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
   </tr>
 </table>
 </div><div class="memdoc">
-<p>長方形状に切り分けられたマップから，最も高いZ座標を返す． </p><dl class="params"><dt>引数</dt><dd>
+
+<p>長方形状に切り分けられたマップから，最も高いZ座標を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_x</td><td>X座標，切り分けられたタイルの位置で指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_y</td><td>Y座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X座標，切り分けられたタイルの位置で指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y座標，切り分けられたタイルの位置で指定する． </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>float 最も高いZ座標． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_state_a349a0161d371fcd804f46b695b2bdd26_icgraph.png" border="0" usemap="#aclass_map_state_a349a0161d371fcd804f46b695b2bdd26_icgraph" alt=""/></div>
+<map name="aclass_map_state_a349a0161d371fcd804f46b695b2bdd26_icgraph" id="aclass_map_state_a349a0161d371fcd804f46b695b2bdd26_icgraph">
+<area shape="rect" title="長方形状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="222,13,446,40"/>
+<area shape="rect" href="class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ae98e9d5bb4096d8125e618f13ff0134b" name="ae98e9d5bb4096d8125e618f13ff0134b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae98e9d5bb4096d8125e618f13ff0134b">&#9670;&#160;</a></span>init()</h2>
+<a id="a658eabf1dc87c473fc52693313168f53" name="a658eabf1dc87c473fc52693313168f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658eabf1dc87c473fc52693313168f53">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,20 +471,20 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
         <tr>
           <td class="memname">void MapState::init </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
-          <td class="paramname"><em>_mode</em>, </td>
+          <td class="paramtype">const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_option</em>, </td>
+          <td class="paramname"><em>option</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>_do_output</em>&#160;</td>
+          <td class="paramname"><em>do_output</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -405,21 +493,22 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
         </tr>
       </table>
 </div><div class="memdoc">
-<p>地形データの初期化を行う． </p><dl class="params"><dt>引数</dt><dd>
+<p>@breif 地形データの初期化を行う． </p><dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_mode</td><td>列挙体 EMapCreateModeでどのような地形を生成するか指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_option</td><td>メンバ変数の OPTION_????で生成するマップのオプションを指定する．_modeでReadFromFileが指定されているなら無視される． また，bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_do_output</td><td>生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>列挙体 EMapCreateModeでどのような地形を生成するか指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option</td><td>メンバ変数の OPTION_????で生成するマップのオプションを指定する．modeでReadFromFileが指定されているなら無視される． <br  />
+ また，bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_output</td><td>生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される． </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_state_ae98e9d5bb4096d8125e618f13ff0134b_cgraph.png" border="0" usemap="#aclass_map_state_ae98e9d5bb4096d8125e618f13ff0134b_cgraph" alt=""/></div>
-<map name="aclass_map_state_ae98e9d5bb4096d8125e618f13ff0134b_cgraph" id="aclass_map_state_ae98e9d5bb4096d8125e618f13ff0134b_cgraph">
+<div class="center"><img src="class_map_state_a658eabf1dc87c473fc52693313168f53_cgraph.png" border="0" usemap="#aclass_map_state_a658eabf1dc87c473fc52693313168f53_cgraph" alt=""/></div>
+<map name="aclass_map_state_a658eabf1dc87c473fc52693313168f53_cgraph" id="aclass_map_state_a658eabf1dc87c473fc52693313168f53_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" href="class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc" title=" " alt="" coords="156,5,288,32"/>
+<area shape="rect" href="class_map_creator.html#acdc8d340488d57ec58f71263ace9c4b5" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="156,5,288,32"/>
 <area shape="poly" title=" " alt="" coords="108,16,141,16,141,21,108,21"/>
 </map>
 </div>
@@ -427,8 +516,8 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_map_state_8h_source.html">MapState.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/MapState.cpp</li>
+<li>DesignLab/<a class="el" href="map__state_8h_source.html">map_state.h</a></li>
+<li>DesignLab/map_state.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

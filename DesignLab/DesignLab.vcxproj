@@ -32,6 +32,7 @@
     <ClInclude Include="GraphSearchConst.h" />
     <ClInclude Include="GraphSearcherHato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
+    <ClInclude Include="my_rotator.h" />
     <ClInclude Include="PassFinderFactoryFixed.h" />
     <ClInclude Include="PassFinderFixed.h" />
     <ClInclude Include="PassFinderHato.h" />
@@ -73,35 +74,32 @@
     <ClInclude Include="LegUpDownNodeCreator.h" />
     <ClInclude Include="LegUpNodeCreator.h" />
     <ClInclude Include="LogFileIO.h" />
-    <ClInclude Include="functionPassFinding.h" />
-    <ClInclude Include="MapConst.h" />
+    <ClInclude Include="map_const.h" />
     <ClInclude Include="MapRenderer.h" />
-    <ClInclude Include="MapState.h" />
+    <ClInclude Include="map_state.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="MyLine.h" />
-    <ClInclude Include="MyMath.h" />
-    <ClInclude Include="MyPolygon.h" />
-    <ClInclude Include="MyTimer.h" />
-    <ClInclude Include="MyVector2.h" />
-    <ClInclude Include="NodeValidityChecker.h" />
+    <ClInclude Include="my_line.h" />
+    <ClInclude Include="my_math.h" />
+    <ClInclude Include="my_polygon.h" />
+    <ClInclude Include="my_timer.h" />
+    <ClInclude Include="my_vector2.h" />
+    <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="PassFinderFactoryHato.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="StringToValue.h" />
-    <ClInclude Include="SystemMain.h" />
+    <ClInclude Include="system_main.h" />
     <ClInclude Include="GraphViewerSystemMain.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="MapCreator.h" />
+    <ClInclude Include="map_creator.h" />
     <ClInclude Include="NodeFileIO.h" />
-    <ClInclude Include="PassFinding.h" />
     <ClInclude Include="phantomxCommander.h" />
     <ClInclude Include="SimulateResult.h" />
-    <ClInclude Include="SearchLegPosition.h" />
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
-    <ClInclude Include="MyVector.h" />
+    <ClInclude Include="my_vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonController.cpp" />
@@ -115,6 +113,8 @@
     <ClCompile Include="GraphicMainTest.cpp" />
     <ClCompile Include="GraphSearcherHato.cpp" />
     <ClCompile Include="GraphTreeCreatorThread.cpp" />
+    <ClCompile Include="my_rotator.cpp" />
+    <ClCompile Include="my_timer.cpp" />
     <ClCompile Include="PassFinderFactoryFixed.cpp" />
     <ClCompile Include="PassFinderFixed.cpp" />
     <ClCompile Include="PassFinderHato.cpp" />
@@ -152,30 +152,27 @@
     <ClCompile Include="LegUpDownNodeCreator.cpp" />
     <ClCompile Include="LegUpNodeCreator.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
-    <ClCompile Include="functionPassFinding.cpp" />
     <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="MyLine.cpp" />
-    <ClCompile Include="MyPolygon.cpp" />
+    <ClCompile Include="my_line.cpp" />
+    <ClCompile Include="my_polygon.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MapConst.cpp" />
-    <ClCompile Include="MapCreator.cpp" />
+    <ClCompile Include="map_const.cpp" />
+    <ClCompile Include="map_creator.cpp" />
     <ClCompile Include="MapRenderer.cpp" />
-    <ClCompile Include="MapState.cpp" />
+    <ClCompile Include="map_state.cpp" />
     <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="MyMath.cpp" />
+    <ClCompile Include="my_math.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
-    <ClCompile Include="NodeValidityChecker.cpp" />
+    <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="PassFinderFactoryHato.cpp" />
-    <ClCompile Include="PassFinding.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="SimulateResult.cpp" />
-    <ClCompile Include="SearchLegPosition.cpp" />
-    <ClCompile Include="SystemMain.cpp" />
+    <ClCompile Include="system_main.cpp" />
     <ClCompile Include="GraphViewerSystemMain.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
-    <ClCompile Include="MyVector.cpp" />
+    <ClCompile Include="my_vector.cpp" />
     <ClCompile Include="Define.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +257,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -290,6 +288,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -318,6 +317,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -348,6 +348,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

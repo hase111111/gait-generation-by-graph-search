@@ -94,27 +94,31 @@ $(document).ready(function(){initNavTree('class_map_creator.html',''); initResiz
 <a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
 <a href="#pub-static-attribs">静的公開変数類</a> &#124;
 <a href="class_map_creator-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">MapCreator クラス</div></div>
+  <div class="headertitle"><div class="title">MapCreator クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>マップを生成するクラス．  
  <a href="class_map_creator.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_map_creator_8h_source.html">MapCreator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="map__creator_8h_source.html">map_creator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a8ada8a3b2bc1ae7befd62e94b8579fbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc">create</a> (const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> _mode, const int _option, std::vector&lt; <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &gt; &amp;_map_data, const bool _do_output)</td></tr>
-<tr class="separator:a8ada8a3b2bc1ae7befd62e94b8579fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc8d340488d57ec58f71263ace9c4b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#acdc8d340488d57ec58f71263ace9c4b5">create</a> (const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, const int option, const bool do_output, std::vector&lt; <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &gt; *map_data)</td></tr>
+<tr class="memdesc:acdc8d340488d57ec58f71263ace9c4b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ情報を与える関数 <br  />
+ getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する  <br /></td></tr>
+<tr class="separator:acdc8d340488d57ec58f71263ace9c4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="memItemLeft" align="right" valign="top"><a id="ae0f4ddaec2889e22a6fbcd1bdb773276" name="ae0f4ddaec2889e22a6fbcd1bdb773276"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>printAllMapCreateMode</b> ()</td></tr>
+<tr class="memdesc:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のモードを出力する <br /></td></tr>
 <tr class="separator:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd58d77931914d0fea1108b9ac34b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5dd58d77931914d0fea1108b9ac34b2c" name="a5dd58d77931914d0fea1108b9ac34b2c"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>printAllMapCreateOption</b> ()</td></tr>
+<tr class="memdesc:a5dd58d77931914d0fea1108b9ac34b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプションを出力する <br /></td></tr>
 <tr class="separator:a5dd58d77931914d0fea1108b9ac34b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -146,11 +150,13 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>マップを生成するクラス． </p>
-<p>MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス．<br  />
- 先行研究のプログラムでは mainfunction.h で実装されていた処理である． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス． <br  />
+ 先行研究のプログラムでは mainfunction.h で実装されていた処理である． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a8ada8a3b2bc1ae7befd62e94b8579fbc" name="a8ada8a3b2bc1ae7befd62e94b8579fbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ada8a3b2bc1ae7befd62e94b8579fbc">&#9670;&#160;</a></span>create()</h2>
+<a id="acdc8d340488d57ec58f71263ace9c4b5" name="acdc8d340488d57ec58f71263ace9c4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc8d340488d57ec58f71263ace9c4b5">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,26 +164,26 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
         <tr>
           <td class="memname">﻿ void MapCreator::create </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_map_creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
-          <td class="paramname"><em>_mode</em>, </td>
+          <td class="paramtype">const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_option</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>_map_data</em>, </td>
+          <td class="paramname"><em>option</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>_do_output</em>&#160;</td>
+          <td class="paramname"><em>do_output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &gt; *&#160;</td>
+          <td class="paramname"><em>map_data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -186,23 +192,25 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>マップ情報を与える関数 <br  />
- getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する </p><dl class="params"><dt>引数</dt><dd>
+ getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する </p>
+<dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_mode</td><td>列挙体 EMapCreateModeでどのような地形を生成するか指定する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_option</td><td>メンバ変数の OPTION_????で生成するマップのオプションを指定する．_modeでReadFromFileが指定されているなら無視される． </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">_map_data</td><td>生成したマップはこの変数で参照しする． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_do_output</td><td>生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>列挙体 EMapCreateModeでどのような地形を生成するか指定する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option</td><td>メンバ変数の OPTION_????で生成するマップのオプションを指定する．modeでReadFromFileが指定されているなら無視される． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_output</td><td>生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される． </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">map_data</td><td>生成したマップはこの変数で参照しする． </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_creator_a8ada8a3b2bc1ae7befd62e94b8579fbc_icgraph.png" border="0" usemap="#aclass_map_creator_a8ada8a3b2bc1ae7befd62e94b8579fbc_icgraph" alt=""/></div>
-<map name="aclass_map_creator_a8ada8a3b2bc1ae7befd62e94b8579fbc_icgraph" id="aclass_map_creator_a8ada8a3b2bc1ae7befd62e94b8579fbc_icgraph">
-<area shape="rect" title=" " alt="" coords="156,5,288,32"/>
-<area shape="rect" href="class_map_state.html#ae98e9d5bb4096d8125e618f13ff0134b" title=" " alt="" coords="5,5,108,32"/>
+<div class="center"><img src="class_map_creator_acdc8d340488d57ec58f71263ace9c4b5_icgraph.png" border="0" usemap="#aclass_map_creator_acdc8d340488d57ec58f71263ace9c4b5_icgraph" alt=""/></div>
+<map name="aclass_map_creator_acdc8d340488d57ec58f71263ace9c4b5_icgraph" id="aclass_map_creator_acdc8d340488d57ec58f71263ace9c4b5_icgraph">
+<area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="156,5,288,32"/>
+<area shape="rect" href="class_map_state.html#a658eabf1dc87c473fc52693313168f53" title=" " alt="" coords="5,5,108,32"/>
 <area shape="poly" title=" " alt="" coords="141,21,108,21,108,16,141,16"/>
 </map>
 </div>
@@ -210,8 +218,8 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_map_creator_8h_source.html">MapCreator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/MapCreator.cpp</li>
+<li>DesignLab/<a class="el" href="map__creator_8h_source.html">map_creator.h</a></li>
+<li>DesignLab/map_creator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

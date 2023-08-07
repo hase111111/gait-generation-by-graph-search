@@ -114,9 +114,6 @@
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="functionPassFinding.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
     <ClInclude Include="BFSinHierarchy.h">
       <Filter>ソース ファイル\walking_pattern\Sin</Filter>
     </ClInclude>
@@ -144,13 +141,7 @@
     <ClInclude Include="NodeFileIO.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
-    <ClInclude Include="PassFinding.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
     <ClInclude Include="Target.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchLegPosition.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
     <ClInclude Include="LegState.h">
@@ -159,13 +150,13 @@
     <ClInclude Include="ComType.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="MyMath.h">
+    <ClInclude Include="my_math.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="MapCreator.h">
+    <ClInclude Include="map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="MapState.h">
+    <ClInclude Include="map_state.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="GraphicLoop.h">
@@ -210,7 +201,7 @@
     <ClInclude Include="HexapodConst.h">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
     </ClInclude>
-    <ClInclude Include="MapConst.h">
+    <ClInclude Include="map_const.h">
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClInclude>
     <ClInclude Include="ButtonController.h">
@@ -234,13 +225,13 @@
     <ClInclude Include="GraphTreeCreatorHato.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClInclude>
-    <ClInclude Include="SystemMain.h">
+    <ClInclude Include="system_main.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="NodeValidityChecker.h">
+    <ClInclude Include="node_validity_checker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="HexapodStateCalculator.h">
@@ -264,16 +255,16 @@
     <ClInclude Include="InterfaceGraphSearcher.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="MyVector2.h">
+    <ClInclude Include="my_vector2.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClInclude>
-    <ClInclude Include="MyVector.h">
+    <ClInclude Include="my_vector.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClInclude>
-    <ClInclude Include="MyPolygon.h">
+    <ClInclude Include="my_polygon.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClInclude>
-    <ClInclude Include="MyLine.h">
+    <ClInclude Include="my_line.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClInclude>
     <ClInclude Include="ComCandidatePolygonMaker.h">
@@ -294,7 +285,7 @@
     <ClInclude Include="GraphViewerGUIController.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="MyTimer.h">
+    <ClInclude Include="my_timer.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="StringToValue.h">
@@ -357,6 +348,9 @@
     <ClInclude Include="PassFinderFactoryFixed.h">
       <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="my_rotator.h">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -364,9 +358,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="functionPassFinding.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
     </ClCompile>
     <ClCompile Include="BFSinHierarchy.cpp">
       <Filter>ソース ファイル\walking_pattern\Sin</Filter>
@@ -395,25 +386,19 @@
     <ClCompile Include="NodeFileIO.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="PassFinding.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchLegPosition.cpp">
-      <Filter>ソース ファイル\walking_pattern</Filter>
-    </ClCompile>
     <ClCompile Include="LegState.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
     <ClCompile Include="ComType.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="MapCreator.cpp">
+    <ClCompile Include="map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="MyMath.cpp">
+    <ClCompile Include="my_math.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="MapState.cpp">
+    <ClCompile Include="map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="GraphicLoop.cpp">
@@ -455,7 +440,7 @@
     <ClCompile Include="HexapodConst.cpp">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
     </ClCompile>
-    <ClCompile Include="MapConst.cpp">
+    <ClCompile Include="map_const.cpp">
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClCompile>
     <ClCompile Include="ButtonController.cpp">
@@ -476,13 +461,13 @@
     <ClCompile Include="GraphTreeCreatorSample.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="SystemMain.cpp">
+    <ClCompile Include="system_main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
-    <ClCompile Include="NodeValidityChecker.cpp">
+    <ClCompile Include="node_validity_checker.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorHato.cpp">
@@ -500,16 +485,16 @@
     <ClCompile Include="GraphicMainTest.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
-    <ClCompile Include="MyVector.cpp">
+    <ClCompile Include="my_vector.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
     <ClCompile Include="ComCandidatePolygonMaker.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="MyLine.cpp">
+    <ClCompile Include="my_line.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
-    <ClCompile Include="MyPolygon.cpp">
+    <ClCompile Include="my_polygon.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
     <ClCompile Include="HexapodNextMove.cpp">
@@ -577,6 +562,12 @@
     </ClCompile>
     <ClCompile Include="PassFinderFactoryFixed.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="my_timer.cpp">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="my_rotator.cpp">
+      <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

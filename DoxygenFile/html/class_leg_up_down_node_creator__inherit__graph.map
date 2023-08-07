@@ -1,0 +1,5 @@
+<map id="LegUpDownNodeCreator" name="LegUpDownNodeCreator">
+<area shape="rect" id="Node000001" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="5,80,168,107"/>
+<area shape="rect" id="Node000002" href="$class_i_node_creator.html" title=" " alt="" coords="38,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,47,89,80,84,80,84,47"/>
+</map>

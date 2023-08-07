@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/MyPolygon.cpp ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/MyPolygon.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('_my_polygon_8cpp_source.html',''); ini
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="structmy__vec_1_1_s_polygon2.html#aaaa76fbcbe7c9ca7cc98f608955af392">    3</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#aaaa76fbcbe7c9ca7cc98f608955af392">my_vec::SPolygon2::isConvex</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n = <a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a34877ae7b7ad06a78f4c237d4f33ca3a">getVertexNum</a>();</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n = <a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627">getVertexNum</a>();</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="comment">//早期リターン.頂点数が3未満の場合は多角形ではない</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span> (n &lt; 3)</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('_my_polygon_8cpp_source.html',''); ini
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">return</span> (_cnt % 2 == 1);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
-<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a34877ae7b7ad06a78f4c237d4f33ca3a"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a34877ae7b7ad06a78f4c237d4f33ca3a">my_vec::SPolygon2::getVertexNum</a></div><div class="ttdeci">int getVertexNum() const</div><div class="ttdoc">多角形の頂点数を返す関数</div><div class="ttdef"><b>Definition</b> MyPolygon.h:72</div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a178e01b9175e47eed8f3ab893614f627"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627">my_vec::SPolygon2::getVertexNum</a></div><div class="ttdeci">constexpr int getVertexNum() const</div><div class="ttdoc">多角形の頂点数を返す関数</div><div class="ttdef"><b>Definition</b> MyPolygon.h:76</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_aaaa76fbcbe7c9ca7cc98f608955af392"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#aaaa76fbcbe7c9ca7cc98f608955af392">my_vec::SPolygon2::isConvex</a></div><div class="ttdeci">bool isConvex() const</div><div class="ttdoc">多角形が凸かどうか調べる関数</div><div class="ttdef"><b>Definition</b> MyPolygon.cpp:3</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_ad49346b48fb4c45f703f5b3f09c72937"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#ad49346b48fb4c45f703f5b3f09c72937">my_vec::SPolygon2::isInside</a></div><div class="ttdeci">bool isInside(const SVector2 &amp;_p) const</div><div class="ttdoc">点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．</div><div class="ttdef"><b>Definition</b> MyPolygon.cpp:36</div></div>
 <div class="ttc" id="astructmy__vec_1_1_s_vector2_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a></div><div class="ttdoc">2次元のベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> MyVector2.h:14</div></div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('_my_polygon_8cpp_source.html',''); ini
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>MyPolygon.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><b>MyPolygon.cpp</b></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

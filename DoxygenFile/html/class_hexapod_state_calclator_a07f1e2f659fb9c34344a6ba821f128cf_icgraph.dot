@@ -15,7 +15,7 @@ digraph "HexapodStateCalclator::getGlobalLegPos"
   Node2 -> Node5 [id="edge4_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="ComCandidatePolygonMaker\l::makeCandidatePolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b",tooltip="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する"];
+  Node6 [id="Node000006",label="ComCandidatePolygonMaker\l::makeCandidatePolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_candidate_polygon_maker.html#aaf673876af597577926164e4281c8b02",tooltip="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する"];
   Node6 -> Node7 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node7 [id="Node000007",label="ComMoveNodeCreator\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311",tooltip="重心を平行移動したノードを生成する"];
+  Node7 [id="Node000007",label="ComMoveNodeCreatorHato\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6",tooltip="重心を平行移動したノードを生成する"];
 }

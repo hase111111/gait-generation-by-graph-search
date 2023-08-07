@@ -1,6 +1,6 @@
 #pragma once
-#include "MyVector.h"
-#include "MyPolygon.h"
+#include "my_vector.h"
+#include "my_polygon.h"
 #include "ComType.h"
 #include "Node.h"
 #include "HexapodStateCalculator.h"

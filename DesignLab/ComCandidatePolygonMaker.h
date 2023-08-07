@@ -1,9 +1,12 @@
 #pragma once
+
+#include <vector>
+
 #include "Node.h"
-#include "MyPolygon.h"
+#include "my_polygon.h"
 #include "ComType.h"
 #include "HexapodStateCalculator.h"
-#include <vector>
+
 
 //! @brief 重心位置の候補地点を示す多角形を作成するクラス
 //! @details 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する<br>

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/my_math.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('my__math_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">my_math.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="my__math_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacemy__math.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemy__math.html">my_math</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866">   11</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866">MY_DBL_PI</a> = 3.141592653589793;     </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">   12</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">MY_FLT_PI</a> = 3.141592653589793f;     </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">   14</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">DBL_ALLOWABLE_ERROR</a> = 0.001;                               </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">   15</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">ALLOWABLE_ERROR</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">DBL_ALLOWABLE_ERROR</a>);  </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a">   22</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a">isEqual</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> num1, <span class="keyword">const</span> <span class="keywordtype">float</span> num2)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> dif = num1 - num2;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">if</span> (dif &gt; 0) { <span class="keywordflow">return</span> (dif &lt;= <a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">ALLOWABLE_ERROR</a>); }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">else</span> { <span class="keywordflow">return</span> (dif &gt;= -<a class="code hl_variable" href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">ALLOWABLE_ERROR</a>); }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a117e92868bba1c63db810590a3a50de6">   33</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a">isEqual</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> num1, <span class="keyword">const</span> <span class="keywordtype">double</span> num2)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> dif = num1 - num2;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (dif &gt; 0) { <span class="keywordflow">return</span> (dif &lt;= <a class="code hl_variable" href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">DBL_ALLOWABLE_ERROR</a>); }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">else</span> { <span class="keywordflow">return</span> (dif &gt;= -<a class="code hl_variable" href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">DBL_ALLOWABLE_ERROR</a>); }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">   43</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> num) { <span class="keywordflow">return</span> num * num; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacemy__math.html#ae494d96082c7449fb9cf7f3bdb588678">   48</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> num) { <span class="keywordflow">return</span> num * num; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a13ee3d06035986e650ff531dde535282">   53</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> num) { <span class="keywordflow">return</span> num * num; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a60b4ac4a9dd62c343224d655863bafc1">   58</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> num) { <span class="keywordflow">return</span> num * num; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacemy__math.html#adaf3ba7b49e248254cfe799ace2be7d5">   63</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">short</span> <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<span class="keyword">const</span> <span class="keywordtype">short</span> num) { <span class="keywordflow">return</span> num * num; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="namespacemy__math.html#aef65fde3633072229bdb6c840f133243">generateRandomNumber</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> min, <span class="keyword">const</span> <span class="keywordtype">double</span> max);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="namespacemy__math.html#aef65fde3633072229bdb6c840f133243">generateRandomNumber</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> min, <span class="keyword">const</span> <span class="keywordtype">float</span> max);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacemy__math.html#aef65fde3633072229bdb6c840f133243">generateRandomNumber</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> min, <span class="keyword">const</span> <span class="keywordtype">int</span> max);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a17c0c607ae0331a9f186d48b832c30c8">   88</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacemy__math.html#a17c0c607ae0331a9f186d48b832c30c8">convertRadToDeg</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> rad) { <span class="keywordflow">return</span> rad * 180.0 / <a class="code hl_variable" href="namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866">MY_DBL_PI</a>; };</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a1490670eeb13b699359222a6e50db363">   93</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="namespacemy__math.html#a17c0c607ae0331a9f186d48b832c30c8">convertRadToDeg</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> rad) { <span class="keywordflow">return</span> rad * 180.0f / <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">MY_FLT_PI</a>; };</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespacemy__math.html#a48355ed97e7f5150d53c650e3b85c51e">   98</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacemy__math.html#a48355ed97e7f5150d53c650e3b85c51e">convertDegToRad</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> deg) { <span class="keywordflow">return</span> deg * <a class="code hl_variable" href="namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866">MY_DBL_PI</a> / 180.0; }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacemy__math.html#aa08f147250e3f8aa5c2938462eac613f">  103</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="namespacemy__math.html#a48355ed97e7f5150d53c650e3b85c51e">convertDegToRad</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> deg) { <span class="keywordflow">return</span> deg * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">MY_FLT_PI</a> / 180.0f; }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">float</span> limitRangeAngle(<span class="keyword">const</span> <span class="keywordtype">float</span> angle);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}   <span class="comment">// namespace my_math</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="ttc" id="anamespacemy__math_html"><div class="ttname"><a href="namespacemy__math.html">my_math</a></div><div class="ttdoc">基本的な計算を行う関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> my_math.h:10</div></div>
+<div class="ttc" id="anamespacemy__math_html_a03c19d74d942bc6dca8febf9129adfc1"><div class="ttname"><a href="namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1">my_math::ALLOWABLE_ERROR</a></div><div class="ttdeci">constexpr float ALLOWABLE_ERROR</div><div class="ttdoc">これ以上小さい値は0とみなす．allowable error，許容誤差のこと．0.1とか，大きな値は非推奨．</div><div class="ttdef"><b>Definition</b> my_math.h:15</div></div>
+<div class="ttc" id="anamespacemy__math_html_a17c0c607ae0331a9f186d48b832c30c8"><div class="ttname"><a href="namespacemy__math.html#a17c0c607ae0331a9f186d48b832c30c8">my_math::convertRadToDeg</a></div><div class="ttdeci">constexpr double convertRadToDeg(const double rad)</div><div class="ttdoc">角度をradからdegに変換する関数．</div><div class="ttdef"><b>Definition</b> my_math.h:88</div></div>
+<div class="ttc" id="anamespacemy__math_html_a48355ed97e7f5150d53c650e3b85c51e"><div class="ttname"><a href="namespacemy__math.html#a48355ed97e7f5150d53c650e3b85c51e">my_math::convertDegToRad</a></div><div class="ttdeci">constexpr double convertDegToRad(const double deg)</div><div class="ttdoc">角度をdegからradに変換する関数．</div><div class="ttdef"><b>Definition</b> my_math.h:98</div></div>
+<div class="ttc" id="anamespacemy__math_html_a7cd0d6acfc2a64d8765a1ccea59a7c8a"><div class="ttname"><a href="namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a">my_math::isEqual</a></div><div class="ttdeci">constexpr bool isEqual(const float num1, const float num2)</div><div class="ttdoc">C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．</div><div class="ttdef"><b>Definition</b> my_math.h:22</div></div>
+<div class="ttc" id="anamespacemy__math_html_a8b7f23316d3495fac8be199b3c392fc7"><div class="ttname"><a href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a></div><div class="ttdeci">constexpr float MY_FLT_PI</div><div class="ttdoc">float型の円周率</div><div class="ttdef"><b>Definition</b> my_math.h:12</div></div>
+<div class="ttc" id="anamespacemy__math_html_a943b0b0d0cc9b165cfde2d2b4cf658d5"><div class="ttname"><a href="namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5">my_math::DBL_ALLOWABLE_ERROR</a></div><div class="ttdeci">constexpr double DBL_ALLOWABLE_ERROR</div><div class="ttdoc">これ以上小さい値は0とみなす．allowable error，許容誤差のこと．0.1とか，大きな値は非推奨．</div><div class="ttdef"><b>Definition</b> my_math.h:14</div></div>
+<div class="ttc" id="anamespacemy__math_html_aacc8f27ccee67f8dd99906b16d707769"><div class="ttname"><a href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">my_math::squared</a></div><div class="ttdeci">constexpr double squared(const double num)</div><div class="ttdoc">2乗した値を返す関数．</div><div class="ttdef"><b>Definition</b> my_math.h:43</div></div>
+<div class="ttc" id="anamespacemy__math_html_ad49cf9045a4df8b42a4b61d00d2ee866"><div class="ttname"><a href="namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866">my_math::MY_DBL_PI</a></div><div class="ttdeci">constexpr double MY_DBL_PI</div><div class="ttdoc">double型の円周率</div><div class="ttdef"><b>Definition</b> my_math.h:11</div></div>
+<div class="ttc" id="anamespacemy__math_html_aef65fde3633072229bdb6c840f133243"><div class="ttname"><a href="namespacemy__math.html#aef65fde3633072229bdb6c840f133243">my_math::generateRandomNumber</a></div><div class="ttdeci">double generateRandomNumber(const double min, const double max)</div><div class="ttdoc">指定した範囲内の乱数を生成する．</div><div class="ttdef"><b>Definition</b> my_math.cpp:5</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="my__math_8h.html">my_math.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

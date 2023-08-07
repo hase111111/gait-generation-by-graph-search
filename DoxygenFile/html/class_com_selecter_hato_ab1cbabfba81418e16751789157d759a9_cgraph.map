@@ -1,0 +1,23 @@
+<map id="ComSelecterHato::getComFromPolygon" name="ComSelecterHato::getComFromPolygon">
+<area shape="rect" id="Node000001" title="重心を求める" alt="" coords="5,93,212,136"/>
+<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="287,5,431,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,90,281,51,283,56,173,95"/>
+<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627" title="多角形の頂点数を返す関数" alt="" coords="533,9,677,52"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="212,97,458,57,518,46,519,51,458,63,213,102"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="282,123,436,165"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="212,124,267,131,267,136,212,129"/>
+<area shape="rect" id="Node000009" href="$structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c" title="このベクトルを正規化したベクトルを返す" alt="" coords="260,207,458,233"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="162,134,313,198,311,203,160,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="431,25,517,27,517,32,431,31"/>
+<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="751,145,922,188"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="436,124,494,114,562,107,633,106,704,113,742,123,778,137,776,142,740,128,703,119,633,111,562,112,495,119,437,129"/>
+<area shape="rect" id="Node000007" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="506,128,703,155"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="436,140,491,140,491,145,436,146"/>
+<area shape="rect" id="Node000008" href="$namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="540,179,669,205"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="437,156,526,174,525,179,436,162"/>
+<area shape="rect" id="Node000006" href="$structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="970,153,1123,180"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="922,164,955,164,955,169,922,169"/>
+<area shape="rect" id="Node000010" href="$structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="520,229,690,256"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="459,226,505,231,504,236,458,232"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="663,226,703,215,768,191,770,196,704,220,665,231"/>
+</map>
