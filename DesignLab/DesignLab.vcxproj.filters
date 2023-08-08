@@ -174,16 +174,16 @@
     <ClInclude Include="GraphicMainBasic.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicConst.h">
+    <ClInclude Include="graphic_const.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.h">
+    <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Keyboard.h">
+    <ClInclude Include="keyboard.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Fps.h">
+    <ClInclude Include="fps.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="MapRenderer.h">
@@ -207,7 +207,7 @@
     <ClInclude Include="ButtonController.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Mouse.h">
+    <ClInclude Include="mouse.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="GUIController.h">
@@ -416,13 +416,13 @@
     <ClCompile Include="GraphicMainBasic.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicConst.cpp">
+    <ClCompile Include="graphic_const.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
+    <ClCompile Include="keyboard.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="Fps.cpp">
+    <ClCompile Include="fps.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="CameraController.cpp">
@@ -446,7 +446,7 @@
     <ClCompile Include="ButtonController.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
+    <ClCompile Include="mouse.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="GUIController.cpp">

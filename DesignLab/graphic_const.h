@@ -1,7 +1,15 @@
 #pragma once
+
 #include <string>
 
 
+//! @class GraphicConst
+//! @date 2023/08/08
+//! @author 長谷川
+//! @brief 画像表示処理用の定数をまとめたもの．
+//! @details 定数クラスの詳細はDefine.hを参照．@n 
+//! @n このクラスの注意点としては，まず，WIN_X, WIN_Yに大きすぎる値を代入しないこと．また，16:9の画面比は崩さないほうがいいと思う．
+//! @n 次にカメラに関する値を変更する時は慎重に行うこと，下げすぎると何も見えなくなるし，上げすぎると尋常じゃなく重くなります．
 class GraphicConst final
 {
 public:
@@ -27,17 +35,12 @@ private:
 
 	//コンストラクタとコピーコンストラクタを削除して実体を生成できないようにする．
 	GraphicConst() = delete;
-	GraphicConst(GraphicConst& _other) = delete;
+	GraphicConst(GraphicConst& other) = delete;
 };
 
 
-//! @file GraphicConst.h
+//! @file graphic_const.h
+//! @date 2023/08/08
+//! @author 長谷川
 //! @brief 画像表示処理用の定数．
-//! @author 長谷川
-
-//! @class GraphicConst
-//! @brief 画像表示処理用の定数をまとめたもの．
-//! @details 定数クラスの詳細はDefine.hを参照．<br> <br>
-//! このクラスの注意点としては，まず，WIN_X, WIN_Yに大きすぎる値を代入しないこと．また，16:9の画面比は崩さないほうがいいと思う．<br>
-//! 次にカメラに関する値を変更する時は慎重に行うこと，下げすぎると何も見えなくなるし，上げすぎると尋常じゃなく重くなります．
-//! @author 長谷川
+//! @n 行数 : @lineinfo

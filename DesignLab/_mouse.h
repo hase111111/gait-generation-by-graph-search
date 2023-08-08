@@ -1,16 +1,19 @@
 #pragma once
-#include "Singleton.h"
 
-class Mouse final : public Singleton<Mouse> 
+#include "singleton.h"
+
+
+//! @class Mouse
+//! @date 2023/08/07
+//! @author 長谷川
+//! @brief Dxlibのマウス入力を取得するクラス．
+//! @details 注意点はKeyboardクラスと全く同じ．そちらを参照して確認してほしい．
+class Mouse final : public Singleton<Mouse>
 {
-private:
-	Mouse();
-	friend Singleton<Mouse>;
-
 public:
 
 	//! @brief マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．
-	void update();	
+	void update();
 
 	//! @brief マウスカーソルの位置を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．
 	//! @return int マウスカーソルのX座標．
@@ -46,6 +49,9 @@ public:
 
 private:
 
+	Mouse();
+	friend Singleton<Mouse>;
+
 	//クリックカウンタ
 	int m_posx, m_poy;
 	int m_pushing_count_right, m_pushing_count_left, m_pushing_count_middle;
@@ -53,11 +59,8 @@ private:
 };
 
 
-//! @file Mouse.h
-//! @brief Dxlibのマウス入力を取得するクラスの実装．
+//! @file mouse.h
+//! @date 2023/08/07
 //! @author 長谷川
-
-//! @class Mouse
 //! @brief Dxlibのマウス入力を取得するクラス．
-//! @details 注意点はKeyboardクラスと全く同じ．そちらを参照して確認してほしい．
-//! @author 長谷川
+//! @n 行数 : @lineinfo

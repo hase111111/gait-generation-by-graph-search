@@ -1,5 +1,7 @@
-#include "GraphicConst.h"
+#include "graphic_const.h"
+
 #include "DxLib.h"
+
 
 const std::string GraphicConst::WIN_NAME = TEXT("PhantomXGraphic");
 
