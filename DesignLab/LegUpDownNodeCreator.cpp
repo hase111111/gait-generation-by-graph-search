@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "ComType.h"
+#include "com_type.h"
 #include "GraphSearchConst.h"
 #include "LegState.h"
 

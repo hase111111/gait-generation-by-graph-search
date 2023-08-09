@@ -8,7 +8,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, GetGroundedLegNumWithVector)
 	{
 		// テストケース1 全脚接地
-		ComType::EComPattern _com = ComType::EComPattern::front;
+		ComType::EComPattern _com = ComType::EComPattern::FRONT;
 		bool _leg_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 
@@ -86,7 +86,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, GetLiftedLegNumWithVector)
 	{
 		// テストケース1 全脚接地
-		ComType::EComPattern _com = ComType::EComPattern::front;
+		ComType::EComPattern _com = ComType::EComPattern::FRONT;
 		bool _leg_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 

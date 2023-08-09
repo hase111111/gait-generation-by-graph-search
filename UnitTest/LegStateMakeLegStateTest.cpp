@@ -8,18 +8,18 @@ namespace LegStateEditTest
 	TEST(MakeLegStateFunc, MakeLegState_ChangeComPattren)
 	{
 		//全脚接地のデータを作成する．
-		ComType::EComPattern _com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int _expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << LegStateEdit::SHIFT_TO_COM_NUM;
 		EXPECT_EQ(LegStateEdit::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
 
 		//重心パターンを変更して，重心の値が変わるか，脚位置の値が変化しないか確認
-		_com_pattern = ComType::EComPattern::back;
+		_com_pattern = ComType::EComPattern::BACK;
 		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << LegStateEdit::SHIFT_TO_COM_NUM;
 		EXPECT_EQ(LegStateEdit::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
 
-		_com_pattern = ComType::EComPattern::left_back;
+		_com_pattern = ComType::EComPattern::BACK_LEFT;
 		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << LegStateEdit::SHIFT_TO_COM_NUM;
 		EXPECT_EQ(LegStateEdit::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
 	}
@@ -27,7 +27,7 @@ namespace LegStateEditTest
 	TEST(MakeLegStateFunc, MakeLegState_ChangeGround)
 	{
 		//様々な脚接地パターンを作成する．
-		ComType::EComPattern _com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { false, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int _expected = 0b110011001100110011000100 | ComType::convertComPatternToBit(_com_pattern) << LegStateEdit::SHIFT_TO_COM_NUM;
@@ -53,7 +53,7 @@ namespace LegStateEditTest
 	TEST(MakeLegStateFunc, MAkeLegState_ChangeLegPos)
 	{
 		//様々な脚位置パターンを作成する．
-		ComType::EComPattern _com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int _expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << LegStateEdit::SHIFT_TO_COM_NUM;

@@ -7,7 +7,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, GetLegUpDownCount)
 	{
 		//‹rˆÊ’u‚SC‘S‚ÄÚ’n‚Ì‹ró‘Ô‚ğì¬
-		ComType::EComPattern com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true,true,true,true,true,true };
 		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int leg_state = LegStateEdit::makeLegState(com_pattern, is_ground, leg_pos);

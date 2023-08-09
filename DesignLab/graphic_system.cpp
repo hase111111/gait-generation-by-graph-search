@@ -4,10 +4,10 @@
 
 #include "graphic_const.h"
 #include "graphic_loop.h"
-#include "GraphicMainSample.h"
-#include "GraphicMainBasic.h"
-#include "GraphicMainTest.h"
-#include "GraphicMainGraphViewer.h"
+#include "graphic_main_sample.h"
+#include "graphic_main_basic.h"
+#include "graphic_main_test.h"
+#include "graphic_main_graph_viewer.h"
 #include "Dxlib3DFunction.h"
 #include "Define.h"
 

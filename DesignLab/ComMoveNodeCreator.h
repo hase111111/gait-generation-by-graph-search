@@ -1,7 +1,7 @@
 #pragma once
 #include "InterfaceNodeCreator.h"
 #include "my_polygon.h"
-#include "ComType.h"
+#include "com_type.h"
 
 
 class ComMoveNodeCreator final : public INodeCreator

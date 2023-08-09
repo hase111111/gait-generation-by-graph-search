@@ -4,7 +4,7 @@
 
 #include "Node.h"
 #include "my_polygon.h"
-#include "ComType.h"
+#include "com_type.h"
 #include "HexapodStateCalculator.h"
 
 

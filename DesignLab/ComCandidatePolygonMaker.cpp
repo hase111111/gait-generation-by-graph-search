@@ -14,12 +14,12 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 	}
 
 	//’†S‚ðˆÍ‚Þ‚æ‚¤‚É4ŠpŒ`‚ðì¬‚·‚é
-	makeCandidateBox(leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = ComType::EComPattern::left_front;
-	makeCandidateBox(leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = ComType::EComPattern::left_back;
-	makeCandidateBox(leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = ComType::EComPattern::back;
-	makeCandidateBox(leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = ComType::EComPattern::right_back;
-	makeCandidateBox(leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = ComType::EComPattern::right_front;
-	makeCandidateBox(leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = ComType::EComPattern::front;
+	makeCandidateBox(leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = ComType::EComPattern::FRONT_LEFT;
+	makeCandidateBox(leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = ComType::EComPattern::BACK_LEFT;
+	makeCandidateBox(leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = ComType::EComPattern::BACK;
+	makeCandidateBox(leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = ComType::EComPattern::BACK_RIGHT;
+	makeCandidateBox(leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = ComType::EComPattern::FRONT_RIGHT;
+	makeCandidateBox(leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = ComType::EComPattern::FRONT;
 
 	//’†S‚É3ŠpŒ`‚ðì¬‚·‚é
 	makeCandidateTriangle(leg_pos_xy, &output_poly[6].first, &output_poly[6].second);
@@ -31,7 +31,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 		{
 			if (!checkPolygon(output_poly[i].first))
 			{
-				output_poly[i].second = ComType::EComPattern::error;
+				output_poly[i].second = ComType::EComPattern::ERROR_POS;
 			}
 		}
 	}
@@ -113,11 +113,11 @@ void ComCandidatePolygonMaker::makeCandidateTriangle(const my_vec::SVector2 leg_
 
 	if (_intersection_03_14.x > _intersection_03_25.x)
 	{
-		(*out_com_pattern) = ComType::EComPattern::center_back;
+		(*out_com_pattern) = ComType::EComPattern::CENTER_BACK;
 	}
 	else
 	{
-		(*out_com_pattern) = ComType::EComPattern::center_front;
+		(*out_com_pattern) = ComType::EComPattern::CENTER_FRONT;
 	}
 
 	return;

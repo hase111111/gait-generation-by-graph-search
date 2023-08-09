@@ -1,7 +1,7 @@
 #pragma once
 #include "my_vector.h"
 #include "my_polygon.h"
-#include "ComType.h"
+#include "com_type.h"
 #include "Node.h"
 #include "HexapodStateCalculator.h"
 

@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "InterfaceGraphicMain.h"
+#include "interface_graphic_main.h"
 
 
 //! @class GraphicSystem

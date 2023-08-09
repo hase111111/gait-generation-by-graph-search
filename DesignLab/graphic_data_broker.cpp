@@ -10,7 +10,7 @@ void GraphicDataBroker::setMapState(const MapState& map)
 		boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
 		//値をセットする．
-		m_Map = map;
+		m_map_state = map;
 	}
 }
 
@@ -20,7 +20,7 @@ MapState GraphicDataBroker::getMapState() const
 	//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 	boost::shared_lock<boost::shared_mutex> read_lock(m_mtx);
 
-	return m_Map;
+	return m_map_state;
 }
 
 

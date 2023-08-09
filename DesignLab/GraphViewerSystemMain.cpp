@@ -4,7 +4,7 @@
 
 #include <boost/thread.hpp>
 
-#include "GraphicMainGraphViewer.h"
+#include "graphic_main_graph_viewer.h"
 #include "PassFinderHatoThread.h"
 #include "PassFinderFactoryHato.h"
 #include "HexapodStateCalculator.h"

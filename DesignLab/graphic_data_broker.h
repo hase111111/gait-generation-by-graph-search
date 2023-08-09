@@ -59,7 +59,7 @@ private:
 
 	mutable boost::shared_mutex m_mtx;
 
-	MapState m_Map;
+	MapState m_map_state;
 
 	std::vector<SNode> m_node;
 };

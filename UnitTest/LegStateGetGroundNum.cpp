@@ -9,7 +9,7 @@ namespace LegStateEditTest
 		int _leg_state = 0;
 
 		//全脚接地，結果は6
-		ComType::EComPattern _com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		_leg_state = LegStateEdit::makeLegState(_com_pattern, _ground, _leg_pos);
@@ -58,7 +58,7 @@ namespace LegStateEditTest
 		int _leg_state = 0;
 
 		//全脚接地，結果は0
-		ComType::EComPattern _com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		_leg_state = LegStateEdit::makeLegState(_com_pattern, _ground, _leg_pos);

@@ -1,4 +1,4 @@
-#include "GraphicMainSample.h"
+#include "graphic_main_sample.h"
 
 #include "DxLib.h"
 
@@ -20,5 +20,5 @@ void GraphicMainSample::draw() const
 
 	//メッセージをウィンドウに表示する
 	printfDx("GraphicMainではこのように，描画のみを行うdraw関数と，値の更新のみをおこなうupdate関数によってウィンドウを制御します\n\n");
-	printfDx("起動してから...%lf秒", (double)m_counter / 60.0);
+	printfDx("起動してから...%lf秒", static_cast<double>(m_counter) / 60.0);
 }

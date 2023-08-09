@@ -1,5 +1,5 @@
 #include "LegUpNodeCreator.h"
-#include "ComType.h"
+#include "com_type.h"
 #include "LegState.h"
 
 

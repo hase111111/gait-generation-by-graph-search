@@ -9,8 +9,8 @@
 #include "hexapod.h"
 #include "HexapodStateCalculator.h"
 #include "node_validity_checker.h"
-#include "GraphicMainBasic.h"
-#include "GraphicMainTest.h"
+#include "graphic_main_basic.h"
+#include "graphic_main_test.h"
 
 
 SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search)

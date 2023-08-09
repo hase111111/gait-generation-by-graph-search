@@ -147,7 +147,7 @@
     <ClInclude Include="LegState.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
-    <ClInclude Include="ComType.h">
+    <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
     <ClInclude Include="my_math.h">
@@ -165,13 +165,13 @@
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicMainSample.h">
+    <ClInclude Include="graphic_main_sample.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicMainBasic.h">
+    <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="graphic_const.h">
@@ -243,7 +243,7 @@
     <ClInclude Include="GraphViewerSystemMain.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicMainTest.h">
+    <ClInclude Include="graphic_main_test.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceGraphTreeCreator.h">
@@ -276,10 +276,10 @@
     <ClInclude Include="PassFinderNone.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceGraphicMain.h">
+    <ClInclude Include="interface_graphic_main.h">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicMainGraphViewer.h">
+    <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="GraphViewerGUIController.h">
@@ -389,7 +389,7 @@
     <ClCompile Include="LegState.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
-    <ClCompile Include="ComType.cpp">
+    <ClCompile Include="com_type.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="map_creator.cpp">
@@ -407,13 +407,13 @@
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicMainSample.cpp">
+    <ClCompile Include="graphic_main_sample.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="graphic_data_broker.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicMainBasic.cpp">
+    <ClCompile Include="graphic_main_basic.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="graphic_const.cpp">
@@ -482,7 +482,7 @@
     <ClCompile Include="GraphViewerSystemMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicMainTest.cpp">
+    <ClCompile Include="graphic_main_test.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="my_vector.cpp">
@@ -503,10 +503,10 @@
     <ClCompile Include="PassFinderNone.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceGraphicMain.cpp">
+    <ClCompile Include="interface_graphic_main.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicMainGraphViewer.cpp">
+    <ClCompile Include="graphic_main_graph_viewer.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="GraphViewerGUIController.cpp">
@@ -557,17 +557,17 @@
     <ClCompile Include="GraphSearchResult.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="PassFinderFixed.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="PassFinderFactoryFixed.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="my_timer.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="my_rotator.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderFixed.cpp">
+      <Filter>ソース ファイル\PassFinderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PassFinderFactoryFixed.cpp">
+      <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, IsGround_AllGround)
 	{
 		//‹rˆÊ’u‚SC‘S‚ÄÚ’n‚Ì‹ró‘Ô‚ğì¬
-		ComType::EComPattern com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true,true,true,true,true,true };
 		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int leg_state = LegStateEdit::makeLegState(com_pattern, is_ground, leg_pos);
@@ -39,7 +39,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, IsGround_AllNotGround)
 	{
 		//‹rˆÊ’u‚SC‘S‚Ä”ñÚ’n‚Ì‹ró‘Ô‚ğì¬
-		ComType::EComPattern com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { false,false,false,false,false,false };
 		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int leg_state = LegStateEdit::makeLegState(com_pattern, is_ground, leg_pos);
@@ -69,7 +69,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, IsGround_SomeGround)
 	{
 		//‹rˆÊ’u‚SC‘S‚Ä”ñÚ’n‚Ì‹ró‘Ô‚ğì¬
-		ComType::EComPattern com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true,false,true,false,false,true };
 		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int leg_state = LegStateEdit::makeLegState(com_pattern, is_ground, leg_pos);
@@ -99,7 +99,7 @@ namespace LegStateEditTest
 	TEST(GroundCheckFunc, IsGround_OutOfRange)
 	{
 		//‹rˆÊ’u‚SC‘S‚ÄÚ’n‚Ì‹ró‘Ô‚ğì¬
-		ComType::EComPattern com_pattern = ComType::EComPattern::front;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true,true,true,true,true,true };
 		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 		int leg_state = LegStateEdit::makeLegState(com_pattern, is_ground, leg_pos);

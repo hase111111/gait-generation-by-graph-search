@@ -33,7 +33,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 	for (int i = 0; i < ComCandidatePolygonMaker::MAKE_POLYGON_NUM; ++i)
 	{
 		//‚»‚à‚»‚à‘½ŠpŒ`‚ªŒó•â“_‚É‚È‚è‚¦‚È‚¢‚È‚ç‚ÎC‚»‚Ì‘½ŠpŒ`‚Í–³Ž‹‚·‚é
-		if (candidate_polygons[i].second == ComType::EComPattern::error) { continue; }
+		if (candidate_polygons[i].second == ComType::EComPattern::ERROR_POS) { continue; }
 
 		my_vec::SVector result_com;
 

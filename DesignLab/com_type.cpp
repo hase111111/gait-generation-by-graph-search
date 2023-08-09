@@ -1,33 +1,36 @@
-#include "ComType.h"
-#include "LegState.h"
+#include "com_type.h"
+
 #include <iostream>
+
+#include "LegState.h"
+
 
 int ComType::convertComPatternToBit(const EComPattern _com_pattern)
 {
 	switch (_com_pattern)
 	{
-	case EComPattern::front:
+	case EComPattern::FRONT:
 		return 0b0110;
 		break;
-	case EComPattern::left_front:
+	case EComPattern::FRONT_LEFT:
 		return 0b0001;
 		break;
-	case EComPattern::left_back:
+	case EComPattern::BACK_LEFT:
 		return 0b0010;
 		break;
-	case EComPattern::back:
+	case EComPattern::BACK:
 		return 0b0011;
 		break;
-	case EComPattern::right_back:
+	case EComPattern::BACK_RIGHT:
 		return 0b0100;
 		break;
-	case EComPattern::right_front:
+	case EComPattern::FRONT_RIGHT:
 		return 0b0101;
 		break;
-	case EComPattern::center_front:
+	case EComPattern::CENTER_FRONT:
 		return 0b1000;
 		break;
-	case EComPattern::center_back:
+	case EComPattern::CENTER_BACK:
 		return 0b0111;
 		break;
 	default:
@@ -41,28 +44,28 @@ ComType::EComPattern ComType::convertBitToComPattern(const int _bit)
 	switch (_bit)
 	{
 	case 0b0110:
-		return EComPattern::front;
+		return EComPattern::FRONT;
 		break;
 	case 0b0001:
-		return EComPattern::left_front;
+		return EComPattern::FRONT_LEFT;
 		break;
 	case 0b0010:
-		return EComPattern::left_back;
+		return EComPattern::BACK_LEFT;
 		break;
 	case 0b0011:
-		return EComPattern::back;
+		return EComPattern::BACK;
 		break;
 	case 0b0100:
-		return EComPattern::right_back;
+		return EComPattern::BACK_RIGHT;
 		break;
 	case 0b0101:
-		return EComPattern::right_front;
+		return EComPattern::FRONT_RIGHT;
 		break;
 	case 0b1000:
-		return EComPattern::center_front;
+		return EComPattern::CENTER_FRONT;
 		break;
 	case 0b0111:
-		return EComPattern::center_back;
+		return EComPattern::CENTER_BACK;
 		break;
 	default:
 		return EComPattern();

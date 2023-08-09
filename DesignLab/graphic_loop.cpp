@@ -4,7 +4,7 @@
 
 #include "DxLib.h"
 
-#include "GraphicMainSample.h"
+#include "graphic_main_sample.h"
 #include "keyboard.h"
 #include "mouse.h"
 

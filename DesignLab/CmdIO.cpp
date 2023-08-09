@@ -95,5 +95,6 @@ void dl_io::setOutputPriority(const EOutputPriority priority)
 
 void dl_io::output(const std::string str, const EOutputPriority priority)
 {
-	if ()
 }
+
+EOutputPriority CmdIO::m_output_priority = EOutputPriority::INFO;

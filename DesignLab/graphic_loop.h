@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "fps.h"
-#include "InterfaceGraphicMain.h"
+#include "interface_graphic_main.h"
 
 
 //! @class GraphicLoop

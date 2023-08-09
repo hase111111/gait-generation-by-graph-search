@@ -14,7 +14,7 @@ enum class EOutputPriority
 {
 	ALWAYS,		//常に出力する
 	FATAL,		//致命的なエラー
-	ERROR,		//エラー
+	ERROR_MES,		//エラー
 	WARNING,	//警告
 	INFO,		//情報
 };

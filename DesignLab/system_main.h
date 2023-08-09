@@ -5,7 +5,7 @@
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "InterfacePassFinder.h"
-#include "InterfaceGraphicMain.h"
+#include "interface_graphic_main.h"
 
 
 //! @class SystemMain

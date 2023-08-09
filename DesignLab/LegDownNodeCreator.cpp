@@ -1,6 +1,8 @@
 #include "LegDownNodeCreator.h"
+
 #include "LegState.h"
-#include "ComType.h"
+#include "com_type.h"
+
 
 void LegDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
