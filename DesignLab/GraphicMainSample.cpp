@@ -1,6 +1,9 @@
 #include "GraphicMainSample.h"
+
 #include "DxLib.h"
-#include "GraphicConst.h"
+
+#include "graphic_const.h"
+
 
 bool GraphicMainSample::update()
 {
@@ -8,6 +11,7 @@ bool GraphicMainSample::update()
 
 	return true;
 }
+
 
 void GraphicMainSample::draw() const
 {

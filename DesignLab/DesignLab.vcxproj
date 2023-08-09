@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractPassFinderFactory.h" />
-    <ClInclude Include="ButtonController.h" />
+    <ClInclude Include="button_controller.h" />
     <ClInclude Include="ComCandidatePolygonMaker.h" />
     <ClInclude Include="ComMoveNodeCreator.h" />
     <ClInclude Include="ComMoveNodeCreatorHato.h" />
@@ -59,11 +59,11 @@
     <ClInclude Include="Dxlib3DFunction.h" />
     <ClInclude Include="fps.h" />
     <ClInclude Include="CameraController.h" />
-    <ClInclude Include="GraphicDataBroker.h" />
-    <ClInclude Include="GraphicLoop.h" />
+    <ClInclude Include="graphic_data_broker.h" />
+    <ClInclude Include="graphic_loop.h" />
     <ClInclude Include="GraphicMainBasic.h" />
     <ClInclude Include="GraphicMainSample.h" />
-    <ClInclude Include="GraphicSystem.h" />
+    <ClInclude Include="graphic_system.h" />
     <ClInclude Include="graphic_const.h" />
     <ClInclude Include="HexapodConst.h" />
     <ClInclude Include="InterfaceNodeCreator.h" />
@@ -102,7 +102,7 @@
     <ClInclude Include="my_vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ButtonController.cpp" />
+    <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="ComCandidatePolygonMaker.cpp" />
     <ClCompile Include="ComMoveNodeCreator.cpp" />
     <ClCompile Include="ComMoveNodeCreatorHato.cpp" />
@@ -138,11 +138,11 @@
     <ClCompile Include="fps.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="graphic_const.cpp" />
-    <ClCompile Include="GraphicDataBroker.cpp" />
-    <ClCompile Include="GraphicLoop.cpp" />
+    <ClCompile Include="graphic_data_broker.cpp" />
+    <ClCompile Include="graphic_loop.cpp" />
     <ClCompile Include="GraphicMainBasic.cpp" />
     <ClCompile Include="GraphicMainSample.cpp" />
-    <ClCompile Include="GraphicSystem.cpp" />
+    <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="HexapodConst.cpp" />
     <ClCompile Include="InterfaceGraphTreeCreator.cpp" />
     <ClCompile Include="keyboard.cpp" />

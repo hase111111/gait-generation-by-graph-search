@@ -2,6 +2,7 @@
 #include "HexapodConst.h"
 #include <vector>
 
+
 namespace ComType
 {
 	constexpr int COM_PATTERN_NUM = 10;		//!< 重心パターンの数

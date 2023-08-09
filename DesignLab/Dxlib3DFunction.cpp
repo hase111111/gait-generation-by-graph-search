@@ -1,11 +1,15 @@
 #include "Dxlib3DFunction.h"
-#include "GraphicConst.h"
+
 #include "DxLib.h"
+
+
+#include "graphic_const.h"
+
 
 void myDxlib3DFunc::initDxlib3D()
 {
 	//カメラの描画範囲を設定する
-	SetCameraNearFar(GraphicConst::CAMERA_NEAR, GraphicConst::CAMERA_FAR);	
+	SetCameraNearFar(GraphicConst::CAMERA_NEAR, GraphicConst::CAMERA_FAR);
 
 	SetUseLighting(FALSE);					// ライティングの計算をしないように設定を変更	
 	SetUseBackCulling(FALSE);				// ポリゴンの両面を描画する．
@@ -13,6 +17,7 @@ void myDxlib3DFunc::initDxlib3D()
 	SetWriteZBuffer3D(TRUE);				// Ｚバッファへの書き込みを有効にする
 	SetFogEnable(FALSE);					// フォグは使用しない．
 }
+
 
 void myDxlib3DFunc::drawCube3D(const VECTOR _center_pos, const float _side_len, const unsigned int _color)
 {
@@ -51,10 +56,12 @@ void myDxlib3DFunc::drawCube3D(const VECTOR _center_pos, const float _side_len, 
 
 }
 
+
 void myDxlib3DFunc::drawCube3DWithTopPos(const VECTOR _top_pos, const float _side_len, const unsigned int _color)
 {
 	drawCube3D(VSub(_top_pos, VGet(0, 0, _side_len / 2)), _side_len, _color);
 }
+
 
 void myDxlib3DFunc::drawHexagon(const VECTOR _vertex[6], const unsigned int _color)
 {
@@ -64,6 +71,7 @@ void myDxlib3DFunc::drawHexagon(const VECTOR _vertex[6], const unsigned int _col
 	DrawTriangle3D(_vertex[1], _vertex[4], _vertex[5], _color, TRUE);
 	DrawTriangle3D(_vertex[2], _vertex[3], _vertex[4], _color, TRUE);
 }
+
 
 void myDxlib3DFunc::drawHexagonalPrism(const VECTOR _vertex[6], const float _height, const unsigned int _color)
 {

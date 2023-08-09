@@ -1,9 +1,11 @@
 #pragma once
-#include "InterfaceGraphicMain.h"
+
 #include <vector>
+
+#include "InterfaceGraphicMain.h"
 #include "map_state.h"
 #include "Node.h"
-#include "GraphicConst.h"
+#include "graphic_const.h"
 #include "CameraController.h"
 #include "GUIController.h"
 #include "HexapodRenderer.h"

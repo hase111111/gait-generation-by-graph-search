@@ -1,17 +1,21 @@
 #pragma once
-#include "GraphicConst.h"
-#include "Node.h"
-#include "ButtonController.h"
-#include "CameraController.h"
+
 #include <memory>
 #include <vector>
 
-enum class ENodeDisplayNode : int 
+#include "button_controller.h"
+#include "graphic_const.h"
+#include "Node.h"
+#include "CameraController.h"
+
+
+enum class ENodeDisplayNode : int
 {
 	AutoUpdate,
 	AlwaysNew,
 	Selectable
 };
+
 
 // UIを表示する関数．表示するものを変更したい場合は編集してください．
 class GUIController

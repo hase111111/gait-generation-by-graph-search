@@ -1,8 +1,9 @@
 #pragma once
 #include "map_state.h"
-#include "GraphicSystem.h"
-#include "GraphicDataBroker.h"
+#include "graphic_system.h"
+#include "graphic_data_broker.h"
 #include "InterfacePassFinder.h"
+
 
 class GraphViewerSystemMain final
 {

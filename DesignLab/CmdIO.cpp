@@ -87,3 +87,13 @@ std::string CmdIO::getOrdinalNumber(const int _num) const
 
 	return res;
 }
+
+void dl_io::setOutputPriority(const EOutputPriority priority)
+{
+	CmdIO::setOutputPriority(priority);
+}
+
+void dl_io::output(const std::string str, const EOutputPriority priority)
+{
+	if ()
+}

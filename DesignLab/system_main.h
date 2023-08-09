@@ -2,8 +2,8 @@
 #include <memory>
 #include "map_state.h"
 #include "Target.h"
-#include "GraphicDataBroker.h"
-#include "GraphicSystem.h"
+#include "graphic_data_broker.h"
+#include "graphic_system.h"
 #include "InterfacePassFinder.h"
 #include "InterfaceGraphicMain.h"
 

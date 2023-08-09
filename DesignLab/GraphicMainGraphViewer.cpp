@@ -27,7 +27,7 @@ bool GraphicMainGraphViewer::update()
 	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
 	if (mp_Broker->getNodeNum() != m_graph.size())
 	{
-		mp_Broker->copyAllNode(m_graph);	//データを更新する
+		mp_Broker->copyAllNode(&m_graph);	//データを更新する
 
 		//グラフの中身が空でないならば，表示するノードを初期化する
 		if (m_graph.size() > 0) { m_display_node_index = 0; }

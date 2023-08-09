@@ -2,7 +2,7 @@
 
 #include <list>
 
-#include "GraphicConst.h"
+#include "graphic_const.h"
 
 
 //! @class Fps

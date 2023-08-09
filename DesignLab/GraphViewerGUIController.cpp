@@ -1,11 +1,15 @@
 #include "GraphViewerGUIController.h"
+
 #include <string>
+
 #include "DxLib.h"
+
 #include "Dxlib3DFunction.h"
-#include "GraphicConst.h"
+#include "graphic_const.h"
 #include "Define.h"
-#include "Keyboard.h"
+#include "keyboard.h"
 #include "LegState.h"
+
 
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const _p_graph, size_t* const _p_display_node_index)
 	: mp_graph(_p_graph)
@@ -13,12 +17,14 @@ GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* con
 {
 }
 
+
 void GraphViewerGUIController::update()
 {
 	inputNumber();
 	updateChildrenList();
 	changeDisplayNodeIndex();
 }
+
 
 void GraphViewerGUIController::draw() const
 {
@@ -30,6 +36,7 @@ void GraphViewerGUIController::draw() const
 		drawNodeData(mp_graph->at(*mp_display_node_index));
 	}
 }
+
 
 void GraphViewerGUIController::drawGraphData() const
 {
@@ -64,6 +71,7 @@ void GraphViewerGUIController::drawGraphData() const
 		}
 	}
 }
+
 
 void GraphViewerGUIController::drawNodeControllPanel() const
 {
@@ -106,6 +114,7 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 		DrawFormatString(_box_min_x + 10, _box_min_y + 290, _text_color, "　(Zキーでカメラ表示を切り替え)");
 	}
 }
+
 
 void GraphViewerGUIController::drawNodeData(const SNode node) const
 {
@@ -157,6 +166,7 @@ void GraphViewerGUIController::drawNodeData(const SNode node) const
 		"深さ：%d, 次の動作 : %s", static_cast<int>(node.depth), std::to_string(node.next_move).c_str());
 }
 
+
 void GraphViewerGUIController::inputNumber()
 {
 	// Cキーでリセット
@@ -193,6 +203,7 @@ void GraphViewerGUIController::inputNumber()
 		}
 	}
 }
+
 
 void GraphViewerGUIController::changeDisplayNodeIndex()
 {
@@ -240,6 +251,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 	else if (*mp_display_node_index >= mp_graph->size()) *mp_display_node_index = 0;
 }
 
+
 void GraphViewerGUIController::updateChildrenList()
 {
 	if (mp_graph->size() == 0) return;
@@ -260,6 +272,7 @@ void GraphViewerGUIController::updateChildrenList()
 		}
 	}
 }
+
 
 void GraphViewerGUIController::updateGraphNodeDepthData()
 {

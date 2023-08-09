@@ -1,5 +1,6 @@
 #pragma once
 
+
 //! @class Singleton
 //! @date 2023/08/07
 //! @author 長谷川
@@ -12,12 +13,6 @@
 template <typename _T>
 class Singleton
 {
-protected:
-	Singleton() = default;
-	virtual ~Singleton() = default;
-	Singleton(const Singleton& r) = default;
-	Singleton& operator=(const Singleton& r) = default;
-
 public:
 
 	//! @brief インスタンスを取得する．@n
@@ -29,7 +24,16 @@ public:
 		return &inst;
 	};
 
+protected:
+
+	//コンストラクタ，デストラクタ，コピーコンストラクタ，代入演算子は外部から呼び出せないようにする．
+	Singleton() = default;
+	virtual ~Singleton() = default;
+	Singleton(const Singleton& r) = default;
+	Singleton& operator=(const Singleton& r) = default;
+
 };
+
 
 //! @file singleton.h
 //! @date 2023/08/07

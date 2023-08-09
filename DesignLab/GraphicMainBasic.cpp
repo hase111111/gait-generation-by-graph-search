@@ -3,18 +3,20 @@
 #include "DxLib.h"
 #include "MapRenderer.h"
 
+
 GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* _broker)
 	: IGraphicMain(_broker), m_Map(mp_Broker->getMapState())
 {
 	m_node.clear();
 }
 
+
 bool GraphicMainBasic::update()
 {
 	if (m_counter % GET_NODE_COUNT == 0)
 	{
 		//ノードを読み出す時間になったら，読み出す．
-		mp_Broker->copyOnlyNewNode(m_node);
+		mp_Broker->copyOnlyNewNode(&m_node);
 	}
 
 	m_GUI.update(m_Camera, (int)m_node.size(), m_display_node, m_counter); //GUIを更新する．
@@ -32,6 +34,7 @@ bool GraphicMainBasic::update()
 
 	return true;
 }
+
 
 void GraphicMainBasic::draw() const
 {

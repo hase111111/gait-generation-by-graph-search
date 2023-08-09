@@ -1,8 +1,13 @@
 #include "CameraController.h"
-#include "GraphicConst.h"
-#include "DxLib.h"
+
 #include <cmath>
+
+
+#include "DxLib.h"
+
+#include "graphic_const.h"
 #include "Define.h"
+
 
 CameraController::CameraController() : m_goal_upvec(VGet(0, 0, 0)), m_goal_pos(VGet(0, 0, 0))
 {
@@ -26,8 +31,8 @@ void CameraController::update()
 	//カメラの設置場所を更新する．
 	setGoalCameraPos();
 
-	m_now_target_pos	= approachTargetVECTOR(m_now_target_pos, m_goal_target_pos);
-	m_now_camera_pos	= approachTargetVECTOR(m_now_camera_pos, m_goal_pos);
+	m_now_target_pos = approachTargetVECTOR(m_now_target_pos, m_goal_target_pos);
+	m_now_camera_pos = approachTargetVECTOR(m_now_camera_pos, m_goal_pos);
 	m_now_camera_upvec = approachSlowlyTargetVECTOR(m_now_camera_upvec, m_goal_upvec);
 
 	SetCameraPositionAndTargetAndUpVec(m_now_camera_pos, m_now_target_pos, m_now_camera_upvec);
