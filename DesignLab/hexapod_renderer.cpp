@@ -1,27 +1,11 @@
-#include "HexapodRenderer.h"
+#include "hexapod_renderer.h"
+
 #include "DxLib.h"
+
 #include "Dxlib3DFunction.h"
 #include "LegState.h"
 #include "my_math.h"
 
-
-bool HexapodRenderer::isAbleCoxaLeg(const my_vec::SVector _coxa_joint, const my_vec::SVector _femur_joint) const
-{
-	if (abs((_coxa_joint - _femur_joint).length() - HexapodConst::COXA_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
-	return false;
-}
-
-bool HexapodRenderer::isAbleFemurLeg(const my_vec::SVector _femur_joint, const my_vec::SVector _tibia_joint) const
-{
-	if (abs((_femur_joint - _tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
-	return false;
-}
-
-bool HexapodRenderer::isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const my_vec::SVector _leg_joint) const
-{
-	if (abs((_tibia_joint - _leg_joint).length() - HexapodConst::TIBIA_LENGTH) < 10) { return true; }
-	return false;
-}
 
 HexapodRenderer::HexapodRenderer() :
 	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
@@ -30,34 +14,33 @@ HexapodRenderer::HexapodRenderer() :
 {
 }
 
-void HexapodRenderer::update(const SNode& _node)
+
+void HexapodRenderer::update(const SNode& node)
 {
-	m_HexaCalc.calclateJointPos(_node);
+	m_HexaCalc.calclateJointPos(node);
 }
+
 
 void HexapodRenderer::draw(const SNode& _node) const
 {
-	//‹Œver‚ÌhexapodGraphic‚Ì‹Lq‚É‚µ‚½‚ª‚Á‚Ä•`‰æ‚·‚éD
-	using namespace myDxlib3DFunc;
-
 	//“·‘Ì‚ð•`‰æ‚·‚éD
 	VECTOR vertex[6];
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		vertex[i] = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
+		vertex[i] = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
 	}
 
-	drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
+	myDxlib3DFunc::drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
 
 	//‹r‚ð•`‰æ‚·‚éD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR kLegEndPos = convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
-		const VECTOR kLegBasePos = convertToDxVec(m_HexaCalc.getGlobalLegBasePos(_node, i, true));
-		const VECTOR kCoxaJointPos = convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
-		const VECTOR kFemurJointPos = convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
-		const VECTOR kTibiaJointPos = convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
+		const VECTOR kLegEndPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalLegPos(_node, i, true));
+		const VECTOR kLegBasePos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(_node, i, true));
+		const VECTOR kCoxaJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(_node, i, true));
+		const VECTOR kFemurJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(_node, i));
+		const VECTOR kTibiaJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
 
 		//‹r‚ÌF‚ð—V‹rEÚ’n‚Å•ÏX‚·‚éD
 		const unsigned int kLegBaseColor = LegStateEdit::isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
@@ -129,4 +112,25 @@ void HexapodRenderer::draw(const SNode& _node) const
 		if (m_HexaCalc.isLegInterfering(_node)) { printfDx("~ is Leg Interfering\n"); }
 		else { printfDx("Z isnot Leg Interfering\n"); }
 	}
+}
+
+
+bool HexapodRenderer::isAbleCoxaLeg(const my_vec::SVector coxa_joint, const my_vec::SVector femur_joint) const
+{
+	if (abs((coxa_joint - femur_joint).length() - HexapodConst::COXA_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
+	return false;
+}
+
+
+bool HexapodRenderer::isAbleFemurLeg(const my_vec::SVector femur_joint, const my_vec::SVector tibia_joint) const
+{
+	if (abs((femur_joint - tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < my_math::ALLOWABLE_ERROR) { return true; }
+	return false;
+}
+
+
+bool HexapodRenderer::isAbleTibiaLeg(const my_vec::SVector tibia_joint, const my_vec::SVector leg_joint) const
+{
+	if (abs((tibia_joint - leg_joint).length() - HexapodConst::TIBIA_LENGTH) < 10) { return true; }
+	return false;
 }

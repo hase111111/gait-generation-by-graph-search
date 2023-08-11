@@ -44,9 +44,9 @@
     <ClInclude Include="GraphTreeCreatorHato.h" />
     <ClInclude Include="GraphTreeCreatorSample.h" />
     <ClInclude Include="GraphViewerGUIController.h" />
-    <ClInclude Include="GUIController.h" />
+    <ClInclude Include="gui_controller.h" />
     <ClInclude Include="HexapodNextMove.h" />
-    <ClInclude Include="HexapodRenderer.h" />
+    <ClInclude Include="hexapod_renderer.h" />
     <ClInclude Include="HexapodStateCalculator.h" />
     <ClInclude Include="InterfacePassFinder.h" />
     <ClInclude Include="InterfaceGraphSearcher.h" />
@@ -75,7 +75,7 @@
     <ClInclude Include="LegUpNodeCreator.h" />
     <ClInclude Include="LogFileIO.h" />
     <ClInclude Include="map_const.h" />
-    <ClInclude Include="MapRenderer.h" />
+    <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
     <ClInclude Include="mouse.h" />
     <ClInclude Include="my_line.h" />
@@ -126,9 +126,9 @@
     <ClCompile Include="GraphTreeCreatorHato.cpp" />
     <ClCompile Include="GraphTreeCreatorSample.cpp" />
     <ClCompile Include="GraphViewerGUIController.cpp" />
-    <ClCompile Include="GUIController.cpp" />
+    <ClCompile Include="gui_controller.cpp" />
     <ClCompile Include="HexapodNextMove.cpp" />
-    <ClCompile Include="HexapodRenderer.cpp" />
+    <ClCompile Include="hexapod_renderer.cpp" />
     <ClCompile Include="HexapodStateCalculator.cpp" />
     <ClCompile Include="interface_graphic_main.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
@@ -159,7 +159,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
     <ClCompile Include="map_creator.cpp" />
-    <ClCompile Include="MapRenderer.cpp" />
+    <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="my_math.cpp" />

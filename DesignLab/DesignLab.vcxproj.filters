@@ -186,7 +186,7 @@
     <ClInclude Include="fps.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="MapRenderer.h">
+    <ClInclude Include="map_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="CameraController.h">
@@ -195,7 +195,7 @@
     <ClInclude Include="Dxlib3DFunction.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="HexapodRenderer.h">
+    <ClInclude Include="hexapod_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="HexapodConst.h">
@@ -210,7 +210,7 @@
     <ClInclude Include="mouse.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="GUIController.h">
+    <ClInclude Include="gui_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="PassFinderHato.h">
@@ -428,13 +428,13 @@
     <ClCompile Include="CameraController.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="MapRenderer.cpp">
+    <ClCompile Include="map_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="Dxlib3DFunction.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="HexapodRenderer.cpp">
+    <ClCompile Include="hexapod_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="HexapodConst.cpp">
@@ -449,7 +449,7 @@
     <ClCompile Include="mouse.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="GUIController.cpp">
+    <ClCompile Include="gui_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderHato.cpp">

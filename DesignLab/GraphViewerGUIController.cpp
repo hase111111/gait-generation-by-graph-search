@@ -11,9 +11,9 @@
 #include "LegState.h"
 
 
-GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const _p_graph, size_t* const _p_display_node_index)
-	: mp_graph(_p_graph)
-	, mp_display_node_index(_p_display_node_index)
+GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index)
+	: mp_graph(p_graph)
+	, mp_display_node_index(p_display_node_index)
 {
 }
 
