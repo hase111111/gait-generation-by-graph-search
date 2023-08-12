@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="3D空間に六角形を描画する．" alt="" coords="686,64,886,91"/>
 <area shape="rect" id="Node000002" href="$namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60" title="3D空間に六角柱を描画する．" alt="" coords="429,56,638,99"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="672,80,639,80,639,75,672,75"/>
-<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="222,64,381,91"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="222,64,381,91"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="414,80,382,80,382,75,414,75"/>
 <area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="236,62,140,35,141,30,237,57"/>

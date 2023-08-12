@@ -95,7 +95,7 @@
 		<Position X="26.25" Y="2.5" Width="1.5" />
 		<TypeIdentifier>
 			<HashCode>hDAgKAAABAAIBAAgAABAAAAQCBBAAQAoAACAAAAQAEA=</HashCode>
-			<FileName>HexapodStateCalculator.h</FileName>
+			<FileName>hexapod_state_calculator.h</FileName>
 		</TypeIdentifier>
 	</Class>
 	<Class Name="Hexapod" Collapsed="true">
@@ -109,7 +109,7 @@
 		<Position X="22.75" Y="2.5" Width="1.5" />
 		<TypeIdentifier>
 			<HashCode>QgAAAAAAAAgAEAAkAIAwAAAAgIQBAQQAAAEAGEAgAEA=</HashCode>
-			<FileName>HexapodConst.h</FileName>
+			<FileName>hexapod_const.h</FileName>
 		</TypeIdentifier>
 	</Class>
 	<Class Name="MapState" Collapsed="true">

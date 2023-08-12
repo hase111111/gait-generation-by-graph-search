@@ -9,7 +9,7 @@ digraph "myDxlib3DFunc::drawHexagon"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="myDxlib3DFunc::drawHexagonal\lPrism",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60",tooltip="3D空間に六角柱を描画する．"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="HexapodRenderer::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503",tooltip="ロボットを3D空間に描画する．"];
+  Node3 [id="Node000003",label="HexapodRenderer::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70",tooltip="ロボットを3D空間に描画する．"];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="GraphicMainBasic::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];

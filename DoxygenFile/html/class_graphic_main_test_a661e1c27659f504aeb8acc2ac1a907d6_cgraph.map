@@ -20,7 +20,7 @@
 <area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="100,340,145,407,180,445,221,476,232,482,230,487,218,481,176,449,141,410,95,343"/>
 <area shape="rect" id="Node000013" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="248,541,416,568"/>
 <area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="97,341,112,379,138,430,174,483,196,507,221,527,236,536,233,540,218,532,193,511,170,486,133,432,107,381,92,343"/>
-<area shape="rect" id="Node000014" href="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600" title="ロボットの状態を更新する．" alt="" coords="246,592,418,619"/>
+<area shape="rect" id="Node000014" href="$class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc" title="ロボットの状態を更新する．" alt="" coords="246,592,418,619"/>
 <area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="95,341,107,387,131,452,148,486,168,520,193,551,221,578,234,586,231,591,218,582,189,555,164,523,143,489,126,454,102,388,90,342"/>
 <area shape="rect" id="Node000003" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="505,13,634,40"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="425,24,490,24,490,29,425,29"/>

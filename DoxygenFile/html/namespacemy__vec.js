@@ -6,5 +6,6 @@ var namespacemy__vec =
     [ "SVector", "structmy__vec_1_1_s_vector.html", "structmy__vec_1_1_s_vector" ],
     [ "SVector2", "structmy__vec_1_1_s_vector2.html", "structmy__vec_1_1_s_vector2" ],
     [ "operator*", "namespacemy__vec.html#a685b723f1f94067423b992722669643a", null ],
-    [ "rotVector", "namespacemy__vec.html#a9ce3e011023e40ce4ac597a8baca9e87", null ]
+    [ "rotVector", "namespacemy__vec.html#a9ce3e011023e40ce4ac597a8baca9e87", null ],
+    [ "MAX_VERTEX_NUM", "namespacemy__vec.html#a4adf464c5fb020c36a6705def76c5ec2", null ]
 ];

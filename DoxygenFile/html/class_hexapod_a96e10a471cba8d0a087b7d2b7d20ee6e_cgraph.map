@@ -1,0 +1,8 @@
+<map id="Hexapod::getGlobalLeg2Pos" name="Hexapod::getGlobalLeg2Pos">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,192,57"/>
+<area shape="rect" id="Node000002" href="$class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7" title=" " alt="" coords="240,5,455,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,32,224,28,225,34,192,37"/>
+<area shape="rect" id="Node000003" href="$class_hexapod.html#a7153615231f0fd115de15a78dd7e5230" title=" " alt="" coords="503,31,626,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="192,41,488,41,488,47,192,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="456,29,489,33,488,38,455,34"/>
+</map>

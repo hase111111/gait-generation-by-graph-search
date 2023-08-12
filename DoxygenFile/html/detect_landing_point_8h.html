@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/detectLandingPoint.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('detect_landing_point_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">detectLandingPoint.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;pch.h&quot;</code><br />
+<code>#include &lt;opencv2/opencv.hpp&gt;</code><br />
+<code>#include &quot;vectorFunc.h&quot;</code><br />
+</div>
+<p><a href="detect_landing_point_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdetect_landing_point.html">detectLandingPoint</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a308fc6f665bf4e3001caa1e5db6de3d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a308fc6f665bf4e3001caa1e5db6de3d9">__DetectLandingPoint_H__</a></td></tr>
+<tr class="separator:a308fc6f665bf4e3001caa1e5db6de3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45156eea1d13b4abc0ea3ff26d11928"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#ae45156eea1d13b4abc0ea3ff26d11928">DEG45</a>&#160;&#160;&#160;0.78539816339745</td></tr>
+<tr class="separator:ae45156eea1d13b4abc0ea3ff26d11928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64cb70af1d6feb981e5919b09fa5f62f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a64cb70af1d6feb981e5919b09fa5f62f">DEG40</a>&#160;&#160;&#160;0.69813170079773</td></tr>
+<tr class="separator:a64cb70af1d6feb981e5919b09fa5f62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54777dcf2eb7ada06756e232cd26b42a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a54777dcf2eb7ada06756e232cd26b42a">DEG30</a>&#160;&#160;&#160;0.52359877559830</td></tr>
+<tr class="separator:a54777dcf2eb7ada06756e232cd26b42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ecd70800687eb2d625af180c4210d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>&#160;&#160;&#160;25.0f</td></tr>
+<tr class="separator:a62ecd70800687eb2d625af180c4210d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa311beecccc2b80076c19ec359e462f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#aa311beecccc2b80076c19ec359e462f6">MESH_SIZE</a>&#160;&#160;&#160;12.5f</td></tr>
+<tr class="separator:aa311beecccc2b80076c19ec359e462f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48036124ebe41d8df646d04e7bcd62c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a48036124ebe41d8df646d04e7bcd62c6">MAP_MESH</a>&#160;&#160;&#160;50.0f</td></tr>
+<tr class="separator:a48036124ebe41d8df646d04e7bcd62c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd88bbfe725e6e081ff686a47004e72b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#acd88bbfe725e6e081ff686a47004e72b">FRAMESIZE_W</a>&#160;&#160;&#160;640</td></tr>
+<tr class="separator:acd88bbfe725e6e081ff686a47004e72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b3786c114de5a964805f2ca6282bd27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a1b3786c114de5a964805f2ca6282bd27">FRAMESIZE_H</a>&#160;&#160;&#160;480</td></tr>
+<tr class="separator:a1b3786c114de5a964805f2ca6282bd27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5747671a24d5da8ed813dfd316a0285f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a5747671a24d5da8ed813dfd316a0285f">BODYHEIGHT</a>&#160;&#160;&#160;110</td></tr>
+<tr class="separator:a5747671a24d5da8ed813dfd316a0285f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe80be0489e252a624bd330715229d01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#abe80be0489e252a624bd330715229d01">DETECT_LIMIT_L</a>&#160;&#160;&#160;540</td></tr>
+<tr class="separator:abe80be0489e252a624bd330715229d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdbe7ce1c2f86b53aa9064a73756f0c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#abdbe7ce1c2f86b53aa9064a73756f0c6">DETECT_LIMIT_X_MAX</a>&#160;&#160;&#160;500</td></tr>
+<tr class="separator:abdbe7ce1c2f86b53aa9064a73756f0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731a5101ad19bab452d8f905f40f73fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a731a5101ad19bab452d8f905f40f73fa">DETECT_LIMIT_X_MIN</a>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:a731a5101ad19bab452d8f905f40f73fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472d7f88ac60f643715c7e2d5773bc87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a472d7f88ac60f643715c7e2d5773bc87">DETECT_LIMIT_Y</a>&#160;&#160;&#160;350</td></tr>
+<tr class="separator:a472d7f88ac60f643715c7e2d5773bc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40bc53bbe2073bc3d5fbb1d03f319c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#ac40bc53bbe2073bc3d5fbb1d03f319c6">ERROR_LIMIT_Z</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:ac40bc53bbe2073bc3d5fbb1d03f319c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a82fd70402bbdc2259248e735fecbca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a0a82fd70402bbdc2259248e735fecbca">MAP_SIZE</a>&#160;&#160;&#160;4000</td></tr>
+<tr class="separator:a0a82fd70402bbdc2259248e735fecbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ede4318e10442e338b9086c09f02d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a33ede4318e10442e338b9086c09f02d3">ROI_SIZE</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a33ede4318e10442e338b9086c09f02d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a851601eeb1ef6106c0c1f1de5015d024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a851601eeb1ef6106c0c1f1de5015d024">EXISTENCE_TILE</a>&#160;&#160;&#160;0.75f</td></tr>
+<tr class="separator:a851601eeb1ef6106c0c1f1de5015d024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e65e90552ec5917f2622fcdb2a8374"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#ad9e65e90552ec5917f2622fcdb2a8374">BASE_LINE</a>&#160;&#160;&#160;100.0f</td></tr>
+<tr class="separator:ad9e65e90552ec5917f2622fcdb2a8374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a6c81aa00b4dcf0cbae98a14c37683ed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a6c81aa00b4dcf0cbae98a14c37683ed9">onMouse</a> (int event, int x, int y, int, void *)</td></tr>
+<tr class="separator:a6c81aa00b4dcf0cbae98a14c37683ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97759398d13023d38bc40072e17a3d21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#a97759398d13023d38bc40072e17a3d21">hueTrackBar</a> (int val, void *tileMaxSat)</td></tr>
+<tr class="separator:a97759398d13023d38bc40072e17a3d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd85f6f1686b4569eb0840705a2dcf61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="detect_landing_point_8h.html#afd85f6f1686b4569eb0840705a2dcf61">satTrackBar</a> (int val, void *tileMaxSat)</td></tr>
+<tr class="separator:afd85f6f1686b4569eb0840705a2dcf61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a308fc6f665bf4e3001caa1e5db6de3d9" name="a308fc6f665bf4e3001caa1e5db6de3d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a308fc6f665bf4e3001caa1e5db6de3d9">&#9670;&#160;</a></span>__DetectLandingPoint_H__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __DetectLandingPoint_H__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00002">2</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad9e65e90552ec5917f2622fcdb2a8374" name="ad9e65e90552ec5917f2622fcdb2a8374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e65e90552ec5917f2622fcdb2a8374">&#9670;&#160;</a></span>BASE_LINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE_LINE&#160;&#160;&#160;100.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00040">40</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5747671a24d5da8ed813dfd316a0285f" name="a5747671a24d5da8ed813dfd316a0285f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5747671a24d5da8ed813dfd316a0285f">&#9670;&#160;</a></span>BODYHEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BODYHEIGHT&#160;&#160;&#160;110</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00024">24</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a54777dcf2eb7ada06756e232cd26b42a" name="a54777dcf2eb7ada06756e232cd26b42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54777dcf2eb7ada06756e232cd26b42a">&#9670;&#160;</a></span>DEG30</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEG30&#160;&#160;&#160;0.52359877559830</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00010">10</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a64cb70af1d6feb981e5919b09fa5f62f" name="a64cb70af1d6feb981e5919b09fa5f62f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64cb70af1d6feb981e5919b09fa5f62f">&#9670;&#160;</a></span>DEG40</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEG40&#160;&#160;&#160;0.69813170079773</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00009">9</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae45156eea1d13b4abc0ea3ff26d11928" name="ae45156eea1d13b4abc0ea3ff26d11928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae45156eea1d13b4abc0ea3ff26d11928">&#9670;&#160;</a></span>DEG45</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEG45&#160;&#160;&#160;0.78539816339745</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00008">8</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abe80be0489e252a624bd330715229d01" name="abe80be0489e252a624bd330715229d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe80be0489e252a624bd330715229d01">&#9670;&#160;</a></span>DETECT_LIMIT_L</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DETECT_LIMIT_L&#160;&#160;&#160;540</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00030">30</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abdbe7ce1c2f86b53aa9064a73756f0c6" name="abdbe7ce1c2f86b53aa9064a73756f0c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdbe7ce1c2f86b53aa9064a73756f0c6">&#9670;&#160;</a></span>DETECT_LIMIT_X_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DETECT_LIMIT_X_MAX&#160;&#160;&#160;500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a731a5101ad19bab452d8f905f40f73fa" name="a731a5101ad19bab452d8f905f40f73fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a731a5101ad19bab452d8f905f40f73fa">&#9670;&#160;</a></span>DETECT_LIMIT_X_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DETECT_LIMIT_X_MIN&#160;&#160;&#160;200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00033">33</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a472d7f88ac60f643715c7e2d5773bc87" name="a472d7f88ac60f643715c7e2d5773bc87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472d7f88ac60f643715c7e2d5773bc87">&#9670;&#160;</a></span>DETECT_LIMIT_Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DETECT_LIMIT_Y&#160;&#160;&#160;350</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00034">34</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac40bc53bbe2073bc3d5fbb1d03f319c6" name="ac40bc53bbe2073bc3d5fbb1d03f319c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40bc53bbe2073bc3d5fbb1d03f319c6">&#9670;&#160;</a></span>ERROR_LIMIT_Z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_LIMIT_Z&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00035">35</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a851601eeb1ef6106c0c1f1de5015d024" name="a851601eeb1ef6106c0c1f1de5015d024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a851601eeb1ef6106c0c1f1de5015d024">&#9670;&#160;</a></span>EXISTENCE_TILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXISTENCE_TILE&#160;&#160;&#160;0.75f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00039">39</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1b3786c114de5a964805f2ca6282bd27" name="a1b3786c114de5a964805f2ca6282bd27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b3786c114de5a964805f2ca6282bd27">&#9670;&#160;</a></span>FRAMESIZE_H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FRAMESIZE_H&#160;&#160;&#160;480</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="acd88bbfe725e6e081ff686a47004e72b" name="acd88bbfe725e6e081ff686a47004e72b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd88bbfe725e6e081ff686a47004e72b">&#9670;&#160;</a></span>FRAMESIZE_W</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FRAMESIZE_W&#160;&#160;&#160;640</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00021">21</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a48036124ebe41d8df646d04e7bcd62c6" name="a48036124ebe41d8df646d04e7bcd62c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48036124ebe41d8df646d04e7bcd62c6">&#9670;&#160;</a></span>MAP_MESH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_MESH&#160;&#160;&#160;50.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00020">20</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0a82fd70402bbdc2259248e735fecbca" name="a0a82fd70402bbdc2259248e735fecbca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a82fd70402bbdc2259248e735fecbca">&#9670;&#160;</a></span>MAP_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_SIZE&#160;&#160;&#160;4000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00037">37</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa311beecccc2b80076c19ec359e462f6" name="aa311beecccc2b80076c19ec359e462f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa311beecccc2b80076c19ec359e462f6">&#9670;&#160;</a></span>MESH_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MESH_SIZE&#160;&#160;&#160;12.5f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00015">15</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a33ede4318e10442e338b9086c09f02d3" name="a33ede4318e10442e338b9086c09f02d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ede4318e10442e338b9086c09f02d3">&#9670;&#160;</a></span>ROI_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROI_SIZE&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00038">38</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a62ecd70800687eb2d625af180c4210d7" name="a62ecd70800687eb2d625af180c4210d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ecd70800687eb2d625af180c4210d7">&#9670;&#160;</a></span>TILE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TILE_SIZE&#160;&#160;&#160;25.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8h_source.html">detectLandingPoint.h</a> の <a class="el" href="detect_landing_point_8h_source.html#l00012">12</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a97759398d13023d38bc40072e17a3d21" name="a97759398d13023d38bc40072e17a3d21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97759398d13023d38bc40072e17a3d21">&#9670;&#160;</a></span>hueTrackBar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hueTrackBar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>tileMaxSat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8cpp_source.html">detectLandingPoint.cpp</a> の <a class="el" href="detect_landing_point_8cpp_source.html#l01360">1360</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6c81aa00b4dcf0cbae98a14c37683ed9" name="a6c81aa00b4dcf0cbae98a14c37683ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c81aa00b4dcf0cbae98a14c37683ed9">&#9670;&#160;</a></span>onMouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onMouse </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8cpp_source.html">detectLandingPoint.cpp</a> の <a class="el" href="detect_landing_point_8cpp_source.html#l01333">1333</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="detect_landing_point_8h_a6c81aa00b4dcf0cbae98a14c37683ed9_icgraph.png" border="0" usemap="#adetect_landing_point_8h_a6c81aa00b4dcf0cbae98a14c37683ed9_icgraph" alt=""/></div>
+<map name="adetect_landing_point_8h_a6c81aa00b4dcf0cbae98a14c37683ed9_icgraph" id="adetect_landing_point_8h_a6c81aa00b4dcf0cbae98a14c37683ed9_icgraph">
+<area shape="rect" title=" " alt="" coords="186,13,260,40"/>
+<area shape="rect" href="classdetect_landing_point.html#af9d827af634252fcf1369efbd00755d5" title=" " alt="" coords="5,5,138,48"/>
+<area shape="poly" title=" " alt="" coords="171,29,138,29,138,24,171,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afd85f6f1686b4569eb0840705a2dcf61" name="afd85f6f1686b4569eb0840705a2dcf61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd85f6f1686b4569eb0840705a2dcf61">&#9670;&#160;</a></span>satTrackBar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void satTrackBar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>tileMaxSat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="detect_landing_point_8cpp_source.html">detectLandingPoint.cpp</a> の <a class="el" href="detect_landing_point_8cpp_source.html#l01365">1365</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="detect_landing_point_8h.html">detectLandingPoint.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

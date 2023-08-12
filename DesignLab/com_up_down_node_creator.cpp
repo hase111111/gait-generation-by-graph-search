@@ -4,8 +4,8 @@
 #include <algorithm>
 
 #include "GraphSearchConst.h"
-#include "HexapodConst.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_const.h"
+#include "hexapod_state_calculator.h"
 #include "leg_state.h"
 #include "my_math.h"
 

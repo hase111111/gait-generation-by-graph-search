@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,580,168,606"/>
 <area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="229,756,362,782"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,605,268,744,265,748,102,609"/>
-<area shape="rect" id="Node000011" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="216,400,375,426"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="216,400,375,426"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="102,577,266,434,270,438,105,581"/>
 <area shape="rect" id="Node000003" href="$namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="445,593,621,636"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,753,352,701,385,671,422,645,432,640,435,644,424,650,388,675,356,705,309,757"/>

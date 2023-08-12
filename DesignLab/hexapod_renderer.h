@@ -1,6 +1,7 @@
 #pragma once
-#include "Node.h"
-#include "HexapodStateCalculator.h"
+
+#include "node.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class HexapodRenderer
@@ -14,14 +15,20 @@ public:
 	~HexapodRenderer() = default;
 
 	//! @brief ロボットの状態を更新する．
-	//! @param [in] _node 描画するロボットの状態
-	void update(const SNode& _node);
+	//! @param [in] node 描画するロボットの状態
+	void update(const SNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
-	//! @param [in] _node 描画するロボットの状態
-	void draw(const SNode& _node) const;
+	//! @param [in] node 描画するロボットの状態
+	void draw(const SNode& node) const;
 
 private:
+
+	bool isAbleCoxaLeg(const my_vec::SVector& coxa_joint, const my_vec::SVector& femur_joint) const;
+	bool isAbleFemurLeg(const my_vec::SVector& femur_joint, const my_vec::SVector& tibia_joint) const;
+	bool isAbleTibiaLeg(const my_vec::SVector& tibia_joint, const my_vec::SVector& leg_joint) const;
+
+
 	const unsigned int COLOR_BODY;			//胴体の色
 	const unsigned int COLOR_LEG;			//脚の色
 	const unsigned int COLOR_LIFTED_LEG;	//遊脚している脚の色
@@ -36,15 +43,12 @@ private:
 
 	const bool DO_OUTPUT_DEBUG_LOG = false;	//脚状態を文字列で出力するかどうか
 
-	HexapodStateCalclator m_HexaCalc;		//ロボットの姿勢や座標を計算する．
 
-	bool isAbleCoxaLeg(const my_vec::SVector _coxa_joint, const my_vec::SVector _femur_joint) const;
-	bool isAbleFemurLeg(const my_vec::SVector _femur_joint, const my_vec::SVector _tibia_joint) const;
-	bool isAbleTibiaLeg(const my_vec::SVector _tibia_joint, const my_vec::SVector _leg_joint) const;
+	HexapodStateCalclator m_HexaCalc;		//ロボットの姿勢や座標を計算する．
 };
 
 
-//! @file HexapodRenderer.h
+//! @file hexapod_renderer.h
 //! @date 2023/08/09
 //! @author 長谷川
 //! @brief ロボットの描画を行うHexapodRendererクラス．

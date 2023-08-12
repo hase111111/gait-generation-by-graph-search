@@ -47,7 +47,7 @@
     <ClInclude Include="gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="hexapod_renderer.h" />
-    <ClInclude Include="HexapodStateCalculator.h" />
+    <ClInclude Include="hexapod_state_calculator.h" />
     <ClInclude Include="InterfacePassFinder.h" />
     <ClInclude Include="InterfaceGraphSearcher.h" />
     <ClInclude Include="InterfaceGraphTreeCreator.h" />
@@ -65,7 +65,7 @@
     <ClInclude Include="graphic_main_sample.h" />
     <ClInclude Include="graphic_system.h" />
     <ClInclude Include="graphic_const.h" />
-    <ClInclude Include="HexapodConst.h" />
+    <ClInclude Include="hexapod_const.h" />
     <ClInclude Include="interface_node_creator.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="leg_down_node_creator.h" />
@@ -88,7 +88,7 @@
     <ClInclude Include="singleton.h" />
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="system_main.h" />
-    <ClInclude Include="GraphViewerSystemMain.h" />
+    <ClInclude Include="graph_viewer_system_main.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="node.h" />
@@ -129,7 +129,7 @@
     <ClCompile Include="gui_controller.cpp" />
     <ClCompile Include="hexapod_next_move.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
-    <ClCompile Include="HexapodStateCalculator.cpp" />
+    <ClCompile Include="hexapod_state_calculator.cpp" />
     <ClCompile Include="interface_graphic_main.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
@@ -143,7 +143,7 @@
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_sample.cpp" />
     <ClCompile Include="graphic_system.cpp" />
-    <ClCompile Include="HexapodConst.cpp" />
+    <ClCompile Include="hexapod_const.cpp" />
     <ClCompile Include="InterfaceGraphTreeCreator.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="leg_down_node_creator.cpp" />
@@ -169,7 +169,7 @@
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="SimulateResult.cpp" />
     <ClCompile Include="system_main.cpp" />
-    <ClCompile Include="GraphViewerSystemMain.cpp" />
+    <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="my_vector.cpp" />

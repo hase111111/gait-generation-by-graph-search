@@ -1,7 +1,7 @@
 #pragma once
 
 #include "interface_node_creator.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class LegUpDownNodeCreator

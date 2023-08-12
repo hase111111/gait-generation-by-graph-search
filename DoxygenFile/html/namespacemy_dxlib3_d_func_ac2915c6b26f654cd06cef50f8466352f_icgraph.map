@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="444,81,620,124"/>
 <area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="242,89,376,116"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,105,376,105,376,100,429,100"/>
-<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="229,39,389,65"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="229,39,389,65"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="429,82,370,69,372,63,430,77"/>
 <area shape="rect" id="Node000007" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="222,140,396,167"/>
 <area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="430,128,372,142,370,137,429,123"/>

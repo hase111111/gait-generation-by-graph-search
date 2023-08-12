@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('leg__state_8h.html',''); initResizable
  行数 : 138  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;HexapodConst.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="hexapod__const_8h_source.html">hexapod_const.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="com__type_8h_source.html">com_type.h</a>&quot;</code><br />
 </div>
 <p><a href="leg__state_8h_source.html">[ソースコード]</a></p>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('leg__state_8h.html',''); initResizable
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9">dl_leg::makeLegState</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])</td></tr>
+<tr class="memitem:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9">dl_leg::makeLegState</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern, const bool _ground[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>], const int _leg_pos[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
 <tr class="memdesc:ae6cda3d2627d7b423793a243f8cb77e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．  <br /></td></tr>
 <tr class="separator:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9c7dd2eccb0f1660b81a56b17b889c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3">dl_leg::isGrounded</a> (const int _leg_state, const int _leg_num)</td></tr>
@@ -180,7 +180,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_
 <tr class="memdesc:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする <br /></td></tr>
 <tr class="separator:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memItemLeft" align="right" valign="top"><a id="a71b6916ed1e795c4ba99a2570313f3f2" name="a71b6916ed1e795c4ba99a2570313f3f2"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::SHIFT_TO_COM_NUM</b> = HexapodConst::LEG_NUM * 4</td></tr>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::SHIFT_TO_COM_NUM</b> = <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> * 4</td></tr>
 <tr class="memdesc:a71b6916ed1e795c4ba99a2570313f3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． <br /></td></tr>
 <tr class="separator:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b30de8a020bb048c13c36cc2e6d2d3"><td class="memItemLeft" align="right" valign="top"><a id="a95b30de8a020bb048c13c36cc2e6d2d3" name="a95b30de8a020bb048c13c36cc2e6d2d3"></a>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/GraphTreeCreatorSample.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_graph_tree_creator_sample_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GraphTreeCreatorSample.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_graph_tree_creator_sample_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_graph_tree_creator_sample_8h.html">GraphTreeCreatorSample.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_graph_search_const_8h.html">GraphSearchConst.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd">    4</a></span><a class="code hl_enumeration" href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936">EGraphSearchResult</a> <a class="code hl_function" href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd">GraphTreeCreatorSample::createGraphTree</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* <span class="keyword">const</span> p_map, std::vector&lt;SNode&gt;* output_graph, <span class="keywordtype">int</span>* make_node_num)</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="comment">//ここにグラフを作成する処理を書く．このクラスはサンプルなので動作をしないノードだけを返します．</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="comment">//現在のノードを親にする．</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_struct" href="struct_s_node.html">SNode</a> parent_node = current_node;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    parent_node.<a class="code hl_function" href="struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73">changeParentNode</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    (*output_graph).push_back(parent_node);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">//設定された探索深さまでの深さを持つグラフを作る．実際にグラフを作成する時もおそらくこんな感じでループする処理を書く．</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">int</span> cnt = 0;    <span class="comment">//カウンタを用意</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//カウンタがvectorのサイズを超えるまでループする．</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">while</span> (cnt &lt; (*output_graph).size())</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="comment">//探索深さが足りていないノードのみ，処理をする．</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">if</span> ((*output_graph)[cnt].depth &lt; <a class="code hl_function" href="class_i_graph_tree_creator.html#a98d382a989f5d5c9ab562f69ef86efbe">getMaxDepth</a>())</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_struct" href="struct_s_node.html">SNode</a> new_node = (*output_graph)[cnt];</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="comment">//ここに新しい姿勢を生成する処理を書く．今回は何の処理もせずに次のノードとする．</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            new_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(cnt, <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3fab50339a10e1de285ac99d4c3990b8693">EHexapodMove::NONE</a>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="comment">//追加する．</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            (*output_graph).emplace_back(new_node);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        cnt++;  <span class="comment">//カウンタを進める．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    (*make_node_num) = (int)(*output_graph).size();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> ((*make_node_num) &gt; <a class="code hl_variable" href="class_graph_search_const.html#a15929b74aa470b143874a7d6b0ae8b58">GraphSearchConst::MAX_NODE_NUM</a> || (*make_node_num) &lt; 0)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936aa8d8f827a548085be6c2d846a03e84e8">EGraphSearchResult::FailureByNodeLimitExceeded</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936a505a83f220c02df2f85c3810cd9ceb38">EGraphSearchResult::Success</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+<div class="ttc" id="a_graph_search_const_8h_html"><div class="ttname"><a href="_graph_search_const_8h.html">GraphSearchConst.h</a></div></div>
+<div class="ttc" id="a_graph_search_result_8h_html_aef68b93eeb8782b5440b53ee36e5a936"><div class="ttname"><a href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936">EGraphSearchResult</a></div><div class="ttdeci">EGraphSearchResult</div><div class="ttdef"><b>Definition</b> <a href="_graph_search_result_8h_source.html#l00006">GraphSearchResult.h:7</a></div></div>
+<div class="ttc" id="a_graph_search_result_8h_html_aef68b93eeb8782b5440b53ee36e5a936a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936a505a83f220c02df2f85c3810cd9ceb38">EGraphSearchResult::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">グラフ探索に成功した</div></div>
+<div class="ttc" id="a_graph_search_result_8h_html_aef68b93eeb8782b5440b53ee36e5a936aa8d8f827a548085be6c2d846a03e84e8"><div class="ttname"><a href="_graph_search_result_8h.html#aef68b93eeb8782b5440b53ee36e5a936aa8d8f827a548085be6c2d846a03e84e8">EGraphSearchResult::FailureByNodeLimitExceeded</a></div><div class="ttdeci">@ FailureByNodeLimitExceeded</div><div class="ttdoc">ノード数の上限に達したためグラフ探索に失敗した</div></div>
+<div class="ttc" id="a_graph_tree_creator_sample_8h_html"><div class="ttname"><a href="_graph_tree_creator_sample_8h.html">GraphTreeCreatorSample.h</a></div><div class="ttdoc">グラフ木を作成するクラスのサンプル</div></div>
+<div class="ttc" id="aclass_graph_search_const_html_a15929b74aa470b143874a7d6b0ae8b58"><div class="ttname"><a href="class_graph_search_const.html#a15929b74aa470b143874a7d6b0ae8b58">GraphSearchConst::MAX_NODE_NUM</a></div><div class="ttdeci">static constexpr int MAX_NODE_NUM</div><div class="ttdoc">グラフ探索の最大ノード数</div><div class="ttdef"><b>Definition</b> <a href="_graph_search_const_8h_source.html#l00009">GraphSearchConst.h:9</a></div></div>
+<div class="ttc" id="aclass_graph_tree_creator_sample_html_ab1895cfde4903118dbb7f097605edecd"><div class="ttname"><a href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd">GraphTreeCreatorSample::createGraphTree</a></div><div class="ttdeci">EGraphSearchResult createGraphTree(const SNode &amp;current_node, const MapState *const p_map, std::vector&lt; SNode &gt; *output_graph, int *make_node_num) override</div><div class="ttdoc">木グラフを作成するクラス．完成したグラフは参照渡しする．</div><div class="ttdef"><b>Definition</b> <a href="_graph_tree_creator_sample_8cpp_source.html#l00004">GraphTreeCreatorSample.cpp:4</a></div></div>
+<div class="ttc" id="aclass_i_graph_tree_creator_html_a98d382a989f5d5c9ab562f69ef86efbe"><div class="ttname"><a href="class_i_graph_tree_creator.html#a98d382a989f5d5c9ab562f69ef86efbe">IGraphTreeCreator::getMaxDepth</a></div><div class="ttdeci">int getMaxDepth() const</div><div class="ttdef"><b>Definition</b> <a href="_interface_graph_tree_creator_8h_source.html#l00028">InterfaceGraphTreeCreator.h:28</a></div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00021">map_state.h:22</a></div></div>
+<div class="ttc" id="ahexapod__next__move_8h_html_a8104c86893d665325819f10739ff2e3fab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3fab50339a10e1de285ac99d4c3990b8693">EHexapodMove::NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdoc">何も動作をしない．</div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00021">node.h:22</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a753735f1b4c1cfd5526f38cd426c7e73"><div class="ttname"><a href="struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73">SNode::changeParentNode</a></div><div class="ttdeci">constexpr void changeParentNode()</div><div class="ttdoc">自身を親ノードに変更する関数．</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00040">node.h:40</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a99876a79a2e973f64a25fb72210086b0"><div class="ttname"><a href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">SNode::changeNextNode</a></div><div class="ttdeci">constexpr void changeNextNode(const int parent, const EHexapodMove next)</div><div class="ttdoc">次の動作を設定する関数．</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00050">node.h:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_graph_tree_creator_sample_8cpp.html">GraphTreeCreatorSample.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

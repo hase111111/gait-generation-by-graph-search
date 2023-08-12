@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="468,107,622,149"/>
 <area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="259,115,392,141"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,131,392,131,392,125,453,125"/>
-<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="246,64,405,91"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="246,64,405,91"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="453,110,386,94,387,89,455,104"/>
 <area shape="rect" id="Node000007" href="$class_com_candidate_polygon_maker.html#aaf673876af597577926164e4281c8b02" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="231,169,420,212"/>
 <area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="455,156,403,171,402,166,454,151"/>

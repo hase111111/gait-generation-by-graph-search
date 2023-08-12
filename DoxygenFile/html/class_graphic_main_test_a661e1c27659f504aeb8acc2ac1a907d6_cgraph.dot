@@ -31,7 +31,7 @@ digraph "GraphicMainTest::update"
   Node1 -> Node13 [id="edge12_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="CameraController::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af",tooltip="カメラの位置などの更新を行う．毎フレーム実行すること．"];
   Node1 -> Node14 [id="edge13_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="HexapodRenderer::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600",tooltip="ロボットの状態を更新する．"];
+  Node14 [id="Node000014",label="HexapodRenderer::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc",tooltip="ロボットの状態を更新する．"];
   Node14 -> Node15 [id="edge14_Node000014_Node000015",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="HexapodStateCalclator\l::calclateJointPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526",tooltip="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．  三角関数を多く使用するので，計算量が多い．"];
 }

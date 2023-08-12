@@ -1,7 +1,7 @@
 #pragma once
 
 #include "interface_node_creator.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class LegUpNodeCreator
@@ -24,7 +24,7 @@ private:
 };
 
 
-//! @file leg_up_node_creator
+//! @file leg_up_node_creator.h
 //! @date 2023/08/12
 //! @author í∑íJêÏ
 //! @brief ãrè„Ç∞ÉmÅ[Éhê∂ê¨ÉNÉâÉX

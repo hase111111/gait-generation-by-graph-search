@@ -1,5 +1,7 @@
 <map id="SNode::init" name="SNode::init">
-<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="184,5,269,32"/>
-<area shape="rect" id="Node000002" href="$class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
+<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="222,43,307,69"/>
+<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#a1373b5e56c53515c3aea05d443729f61" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,49,174,44,175,38,207,44"/>
+<area shape="rect" id="Node000003" href="$class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="24,72,155,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,68,156,77,155,72,207,63"/>
 </map>

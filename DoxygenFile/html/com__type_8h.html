@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('com__type_8h.html',''); initResizable(
  行数 : 121  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;HexapodConst.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="hexapod__const_8h_source.html">hexapod_const.h</a>&quot;</code><br />
 </div>
 <p><a href="com__type_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
@@ -139,10 +139,10 @@ $(document).ready(function(){initNavTree('com__type_8h.html',''); initResizable(
 <tr class="memdesc:a0815d6c99281b07d48ea3bde35e2169e"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンをbitから変換する関数  <br /></td></tr>
 <tr class="separator:a0815d6c99281b07d48ea3bde35e2169e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad613024e0d874f1763630a4545212bdf"><td class="memItemLeft" align="right" valign="top"><a id="ad613024e0d874f1763630a4545212bdf" name="ad613024e0d874f1763630a4545212bdf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::isAbleCoM</b> (const int com_pattern, const bool ground_leg[HexapodConst::LEG_NUM])</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::isAbleCoM</b> (const int com_pattern, const bool ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
 <tr class="separator:ad613024e0d874f1763630a4545212bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0334fa750846fcf63b148c84fe7a6ce"><td class="memItemLeft" align="right" valign="top"><a id="af0334fa750846fcf63b148c84fe7a6ce" name="af0334fa750846fcf63b148c84fe7a6ce"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromGroundLeg</b> (const bool ground_leg[HexapodConst::LEG_NUM])</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromGroundLeg</b> (const bool ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
 <tr class="separator:af0334fa750846fcf63b148c84fe7a6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2c977a80d12619d5a03654a0f1a0e2d"><td class="memItemLeft" align="right" valign="top"><a id="ae2c977a80d12619d5a03654a0f1a0e2d" name="ae2c977a80d12619d5a03654a0f1a0e2d"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromLegState</b> (const int leg_state)</td></tr>
@@ -151,7 +151,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFr
 char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromBit</b> (const int bit)</td></tr>
 <tr class="separator:ac99263b3c705a256504f77e5d30fb76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8014df06ef19a39e925ab44ff85daa88"><td class="memItemLeft" align="right" valign="top"><a id="a8014df06ef19a39e925ab44ff85daa88" name="a8014df06ef19a39e925ab44ff85daa88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getGroundLegFromComType</b> (const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getGroundLegFromComType</b> (const int _com_type, bool _output_ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
 <tr class="separator:a8014df06ef19a39e925ab44ff85daa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22cd96981793f7917fa1f6941a9a11a8"><td class="memItemLeft" align="right" valign="top"><a id="a22cd96981793f7917fa1f6941a9a11a8" name="a22cd96981793f7917fa1f6941a9a11a8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getDonotUseComTypeFromComPattern</b> (const int _com_pattern, std::vector&lt; int &gt; _output)</td></tr>
@@ -179,7 +179,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::COM
 <tr class="memitem:a8b7d331c49dfd3394b936d22b695a624"><td class="memItemLeft" align="right" valign="top"><a id="a8b7d331c49dfd3394b936d22b695a624" name="a8b7d331c49dfd3394b936d22b695a624"></a>
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::BAN_LIST_ARRAY_SIZE</b> = 23</td></tr>
 <tr class="separator:a8b7d331c49dfd3394b936d22b695a624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a9f1641a1972fbf8fc580ca9e3fe56a95">ComType::BAN_LIST</a> [HexapodConst::LEG_NUM][BAN_LIST_ARRAY_SIZE]</td></tr>
+<tr class="memitem:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a9f1641a1972fbf8fc580ca9e3fe56a95">ComType::BAN_LIST</a> [<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>][BAN_LIST_ARRAY_SIZE]</td></tr>
 <tr class="separator:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14075ad39cfe776d297f5644a4cad15"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#af14075ad39cfe776d297f5644a4cad15">ComType::COMTYPE_BAN_LIST</a></td></tr>
 <tr class="separator:af14075ad39cfe776d297f5644a4cad15"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -5,7 +5,7 @@
 #include "node.h"
 #include "my_polygon.h"
 #include "com_type.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class ComCandidatePolygonMaker

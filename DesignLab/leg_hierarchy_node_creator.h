@@ -30,7 +30,7 @@ private:
 };
 
 
-//! @file LegHierarchyNodeCreator.h
+//! @file leg_hierarchy_node_creator.h
 //! @date 2023/08/12
 //! @author ’·’Jì
 //! @brief ‹r‚ÌŠK‘w\‘¢‚ğì‚é‚½‚ß‚ÌƒNƒ‰ƒXD

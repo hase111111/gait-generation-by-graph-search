@@ -1,0 +1,9 @@
+<map id="ComType::getGroundLegFromComType" name="ComType::getGroundLegFromComType">
+<area shape="rect" id="Node000001" title=" " alt="" coords="228,72,423,115"/>
+<area shape="rect" id="Node000002" href="$class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d" title="重心を平行移動したノードを生成する" alt="" coords="11,5,174,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,70,169,51,171,46,235,65"/>
+<area shape="rect" id="Node000003" href="$class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="19,72,166,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,96,166,96,166,91,213,91"/>
+<area shape="rect" id="Node000004" href="$class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="5,139,180,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,121,149,141,148,135,224,116"/>
+</map>

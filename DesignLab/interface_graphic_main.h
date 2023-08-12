@@ -41,7 +41,8 @@ protected:
 };
 
 
-//! @file InterfaceGraphicMain.h
+//! @file interface_graphic_main.h
 //! @date 2023/08/09
 //! @author 長谷川
 //! @brief IGraphicMainクラス．IGraphicMainはインターフェイスであるので実態が作れない．
+//! @n 行数 : @lineinfo

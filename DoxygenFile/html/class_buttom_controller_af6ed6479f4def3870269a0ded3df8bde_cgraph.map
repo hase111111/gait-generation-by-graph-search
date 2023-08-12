@@ -1,0 +1,5 @@
+<map id="ButtomController::update" name="ButtomController::update">
+<area shape="rect" id="Node000001" title="ボタンの状態を更新する．毎フレーム実行すること．" alt="" coords="5,13,171,40"/>
+<area shape="rect" id="Node000002" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="219,5,357,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,24,204,24,204,29,171,29"/>
+</map>

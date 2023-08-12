@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('namespacedl__leg.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9">makeLegState</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])</td></tr>
+<tr class="memitem:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9">makeLegState</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern, const bool _ground[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>], const int _leg_pos[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
 <tr class="memdesc:ae6cda3d2627d7b423793a243f8cb77e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．  <br /></td></tr>
 <tr class="separator:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9c7dd2eccb0f1660b81a56b17b889c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3">isGrounded</a> (const int _leg_state, const int _leg_num)</td></tr>
@@ -167,7 +167,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>LEG_STATE_MA
 <tr class="memdesc:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする <br /></td></tr>
 <tr class="separator:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memItemLeft" align="right" valign="top"><a id="a71b6916ed1e795c4ba99a2570313f3f2" name="a71b6916ed1e795c4ba99a2570313f3f2"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>SHIFT_TO_COM_NUM</b> = HexapodConst::LEG_NUM * 4</td></tr>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>SHIFT_TO_COM_NUM</b> = <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> * 4</td></tr>
 <tr class="memdesc:a71b6916ed1e795c4ba99a2570313f3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． <br /></td></tr>
 <tr class="separator:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b30de8a020bb048c13c36cc2e6d2d3"><td class="memItemLeft" align="right" valign="top"><a id="a95b30de8a020bb048c13c36cc2e6d2d3" name="a95b30de8a020bb048c13c36cc2e6d2d3"></a>
@@ -648,7 +648,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_STATE_MA
 <area shape="poly" title=" " alt="" coords="814,423,775,485,748,519,715,548,691,561,688,556,712,543,744,515,771,482,809,420"/>
 <area shape="rect" href="class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="532,624,678,667"/>
 <area shape="poly" title=" " alt="" coords="821,423,808,465,786,516,756,569,737,593,715,614,680,634,677,629,712,610,733,589,751,566,782,514,803,463,816,421"/>
-<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="255,381,415,408"/>
+<area shape="rect" href="class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="255,381,415,408"/>
 <area shape="poly" title=" " alt="" coords="775,416,714,431,653,438,605,440,496,431,440,422,389,411,390,406,441,417,496,425,605,434,652,433,713,425,774,411"/>
 <area shape="rect" href="class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="502,189,708,232"/>
 <area shape="poly" title=" " alt="" coords="809,369,771,307,744,274,712,246,692,235,695,230,715,242,748,271,775,304,814,366"/>
@@ -756,7 +756,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_STATE_MA
 <area shape="poly" title=" " alt="" coords="815,423,776,485,749,519,716,548,692,561,689,556,713,543,745,515,772,482,810,420"/>
 <area shape="rect" href="class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="533,624,679,667"/>
 <area shape="poly" title=" " alt="" coords="822,423,809,465,787,516,757,569,738,593,716,614,681,634,678,629,713,610,734,589,752,566,783,514,804,463,817,421"/>
-<area shape="rect" href="class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="256,397,416,424"/>
+<area shape="rect" href="class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="256,397,416,424"/>
 <area shape="poly" title=" " alt="" coords="776,416,715,431,635,438,555,438,416,426,416,420,556,432,635,432,714,425,775,411"/>
 <area shape="rect" href="class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="503,189,709,232"/>
 <area shape="poly" title=" " alt="" coords="810,369,772,307,745,274,713,246,693,235,696,230,716,242,749,271,776,304,815,366"/>
@@ -859,11 +859,13 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>COM_STATE_MA
 <div class="dyncontent">
 <div class="center"><img src="namespacedl__leg_ae6cda3d2627d7b423793a243f8cb77e9_icgraph.png" border="0" usemap="#anamespacedl__leg_ae6cda3d2627d7b423793a243f8cb77e9_icgraph" alt=""/></div>
 <map name="anamespacedl__leg_ae6cda3d2627d7b423793a243f8cb77e9_icgraph" id="anamespacedl__leg_ae6cda3d2627d7b423793a243f8cb77e9_icgraph">
-<area shape="rect" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="317,5,464,32"/>
-<area shape="rect" href="struct_s_node.html#a12bd25c27bf8460a22087af5ae44838a" title="初期化関数" alt="" coords="184,5,269,32"/>
-<area shape="poly" title=" " alt="" coords="302,21,270,21,270,16,302,16"/>
-<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
-<area shape="poly" title=" " alt="" coords="169,21,136,21,136,16,169,16"/>
+<area shape="rect" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="355,43,502,69"/>
+<area shape="rect" href="struct_s_node.html#a12bd25c27bf8460a22087af5ae44838a" title="初期化関数" alt="" coords="222,43,307,69"/>
+<area shape="poly" title=" " alt="" coords="340,59,308,59,308,53,340,53"/>
+<area shape="rect" href="class_graph_viewer_system_main.html#a1373b5e56c53515c3aea05d443729f61" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,49,174,44,175,38,207,44"/>
+<area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="24,72,155,99"/>
+<area shape="poly" title=" " alt="" coords="208,68,156,77,155,72,207,63"/>
 </map>
 </div>
 

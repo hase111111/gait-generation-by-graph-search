@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1030,223,978,144,941,101,899,62,881,51,884,46,902,58,945,97,982,141,1034,220"/>
 <area shape="rect" id="Node000003" href="$class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="732,72,901,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1021,226,967,178,899,129,877,118,880,113,902,124,971,174,1024,222"/>
-<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="502,213,661,240"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="502,213,661,240"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="934,246,661,233,661,228,934,240"/>
 <area shape="rect" id="Node000008" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="739,139,894,181"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="995,231,874,184,876,179,997,226"/>

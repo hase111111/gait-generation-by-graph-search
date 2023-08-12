@@ -1,7 +1,7 @@
 #include "com_candidate_polygon_maker.h"
 
 #include "my_line.h"
-#include "HexapodConst.h"
+#include "hexapod_const.h"
 
 
 void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<my_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const

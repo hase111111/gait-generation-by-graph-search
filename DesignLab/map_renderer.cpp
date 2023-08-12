@@ -4,7 +4,7 @@
 
 #include "Dxlib3DFunction.h"
 #include "map_const.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 MapRenderer::MapRenderer() : COLOR_GRAY(GetColor(80, 80, 80)), COLOR_LIGHT_GRAY(GetColor(160, 160, 160))

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "interface_node_creator.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class LegUpDownNodeCreator
@@ -37,7 +37,7 @@ private:
 };
 
 
-//! @file leg_up_down_node_creator.h
+//! @file leg_down_node_creator.h
 //! @date 2023/08/12
 //! @author 長谷川
 //! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．

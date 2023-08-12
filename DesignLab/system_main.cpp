@@ -7,7 +7,7 @@
 #include "my_timer.h"
 #include "CmdIO.h"
 #include "hexapod.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_test.h"

@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_selecter.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('com__selecter_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">com_selecter.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="com__selecter_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="com__selecter_8h.html">com_selecter.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2">    7</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2">ComSelecter::getComFromPolygon</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a>&amp; polygon, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> com_pattren, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; output_com)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::vector&lt;my_vec::SVector2&gt; coms;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">//候補点を生成する</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    makeComCandidatePoint(polygon, coms);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::sort(coms.begin(), coms.end(),</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        [&amp;](<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a>&amp; _v1, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a>&amp; _v2)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            return (_v1 - m_current_node.global_center_of_mass.projectedXY()).lengthSquare() &gt; (_v2 - m_current_node.global_center_of_mass.projectedXY()).lengthSquare();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    );</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : coms)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">//現在の重心を移動させたものを作成する</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_struct" href="struct_s_node.html">SNode</a> com_change_node = m_current_node;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> next_com = { i.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> ,i.y,m_current_node.<a class="code hl_variable" href="struct_s_node.html#a2ab109482dce84de6e7962f52c18314e">global_center_of_mass</a>.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        com_change_node.<a class="code hl_function" href="struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51">changeGlobalCenterOfMass</a>(next_com, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">//if (isInMargin(polygon, i) == false) { continue; }    //安定余裕を満たさなければ次の候補点へ</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">if</span> (m_calclator.<a class="code hl_function" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f">isLegInterfering</a>(com_change_node)) { <span class="keywordflow">continue</span>; }    <span class="comment">//脚が干渉していれば次の候補点へ</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (!m_calclator.<a class="code hl_function" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9">isAllLegInRange</a>(com_change_node)) { <span class="keywordflow">continue</span>; }    <span class="comment">//脚が可動範囲外ならば次の候補点へ</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">if</span> (!m_calclator.<a class="code hl_function" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">isAblePause</a>(com_change_node)) { <span class="keywordflow">continue</span>; }        <span class="comment">//姿勢が安定できないならば次の候補点へ</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">//ここまで来たら，安定余裕を満たし，脚が干渉しておらず，脚が可動範囲内で，姿勢も安定できるということなので，その点を重心として採用する</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        output_com = next_com;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">if</span> (DO_DEBUG_PRINT)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        std::cout &lt;&lt; <a class="code hl_function" href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4">ComType::convertComPatternToBit</a>(com_pattren) &lt;&lt; <span class="stringliteral">&quot;の重心見つからず&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">//該当するものがなければfalseを返す</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> ComSelecter::makeComCandidatePoint(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a>&amp; polygon, std::vector&lt;my_vec::SVector2&gt;&amp; coms)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMinX = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a1945feae4f91bbd55c5d2e809225396b">getMinX</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMaxX = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#ae63935b86d36a389db46eb754b649380">getMaxX</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMinY = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a2b363b955e336824d8e1b7ba1f439b4d">getMinY</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMaxY = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a0a8636becb75ea8b634208a409c5b352">getMaxY</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kWidth = kMaxX - kMinX;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kHeight = kMaxY - kMinY;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//上記の四角形の中にある点を全て候補に追加する．ただし，多角形の中にある点のみ．</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt;= DISCRETIZATION_NUM; ++x)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt;= DISCRETIZATION_NUM; ++y)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a> kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">if</span> (polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#af2c661347deb51ba1ae0c0819dc0c059">isInside</a>(kComPoint))</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                coms.push_back(kComPoint);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">if</span> (DO_DEBUG_PRINT) { std::cout &lt;&lt; <span class="stringliteral">&quot;CandidatePointNum is &quot;</span> &lt;&lt; coms.size() &lt;&lt; std::endl; }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">bool</span> ComSelecter::isInMargin(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a>&amp; polygon, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a>&amp; com)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// @todo 動作がおかしいので修正すること</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kVertexNum = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627">getVertexNum</a>();  <span class="comment">//頂点数．何度も使用するので，先に計算しておくことで軽くする．</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; kVertexNum; ++j)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a> v1 = polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd">getVertex</a>((j + 1) % kVertexNum) - polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd">getVertex</a>(j);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        v1 = v1.<a class="code hl_function" href="structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c">normalized</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a> v_map = com - polygon.<a class="code hl_function" href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd">getVertex</a>(j);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">if</span> (v_map.<a class="code hl_function" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2">cross</a>(v1) &lt; STABILITY_MARGIN)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="comment">//安定余裕を満たさないならば候補から削除する．</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+<div class="ttc" id="aclass_com_selecter_html_a7557af617255e407ade97899f56c5bc2"><div class="ttname"><a href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2">ComSelecter::getComFromPolygon</a></div><div class="ttdeci">bool getComFromPolygon(const my_vec::SPolygon2 &amp;polygon, const ComType::EComPattern _com_pattren, my_vec::SVector &amp;_output_com) const</div><div class="ttdoc">重心を求める</div><div class="ttdef"><b>Definition</b> <a href="com__selecter_8cpp_source.html#l00007">com_selecter.cpp:7</a></div></div>
+<div class="ttc" id="aclass_hexapod_state_calclator_html_a4b7626cfcaab44e79148c5f5b4acd30f"><div class="ttname"><a href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f">HexapodStateCalclator::isLegInterfering</a></div><div class="ttdeci">bool isLegInterfering(const SNode &amp;_node) const</div><div class="ttdoc">脚の干渉をチェックする．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_state_calculator_8cpp_source.html#l00144">HexapodStateCalculator.cpp:144</a></div></div>
+<div class="ttc" id="aclass_hexapod_state_calclator_html_a5e34910a6da418efdc1e1632672f15e7"><div class="ttname"><a href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">HexapodStateCalclator::isAblePause</a></div><div class="ttdeci">bool isAblePause(const SNode &amp;_node) const</div><div class="ttdoc">転ばない姿勢かどうか調べる．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_state_calculator_8cpp_source.html#l00218">HexapodStateCalculator.cpp:218</a></div></div>
+<div class="ttc" id="aclass_hexapod_state_calclator_html_af82fbd4d79a2f6e2204a79878ca84dc9"><div class="ttname"><a href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9">HexapodStateCalclator::isAllLegInRange</a></div><div class="ttdeci">bool isAllLegInRange(const SNode &amp;_node) const</div><div class="ttdoc">全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_state_calculator_8cpp_source.html#l00205">HexapodStateCalculator.cpp:205</a></div></div>
+<div class="ttc" id="acom__selecter_8h_html"><div class="ttname"><a href="com__selecter_8h.html">com_selecter.h</a></div><div class="ttdoc">重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている．   行数 : 62</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a></div><div class="ttdeci">EComPattern</div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00059">com_type.h:60</a></div></div>
+<div class="ttc" id="anamespace_com_type_html_ad68857d4fdd3fc1a4c31631655e388a4"><div class="ttname"><a href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4">ComType::convertComPatternToBit</a></div><div class="ttdeci">int convertComPatternToBit(const EComPattern com_pattern)</div><div class="ttdoc">重心パターンをbitに変換する関数</div><div class="ttdef"><b>Definition</b> <a href="com__type_8cpp_source.html#l00008">com_type.cpp:8</a></div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00021">node.h:22</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a2ab109482dce84de6e7962f52c18314e"><div class="ttname"><a href="struct_s_node.html#a2ab109482dce84de6e7962f52c18314e">SNode::global_center_of_mass</a></div><div class="ttdeci">my_vec::SVector global_center_of_mass</div><div class="ttdoc">[4 * 3 = 12byte] グローバル座標における重心の位置．旧名 GCOM</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00105">node.h:105</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a618c4b3bb706cf833e2355e3145fdc51"><div class="ttname"><a href="struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51">SNode::changeGlobalCenterOfMass</a></div><div class="ttdeci">void changeGlobalCenterOfMass(const my_vec::SVector &amp;new_com, const bool do_change_leg_base_pos)</div><div class="ttdoc">重心位置を変更する関数．</div><div class="ttdef"><b>Definition</b> <a href="node_8cpp_source.html#l00130">node.cpp:130</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a></div><div class="ttdoc">2次元の多角形を表す構造体</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00024">my_polygon.h:25</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a0a8636becb75ea8b634208a409c5b352"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a0a8636becb75ea8b634208a409c5b352">my_vec::SPolygon2::getMaxY</a></div><div class="ttdeci">float getMaxY() const</div><div class="ttdoc">頂点の中で最大のy座標を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00138">my_polygon.h:138</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a178e01b9175e47eed8f3ab893614f627"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627">my_vec::SPolygon2::getVertexNum</a></div><div class="ttdeci">constexpr int getVertexNum() const</div><div class="ttdoc">多角形の頂点数を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00093">my_polygon.h:93</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a1945feae4f91bbd55c5d2e809225396b"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a1945feae4f91bbd55c5d2e809225396b">my_vec::SPolygon2::getMinX</a></div><div class="ttdeci">float getMinX() const</div><div class="ttdoc">頂点の中で最小のx座標を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00124">my_polygon.h:124</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a2b363b955e336824d8e1b7ba1f439b4d"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a2b363b955e336824d8e1b7ba1f439b4d">my_vec::SPolygon2::getMinY</a></div><div class="ttdeci">float getMinY() const</div><div class="ttdoc">頂点の中で最小のy座標を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00152">my_polygon.h:152</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_a44f8ef9902e8d8cb28a739bbc30cefdd"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd">my_vec::SPolygon2::getVertex</a></div><div class="ttdeci">SVector2 getVertex(int i) const</div><div class="ttdoc">頂点の座標を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00099">my_polygon.h:99</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_ae63935b86d36a389db46eb754b649380"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#ae63935b86d36a389db46eb754b649380">my_vec::SPolygon2::getMaxX</a></div><div class="ttdeci">float getMaxX() const</div><div class="ttdoc">頂点の中で最大のx座標を返す関数</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8h_source.html#l00110">my_polygon.h:110</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_polygon2_html_af2c661347deb51ba1ae0c0819dc0c059"><div class="ttname"><a href="structmy__vec_1_1_s_polygon2.html#af2c661347deb51ba1ae0c0819dc0c059">my_vec::SPolygon2::isInside</a></div><div class="ttdeci">bool isInside(const SVector2 &amp;point) const</div><div class="ttdoc">点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．</div><div class="ttdef"><b>Definition</b> <a href="my__polygon_8cpp_source.html#l00041">my_polygon.cpp:41</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector2_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector2.html">my_vec::SVector2</a></div><div class="ttdoc">2次元のベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> <a href="my__vector2_8h_source.html#l00018">my_vector2.h:19</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector2_html_a6527b8515f1b2856db9eaa474daba95c"><div class="ttname"><a href="structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c">my_vec::SVector2::normalized</a></div><div class="ttdeci">SVector2 normalized() const</div><div class="ttdoc">このベクトルを正規化したベクトルを返す</div><div class="ttdef"><b>Definition</b> <a href="my__vector2_8h_source.html#l00097">my_vector2.h:97</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector2_html_ac2b5470c2541a3292a27b38840ebb7c2"><div class="ttname"><a href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2">my_vec::SVector2::cross</a></div><div class="ttdeci">constexpr float cross(const SVector2 &amp;other) const</div><div class="ttdoc">このベクトルとotherの外積を返す</div><div class="ttdef"><b>Definition</b> <a href="my__vector2_8h_source.html#l00087">my_vector2.h:87</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00039">my_vector.h:40</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b6d11ed9a9db333f921f71e60b2b541"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">my_vec::SVector::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">ロボットの正面方向に正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00112">my_vector.h:112</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b75b7b6605a134fff3940ed2b3a5212"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">my_vec::SVector::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">ロボットの上向きに正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00114">my_vector.h:114</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="com__selecter_8cpp.html">com_selecter.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

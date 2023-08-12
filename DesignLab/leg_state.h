@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "HexapodConst.h"
+#include "hexapod_const.h"
 #include "com_type.h"
 
 

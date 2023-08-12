@@ -1,0 +1,23 @@
+<map id="LogFileIO::addLogStringSimulation" name="LogFileIO::addLogStringSimulation">
+<area shape="rect" id="Node000001" title="Logファイルにシミュレーションの結果を書き込む" alt="" coords="5,297,227,324"/>
+<area shape="rect" id="Node000002" href="$class_simulate_result.html#ac82680fa9579d888ecbd822deeb1794f" title=" " alt="" coords="281,5,474,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,296,135,248,166,179,187,141,212,105,240,71,273,42,280,37,283,41,276,46,244,75,216,108,191,144,171,181,140,250,124,298"/>
+<area shape="rect" id="Node000003" href="$class_simulate_result.html#af9bc2ba2de532453213d789d0beee8e9" title=" " alt="" coords="284,56,471,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,295,143,258,177,208,221,155,273,109,280,104,283,108,276,113,224,159,181,211,148,261,127,298"/>
+<area shape="rect" id="Node000004" href="$class_simulate_result.html#a91f68c05f572079e24e354103b5cf4be" title=" " alt="" coords="284,123,471,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="128,295,187,238,228,204,273,175,284,169,287,174,276,180,232,209,191,242,132,299"/>
+<area shape="rect" id="Node000005" href="$class_simulate_result.html#a4cd06bc3f31ee793fae78a4120efd62e" title=" " alt="" coords="284,189,471,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="147,294,274,242,292,235,294,240,276,246,149,299"/>
+<area shape="rect" id="Node000006" href="$class_simulate_result.html#a93ffff2a8c4bcbeef84fbf2551d02d77" title=" " alt="" coords="292,256,463,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="226,294,277,287,278,293,226,299"/>
+<area shape="rect" id="Node000007" href="$class_simulate_result.html#ab0306ee4cb219eea73395958af800b0a" title=" " alt="" coords="292,323,463,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="226,322,278,329,277,334,226,327"/>
+<area shape="rect" id="Node000008" href="$class_simulate_result.html#a5ff592ebf7247b76700e861d83cf09ce" title=" " alt="" coords="275,389,480,432"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="149,322,276,375,294,382,292,387,274,380,147,327"/>
+<area shape="rect" id="Node000009" href="$class_simulate_result.html#a38ee15bf3c152645eed314b433670d9c" title=" " alt="" coords="275,456,480,499"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="132,322,191,379,232,413,276,442,287,447,284,452,273,446,228,417,187,383,128,326"/>
+<area shape="rect" id="Node000010" href="$class_simulate_result.html#ac1d24f72be608af065cf83a0f7afb09d" title=" " alt="" coords="275,523,480,565"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="127,323,148,360,181,410,224,463,276,509,283,513,280,518,273,513,221,467,177,413,143,363,122,326"/>
+<area shape="rect" id="Node000011" href="$class_simulate_result.html#ae012455f31daf7af8b2f6213ecb36b38" title=" " alt="" coords="275,589,480,632"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="124,324,141,372,172,439,217,512,245,546,276,575,282,580,279,584,273,579,241,549,213,515,168,442,136,374,119,326"/>
+</map>

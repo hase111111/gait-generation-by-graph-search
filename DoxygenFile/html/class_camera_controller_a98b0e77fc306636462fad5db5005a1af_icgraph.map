@@ -1,0 +1,7 @@
+<map id="CameraController::update" name="CameraController::update">
+<area shape="rect" id="Node000001" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="228,31,396,57"/>
+<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,35,180,31,180,26,213,30"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,56,176,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,58,176,62,176,57,213,53"/>
+</map>

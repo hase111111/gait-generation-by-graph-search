@@ -7,7 +7,7 @@
 #include "my_polygon.h"
 #include "com_type.h"
 #include "node.h"
-#include "HexapodStateCalculator.h"
+#include "hexapod_state_calculator.h"
 
 
 //! @class ComSelecterHato

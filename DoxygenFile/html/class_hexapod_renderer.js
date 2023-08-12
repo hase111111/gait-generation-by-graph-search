@@ -1,5 +1,5 @@
 var class_hexapod_renderer =
 [
-    [ "draw", "class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503", null ],
-    [ "update", "class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600", null ]
+    [ "draw", "class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70", null ],
+    [ "update", "class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc", null ]
 ];
