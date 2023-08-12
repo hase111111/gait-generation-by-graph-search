@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="ComSelecterHato",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html",tooltip="重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．"];
+  Node0 [id="Node000000",label="detectLandingPoint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdetect_landing_point.html",tooltip=" "];
 }

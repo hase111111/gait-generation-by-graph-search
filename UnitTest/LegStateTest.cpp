@@ -1,4 +1,4 @@
 #pragma once
 #include "pch.h"
-#include "../DesignLab/LegState.h"
+#include "../DesignLab/leg_state.h"
 

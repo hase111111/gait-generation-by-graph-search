@@ -78,6 +78,6 @@ namespace my_vec
 
 //! @file my_rotator.h
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 回転を表す構造体．XYZオイラー角
 //! @n 行数 : @lineinfo

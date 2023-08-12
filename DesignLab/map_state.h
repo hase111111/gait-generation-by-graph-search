@@ -115,7 +115,7 @@ private:
 };
 
 
-//! @file MapState.h
+//! @file map_state.h
 //! @date 2023/08/06
 //! @author 長谷川
 //! @brief マップのデータを管理するクラス．

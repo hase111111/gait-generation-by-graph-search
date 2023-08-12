@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 <p>ロボットの描画を行うクラス．  
  <a href="class_hexapod_renderer.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_hexapod_renderer_8h_source.html">HexapodRenderer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -112,6 +112,7 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ロボットの描画を行うクラス． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="af729a4665d1f1c156ea4252619b51503" name="af729a4665d1f1c156ea4252619b51503"></a>
@@ -142,38 +143,49 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 <div class="dyncontent">
 <div class="center"><img src="class_hexapod_renderer_af729a4665d1f1c156ea4252619b51503_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_af729a4665d1f1c156ea4252619b51503_cgraph" alt=""/></div>
 <map name="aclass_hexapod_renderer_af729a4665d1f1c156ea4252619b51503_cgraph" id="aclass_hexapod_renderer_af729a4665d1f1c156ea4252619b51503_cgraph">
-<area shape="rect" title="ロボットを3D空間に描画する．" alt="" coords="5,224,165,251"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="681,69,849,96"/>
-<area shape="poly" title=" " alt="" coords="88,223,102,185,127,136,163,86,186,64,211,47,277,21,347,7,418,3,489,7,557,18,619,31,716,61,715,67,617,37,556,23,489,13,418,8,348,12,279,26,214,52,189,68,167,89,131,139,107,187,93,225"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a6929ec7484c6d43815c4b88ba6ab7024" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="215,312,374,355"/>
-<area shape="poly" title=" " alt="" coords="114,249,214,298,227,303,224,308,212,302,112,254"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="217,379,372,421"/>
-<area shape="poly" title=" " alt="" coords="99,250,145,304,178,336,214,365,221,369,219,374,211,369,175,340,142,308,95,253"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="217,128,372,171"/>
-<area shape="poly" title=" " alt="" coords="118,221,227,175,229,180,120,226"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="430,183,627,209"/>
-<area shape="poly" title=" " alt="" coords="165,227,415,204,415,209,165,233"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="217,245,372,288"/>
-<area shape="poly" title=" " alt="" coords="165,246,203,251,202,256,165,251"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="217,61,372,104"/>
-<area shape="poly" title=" " alt="" coords="96,222,143,171,175,141,211,114,219,109,221,114,214,118,179,145,147,174,100,225"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="213,445,376,472"/>
-<area shape="poly" title=" " alt="" coords="94,250,109,286,135,335,170,387,191,411,214,431,221,436,218,440,211,436,187,414,166,390,130,338,104,289,89,252"/>
-<area shape="poly" title=" " alt="" coords="372,139,633,105,682,97,683,102,634,111,372,144"/>
-<area shape="poly" title=" " alt="" coords="373,162,444,177,443,182,372,167"/>
-<area shape="poly" title=" " alt="" coords="367,242,467,212,468,217,368,247"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="444,300,614,343"/>
-<area shape="poly" title=" " alt="" coords="373,282,430,296,429,301,372,287"/>
-<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="464,249,593,276"/>
-<area shape="poly" title=" " alt="" coords="372,263,449,261,449,267,372,268"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="688,308,842,335"/>
-<area shape="poly" title=" " alt="" coords="614,319,673,319,673,324,614,324"/>
-<area shape="poly" title=" " alt="" coords="352,102,377,114,492,173,489,178,375,118,349,107"/>
-<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="424,69,633,96"/>
-<area shape="poly" title=" " alt="" coords="372,80,409,80,409,85,372,85"/>
-<area shape="poly" title=" " alt="" coords="634,80,666,80,666,85,634,85"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="427,445,631,472"/>
-<area shape="poly" title=" " alt="" coords="376,456,411,456,411,461,376,461"/>
+<area shape="rect" title="ロボットを3D空間に描画する．" alt="" coords="5,307,165,333"/>
+<area shape="rect" href="namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="229,5,406,48"/>
+<area shape="poly" title=" " alt="" coords="87,306,100,260,124,196,160,126,184,94,211,65,226,53,229,58,214,69,188,97,165,129,128,198,105,262,92,307"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="727,189,895,216"/>
+<area shape="poly" title=" " alt="" coords="98,304,145,263,177,242,212,225,253,215,308,207,442,199,586,196,712,197,712,203,586,201,442,204,308,213,254,220,214,231,179,246,148,267,101,308"/>
+<area shape="rect" href="namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60" title="3D空間に六角柱を描画する．" alt="" coords="213,424,422,467"/>
+<area shape="poly" title=" " alt="" coords="104,332,151,370,214,410,227,416,224,420,211,414,148,374,100,336"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a6929ec7484c6d43815c4b88ba6ab7024" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="238,491,397,533"/>
+<area shape="poly" title=" " alt="" coords="96,332,140,401,174,442,214,477,226,484,224,488,211,481,170,445,135,404,91,335"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="240,557,395,600"/>
+<area shape="poly" title=" " alt="" coords="93,333,107,374,131,431,167,491,189,519,214,543,228,553,225,557,211,547,185,523,162,494,126,433,102,376,88,335"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="240,123,395,165"/>
+<area shape="poly" title=" " alt="" coords="94,304,140,246,173,212,211,182,232,170,235,174,214,186,177,216,144,250,98,308"/>
+<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="510,79,639,105"/>
+<area shape="poly" title=" " alt="" coords="87,305,100,264,124,210,161,153,184,129,211,108,245,91,282,79,357,67,431,67,495,73,495,79,430,72,357,72,283,85,247,96,214,113,188,133,165,157,129,212,105,266,92,307"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="476,291,673,317"/>
+<area shape="poly" title=" " alt="" coords="165,315,461,305,462,310,165,320"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="240,357,395,400"/>
+<area shape="poly" title=" " alt="" coords="141,331,227,353,225,358,140,336"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="240,240,395,283"/>
+<area shape="poly" title=" " alt="" coords="140,304,225,282,227,287,141,309"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="236,624,399,651"/>
+<area shape="poly" title=" " alt="" coords="91,333,100,386,121,461,137,501,158,541,184,578,214,610,224,617,221,621,211,614,179,582,153,544,133,504,116,463,95,387,85,334"/>
+<area shape="rect" href="namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae" title="3D空間に六角形を描画する．" alt="" coords="475,459,674,485"/>
+<area shape="poly" title=" " alt="" coords="423,454,460,457,460,463,422,459"/>
+<area shape="poly" title=" " alt="" coords="395,149,680,181,713,186,712,191,679,187,395,154"/>
+<area shape="poly" title=" " alt="" coords="395,126,495,105,496,111,396,131"/>
+<area shape="poly" title=" " alt="" coords="349,164,424,226,447,254,456,265,471,276,483,282,481,287,469,281,453,269,442,257,420,230,346,168"/>
+<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="737,79,885,105"/>
+<area shape="poly" title=" " alt="" coords="640,89,722,89,722,95,640,95"/>
+<area shape="poly" title=" " alt="" coords="382,354,469,327,498,319,500,324,471,332,383,359"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="490,392,660,435"/>
+<area shape="poly" title=" " alt="" coords="395,386,475,397,474,403,395,392"/>
+<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="510,341,639,368"/>
+<area shape="poly" title=" " alt="" coords="395,369,495,359,495,365,395,374"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="734,400,888,427"/>
+<area shape="poly" title=" " alt="" coords="660,411,719,411,719,416,660,416"/>
+<area shape="poly" title=" " alt="" coords="396,272,476,285,475,290,395,277"/>
+<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="470,240,679,267"/>
+<area shape="poly" title=" " alt="" coords="395,256,455,254,456,260,395,262"/>
+<area shape="poly" title=" " alt="" coords="640,237,731,217,732,222,641,242"/>
+<area shape="rect" href="structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="473,624,677,651"/>
+<area shape="poly" title=" " alt="" coords="400,635,458,635,458,640,400,640"/>
 </map>
 </div>
 <div class="dynheader">
@@ -244,8 +256,8 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_hexapod_renderer_8h_source.html">HexapodRenderer.h</a></li>
-<li>DesignLab/HexapodRenderer.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/hexapod_renderer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -11,7 +11,7 @@
 
 //! @enum ENodeDisplayNode
 //! @date 2023/08/09
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief ノードの表示方法を表す列挙型．
 enum class ENodeDisplayNode : int
 {
@@ -60,6 +60,6 @@ private:
 
 //! @file gui_controller.h
 //! @date 2023/08/09
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief GUIを表示するクラス．
 //! @n 行数 : @lineinfo

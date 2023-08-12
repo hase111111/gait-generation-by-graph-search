@@ -141,9 +141,9 @@ private:
 //! @file HexapodStateCalclator.h
 //! @brief HexapodStateCalclatorクラスのヘッダファイル．
 //! @date 2023/07/19
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class HexapodStateCalclator
 //! @brief ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．
 //! @date 2023/07/19
-//! @auther 長谷川
+//! @author 長谷川

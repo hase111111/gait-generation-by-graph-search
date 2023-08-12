@@ -5,10 +5,10 @@
 #include "GraphTreeCreatorHato.h"
 #include "GraphSearcherHato.h"
 #include "GraphSearchConst.h"
-#include "LegUpDownNodeCreator.h"
-#include "LegHierarchyNodeCreator.h"
-#include "ComUpDownNodeCreator.h"
-#include "ComMoveNodeCreatorHato.h"
+#include "leg_up_down_node_creator.h"
+#include "leg_hierarchy_node_creator.h"
+#include "com_up_down_node_creator.h"
+#include "com_move_node_creator_hato.h"
 
 
 void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, std::unique_ptr<IGraphTreeCreator>& tree)

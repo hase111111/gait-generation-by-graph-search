@@ -4,7 +4,7 @@
 #include <cmath>
 
 #include "GraphSearchConst.h"
-#include "LegState.h"
+#include "leg_state.h"
 
 
 GraphSearcherHato::GraphSearcherHato()
@@ -55,7 +55,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 			//結果が見つかっていない場合は，必ず結果を更新する
 			if (result_index < 0)
 			{
-				result_index = i;
+				result_index = static_cast<int>(i);
 				max_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
 				max_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
 				continue;
@@ -68,7 +68,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 			{
 				max_rot_angle = candiate_rot_angle;
 				max_leg_rot_angle = candiate_leg_rot_angle;
-				result_index = i;
+				result_index = static_cast<int>(i);
 			}
 			else if (my_math::isEqual(max_rot_angle, candiate_rot_angle))
 			{
@@ -76,7 +76,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 				{
 					max_rot_angle = candiate_rot_angle;
 					max_leg_rot_angle = candiate_leg_rot_angle;
-					result_index = i;
+					result_index = static_cast<int>(i);
 				}
 			}
 		}
@@ -152,7 +152,7 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, co
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(current_node.leg_state, i))
+		if (dl_leg::isGrounded(current_node.leg_state, i))
 		{
 			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).length();
 		}

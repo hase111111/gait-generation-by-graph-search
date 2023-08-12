@@ -7,7 +7,7 @@ namespace my_vec
 {
 	//! @struct SLine2
 	//! @date 2023/08/06
-	//! @auther ’·’Jì
+	//! @author ’·’Jì
 	//! @brief 2ŸŒ³‚Ìü•ª‚ğ•\‚·\‘¢‘Ì
 	struct SLine2 final
 	{
@@ -58,6 +58,6 @@ namespace my_vec
 
 //! @file my_line.h
 //! @date 2023/08/06
-//! @auther ’·’Jì
+//! @author ’·’Jì
 //! @brief 2ŸŒ³‚Ìü•ª‚ğ•\‚·\‘¢‘Ì
 //! @n s” : @lineinfo

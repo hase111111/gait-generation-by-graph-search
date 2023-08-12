@@ -18,8 +18,8 @@
 //! @n 詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章を参照してほしい．
 //! @n このクラス内ではread lock, write lockを使っている． 
 //! @n 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 @n 
-//! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表します．
-//! @n 通常絶対使うべきではないですが，今回のような場合(boost::shared_mutexを使う場合)は有効的です．
+//! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
+//! @n 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
 class GraphicDataBroker final
 {
 public:

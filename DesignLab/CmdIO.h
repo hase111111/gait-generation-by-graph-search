@@ -8,7 +8,7 @@
 
 //! @enum EOutputPriority
 //! @date 2023/08/08
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief コマンドラインに文字を出力する際の優先度．
 enum class EOutputPriority
 {
@@ -22,7 +22,7 @@ enum class EOutputPriority
 
 //! @namespace dl_io
 //! @date 2023/08/08
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief コマンドラインに文字を出力する関数をまとめた名前空間．
 namespace dl_io
 {
@@ -39,7 +39,7 @@ namespace dl_io
 
 //! @class CmdIO
 //! @date 2023/06/17
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．
 class CmdIO final
 {
@@ -77,6 +77,6 @@ private:
 
 //! @file cmd_io.h
 //! @date 2023/08/08
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief コマンドラインに文字を出力するための名前空間．
 //! @n 行数 : @lineinfo

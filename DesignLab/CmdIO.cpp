@@ -1,8 +1,8 @@
 #include "CmdIO.h"
 #include <iostream>
-#include "LegState.h"
+#include "leg_state.h"
 
-using namespace LegStateEdit;
+using namespace dl_leg;
 
 void CmdIO::outputString(const std::string _str)
 {

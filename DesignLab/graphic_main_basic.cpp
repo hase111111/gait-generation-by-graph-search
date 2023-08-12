@@ -3,7 +3,7 @@
 #include "DxLib.h"
 
 #include "Dxlib3DFunction.h"
-#include "MapRenderer.h"
+#include "map_renderer.h"
 
 
 GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* broker) : IGraphicMain(broker), m_map_state(mp_broker->getMapState())

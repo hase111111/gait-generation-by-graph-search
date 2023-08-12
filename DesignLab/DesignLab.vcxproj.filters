@@ -144,7 +144,7 @@
     <ClInclude Include="Target.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
-    <ClInclude Include="LegState.h">
+    <ClInclude Include="leg_state.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
     <ClInclude Include="com_type.h">
@@ -228,7 +228,7 @@
     <ClInclude Include="system_main.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="node.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="node_validity_checker.h">
@@ -267,10 +267,10 @@
     <ClInclude Include="my_line.h">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClInclude>
-    <ClInclude Include="ComCandidatePolygonMaker.h">
+    <ClInclude Include="com_candidate_polygon_maker.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="HexapodNextMove.h">
+    <ClInclude Include="hexapod_next_move.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="PassFinderNone.h">
@@ -294,25 +294,25 @@
     <ClInclude Include="GraphSearcherHato.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceNodeCreator.h">
+    <ClInclude Include="interface_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="LegUpNodeCreator.h">
+    <ClInclude Include="leg_up_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="LegHierarchyNodeCreator.h">
+    <ClInclude Include="leg_hierarchy_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="LegUpDownNodeCreator.h">
+    <ClInclude Include="leg_up_down_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="ComUpDownNodeCreator.h">
+    <ClInclude Include="com_up_down_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
-    <ClInclude Include="ComMoveNodeCreator.h">
+    <ClInclude Include="com_move_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
-    <ClInclude Include="LegDownNodeCreator.h">
+    <ClInclude Include="leg_down_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
     <ClInclude Include="AbstractPassFinderFactory.h">
@@ -321,13 +321,13 @@
     <ClInclude Include="PassFinderFactoryHato.h">
       <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="ComSelecterHato.h">
+    <ClInclude Include="com_selecter_hato.h">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClInclude>
-    <ClInclude Include="ComSelecter.h">
+    <ClInclude Include="com_selecter.h">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClInclude>
-    <ClInclude Include="ComMoveNodeCreatorHato.h">
+    <ClInclude Include="com_move_node_creator_hato.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorThread.h">
@@ -386,7 +386,7 @@
     <ClCompile Include="NodeFileIO.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="LegState.cpp">
+    <ClCompile Include="leg_state.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
     <ClCompile Include="com_type.cpp">
@@ -464,7 +464,7 @@
     <ClCompile Include="system_main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
+    <ClCompile Include="node.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="node_validity_checker.cpp">
@@ -488,7 +488,7 @@
     <ClCompile Include="my_vector.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
-    <ClCompile Include="ComCandidatePolygonMaker.cpp">
+    <ClCompile Include="com_candidate_polygon_maker.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="my_line.cpp">
@@ -497,7 +497,7 @@
     <ClCompile Include="my_polygon.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
-    <ClCompile Include="HexapodNextMove.cpp">
+    <ClCompile Include="hexapod_next_move.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderNone.cpp">
@@ -515,22 +515,22 @@
     <ClCompile Include="GraphSearcherHato.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
-    <ClCompile Include="LegHierarchyNodeCreator.cpp">
+    <ClCompile Include="leg_hierarchy_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="LegUpDownNodeCreator.cpp">
+    <ClCompile Include="leg_up_down_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="LegUpNodeCreator.cpp">
+    <ClCompile Include="leg_up_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="ComMoveNodeCreator.cpp">
+    <ClCompile Include="com_move_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
-    <ClCompile Include="ComUpDownNodeCreator.cpp">
+    <ClCompile Include="com_up_down_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
-    <ClCompile Include="LegDownNodeCreator.cpp">
+    <ClCompile Include="leg_down_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
     <ClCompile Include="PassFinderFactoryHato.cpp">
@@ -539,13 +539,13 @@
     <ClCompile Include="InterfaceGraphTreeCreator.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="ComSelecter.cpp">
+    <ClCompile Include="com_selecter.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClCompile>
-    <ClCompile Include="ComSelecterHato.cpp">
+    <ClCompile Include="com_selecter_hato.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClCompile>
-    <ClCompile Include="ComMoveNodeCreatorHato.cpp">
+    <ClCompile Include="com_move_node_creator_hato.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorThread.cpp">

@@ -1,34 +1,43 @@
 <map id="ComMoveNodeCreatorHato::create" name="ComMoveNodeCreatorHato::create">
-<area shape="rect" id="Node000001" title="重心を平行移動したノードを生成する" alt="" coords="5,127,183,169"/>
-<area shape="rect" id="Node000002" href="$struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51" title="重心位置を変更する関数．" alt="" coords="249,9,434,52"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,124,172,92,230,62,245,55,247,60,232,66,175,97,127,129"/>
-<area shape="rect" id="Node000003" href="$struct_s_node.html#a159d1bc69cbe150d48b5578433fb5fa3" title="次の動作を設定する関数．" alt="" coords="258,76,425,103"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,124,230,112,265,104,266,109,231,117,184,129"/>
-<area shape="rect" id="Node000004" href="$class_com_selecter_hato.html#ab1cbabfba81418e16751789157d759a9" title="重心を求める" alt="" coords="238,127,445,169"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,145,223,145,223,151,183,151"/>
-<area shape="rect" id="Node000014" href="$class_com_candidate_polygon_maker.html#aaf673876af597577926164e4281c8b02" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="247,205,436,248"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="164,167,259,198,257,203,163,173"/>
-<area shape="rect" id="Node000016" href="$class_com_selecter_hato.html#a54e62d4ba98ba24984a61fcdfc0005e7" title="現在のノードを設定する" alt="" coords="231,272,452,299"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="117,168,166,214,198,238,232,258,248,264,245,269,229,262,195,242,163,218,113,172"/>
-<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="527,55,671,97"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="420,124,512,98,513,103,421,129"/>
-<area shape="rect" id="Node000006" href="$structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627" title="多角形の頂点数を返す関数" alt="" coords="773,8,917,51"/>
-<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="431,124,450,113,466,95,473,76,481,57,499,41,530,26,563,15,631,4,698,4,759,10,758,15,698,9,631,10,564,20,532,31,501,45,485,60,477,78,470,98,454,117,434,129"/>
-<area shape="rect" id="Node000007" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="522,172,676,215"/>
-<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="445,164,508,175,507,180,445,169"/>
-<area shape="rect" id="Node000012" href="$structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c" title="このベクトルを正規化したベクトルを返す" alt="" coords="500,121,698,148"/>
-<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="445,140,485,138,485,143,445,145"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="671,60,758,43,759,48,672,65"/>
-<area shape="rect" id="Node000008" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="992,104,1162,147"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="676,180,976,137,977,142,677,185"/>
-<area shape="rect" id="Node000010" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="746,239,944,265"/>
-<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="677,209,772,232,771,237,676,214"/>
-<area shape="rect" id="Node000011" href="$namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="780,188,910,215"/>
-<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="677,193,766,196,765,201,677,199"/>
-<area shape="rect" id="Node000013" href="$structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="760,87,930,113"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="698,118,744,112,745,117,699,123"/>
-<area shape="poly" id="edge13_Node000013_Node000008" title=" " alt="" coords="931,107,977,112,977,117,930,112"/>
-<area shape="poly" id="edge16_Node000014_Node000010" title=" " alt="" coords="436,229,731,244,731,249,436,234"/>
-<area shape="rect" id="Node000015" href="$class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="522,289,676,332"/>
-<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="417,246,453,258,523,281,522,286,451,263,415,251"/>
+<area shape="rect" id="Node000001" title="重心を平行移動したノードを生成する" alt="" coords="5,207,183,249"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#a1130c749c855ff4a443171a56a0affe8" title="重心のデータを変更する．" alt="" coords="254,24,429,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,205,155,139,190,103,229,71,264,54,266,59,232,76,194,107,159,143,111,208"/>
+<area shape="rect" id="Node000004" href="$struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51" title="重心位置を変更する関数．" alt="" coords="249,85,434,128"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,204,282,133,284,137,141,208"/>
+<area shape="rect" id="Node000007" href="$struct_s_node.html#a99876a79a2e973f64a25fb72210086b0" title="次の動作を設定する関数．" alt="" coords="258,307,425,333"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="135,247,180,271,232,292,256,300,254,305,230,297,178,275,132,252"/>
+<area shape="rect" id="Node000008" href="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="238,173,445,216"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="183,213,223,208,224,213,184,219"/>
+<area shape="rect" id="Node000018" href="$class_com_candidate_polygon_maker.html#aaf673876af597577926164e4281c8b02" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="247,240,436,283"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="184,237,232,244,232,249,183,243"/>
+<area shape="rect" id="Node000020" href="$class_com_selecter_hato.html#a69a48f403a947d80ef20e4703cdfe260" title="現在のノードを設定する" alt="" coords="231,357,452,384"/>
+<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="116,248,165,296,197,322,232,343,247,350,245,355,229,348,194,326,162,300,112,252"/>
+<area shape="rect" id="Node000003" href="$namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4" title="重心パターンをbitに変換する関数" alt="" coords="502,5,696,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,31,487,29,487,34,429,36"/>
+<area shape="rect" id="Node000005" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="535,72,664,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="434,96,519,89,520,95,435,102"/>
+<area shape="rect" id="Node000006" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="771,72,919,99"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="664,83,756,83,756,88,664,88"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="385,170,499,115,536,101,538,106,501,120,388,175"/>
+<area shape="rect" id="Node000009" href="$structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="527,173,671,216"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="445,192,512,192,512,197,445,197"/>
+<area shape="rect" id="Node000010" href="$structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627" title="多角形の頂点数を返す関数" alt="" coords="773,131,917,173"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="432,170,500,159,635,149,758,147,758,153,636,154,500,164,433,175"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="522,291,676,333"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="431,214,453,226,469,239,478,252,487,264,502,276,510,281,507,286,498,281,483,268,474,255,465,242,451,230,429,219"/>
+<area shape="rect" id="Node000016" href="$structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c" title="このベクトルを正規化したベクトルを返す" alt="" coords="500,240,698,267"/>
+<area shape="poly" id="edge16_Node000008_Node000016" title=" " alt="" coords="439,214,524,234,522,239,437,219"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="671,180,758,164,759,170,672,185"/>
+<area shape="rect" id="Node000012" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="992,223,1162,265"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="676,298,976,255,977,261,677,304"/>
+<area shape="rect" id="Node000014" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="746,357,944,384"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="677,328,772,351,771,356,676,333"/>
+<area shape="rect" id="Node000015" href="$namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="780,307,910,333"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="677,312,766,315,765,320,677,317"/>
+<area shape="rect" id="Node000017" href="$structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="760,205,930,232"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="698,237,744,230,745,235,699,242"/>
+<area shape="poly" id="edge18_Node000017_Node000012" title=" " alt="" coords="931,225,977,230,977,236,930,231"/>
+<area shape="poly" id="edge21_Node000018_Node000014" title=" " alt="" coords="431,281,454,292,469,306,478,320,486,332,501,343,557,363,617,375,676,380,731,380,731,385,676,385,616,380,556,368,499,348,482,336,473,323,465,309,450,297,429,286"/>
+<area shape="rect" id="Node000019" href="$class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="522,408,676,451"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="437,281,454,293,472,317,479,341,485,364,502,387,516,398,513,403,498,391,481,366,474,342,467,319,450,297,434,285"/>
 </map>

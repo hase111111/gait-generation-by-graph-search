@@ -5,7 +5,7 @@ digraph "GraphicLoop::loop"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="RL";
-  Node1 [id="Node000001",label="GraphicLoop::loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="GraphicLoop::loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="GraphicSystem::main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976",tooltip="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．  またメンバ関数..."];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];

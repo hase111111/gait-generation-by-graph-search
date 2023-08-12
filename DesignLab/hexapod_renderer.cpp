@@ -3,7 +3,7 @@
 #include "DxLib.h"
 
 #include "Dxlib3DFunction.h"
-#include "LegState.h"
+#include "leg_state.h"
 #include "my_math.h"
 
 
@@ -43,8 +43,8 @@ void HexapodRenderer::draw(const SNode& _node) const
 		const VECTOR kTibiaJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(_node, i));
 
 		//ãrÇÃêFÇóVãrÅEê⁄ínÇ≈ïœçXÇ∑ÇÈÅD
-		const unsigned int kLegBaseColor = LegStateEdit::isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int kJointColor = LegStateEdit::isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+		const unsigned int kLegBaseColor = dl_leg::isGrounded(_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
+		const unsigned int kJointColor = dl_leg::isGrounded(_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
 		//äeãrÇÃï`âÊ
 		DrawCapsule3D(kCoxaJointPos, kFemurJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa

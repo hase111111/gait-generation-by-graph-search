@@ -1,5 +1,9 @@
 <map id="LegDownNodeCreator::create" name="LegDownNodeCreator::create">
-<area shape="rect" id="Node000001" title="重心を平行移動したノードを生成する" alt="" coords="5,5,152,48"/>
-<area shape="rect" id="Node000002" href="$struct_s_node.html#a159d1bc69cbe150d48b5578433fb5fa3" title="次の動作を設定する関数．" alt="" coords="200,13,367,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,24,185,24,185,29,152,29"/>
+<area shape="rect" id="Node000001" title="重心を平行移動したノードを生成する" alt="" coords="5,23,152,65"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a99876a79a2e973f64a25fb72210086b0" title="次の動作を設定する関数．" alt="" coords="200,5,367,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,32,184,28,185,33,153,38"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="219,56,348,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,50,204,57,204,62,152,56"/>
+<area shape="rect" id="Node000004" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="415,56,562,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="348,67,400,67,400,72,348,72"/>
 </map>

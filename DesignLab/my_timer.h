@@ -4,7 +4,7 @@
 
 //! @class MyTimer
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 時間計測用のクラス．
 class MyTimer final
 {
@@ -41,6 +41,6 @@ private:
 
 //! @file my_timer.h
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 自作の時間計測クラス．
 //! @n 行数 : @lineinfo

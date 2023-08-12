@@ -1,0 +1,5 @@
+<map id="dl_leg::getLegState" name="dl_leg::getLegState">
+<area shape="rect" id="Node000001" title="脚状態を取得する．" alt="" coords="271,5,404,32"/>
+<area shape="rect" id="Node000002" href="$class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35" title="Logファイルにノードの情報を書き込む" alt="" coords="5,5,223,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,21,223,21,223,16,256,16"/>
+</map>

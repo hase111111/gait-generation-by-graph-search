@@ -120,7 +120,7 @@ IGraphTreeCreator の継承関係図</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a66e201edf0ad629d8248ac227c0cec13"><td class="memItemLeft" align="right" valign="top"><a id="a66e201edf0ad629d8248ac227c0cec13" name="a66e201edf0ad629d8248ac227c0cec13"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphTreeCreator</b> (std::map&lt; EHexapodMove, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt; &amp;map)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphTreeCreator</b> (std::map&lt; <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a>, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt; &amp;map)</td></tr>
 <tr class="separator:a66e201edf0ad629d8248ac227c0cec13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a1520ff9b607ba36524b5d33475f511"><td class="memItemLeft" align="right" valign="top">virtual EGraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a4a1520ff9b607ba36524b5d33475f511">createGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> *const p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph, int *make_node_num)=0</td></tr>
 <tr class="memdesc:a4a1520ff9b607ba36524b5d33475f511"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
@@ -138,7 +138,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxDepth</b> () con
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
 <tr class="memitem:a135fafe8909624917861e130bf50c939"><td class="memItemLeft" align="right" valign="top"><a id="a135fafe8909624917861e130bf50c939" name="a135fafe8909624917861e130bf50c939"></a>
-std::map&lt; EHexapodMove, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_node_creator_map</b></td></tr>
+std::map&lt; <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a>, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_node_creator_map</b></td></tr>
 <tr class="separator:a135fafe8909624917861e130bf50c939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a613e8f97b603f68565ca8e6c8089cb3f"><td class="memItemLeft" align="right" valign="top"><a id="a613e8f97b603f68565ca8e6c8089cb3f" name="a613e8f97b603f68565ca8e6c8089cb3f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a class="el" href="class_graph_search_const.html#abb968ed24754e6739a00be1ac95420c8">GraphSearchConst::MAX_DEPTH</a></td></tr>
@@ -147,7 +147,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a c
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
 <p>継承をするクラスのデストラクタはvirtualにしておく．<br  />
- 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p><dl class="section date"><dt>日付</dt><dd>2023/07/23 @auther 長谷川 </dd></dl>
+ 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p><dl class="section date"><dt>日付</dt><dd>2023/07/23 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a4a1520ff9b607ba36524b5d33475f511" name="a4a1520ff9b607ba36524b5d33475f511"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a1520ff9b607ba36524b5d33475f511">&#9670;&#160;</a></span>createGraphTree()</h2>
@@ -224,8 +225,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a c
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_interface_graph_tree_creator_8h_source.html">InterfaceGraphTreeCreator.h</a></li>
-<li>DesignLab/InterfaceGraphTreeCreator.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_graph_tree_creator_8h_source.html">InterfaceGraphTreeCreator.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/InterfaceGraphTreeCreator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

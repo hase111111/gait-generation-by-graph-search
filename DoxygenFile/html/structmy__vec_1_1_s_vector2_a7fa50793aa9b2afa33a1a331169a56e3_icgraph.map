@@ -8,7 +8,7 @@
 <area shape="poly" id="edge11_Node000001_Node000013" title=" " alt="" coords="985,241,874,285,872,280,983,237"/>
 <area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="525,85,684,112"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="763,187,750,181,629,115,631,110,753,176,765,182"/>
-<area shape="rect" id="Node000008" href="$class_com_selecter_hato.html#ab1cbabfba81418e16751789157d759a9" title="重心を求める" alt="" coords="241,224,447,267"/>
+<area shape="rect" id="Node000008" href="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="241,224,447,267"/>
 <area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="745,221,448,241,447,236,745,215"/>
 <area shape="rect" id="Node000010" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="527,165,681,208"/>
 <area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="744,205,681,198,682,192,745,199"/>

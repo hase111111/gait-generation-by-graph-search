@@ -5,7 +5,7 @@ digraph "INodeCreator"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [id="Node000001",label="INodeCreator",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="INodeCreator",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="ノード生成インターフェース"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="ComMoveNodeCreator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_com_move_node_creator.html",tooltip="重心の平行移動を行うクラス．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -19,5 +19,5 @@ digraph "INodeCreator"
   Node1 -> Node7 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node7 [id="Node000007",label="LegUpDownNodeCreator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_leg_up_down_node_creator.html",tooltip="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．"];
   Node1 -> Node8 [id="edge7_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="LegUpNodeCreator",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_leg_up_node_creator.html",tooltip=" "];
+  Node8 [id="Node000008",label="LegUpNodeCreator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_leg_up_node_creator.html",tooltip="脚上げノード生成クラス"];
 }

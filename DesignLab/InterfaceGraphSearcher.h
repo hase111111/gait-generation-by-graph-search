@@ -22,7 +22,7 @@ public:
 //! @file InterfaceGraphSearcher.h
 //! @brief グラフ木を作成するクラスのインターフェース．
 //! @date 2023/07/23
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class IGraphSearcher
 //! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください．<br>

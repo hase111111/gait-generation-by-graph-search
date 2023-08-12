@@ -4,7 +4,7 @@
 
 #include "my_math.h"
 #include "my_line.h"
-#include "LegState.h"
+#include "leg_state.h"
 
 
 float HexapodStateCalclator::m_leg_max_r[200] = {};
@@ -206,7 +206,7 @@ bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
 {
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(node.leg_state, i))
+		if (dl_leg::isGrounded(node.leg_state, i))
 		{
 			if (!isLegInRange(node.leg_pos[i], i)) { return false; }
 		}
@@ -226,7 +226,7 @@ bool HexapodStateCalclator::isAblePause(const SNode& _node) const
 	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(_node.leg_state, i) == true)
+		if (dl_leg::isGrounded(_node.leg_state, i) == true)
 		{
 			leg_pos[leg_pos_index] = _node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY();
 			++leg_pos_index;
@@ -254,7 +254,7 @@ float HexapodStateCalclator::calculateStaticMargin(const SNode& node) const
 	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (LegStateEdit::isGrounded(node.leg_state, i) == true)
+		if (dl_leg::isGrounded(node.leg_state, i) == true)
 		{
 			leg_pos.push_back(node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
 		}

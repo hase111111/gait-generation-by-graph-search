@@ -22,9 +22,9 @@ private:
 //! @file TimeFileIO.h
 //! @brief 計測にかかった時間をファイルに出力するクラスのヘッダファイル
 //! @date 2022/06/17
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class TimeFileIO
 //! @brief 計測にかかった時間をファイルに出力するクラス
 //! @date 2022/06/17
-//! @auther 長谷川
+//! @author 長谷川

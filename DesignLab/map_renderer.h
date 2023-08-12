@@ -6,7 +6,7 @@
 
 //! @class MapRenderer
 //! @date 2023/08/09
-//! @auther ’·’Jì
+//! @author ’·’Jì
 //! @brief Map‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
 class MapRenderer
 {

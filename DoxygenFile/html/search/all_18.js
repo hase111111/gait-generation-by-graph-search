@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_0',['z',['../structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212',1,'my_vec::SVector']]]
+  ['_7eigraphsearcher_0',['~IGraphSearcher',['../class_i_graph_searcher.html#aac742f9d3360a34b1a1f220244b166e0',1,'IGraphSearcher']]]
 ];

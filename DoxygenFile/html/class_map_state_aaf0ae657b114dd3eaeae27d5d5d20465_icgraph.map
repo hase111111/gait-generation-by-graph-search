@@ -1,7 +1,0 @@
-<map id="MapState::getDevideMapNumY" name="MapState::getDevideMapNumY">
-<area shape="rect" id="Node000001" title=" " alt="" coords="222,43,424,69"/>
-<area shape="rect" id="Node000002" href="$class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,44,174,40,175,35,207,39"/>
-<area shape="rect" id="Node000003" href="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="6,72,173,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,73,174,77,173,72,207,68"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="LegStateEdit::getLiftedLegNumWithVector" name="LegStateEdit::getLiftedLegNumWithVector">
-<area shape="rect" id="Node000001" title="遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="5,29,180,72"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="121,17,111,10,92,8,76,10,67,14,63,20,64,28,59,29,57,19,63,10,75,5,93,3,112,5,124,12"/>
-</map>

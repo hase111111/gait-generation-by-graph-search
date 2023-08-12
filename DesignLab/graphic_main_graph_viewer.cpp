@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "Dxlib3DFunction.h"
-#include "MapRenderer.h"
+#include "map_renderer.h"
 #include "GraphTreeCreatorHato.h"
 #include "Keyboard.h"
 

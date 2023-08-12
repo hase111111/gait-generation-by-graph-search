@@ -1,7 +1,7 @@
 #include "graphic_main_test.h"
 
 #include "Dxlib3DFunction.h"
-#include "MapRenderer.h"
+#include "map_renderer.h"
 #include "Keyboard.h"
 
 
@@ -31,12 +31,12 @@ bool GraphicMainTest::update()
 			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= speed; }
 			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_M) == 1)
 			{
-				HexapodStateCalclator _calclator;
+				HexapodStateCalclator calclator;
 
-				my_vec::SVector _global = _calclator.getGlobalLegBasePos(m_node, i, true);
+				my_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
 
-				int _map_x = m_map_state.getDevideMapNumX(_global.x);
-				int _map_y = m_map_state.getDevideMapNumY(_global.y);
+				int _map_x = m_map_state.getDevideMapNumX(global.x);
+				int _map_y = m_map_state.getDevideMapNumY(global.y);
 
 				if (Keyboard::getIns()->getPressingCount(KEY_INPUT_UP) > 0) { _map_x++; }
 				else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_DOWN) > 0) { _map_x--; }
@@ -46,7 +46,7 @@ bool GraphicMainTest::update()
 				my_vec::SVector _map_pos = m_map_state.getPosFromDevideMap(_map_x, _map_y, m_map_index % m_map_state.getPointNumFromDevideMap(_map_x, _map_y));
 				m_map_index++;
 
-				m_node.leg_pos[i] = _calclator.convertLocalLegPos(m_node, _map_pos, i, true);
+				m_node.leg_pos[i] = calclator.convertLocalLegPos(m_node, _map_pos, i, true);
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <map id="my_vec::SPolygon2::getVertexNum" name="my_vec::SPolygon2::getVertexNum">
 <area shape="rect" id="Node000001" title="多角形の頂点数を返す関数" alt="" coords="677,239,822,282"/>
-<area shape="rect" id="Node000002" href="$class_com_selecter_hato.html#ab1cbabfba81418e16751789157d759a9" title="重心を求める" alt="" coords="231,143,437,186"/>
+<area shape="rect" id="Node000002" href="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="231,143,437,186"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,225,727,178,705,123,673,70,652,48,628,30,591,12,559,9,526,15,486,30,444,53,406,83,375,116,353,144,348,141,371,112,403,80,441,48,484,25,524,10,559,3,593,7,631,25,656,44,677,67,710,121,732,176,744,224"/>
 <area shape="rect" id="Node000004" href="$structmy__vec_1_1_s_polygon2.html#ae63935b86d36a389db46eb754b649380" title="頂点の中で最大のx座標を返す関数" alt="" coords="485,39,629,82"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="729,228,687,162,659,127,628,96,611,85,614,80,631,92,663,124,692,159,733,225"/>

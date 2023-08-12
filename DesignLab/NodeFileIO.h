@@ -22,9 +22,9 @@ private:
 //! @file NodeFileIO.h
 //! @brief ノードの数をファイルに出力するクラスのヘッダファイル
 //! @date 2022/06/17
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class NodeFileIO
 //! @brief ノードの数をファイルに出力するクラス
 //! @date 2022/06/17
-//! @auther 長谷川
+//! @author 長谷川

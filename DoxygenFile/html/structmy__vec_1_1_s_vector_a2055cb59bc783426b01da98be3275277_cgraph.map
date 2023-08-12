@@ -1,5 +1,0 @@
-<map id="my_vec::SVector::isZero" name="my_vec::SVector::isZero">
-<area shape="rect" id="Node000001" title="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．" alt="" coords="5,5,169,32"/>
-<area shape="rect" id="Node000002" href="$namespacemy__math.html#a9213fc924eef19511f8dd65b7b488f8d" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="217,5,343,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,16,202,16,202,21,169,21"/>
-</map>

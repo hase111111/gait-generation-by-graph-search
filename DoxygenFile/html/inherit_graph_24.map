@@ -1,3 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_hexapod_renderer.html" title="ロボットの描画を行うクラス．" alt="" coords="5,5,130,32"/>
+<area shape="rect" id="Node000000" href="$class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="5,56,132,83"/>
+<area shape="rect" id="Node000001" href="$class_graph_tree_creator_hato.html" title="波東さんのグラフを作成するプログラムを移植したもの" alt="" coords="188,5,339,32"/>
+<area shape="poly" id="edge10_Node000000_Node000001" title=" " alt="" coords="136,49,208,30,210,35,138,54"/>
+<area shape="rect" id="Node000002" href="$class_graph_tree_creator_sample.html" title="グラフを作成するクラスのサンプルです．テキトーにグラフを作成します．" alt="" coords="180,56,347,83"/>
+<area shape="poly" id="edge11_Node000000_Node000002" title=" " alt="" coords="147,67,179,67,179,72,147,72"/>
+<area shape="rect" id="Node000003" href="$class_graph_tree_creator_thread.html" title=" " alt="" coords="182,107,345,133"/>
+<area shape="poly" id="edge12_Node000000_Node000003" title=" " alt="" coords="138,84,210,103,208,109,136,90"/>
 </map>

@@ -5,7 +5,7 @@
 //! @brief 波東さんのグラフを作成するプログラムを移植したもの
 //! @details もともとのプログラムで行われた処理の中でコメントアウトされていたものはすべて削除したので，知りたければ過去のプログラムを参照すること．
 //! @date 2023/7/29
-//! @auther 長谷川
+//! @author 長谷川
 class GraphTreeCreatorThread final : public IGraphTreeCreator
 {
 public:

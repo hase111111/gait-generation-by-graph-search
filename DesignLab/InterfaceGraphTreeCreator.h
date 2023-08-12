@@ -3,7 +3,7 @@
 #include "Node.h"
 #include <vector>
 #include "GraphSearchResult.h"
-#include "InterfaceNodeCreator.h"
+#include "interface_node_creator.h"
 #include "GraphSearchConst.h"
 
 class IGraphTreeCreator
@@ -42,4 +42,4 @@ protected:
 //! @details 継承をするクラスのデストラクタはvirtualにしておく．<br> 
 //! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 //! @date 2023/07/23
-//! @auther 長谷川
+//! @author 長谷川

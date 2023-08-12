@@ -11,7 +11,7 @@ namespace my_vec
 {
 	//! @struct my_vec::SVector2
 	//! @date 2023/08/06
-	//! @auther 長谷川
+	//! @author 長谷川
 	//! @brief 2次元のベクトルを表す構造体
 	//! @details 参考 : https://qiita.com/Reputeless/items/96226cfe1282a014b147
 	//! @n 本当はテンプレート構造体にするべきだけど，めんどいし...型たぶんfloatのままかえないし.... 
@@ -132,6 +132,6 @@ namespace my_vec
 
 //! @file my_vector2.h
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 2次元のベクトルを表す構造体
 //! @n 行数 : @lineinfo

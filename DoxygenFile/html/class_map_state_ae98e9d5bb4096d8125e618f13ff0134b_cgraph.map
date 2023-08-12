@@ -1,5 +1,0 @@
-<map id="MapState::init" name="MapState::init">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" id="Node000002" href="$class_map_creator.html#a8ada8a3b2bc1ae7befd62e94b8579fbc" title=" " alt="" coords="156,5,288,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,16,141,16,141,21,108,21"/>
-</map>

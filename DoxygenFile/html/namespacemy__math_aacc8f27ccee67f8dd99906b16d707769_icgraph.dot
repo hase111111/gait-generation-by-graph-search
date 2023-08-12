@@ -21,7 +21,7 @@ digraph "my_math::squared"
   Node5 -> Node8 [id="edge7_Node000005_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node8 [id="Node000008",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node4 -> Node9 [id="edge8_Node000004_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node9 [id="Node000009",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#ab1cbabfba81418e16751789157d759a9",tooltip="重心を求める"];
+  Node9 [id="Node000009",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243",tooltip="重心を求める"];
   Node9 -> Node10 [id="edge9_Node000009_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node10 [id="Node000010",label="ComMoveNodeCreatorHato\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6",tooltip="重心を平行移動したノードを生成する"];
   Node4 -> Node11 [id="edge10_Node000004_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];

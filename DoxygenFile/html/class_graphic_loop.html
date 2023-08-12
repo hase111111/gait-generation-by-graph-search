@@ -99,22 +99,25 @@ $(document).ready(function(){initNavTree('class_graphic_loop.html',''); initResi
 <p>GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理を実装している．いわゆるゲームループである．  
  <a href="class_graphic_loop.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_graphic_loop_8h_source.html">GraphicLoop.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="graphic__loop_8h_source.html">graphic_loop.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab2e4a4016ad7d62fdf6dbcd188b28cae"><td class="memItemLeft" align="right" valign="top"><a id="ab2e4a4016ad7d62fdf6dbcd188b28cae" name="ab2e4a4016ad7d62fdf6dbcd188b28cae"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicLoop</b> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;mp_graphic_main)</td></tr>
-<tr class="separator:ab2e4a4016ad7d62fdf6dbcd188b28cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c41e8e08b308e8b440f975d2079ca18"><td class="memItemLeft" align="right" valign="top"><a id="a3c41e8e08b308e8b440f975d2079ca18" name="a3c41e8e08b308e8b440f975d2079ca18"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicLoop</b> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_main)</td></tr>
+<tr class="separator:a3c41e8e08b308e8b440f975d2079ca18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc4bf428739328c7dd4484d88472b40c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c">loop</a> ()</td></tr>
+<tr class="memdesc:abc4bf428739328c7dd4484d88472b40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理  <br /></td></tr>
 <tr class="separator:abc4bf428739328c7dd4484d88472b40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理を実装している．いわゆるゲームループである． </p>
-<p>どんな描画処理を行うかをコンストラクタで受け取る．万が一受け取れなかった場合，処理がされない．<br  />
+<dl class="section date"><dt>日付</dt><dd>2023/08/08 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>どんな描画処理を行うかをコンストラクタで受け取る．万が一受け取れなかった場合，処理がされない． <br  />
  通常のコンストラクタは呼べないように削除されており，必ずstd::unique_ptr&lt;AbstractGraphicMain&gt;を引数にとる必要がある．<br  />
- <br  />
- unique_ptr(ユニークポインタ)については，参照→ <a href="https://qiita.com/seriru13/items/06d044cbe5bcc44cca10">https://qiita.com/seriru13/items/06d044cbe5bcc44cca10</a> </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<br  />
+ unique_ptr(ユニークポインタ)については，参照→ <a href="https://qiita.com/seriru13/items/06d044cbe5bcc44cca10">https://qiita.com/seriru13/items/06d044cbe5bcc44cca10</a> </p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="abc4bf428739328c7dd4484d88472b40c" name="abc4bf428739328c7dd4484d88472b40c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc4bf428739328c7dd4484d88472b40c">&#9670;&#160;</a></span>loop()</h2>
@@ -130,22 +133,17 @@ $(document).ready(function(){initNavTree('class_graphic_loop.html',''); initResi
         </tr>
       </table>
 </div><div class="memdoc">
-<p>GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理 <br  />
- <br  />
- [描画の処理について]<br  />
- ScreenFlip関数とClearDrawScreen関数の詳細：ウィンドウの画像表示はパラパラ漫画の様に画面を素早く切り替えることでアニメーションを再現している．<br  />
- しかし，単に画面を切り替えた場合，本物のパラパラ漫画の様にウィンドウにちらつきがでてしまう．<br  />
- そこでGraphicSystemクラスのdxlibInit関数の中で呼ばれている SetDrawScreen(DX_SCREEN_BACK) によっていったん裏画面に絵を描画してから， ScreenFlip関数でウィンドウに絵を戻すことで画面のちらつきをなくしている．<br  />
- ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，loop関数の様な書き方となる．<br  />
- </p><dl class="section return"><dt>戻り値</dt><dd>bool mp_GraphicMainのupdate関数がfalseを返した場合，或いはmp_GraphicMainクラスがnullの場合falseを返しループを抜ける. <br  />
+
+<p>GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理 </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool mp_graphic_mainのupdate関数がfalseを返した場合や，mp_graphic_mainがnullの場合など，描画処理を終了する場合にループを抜け，falseを返す. <br  />
  </dd></dl>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_loop_abc4bf428739328c7dd4484d88472b40c_cgraph.png" border="0" usemap="#aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_cgraph" alt=""/></div>
 <map name="aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_cgraph" id="aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,97,132,124"/>
-<area shape="rect" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する．" alt="" coords="180,5,322,48"/>
+<area shape="rect" title="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理" alt="" coords="5,97,132,124"/>
+<area shape="rect" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="180,5,322,48"/>
 <area shape="poly" title=" " alt="" coords="115,94,204,53,206,58,118,99"/>
 <area shape="poly" title=" " alt="" coords="86,95,169,52,172,57,88,99"/>
 <area shape="rect" href="class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="180,72,322,99"/>
@@ -163,7 +161,7 @@ $(document).ready(function(){initNavTree('class_graphic_loop.html',''); initResi
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_loop_abc4bf428739328c7dd4484d88472b40c_icgraph.png" border="0" usemap="#aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_icgraph" alt=""/></div>
 <map name="aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_icgraph" id="aclass_graphic_loop_abc4bf428739328c7dd4484d88472b40c_icgraph">
-<area shape="rect" title=" " alt="" coords="379,5,505,32"/>
+<area shape="rect" title="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理" alt="" coords="379,5,505,32"/>
 <area shape="rect" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976" title="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． &#160;またメンバ関数..." alt="" coords="184,5,331,32"/>
 <area shape="poly" title=" " alt="" coords="364,21,331,21,331,16,364,16"/>
 <area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,136,32"/>
@@ -174,8 +172,8 @@ $(document).ready(function(){initNavTree('class_graphic_loop.html',''); initResi
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_graphic_loop_8h_source.html">GraphicLoop.h</a></li>
-<li>DesignLab/GraphicLoop.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="graphic__loop_8h_source.html">graphic_loop.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graphic_loop.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

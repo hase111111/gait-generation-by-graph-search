@@ -1,0 +1,11 @@
+digraph "dl_leg::makeLegState"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="dl_leg::makeLegState",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ComType::convertComPattern\lToBit",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4",tooltip="重心パターンをbitに変換する関数"];
+}

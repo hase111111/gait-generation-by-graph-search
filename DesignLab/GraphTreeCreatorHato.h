@@ -20,10 +20,10 @@ private:
 //! @file GraphTreeCreatorHato.h 
 //! @brief 波東さんのグラフを作成するプログラムを移植したクラスの実装
 //! @date 2023/7/23
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class GraphTreeCreatorHato
 //! @brief 波東さんのグラフを作成するプログラムを移植したもの
 //! @details もともとのプログラムで行われた処理の中でコメントアウトされていたものはすべて削除したので，知りたければ過去のプログラムを参照すること．
 //! @date 2023/7/23
-//! @auther 長谷川
+//! @author 長谷川

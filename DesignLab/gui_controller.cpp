@@ -4,7 +4,7 @@
 
 #include "DxLib.h"
 
-#include "LegState.h"
+#include "leg_state.h"
 #include "Keyboard.h"
 
 
@@ -188,32 +188,32 @@ void GUIController::drawNodeByStr(const SNode node) const
 		std::string temp_str = "";
 		auto ground_or_lift = [](int _state, int _num) -> std::string
 		{
-			if (LegStateEdit::isGrounded(_state, _num) == true) { return "接地"; }
+			if (dl_leg::isGrounded(_state, _num) == true) { return "接地"; }
 			else { return "遊脚"; }
 		};
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, "脚５　　　　　　脚０");
 		temp_str = "　" + ground_or_lift(node.leg_state, 5) + "　　　　　　" + ground_or_lift(node.leg_state, 0);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 5)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 0));
+		temp_str = "　離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 5)) + " 離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 0));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, "脚４　　　　　　脚１");
 		temp_str = "　" + ground_or_lift(node.leg_state, 4) + "　　　　　　" + ground_or_lift(node.leg_state, 1);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 4)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 1));
+		temp_str = "　離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 4)) + " 離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 1));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
 
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, "脚３　　　　　　脚２");
 		temp_str = "　" + ground_or_lift(node.leg_state, 3) + "　　　　　　" + ground_or_lift(node.leg_state, 2);
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
-		temp_str = "　離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 3)) + " 離散化位置：" + std::to_string(LegStateEdit::getLegState(node.leg_state, 2));
+		temp_str = "　離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 3)) + " 離散化位置：" + std::to_string(dl_leg::getLegState(node.leg_state, 2));
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, temp_str.c_str());
 	}
 
 	//重心について
 	{
-		std::string str = "重心パターン" + std::to_string(LegStateEdit::getComPatternState(node.leg_state));
+		std::string str = "重心パターン" + std::to_string(dl_leg::getComPatternState(node.leg_state));
 
 		line();	//改行
 		DrawFormatString(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2 + line(), kStrColor, str.c_str());

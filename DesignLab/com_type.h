@@ -7,7 +7,7 @@
 
 //! @namespace ComType
 //! @date 2023/08/09
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 重心タイプに関する名前空間
 //! @details leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で
 //! @n BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理をまとめたくて作ったもの. 

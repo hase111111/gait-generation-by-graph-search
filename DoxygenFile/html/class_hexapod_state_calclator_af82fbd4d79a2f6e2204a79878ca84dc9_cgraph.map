@@ -1,13 +1,17 @@
 <map id="HexapodStateCalclator::isAllLegInRange" name="HexapodStateCalclator::isAllLegInRange">
-<area shape="rect" id="Node000001" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,64,160,107"/>
-<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="208,64,362,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,83,193,83,193,88,160,88"/>
-<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="424,5,594,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="362,63,410,50,411,55,363,68"/>
-<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="410,72,607,99"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="362,83,395,83,395,88,362,88"/>
-<area shape="rect" id="Node000006" href="$namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="444,123,573,149"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="363,100,433,116,432,121,362,105"/>
-<area shape="rect" id="Node000004" href="$structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="655,13,809,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="594,24,640,24,640,29,594,29"/>
+<area shape="rect" id="Node000001" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,56,160,99"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="220,20,350,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,58,205,48,206,53,160,63"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="208,85,362,128"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,86,194,91,193,96,160,91"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="435,5,582,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,26,420,22,420,27,350,32"/>
+<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="424,56,594,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="362,94,409,88,409,93,363,99"/>
+<area shape="rect" id="Node000007" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="410,123,607,149"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="363,114,396,119,395,124,362,119"/>
+<area shape="rect" id="Node000008" href="$namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="444,173,573,200"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="332,126,411,159,435,166,433,171,409,164,330,131"/>
+<area shape="rect" id="Node000006" href="$structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="655,64,809,91"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="594,75,640,75,640,80,594,80"/>
 </map>

@@ -208,6 +208,6 @@ namespace my_vec
 
 //! @file my_polygon.h
 //! @date 2023/08/06
-//! @auther ’·’Jì
+//! @author ’·’Jì
 //! @brief ‘½ŠpŒ`‚ğ•\‚·\‘¢‘Ì
 //! @n s” : @lineinfo

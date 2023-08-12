@@ -60,6 +60,6 @@ protected:
 //! @class IPassFinder
 //! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
 //! @date 2023/07/24
-//! @auther 長谷川
+//! @author 長谷川
 //! @details 継承をするクラスのデストラクタはvirtualにしておく．<br>
 //! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html

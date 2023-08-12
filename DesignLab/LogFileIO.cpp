@@ -1,5 +1,5 @@
 #include "LogFileIO.h"
-#include "LegState.h"
+#include "leg_state.h"
 #include <bitset>
 
 LogFileIO::LogFileIO()
@@ -44,14 +44,14 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 
 	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << LegStateEdit::isGrounded(node_log.leg_state, j) << ",";
+		m_all_log << dl_leg::isGrounded(node_log.leg_state, j) << ",";
 	}
 	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << LegStateEdit::getLegState(node_log.leg_state, j) << ",";
+		m_all_log << dl_leg::getLegState(node_log.leg_state, j) << ",";
 	}
 
-	m_all_log << LegStateEdit::getComPatternState(node_log.leg_state) << "," << node_log.rot.pitch << "," << node_log.rot.roll << "," << node_log.rot.yaw << ",";
+	m_all_log << dl_leg::getComPatternState(node_log.leg_state) << "," << node_log.rot.pitch << "," << node_log.rot.roll << "," << node_log.rot.yaw << ",";
 
 	for (int j = 0; j < 6; ++j)
 	{
@@ -67,7 +67,7 @@ void LogFileIO::addLogStringWithNode(const int num, const SNode& node_log)
 
 	for (int j = 0; j < 6; ++j)
 	{
-		m_all_log << std::bitset<4>(LegStateEdit::getLegState(node_log.leg_state, j)) << ",";
+		m_all_log << std::bitset<4>(dl_leg::getLegState(node_log.leg_state, j)) << ",";
 	}
 
 	m_all_log << /*node_log.last_node_num*/"0" << ",";

@@ -4,7 +4,7 @@
 
 //! @namespacse my_math 基本的な計算を行う関数をまとめた名前空間．
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
 namespace my_math
 {
@@ -109,6 +109,6 @@ namespace my_math
 
 //! @file my_math.h
 //! @date 2023/08/06
-//! @auther 長谷川
+//! @author 長谷川
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
 //! @n 行数 : @lineinfo

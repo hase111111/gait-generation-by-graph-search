@@ -1,0 +1,56 @@
+<map id="dl_leg::isAbleLegNum" name="dl_leg::isAbleLegNum">
+<area shape="rect" id="Node000001" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="939,381,1086,408"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="761,381,891,408"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="924,397,891,397,891,392,924,392"/>
+<area shape="rect" id="Node000003" href="$class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35" title="Logファイルにノードの情報を書き込む" alt="" coords="496,5,713,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="822,367,817,301,801,214,787,168,768,123,743,82,712,46,695,35,698,30,715,42,747,79,773,121,792,166,806,213,822,300,827,366"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a198fd1c8a9ec7f3f68816578eb34f62c" title="静的安定余裕を計算する．" alt="" coords="528,56,682,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="819,367,810,313,791,245,759,174,737,141,712,113,681,94,684,89,715,109,742,138,764,171,796,243,815,312,824,366"/>
+<area shape="rect" id="Node000005" href="$struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51" title="重心位置を変更する関数．" alt="" coords="512,123,697,165"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="816,368,803,327,782,276,751,224,733,200,712,179,695,168,698,164,715,175,737,197,756,221,786,273,808,325,821,367"/>
+<area shape="rect" id="Node000010" href="$class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d" title="重心を平行移動したノードを生成する" alt="" coords="254,315,416,357"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="772,379,713,364,635,353,556,345,417,339,417,334,556,340,635,347,714,359,773,374"/>
+<area shape="rect" id="Node000011" href="$class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9" title="重心を平行移動したノードを生成する" alt="" coords="521,557,689,600"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="814,423,775,485,748,519,715,548,691,561,688,556,712,543,744,515,771,482,809,420"/>
+<area shape="rect" id="Node000012" href="$class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="532,624,678,667"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="821,423,808,465,786,516,756,569,737,593,715,614,680,634,677,629,712,610,733,589,751,566,782,514,803,463,816,421"/>
+<area shape="rect" id="Node000013" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="255,381,415,408"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="775,416,714,431,653,438,605,440,496,431,440,422,389,411,390,406,441,417,496,425,605,434,652,433,713,425,774,411"/>
+<area shape="rect" id="Node000017" href="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243" title="重心を求める" alt="" coords="502,189,708,232"/>
+<area shape="poly" id="edge17_Node000002_Node000017" title=" " alt="" coords="809,369,771,307,744,274,712,246,692,235,695,230,715,242,748,271,775,304,814,366"/>
+<area shape="rect" id="Node000018" href="$namespacedl__leg.html#acb5f62b8e593cb33e1dff9dc3484db2e" title="接地している脚の本数を返す関数．" alt="" coords="512,691,697,717"/>
+<area shape="poly" id="edge19_Node000002_Node000018" title=" " alt="" coords="825,423,816,478,797,548,783,584,765,619,742,652,715,681,697,692,695,688,712,677,738,649,760,617,778,582,792,546,811,477,819,422"/>
+<area shape="rect" id="Node000021" href="$namespacedl__leg.html#af60b226ef6842795e19f7e2943f579d0" title="接地している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="512,741,697,784"/>
+<area shape="poly" id="edge21_Node000002_Node000021" title=" " alt="" coords="826,423,820,486,802,568,788,612,769,655,745,696,715,731,700,743,696,739,711,727,741,693,765,653,783,610,797,567,814,485,821,423"/>
+<area shape="rect" id="Node000022" href="$namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7" title="遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="511,491,698,533"/>
+<area shape="poly" id="edge22_Node000002_Node000022" title=" " alt="" coords="798,419,760,447,715,474,673,493,671,488,712,470,757,443,795,415"/>
+<area shape="rect" id="Node000024" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="528,373,682,416"/>
+<area shape="poly" id="edge24_Node000002_Node000024" title=" " alt="" coords="747,397,682,397,682,392,747,392"/>
+<area shape="rect" id="Node000025" href="$class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="528,256,682,299"/>
+<area shape="poly" id="edge29_Node000002_Node000025" title=" " alt="" coords="795,374,757,347,712,320,671,302,673,297,715,315,760,342,798,370"/>
+<area shape="rect" id="Node000006" href="$class_com_move_node_creator.html#a7087b7fce9f1a35256246e413eb67ca3" title="重心を平行移動したノードを生成する" alt="" coords="14,252,165,295"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="497,141,434,142,364,148,292,160,223,180,191,195,162,214,114,253,111,249,158,210,188,190,221,175,291,154,363,142,433,137,497,135"/>
+<area shape="rect" id="Node000007" href="$class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="246,189,424,232"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="502,172,425,191,423,186,501,167"/>
+<area shape="rect" id="Node000008" href="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2" title="重心を求める" alt="" coords="222,261,448,288"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="504,175,498,179,482,195,475,212,466,229,450,246,415,263,413,258,446,242,462,226,470,210,478,192,494,175,502,170"/>
+<area shape="rect" id="Node000009" href="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="252,88,418,115"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="497,130,418,117,419,112,497,124"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="207,277,165,276,165,271,207,271"/>
+<area shape="rect" id="Node000014" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,323,171,349"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="256,380,221,372,144,353,145,347,222,367,257,375"/>
+<area shape="rect" id="Node000015" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,373,174,416"/>
+<area shape="poly" id="edge15_Node000013_Node000015" title=" " alt="" coords="241,397,174,397,174,392,241,392"/>
+<area shape="rect" id="Node000016" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,440,167,467"/>
+<area shape="poly" id="edge16_Node000013_Node000016" title=" " alt="" coords="263,415,149,442,148,437,261,409"/>
+<area shape="poly" id="edge18_Node000017_Node000007" title=" " alt="" coords="487,213,424,213,424,208,487,208"/>
+<area shape="rect" id="Node000019" href="$namespacedl__leg.html#a02ff9ebb9cfd6a835343a39dc56cc000" title="遊脚している脚の本数を返す関数．" alt="" coords="255,691,415,717"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="497,707,415,707,415,701,497,701"/>
+<area shape="rect" id="Node000023" href="$class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="248,465,422,492"/>
+<area shape="poly" id="edge23_Node000022_Node000023" title=" " alt="" coords="496,501,422,492,423,487,497,496"/>
+<area shape="poly" id="edge28_Node000024_Node000008" title=" " alt="" coords="559,367,507,335,447,305,404,291,406,286,449,300,509,330,562,363"/>
+<area shape="poly" id="edge25_Node000024_Node000010" title=" " alt="" coords="512,377,416,356,417,351,514,372"/>
+<area shape="poly" id="edge27_Node000024_Node000013" title=" " alt="" coords="513,397,415,397,415,392,513,392"/>
+<area shape="poly" id="edge26_Node000024_Node000023" title=" " alt="" coords="520,424,381,467,380,462,519,418"/>
+<area shape="poly" id="edge30_Node000025_Node000008" title=" " alt="" coords="513,279,448,278,448,273,513,274"/>
+</map>

@@ -4,11 +4,11 @@
 
 #include "interface_graphic_main.h"
 #include "map_state.h"
-#include "Node.h"
+#include "node.h"
 #include "graphic_const.h"
 #include "CameraController.h"
-#include "GUIController.h"
-#include "HexapodRenderer.h"
+#include "gui_controller.h"
+#include "hexapod_renderer.h"
 
 
 //! @class GraphicMainBasic
@@ -50,7 +50,8 @@ private:
 };
 
 
-//! @file GraphicMainBasic.h
+//! @file graphic_main_basic.h
 //! @date 2023/08/09
 //! @author 長谷川
 //! @brief 基本的な描画クラス．
+//! @n 行数 : @lineinfo

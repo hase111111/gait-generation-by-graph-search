@@ -47,9 +47,9 @@ private:
 //! @file LogFileIO.h
 //! @brief ログファイルの入出力を行うクラス．
 //! @date 2023/06/17
-//! @auther 長谷川
+//! @author 長谷川
 
 //! @class LogFileIO
 //! @brief ログファイルの入出力を行うクラス．
 //! @date 2023/06/17
-//! @auther 長谷川
+//! @author 長谷川

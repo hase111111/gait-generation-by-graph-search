@@ -1,4 +1,0 @@
-<map id="LegStateEdit::getGroundedLegNumWithVector" name="LegStateEdit::getGroundedLegNumWithVector">
-<area shape="rect" id="Node000001" title="接地している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="5,29,184,72"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="124,17,113,10,94,8,78,10,68,14,64,21,65,28,60,29,59,19,64,10,77,5,95,3,115,5,126,12"/>
-</map>

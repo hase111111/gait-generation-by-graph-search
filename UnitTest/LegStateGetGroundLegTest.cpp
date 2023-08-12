@@ -1,6 +1,6 @@
 #pragma onne
 #include "pch.h"
-#include "../DesignLab/LegState.h"
+#include "../DesignLab/leg_state.h"
 #include "../DesignLab/LegState.cpp"
 
 namespace LegStateEditTest
@@ -12,20 +12,20 @@ namespace LegStateEditTest
 		bool _leg_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 
-		int leg_state = LegStateEdit::makeLegState(_com, _leg_ground, _leg_pos);
+		int leg_state = dl_leg::makeLegState(_com, _leg_ground, _leg_pos);
 
 		std::vector<int> _res;
-		LegStateEdit::getGroundedLegNumWithVector(leg_state, _res);
+		dl_leg::getGroundedLegNumWithVector(leg_state, _res);
 
 		EXPECT_EQ(_res.size(), 6);
 
 		// テストケース2 一部脚接地 ( 3脚 )
 		bool _leg_ground2[HexapodConst::LEG_NUM] = { true, false, true, false, true, false };
 
-		int leg_state2 = LegStateEdit::makeLegState(_com, _leg_ground2, _leg_pos);
+		int leg_state2 = dl_leg::makeLegState(_com, _leg_ground2, _leg_pos);
 
 		std::vector<int> _res2;
-		LegStateEdit::getGroundedLegNumWithVector(leg_state2, _res2);
+		dl_leg::getGroundedLegNumWithVector(leg_state2, _res2);
 
 		EXPECT_EQ(_res2.size(), 3);
 
@@ -39,20 +39,20 @@ namespace LegStateEditTest
 		bool _leg_ground3[HexapodConst::LEG_NUM] = { false, false, false, false, false, false };
 		int _leg_pos3[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 
-		int leg_state3 = LegStateEdit::makeLegState(_com, _leg_ground3, _leg_pos);
+		int leg_state3 = dl_leg::makeLegState(_com, _leg_ground3, _leg_pos);
 
 		std::vector<int> _res3;
-		LegStateEdit::getGroundedLegNumWithVector(leg_state3, _res3);
+		dl_leg::getGroundedLegNumWithVector(leg_state3, _res3);
 
 		EXPECT_EQ(_res3.size(), 0);
 
 		// テストケース4 一部脚接地 ( 4脚 )
 		bool _leg_ground4[HexapodConst::LEG_NUM] = { false, true, true, true, false, true };
 
-		int leg_state4 = LegStateEdit::makeLegState(_com, _leg_ground4, _leg_pos);
+		int leg_state4 = dl_leg::makeLegState(_com, _leg_ground4, _leg_pos);
 
 		std::vector<int> _res4;
-		LegStateEdit::getGroundedLegNumWithVector(leg_state4, _res4);
+		dl_leg::getGroundedLegNumWithVector(leg_state4, _res4);
 
 		EXPECT_EQ(_res4.size(), 4);
 
@@ -67,10 +67,10 @@ namespace LegStateEditTest
 		// テストケース5 一部脚接地 ( 5脚 )
 		bool _leg_ground5[HexapodConst::LEG_NUM] = { false, true, true, true, true, true };
 
-		int leg_state5 = LegStateEdit::makeLegState(_com, _leg_ground5, _leg_pos);
+		int leg_state5 = dl_leg::makeLegState(_com, _leg_ground5, _leg_pos);
 
 		std::vector<int> _res5;
-		LegStateEdit::getGroundedLegNumWithVector(leg_state5, _res5);
+		dl_leg::getGroundedLegNumWithVector(leg_state5, _res5);
 
 		EXPECT_EQ(_res5.size(), 5);
 
@@ -90,20 +90,20 @@ namespace LegStateEditTest
 		bool _leg_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 
-		int leg_state = LegStateEdit::makeLegState(_com, _leg_ground, _leg_pos);
+		int leg_state = dl_leg::makeLegState(_com, _leg_ground, _leg_pos);
 
 		std::vector<int> _res;
-		LegStateEdit::getLiftedLegNumWithVector(leg_state, _res);
+		dl_leg::getLiftedLegNumWithVector(leg_state, _res);
 
 		EXPECT_EQ(_res.size(), 0);
 
 		// テストケース2 一部脚接地 ( 3脚 )
 		bool _leg_ground2[HexapodConst::LEG_NUM] = { true, false, true, false, true, false };
 
-		int leg_state2 = LegStateEdit::makeLegState(_com, _leg_ground2, _leg_pos);
+		int leg_state2 = dl_leg::makeLegState(_com, _leg_ground2, _leg_pos);
 
 		std::vector<int> _res2;
-		LegStateEdit::getLiftedLegNumWithVector(leg_state2, _res2);
+		dl_leg::getLiftedLegNumWithVector(leg_state2, _res2);
 
 		EXPECT_EQ(_res2.size(), 3);
 
@@ -118,10 +118,10 @@ namespace LegStateEditTest
 		bool _leg_ground3[HexapodConst::LEG_NUM] = { false, false, false, false, false, false };
 		int _leg_pos3[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 
-		int leg_state3 = LegStateEdit::makeLegState(_com, _leg_ground3, _leg_pos);
+		int leg_state3 = dl_leg::makeLegState(_com, _leg_ground3, _leg_pos);
 
 		std::vector<int> _res3;
-		LegStateEdit::getLiftedLegNumWithVector(leg_state3, _res3);
+		dl_leg::getLiftedLegNumWithVector(leg_state3, _res3);
 
 		EXPECT_EQ(_res3.size(), 6);
 
@@ -129,10 +129,10 @@ namespace LegStateEditTest
 		// テストケース4 一部脚接地 ( 4脚 )
 		bool _leg_ground4[HexapodConst::LEG_NUM] = { false, true, true, true, false, true };
 
-		int leg_state4 = LegStateEdit::makeLegState(_com, _leg_ground4, _leg_pos);
+		int leg_state4 = dl_leg::makeLegState(_com, _leg_ground4, _leg_pos);
 
 		std::vector<int> _res4;
-		LegStateEdit::getLiftedLegNumWithVector(leg_state4, _res4);
+		dl_leg::getLiftedLegNumWithVector(leg_state4, _res4);
 
 		EXPECT_EQ(_res4.size(), 2);
 
@@ -144,10 +144,10 @@ namespace LegStateEditTest
 		// テストケース5 一部脚接地 ( 5脚 )
 		bool _leg_ground5[HexapodConst::LEG_NUM] = { false, true, true, true, true, true };
 
-		int leg_state5 = LegStateEdit::makeLegState(_com, _leg_ground5, _leg_pos);
+		int leg_state5 = dl_leg::makeLegState(_com, _leg_ground5, _leg_pos);
 
 		std::vector<int> _res5;
-		LegStateEdit::getLiftedLegNumWithVector(leg_state5, _res5);
+		dl_leg::getLiftedLegNumWithVector(leg_state5, _res5);
 
 		EXPECT_EQ(_res5.size(), 1);
 

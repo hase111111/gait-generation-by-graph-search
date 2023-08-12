@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_keyboard.html',''); initResizabl
 <p>Dxlibのキー入力を取得するクラス．  
  <a href="class_keyboard.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_keyboard_8h_source.html">Keyboard.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="keyboard_8h_source.html">keyboard.h</a>&gt;</code></p>
 <div class="dynheader">
 Keyboard の継承関係図</div>
 <div class="dyncontent">
@@ -127,18 +127,19 @@ Keyboard 連携図</div>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="memdesc:a6410f07ddc53561a82d5328d8b330aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない． <br /></td></tr>
 <tr class="separator:a6410f07ddc53561a82d5328d8b330aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac10c13870ba471f267d5ced0f233a398"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#ac10c13870ba471f267d5ced0f233a398">getPressingCount</a> (int keyCode)</td></tr>
-<tr class="memdesc:ac10c13870ba471f267d5ced0f233a398"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を取得する．  <br /></td></tr>
-<tr class="separator:ac10c13870ba471f267d5ced0f233a398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e">getReleasingCount</a> (int keyCode)</td></tr>
-<tr class="memdesc:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を取得する．  <br /></td></tr>
-<tr class="separator:a0c6cbe2c73c4aa8be1e15c5dd1874e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f42bddd75326532e78c661770f5e6a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#a4f42bddd75326532e78c661770f5e6a8">getPressingCount</a> (const int key_code) const</td></tr>
+<tr class="memdesc:a4f42bddd75326532e78c661770f5e6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を取得する．  <br /></td></tr>
+<tr class="separator:a4f42bddd75326532e78c661770f5e6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf81c28d6817e0634c0259ced52cc3a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard.html#abf81c28d6817e0634c0259ced52cc3a1">getReleasingCount</a> (const int key_code) const</td></tr>
+<tr class="memdesc:abf81c28d6817e0634c0259ced52cc3a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を取得する．  <br /></td></tr>
+<tr class="separator:abf81c28d6817e0634c0259ced52cc3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_singleton')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_singleton.html">Singleton&lt; Keyboard &gt;</a> に属する継承静的公開メンバ関数</td></tr>
 <tr class="memitem:a770513deea79541075e950e16d84c69a inherit pub_static_methods_class_singleton"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_keyboard.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a">getIns</a> ()</td></tr>
-<tr class="memdesc:a770513deea79541075e950e16d84c69a inherit pub_static_methods_class_singleton"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する．  <br /></td></tr>
+<tr class="memdesc:a770513deea79541075e950e16d84c69a inherit pub_static_methods_class_singleton"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する．<br  />
+このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．  <br /></td></tr>
 <tr class="separator:a770513deea79541075e950e16d84c69a inherit pub_static_methods_class_singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_singleton"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_singleton')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_singleton.html">Singleton&lt; Keyboard &gt;</a> に属する継承限定公開メンバ関数</td></tr>
 <tr class="memitem:a8b08da1165f1ff2dfa8f0b421809e1c9 inherit pro_methods_class_singleton"><td class="memItemLeft" align="right" valign="top">
@@ -150,17 +151,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>Dxlibのキー入力を取得するクラス． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/07 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>詳しい処理の内容はこちら <a href="https://dixq.net/rp2/08.html">https://dixq.net/rp2/08.html</a> <br  />
- <br  />
- Keyboardはシングルトンクラスなので実体を生成することができない．<br  />
- <a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する．">getIns()</a>を用いて関数を呼び出す必要がある．<br  />
- <br  />
- 注意点としては，あくまでDxlibの処理を行うため，コマンドラインでは呼び出せない．<br  />
- というか呼び出せるけれどうまく動作するかは保証されない．致命的なバグやエラーを誘発する可能性があるので呼ぶべきでない．<br  />
- std::cinとかを使うべき． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<br  />
+ Keyboardはシングルトンクラスなので実体を生成することができない． <br  />
+ <a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．">getIns()</a>を用いて関数を呼び出す必要がある．<br  />
+<br  />
+ 例) <br  />
+ @t <a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．">Keyboard::getIns()</a>-&gt;<a class="el" href="class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．">update()</a> <br  />
+<br  />
+ また注意点としては，あくまでDxlibの処理を行うため，コマンドラインでは呼び出せない． <br  />
+ というか呼び出せるけれどうまく動作するかは保証されない．致命的なバグやエラーを誘発する可能性があるので呼ぶべきでない． <br  />
+ 素直に std::cin を使うべき．( C言語の関数の scanf は使用すべきでない) </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ac10c13870ba471f267d5ced0f233a398" name="ac10c13870ba471f267d5ced0f233a398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac10c13870ba471f267d5ced0f233a398">&#9670;&#160;</a></span>getPressingCount()</h2>
+<a id="a4f42bddd75326532e78c661770f5e6a8" name="a4f42bddd75326532e78c661770f5e6a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f42bddd75326532e78c661770f5e6a8">&#9670;&#160;</a></span>getPressingCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,9 +174,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
         <tr>
           <td class="memname">int Keyboard::getPressingCount </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>keyCode</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>key_code</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -186,8 +192,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 
 </div>
 </div>
-<a id="a0c6cbe2c73c4aa8be1e15c5dd1874e0e" name="a0c6cbe2c73c4aa8be1e15c5dd1874e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c6cbe2c73c4aa8be1e15c5dd1874e0e">&#9670;&#160;</a></span>getReleasingCount()</h2>
+<a id="abf81c28d6817e0634c0259ced52cc3a1" name="abf81c28d6817e0634c0259ced52cc3a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf81c28d6817e0634c0259ced52cc3a1">&#9670;&#160;</a></span>getReleasingCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,9 +201,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
         <tr>
           <td class="memname">int Keyboard::getReleasingCount </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>keyCode</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>key_code</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,8 +220,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="_keyboard_8h_source.html">Keyboard.h</a></li>
-<li>DesignLab/Keyboard.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="keyboard_8h_source.html">keyboard.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/keyboard.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

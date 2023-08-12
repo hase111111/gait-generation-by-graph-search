@@ -37,5 +37,5 @@ EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& curren
 		}
 	}
 
-
+	return EGraphSearchResult::Success;
 }
