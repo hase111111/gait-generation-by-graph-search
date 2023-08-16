@@ -1,7 +1,11 @@
 #pragma once
+
 #include <string>
 
+
 //! @enum EGraphSearchReslut
+//! @date 2023/08/14
+//! @author ’·’Jì
 //! @brief ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğ•\‚·—ñ‹“Œ^
 enum class EGraphSearchResult : int
 {
@@ -21,18 +25,20 @@ enum class EGraphSearchResult : int
 	FailureByReevaluationAndLegPathGenerationError,	//!< Ä•]‰¿‚ğs‚Á‚½‚ªC‹r‚Ì‹O“¹¶¬‚É¸”s‚µ‚½
 };
 
+
 namespace std
 {
 	//! @brief EGraphSearchResultŒ^‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”
-	//! @param [in] _result EGraphSearchResultŒ^‚Ì•Ï”
+	//! @param [in] result EGraphSearchResultŒ^‚Ì•Ï”
 	//! @return std::string EGraphSearchResultŒ^‚Ì•Ï”‚ğ•¶š—ñ‚É‚µ‚½‚à‚Ì
-	std::string to_string(EGraphSearchResult _result);
+	std::string to_string(EGraphSearchResult result);
 }
 
+
 //! @brief ƒOƒ‰ƒt’Tõ‚ª¬Œ÷‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·ŠÖ”
-//! @param [in] _result ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê
+//! @param [in] result ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê
 //! @return bool ¬Œ÷‚ÅtrueC¸”s‚Åfalse
-inline bool graphSeachResultIsSuccessful(EGraphSearchResult _result)
+inline bool graphSeachResultIsSuccessful(EGraphSearchResult result)
 {
-	return _result == EGraphSearchResult::Success || _result == EGraphSearchResult::SuccessByReevaluation;
+	return result == EGraphSearchResult::Success || result == EGraphSearchResult::SuccessByReevaluation;
 }

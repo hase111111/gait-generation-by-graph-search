@@ -1,6 +1,6 @@
 #include "graphic_main_test.h"
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "map_renderer.h"
 #include "Keyboard.h"
 
@@ -9,7 +9,7 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* broker) : IGraphicMain
 {
 	m_node.init(false);
 
-	m_camera_controller.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.global_center_of_mass));
+	m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_node.global_center_of_mass));
 
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
 }

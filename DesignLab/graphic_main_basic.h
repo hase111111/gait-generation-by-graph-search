@@ -6,7 +6,7 @@
 #include "map_state.h"
 #include "node.h"
 #include "graphic_const.h"
-#include "CameraController.h"
+#include "camera_controller.h"
 #include "gui_controller.h"
 #include "hexapod_renderer.h"
 

@@ -1,9 +1,10 @@
 #pragma once
+
 #include "interface_graphic_main.h"
-#include "CameraController.h"
+#include "camera_controller.h"
 #include "hexapod_renderer.h"
 #include "gui_controller.h"
-#include "Node.h"
+#include "node.h"
 #include "map_state.h"
 
 
@@ -40,4 +41,3 @@ private:
 //! @author ’·’Jì
 //! @brief GraphicMainTestƒNƒ‰ƒX
 //! @n s” : @lineinfo
-//! 

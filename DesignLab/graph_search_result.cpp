@@ -1,8 +1,9 @@
-#include "GraphSearchResult.h"
+#include "graph_search_result.h"
 
-std::string std::to_string(EGraphSearchResult _result)
+
+std::string std::to_string(EGraphSearchResult result)
 {
-	switch (_result)
+	switch (result)
 	{
 	case EGraphSearchResult::Success:
 		return "Success";

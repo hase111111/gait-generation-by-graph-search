@@ -1,9 +1,9 @@
-#include "GraphSearcherHato.h"
+#include "graph_searcher_hato.h"
 
 #include <iostream>
 #include <cmath>
 
-#include "GraphSearchConst.h"
+#include "graph_search_const.h"
 #include "leg_state.h"
 
 

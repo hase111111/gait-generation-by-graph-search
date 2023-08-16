@@ -1,4 +1,5 @@
 #pragma once
+
 #include "InterfaceGraphSearcher.h"
 
 // IGraphSearcher ‚ğŒp³‚µ‚½‚¢ê‡DˆÈ‰º‚Ì‚æ‚¤‚É

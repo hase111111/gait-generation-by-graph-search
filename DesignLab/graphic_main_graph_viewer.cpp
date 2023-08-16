@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "map_renderer.h"
 #include "GraphTreeCreatorHato.h"
 #include "Keyboard.h"
@@ -15,7 +15,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) 
 	init_node.init(false);
 
 	m_hexapod_renderer.update(init_node);
-	m_camera_controller.setTargetPos(myDxlib3DFunc::convertToDxVec(init_node.global_center_of_mass));
+	m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(init_node.global_center_of_mass));
 
 	// GUI にグラフのポインタを渡す.
 	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index);
@@ -78,6 +78,6 @@ void GraphicMainGraphViewer::updateCameraState()
 
 	if (m_display_node_index < m_graph.size())
 	{
-		m_camera_controller.setTargetPos(myDxlib3DFunc::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
+		m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
 	}
 }

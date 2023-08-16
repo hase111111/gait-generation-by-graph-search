@@ -1,5 +1,10 @@
 #pragma once
 
+
+//! @clas GraphSearchConst
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフ探索の定数をまとめたクラス
 class GraphSearchConst final
 {
 public:
@@ -16,3 +21,9 @@ private:
 	GraphSearchConst() = default;
 	GraphSearchConst(const GraphSearchConst&) = default;
 };
+
+
+//! @file graph_search_const.h
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフ探索の定数をまとめたクラス

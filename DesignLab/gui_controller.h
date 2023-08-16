@@ -5,8 +5,8 @@
 
 #include "button_controller.h"
 #include "graphic_const.h"
-#include "Node.h"
-#include "CameraController.h"
+#include "node.h"
+#include "camera_controller.h"
 
 
 //! @enum ENodeDisplayNode

@@ -8,7 +8,7 @@
 #include "graphic_main_basic.h"
 #include "graphic_main_test.h"
 #include "graphic_main_graph_viewer.h"
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "Define.h"
 
 
@@ -64,7 +64,7 @@ bool GraphicSystem::dxlibInit()
 {
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．
 
-	myDxlib3DFunc::initDxlib3D();						//3D関連の初期化を行う．		
+	dl_dxlib::initDxlib3D();						//3D関連の初期化を行う．		
 
 	SetOutApplicationLogValidFlag(FALSE);				//ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力されます．
 	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	//タイトルを変更．ウィンドウの左上に表示されるものです．

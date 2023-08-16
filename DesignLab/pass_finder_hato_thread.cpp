@@ -1,13 +1,17 @@
-#include "PassFinderHatoThread.h"
+#include "pass_finder_hato_thread.h"
+
 #include <iostream>
+
 #include <boost/thread.hpp>
-#include "GraphSearchConst.h"
+
+#include "graph_search_const.h"
 
 
-PassFinderHatoThread::PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : IPassFinder(std::move(_factory))
+PassFinderHatoThread::PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& factory) : IPassFinder(std::move(factory))
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHatoThread : コンストラクタが呼ばれた\n"; }
 };
+
 
 EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
 {
@@ -40,7 +44,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 		std::vector<SNode> depth1_node;
 
 		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &depth1_node, &m_made_node_num);
-		if (graphSeachResultIsSuccessful(result) == false) { return result; }
+		if (!graphSeachResultIsSuccessful(result)) { return result; }
 
 		depth1_node.erase(depth1_node.begin());	//深さ0のノードは親ノードと同じなので，削除する．
 
@@ -99,7 +103,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	//次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
 	{
 		EGraphSearchResult result = mp_searcher->searchGraphTree(m_graph_tree, target, &output_node);
-		if (graphSeachResultIsSuccessful(result) == false) { return result; }
+		if (!graphSeachResultIsSuccessful(result)) { return result; }
 	}
 
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }

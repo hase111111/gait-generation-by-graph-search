@@ -2,7 +2,7 @@
 
 #include "DxLib.h"
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "leg_state.h"
 #include "my_math.h"
 
@@ -28,19 +28,19 @@ void HexapodRenderer::draw(const SNode& node) const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		vertex[i] = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
+		vertex[i] = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
 	}
 
-	myDxlib3DFunc::drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
+	dl_dxlib::drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
 
 	//‹r‚ð•`‰æ‚·‚éD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR kLegEndPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalLegPos(node, i, true));
-		const VECTOR kLegBasePos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(node, i, true));
-		const VECTOR kCoxaJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
-		const VECTOR kFemurJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(node, i));
-		const VECTOR kTibiaJointPos = myDxlib3DFunc::convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(node, i));
+		const VECTOR kLegEndPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegPos(node, i, true));
+		const VECTOR kLegBasePos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(node, i, true));
+		const VECTOR kCoxaJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
+		const VECTOR kFemurJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(node, i));
+		const VECTOR kTibiaJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(node, i));
 
 		//‹r‚ÌF‚ð—V‹rEÚ’n‚Å•ÏX‚·‚éD
 		const unsigned int kLegBaseColor = dl_leg::isGrounded(node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;

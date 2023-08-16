@@ -1,9 +1,16 @@
 #pragma once
-#include "map_state.h"
-#include "Node.h"
-#include "InterfacePassFinder.h"
+
 #include <memory>
 
+#include "map_state.h"
+#include "node.h"
+#include "interface_pass_finder.h"
+
+
+//! @class PassFinderNone
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．
 class PassFinderNone final :public IPassFinder
 {
 public:
@@ -15,11 +22,6 @@ public:
 
 
 //! @file PassFinderNone.h 
-//! @brief グラフ探索を行わないクラスの実装．
+//! @date 2023/08/14
 //! @author 長谷川
-//! @date 2023/07/24
-
-//! @class PassFinderNone
-//! @brief グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．
-//! @author 長谷川
-//! @date 2023/07/24
+//! @brief グラフ探索を行わないクラス．

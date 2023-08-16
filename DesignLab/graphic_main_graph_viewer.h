@@ -5,8 +5,8 @@
 #include "interface_graphic_main.h"
 #include "hexapod_renderer.h"
 #include "map_state.h"
-#include "CameraController.h"
-#include "GraphViewerGUIController.h"
+#include "camera_controller.h"
+#include "graph_viewer_gui_controller.h"
 
 
 //! @class GraphicMainGraphViewer
@@ -24,15 +24,23 @@ public:
 	void draw() const override;
 
 private:
-	HexapodRenderer m_hexapod_renderer;
-	MapState m_map_state;
-	CameraController m_camera_controller;
-	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
-
-	std::vector<SNode> m_graph;
-	size_t m_display_node_index = 0;
 
 	void updateCameraState();
+
+
+	HexapodRenderer m_hexapod_renderer;
+
+	MapState m_map_state;
+
+	CameraController m_camera_controller;
+
+	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
+
+
+	std::vector<SNode> m_graph;
+
+	size_t m_display_node_index = 0;
+
 	int m_camera_mode = 0;
 };
 

@@ -5,7 +5,7 @@
 #include "DxLib.h"
 
 #include "leg_state.h"
-#include "Keyboard.h"
+#include "keyboard.h"
 
 
 GUIController::GUIController()
@@ -16,6 +16,7 @@ GUIController::GUIController()
 	const int kCameraButtomX = 100;
 	const int kCameraButtomY = 50;
 	const int kCameraY = RIGHTY + 150;
+
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + kCameraButtomX * 6 / 4, kCameraY, kCameraButtomX, kCameraButtomY, "真上カメラ"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + kCameraButtomX * 9 / 4, kCameraY + kCameraButtomY * 5 / 4, kCameraButtomX, kCameraButtomY, "俯瞰カメラ"));
 	m_buttom.push_back(std::make_unique<ButtomController>(RIGHTX + kCameraButtomX * 9 / 4, kCameraY + kCameraButtomY * 10 / 4, kCameraButtomX, kCameraButtomY, "真横カメラ"));
@@ -59,23 +60,23 @@ void GUIController::update(CameraController& camera_controller, const int max_no
 			switch (i)
 			{
 			case 0:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::TopView); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::TOP_VIEW); }
 				break;
 
 			case 1:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OverheadView); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OVERHEAD_VIEW); }
 				break;
 
 			case 2:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SideView); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SIDE_VIEW); }
 				break;
 
 			case 3:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OverheadViewFlip); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OVERHEAD_VIEW_FLIP); }
 				break;
 
 			case 4:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SideViewFlip); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SIDE_VIEW_FLIP); }
 				break;
 
 			case 5:

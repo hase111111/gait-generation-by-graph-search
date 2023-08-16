@@ -2,7 +2,7 @@
 
 #include "DxLib.h"
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "map_const.h"
 #include "hexapod_state_calculator.h"
 
@@ -20,8 +20,8 @@ void MapRenderer::setNode(const SNode& node)
 
 void MapRenderer::draw(const MapState& map) const
 {
-	using myDxlib3DFunc::convertToDxVec;
-	using myDxlib3DFunc::drawCube3DWithTopPos;
+	using dl_dxlib::convertToDxVec;
+	using dl_dxlib::drawCube3DWithTopPos;
 
 	HexapodStateCalclator _calc;
 	int _x = map.getDevideMapNumX(_calc.getGlobalLegPos(m_node, 0, true).x);

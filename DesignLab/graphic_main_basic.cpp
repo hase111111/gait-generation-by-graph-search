@@ -2,7 +2,7 @@
 
 #include "DxLib.h"
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "map_renderer.h"
 
 
@@ -24,7 +24,7 @@ bool GraphicMainBasic::update()
 
 	if (!m_node.empty())
 	{
-		m_camera_controller.setTargetPos(myDxlib3DFunc::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));      //ノードが存在しているならば，カメラの処理を行う．
+		m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));      //ノードが存在しているならば，カメラの処理を行う．
 
 		m_hexapod_renderer.update(m_node.at(m_display_node));      //ロボットの状態を更新する．
 	}

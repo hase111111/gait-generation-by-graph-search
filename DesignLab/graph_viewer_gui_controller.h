@@ -2,9 +2,13 @@
 
 #include <vector>
 
-#include "Node.h"
+#include "node.h"
 
 
+//! @class GraphViewerGUIController
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフのノードのデータを表示するGUIのコントローラークラス
 class GraphViewerGUIController final
 {
 public:
@@ -21,7 +25,7 @@ private:
 
 	void drawGraphData() const;
 	void drawNodeControllPanel() const;
-	void drawNodeData(const SNode node) const;
+	void drawNodeData(const SNode& node) const;
 
 	void inputNumber();
 	void changeDisplayNodeIndex();
@@ -37,3 +41,9 @@ private:
 	int m_input_number = -1;	//入力された数値
 };
 
+
+//! @file graph_viewer_gui_controller.h
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフのノードのデータを表示するGUIのコントローラークラス
+//! @n 行数 ; @lineinfo

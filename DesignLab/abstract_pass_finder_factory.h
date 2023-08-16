@@ -1,9 +1,16 @@
 #pragma once
+
+#include <memory>
+
 #include "InterfaceGraphTreeCreator.h"
 #include "InterfaceGraphSearcher.h"
-#include <memory>
 #include "map_state.h"
 
+
+//! @class AbstractPassFinderFactory
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief パス探索に必要なクラスを生成するアブストラクトファクトリー．
 class AbstractPassFinderFactory
 {
 public:
@@ -18,3 +25,10 @@ public:
 	//! @param [out] searcher 歩容パターン生成の探索を行うクラス．
 	virtual void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) = 0;
 };
+
+
+//! @file abstract_pass_finder_factory.h
+//! @date 2023/08/14
+//! @auth 長谷川
+//! @brief パス探索に必要なクラスを生成するアブストラクトファクトリー．
+//! @n 行数 : @lineinfo

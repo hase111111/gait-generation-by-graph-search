@@ -1,10 +1,10 @@
-#include "GraphViewerGUIController.h"
+#include "graph_viewer_gui_controller.h"
 
 #include <string>
 
 #include "DxLib.h"
 
-#include "Dxlib3DFunction.h"
+#include "designlab_dxlib.h"
 #include "graphic_const.h"
 #include "Define.h"
 #include "keyboard.h"
@@ -40,34 +40,34 @@ void GraphViewerGUIController::draw() const
 
 void GraphViewerGUIController::drawGraphData() const
 {
-	const int _box_size_x = 250;
-	const int _box_size_y = 200;
-	const int _box_min_x = GraphicConst::WIN_X - _box_size_x - 50;
-	const int _box_min_y = GraphicConst::WIN_Y - _box_size_y - 50;
-	const unsigned int _color = GetColor(255, 255, 255);
+	const int kBoxSizeX = 250;
+	const int kBoxSizeY = 200;
+	const int kBoxMinX = GraphicConst::WIN_X - kBoxSizeX - 50;
+	const int kBoxMinY = GraphicConst::WIN_Y - kBoxSizeY - 50;
+	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
 	// 枠
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-	DrawBox(_box_min_x, _box_min_y, _box_min_x + _box_size_x, _box_min_y + _box_size_y, _color, TRUE);
+	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-	const unsigned int _text_color = GetColor(10, 10, 10);
+	const unsigned int kTextColor = GetColor(10, 10, 10);
 
 	// テキスト
 	if (mp_graph->size() == 0)
 	{
-		DrawString(_box_min_x + 10, _box_min_y + 10, "ノード数 : 0", _text_color);
-		DrawString(_box_min_x + 10, _box_min_y + 30, "グラフを生成してください", _text_color);
+		DrawString(kBoxMinX + 10, kBoxMinY + 10, "ノード数 : 0", kTextColor);
+		DrawString(kBoxMinX + 10, kBoxMinY + 30, "グラフを生成してください", kTextColor);
 	}
 	else
 	{
-		DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "総ノード数:%d", mp_graph->size());
-		DrawFormatString(_box_min_x + 10, _box_min_y + 30, _text_color, "表示ノード:%d番", *mp_display_node_index);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "総ノード数:%d", mp_graph->size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "表示ノード:%d番", *mp_display_node_index);
 
 		//深さごとのノードの数
 		for (size_t i = 0; i < m_graph_node_depth_data.size(); i++)
 		{
-			DrawFormatString(_box_min_x + 10, _box_min_y + 50 + 20 * (int)i, _text_color, "　(深さ%dのノード:%d)", (int)i, (int)m_graph_node_depth_data.at(i));
+			DrawFormatString(kBoxMinX + 10, kBoxMinY + 50 + 20 * (int)i, kTextColor, "　(深さ%dのノード:%d)", (int)i, (int)m_graph_node_depth_data.at(i));
 		}
 	}
 }
@@ -75,48 +75,51 @@ void GraphViewerGUIController::drawGraphData() const
 
 void GraphViewerGUIController::drawNodeControllPanel() const
 {
-	const int _box_size_x = 350;
-	const int _box_size_y = 340;
-	const int _box_min_x = 50;
-	const int _box_min_y = 50;
-	const unsigned int _color = GetColor(255, 255, 255);
+	const int kBoxSizeX = 350;
+	const int kBoxSizeY = 340;
+	const int kBoxMinX = 50;
+	const int kBoxMinY = 50;
+	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
 	// 枠
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-	DrawBox(_box_min_x, _box_min_y, _box_min_x + _box_size_x, _box_min_y + _box_size_y, _color, TRUE);
+	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-	const unsigned int _text_color = GetColor(10, 10, 10);
+	const unsigned int kTextColor = GetColor(10, 10, 10);
 
 	// テキスト
-	DrawFormatString(_box_min_x + 10, _box_min_y + 10, _text_color, "input ( C でクリア)");
-	if (m_input_number < 0) DrawFormatString(_box_min_x + 10, _box_min_y + 30, _text_color, "　数字を入力してください");
-	else DrawFormatString(_box_min_x + 10, _box_min_y + 30, _text_color, "　%d", m_input_number);
+	DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "input ( C でクリア)");
+	if (m_input_number < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　数字を入力してください");
+	else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　%d", m_input_number);
 
 	if (mp_graph->size() > *mp_display_node_index)
 	{
-		DrawFormatString(_box_min_x + 10, _box_min_y + 60, _text_color, "%d番ノードの親ノード:%d番", *mp_display_node_index, mp_graph->at(*mp_display_node_index).parent_num);
-		DrawFormatString(_box_min_x + 10, _box_min_y + 90, _text_color, "%d番ノードの子ノード数:%d個", m_childen_list.first, m_childen_list.second.size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%d番ノードの親ノード:%d番", *mp_display_node_index, mp_graph->at(*mp_display_node_index).parent_num);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%d番ノードの子ノード数:%d個", m_childen_list.first, m_childen_list.second.size());
 
-		std::string _str = m_childen_list.second.size() == 0 ? "None" : "　";
+		std::string str = m_childen_list.second.size() == 0 ? "None" : "　";
+
 		for (size_t i = 0; i < m_childen_list.second.size(); i++)
 		{
-			if (i > (size_t)6 * 5 - 1) { _str += "..."; break; }
-			_str += std::to_string(m_childen_list.second.at(i)) + ",";
-			if (i % 6 == 0 && i != 0) { _str += "\n　"; }
+			if (i > (size_t)6 * 5 - 1) { str += "..."; break; }
+
+			str += std::to_string(m_childen_list.second.at(i)) + ",";
+
+			if (i % 6 == 0 && i != 0) { str += "\n　"; }
 		}
 
-		DrawFormatString(_box_min_x + 10, _box_min_y + 110, _text_color, "%d番ノードの子ノードリスト", m_childen_list.first);
-		DrawFormatString(_box_min_x + 10, _box_min_y + 130, _text_color, _str.c_str());
-		DrawFormatString(_box_min_x + 10, _box_min_y + 230, _text_color, "　(子ノードリストの更新は U )");
-		DrawFormatString(_box_min_x + 10, _box_min_y + 250, _text_color, "　(上下キーでノード移動)");
-		DrawFormatString(_box_min_x + 10, _box_min_y + 270, _text_color, "　(左右キーで表示する子ノード切り替え)");
-		DrawFormatString(_box_min_x + 10, _box_min_y + 290, _text_color, "　(Zキーでカメラ表示を切り替え)");
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d番ノードの子ノードリスト", m_childen_list.first);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 130, kTextColor, str.c_str());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "　(子ノードリストの更新は U )");
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "　(上下キーでノード移動)");
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "　(左右キーで表示する子ノード切り替え)");
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "　(Zキーでカメラ表示を切り替え)");
 	}
 }
 
 
-void GraphViewerGUIController::drawNodeData(const SNode node) const
+void GraphViewerGUIController::drawNodeData(const SNode& node) const
 {
 	const int kBoxSizeX = 400;
 	const int KBoxSizeY = 300;
@@ -135,6 +138,7 @@ void GraphViewerGUIController::drawNodeData(const SNode node) const
 	const int kTextXPos = kBoxMinX + 10;
 	const int kTextYMinPos = kBoxMinY + 10;
 	const int kTextYInterval = 30;
+
 	int text_line = 0;
 
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dl_leg::getComPatternState(node.leg_state),
@@ -177,29 +181,29 @@ void GraphViewerGUIController::inputNumber()
 	}
 
 	// 数字入力
-	int _temp = -1;
+	int input_number = -1;
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_0) == 1) { _temp = 0; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_1) == 1) { _temp = 1; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_2) == 1) { _temp = 2; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_3) == 1) { _temp = 3; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_4) == 1) { _temp = 4; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_5) == 1) { _temp = 5; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_6) == 1) { _temp = 6; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_7) == 1) { _temp = 7; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_8) == 1) { _temp = 8; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_9) == 1) { _temp = 9; }
+	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_0) == 1) { input_number = 0; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_1) == 1) { input_number = 1; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_2) == 1) { input_number = 2; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_3) == 1) { input_number = 3; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_4) == 1) { input_number = 4; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_5) == 1) { input_number = 5; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_6) == 1) { input_number = 6; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_7) == 1) { input_number = 7; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_8) == 1) { input_number = 8; }
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_9) == 1) { input_number = 9; }
 
-	if (_temp >= 0)
+	if (input_number >= 0)
 	{
 		if (m_input_number < 0)
 		{
-			m_input_number = _temp;
+			m_input_number = input_number;
 		}
 		else
 		{
 			m_input_number *= 10;
-			m_input_number += _temp;
+			m_input_number += input_number;
 		}
 	}
 }
@@ -229,7 +233,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 			(*mp_display_node_index) = mp_graph->at(*mp_display_node_index).parent_num;
 		}
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) == 1 && m_childen_list.second.empty() == false)
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) == 1 && !m_childen_list.second.empty())
 	{
 		m_display_children_list_index--;
 
@@ -238,7 +242,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 
 		(*mp_display_node_index) = m_childen_list.second.at(m_display_children_list_index);
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) == 1 && m_childen_list.second.empty() == false)
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) == 1 && !m_childen_list.second.empty())
 	{
 		m_display_children_list_index++;
 
@@ -261,9 +265,9 @@ void GraphViewerGUIController::updateChildrenList()
 		m_childen_list.first = (int)(*mp_display_node_index);
 		m_childen_list.second.clear();
 
-		const size_t _size = mp_graph->size();
+		const size_t kGraphSize = mp_graph->size();
 
-		for (size_t i = 0; i < _size; i++)
+		for (size_t i = 0; i < kGraphSize; i++)
 		{
 			if (mp_graph->at(i).parent_num == m_childen_list.first)
 			{

@@ -3,13 +3,20 @@
 #include <vector>
 
 #include "map_state.h"
-#include "Node.h"
+#include "node.h"
 #include "Target.h"
-#include "GraphSearchResult.h"
+#include "graph_search_result.h"
 #include "InterfaceGraphTreeCreator.h"
 #include "InterfaceGraphSearcher.h"
-#include "AbstractPassFinderFactory.h"
+#include "abstract_pass_finder_factory.h"
 
+
+//! @class IPassFinder
+//! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @date 2023/08/14
+//! @author 長谷川
+//! @details 継承をするクラスのデストラクタはvirtualにしておく．
+//! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 class IPassFinder
 {
 public:
@@ -29,12 +36,13 @@ public:
 	//! @return int 作成したグラフの数
 	int getMadeNodeNum() const { return m_made_node_num; }
 
-	//! @brief 作成したグラフ木を返す．<br>
-	//! この関数はデバッグ用なので，探索には使わないこと．
+	//! @brief 作成したグラフ木を返す．
+	//! @n この関数はデバッグ用なので，探索には使わないこと．
 	//! @param [out] output_graph 作成したグラフ木
 	void getGraphTree(std::vector<SNode>* output_graph) const
 	{
 		(*output_graph).clear();
+
 		for (auto& i : m_graph_tree)
 		{
 			(*output_graph).emplace_back(i);
@@ -52,14 +60,9 @@ protected:
 	std::unique_ptr<IGraphSearcher> mp_searcher;	//!< グラフ探索クラス
 };
 
-//! @file IPassFinder.h
-//! @brief グラフ探索を行うクラスのインターフェイスの実装
-//! @author 長谷川
-//! @date 2023/07/24
 
-//! @class IPassFinder
-//! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @date 2023/07/24
+//! @file interface_pass_finder.h
+//! @date 2023/08/14
 //! @author 長谷川
-//! @details 継承をするクラスのデストラクタはvirtualにしておく．<br>
-//! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+//! @brief グラフ探索を行うクラスのインターフェイスの実装
+//! @n 行数 : @lineinfo

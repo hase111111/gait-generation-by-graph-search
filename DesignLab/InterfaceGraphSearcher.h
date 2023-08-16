@@ -1,13 +1,21 @@
 #pragma once
+
 #include <vector>
-#include "Node.h"
+
+#include "node.h"
 #include "Target.h"
-#include "GraphSearchResult.h"
+#include "graph_search_result.h"
 
 
+//! @class IGraphSearcher
+//! @date 2023/08/14
+//! @author 長谷川
+//! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください．
+//! @n 継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．
 class IGraphSearcher
 {
 public:
+
 	IGraphSearcher() = default;
 	virtual ~IGraphSearcher() = default;		//!< 継承をするクラスのデストラクタはvirtualにしておく．参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 
@@ -19,13 +27,9 @@ public:
 	virtual EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) = 0;
 };
 
-//! @file InterfaceGraphSearcher.h
-//! @brief グラフ木を作成するクラスのインターフェース．
-//! @date 2023/07/23
-//! @author 長谷川
 
-//! @class IGraphSearcher
-//! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください．<br>
-//! 継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．
-//! @date 2023/07/23
+//! @file interface_graph_searcher.h
+//! @date 2023/08/14
 //! @author 長谷川
+//! @brief グラフ木を作成するクラスのインターフェース．
+//! @n 行数 : @lineinfo
