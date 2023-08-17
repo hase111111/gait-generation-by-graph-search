@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "GraphSearchConst.h"
+#include "graph_search_const.h"
 #include "leg_state.h"
 
 

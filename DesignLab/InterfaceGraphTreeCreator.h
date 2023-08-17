@@ -1,11 +1,20 @@
 #pragma once
-#include "map_state.h"
-#include "Node.h"
-#include <vector>
-#include "GraphSearchResult.h"
-#include "interface_node_creator.h"
-#include "GraphSearchConst.h"
 
+#include <vector>
+
+#include "map_state.h"
+#include "node.h"
+#include "graph_search_result.h"
+#include "interface_node_creator.h"
+#include "graph_search_const.h"
+
+
+//! @class IGraphTreeCreator
+//! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @details 継承をするクラスのデストラクタはvirtualにしておく．<br> 
+//! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+//! @date 2023/07/23
+//! @author 長谷川
 class IGraphTreeCreator
 {
 public:
@@ -35,11 +44,4 @@ protected:
 
 //! @file InterfaceGraphTreeCreator.h
 //! @brief グラフ木の探索を行うクラスのインターフェイス．
-//! @author 長谷川
-
-//! @class IGraphTreeCreator
-//! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @details 継承をするクラスのデストラクタはvirtualにしておく．<br> 
-//! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
-//! @date 2023/07/23
 //! @author 長谷川

@@ -3,7 +3,7 @@
 #include "map_state.h"
 #include "graphic_system.h"
 #include "graphic_data_broker.h"
-#include "InterfacePassFinder.h"
+#include "interface_pass_finder.h"
 
 
 //! @class GraphViewerSystemMain

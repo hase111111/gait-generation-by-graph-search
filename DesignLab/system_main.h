@@ -4,7 +4,7 @@
 #include "Target.h"
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
-#include "InterfacePassFinder.h"
+#include "interface_pass_finder.h"
 #include "interface_graphic_main.h"
 
 

@@ -1,6 +1,8 @@
-#include "PassFinderFixed.h"
-#include "PassFinderHatoThread.h"
-#include "PassFinderFactoryHato.h"
+#include "pass_finder_fixed.h"
+
+#include "pass_finder_hato_thread.h"
+#include "pass_finder_factory_hato.h"
+
 
 EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
 {

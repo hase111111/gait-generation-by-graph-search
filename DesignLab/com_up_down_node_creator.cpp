@@ -3,7 +3,7 @@
 #include <cfloat>
 #include <algorithm>
 
-#include "GraphSearchConst.h"
+#include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "hexapod_state_calculator.h"
 #include "leg_state.h"

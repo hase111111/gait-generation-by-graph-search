@@ -1,7 +1,11 @@
 #pragma once
-#include "InterfacePassFinder.h"
+#include "interface_pass_finder.h"
 
 
+//! @class PassFinderHato
+//! @date 2023/08/17
+//! @author 長谷川
+//! @brief 波東先輩の手法で，グラフ探索を行うクラス．
 class PassFinderHato final : public IPassFinder
 {
 public:
@@ -15,12 +19,7 @@ private:
 };
 
 
-//! @file PassFinderHato.h 
-//! @brief 波東さんの手法でグラフ探索を行うクラスの実装．
+//! @file pass_finder_hato.h 
+//! @date 2023/08/17
 //! @author 長谷川
-//! @date 2023/07/24
-
-//! @class PassFinderHato
-//! @brief 波東先輩の手法で，グラフ探索を行うクラス．
-//! @author 長谷川
-//! @date 2023/07/24
+//! @brief 波東さんの手法でグラフ探索を行うクラス．

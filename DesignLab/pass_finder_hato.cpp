@@ -1,5 +1,6 @@
-#include "PassFinderHato.h"
-#include "GraphSearchConst.h"
+#include "pass_finder_hato.h"
+
+#include "graph_search_const.h"
 
 
 PassFinderHato::PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory) : IPassFinder(std::move(factory))

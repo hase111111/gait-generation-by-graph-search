@@ -34,8 +34,8 @@
     <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="my_rotator.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
-    <ClInclude Include="PassFinderFixed.h" />
-    <ClInclude Include="PassFinderHato.h" />
+    <ClInclude Include="pass_finder_fixed.h" />
+    <ClInclude Include="pass_finder_hato.h" />
     <ClInclude Include="GraphSearcherRandom.h" />
     <ClInclude Include="GraphSearcherSample.h" />
     <ClInclude Include="pass_finder_hato_thread.h" />
@@ -116,8 +116,8 @@
     <ClCompile Include="my_rotator.cpp" />
     <ClCompile Include="my_timer.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
-    <ClCompile Include="PassFinderFixed.cpp" />
-    <ClCompile Include="PassFinderHato.cpp" />
+    <ClCompile Include="pass_finder_fixed.cpp" />
+    <ClCompile Include="pass_finder_hato.cpp" />
     <ClCompile Include="GraphSearcherRandom.cpp" />
     <ClCompile Include="GraphSearcherSample.cpp" />
     <ClCompile Include="pass_finder_hato_thread.cpp" />

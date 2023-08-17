@@ -5,8 +5,8 @@
 #include <boost/thread.hpp>
 
 #include "graphic_main_graph_viewer.h"
-#include "PassFinderHatoThread.h"
-#include "PassFinderFactoryHato.h"
+#include "pass_finder_hato_thread.h"
+#include "pass_finder_factory_hato.h"
 #include "hexapod_state_calculator.h"
 #include "Define.h"
 #include "my_timer.h"

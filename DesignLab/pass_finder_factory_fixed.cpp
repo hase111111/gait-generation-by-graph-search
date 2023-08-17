@@ -1,10 +1,10 @@
-#include "PassFinderFactoryFixed.h"
+#include "pass_finder_factory_fixed.h"
 
 #include <iostream>
 
 #include "GraphTreeCreatorHato.h"
-#include "GraphSearcherHato.h"
-#include "GraphSearchConst.h"
+#include "graph_searcher_hato.h"
+#include "graph_search_const.h"
 #include "leg_up_down_node_creator.h"
 #include "leg_hierarchy_node_creator.h"
 #include "com_up_down_node_creator.h"

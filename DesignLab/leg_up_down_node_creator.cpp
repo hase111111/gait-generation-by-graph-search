@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "com_type.h"
-#include "GraphSearchConst.h"
+#include "graph_search_const.h"
 #include "leg_state.h"
 
 

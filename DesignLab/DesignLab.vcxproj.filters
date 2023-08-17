@@ -213,7 +213,7 @@
     <ClInclude Include="gui_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="PassFinderHato.h">
+    <ClInclude Include="pass_finder_hato.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="GraphSearcherSample.h">
@@ -342,7 +342,7 @@
     <ClInclude Include="graph_search_const.h">
       <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClInclude>
-    <ClInclude Include="PassFinderFixed.h">
+    <ClInclude Include="pass_finder_fixed.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="pass_finder_factory_fixed.h">
@@ -452,7 +452,7 @@
     <ClCompile Include="gui_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="PassFinderHato.cpp">
+    <ClCompile Include="pass_finder_hato.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="GraphSearcherSample.cpp">
@@ -563,7 +563,7 @@
     <ClCompile Include="my_rotator.cpp">
       <Filter>ソース ファイル\Common\MyVector</Filter>
     </ClCompile>
-    <ClCompile Include="PassFinderFixed.cpp">
+    <ClCompile Include="pass_finder_fixed.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="pass_finder_factory_fixed.cpp">

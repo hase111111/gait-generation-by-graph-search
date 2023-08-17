@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "GraphSearchConst.h"
+#include "graph_search_const.h"
 
 
 GraphTreeCreatorHato::GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map)
