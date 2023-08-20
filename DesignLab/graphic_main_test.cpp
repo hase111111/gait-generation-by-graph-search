@@ -103,7 +103,7 @@ bool GraphicMainTest::update()
 	{
 		m_camera_mode++;
 		m_camera_mode %= 5;
-		m_camera_controller.setCameraMode(static_cast<ECameraMode>(m_camera_mode));
+		m_camera_controller.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
 	}
 
 	m_hexapod_renderer.update(m_node);

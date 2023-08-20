@@ -2,77 +2,91 @@
 
 #include <cmath>
 
-
 #include "DxLib.h"
 
 #include "graphic_const.h"
+#include "designlab_dxlib.h"
 #include "Define.h"
 
 
-CameraController::CameraController() : m_goal_upvec(VGet(0, 0, 0)), m_goal_pos(VGet(0, 0, 0))
+CameraController::CameraController() :
+	m_camera_view_mode(ECameraMode::TOP_VIEW),
+	m_goal_target_pos(VGet(0, 0, 0)), m_goal_length_camera_to_target(GraphicConst::CAMERA_TO_TARGET_MAX), m_goal_upvec(VGet(0, 0, 0)), m_goal_camera_rot({ 0.0f, 0.0f, 0.0f }),
+	m_target_pos(VGet(0, 0, 0)), m_length_camera_to_target(GraphicConst::CAMERA_TO_TARGET_MAX), m_camera_upvec(VGet(0, 0, 0)), m_camera_rot({ 0.0f, 0.0f, 0.0f })
 {
-	//メンバを初期化する．
-	m_mode = ECameraMode::TOP_VIEW;
-
-	setGoalCameraPos();
-
-	m_now_target_pos = m_goal_target_pos = VGet(0, 0, 0);
-	m_now_camera_pos = m_goal_pos;
-	m_now_camera_upvec = m_goal_upvec;
-
-	m_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
-
 	//カメラ位置をセットする．
-	SetCameraPositionAndTargetAndUpVec(m_now_camera_pos, m_now_target_pos, m_now_camera_upvec);
+	VECTOR camera_pos = VAdd(dl_dxlib::convertToDxVec(my_vec::rotVector(kDefaultCameraFrontVec, m_camera_rot) * m_length_camera_to_target), m_target_pos);
+
+	SetCameraPositionAndTargetAndUpVec(camera_pos, m_target_pos, m_camera_upvec);
 }
 
 
 void CameraController::update()
 {
-	//カメラの設置場所を更新する．
-	setGoalCameraPos();
+	m_length_camera_to_target = approachTargetValue(m_length_camera_to_target, m_goal_length_camera_to_target);		//カメラの距離を目標値に近づける．
+	m_target_pos = approachTargetVECTOR(m_target_pos, m_goal_target_pos);			//カメラの注視点を目標値に近づける．
+	m_camera_upvec = approachSlowlyTargetVECTOR(m_camera_upvec, m_goal_upvec);		//カメラの上方向を目標値に近づける．
+	m_camera_rot = approachTargetRotator(m_camera_rot, m_goal_camera_rot);			//カメラの回転角を目標値に近づける．
 
-	m_now_target_pos = approachTargetVECTOR(m_now_target_pos, m_goal_target_pos);
-	m_now_camera_pos = approachTargetVECTOR(m_now_camera_pos, m_goal_pos);
-	m_now_camera_upvec = approachSlowlyTargetVECTOR(m_now_camera_upvec, m_goal_upvec);
+	VECTOR camera_pos = VAdd(dl_dxlib::convertToDxVec(my_vec::rotVector(kDefaultCameraFrontVec, m_camera_rot) * m_length_camera_to_target), m_target_pos);
 
-	SetCameraPositionAndTargetAndUpVec(m_now_camera_pos, m_now_target_pos, m_now_camera_upvec);
+	SetCameraPositionAndTargetAndUpVec(camera_pos, m_target_pos, m_camera_upvec);
 }
 
 
-void CameraController::setGoalCameraPos()
+void CameraController::setCameraViewMode(const ECameraMode mode)
 {
-	switch (m_mode)
+	m_camera_view_mode = mode;
+
+	switch (mode)
 	{
+	case ECameraMode::FRONT_VIEW:
+		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
+		m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
+		m_goal_camera_rot = { 0.0f, 0.0f, my_math::convertDegToRad(180.0f) };
+		break;
+
+	case ECameraMode::BACK_VIEW:
+		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
+		m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
+		m_goal_camera_rot = { 0.0f, 0.0f, 0.0f };
+		break;
+
 	case ECameraMode::TOP_VIEW:
 		m_goal_upvec = VGet(1.0f, 0.0f, 0.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(0, 0, m_length_camera_to_target));
+		m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
+		m_goal_camera_rot = { 0.0f, my_math::convertDegToRad(-90.0f), 0.0f };
 		break;
 
-	case ECameraMode::OVERHEAD_VIEW:
-		m_goal_upvec = VGet(0.0f, -1.0f * sin(CAMERA_ANGLE), 1.0f * cos(CAMERA_ANGLE));
-		m_goal_pos = VAdd(m_now_target_pos, VGet(-1, m_length_camera_to_target * cos(CAMERA_ANGLE), m_length_camera_to_target * sin(CAMERA_ANGLE)));
-		break;
-
-	case ECameraMode::SIDE_VIEW:
+	case ECameraMode::RIGHT_SIDE_VIEW:
 		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(0, m_length_camera_to_target, 0));
+		m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
+		m_goal_camera_rot = { 0.0f, 0.0f, my_math::convertDegToRad(90.0f) };
 		break;
 
-	case ECameraMode::OVERHEAD_VIEW_FLIP:
-		m_goal_upvec = VGet(0.0f, 1.0f * sin(CAMERA_ANGLE), 1.0f * cos(CAMERA_ANGLE));
-		m_goal_pos = VAdd(m_now_target_pos, VGet(-1, m_length_camera_to_target * -1 * cos(CAMERA_ANGLE), m_length_camera_to_target * sin(CAMERA_ANGLE)));
-		break;
-
-	case ECameraMode::SIDE_VIEW_FLIP:
+	case ECameraMode::LEFT_SIDE_VIEW:
 		m_goal_upvec = VGet(0.0f, 0.0f, 1.0f);
-		m_goal_pos = VAdd(m_now_target_pos, VGet(0, -m_length_camera_to_target, 0));
+		m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX;
+		m_goal_camera_rot = { 0.0f, 0.0f, my_math::convertDegToRad(-90.0f) };
 		break;
 
 	default:
 		break;
 	}
 }
+
+
+void CameraController::addCameraToTargetLength(const float length_dif)
+{
+	m_camera_view_mode = ECameraMode::FREE_CONTROLLED;	//カメラを操作モードに変更
+
+	m_goal_length_camera_to_target = length_dif;
+
+	if (GraphicConst::CAMERA_TO_TARGET_MAX < m_goal_length_camera_to_target) { m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX; }
+
+	if (m_goal_length_camera_to_target < GraphicConst::CAMERA_NEAR) { m_goal_length_camera_to_target = GraphicConst::CAMERA_NEAR; }
+}
+
 
 
 VECTOR CameraController::approachTargetVECTOR(const VECTOR& current, const VECTOR& target) const
@@ -84,6 +98,11 @@ VECTOR CameraController::approachTargetVECTOR(const VECTOR& current, const VECTO
 VECTOR CameraController::approachSlowlyTargetVECTOR(const VECTOR& current, const VECTOR& target) const
 {
 	return VGet(approachSlowlyTargetValue(current.x, target.x), approachSlowlyTargetValue(current.y, target.y), approachSlowlyTargetValue(current.z, target.z));
+}
+
+my_vec::SRotator CameraController::approachTargetRotator(const my_vec::SRotator& current, const my_vec::SRotator& target) const
+{
+	return my_vec::SRotator(approachSlowlyTargetValue(current.roll, target.roll), approachSlowlyTargetValue(current.pitch, target.pitch), approachSlowlyTargetValue(current.yaw, target.yaw));
 }
 
 

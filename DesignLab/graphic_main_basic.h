@@ -32,7 +32,7 @@ public:
 
 private:
 
-	CameraController m_camera_controller;	//カメラ制御クラス．
+	CameraController m_camera_controller;	//カメラ制御クラス
 
 	HexapodRenderer m_hexapod_renderer;
 

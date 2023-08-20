@@ -31,14 +31,14 @@ GUIController::GUIController()
 
 void GUIController::update(CameraController& camera_controller, const int max_node, int& display_node, const int counter)
 {
-	if (m_mode == ENodeDisplayNode::AUTO_UPDATE)
+	if (m_camera_view_mode == ENodeDisplayNode::AUTO_UPDATE)
 	{
 		if (counter % CHANGE_NEXT_NODE == 0)
 		{
 			display_node++;
 		}
 	}
-	else if (m_mode == ENodeDisplayNode::ALWAYS_NEW)
+	else if (m_camera_view_mode == ENodeDisplayNode::ALWAYS_NEW)
 	{
 		display_node = max_node - 1;
 	}
@@ -60,31 +60,31 @@ void GUIController::update(CameraController& camera_controller, const int max_no
 			switch (i)
 			{
 			case 0:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::TOP_VIEW); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::TOP_VIEW); }
 				break;
 
 			case 1:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OVERHEAD_VIEW); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::FRONT_VIEW); }
 				break;
 
 			case 2:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SIDE_VIEW); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::BACK_VIEW); }
 				break;
 
 			case 3:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::OVERHEAD_VIEW_FLIP); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::LEFT_SIDE_VIEW); }
 				break;
 
 			case 4:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraMode(ECameraMode::SIDE_VIEW_FLIP); }
+				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::RIGHT_SIDE_VIEW); }
 				break;
 
 			case 5:
 				if (m_buttom.at(i)->isPushedNow())
 				{
-					if (m_mode == ENodeDisplayNode::SELECTABLE)m_mode = ENodeDisplayNode::ALWAYS_NEW;
-					else if (m_mode == ENodeDisplayNode::ALWAYS_NEW)m_mode = ENodeDisplayNode::AUTO_UPDATE;
-					else if (m_mode == ENodeDisplayNode::AUTO_UPDATE)m_mode = ENodeDisplayNode::SELECTABLE;
+					if (m_camera_view_mode == ENodeDisplayNode::SELECTABLE)m_camera_view_mode = ENodeDisplayNode::ALWAYS_NEW;
+					else if (m_camera_view_mode == ENodeDisplayNode::ALWAYS_NEW)m_camera_view_mode = ENodeDisplayNode::AUTO_UPDATE;
+					else if (m_camera_view_mode == ENodeDisplayNode::AUTO_UPDATE)m_camera_view_mode = ENodeDisplayNode::SELECTABLE;
 				}
 				break;
 
@@ -267,9 +267,9 @@ void GUIController::drawExplanationByStr() const
 	{
 		std::string str = "表示方法：";
 
-		if (m_mode == ENodeDisplayNode::ALWAYS_NEW) { str += "常に最新．"; }
-		else if (m_mode == ENodeDisplayNode::AUTO_UPDATE) { str += "自動で更新"; }
-		else if (m_mode == ENodeDisplayNode::SELECTABLE) { str += "ボタンで選択"; }
+		if (m_camera_view_mode == ENodeDisplayNode::ALWAYS_NEW) { str += "常に最新．"; }
+		else if (m_camera_view_mode == ENodeDisplayNode::AUTO_UPDATE) { str += "自動で更新"; }
+		else if (m_camera_view_mode == ENodeDisplayNode::SELECTABLE) { str += "ボタンで選択"; }
 		DrawFormatString(kRightX, CENTER_Y - BOX_Y / 2 + line(), kStrColor, str.c_str());
 	}
 

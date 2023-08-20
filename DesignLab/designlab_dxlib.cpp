@@ -12,9 +12,17 @@ void dl_dxlib::initDxlib3D()
 
 	SetUseLighting(FALSE);					// ライティングの計算をしないように設定を変更	
 	SetUseBackCulling(FALSE);				// ポリゴンの両面を描画する．
-	SetUseZBuffer3D(TRUE);					// Ｚバッファを有効にする
-	SetWriteZBuffer3D(TRUE);				// Ｚバッファへの書き込みを有効にする
 	SetFogEnable(FALSE);					// フォグは使用しない．
+}
+
+
+void dl_dxlib::setZBufferEnable()
+{
+	// Ｚバッファを有効にする
+	SetUseZBuffer3D(TRUE);
+
+	// Ｚバッファへの書き込みを有効にする
+	SetWriteZBuffer3D(TRUE);
 }
 
 

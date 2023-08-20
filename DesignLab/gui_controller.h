@@ -51,7 +51,7 @@ private:
 
 	bool m_is_displayed = true;		//UIを表示するかどうか．
 
-	ENodeDisplayNode m_mode = ENodeDisplayNode::SELECTABLE;		//どのようにノードを表示するか
+	ENodeDisplayNode m_camera_view_mode = ENodeDisplayNode::SELECTABLE;		//どのようにノードを表示するか
 
 	// GUIに表示するボタンを管理するクラス
 	std::vector<std::unique_ptr<ButtomController>> m_buttom;

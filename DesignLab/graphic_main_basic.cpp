@@ -41,6 +41,8 @@ void GraphicMainBasic::draw() const
 {
 	if (!m_node.empty())
 	{
+		dl_dxlib::setZBufferEnable();
+
 		//マップを描画する．
 		MapRenderer map_render;
 		map_render.setNode(m_node.at(m_display_node));
