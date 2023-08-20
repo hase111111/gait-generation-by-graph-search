@@ -9,7 +9,7 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* broker) : IGraphicMain
 {
 	m_node.init(false);
 
-	m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_node.global_center_of_mass));
+	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(m_node.global_center_of_mass));
 
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
 }
@@ -103,12 +103,12 @@ bool GraphicMainTest::update()
 	{
 		m_camera_mode++;
 		m_camera_mode %= 5;
-		m_camera_controller.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
+		m_camera_manager.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
 	}
 
 	m_hexapod_renderer.update(m_node);
-	//m_gui_controller.update(m_camera_controller); //GUIを更新する．
-	m_camera_controller.update();
+	//m_gui_controller.update(m_camera_manager); //GUIを更新する．
+	m_camera_manager.update();
 
 	return true;
 }

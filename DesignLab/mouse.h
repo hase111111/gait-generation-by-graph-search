@@ -19,9 +19,17 @@ public:
 	//! @return int マウスカーソルのX座標．
 	int getPosX() const;
 
+	//! @brief マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．
+	//! @return int マウスカーソルのX方向の移動量．
+	int getDiffPosX() const;
+
 	//! @brief マウスカーソルの位置を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．
 	//! @return int マウスカーソルのY座標．
 	int getPosY() const;
+
+	//! @brief マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．
+	//! @return int マウスカーソルのY方向の移動量．
+	int getDiffPosY() const;
 
 	//! @brief マウスの左クリックの押され続けているフレーム数を取得する．
 	//! @return int 押されているフレーム数．
@@ -47,6 +55,12 @@ public:
 	//! @return int 離されているフレーム数．
 	int getReleasingCountMiddle() const;
 
+	//! @brief マウスのホイールの回転量を取得する．
+	//! @n 1フレームで回転した量を取得する．
+	//! @n 手前に回した分はマイナスの値として、奥に回した分はプラスの値として返る
+	//! @return int マウスホイールの回転量．
+	int getWheelRot() const;
+
 private:
 
 	Mouse();
@@ -54,8 +68,10 @@ private:
 
 	//クリックカウンタ
 	int m_posx, m_poy;
+	int m_past_posx, m_past_posy;
 	int m_pushing_count_right, m_pushing_count_left, m_pushing_count_middle;
 	int m_releasing_count_right, m_releasing_count_left, m_releasing_count_middle;
+	int m_wheel_rot;
 };
 
 

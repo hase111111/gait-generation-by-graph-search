@@ -106,6 +106,12 @@
     <Filter Include="ソース ファイル\Common\Vector">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Common\Camera">
+      <UniqueIdentifier>{41ec5cfa-6960-4c66-b4a4-99ea386443cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\GUI">
+      <UniqueIdentifier>{df7998dd-914b-4696-8d2e-2c87e003cbb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -187,9 +193,6 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="map_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="camera_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="designlab_dxlib.h">
@@ -354,6 +357,15 @@
     <ClInclude Include="designlab_quaternion.h">
       <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="camera_manager.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_controller.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_gui.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -427,9 +439,6 @@
     </ClCompile>
     <ClCompile Include="fps.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="camera_controller.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
@@ -574,6 +583,15 @@
     </ClCompile>
     <ClCompile Include="designlab_quaternion.cpp">
       <Filter>ソース ファイル\Common\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_controller.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_manager.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_gui.cpp">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

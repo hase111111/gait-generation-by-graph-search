@@ -29,7 +29,7 @@ GUIController::GUIController()
 }
 
 
-void GUIController::update(CameraController& camera_controller, const int max_node, int& display_node, const int counter)
+void GUIController::update(const int max_node, int& display_node, const int counter)
 {
 	if (m_camera_view_mode == ENodeDisplayNode::AUTO_UPDATE)
 	{
@@ -59,25 +59,25 @@ void GUIController::update(CameraController& camera_controller, const int max_no
 			//ボタンの追加された順番ごとに処理をする．クソみたいな実装でスマソ
 			switch (i)
 			{
-			case 0:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::TOP_VIEW); }
-				break;
+				//case 0:
+				//	if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::TOP_VIEW); }
+				//	break;
 
-			case 1:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::FRONT_VIEW); }
-				break;
+				//case 1:
+				//	if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::FRONT_VIEW); }
+				//	break;
 
-			case 2:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::BACK_VIEW); }
-				break;
+				//case 2:
+				//	if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::BACK_VIEW); }
+				//	break;
 
-			case 3:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::LEFT_SIDE_VIEW); }
-				break;
+				//case 3:
+				//	if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::LEFT_SIDE_VIEW); }
+				//	break;
 
-			case 4:
-				if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::RIGHT_SIDE_VIEW); }
-				break;
+				//case 4:
+				//	if (m_buttom.at(i)->isPushedNow()) { camera_controller.setCameraViewMode(ECameraMode::RIGHT_SIDE_VIEW); }
+				//	break;
 
 			case 5:
 				if (m_buttom.at(i)->isPushedNow())

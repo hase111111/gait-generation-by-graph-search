@@ -20,18 +20,18 @@ bool GraphicMainBasic::update()
 		mp_broker->copyOnlyNewNode(&m_node);
 	}
 
-	m_gui_controller.update(m_camera_controller, (int)m_node.size(), m_display_node, m_counter); //GUIを更新する．
+	m_gui_controller.update((int)m_node.size(), m_display_node, m_counter); //GUIを更新する．
 
 	if (!m_node.empty())
 	{
-		m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_node.at(m_display_node).global_center_of_mass));      //ノードが存在しているならば，カメラの処理を行う．
+		m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);
 
 		m_hexapod_renderer.update(m_node.at(m_display_node));      //ロボットの状態を更新する．
 	}
 
 	m_counter++;            //カウンタを進める．
 
-	m_camera_controller.update();      //カメラを更新する
+	m_camera_gui.update();      //カメラのGUIを更新する．
 
 	return true;
 }
@@ -54,4 +54,6 @@ void GraphicMainBasic::draw() const
 		//UIを表示する．
 		m_gui_controller.draw(m_node.at(m_display_node));
 	}
+
+	m_camera_gui.draw();        //カメラのGUIを描画する．
 }

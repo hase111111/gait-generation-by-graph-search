@@ -15,7 +15,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) 
 	init_node.init(false);
 
 	m_hexapod_renderer.update(init_node);
-	m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(init_node.global_center_of_mass));
+	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(init_node.global_center_of_mass));
 
 	// GUI にグラフのポインタを渡す.
 	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index);
@@ -67,17 +67,17 @@ void GraphicMainGraphViewer::draw() const
 
 void GraphicMainGraphViewer::updateCameraState()
 {
-	m_camera_controller.update();
+	m_camera_manager.update();
 
 	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
 	{
 		m_camera_mode++;
 		m_camera_mode %= 5;
-		m_camera_controller.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
+		m_camera_manager.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
 	}
 
 	if (m_display_node_index < m_graph.size())
 	{
-		m_camera_controller.setTargetPos(dl_dxlib::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
+		m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
 	}
 }

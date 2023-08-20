@@ -6,7 +6,6 @@
 #include "button_controller.h"
 #include "graphic_const.h"
 #include "node.h"
-#include "camera_controller.h"
 
 
 //! @enum ENodeDisplayNode
@@ -30,7 +29,7 @@ class GUIController
 public:
 	GUIController();
 
-	void update(CameraController& camera, const int max_node, int& display_node, const int counter);
+	void update(const int max_node, int& display_node, const int counter);
 
 	void draw(const SNode& node) const;
 

@@ -12,7 +12,7 @@ class ButtomController final
 public:
 
 	ButtomController();
-	ButtomController(const int _xpos, const int _ypos, const int _xsize, const int _ysize, const std::string _text);
+	ButtomController(const int xpos, const int ypos, const int xsize, const int ysize, const std::string text);
 	~ButtomController() = default;
 
 	//! @brief ボタンの状態を更新する．毎フレーム実行すること．

@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClInclude Include="abstract_pass_finder_factory.h" />
     <ClInclude Include="button_controller.h" />
+    <ClInclude Include="camera_controller.h" />
+    <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
     <ClInclude Include="com_move_node_creator.h" />
     <ClInclude Include="com_move_node_creator_hato.h" />
@@ -59,7 +61,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="designlab_dxlib.h" />
     <ClInclude Include="fps.h" />
-    <ClInclude Include="camera_controller.h" />
+    <ClInclude Include="camera_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
     <ClInclude Include="graphic_loop.h" />
     <ClInclude Include="graphic_main_basic.h" />
@@ -104,6 +106,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="button_controller.cpp" />
+    <ClCompile Include="camera_controller.cpp" />
+    <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="com_move_node_creator.cpp" />
     <ClCompile Include="com_move_node_creator_hato.cpp" />
@@ -138,7 +142,7 @@
     <ClCompile Include="CmdIO.cpp" />
     <ClCompile Include="designlab_dxlib.cpp" />
     <ClCompile Include="fps.cpp" />
-    <ClCompile Include="camera_controller.cpp" />
+    <ClCompile Include="camera_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
     <ClCompile Include="graphic_data_broker.cpp" />
     <ClCompile Include="graphic_loop.cpp" />

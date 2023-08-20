@@ -4,7 +4,7 @@
 
 
 //! @class GraphicConst
-//! @date 2023/08/08
+//! @date 2023/08/21
 //! @author 長谷川
 //! @brief 画像表示処理用の定数をまとめたもの．
 //! @details 定数クラスの詳細はDefine.hを参照．@n 
@@ -26,6 +26,7 @@ public:
 	const static float CAMERA_NEAR;		//!< カメラが表示できる最も近い座標．
 
 	const static float CAMERA_TO_TARGET_MAX;	//!< カメラと注視目標の最大距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
+	const static float CAMERA_TO_TARGET_MIN;	//!< カメラと注視目標の最小距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
 
 	//! ウィンドウのFPS(フレーム / 秒．秒間画面を何回更新するか．TVは30fps，Nintendo Switchは60fps)．
 	//! 60より大きい値にしても意味はない．30とかにしてもいいけどそこまで処理負荷は変わらないと思う．

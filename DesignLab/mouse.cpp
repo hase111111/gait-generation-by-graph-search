@@ -8,18 +8,23 @@ Mouse::Mouse()
 	//変数を初期化する
 	m_posx = 0;
 	m_poy = 0;
+	m_past_posx = 0;
+	m_past_posy = 0;
 	m_pushing_count_left = 0;
 	m_pushing_count_middle = 0;
 	m_pushing_count_right = 0;
 	m_releasing_count_left = 0;
 	m_releasing_count_middle = 0;
 	m_releasing_count_right = 0;
+	m_wheel_rot = 0;
 }
 
 
 void Mouse::update()
 {
 	//マウスの位置取得
+	m_past_posx = m_posx;
+	m_past_posy = m_poy;
 	GetMousePoint(&m_posx, &m_poy);
 
 	//左クリック
@@ -64,6 +69,8 @@ void Mouse::update()
 		m_releasing_count_middle++;
 	}
 
+	//ホイール回転
+	m_wheel_rot = GetMouseWheelRotVol();
 }
 
 
@@ -73,9 +80,21 @@ int Mouse::getPosX() const
 }
 
 
+int Mouse::getDiffPosX() const
+{
+	return m_posx - m_past_posx;
+}
+
+
 int Mouse::getPosY() const
 {
 	return m_poy;
+}
+
+
+int Mouse::getDiffPosY() const
+{
+	return m_poy - m_past_posy;
 }
 
 
@@ -112,4 +131,10 @@ int Mouse::getReleasingCountRight() const
 int Mouse::getReleasingCountMiddle() const
 {
 	return m_releasing_count_middle;
+}
+
+
+int Mouse::getWheelRot() const
+{
+	return m_wheel_rot;
 }

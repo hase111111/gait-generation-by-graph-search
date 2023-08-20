@@ -6,7 +6,7 @@
 #include "map_state.h"
 #include "node.h"
 #include "graphic_const.h"
-#include "camera_controller.h"
+#include "camera_gui.h"
 #include "gui_controller.h"
 #include "hexapod_renderer.h"
 
@@ -17,7 +17,7 @@
 //! @brief このプロジェクトにおける標準的なロボットの描画機能を持つクラス．
 //! @details 波東さんのプログラムのロボット表示機能を書き直したもの．
 //! 基本的な処理の内容は変化していないが，より表示するデータの内容が詳しくなっている．
-//! また，UIによってランタイムで表示方法を制御することができるようになったため，よりロボットの状態を理解しやすくなっている．
+//! また，UIによってランタイムで表示方法を制御することができるようになったため，よりロボットの状態を理解しやすくなっている．ﾀﾌﾞﾝﾈ
 //! @note 処理を大きく書き換えたい場合はそもそも新しいクラスを書くようにするとよいと思う．
 //! @n GraphicSampleを参考にして，作成するようにすると楽．
 class GraphicMainBasic final : public IGraphicMain
@@ -32,7 +32,7 @@ public:
 
 private:
 
-	CameraController m_camera_controller;	//カメラ制御クラス
+	CameraGUI m_camera_gui;				// カメラの位置を制御するGUI
 
 	HexapodRenderer m_hexapod_renderer;
 
