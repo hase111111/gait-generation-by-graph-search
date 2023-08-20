@@ -1,6 +1,6 @@
 #pragma once
 #include "interface_node_creator.h"
-#include "my_polygon.h"
+#include "designlab_polygon.h"
 #include "com_type.h"
 
 
@@ -21,7 +21,7 @@ private:
 
 	const MapState* const mp_map;
 
-	std::vector<my_vec::SPolygon2> m_polygons;
+	std::vector<dl_vec::SPolygon2> m_polygons;
 
 	const bool DO_DEBUG_PRINT = false;
 };

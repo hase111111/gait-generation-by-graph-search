@@ -24,9 +24,9 @@ public:
 
 private:
 
-	bool isAbleCoxaLeg(const my_vec::SVector& coxa_joint, const my_vec::SVector& femur_joint) const;
-	bool isAbleFemurLeg(const my_vec::SVector& femur_joint, const my_vec::SVector& tibia_joint) const;
-	bool isAbleTibiaLeg(const my_vec::SVector& tibia_joint, const my_vec::SVector& leg_joint) const;
+	bool isAbleCoxaLeg(const dl_vec::SVector& coxa_joint, const dl_vec::SVector& femur_joint) const;
+	bool isAbleFemurLeg(const dl_vec::SVector& femur_joint, const dl_vec::SVector& tibia_joint) const;
+	bool isAbleTibiaLeg(const dl_vec::SVector& tibia_joint, const dl_vec::SVector& leg_joint) const;
 
 
 	const unsigned int COLOR_BODY;			//ì∑ëÃÇÃêF

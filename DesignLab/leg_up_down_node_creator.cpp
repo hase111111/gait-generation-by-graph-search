@@ -47,7 +47,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 	//次に脚が地面に接地可能か調べる．
 
 	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	my_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -62,7 +62,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			my_vec::SVector res_ground_pos;
+			dl_vec::SVector res_ground_pos;
 
 			if (isGroundableLeg(i, current_node, &res_ground_pos))
 			{
@@ -123,14 +123,14 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 }
 
 
-bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& current_node, my_vec::SVector* output_ground_pos)
+bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
 
 	if (mp_map == nullptr) { return false; }	//マップがないときはfalseを返す．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const my_vec::SVector kGlobalLegbasePos = m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
+	const dl_vec::SVector kGlobalLegbasePos = m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
 
 	int max_x_dev = mp_map->getDevideMapNumX(kGlobalLegbasePos.x) + 2;
 	int min_x_dev = mp_map->getDevideMapNumX(kGlobalLegbasePos.x) - 2;
@@ -146,7 +146,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	my_vec::SVector candidate_pos;		//現在の脚位置に合致する候補座標群．
+	dl_vec::SVector candidate_pos;		//現在の脚位置に合致する候補座標群．
 	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
@@ -158,7 +158,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				my_vec::SVector map_point_pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
+				dl_vec::SVector map_point_pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
 				map_point_pos = m_calclator.convertLocalLegPos(current_node, map_point_pos, now_leg_num, false);
 
 				//脚位置を更新したノードを作成する．
@@ -213,7 +213,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	const int _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < my_math::squared(LEG_MARGIN))
+	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
 	{
 		if (_leg_state == 4) { return true; }
 		else { return false; }

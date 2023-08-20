@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "../DesignLab/MyPolygon.h"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SPolygon2Test
 {

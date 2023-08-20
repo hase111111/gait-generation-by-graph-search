@@ -1,8 +1,8 @@
-#include "my_math.h"
+#include "designlab_math.h"
 
 #include <random>
 
-double my_math::generateRandomNumber(const double min, const double max)
+double dl_math::generateRandomNumber(const double min, const double max)
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -10,7 +10,7 @@ double my_math::generateRandomNumber(const double min, const double max)
 	return dis(gen);
 }
 
-float my_math::generateRandomNumber(const float min, const float max)
+float dl_math::generateRandomNumber(const float min, const float max)
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -18,7 +18,7 @@ float my_math::generateRandomNumber(const float min, const float max)
 	return (float)dis(gen);
 }
 
-int my_math::generateRandomNumber(const int min, const int max)
+int dl_math::generateRandomNumber(const int min, const int max)
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -26,7 +26,7 @@ int my_math::generateRandomNumber(const int min, const int max)
 	return (int)dis(gen);
 }
 
-float my_math::limitRangeAngle(const float angle)
+float dl_math::limitRangeAngle(const float angle)
 {
 	//atan2‚É‡‚í‚¹‚é‚½‚ßCŠp“x‚ğ -ƒÎ < angle < ƒÎ ‚É‚·‚é (—á‚¦‚Î 340‹¨-20‹,-340‹¨20‹)
 	float _res = angle + MY_FLT_PI;

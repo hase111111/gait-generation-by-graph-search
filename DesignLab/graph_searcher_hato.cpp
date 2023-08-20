@@ -70,7 +70,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 				max_leg_rot_angle = candiate_leg_rot_angle;
 				result_index = static_cast<int>(i);
 			}
-			else if (my_math::isEqual(max_rot_angle, candiate_rot_angle))
+			else if (dl_math::isEqual(max_rot_angle, candiate_rot_angle))
 			{
 				if (max_leg_rot_angle < candiate_leg_rot_angle)
 				{
@@ -140,8 +140,8 @@ void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STar
 
 float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_node, const STarget& target) const
 {
-	my_vec::SVector center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
-	my_vec::SVector m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
+	dl_vec::SVector center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
+	dl_vec::SVector m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
 
 	return (int)(m_target_to_parent.projectedXY().length() - center_com_dif.projectedXY().length()) / 10 * 10.0f;
 }

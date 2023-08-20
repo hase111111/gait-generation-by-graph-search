@@ -5,13 +5,13 @@
 #include <iomanip>
 #include <ios>
 
-#include "my_math.h"
-#include "my_vector.h"
+#include "designlab_math.h"
+#include "designlab_vector.h"
 
 
-namespace my_vec
+namespace dl_vec
 {
-	//! @struct my_vec::SRotator
+	//! @struct dl_vec::SRotator
 	//! @date 2023/08/06
 	//! @author 長谷川
 	//! @brief 回転を表す構造体．XYZオイラー角
@@ -29,7 +29,7 @@ namespace my_vec
 
 		constexpr bool operator ==(const SRotator& other) const
 		{
-			return (my_math::isEqual(roll, other.roll) && my_math::isEqual(pitch, other.pitch) && my_math::isEqual(yaw, other.yaw));
+			return (dl_math::isEqual(roll, other.roll) && dl_math::isEqual(pitch, other.pitch) && dl_math::isEqual(yaw, other.yaw));
 		}
 		constexpr bool operator !=(const SRotator& other) const { return !(*this == other); }
 
@@ -73,10 +73,10 @@ namespace my_vec
 	//! @return SVector 回転した後の位置ベクトル
 	SVector rotVector(const SVector& vec, const SRotator& rot);
 
-}	// namespace my_vec
+}	// namespace dl_vec
 
 
-//! @file my_rotator.h
+//! @file designlab_rotator.h
 //! @date 2023/08/06
 //! @author 長谷川
 //! @brief 回転を表す構造体．XYZオイラー角

@@ -8,7 +8,7 @@ namespace SPolygon2Test
 	TEST(SPolygon2Func, GetMaxX)
 	{
 		//三角形を生成して，X座標の最大値を求める
-		my_vec::SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 0, 1 });
@@ -16,7 +16,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon.getMaxX(), 1.0f);
 
 		//四角形を生成して，X座標の最大値を求める
-		my_vec::SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -31,7 +31,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon2.getMaxX(), 2.0f);
 
 		//6角形を生成して，X座標の最大値を求める
-		my_vec::SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });
@@ -52,7 +52,7 @@ namespace SPolygon2Test
 	TEST(SPolygon2Func, GetMinX)
 	{
 		//三角形を生成して，X座標の最小値を求める
-		my_vec::SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 0, 1 });
@@ -60,7 +60,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon.getMinX(), 0.0f);
 
 		//四角形を生成して，X座標の最小値を求める
-		my_vec::SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -75,7 +75,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon2.getMinX(), -5.0f);
 
 		//6角形を生成して，X座標の最小値を求める
-		my_vec::SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });
@@ -96,7 +96,7 @@ namespace SPolygon2Test
 	TEST(SPolygon2Func, GetMaxY)
 	{
 		//三角形を生成して，Y座標の最大値を求める
-		my_vec::SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 0, 1 });
@@ -104,7 +104,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon.getMaxY(), 1.0f);
 
 		//四角形を生成して，Y座標の最大値を求める
-		my_vec::SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -119,7 +119,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon2.getMaxY(), 1.0f);
 
 		//6角形を生成して，Y座標の最大値を求める
-		my_vec::SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });
@@ -139,7 +139,7 @@ namespace SPolygon2Test
 	TEST(SPolygon2Func, GetMinY)
 	{
 		//三角形を生成して，Y座標の最小値を求める
-		my_vec::SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 0, 1 });
@@ -147,7 +147,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon.getMinY(), 0.0f);
 
 		//四角形を生成して，Y座標の最小値を求める
-		my_vec::SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -162,7 +162,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon2.getMinY(), 0.0f);
 
 		//6角形を生成して，Y座標の最小値を求める
-		my_vec::SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });

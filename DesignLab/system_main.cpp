@@ -3,7 +3,7 @@
 #include <boost/thread.hpp>
 
 #include "Define.h"
-#include "my_math.h"
+#include "designlab_math.h"
 #include "my_timer.h"
 #include "CmdIO.h"
 #include "hexapod.h"

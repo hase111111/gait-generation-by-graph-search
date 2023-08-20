@@ -33,7 +33,7 @@ bool GraphicMainTest::update()
 			{
 				HexapodStateCalclator calclator;
 
-				my_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
+				dl_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
 
 				int _map_x = m_map_state.getDevideMapNumX(global.x);
 				int _map_y = m_map_state.getDevideMapNumY(global.y);
@@ -43,7 +43,7 @@ bool GraphicMainTest::update()
 				if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) > 0) { _map_y++; }
 				else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) > 0) { _map_y--; }
 
-				my_vec::SVector _map_pos = m_map_state.getPosFromDevideMap(_map_x, _map_y, m_map_index % m_map_state.getPointNumFromDevideMap(_map_x, _map_y));
+				dl_vec::SVector _map_pos = m_map_state.getPosFromDevideMap(_map_x, _map_y, m_map_index % m_map_state.getPointNumFromDevideMap(_map_x, _map_y));
 				m_map_index++;
 
 				m_node.leg_pos[i] = calclator.convertLocalLegPos(m_node, _map_pos, i, true);
@@ -94,7 +94,7 @@ bool GraphicMainTest::update()
 		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_R) > 0)
 		{
 			auto rot = m_node.rot;
-			rot.yaw += com_speed / 360.0f * 2 * my_math::MY_FLT_PI;
+			rot.yaw += com_speed / 360.0f * 2 * dl_math::MY_FLT_PI;
 			m_node.rot = rot;
 		}
 	}

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "../DesignLab/MyVector2.h"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SVector2Test
 {

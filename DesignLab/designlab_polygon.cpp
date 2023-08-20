@@ -1,7 +1,7 @@
-#include "my_polygon.h"
+#include "designlab_polygon.h"
 
 
-bool my_vec::SPolygon2::isConvex() const
+bool dl_vec::SPolygon2::isConvex() const
 {
 	const int num = getVertexNum();
 
@@ -38,7 +38,7 @@ bool my_vec::SPolygon2::isConvex() const
 }
 
 
-bool my_vec::SPolygon2::isInside(const SVector2& point) const
+bool dl_vec::SPolygon2::isInside(const SVector2& point) const
 {
 	const int num = getVertexNum();
 

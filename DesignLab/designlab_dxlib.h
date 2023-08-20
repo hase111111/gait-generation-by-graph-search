@@ -2,7 +2,7 @@
 
 #include "Dxlib.h"
 
-#include "my_vector.h"
+#include "designlab_vector.h"
 #include "hexapod_const.h"
 
 
@@ -20,7 +20,7 @@ namespace dl_dxlib
 	//! @brief Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する．<br>ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 	//! @param [in] vec 変換前の座標．
 	//! @return VECTOR 変換後の座標．
-	inline VECTOR convertToDxVec(const my_vec::SVector& vec) { return VGet(vec.x, -vec.y, vec.z); }
+	inline VECTOR convertToDxVec(const dl_vec::SVector& vec) { return VGet(vec.x, -vec.y, vec.z); }
 
 
 	//! @brief デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする．

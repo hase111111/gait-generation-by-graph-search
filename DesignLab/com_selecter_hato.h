@@ -3,8 +3,8 @@
 #include <vector>
 #include <memory>
 
-#include "my_vector.h"
-#include "my_polygon.h"
+#include "designlab_vector.h"
+#include "designlab_polygon.h"
 #include "com_type.h"
 #include "node.h"
 #include "hexapod_state_calculator.h"
@@ -36,7 +36,7 @@ public:
 	//! @n そして，絶対安全余裕を計算し，マージンを外れた点を除外する．
 	//! @n また，移動後の座標において，脚が他の脚と干渉する場合は除外する．
 	//! @n 以上の処理を行った後，残った点の重心を求める． 
-	bool getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, my_vec::SVector* output_com) const;
+	bool getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, dl_vec::SVector* output_com) const;
 
 private:
 
@@ -50,10 +50,10 @@ private:
 	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
-	bool makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::pair<bool, my_vec::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
+	bool makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::pair<bool, dl_vec::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const my_vec::SPolygon2& polygon, const std::vector<my_vec::SVector2>& edge_vec, const my_vec::SVector2& candidate_point) const;
+	bool isInMargin(const dl_vec::SPolygon2& polygon, const std::vector<dl_vec::SVector2>& edge_vec, const dl_vec::SVector2& candidate_point) const;
 
 
 	SNode m_current_node; //!< 現在のノード

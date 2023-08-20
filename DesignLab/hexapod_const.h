@@ -1,6 +1,6 @@
 #pragma once
 
-#include "my_math.h"
+#include "designlab_math.h"
 
 
 //! @class HexapodConst
@@ -29,7 +29,7 @@ public:
 	const static float VERTICAL_MAX_RANGE;			//!< 地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ
 	const static float VERTICAL_MIN_RANGE;			//!< 地面の最高点と胴体下方の隙間の最小値を示す．旧名 MIN_DELTAZ
 
-	constexpr static float MOVABLE_LEG_RANGE = my_math::convertDegToRad(40.0f);			//!< coxa関節(第1関節)の稼働可能な角度 [rad]
+	constexpr static float MOVABLE_LEG_RANGE = dl_math::convertDegToRad(40.0f);			//!< coxa関節(第1関節)の稼働可能な角度 [rad]
 
 	//! MOVABLE_LEG_RANGEのcos値 -85°，-130°，-175°，95°，50°，5°
 	constexpr static float MOVABLE_LEG_RANGE_COS_MAX[LEG_NUM] = { 0.08715574f , -0.6427876f, -0.9961947f, -0.08715574f, 0.6427876f, 0.9961947f };
@@ -45,8 +45,8 @@ public:
 
 
 	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
-	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { my_math::convertDegToRad(-45.0f),	my_math::convertDegToRad(-90.0f),	my_math::convertDegToRad(-135.0f),
-													my_math::convertDegToRad(135.0f),	my_math::convertDegToRad(90.0f),	my_math::convertDegToRad(45.0f) };
+	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
+													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };
 
 	//! DEFAULT_LEG_ANGLEの値を元にsin cos を計算しておく．
 	constexpr static float DEFAULT_LEG_ANGLE_SIN[LEG_NUM] = { -0.70710678118654f, -1.0f, -0.70710678118654f,

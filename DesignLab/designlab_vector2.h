@@ -4,12 +4,12 @@
 #include <cmath>
 #include <vector>
 
-#include "my_math.h"
+#include "designlab_math.h"
 
 
-namespace my_vec
+namespace dl_vec
 {
-	//! @struct my_vec::SVector2
+	//! @struct dl_vec::SVector2
 	//! @date 2023/08/06
 	//! @author 長谷川
 	//! @brief 2次元のベクトルを表す構造体
@@ -62,7 +62,7 @@ namespace my_vec
 
 		constexpr bool operator==(const SVector2& other) const
 		{
-			return my_math::isEqual(x, other.x) && my_math::isEqual(y, other.y);
+			return dl_math::isEqual(x, other.x) && dl_math::isEqual(y, other.y);
 		}
 
 
@@ -99,7 +99,7 @@ namespace my_vec
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue
 		//! @note 誤差を考慮している
-		constexpr bool isZero() const { return my_math::isEqual(x, 0.0f) && my_math::isEqual(y, 0.0f); }
+		constexpr bool isZero() const { return dl_math::isEqual(x, 0.0f) && dl_math::isEqual(y, 0.0f); }
 
 
 		float x;
@@ -127,10 +127,10 @@ namespace my_vec
 		return is >> unused >> v.x >> unused >> v.y >> unused;
 	}
 
-} // namespace my_vec
+} // namespace dl_vec
 
 
-//! @file my_vector2.h
+//! @file designlab_vector2.h
 //! @date 2023/08/06
 //! @author 長谷川
 //! @brief 2次元のベクトルを表す構造体

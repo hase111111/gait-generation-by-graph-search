@@ -2,7 +2,7 @@
 #include "../DesignLab/MyPolygon.h"
 #include "../DesignLab/MyPolygon.cpp"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SPolygon2Test
 {

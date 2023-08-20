@@ -18,7 +18,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 	//脚が地面に接地可能か調べる．
 
 	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	my_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -36,7 +36,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 		else
 		{
 			//現在遊脚中の脚は現在の脚状態で接地できるか検討する．
-			my_vec::SVector res_ground_pos;
+			dl_vec::SVector res_ground_pos;
 
 			if (isGroundableLeg(i, current_node, res_ground_pos))
 			{
@@ -97,16 +97,16 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 }
 
 
-bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, my_vec::SVector& _output_ground_pos)
+bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, dl_vec::SVector& _output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
 
-	using my_vec::SVector;
+	using dl_vec::SVector;
 
 	if (mp_map == nullptr) { return false; }	//マップがないときはfalseを返す．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const my_vec::SVector kGlobalLegBasePos = m_calculator.getGlobalLegBasePos(_current_node, _leg_num, false);
+	const dl_vec::SVector kGlobalLegBasePos = m_calculator.getGlobalLegBasePos(_current_node, _leg_num, false);
 
 	int max_x_dev = mp_map->getDevideMapNumX(kGlobalLegBasePos.x) + 1;
 	int min_x_dev = mp_map->getDevideMapNumX(kGlobalLegBasePos.x) - 1;
@@ -121,7 +121,7 @@ bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _curre
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	std::vector<my_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
+	std::vector<dl_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
 
 	//範囲内の点を全て調べる．
 	for (int x = min_x_dev; x < max_x_dev; x++)
@@ -176,7 +176,7 @@ bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	int _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < my_math::squared(LEG_MARGIN))
+	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
 	{
 		if (_leg_state == 4) { return true; }
 		else { return false; }

@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 
-#include "my_vector.h"
+#include "designlab_vector.h"
 #include "map_creator.h"
 #include "map_const.h"
 
@@ -70,7 +70,7 @@ public:
 	//! @param [in] y y座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] num 何番目の脚設置可能点か． 
 	//! @return SVector 脚設置可能点の座標．
-	my_vec::SVector getPosFromDevideMap(const int x, const int y, const int num) const;
+	dl_vec::SVector getPosFromDevideMap(const int x, const int y, const int num) const;
 
 	//! @brief 長方形状に切り分けられたマップから，最も高いZ座標を返す．
 	//! @param [in] x X座標，切り分けられたタイルの位置で指定する．
@@ -84,7 +84,7 @@ public:
 	//! @brief 脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨．
 	//! @param [in] num 
 	//! @return SVector 脚設置可能点の座標．
-	my_vec::SVector getPos(const int num) const;
+	dl_vec::SVector getPos(const int num) const;
 
 	//! @brief 脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
 	//! @return int 脚設置可能点の総数
@@ -106,9 +106,9 @@ private:
 	inline int getDevideMapNum(const int x, const int y) const { return x * MapConst::LP_DIVIDE_NUM + y; }
 
 
-	std::vector<my_vec::SVector> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
+	std::vector<dl_vec::SVector> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
 
-	std::vector<std::vector<my_vec::SVector> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+	std::vector<std::vector<dl_vec::SVector> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
 
 	std::vector<float> m_devide_map_top_z;						//m_devide_mapの中の最も高いz座標をまとめたもの，要素が存在しないなら，float型の最小値が入る．
 

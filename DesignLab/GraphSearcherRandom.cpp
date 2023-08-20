@@ -1,5 +1,5 @@
 #include "GraphSearcherRandom.h"
-#include"my_math.h"
+#include"designlab_math.h"
 
 
 EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
@@ -25,7 +25,7 @@ EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>
 
 	if (depth1_node.empty()) { return EGraphSearchResult::FailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
 
-	(*output_result) = depth1_node.at(my_math::generateRandomNumber(0, (int)depth1_node.size() - 1));		// ランダムなやつを一つ選択する．
+	(*output_result) = depth1_node.at(dl_math::generateRandomNumber(0, (int)depth1_node.size() - 1));		// ランダムなやつを一つ選択する．
 
 	return EGraphSearchResult::Success;
 }

@@ -2,7 +2,7 @@
 #include "../DesignLab/MyLine.h"
 #include "../DesignLab/MyLine.cpp"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SLine2Test
 {

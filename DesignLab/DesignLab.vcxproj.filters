@@ -61,9 +61,6 @@
     <Filter Include="ソース ファイル\GraphicSystem\Common">
       <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\MyVector">
-      <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Main\Interface">
       <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
     </Filter>
@@ -105,6 +102,9 @@
     </Filter>
     <Filter Include="ソース ファイル\PassFinderSystem\Common">
       <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\Vector">
+      <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -150,7 +150,7 @@
     <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="my_math.h">
+    <ClInclude Include="designlab_math.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="map_creator.h">
@@ -255,17 +255,17 @@
     <ClInclude Include="InterfaceGraphSearcher.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="my_vector2.h">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClInclude Include="designlab_vector2.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="my_vector.h">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClInclude Include="designlab_vector.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="my_polygon.h">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClInclude Include="designlab_polygon.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="my_line.h">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClInclude Include="designlab_line.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
     <ClInclude Include="com_candidate_polygon_maker.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
@@ -348,8 +348,11 @@
     <ClInclude Include="pass_finder_factory_fixed.h">
       <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="my_rotator.h">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClInclude Include="designlab_rotator.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="designlab_quaternion.h">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -395,7 +398,7 @@
     <ClCompile Include="map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="my_math.cpp">
+    <ClCompile Include="designlab_math.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="map_state.cpp">
@@ -485,17 +488,17 @@
     <ClCompile Include="graphic_main_test.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
-    <ClCompile Include="my_vector.cpp">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClCompile Include="designlab_vector.cpp">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="my_line.cpp">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClCompile Include="designlab_line.cpp">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="my_polygon.cpp">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClCompile Include="designlab_polygon.cpp">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
     <ClCompile Include="hexapod_next_move.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -560,14 +563,17 @@
     <ClCompile Include="my_timer.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="my_rotator.cpp">
-      <Filter>ソース ファイル\Common\MyVector</Filter>
+    <ClCompile Include="designlab_rotator.cpp">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
     <ClCompile Include="pass_finder_fixed.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="pass_finder_factory_fixed.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_quaternion.cpp">
+      <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

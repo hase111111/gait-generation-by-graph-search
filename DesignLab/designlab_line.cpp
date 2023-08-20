@@ -1,9 +1,9 @@
-#include "my_line.h"
+#include "designlab_line.h"
 
-#include "my_math.h"
+#include "designlab_math.h"
 
 
-my_vec::SVector2 my_vec::SLine2::getIntersection(const SLine2& other) const
+dl_vec::SVector2 dl_vec::SLine2::getIntersection(const SLine2& other) const
 {
 	if (isParallel(other))
 	{
@@ -18,7 +18,7 @@ my_vec::SVector2 my_vec::SLine2::getIntersection(const SLine2& other) const
 	const float t1 = v3.cross(v2) / d;
 	const float t2 = v3.cross(v1) / d;
 
-	if (t1 < 0.0f - my_math::ALLOWABLE_ERROR || t1 > 1.0f + my_math::ALLOWABLE_ERROR || t2 < 0.0f - my_math::ALLOWABLE_ERROR || t2 > 1.0f + my_math::ALLOWABLE_ERROR)
+	if (t1 < 0.0f - dl_math::ALLOWABLE_ERROR || t1 > 1.0f + dl_math::ALLOWABLE_ERROR || t2 < 0.0f - dl_math::ALLOWABLE_ERROR || t2 > 1.0f + dl_math::ALLOWABLE_ERROR)
 	{
 		return SVector2{ 0, 0 };	//交点は線分の外
 	}
@@ -27,7 +27,7 @@ my_vec::SVector2 my_vec::SLine2::getIntersection(const SLine2& other) const
 }
 
 
-bool my_vec::SLine2::hasIntersection(const SLine2& other) const
+bool dl_vec::SLine2::hasIntersection(const SLine2& other) const
 {
 	if (isParallel(other))
 	{
@@ -42,7 +42,7 @@ bool my_vec::SLine2::hasIntersection(const SLine2& other) const
 	const auto t1 = v3.cross(v2) / d;
 	const auto t2 = v3.cross(v1) / d;
 
-	if (t1 < 0.0f - my_math::ALLOWABLE_ERROR || t1 > 1.0f + my_math::ALLOWABLE_ERROR || t2 < 0.0f - my_math::ALLOWABLE_ERROR || t2 > 1.0f + my_math::ALLOWABLE_ERROR)
+	if (t1 < 0.0f - dl_math::ALLOWABLE_ERROR || t1 > 1.0f + dl_math::ALLOWABLE_ERROR || t2 < 0.0f - dl_math::ALLOWABLE_ERROR || t2 > 1.0f + dl_math::ALLOWABLE_ERROR)
 	{
 		return false;	//交点は線分の外
 	}

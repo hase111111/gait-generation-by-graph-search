@@ -7,7 +7,7 @@
 #include "hexapod_const.h"
 #include "hexapod_state_calculator.h"
 #include "leg_state.h"
-#include "my_math.h"
+#include "designlab_math.h"
 
 
 ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)
@@ -55,7 +55,7 @@ void ComUpDownNodeCreator::create(const SNode& current_node, const int current_n
 			const float edge_c = HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH - MARGIN;
 			const float edge_b = current_node.leg_pos[i].projectedXY().length() - HexapodConst::COXA_LENGTH;
 
-			const float edge_a = sqrt(my_math::squared(edge_c) - my_math::squared(edge_b));
+			const float edge_a = sqrt(dl_math::squared(edge_c) - dl_math::squared(edge_b));
 
 			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
 			highest_body_zpos = (std::min)(edge_a + current_node.global_center_of_mass.z + current_node.leg_pos[i].z, highest_body_zpos);
@@ -85,7 +85,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 			SNode new_node = current_node;
 
 			//重心の位置を変更する．
-			my_vec::SVector new_com = current_node.global_center_of_mass;
+			dl_vec::SVector new_com = current_node.global_center_of_mass;
 			new_com.z = low + kDivZ * i;
 
 			new_node.changeGlobalCenterOfMass(new_com, true);

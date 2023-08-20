@@ -2,8 +2,8 @@
 
 #include "DxLib.h"
 
-#include "my_rotator.h"
-#include "my_math.h"
+#include "designlab_quaternion.h"
+#include "designlab_math.h"
 
 
 //! @enum ECameraMode
@@ -53,39 +53,28 @@ public:
 
 private:
 
-	//カメラを目標値に徐々に近づけるのに使用する．戻り値は移動後のVECTOR
+	//引数のクォータニオンを徐々に目標値に近づける．補間方法は線形補間 https://www.f-sp.com/entry/2017/06/30/221124
+	dl_vec::SQuaternion approachTargetQuat(const dl_vec::SQuaternion& current, const dl_vec::SQuaternion& target) const;
+
+	//引数のベクトルを徐々に目標値に近づける
 	VECTOR approachTargetVECTOR(const VECTOR& current, const VECTOR& target) const;
-
-	//カメラを目標値に徐々に近づけるのに使用する．上の関数より更にゆっくり近づく．
-	VECTOR approachSlowlyTargetVECTOR(const VECTOR& current, const VECTOR& target) const;
-
-	my_vec::SRotator approachTargetRotator(const my_vec::SRotator& current, const my_vec::SRotator& target) const;
 
 	//引数の値を徐々に目標値に近づける．
 	float approachTargetValue(const float current, const float target) const;
 
-	//引数の値を徐々に目標値に近づける．上の関数より更にゆっくり近づく．
-	float approachSlowlyTargetValue(const float current, const float target) const;
 
-
-	const float CAMERA_SLOW_SPEED = 0.1f;				//カメラの上方向のベクトルは単位ベクトルであるので，下2つの値だと速すぎる．
-	const float CAMERA_SPEED = 3.0f;					//カメラが移動する速さ．
-	const float CAMERA_HIGH_SPEED = 25.0f;				//カメラが高速で移動するときの速さ.
-	const float CAMERA_HIGH_DIF = 150.0f;				//目標座標とこの値以上に離れているならば，CAMERA_HIGH_SPEEDの値で急いで近づく．
-	const float CAMERA_ANGLE = my_math::MY_FLT_PI / 4;	//斜めからのカメラの角度
-	const my_vec::SVector kDefaultCameraFrontVec = { 1.0f, 0.0f, 0.0f };	//デフォルトのカメラの方向を表す単位ベクトル
+	const dl_vec::SVector kDefaultCameraFrontVec = { 1.0f, 0.0f, 0.0f };	//デフォルトのカメラの方向を表す単位ベクトル
+	const dl_vec::SVector kDefaultCameraUpVec = { 0.0f, 0.0f, 1.0f };		//デフォルトのカメラの方向を表す単位ベクトル
 
 	ECameraMode m_camera_view_mode;			//カメラの視点を決定する．
 
-	VECTOR m_goal_target_pos;	//カメラが注視する座標の目標値
-	float m_goal_length_camera_to_target;	//カメラと注視する対象との距離の目標値
-	VECTOR m_goal_upvec;		//カメラの上方向のベクトルの目標値
-	my_vec::SRotator m_goal_camera_rot;	//カメラの回転の目標値
+	VECTOR m_goal_target_pos;					//カメラが注視する座標の目標値
+	dl_vec::SQuaternion m_goal_camera_rot_quat;	//カメラの回転を表すクォータニオン
+	float m_goal_length_camera_to_target;		//カメラと注視する対象との距離の目標値
 
-	VECTOR m_target_pos;	//カメラが現在注視している座標
-	float m_length_camera_to_target;	//カメラと注視する対象との距離の現在値
-	VECTOR m_camera_upvec;	//カメラの上方向のベクトルの現在値
-	my_vec::SRotator m_camera_rot;	//カメラの回転の目標値
+	VECTOR m_target_pos;					//カメラが現在注視している座標
+	dl_vec::SQuaternion m_camera_rot_quat;	//カメラの回転を表すクォータニオン
+	float m_length_camera_to_target;		//カメラと注視する対象との距離の現在値
 };
 
 

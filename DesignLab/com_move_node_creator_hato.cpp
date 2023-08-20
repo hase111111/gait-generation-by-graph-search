@@ -26,7 +26,7 @@ ComMoveNodeCreatorHato::~ComMoveNodeCreatorHato()
 
 void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
-	std::pair<my_vec::SPolygon2, ComType::EComPattern> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
+	std::pair<dl_vec::SPolygon2, ComType::EComPattern> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
 
 	//重心移動先の候補地点の範囲を示す多角形を作成する
 	m_maker.makeCandidatePolygon(current_node, candidate_polygons);
@@ -39,7 +39,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 		//そもそも多角形が候補点になりえないならば，その多角形は無視する
 		if (candidate_polygons[i].second == ComType::EComPattern::ERROR_POS) { continue; }
 
-		my_vec::SVector result_com;
+		dl_vec::SVector result_com;
 
 		if (m_selecter.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, &result_com))
 		{
@@ -91,14 +91,14 @@ bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const my_vec::SVector kCoxaPos = m_calclator.getGlobalCoxaJointPos(node, i, false);	//脚の根元の座標(グローバル)を取得する
+		const dl_vec::SVector kCoxaPos = m_calclator.getGlobalCoxaJointPos(node, i, false);	//脚の根元の座標(グローバル)を取得する
 
 		const float kMapTopZ = mp_map->getTopZFromDevideMap(mp_map->getDevideMapNumX(kCoxaPos.x), mp_map->getDevideMapNumY(kCoxaPos.y));
 
 		top_z = (std::max)(top_z, kMapTopZ);	//最も高い点を求める
 	}
 
-	if (top_z + HexapodConst::VERTICAL_MIN_RANGE - my_math::ALLOWABLE_ERROR < node.global_center_of_mass.z)
+	if (top_z + HexapodConst::VERTICAL_MIN_RANGE - dl_math::ALLOWABLE_ERROR < node.global_center_of_mass.z)
 	{
 		return false;
 	}

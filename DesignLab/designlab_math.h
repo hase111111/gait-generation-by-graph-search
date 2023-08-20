@@ -2,11 +2,12 @@
 
 #include <vector>
 
-//! @namespacse my_math 基本的な計算を行う関数をまとめた名前空間．
+
+//! @namespacse dl_math 基本的な計算を行う関数をまとめた名前空間．
 //! @date 2023/08/06
 //! @author 長谷川
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
-namespace my_math
+namespace dl_math
 {
 	constexpr double MY_DBL_PI = 3.141592653589793;		//!< double型の円周率
 	constexpr float MY_FLT_PI = 3.141592653589793f;		//!< float型の円周率
@@ -104,10 +105,10 @@ namespace my_math
 
 	float limitRangeAngle(const float angle);
 
-}	// namespace my_math
+}	// namespace dl_math
 
 
-//! @file my_math.h
+//! @file designlab_math.h
 //! @date 2023/08/06
 //! @author 長谷川
 //! @brief 基本的な計算を行う関数をまとめた名前空間．

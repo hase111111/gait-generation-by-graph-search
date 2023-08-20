@@ -27,12 +27,13 @@
     <ClInclude Include="com_selecter.h" />
     <ClInclude Include="com_selecter_hato.h" />
     <ClInclude Include="com_up_down_node_creator.h" />
+    <ClInclude Include="designlab_quaternion.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
-    <ClInclude Include="my_rotator.h" />
+    <ClInclude Include="designlab_rotator.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
     <ClInclude Include="pass_finder_hato.h" />
@@ -78,11 +79,11 @@
     <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
     <ClInclude Include="mouse.h" />
-    <ClInclude Include="my_line.h" />
-    <ClInclude Include="my_math.h" />
-    <ClInclude Include="my_polygon.h" />
+    <ClInclude Include="designlab_line.h" />
+    <ClInclude Include="designlab_math.h" />
+    <ClInclude Include="designlab_polygon.h" />
     <ClInclude Include="my_timer.h" />
-    <ClInclude Include="my_vector2.h" />
+    <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="singleton.h" />
@@ -99,7 +100,7 @@
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
-    <ClInclude Include="my_vector.h" />
+    <ClInclude Include="designlab_vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="button_controller.cpp" />
@@ -109,11 +110,12 @@
     <ClCompile Include="com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />
+    <ClCompile Include="designlab_quaternion.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
     <ClCompile Include="GraphTreeCreatorThread.cpp" />
-    <ClCompile Include="my_rotator.cpp" />
+    <ClCompile Include="designlab_rotator.cpp" />
     <ClCompile Include="my_timer.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
@@ -153,8 +155,8 @@
     <ClCompile Include="leg_up_node_creator.cpp" />
     <ClCompile Include="LogFileIO.cpp" />
     <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="my_line.cpp" />
-    <ClCompile Include="my_polygon.cpp" />
+    <ClCompile Include="designlab_line.cpp" />
+    <ClCompile Include="designlab_polygon.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
@@ -162,7 +164,7 @@
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />
-    <ClCompile Include="my_math.cpp" />
+    <ClCompile Include="designlab_math.cpp" />
     <ClCompile Include="NodeFileIO.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="pass_finder_factory_hato.cpp" />
@@ -172,7 +174,7 @@
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />
     <ClCompile Include="TimeManager.cpp" />
-    <ClCompile Include="my_vector.cpp" />
+    <ClCompile Include="designlab_vector.cpp" />
     <ClCompile Include="Define.cpp" />
   </ItemGroup>
   <ItemGroup>

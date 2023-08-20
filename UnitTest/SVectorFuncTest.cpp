@@ -2,7 +2,7 @@
 #include "../DesignLab/MyVector.h"
 #include "../DesignLab/MyVector.cpp"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SVectorTest
 {
@@ -29,10 +29,10 @@ namespace SVectorTest
 		EXPECT_EQ(_v.lengthSquare(), 141);
 
 		_v = { 100, -80, -35 };
-		EXPECT_TRUE(my_math::isEqual(_v.lengthSquare(), 17625.0f));
+		EXPECT_TRUE(dl_math::isEqual(_v.lengthSquare(), 17625.0f));
 
 		_v = { 0.1f, -0.7f, 3.5f };
-		EXPECT_TRUE(my_math::isEqual(_v.lengthSquare(), 12.75f));
+		EXPECT_TRUE(dl_math::isEqual(_v.lengthSquare(), 12.75f));
 	}
 
 	TEST(SVectorFunc, Length)
@@ -52,13 +52,13 @@ namespace SVectorTest
 		EXPECT_FLOAT_EQ(_v.length(), 1.7320508f);
 
 		_v = { 4, -10, 5 };
-		EXPECT_TRUE(my_math::isEqual(_v.length(), 11.8743f));
+		EXPECT_TRUE(dl_math::isEqual(_v.length(), 11.8743f));
 
 		_v = { 0, 5, -12 };
-		EXPECT_TRUE(my_math::isEqual(_v.length(), 13.0f));
+		EXPECT_TRUE(dl_math::isEqual(_v.length(), 13.0f));
 
 		_v = { 6.7f, -33.9f, 29.5f };
-		EXPECT_TRUE(my_math::isEqual(_v.length(), 45.4351f));
+		EXPECT_TRUE(dl_math::isEqual(_v.length(), 45.4351f));
 	}
 
 	TEST(SVectorFunc, Normalized)
@@ -82,19 +82,19 @@ namespace SVectorTest
 
 		_v = { -94,-94,-94 };
 		EXPECT_EQ(_v.normalized(), SVector(-0.57735f, -0.57735f, -0.57735f));
-		EXPECT_TRUE(my_math::isEqual(_v.normalized().length(), 1));
+		EXPECT_TRUE(dl_math::isEqual(_v.normalized().length(), 1));
 
 		_v = { 17, 17, -17 };
 		EXPECT_EQ(_v.normalized(), SVector(0.57735f, 0.57735f, -0.57735f));
-		EXPECT_TRUE(my_math::isEqual(_v.normalized().length(), 1));
+		EXPECT_TRUE(dl_math::isEqual(_v.normalized().length(), 1));
 
 		_v = { 3, 2, -1 };
 		EXPECT_EQ(_v.normalized(), SVector(0.801784f, 0.534522f, -0.267261f));
-		EXPECT_TRUE(my_math::isEqual(_v.normalized().length(), 1));
+		EXPECT_TRUE(dl_math::isEqual(_v.normalized().length(), 1));
 
 		_v = { 62.51f, -94.78f, 25.89f };
 		EXPECT_EQ(_v.normalized(), SVector(0.536788f, -0.813898f, 0.222324f));
-		EXPECT_TRUE(my_math::isEqual(_v.normalized().length(), 1));
+		EXPECT_TRUE(dl_math::isEqual(_v.normalized().length(), 1));
 	}
 
 	TEST(SVectorFunc, IsZero)

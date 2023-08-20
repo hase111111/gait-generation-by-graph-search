@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "../DesignLab/MyVector2.h"
 
-using namespace my_vec;
+using namespace dl_vec;
 
 namespace SVector2Test
 {
@@ -95,7 +95,7 @@ namespace SVector2Test
 		EXPECT_FLOAT_EQ(25.0f, vec11.dot(vec12));
 	}
 
-//cross関数のテスト
+	//cross関数のテスト
 	TEST(SVector2Func, Cross)
 	{
 		//sample1

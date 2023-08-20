@@ -1,7 +1,7 @@
 #pragma once
 
 #include "interface_node_creator.h"
-#include "my_polygon.h"
+#include "designlab_polygon.h"
 #include "com_type.h"
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
@@ -36,7 +36,7 @@ private:
 
 	const MapState* const mp_map;
 
-	std::vector<my_vec::SPolygon2> m_polygons;
+	std::vector<dl_vec::SPolygon2> m_polygons;
 
 	const HexapodStateCalclator m_calclator;
 

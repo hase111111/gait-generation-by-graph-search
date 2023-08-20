@@ -6,9 +6,9 @@
 #include "leg_state.h"
 
 
-bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, my_vec::SVector* output_com) const
+bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, dl_vec::SVector* output_com) const
 {
-	std::pair<bool, my_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
+	std::pair<bool, dl_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
 	//候補点を生成する
 	if (!makeComCandidatePoint(polygon, com_candidate))
@@ -17,19 +17,19 @@ bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const 
 	}
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
-	std::vector<my_vec::SVector2> edge_vec;
+	std::vector<dl_vec::SVector2> edge_vec;
 	edge_vec.resize(polygon.getVertexNum());
 
 	for (int i = 0; i < polygon.getVertexNum(); ++i)
 	{
-		my_vec::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
+		dl_vec::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
 		edge.normalized();
 		edge_vec[i] = edge;
 	}
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．
-	my_vec::SVector after_move_com;
-	my_vec::SVector after_move_leg_pos[HexapodConst::LEG_NUM];
+	dl_vec::SVector after_move_com;
+	dl_vec::SVector after_move_leg_pos[HexapodConst::LEG_NUM];
 
 	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
 	{
@@ -69,7 +69,7 @@ bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const 
 	//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい
 	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
 
-	const my_vec::SVector2 k_rotate_center = { -10000,0 };
+	const dl_vec::SVector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
 
 	float min_dist = -100000;
@@ -102,7 +102,7 @@ bool ComSelecterHato::getComFromPolygon(const my_vec::SPolygon2& polygon, const 
 }
 
 
-bool ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, std::pair<bool, my_vec::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
+bool ComSelecterHato::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::pair<bool, dl_vec::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 	const float kMinX = polygon.getMinX();
@@ -113,7 +113,7 @@ bool ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, st
 	const float kWidth = kMaxX - kMinX;
 	const float kHeight = kMaxY - kMinY;
 
-	if (my_math::isEqual(kWidth, 0.0f) || my_math::isEqual(kHeight, 0.0f)) { return false; }
+	if (dl_math::isEqual(kWidth, 0.0f) || dl_math::isEqual(kHeight, 0.0f)) { return false; }
 
 	const float kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;
 	const float kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;
@@ -133,11 +133,11 @@ bool ComSelecterHato::makeComCandidatePoint(const my_vec::SPolygon2& polygon, st
 }
 
 
-bool ComSelecterHato::isInMargin(const my_vec::SPolygon2& polygon, const std::vector<my_vec::SVector2>& edge_vec, const my_vec::SVector2& candidate_point) const
+bool ComSelecterHato::isInMargin(const dl_vec::SPolygon2& polygon, const std::vector<dl_vec::SVector2>& edge_vec, const dl_vec::SVector2& candidate_point) const
 {
 	for (int i = 0; i < polygon.getVertexNum(); ++i)
 	{
-		my_vec::SVector2 v_map = candidate_point - polygon.getVertex(i);
+		dl_vec::SVector2 v_map = candidate_point - polygon.getVertex(i);
 
 		if (v_map.cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{
