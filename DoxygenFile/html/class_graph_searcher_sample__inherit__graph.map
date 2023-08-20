@@ -1,5 +1,5 @@
 <map id="GraphSearcherSample" name="GraphSearcherSample">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,80,158,107"/>
-<area shape="rect" id="Node000002" href="$class_i_graph_searcher.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてくださ..." alt="" coords="26,5,137,32"/>
+<area shape="rect" id="Node000002" href="$class_i_graph_searcher.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;&#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてくだ..." alt="" coords="26,5,137,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,47,84,80,79,80,79,47"/>
 </map>

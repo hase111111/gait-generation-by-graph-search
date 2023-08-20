@@ -130,9 +130,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 <tr class="memitem:abace333bdddc677a648742d8236b7bf9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#abace333bdddc677a648742d8236b7bf9">getPosX</a> () const</td></tr>
 <tr class="memdesc:abace333bdddc677a648742d8236b7bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
 <tr class="separator:abace333bdddc677a648742d8236b7bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4568f57333820a8513630b7ab9b259b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#ae4568f57333820a8513630b7ab9b259b">getDiffPosX</a> () const</td></tr>
+<tr class="memdesc:ae4568f57333820a8513630b7ab9b259b"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:ae4568f57333820a8513630b7ab9b259b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a5ec119583778ba83c7ac9d55f0b4e7b6">getPosY</a> () const</td></tr>
 <tr class="memdesc:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
 <tr class="separator:a5ec119583778ba83c7ac9d55f0b4e7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6c201d94abefb28a5ff61bb6ca4044"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#aac6c201d94abefb28a5ff61bb6ca4044">getDiffPosY</a> () const</td></tr>
+<tr class="memdesc:aac6c201d94abefb28a5ff61bb6ca4044"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:aac6c201d94abefb28a5ff61bb6ca4044"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f764c3748530fcf9b0e82366fb5ce2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a88f764c3748530fcf9b0e82366fb5ce2">getPushingCountLeft</a> () const</td></tr>
 <tr class="memdesc:a88f764c3748530fcf9b0e82366fb5ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスの左クリックの押され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a88f764c3748530fcf9b0e82366fb5ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +157,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 <tr class="memitem:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a622c859d87aa26d5bdf479d4ae02bd0e">getReleasingCountMiddle</a> () const</td></tr>
 <tr class="memdesc:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのホイールボタンの離され続けているフレーム数を取得する．  <br /></td></tr>
 <tr class="separator:a622c859d87aa26d5bdf479d4ae02bd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae1d7d0fc578a0a9dd547c9e9be90bbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#aae1d7d0fc578a0a9dd547c9e9be90bbf">getWheelRot</a> () const</td></tr>
+<tr class="memdesc:aae1d7d0fc578a0a9dd547c9e9be90bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのホイールの回転量を取得する． <br  />
+ 1フレームで回転した量を取得する． <br  />
+ 手前に回した分はマイナスの値として、奥に回した分はプラスの値として返る  <br /></td></tr>
+<tr class="separator:aae1d7d0fc578a0a9dd547c9e9be90bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
@@ -173,6 +184,74 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 <dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>注意点はKeyboardクラスと全く同じ．そちらを参照して確認してほしい． </p>
 </div><h2 class="groupheader">関数詳解</h2>
+<a id="ae4568f57333820a8513630b7ab9b259b" name="ae4568f57333820a8513630b7ab9b259b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4568f57333820a8513630b7ab9b259b">&#9670;&#160;</a></span>getDiffPosX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getDiffPosX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスカーソルのX方向の移動量． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_mouse_ae4568f57333820a8513630b7ab9b259b_icgraph.png" border="0" usemap="#aclass_mouse_ae4568f57333820a8513630b7ab9b259b_icgraph" alt=""/></div>
+<map name="aclass_mouse_ae4568f57333820a8513630b7ab9b259b_icgraph" id="aclass_mouse_ae4568f57333820a8513630b7ab9b259b_icgraph">
+<area shape="rect" title="マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="627,5,762,32"/>
+<area shape="rect" href="class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="411,5,579,32"/>
+<area shape="poly" title=" " alt="" coords="613,21,580,21,580,16,613,16"/>
+<area shape="rect" href="class_camera_g_u_i.html#a493e2281cb696a296b2db4a7a4a72134" title="GUIやカメラの更新を行う" alt="" coords="228,5,363,32"/>
+<area shape="poly" title=" " alt="" coords="396,21,363,21,363,16,396,16"/>
+<area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
+<area shape="poly" title=" " alt="" coords="213,21,180,21,180,16,213,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aac6c201d94abefb28a5ff61bb6ca4044" name="aac6c201d94abefb28a5ff61bb6ca4044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6c201d94abefb28a5ff61bb6ca4044">&#9670;&#160;</a></span>getDiffPosY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getDiffPosY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスカーソルのY方向の移動量． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_mouse_aac6c201d94abefb28a5ff61bb6ca4044_icgraph.png" border="0" usemap="#aclass_mouse_aac6c201d94abefb28a5ff61bb6ca4044_icgraph" alt=""/></div>
+<map name="aclass_mouse_aac6c201d94abefb28a5ff61bb6ca4044_icgraph" id="aclass_mouse_aac6c201d94abefb28a5ff61bb6ca4044_icgraph">
+<area shape="rect" title="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="627,5,764,32"/>
+<area shape="rect" href="class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="411,5,579,32"/>
+<area shape="poly" title=" " alt="" coords="612,21,580,21,580,16,612,16"/>
+<area shape="rect" href="class_camera_g_u_i.html#a493e2281cb696a296b2db4a7a4a72134" title="GUIやカメラの更新を行う" alt="" coords="228,5,363,32"/>
+<area shape="poly" title=" " alt="" coords="396,21,363,21,363,16,396,16"/>
+<area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
+<area shape="poly" title=" " alt="" coords="213,21,180,21,180,16,213,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="abace333bdddc677a648742d8236b7bf9" name="abace333bdddc677a648742d8236b7bf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abace333bdddc677a648742d8236b7bf9">&#9670;&#160;</a></span>getPosX()</h2>
 
@@ -330,6 +409,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
 
 <p>マウスの右クリックの離され続けているフレーム数を取得する． </p>
 <dl class="section return"><dt>戻り値</dt><dd>int 離されているフレーム数． </dd></dl>
+
+</div>
+</div>
+<a id="aae1d7d0fc578a0a9dd547c9e9be90bbf" name="aae1d7d0fc578a0a9dd547c9e9be90bbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae1d7d0fc578a0a9dd547c9e9be90bbf">&#9670;&#160;</a></span>getWheelRot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse::getWheelRot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスのホイールの回転量を取得する． <br  />
+ 1フレームで回転した量を取得する． <br  />
+ 手前に回した分はマイナスの値として、奥に回した分はプラスの値として返る </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスホイールの回転量． </dd></dl>
 
 </div>
 </div>

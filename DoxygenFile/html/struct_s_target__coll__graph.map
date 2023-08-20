@@ -1,7 +1,7 @@
 <map id="STarget" name="STarget">
-<area shape="rect" id="Node000001" title="探索において目標となる座標や角度，評価する値についてまとめた構造体" alt="" coords="106,128,172,155"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,46,81,75,95,102,120,126,116,129,91,106,76,76,67,47"/>
-<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="150,5,274,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,47,200,76,185,106,160,129,157,126,181,102,195,74,204,46"/>
+<area shape="rect" id="Node000001" title="探索において目標となる座標や角度，評価する値についてまとめた構造体" alt="" coords="98,128,164,155"/>
+<area shape="rect" id="Node000002" href="$structdl__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,118,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,46,71,75,83,103,94,115,108,125,105,130,91,119,79,105,66,76,60,47"/>
+<area shape="rect" id="Node000003" href="$structdl__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="142,5,258,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,47,188,76,173,106,150,129,146,126,169,102,183,74,192,46"/>
 </map>

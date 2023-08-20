@@ -6,6 +6,7 @@ var class_graphic_const =
     [ "CAMERA_FAR", "class_graphic_const.html#aa50a824132952d3ed6cc9bebec227374", null ],
     [ "CAMERA_NEAR", "class_graphic_const.html#a4ff19c1d95e8313cf6de759b3fdda24f", null ],
     [ "CAMERA_TO_TARGET_MAX", "class_graphic_const.html#a055cacafbdfe0a1edcc7d58912a0d4f2", null ],
+    [ "CAMERA_TO_TARGET_MIN", "class_graphic_const.html#af3b1be3d69b76ce965fadf9099d58b8f", null ],
     [ "COLOR_BIT", "class_graphic_const.html#aee9d43209b842cc0f7e5fcd39a76a418", null ],
     [ "GRAPHIC_FPS", "class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a", null ],
     [ "WIN_NAME", "class_graphic_const.html#a4a78eca54058546c9451d86ccffce52e", null ],

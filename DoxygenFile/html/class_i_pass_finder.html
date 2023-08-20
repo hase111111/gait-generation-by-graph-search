@@ -100,18 +100,18 @@ $(document).ready(function(){initNavTree('class_i_pass_finder.html',''); initRes
 <p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．  
  <a href="class_i_pass_finder.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_interface_pass_finder_8h_source.html">InterfacePassFinder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="interface__pass__finder_8h_source.html">interface_pass_finder.h</a>&gt;</code></p>
 <div class="dynheader">
 IPassFinder の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_pass_finder__inherit__graph.png" border="0" usemap="#a_i_pass_finder_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_pass_finder_inherit__map" id="a_i_pass_finder_inherit__map">
 <area shape="rect" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="240,5,330,32"/>
-<area shape="rect" href="class_pass_finder_fixed.html" title=" " alt="" coords="5,80,125,107"/>
+<area shape="rect" href="class_pass_finder_fixed.html" title="再評価手法" alt="" coords="5,80,125,107"/>
 <area shape="poly" title=" " alt="" coords="234,40,104,82,103,77,232,35"/>
 <area shape="rect" href="class_pass_finder_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="149,80,264,107"/>
 <area shape="poly" title=" " alt="" coords="263,44,222,82,218,78,259,40"/>
-<area shape="rect" href="class_pass_finder_hato_thread.html" title=" " alt="" coords="287,80,440,107"/>
+<area shape="rect" href="class_pass_finder_hato_thread.html" title="パス探索クラス" alt="" coords="287,80,440,107"/>
 <area shape="poly" title=" " alt="" coords="311,40,352,78,348,82,307,44"/>
 <area shape="rect" href="class_pass_finder_none.html" title="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．" alt="" coords="465,80,582,107"/>
 <area shape="poly" title=" " alt="" coords="341,34,483,77,481,82,340,39"/>
@@ -130,7 +130,7 @@ IPassFinder の継承関係図</div>
 <tr class="memdesc:abb82d5e68f43fb8957a146e570a02b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数を返す  <br /></td></tr>
 <tr class="separator:abb82d5e68f43fb8957a146e570a02b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa231f3e3af94fa1646d34ffa79866827"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">getGraphTree</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) const</td></tr>
-<tr class="memdesc:aa231f3e3af94fa1646d34ffa79866827"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す．<br  />
+<tr class="memdesc:aa231f3e3af94fa1646d34ffa79866827"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
  この関数はデバッグ用なので，探索には使わないこと．  <br /></td></tr>
 <tr class="separator:aa231f3e3af94fa1646d34ffa79866827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -159,9 +159,9 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/07/24 </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
-<p>継承をするクラスのデストラクタはvirtualにしておく．<br  />
+<p>継承をするクラスのデストラクタはvirtualにしておく． <br  />
  参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="aa231f3e3af94fa1646d34ffa79866827" name="aa231f3e3af94fa1646d34ffa79866827"></a>
@@ -188,7 +188,7 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 </table>
 </div><div class="memdoc">
 
-<p>作成したグラフ木を返す．<br  />
+<p>作成したグラフ木を返す． <br  />
  この関数はデバッグ用なので，探索には使わないこと． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
@@ -285,12 +285,12 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>EGraphSearchResult グラフ探索の結果を返す． </dd></dl>
 
-<p><a class="el" href="class_pass_finder_hato_thread.html#a2563f6aa463b6e5969a29cd8a2e5a4b4">PassFinderHatoThread</a>, <a class="el" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878">PassFinderFixed</a>, <a class="el" href="class_pass_finder_hato.html#ac0ebb78cf6ca274c51d13f8eed9c4148">PassFinderHato</a>, <a class="el" href="class_pass_finder_none.html#a55f60082bf01fb0de2679915cecfcbd8">PassFinderNone</a>で実装されています。</p>
+<p><a class="el" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878">PassFinderFixed</a>, <a class="el" href="class_pass_finder_hato.html#ac0ebb78cf6ca274c51d13f8eed9c4148">PassFinderHato</a>, <a class="el" href="class_pass_finder_hato_thread.html#a39e8ac1fd6111699a72092fcdd51a1ba">PassFinderHatoThread</a>, <a class="el" href="class_pass_finder_none.html#a55f60082bf01fb0de2679915cecfcbd8">PassFinderNone</a>で実装されています。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_pass_finder_8h_source.html">InterfacePassFinder.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="interface__pass__finder_8h_source.html">interface_pass_finder.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

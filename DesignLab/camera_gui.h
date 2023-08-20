@@ -48,9 +48,9 @@ private:
 	};
 
 
-	CameraController m_camera_controller;
+	CameraController m_camera_controller;	//!< カメラの操作を行うクラス
 
-	CameraManager m_camera_manager;
+	CameraManager m_camera_manager;			//!< カメラの管理を行うクラス
 
 	std::map<EButtonType, std::unique_ptr<ButtomController>> m_buttons;
 

@@ -132,7 +132,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>BACK_COLO
 <tr class="memdesc:a06a9c702f66ccf28c271a0a7fbc73a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウ背景色． 青色成分 <br /></td></tr>
 <tr class="separator:a06a9c702f66ccf28c271a0a7fbc73a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa50a824132952d3ed6cc9bebec227374"><td class="memItemLeft" align="right" valign="top"><a id="aa50a824132952d3ed6cc9bebec227374" name="aa50a824132952d3ed6cc9bebec227374"></a>
-static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_FAR</b> = 3000.0f</td></tr>
+static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_FAR</b> = 4000.0f</td></tr>
 <tr class="memdesc:aa50a824132952d3ed6cc9bebec227374"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラが表示できる最も遠い座標． <br /></td></tr>
 <tr class="separator:aa50a824132952d3ed6cc9bebec227374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff19c1d95e8313cf6de759b3fdda24f"><td class="memItemLeft" align="right" valign="top"><a id="a4ff19c1d95e8313cf6de759b3fdda24f" name="a4ff19c1d95e8313cf6de759b3fdda24f"></a>
@@ -140,15 +140,19 @@ static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_
 <tr class="memdesc:a4ff19c1d95e8313cf6de759b3fdda24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラが表示できる最も近い座標． <br /></td></tr>
 <tr class="separator:a4ff19c1d95e8313cf6de759b3fdda24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a055cacafbdfe0a1edcc7d58912a0d4f2"><td class="memItemLeft" align="right" valign="top"><a id="a055cacafbdfe0a1edcc7d58912a0d4f2" name="a055cacafbdfe0a1edcc7d58912a0d4f2"></a>
-static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_TO_TARGET_MAX</b> = <a class="el" href="class_graphic_const.html#aa50a824132952d3ed6cc9bebec227374">GraphicConst::CAMERA_FAR</a> * 2.0f / 5.0f</td></tr>
+static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_TO_TARGET_MAX</b> = (<a class="el" href="class_graphic_const.html#aa50a824132952d3ed6cc9bebec227374">GraphicConst::CAMERA_FAR</a> + <a class="el" href="class_graphic_const.html#a4ff19c1d95e8313cf6de759b3fdda24f">GraphicConst::CAMERA_NEAR</a>) * 3.0f / 5.0f</td></tr>
 <tr class="memdesc:a055cacafbdfe0a1edcc7d58912a0d4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラと注視目標の最大距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる． <br /></td></tr>
 <tr class="separator:a055cacafbdfe0a1edcc7d58912a0d4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b1be3d69b76ce965fadf9099d58b8f"><td class="memItemLeft" align="right" valign="top"><a id="af3b1be3d69b76ce965fadf9099d58b8f" name="af3b1be3d69b76ce965fadf9099d58b8f"></a>
+static const float&#160;</td><td class="memItemRight" valign="bottom"><b>CAMERA_TO_TARGET_MIN</b> = (<a class="el" href="class_graphic_const.html#aa50a824132952d3ed6cc9bebec227374">GraphicConst::CAMERA_FAR</a> + <a class="el" href="class_graphic_const.html#a4ff19c1d95e8313cf6de759b3fdda24f">GraphicConst::CAMERA_NEAR</a>) / 10.0f</td></tr>
+<tr class="memdesc:af3b1be3d69b76ce965fadf9099d58b8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラと注視目標の最小距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる． <br /></td></tr>
+<tr class="separator:af3b1be3d69b76ce965fadf9099d58b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13f63eb8cf3172ef40dead8c26c6ec3a"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a">GRAPHIC_FPS</a> = 60</td></tr>
 <tr class="separator:a13f63eb8cf3172ef40dead8c26c6ec3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>画像表示処理用の定数をまとめたもの． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/08 </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2023/08/21 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>定数クラスの詳細はDefine.hを参照．<br  />
  <br  />

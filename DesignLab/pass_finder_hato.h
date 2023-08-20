@@ -23,3 +23,4 @@ private:
 //! @date 2023/08/17
 //! @author 長谷川
 //! @brief 波東さんの手法でグラフ探索を行うクラス．
+//! @n 行数 : @lineinfo

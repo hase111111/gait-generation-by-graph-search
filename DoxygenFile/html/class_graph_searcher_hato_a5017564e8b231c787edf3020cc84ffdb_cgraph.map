@@ -1,5 +1,5 @@
 <map id="GraphSearcherHato::searchGraphTree" name="GraphSearcherHato::searchGraphTree">
 <area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,149,48"/>
-<area shape="rect" id="Node000002" href="$namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="197,13,323,40"/>
+<area shape="rect" id="Node000002" href="$namespacedl__math.html#af27ba2f63b75019c3f3dc1ef47e3f42b" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="197,13,315,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,24,182,24,182,29,149,29"/>
 </map>

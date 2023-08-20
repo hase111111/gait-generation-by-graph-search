@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hasintersection_0',['hasIntersection',['../structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7',1,'my_vec::SLine2']]]
+  ['hasintersection_0',['hasIntersection',['../structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702',1,'dl_vec::SLine2']]]
 ];

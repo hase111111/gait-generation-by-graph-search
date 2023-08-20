@@ -1,11 +1,11 @@
 <map id="HexapodStateCalclator::isAblePause" name="HexapodStateCalclator::isAblePause">
 <area shape="rect" id="Node000001" title="転ばない姿勢かどうか調べる．" alt="" coords="5,48,160,91"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="223,5,390,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,49,230,33,231,38,161,54"/>
-<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="242,56,371,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,67,227,67,227,72,160,72"/>
-<area shape="rect" id="Node000005" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="208,107,405,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="161,84,231,100,230,105,159,89"/>
-<area shape="rect" id="Node000004" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="453,56,600,83"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,67,438,67,438,72,371,72"/>
+<area shape="rect" id="Node000002" href="$structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="223,5,382,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,49,227,33,228,38,160,54"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="238,56,367,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,67,223,67,223,72,160,72"/>
+<area shape="rect" id="Node000005" href="$structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="208,107,397,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="160,84,228,100,227,105,159,90"/>
+<area shape="rect" id="Node000004" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="445,56,592,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="367,67,430,67,430,72,367,72"/>
 </map>

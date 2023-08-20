@@ -11,7 +11,7 @@ var searchData=
   ['map_5fstart_5frough_8',['MAP_START_ROUGH',['../class_map_const.html#a3a997ed5858e12a6fe351d0520f1df2b',1,'MapConst']]],
   ['max_5fdepth_9',['MAX_DEPTH',['../class_graph_search_const.html#abb968ed24754e6739a00be1ac95420c8',1,'GraphSearchConst']]],
   ['max_5fnode_5fnum_10',['MAX_NODE_NUM',['../class_graph_search_const.html#a15929b74aa470b143874a7d6b0ae8b58',1,'GraphSearchConst']]],
-  ['max_5fvertex_5fnum_11',['MAX_VERTEX_NUM',['../namespacemy__vec.html#a4adf464c5fb020c36a6705def76c5ec2',1,'my_vec']]],
+  ['max_5fvertex_5fnum_11',['MAX_VERTEX_NUM',['../namespacedl__vec.html#ab501701f2308201fcd18628806c37f87',1,'dl_vec']]],
   ['max_5fz_5fbase_12',['MAX_Z_BASE',['../class_map_const.html#ac8f6803db45c6dcd3cecb2ebf855c85e',1,'MapConst']]],
   ['movable_5fleg_5frange_13',['MOVABLE_LEG_RANGE',['../class_hexapod_const.html#a083cb75c9f9cbf71a5345a1352b81e30',1,'HexapodConst']]],
   ['movable_5fleg_5frange_5fcos_5fmax_14',['MOVABLE_LEG_RANGE_COS_MAX',['../class_hexapod_const.html#a36b1be13172a1eabad162e9824f5ff9c',1,'HexapodConst']]],
@@ -22,6 +22,6 @@ var searchData=
   ['mp_5ffactory_19',['mp_factory',['../class_i_pass_finder.html#ae90101ea6d373a310919ffda347b5213',1,'IPassFinder']]],
   ['mp_5fsearcher_20',['mp_searcher',['../class_i_pass_finder.html#ad31b4f0aa3b90b470bf4d7030268cd8e',1,'IPassFinder']]],
   ['mp_5ftree_5fcreator_21',['mp_tree_creator',['../class_i_pass_finder.html#a34cf722dc74d6b3408828c18bd198a9a',1,'IPassFinder']]],
-  ['my_5fdbl_5fpi_22',['MY_DBL_PI',['../namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866',1,'my_math']]],
-  ['my_5fflt_5fpi_23',['MY_FLT_PI',['../namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7',1,'my_math']]]
+  ['my_5fdbl_5fpi_22',['MY_DBL_PI',['../namespacedl__math.html#ad854c730b66cda4f8e2545f33f88c5e0',1,'dl_math']]],
+  ['my_5fflt_5fpi_23',['MY_FLT_PI',['../namespacedl__math.html#a112af26e6da8dbe154bac5a66fd757a8',1,'dl_math']]]
 ];

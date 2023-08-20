@@ -98,9 +98,9 @@ $(document).ready(function(){initNavTree('graphic__main__basic_8h_source.html','
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="interface__graphic__main_8h.html">interface_graphic_main.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="node_8h.html">node.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">node.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__const_8h.html">graphic_const.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_camera_controller_8h.html">CameraController.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="camera__gui_8h.html">camera_gui.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="gui__controller_8h.html">gui_controller.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer_8h.html">hexapod_renderer.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('graphic__main__basic_8h_source.html','
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_camera_controller.html">CameraController</a> m_camera_controller;   <span class="comment">//カメラ制御クラス．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_camera_g_u_i.html">CameraGUI</a> m_camera_gui;             <span class="comment">// カメラの位置を制御するGUI</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_hexapod_renderer.html">HexapodRenderer</a> m_hexapod_renderer;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
@@ -135,10 +135,11 @@ $(document).ready(function(){initNavTree('graphic__main__basic_8h_source.html','
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="ttc" id="a_camera_controller_8h_html"><div class="ttname"><a href="_camera_controller_8h.html">CameraController.h</a></div><div class="ttdoc">画像表示処理においてカメラを制御するクラス．</div></div>
-<div class="ttc" id="aclass_camera_controller_html"><div class="ttname"><a href="class_camera_controller.html">CameraController</a></div><div class="ttdoc">Dxlibの3Dのカメラの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> CameraController.h:20</div></div>
-<div class="ttc" id="aclass_g_u_i_controller_html"><div class="ttname"><a href="class_g_u_i_controller.html">GUIController</a></div><div class="ttdoc">UIを表示する関数．表示するものを変更したい場合は編集してください．</div><div class="ttdef"><b>Definition</b> gui_controller.h:29</div></div>
-<div class="ttc" id="aclass_graphic_const_html_a13f63eb8cf3172ef40dead8c26c6ec3a"><div class="ttname"><a href="class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a">GraphicConst::GRAPHIC_FPS</a></div><div class="ttdeci">static constexpr unsigned int GRAPHIC_FPS</div><div class="ttdef"><b>Definition</b> graphic_const.h:32</div></div>
+<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div><div class="ttdoc">ノードの構造体を定義する．   行数 : 121</div></div>
+<div class="ttc" id="acamera__gui_8h_html"><div class="ttname"><a href="camera__gui_8h.html">camera_gui.h</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス   行数 : 72</div></div>
+<div class="ttc" id="aclass_camera_g_u_i_html"><div class="ttname"><a href="class_camera_g_u_i.html">CameraGUI</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス</div><div class="ttdef"><b>Definition</b> camera_gui.h:17</div></div>
+<div class="ttc" id="aclass_g_u_i_controller_html"><div class="ttname"><a href="class_g_u_i_controller.html">GUIController</a></div><div class="ttdoc">UIを表示する関数．表示するものを変更したい場合は編集してください．</div><div class="ttdef"><b>Definition</b> gui_controller.h:28</div></div>
+<div class="ttc" id="aclass_graphic_const_html_a13f63eb8cf3172ef40dead8c26c6ec3a"><div class="ttname"><a href="class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a">GraphicConst::GRAPHIC_FPS</a></div><div class="ttdeci">static constexpr unsigned int GRAPHIC_FPS</div><div class="ttdef"><b>Definition</b> graphic_const.h:33</div></div>
 <div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> graphic_data_broker.h:24</div></div>
 <div class="ttc" id="aclass_graphic_main_basic_html"><div class="ttname"><a href="class_graphic_main_basic.html">GraphicMainBasic</a></div><div class="ttdoc">このプロジェクトにおける標準的なロボットの描画機能を持つクラス．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.h:24</div></div>
 <div class="ttc" id="aclass_graphic_main_basic_html_ada25886ad88e0cfeeef64e90ff87dbbd"><div class="ttname"><a href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd">GraphicMainBasic::draw</a></div><div class="ttdeci">void draw() const override</div><div class="ttdoc">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.cpp:40</div></div>
@@ -146,12 +147,11 @@ $(document).ready(function(){initNavTree('graphic__main__basic_8h_source.html','
 <div class="ttc" id="aclass_hexapod_renderer_html"><div class="ttname"><a href="class_hexapod_renderer.html">HexapodRenderer</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div><div class="ttdef"><b>Definition</b> hexapod_renderer.h:12</div></div>
 <div class="ttc" id="aclass_i_graphic_main_html"><div class="ttname"><a href="class_i_graphic_main.html">IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース</div><div class="ttdef"><b>Definition</b> interface_graphic_main.h:23</div></div>
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
-<div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div><div class="ttdoc">画像表示処理用の定数．   行数 : 46</div></div>
-<div class="ttc" id="agui__controller_8h_html"><div class="ttname"><a href="gui__controller_8h.html">gui_controller.h</a></div><div class="ttdoc">GUIを表示するクラス．   行数 : 65</div></div>
+<div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div><div class="ttdoc">画像表示処理用の定数．   行数 : 47</div></div>
+<div class="ttc" id="agui__controller_8h_html"><div class="ttname"><a href="gui__controller_8h.html">gui_controller.h</a></div><div class="ttdoc">GUIを表示するクラス．   行数 : 64</div></div>
 <div class="ttc" id="ahexapod__renderer_8h_html"><div class="ttname"><a href="hexapod__renderer_8h.html">hexapod_renderer.h</a></div><div class="ttdoc">ロボットの描画を行うHexapodRendererクラス．   行数 : 55</div></div>
 <div class="ttc" id="ainterface__graphic__main_8h_html"><div class="ttname"><a href="interface__graphic__main_8h.html">interface_graphic_main.h</a></div><div class="ttdoc">IGraphicMainクラス．IGraphicMainはインターフェイスであるので実態が作れない．   行数 : 48</div></div>
 <div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 122</div></div>
-<div class="ttc" id="anode_8h_html"><div class="ttname"><a href="node_8h.html">node.h</a></div><div class="ttdoc">ノードの構造体を定義する．   行数 : 121</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -49,3 +49,4 @@ private:
 //! @date 2023/08/08
 //! @author 長谷川
 //! @brief ボタンの処理，描画を管理するクラス．
+//! @n 行数 : @lineinfo

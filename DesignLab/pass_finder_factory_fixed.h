@@ -5,7 +5,7 @@
 
 //! @class PassFinderFactoryFixed
 //! @date 2023/08/14
-//! @auhtor ’·’Jì
+//! @author ’·’Jì
 //! @brief Ä•]‰¿è–@
 class PassFinderFactoryFixed final : public AbstractPassFinderFactory
 {
@@ -21,6 +21,6 @@ public:
 
 //! @file pass_finder_factory_fixed.h
 //! @date 2023/08/14
-//! @auhtor ’·’Jì
+//! @author ’·’Jì
 //! @brief Ä•]‰¿è–@
 //! @n s” : @lineinfo

@@ -1,3 +1,11 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_map_renderer.html" title="Mapの描画を行うクラス．" alt="" coords="5,5,104,32"/>
+<area shape="rect" id="Node000000" href="$class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="5,81,103,108"/>
+<area shape="rect" id="Node000001" href="$class_graphic_main_basic.html" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="171,5,299,32"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="90,71,150,42,182,30,183,35,152,46,92,76"/>
+<area shape="rect" id="Node000002" href="$class_graphic_main_graph_viewer.html" title="GraphViewerの画面を表示するクラス" alt="" coords="151,56,319,83"/>
+<area shape="poly" id="edge4_Node000000_Node000002" title=" " alt="" coords="117,83,150,79,151,84,118,88"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_sample.html" title="サンプル描画クラス．サンプルメッセージを表示する．" alt="" coords="166,107,304,133"/>
+<area shape="poly" id="edge5_Node000000_Node000003" title=" " alt="" coords="118,101,166,108,165,113,117,106"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_test.html" title="MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン" alt="" coords="175,157,295,184"/>
+<area shape="poly" id="edge6_Node000000_Node000004" title=" " alt="" coords="92,113,152,143,183,154,182,159,150,148,90,118"/>
 </map>

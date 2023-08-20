@@ -17,6 +17,15 @@ var namespaces_dup =
       [ "COM_PATTERN_NUM", "namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c", null ],
       [ "COM_TYPE_NUM", "namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224", null ]
     ] ],
+    [ "dl_dxlib", "namespacedl__dxlib.html", [
+      [ "convertToDxVec", "namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015", null ],
+      [ "drawCube3D", "namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0", null ],
+      [ "drawCube3DWithTopPos", "namespacedl__dxlib.html#aa3743e969ae8717f2671b347ac650881", null ],
+      [ "drawHexagon", "namespacedl__dxlib.html#a36b086b2d9269fe65393e37c76c675b2", null ],
+      [ "drawHexagonalPrism", "namespacedl__dxlib.html#aeb5d1c259d3ab9dc9ac17161a29a546e", null ],
+      [ "initDxlib3D", "namespacedl__dxlib.html#af6876f02e5cd34f2189605911a7d6f03", null ],
+      [ "setZBufferEnable", "namespacedl__dxlib.html#aed4649274aadb4a1285929b0a5ffee4f", null ]
+    ] ],
     [ "dl_io", "namespacedl__io.html", [
       [ "output", "namespacedl__io.html#a61b8dc3a453f75db0097fa67b54181d1", null ],
       [ "setOutputPriority", "namespacedl__io.html#ab3183fe30ebf943977e88e2362a6917f", null ]
@@ -40,33 +49,25 @@ var namespaces_dup =
       [ "LEG_STATE_MASKBIT", "namespacedl__leg.html#ac8aaebba836dc90b15470f4c33ddf7ba", null ],
       [ "SHIFT_TO_COM_NUM", "namespacedl__leg.html#a71b6916ed1e795c4ba99a2570313f3f2", null ]
     ] ],
-    [ "my_math", "namespacemy__math.html", [
-      [ "convertDegToRad", "namespacemy__math.html#a48355ed97e7f5150d53c650e3b85c51e", null ],
-      [ "convertDegToRad", "namespacemy__math.html#aa08f147250e3f8aa5c2938462eac613f", null ],
-      [ "convertRadToDeg", "namespacemy__math.html#a17c0c607ae0331a9f186d48b832c30c8", null ],
-      [ "convertRadToDeg", "namespacemy__math.html#a1490670eeb13b699359222a6e50db363", null ],
-      [ "generateRandomNumber", "namespacemy__math.html#aef65fde3633072229bdb6c840f133243", null ],
-      [ "generateRandomNumber", "namespacemy__math.html#ab78b6246afda0a901bfc6512f6c2acf6", null ],
-      [ "generateRandomNumber", "namespacemy__math.html#ad40c62c162850827e0e73cbfca012101", null ],
-      [ "isEqual", "namespacemy__math.html#a117e92868bba1c63db810590a3a50de6", null ],
-      [ "isEqual", "namespacemy__math.html#a7cd0d6acfc2a64d8765a1ccea59a7c8a", null ],
-      [ "squared", "namespacemy__math.html#a60b4ac4a9dd62c343224d655863bafc1", null ],
-      [ "squared", "namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769", null ],
-      [ "squared", "namespacemy__math.html#ae494d96082c7449fb9cf7f3bdb588678", null ],
-      [ "squared", "namespacemy__math.html#a13ee3d06035986e650ff531dde535282", null ],
-      [ "squared", "namespacemy__math.html#adaf3ba7b49e248254cfe799ace2be7d5", null ],
-      [ "ALLOWABLE_ERROR", "namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1", null ],
-      [ "DBL_ALLOWABLE_ERROR", "namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5", null ],
-      [ "MY_DBL_PI", "namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866", null ],
-      [ "MY_FLT_PI", "namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7", null ]
+    [ "dl_math", "namespacedl__math.html", [
+      [ "convertDegToRad", "namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb", null ],
+      [ "convertDegToRad", "namespacedl__math.html#a22c91eb963e3a7ff15a21f587a6447ef", null ],
+      [ "convertRadToDeg", "namespacedl__math.html#abfae2bdb755b896110bba71f1deecdef", null ],
+      [ "convertRadToDeg", "namespacedl__math.html#a6024a7a240282fffa58e0b1a125b03c8", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a53fdfc3c2aa4eba64fa79506aa645bb7", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a92014f2793310765f255e66083c14310", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a913a4f1a47c82bcbdf1da301d5e2d4fb", null ],
+      [ "isEqual", "namespacedl__math.html#a45a76c15d97311f20b71facefcf98ec5", null ],
+      [ "isEqual", "namespacedl__math.html#af27ba2f63b75019c3f3dc1ef47e3f42b", null ],
+      [ "squared", "namespacedl__math.html#ad0f18b18b17403391b35a278bba87020", null ],
+      [ "squared", "namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b", null ],
+      [ "squared", "namespacedl__math.html#ad7ad9a99fb2723e227c884c012be8043", null ],
+      [ "squared", "namespacedl__math.html#a1e18a31b2bcc4f9d5975cfef95d05159", null ],
+      [ "squared", "namespacedl__math.html#a7bceed2155711df0e702c71764111304", null ],
+      [ "ALLOWABLE_ERROR", "namespacedl__math.html#a1e14a9edee8ab0ec5ed91172bf258681", null ],
+      [ "DBL_ALLOWABLE_ERROR", "namespacedl__math.html#a09b28dc4677a629d4a52d59fcde40b7d", null ],
+      [ "MY_DBL_PI", "namespacedl__math.html#ad854c730b66cda4f8e2545f33f88c5e0", null ],
+      [ "MY_FLT_PI", "namespacedl__math.html#a112af26e6da8dbe154bac5a66fd757a8", null ]
     ] ],
-    [ "my_vec", "namespacemy__vec.html", "namespacemy__vec" ],
-    [ "myDxlib3DFunc", "namespacemy_dxlib3_d_func.html", [
-      [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f", null ],
-      [ "drawCube3D", "namespacemy_dxlib3_d_func.html#aceb2c05bbccc6ab1e30e0c8f250fde4d", null ],
-      [ "drawCube3DWithTopPos", "namespacemy_dxlib3_d_func.html#a90d39c1e130a2a6ba1d39da07105c62c", null ],
-      [ "drawHexagon", "namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae", null ],
-      [ "drawHexagonalPrism", "namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60", null ],
-      [ "initDxlib3D", "namespacemy_dxlib3_d_func.html#ac8fddebad36820b30eda0b08e02f214a", null ]
-    ] ]
+    [ "dl_vec", "namespacedl__vec.html", "namespacedl__vec" ]
 ];

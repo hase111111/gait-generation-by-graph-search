@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="ComSelecter",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter.html",tooltip="重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている．"];
+  Node0 [id="Node000000",label="CmdIO",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_cmd_i_o.html",tooltip="コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．"];
 }

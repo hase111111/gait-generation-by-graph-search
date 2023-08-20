@@ -99,8 +99,8 @@ $(document).ready(function(){initNavTree('graphic__main__graph__viewer_8h_source
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="interface__graphic__main_8h.html">interface_graphic_main.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer_8h.html">hexapod_renderer.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_camera_controller_8h.html">CameraController.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;GraphViewerGUIController.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="camera__manager_8h.html">camera_manager.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="graph__viewer__gui__controller_8h.html">graph_viewer_gui_controller.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_graphic_main_graph_viewer.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graphic_main_graph_viewer.html">GraphicMainGraphViewer</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_i_graphic_main.html">IGraphicMain</a></div>
@@ -114,21 +114,29 @@ $(document).ready(function(){initNavTree('graphic__main__graph__viewer_8h_source
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a">draw</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_hexapod_renderer.html">HexapodRenderer</a> m_hexapod_renderer;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_map_state;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_camera_controller.html">CameraController</a> m_camera_controller;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::unique_ptr&lt;GraphViewerGUIController&gt; mp_gui_controller;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::vector&lt;SNode&gt; m_graph;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">size_t</span> m_display_node_index = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> updateCameraState();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="class_hexapod_renderer.html">HexapodRenderer</a> m_hexapod_renderer;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_map_state;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> updateCameraState();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> m_camera_mode = 0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_camera_manager.html">CameraManager</a> m_camera_manager;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::unique_ptr&lt;GraphViewerGUIController&gt; mp_gui_controller;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="ttc" id="a_camera_controller_8h_html"><div class="ttname"><a href="_camera_controller_8h.html">CameraController.h</a></div><div class="ttdoc">画像表示処理においてカメラを制御するクラス．</div></div>
-<div class="ttc" id="aclass_camera_controller_html"><div class="ttname"><a href="class_camera_controller.html">CameraController</a></div><div class="ttdoc">Dxlibの3Dのカメラの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> CameraController.h:20</div></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::vector&lt;SNode&gt; m_graph;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">size_t</span> m_display_node_index = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> m_camera_mode = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="ttc" id="acamera__manager_8h_html"><div class="ttname"><a href="camera__manager_8h.html">camera_manager.h</a></div><div class="ttdoc">画像表示処理においてカメラを制御するクラス．   行数 : 109</div></div>
+<div class="ttc" id="aclass_camera_manager_html"><div class="ttname"><a href="class_camera_manager.html">CameraManager</a></div><div class="ttdoc">Dxlibの3Dのカメラの処理を行うクラス</div><div class="ttdef"><b>Definition</b> camera_manager.h:34</div></div>
 <div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> graphic_data_broker.h:24</div></div>
 <div class="ttc" id="aclass_graphic_main_graph_viewer_html"><div class="ttname"><a href="class_graphic_main_graph_viewer.html">GraphicMainGraphViewer</a></div><div class="ttdoc">GraphViewerの画面を表示するクラス</div><div class="ttdef"><b>Definition</b> graphic_main_graph_viewer.h:17</div></div>
 <div class="ttc" id="aclass_graphic_main_graph_viewer_html_a5386e4ac811fadbe8a7f1e5762a5b90a"><div class="ttname"><a href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a">GraphicMainGraphViewer::update</a></div><div class="ttdeci">bool update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．</div><div class="ttdef"><b>Definition</b> graphic_main_graph_viewer.cpp:25</div></div>
@@ -136,6 +144,7 @@ $(document).ready(function(){initNavTree('graphic__main__graph__viewer_8h_source
 <div class="ttc" id="aclass_hexapod_renderer_html"><div class="ttname"><a href="class_hexapod_renderer.html">HexapodRenderer</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div><div class="ttdef"><b>Definition</b> hexapod_renderer.h:12</div></div>
 <div class="ttc" id="aclass_i_graphic_main_html"><div class="ttname"><a href="class_i_graphic_main.html">IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース</div><div class="ttdef"><b>Definition</b> interface_graphic_main.h:23</div></div>
 <div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
+<div class="ttc" id="agraph__viewer__gui__controller_8h_html"><div class="ttname"><a href="graph__viewer__gui__controller_8h.html">graph_viewer_gui_controller.h</a></div><div class="ttdoc">グラフのノードのデータを表示するGUIのコントローラークラス   行数 ; 49</div></div>
 <div class="ttc" id="ahexapod__renderer_8h_html"><div class="ttname"><a href="hexapod__renderer_8h.html">hexapod_renderer.h</a></div><div class="ttdoc">ロボットの描画を行うHexapodRendererクラス．   行数 : 55</div></div>
 <div class="ttc" id="ainterface__graphic__main_8h_html"><div class="ttname"><a href="interface__graphic__main_8h.html">interface_graphic_main.h</a></div><div class="ttdoc">IGraphicMainクラス．IGraphicMainはインターフェイスであるので実態が作れない．   行数 : 48</div></div>
 <div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 122</div></div>

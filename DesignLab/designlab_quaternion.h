@@ -38,3 +38,10 @@ namespace dl_vec
 	SVector rotVecByQuat(const SVector& vec, const SQuaternion& q);
 
 }	// namespace dl_vec	
+
+
+//! @file designlab_quaternion.h
+//! @date 2023/08/21
+//! @author 長谷川
+//! @brief クォータニオンを表現する構造体
+//! @n 行数 : @lineinfo

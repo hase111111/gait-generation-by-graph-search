@@ -1,0 +1,20 @@
+<map id="dl_dxlib::convertToDxVec" name="dl_dxlib::convertToDxVec">
+<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="464,115,631,141"/>
+<area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="255,115,389,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="450,131,389,131,389,125,450,125"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="242,64,402,91"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="470,113,384,94,385,89,471,108"/>
+<area shape="rect" id="Node000007" href="$class_camera_g_u_i.html#abf63b86956c9f787c901a59e8eaeb3d2" title="カメラの注視する位置を設定する" alt="" coords="228,169,416,196"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="476,148,381,171,379,166,475,143"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,5,174,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,113,226,105,210,90,201,75,193,60,178,46,156,35,158,30,181,42,197,57,206,72,214,87,229,101,243,108"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,56,177,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="244,114,176,99,178,93,245,108"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="15,123,170,149"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="241,133,170,136,170,131,241,128"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="252,62,147,35,148,30,253,57"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="227,80,177,80,177,75,227,75"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="253,97,148,125,147,120,252,92"/>
+<area shape="rect" id="Node000008" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,173,180,200"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="213,187,180,188,180,182,213,182"/>
+</map>

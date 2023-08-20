@@ -112,6 +112,9 @@
     <Filter Include="ソース ファイル\GraphicSystem\GUI">
       <UniqueIdentifier>{df7998dd-914b-4696-8d2e-2c87e003cbb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Common\Input">
+      <UniqueIdentifier>{806e9277-ed43-427a-be39-f48c5524a3e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -186,16 +189,10 @@
     <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="keyboard.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClInclude>
     <ClInclude Include="fps.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="map_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="designlab_dxlib.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_renderer.h">
@@ -206,12 +203,6 @@
     </ClInclude>
     <ClInclude Include="map_const.h">
       <Filter>ソース ファイル\Map\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="button_controller.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="mouse.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="gui_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
@@ -366,6 +357,18 @@
     <ClInclude Include="camera_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_dxlib.h">
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="button_controller.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -434,16 +437,10 @@
     <ClCompile Include="graphic_const.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="keyboard.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClCompile>
     <ClCompile Include="fps.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
-    <ClCompile Include="designlab_dxlib.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="hexapod_renderer.cpp">
@@ -454,12 +451,6 @@
     </ClCompile>
     <ClCompile Include="map_const.cpp">
       <Filter>ソース ファイル\Map\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="button_controller.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="mouse.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="gui_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
@@ -591,6 +582,18 @@
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClCompile>
     <ClCompile Include="camera_gui.cpp">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_dxlib.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="button_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
   </ItemGroup>

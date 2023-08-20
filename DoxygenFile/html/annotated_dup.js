@@ -1,11 +1,12 @@
 var annotated_dup =
 [
-    [ "my_vec", "namespacemy__vec.html", [
-      [ "SLine2", "structmy__vec_1_1_s_line2.html", "structmy__vec_1_1_s_line2" ],
-      [ "SPolygon2", "structmy__vec_1_1_s_polygon2.html", "structmy__vec_1_1_s_polygon2" ],
-      [ "SRotator", "structmy__vec_1_1_s_rotator.html", "structmy__vec_1_1_s_rotator" ],
-      [ "SVector", "structmy__vec_1_1_s_vector.html", "structmy__vec_1_1_s_vector" ],
-      [ "SVector2", "structmy__vec_1_1_s_vector2.html", "structmy__vec_1_1_s_vector2" ]
+    [ "dl_vec", "namespacedl__vec.html", [
+      [ "SLine2", "structdl__vec_1_1_s_line2.html", "structdl__vec_1_1_s_line2" ],
+      [ "SPolygon2", "structdl__vec_1_1_s_polygon2.html", "structdl__vec_1_1_s_polygon2" ],
+      [ "SQuaternion", "structdl__vec_1_1_s_quaternion.html", "structdl__vec_1_1_s_quaternion" ],
+      [ "SRotator", "structdl__vec_1_1_s_rotator.html", "structdl__vec_1_1_s_rotator" ],
+      [ "SVector", "structdl__vec_1_1_s_vector.html", "structdl__vec_1_1_s_vector" ],
+      [ "SVector2", "structdl__vec_1_1_s_vector2.html", "structdl__vec_1_1_s_vector2" ]
     ] ],
     [ "S_NE", null, [
       [ "POINT", "struct_s___n_e_1_1_p_o_i_n_t.html", null ],
@@ -14,6 +15,8 @@ var annotated_dup =
     [ "AbstractPassFinderFactory", "class_abstract_pass_finder_factory.html", "class_abstract_pass_finder_factory" ],
     [ "ButtomController", "class_buttom_controller.html", "class_buttom_controller" ],
     [ "CameraController", "class_camera_controller.html", "class_camera_controller" ],
+    [ "CameraGUI", "class_camera_g_u_i.html", "class_camera_g_u_i" ],
+    [ "CameraManager", "class_camera_manager.html", "class_camera_manager" ],
     [ "CmdIO", "class_cmd_i_o.html", null ],
     [ "ComCandidatePolygonMaker", "class_com_candidate_polygon_maker.html", "class_com_candidate_polygon_maker" ],
     [ "ComMoveNodeCreator", "class_com_move_node_creator.html", "class_com_move_node_creator" ],

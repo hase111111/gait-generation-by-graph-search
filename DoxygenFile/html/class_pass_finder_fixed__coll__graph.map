@@ -1,5 +1,5 @@
 <map id="PassFinderFixed" name="PassFinderFixed">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,125,107"/>
+<area shape="rect" id="Node000001" title="再評価手法" alt="" coords="5,80,125,107"/>
 <area shape="rect" id="Node000002" href="$class_i_pass_finder.html" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="20,5,110,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
 </map>

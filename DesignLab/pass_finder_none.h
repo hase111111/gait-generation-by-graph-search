@@ -21,7 +21,8 @@ public:
 };
 
 
-//! @file PassFinderNone.h 
-//! @date 2023/08/14
+//! @file pass_finder_none.h 
+//! @date 2023/08/21
 //! @author 長谷川
-//! @brief グラフ探索を行わないクラス．
+//! @brief グラフ探索を行わないクラス
+//! @n 行数 : @lineinfo

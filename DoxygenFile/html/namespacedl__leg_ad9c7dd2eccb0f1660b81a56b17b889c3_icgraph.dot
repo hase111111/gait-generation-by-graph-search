@@ -11,13 +11,13 @@ digraph "dl_leg::isGrounded"
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="HexapodStateCalclator\l::calculateStaticMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a198fd1c8a9ec7f3f68816578eb34f62c",tooltip="静的安定余裕を計算する．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="SNode::changeGlobalCenter\lOfMass",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_s_node.html#a618c4b3bb706cf833e2355e3145fdc51",tooltip="重心位置を変更する関数．"];
+  Node4 [id="Node000004",label="SNode::changeGlobalCenter\lOfMass",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_s_node.html#a76fd4ec299b81b6f7c1f274084236d8f",tooltip="重心位置を変更する関数．"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="ComMoveNodeCreator\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator.html#a7087b7fce9f1a35256246e413eb67ca3",tooltip="重心を平行移動したノードを生成する"];
   Node4 -> Node6 [id="edge5_Node000004_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="ComMoveNodeCreatorHato\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6",tooltip="重心を平行移動したノードを生成する"];
   Node4 -> Node7 [id="edge6_Node000004_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node7 [id="Node000007",label="ComSelecter::getComFromPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2",tooltip="重心を求める"];
+  Node7 [id="Node000007",label="ComSelecter::getComFromPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter.html#a362bc2b2bba3c9933c01de9c90687691",tooltip="重心を求める"];
   Node7 -> Node5 [id="edge7_Node000007_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 -> Node8 [id="edge8_Node000004_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node8 [id="Node000008",label="GraphicMainTest::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
@@ -36,7 +36,7 @@ digraph "dl_leg::isGrounded"
   Node12 -> Node15 [id="edge15_Node000012_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="GraphicMainTest::draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node1 -> Node16 [id="edge16_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243",tooltip="重心を求める"];
+  Node16 [id="Node000016",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#a5d197b3f6d2759a435d357e67e700d2e",tooltip="重心を求める"];
   Node16 -> Node6 [id="edge17_Node000016_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node17 [id="edge18_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node17 [id="Node000017",label="dl_leg::getGroundedLegNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedl__leg.html#acb5f62b8e593cb33e1dff9dc3484db2e",tooltip="接地している脚の本数を返す関数．"];

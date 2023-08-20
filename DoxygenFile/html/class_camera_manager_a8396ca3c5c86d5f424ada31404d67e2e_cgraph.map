@@ -1,0 +1,5 @@
+<map id="CameraManager::setCameraViewMode" name="CameraManager::setCameraViewMode">
+<area shape="rect" id="Node000001" title="カメラのモードをセットする" alt="" coords="5,5,193,48"/>
+<area shape="rect" id="Node000002" href="$namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb" title="角度をdegからradに変換する関数．" alt="" coords="241,13,417,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,24,226,24,226,29,193,29"/>
+</map>

@@ -19,8 +19,8 @@ digraph "LegUpNodeCreator::create"
   Node1 -> Node7 [id="edge6_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
   Node7 [id="Node000007",label="HexapodStateCalclator\l::isAblePause",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7",tooltip="転ばない姿勢かどうか調べる．"];
   Node7 -> Node8 [id="edge7_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="my_vec::SVector2::cross",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2",tooltip="このベクトルとotherの外積を返す"];
+  Node8 [id="Node000008",label="dl_vec::SVector2::cross",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c",tooltip="このベクトルとotherの外積を返す"];
   Node7 -> Node5 [id="edge8_Node000007_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node7 -> Node9 [id="edge9_Node000007_Node000009",color="steelblue1",style="solid",tooltip=" "];
-  Node9 [id="Node000009",label="my_vec::SVector::projectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7",tooltip="XY平面に射影したベクトルを返す．"];
+  Node9 [id="Node000009",label="dl_vec::SVector::projectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43",tooltip="XY平面に射影したベクトルを返す．"];
 }

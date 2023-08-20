@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="HexapodConst",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_const.html",tooltip="Hexapod，phantomXのパラメータを定数で表現したもの．"];
+  Node0 [id="Node000000",label="GraphicDataBroker",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html",tooltip="画像表示部と，データ処理部を結びつける仲介人クラス"];
 }

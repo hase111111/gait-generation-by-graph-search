@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <tr class="memitem:a69a48f403a947d80ef20e4703cdfe260"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#a69a48f403a947d80ef20e4703cdfe260">setCurrentNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node)</td></tr>
 <tr class="memdesc:a69a48f403a947d80ef20e4703cdfe260"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
 <tr class="separator:a69a48f403a947d80ef20e4703cdfe260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac12ba6d13d4fb7f0bd6b252c06cc5243"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#ac12ba6d13d4fb7f0bd6b252c06cc5243">getComFromPolygon</a> (const <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a> &amp;polygon, const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> com_pattren, <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> *output_com) const</td></tr>
-<tr class="memdesc:ac12ba6d13d4fb7f0bd6b252c06cc5243"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
-<tr class="separator:ac12ba6d13d4fb7f0bd6b252c06cc5243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d197b3f6d2759a435d357e67e700d2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#a5d197b3f6d2759a435d357e67e700d2e">getComFromPolygon</a> (const <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a> &amp;polygon, const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> com_pattren, <a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> *output_com) const</td></tr>
+<tr class="memdesc:a5d197b3f6d2759a435d357e67e700d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
+<tr class="separator:a5d197b3f6d2759a435d357e67e700d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う． </p>
@@ -116,8 +116,8 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 <dl class="section note"><dt>覚え書き</dt><dd>CCCではTargetの値を持っているので，その値を利用して重心位置選択するが，この実装ではこのクラスにその選択を任せたくない． 同様の処理を行うために，Targetの値を適当に決めている． </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ac12ba6d13d4fb7f0bd6b252c06cc5243" name="ac12ba6d13d4fb7f0bd6b252c06cc5243"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac12ba6d13d4fb7f0bd6b252c06cc5243">&#9670;&#160;</a></span>getComFromPolygon()</h2>
+<a id="a5d197b3f6d2759a435d357e67e700d2e" name="a5d197b3f6d2759a435d357e67e700d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d197b3f6d2759a435d357e67e700d2e">&#9670;&#160;</a></span>getComFromPolygon()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
         <tr>
           <td class="memname">bool ComSelecterHato::getComFromPolygon </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a> &amp;&#160;</td>
           <td class="paramname"><em>polygon</em>, </td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> *&#160;</td>
           <td class="paramname"><em>output_com</em>&#160;</td>
         </tr>
         <tr>
@@ -168,40 +168,40 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_cgraph.png" border="0" usemap="#aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_cgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_cgraph" id="aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_cgraph">
+<div class="center"><img src="class_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_cgraph.png" border="0" usemap="#aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_cgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_cgraph" id="aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_cgraph">
 <area shape="rect" title="重心を求める" alt="" coords="5,115,212,157"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a44f8ef9902e8d8cb28a739bbc30cefdd" title="頂点の座標を返す関数" alt="" coords="287,5,431,48"/>
-<area shape="poly" title=" " alt="" coords="154,112,259,64,288,52,290,57,261,69,157,117"/>
-<area shape="rect" href="structmy__vec_1_1_s_polygon2.html#a178e01b9175e47eed8f3ab893614f627" title="多角形の頂点数を返す関数" alt="" coords="533,9,677,52"/>
-<area shape="poly" title=" " alt="" coords="212,112,517,46,518,52,213,117"/>
-<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="294,123,424,149"/>
-<area shape="poly" title=" " alt="" coords="212,133,279,133,279,139,212,139"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="282,173,436,216"/>
-<area shape="poly" title=" " alt="" coords="203,155,268,171,267,176,202,161"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a6527b8515f1b2856db9eaa474daba95c" title="このベクトルを正規化したベクトルを返す" alt="" coords="260,261,458,288"/>
-<area shape="poly" title=" " alt="" coords="145,156,261,226,314,252,312,257,258,230,142,160"/>
-<area shape="poly" title=" " alt="" coords="431,25,517,27,517,32,431,31"/>
-<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="531,80,678,107"/>
-<area shape="poly" title=" " alt="" coords="424,122,516,106,517,111,425,127"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="751,199,922,241"/>
-<area shape="poly" title=" " alt="" coords="436,175,495,166,562,160,633,159,704,167,742,177,778,190,776,195,740,182,703,172,633,164,562,165,495,172,437,181"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="506,181,703,208"/>
-<area shape="poly" title=" " alt="" coords="436,192,491,192,491,197,436,197"/>
-<area shape="rect" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769" title="2乗した値を返す関数．" alt="" coords="540,232,669,259"/>
-<area shape="poly" title=" " alt="" coords="437,208,526,227,525,232,436,213"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a5f60b944922624d5eda770ed4b9912b8" title="このベクトルとotherの内積を返す" alt="" coords="970,207,1123,233"/>
-<area shape="poly" title=" " alt="" coords="922,217,955,217,955,223,922,223"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a342ca71e3c0a99bef64622697c510560" title="このベクトルの長さを返す" alt="" coords="520,283,690,309"/>
-<area shape="poly" title=" " alt="" coords="459,281,505,285,505,290,458,286"/>
-<area shape="poly" title=" " alt="" coords="663,279,703,268,768,245,770,250,704,273,665,285"/>
+<area shape="rect" href="structdl__vec_1_1_s_polygon2.html#a0a42d131245cae925ca34723233090c9" title="頂点の座標を返す関数" alt="" coords="287,5,423,48"/>
+<area shape="poly" title=" " alt="" coords="155,112,259,64,287,52,289,57,261,69,157,117"/>
+<area shape="rect" href="structdl__vec_1_1_s_polygon2.html#a8e2e67f29a3f1aaa0570ee717202d170" title="多角形の頂点数を返す関数" alt="" coords="525,9,661,52"/>
+<area shape="poly" title=" " alt="" coords="210,111,510,46,511,51,211,117"/>
+<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="290,123,420,149"/>
+<area shape="poly" title=" " alt="" coords="212,133,275,133,275,139,212,139"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="278,173,432,216"/>
+<area shape="poly" title=" " alt="" coords="202,155,264,170,263,176,200,161"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#af7c76f35399bde9f63c1dfc19b6da657" title="このベクトルを正規化したベクトルを返す" alt="" coords="260,261,450,288"/>
+<area shape="poly" title=" " alt="" coords="145,155,261,226,312,252,310,257,258,230,142,160"/>
+<area shape="poly" title=" " alt="" coords="424,25,510,27,510,32,424,30"/>
+<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="519,80,666,107"/>
+<area shape="poly" title=" " alt="" coords="419,122,504,107,505,112,420,127"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#a0ae9aed0d5f24a33178262e127c628e8" title="このベクトルの長さの2乗を返す" alt="" coords="735,199,898,241"/>
+<area shape="poly" title=" " alt="" coords="432,175,488,166,553,160,621,159,688,167,725,177,760,190,758,195,723,182,687,172,620,165,553,165,489,171,433,180"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="498,181,687,208"/>
+<area shape="poly" title=" " alt="" coords="433,192,483,192,483,197,433,197"/>
+<area shape="rect" href="namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b" title="2乗した値を返す関数．" alt="" coords="532,232,653,259"/>
+<area shape="poly" title=" " alt="" coords="433,209,518,227,517,232,432,214"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#ae3429e7a27efd0c1ad05f1a23f25d749" title="このベクトルとotherの内積を返す" alt="" coords="946,207,1091,233"/>
+<area shape="poly" title=" " alt="" coords="898,217,931,217,931,223,898,223"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#ab72c9ccc774276e2c24dee7a7174a867" title="このベクトルの長さを返す" alt="" coords="512,283,674,309"/>
+<area shape="poly" title=" " alt="" coords="451,281,497,285,496,290,450,286"/>
+<area shape="poly" title=" " alt="" coords="649,279,686,268,750,245,751,250,688,273,650,285"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_icgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_icgraph" id="aclass_com_selecter_hato_ac12ba6d13d4fb7f0bd6b252c06cc5243_icgraph">
+<div class="center"><img src="class_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_icgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_icgraph" id="aclass_com_selecter_hato_a5d197b3f6d2759a435d357e67e700d2e_icgraph">
 <area shape="rect" title="重心を求める" alt="" coords="231,5,437,48"/>
 <area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="5,5,183,48"/>
 <area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>

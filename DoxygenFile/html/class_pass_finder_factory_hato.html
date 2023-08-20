@@ -95,13 +95,18 @@ $(document).ready(function(){initNavTree('class_pass_finder_factory_hato.html','
   <div class="headertitle"><div class="title">PassFinderFactoryHato クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>パス探索クラスのファクトリークラス  
+ <a href="class_pass_finder_factory_hato.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="pass__finder__factory__hato_8h_source.html">pass_finder_factory_hato.h</a>&gt;</code></p>
 <div class="dynheader">
 PassFinderFactoryHato の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pass_finder_factory_hato__inherit__graph.png" border="0" usemap="#a_pass_finder_factory_hato_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_pass_finder_factory_hato_inherit__map" id="a_pass_finder_factory_hato_inherit__map">
-<area shape="rect" title=" " alt="" coords="16,80,175,107"/>
-<area shape="rect" href="class_abstract_pass_finder_factory.html" title=" " alt="" coords="5,5,186,32"/>
+<area shape="rect" title="パス探索クラスのファクトリークラス" alt="" coords="16,80,175,107"/>
+<area shape="rect" href="class_abstract_pass_finder_factory.html" title="パス探索に必要なクラスを生成するアブストラクトファクトリー．" alt="" coords="5,5,186,32"/>
 <area shape="poly" title=" " alt="" coords="98,47,98,80,93,80,93,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
@@ -110,8 +115,8 @@ PassFinderFactoryHato 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pass_finder_factory_hato__coll__graph.png" border="0" usemap="#a_pass_finder_factory_hato_coll__map" alt="Collaboration graph"/></div>
 <map name="a_pass_finder_factory_hato_coll__map" id="a_pass_finder_factory_hato_coll__map">
-<area shape="rect" title=" " alt="" coords="16,80,175,107"/>
-<area shape="rect" href="class_abstract_pass_finder_factory.html" title=" " alt="" coords="5,5,186,32"/>
+<area shape="rect" title="パス探索クラスのファクトリークラス" alt="" coords="16,80,175,107"/>
+<area shape="rect" href="class_abstract_pass_finder_factory.html" title="パス探索に必要なクラスを生成するアブストラクトファクトリー．" alt="" coords="5,5,186,32"/>
 <area shape="poly" title=" " alt="" coords="98,47,98,80,93,80,93,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
@@ -119,17 +124,23 @@ PassFinderFactoryHato 連携図</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a79f1e053772a68a937c18fb69c32552f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_factory_hato.html#a79f1e053772a68a937c18fb69c32552f">createGraphTreeCreator</a> (const <a class="el" href="class_map_state.html">MapState</a> *const map, std::unique_ptr&lt; <a class="el" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a> &gt; &amp;tree) override</td></tr>
-<tr class="memdesc:a79f1e053772a68a937c18fb69c32552f"><td class="mdescLeft">&#160;</td><td class="mdescRight">パス探索に必要なクラスを生成する．  <br /></td></tr>
+<tr class="memdesc:a79f1e053772a68a937c18fb69c32552f"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木の生成に必要なクラスを生成する．  <br /></td></tr>
 <tr class="separator:a79f1e053772a68a937c18fb69c32552f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab03172427d31d0b873cb30737228353f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_factory_hato.html#ab03172427d31d0b873cb30737228353f">createGraphSearcher</a> (std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearcher</a> &gt; &amp;searcher) override</td></tr>
+<tr class="memdesc:ab03172427d31d0b873cb30737228353f"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行うクラスを生成する．  <br /></td></tr>
 <tr class="separator:ab03172427d31d0b873cb30737228353f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65adbca1bd1e6bfe24aafb65120796bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_pass_finder_factory.html#a65adbca1bd1e6bfe24aafb65120796bc">createGraphTreeCreator</a> (const <a class="el" href="class_map_state.html">MapState</a> *const map, std::unique_ptr&lt; <a class="el" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a> &gt; &amp;tree)=0</td></tr>
-<tr class="memdesc:a65adbca1bd1e6bfe24aafb65120796bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">パス探索に必要なクラスを生成する．  <br /></td></tr>
+<tr class="memdesc:a65adbca1bd1e6bfe24aafb65120796bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木の生成に必要なクラスを生成する．  <br /></td></tr>
 <tr class="separator:a65adbca1bd1e6bfe24aafb65120796bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7758f0a9418ad59b90b9a162224d0fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_pass_finder_factory.html#aa7758f0a9418ad59b90b9a162224d0fe">createGraphSearcher</a> (std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearcher</a> &gt; &amp;searcher)=0</td></tr>
+<tr class="memdesc:aa7758f0a9418ad59b90b9a162224d0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行うクラスを生成する．  <br /></td></tr>
 <tr class="separator:aa7758f0a9418ad59b90b9a162224d0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>パス探索クラスのファクトリークラス </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
 <a id="ab03172427d31d0b873cb30737228353f" name="ab03172427d31d0b873cb30737228353f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab03172427d31d0b873cb30737228353f">&#9670;&#160;</a></span>createGraphSearcher()</h2>
 
@@ -153,6 +164,8 @@ PassFinderFactoryHato 連携図</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>グラフ探索を行うクラスを生成する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">searcher</td><td>歩容パターン生成の探索を行うクラス． </td></tr>
@@ -198,7 +211,7 @@ PassFinderFactoryHato 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p>パス探索に必要なクラスを生成する． </p>
+<p>グラフ木の生成に必要なクラスを生成する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">map</td><td>マップ情報． </td></tr>
@@ -212,8 +225,8 @@ PassFinderFactoryHato 連携図</div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_pass_finder_factory_hato_8h_source.html">PassFinderFactoryHato.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/PassFinderFactoryHato.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="pass__finder__factory__hato_8h_source.html">pass_finder_factory_hato.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/pass_finder_factory_hato.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

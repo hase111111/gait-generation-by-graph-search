@@ -13,7 +13,7 @@ digraph "ComType::convertComPatternToBit"
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="ComMoveNodeCreatorHato\l::create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6",tooltip="重心を平行移動したノードを生成する"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="ComSelecter::getComFromPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter.html#a7557af617255e407ade97899f56c5bc2",tooltip="重心を求める"];
+  Node5 [id="Node000005",label="ComSelecter::getComFromPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter.html#a362bc2b2bba3c9933c01de9c90687691",tooltip="重心を求める"];
   Node5 -> Node3 [id="edge5_Node000005_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node6 [id="edge6_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="dl_leg::makeLegState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9",tooltip="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．"];

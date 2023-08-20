@@ -95,12 +95,17 @@ $(document).ready(function(){initNavTree('class_pass_finder_fixed.html',''); ini
   <div class="headertitle"><div class="title">PassFinderFixed クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>再評価手法  
+ <a href="class_pass_finder_fixed.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="pass__finder__fixed_8h_source.html">pass_finder_fixed.h</a>&gt;</code></p>
 <div class="dynheader">
 PassFinderFixed の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pass_finder_fixed__inherit__graph.png" border="0" usemap="#a_pass_finder_fixed_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_pass_finder_fixed_inherit__map" id="a_pass_finder_fixed_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,125,107"/>
+<area shape="rect" title="再評価手法" alt="" coords="5,80,125,107"/>
 <area shape="rect" href="class_i_pass_finder.html" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="20,5,110,32"/>
 <area shape="poly" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
 </map>
@@ -110,7 +115,7 @@ PassFinderFixed 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pass_finder_fixed__coll__graph.png" border="0" usemap="#a_pass_finder_fixed_coll__map" alt="Collaboration graph"/></div>
 <map name="a_pass_finder_fixed_coll__map" id="a_pass_finder_fixed_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,125,107"/>
+<area shape="rect" title="再評価手法" alt="" coords="5,80,125,107"/>
 <area shape="rect" href="class_i_pass_finder.html" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="20,5,110,32"/>
 <area shape="poly" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
 </map>
@@ -118,9 +123,9 @@ PassFinderFixed 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:aa5f727548437f6a176d51c34d9a4e0c7"><td class="memItemLeft" align="right" valign="top"><a id="aa5f727548437f6a176d51c34d9a4e0c7" name="aa5f727548437f6a176d51c34d9a4e0c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PassFinderFixed</b> (std::unique_ptr&lt; <a class="el" href="class_abstract_pass_finder_factory.html">AbstractPassFinderFactory</a> &gt; &amp;&amp;_factory)</td></tr>
-<tr class="separator:aa5f727548437f6a176d51c34d9a4e0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a30b23986c4ba1612f6e3de56f90f03"><td class="memItemLeft" align="right" valign="top"><a id="a2a30b23986c4ba1612f6e3de56f90f03" name="a2a30b23986c4ba1612f6e3de56f90f03"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PassFinderFixed</b> (std::unique_ptr&lt; <a class="el" href="class_abstract_pass_finder_factory.html">AbstractPassFinderFactory</a> &gt; &amp;&amp;factory)</td></tr>
+<tr class="separator:a2a30b23986c4ba1612f6e3de56f90f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5fe295a5429e0a9c1d9f5564c247878"><td class="memItemLeft" align="right" valign="top">EGraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878">getNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> *const p_map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_s_node.html">SNode</a> &amp;output_node) override</td></tr>
 <tr class="memdesc:af5fe295a5429e0a9c1d9f5564c247878"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
 <tr class="separator:af5fe295a5429e0a9c1d9f5564c247878"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,7 +140,7 @@ PassFinderFixed 連携図</div>
 <tr class="memdesc:abb82d5e68f43fb8957a146e570a02b2a inherit pub_methods_class_i_pass_finder"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数を返す  <br /></td></tr>
 <tr class="separator:abb82d5e68f43fb8957a146e570a02b2a inherit pub_methods_class_i_pass_finder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa231f3e3af94fa1646d34ffa79866827 inherit pub_methods_class_i_pass_finder"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">getGraphTree</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) const</td></tr>
-<tr class="memdesc:aa231f3e3af94fa1646d34ffa79866827 inherit pub_methods_class_i_pass_finder"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す．<br  />
+<tr class="memdesc:aa231f3e3af94fa1646d34ffa79866827 inherit pub_methods_class_i_pass_finder"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
  この関数はデバッグ用なので，探索には使わないこと．  <br /></td></tr>
 <tr class="separator:aa231f3e3af94fa1646d34ffa79866827 inherit pub_methods_class_i_pass_finder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -163,7 +168,16 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 <tr class="memdesc:ad31b4f0aa3b90b470bf4d7030268cd8e inherit pro_attribs_class_i_pass_finder"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索クラス <br /></td></tr>
 <tr class="separator:ad31b4f0aa3b90b470bf4d7030268cd8e inherit pro_attribs_class_i_pass_finder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>再評価手法 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_pass_finder_fixed.html" title="再評価手法">PassFinderFixed</a></td><td>@data 2023/08/17 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
 <a id="af5fe295a5429e0a9c1d9f5564c247878" name="af5fe295a5429e0a9c1d9f5564c247878"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5fe295a5429e0a9c1d9f5564c247878">&#9670;&#160;</a></span>getNextNodebyGraphSearch()</h2>
 
@@ -229,7 +243,7 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 <div class="center"><img src="class_pass_finder_fixed_af5fe295a5429e0a9c1d9f5564c247878_cgraph.png" border="0" usemap="#aclass_pass_finder_fixed_af5fe295a5429e0a9c1d9f5564c247878_cgraph" alt=""/></div>
 <map name="aclass_pass_finder_fixed_af5fe295a5429e0a9c1d9f5564c247878_cgraph" id="aclass_pass_finder_fixed_af5fe295a5429e0a9c1d9f5564c247878_cgraph">
 <area shape="rect" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,27,178,69"/>
-<area shape="rect" href="class_pass_finder_hato_thread.html#a2563f6aa463b6e5969a29cd8a2e5a4b4" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="226,27,420,69"/>
+<area shape="rect" href="class_pass_finder_hato_thread.html#a39e8ac1fd6111699a72092fcdd51a1ba" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="226,27,420,69"/>
 <area shape="poly" title=" " alt="" coords="178,45,211,45,211,51,178,51"/>
 <area shape="rect" href="struct_s_node.html#a753735f1b4c1cfd5526f38cd426c7e73" title="自身を親ノードに変更する関数．" alt="" coords="468,5,646,32"/>
 <area shape="poly" title=" " alt="" coords="420,33,453,29,454,34,421,38"/>
@@ -241,8 +255,8 @@ std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearc
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_pass_finder_fixed_8h_source.html">PassFinderFixed.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/PassFinderFixed.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="pass__finder__fixed_8h_source.html">pass_finder_fixed.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/pass_finder_fixed.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

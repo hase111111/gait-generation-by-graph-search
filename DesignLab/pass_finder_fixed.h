@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "map_state.h"
-#include "Node.h"
+#include "node.h"
 #include "interface_pass_finder.h"
 
 
@@ -19,3 +19,11 @@ public:
 
 	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;
 };
+
+
+
+//! @file pass_finder_fixed.h
+//! @data 2023/08/21
+//! @author 長谷川
+//! @brief 再評価手法を行うクラス
+//! @n 行数 : @lineinfo
