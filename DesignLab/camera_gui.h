@@ -44,7 +44,8 @@ private:
 		BACK,
 		LEFT,
 		RIGHT,
-		TOP
+		TOP,
+		TARGET_RESET
 	};
 
 
@@ -57,7 +58,7 @@ private:
 
 	const int kButtonDistance = 10; // ボタン同士の間隔
 
-	const int kButtonSize = 50;		// ボタンのサイズ
+	const int kButtonSize = 60;		// ボタンのサイズ
 
 	const int kGUILeftPosX = 10;		// GUIの左端の位置
 

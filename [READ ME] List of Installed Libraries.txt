@@ -1,0 +1,16 @@
+導入したライブラリ一覧
+
+boost ver 1.82.0
+	https://qiita.com/Gaccho/items/7e78911d2c8093baf200
+
+DXLib (ダウンロード日 2023/06/10)　
+	https://dxlib.xsrv.jp/
+
+OpenCV
+	https://qiita.com/h-adachi/items/aad3401b8900438b2acd
+
+toml11 ver 3.7.1 
+	https://github.com/ToruNiina/toml11 (gitのレポジトリ)
+	https://github.com/ToruNiina/toml11/releases/tag/v3.7.1 (zipファイル)
+
+	https://in-neuro.hatenablog.com/entry/2018/12/14/160158(かなり古いverの使い方説明)

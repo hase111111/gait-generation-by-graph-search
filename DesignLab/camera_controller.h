@@ -25,6 +25,9 @@ private:
 
 	const float kCameraMoveSpeed = 0.007f;	//!< カメラの移動速度
 
+	const float kCameraTargetMoveSpeed = 3.0f;	//!< カメラの注視点の移動速度
+
+	const double kMouseMoveMargin = 2.0;	//!< マウスの移動量がこの量以下ならば0とみなす
 
 	CameraManager* mp_camera_manager;
 };

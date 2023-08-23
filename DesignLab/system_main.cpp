@@ -20,7 +20,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search)
 	HexapodStateCalclator::initLegR();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::LATTICE_POINT, MapCreator::OPTION_SLOPE, true);
+	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_STEP, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);

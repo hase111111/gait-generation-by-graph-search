@@ -1,6 +1,10 @@
 #include "mouse.h"
 
+#include <cmath>
+
 #include "DxLib.h"
+
+#include "designlab_math.h"
 
 
 Mouse::Mouse()
@@ -95,6 +99,11 @@ int Mouse::getPosY() const
 int Mouse::getDiffPosY() const
 {
 	return m_poy - m_past_posy;
+}
+
+double Mouse::getDiffPos() const
+{
+	return sqrt(static_cast<double>(dl_math::squared(getDiffPosY()) + dl_math::squared(getDiffPosX())));
 }
 
 

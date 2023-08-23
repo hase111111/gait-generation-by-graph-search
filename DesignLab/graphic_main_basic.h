@@ -9,6 +9,7 @@
 #include "camera_gui.h"
 #include "gui_controller.h"
 #include "hexapod_renderer.h"
+#include "movement_locus_renderer.h"
 
 
 //! @class GraphicMainBasic
@@ -35,6 +36,8 @@ private:
 	CameraGUI m_camera_gui;				// カメラの位置を制御するGUI
 
 	HexapodRenderer m_hexapod_renderer;
+
+	MovementLocusRenderer m_movement_locus_renderer;
 
 	GUIController m_gui_controller;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
 

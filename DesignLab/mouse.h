@@ -31,6 +31,10 @@ public:
 	//! @return int マウスカーソルのY方向の移動量．
 	int getDiffPosY() const;
 
+	//! @brief マウスカーソルの移動量を取得する．
+	//! @return double マウスカーソルの移動量．
+	double getDiffPos() const;
+
 	//! @brief マウスの左クリックの押され続けているフレーム数を取得する．
 	//! @return int 押されているフレーム数．
 	int getPushingCountLeft() const;

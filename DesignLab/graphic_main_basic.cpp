@@ -3,6 +3,7 @@
 #include "DxLib.h"
 
 #include "designlab_dxlib.h"
+#include "world_grid_renderer.h"
 #include "map_renderer.h"
 
 
@@ -18,6 +19,8 @@ bool GraphicMainBasic::update()
 	{
 		//ノードを読み出す時間になったら，読み出す．
 		mp_broker->copyOnlyNewNode(&m_node);
+
+		m_movement_locus_renderer.setMovementLocus(m_node);   //移動軌跡を更新する．
 	}
 
 	m_gui_controller.update((int)m_node.size(), m_display_node, m_counter); //GUIを更新する．
@@ -39,10 +42,19 @@ bool GraphicMainBasic::update()
 
 void GraphicMainBasic::draw() const
 {
+	dl_dxlib::setZBufferEnable();   //Zバッファを有効にする．
+
+
+	WorldGridRenderer grid_renderer;	//インスタンスを生成する．
+
+	grid_renderer.draw();    //グリッドを描画する．
+
+
+	m_movement_locus_renderer.draw();   //移動軌跡を描画する．
+
+
 	if (!m_node.empty())
 	{
-		dl_dxlib::setZBufferEnable();
-
 		//マップを描画する．
 		MapRenderer map_render;
 		map_render.setNode(m_node.at(m_display_node));

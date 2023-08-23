@@ -36,6 +36,8 @@
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="designlab_rotator.h" />
+    <ClInclude Include="movement_locus_renderer.h" />
+    <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
     <ClInclude Include="pass_finder_hato.h" />
@@ -103,6 +105,7 @@
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="designlab_vector.h" />
+    <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="button_controller.cpp" />
@@ -120,7 +123,9 @@
     <ClCompile Include="graph_searcher_hato.cpp" />
     <ClCompile Include="GraphTreeCreatorThread.cpp" />
     <ClCompile Include="designlab_rotator.cpp" />
+    <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="my_timer.cpp" />
+    <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
     <ClCompile Include="pass_finder_hato.cpp" />
@@ -180,6 +185,7 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="designlab_vector.cpp" />
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -256,7 +262,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -268,7 +274,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -287,7 +293,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -301,7 +307,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -316,7 +322,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -328,7 +334,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -347,7 +353,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -361,7 +367,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>

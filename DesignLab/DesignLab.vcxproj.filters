@@ -369,6 +369,15 @@
     <ClInclude Include="button_controller.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="world_grid_renderer.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="movement_locus_renderer.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="node_display_gui.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -594,6 +603,15 @@
       <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
     </ClCompile>
     <ClCompile Include="button_controller.cpp">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="world_grid_renderer.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="movement_locus_renderer.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="node_display_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
   </ItemGroup>

@@ -20,6 +20,7 @@ enum class ECameraMode : int
 	RIGHT_SIDE_VIEW,	//!< 右から真横の視点．
 	LEFT_SIDE_VIEW,		//!< 右から真横の視点．
 	FREE_CONTROLLED,	//!< 自由に操作可能
+	FREE_CONTROLLED_TARGET	//!< 自由に操作可能かつ注視点を設定可能
 };
 
 
@@ -41,21 +42,28 @@ public:
 	void update();
 
 
-	//! @brief カメラのモードをセットする
+	//! @brief カメラのモードをセットする．同時にカメラの目標回転角度などを設定する
 	//! @param [in] mode カメラの視点のモード
 	void setCameraViewMode(const ECameraMode mode);
 
+	//! @brief カメラのモードを取得する
+	//! @return ECameraMode カメラの視点のモード
+	ECameraMode getCameraViewMode() const { return m_camera_view_mode; }
+
+
 	//! @brief カメラと注視点との距離を初期化する
 	void initCaneraTargetLength();
-
 
 	//! @brief カメラの注視する目標の座標とカメラの距離を増やす
 	//! @param [in] length_dif 増やす距離
 	void addCameraToTargetLength(const float length_dif);
 
+
 	//! @brief カメラの注視する目標の座標をセットする
+	//! @n cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない
 	//! @param [in] pos カメラの注視する目標の座標
 	void setTargetPos(const VECTOR pos) { m_goal_target_pos = pos; }
+
 
 	//! @brief カメラのクォータニオンを取得する
 	//! @return カメラのクォータニオン
@@ -64,6 +72,14 @@ public:
 	//! @brief カメラのクォータニオンをセットする
 	//! @param [in] quat カメラのクォータニオン
 	void setCameraRotQuat(const dl_vec::SQuaternion& quat) { m_goal_camera_rot_quat = quat; }
+
+
+	//! @brief 注視点を操作する際の，カメラの注視する座標をセットする
+	//! @param [in] pos カメラの注視する座標
+	void setFreeTargetPos(const VECTOR pos) { m_free_controlled_target = pos; }
+
+	//! @brief 注視点を操作する際の，カメラの注視する座標を取得する
+	VECTOR getFreeTargetPos() const { return m_free_controlled_target; }
 
 
 private:
@@ -99,6 +115,8 @@ private:
 	float m_goal_length_camera_to_target;		//カメラと注視する対象との距離の目標値
 
 	float m_length_camera_to_target;			//カメラと注視する対象との距離の現在値
+
+	VECTOR m_free_controlled_target;			//カメラの注視点を操作する際の注視点の座標
 };
 
 

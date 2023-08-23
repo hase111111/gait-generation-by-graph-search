@@ -28,4 +28,6 @@ void dl_vec::SQuaternion::setRotAngleAndAxis(float angle, const SVector& axis)
 	v.y = axis.y * kSinHalfAngle;
 	v.z = axis.z * kSinHalfAngle;
 	w = cosf(kHalfAngle);
+
+	*this = normalize();
 }
