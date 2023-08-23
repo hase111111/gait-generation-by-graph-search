@@ -5,7 +5,7 @@
 #include"designlab_dxlib.h"
 
 
-MovementLocusRenderer::MovementLocusRenderer() : LOCUS_COLOR(GetColor(37, 37, 37))
+MovementLocusRenderer::MovementLocusRenderer() : LOCUS_COLOR(GetColor(239, 237, 84))
 {
 }
 

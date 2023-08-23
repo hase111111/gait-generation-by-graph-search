@@ -21,6 +21,7 @@ class IPassFinder
 {
 public:
 
+	IPassFinder() = delete;
 	IPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& factory) : mp_factory(std::move(factory)) {};
 	virtual ~IPassFinder() = default;
 

@@ -14,7 +14,7 @@
 
 void GraphicSystem::init(std::unique_ptr<IGraphicMain>&& graphic_main)
 {
-	mp_InterfaceGraphicMain = std::move(graphic_main);
+	mp_graphic_main = std::move(graphic_main);
 }
 
 
@@ -28,7 +28,7 @@ void GraphicSystem::main()
 	}
 
 	//ブローカーがnull(存在しない)なら終了
-	if (!mp_InterfaceGraphicMain)
+	if (!mp_graphic_main)
 	{
 		std::cout << "IGraphicMainクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．" << std::endl;	// cout関数はスレッドセーフではないので本当は呼ぶべきではない．
 		return;
@@ -42,7 +42,7 @@ void GraphicSystem::main()
 	}
 
 	//描画の処理を行うクラスをセットする．実行する描画の内容を変更したいならば，このようにIGraphicMainを継承した他のクラスを<>に入れてください．
-	GraphicLoop looper(std::move(mp_InterfaceGraphicMain));
+	GraphicLoop looper(std::move(mp_graphic_main));
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
