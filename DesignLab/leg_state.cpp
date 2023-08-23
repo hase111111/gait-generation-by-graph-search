@@ -1,5 +1,6 @@
 #include "leg_state.h"
 
+
 int dl_leg::makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])
 {
 	int res = 0;
@@ -26,6 +27,7 @@ int dl_leg::makeLegState(const ComType::EComPattern _com_pattern, const bool _gr
 	return res;
 }
 
+
 bool dl_leg::isGrounded(const int _leg_state, const int _leg_num)
 {
 	//_leg_numは0～5の範囲にある必要があるので，範囲外ならばfalseを出力する
@@ -45,6 +47,7 @@ bool dl_leg::isGrounded(const int _leg_state, const int _leg_num)
 	}
 }
 
+
 int dl_leg::getGroundedLegNum(const int _leg_state)
 {
 	int _res = 0;
@@ -62,10 +65,12 @@ int dl_leg::getGroundedLegNum(const int _leg_state)
 	return _res;
 }
 
+
 int dl_leg::getLiftedLegNum(const int _leg_state)
 {
 	return HexapodConst::LEG_NUM - getGroundedLegNum(_leg_state);
 }
+
 
 void dl_leg::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
@@ -80,6 +85,7 @@ void dl_leg::getGroundedLegNumWithVector(const int _leg_state, std::vector<int>&
 	}
 }
 
+
 void dl_leg::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _res_number)
 {
 	//脚は6本あるので6回ループする
@@ -93,6 +99,7 @@ void dl_leg::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>& _
 	}
 }
 
+
 int dl_leg::getLegState(const int _leg_state, const int _leg_num)
 {
 	const int _shift_num = 4 * _leg_num;	//4bitずつずらす
@@ -100,11 +107,13 @@ int dl_leg::getLegState(const int _leg_state, const int _leg_num)
 	return ((_leg_state & (LEG_POS_MASKBIT << _shift_num)) >> _shift_num);
 }
 
+
 int dl_leg::getComPatternState(const int _leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	return ((_leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM);
 }
+
 
 bool dl_leg::changeLegState(int& _leg_state, const int _leg_num, const int _new_state)
 {
@@ -125,6 +134,7 @@ bool dl_leg::changeLegState(int& _leg_state, const int _leg_num, const int _new_
 	return true;
 }
 
+
 bool dl_leg::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
 {
 	//_leg_num か _new_state がおかしいならば falseを返す
@@ -144,6 +154,7 @@ bool dl_leg::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const
 	return true;
 }
 
+
 void dl_leg::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
 {
 	//_leg_num がおかしいならば，終了．
@@ -159,12 +170,14 @@ void dl_leg::changeGround(int& _leg_state, const int _leg_num, const bool _groun
 	}
 }
 
+
 void dl_leg::changeComPattern(int& _leg_state, const ComType::EComPattern _new_com_pattern)
 {
 	const int _state = ComType::convertComPatternToBit(_new_com_pattern) << SHIFT_TO_COM_NUM;
 	int _res = (_leg_state ^ _state) & COM_STATE_MASKBIT;
 	_leg_state ^= _res;
 }
+
 
 int dl_leg::getLegUpDownCount(const int _leg_state_first, const int _leg_state_second)
 {
