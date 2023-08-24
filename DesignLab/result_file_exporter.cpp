@@ -60,8 +60,20 @@ void ResultFileExporter::exportResult(const SSimulationRecord& recoder)
 	if (!ofs) { return; }
 
 
-	//ノードの情報を出力する．
+	//結果を出力する．
+	ofs << "@SimuRes" << std::endl;
+	ofs << std::endl;
+
+	ofs << "number,is Grounded,,,,,,Discretized Leg Pos,,,,,,Com Type,Rotate[rad],,,Leg Pos 0[mm],,,Leg Pos 1[mm],,,Leg Pos 2[mm],,,Leg Pos 3[mm],,,Leg Pos 4[mm],,,Leg Pos 5[mm],,,";
+	ofs << "Leg Base Pos 0[mm],,,Leg Base Pos 1[mm],,,Leg Base Pos 2[mm],,,Leg Base Pos 3[mm],,,Leg Base Pos 4[mm],,,Leg Base Pos 5[mm],,,Center of Mass[mm],,,Next Move,Time[msec],Graph Search Result" << std::endl;
+	ofs << ",leg0,leg1,leg2,leg3,leg4,leg5,leg0,leg1,leg2,leg3,leg4,leg5,,,,,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z," << std::endl;
+
+	ofs << recoder;
 
 
 	++m_export_count;	//出力した回数をカウントする．
+
+
+	//ファイルを閉じる．
+	ofs.close();
 }

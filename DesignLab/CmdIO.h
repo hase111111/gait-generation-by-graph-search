@@ -2,8 +2,7 @@
 
 #include <string>
 
-#include "SimulateResult.h"
-#include "Node.h"
+#include "node.h"
 
 
 //! @enum EOutputPriority

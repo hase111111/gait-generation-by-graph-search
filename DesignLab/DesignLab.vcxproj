@@ -182,6 +182,7 @@
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="simulation_record.cpp" />
+    <ClCompile Include="simulation_result.cpp" />
     <ClCompile Include="system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />

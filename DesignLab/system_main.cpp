@@ -22,7 +22,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search)
 	m_result_exporter.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_STEP, true);
+	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_PERFORATED | MapCreator::OPTION_ROUGH, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);
@@ -59,10 +59,16 @@ void SystemMain::main()
 	for (int i = 0; i < Define::SIMURATE_NUM; i++)
 	{
 		SNode current_node;										//現在のノードの状態を格納する変数．
-		const bool _do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
-		current_node.init(_do_random_init);
+		const bool do_random_init = true;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
+		current_node.init(do_random_init);
+
+		SSimulationRecord record;	//シミュレーションの結果を格納する変数．
+		record.result_nodes.push_back(current_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
+		record.simulation_result = ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//シミュレーションの結果を格納する変数を成功に初期化する．
+
 
 		if (Define::FLAG_GRAPHIC_AVAILABLE) { m_broker.pushNode(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
+
 
 		_cmd.outputGraphSearchStaretMessage(i + 1);	//コマンドラインに開始時のメッセージを出力する．
 		_cmd.outputNode(current_node, 0);			//コマンドラインに最初のノードの状態を出力する．
@@ -80,9 +86,16 @@ void SystemMain::main()
 			m_timer.end();			//タイマーストップ
 
 
+			record.computation_time.push_back(m_timer.getMicroSecond() / 1000);	//計算時間を格納する．
+			record.graph_search_results.push_back(result_state);			//グラフ探索の結果を格納する．
+			record.result_nodes.push_back(result_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
+
+
 			if (!graphSeachResultIsSuccessful(result_state))
 			{
 				_cmd.outputErrorMessageInGraphSearch("Failed to generate the next gait.");
+
+				record.simulation_result = ESimulationResult::FAILURE_BY_GRAPH_SEARCH;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
 			}
@@ -101,12 +114,20 @@ void SystemMain::main()
 			{
 				_cmd.outputErrorMessageInGraphSearch("Motion stuck in a loop.");
 
+				record.simulation_result = ESimulationResult::FAILURE_BY_LOOP_MOTION;	//シミュレーションの結果を格納する変数を失敗に更新する．
+
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
 			}
 
-			if (current_node.global_center_of_mass.x > Define::GOAL_TAPE) { break; }
+			if (current_node.global_center_of_mass.x > Define::GOAL_TAPE)
+			{
+				record.simulation_result = ESimulationResult::SUCCESS;	//シミュレーションの結果を格納する変数を成功に更新する．
+
+				break;
+			}
 		}
 
+		m_result_exporter.exportResult(record);	//シミュレーションの結果をファイルに出力する．
 
 	}
 

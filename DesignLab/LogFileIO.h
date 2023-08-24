@@ -1,8 +1,10 @@
 #pragma once
+
 #include <string>
 #include <fstream>
-#include "Node.h"
-#include "SimulateResult.h"
+
+#include "node.h"
+
 
 class LogFileIO final
 {

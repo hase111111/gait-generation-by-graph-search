@@ -16,10 +16,10 @@
 //! @n 最初のSはStructのS
 struct SSimulationRecord final
 {
-	std::vector<SNode> m_node;	//!< 動作の記録
-	std::vector<double> m_time;	//!< グラフ探索にかかった時間
-	std::vector<EGraphSearchResult> m_graph_search_result;	//!< グラフ探索の結果
-	ESimulationResult m_simulation_result;	//!< シミュレーション全体の結果
+	std::vector<SNode> result_nodes;						//!< 動作の記録
+	std::vector<double> computation_time;					//!< グラフ探索にかかった時間
+	std::vector<EGraphSearchResult> graph_search_results;	//!< グラフ探索の結果
+	ESimulationResult simulation_result;					//!< シミュレーション全体の結果
 
 	//int m_clear_num;							//一定距離歩行できてシミュレーションが終了した回数
 	//int m_failed_by_gate_pattern_loop;			//同じ動作を繰り返してシミュレーションが終了した回数

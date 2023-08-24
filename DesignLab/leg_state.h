@@ -47,7 +47,7 @@ namespace dl_leg
 	//! @return int 作成した脚状態を返す．
 	int makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM]);
 
-	//! @brief 脚番号_leg_num 0 ～ 5 に応じて，その脚が接地しているかを調べる．<br>脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．
+	//! @brief 脚番号_leg_num 0 ～ 5 に応じて，その脚が接地しているかを調べる．@n 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．
 	//! @param [in] _leg_state 現在の脚状態
 	//! @param [in] _leg_num どの脚を調べるか． 0 ～ 5 の整数で入力する．
 	//! @return bool 脚が接地しているならばtrueを返す．
@@ -111,9 +111,7 @@ namespace dl_leg
 		return false;
 	}
 
-	/**
-	*
-	*/
+
 	inline bool isAbleLegState(const int _state)
 	{
 		if (_state == 8) { return false; }		// 8 (0b1000) なら false

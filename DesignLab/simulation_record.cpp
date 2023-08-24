@@ -6,30 +6,43 @@
 
 std::ofstream& operator<<(std::ofstream& ofs, const SSimulationRecord& record)
 {
+	const size_t kLength = record.result_nodes.size();
 
 
-	const size_t length = record.m_node.size();
-
-	for (size_t i = 0; i < length; i++)
+	for (size_t i = 0; i < kLength; i++)
 	{
 		ofs << i << ",";
 
-		//遊脚・接地脚の出力
-		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+		//ノードの状態の出力
+		ofs << record.result_nodes[i] << ",";
+
+		//計算時間の出力
+		if (record.computation_time.size() > i)
 		{
-			ofs << dl_leg::isGrounded(record.m_node[i].leg_state, j) << ",";
+			ofs << record.computation_time[i] << ",";
+		}
+		else
+		{
+			ofs << ",";
 		}
 
-		//階層の出力
-		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+		//グラフ探索の結果の出力
+		if (record.graph_search_results.size() > i)
 		{
-			ofs << dl_leg::getLegState(record.m_node[i].leg_state, j) << ",";
+			ofs << std::to_string(record.graph_search_results[i]) << ",";
+		}
+		else
+		{
+			ofs << ",";
 		}
 
-		//重心位置の出力
-		ofs << dl_leg::getComPatternState(record.m_node[i].leg_state) << ",";
-
-		//姿勢の出力
-		ofs << record.m_node[i].rot.pitch << "," << record.m_node[i].rot.roll << "," << record.m_node[i].rot.yaw << ",";
+		ofs << std::endl;
 	}
+
+	//最終的な結果の出力
+	ofs << std::to_string(record.simulation_result) << ",";
+
+	ofs << std::endl;
+
+	return ofs;
 }

@@ -22,23 +22,6 @@ namespace std
 	//! @brief ESimulationResultŒ^‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”
 	//! @param [in] result ESimulationResultŒ^‚Ì•Ï”
 	//! @return std::string ESimulationResultŒ^‚Ì•Ï”‚ğ•¶š—ñ‚É‚µ‚½‚à‚Ì
-	std::string to_string(ESimulationResult result)
-	{
-		switch (result)
-		{
-		case ESimulationResult::SUCCESS:
-			return "SUCCESS";
-		case ESimulationResult::FAILURE:
-			return "FAILURE";
-		case ESimulationResult::FAILURE_BY_GRAPH_SEARCH:
-			return "FAILURE_BY_GRAPH_SEARCH";
-		case ESimulationResult::FAILURE_BY_LOOP_MOTION:
-			return "FAILURE_BY_LOOP_MOTION";
-		case ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED:
-			return "FAILURE_BY_NODE_LIMIT_EXCEEDED";
-		default:
-			return "UNKNOWN";
-		}
-	}
+	std::string to_string(ESimulationResult result);
 
-}
+} // namespace std
