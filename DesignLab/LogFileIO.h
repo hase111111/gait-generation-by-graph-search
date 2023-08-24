@@ -30,10 +30,10 @@ public:
 	//! @param [in] _str 書き込む文字列
 	void addLogString(const std::string _str);
 
-	//! @brief Logファイルにシミュレーションの結果を書き込む
-	//! @param [in] _loop_num ループ回数
-	//! @param [in] _res シミュレーションの結果
-	void addLogStringSimulation(const int _loop_num, const SimulateResult& _res);
+	////! @brief Logファイルにシミュレーションの結果を書き込む
+	////! @param [in] _loop_num ループ回数
+	////! @param [in] _res シミュレーションの結果
+	//void addLogStringSimulation(const int _loop_num, const SimulateResult& _res);
 
 private:
 	const std::string LOG_NAME = "WalkingPatternLog";	//出力するファイル名

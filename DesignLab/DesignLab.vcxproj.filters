@@ -138,7 +138,7 @@
     <ClInclude Include="CmdIO.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="SimulateResult.h">
+    <ClInclude Include="simulation_record.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="TimeFileIO.h">
@@ -279,7 +279,7 @@
     <ClInclude Include="graph_viewer_gui_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="my_timer.h">
+    <ClInclude Include="designlab_timer.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="StringToValue.h">
@@ -378,6 +378,12 @@
     <ClInclude Include="node_display_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="result_file_exporter.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_result.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -396,9 +402,6 @@
       <Filter>ソース ファイル\phantomX</Filter>
     </ClCompile>
     <ClCompile Include="Define.cpp">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="SimulateResult.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="CmdIO.cpp">
@@ -569,7 +572,7 @@
     <ClCompile Include="graph_search_result.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
     </ClCompile>
-    <ClCompile Include="my_timer.cpp">
+    <ClCompile Include="designlab_timer.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="designlab_rotator.cpp">
@@ -613,6 +616,12 @@
     </ClCompile>
     <ClCompile Include="node_display_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="result_file_exporter.cpp">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_record.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,6 @@
 
 #include "Define.h"
 #include "designlab_math.h"
-#include "my_timer.h"
 #include "CmdIO.h"
 #include "hexapod.h"
 #include "hexapod_state_calculator.h"
@@ -18,6 +17,9 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search)
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
 	HexapodStateCalclator::initLegR();
+
+	//結果をファイルに出力するクラスを初期化する．
+	m_result_exporter.init();
 
 	//マップを生成する．
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_STEP, true);
@@ -69,16 +71,13 @@ void SystemMain::main()
 		//最大歩容生成回数分までループする．
 		for (int i = 0; i < Define::GATE_PATTERN_GENERATE_NUM; i++)
 		{
-			MyTimer timer;		//タイマーを用意する．
+			m_timer.start();		//タイマースタート
 
-
-			timer.start();		//タイマースタート
-
-			SNode result_node;	//グラフ探索の結果を格納する変数．
+			SNode result_node;		//グラフ探索の結果を格納する変数．
 
 			EGraphSearchResult result_state = mp_pass_finder->getNextNodebyGraphSearch(current_node, &m_map_state, m_target, result_node);		//グラフ探索を行う．
 
-			timer.end();		//タイマーストップ
+			m_timer.end();			//タイマーストップ
 
 
 			if (!graphSeachResultIsSuccessful(result_state))

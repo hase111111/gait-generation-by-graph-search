@@ -82,21 +82,21 @@ void LogFileIO::addLogString(const std::string _str)
 	m_all_log << _str << std::endl;
 }
 
-void LogFileIO::addLogStringSimulation(const int _loop_num, const SimulateResult& _res)
-{
-	m_all_log << "歩行の成功率," << _res.getClearNum() * 100 / _loop_num << ",％" << std::endl;
-	m_all_log << "1シミュレーション当たりの平均到達距離," << _res.getDistanceMoveYSum() / _loop_num << ",[mm/シミュレーション]" << std::endl;
-	m_all_log << "最大到達距離," << _res.getDistanceMoveYMax() << ",[mm]" << std::endl;
-	m_all_log << "最小到達距離," << _res.getDistanceMoveYMin() << ",[mm]" << std::endl;
-	m_all_log << "1歩容パターン生成あたりの平均探索時間," << _res.getGatePatternGenerateTimeSum() / _res.getGatePatternGenerateSum() << ",[s]" << std::endl;
-	m_all_log << "最大探索時間," << _res.getGatePatternGenerateTimeMax() << ",[s]" << std::endl;
-	m_all_log << "最小探索時間," << _res.getGatePatternGenerateTimeMin() << ",[s]" << std::endl << std::endl;
-
-	m_all_log << "繰り返し動作で中断した割合," << _res.getFailedByGatePatternLoop() * 100 / _loop_num << ",％" << std::endl;
-	m_all_log << "歩容パターンが得られず中断した割合," << _res.getFailedByNoGatePattern() * 100 / _loop_num << ",％" << std::endl;
-	m_all_log << "歩容パターンを生成した総回数," << _res.getGatePatternGenerateSum() << ",回" << std::endl;
-	m_all_log << "歩容パターン生成に掛かった総時間," << _res.getGatePatternGenerateTimeSum() << ",秒" << std::endl;
-	m_all_log << "Y方向への合計移動距離," << _res.getDistanceMoveYSum() << "mm" << std::endl;
-	m_all_log << "1歩容パターン生成あたりの移動距離," << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateSum() << "mm/動作" << std::endl;
-	m_all_log << "Y方向への平均移動速度," << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateTimeSum() << "mm/秒" << std::endl;
-}
+//void LogFileIO::addLogStringSimulation(const int _loop_num, const SimulateResult& _res)
+//{
+//	m_all_log << "歩行の成功率," << _res.getClearNum() * 100 / _loop_num << ",％" << std::endl;
+//	m_all_log << "1シミュレーション当たりの平均到達距離," << _res.getDistanceMoveYSum() / _loop_num << ",[mm/シミュレーション]" << std::endl;
+//	m_all_log << "最大到達距離," << _res.getDistanceMoveYMax() << ",[mm]" << std::endl;
+//	m_all_log << "最小到達距離," << _res.getDistanceMoveYMin() << ",[mm]" << std::endl;
+//	m_all_log << "1歩容パターン生成あたりの平均探索時間," << _res.getGatePatternGenerateTimeSum() / _res.getGatePatternGenerateSum() << ",[s]" << std::endl;
+//	m_all_log << "最大探索時間," << _res.getGatePatternGenerateTimeMax() << ",[s]" << std::endl;
+//	m_all_log << "最小探索時間," << _res.getGatePatternGenerateTimeMin() << ",[s]" << std::endl << std::endl;
+//
+//	m_all_log << "繰り返し動作で中断した割合," << _res.getFailedByGatePatternLoop() * 100 / _loop_num << ",％" << std::endl;
+//	m_all_log << "歩容パターンが得られず中断した割合," << _res.getFailedByNoGatePattern() * 100 / _loop_num << ",％" << std::endl;
+//	m_all_log << "歩容パターンを生成した総回数," << _res.getGatePatternGenerateSum() << ",回" << std::endl;
+//	m_all_log << "歩容パターン生成に掛かった総時間," << _res.getGatePatternGenerateTimeSum() << ",秒" << std::endl;
+//	m_all_log << "Y方向への合計移動距離," << _res.getDistanceMoveYSum() << "mm" << std::endl;
+//	m_all_log << "1歩容パターン生成あたりの移動距離," << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateSum() << "mm/動作" << std::endl;
+//	m_all_log << "Y方向への平均移動速度," << _res.getDistanceMoveYSum() / _res.getGatePatternGenerateTimeSum() << "mm/秒" << std::endl;
+//}

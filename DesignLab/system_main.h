@@ -1,12 +1,16 @@
 #pragma once
+
 #include <memory>
+#include <string>
+
 #include "map_state.h"
 #include "Target.h"
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "interface_pass_finder.h"
 #include "interface_graphic_main.h"
-
+#include "designlab_timer.h"
+#include "result_file_exporter.h"
 
 //! @class SystemMain
 //! @date 2023/08/06
@@ -28,6 +32,9 @@ private:
 	GraphicDataBroker m_broker;
 	GraphicSystem m_graphic_system;
 	std::unique_ptr<IPassFinder> mp_pass_finder;
+
+	DesignlabTimer m_timer;					//時間計測用のクラス．
+	ResultFileExporter m_result_exporter;	//結果をファイルに出力するクラス．
 };
 
 

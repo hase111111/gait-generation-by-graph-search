@@ -9,7 +9,7 @@
 #include "pass_finder_factory_hato.h"
 #include "hexapod_state_calculator.h"
 #include "Define.h"
-#include "my_timer.h"
+#include "designlab_timer.h"
 #include "StringToValue.h"
 
 
@@ -108,7 +108,7 @@ void GraphViewerSystemMain::main()
 
 				std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
 
-				MyTimer _timer;
+				DesignlabTimer _timer;
 				_timer.start();
 				createGraph(_node, _graph);
 				_timer.end();
@@ -169,7 +169,7 @@ void GraphViewerSystemMain::main()
 						std::cout << std::endl;
 						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
 
-						MyTimer _timer;
+						DesignlabTimer _timer;
 						_timer.start();
 						createGraph(_graph[_node_num], _graph);
 						_timer.end();

@@ -86,10 +86,12 @@
     <ClInclude Include="designlab_line.h" />
     <ClInclude Include="designlab_math.h" />
     <ClInclude Include="designlab_polygon.h" />
-    <ClInclude Include="my_timer.h" />
+    <ClInclude Include="designlab_timer.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
+    <ClInclude Include="result_file_exporter.h" />
+    <ClInclude Include="simulation_result.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="system_main.h" />
@@ -100,7 +102,7 @@
     <ClInclude Include="map_creator.h" />
     <ClInclude Include="NodeFileIO.h" />
     <ClInclude Include="phantomxCommander.h" />
-    <ClInclude Include="SimulateResult.h" />
+    <ClInclude Include="simulation_record.h" />
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
@@ -124,7 +126,7 @@
     <ClCompile Include="GraphTreeCreatorThread.cpp" />
     <ClCompile Include="designlab_rotator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
-    <ClCompile Include="my_timer.cpp" />
+    <ClCompile Include="designlab_timer.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
@@ -178,7 +180,8 @@
     <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="pass_finder_factory_hato.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
-    <ClCompile Include="SimulateResult.cpp" />
+    <ClCompile Include="result_file_exporter.cpp" />
+    <ClCompile Include="simulation_record.cpp" />
     <ClCompile Include="system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />

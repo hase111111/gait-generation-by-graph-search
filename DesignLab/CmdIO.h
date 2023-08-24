@@ -60,8 +60,8 @@ public:
 	//グラフ探索開始時のメッセージを出力する．引数にて，何回目のシミュレーションなのかを取得する．
 	void outputGraphSearchStaretMessage(const int _simu_num) const;
 
-	//シミュレーションの結果をコマンドラインに出力する
-	void outputSimulateResult(const int _loop_num, const SimulateResult& _res);
+	////シミュレーションの結果をコマンドラインに出力する
+	//void outputSimulateResult(const int _loop_num, const SimulateResult& _res);
 
 	static void setOutputPriority(const EOutputPriority priority) { m_output_priority = priority; }
 
