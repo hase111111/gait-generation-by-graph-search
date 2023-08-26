@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstract_pass_finder_factory.h" />
+    <ClInclude Include="application_setting_key.h" />
+    <ClInclude Include="application_setting_reader.h" />
     <ClInclude Include="button_controller.h" />
     <ClInclude Include="camera_controller.h" />
     <ClInclude Include="camera_gui.h" />
@@ -91,7 +93,8 @@
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="result_file_exporter.h" />
-    <ClInclude Include="simulation_result.h" />
+    <ClInclude Include="simulation_result_recorder.h" />
+    <ClInclude Include="application_setting_recorder.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="system_main.h" />
@@ -102,7 +105,6 @@
     <ClInclude Include="map_creator.h" />
     <ClInclude Include="NodeFileIO.h" />
     <ClInclude Include="phantomxCommander.h" />
-    <ClInclude Include="simulation_record.h" />
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
@@ -110,6 +112,8 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="application_setting_key.cpp" />
+    <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
@@ -181,8 +185,7 @@
     <ClCompile Include="pass_finder_factory_hato.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
-    <ClCompile Include="simulation_record.cpp" />
-    <ClCompile Include="simulation_result.cpp" />
+    <ClCompile Include="simulation_result_recorder.cpp" />
     <ClCompile Include="system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeFileIO.cpp" />

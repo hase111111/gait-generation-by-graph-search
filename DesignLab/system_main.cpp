@@ -62,7 +62,7 @@ void SystemMain::main()
 		const bool do_random_init = true;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.init(do_random_init);
 
-		SSimulationRecord record;	//シミュレーションの結果を格納する変数．
+		SSimulationResultRecorder record;	//シミュレーションの結果を格納する変数．
 		record.result_nodes.push_back(current_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
 		record.simulation_result = ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//シミュレーションの結果を格納する変数を成功に初期化する．
 

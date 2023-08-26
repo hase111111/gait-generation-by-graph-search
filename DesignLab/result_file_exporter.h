@@ -2,9 +2,10 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "node.h"
-#include "simulation_record.h"
+#include "simulation_result_recorder.h"
 #include "graph_search_result.h"
 
 
@@ -26,7 +27,7 @@ public:
 	//! @n 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	//! @n 出力されるファイルは sim_result_回数.csv という名前になる．
 	//! @param [in] recoder シミュレーションの結果
-	void exportResult(const SSimulationRecord& recoder);
+	void exportResult(const SSimulationResultRecorder& recoder);
 
 
 	//! @brief 出力を行うかどうかのフラグを設定する．
@@ -35,6 +36,9 @@ public:
 
 
 private:
+
+	void outputResultDetail(const SSimulationResultRecorder& recoder, std::ofstream& stream);
+
 
 	const std::string RESULT_FOLDER_NAME = "result";	//resultフォルダ名
 

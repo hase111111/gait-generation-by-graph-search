@@ -9,7 +9,7 @@ class GraphSearchConst final
 {
 public:
 
-	static constexpr int MAX_DEPTH = 5;	//!< ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³
+	static constexpr int MAX_DEPTH = 4;	//!< ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³
 
 	static constexpr int MAX_NODE_NUM = 100000000;	//!< ƒOƒ‰ƒt’Tõ‚ÌÅ‘åƒm[ƒh”
 

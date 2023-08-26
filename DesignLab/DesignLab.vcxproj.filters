@@ -115,6 +115,9 @@
     <Filter Include="ソース ファイル\GraphicSystem\Common\Input">
       <UniqueIdentifier>{806e9277-ed43-427a-be39-f48c5524a3e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{1959d369-af6e-477e-b55b-c7a0ee3536c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -136,9 +139,6 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="CmdIO.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_record.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="TimeFileIO.h">
@@ -218,9 +218,6 @@
     </ClInclude>
     <ClInclude Include="GraphTreeCreatorHato.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="system_main.h">
-      <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="node.h">
       <Filter>ソース ファイル\Node</Filter>
@@ -378,11 +375,23 @@
     <ClInclude Include="node_display_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+    <ClInclude Include="application_setting_reader.h">
+      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_result.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="application_setting_recorder.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_result_recorder.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="result_file_exporter.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_key.h">
+      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -475,9 +484,6 @@
     </ClCompile>
     <ClCompile Include="GraphTreeCreatorSample.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphTreeCreator</Filter>
-    </ClCompile>
-    <ClCompile Include="system_main.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="node.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -617,14 +623,20 @@
     <ClCompile Include="node_display_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="application_setting_reader.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="system_main.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_result_recorder.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
     <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_record.cpp">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="simulation_result.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="application_setting_key.cpp">
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
