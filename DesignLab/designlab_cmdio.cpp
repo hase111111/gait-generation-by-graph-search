@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "leg_state.h"
 
@@ -127,8 +128,8 @@ void dl_cio::waitAnyKey(const SApplicationSettingRecorder* setting, const std::s
 
 	if (priority <= (*setting).cmd_permission)
 	{
-		std::string wait;
-		std::cin >> wait;
+		//‰½‚©ƒL[‚ğ‰Ÿ‚·‚Ü‚Å‘Ò‹@
+		system("PAUSE");
 	}
 }
 

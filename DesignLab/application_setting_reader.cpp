@@ -144,7 +144,9 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 				ApplicationSettingKey::MODE_TABLE.table_name,
 				{
 					{ ApplicationSettingKey::ASK_ABOUT_MODES.key, kDefaultSetting.ask_about_modes },
-					{ ApplicationSettingKey::DEFAULT_MODE.key, std::to_string(kDefaultSetting.default_mode) }
+					{ ApplicationSettingKey::DEFAULT_MODE.key, std::to_string(kDefaultSetting.default_mode) },
+					{ ApplicationSettingKey::DO_STEP_EXECUTION.key, kDefaultSetting.do_step_execution },
+					{ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key, kDefaultSetting.do_step_execution_each_gait}
 				}
 			}
 		};
@@ -152,6 +154,8 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).comments().push_back(ApplicationSettingKey::MODE_TABLE.description);
 		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::ASK_ABOUT_MODES.key).comments().push_back(ApplicationSettingKey::ASK_ABOUT_MODES.description);
 		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).comments().push_back(ApplicationSettingKey::DEFAULT_MODE.description);
+		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION.key).comments().push_back(ApplicationSettingKey::DO_STEP_EXECUTION.description);
+		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key).comments().push_back(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.description);
 
 		res_str += toml::format(mode_data, 0);
 	}
@@ -275,6 +279,26 @@ void ApplicationSettingReader::readBootModeSetting(const toml::value& value, SAp
 		else
 		{
 			std::cout << "×デフォルトの起動モードが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DO_STEP_EXECUTION.key))
+		{
+			recorder->do_step_execution = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION.key).as_boolean();
+			std::cout << "〇ステップ実行フラグを読み込みました．value = " << std::boolalpha << recorder->do_step_execution << std::endl;
+		}
+		else
+		{
+			std::cout << "×ステップ実行フラグが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key))
+		{
+			recorder->do_step_execution_each_gait = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key).as_boolean();
+			std::cout << "〇ステップ実行フラグ(各歩容)を読み込みました．value = " << std::boolalpha << recorder->do_step_execution_each_gait << std::endl;
+		}
+		else
+		{
+			std::cout << "×ステップ実行フラグ(各歩容)が見つかりませんでした．" << std::endl;
 		}
 
 	}

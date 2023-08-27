@@ -38,6 +38,8 @@ public:
 	const static SettingTableData MODE_TABLE;
 	const static SettingKeyData ASK_ABOUT_MODES;
 	const static SettingKeyData DEFAULT_MODE;
+	const static SettingKeyData DO_STEP_EXECUTION;
+	const static SettingKeyData DO_STEP_EXECUTION_EACH_GAIT;
 
 	const static SettingTableData DISPLAY_TABLE;
 	const static SettingKeyData CMD_OUTPUT;

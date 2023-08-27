@@ -21,6 +21,11 @@ const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSetti
 
 const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode",u8"デフォルトの実行モードを設定します．(simulation/viewer)" };
 
+const SettingKeyData ApplicationSettingKey::DO_STEP_EXECUTION = { ApplicationSettingKey::MODE_TABLE.table_name ,"do_step_execution",u8"シミュレーションをステップ実行するかどうかを設定します (true/false)" };
+
+const SettingKeyData ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT = { ApplicationSettingKey::MODE_TABLE.table_name ,"do_step_execution_each_gait",u8"各歩容生成ごとにステップ実行するかどうかを設定します (true/false)" };
+
+
 
 const SettingTableData ApplicationSettingKey::DISPLAY_TABLE = { "display" ,u8"表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．" };
 

@@ -23,6 +23,8 @@ struct SApplicationSettingRecorder
 
 	bool ask_about_modes = true;					//!< 起動時にモード選択の確認をするかどうか
 	EBootMode default_mode = EBootMode::SIMULATION;	//!< デフォルトの起動モード
+	bool do_step_execution = true;					//!< 1シミュレーションごとにステップ実行をするかどうか
+	bool do_step_execution_each_gait = false;		//!< 1動作ごとにステップ実行をするかどうか
 
 
 	bool cmd_output = true;										//!< コマンドラインに出力するかどうか

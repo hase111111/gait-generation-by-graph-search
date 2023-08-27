@@ -59,6 +59,9 @@ void SystemMain::main()
 	}
 
 
+	outputSetting();	//コマンドラインに設定を表示する．
+
+
 	NodeValidityChecker node_checker;	//ノードの妥当性をチェックするクラスを用意する．
 
 
@@ -80,8 +83,15 @@ void SystemMain::main()
 
 		dl_cio::output(mp_setting, "シミュレーション" + std::to_string(i + 1) + "回目を開始します", EOutputPriority::SYSTEM);
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
+		dl_cio::output(mp_setting, "[初期ノードの状態]", EOutputPriority::INFO);
 		dl_cio::output(mp_setting, std::to_string(current_node), EOutputPriority::INFO);
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::INFO);
+
+		if ((*mp_setting).do_step_execution)
+		{
+			dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
+			dl_cio::waitAnyKey(mp_setting, "キー入力でシミュレーションを開始します", EOutputPriority::SYSTEM);
+		}
 
 
 		if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
@@ -120,8 +130,16 @@ void SystemMain::main()
 			if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::INFO);
+			dl_cio::outputHorizontalLine(mp_setting, false, EOutputPriority::INFO);
 			dl_cio::output(mp_setting, "[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", EOutputPriority::INFO);	//現在のシミュレーションの回数をコマンドラインに出力する．
 			dl_cio::output(mp_setting, std::to_string(current_node), EOutputPriority::INFO);	//現在のノードの状態をコマンドラインに出力する．
+
+			if ((*mp_setting).do_step_execution_each_gait)
+			{
+				dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
+				dl_cio::waitAnyKey(mp_setting, "キー入力で次の歩容を生成します", EOutputPriority::SYSTEM);
+			}
+
 
 			node_checker.setNode(current_node);													//動作チェッカーにもノードを通達する．
 
@@ -151,7 +169,7 @@ void SystemMain::main()
 		m_result_exporter.exportResult(record);	//シミュレーションの結果をファイルに出力する．
 
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
-		dl_cio::outputHorizontalLine(mp_setting, false, EOutputPriority::SYSTEM);
+		dl_cio::outputHorizontalLine(mp_setting, true, EOutputPriority::SYSTEM);
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
 	}
 
@@ -162,17 +180,82 @@ void SystemMain::main()
 
 
 	//画像表示ウィンドウの終了を待つ．
-	dl_cio::output(mp_setting, "DXlib(gui)の終了を待っています．GUIのXボタンを押してください");
+	if ((*mp_setting).gui_display)
+	{
+		dl_cio::output(mp_setting, "DXlib(gui)の終了を待っています．GUIのXボタンを押してください");
+	}
+
 	graphic_thread.join();
+
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::output(mp_setting, "シミュレーションを終了します");
 }
 
 
 void SystemMain::outputTitle() const
 {
 	dl_cio::outputNewLine(mp_setting);
-	dl_cio::outputHorizontalLine(mp_setting);
+	dl_cio::outputHorizontalLine(mp_setting, true);
 	dl_cio::outputNewLine(mp_setting);
-	dl_cio::output(mp_setting, "                  シミュレーションモード");
+	dl_cio::output(mp_setting, "                      シミュレーションモード");
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::outputHorizontalLine(mp_setting, true);
+	dl_cio::outputNewLine(mp_setting);
+}
+
+void SystemMain::outputSetting() const
+{
+	dl_cio::output(mp_setting, "[設定]");
+	dl_cio::outputNewLine(mp_setting);
+
+
+	if ((*mp_setting).cmd_output)
+	{
+		dl_cio::output(mp_setting, "・コマンドラインへの出力を行います");
+
+
+		dl_cio::output(mp_setting, "　　・priorityが" + std::to_string(mp_setting->cmd_permission) + "以上のもののみ出力されます");
+	}
+	else
+	{
+		dl_cio::output(mp_setting, "・コマンドラインへの出力を行いません．(priorityが" + std::to_string(EOutputPriority::SYSTEM) + "のものは例外的に出力されます)");
+	}
+
+	dl_cio::outputNewLine(mp_setting);
+
+
+	if ((*mp_setting).do_step_execution)
+	{
+		dl_cio::output(mp_setting, "・ステップ実行を行います");
+	}
+	else
+	{
+		dl_cio::output(mp_setting, "・ステップ実行を行いません");
+	}
+
+	dl_cio::outputNewLine(mp_setting);
+
+
+	if ((*mp_setting).do_step_execution_each_gait)
+	{
+		dl_cio::output(mp_setting, "・各歩容をステップ実行時にします");
+	}
+	else
+	{
+		dl_cio::output(mp_setting, "・各歩容をステップ実行時にしません");
+	}
+
+	dl_cio::outputNewLine(mp_setting);
+
+	if ((*mp_setting).gui_display)
+	{
+		dl_cio::output(mp_setting, "・GUIを表示します");
+	}
+	else
+	{
+		dl_cio::output(mp_setting, "・GUIを表示しません");
+	}
+
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::outputHorizontalLine(mp_setting);
 	dl_cio::outputNewLine(mp_setting);

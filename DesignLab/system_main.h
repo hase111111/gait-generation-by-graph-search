@@ -34,6 +34,7 @@ private:
 
 	void outputTitle() const;
 
+	void outputSetting() const;
 
 	MapState m_map_state;
 	STarget m_target;
