@@ -118,6 +118,9 @@
     <Filter Include="ソース ファイル\System">
       <UniqueIdentifier>{1959d369-af6e-477e-b55b-c7a0ee3536c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\CommandIO">
+      <UniqueIdentifier>{cf856c32-8544-4133-836a-6ee261d4b76b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -136,9 +139,6 @@
       <Filter>ソース ファイル\phantomX</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="CmdIO.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="TimeFileIO.h">
@@ -393,6 +393,12 @@
     <ClInclude Include="application_setting_key.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_cmdio.h">
+      <Filter>ソース ファイル\Common\CommandIO</Filter>
+    </ClInclude>
+    <ClInclude Include="output_priority.h">
+      <Filter>ソース ファイル\Common\CommandIO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -411,9 +417,6 @@
       <Filter>ソース ファイル\phantomX</Filter>
     </ClCompile>
     <ClCompile Include="Define.cpp">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="CmdIO.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="TimeFileIO.cpp">
@@ -637,6 +640,12 @@
     </ClCompile>
     <ClCompile Include="application_setting_key.cpp">
       <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_cmdio.cpp">
+      <Filter>ソース ファイル\Common\CommandIO</Filter>
+    </ClCompile>
+    <ClCompile Include="output_priority.cpp">
+      <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

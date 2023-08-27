@@ -40,6 +40,7 @@
     <ClInclude Include="designlab_rotator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
+    <ClInclude Include="output_priority.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
     <ClInclude Include="pass_finder_hato.h" />
@@ -61,7 +62,7 @@
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
-    <ClInclude Include="CmdIO.h" />
+    <ClInclude Include="designlab_cmdio.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="designlab_dxlib.h" />
     <ClInclude Include="fps.h" />
@@ -132,6 +133,7 @@
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
+    <ClCompile Include="output_priority.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
     <ClCompile Include="pass_finder_hato.cpp" />
@@ -150,7 +152,7 @@
     <ClCompile Include="interface_graphic_main.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
-    <ClCompile Include="CmdIO.cpp" />
+    <ClCompile Include="designlab_cmdio.cpp" />
     <ClCompile Include="designlab_dxlib.cpp" />
     <ClCompile Include="fps.cpp" />
     <ClCompile Include="camera_manager.cpp" />

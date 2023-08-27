@@ -2,10 +2,15 @@
 
 #include <string>
 
+#include "toml.hpp"
+
 #include "application_setting_recorder.h"
 #include "application_setting_key.h"
 
+
+// toml11でコメントを保持するためのマクロ
 #define TOML11_PRESERVE_COMMENTS_BY_DEFAULT
+
 
 //! @class ApplicationSettingReader
 //! @date 2023/08/25
@@ -25,14 +30,16 @@ private:
 	//ファイルが存在しなかった場合のためにデフォルトの設定ファイルを出力する
 	void outputDefaultSettingFile();
 
-	//改行する
-	void outputIndention(std::ofstream& ofs, int indention) const;
+	//設定ファイルからバージョン情報を読み込む
+	void readVersionSetting(const toml::value& value, SApplicationSettingRecorder* recorder);
 
-	//テーブルを出力する
-	void outputTable(std::ofstream& ofs, const SettingTableData& table) const;
+	//設定ファイルから起動モードの情報を読み込む
+	void readBootModeSetting(const toml::value& value, SApplicationSettingRecorder* recorder);
 
+	//設定ファイルからディスプレイ情報を読み込む
+	void readDisplaySetting(const toml::value& value, SApplicationSettingRecorder* recorder);
 
-	const std::string SETTING_FILE_NAME = "settings.toml";
+	const std::string SETTING_FILE_NAME = u8"settings.toml";
 
 
 };

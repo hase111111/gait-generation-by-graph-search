@@ -4,17 +4,11 @@
 #include <fstream>
 #include <filesystem>
 
-#include "toml.hpp"
-
 
 void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 {
-	outputDefaultSettingFile();
-	return;
+	std::cout << "[" << __func__ << "]" << "設定ファイル" << SETTING_FILE_NAME << "を読み込みます" << std::endl;
 
-
-	std::cout << "[" << __func__ << "]" << std::endl;
-	std::cout << "設定ファイル" << SETTING_FILE_NAME << "を読み込みます" << std::endl;
 
 	//ファイルを探す，存在しなかったらデフォルトの設定を出力して終了，fsystemはC++17から，実行できない場合は設定を見直してみてください
 	if (!std::filesystem::is_regular_file(SETTING_FILE_NAME))
@@ -25,67 +19,158 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 	}
 
 
+
 	//ファイルを読み込む
+	toml::value data;
+
 	try
 	{
-		std::ifstream ifs(SETTING_FILE_NAME, std::ios_base::binary);
-		auto data = toml::parse(ifs, SETTING_FILE_NAME);
+		std::ifstream ifs(SETTING_FILE_NAME, std::ios::binary);		//バイナリモードで読み込む
+
+		data = toml::parse(ifs, SETTING_FILE_NAME);					//ファイルをパース(読みこみ)する
 	}
 	catch (toml::syntax_error e)
 	{
 		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定を出力します．" << std::endl;
 		std::cout << e.what() << std::endl;
+		outputDefaultSettingFile();
+		return;
 	}
 
 
-	//if (toml::get<std::string>(data.at(ApplicationSettingKey::FILE_TITLE.key)) != ApplicationSettingKey::FILE_TITLE_VALUE)
-	//{
-	//	//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
-	//	std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定を出力します．" << std::endl;
-	//	outputDefaultSettingFile();
-	//	return;
-	//}
+	if (toml::get<std::string>(data.at(ApplicationSettingKey::FILE_TITLE.key)) != ApplicationSettingKey::FILE_TITLE_VALUE)
+	{
+		//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
+		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定を出力します．" << std::endl;
+		outputDefaultSettingFile();
+		return;
+	}
 
-	//(*recorder).version_major = toml::find<int>(data, ApplicationSettingKey::VERSION_MAJOR.key);
-	//(*recorder).version_minor = toml::find<int>(data, ApplicationSettingKey::VERSION_MINOR.key);
-	//(*recorder).version_patch = toml::find<int>(data, ApplicationSettingKey::VERSION_PATCH.key);
 
-	//(*recorder).ask_about_modes = toml::find<bool>(data, ApplicationSettingKey::ASK_ABOUT_MODES.key);
-	//(*recorder).default_mode = toml::find<std::string>(data, ApplicationSettingKey::DEFAULT_MODE.key);
+	try
+	{
+		readVersionSetting(data, recorder);
 
-	//(*recorder).cmd_output = toml::find<bool>(data, ApplicationSettingKey::CMD_OUTPUT.key);
-	//(*recorder).cmd_permission = toml::find<std::string>(data, ApplicationSettingKey::CMD_PERMISSION.key);
-	//(*recorder).gui_display = toml::find<bool>(data, ApplicationSettingKey::GUI_DISPLAY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
-	//(*recorder).gui_display_quality = toml::find<std::string>(data, ApplicationSettingKey::GUI_DISPLAY_QUALITY.key);
+		readBootModeSetting(data, recorder);
+
+		readDisplaySetting(data, recorder);
+	}
+	catch (...)
+	{
+		//設定ファイルの読み込みに失敗した場合はデフォルトの設定を出力して終了
+		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．デフォルトの設定を出力します．" << std::endl;
+		outputDefaultSettingFile();
+		return;
+	}
+
+
 }
 
 
 
 void ApplicationSettingReader::outputDefaultSettingFile()
 {
+	const SApplicationSettingRecorder kDefaultSetting;
 
-	toml::basic_value<toml::preserve_comments> data1_value1{10, { "a" }};
-	toml::value data{ {"key1-1", data1_value1}, { "key1-2", 10 }, { "key1-3", 10 }};
-	toml::value data2{{"key2", data1_value1}};
-	toml::value data3{{"key3", 12}};
-	toml::table table;
-	table["table1"] = data;
-	table["table2"] = data2;
-	table["table3"] = data3;
+	std::string res_str;	//出力する文字列
 
 
-	toml::value datalist = table;
-	std::string str = toml::format(datalist, 0);
+	//ファイルのタイトル
+	{
+		res_str += u8"# If this file is garbled, the problem is most likely due to character encoding.\n";
+		res_str += u8"# This file is written in utf - 8, and can be read by installing VS Code and configuring it to automatically detect the character encoding.\n\n";
+		res_str += u8"# This file is written in the TOML format. Just google it and you'll find easy to understand information on the wiki, so try looking it up.\n";
+		res_str += u8"# This file is a file for describing program settings.\n";
+		res_str += u8"# This file can also be edited with a text editor such as Notepad.\n";
+		res_str += u8"# If you want to change the simulation conditions, try changing them from here.\n";
+		res_str += u8"# Lines starting with a sharp are comments. They do not affect the program.\n";
+		res_str += u8"# Following description is written in Japanese. \n\n";
+		res_str += u8"# TOMLという形式で記述しています．wikiでググるだけでもわかりやすい情報が出るので調べてみてください．\n";
+		res_str += u8"# このファイルは，プログラムの設定を記述するためのファイルです．\n";
+		res_str += u8"# メモ帳などのテキストエディタでもこのファイルは編集することができます．\n";
+		res_str += u8"# シミュレーション条件を変更したい場合は，ここから変更を行うようにしてみてください．\n";
+		res_str += u8"# このようにシャープで始まる行はコメントです．プログラムに影響を与えないため，メモ代わりに使うことができます．\n";
+		res_str += u8"\n\n\n";
 
-	std::cout << str;
+		toml::value title_data{
+			{ ApplicationSettingKey::FILE_TITLE.key, ApplicationSettingKey::FILE_TITLE_VALUE }
+		};
+		title_data.comments().push_back(ApplicationSettingKey::FILE_TITLE.description);
+
+		res_str += toml::format(title_data, 0);
+		res_str += u8"\n";
+	}
+
+
+	//バージョン
+	{
+		toml::basic_value<toml::preserve_comments> version_data{
+			{
+				ApplicationSettingKey::VERSION_TABLE.table_name,
+				{
+					{ ApplicationSettingKey::VERSION_MAJOR.key, kDefaultSetting.version_major},
+					{ ApplicationSettingKey::VERSION_MINOR.key, kDefaultSetting.version_minor },
+					{ ApplicationSettingKey::VERSION_PATCH.key, kDefaultSetting.version_patch }
+				}
+			}
+		};
+
+		version_data.at(ApplicationSettingKey::VERSION_TABLE.table_name).comments().push_back(ApplicationSettingKey::VERSION_TABLE.description);
+		version_data.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MAJOR.key).comments().push_back(ApplicationSettingKey::VERSION_MAJOR.description);
+		version_data.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MINOR.key).comments().push_back(ApplicationSettingKey::VERSION_MINOR.description);
+		version_data.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_PATCH.key).comments().push_back(ApplicationSettingKey::VERSION_PATCH.description);
+
+		res_str += toml::format(version_data, 0);
+	}
+
+	//モード
+	{
+		toml::basic_value<toml::preserve_comments> mode_data{
+			{
+				ApplicationSettingKey::MODE_TABLE.table_name,
+				{
+					{ ApplicationSettingKey::ASK_ABOUT_MODES.key, kDefaultSetting.ask_about_modes },
+					{ ApplicationSettingKey::DEFAULT_MODE.key, kDefaultSetting.default_mode }
+				}
+			}
+		};
+
+		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).comments().push_back(ApplicationSettingKey::MODE_TABLE.description);
+		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::ASK_ABOUT_MODES.key).comments().push_back(ApplicationSettingKey::ASK_ABOUT_MODES.description);
+		mode_data.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).comments().push_back(ApplicationSettingKey::DEFAULT_MODE.description);
+
+		res_str += toml::format(mode_data, 0);
+	}
+
+	// 表示
+	{
+		toml::basic_value<toml::preserve_comments> display_data{
+			{
+				ApplicationSettingKey::DISPLAY_TABLE.table_name,
+				{
+					{ ApplicationSettingKey::CMD_OUTPUT.key, kDefaultSetting.cmd_output},
+					{ ApplicationSettingKey::CMD_PERMISSION.key, std::to_string(kDefaultSetting.cmd_permission) },
+					{ ApplicationSettingKey::GUI_DISPLAY.key, kDefaultSetting.gui_display },
+					{ ApplicationSettingKey::GUI_DISPLAY_QUALITY.key, kDefaultSetting.gui_display_quality },
+					{ ApplicationSettingKey::WINDOW_SIZE_X.key,kDefaultSetting.window_size_x },
+					{ ApplicationSettingKey::WINDOW_SIZE_Y.key,kDefaultSetting.window_size_y },
+					{ ApplicationSettingKey::WINDOW_FPS.key,kDefaultSetting.window_fps }
+				}
+			}
+		};
+
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).comments().push_back(ApplicationSettingKey::DISPLAY_TABLE.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_OUTPUT.key).comments().push_back(ApplicationSettingKey::CMD_OUTPUT.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_PERMISSION.key).comments().push_back(ApplicationSettingKey::CMD_PERMISSION.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::GUI_DISPLAY.key).comments().push_back(ApplicationSettingKey::GUI_DISPLAY.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.key).comments().push_back(ApplicationSettingKey::GUI_DISPLAY_QUALITY.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_X.key).comments().push_back(ApplicationSettingKey::WINDOW_SIZE_X.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_Y.key).comments().push_back(ApplicationSettingKey::WINDOW_SIZE_Y.description);
+		display_data.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_FPS.key).comments().push_back(ApplicationSettingKey::WINDOW_FPS.description);
+
+		res_str += toml::format(display_data, 0);
+	}
+
 	std::ofstream ofs;
 	ofs.open(SETTING_FILE_NAME);
 
@@ -96,98 +181,176 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 		return;
 	}
 
-	ofs << str;
-	ofs.close();
+	ofs.write(res_str.c_str(), res_str.length());	// ファイルに書き込む
+
+	ofs.close();	// ファイルを閉じる
+
 	return;
-
-	const SApplicationSettingRecorder kDefaultSetting;
-	const int kIndention = 1;
-	const int kBigIndention = 3;
-
-	ofs << " # TOMLという形式で記述しています．wikiでググるだけでもわかりやすい情報が出るので調べてみてください．" << std::endl;
-	ofs << " # メモ帳などのテキストエディタでもこのファイルは編集することができます．" << std::endl;
-	ofs << " # シミュレーション条件を変更したい場合は，ここから変更を行うようにしてみてください．" << std::endl;
-	ofs << " # このようにシャープで始まる行はコメントです．プログラムに影響を与えないため，メモ代わりに使うことができます．" << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//ファイルのタイトル
-	ofs << ApplicationSettingKey::FILE_TITLE.key << " = " << '\"' << kDefaultSetting.SETTING_FILE_TITLE << '\"' << "  # " << ApplicationSettingKey::FILE_TITLE.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//バージョン表示
-	outputTable(ofs, ApplicationSettingKey::VERSION_TABLE);
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::VERSION_MAJOR.key << " = " << kDefaultSetting.version_major << "  # " << ApplicationSettingKey::VERSION_MAJOR.description << std::endl;
-	ofs << ApplicationSettingKey::VERSION_MINOR.key << " = " << kDefaultSetting.version_minor << "  # " << ApplicationSettingKey::VERSION_MINOR.description << std::endl;
-	ofs << ApplicationSettingKey::VERSION_PATCH.key << " = " << kDefaultSetting.version_patch << "  # " << ApplicationSettingKey::VERSION_PATCH.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//実行時のモードの設定
-	outputTable(ofs, ApplicationSettingKey::MODE_TABLE);
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::ASK_ABOUT_MODES.key << " = " << std::boolalpha << kDefaultSetting.ask_about_modes << "  # " << ApplicationSettingKey::ASK_ABOUT_MODES.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::DEFAULT_MODE.key << " = " << '\"' << kDefaultSetting.default_mode << '\"' << "  # " << ApplicationSettingKey::DEFAULT_MODE.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//表示についての設定
-	outputTable(ofs, ApplicationSettingKey::DISPLAY_TABLE);
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::CMD_OUTPUT.key << " = " << std::boolalpha << kDefaultSetting.cmd_output << "  # " << ApplicationSettingKey::CMD_OUTPUT.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::CMD_PERMISSION.key << " = " << '\"' << kDefaultSetting.cmd_permission << '\"' << "  # " << ApplicationSettingKey::CMD_PERMISSION.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::GUI_DISPLAY.key << " = " << std::boolalpha << kDefaultSetting.gui_display << "  # " << ApplicationSettingKey::GUI_DISPLAY.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::GUI_DISPLAY_QUALITY.key << " = " << '\"' << kDefaultSetting.gui_display_quality << '\"' << "  # " << ApplicationSettingKey::GUI_DISPLAY_QUALITY.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-	ofs << ApplicationSettingKey::WINDOW_SIZE_X.key << " = " << kDefaultSetting.window_size_x << "  # " << ApplicationSettingKey::WINDOW_SIZE_X.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::WINDOW_SIZE_Y.key << " = " << kDefaultSetting.window_size_y << "  # " << ApplicationSettingKey::WINDOW_SIZE_Y.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::WINDOW_FPS.key << " = " << kDefaultSetting.window_fps << "  # " << ApplicationSettingKey::WINDOW_FPS.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//マップについての設定
-	outputTable(ofs, ApplicationSettingKey::MAP_TABLE);
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_CREATE_MODE.key << " = " << '\"' << (int)kDefaultSetting.map_create_mode << '\"' << "  # " << ApplicationSettingKey::MAP_CREATE_MODE.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_CREATE_OPTION.key << " = " << '\"' << kDefaultSetting.map_create_option << '\"' << "  # " << ApplicationSettingKey::MAP_CREATE_OPTION.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::DO_OUTPUT_MAP.key << " = " << std::boolalpha << kDefaultSetting.do_output_map << "  # " << ApplicationSettingKey::DO_OUTPUT_MAP.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_HOLE_RATE.key << " = " << kDefaultSetting.map_hole_rate << "  # " << ApplicationSettingKey::MAP_HOLE_RATE.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_STEP_HEIGHT.key << " = " << kDefaultSetting.map_step_height << "  # " << ApplicationSettingKey::MAP_STEP_HEIGHT.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_STEP_LENGTH.key << " = " << kDefaultSetting.map_step_length << "  # " << ApplicationSettingKey::MAP_STEP_LENGTH.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_SLOPE_ANGLE_DEG.key << " = " << kDefaultSetting.map_slope_angle_deg << "  # " << ApplicationSettingKey::MAP_SLOPE_ANGLE_DEG.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::MAP_TILT_ANGLE_DEG.key << " = " << kDefaultSetting.map_tilt_angle_deg << "  # " << ApplicationSettingKey::MAP_TILT_ANGLE_DEG.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::ROUGH_MAX_DIF.key << " = " << kDefaultSetting.rough_max_dif << "  # " << ApplicationSettingKey::ROUGH_MAX_DIF.description << std::endl;
-	outputIndention(ofs, kIndention);
-	ofs << ApplicationSettingKey::ROUGH_MIN_DIF.key << " = " << kDefaultSetting.rough_min_dif << "  # " << ApplicationSettingKey::ROUGH_MIN_DIF.description << std::endl;
-	outputIndention(ofs, kBigIndention);
-
-	//ファイルを閉じる
-	ofs.close();
 }
 
-void ApplicationSettingReader::outputIndention(std::ofstream& ofs, int indention) const
-{
-	if (indention < 0)return;
 
-	for (int i = 0; i < indention; i++)
+void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApplicationSettingRecorder* recorder)
+{
+	std::cout << std::endl;
+
+	if (value.contains(ApplicationSettingKey::VERSION_TABLE.table_name))
 	{
-		ofs << std::endl;
+		std::cout << "〇バージョン設定を読み込みます．" << std::endl;
+
+		// バージョン設定を読み込む
+		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MAJOR.key))
+		{
+			recorder->version_major = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MAJOR.key).as_integer();
+			std::cout << "〇メジャーバージョンを読み込みました．value = " << recorder->version_major << std::endl;
+		}
+		else
+		{
+			std::cout << "×メジャーバージョンが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MINOR.key))
+		{
+			recorder->version_minor = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MINOR.key).as_integer();
+			std::cout << "〇マイナーバージョンを読み込みました．value = " << recorder->version_minor << std::endl;
+		}
+		else
+		{
+			std::cout << "×マイナーバージョンが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_PATCH.key))
+		{
+			recorder->version_patch = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_PATCH.key).as_integer();
+			std::cout << "〇パッチバージョンを読み込みました．value = " << recorder->version_patch << std::endl;
+		}
+		else
+		{
+			std::cout << "×パッチバージョンが見つかりませんでした．" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "×バージョン設定が見つかりませんでした．" << std::endl;
 	}
 }
 
-void ApplicationSettingReader::outputTable(std::ofstream& ofs, const SettingTableData& table) const
+
+void ApplicationSettingReader::readBootModeSetting(const toml::value& value, SApplicationSettingRecorder* recorder)
 {
-	ofs << " # " << table.description << std::endl;
-	ofs << '[' << table.table_name << ']' << std::endl;
+	std::cout << std::endl;
+
+	if (value.contains(ApplicationSettingKey::MODE_TABLE.table_name))
+	{
+		std::cout << "〇起動モード設定を読み込みます．" << std::endl;
+
+		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::ASK_ABOUT_MODES.key))
+		{
+			recorder->ask_about_modes = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::ASK_ABOUT_MODES.key).as_boolean();
+			std::cout << "〇起動モード選択の確認フラグを読み込みました．value = " << recorder->ask_about_modes << std::endl;
+		}
+		else
+		{
+			std::cout << "×起動モード選択の確認フラグが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DEFAULT_MODE.key))
+		{
+			recorder->default_mode = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).as_string();
+			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << recorder->default_mode << std::endl;
+		}
+		else
+		{
+			std::cout << "×デフォルトの起動モードが見つかりませんでした．" << std::endl;
+		}
+
+	}
+	else
+	{
+		std::cout << "×起動モード設定が見つかりませんでした．" << std::endl;
+	}
+}
+
+
+void ApplicationSettingReader::readDisplaySetting(const toml::value& value, SApplicationSettingRecorder* recorder)
+{
+	std::cout << std::endl;
+
+	if (value.contains(ApplicationSettingKey::DISPLAY_TABLE.table_name))
+	{
+		std::cout << "〇表示設定を読み込みます．" << std::endl;
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::CMD_OUTPUT.key))
+		{
+			recorder->cmd_output = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_OUTPUT.key).as_boolean();
+			std::cout << "〇コマンド出力のフラグを読み込みました．value = " << std::boolalpha << recorder->cmd_output << std::endl;
+		}
+		else
+		{
+			std::cout << "×コマンド出力のフラグが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::CMD_PERMISSION.key))
+		{
+			recorder->cmd_permission = std::toOutputPriority(value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_PERMISSION.key).as_string());
+			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << std::to_string(recorder->cmd_permission) << std::endl;
+		}
+		else
+		{
+			std::cout << "×コマンド表示制限の情報が見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::GUI_DISPLAY.key))
+		{
+			recorder->gui_display = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::GUI_DISPLAY.key).as_boolean();
+			std::cout << "〇GUI表示のフラグを読み込みました．value = " << std::boolalpha << recorder->gui_display << std::endl;
+		}
+		else
+		{
+			std::cout << "×GUI表示のフラグが見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.table_name).contains(ApplicationSettingKey::GUI_DISPLAY_QUALITY.key))
+		{
+			recorder->gui_display_quality = value.at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.table_name).at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.key).as_string();
+			std::cout << "〇GUI表示品質を読み込みました．value = " << recorder->gui_display_quality << std::endl;
+		}
+		else
+		{
+			std::cout << "×GUI表示品質が見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_X.key))
+		{
+			recorder->window_size_x = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_X.key).as_integer();
+			std::cout << "〇ウィンドウのXサイズ(横幅)の値を読み込みました．value = " << recorder->window_size_x << std::endl;
+		}
+		else
+		{
+			std::cout << "×ウィンドウのXサイズ(横幅)の値が見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_Y.key))
+		{
+			recorder->window_size_y = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_Y.key).as_integer();
+			std::cout << "〇ウィンドウのYサイズ(縦幅)の値を読み込みました．value = " << recorder->window_size_y << std::endl;
+		}
+		else
+		{
+			std::cout << "×ウィンドウのYサイズ(縦幅)の値が見つかりませんでした．" << std::endl;
+		}
+
+		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_FPS.key))
+		{
+			recorder->window_fps = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_FPS.key).as_integer();
+			std::cout << "〇ウィンドウのFPSの値を読み込みました．value = " << recorder->window_fps << std::endl;
+		}
+		else
+		{
+			std::cout << "×ウィンドウのFPSの値が見つかりませんでした．" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "×表示設定が見つかりませんでした．" << std::endl;
+	}
 }

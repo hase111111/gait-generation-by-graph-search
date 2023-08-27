@@ -4,7 +4,7 @@
 
 #include "Define.h"
 #include "designlab_math.h"
-#include "CmdIO.h"
+#include "designlab_cmdio.h"
 #include "hexapod.h"
 #include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"

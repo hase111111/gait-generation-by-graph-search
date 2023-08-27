@@ -3,40 +3,40 @@
 
 const std::string ApplicationSettingKey::FILE_TITLE_VALUE = "graph_search_settings";
 
-const SettingKeyData ApplicationSettingKey::FILE_TITLE = { "" ,"title", "タイトルが\"" + ApplicationSettingKey::FILE_TITLE_VALUE + "\"の物のみを読み込みます" };
+const SettingKeyData ApplicationSettingKey::FILE_TITLE = { "" ,"title", u8"タイトルが\"" + ApplicationSettingKey::FILE_TITLE_VALUE + u8"\"の物のみを読み込みます" };
 
 
-const SettingTableData ApplicationSettingKey::VERSION_TABLE = { "version" ,"ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく" };
+const SettingTableData ApplicationSettingKey::VERSION_TABLE = { "version" ,u8"ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく" };
 
-const SettingKeyData ApplicationSettingKey::VERSION_MAJOR = { ApplicationSettingKey::VERSION_TABLE.table_name ,"major ","" };
+const SettingKeyData ApplicationSettingKey::VERSION_MAJOR = { ApplicationSettingKey::VERSION_TABLE.table_name ,"major",u8"" };
 
-const SettingKeyData ApplicationSettingKey::VERSION_MINOR = { ApplicationSettingKey::VERSION_TABLE.table_name ,"minor ","" };
+const SettingKeyData ApplicationSettingKey::VERSION_MINOR = { ApplicationSettingKey::VERSION_TABLE.table_name ,"minor",u8"" };
 
-const SettingKeyData ApplicationSettingKey::VERSION_PATCH = { ApplicationSettingKey::VERSION_TABLE.table_name ,"patch ","" };
-
-
-const SettingTableData ApplicationSettingKey::MODE_TABLE = { "mode" ,"プログラムの起動モードの設定です" };
-
-const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSettingKey::MODE_TABLE.table_name ,"ask_about_modes ","起動時に実行モードについて質問をするようにします (true/false)" };
-
-const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode  ","デフォルトの実行モードを設定します．(graph/viewer)" };
+const SettingKeyData ApplicationSettingKey::VERSION_PATCH = { ApplicationSettingKey::VERSION_TABLE.table_name ,"patch",u8"" };
 
 
-const SettingTableData ApplicationSettingKey::DISPLAY_TABLE = { "display" ,"表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．" };
+const SettingTableData ApplicationSettingKey::MODE_TABLE = { "mode" ,u8"プログラムの起動モードの設定です" };
 
-const SettingKeyData ApplicationSettingKey::CMD_OUTPUT = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_output","コマンドラインへの出力を行います (true/false)" };
+const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSettingKey::MODE_TABLE.table_name ,"ask_about_modes ",u8"起動時に実行モードについて質問をするようにします (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::CMD_PERMISSION = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_permission","コマンドラインに出力する文字列をどこまで許可するか，(debug,info,error,system)の順に優先順位が高い" };
+const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode  ",u8"デフォルトの実行モードを設定します．(graph/viewer)" };
 
-const SettingKeyData ApplicationSettingKey::GUI_DISPLAY = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"gui_display","GUI(dxlibによる表示)での表示を行います (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::GUI_DISPLAY_QUALITY = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"gui_display_quality","GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．" };
+const SettingTableData ApplicationSettingKey::DISPLAY_TABLE = { "display" ,u8"表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．" };
 
-const SettingKeyData ApplicationSettingKey::WINDOW_SIZE_X = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_size_x","GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．" };
+const SettingKeyData ApplicationSettingKey::CMD_OUTPUT = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_output",u8"コマンドラインへの出力を行います (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::WINDOW_SIZE_Y = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_size_y","GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．" };
+const SettingKeyData ApplicationSettingKey::CMD_PERMISSION = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_permission",u8"コマンドラインに出力する文字列をどこまで許可するか，(debug,info,error,warning,system)の順に優先順位が高い" };
 
-const SettingKeyData ApplicationSettingKey::WINDOW_FPS = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_pos_x","ウィンドウのフレームレートを設定します．推奨値は60か30です．" };
+const SettingKeyData ApplicationSettingKey::GUI_DISPLAY = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"gui_display",u8"GUI(dxlibによる表示)での表示を行います (true/false)" };
+
+const SettingKeyData ApplicationSettingKey::GUI_DISPLAY_QUALITY = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"gui_display_quality",u8"GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．" };
+
+const SettingKeyData ApplicationSettingKey::WINDOW_SIZE_X = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_size_x",u8"GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．" };
+
+const SettingKeyData ApplicationSettingKey::WINDOW_SIZE_Y = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_size_y",u8"GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．" };
+
+const SettingKeyData ApplicationSettingKey::WINDOW_FPS = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"window_pos_x",u8"ウィンドウのフレームレートを設定します．推奨値は60か30です．" };
 
 
 const SettingTableData ApplicationSettingKey::MAP_TABLE = { "map" ,"マップ生成に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．" };

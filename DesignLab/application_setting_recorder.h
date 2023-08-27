@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "output_priority.h"
 #include "map_creator.h"
 #include "application_setting_key.h"
 
@@ -22,7 +23,7 @@ struct SApplicationSettingRecorder
 	std::string default_mode = "graph";	//!< デフォルトの起動モード
 
 	bool cmd_output = true;						//!< コマンドラインに出力するかどうか
-	std::string cmd_permission = "debug";		//!< コマンドラインに出力する際，どこまで許可するか
+	EOutputPriority cmd_permission = EOutputPriority::DEBUG;		//!< コマンドラインに出力する際，どこまで許可するか
 	bool gui_display = true;					//!< GUIを表示するかどうか
 	std::string gui_display_quality = "high";	//!< GUIを表示する際，どこまで許可するか
 	int window_size_x = 1280;					//!< グラフィカルウィンドウの横幅
