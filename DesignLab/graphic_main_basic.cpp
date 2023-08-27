@@ -7,7 +7,7 @@
 #include "map_renderer.h"
 
 
-GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* broker) : IGraphicMain(broker), m_map_state(mp_broker->getMapState())
+GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* broker) : AbstractGraphicMain(broker), m_map_state(mp_broker->getMapState())
 {
 	m_node.clear();
 }

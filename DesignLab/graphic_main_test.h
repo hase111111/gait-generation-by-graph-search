@@ -1,6 +1,6 @@
 #pragma once
 
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 #include "camera_manager.h"
 #include "hexapod_renderer.h"
 #include "gui_controller.h"
@@ -12,7 +12,7 @@
 //! @date 2023/08/09
 //! @author 長谷川
 //! @brief MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン
-class GraphicMainTest final : public IGraphicMain
+class GraphicMainTest final : public AbstractGraphicMain
 {
 public:
 	GraphicMainTest(const GraphicDataBroker* broker);

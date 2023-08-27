@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "fps.h"
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 
 
 //! @class GraphicLoop
@@ -18,7 +18,7 @@ class GraphicLoop final
 public:
 	GraphicLoop() = delete;
 
-	GraphicLoop(std::unique_ptr<IGraphicMain>&& graphic_main);
+	GraphicLoop(std::unique_ptr<AbstractGraphicMain>&& graphic_main);
 	~GraphicLoop() = default;
 
 
@@ -30,7 +30,7 @@ private:
 
 	Fps m_fps;	//FPSを一定に制御するクラス．詳しくはFps.hへ
 
-	std::unique_ptr<IGraphicMain> mp_graphic_main;	//描画処理を行うメインのクラス．
+	std::unique_ptr<AbstractGraphicMain> mp_graphic_main;	//描画処理を行うメインのクラス．
 };
 
 

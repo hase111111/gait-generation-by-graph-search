@@ -102,7 +102,7 @@ void dl_cio::outputNewLine(const SApplicationSettingRecorder* setting, const int
 	{
 		for (int i = 0; i < num; i++)
 		{
-			std::cout << std::endl;
+			output(setting, "", priority);
 		}
 	}
 }

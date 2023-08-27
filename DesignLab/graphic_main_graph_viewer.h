@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 #include "hexapod_renderer.h"
 #include "map_state.h"
 #include "camera_manager.h"
@@ -13,7 +13,7 @@
 //! @date 2023/08/09
 //! @author ’·’Jì
 //! @brief GraphViewer‚Ì‰æ–Ê‚ğ•\¦‚·‚éƒNƒ‰ƒX
-class GraphicMainGraphViewer final : public IGraphicMain
+class GraphicMainGraphViewer final : public AbstractGraphicMain
 {
 public:
 	GraphicMainGraphViewer(const GraphicDataBroker* broker);

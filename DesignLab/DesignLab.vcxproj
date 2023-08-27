@@ -60,7 +60,7 @@
     <ClInclude Include="interface_pass_finder.h" />
     <ClInclude Include="InterfaceGraphSearcher.h" />
     <ClInclude Include="InterfaceGraphTreeCreator.h" />
-    <ClInclude Include="interface_graphic_main.h" />
+    <ClInclude Include="abstract_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
     <ClInclude Include="designlab_cmdio.h" />
@@ -151,7 +151,7 @@
     <ClCompile Include="hexapod_next_move.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
     <ClCompile Include="hexapod_state_calculator.cpp" />
-    <ClCompile Include="interface_graphic_main.cpp" />
+    <ClCompile Include="abstract_graphic_main.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
     <ClCompile Include="designlab_cmdio.cpp" />

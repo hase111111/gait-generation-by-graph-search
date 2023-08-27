@@ -273,7 +273,7 @@
     <ClInclude Include="pass_finder_none.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graphic_main.h">
+    <ClInclude Include="abstract_graphic_main.h">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
@@ -536,7 +536,7 @@
     <ClCompile Include="pass_finder_none.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
-    <ClCompile Include="interface_graphic_main.cpp">
+    <ClCompile Include="abstract_graphic_main.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">

@@ -4,6 +4,7 @@
 #include "graphic_system.h"
 #include "graphic_data_broker.h"
 #include "interface_pass_finder.h"
+#include "application_setting_recorder.h"
 
 
 //! @class GraphViewerSystemMain
@@ -14,7 +15,7 @@ class GraphViewerSystemMain final
 {
 public:
 
-	GraphViewerSystemMain();
+	GraphViewerSystemMain(const SApplicationSettingRecorder* const setting);
 
 	//! @brief ÉÅÉCÉìä÷êî
 	void main();
@@ -41,6 +42,8 @@ private:
 	GraphicSystem m_graphic_system;
 
 	std::unique_ptr<IPassFinder> mp_pass_finder;
+
+	const SApplicationSettingRecorder* const mp_setting;
 
 };
 

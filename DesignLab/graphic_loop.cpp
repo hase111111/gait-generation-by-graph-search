@@ -9,7 +9,7 @@
 #include "mouse.h"
 
 
-GraphicLoop::GraphicLoop(std::unique_ptr<IGraphicMain>&& graphic_main)
+GraphicLoop::GraphicLoop(std::unique_ptr<AbstractGraphicMain>&& graphic_main)
 {
 	//グラフィックメインクラスを代入する．ユニークポインタを代入する場合はmoveを行う．参考 https://nojima.hatenablog.com/entry/2014/12/10/014131
 	mp_graphic_main = std::move(graphic_main);

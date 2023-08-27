@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 #include "map_state.h"
 #include "node.h"
 #include "graphic_const.h"
@@ -21,7 +21,7 @@
 //! また，UIによってランタイムで表示方法を制御することができるようになったため，よりロボットの状態を理解しやすくなっている．ﾀﾌﾞﾝﾈ
 //! @note 処理を大きく書き換えたい場合はそもそも新しいクラスを書くようにするとよいと思う．
 //! @n GraphicSampleを参考にして，作成するようにすると楽．
-class GraphicMainBasic final : public IGraphicMain
+class GraphicMainBasic final : public AbstractGraphicMain
 {
 public:
 	GraphicMainBasic(const GraphicDataBroker* broker);

@@ -8,7 +8,7 @@
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "interface_pass_finder.h"
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 #include "designlab_timer.h"
 #include "result_file_exporter.h"
 #include "application_setting_recorder.h"

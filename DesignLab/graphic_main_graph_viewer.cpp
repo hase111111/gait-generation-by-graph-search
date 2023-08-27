@@ -8,7 +8,7 @@
 #include "Keyboard.h"
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) : IGraphicMain(broker), m_map_state(broker->getMapState())
+GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) : AbstractGraphicMain(broker), m_map_state(broker->getMapState())
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;

@@ -18,7 +18,7 @@
 
 using StrtoVal::StrToInt;
 
-GraphViewerSystemMain::GraphViewerSystemMain()
+GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* const setting) : mp_setting(setting)
 {
 	std::cout << "--------------------------------------------------" << std::endl;
 	std::cout << std::endl;
@@ -53,7 +53,7 @@ GraphViewerSystemMain::GraphViewerSystemMain()
 
 	//グラフィックシステムを初期化する
 	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
-	m_graphic_system.init(std::make_unique<GraphicMainGraphViewer>(&m_graphic_data_broker));
+	m_graphic_system.init(std::make_unique<GraphicMainGraphViewer>(&m_graphic_data_broker), setting);
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;

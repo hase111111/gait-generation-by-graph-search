@@ -5,7 +5,7 @@
 #include "Keyboard.h"
 
 
-GraphicMainTest::GraphicMainTest(const GraphicDataBroker* broker) : IGraphicMain(broker)
+GraphicMainTest::GraphicMainTest(const GraphicDataBroker* broker) : AbstractGraphicMain(broker)
 {
 	m_node.init(false);
 

@@ -23,7 +23,7 @@ namespace dl_cio
 	inline void output(const SApplicationSettingRecorder* setting, const std::string str,
 		const EOutputPriority priority = EOutputPriority::SYSTEM, const bool wait_cin = false, const bool display_func_name = false)
 	{
-		if ((priority <= (*setting).cmd_permission && (*setting).cmd_output) || ((*setting).cmd_permission == EOutputPriority::SYSTEM && !(*setting).cmd_output))
+		if ((priority <= (*setting).cmd_permission && (*setting).cmd_output) || (priority == EOutputPriority::SYSTEM && !(*setting).cmd_output))
 		{
 			if (display_func_name)
 			{

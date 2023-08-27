@@ -22,7 +22,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplication
 	m_result_exporter.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_PERFORATED | MapCreator::OPTION_ROUGH, true);
+	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_PERFORATED, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);
@@ -31,16 +31,18 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplication
 	mp_pass_finder = std::move(graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_graphic_system.init(std::make_unique<GraphicMainBasic>(&m_broker));
+	m_graphic_system.init(std::make_unique<GraphicMainBasic>(&m_broker), mp_setting);
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;
 	m_target.TargetPosition = { 3000,0,0 };
 }
 
+
 void SystemMain::main()
 {
 	outputTitle();	//コマンドラインにタイトルを表示する．
+
 
 	if (!mp_pass_finder)
 	{
@@ -49,9 +51,18 @@ void SystemMain::main()
 		return;
 	}
 
+	if (!mp_setting)
+	{
+		//早期リターン，設定クラスがセットされていない場合は，エラーを出力して終了する．
+		dl_cio::output(mp_setting, "設定クラスがありません\nシミュレーションを終了します．", EOutputPriority::ERROR_MES, false, true);
+		return;
+	}
+
+
 	NodeValidityChecker node_checker;	//ノードの妥当性をチェックするクラスを用意する．
 
-	//画像表示ウィンドウを別スレッドで立ち上げる．初期化に失敗したり，そもそも画像表示をしない設定になっていると立ち上がらない．
+
+	//画像表示ウィンドウを別スレッドで立ち上げる．
 	boost::thread graphic_thread(&GraphicSystem::main, &m_graphic_system);
 
 
@@ -148,6 +159,7 @@ void SystemMain::main()
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::output(mp_setting, "シミュレーション終了");
 	dl_cio::outputNewLine(mp_setting);
+
 
 	//画像表示ウィンドウの終了を待つ．
 	dl_cio::output(mp_setting, "DXlib(gui)の終了を待っています．GUIのXボタンを押してください");

@@ -1,5 +1,5 @@
 #pragma once
-#include "interface_graphic_main.h"
+#include "abstract_graphic_main.h"
 
 
 //! @class GraphicMainSample
@@ -13,11 +13,11 @@
 //! @n final … これ以上継承はできないという意味．このクラスを更に継承しようとするとエラーになる．ちなみに，継承しないクラスには基本的に付けておくとよい．
 //! @n public AbstractGraphicMain … AbstractGraphicMainクラスを継承した，という意味．
 //! @n override … 継承元の関数をオーバーライドしたという意味，付けなくとも問題ないが付けておくとコンパイラに明示的にオーバーライドを知らせられるのでバグを防ぎやすい．
-//! @n GraphicMainSample(const GraphicDataBroker* broker) : IGraphicMain(broker) {}; … コンストラクタにおいて，親クラスのコンストラクタを呼び出す，という意味．これを書き忘れるとエラーになるので注意．
-class GraphicMainSample final : public IGraphicMain
+//! @n GraphicMainSample(const GraphicDataBroker* broker) : AbstractGraphicMain(broker) {}; … コンストラクタにおいて，親クラスのコンストラクタを呼び出す，という意味．これを書き忘れるとエラーになるので注意．
+class GraphicMainSample final : public AbstractGraphicMain
 {
 public:
-	GraphicMainSample(const GraphicDataBroker* broker) : IGraphicMain(broker) {};
+	GraphicMainSample(const GraphicDataBroker* broker) : AbstractGraphicMain(broker) {};
 	~GraphicMainSample() = default;
 
 	bool update() override;
