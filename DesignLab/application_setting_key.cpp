@@ -17,9 +17,9 @@ const SettingKeyData ApplicationSettingKey::VERSION_PATCH = { ApplicationSetting
 
 const SettingTableData ApplicationSettingKey::MODE_TABLE = { "mode" ,u8"プログラムの起動モードの設定です" };
 
-const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSettingKey::MODE_TABLE.table_name ,"ask_about_modes ",u8"起動時に実行モードについて質問をするようにします (true/false)" };
+const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSettingKey::MODE_TABLE.table_name ,"ask_about_modes",u8"起動時に実行モードについて質問をするようにします (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode  ",u8"デフォルトの実行モードを設定します．(graph/viewer)" };
+const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode",u8"デフォルトの実行モードを設定します．(simulation/viewer)" };
 
 
 const SettingTableData ApplicationSettingKey::DISPLAY_TABLE = { "display" ,u8"表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．" };

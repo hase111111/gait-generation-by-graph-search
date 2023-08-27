@@ -11,7 +11,7 @@
 enum class EOutputPriority
 {
 	SYSTEM = 0,		//!< 常に出力する
-	ERROR = 1,		//!< エラー出力
+	ERROR_MES = 1,		//!< エラー出力
 	WARNING = 2,	//!< 警告出力
 	INFO = 3,		//!< 優先度低めの情報
 	DEBUG = 4,		//!< デバッグ時のみ出力

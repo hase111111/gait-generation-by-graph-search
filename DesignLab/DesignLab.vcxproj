@@ -22,6 +22,7 @@
     <ClInclude Include="abstract_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
+    <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
     <ClInclude Include="camera_controller.h" />
     <ClInclude Include="camera_gui.h" />
@@ -115,6 +116,7 @@
   <ItemGroup>
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
+    <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />

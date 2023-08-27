@@ -121,6 +121,12 @@
     <Filter Include="ソース ファイル\Common\CommandIO">
       <UniqueIdentifier>{cf856c32-8544-4133-836a-6ee261d4b76b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System\Setting">
+      <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Simulation">
+      <UniqueIdentifier>{fb03873e-eff6-4c6a-90ae-3f0abbf04a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -375,29 +381,32 @@
     <ClInclude Include="node_display_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_reader.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="application_setting_recorder.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="system_main.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_result_recorder.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="application_setting_key.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="designlab_cmdio.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
     <ClInclude Include="output_priority.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_key.h">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_reader.h">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_recorder.h">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="result_file_exporter.h">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main.h">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_result_recorder.h">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="boot_mode.h">
+      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -626,26 +635,29 @@
     <ClCompile Include="node_display_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="application_setting_reader.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="system_main.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="simulation_result_recorder.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="application_setting_key.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
     <ClCompile Include="designlab_cmdio.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
     <ClCompile Include="output_priority.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
+    </ClCompile>
+    <ClCompile Include="application_setting_key.cpp">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="application_setting_reader.cpp">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="result_file_exporter.cpp">
+      <Filter>ソース ファイル\System\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_result_recorder.cpp">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="system_main.cpp">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="boot_mode.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

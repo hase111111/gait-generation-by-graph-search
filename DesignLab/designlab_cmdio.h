@@ -23,7 +23,7 @@ namespace dl_cio
 	inline void output(const SApplicationSettingRecorder* setting, const std::string str,
 		const EOutputPriority priority = EOutputPriority::SYSTEM, const bool wait_cin = false, const bool display_func_name = false)
 	{
-		if (priority <= (*setting).cmd_permission)
+		if ((priority <= (*setting).cmd_permission && (*setting).cmd_output) || ((*setting).cmd_permission == EOutputPriority::SYSTEM && !(*setting).cmd_output))
 		{
 			if (display_func_name)
 			{
@@ -36,6 +36,8 @@ namespace dl_cio
 			{
 				std::cout << std::flush;
 			}
+
+			std::cout << std::endl;
 		}
 	}
 
@@ -47,10 +49,35 @@ namespace dl_cio
 	void outputNewLine(const SApplicationSettingRecorder* setting, const int num = 1, const EOutputPriority priority = EOutputPriority::SYSTEM);
 
 
+	//! @brief コマンドラインにタイトルを出力する関数．
+	//! @param [in] setting 設定ファイルの情報を記録した構造体のポインタ
+	void outputTitle(const SApplicationSettingRecorder* setting);
+
+
+	//! @brief コマンドラインに水平線を出力する関数．
+	//! @param [in] setting 設定ファイルの情報を記録した構造体のポインタ
+	//! @param [in] double_line 二重線にするかどうか (デフォルトではfalse)
+	//! @param [in] priority 出力する際の優先度 (デフォルトではSYSTEM)
+	void outputHorizontalLine(const SApplicationSettingRecorder* setting, const bool double_line = false, const EOutputPriority priority = EOutputPriority::SYSTEM);
+
+
 	//! @brief 入力待ちをする関数．
 	//! @param [in] str 入力待ちをする際に出力する文字列
 	void waitAnyKey(const SApplicationSettingRecorder* setting, const std::string str = "入力待ち，Enterキーを押してください．",
 		const EOutputPriority priority = EOutputPriority::SYSTEM);
+
+
+	//! @brief 整数を入力する関数．
+	//! @param [in] setting 設定ファイルの情報を記録した構造体のポインタ
+	//! @param [in] min 入力する整数の最小値
+	//! @param [in] max 入力する整数の最大値
+	//! @param [in] default_num デフォルトで入力する整数
+	//! @param [in] str 入力待ちをする際に出力する文字列
+	//! @return int 入力された整数
+	int inputInt(const SApplicationSettingRecorder* setting, const int min, const int max, const int default_num, const std::string str = "整数を入力してください．");
+
+
+	EBootMode selectBootMode(const SApplicationSettingRecorder* setting);
 
 }	//namespace dl_cio
 

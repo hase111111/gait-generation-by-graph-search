@@ -8,16 +8,19 @@
 void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 {
 	std::cout << "[" << __func__ << "]" << "設定ファイル" << SETTING_FILE_NAME << "を読み込みます" << std::endl;
+	std::cout << std::endl;
 
 
 	//ファイルを探す，存在しなかったらデフォルトの設定を出力して終了，fsystemはC++17から，実行できない場合は設定を見直してみてください
 	if (!std::filesystem::is_regular_file(SETTING_FILE_NAME))
 	{
-		std::cout << "設定ファイルが見つかりませんでした．デフォルトの設定を出力します．" << std::endl;
+		std::cout << "設定ファイルが見つかりませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
 		return;
 	}
 
+	std::cout << "設定ファイルが見つかりました．読み込みを開始いたします" << std::endl;
+	std::cout << std::endl;
 
 
 	//ファイルを読み込む
@@ -31,20 +34,28 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 	}
 	catch (toml::syntax_error e)
 	{
-		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定を出力します．" << std::endl;
+		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定ファイルを出力します．" << std::endl;
 		std::cout << e.what() << std::endl;
 		outputDefaultSettingFile();
 		return;
 	}
 
 
+	std::cout << "設定ファイルの読み込みに成功しました．ファイルのtitleキーを確認します" << std::endl;
+	std::cout << std::endl;
+
+
 	if (toml::get<std::string>(data.at(ApplicationSettingKey::FILE_TITLE.key)) != ApplicationSettingKey::FILE_TITLE_VALUE)
 	{
 		//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
-		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定を出力します．" << std::endl;
+		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
 		return;
 	}
+
+
+	std::cout << "設定ファイルのタイトルが一致しました．設定ファイルの読み込みを続行します" << std::endl;
+	std::cout << std::endl;
 
 
 	try
@@ -58,12 +69,15 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 	catch (...)
 	{
 		//設定ファイルの読み込みに失敗した場合はデフォルトの設定を出力して終了
-		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．デフォルトの設定を出力します．" << std::endl;
+		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．読み込めなかった設定はデフォルトの値を使用します．" << std::endl;
+		std::cout << "デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
 		return;
 	}
 
 
+	std::cout << std::endl;
+	std::cout << "設定ファイルの読み込みが完了しました．" << std::endl;
 }
 
 
@@ -130,7 +144,7 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 				ApplicationSettingKey::MODE_TABLE.table_name,
 				{
 					{ ApplicationSettingKey::ASK_ABOUT_MODES.key, kDefaultSetting.ask_about_modes },
-					{ ApplicationSettingKey::DEFAULT_MODE.key, kDefaultSetting.default_mode }
+					{ ApplicationSettingKey::DEFAULT_MODE.key, std::to_string(kDefaultSetting.default_mode) }
 				}
 			}
 		};
@@ -200,7 +214,7 @@ void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApp
 		// バージョン設定を読み込む
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MAJOR.key))
 		{
-			recorder->version_major = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MAJOR.key).as_integer();
+			recorder->version_major = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MAJOR.key).as_integer();
 			std::cout << "〇メジャーバージョンを読み込みました．value = " << recorder->version_major << std::endl;
 		}
 		else
@@ -210,7 +224,7 @@ void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApp
 
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MINOR.key))
 		{
-			recorder->version_minor = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MINOR.key).as_integer();
+			recorder->version_minor = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MINOR.key).as_integer();
 			std::cout << "〇マイナーバージョンを読み込みました．value = " << recorder->version_minor << std::endl;
 		}
 		else
@@ -220,7 +234,7 @@ void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApp
 
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_PATCH.key))
 		{
-			recorder->version_patch = value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_PATCH.key).as_integer();
+			recorder->version_patch = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_PATCH.key).as_integer();
 			std::cout << "〇パッチバージョンを読み込みました．value = " << recorder->version_patch << std::endl;
 		}
 		else
@@ -255,8 +269,8 @@ void ApplicationSettingReader::readBootModeSetting(const toml::value& value, SAp
 
 		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DEFAULT_MODE.key))
 		{
-			recorder->default_mode = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).as_string();
-			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << recorder->default_mode << std::endl;
+			recorder->default_mode = std::sToMode(value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).as_string());
+			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << std::to_string(recorder->default_mode) << std::endl;
 		}
 		else
 		{
@@ -321,7 +335,7 @@ void ApplicationSettingReader::readDisplaySetting(const toml::value& value, SApp
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_X.key))
 		{
-			recorder->window_size_x = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_X.key).as_integer();
+			recorder->window_size_x = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_X.key).as_integer();
 			std::cout << "〇ウィンドウのXサイズ(横幅)の値を読み込みました．value = " << recorder->window_size_x << std::endl;
 		}
 		else
@@ -331,7 +345,7 @@ void ApplicationSettingReader::readDisplaySetting(const toml::value& value, SApp
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_Y.key))
 		{
-			recorder->window_size_y = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_Y.key).as_integer();
+			recorder->window_size_y = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_Y.key).as_integer();
 			std::cout << "〇ウィンドウのYサイズ(縦幅)の値を読み込みました．value = " << recorder->window_size_y << std::endl;
 		}
 		else
@@ -341,7 +355,7 @@ void ApplicationSettingReader::readDisplaySetting(const toml::value& value, SApp
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_FPS.key))
 		{
-			recorder->window_fps = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_FPS.key).as_integer();
+			recorder->window_fps = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_FPS.key).as_integer();
 			std::cout << "〇ウィンドウのFPSの値を読み込みました．value = " << recorder->window_fps << std::endl;
 		}
 		else

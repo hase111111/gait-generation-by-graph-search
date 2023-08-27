@@ -1,4 +1,4 @@
-#include "system_main.h"
+ï»¿#include "system_main.h"
 
 #include <boost/thread.hpp>
 
@@ -12,126 +12,156 @@
 #include "graphic_main_test.h"
 
 
-SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search)
+SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
 {
-	//ƒƒ{ƒbƒg‚Ìƒf[ƒ^‚ğ‰Šú‰»‚·‚éD
+	//ãƒ­ãƒœãƒƒãƒˆã®ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
 	Hexapod::makeLegROM_r();
 	HexapodStateCalclator::initLegR();
 
-	//Œ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éƒNƒ‰ƒX‚ğ‰Šú‰»‚·‚éD
+	//çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
 	m_result_exporter.init();
 
-	//ƒ}ƒbƒv‚ğ¶¬‚·‚éD
+	//ãƒãƒƒãƒ—ã‚’ç”Ÿæˆã™ã‚‹ï¼
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_PERFORATED | MapCreator::OPTION_ROUGH, true);
 
-	//’‡‰îl‚Éƒ}ƒbƒv‚ğ“n‚·D
+	//ä»²ä»‹äººã«ãƒãƒƒãƒ—ã‚’æ¸¡ã™ï¼
 	m_broker.setMapState(m_map_state);
 
-	//ƒOƒ‰ƒt’TõƒNƒ‰ƒX‚ğƒZƒbƒg‚·‚é
+	//ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚¯ãƒ©ã‚¹ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	mp_pass_finder = std::move(graph_search);
 
-	//‰æ‘œƒEƒBƒ“ƒhƒE‚ğ•\¦‚·‚éƒNƒ‰ƒX‚É’‡‰îl‚ÌƒAƒhƒŒƒX‚ğ“n‚µ‚ÄC‰Šú‰»ˆ—‚ğ‚·‚éD
+	//ç”»åƒã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ã«ä»²ä»‹äººã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æ¸¡ã—ã¦ï¼ŒåˆæœŸåŒ–å‡¦ç†ã‚’ã™ã‚‹ï¼
 	m_graphic_system.init(std::make_unique<GraphicMainBasic>(&m_broker));
 
-	//‚±‚Ì’Tõ‚Å‚Ì–Ú•W‚ğİ’è‚·‚éD
+	//ã“ã®æ¢ç´¢ã§ã®ç›®æ¨™ã‚’è¨­å®šã™ã‚‹ï¼
 	m_target.TargetMode = ETargetMode::StraightPosition;
 	m_target.TargetPosition = { 3000,0,0 };
 }
 
 void SystemMain::main()
 {
+	outputTitle();	//ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ï¼
+
 	if (!mp_pass_finder)
 	{
-		//ƒOƒ‰ƒt’TõƒNƒ‰ƒX‚ªƒZƒbƒg‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍCƒGƒ‰[‚ğo—Í‚µ‚ÄI—¹‚·‚éD
-		std::cout << "GraphSearch is not set." << std::endl;
+		//æ—©æœŸãƒªã‚¿ãƒ¼ãƒ³ï¼Œã‚°ãƒ©ãƒ•æ¢ç´¢ã‚¯ãƒ©ã‚¹ãŒã‚»ãƒƒãƒˆã•ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œã‚¨ãƒ©ãƒ¼ã‚’å‡ºåŠ›ã—ã¦çµ‚äº†ã™ã‚‹ï¼
+		dl_cio::output(mp_setting, "ãƒ‘ã‚¹ãƒ•ã‚¡ã‚¤ãƒ³ãƒ€ãƒ¼ã‚¯ãƒ©ã‚¹ãŒã‚ã‚Šã¾ã›ã‚“\nã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã—ã¾ã™ï¼", EOutputPriority::ERROR_MES, false, true);
 		return;
 	}
 
-	CmdIO _cmd;	//ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚É•¶š‚ğ•`‰æ‚·‚éƒNƒ‰ƒX‚ğ—pˆÓ‚·‚éD
+	NodeValidityChecker node_checker;	//ãƒãƒ¼ãƒ‰ã®å¦¥å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ç”¨æ„ã™ã‚‹ï¼
 
-	NodeValidityChecker node_checker;	//ƒm[ƒh‚Ì‘Ã“–«‚ğƒ`ƒFƒbƒN‚·‚éƒNƒ‰ƒX‚ğ—pˆÓ‚·‚éD
-
-	//‰æ‘œ•\¦ƒEƒBƒ“ƒhƒE‚ğ•ÊƒXƒŒƒbƒh‚Å—§‚¿ã‚°‚éD‰Šú‰»‚É¸”s‚µ‚½‚èC‚»‚à‚»‚à‰æ‘œ•\¦‚ğ‚µ‚È‚¢İ’è‚É‚È‚Á‚Ä‚¢‚é‚Æ—§‚¿ã‚ª‚ç‚È‚¢D
+	//ç”»åƒè¡¨ç¤ºã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§ç«‹ã¡ä¸Šã’ã‚‹ï¼åˆæœŸåŒ–ã«å¤±æ•—ã—ãŸã‚Šï¼Œãã‚‚ãã‚‚ç”»åƒè¡¨ç¤ºã‚’ã—ãªã„è¨­å®šã«ãªã£ã¦ã„ã‚‹ã¨ç«‹ã¡ä¸ŠãŒã‚‰ãªã„ï¼
 	boost::thread graphic_thread(&GraphicSystem::main, &m_graphic_system);
 
 
-	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ğs‚¤‰ñ”•ªƒ‹[ƒv‚·‚éD
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¡Œã†å›æ•°åˆ†ãƒ«ãƒ¼ãƒ—ã™ã‚‹ï¼
 	for (int i = 0; i < Define::SIMURATE_NUM; i++)
 	{
-		SNode current_node;										//Œ»İ‚Ìƒm[ƒh‚Ìó‘Ô‚ğŠi”[‚·‚é•Ï”D
-		const bool do_random_init = true;//(i == 0) ? false : true;	// i ‚Ì’l‚ª 0 ‚È‚ç‚Îƒ‰ƒ“ƒ_ƒ€‚ÈêŠ‚É‰Šú‰»‚Í‚µ‚È‚¢D(i == 0)‚ğ•]‰¿‚µ‚ÄCtrue‚È‚ç‚Î‘OÒ(false)Cfalse‚È‚ç‚ÎŒãÒ(true)‚ğ‘ã“ü‚·‚éD
+		SNode current_node;										//ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ï¼
+		const bool do_random_init = true;//(i == 0) ? false : true;	// i ã®å€¤ãŒ 0 ãªã‚‰ã°ãƒ©ãƒ³ãƒ€ãƒ ãªå ´æ‰€ã«åˆæœŸåŒ–ã¯ã—ãªã„ï¼(i == 0)ã‚’è©•ä¾¡ã—ã¦ï¼Œtrueãªã‚‰ã°å‰è€…(false)ï¼Œfalseãªã‚‰ã°å¾Œè€…(true)ã‚’ä»£å…¥ã™ã‚‹ï¼
 		current_node.init(do_random_init);
 
-		SSimulationResultRecorder record;	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”D
-		record.result_nodes.push_back(current_node);	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ÉŒ»İ‚Ìƒm[ƒh‚Ìó‘Ô‚ğ’Ç‰Á‚·‚éD
-		record.simulation_result = ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ğ¬Œ÷‚É‰Šú‰»‚·‚éD
+		SSimulationResultRecorder record;	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ï¼
+		record.result_nodes.push_back(current_node);	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã«ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’è¿½åŠ ã™ã‚‹ï¼
+		record.simulation_result = ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’æˆåŠŸã«åˆæœŸåŒ–ã™ã‚‹ï¼
 
 
-		if (Define::FLAG_GRAPHIC_AVAILABLE) { m_broker.pushNode(current_node); }	//ƒOƒ‰ƒtƒBƒbƒN‚ª—LŒø‚È‚ç‚ÎC’‡‰îl‚ÉÅ‰‚Ìƒm[ƒh‚Ìó‘Ô‚ğ’Ê’B‚·‚éD
+		dl_cio::output(mp_setting, "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³" + std::to_string(i + 1) + "å›ç›®ã‚’é–‹å§‹ã—ã¾ã™", EOutputPriority::SYSTEM);
+		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
+		dl_cio::output(mp_setting, std::to_string(current_node), EOutputPriority::INFO);
+		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::INFO);
 
 
-		_cmd.outputGraphSearchStaretMessage(i + 1);	//ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ÉŠJn‚ÌƒƒbƒZ[ƒW‚ğo—Í‚·‚éD
-		_cmd.outputNode(current_node, 0);			//ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ÉÅ‰‚Ìƒm[ƒh‚Ìó‘Ô‚ğo—Í‚·‚éD
+		if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }	//ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãŒæœ‰åŠ¹ãªã‚‰ã°ï¼Œä»²ä»‹äººã«æœ€åˆã®ãƒãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’é€šé”ã™ã‚‹ï¼
 
 
-		//Å‘å•à—e¶¬‰ñ”•ª‚Ü‚Åƒ‹[ƒv‚·‚éD
-		for (int i = 0; i < Define::GATE_PATTERN_GENERATE_NUM; i++)
+		//æœ€å¤§æ­©å®¹ç”Ÿæˆå›æ•°åˆ†ã¾ã§ãƒ«ãƒ¼ãƒ—ã™ã‚‹ï¼
+		for (int j = 0; j < Define::GATE_PATTERN_GENERATE_NUM; j++)
 		{
-			m_timer.start();		//ƒ^ƒCƒ}[ƒXƒ^[ƒg
+			m_timer.start();		//ã‚¿ã‚¤ãƒãƒ¼ã‚¹ã‚¿ãƒ¼ãƒˆ
 
-			SNode result_node;		//ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”D
+			SNode result_node;		//ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ï¼
 
-			EGraphSearchResult result_state = mp_pass_finder->getNextNodebyGraphSearch(current_node, &m_map_state, m_target, result_node);		//ƒOƒ‰ƒt’Tõ‚ğs‚¤D
+			EGraphSearchResult result_state = mp_pass_finder->getNextNodebyGraphSearch(current_node, &m_map_state, m_target, result_node);		//ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ï¼
 
-			m_timer.end();			//ƒ^ƒCƒ}[ƒXƒgƒbƒv
-
-
-			record.computation_time.push_back(m_timer.getMicroSecond() / 1000);	//ŒvZŠÔ‚ğŠi”[‚·‚éD
-			record.graph_search_results.push_back(result_state);			//ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğŠi”[‚·‚éD
-			record.result_nodes.push_back(result_node);	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ÉŒ»İ‚Ìƒm[ƒh‚Ìó‘Ô‚ğ’Ç‰Á‚·‚éD
+			m_timer.end();			//ã‚¿ã‚¤ãƒãƒ¼ã‚¹ãƒˆãƒƒãƒ—
 
 
+			record.computation_time.push_back(m_timer.getMicroSecond() / 1000);	//è¨ˆç®—æ™‚é–“ã‚’æ ¼ç´ã™ã‚‹ï¼
+			record.graph_search_results.push_back(result_state);			//ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’æ ¼ç´ã™ã‚‹ï¼
+			record.result_nodes.push_back(result_node);	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã«ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’è¿½åŠ ã™ã‚‹ï¼
+
+
+			//ã‚°ãƒ©ãƒ•æ¢ç´¢ã«å¤±æ•—
 			if (!graphSeachResultIsSuccessful(result_state))
 			{
-				_cmd.outputErrorMessageInGraphSearch("Failed to generate the next gait.");
+				dl_cio::output(mp_setting, "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸï¼SimulationResult = " + std::to_string(ESimulationResult::FAILURE_BY_GRAPH_SEARCH) + "/ GraphSearch = " + std::to_string(result_state));
 
-				record.simulation_result = ESimulationResult::FAILURE_BY_GRAPH_SEARCH;	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ğ¸”s‚ÉXV‚·‚éD
+				record.simulation_result = ESimulationResult::FAILURE_BY_GRAPH_SEARCH;	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’å¤±æ•—ã«æ›´æ–°ã™ã‚‹ï¼
 
-				break;	//Ÿ‚Ì•à—e‚ª¶¬‚Å‚«‚È‚©‚Á‚½‚çC‚±‚Ìƒ‹[ƒv‚ğ”²‚¯CŸ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Öi‚ŞD
+				break;	//æ¬¡ã®æ­©å®¹ãŒç”Ÿæˆã§ããªã‹ã£ãŸã‚‰ï¼Œã“ã®ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ï¼Œæ¬¡ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã¸é€²ã‚€ï¼
 			}
 
 
-			current_node = result_node;		//Ÿ‚Ì•à—e‚ª¶¬‚Å‚«‚Ä‚¢‚é‚È‚ç‚ÎCƒm[ƒh‚ğXV‚·‚éD
+			current_node = result_node;		//æ¬¡ã®æ­©å®¹ãŒç”Ÿæˆã§ãã¦ã„ã‚‹ãªã‚‰ã°ï¼Œãƒãƒ¼ãƒ‰ã‚’æ›´æ–°ã™ã‚‹ï¼
 
-			if (Define::FLAG_GRAPHIC_AVAILABLE) { m_broker.pushNode(current_node); }			//ƒOƒ‰ƒtƒBƒbƒN‚ª—LŒø‚È‚ç‚Î’‡‰îl‚ÉŒ‹‰Ê‚ğ’Ê’B‚·‚éD
+			if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }			//ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãŒæœ‰åŠ¹ãªã‚‰ã°ä»²ä»‹äººã«çµæœã‚’é€šé”ã™ã‚‹ï¼
 
-			_cmd.outputNode(current_node, i + 1);												//ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ÉŒ»İ‚Ìƒm[ƒh‚ğo—Í‚·‚éD
+			dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::INFO);
+			dl_cio::output(mp_setting, "[ ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³" + std::to_string(i + 1) + "å›ç›® / æ­©å®¹ç”Ÿæˆ" + std::to_string(j + 1) + "å›ç›® ] ", EOutputPriority::INFO);	//ç¾åœ¨ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®å›æ•°ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«å‡ºåŠ›ã™ã‚‹ï¼
+			dl_cio::output(mp_setting, std::to_string(current_node), EOutputPriority::INFO);	//ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«å‡ºåŠ›ã™ã‚‹ï¼
 
-			node_checker.setNode(current_node);													//“®ìƒ`ƒFƒbƒJ[‚É‚àƒm[ƒh‚ğ’Ê’B‚·‚éD
+			node_checker.setNode(current_node);													//å‹•ä½œãƒã‚§ãƒƒã‚«ãƒ¼ã«ã‚‚ãƒãƒ¼ãƒ‰ã‚’é€šé”ã™ã‚‹ï¼
 
 
+			//å‹•ä½œãŒãƒ«ãƒ¼ãƒ—ã—ã¦å¤±æ•—
 			if (node_checker.isLoopMove())
 			{
-				_cmd.outputErrorMessageInGraphSearch("Motion stuck in a loop.");
+				dl_cio::output(mp_setting, "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸï¼SimulationResult = " + std::to_string(ESimulationResult::FAILURE_BY_LOOP_MOTION) + "/ GraphSearch = " + std::to_string(result_state));
 
-				record.simulation_result = ESimulationResult::FAILURE_BY_LOOP_MOTION;	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ğ¸”s‚ÉXV‚·‚éD
+				record.simulation_result = ESimulationResult::FAILURE_BY_LOOP_MOTION;	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’å¤±æ•—ã«æ›´æ–°ã™ã‚‹ï¼
 
-				break;	//“®ì‚ªƒ‹[ƒv‚µ‚Ä‚µ‚Ü‚Á‚Ä‚¢‚é‚È‚ç‚ÎCƒ‹[ƒv‚ğˆê‚Â”²‚¯CŸ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Öi‚ŞD
+				break;	//å‹•ä½œãŒãƒ«ãƒ¼ãƒ—ã—ã¦ã—ã¾ã£ã¦ã„ã‚‹ãªã‚‰ã°ï¼Œãƒ«ãƒ¼ãƒ—ã‚’ä¸€ã¤æŠœã‘ï¼Œæ¬¡ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã¸é€²ã‚€ï¼
 			}
 
+
+			//æˆåŠŸæ™‚ã®å‡¦ç†
 			if (current_node.global_center_of_mass.x > Define::GOAL_TAPE)
 			{
-				record.simulation_result = ESimulationResult::SUCCESS;	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é•Ï”‚ğ¬Œ÷‚ÉXV‚·‚éD
+				dl_cio::output(mp_setting, "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«æˆåŠŸã—ã¾ã—ãŸï¼SimulationResult = " + std::to_string(ESimulationResult::SUCCESS));
+
+				record.simulation_result = ESimulationResult::SUCCESS;	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’æˆåŠŸã«æ›´æ–°ã™ã‚‹ï¼
 
 				break;
 			}
 		}
 
-		m_result_exporter.exportResult(record);	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éD
+		m_result_exporter.exportResult(record);	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼
 
+		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
+		dl_cio::outputHorizontalLine(mp_setting, false, EOutputPriority::SYSTEM);
+		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
 	}
 
-	//‰æ‘œ•\¦ƒEƒBƒ“ƒhƒE‚ÌI—¹‚ğ‘Ò‚ÂD
-	std::cout << "Waiting for dxlib to finish." << std::endl;
+
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::output(mp_setting, "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†");
+	dl_cio::outputNewLine(mp_setting);
+
+	//ç”»åƒè¡¨ç¤ºã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®çµ‚äº†ã‚’å¾…ã¤ï¼
+	dl_cio::output(mp_setting, "DXlib(gui)ã®çµ‚äº†ã‚’å¾…ã£ã¦ã„ã¾ã™ï¼GUIã®Xãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ãã ã•ã„");
 	graphic_thread.join();
+}
+
+
+void SystemMain::outputTitle() const
+{
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::outputHorizontalLine(mp_setting);
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::output(mp_setting, "                  ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¢ãƒ¼ãƒ‰");
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::outputHorizontalLine(mp_setting);
+	dl_cio::outputNewLine(mp_setting);
 }

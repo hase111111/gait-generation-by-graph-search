@@ -7,7 +7,7 @@ std::string std::to_string(EOutputPriority priority)
 	{
 	case EOutputPriority::SYSTEM:
 		return "SYSTEM";
-	case EOutputPriority::ERROR:
+	case EOutputPriority::ERROR_MES:
 		return "ERROR";
 	case EOutputPriority::WARNING:
 		return "WARNING";
@@ -29,7 +29,7 @@ EOutputPriority std::toOutputPriority(const std::string& str)
 	}
 	else if (str == "ERROR" || str == "error" || str == "Error")
 	{
-		return EOutputPriority::ERROR;
+		return EOutputPriority::ERROR_MES;
 	}
 	else if (str == "WARNING" || str == "warning" || str == "Warning")
 	{
