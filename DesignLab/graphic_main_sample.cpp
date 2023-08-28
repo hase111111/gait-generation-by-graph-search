@@ -16,7 +16,7 @@ bool GraphicMainSample::update()
 void GraphicMainSample::draw() const
 {
 	//背景を白で染める．
-	DrawBox(0, 0, GraphicConst::WIN_X, GraphicConst::WIN_Y, GetColor(255, 255, 255), TRUE);
+	DrawBox(0, 0, mp_setting->window_size_x, mp_setting->window_size_y, GetColor(255, 255, 255), TRUE);
 
 	//メッセージをウィンドウに表示する
 	printfDx("GraphicMainではこのように，描画のみを行うdraw関数と，値の更新のみをおこなうupdate関数によってウィンドウを制御します\n\n");

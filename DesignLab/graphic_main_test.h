@@ -15,7 +15,7 @@
 class GraphicMainTest final : public AbstractGraphicMain
 {
 public:
-	GraphicMainTest(const GraphicDataBroker* broker);
+	GraphicMainTest(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
 	~GraphicMainTest() = default;
 
 	bool update() override;

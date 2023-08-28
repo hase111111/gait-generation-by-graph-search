@@ -8,6 +8,7 @@
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "interface_pass_finder.h"
+#include "interface_graphic_main_builder.h"
 #include "abstract_graphic_main.h"
 #include "designlab_timer.h"
 #include "result_file_exporter.h"
@@ -24,7 +25,7 @@ class SystemMain final
 {
 public:
 	SystemMain() = delete;
-	SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplicationSettingRecorder* recorder);
+	SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder);
 	~SystemMain() = default;
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．

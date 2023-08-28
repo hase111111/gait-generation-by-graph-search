@@ -5,10 +5,6 @@
 
 const std::string GraphicConst::WIN_NAME = TEXT("PhantomXGraphic");
 
-const int GraphicConst::WIN_X = 1280;
-
-const int GraphicConst::WIN_Y = 720;
-
 const int GraphicConst::COLOR_BIT = 32;
 
 const int GraphicConst::BACK_COLOR_R = 170;

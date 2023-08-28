@@ -8,8 +8,17 @@
 #include "Define.h"
 
 
+Fps::Fps(const int fps_)
+	: TARGET_FPS(fps_), ONE_FRAME_MILLI_SECOND((int)(1000.0 / fps_)), LIST_MAX(fps_ * 2)
+{
+}
+
+
 void Fps::wait()
 {
+	if (!targetFpsIsVaild()) { return; }
+
+
 	//待つべき時間を取得して待つ
 	int wait_time = 0;
 
@@ -34,6 +43,9 @@ void Fps::wait()
 
 bool Fps::skipDrawScene()
 {
+	if (!targetFpsIsVaild()) { return false; }
+
+
 	//スキップフラグが立っているならば，そのフラグを折り，シーンをスキップする
 	if (m_do_skip_draw == true)
 	{
@@ -94,4 +106,22 @@ bool Fps::getWaitTime(int* time) const
 	//どれにも引っかからなかった場合０を返す
 	(*time) = 0;
 	return true;
+}
+
+
+bool Fps::targetFpsIsVaild() const
+{
+	//マイナスの値は許容しない
+	if (TARGET_FPS <= 0)
+	{
+		return false;
+	}
+
+	//１秒間に１フレーム以上は許容しない
+	if (TARGET_FPS > 60)
+	{
+		return false;
+	}
+
+	return false;
 }

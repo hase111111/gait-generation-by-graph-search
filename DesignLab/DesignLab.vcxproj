@@ -22,6 +22,7 @@
     <ClInclude Include="abstract_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
+    <ClInclude Include="basic_graphic_main_builder.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
     <ClInclude Include="camera_controller.h" />
@@ -39,6 +40,7 @@
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="designlab_rotator.h" />
+    <ClInclude Include="interface_graphic_main_builder.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="output_priority.h" />
@@ -69,7 +71,6 @@
     <ClInclude Include="fps.h" />
     <ClInclude Include="camera_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
-    <ClInclude Include="graphic_loop.h" />
     <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_main_sample.h" />
     <ClInclude Include="graphic_system.h" />
@@ -94,7 +95,6 @@
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="simulation_result_recorder.h" />
     <ClInclude Include="application_setting_recorder.h" />
@@ -112,11 +112,13 @@
     <ClInclude Include="TimeFileIO.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="designlab_vector.h" />
+    <ClInclude Include="viewer_graphic_main_builder.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
+    <ClCompile Include="basic_graphic_main_builder.cpp" />
     <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_controller.cpp" />
@@ -161,7 +163,6 @@
     <ClCompile Include="camera_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
     <ClCompile Include="graphic_data_broker.cpp" />
-    <ClCompile Include="graphic_loop.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_sample.cpp" />
     <ClCompile Include="graphic_system.cpp" />
@@ -197,16 +198,11 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="designlab_vector.cpp" />
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="viewer_graphic_main_builder.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="DesignLab.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\..\Downloads\life053.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

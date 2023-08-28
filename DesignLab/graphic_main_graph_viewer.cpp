@@ -8,7 +8,8 @@
 #include "Keyboard.h"
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) : AbstractGraphicMain(broker), m_map_state(broker->getMapState())
+GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, setting), m_map_state(broker->getMapState())
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
@@ -18,7 +19,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* broker) 
 	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(init_node.global_center_of_mass));
 
 	// GUI にグラフのポインタを渡す.
-	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index);
+	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index, mp_setting);
 }
 
 

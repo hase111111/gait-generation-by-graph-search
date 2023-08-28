@@ -11,9 +11,10 @@
 #include "leg_state.h"
 
 
-GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index)
-	: mp_graph(p_graph)
-	, mp_display_node_index(p_display_node_index)
+GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index, const SApplicationSettingRecorder* const setting)
+	: mp_graph(p_graph),
+	mp_display_node_index(p_display_node_index),
+	mp_setting(setting)
 {
 }
 
@@ -42,8 +43,8 @@ void GraphViewerGUIController::drawGraphData() const
 {
 	const int kBoxSizeX = 250;
 	const int kBoxSizeY = 200;
-	const int kBoxMinX = GraphicConst::WIN_X - kBoxSizeX - 50;
-	const int kBoxMinY = GraphicConst::WIN_Y - kBoxSizeY - 50;
+	const int kBoxMinX = mp_setting->window_size_x - kBoxSizeX - 50;
+	const int kBoxMinY = mp_setting->window_size_y - kBoxSizeY - 50;
 	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
 	// ˜g
@@ -123,7 +124,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 {
 	const int kBoxSizeX = 400;
 	const int KBoxSizeY = 300;
-	const int kBoxMinX = GraphicConst::WIN_X - 25 - kBoxSizeX;
+	const int kBoxMinX = mp_setting->window_size_x - 25 - kBoxSizeX;
 	const int kBoxMinY = 25;
 	const unsigned int kBoxColor = GetColor(255, 255, 255);
 	const unsigned int kBoxAlpha = 128;

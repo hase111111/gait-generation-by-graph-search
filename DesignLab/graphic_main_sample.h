@@ -17,7 +17,7 @@
 class GraphicMainSample final : public AbstractGraphicMain
 {
 public:
-	GraphicMainSample(const GraphicDataBroker* broker) : AbstractGraphicMain(broker) {};
+	GraphicMainSample(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting) : AbstractGraphicMain(broker, setting) {};
 	~GraphicMainSample() = default;
 
 	bool update() override;

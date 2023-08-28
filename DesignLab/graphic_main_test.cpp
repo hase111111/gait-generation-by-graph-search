@@ -5,7 +5,8 @@
 #include "Keyboard.h"
 
 
-GraphicMainTest::GraphicMainTest(const GraphicDataBroker* broker) : AbstractGraphicMain(broker)
+GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, setting), m_gui_controller(mp_setting)
 {
 	m_node.init(false);
 

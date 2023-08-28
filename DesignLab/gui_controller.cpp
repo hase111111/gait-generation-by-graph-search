@@ -8,9 +8,11 @@
 #include "keyboard.h"
 
 
-GUIController::GUIController()
+GUIController::GUIController(const SApplicationSettingRecorder* const setting) :
+	BOX_X(300), BOX_Y(setting->window_size_y - 25 * 2), CENTER_X(25 + BOX_X / 2), CENTER_Y(setting->window_size_y / 2),
+	CHANGE_NEXT_NODE(setting->window_fps / 5), mp_setting(setting)
 {
-	const int RIGHTX = GraphicConst::WIN_X - (CENTER_X + BOX_X / 2);
+	const int RIGHTX = setting->window_size_x - (CENTER_X + BOX_X / 2);
 	const int RIGHTY = CENTER_Y - BOX_Y / 2;
 
 	const int kCameraButtomX = 100;
@@ -122,7 +124,7 @@ void GUIController::draw(const SNode& node) const
 	DrawBox(CENTER_X - BOX_X / 2, CENTER_Y - BOX_Y / 2, CENTER_X + BOX_X / 2, CENTER_Y + BOX_Y / 2, kBaseColor, TRUE);
 
 	//‰E‘¤
-	DrawBox(GraphicConst::WIN_X - (CENTER_X - BOX_X / 2), CENTER_Y - BOX_Y / 2, GraphicConst::WIN_X - (CENTER_X + BOX_X / 2), CENTER_Y + BOX_Y / 2, kBaseColor, TRUE);
+	DrawBox(mp_setting->window_size_x - (CENTER_X - BOX_X / 2), CENTER_Y - BOX_Y / 2, mp_setting->window_size_x - (CENTER_X + BOX_X / 2), CENTER_Y + BOX_Y / 2, kBaseColor, TRUE);
 
 	//”¼“§–¾‚©‚çŒ³‚É–ß‚·D‚±‚ê–Y‚ê‚é‚Æ•`‰æ‚ª•ö‰ó‚·‚é‚Ì‚Å’ˆÓ
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
@@ -248,7 +250,7 @@ void GUIController::drawNodeByStr(const SNode node) const
 
 void GUIController::drawExplanationByStr() const
 {
-	const int kRightX = GraphicConst::WIN_X - (CENTER_X + BOX_X / 2);
+	const int kRightX = mp_setting->window_size_x - (CENTER_X + BOX_X / 2);
 	const int kStrColor = GetColor(54, 54, 54);
 	const int kLineHeight = 28;
 

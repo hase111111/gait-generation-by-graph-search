@@ -24,7 +24,7 @@
 class GraphicMainBasic final : public AbstractGraphicMain
 {
 public:
-	GraphicMainBasic(const GraphicDataBroker* broker);
+	GraphicMainBasic(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
 	~GraphicMainBasic() = default;
 
 	bool update() override;
@@ -49,7 +49,7 @@ private:
 
 	int m_counter = 0;			//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
 
-	const int kNodeGetCount = 2 * GraphicConst::GRAPHIC_FPS;	//2秒ごとに読み出す．
+	const int kNodeGetCount;	//2秒ごとに読み出す．
 };
 
 

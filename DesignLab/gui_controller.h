@@ -5,6 +5,7 @@
 
 #include "button_controller.h"
 #include "graphic_const.h"
+#include "application_setting_recorder.h"
 #include "node.h"
 
 
@@ -27,7 +28,9 @@ enum class ENodeDisplayNode : int
 class GUIController
 {
 public:
-	GUIController();
+
+	GUIController() = delete;
+	GUIController(const SApplicationSettingRecorder* const setting);
 
 	void update(const int max_node, int& display_node, const int counter);
 
@@ -41,19 +44,21 @@ private:
 	//右側にボタンの使い方を描画する関数．同上
 	void drawExplanationByStr() const;
 
-	const int BOX_X = 300;
-	const int BOX_Y = GraphicConst::WIN_Y - 25 * 2;
-	const int CENTER_X = 25 + BOX_X / 2;
-	const int CENTER_Y = GraphicConst::WIN_Y / 2;
+	const int BOX_X;
+	const int BOX_Y;
+	const int CENTER_X;
+	const int CENTER_Y;
 
-	const int CHANGE_NEXT_NODE = GraphicConst::GRAPHIC_FPS / 5;	//次のノードを再生するまでの時間．
+	const int CHANGE_NEXT_NODE;	//次のノードを再生するまでの時間．
+
+	const SApplicationSettingRecorder* const mp_setting;
+
 
 	bool m_is_displayed = true;		//UIを表示するかどうか．
 
 	ENodeDisplayNode m_camera_view_mode = ENodeDisplayNode::SELECTABLE;		//どのようにノードを表示するか
 
-	// GUIに表示するボタンを管理するクラス
-	std::vector<std::unique_ptr<ButtomController>> m_buttom;
+	std::vector<std::unique_ptr<ButtomController>> m_buttom;		//ボタンの管理クラス．
 };
 
 

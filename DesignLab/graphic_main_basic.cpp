@@ -7,7 +7,8 @@
 #include "map_renderer.h"
 
 
-GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* broker) : AbstractGraphicMain(broker), m_map_state(mp_broker->getMapState())
+GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, setting), m_map_state(mp_broker->getMapState()), kNodeGetCount(setting->window_fps * 2), m_gui_controller(mp_setting)
 {
 	m_node.clear();
 }

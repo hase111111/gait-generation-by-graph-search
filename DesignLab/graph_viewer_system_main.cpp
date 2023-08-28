@@ -4,7 +4,7 @@
 
 #include <boost/thread.hpp>
 
-#include "graphic_main_graph_viewer.h"
+#include "viewer_graphic_main_builder.h"
 #include "pass_finder_hato_thread.h"
 #include "pass_finder_factory_hato.h"
 #include "hexapod_state_calculator.h"
@@ -53,7 +53,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 
 	//グラフィックシステムを初期化する
 	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
-	m_graphic_system.init(std::make_unique<GraphicMainGraphViewer>(&m_graphic_data_broker), setting);
+	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), &m_graphic_data_broker, setting);
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;

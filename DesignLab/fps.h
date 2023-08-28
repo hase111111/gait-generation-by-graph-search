@@ -2,8 +2,6 @@
 
 #include <list>
 
-#include "graphic_const.h"
-
 
 //! @class Fps
 //! @brief FPSを一定にキープするためのクラス．
@@ -16,7 +14,8 @@
 class Fps final
 {
 public:
-	Fps() = default;
+	Fps() = delete;
+	Fps(const int fps_);
 	~Fps() = default;
 
 	//! @brief 処理が早すぎる場合，FPSを一定にするために待つ．
@@ -36,8 +35,16 @@ private:
 	//! @return bool コマ落ちしている場合はfalse
 	bool getWaitTime(int* time) const;
 
-	const int ONE_FRAME_MILLI_SECOND = (int)(1000.0 / GraphicConst::GRAPHIC_FPS);  //１フレーム当たりにかかる時間(ミリ秒)
-	const int LIST_MAX = (int)(GraphicConst::GRAPHIC_FPS * 2);                     //リストに2秒分のデータをしまっておく
+	// 目標のFPSが正しいかどうかを判定する関数
+	bool targetFpsIsVaild() const;
+
+
+	const int TARGET_FPS;				//目標のFPS
+
+	const int ONE_FRAME_MILLI_SECOND;	//１フレーム当たりにかかる時間(ミリ秒)
+
+	const int LIST_MAX;					//リストに2秒分のデータをしまっておく
+
 
 	std::list<int> m_list;
 

@@ -2,11 +2,10 @@
 
 #include "DxLib.h"
 
-#include "graphic_const.h"
 #include "mouse.h"
 
 
-ButtomController::ButtomController() : kXPos(GraphicConst::WIN_X / 2), kYPos(GraphicConst::WIN_Y / 2), kXSize(100), kYSize(50), m_text("NO SETTING")
+ButtomController::ButtomController() : kXPos(0), kYPos(0), kXSize(100), kYSize(50), m_text("NO SETTING")
 {
 }
 

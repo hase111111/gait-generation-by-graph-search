@@ -1,6 +1,6 @@
 #include "abstract_graphic_main.h"
 
 
-AbstractGraphicMain::AbstractGraphicMain(const GraphicDataBroker* broker) : mp_broker(broker)
+AbstractGraphicMain::AbstractGraphicMain(const GraphicDataBroker* broker, const SApplicationSettingRecorder* const setting) : mp_broker(broker), mp_setting(setting)
 {
 }

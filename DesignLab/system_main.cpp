@@ -12,7 +12,7 @@
 #include "graphic_main_test.h"
 
 
-SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
+SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
@@ -31,7 +31,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, SApplication
 	mp_pass_finder = std::move(graph_search);
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_graphic_system.init(std::make_unique<GraphicMainBasic>(&m_broker), mp_setting);
+	m_graphic_system.init(std::move(builder), &m_broker, mp_setting);
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;
@@ -189,6 +189,9 @@ void SystemMain::main()
 
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::output(mp_setting, "シミュレーションを終了します");
+	dl_cio::outputNewLine(mp_setting);
+	dl_cio::outputHorizontalLine(mp_setting, true);
+	dl_cio::outputNewLine(mp_setting);
 }
 
 

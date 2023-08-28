@@ -2,8 +2,11 @@
 
 #include <memory>
 
+#include "interface_graphic_main_builder.h"
 #include "abstract_graphic_main.h"
+#include "graphic_data_broker.h"
 #include "application_setting_recorder.h"
+#include "fps.h"
 
 
 class GraphicSystem final
@@ -15,7 +18,7 @@ public:
 
 	//! @brief GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る.
 	//! @param [in] graphic_main GraphicSystemクラスのメンバ関数を呼び出すためのブローカークラスのポインタ．
-	void init(std::unique_ptr<AbstractGraphicMain>&& graphic_main, const SApplicationSettingRecorder* const setting);
+	void init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting);
 
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br>initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br>
@@ -25,10 +28,17 @@ public:
 private:
 
 	bool dxlibInit(const SApplicationSettingRecorder* const setting);			//Dxlibの初期化処理を行います．失敗した場合falseを返します．
+
+	bool loop();	//GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理
+
 	void dxlibFinalize() const;	//Dxlibの終了処理を行います．
 
-	std::unique_ptr<AbstractGraphicMain> mp_graphic_main;	// グラフィックの表示を行うクラスのポインタ．
-	const SApplicationSettingRecorder* mp_setting = nullptr;		// 設定を保存するクラスのポインタ．
+
+	std::unique_ptr<AbstractGraphicMain> mp_graphic_main;		// グラフィックの表示を行うクラスのポインタ．
+
+	const SApplicationSettingRecorder* mp_setting = nullptr;	// 設定を保存するクラスのポインタ．
+
+	std::unique_ptr<Fps> mp_fps;								//FPSを一定に制御するクラス．詳しくはFps.hへ
 };
 
 

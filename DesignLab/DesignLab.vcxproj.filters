@@ -61,9 +61,6 @@
     <Filter Include="ソース ファイル\GraphicSystem\Common">
       <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main\Interface">
-      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\3DRender">
       <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
     </Filter>
@@ -127,6 +124,12 @@
     <Filter Include="ソース ファイル\System\Simulation">
       <UniqueIdentifier>{fb03873e-eff6-4c6a-90ae-3f0abbf04a37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main\abstract">
+      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main\builder">
+      <UniqueIdentifier>{df2f0241-01a9-444e-b9b5-f7db12546a0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -173,9 +176,6 @@
     </ClInclude>
     <ClInclude Include="map_state.h">
       <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_loop.h">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
@@ -274,7 +274,7 @@
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
     <ClInclude Include="abstract_graphic_main.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main\abstract</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -408,8 +408,14 @@
     <ClInclude Include="boot_mode.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="interface_graphic_main_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_graphic_main_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClInclude>
+    <ClInclude Include="viewer_graphic_main_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -454,9 +460,6 @@
     </ClCompile>
     <ClCompile Include="map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="graphic_loop.cpp">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
@@ -540,7 +543,7 @@
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
     <ClCompile Include="abstract_graphic_main.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main\Interface</Filter>
+      <Filter>ソース ファイル\GraphicSystem\Main\abstract</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -662,18 +665,14 @@
     <ClCompile Include="boot_mode.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="basic_graphic_main_builder.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_graphic_main_builder.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="DesignLab.rc">
-      <Filter>リソース ファイル</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\..\Downloads\life053.ico">
-      <Filter>リソース ファイル</Filter>
-    </Image>
   </ItemGroup>
 </Project>

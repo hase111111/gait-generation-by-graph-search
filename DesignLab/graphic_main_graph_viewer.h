@@ -16,7 +16,7 @@
 class GraphicMainGraphViewer final : public AbstractGraphicMain
 {
 public:
-	GraphicMainGraphViewer(const GraphicDataBroker* broker);
+	GraphicMainGraphViewer(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
 	~GraphicMainGraphViewer() = default;
 
 	bool update() override;
