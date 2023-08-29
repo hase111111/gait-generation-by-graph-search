@@ -11,6 +11,7 @@
 #include "gui_controller.h"
 #include "hexapod_renderer.h"
 #include "movement_locus_renderer.h"
+#include "robot_graund_point_renderer.h"
 
 
 //! @class GraphicMainBasic
@@ -38,9 +39,13 @@ private:
 
 	NodeDisplayGUI m_node_display_gui;	// ノードの表示を制御するGUI
 
+
 	HexapodRenderer m_hexapod_renderer;
 
 	MovementLocusRenderer m_movement_locus_renderer;
+
+	RobotGraundPointRenderer m_robot_graund_point_renderer;	//!< ロボットの足先の位置を表示するクラス．
+
 
 	GUIController m_gui_controller;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
 

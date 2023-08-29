@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+#include "designlab_vector.h"
+#include "node.h"
 
 //! @class RobotGraundPointRenderer
 //! @date 2033/08/29
@@ -12,10 +16,15 @@ public:
 	RobotGraundPointRenderer();
 
 
+	//! ロボットの脚接地点の座標を設定する．
+	//! @param [in] node ロボットの脚接地点の座標
+	void setNode(const std::vector<SNode>& node);
+
+
 	//! ロボットの脚接地点の描画を行う．
 	//! @param [in] draw_simu_num 描画を行うシミュレーションの番号( 0, 1, 2, ...)
 	//! @param [in] draw_all_simulation 上のパラメータを無視して，すべてのシミュレーションについて描画する
-	void draw(const int draw_simu_num, const bool draw_all_simulation = false) const;
+	void draw(const size_t draw_simu_num, const bool draw_all_simulation = false) const;
 
 private:
 
@@ -23,6 +32,12 @@ private:
 
 	const unsigned int GRAUND_POINT_COLOR_BLACK;	//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
 
+
+	std::vector<size_t> m_simu_end_index;			//!< シミュレーションの終了インデックス
+
+	size_t m_loaded_node_num;						//!< 読み込んだノードの数
+
+	std::vector<dl_vec::SVector> m_graund_point;	//!< ロボットの脚接地点の座標
 };
 
 

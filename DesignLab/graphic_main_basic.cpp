@@ -25,6 +25,9 @@ bool GraphicMainBasic::update()
 
 		m_movement_locus_renderer.setMovementLocus(m_node);   //移動軌跡を更新する．
 
+		m_robot_graund_point_renderer.setNode(m_node);        //ロボットの接地点を更新する．
+
+
 		std::vector<size_t> simu_end_index;
 
 		mp_broker->copySimuEndIndex(&simu_end_index);
@@ -72,6 +75,7 @@ void GraphicMainBasic::draw() const
 
 	m_movement_locus_renderer.draw();   //移動軌跡を描画する．
 
+	m_robot_graund_point_renderer.draw(-1, true);
 
 	if (!m_node.empty())
 	{
