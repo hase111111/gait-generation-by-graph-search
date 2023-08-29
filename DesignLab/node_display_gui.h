@@ -10,7 +10,8 @@
 class NodeDisplayGUI
 {
 public:
-	NodeDisplayGUI();
+	NodeDisplayGUI() = default;
+	NodeDisplayGUI(const int x_pos, const int y_pos);
 
 
 	//! @brief 表示するノードを設定する
@@ -20,10 +21,14 @@ public:
 	//! @brief GUIの表示を行う
 	void draw() const;
 
+	const static int BOX_SIZE_X;
+	const static int BOX_SIZE_Y;
+
 private:
 
 	const int kGUILeftPosX = 0;
 	const int kGUITopPosY = 0;
+
 
 	SNode m_node;	//!< 表示するノード
 };

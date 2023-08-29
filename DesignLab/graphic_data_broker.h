@@ -55,6 +55,19 @@ public:
 	//! @return size_t ノードの数
 	size_t getNodeNum() const;
 
+
+	//! @brief シミュレーションが終了したことを仲介人に伝える．
+	void setSimuEnd();
+
+	//! @brief シミュレーションが終了するノードのインデックスを取得する
+	//! @param [in] simu_num シミュレーション番号( 0 , 1, 2, ...)
+	//! @return size_t シミュレーションが終了するノードのインデックス，シミュレーションが終了していない場合は最後のノードのインデックスを返す．
+	//! @n シミュレーションが開始されていない場合は-1を返す．
+	size_t getSimuEnd(const int simu_num);
+
+	//! @brief シミュレーションの終了を示すノードのインデックスをvectorを用いて参照渡しする．
+	void copySimuEndIndex(std::vector<size_t>* simu_end_index) const;
+
 private:
 
 	mutable boost::shared_mutex m_mtx;
@@ -62,6 +75,8 @@ private:
 	MapState m_map_state;
 
 	std::vector<SNode> m_node;
+
+	std::vector<size_t> m_simu_end;	//!< シミュレーションが終了するノードのインデックスを格納する．
 };
 
 

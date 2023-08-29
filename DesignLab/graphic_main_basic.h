@@ -7,6 +7,7 @@
 #include "node.h"
 #include "graphic_const.h"
 #include "camera_gui.h"
+#include "node_display_gui.h"
 #include "gui_controller.h"
 #include "hexapod_renderer.h"
 #include "movement_locus_renderer.h"
@@ -35,21 +36,23 @@ private:
 
 	CameraGUI m_camera_gui;				// カメラの位置を制御するGUI
 
+	NodeDisplayGUI m_node_display_gui;	// ノードの表示を制御するGUI
+
 	HexapodRenderer m_hexapod_renderer;
 
 	MovementLocusRenderer m_movement_locus_renderer;
 
 	GUIController m_gui_controller;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
 
-	std::vector<SNode> m_node;	//ロボットの動きの遷移を記録するvector
+	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector
 
-	int m_display_node = 0;		//描画しているノード
+	int m_display_node = 0;				//描画しているノード
 
 	MapState m_map_state;				//表示するマップ．
 
-	int m_counter = 0;			//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
+	int m_counter = 0;					//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
 
-	const int kNodeGetCount;	//2秒ごとに読み出す．
+	const int kNodeGetCount;			//2秒ごとに読み出す．
 };
 
 

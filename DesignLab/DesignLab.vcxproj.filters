@@ -417,6 +417,9 @@
     <ClInclude Include="viewer_graphic_main_builder.h">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClInclude>
+    <ClInclude Include="robot_graund_point_renderer.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -670,6 +673,9 @@
     </ClCompile>
     <ClCompile Include="viewer_graphic_main_builder.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_graund_point_renderer.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -96,6 +96,7 @@
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="result_file_exporter.h" />
+    <ClInclude Include="robot_graund_point_renderer.h" />
     <ClInclude Include="simulation_result_recorder.h" />
     <ClInclude Include="application_setting_recorder.h" />
     <ClInclude Include="singleton.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="pass_finder_factory_hato.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
+    <ClCompile Include="robot_graund_point_renderer.cpp" />
     <ClCompile Include="simulation_result_recorder.cpp" />
     <ClCompile Include="system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />

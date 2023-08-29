@@ -90,3 +90,49 @@ void GraphicDataBroker::deleteAllNode()
 		m_node.clear();
 	}
 }
+
+
+void GraphicDataBroker::setSimuEnd()
+{
+	//書き込み用のロックをかける．
+	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(m_mtx);
+
+	{
+		boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
+
+		m_simu_end.push_back(m_node.size() - 1);
+	}
+}
+
+size_t GraphicDataBroker::getSimuEnd(const int simu_num)
+{
+	//読み取り用のロックをかける．
+	boost::shared_lock<boost::shared_mutex> read_lock(m_mtx);
+
+	if (simu_num < m_simu_end.size())
+	{
+		return m_simu_end.at(simu_num);
+
+	}
+	else if (simu_num == m_simu_end.size())
+	{
+		return m_node.size() - 1;
+	}
+
+	return -1;
+}
+
+
+void GraphicDataBroker::copySimuEndIndex(std::vector<size_t>* simu_end_index) const
+{
+	//読み取り用のロックをかける．
+	boost::shared_lock<boost::shared_mutex> read_lock(m_mtx);
+
+	(*simu_end_index).clear();
+
+	for (auto& i : m_simu_end)
+	{
+		(*simu_end_index).push_back(i);
+	}
+}
+

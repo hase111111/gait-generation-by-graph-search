@@ -12,20 +12,10 @@ MapRenderer::MapRenderer() : COLOR_GRAY(GetColor(80, 80, 80)), COLOR_LIGHT_GRAY(
 }
 
 
-void MapRenderer::setNode(const SNode& node)
-{
-	m_node = node;
-}
-
 
 void MapRenderer::draw(const MapState& map) const
 {
-	using dl_dxlib::convertToDxVec;
-	using dl_dxlib::drawCube3DWithTopPos;
 
-	HexapodStateCalclator _calc;
-	int _x = map.getDevideMapNumX(_calc.getGlobalLegPos(m_node, 0, true).x);
-	int _y = map.getDevideMapNumY(_calc.getGlobalLegPos(m_node, 0, true).y);
 
 	for (int x = 0; x < MapConst::LP_DIVIDE_NUM; ++x)
 	{
@@ -34,18 +24,14 @@ void MapRenderer::draw(const MapState& map) const
 			for (int i = 0; i < map.getPointNumFromDevideMap(x, y); ++i)
 			{
 
-				if (false/*_x == x && _y == y*/) { drawCube3DWithTopPos(convertToDxVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, GetColor(255, 0, 0)); }
+				//縞縞模様を作成するために，位置に応じて色を変える．
+				if ((x + y) % 2 == 0)
+				{
+					dl_dxlib::drawCube3DWithTopPos(dl_dxlib::convertToDxVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_GRAY);
+				}
 				else
 				{
-					//縞縞模様を作成するために，位置に応じて色を変える．
-					if ((x + y) % 2 == 0)
-					{
-						drawCube3DWithTopPos(convertToDxVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_GRAY);
-					}
-					else
-					{
-						drawCube3DWithTopPos(convertToDxVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_LIGHT_GRAY);
-					}
+					dl_dxlib::drawCube3DWithTopPos(dl_dxlib::convertToDxVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_LIGHT_GRAY);
 				}
 
 			}

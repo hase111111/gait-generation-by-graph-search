@@ -164,14 +164,18 @@ void SystemMain::main()
 
 				break;
 			}
-		}
+
+		}	//歩容生成のループ終了
 
 		m_result_exporter.exportResult(record);	//シミュレーションの結果をファイルに出力する．
+
+		m_broker.setSimuEnd();	//仲介人にシミュレーション終了を通達する．
 
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
 		dl_cio::outputHorizontalLine(mp_setting, true, EOutputPriority::SYSTEM);
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
-	}
+
+	}	//シミュレーションのループ終了
 
 
 	dl_cio::outputNewLine(mp_setting);

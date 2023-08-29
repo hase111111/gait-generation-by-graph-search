@@ -118,7 +118,7 @@ bool GraphicMainTest::update()
 void GraphicMainTest::draw() const
 {
 	MapRenderer map_render;
-	map_render.setNode(m_node);
+
 	map_render.draw(m_map_state);
 
 	m_hexapod_renderer.draw(m_node);
