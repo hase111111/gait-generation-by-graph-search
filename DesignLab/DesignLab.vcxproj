@@ -97,6 +97,7 @@
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
+    <ClInclude Include="phantomx_state_calculator.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="robot_graund_point_renderer.h" />
     <ClInclude Include="simulation_result_recorder.h" />

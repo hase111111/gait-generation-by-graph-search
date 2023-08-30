@@ -35,7 +35,7 @@ struct SHexapodJointState
 class AbstractHexapodStateCalculator
 {
 public:
-	AbstractHexapodStateCalculator() {};
+	AbstractHexapodStateCalculator() = default;
 	virtual ~AbstractHexapodStateCalculator() = default;
 
 
@@ -46,14 +46,41 @@ public:
 	virtual bool calculateAllJointState(const SNode& node, SHexapodJointState* const joint_state) const = 0;
 
 
+
+	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
+	//! @param [in] leg_index 脚番号．
+	//! @return dl_vec::SVector 脚の付け根の座標．ローカル座標系
 	virtual dl_vec::SVector getLocalLegBasePosition(const int leg_index) const = 0;
 
-	virtual dl_vec::SVector getLocalLegPosition(const SNode& node, const int leg_index) = 0;
+	//! @brief 【スレッドセーフ】脚の先端の座標を取得する．ローカル(ロボット)座標系
+	//! @param [in] leg_index 脚番号．
+	//! @param [in] leg_pos 脚の付け根の座標．脚の付け根を原点とし，軸はロボット座標系と同様な脚先座標系
+	//! @return dl_vec::SVector 脚の先端の座標．ローカル座標系
+	virtual dl_vec::SVector getLocalLegPosition(const int leg_index, const dl_vec::SVector leg_pos) const = 0;
 
 
-	virtual dl_vec::SVector getGlobalLegBasePosition(const int leg_index) const = 0;
 
-	virtual dl_vec::SVector getGlobalLegPosition(const SNode& node, const int leg_index) = 0;
+	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系
+	//! @param [in] leg_index 脚番号．
+	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
+	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
+	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
+	//! @return dl_vec::SVector 脚の付け根の座標．グローバル座標系．
+	virtual dl_vec::SVector getGlobalLegBasePosition(const int leg_index, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+
+	//! @brief 【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系
+	//! @param [in] leg_index 脚番号．
+	//! @param [in] leg_pos 脚の付け根の座標．脚の付け根を原点とし，軸はロボット座標系と同様な脚先座標系
+	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
+	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
+	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
+	//! @return dl_vec::SVector 脚の先端の座標．グローバル座標系．
+	virtual dl_vec::SVector getGlobalLegPosition(const int leg_index, const dl_vec::SVector leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+
+
+
+	//
+
 
 private:
 
