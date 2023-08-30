@@ -42,7 +42,7 @@ bool GraphicMainBasic::update()
 
 
 		//ロボットの接地点を更新する．
-		m_robot_graund_point_renderer.setNode(m_node);
+		m_robot_graund_point_renderer.setNode(m_node, simu_end_index);
 	}
 
 

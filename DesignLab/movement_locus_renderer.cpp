@@ -69,7 +69,11 @@ void MovementLocusRenderer::draw(const size_t draw_simu_num, const bool draw_all
 		//•`‰æ
 		if (do_draw)
 		{
-			if ((int)draw_simu_num != now_simu_num && !draw_all_simulation)
+			if ((int)draw_simu_num == now_simu_num || draw_all_simulation)
+			{
+				DrawLine3D(start, end, LOCUS_DISPLAY_LINE_COLOR);
+			}
+			else
 			{
 				SetDrawBlendMode(DX_BLENDMODE_ALPHA, LOCUS_ALPHA);
 
@@ -77,11 +81,6 @@ void MovementLocusRenderer::draw(const size_t draw_simu_num, const bool draw_all
 
 				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 			}
-			else
-			{
-				DrawLine3D(start, end, LOCUS_DISPLAY_LINE_COLOR);
-			}
 		}
-
 	}
 }

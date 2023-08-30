@@ -18,7 +18,7 @@ public:
 
 	//! ロボットの脚接地点の座標を設定する．
 	//! @param [in] node ロボットの脚接地点の座標
-	void setNode(const std::vector<SNode>& node);
+	void setNode(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index);
 
 
 	//! ロボットの脚接地点の描画を行う．
@@ -28,16 +28,20 @@ public:
 
 private:
 
-	const unsigned int GRAUND_POINT_COLOR;			//!< 脚接地点の色
+	const unsigned int GRAUND_POINT_COLOR_RIGHT;			//!< 脚接地点の色
 
-	const unsigned int GRAUND_POINT_COLOR_BLACK;	//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
+	const unsigned int GRAUND_POINT_COLOR_LEFT;			//!< 脚接地点の色
+
+	const unsigned int GRAUND_POINT_COLOR_BLACK_RIGHT;		//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
+
+	const unsigned int GRAUND_POINT_COLOR_BLACK_LEFT;		//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
 
 
 	std::vector<size_t> m_simu_end_index;			//!< シミュレーションの終了インデックス
 
 	size_t m_loaded_node_num;						//!< 読み込んだノードの数
 
-	std::vector<dl_vec::SVector> m_graund_point;	//!< ロボットの脚接地点の座標
+	std::vector<std::vector<std::pair<dl_vec::SVector, int>>> m_graund_point;	//!< ロボットの脚接地点の座標
 };
 
 
