@@ -5,7 +5,7 @@
 //! @date 2023/08/23
 //! @author 長谷川
 //! @brief ワールドの格子線を描画するクラス
-class WorldGridRenderer
+class WorldGridRenderer final
 {
 public:
 

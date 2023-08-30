@@ -12,6 +12,7 @@
 #include "hexapod_renderer.h"
 #include "movement_locus_renderer.h"
 #include "robot_graund_point_renderer.h"
+#include "stability_margin_renderer.h"
 
 
 
@@ -43,11 +44,13 @@ private:
 	DisplayNodeSwitchGUI m_display_node_switch_gui;	// ノードの表示を切り替えるGUI
 
 
-	HexapodRenderer m_hexapod_renderer;
+	HexapodRenderer m_hexapod_renderer;						//!< ロボットを表示するクラス．	
 
-	MovementLocusRenderer m_movement_locus_renderer;
+	MovementLocusRenderer m_movement_locus_renderer;		//!< ロボットの動きの軌跡を表示するクラス．
 
 	RobotGraundPointRenderer m_robot_graund_point_renderer;	//!< ロボットの足先の位置を表示するクラス．
+
+	StabilityMarginRenderer m_stability_margin_renderer;	//!< ロボットの安定性マージンを表示するクラス．
 
 
 	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector

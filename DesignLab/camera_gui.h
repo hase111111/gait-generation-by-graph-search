@@ -13,7 +13,7 @@
 //! @date 2023/08/21
 //! @author 長谷川
 //! @brief カメラの操作・管理を行うGUIを行うクラス
-class CameraGUI
+class CameraGUI final
 {
 public:
 

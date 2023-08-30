@@ -51,7 +51,7 @@ bool GraphicMainBasic::update()
 	{
 		m_display_node = (int)m_display_node_switch_gui.getDisplayNodeNum();	//表示するノードを取得する．
 
-		m_hexapod_renderer.update(m_node.at(m_display_node));			//ロボットの状態を更新する．
+		m_hexapod_renderer.update(m_node.at(m_display_node));					//ロボットの状態を更新する．
 
 		m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);		//カメラの位置を更新する．
 	}
@@ -92,6 +92,8 @@ void GraphicMainBasic::draw() const
 	{
 		//ノードが存在しているならば，ロボットを描画する．
 		m_hexapod_renderer.draw(m_node.at(m_display_node));
+
+		m_stability_margin_renderer.draw(m_node.at(m_display_node));
 	}
 
 

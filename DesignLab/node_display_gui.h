@@ -7,7 +7,7 @@
 //! @date 2023/08/23
 //! @author ’·’Jì
 //! @brief ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI
-class NodeDisplayGUI
+class NodeDisplayGUI final
 {
 public:
 	NodeDisplayGUI() = default;

@@ -10,7 +10,7 @@
 //! @date 2023/08/23
 //! @author 長谷川
 //! @brief ロボットの移動軌跡を描画するクラス．
-class MovementLocusRenderer
+class MovementLocusRenderer final
 {
 public:
 	MovementLocusRenderer();

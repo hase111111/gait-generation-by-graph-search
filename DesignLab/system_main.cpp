@@ -22,7 +22,7 @@ SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_
 	m_result_exporter.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
+	m_map_state.init(EMapCreateMode::VERTICAL_STRIPE, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);

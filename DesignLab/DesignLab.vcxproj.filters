@@ -423,6 +423,9 @@
     <ClInclude Include="display_node_switch_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="stability_margin_renderer.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -682,6 +685,9 @@
     </ClCompile>
     <ClCompile Include="display_node_switch_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="stability_margin_renderer.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

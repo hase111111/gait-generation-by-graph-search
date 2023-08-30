@@ -11,7 +11,7 @@
 //! @date 2023/08/30
 //! @author ’·’Jì
 //! @brief ƒm[ƒh‚Ì•\¦Ø‚è‘Ö‚¦GUI
-class DisplayNodeSwitchGUI
+class DisplayNodeSwitchGUI final
 {
 public:
 	DisplayNodeSwitchGUI(const int x, const int y);
