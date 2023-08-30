@@ -42,7 +42,9 @@ void RobotGraundPointRenderer::draw(const size_t draw_simu_num, const bool draw_
 		}
 		else
 		{
-
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+			dl_dxlib::drawCube3DWithTopPos(dl_dxlib::convertToDxVec(m_graund_point[i]), 25, GRAUND_POINT_COLOR_BLACK);
+			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 		}
 	}
 }

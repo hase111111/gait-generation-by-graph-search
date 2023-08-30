@@ -7,11 +7,12 @@
 #include "node.h"
 #include "graphic_const.h"
 #include "camera_gui.h"
+#include "display_node_switch_gui.h"
 #include "node_display_gui.h"
-#include "gui_controller.h"
 #include "hexapod_renderer.h"
 #include "movement_locus_renderer.h"
 #include "robot_graund_point_renderer.h"
+
 
 
 //! @class GraphicMainBasic
@@ -35,9 +36,11 @@ public:
 
 private:
 
-	CameraGUI m_camera_gui;				// カメラの位置を制御するGUI
+	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
 
-	NodeDisplayGUI m_node_display_gui;	// ノードの表示を制御するGUI
+	NodeDisplayGUI m_node_display_gui;				// ノードの表示を制御するGUI
+
+	DisplayNodeSwitchGUI m_display_node_switch_gui;	// ノードの表示を切り替えるGUI
 
 
 	HexapodRenderer m_hexapod_renderer;
@@ -46,8 +49,6 @@ private:
 
 	RobotGraundPointRenderer m_robot_graund_point_renderer;	//!< ロボットの足先の位置を表示するクラス．
 
-
-	GUIController m_gui_controller;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
 
 	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector
 

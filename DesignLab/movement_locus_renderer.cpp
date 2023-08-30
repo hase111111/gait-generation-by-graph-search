@@ -32,7 +32,7 @@ void MovementLocusRenderer::setMovementLocus(const std::vector<SNode>& locus)
 }
 
 
-void MovementLocusRenderer::draw() const
+void MovementLocusRenderer::draw(const size_t draw_simu_num, const bool draw_all_simulation)  const
 {
 	const size_t kSize = m_movement_locus.size();
 
@@ -69,7 +69,7 @@ void MovementLocusRenderer::draw() const
 		//•`‰æ
 		if (do_draw)
 		{
-			if (m_display_simu_num != now_simu_num)
+			if ((int)draw_simu_num != now_simu_num && !draw_all_simulation)
 			{
 				SetDrawBlendMode(DX_BLENDMODE_ALPHA, LOCUS_ALPHA);
 
