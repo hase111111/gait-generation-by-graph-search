@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="abstract_hexapod_state_calculator.h" />
     <ClInclude Include="abstract_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
