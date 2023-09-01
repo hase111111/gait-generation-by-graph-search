@@ -117,20 +117,20 @@ void HexapodRenderer::draw(const SNode& node) const
 
 bool HexapodRenderer::isAbleCoxaLeg(const dl_vec::SVector& coxa_joint, const dl_vec::SVector& femur_joint) const
 {
-	if (abs((coxa_joint - femur_joint).length() - HexapodConst::COXA_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
+	if (abs((coxa_joint - femur_joint).length() - HexapodConst::PHANTOMX_COXA_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
 	return false;
 }
 
 
 bool HexapodRenderer::isAbleFemurLeg(const dl_vec::SVector& femur_joint, const dl_vec::SVector& tibia_joint) const
 {
-	if (abs((femur_joint - tibia_joint).length() - HexapodConst::FEMUR_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
+	if (abs((femur_joint - tibia_joint).length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
 	return false;
 }
 
 
 bool HexapodRenderer::isAbleTibiaLeg(const dl_vec::SVector& tibia_joint, const dl_vec::SVector& leg_joint) const
 {
-	if (abs((tibia_joint - leg_joint).length() - HexapodConst::TIBIA_LENGTH) < 10) { return true; }
+	if (abs((tibia_joint - leg_joint).length() - HexapodConst::PHANTOMX_TIBIA_LENGTH) < 10) { return true; }
 	return false;
 }

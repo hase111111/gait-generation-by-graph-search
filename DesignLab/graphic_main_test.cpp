@@ -6,13 +6,13 @@
 
 
 GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, setting), m_gui_controller(mp_setting)
+	: AbstractGraphicMain(broker, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10)
 {
 	m_node.init(false);
 
-	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(m_node.global_center_of_mass));
-
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
+
+	m_phantomx_state_calculator.init();
 }
 
 
@@ -100,16 +100,13 @@ bool GraphicMainTest::update()
 		}
 	}
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
-	{
-		m_camera_mode++;
-		m_camera_mode %= 5;
-		m_camera_manager.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
-	}
-
 	m_hexapod_renderer.update(m_node);
-	//m_gui_controller.update(m_camera_manager); //GUIを更新する．
-	m_camera_manager.update();
+
+	m_node_display_gui.setDisplayNode(m_node);
+
+	m_camera_gui.setHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
+
+	m_camera_gui.update();      //カメラのGUIを更新する．
 
 	return true;
 }
@@ -117,11 +114,26 @@ bool GraphicMainTest::update()
 
 void GraphicMainTest::draw() const
 {
+	dl_dxlib::setZBufferEnable();
+
 	MapRenderer map_render;
 
 	map_render.draw(m_map_state);
 
+
 	m_hexapod_renderer.draw(m_node);
 
-	m_gui_controller.draw(m_node);
+
+	m_camera_gui.draw();        //カメラのGUIを描画する．
+
+	m_node_display_gui.draw();	 //ノードの情報を表示するGUIを描画する．
+
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		std::string str = m_phantomx_state_calculator.isLegInRange(i, m_node.leg_pos[i]) ? "true" : "false";
+
+		printfDx("leg %d is %s / angle %lf / pos is %d %d %d\n", i, str.c_str(), dl_math::convertRadToDeg(std::atan2f(m_node.leg_pos[i].y, m_node.leg_pos[i].x)),
+			m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].x), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].y), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].z));
+	}
 }

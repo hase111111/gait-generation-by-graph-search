@@ -1,11 +1,12 @@
 #pragma once
 
 #include "abstract_graphic_main.h"
-#include "camera_manager.h"
 #include "hexapod_renderer.h"
-#include "gui_controller.h"
 #include "node.h"
 #include "map_state.h"
+#include "camera_gui.h"
+#include "node_display_gui.h"
+#include "phantomx_state_calculator.h"
 
 
 //! @class GraphicMainTest
@@ -23,16 +24,22 @@ public:
 	void draw() const override;
 
 private:
+
+	HexapodRenderer m_hexapod_renderer;
+
+	MapState m_map_state;
+
+	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
+
+	NodeDisplayGUI m_node_display_gui;				// ノードの表示を制御するGUI
+
+
 	SNode m_node;
 
-	CameraManager m_camera_manager;	//カメラ制御クラス．
-	HexapodRenderer m_hexapod_renderer;
-	MapState m_map_state;
-	GUIController m_gui_controller;		// GUI (ロボットの状態とか表示する窓) を制御するクラス．
-
-	int m_camera_mode = 0;		//カメラのモード．
-
 	int m_map_index = 0;
+
+
+	PhantomXStateCalclator m_phantomx_state_calculator;
 };
 
 

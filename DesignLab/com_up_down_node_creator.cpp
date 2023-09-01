@@ -52,8 +52,8 @@ void ComUpDownNodeCreator::create(const SNode& current_node, const int current_n
 		if (dl_leg::isGrounded(current_node.leg_state, i))
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
-			const float edge_c = HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH - MARGIN;
-			const float edge_b = current_node.leg_pos[i].projectedXY().length() - HexapodConst::COXA_LENGTH;
+			const float edge_c = HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH - MARGIN;
+			const float edge_b = current_node.leg_pos[i].projectedXY().length() - HexapodConst::PHANTOMX_COXA_LENGTH;
 
 			const float edge_a = sqrt(dl_math::squared(edge_c) - dl_math::squared(edge_b));
 

@@ -237,9 +237,6 @@
     <ClInclude Include="GraphSearcherRandom.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="graph_viewer_system_main.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_test.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
@@ -432,6 +429,12 @@
     <ClInclude Include="phantomx_state_calculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="graph_viewer_system_main.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="other_graphic_main_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -532,9 +535,6 @@
     </ClCompile>
     <ClCompile Include="GraphSearcherRandom.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
-    </ClCompile>
-    <ClCompile Include="graph_viewer_system_main.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_test.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -677,9 +677,6 @@
     <ClCompile Include="system_main.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="boot_mode.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="basic_graphic_main_builder.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClCompile>
@@ -694,6 +691,21 @@
     </ClCompile>
     <ClCompile Include="stability_margin_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="boot_mode.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_viewer_system_main.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="abstract_hexapod_state_calculator.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="phantomx_state_calculator.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="other_graphic_main_builder.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

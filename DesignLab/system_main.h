@@ -24,9 +24,12 @@
 class SystemMain final
 {
 public:
-	SystemMain() = delete;
+	SystemMain() = delete;		//デフォルトコンストラクタは禁止．
+
 	SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder);
+
 	~SystemMain() = default;
+
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．
 	void main();
@@ -37,14 +40,22 @@ private:
 
 	void outputSetting() const;
 
+
 	MapState m_map_state;
+
 	STarget m_target;
+
 	GraphicDataBroker m_broker;
+
 	GraphicSystem m_graphic_system;
+
 	std::unique_ptr<IPassFinder> mp_pass_finder;
 
+
 	DesignlabTimer m_timer;					//時間計測用のクラス．
+
 	ResultFileExporter m_result_exporter;	//結果をファイルに出力するクラス．
+
 	const SApplicationSettingRecorder* const mp_setting;	//設定ファイルの内容を格納する構造体．
 };
 

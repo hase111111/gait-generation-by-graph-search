@@ -45,6 +45,7 @@
     <ClInclude Include="interface_graphic_main_builder.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
+    <ClInclude Include="other_graphic_main_builder.h" />
     <ClInclude Include="output_priority.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
@@ -121,6 +122,7 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="basic_graphic_main_builder.cpp" />
@@ -144,6 +146,7 @@
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
+    <ClCompile Include="other_graphic_main_builder.cpp" />
     <ClCompile Include="output_priority.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
@@ -196,6 +199,7 @@
     <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="pass_finder_factory_hato.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
+    <ClCompile Include="phantomx_state_calculator.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="robot_graund_point_renderer.cpp" />
     <ClCompile Include="simulation_result_recorder.cpp" />

@@ -46,30 +46,30 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 	{
 		const float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
 
-		m_local_femurjoint_pos[i] = dl_vec::SVector(HexapodConst::COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::COXA_LENGTH * sin(_coxa_joint_angle), 0);
+		m_local_femurjoint_pos[i] = dl_vec::SVector(HexapodConst::PHANTOMX_COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * sin(_coxa_joint_angle), 0);
 
 
 		const float _L = std::sqrt(squared(_node.leg_pos[i].x - m_local_femurjoint_pos[i].x) + squared(_node.leg_pos[i].y - m_local_femurjoint_pos[i].y));				//脚先から第一関節までの長さ．
 		const float _leg_to_fumur_len = std::sqrt(squared(_L) + squared(_node.leg_pos[i].z));
 
-		const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::TIBIA_LENGTH) - squared(HexapodConst::FEMUR_LENGTH);
-		const float _s2 = 2 * HexapodConst::TIBIA_LENGTH * _leg_to_fumur_len;
+		const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - squared(HexapodConst::PHANTOMX_FEMUR_LENGTH);
+		const float _s2 = 2 * HexapodConst::PHANTOMX_TIBIA_LENGTH * _leg_to_fumur_len;
 
 		const float _fumur_joint_angle = -(std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
 		m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
-			dl_vec::SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
-				HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
-				HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
+			dl_vec::SVector(HexapodConst::PHANTOMX_TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
+				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
+				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
 
-		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::FEMUR_LENGTH) > dl_math::ALLOWABLE_ERROR)
+		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dl_math::ALLOWABLE_ERROR)
 		{
 			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
 			m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
-				dl_vec::SVector(HexapodConst::TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
-					HexapodConst::TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
-					HexapodConst::TIBIA_LENGTH * sin(_fumur_joint_angle));
+				dl_vec::SVector(HexapodConst::PHANTOMX_TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
+					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
+					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
 		}
 	}
 
@@ -97,14 +97,14 @@ void HexapodStateCalclator::initLegR()
 		float _max_r = 0;
 		float _min_r = 0;
 
-		for (float _x = HexapodConst::COXA_LENGTH; _x < HexapodConst::COXA_LENGTH + HexapodConst::FEMUR_LENGTH + HexapodConst::TIBIA_LENGTH; _x++)
+		for (float _x = HexapodConst::PHANTOMX_COXA_LENGTH; _x < HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH; _x++)
 		{
 			dl_vec::SVector _tmp_leg((float)_x, 0, -(float)_z);
 
 			// 以下の三変数を辺とする三角形が成立するか調べる．
-			float _a = HexapodConst::TIBIA_LENGTH;
-			float _b = HexapodConst::FEMUR_LENGTH;
-			float _c = sqrt(squared(_tmp_leg.x - HexapodConst::COXA_LENGTH) + squared(_tmp_leg.z));
+			float _a = HexapodConst::PHANTOMX_TIBIA_LENGTH;
+			float _b = HexapodConst::PHANTOMX_FEMUR_LENGTH;
+			float _c = sqrt(squared(_tmp_leg.x - HexapodConst::PHANTOMX_COXA_LENGTH) + squared(_tmp_leg.z));
 
 			bool _is_vaild_triangle = true;
 			if (_a + _b < _c)_is_vaild_triangle = false;

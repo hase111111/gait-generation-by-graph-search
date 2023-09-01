@@ -54,6 +54,8 @@ bool GraphicMainBasic::update()
 		m_hexapod_renderer.update(m_node.at(m_display_node));					//ロボットの状態を更新する．
 
 		m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);		//カメラの位置を更新する．
+
+		m_node_display_gui.setDisplayNode(m_node.at(m_display_node));			//ノードの情報を表示するGUIに情報を伝達する．
 	}
 
 

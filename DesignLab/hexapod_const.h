@@ -15,9 +15,17 @@ public:
 	constexpr static int LEG_NUM = 6;					//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
 
 	//ロボットの寸法
-	constexpr static float COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
-	constexpr static float FEMUR_LENGTH = 66.0f;		//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
-	constexpr static float TIBIA_LENGTH = 130.0f;		//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_LENGTH = 66.0f;			//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_LENGTH = 130.0f;			//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
+
+	constexpr static float PHANTOMX_COXA_ANGLE_MIN = dl_math::convertDegToRad(-40.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_ANGLE_MAX = dl_math::convertDegToRad(40.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+
+	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
+	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
+													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };
+
 	constexpr static float BODY_FRONT_WIDTH = 60.0f;	//!< 前方の幅[mm]．phantomXの横幅.
 	constexpr static float BODY_CENTER_WIDTH = 100.0f;	//!< 中心の幅[mm]．phantomXの横幅.
 	constexpr static float BODY_REAR_WIDTH = 60.0f;		//!< 後方の幅[mm]．phantomXの横幅.
