@@ -1,19 +1,19 @@
 #pragma once
-#include "InterfaceGraphTreeCreator.h"
+#include "interface_graph_tree_creator.h"
 
 
 class GraphTreeCreatorSample final : public IGraphTreeCreator
 {
 public:
-	GraphTreeCreatorSample(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map) {};
+	GraphTreeCreatorSample(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map) : IGraphTreeCreator(map) {};
 	~GraphTreeCreatorSample() = default;
 
-	EGraphSearchResult createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph, int* make_node_num) override;
+	EGraphSearchResult createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph) override;
 
 };
 
 
-//! @file GraphTreeCreatorSample.h
+//! @file graph_tree_creator_sample.h
 //! @brief グラフ木を作成するクラスのサンプル
 //! @author 長谷川
 

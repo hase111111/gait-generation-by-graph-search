@@ -1,32 +1,21 @@
-#include "GraphTreeCreatorHato.h"
+#include "graph_tree_creator_hato.h"
 
 #include <iostream>
 
 #include "graph_search_const.h"
 
 
+
 GraphTreeCreatorHato::GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphTreeCreator] GraphTreeCreatorHato : コンストラクタが呼ばれた．\n";
-	}
 }
 
-GraphTreeCreatorHato::~GraphTreeCreatorHato()
-{
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphTreeCreator] GraphTreeCreatorHato : デストラクタが呼ばれた．\n";
-	}
-}
 
-EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph, int* make_node_num)
+EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "[GraphTreeCreator] GraphTreeCreatorHato : createGraphTree() グラフ作成開始\n"; }
-
 	(*output_graph).clear();					//出力する結果を空にする．
 	(*output_graph).emplace_back(current_node);	//親を追加する．
+
 
 	int cnt = 0;	//カウンタを用意
 
@@ -49,14 +38,14 @@ EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& current_no
 		cnt++;	//カウンタを進める．
 	}
 
-	(*make_node_num) = (int)(*output_graph).size();
 
-	if ((*make_node_num) > GraphSearchConst::MAX_NODE_NUM || (*make_node_num) < 0)
+	//ノード数が上限を超えていないか確認する．
+	int make_node_num = static_cast<int>((*output_graph).size());
+
+	if (GraphSearchConst::MAX_NODE_NUM < make_node_num)
 	{
 		return EGraphSearchResult::FailureByNodeLimitExceeded;
 	}
-
-	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "[GraphTreeCreator] GraphTreeCreatorHato : createGraphTree() グラフ作成終了\n"; }
 
 	return EGraphSearchResult::Success;
 }
@@ -68,7 +57,8 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 
 	if (m_node_creator_map.count(current_node.next_move) > 0)
 	{
-		m_node_creator_map.at(current_node.next_move)->create(current_node, current_num, output_graph);
+		m_node_creator_map[current_node.next_move]->create(current_node, current_num, output_graph);
+
 		return;
 	}
 	else

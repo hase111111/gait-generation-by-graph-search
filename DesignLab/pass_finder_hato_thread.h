@@ -4,14 +4,14 @@
 
 #include "map_state.h"
 #include "node.h"
-#include "interface_pass_finder.h"
+#include "abstract_pass_finder.h"
 
 
 //! @class PassFinderHatoThread
 //! @date 2023/08/14
 //! @author 長谷川
 //! @brief パス探索クラス
-class PassFinderHatoThread final : public IPassFinder
+class PassFinderHatoThread final : public AbstractPassFinder
 {
 public:
 	PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& factory);

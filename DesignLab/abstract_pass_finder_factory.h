@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "InterfaceGraphTreeCreator.h"
+#include "interface_graph_tree_creator.h"
 #include "InterfaceGraphSearcher.h"
 #include "map_state.h"
 

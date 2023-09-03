@@ -6,24 +6,24 @@
 #include "node.h"
 #include "Target.h"
 #include "graph_search_result.h"
-#include "InterfaceGraphTreeCreator.h"
+#include "interface_graph_tree_creator.h"
 #include "InterfaceGraphSearcher.h"
 #include "abstract_pass_finder_factory.h"
 
 
-//! @class IPassFinder
-//! @brief グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @date 2023/08/14
+//! @class AbstractPassFinder
+//! @brief グラフ探索を行うクラスの抽象クラス．実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @date 2023/09/03
 //! @author 長谷川
 //! @details 継承をするクラスのデストラクタはvirtualにしておく．
 //! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
-class IPassFinder
+class AbstractPassFinder
 {
 public:
 
-	IPassFinder() = delete;
-	IPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& factory) : mp_factory(std::move(factory)) {};
-	virtual ~IPassFinder() = default;
+	AbstractPassFinder() = delete;
+	AbstractPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& factory) : mp_factory(std::move(factory)) {};
+	virtual ~AbstractPassFinder() = default;
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] current_node 現在の状態を表すノード
@@ -39,7 +39,7 @@ public:
 
 	//! @brief 作成したグラフ木を返す．
 	//! @n この関数はデバッグ用なので，探索には使わないこと．
-	//! @param [out] output_graph 作成したグラフ木
+	//! @param [out] output_graph 作成したグラフ木を渡す．
 	void getGraphTree(std::vector<SNode>* output_graph) const
 	{
 		(*output_graph).clear();

@@ -40,7 +40,6 @@
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
-    <ClInclude Include="GraphTreeCreatorThread.h" />
     <ClInclude Include="designlab_rotator.h" />
     <ClInclude Include="interface_graphic_main_builder.h" />
     <ClInclude Include="movement_locus_renderer.h" />
@@ -55,16 +54,16 @@
     <ClInclude Include="pass_finder_hato_thread.h" />
     <ClInclude Include="pass_finder_none.h" />
     <ClInclude Include="graph_search_result.h" />
-    <ClInclude Include="GraphTreeCreatorHato.h" />
-    <ClInclude Include="GraphTreeCreatorSample.h" />
+    <ClInclude Include="graph_tree_creator_hato.h" />
+    <ClInclude Include="graph_tree_creator_sample.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="hexapod_renderer.h" />
     <ClInclude Include="hexapod_state_calculator.h" />
-    <ClInclude Include="interface_pass_finder.h" />
+    <ClInclude Include="abstract_pass_finder.h" />
     <ClInclude Include="InterfaceGraphSearcher.h" />
-    <ClInclude Include="InterfaceGraphTreeCreator.h" />
+    <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="abstract_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
@@ -141,7 +140,6 @@
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
-    <ClCompile Include="GraphTreeCreatorThread.cpp" />
     <ClCompile Include="designlab_rotator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />
@@ -156,8 +154,8 @@
     <ClCompile Include="pass_finder_hato_thread.cpp" />
     <ClCompile Include="pass_finder_none.cpp" />
     <ClCompile Include="graph_search_result.cpp" />
-    <ClCompile Include="GraphTreeCreatorHato.cpp" />
-    <ClCompile Include="GraphTreeCreatorSample.cpp" />
+    <ClCompile Include="graph_tree_creator_hato.cpp" />
+    <ClCompile Include="graph_tree_creator_sample.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="gui_controller.cpp" />
     <ClCompile Include="hexapod_next_move.cpp" />
@@ -176,7 +174,7 @@
     <ClCompile Include="graphic_main_sample.cpp" />
     <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="hexapod_const.cpp" />
-    <ClCompile Include="InterfaceGraphTreeCreator.cpp" />
+    <ClCompile Include="interface_graph_tree_creator.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="leg_down_node_creator.cpp" />
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />

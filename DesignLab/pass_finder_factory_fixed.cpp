@@ -2,9 +2,8 @@
 
 #include <iostream>
 
-#include "GraphTreeCreatorHato.h"
+#include "graph_tree_creator_hato.h"
 #include "graph_searcher_hato.h"
-#include "graph_search_const.h"
 #include "leg_up_down_node_creator.h"
 #include "leg_hierarchy_node_creator.h"
 #include "com_up_down_node_creator.h"

@@ -5,11 +5,13 @@
 #include <boost/thread.hpp>
 
 #include "graph_search_const.h"
+#include "designlab_cmdio.h"
 
 
-PassFinderHatoThread::PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& factory) : IPassFinder(std::move(factory))
+PassFinderHatoThread::PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& factory) : AbstractPassFinder(std::move(factory))
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHatoThread : コンストラクタが呼ばれた\n"; }
+
 };
 
 
@@ -43,7 +45,8 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 		std::vector<SNode> depth1_node;
 
-		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &depth1_node, &m_made_node_num);
+		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &depth1_node);
+
 		if (!graphSeachResultIsSuccessful(result)) { return result; }
 
 		depth1_node.erase(depth1_node.begin());	//深さ0のノードは親ノードと同じなので，削除する．
@@ -63,8 +66,10 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 		for (size_t i = 0; i < kDepth1NodeNum; i++)
 		{
 			mp_factory->createGraphTreeCreator(p_map, tree_creators[i]);
+
 			if (!tree_creators[i]) { return EGraphSearchResult::FailureByInitializationFailed; }
-			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::createGraphTree, tree_creators[i].get(), depth1_node[i], p_map, &threads_result[i], &m_made_node_num));
+
+			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::createGraphTree, tree_creators[i].get(), depth1_node[i], p_map, &threads_result[i]));
 		}
 
 		tree_creator_threads.join_all();

@@ -12,7 +12,7 @@
 #include "graphic_main_test.h"
 
 
-SystemMain::SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
+SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();

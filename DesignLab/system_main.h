@@ -7,7 +7,7 @@
 #include "Target.h"
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
-#include "interface_pass_finder.h"
+#include "abstract_pass_finder.h"
 #include "interface_graphic_main_builder.h"
 #include "abstract_graphic_main.h"
 #include "designlab_timer.h"
@@ -26,7 +26,7 @@ class SystemMain final
 public:
 	SystemMain() = delete;		//デフォルトコンストラクタは禁止．
 
-	SystemMain(std::unique_ptr<IPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder);
+	SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder);
 
 	~SystemMain() = default;
 
@@ -49,7 +49,7 @@ private:
 
 	GraphicSystem m_graphic_system;
 
-	std::unique_ptr<IPassFinder> mp_pass_finder;
+	std::unique_ptr<AbstractPassFinder> mp_pass_finder;
 
 
 	DesignlabTimer m_timer;					//時間計測用のクラス．

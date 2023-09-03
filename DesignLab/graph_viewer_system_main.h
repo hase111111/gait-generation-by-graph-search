@@ -3,7 +3,7 @@
 #include "map_state.h"
 #include "graphic_system.h"
 #include "graphic_data_broker.h"
-#include "interface_pass_finder.h"
+#include "abstract_pass_finder.h"
 #include "application_setting_recorder.h"
 
 
@@ -41,7 +41,7 @@ private:
 
 	GraphicSystem m_graphic_system;
 
-	std::unique_ptr<IPassFinder> mp_pass_finder;
+	std::unique_ptr<AbstractPassFinder> mp_pass_finder;
 
 	const SApplicationSettingRecorder* const mp_setting;
 

@@ -4,7 +4,7 @@
 
 #include "designlab_dxlib.h"
 #include "map_renderer.h"
-#include "GraphTreeCreatorHato.h"
+#include "graph_tree_creator_hato.h"
 #include "Keyboard.h"
 
 

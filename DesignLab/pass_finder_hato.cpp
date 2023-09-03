@@ -3,7 +3,7 @@
 #include "graph_search_const.h"
 
 
-PassFinderHato::PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory) : IPassFinder(std::move(factory))
+PassFinderHato::PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory) : AbstractPassFinder(std::move(factory))
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : コンストラクタが呼ばれた．\n"; }
 };
@@ -37,8 +37,9 @@ EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& current
 		SNode parent_node = current_node;
 		parent_node.changeParentNode();
 
-		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &m_graph_tree, &m_made_node_num);
-		if (graphSeachResultIsSuccessful(result) == false) { return result; }
+		EGraphSearchResult result = mp_tree_creator->createGraphTree(parent_node, p_map, &m_graph_tree);
+
+		if (!graphSeachResultIsSuccessful(result)) { return result; }
 	}
 
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ作成終了．グラフを評価する．\n"; }
@@ -46,7 +47,7 @@ EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& current
 	//次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
 	{
 		EGraphSearchResult result = mp_searcher->searchGraphTree(m_graph_tree, target, &output_node);
-		if (graphSeachResultIsSuccessful(result) == false) { return result; }
+		if (!graphSeachResultIsSuccessful(result)) { return result; }
 	}
 
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }

@@ -1,12 +1,12 @@
 #pragma once
-#include "interface_pass_finder.h"
+#include "abstract_pass_finder.h"
 
 
 //! @class PassFinderHato
 //! @date 2023/08/17
 //! @author 長谷川
 //! @brief 波東先輩の手法で，グラフ探索を行うクラス．
-class PassFinderHato final : public IPassFinder
+class PassFinderHato final : public AbstractPassFinder
 {
 public:
 	PassFinderHato(std::unique_ptr<AbstractPassFinderFactory>&& factory);

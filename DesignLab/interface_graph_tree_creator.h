@@ -26,9 +26,8 @@ public:
 	//! @param current_node [in] 現在の状態を表すノード
 	//! @param p_map [in] 現在のマップの状態
 	//! @param output_graph [out] 出力される木グラフ
-	//! @param make_node_num [out] 作成したノードの数
 	//! @return EGraphSearchResult 生成に成功したならばtrue
-	virtual EGraphSearchResult createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph, int* make_node_num) = 0;
+	virtual EGraphSearchResult createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph) = 0;
 
 	void setMaxDepth(const int max_depth) { m_max_depth = max_depth; };
 
@@ -42,6 +41,8 @@ protected:
 };
 
 
-//! @file InterfaceGraphTreeCreator.h
-//! @brief グラフ木の探索を行うクラスのインターフェイス．
+//! @file interface_graph_tree_creator.h
+//! @date 2023/09/03
 //! @author 長谷川
+//! @brief グラフ木の探索を行うクラスのインターフェイス．
+//! @n 行数 : @lineinfo
