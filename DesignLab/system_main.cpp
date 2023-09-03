@@ -31,8 +31,6 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 	//グラフ探索クラスをセットする
 	mp_pass_finder = std::move(graph_search);
 
-	calc->init();
-
 	mp_pass_finder->init(std::move(graph_search_factory), calc, mp_setting);
 
 

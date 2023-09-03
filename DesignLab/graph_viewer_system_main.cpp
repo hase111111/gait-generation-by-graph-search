@@ -48,17 +48,19 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	m_map_state.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
+
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
 	m_graphic_data_broker.setMapState(m_map_state);
 
+
 	std::shared_ptr <AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
 
-	calc->init();
 
 	//グラフィックシステムを初期化する
 	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
 	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);
+
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;
@@ -66,6 +68,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	mp_pass_finder = std::make_unique<PassFinderHatoThread>();
 
 	mp_pass_finder->init(std::make_unique<PassFinderFactoryHato>(), calc, setting);
+
 
 	//初期化終了
 	std::cout << "GraphViewerSystemMain : GraphViewer初期化終了．起動します" << std::endl << std::endl;

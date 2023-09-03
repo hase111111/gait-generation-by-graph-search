@@ -11,10 +11,10 @@ class PhantomXStateCalclator final : public AbstractHexapodStateCalculator
 {
 public:
 
-	void init() override;
+	PhantomXStateCalclator();
 
 
-	bool calculateAllJointState(const SNode& node, SHexapodJointState* const joint_state) const override;
+	bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const override;
 
 
 	dl_vec::SVector getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const override;
@@ -41,18 +41,22 @@ private:
 	static constexpr float LEG_POS_MAX = (HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH + LEG_POS_MARGIN);		//脚位置の最大値
 
 
+
 	constexpr int getLegPosIndex(const float leg_pos) const
 	{
 		constexpr float converter = LEG_POS_DIV_NUM / (LEG_POS_MAX - LEG_POS_MIN);
 		int res = static_cast<int>((leg_pos - LEG_POS_MIN) * converter);			// 離散化した脚位置を取得
 
 		res = (std::max)(res, 0);						// 0以上にする
-		res = (std::min)(res, LEG_POS_DIV_NUM - 1);	// LEG_POS_DIV_NUM - 1以下にする
+		res = (std::min)(res, LEG_POS_DIV_NUM - 1);		// LEG_POS_DIV_NUM - 1以下にする
 
-		return res;									// 離散化した脚位置を返す
+		return res;										// 離散化した脚位置を返す
 	}
 
 	bool initIsAbleLegPos(const int leg_index, const int x, const int y, const int z) const;		// 脚位置の有効無効を初期化する
+
+	void calculateLocalJointState(const int leg_index, const dl_vec::SVector& leg_pos, SHexapodJointState* joint_state) const;		// 脚位置から関節角度を計算する．1脚版
+
 
 
 	// 脚番号，x座標，y座標，z座標の順でアクセスすると，その座標が有効かどうかがboolで格納されている

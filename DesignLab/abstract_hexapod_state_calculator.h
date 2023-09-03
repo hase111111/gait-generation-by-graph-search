@@ -11,21 +11,14 @@
 
 struct SHexapodJointState
 {
-	SHexapodJointState()
-	{
-		local_joint_position.resize(HexapodConst::LEG_NUM);
-		global_joint_position.resize(HexapodConst::LEG_NUM);
-		joint_angle.resize(HexapodConst::LEG_NUM);
-	}
+	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．@n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系．
+	std::vector<dl_vec::SVector> local_joint_position;
 
-	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の座標はjoint_position[2][0]である．@n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系．
-	std::vector<std::vector<dl_vec::SVector>> local_joint_position;
+	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．@n この座標はグローバル座標系である．
+	std::vector<dl_vec::SVector> global_joint_position;
 
-	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の座標はjoint_position[2][0]である．@n この座標はグローバル座標系である．
-	std::vector<std::vector<dl_vec::SVector>> global_joint_position;
-
-	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の角度はjoint_angle[2][0]である．@n この角度はradである．
-	std::vector<std::vector<float>> joint_angle;
+	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である．@n この角度の単位はradである．
+	std::vector<float> joint_angle;
 };
 
 
@@ -44,20 +37,11 @@ public:
 
 
 
-
-	//! @brief 予め計算可能な値を全て計算しておく 
-	//! @n 当然スレッドーセーフではない．とはいえ一度だけ呼べば良いので，問題にはならない．
-	//! @n このクラスの他のメソッドを呼ぶ前に必ず呼ぶこと．
-	virtual void init() = 0;
-
-
-
-
 	//! @brief 全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
 	//! @return 計算に成功したらtrue．失敗したらfalse．
-	virtual bool calculateAllJointState(const SNode& node, SHexapodJointState* const joint_state) const = 0;
+	virtual bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const = 0;
 
 
 
