@@ -6,7 +6,7 @@
 //! @class HexapodConst
 //! @date 2023/08/13
 //! @author 長谷川
-//! @brief Hexapod，phantomXのパラメータを定数で表現したもの．
+//! @brief Hexapod，phantomXのパラメータを定数で表現したもの．他の6脚ロボットのパラメータもここに追加する(今のところ予定はないが)．
 //! @details 定数フィールドなので実体は生成できない．( HexapodConst::LEG_NUM みたいに使うこと )
 class HexapodConst final
 {
@@ -14,7 +14,7 @@ public:
 
 	constexpr static int LEG_NUM = 6;					//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
 
-	//ロボットの寸法
+	// PhantomXのパラメータ
 	constexpr static float PHANTOMX_COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_FEMUR_LENGTH = 66.0f;			//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_TIBIA_LENGTH = 130.0f;			//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
@@ -22,7 +22,12 @@ public:
 	constexpr static float PHANTOMX_COXA_ANGLE_MIN = dl_math::convertDegToRad(-40.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_COXA_ANGLE_MAX = dl_math::convertDegToRad(40.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = dl_math::convertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = dl_math::convertDegToRad(90.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = dl_math::convertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = dl_math::convertDegToRad(60.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+
 	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
 													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };
 

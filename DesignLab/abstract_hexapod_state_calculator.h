@@ -13,12 +13,16 @@ struct SHexapodJointState
 {
 	SHexapodJointState()
 	{
-		joint_position.resize(6);
-		joint_angle.resize(6);
+		local_joint_position.resize(HexapodConst::LEG_NUM);
+		global_joint_position.resize(HexapodConst::LEG_NUM);
+		joint_angle.resize(HexapodConst::LEG_NUM);
 	}
 
+	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の座標はjoint_position[2][0]である．@n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系．
+	std::vector<std::vector<dl_vec::SVector>> local_joint_position;
+
 	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の座標はjoint_position[2][0]である．@n この座標はグローバル座標系である．
-	std::vector<std::vector<dl_vec::SVector>> joint_position;
+	std::vector<std::vector<dl_vec::SVector>> global_joint_position;
 
 	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．2番脚の付け根の角度はjoint_angle[2][0]である．@n この角度はradである．
 	std::vector<std::vector<float>> joint_angle;
@@ -107,7 +111,7 @@ public:
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
 	float calcStabilityMargin(const int leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const;
 
-private:
+protected:
 
 	//! @brief 脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．
 	//! @param [in] leg_index 脚番号．0以上，6未満であること．

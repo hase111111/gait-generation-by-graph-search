@@ -5,6 +5,11 @@
 #include "Keyboard.h"
 
 
+constexpr int temp_size = 50;
+constexpr auto temp_ex = 10.8;
+bool temp[HexapodConst::LEG_NUM][temp_size][temp_size][temp_size] = {};
+
+
 GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
 	: AbstractGraphicMain(broker, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10)
 {
@@ -13,6 +18,32 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const S
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
 
 	m_phantomx_state_calculator.init();
+
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		for (int x = 0; x < temp_size; x += 1)
+		{
+			for (int y = 0; y < temp_size; y += 1)
+			{
+				for (int z = 0; z < temp_size; z += 1)
+				{
+					dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
+					pos *= temp_ex;
+
+					if (m_phantomx_state_calculator.isLegInRange(i, pos))
+					{
+						temp[i][x][y][z] = true;
+					}
+					else
+					{
+						temp[i][x][y][z] = false;
+					}
+				}
+			}
+		}
+	}
+
 }
 
 
@@ -124,9 +155,7 @@ void GraphicMainTest::draw() const
 	m_hexapod_renderer.draw(m_node);
 
 
-	m_camera_gui.draw();        //ƒJƒƒ‰‚ÌGUI‚ð•`‰æ‚·‚éD
 
-	m_node_display_gui.draw();	 //ƒm[ƒh‚Ìî•ñ‚ð•\Ž¦‚·‚éGUI‚ð•`‰æ‚·‚éD
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -136,4 +165,39 @@ void GraphicMainTest::draw() const
 		printfDx("leg %d is %s / angle %lf / pos is %d %d %d\n", i, str.c_str(), dl_math::convertRadToDeg(std::atan2f(m_node.leg_pos[i].y, m_node.leg_pos[i].x)),
 			m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].x), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].y), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].z));
 	}
+
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		for (int x = 0; x < temp_size; x += 1)
+		{
+			for (int y = 0; y < temp_size; y += 1)
+			{
+				for (int z = 0; z < temp_size; z += 1)
+				{
+					if (temp[i][x][y][z])
+					{
+						dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
+						pos *= temp_ex;
+
+						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+						unsigned int color[6] = { GetColor(255, 128, 255),GetColor(255, 128, 128),GetColor(255, 255, 128)
+						,GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255) };
+						dl_dxlib::drawCube3D(dl_dxlib::convertToDxVec(m_phantomx_state_calculator.getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 5, color[i]);
+						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+					}
+					else
+					{
+						//
+					}
+				}
+			}
+		}
+	}
+
+
+	m_camera_gui.draw();        //ƒJƒƒ‰‚ÌGUI‚ð•`‰æ‚·‚éD
+
+	m_node_display_gui.draw();	 //ƒm[ƒh‚Ìî•ñ‚ð•\Ž¦‚·‚éGUI‚ð•`‰æ‚·‚éD
+
 }
