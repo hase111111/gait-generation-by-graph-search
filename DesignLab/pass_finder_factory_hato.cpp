@@ -11,16 +11,16 @@
 #include "com_move_node_creator_hato.h"
 
 
-void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, std::unique_ptr<IGraphTreeCreator>& tree)
+void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[Factory] PassFinderFactoryHato: createGraphTreeCreator() グラフ作成クラスの作成開始\n\n"; }
 
 	//木を作成するクラスのマップを作成．
 	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> node_creator_map;
-	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(p_map, EHexapodMove::LEG_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(p_map, EHexapodMove::COM_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(p_map, EHexapodMove::COM_MOVE));
-	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(p_map, EHexapodMove::LEG_HIERARCHY_CHANGE));
+	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(p_map, calc, EHexapodMove::LEG_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(p_map, calc, EHexapodMove::COM_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(p_map, calc, EHexapodMove::COM_MOVE));
+	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(p_map, calc, EHexapodMove::LEG_HIERARCHY_CHANGE));
 
 	//木を作成するクラスと，木を探索するクラスを作成．
 	std::unique_ptr<IGraphTreeCreator> p_creator = std::make_unique<GraphTreeCreatorHato>(node_creator_map);

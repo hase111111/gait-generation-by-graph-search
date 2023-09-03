@@ -6,7 +6,8 @@
 #include "leg_state.h"
 
 
-LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move)
+LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+	: INodeCreator(p_map, calc, next_move)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{

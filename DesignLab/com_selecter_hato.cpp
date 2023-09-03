@@ -49,7 +49,7 @@ bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const 
 			{
 				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
 
-				if (!m_calclator.isLegInRange(after_move_leg_pos[j], j))
+				if (!mp_calculator->isLegInRange(j, after_move_leg_pos[j]))
 				{
 					//脚が可動範囲外ならば次の候補点へ
 					com_candidate[i].first = false;
@@ -66,8 +66,7 @@ bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const 
 		//}
 	}
 
-	//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい
-	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
+	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
 
 	const dl_vec::SVector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;

@@ -14,7 +14,7 @@
 class PassFinderNone final :public AbstractPassFinder
 {
 public:
-	PassFinderNone(std::unique_ptr<AbstractPassFinderFactory>&& _factory) : AbstractPassFinder(std::move(_factory)) {};
+	PassFinderNone() = default;
 	~PassFinderNone() = default;
 
 	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;

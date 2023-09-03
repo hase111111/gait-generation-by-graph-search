@@ -9,12 +9,13 @@
 #include "Define.h"
 
 
-void GraphicSystem::init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting)
+void GraphicSystem::init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
+	const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting)
 {
-	if (graphic_main_builder && broker != nullptr && setting != nullptr)
+	if (graphic_main_builder && calc && broker != nullptr && setting != nullptr)
 	{
 		//GraphicMain‚ðì¬‚·‚éD
-		mp_graphic_main = graphic_main_builder->build(broker, setting);
+		mp_graphic_main = graphic_main_builder->build(broker, calc, setting);
 	}
 
 

@@ -5,8 +5,8 @@
 #include "abstract_graphic_main.h"
 #include "hexapod_renderer.h"
 #include "map_state.h"
-#include "camera_manager.h"
 #include "graph_viewer_gui_controller.h"
+#include "camera_gui.h"
 
 
 //! @class GraphicMainGraphViewer
@@ -16,7 +16,7 @@
 class GraphicMainGraphViewer final : public AbstractGraphicMain
 {
 public:
-	GraphicMainGraphViewer(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
+	GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 	~GraphicMainGraphViewer() = default;
 
 	bool update() override;
@@ -25,14 +25,11 @@ public:
 
 private:
 
-	void updateCameraState();
-
-
 	HexapodRenderer m_hexapod_renderer;
 
 	MapState m_map_state;
 
-	CameraManager m_camera_manager;
+	CameraGUI m_camera_gui;
 
 	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
 

@@ -7,19 +7,28 @@
 #include "designlab_polygon.h"
 #include "com_type.h"
 #include "node.h"
-#include "hexapod_state_calculator.h"
+#include "abstract_hexapod_state_calculator.h"
+
 
 
 //! @class ComSelecterHato
 //! @date 2023/08/12
 //! @author 長谷川
 //! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
+//! @details 重心位置の決め方は波東さんのプログラムに準拠している．
+//! @n まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ． 
+//! @n 次に多角形の中に入っていない点を除外する． 
+//! @n そして，絶対安全余裕を計算し，マージンを外れた点を除外する．
+//! @n また，移動後の座標において，脚が他の脚と干渉する場合は除外する．
+//! @n 以上の処理を行った後，残った点の重心を求める． 
 //! @note CCCではTargetの値を持っているので，その値を利用して重心位置選択するが，この実装ではこのクラスにその選択を任せたくない．
 //! 同様の処理を行うために，Targetの値を適当に決めている．
 class ComSelecterHato final
 {
-
 public:
+
+	ComSelecterHato(std::shared_ptr<AbstractHexapodStateCalculator> calc) : mp_calculator(calc) {};
+
 
 	//! @brief 現在のノードを設定する
 	//! @param [in] current_node 現在のノード
@@ -30,12 +39,6 @@ public:
 	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	//! @details 重心位置の決め方は波東さんのプログラムに準拠している．
-	//! @n まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ． 
-	//! @n 次に多角形の中に入っていない点を除外する． 
-	//! @n そして，絶対安全余裕を計算し，マージンを外れた点を除外する．
-	//! @n また，移動後の座標において，脚が他の脚と干渉する場合は除外する．
-	//! @n 以上の処理を行った後，残った点の重心を求める． 
 	bool getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, dl_vec::SVector* output_com) const;
 
 private:
@@ -47,6 +50,7 @@ private:
 	static constexpr bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
 
 
+
 	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
@@ -56,10 +60,12 @@ private:
 	bool isInMargin(const dl_vec::SPolygon2& polygon, const std::vector<dl_vec::SVector2>& edge_vec, const dl_vec::SVector2& candidate_point) const;
 
 
+
 	SNode m_current_node; //!< 現在のノード
 
-	const HexapodStateCalclator m_calclator; //!< 状態計算クラス
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 };
+
 
 
 //! @file com_selecter_hato.h

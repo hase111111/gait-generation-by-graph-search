@@ -6,7 +6,8 @@
 #include "leg_state.h"
 
 
-ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)
+ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+	: INodeCreator(p_map, calc, next_move), mp_map(p_map), mp_calculator(calc), m_maker(calc), m_selecter(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -74,7 +75,7 @@ bool ComMoveNodeCreatorHato::isStable(const SNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 
-	if (m_calclator.calculateStaticMargin(node) < STABLE_MARGIN)
+	if (mp_calculator->calcStabilityMargin(node.leg_state, node.leg_pos) < STABLE_MARGIN)
 	{
 		return false;
 	}
@@ -91,7 +92,7 @@ bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const dl_vec::SVector kCoxaPos = m_calclator.getGlobalCoxaJointPos(node, i, false);	//脚の根元の座標(グローバル)を取得する
+		const dl_vec::SVector kCoxaPos = mp_calculator->getGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
 
 		const float kMapTopZ = mp_map->getTopZFromDevideMap(mp_map->getDevideMapNumX(kCoxaPos.x), mp_map->getDevideMapNumY(kCoxaPos.y));
 

@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
+    <ClCompile Include="abstract_pass_finder.cpp" />
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="basic_graphic_main_builder.cpp" />

@@ -7,8 +7,9 @@
 #include "map_renderer.h"
 
 
-GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, setting), m_map_state(mp_broker->getMapState()), kNodeGetCount(setting->window_fps * 2),
+GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, calc, setting),
+	m_map_state(mp_broker->getMapState()), kNodeGetCount(setting->window_fps * 2),
 	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10),
 	m_display_node_switch_gui(10, mp_setting->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10)
 {
@@ -62,6 +63,8 @@ bool GraphicMainBasic::update()
 	m_counter++;				//カウンタを進める．
 
 	m_camera_gui.update();      //カメラのGUIを更新する．
+
+	m_node_display_gui.update();	//ノードの情報を表示するGUIを更新する．
 
 	m_display_node_switch_gui.update();	//ノードの情報を表示するGUIを更新する．
 

@@ -13,7 +13,7 @@ class LegUpDownNodeCreator final : public INodeCreator
 {
 public:
 
-	LegUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move);
+	LegUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
 	~LegUpDownNodeCreator();
 
 	void create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) override;

@@ -16,7 +16,7 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const MapState* const p_map, const EHexapodMove next_move);
+	ComMoveNodeCreatorHato(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
 	~ComMoveNodeCreatorHato();
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
@@ -34,11 +34,12 @@ private:
 	static constexpr float STABLE_MARGIN = 10.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
 
-	const MapState* const mp_map;
-
 	std::vector<dl_vec::SPolygon2> m_polygons;
 
-	const HexapodStateCalclator m_calclator;
+
+	const MapState* const mp_map;
+
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 
 	const ComCandidatePolygonMaker m_maker;
 

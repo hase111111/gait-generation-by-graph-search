@@ -10,14 +10,12 @@ constexpr auto temp_ex = 10.8;
 bool temp[HexapodConst::LEG_NUM][temp_size][temp_size][temp_size] = {};
 
 
-GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10)
+GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, calc, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10)
 {
 	m_node.init(false);
 
 	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
-
-	m_phantomx_state_calculator.init();
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -31,7 +29,7 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, const S
 					dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
 					pos *= temp_ex;
 
-					if (m_phantomx_state_calculator.isLegInRange(i, pos))
+					if (mp_calculator->isLegInRange(i, pos))
 					{
 						temp[i][x][y][z] = true;
 					}
@@ -160,10 +158,9 @@ void GraphicMainTest::draw() const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		std::string str = m_phantomx_state_calculator.isLegInRange(i, m_node.leg_pos[i]) ? "true" : "false";
+		std::string str = mp_calculator->isLegInRange(i, m_node.leg_pos[i]) ? "true" : "false";
 
-		printfDx("leg %d is %s / angle %lf / pos is %d %d %d\n", i, str.c_str(), dl_math::convertRadToDeg(std::atan2f(m_node.leg_pos[i].y, m_node.leg_pos[i].x)),
-			m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].x), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].y), m_phantomx_state_calculator.getLegPosIndex(m_node.leg_pos[i].z));
+		printfDx("leg %d is %s / angle %lf\n", i, str.c_str(), dl_math::convertRadToDeg(std::atan2f(m_node.leg_pos[i].y, m_node.leg_pos[i].x)));
 	}
 
 
@@ -180,10 +177,10 @@ void GraphicMainTest::draw() const
 						dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
 						pos *= temp_ex;
 
-						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
 						unsigned int color[6] = { GetColor(255, 128, 255),GetColor(255, 128, 128),GetColor(255, 255, 128)
 						,GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255) };
-						dl_dxlib::drawCube3D(dl_dxlib::convertToDxVec(m_phantomx_state_calculator.getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 5, color[i]);
+						dl_dxlib::drawCube3D(dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
 						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 					}
 					else

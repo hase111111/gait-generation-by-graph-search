@@ -130,6 +130,9 @@
     <Filter Include="ソース ファイル\GraphicSystem\Main\builder">
       <UniqueIdentifier>{df2f0241-01a9-444e-b9b5-f7db12546a0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main\builder\Interface">
+      <UniqueIdentifier>{47c2c784-cdc7-4903-9e84-abc6bd5b910f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -402,9 +405,6 @@
     <ClInclude Include="boot_mode.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graphic_main_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
-    </ClInclude>
     <ClInclude Include="basic_graphic_main_builder.h">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClInclude>
@@ -431,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="other_graphic_main_builder.h">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graphic_main_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\builder\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -700,6 +703,9 @@
     </ClCompile>
     <ClCompile Include="other_graphic_main_builder.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
+    </ClCompile>
+    <ClCompile Include="abstract_pass_finder.cpp">
+      <Filter>ソース ファイル\PassFinderSystem\Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

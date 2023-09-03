@@ -8,6 +8,7 @@
 #include "pass_finder_hato_thread.h"
 #include "pass_finder_factory_hato.h"
 #include "hexapod_state_calculator.h"
+#include "phantomx_state_calculator.h"
 #include "Define.h"
 #include "designlab_timer.h"
 #include "StringToValue.h"
@@ -51,14 +52,20 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
 	m_graphic_data_broker.setMapState(m_map_state);
 
+	std::shared_ptr <AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
+
+	calc->init();
+
 	//グラフィックシステムを初期化する
 	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
-	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), &m_graphic_data_broker, setting);
+	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);
 
 	//グラフ木作成クラスを初期化する
 	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;
 
-	mp_pass_finder = std::make_unique<PassFinderHatoThread>(std::make_unique<PassFinderFactoryHato>());
+	mp_pass_finder = std::make_unique<PassFinderHatoThread>();
+
+	mp_pass_finder->init(std::make_unique<PassFinderFactoryHato>(), calc, setting);
 
 	//初期化終了
 	std::cout << "GraphViewerSystemMain : GraphViewer初期化終了．起動します" << std::endl << std::endl;

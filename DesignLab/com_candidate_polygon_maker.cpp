@@ -6,11 +6,14 @@
 
 void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<dl_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const
 {
+	if (!mp_calculator) { return; }
+
+
 	dl_vec::SVector2 leg_pos_xy[HexapodConst::LEG_NUM];	//XY平面に射影した脚位置を算出する
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		leg_pos_xy[i] = m_calclator.getGlobalLegPos(node, i, false).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
+		leg_pos_xy[i] = mp_calculator->getGlobalLegPosition(i, node.leg_pos[i], node.global_center_of_mass, node.rot, false).projectedXY();		//脚位置(グローバル座標)をXY平面に射影する
 	}
 
 	//中心を囲むように4角形を作成する

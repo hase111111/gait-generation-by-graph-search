@@ -10,7 +10,9 @@ EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& curren
 
 	// 1. í èÌÇÃíTçı
 	{
-		PassFinderHatoThread pass_finder_hato_thread(std::make_unique<PassFinderFactoryHato>());
+		PassFinderHatoThread pass_finder_hato_thread;
+
+		pass_finder_hato_thread.init(std::make_unique<PassFinderFactoryHato>(), mp_calculator, mp_setting);
 
 		EGraphSearchResult result = pass_finder_hato_thread.getNextNodebyGraphSearch(current_node, p_map, target, output_node);
 
@@ -28,7 +30,9 @@ EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& curren
 	{
 		if (do_reevaluation)
 		{
-			PassFinderHatoThread pass_finder_hato_thread(std::make_unique<PassFinderFactoryHato>());
+			PassFinderHatoThread pass_finder_hato_thread;
+
+			pass_finder_hato_thread.init(std::make_unique<PassFinderFactoryHato>(), mp_calculator, mp_setting);
 
 			EGraphSearchResult result = pass_finder_hato_thread.getNextNodebyGraphSearch(current_node, p_map, target, output_node);
 

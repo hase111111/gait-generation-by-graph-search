@@ -5,12 +5,12 @@
 
 #include "graph_search_const.h"
 #include "hexapod_const.h"
-#include "hexapod_state_calculator.h"
 #include "leg_state.h"
 #include "designlab_math.h"
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)
+ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+	: INodeCreator(p_map, calc, next_move), mp_map(p_map)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{

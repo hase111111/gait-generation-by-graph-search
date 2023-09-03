@@ -14,7 +14,7 @@
 class PassFinderHatoThread final : public AbstractPassFinder
 {
 public:
-	PassFinderHatoThread(std::unique_ptr<AbstractPassFinderFactory>&& factory);
+	PassFinderHatoThread() = default;
 	~PassFinderHatoThread() = default;
 
 	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;

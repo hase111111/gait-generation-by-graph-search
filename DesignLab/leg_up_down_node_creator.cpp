@@ -8,7 +8,8 @@
 #include "leg_state.h"
 
 
-LegUpDownNodeCreator::LegUpDownNodeCreator(const MapState* const p_map, const EHexapodMove next_move) : INodeCreator(p_map, next_move), mp_map(p_map)
+LegUpDownNodeCreator::LegUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+	: INodeCreator(p_map, calc, next_move), mp_map(p_map)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{

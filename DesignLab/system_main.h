@@ -10,6 +10,7 @@
 #include "abstract_pass_finder.h"
 #include "interface_graphic_main_builder.h"
 #include "abstract_graphic_main.h"
+#include "abstract_hexapod_state_calculator.h"
 #include "designlab_timer.h"
 #include "result_file_exporter.h"
 #include "application_setting_recorder.h"
@@ -26,7 +27,8 @@ class SystemMain final
 public:
 	SystemMain() = delete;		//デフォルトコンストラクタは禁止．
 
-	SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder);
+	SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<AbstractPassFinderFactory>&& graph_search_factory,
+		std::unique_ptr<IGraphicMainBuilder>&& builder, std::shared_ptr<AbstractHexapodStateCalculator> calc, SApplicationSettingRecorder* recorder);
 
 	~SystemMain() = default;
 

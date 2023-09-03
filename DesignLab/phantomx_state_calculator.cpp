@@ -209,6 +209,8 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 	//ここまでチェックして，数をある程度絞ったら，逆運動学でチェックする
 	{
+		const dl_vec::SVector local_femur_joint_pos = dl_vec::SVector{ HexapodConst::PHANTOMX_COXA_LENGTH * std::cos(coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * std::sin(coxa_joint_angle), 0 };
+
 		const float L = (leg_pos.projectedXY() - femur_joint_pos.projectedXY()).length();				//脚先から第一関節までの長さ．
 
 		const float leg_to_fumur_len = std::sqrt(dl_math::squared(L) + dl_math::squared(leg_pos.z));
@@ -216,12 +218,22 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 		const float s1 = dl_math::squared(leg_to_fumur_len) + dl_math::squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dl_math::squared(HexapodConst::PHANTOMX_FEMUR_LENGTH);
 		const float s2 = 2 * HexapodConst::PHANTOMX_TIBIA_LENGTH * leg_to_fumur_len;
 
-		const float end_angle = -(std::acos(s1 / s2) + std::atan(-leg_pos.z / L));
+		float end_angle = -(std::acos(s1 / s2) + std::atan(-leg_pos.z / L));
 
-		const dl_vec::SVector local_tibia_joint_pos = leg_pos -
+		dl_vec::SVector local_tibia_joint_pos = leg_pos -
 			dl_vec::SVector {HexapodConst::PHANTOMX_TIBIA_LENGTH* std::cos(coxa_joint_angle)* std::cos(end_angle),
 			HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(coxa_joint_angle)* std::cos(end_angle),
 			HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(end_angle)};
+
+		if (!dl_math::isEqual((local_femur_joint_pos - local_tibia_joint_pos).length(), HexapodConst::PHANTOMX_FEMUR_LENGTH))
+		{
+			end_angle = -(-std::acos(s1 / s2) + std::atan(-leg_pos.z / L));
+
+			local_tibia_joint_pos = leg_pos -
+				dl_vec::SVector {HexapodConst::PHANTOMX_TIBIA_LENGTH* std::cos(coxa_joint_angle)* std::cos(end_angle),
+				HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(coxa_joint_angle)* std::cos(end_angle),
+				HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(end_angle)};
+		}
 
 
 		const float fumur_joint_angle = std::atan2f(

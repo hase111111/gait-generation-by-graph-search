@@ -1,11 +1,12 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "node.h"
 #include "designlab_polygon.h"
 #include "com_type.h"
-#include "hexapod_state_calculator.h"
+#include "abstract_hexapod_state_calculator.h"
 
 
 //! @class ComCandidatePolygonMaker
@@ -20,7 +21,7 @@ class ComCandidatePolygonMaker final
 {
 public:
 
-	ComCandidatePolygonMaker() = default;
+	ComCandidatePolygonMaker(std::shared_ptr<AbstractHexapodStateCalculator> calc) : mp_calculator(calc) {};
 
 
 	static constexpr int MAKE_POLYGON_NUM = 7;	//!< 作成する多角形の数
@@ -53,7 +54,7 @@ private:
 	static constexpr bool DO_CHECK_POLYGON = true;	// 多角形のチェックを行う場合はtrueにする．重いのでfalseにしたいが，深さ5までなら問題なし．
 
 
-	const HexapodStateCalclator m_calclator;
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 
 };
 

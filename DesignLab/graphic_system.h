@@ -6,6 +6,7 @@
 #include "abstract_graphic_main.h"
 #include "graphic_data_broker.h"
 #include "application_setting_recorder.h"
+#include "abstract_hexapod_state_calculator.h"
 #include "fps.h"
 
 
@@ -17,8 +18,12 @@ public:
 
 
 	//! @brief GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る.
-	//! @param [in] graphic_main GraphicSystemクラスのメンバ関数を呼び出すためのブローカークラスのポインタ．
-	void init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting);
+	//! @param [in] graphic_main_builder GraphicMainクラスのポインタを代入するためのインターフェースクラスのユニークポインタ．
+	//! @param [in] calc ロボットの状態を計算するクラスのシェアードポインタ．
+	//! @param [in] broker GraphicMainクラスにデータを渡すための仲介人クラスのポインタ．
+	//! @param [in] setting アプリケーションの設定を記録するクラスのポインタ．
+	void init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
+		const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting);
 
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br>initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br>

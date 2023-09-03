@@ -6,9 +6,11 @@
 #include "node.h"
 #include "Target.h"
 #include "graph_search_result.h"
+#include "application_setting_recorder.h"
 #include "interface_graph_tree_creator.h"
 #include "InterfaceGraphSearcher.h"
 #include "abstract_pass_finder_factory.h"
+#include "abstract_hexapod_state_calculator.h"
 
 
 //! @class AbstractPassFinder
@@ -21,9 +23,12 @@ class AbstractPassFinder
 {
 public:
 
-	AbstractPassFinder() = delete;
-	AbstractPassFinder(std::unique_ptr<AbstractPassFinderFactory>&& factory) : mp_factory(std::move(factory)) {};
+	AbstractPassFinder() = default;
 	virtual ~AbstractPassFinder() = default;
+
+
+	void init(std::unique_ptr<AbstractPassFinderFactory>&& factory, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] current_node 現在の状態を表すノード
@@ -32,6 +37,7 @@ public:
 	//! @param [out] output_node 結果のノード
 	//! @return EGraphSearchResult グラフ探索の結果を返す．
 	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) = 0;
+
 
 	//! @brief 作成したグラフの数を返す
 	//! @return int 作成したグラフの数
@@ -56,9 +62,12 @@ protected:
 
 	std::vector<SNode> m_graph_tree;	//!< グラフ木
 
+
 	std::unique_ptr<AbstractPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
-	std::unique_ptr<IGraphTreeCreator> mp_tree_creator;	//!< グラフ木の作成クラス
-	std::unique_ptr<IGraphSearcher> mp_searcher;	//!< グラフ探索クラス
+
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
+
+	const SApplicationSettingRecorder* mp_setting;	//!< 設定を記録するクラス
 };
 
 

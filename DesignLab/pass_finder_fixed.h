@@ -14,7 +14,7 @@
 class PassFinderFixed final :public AbstractPassFinder
 {
 public:
-	PassFinderFixed(std::unique_ptr<AbstractPassFinderFactory>&& factory) : AbstractPassFinder(std::move(factory)) {};
+	PassFinderFixed() = default;
 	~PassFinderFixed() = default;
 
 	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;

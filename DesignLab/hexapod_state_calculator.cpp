@@ -44,7 +44,9 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
+		float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
+
+		if (_node.leg_pos[i].x == 0 || _node.leg_pos[i].y == 0) { _coxa_joint_angle = HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i]; }
 
 		m_local_femurjoint_pos[i] = dl_vec::SVector(HexapodConst::PHANTOMX_COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * sin(_coxa_joint_angle), 0);
 

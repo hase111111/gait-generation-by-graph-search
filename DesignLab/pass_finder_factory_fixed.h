@@ -13,7 +13,7 @@ public:
 	PassFinderFactoryFixed() = default;
 	~PassFinderFactoryFixed() = default;
 
-	void createGraphTreeCreator(const MapState* const map, std::unique_ptr<IGraphTreeCreator>& tree) override;
+	void createGraphTreeCreator(const MapState* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) override;
 
 	void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) override;
 };

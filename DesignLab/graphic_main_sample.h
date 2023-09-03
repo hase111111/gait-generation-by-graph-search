@@ -1,4 +1,5 @@
 #pragma once
+
 #include "abstract_graphic_main.h"
 
 
@@ -17,7 +18,8 @@
 class GraphicMainSample final : public AbstractGraphicMain
 {
 public:
-	GraphicMainSample(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting) : AbstractGraphicMain(broker, setting) {};
+	GraphicMainSample(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
+		: AbstractGraphicMain(broker, calc, setting) {};
 	~GraphicMainSample() = default;
 
 	bool update() override;

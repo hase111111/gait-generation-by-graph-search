@@ -28,7 +28,7 @@
 class GraphicMainBasic final : public AbstractGraphicMain
 {
 public:
-	GraphicMainBasic(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
+	GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 	~GraphicMainBasic() = default;
 
 	bool update() override;

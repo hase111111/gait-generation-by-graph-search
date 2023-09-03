@@ -1,10 +1,12 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "node.h"
 #include "map_state.h"
 #include "hexapod_next_move.h"
+#include "abstract_hexapod_state_calculator.h"
 
 
 //! @class INodeCreator
@@ -16,7 +18,7 @@ class INodeCreator
 public:
 
 	//! @brief コンストラクタでは次動作を設定する．またマップのポインタを受け取る
-	INodeCreator(const MapState* const p_map, const EHexapodMove next_move) : m_next_move(next_move) {};
+	INodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move) : m_next_move(next_move) {};
 	virtual ~INodeCreator() = default;
 
 
@@ -29,7 +31,6 @@ public:
 protected:
 
 	const EHexapodMove m_next_move;	//!< 次動作
-
 };
 
 

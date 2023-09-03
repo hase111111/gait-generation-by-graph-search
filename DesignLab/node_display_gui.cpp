@@ -7,10 +7,17 @@
 
 const int NodeDisplayGUI::BOX_SIZE_X = 450;
 const int NodeDisplayGUI::BOX_SIZE_Y = 550;
-
+const int NodeDisplayGUI::BOX_SIZE_Y_CLOSED = 50;
 
 NodeDisplayGUI::NodeDisplayGUI(const int x_pos, const int y_pos) : kGUILeftPosX(x_pos), kGUITopPosY(y_pos)
 {
+	//ボタンを作成する
+	const int kButtonSizeX = 100;
+	const int kButtonSizeY = 30;
+	m_buttons[EButtonType::OPEN_CLOSE] = std::make_unique<ButtomController>(kGUILeftPosX + BOX_SIZE_X - kButtonSizeX / 2 - 10, kGUITopPosY + 10 + kButtonSizeY / 2,
+		kButtonSizeX, kButtonSizeY, "最大/小化");
+	m_buttons[EButtonType::SWITCHING] = std::make_unique<ButtomController>(kGUILeftPosX + BOX_SIZE_X - kButtonSizeX / 2 - 10, kGUITopPosY + BOX_SIZE_Y - kButtonSizeY / 2 - 10,
+		kButtonSizeX, kButtonSizeY, "切り替え");
 }
 
 
@@ -23,17 +30,84 @@ void NodeDisplayGUI::setDisplayNode(const SNode& node)
 }
 
 
+void NodeDisplayGUI::update()
+{
+	//ボタンの更新を行う
+	for (auto& button : m_buttons)
+	{
+		button.second->update();
+
+		if (button.first == EButtonType::OPEN_CLOSE && button.second->isPushedNow())
+		{
+			m_is_closed = !m_is_closed;
+		}
+		else if (button.first == EButtonType::SWITCHING && !m_is_closed && button.second->isPushedNow())
+		{
+			if (m_display_type == EDisplayType::DEFUALT)
+			{
+				m_display_type = EDisplayType::LEG_STATE;
+			}
+			else
+			{
+				m_display_type = EDisplayType::DEFUALT;
+			}
+		}
+	}
+}
+
+
 void NodeDisplayGUI::draw() const
+{
+	// 枠
+	drawBackground();
+
+	// テキスト
+	if (!m_is_closed)
+	{
+		if (m_display_type == EDisplayType::DEFUALT)
+		{
+			drawNodeInfo();
+		}
+		else
+		{
+
+		}
+	}
+
+
+	//ボタンを描画する
+	for (auto& button : m_buttons)
+	{
+		if (!(button.first == EButtonType::SWITCHING && m_is_closed))
+		{
+			button.second->draw();
+		}
+	}
+}
+
+
+void NodeDisplayGUI::drawBackground() const
 {
 	const unsigned int kBoxColor = GetColor(255, 255, 255);
 	const unsigned int kBoxAlpha = 200;
 
-	// 枠
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-	DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + BOX_SIZE_X, kGUITopPosY + BOX_SIZE_Y, kBoxColor, TRUE);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	if (m_is_closed)
+	{
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
+		DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + BOX_SIZE_X, kGUITopPosY + BOX_SIZE_Y_CLOSED, kBoxColor, TRUE);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	}
+	else
+	{
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
+		DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + BOX_SIZE_X, kGUITopPosY + BOX_SIZE_Y, kBoxColor, TRUE);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	}
 
-	// テキスト
+}
+
+void NodeDisplayGUI::drawNodeInfo() const
+{
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kBaseTextColor = GetColor(50, 50, 50);
 	const int kTextXPos = kGUILeftPosX + 10;

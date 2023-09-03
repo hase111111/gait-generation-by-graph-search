@@ -1,7 +1,10 @@
 #pragma once
 
+#include <memory>
+
 #include "graphic_data_broker.h"
 #include "application_setting_recorder.h"
+#include "abstract_hexapod_state_calculator.h"
 
 
 //! @class AbstractGraphicMain
@@ -18,7 +21,7 @@ class AbstractGraphicMain
 public:
 
 	//! @brief このクラスの継承先では，GraphicDataBrokerクラスのポインタを引数に持つコンストラクタを実装する必要がある．
-	AbstractGraphicMain(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting);
+	AbstractGraphicMain(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 
 	virtual ~AbstractGraphicMain() = default;
 
@@ -33,9 +36,11 @@ public:
 
 protected:
 
-	const GraphicDataBroker* const mp_broker;				//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
+	const GraphicDataBroker* const mp_broker;						//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
 
-	const SApplicationSettingRecorder* const mp_setting;	//!< アプリケーションの設定を記録するクラスのポインタを受け取る．
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//! < ロボットの状態を計算するクラスのシェアードポインタを受け取る．
+
+	const SApplicationSettingRecorder* const mp_setting;			//!< アプリケーションの設定を記録するクラスのポインタを受け取る．
 
 };
 

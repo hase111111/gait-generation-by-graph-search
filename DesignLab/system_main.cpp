@@ -12,7 +12,8 @@
 #include "graphic_main_test.h"
 
 
-SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<IGraphicMainBuilder>&& builder, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
+SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<AbstractPassFinderFactory>&& graph_search_factory,
+	std::unique_ptr<IGraphicMainBuilder>&& builder, std::shared_ptr<AbstractHexapodStateCalculator> calc, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
@@ -30,8 +31,13 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 	//グラフ探索クラスをセットする
 	mp_pass_finder = std::move(graph_search);
 
+	calc->init();
+
+	mp_pass_finder->init(std::move(graph_search_factory), calc, mp_setting);
+
+
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_graphic_system.init(std::move(builder), &m_broker, mp_setting);
+	m_graphic_system.init(std::move(builder), calc, &m_broker, mp_setting);
 
 	//この探索での目標を設定する．
 	m_target.TargetMode = ETargetMode::StraightPosition;

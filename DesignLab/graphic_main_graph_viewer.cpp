@@ -8,15 +8,14 @@
 #include "Keyboard.h"
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, setting), m_map_state(broker->getMapState())
+GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
+	: AbstractGraphicMain(broker, calc, setting), m_map_state(broker->getMapState())
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
 	init_node.init(false);
 
 	m_hexapod_renderer.update(init_node);
-	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(init_node.global_center_of_mass));
 
 	// GUI にグラフのポインタを渡す.
 	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index, mp_setting);
@@ -25,8 +24,6 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  b
 
 bool GraphicMainGraphViewer::update()
 {
-	updateCameraState();
-
 	mp_gui_controller->update();
 
 	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
@@ -45,7 +42,11 @@ bool GraphicMainGraphViewer::update()
 	if (m_display_node_index < m_graph.size() && m_graph.size() > 0)
 	{
 		m_hexapod_renderer.update(m_graph.at(m_display_node_index));
+
+		m_camera_gui.setHexapodPos(m_graph.at(m_display_node_index).global_center_of_mass);
 	}
+
+	m_camera_gui.update();
 
 	return true;
 }
@@ -53,7 +54,10 @@ bool GraphicMainGraphViewer::update()
 
 void GraphicMainGraphViewer::draw() const
 {
+	dl_dxlib::setZBufferEnable();
+
 	MapRenderer map_renderer;
+
 	map_renderer.draw(m_map_state);
 
 	if (m_display_node_index < m_graph.size())
@@ -63,22 +67,6 @@ void GraphicMainGraphViewer::draw() const
 
 
 	mp_gui_controller->draw();
-}
 
-
-void GraphicMainGraphViewer::updateCameraState()
-{
-	m_camera_manager.update();
-
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1)
-	{
-		m_camera_mode++;
-		m_camera_mode %= 5;
-		m_camera_manager.setCameraViewMode(static_cast<ECameraMode>(m_camera_mode));
-	}
-
-	if (m_display_node_index < m_graph.size())
-	{
-		m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(m_graph.at(m_display_node_index).global_center_of_mass));
-	}
+	m_camera_gui.draw();
 }
