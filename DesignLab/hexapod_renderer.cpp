@@ -7,7 +7,8 @@
 #include "designlab_math.h"
 
 
-HexapodRenderer::HexapodRenderer() :
+HexapodRenderer::HexapodRenderer(std::shared_ptr<AbstractHexapodStateCalculator> calc) :
+	mp_calculator(calc),
 	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
 	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16),
 	COLOR_LEG_BASE(GetColor(100, 200, 100))
@@ -15,9 +16,11 @@ HexapodRenderer::HexapodRenderer() :
 }
 
 
-void HexapodRenderer::update(const SNode& node)
+void HexapodRenderer::setNode(const SNode& node)
 {
-	m_HexaCalc.calclateJointPos(node);
+	m_draw_node = node;
+
+	mp_calculator->calculateAllJointState(node, m_draw_joint_state);
 }
 
 
@@ -28,7 +31,7 @@ void HexapodRenderer::draw(const SNode& node) const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
-		vertex[i] = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
+		vertex[i] = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[0]);
 	}
 
 	dl_dxlib::drawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
@@ -36,15 +39,18 @@ void HexapodRenderer::draw(const SNode& node) const
 	//ãrÇï`âÊÇ∑ÇÈÅD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR kLegEndPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegPos(node, i, true));
-		const VECTOR kLegBasePos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(node, i, true));
-		const VECTOR kCoxaJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalCoxaJointPos(node, i, true));
-		const VECTOR kFemurJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalFemurJointPos(node, i));
-		const VECTOR kTibiaJointPos = dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalTibiaJointPos(node, i));
+		const VECTOR kCoxaJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[0]);
+		const VECTOR kFemurJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[1]);
+		const VECTOR kTibiaJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[2]);
+		const VECTOR kLegEndPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[3]);
+
+		const VECTOR kLegBasePos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[3]); //dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(node, i, true));
+
 
 		//ãrÇÃêFÇóVãrÅEê⁄ínÇ≈ïœçXÇ∑ÇÈÅD
 		const unsigned int kLegBaseColor = dl_leg::isGrounded(node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
 		const unsigned int kJointColor = dl_leg::isGrounded(node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+
 
 		//äeãrÇÃï`âÊ
 		DrawCapsule3D(kCoxaJointPos, kFemurJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
@@ -63,55 +69,55 @@ void HexapodRenderer::draw(const SNode& node) const
 		DrawSphere3D(kLegBasePos, JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
 
 
-		//ÉGÉâÅ[èoóÕ
-		if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(node, i, true), m_HexaCalc.getGlobalFemurJointPos(node, i)) == false)
-		{
-			DrawString((int)ConvWorldPosToScreenPos(kCoxaJointPos).x, (int)ConvWorldPosToScreenPos(kCoxaJointPos).y, "Error:Coxa", GetColor(255, 64, 64));
-		}
+		////ÉGÉâÅ[èoóÕ
+		//if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(node, i, true), m_HexaCalc.getGlobalFemurJointPos(node, i)) == false)
+		//{
+		//	DrawString((int)ConvWorldPosToScreenPos(kCoxaJointPos).x, (int)ConvWorldPosToScreenPos(kCoxaJointPos).y, "Error:Coxa", GetColor(255, 64, 64));
+		//}
 
-		if (isAbleFemurLeg(m_HexaCalc.getGlobalFemurJointPos(node, i), m_HexaCalc.getGlobalTibiaJointPos(node, i)) == false)
-		{
-			DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Femur", GetColor(64, 255, 64));
-		}
+		//if (isAbleFemurLeg(m_HexaCalc.getGlobalFemurJointPos(node, i), m_HexaCalc.getGlobalTibiaJointPos(node, i)) == false)
+		//{
+		//	DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Femur", GetColor(64, 255, 64));
+		//}
 
-		if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(node, i), m_HexaCalc.getGlobalLegPos(node, i, true)) == false)
-		{
-			DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Tibia", GetColor(64, 64, 255));
-		}
+		//if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(node, i), m_HexaCalc.getGlobalLegPos(node, i, true)) == false)
+		//{
+		//	DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Tibia", GetColor(64, 64, 255));
+		//}
 
-		if (DO_OUTPUT_DEBUG_LOG)
-		{
-			if (m_HexaCalc.isLegInRange(node, i))printfDx("ÅZ");
-			else printfDx("Å~");
+		//if (DO_OUTPUT_DEBUG_LOG)
+		//{
+		//	if (m_HexaCalc.isLegInRange(node, i))printfDx("ÅZ");
+		//	else printfDx("Å~");
 
-			printfDx(" LegNum: %d \t", i);
-			printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(node.leg_pos[i].z), m_HexaCalc.getMinLegR(node.leg_pos[i].z));
-			printfDx("%.3f\t", node.leg_pos[i].length());
+		//	printfDx(" LegNum: %d \t", i);
+		//	printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(node.leg_pos[i].z), m_HexaCalc.getMinLegR(node.leg_pos[i].z));
+		//	printfDx("%.3f\t", node.leg_pos[i].length());
 
-			if (m_HexaCalc.isLegInRange(node, i))printfDx("is in range   ");
-			else printfDx("isnot in range");
+		//	if (m_HexaCalc.isLegInRange(node, i))printfDx("is in range   ");
+		//	else printfDx("isnot in range");
 
-			if (node.leg_base_pos[i].projectedXY().cross(node.leg_pos[i].projectedXY()) * node.leg_pos[i].projectedXY().cross({ 1,0 }) > 0)
-			{
-				printfDx("front - 567\n");
-			}
-			else
-			{
-				printfDx("back - 123\n");
-			}
-		}
+		//	if (node.leg_base_pos[i].projectedXY().cross(node.leg_pos[i].projectedXY()) * node.leg_pos[i].projectedXY().cross({ 1,0 }) > 0)
+		//	{
+		//		printfDx("front - 567\n");
+		//	}
+		//	else
+		//	{
+		//		printfDx("back - 123\n");
+		//	}
+		//}
 	}
 
-	if (DO_OUTPUT_DEBUG_LOG)
-	{
-		//is Able Pause
-		if (m_HexaCalc.isAblePause(node)) { printfDx("ÅZ is Able Pause\n"); }
-		else { printfDx("Å~ isnot Able Pause\n"); }
+	//if (DO_OUTPUT_DEBUG_LOG)
+	//{
+	//	//is Able Pause
+	//	if (m_HexaCalc.isAblePause(node)) { printfDx("ÅZ is Able Pause\n"); }
+	//	else { printfDx("Å~ isnot Able Pause\n"); }
 
-		// leg Interfering
-		if (m_HexaCalc.isLegInterfering(node)) { printfDx("Å~ is Leg Interfering\n"); }
-		else { printfDx("ÅZ isnot Leg Interfering\n"); }
-	}
+	//	// leg Interfering
+	//	if (m_HexaCalc.isLegInterfering(node)) { printfDx("Å~ is Leg Interfering\n"); }
+	//	else { printfDx("ÅZ isnot Leg Interfering\n"); }
+	//}
 }
 
 

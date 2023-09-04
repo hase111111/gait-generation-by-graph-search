@@ -5,7 +5,7 @@
 
 #include "node.h"
 #include "button_controller.h"
-
+#include "abstract_hexapod_state_calculator.h"
 
 
 //! @class NodeDisplayGUI
@@ -15,8 +15,7 @@
 class NodeDisplayGUI final
 {
 public:
-	NodeDisplayGUI() = default;
-	NodeDisplayGUI(const int x_pos, const int y_pos);
+	NodeDisplayGUI(const int x_pos, const int y_pos, std::shared_ptr<AbstractHexapodStateCalculator> calc);
 
 
 	//! @brief 表示するノードを設定する
@@ -41,6 +40,8 @@ private:
 
 	void drawNodeInfo() const;
 
+	void drawJointInfo() const;
+
 
 	enum class EButtonType
 	{
@@ -56,12 +57,18 @@ private:
 
 
 	const int kGUILeftPosX = 0;
+
 	const int kGUITopPosY = 0;
 
 
 	std::map<EButtonType, std::unique_ptr<ButtomController>> m_buttons;	//!< ボタン
 
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< 六脚歩行ロボットの状態を計算するクラス
+
+
 	SNode m_node;	//!< 表示するノード
+
+	SHexapodJointState m_joint_state[HexapodConst::LEG_NUM];	//!< 関節の角度
 
 	bool m_is_closed = false;	//!< GUIが閉じているかどうか
 

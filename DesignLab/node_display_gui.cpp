@@ -9,11 +9,15 @@ const int NodeDisplayGUI::BOX_SIZE_X = 450;
 const int NodeDisplayGUI::BOX_SIZE_Y = 550;
 const int NodeDisplayGUI::BOX_SIZE_Y_CLOSED = 50;
 
-NodeDisplayGUI::NodeDisplayGUI(const int x_pos, const int y_pos) : kGUILeftPosX(x_pos), kGUITopPosY(y_pos)
+
+
+NodeDisplayGUI::NodeDisplayGUI(const int x_pos, const int y_pos, std::shared_ptr<AbstractHexapodStateCalculator> calc) :
+	kGUILeftPosX(x_pos), kGUITopPosY(y_pos), mp_calculator(calc)
 {
 	//ボタンを作成する
 	const int kButtonSizeX = 100;
 	const int kButtonSizeY = 30;
+
 	m_buttons[EButtonType::OPEN_CLOSE] = std::make_unique<ButtomController>(kGUILeftPosX + BOX_SIZE_X - kButtonSizeX / 2 - 10, kGUITopPosY + 10 + kButtonSizeY / 2,
 		kButtonSizeX, kButtonSizeY, "最大/小化");
 	m_buttons[EButtonType::SWITCHING] = std::make_unique<ButtomController>(kGUILeftPosX + BOX_SIZE_X - kButtonSizeX / 2 - 10, kGUITopPosY + BOX_SIZE_Y - kButtonSizeY / 2 - 10,
@@ -26,7 +30,8 @@ void NodeDisplayGUI::setDisplayNode(const SNode& node)
 	//ノードをセットする
 	m_node = node;
 
-	//! @todo 関節の角度を計算する
+	// 関節の角度をセットする
+	mp_calculator->calculateAllJointState(m_node, m_joint_state);
 }
 
 
@@ -70,7 +75,7 @@ void NodeDisplayGUI::draw() const
 		}
 		else
 		{
-
+			drawJointInfo();
 		}
 	}
 
@@ -156,4 +161,35 @@ void NodeDisplayGUI::drawNodeInfo() const
 		"深さ：%d, 次の動作 : %s", static_cast<int>(m_node.depth), std::to_string(m_node.next_move).c_str());
 
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "単位は長さが[mm]，角度が[rad]");
+}
+
+
+void NodeDisplayGUI::drawJointInfo() const
+{
+	const unsigned int kTextColor = GetColor(10, 10, 10);
+	const unsigned int kBaseTextColor = GetColor(50, 50, 50);
+	const int kTextXPos = kGUILeftPosX + 10;
+	const int kTextYMinPos = kGUITopPosY + 10;
+	const int kTextYInterval = 30;
+
+	int text_line = 0;
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[rad],f %3.3f[rad],t %3.3f[rad]",
+			i, m_joint_state[i].joint_angle[0], m_joint_state[i].joint_angle[1], m_joint_state[i].joint_angle[2]);
+
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]",
+			dl_math::convertRadToDeg(m_joint_state[i].joint_angle[0]), dl_math::convertRadToDeg(m_joint_state[i].joint_angle[1]), dl_math::convertRadToDeg(m_joint_state[i].joint_angle[2]));
+	}
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]", i,
+			(m_joint_state[i].local_joint_position[0] - m_joint_state[i].local_joint_position[1]).length(),
+			(m_joint_state[i].local_joint_position[1] - m_joint_state[i].local_joint_position[2]).length(),
+			(m_joint_state[i].local_joint_position[2] - m_joint_state[i].local_joint_position[3]).length()
+		);
+	}
+
 }

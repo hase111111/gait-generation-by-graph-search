@@ -8,14 +8,15 @@
 #include "Keyboard.h"
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, calc, setting), m_map_state(broker->getMapState())
+GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting) :
+	AbstractGraphicMain(broker, calc, setting), m_map_state(broker->getMapState()),
+	m_hexapod_renderer(calc)
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
 	init_node.init(false);
 
-	m_hexapod_renderer.update(init_node);
+	m_hexapod_renderer.setNode(init_node);
 
 	// GUI にグラフのポインタを渡す.
 	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index, mp_setting);
@@ -41,7 +42,7 @@ bool GraphicMainGraphViewer::update()
 	//HexapodReanderの更新
 	if (m_display_node_index < m_graph.size() && m_graph.size() > 0)
 	{
-		m_hexapod_renderer.update(m_graph.at(m_display_node_index));
+		m_hexapod_renderer.setNode(m_graph.at(m_display_node_index));
 
 		m_camera_gui.setHexapodPos(m_graph.at(m_display_node_index).global_center_of_mass);
 	}

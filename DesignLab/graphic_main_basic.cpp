@@ -9,9 +9,11 @@
 
 GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
 	: AbstractGraphicMain(broker, calc, setting),
-	m_map_state(mp_broker->getMapState()), kNodeGetCount(setting->window_fps * 2),
-	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10),
-	m_display_node_switch_gui(10, mp_setting->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10)
+	m_map_state(mp_broker->getMapState()),
+	kNodeGetCount(setting->window_fps * 2),
+	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10, calc),
+	m_display_node_switch_gui(10, mp_setting->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10),
+	m_hexapod_renderer(calc)
 {
 	m_node.clear();
 }
@@ -50,13 +52,17 @@ bool GraphicMainBasic::update()
 	//ノードが存在しているのならば，各クラスに情報を伝達する
 	if (!m_node.empty())
 	{
-		m_display_node = (int)m_display_node_switch_gui.getDisplayNodeNum();	//表示するノードを取得する．
+		// 表示ノードが変更されたら，表示するノードを変更する．
+		if (m_display_node != (int)m_display_node_switch_gui.getDisplayNodeNum())
+		{
+			m_display_node = (int)m_display_node_switch_gui.getDisplayNodeNum();	//表示するノードを取得する．
 
-		m_hexapod_renderer.update(m_node.at(m_display_node));					//ロボットの状態を更新する．
+			m_hexapod_renderer.setNode(m_node.at(m_display_node));					//ロボットの状態を更新する．
 
-		m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);		//カメラの位置を更新する．
+			m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);		//カメラの位置を更新する．
 
-		m_node_display_gui.setDisplayNode(m_node.at(m_display_node));			//ノードの情報を表示するGUIに情報を伝達する．
+			m_node_display_gui.setDisplayNode(m_node.at(m_display_node));			//ノードの情報を表示するGUIに情報を伝達する．
+		}
 	}
 
 

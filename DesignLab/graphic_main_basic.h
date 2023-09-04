@@ -55,7 +55,7 @@ private:
 
 	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector
 
-	int m_display_node = 0;				//描画しているノード
+	int m_display_node = -1;				//描画しているノード
 
 	MapState m_map_state;				//表示するマップ．
 

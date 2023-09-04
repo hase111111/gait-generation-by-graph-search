@@ -3,15 +3,16 @@
 #include "designlab_dxlib.h"
 #include "map_renderer.h"
 #include "Keyboard.h"
-
+#include "hexapod_state_calculator.h"
 
 constexpr int temp_size = 50;
 constexpr auto temp_ex = 10.8;
 bool temp[HexapodConst::LEG_NUM][temp_size][temp_size][temp_size] = {};
 
 
-GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, calc, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10)
+GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting) :
+	AbstractGraphicMain(broker, calc, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10, calc),
+	m_hexapod_renderer(calc)
 {
 	m_node.init(false);
 
@@ -26,8 +27,8 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::sh
 			{
 				for (int z = 0; z < temp_size; z += 1)
 				{
-					dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
-					pos *= temp_ex;
+					dl_vec::SVector pos((float)x - temp_size / 2, (float)y - temp_size / 2, (float)z - temp_size / 2);
+					pos *= (float)temp_ex;
 
 					if (mp_calculator->isLegInRange(i, pos))
 					{
@@ -129,9 +130,11 @@ bool GraphicMainTest::update()
 		}
 	}
 
-	m_hexapod_renderer.update(m_node);
+	m_hexapod_renderer.setNode(m_node);
 
 	m_node_display_gui.setDisplayNode(m_node);
+
+	m_node_display_gui.update();
 
 	m_camera_gui.setHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
 
@@ -174,10 +177,10 @@ void GraphicMainTest::draw() const
 				{
 					if (temp[i][x][y][z])
 					{
-						dl_vec::SVector pos(x - temp_size / 2, y - temp_size / 2, z - temp_size / 2);
-						pos *= temp_ex;
+						dl_vec::SVector pos(x - (float)temp_size / 2, y - (float)temp_size / 2, z - (float)temp_size / 2);
+						pos *= (float)temp_ex;
 
-						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
 						unsigned int color[6] = { GetColor(255, 128, 255),GetColor(255, 128, 128),GetColor(255, 255, 128)
 						,GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255) };
 						dl_dxlib::drawCube3D(dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
