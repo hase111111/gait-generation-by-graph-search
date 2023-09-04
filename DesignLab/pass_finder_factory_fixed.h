@@ -15,7 +15,7 @@ public:
 
 	void createGraphTreeCreator(const MapState* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) override;
 
-	void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) override;
+	void createGraphSearcher(std::unique_ptr<AbstractGraphSearcher>& searcher, std::shared_ptr<AbstractHexapodStateCalculator> calc) override;
 };
 
 

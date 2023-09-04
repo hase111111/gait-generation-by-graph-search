@@ -9,8 +9,10 @@
 #include "designlab_math.h"
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
-	: INodeCreator(p_map, calc, next_move), mp_map(p_map)
+ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move) :
+	INodeCreator(p_map, calc, next_move),
+	mp_map(p_map),
+	mp_calclator(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -37,11 +39,20 @@ void ComUpDownNodeCreator::create(const SNode& current_node, const int current_n
 	//マップの最大z座標を求める．
 	const int kMapX = mp_map->getDevideMapNumX(current_node.global_center_of_mass.x);
 	const int kMapY = mp_map->getDevideMapNumY(current_node.global_center_of_mass.y);
-	const float kMapHighestZ = mp_map->getTopZFromDevideMap(kMapX, kMapY);
+	float map_highest_z = mp_map->getTopZFromDevideMap(kMapX, kMapY);
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		const dl_vec::SVector kCoxaVec = mp_calclator->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
+		const int kCoxaX = mp_map->getDevideMapNumX(kCoxaVec.x);
+		const int kCoxaY = mp_map->getDevideMapNumY(kCoxaVec.y);
+		float map_highest_z = (std::max)(mp_map->getTopZFromDevideMap(kCoxaX, kCoxaY), map_highest_z);
+	}
+
 
 	//ロボットの重心の最も低く下げることのできるz座標と，高くあげることができるz座標を求める．どちらもグローバル座標．
-	float highest_body_zpos = kMapHighestZ + HexapodConst::VERTICAL_MAX_RANGE;
-	float lowest_body_zpos = kMapHighestZ + HexapodConst::VERTICAL_MIN_RANGE;
+	float highest_body_zpos = map_highest_z + HexapodConst::VERTICAL_MAX_RANGE;
+	float lowest_body_zpos = map_highest_z + HexapodConst::VERTICAL_MIN_RANGE;
 
 
 	// 最も高い地点を修正する．
@@ -75,13 +86,12 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 		//最大と最小の間を分割する．
 		const float kDivZ = (high - low) / (float)DISCRETIZATION;
 
-		//現在の重心との差分が一番小さいものを探す．
-		float dif_min = 100000.0f;
-		int dif_min_index = -1;
 
 		//分割した分新しいノードを追加する．
 		for (int i = 0; i < DISCRETIZATION + 1; i++)
 		{
+			bool is_vaild = true;
+
 			SNode new_node = current_node;
 
 			//重心の位置を変更する．
@@ -90,21 +100,22 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 
 			new_node.changeGlobalCenterOfMass(new_com, true);
 
-			if (dif_min > abs(current_node.global_center_of_mass.z - new_node.global_center_of_mass.z))
+
+			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 			{
-				dif_min = abs(current_node.global_center_of_mass.z - new_node.global_center_of_mass.z);
-				dif_min_index = i;
+				if (!mp_calclator->isLegInRange(i, new_node.leg_pos[i])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する
 			new_node.changeNextNode(current_num, m_next_move);
 
 			//ノードを追加する．
-			(*output_graph).emplace_back(new_node);
+			if (is_vaild)
+			{
+				(*output_graph).emplace_back(new_node);
+			}
 		}
 
-		//一番差分が小さくものを消す
-		if (dif_min_index >= 0) { (*output_graph).erase((*output_graph).begin() + dif_min_index); }
 	}
 
 

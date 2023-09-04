@@ -19,7 +19,7 @@ const SettingTableData ApplicationSettingKey::MODE_TABLE = { "mode" ,u8"プログラ
 
 const SettingKeyData ApplicationSettingKey::ASK_ABOUT_MODES = { ApplicationSettingKey::MODE_TABLE.table_name ,"ask_about_modes",u8"起動時に実行モードについて質問をするようにします (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode",u8"デフォルトの実行モードを設定します．(simulation/viewer)" };
+const SettingKeyData ApplicationSettingKey::DEFAULT_MODE = { ApplicationSettingKey::MODE_TABLE.table_name ,"default_mode",u8"デフォルトの実行モードを設定します．(simulation/viewer/display_test)" };
 
 const SettingKeyData ApplicationSettingKey::DO_STEP_EXECUTION = { ApplicationSettingKey::MODE_TABLE.table_name ,"do_step_execution",u8"シミュレーションをステップ実行するかどうかを設定します (true/false)" };
 

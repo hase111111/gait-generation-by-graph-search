@@ -2,6 +2,8 @@
 
 #include <memory>
 
+#include "DxLib.h"
+
 #include "node.h"
 #include "hexapod_const.h"
 #include "abstract_hexapod_state_calculator.h"
@@ -22,8 +24,7 @@ public:
 	void setNode(const SNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
-	//! @param [in] node 描画するロボットの状態
-	void draw(const SNode& node) const;
+	void draw() const;
 
 private:
 
@@ -38,6 +39,10 @@ private:
 	const unsigned int COLOR_JOINT;			// ジョイントの色
 	const unsigned int COLOR_LIFTED_JOINT;	// 遊脚しているジョイントの色
 	const unsigned int COLOR_LEG_BASE;		// 脚の基部の色
+	const unsigned int COLOR_KINE_LEG;
+	const unsigned int COLOR_KINE_JOINT;
+	const unsigned int COLOR_ERROR_JOINT;			// 文字の色
+	const unsigned int COLOR_ERROR_TEXT;	// エラーの文字色
 
 	const int CAPSULE_DIV_NUM;				// ロボットのモデルの円柱をどれだけ細かく描画するか．4 ～ 20ぐらいがちょうどよいと思う．
 	const int SPHERE_DIV_NUM;				// ロボットのモデルの球をどれだけ細かく描画するか．16 ～ 32ぐらいがちょうどよいと思う．
@@ -52,6 +57,38 @@ private:
 	SNode m_draw_node;						// 描画するロボットの状態
 
 	SHexapodJointState m_draw_joint_state[HexapodConst::LEG_NUM];	// 描画するロボットのジョイントの状態
+
+
+	VECTOR kCoxaJointPos[HexapodConst::LEG_NUM];
+	VECTOR kFemurJointPos[HexapodConst::LEG_NUM];
+	VECTOR kTibiaJointPos[HexapodConst::LEG_NUM];
+	VECTOR kLegEndPos[HexapodConst::LEG_NUM];
+	VECTOR kLegBasePos[HexapodConst::LEG_NUM];
+
+	float kCoxaCos[HexapodConst::LEG_NUM];
+	float kCoxaSin[HexapodConst::LEG_NUM];
+	float kFemurCos[HexapodConst::LEG_NUM];
+	float kFemurSin[HexapodConst::LEG_NUM];
+	float kTibiaCos[HexapodConst::LEG_NUM];
+	float kTibiaSin[HexapodConst::LEG_NUM];
+
+	dl_vec::SVector kKineCoxaJointVec[HexapodConst::LEG_NUM];
+	dl_vec::SVector kKineFemurJointVec[HexapodConst::LEG_NUM];
+	dl_vec::SVector kKineTibiaJointVec[HexapodConst::LEG_NUM];
+	dl_vec::SVector kKineLegVec[HexapodConst::LEG_NUM];
+
+	VECTOR kKineCoxaJointPos[HexapodConst::LEG_NUM];
+	VECTOR kKineFemurJointPos[HexapodConst::LEG_NUM];
+	VECTOR kKineTibiaJointPos[HexapodConst::LEG_NUM];
+	VECTOR kKineLegPos[HexapodConst::LEG_NUM];
+
+	float kCoxaLinkLength[HexapodConst::LEG_NUM];
+	float kFemurLinkLength[HexapodConst::LEG_NUM];
+	float kTibiaLinkLength[HexapodConst::LEG_NUM];
+
+	bool kIsAbleCoxaAngle[HexapodConst::LEG_NUM];
+	bool kIsAbleFemurAngle[HexapodConst::LEG_NUM];
+	bool kIsAbleTibiaAngle[HexapodConst::LEG_NUM];
 };
 
 

@@ -22,6 +22,13 @@ NodeDisplayGUI::NodeDisplayGUI(const int x_pos, const int y_pos, std::shared_ptr
 		kButtonSizeX, kButtonSizeY, "ç≈ëÂ/è¨âª");
 	m_buttons[EButtonType::SWITCHING] = std::make_unique<ButtomController>(kGUILeftPosX + BOX_SIZE_X - kButtonSizeX / 2 - 10, kGUITopPosY + BOX_SIZE_Y - kButtonSizeY / 2 - 10,
 		kButtonSizeX, kButtonSizeY, "êÿÇËë÷Ç¶");
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		m_joint_state[i].global_joint_position.resize(4);
+		m_joint_state[i].local_joint_position.resize(4);
+		m_joint_state[i].joint_angle.resize(3);
+	}
 }
 
 
@@ -114,7 +121,7 @@ void NodeDisplayGUI::drawBackground() const
 void NodeDisplayGUI::drawNodeInfo() const
 {
 	const unsigned int kTextColor = GetColor(10, 10, 10);
-	const unsigned int kBaseTextColor = GetColor(50, 50, 50);
+	const unsigned int kBaseTextColor = GetColor(80, 80, 80);
 	const int kTextXPos = kGUILeftPosX + 10;
 	const int kTextYMinPos = kGUITopPosY + 10;
 	const int kTextYInterval = 30;
@@ -167,29 +174,46 @@ void NodeDisplayGUI::drawNodeInfo() const
 void NodeDisplayGUI::drawJointInfo() const
 {
 	const unsigned int kTextColor = GetColor(10, 10, 10);
-	const unsigned int kBaseTextColor = GetColor(50, 50, 50);
+	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
 	const int kTextXPos = kGUILeftPosX + 10;
-	const int kTextYMinPos = kGUITopPosY + 10;
+	const int kTextYMinPos = kGUITopPosY + 50;
 	const int kTextYInterval = 30;
 
 	int text_line = 0;
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[rad],f %3.3f[rad],t %3.3f[rad]",
-			i, m_joint_state[i].joint_angle[0], m_joint_state[i].joint_angle[1], m_joint_state[i].joint_angle[2]);
-
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]",
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]", i,
 			dl_math::convertRadToDeg(m_joint_state[i].joint_angle[0]), dl_math::convertRadToDeg(m_joint_state[i].joint_angle[1]), dl_math::convertRadToDeg(m_joint_state[i].joint_angle[2]));
-	}
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
-	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]", i,
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
 			(m_joint_state[i].local_joint_position[0] - m_joint_state[i].local_joint_position[1]).length(),
 			(m_joint_state[i].local_joint_position[1] - m_joint_state[i].local_joint_position[2]).length(),
 			(m_joint_state[i].local_joint_position[2] - m_joint_state[i].local_joint_position[3]).length()
 		);
-	}
 
+
+		if (mp_calculator->isLegInRange(i, m_joint_state[i].local_joint_position[3]))
+		{
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    ãﬂéóíl true");
+		}
+		else
+		{
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "    ãﬂéóíl false");
+		}
+
+
+		std::string str = "";
+		if (m_joint_state[i].joint_angle[0] < HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MIN) { str += "coxa_min "; }
+		if (m_joint_state[i].joint_angle[0] > HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MAX) { str += "coxa_max "; }
+		if (m_joint_state[i].joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN) { str += "femur_min "; }
+		if (m_joint_state[i].joint_angle[1] > HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX) { str += "femur_max "; }
+		if (m_joint_state[i].joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN) { str += "tibia_min "; }
+		if (m_joint_state[i].joint_angle[2] > HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX) { str += "tibia_max "; }
+
+		if (!str.empty())
+		{
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "error %s", str.c_str());
+		}
+	}
 }

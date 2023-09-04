@@ -102,7 +102,7 @@ void GraphicMainBasic::draw() const
 	if (!m_node.empty())
 	{
 		//ノードが存在しているならば，ロボットを描画する．
-		m_hexapod_renderer.draw(m_node.at(m_display_node));
+		m_hexapod_renderer.draw();
 
 		m_stability_margin_renderer.draw(m_node.at(m_display_node));
 	}

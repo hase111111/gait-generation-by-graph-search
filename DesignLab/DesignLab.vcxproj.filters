@@ -219,7 +219,7 @@
     <ClInclude Include="pass_finder_hato.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
-    <ClInclude Include="GraphSearcherSample.h">
+    <ClInclude Include="graph_searcher_sample.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="graph_tree_creator_sample.h">
@@ -237,7 +237,7 @@
     <ClInclude Include="hexapod_state_calculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
-    <ClInclude Include="GraphSearcherRandom.h">
+    <ClInclude Include="graph_searcher_random.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_test.h">
@@ -249,7 +249,7 @@
     <ClInclude Include="abstract_pass_finder.h">
       <Filter>ソース ファイル\PassFinderSystem\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceGraphSearcher.h">
+    <ClInclude Include="abstract_graph_searcher.h">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector2.h">
@@ -515,7 +515,7 @@
     <ClCompile Include="pass_finder_hato.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
-    <ClCompile Include="GraphSearcherSample.cpp">
+    <ClCompile Include="graph_searcher_sample.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graph_tree_creator_sample.cpp">
@@ -533,7 +533,7 @@
     <ClCompile Include="hexapod_state_calculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
-    <ClCompile Include="GraphSearcherRandom.cpp">
+    <ClCompile Include="graph_searcher_random.cpp">
       <Filter>ソース ファイル\PassFinderSystem\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_test.cpp">

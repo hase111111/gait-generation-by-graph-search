@@ -17,7 +17,7 @@ public:
 
 	static constexpr dl_vec::SVector getLocalBaseLegPos(const int _leg_num, const float _z)
 	{
-		return { 150 * HexapodConst::DEFAULT_LEG_ANGLE_COS[_leg_num],150 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[_leg_num],_z };
+		return { 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[_leg_num],160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[_leg_num],_z };
 	}
 
 	//! @brief 第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．

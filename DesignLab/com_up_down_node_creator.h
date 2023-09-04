@@ -27,6 +27,8 @@ private:
 
 
 	const MapState* const mp_map;
+
+	std::shared_ptr<AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
 };
 
 

@@ -17,6 +17,9 @@ public:
 	bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const override;
 
 
+	dl_vec::SVector convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const override;
+
+
 	dl_vec::SVector getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const override;
 
 
@@ -34,7 +37,7 @@ private:
 
 	static constexpr int LEG_POS_DIV_NUM = 50;		//ãrà íuÇÃó£éUâªêî
 
-	static constexpr float LEG_POS_MARGIN = 22;
+	static constexpr float LEG_POS_MARGIN = 2;
 
 	static constexpr float LEG_POS_MIN = -(HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH + LEG_POS_MARGIN);	//ãrà íuÇÃç≈è¨íl
 
@@ -46,9 +49,6 @@ private:
 	{
 		constexpr float converter = LEG_POS_DIV_NUM / (LEG_POS_MAX - LEG_POS_MIN);
 		int res = static_cast<int>((leg_pos - LEG_POS_MIN) * converter);			// ó£éUâªÇµÇΩãrà íuÇéÊìæ
-
-		res = (std::max)(res, 0);						// 0à»è„Ç…Ç∑ÇÈ
-		res = (std::min)(res, LEG_POS_DIV_NUM - 1);		// LEG_POS_DIV_NUM - 1à»â∫Ç…Ç∑ÇÈ
 
 		return res;										// ó£éUâªÇµÇΩãrà íuÇï‘Ç∑
 	}

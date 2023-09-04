@@ -63,7 +63,7 @@ void GraphicMainGraphViewer::draw() const
 
 	if (m_display_node_index < m_graph.size())
 	{
-		m_hexapod_renderer.draw(m_graph.at(m_display_node_index));
+		m_hexapod_renderer.draw();
 	}
 
 

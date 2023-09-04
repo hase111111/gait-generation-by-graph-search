@@ -1,17 +1,17 @@
 #pragma once
 
-#include "InterfaceGraphSearcher.h"
+#include "abstract_graph_searcher.h"
 
 
 //! @class GraphSearcherHato
 //! @date 2023/08/14
 //! @author 長谷川
 //! @brief 波東先輩の手法で，グラフ探索を行うクラス．
-class GraphSearcherHato final : public IGraphSearcher
+class GraphSearcherHato final : public AbstractGraphSearcher
 {
 public:
 
-	GraphSearcherHato();
+	GraphSearcherHato(std::shared_ptr<AbstractHexapodStateCalculator> calc);
 	~GraphSearcherHato();
 
 	EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;

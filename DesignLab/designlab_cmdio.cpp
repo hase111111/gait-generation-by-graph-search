@@ -165,9 +165,10 @@ EBootMode dl_cio::selectBootMode(const SApplicationSettingRecorder* setting)
 	dl_cio::output(setting, "起動モードを選択してください", EOutputPriority::SYSTEM);
 	dl_cio::output(setting, "0: シミュレーション", EOutputPriority::SYSTEM);
 	dl_cio::output(setting, "1: グラフビューワー", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "2: デフォルトのモード ( " + std::to_string((*setting).default_mode) + " )", EOutputPriority::SYSTEM);
+	dl_cio::output(setting, "2: 表示テスト", EOutputPriority::SYSTEM);
+	dl_cio::output(setting, "other: デフォルトのモード ( " + std::to_string((*setting).default_mode) + " )", EOutputPriority::SYSTEM);
 
-	int input = dl_cio::inputInt(setting, 0, 2, 0);
+	int input = dl_cio::inputInt(setting, 0, static_cast<int>(EBootMode::DISPLAY_TEST), 0);
 
 	if (input == 0)
 	{
@@ -176,6 +177,10 @@ EBootMode dl_cio::selectBootMode(const SApplicationSettingRecorder* setting)
 	else if (input == 1)
 	{
 		return EBootMode::VIEWER;
+	}
+	else if (input == 2)
+	{
+		return EBootMode::DISPLAY_TEST;
 	}
 	else
 	{

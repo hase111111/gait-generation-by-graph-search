@@ -45,6 +45,16 @@ public:
 
 
 
+	//! @brief 【スレッドセーフ】グローバル座標系→脚座標系に変換する．
+	//! @param [in] leg_index 脚番号．
+	//! @param [in] global_pos グローバル座標系の座標．
+	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
+	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
+	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
+	virtual dl_vec::SVector convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& global_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+
+
+
 	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
 	//! @param [in] leg_index 脚番号．
 	//! @return dl_vec::SVector 脚の付け根の座標．ローカル座標系

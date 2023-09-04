@@ -25,8 +25,8 @@ public:
 	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = dl_math::convertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = dl_math::convertDegToRad(90.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = dl_math::convertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = dl_math::convertDegToRad(135.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = dl_math::convertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = dl_math::convertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
 													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };

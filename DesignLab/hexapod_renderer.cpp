@@ -11,7 +11,8 @@ HexapodRenderer::HexapodRenderer(std::shared_ptr<AbstractHexapodStateCalculator>
 	mp_calculator(calc),
 	COLOR_BODY(GetColor(23, 58, 235)), COLOR_LEG(GetColor(23, 58, 235)), COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
 	COLOR_JOINT(GetColor(100, 100, 200)), COLOR_LIFTED_JOINT(GetColor(200, 100, 100)), CAPSULE_DIV_NUM(6), SPHERE_DIV_NUM(16),
-	COLOR_LEG_BASE(GetColor(100, 200, 100))
+	COLOR_LEG_BASE(GetColor(100, 200, 100)), COLOR_KINE_LEG(GetColor(45, 45, 100)), COLOR_KINE_JOINT(GetColor(60, 60, 115)),
+	COLOR_ERROR_TEXT(GetColor(32, 32, 32)), COLOR_ERROR_JOINT(GetColor(180, 180, 64))
 {
 }
 
@@ -21,13 +22,49 @@ void HexapodRenderer::setNode(const SNode& node)
 	m_draw_node = node;
 
 	mp_calculator->calculateAllJointState(node, m_draw_joint_state);
+
+	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	{
+		kCoxaJointPos[i] = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[0]);
+		kFemurJointPos[i] = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[1]);
+		kTibiaJointPos[i] = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[2]);
+		kLegEndPos[i] = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[3]);
+		kLegBasePos[i] = dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, m_draw_node.leg_base_pos[i], m_draw_node.global_center_of_mass, m_draw_node.rot, true));
+
+		kCoxaCos[i] = std::cos(m_draw_joint_state[i].joint_angle[0]);
+		kCoxaSin[i] = std::sin(m_draw_joint_state[i].joint_angle[0]);
+		kFemurCos[i] = std::cos(m_draw_joint_state[i].joint_angle[1]);
+		kFemurSin[i] = std::sin(m_draw_joint_state[i].joint_angle[1]);
+		kTibiaCos[i] = std::cos(m_draw_joint_state[i].joint_angle[1] + m_draw_joint_state[i].joint_angle[2]);
+		kTibiaSin[i] = std::sin(m_draw_joint_state[i].joint_angle[1] + m_draw_joint_state[i].joint_angle[2]);
+
+		kKineCoxaJointVec[i] = m_draw_joint_state[i].local_joint_position[0];
+		kKineFemurJointVec[i] = kKineCoxaJointVec[i] + HexapodConst::PHANTOMX_COXA_LENGTH * dl_vec::SVector{kCoxaCos[i], kCoxaSin[i], 0};
+		kKineTibiaJointVec[i] = kKineFemurJointVec[i] + HexapodConst::PHANTOMX_FEMUR_LENGTH * dl_vec::SVector{kCoxaCos[i] * kFemurCos[i], kCoxaSin[i] * kFemurCos[i], kFemurSin[i]};
+		kKineLegVec[i] = kKineTibiaJointVec[i] + HexapodConst::PHANTOMX_TIBIA_LENGTH * dl_vec::SVector{kCoxaCos[i] * kTibiaCos[i], kCoxaSin[i] * kTibiaCos[i], kTibiaSin[i]};
+
+		kKineCoxaJointPos[i] = dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, kKineCoxaJointVec[i], m_draw_node.global_center_of_mass, m_draw_node.rot, true));
+		kKineFemurJointPos[i] = dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, kKineFemurJointVec[i], m_draw_node.global_center_of_mass, m_draw_node.rot, true));
+		kKineTibiaJointPos[i] = dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, kKineTibiaJointVec[i], m_draw_node.global_center_of_mass, m_draw_node.rot, true));
+		kKineLegPos[i] = dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, kKineLegVec[i], m_draw_node.global_center_of_mass, m_draw_node.rot, true));
+
+		kCoxaLinkLength[i] = (m_draw_joint_state[i].local_joint_position[0] - m_draw_joint_state[i].local_joint_position[1]).length();
+		kFemurLinkLength[i] = (m_draw_joint_state[i].local_joint_position[1] - m_draw_joint_state[i].local_joint_position[2]).length();
+		kTibiaLinkLength[i] = (m_draw_joint_state[i].local_joint_position[2] - m_draw_joint_state[i].local_joint_position[3]).length();
+
+		kIsAbleCoxaAngle[i] = !(m_draw_joint_state[i].joint_angle[0] < HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MIN ||
+			HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MAX < m_draw_joint_state[i].joint_angle[0]);
+		kIsAbleFemurAngle[i] = !(m_draw_joint_state[i].joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX < m_draw_joint_state[i].joint_angle[1]);
+		kIsAbleTibiaAngle[i] = !(m_draw_joint_state[i].joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX < m_draw_joint_state[i].joint_angle[2]);
+	}
 }
 
 
-void HexapodRenderer::draw(const SNode& node) const
+void HexapodRenderer::draw() const
 {
 	//“·‘Ì‚ð•`‰æ‚·‚éD
 	VECTOR vertex[6];
+
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//vertex[i] = convertToDxVec(_hexapod.getGlobalCoxaJointPos(i));
@@ -39,51 +76,67 @@ void HexapodRenderer::draw(const SNode& node) const
 	//‹r‚ð•`‰æ‚·‚éD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const VECTOR kCoxaJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[0]);
-		const VECTOR kFemurJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[1]);
-		const VECTOR kTibiaJointPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[2]);
-		const VECTOR kLegEndPos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[3]);
-
-		const VECTOR kLegBasePos = dl_dxlib::convertToDxVec(m_draw_joint_state[i].global_joint_position[3]); //dl_dxlib::convertToDxVec(m_HexaCalc.getGlobalLegBasePos(node, i, true));
-
-
 		//‹r‚ÌF‚ð—V‹rEÚ’n‚Å•ÏX‚·‚éD
-		const unsigned int kLegBaseColor = dl_leg::isGrounded(node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int kJointColor = dl_leg::isGrounded(node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
-
+		const unsigned int kLegBaseColor = dl_leg::isGrounded(m_draw_node.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
+		const unsigned int kJointColor = dl_leg::isGrounded(m_draw_node.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
 		//Še‹r‚Ì•`‰æ
-		DrawCapsule3D(kCoxaJointPos, kFemurJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
-		DrawCapsule3D(kFemurJointPos, kTibiaJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//femur
-		DrawCone3D(kLegEndPos, kTibiaJointPos, LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//tibia 
+		DrawCapsule3D(kCoxaJointPos[i], kFemurJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
+		DrawCapsule3D(kFemurJointPos[i], kTibiaJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//femur
+		DrawCone3D(kLegEndPos[i], kTibiaJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//tibia 
 
 		//ŠÔÚ‚Ì•`‰æ
-		DrawSphere3D(kCoxaJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
-		DrawSphere3D(kFemurJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
-		DrawSphere3D(kTibiaJointPos, JOINT_R, SPHERE_DIV_NUM, kJointColor, COLOR_LIFTED_JOINT, TRUE);
+		DrawSphere3D(kCoxaJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleCoxaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleCoxaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
+		DrawSphere3D(kFemurJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleFemurAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleFemurAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
+		DrawSphere3D(kTibiaJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleTibiaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleTibiaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
 
 		//‹ræ‚Ì•`‰æ
-		DrawSphere3D(kLegEndPos, JOINT_R / 2, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
+		DrawSphere3D(kLegEndPos[i], JOINT_R / 2, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
 
 		//‹r‚Ìƒx[ƒXÀ•W‚Ì•`‰æ
-		DrawSphere3D(kLegBasePos, JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+		DrawSphere3D(kLegBasePos[i], JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+
+
+		//‰^“®Šw‚ÅŒvŽZ‚µ‚½‹r‚Ì•`‰æ
+		DrawCapsule3D(kKineCoxaJointPos[i], kKineFemurJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//coxa
+		DrawCapsule3D(kKineFemurJointPos[i], kKineTibiaJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//femur
+		DrawCone3D(kKineLegPos[i], kKineTibiaJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//tibia
+
+		//‰^“®Šw‚ÅŒvŽZ‚µ‚½ŠÔÚ‚Ì•`‰æ
+		DrawSphere3D(kKineCoxaJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
+		DrawSphere3D(kKineFemurJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
+		DrawSphere3D(kKineTibiaJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
+
+		//‰^“®Šw‚ÅŒvŽZ‚µ‚½‹ræ‚Ì•`‰æ
+		DrawSphere3D(kKineLegPos[i], JOINT_R / 2 - 2, SPHERE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);
 
 
 		////ƒGƒ‰[o—Í
-		//if (isAbleCoxaLeg(m_HexaCalc.getGlobalCoxaJointPos(node, i, true), m_HexaCalc.getGlobalFemurJointPos(node, i)) == false)
-		//{
-		//	DrawString((int)ConvWorldPosToScreenPos(kCoxaJointPos).x, (int)ConvWorldPosToScreenPos(kCoxaJointPos).y, "Error:Coxa", GetColor(255, 64, 64));
-		//}
+		if (!dl_math::isEqual(kCoxaLinkLength[i], HexapodConst::PHANTOMX_COXA_LENGTH))
+		{
+			DrawString(
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[0] + m_draw_joint_state[i].global_joint_position[1]) / 2)).x,
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[0] + m_draw_joint_state[i].global_joint_position[1]) / 2)).y,
+				"Error : Coxa Length", COLOR_ERROR_TEXT);
+		}
 
-		//if (isAbleFemurLeg(m_HexaCalc.getGlobalFemurJointPos(node, i), m_HexaCalc.getGlobalTibiaJointPos(node, i)) == false)
-		//{
-		//	DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Femur", GetColor(64, 255, 64));
-		//}
+		if (!dl_math::isEqual(kFemurLinkLength[i], HexapodConst::PHANTOMX_FEMUR_LENGTH))
+		{
+			DrawString(
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[1] + m_draw_joint_state[i].global_joint_position[2]) / 2)).x,
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[1] + m_draw_joint_state[i].global_joint_position[2]) / 2)).y,
+				"Error : Femur Length", COLOR_ERROR_TEXT);
+		}
 
-		//if (isAbleTibiaLeg(m_HexaCalc.getGlobalTibiaJointPos(node, i), m_HexaCalc.getGlobalLegPos(node, i, true)) == false)
-		//{
-		//	DrawString((int)ConvWorldPosToScreenPos(kFemurJointPos).x, (int)ConvWorldPosToScreenPos(kFemurJointPos).y, "Error:Tibia", GetColor(64, 64, 255));
-		//}
+		if (!dl_math::isEqual(kTibiaLinkLength[i], HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		{
+			DrawString(
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[2] + m_draw_joint_state[i].global_joint_position[3]) / 2)).x,
+				(int)ConvWorldPosToScreenPos(dl_dxlib::convertToDxVec((m_draw_joint_state[i].global_joint_position[2] + m_draw_joint_state[i].global_joint_position[3]) / 2)).y,
+				"Error : Tibia Length", COLOR_ERROR_TEXT);
+		}
+
+
 
 		//if (DO_OUTPUT_DEBUG_LOG)
 		//{

@@ -1,12 +1,13 @@
-#include "GraphSearcherRandom.h"
-#include"designlab_math.h"
+#include "graph_searcher_random.h"
+
+#include "designlab_math.h"
 
 
 EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 
-	if (graph.empty() == true) { return EGraphSearchResult::Failure; }	//グラフがないなら失敗	
+	if (graph.empty()) { return EGraphSearchResult::Failure; }	//グラフがないなら失敗	
 
 
 	//グラフの中を全て探索する．
@@ -25,7 +26,9 @@ EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>
 
 	if (depth1_node.empty()) { return EGraphSearchResult::FailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
 
+
 	(*output_result) = depth1_node.at(dl_math::generateRandomNumber(0, (int)depth1_node.size() - 1));		// ランダムなやつを一つ選択する．
+
 
 	return EGraphSearchResult::Success;
 }

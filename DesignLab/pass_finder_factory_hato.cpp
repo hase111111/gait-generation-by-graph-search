@@ -32,11 +32,11 @@ void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, 
 }
 
 
-void PassFinderFactoryHato::createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher)
+void PassFinderFactoryHato::createGraphSearcher(std::unique_ptr<AbstractGraphSearcher>& searcher, std::shared_ptr<AbstractHexapodStateCalculator> calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[Factory] PassFinderFactoryHato: createGraphSearcher() グラフ探索クラスの作成開始\n\n"; }
 
-	std::unique_ptr<IGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>();
+	std::unique_ptr<AbstractGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calc);
 	searcher = std::move(p_searcher);
 
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[Factory] PassFinderFactoryHato: グラフ探索クラスの作成終了\n"; }

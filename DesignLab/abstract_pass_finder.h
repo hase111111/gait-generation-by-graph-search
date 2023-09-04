@@ -8,7 +8,7 @@
 #include "graph_search_result.h"
 #include "application_setting_recorder.h"
 #include "interface_graph_tree_creator.h"
-#include "InterfaceGraphSearcher.h"
+#include "abstract_graph_searcher.h"
 #include "abstract_pass_finder_factory.h"
 #include "abstract_hexapod_state_calculator.h"
 

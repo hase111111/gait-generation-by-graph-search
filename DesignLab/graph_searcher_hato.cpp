@@ -7,7 +7,7 @@
 #include "leg_state.h"
 
 
-GraphSearcherHato::GraphSearcherHato()
+GraphSearcherHato::GraphSearcherHato(std::shared_ptr<AbstractHexapodStateCalculator> calc) : AbstractGraphSearcher(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -39,6 +39,8 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 	int result_index = -1;
 	float max_rot_angle = 0;
 	float max_leg_rot_angle = 0;
+	float max_margin = 0;
+	float min_leg_dif = 0;
 
 	const size_t kGraphSize = graph.size();
 	size_t parent_num = getParentNodeIndex(graph);
@@ -58,26 +60,57 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 				result_index = static_cast<int>(i);
 				max_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
 				max_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
+				max_margin = mp_calculator->calcStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+				min_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 				continue;
 			}
 
 			float candiate_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
 			float candiate_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
+			float candiate_margin = mp_calculator->calcStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+			float candiate_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 
 			if (max_rot_angle < candiate_rot_angle)
 			{
 				max_rot_angle = candiate_rot_angle;
 				max_leg_rot_angle = candiate_leg_rot_angle;
+				max_margin = candiate_margin;
+				min_leg_dif = candiate_leg_dif;
 				result_index = static_cast<int>(i);
 			}
 			else if (dl_math::isEqual(max_rot_angle, candiate_rot_angle))
 			{
-				if (max_leg_rot_angle < candiate_leg_rot_angle)
+				if (min_leg_dif > candiate_leg_dif)
 				{
 					max_rot_angle = candiate_rot_angle;
 					max_leg_rot_angle = candiate_leg_rot_angle;
+					max_margin = candiate_margin;
+					min_leg_dif = candiate_leg_dif;
 					result_index = static_cast<int>(i);
 				}
+				else if (dl_math::isEqual(min_leg_dif, candiate_leg_dif))
+				{
+					if (max_leg_rot_angle < candiate_leg_rot_angle)
+					{
+						max_rot_angle = candiate_rot_angle;
+						max_leg_rot_angle = candiate_leg_rot_angle;
+						max_margin = candiate_margin;
+						min_leg_dif = candiate_leg_dif;
+						result_index = static_cast<int>(i);
+					}
+					else if (dl_math::isEqual(max_leg_rot_angle, candiate_leg_rot_angle))
+					{
+						if (max_margin < candiate_margin)
+						{
+							max_rot_angle = candiate_rot_angle;
+							max_leg_rot_angle = candiate_leg_rot_angle;
+							max_margin = candiate_margin;
+							min_leg_dif = candiate_leg_dif;
+							result_index = static_cast<int>(i);
+						}
+					}
+				}
+
 			}
 		}
 	}

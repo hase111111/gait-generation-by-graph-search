@@ -49,8 +49,8 @@
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
     <ClInclude Include="pass_finder_hato.h" />
-    <ClInclude Include="GraphSearcherRandom.h" />
-    <ClInclude Include="GraphSearcherSample.h" />
+    <ClInclude Include="graph_searcher_random.h" />
+    <ClInclude Include="graph_searcher_sample.h" />
     <ClInclude Include="pass_finder_hato_thread.h" />
     <ClInclude Include="pass_finder_none.h" />
     <ClInclude Include="graph_search_result.h" />
@@ -62,7 +62,7 @@
     <ClInclude Include="hexapod_renderer.h" />
     <ClInclude Include="hexapod_state_calculator.h" />
     <ClInclude Include="abstract_pass_finder.h" />
-    <ClInclude Include="InterfaceGraphSearcher.h" />
+    <ClInclude Include="abstract_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="abstract_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
@@ -150,8 +150,8 @@
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
     <ClCompile Include="pass_finder_hato.cpp" />
-    <ClCompile Include="GraphSearcherRandom.cpp" />
-    <ClCompile Include="GraphSearcherSample.cpp" />
+    <ClCompile Include="graph_searcher_random.cpp" />
+    <ClCompile Include="graph_searcher_sample.cpp" />
     <ClCompile Include="pass_finder_hato_thread.cpp" />
     <ClCompile Include="pass_finder_none.cpp" />
     <ClCompile Include="graph_search_result.cpp" />

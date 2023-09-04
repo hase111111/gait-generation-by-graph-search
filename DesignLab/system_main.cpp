@@ -23,7 +23,7 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 	m_result_exporter.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::MESH, MapCreator::OPTION_SLOPE, true);
+	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);

@@ -1,10 +1,12 @@
-#include "GraphSearcherSample.h"
+#include "graph_searcher_sample.h"
+
+
 
 EGraphSearchResult GraphSearcherSample::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
-	//ここに，グラフを評価して _output_result に値を入れる処理を書く．このクラスはサンプルなのでテキトーに選びます．
+	//ここに，グラフを評価して _output_result に値を入れる処理を書く．このクラスはサンプルなのでテキトーに選ぶ．
 
-	if (graph.empty() == true) { return EGraphSearchResult::Failure; }	//グラフがないならfalse	
+	if (graph.empty()) { return EGraphSearchResult::Failure; }	//グラフがないならfalse	
 
 
 	//グラフの中を全て探索する．
@@ -22,3 +24,4 @@ EGraphSearchResult GraphSearcherSample::searchGraphTree(const std::vector<SNode>
 	//見つからなければfalse
 	return EGraphSearchResult::FailureByNotReachedDepth;
 }
+

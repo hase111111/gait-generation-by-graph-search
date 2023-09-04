@@ -153,7 +153,7 @@ void GraphicMainTest::draw() const
 	map_render.draw(m_map_state);
 
 
-	m_hexapod_renderer.draw(m_node);
+	m_hexapod_renderer.draw();
 
 
 

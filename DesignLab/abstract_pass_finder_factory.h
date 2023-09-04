@@ -4,7 +4,7 @@
 
 #include "interface_graph_tree_creator.h"
 #include "abstract_hexapod_state_calculator.h"
-#include "InterfaceGraphSearcher.h"
+#include "abstract_graph_searcher.h"
 #include "map_state.h"
 
 
@@ -25,7 +25,7 @@ public:
 
 	//! @brief グラフ探索を行うクラスを生成する．
 	//! @param [out] searcher 歩容パターン生成の探索を行うクラス．
-	virtual void createGraphSearcher(std::unique_ptr<IGraphSearcher>& searcher) = 0;
+	virtual void createGraphSearcher(std::unique_ptr<AbstractGraphSearcher>& searcher, std::shared_ptr<AbstractHexapodStateCalculator> calc) = 0;
 };
 
 

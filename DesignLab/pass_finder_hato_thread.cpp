@@ -17,10 +17,10 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	if (!mp_factory) { return EGraphSearchResult::FailureByInitializationFailed; }
 
 	std::unique_ptr<IGraphTreeCreator> graph_tree_creator;	//!< グラフ木の作成クラス
-	std::unique_ptr<IGraphSearcher> graph_searcher;		//!< グラフ探索クラス
+	std::unique_ptr<AbstractGraphSearcher> graph_searcher;		//!< グラフ探索クラス
 
 	mp_factory->createGraphTreeCreator(p_map, mp_calculator, graph_tree_creator);
-	mp_factory->createGraphSearcher(graph_searcher);
+	mp_factory->createGraphSearcher(graph_searcher, mp_calculator);
 
 	//早期リターン．2つのクラスの初期化に失敗したならば，即座に終了する．
 	if (!graph_tree_creator) { return EGraphSearchResult::FailureByInitializationFailed; }

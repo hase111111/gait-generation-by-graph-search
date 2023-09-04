@@ -9,6 +9,8 @@ std::string std::to_string(const EBootMode boot_mode)
 		return "SIMULATION";
 	case EBootMode::VIEWER:
 		return "VIEWER";
+	case EBootMode::DISPLAY_TEST:
+		return "DISPLAY_TEST";
 	default:
 		return "UNKNOWN";
 	}
@@ -24,6 +26,10 @@ EBootMode std::sToMode(const std::string str)
 	else if (str == "VIEWER" || str == "viewer" || str == "Viewer")
 	{
 		return EBootMode::VIEWER;
+	}
+	else if (str == "DISPLAY_TEST" || str == "display_test" || str == "Display_test" || str == "Display_Test")
+	{
+		return EBootMode::DISPLAY_TEST;
 	}
 	else
 	{

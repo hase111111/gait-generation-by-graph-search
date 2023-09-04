@@ -56,6 +56,19 @@ bool PhantomXStateCalclator::calculateAllJointState(const SNode& node, SHexapodJ
 }
 
 
+dl_vec::SVector PhantomXStateCalclator::convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const
+{
+	if (consider_rot)
+	{
+		return dl_vec::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - getLocalLegBasePosition(leg_index);
+	}
+	else
+	{
+		return leg_pos - global_center_of_mass - getLocalLegBasePosition(leg_index);
+	}
+}
+
+
 dl_vec::SVector PhantomXStateCalclator::getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const
 {
 	return leg_pos + getLocalLegBasePosition(leg_index);
@@ -78,6 +91,11 @@ dl_vec::SVector PhantomXStateCalclator::getGlobalLegPosition(const int leg_index
 
 bool PhantomXStateCalclator::isLegInRange(const int leg_index, const dl_vec::SVector& leg_pos) const
 {
+	//範囲外ならfalse
+	if (getLegPosIndex(leg_pos.x) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.x)) { return false; }
+	if (getLegPosIndex(leg_pos.y) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.y)) { return false; }
+	if (getLegPosIndex(leg_pos.z) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.z)) { return false; }
+
 	return m_is_able_leg_pos[leg_index][getLegPosIndex(leg_pos.x)][getLegPosIndex(leg_pos.y)][getLegPosIndex(leg_pos.z)];
 }
 
@@ -124,15 +142,21 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 
 	// coxa関節の範囲内に存在しているかを確認する
-	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] > joint_state.joint_angle[0]) { return false; }
+	const float kCoxaMargim = dl_math::convertDegToRad(5.0f);
 
-	if (HexapodConst::PHANTOMX_COXA_ANGLE_MAX + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] < joint_state.joint_angle[0]) { return false; }
+	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
+
+	if (HexapodConst::PHANTOMX_COXA_ANGLE_MAX + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] - kCoxaMargim < joint_state.joint_angle[0]) { return false; }
 
 	// femur関節の範囲内に存在しているかを確認する
-	if (joint_state.joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX < joint_state.joint_angle[1]) { return false; }
+	const float kFemurMargim = dl_math::convertDegToRad(5.0f);
+
+	if (joint_state.joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN + kFemurMargim || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX - kFemurMargim < joint_state.joint_angle[1]) { return false; }
 
 	// tibia関節の範囲内に存在しているかを確認する
-	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX < joint_state.joint_angle[2]) { return false; }
+	const float kTibiaMargim = dl_math::convertDegToRad(5.0f);
+
+	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
 
 	// リンクの長さを確認する
 	if (!dl_math::isEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
@@ -175,48 +199,43 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 	(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 
-	// tibia jointの計算
-	const float L = (leg_pos.projectedXY() - femur_joint_pos.projectedXY()).length();				//脚先から第一関節までの長さ．
+	// tibia joint / femur angle の計算
+	const float leg_to_f_x = leg_pos.projectedXY().length() - femur_joint_pos.projectedXY().length();				//脚先から第一関節までの長さ．
+	const float leg_to_f_y = leg_pos.z - femur_joint_pos.z;
 
-	const float leg_to_fumur_len = std::sqrt(dl_math::squared(L) + dl_math::squared(leg_pos.z));
+	const float arccos_arg = (dl_math::squared(leg_to_f_x) + dl_math::squared(leg_to_f_y) + dl_math::squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dl_math::squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dl_math::squared(leg_to_f_x) + dl_math::squared(leg_to_f_y)));
 
-	const float s1 = dl_math::squared(leg_to_fumur_len) + dl_math::squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dl_math::squared(HexapodConst::PHANTOMX_FEMUR_LENGTH);
-	const float s2 = 2 * HexapodConst::PHANTOMX_TIBIA_LENGTH * leg_to_fumur_len;
+	float fumur_joint_angle1 = std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
+	float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
 
-	float end_angle = -(std::acos(s1 / s2) + std::atan(-leg_pos.z / L));
+	dl_vec::SVector tibia_joint_pos1 = femur_joint_pos +
+		dl_vec::SVector { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle1),
+		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle1),
+		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle1)
+	};
 
-	dl_vec::SVector tibia_joint_pos = leg_pos -
-		dl_vec::SVector {HexapodConst::PHANTOMX_TIBIA_LENGTH* std::cos(coxa_joint_angle)* std::cos(end_angle),
-		HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(coxa_joint_angle)* std::cos(end_angle),
-		HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(end_angle)};
+	dl_vec::SVector tibia_joint_pos2 = femur_joint_pos +
+		dl_vec::SVector { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle2),
+		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle2),
+		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
+	};
 
-	if (dl_math::isEqual((femur_joint_pos - tibia_joint_pos).length(), HexapodConst::PHANTOMX_FEMUR_LENGTH))
+	if (tibia_joint_pos1.projectedXY().lengthSquare() < tibia_joint_pos2.projectedXY().lengthSquare())
 	{
-		tibia_joint_pos = leg_pos -
-			dl_vec::SVector {HexapodConst::PHANTOMX_TIBIA_LENGTH* std::cos(coxa_joint_angle)* std::cos(end_angle),
-			HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(coxa_joint_angle)* std::cos(end_angle),
-			HexapodConst::PHANTOMX_TIBIA_LENGTH* std::sin(end_angle)};
+		(*joint_state).local_joint_position[2] = tibia_joint_pos2;
+
+		(*joint_state).joint_angle[1] = fumur_joint_angle2;
+	}
+	else
+	{
+		(*joint_state).local_joint_position[2] = tibia_joint_pos1;
+
+		(*joint_state).joint_angle[1] = fumur_joint_angle1;
 	}
 
-	(*joint_state).local_joint_position[2] = tibia_joint_pos;
-
-
-	// femur angleの計算
-	const float fumur_joint_angle = std::atan2f(
-		femur_joint_pos.z - tibia_joint_pos.z,
-		tibia_joint_pos.projectedXY().length() - femur_joint_pos.projectedXY().length()
-	);
-
-	(*joint_state).joint_angle[1] = fumur_joint_angle;
-
-
-	// tibia angleの計算
-	const float tibia_joint_angle = std::atan2f(
-		tibia_joint_pos.z - leg_pos.z,
-		leg_pos.projectedXY().length() - tibia_joint_pos.projectedXY().length()
-	);
-
-	(*joint_state).joint_angle[2] = tibia_joint_angle;
+	(*joint_state).joint_angle[2] = std::atan2((leg_to_f_y - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sin((*joint_state).joint_angle[1])),
+		(leg_to_f_x - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::cos((*joint_state).joint_angle[1]))) - (*joint_state).joint_angle[1];
 
 
 	// 脚先の追加
