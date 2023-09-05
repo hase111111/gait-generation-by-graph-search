@@ -31,7 +31,7 @@ private:
 
 	static constexpr bool DO_DEBUG_PRINT = false;
 
-	static constexpr float STABLE_MARGIN = 10.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
+	static constexpr float STABLE_MARGIN = 15.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
 
 	std::vector<dl_vec::SPolygon2> m_polygons;

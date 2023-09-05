@@ -5,6 +5,7 @@
 #include "designlab_line.h"
 
 
+
 PhantomXStateCalclator::PhantomXStateCalclator()
 {
 	//‹r‚Ì•t‚¯ª‚ÌˆÊ’u‚ğ‰Šú‰»‚·‚é
@@ -136,6 +137,11 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	dl_vec::SVector leg_pos{x_pos, y_pos, z_pos};		//‹ræ‚ÌˆÊ’u
 
 
+	//‰¼ x=0 y=0 ‚Ì‚Ífalse‚É‚·‚é
+	if (abs(x_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f) && abs(y_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f)) { return false; }
+
+
+	// ŠÖß‚ÌŠp“x‚ğŒvZ‚·‚é
 	SHexapodJointState joint_state;
 
 	calculateLocalJointState(leg_index, leg_pos, &joint_state);
@@ -199,6 +205,9 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 	(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 
+	if ((leg_pos - femur_joint_pos).length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
+
+
 	// tibia joint / femur angle ‚ÌŒvZ
 	const float leg_to_f_x = leg_pos.projectedXY().length() - femur_joint_pos.projectedXY().length();				//‹ræ‚©‚ç‘æˆêŠÖß‚Ü‚Å‚Ì’·‚³D
 	const float leg_to_f_y = leg_pos.z - femur_joint_pos.z;
@@ -221,7 +230,9 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
 	};
 
-	if (tibia_joint_pos1.projectedXY().lengthSquare() < tibia_joint_pos2.projectedXY().lengthSquare())
+	//if (tibia_joint_pos1.projectedXY().lengthSquare() < tibia_joint_pos2.projectedXY().lengthSquare())
+	//{  ª‚±‚ê‚ÍŠÔˆá‚Á‚Ä‚½
+	if (false)
 	{
 		(*joint_state).local_joint_position[2] = tibia_joint_pos2;
 

@@ -99,6 +99,7 @@
     <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="phantomx_state_calculator.h" />
     <ClInclude Include="result_file_exporter.h" />
+    <ClInclude Include="result_viewer_system_main.h" />
     <ClInclude Include="robot_graund_point_renderer.h" />
     <ClInclude Include="simulation_result_recorder.h" />
     <ClInclude Include="application_setting_recorder.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="phantomx_state_calculator.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
+    <ClCompile Include="result_viewer_system_main.cpp" />
     <ClCompile Include="robot_graund_point_renderer.cpp" />
     <ClCompile Include="simulation_result_recorder.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />

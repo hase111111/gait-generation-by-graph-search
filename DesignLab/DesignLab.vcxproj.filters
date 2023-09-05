@@ -133,6 +133,12 @@
     <Filter Include="ソース ファイル\GraphicSystem\Main\builder\Interface">
       <UniqueIdentifier>{47c2c784-cdc7-4903-9e84-abc6bd5b910f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System\GraphViewer">
+      <UniqueIdentifier>{0225d192-2f36-462a-a3d3-953fb91b46e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\ResultViewer">
+      <UniqueIdentifier>{d65f5b8b-b4b0-4225-9f6a-a31897756b1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hexapod.h">
@@ -426,14 +432,17 @@
     <ClInclude Include="phantomx_state_calculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
-    <ClInclude Include="graph_viewer_system_main.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="other_graphic_main_builder.h">
       <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClInclude>
     <ClInclude Include="interface_graphic_main_builder.h">
       <Filter>ソース ファイル\GraphicSystem\Main\builder\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_viewer_system_main.h">
+      <Filter>ソース ファイル\System\GraphViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="result_viewer_system_main.h">
+      <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -692,9 +701,6 @@
     <ClCompile Include="boot_mode.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="graph_viewer_system_main.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
@@ -706,6 +712,12 @@
     </ClCompile>
     <ClCompile Include="abstract_pass_finder.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_viewer_system_main.cpp">
+      <Filter>ソース ファイル\System\GraphViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="result_viewer_system_main.cpp">
+      <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

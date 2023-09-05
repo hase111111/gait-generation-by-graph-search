@@ -11,7 +11,8 @@ enum class EBootMode : int
 {
 	SIMULATION,		//!< シミュレーションモード
 	VIEWER,			//!< ビューワーモード
-	DISPLAY_TEST	//!< ディスプレイテストモード
+	DISPLAY_TEST,	//!< ディスプレイテストモード
+	RESULT_VIEWER	//!< リザルトビューワーモード
 };
 
 

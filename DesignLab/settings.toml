@@ -33,8 +33,8 @@ patch = 0
 [mode]
 #起動時に実行モードについて質問をするようにします (true/false)
 ask_about_modes = true
-#デフォルトの実行モードを設定します．(simulation/viewer)
-default_mode = "SIMULATION"
+#デフォルトの実行モードを設定します．(simulation/viewer/display_test/result_viewer)
+default_mode = "result_viewer"
 #各歩容生成ごとにステップ実行するかどうかを設定します (true/false)
 do_step_execution_each_gait = false
 #シミュレーションをステップ実行するかどうかを設定します (true/false)
