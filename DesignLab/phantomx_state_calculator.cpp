@@ -142,7 +142,7 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 
 	// coxaŠÖß‚Ì”ÍˆÍ“à‚É‘¶İ‚µ‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
-	const float kCoxaMargim = dl_math::convertDegToRad(5.0f);
+	const float kCoxaMargim = dl_math::convertDegToRad(0.0f);
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
 

@@ -156,17 +156,6 @@ void GraphicMainTest::draw() const
 	m_hexapod_renderer.draw();
 
 
-
-
-
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
-	{
-		std::string str = mp_calculator->isLegInRange(i, m_node.leg_pos[i]) ? "true" : "false";
-
-		printfDx("leg %d is %s / angle %lf\n", i, str.c_str(), dl_math::convertRadToDeg(std::atan2f(m_node.leg_pos[i].y, m_node.leg_pos[i].x)));
-	}
-
-
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		for (int x = 0; x < temp_size; x += 1)
@@ -180,9 +169,15 @@ void GraphicMainTest::draw() const
 						dl_vec::SVector pos(x - (float)temp_size / 2, y - (float)temp_size / 2, z - (float)temp_size / 2);
 						pos *= (float)temp_ex;
 
-						SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-						unsigned int color[6] = { GetColor(255, 128, 255),GetColor(255, 128, 128),GetColor(255, 255, 128)
-						,GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255) };
+						SetDrawBlendMode(DX_BLENDMODE_PMA_ALPHA, 64);
+						unsigned int  all_color = GetColor(170, 64, 64);
+						unsigned int color[6] = {
+							all_color,all_color,all_color,
+							all_color,all_color,all_color
+							//GetColor(255, 128, 255),GetColor(255, 128, 128),GetColor(255, 255, 128),
+							//GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255)
+						};
+
 						dl_dxlib::drawCube3D(dl_dxlib::convertToDxVec(mp_calculator->getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
 						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 					}

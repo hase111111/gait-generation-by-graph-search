@@ -17,6 +17,7 @@ class CameraGUI final
 {
 public:
 
+	CameraGUI(const int left_x, const int top_y);
 	CameraGUI();
 
 	//! @brief カメラの注視する位置を設定する
@@ -28,10 +29,17 @@ public:
 	//! @brief GUIの描画を行う
 	void draw() const;
 
+	const static int GUI_SIZE_X = 235;
+	const static int GUI_SIZE_Y = 410;
+	const static int CLOSED_GUI_SIZE_Y = 40;
+
 private:
 
 	//! @brief GUIの背景を描画する
 	void drawBackground() const;
+
+	//! @brief 最小化時のGUIの背景を描画する
+	void drawClosedBackground() const;
 
 	//! @brief GUIの文字を描画する
 	void drawString() const;
@@ -45,7 +53,8 @@ private:
 		LEFT,
 		RIGHT,
 		TOP,
-		TARGET_RESET
+		TARGET_RESET,
+		CLOSED
 	};
 
 
@@ -60,9 +69,12 @@ private:
 
 	const int kButtonSize = 60;		// ボタンのサイズ
 
-	const int kGUILeftPosX = 10;		// GUIの左端の位置
+	const int kGUILeftPosX;			// GUIの左端の位置
 
-	const int kGUITopPosY = 10;		// GUIの上端の位置
+	const int kGUITopPosY;			// GUIの上端の位置
+
+
+	bool m_is_closed = false;
 };
 
 

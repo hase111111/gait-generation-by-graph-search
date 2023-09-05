@@ -34,7 +34,7 @@ void GraphViewerGUIController::draw() const
 
 	if (mp_graph->size() != 0 && *mp_display_node_index < mp_graph->size())
 	{
-		drawNodeData(mp_graph->at(*mp_display_node_index));
+		//drawNodeData(mp_graph->at(*mp_display_node_index));
 	}
 }
 
@@ -43,8 +43,8 @@ void GraphViewerGUIController::drawGraphData() const
 {
 	const int kBoxSizeX = 250;
 	const int kBoxSizeY = 200;
-	const int kBoxMinX = mp_setting->window_size_x - kBoxSizeX - 50;
-	const int kBoxMinY = mp_setting->window_size_y - kBoxSizeY - 50;
+	const int kBoxMinX = mp_setting->window_size_x - kBoxSizeX - 10;
+	const int kBoxMinY = mp_setting->window_size_y - kBoxSizeY - 10;
 	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
 	// 枠
@@ -77,9 +77,9 @@ void GraphViewerGUIController::drawGraphData() const
 void GraphViewerGUIController::drawNodeControllPanel() const
 {
 	const int kBoxSizeX = 350;
-	const int kBoxSizeY = 340;
-	const int kBoxMinX = 50;
-	const int kBoxMinY = 50;
+	const int kBoxSizeY = 250;
+	const int kBoxMinX = 10;
+	const int kBoxMinY = 10;
 	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
 	// 枠
@@ -112,10 +112,10 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 
 		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d番ノードの子ノードリスト", m_childen_list.first);
 		DrawFormatString(kBoxMinX + 10, kBoxMinY + 130, kTextColor, str.c_str());
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "　(子ノードリストの更新は U )");
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "　(上下キーでノード移動)");
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "　(左右キーで表示する子ノード切り替え)");
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "　(Zキーでカメラ表示を切り替え)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "　(子ノードリストの更新は U )");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "　(上下キーでノード移動)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "　(左右キーで表示する子ノード切り替え)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "　(Zキーでカメラ表示を切り替え)");
 	}
 }
 

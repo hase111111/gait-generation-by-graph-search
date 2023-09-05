@@ -19,6 +19,8 @@ HexapodRenderer::HexapodRenderer(std::shared_ptr<AbstractHexapodStateCalculator>
 
 void HexapodRenderer::setNode(const SNode& node)
 {
+	if (!mp_calculator) { return; }	//ŒvŽZŠí‚ª‚È‚¢‚È‚ç‚Î‰½‚à‚µ‚È‚¢
+
 	m_draw_node = node;
 
 	mp_calculator->calculateAllJointState(node, m_draw_joint_state);

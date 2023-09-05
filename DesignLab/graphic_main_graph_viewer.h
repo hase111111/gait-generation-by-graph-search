@@ -7,6 +7,7 @@
 #include "map_state.h"
 #include "graph_viewer_gui_controller.h"
 #include "camera_gui.h"
+#include "node_display_gui.h"
 
 
 //! @class GraphicMainGraphViewer
@@ -30,6 +31,8 @@ private:
 	MapState m_map_state;
 
 	CameraGUI m_camera_gui;
+
+	NodeDisplayGUI m_node_display_gui;
 
 	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
 

@@ -9,8 +9,11 @@
 
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting) :
-	AbstractGraphicMain(broker, calc, setting), m_map_state(broker->getMapState()),
-	m_hexapod_renderer(calc)
+	AbstractGraphicMain(broker, calc, setting),
+	m_map_state(broker->getMapState()),
+	m_hexapod_renderer(calc),
+	m_camera_gui(10, (*setting).window_size_y - CameraGUI::GUI_SIZE_Y - 10),
+	m_node_display_gui((*setting).window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10, calc)
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
@@ -45,9 +48,13 @@ bool GraphicMainGraphViewer::update()
 		m_hexapod_renderer.setNode(m_graph.at(m_display_node_index));
 
 		m_camera_gui.setHexapodPos(m_graph.at(m_display_node_index).global_center_of_mass);
+
+		m_node_display_gui.setDisplayNode(m_graph.at(m_display_node_index));
 	}
 
 	m_camera_gui.update();
+
+	m_node_display_gui.update();
 
 	return true;
 }
@@ -70,4 +77,6 @@ void GraphicMainGraphViewer::draw() const
 	mp_gui_controller->draw();
 
 	m_camera_gui.draw();
+
+	m_node_display_gui.draw();
 }

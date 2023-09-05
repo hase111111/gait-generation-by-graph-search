@@ -5,6 +5,7 @@
 #include "designlab_dxlib.h"
 #include "world_grid_renderer.h"
 #include "map_renderer.h"
+#include "keyboard.h"
 
 
 GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
@@ -74,6 +75,17 @@ bool GraphicMainBasic::update()
 
 	m_display_node_switch_gui.update();	//ノードの情報を表示するGUIを更新する．
 
+
+	//キー入力で表示を切り替える
+	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_L) == 1)
+	{
+		m_is_display_movement_locus = !m_is_display_movement_locus;
+	}
+	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_G) == 1)
+	{
+		m_is_display_robot_graund_point = !m_is_display_robot_graund_point;
+	}
+
 	return true;
 }
 
@@ -95,9 +107,10 @@ void GraphicMainBasic::draw() const
 	map_render.draw(m_map_state);
 
 
-	m_movement_locus_renderer.draw(m_display_node_switch_gui.getSimulationNum());   //移動軌跡を描画する．
+	if (m_is_display_movement_locus)m_movement_locus_renderer.draw(m_display_node_switch_gui.getSimulationNum());   //移動軌跡を描画する．
 
-	m_robot_graund_point_renderer.draw(m_display_node_switch_gui.getSimulationNum());
+	if (m_is_display_robot_graund_point)m_robot_graund_point_renderer.draw(m_display_node_switch_gui.getSimulationNum());
+
 
 	if (!m_node.empty())
 	{

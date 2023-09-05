@@ -37,6 +37,9 @@ public:
 
 private:
 
+	const int kNodeGetCount;			//2秒ごとに読み出す．
+
+
 	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
 
 	NodeDisplayGUI m_node_display_gui;				// ノードの表示を制御するGUI
@@ -61,7 +64,10 @@ private:
 
 	int m_counter = 0;					//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
 
-	const int kNodeGetCount;			//2秒ごとに読み出す．
+
+	bool m_is_display_movement_locus = true;		//ロボットの動きの軌跡を表示するかどうか．
+
+	bool m_is_display_robot_graund_point = true;	//ロボットの足先の位置を表示するかどうか．
 };
 
 

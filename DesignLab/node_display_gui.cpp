@@ -37,6 +37,8 @@ void NodeDisplayGUI::setDisplayNode(const SNode& node)
 	//ノードをセットする
 	m_node = node;
 
+	if (!mp_calculator) { return; }
+
 	// 関節の角度をセットする
 	mp_calculator->calculateAllJointState(m_node, m_joint_state);
 }
@@ -173,13 +175,18 @@ void NodeDisplayGUI::drawNodeInfo() const
 
 void NodeDisplayGUI::drawJointInfo() const
 {
+	if (!mp_calculator) { return; }
+
+
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
 	const int kTextXPos = kGUILeftPosX + 10;
 	const int kTextYMinPos = kGUITopPosY + 50;
 	const int kTextYInterval = 30;
 
+
 	int text_line = 0;
+
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
