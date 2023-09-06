@@ -74,7 +74,7 @@ void DisplayNodeSwitchGUI::update()
 
 
 	// Ž©“®Ä¶‚ðs‚¤
-	if (m_do_auto_animation && m_counter % (120 / m_animation_speed) == 0)
+	if (m_do_auto_animation && m_counter % (180 / m_animation_speed) == 0)
 	{
 		moveNextNode();
 	}
@@ -119,7 +119,7 @@ void DisplayNodeSwitchGUI::update()
 			}
 		}
 
-		if (i.second->isPushed())
+		if (i.second->isPushedNow())
 		{
 			if (i.first == EButtonType::SpeedDown)
 			{

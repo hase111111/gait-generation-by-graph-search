@@ -97,7 +97,20 @@ bool PhantomXStateCalclator::isLegInRange(const int leg_index, const dl_vec::SVe
 	if (getLegPosIndex(leg_pos.y) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.y)) { return false; }
 	if (getLegPosIndex(leg_pos.z) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.z)) { return false; }
 
-	return m_is_able_leg_pos[leg_index][getLegPosIndex(leg_pos.x)][getLegPosIndex(leg_pos.y)][getLegPosIndex(leg_pos.z)];
+	if (m_is_able_leg_pos[leg_index][getLegPosIndex(leg_pos.x)][getLegPosIndex(leg_pos.y)][getLegPosIndex(leg_pos.z)])
+	{
+		const dl_vec::SVector2 leg_pos_xy = leg_pos.projectedXY();
+		const dl_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
+		const dl_vec::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
+
+		//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvŽZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
+		if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
+		if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+
+		return true;
+	}
+
+	return false;
 }
 
 
@@ -140,6 +153,7 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	//‰¼ x=0 y=0 ‚ÌŽž‚Ífalse‚É‚·‚é
 	if (abs(x_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f) && abs(y_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f)) { return false; }
 
+	if (leg_pos.projectedXY().length() < MIN_LEG_R) { return false; }
 
 	// ŠÖß‚ÌŠp“x‚ðŒvŽZ‚·‚é
 	SHexapodJointState joint_state;
@@ -148,7 +162,7 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 
 	// coxaŠÖß‚Ì”ÍˆÍ“à‚É‘¶Ý‚µ‚Ä‚¢‚é‚©‚ðŠm”F‚·‚é
-	const float kCoxaMargim = dl_math::convertDegToRad(0.0f);
+	const float kCoxaMargim = dl_math::convertDegToRad(5.0f);
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
 

@@ -43,6 +43,7 @@ private:
 
 	static constexpr float LEG_POS_MAX = (HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH + LEG_POS_MARGIN);		//ãrà íuÇÃç≈ëÂíl
 
+	static constexpr float MIN_LEG_R = 120;
 
 
 	constexpr int getLegPosIndex(const float leg_pos) const

@@ -444,6 +444,12 @@
     <ClInclude Include="result_viewer_system_main.h">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
+    <ClInclude Include="graphic_main_advance.h">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="interpolated_node_creator.h">
+      <Filter>ソース ファイル\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -718,6 +724,12 @@
     </ClCompile>
     <ClCompile Include="result_viewer_system_main.cpp">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic_main_advance.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="interpolated_node_creator.cpp">
+      <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

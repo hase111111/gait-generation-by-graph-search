@@ -170,7 +170,7 @@ void GraphicMainTest::draw() const
 						pos *= (float)temp_ex;
 
 						SetDrawBlendMode(DX_BLENDMODE_PMA_ALPHA, 64);
-						unsigned int  all_color = GetColor(170, 64, 64);
+						unsigned int  all_color = GetColor(64, 170, 64);
 						unsigned int color[6] = {
 							all_color,all_color,all_color,
 							all_color,all_color,all_color

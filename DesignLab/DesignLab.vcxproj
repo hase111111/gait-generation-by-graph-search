@@ -36,12 +36,14 @@
     <ClInclude Include="com_up_down_node_creator.h" />
     <ClInclude Include="designlab_quaternion.h" />
     <ClInclude Include="display_node_switch_gui.h" />
+    <ClInclude Include="graphic_main_advance.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_rotator.h" />
     <ClInclude Include="interface_graphic_main_builder.h" />
+    <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="other_graphic_main_builder.h" />
@@ -139,10 +141,12 @@
     <ClCompile Include="com_up_down_node_creator.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
+    <ClCompile Include="graphic_main_advance.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
     <ClCompile Include="designlab_rotator.cpp" />
+    <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
