@@ -51,7 +51,7 @@ private:
 
 	SNode m_current_node; //!< 現在のノード
 
-	HexapodStateCalclator m_calclator; //!< 状態計算クラス
+	HexapodStateCalclator_Old m_calclator; //!< 状態計算クラス
 };
 
 

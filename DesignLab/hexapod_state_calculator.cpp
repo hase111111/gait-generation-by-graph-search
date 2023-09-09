@@ -7,11 +7,11 @@
 #include "leg_state.h"
 
 
-float HexapodStateCalclator::m_leg_max_r[200] = {};
-float HexapodStateCalclator::m_leg_min_r[200] = {};
+float HexapodStateCalclator_Old::m_leg_max_r[200] = {};
+float HexapodStateCalclator_Old::m_leg_min_r[200] = {};
 
 
-HexapodStateCalclator::HexapodStateCalclator()
+HexapodStateCalclator_Old::HexapodStateCalclator_Old()
 {
 	//ジョイントの位置を初期化する．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -21,7 +21,7 @@ HexapodStateCalclator::HexapodStateCalclator()
 }
 
 
-dl_vec::SVector HexapodStateCalclator::convertLocalLegPos(const SNode& node, const dl_vec::SVector& global_pos, const int leg_num, const bool do_consider_rot) const
+dl_vec::SVector HexapodStateCalclator_Old::convertLocalLegPos(const SNode& node, const dl_vec::SVector& global_pos, const int leg_num, const bool do_consider_rot) const
 {
 	if (do_consider_rot)
 	{
@@ -34,7 +34,7 @@ dl_vec::SVector HexapodStateCalclator::convertLocalLegPos(const SNode& node, con
 }
 
 
-void HexapodStateCalclator::calclateJointPos(const SNode& _node)
+void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
 {
 	// 逆運動学的にジョイントの場所を計算する．
 	//ノードの脚位置は正しい場所にあるという前提のもと計算するので，めちゃくちゃな値が代入されているとうまく動作しない．
@@ -78,19 +78,19 @@ void HexapodStateCalclator::calclateJointPos(const SNode& _node)
 }
 
 
-dl_vec::SVector HexapodStateCalclator::getGlobalFemurJointPos(const SNode& _node, const int _leg_num) const
+dl_vec::SVector HexapodStateCalclator_Old::getGlobalFemurJointPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_femurjoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
 
-dl_vec::SVector HexapodStateCalclator::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
+dl_vec::SVector HexapodStateCalclator_Old::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
 {
 	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 }
 
 
-void HexapodStateCalclator::initLegR()
+void HexapodStateCalclator_Old::initLegR()
 {
 	using namespace dl_math;
 
@@ -128,7 +128,7 @@ void HexapodStateCalclator::initLegR()
 }
 
 
-float HexapodStateCalclator::getMaxLegR(const float _coxa_z_to_leg_z) const
+float HexapodStateCalclator_Old::getMaxLegR(const float _coxa_z_to_leg_z) const
 {
 	int _dif_z = (int)abs(_coxa_z_to_leg_z);		// Z座標の差異を正の整数の値に変換する．誤差はでるけど高速に処理できるようになる．
 
@@ -140,7 +140,7 @@ float HexapodStateCalclator::getMaxLegR(const float _coxa_z_to_leg_z) const
 }
 
 
-float HexapodStateCalclator::getMinLegR(const float _coxa_z_to_leg_z) const
+float HexapodStateCalclator_Old::getMinLegR(const float _coxa_z_to_leg_z) const
 {
 	int _dif_z = (int)abs(_coxa_z_to_leg_z);		// Z座標の差異を正の整数の値に変換する．誤差はでるけど高速に処理できるようになる．
 
@@ -152,7 +152,7 @@ float HexapodStateCalclator::getMinLegR(const float _coxa_z_to_leg_z) const
 }
 
 
-bool HexapodStateCalclator::isLegInterfering(const SNode& _node) const
+bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 {
 	//重心を原点とした，座標系において，脚の干渉を調べる．
 
@@ -179,7 +179,7 @@ bool HexapodStateCalclator::isLegInterfering(const SNode& _node) const
 }
 
 
-bool HexapodStateCalclator::isLegInRange(const SNode& node, const int leg_num) const
+bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_num) const
 {
 	const dl_vec::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
 	const dl_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
@@ -198,7 +198,7 @@ bool HexapodStateCalclator::isLegInRange(const SNode& node, const int leg_num) c
 }
 
 
-bool HexapodStateCalclator::isLegInRange(const dl_vec::SVector& local_leg_pos, const int leg_num) const
+bool HexapodStateCalclator_Old::isLegInRange(const dl_vec::SVector& local_leg_pos, const int leg_num) const
 {
 	const dl_vec::SVector2 leg_pos_xy = local_leg_pos.projectedXY();
 	const dl_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
@@ -216,7 +216,7 @@ bool HexapodStateCalclator::isLegInRange(const dl_vec::SVector& local_leg_pos, c
 }
 
 
-bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
+bool HexapodStateCalclator_Old::isAllLegInRange(const SNode& node) const
 {
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -230,7 +230,7 @@ bool HexapodStateCalclator::isAllLegInRange(const SNode& node) const
 }
 
 
-bool HexapodStateCalclator::isAblePause(const SNode& _node) const
+bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 	//かつてvectorを使っていたが，処理速度の問題で，配列を使うことにした．
@@ -260,7 +260,7 @@ bool HexapodStateCalclator::isAblePause(const SNode& _node) const
 }
 
 
-float HexapodStateCalclator::calculateStaticMargin(const SNode& node) const
+float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない

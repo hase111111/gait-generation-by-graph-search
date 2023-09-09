@@ -31,7 +31,7 @@ private:
 	const float HIGH_MARGIN = 5.0f;		//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
 
 
-	HexapodStateCalclator m_calculator;
+	HexapodStateCalclator_Old m_calculator;
 
 	const MapState* const mp_map;
 

@@ -28,7 +28,7 @@ private:
 	const int kAlpha;						//!< 透明度．
 
 
-	HexapodStateCalclator m_hexapod_state_calclator;	//!< ロボットの状態を計算するクラス．
+	HexapodStateCalclator_Old m_hexapod_state_calclator;	//!< ロボットの状態を計算するクラス．
 };
 
 

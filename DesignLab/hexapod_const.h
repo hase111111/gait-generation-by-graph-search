@@ -73,6 +73,8 @@ private:
 	//コンストラクタとコピーコンストラクタを削除し，実体を生成できないようにする．
 	HexapodConst() = delete;
 	HexapodConst(const HexapodConst& other) = delete;
+	HexapodConst& operator=(const HexapodConst& other) = delete;
+	HexapodConst(HexapodConst&& other) = delete;
 };
 
 

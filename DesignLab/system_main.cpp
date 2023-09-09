@@ -17,7 +17,7 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 {
 	//ロボットのデータを初期化する．
 	Hexapod::makeLegROM_r();
-	HexapodStateCalclator::initLegR();
+	HexapodStateCalclator_Old::initLegR();
 
 	//結果をファイルに出力するクラスを初期化する．
 	m_result_exporter.init();

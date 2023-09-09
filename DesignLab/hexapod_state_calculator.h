@@ -6,14 +6,14 @@
 #include "hexapod_const.h"
 
 
-//! @class HexapodStateCalclator
+//! @class HexapodStateCalclator_Old
 //! @date 2023/08/13
 //! @author 長谷川
 //! @brief ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．
-class HexapodStateCalclator
+class HexapodStateCalclator_Old
 {
 public:
-	HexapodStateCalclator();
+	HexapodStateCalclator_Old();
 
 	static constexpr dl_vec::SVector getLocalBaseLegPos(const int _leg_num, const float _z)
 	{

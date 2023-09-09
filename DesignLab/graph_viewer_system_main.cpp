@@ -29,7 +29,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	std::cout << std::endl;
 
 	//ロボットのデータを初期化する．
-	HexapodStateCalclator::initLegR();
+	HexapodStateCalclator_Old::initLegR();
 
 	//マップを生成する
 	std::cout << "GraphViewerSystemMain : マップを生成します．" << std::endl;

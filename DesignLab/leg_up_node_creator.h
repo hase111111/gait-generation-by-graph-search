@@ -20,7 +20,7 @@ public:
 
 private:
 
-	HexapodStateCalclator m_calculator;
+	HexapodStateCalclator_Old m_calculator;
 };
 
 

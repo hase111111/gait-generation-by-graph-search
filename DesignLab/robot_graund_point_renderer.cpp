@@ -15,7 +15,7 @@ RobotGraundPointRenderer::RobotGraundPointRenderer()
 
 void RobotGraundPointRenderer::setNode(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index)
 {
-	HexapodStateCalclator hexapod_state_calclator;
+	HexapodStateCalclator_Old hexapod_state_calclator;
 
 	while (m_loaded_node_num < node.size())
 	{

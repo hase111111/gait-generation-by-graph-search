@@ -62,7 +62,7 @@ bool GraphicMainTest::update()
 			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= speed; }
 			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_M) == 1)
 			{
-				HexapodStateCalclator calclator;
+				HexapodStateCalclator_Old calclator;
 
 				dl_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
 
