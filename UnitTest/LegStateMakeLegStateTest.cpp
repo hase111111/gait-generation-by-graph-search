@@ -1,28 +1,32 @@
-#pragma once
 #include "pch.h"
+
 #include "../DesignLab/leg_state.h"
-#include "../DesignLab/ComType.cpp"
+#include "../DesignLab/com_type.h"
+#include "../DesignLab/com_type.cpp"
+
+
 
 namespace LegStateEditTest
 {
 	TEST(MakeLegStateFunc, MakeLegState_ChangeComPattren)
 	{
 		//全脚接地のデータを作成する．
-		ComType::EComPattern _com_pattern = ComType::EComPattern::FRONT;
+		ComType::EComPattern com_pattern = ComType::EComPattern::FRONT;
 		bool _ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		int _leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
-		int _expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
-		EXPECT_EQ(dl_leg::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
+		int _expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
+		EXPECT_EQ(dl_leg::makeLegState(com_pattern, _ground, _leg_pos), _expected);
 
 		//重心パターンを変更して，重心の値が変わるか，脚位置の値が変化しないか確認
-		_com_pattern = ComType::EComPattern::BACK;
-		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
-		EXPECT_EQ(dl_leg::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
+		com_pattern = ComType::EComPattern::BACK;
+		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
+		EXPECT_EQ(dl_leg::makeLegState(com_pattern, _ground, _leg_pos), _expected);
 
-		_com_pattern = ComType::EComPattern::BACK_LEFT;
-		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(_com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
-		EXPECT_EQ(dl_leg::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
+		com_pattern = ComType::EComPattern::BACK_LEFT;
+		_expected = 0b110011001100110011001100 | ComType::convertComPatternToBit(com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
+		EXPECT_EQ(dl_leg::makeLegState(com_pattern, _ground, _leg_pos), _expected);
 	}
+
 
 	TEST(MakeLegStateFunc, MakeLegState_ChangeGround)
 	{
@@ -49,6 +53,7 @@ namespace LegStateEditTest
 		_expected = 0b010001000100010001000100 | ComType::convertComPatternToBit(_com_pattern) << dl_leg::SHIFT_TO_COM_NUM;
 		EXPECT_EQ(dl_leg::makeLegState(_com_pattern, _ground, _leg_pos), _expected);
 	}
+
 
 	TEST(MakeLegStateFunc, MAkeLegState_ChangeLegPos)
 	{

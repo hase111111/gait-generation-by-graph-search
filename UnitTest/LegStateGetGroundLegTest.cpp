@@ -1,7 +1,7 @@
 #pragma onne
 #include "pch.h"
 #include "../DesignLab/leg_state.h"
-#include "../DesignLab/LegState.cpp"
+#include "../DesignLab/leg_state.cpp"
 
 namespace LegStateEditTest
 {

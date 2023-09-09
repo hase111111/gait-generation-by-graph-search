@@ -1,15 +1,15 @@
 #include "pch.h"
-#include "../DesignLab/MyPolygon.h"
 
-using namespace dl_vec;
+#include "../DesignLab/designlab_polygon.h"
 
-namespace SPolygon2Test
+
+namespace dl_vec_test
 {
 	//isInside関数のテスト(右回り)
-	TEST(SPolygon2Func, IsInside_RightTurn)
+	TEST(SPolygon2, IsInside_RightTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
-		SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -45,7 +45,7 @@ namespace SPolygon2Test
 
 
 		//6角形を作成し，内部にある点と外部にある点を確認する
-		SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -60,7 +60,7 @@ namespace SPolygon2Test
 		EXPECT_FALSE(polygon2.isInside({ 1.5f, 0.5f }));
 
 		//頂点が2以下の多角形では必ず失敗する．
-		SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 
@@ -69,10 +69,10 @@ namespace SPolygon2Test
 	}
 
 	//isInside関数のテスト(左回り)
-	TEST(SPolygon2Func, IsInside_LeftTurn)
+	TEST(SPolygon2, IsInside_LeftTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
-		SPolygon2 polygon;
+		dl_vec::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 0, 1 });
 		polygon.addVertex({ 1, 1 });
@@ -108,7 +108,7 @@ namespace SPolygon2Test
 
 
 		//6角形を作成し，内部にある点と外部にある点を確認する
-		SPolygon2 polygon2;
+		dl_vec::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ -1, 0 });
 		polygon2.addVertex({ -1, 1 });
@@ -123,7 +123,7 @@ namespace SPolygon2Test
 		EXPECT_FALSE(polygon2.isInside({ 1.5f, 0.5f }));
 
 		//頂点が2以下の多角形では必ず失敗する．
-		SPolygon2 polygon3;
+		dl_vec::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 

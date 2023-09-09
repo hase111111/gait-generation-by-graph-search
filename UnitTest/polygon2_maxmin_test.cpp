@@ -1,11 +1,12 @@
 #include "pch.h"
-#include "../DesignLab/MyPolygon.h"
+
+#include "../DesignLab/designlab_polygon.h"
 
 
-namespace SPolygon2Test
+namespace dl_vec_test
 {
 	//GetMaxX関数のテスト
-	TEST(SPolygon2Func, GetMaxX)
+	TEST(SPolygon2, GetMaxX)
 	{
 		//三角形を生成して，X座標の最大値を求める
 		dl_vec::SPolygon2 polygon;
@@ -49,7 +50,7 @@ namespace SPolygon2Test
 	}
 
 	//GetMinXのテスト
-	TEST(SPolygon2Func, GetMinX)
+	TEST(SPolygon2, GetMinX)
 	{
 		//三角形を生成して，X座標の最小値を求める
 		dl_vec::SPolygon2 polygon;
@@ -93,7 +94,7 @@ namespace SPolygon2Test
 	}
 
 	//GetMaxYのテスト
-	TEST(SPolygon2Func, GetMaxY)
+	TEST(SPolygon2, GetMaxY)
 	{
 		//三角形を生成して，Y座標の最大値を求める
 		dl_vec::SPolygon2 polygon;
@@ -136,7 +137,7 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon3.getMaxY(), 1.0f);
 	}
 
-	TEST(SPolygon2Func, GetMinY)
+	TEST(SPolygon2, GetMinY)
 	{
 		//三角形を生成して，Y座標の最小値を求める
 		dl_vec::SPolygon2 polygon;
@@ -179,4 +180,4 @@ namespace SPolygon2Test
 		EXPECT_FLOAT_EQ(polygon3.getMinY(), 0.0f);
 	}
 
-}	//namespace SPolygon2Test
+}	//namespace dl_vec_test

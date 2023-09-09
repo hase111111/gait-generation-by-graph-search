@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "../DesignLab/MyMath.h"
-#include "../DesignLab/MyMath.cpp"
+#include "../DesignLab/designlab_math.h"
+#include "../DesignLab/designlab_math.cpp"
 
 TEST(MyMathTest, isEqualFloatTest)
 {

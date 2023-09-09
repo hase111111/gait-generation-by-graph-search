@@ -1,9 +1,11 @@
 #include "pch.h"
-#include "../DesignLab/MyVector.h"
 
-namespace SVectorTest
+#include "../DesignLab/designlab_vector.h"
+
+
+namespace dl_vec_test
 {
-	TEST(SVectorOperator, EqualityOperator)
+	TEST(SVector, EqualityOperator)
 	{
 		//“™‰¿‰‰ŽZŽq‚ÌƒeƒXƒg
 
@@ -34,7 +36,7 @@ namespace SVectorTest
 		EXPECT_TRUE(dl_vec::SVector(10, -5, 0) != dl_vec::SVector(10, -5, 8));
 	}
 
-	TEST(SVectorOperator, ComparisonOperator)
+	TEST(SVector, ComparisonOperator)
 	{
 		//”äŠr‰‰ŽZŽq‚ÌƒeƒXƒgD”äŠr‰‰ŽZŽq‚ÍƒxƒNƒgƒ‹‚Ì’·‚³‚ð—p‚¢‚Ä”äŠr‚ðs‚¤D
 
@@ -52,7 +54,7 @@ namespace SVectorTest
 		EXPECT_TRUE(dl_vec::SVector(-23, 85, 91) >= dl_vec::SVector(-23, 85, 91));
 	}
 
-	TEST(SVectorOperator, PlusOperator)
+	TEST(SVector, PlusOperator)
 	{
 		//‘«‚µŽZ
 		EXPECT_EQ(dl_vec::SVector(2, 2, 2), dl_vec::SVector(1, 1, 0) + dl_vec::SVector(1, 1, 2));
@@ -63,7 +65,7 @@ namespace SVectorTest
 		EXPECT_EQ(dl_vec::SVector(2.8f, 21.6f, 12.89f), dl_vec::SVector(0.2f, 34.8f, 6.78f) + dl_vec::SVector(2.6f, -13.2f, 6.11f));
 	}
 
-	TEST(SVectorOperator, MinusOperator)
+	TEST(SVector, MinusOperator)
 	{
 		//ˆø‚«ŽZ
 		EXPECT_EQ(dl_vec::SVector(10, 6, 10), dl_vec::SVector(15, 66, 1010) - dl_vec::SVector(5, 60, 1000));
@@ -71,7 +73,7 @@ namespace SVectorTest
 		EXPECT_EQ(dl_vec::SVector(10, 6, 10), dl_vec::SVector(15, 66, 1010) - dl_vec::SVector(5, 60, 1000));
 	}
 
-	TEST(SVectorOperator, MultiplyOperator)
+	TEST(SVector, MultiplyOperator)
 	{
 		//Š|‚¯ŽZ
 		EXPECT_EQ(dl_vec::SVector(10, 6, 21) * 10, dl_vec::SVector(100, 60, 210));

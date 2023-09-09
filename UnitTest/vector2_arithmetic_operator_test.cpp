@@ -1,11 +1,12 @@
 #include "pch.h"
-#include "../DesignLab/MyVector2.h"
+
+#include "../DesignLab/designlab_vector2.h"
 
 using namespace dl_vec;
 
-namespace SVector2Test
+namespace dl_vec_test
 {
-	TEST(SVector2Operator, PlusOperator)
+	TEST(SVector2, PlusOperator)
 	{
 		//®”“¯m‚Ì‘«‚µZ
 		SVector2 v1(1, 2);
@@ -44,7 +45,7 @@ namespace SVector2Test
 		EXPECT_FLOAT_EQ(v11.y, v12.y);
 	}
 
-	TEST(SVector2Operator, MinusOperator)
+	TEST(SVector2, MinusOperator)
 	{
 		//®”“¯m‚Ìˆø‚«Z
 		SVector2 v1(1, 2);
@@ -83,7 +84,7 @@ namespace SVector2Test
 		EXPECT_FLOAT_EQ(v11.y, v12.y);
 	}
 
-	TEST(SVector2Operator, MultipleOperator)
+	TEST(SVector2, MultipleOperator)
 	{
 		//®”‚Æ‚ÌŠ|‚¯Z
 		SVector2 v1(1, 2);
@@ -113,7 +114,7 @@ namespace SVector2Test
 		EXPECT_FLOAT_EQ(v7.y, -1.0f);
 	}
 
-	TEST(SVector2Operator, DivisionOperator)
+	TEST(SVector2, DivisionOperator)
 	{
 		//®”‚Æ‚ÌŠ„‚èZ
 		SVector2 v1(1, 2);

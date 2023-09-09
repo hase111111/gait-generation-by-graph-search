@@ -50,15 +50,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SLineFuncTest.cpp" />
-    <ClCompile Include="SPolygonIsInsideTest.cpp" />
-    <ClCompile Include="SPolygonMaxMinTest.cpp" />
-    <ClCompile Include="SPolygonTest.cpp" />
-    <ClCompile Include="SVector2ArithmeticOperatorTest.cpp" />
-    <ClCompile Include="SVector2FuncTest.cpp" />
-    <ClCompile Include="SVector2UnaryOperatorTest.cpp" />
-    <ClCompile Include="SVectorFuncTest.cpp" />
-    <ClCompile Include="SVectorTest.cpp" />
+    <ClCompile Include="line2_func_test.cpp" />
+    <ClCompile Include="polygon2_is_inside_test.cpp" />
+    <ClCompile Include="polygon2_maxmin_test.cpp" />
+    <ClCompile Include="polygon2_func_test.cpp" />
+    <ClCompile Include="vector2_arithmetic_operator_test.cpp" />
+    <ClCompile Include="vector2_func_test.cpp" />
+    <ClCompile Include="vector2_unary_operator_test.cpp" />
+    <ClCompile Include="vector_func_test.cpp" />
+    <ClCompile Include="vector_operator_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesignLab\DesignLab.vcxproj">
