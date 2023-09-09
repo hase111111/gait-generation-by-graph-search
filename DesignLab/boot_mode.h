@@ -19,11 +19,16 @@ enum class EBootMode : int
 
 namespace std
 {
-
+	//! @brief EBootMode‚ð•¶Žš—ñ‚É•ÏŠ·‚·‚é
+	//! @param [in] boot_mode •ÏŠ·‚·‚éEBootMode
+	//! @return EBootMode‚ð•¶Žš—ñ‚É•ÏŠ·‚µ‚½‚à‚Ì
 	std::string to_string(const EBootMode boot_mode);
 
 
 
+	//! @brief •¶Žš—ñ‚ðEBootMode‚É•ÏŠ·‚·‚é
+	//! @param [in] str •ÏŠ·‚·‚é•¶Žš—ñ
+	//! @return •¶Žš—ñ‚ðEBootMode‚É•ÏŠ·‚µ‚½‚à‚Ì
 	EBootMode sToMode(const std::string str);
 
 

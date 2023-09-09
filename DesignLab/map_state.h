@@ -33,6 +33,7 @@ public:
 	//! @param [in] do_output 生成したマップをファイル出力するならtrue，しないならばfalse．する場合は生成した瞬間にファイル出力される．
 	void init(const EMapCreateMode mode, const int option, const bool do_output);
 
+
 	//! @brief グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す．
 	//! @n 範囲外の値を指定した場合は，0またはマップの端の座標を返す．
 	//! @param [in] posx グローバルのy座標，グローバルはマップの原点を0とする座標系．座標系の向きはSvector構造体を参照．
@@ -44,6 +45,7 @@ public:
 		if (res >= MapConst::LP_DIVIDE_NUM)return MapConst::LP_DIVIDE_NUM - 1;
 		return res;
 	}
+
 
 	//! @brief グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す．
 	//! @n 範囲外の値を指定した場合は，0またはマップの端の座標を返す．
@@ -64,6 +66,7 @@ public:
 	//! @return int 脚設置可能点の数
 	int getPointNumFromDevideMap(const int x, const int y) const;
 
+
 	//! @brief 長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する．
 	//! @n 範囲外の値を指定した場合は，(0,0,0)を返す．
 	//! @param [in] x x座標，切り分けられたタイルの位置で指定する．
@@ -72,19 +75,22 @@ public:
 	//! @return SVector 脚設置可能点の座標．
 	dl_vec::SVector getPosFromDevideMap(const int x, const int y, const int num) const;
 
+
 	//! @brief 長方形状に切り分けられたマップから，最も高いZ座標を返す．
 	//! @param [in] x X座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] y Y座標，切り分けられたタイルの位置で指定する．
 	//! @return float 最も高いZ座標．
 	inline float getTopZFromDevideMap(const int x, const int y) const
 	{
-		return m_devide_map_top_z.at(getDevideMapNum(x, y));
+		return m_devide_map_top_z[getDevideMapNum(x, y)];
 	};
+
 
 	//! @brief 脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨．
 	//! @param [in] num 
 	//! @return SVector 脚設置可能点の座標．
 	dl_vec::SVector getPos(const int num) const;
+
 
 	//! @brief 脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
 	//! @return int 脚設置可能点の総数

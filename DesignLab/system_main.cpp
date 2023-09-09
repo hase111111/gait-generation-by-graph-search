@@ -191,9 +191,9 @@ void SystemMain::main()
 	if ((*mp_setting).gui_display)
 	{
 		dl_cio::output(mp_setting, "DXlib(gui)の終了を待っています．GUIのXボタンを押してください");
-	}
 
-	graphic_thread.join();
+		graphic_thread.join();
+	}
 
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::output(mp_setting, "シミュレーションを終了します");
@@ -208,11 +208,12 @@ void SystemMain::outputTitle() const
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::outputHorizontalLine(mp_setting, true);
 	dl_cio::outputNewLine(mp_setting);
-	dl_cio::output(mp_setting, "                      シミュレーションモード");
+	dl_cio::outputCenter(mp_setting, "シミュレーションモード");
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::outputHorizontalLine(mp_setting, true);
 	dl_cio::outputNewLine(mp_setting);
 }
+
 
 void SystemMain::outputSetting() const
 {

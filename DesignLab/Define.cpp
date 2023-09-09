@@ -1,12 +1,12 @@
 #include "Define.h"
 
-const int Define::SIMURATE_NUM = 3;
+const int Define::SIMURATE_NUM = 5;
 
 const char Define::GRAPH_SEARCH_DEPTH = 4;
 
 const int Define::GATE_PATTERN_GENERATE_NUM = 1000;
 
-const int Define::GOAL_TAPE = 2000;
+const int Define::GOAL_TAPE = 1200;
 
 const bool Define::FLAG_GRAPHIC_AVAILABLE = true;
 

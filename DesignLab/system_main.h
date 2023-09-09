@@ -27,6 +27,11 @@ class SystemMain final
 public:
 	SystemMain() = delete;		//デフォルトコンストラクタは禁止．
 
+	//! @brief コンストラクタ．
+	//! @param[in] graph_search 歩容計画を行うクラス．
+	//! @param[in] graph_search_factory 歩容計画を行うクラスのファクトリ．
+	//! @param[in] builder グラフィックの描画を行うクラス．
+	//! @param[in] calc 六脚歩行ロボットの状態を計算するクラス．これだけshared_ptrなので注意
 	SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<AbstractPassFinderFactory>&& graph_search_factory,
 		std::unique_ptr<IGraphicMainBuilder>&& builder, std::shared_ptr<AbstractHexapodStateCalculator> calc, SApplicationSettingRecorder* recorder);
 

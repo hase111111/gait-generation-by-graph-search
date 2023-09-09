@@ -105,11 +105,11 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 				}
 				else
 				{
-					res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					//res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					//res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
 					res_node.leg_pos[j].z = -25;
-					res_node.leg_base_pos[j].x = res_node.leg_pos[j].x;
-					res_node.leg_base_pos[j].y = res_node.leg_pos[j].y;
+					res_node.leg_base_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					res_node.leg_base_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
 				}
 			}
 

@@ -162,19 +162,19 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 
 	// coxa関節の範囲内に存在しているかを確認する
-	const float kCoxaMargim = dl_math::convertDegToRad(5.0f);
+	const float kCoxaMargim = dl_math::convertDegToRad(0.0f);
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MAX + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] - kCoxaMargim < joint_state.joint_angle[0]) { return false; }
 
 	// femur関節の範囲内に存在しているかを確認する
-	const float kFemurMargim = dl_math::convertDegToRad(5.0f);
+	const float kFemurMargim = dl_math::convertDegToRad(0.0f);
 
 	if (joint_state.joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN + kFemurMargim || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX - kFemurMargim < joint_state.joint_angle[1]) { return false; }
 
 	// tibia関節の範囲内に存在しているかを確認する
-	const float kTibiaMargim = dl_math::convertDegToRad(5.0f);
+	const float kTibiaMargim = dl_math::convertDegToRad(0.0f);
 
 	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
 

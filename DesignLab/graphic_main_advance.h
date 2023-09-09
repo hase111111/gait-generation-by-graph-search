@@ -32,7 +32,7 @@ private:
 
 	const int kNodeGetCount;			//2秒ごとに読み出す．
 
-	const int kInterpolatedAnimeCount = 60;
+	const int kInterpolatedAnimeCount = 15;
 
 
 	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
