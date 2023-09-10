@@ -32,7 +32,7 @@ namespace dl_leg
 
 	constexpr int LEG_GROUNDED_MASKBIT = 0b1000;	//!< 脚が接地しているかを表すビットをマスクする．(接地しているならば1．遊脚ならば0．)
 
-	constexpr int LEG_STATE_MASKBIT = 0b1111;	//!< 脚状態は4bitで管理されるので，そこをマスクする
+	constexpr int LEG_STATE_MASKBIT = 0b1111;		//!< 脚状態は4bitで管理されるので，そこをマスクする
 
 	constexpr int SHIFT_TO_COM_NUM = HexapodConst::LEG_NUM * 4;			//!< 重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
 

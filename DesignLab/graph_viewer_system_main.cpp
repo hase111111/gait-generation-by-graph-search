@@ -12,7 +12,7 @@
 #include "Define.h"
 #include "designlab_timer.h"
 #include "StringToValue.h"
-
+#include "designlab_cmdio.h"
 
 //二度と追記しないだろうと全てをべた書きしています．
 //めちゃくちゃ読みづらいだろうと思うけど，許して．
@@ -21,12 +21,7 @@ using StrtoVal::StrToInt;
 
 GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* const setting) : mp_setting(setting)
 {
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "     GraphViewerSystemMain : GraphViewer起動" << std::endl;
-	std::cout << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << std::endl;
+	dl_cio::outputGraphViewerTitle(setting);	//タイトルを表示する
 
 	//ロボットのデータを初期化する．
 	HexapodStateCalclator_Old::initLegR();
@@ -54,39 +49,23 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	m_graphic_data_broker.setMapState(m_map_state);
 
 
-	std::shared_ptr <AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
+	std::shared_ptr<AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
 
+	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);		//グラフィックシステムを初期化する
 
-	//グラフィックシステムを初期化する
-	std::cout << "GraphicSystem : グラフィックシステムを初期化します．" << std::endl << std::endl;
-	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);
-
-
-	//グラフ木作成クラスを初期化する
-	std::cout << "GraphCreator : グラフ木作成クラスを初期化します．" << std::endl << std::endl;
 
 	mp_pass_finder = std::make_unique<PassFinderHatoThread>();
 
-	mp_pass_finder->init(std::make_unique<PassFinderFactoryHato>(), calc, setting);
-
-
-	//初期化終了
-	std::cout << "GraphViewerSystemMain : GraphViewer初期化終了．起動します" << std::endl << std::endl;
-
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "                   GraphViewer" << std::endl;
-	std::cout << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << std::endl;
+	mp_pass_finder->init(std::make_unique<PassFinderFactoryHato>(), calc, setting);		//グラフ木作成クラスを初期化する
 }
 
 
 void GraphViewerSystemMain::main()
 {
 	//グラフィックシステムを起動する
-	std::cout << "GraphicSystem : 別スレッドでグラフィックシステムを起動します．" << std::endl << std::endl;
-	boost::thread _thread_graphic(&GraphicSystem::main, &m_graphic_system);
+	dl_cio::output(mp_setting, "別スレッドでGUIを起動します．", EOutputPriority::INFO);
+
+	boost::thread graphic_thread(&GraphicSystem::main, &m_graphic_system);
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
@@ -208,7 +187,9 @@ void GraphViewerSystemMain::main()
 			else
 			{
 				//終了するか質問する
-				if (askYesNo("GraphViewerSystemMain : 終了しますか？")) { break; }
+				dl_cio::output(mp_setting, "終了しますか？", EOutputPriority::SYSTEM);
+
+				if (dl_cio::inputYesNo(mp_setting)) { break; }
 			}
 		}
 	}

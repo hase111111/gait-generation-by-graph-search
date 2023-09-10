@@ -78,6 +78,11 @@ namespace dl_cio
 	void outputTitle(const SApplicationSettingRecorder* setting);
 
 
+	//! @brief コマンドラインにGraphViewerのタイトルを出力する関数．
+	//! @param [in] setting 設定ファイルの情報を記録した構造体のポインタ
+	void outputGraphViewerTitle(const SApplicationSettingRecorder* setting);
+
+
 	//! @brief 入力待ちをする関数．
 	//! @param [in] str 入力待ちをする際に出力する文字列
 	void waitAnyKey(const SApplicationSettingRecorder* setting, const std::string str = "入力待ち，Enterキーを押してください．",
@@ -92,6 +97,13 @@ namespace dl_cio
 	//! @param [in] str 入力待ちをする際に出力する文字列
 	//! @return int 入力された整数
 	int inputInt(const SApplicationSettingRecorder* setting, const int min, const int max, const int default_num, const std::string str = "整数を入力してください．");
+
+
+	//! @brief yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．
+	//! @param [in] setting 設定ファイルの情報を記録した構造体のポインタ
+	//! @param [in] str 入力待ちをする際に出力する文字列
+	//! @return bool yesならばtrue，noならばfalse
+	bool inputYesNo(const SApplicationSettingRecorder* setting, const std::string str = "y / nで入力してください．");
 
 
 	EBootMode selectBootMode(const SApplicationSettingRecorder* setting);

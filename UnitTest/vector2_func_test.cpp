@@ -178,11 +178,11 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(0.707106781f, res2.x);
 		EXPECT_FLOAT_EQ(0.707106781f, res2.y);
 
-		//sample3　速さを重視しているので(0,0)を考慮していない
-		//SVector2 vec3(0.0f, 0.0f);
-		//SVector2 res3 = vec3.normalized();
-		//EXPECT_FLOAT_EQ(0.0f, res3.x);
-		//EXPECT_FLOAT_EQ(0.0f, res3.y);
+		//sample3　
+		dl_vec::SVector2 vec3(0.0f, 0.0f);
+		dl_vec::SVector2 res3 = vec3.normalized();
+		EXPECT_FLOAT_EQ(0.0f, res3.x);
+		EXPECT_FLOAT_EQ(0.0f, res3.y);
 
 		//sample4
 		dl_vec::SVector2 vec4(-1.0f, -1.0f);
@@ -230,4 +230,5 @@ namespace dl_vec_test
 		dl_vec::SVector2 vec6(3.0f, -4.0f);
 		EXPECT_FALSE(vec6.isZero());
 	}
+
 }

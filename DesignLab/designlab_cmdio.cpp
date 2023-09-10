@@ -81,12 +81,12 @@ void dl_cio::waitAnyKey(const SApplicationSettingRecorder* setting, const std::s
 
 int dl_cio::inputInt(const SApplicationSettingRecorder* setting, const int min, const int max, const int default_num, const std::string str)
 {
-	int res = default_num;
-
 	output(setting, str + " (" + std::to_string(min) + " ~ " + std::to_string(max) + ") : ", EOutputPriority::SYSTEM, true);
 
 	std::string input_str;
 	std::cin >> input_str;
+
+	int res = default_num;
 
 	try
 	{
@@ -103,6 +103,31 @@ int dl_cio::inputInt(const SApplicationSettingRecorder* setting, const int min, 
 	}
 
 	return res;
+}
+
+
+bool dl_cio::inputYesNo(const SApplicationSettingRecorder* setting, const std::string str)
+{
+	output(setting, str, EOutputPriority::SYSTEM, true);
+
+	while (true)
+	{
+		std::string input_str;
+		std::cin >> input_str;
+
+
+		if (input_str == "y" || input_str == "yes" || input_str == "Y" || input_str == "Yes" || input_str == "YES")
+		{
+			return true;
+		}
+		else if (input_str == "n" || input_str == "no" || input_str == "N" || input_str == "No" || input_str == "NO")
+		{
+			return false;
+		}
+
+		output(setting, "入力された値「" + input_str + "」は評価できません．y / nで入力してください．", EOutputPriority::SYSTEM, true);
+	}
+
 }
 
 
@@ -145,6 +170,7 @@ void dl_cio::outputTitle(const SApplicationSettingRecorder* setting)
 {
 	outputNewLine(setting, 1);
 	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
+	outputNewLine(setting, 1);
 	outputCenter(setting, "DesignLab", EOutputPriority::SYSTEM);
 
 	std::string str = "Version " + std::to_string((*setting).version_major) + '.' + std::to_string((*setting).version_minor) + '.' + std::to_string((*setting).version_patch);
@@ -152,6 +178,18 @@ void dl_cio::outputTitle(const SApplicationSettingRecorder* setting)
 	outputNewLine(setting, 1);
 	outputRight(setting, "Created by DesignLab", EOutputPriority::SYSTEM);
 	outputRight(setting, "All rights reserved", EOutputPriority::SYSTEM);
+	outputNewLine(setting, 1);
+	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
+	outputNewLine(setting, 1);
+}
+
+void dl_cio::outputGraphViewerTitle(const SApplicationSettingRecorder* setting)
+{
+	outputNewLine(setting, 1);
+	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
+	outputNewLine(setting, 1);
+	outputCenter(setting, "GraphViewer", EOutputPriority::SYSTEM);
+	outputNewLine(setting, 1);
 	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
 	outputNewLine(setting, 1);
 }

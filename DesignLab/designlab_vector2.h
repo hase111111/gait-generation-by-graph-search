@@ -93,8 +93,15 @@ namespace dl_vec
 
 		//! @brief このベクトルを正規化したベクトルを返す
 		//! @return 正規化されたベクトル
-		//! @note 長さが0の場合を考慮していないので注意
-		SVector2 normalized() const { return *this / length(); }
+		inline SVector2 normalized() const
+		{
+			if (isZero())
+			{
+				return { 0,0 };
+			}
+
+			return *this / length();
+		}
 
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue
