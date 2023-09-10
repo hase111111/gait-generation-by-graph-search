@@ -65,14 +65,16 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í1‚È‚Ì‚Å1‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, lifted_leg_list);
+
+	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
 	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
 	{
 		SNode new_node = current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-		dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
+		dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
 
 		new_node.changeNextNode(current_node_index, m_next_move);		//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 
@@ -85,7 +87,9 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í2‚È‚Ì‚Å2‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, lifted_leg_list);
+
+	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
 	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
@@ -94,8 +98,8 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 		{
 			SNode new_node = current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-			dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(0), i);			//‹ró‘Ô‚ğ•ÏX‚·‚éD
-			dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(1), j);
+			dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);			//‹ró‘Ô‚ğ•ÏX‚·‚éD
+			dl_leg::changeLegState(j, lifted_leg_list[1], &new_node.leg_state);
 
 			new_node.changeNextNode(current_node_index, m_next_move);		//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 
@@ -109,7 +113,9 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í3‚È‚Ì‚Å3‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, lifted_leg_list);
+
+	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+
 
 	//‹ró‘Ô 0001(1) ‚©‚ç 0111(7)‚Ü‚Å Ÿ‚Ìƒpƒ^[ƒ“‚ğ¶¬‚·‚éD‚È‚¨ãˆÊbit‚Í—V‹r‚ğ•\‚·D(0‚È‚ç—V‹r)
 	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
@@ -120,9 +126,9 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 			{
 				SNode new_node = current_node;		//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é.
 
-				dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(0), i);	//‹ró‘Ô‚ğ•ÏX‚·‚éD
-				dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(1), j);
-				dl_leg::changeLegState(new_node.leg_state, lifted_leg_list.at(2), k);
+				dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);			//‹ró‘Ô‚ğ•ÏX‚·‚éD
+				dl_leg::changeLegState(j, lifted_leg_list[1], &new_node.leg_state);
+				dl_leg::changeLegState(k, lifted_leg_list[2], &new_node.leg_state);
 
 				new_node.changeNextNode(current_node_index, m_next_move);		//Ÿ‚Ìƒm[ƒh—p‚ÉC[‚³EeEŸ‚Ì“®ì‚ğXV‚·‚éD
 

@@ -23,7 +23,7 @@ void LegUpNodeCreator::create(const SNode& current_node, const int current_num, 
 	//Šù‚É—V‹r‚Ì‹r‚ğÚ’n‚·‚é‚±‚Æ‚Í‚Å‚«‚È‚¢D
 	{
 		std::vector<int> lifted_leg_num;
-		dl_leg::getLiftedLegNumWithVector(current_node.leg_state, lifted_leg_num);
+		dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_num);
 
 		for (auto& i : lifted_leg_num)
 		{

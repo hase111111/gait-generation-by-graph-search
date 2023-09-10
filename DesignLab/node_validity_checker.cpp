@@ -20,6 +20,11 @@ bool NodeValidityChecker::isLoopMove() const
 	auto itr = m_node.begin();		//ノードの最初を指すイテレーターを取得して，
 	itr++;							//一つ進める．
 
+	for (size_t i = 0; i < 10; i++)
+	{
+		if (itr != m_node.end())itr++;
+	}
+
 	//イテレーターが最後になるまでループする．
 	for (itr; itr != m_node.end(); itr++)
 	{

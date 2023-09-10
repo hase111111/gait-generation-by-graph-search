@@ -85,25 +85,25 @@ namespace ComType
 
 
 	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する
-	bool isAbleCoM(const int com_pattern, const bool ground_leg[HexapodConst::LEG_NUM]);
+	bool isAbleCoM(int com_pattern, const bool is_ground[HexapodConst::LEG_NUM]);
 
 	//接地している脚をtrueした配列から，重心タイプを出力する関数．該当しないならば負の値を返す
-	char getComTypeFromGroundLeg(const bool ground_leg[HexapodConst::LEG_NUM]);
+	char getComTypeFromGroundLeg(const bool is_ground[HexapodConst::LEG_NUM]);
 
 	//脚状態から，重心タイプを出力する関数．該当しないならば負の値を返す
-	char getComTypeFromLegState(const int leg_state);
+	char getComTypeFromLegState(int leg_state);
 
 	//接地脚を1，遊脚を0としたビットから，重心タイプを出力する関数．該当しないならば負の値を返す
 	char getComTypeFromBit(const int bit);
 
 	//重心タイプから，接地脚を1，遊脚を0としたビットを出力する関数．該当しないならば全てfalseを返す．getComTypeFromBitの逆の処理．
-	void getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM]);
+	void getGroundLegFromComType(const int com_type, bool output_ground_leg[HexapodConst::LEG_NUM]);
 
 	// CCCより得られるcom patternを用いて，とりえないcom typeをvectorで返す
-	void getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output);
+	void getDonotUseComTypeFromComPattern(const int com_pattern, std::vector<int> output);
 
 	// CCCより得られるcom patternを用いて，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
-	void checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM]);
+	void checkAbleComTypeFromComPattern(const int com_pattern, bool com_type_able_array[COM_TYPE_NUM]);
 
 	//接地することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
 	void checkAbleComTypeFromNotGroundableLeg(const int not_groundble_leg, bool output_able_comtype[COM_TYPE_NUM]);
