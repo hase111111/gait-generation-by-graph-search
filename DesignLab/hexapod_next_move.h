@@ -6,8 +6,8 @@
 //! @enum EHexapodMove
 //! @date 2023/08/11
 //! @author 長谷川
-//! @brief ロボットが次にどの動作をするのかを表す列挙体．サイズは 1 byte．sizeofで確認済み
-enum class EHexapodMove : char
+//! @brief ロボットが次にどの動作をするのかを表す列挙体．
+enum class EHexapodMove : int
 {
 	NONE,							//!< 何も動作をしない．
 	LEG_UP_DOWN,					//!< 脚の上下移動.

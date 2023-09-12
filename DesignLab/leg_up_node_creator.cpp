@@ -15,15 +15,15 @@ void LegUpNodeCreator::create(const SNode& current_node, const int current_num, 
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	int com_pattern = dl_leg::getComPatternState(current_node.leg_state);
+	ComType::EComPattern com_pattern = dl_leg::getComPatternState(current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
-	ComType::checkAbleComTypeFromComPattern(com_pattern, is_able_type);
+	ComType::checkAbleComTypeFromComPattern(static_cast<int>(com_pattern) - 1, is_able_type);
 
 	//既に遊脚の脚を接地することはできない．
 	{
 		std::vector<int> lifted_leg_num;
-		dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_num);
+		dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_num);
 
 		for (auto& i : lifted_leg_num)
 		{
@@ -46,7 +46,7 @@ void LegUpNodeCreator::create(const SNode& current_node, const int current_num, 
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				dl_leg::changeGround(res_node.leg_state, j, new_ground[j]);
+				dl_leg::changeGround(j, new_ground[j], &res_node.leg_state);
 
 				if (!new_ground[j])
 				{

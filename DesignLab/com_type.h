@@ -58,7 +58,7 @@ namespace ComType
 	//! @brief 重心がどこにあるかを表す．
 	enum class EComPattern : char
 	{
-		FRONT,			//!< 重心が前方にある
+		FRONT = 1,		//!< 重心が前方にある
 		FRONT_LEFT,		//!< 重心が左前方にある
 		BACK_LEFT,		//!< 重心が左後方にある
 		BACK,			//!< 重心が後方にある
@@ -68,6 +68,7 @@ namespace ComType
 		CENTER_BACK,	//!< 重心が中央後方にある．逆三角径
 		ERROR_POS		//!< エラー
 	};
+
 
 	//! @brief 重心パターンをbitに変換する関数
 	//! @param [in] com_pattern 重心パターン

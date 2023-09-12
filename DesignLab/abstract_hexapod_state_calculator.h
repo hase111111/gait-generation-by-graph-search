@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <bitset>
 
 #include "designlab_vector.h"
 #include "designlab_rotator.h"
@@ -103,7 +104,7 @@ public:
 	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
-	float calcStabilityMargin(const int leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const;
+	float calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const;
 
 protected:
 

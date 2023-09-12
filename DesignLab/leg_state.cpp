@@ -1,43 +1,37 @@
 #include "leg_state.h"
 
 
-int dl_leg::makeLegState(const ComType::EComPattern _com_pattern, const bool _ground[HexapodConst::LEG_NUM], const int _leg_pos[HexapodConst::LEG_NUM])
+std::bitset<dl_leg::LEG_STATE_BIT_NUM> dl_leg::makeLegState(const ComType::EComPattern com_pattern,
+	const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM])
 {
-	int res = 0;
+	std::bitset<LEG_STATE_BIT_NUM> res = 0;
 
-	res |= ComType::convertComPatternToBit(_com_pattern) << SHIFT_TO_COM_NUM;	//重心パターンの数値だけbitを立てる
+	res |= static_cast<int>(com_pattern) << SHIFT_TO_COM_NUM;	//重心パターンの数値だけbitを立てる
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (_ground[i] == true) { res |= 0b1000 << (i * 4); }	//接地しているならば上位bitを立てる
+		//接地しているならば上位bitを立てる
+		if (is_ground[i]) { res[(i + 1) * 4 - 1] = true; }
 
-		if (0 < _leg_pos[i] && _leg_pos[i] <= DISCRETE_NUM)
-		{
-			// 1 ～ 7 の範囲ならばその値だけbitを立てる．
-			res |= _leg_pos[i] << (i * 4);
-		}
-		else
-		{
-			//範囲外ならば 4 (基準位置)にする．
-			res |= 4 << (i * 4);
-		}
+		// 脚のbitを立てる
+		res |= static_cast<int>(discretized_leg_pos[i]) << (i * 4);
 	}
 
 	return res;
 }
 
 
-bool dl_leg::isGrounded(const int _leg_state, const int _leg_num)
+bool dl_leg::isGrounded(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, const int leg_index)
 {
 	//_leg_numは0～5の範囲にある必要があるので，範囲外ならばfalseを出力する
-	if (isAbleLegNum(_leg_num) == false)
+	if (!isAbleLegNum(leg_index))
 	{
 		return false;
 	}
 
 	//指定された脚の接地脚のbitが立っているか調べる
-	if ((_leg_state & (LEG_GROUNDED_MASKBIT << _leg_num * 4)))
+	if (leg_state[(leg_index + 1) * 4 - 1])
 	{
 		return true;
 	}
@@ -48,14 +42,14 @@ bool dl_leg::isGrounded(const int _leg_state, const int _leg_num)
 }
 
 
-int dl_leg::getGroundedLegNum(const int leg_state)
+int dl_leg::getGroundedLegNum(const std::bitset<LEG_STATE_BIT_NUM>& leg_state)
 {
 	int res = 0;
 
 	//脚の本数分ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (isGrounded(leg_state, i) == true)
+		if (isGrounded(leg_state, i))
 		{
 			//接地している脚があればカウントアップする
 			res++;
@@ -66,14 +60,16 @@ int dl_leg::getGroundedLegNum(const int leg_state)
 }
 
 
-int dl_leg::getLiftedLegNum(const int _leg_state)
+int dl_leg::getLiftedLegNum(const std::bitset<LEG_STATE_BIT_NUM>& leg_state)
 {
-	return HexapodConst::LEG_NUM - getGroundedLegNum(_leg_state);
+	return HexapodConst::LEG_NUM - getGroundedLegNum(leg_state);
 }
 
 
-void dl_leg::getGroundedLegNumWithVector(const int leg_state, std::vector<int>* res_index)
+void dl_leg::getGroundedLegIndexWithVector(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, std::vector<int>* res_index)
 {
+	if (res_index == nullptr) { return; }
+
 	(*res_index).clear();
 
 	//脚は6本あるので6回ループする
@@ -88,14 +84,16 @@ void dl_leg::getGroundedLegNumWithVector(const int leg_state, std::vector<int>* 
 }
 
 
-void dl_leg::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>* res_index)
+void dl_leg::getLiftedLegIndexWithVector(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, std::vector<int>* res_index)
 {
+	if (res_index == nullptr) { return; }
+
 	(*res_index).clear();
 
 	//脚は6本あるので6回ループする
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (!isGrounded(_leg_state, i))
+		if (!isGrounded(leg_state, i))
 		{
 			//浮いている脚の脚番号をvectorに代入
 			(*res_index).push_back(i);
@@ -104,101 +102,140 @@ void dl_leg::getLiftedLegNumWithVector(const int _leg_state, std::vector<int>* r
 }
 
 
-int dl_leg::getLegState(const int _leg_state, const int _leg_num)
+dl_leg::EDiscreteLegPos dl_leg::getLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const int leg_index)
 {
-	const int _shift_num = 4 * _leg_num;	//4bitずつずらす
+	const int shift_num = 4 * leg_index;	//4bitずつずらす
 
-	return ((_leg_state & (LEG_POS_MASKBIT << _shift_num)) >> _shift_num);
+	const int res = static_cast<int>(((leg_state & (LEG_POS_MASKBIT << shift_num)) >> shift_num).to_ulong());
+
+	return static_cast<EDiscreteLegPos>(res);
 }
 
 
-int dl_leg::getComPatternState(const int _leg_state)
+ComType::EComPattern dl_leg::getComPatternState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
-	return ((_leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM);
+	const int res = static_cast<int>(((leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM).to_ulong());
+
+	return static_cast<ComType::EComPattern>(res);
 }
 
 
-bool dl_leg::changeLegState(const int leg_index, const int new_discretized_leg_pos, int* leg_state)
+bool dl_leg::changeLegState(int leg_index, dl_leg::EDiscreteLegPos new_discretized_leg_pos, bool is_ground, std::bitset<dl_leg::LEG_STATE_BIT_NUM>* leg_state)
 {
-	//_leg_num か _new_state がおかしいならば falseを返す
-	if (!isAbleLegNum(leg_index) || !isAbleLegState(new_discretized_leg_pos))
+	//leg_num か _new_state がおかしいならば falseを返す
+	if (!isAbleLegNum(leg_index) || leg_state == nullptr)
 	{
 		return false;
 	}
 
 	//新しい脚状態を生成する
-	int mask = LEG_STATE_MASKBIT << (leg_index * 4);	//4bitのデータを変更する地点までマスクをずらす
-	int state = new_discretized_leg_pos << (leg_index * 4);			//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+	std::bitset<dl_leg::LEG_STATE_BIT_NUM> mask = LEG_STATE_MASKBIT << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
+	std::bitset<dl_leg::LEG_STATE_BIT_NUM> state = static_cast<int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
 
 	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
-	int res = ((*leg_state) ^ state) & mask;
+	std::bitset<dl_leg::LEG_STATE_BIT_NUM> res = ((*leg_state) ^ state) & mask;
 	(*leg_state) ^= res;
 
 	return true;
 }
 
 
-bool dl_leg::changeLegStateKeepTopBit(int& _leg_state, const int _leg_num, const int _new_state)
+bool dl_leg::changeLegStateKeepTopBit(const int leg_index, const EDiscreteLegPos new_discretized_leg_pos, std::bitset<dl_leg::LEG_STATE_BIT_NUM>* leg_state)
 {
-	//_leg_num か _new_state がおかしいならば falseを返す
-	if (isAbleLegNum(_leg_num) == false || isAbleLegState(_new_state) == false)
+	//leg_num か _new_state がおかしいならば falseを返す
+	if (!isAbleLegNum(leg_index) || leg_state == nullptr)
 	{
 		return false;
 	}
 
 	//新しい脚状態を生成する
-	int _mask = LEG_POS_MASKBIT << (_leg_num * 4);	//4bitのデータを変更する地点までマスクをずらす
-	int _state = _new_state << (_leg_num * 4);			//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+	std::bitset<LEG_STATE_BIT_NUM> mask = LEG_POS_MASKBIT << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
+	std::bitset<LEG_STATE_BIT_NUM> state = static_cast<int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
 
 	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
-	int _res = (_leg_state ^ _state) & _mask;
-	_leg_state ^= _res;
+	std::bitset<LEG_STATE_BIT_NUM> res = ((*leg_state) ^ state) & mask;
+	(*leg_state) ^= res;
 
 	return true;
 }
 
 
-void dl_leg::changeGround(int& _leg_state, const int _leg_num, const bool _ground)
+void dl_leg::changeGround(const int leg_index, const bool is_ground, std::bitset<dl_leg::LEG_STATE_BIT_NUM>* leg_state)
 {
-	//_leg_num がおかしいならば，終了．
-	if (isAbleLegNum(_leg_num) == false) { return; }
+	//leg_num がおかしいならば，終了．
+	if (!isAbleLegNum(leg_index)) { return; }
 
-	if (_ground == true)
+
+	//指定された脚の接地脚のbitを立てるか消すかする
+	if (is_ground)
 	{
-		_leg_state |= (0b1000 << (_leg_num * 4));
+		(*leg_state)[(leg_index + 1) * 4 - 1] = true;
 	}
 	else
 	{
-		_leg_state &= ~(0b1000 << (_leg_num * 4));
+		(*leg_state)[(leg_index + 1) * 4 - 1] = false;
 	}
 }
 
 
-int dl_leg::changeComPattern(int leg_state, const ComType::EComPattern new_com_pattern)
+std::bitset < dl_leg::LEG_STATE_BIT_NUM > dl_leg::changeComPattern(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, const ComType::EComPattern new_com_pattern)
 {
-	const int state = ComType::convertComPatternToBit(new_com_pattern) << SHIFT_TO_COM_NUM;
-	int res = (leg_state ^ state) & COM_STATE_MASKBIT;
-	leg_state ^= res;
+	std::bitset < dl_leg::LEG_STATE_BIT_NUM > res = leg_state;
 
-	return leg_state;
+	const std::bitset < dl_leg::LEG_STATE_BIT_NUM > state = static_cast<int>(new_com_pattern) << SHIFT_TO_COM_NUM;
+	std::bitset < dl_leg::LEG_STATE_BIT_NUM > sub = (res ^ state) & COM_STATE_MASKBIT;
+	res ^= sub;
+
+	return res;
 }
 
 
 int dl_leg::getLegUpDownCount(const int _leg_state_first, const int _leg_state_second)
 {
-	int _res = 0;
+	int res = 0;
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	//for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	//{
+	//	int first_state = _leg_state_first & (LEG_GROUNDED_MASKBIT << (i * 4));
+	//	int second_state = _leg_state_second & (LEG_GROUNDED_MASKBIT << (i * 4));
+
+	//	if (first_state ^ second_state)
+	//	{
+	//		res++;
+	//	}
+	//}
+
+	return res;
+}
+
+
+std::string std::to_string(const dl_leg::EDiscreteLegPos leg_pos)
+{
+	switch (leg_pos)
 	{
-		int _first_state = _leg_state_first & (LEG_GROUNDED_MASKBIT << (i * 4));
-		int _second_state = _leg_state_second & (LEG_GROUNDED_MASKBIT << (i * 4));
+	case dl_leg::EDiscreteLegPos::FRONT:
+		return "FRONT";
 
-		if (_first_state ^ _second_state)
-		{
-			_res++;
-		}
+	case dl_leg::EDiscreteLegPos::BACK:
+		return "BACK";
+
+	case dl_leg::EDiscreteLegPos::CENTER:
+		return "CENTER";
+
+	case dl_leg::EDiscreteLegPos::LOWER_BACK:
+		return "LOWER_BACK";
+
+	case dl_leg::EDiscreteLegPos::LOWER_FRONT:
+		return "LOWER_FRONT";
+
+	case dl_leg::EDiscreteLegPos::UPPER_BACK:
+		return "UPPER_BACK";
+
+	case dl_leg::EDiscreteLegPos::UPPER_FRONT:
+		return "UPPER_FRONT";
+
+	default:
+		return "UNKNOWN";
 	}
-
-	return _res;
 }

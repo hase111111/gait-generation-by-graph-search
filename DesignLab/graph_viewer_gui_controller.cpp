@@ -168,7 +168,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	// [‚³‚ÆŸ‚Ì“®ì‚ğ•\¦‚·‚é
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"[‚³F%d, Ÿ‚Ì“®ì : %s", static_cast<int>(node.depth), std::to_string(node.next_move).c_str());
+		"[‚³F%d, Ÿ‚Ì“®ì : %s", node.depth, std::to_string(node.next_move).c_str());
 }
 
 

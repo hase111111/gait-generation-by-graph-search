@@ -37,12 +37,11 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LegStateGetGroundLegTest.cpp" />
-    <ClCompile Include="LegStateGetGroundNum.cpp" />
-    <ClCompile Include="LegStateGetUpDownCountTest.cpp" />
+    <ClCompile Include="get_grounded_leg_num_test.cpp" />
+    <ClCompile Include="get_lifted_leg_num_test.cpp" />
+    <ClCompile Include="get_grounded_leg_index_with_vector_test.cpp" />
     <ClCompile Include="LegStateIsGroundTest.cpp" />
-    <ClCompile Include="LegStateMakeLegStateTest.cpp" />
-    <ClCompile Include="LegStateTest.cpp" />
+    <ClCompile Include="make_leg_state_test.cpp" />
     <ClCompile Include="MyMathTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

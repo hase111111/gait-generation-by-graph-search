@@ -52,7 +52,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 	for (size_t i = 0; i < kGraphSize; i++)
 	{
 		//Å‘å[‚³‚Ìƒm[ƒh‚Ì‚Ý‚ð•]‰¿‚·‚é
-		if (graph[i].depth == (char)GraphSearchConst::MAX_DEPTH)
+		if (graph[i].depth == GraphSearchConst::MAX_DEPTH)
 		{
 			//Œ‹‰Ê‚ªŒ©‚Â‚©‚Á‚Ä‚¢‚È‚¢ê‡‚ÍC•K‚¸Œ‹‰Ê‚ðXV‚·‚é
 			if (result_index < 0)

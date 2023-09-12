@@ -167,7 +167,7 @@ void NodeDisplayGUI::drawNodeInfo() const
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", static_cast<int>(m_node.depth), std::to_string(m_node.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", m_node.depth, std::to_string(m_node.next_move).c_str());
 
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "単位は長さが[mm]，角度が[rad]");
 }

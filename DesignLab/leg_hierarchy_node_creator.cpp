@@ -66,15 +66,15 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 	//遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
 	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
+	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
 	{
 		SNode new_node = current_node;		//新しい脚状態を生成する.
 
-		dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);	//脚状態を変更する．
+		dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);	//脚状態を変更する．
 
 		new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -88,18 +88,18 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 	//遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
 	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
+	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
 	{
-		for (int j = 1; j <= dl_leg::DISCRETE_NUM; ++j)
+		for (int j = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); j <= dl_leg::DISCRETE_NUM; ++j)
 		{
 			SNode new_node = current_node;		//新しい脚状態を生成する.
 
-			dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);			//脚状態を変更する．
-			dl_leg::changeLegState(j, lifted_leg_list[1], &new_node.leg_state);
+			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);			//脚状態を変更する．
+			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], static_cast<dl_leg::EDiscreteLegPos>(j), &new_node.leg_state);
 
 			new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -114,21 +114,21 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 	//遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegNumWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
 	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = 1; i <= dl_leg::DISCRETE_NUM; ++i)
+	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
 	{
-		for (int j = 1; j <= dl_leg::DISCRETE_NUM; ++j)
+		for (int j = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); j <= dl_leg::DISCRETE_NUM; ++j)
 		{
-			for (int k = 1; k <= dl_leg::DISCRETE_NUM; ++k)
+			for (int k = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); k <= dl_leg::DISCRETE_NUM; ++k)
 			{
 				SNode new_node = current_node;		//新しい脚状態を生成する.
 
-				dl_leg::changeLegState(i, lifted_leg_list[0], &new_node.leg_state);			//脚状態を変更する．
-				dl_leg::changeLegState(j, lifted_leg_list[1], &new_node.leg_state);
-				dl_leg::changeLegState(k, lifted_leg_list[2], &new_node.leg_state);
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);			//脚状態を変更する．
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], static_cast<dl_leg::EDiscreteLegPos>(j), &new_node.leg_state);
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[2], static_cast<dl_leg::EDiscreteLegPos>(k), &new_node.leg_state);
 
 				new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 

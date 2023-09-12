@@ -52,7 +52,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
-				dl_leg::changeLegStateKeepTopBit(next_node.leg_state, j, 4);
+				dl_leg::changeLegStateKeepTopBit(j, dl_leg::EDiscreteLegPos::CENTER, &next_node.leg_state);
 			}
 
 			next_node.changeNextNode(current_num, m_next_move);	//[‚³‚âeƒm[ƒh‚ð•ÏX‚·‚é

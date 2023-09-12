@@ -23,10 +23,7 @@
     <ClCompile Include="vector2_func_test.cpp">
       <Filter>Vector</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateTest.cpp">
-      <Filter>LegState</Filter>
-    </ClCompile>
-    <ClCompile Include="LegStateMakeLegStateTest.cpp">
+    <ClCompile Include="make_leg_state_test.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
     <ClCompile Include="polygon2_is_inside_test.cpp">
@@ -35,13 +32,13 @@
     <ClCompile Include="LegStateIsGroundTest.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateGetGroundNum.cpp">
+    <ClCompile Include="get_lifted_leg_num_test.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateGetGroundLegTest.cpp">
+    <ClCompile Include="get_grounded_leg_num_test.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateGetUpDownCountTest.cpp">
+    <ClCompile Include="get_grounded_leg_index_with_vector_test.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
     <ClCompile Include="polygon2_maxmin_test.cpp">

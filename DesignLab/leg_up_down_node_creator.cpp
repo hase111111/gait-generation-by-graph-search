@@ -40,17 +40,17 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	int com_pattern = dl_leg::getComPatternState(current_node.leg_state);
+	ComType::EComPattern com_pattern = dl_leg::getComPatternState(current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
-	ComType::checkAbleComTypeFromComPattern(com_pattern, is_able_type);
+	ComType::checkAbleComTypeFromComPattern(static_cast<int>(com_pattern) - 1, is_able_type);
 
 
 
 	//次に脚が地面に接地可能か調べる．
 
 	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];		//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -96,7 +96,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				dl_leg::changeGround(res_node.leg_state, j, new_is_ground[j]);
+				dl_leg::changeGround(j, new_is_ground[j], &res_node.leg_state);
 
 				if (new_is_ground[j])
 				{
@@ -105,8 +105,6 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 				}
 				else
 				{
-					//res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					//res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
 					res_node.leg_pos[j].z = -25;
 					res_node.leg_base_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
 					res_node.leg_base_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
@@ -187,7 +185,7 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 					}
 				}
 
-				dl_leg::changeGround(new_node.leg_state, now_leg_num, true);
+				dl_leg::changeGround(now_leg_num, true, &new_node.leg_state);
 
 				if (!mp_calclator->isLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
 
@@ -214,17 +212,17 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 
 bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 {
-	const int _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
+	const dl_leg::EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
 	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
 	{
-		if (_leg_state == 4) { return true; }
+		if (_leg_state == dl_leg::EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (_leg_state == 4) { return false; }
+		if (_leg_state == dl_leg::EDiscreteLegPos::CENTER) { return false; }
 	}
 
 	//脚位置4と比較して前か後ろか
@@ -232,7 +230,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//前
 
-		if (_leg_state == 1 || _leg_state == 2 || _leg_state == 3)
+		if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::FRONT || _leg_state == dl_leg::EDiscreteLegPos::UPPER_FRONT)
 		{
 			return false;
 		}
@@ -241,7 +239,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//後ろ
 
-		if (_leg_state == 7 || _leg_state == 6 || _leg_state == 5)
+		if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_BACK || _leg_state == dl_leg::EDiscreteLegPos::BACK || _leg_state == dl_leg::EDiscreteLegPos::UPPER_BACK)
 		{
 			return false;
 		}
@@ -249,7 +247,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 
 
 	//脚位置4と比較して上か下か
-	if (_leg_state == 1 || _leg_state == 5)
+	if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::LOWER_BACK)
 	{
 		//脚位置4と比較して下
 		if (_node.leg_base_pos[_leg_num].z - HIGH_MARGIN >= _node.leg_pos[_leg_num].z)
@@ -257,7 +255,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 			return true;
 		}
 	}
-	else if (_leg_state == 3 || _leg_state == 7)
+	else if (_leg_state == dl_leg::EDiscreteLegPos::UPPER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::UPPER_BACK)
 	{
 		//脚位置4と比較して上
 		if (_node.leg_base_pos[_leg_num].z + HIGH_MARGIN <= _node.leg_pos[_leg_num].z)

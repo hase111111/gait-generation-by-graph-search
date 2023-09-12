@@ -1,6 +1,6 @@
 導入したライブラリ一覧
 
-boost ver 1.82.0
+boost ver 1.82.0 (ビルドはVS2022で行った，これは各々自身の使用するVSのバージョンでビルドしてください)
 	https://qiita.com/Gaccho/items/7e78911d2c8093baf200
 
 DXLib (ダウンロード日 2023/06/10)　

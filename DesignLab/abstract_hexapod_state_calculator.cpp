@@ -17,7 +17,7 @@ dl_vec::SVector AbstractHexapodStateCalculator::getLocalLegBasePosition(const in
 }
 
 
-float AbstractHexapodStateCalculator::calcStabilityMargin(const int leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const
+float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない

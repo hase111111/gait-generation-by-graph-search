@@ -66,7 +66,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
-				dl_leg::changeGround(res_node.leg_state, j, is_ground_list[j]);
+				dl_leg::changeGround(j, is_ground_list[j], &res_node.leg_state);
 
 				if (is_ground_list[j])
 				{
@@ -142,7 +142,7 @@ bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _curre
 
 
 				//前の候補地点と比較して，より良い候補地点の時のみ実行すする
-				if (_candidate_pos.empty() == false)
+				if (!_candidate_pos.empty())
 				{
 					//反対方向をむいている場合は候補地点として採用しない．
 					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(_candidate_pos.front().projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(_pos.projectedXY()) < 0)
@@ -151,11 +151,11 @@ bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _curre
 					}
 				}
 
-				dl_leg::changeGround(_new_node.leg_state, _leg_num, true);
+				dl_leg::changeGround(_leg_num, true, &_new_node.leg_state);
 
-				if (m_calculator.isLegInRange(_new_node, _leg_num) == false) { continue; }			//脚が範囲外ならば追加せずに続行．
+				if (!m_calculator.isLegInRange(_new_node, _leg_num)) { continue; }			//脚が範囲外ならば追加せずに続行．
 
-				if (isAbleLegPos(_new_node, _leg_num) == false) { continue; }	//候補座標として，適していないならば追加せずに続行．
+				if (!isAbleLegPos(_new_node, _leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
 
 				_candidate_pos.push_back(_pos);
 			}
@@ -164,7 +164,7 @@ bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _curre
 
 
 	//候補点を全列挙したのち，候補点が一つもなければfalse
-	if (_candidate_pos.empty() == true) { return false; }
+	if (_candidate_pos.empty()) { return false; }
 
 	_output_ground_pos = _candidate_pos.back();
 
@@ -173,17 +173,17 @@ bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _curre
 
 bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 {
-	int _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
+	dl_leg::EDiscreteLegPos discrete_leg_pos = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
 	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
 	{
-		if (_leg_state == 4) { return true; }
+		if (discrete_leg_pos == dl_leg::EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (_leg_state == 4) { return false; }
+		if (discrete_leg_pos == dl_leg::EDiscreteLegPos::CENTER) { return false; }
 	}
 
 	//脚位置4と比較して前か後ろか
@@ -191,7 +191,7 @@ bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//前
 
-		if (_leg_state == 1 || _leg_state == 2 || _leg_state == 3)
+		if (discrete_leg_pos == dl_leg::EDiscreteLegPos::LOWER_FRONT || discrete_leg_pos == dl_leg::EDiscreteLegPos::FRONT || discrete_leg_pos == dl_leg::EDiscreteLegPos::UPPER_FRONT)
 		{
 			return false;
 		}
@@ -200,7 +200,7 @@ bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//後ろ
 
-		if (_leg_state == 7 || _leg_state == 6 || _leg_state == 5)
+		if (discrete_leg_pos == dl_leg::EDiscreteLegPos::LOWER_BACK || discrete_leg_pos == dl_leg::EDiscreteLegPos::BACK || discrete_leg_pos == dl_leg::EDiscreteLegPos::UPPER_BACK)
 		{
 			return false;
 		}
@@ -208,7 +208,7 @@ bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 
 
 	//脚位置4と比較して上か下か
-	if (_leg_state == 1 || _leg_state == 5)
+	if (discrete_leg_pos == dl_leg::EDiscreteLegPos::LOWER_BACK || discrete_leg_pos == dl_leg::EDiscreteLegPos::LOWER_FRONT)
 	{
 		//脚位置4と比較して下
 		if (_node.leg_base_pos[_leg_num].z - HIGH_MARGIN >= _node.leg_pos[_leg_num].z)
@@ -216,7 +216,7 @@ bool LegDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 			return true;
 		}
 	}
-	else if (_leg_state == 3 || _leg_state == 7)
+	else if (discrete_leg_pos == dl_leg::EDiscreteLegPos::UPPER_BACK || discrete_leg_pos == dl_leg::EDiscreteLegPos::UPPER_FRONT)
 	{
 		//脚位置4と比較して上
 		if (_node.leg_base_pos[_leg_num].z + HIGH_MARGIN <= _node.leg_pos[_leg_num].z)
