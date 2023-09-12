@@ -257,7 +257,7 @@ namespace dl_vec_test
 	}
 
 	//isConvex関数のテスト
-	TEST(SPolygon2, IsConvex_RightTurn)
+	TEST(SPolygon2, IsConvexRightTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
 		dl_vec::SPolygon2 polygon;
@@ -298,7 +298,7 @@ namespace dl_vec_test
 	}
 
 	//isConvex関数のテスト(左回り)
-	TEST(SPolygon2, IsConvex_LeftTurn)
+	TEST(SPolygon2, IsConvexLeftTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
 		dl_vec::SPolygon2 polygon;

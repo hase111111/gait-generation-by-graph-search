@@ -28,9 +28,6 @@
     <Filter Include="ソース ファイル\Hexapod">
       <UniqueIdentifier>{e6718033-9dd2-4cc9-94c3-f4dff54cca6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\FileIO">
-      <UniqueIdentifier>{c3a615e3-7f3c-4f90-a4ed-bc6bc201f418}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{834c5fe4-5734-49b7-a240-5af752a32aac}</UniqueIdentifier>
     </Filter>
@@ -158,15 +155,6 @@
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeFileIO.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="LogFileIO.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeFileIO.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="Target.h">
       <Filter>ソース ファイル\walking_pattern</Filter>
@@ -469,15 +457,6 @@
     </ClCompile>
     <ClCompile Include="Define.cpp">
       <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="TimeFileIO.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="LogFileIO.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeFileIO.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="leg_state.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>

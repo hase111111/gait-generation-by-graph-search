@@ -6,7 +6,7 @@
 namespace dl_vec_test
 {
 	//isInside関数のテスト(右回り)
-	TEST(SPolygon2, IsInside_RightTurn)
+	TEST(SPolygon2, IsInsideRightTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
 		dl_vec::SPolygon2 polygon;
@@ -69,7 +69,7 @@ namespace dl_vec_test
 	}
 
 	//isInside関数のテスト(左回り)
-	TEST(SPolygon2, IsInside_LeftTurn)
+	TEST(SPolygon2, IsInsideLeftTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
 		dl_vec::SPolygon2 polygon;
