@@ -102,7 +102,7 @@ void dl_leg::getLiftedLegIndexWithVector(const std::bitset<LEG_STATE_BIT_NUM>& l
 }
 
 
-dl_leg::EDiscreteLegPos dl_leg::getLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const int leg_index)
+EDiscreteLegPos dl_leg::getLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const int leg_index)
 {
 	const int shift_num = 4 * leg_index;	//4bit‚¸‚Â‚¸‚ç‚·
 
@@ -121,7 +121,7 @@ dl_com::EComPattern dl_leg::getComPatternState(const std::bitset<dl_leg::LEG_STA
 }
 
 
-bool dl_leg::changeLegState(int leg_index, dl_leg::EDiscreteLegPos new_discretized_leg_pos, bool is_ground, std::bitset<dl_leg::LEG_STATE_BIT_NUM>* leg_state)
+bool dl_leg::changeLegState(int leg_index, EDiscreteLegPos new_discretized_leg_pos, bool is_ground, std::bitset<dl_leg::LEG_STATE_BIT_NUM>* leg_state)
 {
 	//leg_num ‚© _new_state ‚ª‚¨‚©‚µ‚¢‚È‚ç‚Î false‚ð•Ô‚·
 	if (!isAbleLegNum(leg_index) || leg_state == nullptr)
@@ -207,35 +207,4 @@ int dl_leg::getLegUpDownCount(const int _leg_state_first, const int _leg_state_s
 	//}
 
 	return res;
-}
-
-
-std::string std::to_string(const dl_leg::EDiscreteLegPos leg_pos)
-{
-	switch (leg_pos)
-	{
-	case dl_leg::EDiscreteLegPos::FRONT:
-		return "FRONT";
-
-	case dl_leg::EDiscreteLegPos::BACK:
-		return "BACK";
-
-	case dl_leg::EDiscreteLegPos::CENTER:
-		return "CENTER";
-
-	case dl_leg::EDiscreteLegPos::LOWER_BACK:
-		return "LOWER_BACK";
-
-	case dl_leg::EDiscreteLegPos::LOWER_FRONT:
-		return "LOWER_FRONT";
-
-	case dl_leg::EDiscreteLegPos::UPPER_BACK:
-		return "UPPER_BACK";
-
-	case dl_leg::EDiscreteLegPos::UPPER_FRONT:
-		return "UPPER_FRONT";
-
-	default:
-		return "UNKNOWN";
-	}
 }

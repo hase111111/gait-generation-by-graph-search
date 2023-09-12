@@ -5,6 +5,7 @@
 
 #include "hexapod_const.h"
 #include "com_type.h"
+#include "discrete_leg_pos.h"
 
 
 //! @namespace dl_leg
@@ -42,23 +43,6 @@ namespace dl_leg
 	constexpr int SHIFT_TO_COM_NUM = HexapodConst::LEG_NUM * 4;				//!< 重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
 
 	constexpr std::bitset<LEG_STATE_BIT_NUM> COM_STATE_MASKBIT = (0b1111 << SHIFT_TO_COM_NUM);		//!< 重心パターンを保存するビットをマスクするビット．
-
-
-
-	//! @enum EDiscreteLegPos
-	//! @date 2023/09/10
-	//! @author 長谷川
-	//! @breif 離散化された脚位置を表すenum
-	enum class EDiscreteLegPos
-	{
-		LOWER_BACK = 1,		//!< 現在の位置より後方かつ下方にある
-		BACK,				//!< 現在の位置より後方にある
-		UPPER_BACK,			//!< 現在の位置より後方かつ上方にある
-		CENTER,				//!< 現在の位置にある
-		LOWER_FRONT,		//!< 現在の位置より前方かつ下方にある
-		FRONT,				//!< 現在の位置より前方にある
-		UPPER_FRONT,		//!< 現在の位置より前方かつ上方にある
-	};
 
 
 
@@ -162,12 +146,6 @@ namespace dl_leg
 	int getLegUpDownCount(int leg_state_first, int leg_state_second);
 
 }	// namespace dl_leg
-
-
-namespace std
-{
-	std::string to_string(dl_leg::EDiscreteLegPos leg_pos);
-}	// namespace std
 
 
 

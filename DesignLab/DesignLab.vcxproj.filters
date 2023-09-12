@@ -438,6 +438,9 @@
     <ClInclude Include="interpolated_node_creator.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
+    <ClInclude Include="discrete_leg_pos.h">
+      <Filter>ソース ファイル\Node\LegState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -709,6 +712,9 @@
     </ClCompile>
     <ClCompile Include="interpolated_node_creator.cpp">
       <Filter>ソース ファイル\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="discrete_leg_pos.cpp">
+      <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

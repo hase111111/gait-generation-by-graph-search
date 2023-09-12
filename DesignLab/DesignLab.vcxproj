@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
+    <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="interface_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
+    <ClCompile Include="discrete_leg_pos.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
     <ClCompile Include="graphic_main_advance.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />

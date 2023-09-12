@@ -69,12 +69,12 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
-	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
+	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	for (auto i : EDiscreteLegPos())
 	{
 		SNode new_node = current_node;		//新しい脚状態を生成する.
 
-		dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);	//脚状態を変更する．
+		dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
 
 		new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -91,15 +91,15 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
-	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
+	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	for (auto i : EDiscreteLegPos())
 	{
-		for (int j = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); j <= dl_leg::DISCRETE_NUM; ++j)
+		for (auto j : EDiscreteLegPos())
 		{
 			SNode new_node = current_node;		//新しい脚状態を生成する.
 
-			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);			//脚状態を変更する．
-			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], static_cast<dl_leg::EDiscreteLegPos>(j), &new_node.leg_state);
+			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
 
 			new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -117,18 +117,18 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
 
 
-	//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)
-	for (int i = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); i <= dl_leg::DISCRETE_NUM; ++i)
+	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	for (auto i : EDiscreteLegPos())
 	{
-		for (int j = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); j <= dl_leg::DISCRETE_NUM; ++j)
+		for (auto j : EDiscreteLegPos())
 		{
-			for (int k = static_cast<int>(dl_leg::EDiscreteLegPos::LOWER_BACK); k <= dl_leg::DISCRETE_NUM; ++k)
+			for (auto k : EDiscreteLegPos())
 			{
 				SNode new_node = current_node;		//新しい脚状態を生成する.
 
-				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], static_cast<dl_leg::EDiscreteLegPos>(i), &new_node.leg_state);			//脚状態を変更する．
-				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], static_cast<dl_leg::EDiscreteLegPos>(j), &new_node.leg_state);
-				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[2], static_cast<dl_leg::EDiscreteLegPos>(k), &new_node.leg_state);
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
+				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[2], k, &new_node.leg_state);
 
 				new_node.changeNextNode(current_node_index, m_next_move);		//次のノード用に，深さ・親・次の動作を更新する．
 

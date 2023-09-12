@@ -212,17 +212,17 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 
 bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 {
-	const dl_leg::EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//‹rˆÊ’u‚ğæ“¾(1`7)
+	const EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//‹rˆÊ’u‚ğæ“¾(1`7)
 
 	//‚Ü‚¸Å‰‚É‹rˆÊ’u4‚Ì‚Æ‚±‚ë‚É‚È‚¢‚©Šm‚©‚ß‚éD
 	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
 	{
-		if (_leg_state == dl_leg::EDiscreteLegPos::CENTER) { return true; }
+		if (_leg_state == EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (_leg_state == dl_leg::EDiscreteLegPos::CENTER) { return false; }
+		if (_leg_state == EDiscreteLegPos::CENTER) { return false; }
 	}
 
 	//‹rˆÊ’u4‚Æ”äŠr‚µ‚Ä‘O‚©Œã‚ë‚©
@@ -230,7 +230,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//‘O
 
-		if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::FRONT || _leg_state == dl_leg::EDiscreteLegPos::UPPER_FRONT)
+		if (_leg_state == EDiscreteLegPos::LOWER_FRONT || _leg_state == EDiscreteLegPos::FRONT || _leg_state == EDiscreteLegPos::UPPER_FRONT)
 		{
 			return false;
 		}
@@ -239,7 +239,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	{
 		//Œã‚ë
 
-		if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_BACK || _leg_state == dl_leg::EDiscreteLegPos::BACK || _leg_state == dl_leg::EDiscreteLegPos::UPPER_BACK)
+		if (_leg_state == EDiscreteLegPos::LOWER_BACK || _leg_state == EDiscreteLegPos::BACK || _leg_state == EDiscreteLegPos::UPPER_BACK)
 		{
 			return false;
 		}
@@ -247,7 +247,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 
 
 	//‹rˆÊ’u4‚Æ”äŠr‚µ‚Äã‚©‰º‚©
-	if (_leg_state == dl_leg::EDiscreteLegPos::LOWER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::LOWER_BACK)
+	if (_leg_state == EDiscreteLegPos::LOWER_FRONT || _leg_state == EDiscreteLegPos::LOWER_BACK)
 	{
 		//‹rˆÊ’u4‚Æ”äŠr‚µ‚Ä‰º
 		if (_node.leg_base_pos[_leg_num].z - HIGH_MARGIN >= _node.leg_pos[_leg_num].z)
@@ -255,7 +255,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 			return true;
 		}
 	}
-	else if (_leg_state == dl_leg::EDiscreteLegPos::UPPER_FRONT || _leg_state == dl_leg::EDiscreteLegPos::UPPER_BACK)
+	else if (_leg_state == EDiscreteLegPos::UPPER_FRONT || _leg_state == EDiscreteLegPos::UPPER_BACK)
 	{
 		//‹rˆÊ’u4‚Æ”äŠr‚µ‚Äã
 		if (_node.leg_base_pos[_leg_num].z + HIGH_MARGIN <= _node.leg_pos[_leg_num].z)
