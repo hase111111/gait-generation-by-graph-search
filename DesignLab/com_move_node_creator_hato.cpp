@@ -27,7 +27,7 @@ ComMoveNodeCreatorHato::~ComMoveNodeCreatorHato()
 
 void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
-	std::pair<dl_vec::SPolygon2, ComType::EComPattern> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
+	std::pair<dl_vec::SPolygon2, dl_com::EComPattern> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
 
 	//重心移動先の候補地点の範囲を示す多角形を作成する
 	m_maker.makeCandidatePolygon(current_node, candidate_polygons);
@@ -38,7 +38,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 	for (int i = 0; i < ComCandidatePolygonMaker::MAKE_POLYGON_NUM; ++i)
 	{
 		//そもそも多角形が候補点になりえないならば，その多角形は無視する
-		if (candidate_polygons[i].second == ComType::EComPattern::ERROR_POS) { continue; }
+		if (candidate_polygons[i].second == dl_com::EComPattern::ERROR_POS) { continue; }
 
 		dl_vec::SVector result_com;
 

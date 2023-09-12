@@ -39,7 +39,7 @@ public:
 	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, dl_vec::SVector* output_com) const;
+	bool getComFromPolygon(const dl_vec::SPolygon2& polygon, const dl_com::EComPattern com_pattren, dl_vec::SVector* output_com) const;
 
 private:
 

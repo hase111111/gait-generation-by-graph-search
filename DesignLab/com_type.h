@@ -6,7 +6,7 @@
 #include "hexapod_const.h"
 
 
-//! @namespace ComType
+//! @namespace dl_com
 //! @date 2023/08/09
 //! @author 長谷川
 //! @brief 重心タイプに関する名前空間
@@ -22,7 +22,7 @@
 //! @n ・3本遊脚 20通り → 実現可能なものは14通り 
 //!	@n なので全部で36通りある． 
 //! @note 拡張性皆無なので全面的に書き直したいが，根が深い問題なので，とりあえずこのままにしておく．
-namespace ComType
+namespace dl_com
 {
 	constexpr int COM_PATTERN_NUM = 10;		//!< 重心パターンの数
 
@@ -99,7 +99,7 @@ namespace ComType
 	//遊脚することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
 	void checkAbleComTypeFromNotFreeLeg(const int not_free_leg_num, bool output_able_comtype[COM_TYPE_NUM]);
 
-} // namespace ComType
+} // namespace dl_com
 
 
 namespace std
@@ -108,7 +108,7 @@ namespace std
 	//! @brief 重心パターンを出力するための関数
 	//! @param[in] com_pattern 重心パターン
 	//! @return 重心パターンを表す文字列
-	std::string to_string(ComType::EComPattern com_pattern);
+	std::string to_string(dl_com::EComPattern com_pattern);
 }
 
 

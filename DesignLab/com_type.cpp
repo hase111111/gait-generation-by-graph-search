@@ -5,7 +5,7 @@
 #include "leg_state.h"
 
 
-//int ComType::convertComPatternToBit(const EComPattern _com_pattern)
+//int dl_com::convertComPatternToBit(const EComPattern _com_pattern)
 //{
 //	switch (_com_pattern)
 //	{
@@ -39,7 +39,7 @@
 //	}
 //}
 //
-//ComType::EComPattern ComType::convertBitToComPattern(const int _bit)
+//dl_com::EComPattern dl_com::convertBitToComPattern(const int _bit)
 //{
 //	switch (_bit)
 //	{
@@ -73,7 +73,7 @@
 //	}
 //}
 
-bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
+bool dl_com::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
 {
 	//重心位置のパターンとvの関係　　v=18,19,20．．．　のときパターン1の重心位置は取れない．ここに書かれている番号の脚状態は取れない。
 	const char _comType1[9] = { 18, 19,             23, 24, 25,             29, 30, 31,             35 };	//パターン6
@@ -107,7 +107,7 @@ bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodCo
 	return true;
 }
 
-char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_NUM])
+char dl_com::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_NUM])
 {
 	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
 
@@ -127,7 +127,7 @@ char ComType::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_N
 	return getComTypeFromBit(_compare_bit);
 }
 
-char ComType::getComTypeFromLegState(const int _leg_state)
+char dl_com::getComTypeFromLegState(const int _leg_state)
 {
 	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
 
@@ -147,7 +147,7 @@ char ComType::getComTypeFromLegState(const int _leg_state)
 	return getComTypeFromBit(_compare_bit);
 }
 
-char ComType::getComTypeFromBit(const int _bit)
+char dl_com::getComTypeFromBit(const int _bit)
 {
 	//右上が最上位bit，それから時計回りに下位ビットにデータが入っている．
 
@@ -233,7 +233,7 @@ char ComType::getComTypeFromBit(const int _bit)
 	return -1;
 }
 
-void ComType::getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])
+void dl_com::getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])
 {
 	switch (_com_type)
 	{
@@ -425,7 +425,7 @@ void ComType::getGroundLegFromComType(const int _com_type, bool _output_ground_l
 	}
 }
 
-void ComType::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output)
+void dl_com::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output)
 {
 	//com patternから使用不可能なcom typeを取得して出力する．
 	for (const auto& i : COMTYPE_BAN_LIST[_com_pattern])
@@ -434,7 +434,7 @@ void ComType::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vect
 	}
 }
 
-void ComType::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM])
+void dl_com::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM])
 {
 	std::vector<int> _cannot_use_type;
 	getDonotUseComTypeFromComPattern(_com_pattern, _cannot_use_type);
@@ -445,7 +445,7 @@ void ComType::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_t
 	}
 }
 
-void ComType::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg, bool _com_type_able_array[COM_TYPE_NUM])
+void dl_com::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg, bool _com_type_able_array[COM_TYPE_NUM])
 {
 	//とることのできないcom typeを全てfalseに変更する．
 	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
@@ -454,7 +454,7 @@ void ComType::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg,
 	}
 }
 
-void ComType::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_type_able_array[COM_TYPE_NUM])
+void dl_com::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_type_able_array[COM_TYPE_NUM])
 {
 	bool _reverse[COM_TYPE_NUM];
 
@@ -479,27 +479,27 @@ void ComType::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_
 	}
 }
 
-std::string std::to_string(ComType::EComPattern com_pattern)
+std::string std::to_string(dl_com::EComPattern com_pattern)
 {
 	switch (com_pattern)
 	{
-	case ComType::EComPattern::FRONT:
+	case dl_com::EComPattern::FRONT:
 		return "FRONT";
-	case ComType::EComPattern::FRONT_LEFT:
+	case dl_com::EComPattern::FRONT_LEFT:
 		return "FRONT_LEFT";
-	case ComType::EComPattern::BACK_LEFT:
+	case dl_com::EComPattern::BACK_LEFT:
 		return "BACK_LEFT";
-	case ComType::EComPattern::BACK:
+	case dl_com::EComPattern::BACK:
 		return "BACK";
-	case ComType::EComPattern::BACK_RIGHT:
+	case dl_com::EComPattern::BACK_RIGHT:
 		return "BACK_RIGHT";
-	case ComType::EComPattern::FRONT_RIGHT:
+	case dl_com::EComPattern::FRONT_RIGHT:
 		return "FRONT_RIGHT";
-	case ComType::EComPattern::CENTER_FRONT:
+	case dl_com::EComPattern::CENTER_FRONT:
 		return "CENTER_FRONT";
-	case ComType::EComPattern::CENTER_BACK:
+	case dl_com::EComPattern::CENTER_BACK:
 		return "CENTER_BACK";
-	case ComType::EComPattern::ERROR_POS:
+	case dl_com::EComPattern::ERROR_POS:
 		return "ERROR_POS";
 	default:
 		return "ERROR_POS";

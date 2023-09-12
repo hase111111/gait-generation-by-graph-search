@@ -4,7 +4,7 @@
 #include "hexapod_const.h"
 
 
-void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<dl_vec::SPolygon2, ComType::EComPattern> output_poly[MAKE_POLYGON_NUM]) const
+void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<dl_vec::SPolygon2, dl_com::EComPattern> output_poly[MAKE_POLYGON_NUM]) const
 {
 	if (!mp_calculator) { return; }
 
@@ -17,12 +17,12 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 	}
 
 	//’†S‚ðˆÍ‚Þ‚æ‚¤‚É4ŠpŒ`‚ðì¬‚·‚é
-	makeCandidateBox(leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = ComType::EComPattern::FRONT_LEFT;
-	makeCandidateBox(leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = ComType::EComPattern::BACK_LEFT;
-	makeCandidateBox(leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = ComType::EComPattern::BACK;
-	makeCandidateBox(leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = ComType::EComPattern::BACK_RIGHT;
-	makeCandidateBox(leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = ComType::EComPattern::FRONT_RIGHT;
-	makeCandidateBox(leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = ComType::EComPattern::FRONT;
+	makeCandidateBox(leg_pos_xy, 0, &output_poly[0].first); output_poly[0].second = dl_com::EComPattern::FRONT_LEFT;
+	makeCandidateBox(leg_pos_xy, 1, &output_poly[1].first); output_poly[1].second = dl_com::EComPattern::BACK_LEFT;
+	makeCandidateBox(leg_pos_xy, 2, &output_poly[2].first); output_poly[2].second = dl_com::EComPattern::BACK;
+	makeCandidateBox(leg_pos_xy, 3, &output_poly[3].first); output_poly[3].second = dl_com::EComPattern::BACK_RIGHT;
+	makeCandidateBox(leg_pos_xy, 4, &output_poly[4].first); output_poly[4].second = dl_com::EComPattern::FRONT_RIGHT;
+	makeCandidateBox(leg_pos_xy, 5, &output_poly[5].first); output_poly[5].second = dl_com::EComPattern::FRONT;
 
 	//’†S‚É3ŠpŒ`‚ðì¬‚·‚é
 	makeCandidateTriangle(leg_pos_xy, &output_poly[6].first, &output_poly[6].second);
@@ -34,7 +34,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 		{
 			if (!checkPolygon(output_poly[i].first))
 			{
-				output_poly[i].second = ComType::EComPattern::ERROR_POS;
+				output_poly[i].second = dl_com::EComPattern::ERROR_POS;
 			}
 		}
 	}
@@ -93,7 +93,7 @@ void ComCandidatePolygonMaker::makeCandidateBox(const dl_vec::SVector2 leg_pos[H
 	}
 }
 
-void ComCandidatePolygonMaker::makeCandidateTriangle(const dl_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], dl_vec::SPolygon2* out_poly, ComType::EComPattern* out_com_pattern) const
+void ComCandidatePolygonMaker::makeCandidateTriangle(const dl_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], dl_vec::SPolygon2* out_poly, dl_com::EComPattern* out_com_pattern) const
 {
 	dl_vec::SLine2 leg_line_03(leg_pos[0], leg_pos[3]);
 	dl_vec::SLine2 leg_line_14(leg_pos[1], leg_pos[4]);
@@ -112,11 +112,11 @@ void ComCandidatePolygonMaker::makeCandidateTriangle(const dl_vec::SVector2 leg_
 
 	if (intersection_03_14.x > intersection_03_25.x)
 	{
-		(*out_com_pattern) = ComType::EComPattern::CENTER_BACK;
+		(*out_com_pattern) = dl_com::EComPattern::CENTER_BACK;
 	}
 	else
 	{
-		(*out_com_pattern) = ComType::EComPattern::CENTER_FRONT;
+		(*out_com_pattern) = dl_com::EComPattern::CENTER_FRONT;
 	}
 
 	return;

@@ -6,7 +6,7 @@
 #include "leg_state.h"
 
 
-bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComType::EComPattern com_pattren, dl_vec::SVector* output_com) const
+bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const dl_com::EComPattern com_pattren, dl_vec::SVector* output_com) const
 {
 	std::pair<bool, dl_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 

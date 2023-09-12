@@ -25,7 +25,7 @@ ComMoveNodeCreator::~ComMoveNodeCreator()
 
 void ComMoveNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
-	//std::vector<std::pair<dl_vec::SPolygon2, ComType::EComPattern>> candidate_polygons;
+	//std::vector<std::pair<dl_vec::SPolygon2, dl_com::EComPattern>> candidate_polygons;
 
 	////重心移動先の候補地点の範囲を示す多角形を作成する
 	//ComCandidatePolygonMaker polygon_maker;

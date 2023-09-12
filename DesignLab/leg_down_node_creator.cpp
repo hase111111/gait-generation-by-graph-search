@@ -7,9 +7,9 @@
 void LegDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
-	bool is_able_type[ComType::COM_TYPE_NUM];
+	bool is_able_type[dl_com::COM_TYPE_NUM];
 
-	for (int i = 0; i < ComType::COM_TYPE_NUM; i++)
+	for (int i = 0; i < dl_com::COM_TYPE_NUM; i++)
 	{
 		is_able_type[i] = true;
 	}
@@ -31,7 +31,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 			ground_pos[i] = current_node.leg_pos[i];
 
 			//足を下ろす動作をさせるので，接地脚は遊脚不可能．よって，とれないcom typeを全てけす．
-			ComType::checkAbleComTypeFromNotFreeLeg(i, is_able_type);
+			dl_com::checkAbleComTypeFromNotFreeLeg(i, is_able_type);
 		}
 		else
 		{
@@ -46,13 +46,13 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 			else
 			{
 				is_groundable_leg[i] = false;	//接地不可能にする．
-				ComType::checkAbleComTypeFromNotGroundableLeg(i, is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
+				dl_com::checkAbleComTypeFromNotGroundableLeg(i, is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
 			}
 		}
 	}
 
 	//子ノードを生成する．
-	for (int i = 0; i < ComType::COM_TYPE_NUM; ++i)
+	for (int i = 0; i < dl_com::COM_TYPE_NUM; ++i)
 	{
 		//その重心タイプを取ることが可能であれば
 		if (is_able_type[i])
@@ -62,7 +62,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 
 			//遊脚・接地を書き換える．
 			bool is_ground_list[HexapodConst::LEG_NUM] = {};
-			ComType::getGroundLegFromComType(i, is_ground_list);
+			dl_com::getGroundLegFromComType(i, is_ground_list);
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{

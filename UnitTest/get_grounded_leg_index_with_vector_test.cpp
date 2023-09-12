@@ -34,7 +34,7 @@ namespace dl_leg_test
 	TEST_F(GroundCheckWithVector, GetGroundedLegIndexWithVector)
 	{
 		// テストケース1 全脚接地
-		ComType::EComPattern com = ComType::EComPattern::FRONT;
+		dl_com::EComPattern com = dl_com::EComPattern::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		dl_leg::EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { dl_leg::EDiscreteLegPos::CENTER, dl_leg::EDiscreteLegPos::CENTER, dl_leg::EDiscreteLegPos::CENTER,
 																				dl_leg::EDiscreteLegPos::CENTER, dl_leg::EDiscreteLegPos::CENTER, dl_leg::EDiscreteLegPos::CENTER };
