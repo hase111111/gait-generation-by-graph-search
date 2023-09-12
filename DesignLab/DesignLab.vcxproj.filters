@@ -306,7 +306,7 @@
     <ClInclude Include="leg_down_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="abstract_pass_finder_factory.h">
+    <ClInclude Include="interface_pass_finder_factory.h">
       <Filter>ソース ファイル\PassFinderSystem\Factory</Filter>
     </ClInclude>
     <ClInclude Include="pass_finder_factory_hato.h">

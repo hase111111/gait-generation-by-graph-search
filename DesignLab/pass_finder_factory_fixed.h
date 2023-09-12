@@ -1,13 +1,13 @@
 #pragma once
 
-#include "abstract_pass_finder_factory.h"
+#include "interface_pass_finder_factory.h"
 
 
 //! @class PassFinderFactoryFixed
 //! @date 2023/08/14
 //! @author ’·’Jì
 //! @brief Ä•]‰¿è–@
-class PassFinderFactoryFixed final : public AbstractPassFinderFactory
+class PassFinderFactoryFixed final : public IPassFinderFactory
 {
 public:
 	PassFinderFactoryFixed() = default;

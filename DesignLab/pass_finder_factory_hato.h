@@ -1,13 +1,13 @@
 #pragma once
 
-#include "abstract_pass_finder_factory.h"
+#include "interface_pass_finder_factory.h"
 
 
 //! @class PassFinderFactoryHato
 //! @date 2023/08/14
 //! @author 長谷川
 //! @brief パス探索クラスのファクトリークラス
-class PassFinderFactoryHato final : public AbstractPassFinderFactory
+class PassFinderFactoryHato final : public IPassFinderFactory
 {
 public:
 	PassFinderFactoryHato() = default;

@@ -8,15 +8,15 @@
 #include "map_state.h"
 
 
-//! @class AbstractPassFinderFactory
+//! @class IPassFinderFactory
 //! @date 2023/08/21
 //! @author 長谷川
-//! @brief パス探索に必要なクラスを生成するアブストラクトファクトリー．
-class AbstractPassFinderFactory
+//! @brief パス探索に必要なクラスを生成するファクトリークラス．
+class IPassFinderFactory
 {
 public:
-	AbstractPassFinderFactory() = default;
-	virtual ~AbstractPassFinderFactory() = default;
+	IPassFinderFactory() = default;
+	virtual ~IPassFinderFactory() = default;
 
 	//! @brief グラフ木の生成に必要なクラスを生成する．
 	//! @param [in] map マップ情報．
@@ -29,8 +29,8 @@ public:
 };
 
 
-//! @file abstract_pass_finder_factory.h
+//! @file interface_pass_finder_factory.h
 //! @date 2023/08/21
 //! @author 長谷川
-//! @brief パス探索に必要なクラスを生成するアブストラクトファクトリー．
+//! @brief パス探索に必要なクラスを生成するファクトリークラス．
 //! @n 行数 : @lineinfo

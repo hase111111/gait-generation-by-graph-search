@@ -12,7 +12,7 @@
 #include "graphic_main_test.h"
 
 
-SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<AbstractPassFinderFactory>&& graph_search_factory,
+SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::unique_ptr<IPassFinderFactory>&& graph_search_factory,
 	std::unique_ptr<IGraphicMainBuilder>&& builder, std::shared_ptr<AbstractHexapodStateCalculator> calc, SApplicationSettingRecorder* recorder) : mp_setting(recorder)
 {
 	//ロボットのデータを初期化する．

@@ -9,7 +9,7 @@
 #include "application_setting_recorder.h"
 #include "interface_graph_tree_creator.h"
 #include "abstract_graph_searcher.h"
-#include "abstract_pass_finder_factory.h"
+#include "interface_pass_finder_factory.h"
 #include "abstract_hexapod_state_calculator.h"
 
 
@@ -27,7 +27,7 @@ public:
 	virtual ~AbstractPassFinder() = default;
 
 
-	void init(std::unique_ptr<AbstractPassFinderFactory>&& factory, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+	void init(std::unique_ptr<IPassFinderFactory>&& factory, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
@@ -63,7 +63,7 @@ protected:
 	std::vector<SNode> m_graph_tree;	//!< グラフ木
 
 
-	std::unique_ptr<AbstractPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
+	std::unique_ptr<IPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
 
 	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
 
