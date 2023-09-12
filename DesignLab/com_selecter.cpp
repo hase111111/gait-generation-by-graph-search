@@ -42,12 +42,6 @@ bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const ComT
 		return true;
 	}
 
-
-	if (DO_DEBUG_PRINT)
-	{
-		std::cout << ComType::convertComPatternToBit(com_pattren) << "‚ÌdSŒ©‚Â‚©‚ç‚¸" << std::endl;
-	}
-
 	//ŠY“–‚·‚é‚à‚Ì‚ª‚È‚¯‚ê‚Îfalse‚ð•Ô‚·
 	return false;
 }

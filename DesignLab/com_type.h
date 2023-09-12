@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 #include "hexapod_const.h"
 
@@ -70,20 +71,6 @@ namespace ComType
 	};
 
 
-	//! @brief 重心パターンをbitに変換する関数
-	//! @param [in] com_pattern 重心パターン
-	//! @return int 重心パターンをbitに変換した値
-	//! @details 重心パターンはleg_stateの上位bitにて表現されている
-	//! @n 4bitに収まるように値を変換する．
-	//! @attention 重心パターンの数が変わった場合は，この関数も変更する必要がある．
-	int convertComPatternToBit(const EComPattern com_pattern);
-
-
-	//! @brief 重心パターンをbitから変換する関数
-	//! @param [in] bit 重心パターンをbitに変換した値
-	//! @return 重心パターン
-	EComPattern convertBitToComPattern(const int bit);
-
 
 	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する
 	bool isAbleCoM(int com_pattern, const bool is_ground[HexapodConst::LEG_NUM]);
@@ -113,6 +100,16 @@ namespace ComType
 	void checkAbleComTypeFromNotFreeLeg(const int not_free_leg_num, bool output_able_comtype[COM_TYPE_NUM]);
 
 } // namespace ComType
+
+
+namespace std
+{
+
+	//! @brief 重心パターンを出力するための関数
+	//! @param[in] com_pattern 重心パターン
+	//! @return 重心パターンを表す文字列
+	std::string to_string(ComType::EComPattern com_pattern);
+}
 
 
 //! @file com_type.h

@@ -5,73 +5,73 @@
 #include "leg_state.h"
 
 
-int ComType::convertComPatternToBit(const EComPattern _com_pattern)
-{
-	switch (_com_pattern)
-	{
-	case EComPattern::FRONT:
-		return 0b0110;
-		break;
-	case EComPattern::FRONT_LEFT:
-		return 0b0001;
-		break;
-	case EComPattern::BACK_LEFT:
-		return 0b0010;
-		break;
-	case EComPattern::BACK:
-		return 0b0011;
-		break;
-	case EComPattern::BACK_RIGHT:
-		return 0b0100;
-		break;
-	case EComPattern::FRONT_RIGHT:
-		return 0b0101;
-		break;
-	case EComPattern::CENTER_FRONT:
-		return 0b1000;
-		break;
-	case EComPattern::CENTER_BACK:
-		return 0b0111;
-		break;
-	default:
-		return 0;
-		break;
-	}
-}
-
-ComType::EComPattern ComType::convertBitToComPattern(const int _bit)
-{
-	switch (_bit)
-	{
-	case 0b0110:
-		return EComPattern::FRONT;
-		break;
-	case 0b0001:
-		return EComPattern::FRONT_LEFT;
-		break;
-	case 0b0010:
-		return EComPattern::BACK_LEFT;
-		break;
-	case 0b0011:
-		return EComPattern::BACK;
-		break;
-	case 0b0100:
-		return EComPattern::BACK_RIGHT;
-		break;
-	case 0b0101:
-		return EComPattern::FRONT_RIGHT;
-		break;
-	case 0b1000:
-		return EComPattern::CENTER_FRONT;
-		break;
-	case 0b0111:
-		return EComPattern::CENTER_BACK;
-		break;
-	default:
-		return EComPattern();
-		break;
-	}
-}
+//int ComType::convertComPatternToBit(const EComPattern _com_pattern)
+//{
+//	switch (_com_pattern)
+//	{
+//	case EComPattern::FRONT:
+//		return 0b0110;
+//		break;
+//	case EComPattern::FRONT_LEFT:
+//		return 0b0001;
+//		break;
+//	case EComPattern::BACK_LEFT:
+//		return 0b0010;
+//		break;
+//	case EComPattern::BACK:
+//		return 0b0011;
+//		break;
+//	case EComPattern::BACK_RIGHT:
+//		return 0b0100;
+//		break;
+//	case EComPattern::FRONT_RIGHT:
+//		return 0b0101;
+//		break;
+//	case EComPattern::CENTER_FRONT:
+//		return 0b1000;
+//		break;
+//	case EComPattern::CENTER_BACK:
+//		return 0b0111;
+//		break;
+//	default:
+//		return 0;
+//		break;
+//	}
+//}
+//
+//ComType::EComPattern ComType::convertBitToComPattern(const int _bit)
+//{
+//	switch (_bit)
+//	{
+//	case 0b0110:
+//		return EComPattern::FRONT;
+//		break;
+//	case 0b0001:
+//		return EComPattern::FRONT_LEFT;
+//		break;
+//	case 0b0010:
+//		return EComPattern::BACK_LEFT;
+//		break;
+//	case 0b0011:
+//		return EComPattern::BACK;
+//		break;
+//	case 0b0100:
+//		return EComPattern::BACK_RIGHT;
+//		break;
+//	case 0b0101:
+//		return EComPattern::FRONT_RIGHT;
+//		break;
+//	case 0b1000:
+//		return EComPattern::CENTER_FRONT;
+//		break;
+//	case 0b0111:
+//		return EComPattern::CENTER_BACK;
+//		break;
+//	default:
+//		return EComPattern();
+//		break;
+//	}
+//}
 
 bool ComType::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
 {
@@ -476,5 +476,32 @@ void ComType::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_
 		{
 			_com_type_able_array[i] = false;
 		}
+	}
+}
+
+std::string std::to_string(ComType::EComPattern com_pattern)
+{
+	switch (com_pattern)
+	{
+	case ComType::EComPattern::FRONT:
+		return "FRONT";
+	case ComType::EComPattern::FRONT_LEFT:
+		return "FRONT_LEFT";
+	case ComType::EComPattern::BACK_LEFT:
+		return "BACK_LEFT";
+	case ComType::EComPattern::BACK:
+		return "BACK";
+	case ComType::EComPattern::BACK_RIGHT:
+		return "BACK_RIGHT";
+	case ComType::EComPattern::FRONT_RIGHT:
+		return "FRONT_RIGHT";
+	case ComType::EComPattern::CENTER_FRONT:
+		return "CENTER_FRONT";
+	case ComType::EComPattern::CENTER_BACK:
+		return "CENTER_BACK";
+	case ComType::EComPattern::ERROR_POS:
+		return "ERROR_POS";
+	default:
+		return "ERROR_POS";
 	}
 }
