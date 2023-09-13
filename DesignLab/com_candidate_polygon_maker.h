@@ -30,7 +30,7 @@ public:
 	//! @brief 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する
 	//! @param [in] node 現在のロボットの状態を表すノード
 	//! @param [out] output_poly 重心位置の候補地点を示す多角形
-	void makeCandidatePolygon(const SNode& node, std::pair<dl_vec::SPolygon2, dl_com::EComPattern> output_poly[MAKE_POLYGON_NUM]) const;
+	void makeCandidatePolygon(const SNode& node, std::pair<dl_vec::SPolygon2, EDiscreteComPos> output_poly[MAKE_POLYGON_NUM]) const;
 
 
 private:
@@ -40,7 +40,7 @@ private:
 
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は3角形を用いて表現する．
-	void makeCandidateTriangle(const dl_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], dl_vec::SPolygon2* output_poly, dl_com::EComPattern* output_com_pattern) const;
+	void makeCandidateTriangle(const dl_vec::SVector2 leg_pos[HexapodConst::LEG_NUM], dl_vec::SPolygon2* output_poly, EDiscreteComPos* output_com_pattern) const;
 
 
 	//! @brief 正しい多角形が生成されているかを確認する

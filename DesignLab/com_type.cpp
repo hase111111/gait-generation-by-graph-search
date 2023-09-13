@@ -5,32 +5,32 @@
 #include "leg_state.h"
 
 
-//int dl_com::convertComPatternToBit(const EComPattern _com_pattern)
+//int dl_com::convertComPatternToBit(const EDiscreteComPos _com_pattern)
 //{
 //	switch (_com_pattern)
 //	{
-//	case EComPattern::FRONT:
+//	case EDiscreteComPos::FRONT:
 //		return 0b0110;
 //		break;
-//	case EComPattern::FRONT_LEFT:
+//	case EDiscreteComPos::FRONT_LEFT:
 //		return 0b0001;
 //		break;
-//	case EComPattern::BACK_LEFT:
+//	case EDiscreteComPos::BACK_LEFT:
 //		return 0b0010;
 //		break;
-//	case EComPattern::BACK:
+//	case EDiscreteComPos::BACK:
 //		return 0b0011;
 //		break;
-//	case EComPattern::BACK_RIGHT:
+//	case EDiscreteComPos::BACK_RIGHT:
 //		return 0b0100;
 //		break;
-//	case EComPattern::FRONT_RIGHT:
+//	case EDiscreteComPos::FRONT_RIGHT:
 //		return 0b0101;
 //		break;
-//	case EComPattern::CENTER_FRONT:
+//	case EDiscreteComPos::CENTER_FRONT:
 //		return 0b1000;
 //		break;
-//	case EComPattern::CENTER_BACK:
+//	case EDiscreteComPos::CENTER_BACK:
 //		return 0b0111;
 //		break;
 //	default:
@@ -39,36 +39,36 @@
 //	}
 //}
 //
-//dl_com::EComPattern dl_com::convertBitToComPattern(const int _bit)
+//EDiscreteComPos dl_com::convertBitToComPattern(const int _bit)
 //{
 //	switch (_bit)
 //	{
 //	case 0b0110:
-//		return EComPattern::FRONT;
+//		return EDiscreteComPos::FRONT;
 //		break;
 //	case 0b0001:
-//		return EComPattern::FRONT_LEFT;
+//		return EDiscreteComPos::FRONT_LEFT;
 //		break;
 //	case 0b0010:
-//		return EComPattern::BACK_LEFT;
+//		return EDiscreteComPos::BACK_LEFT;
 //		break;
 //	case 0b0011:
-//		return EComPattern::BACK;
+//		return EDiscreteComPos::BACK;
 //		break;
 //	case 0b0100:
-//		return EComPattern::BACK_RIGHT;
+//		return EDiscreteComPos::BACK_RIGHT;
 //		break;
 //	case 0b0101:
-//		return EComPattern::FRONT_RIGHT;
+//		return EDiscreteComPos::FRONT_RIGHT;
 //		break;
 //	case 0b1000:
-//		return EComPattern::CENTER_FRONT;
+//		return EDiscreteComPos::CENTER_FRONT;
 //		break;
 //	case 0b0111:
-//		return EComPattern::CENTER_BACK;
+//		return EDiscreteComPos::CENTER_BACK;
 //		break;
 //	default:
-//		return EComPattern();
+//		return EDiscreteComPos();
 //		break;
 //	}
 //}
@@ -476,32 +476,5 @@ void dl_com::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_t
 		{
 			_com_type_able_array[i] = false;
 		}
-	}
-}
-
-std::string std::to_string(dl_com::EComPattern com_pattern)
-{
-	switch (com_pattern)
-	{
-	case dl_com::EComPattern::FRONT:
-		return "FRONT";
-	case dl_com::EComPattern::FRONT_LEFT:
-		return "FRONT_LEFT";
-	case dl_com::EComPattern::BACK_LEFT:
-		return "BACK_LEFT";
-	case dl_com::EComPattern::BACK:
-		return "BACK";
-	case dl_com::EComPattern::BACK_RIGHT:
-		return "BACK_RIGHT";
-	case dl_com::EComPattern::FRONT_RIGHT:
-		return "FRONT_RIGHT";
-	case dl_com::EComPattern::CENTER_FRONT:
-		return "CENTER_FRONT";
-	case dl_com::EComPattern::CENTER_BACK:
-		return "CENTER_BACK";
-	case dl_com::EComPattern::ERROR_POS:
-		return "ERROR_POS";
-	default:
-		return "ERROR_POS";
 	}
 }

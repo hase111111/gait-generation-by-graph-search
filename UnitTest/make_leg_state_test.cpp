@@ -19,7 +19,7 @@ namespace dl_leg_test
 		virtual void TearDown() {}
 
 		//! @brief bitの値が各ステータスの値と等しいか確認する
-		void testLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const dl_com::EComPattern& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
+		void testLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const EDiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
 		{
 			EXPECT_EQ(dl_leg::getComPatternState(leg_state), com_pattern) << "bit : " + leg_state.to_string() + "\nfirst : "
 				+ std::to_string(static_cast<int>(dl_leg::getComPatternState(leg_state))) + " second : " + std::to_string(static_cast<int>(com_pattern));
@@ -37,7 +37,7 @@ namespace dl_leg_test
 
 	TEST_F(MakeLegState, ChangeComPattren)
 	{
-		dl_com::EComPattern com_pattern = dl_com::EComPattern::FRONT;
+		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER,
 																				EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER };
@@ -49,49 +49,49 @@ namespace dl_leg_test
 
 
 		//重心パターンを変更して，重心パターンが変更されたか，また重心の値が変わらないこと，脚位置の値が変化しないことを確認
-		com_pattern = dl_com::EComPattern::BACK;
+		com_pattern = EDiscreteComPos::BACK;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 1");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::BACK_LEFT;
+		com_pattern = EDiscreteComPos::BACK_LEFT;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 2");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::BACK_RIGHT;
+		com_pattern = EDiscreteComPos::BACK_RIGHT;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 3");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::FRONT_LEFT;
+		com_pattern = EDiscreteComPos::FRONT_LEFT;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 4");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::FRONT_RIGHT;
+		com_pattern = EDiscreteComPos::FRONT_RIGHT;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 5");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::CENTER_BACK;
+		com_pattern = EDiscreteComPos::CENTER_BACK;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 6");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = dl_com::EComPattern::CENTER_FRONT;
+		com_pattern = EDiscreteComPos::CENTER_FRONT;
 		res = dl_leg::makeLegState(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 7");
@@ -102,7 +102,7 @@ namespace dl_leg_test
 	TEST_F(MakeLegState, ChangeGround)
 	{
 		// 様々な脚接地パターンを作成し， 脚接地パターンが変更されたか，また重心の値が変わらないこと，脚位置の値が変化しないことを確認
-		dl_com::EComPattern com_pattern = dl_com::EComPattern::FRONT;
+		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER,
 																				EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER };
@@ -236,7 +236,7 @@ namespace dl_leg_test
 	TEST_F(MakeLegState, ChangeDiscreteLegPos)
 	{
 		//様々な脚位置パターンを作成する．
-		dl_com::EComPattern com_pattern = dl_com::EComPattern::FRONT;
+		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		EDiscreteLegPos discretized_leg_pos1[HexapodConst::LEG_NUM] = { EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER,
 																				EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER };

@@ -4,6 +4,7 @@
 #include <string>
 
 #include "hexapod_const.h"
+#include "discrete_com_pos.h"
 
 
 //! @namespace dl_com
@@ -55,22 +56,6 @@ namespace dl_com
 		{ 19,     21,     23,     25,     27,     29,     31,     33,     35 }	//パターン8
 	};
 
-	//! @enum 重心パターンの列挙型
-	//! @brief 重心がどこにあるかを表す．
-	enum class EComPattern : char
-	{
-		FRONT = 1,		//!< 重心が前方にある
-		FRONT_LEFT,		//!< 重心が左前方にある
-		BACK_LEFT,		//!< 重心が左後方にある
-		BACK,			//!< 重心が後方にある
-		BACK_RIGHT,		//!< 重心が右後方にある
-		FRONT_RIGHT,	//!< 重心が右前方にある
-		CENTER_FRONT,	//!< 重心が中央前方にある．三角形
-		CENTER_BACK,	//!< 重心が中央後方にある．逆三角径
-		ERROR_POS		//!< エラー
-	};
-
-
 
 	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する
 	bool isAbleCoM(int com_pattern, const bool is_ground[HexapodConst::LEG_NUM]);
@@ -101,15 +86,6 @@ namespace dl_com
 
 } // namespace dl_com
 
-
-namespace std
-{
-
-	//! @brief 重心パターンを出力するための関数
-	//! @param[in] com_pattern 重心パターン
-	//! @return 重心パターンを表す文字列
-	std::string to_string(dl_com::EComPattern com_pattern);
-}
 
 
 //! @file com_type.h

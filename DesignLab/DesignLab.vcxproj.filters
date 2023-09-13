@@ -441,6 +441,9 @@
     <ClInclude Include="discrete_leg_pos.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
+    <ClInclude Include="discrete_com_pos.h">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -715,6 +718,9 @@
     </ClCompile>
     <ClCompile Include="discrete_leg_pos.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
+    </ClCompile>
+    <ClCompile Include="discrete_com_pos.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

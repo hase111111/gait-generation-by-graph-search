@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const dl_com::EComPattern com_pattren, dl_vec::SVector& output_com) const
+bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDiscreteComPos com_pattren, dl_vec::SVector& output_com) const
 {
 	std::vector<dl_vec::SVector2> coms;
 

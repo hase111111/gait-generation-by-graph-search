@@ -40,7 +40,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 	}
 
 	//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．
-	dl_com::EComPattern com_pattern = dl_leg::getComPatternState(current_node.leg_state);
+	EDiscreteComPos com_pattern = dl_leg::getComPatternState(current_node.leg_state);
 
 	//com patternよりとることができないcom typeを全てfalseにする．
 	dl_com::checkAbleComTypeFromComPattern(static_cast<int>(com_pattern) - 1, is_able_type);

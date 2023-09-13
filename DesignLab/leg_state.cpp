@@ -1,7 +1,7 @@
 #include "leg_state.h"
 
 
-std::bitset<dl_leg::LEG_STATE_BIT_NUM> dl_leg::makeLegState(const dl_com::EComPattern com_pattern,
+std::bitset<dl_leg::LEG_STATE_BIT_NUM> dl_leg::makeLegState(const EDiscreteComPos com_pattern,
 	const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM])
 {
 	std::bitset<LEG_STATE_BIT_NUM> res = 0;
@@ -112,12 +112,12 @@ EDiscreteLegPos dl_leg::getLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>
 }
 
 
-dl_com::EComPattern dl_leg::getComPatternState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state)
+EDiscreteComPos dl_leg::getComPatternState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	const int res = static_cast<int>(((leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM).to_ulong());
 
-	return static_cast<dl_com::EComPattern>(res);
+	return static_cast<EDiscreteComPos>(res);
 }
 
 
@@ -179,7 +179,7 @@ void dl_leg::changeGround(const int leg_index, const bool is_ground, std::bitset
 }
 
 
-std::bitset < dl_leg::LEG_STATE_BIT_NUM > dl_leg::changeComPattern(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, const dl_com::EComPattern new_com_pattern)
+std::bitset < dl_leg::LEG_STATE_BIT_NUM > dl_leg::changeComPattern(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, const EDiscreteComPos new_com_pattern)
 {
 	std::bitset < dl_leg::LEG_STATE_BIT_NUM > res = leg_state;
 

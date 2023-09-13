@@ -21,7 +21,8 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 		SNode new_node = node;
 
 		//重心位置を補完する
-		new_node.global_center_of_mass = node.global_center_of_mass + (next_node.global_center_of_mass - node.global_center_of_mass) * (i + 1) / (INTERPOLATED_NODE_NUM + 1);
+		new_node.global_center_of_mass = node.global_center_of_mass +
+			(next_node.global_center_of_mass - node.global_center_of_mass) * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
 
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
@@ -29,7 +30,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 			// dif zが0の時は，平行移動のみ
 			if (dif[j].z == 0 || dif[j].projectedXY().isZero())
 			{
-				new_node.leg_pos[j] = node.leg_pos[j] + dif[j] * (i + 1) / (INTERPOLATED_NODE_NUM + 1);
+				new_node.leg_pos[j] = node.leg_pos[j] + dif[j] * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
 			}
 			// dif zが正の時は，脚が上に上がる→平行移動
 			else if (dif[j].z > 0)

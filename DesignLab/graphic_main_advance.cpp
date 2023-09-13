@@ -75,7 +75,7 @@ bool GraphicMainAdvance::update()
 		if (m_interpolated_anime_start_count <= m_counter && m_counter < m_interpolated_anime_start_count + kInterpolatedAnimeCount)
 		{
 			//アニメーション中は m_interpolated_node の補完されたノードを表示する
-			int anime_index = m_interpolated_node.size() * (m_counter - m_interpolated_anime_start_count) / kInterpolatedAnimeCount;
+			int anime_index = static_cast<int>(m_interpolated_node.size()) * (m_counter - m_interpolated_anime_start_count) / kInterpolatedAnimeCount;
 
 			m_hexapod_renderer.setNode(m_interpolated_node[anime_index]);
 

@@ -51,7 +51,7 @@ namespace dl_leg
 	//! @param [in] is_ground 脚が接地しているかを表すbool型の配列．接地しているならばtrue．遊脚しているならばfalse
 	//! @param [in] discretized_leg_pos 離散化した脚位置を表す変数．
 	//! @return std::bitset<LEG_STATE_BIT_NUM> 作成した脚状態を返す．
-	std::bitset<LEG_STATE_BIT_NUM> makeLegState(dl_com::EComPattern com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM]);
+	std::bitset<LEG_STATE_BIT_NUM> makeLegState(EDiscreteComPos com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM]);
 
 
 	//! @brief 脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる．@n 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．
@@ -94,8 +94,8 @@ namespace dl_leg
 
 	//! @brief 現在の脚状態から重心パターンを取得する．
 	//! @param [in] leg_state 現在の脚状態
-	//! @return dl_com::EComPattern 重心パターンを返す．
-	dl_com::EComPattern getComPatternState(const std::bitset<LEG_STATE_BIT_NUM>& leg_state);
+	//! @return EDiscreteComPos 重心パターンを返す．
+	EDiscreteComPos getComPatternState(const std::bitset<LEG_STATE_BIT_NUM>& leg_state);
 
 
 	//! @brief 脚の情報を変更する．引数の値がおかしいならばfalseを出力する．
@@ -126,7 +126,7 @@ namespace dl_leg
 	//! @param [in] leg_state 現在の脚状態
 	//! @param [in] new_com_pattern 新しい重心パターン
 	//! @return std::bitset<LEG_STATE_BIT_NUM> 変更した重心パターンを返す．
-	std::bitset<LEG_STATE_BIT_NUM> changeComPattern(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, dl_com::EComPattern new_com_pattern);
+	std::bitset<LEG_STATE_BIT_NUM> changeComPattern(const std::bitset<LEG_STATE_BIT_NUM>& leg_state, EDiscreteComPos new_com_pattern);
 
 
 	//! @brief 脚を表す番号は，右前脚を 0 として， 0 ～ 5 の範囲．その範囲外ならばfalseを返す．
