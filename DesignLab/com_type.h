@@ -1,30 +1,68 @@
 #pragma once
 
 #include <vector>
-#include <string>
+#include <unordered_map>
+#include <bitset>
+
+#include <boost/bimap.hpp>
 
 #include "hexapod_const.h"
 #include "discrete_com_pos.h"
+#include "leg_state.h"
+
+
+namespace std
+{
+	// boost bimapのために比較演算子を定義している．若干邪悪な解決法
+	template <size_t N>
+	bool operator<(const std::bitset<N>& lhs, const std::bitset<N>& rhs)
+	{
+		return lhs.to_ulong() < rhs.to_ulong();
+	}
+}
 
 
 //! @namespace dl_com
 //! @date 2023/08/09
 //! @author 長谷川
-//! @brief 重心タイプに関する名前空間
+//! @brief 重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略．
 //! @details leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で
 //! @n BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理をまとめたくて作ったもの. 
-//! @n ・重心パターン … 10通りある．leg_state の上位bitにて表現されるもの 
-//! @n ・重心タイプ  … 36通りある．ground_leg から可能なものに数字が割り振ってある．
-//!	@n 	と，長谷川は定義した．波東先輩はこれをこれらを全てタイプ(COMType)として読んでいるので区別するためにそう定義した. @n
-//! @n 脚の遊脚のパターンは，
+//! @n 重心位置はざっくり離散化して，8通り，
+//! @n 脚の接地パターンは36通りある．離散化した重心位置から取ることができないものを予め取り除くのがこれら関数の役割．@n
+//! @n 脚の接地パターンは，
 //! @n ・全接地  1通り 
 //! @n ・1本遊脚 6通り 
 //! @n ・2本遊脚 15通り 
 //! @n ・3本遊脚 20通り → 実現可能なものは14通り 
 //!	@n なので全部で36通りある． 
-//! @note 拡張性皆無なので全面的に書き直したいが，根が深い問題なので，とりあえずこのままにしておく．
 namespace dl_com
 {
+
+	//前述の通り脚の接地パターンは36通りある．それぞれの遊脚に対応する数値を割り振って管理をしやすくするために，bimapを用いている．
+
+	using LegGroundedMap = boost::bimaps::bimap<dl_leg::LegGroundedBit, int>;		//!< 脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号．
+
+	using LegGroundedMapValue = LegGroundedMap::value_type;							//!< 脚の接地パターンを表すマップの値の型．
+
+	//! @brief leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している
+	//! @param leg_index 脚の番号．
+	//! @param leg_ground_pattern_index 脚の接地パターンの番号．
+	//! @return leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrue．
+	bool isLegPairFree(int leg_index, int leg_ground_pattern_index);
+
+	//! @brief 脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す．
+	LegGroundedMap makeLegGroundedMap();
+
+	//! @brief 重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．
+	std::unordered_map<EDiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList();
+
+	//! @brief 特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す． 
+	std::vector<std::vector<int>> makeLegGroundedPatternBanListFromLeg();
+
+
+
+
 	constexpr int COM_PATTERN_NUM = 10;		//!< 重心パターンの数
 
 	constexpr int COM_TYPE_NUM = 36;		//!< 重心タイプの数
@@ -48,32 +86,20 @@ namespace dl_com
 		{ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 },	//パターン0 どの隣りあった足も上げることができない
 		{ 18, 19,             23, 24, 25,             29, 30, 31,             35 },	//パターン6
 		{ 18, 19, 20,             24, 25, 26,             30, 31, 32 },				//パターン1
-		{ 19, 20, 21,             25, 26, 27,             31, 32, 33 },			//パターン2
-		{ 20, 21, 22,             26, 27, 28,             32, 33, 34 },		//パターン3
-		{ 21, 22, 23,             27, 28, 29,             33, 34, 35 },	//パターン4
+		{ 19, 20, 21,             25, 26, 27,             31, 32, 33 },				//パターン2
+		{ 20, 21, 22,             26, 27, 28,             32, 33, 34 },				//パターン3
+		{ 21, 22, 23,             27, 28, 29,             33, 34, 35 },				//パターン4
 		{ 18,             22, 23, 24,             28, 29, 30,             34, 35 },	//パターン5
-		{ 18,     20,     22,     24,     26,     28,     30,     32,     34, },		//パターン7
-		{ 19,     21,     23,     25,     27,     29,     31,     33,     35 }	//パターン8
+		{ 18,     20,     22,     24,     26,     28,     30,     32,     34, },	//パターン7
+		{ 19,     21,     23,     25,     27,     29,     31,     33,     35 }		//パターン8
 	};
 
-
-	//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する
-	bool isAbleCoM(int com_pattern, const bool is_ground[HexapodConst::LEG_NUM]);
-
-	//接地している脚をtrueした配列から，重心タイプを出力する関数．該当しないならば負の値を返す
-	char getComTypeFromGroundLeg(const bool is_ground[HexapodConst::LEG_NUM]);
-
-	//脚状態から，重心タイプを出力する関数．該当しないならば負の値を返す
-	char getComTypeFromLegState(int leg_state);
-
-	//接地脚を1，遊脚を0としたビットから，重心タイプを出力する関数．該当しないならば負の値を返す
-	char getComTypeFromBit(const int bit);
 
 	//重心タイプから，接地脚を1，遊脚を0としたビットを出力する関数．該当しないならば全てfalseを返す．getComTypeFromBitの逆の処理．
 	void getGroundLegFromComType(const int com_type, bool output_ground_leg[HexapodConst::LEG_NUM]);
 
 	// CCCより得られるcom patternを用いて，とりえないcom typeをvectorで返す
-	void getDonotUseComTypeFromComPattern(const int com_pattern, std::vector<int> output);
+	void getDonotUseComTypeFromComPattern(const int com_pattern, std::vector<int>& output);
 
 	// CCCより得られるcom patternを用いて，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
 	void checkAbleComTypeFromComPattern(const int com_pattern, bool com_type_able_array[COM_TYPE_NUM]);

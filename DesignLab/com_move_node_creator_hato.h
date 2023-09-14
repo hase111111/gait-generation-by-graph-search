@@ -17,7 +17,7 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 public:
 
 	ComMoveNodeCreatorHato(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
-	~ComMoveNodeCreatorHato();
+	~ComMoveNodeCreatorHato() = default;
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
 

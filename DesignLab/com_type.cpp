@@ -2,236 +2,186 @@
 
 #include <iostream>
 
-#include "leg_state.h"
 
-
-//int dl_com::convertComPatternToBit(const EDiscreteComPos _com_pattern)
-//{
-//	switch (_com_pattern)
-//	{
-//	case EDiscreteComPos::FRONT:
-//		return 0b0110;
-//		break;
-//	case EDiscreteComPos::FRONT_LEFT:
-//		return 0b0001;
-//		break;
-//	case EDiscreteComPos::BACK_LEFT:
-//		return 0b0010;
-//		break;
-//	case EDiscreteComPos::BACK:
-//		return 0b0011;
-//		break;
-//	case EDiscreteComPos::BACK_RIGHT:
-//		return 0b0100;
-//		break;
-//	case EDiscreteComPos::FRONT_RIGHT:
-//		return 0b0101;
-//		break;
-//	case EDiscreteComPos::CENTER_FRONT:
-//		return 0b1000;
-//		break;
-//	case EDiscreteComPos::CENTER_BACK:
-//		return 0b0111;
-//		break;
-//	default:
-//		return 0;
-//		break;
-//	}
-//}
-//
-//EDiscreteComPos dl_com::convertBitToComPattern(const int _bit)
-//{
-//	switch (_bit)
-//	{
-//	case 0b0110:
-//		return EDiscreteComPos::FRONT;
-//		break;
-//	case 0b0001:
-//		return EDiscreteComPos::FRONT_LEFT;
-//		break;
-//	case 0b0010:
-//		return EDiscreteComPos::BACK_LEFT;
-//		break;
-//	case 0b0011:
-//		return EDiscreteComPos::BACK;
-//		break;
-//	case 0b0100:
-//		return EDiscreteComPos::BACK_RIGHT;
-//		break;
-//	case 0b0101:
-//		return EDiscreteComPos::FRONT_RIGHT;
-//		break;
-//	case 0b1000:
-//		return EDiscreteComPos::CENTER_FRONT;
-//		break;
-//	case 0b0111:
-//		return EDiscreteComPos::CENTER_BACK;
-//		break;
-//	default:
-//		return EDiscreteComPos();
-//		break;
-//	}
-//}
-
-bool dl_com::isAbleCoM(const int _com_pattern, const bool _ground_leg[HexapodConst::LEG_NUM])
+namespace
 {
-	//重心位置のパターンとvの関係　　v=18,19,20．．．　のときパターン1の重心位置は取れない．ここに書かれている番号の脚状態は取れない。
-	const char _comType1[9] = { 18, 19,             23, 24, 25,             29, 30, 31,             35 };	//パターン6
-	const char _comType2[9] = { 18, 19, 20,             24, 25, 26,             30, 31, 32, };				//パターン1
-	const char _comType3[9] = { 19, 20, 21,             25, 26, 27,             31, 32, 33, };			//パターン2
-	const char _comType4[9] = { 20, 21, 22,             26, 27, 28,             32, 33, 34, };		//パターン3
-	const char _comType5[9] = { 21, 22, 23,             27, 28, 29,             33, 34, 35 };	//パターン4
-	const char _comType6[9] = { 18,             22, 23, 24,             28, 29, 30,             34, 35 };	//パターン5
-	const char _comType7[9] = { 18,     20,     22,     24,     26,     28,     30,     32,     34, };		//パターン7
-	const char _comType8[9] = { 19,     21,     23,     25,     27,     29,     31,     33,     35 };	//パターン8
-	const char _comType0[18] = { 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 };	//パターン0 どの隣りあった足も上げることができない
-	const char* _comType[9] = { _comType0, _comType1, _comType2, _comType3, _comType4, _comType5, _comType6, _comType7, _comType8 };
+	// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．
+	// アクセスするには，先頭に::をつける．
 
-	int n = 9;
+	const dl_com::LegGroundedMap LEG_GROUNDED_PATTERN_MAP = dl_com::makeLegGroundedMap();		//!< 脚の接地パターンに数値を割り振ったマップ．
 
-	if (_com_pattern == 0)
+	const size_t LEG_GROUNDED_PATTERN_NUM = LEG_GROUNDED_PATTERN_MAP.size();	//!< 脚の接地パターンの数．
+
+	const std::unordered_map<EDiscreteComPos, std::vector<int>> LEG_GROUNDE_PATTERN_BAN_LIST = dl_com::makeLegGroundedPatternBanList();	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
+
+	const std::vector<std::vector<int>> LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG = dl_com::makeLegGroundedPatternBanListFromLeg();		//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
+}
+
+
+
+namespace dl_com
+{
+	LegGroundedMap dl_com::makeLegGroundedMap()
 	{
-		n = 18;
+		LegGroundedMap res;
+		int counter = 0;
+
+
+		// 脚が接地している場合1，遊脚の場合0として，6bitの数値を作成する．0番脚が遊脚，残り接地の場合 111 110 ．
+		// そしてそれに 0 から始まる番号を割り振る．(管理しやすくするため．)
+		// 全パターンを総当りで書いてあるけど，本当はこのリストを作成する関数を作りたい．
+
+
+		// 6脚全て接地している場合
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111111"), counter++));
+
+
+		// 5脚接地している場合
+
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111110"), counter++));
+
+
+		// 4脚接地している場合
+
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111001"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111010"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111100"), counter++));
+
+
+		// 3脚接地している場合．隣り合う3脚が遊脚している場合は除く(転倒してしまうため)．
+
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("000111"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001101"), counter++));
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011001"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011010"), counter++));
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011100"), counter++));
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100011"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100101"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100110"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101001"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101010"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101100"), counter++));
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110001"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110010"), counter++));
+		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110100"), counter++));
+		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111000"), counter++));
+
+		return std::move(res);
 	}
 
-	char _com_type = getComTypeFromGroundLeg(_ground_leg);
 
-	for (int i = 0; i < n; i++)
+	bool isLegPairFree(int leg_index, int leg_ground_pattern_index)
 	{
-		if (_comType[_com_pattern][i] == _com_type)
+		dl_leg::LegGroundedBit leg_ground_pattern;
+
+		// indexから遊脚のパターンを取得する．
+		try
+		{
+			leg_ground_pattern = ::LEG_GROUNDED_PATTERN_MAP.right.at(leg_ground_pattern_index);
+		}
+		catch (...)
+		{
+			return false;
+		}
+
+		// 両隣が遊脚の場合はtrueを返す．
+		if (!leg_ground_pattern[leg_index % HexapodConst::LEG_NUM] && !leg_ground_pattern[(leg_index + 1) % HexapodConst::LEG_NUM])
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}
 	}
 
-	return true;
-}
 
-char dl_com::getComTypeFromGroundLeg(const bool _ground_leg[HexapodConst::LEG_NUM])
-{
-	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
-
-	int _compare_bit = 0;	//値を比較するためにboolをbitに変換する
-
-	//右上が最上位のbit，そこから時計回りに下位bitにデータが入る．
-	for (int i = HexapodConst::LEG_NUM - 1; i >= 0; i -= 1)
+	std::unordered_map<EDiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList()
 	{
-		//接地しているならば
-		if (_ground_leg[i] == true)
+		std::unordered_map<EDiscreteComPos, std::vector<int>> res;
+
+
+		// ロボットの体が前に寄っている時に前足が両方とも遊脚だと転倒してしまう．
+		// そのため，離散化された重心から，連続する脚が両方とも遊脚になるパターンを禁止するのがこの関数の目的である．
+		std::unordered_map<EDiscreteComPos, std::vector<int>> ban_leg_index_list;
+		ban_leg_index_list[EDiscreteComPos::FRONT] = { 0,4,5 };
+		ban_leg_index_list[EDiscreteComPos::FRONT_RIGHT] = { 0,1,5 };
+		ban_leg_index_list[EDiscreteComPos::FRONT_LEFT] = { 3,4,5 };
+		ban_leg_index_list[EDiscreteComPos::BACK] = { 1,2,3 };
+		ban_leg_index_list[EDiscreteComPos::BACK_RIGHT] = { 0,1,2 };
+		ban_leg_index_list[EDiscreteComPos::BACK_LEFT] = { 2,3,4 };
+		ban_leg_index_list[EDiscreteComPos::CENTER_BACK] = { 0,2,4 };
+		ban_leg_index_list[EDiscreteComPos::CENTER_FRONT] = { 1,3,5 };
+
+
+		for (auto i : EDiscreteComPos())
 		{
-			// i番目のbitを立てる
-			_compare_bit |= (1 << i);
+			if (ban_leg_index_list.count(i) == 0) { continue; }
+
+			for (auto& j : ban_leg_index_list[i])
+			{
+				for (int k = 0; k < ::LEG_GROUNDED_PATTERN_NUM; ++k)
+				{
+					if (isLegPairFree(j, k))
+					{
+						res[i].push_back(k);
+					}
+				}
+			}
 		}
+
+		return std::move(res);
 	}
 
-	return getComTypeFromBit(_compare_bit);
-}
 
-char dl_com::getComTypeFromLegState(const int _leg_state)
-{
-	// PassFinding の変数 iHX2を持ってきたもの．また，initiHX2();を持ってきた.
-
-	int _compare_bit = 0;	//値を比較するためにboolをbitに変換する
-
-	//右上が最上位のbit，そこから時計回りに下位bitにデータが入る．
-	for (int i = HexapodConst::LEG_NUM - 1; i >= 0; i -= 1)
+	std::vector<std::vector<int>> makeLegGroundedPatternBanListFromLeg()
 	{
-		//接地しているならば
-		if (dl_leg::isGrounded(_leg_state, i) == true)
+		std::vector<std::vector<int>> res;
+
+		res.resize(HexapodConst::LEG_NUM);	// 脚の数だけvectorを確保する．
+
+		// i 番脚を接地しなければ，取ることができないものを保存する．
+		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 		{
-			// i番目のbitを立てる
-			_compare_bit |= (1 << i);
+			for (int j = 0; j < ::LEG_GROUNDED_PATTERN_NUM; ++j)
+			{
+				// i番目のbitを確認し，立っているならば(つまり，その脚を接地しなければいけないなら)，そのパターンを禁止する．
+				if (LEG_GROUNDED_PATTERN_MAP.right.at(j)[i])
+				{
+					res[i].push_back(j);
+				}
+			}
 		}
+
+		return std::move(res);
 	}
 
-	return getComTypeFromBit(_compare_bit);
+
+
 }
 
-char dl_com::getComTypeFromBit(const int _bit)
-{
-	//右上が最上位bit，それから時計回りに下位ビットにデータが入っている．
-
-	switch (_bit)
-	{
-	case 0b111111:
-		return  0;		//HX0
-	case 0b101111:
-		return  1;		//HX1
-	case 0b110111:
-		return  2;		//HX2
-	case 0b111011:
-		return  3;		//HX3
-	case 0b111101:
-		return  4;		//HX4
-	case 0b111110:
-		return  5;		//HX5
-	case 0b011111:
-		return  6;		//HX6
-	case 0b011011:
-		return  7;		//HX7
-	case 0b110110:
-		return  8;		//HX8
-	case 0b101101:
-		return  9;		//HX9
-	case 0b101011:
-		return  10;	//HX10
-	case 0b110101:
-		return  11;	//HX11
-	case 0b111010:
-		return  12;	//HX12
-	case 0b011101:
-		return  13;	//HX13
-	case 0b101110:
-		return  14;	//HX14
-	case 0b010111:
-		return  15;	//HX15
-	case 0b101010:
-		return  16;	//HX16
-	case 0b010101:
-		return  17;	//HX17
-	case 0b001111:
-		return  18;	//HX18
-	case 0b100111:
-		return  19;	//HX19
-	case 0b110011:
-		return  20;	//HX20
-	case 0b111001:
-		return  21;	//HX21
-	case 0b111100:
-		return  22;	//HX22
-	case 0b011110:
-		return  23;	//HX23
-	case 0b001101:
-		return  24;	//HX24
-	case 0b100110:
-		return  25;	//HX25
-	case 0b010011:
-		return  26;	//HX26
-	case 0b101001:
-		return  27;	//HX27
-	case 0b110100:
-		return  28;	//HX28
-	case 0b011010:
-		return  29;	//HX29
-	case 0b001011:
-		return  30;	//HX30
-	case 0b100101:
-		return  31;	//HX31
-	case 0b110010:
-		return  32;	//HX32
-	case 0b011001:
-		return  33;	//HX33
-	case 0b101100:
-		return  34;	//HX34
-	case 0b010110:
-		return  35;	//HX35
-	default:
-		break;
-	}
-
-	//該当しないならば負の値を返す
-	return -1;
-}
 
 void dl_com::getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])
 {
@@ -425,7 +375,7 @@ void dl_com::getGroundLegFromComType(const int _com_type, bool _output_ground_le
 	}
 }
 
-void dl_com::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int> _output)
+void dl_com::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int>& _output)
 {
 	//com patternから使用不可能なcom typeを取得して出力する．
 	for (const auto& i : COMTYPE_BAN_LIST[_com_pattern])

@@ -1,7 +1,5 @@
 #include "com_move_node_creator_hato.h"
 
-#include <iostream>
-
 #include "graph_search_const.h"
 #include "leg_state.h"
 
@@ -9,19 +7,6 @@
 ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
 	: INodeCreator(p_map, calc, next_move), mp_map(p_map), mp_calculator(calc), m_maker(calc), m_selecter(calc)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] ComMoveNodeCreatorHato : コンストラクタが呼ばれた\n";
-	}
-}
-
-
-ComMoveNodeCreatorHato::~ComMoveNodeCreatorHato()
-{
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] ComMoveNodeCreatorHato : デストラクタが呼ばれた\n";
-	}
 }
 
 
@@ -48,7 +33,7 @@ void ComMoveNodeCreatorHato::create(const SNode& current_node, const int current
 
 			next_node.changeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
-			dl_leg::changeComPattern(next_node.leg_state, candidate_polygons[i].second);		//leg_stateのcom_patternを変更する
+			dl_leg::changeComPattern(candidate_polygons[i].second, &next_node.leg_state);		//leg_stateのcom_patternを変更する
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
