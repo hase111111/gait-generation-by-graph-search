@@ -7,17 +7,14 @@
 void LegDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
-	bool is_able_type[dl_com::COM_TYPE_NUM];
+	boost::dynamic_bitset<> is_able_leg_ground_pattern(dl_com::getLegGroundPatternNum());
 
-	for (int i = 0; i < dl_com::COM_TYPE_NUM; i++)
-	{
-		is_able_type[i] = true;
-	}
+	is_able_leg_ground_pattern.set();	//全てtrueにする．
 
 
 	//脚が地面に接地可能か調べる．
 
-	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
+	bool is_groundable_leg[HexapodConst::LEG_NUM];		//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
 	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
@@ -31,7 +28,7 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 			ground_pos[i] = current_node.leg_pos[i];
 
 			//足を下ろす動作をさせるので，接地脚は遊脚不可能．よって，とれないcom typeを全てけす．
-			dl_com::checkAbleComTypeFromNotFreeLeg(i, is_able_type);
+			dl_com::banLegGroundPatternFromNotFreeLeg(i, &is_able_leg_ground_pattern);
 		}
 		else
 		{
@@ -46,37 +43,36 @@ void LegDownNodeCreator::create(const SNode& current_node, const int current_num
 			else
 			{
 				is_groundable_leg[i] = false;	//接地不可能にする．
-				dl_com::checkAbleComTypeFromNotGroundableLeg(i, is_able_type);	//接地不可能な脚によって，とれないcom typeを全てけす．
+				dl_com::banLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
 			}
 		}
 	}
 
+
 	//子ノードを生成する．
-	for (int i = 0; i < dl_com::COM_TYPE_NUM; ++i)
+	for (int i = 0; i < dl_com::getLegGroundPatternNum(); ++i)
 	{
 		//その重心タイプを取ることが可能であれば
-		if (is_able_type[i])
+		if (is_able_leg_ground_pattern[i])
 		{
 			SNode res_node = current_node;
+
 			res_node.changeNextNode(current_num, m_next_move);
 
+
 			//遊脚・接地を書き換える．
-			bool is_ground_list[HexapodConst::LEG_NUM] = {};
-			dl_com::getGroundLegFromComType(i, is_ground_list);
+			dl_leg::LegGroundedBit new_is_ground = dl_com::getLegGroundedBitFromLegGroundPatternIndex(i);
+
+			dl_leg::changeAllLegGround(new_is_ground, &res_node.leg_state);
+
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
-				dl_leg::changeGround(j, is_ground_list[j], &res_node.leg_state);
-
-				if (is_ground_list[j])
+				if (new_is_ground[j])
 				{
 					res_node.leg_pos[j] = ground_pos[j];
-				}
-				else
-				{
-					res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
-					res_node.leg_pos[j].z = -10;
+
+					res_node.leg_base_pos[j] = ground_pos[j];
 				}
 			}
 

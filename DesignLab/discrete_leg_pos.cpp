@@ -26,7 +26,7 @@ std::string std::to_string(const EDiscreteLegPos leg_pos)
 		return "UPPER_FRONT";
 
 	default:
-		return "UNKNOWN";
+		return "ERROR_VALUE";
 	}
 }
 

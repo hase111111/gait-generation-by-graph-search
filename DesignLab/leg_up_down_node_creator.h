@@ -14,17 +14,17 @@ class LegUpDownNodeCreator final : public INodeCreator
 public:
 
 	LegUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
-	~LegUpDownNodeCreator();
+	~LegUpDownNodeCreator() = default;
 
-	void create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) override;
+	void create(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph) override;
 
 private:
 
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
-	bool isGroundableLeg(const int leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos);
+	bool isGroundableLeg(int leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos);
 
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
-	bool isAbleLegPos(const SNode& node, const int leg_num);
+	bool isAbleLegPos(const SNode& node, int leg_num);
 
 
 	const float LEG_MARGIN = 20.0f;		//これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．

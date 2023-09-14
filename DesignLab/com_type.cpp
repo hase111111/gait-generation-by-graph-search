@@ -10,7 +10,7 @@ namespace
 
 	const dl_com::LegGroundedMap LEG_GROUNDED_PATTERN_MAP = dl_com::makeLegGroundedMap();		//!< 脚の接地パターンに数値を割り振ったマップ．
 
-	const size_t LEG_GROUNDED_PATTERN_NUM = LEG_GROUNDED_PATTERN_MAP.size();	//!< 脚の接地パターンの数．
+	const int LEG_GROUNDED_PATTERN_NUM = static_cast<int>(LEG_GROUNDED_PATTERN_MAP.size());	//!< 脚の接地パターンの数．
 
 	const std::unordered_map<EDiscreteComPos, std::vector<int>> LEG_GROUNDE_PATTERN_BAN_LIST = dl_com::makeLegGroundedPatternBanList();	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
 
@@ -179,252 +179,326 @@ namespace dl_com
 	}
 
 
-
-}
-
-
-void dl_com::getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])
-{
-	switch (_com_type)
+	int getLegGroundPatternNum()
 	{
-	case 0:
-		_output_ground_leg[0] = true; _output_ground_leg[1] = true; _output_ground_leg[2] = true;
-		_output_ground_leg[3] = true; _output_ground_leg[4] = true; _output_ground_leg[5] = true;
-		break;
-
-	case 1:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 2:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 3:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 4:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 5:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 6:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 7:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 8:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 9:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 10:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 11:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 12:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 13:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 14:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 15:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 16:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 17:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 18:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 19:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 20:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 21:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 22:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
-		break;
-
-	case 23:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 24:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 25:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 26:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 27:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 28:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
-		break;
-
-	case 29:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 30:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
-		break;
-
-	case 31:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 32:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	case 33:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
-		break;
-
-	case 34:
-		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
-		break;
-
-	case 35:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
-		break;
-
-	default:
-		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
-		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
-		break;
-		break;
-	}
-}
-
-void dl_com::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int>& _output)
-{
-	//com patternから使用不可能なcom typeを取得して出力する．
-	for (const auto& i : COMTYPE_BAN_LIST[_com_pattern])
-	{
-		_output.push_back(i);
-	}
-}
-
-void dl_com::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM])
-{
-	std::vector<int> _cannot_use_type;
-	getDonotUseComTypeFromComPattern(_com_pattern, _cannot_use_type);
-
-	for (const auto& i : _cannot_use_type)
-	{
-		_com_type_able_array[i] = false;
-	}
-}
-
-void dl_com::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg, bool _com_type_able_array[COM_TYPE_NUM])
-{
-	//とることのできないcom typeを全てfalseに変更する．
-	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
-	{
-		_com_type_able_array[BAN_LIST[_not_groundble_leg][i]] = false;
-	}
-}
-
-void dl_com::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_type_able_array[COM_TYPE_NUM])
-{
-	bool _reverse[COM_TYPE_NUM];
-
-	for (int i = 0; i < COM_TYPE_NUM; i++)
-	{
-		_reverse[i] = true;
+		return LEG_GROUNDED_PATTERN_NUM;
 	}
 
 
-	//とることのできないcom typeを全てfalseに変更する．
-	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
+	dl_leg::LegGroundedBit getLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
 	{
-		_reverse[BAN_LIST[_not_free_leg][i]] = false;
+		dl_leg::LegGroundedBit res;
+
+		// indexから遊脚のパターンを取得する．
+		res = ::LEG_GROUNDED_PATTERN_MAP.right.at(leg_ground_pattern_index);
+
+		return std::move(res);
 	}
 
-	for (int i = 0; i < COM_TYPE_NUM; i++)
+
+	void banLegGroundPatternFromCom(EDiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
 	{
-		if (_reverse[i] == true)
+		//異常な値ならばreturn
+
+		if (output == nullptr) { return; }
+
+		if ((*output).size() != getLegGroundPatternNum()) { return; }
+
+
+		// LEG_GROUNDE_PATTERN_BAN_LISTにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+
+		for (auto& i : LEG_GROUNDE_PATTERN_BAN_LIST.at(discrete_com_pos))
 		{
-			_com_type_able_array[i] = false;
+			(*output)[i] = false;
 		}
 	}
+
+
+	void banLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
+	{
+		//異常な値ならばreturn
+
+		if (output == nullptr) { return; }
+
+		if ((*output).size() != getLegGroundPatternNum()) { return; }
+
+
+		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+
+		for (auto& i : LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG[not_groundble_leg_index])
+		{
+			(*output)[i] = false;
+		}
+	}
+
+
+	void banLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
+	{
+		//異常な値ならばreturn
+
+		if (output == nullptr) { return; }
+
+		if ((*output).size() != getLegGroundPatternNum()) { return; }
+
+
+		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+		boost::dynamic_bitset<> inverse_output(getLegGroundPatternNum());
+
+		for (auto& i : LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG[not_lift_leg_index])
+		{
+			inverse_output[i] = true;
+		}
+
+		(*output) &= inverse_output;
+	}
+
+
+
 }
+
+//
+//void dl_com::getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])
+//{
+//	switch (_com_type)
+//	{
+//	case 0:
+//		_output_ground_leg[0] = true; _output_ground_leg[1] = true; _output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true; _output_ground_leg[4] = true; _output_ground_leg[5] = true;
+//		break;
+//
+//	case 1:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 2:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 3:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 4:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 5:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 6:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 7:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 8:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 9:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 10:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 11:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 12:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 13:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 14:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 15:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 16:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 17:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 18:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 19:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 20:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 21:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 22:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 23:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 24:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 25:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 26:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 27:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 28:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 29:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 30:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 31:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 32:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 33:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = true;
+//		break;
+//
+//	case 34:
+//		_output_ground_leg[0] = true;	_output_ground_leg[1] = false;	_output_ground_leg[2] = true;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
+//		break;
+//
+//	case 35:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = true;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = true;	_output_ground_leg[4] = true;	_output_ground_leg[5] = false;
+//		break;
+//
+//	default:
+//		_output_ground_leg[0] = false;	_output_ground_leg[1] = false;	_output_ground_leg[2] = false;
+//		_output_ground_leg[3] = false;	_output_ground_leg[4] = false;	_output_ground_leg[5] = false;
+//		break;
+//		break;
+//	}
+//}
+//
+//void dl_com::getDonotUseComTypeFromComPattern(const int _com_pattern, std::vector<int>& _output)
+//{
+//	//com patternから使用不可能なcom typeを取得して出力する．
+//	for (const auto& i : COMTYPE_BAN_LIST[_com_pattern])
+//	{
+//		_output.push_back(i);
+//	}
+//}
+//
+//void dl_com::checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM])
+//{
+//	std::vector<int> _cannot_use_type;
+//	getDonotUseComTypeFromComPattern(_com_pattern, _cannot_use_type);
+//
+//	for (const auto& i : _cannot_use_type)
+//	{
+//		_com_type_able_array[i] = false;
+//	}
+//}
+//
+//void dl_com::checkAbleComTypeFromNotGroundableLeg(const int _not_groundble_leg, bool _com_type_able_array[COM_TYPE_NUM])
+//{
+//	//とることのできないcom typeを全てfalseに変更する．
+//	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
+//	{
+//		_com_type_able_array[BAN_LIST[_not_groundble_leg][i]] = false;
+//	}
+//}
+//
+//void dl_com::checkAbleComTypeFromNotFreeLeg(const int _not_free_leg, bool _com_type_able_array[COM_TYPE_NUM])
+//{
+//	bool _reverse[COM_TYPE_NUM];
+//
+//	for (int i = 0; i < COM_TYPE_NUM; i++)
+//	{
+//		_reverse[i] = true;
+//	}
+//
+//
+//	//とることのできないcom typeを全てfalseに変更する．
+//	for (int i = 0; i < BAN_LIST_ARRAY_SIZE; i++)
+//	{
+//		_reverse[BAN_LIST[_not_free_leg][i]] = false;
+//	}
+//
+//	for (int i = 0; i < COM_TYPE_NUM; i++)
+//	{
+//		if (_reverse[i] == true)
+//		{
+//			_com_type_able_array[i] = false;
+//		}
+//	}
+//}

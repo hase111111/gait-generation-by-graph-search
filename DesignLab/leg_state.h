@@ -136,6 +136,12 @@ namespace dl_leg
 	void changeGround(int leg_index, bool is_ground, LegStateBit* leg_state);
 
 
+	//! @brief 全ての脚の接地・遊脚情報を変更する．
+	//! @param [in] is_ground_list 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse
+	//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
+	void changeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state);
+
+
 	//! @brief 重心のデータを変更する．
 	//! @param [in] leg_state 現在の脚状態
 	//! @param [in] new_com_pattern 新しい重心パターン

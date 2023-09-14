@@ -16,6 +16,7 @@ enum class EDiscreteLegPos
 	LOWER_FRONT,		//!< 現在の位置より前方かつ下方にある
 	FRONT,				//!< 現在の位置より前方にある
 	UPPER_FRONT,		//!< 現在の位置より前方かつ上方にある
+	ERROR_POS			//!< エラー
 };
 
 
@@ -26,7 +27,7 @@ inline EDiscreteLegPos end(EDiscreteLegPos) { return EDiscreteLegPos::UPPER_FRON
 inline EDiscreteLegPos operator*(EDiscreteLegPos leg_pos) { return leg_pos; };
 inline EDiscreteLegPos operator++(EDiscreteLegPos& leg_pos)
 {
-	return leg_pos = static_cast<EDiscreteLegPos>(std::underlying_type<EDiscreteLegPos>::type(leg_pos) + 1);
+	return leg_pos = EDiscreteLegPos(std::underlying_type<EDiscreteLegPos>::type(leg_pos) + 1);
 };
 
 

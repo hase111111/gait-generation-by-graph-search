@@ -201,6 +201,17 @@ namespace dl_leg
 	}
 
 
+	void changeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
+	{
+		if (leg_state == nullptr) { return; }
+
+		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		{
+			changeGround(i, is_ground_list[i], leg_state);
+		}
+	}
+
+
 	void changeComPattern(const EDiscreteComPos new_com_pattern, LegStateBit* leg_state)
 	{
 		if (leg_state == nullptr) { return; }
