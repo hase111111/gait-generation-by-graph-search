@@ -91,54 +91,6 @@ namespace dl_com
 	//! @param [in,out] output 脚接地パターンが実行可能ならばtrue，不可能ならfalseにしたbool型の配列．遊脚できない脚が遊脚できない場合に取り得ない接地パターンをfalseに変更する．
 	void banLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output);
 
-
-	//constexpr int COM_PATTERN_NUM = 10;		//!< 重心パターンの数
-
-	//constexpr int COM_TYPE_NUM = 36;		//!< 重心タイプの数
-
-	//constexpr int BAN_LIST_ARRAY_SIZE = 23;
-
-	//constexpr char BAN_LIST[HexapodConst::LEG_NUM][BAN_LIST_ARRAY_SIZE] =
-	//{
-
-	//{ 0, 1, 2, 3, 4, 5,       8, 9,10,11,12,   14,   16,      19,20,21,22,      25,   27,28,      31,32,   34    },	//右前脚
-	//{ 0,    2, 3, 4, 5, 6, 7, 8,      11,12,13,   15,   17,      20,21,22,23,      26,   28,29,      32,33,   35 },	//右中脚
-	//{ 0, 1,    3, 4, 5, 6, 7,    9,10,   12,13,14,   16,   18,      21,22,23,24,      27,   29,30,      33,34    },	//右後脚
-	//{ 0, 1, 2,    4, 5, 6,    8, 9,   11,   13,14,15,   17,18,19,      22,23,24,25,      28,      31,      34,35 },	//左後脚
-	//{ 0, 1, 2, 3,    5, 6, 7, 8,   10,   12,   14,15,16,   18,19,20,      23,   25,26,      29,30,   32,      35 },	//左中脚
-	//{ 0, 1, 2, 3, 4,    6, 7,    9,10,11,   13,   15,   17,18,19,20,21,      24,   26,27,      30,31,   33       }	//左前脚
-
-	//};
-
-	//const std::vector< std::vector<int> > COMTYPE_BAN_LIST =
-	//{
-	//	{ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 },	//パターン0 どの隣りあった足も上げることができない
-	//	{ 18, 19,             23, 24, 25,             29, 30, 31,             35 },	//パターン6
-	//	{ 18, 19, 20,             24, 25, 26,             30, 31, 32 },				//パターン1
-	//	{ 19, 20, 21,             25, 26, 27,             31, 32, 33 },				//パターン2
-	//	{ 20, 21, 22,             26, 27, 28,             32, 33, 34 },				//パターン3
-	//	{ 21, 22, 23,             27, 28, 29,             33, 34, 35 },				//パターン4
-	//	{ 18,             22, 23, 24,             28, 29, 30,             34, 35 },	//パターン5
-	//	{ 18,     20,     22,     24,     26,     28,     30,     32,     34, },	//パターン7
-	//	{ 19,     21,     23,     25,     27,     29,     31,     33,     35 }		//パターン8
-	//};
-
-
-	////重心タイプから，接地脚を1，遊脚を0としたビットを出力する関数．該当しないならば全てfalseを返す．getComTypeFromBitの逆の処理．
-	//void getGroundLegFromComType(const int com_type, bool output_ground_leg[HexapodConst::LEG_NUM]);
-
-	//// CCCより得られるcom patternを用いて，とりえないcom typeをvectorで返す
-	//void getDonotUseComTypeFromComPattern(const int com_pattern, std::vector<int>& output);
-
-	//// CCCより得られるcom patternを用いて，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
-	//void checkAbleComTypeFromComPattern(const int com_pattern, bool com_type_able_array[COM_TYPE_NUM]);
-
-	////接地することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
-	//void checkAbleComTypeFromNotGroundableLeg(const int not_groundble_leg, bool output_able_comtype[COM_TYPE_NUM]);
-
-	////遊脚することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．
-	//void checkAbleComTypeFromNotFreeLeg(const int not_free_leg_num, bool output_able_comtype[COM_TYPE_NUM]);
-
 } // namespace dl_com
 
 
