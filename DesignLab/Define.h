@@ -7,8 +7,6 @@ public:
 
 	const static int SIMURATE_NUM;	//!< 連続でシミュレーションを行う回数
 
-	const static char GRAPH_SEARCH_DEPTH;	//!< グラフ探索の探索深さ
-
 	const static int GATE_PATTERN_GENERATE_NUM;	//!< 1シミュレーション当たりの最大歩容生成回数
 
 	const static int GOAL_TAPE;	//!< 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了

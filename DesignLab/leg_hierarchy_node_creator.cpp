@@ -1,27 +1,16 @@
 #include "leg_hierarchy_node_creator.h"
 
-#include <iostream>
-
 #include "graph_search_const.h"
 #include "leg_state.h"
 
 
 LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
-	: INodeCreator(p_map, calc, next_move)
+	: INodeCreator(p_map, calc, next_move),
+	discrete_leg_pos_list_(
+		{ EDiscreteLegPos::BACK,EDiscreteLegPos::CENTER,EDiscreteLegPos::FRONT,EDiscreteLegPos::LOWER_BACK,EDiscreteLegPos::LOWER_FRONT,
+		EDiscreteLegPos::UPPER_BACK,EDiscreteLegPos::UPPER_FRONT }
+	)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] LegHierarchyNodeCreator : コンストラクタが呼ばれた\n";
-	}
-}
-
-
-LegHierarchyNodeCreator::~LegHierarchyNodeCreator()
-{
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] LegHierarchyNodeCreator : デストラクタが呼ばれた\n";
-	}
 }
 
 
@@ -70,7 +59,7 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 
 
 	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
-	for (auto i : EDiscreteLegPos())
+	for (const auto i : discrete_leg_pos_list_)
 	{
 		SNode new_node = current_node;		//新しい脚状態を生成する.
 
@@ -92,9 +81,9 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 
 
 	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
-	for (auto i : EDiscreteLegPos())
+	for (const auto i : discrete_leg_pos_list_)
 	{
-		for (auto j : EDiscreteLegPos())
+		for (const auto j : discrete_leg_pos_list_)
 		{
 			SNode new_node = current_node;		//新しい脚状態を生成する.
 
@@ -118,11 +107,11 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 
 
 	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
-	for (auto i : EDiscreteLegPos())
+	for (const auto i : discrete_leg_pos_list_)
 	{
-		for (auto j : EDiscreteLegPos())
+		for (const auto j : discrete_leg_pos_list_)
 		{
-			for (auto k : EDiscreteLegPos())
+			for (const auto k : discrete_leg_pos_list_)
 			{
 				SNode new_node = current_node;		//新しい脚状態を生成する.
 

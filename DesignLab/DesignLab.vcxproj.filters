@@ -722,6 +722,9 @@
     <ClCompile Include="discrete_com_pos.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
+    <ClCompile Include="graph_search_const.cpp">
+      <Filter>ソース ファイル\PassFinderSystem\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

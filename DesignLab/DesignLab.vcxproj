@@ -147,6 +147,7 @@
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
     <ClCompile Include="designlab_rotator.cpp" />
+    <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />

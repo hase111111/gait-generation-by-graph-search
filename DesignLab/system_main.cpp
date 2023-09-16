@@ -23,7 +23,7 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 	m_result_exporter.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, true);
+	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
 	m_broker.setMapState(m_map_state);
@@ -77,7 +77,7 @@ void SystemMain::main()
 	for (int i = 0; i < Define::SIMURATE_NUM; i++)
 	{
 		SNode current_node;										//現在のノードの状態を格納する変数．
-		const bool do_random_init = true;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
+		const bool do_random_init = false;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.init(do_random_init);
 
 		SSimulationResultRecorder record;	//シミュレーションの結果を格納する変数．

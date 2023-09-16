@@ -20,18 +20,6 @@ enum class EDiscreteLegPos
 };
 
 
-
-// 範囲ループをするための記述，https://sanichi999.hateblo.jp/entry/2014/12/19/011820
-inline EDiscreteLegPos begin(EDiscreteLegPos) { return EDiscreteLegPos::LOWER_BACK; };
-inline EDiscreteLegPos end(EDiscreteLegPos) { return EDiscreteLegPos::UPPER_FRONT; };
-inline EDiscreteLegPos operator*(EDiscreteLegPos leg_pos) { return leg_pos; };
-inline EDiscreteLegPos operator++(EDiscreteLegPos& leg_pos)
-{
-	return leg_pos = EDiscreteLegPos(std::underlying_type<EDiscreteLegPos>::type(leg_pos) + 1);
-};
-
-
-
 namespace std
 {
 	std::string to_string(EDiscreteLegPos leg_pos);

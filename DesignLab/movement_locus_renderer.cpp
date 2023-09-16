@@ -71,13 +71,15 @@ void MovementLocusRenderer::draw(const size_t draw_simu_num, const bool draw_all
 		{
 			if ((int)draw_simu_num == now_simu_num || draw_all_simulation)
 			{
-				DrawLine3D(start, end, LOCUS_DISPLAY_LINE_COLOR);
+				//DrawLine3D(start, end, LOCUS_DISPLAY_LINE_COLOR);
+				DrawCapsule3D(start, end, 5, 4, LOCUS_DISPLAY_LINE_COLOR, LOCUS_DISPLAY_LINE_COLOR, TRUE);
 			}
 			else
 			{
 				SetDrawBlendMode(DX_BLENDMODE_ALPHA, LOCUS_ALPHA);
 
-				DrawLine3D(start, end, LOCUS_BASE_COLOR);
+				//DrawLine3D(start, end, LOCUS_BASE_COLOR);
+				DrawCapsule3D(start, end, 5, 4, LOCUS_BASE_COLOR, LOCUS_BASE_COLOR, TRUE);
 
 				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 			}

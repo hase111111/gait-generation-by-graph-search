@@ -6,7 +6,7 @@
 
 #include "designlab_dxlib.h"
 #include "graphic_const.h"
-#include "Define.h"
+#include "graph_search_const.h"
 #include "keyboard.h"
 #include "leg_state.h"
 
@@ -285,7 +285,7 @@ void GraphViewerGUIController::updateGraphNodeDepthData()
 
 	if (mp_graph->size() > 0)
 	{
-		m_graph_node_depth_data.resize((size_t)Define::GRAPH_SEARCH_DEPTH + 1);
+		m_graph_node_depth_data.resize((size_t)GraphSearchConst::MAX_DEPTH + 1);
 
 		for (size_t i = 0; i < mp_graph->size(); ++i)
 		{

@@ -10,6 +10,7 @@
 #include "hexapod_state_calculator.h"
 #include "phantomx_state_calculator.h"
 #include "Define.h"
+#include "graph_search_const.h"
 #include "designlab_timer.h"
 #include "StringToValue.h"
 #include "designlab_cmdio.h"
@@ -244,9 +245,9 @@ void GraphViewerSystemMain::showGraphStatus(const std::vector<SNode>& _graph) co
 
 	if (_graph.size() > 0)
 	{
-		std::vector<int> _depth_num((size_t)Define::GRAPH_SEARCH_DEPTH + 1);
+		std::vector<int> _depth_num((size_t)GraphSearchConst::MAX_DEPTH + 1);
 
-		std::cout << "GraphViewerSystemMain : ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³ : " << (int)Define::GRAPH_SEARCH_DEPTH << std::endl;
+		std::cout << "GraphViewerSystemMain : ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³ : " << (int)GraphSearchConst::MAX_DEPTH << std::endl;
 
 		for (const auto& i : _graph)
 		{
