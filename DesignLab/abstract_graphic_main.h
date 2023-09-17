@@ -28,11 +28,11 @@ public:
 
 	//! @brief 描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．
 	//! @return bool ループを抜け，グラフィックの表示を終了するならばfalseをかえす．
-	virtual bool update() = 0;
+	virtual bool Update() = 0;
 
 
 	//! @brief 描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．
-	virtual void draw() const = 0;
+	virtual void Draw() const = 0;
 
 protected:
 

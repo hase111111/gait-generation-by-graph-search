@@ -34,10 +34,10 @@ public:
 
 
 	//! @brief GUIの更新，毎フレーム実行すること
-	void update();
+	void Update();
 
 	//! @brief GUIの描画
-	void draw() const;
+	void Draw() const;
 
 
 	const static int GUI_WIDTH = 275;	//!< GUIの幅

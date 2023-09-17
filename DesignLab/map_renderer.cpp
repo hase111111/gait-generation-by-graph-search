@@ -13,7 +13,7 @@ MapRenderer::MapRenderer() : COLOR_GRAY(GetColor(80, 80, 80)), COLOR_LIGHT_GRAY(
 
 
 
-void MapRenderer::draw(const MapState& map) const
+void MapRenderer::Draw(const MapState& map) const
 {
 
 

@@ -10,9 +10,9 @@
 
 GraphicMainAdvance::GraphicMainAdvance(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
 	: AbstractGraphicMain(broker, calc, setting),
-	m_map_state(mp_broker->getMapState()),
+	m_map_state(mp_broker->map_state()),
 	kNodeGetCount(setting->window_fps * 2),
-	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10, calc),
+	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGui::kWidth - 10, 10, calc),
 	m_display_node_switch_gui(10, mp_setting->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10),
 	m_hexapod_renderer(calc)
 {
@@ -20,18 +20,18 @@ GraphicMainAdvance::GraphicMainAdvance(const GraphicDataBroker* const  broker, s
 }
 
 
-bool GraphicMainAdvance::update()
+bool GraphicMainAdvance::Update()
 {
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
 	if (m_counter % kNodeGetCount == 0)
 	{
 		//仲介人からデータを読み出す
-		mp_broker->copyOnlyNewNode(&m_node);
+		mp_broker->CopyOnlyNewNode(&m_node);
 
 		std::vector<size_t> simu_end_index;
 
-		mp_broker->copySimuEndIndex(&simu_end_index);
+		mp_broker->CopySimuEndIndex(&simu_end_index);
 
 
 		//ノードの情報を表示するGUIに情報を伝達する．
@@ -69,7 +69,7 @@ bool GraphicMainAdvance::update()
 
 			m_camera_gui.setHexapodPos(m_node.at(m_display_node_index).global_center_of_mass);		//カメラの位置を更新する．
 
-			m_node_display_gui.setDisplayNode(m_node.at(m_display_node_index));						//ノードの情報を表示するGUIに情報を伝達する．
+			m_node_display_gui.SetDisplayNode(m_node.at(m_display_node_index));						//ノードの情報を表示するGUIに情報を伝達する．
 		}
 
 		if (m_interpolated_anime_start_count <= m_counter && m_counter < m_interpolated_anime_start_count + kInterpolatedAnimeCount)
@@ -79,33 +79,33 @@ bool GraphicMainAdvance::update()
 
 			m_hexapod_renderer.setNode(m_interpolated_node[anime_index]);
 
-			m_node_display_gui.setDisplayNode(m_interpolated_node[anime_index]);
+			m_node_display_gui.SetDisplayNode(m_interpolated_node[anime_index]);
 		}
 		else if (m_counter == m_interpolated_anime_start_count + kInterpolatedAnimeCount)
 		{
 			//アニメーションが終了したら，元のノードを表示する
 			m_hexapod_renderer.setNode(m_node.at(m_display_node_index));
 
-			m_node_display_gui.setDisplayNode(m_node.at(m_display_node_index));
+			m_node_display_gui.SetDisplayNode(m_node.at(m_display_node_index));
 		}
 	}
 
 
 	m_counter++;				//カウンタを進める．
 
-	m_camera_gui.update();      //カメラのGUIを更新する．
+	m_camera_gui.Update();      //カメラのGUIを更新する．
 
-	m_node_display_gui.update();	//ノードの情報を表示するGUIを更新する．
+	m_node_display_gui.Update();	//ノードの情報を表示するGUIを更新する．
 
-	m_display_node_switch_gui.update();	//ノードの情報を表示するGUIを更新する．
+	m_display_node_switch_gui.Update();	//ノードの情報を表示するGUIを更新する．
 
 
 	//キー入力で表示を切り替える
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_L) == 1)
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_L) == 1)
 	{
 		m_is_display_movement_locus = !m_is_display_movement_locus;
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_G) == 1)
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_G) == 1)
 	{
 		m_is_display_robot_graund_point = !m_is_display_robot_graund_point;
 	}
@@ -114,7 +114,7 @@ bool GraphicMainAdvance::update()
 }
 
 
-void GraphicMainAdvance::draw() const
+void GraphicMainAdvance::Draw() const
 {
 	// 3Dのオブジェクトの描画
 
@@ -123,36 +123,36 @@ void GraphicMainAdvance::draw() const
 
 	WorldGridRenderer grid_renderer;	//インスタンスを生成する．
 
-	grid_renderer.draw();				//グリッドを描画する．
+	grid_renderer.Draw();				//グリッドを描画する．
 
 
 	MapRenderer map_render;				//マップを描画する．
 
-	map_render.draw(m_map_state);
+	map_render.Draw(m_map_state);
 
 
-	if (m_is_display_movement_locus)m_movement_locus_renderer.draw(m_display_node_switch_gui.getSimulationNum());   //移動軌跡を描画する．
+	if (m_is_display_movement_locus)m_movement_locus_renderer.Draw(m_display_node_switch_gui.getSimulationNum());   //移動軌跡を描画する．
 
-	if (m_is_display_robot_graund_point)m_robot_graund_point_renderer.draw(m_display_node_switch_gui.getSimulationNum());
+	if (m_is_display_robot_graund_point)m_robot_graund_point_renderer.Draw(m_display_node_switch_gui.getSimulationNum());
 
 
 	if (!m_node.empty())
 	{
 		//ノードが存在しているならば，ロボットを描画する．
-		m_hexapod_renderer.draw();
+		m_hexapod_renderer.Draw();
 
 		if (m_counter > m_interpolated_anime_start_count + kInterpolatedAnimeCount)
 		{
-			m_stability_margin_renderer.draw(m_node.at(m_display_node_index));
+			m_stability_margin_renderer.Draw(m_node.at(m_display_node_index));
 		}
 	}
 
 
 	// 2DのGUIの描画
 
-	m_camera_gui.draw();        //カメラのGUIを描画する．
+	m_camera_gui.Draw();        //カメラのGUIを描画する．
 
-	m_node_display_gui.draw();	 //ノードの情報を表示するGUIを描画する．
+	m_node_display_gui.Draw();	 //ノードの情報を表示するGUIを描画する．
 
-	m_display_node_switch_gui.draw();	//表示するノードを切り替えるGUIを描画する．
+	m_display_node_switch_gui.Draw();	//表示するノードを切り替えるGUIを描画する．
 }

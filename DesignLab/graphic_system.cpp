@@ -9,60 +9,63 @@
 #include "Define.h"
 
 
-void GraphicSystem::init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
+void GraphicSystem::Init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
 	const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting)
 {
 	if (graphic_main_builder && calc && broker != nullptr && setting != nullptr)
 	{
 		//GraphicMainを作成する．
-		mp_graphic_main = graphic_main_builder->build(broker, calc, setting);
+		graphic_main_ptr_ = graphic_main_builder->build(broker, calc, setting);
 	}
 
 
 	//設定ファイルを読み込む．
-	mp_setting = setting;
+	setting_ptr_ = setting;
 
 
 	//Fpsを設定する．
-	mp_fps = std::make_unique<Fps>((*mp_setting).window_fps);
+	if (setting_ptr_ != nullptr)
+	{
+		fps_ptr_ = std::make_unique<FpsController>((*setting_ptr_).window_fps);
+	}
 }
 
 
-void GraphicSystem::main()
+void GraphicSystem::Main()
 {
 	//そもそも描画処理を使わないならば即終了
-	if (!(*mp_setting).gui_display) { return; }
+	if (!(*setting_ptr_).gui_display) { return; }
 
 	//設定ファイルを読み込めていなければ終了
-	if (mp_setting == nullptr) { return; }
+	if (setting_ptr_ == nullptr) { return; }
 
 	//GraphicMainが作成されていなければ終了
-	if (!mp_graphic_main) { return; }
+	if (!graphic_main_ptr_) { return; }
 
-	// Fpsが作成されていなければ終了
-	if (!mp_fps) { return; }
+	// FpsController が作成されていなければ終了
+	if (!fps_ptr_) { return; }
 
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
-	if (!dxlibInit(mp_setting)) { return; }
+	if (!DxlibInit(setting_ptr_)) { return; }
 
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
 	while (!ProcessMessage())
 	{
-		//falseが帰った場合，ループを抜ける．
-		if (!loop())
+		// メインループ，falseが帰った場合，ループを抜ける．
+		if (!Loop())
 		{
 			break;
 		}
 	}
 
 	//終了処理を行う．
-	dxlibFinalize();
+	DxlibFinalize();
 }
 
 
-bool GraphicSystem::dxlibInit(const SApplicationSettingRecorder* const setting)
+bool GraphicSystem::DxlibInit(const SApplicationSettingRecorder* const setting)
 {
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．
 
@@ -93,7 +96,7 @@ bool GraphicSystem::dxlibInit(const SApplicationSettingRecorder* const setting)
 }
 
 
-bool GraphicSystem::loop()
+bool GraphicSystem::Loop()
 {
 	// [描画の処理について]
 	// ScreenFlip関数とClearDrawScreen関数の詳細：ウィンドウの画像表示はパラパラ漫画の様に画面を素早く切り替えることでアニメーションを再現している．
@@ -104,27 +107,27 @@ bool GraphicSystem::loop()
 
 
 	//グラフィックメインクラスが空ならfalseを返す．
-	if (!mp_graphic_main) { return false; }
+	if (!graphic_main_ptr_) { return false; }
 
 
 	//標準出力を消す
 	clsDx();
 
 	//キー入力を更新する．
-	Keyboard::getIns()->update();
-	Mouse::getIns()->update();
+	Keyboard::GetIns()->Update();
+	Mouse::GetIns()->Update();
 
 	//処理を行う
-	if (!mp_graphic_main->update()) { return false; }
+	if (!graphic_main_ptr_->Update()) { return false; }
 
 
 	//描画する
-	if (!mp_fps->skipDrawScene())
+	if (!fps_ptr_->SkipDrawScene())
 	{
 		//裏画面に描画した絵を消す
 		if (ClearDrawScreen() < 0) { return false; }
 
-		mp_graphic_main->draw();
+		graphic_main_ptr_->Draw();
 
 		//スクリーンに裏画面に描画した内容を移す
 		if (ScreenFlip() < 0) { return false; }
@@ -132,13 +135,13 @@ bool GraphicSystem::loop()
 	}
 
 	//FPSを一定に保つために待つ．
-	mp_fps->wait();
+	fps_ptr_->Wait();
 
 	return true;
 }
 
 
-void GraphicSystem::dxlibFinalize() const
+void GraphicSystem::DxlibFinalize() const
 {
 	// DXライブラリの終了処理を呼ぶ.
 	DxLib_End();

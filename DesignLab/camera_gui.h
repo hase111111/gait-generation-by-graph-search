@@ -24,10 +24,10 @@ public:
 	void setHexapodPos(const dl_vec::SVector pos);
 
 	//! @brief GUIやカメラの更新を行う
-	void update();
+	void Update();
 
 	//! @brief GUIの描画を行う
-	void draw() const;
+	void Draw() const;
 
 	const static int GUI_SIZE_X = 235;
 	const static int GUI_SIZE_Y = 410;

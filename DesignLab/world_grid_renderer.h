@@ -12,7 +12,7 @@ public:
 	WorldGridRenderer();
 
 	//! @brief ƒ[ƒ‹ƒh‚ÌŠiqü‚ğ•`‰æ‚·‚é
-	void draw() const;
+	void Draw() const;
 
 
 private:

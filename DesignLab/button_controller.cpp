@@ -16,21 +16,21 @@ ButtomController::ButtomController(const int _xpos, const int _ypos, const int _
 }
 
 
-void ButtomController::update()
+void ButtomController::Update()
 {
 	//マウスカーソルがボタン内にあるかどうか調べる．
 	m_is_mouse_in_buttom = false;
 
-	if (kXPos - kXSize / 2 < Mouse::getIns()->getPosX() && Mouse::getIns()->getPosX() < kXPos + kXSize / 2)
+	if (kXPos - kXSize / 2 < Mouse::GetIns()->cursor_pos_x() && Mouse::GetIns()->cursor_pos_x() < kXPos + kXSize / 2)
 	{
-		if (kYPos - kYSize / 2 < Mouse::getIns()->getPosY() && Mouse::getIns()->getPosY() < kYPos + kYSize / 2)
+		if (kYPos - kYSize / 2 < Mouse::GetIns()->cursor_pos_y() && Mouse::GetIns()->cursor_pos_y() < kYPos + kYSize / 2)
 		{
 			m_is_mouse_in_buttom = true;
 		}
 	}
 
 	//ボタンが押されているか調べる
-	if (m_is_mouse_in_buttom == true && Mouse::getIns()->getPushingCountLeft() > 0)
+	if (m_is_mouse_in_buttom == true && Mouse::GetIns()->left_pushing_counter() > 0)
 	{
 		m_is_pushed = true;
 		m_pushing_frame++;
@@ -43,7 +43,7 @@ void ButtomController::update()
 }
 
 
-void ButtomController::draw() const
+void ButtomController::Draw() const
 {
 	const int kBaseColor = GetColor(20, 20, 20);
 	const int kButtomColor = m_is_pushed ? GetColor(40, 40, 40) : GetColor(255, 255, 255);

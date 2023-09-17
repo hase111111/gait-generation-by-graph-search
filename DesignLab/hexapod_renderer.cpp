@@ -62,7 +62,7 @@ void HexapodRenderer::setNode(const SNode& node)
 }
 
 
-void HexapodRenderer::draw() const
+void HexapodRenderer::Draw() const
 {
 	//“·‘Ì‚ğ•`‰æ‚·‚éD
 	VECTOR vertex[6];

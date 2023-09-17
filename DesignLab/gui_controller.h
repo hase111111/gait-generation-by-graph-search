@@ -32,9 +32,9 @@
 //	GUIController() = delete;
 //	GUIController(const SApplicationSettingRecorder* const setting);
 //
-//	void update(const int max_node, int& display_node, const int counter);
+//	void Update(const int max_node, int& display_node, const int counter);
 //
-//	void draw(const SNode& node) const;
+//	void Draw(const SNode& node) const;
 //
 //private:
 //

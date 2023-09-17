@@ -16,9 +16,9 @@ public:
 	GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index, const SApplicationSettingRecorder* const setting);
 	~GraphViewerGUIController() = default;
 
-	void update();
+	void Update();
 
-	void draw() const;
+	void Draw() const;
 
 	void updateGraphNodeDepthData();
 

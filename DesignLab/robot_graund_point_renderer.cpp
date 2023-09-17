@@ -48,7 +48,7 @@ void RobotGraundPointRenderer::setNode(const std::vector<SNode>& node, const std
 }
 
 
-void RobotGraundPointRenderer::draw(const size_t draw_simu_num, const bool draw_all_simulation) const
+void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_all_simulation) const
 {
 	unsigned int color[6] = { GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_LEFT,GRAUND_POINT_COLOR_LEFT,GRAUND_POINT_COLOR_LEFT };
 

@@ -7,11 +7,11 @@
 
 
 //! @enum ECameraMode
-//! @date 2023/08/14
-//! @author 長谷川
 //! @brief カメラの視点を表す列挙体．
 //! @details CameraControllerクラスで使用されている．
+//! @n カメラの視点を切り替える際に使用する．
 //! @n 具体的な処理はCameraControllerクラスを参照すること．
+
 enum class ECameraMode : int
 {
 	FRONT_VIEW,			//!< 正面図
@@ -25,21 +25,19 @@ enum class ECameraMode : int
 
 
 //! @class CameraManager
-//! @date 2023/08/20
-//! @author 長谷川
 //! @brief Dxlibの3Dのカメラの処理を行うクラス
 //! @details カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい
 //! @n このクラスはその処理をまとめたことで，処理を簡単にしている
-//! @n カメラの姿勢はクォータニオンで表している．
+//! @n また，カメラの姿勢はクォータニオンで表している．
+
 class CameraManager final
 {
 public:
 
 	CameraManager();
-	~CameraManager() = default;
 
 	//! @brief カメラの位置などの更新を行う．毎フレーム実行すること
-	void update();
+	void Update();
 
 
 	//! @brief カメラのモードをセットする．同時にカメラの目標回転角度などを設定する

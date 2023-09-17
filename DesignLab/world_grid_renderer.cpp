@@ -11,7 +11,7 @@ WorldGridRenderer::WorldGridRenderer() :
 }
 
 
-void WorldGridRenderer::draw() const
+void WorldGridRenderer::Draw() const
 {
 	const int kMainGridNum = 20;
 

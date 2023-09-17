@@ -31,7 +31,7 @@
 //}
 //
 //
-//void GUIController::update(const int max_node, int& display_node, const int counter)
+//void GUIController::Update(const int max_node, int& display_node, const int counter)
 //{
 //	if (m_camera_view_mode == ENodeDisplayNode::AUTO_UPDATE)
 //	{
@@ -47,7 +47,7 @@
 //
 //
 //	//表示切替キーが押されたならば，表示切り返えフラグの値をさかさまにする．
-//	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Z) == 1) { m_is_displayed = !m_is_displayed; }
+//	if (Keyboard::getIns()->GetPressingCount(KEY_INPUT_Z) == 1) { m_is_displayed = !m_is_displayed; }
 //
 //	if (m_is_displayed)
 //	{
@@ -56,7 +56,7 @@
 //		//ボタンを更新する．
 //		for (int i = 0; i < (int)m_buttom.size(); i++)
 //		{
-//			m_buttom.at(i)->update();
+//			m_buttom.at(i)->Update();
 //
 //			//ボタンの追加された順番ごとに処理をする．クソみたいな実装でスマソ
 //			switch (i)
@@ -110,7 +110,7 @@
 //}
 //
 //
-//void GUIController::draw(const SNode& node) const
+//void GUIController::Draw(const SNode& node) const
 //{
 //	//表示しないなら即終了
 //	if (m_is_displayed == false) { return; }
@@ -137,7 +137,7 @@
 //	//ボタンを描画する．
 //	for (const auto& i : m_buttom)
 //	{
-//		i->draw();
+//		i->Draw();
 //	}
 //}
 //

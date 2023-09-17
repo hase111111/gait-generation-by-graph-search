@@ -20,35 +20,35 @@ SystemMain::SystemMain(std::unique_ptr<AbstractPassFinder>&& graph_search, std::
 	HexapodStateCalclator_Old::initLegR();
 
 	//結果をファイルに出力するクラスを初期化する．
-	m_result_exporter.init();
+	result_exporter_.init();
 
 	//マップを生成する．
-	m_map_state.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
+	map_state_.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
-	m_broker.setMapState(m_map_state);
+	broker_.set_map_state(map_state_);
 
 	//グラフ探索クラスをセットする
-	mp_pass_finder = std::move(graph_search);
+	pass_finder_ptr_ = std::move(graph_search);
 
-	mp_pass_finder->init(std::move(graph_search_factory), calc, mp_setting);
+	pass_finder_ptr_->init(std::move(graph_search_factory), calc, mp_setting);
 
 
 	//画像ウィンドウを表示するクラスに仲介人のアドレスを渡して，初期化処理をする．
-	m_graphic_system.init(std::move(builder), calc, &m_broker, mp_setting);
+	graphic_system_.Init(std::move(builder), calc, &broker_, mp_setting);
 
 	//この探索での目標を設定する．
-	m_target.TargetMode = ETargetMode::StraightPosition;
-	m_target.TargetPosition = { 3000,0,0 };
+	target_.TargetMode = ETargetMode::StraightPosition;
+	target_.TargetPosition = { 3000,0,0 };
 }
 
 
-void SystemMain::main()
+void SystemMain::Main()
 {
-	outputTitle();	//コマンドラインにタイトルを表示する．
+	OutputTitle();	//コマンドラインにタイトルを表示する．
 
 
-	if (!mp_pass_finder)
+	if (!pass_finder_ptr_)
 	{
 		//早期リターン，グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
 		dl_cio::output(mp_setting, "パスファインダークラスがありません\nシミュレーションを終了します．", EOutputPriority::ERROR_MES, false, true);
@@ -63,14 +63,14 @@ void SystemMain::main()
 	}
 
 
-	outputSetting();	//コマンドラインに設定を表示する．
+	OutputSetting();	//コマンドラインに設定を表示する．
 
 
 	NodeValidityChecker node_checker;	//ノードの妥当性をチェックするクラスを用意する．
 
 
 	//画像表示ウィンドウを別スレッドで立ち上げる．
-	boost::thread graphic_thread(&GraphicSystem::main, &m_graphic_system);
+	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
 
 
 	//シミュレーションを行う回数分ループする．
@@ -98,22 +98,22 @@ void SystemMain::main()
 		}
 
 
-		if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
+		if ((*mp_setting).gui_display) { broker_.PushNode(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
 
 
 		//最大歩容生成回数分までループする．
 		for (int j = 0; j < Define::GATE_PATTERN_GENERATE_NUM; j++)
 		{
-			m_timer.start();		//タイマースタート
+			timer_.start();		//タイマースタート
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
-			EGraphSearchResult result_state = mp_pass_finder->getNextNodebyGraphSearch(current_node, &m_map_state, m_target, result_node);		//グラフ探索を行う．
+			EGraphSearchResult result_state = pass_finder_ptr_->getNextNodebyGraphSearch(current_node, &map_state_, target_, result_node);		//グラフ探索を行う．
 
-			m_timer.end();			//タイマーストップ
+			timer_.end();			//タイマーストップ
 
 
-			record.computation_time.push_back(m_timer.getMicroSecond() / 1000);	//計算時間を格納する．
+			record.computation_time.push_back(timer_.getMicroSecond() / 1000);	//計算時間を格納する．
 			record.graph_search_results.push_back(result_state);			//グラフ探索の結果を格納する．
 			record.result_nodes.push_back(result_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
 
@@ -131,7 +131,7 @@ void SystemMain::main()
 
 			current_node = result_node;		//次の歩容が生成できているならば，ノードを更新する．
 
-			if ((*mp_setting).gui_display) { m_broker.pushNode(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
+			if ((*mp_setting).gui_display) { broker_.PushNode(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::INFO);
 			dl_cio::outputHorizontalLine(mp_setting, false, EOutputPriority::INFO);
@@ -171,9 +171,9 @@ void SystemMain::main()
 
 		}	//歩容生成のループ終了
 
-		m_result_exporter.exportResult(record);	//シミュレーションの結果をファイルに出力する．
+		result_exporter_.exportResult(record);	//シミュレーションの結果をファイルに出力する．
 
-		m_broker.setSimuEnd();	//仲介人にシミュレーション終了を通達する．
+		broker_.SetSimuEnd();	//仲介人にシミュレーション終了を通達する．
 
 		dl_cio::outputNewLine(mp_setting, 1, EOutputPriority::SYSTEM);
 		dl_cio::outputHorizontalLine(mp_setting, true, EOutputPriority::SYSTEM);
@@ -203,7 +203,7 @@ void SystemMain::main()
 }
 
 
-void SystemMain::outputTitle() const
+void SystemMain::OutputTitle() const
 {
 	dl_cio::outputNewLine(mp_setting);
 	dl_cio::outputHorizontalLine(mp_setting, true);
@@ -215,7 +215,7 @@ void SystemMain::outputTitle() const
 }
 
 
-void SystemMain::outputSetting() const
+void SystemMain::OutputSetting() const
 {
 	dl_cio::output(mp_setting, "[設定]");
 	dl_cio::outputNewLine(mp_setting);

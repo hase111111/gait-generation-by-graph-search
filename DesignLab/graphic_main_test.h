@@ -21,9 +21,9 @@ public:
 	GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 	~GraphicMainTest() = default;
 
-	bool update() override;
+	bool Update() override;
 
-	void draw() const override;
+	void Draw() const override;
 
 private:
 
@@ -33,7 +33,7 @@ private:
 
 	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
 
-	NodeDisplayGUI m_node_display_gui;				// ノードの表示を制御するGUI
+	NodeDisplayGui m_node_display_gui;				// ノードの表示を制御するGUI
 
 
 	SNode m_node;

@@ -19,7 +19,7 @@ GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* con
 }
 
 
-void GraphViewerGUIController::update()
+void GraphViewerGUIController::Update()
 {
 	inputNumber();
 	updateChildrenList();
@@ -27,7 +27,7 @@ void GraphViewerGUIController::update()
 }
 
 
-void GraphViewerGUIController::draw() const
+void GraphViewerGUIController::Draw() const
 {
 	drawGraphData();
 	drawNodeControllPanel();
@@ -175,7 +175,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 void GraphViewerGUIController::inputNumber()
 {
 	// Cキーでリセット
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_C) == 1)
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) == 1)
 	{
 		m_input_number = -1;
 		return;
@@ -184,16 +184,16 @@ void GraphViewerGUIController::inputNumber()
 	// 数字入力
 	int input_number = -1;
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_0) == 1) { input_number = 0; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_1) == 1) { input_number = 1; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_2) == 1) { input_number = 2; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_3) == 1) { input_number = 3; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_4) == 1) { input_number = 4; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_5) == 1) { input_number = 5; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_6) == 1) { input_number = 6; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_7) == 1) { input_number = 7; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_8) == 1) { input_number = 8; }
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_9) == 1) { input_number = 9; }
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_0) == 1) { input_number = 0; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1) == 1) { input_number = 1; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_2) == 1) { input_number = 2; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_3) == 1) { input_number = 3; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_4) == 1) { input_number = 4; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_5) == 1) { input_number = 5; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_6) == 1) { input_number = 6; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_7) == 1) { input_number = 7; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_8) == 1) { input_number = 8; }
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_9) == 1) { input_number = 9; }
 
 	if (input_number >= 0)
 	{
@@ -214,27 +214,27 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 {
 	if (mp_graph->size() == 0) return;
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_DOWN) == 1)
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) == 1)
 	{
 		(*mp_display_node_index)--;
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_UP) == 1)
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) == 1)
 	{
 		(*mp_display_node_index)++;
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RETURN) == 1)
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RETURN) == 1)
 	{
 		(*mp_display_node_index) = m_input_number;
 		m_input_number = -1;
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_P) == 1)
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) == 1)
 	{
 		if (mp_graph->size() > *mp_display_node_index)
 		{
 			(*mp_display_node_index) = mp_graph->at(*mp_display_node_index).parent_num;
 		}
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) == 1 && !m_childen_list.second.empty())
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) == 1 && !m_childen_list.second.empty())
 	{
 		m_display_children_list_index--;
 
@@ -243,7 +243,7 @@ void GraphViewerGUIController::changeDisplayNodeIndex()
 
 		(*mp_display_node_index) = m_childen_list.second.at(m_display_children_list_index);
 	}
-	else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) == 1 && !m_childen_list.second.empty())
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) == 1 && !m_childen_list.second.empty())
 	{
 		m_display_children_list_index++;
 
@@ -261,7 +261,7 @@ void GraphViewerGUIController::updateChildrenList()
 {
 	if (mp_graph->size() == 0) return;
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_U) == 1)
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_U) == 1)
 	{
 		m_childen_list.first = (int)(*mp_display_node_index);
 		m_childen_list.second.clear();

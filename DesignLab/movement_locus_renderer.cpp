@@ -32,7 +32,7 @@ void MovementLocusRenderer::setMovementLocus(const std::vector<SNode>& locus)
 }
 
 
-void MovementLocusRenderer::draw(const size_t draw_simu_num, const bool draw_all_simulation)  const
+void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all_simulation)  const
 {
 	const size_t kSize = m_movement_locus.size();
 

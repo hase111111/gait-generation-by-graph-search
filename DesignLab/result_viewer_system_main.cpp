@@ -11,16 +11,16 @@ ResultViewerSystemMain::ResultViewerSystemMain(const SApplicationSettingRecorder
 {
 	MapState map;
 	map.init(EMapCreateMode::FLAT, 0, false);
-	m_broker.setMapState(map);
+	m_broker.set_map_state(map);
 
 	read();
 
-	m_graphic_system.init(std::make_unique<BasicGraphicMainBuilder>(), std::make_shared<PhantomXStateCalclator>(), &m_broker, setting);
+	m_graphic_system.Init(std::make_unique<BasicGraphicMainBuilder>(), std::make_shared<PhantomXStateCalclator>(), &m_broker, setting);
 }
 
 void ResultViewerSystemMain::main()
 {
-	m_graphic_system.main();
+	m_graphic_system.Main();
 }
 
 void ResultViewerSystemMain::read()

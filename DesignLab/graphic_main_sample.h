@@ -22,9 +22,9 @@ public:
 		: AbstractGraphicMain(broker, calc, setting) {};
 	~GraphicMainSample() = default;
 
-	bool update() override;
+	bool Update() override;
 
-	void draw() const override;
+	void Draw() const override;
 
 private:
 

@@ -16,10 +16,10 @@ public:
 	~ButtomController() = default;
 
 	//! @brief ボタンの状態を更新する．毎フレーム実行すること．
-	void update();
+	void Update();
 
 	//! @brief ボタンを描画する．デザインを変更したいならばここを変更してください．
-	void draw() const;
+	void Draw() const;
 
 
 	//! @biref ボタンが押された瞬間にtrueを返す．

@@ -47,12 +47,12 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
-	m_graphic_data_broker.setMapState(m_map_state);
+	m_graphic_data_broker.set_map_state(m_map_state);
 
 
 	std::shared_ptr<AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
 
-	m_graphic_system.init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);		//グラフィックシステムを初期化する
+	m_graphic_system.Init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);		//グラフィックシステムを初期化する
 
 
 	mp_pass_finder = std::make_unique<PassFinderHatoThread>();
@@ -66,7 +66,7 @@ void GraphViewerSystemMain::main()
 	//グラフィックシステムを起動する
 	dl_cio::output(mp_setting, "別スレッドでGUIを起動します．", EOutputPriority::INFO);
 
-	boost::thread graphic_thread(&GraphicSystem::main, &m_graphic_system);
+	boost::thread graphic_thread(&GraphicSystem::Main, &m_graphic_system);
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
@@ -180,7 +180,7 @@ void GraphViewerSystemMain::main()
 			}
 			else if (_menu == 3)
 			{
-				m_graphic_data_broker.deleteAllNode();
+				m_graphic_data_broker.DeleteAllNode();
 				_graph.clear();
 				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
 				std::cout << std::endl;
@@ -217,11 +217,11 @@ void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& 
 
 void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)
 {
-	m_graphic_data_broker.deleteAllNode();
+	m_graphic_data_broker.DeleteAllNode();
 
 	for (auto& i : _graph)
 	{
-		m_graphic_data_broker.pushNode(i);
+		m_graphic_data_broker.PushNode(i);
 	}
 }
 

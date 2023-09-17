@@ -17,7 +17,7 @@ public:
 	StabilityMarginRenderer();
 	~StabilityMarginRenderer() = default;
 
-	void draw(const SNode& node) const;
+	void Draw(const SNode& node) const;
 
 
 private:

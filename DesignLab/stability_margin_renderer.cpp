@@ -14,7 +14,7 @@ StabilityMarginRenderer::StabilityMarginRenderer() : kMarginColor(GetColor(0, 25
 }
 
 
-void StabilityMarginRenderer::draw(const SNode& node) const
+void StabilityMarginRenderer::Draw(const SNode& node) const
 {
 	dl_vec::SPolygon2 polygon_xy;			//•½–Ê‚É“Š‰e‚µ‚½‘½ŠpŒ`
 

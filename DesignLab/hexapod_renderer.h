@@ -24,7 +24,7 @@ public:
 	void setNode(const SNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
-	void draw() const;
+	void Draw() const;
 
 private:
 

@@ -6,7 +6,6 @@
 
 #include "graphic_const.h"
 #include "designlab_dxlib.h"
-#include "Define.h"
 
 
 CameraManager::CameraManager() :
@@ -22,7 +21,7 @@ CameraManager::CameraManager() :
 }
 
 
-void CameraManager::update()
+void CameraManager::Update()
 {
 	m_length_camera_to_target = approachTargetValue(m_length_camera_to_target, m_goal_length_camera_to_target);	//カメラの距離を目標値に近づける．
 	m_camera_rot_quat = approachTargetQuat(m_camera_rot_quat, m_goal_camera_rot_quat);							//カメラの回転を目標値に近づける．

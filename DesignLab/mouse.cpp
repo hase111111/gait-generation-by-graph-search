@@ -10,140 +10,87 @@
 Mouse::Mouse()
 {
 	//変数を初期化する
-	m_posx = 0;
-	m_poy = 0;
-	m_past_posx = 0;
-	m_past_posy = 0;
-	m_pushing_count_left = 0;
-	m_pushing_count_middle = 0;
-	m_pushing_count_right = 0;
-	m_releasing_count_left = 0;
-	m_releasing_count_middle = 0;
-	m_releasing_count_right = 0;
-	m_wheel_rot = 0;
+	cursor_pos_x_ = 0;
+	cursor_pos_y_ = 0;
+	cursor_past_pos_x_ = 0;
+	cursor_past_pos_y_ = 0;
+	left_pushing_counter_ = 0;
+	middle_pushing_counter_ = 0;
+	right_pushing_counter_ = 0;
+	left_releasing_counter_ = 0;
+	middle_releasing_counter_ = 0;
+	right_releasing_counter_ = 0;
+	wheel_rot_ = 0;
 }
 
 
-void Mouse::update()
+void Mouse::Update()
 {
 	//マウスの位置取得
-	m_past_posx = m_posx;
-	m_past_posy = m_poy;
-	GetMousePoint(&m_posx, &m_poy);
+	cursor_past_pos_x_ = cursor_pos_x_;
+	cursor_past_pos_y_ = cursor_pos_y_;
+	GetMousePoint(&cursor_pos_x_, &cursor_pos_y_);
 
 	//左クリック
 	if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
 	{
 		//押されているなら
-		m_pushing_count_left++;
-		m_releasing_count_left = 0;
+		left_pushing_counter_++;
+		left_releasing_counter_ = 0;
 	}
 	else
 	{
 		//離されているなら
-		m_pushing_count_left = 0;
-		m_releasing_count_left++;
+		left_pushing_counter_ = 0;
+		left_releasing_counter_++;
 	}
 
 	//右クリック
 	if ((GetMouseInput() & MOUSE_INPUT_RIGHT) != 0)
 	{
 		//押されているなら
-		m_pushing_count_right++;
-		m_releasing_count_right = 0;
+		right_pushing_counter_++;
+		right_releasing_counter_ = 0;
 	}
 	else
 	{
 		//離されているなら
-		m_pushing_count_right = 0;
-		m_releasing_count_right++;
+		right_pushing_counter_ = 0;
+		right_releasing_counter_++;
 	}
 
 	//ホールドボタン
 	if ((GetMouseInput() & MOUSE_INPUT_MIDDLE) != 0)
 	{
 		//押されているなら
-		m_pushing_count_middle++;
-		m_releasing_count_middle = 0;
+		middle_pushing_counter_++;
+		middle_releasing_counter_ = 0;
 	}
 	else
 	{
 		//離されているなら
-		m_pushing_count_middle = 0;
-		m_releasing_count_middle++;
+		middle_pushing_counter_ = 0;
+		middle_releasing_counter_++;
 	}
 
 	//ホイール回転
-	m_wheel_rot = GetMouseWheelRotVol();
+	wheel_rot_ = GetMouseWheelRotVol();
 }
 
 
-int Mouse::getPosX() const
+int Mouse::GetDiffPosX() const
 {
-	return m_posx;
+	return cursor_pos_x_ - cursor_past_pos_x_;
 }
 
 
-int Mouse::getDiffPosX() const
+int Mouse::GetDiffPosY() const
 {
-	return m_posx - m_past_posx;
+	return cursor_pos_y_ - cursor_past_pos_y_;
 }
 
-
-int Mouse::getPosY() const
-{
-	return m_poy;
-}
-
-
-int Mouse::getDiffPosY() const
-{
-	return m_poy - m_past_posy;
-}
 
 double Mouse::getDiffPos() const
 {
-	return sqrt(static_cast<double>(dl_math::squared(getDiffPosY()) + dl_math::squared(getDiffPosX())));
-}
-
-
-int Mouse::getPushingCountLeft() const
-{
-	return m_pushing_count_left;
-}
-
-
-int Mouse::getPushingCountRight() const
-{
-	return m_pushing_count_right;
-}
-
-
-int Mouse::getPushingCountMiddle() const
-{
-	return m_pushing_count_middle;
-}
-
-
-int Mouse::getReleasingCountLeft() const
-{
-	return m_releasing_count_left;
-}
-
-
-int Mouse::getReleasingCountRight() const
-{
-	return m_releasing_count_right;
-}
-
-
-int Mouse::getReleasingCountMiddle() const
-{
-	return m_releasing_count_middle;
-}
-
-
-int Mouse::getWheelRot() const
-{
-	return m_wheel_rot;
+	return sqrt(static_cast<double>(dl_math::squared(GetDiffPosY()) + dl_math::squared(GetDiffPosX())));
 }

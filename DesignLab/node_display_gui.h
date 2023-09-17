@@ -1,4 +1,8 @@
-#pragma once
+//! @file node_display_gui.h
+//! @brief ノードの情報を表示するGUI
+
+#ifndef DESIGNLAB_NODE_DISPLAY_GUI_H_
+#define DESIGNLAB_NODE_DISPLAY_GUI_H_
 
 #include <memory>
 #include <map>
@@ -8,33 +12,50 @@
 #include "abstract_hexapod_state_calculator.h"
 
 
-//! @class NodeDisplayGUI
+//! @class NodeDisplayGui
 //! @date 2023/08/23
 //! @author 長谷川
 //! @brief ノードの情報を表示するGUI
-class NodeDisplayGUI final
+class NodeDisplayGui final
 {
 public:
-	NodeDisplayGUI(const int x_pos, const int y_pos, std::shared_ptr<AbstractHexapodStateCalculator> calc);
+
+	//! @param [in] x_pos GUIの左上のx座標
+	//! @param [in] y_pos GUIの左上のy座標
+	//! @param [in] calc 六脚歩行ロボットの状態を計算するクラス
+	NodeDisplayGui(const int x_pos, const int y_pos, std::shared_ptr<AbstractHexapodStateCalculator> calc);
 
 
-	//! @brief 表示するノードを設定する
+	//! @brief 表示するノードを設定する，その後関節の角度を計算する
 	//! @param [in] node 表示するノード
-	void setDisplayNode(const SNode& node);
+	void SetDisplayNode(const SNode& node);
 
 
 	//! @brief GUIのボタンの更新を行う
-	void update();
+	void Update();
 
 	//! @brief GUIの表示を行う
-	void draw() const;
+	void Draw() const;
 
 
-	const static int BOX_SIZE_X;
-	const static int BOX_SIZE_Y;
-	const static int BOX_SIZE_Y_CLOSED;
+	const static int kWidth;			//!< GUIの幅
+	const static int kHeight;			//!< GUIの高さ
+	const static int kClosedHeight;		//!< GUIが閉じているときの高さ
 
 private:
+
+	enum class ButtonType
+	{
+		kOpenClose,
+		kModeSwitching
+	};
+
+	enum class DisplayMode
+	{
+		kDefualt,		//デフォルト
+		kJointState		//角度
+	};
+
 
 	void drawBackground() const;
 
@@ -43,40 +64,24 @@ private:
 	void drawJointInfo() const;
 
 
-	enum class EButtonType
-	{
-		OPEN_CLOSE,
-		SWITCHING
-	};
+	const int kGUILeftPosX;
 
-	enum class EDisplayType
-	{
-		DEFUALT,	//デフォルト
-		LEG_STATE		//角度
-	};
+	const int kGUITopPosY;
 
 
-	const int kGUILeftPosX = 0;
+	std::map<ButtonType, std::unique_ptr<ButtomController>> buttons_;	//!< ボタン
 
-	const int kGUITopPosY = 0;
-
-
-	std::map<EButtonType, std::unique_ptr<ButtomController>> m_buttons;	//!< ボタン
-
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< 六脚歩行ロボットの状態を計算するクラス
+	std::shared_ptr<AbstractHexapodStateCalculator> calculator_ptr_;		//!< 六脚歩行ロボットの状態を計算するクラス
 
 
-	SNode m_node;	//!< 表示するノード
+	SNode display_node_;										//!< 表示するノード
 
-	SHexapodJointState m_joint_state[HexapodConst::LEG_NUM];	//!< 関節の角度
+	SHexapodJointState joint_state_[HexapodConst::LEG_NUM];	//!< 関節の角度
 
-	bool m_is_closed = false;	//!< GUIが閉じているかどうか
+	bool is_closed_;											//!< GUIが閉じているか(最小化しているか)どうか
 
-	EDisplayType m_display_type = EDisplayType::DEFUALT;	//!< 表示する情報の種類
+	DisplayMode display_type_;									//!< 表示する情報の種類
 };
 
 
-//! @file node_display_gui.h
-//! @date 2023/08/23
-//! @author 長谷川
-//! @brief ノードの情報を表示するGUI
+#endif // !DESIGNLAB_NODE_DISPLAY_GUI_H_

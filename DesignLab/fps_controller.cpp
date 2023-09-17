@@ -1,4 +1,4 @@
-#include "fps.h"
+#include "fps_controller.h"
 
 #include <cmath>
 #include <string>
@@ -8,15 +8,15 @@
 #include "Define.h"
 
 
-Fps::Fps(const int fps_)
-	: TARGET_FPS(fps_), ONE_FRAME_MILLI_SECOND((int)(1000.0 / fps_)), LIST_MAX(fps_ * 2)
+FpsController::FpsController(const int fps)
+	: kTargetFpsValue(fps), ONE_FRAME_MILLI_SECOND((int)(1000.0 / fps)), LIST_MAX(fps * 2)
 {
 }
 
 
-void Fps::wait()
+void FpsController::Wait()
 {
-	if (!targetFpsIsVaild()) { return; }
+	if (!TargetFpsIsVaild()) { return; }
 
 
 	//待つべき時間を取得して待つ
@@ -36,20 +36,20 @@ void Fps::wait()
 		//このフレームは理想的な処理をしたものとして，記録する
 		regist(m_list.back() + ONE_FRAME_MILLI_SECOND);
 
-		m_do_skip_draw = true;     //描画を飛ばすフラグを立てる
+		need_skip_draw_screen_ = true;     //描画を飛ばすフラグを立てる
 	}
 }
 
 
-bool Fps::skipDrawScene()
+bool FpsController::SkipDrawScene()
 {
-	if (!targetFpsIsVaild()) { return false; }
+	if (!TargetFpsIsVaild()) { return false; }
 
 
 	//スキップフラグが立っているならば，そのフラグを折り，シーンをスキップする
-	if (m_do_skip_draw == true)
+	if (need_skip_draw_screen_)
 	{
-		m_do_skip_draw = false;
+		need_skip_draw_screen_ = false;
 		return true;
 	}
 
@@ -57,7 +57,7 @@ bool Fps::skipDrawScene()
 }
 
 
-void Fps::regist(const int now_time)
+void FpsController::regist(const int now_time)
 {
 	m_list.push_back(now_time);   //現在の時刻を記憶
 
@@ -69,7 +69,7 @@ void Fps::regist(const int now_time)
 }
 
 
-bool Fps::getWaitTime(int* time) const
+bool FpsController::getWaitTime(int* time) const
 {
 	//時刻を初期化
 	(*time) = 0;
@@ -109,16 +109,16 @@ bool Fps::getWaitTime(int* time) const
 }
 
 
-bool Fps::targetFpsIsVaild() const
+bool FpsController::TargetFpsIsVaild() const
 {
 	//マイナスの値は許容しない
-	if (TARGET_FPS <= 0)
+	if (kTargetFpsValue <= 0)
 	{
 		return false;
 	}
 
 	//１秒間に１フレーム以上は許容しない
-	if (TARGET_FPS > 60)
+	if (kTargetFpsValue > 60)
 	{
 		return false;
 	}

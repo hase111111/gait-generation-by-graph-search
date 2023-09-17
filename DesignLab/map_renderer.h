@@ -16,7 +16,7 @@ public:
 
 	//! @brief マップの描画を行う．
 	//! @param [in] map マップの状態．
-	void draw(const MapState& map) const;
+	void Draw(const MapState& map) const;
 
 private:
 

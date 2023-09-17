@@ -11,7 +11,7 @@ bool temp[HexapodConst::LEG_NUM][temp_size][temp_size][temp_size] = {};
 
 
 GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting) :
-	AbstractGraphicMain(broker, calc, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGUI::BOX_SIZE_X - 10, 10, calc),
+	AbstractGraphicMain(broker, calc, setting), m_node_display_gui(mp_setting->window_size_x - NodeDisplayGui::kWidth - 10, 10, calc),
 	m_hexapod_renderer(calc)
 {
 	m_node.init(false);
@@ -46,21 +46,21 @@ GraphicMainTest::GraphicMainTest(const GraphicDataBroker* const  broker, std::sh
 }
 
 
-bool GraphicMainTest::update()
+bool GraphicMainTest::Update()
 {
 	const float speed = 1;
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (Keyboard::getIns()->getPressingCount(KEY_INPUT_1 + i) > 0)
+		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
 		{
-			if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Q) > 0) { m_node.leg_pos[i].z += speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E) > 0) { m_node.leg_pos[i].z -= speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_A) > 0) { m_node.leg_pos[i].y += speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_D) > 0) { m_node.leg_pos[i].y -= speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_W) > 0) { m_node.leg_pos[i].x += speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= speed; }
-			else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_M) == 1)
+			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { m_node.leg_pos[i].z += speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { m_node.leg_pos[i].z -= speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { m_node.leg_pos[i].y += speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { m_node.leg_pos[i].y -= speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { m_node.leg_pos[i].x += speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= speed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
 				HexapodStateCalclator_Old calclator;
 
@@ -69,10 +69,10 @@ bool GraphicMainTest::update()
 				int _map_x = m_map_state.getDevideMapNumX(global.x);
 				int _map_y = m_map_state.getDevideMapNumY(global.y);
 
-				if (Keyboard::getIns()->getPressingCount(KEY_INPUT_UP) > 0) { _map_x++; }
-				else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_DOWN) > 0) { _map_x--; }
-				if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LEFT) > 0) { _map_y++; }
-				else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_RIGHT) > 0) { _map_y--; }
+				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { _map_x++; }
+				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { _map_x--; }
+				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { _map_y++; }
+				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { _map_y--; }
 
 				dl_vec::SVector _map_pos = m_map_state.getPosFromDevideMap(_map_x, _map_y, m_map_index % m_map_state.getPointNumFromDevideMap(_map_x, _map_y));
 				m_map_index++;
@@ -82,47 +82,47 @@ bool GraphicMainTest::update()
 		}
 	}
 
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_LSHIFT) > 0 || Keyboard::getIns()->getPressingCount(KEY_INPUT_RSHIFT) > 0)
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LSHIFT) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RSHIFT) > 0)
 	{
 		const float com_speed = 1;
 
-		if (Keyboard::getIns()->getPressingCount(KEY_INPUT_Q) > 0)
+		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.z += com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.z -= com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_A) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.y += com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_D) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.y -= com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_W) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.x += com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_S) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.x -= com_speed;
 			m_node.changeGlobalCenterOfMass(com, false);
 		}
-		else if (Keyboard::getIns()->getPressingCount(KEY_INPUT_R) > 0)
+		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 		{
 			auto rot = m_node.rot;
 			rot.yaw += com_speed / 360.0f * 2 * dl_math::MY_FLT_PI;
@@ -132,28 +132,28 @@ bool GraphicMainTest::update()
 
 	m_hexapod_renderer.setNode(m_node);
 
-	m_node_display_gui.setDisplayNode(m_node);
+	m_node_display_gui.SetDisplayNode(m_node);
 
-	m_node_display_gui.update();
+	m_node_display_gui.Update();
 
 	m_camera_gui.setHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
 
-	m_camera_gui.update();      //カメラのGUIを更新する．
+	m_camera_gui.Update();      //カメラのGUIを更新する．
 
 	return true;
 }
 
 
-void GraphicMainTest::draw() const
+void GraphicMainTest::Draw() const
 {
 	dl_dxlib::setZBufferEnable();
 
 	MapRenderer map_render;
 
-	map_render.draw(m_map_state);
+	map_render.Draw(m_map_state);
 
 
-	m_hexapod_renderer.draw();
+	m_hexapod_renderer.Draw();
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -191,8 +191,8 @@ void GraphicMainTest::draw() const
 	}
 
 
-	m_camera_gui.draw();        //カメラのGUIを描画する．
+	m_camera_gui.Draw();        //カメラのGUIを描画する．
 
-	m_node_display_gui.draw();	 //ノードの情報を表示するGUIを描画する．
+	m_node_display_gui.Draw();	 //ノードの情報を表示するGUIを描画する．
 
 }

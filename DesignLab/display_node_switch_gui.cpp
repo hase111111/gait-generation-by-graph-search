@@ -68,7 +68,7 @@ int DisplayNodeSwitchGUI::getSimulationNum() const
 }
 
 
-void DisplayNodeSwitchGUI::update()
+void DisplayNodeSwitchGUI::Update()
 {
 	++m_counter;
 
@@ -83,7 +83,7 @@ void DisplayNodeSwitchGUI::update()
 	// ボタンを更新する
 	for (auto& i : m_button)
 	{
-		i.second->update();
+		i.second->Update();
 
 		if (i.second->isPushedNow())
 		{
@@ -141,7 +141,7 @@ void DisplayNodeSwitchGUI::update()
 }
 
 
-void DisplayNodeSwitchGUI::draw() const
+void DisplayNodeSwitchGUI::Draw() const
 {
 	const unsigned int kAlpha = 200;
 
@@ -158,7 +158,7 @@ void DisplayNodeSwitchGUI::draw() const
 	// ボタンを描画する
 	for (const auto& i : m_button)
 	{
-		i.second->draw();
+		i.second->Draw();
 	}
 
 

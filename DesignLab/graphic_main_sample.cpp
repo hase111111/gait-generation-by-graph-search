@@ -5,7 +5,7 @@
 #include "graphic_const.h"
 
 
-bool GraphicMainSample::update()
+bool GraphicMainSample::Update()
 {
 	m_counter++;
 
@@ -13,7 +13,7 @@ bool GraphicMainSample::update()
 }
 
 
-void GraphicMainSample::draw() const
+void GraphicMainSample::Draw() const
 {
 	//”wŒi‚ð”’‚Åõ‚ß‚éD
 	DrawBox(0, 0, mp_setting->window_size_x, mp_setting->window_size_y, GetColor(255, 255, 255), TRUE);

@@ -1,40 +1,40 @@
-#pragma once
+//! @file camera_controller.h
+//! @brief マウスの入力でカメラを動かすクラス
+
+#ifndef DESIGNLABO_CAMERA_CONTROLLER_H_
+#define DESIGNLABO_CAMERA_CONTROLLER_H_
 
 #include "camera_manager.h"
 
 
 //! @class CameraController
-//! @date 2023/08/20
-//! @author 長谷川
-//! @brief キー入力でカメラを動かすクラス
+//! @brief マウスの入力でカメラを動かすクラス
+
 class CameraController
 {
 public:
 	CameraController() = delete;
 
-	//! @brief コンストラクタでマネージャーのポインタを受け取る
-	CameraController(CameraManager* p_camera_manager);
+	//! @brief コンストラクタでマネージャーの参照を受け取る
+	CameraController(CameraManager& p_camera_manager);
 
-	//! @brief キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する
+	//! @brief キー入力でカメラを動かす．
 	//! @n 基本的には毎フレーム呼び出す
-	void update();
+	void Update();
 
 private:
 
-	const float kCameraZoomSpeed = 50.0f;	//!< カメラのズーム速度
+	const float kCameraZoomSpeed = 50.0f;		//!< カメラのズーム速度
 
-	const float kCameraMoveSpeed = 0.007f;	//!< カメラの移動速度
+	const float kCameraMoveSpeed = 0.007f;		//!< カメラの移動速度
 
 	const float kCameraTargetMoveSpeed = 3.0f;	//!< カメラの注視点の移動速度
 
-	const double kMouseMoveMargin = 2.0;	//!< マウスの移動量がこの量以下ならば0とみなす
+	const double kMouseMoveMargin = 2.0;		//!< マウスの移動量がこの量以下ならば0とみなす
 
-	CameraManager* mp_camera_manager;
+
+	CameraManager& camera_manager_ref_;
 };
 
 
-//! @file camera_controller.h
-//! @date 2023/08/20
-//! @auther 長谷川
-//! @brief カメラを動かすクラス
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLABO_CAMERA_CONTROLLER_H_

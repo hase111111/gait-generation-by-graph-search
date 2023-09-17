@@ -20,9 +20,9 @@ public:
 	GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 	~GraphicMainGraphViewer() = default;
 
-	bool update() override;
+	bool Update() override;
 
-	void draw() const override;
+	void Draw() const override;
 
 private:
 
@@ -32,7 +32,7 @@ private:
 
 	CameraGUI m_camera_gui;
 
-	NodeDisplayGUI m_node_display_gui;
+	NodeDisplayGui m_node_display_gui;
 
 	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
 
