@@ -35,26 +35,21 @@
 
 #include <memory>
 
-#include "interface_graphic_main_builder.h"
-#include "interface_graphic_main.h"
-#include "graphic_data_broker.h"
-#include "application_setting_recorder.h"
 #include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
 #include "fps_controller.h"
+#include "graphic_data_broker.h"
+#include "interface_graphic_main.h"
 
 
 class GraphicSystem final
 {
 public:
 
+	//! @param [in] graphic_main_ptr GraphicMainクラスのポインタ．
+	//! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
+	GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr);
 
-	//! @brief GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る.
-	//! @param [in] graphic_main_builder GraphicMainクラスのポインタを代入するためのインターフェースクラスのユニークポインタ．
-	//! @param [in] calc ロボットの状態を計算するクラスのシェアードポインタ．
-	//! @param [in] broker GraphicMainクラスにデータを渡すための仲介人クラスのポインタ．
-	//! @param [in] setting アプリケーションの設定を記録するクラスのポインタ．
-	void Init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
-		const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting);
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．
 	//! @n initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
@@ -64,9 +59,8 @@ public:
 private:
 
 	//! @brief Dxlibの初期化処理を行います．
-	//! @param [in] setting アプリケーションの設定を記録するクラスのポインタ．
 	//! @return bool 初期化に成功したかどうか．
-	bool DxlibInit(const SApplicationSettingRecorder* const setting);
+	bool DxlibInit();
 
 	//! @brief GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理
 	//! @return bool ループを続けるかどうか．falseならばループを抜ける．以上が起きた場合もfaseを返す．
@@ -76,11 +70,11 @@ private:
 	void DxlibFinalize() const;
 
 
-	std::unique_ptr<IGraphicMain> graphic_main_ptr_;		// グラフィックの表示を行うクラスのポインタ．
+	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	// グラフィックの表示を行うクラスのポインタ．
 
-	const SApplicationSettingRecorder* setting_ptr_;				// 設定を保存するクラスのポインタ．
+	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
-	std::unique_ptr<FpsController> fps_ptr_;					// FPSを一定に制御するクラス．詳しくはfps_controller.hへ
+	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
 };
 
 

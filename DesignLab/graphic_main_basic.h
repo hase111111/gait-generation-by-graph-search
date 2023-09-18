@@ -50,10 +50,6 @@ private:
 
 	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;						//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//! < ロボットの状態を計算するクラスのシェアードポインタを受け取る．
-
-	const std::shared_ptr < const SApplicationSettingRecorder> setting_ptr_;		//!< アプリケーションの設定を記録するクラスのポインタを受け取る．
-
 
 	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
 

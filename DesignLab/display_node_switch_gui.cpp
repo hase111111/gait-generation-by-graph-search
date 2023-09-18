@@ -6,14 +6,14 @@
 
 
 
-DisplayNodeSwitchGUI::DisplayNodeSwitchGUI(const int x, const int y) : kGUILeftPosX(x), kGUITopPosY(y),
+DisplayNodeSwitchGUI::DisplayNodeSwitchGUI(const int x, const int y) : kGuiLeftPosX(x), kGuiTopPosY(y),
 m_display_node_num(0), m_all_node_num(0), m_simulation_num(0),
-m_counter(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
+counter_(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
 {
 	const int kButtonDif = 10;
 	const int kButtonWidth = 40;
-	const int kButtonLeftX = kButtonWidth / 2 + kGUILeftPosX + 10;
-	const int kButtonTopY = kButtonWidth / 2 + kGUITopPosY + 100;
+	const int kButtonLeftX = kButtonWidth / 2 + kGuiLeftPosX + 10;
+	const int kButtonTopY = kButtonWidth / 2 + kGuiTopPosY + 100;
 
 
 	//各種ボタンを作成する
@@ -70,11 +70,11 @@ int DisplayNodeSwitchGUI::getSimulationNum() const
 
 void DisplayNodeSwitchGUI::Update()
 {
-	++m_counter;
+	++counter_;
 
 
 	// 自動再生を行う
-	if (m_do_auto_animation && m_counter % (180 / m_animation_speed) == 0)
+	if (m_do_auto_animation && counter_ % (180 / m_animation_speed) == 0)
 	{
 		moveNextNode();
 	}
@@ -150,7 +150,7 @@ void DisplayNodeSwitchGUI::Draw() const
 	// ボックスを描画する
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
-	DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + GUI_WIDTH, kGUITopPosY + GUI_HEIGHT, kColor, TRUE);
+	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + GUI_WIDTH, kGuiTopPosY + GUI_HEIGHT, kColor, TRUE);
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
@@ -164,12 +164,12 @@ void DisplayNodeSwitchGUI::Draw() const
 
 	//文字を描画する
 
-	const int kTextLeftX = kGUILeftPosX + 10;
+	const int kTextLeftX = kGuiLeftPosX + 10;
 
 	const unsigned int kTextColor = GetColor(0, 0, 0);
 
 
-	DrawFormatString(kTextLeftX, kGUITopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", m_simulation_num + 1, getAllSimulationNum(), m_display_node_num, m_all_node_num);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", m_simulation_num + 1, getAllSimulationNum(), m_display_node_num, m_all_node_num);
 
 	int start_node_num = 0;
 	int end_node_num = 0;
@@ -191,13 +191,13 @@ void DisplayNodeSwitchGUI::Draw() const
 		end_node_num = (int)m_simu_end_index[m_simulation_num];
 	}
 
-	DrawFormatString(kTextLeftX, kGUITopPosY + 30, kTextColor, "表示ノード : %d (%d～%d)", m_display_node_num, start_node_num, end_node_num, m_all_node_num - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 30, kTextColor, "表示ノード : %d (%d～%d)", m_display_node_num, start_node_num, end_node_num, m_all_node_num - 1);
 
-	DrawFormatString(kTextLeftX, kGUITopPosY + 50, kTextColor, "全ノード : %d ", m_all_node_num - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 50, kTextColor, "全ノード : %d ", m_all_node_num - 1);
 
-	DrawFormatString(kTextLeftX, kGUITopPosY + 70, kTextColor, m_do_auto_animation == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", m_animation_speed);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 70, kTextColor, m_do_auto_animation == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", m_animation_speed);
 
-	DrawFormatString(kTextLeftX, kGUITopPosY + 150, kTextColor, "アニメーションの\n     速度変更");
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 150, kTextColor, "アニメーションの\n     速度変更");
 }
 
 

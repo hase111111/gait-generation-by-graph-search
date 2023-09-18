@@ -1,27 +1,33 @@
-#pragma once
+#ifndef DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
+#define DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
 
-#include <vector>
 
 #include "interface_graphic_main.h"
-#include "map_state.h"
-#include "node.h"
-#include "graphic_const.h"
+
+#include <memory>
+#include <vector>
+
+#include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
 #include "camera_gui.h"
 #include "display_node_switch_gui.h"
-#include "node_display_gui.h"
+#include "graphic_const.h"
+#include "graphic_data_broker.h"
 #include "hexapod_renderer.h"
+#include "interpolated_node_creator.h"
+#include "map_state.h"
 #include "movement_locus_renderer.h"
+#include "node.h"
+#include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
 #include "stability_margin_renderer.h"
-#include "interpolated_node_creator.h"
-
-
 
 
 class GraphicMainAdvance final : public IGraphicMain
 {
 public:
-	GraphicMainAdvance(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+	GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainAdvance() = default;
 
 	bool Update() override;
@@ -30,45 +36,49 @@ public:
 
 private:
 
-	const int kNodeGetCount;			//2秒ごとに読み出す．
+	const int kNodeGetCount;			//!< ノードを取得する間隔．
 
-	const int kInterpolatedAnimeCount = 15;
-
-
-	CameraGui m_camera_gui;							// カメラの位置を制御するGUI
-
-	NodeDisplayGui m_node_display_gui;				// ノードの表示を制御するGUI
-
-	DisplayNodeSwitchGUI m_display_node_switch_gui;	// ノードの表示を切り替えるGUI
+	const int kInterpolatedAnimeCount;	//!< 補間されたノードの表示を切り替える間隔．
 
 
-	HexapodRenderer m_hexapod_renderer;						//!< ロボットを表示するクラス．	
-
-	MovementLocusRenderer m_movement_locus_renderer;		//!< ロボットの動きの軌跡を表示するクラス．
-
-	RobotGraundPointRenderer m_robot_graund_point_renderer;	//!< ロボットの足先の位置を表示するクラス．
-
-	StabilityMarginRenderer m_stability_margin_renderer;	//!< ロボットの安定性マージンを表示するクラス．
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;		//!< データを受け取るクラス．
 
 
-	InterpolatedNodeCreator m_interpolated_node_creator;	//!< ノード間を補間するクラス．
+	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
+
+	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+
+	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
 
-	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector
+	HexapodRenderer hexapod_renderer_;						//!< ロボットを表示するクラス．	
 
-	int m_display_node_index = -1;		//描画しているノード
+	MovementLocusRenderer movement_locus_renderer_;			//!< ロボットの動きの軌跡を表示するクラス．
 
-	MapState m_map_state;				//表示するマップ．
+	RobotGraundPointRenderer robot_graund_point_renderer_;	//!< ロボットの足先の位置を表示するクラス．
 
-	int m_counter = 0;					//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
+	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの安定性マージンを表示するクラス．
 
-	std::vector<SNode> m_interpolated_node;	//補間されたノードを記録するvector
-
-	int m_interpolated_anime_start_count = -100;	//補間されたノードを表示し始めるカウント
+	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
 
 
-	bool m_is_display_movement_locus = true;		//ロボットの動きの軌跡を表示するかどうか．
+	MapState map_state_;		//!< 表示するマップ．
 
-	bool m_is_display_robot_graund_point = true;	//ロボットの足先の位置を表示するかどうか．
+	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
+
+	size_t display_node_index_;	//!< 描画しているノード
+
+	int counter_;				//!< このクラスが実行されてから何回update関数が呼ばれたかカウントする．
+
+	std::vector<SNode> interpolated_node_;	//!< 補間されたノードを記録するvector
+
+	int interpolated_anime_start_count_;	//!< 補間されたノードを表示し始めるカウント
+
+
+	bool is_displayed_movement_locus_;		//!< ロボットの動きの軌跡を表示するかどうか．
+
+	bool is_displayed_robot_graund_point_;	//!< ロボットの足先の位置を表示するかどうか．
 };
 
+
+#endif // !DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_

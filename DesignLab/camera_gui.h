@@ -36,7 +36,7 @@ public:
 private:
 
 	//! @brief GUI‚Ì”wŒi‚ğ•`‰æ‚·‚é
-	void drawBackground() const;
+	void DrawBackground() const;
 
 	//! @brief Å¬‰»‚ÌGUI‚Ì”wŒi‚ğ•`‰æ‚·‚é
 	void drawClosedBackground() const;
@@ -71,7 +71,7 @@ private:
 
 	const int kGUILeftPosX;			// GUI‚Ì¶’[‚ÌˆÊ’u
 
-	const int kGUITopPosY;			// GUI‚Ìã’[‚ÌˆÊ’u
+	const int kGuiTopPosY;			// GUI‚Ìã’[‚ÌˆÊ’u
 
 
 	bool m_is_closed = false;

@@ -7,19 +7,19 @@
 
 
 CameraGui::CameraGui(const int left_x, const int top_y) :
-	kGUILeftPosX(left_x),
-	kGUITopPosY(top_y),
+	kGuiLeftPosX(left_x),
+	kGuiTopPosY(top_y),
 	m_camera_controller(m_camera_manager)
 {
 	const int kCloseButtonSizeX = 100;
 	const int kCloseButtonSizeY = 30;
 
-	m_buttons[EButtonType::CLOSED] = std::make_unique<ButtomController>(kGUILeftPosX + GUI_SIZE_X - kCloseButtonSizeX / 2 - 10, kGUITopPosY + kCloseButtonSizeY - 10,
+	m_buttons[EButtonType::CLOSED] = std::make_unique<ButtomController>(kGuiLeftPosX + GUI_SIZE_X - kCloseButtonSizeX / 2 - 10, kGuiTopPosY + kCloseButtonSizeY - 10,
 		kCloseButtonSizeX, kCloseButtonSizeY, "最大/小化");
 
 	const int kButtonRange = kButtonSize + kButtonDistance;
-	const int kLeftPosX = kGUILeftPosX + kButtonRange / 2 + 15;
-	const int kTopPosY = kGUITopPosY + kButtonRange / 2 + kCloseButtonSizeY + 10;
+	const int kLeftPosX = kGuiLeftPosX + kButtonRange / 2 + 15;
+	const int kTopPosY = kGuiTopPosY + kButtonRange / 2 + kCloseButtonSizeY + 10;
 
 	m_buttons[EButtonType::LENGH_RESET] = std::make_unique<ButtomController>(kLeftPosX, kTopPosY, kButtonSize, kButtonSize, "Reset\nZoom");
 	m_buttons[EButtonType::FRONT] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize, "Front");
@@ -114,7 +114,7 @@ void CameraGui::Draw() const
 	}
 	else
 	{
-		drawBackground();
+		DrawBackground();
 	}
 
 
@@ -134,12 +134,12 @@ void CameraGui::Draw() const
 }
 
 
-void CameraGui::drawBackground() const
+void CameraGui::DrawBackground() const
 {
 	const unsigned int kBackColor = GetColor(255, 255, 255);
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
-	DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + GUI_SIZE_X, kGUITopPosY + GUI_SIZE_Y, kBackColor, TRUE);
+	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + GUI_SIZE_X, kGuiTopPosY + GUI_SIZE_Y, kBackColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
@@ -149,7 +149,7 @@ void CameraGui::drawClosedBackground() const
 	const unsigned int kBackColor = GetColor(255, 255, 255);
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
-	DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + GUI_SIZE_X, kGUITopPosY + CLOSED_GUI_SIZE_Y, kBackColor, TRUE);
+	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + GUI_SIZE_X, kGuiTopPosY + CLOSED_GUI_SIZE_Y, kBackColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
@@ -160,31 +160,31 @@ void CameraGui::drawString() const
 	const unsigned int kStrRedColor = GetColor(255, 128, 128);
 
 	const int kTextYInterval = 20;
-	const int kTextYTop = kGUITopPosY + 250;
+	const int kTextYTop = kGuiTopPosY + 250;
 
 	int text_line = 0;
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->wheel_rot() == 0 ? kStrColor : kStrRedColor, "マウスホイール回転");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->wheel_rot() == 0 ? kStrColor : kStrRedColor, " ・ズーム");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->middle_pushing_counter() == 0 ? kStrColor : kStrRedColor, "ホイールクリック＆ドラッグ");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->middle_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・ビューを回転");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->left_pushing_counter() == 0 ? kStrColor : kStrRedColor, "左クリック＆ドラッグ");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->left_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・画面の中心から回転");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->right_pushing_counter() == 0 ? kStrColor : kStrRedColor, "右クリック＆ドラッグ");
 
-	DrawFormatString(kGUILeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
+	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
 		Mouse::GetIns()->right_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・画面の平行移動");
 }

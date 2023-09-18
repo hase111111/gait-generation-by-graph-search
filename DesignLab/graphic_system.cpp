@@ -8,44 +8,27 @@
 #include "mouse.h"
 
 
-void GraphicSystem::Init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
-	const GraphicDataBroker* const broker, const SApplicationSettingRecorder* const setting)
+GraphicSystem::GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr) :
+	graphic_main_ptr_(std::move(graphic_main_ptr)),
+	setting_ptr_(setting_ptr),
+	fps_controller_(setting_ptr ? setting_ptr->window_fps : 60)
 {
-	if (graphic_main_builder && calc && broker != nullptr && setting != nullptr)
-	{
-		//GraphicMainを作成する．
-		graphic_main_ptr_ = graphic_main_builder->build(broker, calc, setting);
-	}
-
-
-	//設定ファイルを読み込む．
-	setting_ptr_ = setting;
-
-
-	//Fpsを設定する．
-	if (setting_ptr_ != nullptr)
-	{
-		fps_ptr_ = std::make_unique<FpsController>((*setting_ptr_).window_fps);
-	}
 }
 
 
 void GraphicSystem::Main()
 {
-	//そもそも描画処理を使わないならば即終了
-	if (!(*setting_ptr_).gui_display) { return; }
-
 	//設定ファイルを読み込めていなければ終了
-	if (setting_ptr_ == nullptr) { return; }
+	if (!setting_ptr_) { return; }
+
+	//そもそも描画処理を使わないならば即終了
+	if (setting_ptr_->gui_display) { return; }
 
 	//GraphicMainが作成されていなければ終了
 	if (!graphic_main_ptr_) { return; }
 
-	// FpsController が作成されていなければ終了
-	if (!fps_ptr_) { return; }
-
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
-	if (!DxlibInit(setting_ptr_)) { return; }
+	if (!DxlibInit()) { return; }
 
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
@@ -64,7 +47,7 @@ void GraphicSystem::Main()
 }
 
 
-bool GraphicSystem::DxlibInit(const SApplicationSettingRecorder* const setting)
+bool GraphicSystem::DxlibInit()
 {
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行する．
 
@@ -77,7 +60,7 @@ bool GraphicSystem::DxlibInit(const SApplicationSettingRecorder* const setting)
 	ChangeWindowMode(TRUE);								// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
 
 	//ウィンドウの横幅，縦幅，カラーを設定する．
-	SetGraphMode((*setting).window_size_x, (*setting).window_size_y, GraphicConst::COLOR_BIT);
+	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::COLOR_BIT);
 
 	//ＤＸライブラリ初期化処理
 	if (DxLib_Init() < 0)
@@ -121,7 +104,7 @@ bool GraphicSystem::Loop()
 
 
 	//描画する
-	if (!fps_ptr_->SkipDrawScene())
+	if (!fps_controller_.SkipDrawScene())
 	{
 		//裏画面に描画した絵を消す
 		if (ClearDrawScreen() < 0) { return false; }
@@ -134,7 +117,7 @@ bool GraphicSystem::Loop()
 	}
 
 	//FPSを一定に保つために待つ．
-	fps_ptr_->Wait();
+	fps_controller_.Wait();
 
 	return true;
 }

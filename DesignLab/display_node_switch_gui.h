@@ -84,9 +84,9 @@ private:
 
 
 
-	const int kGUILeftPosX;		//!< GUIの左上のX座標
+	const int kGuiLeftPosX;		//!< GUIの左上のX座標
 
-	const int kGUITopPosY;		//!< GUIの左上のY座標
+	const int kGuiTopPosY;		//!< GUIの左上のY座標
 
 	const int kAnimeSpeedMax = 120;	//!< アニメーション速度の最大値
 
@@ -109,7 +109,7 @@ private:
 
 	int m_animation_speed;			//!< 再生速度
 
-	int m_counter;					//!< カウンター
+	int counter_;					//!< カウンター
 };
 
 

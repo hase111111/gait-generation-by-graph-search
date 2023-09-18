@@ -35,7 +35,7 @@ private:
 	void showGraphStatus(const std::vector<SNode>& graph) const;
 
 
-	MapState m_map_state;
+	MapState map_state_;
 
 	GraphicDataBroker m_graphic_data_broker;
 

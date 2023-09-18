@@ -41,13 +41,13 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 	std::cout << std::endl << "input : ";
 	std::cin >> _option;
 	std::cout << std::endl;
-	m_map_state.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	map_state_.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
 
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
-	m_graphic_data_broker.set_map_state(m_map_state);
+	m_graphic_data_broker.set_map_state(map_state_);
 
 
 	std::shared_ptr<AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
@@ -208,7 +208,7 @@ void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	mp_pass_finder->getNextNodebyGraphSearch(parent_node, &m_map_state, target, fake_result_node);
+	mp_pass_finder->getNextNodebyGraphSearch(parent_node, &map_state_, target, fake_result_node);
 
 	mp_pass_finder->getGraphTree(&graph);
 

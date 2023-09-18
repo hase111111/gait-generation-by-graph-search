@@ -12,8 +12,6 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	broker_ptr_(broker_ptr),
-	calculator_ptr_(calculator_ptr),
-	setting_ptr_(setting_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 0),
 	hexapod_renderer_(calculator_ptr),
