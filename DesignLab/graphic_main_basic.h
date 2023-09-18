@@ -1,34 +1,42 @@
-#pragma once
+//! @file graphic_main_basic.h
+//! @brief 基本的な描画クラス．
 
+#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+
+#include "interface_graphic_main.h"
+
+#include <memory>
 #include <vector>
 
-#include "abstract_graphic_main.h"
-#include "map_state.h"
-#include "node.h"
-#include "graphic_const.h"
+#include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
 #include "camera_gui.h"
 #include "display_node_switch_gui.h"
-#include "node_display_gui.h"
+#include "graphic_const.h"
+#include "graphic_data_broker.h"
 #include "hexapod_renderer.h"
+#include "map_state.h"
 #include "movement_locus_renderer.h"
+#include "node.h"
+#include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
 #include "stability_margin_renderer.h"
 
 
-
 //! @class GraphicMainBasic
-//! @date 2023/08/09
-//! @author 長谷川
 //! @brief このプロジェクトにおける標準的なロボットの描画機能を持つクラス．
 //! @details 波東さんのプログラムのロボット表示機能を書き直したもの．
 //! 基本的な処理の内容は変化していないが，より表示するデータの内容が詳しくなっている．
 //! また，UIによってランタイムで表示方法を制御することができるようになったため，よりロボットの状態を理解しやすくなっている．ﾀﾌﾞﾝﾈ
 //! @note 処理を大きく書き換えたい場合はそもそも新しいクラスを書くようにするとよいと思う．
 //! @n GraphicSampleを参考にして，作成するようにすると楽．
-class GraphicMainBasic final : public AbstractGraphicMain
+
+class GraphicMainBasic final : public IGraphicMain
 {
 public:
-	GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+	GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainBasic() = default;
 
 	bool Update() override;
@@ -37,42 +45,45 @@ public:
 
 private:
 
-	const int kNodeGetCount;			//2秒ごとに読み出す．
+	const int kNodeGetCount;	//!< このカウントごとにデータをBrokerから読み出す
 
 
-	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;						//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
 
-	NodeDisplayGui m_node_display_gui;				// ノードの表示を制御するGUI
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//! < ロボットの状態を計算するクラスのシェアードポインタを受け取る．
 
-	DisplayNodeSwitchGUI m_display_node_switch_gui;	// ノードの表示を切り替えるGUI
-
-
-	HexapodRenderer m_hexapod_renderer;						//!< ロボットを表示するクラス．	
-
-	MovementLocusRenderer m_movement_locus_renderer;		//!< ロボットの動きの軌跡を表示するクラス．
-
-	RobotGraundPointRenderer m_robot_graund_point_renderer;	//!< ロボットの足先の位置を表示するクラス．
-
-	StabilityMarginRenderer m_stability_margin_renderer;	//!< ロボットの安定性マージンを表示するクラス．
+	const std::shared_ptr < const SApplicationSettingRecorder> setting_ptr_;		//!< アプリケーションの設定を記録するクラスのポインタを受け取る．
 
 
-	std::vector<SNode> m_node;			//ロボットの動きの遷移を記録するvector
+	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
 
-	int m_display_node = -1;				//描画しているノード
+	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
-	MapState m_map_state;				//表示するマップ．
-
-	int m_counter = 0;					//このクラスが実行されてから何回update関数が呼ばれたかカウントする．
+	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 
-	bool m_is_display_movement_locus = true;		//ロボットの動きの軌跡を表示するかどうか．
+	HexapodRenderer hexapod_renderer_;						//!< ロボットを表示するクラス．	
 
-	bool m_is_display_robot_graund_point = true;	//ロボットの足先の位置を表示するかどうか．
+	MovementLocusRenderer movement_locus_renderer_;			//!< ロボットの動きの軌跡を表示するクラス．
+
+	RobotGraundPointRenderer robot_graund_point_renderer_;	//!< ロボットの足先の位置を表示するクラス．
+
+	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの静的安定余裕を表示するクラス．
+
+
+	MapState map_state_;		//!< 表示するマップ．
+
+	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
+
+	size_t display_node_index_;	//!< 描画しているノード
+
+	int counter_;				//!< このクラスが実行されてから何回update関数が呼ばれたかカウントする．
+
+
+	bool is_displayed_movement_locus_;		//!< ロボットの動きの軌跡を表示するかどうか．
+
+	bool is_displayed_robot_graund_point_;	//!< ロボットの足先の位置を表示するかどうか．
 };
 
 
-//! @file graphic_main_basic.h
-//! @date 2023/08/09
-//! @author 長谷川
-//! @brief 基本的な描画クラス．
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_GRAPHIC_MAIN_BASIC_H_

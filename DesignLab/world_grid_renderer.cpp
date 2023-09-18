@@ -4,56 +4,63 @@
 
 
 WorldGridRenderer::WorldGridRenderer() :
-	MAIN_GRID_X_COLOR(GetColor(217, 0, 0)), MAIN_GRID_Y_COLOR(GetColor(0, 217, 0)),
-	SUB_GRID_X_COLOR(GetColor(63, 0, 0)), SUB_GRID_Y_COLOR(GetColor(0, 63, 0)),
-	MAIN_GRID_INTERVAL(500.0f), SUB_GRID_DEVIDE_NUM(5), GRID_LINE_Z(-50.0f)
+	kMainGridXColor(GetColor(217, 0, 0)),
+	kMainGridYColor(GetColor(0, 217, 0)),
+	kSubGridXColor(GetColor(63, 0, 0)),
+	kSubGridYColor(GetColor(0, 63, 0)),
+	kMainGridNum(20),
+	kMainGridInterval(500.0f),
+	kSubGridDevideNum(5),
+	kGridLineZPos(-50.0f)
 {
 }
 
 
 void WorldGridRenderer::Draw() const
 {
-	const int kMainGridNum = 20;
-
 	//格子線をどこまで描画するか
-	const float kGridMaxX = static_cast<float>(kMainGridNum) * MAIN_GRID_INTERVAL;
+	const float kGridMaxX = static_cast<float>(kMainGridNum) * kMainGridInterval;
 	const float kGridMinX = -kGridMaxX;
 	const float kGridMaxY = kGridMaxX;
 	const float kGridMinY = -kGridMaxY;
 
 
-	//まずは原点を描画する
-	DrawLine3D(VGet(kGridMinX, 0.0f, GRID_LINE_Z), VGet(kGridMaxX, 0.0f, GRID_LINE_Z), MAIN_GRID_X_COLOR);
-	DrawLine3D(VGet(0.0f, kGridMinY, GRID_LINE_Z), VGet(0.0f, kGridMaxY, GRID_LINE_Z), MAIN_GRID_Y_COLOR);
+	// X軸とY軸の格子線を描画する
+	DrawLine3D(VGet(kGridMinX, 0.0f, kGridLineZPos), VGet(kGridMaxX, 0.0f, kGridLineZPos), kMainGridXColor);
+	DrawLine3D(VGet(0.0f, kGridMinY, kGridLineZPos), VGet(0.0f, kGridMaxY, kGridLineZPos), kMainGridYColor);
 
 
 	//格子線を3D空間に描画する
+
+	const int kMainGridAlpha = 96;	//メインの格子線の透明度
+	const int kSubGridAlpha = 32;	//サブの格子線の透明度
+
 	for (int i = 0; i < kMainGridNum + 1 + kMainGridNum; i++)
 	{
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 96);	//半透明にする
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kMainGridAlpha);	//半透明にする
 
 		//メインの格子線を描画する
-		VECTOR start_pos = VGet(kGridMinX, kGridMinY + MAIN_GRID_INTERVAL * i, GRID_LINE_Z);
-		VECTOR end_pos = VGet(kGridMaxX, kGridMinY + MAIN_GRID_INTERVAL * i, GRID_LINE_Z);
-		DrawLine3D(start_pos, end_pos, MAIN_GRID_X_COLOR);
+		VECTOR start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
+		VECTOR end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
+		DrawLine3D(start_pos, end_pos, kMainGridXColor);
 
-		start_pos = VGet(kGridMinX + MAIN_GRID_INTERVAL * i, kGridMinY, GRID_LINE_Z);
-		end_pos = VGet(kGridMinX + MAIN_GRID_INTERVAL * i, kGridMaxY, GRID_LINE_Z);
-		DrawLine3D(start_pos, end_pos, MAIN_GRID_Y_COLOR);
+		start_pos = VGet(kGridMinX + kMainGridInterval * i, kGridMinY, kGridLineZPos);
+		end_pos = VGet(kGridMinX + kMainGridInterval * i, kGridMaxY, kGridLineZPos);
+		DrawLine3D(start_pos, end_pos, kMainGridYColor);
 
 
 		//サブの格子線を描画する
-		for (int j = 0; j < SUB_GRID_DEVIDE_NUM - 1; j++)
+		for (int j = 0; j < kSubGridDevideNum - 1; j++)
 		{
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 32);	//半透明にする
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, kSubGridAlpha);	//半透明にする
 
-			start_pos = VGet(kGridMinX, kGridMinY + MAIN_GRID_INTERVAL * i + MAIN_GRID_INTERVAL / SUB_GRID_DEVIDE_NUM * (j + 1), GRID_LINE_Z);
-			end_pos = VGet(kGridMaxX, kGridMinY + MAIN_GRID_INTERVAL * i + MAIN_GRID_INTERVAL / SUB_GRID_DEVIDE_NUM * (j + 1), GRID_LINE_Z);
-			DrawLine3D(start_pos, end_pos, SUB_GRID_X_COLOR);
+			start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridLineZPos);
+			end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridLineZPos);
+			DrawLine3D(start_pos, end_pos, kSubGridXColor);
 
-			start_pos = VGet(kGridMinX + MAIN_GRID_INTERVAL * i + MAIN_GRID_INTERVAL / SUB_GRID_DEVIDE_NUM * (j + 1), kGridMinY, GRID_LINE_Z);
-			end_pos = VGet(kGridMinX + MAIN_GRID_INTERVAL * i + MAIN_GRID_INTERVAL / SUB_GRID_DEVIDE_NUM * (j + 1), kGridMaxY, GRID_LINE_Z);
-			DrawLine3D(start_pos, end_pos, SUB_GRID_Y_COLOR);
+			start_pos = VGet(kGridMinX + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridMinY, kGridLineZPos);
+			end_pos = VGet(kGridMinX + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridMaxY, kGridLineZPos);
+			DrawLine3D(start_pos, end_pos, kSubGridYColor);
 		}
 
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);	//半透明を解除する．これを忘れると描画がおかしくなる

@@ -2,59 +2,65 @@
 
 #include <memory>
 
-#include "designlab_dxlib.h"
-#include "map_renderer.h"
+#include "dxlib_util.h"
 #include "graph_tree_creator_hato.h"
-#include "Keyboard.h"
+#include "keyboard.h"
+#include "map_renderer.h"
+
+namespace dldu = designlab::dxlib_util;
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting) :
-	AbstractGraphicMain(broker, calc, setting),
-	m_map_state(broker->map_state()),
-	m_hexapod_renderer(calc),
-	m_camera_gui(10, (*setting).window_size_y - CameraGUI::GUI_SIZE_Y - 10),
-	m_node_display_gui((*setting).window_size_x - NodeDisplayGui::kWidth - 10, 10, calc)
+GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+	const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	broker_ptr_(broker_ptr),
+	calculator_ptr_(calculator_ptr),
+	camera_gui_(10, setting_ptr ? setting_ptr->window_size_y - CameraGui::GUI_SIZE_Y - 10 : 0),
+	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
+	map_state_(broker_ptr ? broker_ptr->map_state() : MapState()),
+	hexapod_renderer_(calculator_ptr),
+	graph_({}),
+	display_node_index_(0)
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
 	init_node.init(false);
 
-	m_hexapod_renderer.setNode(init_node);
+	hexapod_renderer_.set_draw_node(init_node);
 
 	// GUI にグラフのポインタを渡す.
-	mp_gui_controller = std::make_unique<GraphViewerGUIController>(&m_graph, &m_display_node_index, mp_setting);
+	gui_controller_ptr_ = std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr);
 }
 
 
 bool GraphicMainGraphViewer::Update()
 {
-	mp_gui_controller->Update();
+	gui_controller_ptr_->Update();
 
 	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
-	if (mp_broker->GetNodeNum() != m_graph.size())
+	if (broker_ptr_->GetNodeNum() != graph_.size())
 	{
-		mp_broker->CopyAllNode(&m_graph);	//データを更新する
+		broker_ptr_->CopyAllNode(&graph_);	//データを更新する
 
 		//グラフの中身が空でないならば，表示するノードを初期化する
-		if (m_graph.size() > 0) { m_display_node_index = 0; }
+		if (graph_.size() > 0) { display_node_index_ = 0; }
 
-		mp_gui_controller->updateGraphNodeDepthData();
+		gui_controller_ptr_->updateGraphNodeDepthData();
 
 	}
 
 	//HexapodReanderの更新
-	if (m_display_node_index < m_graph.size() && m_graph.size() > 0)
+	if (display_node_index_ < graph_.size() && 0 < graph_.size())
 	{
-		m_hexapod_renderer.setNode(m_graph.at(m_display_node_index));
+		hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));
 
-		m_camera_gui.setHexapodPos(m_graph.at(m_display_node_index).global_center_of_mass);
+		camera_gui_.setHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
 
-		m_node_display_gui.SetDisplayNode(m_graph.at(m_display_node_index));
+		node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
 	}
 
-	m_camera_gui.Update();
+	camera_gui_.Update();
 
-	m_node_display_gui.Update();
+	node_display_gui_.Update();
 
 	return true;
 }
@@ -62,21 +68,23 @@ bool GraphicMainGraphViewer::Update()
 
 void GraphicMainGraphViewer::Draw() const
 {
-	dl_dxlib::setZBufferEnable();
+	dldu::SetZBufferEnable();
+
 
 	MapRenderer map_renderer;
 
-	map_renderer.Draw(m_map_state);
+	map_renderer.Draw(map_state_);
 
-	if (m_display_node_index < m_graph.size())
+
+	if (display_node_index_ < graph_.size())
 	{
-		m_hexapod_renderer.Draw();
+		hexapod_renderer_.Draw();
 	}
 
 
-	mp_gui_controller->Draw();
+	gui_controller_ptr_->Draw();
 
-	m_camera_gui.Draw();
+	camera_gui_.Draw();
 
-	m_node_display_gui.Draw();
+	node_display_gui_.Draw();
 }

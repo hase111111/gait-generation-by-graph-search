@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "abstract_graphic_main.h"
+#include "interface_graphic_main.h"
 #include "map_state.h"
 #include "node.h"
 #include "graphic_const.h"
@@ -18,7 +18,7 @@
 
 
 
-class GraphicMainAdvance final : public AbstractGraphicMain
+class GraphicMainAdvance final : public IGraphicMain
 {
 public:
 	GraphicMainAdvance(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
@@ -35,7 +35,7 @@ private:
 	const int kInterpolatedAnimeCount = 15;
 
 
-	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
+	CameraGui m_camera_gui;							// カメラの位置を制御するGUI
 
 	NodeDisplayGui m_node_display_gui;				// ノードの表示を制御するGUI
 

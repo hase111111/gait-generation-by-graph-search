@@ -1,23 +1,30 @@
-#pragma once
+//! @file graphic_main_graph_viewer.h
+//! @brief GraphicMainGraphViewerクラス
+
+#ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
+#define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
+
+#include "interface_graphic_main.h"
 
 #include <memory>
 
-#include "abstract_graphic_main.h"
+#include "camera_gui.h"
+#include "graph_viewer_gui_controller.h"
+#include "graphic_data_broker.h"
 #include "hexapod_renderer.h"
 #include "map_state.h"
-#include "graph_viewer_gui_controller.h"
-#include "camera_gui.h"
 #include "node_display_gui.h"
 
 
 //! @class GraphicMainGraphViewer
-//! @date 2023/08/09
-//! @author 長谷川
 //! @brief GraphViewerの画面を表示するクラス
-class GraphicMainGraphViewer final : public AbstractGraphicMain
+
+class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
-	GraphicMainGraphViewer(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+	GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+
 	~GraphicMainGraphViewer() = default;
 
 	bool Update() override;
@@ -26,27 +33,27 @@ public:
 
 private:
 
-	HexapodRenderer m_hexapod_renderer;
+	std::shared_ptr<const GraphicDataBroker> broker_ptr_;
 
-	MapState m_map_state;
-
-	CameraGUI m_camera_gui;
-
-	NodeDisplayGui m_node_display_gui;
-
-	std::unique_ptr<GraphViewerGUIController> mp_gui_controller;
+	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;
 
 
-	std::vector<SNode> m_graph;
+	CameraGui camera_gui_;
 
-	size_t m_display_node_index = 0;
+	NodeDisplayGui node_display_gui_;
 
-	int m_camera_mode = 0;
+	std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
+
+
+	MapState map_state_;
+
+	HexapodRenderer hexapod_renderer_;
+
+
+	std::vector<SNode> graph_;
+
+	size_t display_node_index_ = 0;
 };
 
 
-//! @file graphic_main_graph_viewer.h
-//! @date 2023/08/09
-//! @author 長谷川
-//! @brief GraphicMainGraphViewerクラス
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_

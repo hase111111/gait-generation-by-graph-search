@@ -1,10 +1,13 @@
-#pragma once
+//! @file world_grid_renderer.h
+//! @brief ワールドの格子線を描画するクラス
+
+#ifndef DESIGNLAB_WORLD_GRID_RENDERER_H_
+#define DESIGNLAB_WORLD_GRID_RENDERER_H_
 
 
 //! @class WorldGridRenderer
-//! @date 2023/08/23
-//! @author 長谷川
 //! @brief ワールドの格子線を描画するクラス
+
 class WorldGridRenderer final
 {
 public:
@@ -17,24 +20,22 @@ public:
 
 private:
 
-	const unsigned int MAIN_GRID_X_COLOR;		//!< 格子線の色
+	const unsigned int kMainGridXColor;		//!< 格子線の色
 
-	const unsigned int MAIN_GRID_Y_COLOR;		//!< 格子線の色
+	const unsigned int kMainGridYColor;		//!< 格子線の色
 
-	const unsigned int SUB_GRID_X_COLOR;		//!< 細い格子線の色
+	const unsigned int kSubGridXColor;		//!< 細い格子線の色
 
-	const unsigned int SUB_GRID_Y_COLOR;		//!< 細い格子線の色
+	const unsigned int kSubGridYColor;		//!< 細い格子線の色
 
-	const float MAIN_GRID_INTERVAL;				//!< 格子線の間隔
+	const int kMainGridNum;					//!< メインの格子線の数
 
-	const int SUB_GRID_DEVIDE_NUM;				//!< メインの格子線を何分割してサブの格子線をいれるか
+	const float kMainGridInterval;			//!< 格子線の間隔
 
-	const float GRID_LINE_Z;					//!< 格子線のZ座標
+	const int kSubGridDevideNum;			//!< メインの格子線を何分割してサブの格子線をいれるか
+
+	const float kGridLineZPos;				//!< 格子線のZ座標
 };
 
 
-//! @file world_grid_renderer.h
-//! @date 2023/08/23
-//! @author 長谷川
-//! @brief ワールドの格子線を描画するクラス
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_WORLD_GRID_RENDERER_H_

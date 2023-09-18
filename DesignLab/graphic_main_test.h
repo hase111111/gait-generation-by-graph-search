@@ -1,24 +1,30 @@
-#pragma once
+//! @file graphic_main_test.h
+//! @brief GraphicMainTestクラス
+
+#ifndef DESIGNLAB_GRAPHIC_MAIN_TEST_H_
+#define DESIGNLAB_GRAPHIC_MAIN_TEST_H_
+
+#include "interface_graphic_main.h"
 
 #include <memory>
 
-#include "abstract_graphic_main.h"
-#include "hexapod_renderer.h"
-#include "node.h"
-#include "map_state.h"
-#include "camera_gui.h"
-#include "node_display_gui.h"
 #include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
+#include "camera_gui.h"
+#include "hexapod_renderer.h"
+#include "map_state.h"
+#include "node.h"
+#include "node_display_gui.h"
 
 
 //! @class GraphicMainTest
-//! @date 2023/08/09
-//! @author 長谷川
-//! @brief MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン
-class GraphicMainTest final : public AbstractGraphicMain
+//! @brief MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．
+
+class GraphicMainTest final : public IGraphicMain
 {
 public:
-	GraphicMainTest(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
+	GraphicMainTest(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainTest() = default;
 
 	bool Update() override;
@@ -27,23 +33,22 @@ public:
 
 private:
 
-	HexapodRenderer m_hexapod_renderer;
-
-	MapState m_map_state;
-
-	CameraGUI m_camera_gui;							// カメラの位置を制御するGUI
-
-	NodeDisplayGui m_node_display_gui;				// ノードの表示を制御するGUI
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラスのシェアードポインタ．
 
 
-	SNode m_node;
+	CameraGui camera_gui_;				//!< カメラの位置を制御するGUI
 
-	int m_map_index = 0;
+	NodeDisplayGui node_display_gui_;	//!< ノードの表示を制御するGUI
+
+
+	HexapodRenderer hexapod_renderer_;	//!< ロボットを表示するクラス．
+
+	MapState map_state_;				//!< マップの状態を保持するクラス．
+
+	SNode m_node;						//!< ロボットの状態
+
+	int m_map_index = 0;				//!< マップのインデックス
 };
 
 
-//! @file graphic_main_test.h
-//! @date 2023/08/09
-//! @author 長谷川
-//! @brief GraphicMainTestクラス
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_GRAPHIC_MAIN_TEST_H_

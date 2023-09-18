@@ -2,21 +2,28 @@
 
 #include "DxLib.h"
 
-#include "designlab_dxlib.h"
-#include "world_grid_renderer.h"
-#include "map_renderer.h"
+#include "dxlib_util.h"
 #include "keyboard.h"
+#include "map_renderer.h"
+#include "world_grid_renderer.h"
 
 
-GraphicMainBasic::GraphicMainBasic(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, calc, setting),
-	m_map_state(mp_broker->map_state()),
-	kNodeGetCount(setting->window_fps * 2),
-	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGui::kWidth - 10, 10, calc),
-	m_display_node_switch_gui(10, mp_setting->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10),
-	m_hexapod_renderer(calc)
+GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
+	broker_ptr_(broker_ptr),
+	calculator_ptr_(calculator_ptr),
+	setting_ptr_(setting_ptr),
+	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
+	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 0),
+	hexapod_renderer_(calculator_ptr),
+	map_state_(broker_ptr_ ? broker_ptr_->map_state() : MapState()),
+	graph_({}),
+	display_node_index_(0),
+	counter_(0),
+	is_displayed_movement_locus_(false),
+	is_displayed_robot_graund_point_(false)
 {
-	m_node.clear();
 }
 
 
@@ -24,67 +31,69 @@ bool GraphicMainBasic::Update()
 {
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (m_counter % kNodeGetCount == 0)
+	if (counter_ % kNodeGetCount == 0)
 	{
 		//仲介人からデータを読み出す
-		mp_broker->CopyOnlyNewNode(&m_node);
+		broker_ptr_->CopyOnlyNewNode(&graph_);
 
 		std::vector<size_t> simu_end_index;
 
-		mp_broker->CopySimuEndIndex(&simu_end_index);
+		broker_ptr_->CopySimuEndIndex(&simu_end_index);
 
 
 		//ノードの情報を表示するGUIに情報を伝達する．
-		m_display_node_switch_gui.setGraphData(m_node.size(), simu_end_index);
+		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
 
 
 
 		//移動軌跡を更新する．
-		m_movement_locus_renderer.setMovementLocus(m_node);
+		movement_locus_renderer_.set_move_locus_point(graph_);
 
-		m_movement_locus_renderer.setSimuEndIndex(simu_end_index);
+		movement_locus_renderer_.set_simulation_end_indexes(simu_end_index);
 
 
 		//ロボットの接地点を更新する．
-		m_robot_graund_point_renderer.setNode(m_node, simu_end_index);
+		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
 	}
 
 
 	//ノードが存在しているのならば，各クラスに情報を伝達する
-	if (!m_node.empty())
+	if (!graph_.empty())
 	{
 		// 表示ノードが変更されたら，表示するノードを変更する．
-		if (m_display_node != (int)m_display_node_switch_gui.getDisplayNodeNum())
+		if (display_node_index_ != display_node_switch_gui_.getDisplayNodeNum())
 		{
-			m_display_node = (int)m_display_node_switch_gui.getDisplayNodeNum();	//表示するノードを取得する．
+			display_node_index_ = display_node_switch_gui_.getDisplayNodeNum();	//表示するノードを取得する．
 
-			m_hexapod_renderer.setNode(m_node.at(m_display_node));					//ロボットの状態を更新する．
+			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));					//ロボットの状態を更新する．
 
-			m_camera_gui.setHexapodPos(m_node.at(m_display_node).global_center_of_mass);		//カメラの位置を更新する．
+			camera_gui_.setHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
-			m_node_display_gui.SetDisplayNode(m_node.at(m_display_node));			//ノードの情報を表示するGUIに情報を伝達する．
+			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));			//ノードの情報を表示するGUIに情報を伝達する．
 		}
 	}
 
 
-	m_counter++;				//カウンタを進める．
+	counter_++;				//カウンタを進める．
 
-	m_camera_gui.Update();      //カメラのGUIを更新する．
+	camera_gui_.Update();				//カメラのGUIを更新する．
 
-	m_node_display_gui.Update();	//ノードの情報を表示するGUIを更新する．
+	node_display_gui_.Update();			//ノードの情報を表示するGUIを更新する．
 
-	m_display_node_switch_gui.Update();	//ノードの情報を表示するGUIを更新する．
+	display_node_switch_gui_.Update();	//ノードの情報を表示するGUIを更新する．
 
 
-	//キー入力で表示を切り替える
+	// キー入力で表示を切り替える
+	// TODO : あとでGUIに移行する
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_L) == 1)
 	{
-		m_is_display_movement_locus = !m_is_display_movement_locus;
+		is_displayed_movement_locus_ = !is_displayed_movement_locus_;
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_G) == 1)
 	{
-		m_is_display_robot_graund_point = !m_is_display_robot_graund_point;
+		is_displayed_robot_graund_point_ = !is_displayed_robot_graund_point_;
 	}
+
 
 	return true;
 }
@@ -94,7 +103,7 @@ void GraphicMainBasic::Draw() const
 {
 	// 3Dのオブジェクトの描画
 
-	dl_dxlib::setZBufferEnable();		//Zバッファを有効にする．
+	designlab::dxlib_util::SetZBufferEnable();		//Zバッファを有効にする．
 
 
 	WorldGridRenderer grid_renderer;	//インスタンスを生成する．
@@ -104,28 +113,34 @@ void GraphicMainBasic::Draw() const
 
 	MapRenderer map_render;				//マップを描画する．
 
-	map_render.Draw(m_map_state);
+	map_render.Draw(map_state_);
 
 
-	if (m_is_display_movement_locus)m_movement_locus_renderer.Draw(m_display_node_switch_gui.getSimulationNum());   //移動軌跡を描画する．
+	if (is_displayed_movement_locus_)
+	{
+		movement_locus_renderer_.Draw(display_node_switch_gui_.getSimulationNum());   //移動軌跡を描画する．
+	}
 
-	if (m_is_display_robot_graund_point)m_robot_graund_point_renderer.Draw(m_display_node_switch_gui.getSimulationNum());
+	if (is_displayed_robot_graund_point_)
+	{
+		robot_graund_point_renderer_.Draw(display_node_switch_gui_.getSimulationNum());
+	}
 
 
-	if (!m_node.empty())
+	if (!graph_.empty())
 	{
 		//ノードが存在しているならば，ロボットを描画する．
-		m_hexapod_renderer.Draw();
+		hexapod_renderer_.Draw();
 
-		m_stability_margin_renderer.Draw(m_node.at(m_display_node));
+		stability_margin_renderer_.Draw(graph_.at(display_node_index_));
 	}
 
 
 	// 2DのGUIの描画
 
-	m_camera_gui.Draw();        //カメラのGUIを描画する．
+	camera_gui_.Draw();        //カメラのGUIを描画する．
 
-	m_node_display_gui.Draw();	 //ノードの情報を表示するGUIを描画する．
+	node_display_gui_.Draw();	 //ノードの情報を表示するGUIを描画する．
 
-	m_display_node_switch_gui.Draw();	//表示するノードを切り替えるGUIを描画する．
+	display_node_switch_gui_.Draw();	//表示するノードを切り替えるGUIを描画する．
 }

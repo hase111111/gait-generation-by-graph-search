@@ -1,9 +1,12 @@
 #include "robot_graund_point_renderer.h"
 
 #include "DxLib.h"
-#include "designlab_dxlib.h"
+
+#include "dxlib_util.h"
 #include "hexapod_state_calculator.h"
 #include "leg_state.h"
+
+namespace dldu = designlab::dxlib_util;
 
 
 RobotGraundPointRenderer::RobotGraundPointRenderer()
@@ -60,12 +63,12 @@ void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_
 		{
 			if (draw_all_simulation || i == draw_simu_num)
 			{
-				dl_dxlib::drawCube3DWithTopPos(dl_dxlib::convertToDxVec(m_graund_point[i][j].first), 25, color[m_graund_point[i][j].second]);
+				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(m_graund_point[i][j].first), 25, color[m_graund_point[i][j].second]);
 			}
 			else
 			{
 				SetDrawBlendMode(DX_BLENDMODE_ALPHA, 32);
-				dl_dxlib::drawCube3DWithTopPos(dl_dxlib::convertToDxVec(m_graund_point[i][j].first), 25, color_black[m_graund_point[i][j].second]);
+				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(m_graund_point[i][j].first), 25, color_black[m_graund_point[i][j].second]);
 				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 			}
 		}

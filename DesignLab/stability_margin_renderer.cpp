@@ -4,9 +4,11 @@
 
 #include "DxLib.h"
 
-#include "leg_state.h"
-#include "designlab_dxlib.h"
+#include "dxlib_util.h"
 #include "designlab_polygon.h"
+#include "leg_state.h"
+
+namespace dldu = designlab::dxlib_util;
 
 
 StabilityMarginRenderer::StabilityMarginRenderer() : kMarginColor(GetColor(0, 255, 0)), kMarginErrorColor(GetColor(255, 0, 0)), kAlpha(128)
@@ -44,9 +46,9 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 	for (size_t i = 0; i < polygon.size(); i++)
 	{
 		VECTOR poly[3] = {
-			dl_dxlib::convertToDxVec(polygon[i]),
-			dl_dxlib::convertToDxVec(polygon[(i + 1) % polygon.size()]),
-			dl_dxlib::convertToDxVec(center)
+			dldu::ConvertToDxlibVec(polygon[i]),
+			dldu::ConvertToDxlibVec(polygon[(i + 1) % polygon.size()]),
+			dldu::ConvertToDxlibVec(center)
 		};
 
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
@@ -65,7 +67,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 	}
 
 	//“ŠŽË‚µ‚½dS‚ð•`‰æ‚·‚é
-	VECTOR projected_center = dl_dxlib::convertToDxVec({ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 });
+	VECTOR projected_center = dldu::ConvertToDxlibVec({ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 });
 
 	DrawSphere3D(projected_center, 5, 10, 10, GetColor(255, 255, 255), TRUE);
 }

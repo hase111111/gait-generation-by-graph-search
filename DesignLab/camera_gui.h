@@ -9,16 +9,16 @@
 #include "designlab_vector.h"
 
 
-//! @class CameraGUI
+//! @class CameraGui
 //! @date 2023/08/21
 //! @author 長谷川
 //! @brief カメラの操作・管理を行うGUIを行うクラス
-class CameraGUI final
+class CameraGui final
 {
 public:
 
-	CameraGUI(const int left_x, const int top_y);
-	CameraGUI();
+	CameraGui(const int left_x, const int top_y);
+	CameraGui();
 
 	//! @brief カメラの注視する位置を設定する
 	void setHexapodPos(const dl_vec::SVector pos);
@@ -60,7 +60,7 @@ private:
 
 	CameraController m_camera_controller;	//!< カメラの操作を行うクラス
 
-	CameraManager m_camera_manager;			//!< カメラの管理を行うクラス
+	CameraStateManager m_camera_manager;			//!< カメラの管理を行うクラス
 
 	std::map<EButtonType, std::unique_ptr<ButtomController>> m_buttons;
 

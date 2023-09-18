@@ -18,7 +18,7 @@
 #include "graphic_system.h"
 #include "abstract_pass_finder.h"
 #include "interface_graphic_main_builder.h"
-#include "abstract_graphic_main.h"
+#include "interface_graphic_main.h"
 #include "abstract_hexapod_state_calculator.h"
 #include "designlab_timer.h"
 #include "result_file_exporter.h"

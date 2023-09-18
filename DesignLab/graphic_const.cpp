@@ -3,7 +3,7 @@
 #include "DxLib.h"
 
 
-const std::string GraphicConst::WIN_NAME = TEXT("PhantomXGraphic");
+const std::string GraphicConst::WIN_NAME = "HexapodGraphic";
 
 const int GraphicConst::COLOR_BIT = 32;
 

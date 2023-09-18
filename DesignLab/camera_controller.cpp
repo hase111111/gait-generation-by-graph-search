@@ -1,10 +1,10 @@
 #include "camera_controller.h"
 
 #include "mouse.h"
-#include "designlab_dxlib.h"
+#include "dxlib_util.h"
 
 
-CameraController::CameraController(CameraManager& p_camera_manager) : camera_manager_ref_(p_camera_manager) {}
+CameraController::CameraController(CameraStateManager& camera_manager_ref) : camera_manager_ref_(camera_manager_ref) {}
 
 
 void CameraController::Update()
@@ -14,7 +14,6 @@ void CameraController::Update()
 	{
 		camera_manager_ref_.addCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->wheel_rot() * -1);
 	}
-
 
 
 	if (Mouse::GetIns()->middle_pushing_counter() > 0)
@@ -73,10 +72,10 @@ void CameraController::Update()
 
 		//右クリックしていたらカメラの平行移動
 
-		if (camera_manager_ref_.getCameraViewMode() != ECameraMode::FREE_CONTROLLED_TARGET)
+		if (camera_manager_ref_.getCameraViewMode() != CameraViewMode::FREE_CONTROLLED_TARGET)
 		{
 			//表示モードを注視点を自由に動かせるモードに変更
-			camera_manager_ref_.setCameraViewMode(ECameraMode::FREE_CONTROLLED_TARGET);
+			camera_manager_ref_.setCameraViewMode(CameraViewMode::FREE_CONTROLLED_TARGET);
 		}
 
 
@@ -99,10 +98,11 @@ void CameraController::Update()
 			move_vec = dl_vec::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
 		}
 
+		namespace dldu = designlab::dxlib_util;
 
 		VECTOR now_target_pos = camera_manager_ref_.getFreeTargetPos();				//現在のターゲット座標を取得
 
-		now_target_pos = VAdd(now_target_pos, dl_dxlib::convertToDxVec(move_vec));	//移動量を加算
+		now_target_pos = VAdd(now_target_pos, dldu::ConvertToDxlibVec(move_vec));	//移動量を加算
 
 		camera_manager_ref_.setFreeTargetPos(now_target_pos);						//ターゲット座標を更新	
 

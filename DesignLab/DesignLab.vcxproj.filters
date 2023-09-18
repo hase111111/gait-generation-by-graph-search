@@ -121,9 +121,6 @@
     <Filter Include="ソース ファイル\System\Simulation">
       <UniqueIdentifier>{fb03873e-eff6-4c6a-90ae-3f0abbf04a37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main\abstract">
-      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Main\builder">
       <UniqueIdentifier>{df2f0241-01a9-444e-b9b5-f7db12546a0c}</UniqueIdentifier>
     </Filter>
@@ -135,6 +132,9 @@
     </Filter>
     <Filter Include="ソース ファイル\System\ResultViewer">
       <UniqueIdentifier>{d65f5b8b-b4b0-4225-9f6a-a31897756b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Main\interface">
+      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -207,9 +207,6 @@
     <ClInclude Include="map_const.h">
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClInclude>
-    <ClInclude Include="gui_controller.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClInclude>
     <ClInclude Include="pass_finder_hato.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
@@ -267,8 +264,8 @@
     <ClInclude Include="pass_finder_none.h">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClInclude>
-    <ClInclude Include="abstract_graphic_main.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\abstract</Filter>
+    <ClInclude Include="interface_graphic_main.h">
+      <Filter>ソース ファイル\GraphicSystem\Main\interface</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -351,7 +348,7 @@
     <ClInclude Include="camera_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_dxlib.h">
+    <ClInclude Include="dxlib_util.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h">
@@ -509,9 +506,6 @@
     <ClCompile Include="map_const.cpp">
       <Filter>ソース ファイル\Map\Common</Filter>
     </ClCompile>
-    <ClCompile Include="gui_controller.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
     <ClCompile Include="pass_finder_hato.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
     </ClCompile>
@@ -556,9 +550,6 @@
     </ClCompile>
     <ClCompile Include="pass_finder_none.cpp">
       <Filter>ソース ファイル\PassFinderSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="abstract_graphic_main.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main\abstract</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -632,7 +623,7 @@
     <ClCompile Include="camera_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_dxlib.cpp">
+    <ClCompile Include="dxlib_util.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="keyboard.cpp">

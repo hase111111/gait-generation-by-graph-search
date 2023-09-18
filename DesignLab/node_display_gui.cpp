@@ -10,17 +10,16 @@ const int NodeDisplayGui::kHeight = 550;
 const int NodeDisplayGui::kClosedHeight = 50;
 
 
-
-NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, std::shared_ptr<AbstractHexapodStateCalculator> calc) :
-	kGUILeftPosX(x_pos), kGUITopPosY(y_pos), calculator_ptr_(calc), is_closed_(false), display_type_(DisplayMode::kDefualt)
+NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
+	kGuiLeftPosX(x_pos), kGuiTopPosY(y_pos), calculator_ptr_(calc), is_closed_(false), display_type_(DisplayMode::kDefualt)
 {
 	//ボタンを作成する
 	const int kButtonSizeX = 100;
 	const int kButtonSizeY = 30;
 
-	buttons_[ButtonType::kOpenClose] = std::make_unique<ButtomController>(kGUILeftPosX + kWidth - kButtonSizeX / 2 - 10, kGUITopPosY + 10 + kButtonSizeY / 2,
+	buttons_[ButtonType::kOpenClose] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + 10 + kButtonSizeY / 2,
 		kButtonSizeX, kButtonSizeY, "最大/小化");
-	buttons_[ButtonType::kModeSwitching] = std::make_unique<ButtomController>(kGUILeftPosX + kWidth - kButtonSizeX / 2 - 10, kGUITopPosY + kHeight - kButtonSizeY / 2 - 10,
+	buttons_[ButtonType::kModeSwitching] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
 		kButtonSizeX, kButtonSizeY, "切り替え");
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -73,18 +72,18 @@ void NodeDisplayGui::Update()
 void NodeDisplayGui::Draw() const
 {
 	// 枠
-	drawBackground();
+	DrawBackground();
 
 	// テキスト
 	if (!is_closed_)
 	{
 		if (display_type_ == DisplayMode::kDefualt)
 		{
-			drawNodeInfo();
+			DrawNodeInfo();
 		}
 		else
 		{
-			drawJointInfo();
+			DrawJointInfo();
 		}
 	}
 
@@ -100,7 +99,7 @@ void NodeDisplayGui::Draw() const
 }
 
 
-void NodeDisplayGui::drawBackground() const
+void NodeDisplayGui::DrawBackground() const
 {
 	const unsigned int kBoxColor = GetColor(255, 255, 255);
 	const unsigned int kBoxAlpha = 200;
@@ -108,24 +107,24 @@ void NodeDisplayGui::drawBackground() const
 	if (is_closed_)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-		DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + kWidth, kGUITopPosY + kClosedHeight, kBoxColor, TRUE);
+		DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kWidth, kGuiTopPosY + kClosedHeight, kBoxColor, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 	else
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-		DrawBox(kGUILeftPosX, kGUITopPosY, kGUILeftPosX + kWidth, kGUITopPosY + kHeight, kBoxColor, TRUE);
+		DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kWidth, kGuiTopPosY + kHeight, kBoxColor, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 
 }
 
-void NodeDisplayGui::drawNodeInfo() const
+void NodeDisplayGui::DrawNodeInfo() const
 {
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kBaseTextColor = GetColor(80, 80, 80);
-	const int kTextXPos = kGUILeftPosX + 10;
-	const int kTextYMinPos = kGUITopPosY + 10;
+	const int kTextXPos = kGuiLeftPosX + 10;
+	const int kTextYMinPos = kGuiTopPosY + 10;
 	const int kTextYInterval = 30;
 
 	int text_line = 0;
@@ -173,15 +172,15 @@ void NodeDisplayGui::drawNodeInfo() const
 }
 
 
-void NodeDisplayGui::drawJointInfo() const
+void NodeDisplayGui::DrawJointInfo() const
 {
 	if (!calculator_ptr_) { return; }
 
 
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
-	const int kTextXPos = kGUILeftPosX + 10;
-	const int kTextYMinPos = kGUITopPosY + 50;
+	const int kTextXPos = kGuiLeftPosX + 10;
+	const int kTextYMinPos = kGuiTopPosY + 50;
 	const int kTextYInterval = 30;
 
 

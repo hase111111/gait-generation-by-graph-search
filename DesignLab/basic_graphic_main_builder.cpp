@@ -3,7 +3,7 @@
 #include "graphic_main_basic.h"
 
 
-std::unique_ptr<AbstractGraphicMain> BasicGraphicMainBuilder::build(const GraphicDataBroker* const broker, std::shared_ptr<AbstractHexapodStateCalculator> calc,
+std::unique_ptr<IGraphicMain> BasicGraphicMainBuilder::build(const GraphicDataBroker* const broker, std::shared_ptr<AbstractHexapodStateCalculator> calc,
 	const SApplicationSettingRecorder* const setting)
 {
 	//作成して，ユニークポインタにmoveして返す．

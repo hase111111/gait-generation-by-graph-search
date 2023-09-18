@@ -6,35 +6,35 @@
 #include "designlab_math.h"
 
 
-//! @enum ECameraMode
+//! @enum CameraViewMode
 //! @brief カメラの視点を表す列挙体．
 //! @details CameraControllerクラスで使用されている．
 //! @n カメラの視点を切り替える際に使用する．
 //! @n 具体的な処理はCameraControllerクラスを参照すること．
 
-enum class ECameraMode : int
+enum class CameraViewMode
 {
-	FRONT_VIEW,			//!< 正面図
-	BACK_VIEW,			//!< 背面図
-	TOP_VIEW,			//!< 上からの見下ろし視点．
-	RIGHT_SIDE_VIEW,	//!< 右から真横の視点．
-	LEFT_SIDE_VIEW,		//!< 右から真横の視点．
+	kFrontView,			//!< 正面からの視点．
+	kBackView,			//!< 背面からの視点．
+	kTopView,			//!< 上からの見下ろし視点．
+	kRightSideView,		//!< 右から真横の視点．
+	kLeftSideView,		//!< 右から真横の視点．
 	FREE_CONTROLLED,	//!< 自由に操作可能
 	FREE_CONTROLLED_TARGET	//!< 自由に操作可能かつ注視点を設定可能
 };
 
 
-//! @class CameraManager
+//! @class CameraStateManager
 //! @brief Dxlibの3Dのカメラの処理を行うクラス
 //! @details カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい
 //! @n このクラスはその処理をまとめたことで，処理を簡単にしている
 //! @n また，カメラの姿勢はクォータニオンで表している．
 
-class CameraManager final
+class CameraStateManager final
 {
 public:
 
-	CameraManager();
+	CameraStateManager();
 
 	//! @brief カメラの位置などの更新を行う．毎フレーム実行すること
 	void Update();
@@ -42,11 +42,11 @@ public:
 
 	//! @brief カメラのモードをセットする．同時にカメラの目標回転角度などを設定する
 	//! @param [in] mode カメラの視点のモード
-	void setCameraViewMode(const ECameraMode mode);
+	void setCameraViewMode(const CameraViewMode mode);
 
 	//! @brief カメラのモードを取得する
-	//! @return ECameraMode カメラの視点のモード
-	ECameraMode getCameraViewMode() const { return m_camera_view_mode; }
+	//! @return CameraViewMode カメラの視点のモード
+	CameraViewMode getCameraViewMode() const { return m_camera_view_mode; }
 
 
 	//! @brief カメラと注視点との距離を初期化する
@@ -100,7 +100,7 @@ private:
 	const dl_vec::SVector kDefaultCameraUpVec = { 0.0f, 0.0f, 1.0f };		//デフォルトのカメラの方向を表す単位ベクトル
 
 
-	ECameraMode m_camera_view_mode;				//カメラの視点を決定する．
+	CameraViewMode m_camera_view_mode;				//カメラの視点を決定する．
 
 	VECTOR m_goal_target_pos;					//カメラが注視する座標の目標値
 

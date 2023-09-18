@@ -36,7 +36,7 @@
 #include <memory>
 
 #include "interface_graphic_main_builder.h"
-#include "abstract_graphic_main.h"
+#include "interface_graphic_main.h"
 #include "graphic_data_broker.h"
 #include "application_setting_recorder.h"
 #include "abstract_hexapod_state_calculator.h"
@@ -76,7 +76,7 @@ private:
 	void DxlibFinalize() const;
 
 
-	std::unique_ptr<AbstractGraphicMain> graphic_main_ptr_;		// グラフィックの表示を行うクラスのポインタ．
+	std::unique_ptr<IGraphicMain> graphic_main_ptr_;		// グラフィックの表示を行うクラスのポインタ．
 
 	const SApplicationSettingRecorder* setting_ptr_;				// 設定を保存するクラスのポインタ．
 

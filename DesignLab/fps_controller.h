@@ -12,8 +12,8 @@
 //! @n ・DxlibのFPSとリフレッシュレートについて https://dixq.net/forum/viewtopic.php?t=20224
 
 
-#ifndef DESIGNLAB_FPS_CONTROLLER
-#define DESIGNLAB_FPS_CONTROLLER
+#ifndef DESIGNLAB_FPS_CONTROLLER_H_
+#define DESIGNLAB_FPS_CONTROLLER_H_
 
 
 #include <list>
@@ -23,7 +23,7 @@ class FpsController final
 {
 public:
 	FpsController() = delete;
-	FpsController(const int fps);
+	FpsController(int target_fps);
 
 	//! @brief 処理が早すぎる場合，FPSを一定にするために待つ．
 	void Wait();
@@ -34,29 +34,31 @@ public:
 
 private:
 
-	//現在の時刻を記録する関数
-	void regist(const int now_time);
+	//! @brief 現在の時刻を記録する関数
+	//! @param [in] now_time 現在の時刻(ミリ秒) 
+	void RegistTime(int now_time);
 
 	//! @brief どれだけ待てばよいか返す関数．
-	//! @param [out] time 待つ時間
+	//! @param [out] wait_time 待つべき時間
 	//! @return bool コマ落ちしている場合はfalse
-	bool getWaitTime(int* time) const;
+	bool CheckNeedSkipDrawScreen(int* wait_time) const;
 
-	// 目標のFPSが正しいかどうかを判定する関数
+	// @brief 目標のFPSが正しいかどうかを判定する関数
+	// @return bool 負の値，または60より大きい値であればfalse
 	bool TargetFpsIsVaild() const;
 
 
-	const int kTargetFpsValue;			//!< 目標のFPS，推奨値は 60 or 30．Dxlibの使用上 60 を上回る値を推奨しない．
+	const int kTargetFpsValue;	//!< 目標のFPS，推奨値は 60 or 30．Dxlibの使用上 60 を上回る値を推奨しない．
 
-	const int ONE_FRAME_MILLI_SECOND;	//!< 1フレーム当たりにかかる時間(ミリ秒)
+	const int kOneFrameTime;	//!< 1フレーム当たりにかかる時間(ミリ秒)
 
-	const int LIST_MAX;					//!< リストに2秒分のデータをしまっておく
+	const int kListMax;			//!< リストに2秒分のフレームごとにかかった時間を記録するため，リストの最大サイズを決める．
 
 
-	std::list<int> m_list;
+	std::list<int> time_list_;		//!< 1フレームごとにかかった時間を記録するリスト．
 
-	bool need_skip_draw_screen_ = false;   // コマ落ちを実装するためのフラグ．trueであれば 1フレーム描画を飛ばし，フラグを折る
+	bool need_skip_draw_screen_;	//!< コマ落ちを実装するためのフラグ．trueであれば 1フレーム描画を飛ばし，フラグを折る
 };
 
 
-#endif // DESIGNLAB_FPS_CONTROLLER
+#endif // DESIGNLAB_FPS_CONTROLLER_H_

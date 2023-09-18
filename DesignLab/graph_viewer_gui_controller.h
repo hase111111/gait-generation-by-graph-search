@@ -1,19 +1,24 @@
-#pragma once
+//! @file graph_viewer_gui_controller.h
+//! @brief グラフのノードのデータを表示するGUIのコントローラークラス
 
+#ifndef DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
+#define DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
+
+#include <memory>
 #include <vector>
 
-#include "node.h"
 #include "application_setting_recorder.h"
+#include "node.h"
 
 
 //! @class GraphViewerGUIController
-//! @date 2023/08/14
-//! @author 長谷川
 //! @brief グラフのノードのデータを表示するGUIのコントローラークラス
+
 class GraphViewerGUIController final
 {
 public:
-	GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index, const SApplicationSettingRecorder* const setting);
+	GraphViewerGUIController(const std::vector<SNode>* const graph_ptr, size_t* const display_node_index_ptr,
+		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
 	~GraphViewerGUIController() = default;
 
 	void Update();
@@ -34,7 +39,7 @@ private:
 
 	const std::vector<SNode>* const mp_graph;
 
-	const SApplicationSettingRecorder* const mp_setting;
+	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;
 
 
 	size_t* const mp_display_node_index;
@@ -46,8 +51,4 @@ private:
 };
 
 
-//! @file graph_viewer_gui_controller.h
-//! @date 2023/08/14
-//! @author 長谷川
-//! @brief グラフのノードのデータを表示するGUIのコントローラークラス
-//! @n 行数 ; @lineinfo
+#endif // !DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_

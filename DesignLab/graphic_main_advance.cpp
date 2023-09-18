@@ -2,14 +2,14 @@
 
 #include "DxLib.h"
 
-#include "designlab_dxlib.h"
-#include "world_grid_renderer.h"
-#include "map_renderer.h"
+#include "dxlib_util.h"
 #include "keyboard.h"
+#include "map_renderer.h"
+#include "world_grid_renderer.h"
 
 
 GraphicMainAdvance::GraphicMainAdvance(const GraphicDataBroker* const  broker, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting)
-	: AbstractGraphicMain(broker, calc, setting),
+	: IGraphicMain(broker, calc, setting),
 	m_map_state(mp_broker->map_state()),
 	kNodeGetCount(setting->window_fps * 2),
 	m_node_display_gui(mp_setting->window_size_x - NodeDisplayGui::kWidth - 10, 10, calc),
@@ -40,9 +40,9 @@ bool GraphicMainAdvance::Update()
 
 
 		//移動軌跡を更新する．
-		m_movement_locus_renderer.setMovementLocus(m_node);
+		m_movement_locus_renderer.set_move_locus_point(m_node);
 
-		m_movement_locus_renderer.setSimuEndIndex(simu_end_index);
+		m_movement_locus_renderer.set_simulation_end_indexes(simu_end_index);
 
 
 		//ロボットの接地点を更新する．
@@ -65,7 +65,7 @@ bool GraphicMainAdvance::Update()
 
 			m_display_node_index = (int)m_display_node_switch_gui.getDisplayNodeNum();				//表示するノードを取得する．
 
-			m_hexapod_renderer.setNode(m_node.at(m_display_node_index));							//ロボットの状態を更新する．
+			m_hexapod_renderer.set_draw_node(m_node.at(m_display_node_index));							//ロボットの状態を更新する．
 
 			m_camera_gui.setHexapodPos(m_node.at(m_display_node_index).global_center_of_mass);		//カメラの位置を更新する．
 
@@ -77,14 +77,14 @@ bool GraphicMainAdvance::Update()
 			//アニメーション中は m_interpolated_node の補完されたノードを表示する
 			int anime_index = static_cast<int>(m_interpolated_node.size()) * (m_counter - m_interpolated_anime_start_count) / kInterpolatedAnimeCount;
 
-			m_hexapod_renderer.setNode(m_interpolated_node[anime_index]);
+			m_hexapod_renderer.set_draw_node(m_interpolated_node[anime_index]);
 
 			m_node_display_gui.SetDisplayNode(m_interpolated_node[anime_index]);
 		}
 		else if (m_counter == m_interpolated_anime_start_count + kInterpolatedAnimeCount)
 		{
 			//アニメーションが終了したら，元のノードを表示する
-			m_hexapod_renderer.setNode(m_node.at(m_display_node_index));
+			m_hexapod_renderer.set_draw_node(m_node.at(m_display_node_index));
 
 			m_node_display_gui.SetDisplayNode(m_node.at(m_display_node_index));
 		}
@@ -118,7 +118,7 @@ void GraphicMainAdvance::Draw() const
 {
 	// 3Dのオブジェクトの描画
 
-	dl_dxlib::setZBufferEnable();		//Zバッファを有効にする．
+	designlab::dxlib_util::SetZBufferEnable();		//Zバッファを有効にする．
 
 
 	WorldGridRenderer grid_renderer;	//インスタンスを生成する．

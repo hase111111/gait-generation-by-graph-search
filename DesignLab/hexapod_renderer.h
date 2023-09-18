@@ -1,27 +1,30 @@
-#pragma once
+//! @file hexapod_renderer.h
+//! @brief ロボットの描画を行うHexapodRendererクラス．
+
+#ifndef DESIGNLAB_HEXAPOD_RENDERER_H_
+#define DESIGNLAB_HEXAPOD_RENDERER_H_
 
 #include <memory>
 
 #include "DxLib.h"
 
-#include "node.h"
-#include "hexapod_const.h"
 #include "abstract_hexapod_state_calculator.h"
+#include "hexapod_const.h"
+#include "node.h"
 
 
 //! @class HexapodRenderer
-//! @date 2023/08/09
-//! @author 長谷川
 //! @brief ロボットの描画を行うクラス．
+
 class HexapodRenderer
 {
 public:
-	HexapodRenderer(std::shared_ptr<AbstractHexapodStateCalculator> calc);
+	HexapodRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr);
 	~HexapodRenderer() = default;
 
 	//! @brief ロボットの状態を更新する．
 	//! @param [in] node 描画するロボットの状態
-	void setNode(const SNode& node);
+	void set_draw_node(const SNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
 	void Draw() const;
@@ -52,11 +55,11 @@ private:
 	const bool DO_OUTPUT_DEBUG_LOG = false;	// 脚状態を文字列で出力するかどうか
 
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	// ロボットの状態を計算するクラス
+	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	// ロボットの状態を計算するクラス
 
-	SNode m_draw_node;						// 描画するロボットの状態
+	SNode draw_node_;						// 描画するロボットの状態
 
-	SHexapodJointState m_draw_joint_state[HexapodConst::LEG_NUM];	// 描画するロボットのジョイントの状態
+	SHexapodJointState draw_joint_state_[HexapodConst::LEG_NUM];	// 描画するロボットのジョイントの状態
 
 
 	VECTOR kCoxaJointPos[HexapodConst::LEG_NUM];
@@ -92,8 +95,4 @@ private:
 };
 
 
-//! @file hexapod_renderer.h
-//! @date 2023/08/09
-//! @author 長谷川
-//! @brief ロボットの描画を行うHexapodRendererクラス．
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_HEXAPOD_RENDERER_H_

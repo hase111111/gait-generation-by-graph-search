@@ -2,11 +2,10 @@
 
 #include "DxLib.h"
 
+#include "dxlib_util.h"
 #include "graphic_const.h"
-#include "mouse.h"
 #include "keyboard.h"
-#include "designlab_dxlib.h"
-#include "Define.h"
+#include "mouse.h"
 
 
 void GraphicSystem::Init(std::unique_ptr<IGraphicMainBuilder>&& graphic_main_builder, std::shared_ptr<AbstractHexapodStateCalculator> calc,
@@ -67,17 +66,17 @@ void GraphicSystem::Main()
 
 bool GraphicSystem::DxlibInit(const SApplicationSettingRecorder* const setting)
 {
-	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．
+	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行する．
 
-	dl_dxlib::initDxlib3D();							//3D関連の初期化を行う．		
+	designlab::dxlib_util::InitDxlib3DSetting();		// 3D関連の初期化を行う．		
 
-	SetOutApplicationLogValidFlag(FALSE);				//ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力されます．
-	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	//タイトルを変更．ウィンドウの左上に表示されるものです．
-	SetWindowSizeChangeEnableFlag(FALSE);               //ウィンドウサイズを自由に変更できないようにする．
-	SetAlwaysRunFlag(TRUE);								//ウインドウがアクティブではない状態でも処理を続行するように変更．
-	ChangeWindowMode(TRUE);								//ウインドウモードに変更．これをしないとフルスクリーンで表示されます．
+	SetOutApplicationLogValidFlag(FALSE);				// ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力される．
+	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	// タイトルを変更．ウィンドウの左上に表示されるもの．
+	SetWindowSizeChangeEnableFlag(FALSE);               // ウィンドウサイズを自由に変更できないようにする．
+	SetAlwaysRunFlag(TRUE);								// ウインドウがアクティブではない状態でも処理を続行するように変更する．
+	ChangeWindowMode(TRUE);								// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
 
-	//ウィンドウの横幅，縦幅，カラーを設定します．
+	//ウィンドウの横幅，縦幅，カラーを設定する．
 	SetGraphMode((*setting).window_size_x, (*setting).window_size_y, GraphicConst::COLOR_BIT);
 
 	//ＤＸライブラリ初期化処理
@@ -86,7 +85,7 @@ bool GraphicSystem::DxlibInit(const SApplicationSettingRecorder* const setting)
 		return false;
 	}
 
-	//描画先を裏画面にする．説明が難しいのですが，画面のちらつきを押えてくれる効果があり，Dxlibを使う以上必須の項目です．
+	//描画先を裏画面にする．説明が難しいが，画面のちらつきを押えてくれる効果があり，Dxlibを使う以上必須の項目．
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// 背景色の設定

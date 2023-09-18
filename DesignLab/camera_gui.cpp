@@ -2,11 +2,11 @@
 
 #include <string>
 
-#include "designlab_dxlib.h"
+#include "dxlib_util.h"
 #include "mouse.h"
 
 
-CameraGUI::CameraGUI(const int left_x, const int top_y) :
+CameraGui::CameraGui(const int left_x, const int top_y) :
 	kGUILeftPosX(left_x),
 	kGUITopPosY(top_y),
 	m_camera_controller(m_camera_manager)
@@ -32,18 +32,20 @@ CameraGUI::CameraGUI(const int left_x, const int top_y) :
 }
 
 
-CameraGUI::CameraGUI() : CameraGUI::CameraGUI(10, 10)
+CameraGui::CameraGui() : CameraGui::CameraGui(10, 10)
 {
 }
 
 
-void CameraGUI::setHexapodPos(const dl_vec::SVector pos)
+void CameraGui::setHexapodPos(const dl_vec::SVector pos)
 {
-	m_camera_manager.setTargetPos(dl_dxlib::convertToDxVec(pos));
+	namespace dldu = designlab::dxlib_util;
+
+	m_camera_manager.setTargetPos(dldu::ConvertToDxlibVec(pos));
 }
 
 
-void CameraGUI::Update()
+void CameraGui::Update()
 {
 
 	//äeÉ{É^ÉìÇÃèàóù
@@ -62,27 +64,27 @@ void CameraGUI::Update()
 				break;
 
 			case EButtonType::FRONT:
-				m_camera_manager.setCameraViewMode(ECameraMode::FRONT_VIEW);
+				m_camera_manager.setCameraViewMode(CameraViewMode::kFrontView);
 				break;
 
 			case EButtonType::LEFT:
-				m_camera_manager.setCameraViewMode(ECameraMode::LEFT_SIDE_VIEW);
+				m_camera_manager.setCameraViewMode(CameraViewMode::kLeftSideView);
 				break;
 
 			case EButtonType::TOP:
-				m_camera_manager.setCameraViewMode(ECameraMode::TOP_VIEW);
+				m_camera_manager.setCameraViewMode(CameraViewMode::kTopView);
 				break;
 
 			case EButtonType::RIGHT:
-				m_camera_manager.setCameraViewMode(ECameraMode::RIGHT_SIDE_VIEW);
+				m_camera_manager.setCameraViewMode(CameraViewMode::kRightSideView);
 				break;
 
 			case EButtonType::BACK:
-				m_camera_manager.setCameraViewMode(ECameraMode::BACK_VIEW);
+				m_camera_manager.setCameraViewMode(CameraViewMode::kBackView);
 				break;
 
 			case EButtonType::TARGET_RESET:
-				m_camera_manager.setCameraViewMode(ECameraMode::FREE_CONTROLLED);
+				m_camera_manager.setCameraViewMode(CameraViewMode::FREE_CONTROLLED);
 				break;
 
 			}	//switch (button.first)
@@ -104,7 +106,7 @@ void CameraGUI::Update()
 }
 
 
-void CameraGUI::Draw() const
+void CameraGui::Draw() const
 {
 	if (m_is_closed)
 	{
@@ -132,7 +134,7 @@ void CameraGUI::Draw() const
 }
 
 
-void CameraGUI::drawBackground() const
+void CameraGui::drawBackground() const
 {
 	const unsigned int kBackColor = GetColor(255, 255, 255);
 
@@ -142,7 +144,7 @@ void CameraGUI::drawBackground() const
 }
 
 
-void CameraGUI::drawClosedBackground() const
+void CameraGui::drawClosedBackground() const
 {
 	const unsigned int kBackColor = GetColor(255, 255, 255);
 
@@ -152,7 +154,7 @@ void CameraGUI::drawClosedBackground() const
 }
 
 
-void CameraGUI::drawString() const
+void CameraGui::drawString() const
 {
 	const unsigned int kStrColor = GetColor(54, 54, 54);
 	const unsigned int kStrRedColor = GetColor(255, 128, 128);
