@@ -10,7 +10,7 @@
 
 // @todo 現状動かないので，動くようにする
 
-ComMoveNodeCreator::ComMoveNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+ComMoveNodeCreator::ComMoveNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move)
 	: INodeCreator(p_map, calc, next_move), mp_map(p_map)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "ComMoveNodeCreator : コンストラクタが呼ばれた．\n"; }

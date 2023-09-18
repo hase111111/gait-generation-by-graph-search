@@ -8,7 +8,7 @@ class GraphSearcherRandom final : public AbstractGraphSearcher
 {
 public:
 
-	GraphSearcherRandom(std::shared_ptr<AbstractHexapodStateCalculator> calc) : AbstractGraphSearcher(calc) {}
+	GraphSearcherRandom(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : AbstractGraphSearcher(calc) {}
 
 	EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
 };

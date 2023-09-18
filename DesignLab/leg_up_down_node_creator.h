@@ -13,7 +13,7 @@ class LegUpDownNodeCreator final : public INodeCreator
 {
 public:
 
-	LegUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
+	LegUpDownNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~LegUpDownNodeCreator() = default;
 
 	void create(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph) override;
@@ -34,7 +34,7 @@ private:
 	const MapState* const mp_map;
 
 	HexapodStateCalclator_Old m_calclator;	//ロボットの座標計算クラス．
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
 };
 
 

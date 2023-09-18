@@ -1,26 +1,32 @@
 #include "pass_finder_hato_thread.h"
 
 #include <iostream>
+#include <memory>
 
 #include <boost/thread.hpp>
 
 #include "graph_search_const.h"
 #include "designlab_cmdio.h"
+#include "graph_tree_creator_hato.h"
+#include "graph_searcher_hato.h"
+#include "leg_up_down_node_creator.h"
+#include "leg_hierarchy_node_creator.h"
+#include "com_up_down_node_creator.h"
+#include "com_move_node_creator_hato.h"
 
 
+PassFinderHatoThread::PassFinderHatoThread(const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr) :
+	calculator_ptr_(calculator_ptr)
+{
+}
 
 EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHatoThread : getNextNodebyGraphSearch() グラフ探索開始，まずは初期化する\n"; }
 
 	//初期化処理．
-	if (!mp_factory) { return EGraphSearchResult::FailureByInitializationFailed; }
-
-	std::unique_ptr<IGraphTreeCreator> graph_tree_creator;	//!< グラフ木の作成クラス
-	std::unique_ptr<AbstractGraphSearcher> graph_searcher;		//!< グラフ探索クラス
-
-	mp_factory->createGraphTreeCreator(p_map, mp_calculator, graph_tree_creator);
-	mp_factory->createGraphSearcher(graph_searcher, mp_calculator);
+	std::unique_ptr<IGraphTreeCreator> graph_tree_creator = createGraphTreeCreator(p_map, calculator_ptr_);	//!< グラフ木の作成クラス
+	std::unique_ptr<AbstractGraphSearcher> graph_searcher = createGraphSearcher(calculator_ptr_);			//!< グラフ探索クラス
 
 	//早期リターン．2つのクラスの初期化に失敗したならば，即座に終了する．
 	if (!graph_tree_creator) { return EGraphSearchResult::FailureByInitializationFailed; }
@@ -62,7 +68,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 		for (size_t i = 0; i < kDepth1NodeNum; i++)
 		{
-			mp_factory->createGraphTreeCreator(p_map, mp_calculator, tree_creators[i]);
+			tree_creators[i] = createGraphTreeCreator(p_map, calculator_ptr_);
 
 			if (!tree_creators[i]) { return EGraphSearchResult::FailureByInitializationFailed; }
 
@@ -111,4 +117,26 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }
 
 	return EGraphSearchResult::Success;
+}
+
+std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(const MapState* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
+{
+	//木を作成するクラスのマップを作成．
+	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> node_creator_map;
+	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(map, calculator_ptr_, EHexapodMove::LEG_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(map, calculator_ptr_, EHexapodMove::COM_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(map, calculator_ptr_, EHexapodMove::COM_MOVE));
+	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(map, calculator_ptr_, EHexapodMove::LEG_HIERARCHY_CHANGE));
+
+	//木を作成するクラスと，木を探索するクラスを作成．
+	std::unique_ptr<IGraphTreeCreator> p_creator = std::make_unique<GraphTreeCreatorHato>(node_creator_map);
+
+	//完成したクラスを返す
+	return std::move(p_creator);
+}
+
+std::unique_ptr<AbstractGraphSearcher> PassFinderHatoThread::createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
+{
+	std::unique_ptr<AbstractGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calculator_ptr_);
+	return std::move(p_searcher);
 }

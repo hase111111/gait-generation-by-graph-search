@@ -2,28 +2,19 @@
 
 #include <fstream>
 
-#include "basic_graphic_main_builder.h"
 #include "phantomx_state_calculator.h"
 #include "map_state.h"
 
 
-ResultViewerSystemMain::ResultViewerSystemMain(const SApplicationSettingRecorder* const setting)
+ResultViewerSystemMain::ResultViewerSystemMain(const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr)
 {
-	MapState map;
-	map.init(EMapCreateMode::FLAT, 0, false);
-	m_broker.set_map_state(map);
-
-	read();
-
-	m_graphic_system.Init(std::make_unique<BasicGraphicMainBuilder>(), std::make_shared<PhantomXStateCalclator>(), &m_broker, setting);
 }
 
-void ResultViewerSystemMain::main()
+void ResultViewerSystemMain::Main()
 {
-	m_graphic_system.Main();
 }
 
-void ResultViewerSystemMain::read()
+void ResultViewerSystemMain::Read()
 {
 	std::ifstream ifs("result.csv");
 

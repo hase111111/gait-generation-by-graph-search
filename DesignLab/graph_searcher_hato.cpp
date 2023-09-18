@@ -7,7 +7,7 @@
 #include "leg_state.h"
 
 
-GraphSearcherHato::GraphSearcherHato(std::shared_ptr<AbstractHexapodStateCalculator> calc) : AbstractGraphSearcher(calc)
+GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : AbstractGraphSearcher(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{

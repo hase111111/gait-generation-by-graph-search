@@ -15,7 +15,7 @@ class LegHierarchyNodeCreator final : public INodeCreator
 {
 public:
 
-	LegHierarchyNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
+	LegHierarchyNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~LegHierarchyNodeCreator() = default;
 
 	void create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph) override;

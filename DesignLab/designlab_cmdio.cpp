@@ -1,195 +1,226 @@
 #include "designlab_cmdio.h"
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
-#include <cstdlib>
 
 
-
-void dl_cio::outputNewLine(const SApplicationSettingRecorder* setting, const int num, const EOutputPriority priority)
+namespace
 {
-	if (num < 0) { return; }
+	// 出力制限，この値未満のメッセージの出力は行われない
+	// なお，この値はこのファイルからのみアクセス可能なグローバル変数
+	OutputDetail output_limit = OutputDetail::kSystem;
 
-	if (priority <= (*setting).cmd_permission)
-	{
-		for (int i = 0; i < num; i++)
-		{
-			output(setting, "", priority);
-		}
-	}
+	// falseの場合，出力を行わない(システムメッセージは除く)
+	bool do_output = true;
 }
 
 
-void dl_cio::outputHorizontalLine(const SApplicationSettingRecorder* setting, const bool double_line, const EOutputPriority priority)
+namespace designlab
 {
-	std::string str;
-
-	for (int i = 0; i < HORIZONTAL_LINE_LENGTH; i++)
+	namespace cmdio
 	{
-		if (double_line)
+		void SetOutputLimit(const OutputDetail limit)
 		{
-			str += "=";
-
-		}
-		else
-		{
-			str += "-";
-		}
-	}
-
-	output(setting, str, priority);
-}
-
-
-void dl_cio::outputCenter(const SApplicationSettingRecorder* setting, const std::string str, const EOutputPriority priority)
-{
-	std::string space;
-
-	for (int i = 0; i < (HORIZONTAL_LINE_LENGTH - str.length()) / 2; i++)
-	{
-		space += " ";
-	}
-
-	output(setting, space + str, priority);
-}
-
-
-void dl_cio::outputRight(const SApplicationSettingRecorder* setting, const std::string str, const EOutputPriority priority)
-{
-	std::string space;
-
-	for (int i = 0; i < HORIZONTAL_LINE_LENGTH - str.length(); i++)
-	{
-		space += " ";
-	}
-
-	output(setting, space + str, priority);
-}
-
-
-void dl_cio::waitAnyKey(const SApplicationSettingRecorder* setting, const std::string str, const EOutputPriority priority)
-{
-	output(setting, str, priority, true);
-
-	if (priority <= (*setting).cmd_permission)
-	{
-		//何かキーを押すまで待機
-		system("PAUSE");
-	}
-}
-
-
-int dl_cio::inputInt(const SApplicationSettingRecorder* setting, const int min, const int max, const int default_num, const std::string str)
-{
-	output(setting, str + " (" + std::to_string(min) + " ~ " + std::to_string(max) + ") : ", EOutputPriority::SYSTEM, true);
-
-	std::string input_str;
-	std::cin >> input_str;
-
-	int res = default_num;
-
-	try
-	{
-		res = std::stoi(input_str);
-
-		if (res < min || res > max)
-		{
-			res = default_num;
-		}
-	}
-	catch (...)
-	{
-		res = default_num;
-	}
-
-	return res;
-}
-
-
-bool dl_cio::inputYesNo(const SApplicationSettingRecorder* setting, const std::string str)
-{
-	output(setting, str, EOutputPriority::SYSTEM, true);
-
-	while (true)
-	{
-		std::string input_str;
-		std::cin >> input_str;
-
-
-		if (input_str == "y" || input_str == "yes" || input_str == "Y" || input_str == "Yes" || input_str == "YES")
-		{
-			return true;
-		}
-		else if (input_str == "n" || input_str == "no" || input_str == "N" || input_str == "No" || input_str == "NO")
-		{
-			return false;
+			::output_limit = limit;
 		}
 
-		output(setting, "入力された値「" + input_str + "」は評価できません．y / nで入力してください．", EOutputPriority::SYSTEM, true);
-	}
+		void SetDoOutput(bool do_output)
+		{
+			::do_output = do_output;
+		}
 
-}
+		void Output(const std::string& str, const OutputDetail detail, const bool wait_cin)
+		{
+			// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
+			// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
+
+			if ((detail <= ::output_limit && do_output) || (detail == OutputDetail::kSystem && !do_output))
+			{
+				std::cout << str;
+
+				if (wait_cin)
+				{
+					std::cout << std::flush;
+				}
+
+				std::cout << "\n";
+			}
+		}
+
+		void OutputNewLine(const int num, const OutputDetail detail)
+		{
+			if (num < 0) { return; }
+
+			for (int i = 0; i < num; i++)
+			{
+				Output("", detail);
+			}
+		}
+
+		void OutputHorizontalLine(const bool double_line, const OutputDetail detail)
+		{
+			std::string str;
+
+			for (int i = 0; i < HORIZONTAL_LINE_LENGTH; i++)
+			{
+				if (double_line)
+				{
+					str += "=";
+
+				}
+				else
+				{
+					str += "-";
+				}
+			}
+
+			Output(str, detail);
+		}
+
+		void OutputCenter(const std::string& str, const OutputDetail detail)
+		{
+			std::string space;
+
+			for (int i = 0; i < (HORIZONTAL_LINE_LENGTH - str.length()) / 2; i++)
+			{
+				space += " ";
+			}
+
+			Output(space + str, detail);
+		}
+
+		void OutputRight(const std::string& str, const OutputDetail detail)
+		{
+			std::string space;
+
+			for (int i = 0; i < HORIZONTAL_LINE_LENGTH - str.length(); i++)
+			{
+				space += " ";
+			}
+
+			Output(space + str, detail);
+		}
+
+		void OutputTitle()
+		{
+			OutputNewLine();
+			OutputHorizontalLine(true, OutputDetail::kSystem);
+			OutputNewLine();
+			OutputCenter("DesignLab", OutputDetail::kSystem);
+			OutputNewLine();
+			OutputRight("Created by DesignLab", OutputDetail::kSystem);
+			OutputRight("All rights reserved", OutputDetail::kSystem);
+			OutputNewLine();
+			OutputHorizontalLine(true, OutputDetail::kSystem);
+			OutputNewLine();
+		}
+
+		void OutputGraphViewerTitle()
+		{
+			OutputNewLine();
+			OutputHorizontalLine(true, OutputDetail::kSystem);
+			OutputNewLine();
+			OutputCenter("GraphViewer", OutputDetail::kSystem);
+			OutputNewLine();
+			OutputHorizontalLine(true, OutputDetail::kSystem);
+			OutputNewLine();
+		}
 
 
-EBootMode dl_cio::selectBootMode(const SApplicationSettingRecorder* setting)
-{
-	dl_cio::output(setting, "起動モードを選択してください", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "0: シミュレーション", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "1: グラフビューワー", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "2: 表示テスト", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "3: 結果の確認", EOutputPriority::SYSTEM);
-	dl_cio::output(setting, "other: デフォルトのモード ( " + std::to_string((*setting).default_mode) + " )", EOutputPriority::SYSTEM);
-	dl_cio::outputNewLine(setting, 1, EOutputPriority::SYSTEM);
+		void WaitAnyKey(const std::string& str)
+		{
+			Output(str, OutputDetail::kSystem, true);
 
-	int input = dl_cio::inputInt(setting, 0, static_cast<int>(EBootMode::RESULT_VIEWER), 0);
-
-	if (input == 0)
-	{
-		return EBootMode::SIMULATION;
-	}
-	else if (input == 1)
-	{
-		return EBootMode::VIEWER;
-	}
-	else if (input == 2)
-	{
-		return EBootMode::DISPLAY_TEST;
-	}
-	else if (input == 3)
-	{
-		return EBootMode::RESULT_VIEWER;
-	}
-	else
-	{
-		return (*setting).default_mode;
-	}
-}
+			//何かキーを押すまで待機
+			system("PAUSE");
+		}
 
 
-void dl_cio::outputTitle(const SApplicationSettingRecorder* setting)
-{
-	outputNewLine(setting, 1);
-	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-	outputCenter(setting, "DesignLab", EOutputPriority::SYSTEM);
+		int InputInt(const int min, const int max, const int default_num, const std::string& str)
+		{
+			Output(str + " (" + std::to_string(min) + " ~ " + std::to_string(max) + ") : ", OutputDetail::kSystem, true);
 
-	std::string str = "Version " + std::to_string((*setting).version_major) + '.' + std::to_string((*setting).version_minor) + '.' + std::to_string((*setting).version_patch);
-	outputRight(setting, str, EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-	outputRight(setting, "Created by DesignLab", EOutputPriority::SYSTEM);
-	outputRight(setting, "All rights reserved", EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-}
+			std::string input_str;
+			std::cin >> input_str;
 
-void dl_cio::outputGraphViewerTitle(const SApplicationSettingRecorder* setting)
-{
-	outputNewLine(setting, 1);
-	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-	outputCenter(setting, "GraphViewer", EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-	outputHorizontalLine(setting, true, EOutputPriority::SYSTEM);
-	outputNewLine(setting, 1);
-}
+			int res = default_num;
+
+			try
+			{
+				res = std::stoi(input_str);
+
+				if (res < min || res > max)
+				{
+					res = default_num;
+				}
+			}
+			catch (...)
+			{
+				res = default_num;
+			}
+
+			return res;
+		}
+
+		bool InputYesNo(const std::string& str)
+		{
+			Output(str, OutputDetail::kSystem, true);
+
+			while (true)
+			{
+				std::string input_str;
+				std::cin >> input_str;
+
+
+				if (input_str == "y" || input_str == "yes" || input_str == "Y" || input_str == "Yes" || input_str == "YES")
+				{
+					return true;
+				}
+				else if (input_str == "n" || input_str == "no" || input_str == "N" || input_str == "No" || input_str == "NO")
+				{
+					return false;
+				}
+
+				Output("入力された値「" + input_str + "」は評価できません．y / nで入力してください．", OutputDetail::kSystem, true);
+			}
+
+		}
+
+		EBootMode SelectBootMode()
+		{
+			Output("起動モードを選択してください", OutputDetail::kSystem);
+			Output("0: シミュレーション", OutputDetail::kSystem);
+			Output("1: グラフビューワー", OutputDetail::kSystem);
+			Output("2: 表示テスト", OutputDetail::kSystem);
+			Output("3: 結果の確認", OutputDetail::kSystem);
+			Output("other: デフォルトのモード ( " + std::to_string(EBootMode::SIMULATION) + " )", OutputDetail::kSystem);
+			OutputNewLine();
+
+			int input = InputInt(0, static_cast<int>(EBootMode::RESULT_VIEWER), 0);
+
+			if (input == 0)
+			{
+				return EBootMode::SIMULATION;
+			}
+			else if (input == 1)
+			{
+				return EBootMode::VIEWER;
+			}
+			else if (input == 2)
+			{
+				return EBootMode::DISPLAY_TEST;
+			}
+			else if (input == 3)
+			{
+				return EBootMode::RESULT_VIEWER;
+			}
+			else
+			{
+				return EBootMode::SIMULATION;
+			}
+		}
+
+	}	// namespace cmdio
+
+}	// namespace designlab

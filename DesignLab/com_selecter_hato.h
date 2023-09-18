@@ -27,7 +27,7 @@ class ComSelecterHato final
 {
 public:
 
-	ComSelecterHato(std::shared_ptr<AbstractHexapodStateCalculator> calc) : mp_calculator(calc) {};
+	ComSelecterHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : mp_calculator(calc) {};
 
 
 	//! @brief 現在のノードを設定する
@@ -63,7 +63,7 @@ private:
 
 	SNode m_current_node; //!< 現在のノード
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 };
 
 

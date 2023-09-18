@@ -11,7 +11,7 @@ class GraphSearcherHato final : public AbstractGraphSearcher
 {
 public:
 
-	GraphSearcherHato(std::shared_ptr<AbstractHexapodStateCalculator> calc);
+	GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
 	~GraphSearcherHato();
 
 	EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;

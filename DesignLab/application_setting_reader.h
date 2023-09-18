@@ -1,5 +1,11 @@
-#pragma once
+//! @file application_setting_reader.h
+//! @brief アプリケーション設定ファイルを読み込むクラス
 
+#ifndef APPLICATION_SETTING_READER_H_
+#define APPLICATION_SETTING_READER_H_
+
+
+#include <memory>
 #include <string>
 
 #include "toml.hpp"
@@ -13,17 +19,16 @@
 
 
 //! @class ApplicationSettingReader
-//! @date 2023/08/25
-//! @author 長谷川
 //! @brief アプリケーション設定ファイルを読み込むクラス
+
 class ApplicationSettingReader final
 {
 public:
 
 	//! @brief 設定ファイルを読み込む
 	//! @n 設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する
-	//! @param [out] recorder 読み込んだ設定ファイルの内容を格納する
-	void read(SApplicationSettingRecorder* recorder);
+	//! @return std::shared_ptr<SApplicationSettingRecorder> 設定ファイルの内容
+	std::shared_ptr<SApplicationSettingRecorder> read();
 
 private:
 
@@ -31,13 +36,13 @@ private:
 	void outputDefaultSettingFile();
 
 	//設定ファイルからバージョン情報を読み込む
-	void readVersionSetting(const toml::value& value, SApplicationSettingRecorder* recorder);
+	void readVersionSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
 
 	//設定ファイルから起動モードの情報を読み込む
-	void readBootModeSetting(const toml::value& value, SApplicationSettingRecorder* recorder);
+	void readBootModeSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
 
 	//設定ファイルからディスプレイ情報を読み込む
-	void readDisplaySetting(const toml::value& value, SApplicationSettingRecorder* recorder);
+	void readDisplaySetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
 
 	const std::string SETTING_FILE_NAME = u8"settings.toml";
 
@@ -45,9 +50,4 @@ private:
 };
 
 
-
-//! @file application_setting_reader.h
-//! @date 2023/08/25
-//! @author 長谷川
-//! @brief アプリケーション設定ファイルを読み込むクラス
-//! @n 行数 : @lineinfo
+#endif //APPLICATION_SETTING_READER_H_

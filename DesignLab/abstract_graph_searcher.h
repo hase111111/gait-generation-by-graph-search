@@ -18,7 +18,7 @@ class AbstractGraphSearcher
 {
 public:
 
-	AbstractGraphSearcher(std::shared_ptr<AbstractHexapodStateCalculator> calc) : mp_calculator(calc) {};
+	AbstractGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : mp_calculator(calc) {};
 
 	virtual ~AbstractGraphSearcher() = default;		//!< 継承をするクラスのデストラクタはvirtualにしておく．参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 
@@ -32,7 +32,7 @@ public:
 
 protected:
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
 };
 
 

@@ -70,7 +70,7 @@ private:
 	void DxlibFinalize() const;
 
 
-	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	// グラフィックの表示を行うクラスのポインタ．
+	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< グラフィックの表示を行うクラスのポインタ．
 
 	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 

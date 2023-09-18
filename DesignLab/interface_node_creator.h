@@ -18,7 +18,7 @@ class INodeCreator
 public:
 
 	//! @brief コンストラクタでは次動作を設定する．またマップのポインタを受け取る
-	INodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move) : m_next_move(next_move) {};
+	INodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) : m_next_move(next_move) {};
 	virtual ~INodeCreator() = default;
 
 

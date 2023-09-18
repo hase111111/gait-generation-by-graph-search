@@ -1,33 +1,33 @@
-#pragma once
+//! @file abstract_pass_finder.h
+//! @brief パス探索を行うクラスの抽象クラス．
+
+#ifndef DESIGNLAB_ABSTRACT_PASS_FINDER_H_
+#define DESIGNLAB_ABSTRACT_PASS_FINDER_H_
 
 #include <vector>
 
+#include "abstract_graph_searcher.h"
+#include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
+#include "graph_search_result.h"
+#include "interface_graph_tree_creator.h"
+#include "interface_pass_finder_factory.h"
 #include "map_state.h"
 #include "node.h"
-#include "Target.h"
-#include "graph_search_result.h"
-#include "application_setting_recorder.h"
-#include "interface_graph_tree_creator.h"
-#include "abstract_graph_searcher.h"
-#include "interface_pass_finder_factory.h"
-#include "abstract_hexapod_state_calculator.h"
+#include "target.h"
 
 
 //! @class AbstractPassFinder
 //! @brief グラフ探索を行うクラスの抽象クラス．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @date 2023/09/03
-//! @author 長谷川
 //! @details 継承をするクラスのデストラクタはvirtualにしておく．
 //! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+
 class AbstractPassFinder
 {
 public:
 
 	AbstractPassFinder() = default;
 	virtual ~AbstractPassFinder() = default;
-
-
-	void init(std::unique_ptr<IPassFinderFactory>&& factory, std::shared_ptr<AbstractHexapodStateCalculator> calc, const SApplicationSettingRecorder* const setting);
 
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
@@ -58,21 +58,29 @@ public:
 
 protected:
 
-	int m_made_node_num = 0;	//!< 作成したグラフの数
+	int m_made_node_num = 0;			//!< 作成したグラフの数
 
 	std::vector<SNode> m_graph_tree;	//!< グラフ木
 
 
-	std::unique_ptr<IPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
+	//! @brief グラフ木の生成に必要なクラスを生成する．
+	//! @param [in] map マップ情報．
+	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
+	//! @return std::unique_ptr<IGraphTreeCreator> グラフ木の生成に必要なクラス．
+	virtual std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
+	//! @brief グラフ探索を行うクラスを生成する．
+	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
+	//! @return std::unique_ptr<AbstractGraphSearcher> グラフ探索を行うクラス．
+	virtual std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
 
-	const SApplicationSettingRecorder* mp_setting;	//!< 設定を記録するクラス
+
+	//std::unique_ptr<IPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
+
+	//std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
+
+	//const SApplicationSettingRecorder* mp_setting;	//!< 設定を記録するクラス
 };
 
 
-//! @file interface_pass_finder.h
-//! @date 2023/08/14
-//! @author 長谷川
-//! @brief グラフ探索を行うクラスのインターフェイスの実装
-//! @n 行数 : @lineinfo
+#endif	// DESIGNLAB_ABSTRACT_PASS_FINDER_H_

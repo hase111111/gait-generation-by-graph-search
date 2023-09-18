@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "application_setting_recorder.h"
@@ -8,17 +10,14 @@
 class ResultViewerSystemMain
 {
 public:
-	ResultViewerSystemMain(const SApplicationSettingRecorder* const setting);
+	ResultViewerSystemMain(const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr);
 
 
-	void main();
+	void Main();
 
 private:
-	void read();
+	void Read();
 
 
-	GraphicDataBroker m_broker;
-
-	GraphicSystem m_graphic_system;
 };
 

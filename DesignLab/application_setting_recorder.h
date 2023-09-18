@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "output_priority.h"
+#include "output_detail.h"
 #include "boot_mode.h"
 #include "map_creator.h"
 #include "application_setting_key.h"
@@ -27,13 +27,13 @@ struct SApplicationSettingRecorder
 	bool do_step_execution_each_gait = false;		//!< 1動作ごとにステップ実行をするかどうか
 
 
-	bool cmd_output = true;										//!< コマンドラインに出力するかどうか
-	EOutputPriority cmd_permission = EOutputPriority::DEBUG;	//!< コマンドラインに出力する際，どこまで許可するか
-	bool gui_display = true;									//!< GUIを表示するかどうか
-	std::string gui_display_quality = "high";					//!< GUIを表示する際，どこまで許可するか
-	int window_size_x = 1280;									//!< グラフィカルウィンドウの横幅
-	int window_size_y = 720;									//!< グラフィカルウィンドウの縦幅
-	int window_fps = 60; 										//!< グラフィカルウィンドウのFPS	
+	bool cmd_output = true;								//!< コマンドラインに出力するかどうか
+	OutputDetail cmd_permission = OutputDetail::kDebug;	//!< コマンドラインに出力する際，どこまで許可するか
+	bool gui_display = true;							//!< GUIを表示するかどうか
+	std::string gui_display_quality = "high";			//!< GUIを表示する際，どこまで許可するか
+	int window_size_x = 1280;							//!< グラフィカルウィンドウの横幅
+	int window_size_y = 720;							//!< グラフィカルウィンドウの縦幅
+	int window_fps = 60; 								//!< グラフィカルウィンドウのFPS	
 
 
 	EMapCreateMode map_create_mode = EMapCreateMode::FLAT;	//!< マップ生成モード

@@ -29,7 +29,6 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 
 bool GraphicMainAdvance::Update()
 {
-
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
 	if (counter_ % kNodeGetCount == 0)
 	{

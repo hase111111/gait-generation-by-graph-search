@@ -20,7 +20,7 @@
 class GraphSearcherSample final : public AbstractGraphSearcher
 {
 public:
-	GraphSearcherSample(std::shared_ptr<AbstractHexapodStateCalculator> calc) : AbstractGraphSearcher(calc) {}
+	GraphSearcherSample(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : AbstractGraphSearcher(calc) {}
 	~GraphSearcherSample() = default;
 
 	EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;

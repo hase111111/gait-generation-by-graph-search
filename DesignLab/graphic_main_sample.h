@@ -6,6 +6,10 @@
 
 #include "interface_graphic_main.h"
 
+#include <memory>
+
+#include "application_setting_recorder.h"
+
 
 //! @class GraphicMainSample
 //! @brief サンプル描画クラス．サンプルメッセージを表示する．
@@ -21,7 +25,7 @@
 class GraphicMainSample final : public IGraphicMain
 {
 public:
-	GraphicMainSample() = default;
+	GraphicMainSample(const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainSample() = default;
 
 	bool Update() override;
@@ -29,6 +33,8 @@ public:
 	void Draw() const override;
 
 private:
+
+	int kBoxSizeX, kBoxSizeY;
 
 	int counter_ = 0;
 };

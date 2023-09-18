@@ -4,7 +4,7 @@
 #include "leg_state.h"
 
 
-LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+LegHierarchyNodeCreator::LegHierarchyNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move)
 	: INodeCreator(p_map, calc, next_move),
 	discrete_leg_pos_list_(
 		{ EDiscreteLegPos::BACK,EDiscreteLegPos::CENTER,EDiscreteLegPos::FRONT,EDiscreteLegPos::LOWER_BACK,EDiscreteLegPos::LOWER_FRONT,

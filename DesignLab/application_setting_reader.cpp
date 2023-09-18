@@ -4,8 +4,10 @@
 #include <fstream>
 #include <filesystem>
 
+#include "output_detail.h"
 
-void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
+
+std::shared_ptr<SApplicationSettingRecorder> ApplicationSettingReader::read()
 {
 	std::cout << "[" << __func__ << "]" << "設定ファイル" << SETTING_FILE_NAME << "を読み込みます" << std::endl;
 	std::cout << std::endl;
@@ -16,7 +18,7 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 	{
 		std::cout << "設定ファイルが見つかりませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
-		return;
+		return std::make_shared<SApplicationSettingRecorder>();
 	}
 
 	std::cout << "設定ファイルが見つかりました．読み込みを開始いたします" << std::endl;
@@ -37,7 +39,7 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定ファイルを出力します．" << std::endl;
 		std::cout << e.what() << std::endl;
 		outputDefaultSettingFile();
-		return;
+		return std::make_shared<SApplicationSettingRecorder>();
 	}
 
 
@@ -50,21 +52,22 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 		//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
 		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
-		return;
+		return std::make_shared<SApplicationSettingRecorder>();
 	}
 
 
 	std::cout << "設定ファイルのタイトルが一致しました．設定ファイルの読み込みを続行します" << std::endl;
 	std::cout << std::endl;
 
+	std::shared_ptr<SApplicationSettingRecorder> result = std::make_shared<SApplicationSettingRecorder>();
 
 	try
 	{
-		readVersionSetting(data, recorder);
+		readVersionSetting(data, result);
 
-		readBootModeSetting(data, recorder);
+		readBootModeSetting(data, result);
 
-		readDisplaySetting(data, recorder);
+		readDisplaySetting(data, result);
 	}
 	catch (...)
 	{
@@ -72,12 +75,13 @@ void ApplicationSettingReader::read(SApplicationSettingRecorder* recorder)
 		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．読み込めなかった設定はデフォルトの値を使用します．" << std::endl;
 		std::cout << "デフォルトの設定ファイルを出力します．" << std::endl;
 		outputDefaultSettingFile();
-		return;
+		return std::make_shared<SApplicationSettingRecorder>();
 	}
 
 
 	std::cout << std::endl;
 	std::cout << "設定ファイルの読み込みが完了しました．" << std::endl;
+	return std::move(result);
 }
 
 
@@ -207,7 +211,7 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 }
 
 
-void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApplicationSettingRecorder* recorder)
+void ApplicationSettingReader::readVersionSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder)
 {
 	std::cout << std::endl;
 
@@ -253,7 +257,7 @@ void ApplicationSettingReader::readVersionSetting(const toml::value& value, SApp
 }
 
 
-void ApplicationSettingReader::readBootModeSetting(const toml::value& value, SApplicationSettingRecorder* recorder)
+void ApplicationSettingReader::readBootModeSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder)
 {
 	std::cout << std::endl;
 
@@ -309,7 +313,7 @@ void ApplicationSettingReader::readBootModeSetting(const toml::value& value, SAp
 }
 
 
-void ApplicationSettingReader::readDisplaySetting(const toml::value& value, SApplicationSettingRecorder* recorder)
+void ApplicationSettingReader::readDisplaySetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder)
 {
 	std::cout << std::endl;
 

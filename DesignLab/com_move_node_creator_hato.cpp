@@ -4,7 +4,7 @@
 #include "leg_state.h"
 
 
-ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move)
+ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move)
 	: INodeCreator(p_map, calc, next_move), mp_map(p_map), mp_calculator(calc), m_maker(calc), m_selecter(calc)
 {
 }

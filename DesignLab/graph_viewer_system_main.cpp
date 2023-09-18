@@ -4,25 +4,35 @@
 
 #include <boost/thread.hpp>
 
-#include "viewer_graphic_main_builder.h"
+#include "Define.h"
+#include "designlab_cmdio.h"
+#include "designlab_timer.h"
+#include "graph_search_const.h"
+#include "hexapod_state_calculator.h"
 #include "pass_finder_hato_thread.h"
 #include "pass_finder_factory_hato.h"
-#include "hexapod_state_calculator.h"
 #include "phantomx_state_calculator.h"
-#include "Define.h"
-#include "graph_search_const.h"
-#include "designlab_timer.h"
 #include "StringToValue.h"
-#include "designlab_cmdio.h"
 
-//二度と追記しないだろうと全てをべた書きしています．
-//めちゃくちゃ読みづらいだろうと思うけど，許して．
 
+// 二度と追記しないだろうと全てをべた書きしています．
+// めちゃくちゃ読みづらいだろうと思うけど，許して．
+
+namespace dlio = designlab::cmdio;
 using StrtoVal::StrToInt;
 
-GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* const setting) : mp_setting(setting)
+
+GraphViewerSystemMain::GraphViewerSystemMain(
+	std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
+	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	graphic_system_(std::move(graphic_main_ptr), setting_ptr),
+	pass_finder_ptr_(std::move(pass_finder_ptr)),
+	broker_ptr_(broker_ptr),
+	setting_ptr_(setting_ptr)
 {
-	dl_cio::outputGraphViewerTitle(setting);	//タイトルを表示する
+	dlio::OutputGraphViewerTitle();	//タイトルを表示する
 
 	//ロボットのデータを初期化する．
 	HexapodStateCalclator_Old::initLegR();
@@ -47,26 +57,16 @@ GraphViewerSystemMain::GraphViewerSystemMain(const SApplicationSettingRecorder* 
 
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
-	m_graphic_data_broker.set_map_state(map_state_);
-
-
-	std::shared_ptr<AbstractHexapodStateCalculator> calc = std::make_shared<PhantomXStateCalclator>();
-
-	m_graphic_system.Init(std::make_unique<ViewerGraphicMainBuilder>(), calc, &m_graphic_data_broker, setting);		//グラフィックシステムを初期化する
-
-
-	mp_pass_finder = std::make_unique<PassFinderHatoThread>();
-
-	mp_pass_finder->init(std::make_unique<PassFinderFactoryHato>(), calc, setting);		//グラフ木作成クラスを初期化する
+	broker_ptr_->set_map_state(map_state_);
 }
 
 
-void GraphViewerSystemMain::main()
+void GraphViewerSystemMain::Main()
 {
 	//グラフィックシステムを起動する
-	dl_cio::output(mp_setting, "別スレッドでGUIを起動します．", EOutputPriority::INFO);
+	dlio::Output("別スレッドでGUIを起動します．", OutputDetail::kInfo);
 
-	boost::thread graphic_thread(&GraphicSystem::Main, &m_graphic_system);
+	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
@@ -89,7 +89,7 @@ void GraphViewerSystemMain::main()
 
 			if (askYesNo("GraphViewerSystemMain : グラフを作成しますか？"))
 			{
-				if (!mp_pass_finder)
+				if (!pass_finder_ptr_)
 				{
 					std::cout << "GraphViewerSystemMain : グラフ木作成クラスが初期化されていません" << std::endl;
 					std::cout << "GraphViewerSystemMain : プログラムを終了します" << std::endl;
@@ -100,9 +100,9 @@ void GraphViewerSystemMain::main()
 
 				DesignlabTimer _timer;
 				_timer.start();
-				createGraph(_node, _graph);
+				CreateGraph(_node, _graph);
 				_timer.end();
-				setGraphToBroker(_graph);
+				SetGraphToBroker(_graph);
 				std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
 				std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
 				std::cout << std::endl;
@@ -161,9 +161,9 @@ void GraphViewerSystemMain::main()
 
 						DesignlabTimer _timer;
 						_timer.start();
-						createGraph(_graph[_node_num], _graph);
+						CreateGraph(_graph[_node_num], _graph);
 						_timer.end();
-						setGraphToBroker(_graph);
+						SetGraphToBroker(_graph);
 						std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
 						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
 						std::cout << std::endl;
@@ -180,7 +180,7 @@ void GraphViewerSystemMain::main()
 			}
 			else if (_menu == 3)
 			{
-				m_graphic_data_broker.DeleteAllNode();
+				broker_ptr_->DeleteAllNode();
 				_graph.clear();
 				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
 				std::cout << std::endl;
@@ -188,15 +188,15 @@ void GraphViewerSystemMain::main()
 			else
 			{
 				//終了するか質問する
-				dl_cio::output(mp_setting, "終了しますか？", EOutputPriority::SYSTEM);
+				dlio::Output("終了しますか？", OutputDetail::kSystem);
 
-				if (dl_cio::inputYesNo(mp_setting)) { break; }
+				if (dlio::InputYesNo()) { break; }
 			}
 		}
 	}
 }
 
-void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& graph)
+void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& graph)
 {
 	SNode parent_node = parent;
 	parent_node.changeParentNode();
@@ -208,20 +208,20 @@ void GraphViewerSystemMain::createGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	mp_pass_finder->getNextNodebyGraphSearch(parent_node, &map_state_, target, fake_result_node);
+	pass_finder_ptr_->getNextNodebyGraphSearch(parent_node, &map_state_, target, fake_result_node);
 
-	mp_pass_finder->getGraphTree(&graph);
+	pass_finder_ptr_->getGraphTree(&graph);
 
 	std::cout << fake_result_node;
 }
 
-void GraphViewerSystemMain::setGraphToBroker(const std::vector<SNode>& _graph)
+void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)
 {
-	m_graphic_data_broker.DeleteAllNode();
+	broker_ptr_->DeleteAllNode();
 
 	for (auto& i : _graph)
 	{
-		m_graphic_data_broker.PushNode(i);
+		broker_ptr_->PushNode(i);
 	}
 }
 

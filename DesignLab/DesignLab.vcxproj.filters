@@ -121,12 +121,6 @@
     <Filter Include="ソース ファイル\System\Simulation">
       <UniqueIdentifier>{fb03873e-eff6-4c6a-90ae-3f0abbf04a37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main\builder">
-      <UniqueIdentifier>{df2f0241-01a9-444e-b9b5-f7db12546a0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main\builder\Interface">
-      <UniqueIdentifier>{47c2c784-cdc7-4903-9e84-abc6bd5b910f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\System\GraphViewer">
       <UniqueIdentifier>{0225d192-2f36-462a-a3d3-953fb91b46e1}</UniqueIdentifier>
     </Filter>
@@ -372,7 +366,7 @@
     <ClInclude Include="designlab_cmdio.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="output_priority.h">
+    <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_key.h">
@@ -387,7 +381,7 @@
     <ClInclude Include="result_file_exporter.h">
       <Filter>ソース ファイル\System\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="system_main.h">
+    <ClInclude Include="simulation_system_main.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
     <ClInclude Include="simulation_result_recorder.h">
@@ -395,12 +389,6 @@
     </ClInclude>
     <ClInclude Include="boot_mode.h">
       <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="basic_graphic_main_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
-    </ClInclude>
-    <ClInclude Include="viewer_graphic_main_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClInclude>
     <ClInclude Include="robot_graund_point_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
@@ -416,12 +404,6 @@
     </ClInclude>
     <ClInclude Include="phantomx_state_calculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="other_graphic_main_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_graphic_main_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder\Interface</Filter>
     </ClInclude>
     <ClInclude Include="graph_viewer_system_main.h">
       <Filter>ソース ファイル\System\GraphViewer</Filter>
@@ -647,7 +629,7 @@
     <ClCompile Include="designlab_cmdio.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
-    <ClCompile Include="output_priority.cpp">
+    <ClCompile Include="output_detail.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
     <ClCompile Include="application_setting_key.cpp">
@@ -662,14 +644,8 @@
     <ClCompile Include="simulation_result_recorder.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="system_main.cpp">
+    <ClCompile Include="simulation_system_main.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
-    </ClCompile>
-    <ClCompile Include="basic_graphic_main_builder.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
-    </ClCompile>
-    <ClCompile Include="viewer_graphic_main_builder.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClCompile>
     <ClCompile Include="robot_graund_point_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
@@ -688,9 +664,6 @@
     </ClCompile>
     <ClCompile Include="phantomx_state_calculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
-    <ClCompile Include="other_graphic_main_builder.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main\builder</Filter>
     </ClCompile>
     <ClCompile Include="abstract_pass_finder.cpp">
       <Filter>ソース ファイル\PassFinderSystem\Interface</Filter>

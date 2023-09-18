@@ -21,7 +21,7 @@ class ComCandidatePolygonMaker final
 {
 public:
 
-	ComCandidatePolygonMaker(std::shared_ptr<AbstractHexapodStateCalculator> calc) : mp_calculator(calc) {};
+	ComCandidatePolygonMaker(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : mp_calculator(calc) {};
 
 
 	static constexpr int MAKE_POLYGON_NUM = 7;	//!< 作成する多角形の数
@@ -54,7 +54,7 @@ private:
 	static constexpr bool DO_CHECK_POLYGON = true;	// 多角形のチェックを行う場合はtrueにする．重いのでfalseにしたいが，深さ5までなら問題なし．
 
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 
 };
 

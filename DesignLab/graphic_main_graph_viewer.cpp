@@ -39,17 +39,19 @@ bool GraphicMainGraphViewer::Update()
 	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
 	if (broker_ptr_->GetNodeNum() != graph_.size())
 	{
+		graph_.clear();	//グラフを初期化する
+
 		broker_ptr_->CopyAllNode(&graph_);	//データを更新する
 
 		//グラフの中身が空でないならば，表示するノードを初期化する
-		if (graph_.size() > 0) { display_node_index_ = 0; }
+		if (!graph_.empty()) { display_node_index_ = 0; }
 
 		gui_controller_ptr_->updateGraphNodeDepthData();
 
 	}
 
 	//HexapodReanderの更新
-	if (display_node_index_ < graph_.size() && 0 < graph_.size())
+	if (display_node_index_ < graph_.size() && 0 != graph_.size())
 	{
 		hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));
 

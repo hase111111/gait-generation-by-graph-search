@@ -25,7 +25,6 @@
     <ClInclude Include="interface_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
-    <ClInclude Include="basic_graphic_main_builder.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
     <ClInclude Include="camera_controller.h" />
@@ -44,12 +43,10 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_rotator.h" />
-    <ClInclude Include="interface_graphic_main_builder.h" />
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
-    <ClInclude Include="other_graphic_main_builder.h" />
-    <ClInclude Include="output_priority.h" />
+    <ClInclude Include="output_detail.h" />
     <ClInclude Include="pass_finder_factory_fixed.h" />
     <ClInclude Include="pass_finder_fixed.h" />
     <ClInclude Include="pass_finder_hato.h" />
@@ -108,7 +105,7 @@
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
     <ClInclude Include="StringToValue.h" />
-    <ClInclude Include="system_main.h" />
+    <ClInclude Include="simulation_system_main.h" />
     <ClInclude Include="graph_viewer_system_main.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="hexapod.h" />
@@ -118,7 +115,6 @@
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="designlab_vector.h" />
-    <ClInclude Include="viewer_graphic_main_builder.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +122,6 @@
     <ClCompile Include="abstract_pass_finder.cpp" />
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
-    <ClCompile Include="basic_graphic_main_builder.cpp" />
     <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_controller.cpp" />
@@ -151,8 +146,7 @@
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="designlab_timer.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
-    <ClCompile Include="other_graphic_main_builder.cpp" />
-    <ClCompile Include="output_priority.cpp" />
+    <ClCompile Include="output_detail.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
     <ClCompile Include="pass_finder_fixed.cpp" />
     <ClCompile Include="pass_finder_hato.cpp" />
@@ -206,12 +200,11 @@
     <ClCompile Include="robot_graund_point_renderer.cpp" />
     <ClCompile Include="simulation_result_recorder.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />
-    <ClCompile Include="system_main.cpp" />
+    <ClCompile Include="simulation_system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="designlab_vector.cpp" />
     <ClCompile Include="Define.cpp" />
-    <ClCompile Include="viewer_graphic_main_builder.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>

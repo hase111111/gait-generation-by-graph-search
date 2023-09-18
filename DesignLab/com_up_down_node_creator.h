@@ -10,7 +10,7 @@
 class ComUpDownNodeCreator final : public INodeCreator
 {
 public:
-	ComUpDownNodeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, const EHexapodMove next_move);
+	ComUpDownNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~ComUpDownNodeCreator();
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
@@ -28,7 +28,7 @@ private:
 
 	const MapState* const mp_map;
 
-	std::shared_ptr<AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
 };
 
 

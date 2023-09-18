@@ -1,28 +1,29 @@
-#pragma once
-
-#include <memory>
-
-#include "map_state.h"
-#include "node.h"
-#include "abstract_pass_finder.h"
-
-
-//! @class PassFinderNone
-//! @date 2023/08/14
-//! @author 長谷川
-//! @brief グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．
-class PassFinderNone final :public AbstractPassFinder
-{
-public:
-	PassFinderNone() = default;
-	~PassFinderNone() = default;
-
-	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;
-};
-
-
-//! @file pass_finder_none.h 
-//! @date 2023/08/21
-//! @author 長谷川
-//! @brief グラフ探索を行わないクラス
-//! @n 行数 : @lineinfo
+//#pragma once
+//
+//#include <memory>
+//
+//#include "map_state.h"
+//#include "node.h"
+//#include "abstract_pass_finder.h"
+//
+//
+////! @class PassFinderNone
+////! @brief グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．
+//
+//class PassFinderNone final :public AbstractPassFinder
+//{
+//public:
+//	PassFinderNone() = default;
+//	~PassFinderNone() = default;
+//
+//	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;
+//
+//private:
+//	std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
+//
+//	std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
+//};
+//
+//
+////! @file pass_finder_none.h 
+////! @brief グラフ探索を行わないクラス

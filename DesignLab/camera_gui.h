@@ -69,7 +69,7 @@ private:
 
 	const int kButtonSize = 60;		// ボタンのサイズ
 
-	const int kGUILeftPosX;			// GUIの左端の位置
+	const int kGuiLeftPosX;			// GUIの左端の位置
 
 	const int kGuiTopPosY;			// GUIの上端の位置
 
