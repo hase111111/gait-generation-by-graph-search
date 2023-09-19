@@ -100,12 +100,13 @@ $(document).ready(function(){initNavTree('class_singleton.html',''); initResizab
 <p>このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと!  
  <a href="class_singleton.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_singleton_8h_source.html">Singleton.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="singleton_8h_source.html">singleton.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:a770513deea79541075e950e16d84c69a"><td class="memItemLeft" align="right" valign="top">static _T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a">getIns</a> ()</td></tr>
-<tr class="memdesc:a770513deea79541075e950e16d84c69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する．  <br /></td></tr>
+<tr class="memdesc:a770513deea79541075e950e16d84c69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する．<br  />
+このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．  <br /></td></tr>
 <tr class="separator:a770513deea79541075e950e16d84c69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -120,13 +121,16 @@ $(document).ready(function(){initNavTree('class_singleton.html',''); initResizab
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename _T&gt;<br />
 class Singleton&lt; _T &gt;</div><p>このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと! </p>
-<p>Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である．<br  />
- Singletonパターンは悪しき構築の一つなのでなるべく使わないほうがよい．<br  />
+<dl class="section date"><dt>日付</dt><dd>2023/08/07 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である． <br  />
+ Singletonパターンは悪しき構築の一つなのでなるべく使わないほうがよい． <br  />
  このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．<br  />
  <br  />
  グラフ探索では""絶対""に使わないこと!! <br  />
- 絶対だよ!!!! </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-<dl class="section date"><dt>日付</dt><dd>2023/06/17 </dd></dl>
+ 絶対だよ!!!! <br  />
+<br  />
+ 使い方については 継承先の <a class="el" href="keyboard_8h.html" title="Dxlibのキー入力を取得するクラスの実装．   行数 : 53">keyboard.h</a> を参照してみてほしい． </p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a770513deea79541075e950e16d84c69a" name="a770513deea79541075e950e16d84c69a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a770513deea79541075e950e16d84c69a">&#9670;&#160;</a></span>getIns()</h2>
@@ -153,13 +157,14 @@ template&lt;typename _T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>インスタンスを取得する． </p>
+<p>インスタンスを取得する．<br  />
+このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す． </p>
 <dl class="section return"><dt>戻り値</dt><dd>インスタンスのポインタ </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_singleton_8h_source.html">Singleton.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="singleton_8h_source.html">singleton.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

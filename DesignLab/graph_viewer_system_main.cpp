@@ -1,0 +1,268 @@
+#include "graph_viewer_system_main.h"
+
+#include <iostream>
+
+#include <boost/thread.hpp>
+
+#include "Define.h"
+#include "cmdio_util.h"
+#include "designlab_timer.h"
+#include "graph_search_const.h"
+#include "hexapod_state_calculator.h"
+#include "pass_finder_hato_thread.h"
+#include "pass_finder_factory_hato.h"
+#include "phantomx_state_calculator.h"
+#include "StringToValue.h"
+
+
+// 二度と追記しないだろうと全てをべた書きしています．
+// めちゃくちゃ読みづらいだろうと思うけど，許して．
+
+namespace dlio = designlab::cmdio;
+using StrtoVal::StrToInt;
+
+
+GraphViewerSystemMain::GraphViewerSystemMain(
+	std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
+	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	graphic_system_(std::move(graphic_main_ptr), setting_ptr),
+	pass_finder_ptr_(std::move(pass_finder_ptr)),
+	broker_ptr_(broker_ptr),
+	setting_ptr_(setting_ptr)
+{
+	dlio::OutputGraphViewerTitle();	//タイトルを表示する
+
+	//ロボットのデータを初期化する．
+	HexapodStateCalclator_Old::initLegR();
+
+	//マップを生成する
+	std::cout << "GraphViewerSystemMain : マップを生成します．" << std::endl;
+	std::cout << "GraphViewerSystemMain : オプションを入力してください" << std::endl;
+	MapCreator::printAllMapCreateMode();
+	std::string _mode;
+	std::cout << std::endl << "input : ";
+	std::cin >> _mode;
+	std::cout << std::endl;
+
+	MapCreator::printAllMapCreateOption();
+	std::string _option;
+	std::cout << std::endl << "input : ";
+	std::cin >> _option;
+	std::cout << std::endl;
+	MapCreator map_creator;
+	map_state_ = map_creator.Create(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
+
+
+	//仲介人を初期化する
+	std::cout << "GraphicDataBroker_Old : 仲介人を初期化します．" << std::endl << std::endl;
+	broker_ptr_->map_state.set_data(map_state_);
+}
+
+
+void GraphViewerSystemMain::Main()
+{
+	//グラフィックシステムを起動する
+	dlio::Output("別スレッドでGUIを起動します．", OutputDetail::kInfo);
+
+	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
+
+	//ノードを初期化する
+	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
+	SNode _node;
+	_node.init(false);
+	std::cout << _node;
+	std::cout << std::endl;
+
+	std::vector<SNode> _graph;
+
+	while (true)
+	{
+		std::cout << "--------------------------------------------------" << std::endl;
+		std::cout << std::endl;
+		showGraphStatus(_graph);
+
+		if (_graph.size() == 0)
+		{
+			std::cout << "GraphViewerSystemMain : まだグラフを生成していません" << std::endl;
+
+			if (askYesNo("GraphViewerSystemMain : グラフを作成しますか？"))
+			{
+				if (!pass_finder_ptr_)
+				{
+					std::cout << "GraphViewerSystemMain : グラフ木作成クラスが初期化されていません" << std::endl;
+					std::cout << "GraphViewerSystemMain : プログラムを終了します" << std::endl;
+					break;
+				}
+
+				std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
+
+				DesignlabTimer _timer;
+				_timer.start();
+				CreateGraph(_node, _graph);
+				_timer.end();
+				SetGraphToBroker(_graph);
+				std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
+				std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
+				std::cout << std::endl;
+			}
+			else
+			{
+				//終了するか質問する
+				if (askYesNo("GraphViewerSystemMain : 終了しますか？")) { break; }
+			}
+		}
+		else
+		{
+			std::cout << "GraphViewerSystemMain : グラフを操作します" << std::endl;
+
+			//操作メニューを表示する
+			std::cout << "GraphViewerSystemMain : 操作メニューを表示します" << std::endl;
+			std::cout << "GraphViewerSystemMain : 1 : ノード選択し，そのノードを親にしてグラフを生成する" << std::endl;
+			std::cout << "GraphViewerSystemMain : 2 : ノード選択して表示する" << std::endl;
+			std::cout << "GraphViewerSystemMain : 3 : グラフを全削除する" << std::endl;
+			std::cout << "GraphViewerSystemMain : other : 終了する" << std::endl;
+			std::cout << std::endl;
+			std::cout << "input : ";
+			std::string _str;
+			std::cin >> _str;
+			int _menu = StrToInt(_str);
+			std::cout << std::endl;
+
+			if (_menu == 1 || _menu == 2)
+			{
+				std::cout << "GraphViewerSystemMain : ノードを選択してください" << std::endl;
+				std::cout << "GraphViewerSystemMain : 0 ～ " << _graph.size() - 1 << " の数字を入力してください" << std::endl;
+				std::cout << std::endl;
+				std::cout << "input : ";
+
+				std::string _str_node;
+				std::cin >> _str_node;
+				int _node_num = StrToInt(_str_node);
+				std::cout << std::endl;
+
+				if (_node_num < 0 || _node_num >= _graph.size())
+				{
+					std::cout << "GraphViewerSystemMain : 無効なノード番号です" << std::endl;
+					std::cout << std::endl;
+					continue;
+				}
+				else
+				{
+					if (_menu == 1)
+					{
+						std::cout << "--------------------------------------------------" << std::endl;
+						std::cout << "GraphViewerSystemMain : ノードを選択し，そのノードを親にしてグラフを生成します" << std::endl;
+						std::cout << std::endl;
+						std::cout << _graph[_node_num];
+						std::cout << std::endl;
+						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
+
+						DesignlabTimer _timer;
+						_timer.start();
+						CreateGraph(_graph[_node_num], _graph);
+						_timer.end();
+						SetGraphToBroker(_graph);
+						std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
+						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
+						std::cout << std::endl;
+					}
+					else
+					{
+						std::cout << "--------------------------------------------------" << std::endl;
+						std::cout << "GraphViewerSystemMain : ノードを表示します" << std::endl;
+						std::cout << std::endl;
+						std::cout << _graph[_node_num];
+						std::cout << std::endl;
+					}
+				}
+			}
+			else if (_menu == 3)
+			{
+				broker_ptr_->graph.clean();
+				_graph.clear();
+				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
+				std::cout << std::endl;
+			}
+			else
+			{
+				//終了するか質問する
+				dlio::Output("終了しますか？", OutputDetail::kSystem);
+
+				if (dlio::InputYesNo()) { break; }
+			}
+		}
+	}
+}
+
+void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& graph)
+{
+	SNode parent_node = parent;
+	parent_node.changeParentNode();
+
+	STarget target;
+	target.TargetMode = ETargetMode::StraightPosition;
+	target.TargetPosition = { 100000,0,0 };
+	target.RotationCenter = { 0,100000,0 };
+
+	SNode fake_result_node;
+
+	pass_finder_ptr_->getNextNodebyGraphSearch(parent_node, map_state_, target, fake_result_node);
+
+	pass_finder_ptr_->getGraphTree(&graph);
+
+	std::cout << fake_result_node;
+}
+
+void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)
+{
+	broker_ptr_->graph.clean();
+
+	for (auto& i : _graph)
+	{
+		broker_ptr_->graph.push_back(i);
+	}
+}
+
+bool GraphViewerSystemMain::askYesNo(const std::string& question) const
+{
+	std::cout << question << " ( y / n )" << std::endl;
+	std::cout << std::endl;
+	std::cout << "input : ";
+	std::string _input;
+	std::cin >> _input;
+	std::cout << std::endl;
+
+	if (_input == "y" || _input == "Y" || _input == "yes" || _input == "Yes") { return true; }
+	return false;
+}
+
+void GraphViewerSystemMain::showGraphStatus(const std::vector<SNode>& _graph) const
+{
+	std::cout << "GraphViewerSystemMain : グラフの状態を表示します．" << std::endl;
+	std::cout << "GraphViewerSystemMain : グラフのノード数 : " << _graph.size() << std::endl;
+
+	if (_graph.size() > 0)
+	{
+		std::vector<int> _depth_num((size_t)GraphSearchConst::MAX_DEPTH + 1);
+
+		std::cout << "GraphViewerSystemMain : グラフ探索の最大深さ : " << (int)GraphSearchConst::MAX_DEPTH << std::endl;
+
+		for (const auto& i : _graph)
+		{
+			_depth_num.at(static_cast<size_t>(i.depth))++;
+		}
+
+		int _cnt = 0;
+
+		for (const auto& i : _depth_num)
+		{
+			std::cout << "GraphViewerSystemMain : 深さ" << _cnt << " : " << i << std::endl;
+			_cnt++;
+		}
+	}
+
+	std::cout << std::endl;
+}

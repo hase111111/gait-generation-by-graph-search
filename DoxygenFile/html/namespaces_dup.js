@@ -2,41 +2,72 @@ var namespaces_dup =
 [
     [ "ComType", "namespace_com_type.html", [
       [ "EComPattern", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621", [
-        [ "front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ae6ec529ba185279aa0adcf93e645c7cd", null ],
-        [ "left_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a44c1d480323e011a9d1eafcb1e8c2a66", null ],
-        [ "left_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a6edbe6619078b13d0b1a951dacdd530a", null ],
-        [ "back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a469bba0a564235dfceede42db14f17b0", null ],
-        [ "right_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621adf6b57e12f281995439844ed46662183", null ],
-        [ "right_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a06f1b16d831f614c851c8d0b5e7c7a52", null ],
-        [ "center_front", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621ad11d142a4f7d89a886cdb4f1c931531d", null ],
-        [ "center_back", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a2efab30e939fdbe2f33c52ffd64bad85", null ]
+        [ "FRONT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621abb2fe5c916efb43aab8cbb68f997d2ee", null ],
+        [ "FRONT_LEFT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c30649875f80bc4b253621e9cf4aa8e", null ],
+        [ "BACK_LEFT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f", null ],
+        [ "BACK", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0", null ],
+        [ "BACK_RIGHT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387", null ],
+        [ "FRONT_RIGHT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c590d7552bf5fa1953eb0f05c64acd5", null ],
+        [ "CENTER_FRONT", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621af092e1961ed9256c01d2318c1f9ecb0c", null ],
+        [ "CENTER_BACK", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a8447955000c49ef54f82cb0ed24d8edc", null ],
+        [ "ERROR_POS", "namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84", null ]
       ] ],
-      [ "convertBitToComPattern", "namespace_com_type.html#aebec406cea03001cb1749cc04ae99304", null ],
-      [ "convertComPatternToBit", "namespace_com_type.html#a0cdc2584ee0d9a82c3cb4582d3033d7d", null ],
+      [ "convertBitToComPattern", "namespace_com_type.html#a0815d6c99281b07d48ea3bde35e2169e", null ],
+      [ "convertComPatternToBit", "namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4", null ],
       [ "COM_PATTERN_NUM", "namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c", null ],
       [ "COM_TYPE_NUM", "namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224", null ]
     ] ],
-    [ "leg_state", "namespaceleg__state.html", null ],
-    [ "my_math", "namespacemy__math.html", [
-      [ "isEqual", "namespacemy__math.html#a86f3078c559b4534510c3e4391c46a53", null ],
-      [ "isEqual", "namespacemy__math.html#a9213fc924eef19511f8dd65b7b488f8d", null ],
-      [ "squared", "namespacemy__math.html#a04a6fb9ca1f6decc3829e1c96fa9481d", null ],
-      [ "squared", "namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4", null ],
-      [ "squared", "namespacemy__math.html#a770d7518eae646cc4a17f065739886b8", null ],
-      [ "squared", "namespacemy__math.html#a9cad1af200436f2b7a0ec46ab3e880b7", null ],
-      [ "squared", "namespacemy__math.html#a5390686a78e784fb14035702c0e6d8fd", null ],
-      [ "ALLOWABLE_ERROR", "namespacemy__math.html#a03c19d74d942bc6dca8febf9129adfc1", null ],
-      [ "DBL_ALLOWABLE_ERROR", "namespacemy__math.html#a943b0b0d0cc9b165cfde2d2b4cf658d5", null ],
-      [ "MY_DBL_PI", "namespacemy__math.html#ad49cf9045a4df8b42a4b61d00d2ee866", null ],
-      [ "MY_FLT_PI", "namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7", null ]
+    [ "dl_dxlib", "namespacedl__dxlib.html", [
+      [ "convertToDxVec", "namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015", null ],
+      [ "drawCube3D", "namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0", null ],
+      [ "drawCube3DWithTopPos", "namespacedl__dxlib.html#aa3743e969ae8717f2671b347ac650881", null ],
+      [ "drawHexagon", "namespacedl__dxlib.html#a36b086b2d9269fe65393e37c76c675b2", null ],
+      [ "drawHexagonalPrism", "namespacedl__dxlib.html#aeb5d1c259d3ab9dc9ac17161a29a546e", null ],
+      [ "initDxlib3D", "namespacedl__dxlib.html#af6876f02e5cd34f2189605911a7d6f03", null ],
+      [ "setZBufferEnable", "namespacedl__dxlib.html#aed4649274aadb4a1285929b0a5ffee4f", null ]
     ] ],
-    [ "my_vec", "namespacemy__vec.html", "namespacemy__vec" ],
-    [ "myDxlib3DFunc", "namespacemy_dxlib3_d_func.html", [
-      [ "convertToDxVec", "namespacemy_dxlib3_d_func.html#ac2915c6b26f654cd06cef50f8466352f", null ],
-      [ "drawCube3D", "namespacemy_dxlib3_d_func.html#aceb2c05bbccc6ab1e30e0c8f250fde4d", null ],
-      [ "drawCube3DWithTopPos", "namespacemy_dxlib3_d_func.html#a90d39c1e130a2a6ba1d39da07105c62c", null ],
-      [ "drawHexagon", "namespacemy_dxlib3_d_func.html#a81a081efc2cf06192a8db3a9566a43ae", null ],
-      [ "drawHexagonalPrism", "namespacemy_dxlib3_d_func.html#a8d83f6b33250efed9dcacb13a2241a60", null ],
-      [ "initDxlib3D", "namespacemy_dxlib3_d_func.html#ac8fddebad36820b30eda0b08e02f214a", null ]
-    ] ]
+    [ "dl_io", "namespacedl__io.html", [
+      [ "output", "namespacedl__io.html#a61b8dc3a453f75db0097fa67b54181d1", null ],
+      [ "setOutputPriority", "namespacedl__io.html#ab3183fe30ebf943977e88e2362a6917f", null ]
+    ] ],
+    [ "dl_leg", "namespacedl__leg.html", [
+      [ "changeComPattern", "namespacedl__leg.html#a1130c749c855ff4a443171a56a0affe8", null ],
+      [ "getComPatternState", "namespacedl__leg.html#abbc27c9c3c65dc84913fd7b87c7274c6", null ],
+      [ "getGroundedLegNum", "namespacedl__leg.html#acb5f62b8e593cb33e1dff9dc3484db2e", null ],
+      [ "getGroundedLegNumWithVector", "namespacedl__leg.html#af60b226ef6842795e19f7e2943f579d0", null ],
+      [ "getLegState", "namespacedl__leg.html#a1505823fb37f3befd39af5ff508c96b2", null ],
+      [ "getLegUpDownCount", "namespacedl__leg.html#a781abdd4e4f31d0814bd26cdf66a82c2", null ],
+      [ "getLiftedLegNum", "namespacedl__leg.html#a02ff9ebb9cfd6a835343a39dc56cc000", null ],
+      [ "getLiftedLegNumWithVector", "namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7", null ],
+      [ "isAbleLegNum", "namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267", null ],
+      [ "isGrounded", "namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3", null ],
+      [ "makeLegState", "namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9", null ],
+      [ "COM_STATE_MASKBIT", "namespacedl__leg.html#a95b30de8a020bb048c13c36cc2e6d2d3", null ],
+      [ "DISCRETE_NUM", "namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7", null ],
+      [ "LEG_GROUNDED_MASKBIT", "namespacedl__leg.html#a3cb9f7cb0f1028e1afd648598c4bfccd", null ],
+      [ "LEG_POS_MASKBIT", "namespacedl__leg.html#a57a8623365f91ed95037cd05339997aa", null ],
+      [ "LEG_STATE_MASKBIT", "namespacedl__leg.html#ac8aaebba836dc90b15470f4c33ddf7ba", null ],
+      [ "SHIFT_TO_COM_NUM", "namespacedl__leg.html#a71b6916ed1e795c4ba99a2570313f3f2", null ]
+    ] ],
+    [ "dl_math", "namespacedl__math.html", [
+      [ "convertDegToRad", "namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb", null ],
+      [ "convertDegToRad", "namespacedl__math.html#a22c91eb963e3a7ff15a21f587a6447ef", null ],
+      [ "convertRadToDeg", "namespacedl__math.html#abfae2bdb755b896110bba71f1deecdef", null ],
+      [ "convertRadToDeg", "namespacedl__math.html#a6024a7a240282fffa58e0b1a125b03c8", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a53fdfc3c2aa4eba64fa79506aa645bb7", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a92014f2793310765f255e66083c14310", null ],
+      [ "generateRandomNumber", "namespacedl__math.html#a913a4f1a47c82bcbdf1da301d5e2d4fb", null ],
+      [ "isEqual", "namespacedl__math.html#a45a76c15d97311f20b71facefcf98ec5", null ],
+      [ "isEqual", "namespacedl__math.html#af27ba2f63b75019c3f3dc1ef47e3f42b", null ],
+      [ "squared", "namespacedl__math.html#ad0f18b18b17403391b35a278bba87020", null ],
+      [ "squared", "namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b", null ],
+      [ "squared", "namespacedl__math.html#ad7ad9a99fb2723e227c884c012be8043", null ],
+      [ "squared", "namespacedl__math.html#a1e18a31b2bcc4f9d5975cfef95d05159", null ],
+      [ "squared", "namespacedl__math.html#a7bceed2155711df0e702c71764111304", null ],
+      [ "ALLOWABLE_ERROR", "namespacedl__math.html#a1e14a9edee8ab0ec5ed91172bf258681", null ],
+      [ "DBL_ALLOWABLE_ERROR", "namespacedl__math.html#a09b28dc4677a629d4a52d59fcde40b7d", null ],
+      [ "MY_DBL_PI", "namespacedl__math.html#ad854c730b66cda4f8e2545f33f88c5e0", null ],
+      [ "MY_FLT_PI", "namespacedl__math.html#a112af26e6da8dbe154bac5a66fd757a8", null ]
+    ] ],
+    [ "dl_vec", "namespacedl__vec.html", "namespacedl__vec" ]
 ];

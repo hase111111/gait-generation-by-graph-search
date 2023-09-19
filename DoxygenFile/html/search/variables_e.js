@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['shift_5fto_5fcom_5fnum_0',['SHIFT_TO_COM_NUM',['../_leg_state_8h.html#a3a42c52d83e83653870da5376440666f',1,'LegStateEdit']]],
-  ['simurate_5fnum_1',['SIMURATE_NUM',['../class_define.html#a922af0e142af93c3b3aaff2531ba4d91',1,'Define']]],
-  ['slope_5fangle_2',['SLOPE_ANGLE',['../class_map_const.html#a534a6b4c86cde311ac332967cfedb6ab',1,'MapConst']]],
-  ['step_5fheight_3',['STEP_HEIGHT',['../class_map_const.html#a306e412ac4260ed0c0d9bf66d5de67fd',1,'MapConst']]],
-  ['step_5flength_4',['STEP_LENGTH',['../class_map_const.html#a7fa1cd5d6c2582df2bb3341dd1481769',1,'MapConst']]],
-  ['stripe_5finterval_5',['STRIPE_INTERVAL',['../class_map_const.html#a70ffd4071f381ce2a14409701ab400d3',1,'MapConst']]]
+  ['roll_0',['roll',['../structdl__vec_1_1_s_rotator.html#aaacd10fba97c09a4189b50b9400f6ebf',1,'dl_vec::SRotator']]],
+  ['rot_1',['rot',['../struct_s_node.html#a6a5402f3b37607da3c730dd79aeb8d9a',1,'SNode']]],
+  ['rotationcenter_2',['RotationCenter',['../struct_s_target.html#a3a13facdf1e9abead5ec592606da69d0',1,'STarget']]],
+  ['rough_5fmax_5fheight_3',['ROUGH_MAX_HEIGHT',['../class_map_const.html#afe1bbc3605fc0cec667449c4f5ab99ac',1,'MapConst']]],
+  ['rough_5fmin_5fheight_4',['ROUGH_MIN_HEIGHT',['../class_map_const.html#ae30e670f77be7107fe818a4677f1732d',1,'MapConst']]]
 ];

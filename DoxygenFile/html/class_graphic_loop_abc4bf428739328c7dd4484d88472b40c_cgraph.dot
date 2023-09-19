@@ -5,9 +5,9 @@ digraph "GraphicLoop::loop"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [id="Node000001",label="GraphicLoop::loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="GraphicLoop::loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Singleton\< Keyboard\l \>::getIns",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_singleton.html#a770513deea79541075e950e16d84c69a",tooltip="インスタンスを取得する．"];
+  Node2 [id="Node000002",label="Singleton\< Keyboard\l \>::getIns",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_singleton.html#a770513deea79541075e950e16d84c69a",tooltip="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()-> の形式でメンバ関数を呼び出す．"];
   Node1 -> Node2 [id="edge2_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node3 [id="edge3_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="Fps::skipDrawScene",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5",tooltip="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．"];

@@ -4,7 +4,9 @@ digraph "STarget"
   bgcolor="transparent";
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [id="Node000001",label="STarget",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" RotationCenter\nTargetAngle\nTargetDirection\nTargetPosition\nTargetRotation",fontcolor="grey" ];
-  Node2 [id="Node000002",label="my_vec::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structmy__vec_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
+  Node1 [id="Node000001",label="STarget",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="探索において目標となる座標や角度，評価する値についてまとめた構造体"];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" RotationCenter\nTargetDirection\nTargetPosition",fontcolor="grey" ];
+  Node2 [id="Node000002",label="dl_vec::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
+  Node3 -> Node1 [id="edge2_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" TargetAngle\nTargetRotation",fontcolor="grey" ];
+  Node3 [id="Node000003",label="dl_vec::SRotator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_rotator.html",tooltip="回転を表す構造体．XYZオイラー角"];
 }

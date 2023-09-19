@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/BFSinHierarchy.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_b_f_sin_hierarchy_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BFSinHierarchy.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_f_sin_hierarchy_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#include <span class="stringliteral">&quot;BFSinHierarchy.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//エッジのインデックス エッジリストに対応　　i番目のノードの場合，ede_list[edge_index[i][0]]~ede_list[edge_index[i+1]までがそのノードのエッジ</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a669dd4c7431b42903d8e1ad67f5036d0">    4</a></span><span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a669dd4c7431b42903d8e1ad67f5036d0">edge_index</a>[37] = { 0, 35, 48, 61, 74, 87, 100, 113, 120, 127, 134, 140, 146, 152, 158, 164, 170, 177, 184, 189, 194, 199, 204, 209, 214, 221, 228, 235, 242, 249, 256, 263, 270, 277, 284, 291, 298 };</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a23c4550aa6694f3a7e947cda47314b95">    6</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a23c4550aa6694f3a7e947cda47314b95">edge_list</a>[298] = {   <span class="comment">//エッジリスト </span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    0, 9, 10, 14, 16, 18, 19, 24, 25, 27, 30, 31, 34,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    0, 8, 11, 15, 17, 19, 20, 25, 26, 28, 31, 32, 35,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    0, 7, 10, 12, 16, 20, 21, 26, 27, 29, 30, 32, 33,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    0, 9, 11, 13, 17, 21, 22, 24, 27, 28, 31, 33, 34,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    0, 8, 12, 14, 16, 22, 23, 25, 28, 29, 32, 34, 35,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    0, 7, 13, 15, 17, 18, 23, 24, 26, 29, 30, 33, 35,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    0, 3, 6, 26, 29, 30, 33,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    0, 2, 5, 25, 28, 32, 35,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    0, 1, 4, 24, 27, 31, 34,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    0, 1, 3, 16, 27, 30,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    0, 2, 4, 17, 28, 31,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    0, 3, 5, 16, 29, 32,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    0, 4, 6, 17, 24, 33,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    0, 1, 5, 16, 25, 34,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    0, 2, 6, 17, 26, 35,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    0, 1, 3 , 5, 10, 12, 14,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    0, 2, 4, 6, 11, 13, 15,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    0, 1, 6, 24, 30,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    0, 1, 2, 25, 31,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    0, 2, 3, 26, 32,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    0, 3, 4, 27, 33,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    0, 4, 5, 28, 34,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    0, 5, 6, 29, 35,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    0, 1, 4, 6, 9, 13, 18,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    0, 1, 2, 5, 8, 14, 19,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    0, 2, 3, 6, 7, 15, 20,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    0, 1, 3, 4, 9, 10, 21,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    0, 2, 4, 5, 8, 11, 22,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    0, 3, 5, 6, 7, 12, 23,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    0, 1, 3, 6, 7, 10, 18,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    0, 1, 2, 4, 9, 11, 19,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    0, 2, 3, 5, 8, 12, 29,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    0, 3, 4, 6, 7, 13, 21,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    0, 1, 4, 5, 9, 14, 22,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    0, 2, 5, 6, 8, 15, 23</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#ae778f79a6ccc460264672b0cd909ef17">   45</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#ae778f79a6ccc460264672b0cd909ef17">Raised_RF</a>[23] = { 0, 1, 2, 3, 4, 5,       8, 9,10,11,12,   14,   16,      19,20,21,22,      25,   27,28,      31,32,   34 };<span class="comment">//右前脚</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#ab8bde2bf4f0123e850f0d1420edc8681">   46</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#ab8bde2bf4f0123e850f0d1420edc8681">Raised_RM</a>[23] = { 0,    2, 3, 4, 5, 6, 7, 8,      11,12,13,   15,   17,      20,21,22,23,      26,   28,29,      32,33,   35 };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#aa52bb44777ce5558301d070afe9ba702">   47</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#aa52bb44777ce5558301d070afe9ba702">Raised_RR</a>[23] = { 0, 1,    3, 4, 5, 6, 7,    9,10,   12,13,14,   16,   18,      21,22,23,24,      27,   29,30,      33,34 }; <span class="comment">//右後脚</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a5e9d92984077d025493586b1ab4aec34">   48</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a5e9d92984077d025493586b1ab4aec34">Raised_LR</a>[23] = { 0, 1, 2,    4, 5, 6,    8, 9,   11,   13,14,15,   17,18,19,      22,23,24,25,      28,      31,      34,35 };  <span class="comment">//左後脚</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a1f6e1518a63409cd61ca7e79b9273d74">   49</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a1f6e1518a63409cd61ca7e79b9273d74">Raised_LM</a>[23] = { 0, 1, 2, 3,    5, 6, 7, 8,   10,   12,   14,15,16,   18,19,20,      23,   25,26,      29,30,   32,      35 };  <span class="comment">//左中脚</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a4dbac579fd9321b8374d595a629ff522">   50</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a4dbac579fd9321b8374d595a629ff522">Raised_LF</a>[23] = { 0, 1, 2, 3, 4,    6, 7,    9,10,11,   13,   15,   17,18,19,20,21,      24,   26,27,      30,31,   33 };;       <span class="comment">//左前脚</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//重心位置のパターンとvの関係　　v=18,19,20．．．　のときパターン1の重心位置は取れない</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//ここに書かれている番号の脚状態は取れない。</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a1086735f4bed0455dd69a0c6012935a6">   54</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a1086735f4bed0455dd69a0c6012935a6">comType1</a>[9] = { 18, 19,             23, 24, 25,             29, 30, 31,             35 };    <span class="comment">//パターン6</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#ae0d94ed2d3a24bfc64ddea549788c5dc">   55</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#ae0d94ed2d3a24bfc64ddea549788c5dc">comType2</a>[9] = { 18, 19, 20,             24, 25, 26,             30, 31, 32, };               <span class="comment">//パターン1</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a449af10f6f6950d9035ca03a1444f4e1">   56</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a449af10f6f6950d9035ca03a1444f4e1">comType3</a>[9] = { 19, 20, 21,             25, 26, 27,             31, 32, 33, };               <span class="comment">//パターン2</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#ae94e24f56956a0249cfbaa876311ab02">   57</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#ae94e24f56956a0249cfbaa876311ab02">comType4</a>[9] = { 20, 21, 22,             26, 27, 28,             32, 33, 34, };               <span class="comment">//パターン3</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a8e21da6cea309238bb387c9bf2a4edb3">   58</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a8e21da6cea309238bb387c9bf2a4edb3">comType5</a>[9] = { 21, 22, 23,             27, 28, 29,             33, 34, 35 };                <span class="comment">//パターン4</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#ae7bdbba29d753deea0d5395389448c17">   59</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#ae7bdbba29d753deea0d5395389448c17">comType6</a>[9] = { 18,             22, 23, 24,             28, 29, 30,             34, 35 };    <span class="comment">//パターン5</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a9c9d3ef02eb2e04c7a3f588aec1d8ae4">   61</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a9c9d3ef02eb2e04c7a3f588aec1d8ae4">comType7</a>[9] = { 18,     20,     22,     24,     26,     28,     30,     32,     34, };       <span class="comment">//パターン7</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a30d1d7ee0f2b610e4d191dd589e65e86">   62</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a30d1d7ee0f2b610e4d191dd589e65e86">comType8</a>[9] = { 19,     21,     23,     25,     27,     29,     31,     33,     35 };        <span class="comment">//パターン8</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#abcb365d39dd4203ff90212304bd68a5f">   63</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#abcb365d39dd4203ff90212304bd68a5f">comType0</a>[18] = { 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 };   <span class="comment">//パターン0 どの隣りあった足も上げることができない</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a0080f2858bdd37f411e013cd0acb907f">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_b_f_sin_hierarchy_8cpp.html#a0080f2858bdd37f411e013cd0acb907f">clear_node_bfs</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* clearnum, <span class="keywordtype">char</span> n, <span class="keywordtype">bool</span>* visited) </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">//指定したノードを探索しない（発見済み）にする</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        visited[clearnum[i]] = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="_b_f_sin_hierarchy_8cpp.html#a0fd4449c8b34ef4c6dda7b17b1ce249f">   76</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_b_f_sin_hierarchy_8cpp.html#a0fd4449c8b34ef4c6dda7b17b1ce249f">bfs_in_hierarchy</a>(<span class="keywordtype">char</span> start, <span class="keywordtype">char</span>* prev, <span class="keywordtype">char</span>* cost, <span class="keywordtype">bool</span>* visited)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> graph_mask[36] = {0};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> updating_graph_mask[36] = {0};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 36; i++)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {   <span class="comment">//初期化</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        graph_mask[i] = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        updating_graph_mask[i] = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    graph_mask[start] = <span class="keyword">true</span>;  <span class="comment">//スタート位置は発見済みに(親ノードは発見済み)</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    visited[start] = <span class="keyword">true</span>;<span class="comment">//親ノードは訪問済み</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 36; ++i) </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        prev[i] = -1; <span class="comment">//初期化</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        cost[i] = -1;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    prev[start] = -1;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    cost[start] = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">//踏みかえ動作探索（踏みかえは2回でできる）</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {   </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 36; ++j) </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="comment">//現在いるノード（親ノードの支持脚番号なったら、）</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (graph_mask[j])</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            {   </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                graph_mask[j] = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a669dd4c7431b42903d8e1ad67f5036d0">edge_index</a>[j]; k &lt; <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a669dd4c7431b42903d8e1ad67f5036d0">edge_index</a>[j+1]; ++k)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                    <span class="keywordtype">char</span> <span class="keywordtype">id</span> = <a class="code hl_variable" href="_b_f_sin_hierarchy_8cpp.html#a23c4550aa6694f3a7e947cda47314b95">edge_list</a>[k];</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    <span class="comment">//ノードが発見済みでなければ</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                    <span class="keywordflow">if</span> (!visited[<span class="keywordtype">id</span>]) </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                        cost[id] = cost[j] + 1;     <span class="comment">//コスト＝親の深さ＋1    </span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                        prev[id] = j;                   <span class="comment">//親ノード</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                        graph_mask[id] = <span class="keyword">true</span>;          <span class="comment">//発見したノード</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                        visited[id] = <span class="keyword">true</span>;     <span class="comment">//探索済み</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a0080f2858bdd37f411e013cd0acb907f"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a0080f2858bdd37f411e013cd0acb907f">clear_node_bfs</a></div><div class="ttdeci">void clear_node_bfs(const char *clearnum, char n, bool *visited)</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00066">BFSinHierarchy.cpp:66</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a0fd4449c8b34ef4c6dda7b17b1ce249f"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a0fd4449c8b34ef4c6dda7b17b1ce249f">bfs_in_hierarchy</a></div><div class="ttdeci">void bfs_in_hierarchy(char start, char *prev, char *cost, bool *visited)</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00076">BFSinHierarchy.cpp:76</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a1086735f4bed0455dd69a0c6012935a6"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a1086735f4bed0455dd69a0c6012935a6">comType1</a></div><div class="ttdeci">const char comType1[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00054">BFSinHierarchy.cpp:54</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a1f6e1518a63409cd61ca7e79b9273d74"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a1f6e1518a63409cd61ca7e79b9273d74">Raised_LM</a></div><div class="ttdeci">const char Raised_LM[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00049">BFSinHierarchy.cpp:49</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a23c4550aa6694f3a7e947cda47314b95"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a23c4550aa6694f3a7e947cda47314b95">edge_list</a></div><div class="ttdeci">const char edge_list[298]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00006">BFSinHierarchy.cpp:6</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a30d1d7ee0f2b610e4d191dd589e65e86"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a30d1d7ee0f2b610e4d191dd589e65e86">comType8</a></div><div class="ttdeci">const char comType8[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00062">BFSinHierarchy.cpp:62</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a449af10f6f6950d9035ca03a1444f4e1"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a449af10f6f6950d9035ca03a1444f4e1">comType3</a></div><div class="ttdeci">const char comType3[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00056">BFSinHierarchy.cpp:56</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a4dbac579fd9321b8374d595a629ff522"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a4dbac579fd9321b8374d595a629ff522">Raised_LF</a></div><div class="ttdeci">const char Raised_LF[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00050">BFSinHierarchy.cpp:50</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a5e9d92984077d025493586b1ab4aec34"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a5e9d92984077d025493586b1ab4aec34">Raised_LR</a></div><div class="ttdeci">const char Raised_LR[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00048">BFSinHierarchy.cpp:48</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a669dd4c7431b42903d8e1ad67f5036d0"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a669dd4c7431b42903d8e1ad67f5036d0">edge_index</a></div><div class="ttdeci">﻿ const int edge_index[37]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00004">BFSinHierarchy.cpp:4</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a8e21da6cea309238bb387c9bf2a4edb3"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a8e21da6cea309238bb387c9bf2a4edb3">comType5</a></div><div class="ttdeci">const char comType5[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00058">BFSinHierarchy.cpp:58</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_a9c9d3ef02eb2e04c7a3f588aec1d8ae4"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#a9c9d3ef02eb2e04c7a3f588aec1d8ae4">comType7</a></div><div class="ttdeci">const char comType7[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00061">BFSinHierarchy.cpp:61</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_aa52bb44777ce5558301d070afe9ba702"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#aa52bb44777ce5558301d070afe9ba702">Raised_RR</a></div><div class="ttdeci">const char Raised_RR[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00047">BFSinHierarchy.cpp:47</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_ab8bde2bf4f0123e850f0d1420edc8681"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#ab8bde2bf4f0123e850f0d1420edc8681">Raised_RM</a></div><div class="ttdeci">const char Raised_RM[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00046">BFSinHierarchy.cpp:46</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_abcb365d39dd4203ff90212304bd68a5f"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#abcb365d39dd4203ff90212304bd68a5f">comType0</a></div><div class="ttdeci">const char comType0[18]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00063">BFSinHierarchy.cpp:63</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_ae0d94ed2d3a24bfc64ddea549788c5dc"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#ae0d94ed2d3a24bfc64ddea549788c5dc">comType2</a></div><div class="ttdeci">const char comType2[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00055">BFSinHierarchy.cpp:55</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_ae778f79a6ccc460264672b0cd909ef17"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#ae778f79a6ccc460264672b0cd909ef17">Raised_RF</a></div><div class="ttdeci">const char Raised_RF[23]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00045">BFSinHierarchy.cpp:45</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_ae7bdbba29d753deea0d5395389448c17"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#ae7bdbba29d753deea0d5395389448c17">comType6</a></div><div class="ttdeci">const char comType6[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00059">BFSinHierarchy.cpp:59</a></div></div>
+<div class="ttc" id="a_b_f_sin_hierarchy_8cpp_html_ae94e24f56956a0249cfbaa876311ab02"><div class="ttname"><a href="_b_f_sin_hierarchy_8cpp.html#ae94e24f56956a0249cfbaa876311ab02">comType4</a></div><div class="ttdeci">const char comType4[9]</div><div class="ttdef"><b>Definition</b> <a href="_b_f_sin_hierarchy_8cpp_source.html#l00057">BFSinHierarchy.cpp:57</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="_b_f_sin_hierarchy_8cpp.html">BFSinHierarchy.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<map id="CameraManager::setCameraRotQuat" name="CameraManager::setCameraRotQuat">
+<area shape="rect" id="Node000001" title="カメラのクォータニオンをセットする" alt="" coords="627,5,815,48"/>
+<area shape="rect" id="Node000002" href="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af" title="キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="411,13,579,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="613,29,580,29,580,24,613,24"/>
+<area shape="rect" id="Node000003" href="$class_camera_g_u_i.html#a493e2281cb696a296b2db4a7a4a72134" title="GUIやカメラの更新を行う" alt="" coords="228,13,363,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,29,363,29,363,24,396,24"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,180,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,29,180,29,180,24,213,24"/>
+</map>

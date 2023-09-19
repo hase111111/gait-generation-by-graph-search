@@ -1,4 +1,0 @@
-<map id="LegStateEdit::getComPatternState" name="LegStateEdit::getComPatternState">
-<area shape="rect" id="Node000001" title="重心パターンを取得する．0b0000 〜 0b1000 まで" alt="" coords="5,29,197,72"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="132,17,121,10,101,8,83,10,72,15,68,21,69,28,64,29,63,19,69,10,82,5,101,3,123,5,135,12"/>
-</map>

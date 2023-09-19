@@ -92,114 +92,34 @@ $(document).ready(function(){initNavTree('class_camera_controller.html',''); ini
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="class_camera_controller-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">CameraController クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+  <div class="headertitle"><div class="title">CameraController クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Dxlibの3Dのカメラの処理を行うクラス．  
+<p>キー入力でカメラを動かすクラス  
  <a href="class_camera_controller.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_camera_controller_8h_source.html">CameraController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="camera__controller_8h_source.html">camera_controller.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab906ce4fbd856dc3e270ac391ed8c4dc"><td class="memItemLeft" align="right" valign="top"><a id="ab906ce4fbd856dc3e270ac391ed8c4dc" name="ab906ce4fbd856dc3e270ac391ed8c4dc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (<a class="el" href="class_camera_manager.html">CameraManager</a> *p_camera_manager)</td></tr>
+<tr class="memdesc:ab906ce4fbd856dc3e270ac391ed8c4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでマネージャーのポインタを受け取る <br /></td></tr>
+<tr class="separator:ab906ce4fbd856dc3e270ac391ed8c4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98b0e77fc306636462fad5db5005a1af"><td class="memItemLeft" align="right" valign="top"><a id="a98b0e77fc306636462fad5db5005a1af" name="a98b0e77fc306636462fad5db5005a1af"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="memdesc:a98b0e77fc306636462fad5db5005a1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの位置などの更新を行う．毎フレーム実行すること． <br /></td></tr>
+<tr class="memdesc:a98b0e77fc306636462fad5db5005a1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する <br  />
+ 基本的には毎フレーム呼び出す <br /></td></tr>
 <tr class="separator:a98b0e77fc306636462fad5db5005a1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a216677edea0d4c002f5d23da7f33a22b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_controller.html#a216677edea0d4c002f5d23da7f33a22b">setTargetPos</a> (const VECTOR _pos)</td></tr>
-<tr class="memdesc:a216677edea0d4c002f5d23da7f33a22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの注視する目標の座標をセットする．  <br /></td></tr>
-<tr class="separator:a216677edea0d4c002f5d23da7f33a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb30190f4a720ec1039b2992c4210e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_controller.html#adb30190f4a720ec1039b2992c4210e7e">setCameraMode</a> (const <a class="el" href="_camera_controller_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a> _mode)</td></tr>
-<tr class="memdesc:adb30190f4a720ec1039b2992c4210e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのモードをセットする．  <br /></td></tr>
-<tr class="separator:adb30190f4a720ec1039b2992c4210e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Dxlibの3Dのカメラの処理を行うクラス． </p>
-<p>カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい．<br  />
- このクラスはその処理をまとめたことで，処理を簡単にしている． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-</div><h2 class="groupheader">関数詳解</h2>
-<a id="adb30190f4a720ec1039b2992c4210e7e" name="adb30190f4a720ec1039b2992c4210e7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb30190f4a720ec1039b2992c4210e7e">&#9670;&#160;</a></span>setCameraMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CameraController::setCameraMode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_camera_controller_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a>&#160;</td>
-          <td class="paramname"><em>_mode</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>カメラのモードをセットする． </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_mode</td><td>カメラの視点のモード </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a216677edea0d4c002f5d23da7f33a22b" name="a216677edea0d4c002f5d23da7f33a22b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a216677edea0d4c002f5d23da7f33a22b">&#9670;&#160;</a></span>setTargetPos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CameraController::setTargetPos </td>
-          <td>(</td>
-          <td class="paramtype">const VECTOR&#160;</td>
-          <td class="paramname"><em>_pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>カメラの注視する目標の座標をセットする． </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_pos</td><td>カメラの注視する目標の座標 </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph.png" border="0" usemap="#aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph" alt=""/></div>
-<map name="aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph" id="aclass_camera_controller_a216677edea0d4c002f5d23da7f33a22b_icgraph">
-<area shape="rect" title="カメラの注視する目標の座標をセットする．" alt="" coords="228,5,434,32"/>
-<area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
-<area shape="poly" title=" " alt="" coords="213,21,180,21,180,16,213,16"/>
-</map>
-</div>
-
-</div>
-</div>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_camera_controller_8h_source.html">CameraController.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/CameraController.cpp</li>
+<div class="textblock"><p>キー入力でカメラを動かすクラス </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/20 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="camera__controller_8h_source.html">camera_controller.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/camera_controller.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

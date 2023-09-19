@@ -95,42 +95,60 @@ $(document).ready(function(){initNavTree('struct_s_target.html',''); initResizab
   <div class="headertitle"><div class="title">STarget 構造体</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>探索において目標となる座標や角度，評価する値についてまとめた構造体  
+ <a href="struct_s_target.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_target_8h_source.html">Target.h</a>&gt;</code></p>
 <div class="dynheader">
 STarget 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_s_target__coll__graph.png" border="0" usemap="#a_s_target_coll__map" alt="Collaboration graph"/></div>
 <map name="a_s_target_coll__map" id="a_s_target_coll__map">
-<area shape="rect" title=" " alt="" coords="32,160,99,187"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,126,32"/>
-<area shape="poly" title=" " alt="" coords="68,47,68,159,63,159,63,47"/>
+<area shape="rect" title="探索において目標となる座標や角度，評価する値についてまとめた構造体" alt="" coords="98,128,164,155"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,118,32"/>
+<area shape="poly" title=" " alt="" coords="65,46,71,75,83,103,94,115,108,125,105,130,91,119,79,105,66,76,60,47"/>
+<area shape="rect" href="structdl__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="142,5,258,32"/>
+<area shape="poly" title=" " alt="" coords="197,47,188,76,173,106,150,129,146,126,169,102,183,74,192,46"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:a7769beb4a3d694415a0e6ee3455017d5"><td class="memItemLeft" align="right" valign="top"><a id="a7769beb4a3d694415a0e6ee3455017d5" name="a7769beb4a3d694415a0e6ee3455017d5"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetDirection</b></td></tr>
-<tr class="separator:a7769beb4a3d694415a0e6ee3455017d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9cc66207bb53a83005e28909e309992"><td class="memItemLeft" align="right" valign="top"><a id="ad9cc66207bb53a83005e28909e309992" name="ad9cc66207bb53a83005e28909e309992"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetPosition</b></td></tr>
-<tr class="separator:ad9cc66207bb53a83005e28909e309992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787856ad2c782bb6a051299dcb79f659"><td class="memItemLeft" align="right" valign="top"><a id="a787856ad2c782bb6a051299dcb79f659" name="a787856ad2c782bb6a051299dcb79f659"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetRotation</b></td></tr>
-<tr class="separator:a787856ad2c782bb6a051299dcb79f659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae298b4828fc8f219c026b2d8ae291aba"><td class="memItemLeft" align="right" valign="top"><a id="ae298b4828fc8f219c026b2d8ae291aba" name="ae298b4828fc8f219c026b2d8ae291aba"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetAngle</b></td></tr>
-<tr class="separator:ae298b4828fc8f219c026b2d8ae291aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50aeb5a59baec308045587132502000f"><td class="memItemLeft" align="right" valign="top"><a id="a50aeb5a59baec308045587132502000f" name="a50aeb5a59baec308045587132502000f"></a>
-<a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RotationCenter</b></td></tr>
-<tr class="separator:a50aeb5a59baec308045587132502000f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61df17e0d75ba2e075e077c2274229ba"><td class="memItemLeft" align="right" valign="top"><a id="a61df17e0d75ba2e075e077c2274229ba" name="a61df17e0d75ba2e075e077c2274229ba"></a>
+<a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetDirection</b></td></tr>
+<tr class="memdesc:a61df17e0d75ba2e075e077c2274229ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">目標方向 <br /></td></tr>
+<tr class="separator:a61df17e0d75ba2e075e077c2274229ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c1cd889d926b935d236ba1836857c39"><td class="memItemLeft" align="right" valign="top"><a id="a0c1cd889d926b935d236ba1836857c39" name="a0c1cd889d926b935d236ba1836857c39"></a>
+<a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetPosition</b></td></tr>
+<tr class="memdesc:a0c1cd889d926b935d236ba1836857c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">目標位置 <br /></td></tr>
+<tr class="separator:a0c1cd889d926b935d236ba1836857c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc34415dd66057b029af85cc5f1bd82"><td class="memItemLeft" align="right" valign="top"><a id="accc34415dd66057b029af85cc5f1bd82" name="accc34415dd66057b029af85cc5f1bd82"></a>
+<a class="el" href="structdl__vec_1_1_s_rotator.html">dl_vec::SRotator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetRotation</b></td></tr>
+<tr class="memdesc:accc34415dd66057b029af85cc5f1bd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">目標角度 <br /></td></tr>
+<tr class="separator:accc34415dd66057b029af85cc5f1bd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0fd409b7e8ac97e7c847f45bb15f44"><td class="memItemLeft" align="right" valign="top"><a id="a9f0fd409b7e8ac97e7c847f45bb15f44" name="a9f0fd409b7e8ac97e7c847f45bb15f44"></a>
+<a class="el" href="structdl__vec_1_1_s_rotator.html">dl_vec::SRotator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetAngle</b></td></tr>
+<tr class="memdesc:a9f0fd409b7e8ac97e7c847f45bb15f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">目標旋回方向（反時計回り→正） <br /></td></tr>
+<tr class="separator:a9f0fd409b7e8ac97e7c847f45bb15f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a13facdf1e9abead5ec592606da69d0"><td class="memItemLeft" align="right" valign="top"><a id="a3a13facdf1e9abead5ec592606da69d0" name="a3a13facdf1e9abead5ec592606da69d0"></a>
+<a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RotationCenter</b></td></tr>
+<tr class="memdesc:a3a13facdf1e9abead5ec592606da69d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転中心 <br /></td></tr>
+<tr class="separator:a3a13facdf1e9abead5ec592606da69d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad6708c5f5c7a7758243098bf4ead4a5"><td class="memItemLeft" align="right" valign="top"><a id="aad6708c5f5c7a7758243098bf4ead4a5" name="aad6708c5f5c7a7758243098bf4ead4a5"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>TurningRadius</b></td></tr>
+<tr class="memdesc:aad6708c5f5c7a7758243098bf4ead4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋回半径 <br /></td></tr>
 <tr class="separator:aad6708c5f5c7a7758243098bf4ead4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62493eac6ff3d3df551e549b78cfd46"><td class="memItemLeft" align="right" valign="top"><a id="aa62493eac6ff3d3df551e549b78cfd46" name="aa62493eac6ff3d3df551e549b78cfd46"></a>
 <a class="el" href="_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TargetMode</b></td></tr>
+<tr class="memdesc:aa62493eac6ff3d3df551e549b78cfd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">どうやって目標を評価するか <br /></td></tr>
 <tr class="separator:aa62493eac6ff3d3df551e549b78cfd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>探索において目標となる座標や角度，評価する値についてまとめた構造体 </p>
+<dl class="section date"><dt>日付</dt><dd>2023/07/23 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><hr/>この構造体詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_target_8h_source.html">Target.h</a></li>
 </ul>
 </div><!-- contents -->

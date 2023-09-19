@@ -1,0 +1,15 @@
+digraph "Mouse::getDiffPosY"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Mouse::getDiffPosY",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="CameraController::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af",tooltip="キー入力でカメラを動かす．カメラマネージャーのポインタがなければ即終了する   基本的には毎フレーム呼び出す"];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="CameraGUI::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_g_u_i.html#a493e2281cb696a296b2db4a7a4a72134",tooltip="GUIやカメラの更新を行う"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="GraphicMainBasic::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
+}

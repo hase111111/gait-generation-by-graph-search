@@ -1,0 +1,5 @@
+<map id="dl_leg::makeLegState" name="dl_leg::makeLegState">
+<area shape="rect" id="Node000001" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="5,13,153,40"/>
+<area shape="rect" id="Node000002" href="$namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4" title="重心パターンをbitに変換する関数" alt="" coords="201,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,186,24,186,29,153,29"/>
+</map>

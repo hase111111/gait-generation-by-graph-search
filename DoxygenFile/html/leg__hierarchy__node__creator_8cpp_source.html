@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/leg_hierarchy_node_creator.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('leg__hierarchy__node__creator_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">leg_hierarchy_node_creator.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="leg__hierarchy__node__creator_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="leg__hierarchy__node__creator_8h.html">leg_hierarchy_node_creator.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_graph_search_const_8h.html">GraphSearchConst.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_leg_hierarchy_node_creator.html#a45fc4e42a3076d9b22742f4d4ce34d19">    9</a></span><a class="code hl_function" href="class_leg_hierarchy_node_creator.html#a45fc4e42a3076d9b22742f4d4ce34d19">LegHierarchyNodeCreator::LegHierarchyNodeCreator</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* <span class="keyword">const</span> p_map, <span class="keyword">const</span> <a class="code hl_enumeration" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a> next_move) : <a class="code hl_class" href="class_i_node_creator.html">INodeCreator</a>(p_map, next_move)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_graph_search_const.html#af8d7d49901392d9d03deb31e89e31e9d">GraphSearchConst::DO_DEBUG_PRINT</a>)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;[NodeCreator] LegHierarchyNodeCreator : コンストラクタが呼ばれた\n&quot;</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_leg_hierarchy_node_creator.html#ad5fbcd79acf931687fe468c899f6fe87">   18</a></span><a class="code hl_function" href="class_leg_hierarchy_node_creator.html#ad5fbcd79acf931687fe468c899f6fe87">LegHierarchyNodeCreator::~LegHierarchyNodeCreator</a>()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_graph_search_const.html#af8d7d49901392d9d03deb31e89e31e9d">GraphSearchConst::DO_DEBUG_PRINT</a>)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;[NodeCreator] LegHierarchyNodeCreator : デストラクタが呼ばれた\n&quot;</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_leg_hierarchy_node_creator.html#a7d14b74b36b11760930014a9c54ea2cc">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_leg_hierarchy_node_creator.html#a7d14b74b36b11760930014a9c54ea2cc">LegHierarchyNodeCreator::create</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index, std::vector&lt;SNode&gt;* output_graph)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">//現在，接地している脚の本数を数える</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kLiftedLegNum = <a class="code hl_function" href="namespacedl__leg.html#a02ff9ebb9cfd6a835343a39dc56cc000">dl_leg::getLiftedLegNum</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//遊脚している脚の本数によって処理をする</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">if</span> (kLiftedLegNum == 1)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">// 1 本遊脚している．</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        create1LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 2)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// 2 本遊脚している．</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        create2LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 3)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// 3 本遊脚している．</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        create3LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">//ここに来るのは接地している脚の数が6本 or 1本 or 2本．地面についている脚が3本を切ることはない，何故ならロボットが倒れてしまうため．</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">// </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">//また6本接地しているならば脚を動かせない(遊脚する必要がある)．よって処理を行わない．(そのままの状態を次のノードにする．)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_struct" href="struct_s_node.html">SNode</a> new_node = current_node;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        new_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_node_index, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);       <span class="comment">//次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        (*output_graph).emplace_back(new_node);     <span class="comment">//追加する．</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//全て上の関数にまとめるとごちゃつくので，以下の関数に処理を分けておく．</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> LegHierarchyNodeCreator::create1LegLifted(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index, std::vector&lt;SNode&gt;* output_graph)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">//遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++i)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_struct" href="struct_s_node.html">SNode</a> new_node = current_node;      <span class="comment">//新しい脚状態を生成する.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(0), i);   <span class="comment">//脚状態を変更する．</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        new_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_node_index, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);       <span class="comment">//次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        (*output_graph).emplace_back(new_node); <span class="comment">//追加する．</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> LegHierarchyNodeCreator::create2LegLifted(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index, std::vector&lt;SNode&gt;* output_graph)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">//遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++i)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++j)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <a class="code hl_struct" href="struct_s_node.html">SNode</a> new_node = current_node;      <span class="comment">//新しい脚状態を生成する.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(0), i);           <span class="comment">//脚状態を変更する．</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(1), j);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            new_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_node_index, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);       <span class="comment">//次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            (*output_graph).emplace_back(new_node); <span class="comment">//追加する．</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> LegHierarchyNodeCreator::create3LegLifted(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index, std::vector&lt;SNode&gt;* output_graph)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">//遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">//脚状態 0001(1) から 0111(7)まで 次のパターンを生成する．なお上位bitは遊脚を表す．(0なら遊脚)</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++i)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++j)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 1; k &lt;= <a class="code hl_variable" href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a>; ++k)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <a class="code hl_struct" href="struct_s_node.html">SNode</a> new_node = current_node;      <span class="comment">//新しい脚状態を生成する.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(0), i);   <span class="comment">//脚状態を変更する．</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(1), j);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                <a class="code hl_function" href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a>(new_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_list.at(2), k);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                new_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_node_index, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);       <span class="comment">//次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                (*output_graph).push_back(new_node);    <span class="comment">//追加する．</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="ttc" id="a_graph_search_const_8h_html"><div class="ttname"><a href="_graph_search_const_8h.html">GraphSearchConst.h</a></div></div>
+<div class="ttc" id="aclass_graph_search_const_html_af8d7d49901392d9d03deb31e89e31e9d"><div class="ttname"><a href="class_graph_search_const.html#af8d7d49901392d9d03deb31e89e31e9d">GraphSearchConst::DO_DEBUG_PRINT</a></div><div class="ttdeci">static constexpr bool DO_DEBUG_PRINT</div><div class="ttdoc">デバッグ用の出力をするかどうか</div><div class="ttdef"><b>Definition</b> <a href="_graph_search_const_8h_source.html#l00011">GraphSearchConst.h:11</a></div></div>
+<div class="ttc" id="aclass_i_node_creator_html"><div class="ttname"><a href="class_i_node_creator.html">INodeCreator</a></div><div class="ttdoc">ノード生成インターフェース</div><div class="ttdef"><b>Definition</b> <a href="interface__node__creator_8h_source.html#l00014">interface_node_creator.h:15</a></div></div>
+<div class="ttc" id="aclass_i_node_creator_html_ab19dddbded0d73045d481ff4a89cbd50"><div class="ttname"><a href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">INodeCreator::m_next_move</a></div><div class="ttdeci">const EHexapodMove m_next_move</div><div class="ttdoc">次動作</div><div class="ttdef"><b>Definition</b> <a href="interface__node__creator_8h_source.html#l00031">interface_node_creator.h:31</a></div></div>
+<div class="ttc" id="aclass_leg_hierarchy_node_creator_html_a45fc4e42a3076d9b22742f4d4ce34d19"><div class="ttname"><a href="class_leg_hierarchy_node_creator.html#a45fc4e42a3076d9b22742f4d4ce34d19">LegHierarchyNodeCreator::LegHierarchyNodeCreator</a></div><div class="ttdeci">LegHierarchyNodeCreator(const MapState *const p_map, const EHexapodMove next_move)</div><div class="ttdef"><b>Definition</b> <a href="leg__hierarchy__node__creator_8cpp_source.html#l00009">leg_hierarchy_node_creator.cpp:9</a></div></div>
+<div class="ttc" id="aclass_leg_hierarchy_node_creator_html_a7d14b74b36b11760930014a9c54ea2cc"><div class="ttname"><a href="class_leg_hierarchy_node_creator.html#a7d14b74b36b11760930014a9c54ea2cc">LegHierarchyNodeCreator::create</a></div><div class="ttdeci">void create(const SNode &amp;current_node, const int current_node_index, std::vector&lt; SNode &gt; *output_graph) override</div><div class="ttdoc">重心を平行移動したノードを生成する</div><div class="ttdef"><b>Definition</b> <a href="leg__hierarchy__node__creator_8cpp_source.html#l00027">leg_hierarchy_node_creator.cpp:27</a></div></div>
+<div class="ttc" id="aclass_leg_hierarchy_node_creator_html_ad5fbcd79acf931687fe468c899f6fe87"><div class="ttname"><a href="class_leg_hierarchy_node_creator.html#ad5fbcd79acf931687fe468c899f6fe87">LegHierarchyNodeCreator::~LegHierarchyNodeCreator</a></div><div class="ttdeci">~LegHierarchyNodeCreator()</div><div class="ttdef"><b>Definition</b> <a href="leg__hierarchy__node__creator_8cpp_source.html#l00018">leg_hierarchy_node_creator.cpp:18</a></div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00021">map_state.h:22</a></div></div>
+<div class="ttc" id="ahexapod__next__move_8h_html_a8104c86893d665325819f10739ff2e3f"><div class="ttname"><a href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a></div><div class="ttdeci">EHexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．サイズは 1 byte．sizeofで確認済み</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00010">hexapod_next_move.h:11</a></div></div>
+<div class="ttc" id="aleg__hierarchy__node__creator_8h_html"><div class="ttname"><a href="leg__hierarchy__node__creator_8h.html">leg_hierarchy_node_creator.h</a></div></div>
+<div class="ttc" id="aleg__state_8h_html"><div class="ttname"><a href="leg__state_8h.html">leg_state.h</a></div><div class="ttdoc">このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの   行数 : 138</div></div>
+<div class="ttc" id="anamespacedl__leg_html_a02ff9ebb9cfd6a835343a39dc56cc000"><div class="ttname"><a href="namespacedl__leg.html#a02ff9ebb9cfd6a835343a39dc56cc000">dl_leg::getLiftedLegNum</a></div><div class="ttdeci">int getLiftedLegNum(const int _leg_state)</div><div class="ttdoc">遊脚している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00065">leg_state.cpp:65</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_a10f0bc08f972b97e5b0fc3cfc42bc2a7"><div class="ttname"><a href="namespacedl__leg.html#a10f0bc08f972b97e5b0fc3cfc42bc2a7">dl_leg::DISCRETE_NUM</a></div><div class="ttdeci">constexpr int DISCRETE_NUM</div><div class="ttdoc">脚状態の離散化数．leg_state.hの通り7通り．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8h_source.html#l00029">leg_state.h:29</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_a7f0087bafff21a191f0f9db91b71e3a7"><div class="ttname"><a href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a></div><div class="ttdeci">void getLiftedLegNumWithVector(const int _leg_state, std::vector&lt; int &gt; &amp;_res_number)</div><div class="ttdoc">遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00083">leg_state.cpp:83</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_a860c75e7c9875064030a385d40bc4306"><div class="ttname"><a href="namespacedl__leg.html#a860c75e7c9875064030a385d40bc4306">dl_leg::changeLegState</a></div><div class="ttdeci">bool changeLegState(int &amp;_leg_state, const int _leg_num, const int _new_state)</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00109">leg_state.cpp:109</a></div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00021">node.h:22</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a99876a79a2e973f64a25fb72210086b0"><div class="ttname"><a href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">SNode::changeNextNode</a></div><div class="ttdeci">constexpr void changeNextNode(const int parent, const EHexapodMove next)</div><div class="ttdoc">次の動作を設定する関数．</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00050">node.h:50</a></div></div>
+<div class="ttc" id="astruct_s_node_html_aea31c572314e026c394d300dd605b930"><div class="ttname"><a href="struct_s_node.html#aea31c572314e026c394d300dd605b930">SNode::leg_state</a></div><div class="ttdeci">int leg_state</div><div class="ttdoc">[4 byte] 脚状態，重心パターンをbitで表す．leg_state.hにこれを操作する用の名前空間と関数がある．旧名 leg_con</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00101">node.h:101</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="leg__hierarchy__node__creator_8cpp.html">leg_hierarchy_node_creator.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

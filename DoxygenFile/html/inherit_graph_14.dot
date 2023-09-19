@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="GraphicDataBroker",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html",tooltip="画像表示部と，データ処理部を結びつける仲介人クラス"];
+  Node0 [id="Node000000",label="dl_vec::SRotator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_rotator.html",tooltip="回転を表す構造体．XYZオイラー角"];
 }

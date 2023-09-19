@@ -1,0 +1,60 @@
+# If this file is garbled, the problem is most likely due to character encoding.
+# This file is written in utf - 8, and can be read by installing VS Code and configuring it to automatically detect the character encoding.
+
+# This file is written in the TOML format. Just google it and you'll find easy to understand information on the wiki, so try looking it up.
+# This file is a file for describing program settings.
+# This file can also be edited with a text editor such as Notepad.
+# If you want to change the simulation conditions, try changing them from here.
+# Lines starting with a sharp are comments. They do not affect the program.
+# Following description is written in Japanese. 
+
+# TOMLという形式で記述しています．wikiでググるだけでもわかりやすい情報が出るので調べてみてください．
+# このファイルは，プログラムの設定を記述するためのファイルです．
+# メモ帳などのテキストエディタでもこのファイルは編集することができます．
+# シミュレーション条件を変更したい場合は，ここから変更を行うようにしてみてください．
+# このようにシャープで始まる行はコメントです．プログラムに影響を与えないため，メモ代わりに使うことができます．
+
+
+
+title = "graph_search_settings"
+
+
+#ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく
+[version]
+#
+major = 0
+#
+minor = 5
+#
+patch = 0
+
+
+#プログラムの起動モードの設定です
+[mode]
+#起動時に実行モードについて質問をするようにします (true/false)
+ask_about_modes = true
+#デフォルトの実行モードを設定します．(simulation/viewer/display_test/result_viewer)
+default_mode = "result_viewer"
+#各歩容生成ごとにステップ実行するかどうかを設定します (true/false)
+do_step_execution_each_gait = false
+#シミュレーションをステップ実行するかどうかを設定します (true/false)
+do_step_execution = true
+
+
+#表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．
+[display]
+#コマンドラインへの出力を行います (true/false)
+cmd_output = true
+#ウィンドウのフレームレートを設定します．推奨値は60か30です．
+window_pos_x = 60
+#GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．
+window_size_y = 720
+#GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．
+gui_display_quality = "high"
+#コマンドラインに出力する文字列をどこまで許可するか，(debug,info,error,warning,system)の順に優先順位が高い
+cmd_permission = "DEBUG"
+#GUI(dxlibによる表示)での表示を行います (true/false)
+gui_display = true
+#GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．
+window_size_x = 1280
+

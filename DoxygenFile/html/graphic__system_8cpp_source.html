@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graphic_system.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('graphic__system_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">graphic_system.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="graphic__system_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__system_8h.html">graphic_system.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;DxLib.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__const_8h.html">graphic_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__loop_8h.html">graphic_loop.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__sample_8h.html">graphic_main_sample.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__basic_8h.html">graphic_main_basic.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__test_8h.html">graphic_main_test.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__graph__viewer_8h.html">graphic_main_graph_viewer.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_dxlib3_d_function_8h.html">Dxlib3DFunction.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_define_8h.html">Define.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_graphic_system.html#a21c01c964ac88ba9658ee0b769d9b50a">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_system.html#a21c01c964ac88ba9658ee0b769d9b50a">GraphicSystem::init</a>(std::unique_ptr&lt;IGraphicMain&gt;&amp;&amp; graphic_main)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    mp_InterfaceGraphicMain = std::move(graphic_main);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">GraphicSystem::main</a>()</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">//そもそも描画処理を使わないならば即終了</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_define.html#ae3407e15646bc0278ac23247dc7d405f">Define::FLAG_GRAPHIC_AVAILABLE</a>)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;画像表示を行わない設定になっているため，画像表示を終了します．Defineクラスの変数：FLAG_GRAPHIC_AVAILABLEで変更できます．&quot;</span> &lt;&lt; std::endl; <span class="comment">// cout関数はスレッドセーフではないので本当は呼ぶべきではない．</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">//ブローカーがnull(存在しない)なら終了</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!mp_InterfaceGraphicMain)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;IGraphicMainクラスの受け取りに失敗したため，画像表示を終了します．このクラスの呼び出しを見直してください．&quot;</span> &lt;&lt; std::endl;    <span class="comment">// cout関数はスレッドセーフではないので本当は呼ぶべきではない．</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!dxlibInit())</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;DxLib_Init関数に失敗したため，画像表示を終了します．2重起動している可能性があります&quot;</span> &lt;&lt; std::endl;    <span class="comment">// cout関数はスレッドセーフではないので本当は呼ぶべきではない．</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//描画の処理を行うクラスをセットする．実行する描画の内容を変更したいならば，このようにIGraphicMainを継承した他のクラスを&lt;&gt;に入れてください．</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="class_graphic_loop.html">GraphicLoop</a> looper(std::move(mp_InterfaceGraphicMain));</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">while</span> (!ProcessMessage())</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">//falseが帰った場合，ループを抜ける．</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> (!looper.<a class="code hl_function" href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c">loop</a>())</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">//終了処理を行う．</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    dxlibFinalize();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">bool</span> GraphicSystem::dxlibInit()</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行します．</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="namespacemy_dxlib3_d_func.html#ac8fddebad36820b30eda0b08e02f214a">myDxlib3DFunc::initDxlib3D</a>();                       <span class="comment">//3D関連の初期化を行う．      </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    SetOutApplicationLogValidFlag(FALSE);               <span class="comment">//ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力されます．</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    SetMainWindowText(<a class="code hl_variable" href="class_graphic_const.html#a4a78eca54058546c9451d86ccffce52e">GraphicConst::WIN_NAME</a>.c_str());  <span class="comment">//タイトルを変更．ウィンドウの左上に表示されるものです．</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    SetWindowSizeChangeEnableFlag(FALSE);               <span class="comment">//ウィンドウサイズを自由に変更できないようにする．</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    SetAlwaysRunFlag(TRUE);                             <span class="comment">//ウインドウがアクティブではない状態でも処理を続行するように変更．</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    ChangeWindowMode(TRUE);                             <span class="comment">//ウインドウモードに変更．これをしないとフルスクリーンで表示されます．</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">//ウィンドウの横幅，縦幅，カラーを設定します．</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    SetGraphMode(<a class="code hl_variable" href="class_graphic_const.html#a073e8693a5cc6d220d9ca9691576efac">GraphicConst::WIN_X</a>, <a class="code hl_variable" href="class_graphic_const.html#a8b347e7412b76809abb2e9f8bf8d1682">GraphicConst::WIN_Y</a>, <a class="code hl_variable" href="class_graphic_const.html#aee9d43209b842cc0f7e5fcd39a76a418">GraphicConst::COLOR_BIT</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">//ＤＸライブラリ初期化処理</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (DxLib_Init() &lt; 0)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">//描画先を裏画面にする．説明が難しいのですが，画面のちらつきを押えてくれる効果があり，Dxlibを使う以上必須の項目です．</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    SetDrawScreen(DX_SCREEN_BACK);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// 背景色の設定</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    SetBackgroundColor(<a class="code hl_variable" href="class_graphic_const.html#a096c2db3c55ed94c80c5db0003a7c8d9">GraphicConst::BACK_COLOR_R</a>, <a class="code hl_variable" href="class_graphic_const.html#aff0a5b75186f9495a4461a262422383f">GraphicConst::BACK_COLOR_G</a>, <a class="code hl_variable" href="class_graphic_const.html#a06a9c702f66ccf28c271a0a7fbc73a3e">GraphicConst::BACK_COLOR_B</a>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> GraphicSystem::dxlibFinalize()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// DXライブラリの終了処理を呼ぶ.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    DxLib_End();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="ttc" id="a_define_8h_html"><div class="ttname"><a href="_define_8h.html">Define.h</a></div><div class="ttdoc">プロジェクト全体の定数</div></div>
+<div class="ttc" id="a_dxlib3_d_function_8h_html"><div class="ttname"><a href="_dxlib3_d_function_8h.html">Dxlib3DFunction.h</a></div><div class="ttdoc">Dxlibの3D表示を行う処理を書き直した関数をまとめたもの．</div></div>
+<div class="ttc" id="aclass_define_html_ae3407e15646bc0278ac23247dc7d405f"><div class="ttname"><a href="class_define.html#ae3407e15646bc0278ac23247dc7d405f">Define::FLAG_GRAPHIC_AVAILABLE</a></div><div class="ttdeci">static const bool FLAG_GRAPHIC_AVAILABLE</div><div class="ttdoc">グラフィックを表示するときはtrue</div><div class="ttdef"><b>Definition</b> <a href="_define_8h_source.html#l00016">Define.h:16</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_a06a9c702f66ccf28c271a0a7fbc73a3e"><div class="ttname"><a href="class_graphic_const.html#a06a9c702f66ccf28c271a0a7fbc73a3e">GraphicConst::BACK_COLOR_B</a></div><div class="ttdeci">static const int BACK_COLOR_B</div><div class="ttdoc">ウィンドウ背景色． 青色成分</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00023">graphic_const.h:23</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_a073e8693a5cc6d220d9ca9691576efac"><div class="ttname"><a href="class_graphic_const.html#a073e8693a5cc6d220d9ca9691576efac">GraphicConst::WIN_X</a></div><div class="ttdeci">static const int WIN_X</div><div class="ttdoc">ウィンドウの横幅．dxlibではウィンドウの横方向に，右向きを正として X 軸をとります．</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00017">graphic_const.h:17</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_a096c2db3c55ed94c80c5db0003a7c8d9"><div class="ttname"><a href="class_graphic_const.html#a096c2db3c55ed94c80c5db0003a7c8d9">GraphicConst::BACK_COLOR_R</a></div><div class="ttdeci">static const int BACK_COLOR_R</div><div class="ttdoc">ウィンドウ背景色． 赤色成分</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00021">graphic_const.h:21</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_a4a78eca54058546c9451d86ccffce52e"><div class="ttname"><a href="class_graphic_const.html#a4a78eca54058546c9451d86ccffce52e">GraphicConst::WIN_NAME</a></div><div class="ttdeci">static const std::string WIN_NAME</div><div class="ttdoc">ウィンドウの名前．</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00016">graphic_const.h:16</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_a8b347e7412b76809abb2e9f8bf8d1682"><div class="ttname"><a href="class_graphic_const.html#a8b347e7412b76809abb2e9f8bf8d1682">GraphicConst::WIN_Y</a></div><div class="ttdeci">static const int WIN_Y</div><div class="ttdoc">ウィンドウの縦幅．dxlibではウィンドウの縦方向に，下向きを正として Y 軸をとります．</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00018">graphic_const.h:18</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_aee9d43209b842cc0f7e5fcd39a76a418"><div class="ttname"><a href="class_graphic_const.html#aee9d43209b842cc0f7e5fcd39a76a418">GraphicConst::COLOR_BIT</a></div><div class="ttdeci">static const int COLOR_BIT</div><div class="ttdoc">色を表現するbit数．通常32で良いが軽くするなら16にする．</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00019">graphic_const.h:19</a></div></div>
+<div class="ttc" id="aclass_graphic_const_html_aff0a5b75186f9495a4461a262422383f"><div class="ttname"><a href="class_graphic_const.html#aff0a5b75186f9495a4461a262422383f">GraphicConst::BACK_COLOR_G</a></div><div class="ttdeci">static const int BACK_COLOR_G</div><div class="ttdoc">ウィンドウ背景色． 緑色成分</div><div class="ttdef"><b>Definition</b> <a href="graphic__const_8h_source.html#l00022">graphic_const.h:22</a></div></div>
+<div class="ttc" id="aclass_graphic_loop_html"><div class="ttname"><a href="class_graphic_loop.html">GraphicLoop</a></div><div class="ttdoc">GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理を実装している．いわゆるゲームループである．</div><div class="ttdef"><b>Definition</b> <a href="graphic__loop_8h_source.html#l00016">graphic_loop.h:17</a></div></div>
+<div class="ttc" id="aclass_graphic_loop_html_abc4bf428739328c7dd4484d88472b40c"><div class="ttname"><a href="class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c">GraphicLoop::loop</a></div><div class="ttdeci">bool loop()</div><div class="ttdoc">GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理</div><div class="ttdef"><b>Definition</b> <a href="graphic__loop_8cpp_source.html#l00019">graphic_loop.cpp:19</a></div></div>
+<div class="ttc" id="aclass_graphic_system_html_a1d38633900a8cbcacaf9c3afbe728976"><div class="ttname"><a href="class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976">GraphicSystem::main</a></div><div class="ttdeci">void main()</div><div class="ttdoc">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．  またメンバ関数...</div><div class="ttdef"><b>Definition</b> <a href="graphic__system_8cpp_source.html#l00021">graphic_system.cpp:21</a></div></div>
+<div class="ttc" id="aclass_graphic_system_html_a21c01c964ac88ba9658ee0b769d9b50a"><div class="ttname"><a href="class_graphic_system.html#a21c01c964ac88ba9658ee0b769d9b50a">GraphicSystem::init</a></div><div class="ttdeci">void init(std::unique_ptr&lt; IGraphicMain &gt; &amp;&amp;graphic_main)</div><div class="ttdoc">GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る.</div><div class="ttdef"><b>Definition</b> <a href="graphic__system_8cpp_source.html#l00015">graphic_system.cpp:15</a></div></div>
+<div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div><div class="ttdoc">画像表示処理用の定数．   行数 : 46</div></div>
+<div class="ttc" id="agraphic__loop_8h_html"><div class="ttname"><a href="graphic__loop_8h.html">graphic_loop.h</a></div><div class="ttdoc">画像描画処理のメインループで呼ばれる処理であるGraphicLoopクラス   行数 : 41</div></div>
+<div class="ttc" id="agraphic__main__basic_8h_html"><div class="ttname"><a href="graphic__main__basic_8h.html">graphic_main_basic.h</a></div><div class="ttdoc">基本的な描画クラス．   行数 : 57</div></div>
+<div class="ttc" id="agraphic__main__graph__viewer_8h_html"><div class="ttname"><a href="graphic__main__graph__viewer_8h.html">graphic_main_graph_viewer.h</a></div><div class="ttdoc">GraphicMainGraphViewerクラス   行数 : 44</div></div>
+<div class="ttc" id="agraphic__main__sample_8h_html"><div class="ttname"><a href="graphic__main__sample_8h.html">graphic_main_sample.h</a></div><div class="ttdoc">IGraphicMainの使い方解説   行数 : 37</div></div>
+<div class="ttc" id="agraphic__main__test_8h_html"><div class="ttname"><a href="graphic__main__test_8h.html">graphic_main_test.h</a></div><div class="ttdoc">GraphicMainTestクラス   行数 : 42</div></div>
+<div class="ttc" id="agraphic__system_8h_html"><div class="ttname"><a href="graphic__system_8h.html">graphic_system.h</a></div><div class="ttdoc">Dxlibの処理を行うGraphicSystemクラス．   行数 : 49</div></div>
+<div class="ttc" id="anamespacemy_dxlib3_d_func_html_ac8fddebad36820b30eda0b08e02f214a"><div class="ttname"><a href="namespacemy_dxlib3_d_func.html#ac8fddebad36820b30eda0b08e02f214a">myDxlib3DFunc::initDxlib3D</a></div><div class="ttdeci">void initDxlib3D()</div><div class="ttdoc">3D処理を行う上で必要な初期化処理をまとめたもの．</div><div class="ttdef"><b>Definition</b> <a href="_dxlib3_d_function_8cpp_source.html#l00009">Dxlib3DFunction.cpp:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="graphic__system_8cpp.html">graphic_system.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

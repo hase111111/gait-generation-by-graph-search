@@ -1,7 +1,0 @@
-<map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classtesting_1_1_test.html" title=" " alt="" coords="65,5,159,32"/>
-<area shape="rect" id="Node000001" href="$classtesting_1_1_test_with_param.html" title=" " alt="" coords="267,31,456,57"/>
-<area shape="poly" id="edge29_Node000000_Node000001" title=" " alt="" coords="174,22,267,32,266,37,173,28"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1_with_param_interface.html" title=" " alt="" coords="5,56,219,83"/>
-<area shape="poly" id="edge30_Node000002_Node000001" title=" " alt="" coords="233,54,266,51,266,56,234,60"/>
-</map>

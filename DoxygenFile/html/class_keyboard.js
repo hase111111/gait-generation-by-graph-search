@@ -1,6 +1,6 @@
 var class_keyboard =
 [
-    [ "getPressingCount", "class_keyboard.html#ac10c13870ba471f267d5ced0f233a398", null ],
-    [ "getReleasingCount", "class_keyboard.html#a0c6cbe2c73c4aa8be1e15c5dd1874e0e", null ],
+    [ "getPressingCount", "class_keyboard.html#a4f42bddd75326532e78c661770f5e6a8", null ],
+    [ "getReleasingCount", "class_keyboard.html#abf81c28d6817e0634c0259ced52cc3a1", null ],
     [ "update", "class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab", null ]
 ];

@@ -1,13 +1,16 @@
 <map id="GraphicSystem::main" name="GraphicSystem::main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,153,108"/>
-<area shape="rect" id="Node000002" href="$class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title=" " alt="" coords="201,81,327,108"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,92,186,92,186,97,153,97"/>
-<area shape="rect" id="Node000003" href="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="375,5,516,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="293,78,374,42,390,35,392,40,376,46,295,83"/>
-<area shape="rect" id="Node000004" href="$class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="384,56,507,83"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="327,83,369,77,370,83,328,89"/>
-<area shape="rect" id="Node000005" href="$class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a" title="マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．" alt="" coords="392,107,499,133"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="328,101,378,108,377,113,327,106"/>
-<area shape="rect" id="Node000006" href="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b" title="処理が早すぎる場合，FPSを一定にするために待つ．" alt="" coords="409,157,483,184"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="295,106,376,143,396,151,394,156,374,148,293,111"/>
+<area shape="rect" id="Node000001" title="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． &#160;またメンバ関数..." alt="" coords="5,97,153,124"/>
+<area shape="rect" id="Node000002" href="$class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理" alt="" coords="201,97,327,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,108,186,108,186,113,153,113"/>
+<area shape="rect" id="Node000003" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="375,5,517,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,94,399,53,401,58,313,99"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="281,95,365,52,367,57,284,99"/>
+<area shape="rect" id="Node000004" href="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="376,72,517,99"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="327,99,361,95,361,100,328,105"/>
+<area shape="rect" id="Node000005" href="$class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="385,123,508,149"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="328,117,370,123,370,128,327,122"/>
+<area shape="rect" id="Node000006" href="$class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a" title="マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．" alt="" coords="393,173,500,200"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="294,122,376,159,392,165,390,170,374,164,292,127"/>
+<area shape="rect" id="Node000007" href="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b" title="処理が早すぎる場合，FPSを一定にするために待つ．" alt="" coords="409,224,483,251"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="279,122,319,165,347,189,376,210,396,220,394,224,374,214,343,193,316,169,275,126"/>
 </map>

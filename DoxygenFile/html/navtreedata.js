@@ -25,32 +25,6 @@
 var NAVTREE =
 [
   [ "DesignLabDoxygen", "index.html", [
-    [ "Customization Points", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html", [
-      [ "Header <tt>gtest.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md1", [
-        [ "The following macros can be defined:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md2", null ]
-      ] ],
-      [ "Header <tt>gtest-port.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md3", [
-        [ "Flag related macros:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md4", null ],
-        [ "Logging:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md5", null ],
-        [ "Threading:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md6", null ],
-        [ "Underlying library support features", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md7", null ],
-        [ "Exporting API symbols:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md8", null ]
-      ] ],
-      [ "Header <tt>gtest-printers.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2paaa390c49ef67a9865c6ef04411b725fb.html#autotoc_md9", null ]
-    ] ],
-    [ "Customization Points", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html", [
-      [ "Header <tt>gtest.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md11", [
-        [ "The following macros can be defined:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md12", null ]
-      ] ],
-      [ "Header <tt>gtest-port.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md13", [
-        [ "Flag related macros:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md14", null ],
-        [ "Logging:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md15", null ],
-        [ "Threading:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md16", null ],
-        [ "Underlying library support features", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md17", null ],
-        [ "Exporting API symbols:", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md18", null ]
-      ] ],
-      [ "Header <tt>gtest-printers.h</tt>", "md__c_1_2_users_2taisei_2_desktop_2main_2program_2_x_e7_x_a0_x94_x_e7_x_a9_x_b6_2_design_lab_2pa43dd692392383ee9fa7336f1bc1ec64c.html#autotoc_md19", null ]
-    ] ],
     [ "名前空間", "namespaces.html", [
       [ "名前空間一覧", "namespaces.html", "namespaces_dup" ],
       [ "名前空間メンバ", "namespacemembers.html", [
@@ -65,7 +39,7 @@ var NAVTREE =
       [ "クラス索引", "classes.html", null ],
       [ "クラス階層", "hierarchy.html", "hierarchy" ],
       [ "クラスメンバ", "functions.html", [
-        [ "全て", "functions.html", null ],
+        [ "全て", "functions.html", "functions_dup" ],
         [ "関数", "functions_func.html", null ],
         [ "変数", "functions_vars.html", null ]
       ] ]
@@ -83,9 +57,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_b_f_sin_hierarchy_8h_source.html",
-"class_graphic_main_graph_viewer.html",
-"function__walking__pattern__generator_8h_source.html",
-"structtesting_1_1internal_1_1_void_t.html"
+"class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3",
+"keyboard_8h_source.html",
+"structdl__vec_1_1_s_vector2.html#a2d3febc3debf883cc0ea2e6a04459a97"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

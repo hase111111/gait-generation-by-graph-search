@@ -1,0 +1,7 @@
+<map id="dl_leg::changeLegState" name="dl_leg::changeLegState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,163,57"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="213,5,360,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,31,198,27,198,32,163,37"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#a1c2e0543f9f2f5251c5edb6ee78d1605" title=" " alt="" coords="211,56,362,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,51,196,55,196,61,163,57"/>
+</map>

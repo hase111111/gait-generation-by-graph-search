@@ -99,19 +99,25 @@ $(document).ready(function(){initNavTree('class_node_validity_checker.html','');
 <p>動作のループを感知するクラス  
  <a href="class_node_validity_checker.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_node_validity_checker_8h_source.html">NodeValidityChecker.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="node__validity__checker_8h_source.html">node_validity_checker.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a28dbdcd0c4e11a0bf94db626ef5c3dfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_validity_checker.html#a28dbdcd0c4e11a0bf94db626ef5c3dfc">setNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_node)</td></tr>
-<tr class="separator:a28dbdcd0c4e11a0bf94db626ef5c3dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4d3908c8880c61ab953d65f71ab97bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_validity_checker.html#aa4d3908c8880c61ab953d65f71ab97bf">setNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node)</td></tr>
+<tr class="separator:aa4d3908c8880c61ab953d65f71ab97bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaae516036316439b7617d347531667e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_validity_checker.html#aaae516036316439b7617d347531667e0">isLoopMove</a> () const</td></tr>
 <tr class="separator:aaae516036316439b7617d347531667e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>動作のループを感知するクラス </p>
-<p>グラフ探索を用いてロボットの歩容生成をしていると，最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある．<br  />
- それを探知して，歩容生成に失敗していることを通達するクラス． </p><dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2023/08/06</dd></dl>
+<p>グラフ探索を用いてロボットの歩容生成をしていると，最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある． <br  />
+ それを探知して，歩容生成に失敗していることを通達するクラス． <br  />
+ [deque(デック)について] <br  />
+ std::vectorの亜種．<br  />
+ vectorとの違いとして，先頭と末尾の要素の追加・削除が高速である． <br  />
+ 参考 : <a href="https://cpprefjp.github.io/reference/deque/deque.html">https://cpprefjp.github.io/reference/deque/deque.html</a> </p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="aaae516036316439b7617d347531667e0" name="aaae516036316439b7617d347531667e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaae516036316439b7617d347531667e0">&#9670;&#160;</a></span>isLoopMove()</h2>
@@ -141,8 +147,8 @@ $(document).ready(function(){initNavTree('class_node_validity_checker.html','');
 
 </div>
 </div>
-<a id="a28dbdcd0c4e11a0bf94db626ef5c3dfc" name="a28dbdcd0c4e11a0bf94db626ef5c3dfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28dbdcd0c4e11a0bf94db626ef5c3dfc">&#9670;&#160;</a></span>setNode()</h2>
+<a id="aa4d3908c8880c61ab953d65f71ab97bf" name="aa4d3908c8880c61ab953d65f71ab97bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4d3908c8880c61ab953d65f71ab97bf">&#9670;&#160;</a></span>setNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +157,7 @@ $(document).ready(function(){initNavTree('class_node_validity_checker.html','');
           <td class="memname">void NodeValidityChecker::setNode </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -165,8 +171,8 @@ $(document).ready(function(){initNavTree('class_node_validity_checker.html','');
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_node_validity_checker_a28dbdcd0c4e11a0bf94db626ef5c3dfc_icgraph.png" border="0" usemap="#aclass_node_validity_checker_a28dbdcd0c4e11a0bf94db626ef5c3dfc_icgraph" alt=""/></div>
-<map name="aclass_node_validity_checker_a28dbdcd0c4e11a0bf94db626ef5c3dfc_icgraph" id="aclass_node_validity_checker_a28dbdcd0c4e11a0bf94db626ef5c3dfc_icgraph">
+<div class="center"><img src="class_node_validity_checker_aa4d3908c8880c61ab953d65f71ab97bf_icgraph.png" border="0" usemap="#aclass_node_validity_checker_aa4d3908c8880c61ab953d65f71ab97bf_icgraph" alt=""/></div>
+<map name="aclass_node_validity_checker_aa4d3908c8880c61ab953d65f71ab97bf_icgraph" id="aclass_node_validity_checker_aa4d3908c8880c61ab953d65f71ab97bf_icgraph">
 <area shape="rect" title=" " alt="" coords="184,5,326,48"/>
 <area shape="rect" href="class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,13,136,40"/>
 <area shape="poly" title=" " alt="" coords="169,29,136,29,136,24,169,24"/>
@@ -176,8 +182,8 @@ $(document).ready(function(){initNavTree('class_node_validity_checker.html','');
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_node_validity_checker_8h_source.html">NodeValidityChecker.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/NodeValidityChecker.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="node__validity__checker_8h_source.html">node_validity_checker.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/node_validity_checker.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

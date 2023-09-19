@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_type.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('com__type_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">com_type.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="com__type_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__const_8h.html">hexapod_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_com_type.html">ComType</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c">   26</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c">COM_PATTERN_NUM</a> = 10;     </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">   28</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a> = 36;        </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> BAN_LIST_ARRAY_SIZE = 23;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> BAN_LIST[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>][BAN_LIST_ARRAY_SIZE] =</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    { 0, 1, 2, 3, 4, 5,       8, 9,10,11,12,   14,   16,      19,20,21,22,      25,   27,28,      31,32,   34    }, <span class="comment">//右前脚</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    { 0,    2, 3, 4, 5, 6, 7, 8,      11,12,13,   15,   17,      20,21,22,23,      26,   28,29,      32,33,   35 }, <span class="comment">//右中脚</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    { 0, 1,    3, 4, 5, 6, 7,    9,10,   12,13,14,   16,   18,      21,22,23,24,      27,   29,30,      33,34    }, <span class="comment">//右後脚</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    { 0, 1, 2,    4, 5, 6,    8, 9,   11,   13,14,15,   17,18,19,      22,23,24,25,      28,      31,      34,35 }, <span class="comment">//左後脚</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    { 0, 1, 2, 3,    5, 6, 7, 8,   10,   12,   14,15,16,   18,19,20,      23,   25,26,      29,30,   32,      35 }, <span class="comment">//左中脚</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    { 0, 1, 2, 3, 4,    6, 7,    9,10,11,   13,   15,   17,18,19,20,21,      24,   26,27,      30,31,   33       }  <span class="comment">//左前脚</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> std::vector&lt; std::vector&lt;int&gt; &gt; COMTYPE_BAN_LIST =</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        { 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 }, <span class="comment">//パターン0 どの隣りあった足も上げることができない</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        { 18, 19,             23, 24, 25,             29, 30, 31,             35 }, <span class="comment">//パターン6</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        { 18, 19, 20,             24, 25, 26,             30, 31, 32 },             <span class="comment">//パターン1</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        { 19, 20, 21,             25, 26, 27,             31, 32, 33 },         <span class="comment">//パターン2</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        { 20, 21, 22,             26, 27, 28,             32, 33, 34 },     <span class="comment">//パターン3</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        { 21, 22, 23,             27, 28, 29,             33, 34, 35 }, <span class="comment">//パターン4</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        { 18,             22, 23, 24,             28, 29, 30,             34, 35 }, <span class="comment">//パターン5</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        { 18,     20,     22,     24,     26,     28,     30,     32,     34, },        <span class="comment">//パターン7</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        { 19,     21,     23,     25,     27,     29,     31,     33,     35 }  <span class="comment">//パターン8</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">   59</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">EComPattern</a> : <span class="keywordtype">char</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621abb2fe5c916efb43aab8cbb68f997d2ee">FRONT</a>,          </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c30649875f80bc4b253621e9cf4aa8e">FRONT_LEFT</a>,     </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f">BACK_LEFT</a>,      </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0">BACK</a>,           </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387">BACK_RIGHT</a>,     </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c590d7552bf5fa1953eb0f05c64acd5">FRONT_RIGHT</a>,    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621af092e1961ed9256c01d2318c1f9ecb0c">CENTER_FRONT</a>,   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a8447955000c49ef54f82cb0ed24d8edc">CENTER_BACK</a>,    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_enumvalue" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84">ERROR_POS</a>       </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    };</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4">convertComPatternToBit</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">EComPattern</a> com_pattern);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_enumeration" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">EComPattern</a> <a class="code hl_function" href="namespace_com_type.html#a0815d6c99281b07d48ea3bde35e2169e">convertBitToComPattern</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> bit);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">//接地している脚をtrueとしたbool型の配列と，重心パターンから，可能なものかを出力する</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">bool</span> isAbleCoM(<span class="keyword">const</span> <span class="keywordtype">int</span> com_pattern, <span class="keyword">const</span> <span class="keywordtype">bool</span> ground_leg[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>]);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">//接地している脚をtrueした配列から，重心タイプを出力する関数．該当しないならば負の値を返す</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">char</span> getComTypeFromGroundLeg(<span class="keyword">const</span> <span class="keywordtype">bool</span> ground_leg[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>]);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">//脚状態から，重心タイプを出力する関数．該当しないならば負の値を返す</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">char</span> getComTypeFromLegState(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_state);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">//接地脚を1，遊脚を0としたビットから，重心タイプを出力する関数．該当しないならば負の値を返す</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">char</span> getComTypeFromBit(<span class="keyword">const</span> <span class="keywordtype">int</span> bit);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">//重心タイプから，接地脚を1，遊脚を0としたビットを出力する関数．該当しないならば全てfalseを返す．getComTypeFromBitの逆の処理．</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> getGroundLegFromComType(<span class="keyword">const</span> <span class="keywordtype">int</span> _com_type, <span class="keywordtype">bool</span> _output_ground_leg[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>]);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// CCCより得られるcom patternを用いて，とりえないcom typeをvectorで返す</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> getDonotUseComTypeFromComPattern(<span class="keyword">const</span> <span class="keywordtype">int</span> _com_pattern, std::vector&lt;int&gt; _output);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// CCCより得られるcom patternを用いて，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> checkAbleComTypeFromComPattern(<span class="keyword">const</span> <span class="keywordtype">int</span> _com_pattern, <span class="keywordtype">bool</span> _com_type_able_array[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>]);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">//接地することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> checkAbleComTypeFromNotGroundableLeg(<span class="keyword">const</span> <span class="keywordtype">int</span> not_groundble_leg, <span class="keywordtype">bool</span> output_able_comtype[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>]);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">//遊脚することのできない脚から，とりえないcom typeをすべてfalseにする．_com_type_able_arrayは全36個のcom typeが使用可能かどうかを表すbool型の配列．この値を編集する．</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> checkAbleComTypeFromNotFreeLeg(<span class="keyword">const</span> <span class="keywordtype">int</span> not_free_leg_num, <span class="keywordtype">bool</span> output_able_comtype[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>]);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>} <span class="comment">// namespace ComType</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="ttc" id="aclass_hexapod_const_html_a5c14fbad8f33c6f790898059940226b8"><div class="ttname"><a href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a></div><div class="ttdeci">static constexpr int LEG_NUM</div><div class="ttdoc">Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．</div><div class="ttdef"><b>Definition</b> hexapod_const.h:15</div></div>
+<div class="ttc" id="ahexapod__const_8h_html"><div class="ttname"><a href="hexapod__const_8h.html">hexapod_const.h</a></div><div class="ttdoc">Hexapodの定数をまとめたクラス．   行数 : 70</div></div>
+<div class="ttc" id="anamespace_com_type_html"><div class="ttname"><a href="namespace_com_type.html">ComType</a></div><div class="ttdoc">重心タイプに関する名前空間</div></div>
+<div class="ttc" id="anamespace_com_type_html_a0815d6c99281b07d48ea3bde35e2169e"><div class="ttname"><a href="namespace_com_type.html#a0815d6c99281b07d48ea3bde35e2169e">ComType::convertBitToComPattern</a></div><div class="ttdeci">EComPattern convertBitToComPattern(const int bit)</div><div class="ttdoc">重心パターンをbitから変換する関数</div><div class="ttdef"><b>Definition</b> com_type.cpp:42</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a></div><div class="ttdeci">EComPattern</div><div class="ttdef"><b>Definition</b> com_type.h:60</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0">ComType::EComPattern::BACK</a></div><div class="ttdeci">@ BACK</div><div class="ttdoc">重心が後方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f">ComType::EComPattern::BACK_LEFT</a></div><div class="ttdeci">@ BACK_LEFT</div><div class="ttdoc">重心が左後方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a3c30649875f80bc4b253621e9cf4aa8e"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c30649875f80bc4b253621e9cf4aa8e">ComType::EComPattern::FRONT_LEFT</a></div><div class="ttdeci">@ FRONT_LEFT</div><div class="ttdoc">重心が左前方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a3c590d7552bf5fa1953eb0f05c64acd5"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c590d7552bf5fa1953eb0f05c64acd5">ComType::EComPattern::FRONT_RIGHT</a></div><div class="ttdeci">@ FRONT_RIGHT</div><div class="ttdoc">重心が右前方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84">ComType::EComPattern::ERROR_POS</a></div><div class="ttdeci">@ ERROR_POS</div><div class="ttdoc">エラー</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387">ComType::EComPattern::BACK_RIGHT</a></div><div class="ttdeci">@ BACK_RIGHT</div><div class="ttdoc">重心が右後方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621a8447955000c49ef54f82cb0ed24d8edc"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a8447955000c49ef54f82cb0ed24d8edc">ComType::EComPattern::CENTER_BACK</a></div><div class="ttdeci">@ CENTER_BACK</div><div class="ttdoc">重心が中央後方にある．逆三角径</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621abb2fe5c916efb43aab8cbb68f997d2ee"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621abb2fe5c916efb43aab8cbb68f997d2ee">ComType::EComPattern::FRONT</a></div><div class="ttdeci">@ FRONT</div><div class="ttdoc">重心が前方にある</div></div>
+<div class="ttc" id="anamespace_com_type_html_a744d4b9d4257c8ca2f68bdbed54dd621af092e1961ed9256c01d2318c1f9ecb0c"><div class="ttname"><a href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621af092e1961ed9256c01d2318c1f9ecb0c">ComType::EComPattern::CENTER_FRONT</a></div><div class="ttdeci">@ CENTER_FRONT</div><div class="ttdoc">重心が中央前方にある．三角形</div></div>
+<div class="ttc" id="anamespace_com_type_html_a85fa6fe51d678f1616277b9a5bb6df8c"><div class="ttname"><a href="namespace_com_type.html#a85fa6fe51d678f1616277b9a5bb6df8c">ComType::COM_PATTERN_NUM</a></div><div class="ttdeci">constexpr int COM_PATTERN_NUM</div><div class="ttdoc">重心パターンの数</div><div class="ttdef"><b>Definition</b> com_type.h:26</div></div>
+<div class="ttc" id="anamespace_com_type_html_ab824570eb6c7d8e6fb26f9478e582224"><div class="ttname"><a href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a></div><div class="ttdeci">constexpr int COM_TYPE_NUM</div><div class="ttdoc">重心タイプの数</div><div class="ttdef"><b>Definition</b> com_type.h:28</div></div>
+<div class="ttc" id="anamespace_com_type_html_ad68857d4fdd3fc1a4c31631655e388a4"><div class="ttname"><a href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4">ComType::convertComPatternToBit</a></div><div class="ttdeci">int convertComPatternToBit(const EComPattern com_pattern)</div><div class="ttdoc">重心パターンをbitに変換する関数</div><div class="ttdef"><b>Definition</b> com_type.cpp:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="com__type_8h.html">com_type.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

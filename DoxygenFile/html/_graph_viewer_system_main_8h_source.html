@@ -93,46 +93,46 @@ $(document).ready(function(){initNavTree('_graph_viewer_system_main_8h_source.ht
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_map_state_8h.html">MapState.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_system_8h.html">GraphicSystem.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_i_graph_tree_creator_8h.html">IGraphTreeCreator.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__system_8h.html">graphic_system.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__data__broker_8h.html">graphic_data_broker.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;InterfacePassFinder.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_graph_viewer_system_main.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a> final</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a>();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> main();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_MapState;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a> m_GraphicDataBroker;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> m_GraphicSystem;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::unique_ptr&lt;IGraphTreeCreator&gt; mp_GraphTreeCreator;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// グラフを作成する</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> createGraph(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> _parent, std::vector&lt;SNode&gt;&amp; _graph);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//グラフを仲介人にセットする</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> setGraphToBroker(<span class="keyword">const</span> std::vector&lt;SNode&gt;&amp; _graph);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// y / n の質問をする</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> askYesNo(<span class="keyword">const</span> std::string&amp; question) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// グラフのステータスを表示する</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> showGraphStatus(<span class="keyword">const</span> std::vector&lt;SNode&gt;&amp; _graph) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
-<div class="ttc" id="a_graphic_data_broker_8h_html"><div class="ttname"><a href="_graphic_data_broker_8h.html">GraphicDataBroker.h</a></div><div class="ttdoc">GraphicDataBrokerクラスの実装を行っている．</div></div>
-<div class="ttc" id="a_graphic_system_8h_html"><div class="ttname"><a href="_graphic_system_8h.html">GraphicSystem.h</a></div><div class="ttdoc">Dxlibの処理を行ってくれるGraphicSystemクラスを実装している．</div></div>
-<div class="ttc" id="a_i_graph_tree_creator_8h_html"><div class="ttname"><a href="_i_graph_tree_creator_8h.html">IGraphTreeCreator.h</a></div><div class="ttdoc">グラフ木の探索を行うクラスのインターフェイス．</div></div>
-<div class="ttc" id="a_map_state_8h_html"><div class="ttname"><a href="_map_state_8h.html">MapState.h</a></div><div class="ttdoc">マップを表すクラスの実装．</div></div>
-<div class="ttc" id="aclass_graph_viewer_system_main_html"><div class="ttname"><a href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a></div><div class="ttdef"><b>Definition</b> GraphViewerSystemMain.h:8</div></div>
-<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> GraphicDataBroker.h:8</div></div>
-<div class="ttc" id="aclass_graphic_system_html"><div class="ttname"><a href="class_graphic_system.html">GraphicSystem</a></div><div class="ttdoc">Dxlibの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> GraphicSystem.h:6</div></div>
-<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> MapState.h:8</div></div>
-<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> Node.h:10</div></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_graph_viewer_system_main.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a> final</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> main();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_map_state;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a> m_graphic_data_broker;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_graphic_system.html">GraphicSystem</a> m_graphic_system;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::unique_ptr&lt;IPassFinder&gt; mp_pass_finder;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// グラフを作成する</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> createGraph(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a> parent, std::vector&lt;SNode&gt;&amp; graph);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">//グラフを仲介人にセットする</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> setGraphToBroker(<span class="keyword">const</span> std::vector&lt;SNode&gt;&amp; graph);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// y / n の質問をする</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> askYesNo(<span class="keyword">const</span> std::string&amp; question) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// グラフのステータスを表示する</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> showGraphStatus(<span class="keyword">const</span> std::vector&lt;SNode&gt;&amp; graph) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="ttc" id="aclass_graph_viewer_system_main_html"><div class="ttname"><a href="class_graph_viewer_system_main.html">GraphViewerSystemMain</a></div><div class="ttdef"><b>Definition</b> GraphViewerSystemMain.h:9</div></div>
+<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> graphic_data_broker.h:24</div></div>
+<div class="ttc" id="aclass_graphic_system_html"><div class="ttname"><a href="class_graphic_system.html">GraphicSystem</a></div><div class="ttdoc">Dxlibの処理を行うクラス．</div><div class="ttdef"><b>Definition</b> graphic_system.h:21</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
+<div class="ttc" id="agraphic__data__broker_8h_html"><div class="ttname"><a href="graphic__data__broker_8h.html">graphic_data_broker.h</a></div><div class="ttdoc">グラフ探索の結果を別スレッドのグラフィッククラスに連絡するGraphicDataBrokerクラス．   行数 : 72</div></div>
+<div class="ttc" id="agraphic__system_8h_html"><div class="ttname"><a href="graphic__system_8h.html">graphic_system.h</a></div><div class="ttdoc">Dxlibの処理を行うGraphicSystemクラス．   行数 : 49</div></div>
+<div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 122</div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> node.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('class_com_candidate_polygon_maker.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-attribs">静的公開変数類</a> &#124;
 <a href="class_com_candidate_polygon_maker-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">ComCandidatePolygonMaker クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -99,23 +100,32 @@ $(document).ready(function(){initNavTree('class_com_candidate_polygon_maker.html
 <p>重心位置の候補地点を示す多角形を作成するクラス  
  <a href="class_com_candidate_polygon_maker.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_com_candidate_polygon_maker_8h_source.html">ComCandidatePolygonMaker.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="com__candidate__polygon__maker_8h_source.html">com_candidate_polygon_maker.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a86f186c8b36fd01cd2c2e7b269cd825b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_candidate_polygon_maker.html#a86f186c8b36fd01cd2c2e7b269cd825b">makeCandidatePolygon</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, std::vector&lt; std::pair&lt; <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a>, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> &gt; &gt; &amp;_output_poly) const</td></tr>
-<tr class="memdesc:a86f186c8b36fd01cd2c2e7b269cd825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する  <br /></td></tr>
-<tr class="separator:a86f186c8b36fd01cd2c2e7b269cd825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b40fc42cee62f2091d454f3e8026d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_candidate_polygon_maker.html#a5b40fc42cee62f2091d454f3e8026d47">makeCandidatePolygon</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, std::pair&lt; <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a>, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> &gt; output_poly[<a class="el" href="class_com_candidate_polygon_maker.html#a0ea95519642661194a504569abfc0558">MAKE_POLYGON_NUM</a>]) const</td></tr>
+<tr class="memdesc:a5b40fc42cee62f2091d454f3e8026d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する  <br /></td></tr>
+<tr class="separator:a5b40fc42cee62f2091d454f3e8026d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静的公開変数類</h2></td></tr>
+<tr class="memitem:a0ea95519642661194a504569abfc0558"><td class="memItemLeft" align="right" valign="top"><a id="a0ea95519642661194a504569abfc0558" name="a0ea95519642661194a504569abfc0558"></a>
+static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAKE_POLYGON_NUM</b> = 7</td></tr>
+<tr class="memdesc:a0ea95519642661194a504569abfc0558"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成する多角形の数 <br /></td></tr>
+<tr class="separator:a0ea95519642661194a504569abfc0558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心位置の候補地点を示す多角形を作成するクラス </p>
-<p>現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する<br  />
- 手法は波東さんの卒業研究を参考にしているため，詳細はそちらを参照のこと<br  />
- 当然だが，その手法ではロボットの姿勢変更を考慮していないのでこのクラスを使用する場合は，<br  />
+<dl class="section date"><dt>日付</dt><dd>2023/08/12 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する <br  />
+ 手法は波東さんの卒業研究を参考にしているため，詳細はそちらを参照のこと <br  />
+ 当然だが，その手法ではロボットの姿勢変更を考慮していないのでこのクラスを使用する場合は， <br  />
  ロボットの回転・旋回は行うことができない </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a86f186c8b36fd01cd2c2e7b269cd825b" name="a86f186c8b36fd01cd2c2e7b269cd825b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86f186c8b36fd01cd2c2e7b269cd825b">&#9670;&#160;</a></span>makeCandidatePolygon()</h2>
+<a id="a5b40fc42cee62f2091d454f3e8026d47" name="a5b40fc42cee62f2091d454f3e8026d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b40fc42cee62f2091d454f3e8026d47">&#9670;&#160;</a></span>makeCandidatePolygon()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,8 +139,8 @@ $(document).ready(function(){initNavTree('class_com_candidate_polygon_maker.html
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::pair&lt; <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a>, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>_output_poly</em>&#160;</td>
+          <td class="paramtype">std::pair&lt; <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a>, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> &gt;&#160;</td>
+          <td class="paramname"><em>output_poly</em>[MAKE_POLYGON_NUM]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,38 +154,38 @@ $(document).ready(function(){initNavTree('class_com_candidate_polygon_maker.html
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>現在のロボットの状態を表すノード </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">_output_poly</td><td>重心位置の候補地点を示す多角形 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_poly</td><td>重心位置の候補地点を示す多角形 </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_cgraph.png" border="0" usemap="#aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_cgraph" alt=""/></div>
-<map name="aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_cgraph" id="aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_cgraph">
+<div class="center"><img src="class_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_cgraph.png" border="0" usemap="#aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_cgraph" alt=""/></div>
+<map name="aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_cgraph" id="aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_cgraph">
 <area shape="rect" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="5,35,195,77"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="264,5,419,48"/>
-<area shape="poly" title=" " alt="" coords="195,42,249,35,250,40,196,47"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="243,72,440,99"/>
-<area shape="poly" title=" " alt="" coords="196,65,228,69,228,74,195,70"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a1c0a81291fc3bef841c6176c307a9312" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="260,5,415,48"/>
+<area shape="poly" title=" " alt="" coords="195,42,245,35,246,41,195,47"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="243,72,432,99"/>
+<area shape="poly" title=" " alt="" coords="195,65,228,69,227,74,195,70"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_icgraph.png" border="0" usemap="#aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_icgraph" alt=""/></div>
-<map name="aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_icgraph" id="aclass_com_candidate_polygon_maker_a86f186c8b36fd01cd2c2e7b269cd825b_icgraph">
-<area shape="rect" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="204,5,393,48"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
-<area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
+<div class="center"><img src="class_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_icgraph.png" border="0" usemap="#aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_icgraph" alt=""/></div>
+<map name="aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_icgraph" id="aclass_com_candidate_polygon_maker_a5b40fc42cee62f2091d454f3e8026d47_icgraph">
+<area shape="rect" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="231,5,420,48"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6" title="重心を平行移動したノードを生成する" alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_com_candidate_polygon_maker_8h_source.html">ComCandidatePolygonMaker.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/ComCandidatePolygonMaker.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="com__candidate__polygon__maker_8h_source.html">com_candidate_polygon_maker.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_candidate_polygon_maker.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

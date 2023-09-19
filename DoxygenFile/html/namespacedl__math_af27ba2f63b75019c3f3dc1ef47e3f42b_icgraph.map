@@ -1,0 +1,13 @@
+<map id="dl_math::isEqual" name="dl_math::isEqual">
+<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="466,81,584,108"/>
+<area shape="rect" id="Node000002" href="$structdl__vec_1_1_s_line2.html#af9ad286ee7d00100cc7ee633b0e59bea" title="線分が平行かどうか調べる関数" alt="" coords="252,5,418,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,77,417,46,385,35,386,30,419,42,486,72"/>
+<area shape="rect" id="Node000004" href="$structdl__vec_1_1_s_vector.html#a2c7918cddcea40dc4b1be28648b1dd2a" title="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．" alt="" coords="257,56,413,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="451,87,413,82,413,77,452,82"/>
+<area shape="rect" id="Node000005" href="$structdl__vec_1_1_s_vector2.html#a2d3febc3debf883cc0ea2e6a04459a97" title="このベクトルが0ならばtrue" alt="" coords="254,107,416,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="451,107,417,112,416,107,451,102"/>
+<area shape="rect" id="Node000006" href="$class_graph_searcher_hato.html#a5017564e8b231c787edf3020cc84ffdb" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="263,157,407,200"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="485,117,419,148,392,159,390,154,417,143,482,112"/>
+<area shape="rect" id="Node000003" href="$structdl__vec_1_1_s_line2.html#a7bb037f1649dd2d00d0868fc3fa7a6ec" title="他の線分との交点を求める．" alt="" coords="5,5,204,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,204,21,204,16,237,16"/>
+</map>

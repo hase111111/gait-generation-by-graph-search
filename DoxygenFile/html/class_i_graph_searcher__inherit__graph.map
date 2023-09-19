@@ -1,7 +1,9 @@
 <map id="IGraphSearcher" name="IGraphSearcher">
-<area shape="rect" id="Node000001" title=" " alt="" coords="117,5,229,32"/>
-<area shape="rect" id="Node000002" href="$class_graph_searcher_random.html" title=" " alt="" coords="5,80,162,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,43,101,82,97,78,145,39"/>
-<area shape="rect" id="Node000003" href="$class_graph_searcher_sample.html" title=" " alt="" coords="186,80,338,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,39,248,78,245,82,198,43"/>
+<area shape="rect" id="Node000001" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;&#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてくだ..." alt="" coords="187,5,298,32"/>
+<area shape="rect" id="Node000002" href="$class_graph_searcher_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="5,80,141,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,41,104,82,102,77,199,36"/>
+<area shape="rect" id="Node000003" href="$class_graph_searcher_random.html" title=" " alt="" coords="164,80,321,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,47,245,80,240,80,240,47"/>
+<area shape="rect" id="Node000004" href="$class_graph_searcher_sample.html" title=" " alt="" coords="345,80,497,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="288,35,391,77,389,82,286,40"/>
 </map>

@@ -1,5 +1,0 @@
-<map id="my_vec::SPolygon2::isInside" name="my_vec::SPolygon2::isInside">
-<area shape="rect" id="Node000001" title="点が多角形の内部にあるかどうか調べる関数" alt="" coords="5,5,150,48"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_polygon2.html#a34877ae7b7ad06a78f4c237d4f33ca3a" title="多角形の頂点数を返す関数" alt="" coords="198,5,342,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,24,183,24,183,29,150,29"/>
-</map>

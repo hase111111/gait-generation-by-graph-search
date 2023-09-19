@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/hexapod.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('hexapod_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">hexapod.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="hexapod_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#include <span class="stringliteral">&quot;hexapod.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="my__math_8h.html">my_math.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//脚可動範囲の半径 胴体高さについてのテーブル 200の意味は胴体中心から鉛直下向きに200mm</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">int</span> Hexapod::m_leg_max_r[200] = { 0 };</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_hexapod.html#aeb9072a956498d0ad7c8f4e9b85a5313">    9</a></span><a class="code hl_function" href="class_hexapod.html#aeb9072a956498d0ad7c8f4e9b85a5313">Hexapod::Hexapod</a>()</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">//脚の付け根座標代入L_CoxaJoint_posi m_local_coxajoint_pos</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    m_local_coxajoint_pos[0] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(<a class="code hl_variable" href="class_hexapod_const.html#aba9f7cfb1632b45395719feffddfc324">HexapodConst::BODY_FRONT_WIDTH</a>, <a class="code hl_variable" href="class_hexapod_const.html#a6ed5257d0d4d18a6b394aa023f52f7ea">HexapodConst::BODY_FRONT_LENGTH</a>, 0.0f);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    m_local_coxajoint_pos[1] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(<a class="code hl_variable" href="class_hexapod_const.html#a60e66b13aa14a19cbd7edb3d60752b74">HexapodConst::BODY_CENTER_WIDTH</a>, 0.0f, 0.0f);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    m_local_coxajoint_pos[2] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(<a class="code hl_variable" href="class_hexapod_const.html#a3313a46a6aa181c9d87060bba801d895">HexapodConst::BODY_REAR_WIDTH</a>, -<a class="code hl_variable" href="class_hexapod_const.html#abcc747c01a0efdb9714c060322d9d9ef">HexapodConst::BODY_REAR_LENGTH</a>, 0.0f);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    m_local_coxajoint_pos[3] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(-<a class="code hl_variable" href="class_hexapod_const.html#a3313a46a6aa181c9d87060bba801d895">HexapodConst::BODY_REAR_WIDTH</a>, -<a class="code hl_variable" href="class_hexapod_const.html#abcc747c01a0efdb9714c060322d9d9ef">HexapodConst::BODY_REAR_LENGTH</a>, 0.0f);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    m_local_coxajoint_pos[4] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(-<a class="code hl_variable" href="class_hexapod_const.html#a60e66b13aa14a19cbd7edb3d60752b74">HexapodConst::BODY_CENTER_WIDTH</a>, 0.0f, 0.0f);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    m_local_coxajoint_pos[5] = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(-<a class="code hl_variable" href="class_hexapod_const.html#aba9f7cfb1632b45395719feffddfc324">HexapodConst::BODY_FRONT_WIDTH</a>, <a class="code hl_variable" href="class_hexapod_const.html#a6ed5257d0d4d18a6b394aa023f52f7ea">HexapodConst::BODY_FRONT_LENGTH</a>, 0.0f);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//ベクトルの3Dローテーション オイラー角（テイト・ブライアン角）Y-X-Z</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// 2018.12.27 コメントのY-X-Zって間違いっぽい．英語版wikipediaに詳しいが，多分Y-X-Yあたりのオイラー角の定義だと思うんですが……（テイト・ブライアンも違うのでは）</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//2020.05.15.hato</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//　これは、RPYが基本的に胴体の傾き（別に胴体じゃなくてもいいけど）だから、胴体座標系やcoxa座標系から座標ΣP（例えばcoxaからみた脚先座標など）を</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//グローバル座標で見た座標Σ0Pにへんかんするための、</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//  Σ0_P = （Σ0_R_Σ)ΣP + (グローバル座標系で見たその座標系の原点座標）</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//っていう式の（Σ0_R_Σ)ΣPの計算をしてる関数。</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">//</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//（Σ0RΣ)は回転行列で（Σ0RΣ)=Ry*Rx*Rz</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//Ry,Rx,Rzは添え字の軸回りに回転させたときの回転行列をあらわす。</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">//一般的には、進行方向にｘ軸をとるから、</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">//Rxがロールの関数＝Rx(thR), Ryがピッチの関数=Ry(thP),Pz がヨーの関数=Rz(thY)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//になる。</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//ただ、このシミュレーションでは、進行方向がy軸だから、</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//Rxがピッチの関数＝Rx(thR), Ryがロールの関数=Ry(thP),Pz がヨーの関数=Rz(thY)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//になっている。</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//また、Σ0RΣ　＝　R＊P＊Yの順に回転行列を計算するのが一般的？だから、それにあわせると、</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">//普通は、Σ0RΣ　＝　Rx(R) * Ry(P) * Rz(Y)　の順番で計算するところ</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">//ここでは、Σ0RΣ　＝　Ry(R) * Rx(P) * Rz(Y)　の順番で計算している。</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//そこがちょっとややこしいところだけど、計算自体は間違ってない。</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">   40</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">Hexapod::rotation</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; In, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; center, <span class="keyword">const</span> <span class="keywordtype">float</span> thP, <span class="keyword">const</span> <span class="keywordtype">float</span> thR, <span class="keyword">const</span> <span class="keywordtype">float</span> thY)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans, buf;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    buf = In - center;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    ans.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = (cos(thR) * cos(thY) + sin(thR) * sin(thP) * sin(thY)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> +</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        (cos(thY) * sin(thR) * sin(thP) - cos(thR) * sin(thY)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> +</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        (cos(thP) * sin(thR)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    ans.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = cos(thP) * sin(thY) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> +</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        cos(thP) * cos(thY) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> +</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        (-sin(thP)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    ans.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = (cos(thR) * sin(thP) * sin(thY) - cos(thY) * sin(thR)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> +</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        (cos(thR) * cos(thY) * sin(thP) + sin(thR) * sin(thY)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> +</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        (cos(thR) * cos(thP)) * buf.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> ans + center;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">bool</span> Hexapod::setJointPosi()</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// 逆運動学の計算結果を用いて準運動学を計算する．逆運動学，運動学の計算から算術する方式 ロボット固有</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacemy__math.html">my_math</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">//逆運動学と運動学を行った結果が半径Permission^0.5の円の中なら等しいと考える</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> PERMISSION = 1;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> mins[3] = { -1.428f, -1.780f, -1.194f };  <span class="comment">//脚可動範囲</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> maxs[3] = { 1.402f,  1.744f,  1.769f }; <span class="comment">//左からcoxa,femur,tibia</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> coxaMins[6] = { -0.610f, -1.428f, -2.213f, -0.960f, -1.745f, -2.531f };</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> coxaMaxs[6] = { 2.187f,  1.402f,  0.617f,  2.531f,  1.745f,  0.960f };</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> legNum = 0; legNum &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; legNum++)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> legposi(m_local_leg_pos[legNum].x, m_local_leg_pos[legNum].y, -m_local_leg_pos[legNum].z);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="comment">//逆運動学</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="comment">// first, make this a 2DOF problem... by solving coxa</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> coxa = atan2(legposi.y, legposi.x);<span class="comment">//coxa角度</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> IK_trueX = sqrt(<a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(legposi.x) + <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(legposi.y)) - <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a>;<span class="comment">//xy平面におけるfemur脚先までの距離</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> im = sqrt(<a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(IK_trueX) + <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(legposi.z));                              <span class="comment">//femurから脚先までの距離</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">// get femur angle above horizon...</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordtype">float</span> q1 = -atan2(legposi.z, IK_trueX);<span class="comment">//femurから脚先へのベクトルとxy平面との角度</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">float</span> d1 = <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a>) - <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a>) + <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(im);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordtype">float</span> d2 = 2.0f * <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * im;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">float</span> q2 = acos(d1 / d2);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> femur = q1 + q2;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">// and tibia angle from femur...</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        d1 = pow(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a>, 2.0f) - <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(im) + <a class="code hl_function" href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">squared</a>(<a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        d2 = 2.0f * <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a> * <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> tibia = acos(d1 / d2) - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">//運動学</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> K_trueX = <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * cos(femur) + <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a> * cos(femur + tibia - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> kinematics;                 <span class="comment">//ans of kinematics use sorution of i_kinematics</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = cos(coxa) * (K_trueX + <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = sin(coxa) * (K_trueX + <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = -(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * sin(femur) + <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a> * sin(femur + tibia - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        m_local_femurjoint_pos[legNum] = m_local_coxajoint_pos[legNum] + <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(<a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a> * cos(coxa), <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a> * sin(coxa), 0.0f);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        m_local_tibiajoint_pos[legNum] = m_local_femurjoint_pos[legNum] + <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * cos(femur) * cos(coxa), <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * cos(femur) * sin(coxa), <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * sin(femur));</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> Permission = (kinematics - legposi).lengthSquare();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">if</span> (PERMISSION &lt; Permission) { std::cout &lt;&lt; <span class="stringliteral">&quot;Error PERMISSION OVER \n&quot;</span>; <span class="keywordflow">return</span> <span class="keyword">true</span>; };</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_hexapod.html#a5f1f2bb30664539c3a3ad79e2e070d03">  114</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_hexapod.html#a5f1f2bb30664539c3a3ad79e2e070d03">Hexapod::isLegWithinRange</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> legNum, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; LineEnd)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">//可動域が80,60,55,50,45,35,30degのパターンもかつてはあり，コメントアウトされていたが，全て削除して整理した．</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">//可動域40         </span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> _movable_angle = 40.0f;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// 5 , 40 , 85,</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// 85, 40 ,  5,</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">// 5 , -40,</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// 85, 40 ,</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> LCoxaJointMinsCos[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = { 0.996194698f,  0.766044443f,   0.087155743f,   -0.996194698f,  -0.766044443f,  -0.087155743f };</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> LCoxaJointMaxsCos[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = { 0.087155743f,  0.766044443f,   0.996194698f,   -0.087155743f,  -0.766044443f,  -0.996194698f };</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> LCoxaJointMinsSin[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = { 0.087155743f,  -0.64278761f,   -0.996194698f,  -0.087155743f,  0.64278761f,    0.996194698f };</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> LCoxaJointMaxsSin[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = { 0.996194698f,  0.64278761f,    -0.087155743f,  -0.996194698f,  -0.64278761f,   0.087155743f };</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">//外積,脚位置が扇形のスタート位置より&lt;180°なら+,&gt;180°なら-</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">float</span> crossMinIn = LCoxaJointMinsCos[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> - LCoxaJointMinsSin[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">float</span> crossMaxIn = LCoxaJointMaxsCos[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> - LCoxaJointMaxsSin[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">//扇形の角度が180以上なら符号が逆になる</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (crossMinIn &lt; 0 || crossMaxIn &gt; 0) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">//X0Y0平面に投影した脚の根元から脚先までの半径を求める</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> xy_LineEnd = LineEnd;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    xy_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = 0;                   <span class="comment">//引数のZの値を0にしたもの</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">float</span> delta = xy_LineEnd.<a class="code hl_function" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1">length</a>();  <span class="comment">// m_leg_max_r その胴体高さにおける脚の到達半径の長さ</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">//付け根からxy平面の距離&lt;胴体高さに対する可動範囲の半径．胴体から近い場合は体勢がきついので使用しない20180312</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">if</span> (<a class="code hl_define" href="hexapod_8h.html#a844e0c1a3b98f8a004890fc7305ab2fc">MIN_LEG_RADIUS</a> &lt; delta &amp;&amp; delta &lt; m_leg_max_r[<span class="keywordtype">int</span>(LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>)])</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>}</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="class_hexapod.html#a2e631258124da0992f4094b10e5c1634">  150</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_hexapod.html#a2e631258124da0992f4094b10e5c1634">Hexapod::check_touchdown_point2</a>(<span class="keywordtype">int</span> legNum, <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; LineEnd, <span class="keyword">const</span> <span class="keywordtype">float</span> delta_z)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="comment">//if (int(delta_z) &lt; MIN_DELTAZ || MAX_DELTAZ &lt; int(delta_z)) { return 0; }</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(delta_z) &lt; <a class="code hl_variable" href="class_hexapod_const.html#af2dc755a36e4345bceb68068a4f46ca3">HexapodConst::VERTICAL_MIN_RANGE</a> || <a class="code hl_variable" href="class_hexapod_const.html#a7251bf743e04676eabd80ca71501b568">HexapodConst::VERTICAL_MAX_RANGE</a> &lt; <span class="keywordtype">int</span>(delta_z)) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">//可動域が80,60,55,50,45,35,30degのパターンもかつてはあり，コメントアウトされていたが，全て削除して整理した．</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="comment">//可動域40                                                 </span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">const</span>   <span class="keywordtype">float</span>   LCoxaJointMinsCos[6] = { 0.996194698f   ,   0.766044443f,   0.087155743f ,  -0.996194698f,  -0.766044443f,  -0.087155743f };</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">const</span>   <span class="keywordtype">float</span>   LCoxaJointMaxsCos[6] = { 0.087155743f   ,   0.766044443f,   0.996194698f ,  -0.087155743f,  -0.766044443f,  -0.996194698f };</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">const</span>   <span class="keywordtype">float</span>   LCoxaJointMinsSin[6] = { 0.087155743f   ,   -0.64278761f,   -0.996194698f,  -0.087155743f,  0.64278761f  ,  0.996194698f };</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">const</span>   <span class="keywordtype">float</span>   LCoxaJointMaxsSin[6] = { 0.996194698f   ,   0.64278761f ,   -0.087155743f,  -0.996194698f,  -0.64278761f ,  0.087155743f };</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">//外積,脚位置が扇形のスタート位置より&lt;180°なら+,&gt;180°なら-</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordtype">float</span> crossMinIn = LCoxaJointMinsCos[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> - LCoxaJointMinsSin[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">float</span> crossMaxIn = LCoxaJointMaxsCos[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> - LCoxaJointMaxsSin[legNum] * LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="comment">//扇形の角度が180以上なら符号が逆になる</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">if</span> (crossMinIn &lt; 0 || crossMaxIn &gt; 0) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> xy_LineEnd;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    xy_LineEnd = LineEnd;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    xy_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = 0;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">// m_leg_max_r その胴体高さにおける脚の到達半径の長さ</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">float</span> delta = xy_LineEnd.<a class="code hl_function" href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1">length</a>();<span class="comment">//X0Y0平面に投影した脚の根元から脚先までの半径</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">//付け根からxy平面の距離&lt;胴体高さに対する可動範囲の半径//胴体から近い場合は体勢がきついので使用しない20180312</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (<a class="code hl_define" href="hexapod_8h.html#a844e0c1a3b98f8a004890fc7305ab2fc">MIN_LEG_RADIUS</a> &lt; delta &amp;&amp; delta &lt; m_leg_max_r[<span class="keywordtype">int</span>(delta_z)])</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="comment">//重心高さとある脚設置可能点の高さの差に応じて、許容する半径が変わる。</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="comment">//今のLegROM_rの計算じゃ73mmより上にあげると探索不可能　後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="class_hexapod.html#a48a107ff47c4ec1bf04dd066da0f2352">  189</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_hexapod.html#a48a107ff47c4ec1bf04dd066da0f2352">Hexapod::isAblePause</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> _leg[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>], <span class="keyword">const</span> <span class="keywordtype">bool</span> _is_leg_grounded[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>{</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; i++)</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="comment">//接地している脚のみ判定する</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">if</span> (_is_leg_grounded[i] == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="comment">//接地可能地点がないのならば false</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_hexapod.html#a5f1f2bb30664539c3a3ad79e2e070d03">isLegWithinRange</a>(i, _leg[i]) == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="class_hexapod.html#a0b271d16734bea90356a1998f348b8f6">  207</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_hexapod.html#a0b271d16734bea90356a1998f348b8f6">Hexapod::isAbleCOM</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> L_leg[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>], <span class="keyword">const</span> <span class="keywordtype">bool</span> _is_leg_grounded[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>{</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">//接地している脚のみこのvectorにいれる</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    std::vector&lt;my_vec::SVector&gt; _grounded_leg_pos;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; i++)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">if</span> (_is_leg_grounded[i] == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <span class="comment">// 何故 xとyを入れ替えているのか ? → プログラムによって座標系が違う恐ろしい状態になっているため</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            <span class="keyword">auto</span> temp_x_y_change = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(L_leg[i].y, L_leg[i].x, L_leg[i].z);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            _grounded_leg_pos.push_back(temp_x_y_change + <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">getGlobalCoxaJointPos</a>(i));</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment">//i番目の脚位置を基としてi+1番脚までのベクトルと重心(0,0,0)の位置を比べて常に右にあったらok</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; _grounded_leg_pos.size(); i++)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="comment">//i番目の脚先からi+1番目の脚先へ向かうベクトル．余りをとっているのは，i = 最大値, i+1 = 0となるときのため.</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> i_to_i_puls_1 = _grounded_leg_pos.at((i + 1) % _grounded_leg_pos.size()) - _grounded_leg_pos.at(i);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        i_to_i_puls_1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = 0.0f;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="comment">//i番目の脚先からロボットの重心へ向かうベクトル．</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> i_to_com = <a class="code hl_variable" href="hexapod_8h.html#a161062504d1cead7af8b9ec568f82c25">COMPOSI</a> - _grounded_leg_pos.at(i);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        i_to_com.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = 0.0f;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="comment">//脚がクロスする場合</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">if</span> (i_to_i_puls_1.<a class="code hl_function" href="structmy__vec_1_1_s_vector.html#a55897a203c614f9702f6fd59667c668f">cross</a>(i_to_com).<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> &gt; 0.0f)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="class_hexapod.html#a148a49972d33285c94733e936acd7b8c">  243</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hexapod.html#a148a49972d33285c94733e936acd7b8c">Hexapod::makeLegROM_r</a>()</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// 逆運動学coxaなしの計算結果を用いて準運動学を計算する</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacemy__math.html">my_math</a>;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 200; i++) { m_leg_max_r[i] = 0; }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> PERMISSION = 0.5f;          <span class="comment">//逆運動学と運動学を行った結果が半径Permission^0.5の円の中なら等しいと考える</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> mins[3] = { -1.428f, -1.780f, -1.194f };    <span class="comment">//脚可動範囲 おそらくrad 変換したやつ(-81.8° -101.98° -68.41°)  190527</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> maxs[3] = { 1.402f,  1.744f,  1.769f }; <span class="comment">//左からcoxa,femur,tibia (80.32° 99.92° 101.36°)</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="comment">//ans of kinematics use sorution of i_kinematics </span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="comment">//zは最大196．ixは最大248</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iz = 0; iz &lt; 200; iz++)</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 53; ix &lt; 248; ix++)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> _LineEnd((<span class="keywordtype">float</span>)ix, 0.0f, (<span class="keywordtype">float</span>)iz);     <span class="comment">//脚先座標（ローカル）</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="comment">//逆運動学coxaなし</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _coxa_angle = atan2(_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>, _LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>);    <span class="comment">//coxa角度</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _IK_trueX = sqrt(squared(_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>) + squared(_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>)) - <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a>;    <span class="comment">//femurから足先までを結ぶベクトルをxy平面に投影したときのベクトルの大きさ</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="keywordtype">float</span> _im = sqrt(squared(_IK_trueX) + squared(_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>));                 <span class="comment">//絶対に正</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">if</span> (_im == 0.0f) _im += 0.01f;  <span class="comment">//0割り対策</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _q1 = -atan2(_LineEnd.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a>, _IK_trueX);                                                    <span class="comment">//マイナスでおｋ座標系的にq1自体は常に負//xがゼロだと定義域エラー</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _q2 = acos((squared(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a>) + squared(_im) - squared(<a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a>)) / (2.0f * <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * _im)); <span class="comment">//im=0だと定義域エラー</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _femur_angle = _q1 + _q2;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _tibia_angle = acos((squared(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a>) + squared(<a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a>) - squared(_im)) / (2.0f * <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a>)) - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="comment">//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femurから足先の距離</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            <span class="comment">//float d1 = pow((float)L_FEMUR, 2.0) - pow((float)L_TIBIA, 2.0) + pow(fabs((float)im), 2.0);</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="comment">//float d2 = 2 * L_FEMUR*im;</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="comment">//float q2 = acos((float)d1 / (float)d2);   //余弦定理</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            <span class="comment">//d1 = pow((float)L_FEMUR, 2.0) - pow(fabs((float)im), 2.0) + pow((float)L_TIBIA, 2.0);</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            <span class="comment">//d2 = 2 * L_TIBIA*L_FEMUR;</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="comment">//tibia = acos((float)d1 / (float)d2) - 1.570796326795;</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            <span class="comment">//lange of motion</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="comment">//実機はわからんが、シミュレーションだと、これがいらない。</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            <span class="comment">//if文入れると、重心と足先高さの差が、73mm以下は取れない。hato</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            <span class="comment">//if ( femur &lt; femurMins)break;</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="comment">//if (femurMaxs &lt; femur)break;</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="comment">//if (tibia &lt; tibiaMins)break;</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            <span class="comment">//if(tibiaMaxs &lt; tibia )break;</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            <span class="comment">//運動学</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _K_trueX = <a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * cos(_femur_angle) + <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a> * cos(_femur_angle + _tibia_angle - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> _kinematics;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            _kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = _K_trueX + <a class="code hl_variable" href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            _kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = 0.0f;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            _kinematics.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = -(<a class="code hl_variable" href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a> * sin(_femur_angle) + <a class="code hl_variable" href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a> * sin(_femur_angle + _tibia_angle - <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 2.0f));</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _Permission = (_kinematics - _LineEnd).lengthSquare();</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <span class="keywordflow">if</span> (PERMISSION &gt; _Permission)</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                m_leg_max_r[iz] = ix - <a class="code hl_define" href="hexapod_8h.html#a72f05bba3ba206eff9fc660eefc879d5">LEGROM_RMARGIN</a>;<span class="comment">//y=0のとき，脚高さzのときのx方向の最大の範囲</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="preprocessor">#ifdef  MAX_LEG_RADIUS</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                <span class="keywordflow">if</span> (iz &lt;= 115) { m_leg_max_r[iz] = MAX_LEG_RADIUS; }<span class="comment">//脚を置く位置が遠すぎるとトルクが足りなくて沈み込みが激しいから200までにした2020/11/09hato</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            }</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    }</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>}</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="class_hexapod.html#afeed8bd3b2a0c55c4e1c3922d40990b2">  316</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hexapod.html#afeed8bd3b2a0c55c4e1c3922d40990b2">Hexapod::calculateRangeOfMovement</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _legnum, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; p1, <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>&amp; p2)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="comment">//脚関節の基準角度（ロボット座標系） -180~180度内であること</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    <span class="keywordtype">float</span> coxaDefoAngle[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = { 45.0f, 0.0f, -45.0f, -135.0f, 180.0f, 135.0f };</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; ++i)</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    {</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="comment">//[rad]に変換</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        coxaDefoAngle[i] = coxaDefoAngle[i] * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 180.0f;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    }</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> rangeOfAngle = 40.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 180.0f; <span class="comment">//[rad] 脚の可動範囲 今は基準角度より±40度に動くと仮定</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="comment">//float r = m_leg_max_r[int(this-&gt;ziki.com.z)]; //現在の胴体高さにおける脚到達距離　これは、地面がz=0にあることを前提としているからダメ。20200618</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="comment">//↑グローバルで胴体高さ196mm以上とかになったら、バグる原因</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="comment">//とりあえず網羅することが大事。実際にとれるかどうかは、checktouchdownpointで脚設置可能点の高さを考慮して判定しているから。</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keywordtype">float</span> r = 240.0f;<span class="comment">// m_leg_max_r[0]; //0だと237indexを73くらいにすると、r=223くらい。後々はインデックスは、接地面座標系で見た重心と脚先高さの差にしなければならない。</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="comment">//rは脚設置可能点を参照する領域の大きさの要素。rの値によって挙動は変化する。</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="comment">//t1:その脚における最小角度 t2:最大角度</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keywordtype">float</span> t1 = coxaDefoAngle[_legnum] - rangeOfAngle + this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a5b3e062c4cc8880b7021073b900cef80">thY</a>;  <span class="comment">//[rad]</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    <span class="keywordtype">float</span> t2 = coxaDefoAngle[_legnum] + rangeOfAngle + this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a5b3e062c4cc8880b7021073b900cef80">thY</a>;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <span class="keywordflow">if</span> ((t1 &lt; -2.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>) || (t1 &gt; 2.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>)) { t1 = fmod(t1, 2.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>); }    <span class="comment">//-2pi~2pに</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">if</span> (t1 &lt; -<a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>) { t1 = t1 + 2.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>; }  <span class="comment">//-piより小さければ</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="keywordflow">if</span> (t2 &gt; <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>) { t2 = t2 - 2.0f * <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a>; }</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="comment">//初期化</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    p1 = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0.0f, 0.0f, 0.0f);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    p2 = <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0.0f, 0.0f, 0.0f);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <span class="comment">//p1p2の座標決定</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordflow">if</span> ((r * cos(t1)) &gt; p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>)</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    {</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = r * cos(t1);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    }</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((r * cos(t1)) &lt; p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>)</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    {</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = r * cos(t1);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    }</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordflow">if</span> ((r * sin(t1)) &gt; p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>)</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    {</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = r * sin(t1);</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    }</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((r * sin(t1)) &lt; p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>)</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    {</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = r * sin(t1);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keywordflow">if</span> ((r * cos(t2)) &gt; p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>)</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = r * cos(t2);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    }</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((r * cos(t2)) &lt; p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a>)</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    {</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = r * cos(t2);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    }</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keywordflow">if</span> ((r * sin(t2)) &gt; p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>)</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    {</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = r * sin(t2);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    }</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((r * sin(t2)) &lt; p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a>)</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    {</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = r * sin(t2);</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    }</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    <span class="comment">//90 180 -90 -180度の時の処理</span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordflow">if</span> ((t2 &gt; <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f &amp;&amp; t1 &lt; <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f) || (t1 &gt; 0.0f &amp;&amp; t1 &lt; <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f &amp;&amp; t2 &lt; -<a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f)) { p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = r; }<span class="comment">//r*sin(90)</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordflow">if</span> (t2 &gt; 0.0f &amp;&amp; t1 &lt; 0.0f) { p2.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = r; }                                                           <span class="comment">//r*con(0)</span></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    <span class="keywordflow">if</span> ((t2 &gt; -<a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f &amp;&amp; t1 &lt; -<a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f) || (t1 &gt; <a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f &amp;&amp; t2 &lt; 0.0f &amp;&amp; t2 &gt; -<a class="code hl_variable" href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a> / 4.0f)) { p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = -r; }<span class="comment">//r*sin(-90)</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">if</span> (t2 &lt; t1) { p1.<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = -r; }                                                                         <span class="comment">//r*cos(180)</span></div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="comment">//グローバル座標に変換</span></div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    p1 = p1 + <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">getGlobalCoxaJointPos</a>(_legnum);</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    p2 = p2 + <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">getGlobalCoxaJointPos</a>(_legnum);</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>}</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="class_hexapod.html#a2d7a14c4d7621b01eebd965bd09bdc25">  395</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hexapod.html#a2d7a14c4d7621b01eebd965bd09bdc25">Hexapod::setMyDirection</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> _thP, <span class="keyword">const</span> <span class="keywordtype">float</span> _thR, <span class="keyword">const</span> <span class="keywordtype">float</span> _thY)</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>{</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a> = _thP;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a0822d990fc2ecc23b01a084dcf1d97a4">thR</a> = _thR;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a5b3e062c4cc8880b7021073b900cef80">thY</a> = _thY;</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>}</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="class_hexapod.html#a31350c0c68090fe1955a44fd463a1d23">  402</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hexapod.html#a31350c0c68090fe1955a44fd463a1d23">Hexapod::setLocalLeg2Pos</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> posi2[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>{</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; i++)</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    {</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        this-&gt;m_local_leg2_pos[i] = posi2[i];</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    }</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>}</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno"><a class="line" href="class_hexapod.html#a93abbeac07ee0ae47f1e3615c9ce66d1">  410</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hexapod.html#a93abbeac07ee0ae47f1e3615c9ce66d1">Hexapod::setLocalLegPos</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> posi[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>{</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; i++)</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    {</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        this-&gt;m_local_leg_pos[i] = posi[i];</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    }</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keywordflow">if</span> (setJointPosi())</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    {</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="comment">/*std::cout&lt;&lt;&quot;Error anable leg_pos posi&quot;&lt;&lt;std::endl;*/</span><span class="comment">/*std::cout&lt;&lt;hexapod::showGlobalMyDirectionthY()&lt;&lt;std::endl;std::string stop; std::cin&gt;&gt;stop;*/</span></div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    }</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>}</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno"><a class="line" href="class_hexapod.html#a96e10a471cba8d0a087b7d2b7d20ee6e">  423</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#a96e10a471cba8d0a087b7d2b7d20ee6e">Hexapod::getGlobalLeg2Pos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="comment">//グローバル座標を返す</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> rotatePosition_of_2 = <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">rotation</a>(m_local_leg2_pos[_leg_num], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0, 0, 0), this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a>, this-&gt;ziki.thR, this-&gt;ziki.thY);</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans = rotatePosition_of_2 + <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">getGlobalCoxaJointPos</a>(_leg_num);</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>}</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="class_hexapod.html#a9070af48883b85714430360772359bd2">  431</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#a9070af48883b85714430360772359bd2">Hexapod::getGlobalLegPos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <span class="comment">//グローバル座標を返す</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> rotateLegPosition = <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">rotation</a>(m_local_leg_pos[_leg_num], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0, 0, 0), this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a>, this-&gt;ziki.thR, this-&gt;ziki.thY);</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    <span class="comment">//重心から脚の付け根+付け根から脚先</span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans = rotateLegPosition + <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">getGlobalCoxaJointPos</a>(_leg_num);</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>}</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno"><a class="line" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">  440</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">Hexapod::getGlobalCoxaJointPos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="comment">//グローバル座標を返す(重心位置から脚の付け根の計算)</span></div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> rotateCoxaJointPosi = <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">rotation</a>(this-&gt;m_local_coxajoint_pos[_leg_num], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0, 0, 0), this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a>, this-&gt;ziki.thR, this-&gt;ziki.thY);</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans = rotateCoxaJointPosi + this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a908ce1c8995e45b356d38c7fe458c6a5">com</a>;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>}</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno"><a class="line" href="class_hexapod.html#ace35b1d5003be6ceffaa0a00787f6ec2">  448</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#ace35b1d5003be6ceffaa0a00787f6ec2">Hexapod::getGlobalFemurJointPos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    <span class="comment">//グローバル座標を返す</span></div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> rotateFemurJointPosi = <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">rotation</a>(this-&gt;m_local_femurjoint_pos[_leg_num], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0, 0, 0), this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a>, this-&gt;ziki.thR, this-&gt;ziki.thY);</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans = rotateFemurJointPosi + this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a908ce1c8995e45b356d38c7fe458c6a5">com</a>;</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>}</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno"><a class="line" href="class_hexapod.html#ae64424f4a346397ac98b13aaa95fe380">  456</a></span><a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> <a class="code hl_function" href="class_hexapod.html#ae64424f4a346397ac98b13aaa95fe380">Hexapod::getGlobalTibiaJointPos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> _leg_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="comment">//グローバル座標を返す</span></div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> rotateTibiaJointPosi = <a class="code hl_function" href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">rotation</a>(this-&gt;m_local_tibiajoint_pos[_leg_num], <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a>(0, 0, 0), this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">thP</a>, this-&gt;ziki.thR, this-&gt;ziki.thY);</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>    <a class="code hl_struct" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> ans = rotateTibiaJointPosi + this-&gt;ziki.<a class="code hl_variable" href="struct_s_transform.html#a908ce1c8995e45b356d38c7fe458c6a5">com</a>;</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>}</div>
+<div class="ttc" id="aclass_hexapod_const_html_a3313a46a6aa181c9d87060bba801d895"><div class="ttname"><a href="class_hexapod_const.html#a3313a46a6aa181c9d87060bba801d895">HexapodConst::BODY_REAR_WIDTH</a></div><div class="ttdeci">static constexpr float BODY_REAR_WIDTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00018">HexapodConst.h:18</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a5c14fbad8f33c6f790898059940226b8"><div class="ttname"><a href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a></div><div class="ttdeci">static constexpr int LEG_NUM</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00010">HexapodConst.h:10</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a60e66b13aa14a19cbd7edb3d60752b74"><div class="ttname"><a href="class_hexapod_const.html#a60e66b13aa14a19cbd7edb3d60752b74">HexapodConst::BODY_CENTER_WIDTH</a></div><div class="ttdeci">static constexpr float BODY_CENTER_WIDTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00017">HexapodConst.h:17</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a6ed5257d0d4d18a6b394aa023f52f7ea"><div class="ttname"><a href="class_hexapod_const.html#a6ed5257d0d4d18a6b394aa023f52f7ea">HexapodConst::BODY_FRONT_LENGTH</a></div><div class="ttdeci">static constexpr float BODY_FRONT_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00019">HexapodConst.h:19</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a7251bf743e04676eabd80ca71501b568"><div class="ttname"><a href="class_hexapod_const.html#a7251bf743e04676eabd80ca71501b568">HexapodConst::VERTICAL_MAX_RANGE</a></div><div class="ttdeci">static const float VERTICAL_MAX_RANGE</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00024">HexapodConst.h:24</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a8ba8c84425225e89f3c3ce72990d6d15"><div class="ttname"><a href="class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15">HexapodConst::FEMUR_LENGTH</a></div><div class="ttdeci">static constexpr float FEMUR_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00014">HexapodConst.h:14</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a9a98d11a059d9721fd9277a36eb0db35"><div class="ttname"><a href="class_hexapod_const.html#a9a98d11a059d9721fd9277a36eb0db35">HexapodConst::COXA_LENGTH</a></div><div class="ttdeci">static constexpr float COXA_LENGTH</div><div class="ttdoc">第1関節部の長さ．詳しくはreferenceをフォルダ参照．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00013">HexapodConst.h:13</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_aaa6cb7e6b6af6c8e4951e43cec5ec9e5"><div class="ttname"><a href="class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5">HexapodConst::TIBIA_LENGTH</a></div><div class="ttdeci">static constexpr float TIBIA_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00015">HexapodConst.h:15</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_aba9f7cfb1632b45395719feffddfc324"><div class="ttname"><a href="class_hexapod_const.html#aba9f7cfb1632b45395719feffddfc324">HexapodConst::BODY_FRONT_WIDTH</a></div><div class="ttdeci">static constexpr float BODY_FRONT_WIDTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00016">HexapodConst.h:16</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_abcc747c01a0efdb9714c060322d9d9ef"><div class="ttname"><a href="class_hexapod_const.html#abcc747c01a0efdb9714c060322d9d9ef">HexapodConst::BODY_REAR_LENGTH</a></div><div class="ttdeci">static constexpr float BODY_REAR_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00020">HexapodConst.h:20</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_af2dc755a36e4345bceb68068a4f46ca3"><div class="ttname"><a href="class_hexapod_const.html#af2dc755a36e4345bceb68068a4f46ca3">HexapodConst::VERTICAL_MIN_RANGE</a></div><div class="ttdeci">static const float VERTICAL_MIN_RANGE</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00025">HexapodConst.h:25</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a0b271d16734bea90356a1998f348b8f6"><div class="ttname"><a href="class_hexapod.html#a0b271d16734bea90356a1998f348b8f6">Hexapod::isAbleCOM</a></div><div class="ttdeci">bool isAbleCOM(const my_vec::SVector _leg[HexapodConst::LEG_NUM], const bool _is_leg_grounded[HexapodConst::LEG_NUM])</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00207">hexapod.cpp:207</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a148a49972d33285c94733e936acd7b8c"><div class="ttname"><a href="class_hexapod.html#a148a49972d33285c94733e936acd7b8c">Hexapod::makeLegROM_r</a></div><div class="ttdeci">static void makeLegROM_r()</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00243">hexapod.cpp:243</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a2d7a14c4d7621b01eebd965bd09bdc25"><div class="ttname"><a href="class_hexapod.html#a2d7a14c4d7621b01eebd965bd09bdc25">Hexapod::setMyDirection</a></div><div class="ttdeci">void setMyDirection(const float _thP, const float _thR, const float _thY)</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00395">hexapod.cpp:395</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a2e631258124da0992f4094b10e5c1634"><div class="ttname"><a href="class_hexapod.html#a2e631258124da0992f4094b10e5c1634">Hexapod::check_touchdown_point2</a></div><div class="ttdeci">bool check_touchdown_point2(int legNum, const my_vec::SVector &amp;LineEnd, const float delta_z) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00150">hexapod.cpp:150</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a31350c0c68090fe1955a44fd463a1d23"><div class="ttname"><a href="class_hexapod.html#a31350c0c68090fe1955a44fd463a1d23">Hexapod::setLocalLeg2Pos</a></div><div class="ttdeci">void setLocalLeg2Pos(const my_vec::SVector posi2[HexapodConst::LEG_NUM])</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00402">hexapod.cpp:402</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a48a107ff47c4ec1bf04dd066da0f2352"><div class="ttname"><a href="class_hexapod.html#a48a107ff47c4ec1bf04dd066da0f2352">Hexapod::isAblePause</a></div><div class="ttdeci">bool isAblePause(const my_vec::SVector _leg[HexapodConst::LEG_NUM], const bool _is_leg_grounded[HexapodConst::LEG_NUM])</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00189">hexapod.cpp:189</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a58aa696cdc6ec754d38ce68e06ad3ae7"><div class="ttname"><a href="class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7">Hexapod::getGlobalCoxaJointPos</a></div><div class="ttdeci">my_vec::SVector getGlobalCoxaJointPos(const int _leg_num) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00440">hexapod.cpp:440</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a5f1f2bb30664539c3a3ad79e2e070d03"><div class="ttname"><a href="class_hexapod.html#a5f1f2bb30664539c3a3ad79e2e070d03">Hexapod::isLegWithinRange</a></div><div class="ttdeci">bool isLegWithinRange(const int legNum, const my_vec::SVector &amp;LineEnd) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00114">hexapod.cpp:114</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a7153615231f0fd115de15a78dd7e5230"><div class="ttname"><a href="class_hexapod.html#a7153615231f0fd115de15a78dd7e5230">Hexapod::rotation</a></div><div class="ttdeci">my_vec::SVector rotation(const my_vec::SVector &amp;In, const my_vec::SVector &amp;center, const float thP, const float thR, const float thY) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00040">hexapod.cpp:40</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a9070af48883b85714430360772359bd2"><div class="ttname"><a href="class_hexapod.html#a9070af48883b85714430360772359bd2">Hexapod::getGlobalLegPos</a></div><div class="ttdeci">my_vec::SVector getGlobalLegPos(const int _leg_num) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00431">hexapod.cpp:431</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a93abbeac07ee0ae47f1e3615c9ce66d1"><div class="ttname"><a href="class_hexapod.html#a93abbeac07ee0ae47f1e3615c9ce66d1">Hexapod::setLocalLegPos</a></div><div class="ttdeci">void setLocalLegPos(const my_vec::SVector posi[HexapodConst::LEG_NUM])</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00410">hexapod.cpp:410</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_a96e10a471cba8d0a087b7d2b7d20ee6e"><div class="ttname"><a href="class_hexapod.html#a96e10a471cba8d0a087b7d2b7d20ee6e">Hexapod::getGlobalLeg2Pos</a></div><div class="ttdeci">my_vec::SVector getGlobalLeg2Pos(const int _leg_num) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00423">hexapod.cpp:423</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_ace35b1d5003be6ceffaa0a00787f6ec2"><div class="ttname"><a href="class_hexapod.html#ace35b1d5003be6ceffaa0a00787f6ec2">Hexapod::getGlobalFemurJointPos</a></div><div class="ttdeci">my_vec::SVector getGlobalFemurJointPos(const int _leg_num) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00448">hexapod.cpp:448</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_ae64424f4a346397ac98b13aaa95fe380"><div class="ttname"><a href="class_hexapod.html#ae64424f4a346397ac98b13aaa95fe380">Hexapod::getGlobalTibiaJointPos</a></div><div class="ttdeci">my_vec::SVector getGlobalTibiaJointPos(const int _leg_num) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00456">hexapod.cpp:456</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_aeb9072a956498d0ad7c8f4e9b85a5313"><div class="ttname"><a href="class_hexapod.html#aeb9072a956498d0ad7c8f4e9b85a5313">Hexapod::Hexapod</a></div><div class="ttdeci">Hexapod()</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00009">hexapod.cpp:9</a></div></div>
+<div class="ttc" id="aclass_hexapod_html_afeed8bd3b2a0c55c4e1c3922d40990b2"><div class="ttname"><a href="class_hexapod.html#afeed8bd3b2a0c55c4e1c3922d40990b2">Hexapod::calculateRangeOfMovement</a></div><div class="ttdeci">void calculateRangeOfMovement(const int legnum, my_vec::SVector &amp;p1, my_vec::SVector &amp;p2) const</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8cpp_source.html#l00316">hexapod.cpp:316</a></div></div>
+<div class="ttc" id="ahexapod_8h_html_a161062504d1cead7af8b9ec568f82c25"><div class="ttname"><a href="hexapod_8h.html#a161062504d1cead7af8b9ec568f82c25">COMPOSI</a></div><div class="ttdeci">const my_vec::SVector COMPOSI</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00025">hexapod.h:25</a></div></div>
+<div class="ttc" id="ahexapod_8h_html_a72f05bba3ba206eff9fc660eefc879d5"><div class="ttname"><a href="hexapod_8h.html#a72f05bba3ba206eff9fc660eefc879d5">LEGROM_RMARGIN</a></div><div class="ttdeci">#define LEGROM_RMARGIN</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00017">hexapod.h:17</a></div></div>
+<div class="ttc" id="ahexapod_8h_html_a844e0c1a3b98f8a004890fc7305ab2fc"><div class="ttname"><a href="hexapod_8h.html#a844e0c1a3b98f8a004890fc7305ab2fc">MIN_LEG_RADIUS</a></div><div class="ttdeci">#define MIN_LEG_RADIUS</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00019">hexapod.h:19</a></div></div>
+<div class="ttc" id="amy__math_8h_html"><div class="ttname"><a href="my__math_8h.html">my_math.h</a></div><div class="ttdoc">基本的な計算を行う関数をまとめた名前空間．   行数 : 114</div></div>
+<div class="ttc" id="anamespacemy__math_html"><div class="ttname"><a href="namespacemy__math.html">my_math</a></div><div class="ttdoc">基本的な計算を行う関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> <a href="my__math_8h_source.html#l00009">my_math.h:10</a></div></div>
+<div class="ttc" id="anamespacemy__math_html_a8b7f23316d3495fac8be199b3c392fc7"><div class="ttname"><a href="namespacemy__math.html#a8b7f23316d3495fac8be199b3c392fc7">my_math::MY_FLT_PI</a></div><div class="ttdeci">constexpr float MY_FLT_PI</div><div class="ttdoc">float型の円周率</div><div class="ttdef"><b>Definition</b> <a href="my__math_8h_source.html#l00012">my_math.h:12</a></div></div>
+<div class="ttc" id="anamespacemy__math_html_aacc8f27ccee67f8dd99906b16d707769"><div class="ttname"><a href="namespacemy__math.html#aacc8f27ccee67f8dd99906b16d707769">my_math::squared</a></div><div class="ttdeci">constexpr double squared(const double num)</div><div class="ttdoc">2乗した値を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="my__math_8h_source.html#l00043">my_math.h:43</a></div></div>
+<div class="ttc" id="astruct_s_transform_html_a0822d990fc2ecc23b01a084dcf1d97a4"><div class="ttname"><a href="struct_s_transform.html#a0822d990fc2ecc23b01a084dcf1d97a4">STransform::thR</a></div><div class="ttdeci">float thR</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00031">hexapod.h:31</a></div></div>
+<div class="ttc" id="astruct_s_transform_html_a5b3e062c4cc8880b7021073b900cef80"><div class="ttname"><a href="struct_s_transform.html#a5b3e062c4cc8880b7021073b900cef80">STransform::thY</a></div><div class="ttdeci">float thY</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00031">hexapod.h:31</a></div></div>
+<div class="ttc" id="astruct_s_transform_html_a74a6389077fcd3c598211584cbfc1109"><div class="ttname"><a href="struct_s_transform.html#a74a6389077fcd3c598211584cbfc1109">STransform::thP</a></div><div class="ttdeci">float thP</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00031">hexapod.h:31</a></div></div>
+<div class="ttc" id="astruct_s_transform_html_a908ce1c8995e45b356d38c7fe458c6a5"><div class="ttname"><a href="struct_s_transform.html#a908ce1c8995e45b356d38c7fe458c6a5">STransform::com</a></div><div class="ttdeci">my_vec::SVector com</div><div class="ttdef"><b>Definition</b> <a href="hexapod_8h_source.html#l00030">hexapod.h:30</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a></div><div class="ttdoc">ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00039">my_vector.h:40</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a190f2610e7bc232e9b46c427de2aa3bc"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">my_vec::SVector::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">ロボットの左向きに正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00113">my_vector.h:113</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a55897a203c614f9702f6fd59667c668f"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a55897a203c614f9702f6fd59667c668f">my_vec::SVector::cross</a></div><div class="ttdeci">constexpr SVector cross(const SVector &amp;other) const</div><div class="ttdoc">自分×引数 の外積の結果を返す．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00102">my_vector.h:102</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b6d11ed9a9db333f921f71e60b2b541"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">my_vec::SVector::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">ロボットの正面方向に正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00112">my_vector.h:112</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b75b7b6605a134fff3940ed2b3a5212"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">my_vec::SVector::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">ロボットの上向きに正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00114">my_vector.h:114</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_ab7e048615bd7e965e0be62a3e92a32c1"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1">my_vec::SVector::length</a></div><div class="ttdeci">float length() const</div><div class="ttdoc">ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00079">my_vector.h:79</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="hexapod_8cpp.html">hexapod.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

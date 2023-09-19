@@ -90,16 +90,16 @@ $(document).ready(function(){initNavTree('_cmd_i_o_8h.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">クラス</a>  </div>
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#namespaces">名前空間</a> &#124;
+<a href="#enum-members">列挙型</a> &#124;
+<a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">CmdIO.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>コマンドラインに文字を出力するクラス．  
-<a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &quot;SimulateResult.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_node_8h_source.html">Node.h</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &quot;<a class="el" href="_simulate_result_8h_source.html">SimulateResult.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="node_8h_source.html">Node.h</a>&quot;</code><br />
 </div>
 <p><a href="_cmd_i_o_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
@@ -108,11 +108,73 @@ $(document).ready(function(){initNavTree('_cmd_i_o_8h.html',''); initResizable()
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_i_o.html">CmdIO</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．  <a href="class_cmd_i_o.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+名前空間</h2></td></tr>
+<tr class="memitem:namespacedl__io"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__io.html">dl_io</a></td></tr>
+<tr class="memdesc:namespacedl__io"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数をまとめた名前空間． <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+列挙型</h2></td></tr>
+<tr class="memitem:af2682932e967125a82e08cf73a66a191"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191">EOutputPriority</a> { <br />
+&#160;&#160;<a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191af3fc827ade4b968e50406496907ef962">ALWAYS</a>
+, <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191a19da7170bea36556dde582519795f3fc">FATAL</a>
+, <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191abf3d7ef26afde478b5bd36c9c92b66aa">ERROR_MES</a>
+, <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191a059e9861e0400dfbe05c98a841f3f96b">WARNING</a>
+, <br />
+&#160;&#160;<a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191a551b723eafd6a31d444fcb2f5920fbd3">INFO</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:af2682932e967125a82e08cf73a66a191"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する際の優先度．  <a href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191">[詳解]</a><br /></td></tr>
+<tr class="separator:af2682932e967125a82e08cf73a66a191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:ab3183fe30ebf943977e88e2362a6917f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__io.html#ab3183fe30ebf943977e88e2362a6917f">dl_io::setOutputPriority</a> (const <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191">EOutputPriority</a> priority)</td></tr>
+<tr class="memdesc:ab3183fe30ebf943977e88e2362a6917f"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する際の優先度を設定する関数．  <br /></td></tr>
+<tr class="separator:ab3183fe30ebf943977e88e2362a6917f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b8dc3a453f75db0097fa67b54181d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__io.html#a61b8dc3a453f75db0097fa67b54181d1">dl_io::output</a> (const std::string str, const <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191">EOutputPriority</a> priority=<a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191af3fc827ade4b968e50406496907ef962">EOutputPriority::ALWAYS</a>)</td></tr>
+<tr class="memdesc:a61b8dc3a453f75db0097fa67b54181d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数．  <br /></td></tr>
+<tr class="separator:a61b8dc3a453f75db0097fa67b54181d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>コマンドラインに文字を出力するクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/06/17 @auther 長谷川 </dd></dl>
-</div></div><!-- contents -->
+<h2 class="groupheader">列挙型詳解</h2>
+<a id="af2682932e967125a82e08cf73a66a191" name="af2682932e967125a82e08cf73a66a191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2682932e967125a82e08cf73a66a191">&#9670;&#160;</a></span>EOutputPriority</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="_cmd_i_o_8h.html#af2682932e967125a82e08cf73a66a191">EOutputPriority</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する際の優先度． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/08 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="af2682932e967125a82e08cf73a66a191af3fc827ade4b968e50406496907ef962" name="af2682932e967125a82e08cf73a66a191af3fc827ade4b968e50406496907ef962"></a>ALWAYS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af2682932e967125a82e08cf73a66a191a19da7170bea36556dde582519795f3fc" name="af2682932e967125a82e08cf73a66a191a19da7170bea36556dde582519795f3fc"></a>FATAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af2682932e967125a82e08cf73a66a191abf3d7ef26afde478b5bd36c9c92b66aa" name="af2682932e967125a82e08cf73a66a191abf3d7ef26afde478b5bd36c9c92b66aa"></a>ERROR_MES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af2682932e967125a82e08cf73a66a191a059e9861e0400dfbe05c98a841f3f96b" name="af2682932e967125a82e08cf73a66a191a059e9861e0400dfbe05c98a841f3f96b"></a>WARNING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af2682932e967125a82e08cf73a66a191a551b723eafd6a31d444fcb2f5920fbd3" name="af2682932e967125a82e08cf73a66a191a551b723eafd6a31d444fcb2f5920fbd3"></a>INFO&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition"> <a class="el" href="_cmd_i_o_8h_source.html">CmdIO.h</a> の <a class="el" href="_cmd_i_o_8h_source.html#l00013">13</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

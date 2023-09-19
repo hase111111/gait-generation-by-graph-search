@@ -95,27 +95,100 @@ $(document).ready(function(){initNavTree('class_i_graph_searcher.html',''); init
   <div class="headertitle"><div class="title">IGraphSearcher クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． <br  />
+ 継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．  
+ <a href="class_i_graph_searcher.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_interface_graph_searcher_8h_source.html">InterfaceGraphSearcher.h</a>&gt;</code></p>
 <div class="dynheader">
 IGraphSearcher の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_graph_searcher__inherit__graph.png" border="0" usemap="#a_i_graph_searcher_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_graph_searcher_inherit__map" id="a_i_graph_searcher_inherit__map">
-<area shape="rect" title=" " alt="" coords="117,5,229,32"/>
-<area shape="rect" href="class_graph_searcher_random.html" title=" " alt="" coords="5,80,162,107"/>
-<area shape="poly" title=" " alt="" coords="148,43,101,82,97,78,145,39"/>
-<area shape="rect" href="class_graph_searcher_sample.html" title=" " alt="" coords="186,80,338,107"/>
-<area shape="poly" title=" " alt="" coords="201,39,248,78,245,82,198,43"/>
+<area shape="rect" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;&#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてくだ..." alt="" coords="187,5,298,32"/>
+<area shape="rect" href="class_graph_searcher_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="5,80,141,107"/>
+<area shape="poly" title=" " alt="" coords="201,41,104,82,102,77,199,36"/>
+<area shape="rect" href="class_graph_searcher_random.html" title=" " alt="" coords="164,80,321,107"/>
+<area shape="poly" title=" " alt="" coords="245,47,245,80,240,80,240,47"/>
+<area shape="rect" href="class_graph_searcher_sample.html" title=" " alt="" coords="345,80,497,107"/>
+<area shape="poly" title=" " alt="" coords="288,35,391,77,389,82,286,40"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ac76af6a453ae38cc24859df41d913e46"><td class="memItemLeft" align="right" valign="top"><a id="ac76af6a453ae38cc24859df41d913e46" name="ac76af6a453ae38cc24859df41d913e46"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>searchGraphTree</b> (const std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;_graph, const <a class="el" href="struct_s_target.html">STarget</a> &amp;_target, <a class="el" href="struct_s_node.html">SNode</a> &amp;_output_result)=0</td></tr>
-<tr class="separator:ac76af6a453ae38cc24859df41d913e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac742f9d3360a34b1a1f220244b166e0"><td class="memItemLeft" align="right" valign="top"><a id="aac742f9d3360a34b1a1f220244b166e0" name="aac742f9d3360a34b1a1f220244b166e0"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IGraphSearcher</b> ()=default</td></tr>
+<tr class="memdesc:aac742f9d3360a34b1a1f220244b166e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">継承をするクラスのデストラクタはvirtualにしておく．参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> <br /></td></tr>
+<tr class="separator:aac742f9d3360a34b1a1f220244b166e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f37e6a8c977e5b9f8f99123faf509ef"><td class="memItemLeft" align="right" valign="top">virtual EGraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_searcher.html#a6f37e6a8c977e5b9f8f99123faf509ef">searchGraphTree</a> (const std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;graph, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_s_node.html">SNode</a> *output_result)=0</td></tr>
+<tr class="memdesc:a6f37e6a8c977e5b9f8f99123faf509ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフを受け取り，その中から最適な次の動作を出力する．  <br /></td></tr>
+<tr class="separator:a6f37e6a8c977e5b9f8f99123faf509ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使ってください． <br  />
+ 継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a6f37e6a8c977e5b9f8f99123faf509ef" name="a6f37e6a8c977e5b9f8f99123faf509ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f37e6a8c977e5b9f8f99123faf509ef">&#9670;&#160;</a></span>searchGraphTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual EGraphSearchResult IGraphSearcher::searchGraphTree </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_target.html">STarget</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_s_node.html">SNode</a> *&#160;</td>
+          <td class="paramname"><em>output_result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフを受け取り，その中から最適な次の動作を出力する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td>[in] グラフ木 </td></tr>
+    <tr><td class="paramname">target</td><td>[in] 目標地点 </td></tr>
+    <tr><td class="paramname">output_result</td><td>[out] 出力されるノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>EGraphSearchResult 探索の結果 </dd></dl>
+
+<p><a class="el" href="class_graph_searcher_hato.html#a5017564e8b231c787edf3020cc84ffdb">GraphSearcherHato</a>, <a class="el" href="class_graph_searcher_random.html#ac4072a51ccf865746d9b9a5e2b6d46a2">GraphSearcherRandom</a>, <a class="el" href="class_graph_searcher_sample.html#a68e0b1794068d96e1c3098b4ff6608fe">GraphSearcherSample</a>で実装されています。</p>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_i_graph_searcher_8h_source.html">IGraphSearcher.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_graph_searcher_8h_source.html">InterfaceGraphSearcher.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

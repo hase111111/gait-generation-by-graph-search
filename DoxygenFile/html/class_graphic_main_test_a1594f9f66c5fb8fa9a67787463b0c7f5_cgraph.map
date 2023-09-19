@@ -1,34 +1,59 @@
 <map id="GraphicMainTest::draw" name="GraphicMainTest::draw">
-<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,180,160,207"/>
-<area shape="rect" id="Node000002" href="$class_hexapod_renderer.html#af729a4665d1f1c156ea4252619b51503" title="ロボットを3D空間に描画する．" alt="" coords="208,180,367,207"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,191,193,191,193,196,160,196"/>
-<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator.html#a4419307fdde56645a1170d5b33a9e616" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．また，ロボットの回転を考慮する．" alt="" coords="420,5,574,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,178,343,121,376,88,413,58,421,53,424,58,417,62,380,92,347,125,301,181"/>
-<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator.html#a07f1e2f659fb9c34344a6ba821f128cf" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="420,72,574,115"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="312,177,414,124,426,119,428,123,416,129,315,182"/>
-<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="420,205,574,248"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="368,203,405,209,404,215,367,209"/>
-<area shape="rect" id="Node000009" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="420,272,574,315"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="315,205,416,258,428,263,426,268,414,262,312,210"/>
-<area shape="rect" id="Node000013" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="420,139,574,181"/>
-<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="367,178,404,172,405,177,368,183"/>
-<area shape="rect" id="Node000015" href="$structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="415,360,578,387"/>
-<area shape="poly" id="edge16_Node000002_Node000015" title=" " alt="" coords="301,205,349,260,381,294,417,325,456,350,453,355,413,329,378,297,345,264,297,209"/>
-<area shape="rect" id="Node000004" href="$namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="668,13,794,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="574,24,653,24,653,29,574,29"/>
-<area shape="rect" id="Node000007" href="$structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="884,171,1051,197"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="574,223,697,218,835,207,890,198,890,203,836,212,697,224,574,228"/>
-<area shape="rect" id="Node000008" href="$structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="632,171,830,197"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="574,210,640,198,641,203,575,215"/>
-<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="551,269,577,258,690,202,692,207,579,262,553,274"/>
-<area shape="rect" id="Node000010" href="$structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="646,323,816,365"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="575,307,632,320,630,325,574,313"/>
-<area shape="rect" id="Node000012" href="$namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4" title="2乗した値を返す関数．" alt="" coords="666,272,796,299"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="574,288,652,285,652,291,575,293"/>
-<area shape="poly" id="edge15_Node000013_Node000008" title=" " alt="" coords="575,165,618,170,617,175,574,171"/>
-<area shape="rect" id="Node000014" href="$structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="626,120,836,147"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="574,149,611,144,612,150,575,154"/>
-<area shape="poly" id="edge14_Node000014_Node000007" title=" " alt="" coords="797,145,888,164,887,170,796,150"/>
-<area shape="rect" id="Node000016" href="$structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="629,389,833,416"/>
-<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="579,381,614,385,613,391,578,386"/>
+<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,557,160,584"/>
+<area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="221,725,354,752"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,582,260,713,257,717,99,586"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="208,385,367,412"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="98,554,257,419,261,424,102,559"/>
+<area shape="rect" id="Node000003" href="$namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="441,578,608,605"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,723,343,670,376,640,414,615,428,608,430,613,416,619,380,644,347,674,301,726"/>
+<area shape="rect" id="Node000004" href="$namespacedl__dxlib.html#aa3743e969ae8717f2671b347ac650881" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="438,746,611,789"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="355,744,424,752,423,758,354,749"/>
+<area shape="rect" id="Node000006" href="$class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="425,813,625,840"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="314,750,360,774,416,798,440,806,439,811,414,803,358,779,311,755"/>
+<area shape="rect" id="Node000007" href="$class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="424,864,626,890"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="302,750,348,799,381,826,416,849,431,856,428,861,414,854,377,831,345,803,298,754"/>
+<area shape="rect" id="Node000008" href="$class_hexapod_state_calclator.html#a1c0a81291fc3bef841c6176c307a9312" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="448,629,602,672"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="317,722,414,681,434,674,436,679,416,686,319,727"/>
+<area shape="rect" id="Node000009" href="$class_map_state.html#afc4b1ab9248eb27e060296491ca898d7" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="430,914,620,957"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="298,751,341,822,375,864,417,900,424,905,422,910,413,904,372,868,337,825,293,753"/>
+<area shape="rect" id="Node000010" href="$class_map_state.html#ae499547ec5acd6bd2b254a22d8c16f88" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="415,696,634,722"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="354,727,400,722,401,727,355,733"/>
+<area shape="rect" id="Node000005" href="$namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0" title="3D空間に立方体を描画する．" alt="" coords="710,754,856,781"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="612,765,695,765,695,770,612,770"/>
+<area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="297,411,314,443,340,485,374,528,417,564,429,571,426,575,413,568,370,532,335,488,309,446,293,413"/>
+<area shape="poly" id="edge16_Node000011_Node000008" title=" " alt="" coords="295,411,309,451,334,506,369,565,392,592,417,615,435,627,432,631,413,619,388,595,365,568,329,509,304,453,290,413"/>
+<area shape="rect" id="Node000012" href="$structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="932,260,1091,286"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="287,384,294,328,314,248,330,205,351,164,379,126,413,95,475,55,533,27,589,10,644,3,700,7,758,21,819,44,885,77,909,93,930,113,964,158,988,205,1004,245,999,246,983,207,959,161,926,116,905,97,882,82,817,49,756,26,699,12,644,8,590,15,535,32,478,60,417,99,383,130,356,167,335,207,319,250,299,329,292,385"/>
+<area shape="rect" id="Node000013" href="$namespacedl__dxlib.html#aeb5d1c259d3ab9dc9ac17161a29a546e" title="3D空間に六角柱を描画する．" alt="" coords="427,293,622,320"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="309,382,356,355,414,329,437,322,439,327,416,334,359,360,312,387"/>
+<area shape="rect" id="Node000015" href="$class_hexapod_state_calclator.html#a939f73cf543fd9de5e7fe0320c3c4b6b" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="446,344,604,386"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="367,384,430,375,431,381,368,390"/>
+<area shape="rect" id="Node000016" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="448,410,602,453"/>
+<area shape="poly" id="edge17_Node000011_Node000016" title=" " alt="" coords="368,407,434,416,433,421,367,412"/>
+<area shape="rect" id="Node000017" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="718,448,848,474"/>
+<area shape="poly" id="edge21_Node000011_Node000017" title=" " alt="" coords="309,410,356,438,385,452,416,462,491,475,568,479,641,476,704,470,704,476,641,482,568,484,490,480,414,468,383,457,353,443,306,414"/>
+<area shape="rect" id="Node000019" href="$structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="688,209,878,236"/>
+<area shape="poly" id="edge32_Node000011_Node000019" title=" " alt="" coords="290,384,305,347,330,299,366,250,388,229,414,212,434,205,460,200,526,197,600,200,673,206,673,211,600,205,526,202,461,205,435,210,416,217,392,233,370,253,334,302,310,349,295,386"/>
+<area shape="rect" id="Node000020" href="$class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="448,109,602,152"/>
+<area shape="poly" id="edge22_Node000011_Node000020" title=" " alt="" coords="290,384,304,343,329,285,365,223,388,194,413,168,433,155,436,159,417,172,392,197,369,226,333,287,309,345,295,386"/>
+<area shape="rect" id="Node000024" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="448,226,602,269"/>
+<area shape="poly" id="edge26_Node000011_Node000024" title=" " alt="" coords="298,383,345,332,377,304,414,279,432,269,435,274,416,283,381,308,348,336,302,386"/>
+<area shape="rect" id="Node000026" href="$structdl__vec_1_1_s_vector.html#ae3995a28af45772ee7593b40979e8561" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="447,528,602,554"/>
+<area shape="poly" id="edge30_Node000011_Node000026" title=" " alt="" coords="302,410,349,457,381,484,416,507,447,520,445,525,414,511,378,488,346,461,299,414"/>
+<area shape="rect" id="Node000014" href="$namespacedl__dxlib.html#a36b086b2d9269fe65393e37c76c675b2" title="3D空間に六角形を描画する．" alt="" coords="707,310,859,337"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="623,310,692,315,692,320,622,316"/>
+<area shape="poly" id="edge18_Node000016_Node000012" title=" " alt="" coords="602,418,735,392,810,372,883,347,934,321,978,293,981,297,937,325,885,351,812,377,736,397,603,424"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="603,438,704,449,703,455,602,443"/>
+<area shape="poly" id="edge20_Node000016_Node000019" title=" " alt="" coords="601,416,618,408,632,396,646,378,653,360,655,322,658,284,665,265,680,246,685,242,688,246,684,249,670,267,663,285,661,323,658,361,651,381,636,400,621,412,603,421"/>
+<area shape="poly" id="edge24_Node000020_Node000019" title=" " alt="" coords="591,150,636,168,659,182,683,195,704,202,702,207,681,199,657,186,633,173,589,155"/>
+<area shape="rect" id="Node000021" href="$structdl__vec_1_1_s_vector2.html#a0ae9aed0d5f24a33178262e127c628e8" title="このベクトルの長さの2乗を返す" alt="" coords="702,92,864,134"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="602,122,687,117,687,122,603,128"/>
+<area shape="rect" id="Node000023" href="$namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b" title="2乗した値を返す関数．" alt="" coords="722,158,844,185"/>
+<area shape="poly" id="edge25_Node000020_Node000023" title=" " alt="" coords="603,140,708,157,707,162,602,145"/>
+<area shape="poly" id="edge29_Node000024_Node000019" title=" " alt="" coords="602,237,673,230,674,236,603,243"/>
+<area shape="rect" id="Node000025" href="$structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702" title="交点が存在しているかどうか調べる関数" alt="" coords="682,260,884,286"/>
+<area shape="poly" id="edge27_Node000024_Node000025" title=" " alt="" coords="603,253,668,259,667,264,602,258"/>
+<area shape="poly" id="edge28_Node000025_Node000012" title=" " alt="" coords="884,270,917,270,917,276,884,276"/>
+<area shape="rect" id="Node000027" href="$structdl__vec_1_1_s_vector.html#a4420023e744314ef6d41f21fbd204150" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="685,528,881,554"/>
+<area shape="poly" id="edge31_Node000026_Node000027" title=" " alt="" coords="603,538,670,538,670,544,603,544"/>
 </map>

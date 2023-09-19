@@ -1,0 +1,30 @@
+<map id="dl_vec::SVector2::cross" name="dl_vec::SVector2::cross">
+<area shape="rect" id="Node000001" title="このベクトルとotherの外積を返す" alt="" coords="948,127,1107,153"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#a198fd1c8a9ec7f3f68816578eb34f62c" title="静的安定余裕を計算する．" alt="" coords="722,5,876,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="990,121,898,69,858,51,860,46,901,64,993,116"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="255,88,415,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="954,126,899,117,766,106,634,101,415,102,415,96,634,96,767,101,900,112,954,121"/>
+<area shape="rect" id="Node000007" href="$structdl__vec_1_1_s_line2.html#a7bb037f1649dd2d00d0868fc3fa7a6ec" title="他の線分との交点を求める．" alt="" coords="700,228,898,255"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="993,164,901,212,851,230,849,225,899,207,990,159"/>
+<area shape="rect" id="Node000008" href="$structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702" title="交点が存在しているかどうか調べる関数" alt="" coords="698,127,900,153"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="933,143,900,143,900,137,933,137"/>
+<area shape="rect" id="Node000012" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="496,189,650,232"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="947,159,900,168,651,204,651,199,899,163,946,154"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,29,171,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="261,87,148,59,149,54,263,81"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,80,174,123"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="241,104,174,104,174,99,241,99"/>
+<area shape="rect" id="Node000006" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,147,167,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="257,121,222,129,145,149,144,143,221,124,256,116"/>
+<area shape="rect" id="Node000009" href="$class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="496,123,650,165"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="683,145,651,145,651,140,683,139"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="482,130,413,118,414,113,483,125"/>
+<area shape="rect" id="Node000010" href="$class_com_selecter.html#a362bc2b2bba3c9933c01de9c90687691" title="重心を求める" alt="" coords="222,139,448,165"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="482,150,448,151,448,146,481,144"/>
+<area shape="poly" id="edge14_Node000012_Node000003" title=" " alt="" coords="501,184,494,179,480,166,470,153,461,140,447,129,414,115,416,110,449,124,465,137,475,150,484,162,498,175,504,179"/>
+<area shape="poly" id="edge15_Node000012_Node000010" title=" " alt="" coords="481,189,447,180,399,168,400,163,449,175,483,183"/>
+<area shape="rect" id="Node000013" href="$class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d" title="重心を平行移動したノードを生成する" alt="" coords="254,189,416,232"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="481,213,416,213,416,208,481,208"/>
+<area shape="rect" id="Node000014" href="$class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="248,256,422,283"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="483,238,449,247,400,258,399,253,447,241,481,233"/>
+</map>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: IPassFinder クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_i_pass_finder.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="class_i_pass_finder-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">IPassFinder クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．  
+ <a href="class_i_pass_finder.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="interface__pass__finder_8h_source.html">interface_pass_finder.h</a>&gt;</code></p>
+<div class="dynheader">
+IPassFinder の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_pass_finder__inherit__graph.png" border="0" usemap="#a_i_pass_finder_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_i_pass_finder_inherit__map" id="a_i_pass_finder_inherit__map">
+<area shape="rect" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="240,5,330,32"/>
+<area shape="rect" href="class_pass_finder_fixed.html" title="再評価手法" alt="" coords="5,80,125,107"/>
+<area shape="poly" title=" " alt="" coords="234,40,104,82,103,77,232,35"/>
+<area shape="rect" href="class_pass_finder_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="149,80,264,107"/>
+<area shape="poly" title=" " alt="" coords="263,44,222,82,218,78,259,40"/>
+<area shape="rect" href="class_pass_finder_hato_thread.html" title="パス探索クラス" alt="" coords="287,80,440,107"/>
+<area shape="poly" title=" " alt="" coords="311,40,352,78,348,82,307,44"/>
+<area shape="rect" href="class_pass_finder_none.html" title="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．" alt="" coords="465,80,582,107"/>
+<area shape="poly" title=" " alt="" coords="341,34,483,77,481,82,340,39"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3988b0e617ad1172c3563315c77de78a"><td class="memItemLeft" align="right" valign="top"><a id="a3988b0e617ad1172c3563315c77de78a" name="a3988b0e617ad1172c3563315c77de78a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IPassFinder</b> (std::unique_ptr&lt; <a class="el" href="class_abstract_pass_finder_factory.html">AbstractPassFinderFactory</a> &gt; &amp;&amp;factory)</td></tr>
+<tr class="separator:a3988b0e617ad1172c3563315c77de78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30be9765ae681681037f859ce554e5e"><td class="memItemLeft" align="right" valign="top">virtual EGraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#ac30be9765ae681681037f859ce554e5e">getNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> *const p_map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_s_node.html">SNode</a> &amp;output_node)=0</td></tr>
+<tr class="memdesc:ac30be9765ae681681037f859ce554e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
+<tr class="separator:ac30be9765ae681681037f859ce554e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb82d5e68f43fb8957a146e570a02b2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#abb82d5e68f43fb8957a146e570a02b2a">getMadeNodeNum</a> () const</td></tr>
+<tr class="memdesc:abb82d5e68f43fb8957a146e570a02b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数を返す  <br /></td></tr>
+<tr class="separator:abb82d5e68f43fb8957a146e570a02b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa231f3e3af94fa1646d34ffa79866827"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">getGraphTree</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) const</td></tr>
+<tr class="memdesc:aa231f3e3af94fa1646d34ffa79866827"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
+ この関数はデバッグ用なので，探索には使わないこと．  <br /></td></tr>
+<tr class="separator:aa231f3e3af94fa1646d34ffa79866827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a4dc6323d887506745b3ca2de26ba8331"><td class="memItemLeft" align="right" valign="top"><a id="a4dc6323d887506745b3ca2de26ba8331" name="a4dc6323d887506745b3ca2de26ba8331"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_made_node_num</b> = 0</td></tr>
+<tr class="memdesc:a4dc6323d887506745b3ca2de26ba8331"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフの数 <br /></td></tr>
+<tr class="separator:a4dc6323d887506745b3ca2de26ba8331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd311c06ef66204046706b445b4e7ae"><td class="memItemLeft" align="right" valign="top"><a id="a0dd311c06ef66204046706b445b4e7ae" name="a0dd311c06ef66204046706b445b4e7ae"></a>
+std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_graph_tree</b></td></tr>
+<tr class="memdesc:a0dd311c06ef66204046706b445b4e7ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木 <br /></td></tr>
+<tr class="separator:a0dd311c06ef66204046706b445b4e7ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae90101ea6d373a310919ffda347b5213"><td class="memItemLeft" align="right" valign="top"><a id="ae90101ea6d373a310919ffda347b5213" name="ae90101ea6d373a310919ffda347b5213"></a>
+std::unique_ptr&lt; <a class="el" href="class_abstract_pass_finder_factory.html">AbstractPassFinderFactory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mp_factory</b></td></tr>
+<tr class="memdesc:ae90101ea6d373a310919ffda347b5213"><td class="mdescLeft">&#160;</td><td class="mdescRight">パス探索クラスのファクトリー <br /></td></tr>
+<tr class="separator:ae90101ea6d373a310919ffda347b5213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34cf722dc74d6b3408828c18bd198a9a"><td class="memItemLeft" align="right" valign="top"><a id="a34cf722dc74d6b3408828c18bd198a9a" name="a34cf722dc74d6b3408828c18bd198a9a"></a>
+std::unique_ptr&lt; <a class="el" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mp_tree_creator</b></td></tr>
+<tr class="memdesc:a34cf722dc74d6b3408828c18bd198a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木の作成クラス <br /></td></tr>
+<tr class="separator:a34cf722dc74d6b3408828c18bd198a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31b4f0aa3b90b470bf4d7030268cd8e"><td class="memItemLeft" align="right" valign="top"><a id="ad31b4f0aa3b90b470bf4d7030268cd8e" name="ad31b4f0aa3b90b470bf4d7030268cd8e"></a>
+std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearcher</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mp_searcher</b></td></tr>
+<tr class="memdesc:ad31b4f0aa3b90b470bf4d7030268cd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索クラス <br /></td></tr>
+<tr class="separator:ad31b4f0aa3b90b470bf4d7030268cd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>継承をするクラスのデストラクタはvirtualにしておく． <br  />
+ 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="aa231f3e3af94fa1646d34ffa79866827" name="aa231f3e3af94fa1646d34ffa79866827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa231f3e3af94fa1646d34ffa79866827">&#9670;&#160;</a></span>getGraphTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IPassFinder::getGraphTree </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramname"><em>output_graph</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>作成したグラフ木を返す． <br  />
+ この関数はデバッグ用なので，探索には使わないこと． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_graph</td><td>作成したグラフ木 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb82d5e68f43fb8957a146e570a02b2a" name="abb82d5e68f43fb8957a146e570a02b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb82d5e68f43fb8957a146e570a02b2a">&#9670;&#160;</a></span>getMadeNodeNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IPassFinder::getMadeNodeNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>作成したグラフの数を返す </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 作成したグラフの数 </dd></dl>
+
+</div>
+</div>
+<a id="ac30be9765ae681681037f859ce554e5e" name="ac30be9765ae681681037f859ce554e5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30be9765ae681681037f859ce554e5e">&#9670;&#160;</a></span>getNextNodebyGraphSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual EGraphSearchResult IPassFinder::getNextNodebyGraphSearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> *const&#160;</td>
+          <td class="paramname"><em>p_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_target.html">STarget</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>output_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフ探索を行い，次の動作として最適なノードを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>現在の状態を表すノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_map</td><td>現在のマップの状態 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">target</td><td>目標の状態 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_node</td><td>結果のノード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>EGraphSearchResult グラフ探索の結果を返す． </dd></dl>
+
+<p><a class="el" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878">PassFinderFixed</a>, <a class="el" href="class_pass_finder_hato.html#ac0ebb78cf6ca274c51d13f8eed9c4148">PassFinderHato</a>, <a class="el" href="class_pass_finder_hato_thread.html#a39e8ac1fd6111699a72092fcdd51a1ba">PassFinderHatoThread</a>, <a class="el" href="class_pass_finder_none.html#a55f60082bf01fb0de2679915cecfcbd8">PassFinderNone</a>で実装されています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="interface__pass__finder_8h_source.html">interface_pass_finder.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_i_pass_finder.html">IPassFinder</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

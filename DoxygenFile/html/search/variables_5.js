@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['gate_5fpattern_5fgenerate_5fnum_0',['GATE_PATTERN_GENERATE_NUM',['../class_define.html#a234febd499a858f276085ffec63fa256',1,'Define']]],
-  ['global_5fcenter_5fof_5fmass_1',['global_center_of_mass',['../struct_s_node.html#a2ab109482dce84de6e7962f52c18314e',1,'SNode']]],
-  ['goal_5ftape_2',['GOAL_TAPE',['../class_define.html#ac2b1625e90537963082e5f3e1763c871',1,'Define']]],
-  ['graph_5fsearch_5fdepth_3',['GRAPH_SEARCH_DEPTH',['../class_define.html#a783d98aae333fcbf0ed2d6f38ec0dedf',1,'Define']]],
-  ['graphic_5ffps_4',['GRAPHIC_FPS',['../class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a',1,'GraphicConst']]]
+  ['femur_5flength_0',['FEMUR_LENGTH',['../class_hexapod_const.html#a8ba8c84425225e89f3c3ce72990d6d15',1,'HexapodConst']]],
+  ['flag_5fdo_5fpruning_1',['FLAG_DO_PRUNING',['../class_define.html#adfe22effeaa9849142ad09bdbe10ab98',1,'Define']]],
+  ['flag_5fgraphic_5favailable_2',['FLAG_GRAPHIC_AVAILABLE',['../class_define.html#ae3407e15646bc0278ac23247dc7d405f',1,'Define']]],
+  ['foot_5fhold_5fxy_5fdist_3',['FOOT_HOLD_XY_DIST',['../class_map_const.html#a1a8b7aaa7e114010c6ee49235d8e44f1',1,'MapConst']]]
 ];

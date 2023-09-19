@@ -7,11 +7,11 @@ digraph "GraphicMainGraphViewer::update"
   rankdir="LR";
   Node1 [id="Node000001",label="GraphicMainGraphViewer\l::update",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="GraphicDataBroker::\lcopyAllNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html#abc27dcf146fcb057e15479df0d085258",tooltip="ノードの集合をvectorを用いて参照渡しする．全データをコピーする．"];
+  Node2 [id="Node000002",label="GraphicDataBroker::\lcopyAllNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html#a880ff0bb3c2e511a4dc2da85bfd6081f",tooltip="ノードの集合をvectorを用いて参照渡しする．全データをコピーする．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="GraphicDataBroker::\lgetNodeNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_data_broker.html#a26f41abf3764375ce605de858038485e",tooltip="セットされているノードの数を返す．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="HexapodRenderer::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600",tooltip="ロボットの状態を更新する．"];
+  Node4 [id="Node000004",label="HexapodRenderer::update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc",tooltip="ロボットの状態を更新する．"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="HexapodStateCalclator\l::calclateJointPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526",tooltip="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する．  三角関数を多く使用するので，計算量が多い．"];
 }

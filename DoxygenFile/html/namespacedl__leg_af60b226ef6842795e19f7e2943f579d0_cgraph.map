@@ -1,0 +1,7 @@
+<map id="dl_leg::getGroundedLegNumWithVector" name="dl_leg::getGroundedLegNumWithVector">
+<area shape="rect" id="Node000001" title="接地している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="5,5,191,48"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="239,13,368,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,24,224,24,224,29,191,29"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="416,13,563,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="368,24,401,24,401,29,368,29"/>
+</map>

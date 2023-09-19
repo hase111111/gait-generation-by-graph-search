@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/leg_up_node_creator.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('leg__up__node__creator_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">leg_up_node_creator.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="leg__up__node__creator_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="leg__up__node__creator_8h.html">leg_up_node_creator.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="com__type_8h.html">com_type.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0">    7</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0">LegUpNodeCreator::create</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_num, std::vector&lt;SNode&gt;* output_graph)</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">bool</span> is_able_type[<a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a>];</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a>; i++)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        is_able_type[i] = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//重心が現在どこにあるか(前よりか真ん中か...)などのパラメータはこのcom patternで仕分けている．(詳しくはComtype.hを参照)．これを取得する．</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> com_pattern = <a class="code hl_function" href="namespacedl__leg.html#abbc27c9c3c65dc84913fd7b87c7274c6">dl_leg::getComPatternState</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">//com patternよりとることができないcom typeを全てfalseにする．</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="namespace_com_type.html#ada2e272de56dfe8b22d4135d72a5cf9e">ComType::checkAbleComTypeFromComPattern</a>(com_pattern, is_able_type);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">//既に遊脚の脚を接地することはできない．</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        std::vector&lt;int&gt; lifted_leg_num;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_function" href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a>(current_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, lifted_leg_num);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; i : lifted_leg_num)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="namespace_com_type.html#ab480b441650d1e65503938a97da8ac71">ComType::checkAbleComTypeFromNotGroundableLeg</a>(i, is_able_type);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">//子ノードを生成する．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a>; i++)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">//その重心タイプが可能であれば，</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">if</span> (is_able_type[i])</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <a class="code hl_struct" href="struct_s_node.html">SNode</a> res_node = current_node;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            res_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_num, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="comment">//遊脚・接地を書き換える．</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordtype">bool</span> new_ground[<a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>] = {};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <a class="code hl_function" href="namespace_com_type.html#a8014df06ef19a39e925ab44ff85daa88">ComType::getGroundLegFromComType</a>(i, new_ground);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code hl_variable" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>; j++)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <a class="code hl_function" href="namespacedl__leg.html#a8b75711224944af4cbd2e9fc50c3e080">dl_leg::changeGround</a>(res_node.<a class="code hl_variable" href="struct_s_node.html#aea31c572314e026c394d300dd605b930">leg_state</a>, j, new_ground[j]);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                <span class="keywordflow">if</span> (!new_ground[j])</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                    res_node.<a class="code hl_variable" href="struct_s_node.html#aa997c8352bd13c0da3bacfec1e7d2463">leg_pos</a>[j].<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">x</a> = 160 * <a class="code hl_variable" href="class_hexapod_const.html#a2b97398ae0c52f87eef8d9c17994377b">HexapodConst::DEFAULT_LEG_ANGLE_COS</a>[j];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    res_node.<a class="code hl_variable" href="struct_s_node.html#aa997c8352bd13c0da3bacfec1e7d2463">leg_pos</a>[j].<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">y</a> = 160 * <a class="code hl_variable" href="class_hexapod_const.html#a474f584af9040b3b1e2ad6aeae638309">HexapodConst::DEFAULT_LEG_ANGLE_SIN</a>[j];</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    res_node.<a class="code hl_variable" href="struct_s_node.html#aa997c8352bd13c0da3bacfec1e7d2463">leg_pos</a>[j].<a class="code hl_variable" href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">z</a> = -10;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="comment">//可能な姿勢ならば，子ノードとして追加する．</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">if</span> (m_calculator.<a class="code hl_function" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">isAblePause</a>(res_node))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                (*output_graph).push_back(res_node);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">//出力されたノードがないならば，そのままのノードを出力する．</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> ((*output_graph).size() == 0)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_struct" href="struct_s_node.html">SNode</a> res_node = current_node;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        res_node.<a class="code hl_function" href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">changeNextNode</a>(current_num, <a class="code hl_variable" href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">m_next_move</a>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        (*output_graph).push_back(res_node);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="ttc" id="aclass_hexapod_const_html_a2b97398ae0c52f87eef8d9c17994377b"><div class="ttname"><a href="class_hexapod_const.html#a2b97398ae0c52f87eef8d9c17994377b">HexapodConst::DEFAULT_LEG_ANGLE_COS</a></div><div class="ttdeci">static constexpr float DEFAULT_LEG_ANGLE_COS[LEG_NUM]</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00050">HexapodConst.h:50</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a474f584af9040b3b1e2ad6aeae638309"><div class="ttname"><a href="class_hexapod_const.html#a474f584af9040b3b1e2ad6aeae638309">HexapodConst::DEFAULT_LEG_ANGLE_SIN</a></div><div class="ttdeci">static constexpr float DEFAULT_LEG_ANGLE_SIN[LEG_NUM]</div><div class="ttdoc">DEFAULT_LEG_ANGLEの値を元にsin cos を計算しておく．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00047">HexapodConst.h:47</a></div></div>
+<div class="ttc" id="aclass_hexapod_const_html_a5c14fbad8f33c6f790898059940226b8"><div class="ttname"><a href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a></div><div class="ttdeci">static constexpr int LEG_NUM</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_const_8h_source.html#l00010">HexapodConst.h:10</a></div></div>
+<div class="ttc" id="aclass_hexapod_state_calclator_html_a5e34910a6da418efdc1e1632672f15e7"><div class="ttname"><a href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7">HexapodStateCalclator::isAblePause</a></div><div class="ttdeci">bool isAblePause(const SNode &amp;_node) const</div><div class="ttdoc">転ばない姿勢かどうか調べる．</div><div class="ttdef"><b>Definition</b> <a href="_hexapod_state_calculator_8cpp_source.html#l00218">HexapodStateCalculator.cpp:218</a></div></div>
+<div class="ttc" id="aclass_i_node_creator_html_ab19dddbded0d73045d481ff4a89cbd50"><div class="ttname"><a href="class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50">INodeCreator::m_next_move</a></div><div class="ttdeci">const EHexapodMove m_next_move</div><div class="ttdoc">次動作</div><div class="ttdef"><b>Definition</b> <a href="interface__node__creator_8h_source.html#l00031">interface_node_creator.h:31</a></div></div>
+<div class="ttc" id="aclass_leg_up_node_creator_html_a8fcdcc64f2e29299e392dcf1a2ecd2d0"><div class="ttname"><a href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0">LegUpNodeCreator::create</a></div><div class="ttdeci">void create(const SNode &amp;current_node, const int current_num, std::vector&lt; SNode &gt; *output_graph) override</div><div class="ttdoc">重心を平行移動したノードを生成する</div><div class="ttdef"><b>Definition</b> <a href="leg__up__node__creator_8cpp_source.html#l00007">leg_up_node_creator.cpp:7</a></div></div>
+<div class="ttc" id="acom__type_8h_html"><div class="ttname"><a href="com__type_8h.html">com_type.h</a></div><div class="ttdoc">重心タイプを扱うための名前空間．   行数 : 121</div></div>
+<div class="ttc" id="aleg__state_8h_html"><div class="ttname"><a href="leg__state_8h.html">leg_state.h</a></div><div class="ttdoc">このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの   行数 : 138</div></div>
+<div class="ttc" id="aleg__up__node__creator_8h_html"><div class="ttname"><a href="leg__up__node__creator_8h.html">leg_up_node_creator.h</a></div></div>
+<div class="ttc" id="anamespace_com_type_html_a8014df06ef19a39e925ab44ff85daa88"><div class="ttname"><a href="namespace_com_type.html#a8014df06ef19a39e925ab44ff85daa88">ComType::getGroundLegFromComType</a></div><div class="ttdeci">void getGroundLegFromComType(const int _com_type, bool _output_ground_leg[HexapodConst::LEG_NUM])</div><div class="ttdef"><b>Definition</b> <a href="com__type_8cpp_source.html#l00236">com_type.cpp:236</a></div></div>
+<div class="ttc" id="anamespace_com_type_html_ab480b441650d1e65503938a97da8ac71"><div class="ttname"><a href="namespace_com_type.html#ab480b441650d1e65503938a97da8ac71">ComType::checkAbleComTypeFromNotGroundableLeg</a></div><div class="ttdeci">void checkAbleComTypeFromNotGroundableLeg(const int not_groundble_leg, bool output_able_comtype[COM_TYPE_NUM])</div><div class="ttdef"><b>Definition</b> <a href="com__type_8cpp_source.html#l00448">com_type.cpp:448</a></div></div>
+<div class="ttc" id="anamespace_com_type_html_ab824570eb6c7d8e6fb26f9478e582224"><div class="ttname"><a href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">ComType::COM_TYPE_NUM</a></div><div class="ttdeci">constexpr int COM_TYPE_NUM</div><div class="ttdoc">重心タイプの数</div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00028">com_type.h:28</a></div></div>
+<div class="ttc" id="anamespace_com_type_html_ada2e272de56dfe8b22d4135d72a5cf9e"><div class="ttname"><a href="namespace_com_type.html#ada2e272de56dfe8b22d4135d72a5cf9e">ComType::checkAbleComTypeFromComPattern</a></div><div class="ttdeci">void checkAbleComTypeFromComPattern(const int _com_pattern, bool _com_type_able_array[COM_TYPE_NUM])</div><div class="ttdef"><b>Definition</b> <a href="com__type_8cpp_source.html#l00437">com_type.cpp:437</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_a7f0087bafff21a191f0f9db91b71e3a7"><div class="ttname"><a href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a></div><div class="ttdeci">void getLiftedLegNumWithVector(const int _leg_state, std::vector&lt; int &gt; &amp;_res_number)</div><div class="ttdoc">遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00083">leg_state.cpp:83</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_a8b75711224944af4cbd2e9fc50c3e080"><div class="ttname"><a href="namespacedl__leg.html#a8b75711224944af4cbd2e9fc50c3e080">dl_leg::changeGround</a></div><div class="ttdeci">void changeGround(int &amp;_leg_state, const int _leg_num, const bool _ground)</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00147">leg_state.cpp:147</a></div></div>
+<div class="ttc" id="anamespacedl__leg_html_abbc27c9c3c65dc84913fd7b87c7274c6"><div class="ttname"><a href="namespacedl__leg.html#abbc27c9c3c65dc84913fd7b87c7274c6">dl_leg::getComPatternState</a></div><div class="ttdeci">int getComPatternState(const int _leg_state)</div><div class="ttdoc">重心パターンを取得する．0b0000 〜 0b1000 まで</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00103">leg_state.cpp:103</a></div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00021">node.h:22</a></div></div>
+<div class="ttc" id="astruct_s_node_html_a99876a79a2e973f64a25fb72210086b0"><div class="ttname"><a href="struct_s_node.html#a99876a79a2e973f64a25fb72210086b0">SNode::changeNextNode</a></div><div class="ttdeci">constexpr void changeNextNode(const int parent, const EHexapodMove next)</div><div class="ttdoc">次の動作を設定する関数．</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00050">node.h:50</a></div></div>
+<div class="ttc" id="astruct_s_node_html_aa997c8352bd13c0da3bacfec1e7d2463"><div class="ttname"><a href="struct_s_node.html#aa997c8352bd13c0da3bacfec1e7d2463">SNode::leg_pos</a></div><div class="ttdeci">my_vec::SVector leg_pos[HexapodConst::LEG_NUM]</div><div class="ttdoc">[4 * 3 * 6 = 72 byte] 脚先の座標．(coxa(脚の付け根)を原点とする)</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00103">node.h:103</a></div></div>
+<div class="ttc" id="astruct_s_node_html_aea31c572314e026c394d300dd605b930"><div class="ttname"><a href="struct_s_node.html#aea31c572314e026c394d300dd605b930">SNode::leg_state</a></div><div class="ttdeci">int leg_state</div><div class="ttdoc">[4 byte] 脚状態，重心パターンをbitで表す．leg_state.hにこれを操作する用の名前空間と関数がある．旧名 leg_con</div><div class="ttdef"><b>Definition</b> <a href="node_8h_source.html#l00101">node.h:101</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a190f2610e7bc232e9b46c427de2aa3bc"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a190f2610e7bc232e9b46c427de2aa3bc">my_vec::SVector::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">ロボットの左向きに正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00113">my_vector.h:113</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b6d11ed9a9db333f921f71e60b2b541"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b6d11ed9a9db333f921f71e60b2b541">my_vec::SVector::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">ロボットの正面方向に正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00112">my_vector.h:112</a></div></div>
+<div class="ttc" id="astructmy__vec_1_1_s_vector_html_a7b75b7b6605a134fff3940ed2b3a5212"><div class="ttname"><a href="structmy__vec_1_1_s_vector.html#a7b75b7b6605a134fff3940ed2b3a5212">my_vec::SVector::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">ロボットの上向きに正．</div><div class="ttdef"><b>Definition</b> <a href="my__vector_8h_source.html#l00114">my_vector.h:114</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="leg__up__node__creator_8cpp.html">leg_up_node_creator.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/InterfacePassFinder.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_interface_pass_finder_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">InterfacePassFinder.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="node_8h.html">Node.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_target_8h.html">Target.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;GraphSearchResult.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_interface_graph_tree_creator_8h.html">InterfaceGraphTreeCreator.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_interface_graph_searcher_8h.html">InterfaceGraphSearcher.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;AbstractPassFinderFactory.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_pass_finder.html">IPassFinder</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_i_pass_finder.html">IPassFinder</a>(std::unique_ptr&lt;AbstractPassFinderFactory&gt;&amp;&amp; factory) : <a class="code hl_variable" href="class_i_pass_finder.html#ae90101ea6d373a310919ffda347b5213">mp_factory</a>(std::move(factory)) {};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_pass_finder.html">~IPassFinder</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#ac30be9765ae681681037f859ce554e5e">   26</a></span>    <span class="keyword">virtual</span> EGraphSearchResult <a class="code hl_function" href="class_i_pass_finder.html#ac30be9765ae681681037f859ce554e5e">getNextNodebyGraphSearch</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <a class="code hl_class" href="class_map_state.html">MapState</a>* <span class="keyword">const</span> p_map, <span class="keyword">const</span> <a class="code hl_struct" href="struct_s_target.html">STarget</a>&amp; target, <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; output_node) = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#abb82d5e68f43fb8957a146e570a02b2a">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_i_pass_finder.html#abb82d5e68f43fb8957a146e570a02b2a">getMadeNodeNum</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_i_pass_finder.html#a4dc6323d887506745b3ca2de26ba8331">m_made_node_num</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">getGraphTree</a>(std::vector&lt;SNode&gt;* output_graph)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        (*output_graph).clear();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; i : <a class="code hl_variable" href="class_i_pass_finder.html#a0dd311c06ef66204046706b445b4e7ae">m_graph_tree</a>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            (*output_graph).emplace_back(i);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#a4dc6323d887506745b3ca2de26ba8331">   46</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_i_pass_finder.html#a4dc6323d887506745b3ca2de26ba8331">m_made_node_num</a> = 0;    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#a0dd311c06ef66204046706b445b4e7ae">   48</a></span>    std::vector&lt;SNode&gt; <a class="code hl_variable" href="class_i_pass_finder.html#a0dd311c06ef66204046706b445b4e7ae">m_graph_tree</a>;    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#ae90101ea6d373a310919ffda347b5213">   50</a></span>    std::unique_ptr&lt;AbstractPassFinderFactory&gt; <a class="code hl_variable" href="class_i_pass_finder.html#ae90101ea6d373a310919ffda347b5213">mp_factory</a>;  </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#a34cf722dc74d6b3408828c18bd198a9a">   51</a></span>    std::unique_ptr&lt;IGraphTreeCreator&gt; <a class="code hl_variable" href="class_i_pass_finder.html#a34cf722dc74d6b3408828c18bd198a9a">mp_tree_creator</a>; </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_i_pass_finder.html#ad31b4f0aa3b90b470bf4d7030268cd8e">   52</a></span>    std::unique_ptr&lt;IGraphSearcher&gt; <a class="code hl_variable" href="class_i_pass_finder.html#ad31b4f0aa3b90b470bf4d7030268cd8e">mp_searcher</a>;    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="ttc" id="a_interface_graph_searcher_8h_html"><div class="ttname"><a href="_interface_graph_searcher_8h.html">InterfaceGraphSearcher.h</a></div><div class="ttdoc">グラフ木を作成するクラスのインターフェース．</div></div>
+<div class="ttc" id="a_interface_graph_tree_creator_8h_html"><div class="ttname"><a href="_interface_graph_tree_creator_8h.html">InterfaceGraphTreeCreator.h</a></div><div class="ttdoc">グラフ木の探索を行うクラスのインターフェイス．</div></div>
+<div class="ttc" id="a_target_8h_html"><div class="ttname"><a href="_target_8h.html">Target.h</a></div><div class="ttdoc">ロボットの目標地点や目標姿勢を表現する列挙体と構造体の実装．</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html"><div class="ttname"><a href="class_i_pass_finder.html">IPassFinder</a></div><div class="ttdoc">グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:14</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_a0dd311c06ef66204046706b445b4e7ae"><div class="ttname"><a href="class_i_pass_finder.html#a0dd311c06ef66204046706b445b4e7ae">IPassFinder::m_graph_tree</a></div><div class="ttdeci">std::vector&lt; SNode &gt; m_graph_tree</div><div class="ttdoc">グラフ木</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:48</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_a34cf722dc74d6b3408828c18bd198a9a"><div class="ttname"><a href="class_i_pass_finder.html#a34cf722dc74d6b3408828c18bd198a9a">IPassFinder::mp_tree_creator</a></div><div class="ttdeci">std::unique_ptr&lt; IGraphTreeCreator &gt; mp_tree_creator</div><div class="ttdoc">グラフ木の作成クラス</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:51</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_a4dc6323d887506745b3ca2de26ba8331"><div class="ttname"><a href="class_i_pass_finder.html#a4dc6323d887506745b3ca2de26ba8331">IPassFinder::m_made_node_num</a></div><div class="ttdeci">int m_made_node_num</div><div class="ttdoc">作成したグラフの数</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:46</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_aa231f3e3af94fa1646d34ffa79866827"><div class="ttname"><a href="class_i_pass_finder.html#aa231f3e3af94fa1646d34ffa79866827">IPassFinder::getGraphTree</a></div><div class="ttdeci">void getGraphTree(std::vector&lt; SNode &gt; *output_graph) const</div><div class="ttdoc">作成したグラフ木を返す．  この関数はデバッグ用なので，探索には使わないこと．</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:35</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_abb82d5e68f43fb8957a146e570a02b2a"><div class="ttname"><a href="class_i_pass_finder.html#abb82d5e68f43fb8957a146e570a02b2a">IPassFinder::getMadeNodeNum</a></div><div class="ttdeci">int getMadeNodeNum() const</div><div class="ttdoc">作成したグラフの数を返す</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:30</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_ac30be9765ae681681037f859ce554e5e"><div class="ttname"><a href="class_i_pass_finder.html#ac30be9765ae681681037f859ce554e5e">IPassFinder::getNextNodebyGraphSearch</a></div><div class="ttdeci">virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode &amp;current_node, const MapState *const p_map, const STarget &amp;target, SNode &amp;output_node)=0</div><div class="ttdoc">グラフ探索を行い，次の動作として最適なノードを返す．</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_ad31b4f0aa3b90b470bf4d7030268cd8e"><div class="ttname"><a href="class_i_pass_finder.html#ad31b4f0aa3b90b470bf4d7030268cd8e">IPassFinder::mp_searcher</a></div><div class="ttdeci">std::unique_ptr&lt; IGraphSearcher &gt; mp_searcher</div><div class="ttdoc">グラフ探索クラス</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:52</div></div>
+<div class="ttc" id="aclass_i_pass_finder_html_ae90101ea6d373a310919ffda347b5213"><div class="ttname"><a href="class_i_pass_finder.html#ae90101ea6d373a310919ffda347b5213">IPassFinder::mp_factory</a></div><div class="ttdeci">std::unique_ptr&lt; AbstractPassFinderFactory &gt; mp_factory</div><div class="ttdoc">パス探索クラスのファクトリー</div><div class="ttdef"><b>Definition</b> InterfacePassFinder.h:50</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
+<div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 122</div></div>
+<div class="ttc" id="anode_8h_html"><div class="ttname"><a href="node_8h.html">node.h</a></div><div class="ttdoc">ノードの構造体を定義する．   行数 : 121</div></div>
+<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> node.h:22</div></div>
+<div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdoc">探索において目標となる座標や角度，評価する値についてまとめた構造体</div><div class="ttdef"><b>Definition</b> Target.h:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><b>InterfacePassFinder.h</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<map id="SystemMain::main" name="SystemMain::main">
+<area shape="rect" id="Node000001" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="5,283,136,309"/>
+<area shape="rect" id="Node000002" href="$class_my_timer.html#a5a611fcb07f946af784071169ac9954f" title="計測終了にこの関数を呼ぶ．" alt="" coords="234,5,335,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,282,80,235,100,171,114,136,132,101,155,70,182,42,200,31,219,23,221,28,202,35,185,46,159,73,137,104,119,138,105,172,85,237,76,283"/>
+<area shape="rect" id="Node000003" href="$_graph_search_result_8h.html#a960339c478dbc58e819896fd4ab47cd3" title="グラフ探索が成功したかどうかを返す関数" alt="" coords="184,56,385,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,281,85,244,106,192,138,139,159,114,182,93,189,88,192,92,185,97,163,118,143,142,111,195,90,246,78,283"/>
+<area shape="rect" id="Node000004" href="$struct_s_node.html#a12bd25c27bf8460a22087af5ae44838a" title="初期化関数" alt="" coords="242,107,327,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="76,281,114,215,145,176,182,143,204,132,226,125,228,130,206,137,185,148,148,180,118,218,80,284"/>
+<area shape="rect" id="Node000009" href="$class_node_validity_checker.html#aaae516036316439b7617d347531667e0" title=" " alt="" coords="213,157,356,200"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="85,280,127,245,182,210,198,202,200,207,185,214,131,250,89,284"/>
+<area shape="rect" id="Node000010" href="$class_graphic_system.html#a1d38633900a8cbcacaf9c3afbe728976" title="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． &#160;またメンバ関数..." alt="" coords="211,224,358,251"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="116,280,183,260,212,252,213,257,184,265,118,285"/>
+<area shape="rect" id="Node000017" href="$class_cmd_i_o.html#a6ff385bcf6922e5bdfd174a00f5460e3" title=" " alt="" coords="191,275,378,317"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="136,293,176,293,176,299,136,299"/>
+<area shape="rect" id="Node000018" href="$class_cmd_i_o.html#acfffaa6aeba8bb68eb929ba35dc546a3" title=" " alt="" coords="194,341,375,384"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="117,307,200,334,199,339,115,313"/>
+<area shape="rect" id="Node000019" href="$class_cmd_i_o.html#a80ca688723b5c669e77965787918b0ca" title=" " alt="" coords="217,408,352,435"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="85,308,126,351,154,374,185,394,204,402,201,407,182,398,151,378,123,355,81,312"/>
+<area shape="rect" id="Node000020" href="$class_graphic_data_broker.html#a9fb5a63bae18ac0c78c4a291c5ffe61f" title="ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．" alt="" coords="215,459,354,501"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="81,309,119,374,149,412,185,445,203,455,200,459,182,449,145,415,115,377,76,311"/>
+<area shape="rect" id="Node000021" href="$class_node_validity_checker.html#aa4d3908c8880c61ab953d65f71ab97bf" title=" " alt="" coords="213,525,356,568"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="78,309,89,349,110,403,142,461,162,488,185,511,201,522,198,527,182,515,158,491,138,464,105,406,84,351,73,311"/>
+<area shape="rect" id="Node000022" href="$class_my_timer.html#a34d3d8fa5340709ffa65c6da8f641b80" title="計測開始にこの関数を呼ぶ．リセット処理などを呼ぶ必要なしで，再度計測できる．" alt="" coords="232,592,337,619"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="76,309,83,360,100,433,115,472,133,511,157,547,185,578,201,588,218,595,216,600,198,593,182,582,152,550,129,514,110,474,95,435,77,361,70,310"/>
+<area shape="rect" id="Node000005" href="$namespacemy__math.html#aef65fde3633072229bdb6c840f133243" title="指定した範囲内の乱数を生成する．" alt="" coords="433,19,659,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="327,111,356,103,384,92,398,83,407,74,417,64,432,55,449,48,451,53,434,60,420,68,411,78,401,88,386,97,357,108,328,116"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator.html#a4b43a1f03690efd91478b2ec290a2e00" title=" " alt="" coords="469,69,623,112"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="327,113,454,98,455,104,328,118"/>
+<area shape="rect" id="Node000007" href="$namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="473,136,620,163"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="328,122,458,137,458,142,327,127"/>
+<area shape="rect" id="Node000008" href="$namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4" title="重心パターンをbitに変換する関数" alt="" coords="707,109,902,152"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="620,141,692,136,692,141,621,147"/>
+<area shape="rect" id="Node000011" href="$class_graphic_loop.html#abc4bf428739328c7dd4484d88472b40c" title="GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理" alt="" coords="483,243,609,269"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="359,240,468,248,468,253,358,245"/>
+<area shape="rect" id="Node000012" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="733,176,876,219"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="609,247,727,220,728,226,610,252"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="580,239,718,206,719,211,582,245"/>
+<area shape="rect" id="Node000013" href="$class_fps.html#a60bfd959c6c583ab180a1edba81e43a5" title="60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように，描画処理をスキップするかどうかを判定する．" alt="" coords="734,243,875,269"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="609,253,719,253,719,259,609,259"/>
+<area shape="rect" id="Node000014" href="$class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="743,293,866,320"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="610,266,729,289,728,294,609,271"/>
+<area shape="rect" id="Node000015" href="$class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a" title="マウス入力を更新する．これを毎フレーム実行しないと，マウス入力を取得できない．" alt="" coords="751,344,858,371"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="574,268,634,298,708,330,737,339,736,344,706,334,632,303,572,272"/>
+<area shape="rect" id="Node000016" href="$class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b" title="処理が早すぎる場合，FPSを一定にするために待つ．" alt="" coords="767,395,842,421"/>
+<area shape="poly" id="edge16_Node000011_Node000016" title=" " alt="" coords="562,268,622,322,664,354,708,380,754,396,752,401,706,385,661,358,619,326,559,272"/>
+</map>

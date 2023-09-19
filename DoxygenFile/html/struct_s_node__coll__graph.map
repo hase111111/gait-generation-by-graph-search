@@ -1,7 +1,7 @@
 <map id="SNode" name="SNode">
-<area shape="rect" id="Node000001" title="グラフ構造のためのノード(頂点)．旧名 LNODE" alt="" coords="119,128,180,155"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,47,61,75,63,90,69,103,79,113,92,122,120,133,118,137,89,127,76,117,65,105,58,91,55,76,56,46"/>
-<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="171,5,296,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,47,222,77,206,106,193,119,177,130,174,125,189,115,202,102,217,75,226,46"/>
+<area shape="rect" id="Node000001" title="グラフ構造のためのノード(頂点)．旧名 LNODE" alt="" coords="115,128,176,155"/>
+<area shape="rect" id="Node000002" href="$structdl__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,118,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,47,57,75,59,90,65,103,75,113,88,122,116,133,114,137,85,127,72,117,61,105,54,91,51,76,52,46"/>
+<area shape="rect" id="Node000003" href="$structdl__vec_1_1_s_rotator.html" title="回転を表す構造体．XYZオイラー角" alt="" coords="171,5,288,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,47,218,77,202,106,189,119,173,130,170,125,185,115,198,102,213,75,222,46"/>
 </map>

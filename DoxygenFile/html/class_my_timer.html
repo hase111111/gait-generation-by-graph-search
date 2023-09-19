@@ -99,39 +99,37 @@ $(document).ready(function(){initNavTree('class_my_timer.html',''); initResizabl
 <p>時間計測用のクラス．  
  <a href="class_my_timer.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_my_timer_8h_source.html">MyTimer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="my__timer_8h_source.html">my_timer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a34d3d8fa5340709ffa65c6da8f641b80"><td class="memItemLeft" align="right" valign="top"><a id="a34d3d8fa5340709ffa65c6da8f641b80" name="a34d3d8fa5340709ffa65c6da8f641b80"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
-<tr class="memdesc:a34d3d8fa5340709ffa65c6da8f641b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測開始 <br /></td></tr>
+<tr class="memdesc:a34d3d8fa5340709ffa65c6da8f641b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測開始にこの関数を呼ぶ．リセット処理などを呼ぶ必要なしで，再度計測できる． <br /></td></tr>
 <tr class="separator:a34d3d8fa5340709ffa65c6da8f641b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a611fcb07f946af784071169ac9954f"><td class="memItemLeft" align="right" valign="top"><a id="a5a611fcb07f946af784071169ac9954f" name="a5a611fcb07f946af784071169ac9954f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
-<tr class="memdesc:a5a611fcb07f946af784071169ac9954f"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測終了 <br /></td></tr>
+<tr class="memdesc:a5a611fcb07f946af784071169ac9954f"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測終了にこの関数を呼ぶ． <br /></td></tr>
 <tr class="separator:a5a611fcb07f946af784071169ac9954f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac56474c05f20c219758a0372c1056697"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_timer.html#ac56474c05f20c219758a0372c1056697">getSecond</a> () const</td></tr>
-<tr class="memdesc:ac56474c05f20c219758a0372c1056697"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測結果を秒で取得  <br /></td></tr>
+<tr class="memdesc:ac56474c05f20c219758a0372c1056697"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測結果を秒で取得．start()とend()を呼び出してからこの関数を呼ぶ．  <br /></td></tr>
 <tr class="separator:ac56474c05f20c219758a0372c1056697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad442a20993cc243e046eaba64519c2c4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_timer.html#ad442a20993cc243e046eaba64519c2c4">getMilliSecond</a> () const</td></tr>
-<tr class="memdesc:ad442a20993cc243e046eaba64519c2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測結果をミリ秒で取得  <br /></td></tr>
+<tr class="memdesc:ad442a20993cc243e046eaba64519c2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測結果をミリ秒で取得．start()とend()を呼び出してからこの関数を呼ぶ．  <br /></td></tr>
 <tr class="separator:ad442a20993cc243e046eaba64519c2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e560cdcd4ea2d0fcee56e2b28290677"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_timer.html#a8e560cdcd4ea2d0fcee56e2b28290677">getMicroSecond</a> () const</td></tr>
 <tr class="separator:a8e560cdcd4ea2d0fcee56e2b28290677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>時間計測用のクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/07/18 @auther 長谷川 </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a8e560cdcd4ea2d0fcee56e2b28290677" name="a8e560cdcd4ea2d0fcee56e2b28290677"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e560cdcd4ea2d0fcee56e2b28290677">&#9670;&#160;</a></span>getMicroSecond()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double MyTimer::getMicroSecond </td>
@@ -140,13 +138,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>@biref 計測結果をマイクロ秒で取得 </p><dl class="section return"><dt>戻り値</dt><dd>double 計測結果(マイクロ秒) </dd></dl>
+<p>@biref 計測結果をマイクロ秒で取得．start()とend()を呼び出してからこの関数を呼ぶ． </p><dl class="section return"><dt>戻り値</dt><dd>double 計測結果(マイクロ秒) </dd></dl>
 
 </div>
 </div>
@@ -155,9 +148,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double MyTimer::getMilliSecond </td>
@@ -166,15 +156,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>計測結果をミリ秒で取得 </p>
+<p>計測結果をミリ秒で取得．start()とend()を呼び出してからこの関数を呼ぶ． </p>
 <dl class="section return"><dt>戻り値</dt><dd>double 計測結果(ミリ秒) </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_my_timer_ad442a20993cc243e046eaba64519c2c4_icgraph.png" border="0" usemap="#aclass_my_timer_ad442a20993cc243e046eaba64519c2c4_icgraph" alt=""/></div>
+<map name="aclass_my_timer_ad442a20993cc243e046eaba64519c2c4_icgraph" id="aclass_my_timer_ad442a20993cc243e046eaba64519c2c4_icgraph">
+<area shape="rect" title="計測結果をミリ秒で取得．start()とend()を呼び出してからこの関数を呼ぶ．" alt="" coords="222,13,386,40"/>
+<area shape="rect" href="class_graph_viewer_system_main.html#a1373b5e56c53515c3aea05d443729f61" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -183,9 +178,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double MyTimer::getSecond </td>
@@ -194,20 +186,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>計測結果を秒で取得 </p>
+<p>計測結果を秒で取得．start()とend()を呼び出してからこの関数を呼ぶ． </p>
 <dl class="section return"><dt>戻り値</dt><dd>double 計測結果(秒) </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_my_timer_8h_source.html">MyTimer.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="my__timer_8h_source.html">my_timer.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/my_timer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

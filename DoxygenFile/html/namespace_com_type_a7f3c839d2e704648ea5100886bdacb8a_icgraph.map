@@ -1,0 +1,5 @@
+<map id="ComType::checkAbleComTypeFromNotFreeLeg" name="ComType::checkAbleComTypeFromNotFreeLeg">
+<area shape="rect" id="Node000001" title=" " alt="" coords="200,5,400,48"/>
+<area shape="rect" id="Node000002" href="$class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f" title="重心を平行移動したノードを生成する" alt="" coords="5,5,152,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,29,152,29,152,24,185,24"/>
+</map>

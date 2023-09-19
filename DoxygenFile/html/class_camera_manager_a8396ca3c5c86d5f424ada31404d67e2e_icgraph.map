@@ -1,0 +1,9 @@
+<map id="CameraManager::setCameraViewMode" name="CameraManager::setCameraViewMode">
+<area shape="rect" id="Node000001" title="カメラのモードをセットする" alt="" coords="442,23,629,65"/>
+<area shape="rect" id="Node000002" href="$class_camera_g_u_i.html#a493e2281cb696a296b2db4a7a4a72134" title="GUIやカメラの更新を行う" alt="" coords="243,5,379,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,34,379,29,379,24,427,29"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="228,56,394,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="427,59,395,63,394,57,427,54"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,21,180,21,180,16,229,16"/>
+</map>

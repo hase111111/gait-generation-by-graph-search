@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['removelastvertex_0',['removeLastVertex',['../structmy__vec_1_1_s_polygon2.html#a67e02378371af0bf855d8e3652626d96',1,'my_vec::SPolygon2']]],
-  ['removevertex_1',['removeVertex',['../structmy__vec_1_1_s_polygon2.html#a963b076851c16fe16d7fd5cbb342255f',1,'my_vec::SPolygon2']]],
-  ['rotvector_2',['rotVector',['../namespacemy__vec.html#a4f287da27a7c924e71872c16f706bb35',1,'my_vec']]]
+  ['removelastvertex_0',['removeLastVertex',['../structdl__vec_1_1_s_polygon2.html#a4e6481470c776eacc45b3ac8af499e26',1,'dl_vec::SPolygon2']]],
+  ['removevertex_1',['removeVertex',['../structdl__vec_1_1_s_polygon2.html#a8a08ef985cddc8b2d2bc61a017155337',1,'dl_vec::SPolygon2']]],
+  ['reset_2',['reset',['../structdl__vec_1_1_s_polygon2.html#ae82b9e697eb27e02c05bb4516636fe8e',1,'dl_vec::SPolygon2']]],
+  ['rotvector_3',['rotVector',['../namespacedl__vec.html#a2c9f5dc22b86f1b7526760b46cb0e3e7',1,'dl_vec']]]
 ];

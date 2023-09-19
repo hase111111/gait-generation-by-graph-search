@@ -1,0 +1,5 @@
+<map id="GraphTreeCreatorThread" name="GraphTreeCreatorThread">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,168,107"/>
+<area shape="rect" id="Node000002" href="$class_i_graph_tree_creator.html" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="23,5,150,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,47,89,80,84,80,84,47"/>
+</map>

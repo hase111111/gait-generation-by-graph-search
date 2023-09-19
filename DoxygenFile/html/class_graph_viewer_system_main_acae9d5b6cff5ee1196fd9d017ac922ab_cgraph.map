@@ -1,0 +1,17 @@
+<map id="GraphViewerSystemMain::GraphViewerSystemMain" name="GraphViewerSystemMain::GraphViewerSystemMain">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,136,182,179"/>
+<area shape="rect" id="Node000002" href="$class_map_state.html#a658eabf1dc87c473fc52693313168f53" title=" " alt="" coords="294,5,397,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,133,162,87,194,62,229,42,279,25,281,30,231,46,197,67,165,91,116,137"/>
+<area shape="rect" id="Node000004" href="$class_graphic_system.html#a21c01c964ac88ba9658ee0b769d9b50a" title="GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る." alt="" coords="277,56,414,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="135,133,179,112,229,92,262,82,263,88,231,97,181,117,137,138"/>
+<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator.html#af58abdadfcfd9e7b3bd33b7f43966e51" title=" " alt="" coords="268,107,423,149"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="182,144,253,136,254,141,183,150"/>
+<area shape="rect" id="Node000006" href="$class_map_creator.html#ae0f4ddaec2889e22a6fbcd1bdb773276" title="マップ生成のモードを出力する" alt="" coords="230,173,461,200"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="183,165,215,169,214,174,182,170"/>
+<area shape="rect" id="Node000007" href="$class_map_creator.html#a5dd58d77931914d0fea1108b9ac34b2c" title="マップ生成のオプションを出力する" alt="" coords="246,224,445,267"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="146,177,231,209,252,217,250,222,229,215,144,182"/>
+<area shape="rect" id="Node000008" href="$class_graphic_data_broker.html#af750b118f6289d68320ae4d3f2d29e29" title=" " alt="" coords="276,291,415,333"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="115,177,164,227,196,254,231,276,263,291,261,295,228,281,193,258,161,231,111,181"/>
+<area shape="rect" id="Node000003" href="$class_map_creator.html#acdc8d340488d57ec58f71263ace9c4b5" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="509,5,641,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,16,494,16,494,21,397,21"/>
+</map>

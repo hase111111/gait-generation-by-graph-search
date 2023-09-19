@@ -1,9 +1,9 @@
 var structmy__vec_1_1_s_vector =
 [
-    [ "cross", "structmy__vec_1_1_s_vector.html#a49ef43db15962e9b965d0289d46e3302", null ],
-    [ "distanceFrom", "structmy__vec_1_1_s_vector.html#a618281b63ff3149e27d44a9120f289b0", null ],
-    [ "dot", "structmy__vec_1_1_s_vector.html#af7f5d4d8bc05979719ccb33a26ee3e41", null ],
-    [ "isZero", "structmy__vec_1_1_s_vector.html#a2055cb59bc783426b01da98be3275277", null ],
+    [ "cross", "structmy__vec_1_1_s_vector.html#a55897a203c614f9702f6fd59667c668f", null ],
+    [ "distanceFrom", "structmy__vec_1_1_s_vector.html#ad673affce40dec9a31dd078912d2fa20", null ],
+    [ "dot", "structmy__vec_1_1_s_vector.html#a6dfd01110e8afbf8e0082bbe51f43535", null ],
+    [ "isZero", "structmy__vec_1_1_s_vector.html#ac11f996a2ba3a2888194e327de7227c7", null ],
     [ "length", "structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1", null ],
     [ "lengthSquare", "structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38", null ],
     [ "normalized", "structmy__vec_1_1_s_vector.html#adcf2a594a221408b09e8fb06eb2be37f", null ],

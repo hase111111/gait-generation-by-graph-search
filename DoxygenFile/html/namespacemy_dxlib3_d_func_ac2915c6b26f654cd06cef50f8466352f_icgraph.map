@@ -1,5 +1,18 @@
 <map id="myDxlib3DFunc::convertToDxVec" name="myDxlib3DFunc::convertToDxVec">
-<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="228,5,404,48"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,180,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,29,180,29,180,24,213,24"/>
+<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="444,81,620,124"/>
+<area shape="rect" id="Node000002" href="$class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="242,89,376,116"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,105,376,105,376,100,429,100"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="229,39,389,65"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="429,82,370,69,372,63,430,77"/>
+<area shape="rect" id="Node000007" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="222,140,396,167"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="430,128,372,142,370,137,429,123"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,86,220,80,196,63,172,46,144,35,146,30,175,42,199,59,223,75,238,82"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,96,174,90,175,84,228,91"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="228,118,168,127,167,122,227,112"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="214,40,171,34,171,28,215,35"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="215,66,174,70,174,65,214,60"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="238,73,223,80,199,96,175,113,146,124,144,120,172,108,196,92,220,75,236,68"/>
 </map>

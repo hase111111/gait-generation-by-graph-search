@@ -99,22 +99,24 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
 <p>重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている．  
  <a href="class_com_selecter.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_com_selecter_8h_source.html">ComSelecter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="com__selecter_8h_source.html">com_selecter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a13235fe5edd57ea3d10ade9b4c84d567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter.html#a13235fe5edd57ea3d10ade9b4c84d567">setCurrentNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;_current_node)</td></tr>
 <tr class="memdesc:a13235fe5edd57ea3d10ade9b4c84d567"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
 <tr class="separator:a13235fe5edd57ea3d10ade9b4c84d567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7557af617255e407ade97899f56c5bc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter.html#a7557af617255e407ade97899f56c5bc2">getComFromPolygon</a> (const <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a> &amp;polygon, const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattren, <a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;_output_com) const</td></tr>
-<tr class="memdesc:a7557af617255e407ade97899f56c5bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
-<tr class="separator:a7557af617255e407ade97899f56c5bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362bc2b2bba3c9933c01de9c90687691"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter.html#a362bc2b2bba3c9933c01de9c90687691">getComFromPolygon</a> (const <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a> &amp;polygon, const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattren, <a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> &amp;_output_com) const</td></tr>
+<tr class="memdesc:a362bc2b2bba3c9933c01de9c90687691"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
+<tr class="separator:a362bc2b2bba3c9933c01de9c90687691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/12 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a7557af617255e407ade97899f56c5bc2" name="a7557af617255e407ade97899f56c5bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7557af617255e407ade97899f56c5bc2">&#9670;&#160;</a></span>getComFromPolygon()</h2>
+<a id="a362bc2b2bba3c9933c01de9c90687691" name="a362bc2b2bba3c9933c01de9c90687691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a362bc2b2bba3c9933c01de9c90687691">&#9670;&#160;</a></span>getComFromPolygon()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +124,7 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
         <tr>
           <td class="memname">bool ComSelecter::getComFromPolygon </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmy__vec_1_1_s_polygon2.html">my_vec::SPolygon2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdl__vec_1_1_s_polygon2.html">dl_vec::SPolygon2</a> &amp;&#160;</td>
           <td class="paramname"><em>polygon</em>, </td>
         </tr>
         <tr>
@@ -134,7 +136,7 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structmy__vec_1_1_s_vector.html">my_vec::SVector</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> &amp;&#160;</td>
           <td class="paramname"><em>_output_com</em>&#160;</td>
         </tr>
         <tr>
@@ -165,43 +167,49 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_a7557af617255e407ade97899f56c5bc2_cgraph.png" border="0" usemap="#aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_cgraph" alt=""/></div>
-<map name="aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_cgraph" id="aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_cgraph">
-<area shape="rect" title="重心を求める" alt="" coords="5,139,232,165"/>
-<area shape="rect" href="struct_s_node.html#a387104614d1d5a653448128698ab609a" title="重心位置を変更する関数．" alt="" coords="284,5,470,48"/>
-<area shape="poly" title=" " alt="" coords="139,136,201,98,279,58,293,51,295,56,281,62,203,103,142,140"/>
-<area shape="rect" href="namespace_com_type.html#a0cdc2584ee0d9a82c3cb4582d3033d7d" title="重心パターンをbitに変換する関数" alt="" coords="280,72,474,115"/>
-<area shape="poly" title=" " alt="" coords="180,135,265,116,266,121,181,141"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="550,120,704,163"/>
-<area shape="poly" title=" " alt="" coords="232,147,535,141,535,146,232,152"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="300,267,454,309"/>
-<area shape="poly" title=" " alt="" coords="144,163,281,242,313,258,311,262,278,246,141,168"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="300,189,454,232"/>
-<area shape="poly" title=" " alt="" coords="181,163,286,187,285,193,180,169"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#ac2b5470c2541a3292a27b38840ebb7c2" title="このベクトルとotherの外積を返す" alt="" coords="794,157,962,184"/>
-<area shape="poly" title=" " alt="" coords="705,148,780,157,779,162,704,153"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector.html#ada5408a85d72fdbf6ae0f5f6d42862f7" title="XY平面に射影したベクトルを返す．" alt="" coords="779,237,977,264"/>
-<area shape="poly" title=" " alt="" coords="702,161,732,172,791,200,842,227,839,232,788,204,730,177,700,166"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="550,288,704,331"/>
-<area shape="poly" title=" " alt="" coords="455,292,535,299,534,304,454,297"/>
-<area shape="poly" title=" " alt="" coords="704,289,803,265,804,271,705,294"/>
-<area shape="rect" href="structmy__vec_1_1_s_vector2.html#a7fa50793aa9b2afa33a1a331169a56e3" title="このベクトルの長さの2乗を返す" alt="" coords="793,288,963,331"/>
-<area shape="poly" title=" " alt="" coords="704,307,778,307,778,312,704,312"/>
-<area shape="rect" href="namespacemy__math.html#a7c3c2dcc41ec2f0df656d7c947ffc9a4" title="2乗した値を返す関数．" alt="" coords="813,355,943,381"/>
-<area shape="poly" title=" " alt="" coords="705,325,804,348,803,353,704,330"/>
-<area shape="poly" title=" " alt="" coords="455,216,522,223,764,241,764,246,522,228,454,222"/>
-<area shape="rect" href="structmy__vec_1_1_s_line2.html#a3599e0d2dcd3d912ccd5fb20ebdb67f7" title="交点が存在しているかどうか調べる関数" alt="" coords="522,187,731,213"/>
-<area shape="poly" title=" " alt="" coords="454,205,507,202,507,208,454,210"/>
-<area shape="poly" title=" " alt="" coords="731,185,779,179,780,185,732,190"/>
+<div class="center"><img src="class_com_selecter_a362bc2b2bba3c9933c01de9c90687691_cgraph.png" border="0" usemap="#aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_cgraph" alt=""/></div>
+<map name="aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_cgraph" id="aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_cgraph">
+<area shape="rect" title="重心を求める" alt="" coords="5,147,232,173"/>
+<area shape="rect" href="struct_s_node.html#a76fd4ec299b81b6f7c1f274084236d8f" title="重心位置を変更する関数．" alt="" coords="284,5,470,48"/>
+<area shape="poly" title=" " alt="" coords="137,144,199,103,278,58,292,51,294,56,281,62,201,107,140,148"/>
+<area shape="rect" href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4" title="重心パターンをbitに変換する関数" alt="" coords="280,281,474,324"/>
+<area shape="poly" title=" " alt="" coords="138,172,199,217,281,267,293,273,291,278,278,272,196,222,135,176"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="300,139,454,181"/>
+<area shape="poly" title=" " alt="" coords="232,157,284,157,284,163,232,163"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#af82fbd4d79a2f6e2204a79878ca84dc9" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="300,72,454,115"/>
+<area shape="poly" title=" " alt="" coords="173,143,284,114,286,119,174,149"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="300,215,454,257"/>
+<area shape="poly" title=" " alt="" coords="167,171,289,208,287,213,166,176"/>
+<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="558,17,687,44"/>
+<area shape="poly" title=" " alt="" coords="470,26,543,27,543,32,470,31"/>
+<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="792,17,940,44"/>
+<area shape="poly" title=" " alt="" coords="688,28,778,28,778,33,688,33"/>
+<area shape="poly" title=" " alt="" coords="453,136,472,125,488,108,495,90,504,73,520,55,543,43,545,48,524,59,508,76,500,93,492,111,476,129,456,141"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="786,263,946,289"/>
+<area shape="poly" title=" " alt="" coords="455,176,793,256,791,261,454,181"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="771,185,961,212"/>
+<area shape="poly" title=" " alt="" coords="455,161,724,179,757,182,756,187,723,184,454,166"/>
+<area shape="poly" title=" " alt="" coords="454,71,553,46,554,51,455,76"/>
+<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="546,69,700,112"/>
+<area shape="poly" title=" " alt="" coords="454,90,530,89,530,94,454,95"/>
+<area shape="poly" title=" " alt="" coords="689,110,725,128,739,140,749,151,758,161,773,171,786,177,784,182,770,176,755,165,745,154,736,144,722,133,686,115"/>
+<area shape="rect" href="structdl__vec_1_1_s_vector2.html#a0ae9aed0d5f24a33178262e127c628e8" title="このベクトルの長さの2乗を返す" alt="" coords="785,68,947,111"/>
+<area shape="poly" title=" " alt="" coords="700,88,770,87,770,93,700,93"/>
+<area shape="rect" href="namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b" title="2乗した値を返す関数．" alt="" coords="805,135,927,161"/>
+<area shape="poly" title=" " alt="" coords="701,106,793,128,792,133,700,111"/>
+<area shape="poly" title=" " alt="" coords="454,228,756,204,757,210,454,233"/>
+<area shape="rect" href="structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702" title="交点が存在しているかどうか調べる関数" alt="" coords="522,288,723,315"/>
+<area shape="poly" title=" " alt="" coords="455,254,556,281,555,286,454,259"/>
+<area shape="poly" title=" " alt="" coords="724,288,771,283,772,288,724,293"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_a7557af617255e407ade97899f56c5bc2_icgraph.png" border="0" usemap="#aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_icgraph" alt=""/></div>
-<map name="aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_icgraph" id="aclass_com_selecter_a7557af617255e407ade97899f56c5bc2_icgraph">
+<div class="center"><img src="class_com_selecter_a362bc2b2bba3c9933c01de9c90687691_icgraph.png" border="0" usemap="#aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_icgraph" alt=""/></div>
+<map name="aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_icgraph" id="aclass_com_selecter_a362bc2b2bba3c9933c01de9c90687691_icgraph">
 <area shape="rect" title="重心を求める" alt="" coords="204,13,430,40"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="rect" href="class_com_move_node_creator.html#a7087b7fce9f1a35256246e413eb67ca3" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
 <area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
 </map>
 </div>
@@ -245,7 +253,7 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
 <div class="center"><img src="class_com_selecter_a13235fe5edd57ea3d10ade9b4c84d567_icgraph.png" border="0" usemap="#aclass_com_selecter_a13235fe5edd57ea3d10ade9b4c84d567_icgraph" alt=""/></div>
 <map name="aclass_com_selecter_a13235fe5edd57ea3d10ade9b4c84d567_icgraph" id="aclass_com_selecter_a13235fe5edd57ea3d10ade9b4c84d567_icgraph">
 <area shape="rect" title="現在のノードを設定する" alt="" coords="204,13,398,40"/>
-<area shape="rect" href="class_com_move_node_creator.html#a49a0609daa16dab9b73f3d2e5ccb7311" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
+<area shape="rect" href="class_com_move_node_creator.html#a7087b7fce9f1a35256246e413eb67ca3" title="重心を平行移動したノードを生成する" alt="" coords="5,5,156,48"/>
 <area shape="poly" title=" " alt="" coords="189,29,156,29,156,24,189,24"/>
 </map>
 </div>
@@ -253,8 +261,8 @@ $(document).ready(function(){initNavTree('class_com_selecter.html',''); initResi
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_com_selecter_8h_source.html">ComSelecter.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/ComSelecter.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="com__selecter_8h_source.html">com_selecter.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_selecter.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

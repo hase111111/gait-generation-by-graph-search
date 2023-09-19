@@ -1,0 +1,18 @@
+<map id="LegUpDownNodeCreator::create" name="LegUpDownNodeCreator::create">
+<area shape="rect" id="Node000001" title="重心を平行移動したノードを生成する" alt="" coords="5,77,168,120"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#a99876a79a2e973f64a25fb72210086b0" title="次の動作を設定する関数．" alt="" coords="223,5,390,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,74,215,41,237,34,239,39,217,47,136,79"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#abbc27c9c3c65dc84913fd7b87c7274c6" title="重心パターンを取得する．0b0000 〜 0b1000 まで" alt="" coords="216,56,397,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,85,200,81,201,86,168,90"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="229,107,384,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="168,107,215,113,214,118,168,112"/>
+<area shape="rect" id="Node000006" href="$namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="475,169,604,196"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="124,118,167,140,216,159,279,172,344,179,460,183,460,189,343,185,278,177,215,164,165,145,122,123"/>
+<area shape="rect" id="Node000005" href="$structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="460,67,619,93"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="383,110,457,94,458,100,384,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="384,143,466,163,465,168,383,149"/>
+<area shape="rect" id="Node000008" href="$structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="445,117,634,144"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="384,126,430,127,430,132,384,132"/>
+<area shape="rect" id="Node000007" href="$namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="682,169,830,196"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="605,180,668,180,668,185,605,185"/>
+</map>
