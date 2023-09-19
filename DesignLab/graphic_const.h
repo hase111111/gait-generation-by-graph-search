@@ -9,7 +9,7 @@
 
 //! @class GraphicConst
 //! @brief 画像表示処理用の定数をまとめたもの．
-//! @details 定数クラスの詳細はDefine.hを参照．
+//! @details 定数クラスの詳細はdefine.hを参照．
 //! @n カメラに関する値を変更する時は慎重に行うこと，下げすぎると何も見えなくなるし，上げすぎると尋常じゃなく重くなります．
 
 class GraphicConst final

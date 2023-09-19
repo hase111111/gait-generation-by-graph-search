@@ -10,7 +10,7 @@
 #include "abstract_hexapod_state_calculator.h"
 #include "abstract_pass_finder.h"
 #include "application_setting_recorder.h"
-#include "designlab_timer.h"
+#include "stopwatch.h"
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "interface_graphic_main.h"
@@ -64,7 +64,7 @@ private:
 
 	STarget target_;						//!< 目標地点．
 
-	DesignlabTimer timer_;					//!< 時間計測用のクラス．
+	Stopwatch timer_;					//!< 時間計測用のクラス．
 
 	ResultFileExporter result_exporter_;	//!< 結果をファイルに出力するクラス．
 };

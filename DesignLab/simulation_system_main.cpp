@@ -2,7 +2,7 @@
 
 #include <boost/thread.hpp>
 
-#include "Define.h"
+#include "define.h"
 #include "designlab_math.h"
 #include "cmdio_util.h"
 #include "hexapod.h"
@@ -75,7 +75,7 @@ void SimulationSystemMain::Main()
 
 
 	//シミュレーションを行う回数分ループする．
-	for (int i = 0; i < Define::SIMURATE_NUM; i++)
+	for (int i = 0; i < Define::kSimurateNum; i++)
 	{
 		SNode current_node;										//現在のノードの状態を格納する変数．
 		const bool do_random_init = false;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
@@ -103,18 +103,18 @@ void SimulationSystemMain::Main()
 
 
 		//最大歩容生成回数分までループする．
-		for (int j = 0; j < Define::GATE_PATTERN_GENERATE_NUM; j++)
+		for (int j = 0; j < Define::kGaitPatternGenerationLimit; j++)
 		{
-			timer_.start();		//タイマースタート
+			timer_.Start();		//タイマースタート
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
 			EGraphSearchResult result_state = pass_finder_ptr_->getNextNodebyGraphSearch(current_node, map_state_, target_, result_node);		//グラフ探索を行う．
 
-			timer_.end();			//タイマーストップ
+			timer_.End();			//タイマーストップ
 
 
-			record.computation_time.push_back(timer_.getMicroSecond() / 1000);	//計算時間を格納する．
+			record.computation_time.push_back(timer_.GetElapsedMicroSecond() / 1000);	//計算時間を格納する．
 			record.graph_search_results.push_back(result_state);			//グラフ探索の結果を格納する．
 			record.result_nodes.push_back(result_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
 
@@ -161,7 +161,7 @@ void SimulationSystemMain::Main()
 
 
 			//成功時の処理
-			if (current_node.global_center_of_mass.x > Define::GOAL_TAPE)
+			if (current_node.global_center_of_mass.x > Define::kGoalTape)
 			{
 				dlio::Output("シミュレーションに成功しました．SimulationResult = " + std::to_string(ESimulationResult::SUCCESS));
 

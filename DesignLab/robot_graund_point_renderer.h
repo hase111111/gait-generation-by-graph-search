@@ -1,14 +1,20 @@
-#pragma once
+//! @file robot_graund_point_renderer.h
+//! @brief ロボットの脚接地点の座標を描画するクラス
 
+#ifndef DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H
+#define DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H
+
+
+#include <array>
 #include <vector>
 
 #include "designlab_vector.h"
+#include "hexapod_const.h"
 #include "node.h"
 
+
 //! @class RobotGraundPointRenderer
-//! @date 2033/08/29
-//! @author 長谷川
-//! @brief ロボットの脚接地点の座標を描画するクラス
+//! @brief ロボットが接地点した地点の履歴を描画するクラス
 class RobotGraundPointRenderer final
 {
 public:
@@ -16,38 +22,42 @@ public:
 	RobotGraundPointRenderer();
 
 
-	//! ロボットの脚接地点の座標を設定する．
-	//! @param [in] node ロボットの脚接地点の座標
-	void setNode(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index);
+	//! ロボットが接地点した地点の履歴をセットする．
+	//! @n また，シミュレーションが終了したノードのインデックスをセットする．
+	//! @param [in] result_node ロボットが接地した座標のvector
+	//! @param [in] simu_end_node_index シミュレーションが終了したノードのインデックスのvector
+	void SetNodeAndSimulationEndNodeIndex(const std::vector<SNode>& result_node, const std::vector<size_t>& simu_end_node_index);
 
 
-	//! ロボットの脚接地点の描画を行う．
+	//! ロボットが接地点した地点の履歴の描画を行う．
 	//! @param [in] draw_simu_num 描画を行うシミュレーションの番号( 0, 1, 2, ...)
 	//! @param [in] draw_all_simulation 上のパラメータを無視して，すべてのシミュレーションについて描画する
 	void Draw(const size_t draw_simu_num, const bool draw_all_simulation = false) const;
 
 private:
 
-	const unsigned int GRAUND_POINT_COLOR_RIGHT;			//!< 脚接地点の色
+	struct VectorAndIsGround
+	{
+		dl_vec::SVector vec;	//!< 座標
 
-	const unsigned int GRAUND_POINT_COLOR_LEFT;			//!< 脚接地点の色
-
-	const unsigned int GRAUND_POINT_COLOR_BLACK_RIGHT;		//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
-
-	const unsigned int GRAUND_POINT_COLOR_BLACK_LEFT;		//!< すべてのシミュレーションについて描画する場合，現在のシミュレーション以外の色
+		bool is_ground;			//!< 接地しているかどうか
+	};
 
 
-	std::vector<size_t> m_simu_end_index;			//!< シミュレーションの終了インデックス
+	const unsigned int kRightLegGraundPointColor;		//!< 脚接地点の色 (右足)
 
-	size_t m_loaded_node_num;						//!< 読み込んだノードの数
+	const unsigned int kLeftLegGraundPointColor;		//!< 脚接地点の色 (左足)
 
-	std::vector<std::vector<std::pair<dl_vec::SVector, int>>> m_graund_point;	//!< ロボットの脚接地点の座標
+	const unsigned int kRightLegGraundPointDarkColor;	//!< 現在のシミュレーション以外の色 (右足)
+
+	const unsigned int kLeftLegGraundPointDarkColor;	//!< 現在のシミュレーション以外の色 (左足)
+
+
+	size_t loaded_node_num_;	//!< 読み込んだノードの数，データが更新されるたび毎回全部読込なおさないように，読み込んだノードの数を記憶しておく
+
+	//!< ロボットの脚接地点の座標，graund_point[シミュレーション番号][ノード番号][脚番号]の順でアクセスする
+	std::vector<std::vector<std::array<VectorAndIsGround, HexapodConst::LEG_NUM>>> graund_point_;
 };
 
 
-
-//! @file robot_graund_point_renderer.h
-//! @date 2033/08/29
-//! @author 長谷川
-//! @brief ロボットの脚接地点の座標を描画するクラス
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H

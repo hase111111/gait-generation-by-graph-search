@@ -1,8 +1,9 @@
 //! @file hexapod_renderer.h
-//! @brief ロボットの描画を行うHexapodRendererクラス．
+//! @brief ロボットの描画を行うクラス．
 
 #ifndef DESIGNLAB_HEXAPOD_RENDERER_H_
 #define DESIGNLAB_HEXAPOD_RENDERER_H_
+
 
 #include <memory>
 
@@ -15,7 +16,6 @@
 
 //! @class HexapodRenderer
 //! @brief ロボットの描画を行うクラス．
-
 class HexapodRenderer
 {
 public:
@@ -44,7 +44,7 @@ private:
 	const unsigned int COLOR_LEG_BASE;		// 脚の基部の色
 	const unsigned int COLOR_KINE_LEG;
 	const unsigned int COLOR_KINE_JOINT;
-	const unsigned int COLOR_ERROR_JOINT;			// 文字の色
+	const unsigned int COLOR_ERROR_JOINT;	// 文字の色
 	const unsigned int COLOR_ERROR_TEXT;	// エラーの文字色
 
 	const int CAPSULE_DIV_NUM;				// ロボットのモデルの円柱をどれだけ細かく描画するか．4 ～ 20ぐらいがちょうどよいと思う．

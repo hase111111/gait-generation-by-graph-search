@@ -68,8 +68,8 @@
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
-    <ClInclude Include="designlab_cmdio.h" />
-    <ClInclude Include="Define.h" />
+    <ClInclude Include="cmdio_util.h" />
+    <ClInclude Include="define.h" />
     <ClInclude Include="dxlib_util.h" />
     <ClInclude Include="fps_controller.h" />
     <ClInclude Include="camera_manager.h" />
@@ -93,7 +93,7 @@
     <ClInclude Include="designlab_line.h" />
     <ClInclude Include="designlab_math.h" />
     <ClInclude Include="designlab_polygon.h" />
-    <ClInclude Include="designlab_timer.h" />
+    <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
     <ClInclude Include="pass_finder_factory_hato.h" />
@@ -145,7 +145,7 @@
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
-    <ClCompile Include="designlab_timer.cpp" />
+    <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="output_detail.cpp" />
     <ClCompile Include="pass_finder_factory_fixed.cpp" />
@@ -164,7 +164,7 @@
     <ClCompile Include="hexapod_state_calculator.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
-    <ClCompile Include="designlab_cmdio.cpp" />
+    <ClCompile Include="cmdio_util.cpp" />
     <ClCompile Include="dxlib_util.cpp" />
     <ClCompile Include="fps_controller.cpp" />
     <ClCompile Include="camera_manager.cpp" />
@@ -205,7 +205,7 @@
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="designlab_vector.cpp" />
-    <ClCompile Include="Define.cpp" />
+    <ClCompile Include="define.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>

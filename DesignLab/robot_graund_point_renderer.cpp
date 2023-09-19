@@ -9,24 +9,26 @@
 namespace dldu = designlab::dxlib_util;
 
 
-RobotGraundPointRenderer::RobotGraundPointRenderer()
-	: GRAUND_POINT_COLOR_RIGHT(GetColor(230, 15, 145)), GRAUND_POINT_COLOR_BLACK_RIGHT(GetColor(237, 159, 160)),
-	GRAUND_POINT_COLOR_LEFT(GetColor(15, 230, 145)), GRAUND_POINT_COLOR_BLACK_LEFT(GetColor(159, 237, 160))
+RobotGraundPointRenderer::RobotGraundPointRenderer() : 
+	kRightLegGraundPointColor(GetColor(230, 15, 145)), 
+	kLeftLegGraundPointColor(GetColor(15, 230, 145)), 
+	kRightLegGraundPointDarkColor(GetColor(237, 159, 160)),
+	kLeftLegGraundPointDarkColor(GetColor(159, 237, 160))
 {
 }
 
 
-void RobotGraundPointRenderer::setNode(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index)
+void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index)
 {
 	HexapodStateCalclator_Old hexapod_state_calclator;
 
-	while (m_loaded_node_num < node.size())
+	while (loaded_node_num_ < node.size())
 	{
 		int simu_num = 0;	//このノードのシミュレーション番号
 
 		for (size_t i = 0; i < simu_end_node_index.size(); i++)
 		{
-			if (simu_end_node_index[i] >= m_loaded_node_num)
+			if (simu_end_node_index[i] >= loaded_node_num_)
 			{
 				break;
 			}
@@ -35,41 +37,52 @@ void RobotGraundPointRenderer::setNode(const std::vector<SNode>& node, const std
 
 
 		//現在のシミュレーション番号のデータがないならば追加する
-		while (simu_num >= m_graund_point.size()) { m_graund_point.push_back({}); }
+		while (simu_num >= graund_point_.size()) { graund_point_.push_back({}); }
 
+
+		//接地点を計算し，記録する
+		std::array<VectorAndIsGround, HexapodConst::LEG_NUM> graund_point;
 
 		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 		{
-			if (dl_leg::isGrounded(node[m_loaded_node_num].leg_state, i))
-			{
-				m_graund_point[simu_num].push_back({ hexapod_state_calclator.getGlobalLegPos(node[m_loaded_node_num], i, false) ,i });
-			}
+			graund_point[i] = { 
+				hexapod_state_calclator.getGlobalLegPos(node[loaded_node_num_], i, true),
+				dl_leg::isGrounded(node[loaded_node_num_].leg_state, i) 
+			};
 		}
 
-		++m_loaded_node_num;
+		graund_point_[simu_num].push_back(graund_point);
+
+		++loaded_node_num_;
 	}
 }
 
 
 void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_all_simulation) const
 {
-	unsigned int color[6] = { GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_RIGHT,GRAUND_POINT_COLOR_LEFT,GRAUND_POINT_COLOR_LEFT,GRAUND_POINT_COLOR_LEFT };
+	unsigned int color[6] = { kRightLegGraundPointColor,kRightLegGraundPointColor,kRightLegGraundPointColor,kLeftLegGraundPointColor,kLeftLegGraundPointColor,kLeftLegGraundPointColor };
 
-	unsigned int color_black[6] = { GRAUND_POINT_COLOR_BLACK_RIGHT,GRAUND_POINT_COLOR_BLACK_RIGHT,GRAUND_POINT_COLOR_BLACK_RIGHT,GRAUND_POINT_COLOR_BLACK_LEFT,GRAUND_POINT_COLOR_BLACK_LEFT,GRAUND_POINT_COLOR_BLACK_LEFT };
+	unsigned int color_black[6] = { kRightLegGraundPointDarkColor,kRightLegGraundPointDarkColor,kRightLegGraundPointDarkColor,kLeftLegGraundPointDarkColor,kLeftLegGraundPointDarkColor,kLeftLegGraundPointDarkColor };
 
-	for (size_t i = 0; i < m_graund_point.size(); i++)
+	for (size_t i = 0; i < graund_point_.size(); i++)
 	{
-		for (size_t j = 0; j < m_graund_point[i].size(); j++)
+		for (auto &leg_data: graund_point_[i])
 		{
-			if (draw_all_simulation || i == draw_simu_num)
+			for (size_t leg_index = 0; leg_index < HexapodConst::LEG_NUM; leg_index++)
 			{
-				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(m_graund_point[i][j].first), 25, color[m_graund_point[i][j].second]);
-			}
-			else
-			{
-				SetDrawBlendMode(DX_BLENDMODE_ALPHA, 32);
-				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(m_graund_point[i][j].first), 25, color_black[m_graund_point[i][j].second]);
-				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+				if (!leg_data[leg_index].is_ground) { continue; }
+
+				if (draw_all_simulation || i == draw_simu_num)
+				{
+					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color[leg_index]);
+				}
+				else
+				{
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 32);
+					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color_black[leg_index]);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+				}
+
 			}
 		}
 	}

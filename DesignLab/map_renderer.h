@@ -1,14 +1,15 @@
-#pragma once
+//! @file map_renderer.h
+//! @brief マップの描画を行うクラス．
+
+#ifndef DESIGNLAB_MAP_RENDERER_H_
+#define DESIGNLAB_MAP_RENDERER_H_
 
 #include "map_state.h"
-#include "Node.h"
 
 
 //! @class MapRenderer
-//! @date 2023/08/09
-//! @author 長谷川
 //! @brief Mapの描画を行うクラス．
-class MapRenderer
+class MapRenderer final
 {
 public:
 	MapRenderer();
@@ -22,12 +23,8 @@ private:
 
 	const unsigned int COLOR_GRAY;
 	const unsigned int COLOR_LIGHT_GRAY;
-	const float CUBE_SIZE = 15.0f;
+	const float CUBE_SIZE;
 };
 
 
-//! @file map_renderer.h
-//! @date 2023/08/09
-//! @author	長谷川
-//! @brief	マップの描画を行うMapRendererクラス．
-//! @n 行数 : @lineinfo
+#endif //DESIGNLAB_MAP_RENDERER_H_

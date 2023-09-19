@@ -55,7 +55,7 @@ bool GraphicMainBasic::Update()
 
 
 		//ロボットの接地点を更新する．
-		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
+		robot_graund_point_renderer_.SetNodeAndSimulationEndNodeIndex(graph_, simu_end_index);
 
 
 		graph_update_count = broker_ptr_->graph.update_count();

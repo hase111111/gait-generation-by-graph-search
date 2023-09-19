@@ -32,11 +32,11 @@ public:
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] current_node 現在の状態を表すノード
-	//! @param [in] map_ref 現在のマップの状態
+	//! @param [in] map 現在のマップの状態
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
-	//! @return EGraphSearchResult グラフ探索の結果を返す．
-	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode& output_node) = 0;
+	//! @return EGraphSearchResult グラフ探索の結果を返す．成功か失敗か
+	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState& map, const STarget& target, SNode& output_node) = 0;
 
 
 	//! @brief 作成したグラフの数を返す

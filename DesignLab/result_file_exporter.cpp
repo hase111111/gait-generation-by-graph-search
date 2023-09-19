@@ -2,7 +2,7 @@
 
 #include <filesystem>
 
-#include "designlab_timer.h"
+#include "stopwatch.h"
 
 
 namespace sf = std::filesystem;	//長すぎるので，filesystemの名前空間を短縮する．
@@ -17,8 +17,8 @@ void ResultFileExporter::init()
 	}
 
 	//フォルダ名を指定する．現在時刻を取得し，それをフォルダ名にする．
-	DesignlabTimer timer;
-	m_folder_name = timer.getNowTime();
+	Stopwatch timer;
+	m_folder_name = timer.GetNowTimeString();
 
 
 	//出力先フォルダを作成する．

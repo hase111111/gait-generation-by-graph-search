@@ -7,7 +7,6 @@
 
 //! @class WorldGridRenderer
 //! @brief ワールドの格子線を描画するクラス
-
 class WorldGridRenderer final
 {
 public:

@@ -147,7 +147,7 @@
     <ClInclude Include="TimeManager.h">
       <Filter>ソース ファイル\phantomX</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h">
+    <ClInclude Include="define.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="Target.h">
@@ -182,9 +182,6 @@
     </ClInclude>
     <ClInclude Include="graphic_const.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="fps_controller.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
@@ -267,7 +264,7 @@
     <ClInclude Include="graph_viewer_gui_controller.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_timer.h">
+    <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="StringToValue.h">
@@ -363,7 +360,7 @@
     <ClInclude Include="node_display_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_cmdio.h">
+    <ClInclude Include="cmdio_util.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
     <ClInclude Include="output_detail.h">
@@ -426,6 +423,9 @@
     <ClInclude Include="asyncable_data.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -443,7 +443,7 @@
     <ClCompile Include="TimeManager.cpp">
       <Filter>ソース ファイル\phantomX</Filter>
     </ClCompile>
-    <ClCompile Include="Define.cpp">
+    <ClCompile Include="define.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="leg_state.cpp">
@@ -584,7 +584,7 @@
     <ClCompile Include="graph_search_result.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_timer.cpp">
+    <ClCompile Include="stopwatch.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="designlab_rotator.cpp">
@@ -629,7 +629,7 @@
     <ClCompile Include="node_display_gui.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_cmdio.cpp">
+    <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
     <ClCompile Include="output_detail.cpp">

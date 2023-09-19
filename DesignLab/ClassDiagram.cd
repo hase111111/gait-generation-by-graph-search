@@ -32,7 +32,7 @@
 		<Position X="26.25" Y="0.5" Width="1.5" />
 		<TypeIdentifier>
 			<HashCode>AAAAAAAAAAAABAABAQAAgAAAAAAAAQAAQAAAAAAABBA=</HashCode>
-			<FileName>Define.h</FileName>
+			<FileName>define.h</FileName>
 		</TypeIdentifier>
 	</Class>
 	<Class Name="MyTimer" Collapsed="true">

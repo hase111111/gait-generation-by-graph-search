@@ -4,9 +4,9 @@
 
 #include <boost/thread.hpp>
 
-#include "Define.h"
+#include "define.h"
 #include "cmdio_util.h"
-#include "designlab_timer.h"
+#include "stopwatch.h"
 #include "graph_search_const.h"
 #include "hexapod_state_calculator.h"
 #include "pass_finder_hato_thread.h"
@@ -99,13 +99,13 @@ void GraphViewerSystemMain::Main()
 
 				std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
 
-				DesignlabTimer _timer;
-				_timer.start();
+				Stopwatch _timer;
+				_timer.Start();
 				CreateGraph(_node, _graph);
-				_timer.end();
+				_timer.End();
 				SetGraphToBroker(_graph);
 				std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
-				std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
+				std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.GetElapsedMilliSecond() << " [ms]" << std::endl;
 				std::cout << std::endl;
 			}
 			else
@@ -160,13 +160,13 @@ void GraphViewerSystemMain::Main()
 						std::cout << std::endl;
 						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
 
-						DesignlabTimer _timer;
-						_timer.start();
+						Stopwatch _timer;
+						_timer.Start();
 						CreateGraph(_graph[_node_num], _graph);
-						_timer.end();
+						_timer.End();
 						SetGraphToBroker(_graph);
 						std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
-						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.getMilliSecond() << " [ms]" << std::endl;
+						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.GetElapsedMilliSecond() << " [ms]" << std::endl;
 						std::cout << std::endl;
 					}
 					else
