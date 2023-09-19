@@ -35,7 +35,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const dl_vec::SVector kCoxaVec = calclator_->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
+		const designlab::Vector3 kCoxaVec = calclator_->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
 
 		if (map_.IsInMap(kCoxaVec)) 
 		{
@@ -91,7 +91,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 			SNode new_node = current_node;
 
 			//重心の位置を変更する．
-			dl_vec::SVector new_com = current_node.global_center_of_mass;
+			designlab::Vector3 new_com = current_node.global_center_of_mass;
 			new_com.z = low + kDivZ * i;
 
 			new_node.changeGlobalCenterOfMass(new_com, true);

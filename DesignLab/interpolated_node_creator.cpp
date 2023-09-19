@@ -7,7 +7,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 {
 	(*interpolated_node).clear();
 
-	dl_vec::SVector dif[HexapodConst::LEG_NUM];
+	designlab::Vector3 dif[HexapodConst::LEG_NUM];
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{

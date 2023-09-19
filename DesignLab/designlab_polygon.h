@@ -5,13 +5,13 @@
 #include "designlab_vector2.h"
 
 
-namespace dl_vec
+namespace designlab
 {
 
 	static constexpr int MAX_VERTEX_NUM = 6;	//!< 速度を早くするためにあらかじめ最大サイズを決定しておく．
 
 
-	//! @struct dl_vec::SPolygon2
+	//! @struct designlab::SPolygon2
 	//! @brief 2次元の多角形を表す構造体
 	//! @details 2次元の多角形を表す構造体．
 	//! @n 頂点は反時計回り，或いは時計回りに並んでいる必要がある．
@@ -203,7 +203,7 @@ namespace dl_vec
 		return os;
 	}
 
-}	// namespace dl_vec
+}	// namespace designlab
 
 
 //! @file designlab_polygon.h

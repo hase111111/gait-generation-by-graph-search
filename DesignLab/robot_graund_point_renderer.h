@@ -8,7 +8,7 @@
 #include <array>
 #include <vector>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 #include "hexapod_const.h"
 #include "node.h"
 
@@ -38,7 +38,7 @@ private:
 
 	struct VectorAndIsGround
 	{
-		dl_vec::SVector vec;	//!< À•W
+		designlab::Vector3 vec;	//!< À•W
 
 		bool is_ground;			//!< Ú’n‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
 	};

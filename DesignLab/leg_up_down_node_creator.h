@@ -29,7 +29,7 @@ public:
 private:
 
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
-	bool IsGroundableLeg(int leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos);
+	bool IsGroundableLeg(int leg_num, const SNode& current_node, designlab::Vector3* output_ground_pos);
 
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
 	bool IsAbleLegPos(const SNode& node, int leg_num);

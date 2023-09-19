@@ -4,9 +4,9 @@
 #include <iostream>
 
 
-bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDiscreteComPos com_pattren, dl_vec::SVector& output_com) const
+bool ComSelecter::getComFromPolygon(const designlab::SPolygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3& output_com) const
 {
-	std::vector<dl_vec::SVector2> coms;
+	std::vector<designlab::SVector2> coms;
 
 	//候補点を生成する
 	makeComCandidatePoint(polygon, coms);
@@ -15,7 +15,7 @@ bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDis
 	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
 
 	std::sort(coms.begin(), coms.end(),
-		[&](const dl_vec::SVector2& _v1, const dl_vec::SVector2& _v2)
+		[&](const designlab::SVector2& _v1, const designlab::SVector2& _v2)
 		{
 			return (_v1 - m_current_node.global_center_of_mass.projectedXY()).lengthSquare() > (_v2 - m_current_node.global_center_of_mass.projectedXY()).lengthSquare();
 		}
@@ -26,7 +26,7 @@ bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDis
 	{
 		//現在の重心を移動させたものを作成する
 		SNode com_change_node = m_current_node;
-		dl_vec::SVector next_com = { i.x ,i.y,m_current_node.global_center_of_mass.z };
+		designlab::Vector3 next_com = { i.x ,i.y,m_current_node.global_center_of_mass.z };
 		com_change_node.changeGlobalCenterOfMass(next_com, false);
 
 		//if (isInMargin(polygon, i) == false) { continue; }	//安定余裕を満たさなければ次の候補点へ
@@ -47,7 +47,7 @@ bool ComSelecter::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDis
 }
 
 
-void ComSelecter::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::vector<dl_vec::SVector2>& coms) const
+void ComSelecter::makeComCandidatePoint(const designlab::SPolygon2& polygon, std::vector<designlab::SVector2>& coms) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 	const float kMinX = polygon.getMinX();
@@ -66,7 +66,7 @@ void ComSelecter::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::v
 	{
 		for (int y = 0; y <= DISCRETIZATION_NUM; ++y)
 		{
-			const dl_vec::SVector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
+			const designlab::SVector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
 
 			if (polygon.isInside(kComPoint))
 			{
@@ -79,7 +79,7 @@ void ComSelecter::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::v
 }
 
 
-bool ComSelecter::isInMargin(const dl_vec::SPolygon2& polygon, const dl_vec::SVector2& com) const
+bool ComSelecter::isInMargin(const designlab::SPolygon2& polygon, const designlab::SVector2& com) const
 {
 	// @todo 動作がおかしいので修正すること
 
@@ -87,10 +87,10 @@ bool ComSelecter::isInMargin(const dl_vec::SPolygon2& polygon, const dl_vec::SVe
 
 	for (int j = 0; j < kVertexNum; ++j)
 	{
-		dl_vec::SVector2 v1 = polygon.getVertex((j + 1) % kVertexNum) - polygon.getVertex(j);
+		designlab::SVector2 v1 = polygon.getVertex((j + 1) % kVertexNum) - polygon.getVertex(j);
 		v1 = v1.normalized();
 
-		dl_vec::SVector2 v_map = com - polygon.getVertex(j);
+		designlab::SVector2 v_map = com - polygon.getVertex(j);
 
 		if (v_map.cross(v1) < STABILITY_MARGIN)
 		{

@@ -9,7 +9,7 @@
 
 #include <array>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 
 
 namespace designlab
@@ -29,14 +29,14 @@ namespace designlab
 		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
 		//! @return VECTOR 変換後の座標．
-		inline VECTOR ConvertToDxlibVec(const dl_vec::SVector& vec) { return VGet(vec.x, -vec.y, vec.z); }
+		inline VECTOR ConvertToDxlibVec(const designlab::Vector3& vec) { return VGet(vec.x, -vec.y, vec.z); }
 
 
 		//! @brief このプログラムで使用しているVectorと，Dxlibの座標を示すVECTORを変換する．
 		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
-		//! @return SVector 変換後の座標．
-		inline dl_vec::SVector ConvertDesignLabVec(const VECTOR& vec) { return dl_vec::SVector(vec.x, -vec.y, vec.z); }
+		//! @return Vector3 変換後の座標．
+		inline designlab::Vector3 ConvertDesignLabVec(const VECTOR& vec) { return designlab::Vector3(vec.x, -vec.y, vec.z); }
 
 
 		//! @brief デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする．

@@ -46,31 +46,31 @@ void CameraStateManager::setCameraViewMode(const CameraViewMode mode)
 {
 	m_camera_view_mode = mode;	//一応カメラのモードをメンバで持っているが，今のところ使っていない．必要ないかも
 
-	dl_vec::SQuaternion quat1{0, 0, 0, 0}, quat2{ 0,0,0,0 };	//switch文の中で宣言するとエラーが出るので，前方宣言する．
+	designlab::SQuaternion quat1{0, 0, 0, 0}, quat2{ 0,0,0,0 };	//switch文の中で宣言するとエラーが出るので，前方宣言する．
 
 
 	switch (mode)
 	{
 	case CameraViewMode::kFrontView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(0.0f), dl_vec::SVector{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(0.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kBackView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), dl_vec::SVector{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kTopView:
-		quat1.setRotAngleAndAxis(dl_math::convertDegToRad(-90.0f), dl_vec::SVector{ 0, 1, 0 });
-		quat2.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), dl_vec::SVector{ 1, 0, 0 });
+		quat1.setRotAngleAndAxis(dl_math::convertDegToRad(-90.0f), designlab::Vector3{ 0, 1, 0 });
+		quat2.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), designlab::Vector3{ 1, 0, 0 });
 		m_goal_camera_rot_quat = (quat1 * quat2).normalize();
 		break;
 
 	case CameraViewMode::kRightSideView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(270.0f), dl_vec::SVector{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(270.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kLeftSideView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(90.0f), dl_vec::SVector{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(90.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::FREE_CONTROLLED_TARGET:
@@ -105,16 +105,16 @@ void CameraStateManager::setCameraPosAndRot()
 	//カメラの位置をセットする．クォータニオンを用いて回転させ，dl_vec::vectorからdxlib::VECTORに変換する．
 	namespace dldu = designlab::dxlib_util;
 
-	VECTOR camera_target_dif = dldu::ConvertToDxlibVec(dl_vec::rotVecByQuat(kDefaultCameraFrontVec, m_camera_rot_quat) * m_length_camera_to_target);
+	VECTOR camera_target_dif = dldu::ConvertToDxlibVec(designlab::rotVecByQuat(kDefaultCameraFrontVec, m_camera_rot_quat) * m_length_camera_to_target);
 	VECTOR camera_pos = VAdd(camera_target_dif, m_target_pos);
 
-	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl_vec::rotVecByQuat(kDefaultCameraUpVec, m_camera_rot_quat));
+	VECTOR camera_upvec = dldu::ConvertToDxlibVec(designlab::rotVecByQuat(kDefaultCameraUpVec, m_camera_rot_quat));
 
 	SetCameraPositionAndTargetAndUpVec(camera_pos, m_target_pos, camera_upvec);
 }
 
 
-dl_vec::SQuaternion CameraStateManager::approachTargetQuat(const dl_vec::SQuaternion& current, const dl_vec::SQuaternion& target) const
+designlab::SQuaternion CameraStateManager::approachTargetQuat(const designlab::SQuaternion& current, const designlab::SQuaternion& target) const
 {
 	const float dif = 0.2f;
 	return ((1 - dif) * current + dif * target).normalize();

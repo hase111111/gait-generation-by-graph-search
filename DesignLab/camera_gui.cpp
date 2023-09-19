@@ -37,7 +37,7 @@ CameraGui::CameraGui() : CameraGui::CameraGui(10, 10)
 }
 
 
-void CameraGui::setHexapodPos(const dl_vec::SVector pos)
+void CameraGui::setHexapodPos(const designlab::Vector3 pos)
 {
 	namespace dldu = designlab::dxlib_util;
 

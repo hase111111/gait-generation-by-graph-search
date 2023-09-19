@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 #include "map_const.h"
 
 
@@ -25,8 +25,8 @@ public:
 
 	//! @brief 脚設置可能点の座標を返す．
 	//! @param [in] num 何番目の脚設置可能点か．
-	//! @return SVector 脚設置可能点の座標．
-	inline dl_vec::SVector map_point(const size_t num) const
+	//! @return Vector3 脚設置可能点の座標．
+	inline designlab::Vector3 map_point(const size_t num) const
 	{
 		return map_point_[num];
 	}
@@ -35,14 +35,14 @@ public:
 	//! @n 一応作ったけど，使うことはないと思う．AddMapPointを使うこと．
 	//! @param [in] num 何番目の脚設置可能点か．
 	//! @param [in] point 脚設置可能点の座標．
-	inline void set_map_point(const size_t num, const dl_vec::SVector& point)
+	inline void set_map_point(const size_t num, const designlab::Vector3& point)
 	{
 		map_point_[num] = point;
 	}
 
 	//! @brief 脚設置可能点の座標を設定する
 	//! @param [in] point 脚設置可能点の座標．
-	inline void set_map_point(const std::vector<dl_vec::SVector>& point)
+	inline void set_map_point(const std::vector<designlab::Vector3>& point)
 	{
 		map_point_ = point;
 	}
@@ -57,7 +57,7 @@ public:
 
 	//! @brief 脚設置可能点の座標を追加する．
 	//! @param [in] point 脚設置可能点の座標．
-	inline void AddMapPoint(const dl_vec::SVector& point)
+	inline void AddMapPoint(const designlab::Vector3& point)
 	{
 		map_point_.push_back(point);
 	}
@@ -71,7 +71,7 @@ public:
 
 private:
 
-	std::vector<dl_vec::SVector> map_point_;	//!< ロボットが歩くマップ．脚設置可能点の集合で表現される．
+	std::vector<designlab::Vector3> map_point_;	//!< ロボットが歩くマップ．脚設置可能点の集合で表現される．
 };
 
 
@@ -88,7 +88,7 @@ public:
 
 	void Clear();
 
-	constexpr bool IsInMap(const dl_vec::SVector& pos) const
+	constexpr bool IsInMap(const designlab::Vector3& pos) const
 	{
 		if (pos.x < MapConst::MAP_MIN_FORWARD || pos.x > MapConst::MAP_MAX_FORWARD) { return false; }
 		if (pos.y < MapConst::MAP_MIN_HORIZONTAL || pos.y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
@@ -126,15 +126,15 @@ public:
 	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] devide_map_index 何番目の脚設置可能点か．
-	//! @return SVector 脚設置可能点の座標．
-	dl_vec::SVector GetPointPos(int x_index, int y_index, int devide_map_index) const;
+	//! @return Vector3 脚設置可能点の座標．
+	designlab::Vector3 GetPointPos(int x_index, int y_index, int devide_map_index) const;
 
 	//! @brief 長方形状に切り分けられたマップから，脚設置可能点vectorを取得する
 	//! @n 範囲外の値を指定した場合は，空のvectorを返す．
 	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
-	//! @param [out] std::vector<SVector> point_vec 脚設置可能点の座標．
-	void GetPointVector(int x_index, int y_index, std::vector<dl_vec::SVector>* point_vec) const;
+	//! @param [out] std::vector<Vector3> point_vec 脚設置可能点の座標．
+	void GetPointVector(int x_index, int y_index, std::vector<designlab::Vector3>* point_vec) const;
 
 	//! @brief 長方形状に切り分けられたマップから，最も高いZ座標を返す．
 	//! @param [in] x_index X座標，切り分けられたタイルの位置で指定する．
@@ -150,7 +150,7 @@ private:
 		return x_index * MapConst::LP_DIVIDE_NUM + y_index;
 	}
 
-	std::vector<std::vector<dl_vec::SVector> > devided_map_point_;	//!< マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	//!< マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
 
 	std::vector<float> devided_map_top_z_;							//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
 };
@@ -212,8 +212,8 @@ private:
 //	//! @param [in] x x座標，切り分けられたタイルの位置で指定する．
 //	//! @param [in] y y座標，切り分けられたタイルの位置で指定する．
 //	//! @param [in] num 何番目の脚設置可能点か． 
-//	//! @return SVector 脚設置可能点の座標．
-//	dl_vec::SVector getPosFromDevideMap(const int x, const int y, const int num) const;
+//	//! @return Vector3 脚設置可能点の座標．
+//	designlab::Vector3 getPosFromDevideMap(const int x, const int y, const int num) const;
 //
 //
 //	//! @brief 長方形状に切り分けられたマップから，最も高いZ座標を返す．
@@ -228,8 +228,8 @@ private:
 //
 //	//! @brief 脚設置可能点の座標を出力する．長方形状に切り分けられたマップから値を取得するわけではないので，描画やデバッグのみに利用することを推奨．
 //	//! @param [in] num 
-//	//! @return SVector 脚設置可能点の座標．
-//	dl_vec::SVector getPos(const int num) const;
+//	//! @return Vector3 脚設置可能点の座標．
+//	designlab::Vector3 getPos(const int num) const;
 //
 //
 //	//! @brief 脚設置可能点の座標の数を出力する．getPos関数と併用して使用する．
@@ -252,9 +252,9 @@ private:
 //	inline int getDevideMapNum(const int x, const int y) const { return x * MapConst::LP_DIVIDE_NUM + y; }
 //
 //
-//	std::vector<dl_vec::SVector> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
+//	std::vector<designlab::Vector3> m_map_data;					//ロボットが歩くマップ．脚設置可能点の集合で表現される．
 //
-//	std::vector<std::vector<dl_vec::SVector> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+//	std::vector<std::vector<designlab::Vector3> > m_devide_map;	//マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
 //
 //	std::vector<float> m_devide_map_top_z;						//m_devide_mapの中の最も高いz座標をまとめたもの，要素が存在しないなら，float型の最小値が入る．
 //

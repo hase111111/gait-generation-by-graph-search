@@ -31,9 +31,9 @@ public:
 
 private:
 
-	bool isAbleCoxaLeg(const dl_vec::SVector& coxa_joint, const dl_vec::SVector& femur_joint) const;
-	bool isAbleFemurLeg(const dl_vec::SVector& femur_joint, const dl_vec::SVector& tibia_joint) const;
-	bool isAbleTibiaLeg(const dl_vec::SVector& tibia_joint, const dl_vec::SVector& leg_joint) const;
+	bool isAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const;
+	bool isAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
+	bool isAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
 
 
 	const unsigned int COLOR_BODY;			// ì∑ëÃÇÃêF
@@ -75,10 +75,10 @@ private:
 	float kTibiaCos[HexapodConst::LEG_NUM];
 	float kTibiaSin[HexapodConst::LEG_NUM];
 
-	dl_vec::SVector kKineCoxaJointVec[HexapodConst::LEG_NUM];
-	dl_vec::SVector kKineFemurJointVec[HexapodConst::LEG_NUM];
-	dl_vec::SVector kKineTibiaJointVec[HexapodConst::LEG_NUM];
-	dl_vec::SVector kKineLegVec[HexapodConst::LEG_NUM];
+	designlab::Vector3 kKineCoxaJointVec[HexapodConst::LEG_NUM];
+	designlab::Vector3 kKineFemurJointVec[HexapodConst::LEG_NUM];
+	designlab::Vector3 kKineTibiaJointVec[HexapodConst::LEG_NUM];
+	designlab::Vector3 kKineLegVec[HexapodConst::LEG_NUM];
 
 	VECTOR kKineCoxaJointPos[HexapodConst::LEG_NUM];
 	VECTOR kKineFemurJointPos[HexapodConst::LEG_NUM];

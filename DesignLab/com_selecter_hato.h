@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 #include "designlab_polygon.h"
 #include "com_type.h"
 #include "node.h"
@@ -39,7 +39,7 @@ public:
 	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDiscreteComPos com_pattren, dl_vec::SVector* output_com) const;
+	bool getComFromPolygon(const designlab::SPolygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3* output_com) const;
 
 private:
 
@@ -54,10 +54,10 @@ private:
 	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
-	bool makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::pair<bool, dl_vec::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
+	bool makeComCandidatePoint(const designlab::SPolygon2& polygon, std::pair<bool, designlab::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const dl_vec::SPolygon2& polygon, const std::vector<dl_vec::SVector2>& edge_vec, const dl_vec::SVector2& candidate_point) const;
+	bool isInMargin(const designlab::SPolygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const;
 
 
 

@@ -115,7 +115,7 @@
     <ClInclude Include="phantomxCommander.h" />
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="TimeManager.h" />
-    <ClInclude Include="designlab_vector.h" />
+    <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -204,7 +204,7 @@
     <ClCompile Include="simulation_system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
     <ClCompile Include="TimeManager.cpp" />
-    <ClCompile Include="designlab_vector.cpp" />
+    <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="define.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>

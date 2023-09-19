@@ -3,7 +3,7 @@
 #include "designlab_math.h"
 
 
-dl_vec::SVector2 dl_vec::SLine2::getIntersection(const SLine2& other) const
+designlab::SVector2 designlab::SLine2::getIntersection(const SLine2& other) const
 {
 	if (isParallel(other))
 	{
@@ -27,7 +27,7 @@ dl_vec::SVector2 dl_vec::SLine2::getIntersection(const SLine2& other) const
 }
 
 
-bool dl_vec::SLine2::hasIntersection(const SLine2& other) const
+bool designlab::SLine2::hasIntersection(const SLine2& other) const
 {
 	if (isParallel(other))
 	{

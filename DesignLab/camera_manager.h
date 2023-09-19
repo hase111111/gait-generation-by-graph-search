@@ -65,11 +65,11 @@ public:
 
 	//! @brief カメラのクォータニオンを取得する
 	//! @return カメラのクォータニオン
-	dl_vec::SQuaternion getCameraRotQuat() const { return m_goal_camera_rot_quat; }
+	designlab::SQuaternion getCameraRotQuat() const { return m_goal_camera_rot_quat; }
 
 	//! @brief カメラのクォータニオンをセットする
 	//! @param [in] quat カメラのクォータニオン
-	void setCameraRotQuat(const dl_vec::SQuaternion& quat) { m_goal_camera_rot_quat = quat; }
+	void setCameraRotQuat(const designlab::SQuaternion& quat) { m_goal_camera_rot_quat = quat; }
 
 
 	//! @brief 注視点を操作する際の，カメラの注視する座標をセットする
@@ -86,7 +86,7 @@ private:
 	void setCameraPosAndRot();
 
 	//引数のクォータニオンを徐々に目標値に近づける．補間方法は線形補間 https://www.f-sp.com/entry/2017/06/30/221124
-	dl_vec::SQuaternion approachTargetQuat(const dl_vec::SQuaternion& current, const dl_vec::SQuaternion& target) const;
+	designlab::SQuaternion approachTargetQuat(const designlab::SQuaternion& current, const designlab::SQuaternion& target) const;
 
 	//引数のベクトルを徐々に目標値に近づける
 	VECTOR approachTargetVECTOR(const VECTOR& current, const VECTOR& target) const;
@@ -95,9 +95,9 @@ private:
 	float approachTargetValue(const float current, const float target) const;
 
 
-	const dl_vec::SVector kDefaultCameraFrontVec = { 1.0f, 0.0f, 0.0f };	//デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraFrontVec = { 1.0f, 0.0f, 0.0f };	//デフォルトのカメラの方向を表す単位ベクトル
 
-	const dl_vec::SVector kDefaultCameraUpVec = { 0.0f, 0.0f, 1.0f };		//デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraUpVec = { 0.0f, 0.0f, 1.0f };		//デフォルトのカメラの方向を表す単位ベクトル
 
 
 	CameraViewMode m_camera_view_mode;				//カメラの視点を決定する．
@@ -106,9 +106,9 @@ private:
 
 	VECTOR m_target_pos;						//カメラが現在注視している座標
 
-	dl_vec::SQuaternion m_goal_camera_rot_quat;	//カメラの回転を表すクォータニオン
+	designlab::SQuaternion m_goal_camera_rot_quat;	//カメラの回転を表すクォータニオン
 
-	dl_vec::SQuaternion m_camera_rot_quat;		//カメラの回転を表すクォータニオンの現在値
+	designlab::SQuaternion m_camera_rot_quat;		//カメラの回転を表すクォータニオンの現在値
 
 	float m_goal_length_camera_to_target;		//カメラと注視する対象との距離の目標値
 

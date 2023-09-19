@@ -237,7 +237,7 @@
     <ClInclude Include="designlab_vector2.h">
       <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_vector.h">
+    <ClInclude Include="designlab_vector3.h">
       <Filter>ソース ファイル\Common\Vector</Filter>
     </ClInclude>
     <ClInclude Include="designlab_polygon.h">
@@ -518,7 +518,7 @@
     <ClCompile Include="graphic_main_test.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_vector.cpp">
+    <ClCompile Include="designlab_vector3.cpp">
       <Filter>ソース ファイル\Common\Vector</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">

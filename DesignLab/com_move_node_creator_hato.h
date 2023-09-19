@@ -38,7 +38,7 @@ private:
 
 	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
-	//std::vector<dl_vec::SPolygon2> polygon_vec_;
+	//std::vector<designlab::SPolygon2> polygon_vec_;
 
 
 	const DevideMapState map_;	//!< 地面の状態を格納したクラス

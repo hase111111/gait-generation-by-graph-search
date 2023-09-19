@@ -25,7 +25,7 @@
 //
 //void ComMoveNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 //{
-//	//std::vector<std::pair<dl_vec::SPolygon2, EDiscreteComPos>> candidate_polygons;
+//	//std::vector<std::pair<designlab::SPolygon2, EDiscreteComPos>> candidate_polygons;
 //
 //	////重心移動先の候補地点の範囲を示す多角形を作成する
 //	//ComCandidatePolygonMaker polygon_maker;
@@ -37,7 +37,7 @@
 //
 //	//for (const auto& i : candidate_polygons)
 //	//{
-//	//	dl_vec::SVector res_pos;
+//	//	designlab::Vector3 res_pos;
 //
 //	//	if (com_selecter.getComFromPolygon(i.first, i.second, res_pos) == true)
 //	//	{

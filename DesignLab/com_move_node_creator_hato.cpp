@@ -17,7 +17,7 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const 
 
 void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
-	std::pair<dl_vec::SPolygon2, EDiscreteComPos> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
+	std::pair<designlab::SPolygon2, EDiscreteComPos> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
 
 	//重心移動先の候補地点の範囲を示す多角形を作成する
 	maker_.makeCandidatePolygon(current_node, candidate_polygons);
@@ -30,7 +30,7 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 		//そもそも多角形が候補点になりえないならば，その多角形は無視する
 		if (candidate_polygons[i].second == EDiscreteComPos::ERROR_POS) { continue; }
 
-		dl_vec::SVector result_com;
+		designlab::Vector3 result_com;
 
 		if (selecter_.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, &result_com))
 		{
@@ -77,7 +77,7 @@ bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const dl_vec::SVector kCoxaPos = calculator_ptr_->getGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
+		const designlab::Vector3 kCoxaPos = calculator_ptr_->getGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
 
 		if (map_.IsInMap(kCoxaPos)) 
 		{

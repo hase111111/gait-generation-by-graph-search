@@ -6,7 +6,7 @@
 #include "camera_controller.h"
 #include "camera_manager.h"
 #include "button_controller.h"
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 
 
 //! @class CameraGui
@@ -21,7 +21,7 @@ public:
 	CameraGui();
 
 	//! @brief カメラの注視する位置を設定する
-	void setHexapodPos(const dl_vec::SVector pos);
+	void setHexapodPos(const designlab::Vector3 pos);
 
 	//! @brief GUIやカメラの更新を行う
 	void Update();

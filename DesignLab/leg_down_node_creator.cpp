@@ -15,7 +15,7 @@
 //	//脚が地面に接地可能か調べる．
 //
 //	bool is_groundable_leg[HexapodConst::LEG_NUM];		//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-//	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
+//	designlab::Vector3 ground_pos[HexapodConst::LEG_NUM];	//脚が接地する座標．
 //
 //	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 //
@@ -33,7 +33,7 @@
 //		else
 //		{
 //			//現在遊脚中の脚は現在の脚状態で接地できるか検討する．
-//			dl_vec::SVector res_ground_pos;
+//			designlab::Vector3 res_ground_pos;
 //
 //			if (isGroundableLeg(i, current_node, res_ground_pos))
 //			{
@@ -93,16 +93,16 @@
 //}
 //
 //
-//bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, dl_vec::SVector& _output_ground_pos)
+//bool LegDownNodeCreator::isGroundableLeg(const int _leg_num, const SNode& _current_node, designlab::Vector3& _output_ground_pos)
 //{
 //	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
 //
-//	using dl_vec::SVector;
+//	using designlab::Vector3;
 //
 //	if (mp_map == nullptr) { return false; }	//マップがないときはfalseを返す．
 //
 //	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-//	const dl_vec::SVector kGlobalLegBasePos = m_calculator.getGlobalLegBasePos(_current_node, _leg_num, false);
+//	const designlab::Vector3 kGlobalLegBasePos = m_calculator.getGlobalLegBasePos(_current_node, _leg_num, false);
 //
 //	int max_x_dev = mp_map->getDevideMapNumX(kGlobalLegBasePos.x) + 1;
 //	int min_x_dev = mp_map->getDevideMapNumX(kGlobalLegBasePos.x) - 1;
@@ -117,7 +117,7 @@
 //
 //	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 //
-//	std::vector<dl_vec::SVector> _candidate_pos;		//現在の脚位置に合致する候補座標群．
+//	std::vector<designlab::Vector3> _candidate_pos;		//現在の脚位置に合致する候補座標群．
 //
 //	//範囲内の点を全て調べる．
 //	for (int x = min_x_dev; x < max_x_dev; x++)
@@ -128,7 +128,7 @@
 //
 //			for (int n = 0; n < kPosNum; n++)
 //			{
-//				SVector _pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
+//				Vector3 _pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
 //				_pos = m_calculator.convertLocalLegPos(_current_node, _pos, _leg_num, false);
 //
 //				//脚位置を更新したノードを作成する．

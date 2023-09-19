@@ -6,7 +6,7 @@
 
 #include <vector>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 #include "node.h"
 
 
@@ -49,7 +49,7 @@ private:
 	const int kLocusLineRadius;					//!< 軌跡の線の半径
 
 
-	std::vector<dl_vec::SVector> move_locus_point_;	//!< ロボットの動きの遷移を記録するvector
+	std::vector<designlab::Vector3> move_locus_point_;	//!< ロボットの動きの遷移を記録するvector
 
 	std::vector<size_t> simulation_end_indexes_;	//!< シミュレーションの終了点のインデックスの配列
 

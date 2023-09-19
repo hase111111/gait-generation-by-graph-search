@@ -3,7 +3,7 @@
 #include "leg_state.h"
 
 
-dl_vec::SVector AbstractHexapodStateCalculator::getLocalLegBasePosition(const int leg_index) const
+designlab::Vector3 AbstractHexapodStateCalculator::getLocalLegBasePosition(const int leg_index) const
 {
 	if constexpr (DO_CHECK_LEG_INDEX)
 	{
@@ -17,12 +17,12 @@ dl_vec::SVector AbstractHexapodStateCalculator::getLocalLegBasePosition(const in
 }
 
 
-float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const
+float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const designlab::Vector3 leg_pos[HexapodConst::LEG_NUM]) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
-	std::vector<dl_vec::SVector2> ground_leg_pos;
+	std::vector<designlab::SVector2> ground_leg_pos;
 
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -38,10 +38,10 @@ float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_l
 
 	for (int i = 0; i < ground_leg_pos.size(); i++)
 	{
-		dl_vec::SVector2 i_to_i_plus_1 = ground_leg_pos.at((i + 1) % ground_leg_pos.size()) - ground_leg_pos.at(i);
+		designlab::SVector2 i_to_i_plus_1 = ground_leg_pos.at((i + 1) % ground_leg_pos.size()) - ground_leg_pos.at(i);
 		i_to_i_plus_1.normalized();
 
-		dl_vec::SVector2 i_to_com = dl_vec::SVector2{ 0,0 } - ground_leg_pos.at(i);
+		designlab::SVector2 i_to_com = designlab::SVector2{ 0,0 } - ground_leg_pos.at(i);
 
 		min_margin = (std::min)(min_margin, i_to_com.cross(i_to_i_plus_1));
 	}

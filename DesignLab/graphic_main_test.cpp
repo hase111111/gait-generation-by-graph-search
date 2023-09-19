@@ -37,7 +37,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 			{
 				for (int z = 0; z < temp_size; z += 1)
 				{
-					dl_vec::SVector pos((float)x - temp_size / 2, (float)y - temp_size / 2, (float)z - temp_size / 2);
+					designlab::Vector3 pos((float)x - temp_size / 2, (float)y - temp_size / 2, (float)z - temp_size / 2);
 					pos *= (float)temp_ex;
 
 					if (calculator_ptr->isLegInRange(i, pos))
@@ -74,7 +74,7 @@ bool GraphicMainTest::Update()
 			{
 				HexapodStateCalclator_Old calclator;
 
-				dl_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
+				designlab::Vector3 global = calclator.getGlobalLegBasePos(m_node, i, true);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
 				int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
@@ -84,7 +84,7 @@ bool GraphicMainTest::Update()
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
 
-				dl_vec::SVector _map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
+				designlab::Vector3 _map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
 				m_map_index++;
 
 				m_node.leg_pos[i] = calclator.convertLocalLegPos(m_node, _map_pos, i, true);
@@ -177,7 +177,7 @@ void GraphicMainTest::Draw() const
 				{
 					if (temp[i][x][y][z])
 					{
-						dl_vec::SVector pos(x - (float)temp_size / 2, y - (float)temp_size / 2, z - (float)temp_size / 2);
+						designlab::Vector3 pos(x - (float)temp_size / 2, y - (float)temp_size / 2, z - (float)temp_size / 2);
 						pos *= (float)temp_ex;
 
 						SetDrawBlendMode(DX_BLENDMODE_PMA_ALPHA, 255);

@@ -2,7 +2,7 @@
 
 #include "../DesignLab/designlab_vector2.h"
 
-using namespace dl_vec;
+using namespace designlab;
 
 namespace dl_vec_test
 {

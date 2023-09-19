@@ -18,11 +18,11 @@ StabilityMarginRenderer::StabilityMarginRenderer() : kMarginColor(GetColor(0, 25
 
 void StabilityMarginRenderer::Draw(const SNode& node) const
 {
-	dl_vec::SPolygon2 polygon_xy;			//平面に投影した多角形
+	designlab::SPolygon2 polygon_xy;			//平面に投影した多角形
 
-	std::vector<dl_vec::SVector> polygon;	//多角形の頂点
+	std::vector<designlab::Vector3> polygon;	//多角形の頂点
 
-	dl_vec::SVector polygon_sum{0, 0, 0};	//多角形の頂点の合計
+	designlab::Vector3 polygon_sum{0, 0, 0};	//多角形の頂点の合計
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -31,7 +31,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 		{
 			polygon.push_back(m_hexapod_state_calclator.getGlobalLegPos(node, i, true));
 
-			polygon.back() += dl_vec::SVector{0, 0, 5};
+			polygon.back() += designlab::Vector3{0, 0, 5};
 
 			polygon_xy.addVertex(polygon.back().projectedXY());
 
@@ -40,7 +40,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 	}
 
-	dl_vec::SVector center = polygon_sum / static_cast<float>(polygon.size());
+	designlab::Vector3 center = polygon_sum / static_cast<float>(polygon.size());
 
 
 	for (size_t i = 0; i < polygon.size(); i++)

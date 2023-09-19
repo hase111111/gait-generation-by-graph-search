@@ -7,9 +7,9 @@
 #include "designlab_math.h"
 
 
-namespace dl_vec
+namespace designlab
 {
-	//! @struct dl_vec::SVector2
+	//! @struct designlab::SVector2
 	//! @date 2023/08/06
 	//! @author 長谷川
 	//! @brief 2次元のベクトルを表す構造体
@@ -134,7 +134,7 @@ namespace dl_vec
 		return is >> unused >> v.x >> unused >> v.y >> unused;
 	}
 
-} // namespace dl_vec
+} // namespace designlab
 
 
 //! @file designlab_vector2.h

@@ -3,7 +3,7 @@
 #include "designlab_vector2.h"
 
 
-namespace dl_vec
+namespace designlab
 {
 	//! @struct SLine2
 	//! @date 2023/08/06
@@ -39,7 +39,7 @@ namespace dl_vec
 
 		//! @brief 他の線分との交点を求める．
 		//! @param [in] other 他の線分
-		//! @return dl_vec::SVector2 交点．交点がないor平行な場合は(0, 0)を返す．
+		//! @return designlab::SVector2 交点．交点がないor平行な場合は(0, 0)を返す．
 		//! @note 参考：http://marupeke296.com/COL_main.html
 		SVector2 getIntersection(const SLine2& other) const;
 
@@ -53,7 +53,7 @@ namespace dl_vec
 		SVector2 end;	//!< 線分の終点
 	};
 
-} //namespace dl_vec
+} //namespace designlab
 
 
 //! @file designlab_line.h

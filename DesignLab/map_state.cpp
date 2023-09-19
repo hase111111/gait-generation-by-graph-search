@@ -52,21 +52,21 @@
 //}
 //
 //
-//dl_vec::SVector MapState_Old::getPosFromDevideMap(const int x, const int y, const int num) const
+//designlab::Vector3 MapState_Old::getPosFromDevideMap(const int x, const int y, const int num) const
 //{
 //	//存在していなければ全て0のベクトルを返す．
-//	if (getDevideMapNum(x, y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return dl_vec::SVector{0, 0, 0}; }
+//	if (getDevideMapNum(x, y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return designlab::Vector3{0, 0, 0}; }
 //
-//	if (num < 0 || static_cast<int>(m_devide_map[getDevideMapNum(x, y)].size()) <= num) { return dl_vec::SVector{0, 0, 0}; }
+//	if (num < 0 || static_cast<int>(m_devide_map[getDevideMapNum(x, y)].size()) <= num) { return designlab::Vector3{0, 0, 0}; }
 //
 //	//存在しているならば値を返す．
 //	return m_devide_map[getDevideMapNum(x, y)][num];
 //}
 //
 //
-//dl_vec::SVector MapState_Old::getPos(const int num) const
+//designlab::Vector3 MapState_Old::getPos(const int num) const
 //{
-//	if (num < 0 || static_cast<int>(m_map_data.size()) <= num) { return dl_vec::SVector{0, 0, 0}; }
+//	if (num < 0 || static_cast<int>(m_map_data.size()) <= num) { return designlab::Vector3{0, 0, 0}; }
 //
 //	return m_map_data[num];
 //}
@@ -157,7 +157,7 @@ void DevideMapState::Init(const MapState& map_state)
 	for (size_t i = 0; i < kMapPointSize; ++i)
 	{
 		//xy方向のブロック番号をそれぞれ求める
-		const dl_vec::SVector point = map_state.map_point(i);
+		const designlab::Vector3 point = map_state.map_point(i);
 
 		const int x = static_cast<int>((point.x - static_cast<float>(MapConst::MAP_MIN_FORWARD)) / kLengthX);
 		const int y = static_cast<int>((point.y - static_cast<float>(MapConst::MAP_MIN_HORIZONTAL)) / kLengthY);
@@ -208,18 +208,18 @@ int DevideMapState::GetPointNum(const int x, const int y) const
 	return static_cast<int>(devided_map_point_[GetDevideMapIndex(x, y)].size());
 }
 
-dl_vec::SVector DevideMapState::GetPointPos(int x_index, int y_index, int devide_map_index) const
+designlab::Vector3 DevideMapState::GetPointPos(int x_index, int y_index, int devide_map_index) const
 {
 	//存在していなければ全て0のベクトルを返す．
-	if (GetDevideMapIndex(x_index, y_index) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return dl_vec::SVector{0, 0, 0}; }
+	if (GetDevideMapIndex(x_index, y_index) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return designlab::Vector3{0, 0, 0}; }
 
-	if (devide_map_index < 0 || static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size()) <= devide_map_index) { return dl_vec::SVector{0, 0, 0}; }
+	if (devide_map_index < 0 || static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size()) <= devide_map_index) { return designlab::Vector3{0, 0, 0}; }
 
 	//存在しているならば値を返す．
 	return devided_map_point_[GetDevideMapIndex(x_index, y_index)][devide_map_index];
 }
 
-void DevideMapState::GetPointVector(int x_index, int y_index, std::vector<dl_vec::SVector>* point_vec) const
+void DevideMapState::GetPointVector(int x_index, int y_index, std::vector<designlab::Vector3>* point_vec) const
 {
 	if (point_vec == nullptr) { return; }
 

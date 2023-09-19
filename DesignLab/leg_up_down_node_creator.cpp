@@ -38,7 +38,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 	//次に脚が地面に接地可能か調べる．
 
 	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	dl_vec::SVector ground_pos[HexapodConst::LEG_NUM];		//脚が接地する座標．
+	designlab::Vector3 ground_pos[HexapodConst::LEG_NUM];		//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -53,7 +53,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			dl_vec::SVector res_ground_pos;
+			designlab::Vector3 res_ground_pos;
 
 			if (IsGroundableLeg(i, current_node, &res_ground_pos))
 			{
@@ -119,12 +119,12 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 }
 
 
-bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos)
+bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& current_node, designlab::Vector3* output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const dl_vec::SVector kGlobalLegbasePos = mp_calclator->getGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
+	const designlab::Vector3 kGlobalLegbasePos = mp_calclator->getGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
 	//m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
 
 	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
@@ -141,7 +141,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	dl_vec::SVector candidate_pos;		//現在の脚位置に合致する候補座標群．
+	designlab::Vector3 candidate_pos;		//現在の脚位置に合致する候補座標群．
 	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
@@ -153,7 +153,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				dl_vec::SVector map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
+				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
 				map_point_pos = mp_calclator->convertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．

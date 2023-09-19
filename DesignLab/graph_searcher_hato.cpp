@@ -173,13 +173,13 @@ void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STar
 
 float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_node, const STarget& target) const
 {
-	//dl_vec::SVector center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
-	//dl_vec::SVector m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
+	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
+	//designlab::Vector3 m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
 
 	//return (int)(m_target_to_parent.projectedXY().length() - center_com_dif.projectedXY().length()) / 10 * 10.0f;
 
-	dl_vec::SVector target_pos {10000, 0, 0};
-	dl_vec::SVector target_to_parent = current_node.global_center_of_mass - target_pos;
+	designlab::Vector3 target_pos {10000, 0, 0};
+	designlab::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
 	return target_pos.length() - target_to_parent.length();
 }

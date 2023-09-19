@@ -9,7 +9,7 @@ namespace dl_vec_test
 	TEST(SPolygon2, IsInsideRightTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -45,7 +45,7 @@ namespace dl_vec_test
 
 
 		//6角形を作成し，内部にある点と外部にある点を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -60,7 +60,7 @@ namespace dl_vec_test
 		EXPECT_FALSE(polygon2.isInside({ 1.5f, 0.5f }));
 
 		//頂点が2以下の多角形では必ず失敗する．
-		dl_vec::SPolygon2 polygon3;
+		designlab::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 
@@ -72,7 +72,7 @@ namespace dl_vec_test
 	TEST(SPolygon2, IsInsideLeftTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 0, 1 });
 		polygon.addVertex({ 1, 1 });
@@ -108,7 +108,7 @@ namespace dl_vec_test
 
 
 		//6角形を作成し，内部にある点と外部にある点を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ -1, 0 });
 		polygon2.addVertex({ -1, 1 });
@@ -123,7 +123,7 @@ namespace dl_vec_test
 		EXPECT_FALSE(polygon2.isInside({ 1.5f, 0.5f }));
 
 		//頂点が2以下の多角形では必ず失敗する．
-		dl_vec::SPolygon2 polygon3;
+		designlab::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 

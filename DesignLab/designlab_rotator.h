@@ -6,12 +6,12 @@
 #include <ios>
 
 #include "designlab_math.h"
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 
 
-namespace dl_vec
+namespace designlab
 {
-	//! @struct dl_vec::SRotator
+	//! @struct designlab::SRotator
 	//! @date 2023/08/06
 	//! @author 長谷川
 	//! @brief 回転を表す構造体．XYZオイラー角
@@ -70,10 +70,10 @@ namespace dl_vec
 	//! @brief 回転させたベクトルを返す．三角関数の処理が多く重たいので注意．
 	//! @param [in] vec 位置ベクトル
 	//! @param [in] rot 回転ベクトル
-	//! @return SVector 回転した後の位置ベクトル
-	SVector rotVector(const SVector& vec, const SRotator& rot);
+	//! @return Vector3 回転した後の位置ベクトル
+	Vector3 rotVector(const Vector3& vec, const SRotator& rot);
 
-}	// namespace dl_vec
+}	// namespace designlab
 
 
 //! @file designlab_rotator.h

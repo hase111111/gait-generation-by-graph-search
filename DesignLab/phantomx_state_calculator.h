@@ -17,20 +17,20 @@ public:
 	bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const override;
 
 
-	dl_vec::SVector convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 convertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const override;
 
 
-	dl_vec::SVector getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const override;
+	designlab::Vector3 getLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const override;
 
 
-	dl_vec::SVector getGlobalLegBasePosition(const int leg_index, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const override;
 
-	dl_vec::SVector getGlobalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const override;
 
 
-	bool isLegInRange(const int leg_index, const dl_vec::SVector& leg_pos) const override;
+	bool isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
 
-	bool isLegInterfering(const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const override;
+	bool isLegInterfering(const designlab::Vector3 leg_pos[HexapodConst::LEG_NUM]) const override;
 
 
 private:
@@ -56,7 +56,7 @@ private:
 
 	bool initIsAbleLegPos(const int leg_index, const int x, const int y, const int z) const;		// ãrà íuÇÃóLå¯ñ≥å¯Çèâä˙âªÇ∑ÇÈ
 
-	void calculateLocalJointState(const int leg_index, const dl_vec::SVector& leg_pos, SHexapodJointState* joint_state) const;		// ãrà íuÇ©ÇÁä÷êﬂäpìxÇåvéZÇ∑ÇÈÅD1ãrî≈
+	void calculateLocalJointState(const int leg_index, const designlab::Vector3& leg_pos, SHexapodJointState* joint_state) const;		// ãrà íuÇ©ÇÁä÷êﬂäpìxÇåvéZÇ∑ÇÈÅD1ãrî≈
 
 
 

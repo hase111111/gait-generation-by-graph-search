@@ -10,20 +10,20 @@ namespace dl_vec_test
 	TEST(SPolygon2, AddVertex)
 	{
 		//四角形を作成し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
 		polygon.addVertex({ 0, 1 });
 
 		EXPECT_EQ(polygon.getVertexNum(), 4);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon.getVertex(3), designlab::SVector2(0, 1));
 
 		//6角形を作成し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -32,19 +32,19 @@ namespace dl_vec_test
 		polygon2.addVertex({ -1, 0 });
 
 		EXPECT_EQ(polygon2.getVertexNum(), 6);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
-		EXPECT_EQ(polygon2.getVertex(4), dl_vec::SVector2(-1, 1));
-		EXPECT_EQ(polygon2.getVertex(5), dl_vec::SVector2(-1, 0));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(4), designlab::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.getVertex(5), designlab::SVector2(-1, 0));
 	}
 
 	//addVertexCheckForDuplicates関数のテスト
 	TEST(SPolygon2, AddVertexCheckForDuplicates)
 	{
 		//重複する頂点を追加し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertexCheckForDuplicates({ 0, 0 });
 		polygon.addVertexCheckForDuplicates({ 1, 0 });
 		polygon.addVertexCheckForDuplicates({ 1, 1 });
@@ -52,13 +52,13 @@ namespace dl_vec_test
 		polygon.addVertexCheckForDuplicates({ 0, 0 });	//重複する頂点
 
 		EXPECT_EQ(polygon.getVertexNum(), 4);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon.getVertex(3), designlab::SVector2(0, 1));
 
 		//重複しない頂点を追加し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertexCheckForDuplicates({ 0, 0 });
 		polygon2.addVertexCheckForDuplicates({ 1, 0 });
 		polygon2.addVertexCheckForDuplicates({ 1, 1 });
@@ -66,18 +66,18 @@ namespace dl_vec_test
 		polygon2.addVertexCheckForDuplicates({ -1, 1 });
 
 		EXPECT_EQ(polygon2.getVertexNum(), 5);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
-		EXPECT_EQ(polygon2.getVertex(4), dl_vec::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(4), designlab::SVector2(-1, 1));
 	}
 
 	//removeVertex関数のテスト
 	TEST(SPolygon2, RemoveVertex)
 	{
 		//四角形を作成し，頂点を削除する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -85,24 +85,24 @@ namespace dl_vec_test
 
 		polygon.removeVertex(0);
 		EXPECT_EQ(polygon.getVertexNum(), 3);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon.getVertex(2), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon.getVertex(2), designlab::SVector2(0, 1));
 
 		polygon.removeVertex(1);
 		EXPECT_EQ(polygon.getVertexNum(), 2);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(0, 1));
 
 		polygon.removeVertex(1);
 		EXPECT_EQ(polygon.getVertexNum(), 1);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(1, 0));
 
 		polygon.removeVertex(0);
 		EXPECT_EQ(polygon.getVertexNum(), 0);
 
 		//存在しない頂点を指定した場合何もしない．四角形を作成し，存在しない頂点を指定する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -110,32 +110,32 @@ namespace dl_vec_test
 
 		polygon2.removeVertex(4);
 		EXPECT_EQ(polygon2.getVertexNum(), 4);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
 
 		polygon2.removeVertex(5);
 		EXPECT_EQ(polygon2.getVertexNum(), 4);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
 
 		//負の値を指定した場合
 		polygon2.removeVertex(-1);
 		EXPECT_EQ(polygon2.getVertexNum(), 4);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
 	}
 
 	//removeLastVertex関数のテスト
 	TEST(SPolygon2, RemoveLastVertex)
 	{
 		//四角形を作成し，頂点を削除する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -143,24 +143,24 @@ namespace dl_vec_test
 
 		polygon.removeLastVertex();
 		EXPECT_EQ(polygon.getVertexNum(), 3);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(2), dl_vec::SVector2(1, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(2), designlab::SVector2(1, 1));
 
 		polygon.removeLastVertex();
 		EXPECT_EQ(polygon.getVertexNum(), 2);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 0));
 
 		polygon.removeLastVertex();
 		EXPECT_EQ(polygon.getVertexNum(), 1);
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
 
 		polygon.removeLastVertex();
 		EXPECT_EQ(polygon.getVertexNum(), 0);
 
 		//6角形を作成し，頂点を削除する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -170,22 +170,22 @@ namespace dl_vec_test
 
 		polygon2.removeLastVertex();
 		EXPECT_EQ(polygon2.getVertexNum(), 5);
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
-		EXPECT_EQ(polygon2.getVertex(4), dl_vec::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(4), designlab::SVector2(-1, 1));
 	}
 
 	//getVertexNum関数のテスト
 	TEST(SPolygon2, GetVertexNum)
 	{
 		//頂点がない多角形を作成し，頂点数を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		EXPECT_EQ(polygon2.getVertexNum(), 0);
 
 		//4角形を作成し，頂点数を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -199,7 +199,7 @@ namespace dl_vec_test
 		EXPECT_EQ(polygon.getVertexNum(), 0);
 
 		//6角形を作成し，頂点数を確認する
-		dl_vec::SPolygon2 polygon3;
+		designlab::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });
@@ -228,19 +228,19 @@ namespace dl_vec_test
 	TEST(SPolygon2, GetVertex)
 	{
 		//4角形を作成し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
 		polygon.addVertex({ 0, 1 });
 
-		EXPECT_EQ(polygon.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon.getVertex(3), dl_vec::SVector2(0, 1));
+		EXPECT_EQ(polygon.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon.getVertex(3), designlab::SVector2(0, 1));
 
 		//6角形を作成し，その頂点の座標を確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, 0 });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -248,19 +248,19 @@ namespace dl_vec_test
 		polygon2.addVertex({ -1, 1 });
 		polygon2.addVertex({ -1, 0 });
 
-		EXPECT_EQ(polygon2.getVertex(0), dl_vec::SVector2(0, 0));
-		EXPECT_EQ(polygon2.getVertex(1), dl_vec::SVector2(1, 0));
-		EXPECT_EQ(polygon2.getVertex(2), dl_vec::SVector2(1, 1));
-		EXPECT_EQ(polygon2.getVertex(3), dl_vec::SVector2(0, 1));
-		EXPECT_EQ(polygon2.getVertex(4), dl_vec::SVector2(-1, 1));
-		EXPECT_EQ(polygon2.getVertex(5), dl_vec::SVector2(-1, 0));
+		EXPECT_EQ(polygon2.getVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon2.getVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon2.getVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon2.getVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.getVertex(4), designlab::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.getVertex(5), designlab::SVector2(-1, 0));
 	}
 
 	//isConvex関数のテスト
 	TEST(SPolygon2, IsConvexRightTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 1, 0 });
 		polygon.addVertex({ 1, 1 });
@@ -269,7 +269,7 @@ namespace dl_vec_test
 		EXPECT_TRUE(polygon.isConvex());
 
 		//6角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ 1, 0 });
 		polygon2.addVertex({ 1, 1 });
@@ -280,7 +280,7 @@ namespace dl_vec_test
 		EXPECT_TRUE(polygon2.isConvex());
 
 		//凸多角形でない多角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon3;
+		designlab::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 1, 0 });
 		polygon3.addVertex({ 1, 1 });
@@ -290,7 +290,7 @@ namespace dl_vec_test
 		EXPECT_FALSE(polygon3.isConvex());
 
 		//頂点数が3未満の多角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon4;
+		designlab::SPolygon2 polygon4;
 		polygon4.addVertex({ 0, 0 });
 		polygon4.addVertex({ 1, 0 });
 
@@ -301,7 +301,7 @@ namespace dl_vec_test
 	TEST(SPolygon2, IsConvexLeftTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon;
+		designlab::SPolygon2 polygon;
 		polygon.addVertex({ 0, 0 });
 		polygon.addVertex({ 0, 1 });
 		polygon.addVertex({ 1, 1 });
@@ -310,7 +310,7 @@ namespace dl_vec_test
 		EXPECT_TRUE(polygon.isConvex());
 
 		//6角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon2;
+		designlab::SPolygon2 polygon2;
 		polygon2.addVertex({ 0, -0.5f });
 		polygon2.addVertex({ -1, 0 });
 		polygon2.addVertex({ -1, 1 });
@@ -321,7 +321,7 @@ namespace dl_vec_test
 		EXPECT_TRUE(polygon2.isConvex());
 
 		//凸多角形でない多角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon3;
+		designlab::SPolygon2 polygon3;
 		polygon3.addVertex({ 0, 0 });
 		polygon3.addVertex({ 0, 1 });
 		polygon3.addVertex({ 1, 1 });
@@ -332,7 +332,7 @@ namespace dl_vec_test
 		EXPECT_FALSE(polygon3.isConvex());
 
 		//頂点数が3未満の多角形を作成し，凸多角形かどうかを確認する
-		dl_vec::SPolygon2 polygon4;
+		designlab::SPolygon2 polygon4;
 		polygon4.addVertex({ 0, 0 });
 		polygon4.addVertex({ 1, 0 });
 

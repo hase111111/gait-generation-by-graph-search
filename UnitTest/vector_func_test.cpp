@@ -1,14 +1,14 @@
 #include "pch.h"
 
-#include "../DesignLab/designlab_vector.h"
+#include "../DesignLab/designlab_vector3.h"
 #include "../DesignLab/designlab_vector.cpp"
 
 
 namespace dl_vec_test
 {
-	TEST(SVector, LengthSquare)
+	TEST(Vector3, LengthSquare)
 	{
-		dl_vec::SVector vec;
+		designlab::Vector3 vec;
 
 		vec = { 0,0,0 };
 		EXPECT_EQ(vec.lengthSquare(), 0);
@@ -36,9 +36,9 @@ namespace dl_vec_test
 	}
 
 
-	TEST(SVector, Length)
+	TEST(Vector3, Length)
 	{
-		dl_vec::SVector vec;
+		designlab::Vector3 vec;
 
 		vec = { 0,0,0 };
 		EXPECT_EQ(vec.length(), 0);
@@ -63,45 +63,45 @@ namespace dl_vec_test
 	}
 
 
-	TEST(SVector, Normalized)
+	TEST(Vector3, Normalized)
 	{
-		dl_vec::SVector vec;
+		designlab::Vector3 vec;
 
 		vec = { 500, 0, 0 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(1, 0, 0));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(1, 0, 0));
 
 		vec = { 54.10f, 0, 0 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(1, 0, 0));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(1, 0, 0));
 
 		vec = { 1, 0, 0 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(1, 0, 0));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(1, 0, 0));
 
 		vec = { -23445, 0, 0 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(-1, 0, 0));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(-1, 0, 0));
 
 		vec = { 5.4f, 5.4f, 5.4f };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(0.57735f, 0.57735f, 0.57735f));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(0.57735f, 0.57735f, 0.57735f));
 
 		vec = { -94,-94,-94 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(-0.57735f, -0.57735f, -0.57735f));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(-0.57735f, -0.57735f, -0.57735f));
 		EXPECT_TRUE(dl_math::isEqual(vec.normalized().length(), 1));
 
 		vec = { 17, 17, -17 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(0.57735f, 0.57735f, -0.57735f));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(0.57735f, 0.57735f, -0.57735f));
 		EXPECT_TRUE(dl_math::isEqual(vec.normalized().length(), 1));
 
 		vec = { 3, 2, -1 };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(0.801784f, 0.534522f, -0.267261f));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(0.801784f, 0.534522f, -0.267261f));
 		EXPECT_TRUE(dl_math::isEqual(vec.normalized().length(), 1));
 
 		vec = { 62.51f, -94.78f, 25.89f };
-		EXPECT_EQ(vec.normalized(), dl_vec::SVector(0.536788f, -0.813898f, 0.222324f));
+		EXPECT_EQ(vec.normalized(), designlab::Vector3(0.536788f, -0.813898f, 0.222324f));
 		EXPECT_TRUE(dl_math::isEqual(vec.normalized().length(), 1));
 	}
 
-	TEST(SVector, IsZero)
+	TEST(Vector3, IsZero)
 	{
-		dl_vec::SVector vec;
+		designlab::Vector3 vec;
 
 		vec = { 0,0,0 };
 		EXPECT_TRUE(vec.isZero());
@@ -137,9 +137,9 @@ namespace dl_vec_test
 		EXPECT_FALSE(vec.isZero());
 	}
 
-	TEST(SVector, DistanceFrom)
+	TEST(Vector3, DistanceFrom)
 	{
-		dl_vec::SVector vec1, vec2;
+		designlab::Vector3 vec1, vec2;
 
 		vec1 = { 0,0,0 }; vec2 = { 0,0,0 };
 		EXPECT_FLOAT_EQ(vec1.distanceFrom(vec2), 0);

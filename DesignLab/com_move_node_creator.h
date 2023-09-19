@@ -21,7 +21,7 @@
 //
 //	const MapState_Old* const mp_map;
 //
-//	std::vector<dl_vec::SPolygon2> m_polygons;
+//	std::vector<designlab::SPolygon2> m_polygons;
 //
 //	const bool DO_DEBUG_PRINT = false;
 //};

@@ -1,23 +1,23 @@
 #include "designlab_quaternion.h"
 
 
-dl_vec::SVector dl_vec::rotVecByQuat(const dl_vec::SVector& vec, const SQuaternion& q)
+designlab::Vector3 designlab::rotVecByQuat(const designlab::Vector3& vec, const SQuaternion& q)
 {
-	dl_vec::SQuaternion p{0, vec.x, vec.y, vec.z};
-	dl_vec::SQuaternion qInv = q.inverse();
-	dl_vec::SQuaternion r = q * p * qInv;
+	designlab::SQuaternion p{0, vec.x, vec.y, vec.z};
+	designlab::SQuaternion qInv = q.inverse();
+	designlab::SQuaternion r = q * p * qInv;
 
-	return SVector{ r.v.x, r.v.y, r.v.z };
+	return Vector3{ r.v.x, r.v.y, r.v.z };
 }
 
-constexpr dl_vec::SRotator dl_vec::SQuaternion::toRotator() const
+constexpr designlab::SRotator designlab::SQuaternion::toRotator() const
 {
 	// クオータニオンをXYZオイラー角に変換
 
 	return { 0,0,0 };
 }
 
-void dl_vec::SQuaternion::setRotAngleAndAxis(float angle, const SVector& axis)
+void designlab::SQuaternion::setRotAngleAndAxis(float angle, const Vector3& axis)
 {
 	// オイラー角をクオータニオンに変換
 
