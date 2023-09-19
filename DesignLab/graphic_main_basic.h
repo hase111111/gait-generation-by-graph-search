@@ -48,7 +48,7 @@ private:
 	const int kNodeGetCount;	//!< このカウントごとにデータをBrokerから読み出す
 
 
-	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;						//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;	//!< 画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る．
 
 
 	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
@@ -67,7 +67,7 @@ private:
 	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの静的安定余裕を表示するクラス．
 
 
-	MapState_Old map_state_;		//!< 表示するマップ．
+	MapState map_state_;		//!< 表示するマップ．
 
 	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
@@ -79,6 +79,11 @@ private:
 	bool is_displayed_movement_locus_;		//!< ロボットの動きの軌跡を表示するかどうか．
 
 	bool is_displayed_robot_graund_point_;	//!< ロボットの足先の位置を表示するかどうか．
+
+
+	int graph_update_count;	//!< 処理部でのグラフの更新回数．
+
+	int map_update_count;	//!< 処理部でのマップの更新回数．
 };
 
 

@@ -9,9 +9,9 @@
 #include "designlab_math.h"
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
-	INodeCreator(p_map, calc, next_move),
-	mp_map(p_map),
+ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map_ref, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+	INodeCreator(map_ref, calc, next_move),
+	map_(map_ref),
 	mp_calclator(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)

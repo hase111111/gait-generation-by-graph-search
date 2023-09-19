@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
+    <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="interface_pass_finder_factory.h" />

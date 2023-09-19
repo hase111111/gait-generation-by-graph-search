@@ -19,14 +19,16 @@ public:
 	PassFinderHatoThread(const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr);
 	~PassFinderHatoThread() = default;
 
-	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node) override;
+	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode& output_node) override;
 
 private:
 
-	std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState_Old* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_);
+	std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
 
-	std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_);
+	std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
 
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;
+
+	DevideMapState devide_map_;
 };

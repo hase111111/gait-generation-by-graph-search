@@ -15,7 +15,7 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 0),
 	hexapod_renderer_(calculator_ptr),
-	map_state_(broker_ptr_ ? broker_ptr_->map_state() : MapState_Old()),
+	map_state_(broker_ptr_ ? broker_ptr_->map_state.data() : MapState()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),
@@ -27,17 +27,21 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 
 bool GraphicMainBasic::Update()
 {
+	if (map_update_count != broker_ptr_->map_state.update_cout())
+	{
+		map_update_count = broker_ptr_->map_state.update_cout();
+		map_state_ = broker_ptr_->map_state.data();
+	}
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (counter_ % kNodeGetCount == 0)
+	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.update_cout())
 	{
 		//仲介人からデータを読み出す
-		broker_ptr_->CopyOnlyNewNode(&graph_);
+		graph_ = broker_ptr_->graph.data();
 
 		std::vector<size_t> simu_end_index;
 
-		broker_ptr_->CopySimuEndIndex(&simu_end_index);
-
+		simu_end_index = broker_ptr_->simu_end_index.data();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
 		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
@@ -52,6 +56,9 @@ bool GraphicMainBasic::Update()
 
 		//ロボットの接地点を更新する．
 		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
+
+
+		graph_update_count = broker_ptr_->graph.update_cout();
 	}
 
 
@@ -138,7 +145,7 @@ void GraphicMainBasic::Draw() const
 
 	camera_gui_.Draw();        //カメラのGUIを描画する．
 
-	node_display_gui_.Draw();	 //ノードの情報を表示するGUIを描画する．
+	node_display_gui_.Draw();		//ノードの情報を表示するGUIを描画する．
 
 	display_node_switch_gui_.Draw();	//表示するノードを切り替えるGUIを描画する．
 }

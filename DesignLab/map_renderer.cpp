@@ -15,26 +15,34 @@ MapRenderer::MapRenderer() : COLOR_GRAY(GetColor(80, 80, 80)), COLOR_LIGHT_GRAY(
 }
 
 
-void MapRenderer::Draw(const MapState_Old& map) const
+void MapRenderer::Draw(const MapState& map) const
 {
-	for (int x = 0; x < MapConst::LP_DIVIDE_NUM; ++x)
+	size_t kSize = map.GetMapPointSize();
+
+	for (size_t i = 0; i < kSize; i++)
 	{
-		for (int y = 0; y < MapConst::LP_DIVIDE_NUM; ++y)
-		{
-			for (int i = 0; i < map.getPointNumFromDevideMap(x, y); ++i)
-			{
-
-				//縞縞模様を作成するために，位置に応じて色を変える．
-				if ((x + y) % 2 == 0)
-				{
-					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_GRAY);
-				}
-				else
-				{
-					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_LIGHT_GRAY);
-				}
-
-			}
-		}
+		dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.map_point(i)), CUBE_SIZE, COLOR_GRAY);
 	}
+
+
+	//for (int x = 0; x < MapConst::LP_DIVIDE_NUM; ++x)
+	//{
+	//	for (int y = 0; y < MapConst::LP_DIVIDE_NUM; ++y)
+	//	{
+	//		for (int i = 0; i < map.getPointNumFromDevideMap(x, y); ++i)
+	//		{
+
+	//			//縞縞模様を作成するために，位置に応じて色を変える．
+	//			if ((x + y) % 2 == 0)
+	//			{
+	//				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_GRAY);
+	//			}
+	//			else
+	//			{
+	//				dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.getPosFromDevideMap(x, y, i)), CUBE_SIZE, COLOR_LIGHT_GRAY);
+	//			}
+
+	//		}
+	//	}
+	//}
 }

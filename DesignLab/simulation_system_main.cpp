@@ -35,7 +35,7 @@ SimulationSystemMain::SimulationSystemMain(
 	map_state_.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
-	broker_ptr_->set_map_state(map_state_);
+	broker_ptr_->map_state.set_data(map_state_);
 
 	//この探索での目標を設定する．
 	target_.TargetMode = ETargetMode::StraightPosition;
@@ -98,7 +98,7 @@ void SimulationSystemMain::Main()
 		}
 
 
-		if (setting_ptr_->gui_display) { broker_ptr_->PushNode(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
+		if (setting_ptr_->gui_display) { broker_ptr_->graph.push_back(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
 
 
 		//最大歩容生成回数分までループする．
@@ -108,7 +108,7 @@ void SimulationSystemMain::Main()
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
-			EGraphSearchResult result_state = pass_finder_ptr_->getNextNodebyGraphSearch(current_node, &map_state_, target_, result_node);		//グラフ探索を行う．
+			EGraphSearchResult result_state = pass_finder_ptr_->getNextNodebyGraphSearch(current_node, map_state_, target_, result_node);		//グラフ探索を行う．
 
 			timer_.end();			//タイマーストップ
 
@@ -131,7 +131,7 @@ void SimulationSystemMain::Main()
 
 			current_node = result_node;		//次の歩容が生成できているならば，ノードを更新する．
 
-			if (setting_ptr_->gui_display) { broker_ptr_->PushNode(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
+			if (setting_ptr_->gui_display) { broker_ptr_->graph.push_back(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dlio::OutputNewLine(1, OutputDetail::kInfo);
 			dlio::OutputHorizontalLine(false, OutputDetail::kInfo);
@@ -173,7 +173,7 @@ void SimulationSystemMain::Main()
 
 		result_exporter_.exportResult(record);	//シミュレーションの結果をファイルに出力する．
 
-		broker_ptr_->SetSimuEnd();	//仲介人にシミュレーション終了を通達する．
+		broker_ptr_->simu_end_index.push_back(broker_ptr_->graph.size() - 1);	//仲介人にシミュレーション終了を通達する．
 
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
 		dlio::OutputHorizontalLine(true, OutputDetail::kSystem);

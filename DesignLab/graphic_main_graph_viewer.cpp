@@ -16,10 +16,12 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	calculator_ptr_(calculator_ptr),
 	camera_gui_(10, setting_ptr ? setting_ptr->window_size_y - CameraGui::GUI_SIZE_Y - 10 : 0),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
-	map_state_(broker_ptr ? broker_ptr->map_state() : MapState_Old()),
+	map_state_(broker_ptr ? broker_ptr->map_state.data() : MapState{}),
 	hexapod_renderer_(calculator_ptr),
 	graph_({}),
-	display_node_index_(0)
+	display_node_index_(0),
+	map_update_count_(0),
+	graph_update_count_(0)
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
@@ -36,18 +38,25 @@ bool GraphicMainGraphViewer::Update()
 {
 	gui_controller_ptr_->Update();
 
-	//仲介人の持つグラフデータと自身の持っているグラフデータが一致していないならば
-	if (broker_ptr_->GetNodeNum() != graph_.size())
+	//仲介人の持つデータと自身の持っているグラフデータが一致していないならば更新する
+	if (map_update_count_ != broker_ptr_->map_state.update_cout())
+	{
+		map_state_ = broker_ptr_->map_state.data();
+		map_update_count_ = broker_ptr_->map_state.update_cout();
+	}
+
+	if (graph_update_count_ != broker_ptr_->graph.update_cout())
 	{
 		graph_.clear();	//グラフを初期化する
 
-		broker_ptr_->CopyAllNode(&graph_);	//データを更新する
+		graph_ = broker_ptr_->graph.data();	//データを更新する
 
 		//グラフの中身が空でないならば，表示するノードを初期化する
 		if (!graph_.empty()) { display_node_index_ = 0; }
 
 		gui_controller_ptr_->updateGraphNodeDepthData();
 
+		graph_update_count_ = broker_ptr_->graph.update_cout();
 	}
 
 	//HexapodReanderの更新

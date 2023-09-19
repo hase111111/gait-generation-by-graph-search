@@ -32,11 +32,11 @@ public:
 
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] current_node 現在の状態を表すノード
-	//! @param [in] p_map 現在のマップの状態
+	//! @param [in] map_ref 現在のマップの状態
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
 	//! @return EGraphSearchResult グラフ探索の結果を返す．
-	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node) = 0;
+	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode& output_node) = 0;
 
 
 	//! @brief 作成したグラフの数を返す
@@ -67,7 +67,7 @@ protected:
 	//! @param [in] map マップ情報．
 	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
 	//! @return std::unique_ptr<IGraphTreeCreator> グラフ木の生成に必要なクラス．
-	virtual std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState_Old* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
+	virtual std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const DevideMapState& map_ref, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
 
 	//! @brief グラフ探索を行うクラスを生成する．
 	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．

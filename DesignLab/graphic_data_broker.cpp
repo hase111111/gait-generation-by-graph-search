@@ -1,7 +1,7 @@
 #include "graphic_data_broker.h"
 
 
-int GraphicDataBroker::update_count() const
+int GraphicDataBroker_Old::update_count() const
 {
 	//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -10,7 +10,7 @@ int GraphicDataBroker::update_count() const
 }
 
 
-void GraphicDataBroker::set_map_state(const MapState_Old& map)
+void GraphicDataBroker_Old::set_map_state(const MapState_Old& map)
 {
 	//書き込み用のロックをかける．まずは，upgrade_lockを用意して，それをunique_lockに変更する．
 	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
@@ -27,7 +27,7 @@ void GraphicDataBroker::set_map_state(const MapState_Old& map)
 }
 
 
-const MapState_Old& GraphicDataBroker::map_state() const
+const MapState_Old& GraphicDataBroker_Old::map_state() const
 {
 	//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -36,7 +36,7 @@ const MapState_Old& GraphicDataBroker::map_state() const
 }
 
 
-void GraphicDataBroker::PushNode(const SNode& node)
+void GraphicDataBroker_Old::PushNode(const SNode& node)
 {
 	//書き込み用のロックをかける．
 	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
@@ -53,7 +53,7 @@ void GraphicDataBroker::PushNode(const SNode& node)
 }
 
 
-void GraphicDataBroker::CopyAllNode(std::vector<SNode>* node_vec) const
+void GraphicDataBroker_Old::CopyAllNode(std::vector<SNode>* node_vec) const
 {
 	//読み取り用のロックをかける．
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -67,7 +67,7 @@ void GraphicDataBroker::CopyAllNode(std::vector<SNode>* node_vec) const
 }
 
 
-void GraphicDataBroker::CopyOnlyNewNode(std::vector<SNode>* node_vec) const
+void GraphicDataBroker_Old::CopyOnlyNewNode(std::vector<SNode>* node_vec) const
 {
 	//読み取り用のロックをかける．
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -84,7 +84,7 @@ void GraphicDataBroker::CopyOnlyNewNode(std::vector<SNode>* node_vec) const
 }
 
 
-size_t GraphicDataBroker::GetNodeNum() const
+size_t GraphicDataBroker_Old::GetNodeNum() const
 {
 	//読み取り用のロックをかける．
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -93,7 +93,7 @@ size_t GraphicDataBroker::GetNodeNum() const
 }
 
 
-void GraphicDataBroker::DeleteAllNode()
+void GraphicDataBroker_Old::DeleteAllNode()
 {
 	//書き込み用のロックをかける．
 	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
@@ -110,7 +110,7 @@ void GraphicDataBroker::DeleteAllNode()
 }
 
 
-void GraphicDataBroker::SetSimuEnd()
+void GraphicDataBroker_Old::SetSimuEnd()
 {
 	//書き込み用のロックをかける．
 	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
@@ -125,7 +125,7 @@ void GraphicDataBroker::SetSimuEnd()
 	}
 }
 
-size_t GraphicDataBroker::GetSimuEndIndex(const int simu_num)
+size_t GraphicDataBroker_Old::GetSimuEndIndex(const int simu_num)
 {
 	//読み取り用のロックをかける．
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -144,7 +144,7 @@ size_t GraphicDataBroker::GetSimuEndIndex(const int simu_num)
 }
 
 
-void GraphicDataBroker::CopySimuEndIndex(std::vector<size_t>* simu_end_index) const
+void GraphicDataBroker_Old::CopySimuEndIndex(std::vector<size_t>* simu_end_index) const
 {
 	//読み取り用のロックをかける．
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);

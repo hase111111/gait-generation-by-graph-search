@@ -11,7 +11,7 @@
 #include "Node.h"
 
 
-//! @class GraphicDataBroker
+//! @class GraphicDataBroker_Old
 //! @brief 画像表示部と，データ処理部を結びつける仲介人クラス
 //! @details Broker:ブローカー，仲介人のこと．
 //! @n データ処理部(グラフ探索)が更新したデータをこのクラスに渡し，画像表示部がこのクラスから更新されたデータを持っていき，描画する．
@@ -28,11 +28,11 @@
 //! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
 //! @n 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
 
-class GraphicDataBroker final
+class GraphicDataBroker_Old final
 {
 public:
 
-	GraphicDataBroker() : update_count_(0) {};
+	GraphicDataBroker_Old() : update_count_(0) {};
 
 	//! @brief データの更新回数を返す．
 	//! @return int データの更新回数
@@ -92,5 +92,17 @@ private:
 	std::vector<size_t> simu_end_index_;	//!< シミュレーションが終了するノードのインデックスを格納する．
 };
 
+#include "asyncable_data.h"
+#include "map_state.h"
+#include "node.h"
+
+struct GraphicDataBroker final
+{
+	AsyncableData<MapState> map_state;
+
+	AsyncableData<std::vector<SNode>> graph;
+
+	AsyncableData<std::vector<size_t>> simu_end_index;
+};
 
 #endif // !DESIGNLAB_GRAPHIC_DATA_BROKER_H_

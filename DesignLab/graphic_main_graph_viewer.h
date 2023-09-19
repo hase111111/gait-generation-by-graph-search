@@ -45,7 +45,7 @@ private:
 	std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
 
-	MapState_Old map_state_;
+	MapState map_state_;
 
 	HexapodRenderer hexapod_renderer_;
 
@@ -53,6 +53,11 @@ private:
 	std::vector<SNode> graph_;
 
 	size_t display_node_index_ = 0;
+
+
+	int map_update_count_;
+
+	int graph_update_count_;
 };
 
 

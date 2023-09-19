@@ -55,7 +55,7 @@ private:
 
 	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;
 
-	MapState_Old map_state_;
+	MapState map_state_;
 };
 
 

@@ -56,8 +56,8 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 
 
 	//仲介人を初期化する
-	std::cout << "GraphicDataBroker : 仲介人を初期化します．" << std::endl << std::endl;
-	broker_ptr_->set_map_state(map_state_);
+	std::cout << "GraphicDataBroker_Old : 仲介人を初期化します．" << std::endl << std::endl;
+	broker_ptr_->map_state.set_data(map_state_);
 }
 
 
@@ -180,7 +180,7 @@ void GraphViewerSystemMain::Main()
 			}
 			else if (_menu == 3)
 			{
-				broker_ptr_->DeleteAllNode();
+				broker_ptr_->graph.clean();
 				_graph.clear();
 				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
 				std::cout << std::endl;
@@ -208,7 +208,7 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	pass_finder_ptr_->getNextNodebyGraphSearch(parent_node, &map_state_, target, fake_result_node);
+	pass_finder_ptr_->getNextNodebyGraphSearch(parent_node, map_state_, target, fake_result_node);
 
 	pass_finder_ptr_->getGraphTree(&graph);
 
@@ -217,11 +217,11 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)
 {
-	broker_ptr_->DeleteAllNode();
+	broker_ptr_->graph.clean();
 
 	for (auto& i : _graph)
 	{
-		broker_ptr_->PushNode(i);
+		broker_ptr_->graph.push_back(i);
 	}
 }
 

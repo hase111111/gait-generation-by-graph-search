@@ -423,6 +423,9 @@
     <ClInclude Include="discrete_com_pos.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
+    <ClInclude Include="asyncable_data.h">
+      <Filter>ソース ファイル\GraphicSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">

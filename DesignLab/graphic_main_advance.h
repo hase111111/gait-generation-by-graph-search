@@ -62,7 +62,7 @@ private:
 	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
 
 
-	MapState_Old map_state_;		//!< 表示するマップ．
+	MapState map_state_;		//!< 表示するマップ．
 
 	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
@@ -78,6 +78,11 @@ private:
 	bool is_displayed_movement_locus_;		//!< ロボットの動きの軌跡を表示するかどうか．
 
 	bool is_displayed_robot_graund_point_;	//!< ロボットの足先の位置を表示するかどうか．
+
+
+	int graph_update_count;	//!< 処理部でのグラフの更新回数．
+
+	int map_update_count;	//!< 処理部でのマップの更新回数．
 };
 
 

@@ -33,6 +33,7 @@ public:
 	}
 
 	//! @brief 脚設置可能点の座標を設定する
+	//! @n 一応作ったけど，使うことはないと思う．AddMapPointを使うこと．
 	//! @param [in] num 何番目の脚設置可能点か．
 	//! @param [in] point 脚設置可能点の座標．
 	inline void set_map_point(const size_t num, const dl_vec::SVector& point)
@@ -82,10 +83,55 @@ class DevideMapState
 {
 public:
 	DevideMapState();
+	DevideMapState(const MapState& map_state);
+
+	void Init(const MapState& map_state);
+
+	void Clear();
+
+	constexpr bool IsInMap(const dl_vec::SVector& pos) const
+	{
+		if (pos.x < MapConst::MAP_MIN_FORWARD || pos.x > MapConst::MAP_MAX_FORWARD) { return false; }
+		if (pos.y < MapConst::MAP_MIN_HORIZONTAL || pos.y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
+		return true;
+	}
+
+	constexpr bool IsInMap(const float x, const float y) const
+	{
+		if (x < MapConst::MAP_MIN_FORWARD || x > MapConst::MAP_MAX_FORWARD) { return false; }
+		if (y < MapConst::MAP_MIN_HORIZONTAL || y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
+		return true;
+	}
+
+	//! @brief 長方形状に切り分けられたマップから，脚設置可能点の数を取得する．
+	//! @n 範囲外の値を指定した場合は，0を返す．
+	//! @param [in] x_index X座標，切り分けられたタイルの位置で指定する．
+	//! @param [in] y_index Y座標，切り分けられたタイルの位置で指定する．
+	//! @return int 脚設置可能点の数
+	int GetPointNum(int x_index, int y_index) const;
+
+	//! @brief 長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する．
+	//! @n 範囲外の値を指定した場合は，(0,0,0)を返す．
+	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
+	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
+	//! @param [in] devide_map_index 何番目の脚設置可能点か．
+	//! @return SVector 脚設置可能点の座標．
+	dl_vec::SVector GetPointPos(int x_index, int y_index, int devide_map_index) const;
+
+	//! @brief 長方形状に切り分けられたマップから，脚設置可能点vectorを取得する
+	//! @n 範囲外の値を指定した場合は，空のvectorを返す．
+	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
+	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
+	//! @param [out] std::vector<SVector> point_vec 脚設置可能点の座標．
+	void GetPointVector(int x_index, int y_index, std::vector<dl_vec::SVector>* point_vec) const;
 
 private:
 	float kMapMinZ = -100000.0f;	//!< マップの最低のZ座標
 
+	constexpr int GetDevideMapIndex(const int x_index, const int y_index) const
+	{
+		return x_index * MapConst::LP_DIVIDE_NUM + y_index;
+	}
 
 	std::vector<std::vector<dl_vec::SVector> > devided_map_point_;	//!< マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
 

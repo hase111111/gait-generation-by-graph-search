@@ -10,7 +10,7 @@
 class ComUpDownNodeCreator final : public INodeCreator
 {
 public:
-	ComUpDownNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
+	ComUpDownNodeCreator(const DevideMapState& map_ref, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~ComUpDownNodeCreator();
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
@@ -26,7 +26,7 @@ private:
 	static constexpr float MARGIN = 10.0f;		//脚を伸ばし切らないようにするためのマージン[mm]．数値は先輩のプログラムからとってきたのでなぜこの数値が良いのかはわからない．
 
 
-	const MapState_Old* const mp_map;
+	const DevideMapState map_;
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．
 };

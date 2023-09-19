@@ -24,10 +24,10 @@ public:
 
 	//! @brief 木グラフを作成するクラス．完成したグラフは参照渡しする．
 	//! @param current_node [in] 現在の状態を表すノード
-	//! @param p_map [in] 現在のマップの状態
+	//! @param map_ref [in] 現在のマップの状態
 	//! @param output_graph [out] 出力される木グラフ
 	//! @return EGraphSearchResult 生成に成功したならばtrue
-	virtual EGraphSearchResult createGraphTree(const SNode& current_node, const MapState_Old* const p_map, std::vector<SNode>* output_graph) = 0;
+	virtual EGraphSearchResult createGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) = 0;
 
 	void setMaxDepth(const int max_depth) { m_max_depth = max_depth; };
 
