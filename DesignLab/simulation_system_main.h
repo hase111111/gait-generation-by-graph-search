@@ -60,7 +60,7 @@ private:
 	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
 
-	MapState map_state_;					//!< 地形の状態を管理するクラス．
+	MapState_Old map_state_;					//!< 地形の状態を管理するクラス．
 
 	STarget target_;						//!< 目標地点．
 

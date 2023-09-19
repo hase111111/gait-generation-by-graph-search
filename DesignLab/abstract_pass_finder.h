@@ -36,7 +36,7 @@ public:
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
 	//! @return EGraphSearchResult グラフ探索の結果を返す．
-	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) = 0;
+	virtual EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node) = 0;
 
 
 	//! @brief 作成したグラフの数を返す
@@ -67,19 +67,12 @@ protected:
 	//! @param [in] map マップ情報．
 	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
 	//! @return std::unique_ptr<IGraphTreeCreator> グラフ木の生成に必要なクラス．
-	virtual std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
+	virtual std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const MapState_Old* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
 
 	//! @brief グラフ探索を行うクラスを生成する．
 	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
 	//! @return std::unique_ptr<AbstractGraphSearcher> グラフ探索を行うクラス．
 	virtual std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
-
-
-	//std::unique_ptr<IPassFinderFactory> mp_factory;	//!< パス探索クラスのファクトリー
-
-	//std::shared_ptr<AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
-
-	//const SApplicationSettingRecorder* mp_setting;	//!< 設定を記録するクラス
 };
 
 

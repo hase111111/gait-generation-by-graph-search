@@ -45,7 +45,7 @@ private:
 	std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
 
-	MapState map_state_;
+	MapState_Old map_state_;
 
 	HexapodRenderer hexapod_renderer_;
 

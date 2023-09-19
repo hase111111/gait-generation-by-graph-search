@@ -4,7 +4,7 @@
 //
 //
 //
-//EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
+//EGraphSearchResult PassFinderHato::getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node)
 //{
 //	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : getNextNodebyGraphSearch() グラフ探索開始，まずは初期化する\n"; }
 //

@@ -29,7 +29,7 @@ void GraphicSystem::Main()
 
 	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
 	if (!DxlibInit()) { return; }
-	std::cout << "a-1";
+
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため !ProcessMessage はこの関数が成功の時のみループする...頭の痛い処理である．
@@ -41,7 +41,7 @@ void GraphicSystem::Main()
 			break;
 		}
 	}
-	std::cout << "a-2";
+
 	//終了処理を行う．
 	DxlibFinalize();
 }

@@ -4,7 +4,7 @@
 //#include "pass_finder_factory_hato.h"
 //
 //
-//EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
+//EGraphSearchResult PassFinderFixed::getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node)
 //{
 //	bool do_reevaluation = false;
 //

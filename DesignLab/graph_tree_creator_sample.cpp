@@ -3,7 +3,7 @@
 #include "graph_search_const.h"
 
 
-EGraphSearchResult GraphTreeCreatorSample::createGraphTree(const SNode& current_node, const MapState* const p_map, std::vector<SNode>* output_graph)
+EGraphSearchResult GraphTreeCreatorSample::createGraphTree(const SNode& current_node, const MapState_Old* const p_map, std::vector<SNode>* output_graph)
 {
 	//ここにグラフを作成する処理を書く．このクラスはサンプルなので動作をしないノードだけを返します．
 

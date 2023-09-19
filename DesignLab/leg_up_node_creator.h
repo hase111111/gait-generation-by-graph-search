@@ -13,7 +13,7 @@
 class LegUpNodeCreator final : public INodeCreator
 {
 public:
-	LegUpNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) : INodeCreator(p_map, calc, next_move) {};
+	LegUpNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) : INodeCreator(p_map, calc, next_move) {};
 	~LegUpNodeCreator() = default;
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;

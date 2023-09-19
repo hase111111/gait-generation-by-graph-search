@@ -15,7 +15,7 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 0),
 	hexapod_renderer_(calculator_ptr),
-	map_state_(broker_ptr_ ? broker_ptr_->map_state() : MapState()),
+	map_state_(broker_ptr_ ? broker_ptr_->map_state() : MapState_Old()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),

@@ -16,7 +16,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	calculator_ptr_(calculator_ptr),
 	camera_gui_(10, setting_ptr ? setting_ptr->window_size_y - CameraGui::GUI_SIZE_Y - 10 : 0),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
-	map_state_(broker_ptr ? broker_ptr->map_state() : MapState()),
+	map_state_(broker_ptr ? broker_ptr->map_state() : MapState_Old()),
 	hexapod_renderer_(calculator_ptr),
 	graph_({}),
 	display_node_index_(0)

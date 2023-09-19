@@ -13,7 +13,7 @@
 //	PassFinderFactoryHato() = default;
 //	~PassFinderFactoryHato() = default;
 //
-//	void createGraphTreeCreator(const MapState* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) override;
+//	void createGraphTreeCreator(const MapState_Old* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) override;
 //
 //	void createGraphSearcher(std::unique_ptr<AbstractGraphSearcher>& searcher, std::shared_ptr<AbstractHexapodStateCalculator> calc) override;
 //};

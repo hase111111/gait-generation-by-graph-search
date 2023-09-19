@@ -20,7 +20,7 @@ PassFinderHatoThread::PassFinderHatoThread(const std::shared_ptr<const AbstractH
 {
 }
 
-EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node)
+EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHatoThread : getNextNodebyGraphSearch() グラフ探索開始，まずは初期化する\n"; }
 
@@ -119,7 +119,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	return EGraphSearchResult::Success;
 }
 
-std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(const MapState* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
+std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(const MapState_Old* const map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
 {
 	//木を作成するクラスのマップを作成．
 	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> node_creator_map;

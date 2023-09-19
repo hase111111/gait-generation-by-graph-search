@@ -16,7 +16,7 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
+	ComMoveNodeCreatorHato(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
 	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
@@ -37,7 +37,7 @@ private:
 	std::vector<dl_vec::SPolygon2> m_polygons;
 
 
-	const MapState* const mp_map;
+	const MapState_Old* const mp_map;
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
 

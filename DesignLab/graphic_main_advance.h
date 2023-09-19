@@ -62,7 +62,7 @@ private:
 	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
 
 
-	MapState map_state_;		//!< 表示するマップ．
+	MapState_Old map_state_;		//!< 表示するマップ．
 
 	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 

@@ -11,6 +11,18 @@
 //! @n ・https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも 
 //! @n ・https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次)．
 
+#ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
+#define DESIGNLAB_GRAPHIC_SYSTEM_H_
+
+#include <memory>
+
+#include "abstract_hexapod_state_calculator.h"
+#include "application_setting_recorder.h"
+#include "fps_controller.h"
+#include "graphic_data_broker.h"
+#include "interface_graphic_main.h"
+
+
 //! @class GraphicSystem
 //! @brief Dxlibの処理を行うクラス．
 //! @details Dxlibを非同期処理で動かすことで別スレッドで行っているグラフ探索の処理をもとにロボットの状態を表示する．
@@ -28,20 +40,6 @@
 //! @n Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと．
 //! @n 
 //! @n また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください．
-
-
-#ifndef DESIGNLAB_GRAPHIC_SYSTEM_H
-#define DESIGNLAB_GRAPHIC_SYSTEM_H
-
-#include <memory>
-
-#include "abstract_hexapod_state_calculator.h"
-#include "application_setting_recorder.h"
-#include "fps_controller.h"
-#include "graphic_data_broker.h"
-#include "interface_graphic_main.h"
-
-
 class GraphicSystem final
 {
 public:
@@ -78,4 +76,4 @@ private:
 };
 
 
-#endif	// DESIGNLAB_GRAPHIC_SYSTEM_H
+#endif	// DESIGNLAB_GRAPHIC_SYSTEM_H_

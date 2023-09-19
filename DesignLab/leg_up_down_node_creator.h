@@ -13,7 +13,7 @@ class LegUpDownNodeCreator final : public INodeCreator
 {
 public:
 
-	LegUpDownNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
+	LegUpDownNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
 	~LegUpDownNodeCreator() = default;
 
 	void create(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph) override;
@@ -31,7 +31,7 @@ private:
 	const float HIGH_MARGIN = 5.0f;		//縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
 
 
-	const MapState* const mp_map;
+	const MapState_Old* const mp_map;
 
 	HexapodStateCalclator_Old m_calclator;	//ロボットの座標計算クラス．
 	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calclator;	//ロボットの座標計算クラス．

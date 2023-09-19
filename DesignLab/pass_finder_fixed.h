@@ -17,7 +17,7 @@
 //	PassFinderFixed() = default;
 //	~PassFinderFixed() = default;
 //
-//	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState* const p_map, const STarget& target, SNode& output_node) override;
+//	EGraphSearchResult getNextNodebyGraphSearch(const SNode& current_node, const MapState_Old* const p_map, const STarget& target, SNode& output_node) override;
 //};
 //
 //

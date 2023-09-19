@@ -1,7 +1,7 @@
 #include "map_state.h"
 
 
-MapState& MapState::operator=(const MapState& other)
+MapState_Old& MapState_Old::operator=(const MapState_Old& other)
 {
 	//自分自身への代入は無視する．
 	if (this == &other) { return *this; }
@@ -34,7 +34,7 @@ MapState& MapState::operator=(const MapState& other)
 	return *this;
 }
 
-void MapState::init(const EMapCreateMode mode, const int option, const bool do_output)
+void MapState_Old::init(const EMapCreateMode mode, const int option, const bool do_output)
 {
 	//引数の指定通りにマップを生成する．
 	MapCreator creator;
@@ -45,14 +45,14 @@ void MapState::init(const EMapCreateMode mode, const int option, const bool do_o
 }
 
 
-int MapState::getPointNumFromDevideMap(const int x, const int y) const
+int MapState_Old::getPointNumFromDevideMap(const int x, const int y) const
 {
 	if (getDevideMapNum(x, y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return 0; }
 	return static_cast<int>(m_devide_map[getDevideMapNum(x, y)].size());
 }
 
 
-dl_vec::SVector MapState::getPosFromDevideMap(const int x, const int y, const int num) const
+dl_vec::SVector MapState_Old::getPosFromDevideMap(const int x, const int y, const int num) const
 {
 	//存在していなければ全て0のベクトルを返す．
 	if (getDevideMapNum(x, y) >= MapConst::LP_DIVIDE_NUM * MapConst::LP_DIVIDE_NUM) { return dl_vec::SVector{0, 0, 0}; }
@@ -64,14 +64,14 @@ dl_vec::SVector MapState::getPosFromDevideMap(const int x, const int y, const in
 }
 
 
-dl_vec::SVector MapState::getPos(const int num) const
+dl_vec::SVector MapState_Old::getPos(const int num) const
 {
 	if (num < 0 || static_cast<int>(m_map_data.size()) <= num) { return dl_vec::SVector{0, 0, 0}; }
 
 	return m_map_data[num];
 }
 
-void MapState::makeDevideMap()
+void MapState_Old::makeDevideMap()
 {
 	//マップを切り分ける四角形の辺の長さを算出する．
 	const float x_length = (MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / static_cast<float>(MapConst::LP_DIVIDE_NUM);
@@ -109,4 +109,20 @@ void MapState::makeDevideMap()
 			m_devide_map_top_z.back() = std::max(i.z, m_devide_map_top_z.back());
 		}
 	}
+}
+
+
+
+
+MapState& MapState::operator=(const MapState& other)
+{
+	//自分自身への代入は無視する．
+	if (this == &other) { return *this; }
+
+	//メンバ変数をコピーする．
+	map_point_.clear();
+
+	map_point_ = other.map_point_;
+
+	return *this;
 }

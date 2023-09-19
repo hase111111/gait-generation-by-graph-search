@@ -11,7 +11,7 @@
 class LegDownNodeCreator final : public INodeCreator
 {
 public:
-	LegDownNodeCreator(const MapState* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move)
+	LegDownNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move)
 		: INodeCreator(p_map, calc, next_move), mp_map(p_map) {};
 	~LegDownNodeCreator() = default;
 
@@ -33,7 +33,7 @@ private:
 
 	HexapodStateCalclator_Old m_calculator;
 
-	const MapState* const mp_map;
+	const MapState_Old* const mp_map;
 
 };
 

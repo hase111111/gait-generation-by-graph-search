@@ -15,7 +15,7 @@ MapRenderer::MapRenderer() : COLOR_GRAY(GetColor(80, 80, 80)), COLOR_LIGHT_GRAY(
 }
 
 
-void MapRenderer::Draw(const MapState& map) const
+void MapRenderer::Draw(const MapState_Old& map) const
 {
 	for (int x = 0; x < MapConst::LP_DIVIDE_NUM; ++x)
 	{

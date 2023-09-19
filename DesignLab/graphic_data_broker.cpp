@@ -1,7 +1,16 @@
 #include "graphic_data_broker.h"
 
 
-void GraphicDataBroker::set_map_state(const MapState& map)
+int GraphicDataBroker::update_count() const
+{
+	//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
+	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+
+	return update_count_;
+}
+
+
+void GraphicDataBroker::set_map_state(const MapState_Old& map)
 {
 	//書き込み用のロックをかける．まずは，upgrade_lockを用意して，それをunique_lockに変更する．
 	boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
@@ -11,11 +20,14 @@ void GraphicDataBroker::set_map_state(const MapState& map)
 
 		//値をセットする．
 		map_state_ = map;
+
+		//更新回数を増やす．
+		++update_count_;
 	}
 }
 
 
-MapState GraphicDataBroker::map_state() const
+const MapState_Old& GraphicDataBroker::map_state() const
 {
 	//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 	boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -34,6 +46,9 @@ void GraphicDataBroker::PushNode(const SNode& node)
 
 		//値をpushする．
 		graph_.push_back(node);
+
+		//更新回数を増やす．
+		++update_count_;
 	}
 }
 
@@ -88,6 +103,9 @@ void GraphicDataBroker::DeleteAllNode()
 
 		//値をpushする．
 		graph_.clear();
+
+		//更新回数を増やす．
+		++update_count_;
 	}
 }
 
@@ -101,6 +119,9 @@ void GraphicDataBroker::SetSimuEnd()
 		boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
 		simu_end_index_.push_back(graph_.size() - 1);
+
+		//更新回数を増やす．
+		++update_count_;
 	}
 }
 

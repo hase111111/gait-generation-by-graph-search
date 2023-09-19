@@ -9,22 +9,99 @@
 
 
 //! @class MapState
-//! @date 2023/08/06
-//! @author 長谷川
 //! @brief マップを表すクラス．
-//! @details このプログラムでは，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合．
-//! @n 脚設置可能地点のデータはベクトルの配列で実装している．
-//! @n また，処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものであるdevide_mapがメンバ変数にある．
-//! @n devide_mapの要素は https://atcoder.jp/contests/APG4b/tasks/APG4b_t の 「1次元の配列を多次元配列として使う」の要領で並んでいる．@n 
+//! @details この研究の手法では，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合．
+//! @n 脚設置可能地点のデータは位置ベクトルの配列で実装している．
 //! @n メンバ変数のデータへのアクセスは，メンバ関数のget????系の関数で行う．
-//! @n 直接データのやり取りを行わないのは，生データであると値を変更可能になってしまうからである．constな関数を使えば，間違っても値の変更ができないので，データのやり取りに優れる．
-class MapState final
+//! @n 直接データのやり取りを行わないのは，生データであると値を変更可能になってしまうからである．
+//! @n constな関数を使えば，間違っても値の変更ができないので，データのやり取りに優れる．
+class MapState
+{
+public:
+	MapState() : map_point_({}) {};
+	MapState(const MapState& other) : map_point_({}) { map_point_ = other.map_point_; };
+	MapState& operator = (const MapState& other);
+
+	//getter setter
+
+	//! @brief 脚設置可能点の座標を返す．
+	//! @param [in] num 何番目の脚設置可能点か．
+	//! @return SVector 脚設置可能点の座標．
+	inline dl_vec::SVector map_point(const size_t num) const
+	{
+		return map_point_[num];
+	}
+
+	//! @brief 脚設置可能点の座標を設定する
+	//! @param [in] num 何番目の脚設置可能点か．
+	//! @param [in] point 脚設置可能点の座標．
+	inline void set_map_point(const size_t num, const dl_vec::SVector& point)
+	{
+		map_point_[num] = point;
+	}
+
+	//! @brief 脚設置可能点の座標を設定する
+	//! @param [in] point 脚設置可能点の座標．
+	inline void set_map_point(const std::vector<dl_vec::SVector>& point)
+	{
+		map_point_ = point;
+	}
+
+
+	//! @brief 脚設置可能点の総数を返す．
+	//! @return size_t 脚設置可能点の総数
+	inline size_t GetMapPointSize() const
+	{
+		return map_point_.size();
+	}
+
+	//! @brief 脚設置可能点の座標を追加する．
+	//! @param [in] point 脚設置可能点の座標．
+	inline void AddMapPoint(const dl_vec::SVector& point)
+	{
+		map_point_.push_back(point);
+	}
+
+	//! @brief 脚設置可能点の座標を消去する．
+	inline void ClearMapPoint()
+	{
+		map_point_.clear();
+	}
+
+
+private:
+
+	std::vector<dl_vec::SVector> map_point_;	//!< ロボットが歩くマップ．脚設置可能点の集合で表現される．
+};
+
+
+//! @class DevideMapState
+//! @details 処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものがdevided_map_point_
+//! @n devide_mapの要素は https://atcoder.jp/contests/APG4b/tasks/APG4b_t の 「1次元の配列を多次元配列として使う」の要領で並んでいる．
+class DevideMapState
+{
+public:
+	DevideMapState();
+
+private:
+	float kMapMinZ = -100000.0f;	//!< マップの最低のZ座標
+
+
+	std::vector<std::vector<dl_vec::SVector> > devided_map_point_;	//!< マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+
+	std::vector<float> devided_map_top_z_;							//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
+};
+
+
+
+
+class MapState_Old final
 {
 public:
 
-	MapState() = default;
+	MapState_Old() = default;
 
-	MapState& operator = (const MapState& other);
+	MapState_Old& operator = (const MapState_Old& other);
 
 	//! @breif 地形データの初期化を行う．
 	//! @param [in] mode 列挙体 EMapCreateModeでどのような地形を生成するか指定する．

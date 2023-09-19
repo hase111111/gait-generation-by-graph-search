@@ -32,13 +32,20 @@ class GraphicDataBroker final
 {
 public:
 
+	GraphicDataBroker() : update_count_(0) {};
+
+	//! @brief データの更新回数を返す．
+	//! @return int データの更新回数
+	int update_count() const;
+
 	//! @brief マップの状態を仲介人に渡す．
 	//! @param [in] map マップを参照渡しする
-	void set_map_state(const MapState& map);
+	void set_map_state(const MapState_Old& map);
 
 	//! @brief マップの状態を返す
-	//! @return MapState マップの状態を値渡しする．@n 基本的には大きなクラスは値渡しするべきでないが，マップは何度も更新されないデータだし値渡しする．
-	MapState map_state() const;
+	//! @return MapState_Old マップの状態を値渡しする．
+	//! @n 基本的には大きなクラスは値渡しするべきでないが，マップは何度も更新されないデータだし値渡しする．
+	const MapState_Old& map_state() const;
 
 	//! @brief ロボットの新しい状態を示すノードを仲介人に渡す．ノードは動的配列で管理されており，新しいのを後ろに追加(push)する．
 	//! @param [in] node ロボットの新しい状態
@@ -76,7 +83,9 @@ private:
 
 	mutable boost::shared_mutex mtx_;		//!< ロック用のmutex
 
-	MapState map_state_;					//!< マップの状態
+	int update_count_;						//!< データの更新回数
+
+	MapState_Old map_state_;				//!< マップの状態
 
 	std::vector<SNode> graph_;				//!< ロボットの状態を示すノードの集合
 

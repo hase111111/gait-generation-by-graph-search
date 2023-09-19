@@ -20,7 +20,7 @@
 //	//! @brief グラフ木の生成に必要なクラスを生成する．
 //	//! @param [in] map マップ情報．
 //	//! @param [out] tree 歩容パターン生成の探索に必要な木構造を生成するクラス．
-//	virtual void createGraphTreeCreator(const MapState* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) = 0;
+//	virtual void createGraphTreeCreator(const MapState_Old* const map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree) = 0;
 //
 //	//! @brief グラフ探索を行うクラスを生成する．
 //	//! @param [out] searcher 歩容パターン生成の探索を行うクラス．

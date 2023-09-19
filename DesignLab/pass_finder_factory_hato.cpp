@@ -11,7 +11,7 @@
 //#include "com_move_node_creator_hato.h"
 //
 //
-//void PassFinderFactoryHato::createGraphTreeCreator(const MapState* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree)
+//void PassFinderFactoryHato::createGraphTreeCreator(const MapState_Old* const p_map, std::shared_ptr<AbstractHexapodStateCalculator> calc, std::unique_ptr<IGraphTreeCreator>& tree)
 //{
 //	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[Factory] PassFinderFactoryHato: createGraphTreeCreator() グラフ作成クラスの作成開始\n\n"; }
 //

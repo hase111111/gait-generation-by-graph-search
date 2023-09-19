@@ -67,7 +67,7 @@ private:
 	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの静的安定余裕を表示するクラス．
 
 
-	MapState map_state_;		//!< 表示するマップ．
+	MapState_Old map_state_;		//!< 表示するマップ．
 
 	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
