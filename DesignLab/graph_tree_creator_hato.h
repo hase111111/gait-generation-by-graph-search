@@ -14,7 +14,7 @@ public:
 	GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map);
 	~GraphTreeCreatorHato() = default;
 
-	EGraphSearchResult createGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) override;
+	EGraphSearchResult CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) override;
 
 private:
 

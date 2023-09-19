@@ -39,13 +39,13 @@ bool GraphicMainGraphViewer::Update()
 	gui_controller_ptr_->Update();
 
 	//仲介人の持つデータと自身の持っているグラフデータが一致していないならば更新する
-	if (map_update_count_ != broker_ptr_->map_state.update_cout())
+	if (map_update_count_ != broker_ptr_->map_state.update_count())
 	{
 		map_state_ = broker_ptr_->map_state.data();
-		map_update_count_ = broker_ptr_->map_state.update_cout();
+		map_update_count_ = broker_ptr_->map_state.update_count();
 	}
 
-	if (graph_update_count_ != broker_ptr_->graph.update_cout())
+	if (graph_update_count_ != broker_ptr_->graph.update_count())
 	{
 		graph_.clear();	//グラフを初期化する
 
@@ -56,7 +56,7 @@ bool GraphicMainGraphViewer::Update()
 
 		gui_controller_ptr_->updateGraphNodeDepthData();
 
-		graph_update_count_ = broker_ptr_->graph.update_cout();
+		graph_update_count_ = broker_ptr_->graph.update_count();
 	}
 
 	//HexapodReanderの更新

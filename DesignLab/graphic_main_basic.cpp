@@ -27,14 +27,14 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 
 bool GraphicMainBasic::Update()
 {
-	if (map_update_count != broker_ptr_->map_state.update_cout())
+	if (map_update_count != broker_ptr_->map_state.update_count())
 	{
-		map_update_count = broker_ptr_->map_state.update_cout();
+		map_update_count = broker_ptr_->map_state.update_count();
 		map_state_ = broker_ptr_->map_state.data();
 	}
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.update_cout())
+	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.update_count())
 	{
 		//仲介人からデータを読み出す
 		graph_ = broker_ptr_->graph.data();
@@ -58,7 +58,7 @@ bool GraphicMainBasic::Update()
 		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
 
 
-		graph_update_count = broker_ptr_->graph.update_cout();
+		graph_update_count = broker_ptr_->graph.update_count();
 	}
 
 

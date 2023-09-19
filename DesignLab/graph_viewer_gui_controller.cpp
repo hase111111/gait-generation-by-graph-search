@@ -14,7 +14,7 @@ GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* con
 	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
 	mp_graph(p_graph),
 	mp_display_node_index(p_display_node_index),
-	setting_ptr_(setting_ptr_)
+	setting_ptr_(setting_ptr)
 {
 }
 

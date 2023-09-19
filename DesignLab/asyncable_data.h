@@ -19,7 +19,7 @@ class AsyncableData
 {
 public:
 
-	AsyncableData() : update_count(0) {};
+	AsyncableData() : update_count_(0) {};
 	AsyncableData(const T& data) : data_(data), update_count_(0) {};
 
 	//!< コピー・ムーブは禁止
@@ -35,7 +35,7 @@ public:
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 		boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-		return data;
+		return data_;
 	};
 
 
@@ -51,24 +51,24 @@ public:
 		{
 			boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
-			this->data = data;
-			++update_count;
+			data_ = data;
+			++update_count_;
 		}
 	};
 
 	//! @brief データの更新回数を返す．
 	//! @return int データの更新回数
 	//! @n この時，read lockをかける．
-	int update_cout() const
+	int update_count() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 		boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-		return update_count;
+		return update_count_;
 	};
 
 private:
 
-	boost::shared_mutex mtx_;	//!< ロック用のmutex
+	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex
 
 	T data_;
 
@@ -112,7 +112,7 @@ public:
 		{
 			boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
-			this->data_ = data;
+			data_ = data;
 			++update_count_;
 		}
 	};
@@ -129,7 +129,7 @@ public:
 		{
 			boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
-			this->data_.push_back(data);
+			data_.push_back(data);
 			++update_count_;
 		}
 	};
@@ -146,7 +146,7 @@ public:
 		{
 			boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
 
-			this->data_.clear();
+			data_.clear();
 			++update_count_;
 		}
 	};
@@ -161,7 +161,7 @@ public:
 		return data_.size();
 	};
 
-	int update_cout() const
+	int update_count() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
 		boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
@@ -170,7 +170,7 @@ public:
 
 private:
 
-	boost::shared_mutex mtx_;	//!< ロック用のmutex
+	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex
 
 	std::vector<T> data_;
 

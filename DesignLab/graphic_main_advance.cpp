@@ -29,9 +29,9 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 
 bool GraphicMainAdvance::Update()
 {
-	if (map_update_count != broker_ptr_->map_state.update_cout())
+	if (map_update_count != broker_ptr_->map_state.update_count())
 	{
-		map_update_count = broker_ptr_->map_state.update_cout();
+		map_update_count = broker_ptr_->map_state.update_count();
 		map_state_ = broker_ptr_->map_state.data();
 	}
 
@@ -65,7 +65,7 @@ bool GraphicMainAdvance::Update()
 		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
 
 
-		graph_update_count = broker_ptr_->graph.update_cout();
+		graph_update_count = broker_ptr_->graph.update_count();
 	}
 
 

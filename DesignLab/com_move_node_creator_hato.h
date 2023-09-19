@@ -1,25 +1,32 @@
-#pragma once
+//! @file com_move_node_creator_hato.h
+//! @brief 重心の平行移動を行うクラス．波東さんの手法．
+
+#ifndef DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
+#define DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
+
 
 #include "interface_node_creator.h"
-#include "designlab_polygon.h"
+
+#include <memory>
+
 #include "com_type.h"
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
+#include "designlab_polygon.h"
 #include "hexapod_state_calculator.h"
+#include "map_state.h"
 
 
 //! @class ComMoveNodeCreatorHato
-//! @date 2023/08/12
-//! @author 長谷川
 //! @brief 重心の平行移動を行うクラス．波東さんの手法．
 class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move);
+	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, EHexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
-	void create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) override;
+	void Create(const SNode& current_node, int current_num, std::vector<SNode>* output_graph) override;
 
 
 private:
@@ -29,26 +36,21 @@ private:
 	bool isIntersectGround(const SNode& node) const;
 
 
-	static constexpr bool DO_DEBUG_PRINT = false;
+	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
-	static constexpr float STABLE_MARGIN = 15.0f;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
-
-
-	std::vector<dl_vec::SPolygon2> m_polygons;
+	//std::vector<dl_vec::SPolygon2> polygon_vec_;
 
 
-	const MapState_Old* const mp_map;
+	const DevideMapState map_;	//!< 地面の状態を格納したクラス
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 
-	const ComCandidatePolygonMaker m_maker;
+	const ComCandidatePolygonMaker maker_;	//!< 候補地点を含む多角形を作成するクラス
 
-	ComSelecterHato m_selecter;
+	ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
 
+	const EHexapodMove next_move_;	//!< 次の移動方向
 };
 
-//! @file com_move_node_creator_hato.h
-//! @date 2023/08/12
-//! @author 長谷川
-//! @brief 重心の平行移動を行うクラス．波東さんの手法．
-//! @n 行数 : @lineinfo
+
+#endif //DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_

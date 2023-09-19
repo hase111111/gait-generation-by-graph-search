@@ -27,6 +27,7 @@ HexapodRenderer::HexapodRenderer(const std::shared_ptr<const AbstractHexapodStat
 	COLOR_ERROR_TEXT(GetColor(32, 32, 32)),
 	COLOR_ERROR_JOINT(GetColor(180, 180, 64))
 {
+	set_draw_node(SNode{});
 }
 
 

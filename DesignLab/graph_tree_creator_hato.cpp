@@ -11,7 +11,7 @@ GraphTreeCreatorHato::GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_pt
 }
 
 
-EGraphSearchResult GraphTreeCreatorHato::createGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph)
+EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph)
 {
 	(*output_graph).clear();					//出力する結果を空にする．
 	(*output_graph).emplace_back(current_node);	//親を追加する．
@@ -57,7 +57,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 
 	if (m_node_creator_map.count(current_node.next_move) > 0)
 	{
-		m_node_creator_map[current_node.next_move]->create(current_node, current_num, output_graph);
+		m_node_creator_map[current_node.next_move]->Create(current_node, current_num, output_graph);
 
 		return;
 	}

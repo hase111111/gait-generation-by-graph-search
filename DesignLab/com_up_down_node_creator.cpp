@@ -1,52 +1,48 @@
 #include "com_up_down_node_creator.h"
 
-#include <cfloat>
 #include <algorithm>
+#include <cfloat>
 
+#include "designlab_math.h"
 #include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
-#include "designlab_math.h"
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map_ref, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
-	INodeCreator(map_ref, calc, next_move),
-	map_(map_ref),
-	mp_calclator(calc)
+ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+	map_(map),
+	calclator_(calc),
+	next_move_(next_move)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] ComUpDownNodeCreator : コンストラクタが呼ばれた．\n";
-	}
 }
 
 
-ComUpDownNodeCreator::~ComUpDownNodeCreator()
-{
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[NodeCreator] ComUpDownNodeCreator : デストラクタが呼ばれた．\n";
-	}
-}
-
-
-void ComUpDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．
 	//マップを確認して地面の最高点を求め，そこからMAX_RANGE，MIN_RANGEの分だけ離す．
 
 
 	//マップの最大z座標を求める．
-	const int kMapX = mp_map->getDevideMapNumX(current_node.global_center_of_mass.x);
-	const int kMapY = mp_map->getDevideMapNumY(current_node.global_center_of_mass.y);
-	float map_highest_z = mp_map->getTopZFromDevideMap(kMapX, kMapY);
+	float map_highest_z = -100000;
+
+	if (map_.IsInMap(current_node.global_center_of_mass)) 
+	{
+		const int kMapX = map_.GetDevideMapIndexX(current_node.global_center_of_mass.x);
+		const int kMapY = map_.GetDevideMapIndexY(current_node.global_center_of_mass.y);
+		map_highest_z = map_.GetTopZ(kMapX, kMapY);
+	}
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const dl_vec::SVector kCoxaVec = mp_calclator->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
-		const int kCoxaX = mp_map->getDevideMapNumX(kCoxaVec.x);
-		const int kCoxaY = mp_map->getDevideMapNumY(kCoxaVec.y);
-		float map_highest_z = (std::max)(mp_map->getTopZFromDevideMap(kCoxaX, kCoxaY), map_highest_z);
+		const dl_vec::SVector kCoxaVec = calclator_->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
+
+		if (map_.IsInMap(kCoxaVec)) 
+		{
+			const int kCoxaX = map_.GetDevideMapIndexX(kCoxaVec.x);
+			const int kCoxaY = map_.GetDevideMapIndexY(kCoxaVec.y);
+			float map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
+		}
 	}
 
 
@@ -103,11 +99,11 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 
 			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 			{
-				if (!mp_calclator->isLegInRange(i, new_node.leg_pos[i])) { is_vaild = false; }
+				if (!calclator_->isLegInRange(i, new_node.leg_pos[i])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する
-			new_node.changeNextNode(current_num, m_next_move);
+			new_node.changeNextNode(current_num, next_move_);
 
 			//ノードを追加する．
 			if (is_vaild)
@@ -123,7 +119,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 	{
 		SNode same_node = current_node;
 
-		same_node.changeNextNode(current_num, m_next_move);
+		same_node.changeNextNode(current_num, next_move_);
 
 		(*output_graph).emplace_back(same_node);
 	}

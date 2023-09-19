@@ -27,7 +27,7 @@ public:
 	//! @param map_ref [in] 現在のマップの状態
 	//! @param output_graph [out] 出力される木グラフ
 	//! @return EGraphSearchResult 生成に成功したならばtrue
-	virtual EGraphSearchResult createGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) = 0;
+	virtual EGraphSearchResult CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) = 0;
 
 	void setMaxDepth(const int max_depth) { m_max_depth = max_depth; };
 

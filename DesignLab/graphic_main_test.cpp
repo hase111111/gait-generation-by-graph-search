@@ -24,7 +24,9 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 {
 	m_node.init(false);
 
-	map_state_.init(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
+	MapCreator map_creator;
+	map_state_ = map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
+	devide_map_state_.Init(map_state_);
 
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -74,15 +76,15 @@ bool GraphicMainTest::Update()
 
 				dl_vec::SVector global = calclator.getGlobalLegBasePos(m_node, i, true);
 
-				int map_x = map_state_.getDevideMapNumX(global.x);
-				int map_y = map_state_.getDevideMapNumY(global.y);
+				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
+				int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
 
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { map_x++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { map_x--; }
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
 
-				dl_vec::SVector _map_pos = map_state_.getPosFromDevideMap(map_x, map_y, m_map_index % map_state_.getPointNumFromDevideMap(map_x, map_y));
+				dl_vec::SVector _map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
 				m_map_index++;
 
 				m_node.leg_pos[i] = calclator.convertLocalLegPos(m_node, _map_pos, i, true);

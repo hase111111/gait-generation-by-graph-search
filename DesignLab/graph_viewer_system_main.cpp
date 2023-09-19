@@ -5,7 +5,7 @@
 #include <boost/thread.hpp>
 
 #include "Define.h"
-#include "designlab_cmdio.h"
+#include "cmdio_util.h"
 #include "designlab_timer.h"
 #include "graph_search_const.h"
 #include "hexapod_state_calculator.h"
@@ -51,7 +51,8 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	std::cout << std::endl << "input : ";
 	std::cin >> _option;
 	std::cout << std::endl;
-	map_state_.init(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	MapCreator map_creator;
+	map_state_ = map_creator.Create(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
 

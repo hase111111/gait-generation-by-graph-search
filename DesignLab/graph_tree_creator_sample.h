@@ -8,7 +8,7 @@ public:
 	GraphTreeCreatorSample(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map) : IGraphTreeCreator(map) {};
 	~GraphTreeCreatorSample() = default;
 
-	EGraphSearchResult createGraphTree(const SNode& current_node, const MapState_Old* const p_map, std::vector<SNode>* output_graph) override;
+	EGraphSearchResult CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) override;
 
 };
 

@@ -43,7 +43,8 @@ private:
 
 	HexapodRenderer hexapod_renderer_;	//!< ロボットを表示するクラス．
 
-	MapState_Old map_state_;				//!< マップの状態を保持するクラス．
+	MapState map_state_;				//!< マップの状態を保持するクラス．
+	DevideMapState devide_map_state_;	//!< マップを分割するクラス．
 
 	SNode m_node;						//!< ロボットの状態
 

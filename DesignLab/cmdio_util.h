@@ -1,8 +1,8 @@
-//! @file designlab_cmd_io.h
+//! @file cmdio_util.h
 //! @brief コマンドラインに文字を出力する関数をまとめた名前空間．
 
-#ifndef DESIGNLAB_CMD_IO_H_
-#define DESIGNLAB_CMD_IO_H_
+#ifndef DESIGNLAB_CMDIO_UTIL_H_
+#define DESIGNLAB_CMDIO_UTIL_H_
 
 #include <memory>
 #include <string>
@@ -18,9 +18,11 @@ namespace designlab
 	//! @details コマンドラインに文字を出力する関数をまとめた名前空間．
 	//! @n 設定ファイルで出力の許可をしていない場合は，出力しない機能を実装したくて作成した．
 	//! @n 結果的に，コマンドラインに出力する関数がすべてこの名前空間に入っている←
-
 	namespace cmdio
 	{
+		constexpr int HORIZONTAL_LINE_LENGTH = 70; //!< 水平線の長さ．
+
+
 		//! @brief 出力するメッセージをどこまで許可するかを設定する関数．
 		//! @n 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない．
 		//! @param [in] limit 出力するメッセージをどこまで許可するかを設定する列挙型
@@ -43,10 +45,6 @@ namespace designlab
 		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
 		void OutputNewLine(int num = 1, OutputDetail detail = OutputDetail::kSystem);
 
-
-		constexpr int HORIZONTAL_LINE_LENGTH = 70; //!< 水平線の長さ．
-
-
 		//! @brief コマンドラインに水平線を出力する関数．
 		//! @param [in] double_line 二重線にするかどうか (デフォルトではfalse)
 		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
@@ -62,7 +60,7 @@ namespace designlab
 		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
 		void OutputRight(const std::string& str, OutputDetail detail = OutputDetail::kSystem);
 
-		//! @brief コマンドラインにタイトルを出力する関数．
+		//! @brief コマンドラインにこのソフトのタイトルを出力する関数．
 		void OutputTitle();
 
 		//! @brief コマンドラインにGraphViewerのタイトルを出力する関数．
@@ -72,7 +70,6 @@ namespace designlab
 		//! @brief 入力待ちをする関数．
 		//! @param [in] str 入力待ちをする際に出力する文字列
 		void WaitAnyKey(const std::string& str = "入力待ち，Enterキーを押してください．");
-
 
 		//! @brief 整数を入力する関数．
 		//! @param [in] min 入力する整数の最小値
@@ -91,9 +88,9 @@ namespace designlab
 		//! @return EBootMode 選択した起動モード
 		EBootMode SelectBootMode();
 
-	}	//namespace dl_cio
+	}	// namespace dl_cio
 
 }	// namespace designlab
 
 
-#endif	//DESIGNLAB_CMD_IO_H_
+#endif	// DESIGNLAB_CMDIO_UTIL_H_

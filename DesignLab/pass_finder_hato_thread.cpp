@@ -6,7 +6,7 @@
 #include <boost/thread.hpp>
 
 #include "graph_search_const.h"
-#include "designlab_cmdio.h"
+#include "cmdio_util.h"
 #include "graph_tree_creator_hato.h"
 #include "graph_searcher_hato.h"
 #include "leg_up_down_node_creator.h"
@@ -50,7 +50,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 		std::vector<SNode> depth1_node;
 
-		EGraphSearchResult result = graph_tree_creator->createGraphTree(parent_node, devide_map_, &depth1_node);
+		EGraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, devide_map_, &depth1_node);
 
 		if (!graphSeachResultIsSuccessful(result)) { return result; }
 
@@ -74,7 +74,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 			if (!tree_creators[i]) { return EGraphSearchResult::FailureByInitializationFailed; }
 
-			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::createGraphTree, tree_creators[i].get(), depth1_node[i], devide_map_, &threads_result[i]));
+			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], devide_map_, &threads_result[i]));
 		}
 
 		tree_creator_threads.join_all();
@@ -121,14 +121,14 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	return EGraphSearchResult::Success;
 }
 
-std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
+std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr)
 {
 	//木を作成するクラスのマップを作成．
 	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> node_creator_map;
-	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(map, calculator_ptr_, EHexapodMove::LEG_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(map, calculator_ptr_, EHexapodMove::COM_UP_DOWN));
-	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(map, calculator_ptr_, EHexapodMove::COM_MOVE));
-	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(map, calculator_ptr_, EHexapodMove::LEG_HIERARCHY_CHANGE));
+	node_creator_map.emplace(EHexapodMove::LEG_HIERARCHY_CHANGE, std::make_unique<LegHierarchyNodeCreator>(EHexapodMove::LEG_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::LEG_UP_DOWN, std::make_unique<LegUpDownNodeCreator>(map, calculator_ptr, EHexapodMove::COM_UP_DOWN));
+	node_creator_map.emplace(EHexapodMove::COM_UP_DOWN, std::make_unique<ComUpDownNodeCreator>(map, calculator_ptr, EHexapodMove::COM_MOVE));
+	node_creator_map.emplace(EHexapodMove::COM_MOVE, std::make_unique<ComMoveNodeCreatorHato>(map, calculator_ptr, EHexapodMove::LEG_HIERARCHY_CHANGE));
 
 	//木を作成するクラスと，木を探索するクラスを作成．
 	std::unique_ptr<IGraphTreeCreator> p_creator = std::make_unique<GraphTreeCreatorHato>(node_creator_map);
@@ -137,8 +137,8 @@ std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(
 	return std::move(p_creator);
 }
 
-std::unique_ptr<AbstractGraphSearcher> PassFinderHatoThread::createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_)
+std::unique_ptr<AbstractGraphSearcher> PassFinderHatoThread::createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr)
 {
-	std::unique_ptr<AbstractGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calculator_ptr_);
+	std::unique_ptr<AbstractGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calculator_ptr);
 	return std::move(p_searcher);
 }

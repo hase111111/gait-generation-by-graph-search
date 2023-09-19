@@ -4,7 +4,7 @@
 
 #include "Define.h"
 #include "designlab_math.h"
-#include "designlab_cmdio.h"
+#include "cmdio_util.h"
 #include "hexapod.h"
 #include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"
@@ -32,7 +32,8 @@ SimulationSystemMain::SimulationSystemMain(
 	result_exporter_.init();
 
 	//マップを生成する．
-	map_state_.init(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
+	MapCreator map_creator;
+	map_state_= map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.set_data(map_state_);

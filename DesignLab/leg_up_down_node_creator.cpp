@@ -9,16 +9,18 @@
 #include "leg_state.h"
 
 
-LegUpDownNodeCreator::LegUpDownNodeCreator(const MapState_Old* const p_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
-	INodeCreator(p_map, calc, next_move),
-	mp_map(p_map),
-	mp_calclator(calc)
+LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+	kLegMargin(20),
+	kHighMargin(5),
+	map_(map),
+	mp_calclator(calc),
+	next_move_(next_move)
 {
 };
 
 
 
-void LegUpDownNodeCreator::create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	boost::dynamic_bitset<> is_able_leg_ground_pattern(dl_com::getLegGroundPatternNum());
@@ -53,7 +55,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
 			dl_vec::SVector res_ground_pos;
 
-			if (isGroundableLeg(i, current_node, &res_ground_pos))
+			if (IsGroundableLeg(i, current_node, &res_ground_pos))
 			{
 				is_groundable_leg[i] = true;	//接地可能にする．
 				ground_pos[i] = res_ground_pos;
@@ -75,7 +77,7 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 		{
 			SNode res_node = current_node;
 
-			res_node.changeNextNode(current_num, m_next_move);
+			res_node.changeNextNode(current_num, next_move_);
 
 
 			//遊脚・接地を書き換える．
@@ -117,20 +119,18 @@ void LegUpDownNodeCreator::create(const SNode& current_node, const int current_n
 }
 
 
-bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos)
+bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& current_node, dl_vec::SVector* output_ground_pos)
 {
-	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．
-
-	if (mp_map == nullptr) { return false; }	//マップがないときはfalseを返す．
+	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
 	const dl_vec::SVector kGlobalLegbasePos = mp_calclator->getGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
 	//m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
 
-	int max_x_dev = mp_map->getDevideMapNumX(kGlobalLegbasePos.x) + 2;
-	int min_x_dev = mp_map->getDevideMapNumX(kGlobalLegbasePos.x) - 2;
-	int max_y_dev = mp_map->getDevideMapNumY(kGlobalLegbasePos.y) + 2;
-	int min_y_dev = mp_map->getDevideMapNumY(kGlobalLegbasePos.y) - 2;
+	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
+	int min_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) - 2;
+	int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
+	int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
 
 	////値がdevide mapの範囲外にあるときは丸める．
 	max_x_dev = (max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : max_x_dev;
@@ -149,11 +149,11 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 	{
 		for (int y = min_y_dev; y < max_y_dev; y++)
 		{
-			const int kPosNum = mp_map->getPointNumFromDevideMap(x, y);
+			const int kPosNum = map_.GetPointNum(x, y);
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				dl_vec::SVector map_point_pos = mp_map->getPosFromDevideMap(x, y, n);	//脚設置可能点の座標を取り出す．
+				dl_vec::SVector map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
 				map_point_pos = mp_calclator->convertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．
@@ -184,13 +184,15 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 
 				//if (m_calclator.isLegInterfering(new_node)) { continue; }					//脚が干渉しているならば追加せずに続行．
 
-				if (!isAbleLegPos(new_node, now_leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
+				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
 
 				is_candidate_pos = true;
 				candidate_pos = map_point_pos;
 			}
-		}
-	}
+
+		}	//for y
+
+	}	//for x
 
 
 	//候補点を全列挙したのち，候補点が一つもなければfalse
@@ -203,12 +205,12 @@ bool LegUpDownNodeCreator::isGroundableLeg(const int now_leg_num, const SNode& c
 }
 
 
-bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
+bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 {
-	const EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
+	const EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
+	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).lengthSquare() < dl_math::squared(kLegMargin))
 	{
 		if (_leg_state == EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }
@@ -219,7 +221,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	}
 
 	//脚位置4と比較して前か後ろか
-	if (_node.leg_base_pos[_leg_num].projectedXY().cross(_node.leg_pos[_leg_num].projectedXY()) * _node.leg_pos[_leg_num].projectedXY().cross({ 1,0 }) > 0)
+	if (_node.leg_base_pos[leg_index].projectedXY().cross(_node.leg_pos[leg_index].projectedXY()) * _node.leg_pos[leg_index].projectedXY().cross({ 1,0 }) > 0)
 	{
 		//前
 
@@ -243,7 +245,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	if (_leg_state == EDiscreteLegPos::LOWER_FRONT || _leg_state == EDiscreteLegPos::LOWER_BACK)
 	{
 		//脚位置4と比較して下
-		if (_node.leg_base_pos[_leg_num].z - HIGH_MARGIN >= _node.leg_pos[_leg_num].z)
+		if (_node.leg_base_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
 		{
 			return true;
 		}
@@ -251,7 +253,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	else if (_leg_state == EDiscreteLegPos::UPPER_FRONT || _leg_state == EDiscreteLegPos::UPPER_BACK)
 	{
 		//脚位置4と比較して上
-		if (_node.leg_base_pos[_leg_num].z + HIGH_MARGIN <= _node.leg_pos[_leg_num].z)
+		if (_node.leg_base_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
 		{
 			return true;
 		}
@@ -259,7 +261,7 @@ bool LegUpDownNodeCreator::isAbleLegPos(const SNode& _node, const int _leg_num)
 	else
 	{
 		//脚位置4と同じくらい
-		if (std::abs(_node.leg_base_pos[_leg_num].z - _node.leg_pos[_leg_num].z) <= HIGH_MARGIN)
+		if (std::abs(_node.leg_base_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
 		{
 			return true;
 		}
