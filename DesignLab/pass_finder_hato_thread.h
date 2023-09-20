@@ -25,7 +25,7 @@ private:
 
 	std::unique_ptr<IGraphTreeCreator> createGraphTreeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
 
-	std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
+	std::unique_ptr<IGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) override;
 
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;

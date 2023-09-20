@@ -1,20 +1,23 @@
-#pragma once
+//! @file graph_searcher_hato.h
+//! @brief 波東さんの手法でグラフ探索を行うクラスの実装．
 
-#include "abstract_graph_searcher.h"
+#ifndef DESIGNLAB_GRAPH_SEARCHER_HATO_H_
+#define DESIGNLAB_GRAPH_SEARCHER_HATO_H_
+
+
+#include "interface_graph_searcher.h"
 
 
 //! @class GraphSearcherHato
-//! @date 2023/08/14
-//! @author 長谷川
 //! @brief 波東先輩の手法で，グラフ探索を行うクラス．
-class GraphSearcherHato final : public AbstractGraphSearcher
+class GraphSearcherHato final : public IGraphSearcher
 {
 public:
 
 	GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
 	~GraphSearcherHato();
 
-	EGraphSearchResult searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
+	EGraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
 
 private:
 
@@ -41,11 +44,9 @@ private:
 
 
 	SNode m_parent_node;
+
+	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ヘキサポッドの状態を計算するクラス
 };
 
 
-//! @file graph_searcher_hato.h
-//! @date 2023/08/14
-//! @author 長谷川
-//! @brief 波東さんの手法でグラフ探索を行うクラスの実装．
-//! @n 行数 : @lineinfo
+#endif	//DESIGNLAB_GRAPH_SEARCHER_HATO_H_

@@ -28,7 +28,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	devide_map_.Init(map_ref);
 
 	std::unique_ptr<IGraphTreeCreator> graph_tree_creator = createGraphTreeCreator(devide_map_, calculator_ptr_);	//!< グラフ木の作成クラス
-	std::unique_ptr<AbstractGraphSearcher> graph_searcher = createGraphSearcher(calculator_ptr_);			//!< グラフ探索クラス
+	std::unique_ptr<IGraphSearcher> graph_searcher = createGraphSearcher(calculator_ptr_);			//!< グラフ探索クラス
 
 	//早期リターン．2つのクラスの初期化に失敗したならば，即座に終了する．
 	if (!graph_tree_creator) { return EGraphSearchResult::FailureByInitializationFailed; }
@@ -110,7 +110,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 	//次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
 	{
-		EGraphSearchResult result = graph_searcher->searchGraphTree(m_graph_tree, target, &output_node);
+		EGraphSearchResult result = graph_searcher->SearchGraphTree(m_graph_tree, target, &output_node);
 		if (!graphSeachResultIsSuccessful(result)) { return result; }
 	}
 
@@ -135,8 +135,8 @@ std::unique_ptr<IGraphTreeCreator> PassFinderHatoThread::createGraphTreeCreator(
 	return std::move(p_creator);
 }
 
-std::unique_ptr<AbstractGraphSearcher> PassFinderHatoThread::createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr)
+std::unique_ptr<IGraphSearcher> PassFinderHatoThread::createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr)
 {
-	std::unique_ptr<AbstractGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calculator_ptr);
+	std::unique_ptr<IGraphSearcher> p_searcher = std::make_unique<GraphSearcherHato>(calculator_ptr);
 	return std::move(p_searcher);
 }

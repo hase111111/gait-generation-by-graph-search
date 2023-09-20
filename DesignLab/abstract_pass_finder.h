@@ -6,12 +6,11 @@
 
 #include <vector>
 
-#include "abstract_graph_searcher.h"
+#include "interface_graph_searcher.h"
 #include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "graph_search_result.h"
 #include "interface_graph_tree_creator.h"
-#include "interface_pass_finder_factory.h"
 #include "map_state.h"
 #include "node.h"
 #include "target.h"
@@ -71,8 +70,8 @@ protected:
 
 	//! @brief グラフ探索を行うクラスを生成する．
 	//! @param [in] calculator_ptr_ ヘキサポッドの状態を計算するクラス．
-	//! @return std::unique_ptr<AbstractGraphSearcher> グラフ探索を行うクラス．
-	virtual std::unique_ptr<AbstractGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
+	//! @return std::unique_ptr<IGraphSearcher> グラフ探索を行うクラス．
+	virtual std::unique_ptr<IGraphSearcher> createGraphSearcher(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr_) = 0;
 };
 
 

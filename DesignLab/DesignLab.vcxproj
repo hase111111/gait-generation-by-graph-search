@@ -23,7 +23,6 @@
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
-    <ClInclude Include="interface_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
     <ClInclude Include="boot_mode.h" />
@@ -31,7 +30,6 @@
     <ClInclude Include="camera_controller.h" />
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
-    <ClInclude Include="com_move_node_creator.h" />
     <ClInclude Include="com_move_node_creator_hato.h" />
     <ClInclude Include="com_selecter.h" />
     <ClInclude Include="com_selecter_hato.h" />
@@ -48,22 +46,16 @@
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="output_detail.h" />
-    <ClInclude Include="pass_finder_factory_fixed.h" />
-    <ClInclude Include="pass_finder_fixed.h" />
-    <ClInclude Include="pass_finder_hato.h" />
     <ClInclude Include="graph_searcher_random.h" />
-    <ClInclude Include="graph_searcher_sample.h" />
     <ClInclude Include="pass_finder_hato_thread.h" />
-    <ClInclude Include="pass_finder_none.h" />
     <ClInclude Include="graph_search_result.h" />
     <ClInclude Include="graph_tree_creator_hato.h" />
-    <ClInclude Include="graph_tree_creator_sample.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="hexapod_renderer.h" />
     <ClInclude Include="hexapod_state_calculator.h" />
     <ClInclude Include="abstract_pass_finder.h" />
-    <ClInclude Include="abstract_graph_searcher.h" />
+    <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="BFSinHierarchy.h" />
@@ -81,11 +73,9 @@
     <ClInclude Include="hexapod_const.h" />
     <ClInclude Include="interface_node_creator.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="leg_down_node_creator.h" />
     <ClInclude Include="leg_hierarchy_node_creator.h" />
     <ClInclude Include="leg_state.h" />
     <ClInclude Include="leg_up_down_node_creator.h" />
-    <ClInclude Include="leg_up_node_creator.h" />
     <ClInclude Include="map_const.h" />
     <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
@@ -96,7 +86,6 @@
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
-    <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="phantomx_state_calculator.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="result_viewer_system_main.h" />
@@ -120,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
-    <ClCompile Include="abstract_pass_finder.cpp" />
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="boot_mode.cpp" />
@@ -128,7 +116,6 @@
     <ClCompile Include="camera_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
-    <ClCompile Include="com_move_node_creator.cpp" />
     <ClCompile Include="com_move_node_creator_hato.cpp" />
     <ClCompile Include="com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
@@ -148,16 +135,10 @@
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="output_detail.cpp" />
-    <ClCompile Include="pass_finder_factory_fixed.cpp" />
-    <ClCompile Include="pass_finder_fixed.cpp" />
-    <ClCompile Include="pass_finder_hato.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
-    <ClCompile Include="graph_searcher_sample.cpp" />
     <ClCompile Include="pass_finder_hato_thread.cpp" />
-    <ClCompile Include="pass_finder_none.cpp" />
     <ClCompile Include="graph_search_result.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />
-    <ClCompile Include="graph_tree_creator_sample.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="hexapod_next_move.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
@@ -175,11 +156,9 @@
     <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="hexapod_const.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="leg_down_node_creator.cpp" />
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />
     <ClCompile Include="leg_state.cpp" />
     <ClCompile Include="leg_up_down_node_creator.cpp" />
-    <ClCompile Include="leg_up_node_creator.cpp" />
     <ClCompile Include="hexapod.cpp" />
     <ClCompile Include="designlab_line.cpp" />
     <ClCompile Include="designlab_polygon.cpp" />
@@ -192,7 +171,6 @@
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
-    <ClCompile Include="pass_finder_factory_hato.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="phantomx_state_calculator.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />

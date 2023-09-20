@@ -10,7 +10,6 @@
 #include "graph_search_const.h"
 #include "hexapod_state_calculator.h"
 #include "pass_finder_hato_thread.h"
-#include "pass_finder_factory_hato.h"
 #include "phantomx_state_calculator.h"
 #include "StringToValue.h"
 

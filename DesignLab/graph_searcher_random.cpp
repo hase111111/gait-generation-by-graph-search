@@ -3,7 +3,7 @@
 #include "designlab_math.h"
 
 
-EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+EGraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 

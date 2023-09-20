@@ -7,7 +7,8 @@
 #include "leg_state.h"
 
 
-GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : AbstractGraphSearcher(calc)
+GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
+	mp_calculator(calc)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -23,7 +24,7 @@ GraphSearcherHato::~GraphSearcherHato()
 	}
 }
 
-EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
