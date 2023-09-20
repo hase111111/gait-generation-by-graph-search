@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 
 

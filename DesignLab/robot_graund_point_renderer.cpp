@@ -1,6 +1,6 @@
 #include "robot_graund_point_renderer.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 #include "hexapod_state_calculator.h"
@@ -47,7 +47,7 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 		{
 			graund_point[i] = { 
 				hexapod_state_calclator.getGlobalLegPos(node[loaded_node_num_], i, true),
-				dl_leg::isGrounded(node[loaded_node_num_].leg_state, i) 
+				dl_leg::IsGrounded(node[loaded_node_num_].leg_state, i) 
 			};
 		}
 

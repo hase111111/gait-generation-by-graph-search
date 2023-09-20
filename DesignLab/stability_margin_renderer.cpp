@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 #include "designlab_polygon.h"
@@ -27,7 +27,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(node.leg_state, i))
+		if (dl_leg::IsGrounded(node.leg_state, i))
 		{
 			polygon.push_back(m_hexapod_state_calclator.getGlobalLegPos(node, i, true));
 

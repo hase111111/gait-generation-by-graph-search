@@ -22,7 +22,7 @@ LegHierarchyNodeCreator::LegHierarchyNodeCreator(const EHexapodMove next_move) :
 void LegHierarchyNodeCreator::Create(const SNode& current_node, const int current_node_index, std::vector<SNode>* output_graph)
 {
 	//Œ»İCÚ’n‚µ‚Ä‚¢‚é‹r‚Ì–{”‚ğ”‚¦‚é
-	const int kLiftedLegNum = dl_leg::getLiftedLegNum(current_node.leg_state);
+	const int kLiftedLegNum = dl_leg::GetLiftedLegNum(current_node.leg_state);
 
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚Ì–{”‚É‚æ‚Á‚Äˆ—‚ğ‚·‚é
 	if (kLiftedLegNum == 1)
@@ -60,7 +60,7 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í1‚È‚Ì‚Å1‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// —ñ‹“‘Ì EDiscreteLegPos ‚Ì‘S‚Ä‚Ì—v‘f‚Åƒ‹[ƒv‚ğ‰ñ‚·D
@@ -82,7 +82,7 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í2‚È‚Ì‚Å2‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// —ñ‹“‘Ì EDiscreteLegPos ‚Ì‘S‚Ä‚Ì—v‘f‚Åƒ‹[ƒv‚ğ‰ñ‚·D
@@ -108,7 +108,7 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í3‚È‚Ì‚Å3‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
 
-	dl_leg::getLiftedLegIndexWithVector(current_node.leg_state, &lifted_leg_list);
+	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// —ñ‹“‘Ì EDiscreteLegPos ‚Ì‘S‚Ä‚Ì—v‘f‚Åƒ‹[ƒv‚ğ‰ñ‚·D

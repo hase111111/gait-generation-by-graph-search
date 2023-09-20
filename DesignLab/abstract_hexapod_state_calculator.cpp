@@ -27,7 +27,7 @@ float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_l
 	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(leg_state, i))
+		if (dl_leg::IsGrounded(leg_state, i))
 		{
 			ground_leg_pos.push_back(leg_pos[i].ProjectedXY() + getLocalLegBasePosition(i).ProjectedXY());
 		}

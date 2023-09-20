@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "graphic_const.h"
 #include "graph_search_const.h"
@@ -154,7 +154,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(node.leg_state, i)) { str += "Ú’n,"; }
+		if (dl_leg::IsGrounded(node.leg_state, i)) { str += "Ú’n,"; }
 		else { str += "—V‹r,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "‹r‚Ìó‘ÔF%s", str.c_str());

@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "designlab_math.h"
 

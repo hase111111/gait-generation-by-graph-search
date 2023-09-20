@@ -2,7 +2,7 @@
 
 #include <array>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 #include "leg_state.h"
@@ -92,8 +92,8 @@ void HexapodRenderer::Draw() const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//‹r‚ÌF‚ð—V‹rEÚ’n‚Å•ÏX‚·‚éD
-		const unsigned int kLegBaseColor = dl_leg::isGrounded(draw_node_.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int kJointColor = dl_leg::isGrounded(draw_node_.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+		const unsigned int kLegBaseColor = dl_leg::IsGrounded(draw_node_.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
+		const unsigned int kJointColor = dl_leg::IsGrounded(draw_node_.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
 
 		//Še‹r‚Ì•`‰æ
 		DrawCapsule3D(kCoxaJointPos[i], kFemurJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa

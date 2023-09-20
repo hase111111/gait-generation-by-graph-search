@@ -5,7 +5,6 @@
 #include "define.h"
 #include "designlab_math.h"
 #include "cmdio_util.h"
-#include "hexapod.h"
 #include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"
 #include "graphic_main_basic.h"
@@ -26,7 +25,6 @@ SimulationSystemMain::SimulationSystemMain(
 	setting_ptr_(setting_ptr)
 {
 	//ロボットのデータを初期化する．
-	Hexapod::makeLegROM_r();
 	HexapodStateCalclator_Old::initLegR();
 
 	//結果をファイルに出力するクラスを初期化する．

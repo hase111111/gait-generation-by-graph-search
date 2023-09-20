@@ -200,7 +200,7 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, co
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(current_node.leg_state, i))
+		if (dl_leg::IsGrounded(current_node.leg_state, i))
 		{
 			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).Length();
 		}

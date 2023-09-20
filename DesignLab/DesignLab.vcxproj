@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
     <ClInclude Include="asyncable_data.h" />
+    <ClInclude Include="cassert_define.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="application_setting_key.h" />
@@ -67,7 +68,6 @@
     <ClInclude Include="camera_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
     <ClInclude Include="graphic_main_basic.h" />
-    <ClInclude Include="graphic_main_sample.h" />
     <ClInclude Include="graphic_system.h" />
     <ClInclude Include="graphic_const.h" />
     <ClInclude Include="hexapod_const.h" />
@@ -150,9 +150,7 @@
     <ClCompile Include="fps_controller.cpp" />
     <ClCompile Include="camera_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
-    <ClCompile Include="graphic_data_broker.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
-    <ClCompile Include="graphic_main_sample.cpp" />
     <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="hexapod_const.cpp" />
     <ClCompile Include="keyboard.cpp" />

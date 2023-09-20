@@ -1,6 +1,6 @@
 #include "dxlib_util.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "graphic_const.h"
 

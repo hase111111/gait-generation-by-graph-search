@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "abstract_hexapod_state_calculator.h"
 #include "hexapod_const.h"

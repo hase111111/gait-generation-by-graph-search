@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "graphic_const.h"
 #include "dxlib_util.h"

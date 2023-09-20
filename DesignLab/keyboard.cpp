@@ -1,6 +1,6 @@
 #include "keyboard.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 
 Keyboard::Keyboard()

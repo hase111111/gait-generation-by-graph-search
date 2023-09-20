@@ -56,7 +56,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地している脚についてのみ考える．
-		if (dl_leg::isGrounded(current_node.leg_state, i))
+		if (dl_leg::IsGrounded(current_node.leg_state, i))
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float edge_c = HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH - MARGIN;

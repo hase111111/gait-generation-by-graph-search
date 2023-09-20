@@ -1,6 +1,7 @@
 #ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_
 
+
 #include <vector>
 
 #include <boost/thread.hpp>
@@ -14,6 +15,16 @@
 //! @details この構造体は，データの更新回数とデータをまとめて扱うための構造体．
 //! @n 値の変更を行う際に，データの更新回数をインクリメントすることで，データの更新を行う．
 //! @n また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．
+//! @n
+//! @n [非同期処理について] 
+//! @n 非同期処理 (並列・同時に処理を行うこと) を行う際に，一つのにデータに同じタイミングで操作すると危険(未定義処理になり，成功か失敗かが不定になる)．
+//! @n このクラスはそれを防ぐためにboost::shared_mutexを使用している．
+//! @n 詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章を参照してほしい．
+//! @n このクラス内ではread lock, write lockを使っている． 
+//! @n 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 
+//! @n 
+//! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
+//! @n 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
 template <typename T>
 class AsyncableData
 {
@@ -176,4 +187,6 @@ private:
 
 	int update_count_;
 };
+
+
 #endif

@@ -1,6 +1,6 @@
 #include "node_display_gui.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "leg_state.h"
 
@@ -145,7 +145,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(display_node_.leg_state, i)) { str += "Ú’n,"; }
+		if (dl_leg::IsGrounded(display_node_.leg_state, i)) { str += "Ú’n,"; }
 		else { str += "—V‹r,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "‹r‚Ìó‘ÔF%s", str.c_str());

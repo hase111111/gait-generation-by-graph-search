@@ -1,6 +1,6 @@
 #include "graphic_main_basic.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 #include "keyboard.h"

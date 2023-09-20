@@ -45,7 +45,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon,/* c
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			if (dl_leg::isGrounded(getCurrentNode().leg_state, j))
+			if (dl_leg::IsGrounded(getCurrentNode().leg_state, j))
 			{
 				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
 

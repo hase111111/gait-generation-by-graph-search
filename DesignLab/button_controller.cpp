@@ -1,6 +1,6 @@
 #include "button_controller.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "mouse.h"
 

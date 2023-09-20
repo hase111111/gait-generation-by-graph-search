@@ -1,6 +1,6 @@
 #include "movement_locus_renderer.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 

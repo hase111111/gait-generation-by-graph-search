@@ -16,15 +16,6 @@
     <Filter Include="ソース ファイル\Common">
       <UniqueIdentifier>{abdfdf39-b790-4b8d-882b-014efbb3c240}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\walking_pattern">
-      <UniqueIdentifier>{91e531ac-e200-40d2-936c-cd0b20117d07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\walking_pattern\Sin">
-      <UniqueIdentifier>{38117e6f-0767-4424-8084-ea550c77144a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\phantomX">
-      <UniqueIdentifier>{39493255-5b06-4c98-80e6-cfc66f595f30}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Hexapod">
       <UniqueIdentifier>{e6718033-9dd2-4cc9-94c3-f4dff54cca6d}</UniqueIdentifier>
     </Filter>
@@ -106,9 +97,6 @@
     <Filter Include="ソース ファイル\PassFinder\GraphSearcher">
       <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\PassFinder\GraphSearcher\Interface">
-      <UniqueIdentifier>{1a84f879-c847-4011-8ed0-40eff98b9d3a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator">
       <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
     </Filter>
@@ -118,28 +106,22 @@
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\PreviousResearch">
+      <UniqueIdentifier>{39493255-5b06-4c98-80e6-cfc66f595f30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hexapod.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BFSinHierarchy.h">
-      <Filter>ソース ファイル\walking_pattern\Sin</Filter>
-    </ClInclude>
     <ClInclude Include="phantomxCommander.h">
-      <Filter>ソース ファイル\phantomX</Filter>
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
     <ClInclude Include="TimeManager.h">
-      <Filter>ソース ファイル\phantomX</Filter>
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
     <ClInclude Include="define.h">
       <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Target.h">
-      <Filter>ソース ファイル\walking_pattern</Filter>
     </ClInclude>
     <ClInclude Include="leg_state.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
@@ -158,9 +140,6 @@
     </ClInclude>
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_main_sample.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
@@ -203,9 +182,6 @@
     </ClInclude>
     <ClInclude Include="graphic_main_test.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -381,22 +357,31 @@
     <ClInclude Include="interface_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
+    <ClInclude Include="interface_graph_searcher.h">
+      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="BFSinHierarchy.h">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod.h">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>ソース ファイル\PassFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="cassert_define.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hexapod.cpp">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="BFSinHierarchy.cpp">
-      <Filter>ソース ファイル\walking_pattern\Sin</Filter>
-    </ClCompile>
     <ClCompile Include="phantomxCommander.cpp">
-      <Filter>ソース ファイル\phantomX</Filter>
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
-      <Filter>ソース ファイル\phantomX</Filter>
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="define.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -417,12 +402,6 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="graphic_main_sample.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="graphic_data_broker.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_basic.cpp">
@@ -610,6 +589,12 @@
     </ClCompile>
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="BFSinHierarchy.cpp">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClCompile>
+    <ClCompile Include="hexapod.cpp">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

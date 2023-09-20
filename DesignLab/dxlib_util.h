@@ -5,7 +5,7 @@
 #ifndef DESIGNLAB_DXLIB_H_
 #define DESIGNLAB_DXLIB_H_
 
-#include "Dxlib.h"
+#include <Dxlib.h>
 
 #include <array>
 

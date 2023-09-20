@@ -220,7 +220,7 @@ bool HexapodStateCalclator_Old::isAllLegInRange(const SNode& node) const
 {
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(node.leg_state, i))
+		if (dl_leg::IsGrounded(node.leg_state, i))
 		{
 			if (!isLegInRange(node.leg_pos[i], i)) { return false; }
 		}
@@ -241,7 +241,7 @@ bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(_node.leg_state, i) == true)
+		if (dl_leg::IsGrounded(_node.leg_state, i) == true)
 		{
 			leg_pos[leg_pos_index] = _node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY();
 			++leg_pos_index;
@@ -270,7 +270,7 @@ float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(node.leg_state, i) == true)
+		if (dl_leg::IsGrounded(node.leg_state, i) == true)
 		{
 			leg_pos.push_back(node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY());
 		}

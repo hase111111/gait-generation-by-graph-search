@@ -44,7 +44,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(current_node.leg_state, i))
+		if (dl_leg::IsGrounded(current_node.leg_state, i))
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			is_groundable_leg[i] = true;

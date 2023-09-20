@@ -1,6 +1,6 @@
 #include "graphic_const.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 
 const std::string GraphicConst::WIN_NAME = "HexapodGraphic";

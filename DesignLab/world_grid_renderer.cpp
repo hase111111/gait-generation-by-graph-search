@@ -1,6 +1,6 @@
 #include "world_grid_renderer.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 
 WorldGridRenderer::WorldGridRenderer() :
