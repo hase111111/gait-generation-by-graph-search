@@ -6,7 +6,7 @@
 #include "leg_state.h"
 
 
-bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3* output_com) const
+bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon,/* const EDiscreteComPos com_pattren,*/ designlab::Vector3* output_com) const
 {
 	std::pair<bool, designlab::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
@@ -23,7 +23,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon, con
 	for (int i = 0; i < polygon.getVertexNum(); ++i)
 	{
 		designlab::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
-		edge.normalized();
+		edge.Normalized();
 		edge_vec[i] = edge;
 	}
 
@@ -78,7 +78,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon, con
 	{
 		if (com_candidate[i].first)
 		{
-			const float dist = fabsf((com_candidate[i].second - k_rotate_center).length() - k_rotate_r);
+			const float dist = fabsf((com_candidate[i].second - k_rotate_center).Length() - k_rotate_r);
 
 			if (min_dist < dist)
 			{
@@ -138,7 +138,7 @@ bool ComSelecterHato::isInMargin(const designlab::SPolygon2& polygon, const std:
 	{
 		designlab::SVector2 v_map = candidate_point - polygon.getVertex(i);
 
-		if (v_map.cross(edge_vec[i]) > -STABILITY_MARGIN)
+		if (v_map.Cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{
 			//ˆÀ’è—]—T‚ğ–‚½‚³‚È‚¢‚È‚ç‚ÎŒó•â‚©‚çíœ‚·‚éD
 			return false;

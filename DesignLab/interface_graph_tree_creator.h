@@ -1,48 +1,35 @@
-#pragma once
+//! @file interface_graph_tree_creator.h
+//! @brief グラフ木の探索を行うクラスのインターフェイス．
+
+#ifndef DESIGNLAB_INTERFACE_GRAPH_TREE_CREATOR_H_
+#define DESIGNLAB_INTERFACE_GRAPH_TREE_CREATOR_H_
+
 
 #include <vector>
 
-#include "map_state.h"
-#include "node.h"
 #include "graph_search_result.h"
-#include "interface_node_creator.h"
-#include "graph_search_const.h"
+#include "node.h"
 
 
 //! @class IGraphTreeCreator
 //! @brief グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @details 継承をするクラスのデストラクタはvirtualにしておく．<br> 
-//! 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
-//! @date 2023/07/23
-//! @author 長谷川
+//! @details 継承をするクラスのデストラクタはvirtualにしておく．
+//! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 class IGraphTreeCreator
 {
 public:
 
-	IGraphTreeCreator(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map);
+	IGraphTreeCreator() = default;
 	virtual ~IGraphTreeCreator() = default;
 
-	//! @brief 木グラフを作成するクラス．完成したグラフは参照渡しする．
+	//! @brief グラフ木を作成するクラス．完成したグラフは参照渡しする．
 	//! @param current_node [in] 現在の状態を表すノード
-	//! @param map_ref [in] 現在のマップの状態
-	//! @param output_graph [out] 出力される木グラフ
+	//! @param max_depth [in] 作成するグラフ木の最大深さ
+	//! @param output_graph [out] 出力されるグラフ木
 	//! @return EGraphSearchResult 生成に成功したならばtrue
-	virtual EGraphSearchResult CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph) = 0;
+	virtual EGraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) = 0;
 
-	void setMaxDepth(const int max_depth) { m_max_depth = max_depth; };
-
-protected:
-
-	int getMaxDepth() const { return m_max_depth; };
-
-	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> m_node_creator_map;
-
-	int m_max_depth = GraphSearchConst::MAX_DEPTH;
 };
 
 
-//! @file interface_graph_tree_creator.h
-//! @date 2023/09/03
-//! @author 長谷川
-//! @brief グラフ木の探索を行うクラスのインターフェイス．
-//! @n 行数 : @lineinfo
+#endif

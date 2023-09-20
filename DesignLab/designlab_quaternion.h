@@ -22,7 +22,7 @@ namespace designlab
 		constexpr SQuaternion operator - () const { return { -w, -v }; }
 		constexpr SQuaternion operator + (const SQuaternion& q) const { return { w + q.w, v + q.v }; }
 		constexpr SQuaternion operator - (const SQuaternion& q) const { return { w - q.w, v - q.v }; }
-		constexpr SQuaternion operator * (const SQuaternion& q) const { return { w * q.w - v.dot(q.v), w * q.v + q.w * v + v.cross(q.v) }; }
+		constexpr SQuaternion operator * (const SQuaternion& q) const { return { w * q.w - v.Dot(q.v), w * q.v + q.w * v + v.Cross(q.v) }; }
 		constexpr SQuaternion operator * (float s) const { return { w * s, v * s }; }
 		constexpr SQuaternion operator / (float s) const { return { w / s, v / s }; }
 
@@ -35,7 +35,7 @@ namespace designlab
 		//! @brief クォータニオンのノルムを返す
 		//! @n ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる
 		//! @return float ノルム
-		constexpr float norm() const { return w * w + v.dot(v); }
+		constexpr float norm() const { return w * w + v.Dot(v); }
 
 		//! @brief クォータニオンの逆数を返す
 		//! @n クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの

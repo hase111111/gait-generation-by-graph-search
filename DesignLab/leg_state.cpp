@@ -159,6 +159,8 @@ namespace dl_leg
 		LegStateBit res = ((*leg_state) ^ state) & mask;
 		(*leg_state) ^= res;
 
+		changeGround(leg_index, is_ground, leg_state);
+
 		return true;
 	}
 
@@ -222,22 +224,3 @@ namespace dl_leg
 	}
 
 }	// namespace dl_leg
-
-
-int dl_leg::getLegUpDownCount(const int _leg_state_first, const int _leg_state_second)
-{
-	int res = 0;
-
-	//for (int i = 0; i < HexapodConst::LEG_NUM; i++)
-	//{
-	//	int first_state = _leg_state_first & (LEG_GROUNDED_MASKBIT << (i * 4));
-	//	int second_state = _leg_state_second & (LEG_GROUNDED_MASKBIT << (i * 4));
-
-	//	if (first_state ^ second_state)
-	//	{
-	//		res++;
-	//	}
-	//}
-
-	return res;
-}

@@ -99,13 +99,13 @@ bool PhantomXStateCalclator::isLegInRange(const int leg_index, const designlab::
 
 	if (m_is_able_leg_pos[leg_index][getLegPosIndex(leg_pos.x)][getLegPosIndex(leg_pos.y)][getLegPosIndex(leg_pos.z)])
 	{
-		const designlab::SVector2 leg_pos_xy = leg_pos.projectedXY();
+		const designlab::SVector2 leg_pos_xy = leg_pos.ProjectedXY();
 		const designlab::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
 		const designlab::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
 
 		//ãrÇÃäpìxÇ™îÕàÕì‡Ç…Ç†ÇÈÇ©í≤Ç◊ÇÈÅDäOêœåvéZÇ≈ä‘Ç…Ç†ÇÈÇ©í≤Ç◊ÇÈ
-		if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
-		if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+		if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
+		if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 
 		return true;
 	}
@@ -124,8 +124,8 @@ bool PhantomXStateCalclator::isLegInterfering(const designlab::Vector3 leg_pos[H
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		joint_pos_xy[i] = getLocalLegBasePosition(i).projectedXY();
-		leg_pos_xy[i] = leg_pos[i].projectedXY() + joint_pos_xy[i];
+		joint_pos_xy[i] = getLocalLegBasePosition(i).ProjectedXY();
+		leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
 	}
 
 	//ó◊ÇÃãrÇ∆ÇÃä±è¬Çí≤Ç◊ÇÈÅD
@@ -153,7 +153,7 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	//âº x=0 y=0 ÇÃéûÇÕfalseÇ…Ç∑ÇÈ
 	if (abs(x_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f) && abs(y_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f)) { return false; }
 
-	if (leg_pos.projectedXY().length() < MIN_LEG_R) { return false; }
+	if (leg_pos.ProjectedXY().Length() < MIN_LEG_R) { return false; }
 
 	// ä÷êﬂÇÃäpìxÇåvéZÇ∑ÇÈ
 	SHexapodJointState joint_state;
@@ -179,11 +179,11 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
 
 	// ÉäÉìÉNÇÃí∑Ç≥ÇämîFÇ∑ÇÈ
-	if (!dl_math::isEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
+	if (!dl_math::isEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).Length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
 
-	if (!dl_math::isEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).length(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
+	if (!dl_math::isEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).Length(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
 
-	if (!dl_math::isEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).length(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
+	if (!dl_math::isEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).Length(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
 
 	return true;
 }
@@ -219,11 +219,11 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 	(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 
-	if ((leg_pos - femur_joint_pos).length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
+	if ((leg_pos - femur_joint_pos).Length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
 
 
 	// tibia joint / femur angle ÇÃåvéZ
-	const float leg_to_f_x = leg_pos.projectedXY().length() - femur_joint_pos.projectedXY().length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
+	const float leg_to_f_x = leg_pos.ProjectedXY().Length() - femur_joint_pos.ProjectedXY().Length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
 	const float leg_to_f_y = leg_pos.z - femur_joint_pos.z;
 
 	const float arccos_arg = (dl_math::squared(leg_to_f_x) + dl_math::squared(leg_to_f_y) + dl_math::squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dl_math::squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
@@ -244,7 +244,7 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
 	};
 
-	//if (tibia_joint_pos1.projectedXY().lengthSquare() < tibia_joint_pos2.projectedXY().lengthSquare())
+	//if (tibia_joint_pos1.ProjectedXY().LengthSquare() < tibia_joint_pos2.ProjectedXY().LengthSquare())
 	//{  Å™Ç±ÇÍÇÕä‘à·Ç¡ÇƒÇΩ
 	if (false)
 	{

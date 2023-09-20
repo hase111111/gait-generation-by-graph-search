@@ -6,12 +6,16 @@
 
 
 
-GraphTreeCreatorHato::GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& _map) : IGraphTreeCreator(_map)
+GraphTreeCreatorHato::GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map) 
 {
+	for (auto& i : map)
+	{
+		m_node_creator_map.insert(std::make_pair(i.first, std::move(i.second)));
+	}
 }
 
 
-EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const DevideMapState& map_ref, std::vector<SNode>* output_graph)
+EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const int max_depth, std::vector<SNode>* output_graph)
 {
 	(*output_graph).clear();					//出力する結果を空にする．
 	(*output_graph).emplace_back(current_node);	//親を追加する．
@@ -23,7 +27,7 @@ EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_no
 	while (cnt < (*output_graph).size())
 	{
 		//探索深さが足りていないノードにのみ処理をする．
-		if ((*output_graph)[cnt].depth < getMaxDepth())
+		if ((*output_graph)[cnt].depth < max_depth)
 		{
 			std::vector<SNode> res_vec;	// _cnt番目のノードの子ノードを入れるベクター
 

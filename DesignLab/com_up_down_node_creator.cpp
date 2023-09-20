@@ -41,7 +41,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 		{
 			const int kCoxaX = map_.GetDevideMapIndexX(kCoxaVec.x);
 			const int kCoxaY = map_.GetDevideMapIndexY(kCoxaVec.y);
-			float map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
+			map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
 		}
 	}
 
@@ -60,7 +60,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float edge_c = HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH - MARGIN;
-			const float edge_b = current_node.leg_pos[i].projectedXY().length() - HexapodConst::PHANTOMX_COXA_LENGTH;
+			const float edge_b = current_node.leg_pos[i].ProjectedXY().Length() - HexapodConst::PHANTOMX_COXA_LENGTH;
 
 			const float edge_a = sqrt(dl_math::squared(edge_c) - dl_math::squared(edge_b));
 
@@ -97,9 +97,9 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 			new_node.changeGlobalCenterOfMass(new_com, true);
 
 
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				if (!calclator_->isLegInRange(i, new_node.leg_pos[i])) { is_vaild = false; }
+				if (!calclator_->isLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する

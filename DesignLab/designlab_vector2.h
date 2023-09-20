@@ -1,8 +1,12 @@
-#pragma once
+//! @file designlab_vector2.h
+//! @brief 2次元のベクトルを表す構造体
 
-#include <iostream>
+#ifndef DESIGNLAB_VECTOR2_H_
+#define DESIGNLAB_VECTOR2_H_
+
+
 #include <cmath>
-#include <vector>
+#include <iostream>
 
 #include "designlab_math.h"
 
@@ -10,18 +14,16 @@
 namespace designlab
 {
 	//! @struct designlab::SVector2
-	//! @date 2023/08/06
-	//! @author 長谷川
-	//! @brief 2次元のベクトルを表す構造体
+	//! @brief 2次元の位置ベクトルを表す構造体
 	//! @details 参考 : https://qiita.com/Reputeless/items/96226cfe1282a014b147
 	//! @n 本当はテンプレート構造体にするべきだけど，めんどいし...型たぶんfloatのままかえないし.... 
 	struct SVector2 final
 	{
-
 		SVector2() = default;
-
 		constexpr SVector2(float x_pos, float y_pos) : x(x_pos), y(y_pos) {}
-
+		constexpr SVector2(const SVector2& other) = default;
+		constexpr SVector2(SVector2&& other) noexcept = default;
+		constexpr SVector2& operator =(const SVector2& other) = default;
 
 		constexpr SVector2 operator +() const { return *this; }
 		constexpr SVector2 operator -() const { return{ -x, -y }; }
@@ -69,44 +71,44 @@ namespace designlab
 		//! @brief このベクトルの長さを返す
 		//! @return このベクトルの長さ
 		//! @note sqrtは重いので，長さの2乗を返すlengthSquare()を使うことを推奨
-		float length() const { return std::sqrt(lengthSquare()); }
+		float Length() const { return std::sqrt(LengthSquare()); }
 
 		//! @brief このベクトルの長さの2乗を返す
 		//! @return このベクトルの長さの2乗
-		constexpr float lengthSquare() const { return dot(*this); }
+		constexpr float LengthSquare() const { return Dot(*this); }
 
 		//! @brief このベクトルとotherの内積を返す
 		//! @param [in] other 他のベクトル
 		//! @return このベクトルとotherの内積
-		constexpr float dot(const SVector2& other) const { return x * other.x + y * other.y; }
+		constexpr float Dot(const SVector2& other) const { return x * other.x + y * other.y; }
 
 		//! @brief このベクトルとotherの外積を返す
 		//! @param [in] other 他のベクトル
 		//! @return このベクトルとotherの外積
 		//! @note 2次元なので，外積はスカラー
-		constexpr float cross(const SVector2& other) const { return x * other.y - y * other.x; }
+		constexpr float Cross(const SVector2& other) const { return x * other.y - y * other.x; }
 
 		//! @brief このベクトルとotherの距離を返す
 		//! @param [in] other 他のベクトル
 		//! @return このベクトルとotherの距離
-		float distanceFrom(const SVector2& other) const { return (other - *this).length(); }
+		float DistanceFrom(const SVector2& other) const { return (other - *this).Length(); }
 
 		//! @brief このベクトルを正規化したベクトルを返す
 		//! @return 正規化されたベクトル
-		inline SVector2 normalized() const
+		inline SVector2 Normalized() const
 		{
-			if (isZero())
+			if (IsZero())
 			{
 				return { 0,0 };
 			}
 
-			return *this / length();
+			return *this / Length();
 		}
 
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue
 		//! @note 誤差を考慮している
-		constexpr bool isZero() const { return dl_math::isEqual(x, 0.0f) && dl_math::isEqual(y, 0.0f); }
+		constexpr bool IsZero() const { return dl_math::isEqual(x, 0.0f) && dl_math::isEqual(y, 0.0f); }
 
 
 		float x;
@@ -137,8 +139,4 @@ namespace designlab
 } // namespace designlab
 
 
-//! @file designlab_vector2.h
-//! @date 2023/08/06
-//! @author 長谷川
-//! @brief 2次元のベクトルを表す構造体
-//! @n 行数 : @lineinfo
+#endif	

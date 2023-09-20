@@ -193,9 +193,9 @@ void NodeDisplayGui::DrawJointInfo() const
 			dl_math::convertRadToDeg(joint_state_[i].joint_angle[0]), dl_math::convertRadToDeg(joint_state_[i].joint_angle[1]), dl_math::convertRadToDeg(joint_state_[i].joint_angle[2]));
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
-			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).length(),
-			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).length(),
-			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).length()
+			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).Length(),
+			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).Length(),
+			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).Length()
 		);
 
 

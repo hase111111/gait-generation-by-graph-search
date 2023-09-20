@@ -159,12 +159,6 @@ namespace dl_leg
 		return false;
 	}
 
-	//! @brief ‹r‚Ìã‰º‚Ì•Ï‰»‰ñ”‚ğo—Í‚·‚é
-	//! @param [in] leg_state_first 1‚Â–Ú‚Ì‹ró‘Ô
-	//! @param [in] leg_state_second 2‚Â–Ú‚Ì‹ró‘Ô
-	//! @return int ‹r‚Ìã‰º‚Ì•Ï‰»‰ñ”
-	int getLegUpDownCount(int leg_state_first, int leg_state_second);
-
 }	// namespace dl_leg
 
 

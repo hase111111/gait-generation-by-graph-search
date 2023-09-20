@@ -64,14 +64,14 @@ void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
 				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
 
-		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dl_math::ALLOWABLE_ERROR)
+		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dl_math::ALLOWABLE_ERROR)
 		{
-			const float _fumur_joint_angle = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
+			const float _fumur_joint_angle2 = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
 			m_local_tibiajoint_pos[i] = _node.leg_pos[i] -
-				designlab::Vector3(HexapodConst::PHANTOMX_TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle),
-					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
-					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
+				designlab::Vector3(HexapodConst::PHANTOMX_TIBIA_LENGTH * cos(_coxa_joint_angle) * cos(_fumur_joint_angle2),
+					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle2),
+					HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle2));
 		}
 	}
 
@@ -162,8 +162,8 @@ bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		_joint_pos[i] = getLocalCoxaJointPos(i).projectedXY();
-		_leg_pos[i] = _node.leg_pos[i].projectedXY() + _joint_pos[i];
+		_joint_pos[i] = getLocalCoxaJointPos(i).ProjectedXY();
+		_leg_pos[i] = _node.leg_pos[i].ProjectedXY() + _joint_pos[i];
 	}
 
 	//—×‚Ì‹r‚Æ‚ÌŠ±Â‚ð’²‚×‚éD
@@ -181,18 +181,18 @@ bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 
 bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_num) const
 {
-	const designlab::SVector2 leg_pos_xy = node.leg_pos[leg_num].projectedXY();
+	const designlab::SVector2 leg_pos_xy = node.leg_pos[leg_num].ProjectedXY();
 	const designlab::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
 	const designlab::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
 
 	//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvŽZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
-	if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
-	if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+	if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
+	if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 
 
 	////‹r‚ðL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
-	if (dl_math::squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.lengthSquare()) { return false; }
-	if (dl_math::squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.lengthSquare()) { return false; }
+	if (dl_math::squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.LengthSquare()) { return false; }
+	if (dl_math::squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.LengthSquare()) { return false; }
 
 	return true;
 }
@@ -200,17 +200,17 @@ bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_nu
 
 bool HexapodStateCalclator_Old::isLegInRange(const designlab::Vector3& local_leg_pos, const int leg_num) const
 {
-	const designlab::SVector2 leg_pos_xy = local_leg_pos.projectedXY();
+	const designlab::SVector2 leg_pos_xy = local_leg_pos.ProjectedXY();
 	const designlab::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
 	const designlab::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
 
 	//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvŽZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
-	if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
-	if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+	if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
+	if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 
 	////‹r‚ðL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
-	if (dl_math::squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.lengthSquare()) { return false; }
-	if (dl_math::squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.lengthSquare()) { return false; }
+	if (dl_math::squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.LengthSquare()) { return false; }
+	if (dl_math::squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.LengthSquare()) { return false; }
 
 	return true;
 }
@@ -243,7 +243,7 @@ bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 	{
 		if (dl_leg::isGrounded(_node.leg_state, i) == true)
 		{
-			leg_pos[leg_pos_index] = _node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY();
+			leg_pos[leg_pos_index] = _node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY();
 			++leg_pos_index;
 		}
 	}
@@ -253,7 +253,7 @@ bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 		designlab::SVector2 i_to_i_plus_1 = leg_pos[(i + 1) % leg_pos_index] - leg_pos[i];
 		designlab::SVector2 i_to_com = designlab::SVector2{ 0,0 } - leg_pos[i];
 
-		if (i_to_i_plus_1.cross(i_to_com) > 0)return false;
+		if (i_to_i_plus_1.Cross(i_to_com) > 0)return false;
 	}
 
 	return true;
@@ -272,7 +272,7 @@ float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 	{
 		if (dl_leg::isGrounded(node.leg_state, i) == true)
 		{
-			leg_pos.push_back(node.leg_pos[i].projectedXY() + getLocalCoxaJointPos(i).projectedXY());
+			leg_pos.push_back(node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY());
 		}
 	}
 
@@ -281,11 +281,11 @@ float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 	for (int i = 0; i < leg_pos.size(); i++)
 	{
 		designlab::SVector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
-		i_to_i_plus_1.normalized();
+		i_to_i_plus_1.Normalized();
 
 		designlab::SVector2 i_to_com = designlab::SVector2{ 0,0 } - leg_pos.at(i);
 
-		min_margin = (std::min)(min_margin, i_to_com.cross(i_to_i_plus_1));
+		min_margin = (std::min)(min_margin, i_to_com.Cross(i_to_i_plus_1));
 	}
 
 	return min_margin;

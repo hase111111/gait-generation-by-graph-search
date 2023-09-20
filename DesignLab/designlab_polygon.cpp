@@ -15,18 +15,18 @@ bool designlab::SPolygon2::isConvex() const
 	const auto v1 = vertex[1] - vertex[0];
 	const auto v2 = vertex[2] - vertex[1];
 
-	bool is_left_turn = v1.cross(v2) > 0.0f;
+	bool is_left_turn = v1.Cross(v2) > 0.0f;
 
 	for (int i = 1; i < num; ++i)
 	{
-		const auto& v1 = vertex[(i + 1) % num] - vertex[i];
-		const auto& v2 = vertex[(i + 2) % num] - vertex[(i + 1) % num];
+		const auto& v1_2 = vertex[(i + 1) % num] - vertex[i];
+		const auto& v2_2 = vertex[(i + 2) % num] - vertex[(i + 1) % num];
 
-		if (is_left_turn && v1.cross(v2) < 0.0f)
+		if (is_left_turn && v1_2.Cross(v2_2) < 0.0f)
 		{
 			return false;
 		}
-		else if (!is_left_turn && v1.cross(v2) > 0.0f)
+		else if (!is_left_turn && v1_2.Cross(v2_2) > 0.0f)
 		{
 			return false;
 		}
@@ -51,7 +51,7 @@ bool designlab::SPolygon2::isInside(const SVector2& point) const
 	int cnt = 0;
 
 	//頂点が右回りか左回りかを調べる
-	bool is_left_turn = (vertex[1] - vertex[0]).cross(vertex[2] - vertex[1]) > 0.0f;
+	bool is_left_turn = (vertex[1] - vertex[0]).Cross(vertex[2] - vertex[1]) > 0.0f;
 
 	if (!is_left_turn)
 	{
@@ -60,21 +60,21 @@ bool designlab::SPolygon2::isInside(const SVector2& point) const
 			const auto& v1 = vertex[i] - point;
 			const auto& v2 = vertex[(i + 1) % num] - point;
 
-			if (v1.cross(v2) == 0.0f && v1.dot(v2) <= 0.0f)
+			if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
 			{
 				return true;	//点が辺上にある
 			}
 
 			if (v1.y < v2.y)
 			{
-				if (v1.y < 0.0f && 0.0f <= v2.y && v1.cross(v2) > 0.0f)
+				if (v1.y < 0.0f && 0.0f <= v2.y && v1.Cross(v2) > 0.0f)
 				{
 					--cnt;
 				}
 			}
 			else
 			{
-				if (v2.y < 0.0f && 0.0f <= v1.y && v1.cross(v2) < 0.0f)
+				if (v2.y < 0.0f && 0.0f <= v1.y && v1.Cross(v2) < 0.0f)
 				{
 					++cnt;
 				}
@@ -88,21 +88,21 @@ bool designlab::SPolygon2::isInside(const SVector2& point) const
 			const auto& v1 = vertex[i] - point;
 			const auto& v2 = vertex[(i + 1) % num] - point;
 
-			if (v1.cross(v2) == 0.0f && v1.dot(v2) <= 0.0f)
+			if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
 			{
 				return true;	//点が辺上にある
 			}
 
 			if (v1.y > v2.y)
 			{
-				if (v2.y < 0.0f && 0.0f <= v1.y && v1.cross(v2) < 0.0f)
+				if (v2.y < 0.0f && 0.0f <= v1.y && v1.Cross(v2) < 0.0f)
 				{
 					--cnt;
 				}
 			}
 			else
 			{
-				if (v1.y < 0.0f && 0.0f <= v2.y && v1.cross(v2) > 0.0f)
+				if (v1.y < 0.0f && 0.0f <= v2.y && v1.Cross(v2) > 0.0f)
 				{
 					++cnt;
 				}

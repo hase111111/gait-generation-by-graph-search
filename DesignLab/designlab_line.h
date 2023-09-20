@@ -25,7 +25,7 @@ namespace designlab
 		//! @return float 線分の長さ
 		inline float getLength() const
 		{
-			return (end - start).length();
+			return (end - start).Length();
 		}
 
 		//! @brief 線分が平行かどうか調べる関数
@@ -34,7 +34,7 @@ namespace designlab
 		constexpr bool isParallel(const SLine2& other) const
 		{
 			//外積を用いて計算する
-			return dl_math::isEqual((end - start).cross(other.end - other.start), 0.0f);
+			return dl_math::isEqual((end - start).Cross(other.end - other.start), 0.0f);
 		}
 
 		//! @brief 他の線分との交点を求める．

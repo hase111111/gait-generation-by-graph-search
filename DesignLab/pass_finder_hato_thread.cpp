@@ -46,11 +46,9 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 		parent_node.changeParentNode();
 		m_graph_tree.emplace_back(parent_node);
 
-		graph_tree_creator->setMaxDepth(1);
-
 		std::vector<SNode> depth1_node;
 
-		EGraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, devide_map_, &depth1_node);
+		EGraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, 1, &depth1_node);
 
 		if (!graphSeachResultIsSuccessful(result)) { return result; }
 
@@ -74,7 +72,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 
 			if (!tree_creators[i]) { return EGraphSearchResult::FailureByInitializationFailed; }
 
-			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], devide_map_, &threads_result[i]));
+			tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::MAX_DEPTH, &threads_result[i]));
 		}
 
 		tree_creator_threads.join_all();

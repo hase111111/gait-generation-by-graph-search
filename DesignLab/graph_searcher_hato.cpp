@@ -132,7 +132,7 @@ EGraphSearchResult GraphSearcherHato::searchGraphTree(const std::vector<SNode>& 
 size_t GraphSearcherHato::getParentNodeIndex(const std::vector<SNode>& graph) const
 {
 	const size_t kGraphSize = graph.size();
-	size_t parent_num = -1;
+	size_t parent_num = 0;
 
 	for (size_t i = 0; i < kGraphSize; i++)
 	{
@@ -169,30 +169,39 @@ bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<SNode>& 
 void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STarget& target)
 {
 	m_parent_node = parent_node;
+
+	//Œx‰ñ”ğ—p
+	STarget target_copy = target;
 }
 
 float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_node, const STarget& target) const
 {
+	// Œx‰ñ”ğ—p
+	STarget target_copy = target;
+
 	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
 	//designlab::Vector3 m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
 
-	//return (int)(m_target_to_parent.projectedXY().length() - center_com_dif.projectedXY().length()) / 10 * 10.0f;
+	//return (int)(m_target_to_parent.ProjectedXY().Length() - center_com_dif.ProjectedXY().Length()) / 10 * 10.0f;
 
 	designlab::Vector3 target_pos {10000, 0, 0};
 	designlab::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
-	return target_pos.length() - target_to_parent.length();
+	return target_pos.Length() - target_to_parent.Length();
 }
 
 float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, const STarget& target) const
 {
+	// Œx‰ñ”ğ—p
+	STarget target_copy = target;
+
 	float result = 0.0f;
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		if (dl_leg::isGrounded(current_node.leg_state, i))
 		{
-			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).length();
+			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).Length();
 		}
 	}
 

@@ -32,7 +32,7 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 
 		designlab::Vector3 result_com;
 
-		if (selecter_.getComFromPolygon(candidate_polygons[i].first, candidate_polygons[i].second, &result_com))
+		if (selecter_.getComFromPolygon(candidate_polygons[i].first, /*candidate_polygons[i].second,*/ &result_com))
 		{
 			SNode next_node = current_node;
 

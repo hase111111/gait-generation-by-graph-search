@@ -73,9 +73,6 @@
     <Filter Include="ソース ファイル\Node\CenterOfMass\ComSelector">
       <UniqueIdentifier>{91e9c015-fa69-4525-bc84-497dab4a352b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\Vector">
-      <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Common\Camera">
       <UniqueIdentifier>{41ec5cfa-6960-4c66-b4a4-99ea386443cb}</UniqueIdentifier>
     </Filter>
@@ -118,9 +115,6 @@
     <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator">
       <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator\Interface">
-      <UniqueIdentifier>{2ad2045b-b61b-481b-b844-38fceaac38d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\PassFinder\Interface">
       <UniqueIdentifier>{87bf686e-8697-4f3e-bc3e-8afde531cb04}</UniqueIdentifier>
     </Filter>
@@ -129,6 +123,9 @@
     </Filter>
     <Filter Include="ソース ファイル\PassFinder\Common">
       <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\Math">
+      <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -225,9 +222,6 @@
     <ClInclude Include="graphic_main_test.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graph_tree_creator.h">
-      <Filter>ソース ファイル\PassFinder\GraphTreeCreator\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="abstract_pass_finder.h">
       <Filter>ソース ファイル\PassFinder\Interface</Filter>
     </ClInclude>
@@ -235,16 +229,16 @@
       <Filter>ソース ファイル\PassFinder\GraphSearcher\Interface</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector2.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector3.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_polygon.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_line.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="com_candidate_polygon_maker.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
@@ -325,10 +319,10 @@
       <Filter>ソース ファイル\PassFinder\Factory</Filter>
     </ClInclude>
     <ClInclude Include="designlab_rotator.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_quaternion.h">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="camera_manager.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
@@ -426,6 +420,9 @@
     <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
     </ClInclude>
+    <ClInclude Include="interface_graph_tree_creator.h">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hexapod.cpp">
@@ -519,16 +516,16 @@
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="designlab_vector3.cpp">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="designlab_line.cpp">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="designlab_polygon.cpp">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="hexapod_next_move.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -566,9 +563,6 @@
     <ClCompile Include="pass_finder_factory_hato.cpp">
       <Filter>ソース ファイル\PassFinder\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="interface_graph_tree_creator.cpp">
-      <Filter>ソース ファイル\PassFinder\GraphTreeCreator\Interface</Filter>
-    </ClCompile>
     <ClCompile Include="com_selecter.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClCompile>
@@ -588,7 +582,7 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="designlab_rotator.cpp">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="pass_finder_fixed.cpp">
       <Filter>ソース ファイル\PassFinder</Filter>
@@ -597,7 +591,7 @@
       <Filter>ソース ファイル\PassFinder\Factory</Filter>
     </ClCompile>
     <ClCompile Include="designlab_quaternion.cpp">
-      <Filter>ソース ファイル\Common\Vector</Filter>
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="camera_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>

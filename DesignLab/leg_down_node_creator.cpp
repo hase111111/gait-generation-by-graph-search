@@ -141,7 +141,7 @@
 //				if (!_candidate_pos.empty())
 //				{
 //					//反対方向をむいている場合は候補地点として採用しない．
-//					if (_new_node.leg_base_pos[_leg_num].projectedXY().cross(_candidate_pos.front().projectedXY()) * _new_node.leg_base_pos[_leg_num].projectedXY().cross(_pos.projectedXY()) < 0)
+//					if (_new_node.leg_base_pos[_leg_num].ProjectedXY().Cross(_candidate_pos.front().ProjectedXY()) * _new_node.leg_base_pos[_leg_num].ProjectedXY().Cross(_pos.ProjectedXY()) < 0)
 //					{
 //						continue;
 //					}
@@ -172,7 +172,7 @@
 //	EDiscreteLegPos discrete_leg_pos = dl_leg::getLegState(_node.leg_state, _leg_num);		//脚位置を取得(1～7)
 //
 //	//まず最初に脚位置4のところにないか確かめる．
-//	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).lengthSquare() < dl_math::squared(LEG_MARGIN))
+//	if ((_node.leg_base_pos[_leg_num] - _node.leg_pos[_leg_num]).LengthSquare() < dl_math::squared(LEG_MARGIN))
 //	{
 //		if (discrete_leg_pos == EDiscreteLegPos::CENTER) { return true; }
 //		else { return false; }
@@ -183,7 +183,7 @@
 //	}
 //
 //	//脚位置4と比較して前か後ろか
-//	if (_node.leg_base_pos[_leg_num].projectedXY().cross(_node.leg_pos[_leg_num].projectedXY()) * _node.leg_pos[_leg_num].projectedXY().cross({ 1,0 }) > 0)
+//	if (_node.leg_base_pos[_leg_num].ProjectedXY().Cross(_node.leg_pos[_leg_num].ProjectedXY()) * _node.leg_pos[_leg_num].ProjectedXY().Cross({ 1,0 }) > 0)
 //	{
 //		//前
 //

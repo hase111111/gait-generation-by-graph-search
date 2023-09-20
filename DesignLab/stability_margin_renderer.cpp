@@ -33,7 +33,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 			polygon.back() += designlab::Vector3{0, 0, 5};
 
-			polygon_xy.addVertex(polygon.back().projectedXY());
+			polygon_xy.addVertex(polygon.back().ProjectedXY());
 
 			polygon_sum += polygon.back();
 		}
@@ -53,7 +53,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
-		if (polygon_xy.isInside(node.global_center_of_mass.projectedXY()))
+		if (polygon_xy.isInside(node.global_center_of_mass.ProjectedXY()))
 		{
 			DrawTriangle3D(poly[0], poly[1], poly[2], kMarginColor, TRUE);
 		}

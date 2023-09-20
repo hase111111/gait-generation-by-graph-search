@@ -15,10 +15,11 @@ namespace dlio = designlab::cmdio;
 
 
 SimulationSystemMain::SimulationSystemMain(
-	std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
-	std::unique_ptr<IGraphicMain>&& graphic_ptr,
-	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+		std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IGraphicMain>&& graphic_ptr,
+		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
+	) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	graphic_system_(std::move(graphic_ptr), setting_ptr),
 	broker_ptr_(broker_ptr),
@@ -33,7 +34,7 @@ SimulationSystemMain::SimulationSystemMain(
 
 	//マップを生成する．
 	MapCreator map_creator;
-	map_state_= map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
+	map_state_ = map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, true);
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.set_data(map_state_);
@@ -105,7 +106,7 @@ void SimulationSystemMain::Main()
 		//最大歩容生成回数分までループする．
 		for (int j = 0; j < Define::kGaitPatternGenerationLimit; j++)
 		{
-			timer_.Start();		//タイマースタート
+			timer_.Start();			//タイマースタート
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
@@ -116,7 +117,7 @@ void SimulationSystemMain::Main()
 
 			record.computation_time.push_back(timer_.GetElapsedMicroSecond() / 1000);	//計算時間を格納する．
 			record.graph_search_results.push_back(result_state);			//グラフ探索の結果を格納する．
-			record.result_nodes.push_back(result_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
+			record.result_nodes.push_back(result_node);		//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
 
 
 			//グラフ探索に失敗

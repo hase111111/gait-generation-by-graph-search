@@ -12,8 +12,6 @@
 
 
 //! @class ComSelecterHato
-//! @date 2023/08/12
-//! @author 長谷川
 //! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
 //! @details 重心位置の決め方は波東さんのプログラムに準拠している．
 //! @n まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ． 
@@ -39,7 +37,7 @@ public:
 	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool getComFromPolygon(const designlab::SPolygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3* output_com) const;
+	bool getComFromPolygon(const designlab::SPolygon2& polygon, designlab::Vector3* output_com) const;
 
 private:
 

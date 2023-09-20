@@ -166,13 +166,13 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 				if (is_candidate_pos)
 				{
 					//反対方向をむいている場合は候補地点として採用しない．
-					if (new_node.leg_base_pos[now_leg_num].projectedXY().cross(candidate_pos.projectedXY()) * new_node.leg_base_pos[now_leg_num].projectedXY().cross(map_point_pos.projectedXY()) < 0)
+					if (new_node.leg_base_pos[now_leg_num].ProjectedXY().Cross(candidate_pos.ProjectedXY()) * new_node.leg_base_pos[now_leg_num].ProjectedXY().Cross(map_point_pos.ProjectedXY()) < 0)
 					{
 						continue;
 					}
 
 					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
-					if (map_point_pos.projectedXY().cross(candidate_pos.projectedXY()) * map_point_pos.projectedXY().cross(new_node.leg_base_pos[now_leg_num].projectedXY()) < 0)
+					if (map_point_pos.ProjectedXY().Cross(candidate_pos.ProjectedXY()) * map_point_pos.ProjectedXY().Cross(new_node.leg_base_pos[now_leg_num].ProjectedXY()) < 0)
 					{
 						continue;
 					}
@@ -210,7 +210,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	const EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).lengthSquare() < dl_math::squared(kLegMargin))
+	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dl_math::squared(kLegMargin))
 	{
 		if (_leg_state == EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }
@@ -221,7 +221,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	}
 
 	//脚位置4と比較して前か後ろか
-	if (_node.leg_base_pos[leg_index].projectedXY().cross(_node.leg_pos[leg_index].projectedXY()) * _node.leg_pos[leg_index].projectedXY().cross({ 1,0 }) > 0)
+	if (_node.leg_base_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
 

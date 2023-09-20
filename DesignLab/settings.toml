@@ -44,7 +44,7 @@ do_step_execution = true
 #表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．
 [display]
 #コマンドラインへの出力を行います (true/false)
-cmd_output = true
+cmd_output = false
 #ウィンドウのフレームレートを設定します．推奨値は60か30です．
 window_pos_x = 60
 #GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．
@@ -54,7 +54,7 @@ gui_display_quality = "high"
 #コマンドラインに出力する文字列をどこまで許可するか，(debug,info,error,warning,system)の順に優先順位が高い
 cmd_permission = "DEBUG"
 #GUI(dxlibによる表示)での表示を行います (true/false)
-gui_display = true
+gui_display = false
 #GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．
 window_size_x = 1280
 

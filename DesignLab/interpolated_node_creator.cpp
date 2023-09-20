@@ -28,7 +28,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
 			// dif z‚ª0‚ÌŽž‚ÍC•½sˆÚ“®‚Ì‚Ý
-			if (dif[j].z == 0 || dif[j].projectedXY().isZero())
+			if (dif[j].z == 0 || dif[j].ProjectedXY().IsZero())
 			{
 				new_node.leg_pos[j] = node.leg_pos[j] + dif[j] * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
 			}

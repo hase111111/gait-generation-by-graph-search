@@ -9,6 +9,8 @@ EGraphSearchResult GraphSearcherRandom::searchGraphTree(const std::vector<SNode>
 
 	if (graph.empty()) { return EGraphSearchResult::Failure; }	//グラフがないなら失敗	
 
+	//警告回避用
+	STarget target_copy = target;
 
 	//グラフの中を全て探索する．
 	std::vector<SNode> depth1_node;

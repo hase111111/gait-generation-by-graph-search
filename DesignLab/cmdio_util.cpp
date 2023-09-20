@@ -7,8 +7,11 @@
 
 namespace
 {
-	// 出力制限，この値未満のメッセージの出力は行われない
 	// なお，この値はこのファイルからのみアクセス可能なグローバル変数
+	// アクセスする場合は :: を先頭につける
+
+
+	// 出力制限，この値未満のメッセージの出力は行われない
 	OutputDetail output_limit = OutputDetail::kSystem;
 
 	// falseの場合，出力を行わない(システムメッセージは除く)
@@ -25,9 +28,9 @@ namespace designlab
 			::output_limit = limit;
 		}
 
-		void SetDoOutput(bool do_output)
+		void SetDoOutput(bool do_output_)
 		{
-			::do_output = do_output;
+			::do_output = do_output_;
 		}
 
 		void Output(const std::string& str, const OutputDetail detail, const bool wait_cin)
