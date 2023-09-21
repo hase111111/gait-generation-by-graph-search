@@ -4,6 +4,7 @@
 #ifndef DESIGNLAB_NODE_DISPLAY_GUI_H_
 #define DESIGNLAB_NODE_DISPLAY_GUI_H_
 
+#include <array>
 #include <memory>
 #include <map>
 
@@ -76,7 +77,7 @@ private:
 
 	SNode display_node_;										//!< •\Ž¦‚·‚éƒm[ƒh
 
-	SHexapodJointState joint_state_[HexapodConst::LEG_NUM];		//!< ŠÖß‚ÌŠp“x
+	std::array<HexapodJointState, HexapodConst::LEG_NUM> joint_state_;		//!< ŠÖß‚ÌŠp“x
 
 	bool is_closed_;											//!< GUI‚ª•Â‚¶‚Ä‚¢‚é‚©(Å¬‰»‚µ‚Ä‚¢‚é‚©)‚Ç‚¤‚©
 

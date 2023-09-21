@@ -38,7 +38,7 @@ void HexapodRenderer::set_draw_node(const SNode& node)
 
 	draw_node_ = node;
 
-	calculator_ptr_->calculateAllJointState(node, draw_joint_state_);
+	calculator_ptr_->calculateAllJointState(node, &draw_joint_state_);
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{

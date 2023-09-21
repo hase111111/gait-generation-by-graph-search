@@ -4,14 +4,6 @@
 #include "leg_state.h"
 
 
-designlab::Vector3 AbstractHexapodStateCalculator::getLocalLegBasePosition(const int leg_index) const
-{
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
-
-	return m_local_leg_base_pos[leg_index];
-}
-
-
 float AbstractHexapodStateCalculator::calcStabilityMargin(const dl_leg::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．

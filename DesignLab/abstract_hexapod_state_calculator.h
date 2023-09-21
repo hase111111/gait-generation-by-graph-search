@@ -11,7 +11,7 @@
 
 
 
-struct SHexapodJointState
+struct HexapodJointState
 {
 	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．@n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系．
 	std::vector<designlab::Vector3> local_joint_position;
@@ -43,7 +43,7 @@ public:
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
 	//! @return 計算に成功したらtrue．失敗したらfalse．
-	virtual bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const = 0;
+	virtual bool calculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const = 0;
 
 
 
@@ -60,7 +60,7 @@ public:
 	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
 	//! @param [in] leg_index 脚番号．
 	//! @return designlab::Vector3 脚の付け根の座標．ローカル座標系
-	designlab::Vector3 getLocalLegBasePosition(const int leg_index) const;
+	virtual designlab::Vector3 getLocalLegBasePosition(const int leg_index) const = 0;
 
 	//! @brief 【スレッドセーフ】脚先の座標を取得する．ローカル(ロボット)座標系
 	//! @param [in] leg_index 脚番号．
@@ -98,7 +98,7 @@ public:
 	//! @brief 【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return bool 脚が他の脚と干渉していればtrue．干渉していなければfalse．
-	virtual bool isLegInterfering(const designlab::Vector3 leg_pos[HexapodConst::LEG_NUM]) const = 0;
+	virtual bool isLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const = 0;
 
 	//! @brief 【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい
 	//! @n 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．
@@ -106,10 +106,4 @@ public:
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
 	float calcStabilityMargin(const dl_leg::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
-	
-protected:
-
-
-	designlab::Vector3 m_local_leg_base_pos[HexapodConst::LEG_NUM];	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
 };
-

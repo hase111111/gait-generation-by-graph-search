@@ -237,11 +237,11 @@ void SimulationSystemMain::OutputSetting() const
 
 	if (setting_ptr_->do_step_execution)
 	{
-		dlio::Output("・ステップ実行を行います");
+		dlio::Output("・シミュレーションをステップ実行します");
 	}
 	else
 	{
-		dlio::Output("・ステップ実行を行いません");
+		dlio::Output("・シミュレーションをステップ実行しません");
 	}
 
 	dlio::OutputNewLine();
@@ -249,11 +249,11 @@ void SimulationSystemMain::OutputSetting() const
 
 	if (setting_ptr_->do_step_execution_each_gait)
 	{
-		dlio::Output("・各歩容をステップ実行時にします");
+		dlio::Output("・各歩容をステップ実行します");
 	}
 	else
 	{
-		dlio::Output("・各歩容をステップ実行時にしません");
+		dlio::Output("・各歩容をステップ実行しません");
 	}
 
 	dlio::OutputNewLine();

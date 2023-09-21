@@ -42,7 +42,7 @@ void NodeDisplayGui::SetDisplayNode(const SNode& node)
 	if (!calculator_ptr_) { return; }
 
 	// 関節の角度をセットする
-	calculator_ptr_->calculateAllJointState(display_node_, joint_state_);
+	calculator_ptr_->calculateAllJointState(display_node_, &joint_state_);
 }
 
 

@@ -31,7 +31,7 @@ const SettingTableData ApplicationSettingKey::DISPLAY_TABLE = { "display" ,u8"表
 
 const SettingKeyData ApplicationSettingKey::CMD_OUTPUT = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_output",u8"コマンドラインへの出力を行います (true/false)" };
 
-const SettingKeyData ApplicationSettingKey::CMD_PERMISSION = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_permission",u8"コマンドラインに出力する文字列をどこまで許可するか，(debug,info,error,warning,system)の順に優先順位が高い" };
+const SettingKeyData ApplicationSettingKey::CMD_PERMISSION = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"cmd_permission",u8"コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い" };
 
 const SettingKeyData ApplicationSettingKey::GUI_DISPLAY = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,"gui_display",u8"GUI(dxlibによる表示)での表示を行います (true/false)" };
 

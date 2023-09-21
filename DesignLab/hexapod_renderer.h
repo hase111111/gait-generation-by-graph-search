@@ -5,6 +5,7 @@
 #define DESIGNLAB_HEXAPOD_RENDERER_H_
 
 
+#include <array>
 #include <memory>
 
 #include <Dxlib.h>
@@ -59,7 +60,7 @@ private:
 
 	SNode draw_node_;						// 描画するロボットの状態
 
-	SHexapodJointState draw_joint_state_[HexapodConst::LEG_NUM];	// 描画するロボットのジョイントの状態
+	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	// 描画するロボットのジョイントの状態
 
 
 	VECTOR kCoxaJointPos[HexapodConst::LEG_NUM];
