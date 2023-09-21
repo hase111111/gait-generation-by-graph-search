@@ -3,10 +3,13 @@
 #include <algorithm>
 #include <iostream>
 
+#include "designlab_math_util.h"
 #include "leg_state.h"
 
+namespace dlm = ::designlab::math_util;
 
-bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon,/* const EDiscreteComPos com_pattren,*/ designlab::Vector3* output_com) const
+
+bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* const EDiscreteComPos com_pattren,*/ designlab::Vector3* output_com) const
 {
 	std::pair<bool, designlab::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
@@ -18,11 +21,11 @@ bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon,/* c
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
 	std::vector<designlab::SVector2> edge_vec;
-	edge_vec.resize(polygon.getVertexNum());
+	edge_vec.resize(polygon.GetVertexNum());
 
-	for (int i = 0; i < polygon.getVertexNum(); ++i)
+	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
+		designlab::SVector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
 		edge.Normalized();
 		edge_vec[i] = edge;
 	}
@@ -101,18 +104,18 @@ bool ComSelecterHato::getComFromPolygon(const designlab::SPolygon2& polygon,/* c
 }
 
 
-bool ComSelecterHato::makeComCandidatePoint(const designlab::SPolygon2& polygon, std::pair<bool, designlab::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
+bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
-	const float kMinX = polygon.getMinX();
-	const float kMaxX = polygon.getMaxX();
-	const float kMinY = polygon.getMinY();
-	const float kMaxY = polygon.getMaxY();
+	const float kMinX = polygon.GetMinX();
+	const float kMaxX = polygon.GetMaxX();
+	const float kMinY = polygon.GetMinY();
+	const float kMaxY = polygon.GetMaxY();
 
 	const float kWidth = kMaxX - kMinX;
 	const float kHeight = kMaxY - kMinY;
 
-	if (dl_math::isEqual(kWidth, 0.0f) || dl_math::isEqual(kHeight, 0.0f)) { return false; }
+	if (dlm::IsEqual(kWidth, 0.0f) || dlm::IsEqual(kHeight, 0.0f)) { return false; }
 
 	const float kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;
 	const float kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;
@@ -132,11 +135,11 @@ bool ComSelecterHato::makeComCandidatePoint(const designlab::SPolygon2& polygon,
 }
 
 
-bool ComSelecterHato::isInMargin(const designlab::SPolygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const
+bool ComSelecterHato::isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const
 {
-	for (int i = 0; i < polygon.getVertexNum(); ++i)
+	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::SVector2 v_map = candidate_point - polygon.getVertex(i);
+		designlab::SVector2 v_map = candidate_point - polygon.GetVertex(i);
 
 		if (v_map.Cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{

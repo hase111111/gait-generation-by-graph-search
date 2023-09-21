@@ -2,9 +2,8 @@
 
 #include <boost/thread.hpp>
 
-#include "define.h"
-#include "designlab_math.h"
 #include "cmdio_util.h"
+#include "define.h"
 #include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"
 #include "graphic_main_basic.h"
@@ -77,7 +76,7 @@ void SimulationSystemMain::Main()
 	for (int i = 0; i < Define::kSimurateNum; i++)
 	{
 		SNode current_node;										//現在のノードの状態を格納する変数．
-		const bool do_random_init = false;//(i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
+		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.init(do_random_init);
 
 		SSimulationResultRecorder record;	//シミュレーションの結果を格納する変数．

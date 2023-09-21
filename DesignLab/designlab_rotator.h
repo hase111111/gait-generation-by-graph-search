@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <ios>
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 #include "designlab_vector3.h"
 
 
@@ -29,7 +29,11 @@ namespace designlab
 
 		constexpr bool operator ==(const SRotator& other) const
 		{
-			return (dl_math::isEqual(roll, other.roll) && dl_math::isEqual(pitch, other.pitch) && dl_math::isEqual(yaw, other.yaw));
+			return (
+				::designlab::math_util::IsEqual(roll, other.roll) && 
+				::designlab::math_util::IsEqual(pitch, other.pitch) &&
+				::designlab::math_util::IsEqual(yaw, other.yaw)
+			);
 		}
 		constexpr bool operator !=(const SRotator& other) const { return !(*this == other); }
 

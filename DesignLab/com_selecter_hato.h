@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "designlab_vector3.h"
-#include "designlab_polygon.h"
+#include "designlab_polygon2.h"
 #include "com_type.h"
 #include "node.h"
 #include "abstract_hexapod_state_calculator.h"
@@ -37,7 +37,7 @@ public:
 	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool getComFromPolygon(const designlab::SPolygon2& polygon, designlab::Vector3* output_com) const;
+	bool getComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const;
 
 private:
 
@@ -52,10 +52,10 @@ private:
 	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
-	bool makeComCandidatePoint(const designlab::SPolygon2& polygon, std::pair<bool, designlab::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
+	bool makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const designlab::SPolygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const;
+	bool isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const;
 
 
 

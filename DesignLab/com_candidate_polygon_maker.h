@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "node.h"
-#include "designlab_polygon.h"
+#include "designlab_polygon2.h"
 #include "com_type.h"
 #include "abstract_hexapod_state_calculator.h"
 
@@ -30,23 +30,23 @@ public:
 	//! @brief 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する
 	//! @param [in] node 現在のロボットの状態を表すノード
 	//! @param [out] output_poly 重心位置の候補地点を示す多角形
-	void makeCandidatePolygon(const SNode& node, std::pair<designlab::SPolygon2, EDiscreteComPos> output_poly[MAKE_POLYGON_NUM]) const;
+	void makeCandidatePolygon(const SNode& node, std::pair<designlab::Polygon2, EDiscreteComPos> output_poly[MAKE_POLYGON_NUM]) const;
 
 
 private:
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は4角形か5角形を用いて表現する．
-	void makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::SPolygon2* output_poly) const;
+	void makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const;
 
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は3角形を用いて表現する．
-	void makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::SPolygon2* output_poly, EDiscreteComPos* output_com_pattern) const;
+	void makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* output_poly, EDiscreteComPos* output_com_pattern) const;
 
 
 	//! @brief 正しい多角形が生成されているかを確認する
 	//! @param [in] _poly 確認する多角形
 	//! @return 正しい多角形が生成されているか
-	bool checkPolygon(const designlab::SPolygon2& poly) const;
+	bool checkPolygon(const designlab::Polygon2& poly) const;
 
 
 	static constexpr bool DO_DEBUG_PRINT = false;	// デバッグ用に出力を行う場合はtrueにする．テストコードを書きたいけど抽象化できていない...

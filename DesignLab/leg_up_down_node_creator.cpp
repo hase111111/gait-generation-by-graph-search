@@ -5,8 +5,11 @@
 #include <boost/dynamic_bitset.hpp>
 
 #include "com_type.h"
+#include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
+
+namespace dlm = designlab::math_util;
 
 
 LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
@@ -210,7 +213,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	const EDiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, leg_index);		//ãrà íuÇéÊìæ(1Å`7)
 
 	//Ç‹Ç∏ç≈èâÇ…ãrà íu4ÇÃÇ∆Ç±ÇÎÇ…Ç»Ç¢Ç©ämÇ©ÇﬂÇÈÅD
-	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dl_math::squared(kLegMargin))
+	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))
 	{
 		if (_leg_state == EDiscreteLegPos::CENTER) { return true; }
 		else { return false; }

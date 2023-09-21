@@ -6,7 +6,7 @@
 
 
 
-DisplayNodeSwitchGUI::DisplayNodeSwitchGUI(const int x, const int y) : kGuiLeftPosX(x), kGuiTopPosY(y),
+DisplayNodeSwitchGui::DisplayNodeSwitchGui(const int x, const int y) : kGuiLeftPosX(x), kGuiTopPosY(y),
 m_display_node_num(0), m_all_node_num(0), m_simulation_num(0),
 counter_(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
 {
@@ -32,26 +32,22 @@ counter_(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
 }
 
 
-DisplayNodeSwitchGUI::DisplayNodeSwitchGUI() : DisplayNodeSwitchGUI::DisplayNodeSwitchGUI(0, 0)
+DisplayNodeSwitchGui::DisplayNodeSwitchGui() : DisplayNodeSwitchGui::DisplayNodeSwitchGui(0, 0)
 {
 }
 
 
-void DisplayNodeSwitchGUI::setGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
+void DisplayNodeSwitchGui::setGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
 {
 	m_all_node_num = node_num;
 
-
 	m_simu_end_index.clear();
 
-	for (const auto& i : simu_end_index)
-	{
-		m_simu_end_index.push_back(i);
-	}
+	m_simu_end_index = simu_end_index;
 }
 
 
-size_t DisplayNodeSwitchGUI::getDisplayNodeNum() const
+size_t DisplayNodeSwitchGui::getDisplayNodeNum() const
 {
 	// 範囲外の値を返さないようにする．
 	if (m_display_node_num > m_all_node_num && m_all_node_num != 0) { return m_all_node_num - 1; }
@@ -62,13 +58,13 @@ size_t DisplayNodeSwitchGUI::getDisplayNodeNum() const
 }
 
 
-int DisplayNodeSwitchGUI::getSimulationNum() const
+int DisplayNodeSwitchGui::getSimulationNum() const
 {
 	return m_simulation_num;
 }
 
 
-void DisplayNodeSwitchGUI::Update()
+void DisplayNodeSwitchGui::Update()
 {
 	++counter_;
 
@@ -141,7 +137,7 @@ void DisplayNodeSwitchGUI::Update()
 }
 
 
-void DisplayNodeSwitchGUI::Draw() const
+void DisplayNodeSwitchGui::Draw() const
 {
 	const unsigned int kAlpha = 200;
 
@@ -201,7 +197,7 @@ void DisplayNodeSwitchGUI::Draw() const
 }
 
 
-void DisplayNodeSwitchGUI::moveMostPrevNode()
+void DisplayNodeSwitchGui::moveMostPrevNode()
 {
 	//候補
 	size_t candidate = 0;
@@ -222,7 +218,7 @@ void DisplayNodeSwitchGUI::moveMostPrevNode()
 }
 
 
-void DisplayNodeSwitchGUI::movePrevNode()
+void DisplayNodeSwitchGui::movePrevNode()
 {
 	for (size_t i = 0; i < m_simu_end_index.size(); i++)
 	{
@@ -238,7 +234,7 @@ void DisplayNodeSwitchGUI::movePrevNode()
 }
 
 
-void DisplayNodeSwitchGUI::moveMostNextNode()
+void DisplayNodeSwitchGui::moveMostNextNode()
 {
 	//候補
 	size_t candidate = m_all_node_num - 1;
@@ -256,7 +252,7 @@ void DisplayNodeSwitchGUI::moveMostNextNode()
 }
 
 
-void DisplayNodeSwitchGUI::moveNextNode()
+void DisplayNodeSwitchGui::moveNextNode()
 {
 	for (size_t i = 0; i < m_simu_end_index.size(); i++)
 	{
@@ -272,7 +268,7 @@ void DisplayNodeSwitchGUI::moveNextNode()
 }
 
 
-void DisplayNodeSwitchGUI::movePrevSimulation()
+void DisplayNodeSwitchGui::movePrevSimulation()
 {
 	//前のシミュレーションへ移動する
 	--m_simulation_num;
@@ -291,7 +287,7 @@ void DisplayNodeSwitchGUI::movePrevSimulation()
 }
 
 
-void DisplayNodeSwitchGUI::moveNextSimulation()
+void DisplayNodeSwitchGui::moveNextSimulation()
 {
 	//次のシミュレーションへ移動する
 	++m_simulation_num;
@@ -312,7 +308,7 @@ void DisplayNodeSwitchGUI::moveNextSimulation()
 }
 
 
-int DisplayNodeSwitchGUI::getAllSimulationNum() const
+int DisplayNodeSwitchGui::getAllSimulationNum() const
 {
 	int all_simu_num = 1;
 

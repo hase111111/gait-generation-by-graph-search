@@ -1,5 +1,6 @@
 #include "graphic_main_test.h"
 
+#include "designlab_math_util.h"
 #include "dxlib_util.h"
 #include "hexapod_state_calculator.h"
 #include "keyboard.h"
@@ -14,6 +15,7 @@ namespace
 }
 
 namespace dldu = designlab::dxlib_util;
+namespace dlm = designlab::math_util;
 
 
 GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
@@ -135,7 +137,7 @@ bool GraphicMainTest::Update()
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 		{
 			auto rot = m_node.rot;
-			rot.yaw += kComSpeed / 360.0f * 2 * dl_math::MY_FLT_PI;
+			rot.yaw += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
 			m_node.rot = rot;
 		}
 	}

@@ -55,7 +55,7 @@ private:
 
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
-	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 
 	HexapodRenderer hexapod_renderer_;						//!< ロボットを表示するクラス．	

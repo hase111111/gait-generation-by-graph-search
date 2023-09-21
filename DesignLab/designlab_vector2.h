@@ -7,8 +7,9 @@
 
 #include <cmath>
 #include <iostream>
+#include <string>
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 
 
 namespace designlab
@@ -19,7 +20,7 @@ namespace designlab
 	//! @n 本当はテンプレート構造体にするべきだけど，めんどいし...型たぶんfloatのままかえないし.... 
 	struct SVector2 final
 	{
-		SVector2() = default;
+		constexpr SVector2() : x(0), y(0) {};
 		constexpr SVector2(float x_pos, float y_pos) : x(x_pos), y(y_pos) {}
 		constexpr SVector2(const SVector2& other) = default;
 		constexpr SVector2(SVector2&& other) noexcept = default;
@@ -34,37 +35,14 @@ namespace designlab
 		constexpr SVector2 operator *(float s) const { return{ x * s, y * s }; }
 		constexpr SVector2 operator /(float s) const { return{ x / s, y / s }; }
 
-		SVector2& operator +=(const SVector2& other)
-		{
-			x += other.x;
-			y += other.y;
-			return *this;
-		}
-
-		SVector2& operator -=(const SVector2& other)
-		{
-			x -= other.x;
-			y -= other.y;
-			return *this;
-		}
-
-		SVector2& operator *=(float s)
-		{
-			x *= s;
-			y *= s;
-			return *this;
-		}
-
-		SVector2& operator /=(float s)
-		{
-			x /= s;
-			y /= s;
-			return *this;
-		}
+		SVector2& operator +=(const SVector2& other);
+		SVector2& operator -=(const SVector2& other);
+		SVector2& operator *=(float s);
+		SVector2& operator /=(float s);
 
 		constexpr bool operator==(const SVector2& other) const
 		{
-			return dl_math::isEqual(x, other.x) && dl_math::isEqual(y, other.y);
+			return ::designlab::math_util::IsEqual(x, other.x) && ::designlab::math_util::IsEqual(y, other.y);
 		}
 
 
@@ -95,20 +73,18 @@ namespace designlab
 
 		//! @brief このベクトルを正規化したベクトルを返す
 		//! @return 正規化されたベクトル
-		inline SVector2 Normalized() const
-		{
-			if (IsZero())
-			{
-				return { 0,0 };
-			}
-
-			return *this / Length();
-		}
+		SVector2 Normalized() const;
 
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue
 		//! @note 誤差を考慮している
-		constexpr bool IsZero() const { return dl_math::isEqual(x, 0.0f) && dl_math::isEqual(y, 0.0f); }
+		constexpr bool IsZero() const { return ::designlab::math_util::IsEqual(x, 0.0f) && ::designlab::math_util::IsEqual(y, 0.0f); }
+
+
+		//! @brief このベクトルを文字列にして返す
+		//! @n (x, y) の形式，小数点以下3桁まで
+		//! @return このベクトルを文字列にしたもの
+		std::string ToString() const;
 
 
 		float x;

@@ -1,7 +1,10 @@
 #include "com_move_node_creator_hato.h"
 
+#include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
+
+namespace dlm = designlab::math_util;
 
 
 ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
@@ -17,7 +20,7 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const 
 
 void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
-	std::pair<designlab::SPolygon2, EDiscreteComPos> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
+	std::pair<designlab::Polygon2, EDiscreteComPos> candidate_polygons[ComCandidatePolygonMaker::MAKE_POLYGON_NUM];
 
 	//重心移動先の候補地点の範囲を示す多角形を作成する
 	maker_.makeCandidatePolygon(current_node, candidate_polygons);
@@ -87,7 +90,7 @@ bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& node) const
 		}
 	}
 
-	if (top_z + HexapodConst::VERTICAL_MIN_RANGE - dl_math::ALLOWABLE_ERROR < node.global_center_of_mass.z)
+	if (top_z + HexapodConst::VERTICAL_MIN_RANGE - dlm::kAllowableError < node.global_center_of_mass.z)
 	{
 		return false;
 	}

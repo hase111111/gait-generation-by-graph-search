@@ -80,9 +80,9 @@
     <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
     <ClInclude Include="mouse.h" />
-    <ClInclude Include="designlab_line.h" />
-    <ClInclude Include="designlab_math.h" />
-    <ClInclude Include="designlab_polygon.h" />
+    <ClInclude Include="designlab_line_segment2.h" />
+    <ClInclude Include="designlab_math_util.h" />
+    <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
@@ -121,6 +121,7 @@
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
+    <ClCompile Include="designlab_vector2.cpp" />
     <ClCompile Include="discrete_com_pos.cpp" />
     <ClCompile Include="discrete_leg_pos.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
@@ -158,8 +159,8 @@
     <ClCompile Include="leg_state.cpp" />
     <ClCompile Include="leg_up_down_node_creator.cpp" />
     <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="designlab_line.cpp" />
-    <ClCompile Include="designlab_polygon.cpp" />
+    <ClCompile Include="designlab_line_segment2.cpp" />
+    <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
@@ -167,7 +168,7 @@
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />
-    <ClCompile Include="designlab_math.cpp" />
+    <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="phantomxCommander.cpp" />
     <ClCompile Include="phantomx_state_calculator.cpp" />

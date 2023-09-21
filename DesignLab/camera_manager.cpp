@@ -4,8 +4,11 @@
 
 #include <Dxlib.h>
 
+#include "designlab_math_util.h"
 #include "graphic_const.h"
 #include "dxlib_util.h"
+
+namespace dlm = designlab::math_util;
 
 
 CameraStateManager::CameraStateManager() :
@@ -52,25 +55,25 @@ void CameraStateManager::setCameraViewMode(const CameraViewMode mode)
 	switch (mode)
 	{
 	case CameraViewMode::kFrontView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(0.0f), designlab::Vector3{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dlm::ConvertDegToRad(0.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kBackView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), designlab::Vector3{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dlm::ConvertDegToRad(180.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kTopView:
-		quat1.setRotAngleAndAxis(dl_math::convertDegToRad(-90.0f), designlab::Vector3{ 0, 1, 0 });
-		quat2.setRotAngleAndAxis(dl_math::convertDegToRad(180.0f), designlab::Vector3{ 1, 0, 0 });
+		quat1.setRotAngleAndAxis(dlm::ConvertDegToRad(-90.0f), designlab::Vector3{ 0, 1, 0 });
+		quat2.setRotAngleAndAxis(dlm::ConvertDegToRad(180.0f), designlab::Vector3{ 1, 0, 0 });
 		m_goal_camera_rot_quat = (quat1 * quat2).normalize();
 		break;
 
 	case CameraViewMode::kRightSideView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(270.0f), designlab::Vector3{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dlm::ConvertDegToRad(270.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::kLeftSideView:
-		m_goal_camera_rot_quat.setRotAngleAndAxis(dl_math::convertDegToRad(90.0f), designlab::Vector3{ 0, 0, 1 });
+		m_goal_camera_rot_quat.setRotAngleAndAxis(dlm::ConvertDegToRad(90.0f), designlab::Vector3{ 0, 0, 1 });
 		break;
 
 	case CameraViewMode::FREE_CONTROLLED_TARGET:

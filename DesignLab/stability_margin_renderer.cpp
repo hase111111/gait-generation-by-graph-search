@@ -5,7 +5,7 @@
 #include <Dxlib.h>
 
 #include "dxlib_util.h"
-#include "designlab_polygon.h"
+#include "designlab_polygon2.h"
 #include "leg_state.h"
 
 namespace dldu = designlab::dxlib_util;
@@ -18,7 +18,7 @@ StabilityMarginRenderer::StabilityMarginRenderer() : kMarginColor(GetColor(0, 25
 
 void StabilityMarginRenderer::Draw(const SNode& node) const
 {
-	designlab::SPolygon2 polygon_xy;			//•½–Ê‚É“Š‰e‚µ‚½‘½ŠpŒ`
+	designlab::Polygon2 polygon_xy;			//•½–Ê‚É“Š‰e‚µ‚½‘½ŠpŒ`
 
 	std::vector<designlab::Vector3> polygon;	//‘½ŠpŒ`‚Ì’¸“_
 
@@ -33,7 +33,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 			polygon.back() += designlab::Vector3{0, 0, 5};
 
-			polygon_xy.addVertex(polygon.back().ProjectedXY());
+			polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
 			polygon_sum += polygon.back();
 		}
@@ -53,7 +53,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
-		if (polygon_xy.isInside(node.global_center_of_mass.ProjectedXY()))
+		if (polygon_xy.IsInside(node.global_center_of_mass.ProjectedXY()))
 		{
 			DrawTriangle3D(poly[0], poly[1], poly[2], kMarginColor, TRUE);
 		}

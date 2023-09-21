@@ -14,7 +14,7 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 	kInterpolatedAnimeCount(15),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
-	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 10),
+	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::GUI_HEIGHT - 10 : 10),
 	hexapod_renderer_(calculator_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.data() : MapState()),
 	graph_({}),
@@ -37,7 +37,7 @@ bool GraphicMainAdvance::Update()
 
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (counter_ % kNodeGetCount == 0)
+	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.update_count())
 	{
 		//仲介人からデータを読み出す
 		graph_ = broker_ptr_->graph.data();
@@ -48,11 +48,6 @@ bool GraphicMainAdvance::Update()
 
 		//ノードの情報を表示するGUIに情報を伝達する．
 		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
-
-
-		//ノードの情報を表示するGUIに情報を伝達する．
-		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
-
 
 
 		//移動軌跡を更新する．

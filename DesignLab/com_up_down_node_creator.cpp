@@ -3,10 +3,12 @@
 #include <algorithm>
 #include <cfloat>
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
+
+namespace dlm = ::designlab::math_util;
 
 
 ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
@@ -62,7 +64,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 			const float edge_c = HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH - MARGIN;
 			const float edge_b = current_node.leg_pos[i].ProjectedXY().Length() - HexapodConst::PHANTOMX_COXA_LENGTH;
 
-			const float edge_a = sqrt(dl_math::squared(edge_c) - dl_math::squared(edge_b));
+			const float edge_a = sqrt(dlm::Squared(edge_c) - dlm::Squared(edge_b));
 
 			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
 			highest_body_zpos = (std::min)(edge_a + current_node.global_center_of_mass.z + current_node.leg_pos[i].z, highest_body_zpos);

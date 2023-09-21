@@ -3,7 +3,6 @@
 #include <Dxlib.h>
 
 #include "designlab_quaternion.h"
-#include "designlab_math.h"
 
 
 //! @enum CameraViewMode

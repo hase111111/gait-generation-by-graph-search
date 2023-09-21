@@ -4,7 +4,9 @@
 
 #include <Dxlib.h>
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
+
+namespace dlm = designlab::math_util;
 
 
 Mouse::Mouse()
@@ -92,5 +94,11 @@ int Mouse::GetDiffPosY() const
 
 double Mouse::getDiffPos() const
 {
-	return sqrt(static_cast<double>(dl_math::squared(GetDiffPosY()) + dl_math::squared(GetDiffPosX())));
+	return sqrt
+	(
+		static_cast<double>
+		(
+			dlm::Squared(GetDiffPosY()) + dlm::Squared(GetDiffPosX())
+		)
+	);
 }

@@ -1,10 +1,10 @@
 #include "com_candidate_polygon_maker.h"
 
-#include "designlab_line.h"
+#include "designlab_line_segment2.h"
 #include "hexapod_const.h"
 
 
-void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<designlab::SPolygon2, EDiscreteComPos> output_poly[MAKE_POLYGON_NUM]) const
+void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair<designlab::Polygon2, EDiscreteComPos> output_poly[MAKE_POLYGON_NUM]) const
 {
 	if (!mp_calculator) { return; }
 
@@ -49,66 +49,66 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 	}
 }
 
-void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::SPolygon2* output_poly) const
+void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const
 {
 	//脚位置を線で結ぶ．この交点から重心候補地点が存在する多角形を求める
-	designlab::SLine2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM]);
-	designlab::SLine2 leg_line_03(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 3) % HexapodConst::LEG_NUM]);
-	designlab::SLine2 leg_line_14(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 4) % HexapodConst::LEG_NUM]);
-	designlab::SLine2 leg_line_15(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
-	designlab::SLine2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_03(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 3) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_14(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 4) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_15(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
 
 	//交点(intersection)を求める
-	designlab::SVector2 intersection_02_14 = leg_line_02.getIntersection(leg_line_14);
-	designlab::SVector2 intersection_02_15 = leg_line_02.getIntersection(leg_line_15);
-	designlab::SVector2 intersection_03_14 = leg_line_03.getIntersection(leg_line_14);
-	designlab::SVector2 intersection_03_15 = leg_line_03.getIntersection(leg_line_15);
+	designlab::SVector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
+	designlab::SVector2 intersection_02_15 = leg_line_02.GetIntersection(leg_line_15);
+	designlab::SVector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
+	designlab::SVector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
 
 	//中心と0番の脚位置を結んだ線分を求める
-	designlab::SLine2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], intersection_03_14);
+	designlab::LineSegment2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], intersection_03_14);
 
 	//多角形生成
 
-	(*output_poly).reset();
+	(*output_poly).Reset();
 
-	if (leg_line_0_center.hasIntersection(leg_line_25))
+	if (leg_line_0_center.HasIntersection(leg_line_25))
 	{
 		//交点がある場合，5角形の多角形を作成する
-		designlab::SVector2 intersection_03_25 = leg_line_03.getIntersection(leg_line_25);
-		designlab::SVector2 intersection_14_25 = leg_line_14.getIntersection(leg_line_25);
+		designlab::SVector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
+		designlab::SVector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
-		(*output_poly).addVertexCheckForDuplicates(intersection_03_15);
-		(*output_poly).addVertexCheckForDuplicates(intersection_02_15);
-		(*output_poly).addVertexCheckForDuplicates(intersection_02_14);
-		(*output_poly).addVertexCheckForDuplicates(intersection_14_25);
-		(*output_poly).addVertexCheckForDuplicates(intersection_03_25);
+		(*output_poly).AddVertexCheckForDuplicates(intersection_03_15);
+		(*output_poly).AddVertexCheckForDuplicates(intersection_02_15);
+		(*output_poly).AddVertexCheckForDuplicates(intersection_02_14);
+		(*output_poly).AddVertexCheckForDuplicates(intersection_14_25);
+		(*output_poly).AddVertexCheckForDuplicates(intersection_03_25);
 	}
 	else
 	{
 		//交点がない場合，既に求めた4点で，4角形の多角形を作成する
-		(*output_poly).addVertex(intersection_03_15);
-		(*output_poly).addVertex(intersection_02_15);
-		(*output_poly).addVertex(intersection_02_14);
-		(*output_poly).addVertex(intersection_03_14);
+		(*output_poly).AddVertex(intersection_03_15);
+		(*output_poly).AddVertex(intersection_02_15);
+		(*output_poly).AddVertex(intersection_02_14);
+		(*output_poly).AddVertex(intersection_03_14);
 	}
 }
 
-void ComCandidatePolygonMaker::makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::SPolygon2* out_poly, EDiscreteComPos* out_com_pattern) const
+void ComCandidatePolygonMaker::makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* out_poly, EDiscreteComPos* out_com_pattern) const
 {
-	designlab::SLine2 leg_line_03(leg_pos[0], leg_pos[3]);
-	designlab::SLine2 leg_line_14(leg_pos[1], leg_pos[4]);
-	designlab::SLine2 leg_line_25(leg_pos[2], leg_pos[5]);
+	designlab::LineSegment2 leg_line_03(leg_pos[0], leg_pos[3]);
+	designlab::LineSegment2 leg_line_14(leg_pos[1], leg_pos[4]);
+	designlab::LineSegment2 leg_line_25(leg_pos[2], leg_pos[5]);
 
 	//交点(intersection)を求める
-	designlab::SVector2 intersection_03_14 = leg_line_03.getIntersection(leg_line_14);
-	designlab::SVector2 intersection_03_25 = leg_line_03.getIntersection(leg_line_25);
-	designlab::SVector2 intersection_14_25 = leg_line_14.getIntersection(leg_line_25);
+	designlab::SVector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
+	designlab::SVector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
+	designlab::SVector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
 	//三角形を作成する．
-	(*out_poly).reset();
-	(*out_poly).addVertex(intersection_03_14);
-	(*out_poly).addVertex(intersection_03_25);
-	(*out_poly).addVertex(intersection_14_25);
+	(*out_poly).Reset();
+	(*out_poly).AddVertex(intersection_03_14);
+	(*out_poly).AddVertex(intersection_03_25);
+	(*out_poly).AddVertex(intersection_14_25);
 
 	if (intersection_03_14.x > intersection_03_25.x)
 	{
@@ -122,13 +122,13 @@ void ComCandidatePolygonMaker::makeCandidateTriangle(const designlab::SVector2 l
 	return;
 }
 
-bool ComCandidatePolygonMaker::checkPolygon(const designlab::SPolygon2& _poly) const
+bool ComCandidatePolygonMaker::checkPolygon(const designlab::Polygon2& _poly) const
 {
 	//生成されるのは 3 or 4 or 5角形のみ
-	if (_poly.getVertexNum() == 3 || _poly.getVertexNum() == 4 || _poly.getVertexNum() == 5)
+	if (_poly.GetVertexNum() == 3 || _poly.GetVertexNum() == 4 || _poly.GetVertexNum() == 5)
 	{
 		//凸多角形であるかを確認する
-		if (_poly.isConvex())
+		if (_poly.IsConvex())
 		{
 			return true;
 		}

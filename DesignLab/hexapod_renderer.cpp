@@ -6,10 +6,11 @@
 
 #include "dxlib_util.h"
 #include "leg_state.h"
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 
 
 namespace dldu = designlab::dxlib_util;
+namespace dlm = designlab::math_util;
 
 
 HexapodRenderer::HexapodRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
@@ -127,7 +128,7 @@ void HexapodRenderer::Draw() const
 
 
 		// エラー出力． 
-		if (!dl_math::isEqual(kCoxaLinkLength[i], HexapodConst::PHANTOMX_COXA_LENGTH))
+		if (!dlm::IsEqual(kCoxaLinkLength[i], HexapodConst::PHANTOMX_COXA_LENGTH))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
@@ -135,7 +136,7 @@ void HexapodRenderer::Draw() const
 				"Error : Coxa Length", COLOR_ERROR_TEXT);
 		}
 
-		if (!dl_math::isEqual(kFemurLinkLength[i], HexapodConst::PHANTOMX_FEMUR_LENGTH))
+		if (!dlm::IsEqual(kFemurLinkLength[i], HexapodConst::PHANTOMX_FEMUR_LENGTH))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
@@ -143,7 +144,7 @@ void HexapodRenderer::Draw() const
 				"Error : Femur Length", COLOR_ERROR_TEXT);
 		}
 
-		if (!dl_math::isEqual(kTibiaLinkLength[i], HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		if (!dlm::IsEqual(kTibiaLinkLength[i], HexapodConst::PHANTOMX_TIBIA_LENGTH))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
@@ -191,14 +192,14 @@ void HexapodRenderer::Draw() const
 
 bool HexapodRenderer::isAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
 {
-	if (abs((coxa_joint - femur_joint).Length() - HexapodConst::PHANTOMX_COXA_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
+	if (abs((coxa_joint - femur_joint).Length() - HexapodConst::PHANTOMX_COXA_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
 bool HexapodRenderer::isAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
 {
-	if (abs((femur_joint - tibia_joint).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dl_math::ALLOWABLE_ERROR) { return true; }
+	if (abs((femur_joint - tibia_joint).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 

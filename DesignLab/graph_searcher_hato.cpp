@@ -3,8 +3,11 @@
 #include <iostream>
 #include <cmath>
 
+#include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
+
+namespace dlm = designlab::math_util;
 
 
 GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
@@ -79,7 +82,7 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 				min_leg_dif = candiate_leg_dif;
 				result_index = static_cast<int>(i);
 			}
-			else if (dl_math::isEqual(max_rot_angle, candiate_rot_angle))
+			else if (dlm::IsEqual(max_rot_angle, candiate_rot_angle))
 			{
 				if (min_leg_dif > candiate_leg_dif)
 				{
@@ -89,7 +92,7 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 					min_leg_dif = candiate_leg_dif;
 					result_index = static_cast<int>(i);
 				}
-				else if (dl_math::isEqual(min_leg_dif, candiate_leg_dif))
+				else if (dlm::IsEqual(min_leg_dif, candiate_leg_dif))
 				{
 					if (max_leg_rot_angle < candiate_leg_rot_angle)
 					{
@@ -99,7 +102,7 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 						min_leg_dif = candiate_leg_dif;
 						result_index = static_cast<int>(i);
 					}
-					else if (dl_math::isEqual(max_leg_rot_angle, candiate_leg_rot_angle))
+					else if (dlm::IsEqual(max_leg_rot_angle, candiate_leg_rot_angle))
 					{
 						if (max_margin < candiate_margin)
 						{

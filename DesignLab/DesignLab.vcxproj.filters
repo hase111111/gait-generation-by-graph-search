@@ -129,9 +129,6 @@
     <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_math.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
     <ClInclude Include="map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
@@ -189,10 +186,10 @@
     <ClInclude Include="designlab_vector3.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_polygon.h">
+    <ClInclude Include="designlab_polygon2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_line.h">
+    <ClInclude Include="designlab_line_segment2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="com_candidate_polygon_maker.h">
@@ -372,6 +369,9 @@
     <ClInclude Include="cassert_define.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_math_util.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -394,9 +394,6 @@
     </ClCompile>
     <ClCompile Include="map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="designlab_math.cpp">
-      <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>
@@ -449,10 +446,10 @@
     <ClCompile Include="com_candidate_polygon_maker.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_line.cpp">
+    <ClCompile Include="designlab_line_segment2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_polygon.cpp">
+    <ClCompile Include="designlab_polygon2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="hexapod_next_move.cpp">
@@ -595,6 +592,12 @@
     </ClCompile>
     <ClCompile Include="hexapod.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_vector2.cpp">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_math_util.cpp">
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

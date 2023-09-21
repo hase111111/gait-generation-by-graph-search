@@ -4,7 +4,7 @@
 //#include <iostream>
 //
 //
-//bool ComSelecter::getComFromPolygon(const designlab::SPolygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3& output_com) const
+//bool ComSelecter::getComFromPolygon(const designlab::Polygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3& output_com) const
 //{
 //	std::vector<designlab::SVector2> coms;
 //
@@ -47,13 +47,13 @@
 //}
 //
 //
-//void ComSelecter::makeComCandidatePoint(const designlab::SPolygon2& polygon, std::vector<designlab::SVector2>& coms) const
+//void ComSelecter::makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::SVector2>& coms) const
 //{
 //	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
-//	const float kMinX = polygon.getMinX();
-//	const float kMaxX = polygon.getMaxX();
-//	const float kMinY = polygon.getMinY();
-//	const float kMaxY = polygon.getMaxY();
+//	const float kMinX = polygon.GetMinX();
+//	const float kMaxX = polygon.GetMaxX();
+//	const float kMinY = polygon.GetMinY();
+//	const float kMaxY = polygon.GetMaxY();
 //
 //	const float kWidth = kMaxX - kMinX;
 //	const float kHeight = kMaxY - kMinY;
@@ -68,7 +68,7 @@
 //		{
 //			const designlab::SVector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
 //
-//			if (polygon.isInside(kComPoint))
+//			if (polygon.IsInside(kComPoint))
 //			{
 //				coms.push_back(kComPoint);
 //			}
@@ -79,18 +79,18 @@
 //}
 //
 //
-//bool ComSelecter::isInMargin(const designlab::SPolygon2& polygon, const designlab::SVector2& com) const
+//bool ComSelecter::isInMargin(const designlab::Polygon2& polygon, const designlab::SVector2& com) const
 //{
 //	// @todo 動作がおかしいので修正すること
 //
-//	const int kVertexNum = polygon.getVertexNum();	//頂点数．何度も使用するので，先に計算しておくことで軽くする．
+//	const int kVertexNum = polygon.GetVertexNum();	//頂点数．何度も使用するので，先に計算しておくことで軽くする．
 //
 //	for (int j = 0; j < kVertexNum; ++j)
 //	{
-//		designlab::SVector2 v1 = polygon.getVertex((j + 1) % kVertexNum) - polygon.getVertex(j);
+//		designlab::SVector2 v1 = polygon.GetVertex((j + 1) % kVertexNum) - polygon.GetVertex(j);
 //		v1 = v1.Normalized();
 //
-//		designlab::SVector2 v_map = com - polygon.getVertex(j);
+//		designlab::SVector2 v_map = com - polygon.GetVertex(j);
 //
 //		if (v_map.Cross(v1) < STABILITY_MARGIN)
 //		{

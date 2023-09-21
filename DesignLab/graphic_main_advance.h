@@ -46,7 +46,7 @@ private:
 
 	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
 
-	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 

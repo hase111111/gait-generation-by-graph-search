@@ -2,9 +2,12 @@
 
 #include <cmath>
 
-#include "designlab_math.h"
-#include "designlab_line.h"
+#include "designlab_math_util.h"
+#include "designlab_line_segment2.h"
 #include "leg_state.h"
+
+
+namespace dlm = ::designlab::math_util;
 
 
 float HexapodStateCalclator_Old::m_leg_max_r[200] = {};
@@ -40,8 +43,6 @@ void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
 	//ノードの脚位置は正しい場所にあるという前提のもと計算するので，めちゃくちゃな値が代入されているとうまく動作しない．
 	//チェックする機能を付けると重くなるので，そもそもそんなノードを生成しないように注意する．
 
-	using namespace dl_math;
-
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
@@ -51,10 +52,10 @@ void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
 		m_local_femurjoint_pos[i] = designlab::Vector3(HexapodConst::PHANTOMX_COXA_LENGTH * cos(_coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * sin(_coxa_joint_angle), 0);
 
 
-		const float _L = std::sqrt(squared(_node.leg_pos[i].x - m_local_femurjoint_pos[i].x) + squared(_node.leg_pos[i].y - m_local_femurjoint_pos[i].y));				//脚先から第一関節までの長さ．
-		const float _leg_to_fumur_len = std::sqrt(squared(_L) + squared(_node.leg_pos[i].z));
+		const float _L = std::sqrt(dlm::Squared(_node.leg_pos[i].x - m_local_femurjoint_pos[i].x) + dlm::Squared(_node.leg_pos[i].y - m_local_femurjoint_pos[i].y));				//脚先から第一関節までの長さ．
+		const float _leg_to_fumur_len = std::sqrt(dlm::Squared(_L) + dlm::Squared(_node.leg_pos[i].z));
 
-		const float _s1 = squared(_leg_to_fumur_len) + squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - squared(HexapodConst::PHANTOMX_FEMUR_LENGTH);
+		const float _s1 = dlm::Squared(_leg_to_fumur_len) + dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH);
 		const float _s2 = 2 * HexapodConst::PHANTOMX_TIBIA_LENGTH * _leg_to_fumur_len;
 
 		const float _fumur_joint_angle = -(std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
@@ -64,7 +65,7 @@ void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
 				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
 
-		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dl_math::ALLOWABLE_ERROR)
+		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dlm::kAllowableError)
 		{
 			const float _fumur_joint_angle2 = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 
@@ -92,8 +93,6 @@ designlab::Vector3 HexapodStateCalclator_Old::getGlobalTibiaJointPos(const SNode
 
 void HexapodStateCalclator_Old::initLegR()
 {
-	using namespace dl_math;
-
 	for (int _z = 0; _z < MAX_DIF_Z; _z++)
 	{
 		float _max_r = 0;
@@ -106,7 +105,7 @@ void HexapodStateCalclator_Old::initLegR()
 			// 以下の三変数を辺とする三角形が成立するか調べる．
 			float _a = HexapodConst::PHANTOMX_TIBIA_LENGTH;
 			float _b = HexapodConst::PHANTOMX_FEMUR_LENGTH;
-			float _c = sqrt(squared(_tmp_leg.x - HexapodConst::PHANTOMX_COXA_LENGTH) + squared(_tmp_leg.z));
+			float _c = sqrt(dlm::Squared(_tmp_leg.x - HexapodConst::PHANTOMX_COXA_LENGTH) + dlm::Squared(_tmp_leg.z));
 
 			bool _is_vaild_triangle = true;
 			if (_a + _b < _c)_is_vaild_triangle = false;
@@ -169,10 +168,10 @@ bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 	//隣の脚との干渉を調べる．
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		designlab::SLine2 _line1(_joint_pos[i], _leg_pos[i]);
-		designlab::SLine2 _line2(_joint_pos[(i + 1) % HexapodConst::LEG_NUM], _leg_pos[(i + 1) % HexapodConst::LEG_NUM]);
+		designlab::LineSegment2 _line1(_joint_pos[i], _leg_pos[i]);
+		designlab::LineSegment2 _line2(_joint_pos[(i + 1) % HexapodConst::LEG_NUM], _leg_pos[(i + 1) % HexapodConst::LEG_NUM]);
 
-		if (_line1.hasIntersection(_line2)) { return true; }
+		if (_line1.HasIntersection(_line2)) { return true; }
 	}
 
 	return false;
@@ -191,8 +190,8 @@ bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_nu
 
 
 	////脚を伸ばすことのできない範囲に伸ばしていないか調べる．
-	if (dl_math::squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.LengthSquare()) { return false; }
-	if (dl_math::squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.LengthSquare()) { return false; }
 
 	return true;
 }
@@ -209,8 +208,8 @@ bool HexapodStateCalclator_Old::isLegInRange(const designlab::Vector3& local_leg
 	if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 
 	////脚を伸ばすことのできない範囲に伸ばしていないか調べる．
-	if (dl_math::squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.LengthSquare()) { return false; }
-	if (dl_math::squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.LengthSquare()) { return false; }
 
 	return true;
 }
