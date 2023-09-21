@@ -85,6 +85,7 @@
     <ClInclude Include="designlab_line_segment2.h" />
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
+    <ClInclude Include="phantomx_state_calculator_hato.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
+    <ClCompile Include="phantomx_state_calculator_hato.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="output_detail.cpp" />

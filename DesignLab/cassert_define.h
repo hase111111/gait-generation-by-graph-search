@@ -20,6 +20,30 @@
 
 #endif 
 
+
+#ifndef NDEBUG
+
+#include <cstdlib>
+#include <iostream>
+
+//éQçl : https://programming-place.net/ppp/contents/cpp2/main/answer/assert_answer.html#ans4
+
+#define DESIGNLAB_MSG_ASSERT(cond, msg)  \
+    if (!(cond)) { \
+        std::cerr << "Assertion failed: " << #cond << ", " << __FILE__ << " " << __LINE__ << " " << __func__ << "\n"; \
+        std::cerr << (msg) << "\n"; \
+        std::abort(); \
+    }
+
+#else 
+
+#define DESIGNLAB_MSG_ASSERT(cond,msg) ((void)0)
+
+#endif // NDEBUG
+
+
+
+
 #include <cassert>
 
 #endif // !DESIGNLAB_CASSERT_DEFINE_H_

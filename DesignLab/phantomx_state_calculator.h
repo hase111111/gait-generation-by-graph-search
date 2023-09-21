@@ -7,7 +7,7 @@
 #include "hexapod_const.h"
 
 
-class PhantomXStateCalclator final : public AbstractHexapodStateCalculator
+class PhantomXStateCalclator : public AbstractHexapodStateCalculator
 {
 public:
 
@@ -30,7 +30,7 @@ public:
 	designlab::Vector3 getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
 
 
-	bool isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
+	virtual bool isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
 
 	bool isLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const override;
 

@@ -378,6 +378,9 @@
     <ClInclude Include="node_creator_builder_hato.h">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
+    <ClInclude Include="phantomx_state_calculator_hato.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -607,6 +610,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_builder_hato.cpp">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="phantomx_state_calculator_hato.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

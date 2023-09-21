@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "cassert_define.h"
+
 
 namespace
 {
@@ -15,6 +17,9 @@ namespace
 
 	// falseの場合，出力を行わない(システムメッセージは除く)
 	bool do_output = true;
+
+	// 初期化を既に行ったかどうか
+	bool is_initialized = false;
 }
 
 
@@ -25,6 +30,7 @@ namespace designlab
 		void SetOutputLimit(const OutputDetail limit)
 		{
 			::output_limit = limit;
+			is_initialized = true;
 		}
 
 		void SetDoOutput(bool do_output_)
@@ -34,6 +40,9 @@ namespace designlab
 
 		void Output(const std::string& str, const OutputDetail detail, const bool wait_cin)
 		{
+			assert(is_initialized);	// SetOutputLimitを呼んでから使用する.
+
+
 			// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
 			// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
 
