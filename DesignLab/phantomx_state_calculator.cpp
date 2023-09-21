@@ -2,6 +2,7 @@
 
 #include <cmath>
 
+#include "cassert_define.h"
 #include "designlab_line_segment2.h"
 #include "designlab_math_util.h"
 
@@ -74,12 +75,16 @@ designlab::Vector3 PhantomXStateCalclator::convertGlobalToLegPosition(const int 
 
 designlab::Vector3 PhantomXStateCalclator::getLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	return leg_pos + getLocalLegBasePosition(leg_index);
 }
 
 
 designlab::Vector3 PhantomXStateCalclator::getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	if (consider_rot) { return designlab::rotVector(getLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
 	else { return getLocalLegBasePosition(leg_index) + global_center_of_mass; }
 }
@@ -87,6 +92,8 @@ designlab::Vector3 PhantomXStateCalclator::getGlobalLegBasePosition(const int le
 
 designlab::Vector3 PhantomXStateCalclator::getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	if (consider_rot) { return designlab::rotVector(getLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
 	else { return global_center_of_mass + getLocalLegBasePosition(leg_index) + leg_pos; }
 }
@@ -94,6 +101,8 @@ designlab::Vector3 PhantomXStateCalclator::getGlobalLegPosition(const int leg_in
 
 bool PhantomXStateCalclator::isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	//”ÍˆÍŠO‚È‚çfalse
 	if (getLegPosIndex(leg_pos.x) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.x)) { return false; }
 	if (getLegPosIndex(leg_pos.y) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.y)) { return false; }
@@ -145,6 +154,8 @@ bool PhantomXStateCalclator::isLegInterfering(const designlab::Vector3 leg_pos[H
 
 bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, const int y, const int z) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	float x_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * x + LEG_POS_MIN;
 	float y_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * y + LEG_POS_MIN;
 	float z_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * z + LEG_POS_MIN;
@@ -193,6 +204,8 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 
 void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const designlab::Vector3& leg_pos, SHexapodJointState* joint_state) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+
 	const int kLinkNum = 4;
 	const int kJointNum = kLinkNum - 1;
 

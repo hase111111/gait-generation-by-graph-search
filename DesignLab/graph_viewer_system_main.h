@@ -9,7 +9,7 @@
 #include "map_state.h"
 #include "graphic_system.h"
 #include "graphic_data_broker.h"
-#include "abstract_pass_finder.h"
+#include "interface_pass_finder.h"
 #include "application_setting_recorder.h"
 
 
@@ -23,7 +23,7 @@ class GraphViewerSystemMain final
 public:
 
 	GraphViewerSystemMain(
-		std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
@@ -49,7 +49,7 @@ private:
 
 	GraphicSystem graphic_system_;
 
-	std::unique_ptr<AbstractPassFinder> pass_finder_ptr_;
+	std::unique_ptr<IPassFinder> pass_finder_ptr_;
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 

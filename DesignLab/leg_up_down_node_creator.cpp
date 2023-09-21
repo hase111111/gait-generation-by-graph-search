@@ -12,7 +12,7 @@
 namespace dlm = designlab::math_util;
 
 
-LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
 	kLegMargin(20),
 	kHighMargin(5),
 	map_(map),

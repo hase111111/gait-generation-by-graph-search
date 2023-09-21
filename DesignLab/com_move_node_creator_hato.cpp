@@ -7,7 +7,7 @@
 namespace dlm = designlab::math_util;
 
 
-ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
 	kStableMargin(15.0f),
 	map_(map), 
 	calculator_ptr_(calc), 

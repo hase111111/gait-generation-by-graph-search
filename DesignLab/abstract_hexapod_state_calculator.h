@@ -109,21 +109,6 @@ public:
 	
 protected:
 
-	//! @brief 脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．
-	//! @param [in] leg_index 脚番号．0以上，6未満であること．
-	//! @return 脚番号が正しければtrue．正しくなければfalse．
-	constexpr bool checkLegIndex(const int leg_index) const
-	{
-		if (leg_index < 0 || leg_index >= HexapodConst::LEG_NUM)
-		{
-			return false;
-		}
-		return true;
-	}
-
-
-	static constexpr bool DO_CHECK_LEG_INDEX = false;				//!< 脚番号のチェックをするかどうか．速さのために，デバッグ時以外はfalseにすること．
-
 
 	designlab::Vector3 m_local_leg_base_pos[HexapodConst::LEG_NUM];	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
 };

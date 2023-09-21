@@ -23,7 +23,7 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, EHexapodMove next_move);
+	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
 	void Create(const SNode& current_node, int current_num, std::vector<SNode>* output_graph) override;
@@ -49,7 +49,7 @@ private:
 
 	ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
 
-	const EHexapodMove next_move_;	//!< 次の移動方向
+	const HexapodMove next_move_;	//!< 次の移動方向
 };
 
 

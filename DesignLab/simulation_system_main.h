@@ -8,7 +8,7 @@
 #include <string>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "abstract_pass_finder.h"
+#include "interface_pass_finder.h"
 #include "application_setting_recorder.h"
 #include "stopwatch.h"
 #include "graphic_data_broker.h"
@@ -33,7 +33,7 @@ public:
 	//! @param[in] broker_ptr グラフィックデータを管理するクラス．
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SimulationSystemMain(
-		std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
@@ -51,7 +51,7 @@ private:
 	void OutputSetting() const;
 
 
-	std::unique_ptr<AbstractPassFinder> pass_finder_ptr_;
+	std::unique_ptr<IPassFinder> pass_finder_ptr_;
 
 	GraphicSystem graphic_system_;
 

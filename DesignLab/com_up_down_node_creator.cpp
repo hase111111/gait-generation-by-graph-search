@@ -11,7 +11,7 @@
 namespace dlm = ::designlab::math_util;
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
 	map_(map),
 	calclator_(calc),
 	next_move_(next_move)
