@@ -105,10 +105,10 @@ $(document).ready(function(){initNavTree('class_map_creator.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a28eec748181a2ce27d6aa7c177388652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#a28eec748181a2ce27d6aa7c177388652">create</a> (const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, const int option, const bool do_output, std::vector&lt; <a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> &gt; *map_data)</td></tr>
-<tr class="memdesc:a28eec748181a2ce27d6aa7c177388652"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ情報を与える関数 <br  />
+<tr class="memitem:a26eec20a7fed0213436c29cee082febb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_state.html">MapState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#a26eec20a7fed0213436c29cee082febb">Create</a> (const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, const int option, const bool do_output)</td></tr>
+<tr class="memdesc:a26eec20a7fed0213436c29cee082febb"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ情報を与える関数 <br  />
  getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する  <br /></td></tr>
-<tr class="separator:a28eec748181a2ce27d6aa7c177388652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a26eec20a7fed0213436c29cee082febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -155,14 +155,14 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
 <p>MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス． <br  />
  先行研究のプログラムでは mainfunction.h で実装されていた処理である． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a28eec748181a2ce27d6aa7c177388652" name="a28eec748181a2ce27d6aa7c177388652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28eec748181a2ce27d6aa7c177388652">&#9670;&#160;</a></span>create()</h2>
+<a id="a26eec20a7fed0213436c29cee082febb" name="a26eec20a7fed0213436c29cee082febb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26eec20a7fed0213436c29cee082febb">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">﻿ void MapCreator::create </td>
+          <td class="memname">﻿ <a class="el" href="class_map_state.html">MapState</a> MapCreator::Create </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
           <td class="paramname"><em>mode</em>, </td>
@@ -177,13 +177,7 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>do_output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structdl__vec_1_1_s_vector.html">dl_vec::SVector</a> &gt; *&#160;</td>
-          <td class="paramname"><em>map_data</em>&#160;</td>
+          <td class="paramname"><em>do_output</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -205,13 +199,23 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
   </dd>
 </dl>
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph.png" border="0" usemap="#aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph" alt=""/></div>
+<map name="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph" id="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph">
+<area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="5,5,140,32"/>
+<area shape="rect" href="class_map_state.html#ac99e8ae5e2f78897f713ae3514504ad0" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="188,5,358,32"/>
+<area shape="poly" title=" " alt="" coords="140,16,173,16,173,21,140,21"/>
+</map>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_creator_a28eec748181a2ce27d6aa7c177388652_icgraph.png" border="0" usemap="#aclass_map_creator_a28eec748181a2ce27d6aa7c177388652_icgraph" alt=""/></div>
-<map name="aclass_map_creator_a28eec748181a2ce27d6aa7c177388652_icgraph" id="aclass_map_creator_a28eec748181a2ce27d6aa7c177388652_icgraph">
-<area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="156,5,288,32"/>
-<area shape="rect" href="class_map_state.html#a658eabf1dc87c473fc52693313168f53" title=" " alt="" coords="5,5,108,32"/>
-<area shape="poly" title=" " alt="" coords="141,21,108,21,108,16,141,16"/>
+<div class="center"><img src="class_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph.png" border="0" usemap="#aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph" alt=""/></div>
+<map name="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph" id="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph">
+<area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="217,13,351,40"/>
+<area shape="rect" href="class_simulation_system_main.html#af3c18df0b0ecd87b0ed9d23d4906ccea" title=" " alt="" coords="5,5,169,48"/>
+<area shape="poly" title=" " alt="" coords="202,29,169,29,169,24,202,24"/>
 </map>
 </div>
 

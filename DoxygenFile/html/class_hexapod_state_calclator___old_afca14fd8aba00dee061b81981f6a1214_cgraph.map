@@ -1,0 +1,15 @@
+<map id="HexapodStateCalclator_Old::calculateStaticMargin" name="HexapodStateCalclator_Old::calculateStaticMargin">
+<area shape="rect" id="Node000001" title="静的安定余裕を計算する．" alt="" coords="5,64,187,107"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="235,5,364,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,61,220,47,221,52,173,66"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="235,72,364,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,83,220,83,220,88,187,88"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="235,123,364,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,105,221,119,220,124,171,110"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="412,89,549,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="364,129,397,123,398,129,365,135"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="416,156,545,199"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="365,153,402,160,401,165,364,159"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="597,156,727,199"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="546,175,582,175,582,180,546,180"/>
+</map>

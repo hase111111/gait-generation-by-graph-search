@@ -1,5 +1,0 @@
-<map id="HexapodStateCalclator::convertLocalLegPos" name="HexapodStateCalclator::convertLocalLegPos">
-<area shape="rect" id="Node000001" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="220,5,374,48"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,172,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,29,172,29,172,24,205,24"/>
-</map>

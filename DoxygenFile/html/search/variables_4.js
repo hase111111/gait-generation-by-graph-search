@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['end_0',['end',['../structdl__vec_1_1_s_line2.html#a314c1143e15a6cef9b5dc89a32da3316',1,'dl_vec::SLine2']]]
+  ['end_0',['end',['../structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8',1,'designlab::LineSegment2']]]
 ];

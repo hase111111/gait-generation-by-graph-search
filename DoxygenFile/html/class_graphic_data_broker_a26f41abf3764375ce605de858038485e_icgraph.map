@@ -1,5 +1,0 @@
-<map id="GraphicDataBroker::getNodeNum" name="GraphicDataBroker::getNodeNum">
-<area shape="rect" id="Node000001" title="セットされているノードの数を返す．" alt="" coords="222,5,361,48"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
-</map>

@@ -1,0 +1,11 @@
+<map id="designlab::SQuaternion::setRotAngleAndAxis" name="designlab::SQuaternion::setRotAngleAndAxis">
+<area shape="rect" id="Node000001" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="607,19,764,61"/>
+<area shape="rect" id="Node000002" href="$class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="407,48,559,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="593,56,560,61,559,56,592,51"/>
+<area shape="rect" id="Node000003" href="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="189,5,359,32"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="592,38,360,26,360,20,592,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,50,331,35,332,30,393,45"/>
+<area shape="rect" id="Node000004" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="5,31,141,57"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="392,66,141,51,141,45,393,61"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="175,34,141,38,141,33,174,29"/>
+</map>

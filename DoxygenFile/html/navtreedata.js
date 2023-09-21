@@ -31,7 +31,7 @@ var NAVTREE =
         [ "全て", "namespacemembers.html", null ],
         [ "関数", "namespacemembers_func.html", null ],
         [ "変数", "namespacemembers_vars.html", null ],
-        [ "列挙型", "namespacemembers_enum.html", null ]
+        [ "型定義", "namespacemembers_type.html", null ]
       ] ]
     ] ],
     [ "クラス", "annotated.html", [
@@ -40,7 +40,7 @@ var NAVTREE =
       [ "クラス階層", "hierarchy.html", "hierarchy" ],
       [ "クラスメンバ", "functions.html", [
         [ "全て", "functions.html", "functions_dup" ],
-        [ "関数", "functions_func.html", null ],
+        [ "関数", "functions_func.html", "functions_func" ],
         [ "変数", "functions_vars.html", null ]
       ] ]
     ] ],
@@ -57,9 +57,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_b_f_sin_hierarchy_8h_source.html",
-"class_map_const.html#ac756fafd7f1b5257771da9809c88a6b3",
-"keyboard_8h_source.html",
-"structdl__vec_1_1_s_vector2.html#a2d3febc3debf883cc0ea2e6a04459a97"
+"class_map_const.html#a81830ca0dbc6bfa4f4ed4b2c529ecf39",
+"hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80aa180ec69d14f5c367e86bc5ae32bdd10",
+"structdesignlab_1_1_euler_x_y_z.html#a15a25bbded03d1d92f9425fe7b401225"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

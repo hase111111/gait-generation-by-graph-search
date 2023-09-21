@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('class_i_graphic_main.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_i_graphic_main-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">IGraphicMain クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -106,69 +105,35 @@ IGraphicMain の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_graphic_main__inherit__graph.png" border="0" usemap="#a_i_graphic_main_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_graphic_main_inherit__map" id="a_i_graphic_main_inherit__map">
-<area shape="rect" title="GraphicMainのインターフェース" alt="" coords="280,5,378,32"/>
-<area shape="rect" href="class_graphic_main_basic.html" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="5,80,133,107"/>
-<area shape="poly" title=" " alt="" coords="270,39,115,82,114,77,269,34"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html" title="GraphViewerの画面を表示するクラス" alt="" coords="157,80,325,107"/>
-<area shape="poly" title=" " alt="" coords="304,44,258,82,254,78,301,40"/>
-<area shape="rect" href="class_graphic_main_sample.html" title="サンプル描画クラス．サンプルメッセージを表示する．" alt="" coords="349,80,488,107"/>
-<area shape="poly" title=" " alt="" coords="357,39,405,78,401,82,354,43"/>
-<area shape="rect" href="class_graphic_main_test.html" title="MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン" alt="" coords="512,80,631,107"/>
-<area shape="poly" title=" " alt="" coords="386,34,530,77,528,82,384,39"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
-<div class="dynheader">
-IGraphicMain 連携図</div>
-<div class="dyncontent">
-<div class="center"><img src="class_i_graphic_main__coll__graph.png" border="0" usemap="#a_i_graphic_main_coll__map" alt="Collaboration graph"/></div>
-<map name="a_i_graphic_main_coll__map" id="a_i_graphic_main_coll__map">
-<area shape="rect" title="GraphicMainのインターフェース" alt="" coords="22,96,120,123"/>
-<area shape="rect" href="class_graphic_data_broker.html" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="5,5,137,32"/>
-<area shape="poly" title=" " alt="" coords="74,47,74,95,68,95,68,47"/>
+<area shape="rect" title="GraphicMainのインターフェース" alt="" coords="274,5,371,32"/>
+<area shape="rect" href="class_graphic_main_advance.html" title=" " alt="" coords="5,80,149,107"/>
+<area shape="poly" title=" " alt="" coords="267,39,121,82,119,77,265,34"/>
+<area shape="rect" href="class_graphic_main_basic.html" title="このプロジェクトにおける標準的なロボットの描画機能を持つクラス．" alt="" coords="173,80,301,107"/>
+<area shape="poly" title=" " alt="" coords="298,44,253,82,250,78,295,40"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html" title="GraphViewerの画面を表示するクラス" alt="" coords="325,80,493,107"/>
+<area shape="poly" title=" " alt="" coords="350,40,396,78,392,82,347,44"/>
+<area shape="rect" href="class_graphic_main_test.html" title="MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．" alt="" coords="517,80,637,107"/>
+<area shape="poly" title=" " alt="" coords="381,34,533,77,532,82,380,39"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a94b6768fe891b0b7b723a2a200bc869d"><td class="memItemLeft" align="right" valign="top"><a id="a94b6768fe891b0b7b723a2a200bc869d" name="a94b6768fe891b0b7b723a2a200bc869d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphicMain</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *broker)</td></tr>
-<tr class="memdesc:a94b6768fe891b0b7b723a2a200bc869d"><td class="mdescLeft">&#160;</td><td class="mdescRight">このクラスの継承先では，GraphicDataBrokerクラスのポインタを引数に持つコンストラクタを実装する必要がある． <br /></td></tr>
-<tr class="separator:a94b6768fe891b0b7b723a2a200bc869d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">update</a> ()=0</td></tr>
-<tr class="memdesc:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
-<tr class="separator:acc0f228e5ab5ee16a3b1ed118bc2953e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc0393789ce333b1f1992982f437166"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">draw</a> () const =0</td></tr>
-<tr class="memdesc:aebc0393789ce333b1f1992982f437166"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
-<tr class="separator:aebc0393789ce333b1f1992982f437166"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-限定公開変数類</h2></td></tr>
-<tr class="memitem:a9a022dc71ecb9508bbb50af0a6599607"><td class="memItemLeft" align="right" valign="top"><a id="a9a022dc71ecb9508bbb50af0a6599607" name="a9a022dc71ecb9508bbb50af0a6599607"></a>
-const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *const&#160;</td><td class="memItemRight" valign="bottom"><b>mp_broker</b></td></tr>
-<tr class="memdesc:a9a022dc71ecb9508bbb50af0a6599607"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る． <br /></td></tr>
-<tr class="separator:a9a022dc71ecb9508bbb50af0a6599607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab16f967d7e2dc2ac131395526d6da61a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#ab16f967d7e2dc2ac131395526d6da61a">Update</a> ()=0</td></tr>
+<tr class="memdesc:ab16f967d7e2dc2ac131395526d6da61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
+<tr class="separator:ab16f967d7e2dc2ac131395526d6da61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5eae28451defe6b9862490f3d423107"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#ae5eae28451defe6b9862490f3d423107">Draw</a> () const =0</td></tr>
+<tr class="memdesc:ae5eae28451defe6b9862490f3d423107"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
+<tr class="separator:ae5eae28451defe6b9862490f3d423107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>GraphicMainのインターフェース </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
-<p>描画の処理を行うクラスは必ずこのクラスを継承すること．逆に言えば継承すれば自由に処理が交換可能になる．<br  />
- <br  />
- [インターフェイスについて] <br  />
- このクラスはインターフェース(純粋仮想関数のみをもつ実体を生成できないクラス)といえる． <br  />
- 所謂「依存性の注入」というやつ．GraphicLoopはGraphicMainの処理に依存してしまうため，これをインターフェイスにすることでGraphicLoopはGraphicMainの <br  />
- インターフェイス(update関数の戻り値)にのみ関心を持つようになり，依存性を解消できるようになる． <br  />
- まぁ「依存性の注入」については正直自分もよくわかっていないので，理解しなくても大丈夫． <br  />
- 参考: <a href="https://qiita.com/okazuki/items/a0f2fb0a63ca88340ff6">https://qiita.com/okazuki/items/a0f2fb0a63ca88340ff6</a> <br  />
- <a href="https://qiita.com/okazuki/items/0c17a161a921847cd080">https://qiita.com/okazuki/items/0c17a161a921847cd080</a> <br  />
- ともかく，交換可能なグラフィックのパーツを作るための型がこの親クラスだということ．<br  />
-<br  />
- 継承先のクラスではupdateとdrawをoverrideする必要がある． <br  />
- よくわからないなら，「クラスの継承」「関数のオーバーライド（オーバーロードとは別物）」「完全仮想関数」あたりを調べてみるとよいと思う．ぶっちゃけ，よくわからなくても大丈夫． <br  />
+<p>描画の処理を行うクラスは必ずこのクラスを継承すること．逆に言えば継承すれば自由に処理が交換可能になる． <br  />
+ ともかく，交換可能なグラフィックのパーツを作るための金型がこの親クラスだということ． <br  />
  ひとまず，継承先のGraphicMainSampleを確認すればなんとなくわかると思う． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="aebc0393789ce333b1f1992982f437166" name="aebc0393789ce333b1f1992982f437166"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebc0393789ce333b1f1992982f437166">&#9670;&#160;</a></span>draw()</h2>
+<a id="ae5eae28451defe6b9862490f3d423107" name="ae5eae28451defe6b9862490f3d423107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5eae28451defe6b9862490f3d423107">&#9670;&#160;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +142,7 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void IGraphicMain::draw </td>
+          <td class="memname">virtual void IGraphicMain::Draw </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -192,12 +157,12 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 
 <p>描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数． </p>
 
-<p><a class="el" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd">GraphicMainBasic</a>, <a class="el" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a">GraphicMainGraphViewer</a>, <a class="el" href="class_graphic_main_sample.html#a6a21a7479e2055aa7f6e14e102bf9ef0">GraphicMainSample</a>, <a class="el" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5">GraphicMainTest</a>で実装されています。</p>
+<p><a class="el" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb">GraphicMainAdvance</a>, <a class="el" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061">GraphicMainBasic</a>, <a class="el" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e">GraphicMainGraphViewer</a>, <a class="el" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d">GraphicMainTest</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="acc0f228e5ab5ee16a3b1ed118bc2953e" name="acc0f228e5ab5ee16a3b1ed118bc2953e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc0f228e5ab5ee16a3b1ed118bc2953e">&#9670;&#160;</a></span>update()</h2>
+<a id="ab16f967d7e2dc2ac131395526d6da61a" name="ab16f967d7e2dc2ac131395526d6da61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16f967d7e2dc2ac131395526d6da61a">&#9670;&#160;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +171,7 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool IGraphicMain::update </td>
+          <td class="memname">virtual bool IGraphicMain::Update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -222,13 +187,12 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 <p>描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある． </p>
 <dl class="section return"><dt>戻り値</dt><dd>bool ループを抜け，グラフィックの表示を終了するならばfalseをかえす． </dd></dl>
 
-<p><a class="el" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43">GraphicMainBasic</a>, <a class="el" href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a">GraphicMainGraphViewer</a>, <a class="el" href="class_graphic_main_sample.html#a1a14421a8f47822935b752d11d824c1f">GraphicMainSample</a>, <a class="el" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6">GraphicMainTest</a>で実装されています。</p>
+<p><a class="el" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d">GraphicMainAdvance</a>, <a class="el" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985">GraphicMainBasic</a>, <a class="el" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0">GraphicMainGraphViewer</a>, <a class="el" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916">GraphicMainTest</a>で実装されています。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="interface__graphic__main_8h_source.html">interface_graphic_main.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/interface_graphic_main.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

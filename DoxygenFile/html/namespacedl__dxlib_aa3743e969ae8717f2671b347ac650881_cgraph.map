@@ -1,5 +1,0 @@
-<map id="dl_dxlib::drawCube3DWithTopPos" name="dl_dxlib::drawCube3DWithTopPos">
-<area shape="rect" id="Node000001" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="5,5,179,48"/>
-<area shape="rect" id="Node000002" href="$namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0" title="3D空間に立方体を描画する．" alt="" coords="227,13,373,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,24,212,24,212,29,179,29"/>
-</map>

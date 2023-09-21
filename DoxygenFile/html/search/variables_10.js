@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['targetangle_0',['TargetAngle',['../struct_s_target.html#a9f0fd409b7e8ac97e7c847f45bb15f44',1,'STarget']]],
-  ['targetdirection_1',['TargetDirection',['../struct_s_target.html#a61df17e0d75ba2e075e077c2274229ba',1,'STarget']]],
-  ['targetmode_2',['TargetMode',['../struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46',1,'STarget']]],
-  ['targetposition_3',['TargetPosition',['../struct_s_target.html#a0c1cd889d926b935d236ba1836857c39',1,'STarget']]],
-  ['targetrotation_4',['TargetRotation',['../struct_s_target.html#accc34415dd66057b029af85cc5f1bd82',1,'STarget']]],
-  ['tibia_5flength_5',['TIBIA_LENGTH',['../class_hexapod_const.html#aaa6cb7e6b6af6c8e4951e43cec5ec9e5',1,'HexapodConst']]],
-  ['tilt_5fangle_6',['TILT_ANGLE',['../class_map_const.html#aa1753756aca731cde89df75d19009fc6',1,'MapConst']]],
-  ['turningradius_7',['TurningRadius',['../struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5',1,'STarget']]]
+  ['result_5fnodes_0',['result_nodes',['../struct_s_simulation_result_recorder.html#a30e572996e03f8c47c49fd70732b8625',1,'SSimulationResultRecorder']]],
+  ['rot_1',['rot',['../struct_s_node.html#a18454607b722bf990c15f18d03dbd54c',1,'SNode']]],
+  ['rotationcenter_2',['RotationCenter',['../struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1',1,'STarget']]],
+  ['rough_5fmax_5fdif_3',['rough_max_dif',['../struct_s_application_setting_recorder.html#a495bdc5112cb2c9fd3fa47fee25d0074',1,'SApplicationSettingRecorder']]],
+  ['rough_5fmax_5fheight_4',['ROUGH_MAX_HEIGHT',['../class_map_const.html#afe1bbc3605fc0cec667449c4f5ab99ac',1,'MapConst']]],
+  ['rough_5fmin_5fdif_5',['rough_min_dif',['../struct_s_application_setting_recorder.html#adb15974485f8f41d0d07b4ece066b9a1',1,'SApplicationSettingRecorder']]],
+  ['rough_5fmin_5fheight_6',['ROUGH_MIN_HEIGHT',['../class_map_const.html#ae30e670f77be7107fe818a4677f1732d',1,'MapConst']]]
 ];

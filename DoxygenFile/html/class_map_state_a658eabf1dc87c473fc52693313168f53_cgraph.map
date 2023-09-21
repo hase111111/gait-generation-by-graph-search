@@ -1,5 +1,0 @@
-<map id="MapState::init" name="MapState::init">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" id="Node000002" href="$class_map_creator.html#a28eec748181a2ce27d6aa7c177388652" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="156,5,288,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,16,141,16,141,21,108,21"/>
-</map>

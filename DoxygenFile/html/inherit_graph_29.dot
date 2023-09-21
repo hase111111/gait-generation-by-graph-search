@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="HexapodStateCalclator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator.html",tooltip="ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．"];
+  Node0 [id="Node000000",label="GraphSearchConst",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_search_const.html",tooltip="グラフ探索の定数をまとめたクラス"];
 }

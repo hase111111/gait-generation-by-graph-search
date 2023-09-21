@@ -1,7 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_abstract_pass_finder_factory.html" title="パス探索に必要なクラスを生成するアブストラクトファクトリー．" alt="" coords="5,31,186,57"/>
-<area shape="rect" id="Node000001" href="$class_pass_finder_factory_fixed.html" title="再評価手法" alt="" coords="234,5,397,32"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="200,29,233,25,234,31,201,35"/>
-<area shape="rect" id="Node000002" href="$class_pass_finder_factory_hato.html" title="パス探索クラスのファクトリークラス" alt="" coords="236,56,395,83"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="201,53,236,58,235,63,200,59"/>
+<area shape="rect" id="Node000000" href="$class_abstract_hexapod_state_calculator.html" title="ロボットの状態を計算するクラスの抽象クラス． &#160;&#160;このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． &#160;&#160;スレッドセーフなクラスにするこ..." alt="" coords="5,5,216,32"/>
+<area shape="rect" id="Node000001" href="$class_phantom_x_state_calclator.html" title=" " alt="" coords="264,5,426,32"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="231,16,263,16,263,21,231,21"/>
 </map>

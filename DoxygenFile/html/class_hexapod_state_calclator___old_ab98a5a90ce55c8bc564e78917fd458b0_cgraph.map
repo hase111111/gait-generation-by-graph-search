@@ -1,0 +1,9 @@
+<map id="HexapodStateCalclator_Old::isAblePause" name="HexapodStateCalclator_Old::isAblePause">
+<area shape="rect" id="Node000001" title="転ばない姿勢かどうか調べる．" alt="" coords="5,64,160,107"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="208,5,337,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,61,193,48,195,53,154,66"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="208,72,337,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,83,193,83,193,88,160,88"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="208,123,337,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,105,195,117,193,122,153,110"/>
+</map>

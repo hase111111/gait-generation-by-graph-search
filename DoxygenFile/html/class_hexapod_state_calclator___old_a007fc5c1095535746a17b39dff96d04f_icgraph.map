@@ -1,0 +1,5 @@
+<map id="HexapodStateCalclator_Old::getGlobalLegBasePos" name="HexapodStateCalclator_Old::getGlobalLegBasePos">
+<area shape="rect" id="Node000001" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="222,5,407,48"/>
+<area shape="rect" id="Node000002" href="$class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,13,174,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>

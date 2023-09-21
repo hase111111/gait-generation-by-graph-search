@@ -1,4 +1,4 @@
 var class_singleton =
 [
-    [ "getIns", "class_singleton.html#a770513deea79541075e950e16d84c69a", null ]
+    [ "GetIns", "class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff", null ]
 ];

@@ -97,47 +97,42 @@ $(document).ready(function(){initNavTree('designlab__vector2_8h.html',''); initR
 </div><!--header-->
 <div class="contents">
 
-<p>2次元のベクトルを表す構造体 <br  />
- 行数 : 137  
+<p>2次元のベクトルを表す構造体  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="designlab__math_8h_source.html">designlab_math.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &quot;designlab_math_util.h&quot;</code><br />
 </div>
 <p><a href="designlab__vector2_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdl__vec_1_1_s_vector2.html">dl_vec::SVector2</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2次元のベクトルを表す構造体  <a href="structdl__vec_1_1_s_vector2.html#details">[詳解]</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_vector2.html">designlab::Vector2</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2次元の位置ベクトルを表す構造体  <a href="structdesignlab_1_1_vector2.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 名前空間</h2></td></tr>
-<tr class="memitem:namespacedl__vec"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__vec.html">dl_vec</a></td></tr>
-<tr class="memdesc:namespacedl__vec"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置ベクトルを表現する構造体SVectorや回転を表現するSRotatorが実装されている． <br /></td></tr>
+<tr class="memitem:namespacedesignlab"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html">designlab</a></td></tr>
+<tr class="memdesc:namespacedesignlab"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置ベクトルを表現する構造体 <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ad9eb51bc92254f6c1f87d2874acd1e47"><td class="memItemLeft" align="right" valign="top"><a id="ad9eb51bc92254f6c1f87d2874acd1e47" name="ad9eb51bc92254f6c1f87d2874acd1e47"></a>
-constexpr <a class="el" href="structdl__vec_1_1_s_vector2.html">SVector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_vec::operator*</b> (float s, const <a class="el" href="structdl__vec_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
-<tr class="separator:ad9eb51bc92254f6c1f87d2874acd1e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b1f3922b8a49d6ae9a3a82056393ec6"><td class="memTemplParams" colspan="2"><a id="a5b1f3922b8a49d6ae9a3a82056393ec6" name="a5b1f3922b8a49d6ae9a3a82056393ec6"></a>
+<tr class="memitem:a5c0b111e17683a8a0fc71d3500672211"><td class="memItemLeft" align="right" valign="top"><a id="a5c0b111e17683a8a0fc71d3500672211" name="a5c0b111e17683a8a0fc71d3500672211"></a>
+constexpr <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a> &amp;v)</td></tr>
+<tr class="separator:a5c0b111e17683a8a0fc71d3500672211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fcdad0fb1e81af7282759914d483e73"><td class="memTemplParams" colspan="2"><a id="a1fcdad0fb1e81af7282759914d483e73" name="a1fcdad0fb1e81af7282759914d483e73"></a>
 template&lt;class Char &gt; </td></tr>
-<tr class="memitem:a5b1f3922b8a49d6ae9a3a82056393ec6"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dl_vec::operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="structdl__vec_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
-<tr class="separator:a5b1f3922b8a49d6ae9a3a82056393ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f97d887af8e4c43491932ed521ac7c6"><td class="memTemplParams" colspan="2"><a id="a1f97d887af8e4c43491932ed521ac7c6" name="a1f97d887af8e4c43491932ed521ac7c6"></a>
+<tr class="memitem:a1fcdad0fb1e81af7282759914d483e73"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>designlab::operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a> &amp;v)</td></tr>
+<tr class="separator:a1fcdad0fb1e81af7282759914d483e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2651e0505414525c2aa5671f395cfa83"><td class="memTemplParams" colspan="2"><a id="a2651e0505414525c2aa5671f395cfa83" name="a2651e0505414525c2aa5671f395cfa83"></a>
 template&lt;class Char &gt; </td></tr>
-<tr class="memitem:a1f97d887af8e4c43491932ed521ac7c6"><td class="memTemplItemLeft" align="right" valign="top">std::basic_istream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dl_vec::operator&gt;&gt;</b> (std::basic_istream&lt; Char &gt; &amp;is, <a class="el" href="structdl__vec_1_1_s_vector2.html">SVector2</a> &amp;v)</td></tr>
-<tr class="separator:a1f97d887af8e4c43491932ed521ac7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2651e0505414525c2aa5671f395cfa83"><td class="memTemplItemLeft" align="right" valign="top">std::basic_istream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>designlab::operator&gt;&gt;</b> (std::basic_istream&lt; Char &gt; &amp;is, <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a> &amp;v)</td></tr>
+<tr class="separator:a2651e0505414525c2aa5671f395cfa83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>2次元のベクトルを表す構造体 <br  />
- 行数 : 137 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>2次元のベクトルを表す構造体 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

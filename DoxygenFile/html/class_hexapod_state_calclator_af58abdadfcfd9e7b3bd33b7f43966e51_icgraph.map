@@ -1,7 +1,0 @@
-<map id="HexapodStateCalclator::initLegR" name="HexapodStateCalclator::initLegR">
-<area shape="rect" id="Node000001" title=" " alt="" coords="230,35,384,77"/>
-<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#acae9d5b6cff5ee1196fd9d017ac922ab" title=" " alt="" coords="5,5,182,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,46,182,41,183,36,216,41"/>
-<area shape="rect" id="Node000003" href="$class_system_main.html#a3bb8ba71831ef95ef84889591c1e6610" title=" " alt="" coords="6,72,181,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,71,182,76,181,71,215,66"/>
-</map>

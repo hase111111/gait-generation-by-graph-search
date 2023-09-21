@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('leg__state_8h.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#namespaces">名前空間</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
 <a href="#func-members">関数</a> &#124;
 <a href="#var-members">変数</a>  </div>
   <div class="headertitle"><div class="title">leg_state.h ファイル</div></div>
@@ -98,11 +99,14 @@ $(document).ready(function(){initNavTree('leg__state_8h.html',''); initResizable
 <div class="contents">
 
 <p>このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの <br  />
- 行数 : 138  
+ 行数 : 154  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="hexapod__const_8h_source.html">hexapod_const.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="com__type_8h_source.html">com_type.h</a>&quot;</code><br />
+<code>#include &quot;discrete_com_pos.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="discrete__leg__pos_8h_source.html">discrete_leg_pos.h</a>&quot;</code><br />
 </div>
 <p><a href="leg__state_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
@@ -112,85 +116,101 @@ $(document).ready(function(){initNavTree('leg__state_8h.html',''); initResizable
 <tr class="memdesc:namespacedl__leg"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を編集するための関数をまとめた名前空間．DesignLab Leg Functionsの略． <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:aaf7531f042601db835d1ac94d9dc8896"><td class="memItemLeft" align="right" valign="top"><a id="aaf7531f042601db835d1ac94d9dc8896" name="aaf7531f042601db835d1ac94d9dc8896"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LegStateBit</b> = std::bitset&lt; <a class="el" href="namespacedl__leg.html#a78a0c4e90525ad5832a4de528a62a51a">LEG_STATE_BIT_NUM</a> &gt;</td></tr>
+<tr class="memdesc:aaf7531f042601db835d1ac94d9dc8896"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存する型．28bitのビット型 <br /></td></tr>
+<tr class="separator:aaf7531f042601db835d1ac94d9dc8896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01c546e388b434624bd59ee4de9650a"><td class="memItemLeft" align="right" valign="top"><a id="aa01c546e388b434624bd59ee4de9650a" name="aa01c546e388b434624bd59ee4de9650a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LegGroundedBit</b> = std::bitset&lt; <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt;</td></tr>
+<tr class="memdesc:aa01c546e388b434624bd59ee4de9650a"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0． <br /></td></tr>
+<tr class="separator:aa01c546e388b434624bd59ee4de9650a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9">dl_leg::makeLegState</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _com_pattern, const bool _ground[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>], const int _leg_pos[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
-<tr class="memdesc:ae6cda3d2627d7b423793a243f8cb77e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．  <br /></td></tr>
-<tr class="separator:ae6cda3d2627d7b423793a243f8cb77e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c7dd2eccb0f1660b81a56b17b889c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3">dl_leg::isGrounded</a> (const int _leg_state, const int _leg_num)</td></tr>
-<tr class="memdesc:ad9c7dd2eccb0f1660b81a56b17b889c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる．<br  />
-脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．  <br /></td></tr>
-<tr class="separator:ad9c7dd2eccb0f1660b81a56b17b889c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb5f62b8e593cb33e1dff9dc3484db2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#acb5f62b8e593cb33e1dff9dc3484db2e">dl_leg::getGroundedLegNum</a> (const int _leg_state)</td></tr>
-<tr class="memdesc:acb5f62b8e593cb33e1dff9dc3484db2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の本数を返す関数．  <br /></td></tr>
-<tr class="separator:acb5f62b8e593cb33e1dff9dc3484db2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02ff9ebb9cfd6a835343a39dc56cc000"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a02ff9ebb9cfd6a835343a39dc56cc000">dl_leg::getLiftedLegNum</a> (const int _leg_state)</td></tr>
-<tr class="memdesc:a02ff9ebb9cfd6a835343a39dc56cc000"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の本数を返す関数．  <br /></td></tr>
-<tr class="separator:a02ff9ebb9cfd6a835343a39dc56cc000"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af60b226ef6842795e19f7e2943f579d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#af60b226ef6842795e19f7e2943f579d0">dl_leg::getGroundedLegNumWithVector</a> (const int _leg_state, std::vector&lt; int &gt; &amp;_res_number)</td></tr>
-<tr class="memdesc:af60b226ef6842795e19f7e2943f579d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数  <br /></td></tr>
-<tr class="separator:af60b226ef6842795e19f7e2943f579d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f0087bafff21a191f0f9db91b71e3a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a7f0087bafff21a191f0f9db91b71e3a7">dl_leg::getLiftedLegNumWithVector</a> (const int _leg_state, std::vector&lt; int &gt; &amp;_res_number)</td></tr>
-<tr class="memdesc:a7f0087bafff21a191f0f9db91b71e3a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数  <br /></td></tr>
-<tr class="separator:a7f0087bafff21a191f0f9db91b71e3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1505823fb37f3befd39af5ff508c96b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a1505823fb37f3befd39af5ff508c96b2">dl_leg::getLegState</a> (const int _leg_state, const int _leg_num)</td></tr>
-<tr class="memdesc:a1505823fb37f3befd39af5ff508c96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を取得する．  <br /></td></tr>
-<tr class="separator:a1505823fb37f3befd39af5ff508c96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbc27c9c3c65dc84913fd7b87c7274c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#abbc27c9c3c65dc84913fd7b87c7274c6">dl_leg::getComPatternState</a> (const int _leg_state)</td></tr>
-<tr class="memdesc:abbc27c9c3c65dc84913fd7b87c7274c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを取得する．0b0000 〜 0b1000 まで  <br /></td></tr>
-<tr class="separator:abbc27c9c3c65dc84913fd7b87c7274c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a860c75e7c9875064030a385d40bc4306"><td class="memItemLeft" align="right" valign="top"><a id="a860c75e7c9875064030a385d40bc4306" name="a860c75e7c9875064030a385d40bc4306"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::changeLegState</b> (int &amp;_leg_state, const int _leg_num, const int _new_state)</td></tr>
-<tr class="separator:a860c75e7c9875064030a385d40bc4306"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15ad0b399f8c24b4daa3906f13e79db"><td class="memItemLeft" align="right" valign="top"><a id="ad15ad0b399f8c24b4daa3906f13e79db" name="ad15ad0b399f8c24b4daa3906f13e79db"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::changeLegStateKeepTopBit</b> (int &amp;_leg_state, const int _leg_num, const int _new_state)</td></tr>
-<tr class="separator:ad15ad0b399f8c24b4daa3906f13e79db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b75711224944af4cbd2e9fc50c3e080"><td class="memItemLeft" align="right" valign="top"><a id="a8b75711224944af4cbd2e9fc50c3e080" name="a8b75711224944af4cbd2e9fc50c3e080"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::changeGround</b> (int &amp;_leg_state, const int _leg_num, const bool _ground)</td></tr>
-<tr class="separator:a8b75711224944af4cbd2e9fc50c3e080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1130c749c855ff4a443171a56a0affe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a1130c749c855ff4a443171a56a0affe8">dl_leg::changeComPattern</a> (int &amp;_leg_state, const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> _new_com_pattern)</td></tr>
-<tr class="memdesc:a1130c749c855ff4a443171a56a0affe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心のデータを変更する．  <br /></td></tr>
-<tr class="separator:a1130c749c855ff4a443171a56a0affe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2ec160a0610763bdbc702363c0c6267"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267">dl_leg::isAbleLegNum</a> (const int _num)</td></tr>
-<tr class="memdesc:ab2ec160a0610763bdbc702363c0c6267"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．  <br /></td></tr>
-<tr class="separator:ab2ec160a0610763bdbc702363c0c6267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c2e0543f9f2f5251c5edb6ee78d1605"><td class="memItemLeft" align="right" valign="top"><a id="a1c2e0543f9f2f5251c5edb6ee78d1605" name="a1c2e0543f9f2f5251c5edb6ee78d1605"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::isAbleLegState</b> (const int _state)</td></tr>
-<tr class="separator:a1c2e0543f9f2f5251c5edb6ee78d1605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a781abdd4e4f31d0814bd26cdf66a82c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a781abdd4e4f31d0814bd26cdf66a82c2">dl_leg::getLegUpDownCount</a> (const int _leg_state_first, const int _leg_state_second)</td></tr>
-<tr class="memdesc:a781abdd4e4f31d0814bd26cdf66a82c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の上下の変化回数を出力する  <br /></td></tr>
-<tr class="separator:a781abdd4e4f31d0814bd26cdf66a82c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab41362b4b8ff62a4a46679b72411509"><td class="memItemLeft" align="right" valign="top"><a id="aab41362b4b8ff62a4a46679b72411509" name="aab41362b4b8ff62a4a46679b72411509"></a>
+constexpr <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_POS_MASKBIT</b> (0b0111)</td></tr>
+<tr class="memdesc:aab41362b4b8ff62a4a46679b72411509"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は4bitの下位三桁で管理されるので，そこをマスクする <br /></td></tr>
+<tr class="separator:aab41362b4b8ff62a4a46679b72411509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499c41b78143e531f0612bf9c95e2af7"><td class="memItemLeft" align="right" valign="top"><a id="a499c41b78143e531f0612bf9c95e2af7" name="a499c41b78143e531f0612bf9c95e2af7"></a>
+constexpr <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_GROUNDED_MASKBIT</b> (0b1000)</td></tr>
+<tr class="memdesc:a499c41b78143e531f0612bf9c95e2af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が接地しているかを表すビットをマスクする．(接地しているならば1．遊脚ならば0．) <br /></td></tr>
+<tr class="separator:a499c41b78143e531f0612bf9c95e2af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831a5c8b2400903a827c7e868319b8c7"><td class="memItemLeft" align="right" valign="top"><a id="a831a5c8b2400903a827c7e868319b8c7" name="a831a5c8b2400903a827c7e868319b8c7"></a>
+constexpr <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_STATE_MASKBIT</b> (0b1111)</td></tr>
+<tr class="memdesc:a831a5c8b2400903a827c7e868319b8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする <br /></td></tr>
+<tr class="separator:a831a5c8b2400903a827c7e868319b8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9476431a9ed1a6eaf7c47b27047e3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#af9476431a9ed1a6eaf7c47b27047e3ba">dl_leg::MakeLegStateBit</a> (EDiscreteComPos discrete_com_pos, const std::array&lt; bool, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;is_ground, const std::array&lt; <a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;discretized_leg_pos)</td></tr>
+<tr class="memdesc:af9476431a9ed1a6eaf7c47b27047e3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．  <br /></td></tr>
+<tr class="separator:af9476431a9ed1a6eaf7c47b27047e3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f9b0788c3b3049e8bbf659df946c20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20">dl_leg::IsGrounded</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state_bit, int leg_index)</td></tr>
+<tr class="memdesc:af9f9b0788c3b3049e8bbf659df946c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． <br  />
+ 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．  <br /></td></tr>
+<tr class="separator:af9f9b0788c3b3049e8bbf659df946c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2141ed9036a48ab069c2a3e944dfb95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#af2141ed9036a48ab069c2a3e944dfb95">dl_leg::GetLegGroundedBit</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memdesc:af2141ed9036a48ab069c2a3e944dfb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が接地しているなら1，遊脚を0としたbitで遊脚・接地脚の状態を返す． <br  />
+ 例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．  <br /></td></tr>
+<tr class="separator:af2141ed9036a48ab069c2a3e944dfb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2389105967d4cdcca0ca12bcaf8b2012"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a2389105967d4cdcca0ca12bcaf8b2012">dl_leg::GetGroundedLegNum</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memdesc:a2389105967d4cdcca0ca12bcaf8b2012"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の本数を返す関数．  <br /></td></tr>
+<tr class="separator:a2389105967d4cdcca0ca12bcaf8b2012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d24a305cc5289f9f5e4ac855e0d54e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a1d24a305cc5289f9f5e4ac855e0d54e8">dl_leg::GetLiftedLegNum</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memdesc:a1d24a305cc5289f9f5e4ac855e0d54e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の本数を返す関数．  <br /></td></tr>
+<tr class="separator:a1d24a305cc5289f9f5e4ac855e0d54e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4015e18833a2257e37cc87028d2981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#afd4015e18833a2257e37cc87028d2981">dl_leg::GetGroundedLegIndexByVector</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
+<tr class="memdesc:afd4015e18833a2257e37cc87028d2981"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の脚番号0〜5を，引数res_indexで参照渡しする関数  <br /></td></tr>
+<tr class="separator:afd4015e18833a2257e37cc87028d2981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3741251d091c913d772c599fd36ff941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a3741251d091c913d772c599fd36ff941">dl_leg::GetLiftedLegIndexByVector</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
+<tr class="memdesc:a3741251d091c913d772c599fd36ff941"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数  <br /></td></tr>
+<tr class="separator:a3741251d091c913d772c599fd36ff941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a202b0e412f670e1cfbfb90c3a0142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a31a202b0e412f670e1cfbfb90c3a0142">dl_leg::getLegState</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state, int leg_index)</td></tr>
+<tr class="memdesc:a31a202b0e412f670e1cfbfb90c3a0142"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を取得する．  <br /></td></tr>
+<tr class="separator:a31a202b0e412f670e1cfbfb90c3a0142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6366fe6c99e5a8b405622ed9b5831ceb"><td class="memItemLeft" align="right" valign="top">EDiscreteComPos&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a6366fe6c99e5a8b405622ed9b5831ceb">dl_leg::getComPatternState</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memdesc:a6366fe6c99e5a8b405622ed9b5831ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の脚状態から重心パターンを取得する．  <br /></td></tr>
+<tr class="separator:a6366fe6c99e5a8b405622ed9b5831ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa0263318b51d3c245d810541d1ed3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#aafa0263318b51d3c245d810541d1ed3f">dl_leg::changeLegState</a> (int leg_index, <a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a> new_discretized_leg_pos, bool is_ground, <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memdesc:aafa0263318b51d3c245d810541d1ed3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の情報を変更する．引数の値がおかしいならばfalseを出力する．  <br /></td></tr>
+<tr class="separator:aafa0263318b51d3c245d810541d1ed3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2885d92a9c2c94c95ad1f788707a26c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#af2885d92a9c2c94c95ad1f788707a26c">dl_leg::changeLegStateKeepTopBit</a> (int leg_index, <a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a> new_discretized_leg_pos, <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memdesc:af2885d92a9c2c94c95ad1f788707a26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の状態を変更する．引数の値がおかしいならばfalseを出力する．遊脚を表すbitはそのまま  <br /></td></tr>
+<tr class="separator:af2885d92a9c2c94c95ad1f788707a26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8a53a0ce2ddf6c81c6037d233e5251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a6f8a53a0ce2ddf6c81c6037d233e5251">dl_leg::changeGround</a> (const int leg_index, const bool is_ground, <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> *leg_state)</td></tr>
+<tr class="separator:a6f8a53a0ce2ddf6c81c6037d233e5251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6d17ee5cb9ba55004729b7071e7375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#aea6d17ee5cb9ba55004729b7071e7375">dl_leg::changeAllLegGround</a> (const <a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">LegGroundedBit</a> &amp;is_ground_list, <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memdesc:aea6d17ee5cb9ba55004729b7071e7375"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての脚の接地・遊脚情報を変更する．  <br /></td></tr>
+<tr class="separator:aea6d17ee5cb9ba55004729b7071e7375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b08089b4c8e1cb83b082b904da9f9c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__leg.html#a2b08089b4c8e1cb83b082b904da9f9c6">dl_leg::changeComPattern</a> (EDiscreteComPos new_com_pattern, <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memdesc:a2b08089b4c8e1cb83b082b904da9f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心のデータを変更する．  <br /></td></tr>
+<tr class="separator:a2b08089b4c8e1cb83b082b904da9f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 変数</h2></td></tr>
-<tr class="memitem:a10f0bc08f972b97e5b0fc3cfc42bc2a7"><td class="memItemLeft" align="right" valign="top"><a id="a10f0bc08f972b97e5b0fc3cfc42bc2a7" name="a10f0bc08f972b97e5b0fc3cfc42bc2a7"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::DISCRETE_NUM</b> = 7</td></tr>
-<tr class="memdesc:a10f0bc08f972b97e5b0fc3cfc42bc2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態の離散化数．leg_state.hの通り7通り． <br /></td></tr>
-<tr class="separator:a10f0bc08f972b97e5b0fc3cfc42bc2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a8623365f91ed95037cd05339997aa"><td class="memItemLeft" align="right" valign="top"><a id="a57a8623365f91ed95037cd05339997aa" name="a57a8623365f91ed95037cd05339997aa"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_POS_MASKBIT</b> = 0b0111</td></tr>
-<tr class="memdesc:a57a8623365f91ed95037cd05339997aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は4bitの下位三桁で管理されるので，そこをマスクする <br /></td></tr>
-<tr class="separator:a57a8623365f91ed95037cd05339997aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cb9f7cb0f1028e1afd648598c4bfccd"><td class="memItemLeft" align="right" valign="top"><a id="a3cb9f7cb0f1028e1afd648598c4bfccd" name="a3cb9f7cb0f1028e1afd648598c4bfccd"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_GROUNDED_MASKBIT</b> = 0b1000</td></tr>
-<tr class="memdesc:a3cb9f7cb0f1028e1afd648598c4bfccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が接地しているかを表すビットをマスクする．(接地しているならば1．遊脚ならば0．) <br /></td></tr>
-<tr class="separator:a3cb9f7cb0f1028e1afd648598c4bfccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="memItemLeft" align="right" valign="top"><a id="ac8aaebba836dc90b15470f4c33ddf7ba" name="ac8aaebba836dc90b15470f4c33ddf7ba"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_STATE_MASKBIT</b> = 0b1111</td></tr>
-<tr class="memdesc:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする <br /></td></tr>
-<tr class="separator:ac8aaebba836dc90b15470f4c33ddf7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad988167bc743642c3a5316b39ca14e9"><td class="memItemLeft" align="right" valign="top"><a id="aad988167bc743642c3a5316b39ca14e9" name="aad988167bc743642c3a5316b39ca14e9"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LGE_POS_BIT_NUM</b> = 4</td></tr>
+<tr class="memdesc:aad988167bc743642c3a5316b39ca14e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit <br /></td></tr>
+<tr class="separator:aad988167bc743642c3a5316b39ca14e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77286f9546dc446f9b3bcd0a47accc78"><td class="memItemLeft" align="right" valign="top"><a id="a77286f9546dc446f9b3bcd0a47accc78" name="a77286f9546dc446f9b3bcd0a47accc78"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::COM_POS_BIT_NUM</b> = 4</td></tr>
+<tr class="memdesc:a77286f9546dc446f9b3bcd0a47accc78"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを表すビット数． <br /></td></tr>
+<tr class="separator:a77286f9546dc446f9b3bcd0a47accc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a0c4e90525ad5832a4de528a62a51a"><td class="memItemLeft" align="right" valign="top"><a id="a78a0c4e90525ad5832a4de528a62a51a" name="a78a0c4e90525ad5832a4de528a62a51a"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::LEG_STATE_BIT_NUM</b> = <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> * <a class="el" href="namespacedl__leg.html#aad988167bc743642c3a5316b39ca14e9">LGE_POS_BIT_NUM</a> + <a class="el" href="namespacedl__leg.html#a77286f9546dc446f9b3bcd0a47accc78">COM_POS_BIT_NUM</a></td></tr>
+<tr class="memdesc:a78a0c4e90525ad5832a4de528a62a51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存するビット数．28bit <br /></td></tr>
+<tr class="separator:a78a0c4e90525ad5832a4de528a62a51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memItemLeft" align="right" valign="top"><a id="a71b6916ed1e795c4ba99a2570313f3f2" name="a71b6916ed1e795c4ba99a2570313f3f2"></a>
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::SHIFT_TO_COM_NUM</b> = <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> * 4</td></tr>
 <tr class="memdesc:a71b6916ed1e795c4ba99a2570313f3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． <br /></td></tr>
 <tr class="separator:a71b6916ed1e795c4ba99a2570313f3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b30de8a020bb048c13c36cc2e6d2d3"><td class="memItemLeft" align="right" valign="top"><a id="a95b30de8a020bb048c13c36cc2e6d2d3" name="a95b30de8a020bb048c13c36cc2e6d2d3"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::COM_STATE_MASKBIT</b> = (0b1111 &lt;&lt; <a class="el" href="namespacedl__leg.html#a71b6916ed1e795c4ba99a2570313f3f2">SHIFT_TO_COM_NUM</a>)</td></tr>
-<tr class="memdesc:a95b30de8a020bb048c13c36cc2e6d2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットをマスクするビット． <br /></td></tr>
-<tr class="separator:a95b30de8a020bb048c13c36cc2e6d2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a092c7acff3337a7537a002ed05187e19"><td class="memItemLeft" align="right" valign="top"><a id="a092c7acff3337a7537a002ed05187e19" name="a092c7acff3337a7537a002ed05187e19"></a>
+constexpr <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_leg::COM_STATE_MASKBIT</b> = (0b1111 &lt;&lt; <a class="el" href="namespacedl__leg.html#a71b6916ed1e795c4ba99a2570313f3f2">SHIFT_TO_COM_NUM</a>)</td></tr>
+<tr class="memdesc:a092c7acff3337a7537a002ed05187e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットをマスクするビット． <br /></td></tr>
+<tr class="separator:a092c7acff3337a7537a002ed05187e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの <br  />
- 行数 : 138 </p>
+ 行数 : 154 </p>
 <dl class="section date"><dt>日付</dt><dd>2023/08/11 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div></div><!-- contents -->

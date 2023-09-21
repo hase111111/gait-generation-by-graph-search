@@ -1,7 +1,0 @@
-<map id="phantomxCommander" name="phantomxCommander">
-<area shape="rect" id="Node000001" title=" " alt="" coords="45,96,193,123"/>
-<area shape="rect" id="Node000002" href="$structdl__vec_1_1_s_vector.html" title="ベクトルを表す構造体" alt="" coords="5,5,118,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,45,89,71,108,94,104,97,85,73,70,47"/>
-<area shape="rect" id="Node000003" href="$struct_time_info.html" title="構造体宣言" alt="" coords="142,5,211,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,46,149,73,131,97,127,94,145,71,161,43"/>
-</map>

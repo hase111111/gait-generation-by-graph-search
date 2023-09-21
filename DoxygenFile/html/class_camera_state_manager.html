@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: CameraStateManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_camera_state_manager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_camera_state_manager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CameraStateManager クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Dxlibの3Dのカメラの処理を行うクラス  
+ <a href="class_camera_state_manager.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="camera__manager_8h_source.html">camera_manager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5030afa746bcf15ef63107c8d34712ee"><td class="memItemLeft" align="right" valign="top"><a id="a5030afa746bcf15ef63107c8d34712ee" name="a5030afa746bcf15ef63107c8d34712ee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memdesc:a5030afa746bcf15ef63107c8d34712ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの位置などの更新を行う．毎フレーム実行すること <br /></td></tr>
+<tr class="separator:a5030afa746bcf15ef63107c8d34712ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586ec36498f286f2c6dbf42bd9b5cbf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2">setCameraViewMode</a> (const <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a> mode)</td></tr>
+<tr class="memdesc:a586ec36498f286f2c6dbf42bd9b5cbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのモードをセットする．同時にカメラの目標回転角度などを設定する  <br /></td></tr>
+<tr class="separator:a586ec36498f286f2c6dbf42bd9b5cbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1471f26bfbe1e8c960e460eb753b56c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a1471f26bfbe1e8c960e460eb753b56c3">getCameraViewMode</a> () const</td></tr>
+<tr class="memdesc:a1471f26bfbe1e8c960e460eb753b56c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのモードを取得する  <br /></td></tr>
+<tr class="separator:a1471f26bfbe1e8c960e460eb753b56c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ae709147be98a86d88f925c8afe346"><td class="memItemLeft" align="right" valign="top"><a id="a99ae709147be98a86d88f925c8afe346" name="a99ae709147be98a86d88f925c8afe346"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initCaneraTargetLength</b> ()</td></tr>
+<tr class="memdesc:a99ae709147be98a86d88f925c8afe346"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラと注視点との距離を初期化する <br /></td></tr>
+<tr class="separator:a99ae709147be98a86d88f925c8afe346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba15db7ec27242f0a5ee30269270037"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a1ba15db7ec27242f0a5ee30269270037">addCameraToTargetLength</a> (const float length_dif)</td></tr>
+<tr class="memdesc:a1ba15db7ec27242f0a5ee30269270037"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの注視する目標の座標とカメラの距離を増やす  <br /></td></tr>
+<tr class="separator:a1ba15db7ec27242f0a5ee30269270037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da84c436ebf23aa9b9be90578c81f7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a0da84c436ebf23aa9b9be90578c81f7d">setTargetPos</a> (const VECTOR pos)</td></tr>
+<tr class="memdesc:a0da84c436ebf23aa9b9be90578c81f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの注視する目標の座標をセットする <br  />
+ cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない  <br /></td></tr>
+<tr class="separator:a0da84c436ebf23aa9b9be90578c81f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0265878f39e6c0006d2d3df9c9992044"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_s_quaternion.html">designlab::SQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a0265878f39e6c0006d2d3df9c9992044">getCameraRotQuat</a> () const</td></tr>
+<tr class="memdesc:a0265878f39e6c0006d2d3df9c9992044"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのクォータニオンを取得する  <br /></td></tr>
+<tr class="separator:a0265878f39e6c0006d2d3df9c9992044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322cd90e3a2b5e1efee1dec6cc16a670"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a322cd90e3a2b5e1efee1dec6cc16a670">setCameraRotQuat</a> (const <a class="el" href="structdesignlab_1_1_s_quaternion.html">designlab::SQuaternion</a> &amp;quat)</td></tr>
+<tr class="memdesc:a322cd90e3a2b5e1efee1dec6cc16a670"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのクォータニオンをセットする  <br /></td></tr>
+<tr class="separator:a322cd90e3a2b5e1efee1dec6cc16a670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3c2c7bc73da9956ce00edbfd0b4c97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html#a7a3c2c7bc73da9956ce00edbfd0b4c97">setFreeTargetPos</a> (const VECTOR pos)</td></tr>
+<tr class="memdesc:a7a3c2c7bc73da9956ce00edbfd0b4c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">注視点を操作する際の，カメラの注視する座標をセットする  <br /></td></tr>
+<tr class="separator:a7a3c2c7bc73da9956ce00edbfd0b4c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94258bd484a968c4568cd3a47c03cdb"><td class="memItemLeft" align="right" valign="top"><a id="ac94258bd484a968c4568cd3a47c03cdb" name="ac94258bd484a968c4568cd3a47c03cdb"></a>
+VECTOR&#160;</td><td class="memItemRight" valign="bottom"><b>getFreeTargetPos</b> () const</td></tr>
+<tr class="memdesc:ac94258bd484a968c4568cd3a47c03cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">注視点を操作する際の，カメラの注視する座標を取得する <br /></td></tr>
+<tr class="separator:ac94258bd484a968c4568cd3a47c03cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibの3Dのカメラの処理を行うクラス </p>
+<p>カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい <br  />
+ このクラスはその処理をまとめたことで，処理を簡単にしている <br  />
+ また，カメラの姿勢はクォータニオンで表している． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a1ba15db7ec27242f0a5ee30269270037" name="a1ba15db7ec27242f0a5ee30269270037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba15db7ec27242f0a5ee30269270037">&#9670;&#160;</a></span>addCameraToTargetLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraStateManager::addCameraToTargetLength </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>length_dif</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カメラの注視する目標の座標とカメラの距離を増やす </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length_dif</td><td>増やす距離 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a1ba15db7ec27242f0a5ee30269270037_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a1ba15db7ec27242f0a5ee30269270037_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a1ba15db7ec27242f0a5ee30269270037_icgraph" id="aclass_camera_state_manager_a1ba15db7ec27242f0a5ee30269270037_icgraph">
+<area shape="rect" title="カメラの注視する目標の座標とカメラの距離を増やす" alt="" coords="631,93,816,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" title=" " alt="" coords="617,117,584,117,584,112,617,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0265878f39e6c0006d2d3df9c9992044" name="a0265878f39e6c0006d2d3df9c9992044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0265878f39e6c0006d2d3df9c9992044">&#9670;&#160;</a></span>getCameraRotQuat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_s_quaternion.html">designlab::SQuaternion</a> CameraStateManager::getCameraRotQuat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラのクォータニオンを取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>カメラのクォータニオン </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a0265878f39e6c0006d2d3df9c9992044_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a0265878f39e6c0006d2d3df9c9992044_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a0265878f39e6c0006d2d3df9c9992044_icgraph" id="aclass_camera_state_manager_a0265878f39e6c0006d2d3df9c9992044_icgraph">
+<area shape="rect" title="カメラのクォータニオンを取得する" alt="" coords="631,93,779,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" title=" " alt="" coords="616,117,584,117,584,112,616,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1471f26bfbe1e8c960e460eb753b56c3" name="a1471f26bfbe1e8c960e460eb753b56c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1471f26bfbe1e8c960e460eb753b56c3">&#9670;&#160;</a></span>getCameraViewMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a> CameraStateManager::getCameraViewMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラのモードを取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>CameraViewMode カメラの視点のモード </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a1471f26bfbe1e8c960e460eb753b56c3_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a1471f26bfbe1e8c960e460eb753b56c3_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a1471f26bfbe1e8c960e460eb753b56c3_icgraph" id="aclass_camera_state_manager_a1471f26bfbe1e8c960e460eb753b56c3_icgraph">
+<area shape="rect" title="カメラのモードを取得する" alt="" coords="631,93,784,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" title=" " alt="" coords="616,117,584,117,584,112,616,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a322cd90e3a2b5e1efee1dec6cc16a670" name="a322cd90e3a2b5e1efee1dec6cc16a670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322cd90e3a2b5e1efee1dec6cc16a670">&#9670;&#160;</a></span>setCameraRotQuat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraStateManager::setCameraRotQuat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_s_quaternion.html">designlab::SQuaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>quat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラのクォータニオンをセットする </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">quat</td><td>カメラのクォータニオン </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a322cd90e3a2b5e1efee1dec6cc16a670_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a322cd90e3a2b5e1efee1dec6cc16a670_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a322cd90e3a2b5e1efee1dec6cc16a670_icgraph" id="aclass_camera_state_manager_a322cd90e3a2b5e1efee1dec6cc16a670_icgraph">
+<area shape="rect" title="カメラのクォータニオンをセットする" alt="" coords="631,93,779,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" title=" " alt="" coords="616,117,584,117,584,112,616,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a586ec36498f286f2c6dbf42bd9b5cbf2" name="a586ec36498f286f2c6dbf42bd9b5cbf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586ec36498f286f2c6dbf42bd9b5cbf2">&#9670;&#160;</a></span>setCameraViewMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraStateManager::setCameraViewMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カメラのモードをセットする．同時にカメラの目標回転角度などを設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>カメラの視点のモード </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_cgraph.png" border="0" usemap="#aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_cgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_cgraph" id="aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_cgraph">
+<area shape="rect" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="5,39,158,81"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f" title="角度をdegからradに変換する関数．" alt="" coords="215,5,353,48"/>
+<area shape="poly" title=" " alt="" coords="158,45,200,38,201,43,159,50"/>
+<area shape="rect" href="structdesignlab_1_1_s_quaternion.html#abd2199b5705368d73b0df4b8247b7e48" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="206,72,362,115"/>
+<area shape="poly" title=" " alt="" coords="159,70,192,75,191,81,158,75"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_icgraph" id="aclass_camera_state_manager_a586ec36498f286f2c6dbf42bd9b5cbf2_icgraph">
+<area shape="rect" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="631,93,784,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,76,583,103"/>
+<area shape="poly" title=" " alt="" coords="616,106,583,102,584,97,617,101"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="617,117,365,117,365,112,617,112"/>
+<area shape="poly" title=" " alt="" coords="399,105,366,109,365,103,398,99"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7a3c2c7bc73da9956ce00edbfd0b4c97" name="a7a3c2c7bc73da9956ce00edbfd0b4c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3c2c7bc73da9956ce00edbfd0b4c97">&#9670;&#160;</a></span>setFreeTargetPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraStateManager::setFreeTargetPos </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>注視点を操作する際の，カメラの注視する座標をセットする </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>カメラの注視する座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a7a3c2c7bc73da9956ce00edbfd0b4c97_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a7a3c2c7bc73da9956ce00edbfd0b4c97_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a7a3c2c7bc73da9956ce00edbfd0b4c97_icgraph" id="aclass_camera_state_manager_a7a3c2c7bc73da9956ce00edbfd0b4c97_icgraph">
+<area shape="rect" title="注視点を操作する際の，カメラの注視する座標をセットする" alt="" coords="631,93,779,136"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" title=" " alt="" coords="616,117,584,117,584,112,616,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0da84c436ebf23aa9b9be90578c81f7d" name="a0da84c436ebf23aa9b9be90578c81f7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da84c436ebf23aa9b9be90578c81f7d">&#9670;&#160;</a></span>setTargetPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraStateManager::setTargetPos </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>カメラの注視する目標の座標をセットする <br  />
+ cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>カメラの注視する目標の座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_state_manager_a0da84c436ebf23aa9b9be90578c81f7d_icgraph.png" border="0" usemap="#aclass_camera_state_manager_a0da84c436ebf23aa9b9be90578c81f7d_icgraph" alt=""/></div>
+<map name="aclass_camera_state_manager_a0da84c436ebf23aa9b9be90578c81f7d_icgraph" id="aclass_camera_state_manager_a0da84c436ebf23aa9b9be90578c81f7d_icgraph">
+<area shape="rect" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="464,93,611,136"/>
+<area shape="rect" href="class_camera_gui.html#a7804785608222ffa9eb17f6aeb6befff" title="カメラの注視する位置を設定する" alt="" coords="230,101,416,128"/>
+<area shape="poly" title=" " alt="" coords="449,117,417,117,417,112,449,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="272,98,181,62,151,51,153,46,183,58,274,93"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="215,104,182,99,183,94,215,98"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,131,179,136,178,131,215,126"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="282,137,183,180,148,191,146,186,181,175,279,132"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="camera__manager_8h_source.html">camera_manager.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/camera_manager.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_camera_state_manager.html">CameraStateManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

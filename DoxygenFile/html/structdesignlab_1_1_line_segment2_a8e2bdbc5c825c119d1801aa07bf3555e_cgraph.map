@@ -1,0 +1,7 @@
+<map id="designlab::LineSegment2::HasIntersection" name="designlab::LineSegment2::HasIntersection">
+<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べる関数" alt="" coords="5,39,173,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="240,5,369,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,44,224,36,225,42,174,50"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee" title="線分が平行かどうか調べる関数" alt="" coords="221,72,388,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,70,206,75,205,81,173,76"/>
+</map>

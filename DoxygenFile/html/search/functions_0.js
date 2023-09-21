@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['addcameratotargetlength_0',['addCameraToTargetLength',['../class_camera_manager.html#ab8e2840830c4e06dd19a94b3c0e1692c',1,'CameraManager']]],
-  ['addlogstring_1',['addLogString',['../class_log_file_i_o.html#a1288028a3b6499d853898a53b68a148f',1,'LogFileIO']]],
-  ['addlogstringsimulation_2',['addLogStringSimulation',['../class_log_file_i_o.html#af26bd2e0cd5fe7260694771d27204ec9',1,'LogFileIO']]],
-  ['addlogstringwithint_3',['addLogStringWithInt',['../class_log_file_i_o.html#af2eb0feb7a393db9cbba705c65c340bf',1,'LogFileIO']]],
-  ['addlogstringwithnode_4',['addLogStringWithNode',['../class_log_file_i_o.html#a32aab8cb6859a86ab047ff266340ae35',1,'LogFileIO']]],
-  ['addvertex_5',['addVertex',['../structdl__vec_1_1_s_polygon2.html#a16cc83010b3926fbdcee803c7b525887',1,'dl_vec::SPolygon2']]],
-  ['addvertexcheckforduplicates_6',['addVertexCheckForDuplicates',['../structdl__vec_1_1_s_polygon2.html#ab9949eea4e807ad58ab1d9bd2bb91e4a',1,'dl_vec::SPolygon2']]]
+  ['addcameratotargetlength_0',['addCameraToTargetLength',['../class_camera_state_manager.html#a1ba15db7ec27242f0a5ee30269270037',1,'CameraStateManager']]],
+  ['addmappoint_1',['AddMapPoint',['../class_map_state.html#a79a4eae7be297d1184cb8e8439243c72',1,'MapState']]],
+  ['addvertex_2',['AddVertex',['../structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299',1,'designlab::Polygon2']]],
+  ['addvertexcheckforduplicates_3',['AddVertexCheckForDuplicates',['../structdesignlab_1_1_polygon2.html#a3d07388abe43272f11c2abc984fd0cac',1,'designlab::Polygon2']]],
+  ['asyncabledata_4',['AsyncableData',['../class_asyncable_data.html#a2aa28cbcef8e0255eca01fe598b7fd30',1,'AsyncableData::AsyncableData()'],['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a4593af8de77ae41a22ceb46507b6b45a',1,'AsyncableData&lt; std::vector&lt; T &gt; &gt;::AsyncableData()']]]
 ];

@@ -1,0 +1,11 @@
+digraph "designlab::SQuaternion::conjugate"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="designlab::SQuaternion\l::conjugate",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの   q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回..."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="designlab::SQuaternion\l::inverse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_s_quaternion.html#a6dcf3bb018322ec26629f0f4d122b9ea",tooltip="クォータニオンの逆数を返す   クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの"];
+}

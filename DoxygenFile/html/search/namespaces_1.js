@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['dl_5fdxlib_0',['dl_dxlib',['../namespacedl__dxlib.html',1,'']]],
-  ['dl_5fio_1',['dl_io',['../namespacedl__io.html',1,'']]],
+  ['designlab_0',['designlab',['../namespacedesignlab.html',1,'']]],
+  ['dl_5fcom_1',['dl_com',['../namespacedl__com.html',1,'']]],
   ['dl_5fleg_2',['dl_leg',['../namespacedl__leg.html',1,'']]],
-  ['dl_5fmath_3',['dl_math',['../namespacedl__math.html',1,'']]],
-  ['dl_5fvec_4',['dl_vec',['../namespacedl__vec.html',1,'']]]
+  ['dxlib_5futil_3',['dxlib_util',['../namespacedxlib__util.html',1,'']]],
+  ['math_5futil_4',['math_util',['../namespacedesignlab_1_1math__util.html',1,'designlab']]]
 ];

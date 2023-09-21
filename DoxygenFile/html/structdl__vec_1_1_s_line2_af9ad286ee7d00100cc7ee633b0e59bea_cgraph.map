@@ -1,5 +1,0 @@
-<map id="dl_vec::SLine2::isParallel" name="dl_vec::SLine2::isParallel">
-<area shape="rect" id="Node000001" title="線分が平行かどうか調べる関数" alt="" coords="5,5,172,32"/>
-<area shape="rect" id="Node000002" href="$namespacedl__math.html#af27ba2f63b75019c3f3dc1ef47e3f42b" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="220,5,338,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,16,205,16,205,21,172,21"/>
-</map>

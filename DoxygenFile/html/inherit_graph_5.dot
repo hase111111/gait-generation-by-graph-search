@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="CmdIO",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_cmd_i_o.html",tooltip="コマンドラインに文字を出力するクラス．mainに直接std::coutを書いてもいいのだが，見やすく整理する意味をかねてこのクラスに分けておいた．"];
+  Node0 [id="Node000000",label="AsyncableData\< std\l::vector\< size_t \> \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_asyncable_data.html",tooltip=" "];
 }

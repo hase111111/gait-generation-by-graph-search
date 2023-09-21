@@ -1,4 +1,4 @@
 var class_graph_viewer_system_main =
 [
-    [ "main", "class_graph_viewer_system_main.html#a1373b5e56c53515c3aea05d443729f61", null ]
+    [ "Main", "class_graph_viewer_system_main.html#abe0b743b08c1b9e9970bdc7cd0a63b6b", null ]
 ];

@@ -1,7 +1,0 @@
-<map id="IGraphTreeCreator::getMaxDepth" name="IGraphTreeCreator::getMaxDepth">
-<area shape="rect" id="Node000001" title=" " alt="" coords="221,39,355,81"/>
-<area shape="rect" id="Node000002" href="$class_graph_tree_creator_hato.html#a600511213a4c529be108aae79213caa1" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="14,5,164,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,49,164,42,165,37,206,44"/>
-<area shape="rect" id="Node000003" href="$class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="5,72,173,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,76,173,82,173,77,205,71"/>
-</map>

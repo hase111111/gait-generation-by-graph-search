@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_hexapod_const.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>Hexapod，phantomXのパラメータを定数で表現したもの．  
+<p>Hexapod，phantomXのパラメータを定数で表現したもの．他の6脚ロボットのパラメータもここに追加する(今のところ予定はないが)．  
  <a href="class_hexapod_const.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="hexapod__const_8h_source.html">hexapod_const.h</a>&gt;</code></p>
@@ -107,18 +107,44 @@ $(document).ready(function(){initNavTree('class_hexapod_const.html',''); initRes
 static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>LEG_NUM</b> = 6</td></tr>
 <tr class="memdesc:a5c14fbad8f33c6f790898059940226b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的． <br /></td></tr>
 <tr class="separator:a5c14fbad8f33c6f790898059940226b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a98d11a059d9721fd9277a36eb0db35"><td class="memItemLeft" align="right" valign="top"><a id="a9a98d11a059d9721fd9277a36eb0db35" name="a9a98d11a059d9721fd9277a36eb0db35"></a>
-static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>COXA_LENGTH</b> = 52.0f</td></tr>
-<tr class="memdesc:a9a98d11a059d9721fd9277a36eb0db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">第1関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
-<tr class="separator:a9a98d11a059d9721fd9277a36eb0db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ba8c84425225e89f3c3ce72990d6d15"><td class="memItemLeft" align="right" valign="top"><a id="a8ba8c84425225e89f3c3ce72990d6d15" name="a8ba8c84425225e89f3c3ce72990d6d15"></a>
-static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>FEMUR_LENGTH</b> = 66.0f</td></tr>
-<tr class="memdesc:a8ba8c84425225e89f3c3ce72990d6d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
-<tr class="separator:a8ba8c84425225e89f3c3ce72990d6d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa6cb7e6b6af6c8e4951e43cec5ec9e5"><td class="memItemLeft" align="right" valign="top"><a id="aaa6cb7e6b6af6c8e4951e43cec5ec9e5" name="aaa6cb7e6b6af6c8e4951e43cec5ec9e5"></a>
-static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>TIBIA_LENGTH</b> = 130.0f</td></tr>
-<tr class="memdesc:aaa6cb7e6b6af6c8e4951e43cec5ec9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">第3関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
-<tr class="separator:aaa6cb7e6b6af6c8e4951e43cec5ec9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5af299562576103d94027e07398aa52"><td class="memItemLeft" align="right" valign="top"><a id="ad5af299562576103d94027e07398aa52" name="ad5af299562576103d94027e07398aa52"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_COXA_LENGTH</b> = 52.0f</td></tr>
+<tr class="memdesc:ad5af299562576103d94027e07398aa52"><td class="mdescLeft">&#160;</td><td class="mdescRight">第1関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:ad5af299562576103d94027e07398aa52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32d2867f6d4330c4d026345c729d1811"><td class="memItemLeft" align="right" valign="top"><a id="a32d2867f6d4330c4d026345c729d1811" name="a32d2867f6d4330c4d026345c729d1811"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_FEMUR_LENGTH</b> = 66.0f</td></tr>
+<tr class="memdesc:a32d2867f6d4330c4d026345c729d1811"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a32d2867f6d4330c4d026345c729d1811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0965faf183baeefe562328b245dc610c"><td class="memItemLeft" align="right" valign="top"><a id="a0965faf183baeefe562328b245dc610c" name="a0965faf183baeefe562328b245dc610c"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_TIBIA_LENGTH</b> = 130.0f</td></tr>
+<tr class="memdesc:a0965faf183baeefe562328b245dc610c"><td class="mdescLeft">&#160;</td><td class="mdescRight">第3関節部の長さ．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a0965faf183baeefe562328b245dc610c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fa50aff5bfc2b6522f6eb5acc8cd69"><td class="memItemLeft" align="right" valign="top"><a id="a73fa50aff5bfc2b6522f6eb5acc8cd69" name="a73fa50aff5bfc2b6522f6eb5acc8cd69"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_COXA_ANGLE_MIN</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-40.0f)</td></tr>
+<tr class="memdesc:a73fa50aff5bfc2b6522f6eb5acc8cd69"><td class="mdescLeft">&#160;</td><td class="mdescRight">第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a73fa50aff5bfc2b6522f6eb5acc8cd69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7ee06a5cff0f42bbab3f931fb6ac52"><td class="memItemLeft" align="right" valign="top"><a id="a1f7ee06a5cff0f42bbab3f931fb6ac52" name="a1f7ee06a5cff0f42bbab3f931fb6ac52"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_COXA_ANGLE_MAX</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(40.0f)</td></tr>
+<tr class="memdesc:a1f7ee06a5cff0f42bbab3f931fb6ac52"><td class="mdescLeft">&#160;</td><td class="mdescRight">第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a1f7ee06a5cff0f42bbab3f931fb6ac52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1b63cfc1c66e660e5bcb9b2b18428c"><td class="memItemLeft" align="right" valign="top"><a id="a5a1b63cfc1c66e660e5bcb9b2b18428c" name="a5a1b63cfc1c66e660e5bcb9b2b18428c"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_FEMUR_ANGLE_MIN</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-90.0f)</td></tr>
+<tr class="memdesc:a5a1b63cfc1c66e660e5bcb9b2b18428c"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a5a1b63cfc1c66e660e5bcb9b2b18428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e8babf028a0bdf167779153983c075"><td class="memItemLeft" align="right" valign="top"><a id="a91e8babf028a0bdf167779153983c075" name="a91e8babf028a0bdf167779153983c075"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_FEMUR_ANGLE_MAX</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(90.0f)</td></tr>
+<tr class="memdesc:a91e8babf028a0bdf167779153983c075"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a91e8babf028a0bdf167779153983c075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ce66abe63797fb6cf5c51fefd6199e"><td class="memItemLeft" align="right" valign="top"><a id="aa6ce66abe63797fb6cf5c51fefd6199e" name="aa6ce66abe63797fb6cf5c51fefd6199e"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_TIBIA_ANGLE_MIN</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-135.0f)</td></tr>
+<tr class="memdesc:aa6ce66abe63797fb6cf5c51fefd6199e"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:aa6ce66abe63797fb6cf5c51fefd6199e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452535da7ec5249ab9e208bb0d1bf925"><td class="memItemLeft" align="right" valign="top"><a id="a452535da7ec5249ab9e208bb0d1bf925" name="a452535da7ec5249ab9e208bb0d1bf925"></a>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>PHANTOMX_TIBIA_ANGLE_MAX</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(40.0f)</td></tr>
+<tr class="memdesc:a452535da7ec5249ab9e208bb0d1bf925"><td class="mdescLeft">&#160;</td><td class="mdescRight">第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照． <br /></td></tr>
+<tr class="separator:a452535da7ec5249ab9e208bb0d1bf925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a882d557df757eb4ec86f22650d4c6629"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_const.html#a882d557df757eb4ec86f22650d4c6629">PHANTOMX_COXA_DEFAULT_ANGLE</a> [<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">LEG_NUM</a>]</td></tr>
+<tr class="separator:a882d557df757eb4ec86f22650d4c6629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba9f7cfb1632b45395719feffddfc324"><td class="memItemLeft" align="right" valign="top"><a id="aba9f7cfb1632b45395719feffddfc324" name="aba9f7cfb1632b45395719feffddfc324"></a>
 static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>BODY_FRONT_WIDTH</b> = 60.0f</td></tr>
 <tr class="memdesc:aba9f7cfb1632b45395719feffddfc324"><td class="mdescLeft">&#160;</td><td class="mdescRight">前方の幅[mm]．phantomXの横幅. <br /></td></tr>
@@ -152,7 +178,7 @@ static const float&#160;</td><td class="memItemRight" valign="bottom"><b>VERTICA
 <tr class="memdesc:af2dc755a36e4345bceb68068a4f46ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">地面の最高点と胴体下方の隙間の最小値を示す．旧名 MIN_DELTAZ <br /></td></tr>
 <tr class="separator:af2dc755a36e4345bceb68068a4f46ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a083cb75c9f9cbf71a5345a1352b81e30"><td class="memItemLeft" align="right" valign="top"><a id="a083cb75c9f9cbf71a5345a1352b81e30" name="a083cb75c9f9cbf71a5345a1352b81e30"></a>
-static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>MOVABLE_LEG_RANGE</b> = <a class="el" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(40.0f)</td></tr>
+static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>MOVABLE_LEG_RANGE</b> = <a class="el" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(40.0f)</td></tr>
 <tr class="memdesc:a083cb75c9f9cbf71a5345a1352b81e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">coxa関節(第1関節)の稼働可能な角度 [rad] <br /></td></tr>
 <tr class="separator:a083cb75c9f9cbf71a5345a1352b81e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36b1be13172a1eabad162e9824f5ff9c"><td class="memItemLeft" align="right" valign="top"><a id="a36b1be13172a1eabad162e9824f5ff9c" name="a36b1be13172a1eabad162e9824f5ff9c"></a>
@@ -181,7 +207,7 @@ static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>MOV
 <tr class="separator:a2b97398ae0c52f87eef8d9c17994377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Hexapod，phantomXのパラメータを定数で表現したもの． </p>
+<div class="textblock"><p>Hexapod，phantomXのパラメータを定数で表現したもの．他の6脚ロボットのパラメータもここに追加する(今のところ予定はないが)． </p>
 <dl class="section date"><dt>日付</dt><dd>2023/08/13 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>定数フィールドなので実体は生成できない．( <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8" title="Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．">HexapodConst::LEG_NUM</a> みたいに使うこと ) </p>
@@ -205,9 +231,11 @@ static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>MOV
   </tr>
 </table>
 </div><div class="memdoc">
-<b>初期値:</b><div class="fragment"><div class="line">= { <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(-45.0f),   <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(-90.0f),   <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(-135.0f),</div>
-<div class="line">                                                    <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(135.0f),   <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(90.0f),    <a class="code hl_function" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a>(45.0f) }</div>
-<div class="ttc" id="anamespacedl__math_html_a9823c74b0c3ecbcd019cc5bb48845bbb"><div class="ttname"><a href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb">dl_math::convertDegToRad</a></div><div class="ttdeci">constexpr double convertDegToRad(const double deg)</div><div class="ttdoc">角度をdegからradに変換する関数．</div><div class="ttdef"><b>Definition</b> designlab_math.h:99</div></div>
+<b>初期値:</b><div class="fragment"><div class="line">= { </div>
+<div class="line">        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-45.0f),    <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-90.0f),<a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-135.0f),</div>
+<div class="line">        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(135.0f),    <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(90.0f), <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(45.0f) </div>
+<div class="line">    }</div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_abc4192092188e5fee4a204ace810280f"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr double ConvertDegToRad(const double deg)</div><div class="ttdoc">角度をdegからradに変換する関数．</div><div class="ttdef"><b>Definition</b> designlab_math_util.h:96</div></div>
 </div><!-- fragment -->
 <p>脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる． </p>
 
@@ -261,6 +289,32 @@ static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>MOV
 </div><!-- fragment -->
 <p>DEFAULT_LEG_ANGLEの値を元にsin cos を計算しておく． </p>
 
+</div>
+</div>
+<a id="a882d557df757eb4ec86f22650d4c6629" name="a882d557df757eb4ec86f22650d4c6629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a882d557df757eb4ec86f22650d4c6629">&#9670;&#160;</a></span>PHANTOMX_COXA_DEFAULT_ANGLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">LEG_NUM</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= { </div>
+<div class="line">        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-45.0f), <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-90.0f), <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(-135.0f),</div>
+<div class="line">        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(135.0f), <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(90.0f),  <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f">::designlab::math_util::ConvertDegToRad</a>(45.0f) </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>

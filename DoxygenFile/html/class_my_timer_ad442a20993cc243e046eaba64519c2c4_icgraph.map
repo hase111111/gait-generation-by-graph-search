@@ -1,5 +1,0 @@
-<map id="MyTimer::getMilliSecond" name="MyTimer::getMilliSecond">
-<area shape="rect" id="Node000001" title="計測結果をミリ秒で取得．start()とend()を呼び出してからこの関数を呼ぶ．" alt="" coords="222,13,386,40"/>
-<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#a1373b5e56c53515c3aea05d443729f61" title="メイン関数" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
-</map>

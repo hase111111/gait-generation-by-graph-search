@@ -97,43 +97,43 @@ $(document).ready(function(){initNavTree('camera__manager_8h.html',''); initResi
 <div class="contents">
 
 <p>画像表示処理においてカメラを制御するクラス． <br  />
- 行数 : 109  
+ 行数 : 124  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &quot;DxLib.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;Dxlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="designlab__quaternion_8h_source.html">designlab_quaternion.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="designlab__math_8h_source.html">designlab_math.h</a>&quot;</code><br />
 </div>
 <p><a href="camera__manager_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_manager.html">CameraManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの3Dのカメラの処理を行うクラス  <a href="class_camera_manager.html#details">[詳解]</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_state_manager.html">CameraStateManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの3Dのカメラの処理を行うクラス  <a href="class_camera_state_manager.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 列挙型</h2></td></tr>
-<tr class="memitem:a26e12db9c870d478bf853c50517d163d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a> : int { <br />
-&#160;&#160;<a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163daa784c2b926d5ad795b0fc911fcdfe5ab">FRONT_VIEW</a>
-, <a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163da5ee31533d09f3cf77bba3ecc98908a6b">BACK_VIEW</a>
-, <a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163da992261ec46fee5072e9d7a6c3b98f605">TOP_VIEW</a>
-, <a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163dad2b66d6fc398ad9c5cfd10b4a37803a1">RIGHT_SIDE_VIEW</a>
+<tr class="memitem:afbcf6e307ff8114a4867889faace8621"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a> { <br />
+&#160;&#160;<a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ad3f1de8d6a59bccdf5cdd0f1214d0d6a">kFrontView</a>
+, <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ac34246769d028a8eb522bb09f46521f6">kBackView</a>
+, <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ab785420c18556e5c0278c456551e48d2">kTopView</a>
+, <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621abb88ff0ca3c2716ae58f5954e4f8f91d">kRightSideView</a>
 , <br />
-&#160;&#160;<a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163da0ad512d883beaac6492c656f81c387c9">LEFT_SIDE_VIEW</a>
-, <a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163dac46792517ef35b6c172ac8ac65ec722b">FREE_CONTROLLED</a>
+&#160;&#160;<a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621a59f1812ecb84eed2aa8f2f52983767cf">kLeftSideView</a>
+, <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ac46792517ef35b6c172ac8ac65ec722b">FREE_CONTROLLED</a>
+, <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621acdab20cd408662a33691ffb5a615c017">FREE_CONTROLLED_TARGET</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a26e12db9c870d478bf853c50517d163d"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの視点を表す列挙体．  <a href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163d">[詳解]</a><br /></td></tr>
-<tr class="separator:a26e12db9c870d478bf853c50517d163d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:afbcf6e307ff8114a4867889faace8621"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの視点を表す列挙体．  <a href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">[詳解]</a><br /></td></tr>
+<tr class="separator:afbcf6e307ff8114a4867889faace8621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>画像表示処理においてカメラを制御するクラス． <br  />
- 行数 : 109 </p>
+ 行数 : 124 </p>
 <dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">列挙型詳解</h2>
-<a id="a26e12db9c870d478bf853c50517d163d" name="a26e12db9c870d478bf853c50517d163d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26e12db9c870d478bf853c50517d163d">&#9670;&#160;</a></span>ECameraMode</h2>
+<a id="afbcf6e307ff8114a4867889faace8621" name="afbcf6e307ff8114a4867889faace8621"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbcf6e307ff8114a4867889faace8621">&#9670;&#160;</a></span>CameraViewMode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('camera__manager_8h.html',''); initResi
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="camera__manager_8h.html#a26e12db9c870d478bf853c50517d163d">ECameraMode</a> : int</td>
+          <td class="memname">enum class <a class="el" href="camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621">CameraViewMode</a></td>
         </tr>
       </table>
   </td>
@@ -153,22 +153,23 @@ $(document).ready(function(){initNavTree('camera__manager_8h.html',''); initResi
 </div><div class="memdoc">
 
 <p>カメラの視点を表す列挙体． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/14 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>CameraControllerクラスで使用されている． <br  />
+ カメラの視点を切り替える際に使用する． <br  />
  具体的な処理はCameraControllerクラスを参照すること． </p>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163daa784c2b926d5ad795b0fc911fcdfe5ab" name="a26e12db9c870d478bf853c50517d163daa784c2b926d5ad795b0fc911fcdfe5ab"></a>FRONT_VIEW&#160;</td><td class="fielddoc"><p>正面図 </p>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621ad3f1de8d6a59bccdf5cdd0f1214d0d6a" name="afbcf6e307ff8114a4867889faace8621ad3f1de8d6a59bccdf5cdd0f1214d0d6a"></a>kFrontView&#160;</td><td class="fielddoc"><p>正面からの視点． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163da5ee31533d09f3cf77bba3ecc98908a6b" name="a26e12db9c870d478bf853c50517d163da5ee31533d09f3cf77bba3ecc98908a6b"></a>BACK_VIEW&#160;</td><td class="fielddoc"><p>背面図 </p>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621ac34246769d028a8eb522bb09f46521f6" name="afbcf6e307ff8114a4867889faace8621ac34246769d028a8eb522bb09f46521f6"></a>kBackView&#160;</td><td class="fielddoc"><p>背面からの視点． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163da992261ec46fee5072e9d7a6c3b98f605" name="a26e12db9c870d478bf853c50517d163da992261ec46fee5072e9d7a6c3b98f605"></a>TOP_VIEW&#160;</td><td class="fielddoc"><p>上からの見下ろし視点． </p>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621ab785420c18556e5c0278c456551e48d2" name="afbcf6e307ff8114a4867889faace8621ab785420c18556e5c0278c456551e48d2"></a>kTopView&#160;</td><td class="fielddoc"><p>上からの見下ろし視点． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163dad2b66d6fc398ad9c5cfd10b4a37803a1" name="a26e12db9c870d478bf853c50517d163dad2b66d6fc398ad9c5cfd10b4a37803a1"></a>RIGHT_SIDE_VIEW&#160;</td><td class="fielddoc"><p>右から真横の視点． </p>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621abb88ff0ca3c2716ae58f5954e4f8f91d" name="afbcf6e307ff8114a4867889faace8621abb88ff0ca3c2716ae58f5954e4f8f91d"></a>kRightSideView&#160;</td><td class="fielddoc"><p>右から真横の視点． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163da0ad512d883beaac6492c656f81c387c9" name="a26e12db9c870d478bf853c50517d163da0ad512d883beaac6492c656f81c387c9"></a>LEFT_SIDE_VIEW&#160;</td><td class="fielddoc"><p>右から真横の視点． </p>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621a59f1812ecb84eed2aa8f2f52983767cf" name="afbcf6e307ff8114a4867889faace8621a59f1812ecb84eed2aa8f2f52983767cf"></a>kLeftSideView&#160;</td><td class="fielddoc"><p>右から真横の視点． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a26e12db9c870d478bf853c50517d163dac46792517ef35b6c172ac8ac65ec722b" name="a26e12db9c870d478bf853c50517d163dac46792517ef35b6c172ac8ac65ec722b"></a>FREE_CONTROLLED&#160;</td><td class="fielddoc"><p>自由に操作可能 </p>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621ac46792517ef35b6c172ac8ac65ec722b" name="afbcf6e307ff8114a4867889faace8621ac46792517ef35b6c172ac8ac65ec722b"></a>FREE_CONTROLLED&#160;</td><td class="fielddoc"><p>自由に操作可能 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afbcf6e307ff8114a4867889faace8621acdab20cd408662a33691ffb5a615c017" name="afbcf6e307ff8114a4867889faace8621acdab20cd408662a33691ffb5a615c017"></a>FREE_CONTROLLED_TARGET&#160;</td><td class="fielddoc"><p>自由に操作可能かつ注視点を設定可能 </p>
 </td></tr>
 </table>
 

@@ -1,5 +1,0 @@
-<map id="PassFinderNone" name="PassFinderNone">
-<area shape="rect" id="Node000001" title="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．" alt="" coords="5,80,123,107"/>
-<area shape="rect" id="Node000002" href="$class_i_pass_finder.html" title="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="19,5,109,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,47,67,80,61,80,61,47"/>
-</map>

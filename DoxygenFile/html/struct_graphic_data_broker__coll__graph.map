@@ -1,0 +1,9 @@
+<map id="GraphicDataBroker" name="GraphicDataBroker">
+<area shape="rect" id="Node000001" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="341,64,472,91"/>
+<area shape="rect" id="Node000002" href="$class_asyncable_data.html" title=" " alt="" coords="5,5,195,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,32,317,53,350,61,349,66,316,59,203,38"/>
+<area shape="rect" id="Node000003" href="$class_asyncable_data.html" title=" " alt="" coords="30,56,170,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,75,340,75,340,80,184,80"/>
+<area shape="rect" id="Node000004" href="$class_asyncable_data.html" title=" " alt="" coords="30,123,170,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,124,316,96,348,89,349,94,317,101,185,130"/>
+</map>

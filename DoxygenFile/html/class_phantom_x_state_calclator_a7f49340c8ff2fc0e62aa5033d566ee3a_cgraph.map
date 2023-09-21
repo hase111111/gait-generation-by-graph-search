@@ -1,0 +1,9 @@
+<map id="PhantomXStateCalclator::getGlobalLegPosition" name="PhantomXStateCalclator::getGlobalLegPosition">
+<area shape="rect" id="Node000001" title="【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系" alt="" coords="5,35,168,77"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a6d663fef2c7956b03eaceced6ed77a26" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="216,5,426,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,43,200,39,201,44,169,48"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="252,72,390,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,64,237,72,237,78,168,69"/>
+<area shape="rect" id="Node000003" href="$class_abstract_hexapod_state_calculator.html#a18c304b7036e49a272be24dd1792975f" title="脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．" alt="" coords="474,5,684,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,24,459,24,459,29,427,29"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="designlab::math_util::Squared" name="designlab::math_util::Squared">
+<area shape="rect" id="Node000001" title="2乗した値を返す関数．" alt="" coords="424,131,561,173"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator___old.html#a37a46ff8951c6baaf2763a243d77adf1" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="215,5,369,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="456,123,418,92,375,62,352,51,355,46,377,58,421,87,459,118"/>
+<area shape="rect" id="Node000003" href="$class_com_up_down_node_creator.html#adf62ca1b597e2b7746b9396fc715e809" title="現在のノードから次のノード群を生成する" alt="" coords="208,72,376,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="409,130,367,118,368,113,411,125"/>
+<area shape="rect" id="Node000004" href="$class_mouse.html#a0ce54275796bf53d8a73ba4040b9be6e" title="マウスカーソルの移動量を取得する．" alt="" coords="228,139,356,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,155,356,155,356,149,410,149"/>
+<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator___old.html#a353ca8ecdae20c492077e1173a27af58" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="215,189,369,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="411,179,368,191,367,186,409,174"/>
+<area shape="rect" id="Node000006" href="$class_hexapod_state_calclator___old.html#a4606043fd85413e10d2bff6a148c6681" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="215,256,369,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="459,186,421,217,377,246,355,258,352,253,375,242,418,212,456,181"/>
+<area shape="rect" id="Node000007" href="$class_hexapod_state_calclator___old.html#a4ae24cc2f95f8a2b6771be98bb2df10f" title="全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="5,256,160,299"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="199,280,160,280,160,275,199,275"/>
+</map>

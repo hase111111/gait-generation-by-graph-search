@@ -1,0 +1,7 @@
+<map id="CameraStateManager::setCameraViewMode" name="CameraStateManager::setCameraViewMode">
+<area shape="rect" id="Node000001" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="5,39,158,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f" title="角度をdegからradに変換する関数．" alt="" coords="215,5,353,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,45,200,38,201,43,159,50"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_s_quaternion.html#abd2199b5705368d73b0df4b8247b7e48" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="206,72,362,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,70,192,75,191,81,158,75"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="designlab::Vector2::Normalized" name="designlab::Vector2::Normalized">
+<area shape="rect" id="Node000001" title="このベクトルを正規化したベクトルを返す" alt="" coords="489,72,618,115"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5" title="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距..." alt="" coords="231,5,441,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="474,72,407,51,409,46,475,67"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator___old.html#afca14fd8aba00dee061b81981f6a1214" title="静的安定余裕を計算する．" alt="" coords="245,72,427,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="474,96,427,96,427,91,474,91"/>
+<area shape="rect" id="Node000004" href="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba" title="重心を求める" alt="" coords="233,139,439,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="475,120,409,141,407,135,474,115"/>
+<area shape="rect" id="Node000005" href="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,139,183,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,163,183,163,183,157,217,157"/>
+</map>

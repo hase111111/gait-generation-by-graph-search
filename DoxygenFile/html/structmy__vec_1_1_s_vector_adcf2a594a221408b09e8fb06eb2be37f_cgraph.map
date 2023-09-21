@@ -1,7 +1,0 @@
-<map id="my_vec::SVector::normalized" name="my_vec::SVector::normalized">
-<area shape="rect" id="Node000001" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="5,5,197,32"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html#ab7e048615bd7e965e0be62a3e92a32c1" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="245,5,408,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,16,230,16,230,21,197,21"/>
-<area shape="rect" id="Node000003" href="$structmy__vec_1_1_s_vector.html#ad0873be2086aeb705197892cbace0b38" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="456,5,660,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,16,441,16,441,21,408,21"/>
-</map>

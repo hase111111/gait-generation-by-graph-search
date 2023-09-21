@@ -91,102 +91,82 @@ $(document).ready(function(){initNavTree('com__type_8h.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#namespaces">名前空間</a> &#124;
-<a href="#enum-members">列挙型</a> &#124;
-<a href="#func-members">関数</a> &#124;
-<a href="#var-members">変数</a>  </div>
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">com_type.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>重心タイプを扱うための名前空間． <br  />
- 行数 : 121  
+ 行数 : 102  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;boost/bimap.hpp&gt;</code><br />
+<code>#include &lt;boost/dynamic_bitset.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="hexapod__const_8h_source.html">hexapod_const.h</a>&quot;</code><br />
+<code>#include &quot;discrete_com_pos.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="leg__state_8h_source.html">leg_state.h</a>&quot;</code><br />
 </div>
 <p><a href="com__type_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 名前空間</h2></td></tr>
-<tr class="memitem:namespace_com_type"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html">ComType</a></td></tr>
-<tr class="memdesc:namespace_com_type"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心タイプに関する名前空間 <br /></td></tr>
+<tr class="memitem:namespacedl__com"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html">dl_com</a></td></tr>
+<tr class="memdesc:namespacedl__com"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略． <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-列挙型</h2></td></tr>
-<tr class="memitem:a744d4b9d4257c8ca2f68bdbed54dd621"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">ComType::EComPattern</a> : char { <br />
-&#160;&#160;<a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621abb2fe5c916efb43aab8cbb68f997d2ee">ComType::FRONT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c30649875f80bc4b253621e9cf4aa8e">ComType::FRONT_LEFT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f">ComType::BACK_LEFT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0">ComType::BACK</a>
-, <br />
-&#160;&#160;<a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387">ComType::BACK_RIGHT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a3c590d7552bf5fa1953eb0f05c64acd5">ComType::FRONT_RIGHT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621af092e1961ed9256c01d2318c1f9ecb0c">ComType::CENTER_FRONT</a>
-, <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a8447955000c49ef54f82cb0ed24d8edc">ComType::CENTER_BACK</a>
-, <br />
-&#160;&#160;<a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84">ComType::ERROR_POS</a>
-<br />
- }</td></tr>
-<tr class="separator:a744d4b9d4257c8ca2f68bdbed54dd621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:a772d291e940f24b87a596f9156dbebf0"><td class="memItemLeft" align="right" valign="top"><a id="a772d291e940f24b87a596f9156dbebf0" name="a772d291e940f24b87a596f9156dbebf0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dl_com::LegGroundedMap</b> = boost::bimaps::bimap&lt; <a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a>, int &gt;</td></tr>
+<tr class="memdesc:a772d291e940f24b87a596f9156dbebf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号． <br /></td></tr>
+<tr class="separator:a772d291e940f24b87a596f9156dbebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab154f02a40c56317e55668a18e8712e5"><td class="memItemLeft" align="right" valign="top"><a id="ab154f02a40c56317e55668a18e8712e5" name="ab154f02a40c56317e55668a18e8712e5"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dl_com::LegGroundedMapValue</b> = LegGroundedMap::value_type</td></tr>
+<tr class="memdesc:ab154f02a40c56317e55668a18e8712e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップの値の型． <br /></td></tr>
+<tr class="separator:ab154f02a40c56317e55668a18e8712e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ad68857d4fdd3fc1a4c31631655e388a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4">ComType::convertComPatternToBit</a> (const <a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">EComPattern</a> com_pattern)</td></tr>
-<tr class="memdesc:ad68857d4fdd3fc1a4c31631655e388a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンをbitに変換する関数  <br /></td></tr>
-<tr class="separator:ad68857d4fdd3fc1a4c31631655e388a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0815d6c99281b07d48ea3bde35e2169e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621">EComPattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a0815d6c99281b07d48ea3bde35e2169e">ComType::convertBitToComPattern</a> (const int bit)</td></tr>
-<tr class="memdesc:a0815d6c99281b07d48ea3bde35e2169e"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンをbitから変換する関数  <br /></td></tr>
-<tr class="separator:a0815d6c99281b07d48ea3bde35e2169e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad613024e0d874f1763630a4545212bdf"><td class="memItemLeft" align="right" valign="top"><a id="ad613024e0d874f1763630a4545212bdf" name="ad613024e0d874f1763630a4545212bdf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::isAbleCoM</b> (const int com_pattern, const bool ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
-<tr class="separator:ad613024e0d874f1763630a4545212bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0334fa750846fcf63b148c84fe7a6ce"><td class="memItemLeft" align="right" valign="top"><a id="af0334fa750846fcf63b148c84fe7a6ce" name="af0334fa750846fcf63b148c84fe7a6ce"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromGroundLeg</b> (const bool ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
-<tr class="separator:af0334fa750846fcf63b148c84fe7a6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c977a80d12619d5a03654a0f1a0e2d"><td class="memItemLeft" align="right" valign="top"><a id="ae2c977a80d12619d5a03654a0f1a0e2d" name="ae2c977a80d12619d5a03654a0f1a0e2d"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromLegState</b> (const int leg_state)</td></tr>
-<tr class="separator:ae2c977a80d12619d5a03654a0f1a0e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac99263b3c705a256504f77e5d30fb76c"><td class="memItemLeft" align="right" valign="top"><a id="ac99263b3c705a256504f77e5d30fb76c" name="ac99263b3c705a256504f77e5d30fb76c"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getComTypeFromBit</b> (const int bit)</td></tr>
-<tr class="separator:ac99263b3c705a256504f77e5d30fb76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8014df06ef19a39e925ab44ff85daa88"><td class="memItemLeft" align="right" valign="top"><a id="a8014df06ef19a39e925ab44ff85daa88" name="a8014df06ef19a39e925ab44ff85daa88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getGroundLegFromComType</b> (const int _com_type, bool _output_ground_leg[<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>])</td></tr>
-<tr class="separator:a8014df06ef19a39e925ab44ff85daa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22cd96981793f7917fa1f6941a9a11a8"><td class="memItemLeft" align="right" valign="top"><a id="a22cd96981793f7917fa1f6941a9a11a8" name="a22cd96981793f7917fa1f6941a9a11a8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::getDonotUseComTypeFromComPattern</b> (const int _com_pattern, std::vector&lt; int &gt; _output)</td></tr>
-<tr class="separator:a22cd96981793f7917fa1f6941a9a11a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada2e272de56dfe8b22d4135d72a5cf9e"><td class="memItemLeft" align="right" valign="top"><a id="ada2e272de56dfe8b22d4135d72a5cf9e" name="ada2e272de56dfe8b22d4135d72a5cf9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::checkAbleComTypeFromComPattern</b> (const int _com_pattern, bool _com_type_able_array[<a class="el" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>])</td></tr>
-<tr class="separator:ada2e272de56dfe8b22d4135d72a5cf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab480b441650d1e65503938a97da8ac71"><td class="memItemLeft" align="right" valign="top"><a id="ab480b441650d1e65503938a97da8ac71" name="ab480b441650d1e65503938a97da8ac71"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::checkAbleComTypeFromNotGroundableLeg</b> (const int not_groundble_leg, bool output_able_comtype[<a class="el" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>])</td></tr>
-<tr class="separator:ab480b441650d1e65503938a97da8ac71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f3c839d2e704648ea5100886bdacb8a"><td class="memItemLeft" align="right" valign="top"><a id="a7f3c839d2e704648ea5100886bdacb8a" name="a7f3c839d2e704648ea5100886bdacb8a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::checkAbleComTypeFromNotFreeLeg</b> (const int not_free_leg_num, bool output_able_comtype[<a class="el" href="namespace_com_type.html#ab824570eb6c7d8e6fb26f9478e582224">COM_TYPE_NUM</a>])</td></tr>
-<tr class="separator:a7f3c839d2e704648ea5100886bdacb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-変数</h2></td></tr>
-<tr class="memitem:a85fa6fe51d678f1616277b9a5bb6df8c"><td class="memItemLeft" align="right" valign="top"><a id="a85fa6fe51d678f1616277b9a5bb6df8c" name="a85fa6fe51d678f1616277b9a5bb6df8c"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::COM_PATTERN_NUM</b> = 10</td></tr>
-<tr class="memdesc:a85fa6fe51d678f1616277b9a5bb6df8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンの数 <br /></td></tr>
-<tr class="separator:a85fa6fe51d678f1616277b9a5bb6df8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab824570eb6c7d8e6fb26f9478e582224"><td class="memItemLeft" align="right" valign="top"><a id="ab824570eb6c7d8e6fb26f9478e582224" name="ab824570eb6c7d8e6fb26f9478e582224"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::COM_TYPE_NUM</b> = 36</td></tr>
-<tr class="memdesc:ab824570eb6c7d8e6fb26f9478e582224"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心タイプの数 <br /></td></tr>
-<tr class="separator:ab824570eb6c7d8e6fb26f9478e582224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b7d331c49dfd3394b936d22b695a624"><td class="memItemLeft" align="right" valign="top"><a id="a8b7d331c49dfd3394b936d22b695a624" name="a8b7d331c49dfd3394b936d22b695a624"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ComType::BAN_LIST_ARRAY_SIZE</b> = 23</td></tr>
-<tr class="separator:a8b7d331c49dfd3394b936d22b695a624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#a9f1641a1972fbf8fc580ca9e3fe56a95">ComType::BAN_LIST</a> [<a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a>][BAN_LIST_ARRAY_SIZE]</td></tr>
-<tr class="separator:a9f1641a1972fbf8fc580ca9e3fe56a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af14075ad39cfe776d297f5644a4cad15"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_com_type.html#af14075ad39cfe776d297f5644a4cad15">ComType::COMTYPE_BAN_LIST</a></td></tr>
-<tr class="separator:af14075ad39cfe776d297f5644a4cad15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d6bcdafffdc798c20f4c005e3cc258"><td class="memTemplParams" colspan="2"><a id="ab1d6bcdafffdc798c20f4c005e3cc258" name="ab1d6bcdafffdc798c20f4c005e3cc258"></a>
+template&lt;size_t N&gt; </td></tr>
+<tr class="memitem:ab1d6bcdafffdc798c20f4c005e3cc258"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>std::operator&lt;</b> (const std::bitset&lt; N &gt; &amp;lhs, const std::bitset&lt; N &gt; &amp;rhs)</td></tr>
+<tr class="separator:ab1d6bcdafffdc798c20f4c005e3cc258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd056fbbd66024f19667c6339ec06046"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#abd056fbbd66024f19667c6339ec06046">dl_com::isLegPairFree</a> (int leg_index, int leg_ground_pattern_index)</td></tr>
+<tr class="memdesc:abd056fbbd66024f19667c6339ec06046"><td class="mdescLeft">&#160;</td><td class="mdescRight">leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している  <br /></td></tr>
+<tr class="separator:abd056fbbd66024f19667c6339ec06046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="memItemLeft" align="right" valign="top"><a id="ab1d3ae7fea9b3bd985b411700cdbd0da" name="ab1d3ae7fea9b3bd985b411700cdbd0da"></a>
+<a class="el" href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">LegGroundedMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_com::makeLegGroundedMap</b> ()</td></tr>
+<tr class="memdesc:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c98929ee34aa803bb98cc345dcae146"><td class="memItemLeft" align="right" valign="top"><a id="a1c98929ee34aa803bb98cc345dcae146" name="a1c98929ee34aa803bb98cc345dcae146"></a>
+std::unordered_map&lt; EDiscreteComPos, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dl_com::makeLegGroundedPatternBanList</b> ()</td></tr>
+<tr class="memdesc:a1c98929ee34aa803bb98cc345dcae146"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:a1c98929ee34aa803bb98cc345dcae146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="memItemLeft" align="right" valign="top"><a id="a5bb4bcb29b1d92740cb2faf7ad46a0a9" name="a5bb4bcb29b1d92740cb2faf7ad46a0a9"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dl_com::makeLegGroundedPatternBanListFromLeg</b> ()</td></tr>
+<tr class="memdesc:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d79b0702d8cfec0775641c0189b2cf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1">dl_com::getLegGroundPatternNum</a> ()</td></tr>
+<tr class="memdesc:a6d79b0702d8cfec0775641c0189b2cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの総数を返す．  <br /></td></tr>
+<tr class="separator:a6d79b0702d8cfec0775641c0189b2cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b8d0648f35962c25f49be4d713c2270"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a1b8d0648f35962c25f49be4d713c2270">dl_com::getLegGroundedBitFromLegGroundPatternIndex</a> (int leg_ground_pattern_index)</td></tr>
+<tr class="memdesc:a1b8d0648f35962c25f49be4d713c2270"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの番号から，その脚の接地パターンを返す．  <br /></td></tr>
+<tr class="separator:a1b8d0648f35962c25f49be4d713c2270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1365ec17513ff457faa02295d698e65e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a1365ec17513ff457faa02295d698e65e">dl_com::banLegGroundPatternFromCom</a> (EDiscreteComPos discrete_com_pos, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="memdesc:a1365ec17513ff457faa02295d698e65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．  <br /></td></tr>
+<tr class="separator:a1365ec17513ff457faa02295d698e65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f359696549a25d469e8392888237a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a18f359696549a25d469e8392888237a5">dl_com::banLegGroundPatternFromNotGroundableLeg</a> (int not_groundble_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="separator:a18f359696549a25d469e8392888237a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#ac3f04f179ef73f038dcffb6c93ce2a2d">dl_com::banLegGroundPatternFromNotFreeLeg</a> (int not_lift_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="memdesc:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．  <br /></td></tr>
+<tr class="separator:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心タイプを扱うための名前空間． <br  />
- 行数 : 121 </p>
+ 行数 : 102 </p>
 <dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
 <dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div></div><!-- contents -->

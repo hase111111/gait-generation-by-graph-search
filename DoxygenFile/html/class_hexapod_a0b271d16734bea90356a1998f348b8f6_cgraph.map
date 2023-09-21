@@ -1,9 +1,0 @@
-<map id="Hexapod::isAbleCOM" name="Hexapod::isAbleCOM">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,152,57"/>
-<area shape="rect" id="Node000002" href="$structmy__vec_1_1_s_vector.html#a55897a203c614f9702f6fd59667c668f" title="自分×引数 の外積の結果を返す．" alt="" coords="227,5,388,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,33,212,27,213,32,152,39"/>
-<area shape="rect" id="Node000003" href="$class_hexapod.html#a58aa696cdc6ec754d38ce68e06ad3ae7" title=" " alt="" coords="200,56,415,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,49,185,53,185,58,152,55"/>
-<area shape="rect" id="Node000004" href="$class_hexapod.html#a7153615231f0fd115de15a78dd7e5230" title=" " alt="" coords="463,56,586,83"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="415,67,448,67,448,72,415,72"/>
-</map>

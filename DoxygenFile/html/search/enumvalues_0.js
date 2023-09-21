@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['back_0',['BACK',['../namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a1dd26f1f1790f0b56d5752fb0fbecef0',1,'ComType']]],
-  ['back_5fleft_1',['BACK_LEFT',['../namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a312668bcc143fd3778c68442f6c3e32f',1,'ComType']]],
-  ['back_5fright_2',['BACK_RIGHT',['../namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a7e77482f99baeaa96a02f36b2f99f387',1,'ComType']]],
-  ['back_5fview_3',['BACK_VIEW',['../camera__manager_8h.html#a26e12db9c870d478bf853c50517d163da5ee31533d09f3cf77bba3ecc98908a6b',1,'camera_manager.h']]]
+  ['com_5fmove_0',['COM_MOVE',['../hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80a1bca6fbe02f891a7900fb172ce1f8bfe',1,'hexapod_next_move.h']]],
+  ['com_5fup_5fdown_1',['COM_UP_DOWN',['../hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80aefb77ea8cd308bd01548a20d754b675f',1,'hexapod_next_move.h']]]
 ];

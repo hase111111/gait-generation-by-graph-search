@@ -1,0 +1,5 @@
+<map id="dl_leg::changeLegStateKeepTopBit" name="dl_leg::changeLegStateKeepTopBit">
+<area shape="rect" id="Node000001" title="脚の状態を変更する．引数の値がおかしいならばfalseを出力する．遊脚を表すbitはそのまま" alt="" coords="5,5,193,48"/>
+<area shape="rect" id="Node000002" href="$namespacedl__leg.html#aab41362b4b8ff62a4a46679b72411509" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする" alt="" coords="241,13,429,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,24,226,24,226,29,193,29"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="CameraStateManager::setCameraRotQuat" name="CameraStateManager::setCameraRotQuat">
+<area shape="rect" id="Node000001" title="カメラのクォータニオンをセットする" alt="" coords="631,93,779,136"/>
+<area shape="rect" id="Node000002" href="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,117,584,117,584,112,616,112"/>
+<area shape="rect" id="Node000003" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" id="Node000006" href="$class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" id="Node000007" href="$class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wait_0',['wait',['../class_fps.html#a81d2d44e8747ed7978b47b66f4896f3b',1,'Fps']]],
-  ['windowcontroller_1',['windowController',['../classdetect_landing_point.html#a1f4248d726343b551926bf8299d55a5b',1,'detectLandingPoint']]]
+  ['_7eigraphsearcher_0',['~IGraphSearcher',['../class_i_graph_searcher.html#aac742f9d3360a34b1a1f220244b166e0',1,'IGraphSearcher']]]
 ];

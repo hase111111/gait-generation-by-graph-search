@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: dl_com 名前空間</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespacedl__com.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">dl_com 名前空間</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略．  
+<a href="namespacedl__com.html#details">[詳解]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:a772d291e940f24b87a596f9156dbebf0"><td class="memItemLeft" align="right" valign="top"><a id="a772d291e940f24b87a596f9156dbebf0" name="a772d291e940f24b87a596f9156dbebf0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LegGroundedMap</b> = boost::bimaps::bimap&lt; <a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a>, int &gt;</td></tr>
+<tr class="memdesc:a772d291e940f24b87a596f9156dbebf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号． <br /></td></tr>
+<tr class="separator:a772d291e940f24b87a596f9156dbebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab154f02a40c56317e55668a18e8712e5"><td class="memItemLeft" align="right" valign="top"><a id="ab154f02a40c56317e55668a18e8712e5" name="ab154f02a40c56317e55668a18e8712e5"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LegGroundedMapValue</b> = LegGroundedMap::value_type</td></tr>
+<tr class="memdesc:ab154f02a40c56317e55668a18e8712e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップの値の型． <br /></td></tr>
+<tr class="separator:ab154f02a40c56317e55668a18e8712e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:abd056fbbd66024f19667c6339ec06046"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#abd056fbbd66024f19667c6339ec06046">isLegPairFree</a> (int leg_index, int leg_ground_pattern_index)</td></tr>
+<tr class="memdesc:abd056fbbd66024f19667c6339ec06046"><td class="mdescLeft">&#160;</td><td class="mdescRight">leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している  <br /></td></tr>
+<tr class="separator:abd056fbbd66024f19667c6339ec06046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c98929ee34aa803bb98cc345dcae146"><td class="memItemLeft" align="right" valign="top"><a id="a1c98929ee34aa803bb98cc345dcae146" name="a1c98929ee34aa803bb98cc345dcae146"></a>
+std::unordered_map&lt; EDiscreteComPos, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>makeLegGroundedPatternBanList</b> ()</td></tr>
+<tr class="memdesc:a1c98929ee34aa803bb98cc345dcae146"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:a1c98929ee34aa803bb98cc345dcae146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="memItemLeft" align="right" valign="top"><a id="a5bb4bcb29b1d92740cb2faf7ad46a0a9" name="a5bb4bcb29b1d92740cb2faf7ad46a0a9"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>makeLegGroundedPatternBanListFromLeg</b> ()</td></tr>
+<tr class="memdesc:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:a5bb4bcb29b1d92740cb2faf7ad46a0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d79b0702d8cfec0775641c0189b2cf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1">getLegGroundPatternNum</a> ()</td></tr>
+<tr class="memdesc:a6d79b0702d8cfec0775641c0189b2cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの総数を返す．  <br /></td></tr>
+<tr class="separator:a6d79b0702d8cfec0775641c0189b2cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b8d0648f35962c25f49be4d713c2270"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a1b8d0648f35962c25f49be4d713c2270">getLegGroundedBitFromLegGroundPatternIndex</a> (int leg_ground_pattern_index)</td></tr>
+<tr class="memdesc:a1b8d0648f35962c25f49be4d713c2270"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの番号から，その脚の接地パターンを返す．  <br /></td></tr>
+<tr class="separator:a1b8d0648f35962c25f49be4d713c2270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1365ec17513ff457faa02295d698e65e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a1365ec17513ff457faa02295d698e65e">banLegGroundPatternFromCom</a> (EDiscreteComPos discrete_com_pos, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="memdesc:a1365ec17513ff457faa02295d698e65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．  <br /></td></tr>
+<tr class="separator:a1365ec17513ff457faa02295d698e65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f359696549a25d469e8392888237a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#a18f359696549a25d469e8392888237a5">banLegGroundPatternFromNotGroundableLeg</a> (int not_groundble_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="separator:a18f359696549a25d469e8392888237a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__com.html#ac3f04f179ef73f038dcffb6c93ce2a2d">banLegGroundPatternFromNotFreeLeg</a> (int not_lift_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
+<tr class="memdesc:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．  <br /></td></tr>
+<tr class="separator:ac3f04f179ef73f038dcffb6c93ce2a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="memItemLeft" align="right" valign="top"><a id="ab1d3ae7fea9b3bd985b411700cdbd0da" name="ab1d3ae7fea9b3bd985b411700cdbd0da"></a>
+<a class="el" href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">LegGroundedMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>makeLegGroundedMap</b> ()</td></tr>
+<tr class="memdesc:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す． <br /></td></tr>
+<tr class="separator:ab1d3ae7fea9b3bd985b411700cdbd0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略． </p>
+<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
+<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<p>leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で <br  />
+ BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理をまとめたくて作ったもの. <br  />
+ 重心位置はざっくり離散化して，8通り， <br  />
+ 脚の接地パターンは36通りある．離散化した重心位置から取ることができないものを予め取り除くのがこれら関数の役割．<br  />
+<br  />
+ 脚の接地パターンは， <br  />
+ ・全接地 1通り <br  />
+ ・1本遊脚 6通り <br  />
+ ・2本遊脚 15通り <br  />
+ ・3本遊脚 20通り → 実現可能なものは14通り <br  />
+ なので全部で36通りある． <br  />
+ </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a1365ec17513ff457faa02295d698e65e" name="a1365ec17513ff457faa02295d698e65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1365ec17513ff457faa02295d698e65e">&#9670;&#160;</a></span>banLegGroundPatternFromCom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dl_com::banLegGroundPatternFromCom </td>
+          <td>(</td>
+          <td class="paramtype">EDiscreteComPos&#160;</td>
+          <td class="paramname"><em>discrete_com_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::dynamic_bitset&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">discrete_com_pos</td><td>離散化された重心位置． </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならばtrue，不可能ならfalseにしたbool型の配列．重心位置では取り得ない脚接地パターンをfalseに変更する． </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a1365ec17513ff457faa02295d698e65e_cgraph.png" border="0" usemap="#anamespacedl__com_a1365ec17513ff457faa02295d698e65e_cgraph" alt=""/></div>
+<map name="anamespacedl__com_a1365ec17513ff457faa02295d698e65e_cgraph" id="anamespacedl__com_a1365ec17513ff457faa02295d698e65e_cgraph">
+<area shape="rect" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="5,5,203,48"/>
+<area shape="rect" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1" title="脚の接地パターンの総数を返す．" alt="" coords="251,13,472,40"/>
+<area shape="poly" title=" " alt="" coords="203,24,236,24,236,29,203,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a1365ec17513ff457faa02295d698e65e_icgraph.png" border="0" usemap="#anamespacedl__com_a1365ec17513ff457faa02295d698e65e_icgraph" alt=""/></div>
+<map name="anamespacedl__com_a1365ec17513ff457faa02295d698e65e_icgraph" id="anamespacedl__com_a1365ec17513ff457faa02295d698e65e_icgraph">
+<area shape="rect" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="216,5,413,48"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,168,48"/>
+<area shape="poly" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac3f04f179ef73f038dcffb6c93ce2a2d" name="ac3f04f179ef73f038dcffb6c93ce2a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3f04f179ef73f038dcffb6c93ce2a2d">&#9670;&#160;</a></span>banLegGroundPatternFromNotFreeLeg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dl_com::banLegGroundPatternFromNotFreeLeg </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>not_lift_leg_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::dynamic_bitset&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">not_lift_leg_index</td><td>遊脚できない脚番号． </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならばtrue，不可能ならfalseにしたbool型の配列．遊脚できない脚が遊脚できない場合に取り得ない接地パターンをfalseに変更する． </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_ac3f04f179ef73f038dcffb6c93ce2a2d_cgraph.png" border="0" usemap="#anamespacedl__com_ac3f04f179ef73f038dcffb6c93ce2a2d_cgraph" alt=""/></div>
+<map name="anamespacedl__com_ac3f04f179ef73f038dcffb6c93ce2a2d_cgraph" id="anamespacedl__com_ac3f04f179ef73f038dcffb6c93ce2a2d_cgraph">
+<area shape="rect" title="遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．" alt="" coords="5,5,203,48"/>
+<area shape="rect" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1" title="脚の接地パターンの総数を返す．" alt="" coords="251,13,472,40"/>
+<area shape="poly" title=" " alt="" coords="203,24,236,24,236,29,203,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a18f359696549a25d469e8392888237a5" name="a18f359696549a25d469e8392888237a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18f359696549a25d469e8392888237a5">&#9670;&#160;</a></span>banLegGroundPatternFromNotGroundableLeg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dl_com::banLegGroundPatternFromNotGroundableLeg </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>not_groundble_leg_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::dynamic_bitset&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>@breif 接地できない脚番号から，その脚が接地できない場合に取り得ない接地パターンをfalseにする． </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">not_groundble_leg_index</td><td>接地できない脚番号． </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならばtrue，不可能ならfalseにしたbool型の配列．接地できない脚が接地できない場合に取り得ない接地パターンをfalseに変更する． </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a18f359696549a25d469e8392888237a5_cgraph.png" border="0" usemap="#anamespacedl__com_a18f359696549a25d469e8392888237a5_cgraph" alt=""/></div>
+<map name="anamespacedl__com_a18f359696549a25d469e8392888237a5_cgraph" id="anamespacedl__com_a18f359696549a25d469e8392888237a5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,203,48"/>
+<area shape="rect" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1" title="脚の接地パターンの総数を返す．" alt="" coords="251,13,472,40"/>
+<area shape="poly" title=" " alt="" coords="203,24,236,24,236,29,203,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a18f359696549a25d469e8392888237a5_icgraph.png" border="0" usemap="#anamespacedl__com_a18f359696549a25d469e8392888237a5_icgraph" alt=""/></div>
+<map name="anamespacedl__com_a18f359696549a25d469e8392888237a5_icgraph" id="anamespacedl__com_a18f359696549a25d469e8392888237a5_icgraph">
+<area shape="rect" title=" " alt="" coords="216,5,413,48"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,168,48"/>
+<area shape="poly" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1b8d0648f35962c25f49be4d713c2270" name="a1b8d0648f35962c25f49be4d713c2270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b8d0648f35962c25f49be4d713c2270">&#9670;&#160;</a></span>getLegGroundedBitFromLegGroundPatternIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a> dl_com::getLegGroundedBitFromLegGroundPatternIndex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leg_ground_pattern_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚の接地パターンの番号から，その脚の接地パターンを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_ground_pattern_index</td><td>脚の接地パターンの番号． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a" title="脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．">dl_leg::LegGroundedBit</a> 脚の接地パターン． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a1b8d0648f35962c25f49be4d713c2270_icgraph.png" border="0" usemap="#anamespacedl__com_a1b8d0648f35962c25f49be4d713c2270_icgraph" alt=""/></div>
+<map name="anamespacedl__com_a1b8d0648f35962c25f49be4d713c2270_icgraph" id="anamespacedl__com_a1b8d0648f35962c25f49be4d713c2270_icgraph">
+<area shape="rect" title="脚の接地パターンの番号から，その脚の接地パターンを返す．" alt="" coords="216,5,403,48"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,168,48"/>
+<area shape="poly" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6d79b0702d8cfec0775641c0189b2cf1" name="a6d79b0702d8cfec0775641c0189b2cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d79b0702d8cfec0775641c0189b2cf1">&#9670;&#160;</a></span>getLegGroundPatternNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dl_com::getLegGroundPatternNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚の接地パターンの総数を返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int 脚の接地パターンの総数． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_a6d79b0702d8cfec0775641c0189b2cf1_icgraph.png" border="0" usemap="#anamespacedl__com_a6d79b0702d8cfec0775641c0189b2cf1_icgraph" alt=""/></div>
+<map name="anamespacedl__com_a6d79b0702d8cfec0775641c0189b2cf1_icgraph" id="anamespacedl__com_a6d79b0702d8cfec0775641c0189b2cf1_icgraph">
+<area shape="rect" title="脚の接地パターンの総数を返す．" alt="" coords="461,101,682,128"/>
+<area shape="rect" href="namespacedl__com.html#a1365ec17513ff457faa02295d698e65e" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="216,5,413,48"/>
+<area shape="poly" title=" " alt="" coords="516,99,378,51,380,46,517,94"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,64,168,107"/>
+<area shape="poly" title=" " alt="" coords="446,110,168,93,168,88,447,104"/>
+<area shape="rect" href="namespacedl__com.html#ac3f04f179ef73f038dcffb6c93ce2a2d" title="遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．" alt="" coords="216,123,413,165"/>
+<area shape="poly" title=" " alt="" coords="446,132,414,135,413,130,446,126"/>
+<area shape="rect" href="namespacedl__com.html#a18f359696549a25d469e8392888237a5" title=" " alt="" coords="216,189,413,232"/>
+<area shape="poly" title=" " alt="" coords="524,137,414,180,382,191,380,186,412,175,522,132"/>
+<area shape="poly" title=" " alt="" coords="216,55,169,67,167,62,215,50"/>
+<area shape="poly" title=" " alt="" coords="227,186,214,180,158,145,112,109,115,105,161,140,217,175,229,181"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abd056fbbd66024f19667c6339ec06046" name="abd056fbbd66024f19667c6339ec06046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd056fbbd66024f19667c6339ec06046">&#9670;&#160;</a></span>isLegPairFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dl_com::isLegPairFree </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leg_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leg_ground_pattern_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leg_index</td><td>脚の番号． </td></tr>
+    <tr><td class="paramname">leg_ground_pattern_index</td><td>脚の接地パターンの番号． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrue． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedl__com_abd056fbbd66024f19667c6339ec06046_icgraph.png" border="0" usemap="#anamespacedl__com_abd056fbbd66024f19667c6339ec06046_icgraph" alt=""/></div>
+<map name="anamespacedl__com_abd056fbbd66024f19667c6339ec06046_icgraph" id="anamespacedl__com_abd056fbbd66024f19667c6339ec06046_icgraph">
+<area shape="rect" title="leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している" alt="" coords="276,13,427,40"/>
+<area shape="rect" href="namespacedl__com.html#a1c98929ee34aa803bb98cc345dcae146" title="重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．" alt="" coords="5,5,228,48"/>
+<area shape="poly" title=" " alt="" coords="261,29,228,29,228,24,261,24"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedl__com.html">dl_com</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

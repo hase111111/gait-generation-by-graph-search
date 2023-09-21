@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../structdl__vec_1_1_s_vector.html#a6b43bdd21c74f869b19a699c4c2ccfdd',1,'dl_vec::SVector']]],
-  ['yaw_1',['yaw',['../structdl__vec_1_1_s_rotator.html#a4b9ffea21ecaf128a594005434860b4b',1,'dl_vec::SRotator']]]
+  ['x_0',['x',['../structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc',1,'designlab::Vector3']]],
+  ['x_5fangle_1',['x_angle',['../structdesignlab_1_1_euler_x_y_z.html#a002c87d3a11aaabec75689b796990e33',1,'designlab::EulerXYZ']]]
 ];

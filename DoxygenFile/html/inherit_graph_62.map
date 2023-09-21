@@ -1,0 +1,3 @@
+<map id="クラス階層図" name="クラス階層図">
+<area shape="rect" id="Node000000" href="$class_stability_margin_renderer.html" title="ロボットの安定性マージンを描画するクラス． &#160;&#160;接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる．" alt="" coords="5,5,165,32"/>
+</map>

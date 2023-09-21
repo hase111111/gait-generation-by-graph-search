@@ -103,52 +103,62 @@ $(document).ready(function(){initNavTree('class_graphic_system.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a21c01c964ac88ba9658ee0b769d9b50a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#a21c01c964ac88ba9658ee0b769d9b50a">init</a> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_main)</td></tr>
-<tr class="memdesc:a21c01c964ac88ba9658ee0b769d9b50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る.  <br /></td></tr>
-<tr class="separator:a21c01c964ac88ba9658ee0b769d9b50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d38633900a8cbcacaf9c3afbe728976"><td class="memItemLeft" align="right" valign="top"><a id="a1d38633900a8cbcacaf9c3afbe728976" name="a1d38633900a8cbcacaf9c3afbe728976"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
-<tr class="memdesc:a1d38633900a8cbcacaf9c3afbe728976"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．<br  />
-initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．<br  />
- またメンバ関数のdxlibInit関数に失敗した場合も終了します．<br  />
-dxlibは2窓できないので失敗する場合はタスクマネージャーからdxlibを落としてください． <br /></td></tr>
-<tr class="separator:a1d38633900a8cbcacaf9c3afbe728976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d63515e2eb2cf1b98cb1b89137e9b7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#a0d63515e2eb2cf1b98cb1b89137e9b7b">GraphicSystem</a> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_main_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_s_application_setting_recorder.html">SApplicationSettingRecorder</a> &gt; setting_ptr)</td></tr>
+<tr class="separator:a0d63515e2eb2cf1b98cb1b89137e9b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4973873ceea44d1eeb54e68dabeb0de"><td class="memItemLeft" align="right" valign="top"><a id="af4973873ceea44d1eeb54e68dabeb0de" name="af4973873ceea44d1eeb54e68dabeb0de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Main</b> ()</td></tr>
+<tr class="memdesc:af4973873ceea44d1eeb54e68dabeb0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． <br  />
+ initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． <br  />
+ またメンバ関数のdxlibInit関数に失敗した場合も終了します． <br /></td></tr>
+<tr class="separator:af4973873ceea44d1eeb54e68dabeb0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>Dxlibの処理を行うクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/08 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>Dxlibを非同期処理で動かすことで別スレッドで行っているグラフ探索の処理をもとにロボットの状態を表示する． <br  />
  しかし，Dxlibは非同期処理を考慮して設計されていないので，動かし方によってはうまく動作しない． <br  />
- このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで，エラーを防いでいるが，予期せぬエラーが発生する可能性がある．<br  />
+ このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで，エラーを防いでいるが，予期せぬエラーが発生する可能性がある． <br  />
  <br  />
  [Dxlibの注意] <br  />
  注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにすること． <br  />
  (実は小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難．) <br  />
- また，Dxlibはエラーが出たときに - 1 を返す関数が非常に多い．そのため例えば if (DxLib_Init() == false) と書いてもエラーを受け取れないことがある． <br  />
- 正しくは if (DxLib_Init() &lt; 0) となる．これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，C++で書かれている本コードにおいては <br  />
- 混乱の元でしかない(涙)．Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと． </p>
-</div><h2 class="groupheader">関数詳解</h2>
-<a id="a21c01c964ac88ba9658ee0b769d9b50a" name="a21c01c964ac88ba9658ee0b769d9b50a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21c01c964ac88ba9658ee0b769d9b50a">&#9670;&#160;</a></span>init()</h2>
+ また，Dxlibはエラーが出たときに - 1 を返す関数が非常に多い．そのため例えば if (DxLib_Init() == false) と書いても <br  />
+ エラーを受け取れないことがある． <br  />
+ 正しくは if (DxLib_Init() &lt; 0) となる． <br  />
+ これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり， <br  />
+ C++で書かれている本コードにおいては混乱の元でしかない(涙)． <br  />
+ Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと． <br  />
+ <br  />
+ また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください． </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a0d63515e2eb2cf1b98cb1b89137e9b7b" name="a0d63515e2eb2cf1b98cb1b89137e9b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d63515e2eb2cf1b98cb1b89137e9b7b">&#9670;&#160;</a></span>GraphicSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GraphicSystem::init </td>
+          <td class="memname">GraphicSystem::GraphicSystem </td>
           <td>(</td>
           <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>graphic_main</em></td><td>)</td>
+          <td class="paramname"><em>graphic_main_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; const <a class="el" href="struct_s_application_setting_recorder.html">SApplicationSettingRecorder</a> &gt;&#160;</td>
+          <td class="paramname"><em>setting_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>GraphicSystemクラスの初期化をする．ブローカー(仲介人)クラスのポインタ代入したGraphicMainクラスを受け取る. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">graphic_main</td><td>GraphicSystemクラスのメンバ関数を呼び出すためのブローカークラスのポインタ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">graphic_main_ptr</td><td>GraphicMainクラスのポインタ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">setting_ptr</td><td>アプリケーションの設定を記録するクラスのポインタ． </td></tr>
   </table>
   </dd>
 </dl>

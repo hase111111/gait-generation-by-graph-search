@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['update_0',['update',['../class_buttom_controller.html#af6ed6479f4def3870269a0ded3df8bde',1,'ButtomController::update()'],['../class_camera_controller.html#a98b0e77fc306636462fad5db5005a1af',1,'CameraController::update()'],['../class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43',1,'GraphicMainBasic::update()'],['../class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a',1,'GraphicMainGraphViewer::update()'],['../class_graphic_main_sample.html#a1a14421a8f47822935b752d11d824c1f',1,'GraphicMainSample::update()'],['../class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6',1,'GraphicMainTest::update()'],['../class_graph_viewer_g_u_i_controller.html#add0c2f9f5b8d4bb65a689be3907155fc',1,'GraphViewerGUIController::update()'],['../class_g_u_i_controller.html#ab4a66529274344be735b2db14c3f5124',1,'GUIController::update()'],['../class_hexapod_renderer.html#a186bbaedfc7ebad00b4b9f673a8e1600',1,'HexapodRenderer::update()'],['../class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e',1,'IGraphicMain::update()'],['../class_keyboard.html#a6410f07ddc53561a82d5328d8b330aab',1,'Keyboard::update()'],['../class_mouse.html#a8cf3dbfaa0ed80eea91f0d598a35654a',1,'Mouse::update()']]],
-  ['updatedistancemovey_1',['updateDistanceMoveY',['../class_simulate_result.html#a96cc617401b4bd123d1a912eea32b2e7',1,'SimulateResult']]],
-  ['updategatepatterngeneratetime_2',['updateGatePatternGenerateTime',['../class_simulate_result.html#ab9da87351d0c88c145fc15254a388a27',1,'SimulateResult']]],
-  ['updategraphnodedepthdata_3',['updateGraphNodeDepthData',['../class_graph_viewer_g_u_i_controller.html#ae2fcd744e4c5392faf67b76845527bd6',1,'GraphViewerGUIController']]]
+  ['wait_0',['Wait',['../class_fps_controller.html#ad374af8f8418f64854fae53b113ace9a',1,'FpsController']]],
+  ['wheel_5frot_1',['wheel_rot',['../class_mouse.html#a589d79b7e60aa86519decaa0f503fae9',1,'Mouse']]]
 ];

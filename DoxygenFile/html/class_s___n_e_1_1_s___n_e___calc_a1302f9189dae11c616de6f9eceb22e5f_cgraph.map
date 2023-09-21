@@ -1,9 +1,0 @@
-<map id="S_NE::S_NE_Calc::SNE" name="S_NE::S_NE_Calc::SNE">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,171,83"/>
-<area shape="rect" id="Node000002" href="$namespace_s___n_e.html#ac3951edd1a9d517716d077ea7fc7edd9" title=" " alt="" coords="253,5,337,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,53,238,30,240,35,146,58"/>
-<area shape="rect" id="Node000003" href="$namespace_s___n_e.html#a52a638985a4e6d2e12728739331d5de0" title=" " alt="" coords="219,56,371,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,67,204,67,204,72,171,72"/>
-<area shape="rect" id="Node000004" href="$namespace_s___n_e.html#ae5936078bf58eef0f4a7411e0475d055" title=" " alt="" coords="251,107,339,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,81,237,103,235,108,145,86"/>
-</map>

@@ -7,5 +7,5 @@ digraph "NodeValidityChecker::isLoopMove"
   rankdir="RL";
   Node1 [id="Node000001",label="NodeValidityChecker\l::isLoopMove",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="SystemMain::main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_system_main.html#afd6aec5b53eb29cd818a8cdc014302c2",tooltip="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．"];
+  Node2 [id="Node000002",label="SimulationSystemMain\l::Main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_simulation_system_main.html#adb7b220bc2f5e2c55bd49e25b8c9345d",tooltip="いままでint mainで行われた処理をまとめたもの．   目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．   また，規定の回数シミュレーションしたら終了する．"];
 }

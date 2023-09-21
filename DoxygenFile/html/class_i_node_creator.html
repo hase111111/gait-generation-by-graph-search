@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('class_i_node_creator.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_i_node_creator-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">INodeCreator クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -106,48 +105,33 @@ INodeCreator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_node_creator__inherit__graph.png" border="0" usemap="#a_i_node_creator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_node_creator_inherit__map" id="a_i_node_creator_inherit__map">
-<area shape="rect" title="ノード生成インターフェース" alt="" coords="5,157,102,184"/>
-<area shape="rect" href="class_com_move_node_creator.html" title="重心の平行移動を行うクラス．" alt="" coords="163,5,314,32"/>
-<area shape="poly" title=" " alt="" coords="66,143,98,91,121,65,148,42,170,30,173,35,151,46,125,68,103,95,70,146"/>
-<area shape="rect" href="class_com_move_node_creator_hato.html" title="重心の平行移動を行うクラス．波東さんの手法．" alt="" coords="150,56,327,83"/>
-<area shape="poly" title=" " alt="" coords="77,145,109,118,148,92,176,81,178,86,151,97,112,122,80,149"/>
-<area shape="rect" href="class_com_up_down_node_creator.html" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="154,107,323,133"/>
-<area shape="poly" title=" " alt="" coords="115,151,187,131,188,136,117,156"/>
-<area shape="rect" href="class_leg_down_node_creator.html" title=" " alt="" coords="165,157,312,184"/>
-<area shape="poly" title=" " alt="" coords="117,168,165,168,165,173,117,173"/>
-<area shape="rect" href="class_leg_hierarchy_node_creator.html" title="脚の階層構造を作るためのクラス．" alt="" coords="154,208,323,235"/>
-<area shape="poly" title=" " alt="" coords="117,185,188,205,187,210,115,190"/>
-<area shape="rect" href="class_leg_up_down_node_creator.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="157,259,320,285"/>
-<area shape="poly" title=" " alt="" coords="80,192,112,219,151,244,178,256,176,260,148,249,109,224,77,196"/>
-<area shape="rect" href="class_leg_up_node_creator.html" title="脚上げノード生成クラス" alt="" coords="173,309,304,336"/>
-<area shape="poly" title=" " alt="" coords="70,196,103,247,125,273,151,295,174,307,172,312,148,300,121,277,98,250,66,199"/>
+<area shape="rect" title="ノード生成インターフェース" alt="" coords="5,81,102,108"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html" title="重心の平行移動を行うクラス．波東さんの手法．" alt="" coords="150,5,327,32"/>
+<area shape="poly" title=" " alt="" coords="89,71,149,42,181,30,183,35,151,46,91,76"/>
+<area shape="rect" href="class_com_up_down_node_creator.html" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="154,56,323,83"/>
+<area shape="poly" title=" " alt="" coords="116,83,153,78,154,84,117,89"/>
+<area shape="rect" href="class_leg_hierarchy_node_creator.html" title="脚の階層構造を作るためのクラス．" alt="" coords="154,107,323,133"/>
+<area shape="poly" title=" " alt="" coords="117,101,154,106,153,111,116,106"/>
+<area shape="rect" href="class_leg_up_down_node_creator.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="157,157,320,184"/>
+<area shape="poly" title=" " alt="" coords="91,113,151,143,183,154,181,159,149,148,89,118"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ae05aca798b48bda18aae52c0b9f37b46"><td class="memItemLeft" align="right" valign="top"><a id="ae05aca798b48bda18aae52c0b9f37b46" name="ae05aca798b48bda18aae52c0b9f37b46"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>INodeCreator</b> (const <a class="el" href="class_map_state.html">MapState</a> *const p_map, const <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a> next_move)</td></tr>
-<tr class="memdesc:ae05aca798b48bda18aae52c0b9f37b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでは次動作を設定する．またマップのポインタを受け取る <br /></td></tr>
-<tr class="separator:ae05aca798b48bda18aae52c0b9f37b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68585d4ef146720e494e0d4fc1961bdc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#a68585d4ef146720e494e0d4fc1961bdc">create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const int current_node_index, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
-<tr class="memdesc:a68585d4ef146720e494e0d4fc1961bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を平行移動したノードを生成する  <br /></td></tr>
-<tr class="separator:a68585d4ef146720e494e0d4fc1961bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-限定公開変数類</h2></td></tr>
-<tr class="memitem:ab19dddbded0d73045d481ff4a89cbd50"><td class="memItemLeft" align="right" valign="top"><a id="ab19dddbded0d73045d481ff4a89cbd50" name="ab19dddbded0d73045d481ff4a89cbd50"></a>
-const <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_next_move</b></td></tr>
-<tr class="memdesc:ab19dddbded0d73045d481ff4a89cbd50"><td class="mdescLeft">&#160;</td><td class="mdescRight">次動作 <br /></td></tr>
-<tr class="separator:ab19dddbded0d73045d481ff4a89cbd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46319ff6eed3056aa4ed49657c4d1fc"><td class="memItemLeft" align="right" valign="top"><a id="ad46319ff6eed3056aa4ed49657c4d1fc" name="ad46319ff6eed3056aa4ed49657c4d1fc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>INodeCreator</b> ()=default</td></tr>
+<tr class="memdesc:ad46319ff6eed3056aa4ed49657c4d1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでは次動作を設定する．またマップのポインタを受け取る <br /></td></tr>
+<tr class="separator:ad46319ff6eed3056aa4ed49657c4d1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e86cddd830354aa201a6178b2047587"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#a0e86cddd830354aa201a6178b2047587">Create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int current_node_index, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:a0e86cddd830354aa201a6178b2047587"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
+<tr class="separator:a0e86cddd830354aa201a6178b2047587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ノード生成インターフェース </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/12 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a68585d4ef146720e494e0d4fc1961bdc" name="a68585d4ef146720e494e0d4fc1961bdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68585d4ef146720e494e0d4fc1961bdc">&#9670;&#160;</a></span>create()</h2>
+<a id="a0e86cddd830354aa201a6178b2047587" name="a0e86cddd830354aa201a6178b2047587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e86cddd830354aa201a6178b2047587">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +140,7 @@ const <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f1073
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void INodeCreator::create </td>
+          <td class="memname">virtual void INodeCreator::Create </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
@@ -164,7 +148,7 @@ const <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f1073
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>current_node_index</em>, </td>
         </tr>
         <tr>
@@ -186,17 +170,17 @@ const <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f1073
 </table>
 </div><div class="memdoc">
 
-<p>重心を平行移動したノードを生成する </p>
+<p>現在のノードから次のノード群を生成する </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>重心を平行移動するノード </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">current_node_index</td><td>重心を平行移動するノードの番号 </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output_graph</td><td>重心を平行移動したノードを格納するコンテナ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>現在のノード </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node_index</td><td>現在のノードのインデックス </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_graph</td><td>生成したノード群を返す </td></tr>
   </table>
   </dd>
 </dl>
 
-<p><a class="el" href="class_leg_hierarchy_node_creator.html#a7d14b74b36b11760930014a9c54ea2cc">LegHierarchyNodeCreator</a>, <a class="el" href="class_leg_up_down_node_creator.html#a198455a2bb8511c2d77332cae7c4837d">LegUpDownNodeCreator</a>, <a class="el" href="class_com_move_node_creator.html#a7087b7fce9f1a35256246e413eb67ca3">ComMoveNodeCreator</a>, <a class="el" href="class_com_move_node_creator_hato.html#a5802fc7f51b97e5ac1e2b86de24283a6">ComMoveNodeCreatorHato</a>, <a class="el" href="class_com_up_down_node_creator.html#a05c5f59670bb04307602e98889262fa9">ComUpDownNodeCreator</a>, <a class="el" href="class_leg_down_node_creator.html#a707f317a560c61d8a88c5f326bd37f2f">LegDownNodeCreator</a>, <a class="el" href="class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0">LegUpNodeCreator</a>で実装されています。</p>
+<p><a class="el" href="class_leg_hierarchy_node_creator.html#aa675602c796e20af5aa27a600ed0c935">LegHierarchyNodeCreator</a>, <a class="el" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30">LegUpDownNodeCreator</a>, <a class="el" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297">ComMoveNodeCreatorHato</a>, <a class="el" href="class_com_up_down_node_creator.html#adf62ca1b597e2b7746b9396fc715e809">ComUpDownNodeCreator</a>で実装されています。</p>
 
 </div>
 </div>

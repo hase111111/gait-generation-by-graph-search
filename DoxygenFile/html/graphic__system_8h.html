@@ -95,11 +95,14 @@ $(document).ready(function(){initNavTree('graphic__system_8h.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p>Dxlibの処理を行うGraphicSystemクラス． <br  />
- 行数 : 49  
+<p>Dxlibの処理を行うGraphicSystemクラス．  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &quot;<a class="el" href="interface__graphic__main_8h_source.html">interface_graphic_main.h</a>&quot;</code><br />
+<code>#include &quot;abstract_hexapod_state_calculator.h&quot;</code><br />
+<code>#include &quot;application_setting_recorder.h&quot;</code><br />
+<code>#include &quot;fps_controller.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="graphic__data__broker_8h_source.html">graphic_data_broker.h</a>&quot;</code><br />
+<code>#include &quot;interface_graphic_main.h&quot;</code><br />
 </div>
 <p><a href="graphic__system_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
@@ -110,14 +113,12 @@ $(document).ready(function(){initNavTree('graphic__system_8h.html',''); initResi
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Dxlibの処理を行うGraphicSystemクラス． <br  />
- 行数 : 49 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/08 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
+<div class="textblock"><p>Dxlibの処理を行うGraphicSystemクラス． </p>
 <p>Dxlib(デラックス ライブラリ)はウィンドウを表示して，所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつ． <br  />
  主にゲームプログラミングをする際に，ウィンドウを表示するためのライブラリとして使用される． <br  />
  Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが，今回のプログラムではDxlibを用いて結果を表示する． <br  />
- Dxlibは WinAPI というWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．<br  />
+ Dxlibは WinAPI というWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである． <br  />
+ <br  />
  <br  />
  以下参考ページ <br  />
 <br  />

@@ -92,66 +92,111 @@ $(document).ready(function(){initNavTree('graphic__main__basic_8h_source.html','
   <div class="headertitle"><div class="title">graphic_main_basic.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="graphic__main__basic_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="interface__graphic__main_8h.html">interface_graphic_main.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">node.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__const_8h.html">graphic_const.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="camera__gui_8h.html">camera_gui.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="gui__controller_8h.html">gui_controller.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer_8h.html">hexapod_renderer.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_graphic_main_basic.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graphic_main_basic.html">GraphicMainBasic</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_i_graphic_main.html">IGraphicMain</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_graphic_main_basic.html">GraphicMainBasic</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graphic_data_broker.html">GraphicDataBroker</a>* broker);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_graphic_main_basic.html">~GraphicMainBasic</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43">update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd">draw</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<a href="graphic__main__basic_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;interface_graphic_main.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;abstract_hexapod_state_calculator.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;application_setting_recorder.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="camera__gui_8h.html">camera_gui.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="display__node__switch__gui_8h.html">display_node_switch_gui.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__const_8h.html">graphic_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__data__broker_8h.html">graphic_data_broker.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer_8h.html">hexapod_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="movement__locus__renderer_8h.html">movement_locus_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">node.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="node__display__gui_8h.html">node_display_gui.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="robot__graund__point__renderer_8h.html">robot_graund_point_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="stability__margin__renderer_8h.html">stability_margin_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_camera_g_u_i.html">CameraGUI</a> m_camera_gui;             <span class="comment">// カメラの位置を制御するGUI</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_hexapod_renderer.html">HexapodRenderer</a> m_hexapod_renderer;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="class_g_u_i_controller.html">GUIController</a> m_gui_controller;     <span class="comment">// GUI (ロボットの状態とか表示する窓) を制御するクラス．</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::vector&lt;SNode&gt; m_node;  <span class="comment">//ロボットの動きの遷移を記録するvector</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> m_display_node = 0;     <span class="comment">//描画しているノード</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> m_map_state;               <span class="comment">//表示するマップ．</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> m_counter = 0;          <span class="comment">//このクラスが実行されてから何回update関数が呼ばれたかカウントする．</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kNodeGetCount = 2 * <a class="code hl_variable" href="class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a">GraphicConst::GRAPHIC_FPS</a>;    <span class="comment">//2秒ごとに読み出す．</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_graphic_main_basic.html">   35</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graphic_main_basic.html">GraphicMainBasic</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_i_graphic_main.html">IGraphicMain</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_graphic_main_basic.html">GraphicMainBasic</a>(<span class="keyword">const</span> std::shared_ptr&lt;const GraphicDataBroker&gt;&amp; broker_ptr, <span class="keyword">const</span> std::shared_ptr&lt;const AbstractHexapodStateCalculator&gt;&amp; calculator_ptr,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">const</span> std::shared_ptr&lt;const SApplicationSettingRecorder&gt;&amp; setting_ptr);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="class_graphic_main_basic.html">~GraphicMainBasic</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061">Draw</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kNodeGetCount;    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> std::shared_ptr&lt;const GraphicDataBroker&gt; broker_ptr_; </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div><div class="ttdoc">ノードの構造体を定義する．   行数 : 121</div></div>
-<div class="ttc" id="acamera__gui_8h_html"><div class="ttname"><a href="camera__gui_8h.html">camera_gui.h</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス   行数 : 72</div></div>
-<div class="ttc" id="aclass_camera_g_u_i_html"><div class="ttname"><a href="class_camera_g_u_i.html">CameraGUI</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス</div><div class="ttdef"><b>Definition</b> camera_gui.h:17</div></div>
-<div class="ttc" id="aclass_g_u_i_controller_html"><div class="ttname"><a href="class_g_u_i_controller.html">GUIController</a></div><div class="ttdoc">UIを表示する関数．表示するものを変更したい場合は編集してください．</div><div class="ttdef"><b>Definition</b> gui_controller.h:28</div></div>
-<div class="ttc" id="aclass_graphic_const_html_a13f63eb8cf3172ef40dead8c26c6ec3a"><div class="ttname"><a href="class_graphic_const.html#a13f63eb8cf3172ef40dead8c26c6ec3a">GraphicConst::GRAPHIC_FPS</a></div><div class="ttdeci">static constexpr unsigned int GRAPHIC_FPS</div><div class="ttdef"><b>Definition</b> graphic_const.h:33</div></div>
-<div class="ttc" id="aclass_graphic_data_broker_html"><div class="ttname"><a href="class_graphic_data_broker.html">GraphicDataBroker</a></div><div class="ttdoc">画像表示部と，データ処理部を結びつける仲介人クラス</div><div class="ttdef"><b>Definition</b> graphic_data_broker.h:24</div></div>
-<div class="ttc" id="aclass_graphic_main_basic_html"><div class="ttname"><a href="class_graphic_main_basic.html">GraphicMainBasic</a></div><div class="ttdoc">このプロジェクトにおける標準的なロボットの描画機能を持つクラス．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.h:24</div></div>
-<div class="ttc" id="aclass_graphic_main_basic_html_ada25886ad88e0cfeeef64e90ff87dbbd"><div class="ttname"><a href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd">GraphicMainBasic::draw</a></div><div class="ttdeci">void draw() const override</div><div class="ttdoc">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.cpp:40</div></div>
-<div class="ttc" id="aclass_graphic_main_basic_html_aea5c6c2969b907848589afc410b46f43"><div class="ttname"><a href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43">GraphicMainBasic::update</a></div><div class="ttdeci">bool update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.cpp:15</div></div>
-<div class="ttc" id="aclass_hexapod_renderer_html"><div class="ttname"><a href="class_hexapod_renderer.html">HexapodRenderer</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div><div class="ttdef"><b>Definition</b> hexapod_renderer.h:12</div></div>
-<div class="ttc" id="aclass_i_graphic_main_html"><div class="ttname"><a href="class_i_graphic_main.html">IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース</div><div class="ttdef"><b>Definition</b> interface_graphic_main.h:23</div></div>
-<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:22</div></div>
-<div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div><div class="ttdoc">画像表示処理用の定数．   行数 : 47</div></div>
-<div class="ttc" id="agui__controller_8h_html"><div class="ttname"><a href="gui__controller_8h.html">gui_controller.h</a></div><div class="ttdoc">GUIを表示するクラス．   行数 : 64</div></div>
-<div class="ttc" id="ahexapod__renderer_8h_html"><div class="ttname"><a href="hexapod__renderer_8h.html">hexapod_renderer.h</a></div><div class="ttdoc">ロボットの描画を行うHexapodRendererクラス．   行数 : 55</div></div>
-<div class="ttc" id="ainterface__graphic__main_8h_html"><div class="ttname"><a href="interface__graphic__main_8h.html">interface_graphic_main.h</a></div><div class="ttdoc">IGraphicMainクラス．IGraphicMainはインターフェイスであるので実態が作れない．   行数 : 48</div></div>
-<div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 122</div></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="class_camera_gui.html">CameraGui</a> camera_gui_;                          </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="class_node_display_gui.html">NodeDisplayGui</a> node_display_gui_;               </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="class_display_node_switch_gui.html">DisplayNodeSwitchGui</a> display_node_switch_gui_;  </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_hexapod_renderer.html">HexapodRenderer</a> hexapod_renderer_;                      </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_movement_locus_renderer.html">MovementLocusRenderer</a> movement_locus_renderer_;         </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="class_robot_graund_point_renderer.html">RobotGraundPointRenderer</a> robot_graund_point_renderer_;  </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="class_stability_margin_renderer.html">StabilityMarginRenderer</a> stability_margin_renderer_;     </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_map_state.html">MapState</a> map_state_;        </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::vector&lt;SNode&gt; graph_;  </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">size_t</span> display_node_index_; </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span> counter_;               </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> is_displayed_movement_locus_;      </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">bool</span> is_displayed_robot_graund_point_;  </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> graph_update_count; </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">int</span> map_update_count;   </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#endif </span><span class="comment">// !DESIGNLAB_GRAPHIC_MAIN_BASIC_H_</span></div>
+<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
+<div class="ttc" id="acamera__gui_8h_html"><div class="ttname"><a href="camera__gui_8h.html">camera_gui.h</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス   行数 : 85</div></div>
+<div class="ttc" id="aclass_camera_gui_html"><div class="ttname"><a href="class_camera_gui.html">CameraGui</a></div><div class="ttdoc">カメラの操作・管理を行うGUIを行うクラス</div><div class="ttdef"><b>Definition</b> camera_gui.h:17</div></div>
+<div class="ttc" id="aclass_display_node_switch_gui_html"><div class="ttname"><a href="class_display_node_switch_gui.html">DisplayNodeSwitchGui</a></div><div class="ttdoc">ノードの表示切り替えGUI</div><div class="ttdef"><b>Definition</b> display_node_switch_gui.h:15</div></div>
+<div class="ttc" id="aclass_graphic_main_basic_html"><div class="ttname"><a href="class_graphic_main_basic.html">GraphicMainBasic</a></div><div class="ttdoc">このプロジェクトにおける標準的なロボットの描画機能を持つクラス．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.h:36</div></div>
+<div class="ttc" id="aclass_graphic_main_basic_html_a1e698ba2d3c8d10a78d37f1be466b061"><div class="ttname"><a href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061">GraphicMainBasic::Draw</a></div><div class="ttdeci">void Draw() const override</div><div class="ttdoc">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.cpp:107</div></div>
+<div class="ttc" id="aclass_graphic_main_basic_html_a281c12f1a5df1d5dfce7aefad5057985"><div class="ttname"><a href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985">GraphicMainBasic::Update</a></div><div class="ttdeci">bool Update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．</div><div class="ttdef"><b>Definition</b> graphic_main_basic.cpp:28</div></div>
+<div class="ttc" id="aclass_hexapod_renderer_html"><div class="ttname"><a href="class_hexapod_renderer.html">HexapodRenderer</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div><div class="ttdef"><b>Definition</b> hexapod_renderer.h:20</div></div>
+<div class="ttc" id="aclass_i_graphic_main_html"><div class="ttname"><a href="class_i_graphic_main.html">IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース</div><div class="ttdef"><b>Definition</b> interface_graphic_main.h:15</div></div>
+<div class="ttc" id="aclass_map_state_html"><div class="ttname"><a href="class_map_state.html">MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> map_state.h:18</div></div>
+<div class="ttc" id="aclass_movement_locus_renderer_html"><div class="ttname"><a href="class_movement_locus_renderer.html">MovementLocusRenderer</a></div><div class="ttdoc">ロボットの移動軌跡を描画するクラス．</div><div class="ttdef"><b>Definition</b> movement_locus_renderer.h:17</div></div>
+<div class="ttc" id="aclass_node_display_gui_html"><div class="ttname"><a href="class_node_display_gui.html">NodeDisplayGui</a></div><div class="ttdoc">ノードの情報を表示するGUI</div><div class="ttdef"><b>Definition</b> node_display_gui.h:20</div></div>
+<div class="ttc" id="aclass_robot_graund_point_renderer_html"><div class="ttname"><a href="class_robot_graund_point_renderer.html">RobotGraundPointRenderer</a></div><div class="ttdoc">ロボットが接地点した地点の履歴を描画するクラス</div><div class="ttdef"><b>Definition</b> robot_graund_point_renderer.h:19</div></div>
+<div class="ttc" id="aclass_stability_margin_renderer_html"><div class="ttname"><a href="class_stability_margin_renderer.html">StabilityMarginRenderer</a></div><div class="ttdoc">ロボットの安定性マージンを描画するクラス．   接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる．</div><div class="ttdef"><b>Definition</b> stability_margin_renderer.h:14</div></div>
+<div class="ttc" id="adisplay__node__switch__gui_8h_html"><div class="ttname"><a href="display__node__switch__gui_8h.html">display_node_switch_gui.h</a></div><div class="ttdoc">ノードの表示切り替えGUI   行数 : 121</div></div>
+<div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div><div class="ttdoc">画像表示処理用の定数．</div></div>
+<div class="ttc" id="agraphic__data__broker_8h_html"><div class="ttname"><a href="graphic__data__broker_8h.html">graphic_data_broker.h</a></div><div class="ttdoc">グラフ探索の結果を別スレッドのグラフィッククラスに連絡するクラス．</div></div>
+<div class="ttc" id="ahexapod__renderer_8h_html"><div class="ttname"><a href="hexapod__renderer_8h.html">hexapod_renderer.h</a></div><div class="ttdoc">ロボットの描画を行うクラス．</div></div>
+<div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div><div class="ttdoc">マップのデータを管理するクラス．   行数 : 268</div></div>
+<div class="ttc" id="amovement__locus__renderer_8h_html"><div class="ttname"><a href="movement__locus__renderer_8h.html">movement_locus_renderer.h</a></div><div class="ttdoc">ロボットの移動軌跡を描画するクラス．</div></div>
+<div class="ttc" id="anode__display__gui_8h_html"><div class="ttname"><a href="node__display__gui_8h.html">node_display_gui.h</a></div><div class="ttdoc">ノードの情報を表示するGUI</div></div>
+<div class="ttc" id="arobot__graund__point__renderer_8h_html"><div class="ttname"><a href="robot__graund__point__renderer_8h.html">robot_graund_point_renderer.h</a></div><div class="ttdoc">ロボットの脚接地点の座標を描画するクラス</div></div>
+<div class="ttc" id="astability__margin__renderer_8h_html"><div class="ttname"><a href="stability__margin__renderer_8h.html">stability_margin_renderer.h</a></div><div class="ttdoc">StabilityMarginRendererクラスの実装を記述したファイル．   行数 : 40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

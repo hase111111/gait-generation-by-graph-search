@@ -1,0 +1,7 @@
+<map id="PhantomXStateCalclator::getLocalLegPosition" name="PhantomXStateCalclator::getLocalLegPosition">
+<area shape="rect" id="Node000001" title="【スレッドセーフ】脚先の座標を取得する．ローカル(ロボット)座標系" alt="" coords="5,5,168,48"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a6d663fef2c7956b03eaceced6ed77a26" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="216,5,426,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,24,201,24,201,29,168,29"/>
+<area shape="rect" id="Node000003" href="$class_abstract_hexapod_state_calculator.html#a18c304b7036e49a272be24dd1792975f" title="脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．" alt="" coords="474,5,684,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,24,459,24,459,29,427,29"/>
+</map>

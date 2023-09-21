@@ -1,0 +1,5 @@
+<map id="designlab::SQuaternion::norm" name="designlab::SQuaternion::norm">
+<area shape="rect" id="Node000001" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="5,5,162,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#aeca4595ed55b1d5010f41801fbd3a76f" title="自分・引数 の内積の結果を返す．" alt="" coords="210,13,367,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,24,195,24,195,29,162,29"/>
+</map>

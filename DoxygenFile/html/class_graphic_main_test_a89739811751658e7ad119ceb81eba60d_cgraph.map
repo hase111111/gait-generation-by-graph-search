@@ -1,0 +1,19 @@
+<map id="GraphicMainTest::Draw" name="GraphicMainTest::Draw">
+<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,84,162,111"/>
+<area shape="rect" id="Node000002" href="$class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="229,8,352,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,81,209,44,229,37,231,42,211,49,118,86"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="210,59,371,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,85,195,81,195,86,162,90"/>
+<area shape="rect" id="Node000006" href="$class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="215,109,366,136"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="162,104,200,109,199,114,162,110"/>
+<area shape="rect" id="Node000007" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="223,160,358,187"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="118,109,211,146,231,152,229,157,209,150,116,114"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="444,5,581,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="359,55,429,41,430,46,360,61"/>
+<area shape="rect" id="Node000005" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="448,72,577,99"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="372,74,434,78,433,83,371,80"/>
+<area shape="rect" id="Node000008" href="$class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="419,135,606,161"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="358,163,404,158,405,163,358,168"/>
+<area shape="rect" id="Node000009" href="$class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="440,185,585,212"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="358,178,426,186,425,191,358,184"/>
+</map>

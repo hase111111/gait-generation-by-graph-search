@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_graphic_main_test.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン  
+<p>MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．  
  <a href="class_graphic_main_test.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="graphic__main__test_8h_source.html">graphic_main_test.h</a>&gt;</code></p>
@@ -105,7 +105,7 @@ GraphicMainTest の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_main_test__inherit__graph.png" border="0" usemap="#a_graphic_main_test_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_graphic_main_test_inherit__map" id="a_graphic_main_test_inherit__map">
-<area shape="rect" title="MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン" alt="" coords="5,80,125,107"/>
+<area shape="rect" title="MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．" alt="" coords="5,80,125,107"/>
 <area shape="rect" href="class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="16,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
 </map>
@@ -115,52 +115,35 @@ GraphicMainTest 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_main_test__coll__graph.png" border="0" usemap="#a_graphic_main_test_coll__map" alt="Collaboration graph"/></div>
 <map name="a_graphic_main_test_coll__map" id="a_graphic_main_test_coll__map">
-<area shape="rect" title="MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン" alt="" coords="11,172,131,199"/>
-<area shape="rect" href="class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="22,96,120,123"/>
-<area shape="poly" title=" " alt="" coords="74,137,74,172,68,172,68,137"/>
-<area shape="rect" href="class_graphic_data_broker.html" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="5,5,137,32"/>
-<area shape="poly" title=" " alt="" coords="74,47,74,95,68,95,68,47"/>
+<area shape="rect" title="MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．" alt="" coords="5,80,125,107"/>
+<area shape="rect" href="class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="16,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a649299f27740da473f0be7633f75c12c"><td class="memItemLeft" align="right" valign="top"><a id="a649299f27740da473f0be7633f75c12c" name="a649299f27740da473f0be7633f75c12c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicMainTest</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *broker)</td></tr>
-<tr class="separator:a649299f27740da473f0be7633f75c12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a661e1c27659f504aeb8acc2ac1a907d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6">update</a> () override</td></tr>
-<tr class="memdesc:a661e1c27659f504aeb8acc2ac1a907d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
-<tr class="separator:a661e1c27659f504aeb8acc2ac1a907d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1594f9f66c5fb8fa9a67787463b0c7f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5">draw</a> () const override</td></tr>
-<tr class="memdesc:a1594f9f66c5fb8fa9a67787463b0c7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
-<tr class="separator:a1594f9f66c5fb8fa9a67787463b0c7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_i_graphic_main"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_graphic_main')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> に属する継承公開メンバ関数</td></tr>
-<tr class="memitem:a94b6768fe891b0b7b723a2a200bc869d inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphicMain</b> (const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *broker)</td></tr>
-<tr class="memdesc:a94b6768fe891b0b7b723a2a200bc869d inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">このクラスの継承先では，GraphicDataBrokerクラスのポインタを引数に持つコンストラクタを実装する必要がある． <br /></td></tr>
-<tr class="separator:a94b6768fe891b0b7b723a2a200bc869d inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">update</a> ()=0</td></tr>
-<tr class="memdesc:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
-<tr class="separator:acc0f228e5ab5ee16a3b1ed118bc2953e inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">draw</a> () const =0</td></tr>
-<tr class="memdesc:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
-<tr class="separator:aebc0393789ce333b1f1992982f437166 inherit pub_methods_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-その他の継承メンバ</h2></td></tr>
-<tr class="inherit_header pro_attribs_class_i_graphic_main"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_i_graphic_main')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> に属する継承限定公開変数類</td></tr>
-<tr class="memitem:a9a022dc71ecb9508bbb50af0a6599607 inherit pro_attribs_class_i_graphic_main"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> *const&#160;</td><td class="memItemRight" valign="bottom"><b>mp_broker</b></td></tr>
-<tr class="memdesc:a9a022dc71ecb9508bbb50af0a6599607 inherit pro_attribs_class_i_graphic_main"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像表示を行うこのクラスと，データ処理を行う外部のクラスを繋ぐ仲介人クラスのポインタを受け取る． <br /></td></tr>
-<tr class="separator:a9a022dc71ecb9508bbb50af0a6599607 inherit pro_attribs_class_i_graphic_main"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a779e162229e86aca94f14e0fc726250b"><td class="memItemLeft" align="right" valign="top"><a id="a779e162229e86aca94f14e0fc726250b" name="a779e162229e86aca94f14e0fc726250b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicMainTest</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_s_application_setting_recorder.html">SApplicationSettingRecorder</a> &gt; &amp;setting_ptr)</td></tr>
+<tr class="separator:a779e162229e86aca94f14e0fc726250b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7ad32f20357a7eb5ab1a7b1271a916"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916">Update</a> () override</td></tr>
+<tr class="memdesc:a4f7ad32f20357a7eb5ab1a7b1271a916"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
+<tr class="separator:a4f7ad32f20357a7eb5ab1a7b1271a916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89739811751658e7ad119ceb81eba60d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d">Draw</a> () const override</td></tr>
+<tr class="memdesc:a89739811751658e7ad119ceb81eba60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
+<tr class="separator:a89739811751658e7ad119ceb81eba60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab16f967d7e2dc2ac131395526d6da61a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#ab16f967d7e2dc2ac131395526d6da61a">Update</a> ()=0</td></tr>
+<tr class="memdesc:ab16f967d7e2dc2ac131395526d6da61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
+<tr class="separator:ab16f967d7e2dc2ac131395526d6da61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5eae28451defe6b9862490f3d423107"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graphic_main.html#ae5eae28451defe6b9862490f3d423107">Draw</a> () const =0</td></tr>
+<tr class="memdesc:ae5eae28451defe6b9862490f3d423107"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．  <br /></td></tr>
+<tr class="separator:ae5eae28451defe6b9862490f3d423107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>MapStateやHexapodStateClaculatorが動作しているか視覚的に分かりやすくするためのテストシーン </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a1594f9f66c5fb8fa9a67787463b0c7f5" name="a1594f9f66c5fb8fa9a67787463b0c7f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1594f9f66c5fb8fa9a67787463b0c7f5">&#9670;&#160;</a></span>draw()</h2>
+<a id="a89739811751658e7ad119ceb81eba60d" name="a89739811751658e7ad119ceb81eba60d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89739811751658e7ad119ceb81eba60d">&#9670;&#160;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +152,7 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GraphicMainTest::draw </td>
+          <td class="memname">void GraphicMainTest::Draw </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -184,76 +167,36 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 
 <p>描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数． </p>
 
-<p><a class="el" href="class_i_graphic_main.html#aebc0393789ce333b1f1992982f437166">IGraphicMain</a>を実装しています。</p>
+<p><a class="el" href="class_i_graphic_main.html#ae5eae28451defe6b9862490f3d423107">IGraphicMain</a>を実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_graphic_main_test_a1594f9f66c5fb8fa9a67787463b0c7f5_cgraph.png" border="0" usemap="#aclass_graphic_main_test_a1594f9f66c5fb8fa9a67787463b0c7f5_cgraph" alt=""/></div>
-<map name="aclass_graphic_main_test_a1594f9f66c5fb8fa9a67787463b0c7f5_cgraph" id="aclass_graphic_main_test_a1594f9f66c5fb8fa9a67787463b0c7f5_cgraph">
-<area shape="rect" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,557,160,584"/>
-<area shape="rect" href="class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a" title="マップの描画を行う．" alt="" coords="221,725,354,752"/>
-<area shape="poly" title=" " alt="" coords="102,582,260,713,257,717,99,586"/>
-<area shape="rect" href="class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70" title="ロボットを3D空間に描画する．" alt="" coords="208,385,367,412"/>
-<area shape="poly" title=" " alt="" coords="98,554,257,419,261,424,102,559"/>
-<area shape="rect" href="namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="441,578,608,605"/>
-<area shape="poly" title=" " alt="" coords="297,723,343,670,376,640,414,615,428,608,430,613,416,619,380,644,347,674,301,726"/>
-<area shape="rect" href="namespacedl__dxlib.html#aa3743e969ae8717f2671b347ac650881" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="438,746,611,789"/>
-<area shape="poly" title=" " alt="" coords="355,744,424,752,423,758,354,749"/>
-<area shape="rect" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="425,813,625,840"/>
-<area shape="poly" title=" " alt="" coords="314,750,360,774,416,798,440,806,439,811,414,803,358,779,311,755"/>
-<area shape="rect" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="424,864,626,890"/>
-<area shape="poly" title=" " alt="" coords="302,750,348,799,381,826,416,849,431,856,428,861,414,854,377,831,345,803,298,754"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a1c0a81291fc3bef841c6176c307a9312" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="448,629,602,672"/>
-<area shape="poly" title=" " alt="" coords="317,722,414,681,434,674,436,679,416,686,319,727"/>
-<area shape="rect" href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="430,914,620,957"/>
-<area shape="poly" title=" " alt="" coords="298,751,341,822,375,864,417,900,424,905,422,910,413,904,372,868,337,825,293,753"/>
-<area shape="rect" href="class_map_state.html#ae499547ec5acd6bd2b254a22d8c16f88" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="415,696,634,722"/>
-<area shape="poly" title=" " alt="" coords="354,727,400,722,401,727,355,733"/>
-<area shape="rect" href="namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0" title="3D空間に立方体を描画する．" alt="" coords="710,754,856,781"/>
-<area shape="poly" title=" " alt="" coords="612,765,695,765,695,770,612,770"/>
-<area shape="poly" title=" " alt="" coords="297,411,314,443,340,485,374,528,417,564,429,571,426,575,413,568,370,532,335,488,309,446,293,413"/>
-<area shape="poly" title=" " alt="" coords="295,411,309,451,334,506,369,565,392,592,417,615,435,627,432,631,413,619,388,595,365,568,329,509,304,453,290,413"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="932,260,1091,286"/>
-<area shape="poly" title=" " alt="" coords="287,384,294,328,314,248,330,205,351,164,379,126,413,95,475,55,533,27,589,10,644,3,700,7,758,21,819,44,885,77,909,93,930,113,964,158,988,205,1004,245,999,246,983,207,959,161,926,116,905,97,882,82,817,49,756,26,699,12,644,8,590,15,535,32,478,60,417,99,383,130,356,167,335,207,319,250,299,329,292,385"/>
-<area shape="rect" href="namespacedl__dxlib.html#aeb5d1c259d3ab9dc9ac17161a29a546e" title="3D空間に六角柱を描画する．" alt="" coords="427,293,622,320"/>
-<area shape="poly" title=" " alt="" coords="309,382,356,355,414,329,437,322,439,327,416,334,359,360,312,387"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a939f73cf543fd9de5e7fe0320c3c4b6b" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="446,344,604,386"/>
-<area shape="poly" title=" " alt="" coords="367,384,430,375,431,381,368,390"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="448,410,602,453"/>
-<area shape="poly" title=" " alt="" coords="368,407,434,416,433,421,367,412"/>
-<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="718,448,848,474"/>
-<area shape="poly" title=" " alt="" coords="309,410,356,438,385,452,416,462,491,475,568,479,641,476,704,470,704,476,641,482,568,484,490,480,414,468,383,457,353,443,306,414"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="688,209,878,236"/>
-<area shape="poly" title=" " alt="" coords="290,384,305,347,330,299,366,250,388,229,414,212,434,205,460,200,526,197,600,200,673,206,673,211,600,205,526,202,461,205,435,210,416,217,392,233,370,253,334,302,310,349,295,386"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="448,109,602,152"/>
-<area shape="poly" title=" " alt="" coords="290,384,304,343,329,285,365,223,388,194,413,168,433,155,436,159,417,172,392,197,369,226,333,287,309,345,295,386"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="448,226,602,269"/>
-<area shape="poly" title=" " alt="" coords="298,383,345,332,377,304,414,279,432,269,435,274,416,283,381,308,348,336,302,386"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#ae3995a28af45772ee7593b40979e8561" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="447,528,602,554"/>
-<area shape="poly" title=" " alt="" coords="302,410,349,457,381,484,416,507,447,520,445,525,414,511,378,488,346,461,299,414"/>
-<area shape="rect" href="namespacedl__dxlib.html#a36b086b2d9269fe65393e37c76c675b2" title="3D空間に六角形を描画する．" alt="" coords="707,310,859,337"/>
-<area shape="poly" title=" " alt="" coords="623,310,692,315,692,320,622,316"/>
-<area shape="poly" title=" " alt="" coords="602,418,735,392,810,372,883,347,934,321,978,293,981,297,937,325,885,351,812,377,736,397,603,424"/>
-<area shape="poly" title=" " alt="" coords="603,438,704,449,703,455,602,443"/>
-<area shape="poly" title=" " alt="" coords="601,416,618,408,632,396,646,378,653,360,655,322,658,284,665,265,680,246,685,242,688,246,684,249,670,267,663,285,661,323,658,361,651,381,636,400,621,412,603,421"/>
-<area shape="poly" title=" " alt="" coords="591,150,636,168,659,182,683,195,704,202,702,207,681,199,657,186,633,173,589,155"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector2.html#a0ae9aed0d5f24a33178262e127c628e8" title="このベクトルの長さの2乗を返す" alt="" coords="702,92,864,134"/>
-<area shape="poly" title=" " alt="" coords="602,122,687,117,687,122,603,128"/>
-<area shape="rect" href="namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b" title="2乗した値を返す関数．" alt="" coords="722,158,844,185"/>
-<area shape="poly" title=" " alt="" coords="603,140,708,157,707,162,602,145"/>
-<area shape="poly" title=" " alt="" coords="602,237,673,230,674,236,603,243"/>
-<area shape="rect" href="structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702" title="交点が存在しているかどうか調べる関数" alt="" coords="682,260,884,286"/>
-<area shape="poly" title=" " alt="" coords="603,253,668,259,667,264,602,258"/>
-<area shape="poly" title=" " alt="" coords="884,270,917,270,917,276,884,276"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#a4420023e744314ef6d41f21fbd204150" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="685,528,881,554"/>
-<area shape="poly" title=" " alt="" coords="603,538,670,538,670,544,603,544"/>
+<div class="center"><img src="class_graphic_main_test_a89739811751658e7ad119ceb81eba60d_cgraph.png" border="0" usemap="#aclass_graphic_main_test_a89739811751658e7ad119ceb81eba60d_cgraph" alt=""/></div>
+<map name="aclass_graphic_main_test_a89739811751658e7ad119ceb81eba60d_cgraph" id="aclass_graphic_main_test_a89739811751658e7ad119ceb81eba60d_cgraph">
+<area shape="rect" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,84,162,111"/>
+<area shape="rect" href="class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="229,8,352,35"/>
+<area shape="poly" title=" " alt="" coords="116,81,209,44,229,37,231,42,211,49,118,86"/>
+<area shape="rect" href="class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="210,59,371,85"/>
+<area shape="poly" title=" " alt="" coords="162,85,195,81,195,86,162,90"/>
+<area shape="rect" href="class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="215,109,366,136"/>
+<area shape="poly" title=" " alt="" coords="162,104,200,109,199,114,162,110"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="223,160,358,187"/>
+<area shape="poly" title=" " alt="" coords="118,109,211,146,231,152,229,157,209,150,116,114"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="444,5,581,48"/>
+<area shape="poly" title=" " alt="" coords="359,55,429,41,430,46,360,61"/>
+<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="448,72,577,99"/>
+<area shape="poly" title=" " alt="" coords="372,74,434,78,433,83,371,80"/>
+<area shape="rect" href="class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="419,135,606,161"/>
+<area shape="poly" title=" " alt="" coords="358,163,404,158,405,163,358,168"/>
+<area shape="rect" href="class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="440,185,585,212"/>
+<area shape="poly" title=" " alt="" coords="358,178,426,186,425,191,358,184"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a661e1c27659f504aeb8acc2ac1a907d6" name="a661e1c27659f504aeb8acc2ac1a907d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a661e1c27659f504aeb8acc2ac1a907d6">&#9670;&#160;</a></span>update()</h2>
+<a id="a4f7ad32f20357a7eb5ab1a7b1271a916" name="a4f7ad32f20357a7eb5ab1a7b1271a916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7ad32f20357a7eb5ab1a7b1271a916">&#9670;&#160;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +205,7 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool GraphicMainTest::update </td>
+          <td class="memname">bool GraphicMainTest::Update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -278,43 +221,72 @@ const <a class="el" href="class_graphic_data_broker.html">GraphicDataBroker</a> 
 <p>描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある． </p>
 <dl class="section return"><dt>戻り値</dt><dd>bool ループを抜け，グラフィックの表示を終了するならばfalseをかえす． </dd></dl>
 
-<p><a class="el" href="class_i_graphic_main.html#acc0f228e5ab5ee16a3b1ed118bc2953e">IGraphicMain</a>を実装しています。</p>
+<p><a class="el" href="class_i_graphic_main.html#ab16f967d7e2dc2ac131395526d6da61a">IGraphicMain</a>を実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_graphic_main_test_a661e1c27659f504aeb8acc2ac1a907d6_cgraph.png" border="0" usemap="#aclass_graphic_main_test_a661e1c27659f504aeb8acc2ac1a907d6_cgraph" alt=""/></div>
-<map name="aclass_graphic_main_test_a661e1c27659f504aeb8acc2ac1a907d6_cgraph" id="aclass_graphic_main_test_a661e1c27659f504aeb8acc2ac1a907d6_cgraph">
-<area shape="rect" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,315,172,341"/>
-<area shape="rect" href="struct_s_node.html#a76fd4ec299b81b6f7c1f274084236d8f" title="重心位置を変更する関数．" alt="" coords="237,5,422,48"/>
-<area shape="poly" title=" " alt="" coords="90,314,102,266,125,197,142,159,163,123,188,88,218,58,222,54,226,59,221,62,192,92,168,125,147,162,130,199,107,267,95,315"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#ac36c8559001c9cd6ac0684069e4735ed" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="252,72,407,115"/>
-<area shape="poly" title=" " alt="" coords="92,313,108,276,134,225,171,171,193,146,218,125,237,113,240,117,221,129,197,150,175,174,139,228,113,278,97,315"/>
-<area shape="rect" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="229,139,430,165"/>
-<area shape="poly" title=" " alt="" coords="95,313,141,246,176,208,218,175,230,169,232,174,221,180,180,211,145,250,100,316"/>
-<area shape="rect" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="228,189,431,216"/>
-<area shape="poly" title=" " alt="" coords="102,312,151,269,183,246,218,226,236,219,238,224,221,230,186,250,154,273,105,316"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a939f73cf543fd9de5e7fe0320c3c4b6b" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="250,240,409,283"/>
-<area shape="poly" title=" " alt="" coords="139,311,235,285,236,290,140,317"/>
-<area shape="rect" href="class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="258,307,401,349"/>
-<area shape="poly" title=" " alt="" coords="172,325,243,325,243,331,172,331"/>
-<area shape="rect" href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="234,373,425,416"/>
-<area shape="poly" title=" " alt="" coords="140,339,236,366,235,371,139,345"/>
-<area shape="rect" href="class_map_state.html#ae499547ec5acd6bd2b254a22d8c16f88" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="220,440,439,467"/>
-<area shape="poly" title=" " alt="" coords="105,340,154,383,186,406,221,426,238,432,236,437,218,430,183,410,151,387,102,344"/>
-<area shape="rect" href="class_camera_manager.html#a8396ca3c5c86d5f424ada31404d67e2e" title="カメラのモードをセットする" alt="" coords="236,491,423,533"/>
-<area shape="poly" title=" " alt="" coords="100,340,146,406,181,444,221,476,229,481,227,486,218,481,177,448,142,409,96,343"/>
-<area shape="rect" href="class_camera_manager.html#a9f222ea5e5833165ac98beda4a72bad9" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="248,557,411,584"/>
-<area shape="poly" title=" " alt="" coords="96,341,111,381,136,437,173,495,195,521,221,543,236,552,233,556,218,547,192,525,168,498,131,439,106,383,91,343"/>
-<area shape="rect" href="class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc" title="ロボットの状態を更新する．" alt="" coords="244,608,415,635"/>
-<area shape="poly" title=" " alt="" coords="95,341,106,390,129,459,146,496,167,532,192,565,221,594,232,601,229,605,218,598,188,569,162,535,141,498,124,461,101,391,90,342"/>
-<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="511,13,640,40"/>
-<area shape="poly" title=" " alt="" coords="423,24,496,24,496,29,423,29"/>
-<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="711,13,859,40"/>
-<area shape="poly" title=" " alt="" coords="640,24,697,24,697,29,640,29"/>
-<area shape="rect" href="namespacedl__math.html#a9823c74b0c3ecbcd019cc5bb48845bbb" title="角度をdegからradに変換する関数．" alt="" coords="487,499,663,525"/>
-<area shape="poly" title=" " alt="" coords="424,509,472,509,472,515,424,515"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="498,600,652,643"/>
-<area shape="poly" title=" " alt="" coords="415,619,483,619,483,624,415,624"/>
+<div class="center"><img src="class_graphic_main_test_a4f7ad32f20357a7eb5ab1a7b1271a916_cgraph.png" border="0" usemap="#aclass_graphic_main_test_a4f7ad32f20357a7eb5ab1a7b1271a916_cgraph" alt=""/></div>
+<map name="aclass_graphic_main_test_a4f7ad32f20357a7eb5ab1a7b1271a916_cgraph" id="aclass_graphic_main_test_a4f7ad32f20357a7eb5ab1a7b1271a916_cgraph">
+<area shape="rect" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,415,174,441"/>
+<area shape="rect" href="struct_s_node.html#ad17a01a2305429551c00d6ecc2afb2f9" title="重心位置を変更する関数．" alt="" coords="236,113,423,156"/>
+<area shape="poly" title=" " alt="" coords="91,414,104,367,128,300,166,228,191,195,220,166,225,162,228,166,223,170,195,199,171,231,133,302,109,368,96,415"/>
+<area shape="rect" href="class_hexapod_state_calclator___old.html#ab467e1662315b23b5be0aa919d5aa556" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="243,180,416,223"/>
+<area shape="poly" title=" " alt="" coords="94,413,110,377,137,329,174,277,220,233,229,226,232,231,223,237,178,281,142,332,115,380,99,416"/>
+<area shape="rect" href="class_hexapod_state_calclator___old.html#a007fc5c1095535746a17b39dff96d04f" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="237,247,422,289"/>
+<area shape="poly" title=" " alt="" coords="101,412,150,362,183,332,220,306,244,293,246,298,223,310,187,336,153,365,104,416"/>
+<area shape="rect" href="class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="724,5,867,48"/>
+<area shape="poly" title=" " alt="" coords="109,412,158,381,221,350,281,332,329,325,377,318,436,299,504,270,556,244,602,210,653,158,669,132,675,108,683,83,701,58,710,51,714,55,705,62,687,86,680,109,674,134,657,162,606,214,559,248,506,275,438,304,379,323,330,330,282,337,223,354,161,385,112,416"/>
+<area shape="rect" href="class_devide_map_state.html#aacbae52b1773e893302830455845456e" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="229,415,430,441"/>
+<area shape="poly" title=" " alt="" coords="174,425,214,425,214,431,174,431"/>
+<area shape="rect" href="class_devide_map_state.html#ae1438424f96afed46459af960a7cacbd" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="231,465,428,492"/>
+<area shape="poly" title=" " alt="" coords="157,439,249,459,248,464,156,445"/>
+<area shape="rect" href="class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="254,516,405,559"/>
+<area shape="poly" title=" " alt="" coords="113,440,162,470,223,502,242,509,240,514,221,506,159,475,110,444"/>
+<area shape="rect" href="class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="222,583,437,609"/>
+<area shape="poly" title=" " alt="" coords="102,440,148,503,183,538,223,568,235,574,232,579,220,573,179,542,144,506,97,443"/>
+<area shape="rect" href="class_camera_gui.html#a7804785608222ffa9eb17f6aeb6befff" title="カメラの注視する位置を設定する" alt="" coords="236,633,423,660"/>
+<area shape="poly" title=" " alt="" coords="98,441,114,477,141,526,177,577,199,599,223,619,232,624,229,629,220,624,195,603,173,580,136,529,110,479,94,443"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="262,364,397,391"/>
+<area shape="poly" title=" " alt="" coords="156,411,248,392,249,397,157,417"/>
+<area shape="rect" href="class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd" title="GUIのボタンの更新を行う" alt="" coords="248,684,411,711"/>
+<area shape="poly" title=" " alt="" coords="97,441,109,486,134,548,171,614,195,644,223,670,236,678,233,682,220,674,191,648,167,617,129,550,104,487,91,442"/>
+<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="506,121,635,148"/>
+<area shape="poly" title=" " alt="" coords="423,132,491,132,491,137,423,137"/>
+<area shape="rect" href="class_camera_state_manager.html#a0da84c436ebf23aa9b9be90578c81f7d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="497,625,644,668"/>
+<area shape="poly" title=" " alt="" coords="423,644,482,644,482,649,423,649"/>
+<area shape="rect" href="class_camera_state_manager.html#a99ae709147be98a86d88f925c8afe346" title="カメラと注視点との距離を初期化する" alt="" coords="489,415,651,457"/>
+<area shape="poly" title=" " alt="" coords="390,389,438,400,475,409,474,415,436,405,389,394"/>
+<area shape="rect" href="class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="719,691,872,733"/>
+<area shape="poly" title=" " alt="" coords="398,380,420,388,439,401,453,417,461,434,465,467,469,501,475,517,487,534,507,553,527,564,568,575,610,585,633,595,657,611,673,629,681,645,690,661,705,677,711,681,708,685,702,681,685,664,677,648,668,632,654,615,631,600,609,590,566,581,525,569,504,557,483,538,470,520,463,502,460,468,456,435,449,420,435,405,417,393,396,385"/>
+<area shape="rect" href="class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="485,364,655,391"/>
+<area shape="poly" title=" " alt="" coords="398,375,470,375,470,380,398,380"/>
+<area shape="rect" href="class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="497,481,644,524"/>
+<area shape="poly" title=" " alt="" coords="398,383,438,400,455,417,464,434,472,451,487,467,492,471,489,475,483,471,467,454,459,436,451,420,436,405,396,388"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f" title="角度をdegからradに変換する関数．" alt="" coords="945,691,1083,733"/>
+<area shape="poly" title=" " alt="" coords="872,709,930,709,930,715,872,715"/>
+<area shape="rect" href="structdesignlab_1_1_s_quaternion.html#abd2199b5705368d73b0df4b8247b7e48" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="936,411,1092,453"/>
+<area shape="poly" title=" " alt="" coords="870,688,886,677,909,653,929,627,962,570,986,514,1001,467,1006,469,991,516,967,573,933,630,913,657,889,681,873,692"/>
+<area shape="poly" title=" " alt="" coords="630,361,653,344,675,308,683,272,682,238,676,203,671,168,670,132,679,96,701,58,710,50,714,53,705,62,683,98,675,133,676,167,682,202,687,237,688,273,680,310,657,347,633,365"/>
+<area shape="poly" title=" " alt="" coords="643,389,657,401,680,436,689,471,688,506,683,540,677,574,676,608,684,642,705,677,710,682,706,685,701,680,679,644,671,609,672,574,678,539,683,506,684,472,675,438,653,404,640,393"/>
+<area shape="poly" title=" " alt="" coords="625,361,654,343,664,331,670,318,675,291,681,265,689,253,702,242,750,218,794,210,839,219,889,242,911,256,930,273,963,314,987,358,1004,396,999,398,982,360,959,317,927,277,908,260,886,246,837,224,794,216,752,223,705,246,693,256,686,267,680,293,675,320,668,334,657,347,627,366"/>
+<area shape="rect" href="class_camera_state_manager.html#a1ba15db7ec27242f0a5ee30269270037" title="カメラの注視する目標の座標とカメラの距離を増やす" alt="" coords="703,256,888,299"/>
+<area shape="poly" title=" " alt="" coords="613,361,654,343,678,326,702,308,713,303,716,307,705,313,681,330,657,348,615,366"/>
+<area shape="rect" href="class_camera_state_manager.html#a0265878f39e6c0006d2d3df9c9992044" title="カメラのクォータニオンを取得する" alt="" coords="722,323,869,365"/>
+<area shape="poly" title=" " alt="" coords="655,362,707,354,708,360,656,367"/>
+<area shape="rect" href="class_camera_state_manager.html#a1471f26bfbe1e8c960e460eb753b56c3" title="カメラのモードを取得する" alt="" coords="719,389,872,432"/>
+<area shape="poly" title=" " alt="" coords="656,387,705,395,705,400,655,393"/>
+<area shape="rect" href="class_mouse.html#aadc3f80b56c350f368d46821d20a40d9" title="マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="727,456,864,483"/>
+<area shape="poly" title=" " alt="" coords="630,389,657,400,672,411,681,422,691,432,705,442,718,448,716,453,702,446,687,436,677,425,668,415,654,405,628,394"/>
+<area shape="rect" href="class_mouse.html#a80c810c534e31080c302866442848003" title="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="726,507,865,533"/>
+<area shape="poly" title=" " alt="" coords="638,389,657,401,675,424,682,448,688,471,705,493,714,499,711,503,702,497,683,473,677,450,670,427,654,405,635,394"/>
+<area shape="rect" href="class_camera_state_manager.html#ac94258bd484a968c4568cd3a47c03cdb" title="注視点を操作する際の，カメラの注視する座標を取得する" alt="" coords="722,557,869,600"/>
+<area shape="poly" title=" " alt="" coords="641,389,657,401,672,419,679,437,683,473,686,509,692,526,705,544,711,549,708,553,701,547,688,529,680,510,677,474,674,438,667,422,654,405,638,393"/>
+<area shape="rect" href="structdesignlab_1_1_s_quaternion.html#a091d836216362300a57927ec9e2adcb7" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="717,624,874,667"/>
+<area shape="poly" title=" " alt="" coords="642,389,657,401,676,428,684,454,685,481,683,507,680,533,681,558,688,584,705,610,708,613,704,617,701,614,683,586,676,559,675,533,677,506,680,481,679,455,671,430,653,405,639,393"/>
+<area shape="rect" href="class_camera_state_manager.html#a322cd90e3a2b5e1efee1dec6cc16a670" title="カメラのクォータニオンをセットする" alt="" coords="722,72,869,115"/>
+<area shape="poly" title=" " alt="" coords="629,361,653,344,671,316,678,290,679,263,676,236,674,209,675,181,683,153,701,125,708,119,711,122,705,128,688,156,680,182,679,209,682,236,684,263,684,290,676,318,657,347,632,366"/>
+<area shape="rect" href="class_camera_state_manager.html#a7a3c2c7bc73da9956ce00edbfd0b4c97" title="注視点を操作する際の，カメラの注視する座標をセットする" alt="" coords="722,139,869,181"/>
+<area shape="poly" title=" " alt="" coords="627,361,653,343,667,326,674,308,677,273,681,236,688,217,701,198,713,188,716,192,705,202,692,220,686,238,682,273,679,310,671,328,657,347,630,366"/>
 </map>
 </div>
 

@@ -1,7 +1,0 @@
-<map id="detectLandingPoint::correctDisparity" name="detectLandingPoint::correctDisparity">
-<area shape="rect" id="Node000001" title=" " alt="" coords="401,5,533,48"/>
-<area shape="rect" id="Node000002" href="$classdetect_landing_point.html#a920e4ca9fee0801b60fde37bad58864b" title=" " alt="" coords="186,5,353,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="386,29,353,29,353,24,386,24"/>
-<area shape="rect" id="Node000003" href="$classdetect_landing_point.html#af9d827af634252fcf1369efbd00755d5" title=" " alt="" coords="5,5,138,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="171,29,138,29,138,24,171,24"/>
-</map>
