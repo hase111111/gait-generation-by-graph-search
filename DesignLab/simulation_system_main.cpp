@@ -13,7 +13,7 @@ namespace dlio = designlab::cmdio;
 
 
 SimulationSystemMain::SimulationSystemMain(
-		std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
@@ -107,7 +107,7 @@ void SimulationSystemMain::Main()
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
-			EGraphSearchResult result_state = pass_finder_ptr_->getNextNodebyGraphSearch(current_node, map_state_, target_, result_node);		//グラフ探索を行う．
+			EGraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 

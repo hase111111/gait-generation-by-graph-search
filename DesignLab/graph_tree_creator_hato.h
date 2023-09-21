@@ -9,7 +9,9 @@
 #include <map>
 #include <memory>
 
+#include "abstract_hexapod_state_calculator.h"
 #include "interface_node_creator.h"
+#include "interface_node_creator_builder.h"
 
 
 //! @class GraphTreeCreatorHato
@@ -19,18 +21,29 @@
 class GraphTreeCreatorHato final : public IGraphTreeCreator
 {
 public:
-	GraphTreeCreatorHato(std::map<EHexapodMove, std::unique_ptr<INodeCreator>>& map);
+	GraphTreeCreatorHato(
+		std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr,
+		const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr
+	);
+
 	~GraphTreeCreatorHato() = default;
+
+
+	void Init(const DevideMapState& map_state);
 
 	EGraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) override;
 
 private:
 
 	// out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，output_graphに代入する．
-	void makeNewNodesByCurrentNode(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph);
+	void makeNewNodesByCurrentNode(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) const;
 
 
-	std::map<EHexapodMove, std::unique_ptr<INodeCreator>> m_node_creator_map;	//!< ノード生成クラスのマップ．
+	std::map<HexapodMove, std::unique_ptr<INodeCreator>> node_creator_map_;		//!< ノード生成クラスのマップ．
+
+	const std::unique_ptr<INodeCreatorBuilder> node_creator_builder_ptr_;			//!< ノード生成クラスのビルダー．
+
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ヘキサポッドの状態を計算するクラス．
 };
 
 

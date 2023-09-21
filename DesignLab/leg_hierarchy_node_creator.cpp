@@ -4,7 +4,7 @@
 #include "leg_state.h"
 
 
-LegHierarchyNodeCreator::LegHierarchyNodeCreator(const EHexapodMove next_move) : 
+LegHierarchyNodeCreator::LegHierarchyNodeCreator(const HexapodMove next_move) : 
 	next_move_(next_move),
 	discrete_leg_pos_list_({ 
 		DiscreteLegPos::kBack,

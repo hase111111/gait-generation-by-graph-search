@@ -88,9 +88,6 @@
     <Filter Include="ソース ファイル\System\ResultViewer">
       <UniqueIdentifier>{d65f5b8b-b4b0-4225-9f6a-a31897756b1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main\interface">
-      <UniqueIdentifier>{d73adf7c-014d-4507-bcba-46512f57b493}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\PassFinder">
       <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
     </Filter>
@@ -108,6 +105,9 @@
     </Filter>
     <Filter Include="ソース ファイル\PreviousResearch">
       <UniqueIdentifier>{39493255-5b06-4c98-80e6-cfc66f595f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder">
+      <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,9 +198,6 @@
     <ClInclude Include="hexapod_next_move.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graphic_main.h">
-      <Filter>ソース ファイル\GraphicSystem\Main\interface</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
@@ -234,7 +231,7 @@
     <ClInclude Include="com_move_node_creator_hato.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
-    <ClInclude Include="pass_finder_hato_thread.h">
+    <ClInclude Include="pass_finder_basic.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_result.h">
@@ -348,7 +345,7 @@
     <ClInclude Include="interface_graph_tree_creator.h">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
     </ClInclude>
-    <ClInclude Include="abstract_pass_finder.h">
+    <ClInclude Include="interface_pass_finder.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
     <ClInclude Include="interface_node_creator.h">
@@ -371,6 +368,15 @@
     </ClInclude>
     <ClInclude Include="designlab_math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graphic_main.h">
+      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_node_creator_builder.h">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_hato.h">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -482,7 +488,7 @@
     <ClCompile Include="com_move_node_creator_hato.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
-    <ClCompile Include="pass_finder_hato_thread.cpp">
+    <ClCompile Include="pass_finder_basic.cpp">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_result.cpp">
@@ -598,6 +604,9 @@
     </ClCompile>
     <ClCompile Include="designlab_math_util.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_builder_hato.cpp">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

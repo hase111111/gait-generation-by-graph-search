@@ -22,7 +22,7 @@ class LegHierarchyNodeCreator final : public INodeCreator
 {
 public:
 
-	LegHierarchyNodeCreator(EHexapodMove next_move);
+	LegHierarchyNodeCreator(HexapodMove next_move);
 	~LegHierarchyNodeCreator() = default;
 
 	void Create(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph) override;
@@ -40,7 +40,7 @@ private:
 	void create3LegLifted(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph);
 
 
-	const EHexapodMove next_move_;									
+	const HexapodMove next_move_;									
 
 	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
 };

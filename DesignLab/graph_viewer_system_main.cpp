@@ -9,7 +9,7 @@
 #include "stopwatch.h"
 #include "graph_search_const.h"
 #include "hexapod_state_calculator.h"
-#include "pass_finder_hato_thread.h"
+#include "pass_finder_basic.h"
 #include "phantomx_state_calculator.h"
 #include "StringToValue.h"
 
@@ -22,7 +22,7 @@ using StrtoVal::StrToInt;
 
 
 GraphViewerSystemMain::GraphViewerSystemMain(
-	std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
@@ -208,9 +208,11 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	pass_finder_ptr_->getNextNodebyGraphSearch(parent_node, map_state_, target, fake_result_node);
+	pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
 
-	pass_finder_ptr_->getGraphTree(&graph);
+	graph.clear();
+
+	pass_finder_ptr_->GetGraphTree(&graph);
 
 	std::cout << fake_result_node.ToString();
 }

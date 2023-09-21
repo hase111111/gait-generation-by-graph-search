@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
 
-#include <memory>
 #include <string>
 
 #include "output_detail.h"

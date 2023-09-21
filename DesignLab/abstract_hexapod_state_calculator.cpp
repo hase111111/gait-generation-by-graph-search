@@ -1,17 +1,12 @@
 #include "abstract_hexapod_state_calculator.h"
 
+#include "cassert_define.h"
 #include "leg_state.h"
 
 
 designlab::Vector3 AbstractHexapodStateCalculator::getLocalLegBasePosition(const int leg_index) const
 {
-	if constexpr (DO_CHECK_LEG_INDEX)
-	{
-		if (!checkLegIndex(leg_index))
-		{
-			return { 0,0,0 };
-		}
-	}
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
 
 	return m_local_leg_base_pos[leg_index];
 }
