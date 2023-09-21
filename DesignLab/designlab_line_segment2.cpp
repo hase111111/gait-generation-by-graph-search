@@ -9,16 +9,16 @@ namespace dlm = ::designlab::math_util;
 namespace designlab 
 {
 
-	SVector2 LineSegment2::GetIntersection(const LineSegment2& other) const
+	Vector2 LineSegment2::GetIntersection(const LineSegment2& other) const
 	{
 		if (IsParallel(other))
 		{
-			return SVector2{ 0, 0 };	//平行ならば交点は存在しない．
+			return Vector2{ 0, 0 };	//平行ならば交点は存在しない．
 		}
 
-		const SVector2 v1 = end - start;
-		const SVector2 v2 = other.end - other.start;
-		const SVector2 v3 = other.start - start;
+		const Vector2 v1 = end - start;
+		const Vector2 v2 = other.end - other.start;
+		const Vector2 v3 = other.start - start;
 		const float d = v1.Cross(v2);
 
 		const float t1 = v3.Cross(v2) / d;
@@ -28,7 +28,7 @@ namespace designlab
 
 		if (t1 < 0.0f - dlm::kAllowableError || t1 > 1.0f + dlm::kAllowableError || t2 < 0.0f - dlm::kAllowableError || t2 > 1.0f + dlm::kAllowableError)
 		{
-			return SVector2{ 0, 0 };	//交点は線分の外
+			return Vector2{ 0, 0 };	//交点は線分の外
 		}
 
 		return start + v1 * t1;
@@ -41,9 +41,9 @@ namespace designlab
 			return false;	//平行ならば交点は存在しない．
 		}
 
-		const SVector2 v1 = end - start;
-		const SVector2 v2 = other.end - other.start;
-		const SVector2 v3 = other.start - start;
+		const Vector2 v1 = end - start;
+		const Vector2 v2 = other.end - other.start;
+		const Vector2 v3 = other.start - start;
 		const float d = v1.Cross(v2);
 
 		const float t1 = v3.Cross(v2) / d;
@@ -59,7 +59,7 @@ namespace designlab
 		return true;
 	}
 
-	bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other, SVector2* intersection) const
+	bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const
 	{
 		// intersectionはnullptrであってはならない
 		assert(intersection != nullptr);
@@ -69,9 +69,9 @@ namespace designlab
 			return false;	//平行ならば交点は存在しない．
 		}
 
-		const SVector2 v1 = end - start;
-		const SVector2 v2 = other.end - other.start;
-		const SVector2 v3 = other.start - start;
+		const Vector2 v1 = end - start;
+		const Vector2 v2 = other.end - other.start;
+		const Vector2 v3 = other.start - start;
 		const float d = v1.Cross(v2);
 
 		const float t1 = v3.Cross(v2) / d;

@@ -17,10 +17,10 @@ namespace dl_vec_test
 		polygon.AddVertex({ 0, 1 });
 
 		EXPECT_EQ(polygon.GetVertexNum(), 4);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
 
 		//6角形を作成し，その頂点の座標を確認する
 		designlab::Polygon2 polygon2;
@@ -32,12 +32,12 @@ namespace dl_vec_test
 		polygon2.AddVertex({ -1, 0 });
 
 		EXPECT_EQ(polygon2.GetVertexNum(), 6);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
-		EXPECT_EQ(polygon2.GetVertex(4), designlab::SVector2(-1, 1));
-		EXPECT_EQ(polygon2.GetVertex(5), designlab::SVector2(-1, 0));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
+		EXPECT_EQ(polygon2.GetVertex(5), designlab::Vector2(-1, 0));
 	}
 
 	//addVertexCheckForDuplicates関数のテスト
@@ -52,10 +52,10 @@ namespace dl_vec_test
 		polygon.AddVertexCheckForDuplicates({ 0, 0 });	//重複する頂点
 
 		EXPECT_EQ(polygon.GetVertexNum(), 4);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
 
 		//重複しない頂点を追加し，その頂点の座標を確認する
 		designlab::Polygon2 polygon2;
@@ -66,11 +66,11 @@ namespace dl_vec_test
 		polygon2.AddVertexCheckForDuplicates({ -1, 1 });
 
 		EXPECT_EQ(polygon2.GetVertexNum(), 5);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
-		EXPECT_EQ(polygon2.GetVertex(4), designlab::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
 	}
 
 	//removeVertex関数のテスト
@@ -85,18 +85,18 @@ namespace dl_vec_test
 
 		polygon.RemoveVertex(0);
 		EXPECT_EQ(polygon.GetVertexNum(), 3);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(0, 1));
 
 		polygon.RemoveVertex(1);
 		EXPECT_EQ(polygon.GetVertexNum(), 2);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(0, 1));
 
 		polygon.RemoveVertex(1);
 		EXPECT_EQ(polygon.GetVertexNum(), 1);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(1, 0));
 
 		polygon.RemoveVertex(0);
 		EXPECT_EQ(polygon.GetVertexNum(), 0);
@@ -110,25 +110,25 @@ namespace dl_vec_test
 
 		polygon2.RemoveVertex(4);
 		EXPECT_EQ(polygon2.GetVertexNum(), 4);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 
 		polygon2.RemoveVertex(5);
 		EXPECT_EQ(polygon2.GetVertexNum(), 4);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 
 		//負の値を指定した場合
 		polygon2.RemoveVertex(-1);
 		EXPECT_EQ(polygon2.GetVertexNum(), 4);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 	}
 
 	//removeLastVertex関数のテスト
@@ -143,18 +143,18 @@ namespace dl_vec_test
 
 		polygon.RemoveLastVertex();
 		EXPECT_EQ(polygon.GetVertexNum(), 3);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::SVector2(1, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
 
 		polygon.RemoveLastVertex();
 		EXPECT_EQ(polygon.GetVertexNum(), 2);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
 
 		polygon.RemoveLastVertex();
 		EXPECT_EQ(polygon.GetVertexNum(), 1);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
 
 		polygon.RemoveLastVertex();
 		EXPECT_EQ(polygon.GetVertexNum(), 0);
@@ -170,11 +170,11 @@ namespace dl_vec_test
 
 		polygon2.RemoveLastVertex();
 		EXPECT_EQ(polygon2.GetVertexNum(), 5);
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
-		EXPECT_EQ(polygon2.GetVertex(4), designlab::SVector2(-1, 1));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
 	}
 
 	//getVertexNum関数のテスト
@@ -234,10 +234,10 @@ namespace dl_vec_test
 		polygon.AddVertex({ 1, 1 });
 		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_EQ(polygon.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(3), designlab::SVector2(0, 1));
+		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
 
 		//6角形を作成し，その頂点の座標を確認する
 		designlab::Polygon2 polygon2;
@@ -248,12 +248,12 @@ namespace dl_vec_test
 		polygon2.AddVertex({ -1, 1 });
 		polygon2.AddVertex({ -1, 0 });
 
-		EXPECT_EQ(polygon2.GetVertex(0), designlab::SVector2(0, 0));
-		EXPECT_EQ(polygon2.GetVertex(1), designlab::SVector2(1, 0));
-		EXPECT_EQ(polygon2.GetVertex(2), designlab::SVector2(1, 1));
-		EXPECT_EQ(polygon2.GetVertex(3), designlab::SVector2(0, 1));
-		EXPECT_EQ(polygon2.GetVertex(4), designlab::SVector2(-1, 1));
-		EXPECT_EQ(polygon2.GetVertex(5), designlab::SVector2(-1, 0));
+		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
+		EXPECT_EQ(polygon2.GetVertex(5), designlab::Vector2(-1, 0));
 	}
 
 	//IsConvex関数のテスト

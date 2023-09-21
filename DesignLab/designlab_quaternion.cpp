@@ -10,7 +10,7 @@ designlab::Vector3 designlab::rotVecByQuat(const designlab::Vector3& vec, const 
 	return Vector3{ r.v.x, r.v.y, r.v.z };
 }
 
-constexpr designlab::SRotator designlab::SQuaternion::toRotator() const
+constexpr designlab::EulerXYZ designlab::SQuaternion::toRotator() const
 {
 	// クオータニオンをXYZオイラー角に変換
 

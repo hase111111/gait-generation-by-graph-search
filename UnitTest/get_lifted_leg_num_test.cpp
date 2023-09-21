@@ -10,8 +10,8 @@ namespace dl_leg_test
 		// テストケース1 全脚接地
 		EDiscreteComPos com = EDiscreteComPos::FRONT;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
-		EDiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER,
-																				EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER, EDiscreteLegPos::CENTER };
+		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
+																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
 		std::bitset<dl_leg::LEG_STATE_BIT_NUM> res = dl_leg::MakeLegStateBit(com, is_ground, discretized_leg_pos);
 		EXPECT_EQ(dl_leg::GetLiftedLegNum(res), 0);
 

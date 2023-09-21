@@ -16,7 +16,7 @@ namespace designlab
 	struct LineSegment2 final
 	{
 		LineSegment2() = default;
-		constexpr LineSegment2(const SVector2& start, const SVector2& end) : start(start), end(end) {}
+		constexpr LineSegment2(const Vector2& start, const Vector2& end) : start(start), end(end) {}
 		constexpr LineSegment2(float startx, float starty, float endx, float endy) : start(startx, starty), end(endx, endy) {}
 		constexpr LineSegment2(const LineSegment2& other) = default;
 		constexpr LineSegment2(LineSegment2&& other) noexcept = default;
@@ -50,10 +50,10 @@ namespace designlab
 
 		//! @brief 他の線分との交点を求める．
 		//! @param [in] other 他の線分
-		//! @return designlab::SVector2 交点．交点がないor平行な場合は(0, 0)を返す．
+		//! @return designlab::Vector2 交点．交点がないor平行な場合は(0, 0)を返す．
 		//! @note 参考：http://marupeke296.com/COL_main.html
 		//! @n 端点一致，かつ平行の場合を考慮していないので注意
-		SVector2 GetIntersection(const LineSegment2& other) const;
+		Vector2 GetIntersection(const LineSegment2& other) const;
 
 		//! @brief 他の線分と交点が存在しているかどうか調べる関数
 		//! @param [in] other 他の線分
@@ -64,11 +64,11 @@ namespace designlab
 		//! @param [in] other 他の線分
 		//! @param [out] intersection 交点
 		//! @return bool 交点があるならtrue．ないor平行ならfalse
-		bool CheckAndGetIntersection(const LineSegment2& other, SVector2* intersection) const;
+		bool CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const;
 
 
-		SVector2 start;	//!< 線分の始点
-		SVector2 end;	//!< 線分の終点
+		Vector2 start;	//!< 線分の始点
+		Vector2 end;	//!< 線分の終点
 	};
 
 } //namespace designlab

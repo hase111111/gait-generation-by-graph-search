@@ -71,8 +71,8 @@ void GraphViewerSystemMain::Main()
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
 	SNode _node;
-	_node.init(false);
-	std::cout << _node;
+	_node.Init(false);
+	std::cout << _node.ToString();
 	std::cout << std::endl;
 
 	std::vector<SNode> _graph;
@@ -155,7 +155,7 @@ void GraphViewerSystemMain::Main()
 						std::cout << "--------------------------------------------------" << std::endl;
 						std::cout << "GraphViewerSystemMain : ノードを選択し，そのノードを親にしてグラフを生成します" << std::endl;
 						std::cout << std::endl;
-						std::cout << _graph[_node_num];
+						std::cout << _graph[_node_num].ToString();
 						std::cout << std::endl;
 						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
 
@@ -173,7 +173,7 @@ void GraphViewerSystemMain::Main()
 						std::cout << "--------------------------------------------------" << std::endl;
 						std::cout << "GraphViewerSystemMain : ノードを表示します" << std::endl;
 						std::cout << std::endl;
-						std::cout << _graph[_node_num];
+						std::cout << _graph[_node_num].ToString();
 						std::cout << std::endl;
 					}
 				}
@@ -199,7 +199,7 @@ void GraphViewerSystemMain::Main()
 void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& graph)
 {
 	SNode parent_node = parent;
-	parent_node.changeParentNode();
+	parent_node.ChangeParentNode();
 
 	STarget target;
 	target.TargetMode = ETargetMode::StraightPosition;
@@ -212,7 +212,7 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	pass_finder_ptr_->getGraphTree(&graph);
 
-	std::cout << fake_result_node;
+	std::cout << fake_result_node.ToString();
 }
 
 void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)

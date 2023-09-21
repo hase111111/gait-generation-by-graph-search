@@ -11,7 +11,7 @@ namespace dlm = ::designlab::math_util;
 
 bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* const EDiscreteComPos com_pattren,*/ designlab::Vector3* output_com) const
 {
-	std::pair<bool, designlab::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
+	std::pair<bool, designlab::Vector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
 
 	//候補点を生成する
 	if (!makeComCandidatePoint(polygon, com_candidate))
@@ -20,12 +20,12 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 	}
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
-	std::vector<designlab::SVector2> edge_vec;
+	std::vector<designlab::Vector2> edge_vec;
 	edge_vec.resize(polygon.GetVertexNum());
 
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::SVector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
+		designlab::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
 		edge.Normalized();
 		edge_vec[i] = edge;
 	}
@@ -71,7 +71,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 
 	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
 
-	const designlab::SVector2 k_rotate_center = { -10000,0 };
+	const designlab::Vector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
 
 	float min_dist = -100000;
@@ -104,7 +104,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 }
 
 
-bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
+bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 	const float kMinX = polygon.GetMinX();
@@ -135,11 +135,11 @@ bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, 
 }
 
 
-bool ComSelecterHato::isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const
+bool ComSelecterHato::isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const
 {
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::SVector2 v_map = candidate_point - polygon.GetVertex(i);
+		designlab::Vector2 v_map = candidate_point - polygon.GetVertex(i);
 
 		if (v_map.Cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{

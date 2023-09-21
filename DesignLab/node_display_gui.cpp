@@ -142,7 +142,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	// ‰ñ“]‚ğ•\¦‚·‚é
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"‰ñ“](roll:%5.3f,pitch:%5.3f,yaw:%5.3f)", display_node_.rot.roll, display_node_.rot.pitch, display_node_.rot.yaw);
+		"‰ñ“](x_angle:%5.3f,y_angle:%5.3f,z_angle:%5.3f)", display_node_.rot.x_angle, display_node_.rot.y_angle, display_node_.rot.z_angle);
 
 	//—V‹r‚©Ú’n‹r‚©
 	std::string str = "";

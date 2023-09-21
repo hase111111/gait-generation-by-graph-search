@@ -66,18 +66,20 @@ namespace designlab
 		{
 			std::ostringstream ss;
 
-			ss << std::fixed << std::setprecision(digit) << std::setw(width) << std::setfill(' ') << num;
+			ss << std::fixed << std::setprecision(digit);
+			ss << std::setw(width) << std::setfill(' ') << num;
 			
-			return std::string();
+			return ss.str();
 		}
 
 		std::string ConvertDoubleToString(const double num, const int digit, const int width)
 		{
 			std::ostringstream ss;
 
-			ss << std::fixed << std::setprecision(digit) << std::setw(width) << std::setfill(' ') << num;
+			ss << std::fixed << std::setprecision(digit);
+			ss << std::setw(width) << std::setfill(' ') << num;
 
-			return std::string();
+			return ss.str();
 		}
 
 

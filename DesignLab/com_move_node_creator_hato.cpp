@@ -39,16 +39,16 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 		{
 			SNode next_node = current_node;
 
-			next_node.changeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
+			next_node.ChangeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
 			dl_leg::changeComPattern(candidate_polygons[i].second, &next_node.leg_state);		//leg_stateのcom_patternを変更する
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
-				dl_leg::changeLegStateKeepTopBit(j, EDiscreteLegPos::CENTER, &next_node.leg_state);
+				dl_leg::changeLegStateKeepTopBit(j, DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
 
-			next_node.changeNextNode(current_num, next_move_);	//深さや親ノードを変更する
+			next_node.ChangeToNextNode(current_num, next_move_);	//深さや親ノードを変更する
 
 			if (isStable(next_node) && !isIntersectGround(next_node))
 			{

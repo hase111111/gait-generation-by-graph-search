@@ -7,13 +7,13 @@
 LegHierarchyNodeCreator::LegHierarchyNodeCreator(const EHexapodMove next_move) : 
 	next_move_(next_move),
 	discrete_leg_pos_list_({ 
-		EDiscreteLegPos::BACK,
-		EDiscreteLegPos::CENTER,
-		EDiscreteLegPos::FRONT,
-		EDiscreteLegPos::LOWER_BACK,
-		EDiscreteLegPos::LOWER_FRONT,
-		EDiscreteLegPos::UPPER_BACK,
-		EDiscreteLegPos::UPPER_FRONT 
+		DiscreteLegPos::kBack,
+		DiscreteLegPos::kCenter,
+		DiscreteLegPos::kFront,
+		DiscreteLegPos::kLowerBack,
+		DiscreteLegPos::kLowerFront,
+		DiscreteLegPos::kUpperBack,
+		DiscreteLegPos::kUpperFront 
 	})
 {
 }
@@ -47,7 +47,7 @@ void LegHierarchyNodeCreator::Create(const SNode& current_node, const int curren
 		//また6本接地しているならば脚を動かせない(遊脚する必要がある)．よって処理を行わない．(そのままの状態を次のノードにする．)
 		SNode new_node = current_node;
 
-		new_node.changeNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
+		new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 		(*output_graph).emplace_back(new_node);		//追加する．
 	}
 }
@@ -63,14 +63,14 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
-	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
 	for (const auto i : discrete_leg_pos_list_)
 	{
 		SNode new_node = current_node;		//新しい脚状態を生成する.
 
 		dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
 
-		new_node.changeNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
+		new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
 		(*output_graph).emplace_back(new_node);	//追加する．
 	}
@@ -85,7 +85,7 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
-	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
 	for (const auto i : discrete_leg_pos_list_)
 	{
 		for (const auto j : discrete_leg_pos_list_)
@@ -95,7 +95,7 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
 			dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
 
-			new_node.changeNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
+			new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
 			(*output_graph).emplace_back(new_node);	//追加する．
 		}
@@ -111,7 +111,7 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 	dl_leg::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
-	// 列挙体 EDiscreteLegPos の全ての要素でループを回す．
+	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
 	for (const auto i : discrete_leg_pos_list_)
 	{
 		for (const auto j : discrete_leg_pos_list_)
@@ -124,7 +124,7 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
 				dl_leg::changeLegStateKeepTopBit(lifted_leg_list[2], k, &new_node.leg_state);
 
-				new_node.changeNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
+				new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
 				(*output_graph).push_back(new_node);	//追加する．
 			}

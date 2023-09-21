@@ -6,7 +6,7 @@
 //
 //bool ComSelecter::getComFromPolygon(const designlab::Polygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3& output_com) const
 //{
-//	std::vector<designlab::SVector2> coms;
+//	std::vector<designlab::Vector2> coms;
 //
 //	//候補点を生成する
 //	makeComCandidatePoint(polygon, coms);
@@ -15,7 +15,7 @@
 //	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
 //
 //	std::sort(coms.begin(), coms.end(),
-//		[&](const designlab::SVector2& _v1, const designlab::SVector2& _v2)
+//		[&](const designlab::Vector2& _v1, const designlab::Vector2& _v2)
 //		{
 //			return (_v1 - m_current_node.global_center_of_mass.ProjectedXY()).LengthSquare() > (_v2 - m_current_node.global_center_of_mass.ProjectedXY()).LengthSquare();
 //		}
@@ -47,7 +47,7 @@
 //}
 //
 //
-//void ComSelecter::makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::SVector2>& coms) const
+//void ComSelecter::makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& coms) const
 //{
 //	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 //	const float kMinX = polygon.GetMinX();
@@ -66,7 +66,7 @@
 //	{
 //		for (int y = 0; y <= DISCRETIZATION_NUM; ++y)
 //		{
-//			const designlab::SVector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
+//			const designlab::Vector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
 //
 //			if (polygon.IsInside(kComPoint))
 //			{
@@ -79,7 +79,7 @@
 //}
 //
 //
-//bool ComSelecter::isInMargin(const designlab::Polygon2& polygon, const designlab::SVector2& com) const
+//bool ComSelecter::isInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& com) const
 //{
 //	// @todo 動作がおかしいので修正すること
 //
@@ -87,10 +87,10 @@
 //
 //	for (int j = 0; j < kVertexNum; ++j)
 //	{
-//		designlab::SVector2 v1 = polygon.GetVertex((j + 1) % kVertexNum) - polygon.GetVertex(j);
+//		designlab::Vector2 v1 = polygon.GetVertex((j + 1) % kVertexNum) - polygon.GetVertex(j);
 //		v1 = v1.Normalized();
 //
-//		designlab::SVector2 v_map = com - polygon.GetVertex(j);
+//		designlab::Vector2 v_map = com - polygon.GetVertex(j);
 //
 //		if (v_map.Cross(v1) < STABILITY_MARGIN)
 //		{

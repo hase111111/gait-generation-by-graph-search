@@ -156,8 +156,8 @@ bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 	//重心を原点とした，座標系において，脚の干渉を調べる．
 
 	//脚の干渉を調べる．
-	designlab::SVector2 _leg_pos[HexapodConst::LEG_NUM];
-	designlab::SVector2 _joint_pos[HexapodConst::LEG_NUM];
+	designlab::Vector2 _leg_pos[HexapodConst::LEG_NUM];
+	designlab::Vector2 _joint_pos[HexapodConst::LEG_NUM];
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -180,9 +180,9 @@ bool HexapodStateCalclator_Old::isLegInterfering(const SNode& _node) const
 
 bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_num) const
 {
-	const designlab::SVector2 leg_pos_xy = node.leg_pos[leg_num].ProjectedXY();
-	const designlab::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
-	const designlab::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
+	const designlab::Vector2 leg_pos_xy = node.leg_pos[leg_num].ProjectedXY();
+	const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
+	const designlab::Vector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
 
 	//脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
 	if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
@@ -199,9 +199,9 @@ bool HexapodStateCalclator_Old::isLegInRange(const SNode& node, const int leg_nu
 
 bool HexapodStateCalclator_Old::isLegInRange(const designlab::Vector3& local_leg_pos, const int leg_num) const
 {
-	const designlab::SVector2 leg_pos_xy = local_leg_pos.ProjectedXY();
-	const designlab::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
-	const designlab::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
+	const designlab::Vector2 leg_pos_xy = local_leg_pos.ProjectedXY();
+	const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
+	const designlab::Vector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_num]};
 
 	//脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
 	if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
@@ -234,7 +234,7 @@ bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 	//重心を原点とした座標系で，脚の位置を計算する．
 	//かつてvectorを使っていたが，処理速度の問題で，配列を使うことにした．
 
-	designlab::SVector2 leg_pos[HexapodConst::LEG_NUM];
+	designlab::Vector2 leg_pos[HexapodConst::LEG_NUM];
 	int leg_pos_index = 0;
 
 	//接地脚のみ追加する
@@ -249,8 +249,8 @@ bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
 
 	for (int i = 0; i < leg_pos_index; i++)
 	{
-		designlab::SVector2 i_to_i_plus_1 = leg_pos[(i + 1) % leg_pos_index] - leg_pos[i];
-		designlab::SVector2 i_to_com = designlab::SVector2{ 0,0 } - leg_pos[i];
+		designlab::Vector2 i_to_i_plus_1 = leg_pos[(i + 1) % leg_pos_index] - leg_pos[i];
+		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - leg_pos[i];
 
 		if (i_to_i_plus_1.Cross(i_to_com) > 0)return false;
 	}
@@ -264,7 +264,7 @@ float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 	//重心を原点とした座標系で，脚の位置を計算する．
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
-	std::vector<designlab::SVector2> leg_pos;
+	std::vector<designlab::Vector2> leg_pos;
 
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
@@ -279,10 +279,10 @@ float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
 
 	for (int i = 0; i < leg_pos.size(); i++)
 	{
-		designlab::SVector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
+		designlab::Vector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
 		i_to_i_plus_1.Normalized();
 
-		designlab::SVector2 i_to_com = designlab::SVector2{ 0,0 } - leg_pos.at(i);
+		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - leg_pos.at(i);
 
 		min_margin = (std::min)(min_margin, i_to_com.Cross(i_to_i_plus_1));
 	}

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "designlab_vector3.h"
-#include "designlab_rotator.h"
+#include "designlab_euler.h"
 #include "node.h"
 #include "hexapod_const.h"
 

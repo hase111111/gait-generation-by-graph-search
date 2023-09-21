@@ -52,10 +52,10 @@ private:
 	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
-	bool makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::SVector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
+	bool makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::SVector2>& edge_vec, const designlab::SVector2& candidate_point) const;
+	bool isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
 
 
 

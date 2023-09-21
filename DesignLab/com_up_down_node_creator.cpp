@@ -96,7 +96,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 			designlab::Vector3 new_com = current_node.global_center_of_mass;
 			new_com.z = low + kDivZ * i;
 
-			new_node.changeGlobalCenterOfMass(new_com, true);
+			new_node.ChangeGlobalCenterOfMass(new_com, true);
 
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
@@ -105,7 +105,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 			}
 
 			//current_numを親とする，新しいノードに変更する
-			new_node.changeNextNode(current_num, next_move_);
+			new_node.ChangeToNextNode(current_num, next_move_);
 
 			//ノードを追加する．
 			if (is_vaild)
@@ -121,7 +121,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 	{
 		SNode same_node = current_node;
 
-		same_node.changeNextNode(current_num, next_move_);
+		same_node.ChangeToNextNode(current_num, next_move_);
 
 		(*output_graph).emplace_back(same_node);
 	}

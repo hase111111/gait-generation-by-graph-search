@@ -77,7 +77,7 @@ void SimulationSystemMain::Main()
 	{
 		SNode current_node;										//現在のノードの状態を格納する変数．
 		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
-		current_node.init(do_random_init);
+		current_node.Init(do_random_init);
 
 		SSimulationResultRecorder record;	//シミュレーションの結果を格納する変数．
 		record.result_nodes.push_back(current_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
@@ -87,7 +87,7 @@ void SimulationSystemMain::Main()
 		dlio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", OutputDetail::kSystem);
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
 		dlio::Output("[初期ノードの状態]", OutputDetail::kInfo);
-		dlio::Output(std::to_string(current_node), OutputDetail::kInfo);
+		dlio::Output(current_node.ToString(), OutputDetail::kInfo);
 		dlio::OutputNewLine(1, OutputDetail::kInfo);
 
 		if (setting_ptr_->do_step_execution)
@@ -135,7 +135,7 @@ void SimulationSystemMain::Main()
 			dlio::OutputNewLine(1, OutputDetail::kInfo);
 			dlio::OutputHorizontalLine(false, OutputDetail::kInfo);
 			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
-			dlio::Output(std::to_string(current_node), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
+			dlio::Output(current_node.ToString(), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
 
 			if (setting_ptr_->do_step_execution_each_gait)
 			{

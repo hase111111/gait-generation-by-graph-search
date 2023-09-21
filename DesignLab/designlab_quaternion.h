@@ -3,7 +3,7 @@
 #include <cmath>
 
 #include "designlab_vector3.h"
-#include "designlab_rotator.h"
+#include "designlab_euler.h"
 
 
 namespace designlab
@@ -48,8 +48,8 @@ namespace designlab
 		inline SQuaternion normalize() const { return *this * (1 / sqrt(norm())); }
 
 		//! @brief クォータニオンをXYZオイラー角に変換する
-		//! @return designlab::SRotator XYZオイラー角
-		constexpr SRotator toRotator() const;
+		//! @return designlab::EulerXYZ XYZオイラー角
+		constexpr EulerXYZ toRotator() const;
 
 		//! @brief 他のクォータニオンとの距離の2乗を返す．クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める
 		//! @return float 距離の2乗

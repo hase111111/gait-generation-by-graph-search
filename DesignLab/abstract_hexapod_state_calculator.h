@@ -1,10 +1,11 @@
 #pragma once
 
+#include <array>
 #include <vector>
-#include <bitset>
 
 #include "designlab_vector3.h"
-#include "designlab_rotator.h"
+#include "designlab_euler.h"
+#include "leg_state.h"
 #include "node.h"
 #include "hexapod_const.h"
 
@@ -52,7 +53,7 @@ public:
 	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	virtual designlab::Vector3 convertGlobalToLegPosition(const int leg_index, const designlab::Vector3& global_pos, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const = 0;
+	virtual designlab::Vector3 convertGlobalToLegPosition(const int leg_index, const designlab::Vector3& global_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const = 0;
 
 
 
@@ -75,7 +76,7 @@ public:
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
 	//! @return designlab::Vector3 脚の付け根の座標．グローバル座標系．
-	virtual designlab::Vector3 getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const = 0;
+	virtual designlab::Vector3 getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const = 0;
 
 	//! @brief 【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系
 	//! @param [in] leg_index 脚番号．
@@ -84,7 +85,7 @@ public:
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
 	//! @return designlab::Vector3 脚先の座標．グローバル座標系．
-	virtual designlab::Vector3 getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::SRotator& robot_rot, const bool consider_rot) const = 0;
+	virtual designlab::Vector3 getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const = 0;
 
 
 
@@ -104,8 +105,8 @@ public:
 	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
-	float calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const designlab::Vector3 leg_pos[HexapodConst::LEG_NUM]) const;
-
+	float calcStabilityMargin(const dl_leg::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
+	
 protected:
 
 	//! @brief 脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．

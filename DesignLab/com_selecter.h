@@ -36,10 +36,10 @@
 //private:
 //
 //	//! @brief 候補地点を生成する
-//	void makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::SVector2>& _output_coms) const;
+//	void makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& _output_coms) const;
 //
 //	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-//	bool isInMargin(const designlab::Polygon2& polygon, const designlab::SVector2& _com) const;
+//	bool isInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& _com) const;
 //
 //
 //	const int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数

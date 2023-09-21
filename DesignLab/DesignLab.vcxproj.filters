@@ -243,7 +243,7 @@
     <ClInclude Include="graph_search_const.h">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_rotator.h">
+    <ClInclude Include="designlab_euler.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_quaternion.h">
@@ -363,7 +363,7 @@
     <ClInclude Include="hexapod.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
-    <ClInclude Include="Target.h">
+    <ClInclude Include="target.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">
@@ -491,7 +491,7 @@
     <ClCompile Include="stopwatch.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_rotator.cpp">
+    <ClCompile Include="designlab_euler.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="designlab_quaternion.cpp">

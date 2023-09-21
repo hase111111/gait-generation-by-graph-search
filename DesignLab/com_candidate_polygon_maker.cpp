@@ -9,7 +9,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 	if (!mp_calculator) { return; }
 
 
-	designlab::SVector2 leg_pos_xy[HexapodConst::LEG_NUM];	//XY平面に射影した脚位置を算出する
+	designlab::Vector2 leg_pos_xy[HexapodConst::LEG_NUM];	//XY平面に射影した脚位置を算出する
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -49,7 +49,7 @@ void ComCandidatePolygonMaker::makeCandidatePolygon(const SNode& node, std::pair
 	}
 }
 
-void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const
+void ComCandidatePolygonMaker::makeCandidateBox(const designlab::Vector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const
 {
 	//脚位置を線で結ぶ．この交点から重心候補地点が存在する多角形を求める
 	designlab::LineSegment2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM]);
@@ -59,10 +59,10 @@ void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_po
 	designlab::LineSegment2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
 
 	//交点(intersection)を求める
-	designlab::SVector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
-	designlab::SVector2 intersection_02_15 = leg_line_02.GetIntersection(leg_line_15);
-	designlab::SVector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
-	designlab::SVector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
+	designlab::Vector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
+	designlab::Vector2 intersection_02_15 = leg_line_02.GetIntersection(leg_line_15);
+	designlab::Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
+	designlab::Vector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
 
 	//中心と0番の脚位置を結んだ線分を求める
 	designlab::LineSegment2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], intersection_03_14);
@@ -74,8 +74,8 @@ void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_po
 	if (leg_line_0_center.HasIntersection(leg_line_25))
 	{
 		//交点がある場合，5角形の多角形を作成する
-		designlab::SVector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
-		designlab::SVector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
+		designlab::Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
+		designlab::Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
 		(*output_poly).AddVertexCheckForDuplicates(intersection_03_15);
 		(*output_poly).AddVertexCheckForDuplicates(intersection_02_15);
@@ -93,16 +93,16 @@ void ComCandidatePolygonMaker::makeCandidateBox(const designlab::SVector2 leg_po
 	}
 }
 
-void ComCandidatePolygonMaker::makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* out_poly, EDiscreteComPos* out_com_pattern) const
+void ComCandidatePolygonMaker::makeCandidateTriangle(const designlab::Vector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* out_poly, EDiscreteComPos* out_com_pattern) const
 {
 	designlab::LineSegment2 leg_line_03(leg_pos[0], leg_pos[3]);
 	designlab::LineSegment2 leg_line_14(leg_pos[1], leg_pos[4]);
 	designlab::LineSegment2 leg_line_25(leg_pos[2], leg_pos[5]);
 
 	//交点(intersection)を求める
-	designlab::SVector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
-	designlab::SVector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
-	designlab::SVector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
+	designlab::Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
+	designlab::Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
+	designlab::Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
 	//三角形を作成する．
 	(*out_poly).Reset();

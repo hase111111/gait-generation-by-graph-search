@@ -24,7 +24,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	hexapod_renderer_(calculator_ptr)
 {
-	m_node.init(false);
+	m_node.Init(false);
 
 	MapCreator map_creator;
 	map_state_ = map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, false);
@@ -102,42 +102,42 @@ bool GraphicMainTest::Update()
 		{
 			auto com = m_node.global_center_of_mass;
 			com.z += kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.z -= kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.y += kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.y -= kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.x += kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 		{
 			auto com = m_node.global_center_of_mass;
 			com.x -= kComSpeed;
-			m_node.changeGlobalCenterOfMass(com, false);
+			m_node.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 		{
 			auto rot = m_node.rot;
-			rot.yaw += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
+			rot.z_angle += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
 			m_node.rot = rot;
 		}
 	}

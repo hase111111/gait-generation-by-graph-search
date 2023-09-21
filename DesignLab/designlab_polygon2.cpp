@@ -7,7 +7,7 @@ namespace dlm = ::designlab::math_util;	// ’·‚·‚¬‚é‚Ì‚Å math_util‚Ì•Ê–¼‚ğì¬
 
 namespace designlab 
 {
-	bool Polygon2::AddVertexCheckForDuplicates(const SVector2& v)
+	bool Polygon2::AddVertexCheckForDuplicates(const Vector2& v)
 	{
 		for (int i = 0; i < vertex_num; i++)
 		{
@@ -120,7 +120,7 @@ namespace designlab
 		//‚¿‚È‚İ‚Éˆ—‚Í‚·‚×‚Ägithun copilot‚ª‘‚¢‚Ä‚­‚ê‚½‚Ì‚ÅCˆ—‚Ì’†g‚Í‚æ‚­‚í‚©‚Á‚Ä‚¢‚È‚¢...
 	}
 
-	bool Polygon2::IsInside(const SVector2& point) const
+	bool Polygon2::IsInside(const Vector2& point) const
 	{
 		const int num = GetVertexNum();
 

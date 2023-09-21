@@ -1,31 +1,36 @@
 #include "discrete_leg_pos.h"
 
-std::string std::to_string(const EDiscreteLegPos leg_pos)
+#include "cassert_define.h"
+
+
+std::string std::to_string(const DiscreteLegPos leg_pos)
 {
 	switch (leg_pos)
 	{
-	case EDiscreteLegPos::FRONT:
+	case DiscreteLegPos::kFront:
 		return "FRONT";
 
-	case EDiscreteLegPos::BACK:
-		return "BACK";
+	case DiscreteLegPos::kBack:
+		return "Back";
 
-	case EDiscreteLegPos::CENTER:
-		return "CENTER";
+	case DiscreteLegPos::kCenter:
+		return "Center";
 
-	case EDiscreteLegPos::LOWER_BACK:
-		return "LOWER_BACK";
+	case DiscreteLegPos::kLowerBack:
+		return "LowerBack";
 
-	case EDiscreteLegPos::LOWER_FRONT:
-		return "LOWER_FRONT";
+	case DiscreteLegPos::kLowerFront:
+		return "LowerFront";
 
-	case EDiscreteLegPos::UPPER_BACK:
-		return "UPPER_BACK";
+	case DiscreteLegPos::kUpperBack:
+		return "UpperBack";
 
-	case EDiscreteLegPos::UPPER_FRONT:
-		return "UPPER_FRONT";
+	case DiscreteLegPos::kUpperFront:
+		return "UpperFront";
 
 	default:
+		assert(false);		//‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸
+
 		return "ERROR_VALUE";
 	}
 }

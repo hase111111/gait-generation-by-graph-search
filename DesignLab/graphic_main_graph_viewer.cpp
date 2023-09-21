@@ -25,7 +25,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	SNode init_node;
-	init_node.init(false);
+	init_node.Init(false);
 
 	hexapod_renderer_.set_draw_node(init_node);
 

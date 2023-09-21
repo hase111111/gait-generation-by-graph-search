@@ -12,31 +12,31 @@ namespace dl_vec_test
 		//辺が平行の場合交点はない，(0,0)が返る
 		designlab::LineSegment2 line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		designlab::LineSegment2 line2 = designlab::LineSegment2({ 0, 1 }, { 1, 2 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(0, 0));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0, 0));
 
 		//辺が平行でない場合交点がある
 		line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		line2 = designlab::LineSegment2({ 0, 1 }, { 1, 0 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(0.5, 0.5));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0.5, 0.5));
 
 		//辺の向きが逆でも交点は同じ
 		line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		line2 = designlab::LineSegment2({ 1, 0 }, { 0, 1 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(0.5, 0.5));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0.5, 0.5));
 
 		line1 = designlab::LineSegment2({ 1,1 }, { 0,0 });
 		line2 = designlab::LineSegment2({ 0,1 }, { 1,0 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(0.5, 0.5));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0.5, 0.5));
 
 		//辺の長さが足りず，接していない場合交点はない，(0,0)が返る
 		line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		line2 = designlab::LineSegment2({ -5,-6 }, { -3,-1 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(0, 0));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0, 0));
 
 		//端点で接する場合，その点が返る．
 		line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		line2 = designlab::LineSegment2({ 1, 1 }, { 2, 3 });
-		EXPECT_EQ(line1.GetIntersection(line2), designlab::SVector2(1, 1));
+		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(1, 1));
 	}
 
 	//hasIntersection関数のテスト

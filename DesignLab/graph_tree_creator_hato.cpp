@@ -70,7 +70,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 		//定義されていないならば，同じノードをそのまま追加する．
 		SNode new_node = current_node;
 
-		new_node.changeNextNode(current_num, current_node.next_move);
+		new_node.ChangeToNextNode(current_num, current_node.next_move);
 
 		(*output_graph).emplace_back(new_node);
 	}

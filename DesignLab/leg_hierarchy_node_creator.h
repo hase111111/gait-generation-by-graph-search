@@ -42,7 +42,7 @@ private:
 
 	const EHexapodMove next_move_;									
 
-	const std::vector<EDiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
+	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
 };
 
 

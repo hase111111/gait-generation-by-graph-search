@@ -36,11 +36,11 @@ public:
 private:
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は4角形か5角形を用いて表現する．
-	void makeCandidateBox(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const;
+	void makeCandidateBox(const designlab::Vector2 leg_pos[HexapodConst::LEG_NUM], const int start_leg_num, designlab::Polygon2* output_poly) const;
 
 
 	//! @brief 重心位置の候補地点を示す多角形を作成する．中心周りの図形は3角形を用いて表現する．
-	void makeCandidateTriangle(const designlab::SVector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* output_poly, EDiscreteComPos* output_com_pattern) const;
+	void makeCandidateTriangle(const designlab::Vector2 leg_pos[HexapodConst::LEG_NUM], designlab::Polygon2* output_poly, EDiscreteComPos* output_com_pattern) const;
 
 
 	//! @brief 正しい多角形が生成されているかを確認する

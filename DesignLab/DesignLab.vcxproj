@@ -42,7 +42,7 @@
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
-    <ClInclude Include="designlab_rotator.h" />
+    <ClInclude Include="designlab_euler.h" />
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_display_gui.h" />
@@ -97,7 +97,7 @@
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="simulation_system_main.h" />
     <ClInclude Include="graph_viewer_system_main.h" />
-    <ClInclude Include="Target.h" />
+    <ClInclude Include="target.h" />
     <ClInclude Include="hexapod.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="map_creator.h" />
@@ -129,7 +129,7 @@
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
-    <ClCompile Include="designlab_rotator.cpp" />
+    <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />

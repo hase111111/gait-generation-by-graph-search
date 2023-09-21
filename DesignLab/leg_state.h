@@ -62,7 +62,7 @@ namespace dl_leg
 	//! @param [in] discretized_leg_pos —£U‰»‚µ‚½‹rˆÊ’u‚ğ•\‚·•Ï”D
 	//! @return LegStateBit ì¬‚µ‚½‹ró‘Ô‚ğ•Ô‚·D
 	LegStateBit MakeLegStateBit(EDiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM> &is_ground, 
-		const std::array<EDiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos);
+		const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos);
 
 
 	//! @brief ‹r”Ô† leg_index 0 ` 5 ‚É‰‚¶‚ÄC‚»‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚éD
@@ -102,8 +102,8 @@ namespace dl_leg
 	//! @brief ‹ró‘Ô‚ğæ“¾‚·‚éD
 	//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
 	//! @param [in] leg_index ‚Ç‚Ì‹r‚Ìó‘Ô‚ğæ“¾‚·‚é‚©D 0 ` 5 ‚Ì®”‚Å“ü—Í‚·‚éD
-	//! @return EDiscreteLegPos —£U‰»‚³‚ê‚½‹r‚ÌˆÊ’u‚ğ•Ô‚·D
-	EDiscreteLegPos getLegState(const LegStateBit& leg_state, int leg_index);
+	//! @return DiscreteLegPos —£U‰»‚³‚ê‚½‹r‚ÌˆÊ’u‚ğ•Ô‚·D
+	DiscreteLegPos getLegState(const LegStateBit& leg_state, int leg_index);
 
 	//! @brief Œ»İ‚Ì‹ró‘Ô‚©‚çdSƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
 	//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
@@ -117,14 +117,14 @@ namespace dl_leg
 	//! @param [in] is_ground ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·DÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
 	//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
 	//! @return bool •ÏX‚É¬Œ÷‚µ‚½‚çtrue
-	bool changeLegState(int leg_index, EDiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
+	bool changeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
 
 	//! @brief ‹r‚Ìó‘Ô‚ğ•ÏX‚·‚éDˆø”‚Ì’l‚ª‚¨‚©‚µ‚¢‚È‚ç‚Îfalse‚ğo—Í‚·‚éD—V‹r‚ğ•\‚·bit‚Í‚»‚Ì‚Ü‚Ü
 	//! @param [in] leg_index ‹r‚Ì”Ô† 0`5
 	//! @param [in] new_discretized_leg_pos V‚µ‚¢‹ró‘Ô
 	//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
 	//! @return bool •ÏX‚É¬Œ÷‚µ‚½‚çtrue
-	bool changeLegStateKeepTopBit(int leg_index, EDiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
+	bool changeLegStateKeepTopBit(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
 
 	//! @breif ‹r‚ÌÚ’nE—V‹rî•ñ‚ğ•ÏX‚·‚éD
 	//! @param [in] leg_index ‹r‚Ì”Ô† 0`5

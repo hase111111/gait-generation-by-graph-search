@@ -43,7 +43,7 @@ EGraphSearchResult PassFinderHatoThread::getNextNodebyGraphSearch(const SNode& c
 	{
 		//[‚³1‚Ü‚Å‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éD
 		SNode parent_node = current_node;
-		parent_node.changeParentNode();
+		parent_node.ChangeParentNode();
 		m_graph_tree.emplace_back(parent_node);
 
 		std::vector<SNode> depth1_node;

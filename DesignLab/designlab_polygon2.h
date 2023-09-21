@@ -39,7 +39,7 @@ namespace designlab
 		//! @brief 頂点を追加する関数
 		//! @param [in] v 追加する頂点
 		//! @note 他の頂点と重なっている場合でも追加する．
-		inline void AddVertex(const SVector2& v)
+		inline void AddVertex(const Vector2& v)
 		{
 			vertex[vertex_num] = v;
 			++vertex_num;
@@ -49,7 +49,7 @@ namespace designlab
 		//! @param[in] v 追加する頂点
 		//! @note 他の頂点と重なっている場合は追加しない．この処理の分だけ遅くなるので，重なることがない場合はaddVertexを使うこと
 		//! @return bool 追加できたかどうか，追加できた場合はtrue，追加できなかった場合はfalse
-		bool AddVertexCheckForDuplicates(const SVector2& v);
+		bool AddVertexCheckForDuplicates(const Vector2& v);
 
 
 		//! @brief 頂点を削除する関数．遅いので多用するべきではない
@@ -83,13 +83,13 @@ namespace designlab
 
 		//! @brief 頂点の座標を返す関数
 		//! @param [in] i 頂点のインデックス
-		//! @return SVector2 頂点の座標
+		//! @return Vector2 頂点の座標
 		//! @note 存在しない頂点を指定した場合は(0,0)を返す．
-		inline SVector2 GetVertex(int i) const
+		inline Vector2 GetVertex(int i) const
 		{
 			if (i < 0 || i >= GetVertexNum())
 			{
-				return SVector2{ 0, 0 };
+				return Vector2{ 0, 0 };
 			}
 
 			return vertex[i];
@@ -121,7 +121,7 @@ namespace designlab
 		//! @note 点が時計回り，反時計回りのいずれかの順番で頂点が並んでいる必要がある．
 		//! @note 点が多角形の辺上にある場合は内部にあると判定する．
 		//! @note 多角形が凸でない場合は正しく判定できない．
-		bool IsInside(const SVector2& point) const;
+		bool IsInside(const Vector2& point) const;
 
 
 		//! @brief 多角形のデータを文字列で出力する
@@ -130,7 +130,7 @@ namespace designlab
 
 	private:
 
-		std::vector<SVector2> vertex;	//!< 頂点座標
+		std::vector<Vector2> vertex;	//!< 頂点座標
 		int vertex_num = 0;				//!< 頂点数
 
 	};

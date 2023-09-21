@@ -6,7 +6,7 @@ namespace dl_leg
 {
 
 	LegStateBit MakeLegStateBit(EDiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM>& is_ground,
-		const std::array<EDiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos)
+		const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos)
 	{
 		LegStateBit res = 0;
 
@@ -124,13 +124,13 @@ namespace dl_leg
 	}
 
 
-	EDiscreteLegPos getLegState(const LegStateBit& leg_state, const int leg_index)
+	DiscreteLegPos getLegState(const LegStateBit& leg_state, const int leg_index)
 	{
 		const int shift_num = 4 * leg_index;	//4bitずつずらす
 
 		const int res = static_cast<int>(((leg_state & (LEG_POS_MASKBIT << shift_num)) >> shift_num).to_ulong());
 
-		return static_cast<EDiscreteLegPos>(res);
+		return static_cast<DiscreteLegPos>(res);
 	}
 
 
@@ -143,7 +143,7 @@ namespace dl_leg
 	}
 
 
-	bool changeLegState(int leg_index, EDiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state)
+	bool changeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
@@ -167,7 +167,7 @@ namespace dl_leg
 	}
 
 
-	bool changeLegStateKeepTopBit(const int leg_index, const EDiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state)
+	bool changeLegStateKeepTopBit(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
