@@ -2,6 +2,7 @@
 
 #include <string>
 
+//TODO : ‚±‚Ìƒtƒ@ƒCƒ‹‚Ííœ‚·‚é
 
 namespace StrtoVal
 {
