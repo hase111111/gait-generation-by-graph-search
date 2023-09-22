@@ -31,7 +31,7 @@ SimulationSystemMain::SimulationSystemMain(
 
 	//マップを生成する．
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_NONE, true);
+	map_state_ = map_creator.Create(EMapCreateMode::FLAT, MapCreator::OPTION_SLOPE, true);
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.set_data(map_state_);

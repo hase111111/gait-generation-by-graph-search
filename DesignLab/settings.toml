@@ -38,7 +38,7 @@ default_mode = "result_viewer"
 #各歩容生成ごとにステップ実行するかどうかを設定します (true/false)
 do_step_execution_each_gait = false
 #シミュレーションをステップ実行するかどうかを設定します (true/false)
-do_step_execution = true
+do_step_execution = false
 
 
 #表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．
