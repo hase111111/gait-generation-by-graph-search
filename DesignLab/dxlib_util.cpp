@@ -13,7 +13,7 @@ namespace designlab
 		void InitDxlib3DSetting()
 		{
 			//カメラの描画範囲を設定する
-			SetCameraNearFar(GraphicConst::CAMERA_NEAR, GraphicConst::CAMERA_FAR);
+			SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);
 
 			SetUseLighting(FALSE);			// ライティングの計算をしないように設定を変更	
 			SetUseBackCulling(FALSE);		// ポリゴンの両面を描画する．

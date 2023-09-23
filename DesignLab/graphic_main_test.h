@@ -24,7 +24,7 @@ class GraphicMainTest final : public IGraphicMain
 {
 public:
 	GraphicMainTest(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainTest() = default;
 
 	bool Update() override;

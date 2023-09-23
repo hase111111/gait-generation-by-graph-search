@@ -23,7 +23,7 @@ class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
 	GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 
 	~GraphicMainGraphViewer() = default;
 

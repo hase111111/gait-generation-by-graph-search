@@ -38,7 +38,7 @@ void HexapodRenderer::set_draw_node(const SNode& node)
 
 	draw_node_ = node;
 
-	calculator_ptr_->calculateAllJointState(node, &draw_joint_state_);
+	calculator_ptr_->CalculateAllJointState(node, &draw_joint_state_);
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -46,7 +46,7 @@ void HexapodRenderer::set_draw_node(const SNode& node)
 		kFemurJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[1]);
 		kTibiaJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[2]);
 		kLegEndPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[3]);
-		kLegBasePos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, draw_node_.leg_base_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kLegBasePos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_base_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
 
 		kCoxaCos[i] = std::cos(draw_joint_state_[i].joint_angle[0]);
 		kCoxaSin[i] = std::sin(draw_joint_state_[i].joint_angle[0]);
@@ -60,10 +60,10 @@ void HexapodRenderer::set_draw_node(const SNode& node)
 		kKineTibiaJointVec[i] = kKineFemurJointVec[i] + HexapodConst::PHANTOMX_FEMUR_LENGTH * designlab::Vector3{kCoxaCos[i] * kFemurCos[i], kCoxaSin[i] * kFemurCos[i], kFemurSin[i]};
 		kKineLegVec[i] = kKineTibiaJointVec[i] + HexapodConst::PHANTOMX_TIBIA_LENGTH * designlab::Vector3{kCoxaCos[i] * kTibiaCos[i], kCoxaSin[i] * kTibiaCos[i], kTibiaSin[i]};
 
-		kKineCoxaJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, kKineCoxaJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
-		kKineFemurJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, kKineFemurJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
-		kKineTibiaJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, kKineTibiaJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
-		kKineLegPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, kKineLegVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kKineCoxaJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineCoxaJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kKineFemurJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineFemurJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kKineTibiaJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineTibiaJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kKineLegPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineLegVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
 
 		kCoxaLinkLength[i] = (draw_joint_state_[i].local_joint_position[0] - draw_joint_state_[i].local_joint_position[1]).Length();
 		kFemurLinkLength[i] = (draw_joint_state_[i].local_joint_position[1] - draw_joint_state_[i].local_joint_position[2]).Length();
@@ -156,14 +156,14 @@ void HexapodRenderer::Draw() const
 
 		//if (DO_OUTPUT_DEBUG_LOG)
 		//{
-		//	if (m_HexaCalc.isLegInRange(node, i))printfDx("ÅZ");
+		//	if (m_HexaCalc.IsLegInRange(node, i))printfDx("ÅZ");
 		//	else printfDx("Å~");
 
 		//	printfDx(" LegNum: %d \t", i);
 		//	printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(node.leg_pos[i].z), m_HexaCalc.getMinLegR(node.leg_pos[i].z));
 		//	printfDx("%.3f\t", node.leg_pos[i].Length());
 
-		//	if (m_HexaCalc.isLegInRange(node, i))printfDx("is in range   ");
+		//	if (m_HexaCalc.IsLegInRange(node, i))printfDx("is in range   ");
 		//	else printfDx("isnot in range");
 
 		//	if (node.leg_base_pos[i].ProjectedXY().Cross(node.leg_pos[i].ProjectedXY()) * node.leg_pos[i].ProjectedXY().Cross({ 1,0 }) > 0)
@@ -184,7 +184,7 @@ void HexapodRenderer::Draw() const
 	//	else { printfDx("Å~ isnot Able Pause\n"); }
 
 	//	// leg Interfering
-	//	if (m_HexaCalc.isLegInterfering(node)) { printfDx("Å~ is Leg Interfering\n"); }
+	//	if (m_HexaCalc.IsLegInterfering(node)) { printfDx("Å~ is Leg Interfering\n"); }
 	//	else { printfDx("ÅZ isnot Leg Interfering\n"); }
 	//}
 }

@@ -11,7 +11,11 @@
 namespace dldu = designlab::dxlib_util;
 
 
-StabilityMarginRenderer::StabilityMarginRenderer() : kMarginColor(GetColor(0, 255, 0)), kMarginErrorColor(GetColor(255, 0, 0)), kAlpha(128)
+StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr) :
+	kMarginColor(GetColor(0, 255, 0)), 
+	kMarginErrorColor(GetColor(255, 0, 0)), 
+	kAlpha(128),
+	calclator_ptr_(calclator_ptr)
 {
 }
 
@@ -29,7 +33,9 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 	{
 		if (dl_leg::IsGrounded(node.leg_state, i))
 		{
-			polygon.push_back(m_hexapod_state_calclator.getGlobalLegPos(node, i, true));
+			polygon.push_back(
+				calclator_ptr_->GetGlobalLegPosition(i,node.leg_pos[i],node.global_center_of_mass, node.rot, true)
+			);
 
 			polygon.back() += designlab::Vector3{0, 0, 5};
 
@@ -67,7 +73,10 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 	}
 
 	//投射した重心を描画する
-	VECTOR projected_center = dldu::ConvertToDxlibVec({ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 });
+	VECTOR projected_center = dldu::ConvertToDxlibVec(
+		//わかりやすさのため，重心の高さを少し上げる
+		{ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 }	
+	);
 
 	DrawSphere3D(projected_center, 5, 10, 10, GetColor(255, 255, 255), TRUE);
 }

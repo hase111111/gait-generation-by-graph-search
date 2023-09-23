@@ -64,14 +64,14 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 				result_index = static_cast<int>(i);
 				max_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
 				max_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
-				max_margin = mp_calculator->calcStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+				max_margin = mp_calculator->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 				min_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 				continue;
 			}
 
 			float candiate_rot_angle = calcMoveFrowardEvaluationValue(graph[i], target);
 			float candiate_leg_rot_angle = calcLegRotEvaluationValue(graph[i], target);
-			float candiate_margin = mp_calculator->calcStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+			float candiate_margin = mp_calculator->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 			float candiate_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 
 			if (max_rot_angle < candiate_rot_angle)

@@ -1,21 +1,23 @@
-#pragma once
+//! @file boot_mode.h
+//! @brief 起動モードを表す列挙型
+
+
+#ifndef DESIGNLAB_BOOT_MODE_H_
+#define DESIGNLAB_BOOT_MODE_H_
+
 
 #include <string>
 
 
-
-//! @enum EBootMode
-//! @date 2023/08/27
-//! @author 長谷川
+//! @enum BootMode
 //! @brief 起動モードを表す列挙型
-enum class EBootMode : int
+enum class BootMode
 {
-	SIMULATION,		//!< シミュレーションモード
-	VIEWER,			//!< ビューワーモード
-	DISPLAY_TEST,	//!< ディスプレイテストモード
-	RESULT_VIEWER	//!< リザルトビューワーモード
+	kSimulation,	//!< シミュレーションモード
+	kViewer,		//!< ビューワーモード
+	kDisplayTest,	//!< ディスプレイテストモード
+	kResultViewer	//!< リザルトビューワーモード
 };
-
 
 
 namespace std
@@ -23,22 +25,14 @@ namespace std
 	//! @brief EBootModeを文字列に変換する
 	//! @param [in] boot_mode 変換するEBootMode
 	//! @return EBootModeを文字列に変換したもの
-	std::string to_string(const EBootMode boot_mode);
-
-
+	std::string to_string(const BootMode boot_mode);
 
 	//! @brief 文字列をEBootModeに変換する
 	//! @param [in] str 変換する文字列
 	//! @return 文字列をEBootModeに変換したもの
-	EBootMode sToMode(const std::string str);
-
+	BootMode sToMode(const std::string str);
 
 }	// namespace std
 
 
-
-//! @file boot_mode.h
-//! @date 2023/08/27
-//! @author 長谷川
-//! @brief 起動モードを表す列挙型
-//! @n 行数 : @lineinfo
+#endif	// DESIGNLAB_BOOT_MODE_H_

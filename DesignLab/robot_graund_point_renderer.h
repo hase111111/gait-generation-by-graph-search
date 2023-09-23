@@ -8,6 +8,7 @@
 #include <array>
 #include <vector>
 
+#include "abstract_hexapod_state_calculator.h"
 #include "designlab_vector3.h"
 #include "hexapod_const.h"
 #include "node.h"
@@ -19,7 +20,7 @@ class RobotGraundPointRenderer final
 {
 public:
 
-	RobotGraundPointRenderer();
+	RobotGraundPointRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr);
 
 
 	//! ロボットが接地点した地点の履歴をセットする．
@@ -52,6 +53,8 @@ private:
 
 	const unsigned int kLeftLegGraundPointDarkColor;	//!< 現在のシミュレーション以外の色 (左足)
 
+
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr_;	//!< ロボットの座標計算クラス．
 
 	size_t loaded_node_num_;	//!< 読み込んだノードの数，データが更新されるたび毎回全部読込なおさないように，読み込んだノードの数を記憶しておく
 

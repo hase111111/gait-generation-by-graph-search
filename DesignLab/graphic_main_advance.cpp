@@ -9,13 +9,15 @@
 
 
 GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	kInterpolatedAnimeCount(15),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::GUI_HEIGHT - 10 : 10),
 	hexapod_renderer_(calculator_ptr),
+	robot_graund_point_renderer_(calculator_ptr),
+	stability_margin_renderer_(calculator_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.data() : MapState()),
 	graph_({}),
 	display_node_index_(0),

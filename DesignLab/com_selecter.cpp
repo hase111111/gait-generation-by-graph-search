@@ -31,7 +31,7 @@
 //
 //		//if (isInMargin(polygon, i) == false) { continue; }	//安定余裕を満たさなければ次の候補点へ
 //
-//		if (m_calclator.isLegInterfering(com_change_node)) { continue; }	//脚が干渉していれば次の候補点へ
+//		if (m_calclator.IsLegInterfering(com_change_node)) { continue; }	//脚が干渉していれば次の候補点へ
 //
 //		if (!m_calclator.isAllLegInRange(com_change_node)) { continue; }	//脚が可動範囲外ならば次の候補点へ
 //

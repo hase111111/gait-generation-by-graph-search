@@ -27,8 +27,8 @@ public:
 
 	//! @brief 設定ファイルを読み込む
 	//! @n 設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する
-	//! @return std::shared_ptr<SApplicationSettingRecorder> 設定ファイルの内容
-	std::shared_ptr<SApplicationSettingRecorder> read();
+	//! @return std::shared_ptr<ApplicationSettingRecorder> 設定ファイルの内容
+	std::shared_ptr<ApplicationSettingRecorder> read();
 
 private:
 
@@ -36,13 +36,13 @@ private:
 	void outputDefaultSettingFile();
 
 	//設定ファイルからバージョン情報を読み込む
-	void readVersionSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
+	void readVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	//設定ファイルから起動モードの情報を読み込む
-	void readBootModeSetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
+	void readBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	//設定ファイルからディスプレイ情報を読み込む
-	void readDisplaySetting(const toml::value& value, std::shared_ptr<SApplicationSettingRecorder>& recorder);
+	void readDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	const std::string SETTING_FILE_NAME = u8"settings.toml";
 

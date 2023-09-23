@@ -37,7 +37,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const designlab::Vector3 kCoxaVec = calclator_->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
+		const designlab::Vector3 kCoxaVec = calclator_->GetGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
 
 		if (map_.IsInMap(kCoxaVec)) 
 		{
@@ -101,7 +101,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				if (!calclator_->isLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
+				if (!calclator_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する

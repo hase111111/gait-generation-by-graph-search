@@ -9,7 +9,15 @@
 namespace dlm = designlab::math_util;
 
 
-PhantomXStateCalclator::PhantomXStateCalclator()
+PhantomXStateCalclator::PhantomXStateCalclator() : 
+	free_leg_pos_({ {
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),-25}
+	} })
 {
 	//脚の付け根の位置を初期化する
 	m_local_leg_base_pos[0] = designlab::Vector3(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// 脚0 右上
@@ -37,7 +45,7 @@ PhantomXStateCalclator::PhantomXStateCalclator()
 }
 
 
-bool PhantomXStateCalclator::calculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
+bool PhantomXStateCalclator::CalculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
 {
 	assert(joint_state != nullptr);		//joint_stateはnullptrではない．
 
@@ -51,63 +59,70 @@ bool PhantomXStateCalclator::calculateAllJointState(const SNode& node, std::arra
 		joint_state->at(i).global_joint_position.clear();
 		joint_state->at(i).global_joint_position.resize(4);
 
-		joint_state->at(i).global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(getLocalLegBasePosition(i), node.rot);
-		joint_state->at(i).global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(getLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1], node.rot);
-		joint_state->at(i).global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(getLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2], node.rot);
-		joint_state->at(i).global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(getLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
+		joint_state->at(i).global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
+		joint_state->at(i).global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1], node.rot);
+		joint_state->at(i).global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2], node.rot);
+		joint_state->at(i).global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
 	}
 
 	return false;
 }
 
 
-designlab::Vector3 PhantomXStateCalclator::convertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::ConvertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
 	if (consider_rot)
 	{
-		return designlab::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - getLocalLegBasePosition(leg_index);
+		return designlab::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - GetLocalLegBasePosition(leg_index);
 	}
 	else
 	{
-		return leg_pos - global_center_of_mass - getLocalLegBasePosition(leg_index);
+		return leg_pos - global_center_of_mass - GetLocalLegBasePosition(leg_index);
 	}
 }
 
+designlab::Vector3 PhantomXStateCalclator::GetFreeLegPosition(const int leg_index) const
+{
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
-designlab::Vector3 PhantomXStateCalclator::getLocalLegBasePosition(const int leg_index) const
+	return free_leg_pos_[leg_index];
+}
+
+
+designlab::Vector3 PhantomXStateCalclator::GetLocalLegBasePosition(const int leg_index) const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
 	return m_local_leg_base_pos[leg_index];
 }
 
-designlab::Vector3 PhantomXStateCalclator::getLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const
+designlab::Vector3 PhantomXStateCalclator::GetLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
-	return leg_pos + getLocalLegBasePosition(leg_index);
+	return leg_pos + GetLocalLegBasePosition(leg_index);
 }
 
 
-designlab::Vector3 PhantomXStateCalclator::getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::GetGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
-	if (consider_rot) { return designlab::rotVector(getLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
-	else { return getLocalLegBasePosition(leg_index) + global_center_of_mass; }
+	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
+	else { return GetLocalLegBasePosition(leg_index) + global_center_of_mass; }
 }
 
 
-designlab::Vector3 PhantomXStateCalclator::getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::GetGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
-	if (consider_rot) { return designlab::rotVector(getLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
-	else { return global_center_of_mass + getLocalLegBasePosition(leg_index) + leg_pos; }
+	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
+	else { return global_center_of_mass + GetLocalLegBasePosition(leg_index) + leg_pos; }
 }
 
 
-bool PhantomXStateCalclator::isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
+bool PhantomXStateCalclator::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
 
@@ -133,7 +148,7 @@ bool PhantomXStateCalclator::isLegInRange(const int leg_index, const designlab::
 }
 
 
-bool PhantomXStateCalclator::isLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
+bool PhantomXStateCalclator::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
 {
 	//重心を原点とした，座標系において，脚の干渉を調べる．
 
@@ -143,7 +158,7 @@ bool PhantomXStateCalclator::isLegInterfering(const std::array<designlab::Vector
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		joint_pos_xy[i] = getLocalLegBasePosition(i).ProjectedXY();
+		joint_pos_xy[i] = GetLocalLegBasePosition(i).ProjectedXY();
 		leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
 	}
 

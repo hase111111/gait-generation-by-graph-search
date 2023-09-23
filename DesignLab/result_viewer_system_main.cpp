@@ -6,7 +6,7 @@
 #include "map_state.h"
 
 
-ResultViewerSystemMain::ResultViewerSystemMain(const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr)
+ResultViewerSystemMain::ResultViewerSystemMain(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr)
 {
 }
 

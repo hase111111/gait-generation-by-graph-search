@@ -36,7 +36,7 @@ public:
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．
@@ -45,8 +45,6 @@ public:
 	void Main();
 
 private:
-
-	void OutputTitle() const;
 
 	void OutputSetting() const;
 
@@ -57,7 +55,7 @@ private:
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;					//!< グラフィックデータを管理するクラス．
 
-	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
 
 	MapState map_state_;					//!< 地形の状態を管理するクラス．

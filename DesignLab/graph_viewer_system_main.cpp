@@ -8,7 +8,6 @@
 #include "cmdio_util.h"
 #include "stopwatch.h"
 #include "graph_search_const.h"
-#include "hexapod_state_calculator.h"
 #include "pass_finder_basic.h"
 #include "phantomx_state_calculator.h"
 #include "StringToValue.h"
@@ -25,16 +24,13 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	graphic_system_(std::move(graphic_main_ptr), setting_ptr),
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
-	dlio::OutputGraphViewerTitle();	//タイトルを表示する
-
-	//ロボットのデータを初期化する．
-	HexapodStateCalclator_Old::initLegR();
+	dlio::OutputTitle("グラフ確認モード");	//タイトルを表示する
 
 	//マップを生成する
 	std::cout << "GraphViewerSystemMain : マップを生成します．" << std::endl;
@@ -208,13 +204,14 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
+	EGraphSearchResult result =
+		pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
 
 	graph.clear();
 
 	pass_finder_ptr_->GetGraphTree(&graph);
 
-	std::cout << fake_result_node.ToString();
+	if(graphSeachResultIsSuccessful(result))std::cout << fake_result_node.ToString();
 }
 
 void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)

@@ -8,7 +8,7 @@
 #include "mouse.h"
 
 
-GraphicSystem::GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr) :
+GraphicSystem::GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
 	graphic_main_ptr_(std::move(graphic_main_ptr)),
 	setting_ptr_(setting_ptr),
 	fps_controller_(setting_ptr ? setting_ptr->window_fps : 60)
@@ -54,13 +54,13 @@ bool GraphicSystem::DxlibInit()
 	designlab::dxlib_util::InitDxlib3DSetting();		// 3D関連の初期化を行う．		
 
 	SetOutApplicationLogValidFlag(FALSE);				// ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力される．
-	SetMainWindowText(GraphicConst::WIN_NAME.c_str());	// タイトルを変更．ウィンドウの左上に表示されるもの．
+	SetMainWindowText(GraphicConst::kWindowName.c_str());	// タイトルを変更．ウィンドウの左上に表示されるもの．
 	SetWindowSizeChangeEnableFlag(FALSE);               // ウィンドウサイズを自由に変更できないようにする．
 	SetAlwaysRunFlag(TRUE);								// ウインドウがアクティブではない状態でも処理を続行するように変更する．
 	ChangeWindowMode(TRUE);								// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
 
 	//ウィンドウの横幅，縦幅，カラーを設定する．
-	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::COLOR_BIT);
+	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::kColorBit);
 
 	//ＤＸライブラリ初期化処理
 	if (DxLib_Init() < 0)
@@ -72,7 +72,7 @@ bool GraphicSystem::DxlibInit()
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// 背景色の設定
-	SetBackgroundColor(GraphicConst::BACK_COLOR_R, GraphicConst::BACK_COLOR_G, GraphicConst::BACK_COLOR_B);
+	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
 	return true;
 }

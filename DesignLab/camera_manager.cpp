@@ -13,8 +13,8 @@ namespace dlm = designlab::math_util;
 
 CameraStateManager::CameraStateManager() :
 	m_camera_view_mode(CameraViewMode::kTopView),
-	m_goal_target_pos(VGet(0, 0, 0)), m_goal_length_camera_to_target(GraphicConst::CAMERA_TO_TARGET_MAX),
-	m_target_pos(VGet(0, 0, 0)), m_length_camera_to_target(GraphicConst::CAMERA_TO_TARGET_MAX)
+	m_goal_target_pos(VGet(0, 0, 0)), m_goal_length_camera_to_target(GraphicConst::kCameraToTargetMax),
+	m_target_pos(VGet(0, 0, 0)), m_length_camera_to_target(GraphicConst::kCameraToTargetMax)
 {
 	setCameraViewMode(CameraViewMode::kTopView);	//カメラの初期位置をセットする．
 
@@ -89,7 +89,7 @@ void CameraStateManager::setCameraViewMode(const CameraViewMode mode)
 void CameraStateManager::initCaneraTargetLength()
 {
 	//最大と最小の中間値を初期値とする．
-	m_goal_length_camera_to_target = (GraphicConst::CAMERA_TO_TARGET_MIN + GraphicConst::CAMERA_TO_TARGET_MAX) * 0.5f;
+	m_goal_length_camera_to_target = (GraphicConst::kCameraToTargetMin + GraphicConst::kCameraToTargetMax) * 0.5f;
 }
 
 
@@ -97,9 +97,9 @@ void CameraStateManager::addCameraToTargetLength(const float length_dif)
 {
 	m_goal_length_camera_to_target += length_dif;
 
-	if (GraphicConst::CAMERA_TO_TARGET_MAX < m_goal_length_camera_to_target) { m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MAX; }
+	if (GraphicConst::kCameraToTargetMax < m_goal_length_camera_to_target) { m_goal_length_camera_to_target = GraphicConst::kCameraToTargetMax; }
 
-	if (m_goal_length_camera_to_target < GraphicConst::CAMERA_TO_TARGET_MIN) { m_goal_length_camera_to_target = GraphicConst::CAMERA_TO_TARGET_MIN; }
+	if (m_goal_length_camera_to_target < GraphicConst::kCameraToTargetMin) { m_goal_length_camera_to_target = GraphicConst::kCameraToTargetMin; }
 }
 
 

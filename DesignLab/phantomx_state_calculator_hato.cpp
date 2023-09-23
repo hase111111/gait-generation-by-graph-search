@@ -13,7 +13,7 @@ PhantomXStateCalclator_Hato::PhantomXStateCalclator_Hato()
     initLegMaxR();
 }
 
-bool PhantomXStateCalclator_Hato::isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
+bool PhantomXStateCalclator_Hato::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
 	const designlab::Vector2 leg_pos_xy = leg_pos.ProjectedXY();
 	const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};

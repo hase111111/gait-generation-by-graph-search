@@ -138,9 +138,6 @@
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_data_broker.h">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
@@ -336,9 +333,6 @@
     <ClInclude Include="discrete_com_pos.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="asyncable_data.h">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
-    </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
     </ClInclude>
@@ -380,6 +374,15 @@
     </ClInclude>
     <ClInclude Include="phantomx_state_calculator_hato.h">
       <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_data_broker.h">
+      <Filter>ソース ファイル\GraphicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="asyncable_data.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="designlab_rotation_matrix.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -613,6 +616,9 @@
     </ClCompile>
     <ClCompile Include="phantomx_state_calculator_hato.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_rotation_matrix.cpp">
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

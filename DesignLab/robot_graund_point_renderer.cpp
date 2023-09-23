@@ -3,25 +3,23 @@
 #include <Dxlib.h>
 
 #include "dxlib_util.h"
-#include "hexapod_state_calculator.h"
 #include "leg_state.h"
 
 namespace dldu = designlab::dxlib_util;
 
 
-RobotGraundPointRenderer::RobotGraundPointRenderer() : 
+RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr) :
 	kRightLegGraundPointColor(GetColor(230, 15, 145)), 
 	kLeftLegGraundPointColor(GetColor(15, 230, 145)), 
 	kRightLegGraundPointDarkColor(GetColor(237, 159, 160)),
-	kLeftLegGraundPointDarkColor(GetColor(159, 237, 160))
+	kLeftLegGraundPointDarkColor(GetColor(159, 237, 160)),
+	calclator_ptr_(calclator_ptr)
 {
 }
 
 
 void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index)
 {
-	HexapodStateCalclator_Old hexapod_state_calclator;
-
 	while (loaded_node_num_ < node.size())
 	{
 		int simu_num = 0;	//このノードのシミュレーション番号
@@ -46,7 +44,9 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 		{
 			graund_point[i] = { 
-				hexapod_state_calclator.getGlobalLegPos(node[loaded_node_num_], i, true),
+				calclator_ptr_->GetGlobalLegPosition(
+					i,node[loaded_node_num_].leg_pos[i],node[loaded_node_num_].global_center_of_mass,node[loaded_node_num_].rot , true
+				),
 				dl_leg::IsGrounded(node[loaded_node_num_].leg_state, i) 
 			};
 		}

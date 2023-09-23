@@ -2,7 +2,6 @@
 
 #include "designlab_math_util.h"
 #include "dxlib_util.h"
-#include "hexapod_state_calculator.h"
 #include "keyboard.h"
 #include "map_renderer.h"
 
@@ -19,7 +18,7 @@ namespace dlm = designlab::math_util;
 
 
 GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	calculator_ptr_(calculator_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	hexapod_renderer_(calculator_ptr)
@@ -42,7 +41,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 					designlab::Vector3 pos((float)x - temp_size / 2, (float)y - temp_size / 2, (float)z - temp_size / 2);
 					pos *= (float)temp_ex;
 
-					if (calculator_ptr->isLegInRange(i, pos))
+					if (calculator_ptr->IsLegInRange(i, pos))
 					{
 						temp[i][x][y][z] = true;
 					}
@@ -74,9 +73,9 @@ bool GraphicMainTest::Update()
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= kSpeed; }
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
-				HexapodStateCalclator_Old calclator;
-
-				designlab::Vector3 global = calclator.getGlobalLegBasePos(m_node, i, true);
+				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
+					i,m_node.leg_base_pos[i],m_node.global_center_of_mass,m_node.rot,true
+				);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
 				int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
@@ -86,10 +85,12 @@ bool GraphicMainTest::Update()
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
 
-				designlab::Vector3 _map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
+				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
 				m_map_index++;
 
-				m_node.leg_pos[i] = calclator.convertLocalLegPos(m_node, _map_pos, i, true);
+				m_node.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
+					i,map_pos, m_node.global_center_of_mass,m_node.rot, true
+				);
 			}
 		}
 	}
@@ -191,7 +192,7 @@ void GraphicMainTest::Draw() const
 							//GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255)
 						};
 
-						dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->getGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
+						dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
 						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 					}
 					else

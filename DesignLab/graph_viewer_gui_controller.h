@@ -18,7 +18,7 @@ class GraphViewerGUIController final
 {
 public:
 	GraphViewerGUIController(const std::vector<SNode>* const graph_ptr, size_t* const display_node_index_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphViewerGUIController() = default;
 
 	void Update();
@@ -39,7 +39,7 @@ private:
 
 	const std::vector<SNode>* const mp_graph;
 
-	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 
 
 	size_t* const mp_display_node_index;

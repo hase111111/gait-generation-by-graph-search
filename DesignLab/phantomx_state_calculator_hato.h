@@ -10,7 +10,7 @@ class PhantomXStateCalclator_Hato final : public PhantomXStateCalclator
 public:
 	PhantomXStateCalclator_Hato();
 
-	bool isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
+	bool IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
 
 private:
 

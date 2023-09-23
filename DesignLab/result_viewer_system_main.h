@@ -10,7 +10,7 @@
 class ResultViewerSystemMain
 {
 public:
-	ResultViewerSystemMain(const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr);
+	ResultViewerSystemMain(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
 
 
 	void Main();

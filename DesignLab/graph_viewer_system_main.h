@@ -26,7 +26,7 @@ public:
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
 
 	//! @brief ƒƒCƒ“ŠÖ”
@@ -53,7 +53,7 @@ private:
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 
 	MapState map_state_;
 };

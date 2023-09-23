@@ -1,17 +1,17 @@
 #include "boot_mode.h"
 
 
-std::string std::to_string(const EBootMode boot_mode)
+std::string std::to_string(const BootMode boot_mode)
 {
 	switch (boot_mode)
 	{
-	case EBootMode::SIMULATION:
+	case BootMode::kSimulation:
 		return "SIMULATION";
-	case EBootMode::VIEWER:
+	case BootMode::kViewer:
 		return "VIEWER";
-	case EBootMode::DISPLAY_TEST:
+	case BootMode::kDisplayTest:
 		return "DISPLAY_TEST";
-	case EBootMode::RESULT_VIEWER:
+	case BootMode::kResultViewer:
 		return "RESULT_VIEWER";
 	default:
 		return "UNKNOWN";
@@ -19,26 +19,26 @@ std::string std::to_string(const EBootMode boot_mode)
 }
 
 
-EBootMode std::sToMode(const std::string str)
+BootMode std::sToMode(const std::string str)
 {
 	if (str == "SIMULATION" || str == "simulation" || str == "Simulation")
 	{
-		return EBootMode::SIMULATION;
+		return BootMode::kSimulation;
 	}
 	else if (str == "VIEWER" || str == "viewer" || str == "Viewer")
 	{
-		return EBootMode::VIEWER;
+		return BootMode::kViewer;
 	}
 	else if (str == "DISPLAY_TEST" || str == "display_test" || str == "Display_test" || str == "Display_Test")
 	{
-		return EBootMode::DISPLAY_TEST;
+		return BootMode::kDisplayTest;
 	}
 	else if (str == "RESULT_VIEWER" || str == "result_viewer" || str == "Result_viewer" || str == "Result_Viewer")
 	{
-		return EBootMode::RESULT_VIEWER;
+		return BootMode::kResultViewer;
 	}
 	else
 	{
-		return EBootMode::SIMULATION;
+		return BootMode::kSimulation;
 	}
 }

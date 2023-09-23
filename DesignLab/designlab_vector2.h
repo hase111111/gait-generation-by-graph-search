@@ -1,5 +1,5 @@
 //! @file designlab_vector2.h
-//! @brief 2次元のベクトルを表す構造体
+//! @brief 2次元の位置ベクトルを表す構造体
 
 #ifndef DESIGNLAB_VECTOR2_H_
 #define DESIGNLAB_VECTOR2_H_

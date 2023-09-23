@@ -14,25 +14,28 @@ public:
 	PhantomXStateCalclator();
 
 
-	bool calculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const override;
+	bool CalculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const override;
 
 
-	designlab::Vector3 convertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 ConvertGlobalToLegPosition(int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
 
 
-	designlab::Vector3 getLocalLegBasePosition(const int leg_index) const override;
-
-	designlab::Vector3 getLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const override;
+	designlab::Vector3 GetFreeLegPosition(int leg_index) const override;
 
 
-	designlab::Vector3 getGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 GetLocalLegBasePosition(int leg_index) const override;
 
-	designlab::Vector3 getGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 GetLocalLegPosition(int leg_index, const designlab::Vector3& leg_pos) const override;
 
 
-	virtual bool isLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
+	designlab::Vector3 GetGlobalLegBasePosition(int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
 
-	bool isLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const override;
+	designlab::Vector3 GetGlobalLegPosition(int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+
+	virtual bool IsLegInRange(int leg_index, const designlab::Vector3& leg_pos) const override;
+
+	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const override;
 
 
 private:
@@ -67,6 +70,9 @@ private:
 
 	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
 	designlab::Vector3 m_local_leg_base_pos[HexapodConst::LEG_NUM];	
+
+	//!< 遊脚する位置．脚座標系
+	const std::array<designlab::Vector3, HexapodConst::LEG_NUM> free_leg_pos_;
 };
 
 

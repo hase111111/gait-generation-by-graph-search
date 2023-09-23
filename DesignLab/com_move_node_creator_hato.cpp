@@ -63,7 +63,7 @@ bool ComMoveNodeCreatorHato::isStable(const SNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 
-	if (calculator_ptr_->calcStabilityMargin(node.leg_state, node.leg_pos) < kStableMargin)
+	if (calculator_ptr_->CalculateStabilityMargin(node.leg_state, node.leg_pos) < kStableMargin)
 	{
 		return false;
 	}
@@ -80,7 +80,7 @@ bool ComMoveNodeCreatorHato::isIntersectGround(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const designlab::Vector3 kCoxaPos = calculator_ptr_->getGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
+		const designlab::Vector3 kCoxaPos = calculator_ptr_->GetGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
 
 		if (map_.IsInMap(kCoxaPos)) 
 		{

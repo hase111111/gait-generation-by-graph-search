@@ -27,7 +27,7 @@ class GraphicMainAdvance final : public IGraphicMain
 {
 public:
 	GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainAdvance() = default;
 
 	bool Update() override;

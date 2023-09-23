@@ -16,7 +16,7 @@ LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std:
 	kLegMargin(20),
 	kHighMargin(5),
 	map_(map),
-	mp_calclator(calc),
+	calclator_ptr_(calc),
 	next_move_(next_move)
 {
 };
@@ -100,24 +100,25 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 				}
 				else
 				{
-					res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
-					res_node.leg_pos[j].z = -25;
+					res_node.leg_pos[j] = calclator_ptr_->GetFreeLegPosition(j);
+					//res_node.leg_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
+					//res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					//res_node.leg_pos[j].z = -25;
 
-					res_node.leg_base_pos[j].x = 160 * HexapodConst::DEFAULT_LEG_ANGLE_COS[j];
-					res_node.leg_base_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
+					res_node.leg_base_pos[j].x = res_node.leg_pos[j].x;
+					res_node.leg_base_pos[j].y = res_node.leg_pos[j].y;
 				}
 			}
 
-			if (m_calclator.isAblePause(res_node))
+			if (calclator_ptr_->CalculateStabilityMargin(res_node.leg_state,res_node.leg_pos) >= 0)
 			{
 				//脚が地面についているならば追加せずに続行．
 				(*output_graph).push_back(res_node);
 			}
 
-		}
+		}	//if is_able_leg_ground_pattern[i]
 
-	}
+	}	//for i
 
 }
 
@@ -127,7 +128,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const designlab::Vector3 kGlobalLegbasePos = mp_calclator->getGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
+	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
 	//m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
 
 	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
@@ -157,7 +158,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 			for (int n = 0; n < kPosNum; n++)
 			{
 				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = mp_calclator->convertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
+				map_point_pos = calclator_ptr_->ConvertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．
 				SNode new_node = current_node;
@@ -183,9 +184,9 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 
 				dl_leg::changeGround(now_leg_num, true, &new_node.leg_state);
 
-				if (!mp_calclator->isLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
+				if (!calclator_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
 
-				//if (m_calclator.isLegInterfering(new_node)) { continue; }					//脚が干渉しているならば追加せずに続行．
+				//if (m_calclator.IsLegInterfering(new_node)) { continue; }					//脚が干渉しているならば追加せずに続行．
 
 				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
 

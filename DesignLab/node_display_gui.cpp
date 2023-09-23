@@ -42,7 +42,7 @@ void NodeDisplayGui::SetDisplayNode(const SNode& node)
 	if (!calculator_ptr_) { return; }
 
 	// 関節の角度をセットする
-	calculator_ptr_->calculateAllJointState(display_node_, &joint_state_);
+	calculator_ptr_->CalculateAllJointState(display_node_, &joint_state_);
 }
 
 
@@ -202,7 +202,7 @@ void NodeDisplayGui::DrawJointInfo() const
 		);
 
 
-		if (calculator_ptr_->isLegInRange(i, joint_state_[i].local_joint_position[3]))
+		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3]))
 		{
 			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    近似値 true");
 		}

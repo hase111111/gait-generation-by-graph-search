@@ -52,7 +52,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 			{
 				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
 
-				if (!mp_calculator->isLegInRange(j, after_move_leg_pos[j]))
+				if (!mp_calculator->IsLegInRange(j, after_move_leg_pos[j]))
 				{
 					//‹r‚ª‰Â“®”ÍˆÍŠO‚È‚ç‚ÎŽŸ‚ÌŒó•â“_‚Ö
 					com_candidate[i].first = false;

@@ -11,7 +11,7 @@ namespace dldu = designlab::dxlib_util;
 
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	broker_ptr_(broker_ptr),
 	calculator_ptr_(calculator_ptr),
 	camera_gui_(10, setting_ptr ? setting_ptr->window_size_y - CameraGui::GUI_SIZE_Y - 10 : 0),

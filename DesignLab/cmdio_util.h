@@ -1,5 +1,5 @@
 //! @file cmdio_util.h
-//! @brief コマンドラインに文字を出力する関数をまとめた名前空間．
+//! @brief コマンドラインに文字を出力する関数．
 
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
@@ -12,27 +12,32 @@
 
 namespace designlab
 {
-	//! @namespace cmdio
+	//! @namespace designlab::cmdio
 	//! @brief コマンドラインに文字を出力する関数をまとめた名前空間．command line input/output の略．
 	//! @details コマンドラインに文字を出力する関数をまとめた名前空間．
 	//! @n 設定ファイルで出力の許可をしていない場合は，出力しない機能を実装したくて作成した．
 	//! @n 結果的に，コマンドラインに出力する関数がすべてこの名前空間に入っている←
 	namespace cmdio
 	{
-		constexpr int HORIZONTAL_LINE_LENGTH = 70; //!< 水平線の長さ．
+		constexpr int kHorizontalLineLength = 100; //!< 水平線の長さ．
 
 
 		//! @brief 出力するメッセージをどこまで許可するかを設定する関数．
 		//! @n 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない．
-		//! @param [in] limit 出力するメッセージをどこまで許可するかを設定する列挙型
+		//! @n 逆に kDebug に設定すると，すべての出力がされる．
+		//! @n 1度呼び出したら，プログラム終了まで設定は有効となる．
+		//! @param [in] limit 出力するメッセージをどこまで許可するか
 		void SetOutputLimit(OutputDetail limit);
 
 		//! @brief そもそも出力をするかを設定する関数．
 		//! @n falseに設定しても システムメッセージは出力される．
+		//! @param [in] do_output 出力をするかどうか
 		void SetDoOutput(bool do_output);
 
 
 		//! @brief コマンドラインに文字を出力する関数．
+		//! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
+		//! @n 必ずSetOutputLimit()を呼び出してから使うこと．
 		//! @param [in] str 出力する文字列
 		//! @param [in] detail 出力する文字列の詳細 (デフォルトではkSystem)
 		//! @param [in] wait_cin cinを待つかどうか (デフォルトではfalse)，
@@ -41,6 +46,7 @@ namespace designlab
 
 		//! @brief コマンドラインで改行をする関数．
 		//! @param [in] num 改行する回数 (デフォルトでは1回)
+		//! @n 0以下の値を入れると何もしない．
 		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
 		void OutputNewLine(int num = 1, OutputDetail detail = OutputDetail::kSystem);
 
@@ -60,10 +66,9 @@ namespace designlab
 		void OutputRight(const std::string& str, OutputDetail detail = OutputDetail::kSystem);
 
 		//! @brief コマンドラインにこのソフトのタイトルを出力する関数．
-		void OutputTitle();
-
-		//! @brief コマンドラインにGraphViewerのタイトルを出力する関数．
-		void OutputGraphViewerTitle();
+		//! @param [in] str 出力する文字列
+		//! @param [in] output_copy_right コピーライトを出力するかどうか (デフォルトではfalse)
+		void OutputTitle(const std::string& title_name,bool output_copy_right = false);
 
 
 		//! @brief 入力待ちをする関数．
@@ -84,8 +89,8 @@ namespace designlab
 		bool InputYesNo(const std::string& str = "y / nで入力してください．");
 
 		//! @brief このアプリの起動モードを選択する関数．
-		//! @return EBootMode 選択した起動モード
-		EBootMode SelectBootMode();
+		//! @return BootMode 選択した起動モード
+		BootMode SelectBootMode();
 
 	}	// namespace dl_cio
 

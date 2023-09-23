@@ -4,7 +4,6 @@
 
 #include "cmdio_util.h"
 #include "define.h"
-#include "hexapod_state_calculator.h"
 #include "node_validity_checker.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_test.h"
@@ -16,16 +15,13 @@ SimulationSystemMain::SimulationSystemMain(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	graphic_system_(std::move(graphic_ptr), setting_ptr),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
-	//ロボットのデータを初期化する．
-	HexapodStateCalclator_Old::initLegR();
-
 	//結果をファイルに出力するクラスを初期化する．
 	result_exporter_.init();
 
@@ -44,7 +40,7 @@ SimulationSystemMain::SimulationSystemMain(
 
 void SimulationSystemMain::Main()
 {
-	OutputTitle();	//コマンドラインにタイトルを表示する．
+	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
 
 
 	if (!pass_finder_ptr_)
@@ -200,19 +196,6 @@ void SimulationSystemMain::Main()
 	dlio::OutputHorizontalLine(true);
 	dlio::OutputNewLine();
 }
-
-
-void SimulationSystemMain::OutputTitle() const
-{
-	dlio::OutputNewLine();
-	dlio::OutputHorizontalLine(true);
-	dlio::OutputNewLine();
-	dlio::OutputCenter("シミュレーションモード");
-	dlio::OutputNewLine();
-	dlio::OutputHorizontalLine(true);
-	dlio::OutputNewLine();
-}
-
 
 void SimulationSystemMain::OutputSetting() const
 {
