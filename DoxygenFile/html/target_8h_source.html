@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/target.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('target_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">target.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="target_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__vector3_8h.html">designlab_vector3.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__euler_8h.html">designlab_euler.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">    7</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a6adf97f83acf6453d4a6a4b1070f3754">None</a>,               </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6abdc06390e6553abb288362534981fc25">StraightVector</a>,     </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af6a8e48dac7365b301e1e5f9d1b670d5">StraightPosition</a>,   </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a66db6a58b08ad4d96450336068044992">TurnSpotDirection</a>,  </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af468765ca90a83579b7d00bd68f540c7">TurnSpotAngle</a>,      </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6acf6bad3c882f72b4f1ace09c41410198">TurnDirection</a>,      </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af765e224256b093aef0cbd5a4ac18437">TurnAngle</a>,          </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_s_target.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_target.html">STarget</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_struct" href="struct_s_target.html">STarget</a>() : <a class="code hl_variable" href="struct_s_target.html#a1c0acfc5e6093585228470c933ef7e15">TargetDirection</a>({ 0,0,0 }), <a class="code hl_variable" href="struct_s_target.html#ab17c4a5d1d13a5965e7e2cfdd519fe08">TargetPosition</a>({ 0,0,0 }), <a class="code hl_variable" href="struct_s_target.html#a7dced1bc0249057990684555b1dcdecb">TargetRotation</a>({ 0,0,0 }),</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_variable" href="struct_s_target.html#a2ba20c6b92ecdf42949e665c0c6fe72b">TargetAngle</a>({ 0,0,0 }), <a class="code hl_variable" href="struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1">RotationCenter</a>({ 0,0,0 }), <a class="code hl_variable" href="struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5">TurningRadius</a>(0), <a class="code hl_variable" href="struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46">TargetMode</a>(<a class="code hl_enumvalue" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a6adf97f83acf6453d4a6a4b1070f3754">ETargetMode::None</a>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_s_target.html#a1c0acfc5e6093585228470c933ef7e15">   25</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> <a class="code hl_variable" href="struct_s_target.html#a1c0acfc5e6093585228470c933ef7e15">TargetDirection</a>; </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_s_target.html#ab17c4a5d1d13a5965e7e2cfdd519fe08">   26</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> <a class="code hl_variable" href="struct_s_target.html#ab17c4a5d1d13a5965e7e2cfdd519fe08">TargetPosition</a>;      </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_s_target.html#a7dced1bc0249057990684555b1dcdecb">   27</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> <a class="code hl_variable" href="struct_s_target.html#a7dced1bc0249057990684555b1dcdecb">TargetRotation</a>; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_s_target.html#a2ba20c6b92ecdf42949e665c0c6fe72b">   28</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> <a class="code hl_variable" href="struct_s_target.html#a2ba20c6b92ecdf42949e665c0c6fe72b">TargetAngle</a>;        </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1">   29</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> <a class="code hl_variable" href="struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1">RotationCenter</a>;      </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5">   30</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5">TurningRadius</a>;                </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46">   31</a></span>    <a class="code hl_enumeration" href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a> <a class="code hl_variable" href="struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46">TargetMode</a>;             </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="ttc" id="adesignlab__euler_8h_html"><div class="ttname"><a href="designlab__euler_8h.html">designlab_euler.h</a></div><div class="ttdoc">オイラー角を用いた回転を表す構造体の定義</div></div>
+<div class="ttc" id="adesignlab__vector3_8h_html"><div class="ttname"><a href="designlab__vector3_8h.html">designlab_vector3.h</a></div></div>
+<div class="ttc" id="astruct_s_target_html"><div class="ttname"><a href="struct_s_target.html">STarget</a></div><div class="ttdoc">探索において目標となる座標や角度，評価する値についてまとめた構造体</div><div class="ttdef"><b>Definition</b> target.h:20</div></div>
+<div class="ttc" id="astruct_s_target_html_a1c0acfc5e6093585228470c933ef7e15"><div class="ttname"><a href="struct_s_target.html#a1c0acfc5e6093585228470c933ef7e15">STarget::TargetDirection</a></div><div class="ttdeci">designlab::Vector3 TargetDirection</div><div class="ttdoc">目標方向</div><div class="ttdef"><b>Definition</b> target.h:25</div></div>
+<div class="ttc" id="astruct_s_target_html_a2ba20c6b92ecdf42949e665c0c6fe72b"><div class="ttname"><a href="struct_s_target.html#a2ba20c6b92ecdf42949e665c0c6fe72b">STarget::TargetAngle</a></div><div class="ttdeci">designlab::EulerXYZ TargetAngle</div><div class="ttdoc">目標旋回方向（反時計回り→正）</div><div class="ttdef"><b>Definition</b> target.h:28</div></div>
+<div class="ttc" id="astruct_s_target_html_a7dced1bc0249057990684555b1dcdecb"><div class="ttname"><a href="struct_s_target.html#a7dced1bc0249057990684555b1dcdecb">STarget::TargetRotation</a></div><div class="ttdeci">designlab::EulerXYZ TargetRotation</div><div class="ttdoc">目標角度</div><div class="ttdef"><b>Definition</b> target.h:27</div></div>
+<div class="ttc" id="astruct_s_target_html_aa62493eac6ff3d3df551e549b78cfd46"><div class="ttname"><a href="struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46">STarget::TargetMode</a></div><div class="ttdeci">ETargetMode TargetMode</div><div class="ttdoc">どうやって目標を評価するか</div><div class="ttdef"><b>Definition</b> target.h:31</div></div>
+<div class="ttc" id="astruct_s_target_html_aad6708c5f5c7a7758243098bf4ead4a5"><div class="ttname"><a href="struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5">STarget::TurningRadius</a></div><div class="ttdeci">float TurningRadius</div><div class="ttdoc">旋回半径</div><div class="ttdef"><b>Definition</b> target.h:30</div></div>
+<div class="ttc" id="astruct_s_target_html_ab17c4a5d1d13a5965e7e2cfdd519fe08"><div class="ttname"><a href="struct_s_target.html#ab17c4a5d1d13a5965e7e2cfdd519fe08">STarget::TargetPosition</a></div><div class="ttdeci">designlab::Vector3 TargetPosition</div><div class="ttdoc">目標位置</div><div class="ttdef"><b>Definition</b> target.h:26</div></div>
+<div class="ttc" id="astruct_s_target_html_ae9fd37f40377ec45262a314a673ee9b1"><div class="ttname"><a href="struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1">STarget::RotationCenter</a></div><div class="ttdeci">designlab::Vector3 RotationCenter</div><div class="ttdoc">回転中心</div><div class="ttdef"><b>Definition</b> target.h:29</div></div>
+<div class="ttc" id="astructdesignlab_1_1_euler_x_y_z_html"><div class="ttname"><a href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a></div><div class="ttdoc">回転を表す構造体．XYZオイラー角．単位は [rad]</div><div class="ttdef"><b>Definition</b> designlab_euler.h:25</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> designlab_vector3.h:42</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6">ETargetMode</a></div><div class="ttdeci">ETargetMode</div><div class="ttdoc">Targetへの移動をどのように評価するか表す列挙子</div><div class="ttdef"><b>Definition</b> target.h:8</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6a66db6a58b08ad4d96450336068044992"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a66db6a58b08ad4d96450336068044992">ETargetMode::TurnSpotDirection</a></div><div class="ttdeci">@ TurnSpotDirection</div><div class="ttdoc">その場旋回（最終的に向くべき回転方向を示す）</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a6adf97f83acf6453d4a6a4b1070f3754">ETargetMode::None</a></div><div class="ttdeci">@ None</div><div class="ttdoc">評価しない</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6abdc06390e6553abb288362534981fc25"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6abdc06390e6553abb288362534981fc25">ETargetMode::StraightVector</a></div><div class="ttdeci">@ StraightVector</div><div class="ttdoc">直線移動（移動したい方向をベクトルで示す）</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6acf6bad3c882f72b4f1ace09c41410198"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6acf6bad3c882f72b4f1ace09c41410198">ETargetMode::TurnDirection</a></div><div class="ttdeci">@ TurnDirection</div><div class="ttdoc">旋回（方向）</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6af468765ca90a83579b7d00bd68f540c7"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af468765ca90a83579b7d00bd68f540c7">ETargetMode::TurnSpotAngle</a></div><div class="ttdeci">@ TurnSpotAngle</div><div class="ttdoc">その場旋回（回転角度を示す）</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6af6a8e48dac7365b301e1e5f9d1b670d5"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af6a8e48dac7365b301e1e5f9d1b670d5">ETargetMode::StraightPosition</a></div><div class="ttdeci">@ StraightPosition</div><div class="ttdoc">直線移動（移動したい座標を示す）</div></div>
+<div class="ttc" id="atarget_8h_html_a4f7e633357dbf1fe2e6ce5772c3ca0e6af765e224256b093aef0cbd5a4ac18437"><div class="ttname"><a href="target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af765e224256b093aef0cbd5a4ac18437">ETargetMode::TurnAngle</a></div><div class="ttdeci">@ TurnAngle</div><div class="ttdoc">旋回（角度）</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="target_8h.html">target.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

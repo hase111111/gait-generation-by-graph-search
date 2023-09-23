@@ -134,9 +134,9 @@ SNode 連携図</div>
 <tr class="memitem:ade4d60d8929fd869582fe3b5a2f1d05d"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#ade4d60d8929fd869582fe3b5a2f1d05d">ChangeParentNode</a> ()</td></tr>
 <tr class="memdesc:ade4d60d8929fd869582fe3b5a2f1d05d"><td class="mdescLeft">&#160;</td><td class="mdescRight">自身を親ノードに変更する関数．  <br /></td></tr>
 <tr class="separator:ade4d60d8929fd869582fe3b5a2f1d05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35b28f5476dc84e44b2674b5c161ac8d"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a35b28f5476dc84e44b2674b5c161ac8d">ChangeToNextNode</a> (const int parent, const <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a> next)</td></tr>
-<tr class="memdesc:a35b28f5476dc84e44b2674b5c161ac8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">次の動作を設定する関数．  <br /></td></tr>
-<tr class="separator:a35b28f5476dc84e44b2674b5c161ac8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e5a77384fb5aeaa49002a88ccf28eb"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#a68e5a77384fb5aeaa49002a88ccf28eb">ChangeToNextNode</a> (const int parent, const <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> next)</td></tr>
+<tr class="memdesc:a68e5a77384fb5aeaa49002a88ccf28eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">次の動作を設定する関数．  <br /></td></tr>
+<tr class="separator:a68e5a77384fb5aeaa49002a88ccf28eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecbd8c0856929090afd022a4c7247eb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_node.html#afecbd8c0856929090afd022a4c7247eb">ToString</a> () const</td></tr>
 <tr class="memdesc:afecbd8c0856929090afd022a4c7247eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードの情報を文字列に変換する関数． <br  />
  デバッグ用に詳細な情報を出力する．  <br /></td></tr>
@@ -171,10 +171,10 @@ std::array&lt;<a class="el" href="structdesignlab_1_1_vector3.html">::designlab:
 <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">::designlab::EulerXYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rot</b></td></tr>
 <tr class="memdesc:a18454607b722bf990c15f18d03dbd54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">[4 * 3 = 12byte] ロール(X軸) ピッチ(Y軸) ヨー(Z軸)　右ねじの方向を正回転とし，ロボットの重心を原点に回転する．旧名 ThP ThR ThY <br /></td></tr>
 <tr class="separator:a18454607b722bf990c15f18d03dbd54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8328168f5e6a9c387b42bf456230a830"><td class="memItemLeft" align="right" valign="top"><a id="a8328168f5e6a9c387b42bf456230a830" name="a8328168f5e6a9c387b42bf456230a830"></a>
-<a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a>&#160;</td><td class="memItemRight" valign="bottom"><b>next_move</b></td></tr>
-<tr class="memdesc:a8328168f5e6a9c387b42bf456230a830"><td class="mdescLeft">&#160;</td><td class="mdescRight">[4 byte] 次の動作を代入する．元のプログラムではint debugが担っていた仕事を行う． <br /></td></tr>
-<tr class="separator:a8328168f5e6a9c387b42bf456230a830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61c16b748ff463d187793080d3c31d7"><td class="memItemLeft" align="right" valign="top"><a id="aa61c16b748ff463d187793080d3c31d7" name="aa61c16b748ff463d187793080d3c31d7"></a>
+<a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a>&#160;</td><td class="memItemRight" valign="bottom"><b>next_move</b></td></tr>
+<tr class="memdesc:aa61c16b748ff463d187793080d3c31d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">[4 byte] 次の動作を代入する．元のプログラムではint debugが担っていた仕事を行う． <br /></td></tr>
+<tr class="separator:aa61c16b748ff463d187793080d3c31d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f2cad6780f990353e020cd41969d976"><td class="memItemLeft" align="right" valign="top"><a id="a3f2cad6780f990353e020cd41969d976" name="a3f2cad6780f990353e020cd41969d976"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>parent_num</b></td></tr>
 <tr class="memdesc:a3f2cad6780f990353e020cd41969d976"><td class="mdescLeft">&#160;</td><td class="mdescRight">[4 byte] 自身の親がvector配列のどこにいるのかを記録する．親がいないなら負の値をとる． <br /></td></tr>
@@ -301,16 +301,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <div class="dyncontent">
 <div class="center"><img src="struct_s_node_ade4d60d8929fd869582fe3b5a2f1d05d_icgraph.png" border="0" usemap="#astruct_s_node_ade4d60d8929fd869582fe3b5a2f1d05d_icgraph" alt=""/></div>
 <map name="astruct_s_node_ade4d60d8929fd869582fe3b5a2f1d05d_icgraph" id="astruct_s_node_ade4d60d8929fd869582fe3b5a2f1d05d_icgraph">
-<area shape="rect" title="自身を親ノードに変更する関数．" alt="" coords="248,13,428,40"/>
-<area shape="rect" href="class_pass_finder_hato_thread.html#aedd3f50d6f08bbf7927127214c5dd491" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,200,48"/>
-<area shape="poly" title=" " alt="" coords="233,29,200,29,200,24,233,24"/>
+<area shape="rect" title="自身を親ノードに変更する関数．" alt="" coords="230,13,410,40"/>
+<area shape="rect" href="class_pass_finder_basic.html#a9ea8a3278d65243da96d0ecc58f6b49b" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,182,48"/>
+<area shape="poly" title=" " alt="" coords="215,29,182,29,182,24,215,24"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a35b28f5476dc84e44b2674b5c161ac8d" name="a35b28f5476dc84e44b2674b5c161ac8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35b28f5476dc84e44b2674b5c161ac8d">&#9670;&#160;</a></span>ChangeToNextNode()</h2>
+<a id="a68e5a77384fb5aeaa49002a88ccf28eb" name="a68e5a77384fb5aeaa49002a88ccf28eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e5a77384fb5aeaa49002a88ccf28eb">&#9670;&#160;</a></span>ChangeToNextNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +327,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a>&#160;</td>
           <td class="paramname"><em>next</em>&#160;</td>
         </tr>
         <tr>
@@ -355,8 +355,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_s_node_a35b28f5476dc84e44b2674b5c161ac8d_icgraph.png" border="0" usemap="#astruct_s_node_a35b28f5476dc84e44b2674b5c161ac8d_icgraph" alt=""/></div>
-<map name="astruct_s_node_a35b28f5476dc84e44b2674b5c161ac8d_icgraph" id="astruct_s_node_a35b28f5476dc84e44b2674b5c161ac8d_icgraph">
+<div class="center"><img src="struct_s_node_a68e5a77384fb5aeaa49002a88ccf28eb_icgraph.png" border="0" usemap="#astruct_s_node_a68e5a77384fb5aeaa49002a88ccf28eb_icgraph" alt=""/></div>
+<map name="astruct_s_node_a68e5a77384fb5aeaa49002a88ccf28eb_icgraph" id="astruct_s_node_a68e5a77384fb5aeaa49002a88ccf28eb_icgraph">
 <area shape="rect" title="次の動作を設定する関数．" alt="" coords="231,80,414,107"/>
 <area shape="rect" href="class_leg_hierarchy_node_creator.html#aa675602c796e20af5aa27a600ed0c935" title="現在のノードから次のノード群を生成する" alt="" coords="9,5,179,48"/>
 <area shape="poly" title=" " alt="" coords="259,78,169,51,170,46,260,73"/>
@@ -451,7 +451,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 <area shape="poly" title=" " alt="" coords="122,138,181,129,181,134,122,143"/>
 <area shape="rect" href="structdesignlab_1_1_euler_x_y_z.html#a78a88f2575844a56ee80417aee8bbe56" title="オイラー角を文字列に変換する &#160;&#160;単位は ラジアン [rad]" alt="" coords="192,157,329,200"/>
 <area shape="poly" title=" " alt="" coords="122,155,178,164,177,169,122,161"/>
-<area shape="rect" href="structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す &#160;&#160;(x, y) の形式，小数点以下3桁まで" alt="" coords="196,224,325,267"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す &#160;&#160;(x, y, z) の形式，小数点以下3桁まで" alt="" coords="196,224,325,267"/>
 <area shape="poly" title=" " alt="" coords="87,161,171,210,184,215,181,220,168,214,84,166"/>
 <area shape="rect" href="structdesignlab_1_1_euler_x_y_z.html#a38d45f9caa4a81b2fb2277653a9b0abf" title="オイラー角を文字列に変換する &#160;&#160;単位は 度 [deg]" alt="" coords="192,291,329,333"/>
 <area shape="poly" title=" " alt="" coords="75,162,112,217,139,249,171,277,180,282,177,287,168,281,136,252,108,220,70,165"/>
@@ -479,8 +479,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
 </div>
 </div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_node_8h_source.html">Node.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Node.cpp</li>
+<li>DesignLab/<a class="el" href="_node_8h_source.html">Node.h</a></li>
+<li>DesignLab/Node.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -25,10 +25,12 @@ var namespacedesignlab =
     [ "EulerXYZ", "structdesignlab_1_1_euler_x_y_z.html", "structdesignlab_1_1_euler_x_y_z" ],
     [ "LineSegment2", "structdesignlab_1_1_line_segment2.html", "structdesignlab_1_1_line_segment2" ],
     [ "Polygon2", "structdesignlab_1_1_polygon2.html", "structdesignlab_1_1_polygon2" ],
+    [ "RotationMatrix3x3", "structdesignlab_1_1_rotation_matrix3x3.html", "structdesignlab_1_1_rotation_matrix3x3" ],
     [ "SQuaternion", "structdesignlab_1_1_s_quaternion.html", "structdesignlab_1_1_s_quaternion" ],
     [ "Vector2", "structdesignlab_1_1_vector2.html", "structdesignlab_1_1_vector2" ],
     [ "Vector3", "structdesignlab_1_1_vector3.html", "structdesignlab_1_1_vector3" ],
     [ "operator*", "namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5", null ],
+    [ "operator<<", "namespacedesignlab.html#a267d1ab3d8486e12343e425b81bbd08d", null ],
     [ "rotVector", "namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179", null ],
     [ "MAX_VERTEX_NUM", "namespacedesignlab.html#a839525a3230706c403d3c5553c4564ee", null ]
 ];

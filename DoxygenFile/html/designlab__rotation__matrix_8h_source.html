@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/designlab_rotation_matrix.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('designlab__rotation__matrix_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">designlab_rotation_matrix.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="designlab__rotation__matrix_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef DESIGNLAB_ROTATION_MATRIX_H_</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define DESIGNLAB_ROTATION_MATRIX_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__euler_8h.html">designlab_euler.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_rotation_matrix3x3.html">   17</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> final</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">   20</a></span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>() : <a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">element</a>({ {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            { 1.0f, 0.0f, 0.0f },</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            { 0.0f, 1.0f, 0.0f },</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            { 0.0f, 0.0f, 1.0f }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        } }) {};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_rotation_matrix3x3.html#ae050e92b96565fc8eac94c07faa4f5b0">   27</a></span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#ae050e92b96565fc8eac94c07faa4f5b0">RotationMatrix3x3</a>(</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> r11, <span class="keyword">const</span> <span class="keywordtype">float</span> r12, <span class="keyword">const</span> <span class="keywordtype">float</span> r13,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> r21, <span class="keyword">const</span> <span class="keywordtype">float</span> r22, <span class="keyword">const</span> <span class="keywordtype">float</span> r23,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> r31, <span class="keyword">const</span> <span class="keywordtype">float</span> r32, <span class="keyword">const</span> <span class="keywordtype">float</span> r33</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        ) : <a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">element</a>({ {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            { r11, r12, r13 },</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            { r21, r22, r23 },</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            { r31, r32, r33 }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        } }) {};</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>(<span class="keyword">const</span> EulerXYZ&amp; euler_xyz);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>(<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>&amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>(<a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>&amp;&amp; other) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>&amp; operator =(<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a>&amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        ~RotationMatrix3x3() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">static</span> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#abc3bdb68d606ea4d724a92425188f9fa">CreateRotationMatrixX</a>(<span class="keywordtype">float</span> angle);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">static</span> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a4f375cd58fd5ae559e9881c0a0f9aed7">CreateRotationMatrixY</a>(<span class="keywordtype">float</span> angle);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">static</span> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">RotationMatrix3x3</a> <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#a39d99d8f9cce41de693228739ad69161">CreateRotationMatrixZ</a>(<span class="keywordtype">float</span> angle);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">   68</a></span>        std::array&lt;std::array&lt;float,3&gt;, 3&gt; <a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">element</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif  </span><span class="comment">// !DESIGNLAB_ROTATION_MATRIX_H_</span></div>
+<div class="ttc" id="adesignlab__euler_8h_html"><div class="ttname"><a href="designlab__euler_8h.html">designlab_euler.h</a></div><div class="ttdoc">オイラー角を用いた回転を表す構造体の定義</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdoc">位置ベクトルを表現する構造体</div><div class="ttdef"><b>Definition</b> cmdio_util.cpp:31</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html">designlab::RotationMatrix3x3</a></div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.h:18</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_a075763d1c57c77721d513dabd0466875"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875">designlab::RotationMatrix3x3::RotationMatrix3x3</a></div><div class="ttdeci">RotationMatrix3x3()</div><div class="ttdoc">単位行列を生成する</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.h:20</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_a31917da37811cc06fbe4fb509f2aa4eb"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">designlab::RotationMatrix3x3::element</a></div><div class="ttdeci">std::array&lt; std::array&lt; float, 3 &gt;, 3 &gt; element</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.h:68</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_a39d99d8f9cce41de693228739ad69161"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#a39d99d8f9cce41de693228739ad69161">designlab::RotationMatrix3x3::CreateRotationMatrixZ</a></div><div class="ttdeci">static RotationMatrix3x3 CreateRotationMatrixZ(float angle)</div><div class="ttdoc">z軸周りに回転する回転行列を生成する</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.cpp:57</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_a4f375cd58fd5ae559e9881c0a0f9aed7"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#a4f375cd58fd5ae559e9881c0a0f9aed7">designlab::RotationMatrix3x3::CreateRotationMatrixY</a></div><div class="ttdeci">static RotationMatrix3x3 CreateRotationMatrixY(float angle)</div><div class="ttdoc">y軸周りに回転する回転行列を生成する</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.cpp:45</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_abc3bdb68d606ea4d724a92425188f9fa"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#abc3bdb68d606ea4d724a92425188f9fa">designlab::RotationMatrix3x3::CreateRotationMatrixX</a></div><div class="ttdeci">static RotationMatrix3x3 CreateRotationMatrixX(float angle)</div><div class="ttdoc">x軸周りに回転する回転行列を生成する</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.cpp:33</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_ae050e92b96565fc8eac94c07faa4f5b0"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#ae050e92b96565fc8eac94c07faa4f5b0">designlab::RotationMatrix3x3::RotationMatrix3x3</a></div><div class="ttdeci">RotationMatrix3x3(const float r11, const float r12, const float r13, const float r21, const float r22, const float r23, const float r31, const float r32, const float r33)</div><div class="ttdoc">任意の回転行列を生成する</div><div class="ttdef"><b>Definition</b> designlab_rotation_matrix.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="designlab__rotation__matrix_8h.html">designlab_rotation_matrix.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

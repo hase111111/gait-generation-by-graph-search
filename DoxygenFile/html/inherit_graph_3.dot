@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="ApplicationSettingReader",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_application_setting_reader.html",tooltip="アプリケーション設定ファイルを読み込むクラス"];
+  Node0 [id="Node000000",label="ApplicationSettingRecorder",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_application_setting_recorder.html",tooltip="アプリの設定を記録する構造体"];
 }

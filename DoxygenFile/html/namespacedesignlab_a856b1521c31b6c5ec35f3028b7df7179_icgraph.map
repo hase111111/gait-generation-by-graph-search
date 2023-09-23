@@ -1,6 +1,6 @@
 <map id="designlab::rotVector" name="designlab::rotVector">
 <area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="243,113,380,140"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#afa28fafbefba1ce99bc2193e7921dec2" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="19,5,181,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a5643a529f477c680bc92f9e038893fcc" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="19,5,181,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,107,194,62,166,51,168,46,196,58,278,103"/>
 <area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#af3a010234881100e9c5eeb0eea19b8e6" title="【スレッドセーフ】グローバル座標系→脚座標系に変換する．" alt="" coords="5,72,195,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,116,195,111,196,106,228,111"/>

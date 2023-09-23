@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/cassert_define.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/cassert_define.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,27 +89,71 @@ $(document).ready(function(){initNavTree('cassert__define_8h.html',''); initResi
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">マクロ定義</a>  </div>
   <div class="headertitle"><div class="title">cassert_define.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="cassert__define_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a8f5d1567d298db8f764ffa9377d1838c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cassert__define_8h.html#a8f5d1567d298db8f764ffa9377d1838c">DESIGNLAB_MSG_ASSERT</a>(cond,  msg)</td></tr>
+<tr class="separator:a8f5d1567d298db8f764ffa9377d1838c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル </p>
 <p>デバッグモードではアサートを有効化する．リリースモードではアサートを無効化する． <br  />
  このプログラムは処理が重いせいで，環境によってはデバッグモードで実行することが難しい <br  />
  なので，リリースモードでアサートを出したい場合は，以下のリリースモードのところで <br  />
  #undef NDEBUG でアサートを有効化すること． </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a8f5d1567d298db8f764ffa9377d1838c" name="a8f5d1567d298db8f764ffa9377d1838c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f5d1567d298db8f764ffa9377d1838c">&#9670;&#160;</a></span>DESIGNLAB_MSG_ASSERT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DESIGNLAB_MSG_ASSERT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>値:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (!(cond)) { \</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Assertion failed: &quot;</span> &lt;&lt; #cond &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; __func__ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; \</div>
+<div class="line">        std::cerr &lt;&lt; (msg) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; \</div>
+<div class="line">        std::abort(); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="cassert__define_8h.html">cassert_define.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="cassert__define_8h.html">cassert_define.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

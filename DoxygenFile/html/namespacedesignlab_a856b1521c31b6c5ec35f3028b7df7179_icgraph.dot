@@ -7,7 +7,7 @@ digraph "designlab::rotVector"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::rotVector",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="PhantomXStateCalclator\l::calculateAllJointState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#afa28fafbefba1ce99bc2193e7921dec2",tooltip="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．"];
+  Node2 [id="Node000002",label="PhantomXStateCalclator\l::calculateAllJointState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a5643a529f477c680bc92f9e038893fcc",tooltip="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="PhantomXStateCalclator\l::convertGlobalToLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#af3a010234881100e9c5eeb0eea19b8e6",tooltip="【スレッドセーフ】グローバル座標系→脚座標系に変換する．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

@@ -1,9 +1,9 @@
 var searchData=
 [
   ['abstracthexapodstatecalculator_0',['AbstractHexapodStateCalculator',['../class_abstract_hexapod_state_calculator.html',1,'']]],
-  ['abstractpassfinder_1',['AbstractPassFinder',['../class_abstract_pass_finder.html',1,'']]],
-  ['applicationsettingkey_2',['ApplicationSettingKey',['../class_application_setting_key.html',1,'']]],
-  ['applicationsettingreader_3',['ApplicationSettingReader',['../class_application_setting_reader.html',1,'']]],
+  ['applicationsettingkey_1',['ApplicationSettingKey',['../class_application_setting_key.html',1,'']]],
+  ['applicationsettingreader_2',['ApplicationSettingReader',['../class_application_setting_reader.html',1,'']]],
+  ['applicationsettingrecorder_3',['ApplicationSettingRecorder',['../struct_application_setting_recorder.html',1,'']]],
   ['asyncabledata_4',['AsyncableData',['../class_asyncable_data.html',1,'']]],
   ['asyncabledata_3c_20mapstate_20_3e_5',['AsyncableData&lt; MapState &gt;',['../class_asyncable_data.html',1,'']]],
   ['asyncabledata_3c_20std_3a_3avector_3c_20size_5ft_20_3e_20_3e_6',['AsyncableData&lt; std::vector&lt; size_t &gt; &gt;',['../class_asyncable_data.html',1,'']]],

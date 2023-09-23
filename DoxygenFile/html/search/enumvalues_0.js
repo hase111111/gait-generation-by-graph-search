@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['com_5fmove_0',['COM_MOVE',['../hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80a1bca6fbe02f891a7900fb172ce1f8bfe',1,'hexapod_next_move.h']]],
-  ['com_5fup_5fdown_1',['COM_UP_DOWN',['../hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80aefb77ea8cd308bd01548a20d754b675f',1,'hexapod_next_move.h']]]
+  ['diagonal_5fstripe_0',['DIAGONAL_STRIPE',['../map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a712cf7d15f72d38d86742ea94538286d',1,'map_creator.h']]],
+  ['display_5ftest_1',['DISPLAY_TEST',['../boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bca9fa37f7ba188eef1330c23e338788604',1,'boot_mode.h']]]
 ];

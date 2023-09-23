@@ -123,9 +123,9 @@ GraphicMainBasic 連携図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a7f03e79be63ddcf7782fb49966fde6dc"><td class="memItemLeft" align="right" valign="top"><a id="a7f03e79be63ddcf7782fb49966fde6dc" name="a7f03e79be63ddcf7782fb49966fde6dc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicMainBasic</b> (const std::shared_ptr&lt; const <a class="el" href="struct_graphic_data_broker.html">GraphicDataBroker</a> &gt; &amp;broker_ptr, const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_s_application_setting_recorder.html">SApplicationSettingRecorder</a> &gt; &amp;setting_ptr)</td></tr>
-<tr class="separator:a7f03e79be63ddcf7782fb49966fde6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a2b1cbb88ea771a91b7a386ed0101d"><td class="memItemLeft" align="right" valign="top"><a id="a90a2b1cbb88ea771a91b7a386ed0101d" name="a90a2b1cbb88ea771a91b7a386ed0101d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GraphicMainBasic</b> (const std::shared_ptr&lt; const <a class="el" href="struct_graphic_data_broker.html">GraphicDataBroker</a> &gt; &amp;broker_ptr, const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_application_setting_recorder.html">ApplicationSettingRecorder</a> &gt; &amp;setting_ptr)</td></tr>
+<tr class="separator:a90a2b1cbb88ea771a91b7a386ed0101d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a281c12f1a5df1d5dfce7aefad5057985"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985">Update</a> () override</td></tr>
 <tr class="memdesc:a281c12f1a5df1d5dfce7aefad5057985"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．  <br /></td></tr>
 <tr class="separator:a281c12f1a5df1d5dfce7aefad5057985"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,33 +175,44 @@ GraphicMainBasic 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graphic_main_basic_a1e698ba2d3c8d10a78d37f1be466b061_cgraph.png" border="0" usemap="#aclass_graphic_main_basic_a1e698ba2d3c8d10a78d37f1be466b061_cgraph" alt=""/></div>
 <map name="aclass_graphic_main_basic_a1e698ba2d3c8d10a78d37f1be466b061_cgraph" id="aclass_graphic_main_basic_a1e698ba2d3c8d10a78d37f1be466b061_cgraph">
-<area shape="rect" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,224,170,251"/>
+<area shape="rect" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,265,170,292"/>
 <area shape="rect" href="class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="246,5,369,32"/>
-<area shape="poly" title=" " alt="" coords="92,223,107,186,134,138,170,86,192,62,216,42,231,33,234,38,219,46,196,66,174,89,138,140,112,189,96,225"/>
+<area shape="poly" title=" " alt="" coords="90,264,103,221,128,161,165,97,189,68,216,42,231,33,234,37,219,46,193,71,169,100,133,164,108,223,95,266"/>
 <area shape="rect" href="class_display_node_switch_gui.html#a6be29aa4d678251cb1fe8b507ace0064" title="GUIの描画" alt="" coords="231,56,384,99"/>
-<area shape="poly" title=" " alt="" coords="97,222,145,168,179,136,216,108,225,103,227,108,219,113,182,140,149,172,101,225"/>
+<area shape="poly" title=" " alt="" coords="94,263,139,191,174,147,216,109,222,104,225,109,219,113,178,151,143,194,98,266"/>
 <area shape="rect" href="class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="227,123,388,149"/>
-<area shape="poly" title=" " alt="" coords="107,221,156,190,217,159,235,152,237,157,219,164,158,195,110,226"/>
-<area shape="rect" href="class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="232,173,383,200"/>
-<area shape="poly" title=" " alt="" coords="148,221,231,201,233,207,149,226"/>
-<area shape="rect" href="class_world_grid_renderer.html#af26f74852d21ad5bbdc17114cc69fb0c" title="ワールドの格子線を描画する" alt="" coords="223,224,392,251"/>
-<area shape="poly" title=" " alt="" coords="170,235,208,235,208,240,170,240"/>
-<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="240,275,375,301"/>
-<area shape="poly" title=" " alt="" coords="149,249,233,268,231,273,148,254"/>
-<area shape="rect" href="class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="224,325,391,368"/>
-<area shape="poly" title=" " alt="" coords="111,249,160,279,219,311,232,317,229,322,216,316,157,283,108,253"/>
-<area shape="rect" href="class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9" title=" " alt="" coords="218,392,397,435"/>
-<area shape="poly" title=" " alt="" coords="100,249,147,310,181,346,219,378,226,382,223,387,216,382,177,350,143,314,96,253"/>
-<area shape="rect" href="class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21" title="現在表示するシミュレーションの番号を取得する" alt="" coords="231,459,384,501"/>
-<area shape="poly" title=" " alt="" coords="96,250,112,288,138,340,174,396,195,422,219,445,224,448,221,453,216,449,191,425,169,399,133,343,107,291,91,252"/>
-<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="470,100,607,143"/>
-<area shape="poly" title=" " alt="" coords="388,128,455,124,455,129,389,134"/>
-<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="474,167,603,193"/>
-<area shape="poly" title=" " alt="" coords="382,147,460,162,459,168,381,153"/>
-<area shape="rect" href="class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="445,239,632,265"/>
-<area shape="poly" title=" " alt="" coords="375,275,434,266,435,271,376,280"/>
-<area shape="rect" href="class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="466,289,611,316"/>
-<area shape="poly" title=" " alt="" coords="376,290,451,294,451,300,375,295"/>
+<area shape="poly" title=" " alt="" coords="98,263,146,213,179,184,216,159,229,153,232,158,219,164,183,188,150,216,102,267"/>
+<area shape="rect" href="class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="232,240,383,267"/>
+<area shape="poly" title=" " alt="" coords="170,267,216,261,217,266,171,272"/>
+<area shape="rect" href="class_world_grid_renderer.html#af26f74852d21ad5bbdc17114cc69fb0c" title="ワールドの格子線を描画する" alt="" coords="223,291,392,317"/>
+<area shape="poly" title=" " alt="" coords="171,286,209,290,208,295,170,291"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="240,341,375,368"/>
+<area shape="poly" title=" " alt="" coords="122,290,219,327,241,334,240,339,217,332,120,295"/>
+<area shape="rect" href="class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="224,392,391,435"/>
+<area shape="poly" title=" " alt="" coords="105,290,154,332,219,378,229,383,226,388,216,382,150,337,101,294"/>
+<area shape="rect" href="class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9" title=" " alt="" coords="218,459,397,501"/>
+<area shape="poly" title=" " alt="" coords="98,291,143,363,178,407,219,445,225,449,222,453,216,449,174,410,139,366,94,294"/>
+<area shape="rect" href="class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="228,173,387,216"/>
+<area shape="poly" title=" " alt="" coords="123,262,217,226,233,219,235,224,219,230,125,267"/>
+<area shape="rect" href="class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21" title="現在表示するシミュレーションの番号を取得する" alt="" coords="231,525,384,568"/>
+<area shape="poly" title=" " alt="" coords="95,292,109,334,134,393,171,456,194,485,219,511,224,515,220,519,216,515,190,489,166,459,130,395,104,336,90,293"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="470,40,607,83"/>
+<area shape="poly" title=" " alt="" coords="359,119,396,108,463,86,465,91,398,113,360,125"/>
+<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="474,107,603,133"/>
+<area shape="poly" title=" " alt="" coords="388,128,459,123,459,128,389,133"/>
+<area shape="rect" href="class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="445,357,632,384"/>
+<area shape="poly" title=" " alt="" coords="376,357,431,361,430,366,375,362"/>
+<area shape="rect" href="class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="466,408,611,435"/>
+<area shape="poly" title=" " alt="" coords="360,366,398,377,446,393,472,401,470,406,444,399,396,383,358,371"/>
+<area shape="poly" title=" " alt="" coords="365,170,444,143,469,135,471,140,446,148,367,175"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299" title="頂点を追加する関数" alt="" coords="470,157,608,200"/>
+<area shape="poly" title=" " alt="" coords="387,187,455,182,455,187,388,192"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．" alt="" coords="470,224,608,267"/>
+<area shape="poly" title=" " alt="" coords="388,209,456,224,454,230,387,215"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="474,291,603,333"/>
+<area shape="poly" title=" " alt="" coords="378,214,399,226,414,239,423,252,432,264,447,276,461,285,459,290,443,281,428,268,419,255,410,243,395,230,375,219"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="680,224,819,267"/>
+<area shape="poly" title=" " alt="" coords="608,243,666,243,666,248,608,248"/>
 </map>
 </div>
 
@@ -309,8 +320,8 @@ GraphicMainBasic 連携図</div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="graphic__main__basic_8h_source.html">graphic_main_basic.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graphic_main_basic.cpp</li>
+<li>DesignLab/<a class="el" href="graphic__main__basic_8h_source.html">graphic_main_basic.h</a></li>
+<li>DesignLab/graphic_main_basic.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

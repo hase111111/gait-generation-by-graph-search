@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/hexapod_next_move.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/hexapod_next_move.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,8 +96,7 @@ $(document).ready(function(){initNavTree('hexapod__next__move_8h.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>ロボットが次にどの動作をするのかを表す列挙体．サイズは 1 byte．sizeofで確認済み <br  />
- 行数 : 38  
+<p>ロボットが次にどの動作をするのかを表す列挙体．  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 </div>
@@ -105,37 +104,35 @@ $(document).ready(function(){initNavTree('hexapod__next__move_8h.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 列挙型</h2></td></tr>
-<tr class="memitem:a13691a1d9f234a340b163b32fcc3cc80"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a> : int { <br />
-&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80ab50339a10e1de285ac99d4c3990b8693">NONE</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80a5e439cb12ba7ce392117adfe16b99775">LEG_UP_DOWN</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80abf6fa4a7aaf00aa35900dbe690baa068">LEG_UP</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80aa180ec69d14f5c367e86bc5ae32bdd10">LEG_DOWN</a>
+<tr class="memitem:a4b9d2f0865a68e0b3b50f804b3b954cf"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> : int { <br />
+&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13">kNone</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af">kLegUpDown</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfaed65f0de8eebf8dc0a275fe617d38457">kLegUp</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfad407fd61b21c7e9f142f176314375295">kLegDown</a>
 , <br />
-&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80abe04e1e4e36d29093227b9e16ca550fa">LEG_HIERARCHY_CHANGE</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80a1bca6fbe02f891a7900fb172ce1f8bfe">COM_MOVE</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80aefb77ea8cd308bd01548a20d754b675f">COM_UP_DOWN</a>
-, <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80ac6eb665c39a0771ccfa8a41f87ca2fe0">LEG_UP_DOWN_NEXT_COM_MOVE</a>
+&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa7a0d289d2c7258b2f617388cded82812">kLegHierarchyChange</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa54a0fd06169e7dc14648d41420e7385c">kComMove</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7">kComUpDown</a>
+, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8">kLegUpDownNextComMove</a>
 , <br />
-&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80a18e1d5f77d67b8b4f145596614e471a4">LEG_UP_DOWN_NEXT_COM_UP_DOWN</a>
+&#160;&#160;<a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea">kLegUpDownNextComUpDown</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a13691a1d9f234a340b163b32fcc3cc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットが次にどの動作をするのかを表す列挙体．  <a href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">[詳解]</a><br /></td></tr>
-<tr class="separator:a13691a1d9f234a340b163b32fcc3cc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a4b9d2f0865a68e0b3b50f804b3b954cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットが次にどの動作をするのかを表す列挙体． <br  />
+ 先行研究では int型の変数 debug を用いていたが，可読性が低いので列挙体を用いる．  <a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">[詳解]</a><br /></td></tr>
+<tr class="separator:a4b9d2f0865a68e0b3b50f804b3b954cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a32af67b5b384db9559b42bd06fffe8db"><td class="memItemLeft" align="right" valign="top"><a id="a32af67b5b384db9559b42bd06fffe8db" name="a32af67b5b384db9559b42bd06fffe8db"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>std::to_string</b> (const <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a> move)</td></tr>
-<tr class="separator:a32af67b5b384db9559b42bd06fffe8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdd6c7569da7f767fd34461a43705d7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hexapod__next__move_8h.html#a3cdd6c7569da7f767fd34461a43705d7">std::to_string</a> (<a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> move)</td></tr>
+<tr class="memdesc:a3cdd6c7569da7f767fd34461a43705d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの動作を文字列に変換する．  <br /></td></tr>
+<tr class="separator:a3cdd6c7569da7f767fd34461a43705d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>ロボットが次にどの動作をするのかを表す列挙体．サイズは 1 byte．sizeofで確認済み <br  />
- 行数 : 38 </p>
-<dl class="section date"><dt>日付</dt><dd>2021/08/11 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>ロボットが次にどの動作をするのかを表す列挙体． </p>
 </div><h2 class="groupheader">列挙型詳解</h2>
-<a id="a13691a1d9f234a340b163b32fcc3cc80" name="a13691a1d9f234a340b163b32fcc3cc80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13691a1d9f234a340b163b32fcc3cc80">&#9670;&#160;</a></span>EHexapodMove</h2>
+<a id="a4b9d2f0865a68e0b3b50f804b3b954cf" name="a4b9d2f0865a68e0b3b50f804b3b954cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9d2f0865a68e0b3b50f804b3b954cf">&#9670;&#160;</a></span>HexapodMove</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +141,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>std::to_string
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a> : int</td>
+          <td class="memname">enum class <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> : int</td>
         </tr>
       </table>
   </td>
@@ -154,29 +151,71 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>std::to_string
 </table>
 </div><div class="memdoc">
 
-<p>ロボットが次にどの動作をするのかを表す列挙体． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/11 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<p>ロボットが次にどの動作をするのかを表す列挙体． <br  />
+ 先行研究では int型の変数 debug を用いていたが，可読性が低いので列挙体を用いる． </p>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80ab50339a10e1de285ac99d4c3990b8693" name="a13691a1d9f234a340b163b32fcc3cc80ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>何も動作をしない． </p>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13" name="a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13"></a>kNone&#160;</td><td class="fielddoc"><p>何も動作をしない． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80a5e439cb12ba7ce392117adfe16b99775" name="a13691a1d9f234a340b163b32fcc3cc80a5e439cb12ba7ce392117adfe16b99775"></a>LEG_UP_DOWN&#160;</td><td class="fielddoc"><p>脚の上下移動. </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af" name="a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af"></a>kLegUpDown&#160;</td><td class="fielddoc"><p>脚の上下移動. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80abf6fa4a7aaf00aa35900dbe690baa068" name="a13691a1d9f234a340b163b32fcc3cc80abf6fa4a7aaf00aa35900dbe690baa068"></a>LEG_UP&#160;</td><td class="fielddoc"><p>脚を上げる，遊脚する． </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfaed65f0de8eebf8dc0a275fe617d38457" name="a4b9d2f0865a68e0b3b50f804b3b954cfaed65f0de8eebf8dc0a275fe617d38457"></a>kLegUp&#160;</td><td class="fielddoc"><p>脚を上げる，遊脚する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80aa180ec69d14f5c367e86bc5ae32bdd10" name="a13691a1d9f234a340b163b32fcc3cc80aa180ec69d14f5c367e86bc5ae32bdd10"></a>LEG_DOWN&#160;</td><td class="fielddoc"><p>脚を下げる，接地する． </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfad407fd61b21c7e9f142f176314375295" name="a4b9d2f0865a68e0b3b50f804b3b954cfad407fd61b21c7e9f142f176314375295"></a>kLegDown&#160;</td><td class="fielddoc"><p>脚を下げる，接地する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80abe04e1e4e36d29093227b9e16ca550fa" name="a13691a1d9f234a340b163b32fcc3cc80abe04e1e4e36d29093227b9e16ca550fa"></a>LEG_HIERARCHY_CHANGE&#160;</td><td class="fielddoc"><p>脚の平行移動．脚の階層を変更する． </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa7a0d289d2c7258b2f617388cded82812" name="a4b9d2f0865a68e0b3b50f804b3b954cfa7a0d289d2c7258b2f617388cded82812"></a>kLegHierarchyChange&#160;</td><td class="fielddoc"><p>脚の平行移動．脚の階層を変更する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80a1bca6fbe02f891a7900fb172ce1f8bfe" name="a13691a1d9f234a340b163b32fcc3cc80a1bca6fbe02f891a7900fb172ce1f8bfe"></a>COM_MOVE&#160;</td><td class="fielddoc"><p>重心の平行移動．Center Of Massで重心のこと． </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa54a0fd06169e7dc14648d41420e7385c" name="a4b9d2f0865a68e0b3b50f804b3b954cfa54a0fd06169e7dc14648d41420e7385c"></a>kComMove&#160;</td><td class="fielddoc"><p>重心の平行移動．Center Of Massで重心のこと． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80aefb77ea8cd308bd01548a20d754b675f" name="a13691a1d9f234a340b163b32fcc3cc80aefb77ea8cd308bd01548a20d754b675f"></a>COM_UP_DOWN&#160;</td><td class="fielddoc"><p>重心の上下移動． </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7" name="a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7"></a>kComUpDown&#160;</td><td class="fielddoc"><p>重心の上下移動． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80ac6eb665c39a0771ccfa8a41f87ca2fe0" name="a13691a1d9f234a340b163b32fcc3cc80ac6eb665c39a0771ccfa8a41f87ca2fe0"></a>LEG_UP_DOWN_NEXT_COM_MOVE&#160;</td><td class="fielddoc"><p>脚の上下移動．(次は重心の平行移動) </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8" name="a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8"></a>kLegUpDownNextComMove&#160;</td><td class="fielddoc"><p>脚の上下移動．(次は重心の平行移動) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13691a1d9f234a340b163b32fcc3cc80a18e1d5f77d67b8b4f145596614e471a4" name="a13691a1d9f234a340b163b32fcc3cc80a18e1d5f77d67b8b4f145596614e471a4"></a>LEG_UP_DOWN_NEXT_COM_UP_DOWN&#160;</td><td class="fielddoc"><p>脚の上下移動．(次は重心の上下移動) </p>
+<tr><td class="fieldname"><a id="a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea" name="a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea"></a>kLegUpDownNextComUpDown&#160;</td><td class="fielddoc"><p>脚の上下移動．(次は重心の上下移動) </p>
 </td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a3cdd6c7569da7f767fd34461a43705d7" name="a3cdd6c7569da7f767fd34461a43705d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdd6c7569da7f767fd34461a43705d7">&#9670;&#160;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string std::to_string </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a>&#160;</td>
+          <td class="paramname"><em>move</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ロボットの動作を文字列に変換する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">move</td><td>ロボットの動作 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>std::string ロボットの動作を表す文字列</dd></dl>
+<p>オーバーロードについては以下を参照． <br  />
+ 参考: <a href="https://www.s-cradle.com/developer/sophiaframework/tutorial/Cpp/overload.html">https://www.s-cradle.com/developer/sophiaframework/tutorial/Cpp/overload.html</a> <br  />
+ std::to_stringはC++11から追加された関数．::include &lt;string&gt;で使用可能になる． <br  />
+ メンテが面倒なので，良い方法募集中 </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="hexapod__next__move_8h_a3cdd6c7569da7f767fd34461a43705d7_cgraph.png" border="0" usemap="#ahexapod__next__move_8h_a3cdd6c7569da7f767fd34461a43705d7_cgraph" alt=""/></div>
+<map name="ahexapod__next__move_8h_a3cdd6c7569da7f767fd34461a43705d7_cgraph" id="ahexapod__next__move_8h_a3cdd6c7569da7f767fd34461a43705d7_cgraph">
+<area shape="rect" title="ロボットの動作を文字列に変換する．" alt="" coords="5,29,103,56"/>
+<area shape="rect" href="boot__mode_8h.html#a9cccac11710f15f91636d6b45e041483" title="EBootModeを文字列に変換する" alt="" coords="151,29,248,56"/>
+<area shape="poly" title=" " alt="" coords="103,40,136,40,136,45,103,45"/>
+<area shape="poly" title=" " alt="" coords="174,30,169,21,173,11,183,5,199,3,218,5,227,12,224,17,215,10,199,8,185,10,177,14,175,20,179,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -185,7 +224,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>std::to_string
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="hexapod__next__move_8h.html">hexapod_next_move.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="hexapod__next__move_8h.html">hexapod_next_move.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

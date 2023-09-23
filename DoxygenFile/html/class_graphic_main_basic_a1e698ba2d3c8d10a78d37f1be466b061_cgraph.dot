@@ -31,5 +31,16 @@ digraph "GraphicMainBasic::Draw"
   Node1 -> Node13 [id="edge12_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="RobotGraundPointRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9",tooltip=" "];
   Node1 -> Node14 [id="edge13_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="DisplayNodeSwitchGui\l::getSimulationNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21",tooltip="現在表示するシミュレーションの番号を取得する"];
+  Node14 [id="Node000014",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
+  Node14 -> Node15 [id="edge14_Node000014_Node000015",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="designlab::Polygon2\l::AddVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299",tooltip="頂点を追加する関数"];
+  Node14 -> Node6 [id="edge15_Node000014_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node14 -> Node16 [id="edge16_Node000014_Node000016",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="designlab::Polygon2\l::IsInside",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53",tooltip="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．"];
+  Node16 -> Node17 [id="edge17_Node000016_Node000017",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="designlab::Polygon2\l::GetVertexNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3",tooltip="多角形の頂点数を返す関数"];
+  Node14 -> Node18 [id="edge18_Node000014_Node000018",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="designlab::Vector3\l::ProjectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed",tooltip="XY平面に射影したベクトルを返す．"];
+  Node1 -> Node19 [id="edge19_Node000001_Node000019",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="DisplayNodeSwitchGui\l::getSimulationNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21",tooltip="現在表示するシミュレーションの番号を取得する"];
 }

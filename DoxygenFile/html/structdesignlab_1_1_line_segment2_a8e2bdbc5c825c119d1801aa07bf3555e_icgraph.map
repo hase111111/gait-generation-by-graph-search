@@ -1,7 +1,7 @@
 <map id="designlab::LineSegment2::HasIntersection" name="designlab::LineSegment2::HasIntersection">
 <area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べる関数" alt="" coords="216,39,383,81"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a742757e01c0e8f0422cfca402fbd651d" title="【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,5,168,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,47,168,42,168,37,202,42"/>
-<area shape="rect" id="Node000003" href="$class_hexapod_state_calclator___old.html#a84a6f3ef58390b96ca6dff6c4fefa16e" title="脚の干渉をチェックする．" alt="" coords="9,72,164,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,78,165,84,164,79,201,73"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator___old.html#a84a6f3ef58390b96ca6dff6c4fefa16e" title="脚の干渉をチェックする．" alt="" coords="9,5,164,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,47,164,41,165,36,202,42"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#a1b82ff5d9a2d9597a435dbc100e6da0d" title="【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,72,168,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,78,168,83,168,78,201,73"/>
 </map>

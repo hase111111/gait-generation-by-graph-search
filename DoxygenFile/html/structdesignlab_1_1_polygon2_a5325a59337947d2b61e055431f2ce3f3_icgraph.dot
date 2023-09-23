@@ -32,9 +32,15 @@ digraph "designlab::Polygon2::GetVertexNum"
   Node10 -> Node5 [id="edge15_Node000010_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node11 [id="edge16_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="designlab::Polygon2\l::IsInside",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53",tooltip="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．"];
-  Node1 -> Node12 [id="edge17_Node000001_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="designlab::Polygon2\l::RemoveLastVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a4ace2e03364df9434dc66b467dd37fec",tooltip="1番最後の頂点を削除する関数"];
-  Node1 -> Node13 [id="edge18_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="designlab::Polygon2\l::RemoveVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#ac50bf6deac39a505f84f064e3f538611",tooltip="頂点を削除する関数．遅いので多用するべきではない"];
-  Node1 -> Node5 [id="edge19_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node11 -> Node12 [id="edge17_Node000011_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
+  Node12 -> Node13 [id="edge18_Node000012_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="GraphicMainAdvance\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node12 -> Node14 [id="edge19_Node000012_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="GraphicMainBasic::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
+  Node1 -> Node15 [id="edge20_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="designlab::Polygon2\l::RemoveLastVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a4ace2e03364df9434dc66b467dd37fec",tooltip="1番最後の頂点を削除する関数"];
+  Node1 -> Node16 [id="edge21_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="designlab::Polygon2\l::RemoveVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#ac50bf6deac39a505f84f064e3f538611",tooltip="頂点を削除する関数．遅いので多用するべきではない"];
+  Node1 -> Node5 [id="edge22_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

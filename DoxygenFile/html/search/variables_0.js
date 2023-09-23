@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ask_5fabout_5fmodes_0',['ask_about_modes',['../struct_s_application_setting_recorder.html#a660caee657bb3c6ad62840c9f98944e6',1,'SApplicationSettingRecorder']]]
+  ['ask_5fabout_5fmodes_0',['ask_about_modes',['../struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f',1,'ApplicationSettingRecorder']]]
 ];

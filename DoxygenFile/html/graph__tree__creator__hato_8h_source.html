@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graph_tree_creator_hato.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/graph_tree_creator_hato.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,32 +102,46 @@ $(document).ready(function(){initNavTree('graph__tree__creator__hato_8h_source.h
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="interface__node__creator_8h.html">interface_node_creator.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_graph_tree_creator_hato.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a>(std::map&lt;<a class="code hl_enumeration" href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a>, std::unique_ptr&lt;INodeCreator&gt;&gt;&amp; map);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_graph_tree_creator_hato.html">~GraphTreeCreatorHato</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    EGraphSearchResult <a class="code hl_function" href="class_graph_tree_creator_hato.html#ac8008d37baf2976ceef7a92dd5b5807e">CreateGraphTree</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keywordtype">int</span> max_depth, std::vector&lt;SNode&gt;* output_graph) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;abstract_hexapod_state_calculator.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="interface__node__creator_8h.html">interface_node_creator.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;interface_node_creator_builder.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_graph_tree_creator_hato.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a>(</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        std::unique_ptr&lt;INodeCreatorBuilder&gt;&amp;&amp; node_creator_builder_ptr,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">const</span> std::shared_ptr&lt;const AbstractHexapodStateCalculator&gt; calculator_ptr</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    );</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，output_graphに代入する．</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> makeNewNodesByCurrentNode(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_num, std::vector&lt;SNode&gt;* output_graph);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_graph_tree_creator_hato.html">~GraphTreeCreatorHato</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::map&lt;EHexapodMove, std::unique_ptr&lt;INodeCreator&gt;&gt; m_node_creator_map;   </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph_tree_creator_hato.html#a78fe4bc4143e050806c39ff94fe30e00">Init</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_devide_map_state.html">DevideMapState</a>&amp; map_state);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    EGraphSearchResult <a class="code hl_function" href="class_graph_tree_creator_hato.html#ac8008d37baf2976ceef7a92dd5b5807e">CreateGraphTree</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keywordtype">int</span> max_depth, std::vector&lt;SNode&gt;* output_graph) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif  </span><span class="comment">//DESIGNLAB_GRAPH_TREE_CREATOR_HATO_H_</span></div>
-<div class="ttc" id="aclass_graph_tree_creator_hato_html"><div class="ttname"><a href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a></div><div class="ttdoc">波東さんのグラフを作成するプログラムを移植したもの</div><div class="ttdef"><b>Definition</b> graph_tree_creator_hato.h:20</div></div>
-<div class="ttc" id="aclass_graph_tree_creator_hato_html_ac8008d37baf2976ceef7a92dd5b5807e"><div class="ttname"><a href="class_graph_tree_creator_hato.html#ac8008d37baf2976ceef7a92dd5b5807e">GraphTreeCreatorHato::CreateGraphTree</a></div><div class="ttdeci">EGraphSearchResult CreateGraphTree(const SNode &amp;current_node, int max_depth, std::vector&lt; SNode &gt; *output_graph) override</div><div class="ttdoc">グラフ木を作成するクラス．完成したグラフは参照渡しする．</div><div class="ttdef"><b>Definition</b> graph_tree_creator_hato.cpp:18</div></div>
-<div class="ttc" id="aclass_i_graph_tree_creator_html"><div class="ttname"><a href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div><div class="ttdoc">グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．</div><div class="ttdef"><b>Definition</b> interface_graph_tree_creator.h:19</div></div>
-<div class="ttc" id="ahexapod__next__move_8h_html_a13691a1d9f234a340b163b32fcc3cc80"><div class="ttname"><a href="hexapod__next__move_8h.html#a13691a1d9f234a340b163b32fcc3cc80">EHexapodMove</a></div><div class="ttdeci">EHexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> hexapod_next_move.h:11</div></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，output_graphに代入する．</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> makeNewNodesByCurrentNode(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; current_node, <span class="keyword">const</span> <span class="keywordtype">int</span> current_num, std::vector&lt;SNode&gt;* output_graph) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::map&lt;HexapodMove, std::unique_ptr&lt;INodeCreator&gt;&gt; node_creator_map_;     </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> std::unique_ptr&lt;INodeCreatorBuilder&gt; node_creator_builder_ptr_;           </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> std::shared_ptr&lt;const AbstractHexapodStateCalculator&gt; calculator_ptr_;    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif  </span><span class="comment">//DESIGNLAB_GRAPH_TREE_CREATOR_HATO_H_</span></div>
+<div class="ttc" id="aclass_devide_map_state_html"><div class="ttname"><a href="class_devide_map_state.html">DevideMapState</a></div><div class="ttdef"><b>Definition</b> map_state.h:82</div></div>
+<div class="ttc" id="aclass_graph_tree_creator_hato_html"><div class="ttname"><a href="class_graph_tree_creator_hato.html">GraphTreeCreatorHato</a></div><div class="ttdoc">波東さんのグラフを作成するプログラムを移植したもの</div><div class="ttdef"><b>Definition</b> graph_tree_creator_hato.h:22</div></div>
+<div class="ttc" id="aclass_graph_tree_creator_hato_html_a78fe4bc4143e050806c39ff94fe30e00"><div class="ttname"><a href="class_graph_tree_creator_hato.html#a78fe4bc4143e050806c39ff94fe30e00">GraphTreeCreatorHato::Init</a></div><div class="ttdeci">void Init(const DevideMapState &amp;map_state)</div><div class="ttdoc">グラフ木を作成するクラスの初期化を行う．</div><div class="ttdef"><b>Definition</b> graph_tree_creator_hato.cpp:20</div></div>
+<div class="ttc" id="aclass_graph_tree_creator_hato_html_ac8008d37baf2976ceef7a92dd5b5807e"><div class="ttname"><a href="class_graph_tree_creator_hato.html#ac8008d37baf2976ceef7a92dd5b5807e">GraphTreeCreatorHato::CreateGraphTree</a></div><div class="ttdeci">EGraphSearchResult CreateGraphTree(const SNode &amp;current_node, int max_depth, std::vector&lt; SNode &gt; *output_graph) override</div><div class="ttdoc">グラフ木を作成するクラス．完成したグラフは参照渡しする．</div><div class="ttdef"><b>Definition</b> graph_tree_creator_hato.cpp:27</div></div>
+<div class="ttc" id="aclass_i_graph_tree_creator_html"><div class="ttname"><a href="class_i_graph_tree_creator.html">IGraphTreeCreator</a></div><div class="ttdoc">グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．</div><div class="ttdef"><b>Definition</b> interface_graph_tree_creator.h:20</div></div>
 <div class="ttc" id="ainterface__graph__tree__creator_8h_html"><div class="ttname"><a href="interface__graph__tree__creator_8h.html">interface_graph_tree_creator.h</a></div><div class="ttdoc">グラフ木の探索を行うクラスのインターフェイス．</div></div>
 <div class="ttc" id="ainterface__node__creator_8h_html"><div class="ttname"><a href="interface__node__creator_8h.html">interface_node_creator.h</a></div><div class="ttdoc">ノード生成インターフェース</div></div>
 <div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">ノードの構造体を定義する．</div><div class="ttdef"><b>Definition</b> Node.h:42</div></div>
@@ -136,7 +150,7 @@ $(document).ready(function(){initNavTree('graph__tree__creator__hato_8h_source.h
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="graph__tree__creator__hato_8h.html">graph_tree_creator_hato.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="graph__tree__creator__hato_8h.html">graph_tree_creator_hato.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

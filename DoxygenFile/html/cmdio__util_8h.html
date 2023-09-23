@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/cmdio_util.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/cmdio_util.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,8 +99,7 @@ $(document).ready(function(){initNavTree('cmdio__util_8h.html',''); initResizabl
 
 <p>コマンドラインに文字を出力する関数をまとめた名前空間．  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="output__detail_8h_source.html">output_detail.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="boot__mode_8h_source.html">boot_mode.h</a>&quot;</code><br />
 </div>
@@ -119,15 +118,18 @@ $(document).ready(function(){initNavTree('cmdio__util_8h.html',''); initResizabl
 関数</h2></td></tr>
 <tr class="memitem:aebcb2e345f3e1255aa6b141a14aebd95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#aebcb2e345f3e1255aa6b141a14aebd95">designlab::cmdio::SetOutputLimit</a> (<a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a> limit)</td></tr>
 <tr class="memdesc:aebcb2e345f3e1255aa6b141a14aebd95"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力するメッセージをどこまで許可するかを設定する関数． <br  />
- 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない．  <br /></td></tr>
+ 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない． <br  />
+ 逆に kDebug に設定すると，すべての出力がされる． <br  />
+ 1度呼び出したら，プログラム終了まで設定は有効となる．  <br /></td></tr>
 <tr class="separator:aebcb2e345f3e1255aa6b141a14aebd95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeff9266bbd7f7a661d511333b45a8cc2"><td class="memItemLeft" align="right" valign="top"><a id="aeff9266bbd7f7a661d511333b45a8cc2" name="aeff9266bbd7f7a661d511333b45a8cc2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::SetDoOutput</b> (bool do_output)</td></tr>
+<tr class="memitem:aeff9266bbd7f7a661d511333b45a8cc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#aeff9266bbd7f7a661d511333b45a8cc2">designlab::cmdio::SetDoOutput</a> (bool do_output)</td></tr>
 <tr class="memdesc:aeff9266bbd7f7a661d511333b45a8cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">そもそも出力をするかを設定する関数． <br  />
- falseに設定しても システムメッセージは出力される． <br /></td></tr>
+ falseに設定しても システムメッセージは出力される．  <br /></td></tr>
 <tr class="separator:aeff9266bbd7f7a661d511333b45a8cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4398f06a03698e7b029112bb62c63485"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#a4398f06a03698e7b029112bb62c63485">designlab::cmdio::Output</a> (const std::string &amp;str, <a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a> detail=<a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47da2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>, bool wait_cin=false)</td></tr>
-<tr class="memdesc:a4398f06a03698e7b029112bb62c63485"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数．  <br /></td></tr>
+<tr class="memdesc:a4398f06a03698e7b029112bb62c63485"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数． <br  />
+ SetOutputLimit() で設定した出力の許可範囲内であれば出力される． <br  />
+ 必ずSetOutputLimit()を呼び出してから使うこと．  <br /></td></tr>
 <tr class="separator:a4398f06a03698e7b029112bb62c63485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23cd6fd6477be14f76c818c418a0de08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#a23cd6fd6477be14f76c818c418a0de08">designlab::cmdio::OutputNewLine</a> (int num=1, <a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a> detail=<a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47da2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>)</td></tr>
 <tr class="memdesc:a23cd6fd6477be14f76c818c418a0de08"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインで改行をする関数．  <br /></td></tr>
@@ -141,14 +143,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::Set
 <tr class="memitem:ab571da4a5a2affc2679e2d8b5c9d8cc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#ab571da4a5a2affc2679e2d8b5c9d8cc0">designlab::cmdio::OutputRight</a> (const std::string &amp;str, <a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a> detail=<a class="el" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47da2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>)</td></tr>
 <tr class="memdesc:ab571da4a5a2affc2679e2d8b5c9d8cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">右端に文字を出力する関数  <br /></td></tr>
 <tr class="separator:ab571da4a5a2affc2679e2d8b5c9d8cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4df6ebc4ab9d392a03441d2f2bb85eb7"><td class="memItemLeft" align="right" valign="top"><a id="a4df6ebc4ab9d392a03441d2f2bb85eb7" name="a4df6ebc4ab9d392a03441d2f2bb85eb7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::OutputTitle</b> ()</td></tr>
-<tr class="memdesc:a4df6ebc4ab9d392a03441d2f2bb85eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインにこのソフトのタイトルを出力する関数． <br /></td></tr>
-<tr class="separator:a4df6ebc4ab9d392a03441d2f2bb85eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff9af9b2b347f4b59fdc63cf639ebfa"><td class="memItemLeft" align="right" valign="top"><a id="a5ff9af9b2b347f4b59fdc63cf639ebfa" name="a5ff9af9b2b347f4b59fdc63cf639ebfa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::OutputGraphViewerTitle</b> ()</td></tr>
-<tr class="memdesc:a5ff9af9b2b347f4b59fdc63cf639ebfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインにGraphViewerのタイトルを出力する関数． <br /></td></tr>
-<tr class="separator:a5ff9af9b2b347f4b59fdc63cf639ebfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac156719fff45c1e6da33d779eee8a4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#aac156719fff45c1e6da33d779eee8a4a">designlab::cmdio::OutputTitle</a> (const std::string &amp;title_name, bool output_copy_right=false)</td></tr>
+<tr class="memdesc:aac156719fff45c1e6da33d779eee8a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインにこのソフトのタイトルを出力する関数．  <br /></td></tr>
+<tr class="separator:aac156719fff45c1e6da33d779eee8a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac411e4a736e83e07ab5de75bcd3afc1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8cpp.html#ac411e4a736e83e07ab5de75bcd3afc1f">designlab::cmdio::WaitAnyKey</a> (const std::string &amp;str=&quot;入力待ち，Enterキーを押してください．&quot;)</td></tr>
 <tr class="memdesc:ac411e4a736e83e07ab5de75bcd3afc1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力待ちをする関数．  <br /></td></tr>
 <tr class="separator:ac411e4a736e83e07ab5de75bcd3afc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +162,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::Out
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 変数</h2></td></tr>
 <tr class="memitem:aa1bcb2919d9c1ba9067fe8009d33d02c"><td class="memItemLeft" align="right" valign="top"><a id="aa1bcb2919d9c1ba9067fe8009d33d02c" name="aa1bcb2919d9c1ba9067fe8009d33d02c"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::HORIZONTAL_LINE_LENGTH</b> = 70</td></tr>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::cmdio::HORIZONTAL_LINE_LENGTH</b> = 100</td></tr>
 <tr class="memdesc:aa1bcb2919d9c1ba9067fe8009d33d02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">水平線の長さ． <br /></td></tr>
 <tr class="separator:aa1bcb2919d9c1ba9067fe8009d33d02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -283,7 +280,9 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
       </table>
 </div><div class="memdoc">
 
-<p>コマンドラインに文字を出力する関数． </p>
+<p>コマンドラインに文字を出力する関数． <br  />
+ SetOutputLimit() で設定した出力の許可範囲内であれば出力される． <br  />
+ 必ずSetOutputLimit()を呼び出してから使うこと． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列 </td></tr>
@@ -399,7 +398,8 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
 <p>コマンドラインで改行をする関数． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>改行する回数 (デフォルトでは1回) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>改行する回数 (デフォルトでは1回) <br  />
+ 0以下の値を入れると何もしない． </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する際の優先度 (デフォルトではkSystem) </td></tr>
   </table>
   </dd>
@@ -444,6 +444,43 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
 
 </div>
 </div>
+<a id="aac156719fff45c1e6da33d779eee8a4a" name="aac156719fff45c1e6da33d779eee8a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac156719fff45c1e6da33d779eee8a4a">&#9670;&#160;</a></span>OutputTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputTitle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>output_copy_right</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインにこのソフトのタイトルを出力する関数． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">output_copy_right</td><td>コピーライトを出力するかどうか (デフォルトではfalse) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1017ae9e7df836119f72786f78e74f28" name="a1017ae9e7df836119f72786f78e74f28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1017ae9e7df836119f72786f78e74f28">&#9670;&#160;</a></span>SelectBootMode()</h2>
 
@@ -464,6 +501,33 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
 
 </div>
 </div>
+<a id="aeff9266bbd7f7a661d511333b45a8cc2" name="aeff9266bbd7f7a661d511333b45a8cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeff9266bbd7f7a661d511333b45a8cc2">&#9670;&#160;</a></span>SetDoOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SetDoOutput </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>do_output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>そもそも出力をするかを設定する関数． <br  />
+ falseに設定しても システムメッセージは出力される． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_output</td><td>出力をするかどうか </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aebcb2e345f3e1255aa6b141a14aebd95" name="aebcb2e345f3e1255aa6b141a14aebd95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebcb2e345f3e1255aa6b141a14aebd95">&#9670;&#160;</a></span>SetOutputLimit()</h2>
 
@@ -481,10 +545,12 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
 </div><div class="memdoc">
 
 <p>出力するメッセージをどこまで許可するかを設定する関数． <br  />
- 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない． </p>
+ 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない． <br  />
+ 逆に kDebug に設定すると，すべての出力がされる． <br  />
+ 1度呼び出したら，プログラム終了まで設定は有効となる． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">limit</td><td>出力するメッセージをどこまで許可するかを設定する列挙型 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">limit</td><td>出力するメッセージをどこまで許可するか </td></tr>
   </table>
   </dd>
 </dl>
@@ -522,7 +588,7 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::c
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="cmdio__util_8h.html">cmdio_util.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="cmdio__util_8h.html">cmdio_util.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

@@ -1,0 +1,5 @@
+<map id="AbstractHexapodStateCalculator::getLocalLegBasePosition" name="AbstractHexapodStateCalculator::getLocalLegBasePosition">
+<area shape="rect" id="Node000001" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,5,474,48"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5" title="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距..." alt="" coords="5,5,216,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,29,216,29,216,24,249,24"/>
+</map>

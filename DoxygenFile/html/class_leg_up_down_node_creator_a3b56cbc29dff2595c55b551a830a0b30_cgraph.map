@@ -8,7 +8,7 @@
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="119,229,164,202,215,175,229,169,231,174,217,180,166,206,122,234"/>
 <area shape="rect" id="Node000005" href="$namespacedl__leg.html#aea6d17ee5cb9ba55004729b7071e7375" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="223,189,406,216"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="167,233,236,217,237,222,168,238"/>
-<area shape="rect" id="Node000007" href="$struct_s_node.html#a35b28f5476dc84e44b2674b5c161ac8d" title="次の動作を設定する関数．" alt="" coords="223,240,406,267"/>
+<area shape="rect" id="Node000007" href="$struct_s_node.html#a68e5a77384fb5aeaa49002a88ccf28eb" title="次の動作を設定する関数．" alt="" coords="223,240,406,267"/>
 <area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="168,251,208,251,208,256,168,256"/>
 <area shape="rect" id="Node000008" href="$namespacedl__leg.html#a6366fe6c99e5a8b405622ed9b5831ceb" title="現在の脚状態から重心パターンを取得する．" alt="" coords="224,291,405,317"/>
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="168,269,237,284,236,289,167,274"/>

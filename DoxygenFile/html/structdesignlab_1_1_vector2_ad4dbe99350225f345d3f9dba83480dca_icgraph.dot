@@ -17,9 +17,9 @@ digraph "designlab::Vector2::Cross"
   Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="designlab::LineSegment2\l::HasIntersection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e",tooltip="他の線分と交点が存在しているかどうか調べる関数"];
   Node6 -> Node7 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node7 [id="Node000007",label="PhantomXStateCalclator\l::isLegInterfering",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a742757e01c0e8f0422cfca402fbd651d",tooltip="【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．"];
+  Node7 [id="Node000007",label="HexapodStateCalclator\l_Old::isLegInterfering",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator___old.html#a84a6f3ef58390b96ca6dff6c4fefa16e",tooltip="脚の干渉をチェックする．"];
   Node6 -> Node8 [id="edge7_Node000006_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="HexapodStateCalclator\l_Old::isLegInterfering",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator___old.html#a84a6f3ef58390b96ca6dff6c4fefa16e",tooltip="脚の干渉をチェックする．"];
+  Node8 [id="Node000008",label="PhantomXStateCalclator\l::isLegInterfering",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a1b82ff5d9a2d9597a435dbc100e6da0d",tooltip="【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．"];
   Node1 -> Node9 [id="edge8_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node9 [id="Node000009",label="HexapodStateCalclator\l_Old::isAblePause",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator___old.html#ab98a5a90ce55c8bc564e78917fd458b0",tooltip="転ばない姿勢かどうか調べる．"];
   Node9 -> Node10 [id="edge9_Node000009_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];

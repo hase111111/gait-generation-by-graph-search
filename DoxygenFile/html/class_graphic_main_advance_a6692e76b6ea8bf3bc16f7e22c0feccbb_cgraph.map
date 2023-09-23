@@ -1,29 +1,40 @@
 <map id="GraphicMainAdvance::Draw" name="GraphicMainAdvance::Draw">
-<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,216,149,259"/>
+<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,257,149,300"/>
 <area shape="rect" id="Node000002" href="$class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="225,5,348,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,215,98,177,122,131,154,83,195,42,210,33,212,37,198,46,158,86,126,133,103,180,88,217"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,256,93,211,116,154,149,94,170,66,195,42,210,32,212,37,198,46,174,70,153,97,120,156,98,213,86,258"/>
 <area shape="rect" id="Node000003" href="$class_display_node_switch_gui.html#a6be29aa4d678251cb1fe8b507ace0064" title="GUIの描画" alt="" coords="210,56,363,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,214,135,162,163,133,195,108,203,103,206,108,198,113,167,137,138,165,96,217"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,256,127,184,158,144,195,109,201,104,204,109,198,113,162,147,131,187,91,258"/>
 <area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="206,123,367,149"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="106,213,147,185,196,159,213,152,215,157,198,164,150,190,109,218"/>
-<area shape="rect" id="Node000007" href="$class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="211,173,362,200"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="148,217,214,201,215,207,150,223"/>
-<area shape="rect" id="Node000008" href="$class_world_grid_renderer.html#af26f74852d21ad5bbdc17114cc69fb0c" title="ワールドの格子線を描画する" alt="" coords="202,224,371,251"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="149,235,187,235,187,240,149,240"/>
-<area shape="rect" id="Node000009" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="219,275,354,301"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="150,252,215,268,214,273,148,257"/>
-<area shape="rect" id="Node000012" href="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="203,325,370,368"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="110,257,151,284,198,311,210,317,208,321,195,316,148,289,107,261"/>
-<area shape="rect" id="Node000013" href="$class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9" title=" " alt="" coords="197,392,376,435"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="93,258,136,317,165,349,198,378,205,382,202,387,195,382,161,353,132,320,89,261"/>
-<area shape="rect" id="Node000014" href="$class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21" title="現在表示するシミュレーションの番号を取得する" alt="" coords="210,459,363,501"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="87,258,102,298,125,348,157,399,198,445,203,449,200,453,195,449,153,403,121,350,97,300,82,260"/>
-<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="449,100,586,143"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="367,128,434,124,434,129,368,134"/>
-<area shape="rect" id="Node000006" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="453,167,582,193"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="361,147,439,162,438,168,360,153"/>
-<area shape="rect" id="Node000010" href="$class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="424,239,611,265"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="354,275,413,266,414,271,355,280"/>
-<area shape="rect" id="Node000011" href="$class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="445,289,590,316"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="355,290,430,294,430,300,354,295"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="93,255,136,207,164,181,195,159,207,153,210,158,198,164,167,185,139,210,97,258"/>
+<area shape="rect" id="Node000007" href="$class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="211,240,362,267"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="149,267,196,262,196,267,149,273"/>
+<area shape="rect" id="Node000008" href="$class_world_grid_renderer.html#af26f74852d21ad5bbdc17114cc69fb0c" title="ワールドの格子線を描画する" alt="" coords="202,291,371,317"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="149,285,187,289,187,295,149,290"/>
+<area shape="rect" id="Node000009" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="219,341,354,368"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="127,298,198,327,219,334,217,339,196,332,125,303"/>
+<area shape="rect" id="Node000012" href="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="203,392,370,435"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="101,299,144,338,198,378,208,383,205,388,195,382,141,342,97,303"/>
+<area shape="rect" id="Node000013" href="$class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9" title=" " alt="" coords="197,459,376,501"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="91,299,131,370,162,410,198,445,204,449,201,453,195,449,158,413,127,373,86,302"/>
+<area shape="rect" id="Node000014" href="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="207,173,366,216"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="127,254,196,226,212,219,214,224,198,230,129,259"/>
+<area shape="rect" id="Node000019" href="$class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21" title="現在表示するシミュレーションの番号を取得する" alt="" coords="210,525,363,568"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="86,300,99,344,122,400,155,460,175,487,198,511,203,515,199,519,195,515,171,490,150,463,117,403,94,345,81,301"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="449,40,586,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="338,119,375,108,442,86,444,91,377,113,339,125"/>
+<area shape="rect" id="Node000006" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="453,107,582,133"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="367,128,438,123,438,128,368,133"/>
+<area shape="rect" id="Node000010" href="$class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="424,357,611,384"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="355,357,410,361,409,366,354,362"/>
+<area shape="rect" id="Node000011" href="$class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="445,408,590,435"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="339,366,377,377,425,393,451,401,449,406,423,399,375,383,337,371"/>
+<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="344,170,423,143,448,135,450,140,425,148,346,175"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299" title="頂点を追加する関数" alt="" coords="449,157,587,200"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="366,187,434,182,434,187,367,192"/>
+<area shape="rect" id="Node000016" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．" alt="" coords="449,224,587,267"/>
+<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="367,209,435,224,433,230,366,215"/>
+<area shape="rect" id="Node000018" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="453,291,582,333"/>
+<area shape="poly" id="edge18_Node000014_Node000018" title=" " alt="" coords="357,214,378,226,393,239,402,252,411,264,426,276,440,285,438,290,422,281,407,268,398,255,389,243,374,230,354,219"/>
+<area shape="rect" id="Node000017" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="659,224,798,267"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="587,243,645,243,645,248,587,248"/>
 </map>

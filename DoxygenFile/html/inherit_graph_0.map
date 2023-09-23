@@ -2,4 +2,6 @@
 <area shape="rect" id="Node000000" href="$class_abstract_hexapod_state_calculator.html" title="ロボットの状態を計算するクラスの抽象クラス． &#160;&#160;このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． &#160;&#160;スレッドセーフなクラスにするこ..." alt="" coords="5,5,216,32"/>
 <area shape="rect" id="Node000001" href="$class_phantom_x_state_calclator.html" title=" " alt="" coords="264,5,426,32"/>
 <area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="231,16,263,16,263,21,231,21"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator___hato.html" title=" " alt="" coords="474,5,670,32"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="441,16,474,16,474,21,441,21"/>
 </map>

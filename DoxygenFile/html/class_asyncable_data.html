@@ -131,8 +131,8 @@ $(document).ready(function(){initNavTree('class_asyncable_data.html',''); initRe
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 </p>
 <p>この構造体は，データの更新回数とデータをまとめて扱うための構造体． <br  />
- 値の変更を行う際に，データの更新回数をインクリメントすることで，データの更新を行う． <br  />
- また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ． <br  />
+ 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，データの更新回数をカウントする <br  />
+ また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．ミューテックスについては以下を参照 <br  />
 <br  />
  [非同期処理について] <br  />
  非同期処理 (並列・同時に処理を行うこと) を行う際に，一つのにデータに同じタイミングで操作すると危険(未定義処理になり，成功か失敗かが不定になる)． <br  />
@@ -268,7 +268,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a></li>
+<li>DesignLab/<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

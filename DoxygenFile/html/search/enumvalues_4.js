@@ -1,20 +1,4 @@
 var searchData=
 [
-  ['kback_0',['kBack',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa1aa843cfb007a05d484edf751fdc905d',1,'discrete_leg_pos.h']]],
-  ['kbackview_1',['kBackView',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ac34246769d028a8eb522bb09f46521f6',1,'camera_manager.h']]],
-  ['kcenter_2',['kCenter',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa3a344159c7144969a66c510c5eb0040d',1,'discrete_leg_pos.h']]],
-  ['kdebug_3',['kDebug',['../output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47dabb53ce21b7c0b7c8a8f7860a41901d29',1,'output_detail.h']]],
-  ['kerror_4',['kError',['../output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47dae3587c730cc1aa530fa4ddc9c4204e97',1,'output_detail.h']]],
-  ['kfront_5',['kFront',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa74b33dfe34e13923f9b235450de37871',1,'discrete_leg_pos.h']]],
-  ['kfrontview_6',['kFrontView',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ad3f1de8d6a59bccdf5cdd0f1214d0d6a',1,'camera_manager.h']]],
-  ['kinfo_7',['kInfo',['../output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47da176a473e63c17ccdac91640c67f149bf',1,'output_detail.h']]],
-  ['kleftsideview_8',['kLeftSideView',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621a59f1812ecb84eed2aa8f2f52983767cf',1,'camera_manager.h']]],
-  ['klowerback_9',['kLowerBack',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa7de5161d3d66930665695edb06796198',1,'discrete_leg_pos.h']]],
-  ['klowerfront_10',['kLowerFront',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfac197680fbf6de70bd3752b01a43d1ba7',1,'discrete_leg_pos.h']]],
-  ['krightsideview_11',['kRightSideView',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621abb88ff0ca3c2716ae58f5954e4f8f91d',1,'camera_manager.h']]],
-  ['ksystem_12',['kSystem',['../output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47da2c9d4d4ca70df56c762f0140f57dbdfb',1,'output_detail.h']]],
-  ['ktopview_13',['kTopView',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621ab785420c18556e5c0278c456551e48d2',1,'camera_manager.h']]],
-  ['kupperback_14',['kUpperBack',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa08c2c15252b53e4252ab6415b8aeac66',1,'discrete_leg_pos.h']]],
-  ['kupperfront_15',['kUpperFront',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75dfa55546b3f938b81742b7d0c03e85a5c91',1,'discrete_leg_pos.h']]],
-  ['kwarning_16',['kWarning',['../output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47daec0da41f4e48b52c362303eb27ed5dee',1,'output_detail.h']]]
+  ['lattice_5fpoint_0',['LATTICE_POINT',['../map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a580d5eae4fbca9df843176b1a6f7e837',1,'map_creator.h']]]
 ];

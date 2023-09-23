@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/application_setting_reader.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/application_setting_reader.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('application__setting__reader_8h_source
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;toml.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;application_setting_recorder.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="application__setting__recorder_8h.html">application_setting_recorder.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;application_setting_key.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('application__setting__reader_8h_source
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::shared_ptr&lt;SApplicationSettingRecorder&gt; <a class="code hl_function" href="class_application_setting_reader.html#a1881bcd2097c674b64f70b0a43621b94">read</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::shared_ptr&lt;ApplicationSettingRecorder&gt; <a class="code hl_function" href="class_application_setting_reader.html#a7bc76e47ca925eb9fe6b37b9c23e6c2d">read</a>();</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
@@ -124,13 +124,13 @@ $(document).ready(function(){initNavTree('application__setting__reader_8h_source
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> outputDefaultSettingFile();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//設定ファイルからバージョン情報を読み込む</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> readVersionSetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;SApplicationSettingRecorder&gt;&amp; recorder);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> readVersionSetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;ApplicationSettingRecorder&gt;&amp; recorder);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">//設定ファイルから起動モードの情報を読み込む</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> readBootModeSetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;SApplicationSettingRecorder&gt;&amp; recorder);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> readBootModeSetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;ApplicationSettingRecorder&gt;&amp; recorder);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//設定ファイルからディスプレイ情報を読み込む</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> readDisplaySetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;SApplicationSettingRecorder&gt;&amp; recorder);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> readDisplaySetting(<span class="keyword">const</span> toml::value&amp; value, std::shared_ptr&lt;ApplicationSettingRecorder&gt;&amp; recorder);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> std::string SETTING_FILE_NAME = u8<span class="stringliteral">&quot;settings.toml&quot;</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
@@ -139,14 +139,15 @@ $(document).ready(function(){initNavTree('application__setting__reader_8h_source
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">//APPLICATION_SETTING_READER_H_</span></div>
+<div class="ttc" id="aapplication__setting__recorder_8h_html"><div class="ttname"><a href="application__setting__recorder_8h.html">application_setting_recorder.h</a></div><div class="ttdoc">アプリの設定を記録する構造体</div></div>
 <div class="ttc" id="aclass_application_setting_reader_html"><div class="ttname"><a href="class_application_setting_reader.html">ApplicationSettingReader</a></div><div class="ttdoc">アプリケーション設定ファイルを読み込むクラス</div><div class="ttdef"><b>Definition</b> application_setting_reader.h:25</div></div>
-<div class="ttc" id="aclass_application_setting_reader_html_a1881bcd2097c674b64f70b0a43621b94"><div class="ttname"><a href="class_application_setting_reader.html#a1881bcd2097c674b64f70b0a43621b94">ApplicationSettingReader::read</a></div><div class="ttdeci">std::shared_ptr&lt; SApplicationSettingRecorder &gt; read()</div><div class="ttdoc">設定ファイルを読み込む   設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する</div><div class="ttdef"><b>Definition</b> application_setting_reader.cpp:10</div></div>
+<div class="ttc" id="aclass_application_setting_reader_html_a7bc76e47ca925eb9fe6b37b9c23e6c2d"><div class="ttname"><a href="class_application_setting_reader.html#a7bc76e47ca925eb9fe6b37b9c23e6c2d">ApplicationSettingReader::read</a></div><div class="ttdeci">std::shared_ptr&lt; ApplicationSettingRecorder &gt; read()</div><div class="ttdoc">設定ファイルを読み込む   設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する</div><div class="ttdef"><b>Definition</b> application_setting_reader.cpp:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="application__setting__reader_8h.html">application_setting_reader.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="application__setting__reader_8h.html">application_setting_reader.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
