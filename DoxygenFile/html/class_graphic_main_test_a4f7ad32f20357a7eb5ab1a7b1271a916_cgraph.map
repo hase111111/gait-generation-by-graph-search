@@ -1,62 +1,58 @@
 <map id="GraphicMainTest::Update" name="GraphicMainTest::Update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,415,174,441"/>
-<area shape="rect" id="Node000002" href="$struct_s_node.html#ad17a01a2305429551c00d6ecc2afb2f9" title="重心位置を変更する関数．" alt="" coords="236,113,423,156"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,414,104,367,128,300,166,228,191,195,220,166,225,162,228,166,223,170,195,199,171,231,133,302,109,368,96,415"/>
-<area shape="rect" id="Node000004" href="$class_hexapod_state_calclator___old.html#ab467e1662315b23b5be0aa919d5aa556" title="第2引数の座標を現在の重心座標と回転から，脚の付け根を原点としたローカル座標に変換する．" alt="" coords="243,180,416,223"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,413,110,377,137,329,174,277,220,233,229,226,232,231,223,237,178,281,142,332,115,380,99,416"/>
-<area shape="rect" id="Node000005" href="$class_hexapod_state_calclator___old.html#a007fc5c1095535746a17b39dff96d04f" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="237,247,422,289"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="101,412,150,362,183,332,220,306,244,293,246,298,223,310,187,336,153,365,104,416"/>
-<area shape="rect" id="Node000006" href="$class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="724,5,867,48"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="109,412,158,381,221,350,281,332,329,325,377,318,436,299,504,270,556,244,602,210,653,158,669,132,675,108,683,83,701,58,710,51,714,55,705,62,687,86,680,109,674,134,657,162,606,214,559,248,506,275,438,304,379,323,330,330,282,337,223,354,161,385,112,416"/>
-<area shape="rect" id="Node000007" href="$class_devide_map_state.html#aacbae52b1773e893302830455845456e" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="229,415,430,441"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="174,425,214,425,214,431,174,431"/>
-<area shape="rect" id="Node000008" href="$class_devide_map_state.html#ae1438424f96afed46459af960a7cacbd" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="231,465,428,492"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="157,439,249,459,248,464,156,445"/>
-<area shape="rect" id="Node000009" href="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="254,516,405,559"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="113,440,162,470,223,502,242,509,240,514,221,506,159,475,110,444"/>
-<area shape="rect" id="Node000010" href="$class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="222,583,437,609"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="102,440,148,503,183,538,223,568,235,574,232,579,220,573,179,542,144,506,97,443"/>
-<area shape="rect" id="Node000011" href="$class_camera_gui.html#a7804785608222ffa9eb17f6aeb6befff" title="カメラの注視する位置を設定する" alt="" coords="236,633,423,660"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="98,441,114,477,141,526,177,577,199,599,223,619,232,624,229,629,220,624,195,603,173,580,136,529,110,479,94,443"/>
-<area shape="rect" id="Node000013" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="262,364,397,391"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="156,411,248,392,249,397,157,417"/>
-<area shape="rect" id="Node000031" href="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd" title="GUIのボタンの更新を行う" alt="" coords="248,684,411,711"/>
-<area shape="poly" id="edge31_Node000001_Node000031" title=" " alt="" coords="97,441,109,486,134,548,171,614,195,644,223,670,236,678,233,682,220,674,191,648,167,617,129,550,104,487,91,442"/>
-<area shape="rect" id="Node000003" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="506,121,635,148"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,132,491,132,491,137,423,137"/>
-<area shape="rect" id="Node000012" href="$class_camera_state_manager.html#a0da84c436ebf23aa9b9be90578c81f7d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="497,625,644,668"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="423,644,482,644,482,649,423,649"/>
-<area shape="rect" id="Node000014" href="$class_camera_state_manager.html#a99ae709147be98a86d88f925c8afe346" title="カメラと注視点との距離を初期化する" alt="" coords="489,415,651,457"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="390,389,438,400,475,409,474,415,436,405,389,394"/>
-<area shape="rect" id="Node000015" href="$class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="719,691,872,733"/>
-<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="398,380,420,388,439,401,453,417,461,434,465,467,469,501,475,517,487,534,507,553,527,564,568,575,610,585,633,595,657,611,673,629,681,645,690,661,705,677,711,681,708,685,702,681,685,664,677,648,668,632,654,615,631,600,609,590,566,581,525,569,504,557,483,538,470,520,463,502,460,468,456,435,449,420,435,405,417,393,396,385"/>
-<area shape="rect" id="Node000018" href="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="485,364,655,391"/>
-<area shape="poly" id="edge17_Node000013_Node000018" title=" " alt="" coords="398,375,470,375,470,380,398,380"/>
-<area shape="rect" id="Node000030" href="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="497,481,644,524"/>
-<area shape="poly" id="edge30_Node000013_Node000030" title=" " alt="" coords="398,383,438,400,455,417,464,434,472,451,487,467,492,471,489,475,483,471,467,454,459,436,451,420,436,405,396,388"/>
-<area shape="rect" id="Node000016" href="$namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f" title="角度をdegからradに変換する関数．" alt="" coords="945,691,1083,733"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="872,709,930,709,930,715,872,715"/>
-<area shape="rect" id="Node000017" href="$structdesignlab_1_1_s_quaternion.html#abd2199b5705368d73b0df4b8247b7e48" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="936,411,1092,453"/>
-<area shape="poly" id="edge16_Node000015_Node000017" title=" " alt="" coords="870,688,886,677,909,653,929,627,962,570,986,514,1001,467,1006,469,991,516,967,573,933,630,913,657,889,681,873,692"/>
-<area shape="poly" id="edge24_Node000018_Node000006" title=" " alt="" coords="630,361,653,344,675,308,683,272,682,238,676,203,671,168,670,132,679,96,701,58,710,50,714,53,705,62,683,98,675,133,676,167,682,202,687,237,688,273,680,310,657,347,633,365"/>
-<area shape="poly" id="edge27_Node000018_Node000015" title=" " alt="" coords="643,389,657,401,680,436,689,471,688,506,683,540,677,574,676,608,684,642,705,677,710,682,706,685,701,680,679,644,671,609,672,574,678,539,683,506,684,472,675,438,653,404,640,393"/>
-<area shape="poly" id="edge29_Node000018_Node000017" title=" " alt="" coords="625,361,654,343,664,331,670,318,675,291,681,265,689,253,702,242,750,218,794,210,839,219,889,242,911,256,930,273,963,314,987,358,1004,396,999,398,982,360,959,317,927,277,908,260,886,246,837,224,794,216,752,223,705,246,693,256,686,267,680,293,675,320,668,334,657,347,627,366"/>
-<area shape="rect" id="Node000019" href="$class_camera_state_manager.html#a1ba15db7ec27242f0a5ee30269270037" title="カメラの注視する目標の座標とカメラの距離を増やす" alt="" coords="703,256,888,299"/>
-<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="613,361,654,343,678,326,702,308,713,303,716,307,705,313,681,330,657,348,615,366"/>
-<area shape="rect" id="Node000020" href="$class_camera_state_manager.html#a0265878f39e6c0006d2d3df9c9992044" title="カメラのクォータニオンを取得する" alt="" coords="722,323,869,365"/>
-<area shape="poly" id="edge19_Node000018_Node000020" title=" " alt="" coords="655,362,707,354,708,360,656,367"/>
-<area shape="rect" id="Node000021" href="$class_camera_state_manager.html#a1471f26bfbe1e8c960e460eb753b56c3" title="カメラのモードを取得する" alt="" coords="719,389,872,432"/>
-<area shape="poly" id="edge20_Node000018_Node000021" title=" " alt="" coords="656,387,705,395,705,400,655,393"/>
-<area shape="rect" id="Node000022" href="$class_mouse.html#aadc3f80b56c350f368d46821d20a40d9" title="マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="727,456,864,483"/>
-<area shape="poly" id="edge21_Node000018_Node000022" title=" " alt="" coords="630,389,657,400,672,411,681,422,691,432,705,442,718,448,716,453,702,446,687,436,677,425,668,415,654,405,628,394"/>
-<area shape="rect" id="Node000023" href="$class_mouse.html#a80c810c534e31080c302866442848003" title="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="726,507,865,533"/>
-<area shape="poly" id="edge22_Node000018_Node000023" title=" " alt="" coords="638,389,657,401,675,424,682,448,688,471,705,493,714,499,711,503,702,497,683,473,677,450,670,427,654,405,635,394"/>
-<area shape="rect" id="Node000024" href="$class_camera_state_manager.html#ac94258bd484a968c4568cd3a47c03cdb" title="注視点を操作する際の，カメラの注視する座標を取得する" alt="" coords="722,557,869,600"/>
-<area shape="poly" id="edge23_Node000018_Node000024" title=" " alt="" coords="641,389,657,401,672,419,679,437,683,473,686,509,692,526,705,544,711,549,708,553,701,547,688,529,680,510,677,474,674,438,667,422,654,405,638,393"/>
-<area shape="rect" id="Node000025" href="$structdesignlab_1_1_s_quaternion.html#a091d836216362300a57927ec9e2adcb7" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="717,624,874,667"/>
-<area shape="poly" id="edge25_Node000018_Node000025" title=" " alt="" coords="642,389,657,401,676,428,684,454,685,481,683,507,680,533,681,558,688,584,705,610,708,613,704,617,701,614,683,586,676,559,675,533,677,506,680,481,679,455,671,430,653,405,639,393"/>
-<area shape="rect" id="Node000028" href="$class_camera_state_manager.html#a322cd90e3a2b5e1efee1dec6cc16a670" title="カメラのクォータニオンをセットする" alt="" coords="722,72,869,115"/>
-<area shape="poly" id="edge26_Node000018_Node000028" title=" " alt="" coords="629,361,653,344,671,316,678,290,679,263,676,236,674,209,675,181,683,153,701,125,708,119,711,122,705,128,688,156,680,182,679,209,682,236,684,263,684,290,676,318,657,347,632,366"/>
-<area shape="rect" id="Node000029" href="$class_camera_state_manager.html#a7a3c2c7bc73da9956ce00edbfd0b4c97" title="注視点を操作する際の，カメラの注視する座標をセットする" alt="" coords="722,139,869,181"/>
-<area shape="poly" id="edge28_Node000018_Node000029" title=" " alt="" coords="627,361,653,343,667,326,674,308,677,273,681,236,688,217,701,198,713,188,716,192,705,202,692,220,686,238,682,273,679,310,671,328,657,347,630,366"/>
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,495,174,521"/>
+<area shape="rect" id="Node000002" href="$struct_s_node.html#ad17a01a2305429551c00d6ecc2afb2f9" title="重心位置を変更する関数．" alt="" coords="236,247,423,289"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,493,110,456,137,406,174,353,220,306,237,294,240,299,223,310,178,356,142,409,115,459,99,495"/>
+<area shape="rect" id="Node000004" href="$class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="724,5,867,48"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="99,493,146,437,181,405,220,379,262,365,316,355,445,344,510,337,570,327,619,313,639,303,653,291,674,264,682,236,683,208,679,179,675,150,675,119,682,89,701,58,710,50,714,53,705,62,687,91,680,120,680,149,684,178,688,208,687,237,678,266,657,295,641,308,621,318,571,333,511,342,445,349,317,361,263,370,223,384,184,409,150,441,103,496"/>
+<area shape="rect" id="Node000005" href="$class_devide_map_state.html#aacbae52b1773e893302830455845456e" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="229,444,430,471"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="156,491,248,472,249,477,157,497"/>
+<area shape="rect" id="Node000006" href="$class_devide_map_state.html#ae1438424f96afed46459af960a7cacbd" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="231,495,428,521"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="174,505,216,505,216,511,174,511"/>
+<area shape="rect" id="Node000007" href="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="254,545,405,588"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="148,519,240,542,239,547,146,524"/>
+<area shape="rect" id="Node000008" href="$class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="222,612,437,639"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="108,520,157,559,189,580,223,598,241,605,239,610,221,602,186,584,154,563,104,524"/>
+<area shape="rect" id="Node000009" href="$class_camera_gui.html#a7804785608222ffa9eb17f6aeb6befff" title="カメラの注視する位置を設定する" alt="" coords="236,663,423,689"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="102,520,148,583,183,618,223,648,235,654,232,659,220,653,179,622,144,586,97,523"/>
+<area shape="rect" id="Node000011" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="262,393,397,420"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="109,492,158,461,221,430,247,421,248,426,223,434,161,465,112,496"/>
+<area shape="rect" id="Node000029" href="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd" title="GUIのボタンの更新を行う" alt="" coords="248,713,411,740"/>
+<area shape="poly" id="edge29_Node000001_Node000029" title=" " alt="" coords="98,521,114,557,141,606,177,657,199,679,223,699,235,706,233,711,220,704,195,683,173,660,136,609,110,559,94,523"/>
+<area shape="rect" id="Node000003" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="506,255,635,281"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,265,491,265,491,271,423,271"/>
+<area shape="rect" id="Node000010" href="$class_camera_state_manager.html#a0da84c436ebf23aa9b9be90578c81f7d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="497,655,644,697"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="423,673,482,673,482,679,423,679"/>
+<area shape="rect" id="Node000012" href="$class_camera_state_manager.html#a99ae709147be98a86d88f925c8afe346" title="カメラと注視点との距離を初期化する" alt="" coords="489,415,651,457"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="398,412,474,422,474,427,397,418"/>
+<area shape="rect" id="Node000013" href="$class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="719,691,872,733"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="398,410,419,418,439,430,451,443,459,455,466,481,471,507,487,534,528,572,566,593,607,612,657,640,680,659,705,676,716,682,713,687,702,681,677,664,654,645,605,616,563,598,525,576,483,538,466,509,461,482,454,458,447,446,435,434,417,423,396,415"/>
+<area shape="rect" id="Node000016" href="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="485,364,655,391"/>
+<area shape="poly" id="edge15_Node000011_Node000016" title=" " alt="" coords="397,396,470,387,471,392,398,401"/>
+<area shape="rect" id="Node000028" href="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="497,481,644,524"/>
+<area shape="poly" id="edge28_Node000011_Node000028" title=" " alt="" coords="398,415,438,430,463,448,486,467,496,472,493,477,484,472,460,452,436,434,397,420"/>
+<area shape="rect" id="Node000014" href="$namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f" title="角度をdegからradに変換する関数．" alt="" coords="945,691,1083,733"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="872,709,930,709,930,715,872,715"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_s_quaternion.html#abd2199b5705368d73b0df4b8247b7e48" title="回転軸と回転角からこのクォータニオンを変更し，設定する &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { x + y + z } となる" alt="" coords="936,411,1092,453"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="870,688,886,677,909,653,929,627,962,570,986,514,1001,467,1006,469,991,516,967,573,933,630,913,657,889,681,873,692"/>
+<area shape="poly" id="edge22_Node000016_Node000004" title=" " alt="" coords="630,361,653,344,675,308,683,272,682,238,676,203,671,168,670,132,679,96,701,58,710,50,714,53,705,62,683,98,675,133,676,167,682,202,687,237,688,273,680,310,657,347,633,365"/>
+<area shape="poly" id="edge25_Node000016_Node000013" title=" " alt="" coords="643,389,657,401,680,436,689,471,688,506,683,540,677,574,676,608,684,642,705,677,710,682,706,685,701,680,679,644,671,609,672,574,678,539,683,506,684,472,675,438,653,404,640,393"/>
+<area shape="poly" id="edge27_Node000016_Node000015" title=" " alt="" coords="625,361,654,343,664,331,670,318,675,291,681,265,689,253,702,242,750,218,794,210,839,219,889,242,911,256,930,273,963,314,987,358,1004,396,999,398,982,360,959,317,927,277,908,260,886,246,837,224,794,216,752,223,705,246,693,256,686,267,680,293,675,320,668,334,657,347,627,366"/>
+<area shape="rect" id="Node000017" href="$class_camera_state_manager.html#a1ba15db7ec27242f0a5ee30269270037" title="カメラの注視する目標の座標とカメラの距離を増やす" alt="" coords="703,256,888,299"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="613,361,654,343,678,326,702,308,713,303,716,307,705,313,681,330,657,348,615,366"/>
+<area shape="rect" id="Node000018" href="$class_camera_state_manager.html#a0265878f39e6c0006d2d3df9c9992044" title="カメラのクォータニオンを取得する" alt="" coords="722,323,869,365"/>
+<area shape="poly" id="edge17_Node000016_Node000018" title=" " alt="" coords="655,362,707,354,708,360,656,367"/>
+<area shape="rect" id="Node000019" href="$class_camera_state_manager.html#a1471f26bfbe1e8c960e460eb753b56c3" title="カメラのモードを取得する" alt="" coords="719,389,872,432"/>
+<area shape="poly" id="edge18_Node000016_Node000019" title=" " alt="" coords="656,387,705,395,705,400,655,393"/>
+<area shape="rect" id="Node000020" href="$class_mouse.html#aadc3f80b56c350f368d46821d20a40d9" title="マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="727,456,864,483"/>
+<area shape="poly" id="edge19_Node000016_Node000020" title=" " alt="" coords="630,389,657,400,672,411,681,422,691,432,705,442,718,448,716,453,702,446,687,436,677,425,668,415,654,405,628,394"/>
+<area shape="rect" id="Node000021" href="$class_mouse.html#a80c810c534e31080c302866442848003" title="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="726,507,865,533"/>
+<area shape="poly" id="edge20_Node000016_Node000021" title=" " alt="" coords="638,389,657,401,675,424,682,448,688,471,705,493,714,499,711,503,702,497,683,473,677,450,670,427,654,405,635,394"/>
+<area shape="rect" id="Node000022" href="$class_camera_state_manager.html#ac94258bd484a968c4568cd3a47c03cdb" title="注視点を操作する際の，カメラの注視する座標を取得する" alt="" coords="722,557,869,600"/>
+<area shape="poly" id="edge21_Node000016_Node000022" title=" " alt="" coords="641,389,657,401,672,419,679,437,683,473,686,509,692,526,705,544,711,549,708,553,701,547,688,529,680,510,677,474,674,438,667,422,654,405,638,393"/>
+<area shape="rect" id="Node000023" href="$structdesignlab_1_1_s_quaternion.html#a091d836216362300a57927ec9e2adcb7" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="717,624,874,667"/>
+<area shape="poly" id="edge23_Node000016_Node000023" title=" " alt="" coords="642,389,657,401,676,428,684,454,685,481,683,507,680,533,681,558,688,584,705,610,708,613,704,617,701,614,683,586,676,559,675,533,677,506,680,481,679,455,671,430,653,405,639,393"/>
+<area shape="rect" id="Node000026" href="$class_camera_state_manager.html#a322cd90e3a2b5e1efee1dec6cc16a670" title="カメラのクォータニオンをセットする" alt="" coords="722,72,869,115"/>
+<area shape="poly" id="edge24_Node000016_Node000026" title=" " alt="" coords="629,361,653,344,671,316,678,290,679,263,676,236,674,209,675,181,683,153,701,125,708,119,711,122,705,128,688,156,680,182,679,209,682,236,684,263,684,290,676,318,657,347,632,366"/>
+<area shape="rect" id="Node000027" href="$class_camera_state_manager.html#a7a3c2c7bc73da9956ce00edbfd0b4c97" title="注視点を操作する際の，カメラの注視する座標をセットする" alt="" coords="722,139,869,181"/>
+<area shape="poly" id="edge26_Node000016_Node000027" title=" " alt="" coords="627,361,653,343,667,326,674,308,677,273,681,236,688,217,701,198,713,188,716,192,705,202,692,220,686,238,682,273,679,310,671,328,657,347,630,366"/>
 </map>

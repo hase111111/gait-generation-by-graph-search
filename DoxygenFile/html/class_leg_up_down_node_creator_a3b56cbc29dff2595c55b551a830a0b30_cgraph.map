@@ -1,30 +1,23 @@
 <map id="LegUpDownNodeCreator::Create" name="LegUpDownNodeCreator::Create">
-<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する" alt="" coords="5,232,168,275"/>
+<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する" alt="" coords="5,207,168,249"/>
 <area shape="rect" id="Node000002" href="$namespacedl__com.html#a1365ec17513ff457faa02295d698e65e" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="216,5,413,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,231,139,151,173,105,214,65,231,53,234,57,217,69,177,109,144,154,100,233"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,205,144,137,176,99,214,65,233,53,235,57,217,69,180,102,148,140,102,208"/>
 <area shape="rect" id="Node000003" href="$namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1" title="脚の接地パターンの総数を返す．" alt="" coords="461,72,682,99"/>
-<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="98,230,116,201,143,167,176,134,214,108,271,87,330,75,390,69,446,69,446,75,390,75,331,80,272,92,217,113,179,138,147,171,121,204,102,233"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="102,205,148,154,179,128,215,108,272,89,331,78,390,73,446,72,446,77,391,78,332,83,273,94,217,113,182,133,151,158,106,208"/>
 <area shape="rect" id="Node000004" href="$namespacedl__com.html#a18f359696549a25d469e8392888237a5" title=" " alt="" coords="216,123,413,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="119,229,164,202,215,175,229,169,231,174,217,180,166,206,122,234"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,204,215,175,233,168,235,173,217,180,142,209"/>
 <area shape="rect" id="Node000005" href="$namespacedl__leg.html#aea6d17ee5cb9ba55004729b7071e7375" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="223,189,406,216"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="167,233,236,217,237,222,168,238"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="168,216,207,212,208,217,168,222"/>
 <area shape="rect" id="Node000007" href="$struct_s_node.html#a68e5a77384fb5aeaa49002a88ccf28eb" title="次の動作を設定する関数．" alt="" coords="223,240,406,267"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="168,251,208,251,208,256,168,256"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="168,234,208,239,207,244,168,240"/>
 <area shape="rect" id="Node000008" href="$namespacedl__leg.html#a6366fe6c99e5a8b405622ed9b5831ceb" title="現在の脚状態から重心パターンを取得する．" alt="" coords="224,291,405,317"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="168,269,237,284,236,289,167,274"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="140,247,217,276,241,284,240,289,215,281,138,252"/>
 <area shape="rect" id="Node000009" href="$namespacedl__com.html#a1b8d0648f35962c25f49be4d713c2270" title="脚の接地パターンの番号から，その脚の接地パターンを返す．" alt="" coords="221,341,408,384"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="122,273,166,300,217,327,231,333,229,338,215,332,164,305,119,278"/>
-<area shape="rect" id="Node000010" href="$class_hexapod_state_calclator___old.html#ab98a5a90ce55c8bc564e78917fd458b0" title="転ばない姿勢かどうか調べる．" alt="" coords="237,408,392,451"/>
-<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="104,273,150,333,182,366,217,394,225,399,223,403,214,398,178,369,146,336,100,276"/>
-<area shape="rect" id="Node000012" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="507,475,636,501"/>
-<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="96,274,111,316,135,368,171,420,192,442,217,460,250,477,284,489,357,502,429,504,492,499,492,504,429,509,357,508,283,494,247,482,214,465,189,446,166,423,131,371,106,318,91,276"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="112,248,158,288,217,327,228,333,226,337,214,332,155,292,108,252"/>
+<area shape="rect" id="Node000010" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="250,408,379,435"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="101,248,119,281,145,321,178,360,217,394,237,404,234,409,214,398,174,364,140,324,114,284,96,251"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,46,496,65,495,71,410,51"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="410,119,495,100,496,105,411,125"/>
 <area shape="rect" id="Node000006" href="$namespacedl__leg.html#a6f8a53a0ce2ddf6c81c6037d233e5251" title=" " alt="" coords="498,189,645,216"/>
 <area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="407,200,483,200,483,205,407,205"/>
-<area shape="rect" id="Node000011" href="$structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="507,341,636,384"/>
-<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="391,407,492,380,493,386,393,412"/>
-<area shape="poly" id="edge13_Node000010_Node000012" title=" " alt="" coords="393,444,496,468,495,473,391,450"/>
-<area shape="rect" id="Node000013" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="507,408,636,451"/>
-<area shape="poly" id="edge14_Node000010_Node000013" title=" " alt="" coords="392,427,492,427,492,432,392,432"/>
 </map>

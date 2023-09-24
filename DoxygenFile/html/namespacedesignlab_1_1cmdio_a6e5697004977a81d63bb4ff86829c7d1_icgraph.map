@@ -1,0 +1,5 @@
+<map id="designlab::cmdio::InputYesNo" name="designlab::cmdio::InputYesNo">
+<area shape="rect" id="Node000001" title="yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．" alt="" coords="222,13,416,40"/>
+<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#abe0b743b08c1b9e9970bdc7cd0a63b6b" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>

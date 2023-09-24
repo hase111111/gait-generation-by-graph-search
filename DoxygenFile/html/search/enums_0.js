@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cameraviewmode_0',['CameraViewMode',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621',1,'camera_manager.h']]]
+  ['bootmode_0',['BootMode',['../boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63',1,'boot_mode.h']]]
 ];

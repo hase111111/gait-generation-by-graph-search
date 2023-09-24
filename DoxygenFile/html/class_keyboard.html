@@ -154,10 +154,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></t
 <p>詳しい処理の内容はこちら <a href="https://dixq.net/rp2/08.html">https://dixq.net/rp2/08.html</a> <br  />
 <br  />
  Keyboardはシングルトンクラスなので実体を生成することができない． <br  />
- getIns()を用いて関数を呼び出す必要がある． <br  />
+ <a class="el" href="class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．">GetIns()</a>を用いて関数を呼び出す必要がある． <br  />
 <br  />
  例) <br  />
- @t Keyboard::getIns()-&gt;<a class="el" href="class_keyboard.html#a071313d0ae6538e9307ff6a059aa9197" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．">Update()</a> <br  />
+ @t <a class="el" href="class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．">Keyboard::GetIns()</a>-&gt;<a class="el" href="class_keyboard.html#a071313d0ae6538e9307ff6a059aa9197" title="キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．">Update()</a> <br  />
 <br  />
  また注意点としては，あくまでDxlibの処理を行うため，コマンドラインでは呼び出せない． <br  />
  というか呼び出せるけれどうまく動作するかは保証されない．致命的なバグやエラーを誘発する可能性があるので呼ぶべきでない． <br  />
@@ -228,8 +228,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></t
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="keyboard_8h_source.html">keyboard.h</a></li>
-<li>DesignLab/keyboard.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="keyboard_8h_source.html">keyboard.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/keyboard.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -10,7 +10,6 @@
 //! @details CameraControllerクラスで使用されている．
 //! @n カメラの視点を切り替える際に使用する．
 //! @n 具体的な処理はCameraControllerクラスを参照すること．
-
 enum class CameraViewMode
 {
 	kFrontView,			//!< 正面からの視点．
@@ -28,7 +27,6 @@ enum class CameraViewMode
 //! @details カメラを，上から見るのか，横から見るのか，切り替えるのはDXlibの場合操作が少々難しい
 //! @n このクラスはその処理をまとめたことで，処理を簡単にしている
 //! @n また，カメラの姿勢はクォータニオンで表している．
-
 class CameraStateManager final
 {
 public:
@@ -64,11 +62,11 @@ public:
 
 	//! @brief カメラのクォータニオンを取得する
 	//! @return カメラのクォータニオン
-	designlab::SQuaternion getCameraRotQuat() const { return m_goal_camera_rot_quat; }
+	designlab::Quaternion getCameraRotQuat() const { return m_goal_camera_rot_quat; }
 
 	//! @brief カメラのクォータニオンをセットする
 	//! @param [in] quat カメラのクォータニオン
-	void setCameraRotQuat(const designlab::SQuaternion& quat) { m_goal_camera_rot_quat = quat; }
+	void setCameraRotQuat(const designlab::Quaternion& quat) { m_goal_camera_rot_quat = quat; }
 
 
 	//! @brief 注視点を操作する際の，カメラの注視する座標をセットする
@@ -85,7 +83,7 @@ private:
 	void setCameraPosAndRot();
 
 	//引数のクォータニオンを徐々に目標値に近づける．補間方法は線形補間 https://www.f-sp.com/entry/2017/06/30/221124
-	designlab::SQuaternion approachTargetQuat(const designlab::SQuaternion& current, const designlab::SQuaternion& target) const;
+	designlab::Quaternion approachTargetQuat(const designlab::Quaternion& current, const designlab::Quaternion& target) const;
 
 	//引数のベクトルを徐々に目標値に近づける
 	VECTOR approachTargetVECTOR(const VECTOR& current, const VECTOR& target) const;
@@ -94,9 +92,9 @@ private:
 	float approachTargetValue(const float current, const float target) const;
 
 
-	const designlab::Vector3 kDefaultCameraFrontVec = { 1.0f, 0.0f, 0.0f };	//デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraFrontVec = designlab::Vector3::GetFrontVec();	//!< デフォルトのカメラの方向を表す単位ベクトル
 
-	const designlab::Vector3 kDefaultCameraUpVec = { 0.0f, 0.0f, 1.0f };		//デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraUpVec = designlab::Vector3::GetUpVec();			//!< デフォルトのカメラの方向を表す単位ベクトル
 
 
 	CameraViewMode m_camera_view_mode;				//カメラの視点を決定する．
@@ -105,9 +103,9 @@ private:
 
 	VECTOR m_target_pos;						//カメラが現在注視している座標
 
-	designlab::SQuaternion m_goal_camera_rot_quat;	//カメラの回転を表すクォータニオン
+	designlab::Quaternion m_goal_camera_rot_quat;	//カメラの回転を表すクォータニオン
 
-	designlab::SQuaternion m_camera_rot_quat;		//カメラの回転を表すクォータニオンの現在値
+	designlab::Quaternion m_camera_rot_quat;		//カメラの回転を表すクォータニオンの現在値
 
 	float m_goal_length_camera_to_target;		//カメラと注視する対象との距離の目標値
 

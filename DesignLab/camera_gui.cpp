@@ -6,6 +6,9 @@
 #include "mouse.h"
 
 
+namespace dldu = designlab::dxlib_util;
+
+
 CameraGui::CameraGui(const int left_x, const int top_y) :
 	kGuiLeftPosX(left_x),
 	kGuiTopPosY(top_y),
@@ -39,8 +42,6 @@ CameraGui::CameraGui() : CameraGui::CameraGui(10, 10)
 
 void CameraGui::setHexapodPos(const designlab::Vector3 pos)
 {
-	namespace dldu = designlab::dxlib_util;
-
 	m_camera_manager.setTargetPos(dldu::ConvertToDxlibVec(pos));
 }
 
@@ -165,26 +166,26 @@ void CameraGui::drawString() const
 	int text_line = 0;
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->wheel_rot() == 0 ? kStrColor : kStrRedColor, "マウスホイール回転");
+		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, "マウスホイール回転");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->wheel_rot() == 0 ? kStrColor : kStrRedColor, " ・ズーム");
+		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, " ・ズーム");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->middle_pushing_counter() == 0 ? kStrColor : kStrRedColor, "ホイールクリック＆ドラッグ");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, "ホイールクリック＆ドラッグ");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->middle_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・ビューを回転");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, " ・ビューを回転");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->left_pushing_counter() == 0 ? kStrColor : kStrRedColor, "左クリック＆ドラッグ");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, "左クリック＆ドラッグ");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->left_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・画面の中心から回転");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, " ・画面の中心から回転");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->right_pushing_counter() == 0 ? kStrColor : kStrRedColor, "右クリック＆ドラッグ");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, "右クリック＆ドラッグ");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->right_pushing_counter() == 0 ? kStrColor : kStrRedColor, " ・画面の平行移動");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, " ・画面の平行移動");
 }

@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="Stopwatch",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stopwatch.html",tooltip="時間計測用のクラス．   Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する．   実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．"];
+  Node0 [id="Node000000",label="WorldGridRenderer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_world_grid_renderer.html",tooltip="ワールドの格子線を描画するクラス"];
 }

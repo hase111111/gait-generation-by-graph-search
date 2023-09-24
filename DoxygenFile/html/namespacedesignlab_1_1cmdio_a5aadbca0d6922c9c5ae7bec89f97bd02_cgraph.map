@@ -1,0 +1,5 @@
+<map id="designlab::cmdio::OutputHorizontalLine" name="designlab::cmdio::OutputHorizontalLine">
+<area shape="rect" id="Node000001" title="コマンドラインに水平線を出力する関数．" alt="" coords="5,5,172,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="220,13,386,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,24,205,24,205,29,172,29"/>
+</map>

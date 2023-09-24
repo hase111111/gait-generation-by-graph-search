@@ -1,12 +1,13 @@
 var class_abstract_hexapod_state_calculator =
 [
-    [ "calcStabilityMargin", "class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5", null ],
-    [ "calculateAllJointState", "class_abstract_hexapod_state_calculator.html#ac7d89ecdc15ee32227e8893ab6ee397b", null ],
-    [ "convertGlobalToLegPosition", "class_abstract_hexapod_state_calculator.html#a49dd6aaeeac58d9fe0c7f62f5e1d132d", null ],
-    [ "getGlobalLegBasePosition", "class_abstract_hexapod_state_calculator.html#afd014c47940b881b21942700db3a9a17", null ],
-    [ "getGlobalLegPosition", "class_abstract_hexapod_state_calculator.html#a8d272a87d5f20f7bf4cd615c4520f6ad", null ],
-    [ "getLocalLegBasePosition", "class_abstract_hexapod_state_calculator.html#a9330dc5344a0430eb588729f1942ca7a", null ],
-    [ "getLocalLegPosition", "class_abstract_hexapod_state_calculator.html#a9871fa6bb3f7bf07288c93a739e73366", null ],
-    [ "isLegInRange", "class_abstract_hexapod_state_calculator.html#a9d7b5d92990bdb2c64af008b1c52e53f", null ],
-    [ "isLegInterfering", "class_abstract_hexapod_state_calculator.html#a7355cac25eb2deacee641fcc2c567ba5", null ]
+    [ "CalculateAllJointState", "class_abstract_hexapod_state_calculator.html#a4392ef4faf3d963c17321672763550f7", null ],
+    [ "CalculateStabilityMargin", "class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713", null ],
+    [ "ConvertGlobalToLegPosition", "class_abstract_hexapod_state_calculator.html#ac05e9ade5bcb94dca1d55fb023f303cf", null ],
+    [ "GetFreeLegPosition", "class_abstract_hexapod_state_calculator.html#af3482daa72fe644222c05b625535566f", null ],
+    [ "GetGlobalLegBasePosition", "class_abstract_hexapod_state_calculator.html#a431eb96282c616c74d5d9d36f4893f13", null ],
+    [ "GetGlobalLegPosition", "class_abstract_hexapod_state_calculator.html#ab58160b05f400eb3374777decd6606ed", null ],
+    [ "GetLocalLegBasePosition", "class_abstract_hexapod_state_calculator.html#abdf6dade9f586ce02be22b9214cfbb95", null ],
+    [ "GetLocalLegPosition", "class_abstract_hexapod_state_calculator.html#a32716ac2e120eb5b444482517af14354", null ],
+    [ "IsLegInRange", "class_abstract_hexapod_state_calculator.html#ade9aa4e73ee3d83efc2e726518baa99c", null ],
+    [ "IsLegInterfering", "class_abstract_hexapod_state_calculator.html#a51154859ead106ff02907c6b9a4d6ebc", null ]
 ];

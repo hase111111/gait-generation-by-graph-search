@@ -3,71 +3,76 @@
 #include "mouse.h"
 #include "dxlib_util.h"
 
+namespace dl = designlab;
+namespace dldu = designlab::dxlib_util;
 
-CameraController::CameraController(CameraStateManager& camera_manager_ref) : camera_manager_ref_(camera_manager_ref) {}
+
+CameraController::CameraController(CameraStateManager& camera_manager_ref) : 
+	camera_manager_ref_(camera_manager_ref) 
+{
+}
 
 
 void CameraController::Update()
 {
 	//ホイールが動いていたらカメラ距離を変更する
-	if (Mouse::GetIns()->wheel_rot() != 0)
+	if (Mouse::GetIns()->GetWheelRot() != 0)
 	{
-		camera_manager_ref_.addCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->wheel_rot() * -1);
+		camera_manager_ref_.addCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->GetWheelRot() * -1);
 	}
 
 
-	if (Mouse::GetIns()->middle_pushing_counter() > 0)
+	if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) > 0)
 	{
-
 		//ホイールクリックをしていたらカメラを回転させる．XとYのどちらかの移動量が大きい方を処理する
 
 		if (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY()))
 		{
 			//カメラの回転をマウスの横移動量に合わせて変更
-			designlab::SQuaternion move_quatx{0, 0, 0, 0};
+			dl::Quaternion move_quatx = {0, 0, 0, 0};
 
-			move_quatx.setRotAngleAndAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
+			move_quatx = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
 
-			designlab::SQuaternion res = camera_manager_ref_.getCameraRotQuat() * move_quatx;
+			dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quatx;
 
-			res = res.normalize();
+			res = res.Normalize();
 
 			camera_manager_ref_.setCameraRotQuat(res);
 		}
 		else
 		{
 			//カメラの回転をマウスの縦移動量に合わせて変更
-			designlab::SQuaternion move_quaty{ 0, 0, 0, 0 };
+			dl::Quaternion move_quaty{ 0, 0, 0, 0 };
 
-			move_quaty.setRotAngleAndAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
+			move_quaty = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
 
-			designlab::SQuaternion res = camera_manager_ref_.getCameraRotQuat() * move_quaty;
+			dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quaty;
 
-			res = res.normalize();
+			res = res.Normalize();
 
 			camera_manager_ref_.setCameraRotQuat(res);
 		}
 
 	}
-	else if (Mouse::GetIns()->left_pushing_counter() > 0)
+	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
 	{
 
 		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転
 
-		designlab::SQuaternion move_quat{ 0, 0, 0, 0 };
+		dl::Quaternion move_quat = { 0, 0, 0, 0 };
 
 		int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
 
-		move_quat.setRotAngleAndAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
+		move_quat = dl::Quaternion::MakeByRotAngleAndAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
-		designlab::SQuaternion res = camera_manager_ref_.getCameraRotQuat() * move_quat;
+		dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quat;
 
-		res = res.normalize();
+		res = res.Normalize();
 
 		camera_manager_ref_.setCameraRotQuat(res);
 
 	}
-	else if (Mouse::GetIns()->right_pushing_counter() > 0 && Mouse::GetIns()->getDiffPos() > kMouseMoveMargin)
+	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && Mouse::GetIns()->GetDiffPos() > kMouseMoveMargin)
 	{
 
 		//右クリックしていたらカメラの平行移動
@@ -79,7 +84,7 @@ void CameraController::Update()
 		}
 
 
-		designlab::Vector3 move_vec;
+		dl::Vector3 move_vec;
 
 		if (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY()))
 		{
@@ -87,7 +92,7 @@ void CameraController::Update()
 
 			move_vec = { 0, Mouse::GetIns()->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
 
-			move_vec = designlab::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
+			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
 		}
 		else
 		{
@@ -95,10 +100,8 @@ void CameraController::Update()
 
 			move_vec = { 0, 0, Mouse::GetIns()->GetDiffPosY() * kCameraTargetMoveSpeed };
 
-			move_vec = designlab::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
+			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
 		}
-
-		namespace dldu = designlab::dxlib_util;
 
 		VECTOR now_target_pos = camera_manager_ref_.getFreeTargetPos();				//現在のターゲット座標を取得
 

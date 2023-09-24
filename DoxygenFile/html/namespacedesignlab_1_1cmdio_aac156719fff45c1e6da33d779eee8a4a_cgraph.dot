@@ -1,0 +1,22 @@
+digraph "designlab::cmdio::OutputTitle"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="designlab::cmdio::Output\lTitle",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="コマンドラインにこのソフトのタイトルを出力する関数．"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="designlab::cmdio::Output\lCenter",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6",tooltip="中央に文字を出力する関数"];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="designlab::cmdio::Output",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485",tooltip="コマンドラインに文字を出力する関数．   SetOutputLimit() で設定した出力の許可範囲内であれば出力される．   必ずSetOutputLimit()を呼び出してから使うこと．"];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="designlab::cmdio::Output\lHorizontalLine",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02",tooltip="コマンドラインに水平線を出力する関数．"];
+  Node4 -> Node3 [id="edge4_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node5 [id="edge5_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="designlab::cmdio::Output\lNewLine",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1cmdio.html#a23cd6fd6477be14f76c818c418a0de08",tooltip="コマンドラインで改行をする関数．"];
+  Node5 -> Node3 [id="edge6_Node000005_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node6 [id="edge7_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="designlab::cmdio::Output\lRight",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1cmdio.html#ab571da4a5a2affc2679e2d8b5c9d8cc0",tooltip="右端に文字を出力する関数"];
+  Node6 -> Node3 [id="edge8_Node000006_Node000003",color="steelblue1",style="solid",tooltip=" "];
+}

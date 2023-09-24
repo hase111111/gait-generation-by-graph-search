@@ -1,7 +1,7 @@
 <map id="Mouse::GetDiffPosY" name="Mouse::GetDiffPosY">
 <area shape="rect" id="Node000001" title="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="631,76,771,103"/>
-<area shape="rect" id="Node000002" href="$class_mouse.html#a0ce54275796bf53d8a73ba4040b9be6e" title="マウスカーソルの移動量を取得する．" alt="" coords="435,51,562,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,81,562,75,563,69,617,76"/>
+<area shape="rect" id="Node000002" href="$class_mouse.html#a4ddc62fbcd2d97808b7552181cde2954" title="マウスカーソルの移動量を取得する．" alt="" coords="433,51,563,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,81,563,75,564,69,617,76"/>
 <area shape="rect" id="Node000003" href="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,101,583,128"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="617,103,584,107,583,101,616,97"/>
 <area shape="rect" id="Node000004" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>

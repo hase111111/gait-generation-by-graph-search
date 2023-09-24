@@ -1,5 +1,5 @@
-//! @file designlab_math.h
-//! @brief 基本的な計算を行う関数をまとめた名前空間．
+//! @file designlab_math_util.h
+//! @brief 基本的な計算を行う関数．
 
 
 #ifndef DESIGNLAB_MATH_UTIL_H_

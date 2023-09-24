@@ -9,90 +9,90 @@
 namespace dlm = designlab::math_util;
 
 
-Mouse::Mouse()
+Mouse::Mouse() : 
+	kMouseKeyCodes
+	{
+		MOUSE_INPUT_RIGHT,
+		MOUSE_INPUT_LEFT,
+		MOUSE_INPUT_MIDDLE,
+		MOUSE_INPUT_4,
+		MOUSE_INPUT_5,
+		MOUSE_INPUT_6,
+		MOUSE_INPUT_7,
+		MOUSE_INPUT_8
+	},
+	cursor_pos_x_(0),
+	cursor_pos_y_(0),
+	cursor_past_pos_x_(0),
+	cursor_past_pos_y_(0),
+	pushing_counter_({}),
+	releasing_counter_({}),
+	wheel_rot_(0)
 {
-	//変数を初期化する
-	cursor_pos_x_ = 0;
-	cursor_pos_y_ = 0;
-	cursor_past_pos_x_ = 0;
-	cursor_past_pos_y_ = 0;
-	left_pushing_counter_ = 0;
-	middle_pushing_counter_ = 0;
-	right_pushing_counter_ = 0;
-	left_releasing_counter_ = 0;
-	middle_releasing_counter_ = 0;
-	right_releasing_counter_ = 0;
-	wheel_rot_ = 0;
 }
-
 
 void Mouse::Update()
 {
-	//マウスの位置取得
+	// マウスの位置取得
 	cursor_past_pos_x_ = cursor_pos_x_;
 	cursor_past_pos_y_ = cursor_pos_y_;
 	GetMousePoint(&cursor_pos_x_, &cursor_pos_y_);
 
-	//左クリック
-	if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
+	// マウスのクリック取得
+	const int mouse_input = GetMouseInput();
+
+	for (const auto& i : kMouseKeyCodes)
 	{
-		//押されているなら
-		left_pushing_counter_++;
-		left_releasing_counter_ = 0;
-	}
-	else
-	{
-		//離されているなら
-		left_pushing_counter_ = 0;
-		left_releasing_counter_++;
+		if (mouse_input & i)
+		{
+			// 押されているなら
+			pushing_counter_[i]++;
+			releasing_counter_[i] = 0;
+		}
+		else
+		{
+			// 離されているなら
+			pushing_counter_[i] = 0;
+			releasing_counter_[i]++;
+		}
 	}
 
-	//右クリック
-	if ((GetMouseInput() & MOUSE_INPUT_RIGHT) != 0)
-	{
-		//押されているなら
-		right_pushing_counter_++;
-		right_releasing_counter_ = 0;
-	}
-	else
-	{
-		//離されているなら
-		right_pushing_counter_ = 0;
-		right_releasing_counter_++;
-	}
-
-	//ホールドボタン
-	if ((GetMouseInput() & MOUSE_INPUT_MIDDLE) != 0)
-	{
-		//押されているなら
-		middle_pushing_counter_++;
-		middle_releasing_counter_ = 0;
-	}
-	else
-	{
-		//離されているなら
-		middle_pushing_counter_ = 0;
-		middle_releasing_counter_++;
-	}
-
-	//ホイール回転
+	// ホイール回転を取得，GetMouseWheelRotVol()は前回の呼び出し以降の回転量を返す．
 	wheel_rot_ = GetMouseWheelRotVol();
 }
 
+int Mouse::GetPressingCount(const int mouse_code) const
+{
+	// std::mapではfindもcountも処理速度は同じくらい，multimapやmultisetはfindを推奨
+	if (releasing_counter_.count(mouse_code) == 0)
+	{
+		return -1;
+	}
+
+	return pushing_counter_.at(mouse_code);
+}
+
+int Mouse::GetReleasingCount(const int mouse_code) const
+{
+	if (releasing_counter_.count(mouse_code) == 0)
+	{
+		return -1;
+	}
+
+	return releasing_counter_.at(mouse_code);
+}
 
 int Mouse::GetDiffPosX() const
 {
 	return cursor_pos_x_ - cursor_past_pos_x_;
 }
 
-
 int Mouse::GetDiffPosY() const
 {
 	return cursor_pos_y_ - cursor_past_pos_y_;
 }
 
-
-double Mouse::getDiffPos() const
+double Mouse::GetDiffPos() const
 {
 	return sqrt
 	(

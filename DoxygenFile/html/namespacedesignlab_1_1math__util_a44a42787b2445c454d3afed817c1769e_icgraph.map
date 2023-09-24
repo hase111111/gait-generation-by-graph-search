@@ -1,35 +1,33 @@
 <map id="designlab::math_util::IsEqual" name="designlab::math_util::IsEqual">
-<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="698,279,836,321"/>
-<area shape="rect" id="Node000002" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="489,128,650,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="742,268,702,217,677,191,649,169,627,158,629,153,652,164,681,187,706,213,747,265"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#a67434ecbe53d7a4c06d0fdc08e1467ca" title="このベクトルが0ならばtrue" alt="" coords="505,179,634,221"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="717,273,649,236,624,224,627,219,652,231,720,268"/>
-<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector3.html#a1a61d0a698b66fe9a856d539cec42925" title="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．" alt="" coords="505,245,634,288"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="683,289,634,280,635,275,684,283"/>
-<area shape="rect" id="Node000011" href="$structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="505,312,634,355"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="684,317,635,325,634,320,683,311"/>
-<area shape="rect" id="Node000016" href="$structdesignlab_1_1_vector3.html#a6ef61528382ebb4f067dc66a3abce6e5" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="505,379,634,421"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="720,332,652,369,627,381,624,376,649,364,717,327"/>
-<area shape="rect" id="Node000017" href="$class_graph_searcher_hato.html#a8d72dfb367f3ee593dd3519f9d665378" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="498,445,641,488"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="746,335,705,386,680,412,652,436,633,447,630,442,649,431,676,408,701,382,741,332"/>
+<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="698,277,836,320"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="489,127,650,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="742,267,702,215,677,190,649,168,627,156,629,152,652,163,681,186,706,212,747,263"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#a67434ecbe53d7a4c06d0fdc08e1467ca" title="このベクトルが0ならばtrue" alt="" coords="505,177,634,220"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="717,272,649,234,624,223,627,218,652,230,720,267"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector3.html#a1a61d0a698b66fe9a856d539cec42925" title="x,y,zともに絶対値が許容誤差以下の値ならばtrueを返す．" alt="" coords="505,244,634,287"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="683,287,634,279,635,274,684,282"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="505,311,634,353"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="684,315,635,324,634,318,683,310"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_vector3.html#a6ef61528382ebb4f067dc66a3abce6e5" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="505,377,634,420"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="720,330,652,368,627,379,624,374,649,363,717,326"/>
+<area shape="rect" id="Node000016" href="$class_graph_searcher_hato.html#a8d72dfb367f3ee593dd3519f9d665378" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="498,444,641,487"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="746,334,705,385,680,411,652,434,633,446,630,441,649,430,676,407,701,381,741,330"/>
 <area shape="rect" id="Node000003" href="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="264,5,408,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="537,121,492,91,440,62,407,49,409,44,442,58,495,87,540,117"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="536,120,492,91,440,62,407,49,409,44,442,58,494,86,539,116"/>
 <area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="254,72,418,99"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="496,127,394,102,395,97,497,121"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="495,125,395,102,397,97,496,120"/>
 <area shape="rect" id="Node000005" href="$class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="252,123,420,165"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="475,145,420,146,420,140,475,140"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="475,144,420,145,420,140,475,139"/>
 <area shape="rect" id="Node000006" href="$class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="258,189,414,216"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="507,162,442,180,397,191,395,186,440,175,506,157"/>
-<area shape="rect" id="Node000009" href="$class_interpolated_node_creator.html#acc9e16ae23501fda19b769660249110d" title="ノード間を補間する" alt="" coords="255,241,417,284"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="490,268,417,267,417,261,490,263"/>
-<area shape="rect" id="Node000010" href="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,241,166,284"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="240,265,166,265,166,260,240,260"/>
-<area shape="rect" id="Node000012" href="$class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5" title="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距..." alt="" coords="231,308,441,351"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="490,335,442,334,442,328,490,329"/>
-<area shape="rect" id="Node000013" href="$class_hexapod_state_calclator___old.html#afca14fd8aba00dee061b81981f6a1214" title="静的安定余裕を計算する．" alt="" coords="245,375,427,417"/>
-<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="491,357,419,377,417,371,490,352"/>
-<area shape="rect" id="Node000014" href="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba" title="重心を求める" alt="" coords="233,441,439,484"/>
-<area shape="poly" id="edge13_Node000011_Node000014" title=" " alt="" coords="496,365,491,369,476,384,468,400,459,416,443,431,422,443,420,439,439,427,455,412,463,397,472,381,487,365,493,360"/>
-<area shape="rect" id="Node000015" href="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,441,183,484"/>
-<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="217,465,183,465,183,460,217,460"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="510,161,442,180,397,191,395,186,440,175,508,155"/>
+<area shape="rect" id="Node000009" href="$class_interpolated_node_creator.html#acc9e16ae23501fda19b769660249110d" title="ノード間を補間する" alt="" coords="255,244,417,287"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="490,268,417,268,417,263,490,263"/>
+<area shape="rect" id="Node000010" href="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,244,166,287"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="240,268,166,268,166,263,240,263"/>
+<area shape="rect" id="Node000012" href="$class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="231,311,441,353"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="490,335,442,335,442,329,490,329"/>
+<area shape="rect" id="Node000013" href="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba" title="重心を求める" alt="" coords="233,377,439,420"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="491,357,414,379,412,374,490,352"/>
+<area shape="rect" id="Node000014" href="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,377,183,420"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="217,401,183,401,183,396,217,396"/>
 </map>

@@ -1,5 +1,5 @@
 var searchData=
 [
   ['wait_0',['Wait',['../class_fps_controller.html#ad374af8f8418f64854fae53b113ace9a',1,'FpsController']]],
-  ['wheel_5frot_1',['wheel_rot',['../class_mouse.html#a589d79b7e60aa86519decaa0f503fae9',1,'Mouse']]]
+  ['waitanykey_1',['WaitAnyKey',['../namespacedesignlab_1_1cmdio.html#ac411e4a736e83e07ab5de75bcd3afc1f',1,'designlab::cmdio']]]
 ];

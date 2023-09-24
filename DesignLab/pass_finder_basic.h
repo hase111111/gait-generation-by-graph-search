@@ -42,9 +42,9 @@ private:
 
 	std::vector<SNode> graph_tree_;	//!< グラフ探索の結果得られた木構造のグラフ
 
-	std::unique_ptr<IGraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス
+	const std::unique_ptr<IGraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス
 
-	std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;		//!< グラフ探索を行うクラス
+	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;		//!< グラフ探索を行うクラス
 
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス

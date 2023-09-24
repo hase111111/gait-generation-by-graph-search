@@ -22,7 +22,7 @@ PassFinderBasic::PassFinderBasic(
 
 EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node)
 {
-	assert(output_node != nullptr);	//output_nodeはnullptrでないことを保証すること
+	assert(output_node != nullptr);	// output_nodeはnullptrでない
 
 
 	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
@@ -41,7 +41,7 @@ EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& curren
 	dlio::Output("初期化終了．", OutputDetail::kDebug);
 
 
-
+	// グラフ探索をするための，歩容パターングラフを生成する
 	dlio::Output("グラフ木を作成する", OutputDetail::kDebug);
 
 	SNode parent_node = current_node;
@@ -59,6 +59,7 @@ EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& curren
 	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.size()), OutputDetail::kDebug);
 
 
+	// グラフ探索を行う
 	dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
 	result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, output_node);

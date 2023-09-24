@@ -21,16 +21,16 @@ void ButtomController::Update()
 	//マウスカーソルがボタン内にあるかどうか調べる．
 	m_is_mouse_in_buttom = false;
 
-	if (kXPos - kXSize / 2 < Mouse::GetIns()->cursor_pos_x() && Mouse::GetIns()->cursor_pos_x() < kXPos + kXSize / 2)
+	if (kXPos - kXSize / 2 < Mouse::GetIns()->GetCursorPosX() && Mouse::GetIns()->GetCursorPosX() < kXPos + kXSize / 2)
 	{
-		if (kYPos - kYSize / 2 < Mouse::GetIns()->cursor_pos_y() && Mouse::GetIns()->cursor_pos_y() < kYPos + kYSize / 2)
+		if (kYPos - kYSize / 2 < Mouse::GetIns()->GetCursorPosY() && Mouse::GetIns()->GetCursorPosY() < kYPos + kYSize / 2)
 		{
 			m_is_mouse_in_buttom = true;
 		}
 	}
 
 	//ボタンが押されているか調べる
-	if (m_is_mouse_in_buttom == true && Mouse::GetIns()->left_pushing_counter() > 0)
+	if (m_is_mouse_in_buttom && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
 	{
 		m_is_pushed = true;
 		m_pushing_frame++;

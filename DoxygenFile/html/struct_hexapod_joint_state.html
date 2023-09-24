@@ -95,27 +95,75 @@ $(document).ready(function(){initNavTree('struct_hexapod_joint_state.html',''); 
   <div class="headertitle"><div class="title">HexapodJointState 構造体</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ロボットの関節の状態を表す構造体．  
+ <a href="struct_hexapod_joint_state.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:af89f1965404514c5fb841faa383cca29"><td class="memItemLeft" align="right" valign="top"><a id="af89f1965404514c5fb841faa383cca29" name="af89f1965404514c5fb841faa383cca29"></a>
-std::vector&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>local_joint_position</b></td></tr>
-<tr class="memdesc:af89f1965404514c5fb841faa383cca29"><td class="mdescLeft">&#160;</td><td class="mdescRight">関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．<br  />
- この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系． <br /></td></tr>
+<tr class="memitem:af89f1965404514c5fb841faa383cca29"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_hexapod_joint_state.html#af89f1965404514c5fb841faa383cca29">local_joint_position</a></td></tr>
 <tr class="separator:af89f1965404514c5fb841faa383cca29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95520d2a0509a0cf7d45ba697f40340e"><td class="memItemLeft" align="right" valign="top"><a id="a95520d2a0509a0cf7d45ba697f40340e" name="a95520d2a0509a0cf7d45ba697f40340e"></a>
-std::vector&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>global_joint_position</b></td></tr>
-<tr class="memdesc:a95520d2a0509a0cf7d45ba697f40340e"><td class="mdescLeft">&#160;</td><td class="mdescRight">関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．<br  />
- この座標はグローバル座標系である． <br /></td></tr>
+<tr class="memitem:a95520d2a0509a0cf7d45ba697f40340e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_hexapod_joint_state.html#a95520d2a0509a0cf7d45ba697f40340e">global_joint_position</a></td></tr>
 <tr class="separator:a95520d2a0509a0cf7d45ba697f40340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4126efa8f193c68febb81049285cbd0a"><td class="memItemLeft" align="right" valign="top"><a id="a4126efa8f193c68febb81049285cbd0a" name="a4126efa8f193c68febb81049285cbd0a"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>joint_angle</b></td></tr>
-<tr class="memdesc:a4126efa8f193c68febb81049285cbd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である．<br  />
- この角度の単位はradである． <br /></td></tr>
+<tr class="memitem:a4126efa8f193c68febb81049285cbd0a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_hexapod_joint_state.html#a4126efa8f193c68febb81049285cbd0a">joint_angle</a></td></tr>
 <tr class="separator:a4126efa8f193c68febb81049285cbd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>ロボットの関節の状態を表す構造体． </p>
+<p>関節の位置と角度を表す． </p>
+</div><h2 class="groupheader">メンバ詳解</h2>
+<a id="a95520d2a0509a0cf7d45ba697f40340e" name="a95520d2a0509a0cf7d45ba697f40340e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95520d2a0509a0cf7d45ba697f40340e">&#9670;&#160;</a></span>global_joint_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&gt; HexapodJointState::global_joint_position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である． <br  />
+ この座標はグローバル座標系である． </p>
+
+</div>
+</div>
+<a id="a4126efa8f193c68febb81049285cbd0a" name="a4126efa8f193c68febb81049285cbd0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4126efa8f193c68febb81049285cbd0a">&#9670;&#160;</a></span>joint_angle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;float&gt; HexapodJointState::joint_angle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である． <br  />
+ この角度の単位はradである． </p>
+
+</div>
+</div>
+<a id="af89f1965404514c5fb841faa383cca29" name="af89f1965404514c5fb841faa383cca29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af89f1965404514c5fb841faa383cca29">&#9670;&#160;</a></span>local_joint_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&gt; HexapodJointState::local_joint_position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である． <br  />
+ この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系である． </p>
+
+</div>
+</div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['discretelegpos_0',['DiscreteLegPos',['../discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df',1,'discrete_leg_pos.h']]]
+  ['cameraviewmode_0',['CameraViewMode',['../camera__manager_8h.html#afbcf6e307ff8114a4867889faace8621',1,'camera_manager.h']]]
 ];

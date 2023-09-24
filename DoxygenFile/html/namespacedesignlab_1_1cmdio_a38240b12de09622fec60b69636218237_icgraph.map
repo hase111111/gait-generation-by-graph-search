@@ -1,0 +1,5 @@
+<map id="designlab::cmdio::InputInt" name="designlab::cmdio::InputInt">
+<area shape="rect" id="Node000001" title="整数を入力する関数．" alt="" coords="218,13,387,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#adc19ae459e6e165635ff3eba1f975a0c" title="このアプリの起動モードを選択する関数．" alt="" coords="5,5,170,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,29,170,29,170,24,203,24"/>
+</map>

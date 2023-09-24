@@ -36,12 +36,11 @@ public:
 	virtual EGraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map, const STarget& target, SNode* output_node) = 0;
 
 	//! @brief 作成したグラフのノードの数を返す
-	//! @n この関数はデバッグ用なので，探索には使わないこと．
 	//! @return int 作成したグラフの数
 	virtual int GetMadeNodeNum() const = 0;
 
 	//! @brief 作成したグラフ木を返す．
-	//! @n この関数はデバッグ用なので，探索には使わないこと．
+	//! @n output_graphは空であること．
 	//! @param [out] output_graph 作成したグラフ木を渡す．
 	virtual void GetGraphTree(std::vector<SNode>* output_graph) const = 0;
 };

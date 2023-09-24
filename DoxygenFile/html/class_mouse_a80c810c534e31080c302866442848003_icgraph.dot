@@ -7,7 +7,7 @@ digraph "Mouse::GetDiffPosY"
   rankdir="RL";
   Node1 [id="Node000001",label="Mouse::GetDiffPosY",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Mouse::getDiffPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mouse.html#a0ce54275796bf53d8a73ba4040b9be6e",tooltip="マウスカーソルの移動量を取得する．"];
+  Node2 [id="Node000002",label="Mouse::GetDiffPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mouse.html#a4ddc62fbcd2d97808b7552181cde2954",tooltip="マウスカーソルの移動量を取得する．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="CameraController::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725",tooltip="キー入力でカメラを動かす．   基本的には毎フレーム呼び出す"];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

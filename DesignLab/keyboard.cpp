@@ -47,7 +47,7 @@ void Keyboard::Update()
 }
 
 
-int Keyboard::GetPressingCount(int key_code) const
+int Keyboard::GetPressingCount(const int key_code) const
 {
 	if (!IsAvailableCode(key_code))
 	{
@@ -58,7 +58,7 @@ int Keyboard::GetPressingCount(int key_code) const
 }
 
 
-int Keyboard::GetReleasingCount(int key_code) const
+int Keyboard::GetReleasingCount(const int key_code) const
 {
 	if (!IsAvailableCode(key_code))
 	{
@@ -69,7 +69,7 @@ int Keyboard::GetReleasingCount(int key_code) const
 }
 
 
-bool Keyboard::IsAvailableCode(int key_code) const
+bool Keyboard::IsAvailableCode(const int key_code) const
 {
 	if (!(0 <= key_code && key_code < kKeyNum))
 	{

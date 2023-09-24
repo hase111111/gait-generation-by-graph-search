@@ -27,15 +27,13 @@ digraph "designlab::math_util::IsEqual"
   Node1 -> Node11 [id="edge10_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="designlab::Vector2\l::Normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393",tooltip="このベクトルを正規化したベクトルを返す"];
   Node11 -> Node12 [id="edge11_Node000011_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="AbstractHexapodStateCalculator\l::calcStabilityMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5",tooltip="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい   接地脚を繋いで作られる多角形の辺と重心の距..."];
+  Node12 [id="Node000012",label="AbstractHexapodStateCalculator\l::CalculateStabilityMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713",tooltip="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい   接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..."];
   Node11 -> Node13 [id="edge12_Node000011_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="HexapodStateCalclator\l_Old::calculateStaticMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_state_calclator___old.html#afca14fd8aba00dee061b81981f6a1214",tooltip="静的安定余裕を計算する．"];
-  Node11 -> Node14 [id="edge13_Node000011_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba",tooltip="重心を求める"];
-  Node14 -> Node15 [id="edge14_Node000014_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node15 [id="Node000015",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297",tooltip="現在のノードから次のノード群を生成する"];
+  Node13 [id="Node000013",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba",tooltip="重心を求める"];
+  Node13 -> Node14 [id="edge13_Node000013_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297",tooltip="現在のノードから次のノード群を生成する"];
+  Node1 -> Node15 [id="edge14_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="designlab::Vector3\l::Normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#a6ef61528382ebb4f067dc66a3abce6e5",tooltip="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!"];
   Node1 -> Node16 [id="edge15_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="designlab::Vector3\l::Normalized",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#a6ef61528382ebb4f067dc66a3abce6e5",tooltip="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!"];
-  Node1 -> Node17 [id="edge16_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node17 [id="Node000017",label="GraphSearcherHato::\lSearchGraphTree",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_searcher_hato.html#a8d72dfb367f3ee593dd3519f9d665378",tooltip="グラフを受け取り，その中から最適な次の動作を出力する．"];
+  Node16 [id="Node000016",label="GraphSearcherHato::\lSearchGraphTree",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_searcher_hato.html#a8d72dfb367f3ee593dd3519f9d665378",tooltip="グラフを受け取り，その中から最適な次の動作を出力する．"];
 }

@@ -3,7 +3,7 @@ var struct_application_setting_recorder =
     [ "ask_about_modes", "struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f", null ],
     [ "cmd_output", "struct_application_setting_recorder.html#a16adf15854fd81db84a816d0cb893f5c", null ],
     [ "cmd_permission", "struct_application_setting_recorder.html#ab5a0a3fb53dca551ee266940c93460f9", null ],
-    [ "default_mode", "struct_application_setting_recorder.html#a3dcc696483f645479edfc78b824d2bd1", null ],
+    [ "default_mode", "struct_application_setting_recorder.html#a369e9b58d7b0216811f840505307f3e2", null ],
     [ "do_output_map", "struct_application_setting_recorder.html#a0fb0ee1d42ef34045ac8ac5994d59284", null ],
     [ "do_step_execution", "struct_application_setting_recorder.html#a8729b2b4c5cdf967c371296b34f2d1fd", null ],
     [ "do_step_execution_each_gait", "struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d", null ],

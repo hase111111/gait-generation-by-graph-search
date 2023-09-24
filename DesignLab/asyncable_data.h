@@ -34,7 +34,7 @@ class AsyncableData
 public:
 
 	AsyncableData() : update_count_(0) {};
-	AsyncableData(const T& data) : data_(data), update_count_(0) {};
+	explicit AsyncableData(const T& data) : data_(data), update_count_(0) {};
 
 	//!< コピー・ムーブは禁止
 	AsyncableData(const AsyncableData&) = delete;
@@ -71,8 +71,9 @@ public:
 	};
 
 	//! @brief データの更新回数を返す．
-	//! @return int データの更新回数
 	//! @n この時，read lockをかける．
+	//! @n この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．
+	//! @return int データの更新回数
 	int update_count() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -96,7 +97,7 @@ class AsyncableData <std::vector<T>>
 public:
 
 	AsyncableData() : data_({}), update_count_(0) {};
-	AsyncableData(const std::vector<T>& data) : data_(data), update_count_(0) {}
+	explicit AsyncableData(const std::vector<T>& data) : data_(data), update_count_(0) {}
 
 	//!< コピー・ムーブは禁止
 	AsyncableData(const AsyncableData&) = delete;

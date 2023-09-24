@@ -1,11 +1,11 @@
 <map id="designlab::rotVector" name="designlab::rotVector">
-<area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="243,113,380,140"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a5643a529f477c680bc92f9e038893fcc" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="19,5,181,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,107,194,62,166,51,168,46,196,58,278,103"/>
-<area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#af3a010234881100e9c5eeb0eea19b8e6" title="【スレッドセーフ】グローバル座標系→脚座標系に変換する．" alt="" coords="5,72,195,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,116,195,111,196,106,228,111"/>
-<area shape="rect" id="Node000004" href="$class_phantom_x_state_calclator.html#ab1046ebedd83bafba106e5ac1c430383" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系" alt="" coords="9,139,191,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="228,142,192,148,191,143,228,137"/>
-<area shape="rect" id="Node000005" href="$class_phantom_x_state_calclator.html#a7f49340c8ff2fc0e62aa5033d566ee3a" title="【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系" alt="" coords="19,205,181,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="278,151,196,196,168,207,166,202,194,191,275,146"/>
+<area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="245,113,382,140"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="20,5,182,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,108,196,62,168,51,170,46,198,58,280,103"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#acf135fb149d94d9f308b8fa34577dc56" title="グローバル座標系→脚座標系に変換する．" alt="" coords="5,72,197,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,116,197,111,198,106,230,111"/>
+<area shape="rect" id="Node000004" href="$class_phantom_x_state_calclator.html#a1496a624a7b82f6fcd9c4a35602818c6" title="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系" alt="" coords="8,139,194,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,142,195,148,194,143,230,137"/>
+<area shape="rect" id="Node000005" href="$class_phantom_x_state_calclator.html#a6bb1641e5d222f4c920141d8b6c2a26a" title="脚の先端の座標を取得する．グローバル(ワールド)座標系" alt="" coords="20,205,182,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="280,150,198,196,170,207,168,202,196,191,277,146"/>
 </map>

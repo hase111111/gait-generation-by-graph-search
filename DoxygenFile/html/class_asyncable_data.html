@@ -124,7 +124,9 @@ $(document).ready(function(){initNavTree('class_asyncable_data.html',''); initRe
  データの更新回数をインクリメントする．  <br /></td></tr>
 <tr class="separator:a78982d2da860a8181c500ca8a744f9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f816018a7469bde3579c7694b1480d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a4f816018a7469bde3579c7694b1480d0">update_count</a> () const</td></tr>
-<tr class="memdesc:a4f816018a7469bde3579c7694b1480d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す．  <br /></td></tr>
+<tr class="memdesc:a4f816018a7469bde3579c7694b1480d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す． <br  />
+ この時，read lockをかける． <br  />
+ この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．  <br /></td></tr>
 <tr class="separator:a4f816018a7469bde3579c7694b1480d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -261,14 +263,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>データの更新回数を返す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>int データの更新回数 <br  />
- この時，read lockをかける． </dd></dl>
+<p>データの更新回数を返す． <br  />
+ この時，read lockをかける． <br  />
+ この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int データの更新回数 </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

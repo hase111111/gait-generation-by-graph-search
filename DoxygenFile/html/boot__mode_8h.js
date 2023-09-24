@@ -1,11 +1,11 @@
 var boot__mode_8h =
 [
-    [ "EBootMode", "boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bc", [
-      [ "SIMULATION", "boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bca64c71603ed31477ee4757ae9af42f7e9", null ],
-      [ "VIEWER", "boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bcadcb024a08574aca03170c103aed54cab", null ],
-      [ "DISPLAY_TEST", "boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bca9fa37f7ba188eef1330c23e338788604", null ],
-      [ "RESULT_VIEWER", "boot__mode_8h.html#a8f319c60a7da4027c7e94c23ddbb55bcaa81f4049f1631f846ee4fb527d421a0d", null ]
+    [ "BootMode", "boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63", [
+      [ "kSimulation", "boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63a2fa097ed9ce9f4197ea504a3cfb6e64c", null ],
+      [ "kViewer", "boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63a7733091bca48e4a6b229c03f2e9822b3", null ],
+      [ "kDisplayTest", "boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63ab3bf5cd17df6495e8697a89959cacde5", null ],
+      [ "kResultViewer", "boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63adfb97d663a8c7f7610682c58b25dadc0", null ]
     ] ],
-    [ "sToMode", "boot__mode_8h.html#a2434c6833c86e91ae3b3dccfd4c9cc9b", null ],
-    [ "to_string", "boot__mode_8h.html#a9cccac11710f15f91636d6b45e041483", null ]
+    [ "sToMode", "boot__mode_8h.html#a32858ce9a3c0c7f73f82f3f6ac1da707", null ],
+    [ "to_string", "boot__mode_8h.html#a25f9e88adbe6b24506b9e76fb32fd4a4", null ]
 ];

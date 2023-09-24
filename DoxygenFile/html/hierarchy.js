@@ -34,7 +34,6 @@ var hierarchy =
     [ "HexapodConst", "class_hexapod_const.html", null ],
     [ "HexapodJointState", "struct_hexapod_joint_state.html", null ],
     [ "HexapodRenderer", "class_hexapod_renderer.html", null ],
-    [ "HexapodStateCalclator_Old", "class_hexapod_state_calclator___old.html", null ],
     [ "IGraphicMain", "class_i_graphic_main.html", [
       [ "GraphicMainAdvance", "class_graphic_main_advance.html", null ],
       [ "GraphicMainBasic", "class_graphic_main_basic.html", null ],

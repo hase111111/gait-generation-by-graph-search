@@ -7,11 +7,11 @@ digraph "designlab::rotVector"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::rotVector",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="PhantomXStateCalclator\l::calculateAllJointState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a5643a529f477c680bc92f9e038893fcc",tooltip="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．"];
+  Node2 [id="Node000002",label="PhantomXStateCalclator\l::CalculateAllJointState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54",tooltip="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="PhantomXStateCalclator\l::convertGlobalToLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#af3a010234881100e9c5eeb0eea19b8e6",tooltip="【スレッドセーフ】グローバル座標系→脚座標系に変換する．"];
+  Node3 [id="Node000003",label="PhantomXStateCalclator\l::ConvertGlobalToLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#acf135fb149d94d9f308b8fa34577dc56",tooltip="グローバル座標系→脚座標系に変換する．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="PhantomXStateCalclator\l::getGlobalLegBasePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#ab1046ebedd83bafba106e5ac1c430383",tooltip="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系"];
+  Node4 [id="Node000004",label="PhantomXStateCalclator\l::GetGlobalLegBasePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a1496a624a7b82f6fcd9c4a35602818c6",tooltip="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="PhantomXStateCalclator\l::getGlobalLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a7f49340c8ff2fc0e62aa5033d566ee3a",tooltip="【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系"];
+  Node5 [id="Node000005",label="PhantomXStateCalclator\l::GetGlobalLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a6bb1641e5d222f4c920141d8b6c2a26a",tooltip="脚の先端の座標を取得する．グローバル(ワールド)座標系"];
 }

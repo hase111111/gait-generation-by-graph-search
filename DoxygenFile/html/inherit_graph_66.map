@@ -1,3 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$struct_s_target.html" title="探索において目標となる座標や角度，評価する値についてまとめた構造体" alt="" coords="5,5,72,32"/>
+<area shape="rect" id="Node000000" href="$class_stopwatch.html" title="時間計測用のクラス． &#160;&#160;Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する． &#160;&#160;実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．" alt="" coords="5,5,88,32"/>
 </map>

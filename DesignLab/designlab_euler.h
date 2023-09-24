@@ -1,5 +1,5 @@
 //! @file designlab_euler.h
-//! @brief オイラー角を用いた回転を表す構造体の定義
+//! @brief オイラー角を用いた回転を表す構造体
 
 #ifndef DESIGNLAB_EULER_H_
 #define DESIGNLAB_EULER_H_

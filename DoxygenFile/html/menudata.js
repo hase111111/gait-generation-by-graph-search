@@ -37,7 +37,8 @@ var menudata={children:[
 {text:"m",url:"namespacemembers.html#index_m"},
 {text:"o",url:"namespacemembers.html#index_o"},
 {text:"r",url:"namespacemembers.html#index_r"},
-{text:"s",url:"namespacemembers.html#index_s"}]},
+{text:"s",url:"namespacemembers.html#index_s"},
+{text:"w",url:"namespacemembers.html#index_w"}]},
 {text:"関数",url:"namespacemembers_func.html",children:[
 {text:"b",url:"namespacemembers_func.html#index_b"},
 {text:"c",url:"namespacemembers_func.html#index_c"},
@@ -47,7 +48,8 @@ var menudata={children:[
 {text:"m",url:"namespacemembers_func.html#index_m"},
 {text:"o",url:"namespacemembers_func.html#index_o"},
 {text:"r",url:"namespacemembers_func.html#index_r"},
-{text:"s",url:"namespacemembers_func.html#index_s"}]},
+{text:"s",url:"namespacemembers_func.html#index_s"},
+{text:"w",url:"namespacemembers_func.html#index_w"}]},
 {text:"変数",url:"namespacemembers_vars.html"},
 {text:"型定義",url:"namespacemembers_type.html"}]}]},
 {text:"クラス",url:"annotated.html",children:[

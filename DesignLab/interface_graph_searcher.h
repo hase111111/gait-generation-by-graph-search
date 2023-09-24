@@ -1,5 +1,5 @@
 //! @file interface_graph_searcher.h
-//! @brief グラフ木を作成する抽象クラス．
+//! @brief グラフ探索を行うインターフェース
 
 #ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 #define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
@@ -15,8 +15,7 @@
 
 
 //! @class IGraphSearcher
-//! @brief グラフ木を作成する抽象クラス．実体は作成できないのでこれを継承してたクラスを使ってください．
-//! @n 継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．
+//! @brief グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
 class IGraphSearcher
 {
 public:
@@ -31,7 +30,6 @@ public:
 	//! @param output_result [out] 出力されるノード
 	//! @return EGraphSearchResult 探索の結果
 	virtual EGraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) = 0;
-
 };
 
 

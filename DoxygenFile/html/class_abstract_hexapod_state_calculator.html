@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('class_abstract_hexapod_state_calculato
 
 <p>ロボットの状態を計算するクラスの抽象クラス． <br  />
  このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． <br  />
+ このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない <br  />
  スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116  
  <a href="class_abstract_hexapod_state_calculator.html#details">[詳解]</a></p>
 
@@ -107,7 +108,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_abstract_hexapod_state_calculator__inherit__graph.png" border="0" usemap="#a_abstract_hexapod_state_calculator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_abstract_hexapod_state_calculator_inherit__map" id="a_abstract_hexapod_state_calculator_inherit__map">
-<area shape="rect" title="ロボットの状態を計算するクラスの抽象クラス． &#160;&#160;このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． &#160;&#160;スレッドセーフなクラスにするこ..." alt="" coords="5,5,216,32"/>
+<area shape="rect" title="ロボットの状態を計算するクラスの抽象クラス． &#160;&#160;このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． &#160;&#160;このクラスを用いてロボットのス..." alt="" coords="5,5,216,32"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html" title=" " alt="" coords="29,80,192,107"/>
 <area shape="poly" title=" " alt="" coords="113,47,113,80,108,80,108,47"/>
 <area shape="rect" href="class_phantom_x_state_calclator___hato.html" title=" " alt="" coords="12,155,209,181"/>
@@ -117,105 +118,46 @@ AbstractHexapodStateCalculator の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ac7d89ecdc15ee32227e8893ab6ee397b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ac7d89ecdc15ee32227e8893ab6ee397b">calculateAllJointState</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, std::array&lt; <a class="el" href="struct_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; *joint_state) const =0</td></tr>
-<tr class="memdesc:ac7d89ecdc15ee32227e8893ab6ee397b"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．  <br /></td></tr>
-<tr class="separator:ac7d89ecdc15ee32227e8893ab6ee397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49dd6aaeeac58d9fe0c7f62f5e1d132d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a49dd6aaeeac58d9fe0c7f62f5e1d132d">convertGlobalToLegPosition</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_pos, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, const bool consider_rot) const =0</td></tr>
-<tr class="memdesc:a49dd6aaeeac58d9fe0c7f62f5e1d132d"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】グローバル座標系→脚座標系に変換する．  <br /></td></tr>
-<tr class="separator:a49dd6aaeeac58d9fe0c7f62f5e1d132d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9330dc5344a0430eb588729f1942ca7a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a9330dc5344a0430eb588729f1942ca7a">getLocalLegBasePosition</a> (const int leg_index) const =0</td></tr>
-<tr class="memdesc:a9330dc5344a0430eb588729f1942ca7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系  <br /></td></tr>
-<tr class="separator:a9330dc5344a0430eb588729f1942ca7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9871fa6bb3f7bf07288c93a739e73366"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a9871fa6bb3f7bf07288c93a739e73366">getLocalLegPosition</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos) const =0</td></tr>
-<tr class="memdesc:a9871fa6bb3f7bf07288c93a739e73366"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚先の座標を取得する．ローカル(ロボット)座標系  <br /></td></tr>
-<tr class="separator:a9871fa6bb3f7bf07288c93a739e73366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd014c47940b881b21942700db3a9a17"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#afd014c47940b881b21942700db3a9a17">getGlobalLegBasePosition</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, const bool consider_rot) const =0</td></tr>
-<tr class="memdesc:afd014c47940b881b21942700db3a9a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系  <br /></td></tr>
-<tr class="separator:afd014c47940b881b21942700db3a9a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d272a87d5f20f7bf4cd615c4520f6ad"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a8d272a87d5f20f7bf4cd615c4520f6ad">getGlobalLegPosition</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, const bool consider_rot) const =0</td></tr>
-<tr class="memdesc:a8d272a87d5f20f7bf4cd615c4520f6ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系  <br /></td></tr>
-<tr class="separator:a8d272a87d5f20f7bf4cd615c4520f6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d7b5d92990bdb2c64af008b1c52e53f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a9d7b5d92990bdb2c64af008b1c52e53f">isLegInRange</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos) const =0</td></tr>
-<tr class="memdesc:a9d7b5d92990bdb2c64af008b1c52e53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚が可動範囲内にあるかどうかを判定する．  <br /></td></tr>
-<tr class="separator:a9d7b5d92990bdb2c64af008b1c52e53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7355cac25eb2deacee641fcc2c567ba5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a7355cac25eb2deacee641fcc2c567ba5">isLegInterfering</a> (const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const =0</td></tr>
-<tr class="memdesc:a7355cac25eb2deacee641fcc2c567ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．  <br /></td></tr>
-<tr class="separator:a7355cac25eb2deacee641fcc2c567ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ef75d98963f3f7a7f73f7074925af5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5">calcStabilityMargin</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">dl_leg::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const</td></tr>
-<tr class="memdesc:ac6ef75d98963f3f7a7f73f7074925af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
+<tr class="memitem:a4392ef4faf3d963c17321672763550f7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a4392ef4faf3d963c17321672763550f7">CalculateAllJointState</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, std::array&lt; <a class="el" href="struct_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; *joint_state) const =0</td></tr>
+<tr class="memdesc:a4392ef4faf3d963c17321672763550f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．  <br /></td></tr>
+<tr class="separator:a4392ef4faf3d963c17321672763550f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ac05e9ade5bcb94dca1d55fb023f303cf">ConvertGlobalToLegPosition</a> (int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_pos, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, bool consider_rot) const =0</td></tr>
+<tr class="memdesc:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバル座標系→脚座標系に変換する．  <br /></td></tr>
+<tr class="separator:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3482daa72fe644222c05b625535566f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#af3482daa72fe644222c05b625535566f">GetFreeLegPosition</a> (int leg_index) const =0</td></tr>
+<tr class="memdesc:af3482daa72fe644222c05b625535566f"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚する位置を返す，脚座標系  <br /></td></tr>
+<tr class="separator:af3482daa72fe644222c05b625535566f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdf6dade9f586ce02be22b9214cfbb95"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#abdf6dade9f586ce02be22b9214cfbb95">GetLocalLegBasePosition</a> (int leg_index) const =0</td></tr>
+<tr class="memdesc:abdf6dade9f586ce02be22b9214cfbb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系  <br /></td></tr>
+<tr class="separator:abdf6dade9f586ce02be22b9214cfbb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32716ac2e120eb5b444482517af14354"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a32716ac2e120eb5b444482517af14354">GetLocalLegPosition</a> (int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:a32716ac2e120eb5b444482517af14354"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚先の座標を取得する．ローカル(ロボット)座標系  <br /></td></tr>
+<tr class="separator:a32716ac2e120eb5b444482517af14354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431eb96282c616c74d5d9d36f4893f13"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a431eb96282c616c74d5d9d36f4893f13">GetGlobalLegBasePosition</a> (int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, bool consider_rot) const =0</td></tr>
+<tr class="memdesc:a431eb96282c616c74d5d9d36f4893f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系  <br /></td></tr>
+<tr class="separator:a431eb96282c616c74d5d9d36f4893f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58160b05f400eb3374777decd6606ed"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ab58160b05f400eb3374777decd6606ed">GetGlobalLegPosition</a> (int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, bool consider_rot) const =0</td></tr>
+<tr class="memdesc:ab58160b05f400eb3374777decd6606ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の先端の座標を取得する．グローバル(ワールド)座標系  <br /></td></tr>
+<tr class="separator:ab58160b05f400eb3374777decd6606ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade9aa4e73ee3d83efc2e726518baa99c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ade9aa4e73ee3d83efc2e726518baa99c">IsLegInRange</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:ade9aa4e73ee3d83efc2e726518baa99c"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が可動範囲内にあるかどうかを判定する．  <br /></td></tr>
+<tr class="separator:ade9aa4e73ee3d83efc2e726518baa99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51154859ead106ff02907c6b9a4d6ebc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a51154859ead106ff02907c6b9a4d6ebc">IsLegInterfering</a> (const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:a51154859ead106ff02907c6b9a4d6ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が他の脚と干渉しているかどうかを判定する．  <br /></td></tr>
+<tr class="separator:a51154859ead106ff02907c6b9a4d6ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af40c67bb064772da2c58953e20f41713"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713">CalculateStabilityMargin</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">dl_leg::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const</td></tr>
+<tr class="memdesc:af40c67bb064772da2c58953e20f41713"><td class="mdescLeft">&#160;</td><td class="mdescRight">安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
  接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．  <br /></td></tr>
-<tr class="separator:ac6ef75d98963f3f7a7f73f7074925af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af40c67bb064772da2c58953e20f41713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ロボットの状態を計算するクラスの抽象クラス． <br  />
  このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． <br  />
+ このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない <br  />
  スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/30 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ac6ef75d98963f3f7a7f73f7074925af5" name="ac6ef75d98963f3f7a7f73f7074925af5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6ef75d98963f3f7a7f73f7074925af5">&#9670;&#160;</a></span>calcStabilityMargin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float AbstractHexapodStateCalculator::calcStabilityMargin </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">dl_leg::LegStateBit</a> &amp;&#160;</td>
-          <td class="paramname"><em>leg_state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>leg_pos</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
- 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する． </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_state</td><td>脚の状態．bitで表現される，遊脚・接地脚の情報を持つ． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する． </dd></dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_abstract_hexapod_state_calculator_ac6ef75d98963f3f7a7f73f7074925af5_cgraph.png" border="0" usemap="#aclass_abstract_hexapod_state_calculator_ac6ef75d98963f3f7a7f73f7074925af5_cgraph" alt=""/></div>
-<map name="aclass_abstract_hexapod_state_calculator_ac6ef75d98963f3f7a7f73f7074925af5_cgraph" id="aclass_abstract_hexapod_state_calculator_ac6ef75d98963f3f7a7f73f7074925af5_cgraph">
-<area shape="rect" title="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距..." alt="" coords="5,101,216,144"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="304,5,434,48"/>
-<area shape="poly" title=" " alt="" coords="161,98,263,58,289,48,291,53,265,62,163,103"/>
-<area shape="rect" href="class_abstract_hexapod_state_calculator.html#a9330dc5344a0430eb588729f1942ca7a" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,72,474,115"/>
-<area shape="poly" title=" " alt="" coords="216,108,249,104,249,110,216,113"/>
-<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="304,139,434,165"/>
-<area shape="poly" title=" " alt="" coords="216,132,290,140,289,146,216,137"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="304,189,434,232"/>
-<area shape="poly" title=" " alt="" coords="172,142,265,175,291,184,289,189,263,180,170,147"/>
-<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="522,156,659,199"/>
-<area shape="poly" title=" " alt="" coords="434,198,507,187,508,192,435,204"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="526,223,655,265"/>
-<area shape="poly" title=" " alt="" coords="435,218,512,230,511,235,434,223"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="707,223,837,265"/>
-<area shape="poly" title=" " alt="" coords="656,241,692,241,692,247,656,247"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac7d89ecdc15ee32227e8893ab6ee397b" name="ac7d89ecdc15ee32227e8893ab6ee397b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7d89ecdc15ee32227e8893ab6ee397b">&#9670;&#160;</a></span>calculateAllJointState()</h2>
+<a id="a4392ef4faf3d963c17321672763550f7" name="a4392ef4faf3d963c17321672763550f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4392ef4faf3d963c17321672763550f7">&#9670;&#160;</a></span>CalculateAllJointState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +166,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool AbstractHexapodStateCalculator::calculateAllJointState </td>
+          <td class="memname">virtual bool AbstractHexapodStateCalculator::CalculateAllJointState </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em>, </td>
@@ -256,14 +198,77 @@ AbstractHexapodStateCalculator の継承関係図</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>計算に成功したらtrue．失敗したらfalse． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool 計算に成功したらtrue．失敗したらfalse． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a5643a529f477c680bc92f9e038893fcc">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="a49dd6aaeeac58d9fe0c7f62f5e1d132d" name="a49dd6aaeeac58d9fe0c7f62f5e1d132d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49dd6aaeeac58d9fe0c7f62f5e1d132d">&#9670;&#160;</a></span>convertGlobalToLegPosition()</h2>
+<a id="af40c67bb064772da2c58953e20f41713" name="af40c67bb064772da2c58953e20f41713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af40c67bb064772da2c58953e20f41713">&#9670;&#160;</a></span>CalculateStabilityMargin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractHexapodStateCalculator::CalculateStabilityMargin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">dl_leg::LegStateBit</a> &amp;&#160;</td>
+          <td class="paramname"><em>leg_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
+ 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_state</td><td>脚の状態．bitで表現される，遊脚・接地脚の情報を持つ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_abstract_hexapod_state_calculator_af40c67bb064772da2c58953e20f41713_cgraph.png" border="0" usemap="#aclass_abstract_hexapod_state_calculator_af40c67bb064772da2c58953e20f41713_cgraph" alt=""/></div>
+<map name="aclass_abstract_hexapod_state_calculator_af40c67bb064772da2c58953e20f41713_cgraph" id="aclass_abstract_hexapod_state_calculator_af40c67bb064772da2c58953e20f41713_cgraph">
+<area shape="rect" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="5,131,216,173"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="304,5,434,48"/>
+<area shape="poly" title=" " alt="" coords="141,128,196,93,263,58,290,47,292,52,265,62,199,97,144,133"/>
+<area shape="rect" href="class_abstract_hexapod_state_calculator.html#abdf6dade9f586ce02be22b9214cfbb95" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,72,474,115"/>
+<area shape="poly" title=" " alt="" coords="207,127,257,116,258,121,208,133"/>
+<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="304,139,434,165"/>
+<area shape="poly" title=" " alt="" coords="216,149,290,149,290,155,216,155"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="304,189,434,232"/>
+<area shape="poly" title=" " alt="" coords="208,171,290,190,289,195,207,177"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="304,256,434,299"/>
+<area shape="poly" title=" " alt="" coords="144,171,199,207,265,242,292,252,290,257,263,246,196,211,141,176"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="522,156,659,199"/>
+<area shape="poly" title=" " alt="" coords="434,198,507,187,508,192,435,204"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="526,223,655,265"/>
+<area shape="poly" title=" " alt="" coords="435,218,512,230,511,235,434,223"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="707,223,837,265"/>
+<area shape="poly" title=" " alt="" coords="656,241,692,241,692,247,656,247"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac05e9ade5bcb94dca1d55fb023f303cf" name="ac05e9ade5bcb94dca1d55fb023f303cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05e9ade5bcb94dca1d55fb023f303cf">&#9670;&#160;</a></span>ConvertGlobalToLegPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,9 +277,9 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::convertGlobalToLegPosition </td>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::ConvertGlobalToLegPosition </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>leg_index</em>, </td>
         </tr>
         <tr>
@@ -298,7 +303,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>consider_rot</em>&#160;</td>
         </tr>
         <tr>
@@ -314,24 +319,25 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】グローバル座標系→脚座標系に変換する． </p>
+<p>グローバル座標系→脚座標系に変換する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">global_pos</td><td>グローバル座標系の座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">global_pos</td><td>グローバル座標系の脚先座標． </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">global_center_of_mass</td><td>ロボットの重心の座標．グローバル座標系． </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢．角度はrad. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない． </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚座標系の脚先座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#af3a010234881100e9c5eeb0eea19b8e6">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#acf135fb149d94d9f308b8fa34577dc56">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="afd014c47940b881b21942700db3a9a17" name="afd014c47940b881b21942700db3a9a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd014c47940b881b21942700db3a9a17">&#9670;&#160;</a></span>getGlobalLegBasePosition()</h2>
+<a id="af3482daa72fe644222c05b625535566f" name="af3482daa72fe644222c05b625535566f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3482daa72fe644222c05b625535566f">&#9670;&#160;</a></span>GetFreeLegPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,9 +346,46 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::getGlobalLegBasePosition </td>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::GetFreeLegPosition </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leg_index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>遊脚する位置を返す，脚座標系 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 遊脚する位置．脚座標系 </dd></dl>
+
+<p><a class="el" href="class_phantom_x_state_calclator.html#a98c996c2f82c8912b6d526477c3158a1">PhantomXStateCalclator</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a431eb96282c616c74d5d9d36f4893f13" name="a431eb96282c616c74d5d9d36f4893f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431eb96282c616c74d5d9d36f4893f13">&#9670;&#160;</a></span>GetGlobalLegBasePosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::GetGlobalLegBasePosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>leg_index</em>, </td>
         </tr>
         <tr>
@@ -360,7 +403,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>consider_rot</em>&#160;</td>
         </tr>
         <tr>
@@ -376,7 +419,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系 </p>
+<p>脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
@@ -388,12 +431,12 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚の付け根の座標．グローバル座標系． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#ab1046ebedd83bafba106e5ac1c430383">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a1496a624a7b82f6fcd9c4a35602818c6">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="a8d272a87d5f20f7bf4cd615c4520f6ad" name="a8d272a87d5f20f7bf4cd615c4520f6ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d272a87d5f20f7bf4cd615c4520f6ad">&#9670;&#160;</a></span>getGlobalLegPosition()</h2>
+<a id="ab58160b05f400eb3374777decd6606ed" name="ab58160b05f400eb3374777decd6606ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58160b05f400eb3374777decd6606ed">&#9670;&#160;</a></span>GetGlobalLegPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,9 +445,9 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::getGlobalLegPosition </td>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::GetGlobalLegPosition </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>leg_index</em>, </td>
         </tr>
         <tr>
@@ -428,7 +471,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>consider_rot</em>&#160;</td>
         </tr>
         <tr>
@@ -444,7 +487,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系 </p>
+<p>脚の先端の座標を取得する．グローバル(ワールド)座標系 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
@@ -457,12 +500,12 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚先の座標．グローバル座標系． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a7f49340c8ff2fc0e62aa5033d566ee3a">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a6bb1641e5d222f4c920141d8b6c2a26a">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="a9330dc5344a0430eb588729f1942ca7a" name="a9330dc5344a0430eb588729f1942ca7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9330dc5344a0430eb588729f1942ca7a">&#9670;&#160;</a></span>getLocalLegBasePosition()</h2>
+<a id="abdf6dade9f586ce02be22b9214cfbb95" name="abdf6dade9f586ce02be22b9214cfbb95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdf6dade9f586ce02be22b9214cfbb95">&#9670;&#160;</a></span>GetLocalLegBasePosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,9 +514,9 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::getLocalLegBasePosition </td>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::GetLocalLegBasePosition </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>leg_index</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -485,31 +528,31 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系 </p>
+<p>脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚の付け根の座標．ローカル座標系 </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚の付け根の座標．ローカル(ロボット)座標系 </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a2358037592e1bff7c12baae4e8cb8f71">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122">PhantomXStateCalclator</a>で実装されています。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_abstract_hexapod_state_calculator_a9330dc5344a0430eb588729f1942ca7a_icgraph.png" border="0" usemap="#aclass_abstract_hexapod_state_calculator_a9330dc5344a0430eb588729f1942ca7a_icgraph" alt=""/></div>
-<map name="aclass_abstract_hexapod_state_calculator_a9330dc5344a0430eb588729f1942ca7a_icgraph" id="aclass_abstract_hexapod_state_calculator_a9330dc5344a0430eb588729f1942ca7a_icgraph">
-<area shape="rect" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,5,474,48"/>
-<area shape="rect" href="class_abstract_hexapod_state_calculator.html#ac6ef75d98963f3f7a7f73f7074925af5" title="【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距..." alt="" coords="5,5,216,48"/>
+<div class="center"><img src="class_abstract_hexapod_state_calculator_abdf6dade9f586ce02be22b9214cfbb95_icgraph.png" border="0" usemap="#aclass_abstract_hexapod_state_calculator_abdf6dade9f586ce02be22b9214cfbb95_icgraph" alt=""/></div>
+<map name="aclass_abstract_hexapod_state_calculator_abdf6dade9f586ce02be22b9214cfbb95_icgraph" id="aclass_abstract_hexapod_state_calculator_abdf6dade9f586ce02be22b9214cfbb95_icgraph">
+<area shape="rect" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,5,474,48"/>
+<area shape="rect" href="class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="5,5,216,48"/>
 <area shape="poly" title=" " alt="" coords="249,29,216,29,216,24,249,24"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9871fa6bb3f7bf07288c93a739e73366" name="a9871fa6bb3f7bf07288c93a739e73366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9871fa6bb3f7bf07288c93a739e73366">&#9670;&#160;</a></span>getLocalLegPosition()</h2>
+<a id="a32716ac2e120eb5b444482517af14354" name="a32716ac2e120eb5b444482517af14354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32716ac2e120eb5b444482517af14354">&#9670;&#160;</a></span>GetLocalLegPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,9 +561,9 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::getLocalLegPosition </td>
+          <td class="memname">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> AbstractHexapodStateCalculator::GetLocalLegPosition </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>leg_index</em>, </td>
         </tr>
         <tr>
@@ -542,7 +585,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚先の座標を取得する．ローカル(ロボット)座標系 </p>
+<p>脚先の座標を取得する．ローカル(ロボット)座標系 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
@@ -552,12 +595,12 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 脚先の座標．ローカル座標系 </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a73d72f296dab5195641647c9cc220b8f">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a0ecaedad8c0655b389d06f4aa421e9d3">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="a9d7b5d92990bdb2c64af008b1c52e53f" name="a9d7b5d92990bdb2c64af008b1c52e53f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7b5d92990bdb2c64af008b1c52e53f">&#9670;&#160;</a></span>isLegInRange()</h2>
+<a id="ade9aa4e73ee3d83efc2e726518baa99c" name="ade9aa4e73ee3d83efc2e726518baa99c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade9aa4e73ee3d83efc2e726518baa99c">&#9670;&#160;</a></span>IsLegInRange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,7 +609,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool AbstractHexapodStateCalculator::isLegInRange </td>
+          <td class="memname">virtual bool AbstractHexapodStateCalculator::IsLegInRange </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>leg_index</em>, </td>
@@ -590,7 +633,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚が可動範囲内にあるかどうかを判定する． </p>
+<p>脚が可動範囲内にあるかどうかを判定する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
@@ -600,12 +643,12 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>bool 脚が可動範囲内にあればtrue．可動範囲外にあればfalse． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a0e3766d0a5aaf9fd8e39e1c4fe998862">PhantomXStateCalclator</a>, <a class="el" href="class_phantom_x_state_calclator___hato.html#a79bf35642d701858b7e6b64516faea15">PhantomXStateCalclator_Hato</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator___hato.html#ac56aef3f9820b542dc4eadd625f5d51d">PhantomXStateCalclator_Hato</a>, <a class="el" href="class_phantom_x_state_calclator.html#a8409b77c82e400bae4b0d8df1a54c596">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
-<a id="a7355cac25eb2deacee641fcc2c567ba5" name="a7355cac25eb2deacee641fcc2c567ba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7355cac25eb2deacee641fcc2c567ba5">&#9670;&#160;</a></span>isLegInterfering()</h2>
+<a id="a51154859ead106ff02907c6b9a4d6ebc" name="a51154859ead106ff02907c6b9a4d6ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51154859ead106ff02907c6b9a4d6ebc">&#9670;&#160;</a></span>IsLegInterfering()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -614,7 +657,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool AbstractHexapodStateCalculator::isLegInterfering </td>
+          <td class="memname">virtual bool AbstractHexapodStateCalculator::IsLegInterfering </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>leg_pos</em></td><td>)</td>
@@ -628,7 +671,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する． </p>
+<p>脚が他の脚と干渉しているかどうかを判定する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
@@ -637,13 +680,13 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>bool 脚が他の脚と干渉していればtrue．干渉していなければfalse． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a1b82ff5d9a2d9597a435dbc100e6da0d">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a8f95bf9984294ea4f9dcde220288930e">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
-<li>DesignLab/abstract_hexapod_state_calculator.cpp</li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/abstract_hexapod_state_calculator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

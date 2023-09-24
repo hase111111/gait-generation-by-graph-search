@@ -96,15 +96,20 @@ $(document).ready(function(){initNavTree('class_application_setting_key.html',''
   <div class="headertitle"><div class="title">ApplicationSettingKey クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>設定ファイルのキーをまとめた定数クラス  
+ <a href="class_application_setting_key.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="application__setting__key_8h_source.html">application_setting_key.h</a>&gt;</code></p>
 <div class="dynheader">
 ApplicationSettingKey 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_application_setting_key__coll__graph.png" border="0" usemap="#a_application_setting_key_coll__map" alt="Collaboration graph"/></div>
 <map name="a_application_setting_key_coll__map" id="a_application_setting_key_coll__map">
-<area shape="rect" title=" " alt="" coords="75,272,224,299"/>
-<area shape="rect" href="struct_setting_key_data.html" title=" " alt="" coords="5,5,118,32"/>
+<area shape="rect" title="設定ファイルのキーをまとめた定数クラス" alt="" coords="75,272,224,299"/>
+<area shape="rect" href="struct_setting_key_data.html" title="設定ファイルのデータのキーをまとめた構造体" alt="" coords="5,5,118,32"/>
 <area shape="poly" title=" " alt="" coords="56,47,46,89,40,141,45,196,53,222,65,246,78,260,94,269,92,274,75,264,61,250,48,224,40,197,35,141,41,88,51,45"/>
-<area shape="rect" href="struct_setting_table_data.html" title=" " alt="" coords="177,5,298,32"/>
+<area shape="rect" href="struct_setting_table_data.html" title="設定ファイルのテーブルのデータをまとめた構造体" alt="" coords="177,5,298,32"/>
 <area shape="poly" title=" " alt="" coords="244,47,246,89,244,141,234,197,224,224,210,250,198,263,183,274,180,269,194,259,206,246,219,222,228,196,239,141,241,89,238,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
@@ -114,6 +119,9 @@ ApplicationSettingKey 連携図</div>
 <tr class="memitem:a0e52a3d1ed8f542e2d39833b62c3d4c3"><td class="memItemLeft" align="right" valign="top"><a id="a0e52a3d1ed8f542e2d39833b62c3d4c3" name="a0e52a3d1ed8f542e2d39833b62c3d4c3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ApplicationSettingKey</b> (<a class="el" href="class_application_setting_key.html">ApplicationSettingKey</a> &amp;other)=delete</td></tr>
 <tr class="separator:a0e52a3d1ed8f542e2d39833b62c3d4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173e6ad1bc8bf6eacf266d1424380c36"><td class="memItemLeft" align="right" valign="top"><a id="a173e6ad1bc8bf6eacf266d1424380c36" name="a173e6ad1bc8bf6eacf266d1424380c36"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ApplicationSettingKey</b> (<a class="el" href="class_application_setting_key.html">ApplicationSettingKey</a> &amp;&amp;other)=delete</td></tr>
+<tr class="separator:a173e6ad1bc8bf6eacf266d1424380c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a033aeeab227cd00a349beacd743f8b2f"><td class="memItemLeft" align="right" valign="top"><a id="a033aeeab227cd00a349beacd743f8b2f" name="a033aeeab227cd00a349beacd743f8b2f"></a>
 <a class="el" href="class_application_setting_key.html">ApplicationSettingKey</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_application_setting_key.html">ApplicationSettingKey</a> &amp;other)=delete</td></tr>
 <tr class="separator:a033aeeab227cd00a349beacd743f8b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,10 +130,9 @@ ApplicationSettingKey 連携図</div>
 静的公開変数類</h2></td></tr>
 <tr class="memitem:a7d320a71b837b5e9c3f0230c74f87dd1"><td class="memItemLeft" align="right" valign="top"><a id="a7d320a71b837b5e9c3f0230c74f87dd1" name="a7d320a71b837b5e9c3f0230c74f87dd1"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FILE_TITLE_VALUE</b> = &quot;graph_search_settings&quot;</td></tr>
-<tr class="memdesc:a7d320a71b837b5e9c3f0230c74f87dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルタイトルの値 <br /></td></tr>
 <tr class="separator:a7d320a71b837b5e9c3f0230c74f87dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac67fb98a39262d3627938dca67befb9e"><td class="memItemLeft" align="right" valign="top"><a id="ac67fb98a39262d3627938dca67befb9e" name="ac67fb98a39262d3627938dca67befb9e"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FILE_TITLE</b> = { &quot;&quot; ,&quot;title&quot;, u8&quot;タイトルが\&quot;&quot; + <a class="el" href="class_application_setting_key.html#a7d320a71b837b5e9c3f0230c74f87dd1">ApplicationSettingKey::FILE_TITLE_VALUE</a> + u8&quot;\&quot;の物のみを読み込みます&quot; }</td></tr>
+static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FILE_TITLE</b> = { &quot;&quot; ,&quot;title&quot;, u8&quot;タイトルが\&quot;&quot; + ApplicationSettingKey::FILE_TITLE_VALUE + u8&quot;\&quot;の物のみを読み込みます&quot; }</td></tr>
 <tr class="separator:ac67fb98a39262d3627938dca67befb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4a88f66214183c3c5c19b02d079179d"><td class="memItemLeft" align="right" valign="top"><a id="aa4a88f66214183c3c5c19b02d079179d" name="aa4a88f66214183c3c5c19b02d079179d"></a>
 static const <a class="el" href="struct_setting_table_data.html">SettingTableData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VERSION_TABLE</b> = { &quot;version&quot; ,u8&quot;ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく&quot; }</td></tr>
@@ -178,43 +185,12 @@ static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a
 <tr class="memitem:a24d0826933f3b1182ca554627f433401"><td class="memItemLeft" align="right" valign="top"><a id="a24d0826933f3b1182ca554627f433401" name="a24d0826933f3b1182ca554627f433401"></a>
 static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>WINDOW_FPS</b> = { ApplicationSettingKey::DISPLAY_TABLE.table_name ,&quot;window_pos_x&quot;,u8&quot;ウィンドウのフレームレートを設定します．推奨値は60か30です．&quot; }</td></tr>
 <tr class="separator:a24d0826933f3b1182ca554627f433401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e41fc0f070f18614a3bacdf204d7d7"><td class="memItemLeft" align="right" valign="top"><a id="a49e41fc0f070f18614a3bacdf204d7d7" name="a49e41fc0f070f18614a3bacdf204d7d7"></a>
-static const <a class="el" href="struct_setting_table_data.html">SettingTableData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_TABLE</b> = { &quot;map&quot; ,&quot;マップ生成に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．&quot; }</td></tr>
-<tr class="separator:a49e41fc0f070f18614a3bacdf204d7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed42f4beafce61c5cf5db276c00e97f5"><td class="memItemLeft" align="right" valign="top"><a id="aed42f4beafce61c5cf5db276c00e97f5" name="aed42f4beafce61c5cf5db276c00e97f5"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_CREATE_MODE</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_create_mode&quot;,&quot;マップの生成方法を設定します．整数で指定します&quot; }</td></tr>
-<tr class="separator:aed42f4beafce61c5cf5db276c00e97f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ebe78fb9c76aa7b97e817158e73c229"><td class="memItemLeft" align="right" valign="top"><a id="a0ebe78fb9c76aa7b97e817158e73c229" name="a0ebe78fb9c76aa7b97e817158e73c229"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_CREATE_OPTION</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_create_option&quot;,&quot;マップの生成方法のオプションを設定します．整数で指定します&quot; }</td></tr>
-<tr class="separator:a0ebe78fb9c76aa7b97e817158e73c229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21992767841403475ffb5600cbadeb41"><td class="memItemLeft" align="right" valign="top"><a id="a21992767841403475ffb5600cbadeb41" name="a21992767841403475ffb5600cbadeb41"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DO_OUTPUT_MAP</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;do_output_map&quot;,&quot;マップの生成時にマップを出力するかどうかを設定します．&quot; }</td></tr>
-<tr class="separator:a21992767841403475ffb5600cbadeb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0abe227a2344945fb94028d6a3d7b8c"><td class="memItemLeft" align="right" valign="top"><a id="ad0abe227a2344945fb94028d6a3d7b8c" name="ad0abe227a2344945fb94028d6a3d7b8c"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_HOLE_RATE</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_hole_rate&quot;,&quot;マップの生成時に穴を生成する確率を設定します．0 ~ 100の範囲で指定します．&quot; }</td></tr>
-<tr class="separator:ad0abe227a2344945fb94028d6a3d7b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f25ff751c47a55d318637d940fe644"><td class="memItemLeft" align="right" valign="top"><a id="a37f25ff751c47a55d318637d940fe644" name="a37f25ff751c47a55d318637d940fe644"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_STEP_HEIGHT</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_step_height&quot;,&quot;マップの生成時に段差を生成する高さを設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a37f25ff751c47a55d318637d940fe644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45d07ecb507fbb4bde66d53d5155be6c"><td class="memItemLeft" align="right" valign="top"><a id="a45d07ecb507fbb4bde66d53d5155be6c" name="a45d07ecb507fbb4bde66d53d5155be6c"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_STEP_LENGTH</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_step_length&quot;,&quot;マップの生成時に段差を生成する長さを設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a45d07ecb507fbb4bde66d53d5155be6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f46b17960494f29c268c66ae780d32d"><td class="memItemLeft" align="right" valign="top"><a id="a5f46b17960494f29c268c66ae780d32d" name="a5f46b17960494f29c268c66ae780d32d"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_SLOPE_ANGLE_DEG</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_slope_angle_deg&quot;,&quot;マップの生成時に斜面を生成する角度[deg]を設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a5f46b17960494f29c268c66ae780d32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13160cfcdda67f3c04ac171642aa15db"><td class="memItemLeft" align="right" valign="top"><a id="a13160cfcdda67f3c04ac171642aa15db" name="a13160cfcdda67f3c04ac171642aa15db"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_TILT_ANGLE_DEG</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;map_tilt_angle_deg&quot;,&quot;マップの生成時に傾斜を生成する角度[deg]を設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a13160cfcdda67f3c04ac171642aa15db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51046c85a8ae4a0b19e0a3c0d404b647"><td class="memItemLeft" align="right" valign="top"><a id="a51046c85a8ae4a0b19e0a3c0d404b647" name="a51046c85a8ae4a0b19e0a3c0d404b647"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ROUGH_MAX_DIF</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;rough_max_dif&quot;,&quot;マップの生成時に段差を生成する際の最大の高さの差を設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a51046c85a8ae4a0b19e0a3c0d404b647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5415ffbcad38969af942a09aa5819090"><td class="memItemLeft" align="right" valign="top"><a id="a5415ffbcad38969af942a09aa5819090" name="a5415ffbcad38969af942a09aa5819090"></a>
-static const <a class="el" href="struct_setting_key_data.html">SettingKeyData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ROUGH_MIN_DIF</b> = { ApplicationSettingKey::MAP_TABLE.table_name ,&quot;rough_min_dif&quot;,&quot;マップの生成時に段差を生成する際の最小の高さの差を設定します．小数で指定します&quot; }</td></tr>
-<tr class="separator:a5415ffbcad38969af942a09aa5819090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>DesignLab/<a class="el" href="application__setting__key_8h_source.html">application_setting_key.h</a></li>
-<li>DesignLab/application_setting_key.cpp</li>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>設定ファイルのキーをまとめた定数クラス </p>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="application__setting__key_8h_source.html">application_setting_key.h</a></li>
+<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/application_setting_key.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

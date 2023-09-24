@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['define_2eh_0',['Define.h',['../_define_8h.html',1,'']]],
+  ['define_2eh_0',['define.h',['../define_8h.html',1,'']]],
   ['designlab_5feuler_2eh_1',['designlab_euler.h',['../designlab__euler_8h.html',1,'']]],
   ['designlab_5fline_5fsegment2_2eh_2',['designlab_line_segment2.h',['../designlab__line__segment2_8h.html',1,'']]],
   ['designlab_5fpolygon2_2eh_3',['designlab_polygon2.h',['../designlab__polygon2_8h.html',1,'']]],

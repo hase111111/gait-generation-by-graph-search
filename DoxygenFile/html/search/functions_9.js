@@ -6,7 +6,5 @@ var searchData=
   ['makeleggroundedpatternbanlist_3',['makeLegGroundedPatternBanList',['../namespacedl__com.html#a1c98929ee34aa803bb98cc345dcae146',1,'dl_com']]],
   ['makeleggroundedpatternbanlistfromleg_4',['makeLegGroundedPatternBanListFromLeg',['../namespacedl__com.html#a5bb4bcb29b1d92740cb2faf7ad46a0a9',1,'dl_com']]],
   ['makelegstatebit_5',['MakeLegStateBit',['../namespacedl__leg.html#af9476431a9ed1a6eaf7c47b27047e3ba',1,'dl_leg']]],
-  ['map_5fpoint_6',['map_point',['../class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd',1,'MapState']]],
-  ['middle_5fpushing_5fcounter_7',['middle_pushing_counter',['../class_mouse.html#a202946746187424a87c2455424cd0c9a',1,'Mouse']]],
-  ['middle_5freleasing_5fcounter_8',['middle_releasing_counter',['../class_mouse.html#a8b6ba58a77e19ce6523e7fcc020c79c4',1,'Mouse']]]
+  ['map_5fpoint_6',['map_point',['../class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd',1,'MapState']]]
 ];
