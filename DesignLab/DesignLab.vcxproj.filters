@@ -246,7 +246,7 @@
     <ClInclude Include="camera_state_manager.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="camera_controller.h">
+    <ClInclude Include="camera_input_controller.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClInclude>
     <ClInclude Include="camera_gui.h">
@@ -509,7 +509,7 @@
     <ClCompile Include="designlab_quaternion.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="camera_controller.cpp">
+    <ClCompile Include="camera_input_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClCompile>
     <ClCompile Include="camera_state_manager.cpp">

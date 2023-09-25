@@ -104,13 +104,15 @@ $(document).ready(function(){initNavTree('class_camera_gui.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a10fc4066d976eb48b3886641040d65ee"><td class="memItemLeft" align="right" valign="top"><a id="a10fc4066d976eb48b3886641040d65ee" name="a10fc4066d976eb48b3886641040d65ee"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CameraGui</b> (const int left_x, const int top_y)</td></tr>
-<tr class="separator:a10fc4066d976eb48b3886641040d65ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7804785608222ffa9eb17f6aeb6befff"><td class="memItemLeft" align="right" valign="top"><a id="a7804785608222ffa9eb17f6aeb6befff" name="a7804785608222ffa9eb17f6aeb6befff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHexapodPos</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> pos)</td></tr>
-<tr class="memdesc:a7804785608222ffa9eb17f6aeb6befff"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラの注視する位置を設定する <br /></td></tr>
-<tr class="separator:a7804785608222ffa9eb17f6aeb6befff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6a6903c519b496775c3dd4e15832b95"><td class="memItemLeft" align="right" valign="top"><a id="ae6a6903c519b496775c3dd4e15832b95" name="ae6a6903c519b496775c3dd4e15832b95"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CameraGui</b> ()</td></tr>
+<tr class="memdesc:ae6a6903c519b496775c3dd4e15832b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIを表示する位置を指定しない場合のコンストラクタ，左上 (0, 0) を起点に表示する <br /></td></tr>
+<tr class="separator:ae6a6903c519b496775c3dd4e15832b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48021feef2a75e83f4f19edca19975bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_gui.html#a48021feef2a75e83f4f19edca19975bf">CameraGui</a> (int x_pos, int y_pos, unsigned int option)</td></tr>
+<tr class="separator:a48021feef2a75e83f4f19edca19975bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e92e9302d05ea281203fc91a1108d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_gui.html#a7e92e9302d05ea281203fc91a1108d16">SetHexapodPos</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;pos)</td></tr>
+<tr class="memdesc:a7e92e9302d05ea281203fc91a1108d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラが注視するロボットの座標を設定する  <br /></td></tr>
+<tr class="separator:a7e92e9302d05ea281203fc91a1108d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6acd3a19c988ec33ff84572a025ac2cd"><td class="memItemLeft" align="right" valign="top"><a id="a6acd3a19c988ec33ff84572a025ac2cd" name="a6acd3a19c988ec33ff84572a025ac2cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
 <tr class="memdesc:a6acd3a19c988ec33ff84572a025ac2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIやカメラの更新を行う <br /></td></tr>
@@ -122,21 +124,123 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
-<tr class="memitem:af14f1c62bb45df3317011807033a5ef0"><td class="memItemLeft" align="right" valign="top"><a id="af14f1c62bb45df3317011807033a5ef0" name="af14f1c62bb45df3317011807033a5ef0"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>GUI_SIZE_X</b> = 235</td></tr>
-<tr class="separator:af14f1c62bb45df3317011807033a5ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b0aa82d35705c4e14a1509e7343abd"><td class="memItemLeft" align="right" valign="top"><a id="a65b0aa82d35705c4e14a1509e7343abd" name="a65b0aa82d35705c4e14a1509e7343abd"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>GUI_SIZE_Y</b> = 410</td></tr>
-<tr class="separator:a65b0aa82d35705c4e14a1509e7343abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b73b5e82927090c13f72d6b7adb722"><td class="memItemLeft" align="right" valign="top"><a id="a47b73b5e82927090c13f72d6b7adb722" name="a47b73b5e82927090c13f72d6b7adb722"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>CLOSED_GUI_SIZE_Y</b> = 40</td></tr>
-<tr class="separator:a47b73b5e82927090c13f72d6b7adb722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08aa8d36c9cf109e89ed9f071f33f9c4"><td class="memItemLeft" align="right" valign="top"><a id="a08aa8d36c9cf109e89ed9f071f33f9c4" name="a08aa8d36c9cf109e89ed9f071f33f9c4"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kOptionLeftTop</b> = 0b00</td></tr>
+<tr class="memdesc:a08aa8d36c9cf109e89ed9f071f33f9c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">左上を起点に座標を設定する <br /></td></tr>
+<tr class="separator:a08aa8d36c9cf109e89ed9f071f33f9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad783b6dd3b7417c7be2a7403e6d2b1e4"><td class="memItemLeft" align="right" valign="top"><a id="ad783b6dd3b7417c7be2a7403e6d2b1e4" name="ad783b6dd3b7417c7be2a7403e6d2b1e4"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kOptionLeftBottom</b> = 0b10</td></tr>
+<tr class="memdesc:ad783b6dd3b7417c7be2a7403e6d2b1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">左下を起点に座標を設定する <br /></td></tr>
+<tr class="separator:ad783b6dd3b7417c7be2a7403e6d2b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa8a6c034ea4733f69eb5e725f80720"><td class="memItemLeft" align="right" valign="top"><a id="a9aa8a6c034ea4733f69eb5e725f80720" name="a9aa8a6c034ea4733f69eb5e725f80720"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kOptionRightTop</b> = 0b01</td></tr>
+<tr class="memdesc:a9aa8a6c034ea4733f69eb5e725f80720"><td class="mdescLeft">&#160;</td><td class="mdescRight">右上を起点に座標を設定する <br /></td></tr>
+<tr class="separator:a9aa8a6c034ea4733f69eb5e725f80720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50616a5215ab0e2a108454a65d800a19"><td class="memItemLeft" align="right" valign="top"><a id="a50616a5215ab0e2a108454a65d800a19" name="a50616a5215ab0e2a108454a65d800a19"></a>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kOptionRightBottom</b> = 0b11</td></tr>
+<tr class="memdesc:a50616a5215ab0e2a108454a65d800a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">右下を起点に座標を設定する <br /></td></tr>
+<tr class="separator:a50616a5215ab0e2a108454a65d800a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>カメラの操作・管理を行うGUIを行うクラス </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/21 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<p>使用したい場合は，メンバにこいつを持たせて，UpdateとDrawを呼び出すだけでよい． </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a48021feef2a75e83f4f19edca19975bf" name="a48021feef2a75e83f4f19edca19975bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48021feef2a75e83f4f19edca19975bf">&#9670;&#160;</a></span>CameraGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CameraGui::CameraGui </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x_pos</td><td>GUIを表示するx座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y_pos</td><td>GUIを表示するy座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option</td><td>GUIのどの地点を起点に表示位置を指定するか </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a7e92e9302d05ea281203fc91a1108d16" name="a7e92e9302d05ea281203fc91a1108d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e92e9302d05ea281203fc91a1108d16">&#9670;&#160;</a></span>SetHexapodPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraGui::SetHexapodPos </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カメラが注視するロボットの座標を設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>ロボットの座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_gui_a7e92e9302d05ea281203fc91a1108d16_cgraph.png" border="0" usemap="#aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_cgraph" alt=""/></div>
+<map name="aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_cgraph" id="aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_cgraph">
+<area shape="rect" title="カメラが注視するロボットの座標を設定する" alt="" coords="5,13,194,40"/>
+<area shape="rect" href="class_camera_state_manager.html#adfcaa7e32758f9c1e9315359c72b7c4d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="242,5,389,48"/>
+<area shape="poly" title=" " alt="" coords="194,24,227,24,227,29,194,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_camera_gui_a7e92e9302d05ea281203fc91a1108d16_icgraph.png" border="0" usemap="#aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_icgraph" alt=""/></div>
+<map name="aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_icgraph" id="aclass_camera_gui_a7e92e9302d05ea281203fc91a1108d16_icgraph">
+<area shape="rect" title="カメラが注視するロボットの座標を設定する" alt="" coords="230,101,418,128"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="272,98,181,62,151,51,153,46,183,58,274,93"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="215,103,182,99,182,94,215,98"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,131,178,136,178,131,214,126"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="282,137,183,180,147,191,146,186,181,175,280,132"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="camera__gui_8h_source.html">camera_gui.h</a></li>
 <li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/camera_gui.cpp</li>
 </ul>

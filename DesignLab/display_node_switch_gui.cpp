@@ -81,7 +81,7 @@ void DisplayNodeSwitchGui::Update()
 	{
 		i.second->Update();
 
-		if (i.second->isPushedNow())
+		if (i.second->IsPushedNow())
 		{
 			switch (i.first)
 			{
@@ -115,7 +115,7 @@ void DisplayNodeSwitchGui::Update()
 			}
 		}
 
-		if (i.second->isPushedNow())
+		if (i.second->IsPushedNow())
 		{
 			if (i.first == EButtonType::SpeedDown)
 			{

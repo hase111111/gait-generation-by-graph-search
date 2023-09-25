@@ -1,5 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_i_graph_searcher.html" title="グラフ木を作成する抽象クラス．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;&#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．" alt="" coords="5,31,117,57"/>
+<area shape="rect" id="Node000000" href="$class_i_graph_searcher.html" title="グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="5,31,117,57"/>
 <area shape="rect" id="Node000001" href="$class_graph_searcher_hato.html" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="175,5,311,32"/>
 <area shape="poly" id="edge7_Node000000_Node000001" title=" " alt="" coords="131,32,175,25,175,31,132,37"/>
 <area shape="rect" id="Node000002" href="$class_graph_searcher_random.html" title=" " alt="" coords="165,56,321,83"/>

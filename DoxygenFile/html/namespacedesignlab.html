@@ -121,9 +121,10 @@ $(document).ready(function(){initNavTree('namespacedesignlab.html',''); initResi
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_polygon2.html">Polygon2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2次元の多角形を表す構造体  <a href="structdesignlab_1_1_polygon2.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンを表す構造体  <a href="structdesignlab_1_1_quaternion.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2次元の位置ベクトルを表す構造体  <a href="structdesignlab_1_1_vector2.html#details">[詳解]</a><br /></td></tr>
@@ -149,12 +150,12 @@ template&lt;class Char &gt; </td></tr>
 template&lt;class Char &gt; </td></tr>
 <tr class="memitem:ac1a2fcc81a507225004b651c74d289ee"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="structdesignlab_1_1_polygon2.html">Polygon2</a> &amp;v)</td></tr>
 <tr class="separator:ac1a2fcc81a507225004b651c74d289ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28e2afa00c9d04d687dd8789660f7fca"><td class="memItemLeft" align="right" valign="top"><a id="a28e2afa00c9d04d687dd8789660f7fca" name="a28e2afa00c9d04d687dd8789660f7fca"></a>
-constexpr <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:a28e2afa00c9d04d687dd8789660f7fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"><td class="memItemLeft" align="right" valign="top"><a id="a5f2fa2f0d0f6927e06ee3c9fc2be6ca1" name="a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"></a>
-<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotVecByQuat</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1329cb082c6b47a47150da24f72b15ee"><td class="memItemLeft" align="right" valign="top"><a id="a1329cb082c6b47a47150da24f72b15ee" name="a1329cb082c6b47a47150da24f72b15ee"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:a1329cb082c6b47a47150da24f72b15ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memItemLeft" align="right" valign="top"><a id="aac676dd02b1ac3dfa1224bf0db95bfe1" name="aac676dd02b1ac3dfa1224bf0db95bfe1"></a>
+<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotVecByQuat</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c0b111e17683a8a0fc71d3500672211"><td class="memItemLeft" align="right" valign="top"><a id="a5c0b111e17683a8a0fc71d3500672211" name="a5c0b111e17683a8a0fc71d3500672211"></a>
 constexpr <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a> &amp;v)</td></tr>
 <tr class="separator:a5c0b111e17683a8a0fc71d3500672211"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -16,6 +16,7 @@ var namespacedesignlab =
       [ "kHorizontalLineLength", "namespacedesignlab_1_1cmdio.html#ae5b638fb923fbfa58dff531e65a03dfd", null ]
     ] ],
     [ "math_util", "namespacedesignlab_1_1math__util.html", [
+      [ "ApproachTarget", "namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b", null ],
       [ "ConvertDegToRad", "namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f", null ],
       [ "ConvertDegToRad", "namespacedesignlab_1_1math__util.html#a77a271f2caea19a6760c8e9acfe1fc2c", null ],
       [ "ConvertDoubleToString", "namespacedesignlab_1_1math__util.html#adf888555ef4b5b7c531fdd5b2aa4208c", null ],
@@ -27,9 +28,7 @@ var namespacedesignlab =
       [ "GenerateRandomNumber", "namespacedesignlab_1_1math__util.html#a80960eb777d39640712bef61fd0666fc", null ],
       [ "IsEqual", "namespacedesignlab_1_1math__util.html#a3eb2251daf5f72c44c0cf4f487e211af", null ],
       [ "IsEqual", "namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e", null ],
-      [ "Squared", "namespacedesignlab_1_1math__util.html#a88c18c1999b0f96f1b67606ba3105bfa", null ],
-      [ "Squared", "namespacedesignlab_1_1math__util.html#a841e04ed3ffcd4e2a80122e3915fda31", null ],
-      [ "Squared", "namespacedesignlab_1_1math__util.html#a9ef03f5c17c62f04c2ce6c620e22e6b3", null ],
+      [ "Squared", "namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0", null ],
       [ "kAllowableError", "namespacedesignlab_1_1math__util.html#ab5e09068526acc621f38770e66583d61", null ],
       [ "kDigit", "namespacedesignlab_1_1math__util.html#a47a34b2c170edef572bff2c2c5fc933a", null ],
       [ "kDoubleAllowableError", "namespacedesignlab_1_1math__util.html#a97f17488a81c796546e3982e3f7889e9", null ],
@@ -40,8 +39,8 @@ var namespacedesignlab =
     [ "EulerXYZ", "structdesignlab_1_1_euler_x_y_z.html", "structdesignlab_1_1_euler_x_y_z" ],
     [ "LineSegment2", "structdesignlab_1_1_line_segment2.html", "structdesignlab_1_1_line_segment2" ],
     [ "Polygon2", "structdesignlab_1_1_polygon2.html", "structdesignlab_1_1_polygon2" ],
+    [ "Quaternion", "structdesignlab_1_1_quaternion.html", "structdesignlab_1_1_quaternion" ],
     [ "RotationMatrix3x3", "structdesignlab_1_1_rotation_matrix3x3.html", "structdesignlab_1_1_rotation_matrix3x3" ],
-    [ "SQuaternion", "structdesignlab_1_1_s_quaternion.html", "structdesignlab_1_1_s_quaternion" ],
     [ "Vector2", "structdesignlab_1_1_vector2.html", "structdesignlab_1_1_vector2" ],
     [ "Vector3", "structdesignlab_1_1_vector3.html", "structdesignlab_1_1_vector3" ],
     [ "operator*", "namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5", null ],

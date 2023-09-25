@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_asyncable_data.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体  
+<p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．(コピー・ムーブは禁止)  
  <a href="class_asyncable_data.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a>&gt;</code></p>
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('class_asyncable_data.html',''); initRe
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a672f85e0d834897a8e91771e892e19c0"><td class="memItemLeft" align="right" valign="top"><a id="a672f85e0d834897a8e91771e892e19c0" name="a672f85e0d834897a8e91771e892e19c0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncableData</b> (const T &amp;<a class="el" href="class_asyncable_data.html#ab63485c068326178c810533c8ba179f7">data</a>)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncableData</b> (const T &amp;data)</td></tr>
 <tr class="separator:a672f85e0d834897a8e91771e892e19c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aa28cbcef8e0255eca01fe598b7fd30"><td class="memItemLeft" align="right" valign="top"><a id="a2aa28cbcef8e0255eca01fe598b7fd30" name="a2aa28cbcef8e0255eca01fe598b7fd30"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AsyncableData</b> (const <a class="el" href="class_asyncable_data.html">AsyncableData</a> &amp;)=delete</td></tr>
@@ -116,25 +116,25 @@ $(document).ready(function(){initNavTree('class_asyncable_data.html',''); initRe
 <tr class="memitem:af96786d0a3bdc4875209e08f311fb139"><td class="memItemLeft" align="right" valign="top"><a id="af96786d0a3bdc4875209e08f311fb139" name="af96786d0a3bdc4875209e08f311fb139"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AsyncableData</b> (<a class="el" href="class_asyncable_data.html">AsyncableData</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:af96786d0a3bdc4875209e08f311fb139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab63485c068326178c810533c8ba179f7"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#ab63485c068326178c810533c8ba179f7">data</a> () const</td></tr>
-<tr class="separator:ab63485c068326178c810533c8ba179f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78982d2da860a8181c500ca8a744f9d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a78982d2da860a8181c500ca8a744f9d0">set_data</a> (const T &amp;<a class="el" href="class_asyncable_data.html#ab63485c068326178c810533c8ba179f7">data</a>)</td></tr>
-<tr class="memdesc:a78982d2da860a8181c500ca8a744f9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">値を変更する． <br  />
+<tr class="memitem:a3d9e84fdf4ab207fbe769f383af28546"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a3d9e84fdf4ab207fbe769f383af28546">GetData</a> () const</td></tr>
+<tr class="separator:a3d9e84fdf4ab207fbe769f383af28546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0857e1460ef1933c8786cf59837da58e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a0857e1460ef1933c8786cf59837da58e">SetData</a> (const T &amp;data)</td></tr>
+<tr class="memdesc:a0857e1460ef1933c8786cf59837da58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">値を変更する． <br  />
  この時，write lockをかける． <br  />
  データの更新回数をインクリメントする．  <br /></td></tr>
-<tr class="separator:a78982d2da860a8181c500ca8a744f9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f816018a7469bde3579c7694b1480d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a4f816018a7469bde3579c7694b1480d0">update_count</a> () const</td></tr>
-<tr class="memdesc:a4f816018a7469bde3579c7694b1480d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す． <br  />
+<tr class="separator:a0857e1460ef1933c8786cf59837da58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da14f5a73fac5e95372bb9e0a3abc77"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asyncable_data.html#a1da14f5a73fac5e95372bb9e0a3abc77">GetUpdateCount</a> () const</td></tr>
+<tr class="memdesc:a1da14f5a73fac5e95372bb9e0a3abc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す． <br  />
  この時，read lockをかける． <br  />
  この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．  <br /></td></tr>
-<tr class="separator:a4f816018a7469bde3579c7694b1480d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a1da14f5a73fac5e95372bb9e0a3abc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
-class AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 </p>
-<p>この構造体は，データの更新回数とデータをまとめて扱うための構造体． <br  />
- 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，データの更新回数をカウントする <br  />
- また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．ミューテックスについては以下を参照 <br  />
+class AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．(コピー・ムーブは禁止) </p>
+<p>この構造体は，データの更新回数とデータをまとめて扱うためのクラス． <br  />
+ 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，データの更新回数をカウントする． <br  />
+ また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．ミューテックスについては以下を参照． <br  />
 <br  />
  [非同期処理について] <br  />
  非同期処理 (並列・同時に処理を行うこと) を行う際に，一つのにデータに同じタイミングで操作すると危険(未定義処理になり，成功か失敗かが不定になる)． <br  />
@@ -146,8 +146,8 @@ class AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に，デー�
  メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す． <br  />
  通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ab63485c068326178c810533c8ba179f7" name="ab63485c068326178c810533c8ba179f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab63485c068326178c810533c8ba179f7">&#9670;&#160;</a></span>data()</h2>
+<a id="a3d9e84fdf4ab207fbe769f383af28546" name="a3d9e84fdf4ab207fbe769f383af28546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9e84fdf4ab207fbe769f383af28546">&#9670;&#160;</a></span>GetData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +158,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::data </td>
+          <td class="memname">T <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::GetData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -173,25 +173,11 @@ template&lt;typename T &gt; </div>
 <p>@breif 値をコピーして返す． <br  />
  この時，read lockをかける． <br  />
  当然，データの更新回数はインクリメントされない． </p><dl class="section return"><dt>戻り値</dt><dd>T 値のコピー </dd></dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_asyncable_data_ab63485c068326178c810533c8ba179f7_icgraph.png" border="0" usemap="#aclass_asyncable_data_ab63485c068326178c810533c8ba179f7_icgraph" alt=""/></div>
-<map name="aclass_asyncable_data_ab63485c068326178c810533c8ba179f7_icgraph" id="aclass_asyncable_data_ab63485c068326178c810533c8ba179f7_icgraph">
-<area shape="rect" title=" " alt="" coords="231,80,373,107"/>
-<area shape="rect" href="class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a51b71a88193f04aa3e7300a7d60f051f" title="push_backを行う． &#160;&#160;この時，write lockをかける． &#160;&#160;データの更新回数をインクリメントする．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="243,77,162,51,164,46,245,72"/>
-<area shape="rect" href="class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a9a0cb27897a8858caa2d6045b36e840b" title="値を変更する． &#160;&#160;この時，write lockをかける． &#160;&#160;データの更新回数をインクリメントする．" alt="" coords="12,72,176,115"/>
-<area shape="poly" title=" " alt="" coords="216,96,177,96,177,91,216,91"/>
-<area shape="rect" href="class_asyncable_data.html#a78982d2da860a8181c500ca8a744f9d0" title="値を変更する． &#160;&#160;この時，write lockをかける． &#160;&#160;データの更新回数をインクリメントする．" alt="" coords="10,139,178,165"/>
-<area shape="poly" title=" " alt="" coords="239,114,145,141,143,136,237,109"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="a78982d2da860a8181c500ca8a744f9d0" name="a78982d2da860a8181c500ca8a744f9d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78982d2da860a8181c500ca8a744f9d0">&#9670;&#160;</a></span>set_data()</h2>
+<a id="a1da14f5a73fac5e95372bb9e0a3abc77" name="a1da14f5a73fac5e95372bb9e0a3abc77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da14f5a73fac5e95372bb9e0a3abc77">&#9670;&#160;</a></span>GetUpdateCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,7 +188,39 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::set_data </td>
+          <td class="memname">int <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::GetUpdateCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>データの更新回数を返す． <br  />
+ この時，read lockをかける． <br  />
+ この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int データの更新回数 </dd></dl>
+
+</div>
+</div>
+<a id="a0857e1460ef1933c8786cf59837da58e" name="a0857e1460ef1933c8786cf59837da58e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0857e1460ef1933c8786cf59837da58e">&#9670;&#160;</a></span>SetData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::SetData </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
@@ -221,52 +239,10 @@ template&lt;typename T &gt; </div>
  データの更新回数をインクリメントする． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>値 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>セットする値．const参照渡しされる． </td></tr>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_asyncable_data_a78982d2da860a8181c500ca8a744f9d0_cgraph.png" border="0" usemap="#aclass_asyncable_data_a78982d2da860a8181c500ca8a744f9d0_cgraph" alt=""/></div>
-<map name="aclass_asyncable_data_a78982d2da860a8181c500ca8a744f9d0_cgraph" id="aclass_asyncable_data_a78982d2da860a8181c500ca8a744f9d0_cgraph">
-<area shape="rect" title="値を変更する． &#160;&#160;この時，write lockをかける． &#160;&#160;データの更新回数をインクリメントする．" alt="" coords="5,5,173,32"/>
-<area shape="rect" href="class_asyncable_data.html#ab63485c068326178c810533c8ba179f7" title=" " alt="" coords="221,5,363,32"/>
-<area shape="poly" title=" " alt="" coords="173,16,206,16,206,21,173,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a4f816018a7469bde3579c7694b1480d0" name="a4f816018a7469bde3579c7694b1480d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f816018a7469bde3579c7694b1480d0">&#9670;&#160;</a></span>update_count()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="class_asyncable_data.html">AsyncableData</a>&lt; T &gt;::update_count </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>データの更新回数を返す． <br  />
- この時，read lockをかける． <br  />
- この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する． </p>
-<dl class="section return"><dt>戻り値</dt><dd>int データの更新回数 </dd></dl>
 
 </div>
 </div>

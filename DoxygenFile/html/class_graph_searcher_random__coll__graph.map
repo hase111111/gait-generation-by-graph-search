@@ -1,5 +1,5 @@
 <map id="GraphSearcherRandom" name="GraphSearcherRandom">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,80,162,107"/>
-<area shape="rect" id="Node000002" href="$class_i_graph_searcher.html" title="グラフ木を作成する抽象クラス．実体は作成できないのでこれを継承してたクラスを使ってください． &#160;&#160;継承の仕方や使い方が分からない場合は，GraphSearcherSampleを見てみてください．" alt="" coords="28,5,139,32"/>
+<area shape="rect" id="Node000002" href="$class_i_graph_searcher.html" title="グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="28,5,139,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,47,86,80,81,80,81,47"/>
 </map>

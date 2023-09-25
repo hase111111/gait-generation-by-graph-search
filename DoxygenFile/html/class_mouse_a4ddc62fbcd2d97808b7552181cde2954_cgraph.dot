@@ -11,5 +11,5 @@ digraph "Mouse::GetDiffPos"
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="Mouse::GetDiffPosY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mouse.html#a80c810c534e31080c302866442848003",tooltip="マウスカーソルの移動量を取得する．Y座標は画面の上端を0として，下向きが正．これはDxlibの仕様なので変更不能．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#a88c18c1999b0f96f1b67606ba3105bfa",tooltip="2乗した値を返す関数．"];
+  Node4 [id="Node000004",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0",tooltip="2乗した値を返す関数．   整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．"];
 }

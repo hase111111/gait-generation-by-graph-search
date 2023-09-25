@@ -97,18 +97,18 @@ $(document).ready(function(){initNavTree('designlab__quaternion_8h.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>クォータニオンを表現する構造体 <br  />
- 行数 : 82  
+<p>クォータニオンを表す構造体  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &quot;<a class="el" href="designlab__vector3_8h_source.html">designlab_vector3.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="designlab__euler_8h_source.html">designlab_euler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="designlab__vector3_8h_source.html">designlab_vector3.h</a>&quot;</code><br />
 </div>
 <p><a href="designlab__quaternion_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_s_quaternion.html">designlab::SQuaternion</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンを表す構造体  <a href="structdesignlab_1_1_quaternion.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -119,18 +119,15 @@ $(document).ready(function(){initNavTree('designlab__quaternion_8h.html',''); in
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a28e2afa00c9d04d687dd8789660f7fca"><td class="memItemLeft" align="right" valign="top"><a id="a28e2afa00c9d04d687dd8789660f7fca" name="a28e2afa00c9d04d687dd8789660f7fca"></a>
-constexpr <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:a28e2afa00c9d04d687dd8789660f7fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"><td class="memItemLeft" align="right" valign="top"><a id="a5f2fa2f0d0f6927e06ee3c9fc2be6ca1" name="a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"></a>
-<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::rotVecByQuat</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:a5f2fa2f0d0f6927e06ee3c9fc2be6ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1329cb082c6b47a47150da24f72b15ee"><td class="memItemLeft" align="right" valign="top"><a id="a1329cb082c6b47a47150da24f72b15ee" name="a1329cb082c6b47a47150da24f72b15ee"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:a1329cb082c6b47a47150da24f72b15ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memItemLeft" align="right" valign="top"><a id="aac676dd02b1ac3dfa1224bf0db95bfe1" name="aac676dd02b1ac3dfa1224bf0db95bfe1"></a>
+<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::rotVecByQuat</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>クォータニオンを表現する構造体 <br  />
- 行数 : 82 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/21 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>クォータニオンを表す構造体 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

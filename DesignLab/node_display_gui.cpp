@@ -53,11 +53,11 @@ void NodeDisplayGui::Update()
 	{
 		button.second->Update();
 
-		if (button.second->isPushedNow() && button.first == ButtonType::kOpenClose)
+		if (button.second->IsPushedNow() && button.first == ButtonType::kOpenClose)
 		{
 			is_closed_ = !is_closed_;
 		}
-		else if (button.second->isPushedNow() && button.first == ButtonType::kModeSwitching && !is_closed_)
+		else if (button.second->IsPushedNow() && button.first == ButtonType::kModeSwitching && !is_closed_)
 		{
 			if (display_type_ == DisplayMode::kDefualt)
 			{

@@ -18,7 +18,7 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 	hexapod_renderer_(calculator_ptr),
 	robot_graund_point_renderer_(calculator_ptr),
 	stability_margin_renderer_(calculator_ptr),
-	map_state_(broker_ptr ? broker_ptr->map_state.data() : MapState()),
+	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),
@@ -31,22 +31,22 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 
 bool GraphicMainAdvance::Update()
 {
-	if (map_update_count != broker_ptr_->map_state.update_count())
+	if (map_update_count != broker_ptr_->map_state.GetUpdateCount())
 	{
-		map_update_count = broker_ptr_->map_state.update_count();
-		map_state_ = broker_ptr_->map_state.data();
+		map_update_count = broker_ptr_->map_state.GetUpdateCount();
+		map_state_ = broker_ptr_->map_state.GetData();
 	}
 
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.update_count())
+	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.GetUpdateCount())
 	{
 		//仲介人からデータを読み出す
-		graph_ = broker_ptr_->graph.data();
+		graph_ = broker_ptr_->graph.GetData();
 
 		std::vector<size_t> simu_end_index;
 
-		simu_end_index = broker_ptr_->simu_end_index.data();
+		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
 		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
@@ -62,7 +62,7 @@ bool GraphicMainAdvance::Update()
 		robot_graund_point_renderer_.SetNodeAndSimulationEndNodeIndex(graph_, simu_end_index);
 
 
-		graph_update_count = broker_ptr_->graph.update_count();
+		graph_update_count = broker_ptr_->graph.GetUpdateCount();
 	}
 
 
@@ -83,7 +83,7 @@ bool GraphicMainAdvance::Update()
 
 			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
-			camera_gui_.setHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
+			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
 		}

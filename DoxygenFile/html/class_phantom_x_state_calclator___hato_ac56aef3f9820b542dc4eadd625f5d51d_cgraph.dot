@@ -13,5 +13,5 @@ digraph "PhantomXStateCalclator_Hato::IsLegInRange"
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="designlab::Vector3\l::ProjectedXY",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed",tooltip="XY平面に射影したベクトルを返す．"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#a88c18c1999b0f96f1b67606ba3105bfa",tooltip="2乗した値を返す関数．"];
+  Node5 [id="Node000005",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0",tooltip="2乗した値を返す関数．   整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．"];
 }

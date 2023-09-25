@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['camera_5fcontroller_2eh_0',['camera_controller.h',['../camera__controller_8h.html',1,'']]],
-  ['camera_5fgui_2eh_1',['camera_gui.h',['../camera__gui_8h.html',1,'']]],
-  ['camera_5fmanager_2eh_2',['camera_manager.h',['../camera__manager_8h.html',1,'']]],
+  ['camera_5fgui_2eh_0',['camera_gui.h',['../camera__gui_8h.html',1,'']]],
+  ['camera_5finput_5fcontroller_2eh_1',['camera_input_controller.h',['../camera__input__controller_8h.html',1,'']]],
+  ['camera_5fstate_5fmanager_2eh_2',['camera_state_manager.h',['../camera__state__manager_8h.html',1,'']]],
   ['cassert_5fdefine_2eh_3',['cassert_define.h',['../cassert__define_8h.html',1,'']]],
   ['cmdio_5futil_2eh_4',['cmdio_util.h',['../cmdio__util_8h.html',1,'']]],
   ['com_5fcandidate_5fpolygon_5fmaker_2eh_5',['com_candidate_polygon_maker.h',['../com__candidate__polygon__maker_8h.html',1,'']]],

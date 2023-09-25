@@ -1,5 +1,0 @@
-<map id="designlab::SQuaternion::conjugate" name="designlab::SQuaternion::conjugate">
-<area shape="rect" id="Node000001" title="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると，qの共役は w &#45; xi &#45; yj &#45; zk となる．回..." alt="" coords="210,5,366,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_s_quaternion.html#a6dcf3bb018322ec26629f0f4d122b9ea" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="5,5,162,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,29,162,29,162,24,195,24"/>
-</map>

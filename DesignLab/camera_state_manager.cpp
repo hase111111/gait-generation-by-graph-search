@@ -16,6 +16,8 @@ namespace dldu = designlab::dxlib_util;
 
 
 CameraStateManager::CameraStateManager() :
+	kDefaultCameraFrontVec{ dl::Vector3::GetFrontVec() },
+	kDefaultCameraUpVec{ dl::Vector3::GetUpVec() },
 	camera_view_mode_(CameraViewMode::kTopView),
 	free_controlled_target_pos_{},
 	now_camera_state_{},

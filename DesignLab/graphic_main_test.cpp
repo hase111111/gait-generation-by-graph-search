@@ -149,7 +149,7 @@ bool GraphicMainTest::Update()
 
 	node_display_gui_.Update();
 
-	camera_gui_.setHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
+	camera_gui_.SetHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
 
 	camera_gui_.Update();      //カメラのGUIを更新する．
 

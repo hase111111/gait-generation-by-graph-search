@@ -7,9 +7,9 @@ digraph "designlab::math_util::ConvertDegToRad"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::math_util\l::ConvertDegToRad",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="角度をdegからradに変換する関数．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="CameraStateManager\l::setCameraViewMode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_state_manager.html#a586ec36498f286f2c6dbf42bd9b5cbf2",tooltip="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する"];
+  Node2 [id="Node000002",label="CameraStateManager\l::SetCameraViewMode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_state_manager.html#aad65bb6b1a42f7d6a41d265ecd324142",tooltip="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="CameraController::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_controller.html#a02b6c92c311f455ec21cb17b9a2a6725",tooltip="キー入力でカメラを動かす．   基本的には毎フレーム呼び出す"];
+  Node3 [id="Node000003",label="CameraInputController\l::ChangeCameraState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_input_controller.html#a56c0dbc23365b09d5d0c0349e880e16f",tooltip="キー入力でカメラを動かす．   基本的には毎フレーム呼び出す"];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="CameraGui::Update",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd",tooltip="GUIやカメラの更新を行う"];
   Node2 -> Node4 [id="edge4_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

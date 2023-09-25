@@ -53,7 +53,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 
 	//仲介人を初期化する
 	std::cout << "GraphicDataBroker_Old : 仲介人を初期化します．" << std::endl << std::endl;
-	broker_ptr_->map_state.set_data(map_state_);
+	broker_ptr_->map_state.SetData(map_state_);
 }
 
 
@@ -176,7 +176,7 @@ void GraphViewerSystemMain::Main()
 			}
 			else if (_menu == 3)
 			{
-				broker_ptr_->graph.clean();
+				broker_ptr_->graph.Clean();
 				_graph.clear();
 				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
 				std::cout << std::endl;
@@ -216,11 +216,11 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)
 {
-	broker_ptr_->graph.clean();
+	broker_ptr_->graph.Clean();
 
 	for (auto& i : _graph)
 	{
-		broker_ptr_->graph.push_back(i);
+		broker_ptr_->graph.PushBack(i);
 	}
 }
 

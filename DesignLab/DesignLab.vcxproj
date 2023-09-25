@@ -29,7 +29,7 @@
     <ClInclude Include="application_setting_reader.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
-    <ClInclude Include="camera_controller.h" />
+    <ClInclude Include="camera_input_controller.h" />
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
     <ClInclude Include="com_move_node_creator_hato.h" />
@@ -117,7 +117,7 @@
     <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
-    <ClCompile Include="camera_controller.cpp" />
+    <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="com_move_node_creator_hato.cpp" />

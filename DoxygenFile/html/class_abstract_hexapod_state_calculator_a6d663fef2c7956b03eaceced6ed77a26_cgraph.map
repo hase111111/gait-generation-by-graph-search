@@ -1,5 +1,0 @@
-<map id="AbstractHexapodStateCalculator::getLocalLegBasePosition" name="AbstractHexapodStateCalculator::getLocalLegBasePosition">
-<area shape="rect" id="Node000001" title="【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="5,5,216,48"/>
-<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a18c304b7036e49a272be24dd1792975f" title="脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．" alt="" coords="264,5,474,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,24,248,24,248,29,216,29"/>
-</map>

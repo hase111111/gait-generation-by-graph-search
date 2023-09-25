@@ -1,4 +1,4 @@
-//! @file camera_manager.h
+//! @file camera_state_manager.h
 //! @brief Dxlibの3Dのカメラの状態を管理するクラス．
 
 
@@ -98,12 +98,12 @@ private:
 	// now_camera_state_の値で，カメラの位置と姿勢をdxlibの関数でセットする	
 	void SetCameraPosAndRot();
 
-	const designlab::Vector3 kDefaultCameraFrontVec = designlab::Vector3::GetFrontVec();	//!< デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraFrontVec;	//!< デフォルトのカメラの方向を表す単位ベクトル
 
-	const designlab::Vector3 kDefaultCameraUpVec = designlab::Vector3::GetUpVec();			//!< デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの方向を表す単位ベクトル
 
 
-	CameraViewMode camera_view_mode_;		//!< カメラの視点を決定する．
+	CameraViewMode camera_view_mode_;	//!< カメラの視点を決定する．
 
 	designlab::Vector3 free_controlled_target_pos_;		//!< カメラの注視点を自由に操作する際の注視点の座標
 

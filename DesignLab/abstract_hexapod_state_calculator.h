@@ -16,7 +16,7 @@
 //! @n		実用上問題ないのでこのまま．
 //! @n
 //! @n 変換は，脚座標系→グローバル座標系ならば，
-//! @n	(脚座標系の座標 ＋ ロボットの原点から脚の付け根までの座標(ローカル)) * 姿勢の逆回転 ＋ ロボットの重心の座標(グローバル)
+//! @n	( 脚座標系の座標 ＋ ロボットの原点から脚の付け根までの座標(ローカル) ) * 姿勢の逆回転 ＋ ロボットの重心の座標(グローバル)
 
 
 #ifndef DESIGNLAB_ABSTRACT_HEXAPOD_STATE_CALCULATOR_H_
@@ -54,7 +54,7 @@ struct HexapodJointState
 
 //! @class AbstractHexapodStateCalculator
 //! @brief ロボットの状態を計算するクラスの抽象クラス．
-//! @n このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する．
+//! @details このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する．
 //! @n このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない
 //! @n スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116
 class AbstractHexapodStateCalculator

@@ -1,5 +1,0 @@
-<map id="AbstractHexapodStateCalculator" name="AbstractHexapodStateCalculator">
-<area shape="rect" id="Node000001" title="ロボットの状態を計算するクラスの抽象クラス． &#160;&#160;このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． &#160;&#160;スレッドセーフなクラスにするこ..." alt="" coords="5,96,216,123"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体" alt="" coords="46,5,175,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,47,113,95,108,95,108,47"/>
-</map>

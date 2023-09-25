@@ -4,8 +4,8 @@ var annotated_dup =
       [ "EulerXYZ", "structdesignlab_1_1_euler_x_y_z.html", "structdesignlab_1_1_euler_x_y_z" ],
       [ "LineSegment2", "structdesignlab_1_1_line_segment2.html", "structdesignlab_1_1_line_segment2" ],
       [ "Polygon2", "structdesignlab_1_1_polygon2.html", "structdesignlab_1_1_polygon2" ],
+      [ "Quaternion", "structdesignlab_1_1_quaternion.html", "structdesignlab_1_1_quaternion" ],
       [ "RotationMatrix3x3", "structdesignlab_1_1_rotation_matrix3x3.html", "structdesignlab_1_1_rotation_matrix3x3" ],
-      [ "SQuaternion", "structdesignlab_1_1_s_quaternion.html", "structdesignlab_1_1_s_quaternion" ],
       [ "Vector2", "structdesignlab_1_1_vector2.html", "structdesignlab_1_1_vector2" ],
       [ "Vector3", "structdesignlab_1_1_vector3.html", "structdesignlab_1_1_vector3" ]
     ] ],
@@ -20,8 +20,8 @@ var annotated_dup =
     [ "AsyncableData", "class_asyncable_data.html", "class_asyncable_data" ],
     [ "AsyncableData< std::vector< T > >", "class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html", "class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4" ],
     [ "ButtomController", "class_buttom_controller.html", "class_buttom_controller" ],
-    [ "CameraController", "class_camera_controller.html", "class_camera_controller" ],
     [ "CameraGui", "class_camera_gui.html", "class_camera_gui" ],
+    [ "CameraInputController", "class_camera_input_controller.html", "class_camera_input_controller" ],
     [ "CameraStateManager", "class_camera_state_manager.html", "class_camera_state_manager" ],
     [ "ComCandidatePolygonMaker", "class_com_candidate_polygon_maker.html", "class_com_candidate_polygon_maker" ],
     [ "ComMoveNodeCreatorHato", "class_com_move_node_creator_hato.html", "class_com_move_node_creator_hato" ],
@@ -83,5 +83,6 @@ var annotated_dup =
     [ "StabilityMarginRenderer", "class_stability_margin_renderer.html", "class_stability_margin_renderer" ],
     [ "STarget", "struct_s_target.html", "struct_s_target" ],
     [ "Stopwatch", "class_stopwatch.html", "class_stopwatch" ],
+    [ "vector< T >", "class_asyncable_data_3_01std_1_1vector_3_01_t_01_4.html", null ],
     [ "WorldGridRenderer", "class_world_grid_renderer.html", "class_world_grid_renderer" ]
 ];

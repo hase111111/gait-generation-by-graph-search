@@ -14,10 +14,10 @@
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="127,298,198,327,219,334,217,339,196,332,125,303"/>
 <area shape="rect" id="Node000012" href="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="203,392,370,435"/>
 <area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="101,299,144,338,198,378,208,383,205,388,195,382,141,342,97,303"/>
-<area shape="rect" id="Node000013" href="$class_robot_graund_point_renderer.html#ad4f1dd8b9addc2998bba636d6783a6b9" title=" " alt="" coords="197,459,376,501"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="91,299,131,370,162,410,198,445,204,449,201,453,195,449,158,413,127,373,86,302"/>
-<area shape="rect" id="Node000014" href="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="207,173,366,216"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="127,254,196,226,212,219,214,224,198,230,129,259"/>
+<area shape="rect" id="Node000013" href="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="207,173,366,216"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="127,254,196,226,212,219,214,224,198,230,129,259"/>
+<area shape="rect" id="Node000018" href="$class_robot_graund_point_renderer.html#ab29a09c0c523164d7d15195fc13eedd7" title=" " alt="" coords="197,459,376,501"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="91,299,131,370,162,410,198,445,204,449,201,453,195,449,158,413,127,373,86,302"/>
 <area shape="rect" id="Node000019" href="$class_display_node_switch_gui.html#a7b3423582511df09f935571d695e6c21" title="現在表示するシミュレーションの番号を取得する" alt="" coords="210,525,363,568"/>
 <area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="86,300,99,344,122,400,155,460,175,487,198,511,203,515,199,519,195,515,171,490,150,463,117,403,94,345,81,301"/>
 <area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="449,40,586,83"/>
@@ -28,13 +28,13 @@
 <area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="355,357,410,361,409,366,354,362"/>
 <area shape="rect" id="Node000011" href="$class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="445,408,590,435"/>
 <area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="339,366,377,377,425,393,451,401,449,406,423,399,375,383,337,371"/>
-<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="344,170,423,143,448,135,450,140,425,148,346,175"/>
-<area shape="rect" id="Node000015" href="$structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299" title="頂点を追加する関数" alt="" coords="449,157,587,200"/>
-<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="366,187,434,182,434,187,367,192"/>
-<area shape="rect" id="Node000016" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．" alt="" coords="449,224,587,267"/>
-<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="367,209,435,224,433,230,366,215"/>
-<area shape="rect" id="Node000018" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="453,291,582,333"/>
-<area shape="poly" id="edge18_Node000014_Node000018" title=" " alt="" coords="357,214,378,226,393,239,402,252,411,264,426,276,440,285,438,290,422,281,407,268,398,255,389,243,374,230,354,219"/>
-<area shape="rect" id="Node000017" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="659,224,798,267"/>
-<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="587,243,645,243,645,248,587,248"/>
+<area shape="poly" id="edge14_Node000013_Node000006" title=" " alt="" coords="344,170,423,143,448,135,450,140,425,148,346,175"/>
+<area shape="rect" id="Node000014" href="$structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299" title="頂点を追加する関数" alt="" coords="449,157,587,200"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="366,187,434,182,434,187,367,192"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．" alt="" coords="449,224,587,267"/>
+<area shape="poly" id="edge15_Node000013_Node000015" title=" " alt="" coords="367,209,435,224,433,230,366,215"/>
+<area shape="rect" id="Node000017" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="453,291,582,333"/>
+<area shape="poly" id="edge17_Node000013_Node000017" title=" " alt="" coords="357,214,378,226,393,239,402,252,411,264,426,276,440,285,438,290,422,281,407,268,398,255,389,243,374,230,354,219"/>
+<area shape="rect" id="Node000016" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="659,224,798,267"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="587,243,645,243,645,248,587,248"/>
 </map>

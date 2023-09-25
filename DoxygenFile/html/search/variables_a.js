@@ -19,7 +19,11 @@ var searchData=
   ['kgoaltape_16',['kGoalTape',['../class_define.html#a0a602fc9de040f82abcd5a64c3009e62',1,'Define']]],
   ['kheight_17',['kHeight',['../class_node_display_gui.html#a8b889ed4b916c103bb36d11aa37d4513',1,'NodeDisplayGui']]],
   ['khorizontallinelength_18',['kHorizontalLineLength',['../namespacedesignlab_1_1cmdio.html#ae5b638fb923fbfa58dff531e65a03dfd',1,'designlab::cmdio']]],
-  ['ksimuratenum_19',['kSimurateNum',['../class_define.html#ad282a24fc2bf2b74c09196bdb07e7ba0',1,'Define']]],
-  ['kwidth_20',['kWidth',['../class_node_display_gui.html#a3e96f11e63c8f04745e459ecd9db258b',1,'NodeDisplayGui::kWidth'],['../namespacedesignlab_1_1math__util.html#ad81259f811d60d6096262f4c19cb5b48',1,'designlab::math_util::kWidth']]],
-  ['kwindowname_21',['kWindowName',['../class_graphic_const.html#adf37c276ed069d33452ecb4afc602657',1,'GraphicConst']]]
+  ['koptionleftbottom_19',['kOptionLeftBottom',['../class_camera_gui.html#ad783b6dd3b7417c7be2a7403e6d2b1e4',1,'CameraGui']]],
+  ['koptionlefttop_20',['kOptionLeftTop',['../class_camera_gui.html#a08aa8d36c9cf109e89ed9f071f33f9c4',1,'CameraGui']]],
+  ['koptionrightbottom_21',['kOptionRightBottom',['../class_camera_gui.html#a50616a5215ab0e2a108454a65d800a19',1,'CameraGui']]],
+  ['koptionrighttop_22',['kOptionRightTop',['../class_camera_gui.html#a9aa8a6c034ea4733f69eb5e725f80720',1,'CameraGui']]],
+  ['ksimuratenum_23',['kSimurateNum',['../class_define.html#ad282a24fc2bf2b74c09196bdb07e7ba0',1,'Define']]],
+  ['kwidth_24',['kWidth',['../class_node_display_gui.html#a3e96f11e63c8f04745e459ecd9db258b',1,'NodeDisplayGui::kWidth'],['../namespacedesignlab_1_1math__util.html#ad81259f811d60d6096262f4c19cb5b48',1,'designlab::math_util::kWidth']]],
+  ['kwindowname_25',['kWindowName',['../class_graphic_const.html#adf37c276ed069d33452ecb4afc602657',1,'GraphicConst']]]
 ];

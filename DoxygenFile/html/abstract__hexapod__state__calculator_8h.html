@@ -113,10 +113,7 @@ $(document).ready(function(){initNavTree('abstract__hexapod__state__calculator_8
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの関節の状態を表す構造体．  <a href="struct_hexapod_joint_state.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を計算するクラスの抽象クラス． <br  />
- このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する． <br  />
- このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない <br  />
- スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116  <a href="class_abstract_hexapod_state_calculator.html#details">[詳解]</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を計算するクラスの抽象クラス．  <a href="class_abstract_hexapod_state_calculator.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -137,7 +134,7 @@ $(document).ready(function(){initNavTree('abstract__hexapod__state__calculator_8
  実用上問題ないのでこのまま． <br  />
 <br  />
  変換は，脚座標系→グローバル座標系ならば， <br  />
- (脚座標系の座標 ＋ ロボットの原点から脚の付け根までの座標(ローカル)) * 姿勢の逆回転 ＋ ロボットの重心の座標(グローバル) </p>
+ ( 脚座標系の座標 ＋ ロボットの原点から脚の付け根までの座標(ローカル) ) * 姿勢の逆回転 ＋ ロボットの重心の座標(グローバル) </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
