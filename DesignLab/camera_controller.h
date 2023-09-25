@@ -4,7 +4,7 @@
 #ifndef DESIGNLABO_CAMERA_CONTROLLER_H_
 #define DESIGNLABO_CAMERA_CONTROLLER_H_
 
-#include "camera_manager.h"
+#include "camera_state_manager.h"
 
 
 //! @class CameraController
@@ -13,7 +13,10 @@
 class CameraController
 {
 public:
+	//! @brief デフォルトコンストラクタ，コピーコンストラクタ，代入演算子は禁止
 	CameraController() = delete;
+	CameraController(const CameraController&) = delete;
+	CameraController& operator=(const CameraController&) = delete;
 
 	//! @brief コンストラクタでマネージャーの参照を受け取る
 	CameraController(CameraStateManager& camera_manager_ref);

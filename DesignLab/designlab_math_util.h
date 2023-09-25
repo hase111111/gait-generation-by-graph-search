@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "cassert_define.h"
+
 
 namespace designlab 
 {
@@ -46,20 +48,52 @@ namespace designlab
 		}
 
 		//! @brief 2乗した値を返す関数．
+		//! @n 整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．
 		//! @param [in] num 2乗する数．
 		//! @return double 2乗した値． 
-		constexpr double Squared(const double num) { return num * num; }
+		template <typename T>
+		constexpr T Squared(const T num) { return num * num; }
 
-		//! @brief 2乗した値を返す関数．
-		//! @param [in] num 2乗する数．
-		//! @return float 2乗した値． 
-		constexpr float Squared(const float num) { return num * num; }
+		//! @brief 目標値に値を近づける関数．
+		//! @param [in] current 現在の値．
+		//! @param [in] target 目標値．
+		//! @param [in] rate 近づける割合．0 ～ 1の値を取る．
+		//! @return T 近づけた値．
+		template <typename T>
+		T ApproachTarget(const T& current,const T& target, float rate) 
+		{
+			assert(0 <= rate);
+			assert(rate <= 1);	//0 <= rate <= 1 でなければならない
 
-		//! @brief 2乗した値を返す関数．
-		//! @param [in] num 2乗する数．
-		//! @return int 2乗した値． 
-		constexpr int Squared(const int num) { return num * num; }
+			if (current == target) { return current; }
 
+			if (current < target) 
+			{
+				T res;
+
+				res = current + static_cast<T>((target - current) * rate);
+
+				if (res > target)
+				{
+					res = target;
+				}
+
+				return res;
+			}
+			else
+			{
+				T res;
+
+				res = current - static_cast<T>((current - target) * rate);
+
+				if (res < target)
+				{
+					res = target;
+				}
+
+				return res;
+			}
+		}
 
 		//! @brief 指定した範囲内の乱数を生成する．
 		//! @param [in] min 乱数の最小値．
@@ -101,6 +135,7 @@ namespace designlab
 		constexpr float ConvertDegToRad(const float deg) { return deg * kFloatPi / 180.0f; }
 
 
+		[[deprecated]] 
 		float limitRangeAngle(const float angle);
 
 
@@ -122,8 +157,6 @@ namespace designlab
 		//! @param [in] width 文字列の幅．
 		//! @return std::string 変換した文字列．
 		std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
-
-
 
 	}	// namespace math_util
 

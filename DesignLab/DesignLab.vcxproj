@@ -68,7 +68,7 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="dxlib_util.h" />
     <ClInclude Include="fps_controller.h" />
-    <ClInclude Include="camera_manager.h" />
+    <ClInclude Include="camera_state_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
     <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_system.h" />
@@ -156,7 +156,7 @@
     <ClCompile Include="cmdio_util.cpp" />
     <ClCompile Include="dxlib_util.cpp" />
     <ClCompile Include="fps_controller.cpp" />
-    <ClCompile Include="camera_manager.cpp" />
+    <ClCompile Include="camera_state_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_system.cpp" />

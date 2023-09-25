@@ -42,7 +42,7 @@ CameraGui::CameraGui() : CameraGui::CameraGui(10, 10)
 
 void CameraGui::setHexapodPos(const designlab::Vector3 pos)
 {
-	m_camera_manager.setTargetPos(dldu::ConvertToDxlibVec(pos));
+	m_camera_manager.SetTargetPos(pos);
 }
 
 
@@ -61,31 +61,31 @@ void CameraGui::Update()
 			switch (button.first)
 			{
 			case EButtonType::LENGH_RESET:
-				m_camera_manager.initCaneraTargetLength();
+				m_camera_manager.InitCaneraTargetLength();
 				break;
 
 			case EButtonType::FRONT:
-				m_camera_manager.setCameraViewMode(CameraViewMode::kFrontView);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kFrontView);
 				break;
 
 			case EButtonType::LEFT:
-				m_camera_manager.setCameraViewMode(CameraViewMode::kLeftSideView);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kLeftSideView);
 				break;
 
 			case EButtonType::TOP:
-				m_camera_manager.setCameraViewMode(CameraViewMode::kTopView);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kTopView);
 				break;
 
 			case EButtonType::RIGHT:
-				m_camera_manager.setCameraViewMode(CameraViewMode::kRightSideView);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kRightSideView);
 				break;
 
 			case EButtonType::BACK:
-				m_camera_manager.setCameraViewMode(CameraViewMode::kBackView);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kBackView);
 				break;
 
 			case EButtonType::TARGET_RESET:
-				m_camera_manager.setCameraViewMode(CameraViewMode::FREE_CONTROLLED);
+				m_camera_manager.SetCameraViewMode(CameraViewMode::kFreeControlled);
 				break;
 
 			}	//switch (button.first)

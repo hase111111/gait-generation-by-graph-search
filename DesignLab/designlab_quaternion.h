@@ -40,6 +40,12 @@ namespace designlab
 		constexpr Quaternion operator * (float s) const { return { w * s, v * s }; }
 		constexpr Quaternion operator / (float s) const { return { w / s, v / s }; }
 
+		bool operator == (const Quaternion& q) const { return (w == q.w) && (v == q.v); }
+		bool operator < (const Quaternion& q) const { return (w < q.w) || (w == q.w && v < q.v); }
+		bool operator > (const Quaternion& other) const { return other < *this; }
+		bool operator <= (const Quaternion& other) const { return !(*this > other); }
+		bool operator >= (const Quaternion& other) const { return !(*this < other); }
+
 
 		//! @brief クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの
 		//! @n q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回転は逆方向になる

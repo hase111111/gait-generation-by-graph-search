@@ -18,7 +18,7 @@ void CameraController::Update()
 	//ホイールが動いていたらカメラ距離を変更する
 	if (Mouse::GetIns()->GetWheelRot() != 0)
 	{
-		camera_manager_ref_.addCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->GetWheelRot() * -1);
+		camera_manager_ref_.AddCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->GetWheelRot() * -1);
 	}
 
 
@@ -33,11 +33,11 @@ void CameraController::Update()
 
 			move_quatx = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
 
-			dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quatx;
+			dl::Quaternion res = camera_manager_ref_.GetCameraRotQuat() * move_quatx;
 
 			res = res.Normalize();
 
-			camera_manager_ref_.setCameraRotQuat(res);
+			camera_manager_ref_.SetCameraRotQuat(res);
 		}
 		else
 		{
@@ -46,11 +46,11 @@ void CameraController::Update()
 
 			move_quaty = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
 
-			dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quaty;
+			dl::Quaternion res = camera_manager_ref_.GetCameraRotQuat() * move_quaty;
 
 			res = res.Normalize();
 
-			camera_manager_ref_.setCameraRotQuat(res);
+			camera_manager_ref_.SetCameraRotQuat(res);
 		}
 
 	}
@@ -65,11 +65,11 @@ void CameraController::Update()
 
 		move_quat = dl::Quaternion::MakeByRotAngleAndAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
-		dl::Quaternion res = camera_manager_ref_.getCameraRotQuat() * move_quat;
+		dl::Quaternion res = camera_manager_ref_.GetCameraRotQuat() * move_quat;
 
 		res = res.Normalize();
 
-		camera_manager_ref_.setCameraRotQuat(res);
+		camera_manager_ref_.SetCameraRotQuat(res);
 
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && Mouse::GetIns()->GetDiffPos() > kMouseMoveMargin)
@@ -77,10 +77,10 @@ void CameraController::Update()
 
 		//右クリックしていたらカメラの平行移動
 
-		if (camera_manager_ref_.getCameraViewMode() != CameraViewMode::FREE_CONTROLLED_TARGET)
+		if (camera_manager_ref_.GetCameraViewMode() != CameraViewMode::kFreeControlledAndMovableTarget)
 		{
 			//表示モードを注視点を自由に動かせるモードに変更
-			camera_manager_ref_.setCameraViewMode(CameraViewMode::FREE_CONTROLLED_TARGET);
+			camera_manager_ref_.SetCameraViewMode(CameraViewMode::kFreeControlledAndMovableTarget);
 		}
 
 
@@ -92,7 +92,7 @@ void CameraController::Update()
 
 			move_vec = { 0, Mouse::GetIns()->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
 
-			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
+			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.GetCameraRotQuat());
 		}
 		else
 		{
@@ -100,14 +100,14 @@ void CameraController::Update()
 
 			move_vec = { 0, 0, Mouse::GetIns()->GetDiffPosY() * kCameraTargetMoveSpeed };
 
-			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.getCameraRotQuat());
+			move_vec = dl::rotVecByQuat(move_vec, camera_manager_ref_.GetCameraRotQuat());
 		}
 
-		VECTOR now_target_pos = camera_manager_ref_.getFreeTargetPos();				//現在のターゲット座標を取得
+		dl::Vector3 now_target_pos = camera_manager_ref_.GetFreeTargetPos();	//現在のターゲット座標を取得
 
-		now_target_pos = VAdd(now_target_pos, dldu::ConvertToDxlibVec(move_vec));	//移動量を加算
+		now_target_pos = now_target_pos + move_vec;								//移動量を加算
 
-		camera_manager_ref_.setFreeTargetPos(now_target_pos);						//ターゲット座標を更新	
+		camera_manager_ref_.SetFreeTargetPos(now_target_pos);					//ターゲット座標を更新	
 
 	}
 }

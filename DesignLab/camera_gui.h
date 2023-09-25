@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "camera_controller.h"
-#include "camera_manager.h"
+#include "camera_state_manager.h"
 #include "button_controller.h"
 #include "designlab_vector3.h"
 
