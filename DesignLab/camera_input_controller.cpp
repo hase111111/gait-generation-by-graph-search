@@ -38,7 +38,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 			//カメラの回転をマウスの横移動量に合わせて変更
 			dl::Quaternion move_quatx = {0, 0, 0, 0};
 
-			move_quatx = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
+			move_quatx = dl::Quaternion::MakeByAngleAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
 
 			dl::Quaternion res = camera_manager->GetCameraRotQuat() * move_quatx;
 
@@ -49,9 +49,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 		else
 		{
 			//カメラの回転をマウスの縦移動量に合わせて変更
-			dl::Quaternion move_quaty{ 0, 0, 0, 0 };
-
-			move_quaty = dl::Quaternion::MakeByRotAngleAndAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
+			dl::Quaternion move_quaty = dl::Quaternion::MakeByAngleAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
 
 			dl::Quaternion res = camera_manager->GetCameraRotQuat() * move_quaty;
 
@@ -63,14 +61,11 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
 	{
-
 		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転
-
-		dl::Quaternion move_quat = { 0, 0, 0, 0 };
 
 		int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
 
-		move_quat = dl::Quaternion::MakeByRotAngleAndAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
+		dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
 		dl::Quaternion res = camera_manager->GetCameraRotQuat() * move_quat;
 
@@ -99,7 +94,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 			move_vec = { 0, Mouse::GetIns()->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
 
-			move_vec = dl::rotVecByQuat(move_vec, camera_manager->GetCameraRotQuat());
+			move_vec = dl::RotateVector3(move_vec, camera_manager->GetCameraRotQuat(), true);
 		}
 		else
 		{
@@ -107,7 +102,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 			move_vec = { 0, 0, Mouse::GetIns()->GetDiffPosY() * kCameraTargetMoveSpeed };
 
-			move_vec = dl::rotVecByQuat(move_vec, camera_manager->GetCameraRotQuat());
+			move_vec = dl::RotateVector3(move_vec, camera_manager->GetCameraRotQuat(), true);
 		}
 
 		dl::Vector3 now_target_pos = camera_manager->GetFreeTargetPos();	//現在のターゲット座標を取得

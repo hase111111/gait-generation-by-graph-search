@@ -26,7 +26,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
 		designlab::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
-		edge.Normalized();
+		edge.Normalize();
 		edge_vec[i] = edge;
 	}
 

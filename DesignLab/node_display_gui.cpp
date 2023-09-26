@@ -164,7 +164,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor,
-			" %d”Ô‹r‚ÌŠî€À•W(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_base_pos[i].x, display_node_.leg_base_pos[i].y, display_node_.leg_base_pos[i].z);
+			" %d”Ô‹r‚ÌŠî€À•W(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
 	}
 
 	// [‚³‚ÆŽŸ‚Ì“®ì‚ð•\Ž¦‚·‚é

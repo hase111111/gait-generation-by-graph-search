@@ -164,41 +164,41 @@ namespace dl_vec_test
 	}
 
 	//normalized関数のテスト
-	TEST(Vector2, Normalized)
+	TEST(Vector2, Normalize)
 	{
 		//sample1
 		designlab::Vector2 vec(3.0f, 4.0f);
-		designlab::Vector2 res = vec.Normalized();
+		designlab::Vector2 res = vec.Normalize();
 		EXPECT_FLOAT_EQ(0.6f, res.x);
 		EXPECT_FLOAT_EQ(0.8f, res.y);
 
 		//sample2
 		designlab::Vector2 vec2(1.0f, 1.0f);
-		designlab::Vector2 res2 = vec2.Normalized();
+		designlab::Vector2 res2 = vec2.Normalize();
 		EXPECT_FLOAT_EQ(0.707106781f, res2.x);
 		EXPECT_FLOAT_EQ(0.707106781f, res2.y);
 
 		//sample3　
 		designlab::Vector2 vec3(0.0f, 0.0f);
-		designlab::Vector2 res3 = vec3.Normalized();
+		designlab::Vector2 res3 = vec3.Normalize();
 		EXPECT_FLOAT_EQ(0.0f, res3.x);
 		EXPECT_FLOAT_EQ(0.0f, res3.y);
 
 		//sample4
 		designlab::Vector2 vec4(-1.0f, -1.0f);
-		designlab::Vector2 res4 = vec4.Normalized();
+		designlab::Vector2 res4 = vec4.Normalize();
 		EXPECT_FLOAT_EQ(-0.707106781f, res4.x);
 		EXPECT_FLOAT_EQ(-0.707106781f, res4.y);
 
 		//sample5
 		designlab::Vector2 vec5(-3.0f, -4.0f);
-		designlab::Vector2 res5 = vec5.Normalized();
+		designlab::Vector2 res5 = vec5.Normalize();
 		EXPECT_FLOAT_EQ(-0.6f, res5.x);
 		EXPECT_FLOAT_EQ(-0.8f, res5.y);
 
 		//sample6
 		designlab::Vector2 vec6(3.0f, -4.0f);
-		designlab::Vector2 res6 = vec6.Normalized();
+		designlab::Vector2 res6 = vec6.Normalize();
 		EXPECT_FLOAT_EQ(0.6f, res6.x);
 		EXPECT_FLOAT_EQ(-0.8f, res6.y);
 	}

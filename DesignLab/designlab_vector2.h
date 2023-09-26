@@ -72,7 +72,7 @@ namespace designlab
 
 		//! @brief このベクトルを正規化したベクトルを返す
 		//! @return 正規化されたベクトル
-		Vector2 Normalized() const;
+		Vector2 Normalize() const;
 
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue

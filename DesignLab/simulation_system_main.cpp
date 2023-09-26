@@ -75,9 +75,9 @@ void SimulationSystemMain::Main()
 		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.Init(do_random_init);
 
-		SSimulationResultRecorder record;	//シミュレーションの結果を格納する変数．
+		SimulationResultRecorder record;	//シミュレーションの結果を格納する変数．
 		record.result_nodes.push_back(current_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
-		record.simulation_result = ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//シミュレーションの結果を格納する変数を成功に初期化する．
+		record.simulation_result = SimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//シミュレーションの結果を格納する変数を成功に初期化する．
 
 
 		dlio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", OutputDetail::kSystem);
@@ -116,9 +116,9 @@ void SimulationSystemMain::Main()
 			//グラフ探索に失敗
 			if (!graphSeachResultIsSuccessful(result_state))
 			{
-				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(ESimulationResult::FAILURE_BY_GRAPH_SEARCH) + "/ GraphSearch = " + std::to_string(result_state));
+				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(SimulationResult::FAILURE_BY_GRAPH_SEARCH) + "/ GraphSearch = " + std::to_string(result_state));
 
-				record.simulation_result = ESimulationResult::FAILURE_BY_GRAPH_SEARCH;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = SimulationResult::FAILURE_BY_GRAPH_SEARCH;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
 			}
@@ -146,9 +146,9 @@ void SimulationSystemMain::Main()
 			//動作がループして失敗
 			if (node_checker.isLoopMove())
 			{
-				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(ESimulationResult::FAILURE_BY_LOOP_MOTION) + "/ GraphSearch = " + std::to_string(result_state));
+				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(SimulationResult::FAILURE_BY_LOOP_MOTION) + "/ GraphSearch = " + std::to_string(result_state));
 
-				record.simulation_result = ESimulationResult::FAILURE_BY_LOOP_MOTION;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = SimulationResult::FAILURE_BY_LOOP_MOTION;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
 			}
@@ -157,9 +157,9 @@ void SimulationSystemMain::Main()
 			//成功時の処理
 			if (current_node.global_center_of_mass.x > Define::kGoalTape)
 			{
-				dlio::Output("シミュレーションに成功しました．SimulationResult = " + std::to_string(ESimulationResult::SUCCESS));
+				dlio::Output("シミュレーションに成功しました．SimulationResult = " + std::to_string(SimulationResult::SUCCESS));
 
-				record.simulation_result = ESimulationResult::SUCCESS;	//シミュレーションの結果を格納する変数を成功に更新する．
+				record.simulation_result = SimulationResult::SUCCESS;	//シミュレーションの結果を格納する変数を成功に更新する．
 
 				break;
 			}

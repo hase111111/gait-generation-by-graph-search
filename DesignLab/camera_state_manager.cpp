@@ -47,6 +47,9 @@ void CameraStateManager::Update()
 		0.2f
 	);
 
+	now_camera_state_.camera_rot_quat = now_camera_state_.camera_rot_quat.Normalize();
+
+
 	//カメラの注視点を目標値に近づける．
 	if (camera_view_mode_ != CameraViewMode::kFreeControlledAndMovableTarget)
 	{
@@ -73,7 +76,7 @@ void CameraStateManager::Update()
 
 void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 {
-	camera_view_mode_ = mode;	//一応カメラのモードをメンバで持っているが，今のところ使っていない．必要ないかも
+	camera_view_mode_ = mode;
 
 	// ゴール座標を更新する
 	switch (mode)
@@ -81,37 +84,36 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 	case CameraViewMode::kFrontView:
 	{
 		goal_camera_state_.camera_rot_quat =
-			dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(0.0f), dl::Vector3::GetUpVec());
+			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(0.0f), dl::Vector3::GetUpVec());
 		return;
 	}
 
 	case CameraViewMode::kBackView:
 	{
 		goal_camera_state_.camera_rot_quat =
-			dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetUpVec());
+			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetUpVec());
 		return;
 	}
 
 	case CameraViewMode::kTopView:
 	{
-		dl::Quaternion quat1{0, 0, 0, 0}, quat2{ 0,0,0,0 };
-		quat1 = dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec());
-		quat2 = dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetFrontVec());
-		goal_camera_state_.camera_rot_quat = (quat1 * quat2).Normalize();
+		dl::Quaternion quat1 = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec());
+		dl::Quaternion quat2 = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetFrontVec());
+		goal_camera_state_.camera_rot_quat = quat1 * quat2;
 		return;
 	}
 
 	case CameraViewMode::kRightSideView:
 	{
 		goal_camera_state_.camera_rot_quat =
-			dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(270.0f), dl::Vector3::GetUpVec());
+			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(270.0f), dl::Vector3::GetUpVec());
 		return;
 	}
 
 	case CameraViewMode::kLeftSideView:
 	{
 		goal_camera_state_.camera_rot_quat =
-			dl::Quaternion::MakeByRotAngleAndAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetUpVec());
+			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetUpVec());
 		return;
 	}
 
@@ -162,10 +164,10 @@ void CameraStateManager::SetCameraPosAndRot()
 {
 	//カメラの位置をセットする．クォータニオンを用いて回転させ，dl_vec::vectorからdxlib::VECTORに変換する．
 
-	dl::Vector3 camera_target_dif = dl::rotVecByQuat(kDefaultCameraFrontVec, now_camera_state_.camera_rot_quat) * now_camera_state_.length_camera_to_target;
+	dl::Vector3 camera_target_dif = dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_rot_quat, true) * now_camera_state_.length_camera_to_target;
 	VECTOR camera_pos = dldu::ConvertToDxlibVec(camera_target_dif + now_camera_state_.target_pos);
 
-	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::rotVecByQuat(kDefaultCameraUpVec, now_camera_state_.camera_rot_quat));
+	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::RotateVector3(kDefaultCameraUpVec, now_camera_state_.camera_rot_quat, true));
 
 	SetCameraPositionAndTargetAndUpVec(
 		camera_pos, 

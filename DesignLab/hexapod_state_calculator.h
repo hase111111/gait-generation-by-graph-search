@@ -46,8 +46,8 @@
 //	//! @return designlab::Vector3 グローバル座標の脚の基準地点の座標
 //	inline designlab::Vector3 getGlobalLegBasePos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
 //	{
-//		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
-//		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num]; }
+//		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
+//		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num]; }
 //	}
 //
 //	// @brief coxa joint (脚の付け根 : 第1関節) をグローバル座標で返す．

@@ -44,7 +44,7 @@ void ResultFileExporter::init()
 }
 
 
-void ResultFileExporter::exportResult(const SSimulationResultRecorder& recoder)
+void ResultFileExporter::exportResult(const SimulationResultRecorder& recoder)
 {
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (!m_init_success || !m_do_export) { return; }
@@ -78,7 +78,7 @@ void ResultFileExporter::exportResult(const SSimulationResultRecorder& recoder)
 	ofs.close();
 }
 
-void ResultFileExporter::outputResultDetail(const SSimulationResultRecorder& recoder, std::ofstream& stream)
+void ResultFileExporter::outputResultDetail(const SimulationResultRecorder& recoder, std::ofstream& stream)
 {
 	if (!stream) { return; }
 

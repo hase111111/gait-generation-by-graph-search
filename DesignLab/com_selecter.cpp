@@ -88,7 +88,7 @@
 //	for (int j = 0; j < kVertexNum; ++j)
 //	{
 //		designlab::Vector2 v1 = polygon.GetVertex((j + 1) % kVertexNum) - polygon.GetVertex(j);
-//		v1 = v1.Normalized();
+//		v1 = v1.Normalize();
 //
 //		designlab::Vector2 v_map = com - polygon.GetVertex(j);
 //

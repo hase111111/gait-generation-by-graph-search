@@ -74,7 +74,7 @@ bool GraphicMainTest::Update()
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
 				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
-					i,m_node.leg_base_pos[i],m_node.global_center_of_mass,m_node.rot,true
+					i,m_node.leg_reference_pos[i],m_node.global_center_of_mass,m_node.rot,true
 				);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);

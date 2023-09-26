@@ -5,19 +5,19 @@
 
 
 
-std::string std::to_string(ESimulationResult result)
+std::string std::to_string(SimulationResult result)
 {
 	switch (result)
 	{
-	case ESimulationResult::SUCCESS:
+	case SimulationResult::SUCCESS:
 		return "SUCCESS";
-	case ESimulationResult::FAILURE:
+	case SimulationResult::FAILURE:
 		return "FAILURE";
-	case ESimulationResult::FAILURE_BY_GRAPH_SEARCH:
+	case SimulationResult::FAILURE_BY_GRAPH_SEARCH:
 		return "FAILURE_BY_GRAPH_SEARCH";
-	case ESimulationResult::FAILURE_BY_LOOP_MOTION:
+	case SimulationResult::FAILURE_BY_LOOP_MOTION:
 		return "FAILURE_BY_LOOP_MOTION";
-	case ESimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED:
+	case SimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED:
 		return "FAILURE_BY_NODE_LIMIT_EXCEEDED";
 	default:
 		return "UNKNOWN";
@@ -25,7 +25,7 @@ std::string std::to_string(ESimulationResult result)
 }
 
 
-std::ofstream& operator<<(std::ofstream& ofs, const SSimulationResultRecorder& record)
+std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& record)
 {
 	const size_t kLength = record.result_nodes.size();
 	const int kPrecision = 3;

@@ -27,7 +27,7 @@ public:
 	//! @n 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	//! @n 出力されるファイルは sim_result_回数.csv という名前になる．
 	//! @param [in] recoder シミュレーションの結果
-	void exportResult(const SSimulationResultRecorder& recoder);
+	void exportResult(const SimulationResultRecorder& recoder);
 
 
 	//! @brief 出力を行うかどうかのフラグを設定する．
@@ -37,7 +37,7 @@ public:
 
 private:
 
-	void outputResultDetail(const SSimulationResultRecorder& recoder, std::ofstream& stream);
+	void outputResultDetail(const SimulationResultRecorder& recoder, std::ofstream& stream);
 
 
 	const std::string RESULT_FOLDER_NAME = "result";	//resultフォルダ名

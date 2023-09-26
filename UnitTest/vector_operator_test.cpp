@@ -3,21 +3,21 @@
 #include "../DesignLab/designlab_vector3.h"
 
 
-namespace dl_vec_test
+namespace
 {
 	TEST(Vector3, EqualityOperator)
 	{
 		//等価演算子のテスト
 
-		EXPECT_TRUE(designlab::Vector3(10, -5, 0) == designlab::Vector3(10, -5, 0));
-		EXPECT_TRUE(designlab::Vector3(-20, 60, 10) == designlab::Vector3(-20, 60, 10));
-		EXPECT_TRUE(designlab::Vector3(0.4f, 6.6f, -7.8f) == designlab::Vector3(0.4f, 6.6f, -7.8f));
-		EXPECT_TRUE(designlab::Vector3(100000, -5200, 62000) == designlab::Vector3(100000, -5200, 62000));
+		EXPECT_TRUE(::designlab::Vector3(10, -5, 0) == ::designlab::Vector3(10, -5, 0));
+		EXPECT_TRUE(::designlab::Vector3(-20, 60, 10) == ::designlab::Vector3(-20, 60, 10));
+		EXPECT_TRUE(::designlab::Vector3(0.4f, 6.6f, -7.8f) == ::designlab::Vector3(0.4f, 6.6f, -7.8f));
+		EXPECT_TRUE(::designlab::Vector3(100000, -5200, 62000) == ::designlab::Vector3(100000, -5200, 62000));
 
-		EXPECT_FALSE(designlab::Vector3(10, -5, 0) != designlab::Vector3(10, -5, 0));
-		EXPECT_FALSE(designlab::Vector3(-20, 60, 10) != designlab::Vector3(-20, 60, 10));
-		EXPECT_FALSE(designlab::Vector3(0.4f, 6.6f, -7.8f) != designlab::Vector3(0.4f, 6.6f, -7.8f));
-		EXPECT_FALSE(designlab::Vector3(100000, -5200, 62000) != designlab::Vector3(100000, -5200, 62000));
+		EXPECT_FALSE(::designlab::Vector3(10, -5, 0) != ::designlab::Vector3(10, -5, 0));
+		EXPECT_FALSE(::designlab::Vector3(-20, 60, 10) != designlab::Vector3(-20, 60, 10));
+		EXPECT_FALSE(::designlab::Vector3(0.4f, 6.6f, -7.8f) != designlab::Vector3(0.4f, 6.6f, -7.8f));
+		EXPECT_FALSE(::designlab::Vector3(100000, -5200, 62000) != designlab::Vector3(100000, -5200, 62000));
 
 
 		EXPECT_FALSE(designlab::Vector3(4, 8, -9) == designlab::Vector3(-9, 3, 1));

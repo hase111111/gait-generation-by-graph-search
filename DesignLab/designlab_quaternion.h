@@ -8,8 +8,13 @@
 
 #include <cmath>
 
+#include "cassert_define.h"
 #include "designlab_euler.h"
 #include "designlab_vector3.h"
+
+
+//このdefineを有効にすると，ノルムが1でないクォータニオンを許さない
+#define DESIGNLAB_QUATERNION_ASSERT_NORM_1
 
 
 namespace designlab
@@ -24,9 +29,16 @@ namespace designlab
 	//! @n https://www.f-sp.com/entry/2017/06/30/221124
 	struct Quaternion
 	{
+		//! @brief 1 + {0,0,0}で初期化する，
 		constexpr Quaternion() : w(1.0f), v(0.0f, 0.0f, 0.0f) {}
-		constexpr Quaternion(float w_, float x_, float y_, float z_) : w(w_), v(x_, y_, z_) {}
-		constexpr Quaternion(float w_, const Vector3& v_) : w(w_), v(v_) {}
+
+		//! @brief スカラー成分とベクトル成分を指定して初期化する．ノルムが1になるように代入すること，
+		//! @n 使用は非推奨，MakeByAngleAxisを使うこと
+		constexpr Quaternion(const float w_, const float x_, const float y_, const float z_) : w(w_), v(x_, y_, z_) {}
+
+		//! @brief スカラー成分とベクトル成分を指定して初期化する．ノルムが1になるように代入すること，
+		//! @n 使用は非推奨，MakeByAngleAxisを使うこと
+		constexpr Quaternion(const float w_, const ::designlab::Vector3& v_) : w(w_), v(v_)	{}
 
 		constexpr Quaternion(const Quaternion& q) = default;
 		constexpr Quaternion(Quaternion&& q) noexcept = default;
@@ -37,10 +49,12 @@ namespace designlab
 		constexpr Quaternion operator + (const Quaternion& q) const { return { w + q.w, v + q.v }; }
 		constexpr Quaternion operator - (const Quaternion& q) const { return { w - q.w, v - q.v }; }
 		constexpr Quaternion operator * (const Quaternion& q) const { return { w * q.w - v.Dot(q.v), w * q.v + q.w * v + v.Cross(q.v) }; }
-		constexpr Quaternion operator * (float s) const { return { w * s, v * s }; }
-		constexpr Quaternion operator / (float s) const { return { w / s, v / s }; }
+		constexpr Quaternion operator * (const float s) const { return { w * s, v * s }; }
+		constexpr Quaternion operator / (const float s) const { return { w / s, v / s }; }
 
 		bool operator == (const Quaternion& q) const { return (w == q.w) && (v == q.v); }
+		bool operator != (const Quaternion& q) const { return !(*this == q); }
+
 		bool operator < (const Quaternion& q) const { return (w < q.w) || (w == q.w && v < q.v); }
 		bool operator > (const Quaternion& other) const { return other < *this; }
 		bool operator <= (const Quaternion& other) const { return !(*this > other); }
@@ -52,10 +66,15 @@ namespace designlab
 		//! @return designlab::Quaternion 共役クォータニオン
 		constexpr Quaternion Conjugate() const { return { w, -v }; }
 
+		//! @brief クォータニオンの長さの2乗を返す(ノルムの2乗)．
+		//! @n クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる
+		//! @return float 長さの2乗
+		constexpr float LengthSquared() const { return w * w + v.Dot(v); }
+
 		//! @brief クォータニオンのノルムを返す
 		//! @n ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる
 		//! @return float ノルム
-		constexpr float Norm() const { return w * w + v.Dot(v); }
+		inline float Norm() const { return std::sqrt(LengthSquared()); }
 
 		//! @brief クォータニオンの逆数を返す
 		//! @n クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの
@@ -65,7 +84,7 @@ namespace designlab
 		//! @n クォータニオンの正規化とは，ノルムを1にすること．
 		//! @n クォータニオンqの正規化は，q / |q| で求められる
 		//! @return designlab::Quaternion 正規化されたクォータニオン
-		inline Quaternion Normalize() const { return *this * (1 / sqrt(Norm())); }
+		inline Quaternion Normalize() const { return *this * (1 / Norm()); }
 
 		//! @brief クォータニオンをXYZオイラー角に変換する
 		//! @return designlab::EulerXYZ XYZオイラー角
@@ -73,26 +92,36 @@ namespace designlab
 
 		//! @brief 他のクォータニオンとの距離の2乗を返す．クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める
 		//! @return float 距離の2乗
-		constexpr float DistanceSquared(const Quaternion& q) const { return (*this - q).Norm(); }
+		constexpr float DistanceSquared(const Quaternion& q) const { return (*this - q).LengthSquared(); }
 
 		//! @brief 回転軸と回転角からクォータニオンを作成する
-		//! @n q = cos(θ/2) * w + sin(θ/2) * { x  + y  + z } となる
-		//! @param [in] rad_angle 回転角（ラジアン）
+		//! @n q = cos(θ/2) * w + sin(θ/2) * { v.x  + v.y  + v.z } となる
+		//! @param [in] rad_angle 回転角θ [rad]
 		//! @param [in] axis 回転軸
-		static Quaternion MakeByRotAngleAndAxis(float rad_angle, const Vector3& axis);
+		static Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
 
 
 		float w;	//!< スカラー成分
-		Vector3 v;	//!< ベクトル成分
+		::designlab::Vector3 v;	//!< ベクトル成分
 
 	};
 
 
 	constexpr Quaternion operator * (float s, const Quaternion& q) { return q * s; }
 
-	Vector3 rotVecByQuat(const Vector3& vec, const Quaternion& q);
+	//! @brief 3次元の位置ベクトルを回転させる．
+	//! @param [in] vec 回転させるベクトル．
+	//! @param [in] q 回転させるクォータニオン．
+	//! @param [in] use_normalized_quaternions 正規化されたクォータニオンを使うかどうか．
+	//! @n 正規化クォータニオンならば，共役と逆数が等しいので，計算量を減らすことができる．
+	//! @return designlab::Vector3 回転後のベクトル．
+	Vector3 RotateVector3(const Vector3& vec, const Quaternion& q, bool use_normalized_quaternions);
 
 }	// namespace designlab	
+
+
+// defineはundefするまで有効なので，undefする(他のファイルに影響しないようにするため，)
+#undef DESIGNLAB_QUATERNION_ASSERT_NORM_1
 
 
 #endif	// DESIGNLAB_QUATERNION_H_

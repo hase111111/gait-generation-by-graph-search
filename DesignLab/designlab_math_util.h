@@ -55,6 +55,7 @@ namespace designlab
 		constexpr T Squared(const T num) { return num * num; }
 
 		//! @brief 目標値に値を近づける関数．
+		//! @n 適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと
 		//! @param [in] current 現在の値．
 		//! @param [in] target 目標値．
 		//! @param [in] rate 近づける割合．0 ～ 1の値を取る．

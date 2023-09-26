@@ -46,7 +46,7 @@ void HexapodRenderer::set_draw_node(const SNode& node)
 		kFemurJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[1]);
 		kTibiaJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[2]);
 		kLegEndPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[3]);
-		kLegBasePos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_base_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
+		kLegBasePos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_reference_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
 
 		kCoxaCos[i] = std::cos(draw_joint_state_[i].joint_angle[0]);
 		kCoxaSin[i] = std::sin(draw_joint_state_[i].joint_angle[0]);
@@ -166,7 +166,7 @@ void HexapodRenderer::Draw() const
 		//	if (m_HexaCalc.IsLegInRange(node, i))printfDx("is in range   ");
 		//	else printfDx("isnot in range");
 
-		//	if (node.leg_base_pos[i].ProjectedXY().Cross(node.leg_pos[i].ProjectedXY()) * node.leg_pos[i].ProjectedXY().Cross({ 1,0 }) > 0)
+		//	if (node.leg_reference_pos[i].ProjectedXY().Cross(node.leg_pos[i].ProjectedXY()) * node.leg_pos[i].ProjectedXY().Cross({ 1,0 }) > 0)
 		//	{
 		//		printfDx("front - 567\n");
 		//	}

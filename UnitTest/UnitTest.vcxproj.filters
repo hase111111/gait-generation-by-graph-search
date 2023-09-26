@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="vector_func_test.cpp">
+    <ClCompile Include="vector3_func_test.cpp">
       <Filter>Vector</Filter>
     </ClCompile>
     <ClCompile Include="vector_operator_test.cpp">

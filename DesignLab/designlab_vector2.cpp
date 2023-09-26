@@ -34,7 +34,7 @@ namespace designlab
 		return *this;
 	}
 
-	Vector2 Vector2::Normalized() const
+	Vector2 Vector2::Normalize() const
 	{
 		float length = Length();
 

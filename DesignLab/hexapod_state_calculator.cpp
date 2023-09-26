@@ -280,7 +280,7 @@
 //	for (int i = 0; i < leg_pos.size(); i++)
 //	{
 //		designlab::Vector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
-//		i_to_i_plus_1.Normalized();
+//		i_to_i_plus_1.Normalize();
 //
 //		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - leg_pos.at(i);
 //

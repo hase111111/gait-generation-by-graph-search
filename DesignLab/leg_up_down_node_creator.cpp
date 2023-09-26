@@ -96,7 +96,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 				{
 					res_node.leg_pos[j] = ground_pos[j];
 
-					res_node.leg_base_pos[j] = ground_pos[j];
+					res_node.leg_reference_pos[j] = ground_pos[j];
 				}
 				else
 				{
@@ -105,8 +105,8 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 					//res_node.leg_pos[j].y = 160 * HexapodConst::DEFAULT_LEG_ANGLE_SIN[j];
 					//res_node.leg_pos[j].z = -25;
 
-					res_node.leg_base_pos[j].x = res_node.leg_pos[j].x;
-					res_node.leg_base_pos[j].y = res_node.leg_pos[j].y;
+					res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
+					res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;
 				}
 			}
 
@@ -128,7 +128,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(now_leg_num, current_node.leg_base_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
+	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(now_leg_num, current_node.leg_reference_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
 	//m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
 
 	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
@@ -170,13 +170,13 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 				if (is_candidate_pos)
 				{
 					//反対方向をむいている場合は候補地点として採用しない．
-					if (new_node.leg_base_pos[now_leg_num].ProjectedXY().Cross(candidate_pos.ProjectedXY()) * new_node.leg_base_pos[now_leg_num].ProjectedXY().Cross(map_point_pos.ProjectedXY()) < 0)
+					if (new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(candidate_pos.ProjectedXY()) * new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(map_point_pos.ProjectedXY()) < 0)
 					{
 						continue;
 					}
 
 					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
-					if (map_point_pos.ProjectedXY().Cross(candidate_pos.ProjectedXY()) * map_point_pos.ProjectedXY().Cross(new_node.leg_base_pos[now_leg_num].ProjectedXY()) < 0)
+					if (map_point_pos.ProjectedXY().Cross(candidate_pos.ProjectedXY()) * map_point_pos.ProjectedXY().Cross(new_node.leg_reference_pos[now_leg_num].ProjectedXY()) < 0)
 					{
 						continue;
 					}
@@ -214,7 +214,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	const DiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_base_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))
+	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))
 	{
 		if (_leg_state == DiscreteLegPos::kCenter) { return true; }
 		else { return false; }
@@ -225,7 +225,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	}
 
 	//脚位置4と比較して前か後ろか
-	if (_node.leg_base_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
+	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
 
@@ -249,7 +249,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kLowerBack)
 	{
 		//脚位置4と比較して下
-		if (_node.leg_base_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
+		if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
 		{
 			return true;
 		}
@@ -257,7 +257,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	else if (_leg_state == DiscreteLegPos::kUpperFront || _leg_state == DiscreteLegPos::kUpperBack)
 	{
 		//脚位置4と比較して上
-		if (_node.leg_base_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
+		if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
 		{
 			return true;
 		}
@@ -265,7 +265,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 	else
 	{
 		//脚位置4と同じくらい
-		if (std::abs(_node.leg_base_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
+		if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
 		{
 			return true;
 		}
