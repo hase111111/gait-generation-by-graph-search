@@ -23,9 +23,9 @@ void MapRenderer::Draw(const MapState& map) const
 
 	for (size_t i = 0; i < kSize; i++)
 	{
-		int x_index = DevideMapState::GetDevideMapIndexX(map.map_point(i).x);
-		int y_index = DevideMapState::GetDevideMapIndexY(map.map_point(i).y);
+		int x_index = DevideMapState::GetDevideMapIndexX(map.GetMapPoint(i).x);
+		int y_index = DevideMapState::GetDevideMapIndexY(map.GetMapPoint(i).y);
 
-		dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.map_point(i)), CUBE_SIZE, (x_index + y_index) % 2 == 0 ? COLOR_GRAY : COLOR_LIGHT_GRAY);
+		dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.GetMapPoint(i)), CUBE_SIZE, (x_index + y_index) % 2 == 0 ? COLOR_GRAY : COLOR_LIGHT_GRAY);
 	}
 }

@@ -40,7 +40,7 @@ struct ApplicationSettingRecorder
 	int window_fps = 60; 								//!< グラフィカルウィンドウのFPS	
 
 
-	EMapCreateMode map_create_mode = EMapCreateMode::FLAT;	//!< マップ生成モード
+	MapCreateMode map_create_mode = MapCreateMode::kFlat;	//!< マップ生成モード
 	int map_create_option = 0;								//!< マップ生成オプション
 	bool do_output_map = true;								//!< マップを出力するかどうか
 	int map_hole_rate = 40;									//!< マップの穴の割合

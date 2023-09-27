@@ -35,7 +35,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	//マップを生成する
 	std::cout << "GraphViewerSystemMain : マップを生成します．" << std::endl;
 	std::cout << "GraphViewerSystemMain : オプションを入力してください" << std::endl;
-	MapCreator::printAllMapCreateMode();
+	MapCreator::PrintAllMapCreateMode();
 	std::string _mode;
 	std::cout << std::endl << "input : ";
 	std::cin >> _mode;
@@ -47,7 +47,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	std::cin >> _option;
 	std::cout << std::endl;
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(static_cast<EMapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	map_state_ = map_creator.Create(static_cast<MapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
 

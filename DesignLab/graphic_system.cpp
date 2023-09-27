@@ -79,7 +79,8 @@ bool GraphicSystem::DxlibInit()
 	SetWindowSizeChangeEnableFlag(FALSE);					// ウィンドウサイズを自由に変更できないようにする．
 	SetAlwaysRunFlag(TRUE);									// ウインドウがアクティブではない状態でも処理を続行するように変更する．
 	ChangeWindowMode(TRUE);									// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
-	SetUseDirectInputFlag(TRUE);							// DirectInputを使用するように変更．これをしないとキー入力ができない．
+	SetUseDirectInputFlag(TRUE);							// DirectInputを使用するように変更．これをしないとマウス入力でサイドボタンが受け付けられない．
+	SetDxLibEndPostQuitMessageFlag(FALSE);					// DxLib_End関数を呼び出した際に PostQuitMessage を呼ばないようにする(何度もGUIを立ち上げられるようにするため)．
 
 	//ウィンドウの横幅，縦幅，カラーを設定する．
 	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::kColorBit);
