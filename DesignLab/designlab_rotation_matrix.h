@@ -8,6 +8,7 @@
 #include <array>
 
 #include "designlab_euler.h"
+#include "designlab_vector3.h"
 
 
 namespace designlab 
@@ -42,6 +43,10 @@ namespace designlab
 		RotationMatrix3x3& operator =(const RotationMatrix3x3& other) = default;
 		~RotationMatrix3x3() = default;
 
+
+		RotationMatrix3x3& operator* (const RotationMatrix3x3& other);
+
+
 		//! @brief x軸周りに回転する回転行列を生成する
 		//! @param [in] angle 回転角 [rad]
 		//! @return x軸周りに回転する回転行列
@@ -59,14 +64,21 @@ namespace designlab
 		
 
 		//! データの並びについて
-		//! @n     | R11 R12 R13 |
-		//! @n R = | R21 R22 R23 |   
-		//! @n     | R31 R32 R33 |
+		//! @n ____|_R11_R12_R13_|
+		//! @n R_=_|_R21_R22_R23_|   
+		//! @n ____|_R31_R32_R33_|
 		//! @n
 		//! @n R11はelement[0][0]，R12はelement[0][1]，R32はelement[2][1]となる．
 		//! @n つまり，element[ 行 - 1 ][ 列 - 1 ]となる．
 		std::array<std::array<float,3>, 3> element;
 	};
+
+
+	//! @brief 回転させたベクトルを返す
+	//! @param [in] vec 回転させるベクトル
+	//! @param [in] rot 回転行列
+	Vector3 rotVector(const Vector3& vec, const RotationMatrix3x3& rot);
+
 }
 
 

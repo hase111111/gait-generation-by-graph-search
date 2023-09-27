@@ -7,27 +7,37 @@ namespace designlab
 {
 	// âÒì]çsóÒÇ…Ç¬Ç¢Çƒ
 	// https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
+	// https://programming-surgeon.com/script/euler-angle/
 
 	RotationMatrix3x3::RotationMatrix3x3(const EulerXYZ& euler_xyz)
 	{
-		const float cos_x = std::cos(euler_xyz.x_angle);
-		const float sin_x = std::sin(euler_xyz.x_angle);
-		const float cos_y = std::cos(euler_xyz.y_angle);
-		const float sin_y = std::sin(euler_xyz.y_angle);
-		const float cos_z = std::cos(euler_xyz.z_angle);
-		const float sin_z = std::sin(euler_xyz.z_angle);
+		RotationMatrix3x3 rot_x = CreateRotationMatrixX(euler_xyz.x_angle);
+		RotationMatrix3x3 rot_y = CreateRotationMatrixY(euler_xyz.y_angle);
+		RotationMatrix3x3 rot_z = CreateRotationMatrixZ(euler_xyz.z_angle);
 
-		element[0][0] = cos_y * cos_z;
-		element[0][1] = cos_y * sin_z;
-		element[0][2] = -sin_y;
+		*this = rot_z * rot_y * rot_x;
+	}
 
-		element[1][0] = sin_x * sin_y * cos_z - cos_x * sin_z;
-		element[1][1] = sin_x * sin_y * sin_z + cos_x * cos_z;
-		element[1][2] = sin_x * cos_y;
+	RotationMatrix3x3& RotationMatrix3x3::operator*(const RotationMatrix3x3& other)
+	{
+		RotationMatrix3x3 res;
 
-		element[2][0] = cos_x * sin_y * cos_z + sin_x * sin_z;
-		element[2][1] = cos_x * sin_y * sin_z - sin_x * cos_z;
-		element[2][2] = cos_x * cos_y;
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				res.element[i][j] = 0.0f;
+
+				for (int k = 0; k < 3; k++)
+				{
+					res.element[i][j] += element[i][k] * other.element[k][j];
+				}
+			}
+		}
+
+		*this = res;
+
+		return *this;
 	}
 
 	RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
@@ -64,6 +74,17 @@ namespace designlab
 			sin_angle, cos_angle, 0.0f,
 			0.0f, 0.0f, 1.0f
 		);
+	}
+
+	Vector3 rotVector(const Vector3& vec, const RotationMatrix3x3& rot)
+	{
+		Vector3 res;
+
+		res.x = rot.element[0][0] * vec.x + rot.element[0][1] * vec.y + rot.element[0][2] * vec.z;
+		res.y = rot.element[1][0] * vec.x + rot.element[1][1] * vec.y + rot.element[1][2] * vec.z;
+		res.z = rot.element[2][0] * vec.x + rot.element[2][1] * vec.y + rot.element[2][2] * vec.z;
+
+		return res;
 	}
 
 }	// namespace designlab
