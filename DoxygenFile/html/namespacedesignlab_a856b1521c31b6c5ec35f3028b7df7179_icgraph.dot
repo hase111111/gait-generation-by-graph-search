@@ -14,4 +14,5 @@ digraph "designlab::rotVector"
   Node4 [id="Node000004",label="PhantomXStateCalclator\l::GetGlobalLegBasePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a1496a624a7b82f6fcd9c4a35602818c6",tooltip="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="PhantomXStateCalclator\l::GetGlobalLegPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a6bb1641e5d222f4c920141d8b6c2a26a",tooltip="脚の先端の座標を取得する．グローバル(ワールド)座標系"];
+  Node1 -> Node1 [id="edge5_Node000001_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

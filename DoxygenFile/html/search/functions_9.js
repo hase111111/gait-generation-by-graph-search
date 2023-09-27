@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['main_0',['Main',['../class_graph_viewer_system_main.html#abe0b743b08c1b9e9970bdc7cd0a63b6b',1,'GraphViewerSystemMain::Main()'],['../class_graphic_system.html#af4973873ceea44d1eeb54e68dabeb0de',1,'GraphicSystem::Main()'],['../class_simulation_system_main.html#adb7b220bc2f5e2c55bd49e25b8c9345d',1,'SimulationSystemMain::Main()']]],
-  ['makebyrotangleandaxis_1',['MakeByRotAngleAndAxis',['../structdesignlab_1_1_quaternion.html#a6531879e2803368dde7a6e5ce6e52a09',1,'designlab::Quaternion']]],
-  ['makecandidatepolygon_2',['makeCandidatePolygon',['../class_com_candidate_polygon_maker.html#aefcf9582e7b0fa63e64ae882ea78a7a9',1,'ComCandidatePolygonMaker']]],
-  ['makeleggroundedmap_3',['makeLegGroundedMap',['../namespacedl__com.html#ab1d3ae7fea9b3bd985b411700cdbd0da',1,'dl_com']]],
-  ['makeleggroundedpatternbanlist_4',['makeLegGroundedPatternBanList',['../namespacedl__com.html#a1c98929ee34aa803bb98cc345dcae146',1,'dl_com']]],
-  ['makeleggroundedpatternbanlistfromleg_5',['makeLegGroundedPatternBanListFromLeg',['../namespacedl__com.html#a5bb4bcb29b1d92740cb2faf7ad46a0a9',1,'dl_com']]],
-  ['makelegstatebit_6',['MakeLegStateBit',['../namespacedl__leg.html#af9476431a9ed1a6eaf7c47b27047e3ba',1,'dl_leg']]],
-  ['map_5fpoint_7',['map_point',['../class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd',1,'MapState']]]
+  ['length_0',['Length',['../structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843',1,'designlab::Vector2::Length()'],['../structdesignlab_1_1_vector3.html#a1a64cf59595f7a858075f4899815f66a',1,'designlab::Vector3::Length()']]],
+  ['lengthsquare_1',['LengthSquare',['../structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b',1,'designlab::Vector2::LengthSquare()'],['../structdesignlab_1_1_vector3.html#a060a9822b0cfc9aa6f2dd74c318f3201',1,'designlab::Vector3::LengthSquare()']]],
+  ['lengthsquared_2',['LengthSquared',['../structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750',1,'designlab::Quaternion']]]
 ];

@@ -29,7 +29,7 @@ var dir_edbea65ff7b1d6b35bb82a602cbc9652 =
     [ "designlab_vector2.h", "designlab__vector2_8h.html", "designlab__vector2_8h" ],
     [ "designlab_vector3.h", "designlab__vector3_8h.html", "designlab__vector3_8h" ],
     [ "detectLandingPoint.h", "detect_landing_point_8h_source.html", null ],
-    [ "discrete_com_pos.h", "discrete__com__pos_8h_source.html", null ],
+    [ "discrete_com_pos.h", "discrete__com__pos_8h.html", "discrete__com__pos_8h" ],
     [ "discrete_leg_pos.h", "discrete__leg__pos_8h.html", "discrete__leg__pos_8h" ],
     [ "display_node_switch_gui.h", "display__node__switch__gui_8h.html", "display__node__switch__gui_8h" ],
     [ "dxlib_util.h", "dxlib__util_8h.html", "dxlib__util_8h" ],

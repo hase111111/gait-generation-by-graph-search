@@ -7,11 +7,14 @@ digraph "designlab::Vector3::Dot"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::Vector3::Dot",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="自分・引数 の内積の結果を返す．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="designlab::Quaternion\l::Norm",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#ad3832c1faaa1394601a665afc2a16f7e",tooltip="クォータニオンのノルムを返す   ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる"];
+  Node2 [id="Node000002",label="designlab::Quaternion\l::LengthSquared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750",tooltip="クォータニオンの長さの2乗を返す(ノルムの2乗)．   クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="designlab::Quaternion\l::Inverse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726",tooltip="クォータニオンの逆数を返す   クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの"];
-  Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="designlab::Quaternion\l::Normalize",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a",tooltip="正規化したクォータニオンを返す   クォータニオンの正規化とは，ノルムを1にすること．   クォータニオンqの正規化は，q / |q| で求められる"];
+  Node3 [id="Node000003",label="designlab::Quaternion\l::Norm",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8",tooltip="クォータニオンのノルムを返す   ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="designlab::Quaternion\l::Inverse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726",tooltip="クォータニオンの逆数を返す   クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="CameraInputController\l::ChangeCameraState",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$class_camera_input_controller.html#a56c0dbc23365b09d5d0c0349e880e16f",tooltip="キー入力でカメラを動かす．   基本的には毎フレーム呼び出す"];
+  Node5 [id="Node000005",label="designlab::RotateVector3",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8",tooltip="3次元の位置ベクトルを回転させる．"];
+  Node3 -> Node12 [id="edge5_Node000003_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="designlab::Quaternion\l::Normalize",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a",tooltip="正規化したクォータニオンを返す   クォータニオンの正規化とは，ノルムを1にすること．   クォータニオンqの正規化は，q / |q| で求められる"];
+  Node3 -> Node5 [id="edge6_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -90,13 +90,11 @@ $(document).ready(function(){initNavTree('discrete__leg__pos_8h.html',''); initR
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">列挙型</a> &#124;
-<a href="#func-members">関数</a>  </div>
+<a href="#enum-members">列挙型</a>  </div>
   <div class="headertitle"><div class="title">discrete_leg_pos.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-</div>
+
 <p><a href="discrete__leg__pos_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -113,15 +111,6 @@ $(document).ready(function(){initNavTree('discrete__leg__pos_8h.html',''); initR
 <br />
  }</td></tr>
 <tr class="separator:a24fbf54df1da90671a3451edff7f75df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-関数</h2></td></tr>
-<tr class="memitem:a221b9d1276d4b61b672d5d369bf715e1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="discrete__leg__pos_8h.html#a221b9d1276d4b61b672d5d369bf715e1">std::to_string</a> (<a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a> leg_pos)</td></tr>
-<tr class="memdesc:a221b9d1276d4b61b672d5d369bf715e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">DiscreteLegPosを文字列に変換する <br  />
- enumを文字列に変換するため，std::to_string()をオーバーロードする． <br  />
- DiscreteLegPosの値が増えたらここも増やす必要がある． <br  />
- 正直メンテナンスが大変なんでもっといい方法ないすかね？  <br /></td></tr>
-<tr class="separator:a221b9d1276d4b61b672d5d369bf715e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>@breif 離散化された脚位置を表す列挙体 </p>
@@ -166,48 +155,6 @@ $(document).ready(function(){initNavTree('discrete__leg__pos_8h.html',''); initR
 <tr><td class="fieldname"><a id="a24fbf54df1da90671a3451edff7f75dfa55546b3f938b81742b7d0c03e85a5c91" name="a24fbf54df1da90671a3451edff7f75dfa55546b3f938b81742b7d0c03e85a5c91"></a>kUpperFront&#160;</td><td class="fielddoc"><p>現在の位置より前方かつ上方にある </p>
 </td></tr>
 </table>
-
-</div>
-</div>
-<h2 class="groupheader">関数詳解</h2>
-<a id="a221b9d1276d4b61b672d5d369bf715e1" name="a221b9d1276d4b61b672d5d369bf715e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a221b9d1276d4b61b672d5d369bf715e1">&#9670;&#160;</a></span>to_string()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string std::to_string </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="discrete__leg__pos_8h.html#a24fbf54df1da90671a3451edff7f75df">DiscreteLegPos</a>&#160;</td>
-          <td class="paramname"><em>leg_pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>DiscreteLegPosを文字列に変換する <br  />
- enumを文字列に変換するため，std::to_string()をオーバーロードする． <br  />
- DiscreteLegPosの値が増えたらここも増やす必要がある． <br  />
- 正直メンテナンスが大変なんでもっといい方法ないすかね？ </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>変換したいDiscreteLegPos </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>DiscreteLegPosを文字列に変換したもの </dd></dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="discrete__leg__pos_8h_a221b9d1276d4b61b672d5d369bf715e1_cgraph.png" border="0" usemap="#adiscrete__leg__pos_8h_a221b9d1276d4b61b672d5d369bf715e1_cgraph" alt=""/></div>
-<map name="adiscrete__leg__pos_8h_a221b9d1276d4b61b672d5d369bf715e1_cgraph" id="adiscrete__leg__pos_8h_a221b9d1276d4b61b672d5d369bf715e1_cgraph">
-<area shape="rect" title="DiscreteLegPosを文字列に変換する &#160;&#160;enumを文字列に変換するため，std::to_string()をオーバーロードする． &#160;&#160;DiscreteLegPosの値が増えたらここも増やす必要..." alt="" coords="5,29,103,56"/>
-<area shape="rect" href="boot__mode_8h.html#a25f9e88adbe6b24506b9e76fb32fd4a4" title="EBootModeを文字列に変換する" alt="" coords="151,29,248,56"/>
-<area shape="poly" title=" " alt="" coords="103,40,136,40,136,45,103,45"/>
-<area shape="poly" title=" " alt="" coords="174,30,169,21,173,11,183,5,199,3,218,5,227,12,224,17,215,10,199,8,185,10,177,14,175,20,179,28"/>
-</map>
-</div>
 
 </div>
 </div>

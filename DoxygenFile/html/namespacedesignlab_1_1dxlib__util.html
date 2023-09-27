@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: designlab::dxlib_util 名前空間</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespacedesignlab_1_1dxlib__util.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">designlab::dxlib_util 名前空間</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Dxlibの3D表示を行う処理を書き直したもの．  
+<a href="namespacedesignlab_1_1dxlib__util.html#details">[詳解]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a744ecef12e844b170ccc769bb629ca60"><td class="memItemLeft" align="right" valign="top"><a id="a744ecef12e844b170ccc769bb629ca60" name="a744ecef12e844b170ccc769bb629ca60"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitDxlib3DSetting</b> ()</td></tr>
+<tr class="memdesc:a744ecef12e844b170ccc769bb629ca60"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D処理を行う上で必要な初期化処理をまとめたもの． <br /></td></tr>
+<tr class="separator:a744ecef12e844b170ccc769bb629ca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f59136031be16081cffcef06767b9e5"><td class="memItemLeft" align="right" valign="top"><a id="a5f59136031be16081cffcef06767b9e5" name="a5f59136031be16081cffcef06767b9e5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetZBufferEnable</b> ()</td></tr>
+<tr class="memdesc:a5f59136031be16081cffcef06767b9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする． <br  />
+ なんか毎フレーム実行しなきゃいけないっぽい？仕様がよくわからん <br /></td></tr>
+<tr class="separator:a5f59136031be16081cffcef06767b9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec08fe28b57053d60e3085bd20ce8b25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">DrawCube3D</a> (const VECTOR &amp;center_pos, float side_len, unsigned int color)</td></tr>
+<tr class="memdesc:aec08fe28b57053d60e3085bd20ce8b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間に立方体を描画する．  <br /></td></tr>
+<tr class="separator:aec08fe28b57053d60e3085bd20ce8b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a170cac2fc964414af49c550aee6583c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">DrawCube3DWithTopPos</a> (const VECTOR &amp;top_pos, float side_len, unsigned int color)</td></tr>
+<tr class="memdesc:a170cac2fc964414af49c550aee6583c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．  <br /></td></tr>
+<tr class="separator:a170cac2fc964414af49c550aee6583c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8892901793b338c6a643dc12d19a99e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a> (const std::array&lt; VECTOR, 6 &gt; &amp;vertex, unsigned int color)</td></tr>
+<tr class="memdesc:aa8892901793b338c6a643dc12d19a99e"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間に六角形を描画する．各点は同一平面上にあるものにしないと，描画が歪む．  <br /></td></tr>
+<tr class="separator:aa8892901793b338c6a643dc12d19a99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cc0ecb50fc678af0d50370a137356e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">DrawHexagonalPrism</a> (const std::array&lt; VECTOR, 6 &gt; &amp;vertex, float height, unsigned int color)</td></tr>
+<tr class="memdesc:ad8cc0ecb50fc678af0d50370a137356e"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間に六角柱を描画する．  <br /></td></tr>
+<tr class="separator:ad8cc0ecb50fc678af0d50370a137356e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6873d18685f86e3d6c7675898830c6f0"><td class="memItemLeft" align="right" valign="top">VECTOR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0">ConvertToDxlibVec</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;vec)</td></tr>
+<tr class="memdesc:a6873d18685f86e3d6c7675898830c6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． <br  />
+ ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．  <br /></td></tr>
+<tr class="separator:a6873d18685f86e3d6c7675898830c6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef91256039ba08a14de1b4889f6f17ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html#aef91256039ba08a14de1b4889f6f17ef">ConvertDesignLabVec</a> (const VECTOR &amp;vec)</td></tr>
+<tr class="memdesc:aef91256039ba08a14de1b4889f6f17ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">このプログラムで使用しているVectorと，Dxlibの座標を示すVECTORを変換する． <br  />
+ ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．  <br /></td></tr>
+<tr class="separator:aef91256039ba08a14de1b4889f6f17ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibの3D表示を行う処理を書き直したもの． </p>
+<p>Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので， <br  />
+ ここである程度使いやすくなるように処理を書いてまとめておく． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="aef91256039ba08a14de1b4889f6f17ef" name="aef91256039ba08a14de1b4889f6f17ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef91256039ba08a14de1b4889f6f17ef">&#9670;&#160;</a></span>ConvertDesignLabVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> designlab::dxlib_util::ConvertDesignLabVec </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>このプログラムで使用しているVectorと，Dxlibの座標を示すVECTORを変換する． <br  />
+ ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>変換前の座標． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">Vector3</a> 変換後の座標． </dd></dl>
+
+</div>
+</div>
+<a id="a6873d18685f86e3d6c7675898830c6f0" name="a6873d18685f86e3d6c7675898830c6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6873d18685f86e3d6c7675898830c6f0">&#9670;&#160;</a></span>ConvertToDxlibVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VECTOR designlab::dxlib_util::ConvertToDxlibVec </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． <br  />
+ ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>変換前の座標． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>VECTOR 変換後の座標． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_a6873d18685f86e3d6c7675898830c6f0_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_a6873d18685f86e3d6c7675898830c6f0_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_a6873d18685f86e3d6c7675898830c6f0_icgraph" id="anamespacedesignlab_1_1dxlib__util_a6873d18685f86e3d6c7675898830c6f0_icgraph">
+<area shape="rect" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="457,197,595,240"/>
+<area shape="rect" href="class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="239,205,400,232"/>
+<area shape="poly" title=" " alt="" coords="443,221,400,221,400,216,443,216"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="15,268,172,295"/>
+<area shape="poly" title=" " alt="" coords="491,252,454,277,410,297,343,310,274,312,209,307,154,298,155,293,210,301,274,307,342,305,408,292,451,273,488,247"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="252,256,387,283"/>
+<area shape="poly" title=" " alt="" coords="444,242,377,258,376,253,443,236"/>
+<area shape="rect" href="class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="236,72,403,115"/>
+<area shape="poly" title=" " alt="" coords="490,189,451,158,408,129,385,118,387,113,410,124,455,154,493,185"/>
+<area shape="rect" href="class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="240,139,399,181"/>
+<area shape="poly" title=" " alt="" coords="442,198,396,185,398,179,444,193"/>
+<area shape="rect" href="class_robot_graund_point_renderer.html#ab29a09c0c523164d7d15195fc13eedd7" title=" " alt="" coords="230,5,409,48"/>
+<area shape="poly" title=" " alt="" coords="505,186,465,123,438,91,407,62,389,51,392,46,411,58,442,87,470,120,510,183"/>
+<area shape="rect" href="class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="244,377,395,420"/>
+<area shape="poly" title=" " alt="" coords="499,253,458,296,411,341,358,379,355,375,407,337,455,292,495,249"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="22,135,165,177"/>
+<area shape="poly" title=" " alt="" coords="254,203,165,178,167,173,255,198"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,84,176,111"/>
+<area shape="poly" title=" " alt="" coords="236,201,228,195,211,178,203,159,196,141,180,125,159,114,162,109,183,121,200,139,208,157,216,175,231,191,239,196"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="9,201,178,244"/>
+<area shape="poly" title=" " alt="" coords="224,223,178,224,178,219,224,218"/>
+<area shape="poly" title=" " alt="" coords="255,239,145,270,144,265,254,234"/>
+<area shape="poly" title=" " alt="" coords="239,252,228,246,212,233,203,219,194,205,180,191,161,180,163,176,183,187,199,202,208,216,216,229,231,242,241,247"/>
+<area shape="poly" title=" " alt="" coords="237,253,228,246,215,231,208,215,203,184,199,153,192,139,180,125,163,114,166,109,183,121,197,136,204,152,208,183,213,213,219,228,232,242,240,249"/>
+<area shape="poly" title=" " alt="" coords="237,255,177,243,179,237,238,250"/>
+<area shape="poly" title=" " alt="" coords="237,276,172,280,172,275,237,271"/>
+<area shape="poly" title=" " alt="" coords="227,122,166,139,165,134,225,117"/>
+<area shape="poly" title=" " alt="" coords="221,98,176,99,176,93,221,92"/>
+<area shape="poly" title=" " alt="" coords="225,161,166,160,166,155,225,156"/>
+<area shape="poly" title=" " alt="" coords="225,137,144,114,145,109,227,132"/>
+<area shape="poly" title=" " alt="" coords="237,58,231,62,216,77,208,93,199,109,183,125,165,136,162,132,180,121,195,105,203,90,212,74,228,58,234,54"/>
+<area shape="poly" title=" " alt="" coords="236,56,140,86,138,81,234,50"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,319,165,361"/>
+<area shape="poly" title=" " alt="" coords="229,378,165,361,166,356,231,373"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,385,182,412"/>
+<area shape="poly" title=" " alt="" coords="229,401,182,401,182,396,229,396"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,436,178,479"/>
+<area shape="poly" title=" " alt="" coords="230,424,179,438,177,433,229,419"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,503,178,529"/>
+<area shape="poly" title=" " alt="" coords="282,431,236,463,183,493,153,505,151,500,181,488,233,459,278,427"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aec08fe28b57053d60e3085bd20ce8b25" name="aec08fe28b57053d60e3085bd20ce8b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec08fe28b57053d60e3085bd20ce8b25">&#9670;&#160;</a></span>DrawCube3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::dxlib_util::DrawCube3D </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR &amp;&#160;</td>
+          <td class="paramname"><em>center_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>side_len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D空間に立方体を描画する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">center_pos</td><td>立方体の中心の座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">side_len</td><td>立方体の1辺の長さ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>立方体の色．dxlibのGetColorで取得する. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_aec08fe28b57053d60e3085bd20ce8b25_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_aec08fe28b57053d60e3085bd20ce8b25_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_aec08fe28b57053d60e3085bd20ce8b25_icgraph" id="anamespacedesignlab_1_1dxlib__util_aec08fe28b57053d60e3085bd20ce8b25_icgraph">
+<area shape="rect" title="3D空間に立方体を描画する．" alt="" coords="672,33,808,76"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,5,168,32"/>
+<area shape="poly" title=" " alt="" coords="657,53,168,26,168,20,658,47"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="449,63,624,105"/>
+<area shape="poly" title=" " alt="" coords="658,69,625,74,624,69,657,64"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="244,71,379,97"/>
+<area shape="poly" title=" " alt="" coords="434,87,380,87,380,81,434,81"/>
+<area shape="rect" href="class_robot_graund_point_renderer.html#ab29a09c0c523164d7d15195fc13eedd7" title=" " alt="" coords="222,123,401,165"/>
+<area shape="poly" title=" " alt="" coords="441,112,395,125,393,120,440,107"/>
+<area shape="poly" title=" " alt="" coords="249,69,137,35,138,30,251,64"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,123,161,165"/>
+<area shape="poly" title=" " alt="" coords="246,104,162,127,161,122,244,99"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,189,172,216"/>
+<area shape="poly" title=" " alt="" coords="234,106,223,113,208,129,200,145,192,162,175,179,154,191,151,186,172,175,187,159,195,143,204,126,220,109,232,102"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
+<area shape="poly" title=" " alt="" coords="228,84,174,83,174,77,229,79"/>
+<area shape="poly" title=" " alt="" coords="207,147,162,147,162,141,207,141"/>
+<area shape="poly" title=" " alt="" coords="215,172,143,191,142,186,214,167"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a170cac2fc964414af49c550aee6583c8" name="a170cac2fc964414af49c550aee6583c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a170cac2fc964414af49c550aee6583c8">&#9670;&#160;</a></span>DrawCube3DWithTopPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::dxlib_util::DrawCube3DWithTopPos </td>
+          <td>(</td>
+          <td class="paramtype">const VECTOR &amp;&#160;</td>
+          <td class="paramname"><em>top_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>side_len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D空間に立方体を描画する．立方体の上面の中心の座標から描画する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">center_pos</td><td>立方体の上面の中心の座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">side_len</td><td>立方体の1辺の長さ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>立方体の色．dxlibのGetColorで取得する. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_cgraph" id="anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_cgraph">
+<area shape="rect" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="5,5,181,48"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="229,5,364,48"/>
+<area shape="poly" title=" " alt="" coords="181,24,214,24,214,29,181,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_icgraph" id="anamespacedesignlab_1_1dxlib__util_a170cac2fc964414af49c550aee6583c8_icgraph">
+<area shape="rect" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="449,64,624,107"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="244,101,379,128"/>
+<area shape="poly" title=" " alt="" coords="435,101,380,109,379,103,434,96"/>
+<area shape="rect" href="class_robot_graund_point_renderer.html#ab29a09c0c523164d7d15195fc13eedd7" title=" " alt="" coords="222,35,401,77"/>
+<area shape="poly" title=" " alt="" coords="434,75,401,70,402,65,435,69"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,5,161,48"/>
+<area shape="poly" title=" " alt="" coords="239,99,221,92,196,77,172,62,148,51,150,46,175,58,199,73,223,87,241,94"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,72,172,99"/>
+<area shape="poly" title=" " alt="" coords="228,106,172,99,172,94,229,101"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,123,174,165"/>
+<area shape="poly" title=" " alt="" coords="229,128,174,136,174,130,229,123"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,189,168,216"/>
+<area shape="poly" title=" " alt="" coords="271,137,175,180,141,191,139,186,173,175,269,132"/>
+<area shape="poly" title=" " alt="" coords="207,45,161,39,162,34,208,40"/>
+<area shape="poly" title=" " alt="" coords="208,72,173,77,172,72,207,67"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa8892901793b338c6a643dc12d19a99e" name="aa8892901793b338c6a643dc12d19a99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8892901793b338c6a643dc12d19a99e">&#9670;&#160;</a></span>DrawHexagon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::dxlib_util::DrawHexagon </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; VECTOR, 6 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D空間に六角形を描画する．各点は同一平面上にあるものにしないと，描画が歪む． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertex</td><td>各頂点の座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>色．dxlibのGetColorで取得する. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_aa8892901793b338c6a643dc12d19a99e_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_aa8892901793b338c6a643dc12d19a99e_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_aa8892901793b338c6a643dc12d19a99e_icgraph" id="anamespacedesignlab_1_1dxlib__util_aa8892901793b338c6a643dc12d19a99e_icgraph">
+<area shape="rect" title="3D空間に六角形を描画する．各点は同一平面上にあるものにしないと，描画が歪む．" alt="" coords="632,93,768,136"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e" title="3D空間に六角柱を描画する．" alt="" coords="431,93,584,136"/>
+<area shape="poly" title=" " alt="" coords="617,117,585,117,585,112,617,112"/>
+<area shape="rect" href="class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="222,101,383,128"/>
+<area shape="poly" title=" " alt="" coords="416,117,384,117,384,112,416,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,5,161,48"/>
+<area shape="poly" title=" " alt="" coords="255,98,173,62,145,51,147,46,175,58,257,93"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,72,172,99"/>
+<area shape="poly" title=" " alt="" coords="207,104,172,99,173,94,208,99"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,123,174,165"/>
+<area shape="poly" title=" " alt="" coords="208,130,175,135,174,130,207,125"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,189,168,216"/>
+<area shape="poly" title=" " alt="" coords="264,138,175,180,142,191,140,186,173,175,262,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad8cc0ecb50fc678af0d50370a137356e" name="ad8cc0ecb50fc678af0d50370a137356e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8cc0ecb50fc678af0d50370a137356e">&#9670;&#160;</a></span>DrawHexagonalPrism()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::dxlib_util::DrawHexagonalPrism </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; VECTOR, 6 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D空間に六角柱を描画する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>六角柱の真ん中の各頂点の座標，同一平面上にあるものにすること． </td></tr>
+    <tr><td class="paramname">height</td><td>六角柱の高さ． </td></tr>
+    <tr><td class="paramname">color</td><td>色．dxlibのGetColorで取得する. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_cgraph" id="anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_cgraph">
+<area shape="rect" title="3D空間に六角柱を描画する．" alt="" coords="5,5,159,48"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e" title="3D空間に六角形を描画する．各点は同一平面上にあるものにしないと，描画が歪む．" alt="" coords="207,5,342,48"/>
+<area shape="poly" title=" " alt="" coords="159,24,192,24,192,29,159,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_icgraph" id="anamespacedesignlab_1_1dxlib__util_ad8cc0ecb50fc678af0d50370a137356e_icgraph">
+<area shape="rect" title="3D空間に六角柱を描画する．" alt="" coords="431,93,584,136"/>
+<area shape="rect" href="class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="222,101,383,128"/>
+<area shape="poly" title=" " alt="" coords="416,117,384,117,384,112,416,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,5,161,48"/>
+<area shape="poly" title=" " alt="" coords="255,98,173,62,145,51,147,46,175,58,257,93"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,72,172,99"/>
+<area shape="poly" title=" " alt="" coords="207,104,172,99,173,94,208,99"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,123,174,165"/>
+<area shape="poly" title=" " alt="" coords="208,130,175,135,174,130,207,125"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,189,168,216"/>
+<area shape="poly" title=" " alt="" coords="264,138,175,180,142,191,140,186,173,175,262,133"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1dxlib__util.html">dxlib_util</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

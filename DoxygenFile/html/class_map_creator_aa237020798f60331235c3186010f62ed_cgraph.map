@@ -1,0 +1,5 @@
+<map id="MapCreator::Create" name="MapCreator::Create">
+<area shape="rect" id="Node000001" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="5,5,140,32"/>
+<area shape="rect" id="Node000002" href="$class_map_state.html#ab841b416d036bb94249bf2e22c327816" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="188,5,348,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,16,173,16,173,21,140,21"/>
+</map>

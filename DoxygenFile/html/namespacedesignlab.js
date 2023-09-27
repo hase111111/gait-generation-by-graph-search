@@ -15,6 +15,28 @@ var namespacedesignlab =
       [ "WaitAnyKey", "namespacedesignlab_1_1cmdio.html#ac411e4a736e83e07ab5de75bcd3afc1f", null ],
       [ "kHorizontalLineLength", "namespacedesignlab_1_1cmdio.html#ae5b638fb923fbfa58dff531e65a03dfd", null ]
     ] ],
+    [ "com_func", "namespacedesignlab_1_1com__func.html", [
+      [ "LegGroundedMap", "namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907", null ],
+      [ "GetLegGroundedBitFromLegGroundPatternIndex", "namespacedesignlab_1_1com__func.html#a6e089548580a21729e4c73f4564b8640", null ],
+      [ "GetLegGroundPatternNum", "namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7", null ],
+      [ "IsLegPairFree", "namespacedesignlab_1_1com__func.html#adfe0f2def50a3b624b99490ce1c9677b", null ],
+      [ "MakeLegGroundedMap", "namespacedesignlab_1_1com__func.html#a88570495bb53be7a5fac1509a100e65b", null ],
+      [ "MakeLegGroundedPatternBanList", "namespacedesignlab_1_1com__func.html#a7d92241fea873330222fee61aebe4e54", null ],
+      [ "MakeLegGroundedPatternBanListFromLeg", "namespacedesignlab_1_1com__func.html#a2e8b655423939a5cbc65412a4806e33f", null ],
+      [ "RemoveLegGroundPatternFromCom", "namespacedesignlab_1_1com__func.html#abd240e18ddb47a04f7520411cba131df", null ],
+      [ "RemoveLegGroundPatternFromNotFreeLeg", "namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929", null ],
+      [ "RemoveLegGroundPatternFromNotGroundableLeg", "namespacedesignlab_1_1com__func.html#a74a1a63939a7629f879caeb6c398c174", null ]
+    ] ],
+    [ "dxlib_util", "namespacedesignlab_1_1dxlib__util.html", [
+      [ "ConvertDesignLabVec", "namespacedesignlab_1_1dxlib__util.html#aef91256039ba08a14de1b4889f6f17ef", null ],
+      [ "ConvertToDxlibVec", "namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0", null ],
+      [ "DrawCube3D", "namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25", null ],
+      [ "DrawCube3DWithTopPos", "namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8", null ],
+      [ "DrawHexagon", "namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e", null ],
+      [ "DrawHexagonalPrism", "namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e", null ],
+      [ "InitDxlib3DSetting", "namespacedesignlab_1_1dxlib__util.html#a744ecef12e844b170ccc769bb629ca60", null ],
+      [ "SetZBufferEnable", "namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5", null ]
+    ] ],
     [ "math_util", "namespacedesignlab_1_1math__util.html", [
       [ "ApproachTarget", "namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b", null ],
       [ "ConvertDegToRad", "namespacedesignlab_1_1math__util.html#abc4192092188e5fee4a204ace810280f", null ],
@@ -45,6 +67,8 @@ var namespacedesignlab =
     [ "Vector3", "structdesignlab_1_1_vector3.html", "structdesignlab_1_1_vector3" ],
     [ "operator*", "namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5", null ],
     [ "operator<<", "namespacedesignlab.html#a267d1ab3d8486e12343e425b81bbd08d", null ],
+    [ "RotateVector3", "namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8", null ],
     [ "rotVector", "namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179", null ],
+    [ "rotVector", "namespacedesignlab.html#a1f00dd71c87deaeb9209980d06496e6a", null ],
     [ "MAX_VERTEX_NUM", "namespacedesignlab.html#a839525a3230706c403d3c5553c4564ee", null ]
 ];

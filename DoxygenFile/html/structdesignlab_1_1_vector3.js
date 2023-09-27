@@ -9,7 +9,7 @@ var structdesignlab_1_1_vector3 =
     [ "IsZero", "structdesignlab_1_1_vector3.html#a1a61d0a698b66fe9a856d539cec42925", null ],
     [ "Length", "structdesignlab_1_1_vector3.html#a1a64cf59595f7a858075f4899815f66a", null ],
     [ "LengthSquare", "structdesignlab_1_1_vector3.html#a060a9822b0cfc9aa6f2dd74c318f3201", null ],
-    [ "Normalized", "structdesignlab_1_1_vector3.html#a6ef61528382ebb4f067dc66a3abce6e5", null ],
+    [ "Normalize", "structdesignlab_1_1_vector3.html#a336c7e65ab89217e0a996b0700e050be", null ],
     [ "ProjectedXY", "structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed", null ],
     [ "ToString", "structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11", null ],
     [ "x", "structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc", null ],

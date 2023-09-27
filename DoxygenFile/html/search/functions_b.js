@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['operator_2a_0',['operator*',['../namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5',1,'designlab']]],
-  ['operator_3c_3c_1',['operator&lt;&lt;',['../namespacedesignlab.html#a267d1ab3d8486e12343e425b81bbd08d',1,'designlab']]],
-  ['operator_3d_3d_2',['operator==',['../struct_s_node.html#a62af682fd6980d1478dc095642ba6bd3',1,'SNode']]],
-  ['output_3',['Output',['../namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485',1,'designlab::cmdio']]],
-  ['outputcenter_4',['OutputCenter',['../namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6',1,'designlab::cmdio']]],
-  ['outputhorizontalline_5',['OutputHorizontalLine',['../namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02',1,'designlab::cmdio']]],
-  ['outputnewline_6',['OutputNewLine',['../namespacedesignlab_1_1cmdio.html#a23cd6fd6477be14f76c818c418a0de08',1,'designlab::cmdio']]],
-  ['outputright_7',['OutputRight',['../namespacedesignlab_1_1cmdio.html#ab571da4a5a2affc2679e2d8b5c9d8cc0',1,'designlab::cmdio']]],
-  ['outputtitle_8',['OutputTitle',['../namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a',1,'designlab::cmdio']]]
+  ['nodedisplaygui_0',['NodeDisplayGui',['../class_node_display_gui.html#a7418241f9a6b1b0adac68b78971a4e4e',1,'NodeDisplayGui']]],
+  ['norm_1',['Norm',['../structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8',1,'designlab::Quaternion']]],
+  ['normalize_2',['Normalize',['../structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a',1,'designlab::Quaternion::Normalize()'],['../structdesignlab_1_1_vector2.html#a8899add912014b0eac615bcac1ef95f4',1,'designlab::Vector2::Normalize()'],['../structdesignlab_1_1_vector3.html#a336c7e65ab89217e0a996b0700e050be',1,'designlab::Vector3::Normalize()']]]
 ];

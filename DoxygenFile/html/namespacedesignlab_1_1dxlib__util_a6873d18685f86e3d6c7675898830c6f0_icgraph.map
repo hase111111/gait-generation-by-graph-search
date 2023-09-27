@@ -1,0 +1,42 @@
+<map id="designlab::dxlib_util::ConvertToDxlibVec" name="designlab::dxlib_util::ConvertToDxlibVec">
+<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="457,197,595,240"/>
+<area shape="rect" id="Node000002" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="239,205,400,232"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,221,400,221,400,216,443,216"/>
+<area shape="rect" id="Node000006" href="$class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="15,268,172,295"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="491,252,454,277,410,297,343,310,274,312,209,307,154,298,155,293,210,301,274,307,342,305,408,292,451,273,488,247"/>
+<area shape="rect" id="Node000007" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="252,256,387,283"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="444,242,377,258,376,253,443,236"/>
+<area shape="rect" id="Node000008" href="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6" title="ロボットの移動軌跡を描画する．" alt="" coords="236,72,403,115"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="490,189,451,158,408,129,385,118,387,113,410,124,455,154,493,185"/>
+<area shape="rect" id="Node000009" href="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="240,139,399,181"/>
+<area shape="poly" id="edge15_Node000001_Node000009" title=" " alt="" coords="442,198,396,185,398,179,444,193"/>
+<area shape="rect" id="Node000010" href="$class_robot_graund_point_renderer.html#ab29a09c0c523164d7d15195fc13eedd7" title=" " alt="" coords="230,5,409,48"/>
+<area shape="poly" id="edge18_Node000001_Node000010" title=" " alt="" coords="505,186,465,123,438,91,407,62,389,51,392,46,411,58,442,87,470,120,510,183"/>
+<area shape="rect" id="Node000011" href="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="244,377,395,420"/>
+<area shape="poly" id="edge21_Node000001_Node000011" title=" " alt="" coords="499,253,458,296,411,341,358,379,355,375,407,337,455,292,495,249"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="22,135,165,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,203,165,178,167,173,255,198"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,84,176,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="236,201,228,195,211,178,203,159,196,141,180,125,159,114,162,109,183,121,200,139,208,157,216,175,231,191,239,196"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="9,201,178,244"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="224,223,178,224,178,219,224,218"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="255,239,145,270,144,265,254,234"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="239,252,228,246,212,233,203,219,194,205,180,191,161,180,163,176,183,187,199,202,208,216,216,229,231,242,241,247"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="237,253,228,246,215,231,208,215,203,184,199,153,192,139,180,125,163,114,166,109,183,121,197,136,204,152,208,183,213,213,219,228,232,242,240,249"/>
+<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="237,255,177,243,179,237,238,250"/>
+<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="237,276,172,280,172,275,237,271"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="227,122,166,139,165,134,225,117"/>
+<area shape="poly" id="edge14_Node000008_Node000004" title=" " alt="" coords="221,98,176,99,176,93,221,92"/>
+<area shape="poly" id="edge16_Node000009_Node000003" title=" " alt="" coords="225,161,166,160,166,155,225,156"/>
+<area shape="poly" id="edge17_Node000009_Node000004" title=" " alt="" coords="225,137,144,114,145,109,227,132"/>
+<area shape="poly" id="edge19_Node000010_Node000003" title=" " alt="" coords="237,58,231,62,216,77,208,93,199,109,183,125,165,136,162,132,180,121,195,105,203,90,212,74,228,58,234,54"/>
+<area shape="poly" id="edge20_Node000010_Node000004" title=" " alt="" coords="236,56,140,86,138,81,234,50"/>
+<area shape="rect" id="Node000012" href="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,319,165,361"/>
+<area shape="poly" id="edge22_Node000011_Node000012" title=" " alt="" coords="229,378,165,361,166,356,231,373"/>
+<area shape="rect" id="Node000013" href="$class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,385,182,412"/>
+<area shape="poly" id="edge23_Node000011_Node000013" title=" " alt="" coords="229,401,182,401,182,396,229,396"/>
+<area shape="rect" id="Node000014" href="$class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,436,178,479"/>
+<area shape="poly" id="edge24_Node000011_Node000014" title=" " alt="" coords="230,424,179,438,177,433,229,419"/>
+<area shape="rect" id="Node000015" href="$class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,503,178,529"/>
+<area shape="poly" id="edge25_Node000011_Node000015" title=" " alt="" coords="282,431,236,463,183,493,153,505,151,500,181,488,233,459,278,427"/>
+</map>

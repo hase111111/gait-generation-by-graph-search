@@ -7,7 +7,7 @@ digraph "designlab::Polygon2::GetVertex"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::Polygon2\l::GetVertex",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="頂点の座標を返す関数"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba",tooltip="重心を求める"];
+  Node2 [id="Node000002",label="ComSelecterHato::GetComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad",tooltip="重心を求める"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297",tooltip="現在のノードから次のノード群を生成する"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

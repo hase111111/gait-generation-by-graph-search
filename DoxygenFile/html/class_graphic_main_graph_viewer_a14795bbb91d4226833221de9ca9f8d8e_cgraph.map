@@ -1,19 +1,30 @@
 <map id="GraphicMainGraphViewer::Draw" name="GraphicMainGraphViewer::Draw">
-<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,76,174,119"/>
-<area shape="rect" id="Node000002" href="$class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="241,8,364,35"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,73,221,44,241,37,243,42,223,49,146,78"/>
-<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="222,59,383,85"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,85,207,81,207,86,174,90"/>
-<area shape="rect" id="Node000006" href="$class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="227,109,378,136"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="174,105,212,109,211,115,174,110"/>
-<area shape="rect" id="Node000007" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="235,160,370,187"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="146,117,223,145,243,152,241,157,221,151,144,122"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="456,5,593,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,55,441,41,442,46,372,61"/>
-<area shape="rect" id="Node000005" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="460,72,589,99"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="384,74,446,78,445,83,383,80"/>
-<area shape="rect" id="Node000008" href="$class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="431,135,618,161"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="370,163,416,158,417,163,370,168"/>
-<area shape="rect" id="Node000009" href="$class_map_state.html#ab67d37b4967ad2d36f36c87c68d9bacd" title="脚設置可能点の座標を返す．" alt="" coords="452,185,597,212"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="370,178,438,186,437,191,370,184"/>
+<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,155,174,197"/>
+<area shape="rect" id="Node000002" href="$class_camera_gui.html#ada26678aa63e5091de5d1ae4e4ec3e9a" title="GUIの描画を行う" alt="" coords="241,61,364,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,152,168,124,221,98,237,91,239,96,223,102,171,129,125,157"/>
+<area shape="rect" id="Node000003" href="$class_hexapod_renderer.html#a8eae43f9a83c964275d97cd9c73d9451" title="ロボットを3D空間に描画する．" alt="" coords="222,112,383,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,153,229,140,230,145,175,159"/>
+<area shape="rect" id="Node000008" href="$class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d" title="GUIの表示を行う" alt="" coords="227,163,378,189"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="174,173,212,173,212,179,174,179"/>
+<area shape="rect" id="Node000009" href="$class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="235,213,370,240"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="175,193,230,207,229,212,173,199"/>
+<area shape="rect" id="Node000014" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする． &#160;&#160;なんか毎フレーム実行しなきゃいけないっぽい？仕様がよくわからん" alt="" coords="235,264,370,307"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="127,196,223,250,234,255,232,260,220,254,124,200"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="456,139,594,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="384,135,441,144,441,150,383,141"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e" title="3D空間に六角柱を描画する．" alt="" coords="448,5,601,48"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="356,109,382,98,405,78,430,58,440,52,442,57,432,62,409,82,384,102,358,114"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="456,72,593,115"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="383,111,441,103,442,108,384,116"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e" title="3D空間に六角形を描画する．各点は同一平面上にあるものにしないと，描画が歪む．" alt="" coords="666,5,802,48"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="602,24,652,24,652,29,602,29"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="349,210,440,182,442,187,350,215"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="437,205,612,248"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="370,224,422,224,422,229,370,229"/>
+<area shape="rect" id="Node000012" href="$class_map_state.html#a48e77403dbad5738f2cd449ebc51275c" title="脚設置可能点の座標を返す．" alt="" coords="444,272,605,299"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="356,238,458,265,457,270,355,243"/>
+<area shape="rect" id="Node000013" href="$class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="431,323,618,349"/>
+<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="362,238,385,250,400,265,409,280,418,295,433,309,442,314,440,319,429,313,413,298,405,283,396,268,381,254,360,243"/>
+<area shape="rect" id="Node000011" href="$namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="666,205,802,248"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="612,224,652,224,652,229,612,229"/>
 </map>

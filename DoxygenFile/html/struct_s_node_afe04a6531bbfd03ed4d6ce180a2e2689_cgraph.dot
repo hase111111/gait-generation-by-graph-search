@@ -8,6 +8,4 @@ digraph "SNode::Init"
   Node1 [id="Node000001",label="SNode::Init",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="初期化関数"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="designlab::math_util\l::GenerateRandomNumber",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#ac99502fcbcdd8d97f727f1d488b707a3",tooltip="指定した範囲内の乱数を生成する．"];
-  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="dl_leg::MakeLegStateBit",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedl__leg.html#af9476431a9ed1a6eaf7c47b27047e3ba",tooltip="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．"];
 }

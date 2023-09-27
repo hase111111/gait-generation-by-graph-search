@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="DisplayNodeSwitchGui",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_display_node_switch_gui.html",tooltip="ノードの表示切り替えGUI"];
+  Node0 [id="Node000000",label="detectLandingPoint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdetect_landing_point.html",tooltip=" "];
 }

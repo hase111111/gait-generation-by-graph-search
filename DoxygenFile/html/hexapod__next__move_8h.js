@@ -10,6 +10,5 @@ var hexapod__next__move_8h =
       [ "kComUpDown", "hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7", null ],
       [ "kLegUpDownNextComMove", "hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8", null ],
       [ "kLegUpDownNextComUpDown", "hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea", null ]
-    ] ],
-    [ "to_string", "hexapod__next__move_8h.html#a3cdd6c7569da7f767fd34461a43705d7", null ]
+    ] ]
 ];

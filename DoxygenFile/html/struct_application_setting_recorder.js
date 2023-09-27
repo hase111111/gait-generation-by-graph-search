@@ -9,7 +9,7 @@ var struct_application_setting_recorder =
     [ "do_step_execution_each_gait", "struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d", null ],
     [ "gui_display", "struct_application_setting_recorder.html#aa8092131837bbaa7d7b7a9f97acc2f41", null ],
     [ "gui_display_quality", "struct_application_setting_recorder.html#a46d409825baade1e664950325ff7bc7d", null ],
-    [ "map_create_mode", "struct_application_setting_recorder.html#a7edafd4651537953136ad6ac96868bad", null ],
+    [ "map_create_mode", "struct_application_setting_recorder.html#a2e9d0fdbd8f4fcdd68044205edc69e9e", null ],
     [ "map_create_option", "struct_application_setting_recorder.html#a63fea27fbe4b2e8803225689b6c2c58d", null ],
     [ "map_hole_rate", "struct_application_setting_recorder.html#a8ecd65bf06d624ca530447f8a4e0223b", null ],
     [ "map_slope_angle_deg", "struct_application_setting_recorder.html#a69d8bb0c7c68d6e18e9e6f9daefa75b0", null ],

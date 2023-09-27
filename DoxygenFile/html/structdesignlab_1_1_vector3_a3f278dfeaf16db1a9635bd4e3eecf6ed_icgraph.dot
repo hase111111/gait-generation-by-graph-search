@@ -7,7 +7,7 @@ digraph "designlab::Vector3::ProjectedXY"
   rankdir="RL";
   Node1 [id="Node000001",label="designlab::Vector3\l::ProjectedXY",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="XY平面に射影したベクトルを返す．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="AbstractHexapodStateCalculator\l::CalculateStabilityMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713",tooltip="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい   接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..."];
+  Node2 [id="Node000002",label="AbstractHexapodStateCalculator\l::CalculateStabilityMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_abstract_hexapod_state_calculator.html#a862d9bc1251d1677af060fa8ae3ff8f8",tooltip="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい   接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

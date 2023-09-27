@@ -1,3 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_com_candidate_polygon_maker.html" title="重心位置の候補地点を示す多角形を作成するクラス" alt="" coords="5,5,195,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,29,54,56"/>
+<area shape="rect" id="Node000001" href="$structmagic__enum_1_1containers_1_1detail_1_1name__sort__impl_3_01void_00_01_cmp_01_4_1_1_full_cmp.html" title=" " alt="" coords="102,5,268,80"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="69,40,101,40,101,45,69,45"/>
 </map>

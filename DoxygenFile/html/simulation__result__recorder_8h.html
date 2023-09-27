@@ -97,12 +97,11 @@ $(document).ready(function(){initNavTree('simulation__result__recorder_8h.html',
 </div><!--header-->
 <div class="contents">
 
-<p>シミュレーションの結果を記録するクラス． <br  />
- 行数 : 60  
+<p>シミュレーションの結果を記録するクラス．  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
 <code>#include &quot;<a class="el" href="_node_8h_source.html">node.h</a>&quot;</code><br />
 <code>#include &quot;graph_search_result.h&quot;</code><br />
 </div>
@@ -110,42 +109,32 @@ $(document).ready(function(){initNavTree('simulation__result__recorder_8h.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_simulation_result_recorder.html">SSimulationResultRecorder</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成 <br  />
- 最初のSはStructのS  <a href="struct_s_simulation_result_recorder.html#details">[詳解]</a><br /></td></tr>
+ 最初のSはStructのS  <a href="struct_simulation_result_recorder.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 列挙型</h2></td></tr>
-<tr class="memitem:afbd641718a6207b837d95a22d124db43"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43">ESimulationResult</a> { <br />
-&#160;&#160;<a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
-, <a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43a36fc6065a3e970bc3e6b2e59da52bf2a">FAILURE</a>
-, <a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43a916f99f816a5b08e5e9aedbb98dd14e2">FAILURE_BY_GRAPH_SEARCH</a>
-, <a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43a657f6119af1c6c96329cce58471cab30">FAILURE_BY_LOOP_MOTION</a>
-, <br />
-&#160;&#160;<a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43aafd72289053113e5c7eb7d571d155298">FAILURE_BY_NODE_LIMIT_EXCEEDED</a>
-<br />
+<tr class="memitem:a59b9817036c58d089ab7cb3755b2eff8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">SimulationResult</a> { <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2">FAILURE_BY_GRAPH_SEARCH</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30">FAILURE_BY_LOOP_MOTION</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298">FAILURE_BY_NODE_LIMIT_EXCEEDED</a>
  }</td></tr>
-<tr class="memdesc:afbd641718a6207b837d95a22d124db43"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションの結果を表す列挙型  <a href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43">[詳解]</a><br /></td></tr>
-<tr class="separator:afbd641718a6207b837d95a22d124db43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a59b9817036c58d089ab7cb3755b2eff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション全体の結果を表す列挙型  <a href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">[詳解]</a><br /></td></tr>
+<tr class="separator:a59b9817036c58d089ab7cb3755b2eff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a9694c2addd1b4add885a36e0a55eddd6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="simulation__result__recorder_8h.html#a9694c2addd1b4add885a36e0a55eddd6">std::to_string</a> (<a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43">ESimulationResult</a> result)</td></tr>
-<tr class="memdesc:a9694c2addd1b4add885a36e0a55eddd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESimulationResult型を文字列に変換する関数  <br /></td></tr>
-<tr class="separator:a9694c2addd1b4add885a36e0a55eddd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af97810825287296c488f556fa3d2ce4c"><td class="memItemLeft" align="right" valign="top"><a id="af97810825287296c488f556fa3d2ce4c" name="af97810825287296c488f556fa3d2ce4c"></a>
-std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ofstream &amp;ofs, const <a class="el" href="struct_s_simulation_result_recorder.html">SSimulationResultRecorder</a> &amp;record)</td></tr>
-<tr class="separator:af97810825287296c488f556fa3d2ce4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f641548fc291643e1581c1b16069ece"><td class="memItemLeft" align="right" valign="top"><a id="a6f641548fc291643e1581c1b16069ece" name="a6f641548fc291643e1581c1b16069ece"></a>
+std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ofstream &amp;ofs, const <a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a> &amp;record)</td></tr>
+<tr class="separator:a6f641548fc291643e1581c1b16069ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>シミュレーションの結果を記録するクラス． <br  />
- 行数 : 60 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/24 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>シミュレーションの結果を記録するクラス． </p>
 </div><h2 class="groupheader">列挙型詳解</h2>
-<a id="afbd641718a6207b837d95a22d124db43" name="afbd641718a6207b837d95a22d124db43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbd641718a6207b837d95a22d124db43">&#9670;&#160;</a></span>ESimulationResult</h2>
+<a id="a59b9817036c58d089ab7cb3755b2eff8" name="a59b9817036c58d089ab7cb3755b2eff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b9817036c58d089ab7cb3755b2eff8">&#9670;&#160;</a></span>SimulationResult</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +143,7 @@ std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operat
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43">ESimulationResult</a></td>
+          <td class="memname">enum class <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">SimulationResult</a></td>
         </tr>
       </table>
   </td>
@@ -164,60 +153,17 @@ std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operat
 </table>
 </div><div class="memdoc">
 
-<p>シミュレーションの結果を表す列挙型 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/24 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<p>シミュレーション全体の結果を表す列挙型 </p>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="afbd641718a6207b837d95a22d124db43ad0749aaba8b833466dfcbb0428e4f89c" name="afbd641718a6207b837d95a22d124db43ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>シミュレーションに成功した </p>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c" name="a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>目標座標，姿勢を満たし，シミュレーションに成功した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afbd641718a6207b837d95a22d124db43a36fc6065a3e970bc3e6b2e59da52bf2a" name="afbd641718a6207b837d95a22d124db43a36fc6065a3e970bc3e6b2e59da52bf2a"></a>FAILURE&#160;</td><td class="fielddoc"><p>シミュレーションに失敗した </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2" name="a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2"></a>FAILURE_BY_GRAPH_SEARCH&#160;</td><td class="fielddoc"><p>グラフ探索に失敗しため，シミュレーションに失敗した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afbd641718a6207b837d95a22d124db43a916f99f816a5b08e5e9aedbb98dd14e2" name="afbd641718a6207b837d95a22d124db43a916f99f816a5b08e5e9aedbb98dd14e2"></a>FAILURE_BY_GRAPH_SEARCH&#160;</td><td class="fielddoc"><p>グラフ探索に失敗しため，シミュレーションに失敗した </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30" name="a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30"></a>FAILURE_BY_LOOP_MOTION&#160;</td><td class="fielddoc"><p>動作がループしてしまったため，シミュレーションに失敗した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afbd641718a6207b837d95a22d124db43a657f6119af1c6c96329cce58471cab30" name="afbd641718a6207b837d95a22d124db43a657f6119af1c6c96329cce58471cab30"></a>FAILURE_BY_LOOP_MOTION&#160;</td><td class="fielddoc"><p>動作がループしてしまったため，シミュレーションに失敗した </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afbd641718a6207b837d95a22d124db43aafd72289053113e5c7eb7d571d155298" name="afbd641718a6207b837d95a22d124db43aafd72289053113e5c7eb7d571d155298"></a>FAILURE_BY_NODE_LIMIT_EXCEEDED&#160;</td><td class="fielddoc"><p>ノード数の上限に達したため，シミュレーションに失敗した </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298" name="a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298"></a>FAILURE_BY_NODE_LIMIT_EXCEEDED&#160;</td><td class="fielddoc"><p>ノード数の上限に達したため，シミュレーションに失敗した． </p>
 </td></tr>
 </table>
-
-</div>
-</div>
-<h2 class="groupheader">関数詳解</h2>
-<a id="a9694c2addd1b4add885a36e0a55eddd6" name="a9694c2addd1b4add885a36e0a55eddd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9694c2addd1b4add885a36e0a55eddd6">&#9670;&#160;</a></span>to_string()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string std::to_string </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="simulation__result__recorder_8h.html#afbd641718a6207b837d95a22d124db43">ESimulationResult</a>&#160;</td>
-          <td class="paramname"><em>result</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ESimulationResult型を文字列に変換する関数 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">result</td><td>ESimulationResult型の変数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>std::string ESimulationResult型の変数を文字列にしたもの </dd></dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="simulation__result__recorder_8h_a9694c2addd1b4add885a36e0a55eddd6_cgraph.png" border="0" usemap="#asimulation__result__recorder_8h_a9694c2addd1b4add885a36e0a55eddd6_cgraph" alt=""/></div>
-<map name="asimulation__result__recorder_8h_a9694c2addd1b4add885a36e0a55eddd6_cgraph" id="asimulation__result__recorder_8h_a9694c2addd1b4add885a36e0a55eddd6_cgraph">
-<area shape="rect" title="ESimulationResult型を文字列に変換する関数" alt="" coords="5,29,103,56"/>
-<area shape="rect" href="boot__mode_8h.html#a25f9e88adbe6b24506b9e76fb32fd4a4" title="EBootModeを文字列に変換する" alt="" coords="151,29,248,56"/>
-<area shape="poly" title=" " alt="" coords="103,40,136,40,136,45,103,45"/>
-<area shape="poly" title=" " alt="" coords="174,30,169,21,173,11,183,5,199,3,218,5,227,12,224,17,215,10,199,8,185,10,177,14,175,20,179,28"/>
-</map>
-</div>
 
 </div>
 </div>

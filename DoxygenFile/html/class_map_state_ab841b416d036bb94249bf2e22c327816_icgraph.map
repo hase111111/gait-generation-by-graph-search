@@ -1,0 +1,7 @@
+<map id="MapState::SetMapPoint" name="MapState::SetMapPoint">
+<area shape="rect" id="Node000001" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="399,13,559,40"/>
+<area shape="rect" id="Node000002" href="$class_map_creator.html#aa237020798f60331235c3186010f62ed" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="217,13,351,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,29,352,29,352,24,384,24"/>
+<area shape="rect" id="Node000003" href="$class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8" title=" " alt="" coords="5,5,169,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,29,169,29,169,24,202,24"/>
+</map>

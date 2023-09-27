@@ -192,6 +192,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
  ●列挙体について <br  />
  整数型の引数を使って関数の機能を分けたいとき，例えば以下のような関数を使いたいとき， <br  />
  <br  />
+ ~~~ enum sample1 <br  />
  int CalculateNumber(const int num1, const int num2, const int mode)() <br  />
  { <br  />
  if(mode == 1){ return num1 + num2;} <br  />
@@ -199,9 +200,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
  else if(mode == 3){ return num1 * num2;} <br  />
  else if(mode == 4){ return num1 / num2;} <br  />
  } <br  />
+ ~~~ <br  />
+ <br  />
  このような場合は列挙体を使うことをお勧めします．何故ならば，非常に読みやすくなるからです． <br  />
  例えば以下のように書き換えることができます． <br  />
  <br  />
+ ~~~ enum sample2 <br  />
  enum CalculateMode <br  />
  { <br  />
  kAdd = 1, <br  />
@@ -217,6 +221,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
  else if(mode == CalculateMode::kMul){ return num1 * num2;} <br  />
  else if(mode == CalculateMode::kDiv){ return num1 / num2;} <br  />
  } <br  />
+ ~~~ <br  />
  <br  />
  ●構造体について <br  />
  C++で書かれているのでわざわざtypedefしなくてもOKです． <br  />

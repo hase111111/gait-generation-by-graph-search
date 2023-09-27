@@ -18,4 +18,7 @@ digraph "designlab::Quaternion::Normalize"
   Node6 [id="Node000006",label="GraphicMainGraphViewer\l::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
   Node3 -> Node7 [id="edge6_Node000003_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node7 [id="Node000007",label="GraphicMainTest::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
+  Node1 -> Node8 [id="edge7_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="CameraStateManager\l::SetCameraQuat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_state_manager.html#a5f0f8b23dbebccb6f1caec47d9e2fcf0",tooltip="カメラのクォータニオンをセットする"];
+  Node8 -> Node2 [id="edge8_Node000008_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

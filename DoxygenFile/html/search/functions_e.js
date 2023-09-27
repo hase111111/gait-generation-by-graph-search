@@ -1,31 +1,4 @@
 var searchData=
 [
-  ['searchgraphtree_0',['SearchGraphTree',['../class_graph_searcher_hato.html#a8d72dfb367f3ee593dd3519f9d665378',1,'GraphSearcherHato::SearchGraphTree()'],['../class_graph_searcher_random.html#ac480c65a4a4e8dcdbc20d99f09af70fe',1,'GraphSearcherRandom::SearchGraphTree()'],['../class_i_graph_searcher.html#a79bd6a4e86644d9c7453f243627f7b26',1,'IGraphSearcher::SearchGraphTree()']]],
-  ['selectbootmode_1',['SelectBootMode',['../namespacedesignlab_1_1cmdio.html#adc19ae459e6e165635ff3eba1f975a0c',1,'designlab::cmdio']]],
-  ['set_5fdraw_5fnode_2',['set_draw_node',['../class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b',1,'HexapodRenderer']]],
-  ['set_5fis_5fhigh_5fquality_3',['set_is_high_quality',['../class_movement_locus_renderer.html#ab63f5fc09b5a01f5c502470639e25f22',1,'MovementLocusRenderer']]],
-  ['set_5fmap_5fpoint_4',['set_map_point',['../class_map_state.html#ac99e8ae5e2f78897f713ae3514504ad0',1,'MapState::set_map_point(const size_t num, const designlab::Vector3 &amp;point)'],['../class_map_state.html#ada889d0798d24272fc84cfd96431634a',1,'MapState::set_map_point(const std::vector&lt; designlab::Vector3 &gt; &amp;point)']]],
-  ['set_5fmove_5flocus_5fpoint_5',['set_move_locus_point',['../class_movement_locus_renderer.html#a3bf0d1681937003b6be362f9b21a182e',1,'MovementLocusRenderer']]],
-  ['set_5fsimulation_5fend_5findexes_6',['set_simulation_end_indexes',['../class_movement_locus_renderer.html#a3d4e8da28f0dfd1d6efdf91129f88570',1,'MovementLocusRenderer']]],
-  ['setcamerarotquat_7',['SetCameraRotQuat',['../class_camera_state_manager.html#a0ef05c37acc23b23a58858e2dbf97f17',1,'CameraStateManager']]],
-  ['setcameraviewmode_8',['SetCameraViewMode',['../class_camera_state_manager.html#aad65bb6b1a42f7d6a41d265ecd324142',1,'CameraStateManager']]],
-  ['setcurrentnode_9',['setCurrentNode',['../class_com_selecter_hato.html#a69a48f403a947d80ef20e4703cdfe260',1,'ComSelecterHato']]],
-  ['setdata_10',['SetData',['../class_asyncable_data.html#a0857e1460ef1933c8786cf59837da58e',1,'AsyncableData::SetData()'],['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#ade9a8883aea604283472e0f0d86b03a7',1,'AsyncableData&lt; std::vector&lt; T &gt; &gt;::SetData()']]],
-  ['setdeg_11',['SetDeg',['../structdesignlab_1_1_euler_x_y_z.html#ae220f2dcab4743783a5e1436ff19d9e5',1,'designlab::EulerXYZ']]],
-  ['setdisplaynode_12',['SetDisplayNode',['../class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c',1,'NodeDisplayGui']]],
-  ['setdoexport_13',['setDoExport',['../class_result_file_exporter.html#a724b78a19a0ac692475f03ab31c7cbe2',1,'ResultFileExporter']]],
-  ['setdooutput_14',['SetDoOutput',['../namespacedesignlab_1_1cmdio.html#aeff9266bbd7f7a661d511333b45a8cc2',1,'designlab::cmdio']]],
-  ['setfreetargetpos_15',['SetFreeTargetPos',['../class_camera_state_manager.html#a908c226b9fa277d5eecb159dfa87e343',1,'CameraStateManager']]],
-  ['setgraphdata_16',['setGraphData',['../class_display_node_switch_gui.html#ada40eaf26e259d8a3d29b03e538f9dbd',1,'DisplayNodeSwitchGui']]],
-  ['sethexapodpos_17',['SetHexapodPos',['../class_camera_gui.html#a7e92e9302d05ea281203fc91a1108d16',1,'CameraGui']]],
-  ['setnode_18',['setNode',['../class_node_validity_checker.html#aa4d3908c8880c61ab953d65f71ab97bf',1,'NodeValidityChecker']]],
-  ['setnodeandsimulationendnodeindex_19',['SetNodeAndSimulationEndNodeIndex',['../class_robot_graund_point_renderer.html#a01fb9f551ecffb64bca5521a1de2af38',1,'RobotGraundPointRenderer']]],
-  ['setoutputlimit_20',['SetOutputLimit',['../namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95',1,'designlab::cmdio']]],
-  ['settargetpos_21',['SetTargetPos',['../class_camera_state_manager.html#adfcaa7e32758f9c1e9315359c72b7c4d',1,'CameraStateManager']]],
-  ['simulationsystemmain_22',['SimulationSystemMain',['../class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8',1,'SimulationSystemMain']]],
-  ['skipdrawscene_23',['SkipDrawScene',['../class_fps_controller.html#a2505286f56890ef34c8a95564af68931',1,'FpsController']]],
-  ['squared_24',['Squared',['../namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0',1,'designlab::math_util']]],
-  ['start_25',['Start',['../class_stopwatch.html#adb93923510f12409132445fc187d828f',1,'Stopwatch']]],
-  ['stereomatching_26',['stereoMatching',['../classdetect_landing_point.html#ad6950da3d2c5c622d995ffcaa91a646d',1,'detectLandingPoint']]],
-  ['stomode_27',['sToMode',['../boot__mode_8h.html#a32858ce9a3c0c7f73f82f3f6ac1da707',1,'std']]]
+  ['quaternion_0',['Quaternion',['../structdesignlab_1_1_quaternion.html#aa80a5e88802595ce7a63b75eccc7aa65',1,'designlab::Quaternion::Quaternion()'],['../structdesignlab_1_1_quaternion.html#ad8e53b628000940f37c14d6d4541442a',1,'designlab::Quaternion::Quaternion(const float w_, const float x_, const float y_, const float z_)'],['../structdesignlab_1_1_quaternion.html#a2b7ca207120a87059ee5256e8bb84aad',1,'designlab::Quaternion::Quaternion(const float w_, const ::designlab::Vector3 &amp;v_)']]]
 ];

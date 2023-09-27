@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('com__selecter_8h_source.html',''); ini
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//  //! @brief 現在のノードを設定する</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//  //! @param [in] _current_node 現在のノード</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//  void setCurrentNode(const SNode&amp; _current_node) { m_current_node = _current_node; } //!&lt; 現在のノードを設定する</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//  void SetCurrentNode(const SNode&amp; _current_node) { m_current_node = _current_node; } //!&lt; 現在のノードを設定する</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//  //! @brief 重心を求める</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//  //! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．</span></div>
@@ -121,18 +121,18 @@ $(document).ready(function(){initNavTree('com__selecter_8h_source.html',''); ini
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">//  //! そして，絶対安全余裕を計算し，マージンを外れた点を除外する． &lt;br&gt;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//  //! また，移動後の座標において，脚が他の脚と干渉する場合は除外する． &lt;br&gt;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//  //! 以上の処理を行った後，残った点の重心を求める． &lt;br&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//  bool getComFromPolygon(const designlab::Polygon2&amp; polygon, const EDiscreteComPos _com_pattren, designlab::Vector3&amp; _output_com) const;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//  bool GetComFromPolygon(const designlab::Polygon2&amp; polygon, const DiscreteComPos _com_pattren, designlab::Vector3&amp; _output_com) const;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//private:</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">//</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">//  //! @brief 候補地点を生成する</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//  void makeComCandidatePoint(const designlab::Polygon2&amp; polygon, std::vector&lt;designlab::Vector2&gt;&amp; _output_coms) const;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//  void MakeComCandidatePoint(const designlab::Polygon2&amp; polygon, std::vector&lt;designlab::Vector2&gt;&amp; _output_coms) const;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">//  //! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">//  bool isInMargin(const designlab::Polygon2&amp; polygon, const designlab::Vector2&amp; _com) const;</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">//</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">//</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//  const int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//  const int kDiscretizationNum = 10; // 重心を求める際の分割数</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//  const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//</span></div>

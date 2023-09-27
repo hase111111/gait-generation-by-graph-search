@@ -38,6 +38,7 @@
     <ClInclude Include="com_up_down_node_creator.h" />
     <ClInclude Include="designlab_quaternion.h" />
     <ClInclude Include="display_node_switch_gui.h" />
+    <ClInclude Include="file_tree.h" />
     <ClInclude Include="graphic_main_advance.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="designlab_rotation_matrix.cpp" />
     <ClCompile Include="designlab_vector2.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
+    <ClCompile Include="file_tree.cpp" />
     <ClCompile Include="graphic_main_advance.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />

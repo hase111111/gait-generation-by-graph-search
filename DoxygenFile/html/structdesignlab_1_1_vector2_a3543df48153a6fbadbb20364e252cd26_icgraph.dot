@@ -13,5 +13,5 @@ digraph "designlab::Vector2::Dot"
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="designlab::Vector2\l::Length",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843",tooltip="このベクトルの長さを返す"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="designlab::Vector2\l::Normalized",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393",tooltip="このベクトルを正規化したベクトルを返す"];
+  Node5 [id="Node000005",label="designlab::Vector2\l::Normalize",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$structdesignlab_1_1_vector2.html#a8899add912014b0eac615bcac1ef95f4",tooltip="このベクトルを正規化したベクトルを返す"];
 }

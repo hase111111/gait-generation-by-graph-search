@@ -7,9 +7,9 @@ digraph "SimulationSystemMain::SimulationSystemMain"
   rankdir="LR";
   Node1 [id="Node000001",label="SimulationSystemMain\l::SimulationSystemMain",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="MapCreator::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_creator.html#a26eec20a7fed0213436c29cee082febb",tooltip="マップ情報を与える関数   getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..."];
+  Node2 [id="Node000002",label="MapCreator::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_creator.html#aa237020798f60331235c3186010f62ed",tooltip="マップ情報を与える関数   getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..."];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="MapState::set_map_point",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_state.html#ac99e8ae5e2f78897f713ae3514504ad0",tooltip="脚設置可能点の座標を設定する   一応作ったけど，使うことはないと思う．AddMapPointを使うこと．"];
+  Node3 [id="Node000003",label="MapState::SetMapPoint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_state.html#ab841b416d036bb94249bf2e22c327816",tooltip="脚設置可能点の座標を設定する   一応作ったけど，使うことはないと思う．AddMapPointを使うこと．"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="ResultFileExporter\l::init",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_result_file_exporter.html#a1cb86aa9aabd01b6a1fa2cd98b089f2c",tooltip="resultフォルダがなければ作成する．また，フォルダ名を指定する．"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];

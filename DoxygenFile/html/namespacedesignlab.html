@@ -106,6 +106,12 @@ $(document).ready(function(){initNavTree('namespacedesignlab.html',''); initResi
 <tr class="memitem:namespacedesignlab_1_1cmdio"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html">cmdio</a></td></tr>
 <tr class="memdesc:namespacedesignlab_1_1cmdio"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数をまとめた名前空間．command line input/output の略． <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacedesignlab_1_1com__func"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html">com_func</a></td></tr>
+<tr class="memdesc:namespacedesignlab_1_1com__func"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心タイプに関する名前空間．Center of Mass Function の略． <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacedesignlab_1_1dxlib__util"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1dxlib__util.html">dxlib_util</a></td></tr>
+<tr class="memdesc:namespacedesignlab_1_1dxlib__util"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dxlibの3D表示を行う処理を書き直したもの． <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedesignlab_1_1math__util"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1math__util.html">math_util</a></td></tr>
 <tr class="memdesc:namespacedesignlab_1_1math__util"><td class="mdescLeft">&#160;</td><td class="mdescRight">基本的な計算を行う関数をまとめた名前空間． <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,9 +159,12 @@ template&lt;class Char &gt; </td></tr>
 <tr class="memitem:a1329cb082c6b47a47150da24f72b15ee"><td class="memItemLeft" align="right" valign="top"><a id="a1329cb082c6b47a47150da24f72b15ee" name="a1329cb082c6b47a47150da24f72b15ee"></a>
 constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
 <tr class="separator:a1329cb082c6b47a47150da24f72b15ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memItemLeft" align="right" valign="top"><a id="aac676dd02b1ac3dfa1224bf0db95bfe1" name="aac676dd02b1ac3dfa1224bf0db95bfe1"></a>
-<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotVecByQuat</b> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
-<tr class="separator:aac676dd02b1ac3dfa1224bf0db95bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8">RotateVector3</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q, bool use_normalized_quaternions)</td></tr>
+<tr class="memdesc:a88a31cb8dd4fb0891393816ad574b9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">3次元の位置ベクトルを回転させる．  <br /></td></tr>
+<tr class="separator:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f00dd71c87deaeb9209980d06496e6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a1f00dd71c87deaeb9209980d06496e6a">rotVector</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> &amp;rot)</td></tr>
+<tr class="memdesc:a1f00dd71c87deaeb9209980d06496e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転させたベクトルを返す  <br /></td></tr>
+<tr class="separator:a1f00dd71c87deaeb9209980d06496e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c0b111e17683a8a0fc71d3500672211"><td class="memItemLeft" align="right" valign="top"><a id="a5c0b111e17683a8a0fc71d3500672211" name="a5c0b111e17683a8a0fc71d3500672211"></a>
 constexpr <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_vector2.html">Vector2</a> &amp;v)</td></tr>
 <tr class="separator:a5c0b111e17683a8a0fc71d3500672211"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,8 +203,94 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_V
 <p>このプロジェクトで作成した関数は全てこの名前空間内に入れる． <br  />
  グローバルな空間に関数を入れると，名前の衝突が起こる可能性がある． </p>
 </div><h2 class="groupheader">関数詳解</h2>
+<a id="a88a31cb8dd4fb0891393816ad574b9a8" name="a88a31cb8dd4fb0891393816ad574b9a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a31cb8dd4fb0891393816ad574b9a8">&#9670;&#160;</a></span>RotateVector3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> designlab::RotateVector3 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>use_normalized_quaternions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3次元の位置ベクトルを回転させる． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>回転させるベクトル． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>回転させるクォータニオン． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">use_normalized_quaternions</td><td>正規化されたクォータニオンを使うかどうか． <br  />
+ 正規化クォータニオンならば，共役と逆数が等しいので，計算量を減らすことができる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">designlab::Vector3</a> 回転後のベクトル． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_cgraph.png" border="0" usemap="#anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_cgraph" id="anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_cgraph">
+<area shape="rect" title="3次元の位置ベクトルを回転させる．" alt="" coords="5,88,173,115"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#af24ef8c57fde648dbc239b6aae7e9414" title="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると，qの共役は w &#45; xi &#45; yj &#45; zk となる．回..." alt="" coords="416,5,563,48"/>
+<area shape="poly" title=" " alt="" coords="111,85,159,59,220,36,266,27,313,22,401,19,401,24,313,27,267,32,221,41,162,64,113,90"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="221,51,368,93"/>
+<area shape="poly" title=" " alt="" coords="172,87,206,82,206,87,173,92"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="416,84,563,127"/>
+<area shape="poly" title=" " alt="" coords="173,102,221,103,401,103,401,109,221,108,173,107"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="226,168,363,211"/>
+<area shape="poly" title=" " alt="" coords="124,113,230,159,228,164,121,118"/>
+<area shape="poly" title=" " alt="" coords="368,52,401,45,402,50,369,57"/>
+<area shape="poly" title=" " alt="" coords="369,82,402,88,401,93,368,87"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="611,84,759,127"/>
+<area shape="poly" title=" " alt="" coords="564,103,596,103,596,108,564,108"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_icgraph.png" border="0" usemap="#anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_icgraph" id="anamespacedesignlab_a88a31cb8dd4fb0891393816ad574b9a8_icgraph">
+<area shape="rect" title="3次元の位置ベクトルを回転させる．" alt="" coords="610,101,778,128"/>
+<area shape="rect" href="class_camera_input_controller.html#a56c0dbc23365b09d5d0c0349e880e16f" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="413,93,562,136"/>
+<area shape="poly" title=" " alt="" coords="595,117,563,117,563,112,595,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a856b1521c31b6c5ec35f3028b7df7179" name="a856b1521c31b6c5ec35f3028b7df7179"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a856b1521c31b6c5ec35f3028b7df7179">&#9670;&#160;</a></span>rotVector()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a856b1521c31b6c5ec35f3028b7df7179">&#9670;&#160;</a></span>rotVector() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,11 +325,21 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_V
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体">Vector3</a> 回転した後の位置ベクトル </dd></dl>
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_cgraph.png" border="0" usemap="#anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_cgraph" id="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_cgraph">
+<area shape="rect" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="5,29,143,56"/>
+<area shape="poly" title=" " alt="" coords="50,30,46,21,49,11,58,5,74,3,91,5,100,12,97,17,89,10,74,8,60,10,53,14,51,20,55,28"/>
+</map>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph.png" border="0" usemap="#anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph" id="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph">
 <area shape="rect" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="245,113,382,140"/>
+<area shape="poly" title=" " alt="" coords="350,101,338,95,313,92,291,94,279,99,276,104,282,111,277,114,271,105,275,95,290,89,313,87,340,90,353,97"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="20,5,182,48"/>
 <area shape="poly" title=" " alt="" coords="277,108,196,62,168,51,170,46,198,58,280,103"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#acf135fb149d94d9f308b8fa34577dc56" title="グローバル座標系→脚座標系に変換する．" alt="" coords="5,72,197,115"/>
@@ -245,6 +350,43 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_V
 <area shape="poly" title=" " alt="" coords="280,150,198,196,170,207,168,202,196,191,277,146"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a1f00dd71c87deaeb9209980d06496e6a" name="a1f00dd71c87deaeb9209980d06496e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f00dd71c87deaeb9209980d06496e6a">&#9670;&#160;</a></span>rotVector() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> designlab::rotVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>回転させたベクトルを返す </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>回転させるベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rot</td><td>回転行列 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

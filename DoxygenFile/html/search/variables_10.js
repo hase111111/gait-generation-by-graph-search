@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['result_5fnodes_0',['result_nodes',['../struct_s_simulation_result_recorder.html#a30e572996e03f8c47c49fd70732b8625',1,'SSimulationResultRecorder']]],
+  ['result_5fnodes_0',['result_nodes',['../struct_simulation_result_recorder.html#ab95aad26be14f9f8b0a8977e695f3bea',1,'SimulationResultRecorder']]],
   ['rot_1',['rot',['../struct_s_node.html#a18454607b722bf990c15f18d03dbd54c',1,'SNode']]],
   ['rotationcenter_2',['RotationCenter',['../struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1',1,'STarget']]],
   ['rough_5fmax_5fdif_3',['rough_max_dif',['../struct_application_setting_recorder.html#a47550c2c89a0b374412075496f86211c',1,'ApplicationSettingRecorder']]],

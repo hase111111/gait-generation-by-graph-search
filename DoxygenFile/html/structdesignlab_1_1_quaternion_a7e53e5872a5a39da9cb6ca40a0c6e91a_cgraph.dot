@@ -7,7 +7,9 @@ digraph "designlab::Quaternion::Normalize"
   rankdir="LR";
   Node1 [id="Node000001",label="designlab::Quaternion\l::Normalize",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="正規化したクォータニオンを返す   クォータニオンの正規化とは，ノルムを1にすること．   クォータニオンqの正規化は，q / |q| で求められる"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="designlab::Quaternion\l::Norm",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#ad3832c1faaa1394601a665afc2a16f7e",tooltip="クォータニオンのノルムを返す   ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる"];
+  Node2 [id="Node000002",label="designlab::Quaternion\l::Norm",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8",tooltip="クォータニオンのノルムを返す   ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="designlab::Vector3::Dot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#aeca4595ed55b1d5010f41801fbd3a76f",tooltip="自分・引数 の内積の結果を返す．"];
+  Node3 [id="Node000003",label="designlab::Quaternion\l::LengthSquared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750",tooltip="クォータニオンの長さの2乗を返す(ノルムの2乗)．   クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="designlab::Vector3::Dot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html#aeca4595ed55b1d5010f41801fbd3a76f",tooltip="自分・引数 の内積の結果を返す．"];
 }

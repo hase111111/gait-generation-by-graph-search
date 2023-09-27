@@ -15,9 +15,10 @@ var searchData=
   ['phantomxstatecalclator_12',['PhantomXStateCalclator',['../class_phantom_x_state_calclator.html',1,'']]],
   ['phantomxstatecalclator_5fhato_13',['PhantomXStateCalclator_Hato',['../class_phantom_x_state_calclator___hato.html',1,'']]],
   ['point_14',['POINT',['../struct_s___n_e_1_1_p_o_i_n_t.html',1,'S_NE']]],
-  ['polygon2_15',['Polygon2',['../structdesignlab_1_1_polygon2.html',1,'designlab']]],
-  ['printallmapcreatemode_16',['printAllMapCreateMode',['../class_map_creator.html#ae0f4ddaec2889e22a6fbcd1bdb773276',1,'MapCreator']]],
-  ['printallmapcreateoption_17',['printAllMapCreateOption',['../class_map_creator.html#a5dd58d77931914d0fea1108b9ac34b2c',1,'MapCreator']]],
-  ['projectedxy_18',['ProjectedXY',['../structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed',1,'designlab::Vector3']]],
-  ['pushback_19',['PushBack',['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a09227f2b2f380d849bc92e0611fbf70f',1,'AsyncableData&lt; std::vector&lt; T &gt; &gt;']]]
+  ['polygon_15',['polygon',['../struct_com_pos_and_polygon.html#ae0a1f4f77baa0586143844b4f3878886',1,'ComPosAndPolygon']]],
+  ['polygon2_16',['Polygon2',['../structdesignlab_1_1_polygon2.html',1,'designlab']]],
+  ['printallmapcreatemode_17',['PrintAllMapCreateMode',['../class_map_creator.html#adb1010574dad1911cab815d85f467c8e',1,'MapCreator']]],
+  ['printallmapcreateoption_18',['printAllMapCreateOption',['../class_map_creator.html#a5dd58d77931914d0fea1108b9ac34b2c',1,'MapCreator']]],
+  ['projectedxy_19',['ProjectedXY',['../structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed',1,'designlab::Vector3']]],
+  ['pushback_20',['PushBack',['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a09227f2b2f380d849bc92e0611fbf70f',1,'AsyncableData&lt; std::vector&lt; T &gt; &gt;']]]
 ];

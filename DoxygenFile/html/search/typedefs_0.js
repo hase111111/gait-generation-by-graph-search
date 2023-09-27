@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['leggroundedbit_0',['LegGroundedBit',['../namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a',1,'dl_leg']]],
-  ['leggroundedmap_1',['LegGroundedMap',['../namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0',1,'dl_com']]],
-  ['leggroundedmapvalue_2',['LegGroundedMapValue',['../namespacedl__com.html#ab154f02a40c56317e55668a18e8712e5',1,'dl_com']]],
-  ['legstatebit_3',['LegStateBit',['../namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896',1,'dl_leg']]]
+  ['leggroundedbit_0',['LegGroundedBit',['../leg__state_8h.html#aed1e953cf8c10c73c2f7bda67119cfd4',1,'designlab::leg_func']]],
+  ['leggroundedmap_1',['LegGroundedMap',['../namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907',1,'designlab::com_func']]],
+  ['legstatebit_2',['LegStateBit',['../leg__state_8h.html#aeed0147f934052f177c0761b75bacc65',1,'designlab::leg_func']]]
 ];

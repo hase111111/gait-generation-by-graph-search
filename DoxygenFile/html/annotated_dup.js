@@ -9,9 +9,64 @@ var annotated_dup =
       [ "Vector2", "structdesignlab_1_1_vector2.html", "structdesignlab_1_1_vector2" ],
       [ "Vector3", "structdesignlab_1_1_vector3.html", "structdesignlab_1_1_vector3" ]
     ] ],
+    [ "magic_enum", null, [
+      [ "containers", null, [
+        [ "detail", null, [
+          [ "FilteredIterator", "structmagic__enum_1_1containers_1_1detail_1_1_filtered_iterator.html", null ],
+          [ "indexing", "classmagic__enum_1_1containers_1_1detail_1_1indexing.html", null ],
+          [ "indexing< E, Cmp, std::enable_if_t< std::is_enum_v< std::decay_t< E > > &&(std::is_same_v< Cmp, std::less< E > >||std::is_same_v< Cmp, std::less<> >)> >", "classmagic__enum_1_1containers_1_1detail_1_1indexing_3_01_e_00_01_cmp_00_01std_1_1enable__if__t_e5f9608414e0ac71e4dadec2ccdf9001.html", null ],
+          [ "indexing< void, Cmp, void >", "structmagic__enum_1_1containers_1_1detail_1_1indexing_3_01void_00_01_cmp_00_01void_01_4.html", null ],
+          [ "name_sort_impl", "structmagic__enum_1_1containers_1_1detail_1_1name__sort__impl.html", null ],
+          [ "name_sort_impl< void, Cmp >", "structmagic__enum_1_1containers_1_1detail_1_1name__sort__impl_3_01void_00_01_cmp_01_4.html", "structmagic__enum_1_1containers_1_1detail_1_1name__sort__impl_3_01void_00_01_cmp_01_4" ],
+          [ "raw_access_t", "structmagic__enum_1_1containers_1_1detail_1_1raw__access__t.html", null ]
+        ] ],
+        [ "array", "structmagic__enum_1_1containers_1_1array.html", null ],
+        [ "bitset", "classmagic__enum_1_1containers_1_1bitset.html", null ],
+        [ "set", "classmagic__enum_1_1containers_1_1set.html", null ]
+      ] ],
+      [ "customize", null, [
+        [ "customize_t", "classmagic__enum_1_1customize_1_1customize__t.html", null ],
+        [ "enum_range", "structmagic__enum_1_1customize_1_1enum__range.html", null ]
+      ] ],
+      [ "detail", null, [
+        [ "case_insensitive", "classmagic__enum_1_1detail_1_1case__insensitive.html", null ],
+        [ "default_result_type", "structmagic__enum_1_1detail_1_1default__result__type.html", null ],
+        [ "enable_if_enum", "structmagic__enum_1_1detail_1_1enable__if__enum.html", null ],
+        [ "enable_if_enum< true, R >", "structmagic__enum_1_1detail_1_1enable__if__enum_3_01true_00_01_r_01_4.html", null ],
+        [ "has_is_flags", "structmagic__enum_1_1detail_1_1has__is__flags.html", null ],
+        [ "has_is_flags< T, std::void_t< decltype(customize::enum_range< T >::is_flags)> >", "structmagic__enum_1_1detail_1_1has__is__flags_3_01_t_00_01std_1_1void__t_3_01decltype_07customiz5850fc280780eb0d4e359edf8de2e402.html", null ],
+        [ "identity", "structmagic__enum_1_1detail_1_1identity.html", null ],
+        [ "invoke_result", "structmagic__enum_1_1detail_1_1invoke__result.html", null ],
+        [ "invoke_result< F, V, true >", "structmagic__enum_1_1detail_1_1invoke__result_3_01_f_00_01_v_00_01true_01_4.html", null ],
+        [ "is_scoped_enum", "structmagic__enum_1_1detail_1_1is__scoped__enum.html", null ],
+        [ "is_scoped_enum< T, true >", "structmagic__enum_1_1detail_1_1is__scoped__enum_3_01_t_00_01true_01_4.html", null ],
+        [ "is_unscoped_enum", "structmagic__enum_1_1detail_1_1is__unscoped__enum.html", null ],
+        [ "is_unscoped_enum< T, true >", "structmagic__enum_1_1detail_1_1is__unscoped__enum_3_01_t_00_01true_01_4.html", null ],
+        [ "nonesuch", "structmagic__enum_1_1detail_1_1nonesuch.html", null ],
+        [ "range_max", "structmagic__enum_1_1detail_1_1range__max.html", null ],
+        [ "range_max< T, std::void_t< decltype(customize::enum_range< T >::max)> >", "structmagic__enum_1_1detail_1_1range__max_3_01_t_00_01std_1_1void__t_3_01decltype_07customize_1_35692f6e889269924f0d80e52c12ef1d.html", null ],
+        [ "range_min", "structmagic__enum_1_1detail_1_1range__min.html", null ],
+        [ "range_min< T, std::void_t< decltype(customize::enum_range< T >::min)> >", "structmagic__enum_1_1detail_1_1range__min_3_01_t_00_01std_1_1void__t_3_01decltype_07customize_1_b5db5546fae27b586c6e1893b42c0f44.html", null ],
+        [ "static_str", "classmagic__enum_1_1detail_1_1static__str.html", null ],
+        [ "static_str< 0 >", "classmagic__enum_1_1detail_1_1static__str_3_010_01_4.html", null ],
+        [ "str_view", "structmagic__enum_1_1detail_1_1str__view.html", null ],
+        [ "supported", "structmagic__enum_1_1detail_1_1supported.html", null ],
+        [ "underlying_type", "structmagic__enum_1_1detail_1_1underlying__type.html", null ],
+        [ "underlying_type< T, true >", "structmagic__enum_1_1detail_1_1underlying__type_3_01_t_00_01true_01_4.html", null ],
+        [ "valid_count_t", "structmagic__enum_1_1detail_1_1valid__count__t.html", null ]
+      ] ],
+      [ "is_scoped_enum", "structmagic__enum_1_1is__scoped__enum.html", null ],
+      [ "is_unscoped_enum", "structmagic__enum_1_1is__unscoped__enum.html", null ],
+      [ "underlying_type", "structmagic__enum_1_1underlying__type.html", null ]
+    ] ],
     [ "S_NE", null, [
       [ "POINT", "struct_s___n_e_1_1_p_o_i_n_t.html", null ],
       [ "S_NE_Calc", "class_s___n_e_1_1_s___n_e___calc.html", null ]
+    ] ],
+    [ "std", null, [
+      [ "common_type< magic_enum::detail::nonesuch, magic_enum::detail::nonesuch >", "structstd_1_1common__type_3_01magic__enum_1_1detail_1_1nonesuch_00_01magic__enum_1_1detail_1_1nonesuch_01_4.html", null ],
+      [ "common_type< magic_enum::detail::nonesuch, T >", "structstd_1_1common__type_3_01magic__enum_1_1detail_1_1nonesuch_00_01_t_01_4.html", null ],
+      [ "common_type< T, magic_enum::detail::nonesuch >", "structstd_1_1common__type_3_01_t_00_01magic__enum_1_1detail_1_1nonesuch_01_4.html", null ]
     ] ],
     [ "AbstractHexapodStateCalculator", "class_abstract_hexapod_state_calculator.html", "class_abstract_hexapod_state_calculator" ],
     [ "ApplicationSettingKey", "class_application_setting_key.html", null ],
@@ -25,6 +80,7 @@ var annotated_dup =
     [ "CameraStateManager", "class_camera_state_manager.html", "class_camera_state_manager" ],
     [ "ComCandidatePolygonMaker", "class_com_candidate_polygon_maker.html", "class_com_candidate_polygon_maker" ],
     [ "ComMoveNodeCreatorHato", "class_com_move_node_creator_hato.html", "class_com_move_node_creator_hato" ],
+    [ "ComPosAndPolygon", "struct_com_pos_and_polygon.html", "struct_com_pos_and_polygon" ],
     [ "ComSelecterHato", "class_com_selecter_hato.html", "class_com_selecter_hato" ],
     [ "ComUpDownNodeCreator", "class_com_up_down_node_creator.html", "class_com_up_down_node_creator" ],
     [ "Define", "class_define.html", "class_define" ],
@@ -76,10 +132,10 @@ var annotated_dup =
     [ "RotationMatrix", "structdesignlab_1_1_rotation_matrix.html", null ],
     [ "SettingKeyData", "struct_setting_key_data.html", "struct_setting_key_data" ],
     [ "SettingTableData", "struct_setting_table_data.html", "struct_setting_table_data" ],
+    [ "SimulationResultRecorder", "struct_simulation_result_recorder.html", "struct_simulation_result_recorder" ],
     [ "SimulationSystemMain", "class_simulation_system_main.html", "class_simulation_system_main" ],
     [ "Singleton", "class_singleton.html", "class_singleton" ],
     [ "SNode", "struct_s_node.html", "struct_s_node" ],
-    [ "SSimulationResultRecorder", "struct_s_simulation_result_recorder.html", "struct_s_simulation_result_recorder" ],
     [ "StabilityMarginRenderer", "class_stability_margin_renderer.html", "class_stability_margin_renderer" ],
     [ "STarget", "struct_s_target.html", "struct_s_target" ],
     [ "Stopwatch", "class_stopwatch.html", "class_stopwatch" ],

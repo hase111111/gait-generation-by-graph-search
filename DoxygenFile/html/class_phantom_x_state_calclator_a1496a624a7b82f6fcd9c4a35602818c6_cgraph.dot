@@ -10,4 +10,5 @@ digraph "PhantomXStateCalclator::GetGlobalLegBasePosition"
   Node2 [id="Node000002",label="PhantomXStateCalclator\l::GetLocalLegBasePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122",tooltip="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="designlab::rotVector",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179",tooltip="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．"];
+  Node3 -> Node3 [id="edge3_Node000003_Node000003",color="steelblue1",style="solid",tooltip=" "];
 }

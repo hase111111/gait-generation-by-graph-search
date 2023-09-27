@@ -1,0 +1,4 @@
+<map id="designlab::rotVector" name="designlab::rotVector">
+<area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="5,29,143,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="50,30,46,21,49,11,58,5,74,3,91,5,100,12,97,17,89,10,74,8,60,10,53,14,51,20,55,28"/>
+</map>

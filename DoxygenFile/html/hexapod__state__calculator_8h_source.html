@@ -136,8 +136,8 @@ $(document).ready(function(){initNavTree('hexapod__state__calculator_8h_source.h
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//  //! @return designlab::Vector3 グローバル座標の脚の基準地点の座標</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//  inline designlab::Vector3 getGlobalLegBasePos(const SNode&amp; _node, const int _leg_num, const bool _consider_rot) const</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//  {</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//      if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//      else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_base_pos[_leg_num]; }</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//      if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//      else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num]; }</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//  }</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//  // @brief coxa joint (脚の付け根 : 第1関節) をグローバル座標で返す．</span></div>

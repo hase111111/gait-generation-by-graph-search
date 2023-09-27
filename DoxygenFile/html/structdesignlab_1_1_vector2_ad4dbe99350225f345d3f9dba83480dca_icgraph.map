@@ -1,6 +1,6 @@
 <map id="designlab::Vector2::Cross" name="designlab::Vector2::Cross">
 <area shape="rect" id="Node000001" title="このベクトルとotherの外積を返す" alt="" coords="474,105,603,148"/>
-<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="216,5,426,48"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a862d9bc1251d1677af060fa8ae3ff8f8" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="216,5,426,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="492,100,425,62,396,51,398,46,427,58,495,95"/>
 <area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数" alt="" coords="232,72,410,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="459,117,409,110,410,104,459,112"/>

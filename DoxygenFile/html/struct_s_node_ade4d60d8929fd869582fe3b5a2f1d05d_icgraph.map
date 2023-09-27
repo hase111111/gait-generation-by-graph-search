@@ -1,5 +1,5 @@
 <map id="SNode::ChangeParentNode" name="SNode::ChangeParentNode">
 <area shape="rect" id="Node000001" title="自身を親ノードに変更する関数．" alt="" coords="230,13,410,40"/>
-<area shape="rect" id="Node000002" href="$class_pass_finder_basic.html#a9ea8a3278d65243da96d0ecc58f6b49b" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,182,48"/>
+<area shape="rect" id="Node000002" href="$class_pass_finder_basic.html#a592ad6a786886c3a95495a2b7477f6c9" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,182,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,29,182,29,182,24,215,24"/>
 </map>

@@ -94,36 +94,27 @@ $(document).ready(function(){initNavTree('hexapod__next__move_8h_source.html',''
 <div class="contents">
 <a href="hexapod__next__move_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">   14</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> : <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13">kNone</a>,                      </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af">kLegUpDown</a>,                 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfaed65f0de8eebf8dc0a275fe617d38457">kLegUp</a>,                     </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfad407fd61b21c7e9f142f176314375295">kLegDown</a>,                   </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa7a0d289d2c7258b2f617388cded82812">kLegHierarchyChange</a>,        </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa54a0fd06169e7dc14648d41420e7385c">kComMove</a>,                   </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7">kComUpDown</a>,                 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8">kLegUpDownNextComMove</a>,      </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea">kLegUpDownNextComUpDown</a>,    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>std</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::string <a class="code hl_function" href="boot__mode_8h.html#a25f9e88adbe6b24506b9e76fb32fd4a4">to_string</a>(<a class="code hl_enumeration" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> move);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="ttc" id="aboot__mode_8h_html_a25f9e88adbe6b24506b9e76fb32fd4a4"><div class="ttname"><a href="boot__mode_8h.html#a25f9e88adbe6b24506b9e76fb32fd4a4">std::to_string</a></div><div class="ttdeci">std::string to_string(const BootMode boot_mode)</div><div class="ttdoc">EBootModeを文字列に変換する</div><div class="ttdef"><b>Definition</b> boot_mode.cpp:4</div></div>
-<div class="ttc" id="ahexapod__next__move_8h_html_a4b9d2f0865a68e0b3b50f804b3b954cf"><div class="ttname"><a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．   先行研究では int型の変数 debug を用いていたが，可読性が低いので列挙体を用いる．</div><div class="ttdef"><b>Definition</b> hexapod_next_move.h:15</div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">   12</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13">kNone</a>,                      </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af">kLegUpDown</a>,                 </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfaed65f0de8eebf8dc0a275fe617d38457">kLegUp</a>,                     </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfad407fd61b21c7e9f142f176314375295">kLegDown</a>,                   </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa7a0d289d2c7258b2f617388cded82812">kLegHierarchyChange</a>,        </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa54a0fd06169e7dc14648d41420e7385c">kComMove</a>,                   </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa6428915b783a686f1dfed18358d57bc7">kComUpDown</a>,                 </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8">kLegUpDownNextComMove</a>,      </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa78e590b4692aa017173e6ac9d24612ea">kLegUpDownNextComUpDown</a>,    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
+<div class="ttc" id="ahexapod__next__move_8h_html_a4b9d2f0865a68e0b3b50f804b3b954cf"><div class="ttname"><a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．   先行研究では int型の変数 debug を用いていたが，可読性が低いので列挙体を用いる．</div><div class="ttdef"><b>Definition</b> hexapod_next_move.h:13</div></div>
 <div class="ttc" id="ahexapod__next__move_8h_html_a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa35c3ace1970663a16e5c65baa5941b13">HexapodMove::kNone</a></div><div class="ttdeci">@ kNone</div><div class="ttdoc">何も動作をしない．</div></div>
 <div class="ttc" id="ahexapod__next__move_8h_html_a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8"><div class="ttname"><a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa36595614e3ad5835f6e869ea3f6036d8">HexapodMove::kLegUpDownNextComMove</a></div><div class="ttdeci">@ kLegUpDownNextComMove</div><div class="ttdoc">脚の上下移動．(次は重心の平行移動)</div></div>
 <div class="ttc" id="ahexapod__next__move_8h_html_a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af"><div class="ttname"><a href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cfa4a6461c86ef75a5e573c7159b8f899af">HexapodMove::kLegUpDown</a></div><div class="ttdeci">@ kLegUpDown</div><div class="ttdoc">脚の上下移動.</div></div>

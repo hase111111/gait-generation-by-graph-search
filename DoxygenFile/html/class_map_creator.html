@@ -105,17 +105,17 @@ $(document).ready(function(){initNavTree('class_map_creator.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a26eec20a7fed0213436c29cee082febb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_state.html">MapState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#a26eec20a7fed0213436c29cee082febb">Create</a> (const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> mode, const int option, const bool do_output)</td></tr>
-<tr class="memdesc:a26eec20a7fed0213436c29cee082febb"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ情報を与える関数 <br  />
+<tr class="memitem:aa237020798f60331235c3186010f62ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_state.html">MapState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_creator.html#aa237020798f60331235c3186010f62ed">Create</a> (const <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a> mode, const int option, const bool do_output)</td></tr>
+<tr class="memdesc:aa237020798f60331235c3186010f62ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ情報を与える関数 <br  />
  getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定する  <br /></td></tr>
-<tr class="separator:a26eec20a7fed0213436c29cee082febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aa237020798f60331235c3186010f62ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="memItemLeft" align="right" valign="top"><a id="ae0f4ddaec2889e22a6fbcd1bdb773276" name="ae0f4ddaec2889e22a6fbcd1bdb773276"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>printAllMapCreateMode</b> ()</td></tr>
-<tr class="memdesc:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のモードを出力する <br /></td></tr>
-<tr class="separator:ae0f4ddaec2889e22a6fbcd1bdb773276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1010574dad1911cab815d85f467c8e"><td class="memItemLeft" align="right" valign="top"><a id="adb1010574dad1911cab815d85f467c8e" name="adb1010574dad1911cab815d85f467c8e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintAllMapCreateMode</b> ()</td></tr>
+<tr class="memdesc:adb1010574dad1911cab815d85f467c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のモードを出力する <br /></td></tr>
+<tr class="separator:adb1010574dad1911cab815d85f467c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd58d77931914d0fea1108b9ac34b2c"><td class="memItemLeft" align="right" valign="top"><a id="a5dd58d77931914d0fea1108b9ac34b2c" name="a5dd58d77931914d0fea1108b9ac34b2c"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>printAllMapCreateOption</b> ()</td></tr>
 <tr class="memdesc:a5dd58d77931914d0fea1108b9ac34b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成のオプションを出力する <br /></td></tr>
@@ -150,13 +150,12 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>マップを生成するクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス． <br  />
- 先行研究のプログラムでは mainfunction.h で実装されていた処理である． </p>
+ 先行研究のプログラムでは mainfunction.h で実装されていた処理である． <br  />
+ マップに関しては，仕様が定まっていないので，ひとまずこのまま </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a26eec20a7fed0213436c29cee082febb" name="a26eec20a7fed0213436c29cee082febb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26eec20a7fed0213436c29cee082febb">&#9670;&#160;</a></span>Create()</h2>
+<a id="aa237020798f60331235c3186010f62ed" name="aa237020798f60331235c3186010f62ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa237020798f60331235c3186010f62ed">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +163,7 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
         <tr>
           <td class="memname">﻿ <a class="el" href="class_map_state.html">MapState</a> MapCreator::Create </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a>&#160;</td>
           <td class="paramname"><em>mode</em>, </td>
         </tr>
         <tr>
@@ -201,18 +200,18 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>OPTIO
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph.png" border="0" usemap="#aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph" alt=""/></div>
-<map name="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph" id="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_cgraph">
+<div class="center"><img src="class_map_creator_aa237020798f60331235c3186010f62ed_cgraph.png" border="0" usemap="#aclass_map_creator_aa237020798f60331235c3186010f62ed_cgraph" alt=""/></div>
+<map name="aclass_map_creator_aa237020798f60331235c3186010f62ed_cgraph" id="aclass_map_creator_aa237020798f60331235c3186010f62ed_cgraph">
 <area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="5,5,140,32"/>
-<area shape="rect" href="class_map_state.html#ac99e8ae5e2f78897f713ae3514504ad0" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="188,5,358,32"/>
+<area shape="rect" href="class_map_state.html#ab841b416d036bb94249bf2e22c327816" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="188,5,348,32"/>
 <area shape="poly" title=" " alt="" coords="140,16,173,16,173,21,140,21"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph.png" border="0" usemap="#aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph" alt=""/></div>
-<map name="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph" id="aclass_map_creator_a26eec20a7fed0213436c29cee082febb_icgraph">
+<div class="center"><img src="class_map_creator_aa237020798f60331235c3186010f62ed_icgraph.png" border="0" usemap="#aclass_map_creator_aa237020798f60331235c3186010f62ed_icgraph" alt=""/></div>
+<map name="aclass_map_creator_aa237020798f60331235c3186010f62ed_icgraph" id="aclass_map_creator_aa237020798f60331235c3186010f62ed_icgraph">
 <area shape="rect" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="217,13,351,40"/>
 <area shape="rect" href="class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8" title=" " alt="" coords="5,5,169,48"/>
 <area shape="poly" title=" " alt="" coords="202,29,169,29,169,24,202,24"/>

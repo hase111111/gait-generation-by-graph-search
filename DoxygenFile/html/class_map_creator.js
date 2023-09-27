@@ -1,7 +1,7 @@
 var class_map_creator =
 [
-    [ "Create", "class_map_creator.html#a26eec20a7fed0213436c29cee082febb", null ],
-    [ "printAllMapCreateMode", "class_map_creator.html#ae0f4ddaec2889e22a6fbcd1bdb773276", null ],
+    [ "Create", "class_map_creator.html#aa237020798f60331235c3186010f62ed", null ],
+    [ "PrintAllMapCreateMode", "class_map_creator.html#adb1010574dad1911cab815d85f467c8e", null ],
     [ "printAllMapCreateOption", "class_map_creator.html#a5dd58d77931914d0fea1108b9ac34b2c", null ],
     [ "OPTION_NONE", "class_map_creator.html#a199c52f70900199f80187e3e5ee30eed", null ],
     [ "OPTION_PERFORATED", "class_map_creator.html#a3fdb6c92853ab99a12fb996b5804b5f3", null ],

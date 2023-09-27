@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('_node_8h.html',''); initResizable(); }
 <div class="textblock"><code>#include &lt;array&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;magic_enum.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="designlab__vector3_8h_source.html">designlab_vector3.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="designlab__euler_8h_source.html">designlab_euler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hexapod__next__move_8h_source.html">hexapod_next_move.h</a>&quot;</code><br />
@@ -114,9 +115,10 @@ $(document).ready(function(){initNavTree('_node_8h.html',''); initResizable(); }
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:afc43182cbb829be657582f47fd5a0163"><td class="memItemLeft" align="right" valign="top"><a id="afc43182cbb829be657582f47fd5a0163" name="afc43182cbb829be657582f47fd5a0163"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;stream, const <a class="el" href="struct_s_node.html">SNode</a> &amp;value)</td></tr>
-<tr class="separator:afc43182cbb829be657582f47fd5a0163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220f8704a704414a99b220e1b6bb10fc"><td class="memTemplParams" colspan="2"><a id="a220f8704a704414a99b220e1b6bb10fc" name="a220f8704a704414a99b220e1b6bb10fc"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:a220f8704a704414a99b220e1b6bb10fc"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="struct_s_node.html">SNode</a> &amp;value)</td></tr>
+<tr class="separator:a220f8704a704414a99b220e1b6bb10fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,15 @@
+<map id="designlab::RotateVector3" name="designlab::RotateVector3">
+<area shape="rect" id="Node000001" title="3次元の位置ベクトルを回転させる．" alt="" coords="5,88,173,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#af24ef8c57fde648dbc239b6aae7e9414" title="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると，qの共役は w &#45; xi &#45; yj &#45; zk となる．回..." alt="" coords="416,5,563,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,85,159,59,220,36,266,27,313,22,401,19,401,24,313,27,267,32,221,41,162,64,113,90"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="221,51,368,93"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,87,206,82,206,87,173,92"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="416,84,563,127"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="173,102,221,103,401,103,401,109,221,108,173,107"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="226,168,363,211"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,113,230,159,228,164,121,118"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="368,52,401,45,402,50,369,57"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="369,82,402,88,401,93,368,87"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="611,84,759,127"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="564,103,596,103,596,108,564,108"/>
+</map>

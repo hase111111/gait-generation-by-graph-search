@@ -384,6 +384,9 @@
     <ClInclude Include="designlab_rotation_matrix.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
+    <ClInclude Include="file_tree.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -607,6 +610,9 @@
     </ClCompile>
     <ClCompile Include="designlab_rotation_matrix.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="file_tree.cpp">
+      <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

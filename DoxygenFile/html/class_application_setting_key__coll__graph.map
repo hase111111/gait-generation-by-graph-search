@@ -1,7 +1,10 @@
 <map id="ApplicationSettingKey" name="ApplicationSettingKey">
-<area shape="rect" id="Node000001" title="設定ファイルのキーをまとめた定数クラス" alt="" coords="75,272,224,299"/>
-<area shape="rect" id="Node000002" href="$struct_setting_key_data.html" title="設定ファイルのデータのキーをまとめた構造体" alt="" coords="5,5,118,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,47,46,89,40,141,45,196,53,222,65,246,78,260,94,269,92,274,75,264,61,250,48,224,40,197,35,141,41,88,51,45"/>
-<area shape="rect" id="Node000003" href="$struct_setting_table_data.html" title="設定ファイルのテーブルのデータをまとめた構造体" alt="" coords="177,5,298,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,47,246,89,244,141,234,197,224,224,210,250,198,263,183,274,180,269,194,259,206,246,219,222,228,196,239,141,241,89,238,47"/>
+<area shape="rect" id="Node000001" title="設定ファイルのキーをまとめた定数クラス" alt="" coords="58,395,207,421"/>
+<area shape="rect" id="Node000002" href="$struct_setting_key_data.html" title="設定ファイルのデータのキーをまとめた構造体" alt="" coords="5,128,118,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,169,48,179,34,235,24,280,23,301,26,322,34,344,48,369,61,382,77,392,74,396,57,387,44,372,29,347,21,323,18,301,19,279,29,233,43,178,46,167"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,5,158,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,44,97,57,78,95,67,129,62,127,73,93,92,55,103,41"/>
+<area shape="rect" id="Node000004" href="$struct_setting_table_data.html" title="設定ファイルのテーブルのデータをまとめた構造体" alt="" coords="151,128,271,155"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="154,42,164,54,207,126,202,129,159,58,149,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,169,223,211,223,264,215,320,206,347,193,372,181,386,165,396,162,392,177,382,189,369,201,345,210,318,218,263,218,211,213,170"/>
 </map>

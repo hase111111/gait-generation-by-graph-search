@@ -92,84 +92,94 @@ $(document).ready(function(){initNavTree('com__type_8h_source.html',''); initRes
   <div class="headertitle"><div class="title">com_type.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="com__type_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;bitset&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;boost/bimap.hpp&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;boost/dynamic_bitset.hpp&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__const_8h.html">hexapod_const.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;discrete_com_pos.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span>std</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// boost bimapのために比較演算子を定義している．若干邪悪な解決法</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> std::bitset&lt;N&gt;&amp; lhs, <span class="keyword">const</span> std::bitset&lt;N&gt;&amp; rhs)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">return</span> lhs.to_ulong() &lt; rhs.to_ulong();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedl__com.html">dl_com</a></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">//前述の通り脚の接地パターンは36通りある．それぞれの遊脚に対応する数値を割り振って管理をしやすくするために，bimapを用いている．</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">   45</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">LegGroundedMap</a> = boost::bimaps::bimap&lt;dl_leg::LegGroundedBit, int&gt;;       </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacedl__com.html#ab154f02a40c56317e55668a18e8712e5">   47</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespacedl__com.html#ab154f02a40c56317e55668a18e8712e5">LegGroundedMapValue</a> = LegGroundedMap::value_type;                         </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedl__com.html#abd056fbbd66024f19667c6339ec06046">isLegPairFree</a>(<span class="keywordtype">int</span> leg_index, <span class="keywordtype">int</span> leg_ground_pattern_index);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_typedef" href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">LegGroundedMap</a> <a class="code hl_function" href="namespacedl__com.html#ab1d3ae7fea9b3bd985b411700cdbd0da">makeLegGroundedMap</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::unordered_map&lt;EDiscreteComPos, std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacedl__com.html#a1c98929ee34aa803bb98cc345dcae146">makeLegGroundedPatternBanList</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacedl__com.html#a5bb4bcb29b1d92740cb2faf7ad46a0a9">makeLegGroundedPatternBanListFromLeg</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<a href="com__type_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef DESIGNLAB_COM_TYPE_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define DESIGNLAB_COM_TYPE_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;bitset&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;boost/bimap.hpp&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;boost/dynamic_bitset.hpp&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="discrete__com__pos_8h.html">discrete_com_pos.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__const_8h.html">hexapod_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span>std</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// boost bimapのために比較演算子を定義している．若干邪悪な解決法</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> std::bitset&lt;N&gt;&amp; lhs, <span class="keyword">const</span> std::bitset&lt;N&gt;&amp; rhs)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> lhs.to_ulong() &lt; rhs.to_ulong();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">namespace </span>com_func</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">//前述の通り脚の接地パターンは36通りある．それぞれの遊脚に対応する数値を割り振って管理をしやすくするために，bimapを用いている．</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907">   54</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907">LegGroundedMap</a> = boost::bimaps::bimap&lt;::designlab::leg_func::LegGroundedBit, int&gt;;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">using </span>LegGroundedMapValue = LegGroundedMap::value_type;                         </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#adfe0f2def50a3b624b99490ce1c9677b">IsLegPairFree</a>(<span class="keywordtype">int</span> leg_index, <span class="keywordtype">int</span> leg_ground_pattern_index);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1">getLegGroundPatternNum</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_typedef" href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a> <a class="code hl_function" href="namespacedl__com.html#a1b8d0648f35962c25f49be4d713c2270">getLegGroundedBitFromLegGroundPatternIndex</a>(<span class="keywordtype">int</span> leg_ground_pattern_index);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_typedef" href="namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907">LegGroundedMap</a> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a88570495bb53be7a5fac1509a100e65b">MakeLegGroundedMap</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        std::unordered_map&lt;DiscreteComPos, std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a7d92241fea873330222fee61aebe4e54">MakeLegGroundedPatternBanList</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a2e8b655423939a5cbc65412a4806e33f">MakeLegGroundedPatternBanListFromLeg</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedl__com.html#a1365ec17513ff457faa02295d698e65e">banLegGroundPatternFromCom</a>(EDiscreteComPos discrete_com_pos, boost::dynamic_bitset&lt;&gt;* output);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedl__com.html#a18f359696549a25d469e8392888237a5">banLegGroundPatternFromNotGroundableLeg</a>(<span class="keywordtype">int</span> not_groundble_leg_index, boost::dynamic_bitset&lt;&gt;* output);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedl__com.html#ac3f04f179ef73f038dcffb6c93ce2a2d">banLegGroundPatternFromNotFreeLeg</a>(<span class="keywordtype">int</span> not_lift_leg_index, boost::dynamic_bitset&lt;&gt;* output);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>} <span class="comment">// namespace dl_com</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7">GetLegGroundPatternNum</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_typedef" href="leg__state_8h.html#aed1e953cf8c10c73c2f7bda67119cfd4">::designlab::leg_func::LegGroundedBit</a> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a6e089548580a21729e4c73f4564b8640">GetLegGroundedBitFromLegGroundPatternIndex</a>(<span class="keywordtype">int</span> leg_ground_pattern_index);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#abd240e18ddb47a04f7520411cba131df">RemoveLegGroundPatternFromCom</a>(<a class="code hl_enumeration" href="discrete__com__pos_8h.html#abc9cb9e5ab1d9788a3852d3b24be05b9">DiscreteComPos</a> discrete_com_pos, boost::dynamic_bitset&lt;&gt;* output);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#a74a1a63939a7629f879caeb6c398c174">RemoveLegGroundPatternFromNotGroundableLeg</a>(<span class="keywordtype">int</span> not_groundble_leg_index, boost::dynamic_bitset&lt;&gt;* output);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929">RemoveLegGroundPatternFromNotFreeLeg</a>(<span class="keywordtype">int</span> not_lift_leg_index, boost::dynamic_bitset&lt;&gt;* output);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }   <span class="comment">// namespace com_func</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>} <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_COM_TYPE_H_</span></div>
+<div class="ttc" id="adiscrete__com__pos_8h_html"><div class="ttname"><a href="discrete__com__pos_8h.html">discrete_com_pos.h</a></div><div class="ttdoc">離散化された重心位置を表す列挙体</div></div>
+<div class="ttc" id="adiscrete__com__pos_8h_html_abc9cb9e5ab1d9788a3852d3b24be05b9"><div class="ttname"><a href="discrete__com__pos_8h.html#abc9cb9e5ab1d9788a3852d3b24be05b9">DiscreteComPos</a></div><div class="ttdeci">DiscreteComPos</div><div class="ttdef"><b>Definition</b> discrete_com_pos.h:12</div></div>
 <div class="ttc" id="ahexapod__const_8h_html"><div class="ttname"><a href="hexapod__const_8h.html">hexapod_const.h</a></div><div class="ttdoc">Hexapodの定数をまとめたクラス．   行数 : 89</div></div>
-<div class="ttc" id="aleg__state_8h_html"><div class="ttname"><a href="leg__state_8h.html">leg_state.h</a></div><div class="ttdoc">このプログラムでは脚状態をint型(32bit)の情報で表す．そのデータを処理するための関数をまとめたもの   行数 : 154</div></div>
-<div class="ttc" id="anamespacedl__com_html"><div class="ttname"><a href="namespacedl__com.html">dl_com</a></div><div class="ttdoc">重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略．</div><div class="ttdef"><b>Definition</b> com_type.cpp:23</div></div>
-<div class="ttc" id="anamespacedl__com_html_a1365ec17513ff457faa02295d698e65e"><div class="ttname"><a href="namespacedl__com.html#a1365ec17513ff457faa02295d698e65e">dl_com::banLegGroundPatternFromCom</a></div><div class="ttdeci">void banLegGroundPatternFromCom(EDiscreteComPos discrete_com_pos, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdoc">離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．</div><div class="ttdef"><b>Definition</b> com_type.cpp:199</div></div>
-<div class="ttc" id="anamespacedl__com_html_a18f359696549a25d469e8392888237a5"><div class="ttname"><a href="namespacedl__com.html#a18f359696549a25d469e8392888237a5">dl_com::banLegGroundPatternFromNotGroundableLeg</a></div><div class="ttdeci">void banLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdef"><b>Definition</b> com_type.cpp:217</div></div>
-<div class="ttc" id="anamespacedl__com_html_a1b8d0648f35962c25f49be4d713c2270"><div class="ttname"><a href="namespacedl__com.html#a1b8d0648f35962c25f49be4d713c2270">dl_com::getLegGroundedBitFromLegGroundPatternIndex</a></div><div class="ttdeci">dl_leg::LegGroundedBit getLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)</div><div class="ttdoc">脚の接地パターンの番号から，その脚の接地パターンを返す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:188</div></div>
-<div class="ttc" id="anamespacedl__com_html_a1c98929ee34aa803bb98cc345dcae146"><div class="ttname"><a href="namespacedl__com.html#a1c98929ee34aa803bb98cc345dcae146">dl_com::makeLegGroundedPatternBanList</a></div><div class="ttdeci">std::unordered_map&lt; EDiscreteComPos, std::vector&lt; int &gt; &gt; makeLegGroundedPatternBanList()</div><div class="ttdoc">重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:121</div></div>
-<div class="ttc" id="anamespacedl__com_html_a5bb4bcb29b1d92740cb2faf7ad46a0a9"><div class="ttname"><a href="namespacedl__com.html#a5bb4bcb29b1d92740cb2faf7ad46a0a9">dl_com::makeLegGroundedPatternBanListFromLeg</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; makeLegGroundedPatternBanListFromLeg()</div><div class="ttdoc">特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:159</div></div>
-<div class="ttc" id="anamespacedl__com_html_a6d79b0702d8cfec0775641c0189b2cf1"><div class="ttname"><a href="namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1">dl_com::getLegGroundPatternNum</a></div><div class="ttdeci">int getLegGroundPatternNum()</div><div class="ttdoc">脚の接地パターンの総数を返す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:182</div></div>
-<div class="ttc" id="anamespacedl__com_html_a772d291e940f24b87a596f9156dbebf0"><div class="ttname"><a href="namespacedl__com.html#a772d291e940f24b87a596f9156dbebf0">dl_com::LegGroundedMap</a></div><div class="ttdeci">boost::bimaps::bimap&lt; dl_leg::LegGroundedBit, int &gt; LegGroundedMap</div><div class="ttdoc">脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号．</div><div class="ttdef"><b>Definition</b> com_type.h:45</div></div>
-<div class="ttc" id="anamespacedl__com_html_ab154f02a40c56317e55668a18e8712e5"><div class="ttname"><a href="namespacedl__com.html#ab154f02a40c56317e55668a18e8712e5">dl_com::LegGroundedMapValue</a></div><div class="ttdeci">LegGroundedMap::value_type LegGroundedMapValue</div><div class="ttdoc">脚の接地パターンを表すマップの値の型．</div><div class="ttdef"><b>Definition</b> com_type.h:47</div></div>
-<div class="ttc" id="anamespacedl__com_html_ab1d3ae7fea9b3bd985b411700cdbd0da"><div class="ttname"><a href="namespacedl__com.html#ab1d3ae7fea9b3bd985b411700cdbd0da">dl_com::makeLegGroundedMap</a></div><div class="ttdeci">LegGroundedMap makeLegGroundedMap()</div><div class="ttdoc">脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:24</div></div>
-<div class="ttc" id="anamespacedl__com_html_abd056fbbd66024f19667c6339ec06046"><div class="ttname"><a href="namespacedl__com.html#abd056fbbd66024f19667c6339ec06046">dl_com::isLegPairFree</a></div><div class="ttdeci">bool isLegPairFree(int leg_index, int leg_ground_pattern_index)</div><div class="ttdoc">leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している</div><div class="ttdef"><b>Definition</b> com_type.cpp:95</div></div>
-<div class="ttc" id="anamespacedl__com_html_ac3f04f179ef73f038dcffb6c93ce2a2d"><div class="ttname"><a href="namespacedl__com.html#ac3f04f179ef73f038dcffb6c93ce2a2d">dl_com::banLegGroundPatternFromNotFreeLeg</a></div><div class="ttdeci">void banLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdoc">遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．</div><div class="ttdef"><b>Definition</b> com_type.cpp:235</div></div>
-<div class="ttc" id="anamespacedl__leg_html_aa01c546e388b434624bd59ee4de9650a"><div class="ttname"><a href="namespacedl__leg.html#aa01c546e388b434624bd59ee4de9650a">dl_leg::LegGroundedBit</a></div><div class="ttdeci">std::bitset&lt; HexapodConst::LEG_NUM &gt; LegGroundedBit</div><div class="ttdoc">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．</div><div class="ttdef"><b>Definition</b> leg_state.h:40</div></div>
+<div class="ttc" id="aleg__state_8h_html"><div class="ttname"><a href="leg__state_8h.html">leg_state.h</a></div><div class="ttdoc">このプログラムでは脚状態をビット(28bit)の情報で表す．そのデータを処理するための関数</div></div>
+<div class="ttc" id="aleg__state_8h_html_aed1e953cf8c10c73c2f7bda67119cfd4"><div class="ttname"><a href="leg__state_8h.html#aed1e953cf8c10c73c2f7bda67119cfd4">designlab::leg_func::LegGroundedBit</a></div><div class="ttdeci">std::bitset&lt; HexapodConst::LEG_NUM &gt; LegGroundedBit</div><div class="ttdoc">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．</div><div class="ttdef"><b>Definition</b> leg_state.h:49</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a2e8b655423939a5cbc65412a4806e33f"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a2e8b655423939a5cbc65412a4806e33f">designlab::com_func::MakeLegGroundedPatternBanListFromLeg</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; MakeLegGroundedPatternBanListFromLeg()</div><div class="ttdoc">特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:173</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a32f26cf991322f7e7cc4ea68213967a7"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7">designlab::com_func::GetLegGroundPatternNum</a></div><div class="ttdeci">int GetLegGroundPatternNum()</div><div class="ttdoc">脚の接地パターンの総数を返す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:196</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a6e089548580a21729e4c73f4564b8640"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a6e089548580a21729e4c73f4564b8640">designlab::com_func::GetLegGroundedBitFromLegGroundPatternIndex</a></div><div class="ttdeci">dllf::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)</div><div class="ttdoc">脚の接地パターンの番号から，その脚の接地パターンを返す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:201</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a74a1a63939a7629f879caeb6c398c174"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a74a1a63939a7629f879caeb6c398c174">designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg</a></div><div class="ttdeci">void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdef"><b>Definition</b> com_type.cpp:229</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a7d92241fea873330222fee61aebe4e54"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a7d92241fea873330222fee61aebe4e54">designlab::com_func::MakeLegGroundedPatternBanList</a></div><div class="ttdeci">std::unordered_map&lt; DiscreteComPos, std::vector&lt; int &gt; &gt; MakeLegGroundedPatternBanList()</div><div class="ttdoc">重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:134</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a837a066c8801e2b869da81e8adbdf907"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907">designlab::com_func::LegGroundedMap</a></div><div class="ttdeci">boost::bimaps::bimap&lt;::designlab::leg_func::LegGroundedBit, int &gt; LegGroundedMap</div><div class="ttdoc">脚の接地パターンを表すマップの値の型．</div><div class="ttdef"><b>Definition</b> com_type.h:56</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_a88570495bb53be7a5fac1509a100e65b"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#a88570495bb53be7a5fac1509a100e65b">designlab::com_func::MakeLegGroundedMap</a></div><div class="ttdeci">LegGroundedMap MakeLegGroundedMap()</div><div class="ttdoc">脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す．</div><div class="ttdef"><b>Definition</b> com_type.cpp:37</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_abd240e18ddb47a04f7520411cba131df"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#abd240e18ddb47a04f7520411cba131df">designlab::com_func::RemoveLegGroundPatternFromCom</a></div><div class="ttdeci">void RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdoc">離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．</div><div class="ttdef"><b>Definition</b> com_type.cpp:212</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_ad4f5fda73fce48453c9bd16789dd3929"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929">designlab::com_func::RemoveLegGroundPatternFromNotFreeLeg</a></div><div class="ttdeci">void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset&lt;&gt; *output)</div><div class="ttdoc">遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．</div><div class="ttdef"><b>Definition</b> com_type.cpp:246</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1com__func_html_adfe0f2def50a3b624b99490ce1c9677b"><div class="ttname"><a href="namespacedesignlab_1_1com__func.html#adfe0f2def50a3b624b99490ce1c9677b">designlab::com_func::IsLegPairFree</a></div><div class="ttdeci">bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)</div><div class="ttdoc">leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している</div><div class="ttdef"><b>Definition</b> com_type.cpp:108</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体</div><div class="ttdef"><b>Definition</b> cmdio_util.cpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

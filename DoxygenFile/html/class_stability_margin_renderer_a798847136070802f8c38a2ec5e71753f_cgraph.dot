@@ -9,7 +9,7 @@ digraph "StabilityMarginRenderer::Draw"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="designlab::Polygon2\l::AddVertex",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299",tooltip="頂点を追加する関数"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="dl_leg::IsGrounded",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20",tooltip="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる．   脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．"];
+  Node3 [id="Node000003",label="designlab::dxlib_util\l::ConvertToDxlibVec",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0",tooltip="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．   ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="designlab::Polygon2\l::IsInside",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53",tooltip="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];

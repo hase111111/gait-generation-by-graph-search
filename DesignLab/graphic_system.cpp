@@ -50,7 +50,6 @@ void GraphicSystem::Main()
 		return; 
 	}
 
-
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．
 	// また，ウィンドウを維持するためには定期的に呼び出し続ける必要があるのでループで呼び続けている．
 	// ProcessMessageは成功で0(C++におけるfalse)，失敗で-1(C++におけるtrueは0以外の値)を返す，そのため，失敗するまでループする場合は以下のように記述する
@@ -78,6 +77,7 @@ bool GraphicSystem::DxlibInit()
 	SetMainWindowText(GraphicConst::kWindowName.c_str());	// タイトルを変更．ウィンドウの左上に表示されるもの．
 	SetWindowSizeChangeEnableFlag(FALSE);					// ウィンドウサイズを自由に変更できないようにする．
 	SetAlwaysRunFlag(TRUE);									// ウインドウがアクティブではない状態でも処理を続行するように変更する．
+	SetWaitVSyncFlag(FALSE);								// 垂直同期信号を待たないように変更．これをしないとFPSが60固定になる．	
 	ChangeWindowMode(TRUE);									// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
 	SetUseDirectInputFlag(TRUE);							// DirectInputを使用するように変更．これをしないとマウス入力でサイドボタンが受け付けられない．
 	SetDxLibEndPostQuitMessageFlag(FALSE);					// DxLib_End関数を呼び出した際に PostQuitMessage を呼ばないようにする(何度もGUIを立ち上げられるようにするため)．

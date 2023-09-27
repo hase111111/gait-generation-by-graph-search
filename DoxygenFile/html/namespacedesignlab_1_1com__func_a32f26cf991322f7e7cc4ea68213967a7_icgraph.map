@@ -1,0 +1,13 @@
+<map id="designlab::com_func::GetLegGroundPatternNum" name="designlab::com_func::GetLegGroundPatternNum">
+<area shape="rect" id="Node000001" title="脚の接地パターンの総数を返す．" alt="" coords="501,70,683,112"/>
+<area shape="rect" id="Node000002" href="$class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,32,168,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="545,64,501,41,452,23,387,11,335,9,216,23,159,34,158,29,215,18,335,3,388,5,454,18,504,36,548,59"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1com__func.html#abd240e18ddb47a04f7520411cba131df" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="216,32,453,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="486,78,453,74,454,68,486,73"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から，その脚が遊脚できない場合に取り得ない接地パターンをfalseにする．" alt="" coords="229,99,440,158"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="486,109,440,116,439,110,486,104"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1com__func.html#a74a1a63939a7629f879caeb6c398c174" title=" " alt="" coords="229,182,440,240"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="546,123,454,172,427,184,425,179,452,167,543,118"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="201,56,168,56,168,51,201,51"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="224,177,214,172,182,150,152,124,105,77,108,73,155,120,185,145,217,167,226,173"/>
+</map>

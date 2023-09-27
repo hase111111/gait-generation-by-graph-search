@@ -175,10 +175,10 @@ PhantomXStateCalclator 連携図</div>
 <tr class="memitem:a51154859ead106ff02907c6b9a4d6ebc inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a51154859ead106ff02907c6b9a4d6ebc">IsLegInterfering</a> (const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const =0</td></tr>
 <tr class="memdesc:a51154859ead106ff02907c6b9a4d6ebc inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が他の脚と干渉しているかどうかを判定する．  <br /></td></tr>
 <tr class="separator:a51154859ead106ff02907c6b9a4d6ebc inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af40c67bb064772da2c58953e20f41713 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713">CalculateStabilityMargin</a> (const <a class="el" href="namespacedl__leg.html#aaf7531f042601db835d1ac94d9dc8896">dl_leg::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const</td></tr>
-<tr class="memdesc:af40c67bb064772da2c58953e20f41713 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="mdescLeft">&#160;</td><td class="mdescRight">安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
+<tr class="memitem:a862d9bc1251d1677af060fa8ae3ff8f8 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a862d9bc1251d1677af060fa8ae3ff8f8">CalculateStabilityMargin</a> (const <a class="el" href="leg__state_8h.html#aeed0147f934052f177c0761b75bacc65">::designlab::leg_func::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; &amp;leg_pos) const</td></tr>
+<tr class="memdesc:a862d9bc1251d1677af060fa8ae3ff8f8 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="mdescLeft">&#160;</td><td class="mdescRight">安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい <br  />
  接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．  <br /></td></tr>
-<tr class="separator:af40c67bb064772da2c58953e20f41713 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a862d9bc1251d1677af060fa8ae3ff8f8 inherit pub_methods_class_abstract_hexapod_state_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">関数詳解</h2>
 <a id="a1316390fe5cf974637a5dac29027cb54" name="a1316390fe5cf974637a5dac29027cb54"></a>
@@ -231,11 +231,12 @@ PhantomXStateCalclator 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_phantom_x_state_calclator_a1316390fe5cf974637a5dac29027cb54_cgraph.png" border="0" usemap="#aclass_phantom_x_state_calclator_a1316390fe5cf974637a5dac29027cb54_cgraph" alt=""/></div>
 <map name="aclass_phantom_x_state_calclator_a1316390fe5cf974637a5dac29027cb54_cgraph" id="aclass_phantom_x_state_calclator_a1316390fe5cf974637a5dac29027cb54_cgraph">
-<area shape="rect" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="5,35,168,77"/>
+<area shape="rect" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="5,47,168,89"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="216,5,395,48"/>
-<area shape="poly" title=" " alt="" coords="168,42,200,38,201,43,169,48"/>
-<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="237,72,374,99"/>
-<area shape="poly" title=" " alt="" coords="169,64,222,72,221,77,168,70"/>
+<area shape="poly" title=" " alt="" coords="168,50,200,44,201,49,169,55"/>
+<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="237,96,374,123"/>
+<area shape="poly" title=" " alt="" coords="169,81,223,91,222,96,168,86"/>
+<area shape="poly" title=" " alt="" coords="268,97,262,87,266,77,281,71,305,69,333,72,346,80,344,84,331,77,305,75,282,77,270,81,267,87,273,94"/>
 </map>
 </div>
 
@@ -312,11 +313,12 @@ PhantomXStateCalclator 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_phantom_x_state_calclator_acf135fb149d94d9f308b8fa34577dc56_cgraph.png" border="0" usemap="#aclass_phantom_x_state_calclator_acf135fb149d94d9f308b8fa34577dc56_cgraph" alt=""/></div>
 <map name="aclass_phantom_x_state_calclator_acf135fb149d94d9f308b8fa34577dc56_cgraph" id="aclass_phantom_x_state_calclator_acf135fb149d94d9f308b8fa34577dc56_cgraph">
-<area shape="rect" title="グローバル座標系→脚座標系に変換する．" alt="" coords="5,35,197,77"/>
+<area shape="rect" title="グローバル座標系→脚座標系に変換する．" alt="" coords="5,47,197,89"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="245,5,424,48"/>
-<area shape="poly" title=" " alt="" coords="196,41,230,37,230,42,197,47"/>
-<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="266,72,403,99"/>
-<area shape="poly" title=" " alt="" coords="197,65,251,72,250,78,196,71"/>
+<area shape="poly" title=" " alt="" coords="196,48,229,43,230,48,197,54"/>
+<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="266,96,403,123"/>
+<area shape="poly" title=" " alt="" coords="197,82,251,92,250,97,196,88"/>
+<area shape="poly" title=" " alt="" coords="295,97,288,87,293,77,309,71,334,69,364,72,378,80,376,84,362,77,334,75,310,77,296,81,293,87,299,94"/>
 </map>
 </div>
 
@@ -423,11 +425,12 @@ PhantomXStateCalclator 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_phantom_x_state_calclator_a1496a624a7b82f6fcd9c4a35602818c6_cgraph.png" border="0" usemap="#aclass_phantom_x_state_calclator_a1496a624a7b82f6fcd9c4a35602818c6_cgraph" alt=""/></div>
 <map name="aclass_phantom_x_state_calclator_a1496a624a7b82f6fcd9c4a35602818c6_cgraph" id="aclass_phantom_x_state_calclator_a1496a624a7b82f6fcd9c4a35602818c6_cgraph">
-<area shape="rect" title="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系" alt="" coords="5,35,191,77"/>
+<area shape="rect" title="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系" alt="" coords="5,47,191,89"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="239,5,418,48"/>
-<area shape="poly" title=" " alt="" coords="191,42,223,37,224,43,192,47"/>
-<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="260,72,397,99"/>
-<area shape="poly" title=" " alt="" coords="192,65,245,72,245,77,191,70"/>
+<area shape="poly" title=" " alt="" coords="191,49,223,43,224,48,192,54"/>
+<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="260,96,397,123"/>
+<area shape="poly" title=" " alt="" coords="192,82,245,92,244,97,191,87"/>
+<area shape="poly" title=" " alt="" coords="290,97,283,87,287,77,303,71,328,69,357,72,371,80,369,84,356,77,328,75,304,77,291,81,288,87,294,94"/>
 </map>
 </div>
 
@@ -504,11 +507,12 @@ PhantomXStateCalclator 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_phantom_x_state_calclator_a6bb1641e5d222f4c920141d8b6c2a26a_cgraph.png" border="0" usemap="#aclass_phantom_x_state_calclator_a6bb1641e5d222f4c920141d8b6c2a26a_cgraph" alt=""/></div>
 <map name="aclass_phantom_x_state_calclator_a6bb1641e5d222f4c920141d8b6c2a26a_cgraph" id="aclass_phantom_x_state_calclator_a6bb1641e5d222f4c920141d8b6c2a26a_cgraph">
-<area shape="rect" title="脚の先端の座標を取得する．グローバル(ワールド)座標系" alt="" coords="5,35,168,77"/>
+<area shape="rect" title="脚の先端の座標を取得する．グローバル(ワールド)座標系" alt="" coords="5,47,168,89"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="216,5,395,48"/>
-<area shape="poly" title=" " alt="" coords="168,42,200,38,201,43,169,48"/>
-<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="237,72,374,99"/>
-<area shape="poly" title=" " alt="" coords="169,64,222,72,221,77,168,70"/>
+<area shape="poly" title=" " alt="" coords="168,50,200,44,201,49,169,55"/>
+<area shape="rect" href="namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="237,96,374,123"/>
+<area shape="poly" title=" " alt="" coords="169,81,223,91,222,96,168,86"/>
+<area shape="poly" title=" " alt="" coords="268,97,262,87,266,77,281,71,305,69,333,72,346,80,344,84,331,77,305,75,282,77,270,81,267,87,273,94"/>
 </map>
 </div>
 

@@ -5,7 +5,7 @@ digraph "designlab::math_util::ApproachTarget"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="RL";
-  Node1 [id="Node000001",label="designlab::math_util\l::ApproachTarget",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="目標値に値を近づける関数．"];
+  Node1 [id="Node000001",label="designlab::math_util\l::ApproachTarget",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="目標値に値を近づける関数．   適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="CameraStateManager\l::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee",tooltip="カメラの位置などの更新を行う．毎フレーム実行すること"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];

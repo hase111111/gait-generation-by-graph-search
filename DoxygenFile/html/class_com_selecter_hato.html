@@ -106,12 +106,12 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <tr class="memitem:af9282c1e7d2f11316a750b08f0e644cb"><td class="memItemLeft" align="right" valign="top"><a id="af9282c1e7d2f11316a750b08f0e644cb" name="af9282c1e7d2f11316a750b08f0e644cb"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ComSelecterHato</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calc)</td></tr>
 <tr class="separator:af9282c1e7d2f11316a750b08f0e644cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69a48f403a947d80ef20e4703cdfe260"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#a69a48f403a947d80ef20e4703cdfe260">setCurrentNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node)</td></tr>
-<tr class="memdesc:a69a48f403a947d80ef20e4703cdfe260"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
-<tr class="separator:a69a48f403a947d80ef20e4703cdfe260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeca84ba1278b85b88bf741e40cab0bba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba">getComFromPolygon</a> (const <a class="el" href="structdesignlab_1_1_polygon2.html">designlab::Polygon2</a> &amp;polygon, <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> *output_com) const</td></tr>
-<tr class="memdesc:aeca84ba1278b85b88bf741e40cab0bba"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
-<tr class="separator:aeca84ba1278b85b88bf741e40cab0bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#ab3ab8b9bac6b0d315ca78548c4806db0">SetCurrentNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node)</td></tr>
+<tr class="memdesc:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
+<tr class="separator:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ffd1a3a180ba1c165291c2847e5dad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad">GetComFromPolygon</a> (const <a class="el" href="structdesignlab_1_1_polygon2.html">designlab::Polygon2</a> &amp;polygon, <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> *output_com) const</td></tr>
+<tr class="memdesc:a11ffd1a3a180ba1c165291c2847e5dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
+<tr class="separator:a11ffd1a3a180ba1c165291c2847e5dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う． </p>
@@ -122,14 +122,14 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
  また，移動後の座標において，脚が他の脚と干渉する場合は除外する． <br  />
  以上の処理を行った後，残った点の重心を求める． </p><dl class="section note"><dt>覚え書き</dt><dd>CCCではTargetの値を持っているので，その値を利用して重心位置選択するが，この実装ではこのクラスにその選択を任せたくない． 同様の処理を行うために，Targetの値を適当に決めている． </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="aeca84ba1278b85b88bf741e40cab0bba" name="aeca84ba1278b85b88bf741e40cab0bba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeca84ba1278b85b88bf741e40cab0bba">&#9670;&#160;</a></span>getComFromPolygon()</h2>
+<a id="a11ffd1a3a180ba1c165291c2847e5dad" name="a11ffd1a3a180ba1c165291c2847e5dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ffd1a3a180ba1c165291c2847e5dad">&#9670;&#160;</a></span>GetComFromPolygon()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ComSelecterHato::getComFromPolygon </td>
+          <td class="memname">bool ComSelecterHato::GetComFromPolygon </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structdesignlab_1_1_polygon2.html">designlab::Polygon2</a> &amp;&#160;</td>
           <td class="paramname"><em>polygon</em>, </td>
@@ -152,7 +152,6 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">polygon</td><td>重心を求める対象のポリゴン．この中に入る点を出力する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">com_pattren</td><td>重心の求め方 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">output_com</td><td>重心 </td></tr>
   </table>
   </dd>
@@ -161,32 +160,30 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_cgraph.png" border="0" usemap="#aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_cgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_cgraph" id="aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_cgraph">
-<area shape="rect" title="重心を求める" alt="" coords="5,89,212,132"/>
-<area shape="rect" href="structdesignlab_1_1_polygon2.html#af0095d312db6989b0c9a619f84c0e5d4" title="頂点の座標を返す関数" alt="" coords="260,5,398,48"/>
-<area shape="poly" title=" " alt="" coords="165,86,256,51,258,56,167,91"/>
-<area shape="rect" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="446,29,584,72"/>
-<area shape="poly" title=" " alt="" coords="212,93,431,60,432,66,213,98"/>
-<area shape="rect" href="namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="264,123,394,149"/>
-<area shape="poly" title=" " alt="" coords="213,120,250,124,249,130,212,125"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a5e5ac52da083256f0c976aa89b552393" title="このベクトルを正規化したベクトルを返す" alt="" coords="264,173,394,216"/>
-<area shape="poly" title=" " alt="" coords="167,130,258,165,256,170,165,135"/>
-<area shape="poly" title=" " alt="" coords="399,33,432,37,431,43,398,38"/>
-<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="447,119,584,161"/>
-<area shape="poly" title=" " alt="" coords="393,173,431,162,433,167,395,178"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="451,185,580,228"/>
-<area shape="poly" title=" " alt="" coords="394,196,436,199,436,204,394,201"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="632,185,762,228"/>
-<area shape="poly" title=" " alt="" coords="580,204,618,204,618,209,580,209"/>
+<div class="center"><img src="class_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_cgraph.png" border="0" usemap="#aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_cgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_cgraph" id="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_cgraph">
+<area shape="rect" title="重心を求める" alt="" coords="5,64,215,107"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#af0095d312db6989b0c9a619f84c0e5d4" title="頂点の座標を返す関数" alt="" coords="263,5,401,48"/>
+<area shape="poly" title=" " alt="" coords="192,61,248,46,249,51,194,66"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="449,31,587,73"/>
+<area shape="poly" title=" " alt="" coords="215,74,434,56,435,61,215,79"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a8899add912014b0eac615bcac1ef95f4" title="このベクトルを正規化したベクトルを返す" alt="" coords="267,123,397,165"/>
+<area shape="poly" title=" " alt="" coords="194,105,253,121,252,126,192,110"/>
+<area shape="poly" title=" " alt="" coords="402,33,435,38,434,43,401,39"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="450,109,587,152"/>
+<area shape="poly" title=" " alt="" coords="397,137,434,134,434,139,397,142"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="454,176,583,219"/>
+<area shape="poly" title=" " alt="" coords="398,160,440,172,439,177,396,165"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="635,176,765,219"/>
+<area shape="poly" title=" " alt="" coords="583,195,621,195,621,200,583,200"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_icgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_icgraph" id="aclass_com_selecter_hato_aeca84ba1278b85b88bf741e40cab0bba_icgraph">
-<area shape="rect" title="重心を求める" alt="" coords="231,5,437,48"/>
+<div class="center"><img src="class_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph" id="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph">
+<area shape="rect" title="重心を求める" alt="" coords="231,5,440,48"/>
 <area shape="rect" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
 <area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
@@ -194,8 +191,8 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 
 </div>
 </div>
-<a id="a69a48f403a947d80ef20e4703cdfe260" name="a69a48f403a947d80ef20e4703cdfe260"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69a48f403a947d80ef20e4703cdfe260">&#9670;&#160;</a></span>setCurrentNode()</h2>
+<a id="ab3ab8b9bac6b0d315ca78548c4806db0" name="ab3ab8b9bac6b0d315ca78548c4806db0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ab8b9bac6b0d315ca78548c4806db0">&#9670;&#160;</a></span>SetCurrentNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +201,7 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ComSelecterHato::setCurrentNode </td>
+          <td class="memname">void ComSelecterHato::SetCurrentNode </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em></td><td>)</td>
@@ -228,9 +225,9 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_a69a48f403a947d80ef20e4703cdfe260_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_a69a48f403a947d80ef20e4703cdfe260_icgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_a69a48f403a947d80ef20e4703cdfe260_icgraph" id="aclass_com_selecter_hato_a69a48f403a947d80ef20e4703cdfe260_icgraph">
-<area shape="rect" title="現在のノードを設定する" alt="" coords="231,13,452,40"/>
+<div class="center"><img src="class_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph" id="aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph">
+<area shape="rect" title="現在のノードを設定する" alt="" coords="231,13,454,40"/>
 <area shape="rect" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
 <area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
