@@ -71,7 +71,7 @@ void LegHierarchyNodeCreator::create1LegLifted(const SNode& current_node, const 
 	{
 		SNode new_node = current_node;		//新しい脚状態を生成する.
 
-		dllf::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
+		dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
 
 		new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -95,8 +95,8 @@ void LegHierarchyNodeCreator::create2LegLifted(const SNode& current_node, const 
 		{
 			SNode new_node = current_node;		//新しい脚状態を生成する.
 
-			dllf::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
-			dllf::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
+			dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+			dllf::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
 
 			new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -123,9 +123,9 @@ void LegHierarchyNodeCreator::create3LegLifted(const SNode& current_node, const 
 			{
 				SNode new_node = current_node;		//新しい脚状態を生成する.
 
-				dllf::changeLegStateKeepTopBit(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
-				dllf::changeLegStateKeepTopBit(lifted_leg_list[1], j, &new_node.leg_state);
-				dllf::changeLegStateKeepTopBit(lifted_leg_list[2], k, &new_node.leg_state);
+				dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+				dllf::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
+				dllf::ChangeDiscreteLegPos(lifted_leg_list[2], k, &new_node.leg_state);
 
 				new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 

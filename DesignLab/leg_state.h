@@ -112,12 +112,12 @@ namespace designlab
 		//! @param [in] leg_state 現在の脚状態
 		//! @param [in] leg_index どの脚の状態を取得するか． 0 ～ 5 の整数で入力する．
 		//! @return DiscreteLegPos 離散化された脚の位置を返す．
-		DiscreteLegPos getLegState(const LegStateBit& leg_state, int leg_index);
+		DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
 
 		//! @brief 現在の脚状態から重心パターンを取得する．
 		//! @param [in] leg_state 現在の脚状態
 		//! @return DiscreteComPos 重心パターンを返す．
-		DiscreteComPos getComPatternState(const LegStateBit& leg_state);
+		DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
 
 
 		//! @brief 脚の情報を変更する．引数の値がおかしいならばfalseを出力する．
@@ -126,31 +126,31 @@ namespace designlab
 		//! @param [in] is_ground 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
 		//! @return bool 変更に成功したらtrue
-		bool changeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
+		bool ChangeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
 
 		//! @brief 脚の状態を変更する．引数の値がおかしいならばfalseを出力する．遊脚を表すbitはそのまま
 		//! @param [in] leg_index 脚の番号 0～5
 		//! @param [in] new_discretized_leg_pos 新しい脚状態
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
 		//! @return bool 変更に成功したらtrue
-		bool changeLegStateKeepTopBit(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
+		bool ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
 
 		//! @breif 脚の接地・遊脚情報を変更する．
 		//! @param [in] leg_index 脚の番号 0～5
 		//! @param [in] is_ground 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
-		void changeGround(int leg_index, bool is_ground, LegStateBit* leg_state);
+		void ChangeGround(int leg_index, bool is_ground, LegStateBit* leg_state);
 
 		//! @brief 全ての脚の接地・遊脚情報を変更する．
 		//! @param [in] is_ground_list 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
-		void changeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state);
+		void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state);
 
 		//! @brief 重心のデータを変更する．
 		//! @param [in] leg_state 現在の脚状態
 		//! @param [in] new_com_pattern 新しい重心パターン
 		//! @return LegStateBit 変更した重心パターンを返す．
-		void changeComPattern(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
+		void ChangeDiscreteComPos(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
 
 	}	// namespace leg_func
 

@@ -1,6 +1,7 @@
 #include "node_display_gui.h"
 
 #include <Dxlib.h>
+#include <magic_enum.hpp>
 
 #include "designlab_math_util.h"
 #include "leg_state.h"
@@ -134,9 +135,9 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::getComPatternState(display_node_.leg_state),
-		dllf::getLegState(display_node_.leg_state, 0), dllf::getLegState(display_node_.leg_state, 1), dllf::getLegState(display_node_.leg_state, 2),
-		dllf::getLegState(display_node_.leg_state, 3), dllf::getLegState(display_node_.leg_state, 4), dllf::getLegState(display_node_.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(display_node_.leg_state),
+		dllf::GetDiscreteLegPos(display_node_.leg_state, 0), dllf::GetDiscreteLegPos(display_node_.leg_state, 1), dllf::GetDiscreteLegPos(display_node_.leg_state, 2),
+		dllf::GetDiscreteLegPos(display_node_.leg_state, 3), dllf::GetDiscreteLegPos(display_node_.leg_state, 4), dllf::GetDiscreteLegPos(display_node_.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -171,7 +172,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", display_node_.depth, std::to_string(display_node_.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", display_node_.depth, static_cast<std::string>(magic_enum::enum_name(display_node_.next_move)).c_str());
 
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "単位は長さが[mm]，角度が[rad]");
 }

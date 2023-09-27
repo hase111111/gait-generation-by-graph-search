@@ -3,6 +3,7 @@
 #include <string>
 
 #include <Dxlib.h>
+#include <magic_enum.hpp>
 
 #include "graphic_const.h"
 #include "graph_search_const.h"
@@ -145,9 +146,9 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::getComPatternState(node.leg_state),
-		dllf::getLegState(node.leg_state, 0), dllf::getLegState(node.leg_state, 1), dllf::getLegState(node.leg_state, 2),
-		dllf::getLegState(node.leg_state, 3), dllf::getLegState(node.leg_state, 4), dllf::getLegState(node.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(node.leg_state),
+		dllf::GetDiscreteLegPos(node.leg_state, 0), dllf::GetDiscreteLegPos(node.leg_state, 1), dllf::GetDiscreteLegPos(node.leg_state, 2),
+		dllf::GetDiscreteLegPos(node.leg_state, 3), dllf::GetDiscreteLegPos(node.leg_state, 4), dllf::GetDiscreteLegPos(node.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -171,7 +172,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", node.depth, std::to_string(node.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
 }
 
 

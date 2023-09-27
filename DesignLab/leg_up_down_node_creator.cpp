@@ -37,7 +37,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
 
-	dlcf::RemoveLegGroundPatternFromCom(dllf::getComPatternState(current_node.leg_state), &is_able_leg_ground_pattern);
+	dlcf::RemoveLegGroundPatternFromCom(dllf::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
 
@@ -89,7 +89,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 			//遊脚・接地を書き換える．
 			dllf::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
-			dllf::changeAllLegGround(new_is_ground, &res_node.leg_state);
+			dllf::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
 
 
 			//脚位置を書き換える．
@@ -185,7 +185,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 					}
 				}
 
-				dllf::changeGround(now_leg_num, true, &new_node.leg_state);
+				dllf::ChangeGround(now_leg_num, true, &new_node.leg_state);
 
 				if (!calclator_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
 
@@ -214,7 +214,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 
 bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 {
-	const DiscreteLegPos _leg_state = dllf::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
+	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
 	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))

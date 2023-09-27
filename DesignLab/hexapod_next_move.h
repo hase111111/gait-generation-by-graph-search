@@ -1,11 +1,9 @@
 //! @file hexapod_next_move.h
 //! @brief ロボットが次にどの動作をするのかを表す列挙体．
 
+
 #ifndef DESIGNLAB_HEXAPOD_NEXT_MOVE_H_
 #define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_
-
-
-#include <string>
 
 
 //! @enum HexapodMove
@@ -23,19 +21,6 @@ enum class HexapodMove : int
 	kLegUpDownNextComMove,		//!< 脚の上下移動．(次は重心の平行移動)
 	kLegUpDownNextComUpDown,	//!< 脚の上下移動．(次は重心の上下移動)
 };
-
-
-namespace std
-{
-	//! @brief ロボットの動作を文字列に変換する．
-	//! @param [in] move ロボットの動作
-	//! @return std::string ロボットの動作を表す文字列
-	//! @details オーバーロードについては以下を参照．
-	//! @n 参考: https://www.s-cradle.com/developer/sophiaframework/tutorial/Cpp/overload.html
-	//! @n std::to_stringはC++11から追加された関数．#include <string>で使用可能になる．
-	//! @n メンテが面倒なので，良い方法募集中
-	std::string to_string(HexapodMove move);
-}
 
 
 #endif	// DESIGNLAB_HEXAPOD_NEXT_MOVE_H_

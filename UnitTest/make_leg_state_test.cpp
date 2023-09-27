@@ -21,15 +21,15 @@ namespace dl_leg_test
 		//! @brief bitの値が各ステータスの値と等しいか確認する
 		void testLegState(const std::bitset<dl_leg::kLegStateBitNum>& leg_state, const DiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const DiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
 		{
-			EXPECT_EQ(dl_leg::getComPatternState(leg_state), com_pattern) << "bit : " + leg_state.to_string() + "\nfirst : "
-				+ std::to_string(static_cast<int>(dl_leg::getComPatternState(leg_state))) + " second : " + std::to_string(static_cast<int>(com_pattern));
+			EXPECT_EQ(dl_leg::GetDiscreteComPos(leg_state), com_pattern) << "bit : " + leg_state.to_string() + "\nfirst : "
+				+ std::to_string(static_cast<int>(dl_leg::GetDiscreteComPos(leg_state))) + " second : " + std::to_string(static_cast<int>(com_pattern));
 
 			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 			{
 				EXPECT_EQ(dl_leg::IsGrounded(leg_state, i), is_ground[i]) << "leg index : " + std::to_string(i) + "\nbit : " + leg_state.to_string() + "\nfirst : "
 					+ std::to_string(dl_leg::IsGrounded(leg_state, i)) + " second:" + std::to_string(is_ground[i]);
-				EXPECT_EQ(dl_leg::getLegState(leg_state, i), leg_pos[i]) << "leg index : " + std::to_string(i) + "\nbit : " + leg_state.to_string() + "\nfirst : "
-					+ std::to_string(dl_leg::getLegState(leg_state, i)) + " second : " + std::to_string(leg_pos[i]);
+				EXPECT_EQ(dl_leg::GetDiscreteLegPos(leg_state, i), leg_pos[i]) << "leg index : " + std::to_string(i) + "\nbit : " + leg_state.to_string() + "\nfirst : "
+					+ std::to_string(dl_leg::GetDiscreteLegPos(leg_state, i)) + " second : " + std::to_string(leg_pos[i]);
 			}
 		}
 	};

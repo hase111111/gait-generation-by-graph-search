@@ -145,7 +145,6 @@
     <ClCompile Include="pass_finder_basic.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
-    <ClCompile Include="hexapod_next_move.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
     <ClCompile Include="hexapod_state_calculator.cpp" />
     <ClCompile Include="BFSinHierarchy.cpp" />

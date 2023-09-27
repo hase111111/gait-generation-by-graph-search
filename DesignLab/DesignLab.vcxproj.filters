@@ -464,9 +464,6 @@
     <ClCompile Include="designlab_polygon2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="hexapod_next_move.cpp">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>

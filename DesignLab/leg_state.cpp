@@ -124,7 +124,7 @@ namespace designlab::leg_func
 	}
 
 
-	DiscreteLegPos getLegState(const LegStateBit& leg_state, const int leg_index)
+	DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
@@ -138,7 +138,7 @@ namespace designlab::leg_func
 	}
 
 
-	DiscreteComPos getComPatternState(const LegStateBit& leg_state)
+	DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
 	{
 		//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 		const int res = static_cast<int>(((leg_state & kComStateMaskbit) >> kShiftToComNum).to_ulong());
@@ -147,7 +147,7 @@ namespace designlab::leg_func
 	}
 
 
-	bool changeLegState(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, const bool is_ground, LegStateBit* leg_state)
+	bool ChangeLegState(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, const bool is_ground, LegStateBit* leg_state)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
@@ -165,13 +165,13 @@ namespace designlab::leg_func
 		LegStateBit res = ((*leg_state) ^ state) & mask;
 		(*leg_state) ^= res;
 
-		changeGround(leg_index, is_ground, leg_state);
+		ChangeGround(leg_index, is_ground, leg_state);
 
 		return true;
 	}
 
 
-	bool changeLegStateKeepTopBit(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state)
+	bool ChangeDiscreteLegPos(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
@@ -193,7 +193,7 @@ namespace designlab::leg_func
 	}
 
 
-	void changeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
+	void ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
@@ -215,19 +215,19 @@ namespace designlab::leg_func
 	}
 
 
-	void changeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
+	void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
 	{
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
 
 		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 		{
-			changeGround(i, is_ground_list[i], leg_state);
+			ChangeGround(i, is_ground_list[i], leg_state);
 		}
 	}
 
 
-	void changeComPattern(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
+	void ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 	{
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);

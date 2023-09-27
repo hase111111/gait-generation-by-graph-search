@@ -80,6 +80,8 @@ namespace designlab
 		os << ::designlab::math_util::ConvertFloatToString(r.x_angle) << Char(',') << 
 			::designlab::math_util::ConvertFloatToString(r.y_angle) << Char(',') << 
 			::designlab::math_util::ConvertFloatToString(r.z_angle);
+
+		return os;
 	}
 
 	//“ü—ÍƒXƒgƒŠ[ƒ€
