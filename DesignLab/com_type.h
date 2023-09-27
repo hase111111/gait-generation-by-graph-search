@@ -61,13 +61,13 @@ namespace designlab
 		bool IsLegPairFree(int leg_index, int leg_ground_pattern_index);
 
 		//! @brief 脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す．
-		LegGroundedMap makeLegGroundedMap();
+		LegGroundedMap MakeLegGroundedMap();
 
 		//! @brief 重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．
-		std::unordered_map<DiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList();
+		std::unordered_map<DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList();
 
 		//! @brief 特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す． 
-		std::vector<std::vector<int>> makeLegGroundedPatternBanListFromLeg();
+		std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg();
 
 
 

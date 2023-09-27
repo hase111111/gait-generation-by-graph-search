@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <magic_enum.hpp>
+
 #include "cassert_define.h"
 
 
@@ -12,21 +14,26 @@ namespace
 {
 	// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．
 	// アクセスするには，先頭に::をつける．
+	// ここまでやるなら，classにすりゃよかったかも
 
-	const dlcf::LegGroundedMap LEG_GROUNDED_PATTERN_MAP = dlcf::makeLegGroundedMap();		//!< 脚の接地パターンに数値を割り振ったマップ．
 
-	const int LEG_GROUNDED_PATTERN_NUM = static_cast<int>(LEG_GROUNDED_PATTERN_MAP.size());	//!< 脚の接地パターンの数．
+	//! 脚の接地パターンに数値を割り振ったマップ．接地を1，遊脚を0として，
+	//! { 111111 , 0 } のような形式で代入されている 
+	const dlcf::LegGroundedMap kLegGrouededPatternMap = dlcf::MakeLegGroundedMap();		
 
-	const std::unordered_map<DiscreteComPos, std::vector<int>> LEG_GROUNDE_PATTERN_BAN_LIST = dlcf::makeLegGroundedPatternBanList();	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
+	//!< 脚の接地パターンの数．
+	const int kLegGroundedPatternNum = static_cast<int>(kLegGrouededPatternMap.size());	
 
-	const std::vector<std::vector<int>> LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG = dlcf::makeLegGroundedPatternBanListFromLeg();		//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
+	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
+	const std::unordered_map<DiscreteComPos, std::vector<int>> kLegGroundedPatternBanList = dlcf::MakeLegGroundedPatternBanList();	
+
+	//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
+	const std::vector<std::vector<int>> kLegGroundedPatternBanListFromLeg = dlcf::MakeLegGroundedPatternBanListFromLeg();
 }
-
-
 
 namespace designlab::com_func
 {
-	LegGroundedMap makeLegGroundedMap()
+	LegGroundedMap MakeLegGroundedMap()
 	{
 		LegGroundedMap res;
 		int counter = 0;
@@ -104,7 +111,7 @@ namespace designlab::com_func
 		// indexから遊脚のパターンを取得する．
 		try
 		{
-			leg_ground_pattern = ::LEG_GROUNDED_PATTERN_MAP.right.at(leg_ground_pattern_index);
+			leg_ground_pattern = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
 		}
 		catch (...)
 		{
@@ -123,7 +130,7 @@ namespace designlab::com_func
 	}
 
 
-	std::unordered_map<DiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList()
+	std::unordered_map<DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList()
 	{
 		std::unordered_map<DiscreteComPos, std::vector<int>> res;
 
@@ -141,13 +148,14 @@ namespace designlab::com_func
 		ban_leg_index_list[DiscreteComPos::kCenterFront] = { 1,3,5 };
 
 
-		for (auto i : DiscreteComPos())
+		// DiscreteComPosの要素数だけループする
+		for (const auto &i : magic_enum::enum_values<DiscreteComPos>())
 		{
 			if (ban_leg_index_list.count(i) == 0) { continue; }
 
 			for (auto& j : ban_leg_index_list[i])
 			{
-				for (int k = 0; k < ::LEG_GROUNDED_PATTERN_NUM; ++k)
+				for (int k = 0; k < ::kLegGroundedPatternNum; ++k)
 				{
 					if (IsLegPairFree(j, k))
 					{
@@ -161,7 +169,7 @@ namespace designlab::com_func
 	}
 
 
-	std::vector<std::vector<int>> makeLegGroundedPatternBanListFromLeg()
+	std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg()
 	{
 		std::vector<std::vector<int>> res;
 
@@ -170,10 +178,10 @@ namespace designlab::com_func
 		// i 番脚を接地しなければ，取ることができないものを保存する．
 		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 		{
-			for (int j = 0; j < ::LEG_GROUNDED_PATTERN_NUM; ++j)
+			for (int j = 0; j < ::kLegGroundedPatternNum; ++j)
 			{
 				// i番目のbitを確認し，立っているならば(つまり，その脚を接地しなければいけないなら)，そのパターンを禁止する．
-				if (::LEG_GROUNDED_PATTERN_MAP.right.at(j)[i])
+				if (::kLegGrouededPatternMap.right.at(j)[i])
 				{
 					res[i].push_back(j);
 				}
@@ -186,7 +194,7 @@ namespace designlab::com_func
 
 	int GetLegGroundPatternNum()
 	{
-		return LEG_GROUNDED_PATTERN_NUM;
+		return kLegGroundedPatternNum;
 	}
 
 	dl_leg::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
@@ -194,7 +202,7 @@ namespace designlab::com_func
 		dl_leg::LegGroundedBit res;
 
 		// indexから遊脚のパターンを取得する．
-		res = ::LEG_GROUNDED_PATTERN_MAP.right.at(leg_ground_pattern_index);
+		res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
 
 		return std::move(res);
 	}
@@ -211,7 +219,7 @@ namespace designlab::com_func
 
 		// LEG_GROUNDE_PATTERN_BAN_LISTにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
 
-		for (auto& i : LEG_GROUNDE_PATTERN_BAN_LIST.at(discrete_com_pos))
+		for (auto& i : kLegGroundedPatternBanList.at(discrete_com_pos))
 		{
 			(*output)[i] = false;
 		}
@@ -228,7 +236,7 @@ namespace designlab::com_func
 
 		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
 
-		for (auto& i : LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG[not_groundble_leg_index])
+		for (auto& i : kLegGroundedPatternBanListFromLeg[not_groundble_leg_index])
 		{
 			(*output)[i] = false;
 		}
@@ -246,7 +254,7 @@ namespace designlab::com_func
 		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
 		boost::dynamic_bitset<> inverse_output(GetLegGroundPatternNum());
 
-		for (auto& i : LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG[not_lift_leg_index])
+		for (auto& i : kLegGroundedPatternBanListFromLeg[not_lift_leg_index])
 		{
 			inverse_output[i] = true;
 		}
@@ -254,4 +262,4 @@ namespace designlab::com_func
 		(*output) &= inverse_output;
 	}
 
-}
+}	// namespace designlab::com_func
