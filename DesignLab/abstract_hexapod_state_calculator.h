@@ -136,7 +136,7 @@ public:
 	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
-	float CalculateStabilityMargin(const dl_leg::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
+	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
 };
 
 

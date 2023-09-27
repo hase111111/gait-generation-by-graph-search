@@ -5,6 +5,8 @@
 #include "designlab_math_util.h"
 #include "leg_state.h"
 
+
+namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
@@ -132,9 +134,9 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dl_leg::getComPatternState(display_node_.leg_state),
-		dl_leg::getLegState(display_node_.leg_state, 0), dl_leg::getLegState(display_node_.leg_state, 1), dl_leg::getLegState(display_node_.leg_state, 2),
-		dl_leg::getLegState(display_node_.leg_state, 3), dl_leg::getLegState(display_node_.leg_state, 4), dl_leg::getLegState(display_node_.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::getComPatternState(display_node_.leg_state),
+		dllf::getLegState(display_node_.leg_state, 0), dllf::getLegState(display_node_.leg_state, 1), dllf::getLegState(display_node_.leg_state, 2),
+		dllf::getLegState(display_node_.leg_state, 3), dllf::getLegState(display_node_.leg_state, 4), dllf::getLegState(display_node_.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -148,7 +150,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(display_node_.leg_state, i)) { str += "接地,"; }
+		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());

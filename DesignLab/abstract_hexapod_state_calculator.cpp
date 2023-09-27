@@ -4,7 +4,10 @@
 #include "leg_state.h"
 
 
-float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dl_leg::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
+namespace dllf = designlab::leg_func;
+
+
+float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
 {
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
@@ -14,7 +17,7 @@ float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dl_leg::Leg
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(leg_state, i))
+		if (dllf::IsGrounded(leg_state, i))
 		{
 			ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLocalLegBasePosition(i).ProjectedXY();
 			ground_leg_pos_num++;

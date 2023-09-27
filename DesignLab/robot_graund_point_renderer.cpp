@@ -5,7 +5,9 @@
 #include "dxlib_util.h"
 #include "leg_state.h"
 
+
 namespace dldu = designlab::dxlib_util;
+namespace dllf = designlab::leg_func;
 
 
 RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr) :
@@ -47,7 +49,7 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 				calclator_ptr_->GetGlobalLegPosition(
 					i,node[loaded_node_num_].leg_pos[i],node[loaded_node_num_].global_center_of_mass,node[loaded_node_num_].rot , true
 				),
-				dl_leg::IsGrounded(node[loaded_node_num_].leg_state, i) 
+				dllf::IsGrounded(node[loaded_node_num_].leg_state, i) 
 			};
 		}
 

@@ -19,7 +19,7 @@ namespace dl_leg_test
 		virtual void TearDown() {}
 
 		//! @brief bitの値が各ステータスの値と等しいか確認する
-		void testLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const DiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const DiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
+		void testLegState(const std::bitset<dl_leg::kLegStateBitNum>& leg_state, const DiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const DiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
 		{
 			EXPECT_EQ(dl_leg::getComPatternState(leg_state), com_pattern) << "bit : " + leg_state.to_string() + "\nfirst : "
 				+ std::to_string(static_cast<int>(dl_leg::getComPatternState(leg_state))) + " second : " + std::to_string(static_cast<int>(com_pattern));
@@ -41,7 +41,7 @@ namespace dl_leg_test
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
-		std::bitset<dl_leg::LEG_STATE_BIT_NUM> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
+		std::bitset<dl_leg::kLegStateBitNum> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("first test");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
@@ -106,7 +106,7 @@ namespace dl_leg_test
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
-		std::bitset<dl_leg::LEG_STATE_BIT_NUM> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
+		std::bitset<dl_leg::kLegStateBitNum> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("first test");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
@@ -240,7 +240,7 @@ namespace dl_leg_test
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos1[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
-		std::bitset<dl_leg::LEG_STATE_BIT_NUM> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos1);
+		std::bitset<dl_leg::kLegStateBitNum> res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos1);
 		{
 			SCOPED_TRACE("test 1");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos1);

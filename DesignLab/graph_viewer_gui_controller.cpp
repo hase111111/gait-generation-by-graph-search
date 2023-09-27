@@ -10,6 +10,9 @@
 #include "leg_state.h"
 
 
+namespace dllf = designlab::leg_func;
+
+
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	mp_graph(p_graph),
@@ -142,9 +145,9 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dl_leg::getComPatternState(node.leg_state),
-		dl_leg::getLegState(node.leg_state, 0), dl_leg::getLegState(node.leg_state, 1), dl_leg::getLegState(node.leg_state, 2),
-		dl_leg::getLegState(node.leg_state, 3), dl_leg::getLegState(node.leg_state, 4), dl_leg::getLegState(node.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::getComPatternState(node.leg_state),
+		dllf::getLegState(node.leg_state, 0), dllf::getLegState(node.leg_state, 1), dllf::getLegState(node.leg_state, 2),
+		dllf::getLegState(node.leg_state, 3), dllf::getLegState(node.leg_state, 4), dllf::getLegState(node.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -154,7 +157,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(node.leg_state, i)) { str += "接地,"; }
+		if (dllf::IsGrounded(node.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());

@@ -587,9 +587,6 @@
     <ClCompile Include="interpolated_node_creator.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
-    <ClCompile Include="discrete_leg_pos.cpp">
-      <Filter>ソース ファイル\Node\LegState</Filter>
-    </ClCompile>
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClCompile>

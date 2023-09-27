@@ -7,6 +7,8 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
+
+namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
@@ -203,7 +205,7 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, co
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(current_node.leg_state, i))
+		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
 			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).Length();
 		}

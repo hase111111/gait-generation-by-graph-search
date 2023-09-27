@@ -29,29 +29,32 @@ namespace std
 }
 
 
-//! @namespace dl_com
-//! @brief 重心タイプに関する名前空間．DesignLab Center of Mass Positon Functions の略．
-//! @details leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で
-//! @n BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理をまとめたくて作ったもの. 
-//! @n 重心位置はざっくり離散化して，8通り，
-//! @n 脚の接地パターン(どの脚を上げるか，下げるか)は36通りある．
-//! @n 離散化した重心位置から取ることができない接地パターンを予め取り除くのがこれら関数の役割．
-//! @n
-//! @n 脚の接地パターンは，
-//! @n ・全接地  1通り 
-//! @n ・1本遊脚 6通り 
-//! @n ・2本遊脚 15通り 
-//! @n ・3本遊脚 20通り → 実現可能なものは14通り 
-//!	@n なので全部で36通りある． 
 namespace designlab
 {
+	//! @namespace designlab::com_func
+	//! @brief 重心タイプに関する名前空間．Center of Mass Function の略．
+	//! @details leg_stateの上位bitにて表されているもの．詳細は波東さんの修論で
+	//! @n BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理をまとめたくて作ったもの. 
+	//! @n 重心位置はざっくり離散化して，8通り，
+	//! @n 脚の接地パターン(どの脚を上げるか，下げるか)は36通りある．
+	//! @n 離散化した重心位置から取ることができない接地パターンを予め取り除くのがこれら関数の役割．
+	//! @n
+	//! @n 脚の接地パターンは，
+	//! @n ・全接地  1通り 
+	//! @n ・1本遊脚 6通り 
+	//! @n ・2本遊脚 15通り 
+	//! @n ・3本遊脚 20通り → 実現可能なものは14通り 
+	//!	@n なので全部で36通りある． 
 	namespace com_func
 	{
 		//前述の通り脚の接地パターンは36通りある．それぞれの遊脚に対応する数値を割り振って管理をしやすくするために，bimapを用いている．
 
-		using LegGroundedMap = boost::bimaps::bimap<dl_leg::LegGroundedBit, int>;		//!< 脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号．
 
-		using LegGroundedMapValue = LegGroundedMap::value_type;							//!< 脚の接地パターンを表すマップの値の型．
+		//!< 脚の接地パターンを表す型．leftがbitのデータ，rightがint型の番号．
+		using LegGroundedMap = boost::bimaps::bimap<::designlab::leg_func::LegGroundedBit, int>;
+
+		//!< 脚の接地パターンを表すマップの値の型．
+		using LegGroundedMapValue = LegGroundedMap::value_type;							
 
 
 		//! @brief leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している
@@ -77,8 +80,8 @@ namespace designlab
 
 		//! @brief 脚の接地パターンの番号から，その脚の接地パターンを返す．
 		//! @param [in] leg_ground_pattern_index 脚の接地パターンの番号．
-		//! @return dl_leg::LegGroundedBit 脚の接地パターン．
-		dl_leg::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index);
+		//! @return designlab::leg_func::LegGroundedBit 脚の接地パターン．
+		::designlab::leg_func::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index);
 
 
 		//! @brief 離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．

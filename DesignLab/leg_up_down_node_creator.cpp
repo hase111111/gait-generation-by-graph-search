@@ -10,8 +10,9 @@
 #include "leg_state.h"
 
 
-namespace dlm = designlab::math_util;
 namespace dlcf = designlab::com_func;
+namespace dllf = designlab::leg_func;
+namespace dlm = designlab::math_util;
 
 
 LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
@@ -36,7 +37,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
 
-	dlcf::RemoveLegGroundPatternFromCom(dl_leg::getComPatternState(current_node.leg_state), &is_able_leg_ground_pattern);
+	dlcf::RemoveLegGroundPatternFromCom(dllf::getComPatternState(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
 
@@ -49,7 +50,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(current_node.leg_state, i))
+		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			is_groundable_leg[i] = true;
@@ -86,9 +87,9 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 
 			//遊脚・接地を書き換える．
-			dl_leg::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
+			dllf::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
-			dl_leg::changeAllLegGround(new_is_ground, &res_node.leg_state);
+			dllf::changeAllLegGround(new_is_ground, &res_node.leg_state);
 
 
 			//脚位置を書き換える．
@@ -184,7 +185,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 					}
 				}
 
-				dl_leg::changeGround(now_leg_num, true, &new_node.leg_state);
+				dllf::changeGround(now_leg_num, true, &new_node.leg_state);
 
 				if (!calclator_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
 
@@ -213,7 +214,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 
 bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
 {
-	const DiscreteLegPos _leg_state = dl_leg::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
+	const DiscreteLegPos _leg_state = dllf::getLegState(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
 	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))

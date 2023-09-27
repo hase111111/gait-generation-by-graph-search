@@ -6,7 +6,9 @@
 #include "designlab_math_util.h"
 #include "leg_state.h"
 
-namespace dlm = ::designlab::math_util;
+
+namespace dllf = designlab::leg_func;
+namespace dlm = designlab::math_util;
 
 
 bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const
@@ -48,7 +50,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			if (dl_leg::IsGrounded(GetCurrentNode().leg_state, j))
+			if (dllf::IsGrounded(GetCurrentNode().leg_state, j))
 			{
 				after_move_leg_pos[j] = GetCurrentNode().leg_pos[j] - (after_move_com - GetCurrentNode().global_center_of_mass);
 

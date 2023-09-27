@@ -4,6 +4,8 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
+
+namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
@@ -41,11 +43,11 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 
 			next_node.ChangeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
-			dl_leg::changeComPattern(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateのcom_patternを変更する
+			dllf::changeComPattern(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateのcom_patternを変更する
 
 			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
 			{
-				dl_leg::changeLegStateKeepTopBit(j, DiscreteLegPos::kCenter, &next_node.leg_state);
+				dllf::changeLegStateKeepTopBit(j, DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
 
 			next_node.ChangeToNextNode(current_num, next_move_);	//深さや親ノードを変更する

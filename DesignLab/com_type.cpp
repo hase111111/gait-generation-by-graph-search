@@ -8,6 +8,7 @@
 
 
 namespace dlcf = designlab::com_func;
+namespace dllf = designlab::leg_func;
 
 
 namespace
@@ -45,60 +46,60 @@ namespace designlab::com_func
 
 
 		// 6‹r‘S‚ÄÚ’n‚µ‚Ä‚¢‚éê‡
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111111"), counter++));
 
 
 		// 5‹rÚ’n‚µ‚Ä‚¢‚éê‡
 
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111110"), counter++));
 
 
 		// 4‹rÚ’n‚µ‚Ä‚¢‚éê‡
 
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111001"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111010"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111100"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111001"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111010"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111100"), counter++));
 
 
 		// 3‹rÚ’n‚µ‚Ä‚¢‚éê‡D—×‚è‡‚¤3‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡‚Íœ‚­(“]“|‚µ‚Ä‚µ‚Ü‚¤‚½‚ß)D
 
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("000111"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001101"), counter++));
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("001110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("010110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011001"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011010"), counter++));
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("011100"), counter++));
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100011"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100101"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("100110"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101001"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101010"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("101100"), counter++));
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110001"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110010"), counter++));
-		res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("110100"), counter++));
-		//res.insert(LegGroundedMapValue(dl_leg::LegGroundedBit("111000"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("000111"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001101"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011001"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011010"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011100"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100011"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100110"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101001"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101100"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110001"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110010"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110100"), counter++));
+		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111000"), counter++));
 
 		return std::move(res);
 	}
@@ -106,7 +107,7 @@ namespace designlab::com_func
 
 	bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
 	{
-		dl_leg::LegGroundedBit leg_ground_pattern;
+		dllf::LegGroundedBit leg_ground_pattern;
 
 		// index‚©‚ç—V‹r‚Ìƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
 		try
@@ -197,9 +198,9 @@ namespace designlab::com_func
 		return kLegGroundedPatternNum;
 	}
 
-	dl_leg::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
+	dllf::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
 	{
-		dl_leg::LegGroundedBit res;
+		dllf::LegGroundedBit res;
 
 		// index‚©‚ç—V‹r‚Ìƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
 		res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);

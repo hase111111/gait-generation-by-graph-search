@@ -8,6 +8,8 @@
 #include "designlab_polygon2.h"
 #include "leg_state.h"
 
+
+namespace dllf = designlab::leg_func;
 namespace dldu = designlab::dxlib_util;
 
 
@@ -31,7 +33,7 @@ void StabilityMarginRenderer::Draw(const SNode& node) const
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::IsGrounded(node.leg_state, i))
+		if (dllf::IsGrounded(node.leg_state, i))
 		{
 			polygon.push_back(
 				calclator_ptr_->GetGlobalLegPosition(i,node.leg_pos[i],node.global_center_of_mass, node.rot, true)
