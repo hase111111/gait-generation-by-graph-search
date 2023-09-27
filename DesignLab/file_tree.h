@@ -1,17 +1,20 @@
 //! @file file_tree.h
 //! @brief ファイルツリーを作成するクラス．
 
+
 #ifndef DESIGNLAB_FILE_TREE_H_
 #define DESIGNLAB_FILE_TREE_H_
 
+
 #include <string>
 #include <vector>
+
 
 class FileTree
 {
 public:
 
-	//! @brief ファイルツリーを作成する
+	//! @brief ファイルツリーを表示する
 	//! @param [in] path ファイルツリーを作成するディレクトリのパス
 	//! @param [in] max_depth ファイルツリーの深さ，-1ならば無限に行う
 	void DisplayFileTree(const std::string& path, int max_depth) const;
@@ -39,6 +42,8 @@ private:
 	//! @return FileTreeData ファイルツリーのデータ
 	FileTreeData MakeFileTree(const std::string& path, int max_depth) const;
 
+	//! @brief ファイルツリーを出力する
+	//! @n ファイルツリーのデータを再帰的に出力する
 	void OutputFileTree(const FileTreeData& tree,int depth) const;
 };
 

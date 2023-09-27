@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="designlab::Quaternion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_quaternion.html",tooltip="クォータニオンを表す構造体"];
+  Node0 [id="Node000000",label="designlab::RotationMatrix3x3",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_rotation_matrix3x3.html",tooltip="3次元の回転行列を表す構造体"];
 }

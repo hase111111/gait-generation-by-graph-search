@@ -12,6 +12,10 @@
 #include "cassert_define.h"
 
 
+//! @namespace designlab
+//! @brief DesignLabの名前空間
+//! @details このプロジェクトで作成した関数は全てこの名前空間内に入れる．
+//! @n グローバルな空間に関数を入れると，名前の衝突が起こる可能性がある．
 namespace designlab 
 {
 	//! @namespacse math_util 基本的な計算を行う関数をまとめた名前空間．

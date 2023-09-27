@@ -9,5 +9,7 @@ digraph "ComUpDownNodeCreator::Create"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="DevideMapState::GetTopZ",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_devide_map_state.html#a9519d3349374d58fe5ec391280f5d44d",tooltip="長方形状に切り分けられたマップから，最も高いZ座標を返す．"];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0",tooltip="2乗した値を返す関数．   整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．"];
+  Node3 [id="Node000003",label="designlab::leg_func\l::IsGrounded",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3",tooltip="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる．   脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．"];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="designlab::math_util\l::Squared",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0",tooltip="2乗した値を返す関数．   整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．"];
 }

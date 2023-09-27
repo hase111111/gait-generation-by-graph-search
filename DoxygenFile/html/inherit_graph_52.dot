@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="magic_enum::containers\l::detail::name_sort_impl\l\< E, Cmp, typename \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmagic__enum_1_1containers_1_1detail_1_1name__sort__impl.html",tooltip=" "];
+  Node0 [id="Node000000",label="ResultViewerSystemMain",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_result_viewer_system_main.html",tooltip=" "];
 }

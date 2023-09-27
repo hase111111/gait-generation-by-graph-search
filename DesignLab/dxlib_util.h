@@ -16,7 +16,7 @@ namespace designlab
 {
 
 	//! @namespace designlab::dxlib_util
-	//! @brief Dxlibの3D表示を行う処理を書き直したもの．
+	//! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間．
 	//! @details Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので，
 	//! @n ここである程度使いやすくなるように処理を書いてまとめておく．
 	namespace dxlib_util

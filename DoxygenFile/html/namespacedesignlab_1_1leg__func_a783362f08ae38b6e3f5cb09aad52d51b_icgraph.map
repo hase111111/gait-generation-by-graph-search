@@ -1,0 +1,5 @@
+<map id="designlab::leg_func::GetLiftedLegNum" name="designlab::leg_func::GetLiftedLegNum">
+<area shape="rect" id="Node000001" title="遊脚している脚の本数を返す関数．" alt="" coords="223,5,355,48"/>
+<area shape="rect" id="Node000002" href="$class_leg_hierarchy_node_creator.html#aa675602c796e20af5aa27a600ed0c935" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,175,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,29,175,29,175,24,208,24"/>
+</map>

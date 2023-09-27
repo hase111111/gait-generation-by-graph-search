@@ -17,7 +17,7 @@
 
 namespace designlab
 {
-	//! @namespace leg_func
+	//! @namespace designlab::leg_func
 	//! @brief 脚状態を編集するための関数をまとめた名前空間．
 	//! @details 脚状態って言ってるけど離散化された重心位置も入ってる．	
 	//! @n 1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地．　残り3bitで離散化した脚位置．

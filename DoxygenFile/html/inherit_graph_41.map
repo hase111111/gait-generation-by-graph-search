@@ -1,11 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_i_node_creator.html" title="ノード生成インターフェース" alt="" coords="5,81,102,108"/>
-<area shape="rect" id="Node000001" href="$class_com_move_node_creator_hato.html" title="重心の平行移動を行うクラス．波東さんの手法．" alt="" coords="150,5,327,32"/>
-<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="89,71,149,42,181,30,183,35,151,46,91,76"/>
-<area shape="rect" id="Node000002" href="$class_com_up_down_node_creator.html" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="154,56,323,83"/>
-<area shape="poly" id="edge12_Node000000_Node000002" title=" " alt="" coords="116,83,153,78,154,84,117,89"/>
-<area shape="rect" id="Node000003" href="$class_leg_hierarchy_node_creator.html" title="脚の階層構造を作るためのクラス．" alt="" coords="154,107,323,133"/>
-<area shape="poly" id="edge13_Node000000_Node000003" title=" " alt="" coords="117,101,154,106,153,111,116,106"/>
-<area shape="rect" id="Node000004" href="$class_leg_up_down_node_creator.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="157,157,320,184"/>
-<area shape="poly" id="edge14_Node000000_Node000004" title=" " alt="" coords="91,113,151,143,183,154,181,159,149,148,89,118"/>
+<area shape="rect" id="Node000000" href="$class_i_node_creator_builder.html" title="INodeCreatorを生成するためのビルダークラス" alt="" coords="5,5,142,32"/>
+<area shape="rect" id="Node000001" href="$class_node_creator_builder_hato.html" title=" " alt="" coords="190,5,350,32"/>
+<area shape="poly" id="edge14_Node000000_Node000001" title=" " alt="" coords="157,16,189,16,189,21,157,21"/>
 </map>

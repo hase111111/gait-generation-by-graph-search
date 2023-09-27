@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="magic_enum::containers\l::detail::raw_access_t",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmagic__enum_1_1containers_1_1detail_1_1raw__access__t.html",tooltip=" "];
+  Node0 [id="Node000000",label="S_NE::S_NE_Calc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s___n_e_1_1_s___n_e___calc.html",tooltip=" "];
 }

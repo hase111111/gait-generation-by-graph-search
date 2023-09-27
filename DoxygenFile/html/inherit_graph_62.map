@@ -1,5 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$structmagic__enum_1_1detail_1_1identity.html" title=" " alt="" coords="5,5,163,64"/>
-<area shape="rect" id="Node000001" href="$structstd_1_1common__type_3_01magic__enum_1_1detail_1_1nonesuch_00_01magic__enum_1_1detail_1_1nonesuch_01_4.html" title=" " alt="" coords="211,5,425,64"/>
-<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="177,32,210,32,210,37,177,37"/>
+<area shape="rect" id="Node000000" href="$class_singleton.html" title=" " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="Node000001" href="$class_mouse.html" title="Dxlibのマウス入力を取得するクラス．" alt="" coords="192,5,252,32"/>
+<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="158,16,191,16,191,21,158,21"/>
 </map>

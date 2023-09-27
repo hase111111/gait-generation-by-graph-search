@@ -1,5 +1,7 @@
 <map id="SNode::Init" name="SNode::Init">
-<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="5,13,91,40"/>
+<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="5,47,91,73"/>
 <area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#ac99502fcbcdd8d97f727f1d488b707a3" title="指定した範囲内の乱数を生成する．" alt="" coords="139,5,314,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,24,123,24,123,29,91,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,49,123,43,124,48,91,55"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a87452a9f99cef8a85f606bcc3c8c18c8" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="160,72,293,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,65,146,76,145,81,90,71"/>
 </map>

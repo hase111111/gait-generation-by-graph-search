@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="magic_enum::containers\l::bitset\< E, index_type \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classmagic__enum_1_1containers_1_1bitset.html",tooltip=" "];
+  Node0 [id="Node000000",label="MapState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_state.html",tooltip="マップを表すクラス．"];
 }

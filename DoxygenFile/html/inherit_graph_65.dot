@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="magic_enum::detail\l::nonesuch",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmagic__enum_1_1detail_1_1nonesuch.html",tooltip=" "];
+  Node0 [id="Node000000",label="STarget",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_s_target.html",tooltip="探索において目標となる座標や角度，評価する値についてまとめた構造体"];
 }

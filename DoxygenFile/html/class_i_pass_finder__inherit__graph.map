@@ -1,5 +1,5 @@
 <map id="IPassFinder" name="IPassFinder">
-<area shape="rect" id="Node000001" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース． &#160;&#160;波東さんのプログラムで言うところのPassFindingクラス．" alt="" coords="20,5,111,32"/>
+<area shape="rect" id="Node000001" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="20,5,111,32"/>
 <area shape="rect" id="Node000002" href="$class_pass_finder_basic.html" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス" alt="" coords="5,80,126,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,47,68,80,63,80,63,47"/>
 </map>

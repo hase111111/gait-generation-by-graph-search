@@ -1,15 +1,21 @@
 <map id="SNode::ToString" name="SNode::ToString">
-<area shape="rect" id="Node000001" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="5,80,122,107"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_euler_x_y_z.html#a78a88f2575844a56ee80417aee8bbe56" title="オイラー角を文字列に変換する &#160;&#160;単位は ラジアン [rad]" alt="" coords="170,5,307,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,77,166,51,168,56,102,82"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す &#160;&#160;(x, y, z) の形式，小数点以下3桁まで" alt="" coords="174,72,303,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,91,159,91,159,96,122,96"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_euler_x_y_z.html#a38d45f9caa4a81b2fb2277653a9b0abf" title="オイラー角を文字列に変換する &#160;&#160;単位は 度 [deg]" alt="" coords="170,139,307,181"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="102,105,168,130,166,135,100,110"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1math__util.html#a4821a8a73522c47bcd90b67af623e365" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する" alt="" coords="355,72,504,115"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="302,46,354,64,352,69,301,51"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="304,91,340,91,340,96,304,96"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="301,136,352,117,354,122,302,141"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#af555c8eb2f4605fd1b60b41354c22dd2" title="角度をradからdegに変換する関数．" alt="" coords="361,139,498,181"/>
-<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="307,157,346,157,346,163,307,163"/>
+<area shape="rect" id="Node000001" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="5,180,122,207"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#aacc8d4b9a0015353684a79cd4d3b7c64" title="現在の脚状態から重心パターンを取得する．" alt="" coords="170,5,318,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,178,108,121,136,88,168,58,173,54,176,58,171,62,140,92,112,125,75,181"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a62dca0fb343ead29f161a49f5c4449f3" title="脚状態を取得する．" alt="" coords="173,72,315,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="83,177,168,124,178,119,181,124,171,129,86,182"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="178,139,310,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,180,163,172,164,178,123,185"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_euler_x_y_z.html#a78a88f2575844a56ee80417aee8bbe56" title="オイラー角を文字列に変換する &#160;&#160;単位は ラジアン [rad]" alt="" coords="175,205,313,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="123,201,161,209,160,214,122,207"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す &#160;&#160;(x, y, z) の形式，小数点以下3桁まで" alt="" coords="179,272,309,315"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="86,205,171,258,181,263,178,267,168,262,83,209"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_euler_x_y_z.html#a38d45f9caa4a81b2fb2277653a9b0abf" title="オイラー角を文字列に変換する &#160;&#160;単位は 度 [deg]" alt="" coords="175,339,313,381"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="75,206,112,262,140,295,171,325,176,328,173,333,168,329,136,299,108,265,70,209"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a4821a8a73522c47bcd90b67af623e365" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する" alt="" coords="366,272,515,315"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="310,246,363,264,361,269,308,251"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="309,291,351,291,351,296,309,296"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="308,336,361,317,363,322,310,341"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__util.html#af555c8eb2f4605fd1b60b41354c22dd2" title="角度をradからdegに変換する関数．" alt="" coords="372,339,509,381"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="313,357,357,357,357,363,313,363"/>
 </map>

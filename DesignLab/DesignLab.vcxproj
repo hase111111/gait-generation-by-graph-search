@@ -63,7 +63,7 @@
     <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="interface_graphic_main.h" />
-    <ClInclude Include="BFSinHierarchy.h" />
+    <ClInclude Include="_BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
     <ClInclude Include="cmdio_util.h" />
     <ClInclude Include="define.h" />
@@ -103,12 +103,12 @@
     <ClInclude Include="simulation_system_main.h" />
     <ClInclude Include="graph_viewer_system_main.h" />
     <ClInclude Include="target.h" />
-    <ClInclude Include="hexapod.h" />
+    <ClInclude Include="_hexapod.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="map_creator.h" />
-    <ClInclude Include="phantomxCommander.h" />
+    <ClInclude Include="_phantomxCommander.h" />
     <ClInclude Include="S_NE.h" />
-    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="_TimeManager.h" />
     <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
@@ -149,7 +149,7 @@
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
     <ClCompile Include="hexapod_state_calculator.cpp" />
-    <ClCompile Include="BFSinHierarchy.cpp" />
+    <ClCompile Include="_BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
     <ClCompile Include="cmdio_util.cpp" />
     <ClCompile Include="dxlib_util.cpp" />
@@ -163,7 +163,7 @@
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />
     <ClCompile Include="leg_state.cpp" />
     <ClCompile Include="leg_up_down_node_creator.cpp" />
-    <ClCompile Include="hexapod.cpp" />
+    <ClCompile Include="_hexapod.cpp" />
     <ClCompile Include="designlab_line_segment2.cpp" />
     <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="node.cpp" />
@@ -175,7 +175,7 @@
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
-    <ClCompile Include="phantomxCommander.cpp" />
+    <ClCompile Include="_phantomxCommander.cpp" />
     <ClCompile Include="phantomx_state_calculator.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="result_viewer_system_main.cpp" />
@@ -184,7 +184,7 @@
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="simulation_system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
-    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="_TimeManager.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="define.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />

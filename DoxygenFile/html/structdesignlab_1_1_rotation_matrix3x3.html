@@ -97,6 +97,11 @@ $(document).ready(function(){initNavTree('structdesignlab_1_1_rotation_matrix3x3
   <div class="headertitle"><div class="title">designlab::RotationMatrix3x3 構造体<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>3次元の回転行列を表す構造体  
+ <a href="structdesignlab_1_1_rotation_matrix3x3.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="designlab__rotation__matrix_8h_source.html">designlab_rotation_matrix.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -142,7 +147,9 @@ $(document).ready(function(){initNavTree('structdesignlab_1_1_rotation_matrix3x3
 <tr class="memitem:a31917da37811cc06fbe4fb509f2aa4eb"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; float, 3 &gt;, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb">element</a></td></tr>
 <tr class="separator:a31917da37811cc06fbe4fb509f2aa4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>3次元の回転行列を表す構造体 </p>
+</div><h2 class="groupheader">関数詳解</h2>
 <a id="abc3bdb68d606ea4d724a92425188f9fa" name="abc3bdb68d606ea4d724a92425188f9fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc3bdb68d606ea4d724a92425188f9fa">&#9670;&#160;</a></span>CreateRotationMatrixX()</h2>
 
@@ -321,10 +328,10 @@ $(document).ready(function(){initNavTree('structdesignlab_1_1_rotation_matrix3x3
       </table>
 </div><div class="memdoc">
 <p>データの並びについて <br  />
- ____|_R11_R12_R13_| <br  />
- R_=_|_R21_R22_R23_| <br  />
+ | R11 R12 R13 | <br  />
+ | R21 R22 R23 | <br  />
  <br  />
- ____|_R31_R32_R33_| <br  />
+ | R31 R32 R33 | <br  />
 <br  />
  R11はelement[0][0]，R12はelement[0][1]，R32はelement[2][1]となる． <br  />
  つまり，element[ 行 - 1 ][ 列 - 1 ]となる． </p>

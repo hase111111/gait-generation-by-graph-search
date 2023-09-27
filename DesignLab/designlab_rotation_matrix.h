@@ -13,7 +13,7 @@
 
 namespace designlab 
 {
-	//! @struct designlab::RotationMatrix
+	//! @struct designlab::RotationMatrix3x3
 	//! @brief 3次元の回転行列を表す構造体
 	struct RotationMatrix3x3 final
 	{
@@ -64,9 +64,9 @@ namespace designlab
 		
 
 		//! データの並びについて
-		//! @n ____|_R11_R12_R13_|
-		//! @n R_=_|_R21_R22_R23_|   
-		//! @n ____|_R31_R32_R33_|
+		//! @n | R11 R12 R13 |
+		//! @n | R21 R22 R23 |   
+		//! @n | R31 R32 R33 |
 		//! @n
 		//! @n R11はelement[0][0]，R12はelement[0][1]，R32はelement[2][1]となる．
 		//! @n つまり，element[ 行 - 1 ][ 列 - 1 ]となる．

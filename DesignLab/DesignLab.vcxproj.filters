@@ -114,10 +114,10 @@
     <ClInclude Include="S_NE.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="phantomxCommander.h">
+    <ClInclude Include="_phantomxCommander.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
-    <ClInclude Include="TimeManager.h">
+    <ClInclude Include="_TimeManager.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
     <ClInclude Include="define.h">
@@ -348,10 +348,10 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="BFSinHierarchy.h">
+    <ClInclude Include="_BFSinHierarchy.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
-    <ClInclude Include="hexapod.h">
+    <ClInclude Include="_hexapod.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
     <ClInclude Include="target.h">
@@ -392,10 +392,10 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="phantomxCommander.cpp">
+    <ClCompile Include="_phantomxCommander.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
+    <ClCompile Include="_TimeManager.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="define.cpp">
@@ -590,10 +590,10 @@
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClCompile>
-    <ClCompile Include="BFSinHierarchy.cpp">
+    <ClCompile Include="_BFSinHierarchy.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
-    <ClCompile Include="hexapod.cpp">
+    <ClCompile Include="_hexapod.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="designlab_vector2.cpp">

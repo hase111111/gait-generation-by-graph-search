@@ -15,8 +15,9 @@
 
 //! @class IPassFinder
 //! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース．
+//! @details 
 //! @n 波東さんのプログラムで言うところのPassFindingクラス．
-//! @details 実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @n 実体は作成できないのでこれを継承してたクラスを使うこと．
 //! @n 継承をするクラスのデストラクタはvirtualにしておく．
 //! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 class IPassFinder

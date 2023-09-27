@@ -5,9 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="magic_enum::detail\l::identity\< T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structmagic__enum_1_1detail_1_1identity.html",tooltip=" "];
-  Node0 -> Node1 [id="edge19_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="std::common_type\< T,\l magic_enum::detail\l::nonesuch \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structstd_1_1common__type_3_01_t_00_01magic__enum_1_1detail_1_1nonesuch_01_4.html",tooltip=" "];
-  Node0 -> Node2 [id="edge20_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="std::common_type\< magic\l_enum::detail::nonesuch, T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structstd_1_1common__type_3_01magic__enum_1_1detail_1_1nonesuch_00_01_t_01_4.html",tooltip=" "];
+  Node0 [id="Node000000",label="StabilityMarginRenderer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画するクラス．   接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる..."];
 }
