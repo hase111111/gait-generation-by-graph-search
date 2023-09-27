@@ -8,7 +8,7 @@
 //	TEST(GroundCheckFunc, IsGround_AllGround)
 //	{
 //		//‹rˆÊ’u‚SC‘S‚ÄÚ’n‚Ì‹ró‘Ô‚ğì¬
-//		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+//		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 //		bool is_ground[HexapodConst::LEG_NUM] = { true,true,true,true,true,true };
 //		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 //		int leg_state = dl_leg::MakeLegStateBit(com_pattern, is_ground, leg_pos);
@@ -39,7 +39,7 @@
 //	TEST(GroundCheckFunc, IsGround_AllNotGround)
 //	{
 //		//‹rˆÊ’u‚SC‘S‚Ä”ñÚ’n‚Ì‹ró‘Ô‚ğì¬
-//		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+//		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 //		bool is_ground[HexapodConst::LEG_NUM] = { false,false,false,false,false,false };
 //		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 //		int leg_state = dl_leg::MakeLegStateBit(com_pattern, is_ground, leg_pos);
@@ -69,7 +69,7 @@
 //	TEST(GroundCheckFunc, IsGround_SomeGround)
 //	{
 //		//‹rˆÊ’u‚SC‘S‚Ä”ñÚ’n‚Ì‹ró‘Ô‚ğì¬
-//		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+//		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 //		bool is_ground[HexapodConst::LEG_NUM] = { true,false,true,false,false,true };
 //		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 //		int leg_state = dl_leg::MakeLegStateBit(com_pattern, is_ground, leg_pos);
@@ -99,7 +99,7 @@
 //	TEST(GroundCheckFunc, IsGround_OutOfRange)
 //	{
 //		//‹rˆÊ’u‚SC‘S‚ÄÚ’n‚Ì‹ró‘Ô‚ğì¬
-//		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+//		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 //		bool is_ground[HexapodConst::LEG_NUM] = { true,true,true,true,true,true };
 //		int leg_pos[HexapodConst::LEG_NUM] = { 4,4,4,4,4,4 };
 //		int leg_state = dl_leg::MakeLegStateBit(com_pattern, is_ground, leg_pos);

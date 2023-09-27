@@ -28,8 +28,8 @@ public:
 	//! @param graph [in] グラフ木
 	//! @param target [in] 目標地点
 	//! @param output_result [out] 出力されるノード
-	//! @return EGraphSearchResult 探索の結果
-	virtual EGraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) = 0;
+	//! @return GraphSearchResult 探索の結果
+	virtual GraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) = 0;
 };
 
 

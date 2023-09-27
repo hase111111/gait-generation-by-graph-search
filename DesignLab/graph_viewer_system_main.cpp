@@ -204,7 +204,7 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	SNode fake_result_node;
 
-	EGraphSearchResult result =
+	GraphSearchResult result =
 		pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
 
 	graph.clear();

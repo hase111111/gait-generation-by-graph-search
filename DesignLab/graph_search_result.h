@@ -3,11 +3,9 @@
 #include <string>
 
 
-//! @enum EGraphSearchReslut
-//! @date 2023/08/14
-//! @author ’·’Jì
+//! @enum GraphSearchReslut
 //! @brief ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğ•\‚·—ñ‹“Œ^
-enum class EGraphSearchResult : int
+enum class GraphSearchResult
 {
 	Success,						//!< ƒOƒ‰ƒt’Tõ‚É¬Œ÷‚µ‚½
 	Failure,						//!< ƒOƒ‰ƒt’Tõ‚É¸”s‚µ‚½
@@ -26,19 +24,10 @@ enum class EGraphSearchResult : int
 };
 
 
-namespace std
-{
-	//! @brief EGraphSearchResultŒ^‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”
-	//! @param [in] result EGraphSearchResultŒ^‚Ì•Ï”
-	//! @return std::string EGraphSearchResultŒ^‚Ì•Ï”‚ğ•¶š—ñ‚É‚µ‚½‚à‚Ì
-	std::string to_string(EGraphSearchResult result);
-}
-
-
 //! @brief ƒOƒ‰ƒt’Tõ‚ª¬Œ÷‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·ŠÖ”
 //! @param [in] result ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê
 //! @return bool ¬Œ÷‚ÅtrueC¸”s‚Åfalse
-inline bool graphSeachResultIsSuccessful(EGraphSearchResult result)
+inline bool graphSeachResultIsSuccessful(const GraphSearchResult result)
 {
-	return result == EGraphSearchResult::Success || result == EGraphSearchResult::SuccessByReevaluation;
+	return result == GraphSearchResult::Success || result == GraphSearchResult::SuccessByReevaluation;
 }

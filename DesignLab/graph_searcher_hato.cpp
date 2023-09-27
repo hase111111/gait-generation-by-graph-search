@@ -27,7 +27,7 @@ GraphSearcherHato::~GraphSearcherHato()
 	}
 }
 
-EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -49,7 +49,7 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 	const size_t kGraphSize = graph.size();
 	size_t parent_num = getParentNodeIndex(graph);
 
-	if (parent_num < 0) { return EGraphSearchResult::FailureByNoNode; }
+	if (parent_num < 0) { return GraphSearchResult::FailureByNoNode; }
 
 	initEvaluationValue(graph.at(parent_num), target);
 
@@ -120,17 +120,17 @@ EGraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& 
 	}
 
 	// index Ç™îÕàÕäOÇ»ÇÁÇŒé∏îs
-	if (result_index < 0 || result_index >= kGraphSize) { return EGraphSearchResult::FailureByNoNode; }
+	if (result_index < 0 || result_index >= kGraphSize) { return GraphSearchResult::FailureByNoNode; }
 
 	//ê[Ç≥1Ç‹Ç≈ëkÇ¡ÇƒílÇï‘Ç∑
-	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return EGraphSearchResult::FailureByNotReachedDepth; }
+	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::FailureByNotReachedDepth; }
 
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
 		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() íTçıèIóπ" << std::endl;
 	}
 
-	return EGraphSearchResult::Success;
+	return GraphSearchResult::Success;
 }
 
 size_t GraphSearcherHato::getParentNodeIndex(const std::vector<SNode>& graph) const

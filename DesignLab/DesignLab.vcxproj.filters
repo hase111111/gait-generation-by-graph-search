@@ -497,9 +497,6 @@
     <ClCompile Include="pass_finder_basic.cpp">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClCompile>
-    <ClCompile Include="graph_search_result.cpp">
-      <Filter>ソース ファイル\PassFinder\Common</Filter>
-    </ClCompile>
     <ClCompile Include="stopwatch.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
@@ -592,9 +589,6 @@
     </ClCompile>
     <ClCompile Include="discrete_leg_pos.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
-    </ClCompile>
-    <ClCompile Include="discrete_com_pos.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>

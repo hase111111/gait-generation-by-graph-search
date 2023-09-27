@@ -7,6 +7,8 @@
 #include "node_validity_checker.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_test.h"
+#include "magic_enum.hpp"
+
 
 namespace dlio = designlab::cmdio;
 
@@ -103,7 +105,7 @@ void SimulationSystemMain::Main()
 
 			SNode result_node;		//グラフ探索の結果を格納する変数．
 
-			EGraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
+			GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 
@@ -116,9 +118,15 @@ void SimulationSystemMain::Main()
 			//グラフ探索に失敗
 			if (!graphSeachResultIsSuccessful(result_state))
 			{
-				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(SimulationResult::FAILURE_BY_GRAPH_SEARCH) + "/ GraphSearch = " + std::to_string(result_state));
-
 				record.simulation_result = SimulationResult::FAILURE_BY_GRAPH_SEARCH;	//シミュレーションの結果を格納する変数を失敗に更新する．
+
+				dlio::Output(
+					"シミュレーションに失敗しました．SimulationResult = " + 
+					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
+					"/ GraphSearch = " + 
+					static_cast<std::string>(magic_enum::enum_name(result_state))
+				);
+
 
 				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
 			}
@@ -146,9 +154,14 @@ void SimulationSystemMain::Main()
 			//動作がループして失敗
 			if (node_checker.isLoopMove())
 			{
-				dlio::Output("シミュレーションに失敗しました．SimulationResult = " + std::to_string(SimulationResult::FAILURE_BY_LOOP_MOTION) + "/ GraphSearch = " + std::to_string(result_state));
-
 				record.simulation_result = SimulationResult::FAILURE_BY_LOOP_MOTION;	//シミュレーションの結果を格納する変数を失敗に更新する．
+
+				dlio::Output(
+					"シミュレーションに失敗しました．SimulationResult = " + 
+					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
+					"/ GraphSearch = " +
+					static_cast<std::string>(magic_enum::enum_name(result_state))
+				);
 
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
 			}
@@ -157,9 +170,12 @@ void SimulationSystemMain::Main()
 			//成功時の処理
 			if (current_node.global_center_of_mass.x > Define::kGoalTape)
 			{
-				dlio::Output("シミュレーションに成功しました．SimulationResult = " + std::to_string(SimulationResult::SUCCESS));
-
 				record.simulation_result = SimulationResult::SUCCESS;	//シミュレーションの結果を格納する変数を成功に更新する．
+
+				dlio::Output(
+					"シミュレーションに成功しました．SimulationResult = " + 
+					static_cast<std::string>(magic_enum::enum_name(record.simulation_result))
+				);
 
 				break;
 			}

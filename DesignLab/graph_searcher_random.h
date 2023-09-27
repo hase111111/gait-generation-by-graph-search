@@ -8,5 +8,5 @@ class GraphSearcherRandom final : public IGraphSearcher
 {
 public:
 
-	EGraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
+	GraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
 };

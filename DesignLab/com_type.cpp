@@ -2,26 +2,31 @@
 
 #include <iostream>
 
+#include "cassert_define.h"
+
+
+namespace dlcf = designlab::com_func;
+
 
 namespace
 {
 	// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．
 	// アクセスするには，先頭に::をつける．
 
-	const dl_com::LegGroundedMap LEG_GROUNDED_PATTERN_MAP = dl_com::makeLegGroundedMap();		//!< 脚の接地パターンに数値を割り振ったマップ．
+	const dlcf::LegGroundedMap LEG_GROUNDED_PATTERN_MAP = dlcf::makeLegGroundedMap();		//!< 脚の接地パターンに数値を割り振ったマップ．
 
 	const int LEG_GROUNDED_PATTERN_NUM = static_cast<int>(LEG_GROUNDED_PATTERN_MAP.size());	//!< 脚の接地パターンの数．
 
-	const std::unordered_map<EDiscreteComPos, std::vector<int>> LEG_GROUNDE_PATTERN_BAN_LIST = dl_com::makeLegGroundedPatternBanList();	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
+	const std::unordered_map<DiscreteComPos, std::vector<int>> LEG_GROUNDE_PATTERN_BAN_LIST = dlcf::makeLegGroundedPatternBanList();	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
 
-	const std::vector<std::vector<int>> LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG = dl_com::makeLegGroundedPatternBanListFromLeg();		//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
+	const std::vector<std::vector<int>> LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG = dlcf::makeLegGroundedPatternBanListFromLeg();		//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
 }
 
 
 
-namespace dl_com
+namespace designlab::com_func
 {
-	LegGroundedMap dl_com::makeLegGroundedMap()
+	LegGroundedMap makeLegGroundedMap()
 	{
 		LegGroundedMap res;
 		int counter = 0;
@@ -92,7 +97,7 @@ namespace dl_com
 	}
 
 
-	bool isLegPairFree(int leg_index, int leg_ground_pattern_index)
+	bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
 	{
 		dl_leg::LegGroundedBit leg_ground_pattern;
 
@@ -118,25 +123,25 @@ namespace dl_com
 	}
 
 
-	std::unordered_map<EDiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList()
+	std::unordered_map<DiscreteComPos, std::vector<int>> makeLegGroundedPatternBanList()
 	{
-		std::unordered_map<EDiscreteComPos, std::vector<int>> res;
+		std::unordered_map<DiscreteComPos, std::vector<int>> res;
 
 
 		// ロボットの体が前に寄っている時に前足が両方とも遊脚だと転倒してしまう．
 		// そのため，離散化された重心から，連続する脚が両方とも遊脚になるパターンを禁止するのがこの関数の目的である．
-		std::unordered_map<EDiscreteComPos, std::vector<int>> ban_leg_index_list;
-		ban_leg_index_list[EDiscreteComPos::FRONT] = { 0,4,5 };
-		ban_leg_index_list[EDiscreteComPos::FRONT_RIGHT] = { 0,1,5 };
-		ban_leg_index_list[EDiscreteComPos::FRONT_LEFT] = { 3,4,5 };
-		ban_leg_index_list[EDiscreteComPos::BACK] = { 1,2,3 };
-		ban_leg_index_list[EDiscreteComPos::BACK_RIGHT] = { 0,1,2 };
-		ban_leg_index_list[EDiscreteComPos::BACK_LEFT] = { 2,3,4 };
-		ban_leg_index_list[EDiscreteComPos::CENTER_BACK] = { 0,2,4 };
-		ban_leg_index_list[EDiscreteComPos::CENTER_FRONT] = { 1,3,5 };
+		std::unordered_map<DiscreteComPos, std::vector<int>> ban_leg_index_list;
+		ban_leg_index_list[DiscreteComPos::kFront] = { 0,4,5 };
+		ban_leg_index_list[DiscreteComPos::kFrontRight] = { 0,1,5 };
+		ban_leg_index_list[DiscreteComPos::kFrontLeft] = { 3,4,5 };
+		ban_leg_index_list[DiscreteComPos::kBack] = { 1,2,3 };
+		ban_leg_index_list[DiscreteComPos::kBackRight] = { 0,1,2 };
+		ban_leg_index_list[DiscreteComPos::kBackLeft] = { 2,3,4 };
+		ban_leg_index_list[DiscreteComPos::kCenterBack] = { 0,2,4 };
+		ban_leg_index_list[DiscreteComPos::kCenterFront] = { 1,3,5 };
 
 
-		for (auto i : EDiscreteComPos())
+		for (auto i : DiscreteComPos())
 		{
 			if (ban_leg_index_list.count(i) == 0) { continue; }
 
@@ -144,7 +149,7 @@ namespace dl_com
 			{
 				for (int k = 0; k < ::LEG_GROUNDED_PATTERN_NUM; ++k)
 				{
-					if (isLegPairFree(j, k))
+					if (IsLegPairFree(j, k))
 					{
 						res[i].push_back(k);
 					}
@@ -168,7 +173,7 @@ namespace dl_com
 			for (int j = 0; j < ::LEG_GROUNDED_PATTERN_NUM; ++j)
 			{
 				// i番目のbitを確認し，立っているならば(つまり，その脚を接地しなければいけないなら)，そのパターンを禁止する．
-				if (LEG_GROUNDED_PATTERN_MAP.right.at(j)[i])
+				if (::LEG_GROUNDED_PATTERN_MAP.right.at(j)[i])
 				{
 					res[i].push_back(j);
 				}
@@ -179,13 +184,12 @@ namespace dl_com
 	}
 
 
-	int getLegGroundPatternNum()
+	int GetLegGroundPatternNum()
 	{
 		return LEG_GROUNDED_PATTERN_NUM;
 	}
 
-
-	dl_leg::LegGroundedBit getLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
+	dl_leg::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
 	{
 		dl_leg::LegGroundedBit res;
 
@@ -196,13 +200,13 @@ namespace dl_com
 	}
 
 
-	void banLegGroundPatternFromCom(EDiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
+	void RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
 	{
 		//異常な値ならばreturn
 
 		if (output == nullptr) { return; }
 
-		if ((*output).size() != getLegGroundPatternNum()) { return; }
+		if ((*output).size() != GetLegGroundPatternNum()) { return; }
 
 
 		// LEG_GROUNDE_PATTERN_BAN_LISTにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
@@ -213,14 +217,13 @@ namespace dl_com
 		}
 	}
 
-
-	void banLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
+	void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
 	{
 		//異常な値ならばreturn
 
 		if (output == nullptr) { return; }
 
-		if ((*output).size() != getLegGroundPatternNum()) { return; }
+		if ((*output).size() != GetLegGroundPatternNum()) { return; }
 
 
 		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
@@ -231,18 +234,17 @@ namespace dl_com
 		}
 	}
 
-
-	void banLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
+	void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
 	{
 		//異常な値ならばreturn
 
 		if (output == nullptr) { return; }
 
-		if ((*output).size() != getLegGroundPatternNum()) { return; }
+		if ((*output).size() != GetLegGroundPatternNum()) { return; }
 
 
 		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
-		boost::dynamic_bitset<> inverse_output(getLegGroundPatternNum());
+		boost::dynamic_bitset<> inverse_output(GetLegGroundPatternNum());
 
 		for (auto& i : LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG[not_lift_leg_index])
 		{
@@ -251,7 +253,5 @@ namespace dl_com
 
 		(*output) &= inverse_output;
 	}
-
-
 
 }

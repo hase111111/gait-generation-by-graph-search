@@ -9,7 +9,9 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
+
 namespace dlm = designlab::math_util;
+namespace dlcf = designlab::com_func;
 
 
 LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
@@ -26,7 +28,7 @@ LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std:
 void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
-	boost::dynamic_bitset<> is_able_leg_ground_pattern(dl_com::getLegGroundPatternNum());
+	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
 
 	is_able_leg_ground_pattern.set();	//全てtrueにする．
 
@@ -34,7 +36,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
 
-	dl_com::banLegGroundPatternFromCom(dl_leg::getComPatternState(current_node.leg_state), &is_able_leg_ground_pattern);
+	dlcf::RemoveLegGroundPatternFromCom(dl_leg::getComPatternState(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
 
@@ -66,14 +68,14 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 			else
 			{
 				is_groundable_leg[i] = false;	//接地不可能にする．
-				dl_com::banLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
+				dlcf::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
 			}
 		}
 	}
 
 
 	//子ノードを生成する．
-	for (int i = 0; i < dl_com::getLegGroundPatternNum(); i++)
+	for (int i = 0; i < dlcf::GetLegGroundPatternNum(); i++)
 	{
 		//その重心タイプが可能であれば，
 		if (is_able_leg_ground_pattern[i])
@@ -84,7 +86,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 
 			//遊脚・接地を書き換える．
-			dl_leg::LegGroundedBit new_is_ground = dl_com::getLegGroundedBitFromLegGroundPatternIndex(i);
+			dl_leg::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
 			dl_leg::changeAllLegGround(new_is_ground, &res_node.leg_state);
 

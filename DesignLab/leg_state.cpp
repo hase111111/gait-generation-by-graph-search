@@ -5,7 +5,7 @@
 namespace dl_leg
 {
 
-	LegStateBit MakeLegStateBit(EDiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM>& is_ground,
+	LegStateBit MakeLegStateBit(DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM>& is_ground,
 		const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos)
 	{
 		LegStateBit res = 0;
@@ -134,12 +134,12 @@ namespace dl_leg
 	}
 
 
-	EDiscreteComPos getComPatternState(const LegStateBit& leg_state)
+	DiscreteComPos getComPatternState(const LegStateBit& leg_state)
 	{
 		//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 		const int res = static_cast<int>(((leg_state & COM_STATE_MASKBIT) >> SHIFT_TO_COM_NUM).to_ulong());
 
-		return static_cast<EDiscreteComPos>(res);
+		return static_cast<DiscreteComPos>(res);
 	}
 
 
@@ -223,7 +223,7 @@ namespace dl_leg
 	}
 
 
-	void changeComPattern(const EDiscreteComPos new_com_pattern, LegStateBit* leg_state)
+	void changeComPattern(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 	{
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);

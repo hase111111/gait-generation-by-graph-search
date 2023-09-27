@@ -5,11 +5,11 @@
 namespace dlm = designlab::math_util;
 
 
-EGraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 
-	if (graph.empty()) { return EGraphSearchResult::Failure; }	//グラフがないなら失敗	
+	if (graph.empty()) { return GraphSearchResult::Failure; }	//グラフがないなら失敗	
 
 	//警告回避用
 	STarget target_copy = target;
@@ -28,11 +28,11 @@ EGraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>
 		}
 	}
 
-	if (depth1_node.empty()) { return EGraphSearchResult::FailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
+	if (depth1_node.empty()) { return GraphSearchResult::FailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
 
 
 	(*output_result) = depth1_node.at(dlm::GenerateRandomNumber(0, static_cast<int>(depth1_node.size()) - 1));		// ランダムなやつを一つ選択する．
 
 
-	return EGraphSearchResult::Success;
+	return GraphSearchResult::Success;
 }

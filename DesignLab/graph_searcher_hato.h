@@ -17,7 +17,7 @@ public:
 	GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
 	~GraphSearcherHato();
 
-	EGraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
+	GraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) override;
 
 private:
 

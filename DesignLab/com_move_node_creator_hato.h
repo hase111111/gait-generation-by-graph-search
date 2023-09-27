@@ -9,7 +9,6 @@
 
 #include <memory>
 
-#include "com_type.h"
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
 #include "designlab_polygon2.h"
@@ -31,14 +30,12 @@ public:
 
 private:
 
-	bool isStable(const SNode& node) const;
+	bool IsStable(const SNode& node) const;
 
-	bool isIntersectGround(const SNode& node) const;
+	bool IsIntersectGround(const SNode& node) const;
 
 
 	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
-
-	//std::vector<designlab::Polygon2> polygon_vec_;
 
 
 	const DevideMapState map_;	//!< 地面の状態を格納したクラス

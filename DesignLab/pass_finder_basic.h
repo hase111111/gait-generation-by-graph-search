@@ -32,7 +32,7 @@ public:
 	~PassFinderBasic() = default;
 
 
-	EGraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node) override;
+	GraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node) override;
 
 	int GetMadeNodeNum() const;
 

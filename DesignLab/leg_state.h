@@ -61,7 +61,7 @@ namespace dl_leg
 	//! @param [in] is_ground 脚が接地しているかを表すbool型の配列．接地しているならばtrue．遊脚しているならばfalse
 	//! @param [in] discretized_leg_pos 離散化した脚位置を表す変数．
 	//! @return LegStateBit 作成した脚状態を返す．
-	LegStateBit MakeLegStateBit(EDiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM> &is_ground, 
+	LegStateBit MakeLegStateBit(DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM> &is_ground, 
 		const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos);
 
 
@@ -107,8 +107,8 @@ namespace dl_leg
 
 	//! @brief 現在の脚状態から重心パターンを取得する．
 	//! @param [in] leg_state 現在の脚状態
-	//! @return EDiscreteComPos 重心パターンを返す．
-	EDiscreteComPos getComPatternState(const LegStateBit& leg_state);
+	//! @return DiscreteComPos 重心パターンを返す．
+	DiscreteComPos getComPatternState(const LegStateBit& leg_state);
 
 
 	//! @brief 脚の情報を変更する．引数の値がおかしいならばfalseを出力する．
@@ -141,7 +141,7 @@ namespace dl_leg
 	//! @param [in] leg_state 現在の脚状態
 	//! @param [in] new_com_pattern 新しい重心パターン
 	//! @return LegStateBit 変更した重心パターンを返す．
-	void changeComPattern(EDiscreteComPos new_com_pattern, LegStateBit* leg_state);
+	void changeComPattern(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
 
 }	// namespace dl_leg
 

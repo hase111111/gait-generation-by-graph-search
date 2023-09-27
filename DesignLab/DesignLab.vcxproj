@@ -127,7 +127,6 @@
     <ClCompile Include="designlab_quaternion.cpp" />
     <ClCompile Include="designlab_rotation_matrix.cpp" />
     <ClCompile Include="designlab_vector2.cpp" />
-    <ClCompile Include="discrete_com_pos.cpp" />
     <ClCompile Include="discrete_leg_pos.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
     <ClCompile Include="graphic_main_advance.cpp" />
@@ -145,7 +144,6 @@
     <ClCompile Include="output_detail.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
     <ClCompile Include="pass_finder_basic.cpp" />
-    <ClCompile Include="graph_search_result.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="hexapod_next_move.cpp" />

@@ -32,8 +32,8 @@ public:
 	//! @param [in] map 現在のマップの状態
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
-	//! @return EGraphSearchResult グラフ探索の結果を返す．成功か失敗か
-	virtual EGraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map, const STarget& target, SNode* output_node) = 0;
+	//! @return GraphSearchResult グラフ探索の結果を返す．成功か失敗か
+	virtual GraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map, const STarget& target, SNode* output_node) = 0;
 
 	//! @brief 作成したグラフのノードの数を返す
 	//! @return int 作成したグラフの数

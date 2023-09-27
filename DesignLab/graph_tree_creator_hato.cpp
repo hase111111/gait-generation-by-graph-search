@@ -24,7 +24,7 @@ void GraphTreeCreatorHato::Init(const DevideMapState& map_state)
 	node_creator_builder_ptr_->Build(map_state, calculator_ptr_, &node_creator_map_);
 }
 
-EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const int max_depth, std::vector<SNode>* output_graph)
+GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const int max_depth, std::vector<SNode>* output_graph)
 {
 	assert(output_graph != nullptr);	//nullptrでない．
 	assert(output_graph->empty());		//空である．
@@ -60,10 +60,10 @@ EGraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_no
 
 	if (GraphSearchConst::MAX_NODE_NUM < make_node_num)
 	{
-		return EGraphSearchResult::FailureByNodeLimitExceeded;
+		return GraphSearchResult::FailureByNodeLimitExceeded;
 	}
 
-	return EGraphSearchResult::Success;
+	return GraphSearchResult::Success;
 }
 
 
@@ -110,7 +110,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 
 //	std::vector<SNode> depth1_node;
 
-//	EGraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, 1, &depth1_node);
+//	GraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, 1, &depth1_node);
 
 //	if (!graphSeachResultIsSuccessful(result)) { return result; }
 
@@ -132,7 +132,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 //	{
 //		tree_creators[i] = createGraphTreeCreator(devide_map_, calculator_ptr_);
 
-//		if (!tree_creators[i]) { return EGraphSearchResult::FailureByInitializationFailed; }
+//		if (!tree_creators[i]) { return GraphSearchResult::FailureByInitializationFailed; }
 
 //		tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::MAX_DEPTH, &threads_result[i]));
 //	}
@@ -172,10 +172,10 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 
 ////次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
 //{
-//	EGraphSearchResult result = graph_searcher->SearchGraphTree(m_graph_tree, target, &output_node);
+//	GraphSearchResult result = graph_searcher->SearchGraphTree(m_graph_tree, target, &output_node);
 //	if (!graphSeachResultIsSuccessful(result)) { return result; }
 //}
 
 //if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }
 
-//return EGraphSearchResult::Success;
+//return GraphSearchResult::Success;

@@ -1,28 +1,9 @@
 #include "simulation_result_recorder.h"
 
+#include <magic_enum.hpp>
+
 #include "leg_state.h"
 #include "hexapod_const.h"
-
-
-
-std::string std::to_string(SimulationResult result)
-{
-	switch (result)
-	{
-	case SimulationResult::SUCCESS:
-		return "SUCCESS";
-	case SimulationResult::FAILURE:
-		return "FAILURE";
-	case SimulationResult::FAILURE_BY_GRAPH_SEARCH:
-		return "FAILURE_BY_GRAPH_SEARCH";
-	case SimulationResult::FAILURE_BY_LOOP_MOTION:
-		return "FAILURE_BY_LOOP_MOTION";
-	case SimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED:
-		return "FAILURE_BY_NODE_LIMIT_EXCEEDED";
-	default:
-		return "UNKNOWN";
-	}
-}
 
 
 std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& record)
@@ -30,7 +11,7 @@ std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& re
 	const size_t kLength = record.result_nodes.size();
 	const int kPrecision = 3;
 
-	ofs << std::to_string(record.simulation_result) << std::endl;	//最終的な結果の出力
+	ofs << magic_enum::enum_name(record.simulation_result) << std::endl;	//最終的な結果の出力
 
 
 	ofs << std::endl;
@@ -59,7 +40,8 @@ std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& re
 		//グラフ探索の結果の出力
 		if (record.graph_search_results.size() > i)
 		{
-			ofs << std::to_string(record.graph_search_results[i]) << ",";
+			//magic enumを使って列挙型を文字列に変換
+			ofs << magic_enum::enum_name(record.graph_search_results[i]) << ",";
 		}
 		else
 		{

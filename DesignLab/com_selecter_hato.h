@@ -25,43 +25,39 @@ class ComSelecterHato final
 {
 public:
 
-	ComSelecterHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : mp_calculator(calc) {};
+	ComSelecterHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : calculator_ptr_(calc) {};
 
 
 	//! @brief 現在のノードを設定する
 	//! @param [in] current_node 現在のノード
-	inline void setCurrentNode(const SNode& current_node) { m_current_node = current_node; } //!< 現在のノードを設定する
+	inline void SetCurrentNode(const SNode& current_node) { current_node_ = current_node; } //!< 現在のノードを設定する
 
 	//! @brief 重心を求める
 	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
-	//! @param [in] com_pattren 重心の求め方
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool getComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const;
+	bool GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const;
 
 private:
 
-	static constexpr int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数
+	static constexpr int kDiscretizationNum = 10; // 重心を求める際の分割数
 
 	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
 
-	static constexpr bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
 
-
-
-	SNode getCurrentNode() const { return m_current_node; } //!< 現在のノードを取得する
+	SNode GetCurrentNode() const { return current_node_; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
-	bool makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const;
+	bool MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[kDiscretizationNum * kDiscretizationNum]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
 	bool isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
 
 
 
-	SNode m_current_node; //!< 現在のノード
+	SNode current_node_; //!< 現在のノード
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> mp_calculator;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 };
 
 

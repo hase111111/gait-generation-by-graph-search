@@ -8,7 +8,7 @@ namespace dl_leg_test
 	TEST(GroundCheck, GetLiftedLegNum)
 	{
 		// テストケース1 全脚接地
-		EDiscreteComPos com = EDiscreteComPos::FRONT;
+		DiscreteComPos com = DiscreteComPos::kFront;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };

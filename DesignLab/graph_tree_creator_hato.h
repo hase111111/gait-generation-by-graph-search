@@ -31,7 +31,7 @@ public:
 
 	void Init(const DevideMapState& map_state);
 
-	EGraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) override;
+	GraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) override;
 
 private:
 

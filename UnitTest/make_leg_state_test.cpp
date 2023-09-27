@@ -19,7 +19,7 @@ namespace dl_leg_test
 		virtual void TearDown() {}
 
 		//! @brief bitの値が各ステータスの値と等しいか確認する
-		void testLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const EDiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const DiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
+		void testLegState(const std::bitset<dl_leg::LEG_STATE_BIT_NUM>& leg_state, const DiscreteComPos& com_pattern, const bool is_ground[HexapodConst::LEG_NUM], const DiscreteLegPos leg_pos[HexapodConst::LEG_NUM])
 		{
 			EXPECT_EQ(dl_leg::getComPatternState(leg_state), com_pattern) << "bit : " + leg_state.to_string() + "\nfirst : "
 				+ std::to_string(static_cast<int>(dl_leg::getComPatternState(leg_state))) + " second : " + std::to_string(static_cast<int>(com_pattern));
@@ -37,7 +37,7 @@ namespace dl_leg_test
 
 	TEST_F(MakeLegState, ChangeComPattren)
 	{
-		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
@@ -49,49 +49,49 @@ namespace dl_leg_test
 
 
 		//重心パターンを変更して，重心パターンが変更されたか，また重心の値が変わらないこと，脚位置の値が変化しないことを確認
-		com_pattern = EDiscreteComPos::BACK;
+		com_pattern = DiscreteComPos::kBack;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 1");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::BACK_LEFT;
+		com_pattern = DiscreteComPos::kBackLeft;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 2");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::BACK_RIGHT;
+		com_pattern = DiscreteComPos::kBackRight;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 3");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::FRONT_LEFT;
+		com_pattern = DiscreteComPos::kFrontLeft;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 4");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::FRONT_RIGHT;
+		com_pattern = DiscreteComPos::kFrontRight;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 5");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::CENTER_BACK;
+		com_pattern = DiscreteComPos::kCenterBack;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 6");
 			testLegState(res, com_pattern, is_ground, discretized_leg_pos);
 		}
 
-		com_pattern = EDiscreteComPos::CENTER_FRONT;
+		com_pattern = DiscreteComPos::kCenterFront;
 		res = dl_leg::MakeLegStateBit(com_pattern, is_ground, discretized_leg_pos);
 		{
 			SCOPED_TRACE("test 7");
@@ -102,7 +102,7 @@ namespace dl_leg_test
 	TEST_F(MakeLegState, ChangeGround)
 	{
 		// 様々な脚接地パターンを作成し， 脚接地パターンが変更されたか，また重心の値が変わらないこと，脚位置の値が変化しないことを確認
-		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
@@ -236,7 +236,7 @@ namespace dl_leg_test
 	TEST_F(MakeLegState, ChangeDiscreteLegPos)
 	{
 		//様々な脚位置パターンを作成する．
-		EDiscreteComPos com_pattern = EDiscreteComPos::FRONT;
+		DiscreteComPos com_pattern = DiscreteComPos::kFront;
 		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
 		DiscreteLegPos discretized_leg_pos1[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };

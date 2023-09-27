@@ -18,7 +18,7 @@
 //
 //	//! @brief 現在のノードを設定する
 //	//! @param [in] _current_node 現在のノード
-//	void setCurrentNode(const SNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
+//	void SetCurrentNode(const SNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
 //
 //	//! @brief 重心を求める
 //	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
@@ -31,18 +31,18 @@
 //	//! そして，絶対安全余裕を計算し，マージンを外れた点を除外する． <br>
 //	//! また，移動後の座標において，脚が他の脚と干渉する場合は除外する． <br>
 //	//! 以上の処理を行った後，残った点の重心を求める． <br>
-//	bool getComFromPolygon(const designlab::Polygon2& polygon, const EDiscreteComPos _com_pattren, designlab::Vector3& _output_com) const;
+//	bool GetComFromPolygon(const designlab::Polygon2& polygon, const DiscreteComPos _com_pattren, designlab::Vector3& _output_com) const;
 //
 //private:
 //
 //	//! @brief 候補地点を生成する
-//	void makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& _output_coms) const;
+//	void MakeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& _output_coms) const;
 //
 //	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
 //	bool isInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& _com) const;
 //
 //
-//	const int DISCRETIZATION_NUM = 10; // 重心を求める際の分割数
+//	const int kDiscretizationNum = 10; // 重心を求める際の分割数
 //
 //	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
 //

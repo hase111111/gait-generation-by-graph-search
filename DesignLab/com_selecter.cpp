@@ -4,12 +4,12 @@
 //#include <iostream>
 //
 //
-//bool ComSelecter::getComFromPolygon(const designlab::Polygon2& polygon, const EDiscreteComPos com_pattren, designlab::Vector3& output_com) const
+//bool ComSelecter::GetComFromPolygon(const designlab::Polygon2& polygon, const DiscreteComPos com_pattren, designlab::Vector3& output_com) const
 //{
 //	std::vector<designlab::Vector2> coms;
 //
 //	//候補点を生成する
-//	makeComCandidatePoint(polygon, coms);
+//	MakeComCandidatePoint(polygon, coms);
 //
 //	//候補点を現在の重心から最も遠くに移動できる順にソートする．第3引数のきもいのはラムダ式，簡単に言うと関数を関数の中で宣言できるやつ．むずいので理解しなくてよい
 //	//参考：https://qiita.com/kemkemG0/items/76988e8e62c8a2a9c90a
@@ -47,7 +47,7 @@
 //}
 //
 //
-//void ComSelecter::makeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& coms) const
+//void ComSelecter::MakeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& coms) const
 //{
 //	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 //	const float kMinX = polygon.GetMinX();
@@ -58,13 +58,13 @@
 //	const float kWidth = kMaxX - kMinX;
 //	const float kHeight = kMaxY - kMinY;
 //
-//	const float kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;
-//	const float kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;
+//	const float kDeltaWidth = kWidth / (float)kDiscretizationNum;
+//	const float kDeltaHeight = kHeight / (float)kDiscretizationNum;
 //
 //	//上記の四角形の中にある点を全て候補に追加する．ただし，多角形の中にある点のみ．
-//	for (int x = 0; x <= DISCRETIZATION_NUM; ++x)
+//	for (int x = 0; x <= kDiscretizationNum; ++x)
 //	{
-//		for (int y = 0; y <= DISCRETIZATION_NUM; ++y)
+//		for (int y = 0; y <= kDiscretizationNum; ++y)
 //		{
 //			const designlab::Vector2 kComPoint{kMinX + kDeltaWidth * x, kMinY + kDeltaHeight * y};
 //

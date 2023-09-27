@@ -9,12 +9,12 @@
 namespace dlm = ::designlab::math_util;
 
 
-bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* const EDiscreteComPos com_pattren,*/ designlab::Vector3* output_com) const
+bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const
 {
-	std::pair<bool, designlab::Vector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
+	std::pair<bool, designlab::Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
 	//候補点を生成する
-	if (!makeComCandidatePoint(polygon, com_candidate))
+	if (!MakeComCandidatePoint(polygon, com_candidate))
 	{
 		return false;
 	}
@@ -34,7 +34,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 	designlab::Vector3 after_move_com;
 	designlab::Vector3 after_move_leg_pos[HexapodConst::LEG_NUM];
 
-	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
+	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
 		if (!isInMargin(polygon, edge_vec, com_candidate[i].second))
 		{
@@ -44,15 +44,15 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 		}
 
 		//現在の重心を移動させたものを作成する
-		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, getCurrentNode().global_center_of_mass.z };
+		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, GetCurrentNode().global_center_of_mass.z };
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			if (dl_leg::IsGrounded(getCurrentNode().leg_state, j))
+			if (dl_leg::IsGrounded(GetCurrentNode().leg_state, j))
 			{
-				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
+				after_move_leg_pos[j] = GetCurrentNode().leg_pos[j] - (after_move_com - GetCurrentNode().global_center_of_mass);
 
-				if (!mp_calculator->IsLegInRange(j, after_move_leg_pos[j]))
+				if (!calculator_ptr_->IsLegInRange(j, after_move_leg_pos[j]))
 				{
 					//脚が可動範囲外ならば次の候補点へ
 					com_candidate[i].first = false;
@@ -77,7 +77,7 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 	float min_dist = -100000;
 	int min_index = -1;
 
-	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
+	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
 		if (com_candidate[i].first)
 		{
@@ -99,12 +99,12 @@ bool ComSelecterHato::getComFromPolygon(const designlab::Polygon2& polygon,/* co
 	//該当するものがなければfalseを返す
 	(*output_com).x = com_candidate[min_index].second.x;
 	(*output_com).y = com_candidate[min_index].second.y;
-	(*output_com).z = getCurrentNode().global_center_of_mass.z;
+	(*output_com).z = GetCurrentNode().global_center_of_mass.z;
 	return true;
 }
 
 
-bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
+bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
 	const float kMinX = polygon.GetMinX();
@@ -117,17 +117,17 @@ bool ComSelecterHato::makeComCandidatePoint(const designlab::Polygon2& polygon, 
 
 	if (dlm::IsEqual(kWidth, 0.0f) || dlm::IsEqual(kHeight, 0.0f)) { return false; }
 
-	const float kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;
-	const float kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;
+	const float kDeltaWidth = kWidth / (float)kDiscretizationNum;
+	const float kDeltaHeight = kHeight / (float)kDiscretizationNum;
 
 	//上記の四角形の中にある点を全て候補に追加する．
-	for (int x = 0; x < DISCRETIZATION_NUM; ++x)
+	for (int x = 0; x < kDiscretizationNum; ++x)
 	{
-		for (int y = 0; y < DISCRETIZATION_NUM; ++y)
+		for (int y = 0; y < kDiscretizationNum; ++y)
 		{
-			coms[x * DISCRETIZATION_NUM + y].first = true;
-			coms[x * DISCRETIZATION_NUM + y].second.x = kMinX + kDeltaWidth * x;
-			coms[x * DISCRETIZATION_NUM + y].second.y = kMinY + kDeltaHeight * y;
+			coms[x * kDiscretizationNum + y].first = true;
+			coms[x * kDiscretizationNum + y].second.x = kMinX + kDeltaWidth * x;
+			coms[x * kDiscretizationNum + y].second.y = kMinY + kDeltaHeight * y;
 		}
 	}
 

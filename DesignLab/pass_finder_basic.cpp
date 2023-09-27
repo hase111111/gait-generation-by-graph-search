@@ -20,7 +20,7 @@ PassFinderBasic::PassFinderBasic(
 {
 }
 
-EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node)
+GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node)
 {
 	assert(output_node != nullptr);	// output_nodeはnullptrでない
 
@@ -28,8 +28,8 @@ EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& curren
 	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
 
 	//早期リターン．2つのクラスが存在しないならば，即座に終了する．assertでもよかったかも
-	if (!graph_tree_creator_ptr_) { return EGraphSearchResult::FailureByInitializationFailed; }
-	if (!graph_searcher_ptr_) { return EGraphSearchResult::FailureByInitializationFailed; }
+	if (!graph_tree_creator_ptr_) { return GraphSearchResult::FailureByInitializationFailed; }
+	if (!graph_searcher_ptr_) { return GraphSearchResult::FailureByInitializationFailed; }
 
 	DevideMapState devide_map;
 	devide_map.Init(map_ref);
@@ -47,7 +47,7 @@ EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& curren
 	SNode parent_node = current_node;
 	parent_node.ChangeParentNode();
 
-	EGraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::MAX_DEPTH, &graph_tree_);
+	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::MAX_DEPTH, &graph_tree_);
 
 	if (!graphSeachResultIsSuccessful(result)) 
 	{
@@ -72,7 +72,7 @@ EGraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& curren
 
 	dlio::Output("グラフ木の評価終了．グラフ探索に成功した", OutputDetail::kDebug);
 
-	return EGraphSearchResult::Success;
+	return GraphSearchResult::Success;
 }
 
 int PassFinderBasic::GetMadeNodeNum() const

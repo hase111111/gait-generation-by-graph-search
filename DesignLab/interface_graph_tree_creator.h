@@ -31,8 +31,8 @@ public:
 	//! @param current_node [in] 現在の状態を表すノード．深さが0のノードを渡すこと．
 	//! @param max_depth [in] 作成するグラフ木の最大深さ．大きすぎる値を渡すと重くなる or 動かなくなるので注意．
 	//! @param output_graph [out] 出力されるグラフ木
-	//! @return EGraphSearchResult 生成の結果，生成に成功したかどうか，失敗した場合は失敗の理由を返す
-	virtual EGraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) = 0;
+	//! @return GraphSearchResult 生成の結果，生成に成功したかどうか，失敗した場合は失敗の理由を返す
+	virtual GraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) = 0;
 };
 
 

@@ -8,7 +8,7 @@ std::string std::to_string(const DiscreteLegPos leg_pos)
 	switch (leg_pos)
 	{
 	case DiscreteLegPos::kFront:
-		return "FRONT";
+		return "kFront";
 
 	case DiscreteLegPos::kBack:
 		return "Back";
