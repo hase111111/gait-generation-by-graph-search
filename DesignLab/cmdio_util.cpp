@@ -192,11 +192,23 @@ namespace designlab
 
 				if (res < min || res > max)
 				{
+					Output(
+						"入力された値「" + input_str + "」は範囲外です．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
+						OutputDetail::kSystem,
+						true
+					);
+
 					res = default_num;
 				}
 			}
 			catch (...)
 			{
+				Output(
+					"入力された値「" + input_str + "」は評価できません．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．", 
+					OutputDetail::kSystem, 
+					true
+				);
+
 				res = default_num;
 			}
 
