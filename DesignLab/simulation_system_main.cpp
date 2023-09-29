@@ -25,7 +25,7 @@ SimulationSystemMain::SimulationSystemMain(
 	setting_ptr_(setting_ptr)
 {
 	//結果をファイルに出力するクラスを初期化する．
-	result_exporter_.init();
+	result_exporter_.Init();
 
 	//マップを生成する．
 	MapCreator map_creator;
@@ -185,7 +185,7 @@ void SimulationSystemMain::Main()
 
 		}	//歩容生成のループ終了
 
-		result_exporter_.exportResult(record);	//シミュレーションの結果をファイルに出力する．
+		result_exporter_.SetSimulationResultAndExportNodeList(record);	//シミュレーションの結果をファイルに出力する．
 
 		broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);	//仲介人にシミュレーション終了を通達する．
 

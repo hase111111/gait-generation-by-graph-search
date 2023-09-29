@@ -2,61 +2,133 @@
 
 #include <filesystem>
 
+#include "cmdio_util.h"
 #include "stopwatch.h"
 
 
+namespace dlio = designlab::cmdio;
 namespace sf = std::filesystem;	//長すぎるので，filesystemの名前空間を短縮する．
 
 
-void ResultFileExporter::init()
+const std::string ResultFileConst::kDirectoryName = sf::current_path().string() + "/result";
+
+const std::string ResultFileConst::kFileName = "sim_result";
+
+const std::string ResultFileConst::kNodeListName = "node_list";
+
+
+ResultFileExporter::ResultFileExporter() :
+	export_count_(0),
+	init_success_(false),
+	do_export_(true)
+{
+}
+
+void ResultFileExporter::Init()
 {
 	//resultフォルダがなければ作成する．
-	if (!sf::exists(RESULT_FOLDER_NAME))
+	if (not sf::exists(ResultFileConst::kDirectoryName))
 	{
-		sf::create_directory(RESULT_FOLDER_NAME);
+		dlio::Output("結果出力先フォルダ " + ResultFileConst::kDirectoryName + "が存在しないので作成します．", OutputDetail::kInfo);
+		sf::create_directory(ResultFileConst::kDirectoryName);
 	}
 
 	//フォルダ名を指定する．現在時刻を取得し，それをフォルダ名にする．
 	Stopwatch timer;
-	m_folder_name = timer.GetNowTimeString();
+	folder_name_ = timer.GetNowTimeString();
 
 
 	//出力先フォルダを作成する．
-	std::string output_folder_name = RESULT_FOLDER_NAME + "/" + m_folder_name;
+	std::string output_folder_name = ResultFileConst::kDirectoryName + "/" + folder_name_;
 
 	if (sf::exists(output_folder_name))
 	{
 		//すでに同名のフォルダが存在する場合は，初期化失敗フラグを立てる．
-		m_init_success = false;
+		init_success_ = false;
+
+		dlio::Output("結果出力先のフォルダ " + output_folder_name + "はすでに存在します．", OutputDetail::kError);
+
 		return;
 	}
 
 	sf::create_directory(output_folder_name);	//フォルダを作成する．
 
-	if (!sf::exists(output_folder_name))
+	if (not sf::exists(output_folder_name))
 	{
 		//今度は逆に，フォルダが作成できなかった場合は，初期化失敗フラグを立てる．
-		m_init_success = false;
+		init_success_ = false;
+
+		dlio::Output("結果出力先のフォルダ " + output_folder_name + "を作成できませんでした．", OutputDetail::kError);
+
 		return;
 	}
 
-	m_init_success = true;
+	init_success_ = true;
 }
 
 
-void ResultFileExporter::exportResult(const SimulationResultRecorder& recoder)
+void ResultFileExporter::SetSimulationResultAndExportNodeList(const SimulationResultRecorder& simu_result)
 {
-	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
-	if (!m_init_success || !m_do_export) { return; }
+	//結果をセットする
+	result_list_.push_back(simu_result);
 
+	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
+	if (not init_success_)
+	{
+		dlio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", OutputDetail::kError);
+		return; 
+	}
+
+	if (not do_export_)
+	{
+		dlio::Output("結果出力フラグがfalseのため，結果を出力しません", OutputDetail::kInfo);
+		return; 
+	}
 
 	//出力先ファイルを作成する．
-	std::string output_file_name = RESULT_FOLDER_NAME + "/" + m_folder_name + "/" + FILE_NAME + std::to_string(m_export_count + 1) + ".csv";
+	std::string output_file_name = ResultFileConst::kDirectoryName + "/" + folder_name_ + "/" + ResultFileConst::kNodeListName + std::to_string(export_count_ + 1) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
 	//ファイルが作成できなかった場合は，なにも出力しない．
-	if (!ofs) { return; }
+	if (not ofs) 
+	{
+		dlio::Output("ファイル " + output_file_name + "を作成できませんでした．", OutputDetail::kError);
+		return; 
+	}
+
+	for (const auto& i : simu_result.graph_search_result_recoder)
+	{
+		ofs << i.result_node << "\n";
+	}
+
+	ofs.close();
+}
+
+
+void ResultFileExporter::ExportResult(const SimulationResultRecorder& recoder)
+{
+	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
+	if (not init_success_) 
+	{
+		dlio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", OutputDetail::kError);
+		return; 
+	}
+
+	if (not do_export_) 
+	{
+		dlio::Output("結果出力フラグがfalseのため，結果を出力しません", OutputDetail::kInfo);
+		return; 
+	}
+
+
+	//出力先ファイルを作成する．
+	std::string output_file_name = ResultFileConst::kDirectoryName + "/" + folder_name_ + "/" + ResultFileConst::kFileName + std::to_string(export_count_ + 1) + ".csv";
+
+	std::ofstream ofs(output_file_name);
+
+	//ファイルが作成できなかった場合は，なにも出力しない．
+	if (not ofs) { return; }
 
 
 	//結果を出力する．
@@ -68,17 +140,17 @@ void ResultFileExporter::exportResult(const SimulationResultRecorder& recoder)
 	//結果の詳細を出力する．
 	ofs << std::endl << "@SimuResDetail" << std::endl;
 
-	outputResultDetail(recoder, ofs);
+	OutputResultDetail(recoder, ofs);
 
 
-	++m_export_count;	//出力した回数をカウントアップする．
+	++export_count_;	//出力した回数をカウントアップする．
 
 
 	//ファイルを閉じる．
 	ofs.close();
 }
 
-void ResultFileExporter::outputResultDetail(const SimulationResultRecorder& recoder, std::ofstream& stream)
+void ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& recoder, std::ofstream& stream)
 {
 	if (!stream) { return; }
 

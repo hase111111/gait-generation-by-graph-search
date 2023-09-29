@@ -5,8 +5,11 @@
 #define DESIGNLAB_DEFINE_H_
 
 
+#include <string>
+
+
 //! @class Define
-//! @brief
+//! @brief プロジェクト全体で使用する定数をまとめた定数クラス
 //! @details Effective C++ という本 (私が持っているのはかなり古い版のものなので正直正しいのかはよくわからないけど) によると，
 //! @n C++においてはあまり定数を宣言するために #defineを使用するべきではないようである．結構いろんなサイトでも同じことが言われている．
 //! @n https://qiita.com/jonichonpa/items/595ed7914751787ebaee
@@ -24,16 +27,20 @@ class Define final
 {
 public:
 
+	// コンストラクタを全て削除して，インスタンス化できないようにする
+	Define() = delete;
+	Define(const Define& _other) = delete;
+	Define(const Define&& _other) = delete;
+	Define& operator = (const Define& _other) = delete;
+
+
 	const static int kSimurateNum;	//!< 連続でシミュレーションを行う回数
 
 	const static int kGaitPatternGenerationLimit;	//!< 1シミュレーション当たりの最大歩容生成回数
 
 	const static int kGoalTape;	//!< 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了
 
-private:
-
-	Define() = delete;
-	Define(const Define& _other) = delete;
+	const static std::string kResultFilePath;	//!< シミュレーション結果を保存するファイルのパス
 };
 
 

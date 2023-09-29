@@ -109,7 +109,7 @@
     <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder">
       <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\System\Simulation\Result">
+    <Filter Include="ソース ファイル\PassFinder\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -233,9 +233,6 @@
     </ClInclude>
     <ClInclude Include="pass_finder_basic.h">
       <Filter>ソース ファイル\PassFinder</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_search_result_recoder.h">
-      <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_const.h">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
@@ -388,10 +385,13 @@
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\System\Simulation\Result</Filter>
+      <Filter>ソース ファイル\PassFinder\Result</Filter>
     </ClInclude>
     <ClInclude Include="simulation_result_recorder.h">
-      <Filter>ソース ファイル\System\Simulation\Result</Filter>
+      <Filter>ソース ファイル\PassFinder\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_search_result_recoder.h">
+      <Filter>ソース ファイル\PassFinder\Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -615,10 +615,10 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\System\Simulation\Result</Filter>
+      <Filter>ソース ファイル\PassFinder\Result</Filter>
     </ClCompile>
     <ClCompile Include="simulation_result_recorder.cpp">
-      <Filter>ソース ファイル\System\Simulation\Result</Filter>
+      <Filter>ソース ファイル\PassFinder\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
