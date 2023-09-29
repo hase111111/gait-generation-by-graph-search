@@ -24,7 +24,7 @@
 //}
 //
 //
-//designlab::Vector3 HexapodStateCalclator_Old::convertLocalLegPos(const SNode& node, const designlab::Vector3& global_pos, const int leg_num, const bool do_consider_rot) const
+//designlab::Vector3 HexapodStateCalclator_Old::convertLocalLegPos(const RobotStateNode& node, const designlab::Vector3& global_pos, const int leg_num, const bool do_consider_rot) const
 //{
 //	if (do_consider_rot)
 //	{
@@ -37,7 +37,7 @@
 //}
 //
 //
-//void HexapodStateCalclator_Old::calclateJointPos(const SNode& _node)
+//void HexapodStateCalclator_Old::calclateJointPos(const RobotStateNode& _node)
 //{
 //	// 逆運動学的にジョイントの場所を計算する．
 //	//ノードの脚位置は正しい場所にあるという前提のもと計算するので，めちゃくちゃな値が代入されているとうまく動作しない．
@@ -79,13 +79,13 @@
 //}
 //
 //
-//designlab::Vector3 HexapodStateCalclator_Old::getGlobalFemurJointPos(const SNode& _node, const int _leg_num) const
+//designlab::Vector3 HexapodStateCalclator_Old::getGlobalFemurJointPos(const RobotStateNode& _node, const int _leg_num) const
 //{
 //	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_femurjoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 //}
 //
 //
-//designlab::Vector3 HexapodStateCalclator_Old::getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const
+//designlab::Vector3 HexapodStateCalclator_Old::getGlobalTibiaJointPos(const RobotStateNode& _node, const int _leg_num) const
 //{
 //	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 //}
@@ -151,7 +151,7 @@
 //}
 //
 //
-//bool HexapodStateCalclator_Old::IsLegInterfering(const SNode& _node) const
+//bool HexapodStateCalclator_Old::IsLegInterfering(const RobotStateNode& _node) const
 //{
 //	//重心を原点とした，座標系において，脚の干渉を調べる．
 //
@@ -178,7 +178,7 @@
 //}
 //
 //
-//bool HexapodStateCalclator_Old::IsLegInRange(const SNode& node, const int leg_num) const
+//bool HexapodStateCalclator_Old::IsLegInRange(const RobotStateNode& node, const int leg_num) const
 //{
 //	const designlab::Vector2 leg_pos_xy = node.leg_pos[leg_num].ProjectedXY();
 //	const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_num], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_num]};
@@ -215,7 +215,7 @@
 //}
 //
 //
-//bool HexapodStateCalclator_Old::isAllLegInRange(const SNode& node) const
+//bool HexapodStateCalclator_Old::isAllLegInRange(const RobotStateNode& node) const
 //{
 //	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 //	{
@@ -229,7 +229,7 @@
 //}
 //
 //
-//bool HexapodStateCalclator_Old::isAblePause(const SNode& _node) const
+//bool HexapodStateCalclator_Old::isAblePause(const RobotStateNode& _node) const
 //{
 //	//重心を原点とした座標系で，脚の位置を計算する．
 //	//かつてvectorを使っていたが，処理速度の問題で，配列を使うことにした．
@@ -259,7 +259,7 @@
 //}
 //
 //
-//float HexapodStateCalclator_Old::calculateStaticMargin(const SNode& node) const
+//float HexapodStateCalclator_Old::calculateStaticMargin(const RobotStateNode& node) const
 //{
 //	//重心を原点とした座標系で，脚の位置を計算する．
 //	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない

@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "node.h"
+#include "robot_state_node.h"
 
 
 class InterpolatedNodeCreator
@@ -15,7 +15,7 @@ public:
 	//! @param[in]	node 現在のノード
 	//! @param[in]	next_node 次のノード
 	//! @param[out]	interpolated_node 補間されたノード
-	void createInterpolatedNode(const SNode& node, const SNode& next_node, std::vector<SNode>* interpolated_node) const;
+	void createInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const;
 
 private:
 

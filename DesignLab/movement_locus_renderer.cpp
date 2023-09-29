@@ -29,7 +29,7 @@ void MovementLocusRenderer::set_simulation_end_indexes(const std::vector<size_t>
 }
 
 
-void MovementLocusRenderer::set_move_locus_point(const std::vector<SNode>& locus)
+void MovementLocusRenderer::set_move_locus_point(const std::vector<RobotStateNode>& locus)
 {
 	move_locus_point_.clear();
 

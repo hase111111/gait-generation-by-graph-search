@@ -217,7 +217,7 @@ namespace designlab
 
 		bool InputYesNo(const std::string& str)
 		{
-			Output(str, OutputDetail::kSystem, true);
+			Output(str + " ( y / n ) ", OutputDetail::kSystem, true);
 
 			while (true)
 			{

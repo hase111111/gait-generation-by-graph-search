@@ -11,7 +11,7 @@
 #include "interface_pass_finder.h"
 #include "interface_graph_searcher.h"
 #include "interface_graph_tree_creator.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class PassFinderBasic
@@ -32,15 +32,15 @@ public:
 	~PassFinderBasic() = default;
 
 
-	GraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node) override;
+	GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const STarget& target, RobotStateNode* output_node) override;
 
 	int GetMadeNodeNum() const;
 
-	void GetGraphTree(std::vector<SNode>* output_graph) const;
+	void GetGraphTree(std::vector<RobotStateNode>* output_graph) const;
 
 private:
 
-	std::vector<SNode> graph_tree_;	//!< グラフ探索の結果得られた木構造のグラフ
+	std::vector<RobotStateNode> graph_tree_;	//!< グラフ探索の結果得られた木構造のグラフ
 
 	const std::unique_ptr<IGraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス
 

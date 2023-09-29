@@ -8,7 +8,7 @@
 #include <memory>
 #include <map>
 
-#include "node.h"
+#include "robot_state_node.h"
 #include "button_controller.h"
 #include "abstract_hexapod_state_calculator.h"
 
@@ -29,7 +29,7 @@ public:
 
 	//! @brief 表示するノードを設定する，その後関節の角度を計算し，セットする
 	//! @param [in] node 表示するノード
-	void SetDisplayNode(const SNode& node);
+	void SetDisplayNode(const RobotStateNode& node);
 
 
 	//! @brief GUIのボタンの更新を行う
@@ -75,7 +75,7 @@ private:
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
 
 
-	SNode display_node_;										//!< 表示するノード
+	RobotStateNode display_node_;										//!< 表示するノード
 
 	std::array<HexapodJointState, HexapodConst::LEG_NUM> joint_state_;		//!< 関節の角度
 

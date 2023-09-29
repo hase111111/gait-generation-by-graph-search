@@ -2,7 +2,7 @@
 //
 //#include "designlab_vector3.h"
 //#include "designlab_euler.h"
-//#include "node.h"
+//#include "robot_state_node.h"
 //#include "hexapod_const.h"
 //
 //
@@ -26,14 +26,14 @@
 //	//! @param [in] leg_num 脚番号 0～5
 //	//! @param [in] do_consider_rot 回転を考慮するかどうか
 //	//! @return designlab::Vector3 ローカル座標の脚座標
-//	designlab::Vector3 convertLocalLegPos(const SNode& node, const designlab::Vector3& global_pos, const int leg_num, const bool do_consider_rot) const;
+//	designlab::Vector3 convertLocalLegPos(const RobotStateNode& node, const designlab::Vector3& global_pos, const int leg_num, const bool do_consider_rot) const;
 //
 //	//! @brief 脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．
 //	//! @param [in] _node ロボットの状態を表すノード
 //	//! @param [in] leg_num 脚番号 0～5
 //	//! @param [in] _consider_rot 回転を考慮するかどうか
 //	//! @return designlab::Vector3 グローバル座標の脚座標
-//	inline designlab::Vector3 getGlobalLegPos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+//	inline designlab::Vector3 getGlobalLegPos(const RobotStateNode& _node, const int _leg_num, const bool _consider_rot) const
 //	{
 //		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
 //		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_pos[_leg_num]; }
@@ -44,7 +44,7 @@
 //	//! @param [in] leg_num 脚番号 0～5
 //	//! @param [in] _consider_rot 回転を考慮するかどうか
 //	//! @return designlab::Vector3 グローバル座標の脚の基準地点の座標
-//	inline designlab::Vector3 getGlobalLegBasePos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+//	inline designlab::Vector3 getGlobalLegBasePos(const RobotStateNode& _node, const int _leg_num, const bool _consider_rot) const
 //	{
 //		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num], _node.rot) + _node.global_center_of_mass; }
 //		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num) + _node.leg_reference_pos[_leg_num]; }
@@ -55,7 +55,7 @@
 //	// @param [in] leg_num 脚番号 0～5
 //	// @param [in] _consider_rot 回転を考慮するかどうか
 //	// @return designlab::Vector3 グローバル座標の脚の付け根の座標
-//	inline designlab::Vector3 getGlobalCoxaJointPos(const SNode& _node, const int _leg_num, const bool _consider_rot) const
+//	inline designlab::Vector3 getGlobalCoxaJointPos(const RobotStateNode& _node, const int _leg_num, const bool _consider_rot) const
 //	{
 //		if (_consider_rot == true) { return rotVector(getLocalCoxaJointPos(_leg_num), _node.rot) + _node.global_center_of_mass; }
 //		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num); }
@@ -65,13 +65,13 @@
 //	//! 三角関数を多く使用するので，計算量が多い．
 //	//! @param [in] _node ロボットの状態を表すノード
 //	//! @details この関数を使用すると，メンバ変数が更新される．
-//	void calclateJointPos(const SNode& _node);
+//	void calclateJointPos(const RobotStateNode& _node);
 //
 //	//【calclateJointPos関数を使用してから使うこと!!】femur joint (第2関節) の座標を返す．回転を考慮したグローバル座標.
-//	designlab::Vector3 getGlobalFemurJointPos(const SNode& _node, const int _leg_num) const;
+//	designlab::Vector3 getGlobalFemurJointPos(const RobotStateNode& _node, const int _leg_num) const;
 //
 //	//【calclateJointPos関数を使用してから使うこと!!】tibia joint (第3関節) の座標を返す．回転を考慮したグローバル座標.
-//	designlab::Vector3 getGlobalTibiaJointPos(const SNode& _node, const int _leg_num) const;
+//	designlab::Vector3 getGlobalTibiaJointPos(const RobotStateNode& _node, const int _leg_num) const;
 //
 //	//静的メンバ変数の m_leg_max_r , m_leg_min_r の値を計算して初期化する．この関数自体が静的なのでSystemMainで一度だけ実行すればよい．
 //	static void initLegR();
@@ -85,13 +85,13 @@
 //	//! @brief 脚の干渉をチェックする．
 //	//! @param _node ノード情報
 //	//! @return 干渉している場合はtrueを返す．
-//	bool IsLegInterfering(const SNode& _node) const;
+//	bool IsLegInterfering(const RobotStateNode& _node) const;
 //
 //	//! @brief 脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
 //	//! @param _node ノード情報
 //	//! @param leg_num 脚番号
 //	//! @return 可動範囲内ならtrueを返す．
-//	bool IsLegInRange(const SNode& _node, const int _leg_num) const;
+//	bool IsLegInRange(const RobotStateNode& _node, const int _leg_num) const;
 //
 //	//! @brief 脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
 //	//! @param local_leg_pos 脚の付け根の座標を原点とした脚先の座標
@@ -102,18 +102,18 @@
 //	//! @brief 全ての接地脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．
 //	//! @param _node ノード情報
 //	//! @return 可動範囲内ならtrueを返す．
-//	bool isAllLegInRange(const SNode& _node) const;
+//	bool isAllLegInRange(const RobotStateNode& _node) const;
 //
 //	//! @brief 転ばない姿勢かどうか調べる．
 //	//! @param [in] _node ノード情報
 //	//! @return 転ばない姿勢ならtrueを返す．
-//	bool isAblePause(const SNode& _node) const;
+//	bool isAblePause(const RobotStateNode& _node) const;
 //
 //	//! @brief 静的安定余裕を計算する．
 //	//! @param [in] _node ノード情報
 //	//! @return float 静的安定余裕
 //	//! @note 波東さんのプログラムに書いてあったままを移しているが，isAblePause関数と同じようなことをしているので，isAblePause関数を書き直すべきだと思う．
-//	float calculateStaticMargin(const SNode& _node) const;
+//	float calculateStaticMargin(const RobotStateNode& _node) const;
 //
 //private:
 //

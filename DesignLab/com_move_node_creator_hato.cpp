@@ -20,7 +20,7 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const 
 }
 
 
-void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
 {
 	std::array<ComPosAndPolygon, ComCandidatePolygonMaker::MAKE_POLYGON_NUM> candidate_polygons;
 
@@ -39,7 +39,7 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 
 		if (selecter_.GetComFromPolygon(candidate_polygons[i].polygon, &result_com))
 		{
-			SNode next_node = current_node;
+			RobotStateNode next_node = current_node;
 
 			next_node.ChangeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
@@ -61,7 +61,7 @@ void ComMoveNodeCreatorHato::Create(const SNode& current_node, const int current
 }
 
 
-bool ComMoveNodeCreatorHato::IsStable(const SNode& node) const
+bool ComMoveNodeCreatorHato::IsStable(const RobotStateNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 
@@ -76,7 +76,7 @@ bool ComMoveNodeCreatorHato::IsStable(const SNode& node) const
 }
 
 
-bool ComMoveNodeCreatorHato::IsIntersectGround(const SNode& node) const
+bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 {
 	float top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
 

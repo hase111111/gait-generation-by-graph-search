@@ -66,12 +66,12 @@ void GraphViewerSystemMain::Main()
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
-	SNode _node;
+	RobotStateNode _node;
 	_node.Init(false);
 	std::cout << _node.ToString();
 	std::cout << std::endl;
 
-	std::vector<SNode> _graph;
+	std::vector<RobotStateNode> _graph;
 
 	while (true)
 	{
@@ -184,7 +184,7 @@ void GraphViewerSystemMain::Main()
 			else
 			{
 				//終了するか質問する
-				dlio::Output("終了しますか？", OutputDetail::kSystem);
+				dlio::Output("終了します．", OutputDetail::kSystem);
 
 				if (dlio::InputYesNo()) { break; }
 			}
@@ -192,9 +192,9 @@ void GraphViewerSystemMain::Main()
 	}
 }
 
-void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& graph)
+void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>& graph)
 {
-	SNode parent_node = parent;
+	RobotStateNode parent_node = parent;
 	parent_node.ChangeParentNode();
 
 	STarget target;
@@ -202,7 +202,7 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 	target.TargetPosition = { 100000,0,0 };
 	target.RotationCenter = { 0,100000,0 };
 
-	SNode fake_result_node;
+	RobotStateNode fake_result_node;
 
 	GraphSearchResult result =
 		pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
@@ -211,10 +211,10 @@ void GraphViewerSystemMain::CreateGraph(const SNode parent, std::vector<SNode>& 
 
 	pass_finder_ptr_->GetGraphTree(&graph);
 
-	if(graphSeachResultIsSuccessful(result))std::cout << fake_result_node.ToString();
+	if(result != GraphSearchResult::kSuccess)std::cout << fake_result_node.ToString();
 }
 
-void GraphViewerSystemMain::SetGraphToBroker(const std::vector<SNode>& _graph)
+void GraphViewerSystemMain::SetGraphToBroker(const std::vector<RobotStateNode>& _graph)
 {
 	broker_ptr_->graph.Clean();
 
@@ -237,7 +237,7 @@ bool GraphViewerSystemMain::askYesNo(const std::string& question) const
 	return false;
 }
 
-void GraphViewerSystemMain::showGraphStatus(const std::vector<SNode>& _graph) const
+void GraphViewerSystemMain::showGraphStatus(const std::vector<RobotStateNode>& _graph) const
 {
 	std::cout << "GraphViewerSystemMain : グラフの状態を表示します．" << std::endl;
 	std::cout << "GraphViewerSystemMain : グラフのノード数 : " << _graph.size() << std::endl;

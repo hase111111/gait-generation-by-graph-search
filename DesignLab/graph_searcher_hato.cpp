@@ -29,7 +29,7 @@ GraphSearcherHato::~GraphSearcherHato()
 	}
 }
 
-GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result)
 {
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
@@ -51,7 +51,7 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& g
 	const size_t kGraphSize = graph.size();
 	size_t parent_num = getParentNodeIndex(graph);
 
-	if (parent_num < 0) { return GraphSearchResult::FailureByNoNode; }
+	if (parent_num < 0) { return GraphSearchResult::kFailureByNoNode; }
 
 	initEvaluationValue(graph.at(parent_num), target);
 
@@ -122,20 +122,20 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<SNode>& g
 	}
 
 	// index Ç™îÕàÕäOÇ»ÇÁÇŒé∏îs
-	if (result_index < 0 || result_index >= kGraphSize) { return GraphSearchResult::FailureByNoNode; }
+	if (result_index < 0 || result_index >= kGraphSize) { return GraphSearchResult::kFailureByNoNode; }
 
 	//ê[Ç≥1Ç‹Ç≈ëkÇ¡ÇƒílÇï‘Ç∑
-	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::FailureByNotReachedDepth; }
+	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::kFailureByNotReachedDepth; }
 
 	if (GraphSearchConst::DO_DEBUG_PRINT)
 	{
 		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() íTçıèIóπ" << std::endl;
 	}
 
-	return GraphSearchResult::Success;
+	return GraphSearchResult::kSuccess;
 }
 
-size_t GraphSearcherHato::getParentNodeIndex(const std::vector<SNode>& graph) const
+size_t GraphSearcherHato::getParentNodeIndex(const std::vector<RobotStateNode>& graph) const
 {
 	const size_t kGraphSize = graph.size();
 	size_t parent_num = 0;
@@ -152,7 +152,7 @@ size_t GraphSearcherHato::getParentNodeIndex(const std::vector<SNode>& graph) co
 	return parent_num;
 }
 
-bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<SNode>& graph, const size_t max_depth_node_index, SNode* output_node) const
+bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, const size_t max_depth_node_index, RobotStateNode* output_node) const
 {
 	size_t result_index = max_depth_node_index;
 	const size_t kGraphSize = graph.size();
@@ -172,7 +172,7 @@ bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<SNode>& 
 	return true;
 }
 
-void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STarget& target)
+void GraphSearcherHato::initEvaluationValue(const RobotStateNode& parent_node, const STarget& target)
 {
 	m_parent_node = parent_node;
 
@@ -180,7 +180,7 @@ void GraphSearcherHato::initEvaluationValue(const SNode& parent_node, const STar
 	STarget target_copy = target;
 }
 
-float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_node, const STarget& target) const
+float GraphSearcherHato::calcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const STarget& target) const
 {
 	// åxçêâÒîóp
 	STarget target_copy = target;
@@ -196,7 +196,7 @@ float GraphSearcherHato::calcMoveFrowardEvaluationValue(const SNode& current_nod
 	return target_pos.Length() - target_to_parent.Length();
 }
 
-float GraphSearcherHato::calcLegRotEvaluationValue(const SNode& current_node, const STarget& target) const
+float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current_node, const STarget& target) const
 {
 	// åxçêâÒîóp
 	STarget target_copy = target;

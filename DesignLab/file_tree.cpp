@@ -47,7 +47,7 @@ bool FileTree::SelectFile(const std::string& path, int max_depth, const std::str
         dlio::OutputNewLine(1, OutputDetail::kSystem);
         dlio::Output("選択したファイルは" + file_list[select_index] + "です．", OutputDetail::kSystem);
 
-		if (dlio::InputYesNo("よろしいですか？ (yes / no)"))
+		if (dlio::InputYesNo("よろしいですか？"))
 		{
 			*output = file_list[select_index];
             break;

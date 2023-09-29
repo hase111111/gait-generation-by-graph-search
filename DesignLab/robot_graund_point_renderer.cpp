@@ -20,7 +20,7 @@ RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const A
 }
 
 
-void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vector<SNode>& node, const std::vector<size_t>& simu_end_node_index)
+void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vector<RobotStateNode>& node, const std::vector<size_t>& simu_end_node_index)
 {
 	while (loaded_node_num_ < node.size())
 	{

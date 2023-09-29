@@ -50,7 +50,7 @@ private:
 	HexapodRenderer hexapod_renderer_;
 
 
-	std::vector<SNode> graph_;
+	std::vector<RobotStateNode> graph_;
 
 	size_t display_node_index_ = 0;
 

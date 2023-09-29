@@ -1,42 +1,61 @@
 #include "result_viewer_system_main.h"
 
-#include <fstream>
+#include <filesystem>
 
-#include "phantomx_state_calculator.h"
+#include <boost/thread.hpp>
+
+#include "cmdio_util.h"
+#include "file_tree.h"
 #include "map_state.h"
 
 
-ResultViewerSystemMain::ResultViewerSystemMain(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr)
+namespace dlio = designlab::cmdio;
+
+
+ResultViewerSystemMain::ResultViewerSystemMain(
+	std::unique_ptr<IGraphicMain>&& graphic_ptr,
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
+) :
+	kDirectoryName("result"),
+	kFileTreePath(std::filesystem::current_path().string() + "/" + kDirectoryName),
+	graphic_system_(std::move(graphic_ptr), setting_ptr)
 {
 }
 
 void ResultViewerSystemMain::Main()
 {
+	dlio::OutputTitle("Result Viewer System");
+
+	// GUIを表示する
+	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
+
+	while (true)
+	{
+		dlio::Output("ファイルを選択してください．", OutputDetail::kSystem);
+
+
+		// 終了するかどうかを選択
+
+		if (dlio::InputYesNo("終了しますか？"))
+		{
+			dlio::OutputNewLine(1, OutputDetail::kSystem);
+
+			break;
+		}
+
+		dlio::OutputNewLine(1, OutputDetail::kSystem);
+	}
+
+
+	// GUIの終了を待つ
+	dlio::OutputHorizontalLine(true, OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("GUIの終了を待っています", OutputDetail::kSystem);
+
+	graphic_thread.join();
 }
 
 void ResultViewerSystemMain::Read()
 {
-	std::ifstream ifs("result.csv");
 
-	if (!ifs)
-	{
-		return;
-	}
-
-	std::string str;
-
-	std::getline(ifs, str);
-	std::getline(ifs, str);
-	std::getline(ifs, str);
-
-	while (std::getline(ifs, str))
-	{
-		std::string str_conma_buf;
-		std::istringstream i_stream(str);
-
-		while (std::getline(i_stream, str_conma_buf, ','))
-		{
-			SNode read_node;
-		}
-	}
 }

@@ -25,14 +25,14 @@ public:
 	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
-	void Create(const SNode& current_node, int current_num, std::vector<SNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) override;
 
 
 private:
 
-	bool IsStable(const SNode& node) const;
+	bool IsStable(const RobotStateNode& node) const;
 
-	bool IsIntersectGround(const SNode& node) const;
+	bool IsIntersectGround(const RobotStateNode& node) const;
 
 
 	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)

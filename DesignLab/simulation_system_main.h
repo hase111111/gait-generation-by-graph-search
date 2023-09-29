@@ -8,14 +8,15 @@
 #include <string>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "interface_pass_finder.h"
 #include "application_setting_recorder.h"
-#include "stopwatch.h"
 #include "graphic_data_broker.h"
 #include "graphic_system.h"
 #include "interface_graphic_main.h"
+#include "interface_pass_finder.h"
+#include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
+#include "stopwatch.h"
 #include "target.h"
 
 
@@ -23,7 +24,7 @@
 //! @brief 中～大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．
 //! @details 処理の内容を書き換えるときには，int main()から呼ぶクラスを変えるだけでいい．
 
-class SimulationSystemMain final
+class SimulationSystemMain final : public ISystemMain
 {
 public:
 	SimulationSystemMain() = delete;		//デフォルトコンストラクタは禁止．
@@ -42,7 +43,7 @@ public:
 	//! @brief いままでint mainで行われた処理をまとめたもの．
 	//! @n 目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．
 	//! @n また，規定の回数シミュレーションしたら終了する．
-	void Main();
+	void Main() override;
 
 private:
 

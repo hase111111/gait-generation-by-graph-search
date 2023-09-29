@@ -18,7 +18,7 @@
 #include "hexapod_renderer.h"
 #include "map_state.h"
 #include "movement_locus_renderer.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
 #include "stability_margin_renderer.h"
@@ -69,7 +69,7 @@ private:
 
 	MapState map_state_;		//!< 表示するマップ．
 
-	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
+	std::vector<RobotStateNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
 	size_t display_node_index_;	//!< 描画しているノード
 

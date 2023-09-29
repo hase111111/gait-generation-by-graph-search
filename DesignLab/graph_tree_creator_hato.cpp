@@ -24,7 +24,7 @@ void GraphTreeCreatorHato::Init(const DevideMapState& map_state)
 	node_creator_builder_ptr_->Build(map_state, calculator_ptr_, &node_creator_map_);
 }
 
-GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_node, const int max_depth, std::vector<SNode>* output_graph)
+GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const RobotStateNode& current_node, const int max_depth, std::vector<RobotStateNode>* output_graph)
 {
 	assert(output_graph != nullptr);	//nullptrでない．
 	assert(output_graph->empty());		//空である．
@@ -41,7 +41,7 @@ GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_nod
 		//探索深さが足りていないノードにのみ処理をする．
 		if ((*output_graph)[cnt].depth < max_depth)
 		{
-			std::vector<SNode> res_vec;	// _cnt番目のノードの子ノードを入れるベクター
+			std::vector<RobotStateNode> res_vec;	// _cnt番目のノードの子ノードを入れるベクター
 
 			makeNewNodesByCurrentNode((*output_graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
 
@@ -60,14 +60,14 @@ GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const SNode& current_nod
 
 	if (GraphSearchConst::MAX_NODE_NUM < make_node_num)
 	{
-		return GraphSearchResult::FailureByNodeLimitExceeded;
+		return GraphSearchResult::kFailureByNodeLimitExceeded;
 	}
 
-	return GraphSearchResult::Success;
+	return GraphSearchResult::kSuccess;
 }
 
 
-void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) const
+void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
 	(*output_graph).clear();
 
@@ -82,7 +82,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 		assert(false);
 
 		//定義されていないならば，同じノードをそのまま追加する．
-		SNode new_node = current_node;
+		RobotStateNode new_node = current_node;
 
 		new_node.ChangeToNextNode(current_num, current_node.next_move);
 
@@ -104,11 +104,11 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 //まずはグラフを作成する．_graph_tree 変数に結果を参照渡しされる．
 //{
 //	//深さ1までのグラフを作成する．
-//	SNode parent_node = current_node;
+//	RobotStateNode parent_node = current_node;
 //	parent_node.ChangeParentNode();
 //	m_graph_tree.emplace_back(parent_node);
 
-//	std::vector<SNode> depth1_node;
+//	std::vector<RobotStateNode> depth1_node;
 
 //	GraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, 1, &depth1_node);
 
@@ -125,14 +125,14 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 //	//深さ1のノードを親にして，続きのグラフを作成する．
 //	const size_t kDepth1NodeNum = depth1_node.size();
 //	std::vector<std::unique_ptr<IGraphTreeCreator>> tree_creators(kDepth1NodeNum);
-//	std::vector<std::vector<SNode>> threads_result(kDepth1NodeNum);
+//	std::vector<std::vector<RobotStateNode>> threads_result(kDepth1NodeNum);
 //	boost::thread_group tree_creator_threads;
 
 //	for (size_t i = 0; i < kDepth1NodeNum; i++)
 //	{
 //		tree_creators[i] = createGraphTreeCreator(devide_map_, calculator_ptr_);
 
-//		if (!tree_creators[i]) { return GraphSearchResult::FailureByInitializationFailed; }
+//		if (!tree_creators[i]) { return GraphSearchResult::kFailureByInitializationFailed; }
 
 //		tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::MAX_DEPTH, &threads_result[i]));
 //	}
@@ -178,4 +178,4 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const SNode& current_node, 
 
 //if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }
 
-//return GraphSearchResult::Success;
+//return GraphSearchResult::kSuccess;

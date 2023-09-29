@@ -7,9 +7,9 @@
 #include <vector>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "graph_search_result.h"
+#include "graph_search_result_recoder.h"
 #include "map_state.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "target.h"
 
 
@@ -34,7 +34,7 @@ public:
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
 	//! @return GraphSearchResult グラフ探索の結果を返す．成功か失敗か
-	virtual GraphSearchResult GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map, const STarget& target, SNode* output_node) = 0;
+	virtual GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map, const STarget& target, RobotStateNode* output_node) = 0;
 
 	//! @brief 作成したグラフのノードの数を返す
 	//! @return int 作成したグラフの数
@@ -43,7 +43,7 @@ public:
 	//! @brief 作成したグラフ木を返す．
 	//! @n output_graphは空であること．
 	//! @param [out] output_graph 作成したグラフ木を渡す．
-	virtual void GetGraphTree(std::vector<SNode>* output_graph) const = 0;
+	virtual void GetGraphTree(std::vector<RobotStateNode>* output_graph) const = 0;
 };
 
 

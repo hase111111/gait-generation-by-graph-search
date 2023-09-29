@@ -26,7 +26,7 @@ LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std:
 
 
 
-void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
 	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
@@ -81,7 +81,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 		//その重心タイプが可能であれば，
 		if (is_able_leg_ground_pattern[i])
 		{
-			SNode res_node = current_node;
+			RobotStateNode res_node = current_node;
 
 			res_node.ChangeToNextNode(current_num, next_move_);
 
@@ -126,7 +126,7 @@ void LegUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 }
 
 
-bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& current_node, designlab::Vector3* output_ground_pos)
+bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos)
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
 
@@ -164,7 +164,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 				map_point_pos = calclator_ptr_->ConvertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．
-				SNode new_node = current_node;
+				RobotStateNode new_node = current_node;
 
 				new_node.leg_pos[now_leg_num] = map_point_pos;
 
@@ -212,7 +212,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const SNode& c
 }
 
 
-bool LegUpDownNodeCreator::IsAbleLegPos(const SNode& _node, const int leg_index)
+bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int leg_index)
 {
 	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 

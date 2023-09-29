@@ -28,7 +28,7 @@
 #include "designlab_vector3.h"
 #include "designlab_euler.h"
 #include "leg_state.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "hexapod_const.h"
 
 
@@ -68,7 +68,7 @@ public:
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
 	//! @return bool 計算に成功したらtrue．失敗したらfalse．
-	virtual bool CalculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const = 0;
+	virtual bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const = 0;
 
 
 	//! @brief グローバル座標系→脚座標系に変換する．

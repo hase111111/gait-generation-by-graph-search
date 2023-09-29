@@ -12,7 +12,7 @@
 
 #include "abstract_hexapod_state_calculator.h"
 #include "hexapod_const.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class HexapodRenderer
@@ -25,7 +25,7 @@ public:
 
 	//! @brief ロボットの状態を更新する．
 	//! @param [in] node 描画するロボットの状態
-	void set_draw_node(const SNode& node);
+	void set_draw_node(const RobotStateNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
 	void Draw() const;
@@ -58,7 +58,7 @@ private:
 
 	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	// ロボットの状態を計算するクラス
 
-	SNode draw_node_;						// 描画するロボットの状態
+	RobotStateNode draw_node_;						// 描画するロボットの状態
 
 	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	// 描画するロボットのジョイントの状態
 

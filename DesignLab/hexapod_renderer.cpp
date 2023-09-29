@@ -27,11 +27,11 @@ HexapodRenderer::HexapodRenderer(const std::shared_ptr<const AbstractHexapodStat
 	COLOR_ERROR_TEXT(GetColor(32, 32, 32)),
 	COLOR_ERROR_JOINT(GetColor(180, 180, 64))
 {
-	set_draw_node(SNode{});
+	set_draw_node(RobotStateNode{});
 }
 
 
-void HexapodRenderer::set_draw_node(const SNode& node)
+void HexapodRenderer::set_draw_node(const RobotStateNode& node)
 {
 	if (!calculator_ptr_) { return; }	//ŒvŽZŠí‚ª‚È‚¢‚È‚ç‚Î‰½‚à‚µ‚È‚¢
 

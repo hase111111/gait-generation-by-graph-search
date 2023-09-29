@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class INodeCreator
@@ -25,7 +25,7 @@ public:
 	//! @param[in] current_node 現在のノード
 	//! @param[in] current_node_index 現在のノードのインデックス
 	//! @param[out] output_graph 生成したノード群を返す
-	virtual void Create(const SNode& current_node, int current_node_index, std::vector<SNode>* output_graph) = 0;
+	virtual void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) = 0;
 };
 
 

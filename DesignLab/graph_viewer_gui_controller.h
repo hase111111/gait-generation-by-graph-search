@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "application_setting_recorder.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class GraphViewerGUIController
@@ -17,7 +17,7 @@
 class GraphViewerGUIController final
 {
 public:
-	GraphViewerGUIController(const std::vector<SNode>* const graph_ptr, size_t* const display_node_index_ptr,
+	GraphViewerGUIController(const std::vector<RobotStateNode>* const graph_ptr, size_t* const display_node_index_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphViewerGUIController() = default;
 
@@ -31,13 +31,13 @@ private:
 
 	void drawGraphData() const;
 	void drawNodeControllPanel() const;
-	void drawNodeData(const SNode& node) const;
+	void drawNodeData(const RobotStateNode& node) const;
 
 	void inputNumber();
 	void changeDisplayNodeIndex();
 	void updateChildrenList();
 
-	const std::vector<SNode>* const mp_graph;
+	const std::vector<RobotStateNode>* const mp_graph;
 
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 

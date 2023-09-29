@@ -9,7 +9,7 @@
 #include <memory>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class StabilityMarginRenderer
@@ -24,7 +24,7 @@ public:
 
 	//! @brief ロボットの静的安定余裕(支持脚多角形)を描画する．
 	//! @param [in] node ロボットの状態．
-	void Draw(const SNode& node) const;
+	void Draw(const RobotStateNode& node) const;
 
 
 private:

@@ -3,7 +3,7 @@
 //#include "designlab_vector3.h"
 //#include "designlab_polygon2.h"
 //#include "com_type.h"
-//#include "node.h"
+//#include "robot_state_node.h"
 //#include "hexapod_state_calculator.h"
 //
 //
@@ -18,7 +18,7 @@
 //
 //	//! @brief 現在のノードを設定する
 //	//! @param [in] _current_node 現在のノード
-//	void SetCurrentNode(const SNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
+//	void SetCurrentNode(const RobotStateNode& _current_node) { m_current_node = _current_node; } //!< 現在のノードを設定する
 //
 //	//! @brief 重心を求める
 //	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
@@ -49,7 +49,7 @@
 //	const bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
 //
 //
-//	SNode m_current_node; //!< 現在のノード
+//	RobotStateNode m_current_node; //!< 現在のノード
 //
 //	HexapodStateCalclator_Old m_calclator; //!< 状態計算クラス
 //};

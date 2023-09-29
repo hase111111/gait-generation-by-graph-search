@@ -5,17 +5,17 @@
 namespace dlm = designlab::math_util;
 
 
-GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result)
+GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result)
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 
-	if (graph.empty()) { return GraphSearchResult::Failure; }	//グラフがないなら失敗	
+	if (graph.empty()) { return GraphSearchResult::kFailure; }	//グラフがないなら失敗	
 
 	//警告回避用
 	STarget target_copy = target;
 
 	//グラフの中を全て探索する．
-	std::vector<SNode> depth1_node;
+	std::vector<RobotStateNode> depth1_node;
 
 	size_t kGraphSize = graph.size();
 
@@ -28,11 +28,11 @@ GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<SNode>&
 		}
 	}
 
-	if (depth1_node.empty()) { return GraphSearchResult::FailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
+	if (depth1_node.empty()) { return GraphSearchResult::kFailureByNotReachedDepth; }		//深さ1のノードが存在しないなら，終了．
 
 
 	(*output_result) = depth1_node.at(dlm::GenerateRandomNumber(0, static_cast<int>(depth1_node.size()) - 1));		// ランダムなやつを一つ選択する．
 
 
-	return GraphSearchResult::Success;
+	return GraphSearchResult::kSuccess;
 }

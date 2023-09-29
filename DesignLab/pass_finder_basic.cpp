@@ -20,7 +20,7 @@ PassFinderBasic::PassFinderBasic(
 {
 }
 
-GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current_node, const MapState& map_ref, const STarget& target, SNode* output_node)
+GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const STarget& target, RobotStateNode* output_node)
 {
 	assert(output_node != nullptr);	// output_nodeはnullptrでない
 
@@ -28,8 +28,8 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current
 	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
 
 	//早期リターン．2つのクラスが存在しないならば，即座に終了する．assertでもよかったかも
-	if (!graph_tree_creator_ptr_) { return GraphSearchResult::FailureByInitializationFailed; }
-	if (!graph_searcher_ptr_) { return GraphSearchResult::FailureByInitializationFailed; }
+	if (!graph_tree_creator_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
+	if (!graph_searcher_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
 
 	DevideMapState devide_map;
 	devide_map.Init(map_ref);
@@ -44,12 +44,12 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current
 	// グラフ探索をするための，歩容パターングラフを生成する
 	dlio::Output("グラフ木を作成する", OutputDetail::kDebug);
 
-	SNode parent_node = current_node;
+	RobotStateNode parent_node = current_node;
 	parent_node.ChangeParentNode();
 
 	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::MAX_DEPTH, &graph_tree_);
 
-	if (!graphSeachResultIsSuccessful(result)) 
+	if (result != GraphSearchResult::kSuccess)
 	{
 		dlio::Output("グラフ木の作成に失敗．", OutputDetail::kDebug);
 		return result; 
@@ -64,7 +64,7 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current
 
 	result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, output_node);
 
-	if (!graphSeachResultIsSuccessful(result)) 
+	if (result != GraphSearchResult::kSuccess)
 	{
 		dlio::Output("グラフ木の評価に失敗．", OutputDetail::kDebug);
 		return result; 
@@ -72,7 +72,7 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const SNode& current
 
 	dlio::Output("グラフ木の評価終了．グラフ探索に成功した", OutputDetail::kDebug);
 
-	return GraphSearchResult::Success;
+	return GraphSearchResult::kSuccess;
 }
 
 int PassFinderBasic::GetMadeNodeNum() const
@@ -80,7 +80,7 @@ int PassFinderBasic::GetMadeNodeNum() const
 	return static_cast<int>(graph_tree_.size());
 }
 
-void PassFinderBasic::GetGraphTree(std::vector<SNode>* output_graph) const
+void PassFinderBasic::GetGraphTree(std::vector<RobotStateNode>* output_graph) const
 {
 	assert(output_graph != nullptr);
 	assert((*output_graph).size() == 0);

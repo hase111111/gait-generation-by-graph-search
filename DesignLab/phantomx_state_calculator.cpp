@@ -45,7 +45,7 @@ PhantomXStateCalclator::PhantomXStateCalclator() :
 }
 
 
-bool PhantomXStateCalclator::CalculateAllJointState(const SNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
+bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
 {
 	assert(joint_state != nullptr);		//joint_stateÇÕnullptrÇ≈ÇÕÇ»Ç¢ÅD
 

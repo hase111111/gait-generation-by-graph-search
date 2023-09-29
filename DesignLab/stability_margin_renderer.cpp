@@ -22,7 +22,7 @@ StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const Abs
 }
 
 
-void StabilityMarginRenderer::Draw(const SNode& node) const
+void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 {
 	designlab::Polygon2 polygon_xy;			//•½–Ê‚É“Š‰e‚µ‚½‘½ŠpŒ`
 

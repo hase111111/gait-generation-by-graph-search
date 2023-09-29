@@ -7,7 +7,7 @@
 
 #include "asyncable_data.h"
 #include "map_state.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @struct GraphicDataBroker
@@ -20,7 +20,7 @@ struct GraphicDataBroker final
 {
 	AsyncableData<MapState> map_state;
 
-	AsyncableData<std::vector<SNode>> graph;
+	AsyncableData<std::vector<RobotStateNode>> graph;
 
 	AsyncableData<std::vector<size_t>> simu_end_index;
 };

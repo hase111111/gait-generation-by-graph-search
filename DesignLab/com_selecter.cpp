@@ -25,7 +25,7 @@
 //	for (const auto& i : coms)
 //	{
 //		//Œ»İ‚ÌdS‚ğˆÚ“®‚³‚¹‚½‚à‚Ì‚ğì¬‚·‚é
-//		SNode com_change_node = m_current_node;
+//		RobotStateNode com_change_node = m_current_node;
 //		designlab::Vector3 next_com = { i.x ,i.y,m_current_node.global_center_of_mass.z };
 //		com_change_node.changeGlobalCenterOfMass(next_com, false);
 //

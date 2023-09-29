@@ -13,7 +13,7 @@
 #include "camera_gui.h"
 #include "hexapod_renderer.h"
 #include "map_state.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "node_display_gui.h"
 
 
@@ -46,7 +46,7 @@ private:
 	MapState map_state_;				//!< マップの状態を保持するクラス．
 	DevideMapState devide_map_state_;	//!< マップを分割するクラス．
 
-	SNode m_node;						//!< ロボットの状態
+	RobotStateNode m_node;						//!< ロボットの状態
 
 	int m_map_index = 0;				//!< マップのインデックス
 };

@@ -6,7 +6,7 @@
 #include "designlab_vector3.h"
 #include "designlab_polygon2.h"
 #include "com_type.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "abstract_hexapod_state_calculator.h"
 
 
@@ -30,7 +30,7 @@ public:
 
 	//! @brief 現在のノードを設定する
 	//! @param [in] current_node 現在のノード
-	inline void SetCurrentNode(const SNode& current_node) { current_node_ = current_node; } //!< 現在のノードを設定する
+	inline void SetCurrentNode(const RobotStateNode& current_node) { current_node_ = current_node; } //!< 現在のノードを設定する
 
 	//! @brief 重心を求める
 	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
@@ -45,7 +45,7 @@ private:
 	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
 
 
-	SNode GetCurrentNode() const { return current_node_; } //!< 現在のノードを取得する
+	RobotStateNode GetCurrentNode() const { return current_node_; } //!< 現在のノードを取得する
 
 	//! @brief 候補地点を生成する
 	bool MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[kDiscretizationNum * kDiscretizationNum]) const;
@@ -55,7 +55,7 @@ private:
 
 
 
-	SNode current_node_; //!< 現在のノード
+	RobotStateNode current_node_; //!< 現在のノード
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 };

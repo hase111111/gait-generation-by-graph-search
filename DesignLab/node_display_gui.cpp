@@ -37,7 +37,7 @@ NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shar
 }
 
 
-void NodeDisplayGui::SetDisplayNode(const SNode& node)
+void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 {
 	//ノードをセットする
 	display_node_ = node;

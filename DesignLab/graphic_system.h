@@ -23,6 +23,7 @@
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
+#include "interface_system_main.h"
 
 
 //! @class GraphicSystem
@@ -42,7 +43,7 @@
 //! @n Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと．
 //! @n 
 //! @n また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください．
-class GraphicSystem final
+class GraphicSystem final : public ISystemMain
 {
 public:
 
@@ -54,7 +55,7 @@ public:
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．
 	//! @n initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
 	//! @n またメンバ関数のdxlibInit関数に失敗した場合も終了します．
-	void Main();
+	void Main() override;
 
 private:
 

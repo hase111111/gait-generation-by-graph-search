@@ -31,12 +31,12 @@ public:
 
 	void Init(const DevideMapState& map_state);
 
-	GraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) override;
+	GraphSearchResult CreateGraphTree(const RobotStateNode& current_node, int max_depth, std::vector<RobotStateNode>* output_graph) override;
 
 private:
 
 	// out_put_graphの値をリセットしてから，_current_nodeの子ノードを生成して，output_graphに代入する．
-	void makeNewNodesByCurrentNode(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph) const;
+	void makeNewNodesByCurrentNode(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const;
 
 
 	std::map<HexapodMove, std::unique_ptr<INodeCreator>> node_creator_map_;		//!< ノード生成クラスのマップ．

@@ -86,7 +86,7 @@ namespace designlab
 		//! @brief yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．
 		//! @param [in] str 入力待ちをする際に出力する文字列
 		//! @return bool yesならばtrue，noならばfalse
-		bool InputYesNo(const std::string& str = "y / nで入力してください．");
+		bool InputYesNo(const std::string& str = "よろしいですか？");
 
 		//! @brief このアプリの起動モードを選択する関数．
 		//! @return BootMode 選択した起動モード

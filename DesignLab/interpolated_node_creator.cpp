@@ -3,7 +3,7 @@
 #include "hexapod_const.h"
 
 
-void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SNode& next_node, std::vector<SNode>* interpolated_node) const
+void InterpolatedNodeCreator::createInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const
 {
 	(*interpolated_node).clear();
 
@@ -18,7 +18,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 	// 各脚について，現在のノードと次のノードの間を補間する
 	for (int i = 0; i < INTERPOLATED_NODE_NUM; i++)
 	{
-		SNode new_node = node;
+		RobotStateNode new_node = node;
 
 		//重心位置を補完する
 		new_node.global_center_of_mass = node.global_center_of_mass +

@@ -73,13 +73,16 @@ void SimulationSystemMain::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < Define::kSimurateNum; i++)
 	{
-		SNode current_node;										//現在のノードの状態を格納する変数．
+		RobotStateNode current_node;										//現在のノードの状態を格納する変数．
 		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.Init(do_random_init);
 
-		SimulationResultRecorder record;	//シミュレーションの結果を格納する変数．
-		record.result_nodes.push_back(current_node);	//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
-		record.simulation_result = SimulationResult::FAILURE_BY_NODE_LIMIT_EXCEEDED;	//シミュレーションの結果を格納する変数を成功に初期化する．
+		//シミュレーションの結果を格納する変数．
+		SimulationResultRecorder record;	
+
+		record.graph_search_result_recoder.push_back(
+			GraphSearchResultRecoder{ current_node , 0, GraphSearchResult::kSuccess }
+		);	
 
 
 		dlio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", OutputDetail::kSystem);
@@ -103,22 +106,22 @@ void SimulationSystemMain::Main()
 		{
 			timer_.Start();			//タイマースタート
 
-			SNode result_node;		//グラフ探索の結果を格納する変数．
+			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
 			GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 
 
-			record.computation_time.push_back(timer_.GetElapsedMicroSecond() / 1000);	//計算時間を格納する．
-			record.graph_search_results.push_back(result_state);			//グラフ探索の結果を格納する．
-			record.result_nodes.push_back(result_node);		//シミュレーションの結果を格納する変数に現在のノードの状態を追加する．
+			record.graph_search_result_recoder.push_back(
+				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMicroSecond() / 1000.0, result_state }
+			);
 
 
 			//グラフ探索に失敗
-			if (!graphSeachResultIsSuccessful(result_state))
+			if (result_state != GraphSearchResult::kSuccess)
 			{
-				record.simulation_result = SimulationResult::FAILURE_BY_GRAPH_SEARCH;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " + 
@@ -154,7 +157,7 @@ void SimulationSystemMain::Main()
 			//動作がループして失敗
 			if (node_checker.isLoopMove())
 			{
-				record.simulation_result = SimulationResult::FAILURE_BY_LOOP_MOTION;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " + 
@@ -170,7 +173,7 @@ void SimulationSystemMain::Main()
 			//成功時の処理
 			if (current_node.global_center_of_mass.x > Define::kGoalTape)
 			{
-				record.simulation_result = SimulationResult::SUCCESS;	//シミュレーションの結果を格納する変数を成功に更新する．
+				record.simulation_result = SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
 
 				dlio::Output(
 					"シミュレーションに成功しました．SimulationResult = " + 

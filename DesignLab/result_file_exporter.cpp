@@ -83,19 +83,19 @@ void ResultFileExporter::outputResultDetail(const SimulationResultRecorder& reco
 	if (!stream) { return; }
 
 	//時間の統計を出力する．
-	double max_time = recoder.computation_time[0];
-	double min_time = recoder.computation_time[0];
+	double max_time = recoder.graph_search_result_recoder[0].computation_time;
+	double min_time = max_time;
 	double sum_time = 0.0;
 
-	for (const auto& i : recoder.computation_time)
+	for (const auto& i : recoder.graph_search_result_recoder)
 	{
-		if (i > max_time) { max_time = i; }
-		if (i < min_time) { min_time = i; }
+		if (i.computation_time > max_time) { max_time = i.computation_time; }
+		if (i.computation_time < min_time) { min_time = i.computation_time; }
 
-		sum_time += i;
+		sum_time += i.computation_time;
 	}
 
-	double average_time = sum_time / static_cast<double>(recoder.computation_time.size());
+	double average_time = sum_time / static_cast<double>(recoder.graph_search_result_recoder.size());
 
 	stream << "最大探索時間," << max_time << ",[msec]" << std::endl;
 	stream << "最小探索時間," << min_time << ",[msec]" << std::endl;
@@ -104,22 +104,26 @@ void ResultFileExporter::outputResultDetail(const SimulationResultRecorder& reco
 
 
 	//移動距離の統計を出力する
-	if (recoder.result_nodes.size() >= 2)
+	if (recoder.graph_search_result_recoder.size() > 1)
 	{
 		float x_move_sum = 0.0f;
 		float y_move_sum = 0.0f;
 		float z_move_sum = 0.0f;
 
-		for (size_t i = 0; i != recoder.result_nodes.size() - 1; ++i)
+		for (size_t i = 0; i != recoder.graph_search_result_recoder.size() - 1; ++i)
 		{
-			x_move_sum += recoder.result_nodes[i + 1].global_center_of_mass.x - recoder.result_nodes[i].global_center_of_mass.x;
-			y_move_sum += recoder.result_nodes[i + 1].global_center_of_mass.y - recoder.result_nodes[i].global_center_of_mass.y;
-			z_move_sum += recoder.result_nodes[i + 1].global_center_of_mass.z - recoder.result_nodes[i].global_center_of_mass.z;
+			RobotStateNode current_node = recoder.graph_search_result_recoder[i].result_node;
+			RobotStateNode next_node = recoder.graph_search_result_recoder[i + 1].result_node;
+			designlab::Vector3 com_dif = next_node.global_center_of_mass - current_node.global_center_of_mass;
+
+			x_move_sum += com_dif.x;
+			y_move_sum += com_dif.y;
+			z_move_sum += com_dif.z;
 		}
 
-		double x_move_average = x_move_sum / static_cast<double>(recoder.result_nodes.size() - 1);
-		double y_move_average = y_move_sum / static_cast<double>(recoder.result_nodes.size() - 1);
-		double z_move_average = z_move_sum / static_cast<double>(recoder.result_nodes.size() - 1);
+		double x_move_average = x_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
+		double y_move_average = y_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
+		double z_move_average = z_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
 
 		stream << "X方向総移動距離," << x_move_sum << ",[mm]" << std::endl;
 		stream << "Y方向総移動距離," << y_move_sum << ",[mm]" << std::endl;

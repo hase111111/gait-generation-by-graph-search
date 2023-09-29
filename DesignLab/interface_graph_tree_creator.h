@@ -7,8 +7,8 @@
 
 #include <vector>
 
-#include "graph_search_result.h"
-#include "node.h"
+#include "graph_search_result_recoder.h"
+#include "robot_state_node.h"
 #include "map_state.h"
 
 
@@ -32,7 +32,7 @@ public:
 	//! @param max_depth [in] 作成するグラフ木の最大深さ．大きすぎる値を渡すと重くなる or 動かなくなるので注意．
 	//! @param output_graph [out] 出力されるグラフ木
 	//! @return GraphSearchResult 生成の結果，生成に成功したかどうか，失敗した場合は失敗の理由を返す
-	virtual GraphSearchResult CreateGraphTree(const SNode& current_node, int max_depth, std::vector<SNode>* output_graph) = 0;
+	virtual GraphSearchResult CreateGraphTree(const RobotStateNode& current_node, int max_depth, std::vector<RobotStateNode>* output_graph) = 0;
 };
 
 

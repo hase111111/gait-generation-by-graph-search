@@ -4,9 +4,8 @@
 #include <vector>
 #include <fstream>
 
-#include "node.h"
+#include "robot_state_node.h"
 #include "simulation_result_recorder.h"
-#include "graph_search_result.h"
 
 
 //! @class ResultFileExporter

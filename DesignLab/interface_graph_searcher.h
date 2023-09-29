@@ -9,8 +9,8 @@
 #include <vector>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "graph_search_result.h"
-#include "node.h"
+#include "graph_search_result_recoder.h"
+#include "robot_state_node.h"
 #include "target.h"
 
 
@@ -29,7 +29,7 @@ public:
 	//! @param target [in] 目標地点
 	//! @param output_result [out] 出力されるノード
 	//! @return GraphSearchResult 探索の結果
-	virtual GraphSearchResult SearchGraphTree(const std::vector<SNode>& graph, const STarget& target, SNode* output_result) = 0;
+	virtual GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result) = 0;
 };
 
 

@@ -24,7 +24,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	graph_update_count_(0)
 {
 	//適当なノードを生成して，描画クラスを初期化する
-	SNode init_node;
+	RobotStateNode init_node;
 	init_node.Init(false);
 
 	hexapod_renderer_.set_draw_node(init_node);

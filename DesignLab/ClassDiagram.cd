@@ -452,7 +452,7 @@
 		<Position X="21" Y="6.75" Width="1.5" />
 		<TypeIdentifier>
 			<HashCode>CAAAAAgAQABAAAAAAAAgAQACAAAAAAIBAABgIAFAAAE=</HashCode>
-			<FileName>Node.h</FileName>
+			<FileName>robot_state_node.h</FileName>
 		</TypeIdentifier>
 	</Struct>
 	<Struct Name="S_NE::POINT" Collapsed="true">

@@ -13,7 +13,7 @@
 #include "abstract_hexapod_state_calculator.h"
 #include "designlab_polygon2.h"
 #include "discrete_com_pos.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @struct ComPosAndPolygon
@@ -47,7 +47,7 @@ public:
 	//! @brief 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する
 	//! @param [in] node 現在のロボットの状態を表すノード
 	//! @param [out] output_poly 重心位置の候補地点を示す多角形
-	void MakeCandidatePolygon(const SNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const;
+	void MakeCandidatePolygon(const RobotStateNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const;
 
 
 private:

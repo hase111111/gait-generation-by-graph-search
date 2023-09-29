@@ -21,7 +21,7 @@ ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std:
 }
 
 
-void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．
 	//マップを確認して地面の最高点を求め，そこからMAX_RANGE，MIN_RANGEの分だけ離す．
@@ -79,7 +79,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 }
 
 
-void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, const int current_num, const float high, const float low, std::vector<SNode>* output_graph)
+void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, const int current_num, const float high, const float low, std::vector<RobotStateNode>* output_graph)
 {
 	//重心を変化させたものを追加する．変化量が一番少ないノードは削除する．
 	{
@@ -92,7 +92,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 		{
 			bool is_vaild = true;
 
-			SNode new_node = current_node;
+			RobotStateNode new_node = current_node;
 
 			//重心の位置を変更する．
 			designlab::Vector3 new_com = current_node.global_center_of_mass;
@@ -121,7 +121,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 
 	//重心の変化が一切ないものを追加する．
 	{
-		SNode same_node = current_node;
+		RobotStateNode same_node = current_node;
 
 		same_node.ChangeToNextNode(current_num, next_move_);
 

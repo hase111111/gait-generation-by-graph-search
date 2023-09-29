@@ -1,7 +1,7 @@
 #include "node_validity_checker.h"
 
 
-void NodeValidityChecker::setNode(const SNode& node)
+void NodeValidityChecker::setNode(const RobotStateNode& node)
 {
 	//ƒm[ƒh‚ğ‘O‚©‚ç’Ç‰Á‚·‚é
 	m_node.push_front(node);

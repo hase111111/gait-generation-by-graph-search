@@ -11,7 +11,7 @@
 #include "abstract_hexapod_state_calculator.h"
 #include "designlab_vector3.h"
 #include "hexapod_const.h"
-#include "node.h"
+#include "robot_state_node.h"
 
 
 //! @class RobotGraundPointRenderer
@@ -27,7 +27,7 @@ public:
 	//! @n また，シミュレーションが終了したノードのインデックスをセットする．
 	//! @param [in] result_node ロボットが接地した座標のvector
 	//! @param [in] simu_end_node_index シミュレーションが終了したノードのインデックスのvector
-	void SetNodeAndSimulationEndNodeIndex(const std::vector<SNode>& result_node, const std::vector<size_t>& simu_end_node_index);
+	void SetNodeAndSimulationEndNodeIndex(const std::vector<RobotStateNode>& result_node, const std::vector<size_t>& simu_end_node_index);
 
 
 	//! ロボットが接地点した地点の履歴の描画を行う．

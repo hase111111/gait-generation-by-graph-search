@@ -8,7 +8,7 @@
 
 std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& record)
 {
-	const size_t kLength = record.result_nodes.size();
+	const size_t kLength = record.graph_search_result_recoder.size();
 	const int kPrecision = 3;
 
 	ofs << magic_enum::enum_name(record.simulation_result) << std::endl;	//最終的な結果の出力
@@ -25,28 +25,17 @@ std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& re
 		ofs << i << ",";
 
 		//ノードの状態の出力
-		ofs << record.result_nodes[i] << ",";
+		ofs << record.graph_search_result_recoder[i].result_node << ",";
 
 		//計算時間の出力
-		if (record.computation_time.size() > i)
-		{
-			ofs << std::fixed << std::setprecision(kPrecision) << record.computation_time[i] << ",";
-		}
-		else
-		{
-			ofs << ",";
-		}
+		ofs << std::fixed << std::setprecision(kPrecision) << record.graph_search_result_recoder[i].computation_time << ",";
+
 
 		//グラフ探索の結果の出力
-		if (record.graph_search_results.size() > i)
-		{
-			//magic enumを使って列挙型を文字列に変換
-			ofs << magic_enum::enum_name(record.graph_search_results[i]) << ",";
-		}
-		else
-		{
-			ofs << ",";
-		}
+
+		//magic enumを使って列挙型を文字列に変換
+		ofs << magic_enum::enum_name(record.graph_search_result_recoder[i].graph_search_result) << ",";
+
 
 		ofs << std::endl;
 	}

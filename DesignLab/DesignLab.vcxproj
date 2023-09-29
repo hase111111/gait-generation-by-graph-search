@@ -46,6 +46,7 @@
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
+    <ClInclude Include="interface_system_main.h" />
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_creator_builder_hato.h" />
@@ -53,7 +54,7 @@
     <ClInclude Include="output_detail.h" />
     <ClInclude Include="graph_searcher_random.h" />
     <ClInclude Include="pass_finder_basic.h" />
-    <ClInclude Include="graph_search_result.h" />
+    <ClInclude Include="graph_search_result_recoder.h" />
     <ClInclude Include="graph_tree_creator_hato.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
@@ -104,7 +105,7 @@
     <ClInclude Include="graph_viewer_system_main.h" />
     <ClInclude Include="target.h" />
     <ClInclude Include="_hexapod.h" />
-    <ClInclude Include="node.h" />
+    <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator.h" />
     <ClInclude Include="_phantomxCommander.h" />
     <ClInclude Include="S_NE.h" />
@@ -166,7 +167,7 @@
     <ClCompile Include="_hexapod.cpp" />
     <ClCompile Include="designlab_line_segment2.cpp" />
     <ClCompile Include="designlab_polygon2.cpp" />
-    <ClCompile Include="node.cpp" />
+    <ClCompile Include="robot_state_node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
     <ClCompile Include="map_creator.cpp" />

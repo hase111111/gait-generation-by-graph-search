@@ -10,7 +10,7 @@ ComCandidatePolygonMaker::ComCandidatePolygonMaker(const std::shared_ptr<const A
 {
 }
 
-void ComCandidatePolygonMaker::MakeCandidatePolygon(const SNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const
+void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const
 {
 	assert(calculator_ptr_ != nullptr);	//nullptrでないことを確認する
 	assert(output_poly != nullptr);		//nullptrでないことを確認する
