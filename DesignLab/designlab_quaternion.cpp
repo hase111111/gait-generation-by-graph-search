@@ -39,3 +39,21 @@ designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const
 
 	return res.v;	// ベクトル成分を返す
 }
+
+designlab::Quaternion designlab::SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const float t)
+{
+	if(q1 == q2) { return q1; }	// クォータニオンが等しい場合は，q1を返す
+
+	// 球面線形補間を行う
+	float dot = q1.Dot(q2);		// 内積
+	float theta = acosf(dot);	// 角度
+	if (math_util::IsEqual(theta, 0.f)) { return q1; }	// 角度が0の場合は，q1を返す
+
+	float sin_theta = sinf(theta);			// sinθ
+	float sin_theta_inv = 1 / sin_theta;	// 1 / sinθ
+
+	float sin_t_theta = sinf(t * theta);			// sin(tθ)
+	float sin_1_t_theta = sinf((1 - t) * theta);	// sin((1-t)θ)
+
+	return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;	// 補間されたクォータニオンを返す
+}

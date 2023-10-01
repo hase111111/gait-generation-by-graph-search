@@ -61,6 +61,11 @@ namespace designlab
 		bool operator >= (const Quaternion& other) const { return !(*this < other); }
 
 
+		//! @brief クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める
+		//! @param [in] other 内積を求めるクォータニオン
+		//! @return float 内積
+		constexpr float Dot(Quaternion other) const { return w * other.w + v.Dot(other.v); }
+
 		//! @brief クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの
 		//! @n q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回転は逆方向になる
 		//! @return designlab::Quaternion 共役クォータニオン
@@ -116,6 +121,13 @@ namespace designlab
 	//! @n 正規化クォータニオンならば，共役と逆数が等しいので，計算量を減らすことができる．
 	//! @return designlab::Vector3 回転後のベクトル．
 	Vector3 RotateVector3(const Vector3& vec, const Quaternion& q, bool use_normalized_quaternions);
+
+	//! @brief 球面線形補間を行う．
+	//! @param [in] q1 クォータニオン1
+	//! @param [in] q2 クォータニオン2
+	//! @param [in] t 補間係数．0～1の値を取る．
+	//! @return designlab::Quaternion 補間されたクォータニオン
+	Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, float t);
 
 }	// namespace designlab	
 

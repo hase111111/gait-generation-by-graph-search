@@ -18,6 +18,8 @@
 //! @n グローバルな空間に関数を入れると，名前の衝突が起こる可能性がある．
 namespace designlab 
 {
+	struct Quaternion;	//前方宣言
+
 	//! @namespacse math_util 基本的な計算を行う関数をまとめた名前空間．
 	//! @brief 基本的な計算を行う関数をまとめた名前空間．
 	namespace math_util 
@@ -72,32 +74,7 @@ namespace designlab
 
 			if (current == target) { return current; }
 
-			if (current < target) 
-			{
-				T res;
-
-				res = current + static_cast<T>((target - current) * rate);
-
-				if (res > target)
-				{
-					res = target;
-				}
-
-				return res;
-			}
-			else
-			{
-				T res;
-
-				res = current - static_cast<T>((current - target) * rate);
-
-				if (res < target)
-				{
-					res = target;
-				}
-
-				return res;
-			}
+			return current * (1 - rate) + target * rate;
 		}
 
 		//! @brief 指定した範囲内の乱数を生成する．

@@ -41,7 +41,7 @@ void CameraStateManager::Update()
 	);	
 
 	//カメラの回転を目標値に近づける．
-	now_camera_state_.camera_quat = dlm::ApproachTarget(
+	now_camera_state_.camera_quat = dl::SlerpQuaternion(
 		now_camera_state_.camera_quat, 
 		goal_camera_state_.camera_quat,
 		0.1f
@@ -164,10 +164,10 @@ void CameraStateManager::SetCameraPosAndRot()
 {
 	//カメラの位置をセットする．クォータニオンを用いて回転させ，dl_vec::vectorからdxlib::VECTORに変換する．
 
-	dl::Vector3 camera_target_dif = dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat, true) * now_camera_state_.length_camera_to_target;
+	dl::Vector3 camera_target_dif = dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat, false) * now_camera_state_.length_camera_to_target;
 	VECTOR camera_pos = dldu::ConvertToDxlibVec(camera_target_dif + now_camera_state_.target_pos);
 
-	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::RotateVector3(kDefaultCameraUpVec, now_camera_state_.camera_quat, true));
+	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::RotateVector3(kDefaultCameraUpVec, now_camera_state_.camera_quat, false));
 
 	SetCameraPositionAndTargetAndUpVec(
 		camera_pos, 
