@@ -81,8 +81,23 @@ public:
 
 private:
 
+	template <class Char>
+	friend std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapState& v);
+
 	std::vector<designlab::Vector3> map_point_;	//!< ロボットが歩くマップ．脚設置可能点の集合で表現される．
 };
+
+
+template <class Char>
+std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapState& map)
+{
+	for (const auto &i : map.map_point_)
+	{
+		os << i << "\n";
+	}
+
+	return os;
+}
 
 
 //! @class DevideMapState

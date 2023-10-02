@@ -185,7 +185,10 @@ void SimulationSystemMain::Main()
 
 		}	//歩容生成のループ終了
 
-		result_exporter_.SetSimulationResultAndExportNodeList(record);	//シミュレーションの結果をファイルに出力する．
+		record.map_state = map_state_;					//シミュレーションの結果を格納する変数にマップの状態を格納する．
+		result_exporter_.PushSimulationResult(record);	//シミュレーションの結果をファイルに出力する．
+		result_exporter_.ExportLatestNodeList();		//最新のノードリストをファイルに出力する．
+		result_exporter_.ExportLatestMapState();		//最新のマップ状態をファイルに出力する．
 
 		broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);	//仲介人にシミュレーション終了を通達する．
 

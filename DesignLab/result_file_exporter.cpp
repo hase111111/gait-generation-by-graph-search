@@ -16,6 +16,8 @@ const std::string ResultFileConst::kFileName = "sim_result";
 
 const std::string ResultFileConst::kNodeListName = "node_list";
 
+const std::string ResultFileConst::kMapStateName = "map_state";
+
 
 ResultFileExporter::ResultFileExporter() :
 	export_count_(0),
@@ -67,40 +69,77 @@ void ResultFileExporter::Init()
 }
 
 
-void ResultFileExporter::SetSimulationResultAndExportNodeList(const SimulationResultRecorder& simu_result)
+void ResultFileExporter::PushSimulationResult(const SimulationResultRecorder& simu_result)
 {
 	//結果をセットする
 	result_list_.push_back(simu_result);
+}
 
+
+void ResultFileExporter::ExportLatestNodeList() const 
+{
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (not init_success_)
 	{
 		dlio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", OutputDetail::kError);
-		return; 
+		return;
 	}
 
 	if (not do_export_)
 	{
 		dlio::Output("結果出力フラグがfalseのため，結果を出力しません", OutputDetail::kInfo);
-		return; 
+		return;
 	}
 
 	//出力先ファイルを作成する．
-	std::string output_file_name = ResultFileConst::kDirectoryName + "/" + folder_name_ + "/" + ResultFileConst::kNodeListName + std::to_string(export_count_ + 1) + ".csv";
+	std::string output_file_name = ResultFileConst::kDirectoryName + "/" + folder_name_ + "/" + ResultFileConst::kNodeListName + std::to_string(result_list_.size()) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
 	//ファイルが作成できなかった場合は，なにも出力しない．
-	if (not ofs) 
+	if (not ofs)
 	{
 		dlio::Output("ファイル " + output_file_name + "を作成できませんでした．", OutputDetail::kError);
-		return; 
+		return;
 	}
 
-	for (const auto& i : simu_result.graph_search_result_recoder)
+	for (const auto& i : result_list_.back().graph_search_result_recoder)
 	{
 		ofs << i.result_node << "\n";
 	}
+
+	ofs.close();
+}
+
+
+void ResultFileExporter::ExportLatestMapState() const 
+{
+	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
+	if (not init_success_)
+	{
+		dlio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", OutputDetail::kError);
+		return;
+	}
+
+	if (not do_export_)
+	{
+		dlio::Output("結果出力フラグがfalseのため，結果を出力しません", OutputDetail::kInfo);
+		return;
+	}
+
+	//出力先ファイルを作成する．
+	std::string output_file_name = ResultFileConst::kDirectoryName + "/" + folder_name_ + "/" + ResultFileConst::kMapStateName + std::to_string(result_list_.size()) + ".csv";
+
+	std::ofstream ofs(output_file_name);
+
+	//ファイルが作成できなかった場合は，なにも出力しない．
+	if (not ofs)
+	{
+		dlio::Output("ファイル " + output_file_name + " を作成できませんでした．", OutputDetail::kError);
+		return;
+	}
+
+	ofs << result_list_.back().map_state << "\n";
 
 	ofs.close();
 }

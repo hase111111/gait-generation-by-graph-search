@@ -44,7 +44,7 @@ struct GraphSearchResultRecoder final
 	};
 
 
-	RobotStateNode result_node;		//!< グラフ探索によって選択された動作の記録
+	RobotStateNode result_node;		//!< グラフ探索によって選択されたノード
 
 	double computation_time;		//!< グラフ探索にかかった時間
 

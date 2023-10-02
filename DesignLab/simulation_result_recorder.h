@@ -29,7 +29,7 @@ enum class SimulationResult
 //! @brief シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成
 struct SimulationResultRecorder final
 {
-	//!< グラフ探索の結果を格納する配列
+	//!< グラフ探索の結果を格納する構造体の配列
 	std::vector<GraphSearchResultRecoder> graph_search_result_recoder;	
 
 	MapState map_state;					//!< 最新の地面の状態

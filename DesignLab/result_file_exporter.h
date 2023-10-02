@@ -17,11 +17,13 @@
 class ResultFileConst final
 {
 public:
-	const static std::string kDirectoryName;	//!< 出力先ディレクトリ(フォルダ)名
+	const static std::string kDirectoryName;//!< 出力先ディレクトリ(フォルダ)名
 
-	const static std::string kFileName;			//!< ファイル名 ( 人間が見る用 )
+	const static std::string kFileName;		//!< ファイル名 ( 人間が見る用 )
 
 	const static std::string kNodeListName;	//!< ノードリストのファイル名( プログラムの読み込み用 )
+
+	const static std::string kMapStateName;	//!< マップ状態のファイル名( プログラムの読み込み用 )
 };
 
 
@@ -37,10 +39,18 @@ public:
 	//! @brief resultフォルダがなければ作成する．また，フォルダ名を指定する．
 	void Init();
 
-	//! @brief シミュレーション結果を設定する．そして，ノードリストをファイルに出力する．
-	//! @n 初期化ができていない場合は，なにもしない．また，出力フラグがfalseの場合もなにもしない．
+	//! @brief シミュレーション結果を追加する．
 	//! @param [in] simu_result シミュレーションの結果
-	void SetSimulationResultAndExportNodeList(const SimulationResultRecorder& simu_result);
+	void PushSimulationResult(const SimulationResultRecorder& simu_result);
+
+	//! @brief 最新のノードリストをファイルに出力する．
+	//! @n 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
+	void ExportLatestNodeList() const;
+
+	//! @brief 最新のマップ状態をファイルに出力する．
+	//! @n 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
+	void ExportLatestMapState() const;
+
 
 	//! @brief シミュレーション結果をファイルに出力する．
 	//! @n 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．

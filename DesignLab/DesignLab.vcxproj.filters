@@ -76,9 +76,6 @@
     <Filter Include="ソース ファイル\Common\CommandIO">
       <UniqueIdentifier>{cf856c32-8544-4133-836a-6ee261d4b76b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\System\Setting">
-      <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\System\Simulation">
       <UniqueIdentifier>{fb03873e-eff6-4c6a-90ae-3f0abbf04a37}</UniqueIdentifier>
     </Filter>
@@ -109,8 +106,14 @@
     <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder">
       <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\PassFinder\Result">
+    <Filter Include="ソース ファイル\FileIO">
+      <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\FileIO\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\FileIO\Setting">
+      <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -280,13 +283,13 @@
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_key.h">
-      <Filter>ソース ファイル\System\Setting</Filter>
+      <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_reader.h">
-      <Filter>ソース ファイル\System\Setting</Filter>
+      <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_recorder.h">
-      <Filter>ソース ファイル\System\Setting</Filter>
+      <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="simulation_system_main.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
@@ -385,13 +388,13 @@
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\PassFinder\Result</Filter>
+      <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="simulation_result_recorder.h">
-      <Filter>ソース ファイル\PassFinder\Result</Filter>
+      <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_result_recoder.h">
-      <Filter>ソース ファイル\PassFinder\Result</Filter>
+      <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -549,10 +552,10 @@
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
     <ClCompile Include="application_setting_key.cpp">
-      <Filter>ソース ファイル\System\Setting</Filter>
+      <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClCompile>
     <ClCompile Include="application_setting_reader.cpp">
-      <Filter>ソース ファイル\System\Setting</Filter>
+      <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClCompile>
     <ClCompile Include="simulation_system_main.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
@@ -615,10 +618,10 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\PassFinder\Result</Filter>
+      <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="simulation_result_recorder.cpp">
-      <Filter>ソース ファイル\PassFinder\Result</Filter>
+      <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
