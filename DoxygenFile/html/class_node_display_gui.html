@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('class_node_display_gui.html',''); init
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a7418241f9a6b1b0adac68b78971a4e4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_display_gui.html#a7418241f9a6b1b0adac68b78971a4e4e">NodeDisplayGui</a> (const int x_pos, const int y_pos, const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr)</td></tr>
 <tr class="separator:a7418241f9a6b1b0adac68b78971a4e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ab3862df5514b821aa916cfb48a35c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c">SetDisplayNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node)</td></tr>
-<tr class="memdesc:a56ab3862df5514b821aa916cfb48a35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">表示するノードを設定する，その後関節の角度を計算し，セットする  <br /></td></tr>
-<tr class="separator:a56ab3862df5514b821aa916cfb48a35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebd117b97976bfd5885414e7cbdbb25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node_display_gui.html#a7ebd117b97976bfd5885414e7cbdbb25">SetDisplayNode</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node)</td></tr>
+<tr class="memdesc:a7ebd117b97976bfd5885414e7cbdbb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">表示するノードを設定する，その後関節の角度を計算し，セットする  <br /></td></tr>
+<tr class="separator:a7ebd117b97976bfd5885414e7cbdbb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01ad92aa11f9287596dc7890231eb9cd"><td class="memItemLeft" align="right" valign="top"><a id="a01ad92aa11f9287596dc7890231eb9cd" name="a01ad92aa11f9287596dc7890231eb9cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
 <tr class="memdesc:a01ad92aa11f9287596dc7890231eb9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIのボタンの更新を行う <br /></td></tr>
@@ -181,8 +181,8 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kClosedHe
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a56ab3862df5514b821aa916cfb48a35c" name="a56ab3862df5514b821aa916cfb48a35c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56ab3862df5514b821aa916cfb48a35c">&#9670;&#160;</a></span>SetDisplayNode()</h2>
+<a id="a7ebd117b97976bfd5885414e7cbdbb25" name="a7ebd117b97976bfd5885414e7cbdbb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ebd117b97976bfd5885414e7cbdbb25">&#9670;&#160;</a></span>SetDisplayNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,7 +190,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kClosedHe
         <tr>
           <td class="memname">void NodeDisplayGui::SetDisplayNode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -207,8 +207,8 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kClosedHe
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_node_display_gui_a56ab3862df5514b821aa916cfb48a35c_icgraph.png" border="0" usemap="#aclass_node_display_gui_a56ab3862df5514b821aa916cfb48a35c_icgraph" alt=""/></div>
-<map name="aclass_node_display_gui_a56ab3862df5514b821aa916cfb48a35c_icgraph" id="aclass_node_display_gui_a56ab3862df5514b821aa916cfb48a35c_icgraph">
+<div class="center"><img src="class_node_display_gui_a7ebd117b97976bfd5885414e7cbdbb25_icgraph.png" border="0" usemap="#aclass_node_display_gui_a7ebd117b97976bfd5885414e7cbdbb25_icgraph" alt=""/></div>
+<map name="aclass_node_display_gui_a7ebd117b97976bfd5885414e7cbdbb25_icgraph" id="aclass_node_display_gui_a7ebd117b97976bfd5885414e7cbdbb25_icgraph">
 <area shape="rect" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="230,101,445,128"/>
 <area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
 <area shape="poly" title=" " alt="" coords="284,98,154,51,156,46,285,93"/>
@@ -224,8 +224,8 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kClosedHe
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="node__display__gui_8h_source.html">node_display_gui.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/node_display_gui.cpp</li>
+<li>DesignLab/<a class="el" href="node__display__gui_8h_source.html">node_display_gui.h</a></li>
+<li>DesignLab/node_display_gui.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

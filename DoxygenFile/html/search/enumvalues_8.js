@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['straightposition_0',['StraightPosition',['../_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af6a8e48dac7365b301e1e5f9d1b670d5',1,'Target.h']]],
-  ['straightvector_1',['StraightVector',['../_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6abdc06390e6553abb288362534981fc25',1,'Target.h']]],
-  ['success_2',['SUCCESS',['../simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c',1,'simulation_result_recorder.h']]]
+  ['turnangle_0',['TurnAngle',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af765e224256b093aef0cbd5a4ac18437',1,'target.h']]],
+  ['turndirection_1',['TurnDirection',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6acf6bad3c882f72b4f1ace09c41410198',1,'target.h']]],
+  ['turnspotangle_2',['TurnSpotAngle',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af468765ca90a83579b7d00bd68f540c7',1,'target.h']]],
+  ['turnspotdirection_3',['TurnSpotDirection',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a66db6a58b08ad4d96450336068044992',1,'target.h']]]
 ];

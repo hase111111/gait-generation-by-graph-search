@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <tr class="memitem:af9282c1e7d2f11316a750b08f0e644cb"><td class="memItemLeft" align="right" valign="top"><a id="af9282c1e7d2f11316a750b08f0e644cb" name="af9282c1e7d2f11316a750b08f0e644cb"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ComSelecterHato</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calc)</td></tr>
 <tr class="separator:af9282c1e7d2f11316a750b08f0e644cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#ab3ab8b9bac6b0d315ca78548c4806db0">SetCurrentNode</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node)</td></tr>
-<tr class="memdesc:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
-<tr class="separator:ab3ab8b9bac6b0d315ca78548c4806db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5225e34c9006dcaac6c1b0f9ca11f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#adc5225e34c9006dcaac6c1b0f9ca11f3">SetCurrentNode</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node)</td></tr>
+<tr class="memdesc:adc5225e34c9006dcaac6c1b0f9ca11f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードを設定する  <br /></td></tr>
+<tr class="separator:adc5225e34c9006dcaac6c1b0f9ca11f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ffd1a3a180ba1c165291c2847e5dad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad">GetComFromPolygon</a> (const <a class="el" href="structdesignlab_1_1_polygon2.html">designlab::Polygon2</a> &amp;polygon, <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> *output_com) const</td></tr>
 <tr class="memdesc:a11ffd1a3a180ba1c165291c2847e5dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める  <br /></td></tr>
 <tr class="separator:a11ffd1a3a180ba1c165291c2847e5dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,15 +186,15 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <div class="center"><img src="class_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph" alt=""/></div>
 <map name="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph" id="aclass_com_selecter_hato_a11ffd1a3a180ba1c165291c2847e5dad_icgraph">
 <area shape="rect" title="重心を求める" alt="" coords="231,5,440,48"/>
-<area shape="rect" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#aac2eb837c1886d6a53e93ddfb292af64" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
 <area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab3ab8b9bac6b0d315ca78548c4806db0" name="ab3ab8b9bac6b0d315ca78548c4806db0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ab8b9bac6b0d315ca78548c4806db0">&#9670;&#160;</a></span>SetCurrentNode()</h2>
+<a id="adc5225e34c9006dcaac6c1b0f9ca11f3" name="adc5225e34c9006dcaac6c1b0f9ca11f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5225e34c9006dcaac6c1b0f9ca11f3">&#9670;&#160;</a></span>SetCurrentNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
         <tr>
           <td class="memname">void ComSelecterHato::SetCurrentNode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -227,10 +227,10 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph" alt=""/></div>
-<map name="aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph" id="aclass_com_selecter_hato_ab3ab8b9bac6b0d315ca78548c4806db0_icgraph">
+<div class="center"><img src="class_com_selecter_hato_adc5225e34c9006dcaac6c1b0f9ca11f3_icgraph.png" border="0" usemap="#aclass_com_selecter_hato_adc5225e34c9006dcaac6c1b0f9ca11f3_icgraph" alt=""/></div>
+<map name="aclass_com_selecter_hato_adc5225e34c9006dcaac6c1b0f9ca11f3_icgraph" id="aclass_com_selecter_hato_adc5225e34c9006dcaac6c1b0f9ca11f3_icgraph">
 <area shape="rect" title="現在のノードを設定する" alt="" coords="231,13,454,40"/>
-<area shape="rect" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
+<area shape="rect" href="class_com_move_node_creator_hato.html#aac2eb837c1886d6a53e93ddfb292af64" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
 <area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
 </div>
@@ -238,8 +238,8 @@ $(document).ready(function(){initNavTree('class_com_selecter_hato.html',''); ini
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="com__selecter__hato_8h_source.html">com_selecter_hato.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_selecter_hato.cpp</li>
+<li>DesignLab/<a class="el" href="com__selecter__hato_8h_source.html">com_selecter_hato.h</a></li>
+<li>DesignLab/com_selecter_hato.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

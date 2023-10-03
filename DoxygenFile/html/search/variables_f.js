@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parent_5fnum_0',['parent_num',['../struct_s_node.html#a3f2cad6780f990353e020cd41969d976',1,'SNode']]],
+  ['parent_5fnum_0',['parent_num',['../struct_robot_state_node.html#a38146bb21a62b924b687fedda20dbe84',1,'RobotStateNode']]],
   ['phantomx_5fcoxa_5fangle_5fmax_1',['PHANTOMX_COXA_ANGLE_MAX',['../class_hexapod_const.html#a1f7ee06a5cff0f42bbab3f931fb6ac52',1,'HexapodConst']]],
   ['phantomx_5fcoxa_5fangle_5fmin_2',['PHANTOMX_COXA_ANGLE_MIN',['../class_hexapod_const.html#a73fa50aff5bfc2b6522f6eb5acc8cd69',1,'HexapodConst']]],
   ['phantomx_5fcoxa_5flength_3',['PHANTOMX_COXA_LENGTH',['../class_hexapod_const.html#ad5af299562576103d94027e07398aa52',1,'HexapodConst']]],

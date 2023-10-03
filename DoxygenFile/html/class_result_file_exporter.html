@@ -103,63 +103,76 @@ $(document).ready(function(){initNavTree('class_result_file_exporter.html',''); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a1cb86aa9aabd01b6a1fa2cd98b089f2c"><td class="memItemLeft" align="right" valign="top"><a id="a1cb86aa9aabd01b6a1fa2cd98b089f2c" name="a1cb86aa9aabd01b6a1fa2cd98b089f2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
-<tr class="memdesc:a1cb86aa9aabd01b6a1fa2cd98b089f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">resultフォルダがなければ作成する．また，フォルダ名を指定する． <br /></td></tr>
-<tr class="separator:a1cb86aa9aabd01b6a1fa2cd98b089f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ddb0abbad5a1f85f2d4c6ceb381a9d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result_file_exporter.html#a8ddb0abbad5a1f85f2d4c6ceb381a9d9">exportResult</a> (const <a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a> &amp;recoder)</td></tr>
-<tr class="memdesc:a8ddb0abbad5a1f85f2d4c6ceb381a9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果をファイルに出力する． <br  />
+<tr class="memitem:a0006605d4d439194d4f30cd188d38268"><td class="memItemLeft" align="right" valign="top"><a id="a0006605d4d439194d4f30cd188d38268" name="a0006605d4d439194d4f30cd188d38268"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="memdesc:a0006605d4d439194d4f30cd188d38268"><td class="mdescLeft">&#160;</td><td class="mdescRight">resultフォルダがなければ作成する．また，フォルダ名を指定する． <br /></td></tr>
+<tr class="separator:a0006605d4d439194d4f30cd188d38268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ad5bb78a87ff63c5ea02422786f157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result_file_exporter.html#ae6ad5bb78a87ff63c5ea02422786f157">PushSimulationResult</a> (const <a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a> &amp;simu_result)</td></tr>
+<tr class="memdesc:ae6ad5bb78a87ff63c5ea02422786f157"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果を追加する．  <br /></td></tr>
+<tr class="separator:ae6ad5bb78a87ff63c5ea02422786f157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a632eb07c0eb95873f39959da299a5797"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result_file_exporter.html#a632eb07c0eb95873f39959da299a5797">SetDoExport</a> (const bool do_export)</td></tr>
+<tr class="memdesc:a632eb07c0eb95873f39959da299a5797"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力を行うかどうかのフラグを設定する．  <br /></td></tr>
+<tr class="separator:a632eb07c0eb95873f39959da299a5797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adecd9f1f56ba5357aff1896db12feb93"><td class="memItemLeft" align="right" valign="top"><a id="adecd9f1f56ba5357aff1896db12feb93" name="adecd9f1f56ba5357aff1896db12feb93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ExportLatestNodeList</b> () const</td></tr>
+<tr class="memdesc:adecd9f1f56ba5357aff1896db12feb93"><td class="mdescLeft">&#160;</td><td class="mdescRight">最新のノードリストをファイルに出力する． <br  />
  初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． <br  />
- 出力されるファイルは sim_result_回数.csv という名前になる．  <br /></td></tr>
-<tr class="separator:a8ddb0abbad5a1f85f2d4c6ceb381a9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a724b78a19a0ac692475f03ab31c7cbe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result_file_exporter.html#a724b78a19a0ac692475f03ab31c7cbe2">setDoExport</a> (const bool do_export)</td></tr>
-<tr class="memdesc:a724b78a19a0ac692475f03ab31c7cbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力を行うかどうかのフラグを設定する．  <br /></td></tr>
-<tr class="separator:a724b78a19a0ac692475f03ab31c7cbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ <a class="el" href="class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．">Init()</a>が呼ばれていない場合は，なにも出力しないので，必ずInit()を呼び出してから呼び出すこと． <br /></td></tr>
+<tr class="separator:adecd9f1f56ba5357aff1896db12feb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8abd756066b11cba198717310af1dd33"><td class="memItemLeft" align="right" valign="top"><a id="a8abd756066b11cba198717310af1dd33" name="a8abd756066b11cba198717310af1dd33"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ExportLatestMapState</b> () const</td></tr>
+<tr class="memdesc:a8abd756066b11cba198717310af1dd33"><td class="mdescLeft">&#160;</td><td class="mdescRight">最新のマップ状態をファイルに出力する． <br  />
+ 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． <br  />
+ <a class="el" href="class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．">Init()</a>が呼ばれていない場合は，なにも出力しないので，必ずInit()を呼び出してから呼び出すこと． <br /></td></tr>
+<tr class="separator:a8abd756066b11cba198717310af1dd33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abceefde731efa7b06df3a57aa098dff6"><td class="memItemLeft" align="right" valign="top"><a id="abceefde731efa7b06df3a57aa098dff6" name="abceefde731efa7b06df3a57aa098dff6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ExportResult</b> () const</td></tr>
+<tr class="memdesc:abceefde731efa7b06df3a57aa098dff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果を全てファイルに出力する． <br  />
+ 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． <br  />
+ <a class="el" href="class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．">Init()</a>が呼ばれていない場合は，なにも出力しないので，必ずInit()を呼び出してから呼び出すこと． <br /></td></tr>
+<tr class="separator:abceefde731efa7b06df3a57aa098dff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>結果をファイルに出力するクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/24 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a8ddb0abbad5a1f85f2d4c6ceb381a9d9" name="a8ddb0abbad5a1f85f2d4c6ceb381a9d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ddb0abbad5a1f85f2d4c6ceb381a9d9">&#9670;&#160;</a></span>exportResult()</h2>
+<a id="ae6ad5bb78a87ff63c5ea02422786f157" name="ae6ad5bb78a87ff63c5ea02422786f157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ad5bb78a87ff63c5ea02422786f157">&#9670;&#160;</a></span>PushSimulationResult()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ResultFileExporter::exportResult </td>
+          <td class="memname">void ResultFileExporter::PushSimulationResult </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a> &amp;&#160;</td>
-          <td class="paramname"><em>recoder</em></td><td>)</td>
+          <td class="paramname"><em>simu_result</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>シミュレーション結果をファイルに出力する． <br  />
- 初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． <br  />
- 出力されるファイルは sim_result_回数.csv という名前になる． </p>
+<p>シミュレーション結果を追加する． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">recoder</td><td>シミュレーションの結果 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">simu_result</td><td>シミュレーションの結果 </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_result_file_exporter_a8ddb0abbad5a1f85f2d4c6ceb381a9d9_icgraph.png" border="0" usemap="#aclass_result_file_exporter_a8ddb0abbad5a1f85f2d4c6ceb381a9d9_icgraph" alt=""/></div>
-<map name="aclass_result_file_exporter_a8ddb0abbad5a1f85f2d4c6ceb381a9d9_icgraph" id="aclass_result_file_exporter_a8ddb0abbad5a1f85f2d4c6ceb381a9d9_icgraph">
-<area shape="rect" title="シミュレーション結果をファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;出力されるファイルは sim_result_回数..." alt="" coords="209,5,337,48"/>
-<area shape="rect" href="class_simulation_system_main.html#adb7b220bc2f5e2c55bd49e25b8c9345d" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,161,48"/>
+<div class="center"><img src="class_result_file_exporter_ae6ad5bb78a87ff63c5ea02422786f157_icgraph.png" border="0" usemap="#aclass_result_file_exporter_ae6ad5bb78a87ff63c5ea02422786f157_icgraph" alt=""/></div>
+<map name="aclass_result_file_exporter_ae6ad5bb78a87ff63c5ea02422786f157_icgraph" id="aclass_result_file_exporter_ae6ad5bb78a87ff63c5ea02422786f157_icgraph">
+<area shape="rect" title="シミュレーション結果を追加する．" alt="" coords="209,5,366,48"/>
+<area shape="rect" href="class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,161,48"/>
 <area shape="poly" title=" " alt="" coords="194,29,161,29,161,24,194,24"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a724b78a19a0ac692475f03ab31c7cbe2" name="a724b78a19a0ac692475f03ab31c7cbe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a724b78a19a0ac692475f03ab31c7cbe2">&#9670;&#160;</a></span>setDoExport()</h2>
+<a id="a632eb07c0eb95873f39959da299a5797" name="a632eb07c0eb95873f39959da299a5797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a632eb07c0eb95873f39959da299a5797">&#9670;&#160;</a></span>SetDoExport()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,7 +181,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ResultFileExporter::setDoExport </td>
+          <td class="memname">void ResultFileExporter::SetDoExport </td>
           <td>(</td>
           <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>do_export</em></td><td>)</td>
@@ -193,8 +206,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="result__file__exporter_8h_source.html">result_file_exporter.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/result_file_exporter.cpp</li>
+<li>DesignLab/<a class="el" href="result__file__exporter_8h_source.html">result_file_exporter.h</a></li>
+<li>DesignLab/result_file_exporter.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -100,17 +100,39 @@ $(document).ready(function(){initNavTree('class_graphic_system.html',''); initRe
  <a href="class_graphic_system.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="graphic__system_8h_source.html">graphic_system.h</a>&gt;</code></p>
+<div class="dynheader">
+GraphicSystem の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_system__inherit__graph.png" border="0" usemap="#a_graphic_system_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_graphic_system_inherit__map" id="a_graphic_system_inherit__map">
+<area shape="rect" title="Dxlibの処理を行うクラス．" alt="" coords="5,80,117,107"/>
+<area shape="rect" href="class_i_system_main.html" title=" " alt="" coords="12,5,110,32"/>
+<area shape="poly" title=" " alt="" coords="64,47,64,80,58,80,58,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+GraphicSystem 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_system__coll__graph.png" border="0" usemap="#a_graphic_system_coll__map" alt="Collaboration graph"/></div>
+<map name="a_graphic_system_coll__map" id="a_graphic_system_coll__map">
+<area shape="rect" title="Dxlibの処理を行うクラス．" alt="" coords="5,80,117,107"/>
+<area shape="rect" href="class_i_system_main.html" title=" " alt="" coords="12,5,110,32"/>
+<area shape="poly" title=" " alt="" coords="64,47,64,80,58,80,58,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a2407383501803e8a2795ad8791f3c39f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#a2407383501803e8a2795ad8791f3c39f">GraphicSystem</a> (std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_main_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_application_setting_recorder.html">ApplicationSettingRecorder</a> &gt; setting_ptr)</td></tr>
 <tr class="separator:a2407383501803e8a2795ad8791f3c39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4973873ceea44d1eeb54e68dabeb0de"><td class="memItemLeft" align="right" valign="top"><a id="af4973873ceea44d1eeb54e68dabeb0de" name="af4973873ceea44d1eeb54e68dabeb0de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Main</b> ()</td></tr>
-<tr class="memdesc:af4973873ceea44d1eeb54e68dabeb0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． <br  />
+<tr class="memitem:a21c9e0e8c7c1145a51617cd19b56d31e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphic_system.html#a21c9e0e8c7c1145a51617cd19b56d31e">Main</a> () override</td></tr>
+<tr class="memdesc:a21c9e0e8c7c1145a51617cd19b56d31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． <br  />
  initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． <br  />
- またメンバ関数のdxlibInit関数に失敗した場合も終了します． <br /></td></tr>
-<tr class="separator:af4973873ceea44d1eeb54e68dabeb0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ またメンバ関数のdxlibInit関数に失敗した場合も終了します．  <br /></td></tr>
+<tr class="separator:a21c9e0e8c7c1145a51617cd19b56d31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c2e07d6f1f6add0de64fd3323e7730"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_system_main.html#a08c2e07d6f1f6add0de64fd3323e7730">Main</a> ()=0</td></tr>
+<tr class="memdesc:a08c2e07d6f1f6add0de64fd3323e7730"><td class="mdescLeft">&#160;</td><td class="mdescRight">主要な処理を行う関数  <br /></td></tr>
+<tr class="separator:a08c2e07d6f1f6add0de64fd3323e7730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>Dxlibの処理を行うクラス． </p>
@@ -165,9 +187,55 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Main</b> ()</td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a21c9e0e8c7c1145a51617cd19b56d31e" name="a21c9e0e8c7c1145a51617cd19b56d31e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c9e0e8c7c1145a51617cd19b56d31e">&#9670;&#160;</a></span>Main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GraphicSystem::Main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． <br  />
+ initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． <br  />
+ またメンバ関数のdxlibInit関数に失敗した場合も終了します． </p>
+
+<p><a class="el" href="class_i_system_main.html#a08c2e07d6f1f6add0de64fd3323e7730">ISystemMain</a>を実装しています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graphic_system_a21c9e0e8c7c1145a51617cd19b56d31e_icgraph.png" border="0" usemap="#aclass_graphic_system_a21c9e0e8c7c1145a51617cd19b56d31e_icgraph" alt=""/></div>
+<map name="aclass_graphic_system_a21c9e0e8c7c1145a51617cd19b56d31e_icgraph" id="aclass_graphic_system_a21c9e0e8c7c1145a51617cd19b56d31e_icgraph">
+<area shape="rect" title="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． &#160;&#160;initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． &#160;&#160;またメン..." alt="" coords="224,80,371,107"/>
+<area shape="rect" href="class_graph_viewer_system_main.html#ac0c837edb4f1387fcdae35b39c9999eb" title="メイン関数" alt="" coords="6,5,175,48"/>
+<area shape="poly" title=" " alt="" coords="239,77,158,51,160,46,240,72"/>
+<area shape="rect" href="class_result_viewer_system_main.html#aecf8894b5ac421d39b2d373e33774767" title="主要な処理を行う関数" alt="" coords="5,72,176,115"/>
+<area shape="poly" title=" " alt="" coords="209,96,176,96,176,91,209,91"/>
+<area shape="rect" href="class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="13,139,168,181"/>
+<area shape="poly" title=" " alt="" coords="240,114,160,141,158,136,239,109"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="graphic__system_8h_source.html">graphic_system.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graphic_system.cpp</li>
+<li>DesignLab/<a class="el" href="graphic__system_8h_source.html">graphic_system.h</a></li>
+<li>DesignLab/graphic_system.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

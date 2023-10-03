@@ -5,13 +5,7 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="INodeCreator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_i_node_creator.html",tooltip="ノード生成インターフェース"];
-  Node0 -> Node1 [id="edge10_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="ComMoveNodeCreatorHato",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html",tooltip="重心の平行移動を行うクラス．波東さんの手法．"];
-  Node0 -> Node2 [id="edge11_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="ComUpDownNodeCreator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_up_down_node_creator.html",tooltip="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．"];
-  Node0 -> Node3 [id="edge12_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="LegHierarchyNodeCreator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_leg_hierarchy_node_creator.html",tooltip="脚の階層構造を作るためのクラス．"];
-  Node0 -> Node4 [id="edge13_Node000000_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="LegUpDownNodeCreator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_leg_up_down_node_creator.html",tooltip="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．"];
+  Node0 [id="Node000000",label="INodeCreatorBuilder",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_i_node_creator_builder.html",tooltip="INodeCreatorを生成するためのビルダークラス"];
+  Node0 -> Node1 [id="edge14_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="NodeCreatorBuilderHato",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_node_creator_builder_hato.html",tooltip=" "];
 }

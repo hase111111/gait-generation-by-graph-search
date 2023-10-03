@@ -1,6 +1,9 @@
 var class_result_file_exporter =
 [
-    [ "exportResult", "class_result_file_exporter.html#a8ddb0abbad5a1f85f2d4c6ceb381a9d9", null ],
-    [ "init", "class_result_file_exporter.html#a1cb86aa9aabd01b6a1fa2cd98b089f2c", null ],
-    [ "setDoExport", "class_result_file_exporter.html#a724b78a19a0ac692475f03ab31c7cbe2", null ]
+    [ "ExportLatestMapState", "class_result_file_exporter.html#a8abd756066b11cba198717310af1dd33", null ],
+    [ "ExportLatestNodeList", "class_result_file_exporter.html#adecd9f1f56ba5357aff1896db12feb93", null ],
+    [ "ExportResult", "class_result_file_exporter.html#abceefde731efa7b06df3a57aa098dff6", null ],
+    [ "Init", "class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268", null ],
+    [ "PushSimulationResult", "class_result_file_exporter.html#ae6ad5bb78a87ff63c5ea02422786f157", null ],
+    [ "SetDoExport", "class_result_file_exporter.html#a632eb07c0eb95873f39959da299a5797", null ]
 ];

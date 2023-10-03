@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_candidate_polygon_maker.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/com_candidate_polygon_maker.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('com__candidate__polygon__maker_8h_sour
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="abstract__hexapod__state__calculator_8h.html">abstract_hexapod_state_calculator.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__polygon2_8h.html">designlab_polygon2.h</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="discrete__com__pos_8h.html">discrete_com_pos.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">node.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_com_pos_and_polygon.html">   21</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_com_pos_and_polygon.html">ComPosAndPolygon</a></div>
@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('com__candidate__polygon__maker_8h_sour
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_com_candidate_polygon_maker.html#a0ea95519642661194a504569abfc0558">   44</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_com_candidate_polygon_maker.html#a0ea95519642661194a504569abfc0558">MAKE_POLYGON_NUM</a> = 7;  </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_com_candidate_polygon_maker.html#ae216d0b07bc5a3d27e89ce9d9ee1efc9">MakeCandidatePolygon</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node, std::array&lt;ComPosAndPolygon, MAKE_POLYGON_NUM&gt;* output_poly) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_com_candidate_polygon_maker.html#ae0ed342ff04161b8b86335b9ac5d2b24">MakeCandidatePolygon</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_robot_state_node.html">RobotStateNode</a>&amp; node, std::array&lt;ComPosAndPolygon, MAKE_POLYGON_NUM&gt;* output_poly) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
@@ -152,27 +152,27 @@ $(document).ready(function(){initNavTree('com__candidate__polygon__maker_8h_sour
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif  </span><span class="comment">//DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_</span></div>
-<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
 <div class="ttc" id="aabstract__hexapod__state__calculator_8h_html"><div class="ttname"><a href="abstract__hexapod__state__calculator_8h.html">abstract_hexapod_state_calculator.h</a></div><div class="ttdoc">ロボットの状態を計算するクラスの抽象クラス．</div></div>
 <div class="ttc" id="aclass_com_candidate_polygon_maker_html"><div class="ttname"><a href="class_com_candidate_polygon_maker.html">ComCandidatePolygonMaker</a></div><div class="ttdoc">重心位置の候補地点を示す多角形を作成するクラス</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:38</div></div>
 <div class="ttc" id="aclass_com_candidate_polygon_maker_html_a0ea95519642661194a504569abfc0558"><div class="ttname"><a href="class_com_candidate_polygon_maker.html#a0ea95519642661194a504569abfc0558">ComCandidatePolygonMaker::MAKE_POLYGON_NUM</a></div><div class="ttdeci">static constexpr int MAKE_POLYGON_NUM</div><div class="ttdoc">作成する多角形の数</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:44</div></div>
-<div class="ttc" id="aclass_com_candidate_polygon_maker_html_ae216d0b07bc5a3d27e89ce9d9ee1efc9"><div class="ttname"><a href="class_com_candidate_polygon_maker.html#ae216d0b07bc5a3d27e89ce9d9ee1efc9">ComCandidatePolygonMaker::MakeCandidatePolygon</a></div><div class="ttdeci">void MakeCandidatePolygon(const SNode &amp;node, std::array&lt; ComPosAndPolygon, MAKE_POLYGON_NUM &gt; *output_poly) const</div><div class="ttdoc">現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.cpp:13</div></div>
+<div class="ttc" id="aclass_com_candidate_polygon_maker_html_ae0ed342ff04161b8b86335b9ac5d2b24"><div class="ttname"><a href="class_com_candidate_polygon_maker.html#ae0ed342ff04161b8b86335b9ac5d2b24">ComCandidatePolygonMaker::MakeCandidatePolygon</a></div><div class="ttdeci">void MakeCandidatePolygon(const RobotStateNode &amp;node, std::array&lt; ComPosAndPolygon, MAKE_POLYGON_NUM &gt; *output_poly) const</div><div class="ttdoc">現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.cpp:13</div></div>
 <div class="ttc" id="adesignlab__polygon2_8h_html"><div class="ttname"><a href="designlab__polygon2_8h.html">designlab_polygon2.h</a></div><div class="ttdoc">多角形を表す構造体</div></div>
 <div class="ttc" id="adiscrete__com__pos_8h_html"><div class="ttname"><a href="discrete__com__pos_8h.html">discrete_com_pos.h</a></div><div class="ttdoc">離散化された重心位置を表す列挙体</div></div>
 <div class="ttc" id="adiscrete__com__pos_8h_html_abc9cb9e5ab1d9788a3852d3b24be05b9"><div class="ttname"><a href="discrete__com__pos_8h.html#abc9cb9e5ab1d9788a3852d3b24be05b9">DiscreteComPos</a></div><div class="ttdeci">DiscreteComPos</div><div class="ttdef"><b>Definition</b> discrete_com_pos.h:12</div></div>
 <div class="ttc" id="adiscrete__com__pos_8h_html_abc9cb9e5ab1d9788a3852d3b24be05b9a74b33dfe34e13923f9b235450de37871"><div class="ttname"><a href="discrete__com__pos_8h.html#abc9cb9e5ab1d9788a3852d3b24be05b9a74b33dfe34e13923f9b235450de37871">DiscreteComPos::kFront</a></div><div class="ttdeci">@ kFront</div><div class="ttdoc">重心が前方にある</div></div>
+<div class="ttc" id="arobot__state__node_8h_html"><div class="ttname"><a href="robot__state__node_8h.html">robot_state_node.h</a></div></div>
 <div class="ttc" id="astruct_com_pos_and_polygon_html"><div class="ttname"><a href="struct_com_pos_and_polygon.html">ComPosAndPolygon</a></div><div class="ttdoc">離散化された重心位置とその重心位置を含む多角形の組み合わせ．</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:22</div></div>
 <div class="ttc" id="astruct_com_pos_and_polygon_html_a5b6427ed85f16df4bfc4592040a9cac9"><div class="ttname"><a href="struct_com_pos_and_polygon.html#a5b6427ed85f16df4bfc4592040a9cac9">ComPosAndPolygon::com_pos</a></div><div class="ttdeci">DiscreteComPos com_pos</div><div class="ttdoc">離散化された重心位置</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:25</div></div>
 <div class="ttc" id="astruct_com_pos_and_polygon_html_ac7ac3abc3bbfcc3c53594119b12c5b4b"><div class="ttname"><a href="struct_com_pos_and_polygon.html#ac7ac3abc3bbfcc3c53594119b12c5b4b">ComPosAndPolygon::is_able</a></div><div class="ttdeci">bool is_able</div><div class="ttdoc">重心位置を含む多角形が正しいかどうか</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:27</div></div>
 <div class="ttc" id="astruct_com_pos_and_polygon_html_ae0a1f4f77baa0586143844b4f3878886"><div class="ttname"><a href="struct_com_pos_and_polygon.html#ae0a1f4f77baa0586143844b4f3878886">ComPosAndPolygon::polygon</a></div><div class="ttdeci">designlab::Polygon2 polygon</div><div class="ttdoc">重心位置を含む多角形</div><div class="ttdef"><b>Definition</b> com_candidate_polygon_maker.h:26</div></div>
-<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">ノードの構造体を定義する．</div><div class="ttdef"><b>Definition</b> Node.h:47</div></div>
+<div class="ttc" id="astruct_robot_state_node_html"><div class="ttname"><a href="struct_robot_state_node.html">RobotStateNode</a></div><div class="ttdoc">ノードの構造体を定義する．</div><div class="ttdef"><b>Definition</b> robot_state_node.h:47</div></div>
 <div class="ttc" id="astructdesignlab_1_1_polygon2_html"><div class="ttname"><a href="structdesignlab_1_1_polygon2.html">designlab::Polygon2</a></div><div class="ttdoc">2次元の多角形を表す構造体</div><div class="ttdef"><b>Definition</b> designlab_polygon2.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="com__candidate__polygon__maker_8h.html">com_candidate_polygon_maker.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="com__candidate__polygon__maker_8h.html">com_candidate_polygon_maker.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

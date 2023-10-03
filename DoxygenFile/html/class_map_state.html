@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#friends">フレンド</a> &#124;
 <a href="class_map_state-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">MapState クラス</div></div>
 </div><!--header-->
@@ -129,6 +130,13 @@ $(document).ready(function(){initNavTree('class_map_state.html',''); initResizab
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearMapPoint</b> ()</td></tr>
 <tr class="memdesc:a465f0886343041960e33268ad8a4c362"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚設置可能点の座標を消去する． <br /></td></tr>
 <tr class="separator:a465f0886343041960e33268ad8a4c362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+フレンド</h2></td></tr>
+<tr class="memitem:ae63aa6feb6ed4be0ea95680ba9ea12a5"><td class="memTemplParams" colspan="2"><a id="ae63aa6feb6ed4be0ea95680ba9ea12a5" name="ae63aa6feb6ed4be0ea95680ba9ea12a5"></a>
+template&lt;class Char &gt; </td></tr>
+<tr class="memitem:ae63aa6feb6ed4be0ea95680ba9ea12a5"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; Char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::basic_ostream&lt; Char &gt; &amp;os, const <a class="el" href="class_map_state.html">MapState</a> &amp;v)</td></tr>
+<tr class="separator:ae63aa6feb6ed4be0ea95680ba9ea12a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>マップを表すクラス． </p>
@@ -256,17 +264,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearMapPoint</b> ()<
 <div class="dyncontent">
 <div class="center"><img src="class_map_state_af1cbbeb3eb577b1c3530a43c57028dec_icgraph.png" border="0" usemap="#aclass_map_state_af1cbbeb3eb577b1c3530a43c57028dec_icgraph" alt=""/></div>
 <map name="aclass_map_state_af1cbbeb3eb577b1c3530a43c57028dec_icgraph" id="aclass_map_state_af1cbbeb3eb577b1c3530a43c57028dec_icgraph">
-<area shape="rect" title="脚設置可能点の総数を返す．" alt="" coords="405,101,592,128"/>
-<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="222,101,357,128"/>
-<area shape="poly" title=" " alt="" coords="390,117,358,117,358,112,390,112"/>
-<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,5,161,48"/>
-<area shape="poly" title=" " alt="" coords="246,97,173,62,146,51,148,46,175,58,248,92"/>
-<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,72,172,99"/>
-<area shape="poly" title=" " alt="" coords="207,105,172,100,173,95,207,100"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,123,174,165"/>
-<area shape="poly" title=" " alt="" coords="207,129,175,134,174,129,206,124"/>
-<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,189,168,216"/>
-<area shape="poly" title=" " alt="" coords="255,138,175,180,143,191,141,186,173,175,253,133"/>
+<area shape="rect" title="脚設置可能点の総数を返す．" alt="" coords="467,189,654,216"/>
+<area shape="rect" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762" title="マップの描画を行う．" alt="" coords="254,131,389,157"/>
+<area shape="poly" title=" " alt="" coords="488,188,378,160,379,155,490,183"/>
+<area shape="rect" href="class_result_file_importer.html#ab01d6714b97dc610fb2a8af6adae2f60" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="224,211,419,253"/>
+<area shape="poly" title=" " alt="" coords="453,219,420,223,419,217,452,213"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="19,5,162,48"/>
+<area shape="poly" title=" " alt="" coords="285,125,174,62,149,51,151,46,177,58,288,120"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,72,173,99"/>
+<area shape="poly" title=" " alt="" coords="251,129,145,102,147,97,253,124"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="6,123,175,165"/>
+<area shape="poly" title=" " alt="" coords="239,147,175,147,175,141,239,141"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,189,169,216"/>
+<area shape="poly" title=" " alt="" coords="253,164,147,191,145,186,251,159"/>
+<area shape="rect" href="class_result_viewer_system_main.html#aecf8894b5ac421d39b2d373e33774767" title="主要な処理を行う関数" alt="" coords="5,240,176,283"/>
+<area shape="poly" title=" " alt="" coords="209,249,176,253,176,248,208,244"/>
 </map>
 </div>
 
@@ -365,8 +377,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearMapPoint</b> ()<
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="map__state_8h_source.html">map_state.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/map_state.cpp</li>
+<li>DesignLab/<a class="el" href="map__state_8h_source.html">map_state.h</a></li>
+<li>DesignLab/map_state.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

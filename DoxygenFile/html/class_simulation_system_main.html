@@ -100,17 +100,39 @@ $(document).ready(function(){initNavTree('class_simulation_system_main.html','')
  <a href="class_simulation_system_main.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="simulation__system__main_8h_source.html">simulation_system_main.h</a>&gt;</code></p>
+<div class="dynheader">
+SimulationSystemMain の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulation_system_main__inherit__graph.png" border="0" usemap="#a_simulation_system_main_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_simulation_system_main_inherit__map" id="a_simulation_system_main_inherit__map">
+<area shape="rect" title="中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．" alt="" coords="5,80,161,107"/>
+<area shape="rect" href="class_i_system_main.html" title=" " alt="" coords="34,5,132,32"/>
+<area shape="poly" title=" " alt="" coords="86,47,86,80,80,80,80,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+SimulationSystemMain 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulation_system_main__coll__graph.png" border="0" usemap="#a_simulation_system_main_coll__map" alt="Collaboration graph"/></div>
+<map name="a_simulation_system_main_coll__map" id="a_simulation_system_main_coll__map">
+<area shape="rect" title="中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．" alt="" coords="5,80,161,107"/>
+<area shape="rect" href="class_i_system_main.html" title=" " alt="" coords="34,5,132,32"/>
+<area shape="poly" title=" " alt="" coords="86,47,86,80,80,80,80,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a79a64ff0263726f0e22d2e5f0e0d2ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8">SimulationSystemMain</a> (std::unique_ptr&lt; <a class="el" href="class_i_pass_finder.html">IPassFinder</a> &gt; &amp;&amp;pass_finder_ptr, std::unique_ptr&lt; <a class="el" href="class_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_ptr, const std::shared_ptr&lt; <a class="el" href="struct_graphic_data_broker.html">GraphicDataBroker</a> &gt; &amp;broker_ptr, const std::shared_ptr&lt; const <a class="el" href="struct_application_setting_recorder.html">ApplicationSettingRecorder</a> &gt; &amp;setting_ptr)</td></tr>
 <tr class="separator:a79a64ff0263726f0e22d2e5f0e0d2ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7b220bc2f5e2c55bd49e25b8c9345d"><td class="memItemLeft" align="right" valign="top"><a id="adb7b220bc2f5e2c55bd49e25b8c9345d" name="adb7b220bc2f5e2c55bd49e25b8c9345d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Main</b> ()</td></tr>
-<tr class="memdesc:adb7b220bc2f5e2c55bd49e25b8c9345d"><td class="mdescLeft">&#160;</td><td class="mdescRight">いままでint mainで行われた処理をまとめたもの． <br  />
+<tr class="memitem:a030bde5e114622fa85d83517fa040242"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242">Main</a> () override</td></tr>
+<tr class="memdesc:a030bde5e114622fa85d83517fa040242"><td class="mdescLeft">&#160;</td><td class="mdescRight">いままでint mainで行われた処理をまとめたもの． <br  />
  目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． <br  />
- また，規定の回数シミュレーションしたら終了する． <br /></td></tr>
-<tr class="separator:adb7b220bc2f5e2c55bd49e25b8c9345d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ また，規定の回数シミュレーションしたら終了する．  <br /></td></tr>
+<tr class="separator:a030bde5e114622fa85d83517fa040242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c2e07d6f1f6add0de64fd3323e7730"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_system_main.html#a08c2e07d6f1f6add0de64fd3323e7730">Main</a> ()=0</td></tr>
+<tr class="memdesc:a08c2e07d6f1f6add0de64fd3323e7730"><td class="mdescLeft">&#160;</td><td class="mdescRight">主要な処理を行う関数  <br /></td></tr>
+<tr class="separator:a08c2e07d6f1f6add0de64fd3323e7730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる． </p>
@@ -170,20 +192,135 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Main</b> ()</td></tr>
 <area shape="rect" title=" " alt="" coords="5,27,169,69"/>
 <area shape="rect" href="class_map_creator.html#aa237020798f60331235c3186010f62ed" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="217,5,351,32"/>
 <area shape="poly" title=" " alt="" coords="169,33,202,28,203,33,169,38"/>
-<area shape="rect" href="class_result_file_exporter.html#a1cb86aa9aabd01b6a1fa2cd98b089f2c" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="220,56,348,99"/>
+<area shape="rect" href="class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="220,56,348,99"/>
 <area shape="poly" title=" " alt="" coords="169,58,206,63,205,68,169,63"/>
 <area shape="rect" href="class_map_state.html#ab841b416d036bb94249bf2e22c327816" title="脚設置可能点の座標を設定する &#160;&#160;一応作ったけど，使うことはないと思う．AddMapPointを使うこと．" alt="" coords="418,5,578,32"/>
 <area shape="poly" title=" " alt="" coords="352,16,403,16,403,21,352,21"/>
-<area shape="rect" href="class_stopwatch.html#a227203b6b93c4dd1b0e17f6d3a5437e0" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する" alt="" coords="399,64,597,91"/>
-<area shape="poly" title=" " alt="" coords="348,75,384,75,384,80,348,80"/>
+<area shape="rect" href="class_stopwatch.html#a227203b6b93c4dd1b0e17f6d3a5437e0" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する" alt="" coords="399,60,597,87"/>
+<area shape="poly" title=" " alt="" coords="348,73,384,73,384,78,348,79"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="415,111,581,137"/>
+<area shape="poly" title=" " alt="" coords="349,89,420,104,419,109,348,94"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a030bde5e114622fa85d83517fa040242" name="a030bde5e114622fa85d83517fa040242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030bde5e114622fa85d83517fa040242">&#9670;&#160;</a></span>Main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationSystemMain::Main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>いままでint mainで行われた処理をまとめたもの． <br  />
+ 目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． <br  />
+ また，規定の回数シミュレーションしたら終了する． </p>
+
+<p><a class="el" href="class_i_system_main.html#a08c2e07d6f1f6add0de64fd3323e7730">ISystemMain</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulation_system_main_a030bde5e114622fa85d83517fa040242_cgraph.png" border="0" usemap="#aclass_simulation_system_main_a030bde5e114622fa85d83517fa040242_cgraph" alt=""/></div>
+<map name="aclass_simulation_system_main_a030bde5e114622fa85d83517fa040242_cgraph" id="aclass_simulation_system_main_a030bde5e114622fa85d83517fa040242_cgraph">
+<area shape="rect" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,504,161,547"/>
+<area shape="rect" href="class_stopwatch.html#abb0f0d7c76a4f36357f33dbdecbe02a8" title="計測終了にこの関数を呼ぶ．" alt="" coords="252,44,366,71"/>
+<area shape="poly" title=" " alt="" coords="81,504,84,426,90,373,100,315,115,254,137,194,167,138,207,87,237,68,240,72,210,91,172,141,142,196,120,256,105,316,95,374,89,427,86,504"/>
+<area shape="rect" href="class_result_file_exporter.html#a8abd756066b11cba198717310af1dd33" title="最新のマップ状態をファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出力しない..." alt="" coords="465,373,624,416"/>
+<area shape="poly" title=" " alt="" coords="106,501,151,466,178,449,208,435,269,416,332,403,450,392,451,397,333,408,270,421,210,440,181,454,154,471,109,506"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="680,297,847,324"/>
+<area shape="poly" title=" " alt="" coords="97,502,141,448,172,419,207,396,244,382,293,368,414,346,547,328,665,316,666,321,547,334,415,351,294,374,246,387,210,401,176,424,145,452,101,505"/>
+<area shape="rect" href="class_result_file_exporter.html#adecd9f1f56ba5357aff1896db12feb93" title="最新のノードリストをファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出力しな..." alt="" coords="468,440,622,483"/>
+<area shape="poly" title=" " alt="" coords="116,501,158,478,208,460,271,449,335,445,453,448,452,453,335,450,272,454,209,465,161,483,118,506"/>
+<area shape="rect" href="class_result_file_exporter.html#abceefde731efa7b06df3a57aa098dff6" title="シミュレーション結果を全てファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出..." alt="" coords="245,475,373,517"/>
+<area shape="poly" title=" " alt="" coords="161,513,230,504,230,509,161,518"/>
+<area shape="rect" href="class_stopwatch.html#a79d207f79140305845985e1097d87ce8" title=" " alt="" coords="214,592,404,635"/>
+<area shape="poly" title=" " alt="" coords="132,545,210,578,227,584,225,589,208,582,130,550"/>
+<area shape="rect" href="struct_robot_state_node.html#ab5808d3a5bd17f6fa32a7068a48699df" title="初期化関数" alt="" coords="238,659,380,685"/>
+<area shape="poly" title=" " alt="" coords="103,545,148,596,177,622,210,644,225,652,223,656,207,649,174,626,144,600,99,549"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a1d5f07e4f8ddd98dd7e1858cfad64b6b" title="yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．" alt="" coords="212,541,406,568"/>
+<area shape="poly" title=" " alt="" coords="161,533,197,538,197,543,161,538"/>
+<area shape="rect" href="class_node_validity_checker.html#aaae516036316439b7617d347531667e0" title=" " alt="" coords="238,709,380,752"/>
+<area shape="poly" title=" " alt="" coords="97,546,140,619,172,660,210,695,226,705,223,709,207,699,168,664,135,622,92,549"/>
+<area shape="rect" href="class_graphic_system.html#a21c9e0e8c7c1145a51617cd19b56d31e" title="ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います． &#160;&#160;initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します． &#160;&#160;またメン..." alt="" coords="235,776,383,803"/>
+<area shape="poly" title=" " alt="" coords="92,547,105,592,129,651,163,711,185,738,210,762,223,770,220,775,207,766,181,742,159,714,124,653,100,594,87,548"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02" title="コマンドラインに水平線を出力する関数．" alt="" coords="462,205,628,248"/>
+<area shape="poly" title=" " alt="" coords="85,503,95,451,117,384,133,348,153,314,178,284,207,258,234,241,264,229,326,213,388,208,446,210,446,215,389,213,327,219,265,234,237,246,210,262,182,287,158,317,138,351,122,386,100,453,90,504"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a23cd6fd6477be14f76c818c418a0de08" title="コマンドラインで改行をする関数．" alt="" coords="462,5,628,48"/>
+<area shape="poly" title=" " alt="" coords="82,504,86,432,103,332,119,278,141,225,170,175,207,131,232,112,255,101,278,95,301,93,350,92,378,89,408,80,456,58,471,51,473,56,458,62,410,85,379,94,351,97,302,99,279,100,257,106,234,117,211,135,174,178,145,227,124,280,108,333,91,433,87,504"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数．" alt="" coords="226,145,392,188"/>
+<area shape="poly" title=" " alt="" coords="85,503,96,446,118,369,134,327,154,285,178,246,207,210,227,194,230,198,211,214,182,249,158,288,139,329,123,370,101,447,90,504"/>
+<area shape="rect" href="class_result_file_exporter.html#ae6ad5bb78a87ff63c5ea02422786f157" title="シミュレーション結果を追加する．" alt="" coords="230,827,388,869"/>
+<area shape="poly" title=" " alt="" coords="90,547,101,600,123,672,139,710,159,747,182,782,210,813,219,820,216,824,207,817,178,785,154,750,134,712,118,674,96,602,85,548"/>
+<area shape="rect" href="class_node_validity_checker.html#a479cb3c62af11d6838eaac97d94fa194" title=" " alt="" coords="238,893,380,936"/>
+<area shape="poly" title=" " alt="" coords="88,547,96,611,115,701,131,749,151,796,178,840,211,879,226,891,223,895,207,883,173,843,147,798,126,750,110,702,90,612,83,548"/>
+<area shape="rect" href="class_stopwatch.html#adb93923510f12409132445fc187d828f" title="計測開始にこの関数を呼ぶ． &#160;&#160;リセット処理などを呼ぶ必要なしで，再度計測できる．" alt="" coords="250,960,368,987"/>
+<area shape="poly" title=" " alt="" coords="86,547,89,623,95,674,105,730,120,789,142,846,172,900,210,946,237,962,234,967,207,950,167,903,137,848,115,790,99,732,89,675,84,623,81,547"/>
+<area shape="rect" href="struct_robot_state_node.html#aa64c56712d3d329da4c3931cc3dc63cd" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="223,1011,395,1037"/>
+<area shape="poly" title=" " alt="" coords="90,546,104,643,130,779,147,848,166,911,187,962,211,997,215,1000,211,1004,207,1000,183,965,161,913,141,850,125,780,99,644,84,547"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ac411e4a736e83e07ab5de75bcd3afc1f" title="入力待ちをする関数．" alt="" coords="209,272,409,299"/>
+<area shape="poly" title=" " alt="" coords="89,503,105,463,129,412,163,360,207,315,227,303,230,307,210,319,168,364,134,415,110,465,94,505"/>
+<area shape="poly" title=" " alt="" coords="601,370,712,327,714,332,603,375"/>
+<area shape="poly" title=" " alt="" coords="609,437,631,426,691,380,738,333,742,337,695,384,634,430,612,442"/>
+<area shape="poly" title=" " alt="" coords="374,509,432,518,498,522,567,515,600,506,631,492,654,478,674,460,708,418,733,374,750,336,755,339,738,376,712,421,678,464,657,482,634,497,602,511,568,520,498,527,431,524,373,515"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#ac99502fcbcdd8d97f727f1d488b707a3" title="指定した範囲内の乱数を生成する．" alt="" coords="457,629,632,672"/>
+<area shape="poly" title=" " alt="" coords="380,663,442,657,442,663,380,668"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a87452a9f99cef8a85f606bcc3c8c18c8" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="479,696,611,739"/>
+<area shape="poly" title=" " alt="" coords="381,683,464,699,463,705,380,688"/>
+<area shape="poly" title=" " alt="" coords="394,566,450,569,512,566,574,554,603,543,631,528,656,510,678,487,713,435,737,382,752,338,757,339,742,384,717,437,682,490,659,514,634,533,606,548,576,559,513,572,450,575,394,571"/>
+<area shape="poly" title=" " alt="" coords="603,246,714,289,712,294,601,251"/>
+<area shape="poly" title=" " alt="" coords="618,46,634,58,659,84,681,113,717,175,742,235,757,282,752,284,737,236,712,177,677,116,655,87,631,62,615,51"/>
+<area shape="poly" title=" " alt="" coords="393,185,448,199,447,205,392,190"/>
+<area shape="poly" title=" " alt="" coords="377,142,407,125,422,108,431,92,439,75,455,58,461,54,465,58,459,62,444,78,435,94,427,111,411,129,380,147"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6" title="中央に文字を出力する関数" alt="" coords="462,72,628,115"/>
+<area shape="poly" title=" " alt="" coords="379,142,459,117,460,122,380,147"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ab571da4a5a2affc2679e2d8b5c9d8cc0" title="右端に文字を出力する関数" alt="" coords="462,139,628,181"/>
+<area shape="poly" title=" " alt="" coords="392,162,447,160,447,165,392,167"/>
+<area shape="poly" title=" " alt="" coords="616,113,634,125,674,162,707,206,752,283,748,286,703,208,670,166,631,129,613,117"/>
+<area shape="poly" title=" " alt="" coords="612,179,634,191,695,238,742,284,738,288,691,242,631,196,609,184"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#aacc8d4b9a0015353684a79cd4d3b7c64" title="現在の脚状態から重心パターンを取得する．" alt="" coords="471,836,619,879"/>
+<area shape="poly" title=" " alt="" coords="390,1008,407,997,419,984,426,972,431,945,437,917,443,903,455,889,459,886,462,890,459,893,448,906,442,919,436,946,431,973,423,987,411,1001,392,1012"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a62dca0fb343ead29f161a49f5c4449f3" title="脚状態を取得する．" alt="" coords="474,903,616,945"/>
+<area shape="poly" title=" " alt="" coords="380,1008,408,996,422,987,431,977,455,955,465,950,467,955,459,960,435,980,425,991,410,1001,382,1012"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="479,969,611,1012"/>
+<area shape="poly" title=" " alt="" coords="395,1009,463,999,464,1005,396,1014"/>
+<area shape="rect" href="structdesignlab_1_1_euler_x_y_z.html#a78a88f2575844a56ee80417aee8bbe56" title="オイラー角を文字列に変換する &#160;&#160;単位は ラジアン [rad]" alt="" coords="476,1036,613,1079"/>
+<area shape="poly" title=" " alt="" coords="396,1034,461,1043,461,1048,395,1039"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す &#160;&#160;(x, y, z) の形式，小数点以下3桁まで" alt="" coords="480,1103,609,1145"/>
+<area shape="poly" title=" " alt="" coords="340,1035,458,1088,473,1094,471,1099,456,1093,338,1040"/>
+<area shape="rect" href="structdesignlab_1_1_euler_x_y_z.html#a38d45f9caa4a81b2fb2277653a9b0abf" title="オイラー角を文字列に変換する &#160;&#160;単位は 度 [deg]" alt="" coords="476,1169,613,1212"/>
+<area shape="poly" title=" " alt="" coords="324,1036,379,1093,417,1126,458,1155,467,1160,465,1165,456,1160,414,1130,375,1096,320,1040"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a4821a8a73522c47bcd90b67af623e365" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する" alt="" coords="689,1103,838,1145"/>
+<area shape="poly" title=" " alt="" coords="615,1076,678,1095,676,1100,613,1081"/>
+<area shape="poly" title=" " alt="" coords="610,1121,674,1121,674,1127,610,1127"/>
+<area shape="poly" title=" " alt="" coords="613,1167,676,1148,678,1153,615,1172"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#af555c8eb2f4605fd1b60b41354c22dd2" title="角度をradからdegに変換する関数．" alt="" coords="695,1169,832,1212"/>
+<area shape="poly" title=" " alt="" coords="614,1188,680,1188,680,1193,614,1193"/>
+<area shape="poly" title=" " alt="" coords="410,288,666,303,665,308,409,294"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="simulation__system__main_8h_source.html">simulation_system_main.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/simulation_system_main.cpp</li>
+<li>DesignLab/<a class="el" href="simulation__system__main_8h_source.html">simulation_system_main.h</a></li>
+<li>DesignLab/simulation_system_main.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,7 +1,7 @@
 var cmdio__util_8h =
 [
     [ "InputInt", "cmdio__util_8h.html#a38240b12de09622fec60b69636218237", null ],
-    [ "InputYesNo", "cmdio__util_8h.html#a6e5697004977a81d63bb4ff86829c7d1", null ],
+    [ "InputYesNo", "cmdio__util_8h.html#a1d5f07e4f8ddd98dd7e1858cfad64b6b", null ],
     [ "Output", "cmdio__util_8h.html#a4398f06a03698e7b029112bb62c63485", null ],
     [ "OutputCenter", "cmdio__util_8h.html#a75cddfda72fab2142e8f60b7dc4f6cc6", null ],
     [ "OutputHorizontalLine", "cmdio__util_8h.html#a5aadbca0d6922c9c5ae7bec89f97bd02", null ],

@@ -2,7 +2,7 @@ var namespacedesignlab =
 [
     [ "cmdio", "namespacedesignlab_1_1cmdio.html", [
       [ "InputInt", "namespacedesignlab_1_1cmdio.html#a38240b12de09622fec60b69636218237", null ],
-      [ "InputYesNo", "namespacedesignlab_1_1cmdio.html#a6e5697004977a81d63bb4ff86829c7d1", null ],
+      [ "InputYesNo", "namespacedesignlab_1_1cmdio.html#a1d5f07e4f8ddd98dd7e1858cfad64b6b", null ],
       [ "Output", "namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485", null ],
       [ "OutputCenter", "namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6", null ],
       [ "OutputHorizontalLine", "namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02", null ],
@@ -96,5 +96,6 @@ var namespacedesignlab =
     [ "RotateVector3", "namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8", null ],
     [ "rotVector", "namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179", null ],
     [ "rotVector", "namespacedesignlab.html#a1f00dd71c87deaeb9209980d06496e6a", null ],
+    [ "SlerpQuaternion", "namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025", null ],
     [ "MAX_VERTEX_NUM", "namespacedesignlab.html#a839525a3230706c403d3c5553c4564ee", null ]
 ];

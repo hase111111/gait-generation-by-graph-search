@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['read_5ffrom_5ffile_0',['READ_FROM_FILE',['../map__creator_8h.html#af717036720505346337d623b2a4f3c28a27fe246d09dc2f6a736d089abda87129',1,'map_creator.h']]]
+  ['straightposition_0',['StraightPosition',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af6a8e48dac7365b301e1e5f9d1b670d5',1,'target.h']]],
+  ['straightvector_1',['StraightVector',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6abdc06390e6553abb288362534981fc25',1,'target.h']]]
 ];

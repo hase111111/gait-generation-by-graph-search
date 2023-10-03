@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/node_display_gui.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/node_display_gui.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('node__display__gui_8h_source.html','')
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">node.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="button__controller_8h.html">button_controller.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="abstract__hexapod__state__calculator_8h.html">abstract_hexapod_state_calculator.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('node__display__gui_8h_source.html','')
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_node_display_gui.html">NodeDisplayGui</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x_pos, <span class="keyword">const</span> <span class="keywordtype">int</span> y_pos, <span class="keyword">const</span> std::shared_ptr&lt;const AbstractHexapodStateCalculator&gt;&amp; calculator_ptr);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c">SetDisplayNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_s_node.html">SNode</a>&amp; node);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_display_gui.html#a7ebd117b97976bfd5885414e7cbdbb25">SetDisplayNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_robot_state_node.html">RobotStateNode</a>&amp; node);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd">Update</a>();</div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('node__display__gui_8h_source.html','')
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> std::shared_ptr&lt;const AbstractHexapodStateCalculator&gt; calculator_ptr_;    </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_struct" href="struct_s_node.html">SNode</a> display_node_;                                        </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_struct" href="struct_robot_state_node.html">RobotStateNode</a> display_node_;                                       </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::array&lt;HexapodJointState, HexapodConst::LEG_NUM&gt; joint_state_;      </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
@@ -168,23 +168,23 @@ $(document).ready(function(){initNavTree('node__display__gui_8h_source.html','')
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif </span><span class="comment">// !DESIGNLAB_NODE_DISPLAY_GUI_H_</span></div>
-<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
 <div class="ttc" id="aabstract__hexapod__state__calculator_8h_html"><div class="ttname"><a href="abstract__hexapod__state__calculator_8h.html">abstract_hexapod_state_calculator.h</a></div><div class="ttdoc">ロボットの状態を計算するクラスの抽象クラス．</div></div>
 <div class="ttc" id="abutton__controller_8h_html"><div class="ttname"><a href="button__controller_8h.html">button_controller.h</a></div><div class="ttdoc">ボタンの処理，描画を管理するクラス．</div></div>
 <div class="ttc" id="aclass_node_display_gui_html"><div class="ttname"><a href="class_node_display_gui.html">NodeDisplayGui</a></div><div class="ttdoc">ノードの情報を表示するGUI</div><div class="ttdef"><b>Definition</b> node_display_gui.h:21</div></div>
 <div class="ttc" id="aclass_node_display_gui_html_a01ad92aa11f9287596dc7890231eb9cd"><div class="ttname"><a href="class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd">NodeDisplayGui::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">GUIのボタンの更新を行う</div><div class="ttdef"><b>Definition</b> node_display_gui.cpp:52</div></div>
 <div class="ttc" id="aclass_node_display_gui_html_a3e96f11e63c8f04745e459ecd9db258b"><div class="ttname"><a href="class_node_display_gui.html#a3e96f11e63c8f04745e459ecd9db258b">NodeDisplayGui::kWidth</a></div><div class="ttdeci">static const int kWidth</div><div class="ttdoc">GUIの幅</div><div class="ttdef"><b>Definition</b> node_display_gui.h:42</div></div>
-<div class="ttc" id="aclass_node_display_gui_html_a56ab3862df5514b821aa916cfb48a35c"><div class="ttname"><a href="class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c">NodeDisplayGui::SetDisplayNode</a></div><div class="ttdeci">void SetDisplayNode(const SNode &amp;node)</div><div class="ttdoc">表示するノードを設定する，その後関節の角度を計算し，セットする</div><div class="ttdef"><b>Definition</b> node_display_gui.cpp:40</div></div>
+<div class="ttc" id="aclass_node_display_gui_html_a7ebd117b97976bfd5885414e7cbdbb25"><div class="ttname"><a href="class_node_display_gui.html#a7ebd117b97976bfd5885414e7cbdbb25">NodeDisplayGui::SetDisplayNode</a></div><div class="ttdeci">void SetDisplayNode(const RobotStateNode &amp;node)</div><div class="ttdoc">表示するノードを設定する，その後関節の角度を計算し，セットする</div><div class="ttdef"><b>Definition</b> node_display_gui.cpp:40</div></div>
 <div class="ttc" id="aclass_node_display_gui_html_a839b67b1b96859f8ad23b00a56c2997d"><div class="ttname"><a href="class_node_display_gui.html#a839b67b1b96859f8ad23b00a56c2997d">NodeDisplayGui::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">GUIの表示を行う</div><div class="ttdef"><b>Definition</b> node_display_gui.cpp:78</div></div>
 <div class="ttc" id="aclass_node_display_gui_html_a8b889ed4b916c103bb36d11aa37d4513"><div class="ttname"><a href="class_node_display_gui.html#a8b889ed4b916c103bb36d11aa37d4513">NodeDisplayGui::kHeight</a></div><div class="ttdeci">static const int kHeight</div><div class="ttdoc">GUIの高さ</div><div class="ttdef"><b>Definition</b> node_display_gui.h:43</div></div>
 <div class="ttc" id="aclass_node_display_gui_html_aa078ce0717af0069369c6e2acc0b4979"><div class="ttname"><a href="class_node_display_gui.html#aa078ce0717af0069369c6e2acc0b4979">NodeDisplayGui::kClosedHeight</a></div><div class="ttdeci">static const int kClosedHeight</div><div class="ttdoc">GUIが閉じているときの高さ</div><div class="ttdef"><b>Definition</b> node_display_gui.h:44</div></div>
-<div class="ttc" id="astruct_s_node_html"><div class="ttname"><a href="struct_s_node.html">SNode</a></div><div class="ttdoc">ノードの構造体を定義する．</div><div class="ttdef"><b>Definition</b> Node.h:47</div></div>
+<div class="ttc" id="arobot__state__node_8h_html"><div class="ttname"><a href="robot__state__node_8h.html">robot_state_node.h</a></div></div>
+<div class="ttc" id="astruct_robot_state_node_html"><div class="ttname"><a href="struct_robot_state_node.html">RobotStateNode</a></div><div class="ttdoc">ノードの構造体を定義する．</div><div class="ttdef"><b>Definition</b> robot_state_node.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="node__display__gui_8h.html">node_display_gui.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="node__display__gui_8h.html">node_display_gui.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

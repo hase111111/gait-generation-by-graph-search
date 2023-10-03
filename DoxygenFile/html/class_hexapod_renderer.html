@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 <tr class="memitem:a9f095206c50b6a3702eee3906ec4f373"><td class="memItemLeft" align="right" valign="top"><a id="a9f095206c50b6a3702eee3906ec4f373" name="a9f095206c50b6a3702eee3906ec4f373"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>HexapodRenderer</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr)</td></tr>
 <tr class="separator:a9f095206c50b6a3702eee3906ec4f373"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0479959e5aaf9ff798e1b70d5fb09c2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b">set_draw_node</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node)</td></tr>
-<tr class="memdesc:a0479959e5aaf9ff798e1b70d5fb09c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を更新する．  <br /></td></tr>
-<tr class="separator:a0479959e5aaf9ff798e1b70d5fb09c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_renderer.html#a1da14c8e1e413d5f55a8fab7b04fb57b">set_draw_node</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node)</td></tr>
+<tr class="memdesc:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を更新する．  <br /></td></tr>
+<tr class="separator:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eae43f9a83c964275d97cd9c73d9451"><td class="memItemLeft" align="right" valign="top"><a id="a8eae43f9a83c964275d97cd9c73d9451" name="a8eae43f9a83c964275d97cd9c73d9451"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td></tr>
 <tr class="memdesc:a8eae43f9a83c964275d97cd9c73d9451"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットを3D空間に描画する． <br /></td></tr>
@@ -117,8 +117,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ロボットの描画を行うクラス． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a0479959e5aaf9ff798e1b70d5fb09c2b" name="a0479959e5aaf9ff798e1b70d5fb09c2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0479959e5aaf9ff798e1b70d5fb09c2b">&#9670;&#160;</a></span>set_draw_node()</h2>
+<a id="a1da14c8e1e413d5f55a8fab7b04fb57b" name="a1da14c8e1e413d5f55a8fab7b04fb57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da14c8e1e413d5f55a8fab7b04fb57b">&#9670;&#160;</a></span>set_draw_node()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +126,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
         <tr>
           <td class="memname">void HexapodRenderer::set_draw_node </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -143,8 +143,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_cgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_cgraph" id="aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_cgraph">
+<div class="center"><img src="class_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph" alt=""/></div>
+<map name="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph" id="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph">
 <area shape="rect" title="ロボットの状態を更新する．" alt="" coords="5,5,156,48"/>
 <area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="204,5,342,48"/>
 <area shape="poly" title=" " alt="" coords="156,24,189,24,189,29,156,29"/>
@@ -153,8 +153,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_icgraph.png" border="0" usemap="#aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_icgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_icgraph" id="aclass_hexapod_renderer_a0479959e5aaf9ff798e1b70d5fb09c2b_icgraph">
+<div class="center"><img src="class_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph.png" border="0" usemap="#aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph" alt=""/></div>
+<map name="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph" id="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph">
 <area shape="rect" title="ロボットの状態を更新する．" alt="" coords="230,93,380,136"/>
 <area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
 <area shape="poly" title=" " alt="" coords="242,89,181,62,152,51,154,46,183,58,244,84"/>
@@ -170,8 +170,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/hexapod_renderer.cpp</li>
+<li>DesignLab/<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a></li>
+<li>DesignLab/hexapod_renderer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

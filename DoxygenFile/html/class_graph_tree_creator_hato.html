@@ -129,23 +129,23 @@ GraphTreeCreatorHato 連携図</div>
 <tr class="memitem:a78fe4bc4143e050806c39ff94fe30e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_tree_creator_hato.html#a78fe4bc4143e050806c39ff94fe30e00">Init</a> (const <a class="el" href="class_devide_map_state.html">DevideMapState</a> &amp;map_state)</td></tr>
 <tr class="memdesc:a78fe4bc4143e050806c39ff94fe30e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラスの初期化を行う．  <br /></td></tr>
 <tr class="separator:a78fe4bc4143e050806c39ff94fe30e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21348aad4fc630f67a986ec77a026912"><td class="memItemLeft" align="right" valign="top">GraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_tree_creator_hato.html#a21348aad4fc630f67a986ec77a026912">CreateGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int max_depth, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) override</td></tr>
-<tr class="memdesc:a21348aad4fc630f67a986ec77a026912"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
-<tr class="separator:a21348aad4fc630f67a986ec77a026912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ddb3d0dbce36e5877ee4392256ba00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_tree_creator_hato.html#ae3ddb3d0dbce36e5877ee4392256ba00">CreateGraphTree</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int max_depth, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph) override</td></tr>
+<tr class="memdesc:ae3ddb3d0dbce36e5877ee4392256ba00"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
+<tr class="separator:ae3ddb3d0dbce36e5877ee4392256ba00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4baaada29ad522de4e2b493cce462fd6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a4baaada29ad522de4e2b493cce462fd6">Init</a> (const <a class="el" href="class_devide_map_state.html">DevideMapState</a> &amp;map_state)=0</td></tr>
 <tr class="memdesc:a4baaada29ad522de4e2b493cce462fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラスの初期化を行う．  <br /></td></tr>
 <tr class="separator:a4baaada29ad522de4e2b493cce462fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83af437d7174585bd2f82f2a59f537f5"><td class="memItemLeft" align="right" valign="top">virtual GraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a83af437d7174585bd2f82f2a59f537f5">CreateGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int max_depth, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
-<tr class="memdesc:a83af437d7174585bd2f82f2a59f537f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
-<tr class="separator:a83af437d7174585bd2f82f2a59f537f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27572a1be807e4e445e63f600205f40"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#ad27572a1be807e4e445e63f600205f40">CreateGraphTree</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int max_depth, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:ad27572a1be807e4e445e63f600205f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
+<tr class="separator:ad27572a1be807e4e445e63f600205f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>波東さんのグラフを作成するプログラムを移植したもの </p>
 <p>もともとのプログラムで行われた処理の中でコメントアウトされていたものはすべて削除したので， <br  />
  知りたければ過去のプログラムを参照すること． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a21348aad4fc630f67a986ec77a026912" name="a21348aad4fc630f67a986ec77a026912"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21348aad4fc630f67a986ec77a026912">&#9670;&#160;</a></span>CreateGraphTree()</h2>
+<a id="ae3ddb3d0dbce36e5877ee4392256ba00" name="ae3ddb3d0dbce36e5877ee4392256ba00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3ddb3d0dbce36e5877ee4392256ba00">&#9670;&#160;</a></span>CreateGraphTree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,9 +154,9 @@ GraphTreeCreatorHato 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GraphSearchResult GraphTreeCreatorHato::CreateGraphTree </td>
+          <td class="memname"><a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a> GraphTreeCreatorHato::CreateGraphTree </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
         </tr>
         <tr>
@@ -168,7 +168,7 @@ GraphTreeCreatorHato 連携図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *&#160;</td>
           <td class="paramname"><em>output_graph</em>&#160;</td>
         </tr>
         <tr>
@@ -195,7 +195,7 @@ GraphTreeCreatorHato 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>GraphSearchResult 生成の結果，生成に成功したかどうか，失敗した場合は失敗の理由を返す </dd></dl>
 
-<p><a class="el" href="class_i_graph_tree_creator.html#a83af437d7174585bd2f82f2a59f537f5">IGraphTreeCreator</a>を実装しています。</p>
+<p><a class="el" href="class_i_graph_tree_creator.html#ad27572a1be807e4e445e63f600205f40">IGraphTreeCreator</a>を実装しています。</p>
 
 </div>
 </div>
@@ -236,8 +236,8 @@ GraphTreeCreatorHato 連携図</div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="graph__tree__creator__hato_8h_source.html">graph_tree_creator_hato.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/graph_tree_creator_hato.cpp</li>
+<li>DesignLab/<a class="el" href="graph__tree__creator__hato_8h_source.html">graph_tree_creator_hato.h</a></li>
+<li>DesignLab/graph_tree_creator_hato.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

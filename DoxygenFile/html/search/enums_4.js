@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hexapodmove_0',['HexapodMove',['../hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf',1,'hexapod_next_move.h']]]
+  ['graphsearchresult_0',['GraphSearchResult',['../graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec',1,'graph_search_result_recoder.h']]]
 ];

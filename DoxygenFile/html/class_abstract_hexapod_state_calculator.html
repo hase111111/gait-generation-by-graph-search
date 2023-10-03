@@ -115,9 +115,9 @@ AbstractHexapodStateCalculator の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a4392ef4faf3d963c17321672763550f7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a4392ef4faf3d963c17321672763550f7">CalculateAllJointState</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node, std::array&lt; <a class="el" href="struct_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; *joint_state) const =0</td></tr>
-<tr class="memdesc:a4392ef4faf3d963c17321672763550f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．  <br /></td></tr>
-<tr class="separator:a4392ef4faf3d963c17321672763550f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51dfe9377a253bca1faa389190ee9146"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#a51dfe9377a253bca1faa389190ee9146">CalculateAllJointState</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node, std::array&lt; <a class="el" href="struct_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="class_hexapod_const.html#a5c14fbad8f33c6f790898059940226b8">HexapodConst::LEG_NUM</a> &gt; *joint_state) const =0</td></tr>
+<tr class="memdesc:a51dfe9377a253bca1faa389190ee9146"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．  <br /></td></tr>
+<tr class="separator:a51dfe9377a253bca1faa389190ee9146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_hexapod_state_calculator.html#ac05e9ade5bcb94dca1d55fb023f303cf">ConvertGlobalToLegPosition</a> (int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_pos, const <a class="el" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a> &amp;global_center_of_mass, const <a class="el" href="structdesignlab_1_1_euler_x_y_z.html">designlab::EulerXYZ</a> &amp;robot_rot, bool consider_rot) const =0</td></tr>
 <tr class="memdesc:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバル座標系→脚座標系に変換する．  <br /></td></tr>
 <tr class="separator:ac05e9ade5bcb94dca1d55fb023f303cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,8 +153,8 @@ AbstractHexapodStateCalculator の継承関係図</div>
  このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない <br  />
  スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116 </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a4392ef4faf3d963c17321672763550f7" name="a4392ef4faf3d963c17321672763550f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4392ef4faf3d963c17321672763550f7">&#9670;&#160;</a></span>CalculateAllJointState()</h2>
+<a id="a51dfe9377a253bca1faa389190ee9146" name="a51dfe9377a253bca1faa389190ee9146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51dfe9377a253bca1faa389190ee9146">&#9670;&#160;</a></span>CalculateAllJointState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +165,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
         <tr>
           <td class="memname">virtual bool AbstractHexapodStateCalculator::CalculateAllJointState </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
@@ -197,7 +197,7 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>bool 計算に成功したらtrue．失敗したらfalse． </dd></dl>
 
-<p><a class="el" href="class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54">PhantomXStateCalclator</a>で実装されています。</p>
+<p><a class="el" href="class_phantom_x_state_calclator.html#a1545dab74a81c71b0395d04dbb9fe83c">PhantomXStateCalclator</a>で実装されています。</p>
 
 </div>
 </div>
@@ -682,8 +682,8 @@ AbstractHexapodStateCalculator の継承関係図</div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/abstract_hexapod_state_calculator.cpp</li>
+<li>DesignLab/<a class="el" href="abstract__hexapod__state__calculator_8h_source.html">abstract_hexapod_state_calculator.h</a></li>
+<li>DesignLab/abstract_hexapod_state_calculator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

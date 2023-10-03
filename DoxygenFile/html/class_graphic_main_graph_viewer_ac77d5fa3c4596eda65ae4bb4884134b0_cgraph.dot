@@ -7,11 +7,11 @@ digraph "GraphicMainGraphViewer::Update"
   rankdir="LR";
   Node1 [id="Node000001",label="GraphicMainGraphViewer\l::Update",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="HexapodRenderer::set\l_draw_node",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b",tooltip="ロボットの状態を更新する．"];
+  Node2 [id="Node000002",label="HexapodRenderer::set\l_draw_node",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a1da14c8e1e413d5f55a8fab7b04fb57b",tooltip="ロボットの状態を更新する．"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="designlab::dxlib_util\l::ConvertToDxlibVec",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0",tooltip="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．   ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="NodeDisplayGui::SetDisplayNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c",tooltip="表示するノードを設定する，その後関節の角度を計算し，セットする"];
+  Node4 [id="Node000004",label="NodeDisplayGui::SetDisplayNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_node_display_gui.html#a7ebd117b97976bfd5885414e7cbdbb25",tooltip="表示するノードを設定する，その後関節の角度を計算し，セットする"];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="CameraGui::SetHexapodPos",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_gui.html#a7e92e9302d05ea281203fc91a1108d16",tooltip="カメラが注視するロボットの座標を設定する"];
   Node5 -> Node6 [id="edge5_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" "];
@@ -52,6 +52,8 @@ digraph "GraphicMainGraphViewer::Update"
   Node29 [id="Node000029",label="CameraStateManager\l::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee",tooltip="カメラの位置などの更新を行う．毎フレーム実行すること"];
   Node29 -> Node30 [id="edge24_Node000029_Node000030",color="steelblue1",style="solid",tooltip=" "];
   Node30 [id="Node000030",label="designlab::math_util\l::ApproachTarget",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b",tooltip="目標値に値を近づける関数．   適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと"];
-  Node1 -> Node31 [id="edge25_Node000001_Node000031",color="steelblue1",style="solid",tooltip=" "];
-  Node31 [id="Node000031",label="NodeDisplayGui::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd",tooltip="GUIのボタンの更新を行う"];
+  Node29 -> Node31 [id="edge25_Node000029_Node000031",color="steelblue1",style="solid",tooltip=" "];
+  Node31 [id="Node000031",label="designlab::SlerpQuaternion",height=0.2,width=0.4,color="red", fillcolor="#FFF0F0", style="filled",URL="$namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025",tooltip="球面線形補間を行う．"];
+  Node1 -> Node33 [id="edge26_Node000001_Node000033",color="steelblue1",style="solid",tooltip=" "];
+  Node33 [id="Node000033",label="NodeDisplayGui::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd",tooltip="GUIのボタンの更新を行う"];
 }

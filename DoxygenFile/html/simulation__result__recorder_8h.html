@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/simulation_result_recorder.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/simulation_result_recorder.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,24 +102,23 @@ $(document).ready(function(){initNavTree('simulation__result__recorder_8h.html',
 <div class="textblock"><code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="_node_8h_source.html">node.h</a>&quot;</code><br />
-<code>#include &quot;graph_search_result.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="graph__search__result__recoder_8h_source.html">graph_search_result_recoder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="map__state_8h_source.html">map_state.h</a>&quot;</code><br />
 </div>
 <p><a href="simulation__result__recorder_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_simulation_result_recorder.html">SimulationResultRecorder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成 <br  />
- 最初のSはStructのS  <a href="struct_simulation_result_recorder.html#details">[詳解]</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成  <a href="struct_simulation_result_recorder.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 列挙型</h2></td></tr>
-<tr class="memitem:a59b9817036c58d089ab7cb3755b2eff8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">SimulationResult</a> { <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
-, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2">FAILURE_BY_GRAPH_SEARCH</a>
-, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30">FAILURE_BY_LOOP_MOTION</a>
-, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298">FAILURE_BY_NODE_LIMIT_EXCEEDED</a>
+<tr class="memitem:a59b9817036c58d089ab7cb3755b2eff8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">SimulationResult</a> { <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a8c632159fa131f09d04f94e3cbcd8782">kSuccess</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8abf236b261ae10b260a180666758fdc96">kFailureByGraphSearch</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a32db3dea8f766a21686fa6cd56db9a4d">kFailureByLoopMotion</a>
+, <a class="el" href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8a0d9136f8f14db8f6b7bfa9e11f34c9b0">kFailureByNodeLimitExceeded</a>
  }</td></tr>
 <tr class="memdesc:a59b9817036c58d089ab7cb3755b2eff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション全体の結果を表す列挙型  <a href="simulation__result__recorder_8h.html#a59b9817036c58d089ab7cb3755b2eff8">[詳解]</a><br /></td></tr>
 <tr class="separator:a59b9817036c58d089ab7cb3755b2eff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,13 +154,13 @@ std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operat
 
 <p>シミュレーション全体の結果を表す列挙型 </p>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c" name="a59b9817036c58d089ab7cb3755b2eff8ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>目標座標，姿勢を満たし，シミュレーションに成功した． </p>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a8c632159fa131f09d04f94e3cbcd8782" name="a59b9817036c58d089ab7cb3755b2eff8a8c632159fa131f09d04f94e3cbcd8782"></a>kSuccess&#160;</td><td class="fielddoc"><p>目標座標，姿勢を満たし，シミュレーションに成功した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2" name="a59b9817036c58d089ab7cb3755b2eff8a916f99f816a5b08e5e9aedbb98dd14e2"></a>FAILURE_BY_GRAPH_SEARCH&#160;</td><td class="fielddoc"><p>グラフ探索に失敗しため，シミュレーションに失敗した． </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8abf236b261ae10b260a180666758fdc96" name="a59b9817036c58d089ab7cb3755b2eff8abf236b261ae10b260a180666758fdc96"></a>kFailureByGraphSearch&#160;</td><td class="fielddoc"><p>グラフ探索に失敗しため，シミュレーションに失敗した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30" name="a59b9817036c58d089ab7cb3755b2eff8a657f6119af1c6c96329cce58471cab30"></a>FAILURE_BY_LOOP_MOTION&#160;</td><td class="fielddoc"><p>動作がループしてしまったため，シミュレーションに失敗した． </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a32db3dea8f766a21686fa6cd56db9a4d" name="a59b9817036c58d089ab7cb3755b2eff8a32db3dea8f766a21686fa6cd56db9a4d"></a>kFailureByLoopMotion&#160;</td><td class="fielddoc"><p>動作がループしてしまったため，シミュレーションに失敗した． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298" name="a59b9817036c58d089ab7cb3755b2eff8aafd72289053113e5c7eb7d571d155298"></a>FAILURE_BY_NODE_LIMIT_EXCEEDED&#160;</td><td class="fielddoc"><p>ノード数の上限に達したため，シミュレーションに失敗した． </p>
+<tr><td class="fieldname"><a id="a59b9817036c58d089ab7cb3755b2eff8a0d9136f8f14db8f6b7bfa9e11f34c9b0" name="a59b9817036c58d089ab7cb3755b2eff8a0d9136f8f14db8f6b7bfa9e11f34c9b0"></a>kFailureByNodeLimitExceeded&#160;</td><td class="fielddoc"><p>ノード数の上限に達したため，シミュレーションに失敗した． </p>
 </td></tr>
 </table>
 
@@ -172,7 +171,7 @@ std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operat
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="simulation__result__recorder_8h.html">simulation_result_recorder.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="simulation__result__recorder_8h.html">simulation_result_recorder.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

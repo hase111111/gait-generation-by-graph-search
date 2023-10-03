@@ -166,6 +166,9 @@ constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a
 <tr class="memitem:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8">RotateVector3</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q, bool use_normalized_quaternions)</td></tr>
 <tr class="memdesc:a88a31cb8dd4fb0891393816ad574b9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">3次元の位置ベクトルを回転させる．  <br /></td></tr>
 <tr class="separator:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ea420a317fc2b34a4ee1872ce9a025"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025">SlerpQuaternion</a> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q1, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q2, float t)</td></tr>
+<tr class="memdesc:a12ea420a317fc2b34a4ee1872ce9a025"><td class="mdescLeft">&#160;</td><td class="mdescRight">球面線形補間を行う．  <br /></td></tr>
+<tr class="separator:a12ea420a317fc2b34a4ee1872ce9a025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f00dd71c87deaeb9209980d06496e6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a1f00dd71c87deaeb9209980d06496e6a">rotVector</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> &amp;rot)</td></tr>
 <tr class="memdesc:a1f00dd71c87deaeb9209980d06496e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転させたベクトルを返す  <br /></td></tr>
 <tr class="separator:a1f00dd71c87deaeb9209980d06496e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,7 +347,7 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_V
 <map name="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph" id="anamespacedesignlab_a856b1521c31b6c5ec35f3028b7df7179_icgraph">
 <area shape="rect" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="245,113,382,140"/>
 <area shape="poly" title=" " alt="" coords="350,101,338,95,313,92,291,94,279,99,276,104,282,111,277,114,271,105,275,95,290,89,313,87,340,90,353,97"/>
-<area shape="rect" href="class_phantom_x_state_calclator.html#a1316390fe5cf974637a5dac29027cb54" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="20,5,182,48"/>
+<area shape="rect" href="class_phantom_x_state_calclator.html#a1545dab74a81c71b0395d04dbb9fe83c" title="全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．" alt="" coords="20,5,182,48"/>
 <area shape="poly" title=" " alt="" coords="277,108,196,62,168,51,170,46,198,58,280,103"/>
 <area shape="rect" href="class_phantom_x_state_calclator.html#acf135fb149d94d9f308b8fa34577dc56" title="グローバル座標系→脚座標系に変換する．" alt="" coords="5,72,197,115"/>
 <area shape="poly" title=" " alt="" coords="230,116,197,111,198,106,230,111"/>
@@ -391,6 +394,85 @@ static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_V
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a12ea420a317fc2b34a4ee1872ce9a025" name="a12ea420a317fc2b34a4ee1872ce9a025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ea420a317fc2b34a4ee1872ce9a025">&#9670;&#160;</a></span>SlerpQuaternion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a> designlab::SlerpQuaternion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>q1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>q2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>球面線形補間を行う． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q1</td><td>クォータニオン1 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q2</td><td>クォータニオン2 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>補間係数．0〜1の値を取る． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd><a class="el" href="structdesignlab_1_1_quaternion.html" title="クォータニオンを表す構造体">designlab::Quaternion</a> 補間されたクォータニオン </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_cgraph.png" border="0" usemap="#anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_cgraph" id="anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_cgraph">
+<area shape="rect" title="球面線形補間を行う．" alt="" coords="5,35,183,61"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a7e4a031df5e5ccf1b2b93be7d8c7076a" title="クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める" alt="" coords="231,5,406,32"/>
+<area shape="poly" title=" " alt="" coords="183,34,215,29,216,35,183,39"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="250,56,387,99"/>
+<area shape="poly" title=" " alt="" coords="183,57,235,64,234,69,183,62"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aeca4595ed55b1d5010f41801fbd3a76f" title="自分・引数 の内積の結果を返す．" alt="" coords="454,5,611,32"/>
+<area shape="poly" title=" " alt="" coords="406,16,439,16,439,21,406,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_icgraph.png" border="0" usemap="#anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_icgraph" id="anamespacedesignlab_a12ea420a317fc2b34a4ee1872ce9a025_icgraph">
+<area shape="rect" title="球面線形補間を行う．" alt="" coords="608,101,786,128"/>
+<area shape="rect" href="class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="413,93,560,136"/>
+<area shape="poly" title=" " alt="" coords="594,117,561,117,561,112,594,112"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="230,101,365,128"/>
+<area shape="poly" title=" " alt="" coords="398,117,365,117,365,112,398,112"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="255,97,181,62,153,51,155,46,183,58,257,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,101,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,129,178,135,178,129,214,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="263,138,183,180,150,191,148,186,181,175,261,134"/>
+</map>
+</div>
 
 </div>
 </div>

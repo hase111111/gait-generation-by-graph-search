@@ -177,6 +177,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (co
 <tr class="memitem:a8177954c9a7920af71e2fe920ff6608f"><td class="memItemLeft" align="right" valign="top"><a id="a8177954c9a7920af71e2fe920ff6608f" name="a8177954c9a7920af71e2fe920ff6608f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;other) const</td></tr>
 <tr class="separator:a8177954c9a7920af71e2fe920ff6608f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e4a031df5e5ccf1b2b93be7d8c7076a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a7e4a031df5e5ccf1b2b93be7d8c7076a">Dot</a> (<a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> other) const</td></tr>
+<tr class="memdesc:a7e4a031df5e5ccf1b2b93be7d8c7076a"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める  <br /></td></tr>
+<tr class="separator:a7e4a031df5e5ccf1b2b93be7d8c7076a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24ef8c57fde648dbc239b6aae7e9414"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#af24ef8c57fde648dbc239b6aae7e9414">Conjugate</a> () const</td></tr>
 <tr class="memdesc:af24ef8c57fde648dbc239b6aae7e9414"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの <br  />
  q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回転は逆方向になる  <br /></td></tr>
@@ -303,6 +306,65 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>w</b></td></tr>
 
 <p>他のクォータニオンとの距離の2乗を返す．クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める </p>
 <dl class="section return"><dt>戻り値</dt><dd>float 距離の2乗 </dd></dl>
+
+</div>
+</div>
+<a id="a7e4a031df5e5ccf1b2b93be7d8c7076a" name="a7e4a031df5e5ccf1b2b93be7d8c7076a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4a031df5e5ccf1b2b93be7d8c7076a">&#9670;&#160;</a></span>Dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float designlab::Quaternion::Dot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">other</td><td>内積を求めるクォータニオン </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>float 内積 </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_cgraph" id="astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_cgraph">
+<area shape="rect" title="クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める" alt="" coords="5,5,181,32"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aeca4595ed55b1d5010f41801fbd3a76f" title="自分・引数 の内積の結果を返す．" alt="" coords="229,5,386,32"/>
+<area shape="poly" title=" " alt="" coords="181,16,214,16,214,21,181,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_icgraph" id="astructdesignlab_1_1_quaternion_a7e4a031df5e5ccf1b2b93be7d8c7076a_icgraph">
+<area shape="rect" title="クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める" alt="" coords="609,13,785,40"/>
+<area shape="rect" href="namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025" title="球面線形補間を行う．" alt="" coords="384,13,561,40"/>
+<area shape="poly" title=" " alt="" coords="594,29,562,29,562,24,594,24"/>
+<area shape="rect" href="class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="189,5,336,48"/>
+<area shape="poly" title=" " alt="" coords="369,29,337,29,337,24,369,24"/>
+<area shape="rect" href="class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="5,13,141,40"/>
+<area shape="poly" title=" " alt="" coords="174,29,141,29,141,24,174,24"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -572,8 +634,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>w</b></td></tr>
 </div>
 </div>
 <hr/>この構造体詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="designlab__quaternion_8h_source.html">designlab_quaternion.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/designlab_quaternion.cpp</li>
+<li>DesignLab/<a class="el" href="designlab__quaternion_8h_source.html">designlab_quaternion.h</a></li>
+<li>DesignLab/designlab_quaternion.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -125,26 +125,26 @@ PassFinderBasic 連携図</div>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:ab39794ad1be985af9cade707922e3e22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#ab39794ad1be985af9cade707922e3e22">PassFinderBasic</a> (std::unique_ptr&lt; <a class="el" href="class_i_graph_tree_creator.html">IGraphTreeCreator</a> &gt; &amp;&amp;graph_tree_creator_ptr, std::unique_ptr&lt; <a class="el" href="class_i_graph_searcher.html">IGraphSearcher</a> &gt; &amp;&amp;graph_searcher_ptr, const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; calculator_ptr)</td></tr>
 <tr class="separator:ab39794ad1be985af9cade707922e3e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a592ad6a786886c3a95495a2b7477f6c9"><td class="memItemLeft" align="right" valign="top">GraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#a592ad6a786886c3a95495a2b7477f6c9">GetNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> &amp;map_ref, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_s_node.html">SNode</a> *output_node) override</td></tr>
-<tr class="memdesc:a592ad6a786886c3a95495a2b7477f6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
-<tr class="separator:a592ad6a786886c3a95495a2b7477f6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe52735009a1745114ecc9d7084fd909"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#afe52735009a1745114ecc9d7084fd909">GetNextNodebyGraphSearch</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> &amp;map_ref, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> *output_node) override</td></tr>
+<tr class="memdesc:afe52735009a1745114ecc9d7084fd909"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
+<tr class="separator:afe52735009a1745114ecc9d7084fd909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe26af1b16d3dc376ea97d5fe656f264"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#abe26af1b16d3dc376ea97d5fe656f264">GetMadeNodeNum</a> () const</td></tr>
 <tr class="memdesc:abe26af1b16d3dc376ea97d5fe656f264"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフのノードの数を返す  <br /></td></tr>
 <tr class="separator:abe26af1b16d3dc376ea97d5fe656f264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d48b3cdea2fb69e7b0b15e0a37e2ad3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#a8d48b3cdea2fb69e7b0b15e0a37e2ad3">GetGraphTree</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) const</td></tr>
-<tr class="memdesc:a8d48b3cdea2fb69e7b0b15e0a37e2ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
+<tr class="memitem:a7d391d24f3bb999979fb32d558ce7407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pass_finder_basic.html#a7d391d24f3bb999979fb32d558ce7407">GetGraphTree</a> (std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph) const</td></tr>
+<tr class="memdesc:a7d391d24f3bb999979fb32d558ce7407"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
  output_graphは空であること．  <br /></td></tr>
-<tr class="separator:a8d48b3cdea2fb69e7b0b15e0a37e2ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f528cd6a8c4049009bdd5e8aa565649"><td class="memItemLeft" align="right" valign="top">virtual GraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#a2f528cd6a8c4049009bdd5e8aa565649">GetNextNodebyGraphSearch</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> &amp;map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_s_node.html">SNode</a> *output_node)=0</td></tr>
-<tr class="memdesc:a2f528cd6a8c4049009bdd5e8aa565649"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
-<tr class="separator:a2f528cd6a8c4049009bdd5e8aa565649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7d391d24f3bb999979fb32d558ce7407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706def94455c39a948d2ee3ba156666c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#a706def94455c39a948d2ee3ba156666c">GetNextNodebyGraphSearch</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> &amp;map, const <a class="el" href="struct_s_target.html">STarget</a> &amp;target, <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> *output_node)=0</td></tr>
+<tr class="memdesc:a706def94455c39a948d2ee3ba156666c"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
+<tr class="separator:a706def94455c39a948d2ee3ba156666c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45bd5cac9832552ec8ebf5c6b4c3ee37"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#a45bd5cac9832552ec8ebf5c6b4c3ee37">GetMadeNodeNum</a> () const =0</td></tr>
 <tr class="memdesc:a45bd5cac9832552ec8ebf5c6b4c3ee37"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフのノードの数を返す  <br /></td></tr>
 <tr class="separator:a45bd5cac9832552ec8ebf5c6b4c3ee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7469621c746e65c4c64af7802172920"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#ab7469621c746e65c4c64af7802172920">GetGraphTree</a> (std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) const =0</td></tr>
-<tr class="memdesc:ab7469621c746e65c4c64af7802172920"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
+<tr class="memitem:aac093f941969fbb2036af02abf8663f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_pass_finder.html#aac093f941969fbb2036af02abf8663f8">GetGraphTree</a> (std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph) const =0</td></tr>
+<tr class="memdesc:aac093f941969fbb2036af02abf8663f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">作成したグラフ木を返す． <br  />
  output_graphは空であること．  <br /></td></tr>
-<tr class="separator:ab7469621c746e65c4c64af7802172920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aac093f941969fbb2036af02abf8663f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>普通にグラフ探索を行い，歩容パターン生成を行うクラス </p>
@@ -192,8 +192,8 @@ PassFinderBasic 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a8d48b3cdea2fb69e7b0b15e0a37e2ad3" name="a8d48b3cdea2fb69e7b0b15e0a37e2ad3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d48b3cdea2fb69e7b0b15e0a37e2ad3">&#9670;&#160;</a></span>GetGraphTree()</h2>
+<a id="a7d391d24f3bb999979fb32d558ce7407" name="a7d391d24f3bb999979fb32d558ce7407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d391d24f3bb999979fb32d558ce7407">&#9670;&#160;</a></span>GetGraphTree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +204,7 @@ PassFinderBasic 連携図</div>
         <tr>
           <td class="memname">void PassFinderBasic::GetGraphTree </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *&#160;</td>
           <td class="paramname"><em>output_graph</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -225,7 +225,7 @@ PassFinderBasic 連携図</div>
   </dd>
 </dl>
 
-<p><a class="el" href="class_i_pass_finder.html#ab7469621c746e65c4c64af7802172920">IPassFinder</a>を実装しています。</p>
+<p><a class="el" href="class_i_pass_finder.html#aac093f941969fbb2036af02abf8663f8">IPassFinder</a>を実装しています。</p>
 
 </div>
 </div>
@@ -259,8 +259,8 @@ PassFinderBasic 連携図</div>
 
 </div>
 </div>
-<a id="a592ad6a786886c3a95495a2b7477f6c9" name="a592ad6a786886c3a95495a2b7477f6c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a592ad6a786886c3a95495a2b7477f6c9">&#9670;&#160;</a></span>GetNextNodebyGraphSearch()</h2>
+<a id="afe52735009a1745114ecc9d7084fd909" name="afe52735009a1745114ecc9d7084fd909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe52735009a1745114ecc9d7084fd909">&#9670;&#160;</a></span>GetNextNodebyGraphSearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,9 +269,9 @@ PassFinderBasic 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch </td>
+          <td class="memname"><a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a> PassFinderBasic::GetNextNodebyGraphSearch </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
         </tr>
         <tr>
@@ -289,7 +289,7 @@ PassFinderBasic 連携図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_s_node.html">SNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_robot_state_node.html">RobotStateNode</a> *&#160;</td>
           <td class="paramname"><em>output_node</em>&#160;</td>
         </tr>
         <tr>
@@ -317,25 +317,25 @@ PassFinderBasic 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>GraphSearchResult グラフ探索の結果を返す．成功か失敗か </dd></dl>
 
-<p><a class="el" href="class_i_pass_finder.html#a2f528cd6a8c4049009bdd5e8aa565649">IPassFinder</a>を実装しています。</p>
+<p><a class="el" href="class_i_pass_finder.html#a706def94455c39a948d2ee3ba156666c">IPassFinder</a>を実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_pass_finder_basic_a592ad6a786886c3a95495a2b7477f6c9_cgraph.png" border="0" usemap="#aclass_pass_finder_basic_a592ad6a786886c3a95495a2b7477f6c9_cgraph" alt=""/></div>
-<map name="aclass_pass_finder_basic_a592ad6a786886c3a95495a2b7477f6c9_cgraph" id="aclass_pass_finder_basic_a592ad6a786886c3a95495a2b7477f6c9_cgraph">
+<div class="center"><img src="class_pass_finder_basic_afe52735009a1745114ecc9d7084fd909_cgraph.png" border="0" usemap="#aclass_pass_finder_basic_afe52735009a1745114ecc9d7084fd909_cgraph" alt=""/></div>
+<map name="aclass_pass_finder_basic_afe52735009a1745114ecc9d7084fd909_cgraph" id="aclass_pass_finder_basic_afe52735009a1745114ecc9d7084fd909_cgraph">
 <area shape="rect" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,23,182,65"/>
-<area shape="rect" href="struct_s_node.html#ade4d60d8929fd869582fe3b5a2f1d05d" title="自身を親ノードに変更する関数．" alt="" coords="230,5,410,32"/>
-<area shape="poly" title=" " alt="" coords="182,31,214,28,215,33,182,37"/>
-<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="237,56,403,83"/>
-<area shape="poly" title=" " alt="" coords="182,51,222,56,221,61,182,57"/>
+<area shape="rect" href="struct_robot_state_node.html#a6cd67239c9d440a7f54fe1fff0c35477" title="自身を親ノードに変更する関数．" alt="" coords="230,5,466,32"/>
+<area shape="poly" title=" " alt="" coords="182,33,214,29,215,35,182,38"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="265,56,431,83"/>
+<area shape="poly" title=" " alt="" coords="182,50,250,57,250,62,182,55"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="pass__finder__basic_8h_source.html">pass_finder_basic.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/pass_finder_basic.cpp</li>
+<li>DesignLab/<a class="el" href="pass__finder__basic_8h_source.html">pass_finder_basic.h</a></li>
+<li>DesignLab/pass_finder_basic.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

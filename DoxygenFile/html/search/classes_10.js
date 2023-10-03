@@ -8,8 +8,7 @@ var searchData=
   ['singleton_5',['Singleton',['../class_singleton.html',1,'']]],
   ['singleton_3c_20keyboard_20_3e_6',['Singleton&lt; Keyboard &gt;',['../class_singleton.html',1,'']]],
   ['singleton_3c_20mouse_20_3e_7',['Singleton&lt; Mouse &gt;',['../class_singleton.html',1,'']]],
-  ['snode_8',['SNode',['../struct_s_node.html',1,'']]],
-  ['stabilitymarginrenderer_9',['StabilityMarginRenderer',['../class_stability_margin_renderer.html',1,'']]],
-  ['starget_10',['STarget',['../struct_s_target.html',1,'']]],
-  ['stopwatch_11',['Stopwatch',['../class_stopwatch.html',1,'']]]
+  ['stabilitymarginrenderer_8',['StabilityMarginRenderer',['../class_stability_margin_renderer.html',1,'']]],
+  ['starget_9',['STarget',['../struct_s_target.html',1,'']]],
+  ['stopwatch_10',['Stopwatch',['../class_stopwatch.html',1,'']]]
 ];

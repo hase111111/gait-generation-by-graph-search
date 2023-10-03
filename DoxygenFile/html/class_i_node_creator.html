@@ -123,15 +123,15 @@ INodeCreator の継承関係図</div>
 &#160;</td><td class="memItemRight" valign="bottom"><b>INodeCreator</b> ()=default</td></tr>
 <tr class="memdesc:ad46319ff6eed3056aa4ed49657c4d1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでは次動作を設定する．またマップのポインタを受け取る <br /></td></tr>
 <tr class="separator:ad46319ff6eed3056aa4ed49657c4d1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e86cddd830354aa201a6178b2047587"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#a0e86cddd830354aa201a6178b2047587">Create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int current_node_index, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
-<tr class="memdesc:a0e86cddd830354aa201a6178b2047587"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
-<tr class="separator:a0e86cddd830354aa201a6178b2047587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed522bc654c6395ee16b28f4b5b8fecb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#aed522bc654c6395ee16b28f4b5b8fecb">Create</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int current_node_index, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:aed522bc654c6395ee16b28f4b5b8fecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
+<tr class="separator:aed522bc654c6395ee16b28f4b5b8fecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ノード生成インターフェース </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a0e86cddd830354aa201a6178b2047587" name="a0e86cddd830354aa201a6178b2047587"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e86cddd830354aa201a6178b2047587">&#9670;&#160;</a></span>Create()</h2>
+<a id="aed522bc654c6395ee16b28f4b5b8fecb" name="aed522bc654c6395ee16b28f4b5b8fecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed522bc654c6395ee16b28f4b5b8fecb">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +142,7 @@ INodeCreator の継承関係図</div>
         <tr>
           <td class="memname">virtual void INodeCreator::Create </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
         </tr>
         <tr>
@@ -154,7 +154,7 @@ INodeCreator の継承関係図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *&#160;</td>
           <td class="paramname"><em>output_graph</em>&#160;</td>
         </tr>
         <tr>
@@ -180,12 +180,12 @@ INodeCreator の継承関係図</div>
   </dd>
 </dl>
 
-<p><a class="el" href="class_leg_hierarchy_node_creator.html#aa675602c796e20af5aa27a600ed0c935">LegHierarchyNodeCreator</a>, <a class="el" href="class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30">LegUpDownNodeCreator</a>, <a class="el" href="class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297">ComMoveNodeCreatorHato</a>, <a class="el" href="class_com_up_down_node_creator.html#adf62ca1b597e2b7746b9396fc715e809">ComUpDownNodeCreator</a>で実装されています。</p>
+<p><a class="el" href="class_leg_hierarchy_node_creator.html#a51bd01a4b0bd778bb46de9a6ad4fdd06">LegHierarchyNodeCreator</a>, <a class="el" href="class_leg_up_down_node_creator.html#ac32485f62a08e201d4ea075ed7ab4517">LegUpDownNodeCreator</a>, <a class="el" href="class_com_move_node_creator_hato.html#aac2eb837c1886d6a53e93ddfb292af64">ComMoveNodeCreatorHato</a>, <a class="el" href="class_com_up_down_node_creator.html#aadc3eaeffbf95aaa64d607c3113af01a">ComUpDownNodeCreator</a>で実装されています。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="interface__node__creator_8h_source.html">interface_node_creator.h</a></li>
+<li>DesignLab/<a class="el" href="interface__node__creator_8h_source.html">interface_node_creator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

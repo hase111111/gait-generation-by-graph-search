@@ -107,16 +107,16 @@ $(document).ready(function(){initNavTree('class_stability_margin_renderer.html',
 <tr class="memitem:a7de226801162b1e18308034c648cf084"><td class="memItemLeft" align="right" valign="top"><a id="a7de226801162b1e18308034c648cf084" name="a7de226801162b1e18308034c648cf084"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>StabilityMarginRenderer</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; calclator_ptr)</td></tr>
 <tr class="separator:a7de226801162b1e18308034c648cf084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a798847136070802f8c38a2ec5e71753f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f">Draw</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node) const</td></tr>
-<tr class="memdesc:a798847136070802f8c38a2ec5e71753f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの静的安定余裕(支持脚多角形)を描画する．  <br /></td></tr>
-<tr class="separator:a798847136070802f8c38a2ec5e71753f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49922b8aa57afbb10acd08a0a5efd40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40">Draw</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node) const</td></tr>
+<tr class="memdesc:aa49922b8aa57afbb10acd08a0a5efd40"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの静的安定余裕(支持脚多角形)を描画する．  <br /></td></tr>
+<tr class="separator:aa49922b8aa57afbb10acd08a0a5efd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ロボットの静的安定余裕(支持脚多角形)を描画するクラス． <br  />
  接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a798847136070802f8c38a2ec5e71753f" name="a798847136070802f8c38a2ec5e71753f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a798847136070802f8c38a2ec5e71753f">&#9670;&#160;</a></span>Draw()</h2>
+<a id="aa49922b8aa57afbb10acd08a0a5efd40" name="aa49922b8aa57afbb10acd08a0a5efd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49922b8aa57afbb10acd08a0a5efd40">&#9670;&#160;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('class_stability_margin_renderer.html',
         <tr>
           <td class="memname">void StabilityMarginRenderer::Draw </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -141,8 +141,8 @@ $(document).ready(function(){initNavTree('class_stability_margin_renderer.html',
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_cgraph.png" border="0" usemap="#aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_cgraph" alt=""/></div>
-<map name="aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_cgraph" id="aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_cgraph">
+<div class="center"><img src="class_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_cgraph.png" border="0" usemap="#aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_cgraph" alt=""/></div>
+<map name="aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_cgraph" id="aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_cgraph">
 <area shape="rect" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="5,139,165,181"/>
 <area shape="rect" href="structdesignlab_1_1_polygon2.html#a1ecd8437967c9a9c68d8b580406ca299" title="頂点を追加する関数" alt="" coords="213,5,351,48"/>
 <area shape="poly" title=" " alt="" coords="109,136,155,98,211,58,219,53,221,58,214,62,158,102,113,140"/>
@@ -161,8 +161,8 @@ $(document).ready(function(){initNavTree('class_stability_margin_renderer.html',
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_icgraph.png" border="0" usemap="#aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_icgraph" alt=""/></div>
-<map name="aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_icgraph" id="aclass_stability_margin_renderer_a798847136070802f8c38a2ec5e71753f_icgraph">
+<div class="center"><img src="class_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_icgraph.png" border="0" usemap="#aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_icgraph" alt=""/></div>
+<map name="aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_icgraph" id="aclass_stability_margin_renderer_aa49922b8aa57afbb10acd08a0a5efd40_icgraph">
 <area shape="rect" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="218,35,377,77"/>
 <area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="16,5,159,48"/>
 <area shape="poly" title=" " alt="" coords="202,45,159,39,160,34,203,40"/>
@@ -174,8 +174,8 @@ $(document).ready(function(){initNavTree('class_stability_margin_renderer.html',
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="stability__margin__renderer_8h_source.html">stability_margin_renderer.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/stability_margin_renderer.cpp</li>
+<li>DesignLab/<a class="el" href="stability__margin__renderer_8h_source.html">stability_margin_renderer.h</a></li>
+<li>DesignLab/stability_margin_renderer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

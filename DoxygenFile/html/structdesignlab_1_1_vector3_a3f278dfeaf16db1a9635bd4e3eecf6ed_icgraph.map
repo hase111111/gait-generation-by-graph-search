@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="XY平面に射影したベクトルを返す．" alt="" coords="476,139,605,181"/>
 <area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a862d9bc1251d1677af060fa8ae3ff8f8" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="218,5,428,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,130,472,95,427,62,403,51,406,46,429,58,475,91,513,126"/>
-<area shape="rect" id="Node000003" href="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="243,72,403,115"/>
+<area shape="rect" id="Node000003" href="$class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="243,72,403,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="461,138,394,118,396,113,462,133"/>
 <area shape="rect" id="Node000006" href="$class_phantom_x_state_calclator___hato.html#ac56aef3f9820b542dc4eadd625f5d51d" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="242,139,404,181"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="461,163,404,163,404,157,461,157"/>

@@ -126,23 +126,23 @@ ComUpDownNodeCreator 連携図</div>
 <tr class="memitem:a4037674c1eb599c1b39d7f65d30d1fc9"><td class="memItemLeft" align="right" valign="top"><a id="a4037674c1eb599c1b39d7f65d30d1fc9" name="a4037674c1eb599c1b39d7f65d30d1fc9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ComUpDownNodeCreator</b> (const <a class="el" href="class_devide_map_state.html">DevideMapState</a> &amp;devide_map, const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calc, <a class="el" href="hexapod__next__move_8h.html#a4b9d2f0865a68e0b3b50f804b3b954cf">HexapodMove</a> next_move)</td></tr>
 <tr class="separator:a4037674c1eb599c1b39d7f65d30d1fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf62ca1b597e2b7746b9396fc715e809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_up_down_node_creator.html#adf62ca1b597e2b7746b9396fc715e809">Create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int current_num, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph) override</td></tr>
-<tr class="memdesc:adf62ca1b597e2b7746b9396fc715e809"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
-<tr class="separator:adf62ca1b597e2b7746b9396fc715e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc3eaeffbf95aaa64d607c3113af01a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_com_up_down_node_creator.html#aadc3eaeffbf95aaa64d607c3113af01a">Create</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int current_num, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph) override</td></tr>
+<tr class="memdesc:aadc3eaeffbf95aaa64d607c3113af01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
+<tr class="separator:aadc3eaeffbf95aaa64d607c3113af01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_node_creator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_node_creator')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_i_node_creator.html">INodeCreator</a> に属する継承公開メンバ関数</td></tr>
 <tr class="memitem:ad46319ff6eed3056aa4ed49657c4d1fc inherit pub_methods_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>INodeCreator</b> ()=default</td></tr>
 <tr class="memdesc:ad46319ff6eed3056aa4ed49657c4d1fc inherit pub_methods_class_i_node_creator"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでは次動作を設定する．またマップのポインタを受け取る <br /></td></tr>
 <tr class="separator:ad46319ff6eed3056aa4ed49657c4d1fc inherit pub_methods_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e86cddd830354aa201a6178b2047587 inherit pub_methods_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#a0e86cddd830354aa201a6178b2047587">Create</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, int current_node_index, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph)=0</td></tr>
-<tr class="memdesc:a0e86cddd830354aa201a6178b2047587 inherit pub_methods_class_i_node_creator"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
-<tr class="separator:a0e86cddd830354aa201a6178b2047587 inherit pub_methods_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed522bc654c6395ee16b28f4b5b8fecb inherit pub_methods_class_i_node_creator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_node_creator.html#aed522bc654c6395ee16b28f4b5b8fecb">Create</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int current_node_index, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:aed522bc654c6395ee16b28f4b5b8fecb inherit pub_methods_class_i_node_creator"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のノードから次のノード群を生成する  <br /></td></tr>
+<tr class="separator:aed522bc654c6395ee16b28f4b5b8fecb inherit pub_methods_class_i_node_creator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="adf62ca1b597e2b7746b9396fc715e809" name="adf62ca1b597e2b7746b9396fc715e809"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf62ca1b597e2b7746b9396fc715e809">&#9670;&#160;</a></span>Create()</h2>
+<a id="aadc3eaeffbf95aaa64d607c3113af01a" name="aadc3eaeffbf95aaa64d607c3113af01a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc3eaeffbf95aaa64d607c3113af01a">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +153,7 @@ ComUpDownNodeCreator 連携図</div>
         <tr>
           <td class="memname">void ComUpDownNodeCreator::Create </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
         </tr>
         <tr>
@@ -165,7 +165,7 @@ ComUpDownNodeCreator 連携図</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *&#160;</td>
           <td class="paramname"><em>output_graph</em>&#160;</td>
         </tr>
         <tr>
@@ -191,12 +191,12 @@ ComUpDownNodeCreator 連携図</div>
   </dd>
 </dl>
 
-<p><a class="el" href="class_i_node_creator.html#a0e86cddd830354aa201a6178b2047587">INodeCreator</a>を実装しています。</p>
+<p><a class="el" href="class_i_node_creator.html#aed522bc654c6395ee16b28f4b5b8fecb">INodeCreator</a>を実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_com_up_down_node_creator_adf62ca1b597e2b7746b9396fc715e809_cgraph.png" border="0" usemap="#aclass_com_up_down_node_creator_adf62ca1b597e2b7746b9396fc715e809_cgraph" alt=""/></div>
-<map name="aclass_com_up_down_node_creator_adf62ca1b597e2b7746b9396fc715e809_cgraph" id="aclass_com_up_down_node_creator_adf62ca1b597e2b7746b9396fc715e809_cgraph">
+<div class="center"><img src="class_com_up_down_node_creator_aadc3eaeffbf95aaa64d607c3113af01a_cgraph.png" border="0" usemap="#aclass_com_up_down_node_creator_aadc3eaeffbf95aaa64d607c3113af01a_cgraph" alt=""/></div>
+<map name="aclass_com_up_down_node_creator_aadc3eaeffbf95aaa64d607c3113af01a_cgraph" id="aclass_com_up_down_node_creator_aadc3eaeffbf95aaa64d607c3113af01a_cgraph">
 <area shape="rect" title="現在のノードから次のノード群を生成する" alt="" coords="5,56,174,99"/>
 <area shape="rect" href="class_devide_map_state.html#a9519d3349374d58fe5ec391280f5d44d" title="長方形状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="222,5,394,32"/>
 <area shape="poly" title=" " alt="" coords="170,53,241,34,242,39,172,58"/>
@@ -210,8 +210,8 @@ ComUpDownNodeCreator 連携図</div>
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="com__up__down__node__creator_8h_source.html">com_up_down_node_creator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/com_up_down_node_creator.cpp</li>
+<li>DesignLab/<a class="el" href="com__up__down__node__creator_8h_source.html">com_up_down_node_creator.h</a></li>
+<li>DesignLab/com_up_down_node_creator.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

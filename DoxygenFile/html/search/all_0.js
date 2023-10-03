@@ -17,7 +17,7 @@ var searchData=
   ['asyncable_5fdata_2eh_14',['asyncable_data.h',['../asyncable__data_8h.html',1,'']]],
   ['asyncabledata_15',['AsyncableData',['../class_asyncable_data.html',1,'AsyncableData&lt; T &gt;'],['../class_asyncable_data.html#a2aa28cbcef8e0255eca01fe598b7fd30',1,'AsyncableData::AsyncableData()'],['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html#a4593af8de77ae41a22ceb46507b6b45a',1,'AsyncableData&lt; std::vector&lt; T &gt; &gt;::AsyncableData()']]],
   ['asyncabledata_3c_20mapstate_20_3e_16',['AsyncableData&lt; MapState &gt;',['../class_asyncable_data.html',1,'']]],
-  ['asyncabledata_3c_20std_3a_3avector_3c_20size_5ft_20_3e_20_3e_17',['AsyncableData&lt; std::vector&lt; size_t &gt; &gt;',['../class_asyncable_data.html',1,'']]],
-  ['asyncabledata_3c_20std_3a_3avector_3c_20snode_20_3e_20_3e_18',['AsyncableData&lt; std::vector&lt; SNode &gt; &gt;',['../class_asyncable_data.html',1,'']]],
+  ['asyncabledata_3c_20std_3a_3avector_3c_20robotstatenode_20_3e_20_3e_17',['AsyncableData&lt; std::vector&lt; RobotStateNode &gt; &gt;',['../class_asyncable_data.html',1,'']]],
+  ['asyncabledata_3c_20std_3a_3avector_3c_20size_5ft_20_3e_20_3e_18',['AsyncableData&lt; std::vector&lt; size_t &gt; &gt;',['../class_asyncable_data.html',1,'']]],
   ['asyncabledata_3c_20std_3a_3avector_3c_20t_20_3e_20_3e_19',['AsyncableData&lt; std::vector&lt; T &gt; &gt;',['../class_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4.html',1,'']]]
 ];

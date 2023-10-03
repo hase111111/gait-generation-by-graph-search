@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next_5fmove_0',['next_move',['../struct_s_node.html#aa61c16b748ff463d187793080d3c31d7',1,'SNode']]]
+  ['next_5fmove_0',['next_move',['../struct_robot_state_node.html#aa4e482848c268ad6635374f088ebd5e1',1,'RobotStateNode']]]
 ];

@@ -10,7 +10,8 @@ var searchData=
   ['graphsearchconst_7',['GraphSearchConst',['../class_graph_search_const.html',1,'']]],
   ['graphsearcherhato_8',['GraphSearcherHato',['../class_graph_searcher_hato.html',1,'']]],
   ['graphsearcherrandom_9',['GraphSearcherRandom',['../class_graph_searcher_random.html',1,'']]],
-  ['graphtreecreatorhato_10',['GraphTreeCreatorHato',['../class_graph_tree_creator_hato.html',1,'']]],
-  ['graphviewerguicontroller_11',['GraphViewerGUIController',['../class_graph_viewer_g_u_i_controller.html',1,'']]],
-  ['graphviewersystemmain_12',['GraphViewerSystemMain',['../class_graph_viewer_system_main.html',1,'']]]
+  ['graphsearchresultrecoder_10',['GraphSearchResultRecoder',['../struct_graph_search_result_recoder.html',1,'']]],
+  ['graphtreecreatorhato_11',['GraphTreeCreatorHato',['../class_graph_tree_creator_hato.html',1,'']]],
+  ['graphviewerguicontroller_12',['GraphViewerGUIController',['../class_graph_viewer_g_u_i_controller.html',1,'']]],
+  ['graphviewersystemmain_13',['GraphViewerSystemMain',['../class_graph_viewer_system_main.html',1,'']]]
 ];

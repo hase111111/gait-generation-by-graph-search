@@ -2,7 +2,7 @@ var searchData=
 [
   ['operator_2a_0',['operator*',['../namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5',1,'designlab']]],
   ['operator_3c_3c_1',['operator&lt;&lt;',['../namespacedesignlab.html#a267d1ab3d8486e12343e425b81bbd08d',1,'designlab']]],
-  ['operator_3d_3d_2',['operator==',['../struct_s_node.html#a62af682fd6980d1478dc095642ba6bd3',1,'SNode']]],
+  ['operator_3d_3d_2',['operator==',['../struct_robot_state_node.html#afb9407d8663ed35d48521e33df68a230',1,'RobotStateNode']]],
   ['output_3',['Output',['../namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485',1,'designlab::cmdio']]],
   ['outputcenter_4',['OutputCenter',['../namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6',1,'designlab::cmdio']]],
   ['outputhorizontalline_5',['OutputHorizontalLine',['../namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02',1,'designlab::cmdio']]],

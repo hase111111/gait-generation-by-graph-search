@@ -9,5 +9,5 @@ digraph "designlab::leg_func::GetGroundedLegNum"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="designlab::leg_func\l::GetLiftedLegNum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b",tooltip="遊脚している脚の本数を返す関数．"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="LegHierarchyNodeCreator\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_leg_hierarchy_node_creator.html#aa675602c796e20af5aa27a600ed0c935",tooltip="現在のノードから次のノード群を生成する"];
+  Node3 [id="Node000003",label="LegHierarchyNodeCreator\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_leg_hierarchy_node_creator.html#a51bd01a4b0bd778bb46de9a6ad4fdd06",tooltip="現在のノードから次のノード群を生成する"];
 }

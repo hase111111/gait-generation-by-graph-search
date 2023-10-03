@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/file_tree.h ソースファイル</title>
+<title>DesignLabDoxygen: DesignLab/file_tree.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -109,38 +109,43 @@ $(document).ready(function(){initNavTree('file__tree_8h_source.html',''); initRe
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_file_tree.html#aac11937fac815c341fa0ceb9c41b1329">DisplayFileTree</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">struct </span>FileTreeData</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        FileTreeData() : path(<span class="stringliteral">&quot;&quot;</span>), directory({}), file({}) {}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        FileTreeData(<span class="keyword">const</span> std::string&amp; _path, <span class="keyword">const</span> std::vector&lt;FileTreeData&gt;&amp; _directory, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; _file) : </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            path(_path), </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            directory(_directory), </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            file(_file) </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        std::string path;                   </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::vector&lt;FileTreeData&gt; directory; </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::vector&lt;std::string&gt; file;      </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    FileTreeData MakeFileTree(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> OutputFileTree(<span class="keyword">const</span> FileTreeData&amp; tree,<span class="keywordtype">int</span> depth) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_FILE_TREE_H_</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_file_tree.html#a158392d6e36b190b06055e8bc8db59ad">SelectFile</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth, <span class="keyword">const</span> std::string&amp; extension, <span class="keyword">const</span> std::string keyword,std::string *output);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">struct </span>FileTreeData</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        FileTreeData() : path(<span class="stringliteral">&quot;&quot;</span>), directory({}), file({}) {}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        FileTreeData(<span class="keyword">const</span> std::string&amp; _path, <span class="keyword">const</span> std::vector&lt;FileTreeData&gt;&amp; _directory, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; _file) : </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            path(_path), </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            directory(_directory), </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            file(_file) </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::string path;                   </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        std::vector&lt;FileTreeData&gt; directory;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::vector&lt;std::string&gt; file;      </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    FileTreeData MakeFileTree(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth,<span class="keyword">const</span> std::string&amp; extension,<span class="keyword">const</span> std::string keyword) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> OutputFileTree(<span class="keyword">const</span> FileTreeData&amp; tree,<span class="keywordtype">int</span> depth, <span class="keywordtype">bool</span> not_display_empty, <span class="keywordtype">int</span>* file_count) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;std::string&gt; MakeFileList(<span class="keyword">const</span> FileTreeData&amp; tree) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_FILE_TREE_H_</span></div>
 <div class="ttc" id="aclass_file_tree_html"><div class="ttname"><a href="class_file_tree.html">FileTree</a></div><div class="ttdef"><b>Definition</b> file_tree.h:14</div></div>
-<div class="ttc" id="aclass_file_tree_html_aac11937fac815c341fa0ceb9c41b1329"><div class="ttname"><a href="class_file_tree.html#aac11937fac815c341fa0ceb9c41b1329">FileTree::DisplayFileTree</a></div><div class="ttdeci">void DisplayFileTree(const std::string &amp;path, int max_depth) const</div><div class="ttdoc">ファイルツリーを表示する</div><div class="ttdef"><b>Definition</b> file_tree.cpp:11</div></div>
+<div class="ttc" id="aclass_file_tree_html_a158392d6e36b190b06055e8bc8db59ad"><div class="ttname"><a href="class_file_tree.html#a158392d6e36b190b06055e8bc8db59ad">FileTree::SelectFile</a></div><div class="ttdeci">bool SelectFile(const std::string &amp;path, int max_depth, const std::string &amp;extension, const std::string keyword, std::string *output)</div><div class="ttdoc">ディレクトリの中から，ファイルを一つ選択する</div><div class="ttdef"><b>Definition</b> file_tree.cpp:20</div></div>
+<div class="ttc" id="aclass_file_tree_html_aac11937fac815c341fa0ceb9c41b1329"><div class="ttname"><a href="class_file_tree.html#aac11937fac815c341fa0ceb9c41b1329">FileTree::DisplayFileTree</a></div><div class="ttdeci">void DisplayFileTree(const std::string &amp;path, int max_depth) const</div><div class="ttdoc">ファイルツリーを表示する</div><div class="ttdef"><b>Definition</b> file_tree.cpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="file__tree_8h.html">file_tree.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="file__tree_8h.html">file_tree.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

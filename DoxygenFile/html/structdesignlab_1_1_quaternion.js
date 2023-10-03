@@ -5,6 +5,7 @@ var structdesignlab_1_1_quaternion =
     [ "Quaternion", "structdesignlab_1_1_quaternion.html#a2b7ca207120a87059ee5256e8bb84aad", null ],
     [ "Conjugate", "structdesignlab_1_1_quaternion.html#af24ef8c57fde648dbc239b6aae7e9414", null ],
     [ "DistanceSquared", "structdesignlab_1_1_quaternion.html#ae726e55fe649c595d39d6ad9f1fd09b5", null ],
+    [ "Dot", "structdesignlab_1_1_quaternion.html#a7e4a031df5e5ccf1b2b93be7d8c7076a", null ],
     [ "Inverse", "structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726", null ],
     [ "LengthSquared", "structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750", null ],
     [ "MakeByAngleAxis", "structdesignlab_1_1_quaternion.html#ad294ce7d4c516ece19fd84a8405b076a", null ],

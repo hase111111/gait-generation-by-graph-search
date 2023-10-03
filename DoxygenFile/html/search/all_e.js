@@ -2,7 +2,7 @@ var searchData=
 [
   ['operator_2a_0',['operator*',['../namespacedesignlab.html#a42012518ef453ff613f47ae09f4098d5',1,'designlab']]],
   ['operator_3c_3c_1',['operator&lt;&lt;',['../namespacedesignlab.html#a267d1ab3d8486e12343e425b81bbd08d',1,'designlab']]],
-  ['operator_3d_3d_2',['operator==',['../struct_s_node.html#a62af682fd6980d1478dc095642ba6bd3',1,'SNode']]],
+  ['operator_3d_3d_2',['operator==',['../struct_robot_state_node.html#afb9407d8663ed35d48521e33df68a230',1,'RobotStateNode']]],
   ['option_5fnone_3',['OPTION_NONE',['../class_map_creator.html#a199c52f70900199f80187e3e5ee30eed',1,'MapCreator']]],
   ['option_5fperforated_4',['OPTION_PERFORATED',['../class_map_creator.html#a3fdb6c92853ab99a12fb996b5804b5f3',1,'MapCreator']]],
   ['option_5frough_5',['OPTION_ROUGH',['../class_map_creator.html#afeafe1fe4aab823fb908b41d9b0cd4f4',1,'MapCreator']]],

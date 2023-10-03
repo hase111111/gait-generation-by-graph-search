@@ -24,11 +24,11 @@ digraph "designlab::dxlib_util::ConvertToDxlibVec"
   Node7 -> Node5 [id="edge10_Node000007_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node7 -> Node6 [id="edge11_Node000007_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node8 [id="edge12_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="MovementLocusRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6",tooltip="ロボットの移動軌跡を描画する．"];
+  Node8 [id="Node000008",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
   Node8 -> Node3 [id="edge13_Node000008_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node8 -> Node4 [id="edge14_Node000008_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node9 [id="edge15_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node9 [id="Node000009",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
+  Node9 [id="Node000009",label="MovementLocusRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_movement_locus_renderer.html#a612f13f7426af1679fbb004fe612c9c6",tooltip="ロボットの移動軌跡を描画する．"];
   Node9 -> Node3 [id="edge16_Node000009_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node9 -> Node4 [id="edge17_Node000009_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node10 [id="edge18_Node000001_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -36,7 +36,7 @@ digraph "designlab::dxlib_util::ConvertToDxlibVec"
   Node10 -> Node3 [id="edge19_Node000010_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node10 -> Node4 [id="edge20_Node000010_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node11 [id="edge21_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node11 [id="Node000011",label="HexapodRenderer::set\l_draw_node",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b",tooltip="ロボットの状態を更新する．"];
+  Node11 [id="Node000011",label="HexapodRenderer::set\l_draw_node",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hexapod_renderer.html#a1da14c8e1e413d5f55a8fab7b04fb57b",tooltip="ロボットの状態を更新する．"];
   Node11 -> Node12 [id="edge22_Node000011_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node12 [id="Node000012",label="GraphicMainAdvance\l::Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d",tooltip="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．"];
   Node11 -> Node13 [id="edge23_Node000011_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];

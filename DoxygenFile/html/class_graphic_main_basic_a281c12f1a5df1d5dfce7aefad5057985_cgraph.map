@@ -4,26 +4,26 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,367,104,312,128,231,145,186,167,142,195,101,228,65,261,43,264,48,231,69,199,104,172,145,150,189,133,233,110,313,99,368"/>
 <area shape="rect" id="Node000003" href="$class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="757,68,900,111"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,367,105,316,128,244,146,205,168,169,195,135,228,108,269,91,324,80,390,73,463,70,613,72,743,79,743,85,613,77,463,75,390,78,325,85,270,96,231,113,199,139,172,172,150,208,133,246,110,317,99,368"/>
-<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#a0479959e5aaf9ff798e1b70d5fb09c2b" title="ロボットの状態を更新する．" alt="" coords="278,123,429,165"/>
+<area shape="rect" id="Node000004" href="$class_hexapod_renderer.html#a1da14c8e1e413d5f55a8fab7b04fb57b" title="ロボットの状態を更新する．" alt="" coords="278,123,429,165"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="97,366,114,328,141,276,179,222,202,197,228,175,263,157,265,162,231,180,206,201,183,225,146,279,119,331,102,368"/>
-<area shape="rect" id="Node000006" href="$class_movement_locus_renderer.html#a3bf0d1681937003b6be362f9b21a182e" title="ロボットの移動軌跡を記録する．" alt="" coords="270,189,437,232"/>
+<area shape="rect" id="Node000006" href="$class_movement_locus_renderer.html#a8478cb8a72e68f6c03547bac4e5f9022" title="ロボットの移動軌跡を記録する．" alt="" coords="270,189,437,232"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="102,366,151,306,187,271,228,242,255,229,257,234,231,246,191,275,155,310,106,369"/>
 <area shape="rect" id="Node000007" href="$class_movement_locus_renderer.html#a3d4e8da28f0dfd1d6efdf91129f88570" title="シミュレーションの終了点を取得する" alt="" coords="270,256,437,315"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="126,365,229,324,255,315,257,320,231,329,128,370"/>
-<area shape="rect" id="Node000008" href="$class_node_display_gui.html#a56ab3862df5514b821aa916cfb48a35c" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="246,339,461,365"/>
+<area shape="rect" id="Node000008" href="$class_node_display_gui.html#a7ebd117b97976bfd5885414e7cbdbb25" title="表示するノードを設定する，その後関節の角度を計算し，セットする" alt="" coords="246,339,461,365"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="182,369,231,363,231,368,183,374"/>
 <area shape="rect" id="Node000009" href="$class_display_node_switch_gui.html#ada40eaf26e259d8a3d29b03e538f9dbd" title="GUIに表示するノードの情報を設定する" alt="" coords="277,389,430,432"/>
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="183,389,262,398,262,403,182,394"/>
 <area shape="rect" id="Node000010" href="$class_camera_gui.html#a7e92e9302d05ea281203fc91a1108d16" title="カメラが注視するロボットの座標を設定する" alt="" coords="259,456,448,483"/>
 <area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="121,393,171,418,231,441,258,450,257,455,229,447,169,422,119,398"/>
-<area shape="rect" id="Node000012" href="$class_robot_graund_point_renderer.html#a01fb9f551ecffb64bca5521a1de2af38" title=" " alt="" coords="230,507,477,549"/>
+<area shape="rect" id="Node000012" href="$class_robot_graund_point_renderer.html#af5a4fa950386fdebc771a5768b17a252" title=" " alt="" coords="230,507,477,549"/>
 <area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="109,393,159,442,194,469,231,492,244,498,241,503,228,497,191,473,156,446,105,397"/>
 <area shape="rect" id="Node000014" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="286,573,421,600"/>
 <area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="103,394,121,428,148,474,185,520,207,541,231,559,272,576,270,581,228,564,204,545,181,524,144,477,116,431,99,397"/>
-<area shape="rect" id="Node000037" href="$class_display_node_switch_gui.html#a27202e8cde3362192f45cb4c12afa168" title="GUIの更新，毎フレーム実行すること" alt="" coords="277,624,430,667"/>
-<area shape="poly" id="edge32_Node000001_Node000037" title=" " alt="" coords="101,394,116,437,142,495,180,557,204,585,231,610,264,628,262,632,228,614,200,589,176,560,138,498,111,439,96,396"/>
-<area shape="rect" id="Node000038" href="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd" title="GUIのボタンの更新を行う" alt="" coords="272,691,435,717"/>
-<area shape="poly" id="edge33_Node000001_Node000038" title=" " alt="" coords="99,395,110,448,133,525,150,567,172,607,199,645,231,677,259,692,256,696,228,681,195,648,167,610,145,569,127,527,104,450,94,396"/>
+<area shape="rect" id="Node000039" href="$class_display_node_switch_gui.html#a27202e8cde3362192f45cb4c12afa168" title="GUIの更新，毎フレーム実行すること" alt="" coords="277,624,430,667"/>
+<area shape="poly" id="edge33_Node000001_Node000039" title=" " alt="" coords="101,394,116,437,142,495,180,557,204,585,231,610,264,628,262,632,228,614,200,589,176,560,138,498,111,439,96,396"/>
+<area shape="rect" id="Node000040" href="$class_node_display_gui.html#a01ad92aa11f9287596dc7890231eb9cd" title="GUIのボタンの更新を行う" alt="" coords="272,691,435,717"/>
+<area shape="poly" id="edge34_Node000001_Node000040" title=" " alt="" coords="99,395,110,448,133,525,150,567,172,607,199,645,231,677,259,692,256,696,228,681,195,648,167,610,145,569,127,527,104,450,94,396"/>
 <area shape="rect" id="Node000005" href="$namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="537,123,675,165"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="429,141,522,141,522,147,429,147"/>
 <area shape="rect" id="Node000011" href="$class_camera_state_manager.html#adfcaa7e32758f9c1e9315359c72b7c4d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="533,369,680,412"/>
@@ -36,8 +36,8 @@
 <area shape="poly" id="edge29_Node000014_Node000031" title=" " alt="" coords="420,570,482,563,552,564,589,569,624,578,658,591,689,610,703,624,711,639,716,670,719,702,726,717,737,732,741,735,737,739,733,735,721,719,714,703,711,671,706,641,699,627,686,614,655,596,622,583,588,574,552,569,482,569,421,575"/>
 <area shape="rect" id="Node000034" href="$class_camera_state_manager.html#ac39a76d8c5fb81635c6487eb04b117b8" title="カメラと注視点との距離を初期化する" alt="" coords="525,624,687,667"/>
 <area shape="poly" id="edge28_Node000014_Node000034" title=" " alt="" coords="422,597,478,609,511,618,510,623,476,615,421,602"/>
-<area shape="rect" id="Node000035" href="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="533,757,680,800"/>
-<area shape="poly" id="edge30_Node000014_Node000035" title=" " alt="" coords="422,589,451,597,478,610,496,625,506,640,527,677,580,744,576,747,523,680,502,643,492,628,476,614,449,602,421,594"/>
+<area shape="rect" id="Node000035" href="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="533,812,680,855"/>
+<area shape="poly" id="edge30_Node000014_Node000035" title=" " alt="" coords="422,588,451,596,479,610,499,637,529,687,589,798,585,800,524,689,495,640,475,614,449,601,420,593"/>
 <area shape="poly" id="edge21_Node000015_Node000003" title=" " alt="" coords="674,500,685,489,701,466,711,443,720,398,718,355,709,312,701,268,698,223,707,177,718,153,733,129,744,118,748,121,737,132,722,156,712,179,704,224,706,267,715,311,723,354,725,399,716,445,705,468,689,492,677,504"/>
 <area shape="rect" id="Node000016" href="$class_camera_state_manager.html#ac0bc493a22d452063cc5da47544aa4be" title="カメラの注視する目標の座標からカメラまでの距離を増やす" alt="" coords="735,143,922,185"/>
 <area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="673,500,685,489,707,452,715,415,714,379,708,344,702,308,701,271,710,234,733,196,735,194,739,197,737,199,715,236,706,272,707,307,713,343,719,379,720,416,712,453,689,492,677,504"/>
@@ -62,5 +62,7 @@
 <area shape="poly" id="edge27_Node000015_Node000033" title=" " alt="" coords="660,544,689,566,706,593,713,618,720,641,737,665,744,670,740,674,733,669,715,644,708,619,701,595,685,570,657,548"/>
 <area shape="poly" id="edge25_Node000030_Node000022" title=" " alt="" coords="902,612,955,598,956,604,903,617"/>
 <area shape="rect" id="Node000036" href="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． &#160;&#160;適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと" alt="" coords="760,812,897,855"/>
-<area shape="poly" id="edge31_Node000035_Node000036" title=" " alt="" coords="681,794,746,810,745,816,679,799"/>
+<area shape="poly" id="edge31_Node000035_Node000036" title=" " alt="" coords="680,831,745,831,745,836,680,836"/>
+<area shape="rect" id="Node000037" href="$namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025" title="球面線形補間を行う．" alt="" coords="740,879,917,905"/>
+<area shape="poly" id="edge32_Node000035_Node000037" title=" " alt="" coords="681,850,761,872,760,877,679,855"/>
 </map>

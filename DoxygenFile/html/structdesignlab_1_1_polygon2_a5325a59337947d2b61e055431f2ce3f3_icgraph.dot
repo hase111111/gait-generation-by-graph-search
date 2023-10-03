@@ -9,7 +9,7 @@ digraph "designlab::Polygon2::GetVertexNum"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="ComSelecterHato::GetComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad",tooltip="重心を求める"];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297",tooltip="現在のノードから次のノード群を生成する"];
+  Node3 [id="Node000003",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#aac2eb837c1886d6a53e93ddfb292af64",tooltip="現在のノードから次のノード群を生成する"];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="designlab::Polygon2\l::GetMaxX",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a3384316344f3e53145b8dbadc9927192",tooltip="頂点の中で最大のx座標を返す関数"];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -33,7 +33,7 @@ digraph "designlab::Polygon2::GetVertexNum"
   Node1 -> Node11 [id="edge16_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="designlab::Polygon2\l::IsInside",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53",tooltip="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．"];
   Node11 -> Node12 [id="edge17_Node000011_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#a798847136070802f8c38a2ec5e71753f",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
+  Node12 [id="Node000012",label="StabilityMarginRenderer\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40",tooltip="ロボットの静的安定余裕(支持脚多角形)を描画する．"];
   Node12 -> Node13 [id="edge18_Node000012_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="GraphicMainAdvance\l::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb",tooltip="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．"];
   Node12 -> Node14 [id="edge19_Node000012_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
