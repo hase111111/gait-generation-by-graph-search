@@ -396,6 +396,9 @@
     <ClInclude Include="graph_search_result_recoder.h">
       <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClInclude>
+    <ClInclude Include="result_file_importer.h">
+      <Filter>ソース ファイル\FileIO\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -621,6 +624,12 @@
       <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="simulation_result_recorder.cpp">
+      <Filter>ソース ファイル\FileIO\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_search_result_recoder.cpp">
+      <Filter>ソース ファイル\FileIO\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="result_file_importer.cpp">
       <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClCompile>
   </ItemGroup>

@@ -87,7 +87,7 @@ FileTree::FileTreeData FileTree::MakeFileTree(const std::string& path, int max_d
 
             if (not extension.empty()) 
             {
-                if (entry.path().extension().string() != extension)
+                if (not (entry.path().extension().string() == extension || entry.path().extension().string() == "." + extension))
                 {
 					continue;
 				}

@@ -73,7 +73,7 @@ void SimulationSystemMain::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < Define::kSimurateNum; i++)
 	{
-		RobotStateNode current_node;										//現在のノードの状態を格納する変数．
+		RobotStateNode current_node;							//現在のノードの状態を格納する変数．
 		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
 		current_node.Init(do_random_init);
 
@@ -94,7 +94,11 @@ void SimulationSystemMain::Main()
 		if (setting_ptr_->do_step_execution)
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
-			dlio::WaitAnyKey("キー入力でシミュレーションを開始します");
+
+			if (not dlio::InputYesNo("シミュレーションを開始しますか")) 
+			{
+				break;
+			}
 		}
 
 
@@ -113,7 +117,8 @@ void SimulationSystemMain::Main()
 			timer_.End();			//タイマーストップ
 
 
-			record.graph_search_result_recoder.push_back(
+			record.graph_search_result_recoder.push_back (
+				// ノード，計算時間，結果を格納する．
 				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMicroSecond() / 1000.0, result_state }
 			);
 
@@ -203,6 +208,8 @@ void SimulationSystemMain::Main()
 	dlio::Output("シミュレーション終了");
 	dlio::OutputNewLine();
 
+	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
+	dlio::OutputNewLine();
 
 	//画像表示ウィンドウの終了を待つ．
 	if (setting_ptr_->gui_display)

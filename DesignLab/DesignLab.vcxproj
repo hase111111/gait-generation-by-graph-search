@@ -64,6 +64,7 @@
     <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="interface_graphic_main.h" />
+    <ClInclude Include="result_file_importer.h" />
     <ClInclude Include="_BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
     <ClInclude Include="cmdio_util.h" />
@@ -137,10 +138,12 @@
     <ClCompile Include="graph_searcher_hato.cpp" />
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
+    <ClCompile Include="graph_search_result_recoder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
     <ClCompile Include="phantomx_state_calculator_hato.cpp" />
+    <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="output_detail.cpp" />

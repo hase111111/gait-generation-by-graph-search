@@ -8,6 +8,7 @@
 #include "graphic_system.h"
 #include "interface_graphic_main.h"
 #include "interface_system_main.h"
+#include "result_file_importer.h"
 
 
 class ResultViewerSystemMain final : public ISystemMain
@@ -15,6 +16,7 @@ class ResultViewerSystemMain final : public ISystemMain
 public:
 	ResultViewerSystemMain(
 		std::unique_ptr<IGraphicMain>&& graphic_ptr,
+		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 	);
 
@@ -23,13 +25,10 @@ public:
 
 private:
 
-	const std::string kDirectoryName;
-
-	const std::string kFileTreePath;
-
 	GraphicSystem graphic_system_;
-	void Read();
 
+	ResultFileImporter result_importer_;
 
+	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 };
 

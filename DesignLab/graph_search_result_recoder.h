@@ -6,6 +6,8 @@
 #define DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
 
 
+#include <string>
+
 #include "robot_state_node.h"
 
 
@@ -44,9 +46,17 @@ struct GraphSearchResultRecoder final
 	};
 
 
+	//! @brief 構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．
+	//! @return 構造体の内容をCSV形式の文字列にしたもの
+	std::string ToCSVString() const;
+
+	//! @brief CSV形式のヘッダを返す．
+	//! @return CSV形式のヘッダ
+	static std::string GetCSVHeader();
+
 	RobotStateNode result_node;		//!< グラフ探索によって選択されたノード
 
-	double computation_time;		//!< グラフ探索にかかった時間
+	double computation_time;		//!< グラフ探索にかかった計算時間 [msec]
 
 	GraphSearchResult graph_search_result;	//!< グラフ探索の結果，成功か失敗か
 
