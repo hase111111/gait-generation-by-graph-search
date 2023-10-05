@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: Stopwatch クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_stopwatch.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_stopwatch-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Stopwatch クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>時間計測用のクラス． <br  />
+ Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する． <br  />
+ 実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．  
+ <a href="class_stopwatch.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="stopwatch_8h_source.html">stopwatch.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:adb93923510f12409132445fc187d828f"><td class="memItemLeft" align="right" valign="top"><a id="adb93923510f12409132445fc187d828f" name="adb93923510f12409132445fc187d828f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="memdesc:adb93923510f12409132445fc187d828f"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測開始にこの関数を呼ぶ． <br  />
+ リセット処理などを呼ぶ必要なしで，再度計測できる． <br /></td></tr>
+<tr class="separator:adb93923510f12409132445fc187d828f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb0f0d7c76a4f36357f33dbdecbe02a8"><td class="memItemLeft" align="right" valign="top"><a id="abb0f0d7c76a4f36357f33dbdecbe02a8" name="abb0f0d7c76a4f36357f33dbdecbe02a8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>End</b> ()</td></tr>
+<tr class="memdesc:abb0f0d7c76a4f36357f33dbdecbe02a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測終了にこの関数を呼ぶ． <br /></td></tr>
+<tr class="separator:abb0f0d7c76a4f36357f33dbdecbe02a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4c0bdcb2c846daaa3e65b3df96f316"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stopwatch.html#abc4c0bdcb2c846daaa3e65b3df96f316">GetElapsedSeconds</a> () const</td></tr>
+<tr class="memdesc:abc4c0bdcb2c846daaa3e65b3df96f316"><td class="mdescLeft">&#160;</td><td class="mdescRight">経過時間を秒で取得． <br  />
+ start()とend()を呼び出してからこの関数を呼ぶ．  <br /></td></tr>
+<tr class="separator:abc4c0bdcb2c846daaa3e65b3df96f316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7798af36a9659c230708cc9d7389f1bc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stopwatch.html#a7798af36a9659c230708cc9d7389f1bc">GetElapsedMilliSecond</a> () const</td></tr>
+<tr class="memdesc:a7798af36a9659c230708cc9d7389f1bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">計測結果をミリ秒で取得． <br  />
+ start()とend()を呼び出してからこの関数を呼ぶ．  <br /></td></tr>
+<tr class="separator:a7798af36a9659c230708cc9d7389f1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d207f79140305845985e1097d87ce8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stopwatch.html#a79d207f79140305845985e1097d87ce8">GetElapsedMicroSecond</a> () const</td></tr>
+<tr class="separator:a79d207f79140305845985e1097d87ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a227203b6b93c4dd1b0e17f6d3a5437e0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stopwatch.html#a227203b6b93c4dd1b0e17f6d3a5437e0">GetNowTimeString</a> () const</td></tr>
+<tr class="memdesc:a227203b6b93c4dd1b0e17f6d3a5437e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する  <br /></td></tr>
+<tr class="separator:a227203b6b93c4dd1b0e17f6d3a5437e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>時間計測用のクラス． <br  />
+ Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する． <br  />
+ 実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a79d207f79140305845985e1097d87ce8" name="a79d207f79140305845985e1097d87ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d207f79140305845985e1097d87ce8">&#9670;&#160;</a></span>GetElapsedMicroSecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stopwatch::GetElapsedMicroSecond </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>@biref 計測結果をマイクロ秒で取得． <br  />
+ start()とend()を呼び出してからこの関数を呼ぶ． <br  />
+ (このレベルのオーダーで精度出せるのか...?) </p><dl class="section return"><dt>戻り値</dt><dd>double 計測結果(マイクロ秒) </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_stopwatch_a79d207f79140305845985e1097d87ce8_icgraph.png" border="0" usemap="#aclass_stopwatch_a79d207f79140305845985e1097d87ce8_icgraph" alt=""/></div>
+<map name="aclass_stopwatch_a79d207f79140305845985e1097d87ce8_icgraph" id="aclass_stopwatch_a79d207f79140305845985e1097d87ce8_icgraph">
+<area shape="rect" title=" " alt="" coords="209,5,399,48"/>
+<area shape="rect" href="class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,161,48"/>
+<area shape="poly" title=" " alt="" coords="194,29,161,29,161,24,194,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7798af36a9659c230708cc9d7389f1bc" name="a7798af36a9659c230708cc9d7389f1bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7798af36a9659c230708cc9d7389f1bc">&#9670;&#160;</a></span>GetElapsedMilliSecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stopwatch::GetElapsedMilliSecond </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>計測結果をミリ秒で取得． <br  />
+ start()とend()を呼び出してからこの関数を呼ぶ． </p>
+<dl class="section return"><dt>戻り値</dt><dd>double 計測結果(ミリ秒) </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_stopwatch_a7798af36a9659c230708cc9d7389f1bc_icgraph.png" border="0" usemap="#aclass_stopwatch_a7798af36a9659c230708cc9d7389f1bc_icgraph" alt=""/></div>
+<map name="aclass_stopwatch_a7798af36a9659c230708cc9d7389f1bc_icgraph" id="aclass_stopwatch_a7798af36a9659c230708cc9d7389f1bc_icgraph">
+<area shape="rect" title="計測結果をミリ秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ．" alt="" coords="222,5,403,48"/>
+<area shape="rect" href="class_graph_viewer_system_main.html#ac0c837edb4f1387fcdae35b39c9999eb" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" title=" " alt="" coords="207,29,174,29,174,24,207,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abc4c0bdcb2c846daaa3e65b3df96f316" name="abc4c0bdcb2c846daaa3e65b3df96f316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4c0bdcb2c846daaa3e65b3df96f316">&#9670;&#160;</a></span>GetElapsedSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stopwatch::GetElapsedSeconds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>経過時間を秒で取得． <br  />
+ start()とend()を呼び出してからこの関数を呼ぶ． </p>
+<dl class="section return"><dt>戻り値</dt><dd>double 計測結果(秒) </dd></dl>
+
+</div>
+</div>
+<a id="a227203b6b93c4dd1b0e17f6d3a5437e0" name="a227203b6b93c4dd1b0e17f6d3a5437e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227203b6b93c4dd1b0e17f6d3a5437e0">&#9670;&#160;</a></span>GetNowTimeString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Stopwatch::GetNowTimeString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>std::string 現在の日時 </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_stopwatch_a227203b6b93c4dd1b0e17f6d3a5437e0_icgraph.png" border="0" usemap="#aclass_stopwatch_a227203b6b93c4dd1b0e17f6d3a5437e0_icgraph" alt=""/></div>
+<map name="aclass_stopwatch_a227203b6b93c4dd1b0e17f6d3a5437e0_icgraph" id="aclass_stopwatch_a227203b6b93c4dd1b0e17f6d3a5437e0_icgraph">
+<area shape="rect" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する" alt="" coords="393,13,591,40"/>
+<area shape="rect" href="class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="217,5,345,48"/>
+<area shape="poly" title=" " alt="" coords="378,29,345,29,345,24,378,24"/>
+<area shape="rect" href="class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8" title=" " alt="" coords="5,5,169,48"/>
+<area shape="poly" title=" " alt="" coords="202,29,169,29,169,24,202,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>DesignLab/<a class="el" href="stopwatch_8h_source.html">stopwatch.h</a></li>
+<li>DesignLab/stopwatch.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_stopwatch.html">Stopwatch</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

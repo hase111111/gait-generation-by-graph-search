@@ -6,54 +6,54 @@
 
 #include <memory>
 
-#include "map_state.h"
+#include "application_setting_recorder.h"
 #include "graphic_system.h"
 #include "graphic_data_broker.h"
-#include "abstract_pass_finder.h"
-#include "application_setting_recorder.h"
+#include "interface_pass_finder.h"
+#include "interface_system_main.h"
+#include "map_state.h"
 
 
 //! @class GraphViewerSystemMain
 //! @brief グラフを表示するシステムのメインクラス
 //! @details この研究の手法では木構造のグラフを作成する．
 //! どのようなグラフが作成されるかを確認するために，このグラフを表示するシステムを作成した．
-
-class GraphViewerSystemMain final
+class GraphViewerSystemMain final : public ISystemMain
 {
 public:
 
 	GraphViewerSystemMain(
-		std::unique_ptr<AbstractPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
 
 	//! @brief メイン関数
-	void Main();
+	void Main() override;
 
 private:
 
 	// グラフを作成する
-	void CreateGraph(const SNode parent, std::vector<SNode>& graph);
+	void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>& graph);
 
 	//グラフを仲介人にセットする
-	void SetGraphToBroker(const std::vector<SNode>& graph);
+	void SetGraphToBroker(const std::vector<RobotStateNode>& graph);
 
 	// y / n の質問をする
 	bool askYesNo(const std::string& question) const;
 
 	// グラフのステータスを表示する
-	void showGraphStatus(const std::vector<SNode>& graph) const;
+	void showGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
 
 	GraphicSystem graphic_system_;
 
-	std::unique_ptr<AbstractPassFinder> pass_finder_ptr_;
+	std::unique_ptr<IPassFinder> pass_finder_ptr_;
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 
 	MapState map_state_;
 };

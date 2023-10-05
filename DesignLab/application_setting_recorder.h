@@ -1,18 +1,22 @@
-#pragma once
+//! @file application_setting_recorder.h
+//! @brief アプリの設定を記録する構造体
+
+
+#ifndef DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
+#define DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
+
 
 #include <string>
 
-#include "output_detail.h"
+#include "application_setting_key.h"
 #include "boot_mode.h"
 #include "map_creator.h"
-#include "application_setting_key.h"
+#include "output_detail.h"
 
 
-//! @struct SApplicationSettingRecorder
-//! @date 2023/08/25
-//! @author 長谷川
+//! @struct ApplicationSettingRecorder
 //! @brief アプリの設定を記録する構造体
-struct SApplicationSettingRecorder
+struct ApplicationSettingRecorder
 {
 	const std::string SETTING_FILE_TITLE = ApplicationSettingKey::FILE_TITLE_VALUE;		//!< 設定ファイルのタイトル
 
@@ -22,7 +26,7 @@ struct SApplicationSettingRecorder
 
 
 	bool ask_about_modes = true;					//!< 起動時にモード選択の確認をするかどうか
-	EBootMode default_mode = EBootMode::SIMULATION;	//!< デフォルトの起動モード
+	BootMode default_mode = BootMode::kSimulation;	//!< デフォルトの起動モード
 	bool do_step_execution = true;					//!< 1シミュレーションごとにステップ実行をするかどうか
 	bool do_step_execution_each_gait = false;		//!< 1動作ごとにステップ実行をするかどうか
 
@@ -36,7 +40,7 @@ struct SApplicationSettingRecorder
 	int window_fps = 60; 								//!< グラフィカルウィンドウのFPS	
 
 
-	EMapCreateMode map_create_mode = EMapCreateMode::FLAT;	//!< マップ生成モード
+	MapCreateMode map_create_mode = MapCreateMode::kFlat;	//!< マップ生成モード
 	int map_create_option = 0;								//!< マップ生成オプション
 	bool do_output_map = true;								//!< マップを出力するかどうか
 	int map_hole_rate = 40;									//!< マップの穴の割合
@@ -49,3 +53,5 @@ struct SApplicationSettingRecorder
 
 };
 
+
+#endif // !DESIGNLAB_APPLICATION_SETTING_RECORDER_H_

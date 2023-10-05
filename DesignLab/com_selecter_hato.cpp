@@ -3,35 +3,40 @@
 #include <algorithm>
 #include <iostream>
 
+#include "designlab_math_util.h"
 #include "leg_state.h"
 
 
-bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const EDiscreteComPos com_pattren, dl_vec::SVector* output_com) const
+namespace dllf = designlab::leg_func;
+namespace dlm = designlab::math_util;
+
+
+bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const
 {
-	std::pair<bool, dl_vec::SVector2> com_candidate[DISCRETIZATION_NUM * DISCRETIZATION_NUM];
+	std::pair<bool, designlab::Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
 	//候補点を生成する
-	if (!makeComCandidatePoint(polygon, com_candidate))
+	if (!MakeComCandidatePoint(polygon, com_candidate))
 	{
 		return false;
 	}
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
-	std::vector<dl_vec::SVector2> edge_vec;
-	edge_vec.resize(polygon.getVertexNum());
+	std::vector<designlab::Vector2> edge_vec;
+	edge_vec.resize(polygon.GetVertexNum());
 
-	for (int i = 0; i < polygon.getVertexNum(); ++i)
+	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		dl_vec::SVector2 edge = polygon.getVertex(i) - polygon.getVertex((i + 1) % polygon.getVertexNum());
-		edge.normalized();
+		designlab::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
+		edge.Normalize();
 		edge_vec[i] = edge;
 	}
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．
-	dl_vec::SVector after_move_com;
-	dl_vec::SVector after_move_leg_pos[HexapodConst::LEG_NUM];
+	designlab::Vector3 after_move_com;
+	designlab::Vector3 after_move_leg_pos[HexapodConst::LEG_NUM];
 
-	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
+	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
 		if (!isInMargin(polygon, edge_vec, com_candidate[i].second))
 		{
@@ -41,15 +46,15 @@ bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const 
 		}
 
 		//現在の重心を移動させたものを作成する
-		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, getCurrentNode().global_center_of_mass.z };
+		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, GetCurrentNode().global_center_of_mass.z };
 
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
-			if (dl_leg::isGrounded(getCurrentNode().leg_state, j))
+			if (dllf::IsGrounded(GetCurrentNode().leg_state, j))
 			{
-				after_move_leg_pos[j] = getCurrentNode().leg_pos[j] - (after_move_com - getCurrentNode().global_center_of_mass);
+				after_move_leg_pos[j] = GetCurrentNode().leg_pos[j] - (after_move_com - GetCurrentNode().global_center_of_mass);
 
-				if (!mp_calculator->isLegInRange(j, after_move_leg_pos[j]))
+				if (!calculator_ptr_->IsLegInRange(j, after_move_leg_pos[j]))
 				{
 					//脚が可動範囲外ならば次の候補点へ
 					com_candidate[i].first = false;
@@ -68,17 +73,17 @@ bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const 
 
 	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
 
-	const dl_vec::SVector2 k_rotate_center = { -10000,0 };
+	const designlab::Vector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
 
 	float min_dist = -100000;
 	int min_index = -1;
 
-	for (int i = 0; i < DISCRETIZATION_NUM * DISCRETIZATION_NUM; ++i)
+	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
 		if (com_candidate[i].first)
 		{
-			const float dist = fabsf((com_candidate[i].second - k_rotate_center).length() - k_rotate_r);
+			const float dist = fabsf((com_candidate[i].second - k_rotate_center).Length() - k_rotate_r);
 
 			if (min_dist < dist)
 			{
@@ -96,35 +101,35 @@ bool ComSelecterHato::getComFromPolygon(const dl_vec::SPolygon2& polygon, const 
 	//該当するものがなければfalseを返す
 	(*output_com).x = com_candidate[min_index].second.x;
 	(*output_com).y = com_candidate[min_index].second.y;
-	(*output_com).z = getCurrentNode().global_center_of_mass.z;
+	(*output_com).z = GetCurrentNode().global_center_of_mass.z;
 	return true;
 }
 
 
-bool ComSelecterHato::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, std::pair<bool, dl_vec::SVector2> coms[DISCRETIZATION_NUM * DISCRETIZATION_NUM]) const
+bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
 	//波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る
-	const float kMinX = polygon.getMinX();
-	const float kMaxX = polygon.getMaxX();
-	const float kMinY = polygon.getMinY();
-	const float kMaxY = polygon.getMaxY();
+	const float kMinX = polygon.GetMinX();
+	const float kMaxX = polygon.GetMaxX();
+	const float kMinY = polygon.GetMinY();
+	const float kMaxY = polygon.GetMaxY();
 
 	const float kWidth = kMaxX - kMinX;
 	const float kHeight = kMaxY - kMinY;
 
-	if (dl_math::isEqual(kWidth, 0.0f) || dl_math::isEqual(kHeight, 0.0f)) { return false; }
+	if (dlm::IsEqual(kWidth, 0.0f) || dlm::IsEqual(kHeight, 0.0f)) { return false; }
 
-	const float kDeltaWidth = kWidth / (float)DISCRETIZATION_NUM;
-	const float kDeltaHeight = kHeight / (float)DISCRETIZATION_NUM;
+	const float kDeltaWidth = kWidth / (float)kDiscretizationNum;
+	const float kDeltaHeight = kHeight / (float)kDiscretizationNum;
 
 	//上記の四角形の中にある点を全て候補に追加する．
-	for (int x = 0; x < DISCRETIZATION_NUM; ++x)
+	for (int x = 0; x < kDiscretizationNum; ++x)
 	{
-		for (int y = 0; y < DISCRETIZATION_NUM; ++y)
+		for (int y = 0; y < kDiscretizationNum; ++y)
 		{
-			coms[x * DISCRETIZATION_NUM + y].first = true;
-			coms[x * DISCRETIZATION_NUM + y].second.x = kMinX + kDeltaWidth * x;
-			coms[x * DISCRETIZATION_NUM + y].second.y = kMinY + kDeltaHeight * y;
+			coms[x * kDiscretizationNum + y].first = true;
+			coms[x * kDiscretizationNum + y].second.x = kMinX + kDeltaWidth * x;
+			coms[x * kDiscretizationNum + y].second.y = kMinY + kDeltaHeight * y;
 		}
 	}
 
@@ -132,13 +137,13 @@ bool ComSelecterHato::makeComCandidatePoint(const dl_vec::SPolygon2& polygon, st
 }
 
 
-bool ComSelecterHato::isInMargin(const dl_vec::SPolygon2& polygon, const std::vector<dl_vec::SVector2>& edge_vec, const dl_vec::SVector2& candidate_point) const
+bool ComSelecterHato::isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const
 {
-	for (int i = 0; i < polygon.getVertexNum(); ++i)
+	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		dl_vec::SVector2 v_map = candidate_point - polygon.getVertex(i);
+		designlab::Vector2 v_map = candidate_point - polygon.GetVertex(i);
 
-		if (v_map.cross(edge_vec[i]) > -STABILITY_MARGIN)
+		if (v_map.Cross(edge_vec[i]) > -STABILITY_MARGIN)
 		{
 			//安定余裕を満たさないならば候補から削除する．
 			return false;

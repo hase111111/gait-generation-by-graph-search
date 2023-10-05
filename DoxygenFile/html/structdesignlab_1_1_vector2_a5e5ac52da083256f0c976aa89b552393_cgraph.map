@@ -1,0 +1,11 @@
+<map id="designlab::Vector2::Normalized" name="designlab::Vector2::Normalized">
+<area shape="rect" id="Node000001" title="このベクトルを正規化したベクトルを返す" alt="" coords="5,39,135,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="183,5,320,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,45,167,39,168,45,136,51"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="187,72,316,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,69,173,76,172,81,135,75"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="368,72,497,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="317,91,353,91,353,96,317,96"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a3543df48153a6fbadbb20364e252cd26" title="このベクトルとotherの内積を返す" alt="" coords="545,80,703,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="498,91,531,91,531,96,498,96"/>
+</map>

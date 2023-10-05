@@ -1,0 +1,5 @@
+<map id="designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg" name="designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg">
+<area shape="rect" id="Node000001" title=" " alt="" coords="216,5,426,64"/>
+<area shape="rect" id="Node000002" href="$class_leg_up_down_node_creator.html#ac32485f62a08e201d4ea075ed7ab4517" title="現在のノードから次のノード群を生成する" alt="" coords="5,13,168,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,37,168,37,168,32,201,32"/>
+</map>

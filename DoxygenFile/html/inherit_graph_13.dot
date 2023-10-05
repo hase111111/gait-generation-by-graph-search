@@ -5,5 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="dl_vec::SQuaternion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_quaternion.html",tooltip=" "];
+  Node0 [id="Node000000",label="ComCandidatePolygonMaker",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_candidate_polygon_maker.html",tooltip="重心位置の候補地点を示す多角形を作成するクラス"];
 }

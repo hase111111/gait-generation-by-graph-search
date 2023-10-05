@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['array_0',['Array',['../namespace_s___n_e.html#a4e9f8b08ee476f5b2de4149d79f4d2ef',1,'S_NE']]]
+  ['leggroundedbit_0',['LegGroundedBit',['../namespacedesignlab_1_1leg__func.html#aed1e953cf8c10c73c2f7bda67119cfd4',1,'designlab::leg_func']]],
+  ['leggroundedmap_1',['LegGroundedMap',['../namespacedesignlab_1_1com__func.html#a837a066c8801e2b869da81e8adbdf907',1,'designlab::com_func']]],
+  ['legstatebit_2',['LegStateBit',['../namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65',1,'designlab::leg_func']]]
 ];

@@ -1,5 +1,5 @@
 var class_com_selecter_hato =
 [
-    [ "getComFromPolygon", "class_com_selecter_hato.html#a5d197b3f6d2759a435d357e67e700d2e", null ],
-    [ "setCurrentNode", "class_com_selecter_hato.html#a69a48f403a947d80ef20e4703cdfe260", null ]
+    [ "GetComFromPolygon", "class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad", null ],
+    [ "SetCurrentNode", "class_com_selecter_hato.html#adc5225e34c9006dcaac6c1b0f9ca11f3", null ]
 ];

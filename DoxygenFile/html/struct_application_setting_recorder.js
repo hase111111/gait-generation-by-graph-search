@@ -1,0 +1,28 @@
+var struct_application_setting_recorder =
+[
+    [ "ask_about_modes", "struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f", null ],
+    [ "cmd_output", "struct_application_setting_recorder.html#a16adf15854fd81db84a816d0cb893f5c", null ],
+    [ "cmd_permission", "struct_application_setting_recorder.html#ab5a0a3fb53dca551ee266940c93460f9", null ],
+    [ "default_mode", "struct_application_setting_recorder.html#a369e9b58d7b0216811f840505307f3e2", null ],
+    [ "do_output_map", "struct_application_setting_recorder.html#a0fb0ee1d42ef34045ac8ac5994d59284", null ],
+    [ "do_step_execution", "struct_application_setting_recorder.html#a8729b2b4c5cdf967c371296b34f2d1fd", null ],
+    [ "do_step_execution_each_gait", "struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d", null ],
+    [ "gui_display", "struct_application_setting_recorder.html#aa8092131837bbaa7d7b7a9f97acc2f41", null ],
+    [ "gui_display_quality", "struct_application_setting_recorder.html#a46d409825baade1e664950325ff7bc7d", null ],
+    [ "map_create_mode", "struct_application_setting_recorder.html#a2e9d0fdbd8f4fcdd68044205edc69e9e", null ],
+    [ "map_create_option", "struct_application_setting_recorder.html#a63fea27fbe4b2e8803225689b6c2c58d", null ],
+    [ "map_hole_rate", "struct_application_setting_recorder.html#a8ecd65bf06d624ca530447f8a4e0223b", null ],
+    [ "map_slope_angle_deg", "struct_application_setting_recorder.html#a69d8bb0c7c68d6e18e9e6f9daefa75b0", null ],
+    [ "map_step_height", "struct_application_setting_recorder.html#a822d7058e15e41dbe4a9754f717a3d0c", null ],
+    [ "map_step_length", "struct_application_setting_recorder.html#a0569abc9d72381a7b8c9d25bd5e3b641", null ],
+    [ "map_tilt_angle_deg", "struct_application_setting_recorder.html#a09c388c1532747a01eb49ba72960be5b", null ],
+    [ "rough_max_dif", "struct_application_setting_recorder.html#a47550c2c89a0b374412075496f86211c", null ],
+    [ "rough_min_dif", "struct_application_setting_recorder.html#ae05cb6c91d8f4965c87fe032399f7a73", null ],
+    [ "SETTING_FILE_TITLE", "struct_application_setting_recorder.html#aaaf5324f9b28a91851f77aa5b96bdb5b", null ],
+    [ "version_major", "struct_application_setting_recorder.html#a6d2e7782460287f3f3fac985fe654b65", null ],
+    [ "version_minor", "struct_application_setting_recorder.html#a6847a9464766ff2d1c20749426544ee0", null ],
+    [ "version_patch", "struct_application_setting_recorder.html#ae3c342c7342f979df3691790207b18d6", null ],
+    [ "window_fps", "struct_application_setting_recorder.html#a9071bfa5d5ff28f46b3ea96d1aedbb95", null ],
+    [ "window_size_x", "struct_application_setting_recorder.html#ac60b912738df3e0b5dff2eb27bd64a85", null ],
+    [ "window_size_y", "struct_application_setting_recorder.html#a55ab7170e285905de34cd7c398d6153c", null ]
+];

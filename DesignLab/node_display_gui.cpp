@@ -1,8 +1,14 @@
 #include "node_display_gui.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
+#include <magic_enum.hpp>
 
+#include "designlab_math_util.h"
 #include "leg_state.h"
+
+
+namespace dllf = designlab::leg_func;
+namespace dlm = designlab::math_util;
 
 
 const int NodeDisplayGui::kWidth = 450;
@@ -31,7 +37,7 @@ NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shar
 }
 
 
-void NodeDisplayGui::SetDisplayNode(const SNode& node)
+void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 {
 	//ノードをセットする
 	display_node_ = node;
@@ -39,7 +45,7 @@ void NodeDisplayGui::SetDisplayNode(const SNode& node)
 	if (!calculator_ptr_) { return; }
 
 	// 関節の角度をセットする
-	calculator_ptr_->calculateAllJointState(display_node_, joint_state_);
+	calculator_ptr_->CalculateAllJointState(display_node_, &joint_state_);
 }
 
 
@@ -50,11 +56,11 @@ void NodeDisplayGui::Update()
 	{
 		button.second->Update();
 
-		if (button.second->isPushedNow() && button.first == ButtonType::kOpenClose)
+		if (button.second->IsPushedNow() && button.first == ButtonType::kOpenClose)
 		{
 			is_closed_ = !is_closed_;
 		}
-		else if (button.second->isPushedNow() && button.first == ButtonType::kModeSwitching && !is_closed_)
+		else if (button.second->IsPushedNow() && button.first == ButtonType::kModeSwitching && !is_closed_)
 		{
 			if (display_type_ == DisplayMode::kDefualt)
 			{
@@ -129,9 +135,9 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dl_leg::getComPatternState(display_node_.leg_state),
-		dl_leg::getLegState(display_node_.leg_state, 0), dl_leg::getLegState(display_node_.leg_state, 1), dl_leg::getLegState(display_node_.leg_state, 2),
-		dl_leg::getLegState(display_node_.leg_state, 3), dl_leg::getLegState(display_node_.leg_state, 4), dl_leg::getLegState(display_node_.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(display_node_.leg_state),
+		dllf::GetDiscreteLegPos(display_node_.leg_state, 0), dllf::GetDiscreteLegPos(display_node_.leg_state, 1), dllf::GetDiscreteLegPos(display_node_.leg_state, 2),
+		dllf::GetDiscreteLegPos(display_node_.leg_state, 3), dllf::GetDiscreteLegPos(display_node_.leg_state, 4), dllf::GetDiscreteLegPos(display_node_.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -139,13 +145,13 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	// 回転を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"回転(roll:%5.3f,pitch:%5.3f,yaw:%5.3f)", display_node_.rot.roll, display_node_.rot.pitch, display_node_.rot.yaw);
+		"回転(x_angle:%5.3f,y_angle:%5.3f,z_angle:%5.3f)", display_node_.rot.x_angle, display_node_.rot.y_angle, display_node_.rot.z_angle);
 
 	//遊脚か接地脚か
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(display_node_.leg_state, i)) { str += "接地,"; }
+		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
@@ -161,12 +167,12 @@ void NodeDisplayGui::DrawNodeInfo() const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor,
-			" %d番脚の基準座標(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_base_pos[i].x, display_node_.leg_base_pos[i].y, display_node_.leg_base_pos[i].z);
+			" %d番脚の基準座標(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
 	}
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", display_node_.depth, std::to_string(display_node_.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", display_node_.depth, static_cast<std::string>(magic_enum::enum_name(display_node_.next_move)).c_str());
 
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "単位は長さが[mm]，角度が[rad]");
 }
@@ -190,16 +196,16 @@ void NodeDisplayGui::DrawJointInfo() const
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]", i,
-			dl_math::convertRadToDeg(joint_state_[i].joint_angle[0]), dl_math::convertRadToDeg(joint_state_[i].joint_angle[1]), dl_math::convertRadToDeg(joint_state_[i].joint_angle[2]));
+			dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2]));
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
-			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).length(),
-			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).length(),
-			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).length()
+			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).Length(),
+			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).Length(),
+			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).Length()
 		);
 
 
-		if (calculator_ptr_->isLegInRange(i, joint_state_[i].local_joint_position[3]))
+		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3]))
 		{
 			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    近似値 true");
 		}

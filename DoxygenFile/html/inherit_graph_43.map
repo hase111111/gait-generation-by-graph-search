@@ -1,3 +1,11 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classphantomx_commander.html" title=" " alt="" coords="5,5,154,32"/>
+<area shape="rect" id="Node000000" href="$class_i_system_main.html" title=" " alt="" coords="5,81,103,108"/>
+<area shape="rect" id="Node000001" href="$class_graph_viewer_system_main.html" title="グラフを表示するシステムのメインクラス" alt="" coords="152,5,320,32"/>
+<area shape="poly" id="edge16_Node000000_Node000001" title=" " alt="" coords="90,71,150,42,182,30,183,35,152,46,92,76"/>
+<area shape="rect" id="Node000002" href="$class_graphic_system.html" title="Dxlibの処理を行うクラス．" alt="" coords="180,56,292,83"/>
+<area shape="poly" id="edge17_Node000000_Node000002" title=" " alt="" coords="117,83,179,74,180,80,118,89"/>
+<area shape="rect" id="Node000003" href="$class_result_viewer_system_main.html" title=" " alt="" coords="151,107,321,133"/>
+<area shape="poly" id="edge18_Node000000_Node000003" title=" " alt="" coords="118,101,150,105,150,111,117,106"/>
+<area shape="rect" id="Node000004" href="$class_simulation_system_main.html" title="中〜大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．" alt="" coords="158,157,314,184"/>
+<area shape="poly" id="edge19_Node000000_Node000004" title=" " alt="" coords="92,113,152,143,183,154,182,159,150,148,90,118"/>
 </map>

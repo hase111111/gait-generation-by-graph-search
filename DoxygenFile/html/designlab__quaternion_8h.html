@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/designlab_quaternion.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/designlab_quaternion.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,50 +92,53 @@ $(document).ready(function(){initNavTree('designlab__quaternion_8h.html',''); in
   <div class="summary">
 <a href="#nested-classes">クラス</a> &#124;
 <a href="#namespaces">名前空間</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
 <a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">designlab_quaternion.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>クォータニオンを表現する構造体 <br  />
- 行数 : 47  
+<p>クォータニオンを表す構造体  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="designlab__vector_8h_source.html">designlab_vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="designlab__rotator_8h_source.html">designlab_rotator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="cassert__define_8h_source.html">cassert_define.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="designlab__euler_8h_source.html">designlab_euler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="designlab__vector3_8h_source.html">designlab_vector3.h</a>&quot;</code><br />
 </div>
 <p><a href="designlab__quaternion_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdl__vec_1_1_s_quaternion.html">dl_vec::SQuaternion</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンを表す構造体  <a href="structdesignlab_1_1_quaternion.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 名前空間</h2></td></tr>
-<tr class="memitem:namespacedl__vec"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedl__vec.html">dl_vec</a></td></tr>
-<tr class="memdesc:namespacedl__vec"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置ベクトルを表現する構造体SVectorや回転を表現するSRotatorが実装されている． <br /></td></tr>
+<tr class="memitem:namespacedesignlab"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html">designlab</a></td></tr>
+<tr class="memdesc:namespacedesignlab"><td class="mdescLeft">&#160;</td><td class="mdescRight">DesignLabの名前空間 <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:ae5c58842cd6fb9a9b1bef74d85bac98b"><td class="memItemLeft" align="right" valign="top"><a id="ae5c58842cd6fb9a9b1bef74d85bac98b" name="ae5c58842cd6fb9a9b1bef74d85bac98b"></a>
-constexpr <a class="el" href="structdl__vec_1_1_s_quaternion.html">SQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_vec::operator*</b> (float s, const <a class="el" href="structdl__vec_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:ae5c58842cd6fb9a9b1bef74d85bac98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1febd70c328afb68208f180f0a08d13b"><td class="memItemLeft" align="right" valign="top"><a id="a1febd70c328afb68208f180f0a08d13b" name="a1febd70c328afb68208f180f0a08d13b"></a>
-<a class="el" href="structdl__vec_1_1_s_vector.html">SVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dl_vec::rotVecByQuat</b> (const <a class="el" href="structdl__vec_1_1_s_vector.html">SVector</a> &amp;vec, const <a class="el" href="structdl__vec_1_1_s_quaternion.html">SQuaternion</a> &amp;q)</td></tr>
-<tr class="separator:a1febd70c328afb68208f180f0a08d13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1329cb082c6b47a47150da24f72b15ee"><td class="memItemLeft" align="right" valign="top"><a id="a1329cb082c6b47a47150da24f72b15ee" name="a1329cb082c6b47a47150da24f72b15ee"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>designlab::operator*</b> (float s, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:a1329cb082c6b47a47150da24f72b15ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8">designlab::RotateVector3</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;vec, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q, bool use_normalized_quaternions)</td></tr>
+<tr class="memdesc:a88a31cb8dd4fb0891393816ad574b9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">3次元の位置ベクトルを回転させる．  <br /></td></tr>
+<tr class="separator:a88a31cb8dd4fb0891393816ad574b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ea420a317fc2b34a4ee1872ce9a025"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025">designlab::SlerpQuaternion</a> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q1, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q2, float t)</td></tr>
+<tr class="memdesc:a12ea420a317fc2b34a4ee1872ce9a025"><td class="mdescLeft">&#160;</td><td class="mdescRight">球面線形補間を行う．  <br /></td></tr>
+<tr class="separator:a12ea420a317fc2b34a4ee1872ce9a025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>クォータニオンを表現する構造体 <br  />
- 行数 : 47 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/21 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<div class="textblock"><p>クォータニオンを表す構造体 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="designlab__quaternion_8h.html">designlab_quaternion.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="designlab__quaternion_8h.html">designlab_quaternion.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

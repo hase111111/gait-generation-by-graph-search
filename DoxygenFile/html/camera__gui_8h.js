@@ -1,4 +1,4 @@
 var camera__gui_8h =
 [
-    [ "CameraGUI", "class_camera_g_u_i.html", "class_camera_g_u_i" ]
+    [ "CameraGui", "class_camera_gui.html", "class_camera_gui" ]
 ];

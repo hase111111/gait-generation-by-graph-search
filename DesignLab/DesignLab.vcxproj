@@ -21,82 +21,78 @@
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
     <ClInclude Include="asyncable_data.h" />
+    <ClInclude Include="cassert_define.h" />
+    <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
-    <ClInclude Include="interface_pass_finder_factory.h" />
     <ClInclude Include="application_setting_key.h" />
     <ClInclude Include="application_setting_reader.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
-    <ClInclude Include="camera_controller.h" />
+    <ClInclude Include="camera_input_controller.h" />
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
-    <ClInclude Include="com_move_node_creator.h" />
     <ClInclude Include="com_move_node_creator_hato.h" />
     <ClInclude Include="com_selecter.h" />
     <ClInclude Include="com_selecter_hato.h" />
     <ClInclude Include="com_up_down_node_creator.h" />
     <ClInclude Include="designlab_quaternion.h" />
     <ClInclude Include="display_node_switch_gui.h" />
+    <ClInclude Include="file_tree.h" />
     <ClInclude Include="graphic_main_advance.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
-    <ClInclude Include="designlab_rotator.h" />
+    <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="interface_node_creator_builder.h" />
+    <ClInclude Include="interface_system_main.h" />
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="movement_locus_renderer.h" />
+    <ClInclude Include="node_creator_builder_hato.h" />
     <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="output_detail.h" />
-    <ClInclude Include="pass_finder_factory_fixed.h" />
-    <ClInclude Include="pass_finder_fixed.h" />
-    <ClInclude Include="pass_finder_hato.h" />
     <ClInclude Include="graph_searcher_random.h" />
-    <ClInclude Include="graph_searcher_sample.h" />
-    <ClInclude Include="pass_finder_hato_thread.h" />
-    <ClInclude Include="pass_finder_none.h" />
-    <ClInclude Include="graph_search_result.h" />
+    <ClInclude Include="pass_finder_basic.h" />
+    <ClInclude Include="graph_search_result_recoder.h" />
     <ClInclude Include="graph_tree_creator_hato.h" />
-    <ClInclude Include="graph_tree_creator_sample.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="hexapod_renderer.h" />
     <ClInclude Include="hexapod_state_calculator.h" />
-    <ClInclude Include="abstract_pass_finder.h" />
-    <ClInclude Include="abstract_graph_searcher.h" />
+    <ClInclude Include="interface_pass_finder.h" />
+    <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="interface_graphic_main.h" />
-    <ClInclude Include="BFSinHierarchy.h" />
+    <ClInclude Include="result_file_importer.h" />
+    <ClInclude Include="_BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
-    <ClInclude Include="designlab_cmdio.h" />
-    <ClInclude Include="Define.h" />
+    <ClInclude Include="cmdio_util.h" />
+    <ClInclude Include="define.h" />
     <ClInclude Include="dxlib_util.h" />
     <ClInclude Include="fps_controller.h" />
-    <ClInclude Include="camera_manager.h" />
+    <ClInclude Include="camera_state_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
     <ClInclude Include="graphic_main_basic.h" />
-    <ClInclude Include="graphic_main_sample.h" />
     <ClInclude Include="graphic_system.h" />
     <ClInclude Include="graphic_const.h" />
     <ClInclude Include="hexapod_const.h" />
     <ClInclude Include="interface_node_creator.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="leg_down_node_creator.h" />
     <ClInclude Include="leg_hierarchy_node_creator.h" />
     <ClInclude Include="leg_state.h" />
     <ClInclude Include="leg_up_down_node_creator.h" />
-    <ClInclude Include="leg_up_node_creator.h" />
     <ClInclude Include="map_const.h" />
     <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
     <ClInclude Include="mouse.h" />
-    <ClInclude Include="designlab_line.h" />
-    <ClInclude Include="designlab_math.h" />
-    <ClInclude Include="designlab_polygon.h" />
-    <ClInclude Include="designlab_timer.h" />
+    <ClInclude Include="designlab_line_segment2.h" />
+    <ClInclude Include="designlab_math_util.h" />
+    <ClInclude Include="designlab_polygon2.h" />
+    <ClInclude Include="phantomx_state_calculator_hato.h" />
+    <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
-    <ClInclude Include="pass_finder_factory_hato.h" />
     <ClInclude Include="phantomx_state_calculator.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="result_viewer_system_main.h" />
@@ -108,93 +104,82 @@
     <ClInclude Include="StringToValue.h" />
     <ClInclude Include="simulation_system_main.h" />
     <ClInclude Include="graph_viewer_system_main.h" />
-    <ClInclude Include="Target.h" />
-    <ClInclude Include="hexapod.h" />
-    <ClInclude Include="node.h" />
+    <ClInclude Include="target.h" />
+    <ClInclude Include="_hexapod.h" />
+    <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator.h" />
-    <ClInclude Include="phantomxCommander.h" />
+    <ClInclude Include="_phantomxCommander.h" />
     <ClInclude Include="S_NE.h" />
-    <ClInclude Include="TimeManager.h" />
-    <ClInclude Include="designlab_vector.h" />
+    <ClInclude Include="_TimeManager.h" />
+    <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
-    <ClCompile Include="abstract_pass_finder.cpp" />
     <ClCompile Include="application_setting_key.cpp" />
     <ClCompile Include="application_setting_reader.cpp" />
     <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
-    <ClCompile Include="camera_controller.cpp" />
+    <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
-    <ClCompile Include="com_move_node_creator.cpp" />
     <ClCompile Include="com_move_node_creator_hato.cpp" />
     <ClCompile Include="com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
-    <ClCompile Include="discrete_com_pos.cpp" />
-    <ClCompile Include="discrete_leg_pos.cpp" />
+    <ClCompile Include="designlab_rotation_matrix.cpp" />
+    <ClCompile Include="designlab_vector2.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
+    <ClCompile Include="file_tree.cpp" />
     <ClCompile Include="graphic_main_advance.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />
-    <ClCompile Include="designlab_rotator.cpp" />
+    <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
+    <ClCompile Include="graph_search_result_recoder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
-    <ClCompile Include="designlab_timer.cpp" />
+    <ClCompile Include="node_creator_builder_hato.cpp" />
+    <ClCompile Include="phantomx_state_calculator_hato.cpp" />
+    <ClCompile Include="result_file_importer.cpp" />
+    <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="output_detail.cpp" />
-    <ClCompile Include="pass_finder_factory_fixed.cpp" />
-    <ClCompile Include="pass_finder_fixed.cpp" />
-    <ClCompile Include="pass_finder_hato.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
-    <ClCompile Include="graph_searcher_sample.cpp" />
-    <ClCompile Include="pass_finder_hato_thread.cpp" />
-    <ClCompile Include="pass_finder_none.cpp" />
-    <ClCompile Include="graph_search_result.cpp" />
+    <ClCompile Include="pass_finder_basic.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />
-    <ClCompile Include="graph_tree_creator_sample.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
-    <ClCompile Include="hexapod_next_move.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
     <ClCompile Include="hexapod_state_calculator.cpp" />
-    <ClCompile Include="BFSinHierarchy.cpp" />
+    <ClCompile Include="_BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
-    <ClCompile Include="designlab_cmdio.cpp" />
+    <ClCompile Include="cmdio_util.cpp" />
     <ClCompile Include="dxlib_util.cpp" />
     <ClCompile Include="fps_controller.cpp" />
-    <ClCompile Include="camera_manager.cpp" />
+    <ClCompile Include="camera_state_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
-    <ClCompile Include="graphic_data_broker.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
-    <ClCompile Include="graphic_main_sample.cpp" />
     <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="hexapod_const.cpp" />
-    <ClCompile Include="interface_graph_tree_creator.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="leg_down_node_creator.cpp" />
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />
     <ClCompile Include="leg_state.cpp" />
     <ClCompile Include="leg_up_down_node_creator.cpp" />
-    <ClCompile Include="leg_up_node_creator.cpp" />
-    <ClCompile Include="hexapod.cpp" />
-    <ClCompile Include="designlab_line.cpp" />
-    <ClCompile Include="designlab_polygon.cpp" />
-    <ClCompile Include="node.cpp" />
+    <ClCompile Include="_hexapod.cpp" />
+    <ClCompile Include="designlab_line_segment2.cpp" />
+    <ClCompile Include="designlab_polygon2.cpp" />
+    <ClCompile Include="robot_state_node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
     <ClCompile Include="map_creator.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />
-    <ClCompile Include="designlab_math.cpp" />
+    <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
-    <ClCompile Include="pass_finder_factory_hato.cpp" />
-    <ClCompile Include="phantomxCommander.cpp" />
+    <ClCompile Include="_phantomxCommander.cpp" />
     <ClCompile Include="phantomx_state_calculator.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="result_viewer_system_main.cpp" />
@@ -203,9 +188,9 @@
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="simulation_system_main.cpp" />
     <ClCompile Include="graph_viewer_system_main.cpp" />
-    <ClCompile Include="TimeManager.cpp" />
-    <ClCompile Include="designlab_vector.cpp" />
-    <ClCompile Include="Define.cpp" />
+    <ClCompile Include="_TimeManager.cpp" />
+    <ClCompile Include="designlab_vector3.cpp" />
+    <ClCompile Include="define.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -283,11 +268,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -295,11 +280,12 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -313,13 +299,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -327,13 +313,14 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -345,11 +332,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -357,11 +344,12 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -375,13 +363,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -389,13 +377,14 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <DisableSpecificWarnings>4828;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>

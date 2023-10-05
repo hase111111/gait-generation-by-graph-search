@@ -2,19 +2,30 @@
 
 #include <cmath>
 
-#include "designlab_line.h"
+#include "cassert_define.h"
+#include "designlab_line_segment2.h"
+#include "designlab_math_util.h"
+
+namespace dlm = designlab::math_util;
 
 
-
-PhantomXStateCalclator::PhantomXStateCalclator()
+PhantomXStateCalclator::PhantomXStateCalclator() : 
+	free_leg_pos_({ {
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),-25},
+		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),-25}
+	} })
 {
 	//ãrÇÃïtÇØç™ÇÃà íuÇèâä˙âªÇ∑ÇÈ
-	m_local_leg_base_pos[0] = dl_vec::SVector(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr0 âEè„
-	m_local_leg_base_pos[1] = dl_vec::SVector(0.0f, -HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr1 âEâ°
-	m_local_leg_base_pos[2] = dl_vec::SVector(-HexapodConst::BODY_REAR_LENGTH, -HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr2 âEâ∫
-	m_local_leg_base_pos[3] = dl_vec::SVector(-HexapodConst::BODY_REAR_LENGTH, HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr3 ç∂â∫
-	m_local_leg_base_pos[4] = dl_vec::SVector(0.0f, HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr4 ç∂â°
-	m_local_leg_base_pos[5] = dl_vec::SVector(HexapodConst::BODY_FRONT_LENGTH, HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr5 ç∂è„
+	m_local_leg_base_pos[0] = designlab::Vector3(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr0 âEè„
+	m_local_leg_base_pos[1] = designlab::Vector3(0.0f, -HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr1 âEâ°
+	m_local_leg_base_pos[2] = designlab::Vector3(-HexapodConst::BODY_REAR_LENGTH, -HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr2 âEâ∫
+	m_local_leg_base_pos[3] = designlab::Vector3(-HexapodConst::BODY_REAR_LENGTH, HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr3 ç∂â∫
+	m_local_leg_base_pos[4] = designlab::Vector3(0.0f, HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr4 ç∂â°
+	m_local_leg_base_pos[5] = designlab::Vector3(HexapodConst::BODY_FRONT_LENGTH, HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr5 ç∂è„
 
 
 	// m_is_able_leg_pos Çèâä˙âªÇ∑ÇÈÅDà´ñ≤ÇÃ4èdÉãÅ[Év
@@ -34,64 +45,87 @@ PhantomXStateCalclator::PhantomXStateCalclator()
 }
 
 
-bool PhantomXStateCalclator::calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const
+bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
 {
-	//ãtâ^ìÆäwÇÃéÆÇÕReference/HexapodÇÃâÊëúÇéQè∆ÇµÇƒÇ≠ÇæÇ≥Ç¢
+	assert(joint_state != nullptr);		//joint_stateÇÕnullptrÇ≈ÇÕÇ»Ç¢ÅD
 
+	//ãtâ^ìÆäwÇÃéÆÇÕReference/HexapodÇÃâÊëúÇéQè∆ÇµÇƒÇ≠ÇæÇ≥Ç¢
 
 	//åvéZÇçsÇ§ÅD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		calculateLocalJointState(i, node.leg_pos[i], &joint_state[i]);
+		calculateLocalJointState(i, node.leg_pos[i], &joint_state->at(i));
 
-		joint_state[i].global_joint_position.clear();
-		joint_state[i].global_joint_position.resize(4);
+		joint_state->at(i).global_joint_position.clear();
+		joint_state->at(i).global_joint_position.resize(4);
 
-		joint_state[i].global_joint_position[0] = node.global_center_of_mass + dl_vec::rotVector(getLocalLegBasePosition(i), node.rot);
-		joint_state[i].global_joint_position[1] = node.global_center_of_mass + dl_vec::rotVector(getLocalLegBasePosition(i) + joint_state[i].local_joint_position[1], node.rot);
-		joint_state[i].global_joint_position[2] = node.global_center_of_mass + dl_vec::rotVector(getLocalLegBasePosition(i) + joint_state[i].local_joint_position[2], node.rot);
-		joint_state[i].global_joint_position[3] = node.global_center_of_mass + dl_vec::rotVector(getLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
+		joint_state->at(i).global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
+		joint_state->at(i).global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1], node.rot);
+		joint_state->at(i).global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2], node.rot);
+		joint_state->at(i).global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
 	}
 
 	return false;
 }
 
 
-dl_vec::SVector PhantomXStateCalclator::convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::ConvertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
 	if (consider_rot)
 	{
-		return dl_vec::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - getLocalLegBasePosition(leg_index);
+		return designlab::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - GetLocalLegBasePosition(leg_index);
 	}
 	else
 	{
-		return leg_pos - global_center_of_mass - getLocalLegBasePosition(leg_index);
+		return leg_pos - global_center_of_mass - GetLocalLegBasePosition(leg_index);
 	}
 }
 
-
-dl_vec::SVector PhantomXStateCalclator::getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const
+designlab::Vector3 PhantomXStateCalclator::GetFreeLegPosition(const int leg_index) const
 {
-	return leg_pos + getLocalLegBasePosition(leg_index);
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
+	return free_leg_pos_[leg_index];
 }
 
 
-dl_vec::SVector PhantomXStateCalclator::getGlobalLegBasePosition(const int leg_index, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::GetLocalLegBasePosition(const int leg_index) const
 {
-	if (consider_rot) { return dl_vec::rotVector(getLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
-	else { return getLocalLegBasePosition(leg_index) + global_center_of_mass; }
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
+	return m_local_leg_base_pos[leg_index];
+}
+
+designlab::Vector3 PhantomXStateCalclator::GetLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const
+{
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
+	return leg_pos + GetLocalLegBasePosition(leg_index);
 }
 
 
-dl_vec::SVector PhantomXStateCalclator::getGlobalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const
+designlab::Vector3 PhantomXStateCalclator::GetGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
-	if (consider_rot) { return dl_vec::rotVector(getLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
-	else { return global_center_of_mass + getLocalLegBasePosition(leg_index) + leg_pos; }
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
+	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
+	else { return GetLocalLegBasePosition(leg_index) + global_center_of_mass; }
 }
 
 
-bool PhantomXStateCalclator::isLegInRange(const int leg_index, const dl_vec::SVector& leg_pos) const
+designlab::Vector3 PhantomXStateCalclator::GetGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
+	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
+	else { return global_center_of_mass + GetLocalLegBasePosition(leg_index) + leg_pos; }
+}
+
+
+bool PhantomXStateCalclator::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
+{
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
 	//îÕàÕäOÇ»ÇÁfalse
 	if (getLegPosIndex(leg_pos.x) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.x)) { return false; }
 	if (getLegPosIndex(leg_pos.y) < 0 || LEG_POS_DIV_NUM <= getLegPosIndex(leg_pos.y)) { return false; }
@@ -99,13 +133,13 @@ bool PhantomXStateCalclator::isLegInRange(const int leg_index, const dl_vec::SVe
 
 	if (m_is_able_leg_pos[leg_index][getLegPosIndex(leg_pos.x)][getLegPosIndex(leg_pos.y)][getLegPosIndex(leg_pos.z)])
 	{
-		const dl_vec::SVector2 leg_pos_xy = leg_pos.projectedXY();
-		const dl_vec::SVector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
-		const dl_vec::SVector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
+		const designlab::Vector2 leg_pos_xy = leg_pos.ProjectedXY();
+		const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
+		const designlab::Vector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
 
 		//ãrÇÃäpìxÇ™îÕàÕì‡Ç…Ç†ÇÈÇ©í≤Ç◊ÇÈÅDäOêœåvéZÇ≈ä‘Ç…Ç†ÇÈÇ©í≤Ç◊ÇÈ
-		if (min_leg_pos_xy.cross(leg_pos_xy) > 0.0f) { return false; }
-		if (max_leg_pos_xy.cross(leg_pos_xy) < 0.0f) { return false; }
+		if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
+		if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 
 		return true;
 	}
@@ -114,27 +148,27 @@ bool PhantomXStateCalclator::isLegInRange(const int leg_index, const dl_vec::SVe
 }
 
 
-bool PhantomXStateCalclator::isLegInterfering(const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const
+bool PhantomXStateCalclator::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
 {
 	//èdêSÇå¥ì_Ç∆ÇµÇΩÅCç¿ïWånÇ…Ç®Ç¢ÇƒÅCãrÇÃä±è¬Çí≤Ç◊ÇÈÅD
 
 	//ãrÇÃä±è¬Çí≤Ç◊ÇÈÅD
-	dl_vec::SVector2 leg_pos_xy[HexapodConst::LEG_NUM];
-	dl_vec::SVector2 joint_pos_xy[HexapodConst::LEG_NUM];
+	designlab::Vector2 leg_pos_xy[HexapodConst::LEG_NUM];
+	designlab::Vector2 joint_pos_xy[HexapodConst::LEG_NUM];
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		joint_pos_xy[i] = getLocalLegBasePosition(i).projectedXY();
-		leg_pos_xy[i] = leg_pos[i].projectedXY() + joint_pos_xy[i];
+		joint_pos_xy[i] = GetLocalLegBasePosition(i).ProjectedXY();
+		leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
 	}
 
 	//ó◊ÇÃãrÇ∆ÇÃä±è¬Çí≤Ç◊ÇÈÅD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		dl_vec::SLine2 line1(joint_pos_xy[i], leg_pos_xy[i]);
-		dl_vec::SLine2 line2(joint_pos_xy[(i + 1) % HexapodConst::LEG_NUM], leg_pos_xy[(i + 1) % HexapodConst::LEG_NUM]);
+		designlab::LineSegment2 line1(joint_pos_xy[i], leg_pos_xy[i]);
+		designlab::LineSegment2 line2(joint_pos_xy[(i + 1) % HexapodConst::LEG_NUM], leg_pos_xy[(i + 1) % HexapodConst::LEG_NUM]);
 
-		if (line1.hasIntersection(line2)) { return true; }
+		if (line1.HasIntersection(line2)) { return true; }
 	}
 
 	return false;
@@ -143,54 +177,58 @@ bool PhantomXStateCalclator::isLegInterfering(const dl_vec::SVector leg_pos[Hexa
 
 bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, const int y, const int z) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
 	float x_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * x + LEG_POS_MIN;
 	float y_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * y + LEG_POS_MIN;
 	float z_pos = (LEG_POS_MAX - LEG_POS_MIN) / LEG_POS_DIV_NUM * z + LEG_POS_MIN;
 
-	dl_vec::SVector leg_pos{x_pos, y_pos, z_pos};		//ãrêÊÇÃà íu
+	designlab::Vector3 leg_pos{x_pos, y_pos, z_pos};		//ãrêÊÇÃà íu
 
 
 	//âº x=0 y=0 ÇÃéûÇÕfalseÇ…Ç∑ÇÈ
 	if (abs(x_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f) && abs(y_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f)) { return false; }
 
-	if (leg_pos.projectedXY().length() < MIN_LEG_R) { return false; }
+	if (leg_pos.ProjectedXY().Length() < MIN_LEG_R) { return false; }
 
 	// ä÷êﬂÇÃäpìxÇåvéZÇ∑ÇÈ
-	SHexapodJointState joint_state;
+	HexapodJointState joint_state;
 
 	calculateLocalJointState(leg_index, leg_pos, &joint_state);
 
 
 	// coxaä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kCoxaMargim = dl_math::convertDegToRad(0.0f);
+	const float kCoxaMargim = dlm::ConvertDegToRad(0.0f);
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
 
 	if (HexapodConst::PHANTOMX_COXA_ANGLE_MAX + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] - kCoxaMargim < joint_state.joint_angle[0]) { return false; }
 
 	// femurä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kFemurMargim = dl_math::convertDegToRad(0.0f);
+	const float kFemurMargim = dlm::ConvertDegToRad(0.0f);
 
 	if (joint_state.joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN + kFemurMargim || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX - kFemurMargim < joint_state.joint_angle[1]) { return false; }
 
 	// tibiaä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kTibiaMargim = dl_math::convertDegToRad(0.0f);
+	const float kTibiaMargim = dlm::ConvertDegToRad(0.0f);
 
 	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
 
 	// ÉäÉìÉNÇÃí∑Ç≥ÇämîFÇ∑ÇÈ
-	if (!dl_math::isEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).Length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
 
-	if (!dl_math::isEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).length(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).Length(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
 
-	if (!dl_math::isEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).length(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).Length(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
 
 	return true;
 }
 
 
-void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const dl_vec::SVector& leg_pos, SHexapodJointState* joint_state) const
+void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const designlab::Vector3& leg_pos, HexapodJointState* joint_state) const
 {
+	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
+
 	const int kLinkNum = 4;
 	const int kJointNum = kLinkNum - 1;
 
@@ -202,7 +240,7 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 
 
 	// coxa jointÇÃåvéZ
-	(*joint_state).local_joint_position[0] = dl_vec::SVector{ 0, 0, 0 };
+	(*joint_state).local_joint_position[0] = designlab::Vector3{ 0, 0, 0 };
 
 
 	// coxa angleÇÃåvéZ
@@ -214,37 +252,37 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 
 
 	// femur jointÇÃåvéZ
-	const dl_vec::SVector femur_joint_pos = dl_vec::SVector{ HexapodConst::PHANTOMX_COXA_LENGTH * std::cos(coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * std::sin(coxa_joint_angle), 0 };
+	const designlab::Vector3 femur_joint_pos = designlab::Vector3{ HexapodConst::PHANTOMX_COXA_LENGTH * std::cos(coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * std::sin(coxa_joint_angle), 0 };
 
 	(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 
-	if ((leg_pos - femur_joint_pos).length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
+	if ((leg_pos - femur_joint_pos).Length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
 
 
 	// tibia joint / femur angle ÇÃåvéZ
-	const float leg_to_f_x = leg_pos.projectedXY().length() - femur_joint_pos.projectedXY().length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
+	const float leg_to_f_x = leg_pos.ProjectedXY().Length() - femur_joint_pos.ProjectedXY().Length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
 	const float leg_to_f_y = leg_pos.z - femur_joint_pos.z;
 
-	const float arccos_arg = (dl_math::squared(leg_to_f_x) + dl_math::squared(leg_to_f_y) + dl_math::squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dl_math::squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
-		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dl_math::squared(leg_to_f_x) + dl_math::squared(leg_to_f_y)));
+	const float arccos_arg = (dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_y) + dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_y)));
 
 	float fumur_joint_angle1 = std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
 	float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
 
-	dl_vec::SVector tibia_joint_pos1 = femur_joint_pos +
-		dl_vec::SVector { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle1),
+	designlab::Vector3 tibia_joint_pos1 = femur_joint_pos +
+		designlab::Vector3 { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle1),
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle1),
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle1)
 	};
 
-	dl_vec::SVector tibia_joint_pos2 = femur_joint_pos +
-		dl_vec::SVector { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle2),
+	designlab::Vector3 tibia_joint_pos2 = femur_joint_pos +
+		designlab::Vector3 { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle2),
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle2),
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
 	};
 
-	//if (tibia_joint_pos1.projectedXY().lengthSquare() < tibia_joint_pos2.projectedXY().lengthSquare())
+	//if (tibia_joint_pos1.ProjectedXY().LengthSquare() < tibia_joint_pos2.ProjectedXY().LengthSquare())
 	//{  Å™Ç±ÇÍÇÕä‘à·Ç¡ÇƒÇΩ
 	if (false)
 	{

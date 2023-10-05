@@ -1,5 +1,5 @@
 var class_graphic_main_test =
 [
-    [ "draw", "class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5", null ],
-    [ "update", "class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6", null ]
+    [ "Draw", "class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d", null ],
+    [ "Update", "class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916", null ]
 ];

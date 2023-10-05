@@ -6,8 +6,8 @@
 
 #include <vector>
 
-#include "designlab_vector.h"
-#include "node.h"
+#include "designlab_vector3.h"
+#include "robot_state_node.h"
 
 
 //! @class MovementLocusRenderer
@@ -21,7 +21,7 @@ public:
 
 	//! @brief ロボットの移動軌跡を記録する．
 	//! @param [in] locus ロボットの移動軌跡の配列．
-	void set_move_locus_point(const std::vector<SNode>& locus);
+	void set_move_locus_point(const std::vector<RobotStateNode>& locus);
 
 	//! @brief シミュレーションの終了点を取得する
 	//! @param [in] index シミュレーションの終了点の配列
@@ -49,7 +49,7 @@ private:
 	const int kLocusLineRadius;					//!< 軌跡の線の半径
 
 
-	std::vector<dl_vec::SVector> move_locus_point_;	//!< ロボットの動きの遷移を記録するvector
+	std::vector<designlab::Vector3> move_locus_point_;	//!< ロボットの動きの遷移を記録するvector
 
 	std::vector<size_t> simulation_end_indexes_;	//!< シミュレーションの終了点のインデックスの配列
 

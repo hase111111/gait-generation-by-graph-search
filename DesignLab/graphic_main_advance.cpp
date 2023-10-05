@@ -1,6 +1,6 @@
 #include "graphic_main_advance.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "dxlib_util.h"
 #include "keyboard.h"
@@ -9,14 +9,16 @@
 
 
 GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	kInterpolatedAnimeCount(15),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
-	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGUI::GUI_HEIGHT - 10 : 10),
+	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::GUI_HEIGHT - 10 : 10),
 	hexapod_renderer_(calculator_ptr),
-	map_state_(broker_ptr ? broker_ptr->map_state.data() : MapState()),
+	robot_graund_point_renderer_(calculator_ptr),
+	stability_margin_renderer_(calculator_ptr),
+	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),
@@ -29,30 +31,25 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 
 bool GraphicMainAdvance::Update()
 {
-	if (map_update_count != broker_ptr_->map_state.update_count())
+	if (map_update_count != broker_ptr_->map_state.GetUpdateCount())
 	{
-		map_update_count = broker_ptr_->map_state.update_count();
-		map_state_ = broker_ptr_->map_state.data();
+		map_update_count = broker_ptr_->map_state.GetUpdateCount();
+		map_state_ = broker_ptr_->map_state.GetData();
 	}
 
 
 	//ノードを読み出す時間になったら，仲介人からデータを読み出す．
-	if (counter_ % kNodeGetCount == 0)
+	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.GetUpdateCount())
 	{
 		//仲介人からデータを読み出す
-		graph_ = broker_ptr_->graph.data();
+		graph_ = broker_ptr_->graph.GetData();
 
 		std::vector<size_t> simu_end_index;
 
-		simu_end_index = broker_ptr_->simu_end_index.data();
+		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
 		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
-
-
-		//ノードの情報を表示するGUIに情報を伝達する．
-		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
-
 
 
 		//移動軌跡を更新する．
@@ -62,10 +59,10 @@ bool GraphicMainAdvance::Update()
 
 
 		//ロボットの接地点を更新する．
-		robot_graund_point_renderer_.setNode(graph_, simu_end_index);
+		robot_graund_point_renderer_.SetNodeAndSimulationEndNodeIndex(graph_, simu_end_index);
 
 
-		graph_update_count = broker_ptr_->graph.update_count();
+		graph_update_count = broker_ptr_->graph.GetUpdateCount();
 	}
 
 
@@ -86,7 +83,7 @@ bool GraphicMainAdvance::Update()
 
 			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
-			camera_gui_.setHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
+			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
 		}

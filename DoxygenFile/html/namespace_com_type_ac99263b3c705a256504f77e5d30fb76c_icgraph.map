@@ -1,9 +1,0 @@
-<map id="ComType::getComTypeFromBit" name="ComType::getComTypeFromBit">
-<area shape="rect" id="Node000001" title=" " alt="" coords="499,35,702,61"/>
-<area shape="rect" id="Node000002" href="$namespace_com_type.html#af0334fa750846fcf63b148c84fe7a6ce" title=" " alt="" coords="201,5,451,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,38,451,35,452,29,484,33"/>
-<area shape="rect" id="Node000004" href="$namespace_com_type.html#ae2c977a80d12619d5a03654a0f1a0e2d" title=" " alt="" coords="222,56,430,99"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="484,63,431,69,430,64,484,58"/>
-<area shape="rect" id="Node000003" href="$namespace_com_type.html#ad613024e0d874f1763630a4545212bdf" title=" " alt="" coords="5,5,153,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,21,153,21,153,16,186,16"/>
-</map>

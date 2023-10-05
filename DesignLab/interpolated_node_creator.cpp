@@ -3,11 +3,11 @@
 #include "hexapod_const.h"
 
 
-void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SNode& next_node, std::vector<SNode>* interpolated_node) const
+void InterpolatedNodeCreator::createInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const
 {
 	(*interpolated_node).clear();
 
-	dl_vec::SVector dif[HexapodConst::LEG_NUM];
+	designlab::Vector3 dif[HexapodConst::LEG_NUM];
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
@@ -18,7 +18,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 	// 各脚について，現在のノードと次のノードの間を補間する
 	for (int i = 0; i < INTERPOLATED_NODE_NUM; i++)
 	{
-		SNode new_node = node;
+		RobotStateNode new_node = node;
 
 		//重心位置を補完する
 		new_node.global_center_of_mass = node.global_center_of_mass +
@@ -28,7 +28,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const SNode& node, const SN
 		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 		{
 			// dif zが0の時は，平行移動のみ
-			if (dif[j].z == 0 || dif[j].projectedXY().isZero())
+			if (dif[j].z == 0 || dif[j].ProjectedXY().IsZero())
 			{
 				new_node.leg_pos[j] = node.leg_pos[j] + dif[j] * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
 			}

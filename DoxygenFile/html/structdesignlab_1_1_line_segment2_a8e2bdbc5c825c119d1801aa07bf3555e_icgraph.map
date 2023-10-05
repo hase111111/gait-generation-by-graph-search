@@ -1,0 +1,5 @@
+<map id="designlab::LineSegment2::HasIntersection" name="designlab::LineSegment2::HasIntersection">
+<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べる関数" alt="" coords="216,5,383,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a8f95bf9984294ea4f9dcde220288930e" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
+</map>

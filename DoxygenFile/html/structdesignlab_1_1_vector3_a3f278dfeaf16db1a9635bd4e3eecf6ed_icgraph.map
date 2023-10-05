@@ -1,0 +1,17 @@
+<map id="designlab::Vector3::ProjectedXY" name="designlab::Vector3::ProjectedXY">
+<area shape="rect" id="Node000001" title="XY平面に射影したベクトルを返す．" alt="" coords="476,139,605,181"/>
+<area shape="rect" id="Node000002" href="$class_abstract_hexapod_state_calculator.html#a862d9bc1251d1677af060fa8ae3ff8f8" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="218,5,428,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,130,472,95,427,62,403,51,406,46,429,58,475,91,513,126"/>
+<area shape="rect" id="Node000003" href="$class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="243,72,403,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="461,138,394,118,396,113,462,133"/>
+<area shape="rect" id="Node000006" href="$class_phantom_x_state_calclator___hato.html#ac56aef3f9820b542dc4eadd625f5d51d" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="242,139,404,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="461,163,404,163,404,157,461,157"/>
+<area shape="rect" id="Node000007" href="$class_phantom_x_state_calclator.html#a8409b77c82e400bae4b0d8df1a54c596" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="242,205,404,248"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="462,187,396,207,394,202,461,182"/>
+<area shape="rect" id="Node000008" href="$class_phantom_x_state_calclator.html#a8f95bf9984294ea4f9dcde220288930e" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="242,272,404,315"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="513,194,475,229,429,262,406,274,403,269,427,258,472,225,509,190"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="16,43,159,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="228,84,159,76,160,70,229,79"/>
+<area shape="rect" id="Node000005" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,109,170,136"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="229,108,171,115,170,110,228,102"/>
+</map>

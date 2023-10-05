@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['end_0',['end',['../structdl__vec_1_1_s_line2.html#a314c1143e15a6cef9b5dc89a32da3316',1,'dl_vec::SLine2']]]
+  ['element_0',['element',['../structdesignlab_1_1_rotation_matrix3x3.html#a31917da37811cc06fbe4fb509f2aa4eb',1,'designlab::RotationMatrix3x3']]],
+  ['end_1',['end',['../structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8',1,'designlab::LineSegment2']]]
 ];

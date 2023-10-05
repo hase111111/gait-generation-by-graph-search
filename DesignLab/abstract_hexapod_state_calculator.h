@@ -1,34 +1,61 @@
-#pragma once
+//! @file abstract_hexapod_state_calculator.h
+//! @brief ロボットの状態を計算するクラスの抽象クラス．
+//! @details このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する．
+//! @n ロボットの姿勢を計算する都合上，座標系が入り交じることに注意．
+//! @n 3つの座標系が存在している，
+//! @n
+//! @n [1] グローバル座標系(ワールド座標系)
+//! @n		マップの原点を原点とする座標系，座標軸はマップの座標軸と同じ．
+//! @n
+//! @n [2] ローカル座標系(ロボット座標系)
+//! @n		ロボットの重心を原点とする座標系，座標軸はロボットの姿勢に合わせる．
+//! @n 
+//! @n [3] 脚座標系 
+//! @n		脚の付け根を原点とする座標系，座標軸はロボットの姿勢に合わせる(ローカル座標系と同じ)．
+//! @n		運動学の教科書とか読む感じ，この座標系の取り方とは違うのだが，先行研究で使われた手法であり，
+//! @n		実用上問題ないのでこのまま．
+//! @n
+//! @n 変換は，脚座標系→グローバル座標系ならば，
+//! @n	( 脚座標系の座標 ＋ ロボットの原点から脚の付け根までの座標(ローカル) ) * 姿勢の逆回転 ＋ ロボットの重心の座標(グローバル)
 
+
+#ifndef DESIGNLAB_ABSTRACT_HEXAPOD_STATE_CALCULATOR_H_
+#define DESIGNLAB_ABSTRACT_HEXAPOD_STATE_CALCULATOR_H_
+
+#include <array>
 #include <vector>
-#include <bitset>
 
-#include "designlab_vector.h"
-#include "designlab_rotator.h"
-#include "node.h"
+#include "designlab_vector3.h"
+#include "designlab_euler.h"
+#include "leg_state.h"
+#include "robot_state_node.h"
 #include "hexapod_const.h"
 
 
-
-struct SHexapodJointState
+//! @struct HexapodJointState
+//! @brief ロボットの関節の状態を表す構造体．
+//! @details 関節の位置と角度を表す．
+struct HexapodJointState
 {
-	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．@n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系．
-	std::vector<dl_vec::SVector> local_joint_position;
+	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．
+	//! @n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系である．
+	std::vector<designlab::Vector3> local_joint_position;
 
-	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．@n この座標はグローバル座標系である．
-	std::vector<dl_vec::SVector> global_joint_position;
+	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．
+	//! @n この座標はグローバル座標系である．
+	std::vector<designlab::Vector3> global_joint_position;
 
-	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である．@n この角度の単位はradである．
+	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である．
+	//! @n この角度の単位はradである．
 	std::vector<float> joint_angle;
 };
 
 
 
 //! @class AbstractHexapodStateCalculator
-//! @date 2023/08/30
-//! @author 長谷川
 //! @brief ロボットの状態を計算するクラスの抽象クラス．
-//! @n このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する．
+//! @details このクラスを継承して，具体的なロボット(例えばphantomXとかAUSRAとか)の状態を計算するクラスを作成する．
+//! @n このクラスを用いてロボットのステートを表現しているので，HexapodPresenterとでもしたほうが良いかもしれない
 //! @n スレッドセーフなクラスにすること．https://yohhoy.hatenablog.jp/entry/2013/12/15/204116
 class AbstractHexapodStateCalculator
 {
@@ -37,93 +64,80 @@ public:
 	virtual ~AbstractHexapodStateCalculator() = default;
 
 
-
 	//! @brief 全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
-	//! @return 計算に成功したらtrue．失敗したらfalse．
-	virtual bool calculateAllJointState(const SNode& node, SHexapodJointState joint_state[HexapodConst::LEG_NUM]) const = 0;
+	//! @return bool 計算に成功したらtrue．失敗したらfalse．
+	virtual bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const = 0;
 
 
-
-	//! @brief 【スレッドセーフ】グローバル座標系→脚座標系に変換する．
+	//! @brief グローバル座標系→脚座標系に変換する．
 	//! @param [in] leg_index 脚番号．
-	//! @param [in] global_pos グローバル座標系の座標．
+	//! @param [in] global_pos グローバル座標系の脚先座標．
 	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	virtual dl_vec::SVector convertGlobalToLegPosition(const int leg_index, const dl_vec::SVector& global_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+	//! @return designlab::Vector3 脚座標系の脚先座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
+	virtual designlab::Vector3 ConvertGlobalToLegPosition(int leg_index, const designlab::Vector3& global_pos, 
+		const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
 
 
-
-	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
+	//! @brief 遊脚する位置を返す，脚座標系
 	//! @param [in] leg_index 脚番号．
-	//! @return dl_vec::SVector 脚の付け根の座標．ローカル座標系
-	dl_vec::SVector getLocalLegBasePosition(const int leg_index) const;
+	//! @return designlab::Vector3 遊脚する位置．脚座標系
+	virtual designlab::Vector3 GetFreeLegPosition(int leg_index) const = 0;
 
-	//! @brief 【スレッドセーフ】脚先の座標を取得する．ローカル(ロボット)座標系
+
+	//! @brief 脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
+	//! @param [in] leg_index 脚番号．
+	//! @return designlab::Vector3 脚の付け根の座標．ローカル(ロボット)座標系
+	virtual designlab::Vector3 GetLocalLegBasePosition(int leg_index) const = 0;
+
+	//! @brief 脚先の座標を取得する．ローカル(ロボット)座標系
 	//! @param [in] leg_index 脚番号．
 	//! @param [in] leg_pos 脚座標系における脚先の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
-	//! @return dl_vec::SVector 脚先の座標．ローカル座標系
-	virtual dl_vec::SVector getLocalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos) const = 0;
+	//! @return designlab::Vector3 脚先の座標．ローカル座標系
+	virtual designlab::Vector3 GetLocalLegPosition(int leg_index, const designlab::Vector3& leg_pos) const = 0;
 
 
-
-	//! @brief 【スレッドセーフ】脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系
+	//! @brief 脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系
 	//! @param [in] leg_index 脚番号．
 	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return dl_vec::SVector 脚の付け根の座標．グローバル座標系．
-	virtual dl_vec::SVector getGlobalLegBasePosition(const int leg_index, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+	//! @return designlab::Vector3 脚の付け根の座標．グローバル座標系．
+	virtual designlab::Vector3 GetGlobalLegBasePosition(int leg_index, const designlab::Vector3& global_center_of_mass, 
+		const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
 
-	//! @brief 【スレッドセーフ】脚の先端の座標を取得する．グローバル(ワールド)座標系
+	//! @brief 脚の先端の座標を取得する．グローバル(ワールド)座標系
 	//! @param [in] leg_index 脚番号．
 	//! @param [in] leg_pos 脚座標系における脚先の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return dl_vec::SVector 脚先の座標．グローバル座標系．
-	virtual dl_vec::SVector getGlobalLegPosition(const int leg_index, const dl_vec::SVector& leg_pos, const dl_vec::SVector& global_center_of_mass, const dl_vec::SRotator& robot_rot, const bool consider_rot) const = 0;
+	//! @return designlab::Vector3 脚先の座標．グローバル座標系．
+	virtual designlab::Vector3 GetGlobalLegPosition(int leg_index, const designlab::Vector3& leg_pos, 
+		const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
 
 
-
-	//! @brief 【スレッドセーフ】脚が可動範囲内にあるかどうかを判定する．
+	//! @brief 脚が可動範囲内にあるかどうかを判定する．
 	//! @param [in] leg_index 脚番号．
 	//! @param [in] leg_pos 脚座標系における脚先の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return bool 脚が可動範囲内にあればtrue．可動範囲外にあればfalse．
-	virtual bool isLegInRange(const int leg_index, const dl_vec::SVector& leg_pos) const = 0;
+	virtual bool IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const = 0;
 
-	//! @brief 【スレッドセーフ】脚が他の脚と干渉しているかどうかを判定する．
+	//! @brief 脚が他の脚と干渉しているかどうかを判定する．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return bool 脚が他の脚と干渉していればtrue．干渉していなければfalse．
-	virtual bool isLegInterfering(const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const = 0;
+	virtual bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const = 0;
 
-	//! @brief 【スレッドセーフ】安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい
+	//! @brief 安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい
 	//! @n 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．
 	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
-	float calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const;
-
-protected:
-
-	//! @brief 脚番号のチェックを行う．constexprなので，コンパイル時にチェックされる．
-	//! @param [in] leg_index 脚番号．0以上，6未満であること．
-	//! @return 脚番号が正しければtrue．正しくなければfalse．
-	constexpr bool checkLegIndex(const int leg_index) const
-	{
-		if (leg_index < 0 || leg_index >= HexapodConst::LEG_NUM)
-		{
-			return false;
-		}
-		return true;
-	}
-
-
-	static constexpr bool DO_CHECK_LEG_INDEX = false;				//!< 脚番号のチェックをするかどうか．速さのために，デバッグ時以外はfalseにすること．
-
-
-	dl_vec::SVector m_local_leg_base_pos[HexapodConst::LEG_NUM];	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
+	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
 };
 
+
+#endif // !DESIGNLAB_ABSTRACT_HEXAPOD_STATE_CALCULATOR_H_

@@ -1,5 +1,0 @@
-<map id="dl_vec::SVector2::isZero" name="dl_vec::SVector2::isZero">
-<area shape="rect" id="Node000001" title="このベクトルが0ならばtrue" alt="" coords="5,5,168,32"/>
-<area shape="rect" id="Node000002" href="$namespacedl__math.html#af27ba2f63b75019c3f3dc1ef47e3f42b" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="216,5,334,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,16,201,16,201,21,168,21"/>
-</map>

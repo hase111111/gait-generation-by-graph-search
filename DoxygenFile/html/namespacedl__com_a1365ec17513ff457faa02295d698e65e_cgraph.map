@@ -1,0 +1,5 @@
+<map id="dl_com::banLegGroundPatternFromCom" name="dl_com::banLegGroundPatternFromCom">
+<area shape="rect" id="Node000001" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="5,5,203,48"/>
+<area shape="rect" id="Node000002" href="$namespacedl__com.html#a6d79b0702d8cfec0775641c0189b2cf1" title="脚の接地パターンの総数を返す．" alt="" coords="251,13,472,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,24,236,24,236,29,203,29"/>
+</map>

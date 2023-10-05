@@ -1,6 +1,6 @@
 #pragma once
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 
 
 //! @class HexapodConst
@@ -19,17 +19,19 @@ public:
 	constexpr static float PHANTOMX_FEMUR_LENGTH = 66.0f;			//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_TIBIA_LENGTH = 130.0f;			//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_COXA_ANGLE_MIN = dl_math::convertDegToRad(-40.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_COXA_ANGLE_MAX = dl_math::convertDegToRad(40.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-40.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = dl_math::convertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = dl_math::convertDegToRad(90.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(90.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = dl_math::convertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = dl_math::convertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
-													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };
+	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { 
+		::designlab::math_util::ConvertDegToRad(-45.0f), ::designlab::math_util::ConvertDegToRad(-90.0f), ::designlab::math_util::ConvertDegToRad(-135.0f),
+		::designlab::math_util::ConvertDegToRad(135.0f), ::designlab::math_util::ConvertDegToRad(90.0f),  ::designlab::math_util::ConvertDegToRad(45.0f) 
+	};
 
 	constexpr static float BODY_FRONT_WIDTH = 60.0f;	//!< 前方の幅[mm]．phantomXの横幅.
 	constexpr static float BODY_CENTER_WIDTH = 100.0f;	//!< 中心の幅[mm]．phantomXの横幅.
@@ -42,7 +44,7 @@ public:
 	const static float VERTICAL_MAX_RANGE;			//!< 地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ
 	const static float VERTICAL_MIN_RANGE;			//!< 地面の最高点と胴体下方の隙間の最小値を示す．旧名 MIN_DELTAZ
 
-	constexpr static float MOVABLE_LEG_RANGE = dl_math::convertDegToRad(40.0f);			//!< coxa関節(第1関節)の稼働可能な角度 [rad]
+	constexpr static float MOVABLE_LEG_RANGE = ::designlab::math_util::ConvertDegToRad(40.0f);			//!< coxa関節(第1関節)の稼働可能な角度 [rad]
 
 	//! MOVABLE_LEG_RANGEのcos値 -85°，-130°，-175°，95°，50°，5°
 	constexpr static float MOVABLE_LEG_RANGE_COS_MAX[LEG_NUM] = { 0.08715574f , -0.6427876f, -0.9961947f, -0.08715574f, 0.6427876f, 0.9961947f };
@@ -58,8 +60,10 @@ public:
 
 
 	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
-	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { dl_math::convertDegToRad(-45.0f),	dl_math::convertDegToRad(-90.0f),	dl_math::convertDegToRad(-135.0f),
-													dl_math::convertDegToRad(135.0f),	dl_math::convertDegToRad(90.0f),	dl_math::convertDegToRad(45.0f) };
+	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { 
+		::designlab::math_util::ConvertDegToRad(-45.0f),	::designlab::math_util::ConvertDegToRad(-90.0f),::designlab::math_util::ConvertDegToRad(-135.0f),
+		::designlab::math_util::ConvertDegToRad(135.0f),	::designlab::math_util::ConvertDegToRad(90.0f),	::designlab::math_util::ConvertDegToRad(45.0f) 
+	};
 
 	//! DEFAULT_LEG_ANGLEの値を元にsin cos を計算しておく．
 	constexpr static float DEFAULT_LEG_ANGLE_SIN[LEG_NUM] = { -0.70710678118654f, -1.0f, -0.70710678118654f,

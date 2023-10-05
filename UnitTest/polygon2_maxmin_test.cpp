@@ -1,183 +1,183 @@
 #include "pch.h"
 
-#include "../DesignLab/designlab_polygon.h"
+#include "../DesignLab/designlab_polygon2.h"
 
 
 namespace dl_vec_test
 {
 	//GetMaxX関数のテスト
-	TEST(SPolygon2, GetMaxX)
+	TEST(Polygon2, GetMaxX)
 	{
 		//三角形を生成して，X座標の最大値を求める
-		dl_vec::SPolygon2 polygon;
-		polygon.addVertex({ 0, 0 });
-		polygon.addVertex({ 1, 0 });
-		polygon.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon;
+		polygon.AddVertex({ 0, 0 });
+		polygon.AddVertex({ 1, 0 });
+		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon.getMaxX(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon.GetMaxX(), 1.0f);
 
 		//四角形を生成して，X座標の最大値を求める
-		dl_vec::SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
-		polygon2.addVertex({ 1, 0 });
-		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon2;
+		polygon2.AddVertex({ 0, 0 });
+		polygon2.AddVertex({ 1, 0 });
+		polygon2.AddVertex({ 1, 1 });
+		polygon2.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMaxX(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMaxX(), 1.0f);
 
 		//先ほどの4角形に点を追加して，X座標の最大値を求める
-		polygon2.addVertex({ 2, 0.5 });
-		polygon2.addVertex({ -5, 0.5 });
+		polygon2.AddVertex({ 2, 0.5 });
+		polygon2.AddVertex({ -5, 0.5 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMaxX(), 2.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMaxX(), 2.0f);
 
 		//6角形を生成して，X座標の最大値を求める
-		dl_vec::SPolygon2 polygon3;
-		polygon3.addVertex({ 0, 0 });
-		polygon3.addVertex({ 1, 0 });
-		polygon3.addVertex({ 1, 1 });
-		polygon3.addVertex({ 0, 1 });
-		polygon3.addVertex({ -1, 1 });
-		polygon3.addVertex({ -1, 0 });
+		designlab::Polygon2 polygon3;
+		polygon3.AddVertex({ 0, 0 });
+		polygon3.AddVertex({ 1, 0 });
+		polygon3.AddVertex({ 1, 1 });
+		polygon3.AddVertex({ 0, 1 });
+		polygon3.AddVertex({ -1, 1 });
+		polygon3.AddVertex({ -1, 0 });
 
-		EXPECT_FLOAT_EQ(polygon3.getMaxX(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMaxX(), 1.0f);
 
 		//先ほどの6角形から点を削除して，X座標の最大値を求める
-		polygon3.removeLastVertex();
-		polygon3.removeLastVertex();
+		polygon3.RemoveLastVertex();
+		polygon3.RemoveLastVertex();
 
-		EXPECT_FLOAT_EQ(polygon3.getMaxX(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMaxX(), 1.0f);
 	}
 
 	//GetMinXのテスト
-	TEST(SPolygon2, GetMinX)
+	TEST(Polygon2, GetMinX)
 	{
 		//三角形を生成して，X座標の最小値を求める
-		dl_vec::SPolygon2 polygon;
-		polygon.addVertex({ 0, 0 });
-		polygon.addVertex({ 1, 0 });
-		polygon.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon;
+		polygon.AddVertex({ 0, 0 });
+		polygon.AddVertex({ 1, 0 });
+		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon.getMinX(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon.GetMinX(), 0.0f);
 
 		//四角形を生成して，X座標の最小値を求める
-		dl_vec::SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
-		polygon2.addVertex({ 1, 0 });
-		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon2;
+		polygon2.AddVertex({ 0, 0 });
+		polygon2.AddVertex({ 1, 0 });
+		polygon2.AddVertex({ 1, 1 });
+		polygon2.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMinX(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMinX(), 0.0f);
 
 		//先ほどの4角形に点を追加して，X座標の最小値を求める
-		polygon2.addVertex({ 2, 0.5 });
-		polygon2.addVertex({ -5, 0.5 });
+		polygon2.AddVertex({ 2, 0.5 });
+		polygon2.AddVertex({ -5, 0.5 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMinX(), -5.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMinX(), -5.0f);
 
 		//6角形を生成して，X座標の最小値を求める
-		dl_vec::SPolygon2 polygon3;
-		polygon3.addVertex({ 0, 0 });
-		polygon3.addVertex({ 1, 0 });
-		polygon3.addVertex({ 1, 1 });
-		polygon3.addVertex({ 0, 1 });
-		polygon3.addVertex({ -1, 1 });
-		polygon3.addVertex({ -1, 0 });
+		designlab::Polygon2 polygon3;
+		polygon3.AddVertex({ 0, 0 });
+		polygon3.AddVertex({ 1, 0 });
+		polygon3.AddVertex({ 1, 1 });
+		polygon3.AddVertex({ 0, 1 });
+		polygon3.AddVertex({ -1, 1 });
+		polygon3.AddVertex({ -1, 0 });
 
-		EXPECT_FLOAT_EQ(polygon3.getMinX(), -1.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMinX(), -1.0f);
 
 		//先ほどの6角形から点を削除して，X座標の最小値を求める
-		polygon3.removeLastVertex();
-		polygon3.removeLastVertex();
+		polygon3.RemoveLastVertex();
+		polygon3.RemoveLastVertex();
 
-		EXPECT_FLOAT_EQ(polygon3.getMinX(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMinX(), 0.0f);
 	}
 
 	//GetMaxYのテスト
-	TEST(SPolygon2, GetMaxY)
+	TEST(Polygon2, GetMaxY)
 	{
 		//三角形を生成して，Y座標の最大値を求める
-		dl_vec::SPolygon2 polygon;
-		polygon.addVertex({ 0, 0 });
-		polygon.addVertex({ 1, 0 });
-		polygon.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon;
+		polygon.AddVertex({ 0, 0 });
+		polygon.AddVertex({ 1, 0 });
+		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon.getMaxY(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon.GetMaxY(), 1.0f);
 
 		//四角形を生成して，Y座標の最大値を求める
-		dl_vec::SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
-		polygon2.addVertex({ 1, 0 });
-		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon2;
+		polygon2.AddVertex({ 0, 0 });
+		polygon2.AddVertex({ 1, 0 });
+		polygon2.AddVertex({ 1, 1 });
+		polygon2.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMaxY(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMaxY(), 1.0f);
 
 		//先ほどの4角形に点を追加して，Y座標の最大値を求める
-		polygon2.addVertex({ 2, 0.5 });
-		polygon2.addVertex({ -5, 0.5 });
+		polygon2.AddVertex({ 2, 0.5 });
+		polygon2.AddVertex({ -5, 0.5 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMaxY(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMaxY(), 1.0f);
 
 		//6角形を生成して，Y座標の最大値を求める
-		dl_vec::SPolygon2 polygon3;
-		polygon3.addVertex({ 0, 0 });
-		polygon3.addVertex({ 1, 0 });
-		polygon3.addVertex({ 1, 1 });
-		polygon3.addVertex({ 0, 1 });
-		polygon3.addVertex({ -1, 1 });
-		polygon3.addVertex({ -1, 0 });
+		designlab::Polygon2 polygon3;
+		polygon3.AddVertex({ 0, 0 });
+		polygon3.AddVertex({ 1, 0 });
+		polygon3.AddVertex({ 1, 1 });
+		polygon3.AddVertex({ 0, 1 });
+		polygon3.AddVertex({ -1, 1 });
+		polygon3.AddVertex({ -1, 0 });
 
-		EXPECT_FLOAT_EQ(polygon3.getMaxY(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMaxY(), 1.0f);
 
 		//先ほどの6角形から点を削除して，Y座標の最大値を求める
-		polygon3.removeLastVertex();
-		polygon3.removeLastVertex();
+		polygon3.RemoveLastVertex();
+		polygon3.RemoveLastVertex();
 
-		EXPECT_FLOAT_EQ(polygon3.getMaxY(), 1.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMaxY(), 1.0f);
 	}
 
-	TEST(SPolygon2, GetMinY)
+	TEST(Polygon2, GetMinY)
 	{
 		//三角形を生成して，Y座標の最小値を求める
-		dl_vec::SPolygon2 polygon;
-		polygon.addVertex({ 0, 0 });
-		polygon.addVertex({ 1, 0 });
-		polygon.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon;
+		polygon.AddVertex({ 0, 0 });
+		polygon.AddVertex({ 1, 0 });
+		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon.getMinY(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon.GetMinY(), 0.0f);
 
 		//四角形を生成して，Y座標の最小値を求める
-		dl_vec::SPolygon2 polygon2;
-		polygon2.addVertex({ 0, 0 });
-		polygon2.addVertex({ 1, 0 });
-		polygon2.addVertex({ 1, 1 });
-		polygon2.addVertex({ 0, 1 });
+		designlab::Polygon2 polygon2;
+		polygon2.AddVertex({ 0, 0 });
+		polygon2.AddVertex({ 1, 0 });
+		polygon2.AddVertex({ 1, 1 });
+		polygon2.AddVertex({ 0, 1 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMinY(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMinY(), 0.0f);
 
 		//先ほどの4角形に点を追加して，Y座標の最小値を求める
-		polygon2.addVertex({ 2, 0.5 });
-		polygon2.addVertex({ -5, 0.5 });
+		polygon2.AddVertex({ 2, 0.5 });
+		polygon2.AddVertex({ -5, 0.5 });
 
-		EXPECT_FLOAT_EQ(polygon2.getMinY(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon2.GetMinY(), 0.0f);
 
 		//6角形を生成して，Y座標の最小値を求める
-		dl_vec::SPolygon2 polygon3;
-		polygon3.addVertex({ 0, 0 });
-		polygon3.addVertex({ 1, 0 });
-		polygon3.addVertex({ 1, 1 });
-		polygon3.addVertex({ 0, 1 });
-		polygon3.addVertex({ -1, 1 });
-		polygon3.addVertex({ -1, 0 });
+		designlab::Polygon2 polygon3;
+		polygon3.AddVertex({ 0, 0 });
+		polygon3.AddVertex({ 1, 0 });
+		polygon3.AddVertex({ 1, 1 });
+		polygon3.AddVertex({ 0, 1 });
+		polygon3.AddVertex({ -1, 1 });
+		polygon3.AddVertex({ -1, 0 });
 
-		EXPECT_FLOAT_EQ(polygon3.getMinY(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMinY(), 0.0f);
 
 		//先ほどの6角形から点を削除して，Y座標の最小値を求める
-		polygon3.removeLastVertex();
-		polygon3.removeLastVertex();
+		polygon3.RemoveLastVertex();
+		polygon3.RemoveLastVertex();
 
-		EXPECT_FLOAT_EQ(polygon3.getMinY(), 0.0f);
+		EXPECT_FLOAT_EQ(polygon3.GetMinY(), 0.0f);
 	}
 
 }	//namespace dl_vec_test

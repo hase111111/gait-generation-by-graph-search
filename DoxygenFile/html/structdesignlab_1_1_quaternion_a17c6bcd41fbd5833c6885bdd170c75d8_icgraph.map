@@ -1,0 +1,16 @@
+<map id="designlab::Quaternion::Norm" name="designlab::Quaternion::Norm">
+<area shape="rect" id="Node000001" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="613,64,761,107"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="418,5,565,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="599,62,564,51,566,46,601,57"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8" title="3次元の位置ベクトルを回転させる．" alt="" coords="203,47,370,73"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="598,82,370,68,371,63,598,77"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="418,123,565,165"/>
+<area shape="poly" id="edge4_Node000001_Node000010" title=" " alt="" coords="601,114,566,125,564,120,599,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,44,371,49,370,44,403,38"/>
+<area shape="rect" id="Node000004" href="$class_camera_input_controller.html#a56c0dbc23365b09d5d0c0349e880e16f" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="5,89,155,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,80,156,95,155,90,214,75"/>
+<area shape="poly" id="edge5_Node000010_Node000004" title=" " alt="" coords="403,140,155,119,155,114,404,134"/>
+<area shape="rect" id="Node000011" href="$class_camera_state_manager.html#a5f0f8b23dbebccb6f1caec47d9e2fcf0" title="カメラのクォータニオンをセットする" alt="" coords="213,148,360,191"/>
+<area shape="poly" id="edge6_Node000010_Node000011" title=" " alt="" coords="404,157,361,163,360,158,403,152"/>
+<area shape="poly" id="edge7_Node000011_Node000004" title=" " alt="" coords="197,147,154,134,156,129,199,142"/>
+</map>

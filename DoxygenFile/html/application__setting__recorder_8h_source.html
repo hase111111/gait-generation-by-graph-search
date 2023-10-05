@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DesignLab/application_setting_recorder.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('application__setting__recorder_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">application_setting_recorder.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="application__setting__recorder_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef DESIGNLAB_APPLICATION_SETTING_RECORDER_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define DESIGNLAB_APPLICATION_SETTING_RECORDER_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="application__setting__key_8h.html">application_setting_key.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="boot__mode_8h.html">boot_mode.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="map__creator_8h.html">map_creator.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="output__detail_8h.html">output_detail.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_application_setting_recorder.html">ApplicationSettingRecorder</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#aaaf5324f9b28a91851f77aa5b96bdb5b">   21</a></span>    <span class="keyword">const</span> std::string <a class="code hl_variable" href="struct_application_setting_recorder.html#aaaf5324f9b28a91851f77aa5b96bdb5b">SETTING_FILE_TITLE</a> = ApplicationSettingKey::FILE_TITLE_VALUE;     </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a6d2e7782460287f3f3fac985fe654b65">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a6d2e7782460287f3f3fac985fe654b65">version_major</a> = 0;              </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a6847a9464766ff2d1c20749426544ee0">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a6847a9464766ff2d1c20749426544ee0">version_minor</a> = 5;              </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#ae3c342c7342f979df3691790207b18d6">   25</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#ae3c342c7342f979df3691790207b18d6">version_patch</a> = 0;              </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f">   28</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f">ask_about_modes</a> = <span class="keyword">true</span>;                    </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a369e9b58d7b0216811f840505307f3e2">   29</a></span>    <a class="code hl_enumeration" href="boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63">BootMode</a> <a class="code hl_variable" href="struct_application_setting_recorder.html#a369e9b58d7b0216811f840505307f3e2">default_mode</a> = <a class="code hl_enumvalue" href="boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63a2fa097ed9ce9f4197ea504a3cfb6e64c">BootMode::kSimulation</a>;  </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a8729b2b4c5cdf967c371296b34f2d1fd">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a8729b2b4c5cdf967c371296b34f2d1fd">do_step_execution</a> = <span class="keyword">true</span>;                  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d">do_step_execution_each_gait</a> = <span class="keyword">false</span>;       </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a16adf15854fd81db84a816d0cb893f5c">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a16adf15854fd81db84a816d0cb893f5c">cmd_output</a> = <span class="keyword">true</span>;                             </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#ab5a0a3fb53dca551ee266940c93460f9">   35</a></span>    <a class="code hl_enumeration" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a> <a class="code hl_variable" href="struct_application_setting_recorder.html#ab5a0a3fb53dca551ee266940c93460f9">cmd_permission</a> = <a class="code hl_enumvalue" href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47dabb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#aa8092131837bbaa7d7b7a9f97acc2f41">   36</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#aa8092131837bbaa7d7b7a9f97acc2f41">gui_display</a> = <span class="keyword">true</span>;                            </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a46d409825baade1e664950325ff7bc7d">   37</a></span>    std::string <a class="code hl_variable" href="struct_application_setting_recorder.html#a46d409825baade1e664950325ff7bc7d">gui_display_quality</a> = <span class="stringliteral">&quot;high&quot;</span>;           </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#ac60b912738df3e0b5dff2eb27bd64a85">   38</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#ac60b912738df3e0b5dff2eb27bd64a85">window_size_x</a> = 1280;                           </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a55ab7170e285905de34cd7c398d6153c">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a55ab7170e285905de34cd7c398d6153c">window_size_y</a> = 720;                            </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a9071bfa5d5ff28f46b3ea96d1aedbb95">   40</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a9071bfa5d5ff28f46b3ea96d1aedbb95">window_fps</a> = 60;                                </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a2e9d0fdbd8f4fcdd68044205edc69e9e">   43</a></span>    <a class="code hl_enumeration" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a> <a class="code hl_variable" href="struct_application_setting_recorder.html#a2e9d0fdbd8f4fcdd68044205edc69e9e">map_create_mode</a> = <a class="code hl_enumvalue" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba">MapCreateMode::kFlat</a>;   </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a63fea27fbe4b2e8803225689b6c2c58d">   44</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a63fea27fbe4b2e8803225689b6c2c58d">map_create_option</a> = 0;                              </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a0fb0ee1d42ef34045ac8ac5994d59284">   45</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a0fb0ee1d42ef34045ac8ac5994d59284">do_output_map</a> = <span class="keyword">true</span>;                              </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a8ecd65bf06d624ca530447f8a4e0223b">   46</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a8ecd65bf06d624ca530447f8a4e0223b">map_hole_rate</a> = 40;                                 </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a822d7058e15e41dbe4a9754f717a3d0c">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a822d7058e15e41dbe4a9754f717a3d0c">map_step_height</a> = 500.0f;                         </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a0569abc9d72381a7b8c9d25bd5e3b641">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a0569abc9d72381a7b8c9d25bd5e3b641">map_step_length</a> = -120.0f;                        </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a69d8bb0c7c68d6e18e9e6f9daefa75b0">   49</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a69d8bb0c7c68d6e18e9e6f9daefa75b0">map_slope_angle_deg</a> = 10.0f;                      </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a09c388c1532747a01eb49ba72960be5b">   50</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a09c388c1532747a01eb49ba72960be5b">map_tilt_angle_deg</a> = 5.0f;                        </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#a47550c2c89a0b374412075496f86211c">   51</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#a47550c2c89a0b374412075496f86211c">rough_max_dif</a> = 30.0f;                            </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct_application_setting_recorder.html#ae05cb6c91d8f4965c87fe032399f7a73">   52</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_application_setting_recorder.html#ae05cb6c91d8f4965c87fe032399f7a73">rough_min_dif</a> = -30.0f;                           </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">// !DESIGNLAB_APPLICATION_SETTING_RECORDER_H_</span></div>
+<div class="ttc" id="aapplication__setting__key_8h_html"><div class="ttname"><a href="application__setting__key_8h.html">application_setting_key.h</a></div><div class="ttdoc">設定ファイルのキーをまとめた定数クラス</div></div>
+<div class="ttc" id="aboot__mode_8h_html"><div class="ttname"><a href="boot__mode_8h.html">boot_mode.h</a></div><div class="ttdoc">起動モードを表す列挙型</div></div>
+<div class="ttc" id="aboot__mode_8h_html_af57076b540c4a87e9a5527195d662f63"><div class="ttname"><a href="boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63">BootMode</a></div><div class="ttdeci">BootMode</div><div class="ttdoc">起動モードを表す列挙型</div><div class="ttdef"><b>Definition</b> boot_mode.h:15</div></div>
+<div class="ttc" id="aboot__mode_8h_html_af57076b540c4a87e9a5527195d662f63a2fa097ed9ce9f4197ea504a3cfb6e64c"><div class="ttname"><a href="boot__mode_8h.html#af57076b540c4a87e9a5527195d662f63a2fa097ed9ce9f4197ea504a3cfb6e64c">BootMode::kSimulation</a></div><div class="ttdeci">@ kSimulation</div><div class="ttdoc">シミュレーションモード</div></div>
+<div class="ttc" id="amap__creator_8h_html"><div class="ttname"><a href="map__creator_8h.html">map_creator.h</a></div></div>
+<div class="ttc" id="amap__creator_8h_html_af717036720505346337d623b2a4f3c28"><div class="ttname"><a href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a></div><div class="ttdeci">MapCreateMode</div><div class="ttdoc">マップ生成クラス．</div><div class="ttdef"><b>Definition</b> map_creator.h:18</div></div>
+<div class="ttc" id="amap__creator_8h_html_af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba"><div class="ttname"><a href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba">MapCreateMode::kFlat</a></div><div class="ttdeci">@ kFlat</div><div class="ttdoc">普通の平らな面を生成する．</div></div>
+<div class="ttc" id="aoutput__detail_8h_html"><div class="ttname"><a href="output__detail_8h.html">output_detail.h</a></div><div class="ttdoc">コマンドラインに文字を出力する際の詳細．</div></div>
+<div class="ttc" id="aoutput__detail_8h_html_af95ef6e3dd5076a67c97472ee6bdb47d"><div class="ttname"><a href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47d">OutputDetail</a></div><div class="ttdeci">OutputDetail</div><div class="ttdoc">コマンドラインに文字を出力する際の詳細．</div><div class="ttdef"><b>Definition</b> output_detail.h:14</div></div>
+<div class="ttc" id="aoutput__detail_8h_html_af95ef6e3dd5076a67c97472ee6bdb47dabb53ce21b7c0b7c8a8f7860a41901d29"><div class="ttname"><a href="output__detail_8h.html#af95ef6e3dd5076a67c97472ee6bdb47dabb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a></div><div class="ttdeci">@ kDebug</div><div class="ttdoc">デバッグ時のみ出力，一番優先度が低い</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html"><div class="ttname"><a href="struct_application_setting_recorder.html">ApplicationSettingRecorder</a></div><div class="ttdoc">アプリの設定を記録する構造体</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:20</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a0569abc9d72381a7b8c9d25bd5e3b641"><div class="ttname"><a href="struct_application_setting_recorder.html#a0569abc9d72381a7b8c9d25bd5e3b641">ApplicationSettingRecorder::map_step_length</a></div><div class="ttdeci">float map_step_length</div><div class="ttdoc">マップの段差の長さ</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:48</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a09c388c1532747a01eb49ba72960be5b"><div class="ttname"><a href="struct_application_setting_recorder.html#a09c388c1532747a01eb49ba72960be5b">ApplicationSettingRecorder::map_tilt_angle_deg</a></div><div class="ttdeci">float map_tilt_angle_deg</div><div class="ttdoc">マップの傾きの角度</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:50</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a0fb0ee1d42ef34045ac8ac5994d59284"><div class="ttname"><a href="struct_application_setting_recorder.html#a0fb0ee1d42ef34045ac8ac5994d59284">ApplicationSettingRecorder::do_output_map</a></div><div class="ttdeci">bool do_output_map</div><div class="ttdoc">マップを出力するかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:45</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a16adf15854fd81db84a816d0cb893f5c"><div class="ttname"><a href="struct_application_setting_recorder.html#a16adf15854fd81db84a816d0cb893f5c">ApplicationSettingRecorder::cmd_output</a></div><div class="ttdeci">bool cmd_output</div><div class="ttdoc">コマンドラインに出力するかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:34</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a2e9d0fdbd8f4fcdd68044205edc69e9e"><div class="ttname"><a href="struct_application_setting_recorder.html#a2e9d0fdbd8f4fcdd68044205edc69e9e">ApplicationSettingRecorder::map_create_mode</a></div><div class="ttdeci">MapCreateMode map_create_mode</div><div class="ttdoc">マップ生成モード</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:43</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a369e9b58d7b0216811f840505307f3e2"><div class="ttname"><a href="struct_application_setting_recorder.html#a369e9b58d7b0216811f840505307f3e2">ApplicationSettingRecorder::default_mode</a></div><div class="ttdeci">BootMode default_mode</div><div class="ttdoc">デフォルトの起動モード</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:29</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a46d409825baade1e664950325ff7bc7d"><div class="ttname"><a href="struct_application_setting_recorder.html#a46d409825baade1e664950325ff7bc7d">ApplicationSettingRecorder::gui_display_quality</a></div><div class="ttdeci">std::string gui_display_quality</div><div class="ttdoc">GUIを表示する際，どこまで許可するか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:37</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a47550c2c89a0b374412075496f86211c"><div class="ttname"><a href="struct_application_setting_recorder.html#a47550c2c89a0b374412075496f86211c">ApplicationSettingRecorder::rough_max_dif</a></div><div class="ttdeci">float rough_max_dif</div><div class="ttdoc">マップの粗さの最大値</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:51</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a47892157ab0cb725457e8f9ea786511d"><div class="ttname"><a href="struct_application_setting_recorder.html#a47892157ab0cb725457e8f9ea786511d">ApplicationSettingRecorder::do_step_execution_each_gait</a></div><div class="ttdeci">bool do_step_execution_each_gait</div><div class="ttdoc">1動作ごとにステップ実行をするかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:31</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a55ab7170e285905de34cd7c398d6153c"><div class="ttname"><a href="struct_application_setting_recorder.html#a55ab7170e285905de34cd7c398d6153c">ApplicationSettingRecorder::window_size_y</a></div><div class="ttdeci">int window_size_y</div><div class="ttdoc">グラフィカルウィンドウの縦幅</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:39</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a63fea27fbe4b2e8803225689b6c2c58d"><div class="ttname"><a href="struct_application_setting_recorder.html#a63fea27fbe4b2e8803225689b6c2c58d">ApplicationSettingRecorder::map_create_option</a></div><div class="ttdeci">int map_create_option</div><div class="ttdoc">マップ生成オプション</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:44</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a6847a9464766ff2d1c20749426544ee0"><div class="ttname"><a href="struct_application_setting_recorder.html#a6847a9464766ff2d1c20749426544ee0">ApplicationSettingRecorder::version_minor</a></div><div class="ttdeci">int version_minor</div><div class="ttdoc">バージョン番号(マイナー)</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:24</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a69d8bb0c7c68d6e18e9e6f9daefa75b0"><div class="ttname"><a href="struct_application_setting_recorder.html#a69d8bb0c7c68d6e18e9e6f9daefa75b0">ApplicationSettingRecorder::map_slope_angle_deg</a></div><div class="ttdeci">float map_slope_angle_deg</div><div class="ttdoc">マップの坂の角度</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:49</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a6d2e7782460287f3f3fac985fe654b65"><div class="ttname"><a href="struct_application_setting_recorder.html#a6d2e7782460287f3f3fac985fe654b65">ApplicationSettingRecorder::version_major</a></div><div class="ttdeci">int version_major</div><div class="ttdoc">バージョン番号(メジャー)</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:23</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a822d7058e15e41dbe4a9754f717a3d0c"><div class="ttname"><a href="struct_application_setting_recorder.html#a822d7058e15e41dbe4a9754f717a3d0c">ApplicationSettingRecorder::map_step_height</a></div><div class="ttdeci">float map_step_height</div><div class="ttdoc">マップの段差の高さ</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:47</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a8729b2b4c5cdf967c371296b34f2d1fd"><div class="ttname"><a href="struct_application_setting_recorder.html#a8729b2b4c5cdf967c371296b34f2d1fd">ApplicationSettingRecorder::do_step_execution</a></div><div class="ttdeci">bool do_step_execution</div><div class="ttdoc">1シミュレーションごとにステップ実行をするかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:30</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a8ecd65bf06d624ca530447f8a4e0223b"><div class="ttname"><a href="struct_application_setting_recorder.html#a8ecd65bf06d624ca530447f8a4e0223b">ApplicationSettingRecorder::map_hole_rate</a></div><div class="ttdeci">int map_hole_rate</div><div class="ttdoc">マップの穴の割合</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:46</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_a9071bfa5d5ff28f46b3ea96d1aedbb95"><div class="ttname"><a href="struct_application_setting_recorder.html#a9071bfa5d5ff28f46b3ea96d1aedbb95">ApplicationSettingRecorder::window_fps</a></div><div class="ttdeci">int window_fps</div><div class="ttdoc">グラフィカルウィンドウのFPS</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:40</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_aa8092131837bbaa7d7b7a9f97acc2f41"><div class="ttname"><a href="struct_application_setting_recorder.html#aa8092131837bbaa7d7b7a9f97acc2f41">ApplicationSettingRecorder::gui_display</a></div><div class="ttdeci">bool gui_display</div><div class="ttdoc">GUIを表示するかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:36</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_aaaf5324f9b28a91851f77aa5b96bdb5b"><div class="ttname"><a href="struct_application_setting_recorder.html#aaaf5324f9b28a91851f77aa5b96bdb5b">ApplicationSettingRecorder::SETTING_FILE_TITLE</a></div><div class="ttdeci">const std::string SETTING_FILE_TITLE</div><div class="ttdoc">設定ファイルのタイトル</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:21</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_ab5a0a3fb53dca551ee266940c93460f9"><div class="ttname"><a href="struct_application_setting_recorder.html#ab5a0a3fb53dca551ee266940c93460f9">ApplicationSettingRecorder::cmd_permission</a></div><div class="ttdeci">OutputDetail cmd_permission</div><div class="ttdoc">コマンドラインに出力する際，どこまで許可するか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:35</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_ac60b912738df3e0b5dff2eb27bd64a85"><div class="ttname"><a href="struct_application_setting_recorder.html#ac60b912738df3e0b5dff2eb27bd64a85">ApplicationSettingRecorder::window_size_x</a></div><div class="ttdeci">int window_size_x</div><div class="ttdoc">グラフィカルウィンドウの横幅</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:38</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_ade0cf083d63cf804235ade07ed43816f"><div class="ttname"><a href="struct_application_setting_recorder.html#ade0cf083d63cf804235ade07ed43816f">ApplicationSettingRecorder::ask_about_modes</a></div><div class="ttdeci">bool ask_about_modes</div><div class="ttdoc">起動時にモード選択の確認をするかどうか</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:28</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_ae05cb6c91d8f4965c87fe032399f7a73"><div class="ttname"><a href="struct_application_setting_recorder.html#ae05cb6c91d8f4965c87fe032399f7a73">ApplicationSettingRecorder::rough_min_dif</a></div><div class="ttdeci">float rough_min_dif</div><div class="ttdoc">マップの粗さの最小値</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:52</div></div>
+<div class="ttc" id="astruct_application_setting_recorder_html_ae3c342c7342f979df3691790207b18d6"><div class="ttname"><a href="struct_application_setting_recorder.html#ae3c342c7342f979df3691790207b18d6">ApplicationSettingRecorder::version_patch</a></div><div class="ttdeci">int version_patch</div><div class="ttdoc">バージョン番号(パッチ)</div><div class="ttdef"><b>Definition</b> application_setting_recorder.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="application__setting__recorder_8h.html">application_setting_recorder.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

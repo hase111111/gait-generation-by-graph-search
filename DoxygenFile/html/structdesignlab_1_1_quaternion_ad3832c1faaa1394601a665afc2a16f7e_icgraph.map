@@ -1,0 +1,11 @@
+<map id="designlab::Quaternion::Norm" name="designlab::Quaternion::Norm">
+<area shape="rect" id="Node000001" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="581,39,729,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="386,5,533,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="566,48,533,42,534,37,567,42"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="386,72,533,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="567,78,534,83,533,78,566,72"/>
+<area shape="rect" id="Node000004" href="$class_camera_input_controller.html#a56c0dbc23365b09d5d0c0349e880e16f" title="キー入力でカメラを動かす． &#160;&#160;基本的には毎フレーム呼び出す" alt="" coords="189,72,338,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,96,338,96,338,91,371,91"/>
+<area shape="rect" id="Node000005" href="$class_camera_gui.html#a6acd3a19c988ec33ff84572a025ac2cd" title="GUIやカメラの更新を行う" alt="" coords="5,80,141,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="174,96,141,96,141,91,174,91"/>
+</map>

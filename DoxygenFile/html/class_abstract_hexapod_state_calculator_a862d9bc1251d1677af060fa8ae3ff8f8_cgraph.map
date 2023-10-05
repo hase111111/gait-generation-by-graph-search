@@ -1,0 +1,19 @@
+<map id="AbstractHexapodStateCalculator::CalculateStabilityMargin" name="AbstractHexapodStateCalculator::CalculateStabilityMargin">
+<area shape="rect" id="Node000001" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="5,139,216,181"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ad4dbe99350225f345d3f9dba83480dca" title="このベクトルとotherの外積を返す" alt="" coords="304,5,434,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,136,194,97,262,58,289,46,291,51,265,62,197,101,141,141"/>
+<area shape="rect" id="Node000003" href="$class_abstract_hexapod_state_calculator.html#abdf6dade9f586ce02be22b9214cfbb95" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="264,72,474,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,135,269,116,270,122,197,141"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="303,139,435,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,157,288,157,288,163,216,163"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a8899add912014b0eac615bcac1ef95f4" title="このベクトルを正規化したベクトルを返す" alt="" coords="304,205,434,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="197,179,290,204,289,209,195,185"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_vector3.html#a3f278dfeaf16db1a9635bd4e3eecf6ed" title="XY平面に射影したベクトルを返す．" alt="" coords="304,272,434,315"/>
+<area shape="poly" id="edge8_Node000001_Node000010" title=" " alt="" coords="141,179,197,219,265,258,291,269,289,274,262,262,194,223,138,184"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="522,172,659,215"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="434,214,507,203,508,208,435,220"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="526,239,655,281"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="435,234,512,246,511,251,434,239"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="707,239,837,281"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="656,257,692,257,692,263,656,263"/>
+</map>

@@ -61,21 +61,21 @@ namespace dl_math_test
 		EXPECT_FALSE(dl_math::isEqual(25.0, 64.0));
 		EXPECT_FALSE(dl_math::isEqual(-91.0, -26.0));
 
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR / 10.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 5.0 / 10.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 2.0 / 7.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 9.0 / 10.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 10.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 100.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::DBL_ALLOWABLE_ERROR * 1000.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError / 10.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 5.0 / 10.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 2.0 / 7.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 9.0 / 10.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 10.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 100.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 + dl_math::kDoubleAllowableError * 1000.0));
 
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR / 10.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 2.0 / 10.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 6.0 / 17.0));
-		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 9.0 / 10.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 10.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 100.0));
-		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::DBL_ALLOWABLE_ERROR * 1000.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError / 10.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 2.0 / 10.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 6.0 / 17.0));
+		EXPECT_TRUE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 9.0 / 10.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 10.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 100.0));
+		EXPECT_FALSE(dl_math::isEqual(5.0, 5.0 - dl_math::kDoubleAllowableError * 1000.0));
 
 		EXPECT_TRUE(dl_math::isEqual(100000.0, 100000.0));
 		EXPECT_TRUE(dl_math::isEqual(5200.0, 5200.0));

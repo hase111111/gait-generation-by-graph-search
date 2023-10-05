@@ -5,20 +5,20 @@
 #ifndef DESIGNLAB_DXLIB_H_
 #define DESIGNLAB_DXLIB_H_
 
-#include "Dxlib.h"
+#include <Dxlib.h>
 
 #include <array>
 
-#include "designlab_vector.h"
+#include "designlab_vector3.h"
 
 
 namespace designlab
 {
 
-	//! @namespace dxlib_util
-	//! @brief Dxlibの3D表示を行う処理を書き直したもの．
-	//! @details Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので，ここである程度使いやすくなるように処理を書いてまとめておく．
-
+	//! @namespace designlab::dxlib_util
+	//! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間．
+	//! @details Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので，
+	//! @n ここである程度使いやすくなるように処理を書いてまとめておく．
 	namespace dxlib_util
 	{
 		//! @brief 3D処理を行う上で必要な初期化処理をまとめたもの．
@@ -29,14 +29,14 @@ namespace designlab
 		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
 		//! @return VECTOR 変換後の座標．
-		inline VECTOR ConvertToDxlibVec(const dl_vec::SVector& vec) { return VGet(vec.x, -vec.y, vec.z); }
+		inline VECTOR ConvertToDxlibVec(const designlab::Vector3& vec) { return VGet(vec.x, -vec.y, vec.z); }
 
 
 		//! @brief このプログラムで使用しているVectorと，Dxlibの座標を示すVECTORを変換する．
 		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
-		//! @return SVector 変換後の座標．
-		inline dl_vec::SVector ConvertDesignLabVec(const VECTOR& vec) { return dl_vec::SVector(vec.x, -vec.y, vec.z); }
+		//! @return Vector3 変換後の座標．
+		inline designlab::Vector3 ConvertDesignLabVec(const VECTOR& vec) { return designlab::Vector3(vec.x, -vec.y, vec.z); }
 
 
 		//! @brief デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする．

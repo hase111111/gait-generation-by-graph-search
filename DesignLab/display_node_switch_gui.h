@@ -7,15 +7,15 @@
 #include "button_controller.h"
 
 
-//! @class DisplayNodeSwitchGUI
+//! @class DisplayNodeSwitchGui
 //! @date 2023/08/30
 //! @author 長谷川
 //! @brief ノードの表示切り替えGUI
-class DisplayNodeSwitchGUI final
+class DisplayNodeSwitchGui final
 {
 public:
-	DisplayNodeSwitchGUI(const int x, const int y);
-	DisplayNodeSwitchGUI();
+	DisplayNodeSwitchGui(const int x, const int y);
+	DisplayNodeSwitchGui();
 
 
 	//! @brief GUIに表示するノードの情報を設定する

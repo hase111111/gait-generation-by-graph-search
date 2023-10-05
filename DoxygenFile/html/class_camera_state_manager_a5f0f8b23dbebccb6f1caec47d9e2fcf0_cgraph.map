@@ -1,0 +1,9 @@
+<map id="CameraStateManager::SetCameraQuat" name="CameraStateManager::SetCameraQuat">
+<area shape="rect" id="Node000001" title="カメラのクォータニオンをセットする" alt="" coords="5,5,153,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="201,5,348,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="396,5,543,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,24,381,24,381,29,349,29"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="591,5,739,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="544,24,576,24,576,29,544,29"/>
+</map>

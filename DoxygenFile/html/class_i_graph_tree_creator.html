@@ -91,8 +91,6 @@ $(document).ready(function(){initNavTree('class_i_graph_tree_creator.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-methods">限定公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_i_graph_tree_creator-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">IGraphTreeCreator クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -101,57 +99,34 @@ $(document).ready(function(){initNavTree('class_i_graph_tree_creator.html',''); 
 <p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．  
  <a href="class_i_graph_tree_creator.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="_interface_graph_tree_creator_8h_source.html">InterfaceGraphTreeCreator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="interface__graph__tree__creator_8h_source.html">interface_graph_tree_creator.h</a>&gt;</code></p>
 <div class="dynheader">
 IGraphTreeCreator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_graph_tree_creator__inherit__graph.png" border="0" usemap="#a_i_graph_tree_creator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_graph_tree_creator_inherit__map" id="a_i_graph_tree_creator_inherit__map">
-<area shape="rect" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="200,5,326,32"/>
+<area shape="rect" title="グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="17,5,144,32"/>
 <area shape="rect" href="class_graph_tree_creator_hato.html" title="波東さんのグラフを作成するプログラムを移植したもの" alt="" coords="5,80,156,107"/>
-<area shape="poly" title=" " alt="" coords="219,40,114,82,112,77,217,35"/>
-<area shape="rect" href="class_graph_tree_creator_sample.html" title="グラフを作成するクラスのサンプルです．テキトーにグラフを作成します．" alt="" coords="180,80,347,107"/>
-<area shape="poly" title=" " alt="" coords="266,47,266,80,261,80,261,47"/>
-<area shape="rect" href="class_graph_tree_creator_thread.html" title=" " alt="" coords="371,80,534,107"/>
-<area shape="poly" title=" " alt="" coords="310,35,420,77,418,82,309,40"/>
+<area shape="poly" title=" " alt="" coords="83,47,83,80,78,80,78,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a66e201edf0ad629d8248ac227c0cec13"><td class="memItemLeft" align="right" valign="top"><a id="a66e201edf0ad629d8248ac227c0cec13" name="a66e201edf0ad629d8248ac227c0cec13"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IGraphTreeCreator</b> (std::map&lt; <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a>, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt; &amp;map)</td></tr>
-<tr class="separator:a66e201edf0ad629d8248ac227c0cec13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a1520ff9b607ba36524b5d33475f511"><td class="memItemLeft" align="right" valign="top">virtual EGraphSearchResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a4a1520ff9b607ba36524b5d33475f511">createGraphTree</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;current_node, const <a class="el" href="class_map_state.html">MapState</a> *const p_map, std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *output_graph, int *make_node_num)=0</td></tr>
-<tr class="memdesc:a4a1520ff9b607ba36524b5d33475f511"><td class="mdescLeft">&#160;</td><td class="mdescRight">木グラフを作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
-<tr class="separator:a4a1520ff9b607ba36524b5d33475f511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4aac7eba7066e90cb1e2c4507efa317"><td class="memItemLeft" align="right" valign="top"><a id="af4aac7eba7066e90cb1e2c4507efa317" name="af4aac7eba7066e90cb1e2c4507efa317"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxDepth</b> (const int max_depth)</td></tr>
-<tr class="separator:af4aac7eba7066e90cb1e2c4507efa317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-限定公開メンバ関数</h2></td></tr>
-<tr class="memitem:a98d382a989f5d5c9ab562f69ef86efbe"><td class="memItemLeft" align="right" valign="top"><a id="a98d382a989f5d5c9ab562f69ef86efbe" name="a98d382a989f5d5c9ab562f69ef86efbe"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxDepth</b> () const</td></tr>
-<tr class="separator:a98d382a989f5d5c9ab562f69ef86efbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-限定公開変数類</h2></td></tr>
-<tr class="memitem:a135fafe8909624917861e130bf50c939"><td class="memItemLeft" align="right" valign="top"><a id="a135fafe8909624917861e130bf50c939" name="a135fafe8909624917861e130bf50c939"></a>
-std::map&lt; <a class="el" href="hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3f">EHexapodMove</a>, std::unique_ptr&lt; <a class="el" href="class_i_node_creator.html">INodeCreator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_node_creator_map</b></td></tr>
-<tr class="separator:a135fafe8909624917861e130bf50c939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a613e8f97b603f68565ca8e6c8089cb3f"><td class="memItemLeft" align="right" valign="top"><a id="a613e8f97b603f68565ca8e6c8089cb3f" name="a613e8f97b603f68565ca8e6c8089cb3f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a class="el" href="class_graph_search_const.html#abb968ed24754e6739a00be1ac95420c8">GraphSearchConst::MAX_DEPTH</a></td></tr>
-<tr class="separator:a613e8f97b603f68565ca8e6c8089cb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4baaada29ad522de4e2b493cce462fd6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#a4baaada29ad522de4e2b493cce462fd6">Init</a> (const <a class="el" href="class_devide_map_state.html">DevideMapState</a> &amp;map_state)=0</td></tr>
+<tr class="memdesc:a4baaada29ad522de4e2b493cce462fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラスの初期化を行う．  <br /></td></tr>
+<tr class="separator:a4baaada29ad522de4e2b493cce462fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27572a1be807e4e445e63f600205f40"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_graph_tree_creator.html#ad27572a1be807e4e445e63f600205f40">CreateGraphTree</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;current_node, int max_depth, std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *output_graph)=0</td></tr>
+<tr class="memdesc:ad27572a1be807e4e445e63f600205f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ木を作成するクラス．完成したグラフは参照渡しする．  <br /></td></tr>
+<tr class="separator:ad27572a1be807e4e445e63f600205f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>グラフ木を作成するクラスのインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと． </p>
-<p>継承をするクラスのデストラクタはvirtualにしておく．<br  />
- 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p><dl class="section date"><dt>日付</dt><dd>2023/07/23 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
+<p>継承をするクラスのデストラクタはvirtualにしておく． <br  />
+ 参考 <a href="https://www.yunabe.jp/docs/cpp_virtual_destructor.html">https://www.yunabe.jp/docs/cpp_virtual_destructor.html</a> </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a4a1520ff9b607ba36524b5d33475f511" name="a4a1520ff9b607ba36524b5d33475f511"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a1520ff9b607ba36524b5d33475f511">&#9670;&#160;</a></span>createGraphTree()</h2>
+<a id="ad27572a1be807e4e445e63f600205f40" name="ad27572a1be807e4e445e63f600205f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad27572a1be807e4e445e63f600205f40">&#9670;&#160;</a></span>CreateGraphTree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,28 +135,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual EGraphSearchResult IGraphTreeCreator::createGraphTree </td>
+          <td class="memname">virtual <a class="el" href="graph__search__result__recoder_8h.html#a500d442113f5b6c7f1b06b5598bf08ec">GraphSearchResult</a> IGraphTreeCreator::CreateGraphTree </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>current_node</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> *const&#160;</td>
-          <td class="paramname"><em>p_map</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_depth</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_s_node.html">SNode</a> &gt; *&#160;</td>
-          <td class="paramname"><em>output_graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>make_node_num</em>&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &gt; *&#160;</td>
+          <td class="paramname"><em>output_graph</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -196,37 +165,59 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_max_depth</b> = <a c
 </table>
 </div><div class="memdoc">
 
-<p>木グラフを作成するクラス．完成したグラフは参照渡しする． </p>
+<p>グラフ木を作成するクラス．完成したグラフは参照渡しする． </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">current_node</td><td>[in] 現在の状態を表すノード </td></tr>
-    <tr><td class="paramname">p_map</td><td>[in] 現在のマップの状態 </td></tr>
-    <tr><td class="paramname">output_graph</td><td>[out] 出力される木グラフ </td></tr>
-    <tr><td class="paramname">make_node_num</td><td>[out] 作成したノードの数 </td></tr>
+    <tr><td class="paramname">current_node</td><td>[in] 現在の状態を表すノード．深さが0のノードを渡すこと． </td></tr>
+    <tr><td class="paramname">max_depth</td><td>[in] 作成するグラフ木の最大深さ．大きすぎる値を渡すと重くなる or 動かなくなるので注意． </td></tr>
+    <tr><td class="paramname">output_graph</td><td>[out] 出力されるグラフ木 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>EGraphSearchResult 生成に成功したならばtrue </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>GraphSearchResult 生成の結果，生成に成功したかどうか，失敗した場合は失敗の理由を返す </dd></dl>
 
-<p><a class="el" href="class_graph_tree_creator_hato.html#a600511213a4c529be108aae79213caa1">GraphTreeCreatorHato</a>, <a class="el" href="class_graph_tree_creator_sample.html#ab1895cfde4903118dbb7f097605edecd">GraphTreeCreatorSample</a>, <a class="el" href="class_graph_tree_creator_thread.html#a8d23fb68aab413f5e398c71b72794782">GraphTreeCreatorThread</a>で実装されています。</p>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_i_graph_tree_creator_a4a1520ff9b607ba36524b5d33475f511_icgraph.png" border="0" usemap="#aclass_i_graph_tree_creator_a4a1520ff9b607ba36524b5d33475f511_icgraph" alt=""/></div>
-<map name="aclass_i_graph_tree_creator_a4a1520ff9b607ba36524b5d33475f511_icgraph" id="aclass_i_graph_tree_creator_a4a1520ff9b607ba36524b5d33475f511_icgraph">
-<area shape="rect" title="木グラフを作成するクラス．完成したグラフは参照渡しする．" alt="" coords="468,5,602,48"/>
-<area shape="rect" href="class_pass_finder_hato_thread.html#a39e8ac1fd6111699a72092fcdd51a1ba" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="226,5,420,48"/>
-<area shape="poly" title=" " alt="" coords="453,29,420,29,420,24,453,24"/>
-<area shape="rect" href="class_pass_finder_fixed.html#af5fe295a5429e0a9c1d9f5564c247878" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,178,48"/>
-<area shape="poly" title=" " alt="" coords="211,29,178,29,178,24,211,24"/>
-</map>
+<p><a class="el" href="class_graph_tree_creator_hato.html#ae3ddb3d0dbce36e5877ee4392256ba00">GraphTreeCreatorHato</a>で実装されています。</p>
+
 </div>
+</div>
+<a id="a4baaada29ad522de4e2b493cce462fd6" name="a4baaada29ad522de4e2b493cce462fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4baaada29ad522de4e2b493cce462fd6">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IGraphTreeCreator::Init </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_devide_map_state.html">DevideMapState</a> &amp;&#160;</td>
+          <td class="paramname"><em>map_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフ木を作成するクラスの初期化を行う． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map_state</td><td>[in] 分割されたマップ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_graph_tree_creator_hato.html#a78fe4bc4143e050806c39ff94fe30e00">GraphTreeCreatorHato</a>で実装されています。</p>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_interface_graph_tree_creator_8h_source.html">InterfaceGraphTreeCreator.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/InterfaceGraphTreeCreator.cpp</li>
+<li>DesignLab/<a class="el" href="interface__graph__tree__creator_8h_source.html">interface_graph_tree_creator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

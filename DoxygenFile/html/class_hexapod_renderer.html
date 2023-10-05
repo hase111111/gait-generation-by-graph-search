@@ -103,118 +103,30 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ad2973f80965df8a61bc5edf8e1b144cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_renderer.html#ad2973f80965df8a61bc5edf8e1b144cc">update</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node)</td></tr>
-<tr class="memdesc:ad2973f80965df8a61bc5edf8e1b144cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を更新する．  <br /></td></tr>
-<tr class="separator:ad2973f80965df8a61bc5edf8e1b144cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada03952583267029a71d57500ec11b70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_renderer.html#ada03952583267029a71d57500ec11b70">draw</a> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node) const</td></tr>
-<tr class="memdesc:ada03952583267029a71d57500ec11b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットを3D空間に描画する．  <br /></td></tr>
-<tr class="separator:ada03952583267029a71d57500ec11b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f095206c50b6a3702eee3906ec4f373"><td class="memItemLeft" align="right" valign="top"><a id="a9f095206c50b6a3702eee3906ec4f373" name="a9f095206c50b6a3702eee3906ec4f373"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>HexapodRenderer</b> (const std::shared_ptr&lt; const <a class="el" href="class_abstract_hexapod_state_calculator.html">AbstractHexapodStateCalculator</a> &gt; &amp;calculator_ptr)</td></tr>
+<tr class="separator:a9f095206c50b6a3702eee3906ec4f373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hexapod_renderer.html#a1da14c8e1e413d5f55a8fab7b04fb57b">set_draw_node</a> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node)</td></tr>
+<tr class="memdesc:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの状態を更新する．  <br /></td></tr>
+<tr class="separator:a1da14c8e1e413d5f55a8fab7b04fb57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eae43f9a83c964275d97cd9c73d9451"><td class="memItemLeft" align="right" valign="top"><a id="a8eae43f9a83c964275d97cd9c73d9451" name="a8eae43f9a83c964275d97cd9c73d9451"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td></tr>
+<tr class="memdesc:a8eae43f9a83c964275d97cd9c73d9451"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットを3D空間に描画する． <br /></td></tr>
+<tr class="separator:a8eae43f9a83c964275d97cd9c73d9451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>ロボットの描画を行うクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ada03952583267029a71d57500ec11b70" name="ada03952583267029a71d57500ec11b70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada03952583267029a71d57500ec11b70">&#9670;&#160;</a></span>draw()</h2>
+<a id="a1da14c8e1e413d5f55a8fab7b04fb57b" name="a1da14c8e1e413d5f55a8fab7b04fb57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da14c8e1e413d5f55a8fab7b04fb57b">&#9670;&#160;</a></span>set_draw_node()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void HexapodRenderer::draw </td>
+          <td class="memname">void HexapodRenderer::set_draw_node </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ロボットを3D空間に描画する． </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>描画するロボットの状態 </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_ada03952583267029a71d57500ec11b70_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_cgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_cgraph" id="aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_cgraph">
-<area shape="rect" title="ロボットを3D空間に描画する．" alt="" coords="5,291,165,317"/>
-<area shape="rect" href="namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="227,5,394,32"/>
-<area shape="poly" title=" " alt="" coords="87,289,99,244,123,179,159,110,183,77,211,49,229,36,232,41,214,53,187,81,164,112,128,181,104,245,92,291"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector2.html#aecae7306706543c778a096d2e522b56c" title="このベクトルとotherの外積を返す" alt="" coords="705,173,865,200"/>
-<area shape="poly" title=" " alt="" coords="98,288,145,247,177,226,212,209,252,200,304,192,432,183,570,181,691,182,691,187,570,186,432,189,304,197,253,205,214,215,179,230,148,251,101,292"/>
-<area shape="rect" href="namespacedl__dxlib.html#aeb5d1c259d3ab9dc9ac17161a29a546e" title="3D空間に六角柱を描画する．" alt="" coords="213,408,408,435"/>
-<area shape="poly" title=" " alt="" coords="103,316,151,355,181,376,214,394,230,400,228,405,212,398,178,380,147,359,100,320"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a939f73cf543fd9de5e7fe0320c3c4b6b" title="脚位置は離散化されて制御されるが，その時の4の位置をグローバル座標で出力する．" alt="" coords="231,459,390,501"/>
-<area shape="poly" title=" " alt="" coords="97,316,143,378,176,413,214,444,222,449,219,454,211,449,172,417,138,381,93,319"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a1c0a81291fc3bef841c6176c307a9312" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="233,525,388,568"/>
-<area shape="poly" title=" " alt="" coords="93,317,108,355,133,408,169,463,190,489,214,511,222,517,219,521,211,515,186,492,165,466,129,410,103,358,88,319"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a5e34910a6da418efdc1e1632672f15e7" title="転ばない姿勢かどうか調べる．" alt="" coords="233,107,388,149"/>
-<area shape="poly" title=" " alt="" coords="94,289,140,231,174,196,211,166,231,154,234,158,214,170,177,200,144,234,98,292"/>
-<area shape="rect" href="namespacedl__leg.html#ad9c7dd2eccb0f1660b81a56b17b889c3" title="脚番号_leg_num 0 〜 5 に応じて，その脚が接地しているかを調べる． 脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="492,63,621,89"/>
-<area shape="poly" title=" " alt="" coords="87,289,100,249,124,194,161,137,184,113,211,92,243,76,277,65,347,53,416,52,477,58,477,63,416,58,348,58,278,70,245,81,214,97,188,117,165,141,129,196,105,250,92,291"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#ab51d1e8d247fffbd26c1127be0976e43" title="XY平面に射影したベクトルを返す．" alt="" coords="462,275,651,301"/>
-<area shape="poly" title=" " alt="" coords="165,299,447,289,447,294,165,304"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a44b81247eee6784742703a394716739d" title="脚が可動範囲内かチェックする．速度重視のため，ざっくりとした計算を行う．" alt="" coords="233,341,388,384"/>
-<area shape="poly" title=" " alt="" coords="140,315,219,336,218,341,138,320"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a4b7626cfcaab44e79148c5f5b4acd30f" title="脚の干渉をチェックする．" alt="" coords="233,224,388,267"/>
-<area shape="poly" title=" " alt="" coords="138,288,218,267,219,272,140,293"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#ae3995a28af45772ee7593b40979e8561" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならこっち使うべき．" alt="" coords="233,592,388,619"/>
-<area shape="poly" title=" " alt="" coords="91,317,102,367,124,438,140,476,160,513,185,548,214,578,221,583,218,587,211,582,181,551,156,516,135,478,119,440,96,369,86,319"/>
-<area shape="rect" href="namespacedl__dxlib.html#a36b086b2d9269fe65393e37c76c675b2" title="3D空間に六角形を描画する．" alt="" coords="481,443,632,469"/>
-<area shape="poly" title=" " alt="" coords="409,432,467,441,466,446,408,438"/>
-<area shape="poly" title=" " alt="" coords="388,133,658,165,691,170,690,175,657,171,388,139"/>
-<area shape="poly" title=" " alt="" coords="388,109,477,90,478,95,389,114"/>
-<area shape="poly" title=" " alt="" coords="340,148,410,210,432,238,442,249,457,260,469,266,467,271,455,265,439,253,428,241,406,214,336,152"/>
-<area shape="rect" href="namespacedl__leg.html#ab2ec160a0610763bdbc702363c0c6267" title="脚を表す番号は，右前脚を 0 として， 0 〜 5 の範囲．その範囲外ならばfalseを返す．" alt="" coords="711,63,859,89"/>
-<area shape="poly" title=" " alt="" coords="621,73,696,73,696,79,621,79"/>
-<area shape="poly" title=" " alt="" coords="372,338,455,311,483,303,484,308,457,316,373,343"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector2.html#a0ae9aed0d5f24a33178262e127c628e8" title="このベクトルの長さの2乗を返す" alt="" coords="476,376,638,419"/>
-<area shape="poly" title=" " alt="" coords="388,371,461,381,460,386,388,376"/>
-<area shape="rect" href="namespacedl__math.html#a760dc9f3f17fe8b38291f79da372095b" title="2乗した値を返す関数．" alt="" coords="496,325,617,352"/>
-<area shape="poly" title=" " alt="" coords="388,352,481,343,481,349,388,358"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector2.html#ae3429e7a27efd0c1ad05f1a23f25d749" title="このベクトルとotherの内積を返す" alt="" coords="712,384,858,411"/>
-<area shape="poly" title=" " alt="" coords="638,395,697,395,697,400,638,400"/>
-<area shape="poly" title=" " alt="" coords="389,256,461,269,461,274,388,261"/>
-<area shape="rect" href="structdl__vec_1_1_s_line2.html#a0638a23cbcc936eb65e284ceca113702" title="交点が存在しているかどうか調べる関数" alt="" coords="456,224,657,251"/>
-<area shape="poly" title=" " alt="" coords="388,240,441,238,441,244,388,245"/>
-<area shape="poly" title=" " alt="" coords="620,221,707,201,708,206,621,226"/>
-<area shape="rect" href="structdl__vec_1_1_s_vector.html#a4420023e744314ef6d41f21fbd204150" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="459,592,655,619"/>
-<area shape="poly" title=" " alt="" coords="388,603,444,603,444,608,388,608"/>
-</map>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_ada03952583267029a71d57500ec11b70_icgraph.png" border="0" usemap="#aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_icgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_icgraph" id="aclass_hexapod_renderer_ada03952583267029a71d57500ec11b70_icgraph">
-<area shape="rect" title="ロボットを3D空間に描画する．" alt="" coords="222,64,381,91"/>
-<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
-<area shape="poly" title=" " alt="" coords="236,62,140,35,141,30,237,57"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
-<area shape="poly" title=" " alt="" coords="207,80,174,80,174,75,207,75"/>
-<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
-<area shape="poly" title=" " alt="" coords="237,98,141,125,140,120,236,93"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ad2973f80965df8a61bc5edf8e1b144cc" name="ad2973f80965df8a61bc5edf8e1b144cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2973f80965df8a61bc5edf8e1b144cc">&#9670;&#160;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HexapodRenderer::update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_node.html">SNode</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -231,33 +143,35 @@ $(document).ready(function(){initNavTree('class_hexapod_renderer.html',''); init
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_cgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_cgraph" id="aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_cgraph">
-<area shape="rect" title="ロボットの状態を更新する．" alt="" coords="5,13,177,40"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="225,5,379,48"/>
-<area shape="poly" title=" " alt="" coords="177,24,210,24,210,29,177,29"/>
+<div class="center"><img src="class_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph.png" border="0" usemap="#aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph" alt=""/></div>
+<map name="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph" id="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_cgraph">
+<area shape="rect" title="ロボットの状態を更新する．" alt="" coords="5,5,156,48"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="204,5,342,48"/>
+<area shape="poly" title=" " alt="" coords="156,24,189,24,189,29,156,29"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_icgraph.png" border="0" usemap="#aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_icgraph" alt=""/></div>
-<map name="aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_icgraph" id="aclass_hexapod_renderer_ad2973f80965df8a61bc5edf8e1b144cc_icgraph">
-<area shape="rect" title="ロボットの状態を更新する．" alt="" coords="228,64,399,91"/>
-<area shape="rect" href="class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
-<area shape="poly" title=" " alt="" coords="246,62,145,35,146,30,247,57"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a5386e4ac811fadbe8a7f1e5762a5b90a" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="8,56,177,99"/>
-<area shape="poly" title=" " alt="" coords="213,80,177,80,177,75,213,75"/>
-<area shape="rect" href="class_graphic_main_test.html#a661e1c27659f504aeb8acc2ac1a907d6" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,176,149"/>
-<area shape="poly" title=" " alt="" coords="247,98,146,125,145,120,246,92"/>
+<div class="center"><img src="class_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph.png" border="0" usemap="#aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph" alt=""/></div>
+<map name="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph" id="aclass_hexapod_renderer_a1da14c8e1e413d5f55a8fab7b04fb57b_icgraph">
+<area shape="rect" title="ロボットの状態を更新する．" alt="" coords="230,93,380,136"/>
+<area shape="rect" href="class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="22,5,165,48"/>
+<area shape="poly" title=" " alt="" coords="242,89,181,62,152,51,154,46,183,58,244,84"/>
+<area shape="rect" href="class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,72,182,99"/>
+<area shape="poly" title=" " alt="" coords="214,105,182,100,183,95,215,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,165"/>
+<area shape="poly" title=" " alt="" coords="215,130,178,135,178,130,215,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,189,178,216"/>
+<area shape="poly" title=" " alt="" coords="254,146,183,180,150,191,148,186,181,175,251,141"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/hexapod_renderer.cpp</li>
+<li>DesignLab/<a class="el" href="hexapod__renderer_8h_source.html">hexapod_renderer.h</a></li>
+<li>DesignLab/hexapod_renderer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

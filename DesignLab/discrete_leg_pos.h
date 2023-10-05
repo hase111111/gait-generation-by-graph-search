@@ -1,34 +1,26 @@
-#pragma once
+//! @file discrete_leg_pos.h
+//! @breif 離散化された脚位置を表す列挙体
 
-#include <string>
+#ifndef DESIGNLAB_DISCRETE_LEG_POS_H_
+#define DESIGNLAB_DISCRETE_LEG_POS_H_
 
 
-//! @enum EDiscreteLegPos
-//! @date 2023/09/10
-//! @author 長谷川
+//! @enum DiscreteLegPos
 //! @breif 離散化された脚位置を表すenum
-enum class EDiscreteLegPos
+//! @n 先行研究では 1～7のint型の数値で表現されているが，可読性を上げるためにenumにした
+//! @n 処理の速度は変わらんはず
+//! @n 離散化された脚位置は 3bit (0 ～ 7)の範囲で表現されるため，これを拡張する場合，
+//! @n leg stateを表す変数の型を変更する必要がある
+enum class DiscreteLegPos : int
 {
-	LOWER_BACK = 1,		//!< 現在の位置より後方かつ下方にある
-	BACK,				//!< 現在の位置より後方にある
-	UPPER_BACK,			//!< 現在の位置より後方かつ上方にある
-	CENTER,				//!< 現在の位置にある
-	LOWER_FRONT,		//!< 現在の位置より前方かつ下方にある
-	FRONT,				//!< 現在の位置より前方にある
-	UPPER_FRONT,		//!< 現在の位置より前方かつ上方にある
-	ERROR_POS			//!< エラー
+	kLowerBack = 1,		//!< 現在の位置より後方かつ下方にある
+	kBack,				//!< 現在の位置より後方にある
+	kUpperBack,			//!< 現在の位置より後方かつ上方にある
+	kCenter,			//!< 現在の位置にある
+	kLowerFront,		//!< 現在の位置より前方かつ下方にある
+	kFront,				//!< 現在の位置より前方にある
+	kUpperFront,		//!< 現在の位置より前方かつ上方にある
 };
 
 
-namespace std
-{
-	std::string to_string(EDiscreteLegPos leg_pos);
-
-}	// namespace std
-
-
-
-//! @file discrete_leg_pos.h
-//! @date 2023/09/12
-//! @author 長谷川
-//! @breif 離散化された脚位置を表す列挙体
+#endif // DESIGNLAB_DISCRETE_LEG_POS_H_

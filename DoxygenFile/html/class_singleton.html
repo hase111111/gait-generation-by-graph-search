@@ -104,10 +104,10 @@ $(document).ready(function(){initNavTree('class_singleton.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a770513deea79541075e950e16d84c69a"><td class="memItemLeft" align="right" valign="top">static _T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a770513deea79541075e950e16d84c69a">getIns</a> ()</td></tr>
-<tr class="memdesc:a770513deea79541075e950e16d84c69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する．<br  />
-このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．  <br /></td></tr>
-<tr class="separator:a770513deea79541075e950e16d84c69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91badcd3446f8897e73bd1af9c7a37ff"><td class="memItemLeft" align="right" valign="top">static _T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff">GetIns</a> ()</td></tr>
+<tr class="memdesc:a91badcd3446f8897e73bd1af9c7a37ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する． <br  />
+ このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．  <br /></td></tr>
+<tr class="separator:a91badcd3446f8897e73bd1af9c7a37ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 限定公開メンバ関数</h2></td></tr>
@@ -121,19 +121,18 @@ $(document).ready(function(){initNavTree('class_singleton.html',''); initResizab
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename _T&gt;<br />
 class Singleton&lt; _T &gt;</div><p>このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと! </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/07 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川</dd></dl>
 <p>Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である． <br  />
- Singletonパターンは悪しき構築の一つなのでなるべく使わないほうがよい． <br  />
- このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．<br  />
+ Singletonパターンを使うと複雑になりがちなので，グラフ探索では絶対に使わないこと!! <br  />
+ このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している． <br  />
+ というかほとんど <a href="https://dixq.net/rp2/">https://dixq.net/rp2/</a> の丸パクリ． <br  />
  <br  />
  グラフ探索では""絶対""に使わないこと!! <br  />
  絶対だよ!!!! <br  />
 <br  />
- 使い方については 継承先の <a class="el" href="keyboard_8h.html" title="Dxlibのキー入力を取得するクラスの実装．   行数 : 53">keyboard.h</a> を参照してみてほしい． </p>
+ 使い方については 継承先の <a class="el" href="keyboard_8h.html" title="Dxlibのキー入力を取得するクラス">keyboard.h</a> を参照してみてほしい． </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a770513deea79541075e950e16d84c69a" name="a770513deea79541075e950e16d84c69a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a770513deea79541075e950e16d84c69a">&#9670;&#160;</a></span>getIns()</h2>
+<a id="a91badcd3446f8897e73bd1af9c7a37ff" name="a91badcd3446f8897e73bd1af9c7a37ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91badcd3446f8897e73bd1af9c7a37ff">&#9670;&#160;</a></span>GetIns()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +143,7 @@ template&lt;typename _T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static _T * <a class="el" href="class_singleton.html">Singleton</a>&lt; _T &gt;::getIns </td>
+          <td class="memname">static _T * <a class="el" href="class_singleton.html">Singleton</a>&lt; _T &gt;::GetIns </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -157,14 +156,14 @@ template&lt;typename _T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>インスタンスを取得する．<br  />
-このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>インスタンスのポインタ </dd></dl>
+<p>インスタンスを取得する． <br  />
+ このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>_T* インスタンスのポインタ </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="singleton_8h_source.html">singleton.h</a></li>
+<li>DesignLab/<a class="el" href="singleton_8h_source.html">singleton.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

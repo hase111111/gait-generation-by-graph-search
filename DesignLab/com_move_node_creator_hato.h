@@ -9,10 +9,9 @@
 
 #include <memory>
 
-#include "com_type.h"
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
-#include "designlab_polygon.h"
+#include "designlab_polygon2.h"
 #include "hexapod_state_calculator.h"
 #include "map_state.h"
 
@@ -23,22 +22,20 @@ class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, EHexapodMove next_move);
+	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
-	void Create(const SNode& current_node, int current_num, std::vector<SNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) override;
 
 
 private:
 
-	bool isStable(const SNode& node) const;
+	bool IsStable(const RobotStateNode& node) const;
 
-	bool isIntersectGround(const SNode& node) const;
+	bool IsIntersectGround(const RobotStateNode& node) const;
 
 
 	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
-
-	//std::vector<dl_vec::SPolygon2> polygon_vec_;
 
 
 	const DevideMapState map_;	//!< 地面の状態を格納したクラス
@@ -49,7 +46,7 @@ private:
 
 	ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
 
-	const EHexapodMove next_move_;	//!< 次の移動方向
+	const HexapodMove next_move_;	//!< 次の移動方向
 };
 
 

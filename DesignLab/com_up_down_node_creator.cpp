@@ -3,13 +3,17 @@
 #include <algorithm>
 #include <cfloat>
 
-#include "designlab_math.h"
+#include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const EHexapodMove next_move) :
+namespace dllf = designlab::leg_func;
+namespace dlm = ::designlab::math_util;
+
+
+ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
 	map_(map),
 	calclator_(calc),
 	next_move_(next_move)
@@ -17,7 +21,7 @@ ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std:
 }
 
 
-void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_num, std::vector<SNode>* output_graph)
+void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．
 	//マップを確認して地面の最高点を求め，そこからMAX_RANGE，MIN_RANGEの分だけ離す．
@@ -35,13 +39,13 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		const dl_vec::SVector kCoxaVec = calclator_->getGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
+		const designlab::Vector3 kCoxaVec = calclator_->GetGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
 
 		if (map_.IsInMap(kCoxaVec)) 
 		{
 			const int kCoxaX = map_.GetDevideMapIndexX(kCoxaVec.x);
 			const int kCoxaY = map_.GetDevideMapIndexY(kCoxaVec.y);
-			float map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
+			map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
 		}
 	}
 
@@ -56,13 +60,13 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//接地している脚についてのみ考える．
-		if (dl_leg::isGrounded(current_node.leg_state, i))
+		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float edge_c = HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH - MARGIN;
-			const float edge_b = current_node.leg_pos[i].projectedXY().length() - HexapodConst::PHANTOMX_COXA_LENGTH;
+			const float edge_b = current_node.leg_pos[i].ProjectedXY().Length() - HexapodConst::PHANTOMX_COXA_LENGTH;
 
-			const float edge_a = sqrt(dl_math::squared(edge_c) - dl_math::squared(edge_b));
+			const float edge_a = sqrt(dlm::Squared(edge_c) - dlm::Squared(edge_b));
 
 			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
 			highest_body_zpos = (std::min)(edge_a + current_node.global_center_of_mass.z + current_node.leg_pos[i].z, highest_body_zpos);
@@ -75,7 +79,7 @@ void ComUpDownNodeCreator::Create(const SNode& current_node, const int current_n
 }
 
 
-void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, const int current_num, const float high, const float low, std::vector<SNode>* output_graph)
+void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, const int current_num, const float high, const float low, std::vector<RobotStateNode>* output_graph)
 {
 	//重心を変化させたものを追加する．変化量が一番少ないノードは削除する．
 	{
@@ -88,22 +92,22 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 		{
 			bool is_vaild = true;
 
-			SNode new_node = current_node;
+			RobotStateNode new_node = current_node;
 
 			//重心の位置を変更する．
-			dl_vec::SVector new_com = current_node.global_center_of_mass;
+			designlab::Vector3 new_com = current_node.global_center_of_mass;
 			new_com.z = low + kDivZ * i;
 
-			new_node.changeGlobalCenterOfMass(new_com, true);
+			new_node.ChangeGlobalCenterOfMass(new_com, true);
 
 
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
 			{
-				if (!calclator_->isLegInRange(i, new_node.leg_pos[i])) { is_vaild = false; }
+				if (!calclator_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する
-			new_node.changeNextNode(current_num, next_move_);
+			new_node.ChangeToNextNode(current_num, next_move_);
 
 			//ノードを追加する．
 			if (is_vaild)
@@ -117,9 +121,9 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const SNode& current_node, co
 
 	//重心の変化が一切ないものを追加する．
 	{
-		SNode same_node = current_node;
+		RobotStateNode same_node = current_node;
 
-		same_node.changeNextNode(current_num, next_move_);
+		same_node.ChangeToNextNode(current_num, next_move_);
 
 		(*output_graph).emplace_back(same_node);
 	}

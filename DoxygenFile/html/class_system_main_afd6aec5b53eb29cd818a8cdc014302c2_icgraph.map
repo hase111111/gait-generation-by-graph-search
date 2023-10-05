@@ -1,5 +1,0 @@
-<map id="SystemMain::main" name="SystemMain::main">
-<area shape="rect" id="Node000001" title="いままでint mainで行われた処理をまとめたもの．目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える．規定の回数シミュレーションしたら終了する．" alt="" coords="103,5,233,32"/>
-<area shape="rect" id="Node000002" href="$main_8cpp.html#a71c9f5907321b172c6e833fe4b175018" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>

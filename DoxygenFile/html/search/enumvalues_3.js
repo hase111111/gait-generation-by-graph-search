@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error_5fpos_0',['ERROR_POS',['../namespace_com_type.html#a744d4b9d4257c8ca2f68bdbed54dd621a50341d44dac3652ca1e76f307e9d6e84',1,'ComType']]]
+  ['lattice_5fpoint_0',['LATTICE_POINT',['../map__creator_8h.html#af717036720505346337d623b2a4f3c28a580d5eae4fbca9df843176b1a6f7e837',1,'map_creator.h']]]
 ];

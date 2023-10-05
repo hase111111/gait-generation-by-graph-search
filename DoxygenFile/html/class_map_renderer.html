@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_map_renderer.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="class_map_renderer-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">MapRenderer クラス</div></div>
+  <div class="headertitle"><div class="title">MapRenderer クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -103,26 +103,21 @@ $(document).ready(function(){initNavTree('class_map_renderer.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:acecf44c06312b0991a02b0f351546eed"><td class="memItemLeft" align="right" valign="top"><a id="acecf44c06312b0991a02b0f351546eed" name="acecf44c06312b0991a02b0f351546eed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNode</b> (const <a class="el" href="struct_s_node.html">SNode</a> &amp;node)</td></tr>
-<tr class="separator:acecf44c06312b0991a02b0f351546eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8b1c4579492e8d74fb990d4d570656a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_renderer.html#ab8b1c4579492e8d74fb990d4d570656a">draw</a> (const <a class="el" href="class_map_state.html">MapState</a> &amp;map) const</td></tr>
-<tr class="memdesc:ab8b1c4579492e8d74fb990d4d570656a"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの描画を行う．  <br /></td></tr>
-<tr class="separator:ab8b1c4579492e8d74fb990d4d570656a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f66eb64de0ae30b8aec6b22484f7762"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_renderer.html#a7f66eb64de0ae30b8aec6b22484f7762">Draw</a> (const <a class="el" href="class_map_state.html">MapState</a> &amp;map) const</td></tr>
+<tr class="memdesc:a7f66eb64de0ae30b8aec6b22484f7762"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの描画を行う．  <br /></td></tr>
+<tr class="separator:a7f66eb64de0ae30b8aec6b22484f7762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>Mapの描画を行うクラス． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/09 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="ab8b1c4579492e8d74fb990d4d570656a" name="ab8b1c4579492e8d74fb990d4d570656a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8b1c4579492e8d74fb990d4d570656a">&#9670;&#160;</a></span>draw()</h2>
+<a id="a7f66eb64de0ae30b8aec6b22484f7762" name="a7f66eb64de0ae30b8aec6b22484f7762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f66eb64de0ae30b8aec6b22484f7762">&#9670;&#160;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MapRenderer::draw </td>
+          <td class="memname">void MapRenderer::Draw </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_map_state.html">MapState</a> &amp;&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
@@ -141,47 +136,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setNode</b> (const <a
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_cgraph.png" border="0" usemap="#aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_cgraph" alt=""/></div>
-<map name="aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_cgraph" id="aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_cgraph">
-<area shape="rect" title="マップの描画を行う．" alt="" coords="5,173,139,200"/>
-<area shape="rect" href="namespacedl__dxlib.html#a5bb048927dd733ecc50f18acdd40a015" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているSVectorを変換する． ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なので..." alt="" coords="213,5,380,32"/>
-<area shape="poly" title=" " alt="" coords="78,171,117,108,148,72,185,42,198,35,200,40,188,46,152,76,122,112,82,174"/>
-<area shape="rect" href="namespacedl__dxlib.html#aa3743e969ae8717f2671b347ac650881" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="210,56,383,99"/>
-<area shape="poly" title=" " alt="" coords="89,171,131,140,185,108,200,102,202,107,188,113,134,144,92,175"/>
-<area shape="rect" href="class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6" title="グローバルのx座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="196,123,397,149"/>
-<area shape="poly" title=" " alt="" coords="134,170,219,151,220,156,135,175"/>
-<area shape="rect" href="class_map_state.html#af032d022391628b0bcc6185ad02938aa" title="グローバルのy座標の値から，m_devide_mapのどこをさしているか計算して返す． &#160;&#160;範囲外の値を指定した場合は，0またはマップの端の座標を返す．" alt="" coords="195,173,398,200"/>
-<area shape="poly" title=" " alt="" coords="139,184,180,184,180,189,139,189"/>
-<area shape="rect" href="class_hexapod_state_calclator.html#a1c0a81291fc3bef841c6176c307a9312" title="脚座標は脚の付け根を原点とした座標系なので，それをグローバル座標に変換する．" alt="" coords="219,224,374,267"/>
-<area shape="poly" title=" " alt="" coords="127,198,205,219,204,224,125,203"/>
-<area shape="rect" href="class_map_state.html#afc4b1ab9248eb27e060296491ca898d7" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="201,291,392,333"/>
-<area shape="poly" title=" " alt="" coords="89,199,131,237,188,276,200,282,197,287,185,281,127,241,85,202"/>
-<area shape="rect" href="class_map_state.html#ae499547ec5acd6bd2b254a22d8c16f88" title="長方形状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="187,357,406,384"/>
-<area shape="poly" title=" " alt="" coords="81,199,96,229,119,269,150,309,188,343,197,349,195,353,185,347,146,313,114,272,91,232,77,201"/>
-<area shape="rect" href="namespacedl__dxlib.html#affdd61c25200dc573bebd8d7296537c0" title="3D空間に立方体を描画する．" alt="" coords="454,64,600,91"/>
-<area shape="poly" title=" " alt="" coords="383,75,439,75,439,80,383,80"/>
+<div class="center"><img src="class_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_cgraph.png" border="0" usemap="#aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_cgraph" alt=""/></div>
+<map name="aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_cgraph" id="aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_cgraph">
+<area shape="rect" title="マップの描画を行う．" alt="" coords="5,109,141,136"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a6873d18685f86e3d6c7675898830c6f0" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なの..." alt="" coords="213,5,352,48"/>
+<area shape="poly" title=" " alt="" coords="96,107,188,58,202,51,204,56,190,62,98,111"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="195,72,370,115"/>
+<area shape="poly" title=" " alt="" coords="140,111,180,105,180,110,141,116"/>
+<area shape="rect" href="class_map_state.html#a48e77403dbad5738f2cd449ebc51275c" title="脚設置可能点の座標を返す．" alt="" coords="202,139,363,165"/>
+<area shape="poly" title=" " alt="" coords="141,129,187,136,187,141,140,135"/>
+<area shape="rect" href="class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec" title="脚設置可能点の総数を返す．" alt="" coords="189,189,376,216"/>
+<area shape="poly" title=" " alt="" coords="101,134,190,175,211,182,209,187,188,180,99,139"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="424,72,559,115"/>
+<area shape="poly" title=" " alt="" coords="370,91,409,91,409,96,370,96"/>
 </map>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_icgraph.png" border="0" usemap="#aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_icgraph" alt=""/></div>
-<map name="aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_icgraph" id="aclass_map_renderer_ab8b1c4579492e8d74fb990d4d570656a_icgraph">
-<area shape="rect" title="マップの描画を行う．" alt="" coords="222,64,355,91"/>
-<area shape="rect" href="class_graphic_main_basic.html#ada25886ad88e0cfeeef64e90ff87dbbd" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="8,5,171,32"/>
-<area shape="poly" title=" " alt="" coords="226,62,137,35,138,30,228,57"/>
-<area shape="rect" href="class_graphic_main_graph_viewer.html#a7f964f335a3056e101dc8b27b3b26b8a" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,56,174,99"/>
-<area shape="poly" title=" " alt="" coords="207,80,174,80,174,75,207,75"/>
-<area shape="rect" href="class_graphic_main_test.html#a1594f9f66c5fb8fa9a67787463b0c7f5" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="12,123,167,149"/>
-<area shape="poly" title=" " alt="" coords="228,98,138,125,137,120,226,93"/>
+<div class="center"><img src="class_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_icgraph.png" border="0" usemap="#aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_icgraph" alt=""/></div>
+<map name="aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_icgraph" id="aclass_map_renderer_a7f66eb64de0ae30b8aec6b22484f7762_icgraph">
+<area shape="rect" title="マップの描画を行う．" alt="" coords="222,101,357,128"/>
+<area shape="rect" href="class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="18,5,161,48"/>
+<area shape="poly" title=" " alt="" coords="246,97,173,62,146,51,148,46,175,58,248,92"/>
+<area shape="rect" href="class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="7,72,172,99"/>
+<area shape="poly" title=" " alt="" coords="207,105,172,100,173,95,207,100"/>
+<area shape="rect" href="class_graphic_main_graph_viewer.html#a14795bbb91d4226833221de9ca9f8d8e" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,123,174,165"/>
+<area shape="poly" title=" " alt="" coords="207,129,175,134,174,129,206,124"/>
+<area shape="rect" href="class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="11,189,168,216"/>
+<area shape="poly" title=" " alt="" coords="255,138,175,180,143,191,141,186,173,175,253,133"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="map__renderer_8h_source.html">map_renderer.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/map_renderer.cpp</li>
+<li>DesignLab/<a class="el" href="map__renderer_8h_source.html">map_renderer.h</a></li>
+<li>DesignLab/map_renderer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

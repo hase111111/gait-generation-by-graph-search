@@ -6,7 +6,7 @@ digraph "STarget"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   Node1 [id="Node000001",label="STarget",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="探索において目標となる座標や角度，評価する値についてまとめた構造体"];
   Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" RotationCenter\nTargetDirection\nTargetPosition",fontcolor="grey" ];
-  Node2 [id="Node000002",label="dl_vec::SVector",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_vector.html",tooltip="ベクトルを表す構造体"];
+  Node2 [id="Node000002",label="designlab::Vector3",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_vector3.html",tooltip="3次元の位置ベクトルを表す構造体"];
   Node3 -> Node1 [id="edge2_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" TargetAngle\nTargetRotation",fontcolor="grey" ];
-  Node3 [id="Node000003",label="dl_vec::SRotator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdl__vec_1_1_s_rotator.html",tooltip="回転を表す構造体．XYZオイラー角"];
+  Node3 [id="Node000003",label="designlab::EulerXYZ",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdesignlab_1_1_euler_x_y_z.html",tooltip="回転を表す構造体．XYZオイラー角．単位は [rad]"];
 }

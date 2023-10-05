@@ -17,7 +17,7 @@
 #include "interpolated_node_creator.h"
 #include "map_state.h"
 #include "movement_locus_renderer.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
 #include "stability_margin_renderer.h"
@@ -27,7 +27,7 @@ class GraphicMainAdvance final : public IGraphicMain
 {
 public:
 	GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainAdvance() = default;
 
 	bool Update() override;
@@ -46,7 +46,7 @@ private:
 
 	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
 
-	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
@@ -64,13 +64,13 @@ private:
 
 	MapState map_state_;		//!< 表示するマップ．
 
-	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
+	std::vector<RobotStateNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
 	size_t display_node_index_;	//!< 描画しているノード
 
 	int counter_;				//!< このクラスが実行されてから何回update関数が呼ばれたかカウントする．
 
-	std::vector<SNode> interpolated_node_;	//!< 補間されたノードを記録するvector
+	std::vector<RobotStateNode> interpolated_node_;	//!< 補間されたノードを記録するvector
 
 	int interpolated_anime_start_count_;	//!< 補間されたノードを表示し始めるカウント
 

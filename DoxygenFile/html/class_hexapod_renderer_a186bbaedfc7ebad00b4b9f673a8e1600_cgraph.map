@@ -1,5 +1,0 @@
-<map id="HexapodRenderer::update" name="HexapodRenderer::update">
-<area shape="rect" id="Node000001" title="ロボットの状態を更新する．" alt="" coords="5,13,177,40"/>
-<area shape="rect" id="Node000002" href="$class_hexapod_state_calclator.html#ab7061397f796eec14959072beee21526" title="ノードの情報は現在の脚位置と重心位置しか持たないので，ジョイントがどこにあるかが分からない．よってこの関数で計算する． &#160;三角関数を多く使用するので，計算量が多い．" alt="" coords="225,5,379,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,24,210,24,210,29,177,29"/>
-</map>

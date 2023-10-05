@@ -1,7 +1,0 @@
-<map id="GUIController::update" name="GUIController::update">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,151,69"/>
-<area shape="rect" id="Node000002" href="$class_singleton.html#a770513deea79541075e950e16d84c69a" title="インスタンスを取得する． このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="240,5,382,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,44,224,35,225,40,151,50"/>
-<area shape="rect" id="Node000003" href="$class_camera_controller.html#adb30190f4a720ec1039b2992c4210e7e" title="カメラのモードをセットする．" alt="" coords="199,72,423,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,62,186,67,185,72,151,68"/>
-</map>

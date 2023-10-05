@@ -1,5 +1,5 @@
-//! @file abstract_graphic_main.h
-//! @brief AbstractGraphicMainクラス．AbstractGraphicMainは抽象クラスであるので実体が作れない．
+//! @file interface_graphic_main.h
+//! @brief GraphicMainのインターフェース
 
 #ifndef DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_
 #define DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_
@@ -8,9 +8,7 @@
 //! @class IGraphicMain
 //! @brief GraphicMainのインターフェース
 //! @details 描画の処理を行うクラスは必ずこのクラスを継承すること．逆に言えば継承すれば自由に処理が交換可能になる．
-//! @n ともかく，交換可能なグラフィックのパーツを作るための金型がこの親クラスだということ．
-//! @n ひとまず，継承先のGraphicMainSampleを確認すればなんとなくわかると思う．
-
+//! @n ともかく，交換可能なグラフィックのパーツを作るための金型がこのクラスだということ．
 class IGraphicMain
 {
 public:

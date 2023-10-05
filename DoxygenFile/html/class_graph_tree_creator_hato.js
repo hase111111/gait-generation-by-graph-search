@@ -1,4 +1,5 @@
 var class_graph_tree_creator_hato =
 [
-    [ "createGraphTree", "class_graph_tree_creator_hato.html#a600511213a4c529be108aae79213caa1", null ]
+    [ "CreateGraphTree", "class_graph_tree_creator_hato.html#ae3ddb3d0dbce36e5877ee4392256ba00", null ],
+    [ "Init", "class_graph_tree_creator_hato.html#a78fe4bc4143e050806c39ff94fe30e00", null ]
 ];

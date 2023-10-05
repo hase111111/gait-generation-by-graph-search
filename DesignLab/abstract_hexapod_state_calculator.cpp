@@ -1,49 +1,50 @@
 #include "abstract_hexapod_state_calculator.h"
 
+#include "cassert_define.h"
 #include "leg_state.h"
 
 
-dl_vec::SVector AbstractHexapodStateCalculator::getLocalLegBasePosition(const int leg_index) const
+namespace dllf = designlab::leg_func;
+
+
+float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
 {
-	if constexpr (DO_CHECK_LEG_INDEX)
-	{
-		if (!checkLegIndex(leg_index))
-		{
-			return { 0,0,0 };
-		}
-	}
-
-	return m_local_leg_base_pos[leg_index];
-}
-
-
-float AbstractHexapodStateCalculator::calcStabilityMargin(const std::bitset<dl_leg::LEG_STATE_BIT_NUM> leg_state, const dl_vec::SVector leg_pos[HexapodConst::LEG_NUM]) const
-{
-	//重心を原点とした座標系で，脚の位置を計算する．
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
-	std::vector<dl_vec::SVector2> ground_leg_pos;
+	std::array<designlab::Vector2,HexapodConst::LEG_NUM> ground_leg_pos;	// xy平面に投射した，重心を原点としたローカル(ロボット)座標系で，脚の位置を計算する．
+	int ground_leg_pos_num = 0;												// 速度の関係上 vectorでなくarrayを使う．
 
 	//接地脚のみ追加する
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(leg_state, i))
+		if (dllf::IsGrounded(leg_state, i))
 		{
-			ground_leg_pos.push_back(leg_pos[i].projectedXY() + getLocalLegBasePosition(i).projectedXY());
+			ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLocalLegBasePosition(i).ProjectedXY();
+			ground_leg_pos_num++;
 		}
 	}
 
 
-	float min_margin = 1000000;
+	float min_margin = 0;	// 多角形の辺と重心の距離の最小値
+	bool is_first = true;	// 初回かどうか，最初は必ず値を更新する
 
-	for (int i = 0; i < ground_leg_pos.size(); i++)
+	for (int i = 0; i < ground_leg_pos_num; i++)
 	{
-		dl_vec::SVector2 i_to_i_plus_1 = ground_leg_pos.at((i + 1) % ground_leg_pos.size()) - ground_leg_pos.at(i);
-		i_to_i_plus_1.normalized();
+		designlab::Vector2 i_to_i_plus_1 = ground_leg_pos[(i + 1) % ground_leg_pos_num] - ground_leg_pos[i];
+		i_to_i_plus_1.Normalize();
+		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - ground_leg_pos[i];
 
-		dl_vec::SVector2 i_to_com = dl_vec::SVector2{ 0,0 } - ground_leg_pos.at(i);
+		float margin = i_to_com.Cross(i_to_i_plus_1);	// 多角形の辺と重心の距離(静的安定余裕)
 
-		min_margin = (std::min)(min_margin, i_to_com.cross(i_to_i_plus_1));
+		if (is_first) 
+		{
+			min_margin = margin;
+			is_first = false;
+		}
+		else 
+		{
+			min_margin = (std::min)(min_margin, margin);
+		}
 	}
 
 	return min_margin;

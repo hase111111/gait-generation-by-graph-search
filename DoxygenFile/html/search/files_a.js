@@ -6,5 +6,5 @@ var searchData=
   ['map_5frenderer_2eh_3',['map_renderer.h',['../map__renderer_8h.html',1,'']]],
   ['map_5fstate_2eh_4',['map_state.h',['../map__state_8h.html',1,'']]],
   ['mouse_2eh_5',['mouse.h',['../mouse_8h.html',1,'']]],
-  ['my_5ftimer_2eh_6',['my_timer.h',['../my__timer_8h.html',1,'']]]
+  ['movement_5flocus_5frenderer_2eh_6',['movement_locus_renderer.h',['../movement__locus__renderer_8h.html',1,'']]]
 ];

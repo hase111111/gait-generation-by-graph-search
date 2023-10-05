@@ -1,0 +1,18 @@
+<map id="ComSelecterHato::GetComFromPolygon" name="ComSelecterHato::GetComFromPolygon">
+<area shape="rect" id="Node000001" title="重心を求める" alt="" coords="5,93,215,136"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#af0095d312db6989b0c9a619f84c0e5d4" title="頂点の座標を返す関数" alt="" coords="263,5,401,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,90,262,51,264,56,167,95"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="449,33,587,76"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="215,97,434,64,435,69,216,102"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="266,123,398,165"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="215,126,251,131,250,136,215,131"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a8899add912014b0eac615bcac1ef95f4" title="このベクトルを正規化したベクトルを返す" alt="" coords="267,189,397,232"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="162,134,269,181,266,186,160,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,34,435,39,434,45,401,40"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="450,127,587,169"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="396,186,438,172,440,177,398,191"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#a93efc08761d0e68557fa4bcccacba843" title="このベクトルの長さを返す" alt="" coords="454,193,583,236"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="397,209,439,210,439,216,397,215"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector2.html#a87dd9fc675e7648a5c22d9c01d79c63b" title="このベクトルの長さの2乗を返す" alt="" coords="635,193,765,236"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="583,212,621,212,621,217,583,217"/>
+</map>

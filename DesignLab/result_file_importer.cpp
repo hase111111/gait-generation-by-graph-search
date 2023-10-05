@@ -1,0 +1,67 @@
+#include "result_file_importer.h"
+
+#include <filesystem>
+#include <fstream>
+
+#include "cassert_define.h"
+#include "cmdio_util.h"
+
+
+namespace dlio = designlab::cmdio;
+namespace fs = std::filesystem;
+
+
+bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path, std::vector<RobotStateNode>* node_list, MapState* map_state) const
+{
+    // 引数の確認
+    assert(node_list != nullptr);
+    assert(node_list->empty());
+    assert(map_state != nullptr);
+    assert(map_state->GetMapPointSize() == 0);
+
+
+    // ファイルが存在するかどうかを確認．ないならばfalseを返す．
+    if (not fs::exists(file_path)) 
+    {
+        dlio::Output("ファイルが存在しませんでした．", OutputDetail::kSystem);
+		return false;
+    }
+
+    if (not fs::exists(file_path))
+    {
+        dlio::Output("ファイルが存在しませんでした．", OutputDetail::kSystem);
+        return false;
+    }
+
+    // ファイルを開く
+    std::ifstream ifs(file_path);
+
+    // ファイルが開けないならばfalseを返す．
+    if (not ifs.is_open())
+    {
+		dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
+
+        return false;
+    }
+
+
+    // ファイルを読み込む
+    std::string str;
+    std::vector<std::string> str_list;
+
+    while (std::getline(ifs, str))
+    {
+		str_list.push_back(str);
+	}
+
+    // ファイルを閉じる
+    ifs.close();
+
+    // ファイルの内容を解析する
+    // ノードリストの読み込み
+
+
+    
+
+    return false;
+}

@@ -1,5 +1,13 @@
-//! @file fps.h
-//! @brief Fpsを一定に保つクラス．
+//! @file fps_controller.h
+//! @brief FPSを一定にキープするためのクラス．
+
+
+#ifndef DESIGNLAB_FPS_CONTROLLER_H_
+#define DESIGNLAB_FPS_CONTROLLER_H_
+
+
+#include <list>
+
 
 //! @class FpsController
 //! @brief FPSを一定にキープするためのクラス．
@@ -10,15 +18,6 @@
 //! @n [参考] 
 //! @n ・FPSの制御を行う https://dixq.net/rp2/07.html ←このサイトのプログラムを参考にしているが，機能を色々追加している．
 //! @n ・DxlibのFPSとリフレッシュレートについて https://dixq.net/forum/viewtopic.php?t=20224
-
-
-#ifndef DESIGNLAB_FPS_CONTROLLER_H_
-#define DESIGNLAB_FPS_CONTROLLER_H_
-
-
-#include <list>
-
-
 class FpsController final
 {
 public:

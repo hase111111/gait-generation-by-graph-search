@@ -1,17 +1,24 @@
 #include "button_controller.h"
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 #include "mouse.h"
 
 
-ButtomController::ButtomController() : kXPos(0), kYPos(0), kXSize(100), kYSize(50), m_text("NO SETTING")
+ButtomController::ButtomController() : ButtomController{0,0,100,50,""}
 {
 }
 
 
-ButtomController::ButtomController(const int _xpos, const int _ypos, const int _xsize, const int _ysize, const std::string _text)
-	: kXPos(_xpos), kYPos(_ypos), kXSize(_xsize), kYSize(_ysize), m_text(_text)
+ButtomController::ButtomController(const int _xpos, const int _ypos, const int _xsize, const int _ysize, const std::string& _text) : 
+	kXPos(_xpos), 
+	kYPos(_ypos), 
+	kXSize(_xsize), 
+	kYSize(_ysize), 
+	is_mouse_in_button_(false),
+	is_pushed_(false),
+	pushing_frame_(0),
+	text_(_text)
 {
 }
 
@@ -19,26 +26,26 @@ ButtomController::ButtomController(const int _xpos, const int _ypos, const int _
 void ButtomController::Update()
 {
 	//マウスカーソルがボタン内にあるかどうか調べる．
-	m_is_mouse_in_buttom = false;
+	is_mouse_in_button_ = false;
 
-	if (kXPos - kXSize / 2 < Mouse::GetIns()->cursor_pos_x() && Mouse::GetIns()->cursor_pos_x() < kXPos + kXSize / 2)
+	if (kXPos - kXSize / 2 < Mouse::GetIns()->GetCursorPosX() && Mouse::GetIns()->GetCursorPosX() < kXPos + kXSize / 2)
 	{
-		if (kYPos - kYSize / 2 < Mouse::GetIns()->cursor_pos_y() && Mouse::GetIns()->cursor_pos_y() < kYPos + kYSize / 2)
+		if (kYPos - kYSize / 2 < Mouse::GetIns()->GetCursorPosY() && Mouse::GetIns()->GetCursorPosY() < kYPos + kYSize / 2)
 		{
-			m_is_mouse_in_buttom = true;
+			is_mouse_in_button_ = true;
 		}
 	}
 
 	//ボタンが押されているか調べる
-	if (m_is_mouse_in_buttom == true && Mouse::GetIns()->left_pushing_counter() > 0)
+	if (is_mouse_in_button_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
 	{
-		m_is_pushed = true;
-		m_pushing_frame++;
+		is_pushed_ = true;
+		pushing_frame_++;
 	}
 	else
 	{
-		m_is_pushed = false;
-		m_pushing_frame = 0;
+		is_pushed_ = false;
+		pushing_frame_ = 0;
 	}
 }
 
@@ -46,8 +53,8 @@ void ButtomController::Update()
 void ButtomController::Draw() const
 {
 	const int kBaseColor = GetColor(20, 20, 20);
-	const int kButtomColor = m_is_pushed ? GetColor(40, 40, 40) : GetColor(255, 255, 255);
-	const int kStrColor = m_is_pushed ? GetColor(200, 200, 200) : GetColor(20, 20, 20);
+	const int kButtomColor = is_pushed_ ? GetColor(40, 40, 40) : GetColor(255, 255, 255);
+	const int kStrColor = is_pushed_ ? GetColor(200, 200, 200) : GetColor(20, 20, 20);
 	const int kFrameSize = 3;
 	const int kStrHeight = 16;
 
@@ -58,23 +65,23 @@ void ButtomController::Draw() const
 	DrawBox(kXPos - kXSize / 2 + kFrameSize, kYPos - kYSize / 2 + kFrameSize, kXPos + kXSize / 2 - kFrameSize, kYPos + kYSize / 2 - kFrameSize, kButtomColor, TRUE);
 
 	//テキストを表示
-	DrawString(kXPos - GetDrawStringWidth(m_text.c_str(), (int)m_text.size()) / 2, kYPos - kStrHeight / 2, m_text.c_str(), kStrColor);
+	DrawString(kXPos - GetDrawStringWidth(text_.c_str(), (int)text_.size()) / 2, kYPos - kStrHeight / 2, text_.c_str(), kStrColor);
 }
 
 
-bool ButtomController::isPushedNow() const
+bool ButtomController::IsPushedNow() const
 {
-	return m_is_pushed && (m_pushing_frame == 1);
+	return is_pushed_ && (pushing_frame_ == 1);
 }
 
 
-bool ButtomController::isPushed() const
+bool ButtomController::IsPushed() const
 {
-	return m_is_pushed;
+	return is_pushed_;
 }
 
 
-int ButtomController::getPushingFlame() const
+int ButtomController::GetPushingFlame() const
 {
-	return m_pushing_frame;
+	return pushing_frame_;
 }

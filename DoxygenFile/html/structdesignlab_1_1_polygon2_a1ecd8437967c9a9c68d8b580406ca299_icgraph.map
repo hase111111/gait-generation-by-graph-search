@@ -1,0 +1,9 @@
+<map id="designlab::Polygon2::AddVertex" name="designlab::Polygon2::AddVertex">
+<area shape="rect" id="Node000001" title="頂点を追加する関数" alt="" coords="425,35,563,77"/>
+<area shape="rect" id="Node000002" href="$class_stability_margin_renderer.html#aa49922b8aa57afbb10acd08a0a5efd40" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="218,35,377,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,59,377,59,377,53,410,53"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_advance.html#a6692e76b6ea8bf3bc16f7e22c0feccbb" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="16,5,159,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,45,159,39,160,34,203,40"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,72,170,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="203,72,171,76,170,71,203,67"/>
+</map>

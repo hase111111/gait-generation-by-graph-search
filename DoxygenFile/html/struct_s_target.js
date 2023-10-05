@@ -1,10 +1,10 @@
 var struct_s_target =
 [
-    [ "RotationCenter", "struct_s_target.html#a3a13facdf1e9abead5ec592606da69d0", null ],
-    [ "TargetAngle", "struct_s_target.html#a9f0fd409b7e8ac97e7c847f45bb15f44", null ],
-    [ "TargetDirection", "struct_s_target.html#a61df17e0d75ba2e075e077c2274229ba", null ],
+    [ "RotationCenter", "struct_s_target.html#ae9fd37f40377ec45262a314a673ee9b1", null ],
+    [ "TargetAngle", "struct_s_target.html#a2ba20c6b92ecdf42949e665c0c6fe72b", null ],
+    [ "TargetDirection", "struct_s_target.html#a1c0acfc5e6093585228470c933ef7e15", null ],
     [ "TargetMode", "struct_s_target.html#aa62493eac6ff3d3df551e549b78cfd46", null ],
-    [ "TargetPosition", "struct_s_target.html#a0c1cd889d926b935d236ba1836857c39", null ],
-    [ "TargetRotation", "struct_s_target.html#accc34415dd66057b029af85cc5f1bd82", null ],
+    [ "TargetPosition", "struct_s_target.html#ab17c4a5d1d13a5965e7e2cfdd519fe08", null ],
+    [ "TargetRotation", "struct_s_target.html#a7dced1bc0249057990684555b1dcdecb", null ],
     [ "TurningRadius", "struct_s_target.html#aad6708c5f5c7a7758243098bf4ead4a5", null ]
 ];

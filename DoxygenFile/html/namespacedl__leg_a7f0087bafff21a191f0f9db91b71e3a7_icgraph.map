@@ -1,5 +1,0 @@
-<map id="dl_leg::getLiftedLegNumWithVector" name="dl_leg::getLiftedLegNumWithVector">
-<area shape="rect" id="Node000001" title="遊脚している脚の脚番号0〜5を，引数_res_numberで参照渡しする関数" alt="" coords="228,5,415,48"/>
-<area shape="rect" id="Node000002" href="$class_leg_up_node_creator.html#a8fcdcc64f2e29299e392dcf1a2ecd2d0" title="重心を平行移動したノードを生成する" alt="" coords="5,13,180,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,29,180,29,180,24,213,24"/>
-</map>

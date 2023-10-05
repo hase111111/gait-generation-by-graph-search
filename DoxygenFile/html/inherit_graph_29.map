@@ -1,3 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$class_hexapod_state_calclator.html" title="ロボットの座標や状態などの値を計算するクラス．旧 Hexapodクラスを軽くしたもの．" alt="" coords="5,5,160,32"/>
+<area shape="rect" id="Node000000" href="$struct_graphic_data_broker.html" title="画像表示部と，データ処理部を結びつける仲介人クラス" alt="" coords="5,5,137,32"/>
 </map>

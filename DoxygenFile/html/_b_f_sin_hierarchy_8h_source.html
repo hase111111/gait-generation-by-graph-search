@@ -92,30 +92,30 @@ $(document).ready(function(){initNavTree('_b_f_sin_hierarchy_8h_source.html','')
   <div class="headertitle"><div class="title">BFSinHierarchy.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿#pragma once</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">int</span> edge_index[37];</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> edge_list[298];</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_RF[23];<span class="comment">//右前脚</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_RM[23];</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_RR[23];    <span class="comment">//右後脚</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_LR[23];    <span class="comment">//左後脚</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_LM[23];    <span class="comment">//左中脚</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> Raised_LF[23];        <span class="comment">//左前脚</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType1[9]; <span class="comment">//パターン6</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType2[9]; <span class="comment">//パターン1</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType3[9]; <span class="comment">//パターン2</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType4[9]; <span class="comment">//パターン3</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType5[9]; <span class="comment">//パターン4</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType6[9]; <span class="comment">//パターン5</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType7[9]; <span class="comment">//パターン7</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType8[9]; <span class="comment">//パターン8</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> comType0[18]; <span class="comment">//パターン0 どの隣りあった足も上げることができない</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> clear_node_bfs(<span class="keyword">const</span> <span class="keywordtype">char</span>* clearnum, <span class="keywordtype">char</span> n, <span class="keywordtype">bool</span>* visited);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> bfs_in_hierarchy(<span class="keywordtype">char</span> start, <span class="keywordtype">char</span>* prev, <span class="keywordtype">char</span>* cost, <span class="keywordtype">bool</span>* visited);</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿<span class="comment">//#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//extern const int edge_index[37];</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//extern const char edge_list[298];</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//extern const char Raised_RF[23];//右前脚</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//extern const char Raised_RM[23];</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//extern const char Raised_RR[23];  //右後脚</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//extern const char Raised_LR[23];  //左後脚</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//extern const char Raised_LM[23];  //左中脚</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//extern const char Raised_LF[23];      //左前脚</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//extern const char comType1[9]; //パターン6</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//extern const char comType2[9]; //パターン1</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//extern const char comType3[9]; //パターン2</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//extern const char comType4[9]; //パターン3</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//extern const char comType5[9]; //パターン4</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//extern const char comType6[9]; //パターン5</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//extern const char comType7[9]; //パターン7</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//extern const char comType8[9]; //パターン8</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//extern const char comType0[18]; //パターン0 どの隣りあった足も上げることができない</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//void clear_node_bfs(const char* clearnum, char n, bool* visited);</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//void bfs_in_hierarchy(char start, char* prev, char* cost, bool* visited);</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

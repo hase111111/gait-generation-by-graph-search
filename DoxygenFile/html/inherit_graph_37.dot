@@ -5,5 +5,9 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="MapCreator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_map_creator.html",tooltip="マップを生成するクラス．"];
+  Node0 [id="Node000000",label="IGraphSearcher",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_i_graph_searcher.html",tooltip="グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．"];
+  Node0 -> Node1 [id="edge7_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="GraphSearcherHato",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_searcher_hato.html",tooltip="波東先輩の手法で，グラフ探索を行うクラス．"];
+  Node0 -> Node2 [id="edge8_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GraphSearcherRandom",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_graph_searcher_random.html",tooltip=" "];
 }

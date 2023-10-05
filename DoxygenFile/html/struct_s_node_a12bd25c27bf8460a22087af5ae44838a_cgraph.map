@@ -1,9 +1,0 @@
-<map id="SNode::init" name="SNode::init">
-<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="5,31,91,57"/>
-<area shape="rect" id="Node000002" href="$namespacedl__math.html#a53fdfc3c2aa4eba64fa79506aa645bb7" title="指定した範囲内の乱数を生成する．" alt="" coords="139,5,357,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,36,124,32,124,37,91,41"/>
-<area shape="rect" id="Node000003" href="$namespacedl__leg.html#ae6cda3d2627d7b423793a243f8cb77e9" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="174,56,322,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,47,160,56,159,61,91,52"/>
-<area shape="rect" id="Node000004" href="$namespace_com_type.html#ad68857d4fdd3fc1a4c31631655e388a4" title="重心パターンをbitに変換する関数" alt="" coords="405,48,599,91"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="322,67,390,67,390,72,322,72"/>
-</map>

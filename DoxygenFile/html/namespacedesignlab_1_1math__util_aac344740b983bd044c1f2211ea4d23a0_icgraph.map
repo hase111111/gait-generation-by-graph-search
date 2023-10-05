@@ -1,0 +1,9 @@
+<map id="designlab::math_util::Squared" name="designlab::math_util::Squared">
+<area shape="rect" id="Node000001" title="2乗した値を返す関数． &#160;&#160;整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．" alt="" coords="222,64,359,107"/>
+<area shape="rect" id="Node000002" href="$class_com_up_down_node_creator.html#aadc3eaeffbf95aaa64d607c3113af01a" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,174,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,64,164,51,166,46,208,59"/>
+<area shape="rect" id="Node000003" href="$class_mouse.html#a4ddc62fbcd2d97808b7552181cde2954" title="マウスカーソルの移動量を取得する．" alt="" coords="24,72,155,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,88,155,88,155,83,207,83"/>
+<area shape="rect" id="Node000004" href="$class_phantom_x_state_calclator___hato.html#ac56aef3f9820b542dc4eadd625f5d51d" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="8,123,171,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,112,166,125,164,119,207,107"/>
+</map>

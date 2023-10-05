@@ -5,13 +5,5 @@ digraph "クラス階層図"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="IPassFinder",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_i_pass_finder.html",tooltip="グラフ探索を行うクラスのインターフェイス．実体は作成できないのでこれを継承してたクラスを使うこと．"];
-  Node0 -> Node1 [id="edge20_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="PassFinderFixed",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pass_finder_fixed.html",tooltip="再評価手法"];
-  Node0 -> Node2 [id="edge21_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="PassFinderHato",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pass_finder_hato.html",tooltip="波東先輩の手法で，グラフ探索を行うクラス．"];
-  Node0 -> Node3 [id="edge22_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="PassFinderHatoThread",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pass_finder_hato_thread.html",tooltip="パス探索クラス"];
-  Node0 -> Node4 [id="edge23_Node000000_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="PassFinderNone",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pass_finder_none.html",tooltip="グラフ探索を行わないクラス．Graphicクラスのデバッグを行う際に用いる．"];
+  Node0 [id="Node000000",label="HexapodJointState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_hexapod_joint_state.html",tooltip="ロボットの関節の状態を表す構造体．"];
 }

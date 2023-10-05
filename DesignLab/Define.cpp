@@ -1,11 +1,13 @@
-#include "Define.h"
+#include "define.h"
 
-const int Define::SIMURATE_NUM = 5;
+#include <filesystem>
 
-const int Define::GATE_PATTERN_GENERATE_NUM = 1000;
 
-const int Define::GOAL_TAPE = 1200;
+const int Define::kSimurateNum = 2;
 
-const bool Define::FLAG_GRAPHIC_AVAILABLE = true;
+const int Define::kGaitPatternGenerationLimit = 1000;
 
-const bool Define::FLAG_DO_PRUNING = false;
+const int Define::kGoalTape = 1200;
+
+
+const std::string Define::kResultFilePath = std::filesystem::current_path().string() + "/result";

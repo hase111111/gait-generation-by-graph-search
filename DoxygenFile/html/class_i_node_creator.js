@@ -1,6 +1,5 @@
 var class_i_node_creator =
 [
-    [ "INodeCreator", "class_i_node_creator.html#ae05aca798b48bda18aae52c0b9f37b46", null ],
-    [ "create", "class_i_node_creator.html#a68585d4ef146720e494e0d4fc1961bdc", null ],
-    [ "m_next_move", "class_i_node_creator.html#ab19dddbded0d73045d481ff4a89cbd50", null ]
+    [ "INodeCreator", "class_i_node_creator.html#ad46319ff6eed3056aa4ed49657c4d1fc", null ],
+    [ "Create", "class_i_node_creator.html#aed522bc654c6395ee16b28f4b5b8fecb", null ]
 ];

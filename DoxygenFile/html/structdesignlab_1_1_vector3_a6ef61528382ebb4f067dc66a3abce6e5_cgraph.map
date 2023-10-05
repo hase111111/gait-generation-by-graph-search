@@ -1,0 +1,9 @@
+<map id="designlab::Vector3::Normalized" name="designlab::Vector3::Normalized">
+<area shape="rect" id="Node000001" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．絶対値が0のベクトルを使用しないこと!" alt="" coords="5,39,135,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a44a42787b2445c454d3afed817c1769e" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="183,5,320,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,45,167,39,168,45,136,51"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#a1a64cf59595f7a858075f4899815f66a" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならそっちを使うべき．" alt="" coords="187,72,316,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,69,173,76,172,81,135,75"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#a060a9822b0cfc9aa6f2dd74c318f3201" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="368,72,497,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="317,91,353,91,353,96,317,96"/>
+</map>

@@ -1,7 +1,0 @@
-<map id="CameraManager::setTargetPos" name="CameraManager::setTargetPos">
-<area shape="rect" id="Node000001" title="カメラの注視する目標の座標をセットする" alt="" coords="464,5,665,32"/>
-<area shape="rect" id="Node000002" href="$class_camera_g_u_i.html#abf63b86956c9f787c901a59e8eaeb3d2" title="カメラの注視する位置を設定する" alt="" coords="228,5,416,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="449,21,416,21,416,16,449,16"/>
-<area shape="rect" id="Node000003" href="$class_graphic_main_basic.html#aea5c6c2969b907848589afc410b46f43" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,180,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,21,180,21,180,16,213,16"/>
-</map>

@@ -1,0 +1,20 @@
+<map id="designlab::Vector3::Dot" name="designlab::Vector3::Dot">
+<area shape="rect" id="Node000001" title="自分・引数 の内積の結果を返す．" alt="" coords="865,72,1022,99"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a7e4a031df5e5ccf1b2b93be7d8c7076a" title="クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める" alt="" coords="641,27,817,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="862,71,795,57,796,51,863,66"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_quaternion.html#a52ffb1d579c2845eb2aa1fbd21fa9750" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="655,93,803,136"/>
+<area shape="poly" id="edge4_Node000001_Node000010" title=" " alt="" coords="850,101,803,107,803,102,850,95"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a12ea420a317fc2b34a4ee1872ce9a025" title="球面線形補間を行う．" alt="" coords="416,19,593,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="626,39,594,38,594,33,626,34"/>
+<area shape="rect" id="Node000004" href="$class_camera_state_manager.html#a5030afa746bcf15ef63107c8d34712ee" title="カメラの位置などの更新を行う．毎フレーム実行すること" alt="" coords="221,5,368,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="401,32,369,31,369,26,401,27"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_quaternion.html#a17c6bcd41fbd5833c6885bdd170c75d8" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="431,127,578,169"/>
+<area shape="poly" id="edge5_Node000010_Node000011" title=" " alt="" coords="641,130,579,140,578,134,641,125"/>
+<area shape="rect" id="Node000012" href="$structdesignlab_1_1_quaternion.html#a5e17d48809b4339ee959c2119a106726" title="クォータニオンの逆数を返す &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの" alt="" coords="221,72,368,115"/>
+<area shape="poly" id="edge6_Node000011_Node000012" title=" " alt="" coords="416,128,368,115,369,110,417,123"/>
+<area shape="rect" id="Node000013" href="$namespacedesignlab.html#a88a31cb8dd4fb0891393816ad574b9a8" title="3次元の位置ベクトルを回転させる．" alt="" coords="5,109,173,136"/>
+<area shape="poly" id="edge9_Node000011_Node000013" title=" " alt="" coords="416,145,173,130,173,125,416,140"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_quaternion.html#a7e53e5872a5a39da9cb6ca40a0c6e91a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="221,189,368,232"/>
+<area shape="poly" id="edge8_Node000011_Node000015" title=" " alt="" coords="417,177,369,191,367,186,416,172"/>
+<area shape="poly" id="edge7_Node000012_Node000013" title=" " alt="" coords="207,109,173,113,173,108,206,103"/>
+</map>

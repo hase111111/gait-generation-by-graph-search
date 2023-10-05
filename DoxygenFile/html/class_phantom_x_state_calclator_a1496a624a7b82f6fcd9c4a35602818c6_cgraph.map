@@ -1,0 +1,8 @@
+<map id="PhantomXStateCalclator::GetGlobalLegBasePosition" name="PhantomXStateCalclator::GetGlobalLegBasePosition">
+<area shape="rect" id="Node000001" title="脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系" alt="" coords="5,47,191,89"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="239,5,418,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,49,223,43,224,48,192,54"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a856b1521c31b6c5ec35f3028b7df7179" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="260,96,397,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,82,245,92,244,97,191,87"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="290,97,283,87,287,77,303,71,328,69,357,72,371,80,369,84,356,77,328,75,304,77,291,81,288,87,294,94"/>
+</map>

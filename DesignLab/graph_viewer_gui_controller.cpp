@@ -2,7 +2,8 @@
 
 #include <string>
 
-#include "DxLib.h"
+#include <Dxlib.h>
+#include <magic_enum.hpp>
 
 #include "graphic_const.h"
 #include "graph_search_const.h"
@@ -10,8 +11,11 @@
 #include "leg_state.h"
 
 
-GraphViewerGUIController::GraphViewerGUIController(const std::vector<SNode>* const p_graph, size_t* const p_display_node_index,
-	const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr) :
+namespace dllf = designlab::leg_func;
+
+
+GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateNode>* const p_graph, size_t* const p_display_node_index,
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	mp_graph(p_graph),
 	mp_display_node_index(p_display_node_index),
 	setting_ptr_(setting_ptr)
@@ -120,7 +124,7 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 }
 
 
-void GraphViewerGUIController::drawNodeData(const SNode& node) const
+void GraphViewerGUIController::drawNodeData(const RobotStateNode& node) const
 {
 	const int kBoxSizeX = 400;
 	const int KBoxSizeY = 300;
@@ -142,9 +146,9 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dl_leg::getComPatternState(node.leg_state),
-		dl_leg::getLegState(node.leg_state, 0), dl_leg::getLegState(node.leg_state, 1), dl_leg::getLegState(node.leg_state, 2),
-		dl_leg::getLegState(node.leg_state, 3), dl_leg::getLegState(node.leg_state, 4), dl_leg::getLegState(node.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(node.leg_state),
+		dllf::GetDiscreteLegPos(node.leg_state, 0), dllf::GetDiscreteLegPos(node.leg_state, 1), dllf::GetDiscreteLegPos(node.leg_state, 2),
+		dllf::GetDiscreteLegPos(node.leg_state, 3), dllf::GetDiscreteLegPos(node.leg_state, 4), dllf::GetDiscreteLegPos(node.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
@@ -154,7 +158,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
-		if (dl_leg::isGrounded(node.leg_state, i)) { str += "接地,"; }
+		if (dllf::IsGrounded(node.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
@@ -168,7 +172,7 @@ void GraphViewerGUIController::drawNodeData(const SNode& node) const
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", node.depth, std::to_string(node.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
 }
 
 

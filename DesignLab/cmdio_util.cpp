@@ -2,17 +2,28 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 #include <string>
+
+#include "cassert_define.h"
 
 
 namespace
 {
+	// このような名前のない名前空間を匿名名前空間という
+
+	// 匿名名前空間にいれた値は，このファイルからのみアクセス可能なグローバル変数となる
+	// アクセスする場合は :: を先頭につける
+
+
 	// 出力制限，この値未満のメッセージの出力は行われない
-	// なお，この値はこのファイルからのみアクセス可能なグローバル変数
 	OutputDetail output_limit = OutputDetail::kSystem;
 
 	// falseの場合，出力を行わない(システムメッセージは除く)
 	bool do_output = true;
+
+	// 初期化を既に行ったかどうか
+	bool is_initialized = false;
 }
 
 
@@ -23,15 +34,19 @@ namespace designlab
 		void SetOutputLimit(const OutputDetail limit)
 		{
 			::output_limit = limit;
+			::is_initialized = true;
 		}
 
-		void SetDoOutput(bool do_output)
+		void SetDoOutput(const bool do_output_)
 		{
-			::do_output = do_output;
+			::do_output = do_output_;
 		}
 
 		void Output(const std::string& str, const OutputDetail detail, const bool wait_cin)
 		{
+			assert(is_initialized);	// SetOutputLimitを呼んでから使用する.
+
+
 			// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
 			// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
 
@@ -50,7 +65,7 @@ namespace designlab
 
 		void OutputNewLine(const int num, const OutputDetail detail)
 		{
-			if (num < 0) { return; }
+			if (num <= 0) { return; }
 
 			for (int i = 0; i < num; i++)
 			{
@@ -62,7 +77,7 @@ namespace designlab
 		{
 			std::string str;
 
-			for (int i = 0; i < HORIZONTAL_LINE_LENGTH; i++)
+			for (int i = 0; i < kHorizontalLineLength; i++)
 			{
 				if (double_line)
 				{
@@ -80,51 +95,74 @@ namespace designlab
 
 		void OutputCenter(const std::string& str, const OutputDetail detail)
 		{
-			std::string space;
+			//改行ごとに文字列を取り出す
+			std::stringstream ss(str);
+			std::string line;
 
-			for (int i = 0; i < (HORIZONTAL_LINE_LENGTH - str.length()) / 2; i++)
+			while (std::getline(ss, line))
 			{
-				space += " ";
-			}
+				if (kHorizontalLineLength > line.length()) 
+				{
+					std::string space;
 
-			Output(space + str, detail);
+					for (int i = 0; i < (kHorizontalLineLength - line.length()) / 2; i++)
+					{
+						space += " ";
+					}
+
+					Output(space + line, detail);
+				}
+				else 
+				{
+					Output(line, detail);
+				}
+
+			}
 		}
 
 		void OutputRight(const std::string& str, const OutputDetail detail)
 		{
-			std::string space;
+			//改行ごとに文字列を取り出す
+			std::stringstream ss(str);
+			std::string line;
 
-			for (int i = 0; i < HORIZONTAL_LINE_LENGTH - str.length(); i++)
+			while (std::getline(ss, line))
 			{
-				space += " ";
+				if (kHorizontalLineLength > line.length())
+				{
+					std::string space;
+
+					for (int i = 0; i < kHorizontalLineLength - line.length(); i++)
+					{
+						space += " ";
+					}
+
+					Output(space + line, detail);
+				}
+				else
+				{
+					Output(line, detail);
+				}
+
+			}
+		}
+
+		void OutputTitle(const std::string& title_name, bool output_copy_right)
+		{
+			OutputNewLine(1, OutputDetail::kSystem);
+			OutputHorizontalLine(true, OutputDetail::kSystem);
+			OutputNewLine(1, OutputDetail::kSystem);
+			OutputCenter(title_name, OutputDetail::kSystem);
+			OutputNewLine(1, OutputDetail::kSystem);
+
+			if (output_copy_right) 
+			{
+				OutputRight("Coprright 2015 - 2023 埼玉大学 設計工学研究室", OutputDetail::kSystem);
+				OutputNewLine(1, OutputDetail::kSystem);
 			}
 
-			Output(space + str, detail);
-		}
-
-		void OutputTitle()
-		{
-			OutputNewLine();
 			OutputHorizontalLine(true, OutputDetail::kSystem);
-			OutputNewLine();
-			OutputCenter("DesignLab", OutputDetail::kSystem);
-			OutputNewLine();
-			OutputRight("Created by DesignLab", OutputDetail::kSystem);
-			OutputRight("All rights reserved", OutputDetail::kSystem);
-			OutputNewLine();
-			OutputHorizontalLine(true, OutputDetail::kSystem);
-			OutputNewLine();
-		}
-
-		void OutputGraphViewerTitle()
-		{
-			OutputNewLine();
-			OutputHorizontalLine(true, OutputDetail::kSystem);
-			OutputNewLine();
-			OutputCenter("GraphViewer", OutputDetail::kSystem);
-			OutputNewLine();
-			OutputHorizontalLine(true, OutputDetail::kSystem);
-			OutputNewLine();
+			OutputNewLine(1, OutputDetail::kSystem);
 		}
 
 
@@ -139,6 +177,8 @@ namespace designlab
 
 		int InputInt(const int min, const int max, const int default_num, const std::string& str)
 		{
+			assert(min <= max);	// minはmaxより小さい．
+
 			Output(str + " (" + std::to_string(min) + " ~ " + std::to_string(max) + ") : ", OutputDetail::kSystem, true);
 
 			std::string input_str;
@@ -152,11 +192,23 @@ namespace designlab
 
 				if (res < min || res > max)
 				{
+					Output(
+						"入力された値「" + input_str + "」は範囲外です．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
+						OutputDetail::kSystem,
+						true
+					);
+
 					res = default_num;
 				}
 			}
 			catch (...)
 			{
+				Output(
+					"入力された値「" + input_str + "」は評価できません．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．", 
+					OutputDetail::kSystem, 
+					true
+				);
+
 				res = default_num;
 			}
 
@@ -165,7 +217,7 @@ namespace designlab
 
 		bool InputYesNo(const std::string& str)
 		{
-			Output(str, OutputDetail::kSystem, true);
+			Output(str + " ( y / n ) ", OutputDetail::kSystem, true);
 
 			while (true)
 			{
@@ -187,37 +239,37 @@ namespace designlab
 
 		}
 
-		EBootMode SelectBootMode()
+		BootMode SelectBootMode()
 		{
 			Output("起動モードを選択してください", OutputDetail::kSystem);
 			Output("0: シミュレーション", OutputDetail::kSystem);
 			Output("1: グラフビューワー", OutputDetail::kSystem);
 			Output("2: 表示テスト", OutputDetail::kSystem);
 			Output("3: 結果の確認", OutputDetail::kSystem);
-			Output("other: デフォルトのモード ( " + std::to_string(EBootMode::SIMULATION) + " )", OutputDetail::kSystem);
+			Output("other: デフォルトのモード ( " + std::to_string(BootMode::kSimulation) + " )", OutputDetail::kSystem);
 			OutputNewLine();
 
-			int input = InputInt(0, static_cast<int>(EBootMode::RESULT_VIEWER), 0);
+			int input = InputInt(0, static_cast<int>(BootMode::kResultViewer), 0);
 
 			if (input == 0)
 			{
-				return EBootMode::SIMULATION;
+				return BootMode::kSimulation;
 			}
 			else if (input == 1)
 			{
-				return EBootMode::VIEWER;
+				return BootMode::kViewer;
 			}
 			else if (input == 2)
 			{
-				return EBootMode::DISPLAY_TEST;
+				return BootMode::kDisplayTest;
 			}
 			else if (input == 3)
 			{
-				return EBootMode::RESULT_VIEWER;
+				return BootMode::kResultViewer;
 			}
 			else
 			{
-				return EBootMode::SIMULATION;
+				return BootMode::kSimulation;
 			}
 		}
 

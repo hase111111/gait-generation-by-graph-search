@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string>
 
-#include "DxLib.h"
+#include <Dxlib.h>
 
 
 FpsController::FpsController(const int target_fps)

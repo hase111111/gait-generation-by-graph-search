@@ -1,0 +1,9 @@
+<map id="クラス階層図" name="クラス階層図">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,120,134,147"/>
+<area shape="rect" id="Node000001" href="$structmagic__enum_1_1detail_1_1has__is__flags_3_01_t_00_01std_1_1void__t_3_01decltype_07customiz5850fc280780eb0d4e359edf8de2e402.html" title=" " alt="" coords="182,5,389,80"/>
+<area shape="poly" id="edge24_Node000000_Node000001" title=" " alt="" coords="116,111,194,78,196,83,118,116"/>
+<area shape="rect" id="Node000002" href="$structmagic__enum_1_1detail_1_1is__scoped__enum_3_01_t_00_01true_01_4.html" title=" " alt="" coords="210,104,361,163"/>
+<area shape="poly" id="edge25_Node000000_Node000002" title=" " alt="" coords="148,131,210,131,210,136,148,136"/>
+<area shape="rect" id="Node000003" href="$structmagic__enum_1_1detail_1_1is__unscoped__enum_3_01_t_00_01true_01_4.html" title=" " alt="" coords="211,187,360,245"/>
+<area shape="poly" id="edge26_Node000000_Node000003" title=" " alt="" coords="121,150,211,185,209,190,119,155"/>
+</map>

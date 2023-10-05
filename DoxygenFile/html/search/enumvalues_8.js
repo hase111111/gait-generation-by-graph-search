@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['none_0',['None',['../_target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a6adf97f83acf6453d4a6a4b1070f3754',1,'Target.h']]],
-  ['none_1',['NONE',['../hexapod__next__move_8h.html#a8104c86893d665325819f10739ff2e3fab50339a10e1de285ac99d4c3990b8693',1,'hexapod_next_move.h']]]
+  ['turnangle_0',['TurnAngle',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af765e224256b093aef0cbd5a4ac18437',1,'target.h']]],
+  ['turndirection_1',['TurnDirection',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6acf6bad3c882f72b4f1ace09c41410198',1,'target.h']]],
+  ['turnspotangle_2',['TurnSpotAngle',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6af468765ca90a83579b7d00bd68f540c7',1,'target.h']]],
+  ['turnspotdirection_3',['TurnSpotDirection',['../target_8h.html#a4f7e633357dbf1fe2e6ce5772c3ca0e6a66db6a58b08ad4d96450336068044992',1,'target.h']]]
 ];

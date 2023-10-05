@@ -1,0 +1,16 @@
+<map id="designlab::cmdio::OutputTitle" name="designlab::cmdio::OutputTitle">
+<area shape="rect" id="Node000001" title="コマンドラインにこのソフトのタイトルを出力する関数．" alt="" coords="5,105,172,148"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a75cddfda72fab2142e8f60b7dc4f6cc6" title="中央に文字を出力する関数" alt="" coords="220,5,386,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,102,219,58,231,52,234,57,221,62,132,107"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1cmdio.html#a5aadbca0d6922c9c5ae7bec89f97bd02" title="コマンドラインに水平線を出力する関数．" alt="" coords="220,72,386,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,111,205,106,205,111,173,116"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1cmdio.html#a23cd6fd6477be14f76c818c418a0de08" title="コマンドラインで改行をする関数．" alt="" coords="220,139,386,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="173,137,205,142,205,147,172,142"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1cmdio.html#ab571da4a5a2affc2679e2d8b5c9d8cc0" title="右端に文字を出力する関数" alt="" coords="220,205,386,248"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="132,146,221,191,234,197,231,202,219,196,129,151"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="434,113,600,140"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,46,387,58,479,103,476,108,385,62,359,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="387,104,420,109,419,114,386,109"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="386,144,419,139,420,144,387,150"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="359,202,385,191,476,145,479,150,387,196,361,207"/>
+</map>

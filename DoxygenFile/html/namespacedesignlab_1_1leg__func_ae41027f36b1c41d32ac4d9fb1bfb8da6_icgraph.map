@@ -1,0 +1,9 @@
+<map id="designlab::leg_func::ChangeGround" name="designlab::leg_func::ChangeGround">
+<area shape="rect" id="Node000001" title=" " alt="" coords="415,39,547,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="216,5,367,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,48,367,43,368,37,401,43"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a818e54bb972678aceadd9cdcace704fe" title="脚の情報を変更する．引数の値がおかしいならばfalseを出力する．" alt="" coords="225,72,358,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="401,77,358,84,357,79,400,72"/>
+<area shape="rect" id="Node000003" href="$class_leg_up_down_node_creator.html#ac32485f62a08e201d4ea075ed7ab4517" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
+</map>

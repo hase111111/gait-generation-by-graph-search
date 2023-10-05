@@ -1,15 +1,17 @@
 //! @file graphic_system.h
-//! @brief Dxlibの処理を行うGraphicSystemクラス．
-//! @details Dxlib(デラックス ライブラリ)はウィンドウを表示して，所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつ．
+//! @brief Dxlibの処理を行うクラス．
+//! @details Dxlib(デラックス ライブラリ)はウィンドウを表示して，
+//! @n 所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつ．
 //! @n 主にゲームプログラミングをする際に，ウィンドウを表示するためのライブラリとして使用される．
 //! @n Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが，今回のプログラムではDxlibを用いて結果を表示する．
-//! @n Dxlibは WinAPI というWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．
+//! @n Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．たぶん
 //! @n  
 //! @n 以下参考ページ 
 //! @n
 //! @n ・https://dixq.net/rp2/ ←C++用の資料．少々難しい 
 //! @n ・https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも 
 //! @n ・https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次)．
+
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_
@@ -21,6 +23,7 @@
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
+#include "interface_system_main.h"
 
 
 //! @class GraphicSystem
@@ -40,19 +43,19 @@
 //! @n Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと．
 //! @n 
 //! @n また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください．
-class GraphicSystem final
+class GraphicSystem final : public ISystemMain
 {
 public:
 
 	//! @param [in] graphic_main_ptr GraphicMainクラスのポインタ．
 	//! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
-	GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr);
+	GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
 
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．
 	//! @n initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
 	//! @n またメンバ関数のdxlibInit関数に失敗した場合も終了します．
-	void Main();
+	void Main() override;
 
 private:
 
@@ -70,7 +73,7 @@ private:
 
 	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< グラフィックの表示を行うクラスのポインタ．
 
-	const std::shared_ptr<const SApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
 	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
 };

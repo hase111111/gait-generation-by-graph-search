@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/map_creator.h ファイル</title>
+<title>DesignLabDoxygen: DesignLab/map_creator.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,12 +95,9 @@ $(document).ready(function(){initNavTree('map__creator_8h.html',''); initResizab
   <div class="headertitle"><div class="title">map_creator.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>マップ生成クラス及び，マップ生成のモードを指定する列挙体． <br  />
- 行数 : 102  
-<a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="designlab__vector_8h_source.html">designlab_vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="designlab__vector3_8h_source.html">designlab_vector3.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="map__state_8h_source.html">map_state.h</a>&quot;</code><br />
 </div>
 <p><a href="map__creator_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
@@ -112,28 +109,23 @@ $(document).ready(function(){initNavTree('map__creator_8h.html',''); initResizab
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 列挙型</h2></td></tr>
-<tr class="memitem:a9497d9831ff0ed2e52d62ea0e3fb6369"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> : int { <br />
-&#160;&#160;<a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369af88a77e3d68d251c3dc4008c327b5a0c">FLAT</a> = 1
-, <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a2f41bd3b542233e82a0a766730c58537">VERTICAL_STRIPE</a> = 2
-, <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a9505f484cfc3a0861fe4c5318a9390e4">HORIZONTAL_STRIPE</a> = 3
-, <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a712cf7d15f72d38d86742ea94538286d">DIAGONAL_STRIPE</a> = 4
+<tr class="memitem:af717036720505346337d623b2a4f3c28"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a> { <br />
+&#160;&#160;<a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba">kFlat</a>
+, <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a2f41bd3b542233e82a0a766730c58537">VERTICAL_STRIPE</a>
+, <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a9505f484cfc3a0861fe4c5318a9390e4">HORIZONTAL_STRIPE</a>
+, <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a712cf7d15f72d38d86742ea94538286d">DIAGONAL_STRIPE</a>
 , <br />
-&#160;&#160;<a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a5b65fe46c5dd90ebcec69c472c3be1d9">MESH</a> = 5
-, <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a580d5eae4fbca9df843176b1a6f7e837">LATTICE_POINT</a> = 6
-, <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369a27fe246d09dc2f6a736d089abda87129">READ_FROM_FILE</a> = 7
+&#160;&#160;<a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a5b65fe46c5dd90ebcec69c472c3be1d9">MESH</a>
+, <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a580d5eae4fbca9df843176b1a6f7e837">LATTICE_POINT</a>
+, <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28a27fe246d09dc2f6a736d089abda87129">READ_FROM_FILE</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a9497d9831ff0ed2e52d62ea0e3fb6369"><td class="mdescLeft">&#160;</td><td class="mdescRight">getMap関数のマップ生成のモードを指定する列挙体．  <a href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">[詳解]</a><br /></td></tr>
-<tr class="separator:a9497d9831ff0ed2e52d62ea0e3fb6369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:af717036720505346337d623b2a4f3c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップ生成クラス．  <a href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">[詳解]</a><br /></td></tr>
+<tr class="separator:af717036720505346337d623b2a4f3c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>マップ生成クラス及び，マップ生成のモードを指定する列挙体． <br  />
- 行数 : 102 </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-</div><h2 class="groupheader">列挙型詳解</h2>
-<a id="a9497d9831ff0ed2e52d62ea0e3fb6369" name="a9497d9831ff0ed2e52d62ea0e3fb6369"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9497d9831ff0ed2e52d62ea0e3fb6369">&#9670;&#160;</a></span>EMapCreateMode</h2>
+<h2 class="groupheader">列挙型詳解</h2>
+<a id="af717036720505346337d623b2a4f3c28" name="af717036720505346337d623b2a4f3c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af717036720505346337d623b2a4f3c28">&#9670;&#160;</a></span>MapCreateMode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +134,7 @@ $(document).ready(function(){initNavTree('map__creator_8h.html',''); initResizab
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="map__creator_8h.html#a9497d9831ff0ed2e52d62ea0e3fb6369">EMapCreateMode</a> : int</td>
+          <td class="memname">enum class <a class="el" href="map__creator_8h.html#af717036720505346337d623b2a4f3c28">MapCreateMode</a></td>
         </tr>
       </table>
   </td>
@@ -152,23 +144,22 @@ $(document).ready(function(){initNavTree('map__creator_8h.html',''); initResizab
 </table>
 </div><div class="memdoc">
 
+<p>マップ生成クラス． </p>
 <p>getMap関数のマップ生成のモードを指定する列挙体． </p>
-<dl class="section date"><dt>日付</dt><dd>2023/08/06 </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369af88a77e3d68d251c3dc4008c327b5a0c" name="a9497d9831ff0ed2e52d62ea0e3fb6369af88a77e3d68d251c3dc4008c327b5a0c"></a>FLAT&#160;</td><td class="fielddoc"><p>普通の平らな面を生成する． </p>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba" name="af717036720505346337d623b2a4f3c28a87e664a10c53376737024444ba714bba"></a>kFlat&#160;</td><td class="fielddoc"><p>普通の平らな面を生成する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a2f41bd3b542233e82a0a766730c58537" name="a9497d9831ff0ed2e52d62ea0e3fb6369a2f41bd3b542233e82a0a766730c58537"></a>VERTICAL_STRIPE&#160;</td><td class="fielddoc"><p>縦じまの面を生成する． </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a2f41bd3b542233e82a0a766730c58537" name="af717036720505346337d623b2a4f3c28a2f41bd3b542233e82a0a766730c58537"></a>VERTICAL_STRIPE&#160;</td><td class="fielddoc"><p>縦じまの面を生成する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a9505f484cfc3a0861fe4c5318a9390e4" name="a9497d9831ff0ed2e52d62ea0e3fb6369a9505f484cfc3a0861fe4c5318a9390e4"></a>HORIZONTAL_STRIPE&#160;</td><td class="fielddoc"><p>横じまの面を生成する． </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a9505f484cfc3a0861fe4c5318a9390e4" name="af717036720505346337d623b2a4f3c28a9505f484cfc3a0861fe4c5318a9390e4"></a>HORIZONTAL_STRIPE&#160;</td><td class="fielddoc"><p>横じまの面を生成する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a712cf7d15f72d38d86742ea94538286d" name="a9497d9831ff0ed2e52d62ea0e3fb6369a712cf7d15f72d38d86742ea94538286d"></a>DIAGONAL_STRIPE&#160;</td><td class="fielddoc"><p>斜めじまの面を生成する． </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a712cf7d15f72d38d86742ea94538286d" name="af717036720505346337d623b2a4f3c28a712cf7d15f72d38d86742ea94538286d"></a>DIAGONAL_STRIPE&#160;</td><td class="fielddoc"><p>斜めじまの面を生成する． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a5b65fe46c5dd90ebcec69c472c3be1d9" name="a9497d9831ff0ed2e52d62ea0e3fb6369a5b65fe46c5dd90ebcec69c472c3be1d9"></a>MESH&#160;</td><td class="fielddoc"><p>格子状の面を生成する．網目状の地形ともいっていい． </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a5b65fe46c5dd90ebcec69c472c3be1d9" name="af717036720505346337d623b2a4f3c28a5b65fe46c5dd90ebcec69c472c3be1d9"></a>MESH&#160;</td><td class="fielddoc"><p>格子状の面を生成する．網目状の地形ともいっていい． </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a580d5eae4fbca9df843176b1a6f7e837" name="a9497d9831ff0ed2e52d62ea0e3fb6369a580d5eae4fbca9df843176b1a6f7e837"></a>LATTICE_POINT&#160;</td><td class="fielddoc"><p>格子点の面を生成する．網目状の逆 </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a580d5eae4fbca9df843176b1a6f7e837" name="af717036720505346337d623b2a4f3c28a580d5eae4fbca9df843176b1a6f7e837"></a>LATTICE_POINT&#160;</td><td class="fielddoc"><p>格子点の面を生成する．網目状の逆 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9497d9831ff0ed2e52d62ea0e3fb6369a27fe246d09dc2f6a736d089abda87129" name="a9497d9831ff0ed2e52d62ea0e3fb6369a27fe246d09dc2f6a736d089abda87129"></a>READ_FROM_FILE&#160;</td><td class="fielddoc"><p>ファイルから読み込む．失敗した場合普通の平らな面を生成する． </p>
+<tr><td class="fieldname"><a id="af717036720505346337d623b2a4f3c28a27fe246d09dc2f6a736d089abda87129" name="af717036720505346337d623b2a4f3c28a27fe246d09dc2f6a736d089abda87129"></a>READ_FROM_FILE&#160;</td><td class="fielddoc"><p>ファイルから読み込む．失敗した場合普通の平らな面を生成する． </p>
 </td></tr>
 </table>
 
@@ -179,7 +170,7 @@ $(document).ready(function(){initNavTree('map__creator_8h.html',''); initResizab
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3e39726e690a9cbb0144a2e08f65c1d0.html">taisei</a></li><li class="navelem"><a class="el" href="dir_fd65c0cbe15c6f5e78b6871b756c3f34.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_e385594c7f3669992f42b264f6b81ae3.html">main</a></li><li class="navelem"><a class="el" href="dir_cd0ff606237bc38204a6a17367d45600.html">program</a></li><li class="navelem"><a class="el" href="dir_ecf41828e3bf4507b10aaee3ee87f16b.html">研究</a></li><li class="navelem"><a class="el" href="dir_b2fd7b8ff6108d7abbec67f569a8730c.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_edbea65ff7b1d6b35bb82a602cbc9652.html">DesignLab</a></li><li class="navelem"><a class="el" href="map__creator_8h.html">map_creator.h</a></li>
+    <li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li><li class="navelem"><a class="el" href="map__creator_8h.html">map_creator.h</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

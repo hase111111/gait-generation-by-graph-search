@@ -1,0 +1,7 @@
+<map id="designlab::Vector3::LengthSquare" name="designlab::Vector3::LengthSquare">
+<area shape="rect" id="Node000001" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="360,5,489,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#a1a64cf59595f7a858075f4899815f66a" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならそっちを使うべき．" alt="" coords="183,5,312,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="345,29,312,29,312,24,345,24"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#a336c7e65ab89217e0a996b0700e050be" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="5,5,135,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="168,29,135,29,135,24,168,24"/>
+</map>

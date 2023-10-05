@@ -1,11 +1,9 @@
 var class_map_state =
 [
-    [ "getDevideMapNumX", "class_map_state.html#aa774afefe0a0cbf9a7bf2f8633ea65a6", null ],
-    [ "getDevideMapNumY", "class_map_state.html#af032d022391628b0bcc6185ad02938aa", null ],
-    [ "getPointNumFromDevideMap", "class_map_state.html#afc4b1ab9248eb27e060296491ca898d7", null ],
-    [ "getPos", "class_map_state.html#ae4c49dda83a8d56ca11e03a309a52acf", null ],
-    [ "getPosFromDevideMap", "class_map_state.html#ae499547ec5acd6bd2b254a22d8c16f88", null ],
-    [ "getPosNum", "class_map_state.html#a52b6c1d7f4c007f79f65f5fb44dee7aa", null ],
-    [ "getTopZFromDevideMap", "class_map_state.html#a349a0161d371fcd804f46b695b2bdd26", null ],
-    [ "init", "class_map_state.html#a658eabf1dc87c473fc52693313168f53", null ]
+    [ "AddMapPoint", "class_map_state.html#a79a4eae7be297d1184cb8e8439243c72", null ],
+    [ "ClearMapPoint", "class_map_state.html#a465f0886343041960e33268ad8a4c362", null ],
+    [ "GetMapPoint", "class_map_state.html#a48e77403dbad5738f2cd449ebc51275c", null ],
+    [ "GetMapPointSize", "class_map_state.html#af1cbbeb3eb577b1c3530a43c57028dec", null ],
+    [ "SetMapPoint", "class_map_state.html#ab841b416d036bb94249bf2e22c327816", null ],
+    [ "SetMapPoint", "class_map_state.html#aa64a7691c21477615b75d884e9a49943", null ]
 ];

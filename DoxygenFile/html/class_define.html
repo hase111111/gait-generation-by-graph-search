@@ -90,59 +90,66 @@ $(document).ready(function(){initNavTree('class_define.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pub-static-attribs">静的公開変数類</a> &#124;
 <a href="class_define-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">Define クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>プロジェクト全体で使用する定数をまとめた定数クラス  
+ <a href="class_define.html#details">[詳解]</a></p>
+
 <p><code>#include &lt;<a class="el" href="_define_8h_source.html">Define.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a463d81463325dcbff31da5a536e5949e"><td class="memItemLeft" align="right" valign="top"><a id="a463d81463325dcbff31da5a536e5949e" name="a463d81463325dcbff31da5a536e5949e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Define</b> (const <a class="el" href="class_define.html">Define</a> &amp;_other)=delete</td></tr>
+<tr class="separator:a463d81463325dcbff31da5a536e5949e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898a06cfb8da36b31016aafcdd4fea27"><td class="memItemLeft" align="right" valign="top"><a id="a898a06cfb8da36b31016aafcdd4fea27" name="a898a06cfb8da36b31016aafcdd4fea27"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Define</b> (const <a class="el" href="class_define.html">Define</a> &amp;&amp;_other)=delete</td></tr>
+<tr class="separator:a898a06cfb8da36b31016aafcdd4fea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365f99eb2a6c28025ac6f29cde37c12c"><td class="memItemLeft" align="right" valign="top"><a id="a365f99eb2a6c28025ac6f29cde37c12c" name="a365f99eb2a6c28025ac6f29cde37c12c"></a>
+<a class="el" href="class_define.html">Define</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_define.html">Define</a> &amp;_other)=delete</td></tr>
+<tr class="separator:a365f99eb2a6c28025ac6f29cde37c12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
-<tr class="memitem:a922af0e142af93c3b3aaff2531ba4d91"><td class="memItemLeft" align="right" valign="top"><a id="a922af0e142af93c3b3aaff2531ba4d91" name="a922af0e142af93c3b3aaff2531ba4d91"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>SIMURATE_NUM</b> = 5</td></tr>
-<tr class="memdesc:a922af0e142af93c3b3aaff2531ba4d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">連続でシミュレーションを行う回数 <br /></td></tr>
-<tr class="separator:a922af0e142af93c3b3aaff2531ba4d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a783d98aae333fcbf0ed2d6f38ec0dedf"><td class="memItemLeft" align="right" valign="top"><a id="a783d98aae333fcbf0ed2d6f38ec0dedf" name="a783d98aae333fcbf0ed2d6f38ec0dedf"></a>
-static const char&#160;</td><td class="memItemRight" valign="bottom"><b>GRAPH_SEARCH_DEPTH</b> = 4</td></tr>
-<tr class="memdesc:a783d98aae333fcbf0ed2d6f38ec0dedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索の探索深さ <br /></td></tr>
-<tr class="separator:a783d98aae333fcbf0ed2d6f38ec0dedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234febd499a858f276085ffec63fa256"><td class="memItemLeft" align="right" valign="top"><a id="a234febd499a858f276085ffec63fa256" name="a234febd499a858f276085ffec63fa256"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>GATE_PATTERN_GENERATE_NUM</b> = 1000</td></tr>
-<tr class="memdesc:a234febd499a858f276085ffec63fa256"><td class="mdescLeft">&#160;</td><td class="mdescRight">1シミュレーション当たりの最大歩容生成回数 <br /></td></tr>
-<tr class="separator:a234febd499a858f276085ffec63fa256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b1625e90537963082e5f3e1763c871"><td class="memItemLeft" align="right" valign="top"><a id="ac2b1625e90537963082e5f3e1763c871" name="ac2b1625e90537963082e5f3e1763c871"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>GOAL_TAPE</b> = 2000</td></tr>
-<tr class="memdesc:ac2b1625e90537963082e5f3e1763c871"><td class="mdescLeft">&#160;</td><td class="mdescRight">直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了 <br /></td></tr>
-<tr class="separator:ac2b1625e90537963082e5f3e1763c871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3407e15646bc0278ac23247dc7d405f"><td class="memItemLeft" align="right" valign="top"><a id="ae3407e15646bc0278ac23247dc7d405f" name="ae3407e15646bc0278ac23247dc7d405f"></a>
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>FLAG_GRAPHIC_AVAILABLE</b> = true</td></tr>
-<tr class="memdesc:ae3407e15646bc0278ac23247dc7d405f"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックを表示するときはtrue <br /></td></tr>
-<tr class="separator:ae3407e15646bc0278ac23247dc7d405f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfe22effeaa9849142ad09bdbe10ab98"><td class="memItemLeft" align="right" valign="top"><a id="adfe22effeaa9849142ad09bdbe10ab98" name="adfe22effeaa9849142ad09bdbe10ab98"></a>
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>FLAG_DO_PRUNING</b> = false</td></tr>
-<tr class="memdesc:adfe22effeaa9849142ad09bdbe10ab98"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索において枝刈りを行うときはtrue <br /></td></tr>
-<tr class="separator:adfe22effeaa9849142ad09bdbe10ab98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad282a24fc2bf2b74c09196bdb07e7ba0"><td class="memItemLeft" align="right" valign="top"><a id="ad282a24fc2bf2b74c09196bdb07e7ba0" name="ad282a24fc2bf2b74c09196bdb07e7ba0"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kSimurateNum</b> = 2</td></tr>
+<tr class="memdesc:ad282a24fc2bf2b74c09196bdb07e7ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">連続でシミュレーションを行う回数 <br /></td></tr>
+<tr class="separator:ad282a24fc2bf2b74c09196bdb07e7ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3006aacd60c5fa300b73ed9ed8043a25"><td class="memItemLeft" align="right" valign="top"><a id="a3006aacd60c5fa300b73ed9ed8043a25" name="a3006aacd60c5fa300b73ed9ed8043a25"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kGaitPatternGenerationLimit</b> = 1000</td></tr>
+<tr class="memdesc:a3006aacd60c5fa300b73ed9ed8043a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">1シミュレーション当たりの最大歩容生成回数 <br /></td></tr>
+<tr class="separator:a3006aacd60c5fa300b73ed9ed8043a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a602fc9de040f82abcd5a64c3009e62"><td class="memItemLeft" align="right" valign="top"><a id="a0a602fc9de040f82abcd5a64c3009e62" name="a0a602fc9de040f82abcd5a64c3009e62"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>kGoalTape</b> = 1200</td></tr>
+<tr class="memdesc:a0a602fc9de040f82abcd5a64c3009e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了 <br /></td></tr>
+<tr class="separator:a0a602fc9de040f82abcd5a64c3009e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f5ff166189131c338b4ec63d813308"><td class="memItemLeft" align="right" valign="top"><a id="a51f5ff166189131c338b4ec63d813308" name="a51f5ff166189131c338b4ec63d813308"></a>
+static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>kResultFilePath</b> = std::filesystem::current_path().string() + &quot;/result&quot;</td></tr>
+<tr class="memdesc:a51f5ff166189131c338b4ec63d813308"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果を保存するファイルのパス <br /></td></tr>
+<tr class="separator:a51f5ff166189131c338b4ec63d813308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Effective C++ という本 (私が持っているのはかなり古い版のものなので正直正しいのかはよくわからないけど) によると，<br  />
- C++においてはあまり #defineを使用するべきではないようである．結構いろんなサイトでも同じことが言われている．<br  />
+<div class="textblock"><p>プロジェクト全体で使用する定数をまとめた定数クラス </p>
+<p>Effective C++ という本 (私が持っているのはかなり古い版のものなので正直正しいのかはよくわからないけど) によると， <br  />
+ C++においてはあまり定数を宣言するために #defineを使用するべきではないようである．結構いろんなサイトでも同じことが言われている． <br  />
  <a href="https://qiita.com/jonichonpa/items/595ed7914751787ebaee">https://qiita.com/jonichonpa/items/595ed7914751787ebaee</a> <br  />
  <a href="https://myon.info/blog/2015/12/18/avoid-defining-macros/">https://myon.info/blog/2015/12/18/avoid-defining-macros/</a> <br  />
- <br  />
- const statisな定数．inline 関数．constexpr定数を使うべき．<br  />
- <br  />
- 以下参考資料．<br  />
- クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策<br  />
- <a href="https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81">https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81</a> </p><dl class="section attention"><dt>注意</dt><dd>GRAPH_SEARCH_DEPTHの値を大きくしすぎると動作しなくなる．<br  />
- 先行研究では深さ4〜5あたりで動作せていたのでそのあたりで，<br  />
+<br  />
+ const statisな定数．inline 関数．constexpr定数を使うべき． <br  />
+<br  />
+ 以下参考資料． <br  />
+ クラスメンバに constexpr static 変数はおすすめしない ― 現象と対策 <br  />
+ <a href="https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81">https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81</a> </p><dl class="section attention"><dt>注意</dt><dd>GRAPH_SEARCH_DEPTHの値を大きくしすぎると動作しなくなる． <br  />
+ 先行研究では深さ4〜5あたりで動作せていたのでそのあたりで， <br  />
  ちなみに，深さを1つ深くしただけで，探索する範囲は膨大に増えるので注意が必要．深さ6以上を実時間内に探索し終わるのは，そこそこの性能のPCが必要． </dd></dl>
-<dl class="section author"><dt>著者</dt><dd>長谷川 </dd></dl>
-<dl class="section date"><dt>日付</dt><dd>2023/06/17 </dd></dl>
 </div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/<a class="el" href="_define_8h_source.html">Define.h</a></li>
-<li>C:/Users/taisei/Desktop/main/program/研究/DesignLab/DesignLab/Define.cpp</li>
+<li>DesignLab/<a class="el" href="_define_8h_source.html">Define.h</a></li>
+<li>DesignLab/Define.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

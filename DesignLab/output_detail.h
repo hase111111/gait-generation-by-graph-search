@@ -10,7 +10,6 @@
 //! @enum OutputDetail
 //! @brief コマンドラインに文字を出力する際の詳細．
 //! @details Settingファイルで指定された優先度以上のメッセージのみ出力する．
-
 enum class OutputDetail
 {
 	kSystem = 0,	//!< システムメッセージ，常に出力する
@@ -24,14 +23,15 @@ enum class OutputDetail
 namespace std
 {
 
-	//! @brief EOutputPriorityを文字列に変換する
+	//! @brief OutputDetailを文字列に変換する
+	//! @n 例えば，kSystemを渡すと"System"を返す．
+	//! @n メンテが大変，良い実装plz
 	//! @param[in] detail OutputDetail
-	//! @return EOutputPriorityを文字列に変換したもの
+	//! @return std::string OutputDetailを文字列に変換したもの
 	std::string to_string(OutputDetail detail);
 
 
-	//! @fn OutputDetail toOutputPriority(const std::string& str)
-	//! @brief 文字列をEOutputPriorityに変換する
+	//! @brief 文字列をOutputDetailに変換する
 	//! @param[in] str 文字列
 	//! @return OutputDetail 
 	OutputDetail toOutputPriority(const std::string& str);

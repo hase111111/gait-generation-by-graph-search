@@ -23,7 +23,7 @@ class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
 	GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 
 	~GraphicMainGraphViewer() = default;
 
@@ -50,7 +50,7 @@ private:
 	HexapodRenderer hexapod_renderer_;
 
 
-	std::vector<SNode> graph_;
+	std::vector<RobotStateNode> graph_;
 
 	size_t display_node_index_ = 0;
 

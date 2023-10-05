@@ -18,7 +18,7 @@
 #include "hexapod_renderer.h"
 #include "map_state.h"
 #include "movement_locus_renderer.h"
-#include "node.h"
+#include "robot_state_node.h"
 #include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
 #include "stability_margin_renderer.h"
@@ -36,7 +36,7 @@ class GraphicMainBasic final : public IGraphicMain
 {
 public:
 	GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		const std::shared_ptr<const SApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 	~GraphicMainBasic() = default;
 
 	bool Update() override;
@@ -55,7 +55,7 @@ private:
 
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
-	DisplayNodeSwitchGUI display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 
 	HexapodRenderer hexapod_renderer_;						//!< ロボットを表示するクラス．	
@@ -69,7 +69,7 @@ private:
 
 	MapState map_state_;		//!< 表示するマップ．
 
-	std::vector<SNode> graph_;	//!< ロボットの動きの遷移を記録するvector
+	std::vector<RobotStateNode> graph_;	//!< ロボットの動きの遷移を記録するvector
 
 	size_t display_node_index_;	//!< 描画しているノード
 

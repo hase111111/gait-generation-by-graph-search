@@ -2,7 +2,7 @@
 
 #include <deque>
 
-#include "Node.h"
+#include "robot_state_node.h"
 
 
 //! @class NodeValidityChecker
@@ -21,14 +21,14 @@ public:
 
 	//! ロボットが行った動作をセットする．
 	//! @param [in] _node ロボットの現在の状態
-	void setNode(const SNode& node);
+	void setNode(const RobotStateNode& node);
 
 	//!直近に行った動作を比較して，ロボットが正しく動作できているか判断します．
 	//! @return bool 動作がループしている，つまり正しく動作していない時にtrueを返す．
 	bool isLoopMove() const;
 
 private:
-	std::deque<SNode> m_node;		//歩容生成した物を保持する．
+	std::deque<RobotStateNode> m_node;		//歩容生成した物を保持する．
 
 	const int kMaxDataNum = 20;		//全てのデータを保持し続けると非常に重たくなるので，個の変数の値の数までデータを持つ．先輩のプログラムでは30個程持つようにしていたので，そのぐらいの数にしとく 
 };

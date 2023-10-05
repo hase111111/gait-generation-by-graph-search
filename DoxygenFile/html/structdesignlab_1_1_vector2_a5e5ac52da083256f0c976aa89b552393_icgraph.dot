@@ -1,0 +1,15 @@
+digraph "designlab::Vector2::Normalized"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="designlab::Vector2\l::Normalized",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="このベクトルを正規化したベクトルを返す"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="AbstractHexapodStateCalculator\l::CalculateStabilityMargin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_abstract_hexapod_state_calculator.html#af40c67bb064772da2c58953e20f41713",tooltip="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい   接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ComSelecterHato::getComFrom\lPolygon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_selecter_hato.html#aeca84ba1278b85b88bf741e40cab0bba",tooltip="重心を求める"];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ComMoveNodeCreatorHato\l::Create",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297",tooltip="現在のノードから次のノード群を生成する"];
+}
