@@ -46,7 +46,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
     return true;
 }
 
-bool ResultFileImporter::ImportNodeList(const std::string& file_path, std::vector<RobotStateNode>* node_list) const
+bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_unused]]std::vector<RobotStateNode>* node_list) const
 {
     // ファイルを開く
     std::ifstream ifs(file_path);
@@ -74,15 +74,15 @@ bool ResultFileImporter::ImportNodeList(const std::string& file_path, std::vecto
 
     // ファイルの内容を解析する
     // ノードリストの読み込み
-    for (const auto &i : str_list)
-    {
-        RobotStateNode node;
-    }
+    //for (const auto &i : str_list)
+    //{
+    //    RobotStateNode node;
+    //}
 
     return false;
 }
 
-bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* map_state) const
+bool ResultFileImporter::ImportMapState(const std::string& file_path, [[maybe_unused]]MapState* map_state) const
 {
     // ファイルを開く
     std::ifstream ifs(file_path);
