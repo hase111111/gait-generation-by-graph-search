@@ -24,6 +24,12 @@ public:
 		MapState* map_state
 	) const;
 
+
+private:
+
+	bool ImportNodeList(const std::string& file_path, std::vector<RobotStateNode>* node_list) const;
+
+	bool ImportMapState(const std::string& file_path, MapState* map_state) const;
 };
 
 

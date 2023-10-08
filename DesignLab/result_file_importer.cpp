@@ -23,23 +23,38 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
     // ファイルが存在するかどうかを確認．ないならばfalseを返す．
     if (not fs::exists(file_path)) 
     {
-        dlio::Output("ファイルが存在しませんでした．", OutputDetail::kSystem);
+        dlio::Output("NodeListファイルが存在しませんでした．", OutputDetail::kError);
 		return false;
     }
 
-    if (not fs::exists(file_path))
+    // node_list1.csv ならば map_state1.csvも読み込む
+    std::string map_file_path = file_path;
+    map_file_path.replace(map_file_path.find(ResultFileConst::kNodeListName), ResultFileConst::kNodeListName.size(), ResultFileConst::kMapStateName);
+
+    if (not fs::exists(map_file_path))
     {
-        dlio::Output("ファイルが存在しませんでした．", OutputDetail::kSystem);
+        dlio::Output("MapStateファイルが存在しませんでした．", OutputDetail::kError);
         return false;
     }
 
+
+    if (not ImportNodeList(file_path, node_list) || not ImportMapState(map_file_path, map_state)) 
+    {
+        dlio::Output("ファイル読み込み中にエラーが発生しました．", OutputDetail::kError);
+    }
+
+    return true;
+}
+
+bool ResultFileImporter::ImportNodeList(const std::string& file_path, std::vector<RobotStateNode>* node_list) const
+{
     // ファイルを開く
     std::ifstream ifs(file_path);
 
     // ファイルが開けないならばfalseを返す．
     if (not ifs.is_open())
     {
-		dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
+        dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
 
         return false;
     }
@@ -51,17 +66,49 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
     while (std::getline(ifs, str))
     {
-		str_list.push_back(str);
-	}
+        str_list.push_back(str);
+    }
 
     // ファイルを閉じる
     ifs.close();
 
     // ファイルの内容を解析する
     // ノードリストの読み込み
+    for (const auto &i : str_list)
+    {
+        RobotStateNode node;
+    }
+
+    return false;
+}
+
+bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* map_state) const
+{
+    // ファイルを開く
+    std::ifstream ifs(file_path);
+
+    // ファイルが開けないならばfalseを返す．
+    if (not ifs.is_open())
+    {
+        dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
+
+        return false;
+    }
 
 
-    
+    // ファイルを読み込む
+    std::string str;
+    std::vector<std::string> str_list;
 
+    while (std::getline(ifs, str))
+    {
+        str_list.push_back(str);
+    }
+
+    // ファイルを閉じる
+    ifs.close();
+
+    // ファイルの内容を解析する
+    // ノードリストの読み込み
     return false;
 }
