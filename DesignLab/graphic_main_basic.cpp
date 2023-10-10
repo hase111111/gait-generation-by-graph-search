@@ -72,7 +72,7 @@ bool GraphicMainBasic::Update()
 		{
 			display_node_index_ = display_node_switch_gui_.getDisplayNodeNum();	//表示するノードを取得する．
 
-			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));					//ロボットの状態を更新する．
+			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));					//ロボットの状態を更新する．
 
 			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 

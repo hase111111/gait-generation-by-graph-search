@@ -25,16 +25,16 @@ public:
 
 	//! @brief ロボットの状態を更新する．
 	//! @param [in] node 描画するロボットの状態
-	void set_draw_node(const RobotStateNode& node);
+	void SetDrawNode(const RobotStateNode& node);
 
 	//! @brief ロボットを3D空間に描画する．
 	void Draw() const;
 
 private:
 
-	bool isAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const;
-	bool isAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
-	bool isAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
+	bool IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const;
+	bool IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
+	bool IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
 
 
 	const unsigned int COLOR_BODY;			// 胴体の色
@@ -63,6 +63,7 @@ private:
 	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	// 描画するロボットのジョイントの状態
 
 
+	// 後でまとめる＆修正
 	VECTOR kCoxaJointPos[HexapodConst::LEG_NUM];
 	VECTOR kFemurJointPos[HexapodConst::LEG_NUM];
 	VECTOR kTibiaJointPos[HexapodConst::LEG_NUM];

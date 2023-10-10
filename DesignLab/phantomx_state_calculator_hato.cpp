@@ -66,10 +66,16 @@ std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator
 			if (_im == 0.0f) _im += 0.01f;	//0割り対策
 
 			const float _q1 = -atan2(line_end.z, _IK_trueX);													//マイナスでおｋ座標系的にq1自体は常に負//xがゼロだと定義域エラー
-			const float _q2 = acos((dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(_im) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH)) / (2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * _im));	//im=0だと定義域エラー
+			const float _q2 = acos(
+				(dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(_im) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH)) / 
+				(2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * _im)
+			);	//im=0だと定義域エラー
 
 			const float _femur_angle = _q1 + _q2;
-			const float _tibia_angle = acos((dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dlm::Squared(_im)) / (2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * HexapodConst::PHANTOMX_TIBIA_LENGTH)) - dlm::kFloatPi / 2.0f;
+			const float _tibia_angle = acos(
+				(dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dlm::Squared(_im)) / 
+				(2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * HexapodConst::PHANTOMX_TIBIA_LENGTH)
+			) - dlm::kFloatPi / 2.0f;
 
 			//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femurから足先の距離
 			//float d1 = pow((float)L_FEMUR, 2.0) - pow((float)L_TIBIA, 2.0) + pow(fabs((float)im), 2.0);
@@ -108,6 +114,8 @@ std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator
 			}
 		}
 	}
+
+	//for (int i = 0; i < leg_max_r.size(); i++) { std::cout << i << "," << leg_max_r[i] << "," << std::endl; }
 
 	return leg_max_r;
 }

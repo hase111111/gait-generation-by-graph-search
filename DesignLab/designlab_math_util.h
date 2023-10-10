@@ -56,7 +56,7 @@ namespace designlab
 		//! @brief 2乗した値を返す関数．
 		//! @n 整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．
 		//! @param [in] num 2乗する数．
-		//! @return double 2乗した値． 
+		//! @return T 2乗した値． 
 		template <typename T>
 		constexpr T Squared(const T num) { return num * num; }
 

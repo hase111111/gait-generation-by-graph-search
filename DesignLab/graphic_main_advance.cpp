@@ -81,7 +81,7 @@ bool GraphicMainAdvance::Update()
 
 			display_node_index_ = display_node_switch_gui_.getDisplayNodeNum();				//表示するノードを取得する．
 
-			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));							//ロボットの状態を更新する．
+			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
 			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
@@ -94,14 +94,14 @@ bool GraphicMainAdvance::Update()
 			size_t anime_index = interpolated_node_.size() * (static_cast<size_t>(counter_) - static_cast<size_t>(interpolated_anime_start_count_))
 				/ static_cast<size_t>(kInterpolatedAnimeCount);
 
-			hexapod_renderer_.set_draw_node(interpolated_node_[anime_index]);
+			hexapod_renderer_.SetDrawNode(interpolated_node_[anime_index]);
 
 			node_display_gui_.SetDisplayNode(interpolated_node_[anime_index]);
 		}
 		else if (counter_ == interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
 			//アニメーションが終了したら，元のノードを表示する
-			hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));
+			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));
 
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
 		}

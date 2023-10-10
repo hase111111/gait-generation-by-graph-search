@@ -143,7 +143,7 @@ bool GraphicMainTest::Update()
 		}
 	}
 
-	hexapod_renderer_.set_draw_node(m_node);
+	hexapod_renderer_.SetDrawNode(m_node);
 
 	node_display_gui_.SetDisplayNode(m_node);
 

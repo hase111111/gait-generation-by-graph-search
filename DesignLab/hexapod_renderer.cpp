@@ -27,11 +27,11 @@ HexapodRenderer::HexapodRenderer(const std::shared_ptr<const AbstractHexapodStat
 	COLOR_ERROR_TEXT(GetColor(32, 32, 32)),
 	COLOR_ERROR_JOINT(GetColor(180, 180, 64))
 {
-	set_draw_node(RobotStateNode{});
+	SetDrawNode(RobotStateNode{});
 }
 
 
-void HexapodRenderer::set_draw_node(const RobotStateNode& node)
+void HexapodRenderer::SetDrawNode(const RobotStateNode& node)
 {
 	if (!calculator_ptr_) { return; }	//ŒvŽZŠí‚ª‚È‚¢‚È‚ç‚Î‰½‚à‚µ‚È‚¢
 
@@ -189,21 +189,21 @@ void HexapodRenderer::Draw() const
 }
 
 
-bool HexapodRenderer::isAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
+bool HexapodRenderer::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
 {
 	if (abs((coxa_joint - femur_joint).Length() - HexapodConst::PHANTOMX_COXA_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
-bool HexapodRenderer::isAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
+bool HexapodRenderer::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
 {
 	if (abs((femur_joint - tibia_joint).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
-bool HexapodRenderer::isAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
+bool HexapodRenderer::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
 {
 	if (abs((tibia_joint - leg_joint).Length() - HexapodConst::PHANTOMX_TIBIA_LENGTH) < 10) { return true; }
 	return false;

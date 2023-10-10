@@ -261,14 +261,14 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 
 
 	// tibia joint / femur angle ÇÃåvéZ
-	const float leg_to_f_x = leg_pos.ProjectedXY().Length() - femur_joint_pos.ProjectedXY().Length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
-	const float leg_to_f_y = leg_pos.z - femur_joint_pos.z;
+	const float leg_to_f_x = (leg_pos - femur_joint_pos).ProjectedXY().Length();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
+	const float leg_to_f_z = leg_pos.z - femur_joint_pos.z;
 
-	const float arccos_arg = (dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_y) + dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
-		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_y)));
+	const float arccos_arg = (dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_z) + dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_z)));
 
-	float fumur_joint_angle1 = std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
-	float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(leg_to_f_y, leg_to_f_x);
+	float fumur_joint_angle1 = std::acos(arccos_arg) + std::atan2(leg_to_f_z, leg_to_f_x);
+	float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(leg_to_f_z, leg_to_f_x);
 
 	designlab::Vector3 tibia_joint_pos1 = femur_joint_pos +
 		designlab::Vector3 { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle1),
@@ -297,7 +297,7 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 		(*joint_state).joint_angle[1] = fumur_joint_angle1;
 	}
 
-	(*joint_state).joint_angle[2] = std::atan2((leg_to_f_y - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sin((*joint_state).joint_angle[1])),
+	(*joint_state).joint_angle[2] = std::atan2((leg_to_f_z - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sin((*joint_state).joint_angle[1])),
 		(leg_to_f_x - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::cos((*joint_state).joint_angle[1]))) - (*joint_state).joint_angle[1];
 
 

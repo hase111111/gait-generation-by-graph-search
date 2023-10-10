@@ -27,7 +27,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	RobotStateNode init_node;
 	init_node.Init(false);
 
-	hexapod_renderer_.set_draw_node(init_node);
+	hexapod_renderer_.SetDrawNode(init_node);
 
 	// GUI にグラフのポインタを渡す.
 	gui_controller_ptr_ = std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr);
@@ -60,9 +60,9 @@ bool GraphicMainGraphViewer::Update()
 	}
 
 	//HexapodReanderの更新
-	if (display_node_index_ < graph_.size() && 0 != graph_.size())
+	if (display_node_index_ < graph_.size() && graph_.size() != 0)
 	{
-		hexapod_renderer_.set_draw_node(graph_.at(display_node_index_));
+		hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));
 
 		camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
 

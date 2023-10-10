@@ -1,5 +1,5 @@
 //! @file graphic_main_graph_viewer.h
-//! @brief GraphicMainGraphViewerクラス
+//! @brief GraphViewerの画面を表示するクラス
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
@@ -18,7 +18,6 @@
 
 //! @class GraphicMainGraphViewer
 //! @brief GraphViewerの画面を表示するクラス
-
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
