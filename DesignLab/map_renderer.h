@@ -21,9 +21,9 @@ public:
 
 private:
 
-	const unsigned int COLOR_GRAY;
-	const unsigned int COLOR_LIGHT_GRAY;
-	const float CUBE_SIZE;
+	const unsigned int kColorGray;
+	const unsigned int kColorLightGray;
+	const float kCubeSize;
 };
 
 

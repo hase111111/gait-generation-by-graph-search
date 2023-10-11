@@ -51,9 +51,9 @@ bool GraphicMainBasic::Update()
 
 
 		//移動軌跡を更新する．
-		movement_locus_renderer_.set_move_locus_point(graph_);
+		movement_locus_renderer_.SetMoveLocusPoint(graph_);
 
-		movement_locus_renderer_.set_simulation_end_indexes(simu_end_index);
+		movement_locus_renderer_.SetSimulationEndIndexes(simu_end_index);
 
 
 		//ロボットの接地点を更新する．

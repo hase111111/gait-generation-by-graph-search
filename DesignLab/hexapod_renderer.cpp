@@ -14,18 +14,20 @@ namespace dlm = designlab::math_util;
 
 HexapodRenderer::HexapodRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
 	calculator_ptr_(calc),
-	COLOR_BODY(GetColor(23, 58, 235)),
-	COLOR_LEG(GetColor(23, 58, 235)),
-	COLOR_LIFTED_LEG(GetColor(240, 30, 60)),
-	COLOR_JOINT(GetColor(100, 100, 200)),
-	COLOR_LIFTED_JOINT(GetColor(200, 100, 100)),
-	CAPSULE_DIV_NUM(6),
-	SPHERE_DIV_NUM(16),
-	COLOR_LEG_BASE(GetColor(100, 200, 100)),
-	COLOR_KINE_LEG(GetColor(45, 45, 100)),
-	COLOR_KINE_JOINT(GetColor(60, 60, 115)),
-	COLOR_ERROR_TEXT(GetColor(32, 32, 32)),
-	COLOR_ERROR_JOINT(GetColor(180, 180, 64))
+	kColorBody(GetColor(23, 58, 235)),
+	kColorLeg(GetColor(23, 58, 235)),
+	kColorLiftedLeg(GetColor(240, 30, 60)),
+	kColorJoint(GetColor(100, 100, 200)),
+	kColorLiftedJoint(GetColor(200, 100, 100)),
+	kCapsuleDivNum(6),
+	kSphereDivNum(16),
+	kLegRadius(10.0f),
+	kJointRadius(20.0f),
+	kColorLegBase(GetColor(100, 200, 100)),
+	kColorKineLeg(GetColor(45, 45, 100)),
+	kColorKineJoint(GetColor(60, 60, 115)),
+	kColorErrorText(GetColor(32, 32, 32)),
+	kColorErrorJoint(GetColor(180, 180, 64))
 {
 	SetDrawNode(RobotStateNode{});
 }
@@ -86,44 +88,44 @@ void HexapodRenderer::Draw() const
 		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 	}
 
-	dldu::DrawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, COLOR_BODY);
+	dldu::DrawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, kColorBody);
 
 	//ãrÇï`âÊÇ∑ÇÈÅD
 	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
 	{
 		//ãrÇÃêFÇóVãrÅEê⁄ínÇ≈ïœçXÇ∑ÇÈÅD
-		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? COLOR_LEG : COLOR_LIFTED_LEG;
-		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? COLOR_JOINT : COLOR_LIFTED_JOINT;
+		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
+		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
 
 		//äeãrÇÃï`âÊ
-		DrawCapsule3D(kCoxaJointPos[i], kFemurJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
-		DrawCapsule3D(kFemurJointPos[i], kTibiaJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//femur
-		DrawCone3D(kLegEndPos[i], kTibiaJointPos[i], LEG_R, CAPSULE_DIV_NUM, kLegBaseColor, kLegBaseColor, TRUE);	//tibia 
+		DrawCapsule3D(kCoxaJointPos[i], kFemurJointPos[i], kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);	//coxa
+		DrawCapsule3D(kFemurJointPos[i], kTibiaJointPos[i], kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);	//femur
+		DrawCone3D(kLegEndPos[i], kTibiaJointPos[i], kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);	//tibia 
 
 		//ä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(kCoxaJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleCoxaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleCoxaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
-		DrawSphere3D(kFemurJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleFemurAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleFemurAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
-		DrawSphere3D(kTibiaJointPos[i], JOINT_R, SPHERE_DIV_NUM, kIsAbleTibiaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, kIsAbleTibiaAngle[i] ? kJointColor : COLOR_ERROR_JOINT, TRUE);
+		DrawSphere3D(kCoxaJointPos[i], kJointRadius, kSphereDivNum, kIsAbleCoxaAngle[i] ? kJointColor : kColorErrorJoint, kIsAbleCoxaAngle[i] ? kJointColor : kColorErrorJoint, TRUE);
+		DrawSphere3D(kFemurJointPos[i], kJointRadius, kSphereDivNum, kIsAbleFemurAngle[i] ? kJointColor : kColorErrorJoint, kIsAbleFemurAngle[i] ? kJointColor : kColorErrorJoint, TRUE);
+		DrawSphere3D(kTibiaJointPos[i], kJointRadius, kSphereDivNum, kIsAbleTibiaAngle[i] ? kJointColor : kColorErrorJoint, kIsAbleTibiaAngle[i] ? kJointColor : kColorErrorJoint, TRUE);
 
 		//ãrêÊÇÃï`âÊ
-		DrawSphere3D(kLegEndPos[i], JOINT_R / 2, SPHERE_DIV_NUM, kJointColor, kJointColor, TRUE);
+		DrawSphere3D(kLegEndPos[i], kJointRadius / 2, kSphereDivNum, kJointColor, kJointColor, TRUE);
 
 		//ãrÇÃÉxÅ[ÉXç¿ïWÇÃï`âÊ
-		DrawSphere3D(kLegBasePos[i], JOINT_R / 3, SPHERE_DIV_NUM, COLOR_LEG_BASE, COLOR_LEG_BASE, TRUE);
+		DrawSphere3D(kLegBasePos[i], kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
 
 
 		//â^ìÆäwÇ≈åvéZÇµÇΩãrÇÃï`âÊ
-		DrawCapsule3D(kKineCoxaJointPos[i], kKineFemurJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//coxa
-		DrawCapsule3D(kKineFemurJointPos[i], kKineTibiaJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//femur
-		DrawCone3D(kKineLegPos[i], kKineTibiaJointPos[i], LEG_R - 5, CAPSULE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);	//tibia
+		DrawCapsule3D(kKineCoxaJointPos[i], kKineFemurJointPos[i], kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//coxa
+		DrawCapsule3D(kKineFemurJointPos[i], kKineTibiaJointPos[i], kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//femur
+		DrawCone3D(kKineLegPos[i], kKineTibiaJointPos[i], kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//tibia
 
 		//â^ìÆäwÇ≈åvéZÇµÇΩä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(kKineCoxaJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
-		DrawSphere3D(kKineFemurJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
-		DrawSphere3D(kKineTibiaJointPos[i], JOINT_R - 5, SPHERE_DIV_NUM, COLOR_KINE_JOINT, COLOR_KINE_JOINT, TRUE);
+		DrawSphere3D(kKineCoxaJointPos[i], kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
+		DrawSphere3D(kKineFemurJointPos[i], kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
+		DrawSphere3D(kKineTibiaJointPos[i], kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
 
 		//â^ìÆäwÇ≈åvéZÇµÇΩãrêÊÇÃï`âÊ
-		DrawSphere3D(kKineLegPos[i], JOINT_R / 2 - 2, SPHERE_DIV_NUM, COLOR_KINE_LEG, COLOR_KINE_LEG, TRUE);
+		DrawSphere3D(kKineLegPos[i], kJointRadius / 2 - 2, kSphereDivNum, kColorKineLeg, kColorKineLeg, TRUE);
 
 
 		// ÉGÉâÅ[èoóÕÅD 
@@ -132,7 +134,7 @@ void HexapodRenderer::Draw() const
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).y),
-				"Error : Coxa Length", COLOR_ERROR_TEXT);
+				"Error : Coxa Length", kColorErrorText);
 		}
 
 		if (!dlm::IsEqual(kFemurLinkLength[i], HexapodConst::PHANTOMX_FEMUR_LENGTH))
@@ -140,7 +142,7 @@ void HexapodRenderer::Draw() const
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).y),
-				"Error : Femur Length", COLOR_ERROR_TEXT);
+				"Error : Femur Length", kColorErrorText);
 		}
 
 		if (!dlm::IsEqual(kTibiaLinkLength[i], HexapodConst::PHANTOMX_TIBIA_LENGTH))
@@ -148,12 +150,12 @@ void HexapodRenderer::Draw() const
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).y),
-				"Error : Tibia Length", COLOR_ERROR_TEXT);
+				"Error : Tibia Length", kColorErrorText);
 		}
 
 
 
-		//if (DO_OUTPUT_DEBUG_LOG)
+		//if (kDoOutputDebugLog)
 		//{
 		//	if (m_HexaCalc.IsLegInRange(node, i))printfDx("ÅZ");
 		//	else printfDx("Å~");
@@ -176,7 +178,7 @@ void HexapodRenderer::Draw() const
 		//}
 	}
 
-	//if (DO_OUTPUT_DEBUG_LOG)
+	//if (kDoOutputDebugLog)
 	//{
 	//	//is Able Pause
 	//	if (m_HexaCalc.isAblePause(node)) { printfDx("ÅZ is Able Pause\n"); }

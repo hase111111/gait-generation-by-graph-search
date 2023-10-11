@@ -6,6 +6,8 @@
 
 #include <string>
 
+#include "cassert_define.h"
+
 
 //! @class GraphicConst
 //! @brief ‰æ‘œ•\¦ˆ——p‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌD

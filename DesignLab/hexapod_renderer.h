@@ -37,30 +37,30 @@ private:
 	bool IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
 
 
-	const unsigned int COLOR_BODY;			// 胴体の色
-	const unsigned int COLOR_LEG;			// 脚の色
-	const unsigned int COLOR_LIFTED_LEG;	// 遊脚している脚の色
-	const unsigned int COLOR_JOINT;			// ジョイントの色
-	const unsigned int COLOR_LIFTED_JOINT;	// 遊脚しているジョイントの色
-	const unsigned int COLOR_LEG_BASE;		// 脚の基部の色
-	const unsigned int COLOR_KINE_LEG;
-	const unsigned int COLOR_KINE_JOINT;
-	const unsigned int COLOR_ERROR_JOINT;	// 文字の色
-	const unsigned int COLOR_ERROR_TEXT;	// エラーの文字色
+	const unsigned int kColorBody;			//!< 胴体の色
+	const unsigned int kColorLeg;			//!< 脚の色
+	const unsigned int kColorLiftedLeg;		//!< 遊脚している脚の色
+	const unsigned int kColorJoint;			//!< ジョイントの色
+	const unsigned int kColorLiftedJoint;	//!< 遊脚しているジョイントの色
+	const unsigned int kColorLegBase;		//!< 脚の基部の色
+	const unsigned int kColorKineLeg;
+	const unsigned int kColorKineJoint;
+	const unsigned int kColorErrorJoint;	//!< 文字の色
+	const unsigned int kColorErrorText;		//!< エラーの文字色
 
-	const int CAPSULE_DIV_NUM;				// ロボットのモデルの円柱をどれだけ細かく描画するか．4 ～ 20ぐらいがちょうどよいと思う．
-	const int SPHERE_DIV_NUM;				// ロボットのモデルの球をどれだけ細かく描画するか．16 ～ 32ぐらいがちょうどよいと思う．
-	const float LEG_R = 10.0f;				// 脚の半径．このクラスでは脚を円柱に近似して描画している．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
-	const float JOINT_R = 20.0f;			// ジョイントの半径．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
+	const int kCapsuleDivNum;	//!< ロボットのモデルの円柱をどれだけ細かく描画するか．4 ～ 20ぐらいがちょうどよいと思う．
+	const int kSphereDivNum;	//!< ロボットのモデルの球をどれだけ細かく描画するか．16 ～ 32ぐらいがちょうどよいと思う．
+	const float kLegRadius;		//!< 脚の半径．このクラスでは脚を円柱に近似して描画している．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
+	const float kJointRadius;	//!< ジョイントの半径．描画時のデータのため，これを変化させてもシミュレーションに影響はない．
 
-	const bool DO_OUTPUT_DEBUG_LOG = false;	// 脚状態を文字列で出力するかどうか
+	const bool kDoOutputDebugLog = false;	//!< 脚状態を文字列で出力するかどうか
 
 
-	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	// ロボットの状態を計算するクラス
+	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 
-	RobotStateNode draw_node_;						// 描画するロボットの状態
+	RobotStateNode draw_node_;						//!< 描画するロボットの状態
 
-	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	// 描画するロボットのジョイントの状態
+	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
 
 
 	// 後でまとめる＆修正

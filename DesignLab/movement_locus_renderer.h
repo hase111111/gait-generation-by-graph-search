@@ -12,24 +12,23 @@
 
 //! @class MovementLocusRenderer
 //! @brief ロボットの移動軌跡を描画するクラス．
-
 class MovementLocusRenderer final
 {
 public:
 	MovementLocusRenderer();
 
 
-	//! @brief ロボットの移動軌跡を記録する．
-	//! @param [in] locus ロボットの移動軌跡の配列．
-	void set_move_locus_point(const std::vector<RobotStateNode>& locus);
+	//! @brief ロボットの移動軌跡を記録する．ノードのvectorから，重心位置の軌跡を取得する
+	//! @param [in] locus 選択されたノードのvector
+	void SetMoveLocusPoint(const std::vector<RobotStateNode>& locus);
 
 	//! @brief シミュレーションの終了点を取得する
 	//! @param [in] index シミュレーションの終了点の配列
-	void set_simulation_end_indexes(const std::vector<size_t>& index);
+	void SetSimulationEndIndexes(const std::vector<size_t>& index);
 
 	//! @brief 高画質モードにするかどうかを設定する
 	//! @param [in] is_high_quality 高画質モードにするかどうか
-	inline void set_is_high_quality(const bool is_high_quality) { is_high_quality_ = is_high_quality; }
+	inline void SetIsHighQuality(const bool is_high_quality) { is_high_quality_ = is_high_quality; }
 
 	//! @brief ロボットの移動軌跡を描画する．
 	//! @param [in] draw_simu_num 描画を行うシミュレーションの番号( 0, 1, 2, ...)

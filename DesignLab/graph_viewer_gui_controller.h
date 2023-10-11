@@ -13,7 +13,6 @@
 
 //! @class GraphViewerGUIController
 //! @brief グラフのノードのデータを表示するGUIのコントローラークラス
-
 class GraphViewerGUIController final
 {
 public:

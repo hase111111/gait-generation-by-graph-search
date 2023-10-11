@@ -32,7 +32,6 @@ void GraphicSystem::Main()
 	//‚»‚à‚»‚à•`‰æˆ—‚ğg‚í‚È‚¢‚È‚ç‚Î‘¦I—¹
 	if (!setting_ptr_->gui_display) 
 	{
-		assert(false);
 		return; 
 	}
 

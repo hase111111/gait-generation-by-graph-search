@@ -6,9 +6,17 @@
 
 
 
-DisplayNodeSwitchGui::DisplayNodeSwitchGui(const int x, const int y) : kGuiLeftPosX(x), kGuiTopPosY(y),
-m_display_node_num(0), m_all_node_num(0), m_simulation_num(0),
-counter_(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
+DisplayNodeSwitchGui::DisplayNodeSwitchGui(const int x, const int y) : 
+	kGuiLeftPosX(x), 
+	kGuiTopPosY(y),
+	kAnimeSpeedMax(120),
+	kAnimeSpeedMin(1),
+	display_node_num_(0), 
+	all_node_num_(0), 
+	simulation_num_(0),
+	counter_(0), 
+	do_auto_animation_(false), 
+	animation_speed_(kAnimeSpeedMin)
 {
 	const int kButtonDif = 10;
 	const int kButtonWidth = 40;
@@ -17,17 +25,17 @@ counter_(0), m_do_auto_animation(false), m_animation_speed(kAnimeSpeedMin)
 
 
 	//各種ボタンを作成する
-	m_button[EButtonType::MostPrevNode] = std::make_unique<ButtomController>(kButtonLeftX, kButtonTopY, kButtonWidth, kButtonWidth, "<<");
-	m_button[EButtonType::PrevNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY, kButtonWidth, kButtonWidth, "<");
-	m_button[EButtonType::PlayStop] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 2, kButtonTopY, kButtonWidth, kButtonWidth, "再生\n停止");
-	m_button[EButtonType::NextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY, kButtonWidth, kButtonWidth, ">");
-	m_button[EButtonType::MostNextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY, kButtonWidth, kButtonWidth, ">>");
-	m_button[EButtonType::SpeedDown] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "↓");
-	m_button[EButtonType::SpeedUp] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "↑");
+	button_[ButtonType::kMostPrevNode] = std::make_unique<ButtomController>(kButtonLeftX, kButtonTopY, kButtonWidth, kButtonWidth, "<<");
+	button_[ButtonType::kPrevNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY, kButtonWidth, kButtonWidth, "<");
+	button_[ButtonType::kPlayStop] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 2, kButtonTopY, kButtonWidth, kButtonWidth, "再生\n停止");
+	button_[ButtonType::kNextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY, kButtonWidth, kButtonWidth, ">");
+	button_[ButtonType::kMostNextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY, kButtonWidth, kButtonWidth, ">>");
+	button_[ButtonType::kSpeedDown] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "↓");
+	button_[ButtonType::kSpeedUp] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "↑");
 
-	m_button[EButtonType::PrevSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
+	button_[ButtonType::kPrevSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
 		kButtonWidth * 2, kButtonWidth, "Prev Simu");
-	m_button[EButtonType::NextSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
+	button_[ButtonType::kNextSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
 		kButtonWidth * 2, kButtonWidth, "Next Simu");
 }
 
@@ -39,28 +47,28 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() : DisplayNodeSwitchGui::DisplayNode
 
 void DisplayNodeSwitchGui::setGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
 {
-	m_all_node_num = node_num;
+	all_node_num_ = node_num;
 
-	m_simu_end_index.clear();
+	simu_end_index_.clear();
 
-	m_simu_end_index = simu_end_index;
+	simu_end_index_ = simu_end_index;
 }
 
 
 size_t DisplayNodeSwitchGui::getDisplayNodeNum() const
 {
 	// 範囲外の値を返さないようにする．
-	if (m_display_node_num > m_all_node_num && m_all_node_num != 0) { return m_all_node_num - 1; }
+	if (display_node_num_ > all_node_num_ && all_node_num_ != 0) { return all_node_num_ - 1; }
 
 
 	// 範囲内の値ならば，そのまま返す
-	return m_display_node_num;
+	return display_node_num_;
 }
 
 
 int DisplayNodeSwitchGui::getSimulationNum() const
 {
-	return m_simulation_num;
+	return simulation_num_;
 }
 
 
@@ -70,14 +78,14 @@ void DisplayNodeSwitchGui::Update()
 
 
 	// 自動再生を行う
-	if (m_do_auto_animation && counter_ % (180 / m_animation_speed) == 0)
+	if (do_auto_animation_ && counter_ % (180 / animation_speed_) == 0)
 	{
 		moveNextNode();
 	}
 
 
 	// ボタンを更新する
-	for (auto& i : m_button)
+	for (auto& i : button_)
 	{
 		i.second->Update();
 
@@ -85,50 +93,50 @@ void DisplayNodeSwitchGui::Update()
 		{
 			switch (i.first)
 			{
-			case EButtonType::MostPrevNode:
+			case ButtonType::kMostPrevNode:
 				moveMostPrevNode();
 				break;
 
-			case EButtonType::MostNextNode:
+			case ButtonType::kMostNextNode:
 				moveMostNextNode();
 				break;
 
-			case EButtonType::PrevNode:
+			case ButtonType::kPrevNode:
 				movePrevNode();
 				break;
 
-			case EButtonType::NextNode:
+			case ButtonType::kNextNode:
 				moveNextNode();
 				break;
 
-			case EButtonType::PrevSimu:
+			case ButtonType::kPrevSimu:
 				movePrevSimulation();
 				break;
 
-			case EButtonType::NextSimu:
+			case ButtonType::kNextSimu:
 				moveNextSimulation();
 				break;
 
-			case EButtonType::PlayStop:
-				m_do_auto_animation = !m_do_auto_animation;
+			case ButtonType::kPlayStop:
+				do_auto_animation_ = !do_auto_animation_;
 				break;
 			}
 		}
 
 		if (i.second->IsPushedNow())
 		{
-			if (i.first == EButtonType::SpeedDown)
+			if (i.first == ButtonType::kSpeedDown)
 			{
-				if (m_animation_speed > kAnimeSpeedMin)
+				if (animation_speed_ > kAnimeSpeedMin)
 				{
-					--m_animation_speed;
+					--animation_speed_;
 				}
 			}
-			else if (i.first == EButtonType::SpeedUp)
+			else if (i.first == ButtonType::kSpeedUp)
 			{
-				if (m_animation_speed < kAnimeSpeedMax)
+				if (animation_speed_ < kAnimeSpeedMax)
 				{
-					++m_animation_speed;
+					++animation_speed_;
 				}
 			}
 		}
@@ -152,7 +160,7 @@ void DisplayNodeSwitchGui::Draw() const
 
 
 	// ボタンを描画する
-	for (const auto& i : m_button)
+	for (const auto& i : button_)
 	{
 		i.second->Draw();
 	}
@@ -165,33 +173,33 @@ void DisplayNodeSwitchGui::Draw() const
 	const unsigned int kTextColor = GetColor(0, 0, 0);
 
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", m_simulation_num + 1, getAllSimulationNum(), m_display_node_num, m_all_node_num);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", simulation_num_ + 1, getAllSimulationNum(), display_node_num_, all_node_num_);
 
 	int start_node_num = 0;
 	int end_node_num = 0;
 
-	if (m_simulation_num == 0)
+	if (simulation_num_ == 0)
 	{
 		start_node_num = 0;
-		if (!m_simu_end_index.empty()) { end_node_num = (int)m_simu_end_index[0]; }
-		else { end_node_num = (int)m_all_node_num - 1; }
+		if (!simu_end_index_.empty()) { end_node_num = (int)simu_end_index_[0]; }
+		else { end_node_num = (int)all_node_num_ - 1; }
 	}
-	else if (m_simulation_num == (int)m_simu_end_index.size())
+	else if (simulation_num_ == (int)simu_end_index_.size())
 	{
-		start_node_num = (int)m_simu_end_index[m_simulation_num - 1] + 1;
-		end_node_num = (int)m_all_node_num - 1;
+		start_node_num = (int)simu_end_index_[simulation_num_ - 1] + 1;
+		end_node_num = (int)all_node_num_ - 1;
 	}
 	else
 	{
-		start_node_num = (int)m_simu_end_index[m_simulation_num - 1] + 1;
-		end_node_num = (int)m_simu_end_index[m_simulation_num];
+		start_node_num = (int)simu_end_index_[simulation_num_ - 1] + 1;
+		end_node_num = (int)simu_end_index_[simulation_num_];
 	}
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 30, kTextColor, "表示ノード : %d (%d～%d)", m_display_node_num, start_node_num, end_node_num, m_all_node_num - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 30, kTextColor, "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 50, kTextColor, "全ノード : %d ", m_all_node_num - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 50, kTextColor, "全ノード : %d ", all_node_num_ - 1);
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 70, kTextColor, m_do_auto_animation == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", m_animation_speed);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 70, kTextColor, do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
 
 	DrawFormatString(kTextLeftX, kGuiTopPosY + 150, kTextColor, "アニメーションの\n     速度変更");
 }
@@ -202,11 +210,11 @@ void DisplayNodeSwitchGui::moveMostPrevNode()
 	//候補
 	size_t candidate = 0;
 
-	for (size_t i = 0; i < m_simu_end_index.size(); i++)
+	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
-		if (m_simu_end_index[i] < m_display_node_num)
+		if (simu_end_index_[i] < display_node_num_)
 		{
-			candidate = m_simu_end_index[i] + 1;
+			candidate = simu_end_index_[i] + 1;
 		}
 		else
 		{
@@ -214,75 +222,75 @@ void DisplayNodeSwitchGui::moveMostPrevNode()
 		}
 	}
 
-	m_display_node_num = candidate;
+	display_node_num_ = candidate;
 }
 
 
 void DisplayNodeSwitchGui::movePrevNode()
 {
-	for (size_t i = 0; i < m_simu_end_index.size(); i++)
+	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
-		if (m_simu_end_index[i] + 1 == m_display_node_num)
+		if (simu_end_index_[i] + 1 == display_node_num_)
 		{
 			return;
 		}
 	}
 
-	--m_display_node_num;
+	--display_node_num_;
 
-	m_display_node_num = static_cast<size_t>((std::max)(static_cast<int>(m_display_node_num), 0));
+	display_node_num_ = static_cast<size_t>((std::max)(static_cast<int>(display_node_num_), 0));
 }
 
 
 void DisplayNodeSwitchGui::moveMostNextNode()
 {
 	//候補
-	size_t candidate = m_all_node_num - 1;
+	size_t candidate = all_node_num_ - 1;
 
-	for (size_t i = 0; i < m_simu_end_index.size(); i++)
+	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
-		if (m_simu_end_index[i] >= m_display_node_num)
+		if (simu_end_index_[i] >= display_node_num_)
 		{
-			candidate = m_simu_end_index[i];
+			candidate = simu_end_index_[i];
 			break;
 		}
 	}
 
-	m_display_node_num = candidate;
+	display_node_num_ = candidate;
 }
 
 
 void DisplayNodeSwitchGui::moveNextNode()
 {
-	for (size_t i = 0; i < m_simu_end_index.size(); i++)
+	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
-		if (m_simu_end_index[i] == m_display_node_num)
+		if (simu_end_index_[i] == display_node_num_)
 		{
 			return;
 		}
 	}
 
-	++m_display_node_num;
+	++display_node_num_;
 
-	m_display_node_num = static_cast<size_t>((std::min)(static_cast<int>(m_display_node_num), static_cast<int>(m_all_node_num - 1)));
+	display_node_num_ = static_cast<size_t>((std::min)(static_cast<int>(display_node_num_), static_cast<int>(all_node_num_ - 1)));
 }
 
 
 void DisplayNodeSwitchGui::movePrevSimulation()
 {
 	//前のシミュレーションへ移動する
-	--m_simulation_num;
+	--simulation_num_;
 
-	m_simulation_num = static_cast<size_t>((std::max)(static_cast<int>(m_simulation_num), 0));
+	simulation_num_ = static_cast<size_t>((std::max)(static_cast<int>(simulation_num_), 0));
 
 	//ノードをそのシミュレーションの最初のノードに移動する
-	if (m_simulation_num == 0)
+	if (simulation_num_ == 0)
 	{
-		m_display_node_num = 0;
+		display_node_num_ = 0;
 	}
 	else
 	{
-		m_display_node_num = m_simu_end_index[m_simulation_num - 1] + 1;
+		display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
 	}
 }
 
@@ -290,20 +298,20 @@ void DisplayNodeSwitchGui::movePrevSimulation()
 void DisplayNodeSwitchGui::moveNextSimulation()
 {
 	//次のシミュレーションへ移動する
-	++m_simulation_num;
+	++simulation_num_;
 
 
-	m_simulation_num = static_cast<size_t>((std::min)(static_cast<int>(m_simulation_num), getAllSimulationNum() - 1));
+	simulation_num_ = static_cast<size_t>((std::min)(static_cast<int>(simulation_num_), getAllSimulationNum() - 1));
 
 
 	//ノードをそのシミュレーションの最初のノードに移動する
-	if (m_simulation_num == 0)
+	if (simulation_num_ == 0)
 	{
-		m_display_node_num = 0;
+		display_node_num_ = 0;
 	}
 	else
 	{
-		m_display_node_num = m_simu_end_index[m_simulation_num - 1] + 1;
+		display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
 	}
 }
 
@@ -312,10 +320,10 @@ int DisplayNodeSwitchGui::getAllSimulationNum() const
 {
 	int all_simu_num = 1;
 
-	if (!m_simu_end_index.empty())
+	if (!simu_end_index_.empty())
 	{
-		if (m_simu_end_index.back() == m_all_node_num - 1) { all_simu_num = (int)m_simu_end_index.size(); }
-		else { all_simu_num = (int)m_simu_end_index.size() + 1; }
+		if (simu_end_index_.back() == all_node_num_ - 1) { all_simu_num = (int)simu_end_index_.size(); }
+		else { all_simu_num = (int)simu_end_index_.size() + 1; }
 	}
 
 	return all_simu_num;
