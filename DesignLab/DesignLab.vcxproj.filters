@@ -399,6 +399,9 @@
     <ClInclude Include="result_file_importer.h">
       <Filter>ソース ファイル\FileIO\Result</Filter>
     </ClInclude>
+    <ClInclude Include="interface_map_creator.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

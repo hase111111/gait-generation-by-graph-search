@@ -47,7 +47,7 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 	RobotStateNode parent_node = current_node;
 	parent_node.ChangeParentNode();
 
-	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::MAX_DEPTH, &graph_tree_);
+	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree_);
 
 	if (result != GraphSearchResult::kSuccess)
 	{

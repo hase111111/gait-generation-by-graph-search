@@ -29,7 +29,7 @@
 //		designlab::Vector3 next_com = { i.x ,i.y,m_current_node.global_center_of_mass.z };
 //		com_change_node.changeGlobalCenterOfMass(next_com, false);
 //
-//		//if (isInMargin(polygon, i) == false) { continue; }	//安定余裕を満たさなければ次の候補点へ
+//		//if (IsInMargin(polygon, i) == false) { continue; }	//安定余裕を満たさなければ次の候補点へ
 //
 //		if (m_calclator.IsLegInterfering(com_change_node)) { continue; }	//脚が干渉していれば次の候補点へ
 //
@@ -79,7 +79,7 @@
 //}
 //
 //
-//bool ComSelecter::isInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& com) const
+//bool ComSelecter::IsInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& com) const
 //{
 //	// @todo 動作がおかしいので修正すること
 //
@@ -92,7 +92,7 @@
 //
 //		designlab::Vector2 v_map = com - polygon.GetVertex(j);
 //
-//		if (v_map.Cross(v1) < STABILITY_MARGIN)
+//		if (v_map.Cross(v1) < kStabilityMargin)
 //		{
 //			//安定余裕を満たさないならば候補から削除する．
 //			return false;

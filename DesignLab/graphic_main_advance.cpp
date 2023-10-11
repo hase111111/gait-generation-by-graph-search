@@ -14,7 +14,7 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 	kInterpolatedAnimeCount(15),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
-	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::GUI_HEIGHT - 10 : 10),
+	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
 	hexapod_renderer_(calculator_ptr),
 	robot_graund_point_renderer_(calculator_ptr),
 	stability_margin_renderer_(calculator_ptr),
@@ -49,7 +49,7 @@ bool GraphicMainAdvance::Update()
 		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
-		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
+		display_node_switch_gui_.SetGraphData(graph_.size(), simu_end_index);
 
 
 		//移動軌跡を更新する．
@@ -70,16 +70,16 @@ bool GraphicMainAdvance::Update()
 	if (!graph_.empty())
 	{
 		// 表示ノードが変更されたら，表示するノードを変更する．
-		if (display_node_index_ != display_node_switch_gui_.getDisplayNodeNum())
+		if (display_node_index_ != display_node_switch_gui_.GetDisplayNodeNum())
 		{
 			if (display_node_index_ > 0)
 			{
 				interpolated_anime_start_count_ = counter_;		//アニメーションを開始した時間を記録する．
-				interpolated_node_creator_.createInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.getDisplayNodeNum()], &interpolated_node_);
+				interpolated_node_creator_.createInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.GetDisplayNodeNum()], &interpolated_node_);
 			}
 
 
-			display_node_index_ = display_node_switch_gui_.getDisplayNodeNum();				//表示するノードを取得する．
+			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();				//表示するノードを取得する．
 
 			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
@@ -148,9 +148,9 @@ void GraphicMainAdvance::Draw() const
 	map_render.Draw(map_state_);
 
 
-	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.getSimulationNum());   //移動軌跡を描画する．
+	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //移動軌跡を描画する．
 
-	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_.getSimulationNum());
+	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());
 
 
 	if (!graph_.empty())

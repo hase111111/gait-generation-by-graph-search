@@ -25,10 +25,9 @@ class MapState
 {
 public:
 	MapState() : map_point_({}) {};
-	MapState(const MapState& other) : map_point_({}) { map_point_ = other.map_point_; };
-	MapState& operator = (const MapState& other);
+	MapState(const MapState& other) : map_point_(other.map_point_) {};	//!< コピーコンストラクタ
+	MapState& operator = (const MapState& other);						//!< 代入演算子
 
-	//getter setter
 
 	//! @brief 脚設置可能点の座標を返す．
 	//! @param [in] num 何番目の脚設置可能点の座標を返すか．

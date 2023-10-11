@@ -15,27 +15,14 @@ namespace dlm = designlab::math_util;
 GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
 	mp_calculator(calc)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphSearcher] GraphSearcherHato : コンストラクタが呼ばれた" << std::endl;
-	}
 }
 
 GraphSearcherHato::~GraphSearcherHato()
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphSearcher] GraphSearcherHato : デストラクタが呼ばれた" << std::endl;
-	}
 }
 
 GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result)
 {
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() 探索開始\n";
-	}
-
 	// _targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
 
 	// @todo initializerで初期化する処理を書く
@@ -58,7 +45,7 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStat
 	for (size_t i = 0; i < kGraphSize; i++)
 	{
 		//最大深さのノードのみを評価する
-		if (graph[i].depth == GraphSearchConst::MAX_DEPTH)
+		if (graph[i].depth == GraphSearchConst::kMaxDepth)
 		{
 			//結果が見つかっていない場合は，必ず結果を更新する
 			if (result_index < 0)
@@ -127,11 +114,6 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStat
 	//深さ1まで遡って値を返す
 	if (getDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::kFailureByNotReachedDepth; }
 
-	if (GraphSearchConst::DO_DEBUG_PRINT)
-	{
-		std::cout << "[GraphSearcher] GraphSearcherHato : searchGraphTree() 探索終了" << std::endl;
-	}
-
 	return GraphSearchResult::kSuccess;
 }
 
@@ -165,7 +147,7 @@ bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<RobotSta
 		if (result_index < 0 || result_index >= kGraphSize) { return false; }
 
 		count++;
-		if (count > GraphSearchConst::MAX_DEPTH) { return false; }
+		if (count > GraphSearchConst::kMaxDepth) { return false; }
 	}
 
 	(*output_node) = graph.at(result_index);

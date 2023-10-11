@@ -289,7 +289,7 @@ void GraphViewerGUIController::updateGraphNodeDepthData()
 
 	if (mp_graph->size() > 0)
 	{
-		m_graph_node_depth_data.resize((size_t)GraphSearchConst::MAX_DEPTH + 1);
+		m_graph_node_depth_data.resize((size_t)GraphSearchConst::kMaxDepth + 1);
 
 		for (size_t i = 0; i < mp_graph->size(); ++i)
 		{

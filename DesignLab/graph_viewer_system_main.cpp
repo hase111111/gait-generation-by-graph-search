@@ -47,7 +47,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	std::cin >> _option;
 	std::cout << std::endl;
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(static_cast<MapCreateMode>(StrToInt(_mode)), StrToInt(_option), false);
+	map_state_ = map_creator.Create(static_cast<MapCreateMode>(StrToInt(_mode)), StrToInt(_option));
 	std::cout << "MapCreator : ƒ}ƒbƒv‚ð¶¬‚µ‚Ü‚µ‚½D" << std::endl << std::endl;
 
 
@@ -244,9 +244,9 @@ void GraphViewerSystemMain::showGraphStatus(const std::vector<RobotStateNode>& _
 
 	if (_graph.size() > 0)
 	{
-		std::vector<int> _depth_num((size_t)GraphSearchConst::MAX_DEPTH + 1);
+		std::vector<int> _depth_num((size_t)GraphSearchConst::kMaxDepth + 1);
 
-		std::cout << "GraphViewerSystemMain : ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³ : " << (int)GraphSearchConst::MAX_DEPTH << std::endl;
+		std::cout << "GraphViewerSystemMain : ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³ : " << (int)GraphSearchConst::kMaxDepth << std::endl;
 
 		for (const auto& i : _graph)
 		{

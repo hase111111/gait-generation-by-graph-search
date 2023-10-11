@@ -1,14 +1,18 @@
-#pragma once
+//! @file com_selecter_hato.h
+//! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
+
+
+#ifndef DESIGNLAB_COM_SELECTER_HATO_H_
+#define DESIGNLAB_COM_SELECTER_HATO_H_
 
 #include <vector>
 #include <memory>
 
+#include "abstract_hexapod_state_calculator.h"
+#include "com_type.h"
 #include "designlab_vector3.h"
 #include "designlab_polygon2.h"
-#include "com_type.h"
 #include "robot_state_node.h"
-#include "abstract_hexapod_state_calculator.h"
-
 
 
 //! @class ComSelecterHato
@@ -42,7 +46,7 @@ private:
 
 	static constexpr int kDiscretizationNum = 10; // 重心を求める際の分割数
 
-	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
+	const float kStabilityMargin = 10.0f; // 絶対安全余裕
 
 
 	RobotStateNode GetCurrentNode() const { return current_node_; } //!< 現在のノードを取得する
@@ -51,7 +55,7 @@ private:
 	bool MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[kDiscretizationNum * kDiscretizationNum]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-	bool isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
+	bool IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
 
 
 
@@ -61,10 +65,4 @@ private:
 };
 
 
-
-//! @file com_selecter_hato.h
-//! @date 2023/08/12
-//! @author 長谷川
-//! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
-//! @n 行数 : @lineinfo
-
+#endif

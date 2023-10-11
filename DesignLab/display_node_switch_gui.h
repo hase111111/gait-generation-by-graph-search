@@ -14,8 +14,6 @@
 
 
 //! @class DisplayNodeSwitchGui
-//! @date 2023/08/30
-//! @author 長谷川
 //! @brief ノードの表示切り替えGUI
 class DisplayNodeSwitchGui final
 {
@@ -27,16 +25,16 @@ public:
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数
 	//! @param[in] simu_end_index シミュレーションの終了ノード番号
-	void setGraphData(size_t node_num, const std::vector<size_t>& simu_end_index);
+	void SetGraphData(size_t node_num, const std::vector<size_t>& simu_end_index);
 
 
 	//! @brief 現在表示するノードの番号を取得する
 	//! @return size_t 現在表示するノードの番号
-	size_t getDisplayNodeNum() const;
+	size_t GetDisplayNodeNum() const;
 
 	//! @brief 現在表示するシミュレーションの番号を取得する
 	//! @return int 現在表示するシミュレーションの番号
-	int getSimulationNum() const;
+	int GetSimulationNum() const;
 
 
 	//! @brief GUIの更新，毎フレーム実行すること
@@ -46,9 +44,9 @@ public:
 	void Draw() const;
 
 
-	const static int GUI_WIDTH = 275;	//!< GUIの幅
+	const static int kGuiWidth = 275;	//!< GUIの幅
 
-	const static int GUI_HEIGHT = 250;	//!< GUIの高さ
+	const static int kGuiHeight = 250;	//!< GUIの高さ
 
 private:
 
@@ -68,25 +66,25 @@ private:
 
 
 	//! シミュレーションの中で最初のノードに移動する関数
-	void moveMostPrevNode();
+	void MoveMostPrevNode();
 
 	//! シミュレーションの中で前のノードに移動する関数
-	void movePrevNode();
+	void MovePrevNode();
 
 	//! シミュレーションの中で最後のノードに移動する関数
-	void moveMostNextNode();
+	void MoveMostNextNode();
 
 	//! シミュレーションの中で次のノードに移動する関数
-	void moveNextNode();
+	void MoveNextNode();
 
 	//! 前のシミュレーションに移動する関数
-	void movePrevSimulation();
+	void MovePrevSimulation();
 
 	//! 次のシミュレーションに移動する関数
-	void moveNextSimulation();
+	void MoveNextSimulation();
 
 	//! 全シミュレーション数を求める
-	int getAllSimulationNum() const;
+	int GetAllSimulationNum() const;
 
 
 

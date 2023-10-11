@@ -13,7 +13,7 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
-	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::GUI_HEIGHT - 10 : 0),
+	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 0),
 	hexapod_renderer_(calculator_ptr),
 	robot_graund_point_renderer_(calculator_ptr),
 	stability_margin_renderer_(calculator_ptr),
@@ -46,7 +46,7 @@ bool GraphicMainBasic::Update()
 		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
-		display_node_switch_gui_.setGraphData(graph_.size(), simu_end_index);
+		display_node_switch_gui_.SetGraphData(graph_.size(), simu_end_index);
 
 
 
@@ -68,9 +68,9 @@ bool GraphicMainBasic::Update()
 	if (!graph_.empty())
 	{
 		// 表示ノードが変更されたら，表示するノードを変更する．
-		if (display_node_index_ != display_node_switch_gui_.getDisplayNodeNum())
+		if (display_node_index_ != display_node_switch_gui_.GetDisplayNodeNum())
 		{
-			display_node_index_ = display_node_switch_gui_.getDisplayNodeNum();	//表示するノードを取得する．
+			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();	//表示するノードを取得する．
 
 			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));					//ロボットの状態を更新する．
 
@@ -125,12 +125,12 @@ void GraphicMainBasic::Draw() const
 
 	if (is_displayed_movement_locus_)
 	{
-		movement_locus_renderer_.Draw(display_node_switch_gui_.getSimulationNum());   //移動軌跡を描画する．
+		movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //移動軌跡を描画する．
 	}
 
 	if (is_displayed_robot_graund_point_)
 	{
-		robot_graund_point_renderer_.Draw(display_node_switch_gui_.getSimulationNum());
+		robot_graund_point_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());
 	}
 
 

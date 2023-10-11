@@ -1,18 +1,29 @@
-#pragma once
+//! @file hexapod_const.h
+//! @brief Hexapodの定数をまとめたクラス．
+
+
+#ifndef DESIGNLAB_HEXAPOD_CONST_H_
+#define DESIGNLAB_HEXAPOD_CONST_H_
+
 
 #include "designlab_math_util.h"
 
 
 //! @class HexapodConst
-//! @date 2023/08/13
-//! @author 長谷川
 //! @brief Hexapod，phantomXのパラメータを定数で表現したもの．他の6脚ロボットのパラメータもここに追加する(今のところ予定はないが)．
-//! @details 定数フィールドなので実体は生成できない．( HexapodConst::LEG_NUM みたいに使うこと )
+//! @details コンストラクタを削除したので，実体は生成できない．( HexapodConst::LEG_NUM みたいに値を呼び出すこと )
 class HexapodConst final
 {
 public:
 
-	constexpr static int LEG_NUM = 6;					//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
+	//コンストラクタとコピーコンストラクタを削除し，実体を生成できないようにする．
+	HexapodConst() = delete;
+	HexapodConst(const HexapodConst& other) = delete;
+	HexapodConst& operator=(const HexapodConst& other) = delete;
+	HexapodConst(HexapodConst&& other) = delete;
+
+
+	constexpr static int LEG_NUM = 6;	//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
 
 	// PhantomXのパラメータ
 	constexpr static float PHANTOMX_COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
@@ -72,18 +83,8 @@ public:
 	constexpr static float DEFAULT_LEG_ANGLE_COS[LEG_NUM] = { 0.70710678118654f, 0.0f, -0.70710678118654f,
 														 -0.70710678118654f, 0.0f, 0.70710678118654f };
 
-private:
 
-	//コンストラクタとコピーコンストラクタを削除し，実体を生成できないようにする．
-	HexapodConst() = delete;
-	HexapodConst(const HexapodConst& other) = delete;
-	HexapodConst& operator=(const HexapodConst& other) = delete;
-	HexapodConst(HexapodConst&& other) = delete;
 };
 
 
-//! @file hexapod_const.h
-//! @date 2023/08/13
-//! @author 長谷川
-//! @brief Hexapodの定数をまとめたクラス．
-//! @n 行数 : @lineinfo
+#endif // !DESIGNLAB_HEXAPOD_CONST_H_

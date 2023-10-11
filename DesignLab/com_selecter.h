@@ -8,8 +8,6 @@
 //
 //
 ////! @class ComSelecter
-////! @date 2023/08/12
-////! @author 長谷川
 ////! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている．
 //class ComSelecter final
 //{
@@ -39,12 +37,12 @@
 //	void MakeComCandidatePoint(const designlab::Polygon2& polygon, std::vector<designlab::Vector2>& _output_coms) const;
 //
 //	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
-//	bool isInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& _com) const;
+//	bool IsInMargin(const designlab::Polygon2& polygon, const designlab::Vector2& _com) const;
 //
 //
 //	const int kDiscretizationNum = 10; // 重心を求める際の分割数
 //
-//	const float STABILITY_MARGIN = 10.0f; // 絶対安全余裕
+//	const float kStabilityMargin = 10.0f; // 絶対安全余裕
 //
 //	const bool DO_DEBUG_PRINT = false; // デバッグ用の出力を行うかどうか．テストコードを書きたいが抽象化できていない...
 //
@@ -56,7 +54,4 @@
 //
 //
 ////! @file com_selecter.h
-////! @date 2023/08/12
-////! @author 長谷川
 ////! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理を行っている．
-////! @n 行数 : @lineinfo

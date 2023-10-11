@@ -58,7 +58,7 @@ GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const RobotStateNode& cu
 	//ノード数が上限を超えていないか確認する．
 	int make_node_num = static_cast<int>(output_graph->size());
 
-	if (GraphSearchConst::MAX_NODE_NUM < make_node_num)
+	if (GraphSearchConst::kMaxNodeNum < make_node_num)
 	{
 		return GraphSearchResult::kFailureByNodeLimitExceeded;
 	}
@@ -134,7 +134,7 @@ void GraphTreeCreatorHato::makeNewNodesByCurrentNode(const RobotStateNode& curre
 
 //		if (!tree_creators[i]) { return GraphSearchResult::kFailureByInitializationFailed; }
 
-//		tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::MAX_DEPTH, &threads_result[i]));
+//		tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::kMaxDepth, &threads_result[i]));
 //	}
 
 //	tree_creator_threads.join_all();

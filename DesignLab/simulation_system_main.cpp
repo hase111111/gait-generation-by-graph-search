@@ -29,7 +29,7 @@ SimulationSystemMain::SimulationSystemMain(
 
 	//マップを生成する．
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(MapCreateMode::kFlat, MapCreator::OPTION_SLOPE, true);
+	map_state_ = map_creator.Create(MapCreateMode::kFlat, MapCreator::OPTION_SLOPE);
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);
@@ -156,11 +156,11 @@ void SimulationSystemMain::Main()
 			}
 
 
-			node_checker.setNode(current_node);													//動作チェッカーにもノードを通達する．
+			node_checker.SetNode(current_node);													//動作チェッカーにもノードを通達する．
 
 
 			//動作がループして失敗
-			if (node_checker.isLoopMove())
+			if (node_checker.IsLoopMove())
 			{
 				record.simulation_result = SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
@@ -225,6 +225,7 @@ void SimulationSystemMain::Main()
 	dlio::OutputHorizontalLine(true);
 	dlio::OutputNewLine();
 }
+
 
 void SimulationSystemMain::OutputSetting() const
 {

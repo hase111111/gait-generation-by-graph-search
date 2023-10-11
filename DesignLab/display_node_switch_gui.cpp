@@ -45,7 +45,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() : DisplayNodeSwitchGui::DisplayNode
 }
 
 
-void DisplayNodeSwitchGui::setGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
+void DisplayNodeSwitchGui::SetGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
 {
 	all_node_num_ = node_num;
 
@@ -55,7 +55,7 @@ void DisplayNodeSwitchGui::setGraphData(const size_t node_num, const std::vector
 }
 
 
-size_t DisplayNodeSwitchGui::getDisplayNodeNum() const
+size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
 {
 	// 範囲外の値を返さないようにする．
 	if (display_node_num_ > all_node_num_ && all_node_num_ != 0) { return all_node_num_ - 1; }
@@ -66,7 +66,7 @@ size_t DisplayNodeSwitchGui::getDisplayNodeNum() const
 }
 
 
-int DisplayNodeSwitchGui::getSimulationNum() const
+int DisplayNodeSwitchGui::GetSimulationNum() const
 {
 	return simulation_num_;
 }
@@ -80,7 +80,7 @@ void DisplayNodeSwitchGui::Update()
 	// 自動再生を行う
 	if (do_auto_animation_ && counter_ % (180 / animation_speed_) == 0)
 	{
-		moveNextNode();
+		MoveNextNode();
 	}
 
 
@@ -94,27 +94,27 @@ void DisplayNodeSwitchGui::Update()
 			switch (i.first)
 			{
 			case ButtonType::kMostPrevNode:
-				moveMostPrevNode();
+				MoveMostPrevNode();
 				break;
 
 			case ButtonType::kMostNextNode:
-				moveMostNextNode();
+				MoveMostNextNode();
 				break;
 
 			case ButtonType::kPrevNode:
-				movePrevNode();
+				MovePrevNode();
 				break;
 
 			case ButtonType::kNextNode:
-				moveNextNode();
+				MoveNextNode();
 				break;
 
 			case ButtonType::kPrevSimu:
-				movePrevSimulation();
+				MovePrevSimulation();
 				break;
 
 			case ButtonType::kNextSimu:
-				moveNextSimulation();
+				MoveNextSimulation();
 				break;
 
 			case ButtonType::kPlayStop:
@@ -154,7 +154,7 @@ void DisplayNodeSwitchGui::Draw() const
 	// ボックスを描画する
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
-	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + GUI_WIDTH, kGuiTopPosY + GUI_HEIGHT, kColor, TRUE);
+	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kGuiWidth, kGuiTopPosY + kGuiHeight, kColor, TRUE);
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
@@ -173,7 +173,7 @@ void DisplayNodeSwitchGui::Draw() const
 	const unsigned int kTextColor = GetColor(0, 0, 0);
 
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", simulation_num_ + 1, getAllSimulationNum(), display_node_num_, all_node_num_);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[シミュレーション%d回目(全%d回)]", simulation_num_ + 1, GetAllSimulationNum(), display_node_num_, all_node_num_);
 
 	int start_node_num = 0;
 	int end_node_num = 0;
@@ -205,7 +205,7 @@ void DisplayNodeSwitchGui::Draw() const
 }
 
 
-void DisplayNodeSwitchGui::moveMostPrevNode()
+void DisplayNodeSwitchGui::MoveMostPrevNode()
 {
 	//候補
 	size_t candidate = 0;
@@ -226,7 +226,7 @@ void DisplayNodeSwitchGui::moveMostPrevNode()
 }
 
 
-void DisplayNodeSwitchGui::movePrevNode()
+void DisplayNodeSwitchGui::MovePrevNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
@@ -242,7 +242,7 @@ void DisplayNodeSwitchGui::movePrevNode()
 }
 
 
-void DisplayNodeSwitchGui::moveMostNextNode()
+void DisplayNodeSwitchGui::MoveMostNextNode()
 {
 	//候補
 	size_t candidate = all_node_num_ - 1;
@@ -260,7 +260,7 @@ void DisplayNodeSwitchGui::moveMostNextNode()
 }
 
 
-void DisplayNodeSwitchGui::moveNextNode()
+void DisplayNodeSwitchGui::MoveNextNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
@@ -276,7 +276,7 @@ void DisplayNodeSwitchGui::moveNextNode()
 }
 
 
-void DisplayNodeSwitchGui::movePrevSimulation()
+void DisplayNodeSwitchGui::MovePrevSimulation()
 {
 	//前のシミュレーションへ移動する
 	--simulation_num_;
@@ -295,13 +295,13 @@ void DisplayNodeSwitchGui::movePrevSimulation()
 }
 
 
-void DisplayNodeSwitchGui::moveNextSimulation()
+void DisplayNodeSwitchGui::MoveNextSimulation()
 {
 	//次のシミュレーションへ移動する
 	++simulation_num_;
 
 
-	simulation_num_ = static_cast<size_t>((std::min)(static_cast<int>(simulation_num_), getAllSimulationNum() - 1));
+	simulation_num_ = static_cast<size_t>((std::min)(static_cast<int>(simulation_num_), GetAllSimulationNum() - 1));
 
 
 	//ノードをそのシミュレーションの最初のノードに移動する
@@ -316,7 +316,7 @@ void DisplayNodeSwitchGui::moveNextSimulation()
 }
 
 
-int DisplayNodeSwitchGui::getAllSimulationNum() const
+int DisplayNodeSwitchGui::GetAllSimulationNum() const
 {
 	int all_simu_num = 1;
 

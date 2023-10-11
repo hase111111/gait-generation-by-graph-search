@@ -38,7 +38,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 
 	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
-		if (!isInMargin(polygon, edge_vec, com_candidate[i].second))
+		if (!IsInMargin(polygon, edge_vec, com_candidate[i].second))
 		{
 			//候補点が多角形の外側ならば次の候補点へ
 			com_candidate[i].first = false;
@@ -137,13 +137,13 @@ bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, 
 }
 
 
-bool ComSelecterHato::isInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const
+bool ComSelecterHato::IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const
 {
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
 		designlab::Vector2 v_map = candidate_point - polygon.GetVertex(i);
 
-		if (v_map.Cross(edge_vec[i]) > -STABILITY_MARGIN)
+		if (v_map.Cross(edge_vec[i]) > -kStabilityMargin)
 		{
 			//安定余裕を満たさないならば候補から削除する．
 			return false;

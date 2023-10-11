@@ -45,6 +45,7 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="interface_map_creator.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
     <ClInclude Include="interface_system_main.h" />
     <ClInclude Include="interpolated_node_creator.h" />
