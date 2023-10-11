@@ -65,7 +65,7 @@
 //				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_coxa_joint_angle) * cos(_fumur_joint_angle),
 //				HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_fumur_joint_angle));
 //
-//		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dlm::kAllowableError)
+//		if (abs((m_local_femurjoint_pos[i] - m_local_tibiajoint_pos[i]).GetLength() - HexapodConst::PHANTOMX_FEMUR_LENGTH) > dlm::kAllowableError)
 //		{
 //			const float _fumur_joint_angle2 = -(-std::acos(_s1 / _s2) + std::atan(-_node.leg_pos[i].z / _L));
 //
@@ -190,8 +190,8 @@
 //
 //
 //	////‹r‚ðL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
-//	if (dlm::Squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.LengthSquare()) { return false; }
-//	if (dlm::Squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.LengthSquare()) { return false; }
+//	if (dlm::Squared(getMinLegR(node.leg_pos[leg_num].z)) > leg_pos_xy.GetSquaredLength()) { return false; }
+//	if (dlm::Squared(getMaxLegR(node.leg_pos[leg_num].z)) < leg_pos_xy.GetSquaredLength()) { return false; }
 //
 //	return true;
 //}
@@ -208,8 +208,8 @@
 //	if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
 //
 //	////‹r‚ðL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
-//	if (dlm::Squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.LengthSquare()) { return false; }
-//	if (dlm::Squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.LengthSquare()) { return false; }
+//	if (dlm::Squared(getMinLegR(local_leg_pos.z)) > leg_pos_xy.GetSquaredLength()) { return false; }
+//	if (dlm::Squared(getMaxLegR(local_leg_pos.z)) < leg_pos_xy.GetSquaredLength()) { return false; }
 //
 //	return true;
 //}
@@ -280,7 +280,7 @@
 //	for (int i = 0; i < leg_pos.size(); i++)
 //	{
 //		designlab::Vector2 i_to_i_plus_1 = leg_pos.at((i + 1) % leg_pos.size()) - leg_pos.at(i);
-//		i_to_i_plus_1.Normalize();
+//		i_to_i_plus_1.GetNormalized();
 //
 //		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - leg_pos.at(i);
 //

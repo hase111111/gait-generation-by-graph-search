@@ -67,11 +67,11 @@ public:
 
 	//! @brief カメラの回転を表すクォータニオンを取得する．
 	//! @return カメラのクォータニオン
-	inline designlab::Quaternion GetCameraQuat() const { return goal_camera_state_.camera_quat.Normalize(); }
+	inline designlab::Quaternion GetCameraQuat() const { return goal_camera_state_.camera_quat.GetNormalized(); }
 
 	//! @brief カメラのクォータニオンをセットする
 	//! @param [in] quat カメラのクォータニオン
-	inline void SetCameraQuat(const designlab::Quaternion& quat) { goal_camera_state_.camera_quat = quat.Normalize(); }
+	inline void SetCameraQuat(const designlab::Quaternion& quat) { goal_camera_state_.camera_quat = quat.GetNormalized(); }
 
 	//! @brief 注視点を操作する際の，カメラの注視する座標をセットする
 	//! @param [in] pos カメラの注視する座標

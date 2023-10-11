@@ -47,7 +47,7 @@ void CameraStateManager::Update()
 		0.1f
 	);
 
-	now_camera_state_.camera_quat = now_camera_state_.camera_quat.Normalize();
+	now_camera_state_.camera_quat = now_camera_state_.camera_quat.GetNormalized();
 
 
 	//カメラの注視点を目標値に近づける．

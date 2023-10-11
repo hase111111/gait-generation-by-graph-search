@@ -188,12 +188,12 @@ float GraphSearcherHato::calcMoveFrowardEvaluationValue(const RobotStateNode& cu
 	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
 	//designlab::Vector3 m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
 
-	//return (int)(m_target_to_parent.ProjectedXY().Length() - center_com_dif.ProjectedXY().Length()) / 10 * 10.0f;
+	//return (int)(m_target_to_parent.ProjectedXY().GetLength() - center_com_dif.ProjectedXY().GetLength()) / 10 * 10.0f;
 
 	designlab::Vector3 target_pos {10000, 0, 0};
 	designlab::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
-	return target_pos.Length() - target_to_parent.Length();
+	return target_pos.GetLength() - target_to_parent.GetLength();
 }
 
 float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current_node, const STarget& target) const
@@ -207,7 +207,7 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
-			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).Length();
+			result += (current_node.leg_pos[i] - m_parent_node.leg_pos[i]).GetLength();
 		}
 	}
 

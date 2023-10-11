@@ -33,7 +33,7 @@ namespace designlab
 		//! @return float ü•ª‚Ì’·‚³
 		inline float GetLength() const
 		{
-			return (end - start).Length();
+			return (end - start).GetLength();
 		}
 
 		//! @brief ü•ª‚ª•½s‚©‚Ç‚¤‚©’²‚×‚éŠÖ”

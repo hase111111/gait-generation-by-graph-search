@@ -31,7 +31,7 @@ float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegSt
 	for (int i = 0; i < ground_leg_pos_num; i++)
 	{
 		designlab::Vector2 i_to_i_plus_1 = ground_leg_pos[(i + 1) % ground_leg_pos_num] - ground_leg_pos[i];
-		i_to_i_plus_1.Normalize();
+		i_to_i_plus_1.GetNormalized();
 		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - ground_leg_pos[i];
 
 		float margin = i_to_com.Cross(i_to_i_plus_1);	// 多角形の辺と重心の距離(静的安定余裕)

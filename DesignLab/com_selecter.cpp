@@ -17,7 +17,7 @@
 //	std::sort(coms.begin(), coms.end(),
 //		[&](const designlab::Vector2& _v1, const designlab::Vector2& _v2)
 //		{
-//			return (_v1 - m_current_node.global_center_of_mass.ProjectedXY()).LengthSquare() > (_v2 - m_current_node.global_center_of_mass.ProjectedXY()).LengthSquare();
+//			return (_v1 - m_current_node.global_center_of_mass.ProjectedXY()).GetSquaredLength() > (_v2 - m_current_node.global_center_of_mass.ProjectedXY()).GetSquaredLength();
 //		}
 //	);
 //
@@ -88,7 +88,7 @@
 //	for (int j = 0; j < kVertexNum; ++j)
 //	{
 //		designlab::Vector2 v1 = polygon.GetVertex((j + 1) % kVertexNum) - polygon.GetVertex(j);
-//		v1 = v1.Normalize();
+//		v1 = v1.GetNormalized();
 //
 //		designlab::Vector2 v_map = com - polygon.GetVertex(j);
 //

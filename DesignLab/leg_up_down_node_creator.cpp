@@ -217,7 +217,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).LengthSquare() < dlm::Squared(kLegMargin))
+	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
 	{
 		if (_leg_state == DiscreteLegPos::kCenter) { return true; }
 		else { return false; }

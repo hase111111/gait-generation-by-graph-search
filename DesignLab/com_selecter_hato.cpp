@@ -28,7 +28,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
 		designlab::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
-		edge.Normalize();
+		edge.GetNormalized();
 		edge_vec[i] = edge;
 	}
 
@@ -83,7 +83,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 	{
 		if (com_candidate[i].first)
 		{
-			const float dist = fabsf((com_candidate[i].second - k_rotate_center).Length() - k_rotate_r);
+			const float dist = fabsf((com_candidate[i].second - k_rotate_center).GetLength() - k_rotate_r);
 
 			if (min_dist < dist)
 			{

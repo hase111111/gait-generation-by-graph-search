@@ -89,7 +89,7 @@ namespace designlab
 		//! @n クォータニオンの正規化とは，ノルムを1にすること．
 		//! @n クォータニオンqの正規化は，q / |q| で求められる
 		//! @return designlab::Quaternion 正規化されたクォータニオン
-		inline Quaternion Normalize() const { return *this * (1 / Norm()); }
+		inline Quaternion GetNormalized() const { return *this * (1 / Norm()); }
 
 		//! @brief クォータニオンをXYZオイラー角に変換する
 		//! @return designlab::EulerXYZ XYZオイラー角

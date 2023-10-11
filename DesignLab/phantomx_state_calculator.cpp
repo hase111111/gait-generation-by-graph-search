@@ -189,7 +189,7 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	//仮 x=0 y=0 の時はfalseにする
 	if (abs(x_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f) && abs(y_pos) <= (LEG_POS_MAX - LEG_POS_MIN) / (LEG_POS_DIV_NUM - 1.0f)) { return false; }
 
-	if (leg_pos.ProjectedXY().Length() < MIN_LEG_R) { return false; }
+	if (leg_pos.ProjectedXY().GetLength() < MIN_LEG_R) { return false; }
 
 	// 関節の角度を計算する
 	HexapodJointState joint_state;
@@ -215,11 +215,11 @@ bool PhantomXStateCalclator::initIsAbleLegPos(const int leg_index, const int x, 
 	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
 
 	// リンクの長さを確認する
-	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).Length(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).GetLength(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).Length(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).GetLength(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).Length(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).GetLength(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
 
 	return true;
 }
@@ -257,11 +257,11 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 	(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 
-	if ((leg_pos - femur_joint_pos).Length() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
+	if ((leg_pos - femur_joint_pos).GetLength() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
 
 
 	// tibia joint / femur angle の計算
-	const float leg_to_f_x = (leg_pos - femur_joint_pos).ProjectedXY().Length();				//脚先から第一関節までの長さ．
+	const float leg_to_f_x = (leg_pos - femur_joint_pos).ProjectedXY().GetLength();				//脚先から第一関節までの長さ．
 	const float leg_to_f_z = leg_pos.z - femur_joint_pos.z;
 
 	const float arccos_arg = (dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_z) + dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
@@ -282,7 +282,7 @@ void PhantomXStateCalclator::calculateLocalJointState(const int leg_index, const
 		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
 	};
 
-	//if (tibia_joint_pos1.ProjectedXY().LengthSquare() < tibia_joint_pos2.ProjectedXY().LengthSquare())
+	//if (tibia_joint_pos1.ProjectedXY().GetSquaredLength() < tibia_joint_pos2.ProjectedXY().GetSquaredLength())
 	//{  ↑これは間違ってた
 	if (false)
 	{

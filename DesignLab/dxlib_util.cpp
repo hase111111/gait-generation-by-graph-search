@@ -117,10 +117,10 @@ namespace designlab
 			DrawHexagon(kVertexBottom, color);	//底面を描画する．
 
 			//側面を描画していく．側面は四角形6つで構成されるので，3角形が12個必要になる．
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+			for (int i = 0; i < 6; i++)
 			{
-				DrawTriangle3D(kVertexTop[i % HexapodConst::LEG_NUM], kVertexTop[(i + 1) % HexapodConst::LEG_NUM], kVertexBottom[i % HexapodConst::LEG_NUM], color, TRUE);
-				DrawTriangle3D(kVertexTop[(i + 1) % HexapodConst::LEG_NUM], kVertexBottom[i % HexapodConst::LEG_NUM], kVertexBottom[(i + 1) % HexapodConst::LEG_NUM], color, TRUE);
+				DrawTriangle3D(kVertexTop[i % 6], kVertexTop[(i + 1) % 6], kVertexBottom[i % 6], color, TRUE);
+				DrawTriangle3D(kVertexTop[(i + 1) % 6], kVertexBottom[i % 6], kVertexBottom[(i + 1) % 6], color, TRUE);
 			}
 
 		}

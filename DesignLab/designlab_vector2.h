@@ -48,11 +48,11 @@ namespace designlab
 		//! @brief このベクトルの長さを返す
 		//! @return このベクトルの長さ
 		//! @note sqrtは重いので，長さの2乗を返すlengthSquare()を使うことを推奨
-		float Length() const { return std::sqrt(LengthSquare()); }
+		float GetLength() const { return std::sqrt(GetSquaredLength()); }
 
 		//! @brief このベクトルの長さの2乗を返す
 		//! @return このベクトルの長さの2乗
-		constexpr float LengthSquare() const { return Dot(*this); }
+		constexpr float GetSquaredLength() const { return Dot(*this); }
 
 		//! @brief このベクトルとotherの内積を返す
 		//! @param [in] other 他のベクトル
@@ -68,11 +68,11 @@ namespace designlab
 		//! @brief このベクトルとotherの距離を返す
 		//! @param [in] other 他のベクトル
 		//! @return このベクトルとotherの距離
-		float DistanceFrom(const Vector2& other) const { return (other - *this).Length(); }
+		float GetDistanceFrom(const Vector2& other) const { return (other - *this).GetLength(); }
 
 		//! @brief このベクトルを正規化したベクトルを返す
 		//! @return 正規化されたベクトル
-		Vector2 Normalize() const;
+		Vector2 GetNormalized() const;
 
 		//! @brief このベクトルが0ならばtrue
 		//! @return このベクトルが0ならばtrue

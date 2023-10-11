@@ -64,9 +64,9 @@ void HexapodRenderer::SetDrawNode(const RobotStateNode& node)
 		kKineTibiaJointPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineTibiaJointVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
 		kKineLegPos[i] = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, kKineLegVec[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
 
-		kCoxaLinkLength[i] = (draw_joint_state_[i].local_joint_position[0] - draw_joint_state_[i].local_joint_position[1]).Length();
-		kFemurLinkLength[i] = (draw_joint_state_[i].local_joint_position[1] - draw_joint_state_[i].local_joint_position[2]).Length();
-		kTibiaLinkLength[i] = (draw_joint_state_[i].local_joint_position[2] - draw_joint_state_[i].local_joint_position[3]).Length();
+		kCoxaLinkLength[i] = (draw_joint_state_[i].local_joint_position[0] - draw_joint_state_[i].local_joint_position[1]).GetLength();
+		kFemurLinkLength[i] = (draw_joint_state_[i].local_joint_position[1] - draw_joint_state_[i].local_joint_position[2]).GetLength();
+		kTibiaLinkLength[i] = (draw_joint_state_[i].local_joint_position[2] - draw_joint_state_[i].local_joint_position[3]).GetLength();
 
 		kIsAbleCoxaAngle[i] = !(draw_joint_state_[i].joint_angle[0] < HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MIN ||
 			HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MAX < draw_joint_state_[i].joint_angle[0]);
@@ -160,7 +160,7 @@ void HexapodRenderer::Draw() const
 
 		//	printfDx(" LegNum: %d \t", i);
 		//	printfDx("Max : %.3f, min : %.3f\t", m_HexaCalc.getMaxLegR(node.leg_pos[i].z), m_HexaCalc.getMinLegR(node.leg_pos[i].z));
-		//	printfDx("%.3f\t", node.leg_pos[i].Length());
+		//	printfDx("%.3f\t", node.leg_pos[i].GetLength());
 
 		//	if (m_HexaCalc.IsLegInRange(node, i))printfDx("is in range   ");
 		//	else printfDx("isnot in range");
@@ -191,20 +191,20 @@ void HexapodRenderer::Draw() const
 
 bool HexapodRenderer::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
 {
-	if (abs((coxa_joint - femur_joint).Length() - HexapodConst::PHANTOMX_COXA_LENGTH) < dlm::kAllowableError) { return true; }
+	if (abs((coxa_joint - femur_joint).GetLength() - HexapodConst::PHANTOMX_COXA_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
 bool HexapodRenderer::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
 {
-	if (abs((femur_joint - tibia_joint).Length() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dlm::kAllowableError) { return true; }
+	if (abs((femur_joint - tibia_joint).GetLength() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
 bool HexapodRenderer::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
 {
-	if (abs((tibia_joint - leg_joint).Length() - HexapodConst::PHANTOMX_TIBIA_LENGTH) < 10) { return true; }
+	if (abs((tibia_joint - leg_joint).GetLength() - HexapodConst::PHANTOMX_TIBIA_LENGTH) < 10) { return true; }
 	return false;
 }

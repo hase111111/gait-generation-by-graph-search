@@ -42,7 +42,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 			dl::Quaternion res = camera_manager->GetCameraQuat() * move_quatx;
 
-			res = res.Normalize();
+			res = res.GetNormalized();
 
 			camera_manager->SetCameraQuat(res);
 		}
@@ -53,7 +53,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 			dl::Quaternion res = camera_manager->GetCameraQuat() * move_quaty;
 
-			res = res.Normalize();
+			res = res.GetNormalized();
 
 			camera_manager->SetCameraQuat(res);
 		}
@@ -69,7 +69,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 		dl::Quaternion res = camera_manager->GetCameraQuat() * move_quat;
 
-		res = res.Normalize();
+		res = res.GetNormalized();
 
 		camera_manager->SetCameraQuat(res);
 

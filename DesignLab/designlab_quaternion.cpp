@@ -16,7 +16,7 @@ designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const 
 
 	const float kHalfAngle = angle * 0.5f;
 
-	return Quaternion{ cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.Normalize() * sinf(kHalfAngle) };
+	return Quaternion{ cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(kHalfAngle) };
 }
 
 designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q,const bool use_normalized_quaternions)

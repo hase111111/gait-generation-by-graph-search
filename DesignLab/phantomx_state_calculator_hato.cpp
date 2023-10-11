@@ -29,9 +29,9 @@ bool PhantomXStateCalclator_Hato::IsLegInRange(const int leg_index, const design
 	//assert(0 <= -leg_pos.z && -leg_pos.z <= kMaxDifZ);
 	if (leg_pos.z > 0 || -kMaxDifZ > leg_pos.z) { return false; }
 
-	if (dlm::Squared(leg_max_r_[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(leg_max_r_[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.GetSquaredLength()) { return false; }
 
-	if (dlm::Squared(120) > leg_pos_xy.LengthSquare()) { return false; }
+	if (dlm::Squared(120) > leg_pos_xy.GetSquaredLength()) { return false; }
 
 	return true;
 }
@@ -101,7 +101,7 @@ std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator
 			_kinematics.y = 0.0f;
 			_kinematics.z = -(HexapodConst::PHANTOMX_FEMUR_LENGTH * sin(_femur_angle) + HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f));
 
-			const float _Permission = (_kinematics - line_end).LengthSquare();
+			const float _Permission = (_kinematics - line_end).GetSquaredLength();
 
 			if (PERMISSION > _Permission)
 			{

@@ -34,9 +34,9 @@ namespace designlab
 		return *this;
 	}
 
-	Vector2 Vector2::Normalize() const
+	Vector2 Vector2::GetNormalized() const
 	{
-		float length = Length();
+		float length = GetLength();
 
 		if (dlm::IsEqual(length,0))
 		{
