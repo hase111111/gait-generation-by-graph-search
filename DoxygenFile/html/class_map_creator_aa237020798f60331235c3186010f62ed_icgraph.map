@@ -1,5 +1,0 @@
-<map id="MapCreator::Create" name="MapCreator::Create">
-<area shape="rect" id="Node000001" title="マップ情報を与える関数 &#160;&#160;getMapのオプションはbit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，OPTION_PERFORATED | OPTION_STEP と指定す..." alt="" coords="217,13,351,40"/>
-<area shape="rect" id="Node000002" href="$class_simulation_system_main.html#a79a64ff0263726f0e22d2e5f0e0d2ad8" title=" " alt="" coords="5,5,169,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,29,169,29,169,24,202,24"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="designlab::Vector2::ToString" name="designlab::Vector2::ToString">
-<area shape="rect" id="Node000001" title="このベクトルを文字列にして返す &#160;&#160;(x, y) の形式，小数点以下3桁まで" alt="" coords="192,5,321,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#a310bb9599a9ef2b23581bafa7ede4327" title="多角形のデータを文字列で出力する" alt="" coords="5,5,144,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,29,144,29,144,24,177,24"/>
-</map>

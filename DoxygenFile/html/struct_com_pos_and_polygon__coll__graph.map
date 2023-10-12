@@ -1,5 +1,0 @@
-<map id="ComPosAndPolygon" name="ComPosAndPolygon">
-<area shape="rect" id="Node000001" title="離散化された重心位置とその重心位置を含む多角形の組み合わせ．" alt="" coords="5,96,147,123"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html" title="2次元の多角形を表す構造体" alt="" coords="7,5,145,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,47,79,95,73,95,73,47"/>
-</map>

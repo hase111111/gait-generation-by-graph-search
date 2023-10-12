@@ -1,7 +1,0 @@
-<map id="SNode" name="SNode">
-<area shape="rect" id="Node000001" title="ノードの構造体を定義する．" alt="" coords="124,96,184,123"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体" alt="" coords="5,5,135,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,46,69,59,74,71,84,81,96,90,124,100,122,105,94,95,80,85,69,73,64,61,63,47"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_euler_x_y_z.html" title="回転を表す構造体．XYZオイラー角．単位は [rad]" alt="" coords="169,5,307,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,47,211,74,180,98,177,93,207,70,224,44"/>
-</map>

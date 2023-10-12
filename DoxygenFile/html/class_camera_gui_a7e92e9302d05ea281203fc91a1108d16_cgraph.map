@@ -1,5 +1,0 @@
-<map id="CameraGui::SetHexapodPos" name="CameraGui::SetHexapodPos">
-<area shape="rect" id="Node000001" title="カメラが注視するロボットの座標を設定する" alt="" coords="5,13,194,40"/>
-<area shape="rect" id="Node000002" href="$class_camera_state_manager.html#adfcaa7e32758f9c1e9315359c72b7c4d" title="カメラの注視する目標の座標をセットする &#160;&#160;cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない" alt="" coords="242,5,389,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,24,227,24,227,29,194,29"/>
-</map>

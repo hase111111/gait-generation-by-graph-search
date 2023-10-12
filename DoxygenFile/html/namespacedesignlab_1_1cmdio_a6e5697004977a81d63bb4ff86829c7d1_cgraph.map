@@ -1,5 +1,0 @@
-<map id="designlab::cmdio::InputYesNo" name="designlab::cmdio::InputYesNo">
-<area shape="rect" id="Node000001" title="yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．" alt="" coords="5,5,200,32"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a4398f06a03698e7b029112bb62c63485" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="248,5,414,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,16,233,16,233,21,200,21"/>
-</map>

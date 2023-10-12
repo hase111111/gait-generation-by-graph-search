@@ -1,5 +1,0 @@
-<map id="designlab::RotationMatrix3x3::CreateRotationMatrixZ" name="designlab::RotationMatrix3x3::CreateRotationMatrixZ">
-<area shape="rect" id="Node000001" title="z軸周りに回転する回転行列を生成する" alt="" coords="243,5,432,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_rotation_matrix3x3.html#aa359554a22d2f23211bb78690df5e210" title="XYZオイラー角から回転行列を生成する．X→Y→Zの順に回転する．" alt="" coords="5,5,195,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,29,195,29,195,24,228,24"/>
-</map>

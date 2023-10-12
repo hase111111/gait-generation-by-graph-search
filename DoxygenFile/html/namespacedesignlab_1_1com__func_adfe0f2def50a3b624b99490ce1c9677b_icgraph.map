@@ -1,5 +1,0 @@
-<map id="designlab::com_func::IsLegPairFree" name="designlab::com_func::IsLegPairFree">
-<area shape="rect" id="Node000001" title="leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している" alt="" coords="278,5,418,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1com__func.html#a7d92241fea873330222fee61aebe4e54" title="重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．" alt="" coords="5,5,230,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,29,230,29,230,24,263,24"/>
-</map>

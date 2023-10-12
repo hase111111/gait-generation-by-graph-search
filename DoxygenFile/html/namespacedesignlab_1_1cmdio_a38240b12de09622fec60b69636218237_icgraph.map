@@ -1,9 +1,0 @@
-<map id="designlab::cmdio::InputInt" name="designlab::cmdio::InputInt">
-<area shape="rect" id="Node000001" title="整数を入力する関数．" alt="" coords="436,43,605,69"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#adc19ae459e6e165635ff3eba1f975a0c" title="このアプリの起動モードを選択する関数．" alt="" coords="224,5,388,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="421,45,388,41,389,35,422,40"/>
-<area shape="rect" id="Node000003" href="$class_file_tree.html#a158392d6e36b190b06055e8bc8db59ad" title="ディレクトリの中から，ファイルを一つ選択する" alt="" coords="239,72,373,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="422,72,373,79,372,74,421,67"/>
-<area shape="rect" id="Node000004" href="$class_result_viewer_system_main.html#aecf8894b5ac421d39b2d373e33774767" title="主要な処理を行う関数" alt="" coords="5,64,176,107"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="225,88,176,88,176,83,225,83"/>
-</map>

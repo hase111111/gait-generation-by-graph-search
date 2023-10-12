@@ -1,5 +1,0 @@
-<map id="dl_com::getLegGroundedBitFromLegGroundPatternIndex" name="dl_com::getLegGroundedBitFromLegGroundPatternIndex">
-<area shape="rect" id="Node000001" title="脚の接地パターンの番号から，その脚の接地パターンを返す．" alt="" coords="216,5,403,48"/>
-<area shape="rect" id="Node000002" href="$class_leg_up_down_node_creator.html#a3b56cbc29dff2595c55b551a830a0b30" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,168,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
-</map>

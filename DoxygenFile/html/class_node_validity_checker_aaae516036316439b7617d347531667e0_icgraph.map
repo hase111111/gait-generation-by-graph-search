@@ -1,5 +1,0 @@
-<map id="NodeValidityChecker::isLoopMove" name="NodeValidityChecker::isLoopMove">
-<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,351,48"/>
-<area shape="rect" id="Node000002" href="$class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,161,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,29,161,29,161,24,194,24"/>
-</map>

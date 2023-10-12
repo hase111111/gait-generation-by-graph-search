@@ -1,5 +1,0 @@
-<map id="GraphicMainTest" name="GraphicMainTest">
-<area shape="rect" id="Node000001" title="MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．" alt="" coords="5,80,125,107"/>
-<area shape="rect" id="Node000002" href="$class_i_graphic_main.html" title="GraphicMainのインターフェース" alt="" coords="16,5,114,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,47,68,80,62,80,62,47"/>
-</map>

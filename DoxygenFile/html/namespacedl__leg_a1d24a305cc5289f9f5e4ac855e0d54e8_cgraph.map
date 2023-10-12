@@ -1,7 +1,0 @@
-<map id="dl_leg::GetLiftedLegNum" name="dl_leg::GetLiftedLegNum">
-<area shape="rect" id="Node000001" title="遊脚している脚の本数を返す関数．" alt="" coords="5,5,169,32"/>
-<area shape="rect" id="Node000002" href="$namespacedl__leg.html#a2389105967d4cdcca0ca12bcaf8b2012" title="接地している脚の本数を返す関数．" alt="" coords="217,5,405,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,16,202,16,202,21,169,21"/>
-<area shape="rect" id="Node000003" href="$namespacedl__leg.html#af9f9b0788c3b3049e8bbf659df946c20" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="453,5,582,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="405,16,438,16,438,21,405,21"/>
-</map>

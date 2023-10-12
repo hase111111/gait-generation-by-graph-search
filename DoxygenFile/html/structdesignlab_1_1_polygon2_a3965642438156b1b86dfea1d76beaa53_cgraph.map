@@ -1,5 +1,0 @@
-<map id="designlab::Polygon2::IsInside" name="designlab::Polygon2::IsInside">
-<area shape="rect" id="Node000001" title="点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．" alt="" coords="5,5,144,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="192,5,330,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,24,176,24,176,29,144,29"/>
-</map>

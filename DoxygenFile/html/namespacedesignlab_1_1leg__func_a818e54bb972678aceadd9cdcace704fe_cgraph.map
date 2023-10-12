@@ -1,7 +1,0 @@
-<map id="designlab::leg_func::ChangeLegState" name="designlab::leg_func::ChangeLegState">
-<area shape="rect" id="Node000001" title="脚の情報を変更する．引数の値がおかしいならばfalseを出力する．" alt="" coords="5,39,138,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#ae41027f36b1c41d32ac4d9fb1bfb8da6" title=" " alt="" coords="187,5,319,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,45,171,39,172,44,138,50"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a493181b47f12f4adb23a0f5a1fe26551" title="脚状態は4bitで管理されるので，そこをマスクする" alt="" coords="186,72,320,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,70,171,76,170,81,137,75"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="dl_leg::changeComPattern" name="dl_leg::changeComPattern">
-<area shape="rect" id="Node000001" title="重心のデータを変更する．" alt="" coords="231,13,405,40"/>
-<area shape="rect" id="Node000002" href="$class_com_move_node_creator_hato.html#afbbbd68e3defbeef200f8c4c10013297" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
-</map>

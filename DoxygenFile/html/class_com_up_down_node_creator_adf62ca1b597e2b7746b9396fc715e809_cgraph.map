@@ -1,9 +1,0 @@
-<map id="ComUpDownNodeCreator::Create" name="ComUpDownNodeCreator::Create">
-<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する" alt="" coords="5,56,174,99"/>
-<area shape="rect" id="Node000002" href="$class_devide_map_state.html#a9519d3349374d58fe5ec391280f5d44d" title="長方形状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="222,5,394,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,53,241,34,242,39,172,58"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="242,56,374,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,75,226,75,226,80,174,80"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1math__util.html#aac344740b983bd044c1f2211ea4d23a0" title="2乗した値を返す関数． &#160;&#160;整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．" alt="" coords="239,123,377,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,97,226,116,224,121,161,102"/>
-</map>

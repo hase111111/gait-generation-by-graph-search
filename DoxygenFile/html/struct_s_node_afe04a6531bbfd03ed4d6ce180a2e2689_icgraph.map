@@ -1,7 +1,0 @@
-<map id="SNode::Init" name="SNode::Init">
-<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="222,47,307,73"/>
-<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#abe0b743b08c1b9e9970bdc7cd0a63b6b" title="メイン関数" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,52,174,45,175,40,208,47"/>
-<area shape="rect" id="Node000003" href="$class_simulation_system_main.html#adb7b220bc2f5e2c55bd49e25b8c9345d" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="12,72,167,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,73,168,81,167,76,207,68"/>
-</map>

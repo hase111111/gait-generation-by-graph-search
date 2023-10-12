@@ -1,5 +1,0 @@
-<map id="Keyboard::GetPressingCount" name="Keyboard::GetPressingCount">
-<area shape="rect" id="Node000001" title="keyCodeのキーが押されているフレーム数を取得する．" alt="" coords="197,13,387,40"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_advance.html#ace2690c4ee9863eb356b7dc352cc9c9d" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,149,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,29,149,29,149,24,182,24"/>
-</map>

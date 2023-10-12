@@ -1,9 +1,0 @@
-<map id="designlab::cmdio::OutputRight" name="designlab::cmdio::OutputRight">
-<area shape="rect" id="Node000001" title="右端に文字を出力する関数" alt="" coords="438,39,604,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数．" alt="" coords="224,39,390,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,63,390,63,390,57,423,57"/>
-<area shape="rect" id="Node000003" href="$class_result_viewer_system_main.html#aecf8894b5ac421d39b2d373e33774767" title="主要な処理を行う関数" alt="" coords="5,5,176,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,48,176,42,176,37,210,42"/>
-<area shape="rect" id="Node000004" href="$class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="13,72,168,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="210,78,169,84,168,79,209,72"/>
-</map>

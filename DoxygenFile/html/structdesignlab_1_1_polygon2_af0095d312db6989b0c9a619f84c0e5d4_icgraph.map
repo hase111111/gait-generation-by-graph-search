@@ -1,9 +1,0 @@
-<map id="designlab::Polygon2::GetVertex" name="designlab::Polygon2::GetVertex">
-<area shape="rect" id="Node000001" title="頂点の座標を返す関数" alt="" coords="488,39,626,81"/>
-<area shape="rect" id="Node000002" href="$class_com_selecter_hato.html#a11ffd1a3a180ba1c165291c2847e5dad" title="重心を求める" alt="" coords="231,5,440,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="473,50,440,45,441,40,474,45"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_polygon2.html#a310bb9599a9ef2b23581bafa7ede4327" title="多角形のデータを文字列で出力する" alt="" coords="266,72,405,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="474,75,406,86,405,80,473,70"/>
-<area shape="rect" id="Node000003" href="$class_com_move_node_creator_hato.html#aac2eb837c1886d6a53e93ddfb292af64" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,183,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="GraphSearcherHato" name="GraphSearcherHato">
-<area shape="rect" id="Node000001" title="波東先輩の手法で，グラフ探索を行うクラス．" alt="" coords="5,80,141,107"/>
-<area shape="rect" id="Node000002" href="$class_i_graph_searcher.html" title="グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．" alt="" coords="17,5,129,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,47,76,80,70,80,70,47"/>
-</map>

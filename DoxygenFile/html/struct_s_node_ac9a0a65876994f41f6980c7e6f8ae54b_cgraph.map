@@ -1,5 +1,0 @@
-<map id="SNode::ChangeGlobalCenterOfMass" name="SNode::ChangeGlobalCenterOfMass">
-<area shape="rect" id="Node000001" title="重心位置を変更する関数．" alt="" coords="5,5,193,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="241,5,373,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,24,226,24,226,29,193,29"/>
-</map>

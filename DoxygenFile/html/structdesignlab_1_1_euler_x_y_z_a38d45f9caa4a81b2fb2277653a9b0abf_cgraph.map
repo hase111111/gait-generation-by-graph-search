@@ -1,7 +1,0 @@
-<map id="designlab::EulerXYZ::ToStringDeg" name="designlab::EulerXYZ::ToStringDeg">
-<area shape="rect" id="Node000001" title="オイラー角を文字列に変換する &#160;&#160;単位は 度 [deg]" alt="" coords="5,39,143,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a4821a8a73522c47bcd90b67af623e365" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する" alt="" coords="191,5,340,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,45,176,40,177,45,143,51"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1math__util.html#af555c8eb2f4605fd1b60b41354c22dd2" title="角度をradからdegに変換する関数．" alt="" coords="197,72,334,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,69,183,76,182,82,142,75"/>
-</map>

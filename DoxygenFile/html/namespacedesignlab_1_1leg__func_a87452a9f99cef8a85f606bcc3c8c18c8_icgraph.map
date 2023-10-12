@@ -1,9 +1,0 @@
-<map id="designlab::leg_func::MakeLegStateBit" name="designlab::leg_func::MakeLegStateBit">
-<area shape="rect" id="Node000001" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="411,39,543,81"/>
-<area shape="rect" id="Node000002" href="$struct_robot_state_node.html#ab5808d3a5bd17f6fa32a7068a48699df" title="初期化関数" alt="" coords="222,47,363,73"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,63,363,63,363,57,396,57"/>
-<area shape="rect" id="Node000003" href="$class_graph_viewer_system_main.html#ac0c837edb4f1387fcdae35b39c9999eb" title="メイン関数" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="207,49,174,43,175,38,208,43"/>
-<area shape="rect" id="Node000004" href="$class_simulation_system_main.html#a030bde5e114622fa85d83517fa040242" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="12,72,167,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="208,77,168,83,167,78,207,71"/>
-</map>
