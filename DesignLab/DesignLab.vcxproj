@@ -111,7 +111,7 @@
     <ClInclude Include="target.h" />
     <ClInclude Include="_hexapod.h" />
     <ClInclude Include="robot_state_node.h" />
-    <ClInclude Include="map_creator.h" />
+    <ClInclude Include="simulation_map_creator.h" />
     <ClInclude Include="_phantomxCommander.h" />
     <ClInclude Include="S_NE.h" />
     <ClInclude Include="_TimeManager.h" />
@@ -177,7 +177,7 @@
     <ClCompile Include="robot_state_node.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_const.cpp" />
-    <ClCompile Include="map_creator.cpp" />
+    <ClCompile Include="simulation_map_creator.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />

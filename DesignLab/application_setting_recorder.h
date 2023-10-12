@@ -10,7 +10,6 @@
 
 #include "application_setting_toml_key.h"
 #include "boot_mode.h"
-#include "map_creator.h"
 #include "output_detail.h"
 
 

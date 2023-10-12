@@ -4,6 +4,7 @@
 #include "dxlib_util.h"
 #include "keyboard.h"
 #include "map_renderer.h"
+#include "simulation_map_creator.h"
 
 
 namespace
@@ -25,8 +26,8 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 {
 	m_node.Init(false);
 
-	MapCreator map_creator;
-	map_state_ = map_creator.Create(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
+	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
+	map_state_ = map_creator.InitMap();
 	devide_map_state_.Init(map_state_);
 
 

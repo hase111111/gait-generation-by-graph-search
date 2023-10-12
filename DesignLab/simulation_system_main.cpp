@@ -2,12 +2,14 @@
 
 #include <boost/thread.hpp>
 
+#include <magic_enum.hpp>
+
 #include "cmdio_util.h"
 #include "define.h"
-#include "node_validity_checker.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_test.h"
-#include "magic_enum.hpp"
+#include "node_validity_checker.h"
+#include "simulation_map_creator.h"
 
 
 namespace dlio = designlab::cmdio;
@@ -28,8 +30,8 @@ SimulationSystemMain::SimulationSystemMain(
 	result_exporter_.Init();
 
 	//マップを生成する．
-	MapCreator map_creator;
-	map_state_ = map_creator.Create(MapCreateMode::kFlat, static_cast<int>(MapCreateOption::kNone));
+	SimulationMapCreator map_creator(MapCreateMode::kLatticePoint, static_cast<int>(MapCreateOption::kNone));
+	map_state_ = map_creator.InitMap();
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);

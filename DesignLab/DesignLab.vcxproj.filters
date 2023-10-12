@@ -138,7 +138,7 @@
     <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="map_creator.h">
+    <ClInclude Include="simulation_map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="map_state.h">
@@ -434,7 +434,7 @@
     <ClCompile Include="com_type.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
-    <ClCompile Include="map_creator.cpp">
+    <ClCompile Include="simulation_map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="map_state.cpp">

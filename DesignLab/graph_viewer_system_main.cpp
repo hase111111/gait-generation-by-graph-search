@@ -35,8 +35,8 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	MapCreateMode selected_mode = InputMapCreateMode();
 	unsigned int selected_option = InputMapCreateOption();
 
-	MapCreator map_creator;
-	map_state_ = map_creator.Create(selected_mode, selected_option);
+	SimulationMapCreator map_creator(selected_mode, selected_option);
+	map_state_ = map_creator.InitMap();
 
 
 	broker_ptr_->map_state.SetData(map_state_);	//’‡‰îl‚ğ‰Šú‰»‚·‚é

@@ -11,8 +11,8 @@
 #include "graphic_data_broker.h"
 #include "interface_pass_finder.h"
 #include "interface_system_main.h"
-#include "map_creator.h"
 #include "map_state.h"
+#include "simulation_map_creator.h"
 #include "stopwatch.h"
 
 

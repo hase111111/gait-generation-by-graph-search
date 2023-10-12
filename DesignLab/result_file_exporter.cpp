@@ -254,5 +254,7 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 
 	ofs.close();
 
+	dlio::Output("出力ファイル : " + output_file_name, OutputDetail::kInfo);
+
 	return true;
 }
