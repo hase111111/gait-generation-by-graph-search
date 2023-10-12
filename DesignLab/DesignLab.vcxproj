@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
     <ClInclude Include="asyncable_data.h" />
+    <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="discrete_com_pos.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
+    <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />

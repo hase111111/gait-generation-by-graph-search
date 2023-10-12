@@ -32,7 +32,7 @@ public:
 	~PassFinderBasic() = default;
 
 
-	GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const STarget& target, RobotStateNode* output_node) override;
+	GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const TargetRobotState& target, RobotStateNode* output_node) override;
 
 	int GetMadeNodeNum() const;
 

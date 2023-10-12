@@ -197,10 +197,10 @@ void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector
 	RobotStateNode parent_node = parent;
 	parent_node.ChangeParentNode();
 
-	STarget target;
-	target.TargetMode = ETargetMode::StraightPosition;
-	target.TargetPosition = { 100000,0,0 };
-	target.RotationCenter = { 0,100000,0 };
+	TargetRobotState target;
+	target.target_mode = TargetMode::kStraightPosition;
+	target.target_position = { 100000,0,0 };
+	target.rotation_center = { 0,100000,0 };
 
 	RobotStateNode fake_result_node;
 

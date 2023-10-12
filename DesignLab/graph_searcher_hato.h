@@ -17,7 +17,7 @@ public:
 	GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
 	~GraphSearcherHato();
 
-	GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result) override;
+	GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) override;
 
 private:
 
@@ -31,13 +31,13 @@ private:
 	//! @return bool Œ©‚Â‚©‚Á‚½‚©‚Ç‚¤‚©
 	bool getDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, size_t max_depth_node_index, RobotStateNode* output_node) const;
 
-	void initEvaluationValue(const RobotStateNode& parent_node, const STarget& target);
+	void initEvaluationValue(const RobotStateNode& parent_node, const TargetRobotState& target);
 
 	//! @brief ‘Oi‚·‚é‚½‚ß‚Ì•]‰¿’l‚ğŒvZ‚·‚é
-	float calcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const STarget& target) const;
+	float calcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
 
 	//! @brief ‹r‚Ì•½‹Ï‰ñ“]—Ê‚Ì•]‰¿’l‚ğŒvZ‚·‚é
-	float calcLegRotEvaluationValue(const RobotStateNode& current_node, const STarget& target) const;
+	float calcLegRotEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
 
 
 	const float MARGIN_OF_MOVE = 10;

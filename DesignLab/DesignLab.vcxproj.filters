@@ -411,6 +411,9 @@
     <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
+    <ClInclude Include="boot_mode_selecter.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -640,6 +643,9 @@
     </ClCompile>
     <ClCompile Include="model_loader.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="boot_mode_selecter.cpp">
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

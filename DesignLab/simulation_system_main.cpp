@@ -35,8 +35,8 @@ SimulationSystemMain::SimulationSystemMain(
 	broker_ptr_->map_state.SetData(map_state_);
 
 	//この探索での目標を設定する．
-	target_.TargetMode = ETargetMode::StraightPosition;
-	target_.TargetPosition = { 3000,0,0 };
+	target_.target_mode = TargetMode::kStraightPosition;
+	target_.target_position = { 3000,0,0 };
 }
 
 

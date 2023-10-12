@@ -243,48 +243,6 @@ namespace designlab
 
 		}
 
-		BootMode SelectBootMode()
-		{
-			Output("起動モードを選択してください", OutputDetail::kSystem);
-			Output("0: シミュレーション", OutputDetail::kSystem);
-			Output("1: グラフビューワー", OutputDetail::kSystem);
-			Output("2: 表示テスト", OutputDetail::kSystem);
-			Output("3: 結果の確認", OutputDetail::kSystem);
-			
-			Output(
-				"other: デフォルトのモード ( " + 
-				static_cast<std::string>(magic_enum::enum_name(BootMode::kSimulation).data()) + 
-				" )", 
-				OutputDetail::kSystem
-			);
-
-			OutputNewLine(1,OutputDetail::kSystem);
-			
-			int kMaxInputNum = static_cast<int>(magic_enum::enum_count<BootMode>()) - 1;
-			int input = InputInt(0, kMaxInputNum, 0); //0からBootModeの数までの整数を入力させる
-
-			if (input == 0)
-			{
-				return BootMode::kSimulation;
-			}
-			else if (input == 1)
-			{
-				return BootMode::kViewer;
-			}
-			else if (input == 2)
-			{
-				return BootMode::kDisplayTest;
-			}
-			else if (input == 3)
-			{
-				return BootMode::kResultViewer;
-			}
-			else
-			{
-				return BootMode::kSimulation;
-			}
-		}
-
 	}	// namespace cmdio
 
 }	// namespace designlab

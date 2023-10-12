@@ -20,12 +20,12 @@
 
 
 //! @class ApplicationSettingReaderToml
-//! @brief アプリケーション設定ファイルを読み込むクラス
+//! @brief toml形式のアプリケーション設定ファイルを読み込むクラス
 class ApplicationSettingReaderToml final : public IApplicationSettingReader
 {
 public:
 
-	std::shared_ptr<ApplicationSettingRecorder> Read() override;
+	std::shared_ptr<ApplicationSettingRecorder> ReadFileOrUseAndOutputDefault() override;
 
 private:
 

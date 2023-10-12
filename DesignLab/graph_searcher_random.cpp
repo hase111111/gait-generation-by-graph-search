@@ -5,14 +5,14 @@
 namespace dlm = designlab::math_util;
 
 
-GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result)
+GraphSearchResult GraphSearcherRandom::SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result)
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 
 	if (graph.empty()) { return GraphSearchResult::kFailure; }	//グラフがないなら失敗	
 
 	//警告回避用
-	STarget target_copy = target;
+	TargetRobotState target_copy = target;
 
 	//グラフの中を全て探索する．
 	std::vector<RobotStateNode> depth1_node;

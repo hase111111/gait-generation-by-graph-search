@@ -21,7 +21,7 @@ GraphSearcherHato::~GraphSearcherHato()
 {
 }
 
-GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result)
+GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result)
 {
 	// _targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
 
@@ -154,21 +154,21 @@ bool GraphSearcherHato::getDepth1NodeFromMaxDepthNode(const std::vector<RobotSta
 	return true;
 }
 
-void GraphSearcherHato::initEvaluationValue(const RobotStateNode& parent_node, const STarget& target)
+void GraphSearcherHato::initEvaluationValue(const RobotStateNode& parent_node, const TargetRobotState& target)
 {
 	m_parent_node = parent_node;
 
 	//警告回避用
-	STarget target_copy = target;
+	TargetRobotState target_copy = target;
 }
 
-float GraphSearcherHato::calcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const STarget& target) const
+float GraphSearcherHato::calcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
 {
 	// 警告回避用
-	STarget target_copy = target;
+	TargetRobotState target_copy = target;
 
-	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.TargetPosition;
-	//designlab::Vector3 m_target_to_parent = m_parent_node.global_center_of_mass - target.TargetPosition;
+	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.target_position;
+	//designlab::Vector3 m_target_to_parent = m_parent_node.global_center_of_mass - target.target_position;
 
 	//return (int)(m_target_to_parent.ProjectedXY().GetLength() - center_com_dif.ProjectedXY().GetLength()) / 10 * 10.0f;
 
@@ -178,10 +178,10 @@ float GraphSearcherHato::calcMoveFrowardEvaluationValue(const RobotStateNode& cu
 	return target_pos.GetLength() - target_to_parent.GetLength();
 }
 
-float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current_node, const STarget& target) const
+float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
 {
 	// 警告回避用
-	STarget target_copy = target;
+	TargetRobotState target_copy = target;
 
 	float result = 0.0f;
 

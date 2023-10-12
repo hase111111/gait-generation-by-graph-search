@@ -59,14 +59,14 @@ private:
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
 
-	MapState map_state_;					//!< 地形の状態を管理するクラス．
+	MapState map_state_;	//!< 地形の状態を管理するクラス．
 
-	STarget target_;						//!< 目標地点．
+	TargetRobotState target_;		//!< 目標地点．
 
-	Stopwatch timer_;					//!< 時間計測用のクラス．
+	Stopwatch timer_;		//!< 時間計測用のクラス．
 
 	ResultFileExporter result_exporter_;	//!< 結果をファイルに出力するクラス．
 };
 
 
-#endif	//SIMULATION_SYSTEM_MAIN_H_
+#endif

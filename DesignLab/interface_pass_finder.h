@@ -34,7 +34,7 @@ public:
 	//!	@param [in] target 目標の状態
 	//! @param [out] output_node 結果のノード
 	//! @return GraphSearchResult グラフ探索の結果を返す．成功か失敗か
-	virtual GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map, const STarget& target, RobotStateNode* output_node) = 0;
+	virtual GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map, const TargetRobotState& target, RobotStateNode* output_node) = 0;
 
 	//! @brief 作成したグラフのノードの数を返す
 	//! @return int 作成したグラフの数

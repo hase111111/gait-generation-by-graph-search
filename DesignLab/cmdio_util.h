@@ -74,7 +74,7 @@ namespace designlab
 
 		//! @brief 入力待ちをする関数．
 		//! @param [in] str 入力待ちをする際に出力する文字列
-		void WaitAnyKey(const std::string& str = "入力待ち，Enterキーを押してください．");
+		void WaitAnyKey(const std::string& str = "入力を待っています．");
 
 		//! @brief 整数を入力する関数．
 		//! @n 必ず，OutputDetailがkSystemで出力される．
@@ -90,11 +90,6 @@ namespace designlab
 		//! @param [in] str 入力待ちをする際に出力する文字列
 		//! @return bool yesならばtrue，noならばfalse
 		bool InputYesNo(const std::string& str = "よろしいですか？");
-
-		//! @brief このアプリの起動モードを選択する関数．
-		//! @n 必ず，OutputDetailがkSystemで出力される．
-		//! @return BootMode 選択した起動モード
-		BootMode SelectBootMode();
 
 	}	// namespace dl_cio
 

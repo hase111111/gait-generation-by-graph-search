@@ -9,7 +9,7 @@
 #include "output_detail.h"
 
 
-std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::Read()
+std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFileOrUseAndOutputDefault()
 {
 	std::cout << "Ý’èƒtƒ@ƒCƒ‹" << kSettingFileName << "‚ð“Ç‚Ýž‚Ý‚Ü‚·\n\n";
 

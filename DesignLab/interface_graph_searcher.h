@@ -29,7 +29,7 @@ public:
 	//! @param target [in] 目標地点
 	//! @param output_result [out] 出力されるノード
 	//! @return GraphSearchResult 探索の結果
-	virtual GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const STarget& target, RobotStateNode* output_result) = 0;
+	virtual GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) = 0;
 };
 
 

@@ -20,7 +20,7 @@ PassFinderBasic::PassFinderBasic(
 {
 }
 
-GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const STarget& target, RobotStateNode* output_node)
+GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const TargetRobotState& target, RobotStateNode* output_node)
 {
 	assert(output_node != nullptr);	// output_node‚Ínullptr‚Å‚È‚¢
 

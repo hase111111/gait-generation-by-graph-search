@@ -24,7 +24,7 @@ public:
 	//! @brief 設定ファイルを読み込む
 	//! @n 設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する
 	//! @return std::shared_ptr<ApplicationSettingRecorder> 設定ファイルの内容
-	virtual std::shared_ptr<ApplicationSettingRecorder> Read() = 0;
+	virtual std::shared_ptr<ApplicationSettingRecorder> ReadFileOrUseAndOutputDefault() = 0;
 };
 
 
