@@ -1,7 +1,6 @@
 //! @file file_tree.h
 //! @brief ファイルツリーを作成するクラス．
 
-
 #ifndef DESIGNLAB_FILE_TREE_H_
 #define DESIGNLAB_FILE_TREE_H_
 
@@ -10,6 +9,8 @@
 #include <vector>
 
 
+//! @class FileTree
+//! @brief ファイルツリーを作成するクラス．
 class FileTree
 {
 public:
@@ -30,6 +31,8 @@ public:
 
 private:
 
+	//! @struct FileTreeData
+	//! @brief ファイルツリーのデータ．再帰的に自分自身を所有する．
 	struct FileTreeData
 	{
 		FileTreeData() : path(""), directory({}), file({}) {}

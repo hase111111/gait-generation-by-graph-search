@@ -115,6 +115,9 @@
     <Filter Include="ソース ファイル\FileIO\Setting">
       <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\Common\Resource">
+      <UniqueIdentifier>{b427decb-1887-44ee-a050-25b663a0db81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="S_NE.h">
@@ -327,9 +330,6 @@
     <ClInclude Include="discrete_com_pos.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
-    </ClInclude>
     <ClInclude Include="interface_graph_tree_creator.h">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
     </ClInclude>
@@ -404,6 +404,12 @@
     </ClInclude>
     <ClInclude Include="interface_application_setting_reader.h">
       <Filter>ソース ファイル\FileIO\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="model_loader.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -554,9 +560,6 @@
     <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
-    <ClCompile Include="output_detail.cpp">
-      <Filter>ソース ファイル\Common\CommandIO</Filter>
-    </ClCompile>
     <ClCompile Include="application_setting_toml_key.cpp">
       <Filter>ソース ファイル\FileIO\Setting</Filter>
     </ClCompile>
@@ -574,9 +577,6 @@
     </ClCompile>
     <ClCompile Include="stability_margin_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
-    <ClCompile Include="boot_mode.cpp">
-      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
@@ -637,6 +637,9 @@
     </ClCompile>
     <ClCompile Include="_hexapod_state_calculator.cpp">
       <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClCompile>
+    <ClCompile Include="model_loader.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

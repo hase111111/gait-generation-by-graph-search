@@ -50,6 +50,7 @@
     <ClInclude Include="interface_node_creator_builder.h" />
     <ClInclude Include="interface_system_main.h" />
     <ClInclude Include="interpolated_node_creator.h" />
+    <ClInclude Include="model_loader.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_creator_builder_hato.h" />
     <ClInclude Include="node_display_gui.h" />
@@ -120,7 +121,6 @@
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
-    <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
@@ -142,13 +142,13 @@
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_recoder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
+    <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
     <ClCompile Include="phantomx_state_calculator_hato.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
-    <ClCompile Include="output_detail.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
     <ClCompile Include="pass_finder_basic.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />

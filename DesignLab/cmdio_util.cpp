@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string>
 
+#include <magic_enum.hpp>
+
 #include "cassert_define.h"
 
 
@@ -248,10 +250,18 @@ namespace designlab
 			Output("1: グラフビューワー", OutputDetail::kSystem);
 			Output("2: 表示テスト", OutputDetail::kSystem);
 			Output("3: 結果の確認", OutputDetail::kSystem);
-			Output("other: デフォルトのモード ( " + std::to_string(BootMode::kSimulation) + " )", OutputDetail::kSystem);
-			OutputNewLine(1,OutputDetail::kSystem);
+			
+			Output(
+				"other: デフォルトのモード ( " + 
+				static_cast<std::string>(magic_enum::enum_name(BootMode::kSimulation).data()) + 
+				" )", 
+				OutputDetail::kSystem
+			);
 
-			int input = InputInt(0, static_cast<int>(BootMode::kResultViewer), 0);
+			OutputNewLine(1,OutputDetail::kSystem);
+			
+			int kMaxInputNum = static_cast<int>(magic_enum::enum_count<BootMode>()) - 1;
+			int input = InputInt(0, kMaxInputNum, 0); //0からBootModeの数までの整数を入力させる
 
 			if (input == 0)
 			{

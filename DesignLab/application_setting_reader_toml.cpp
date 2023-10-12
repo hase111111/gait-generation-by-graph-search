@@ -4,6 +4,8 @@
 #include <fstream>
 #include <filesystem>
 
+#include <magic_enum.hpp>
+
 #include "output_detail.h"
 
 
@@ -148,9 +150,9 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 				ApplicationSettingTomlKey::kMoveTable.table_name,
 				{
 					{ ApplicationSettingTomlKey::kAskAboutBootMode.key, kDefaultSetting.ask_about_modes },
-					{ ApplicationSettingTomlKey::kDefaultMode.key, std::to_string(kDefaultSetting.default_mode) },
+					{ ApplicationSettingTomlKey::kDefaultMode.key, magic_enum::enum_name(kDefaultSetting.default_mode) },
 					{ ApplicationSettingTomlKey::kDoStepExecution.key, kDefaultSetting.do_step_execution },
-					{ApplicationSettingTomlKey::kDoStepEexcutionEachGait.key, kDefaultSetting.do_step_execution_each_gait}
+					{ ApplicationSettingTomlKey::kDoStepEexcutionEachGait.key, kDefaultSetting.do_step_execution_each_gait}
 				}
 			}
 		};
@@ -171,7 +173,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 				ApplicationSettingTomlKey::kDisplayTable.table_name,
 				{
 					{ ApplicationSettingTomlKey::kOutputCmd.key, kDefaultSetting.cmd_output},
-					{ ApplicationSettingTomlKey::kCmdPermission.key, std::to_string(kDefaultSetting.cmd_permission) },
+					{ ApplicationSettingTomlKey::kCmdPermission.key, magic_enum::enum_name(kDefaultSetting.cmd_permission) },
 					{ ApplicationSettingTomlKey::kDisplayGui.key, kDefaultSetting.gui_display },
 					{ ApplicationSettingTomlKey::kGuiDisplayQuality.key, kDefaultSetting.gui_display_quality },
 					{ ApplicationSettingTomlKey::kWindowSizeX.key,kDefaultSetting.window_size_x },
@@ -277,8 +279,9 @@ void ApplicationSettingReaderToml::ReadBootModeSetting(const toml::value& value,
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kDefaultMode.key))
 		{
-			recorder->default_mode = std::sToMode(value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDefaultMode.key).as_string());
-			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << std::to_string(recorder->default_mode) << "\n";
+			std::string read_value = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDefaultMode.key).as_string();
+			recorder->default_mode = magic_enum::enum_cast<BootMode>(read_value).value();
+			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << magic_enum::enum_name(recorder->default_mode) << "\n";
 		}
 		else
 		{
@@ -333,8 +336,9 @@ void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, 
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kCmdPermission.key))
 		{
-			recorder->cmd_permission = std::toOutputPriority(value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kCmdPermission.key).as_string());
-			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << std::to_string(recorder->cmd_permission) << "\n";
+			std::string read_str = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kCmdPermission.key).as_string();
+			recorder->cmd_permission = magic_enum::enum_cast<OutputDetail>(read_str).value();
+			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << magic_enum::enum_name(recorder->cmd_permission) << "\n";
 		}
 		else
 		{

@@ -225,8 +225,6 @@ void SimulationSystemMain::Main()
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::Output("シミュレーションを終了します", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
-	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
 
@@ -240,12 +238,13 @@ void SimulationSystemMain::OutputSetting() const
 	{
 		dlio::Output("・コマンドラインへの出力を行います", OutputDetail::kSystem);
 
-
-		dlio::Output("　　・priorityが" + std::to_string(setting_ptr_->cmd_permission) + "以上のもののみ出力されます", OutputDetail::kSystem);
+		std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_permission).data();
+		dlio::Output("　　・priorityが" + output_str + "以上のもののみ出力されます", OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・コマンドラインへの出力を行いません．(priorityが" + std::to_string(OutputDetail::kSystem) + "のものは例外的に出力されます)", OutputDetail::kSystem);
+		std::string output_str = magic_enum::enum_name(OutputDetail::kSystem).data();
+		dlio::Output("・コマンドラインへの出力を行いません．(priorityが" + output_str + "のものは例外的に出力されます)", OutputDetail::kSystem);
 	}
 
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
