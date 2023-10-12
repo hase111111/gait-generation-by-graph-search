@@ -6,7 +6,6 @@
 #define DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
 
 
-#include <fstream>
 #include <string>
 #include <vector>
 
@@ -29,6 +28,11 @@ enum class SimulationResult
 //! @brief シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成
 struct SimulationResultRecorder final
 {
+	//! @brief このクラスのデータをcsvファイルに出力する用の形式で文字列に変換する
+	//! @return csvファイルに出力する用の形式の文字列
+	std::string ToCsvString() const;
+
+
 	//!< グラフ探索の結果を格納する構造体の配列
 	std::vector<GraphSearchResultRecoder> graph_search_result_recoder;	
 
@@ -36,10 +40,6 @@ struct SimulationResultRecorder final
 
 	SimulationResult simulation_result;	//!< シミュレーション全体の結果
 };
-
-
-std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& record);
-
 
 
 #endif	// !DESIGNLAB_SIMULATION_RESULT_RECORDER_H_

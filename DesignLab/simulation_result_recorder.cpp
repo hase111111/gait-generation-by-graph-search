@@ -1,33 +1,36 @@
 #include "simulation_result_recorder.h"
 
+#include <sstream>
+
 #include <magic_enum.hpp>
 
 #include "leg_state.h"
 #include "hexapod_const.h"
 
 
-std::ofstream& operator<<(std::ofstream& ofs, const SimulationResultRecorder& record)
+std::string SimulationResultRecorder::ToCsvString() const
 {
 	//シミュレーションの最終的な結果の出力
-	ofs << "Simulation Result," << magic_enum::enum_name(record.simulation_result) << std::endl;
-	ofs << std::endl;
+	std::stringstream ss;
+	ss << "Simulation Result," << magic_enum::enum_name(simulation_result) << std::endl;
+	ss << std::endl;
 
-	ofs << GraphSearchResultRecoder::GetCSVHeader() << std::endl;
+	ss << GraphSearchResultRecoder::GetCsvHeader() << std::endl;
 
-	const size_t kLength = record.graph_search_result_recoder.size();
+	const size_t kLength = graph_search_result_recoder.size();
 
 	for (size_t i = 0; i < kLength; i++)
 	{
-		ofs << i << ",";
+		ss << i << ",";
 
 		//グラフ探索の結果の出力
-		ofs << record.graph_search_result_recoder[i].ToCSVString() << ",";
+		ss << graph_search_result_recoder[i].ToCsvString() << ",";
 
-		ofs << std::endl;
+		ss << std::endl;
 	}
 
 
-	ofs << std::endl;
+	ss << std::endl;
 
-	return ofs;
+	return ss.str();
 }

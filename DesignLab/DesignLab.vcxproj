@@ -25,8 +25,8 @@
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
-    <ClInclude Include="application_setting_key.h" />
-    <ClInclude Include="application_setting_reader.h" />
+    <ClInclude Include="application_setting_toml_key.h" />
+    <ClInclude Include="application_setting_reader_toml.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="button_controller.h" />
     <ClInclude Include="camera_input_controller.h" />
@@ -45,6 +45,7 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="interface_application_setting_reader.h" />
     <ClInclude Include="interface_map_creator.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
     <ClInclude Include="interface_system_main.h" />
@@ -117,8 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
-    <ClCompile Include="application_setting_key.cpp" />
-    <ClCompile Include="application_setting_reader.cpp" />
+    <ClCompile Include="application_setting_toml_key.cpp" />
+    <ClCompile Include="application_setting_reader_toml.cpp" />
     <ClCompile Include="boot_mode.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />

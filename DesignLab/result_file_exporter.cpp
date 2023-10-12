@@ -197,7 +197,7 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 	if (not ofs) { return false; }
 
 	//結果を出力する．
-	ofs << recoder << std::endl;
+	ofs << recoder.ToCsvString() << std::endl;
 
 
 	//時間の統計を出力する．

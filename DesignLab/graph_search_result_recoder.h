@@ -48,11 +48,11 @@ struct GraphSearchResultRecoder final
 
 	//! @brief 構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．
 	//! @return 構造体の内容をCSV形式の文字列にしたもの
-	std::string ToCSVString() const;
+	std::string ToCsvString() const;
 
 	//! @brief CSV形式のヘッダを返す．
 	//! @return CSV形式のヘッダ
-	static std::string GetCSVHeader();
+	static std::string GetCsvHeader();
 
 	RobotStateNode result_node;		//!< グラフ探索によって選択されたノード
 

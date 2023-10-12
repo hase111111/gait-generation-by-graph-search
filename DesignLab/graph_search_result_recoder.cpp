@@ -7,7 +7,7 @@ namespace dlm = designlab::math_util;
 namespace dllf = designlab::leg_func;
 
 
-std::string GraphSearchResultRecoder::ToCSVString() const
+std::string GraphSearchResultRecoder::ToCsvString() const
 { 
     // std::boolalphaを使うと，bool値を文字列に変換できる．
 
@@ -28,7 +28,7 @@ std::string GraphSearchResultRecoder::ToCSVString() const
     return stream.str();
 }
 
-std::string GraphSearchResultRecoder::GetCSVHeader()
+std::string GraphSearchResultRecoder::GetCsvHeader()
 {
     std::stringstream stream;
 

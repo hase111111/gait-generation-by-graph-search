@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "application_setting_key.h"
+#include "application_setting_toml_key.h"
 #include "boot_mode.h"
 #include "map_creator.h"
 #include "output_detail.h"
@@ -18,7 +18,7 @@
 //! @brief アプリの設定を記録する構造体
 struct ApplicationSettingRecorder
 {
-	const std::string kSettingFileTitle = ApplicationSettingKey::FILE_TITLE_VALUE;		//!< 設定ファイルのタイトル
+	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< 設定ファイルのタイトル
 
 	int version_major = 0;				//!< バージョン番号(メジャー)
 	int version_minor = 5;				//!< バージョン番号(マイナー)
