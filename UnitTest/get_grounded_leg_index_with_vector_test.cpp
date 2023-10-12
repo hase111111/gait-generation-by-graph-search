@@ -12,11 +12,11 @@ namespace dl_leg_test
 		void TearDown() override {}
 
 		//! @brief bool型の配列とvectorのindexが一致するか確認する
-		void testBoolArrayAndVectorIndex(const bool bool_array[HexapodConst::LEG_NUM], const std::vector<int>& vec)
+		void testBoolArrayAndVectorIndex(const bool bool_array[HexapodConst::kLegNum], const std::vector<int>& vec)
 		{
 			int cnt = 0;
 
-			for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+			for (int i = 0; i < HexapodConst::kLegNum; i++)
 			{
 				if (bool_array[i]) { cnt++; }
 			}
@@ -35,8 +35,8 @@ namespace dl_leg_test
 	{
 		// テストケース1 全脚接地
 		DiscreteComPos com = DiscreteComPos::kFront;
-		bool is_ground[HexapodConst::LEG_NUM] = { true, true, true, true, true, true };
-		DiscreteLegPos discretized_leg_pos[HexapodConst::LEG_NUM] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
+		bool is_ground[HexapodConst::kLegNum] = { true, true, true, true, true, true };
+		DiscreteLegPos discretized_leg_pos[HexapodConst::kLegNum] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
 		std::bitset<dl_leg::kLegStateBitNum> res = dl_leg::MakeLegStateBit(com, is_ground, discretized_leg_pos);
 		std::vector<int> grounded_leg_index;
@@ -45,12 +45,12 @@ namespace dl_leg_test
 
 
 		// テストケース2 5脚接地
-		bool is_ground1_1[HexapodConst::LEG_NUM] = { true, true, true, true, true, false };
+		bool is_ground1_1[HexapodConst::kLegNum] = { true, true, true, true, true, false };
 		res = dl_leg::MakeLegStateBit(com, is_ground1_1, discretized_leg_pos);
 		dl_leg::GetGroundedLegIndexByVector(res, &grounded_leg_index);
 		testBoolArrayAndVectorIndex(is_ground1_1, grounded_leg_index);
 
-		bool is_ground1_2[HexapodConst::LEG_NUM] = { true, true, true, true, false, true };
+		bool is_ground1_2[HexapodConst::kLegNum] = { true, true, true, true, false, true };
 		res = dl_leg::MakeLegStateBit(com, is_ground1_2, discretized_leg_pos);
 		dl_leg::GetGroundedLegIndexByVector(res, &grounded_leg_index);
 		testBoolArrayAndVectorIndex(is_ground1_2, grounded_leg_index);

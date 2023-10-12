@@ -156,7 +156,7 @@ void GraphViewerGUIController::drawNodeData(const RobotStateNode& node) const
 
 	//—V‹r‚©Ú’n‹r‚©
 	std::string str = "";
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(node.leg_state, i)) { str += "Ú’n,"; }
 		else { str += "—V‹r,"; }
@@ -164,7 +164,7 @@ void GraphViewerGUIController::drawNodeData(const RobotStateNode& node) const
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "‹r‚Ìó‘ÔF%s", str.c_str());
 
 	// ‹r‚ÌˆÊ’u‚ğ•\¦‚·‚é
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
 			"%d”Ô‹r‚ÌˆÊ’u(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);

@@ -61,7 +61,7 @@ void ResultViewerSystemMain::Main()
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 			dlio::WaitAnyKey();
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
-			dlio::OutputHorizontalLine(true, OutputDetail::kSystem);
+			dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
 		}
 		else 
 		{
@@ -82,7 +82,7 @@ void ResultViewerSystemMain::Main()
 
 
 	// GUI‚ÌI—¹‚ğ‘Ò‚Â
-	dlio::OutputHorizontalLine(true, OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::Output("GUI‚ÌI—¹‚ğ‘Ò‚Á‚Ä‚¢‚Ü‚·", OutputDetail::kSystem);
 

@@ -40,36 +40,36 @@ namespace designlab
 		//! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
 		//! @n 必ずSetOutputLimit()を呼び出してから使うこと．
 		//! @param [in] str 出力する文字列
-		//! @param [in] detail 出力する文字列の詳細 (デフォルトではkSystem)
-		//! @param [in] wait_cin cinを待つかどうか (デフォルトではfalse)，
-		//! @n cinとの同期を切っているため，cinを待たないと出力順がおかしくなることがある．
-		void Output(const std::string& str, OutputDetail detail = OutputDetail::kSystem, bool wait_cin = false);
+		//! @param [in] detail 出力する文字列の詳細
+		void Output(const std::string& str, OutputDetail detail);
+
+		//! @brief 中央に文字を出力する関数．文字列が長すぎる場合は普通に出力される．
+		//! @param [in] str 出力する文字列
+		//! @param [in] detail 出力する文字列の詳細
+		void OutputCenter(const std::string& str, OutputDetail detail);
+
+		//! @brief 右端に文字を出力する関数．文字列が長すぎる場合は普通に出力される．
+		//! @param [in] str 出力する文字列
+		//! @param [in] detail 出力する文字列の詳細
+		void OutputRight(const std::string& str, OutputDetail detail);
+
 
 		//! @brief コマンドラインで改行をする関数．
-		//! @param [in] num 改行する回数 (デフォルトでは1回)
-		//! @n 0以下の値を入れると何もしない．
-		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
-		void OutputNewLine(int num = 1, OutputDetail detail = OutputDetail::kSystem);
+		//! @param [in] num 改行する回数．0以下の値を入れると何もしない．
+		//! @param [in] detail 出力する文字列の詳細
+		void OutputNewLine(int num, OutputDetail detail);
 
 		//! @brief コマンドラインに水平線を出力する関数．
-		//! @param [in] double_line 二重線にするかどうか (デフォルトではfalse)
-		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
-		void OutputHorizontalLine(bool double_line = false, OutputDetail detail = OutputDetail::kSystem);
-
-		//! @brief 中央に文字を出力する関数
-		//! @param [in] str 出力する文字列
-		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
-		void OutputCenter(const std::string& str, OutputDetail detail = OutputDetail::kSystem);
-
-		//! @brief 右端に文字を出力する関数
-		//! @param [in] str 出力する文字列
-		//! @param [in] detail 出力する際の優先度 (デフォルトではkSystem)
-		void OutputRight(const std::string& str, OutputDetail detail = OutputDetail::kSystem);
+		//! @param [in] line_visual 水平線の見た目．'-'ならば水平線，'='ならば二重水平線
+		//! @n 2文字以上の文字列を入れると動作しない．
+		//! @param [in] detail 出力する文字列の詳細
+		void OutputHorizontalLine(const std::string& line_visual, OutputDetail detail);
 
 		//! @brief コマンドラインにこのソフトのタイトルを出力する関数．
+		//! @n 必ず，OutputDetailがkSystemで出力される．
 		//! @param [in] str 出力する文字列
 		//! @param [in] output_copy_right コピーライトを出力するかどうか (デフォルトではfalse)
-		void OutputTitle(const std::string& title_name,bool output_copy_right = false);
+		void OutputTitle(const std::string& title_name, bool output_copy_right = false);
 
 
 		//! @brief 入力待ちをする関数．
@@ -77,6 +77,7 @@ namespace designlab
 		void WaitAnyKey(const std::string& str = "入力待ち，Enterキーを押してください．");
 
 		//! @brief 整数を入力する関数．
+		//! @n 必ず，OutputDetailがkSystemで出力される．
 		//! @param [in] min 入力する整数の最小値
 		//! @param [in] max 入力する整数の最大値
 		//! @param [in] default_num デフォルトで入力する整数
@@ -85,11 +86,13 @@ namespace designlab
 		int InputInt(int min, int max, int default_num, const std::string& str = "整数を入力してください．");
 
 		//! @brief yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．
+		//! @n 必ず，OutputDetailがkSystemで出力される．
 		//! @param [in] str 入力待ちをする際に出力する文字列
 		//! @return bool yesならばtrue，noならばfalse
 		bool InputYesNo(const std::string& str = "よろしいですか？");
 
 		//! @brief このアプリの起動モードを選択する関数．
+		//! @n 必ず，OutputDetailがkSystemで出力される．
 		//! @return BootMode 選択した起動モード
 		BootMode SelectBootMode();
 

@@ -43,12 +43,12 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 	//次に脚が地面に接地可能か調べる．
 
-	bool is_groundable_leg[HexapodConst::LEG_NUM];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	designlab::Vector3 ground_pos[HexapodConst::LEG_NUM];		//脚が接地する座標．
+	bool is_groundable_leg[HexapodConst::kLegNum];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
+	designlab::Vector3 ground_pos[HexapodConst::kLegNum];		//脚が接地する座標．
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++) { ground_pos[i] = current_node.leg_pos[i]; }
+	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
@@ -93,7 +93,7 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 
 			//脚位置を書き換える．
-			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+			for (int j = 0; j < HexapodConst::kLegNum; j++)
 			{
 				if (new_is_ground[j])
 				{

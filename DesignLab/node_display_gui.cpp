@@ -28,7 +28,7 @@ NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shar
 	buttons_[ButtonType::kModeSwitching] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
 		kButtonSizeX, kButtonSizeY, "êÿÇËë÷Ç¶");
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		joint_state_[i].global_joint_position.resize(4);
 		joint_state_[i].local_joint_position.resize(4);
@@ -149,7 +149,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	//óVãrÇ©ê⁄ínãrÇ©
 	std::string str = "";
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "ê⁄ín,"; }
 		else { str += "óVãr,"; }
@@ -157,14 +157,14 @@ void NodeDisplayGui::DrawNodeInfo() const
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "ãrÇÃèÛë‘ÅF%s", str.c_str());
 
 	// ãrÇÃà íuÇï\é¶Ç∑ÇÈ
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
 			"%dî‘ãrÇÃà íu(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_pos[i].x, display_node_.leg_pos[i].y, display_node_.leg_pos[i].z);
 	}
 
 	// ãrÇÃäÓèÄç¿ïWÇï\é¶Ç∑ÇÈ
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor,
 			" %dî‘ãrÇÃäÓèÄç¿ïW(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
@@ -193,7 +193,7 @@ void NodeDisplayGui::DrawJointInfo() const
 	int text_line = 0;
 
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]", i,
 			dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2]));

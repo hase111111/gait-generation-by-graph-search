@@ -132,7 +132,8 @@ void SimulationSystemMain::Main()
 					"シミュレーションに失敗しました．SimulationResult = " + 
 					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
 					"/ GraphSearch = " + 
-					static_cast<std::string>(magic_enum::enum_name(result_state))
+					static_cast<std::string>(magic_enum::enum_name(result_state)),
+					OutputDetail::kSystem
 				);
 
 
@@ -145,7 +146,7 @@ void SimulationSystemMain::Main()
 			if (setting_ptr_->gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dlio::OutputNewLine(1, OutputDetail::kInfo);
-			dlio::OutputHorizontalLine(false, OutputDetail::kInfo);
+			dlio::OutputHorizontalLine("-", OutputDetail::kInfo);
 			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
 			dlio::Output(current_node.ToString(), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
 
@@ -168,7 +169,8 @@ void SimulationSystemMain::Main()
 					"シミュレーションに失敗しました．SimulationResult = " + 
 					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
 					"/ GraphSearch = " +
-					static_cast<std::string>(magic_enum::enum_name(result_state))
+					static_cast<std::string>(magic_enum::enum_name(result_state)),
+					OutputDetail::kSystem
 				);
 
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
@@ -182,7 +184,8 @@ void SimulationSystemMain::Main()
 
 				dlio::Output(
 					"シミュレーションに成功しました．SimulationResult = " + 
-					static_cast<std::string>(magic_enum::enum_name(record.simulation_result))
+					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)),
+					OutputDetail::kSystem
 				);
 
 				break;
@@ -198,89 +201,89 @@ void SimulationSystemMain::Main()
 		broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);	//仲介人にシミュレーション終了を通達する．
 
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
-		dlio::OutputHorizontalLine(true, OutputDetail::kSystem);
+		dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	}	//シミュレーションのループ終了
 
 
-	dlio::OutputNewLine();
-	dlio::Output("シミュレーション終了");
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("シミュレーション終了", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	//画像表示ウィンドウの終了を待つ．
 	if (setting_ptr_->gui_display)
 	{
-		dlio::Output("DXlib(gui)の終了を待っています．GUIのXボタンを押してください");
+		dlio::Output("DXlib(gui)の終了を待っています．GUIのXボタンを押してください", OutputDetail::kSystem);
 
 		graphic_thread.join();
 	}
 
-	dlio::OutputNewLine();
-	dlio::Output("シミュレーションを終了します");
-	dlio::OutputNewLine();
-	dlio::OutputHorizontalLine(true);
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("シミュレーションを終了します", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
 
 void SimulationSystemMain::OutputSetting() const
 {
-	dlio::Output("[設定]");
-	dlio::OutputNewLine();
+	dlio::Output("[設定]", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 
 	if (setting_ptr_->cmd_output)
 	{
-		dlio::Output("・コマンドラインへの出力を行います");
+		dlio::Output("・コマンドラインへの出力を行います", OutputDetail::kSystem);
 
 
-		dlio::Output("　　・priorityが" + std::to_string(setting_ptr_->cmd_permission) + "以上のもののみ出力されます");
+		dlio::Output("　　・priorityが" + std::to_string(setting_ptr_->cmd_permission) + "以上のもののみ出力されます", OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・コマンドラインへの出力を行いません．(priorityが" + std::to_string(OutputDetail::kSystem) + "のものは例外的に出力されます)");
+		dlio::Output("・コマンドラインへの出力を行いません．(priorityが" + std::to_string(OutputDetail::kSystem) + "のものは例外的に出力されます)", OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 
 	if (setting_ptr_->do_step_execution)
 	{
-		dlio::Output("・シミュレーションをステップ実行します");
+		dlio::Output("・シミュレーションをステップ実行します", OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・シミュレーションをステップ実行しません");
+		dlio::Output("・シミュレーションをステップ実行しません", OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 
 	if (setting_ptr_->do_step_execution_each_gait)
 	{
-		dlio::Output("・各歩容をステップ実行します");
+		dlio::Output("・各歩容をステップ実行します", OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・各歩容をステップ実行しません");
+		dlio::Output("・各歩容をステップ実行しません", OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	if (setting_ptr_->gui_display)
 	{
-		dlio::Output("・GUIを表示します");
+		dlio::Output("・GUIを表示します", OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・GUIを表示しません");
+		dlio::Output("・GUIを表示しません", OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine();
-	dlio::OutputHorizontalLine();
-	dlio::OutputNewLine();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("-", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }

@@ -16,9 +16,9 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 	assert(output_poly != nullptr);		//nullptrでないことを確認する
 
 
-	std::array<designlab::Vector2, HexapodConst::LEG_NUM> leg_pos_xy;	//XY平面に射影した脚位置を算出する
+	std::array<designlab::Vector2, HexapodConst::kLegNum> leg_pos_xy;	//XY平面に射影した脚位置を算出する
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		leg_pos_xy[i] = calculator_ptr_->GetGlobalLegPosition(i, node.leg_pos[i], node.global_center_of_mass, node.rot, false).ProjectedXY();		//脚位置(グローバル座標)をXY平面に射影する
 	}
@@ -65,14 +65,14 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 
 }
 
-void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vector2, HexapodConst::LEG_NUM>& leg_pos, const int start_leg_num, designlab::Polygon2* output_poly) const
+void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vector2, HexapodConst::kLegNum>& leg_pos, const int start_leg_num, designlab::Polygon2* output_poly) const
 {
 	//脚位置を線で結ぶ．この交点から重心候補地点が存在する多角形を求める
-	designlab::LineSegment2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM]);
-	designlab::LineSegment2 leg_line_03(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 3) % HexapodConst::LEG_NUM]);
-	designlab::LineSegment2 leg_line_14(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 4) % HexapodConst::LEG_NUM]);
-	designlab::LineSegment2 leg_line_15(leg_pos[(start_leg_num + 1) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
-	designlab::LineSegment2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::LEG_NUM], leg_pos[(start_leg_num + 5) % HexapodConst::LEG_NUM]);
+	designlab::LineSegment2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum]);
+	designlab::LineSegment2 leg_line_03(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 3) % HexapodConst::kLegNum]);
+	designlab::LineSegment2 leg_line_14(leg_pos[(start_leg_num + 1) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 4) % HexapodConst::kLegNum]);
+	designlab::LineSegment2 leg_line_15(leg_pos[(start_leg_num + 1) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 5) % HexapodConst::kLegNum]);
+	designlab::LineSegment2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 5) % HexapodConst::kLegNum]);
 
 	//交点(intersection)を求める
 	designlab::Vector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
@@ -81,7 +81,7 @@ void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vect
 	designlab::Vector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
 
 	//中心と0番の脚位置を結んだ線分を求める
-	designlab::LineSegment2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::LEG_NUM], intersection_03_14);
+	designlab::LineSegment2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], intersection_03_14);
 
 	//多角形生成
 
@@ -109,7 +109,7 @@ void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vect
 	}
 }
 
-void ComCandidatePolygonMaker::MakeCandidateTriangle(const std::array<designlab::Vector2, HexapodConst::LEG_NUM>& leg_pos, ComPosAndPolygon* output) const
+void ComCandidatePolygonMaker::MakeCandidateTriangle(const std::array<designlab::Vector2, HexapodConst::kLegNum>& leg_pos, ComPosAndPolygon* output) const
 {
 	designlab::LineSegment2 leg_line_03(leg_pos[0], leg_pos[3]);
 	designlab::LineSegment2 leg_line_14(leg_pos[1], leg_pos[4]);

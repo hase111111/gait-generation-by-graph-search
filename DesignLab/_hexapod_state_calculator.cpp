@@ -17,7 +17,7 @@
 //HexapodStateCalclator_Old::HexapodStateCalclator_Old()
 //{
 //	//ジョイントの位置を初期化する．
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		m_local_femurjoint_pos[i] = m_local_tibiajoint_pos[i] = designlab::Vector3(0, 0, 0);
 //	}
@@ -43,7 +43,7 @@
 //	//ノードの脚位置は正しい場所にあるという前提のもと計算するので，めちゃくちゃな値が代入されているとうまく動作しない．
 //	//チェックする機能を付けると重くなるので，そもそもそんなノードを生成しないように注意する．
 //
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		float _coxa_joint_angle = atan2(_node.leg_pos[i].y, _node.leg_pos[i].x);
 //
@@ -156,20 +156,20 @@
 //	//重心を原点とした，座標系において，脚の干渉を調べる．
 //
 //	//脚の干渉を調べる．
-//	designlab::Vector2 _leg_pos[HexapodConst::LEG_NUM];
-//	designlab::Vector2 _joint_pos[HexapodConst::LEG_NUM];
+//	designlab::Vector2 _leg_pos[HexapodConst::kLegNum];
+//	designlab::Vector2 _joint_pos[HexapodConst::kLegNum];
 //
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		_joint_pos[i] = getLocalCoxaJointPos(i).ProjectedXY();
 //		_leg_pos[i] = _node.leg_pos[i].ProjectedXY() + _joint_pos[i];
 //	}
 //
 //	//隣の脚との干渉を調べる．
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		designlab::LineSegment2 _line1(_joint_pos[i], _leg_pos[i]);
-//		designlab::LineSegment2 _line2(_joint_pos[(i + 1) % HexapodConst::LEG_NUM], _leg_pos[(i + 1) % HexapodConst::LEG_NUM]);
+//		designlab::LineSegment2 _line2(_joint_pos[(i + 1) % HexapodConst::kLegNum], _leg_pos[(i + 1) % HexapodConst::kLegNum]);
 //
 //		if (_line1.HasIntersection(_line2)) { return true; }
 //	}
@@ -217,7 +217,7 @@
 //
 //bool HexapodStateCalclator_Old::isAllLegInRange(const RobotStateNode& node) const
 //{
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		if (dl_leg::IsGrounded(node.leg_state, i))
 //		{
@@ -234,11 +234,11 @@
 //	//重心を原点とした座標系で，脚の位置を計算する．
 //	//かつてvectorを使っていたが，処理速度の問題で，配列を使うことにした．
 //
-//	designlab::Vector2 leg_pos[HexapodConst::LEG_NUM];
+//	designlab::Vector2 leg_pos[HexapodConst::kLegNum];
 //	int leg_pos_index = 0;
 //
 //	//接地脚のみ追加する
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		if (dl_leg::IsGrounded(_node.leg_state, i) == true)
 //		{
@@ -267,7 +267,7 @@
 //	std::vector<designlab::Vector2> leg_pos;
 //
 //	//接地脚のみ追加する
-//	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+//	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
 //		if (dl_leg::IsGrounded(node.leg_state, i) == true)
 //		{

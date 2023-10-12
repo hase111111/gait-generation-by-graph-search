@@ -11,7 +11,7 @@
 
 //! @class HexapodConst
 //! @brief Hexapod，phantomXのパラメータを定数で表現したもの．他の6脚ロボットのパラメータもここに追加する(今のところ予定はないが)．
-//! @details コンストラクタを削除したので，実体は生成できない．( HexapodConst::LEG_NUM みたいに値を呼び出すこと )
+//! @details コンストラクタを削除したので，実体は生成できない．( HexapodConst::kLegNum みたいに値を呼び出すこと )
 class HexapodConst final
 {
 public:
@@ -23,7 +23,7 @@ public:
 	HexapodConst(HexapodConst&& other) = delete;
 
 
-	constexpr static int LEG_NUM = 6;	//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
+	constexpr static int kLegNum = 6;	//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
 
 	// PhantomXのパラメータ
 	constexpr static float PHANTOMX_COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
@@ -39,7 +39,7 @@ public:
 	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[LEG_NUM] = { 
+	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[kLegNum] = { 
 		::designlab::math_util::ConvertDegToRad(-45.0f), ::designlab::math_util::ConvertDegToRad(-90.0f), ::designlab::math_util::ConvertDegToRad(-135.0f),
 		::designlab::math_util::ConvertDegToRad(135.0f), ::designlab::math_util::ConvertDegToRad(90.0f),  ::designlab::math_util::ConvertDegToRad(45.0f) 
 	};
@@ -58,29 +58,29 @@ public:
 	constexpr static float MOVABLE_LEG_RANGE = ::designlab::math_util::ConvertDegToRad(40.0f);			//!< coxa関節(第1関節)の稼働可能な角度 [rad]
 
 	//! MOVABLE_LEG_RANGEのcos値 -85°，-130°，-175°，95°，50°，5°
-	constexpr static float MOVABLE_LEG_RANGE_COS_MAX[LEG_NUM] = { 0.08715574f , -0.6427876f, -0.9961947f, -0.08715574f, 0.6427876f, 0.9961947f };
+	constexpr static float MOVABLE_LEG_RANGE_COS_MAX[kLegNum] = { 0.08715574f , -0.6427876f, -0.9961947f, -0.08715574f, 0.6427876f, 0.9961947f };
 
 	//! MOVABLE_LEG_RANGEのcos値 -5°，-50°，-95°，175°，130°，85°
-	constexpr static float MOVABLE_LEG_RANGE_COS_MIN[LEG_NUM] = { 0.9961947f,  0.6427876f, -0.08715574f, -0.9961947f, -0.6427876f, 0.08715574f };
+	constexpr static float MOVABLE_LEG_RANGE_COS_MIN[kLegNum] = { 0.9961947f,  0.6427876f, -0.08715574f, -0.9961947f, -0.6427876f, 0.08715574f };
 
 	//! MOVABLE_LEG_RANGEのsin値 -5°，-50°，-95°，175°，130°，85°
-	constexpr static float MOVABLE_LEG_RANGE_SIN_MAX[LEG_NUM] = { -0.08715574f, -0.76604444f, -0.9961947f, 0.0871557f, 0.76604444f, 0.9961946f };
+	constexpr static float MOVABLE_LEG_RANGE_SIN_MAX[kLegNum] = { -0.08715574f, -0.76604444f, -0.9961947f, 0.0871557f, 0.76604444f, 0.9961946f };
 
 	//! MOVABLE_LEG_RANGEのsin値 -85°，-130°，-175°，95°，50°，5°
-	constexpr static float MOVABLE_LEG_RANGE_SIN_MIN[LEG_NUM] = { -0.9961947f, -0.76604444f, -0.08715574f, 0.9961947f, 0.76604444f,0.08715574f };
+	constexpr static float MOVABLE_LEG_RANGE_SIN_MIN[kLegNum] = { -0.9961947f, -0.76604444f, -0.08715574f, 0.9961947f, 0.76604444f,0.08715574f };
 
 
 	//! 脚の第1関節の初期角度を示す[rad]．ロボットの正面を 0[rad]として，右ねじを正にとる．
-	constexpr static float DEFAULT_LEG_ANGLE[LEG_NUM] = { 
+	constexpr static float DEFAULT_LEG_ANGLE[kLegNum] = { 
 		::designlab::math_util::ConvertDegToRad(-45.0f),	::designlab::math_util::ConvertDegToRad(-90.0f),::designlab::math_util::ConvertDegToRad(-135.0f),
 		::designlab::math_util::ConvertDegToRad(135.0f),	::designlab::math_util::ConvertDegToRad(90.0f),	::designlab::math_util::ConvertDegToRad(45.0f) 
 	};
 
 	//! DEFAULT_LEG_ANGLEの値を元にsin cos を計算しておく．
-	constexpr static float DEFAULT_LEG_ANGLE_SIN[LEG_NUM] = { -0.70710678118654f, -1.0f, -0.70710678118654f,
+	constexpr static float DEFAULT_LEG_ANGLE_SIN[kLegNum] = { -0.70710678118654f, -1.0f, -0.70710678118654f,
 													 0.70710678118654f, 1.0f, 0.70710678118654f };
 
-	constexpr static float DEFAULT_LEG_ANGLE_COS[LEG_NUM] = { 0.70710678118654f, 0.0f, -0.70710678118654f,
+	constexpr static float DEFAULT_LEG_ANGLE_COS[kLegNum] = { 0.70710678118654f, 0.0f, -0.70710678118654f,
 														 -0.70710678118654f, 0.0f, 0.70710678118654f };
 
 

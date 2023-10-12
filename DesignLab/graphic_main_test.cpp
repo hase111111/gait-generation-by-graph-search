@@ -10,7 +10,7 @@ namespace
 {
 	constexpr int temp_size = 50;
 	constexpr auto temp_ex = 10.8;
-	bool temp[HexapodConst::LEG_NUM][temp_size][temp_size][temp_size] = {};
+	bool temp[HexapodConst::kLegNum][temp_size][temp_size][temp_size] = {};
 }
 
 namespace dldu = designlab::dxlib_util;
@@ -30,7 +30,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 	devide_map_state_.Init(map_state_);
 
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		for (int x = 0; x < temp_size; x += 1)
 		{
@@ -61,7 +61,7 @@ bool GraphicMainTest::Update()
 {
 	const float kSpeed = 1;
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
 		{
@@ -170,7 +170,7 @@ void GraphicMainTest::Draw() const
 	hexapod_renderer_.Draw();
 
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		for (int x = 0; x < temp_size; x += 1)
 		{

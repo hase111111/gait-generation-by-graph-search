@@ -20,7 +20,6 @@
 
 //! @class ApplicationSettingReader
 //! @brief アプリケーション設定ファイルを読み込むクラス
-
 class ApplicationSettingReader final
 {
 public:
@@ -28,25 +27,23 @@ public:
 	//! @brief 設定ファイルを読み込む
 	//! @n 設定ファイルが存在しない場合はデフォルトの設定ファイルを出力する
 	//! @return std::shared_ptr<ApplicationSettingRecorder> 設定ファイルの内容
-	std::shared_ptr<ApplicationSettingRecorder> read();
+	std::shared_ptr<ApplicationSettingRecorder> Read();
 
 private:
 
 	//ファイルが存在しなかった場合のためにデフォルトの設定ファイルを出力する
-	void outputDefaultSettingFile();
+	void OutputDefaultSettingFile();
 
 	//設定ファイルからバージョン情報を読み込む
-	void readVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	//設定ファイルから起動モードの情報を読み込む
-	void readBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	//設定ファイルからディスプレイ情報を読み込む
-	void readDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
-	const std::string SETTING_FILE_NAME = u8"settings.toml";
-
-
+	const std::string kSettingFileNname = u8"settings.toml";
 };
 
 

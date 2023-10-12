@@ -41,7 +41,7 @@ void HexapodRenderer::SetDrawNode(const RobotStateNode& node)
 
 	calculator_ptr_->CalculateAllJointState(node, &draw_joint_state_);
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		kCoxaJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 		kFemurJointPos[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[1]);
@@ -81,9 +81,9 @@ void HexapodRenderer::SetDrawNode(const RobotStateNode& node)
 void HexapodRenderer::Draw() const
 {
 	//“·‘Ì‚ð•`‰æ‚·‚éD
-	std::array<VECTOR, HexapodConst::LEG_NUM> vertex;
+	std::array<VECTOR, HexapodConst::kLegNum> vertex;
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 	}
@@ -91,7 +91,7 @@ void HexapodRenderer::Draw() const
 	dldu::DrawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, kColorBody);
 
 	//‹r‚ð•`‰æ‚·‚éD
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//‹r‚ÌF‚ð—V‹rEÚ’n‚Å•ÏX‚·‚éD
 		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;

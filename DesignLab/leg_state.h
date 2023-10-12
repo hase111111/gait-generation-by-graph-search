@@ -42,11 +42,11 @@ namespace designlab
 
 		constexpr int kComPosBitNum = 4;									//!< 重心パターンを表すビット数．
 
-		constexpr int kLegStateBitNum = HexapodConst::LEG_NUM * kLegPosBitNum + kComPosBitNum;	//!< 脚状態を保存するビット数．28bit
+		constexpr int kLegStateBitNum = HexapodConst::kLegNum * kLegPosBitNum + kComPosBitNum;	//!< 脚状態を保存するビット数．28bit
 
 		using LegStateBit = std::bitset<kLegStateBitNum>;					//!< 脚状態を保存する型．28bitのビット型
 
-		using LegGroundedBit = std::bitset<HexapodConst::LEG_NUM>;			//!< 脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．
+		using LegGroundedBit = std::bitset<HexapodConst::kLegNum>;			//!< 脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．
 
 
 
@@ -59,7 +59,7 @@ namespace designlab
 		constexpr LegStateBit kLegStateMaskbit(0b1111);	//!< 脚状態は4bitで管理されるので，そこをマスクする
 
 
-		constexpr int kShiftToComNum = HexapodConst::LEG_NUM * 4;				//!< 重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
+		constexpr int kShiftToComNum = HexapodConst::kLegNum * 4;				//!< 重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．
 
 		constexpr LegStateBit kComStateMaskbit = (0b1111 << kShiftToComNum);	//!< 重心パターンを保存するビットをマスクするビット．
 
@@ -70,8 +70,8 @@ namespace designlab
 		//! @param [in] is_ground 脚が接地しているかを表すbool型の配列．接地しているならばtrue．遊脚しているならばfalse
 		//! @param [in] discretized_leg_pos 離散化した脚位置を表す変数．
 		//! @return LegStateBit 作成した脚状態を返す．
-		LegStateBit MakeLegStateBit(DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM>& is_ground,
-			const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos);
+		LegStateBit MakeLegStateBit(DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::kLegNum>& is_ground,
+			const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos);
 
 
 		//! @brief 脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる．

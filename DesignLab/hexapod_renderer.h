@@ -60,40 +60,40 @@ private:
 
 	RobotStateNode draw_node_;						//!< 描画するロボットの状態
 
-	std::array<HexapodJointState, HexapodConst::LEG_NUM> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
+	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
 
 
 	// 後でまとめる＆修正
-	VECTOR kCoxaJointPos[HexapodConst::LEG_NUM];
-	VECTOR kFemurJointPos[HexapodConst::LEG_NUM];
-	VECTOR kTibiaJointPos[HexapodConst::LEG_NUM];
-	VECTOR kLegEndPos[HexapodConst::LEG_NUM];
-	VECTOR kLegBasePos[HexapodConst::LEG_NUM];
+	VECTOR kCoxaJointPos[HexapodConst::kLegNum];
+	VECTOR kFemurJointPos[HexapodConst::kLegNum];
+	VECTOR kTibiaJointPos[HexapodConst::kLegNum];
+	VECTOR kLegEndPos[HexapodConst::kLegNum];
+	VECTOR kLegBasePos[HexapodConst::kLegNum];
 
-	float kCoxaCos[HexapodConst::LEG_NUM];
-	float kCoxaSin[HexapodConst::LEG_NUM];
-	float kFemurCos[HexapodConst::LEG_NUM];
-	float kFemurSin[HexapodConst::LEG_NUM];
-	float kTibiaCos[HexapodConst::LEG_NUM];
-	float kTibiaSin[HexapodConst::LEG_NUM];
+	float kCoxaCos[HexapodConst::kLegNum];
+	float kCoxaSin[HexapodConst::kLegNum];
+	float kFemurCos[HexapodConst::kLegNum];
+	float kFemurSin[HexapodConst::kLegNum];
+	float kTibiaCos[HexapodConst::kLegNum];
+	float kTibiaSin[HexapodConst::kLegNum];
 
-	designlab::Vector3 kKineCoxaJointVec[HexapodConst::LEG_NUM];
-	designlab::Vector3 kKineFemurJointVec[HexapodConst::LEG_NUM];
-	designlab::Vector3 kKineTibiaJointVec[HexapodConst::LEG_NUM];
-	designlab::Vector3 kKineLegVec[HexapodConst::LEG_NUM];
+	designlab::Vector3 kKineCoxaJointVec[HexapodConst::kLegNum];
+	designlab::Vector3 kKineFemurJointVec[HexapodConst::kLegNum];
+	designlab::Vector3 kKineTibiaJointVec[HexapodConst::kLegNum];
+	designlab::Vector3 kKineLegVec[HexapodConst::kLegNum];
 
-	VECTOR kKineCoxaJointPos[HexapodConst::LEG_NUM];
-	VECTOR kKineFemurJointPos[HexapodConst::LEG_NUM];
-	VECTOR kKineTibiaJointPos[HexapodConst::LEG_NUM];
-	VECTOR kKineLegPos[HexapodConst::LEG_NUM];
+	VECTOR kKineCoxaJointPos[HexapodConst::kLegNum];
+	VECTOR kKineFemurJointPos[HexapodConst::kLegNum];
+	VECTOR kKineTibiaJointPos[HexapodConst::kLegNum];
+	VECTOR kKineLegPos[HexapodConst::kLegNum];
 
-	float kCoxaLinkLength[HexapodConst::LEG_NUM];
-	float kFemurLinkLength[HexapodConst::LEG_NUM];
-	float kTibiaLinkLength[HexapodConst::LEG_NUM];
+	float kCoxaLinkLength[HexapodConst::kLegNum];
+	float kFemurLinkLength[HexapodConst::kLegNum];
+	float kTibiaLinkLength[HexapodConst::kLegNum];
 
-	bool kIsAbleCoxaAngle[HexapodConst::LEG_NUM];
-	bool kIsAbleFemurAngle[HexapodConst::LEG_NUM];
-	bool kIsAbleTibiaAngle[HexapodConst::LEG_NUM];
+	bool kIsAbleCoxaAngle[HexapodConst::kLegNum];
+	bool kIsAbleFemurAngle[HexapodConst::kLegNum];
+	bool kIsAbleTibiaAngle[HexapodConst::kLegNum];
 };
 
 

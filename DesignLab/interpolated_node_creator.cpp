@@ -7,9 +7,9 @@ void InterpolatedNodeCreator::createInterpolatedNode(const RobotStateNode& node,
 {
 	(*interpolated_node).clear();
 
-	designlab::Vector3 dif[HexapodConst::LEG_NUM];
+	designlab::Vector3 dif[HexapodConst::kLegNum];
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		dif[i] = next_node.leg_pos[i] - node.leg_pos[i];
 	}
@@ -25,7 +25,7 @@ void InterpolatedNodeCreator::createInterpolatedNode(const RobotStateNode& node,
 			(next_node.global_center_of_mass - node.global_center_of_mass) * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
 
 
-		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
 			// dif z‚ª0‚ÌŽž‚ÍC•½sˆÚ“®‚Ì‚Ý
 			if (dif[j].z == 0 || dif[j].ProjectedXY().IsZero())

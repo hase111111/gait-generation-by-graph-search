@@ -22,7 +22,7 @@ public:
 	PhantomXStateCalclator();
 
 
-	bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const override;
+	bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const override;
 
 
 	designlab::Vector3 ConvertGlobalToLegPosition(int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
@@ -43,7 +43,7 @@ public:
 
 	virtual bool IsLegInRange(int leg_index, const designlab::Vector3& leg_pos) const override;
 
-	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const override;
+	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
 
 private:
@@ -74,13 +74,13 @@ private:
 
 
 	// 脚番号，x座標，y座標，z座標の順でアクセスすると，その座標が有効かどうかがboolで格納されている
-	bool is_able_leg_pos_[HexapodConst::LEG_NUM][kLegPosDivNum][kLegPosDivNum][kLegPosDivNum];
+	bool is_able_leg_pos_[HexapodConst::kLegNum][kLegPosDivNum][kLegPosDivNum][kLegPosDivNum];
 
 	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
-	designlab::Vector3 local_leg_base_pos_[HexapodConst::LEG_NUM];	
+	designlab::Vector3 local_leg_base_pos_[HexapodConst::kLegNum];	
 
 	//!< 遊脚する位置．脚座標系
-	const std::array<designlab::Vector3, HexapodConst::LEG_NUM> free_leg_pos_;
+	const std::array<designlab::Vector3, HexapodConst::kLegNum> free_leg_pos_;
 };
 
 

@@ -5,15 +5,15 @@
 
 namespace designlab::leg_func
 {
-	LegStateBit MakeLegStateBit(const DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::LEG_NUM>& is_ground,
-		const std::array<DiscreteLegPos, HexapodConst::LEG_NUM>& discretized_leg_pos)
+	LegStateBit MakeLegStateBit(const DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::kLegNum>& is_ground,
+		const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos)
 	{
 		LegStateBit res = 0;
 
 		res |= static_cast<int>(discrete_com_pos) << kShiftToComNum;	//重心パターンの数値だけbitを立てる
 
 
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			//接地しているならば上位bitを立てる
 			if (is_ground[i]) { res[(i + 1) * 4 - 1] = true; }
@@ -30,7 +30,7 @@ namespace designlab::leg_func
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index );
-		assert(leg_index < HexapodConst::LEG_NUM);
+		assert(leg_index < HexapodConst::kLegNum);
 
 		//指定された脚の接地脚のbitが立っているか調べる
 		if (leg_state[(leg_index + 1) * 4 - 1])
@@ -48,7 +48,7 @@ namespace designlab::leg_func
 	{
 		LegGroundedBit res;
 
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			if (IsGrounded(leg_state, i))
 			{
@@ -69,7 +69,7 @@ namespace designlab::leg_func
 		int res = 0;
 
 		//脚の本数分ループする
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			if (IsGrounded(leg_state, i))
 			{
@@ -84,7 +84,7 @@ namespace designlab::leg_func
 
 	int GetLiftedLegNum(const LegStateBit& leg_state)
 	{
-		return HexapodConst::LEG_NUM - GetGroundedLegNum(leg_state);
+		return HexapodConst::kLegNum - GetGroundedLegNum(leg_state);
 	}
 
 
@@ -95,7 +95,7 @@ namespace designlab::leg_func
 		assert((*res_index).size() == 0);
 
 		//脚は6本あるので6回ループする
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			if (IsGrounded(leg_state, i))
 			{
@@ -113,7 +113,7 @@ namespace designlab::leg_func
 		assert((*res_index).size() == 0);
 
 		//脚は6本あるので6回ループする
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			if (!IsGrounded(leg_state, i))
 			{
@@ -128,7 +128,7 @@ namespace designlab::leg_func
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
-		assert(leg_index < HexapodConst::LEG_NUM);
+		assert(leg_index < HexapodConst::kLegNum);
 
 		const int shift_num = 4 * leg_index;	//4bitずつずらす
 
@@ -151,7 +151,7 @@ namespace designlab::leg_func
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
-		assert(leg_index < HexapodConst::LEG_NUM);
+		assert(leg_index < HexapodConst::kLegNum);
 
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
@@ -175,7 +175,7 @@ namespace designlab::leg_func
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
-		assert(leg_index < HexapodConst::LEG_NUM);
+		assert(leg_index < HexapodConst::kLegNum);
 
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
@@ -197,7 +197,7 @@ namespace designlab::leg_func
 	{
 		// leg_indexは0～5の範囲にある必要がある．
 		assert(0 <= leg_index);
-		assert(leg_index < HexapodConst::LEG_NUM);
+		assert(leg_index < HexapodConst::kLegNum);
 
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
@@ -220,7 +220,7 @@ namespace designlab::leg_func
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
 
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			ChangeGround(i, is_ground_list[i], leg_state);
 		}

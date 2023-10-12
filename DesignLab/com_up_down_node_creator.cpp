@@ -37,7 +37,7 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 		map_highest_z = map_.GetTopZ(kMapX, kMapY);
 	}
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		const designlab::Vector3 kCoxaVec = calclator_->GetGlobalLegBasePosition(i, current_node.global_center_of_mass, current_node.rot, false);
 
@@ -57,7 +57,7 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 	// 最も高い地点を修正する．
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//接地している脚についてのみ考える．
 		if (dllf::IsGrounded(current_node.leg_state, i))
@@ -101,7 +101,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 			new_node.ChangeGlobalCenterOfMass(new_com, true);
 
 
-			for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+			for (int j = 0; j < HexapodConst::kLegNum; j++)
 			{
 				if (!calclator_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}

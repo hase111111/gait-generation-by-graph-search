@@ -7,15 +7,15 @@
 namespace dllf = designlab::leg_func;
 
 
-float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
+float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
 	// std::min をカッコで囲んでいるのは，マクロの min と被るため．(std::min) と書くと名前が衝突しない
 
-	std::array<designlab::Vector2,HexapodConst::LEG_NUM> ground_leg_pos;	// xy平面に投射した，重心を原点としたローカル(ロボット)座標系で，脚の位置を計算する．
+	std::array<designlab::Vector2,HexapodConst::kLegNum> ground_leg_pos;	// xy平面に投射した，重心を原点としたローカル(ロボット)座標系で，脚の位置を計算する．
 	int ground_leg_pos_num = 0;												// 速度の関係上 vectorでなくarrayを使う．
 
 	//接地脚のみ追加する
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(leg_state, i))
 		{

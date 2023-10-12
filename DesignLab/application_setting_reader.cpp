@@ -7,86 +7,86 @@
 #include "output_detail.h"
 
 
-std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReader::read()
+std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReader::Read()
 {
-	std::cout << "[" << __func__ << "]" << "設定ファイル" << SETTING_FILE_NAME << "を読み込みます" << std::endl;
-	std::cout << std::endl;
-
+	std::cout << "設定ファイル" << kSettingFileNname << "を読み込みます\n\n";
 
 	//ファイルを探す，存在しなかったらデフォルトの設定を出力して終了，fsystemはC++17から，実行できない場合は設定を見直してみてください
-	if (!std::filesystem::is_regular_file(SETTING_FILE_NAME))
+	if (!std::filesystem::is_regular_file(kSettingFileNname))
 	{
-		std::cout << "設定ファイルが見つかりませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
-		outputDefaultSettingFile();
+		std::cout << "設定ファイルが見つかりませんでした．デフォルトの設定ファイルを出力します．\n";
+		OutputDefaultSettingFile();
 		return std::make_shared<ApplicationSettingRecorder>();
 	}
 
-	std::cout << "設定ファイルが見つかりました．読み込みを開始いたします" << std::endl;
-	std::cout << std::endl;
-
+	std::cout << "設定ファイルが見つかりました．読み込みを開始いたします\n\n";
 
 	//ファイルを読み込む
 	toml::value data;
 
 	try
 	{
-		std::ifstream ifs(SETTING_FILE_NAME, std::ios::binary);		//バイナリモードで読み込む
+		std::ifstream ifs(kSettingFileNname, std::ios::binary);		//バイナリモードで読み込む
 
-		data = toml::parse(ifs, SETTING_FILE_NAME);					//ファイルをパース(読みこみ)する
+		data = toml::parse(ifs, kSettingFileNname);					//ファイルをパース(読みこみ&解析)する
 	}
-	catch (toml::syntax_error e)
+	catch (toml::syntax_error err)
 	{
-		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定ファイルを出力します．" << std::endl;
-		std::cout << e.what() << std::endl;
-		outputDefaultSettingFile();
+		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定ファイルを出力します．\n";
+		std::cout << err.what() << std::endl;
+
+		OutputDefaultSettingFile();
+
 		return std::make_shared<ApplicationSettingRecorder>();
 	}
 
 
-	std::cout << "設定ファイルの読み込みに成功しました．ファイルのtitleキーを確認します" << std::endl;
-	std::cout << std::endl;
+	std::cout << "設定ファイルの読み込みに成功しました．ファイルのtitleキーを確認します\n\n";
 
 
 	if (toml::get<std::string>(data.at(ApplicationSettingKey::FILE_TITLE.key)) != ApplicationSettingKey::FILE_TITLE_VALUE)
 	{
 		//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
-		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定ファイルを出力します．" << std::endl;
-		outputDefaultSettingFile();
+		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定ファイルを出力します．\n";
+		
+		OutputDefaultSettingFile();
+
 		return std::make_shared<ApplicationSettingRecorder>();
 	}
 
 
-	std::cout << "設定ファイルのタイトルが一致しました．設定ファイルの読み込みを続行します" << std::endl;
-	std::cout << std::endl;
+	std::cout << "設定ファイルのタイトルが一致しました．設定ファイルの読み込みを続行します\n\n";
 
 	std::shared_ptr<ApplicationSettingRecorder> result = std::make_shared<ApplicationSettingRecorder>();
 
 	try
 	{
-		readVersionSetting(data, result);
+		ReadVersionSetting(data, result);
 
-		readBootModeSetting(data, result);
+		ReadBootModeSetting(data, result);
 
-		readDisplaySetting(data, result);
+		ReadDisplaySetting(data, result);
 	}
 	catch (...)
 	{
 		//設定ファイルの読み込みに失敗した場合はデフォルトの設定を出力して終了
-		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．読み込めなかった設定はデフォルトの値を使用します．" << std::endl;
-		std::cout << "デフォルトの設定ファイルを出力します．" << std::endl;
-		outputDefaultSettingFile();
+		std::cout << "設定ファイルの読み込みの途中でエラーが発生しました．読み込めなかった設定はデフォルトの値を使用します．\n";
+		std::cout << "デフォルトの設定ファイルを出力します．\n";
+
+		OutputDefaultSettingFile();
+		
 		return std::make_shared<ApplicationSettingRecorder>();
 	}
 
 
-	std::cout << std::endl;
-	std::cout << "設定ファイルの読み込みが完了しました．" << std::endl;
+	std::cout << "設定ファイルの読み込みが完了しました．\n";
+
 	return std::move(result);
 }
 
 
 
-void ApplicationSettingReader::outputDefaultSettingFile()
+void ApplicationSettingReader::OutputDefaultSettingFile()
 {
 	const ApplicationSettingRecorder kDefaultSetting;
 
@@ -194,12 +194,12 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 	}
 
 	std::ofstream ofs;
-	ofs.open(SETTING_FILE_NAME);
+	ofs.open(kSettingFileNname);
 
 	// ファイルが開けなかったら何もしない
 	if (!ofs)
 	{
-		std::cout << "デフォルトの設定ファイルの出力に失敗しました．" << std::endl;
+		std::cout << "デフォルトの設定ファイルの出力に失敗しました．\n";
 		return;
 	}
 
@@ -211,188 +211,188 @@ void ApplicationSettingReader::outputDefaultSettingFile()
 }
 
 
-void ApplicationSettingReader::readVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReader::ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
 {
 	std::cout << std::endl;
 
 	if (value.contains(ApplicationSettingKey::VERSION_TABLE.table_name))
 	{
-		std::cout << "〇バージョン設定を読み込みます．" << std::endl;
+		std::cout << "〇バージョン設定を読み込みます．\n";
 
 		// バージョン設定を読み込む
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MAJOR.key))
 		{
 			recorder->version_major = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MAJOR.key).as_integer();
-			std::cout << "〇メジャーバージョンを読み込みました．value = " << recorder->version_major << std::endl;
+			std::cout << "〇メジャーバージョンを読み込みました．value = " << recorder->version_major << "\n";
 		}
 		else
 		{
-			std::cout << "×メジャーバージョンが見つかりませんでした．" << std::endl;
+			std::cout << "×メジャーバージョンが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_MINOR.key))
 		{
 			recorder->version_minor = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_MINOR.key).as_integer();
-			std::cout << "〇マイナーバージョンを読み込みました．value = " << recorder->version_minor << std::endl;
+			std::cout << "〇マイナーバージョンを読み込みました．value = " << recorder->version_minor << "\n";
 		}
 		else
 		{
-			std::cout << "×マイナーバージョンが見つかりませんでした．" << std::endl;
+			std::cout << "×マイナーバージョンが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::VERSION_TABLE.table_name).contains(ApplicationSettingKey::VERSION_PATCH.key))
 		{
 			recorder->version_patch = (int)value.at(ApplicationSettingKey::VERSION_TABLE.table_name).at(ApplicationSettingKey::VERSION_PATCH.key).as_integer();
-			std::cout << "〇パッチバージョンを読み込みました．value = " << recorder->version_patch << std::endl;
+			std::cout << "〇パッチバージョンを読み込みました．value = " << recorder->version_patch << "\n";
 		}
 		else
 		{
-			std::cout << "×パッチバージョンが見つかりませんでした．" << std::endl;
+			std::cout << "×パッチバージョンが見つかりませんでした．\n";
 		}
 	}
 	else
 	{
-		std::cout << "×バージョン設定が見つかりませんでした．" << std::endl;
+		std::cout << "×バージョン設定が見つかりませんでした．\n";
 	}
 }
 
 
-void ApplicationSettingReader::readBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReader::ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
 {
 	std::cout << std::endl;
 
 	if (value.contains(ApplicationSettingKey::MODE_TABLE.table_name))
 	{
-		std::cout << "〇起動モード設定を読み込みます．" << std::endl;
+		std::cout << "〇起動モード設定を読み込みます．\n";
 
 		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::ASK_ABOUT_MODES.key))
 		{
 			recorder->ask_about_modes = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::ASK_ABOUT_MODES.key).as_boolean();
-			std::cout << "〇起動モード選択の確認フラグを読み込みました．value = " << recorder->ask_about_modes << std::endl;
+			std::cout << "〇起動モード選択の確認フラグを読み込みました．value = " << recorder->ask_about_modes << "\n";
 		}
 		else
 		{
-			std::cout << "×起動モード選択の確認フラグが見つかりませんでした．" << std::endl;
+			std::cout << "×起動モード選択の確認フラグが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DEFAULT_MODE.key))
 		{
 			recorder->default_mode = std::sToMode(value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DEFAULT_MODE.key).as_string());
-			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << std::to_string(recorder->default_mode) << std::endl;
+			std::cout << "〇デフォルトの起動モードを読み込みました．value = " << std::to_string(recorder->default_mode) << "\n";
 		}
 		else
 		{
-			std::cout << "×デフォルトの起動モードが見つかりませんでした．" << std::endl;
+			std::cout << "×デフォルトの起動モードが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DO_STEP_EXECUTION.key))
 		{
 			recorder->do_step_execution = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION.key).as_boolean();
-			std::cout << "〇ステップ実行フラグを読み込みました．value = " << std::boolalpha << recorder->do_step_execution << std::endl;
+			std::cout << "〇ステップ実行フラグを読み込みました．value = " << std::boolalpha << recorder->do_step_execution << "\n";
 		}
 		else
 		{
-			std::cout << "×ステップ実行フラグが見つかりませんでした．" << std::endl;
+			std::cout << "×ステップ実行フラグが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::MODE_TABLE.table_name).contains(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key))
 		{
 			recorder->do_step_execution_each_gait = value.at(ApplicationSettingKey::MODE_TABLE.table_name).at(ApplicationSettingKey::DO_STEP_EXECUTION_EACH_GAIT.key).as_boolean();
-			std::cout << "〇ステップ実行フラグ(各歩容)を読み込みました．value = " << std::boolalpha << recorder->do_step_execution_each_gait << std::endl;
+			std::cout << "〇ステップ実行フラグ(各歩容)を読み込みました．value = " << std::boolalpha << recorder->do_step_execution_each_gait << "\n";
 		}
 		else
 		{
-			std::cout << "×ステップ実行フラグ(各歩容)が見つかりませんでした．" << std::endl;
+			std::cout << "×ステップ実行フラグ(各歩容)が見つかりませんでした．\n";
 		}
 
 	}
 	else
 	{
-		std::cout << "×起動モード設定が見つかりませんでした．" << std::endl;
+		std::cout << "×起動モード設定が見つかりませんでした．\n";
 	}
 }
 
 
-void ApplicationSettingReader::readDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReader::ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
 {
-	std::cout << std::endl;
+	std::cout << "\n";
 
 	if (value.contains(ApplicationSettingKey::DISPLAY_TABLE.table_name))
 	{
-		std::cout << "〇表示設定を読み込みます．" << std::endl;
+		std::cout << "〇表示設定を読み込みます．" << "\n";
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::CMD_OUTPUT.key))
 		{
 			recorder->cmd_output = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_OUTPUT.key).as_boolean();
-			std::cout << "〇コマンド出力のフラグを読み込みました．value = " << std::boolalpha << recorder->cmd_output << std::endl;
+			std::cout << "〇コマンド出力のフラグを読み込みました．value = " << std::boolalpha << recorder->cmd_output << "\n";
 		}
 		else
 		{
-			std::cout << "×コマンド出力のフラグが見つかりませんでした．" << std::endl;
+			std::cout << "×コマンド出力のフラグが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::CMD_PERMISSION.key))
 		{
 			recorder->cmd_permission = std::toOutputPriority(value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::CMD_PERMISSION.key).as_string());
-			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << std::to_string(recorder->cmd_permission) << std::endl;
+			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << std::to_string(recorder->cmd_permission) << "\n";
 		}
 		else
 		{
-			std::cout << "×コマンド表示制限の情報が見つかりませんでした．" << std::endl;
+			std::cout << "×コマンド表示制限の情報が見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::GUI_DISPLAY.key))
 		{
 			recorder->gui_display = value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::GUI_DISPLAY.key).as_boolean();
-			std::cout << "〇GUI表示のフラグを読み込みました．value = " << std::boolalpha << recorder->gui_display << std::endl;
+			std::cout << "〇GUI表示のフラグを読み込みました．value = " << std::boolalpha << recorder->gui_display << "\n";
 		}
 		else
 		{
-			std::cout << "×GUI表示のフラグが見つかりませんでした．" << std::endl;
+			std::cout << "×GUI表示のフラグが見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.table_name).contains(ApplicationSettingKey::GUI_DISPLAY_QUALITY.key))
 		{
 			recorder->gui_display_quality = value.at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.table_name).at(ApplicationSettingKey::GUI_DISPLAY_QUALITY.key).as_string();
-			std::cout << "〇GUI表示品質を読み込みました．value = " << recorder->gui_display_quality << std::endl;
+			std::cout << "〇GUI表示品質を読み込みました．value = " << recorder->gui_display_quality << "\n";
 		}
 		else
 		{
-			std::cout << "×GUI表示品質が見つかりませんでした．" << std::endl;
+			std::cout << "×GUI表示品質が見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_X.key))
 		{
 			recorder->window_size_x = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_X.key).as_integer();
-			std::cout << "〇ウィンドウのXサイズ(横幅)の値を読み込みました．value = " << recorder->window_size_x << std::endl;
+			std::cout << "〇ウィンドウのXサイズ(横幅)の値を読み込みました．value = " << recorder->window_size_x << "\n";
 		}
 		else
 		{
-			std::cout << "×ウィンドウのXサイズ(横幅)の値が見つかりませんでした．" << std::endl;
+			std::cout << "×ウィンドウのXサイズ(横幅)の値が見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_SIZE_Y.key))
 		{
 			recorder->window_size_y = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_SIZE_Y.key).as_integer();
-			std::cout << "〇ウィンドウのYサイズ(縦幅)の値を読み込みました．value = " << recorder->window_size_y << std::endl;
+			std::cout << "〇ウィンドウのYサイズ(縦幅)の値を読み込みました．value = " << recorder->window_size_y << "\n";
 		}
 		else
 		{
-			std::cout << "×ウィンドウのYサイズ(縦幅)の値が見つかりませんでした．" << std::endl;
+			std::cout << "×ウィンドウのYサイズ(縦幅)の値が見つかりませんでした．\n";
 		}
 
 		if (value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).contains(ApplicationSettingKey::WINDOW_FPS.key))
 		{
 			recorder->window_fps = (int)value.at(ApplicationSettingKey::DISPLAY_TABLE.table_name).at(ApplicationSettingKey::WINDOW_FPS.key).as_integer();
-			std::cout << "〇ウィンドウのFPSの値を読み込みました．value = " << recorder->window_fps << std::endl;
+			std::cout << "〇ウィンドウのFPSの値を読み込みました．value = " << recorder->window_fps << "\n";
 		}
 		else
 		{
-			std::cout << "×ウィンドウのFPSの値が見つかりませんでした．" << std::endl;
+			std::cout << "×ウィンドウのFPSの値が見つかりませんでした．\n";
 		}
 	}
 	else
 	{
-		std::cout << "×表示設定が見つかりませんでした．" << std::endl;
+		std::cout << "×表示設定が見つかりませんでした．\n";
 	}
 }

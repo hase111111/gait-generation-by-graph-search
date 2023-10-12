@@ -68,7 +68,7 @@ public:
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
 	//! @return bool 計算に成功したらtrue．失敗したらfalse．
-	virtual bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const = 0;
+	virtual bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const = 0;
 
 
 	//! @brief グローバル座標系→脚座標系に変換する．
@@ -129,14 +129,14 @@ public:
 	//! @brief 脚が他の脚と干渉しているかどうかを判定する．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return bool 脚が他の脚と干渉していればtrue．干渉していなければfalse．
-	virtual bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const = 0;
+	virtual bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
 
 	//! @brief 安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい
 	//! @n 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．
 	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return float 安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する．
-	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const;
+	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const;
 };
 
 

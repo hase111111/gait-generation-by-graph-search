@@ -41,9 +41,9 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 
 
 		//接地点を計算し，記録する
-		std::array<VectorAndIsGround, HexapodConst::LEG_NUM> graund_point;
+		std::array<VectorAndIsGround, HexapodConst::kLegNum> graund_point;
 
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			graund_point[i] = { 
 				calclator_ptr_->GetGlobalLegPosition(
@@ -70,7 +70,7 @@ void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_
 	{
 		for (auto &leg_data: graund_point_[i])
 		{
-			for (size_t leg_index = 0; leg_index < HexapodConst::LEG_NUM; leg_index++)
+			for (size_t leg_index = 0; leg_index < HexapodConst::kLegNum; leg_index++)
 			{
 				if (!leg_data[leg_index].is_ground) { continue; }
 

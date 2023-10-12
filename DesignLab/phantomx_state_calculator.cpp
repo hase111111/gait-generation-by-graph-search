@@ -29,7 +29,7 @@ PhantomXStateCalclator::PhantomXStateCalclator() :
 
 
 	// is_able_leg_pos_ を初期化する．悪夢の4重ループ
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		for (int x = 0; x < kLegPosDivNum; x++)
 		{
@@ -45,14 +45,14 @@ PhantomXStateCalclator::PhantomXStateCalclator() :
 }
 
 
-bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::LEG_NUM>* joint_state) const
+bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const
 {
 	assert(joint_state != nullptr);		//joint_stateはnullptrではない．
 
 	//逆運動学の式はReference/Hexapodの画像を参照してください
 
 	//計算を行う．
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		CalculateLocalJointState(i, node.leg_pos[i], &joint_state->at(i));
 
@@ -83,7 +83,7 @@ designlab::Vector3 PhantomXStateCalclator::ConvertGlobalToLegPosition(const int 
 
 designlab::Vector3 PhantomXStateCalclator::GetFreeLegPosition(const int leg_index) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	return free_leg_pos_[leg_index];
 }
@@ -91,14 +91,14 @@ designlab::Vector3 PhantomXStateCalclator::GetFreeLegPosition(const int leg_inde
 
 designlab::Vector3 PhantomXStateCalclator::GetLocalLegBasePosition(const int leg_index) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	return local_leg_base_pos_[leg_index];
 }
 
 designlab::Vector3 PhantomXStateCalclator::GetLocalLegPosition(const int leg_index, const designlab::Vector3& leg_pos) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	return leg_pos + GetLocalLegBasePosition(leg_index);
 }
@@ -106,7 +106,7 @@ designlab::Vector3 PhantomXStateCalclator::GetLocalLegPosition(const int leg_ind
 
 designlab::Vector3 PhantomXStateCalclator::GetGlobalLegBasePosition(const int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
 	else { return GetLocalLegBasePosition(leg_index) + global_center_of_mass; }
@@ -115,7 +115,7 @@ designlab::Vector3 PhantomXStateCalclator::GetGlobalLegBasePosition(const int le
 
 designlab::Vector3 PhantomXStateCalclator::GetGlobalLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
 	else { return global_center_of_mass + GetLocalLegBasePosition(leg_index) + leg_pos; }
@@ -124,7 +124,7 @@ designlab::Vector3 PhantomXStateCalclator::GetGlobalLegPosition(const int leg_in
 
 bool PhantomXStateCalclator::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	//範囲外ならfalse
 	if (GetLegPosIndex(leg_pos.x) < 0 || kLegPosDivNum <= GetLegPosIndex(leg_pos.x)) { return false; }
@@ -148,25 +148,25 @@ bool PhantomXStateCalclator::IsLegInRange(const int leg_index, const designlab::
 }
 
 
-bool PhantomXStateCalclator::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::LEG_NUM>& leg_pos) const
+bool PhantomXStateCalclator::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
 	//重心を原点とした，座標系において，脚の干渉を調べる．
 
 	//脚の干渉を調べる．
-	designlab::Vector2 leg_pos_xy[HexapodConst::LEG_NUM];
-	designlab::Vector2 joint_pos_xy[HexapodConst::LEG_NUM];
+	designlab::Vector2 leg_pos_xy[HexapodConst::kLegNum];
+	designlab::Vector2 joint_pos_xy[HexapodConst::kLegNum];
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		joint_pos_xy[i] = GetLocalLegBasePosition(i).ProjectedXY();
 		leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
 	}
 
 	//隣の脚との干渉を調べる．
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		designlab::LineSegment2 line1(joint_pos_xy[i], leg_pos_xy[i]);
-		designlab::LineSegment2 line2(joint_pos_xy[(i + 1) % HexapodConst::LEG_NUM], leg_pos_xy[(i + 1) % HexapodConst::LEG_NUM]);
+		designlab::LineSegment2 line2(joint_pos_xy[(i + 1) % HexapodConst::kLegNum], leg_pos_xy[(i + 1) % HexapodConst::kLegNum]);
 
 		if (line1.HasIntersection(line2)) { return true; }
 	}
@@ -177,7 +177,7 @@ bool PhantomXStateCalclator::IsLegInterfering(const std::array<designlab::Vector
 
 bool PhantomXStateCalclator::InitIsAbleLegPos(const int leg_index, const int x, const int y, const int z) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	float x_pos = (kLegPosMax - kLegPosMin) / kLegPosDivNum * x + kLegPosMin;
 	float y_pos = (kLegPosMax - kLegPosMin) / kLegPosDivNum * y + kLegPosMin;
@@ -227,7 +227,7 @@ bool PhantomXStateCalclator::InitIsAbleLegPos(const int leg_index, const int x, 
 
 void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const designlab::Vector3& leg_pos, HexapodJointState* joint_state) const
 {
-	assert(0 <= leg_index && leg_index < HexapodConst::LEG_NUM);	//leg_indexは 0～5 である．
+	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexは 0～5 である．
 
 	const int kLinkNum = 4;
 	const int kJointNum = kLinkNum - 1;

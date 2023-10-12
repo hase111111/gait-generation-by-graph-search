@@ -45,7 +45,7 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 
 			dllf::ChangeDiscreteComPos(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateのcom_patternを変更する
 
-			for (int j = 0; j < HexapodConst::LEG_NUM; ++j)
+			for (int j = 0; j < HexapodConst::kLegNum; ++j)
 			{
 				dllf::ChangeDiscreteLegPos(j, DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
@@ -80,7 +80,7 @@ bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 {
 	float top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		const designlab::Vector3 kCoxaPos = calculator_ptr_->GetGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
 

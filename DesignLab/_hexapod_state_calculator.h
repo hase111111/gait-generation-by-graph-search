@@ -134,8 +134,8 @@
 //	constexpr static int kMaxDifZ = 200;	//付け根から脚先までのZ座標の差の最大値
 //
 //
-//	designlab::Vector3 local_femurjoint_pos_[HexapodConst::LEG_NUM];	//FemurJoint(第2関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
-//	designlab::Vector3 local_tibiajoint_pos_[HexapodConst::LEG_NUM];	//TibiaJoint(第3関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
+//	designlab::Vector3 local_femurjoint_pos_[HexapodConst::kLegNum];	//FemurJoint(第2関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
+//	designlab::Vector3 local_tibiajoint_pos_[HexapodConst::kLegNum];	//TibiaJoint(第3関節)の位置．脚の付け根を原点とするローカル座標．calclateJointPos関数で値をセットする．
 //
 //	static float leg_max_r_[MAX_DIF_Z];	//重心高さから脚位置を下げた時の，脚の取りうる最大半径を記録したもの．旧名 Leg_ROM_R
 //	static float leg_min_r_[MAX_DIF_Z];	//重心高さから脚位置を下げた時の，脚の取りうる最小半径を記録したもの．旧名 Leg_ROM_R

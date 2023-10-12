@@ -59,7 +59,7 @@ private:
 	size_t loaded_node_num_;	//!< 読み込んだノードの数，データが更新されるたび毎回全部読込なおさないように，読み込んだノードの数を記憶しておく
 
 	//!< ロボットの脚接地点の座標，graund_point[シミュレーション番号][ノード番号][脚番号]の順でアクセスする
-	std::vector<std::vector<std::array<VectorAndIsGround, HexapodConst::LEG_NUM>>> graund_point_;
+	std::vector<std::vector<std::array<VectorAndIsGround, HexapodConst::kLegNum>>> graund_point_;
 };
 
 

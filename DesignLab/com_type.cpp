@@ -120,7 +120,7 @@ namespace designlab::com_func
 		}
 
 		// 両隣が遊脚の場合はtrueを返す．
-		if (!leg_ground_pattern[leg_index % HexapodConst::LEG_NUM] && !leg_ground_pattern[(leg_index + 1) % HexapodConst::LEG_NUM])
+		if (!leg_ground_pattern[leg_index % HexapodConst::kLegNum] && !leg_ground_pattern[(leg_index + 1) % HexapodConst::kLegNum])
 		{
 			return true;
 		}
@@ -174,10 +174,10 @@ namespace designlab::com_func
 	{
 		std::vector<std::vector<int>> res;
 
-		res.resize(HexapodConst::LEG_NUM);	// 脚の数だけvectorを確保する．
+		res.resize(HexapodConst::kLegNum);	// 脚の数だけvectorを確保する．
 
 		// i 番脚を接地しなければ，取ることができないものを保存する．
-		for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			for (int j = 0; j < ::kLegGroundedPatternNum; ++j)
 			{

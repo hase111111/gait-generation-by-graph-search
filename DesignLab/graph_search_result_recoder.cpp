@@ -14,13 +14,13 @@ std::string GraphSearchResultRecoder::ToCSVString() const
     std::stringstream stream;
 
     stream << "bit_" << result_node.leg_state.to_string() << ",";
-    for (int i = 0; i < HexapodConst::LEG_NUM; i++) { stream << std::boolalpha << dllf::IsGrounded(result_node.leg_state, i) << ","; }
-    for (int i = 0; i < HexapodConst::LEG_NUM; i++) { stream << magic_enum::enum_name(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
+    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << std::boolalpha << dllf::IsGrounded(result_node.leg_state, i) << ","; }
+    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << magic_enum::enum_name(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
     stream << magic_enum::enum_name(dllf::GetDiscreteComPos(result_node.leg_state)) << ",";
     stream << result_node.global_center_of_mass << ",";
     stream << result_node.rot << ",";
-    for (int i = 0; i < HexapodConst::LEG_NUM; i++) { stream << result_node.leg_pos[i] << ","; }
-    for (int i = 0; i < HexapodConst::LEG_NUM; i++) { stream << result_node.leg_reference_pos[i] << ","; }
+    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_pos[i] << ","; }
+    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_reference_pos[i] << ","; }
     stream << magic_enum::enum_name(result_node.next_move) << ",";
     stream << dlm::ConvertDoubleToString(computation_time) << ",";
     stream << magic_enum::enum_name(graph_search_result);

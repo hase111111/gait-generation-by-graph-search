@@ -23,12 +23,12 @@ bool FileTree::SelectFile(const std::string& path, int max_depth, const std::str
     FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
 
     // ファイルツリーを表示
-    dlio::OutputHorizontalLine(true,OutputDetail::kSystem);
+    dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
 
     int count = 0;
     OutputFileTree(tree, 0, true, &count);
     dlio::OutputNewLine(1, OutputDetail::kSystem);
-    dlio::OutputHorizontalLine(true, OutputDetail::kSystem);
+    dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
     dlio::OutputNewLine(1, OutputDetail::kSystem);
 
     // ファイルを選択

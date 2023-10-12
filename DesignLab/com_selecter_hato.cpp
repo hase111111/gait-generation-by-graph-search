@@ -34,7 +34,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．
 	designlab::Vector3 after_move_com;
-	designlab::Vector3 after_move_leg_pos[HexapodConst::LEG_NUM];
+	designlab::Vector3 after_move_leg_pos[HexapodConst::kLegNum];
 
 	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
@@ -48,7 +48,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 		//現在の重心を移動させたものを作成する
 		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, GetCurrentNode().global_center_of_mass.z };
 
-		for (int j = 0; j < HexapodConst::LEG_NUM; j++)
+		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
 			if (dllf::IsGrounded(GetCurrentNode().leg_state, j))
 			{

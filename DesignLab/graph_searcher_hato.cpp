@@ -185,7 +185,7 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current
 
 	float result = 0.0f;
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
@@ -193,5 +193,5 @@ float GraphSearcherHato::calcLegRotEvaluationValue(const RobotStateNode& current
 		}
 	}
 
-	return result / (float)HexapodConst::LEG_NUM;
+	return result / (float)HexapodConst::kLegNum;
 }

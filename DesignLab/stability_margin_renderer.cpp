@@ -31,7 +31,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 	designlab::Vector3 polygon_sum{0, 0, 0};	//ëΩäpå`ÇÃí∏ì_ÇÃçáåv
 
 
-	for (int i = 0; i < HexapodConst::LEG_NUM; i++)
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(node.leg_state, i))
 		{

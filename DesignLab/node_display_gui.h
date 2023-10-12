@@ -76,7 +76,7 @@ private:
 
 	RobotStateNode display_node_;										//!< •\Ž¦‚·‚éƒm[ƒh
 
-	std::array<HexapodJointState, HexapodConst::LEG_NUM> joint_state_;	//!< ŠÖß‚ÌŠp“x
+	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;	//!< ŠÖß‚ÌŠp“x
 
 	bool is_closed_;			//!< GUI‚ª•Â‚¶‚Ä‚¢‚é‚©(Å¬‰»‚µ‚Ä‚¢‚é‚©)‚Ç‚¤‚©
 
