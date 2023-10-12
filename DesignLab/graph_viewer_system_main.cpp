@@ -3,28 +3,25 @@
 #include <iostream>
 
 #include <boost/thread.hpp>
+#include <magic_enum.hpp>
 
-#include "define.h"
 #include "cmdio_util.h"
-#include "stopwatch.h"
+#include "define.h"
 #include "graph_search_const.h"
 #include "pass_finder_basic.h"
 #include "phantomx_state_calculator.h"
-#include "StringToValue.h"
+#include "stopwatch.h"
 
-
-// 二度と追記しないだろうと全てをべた書きしています．
-// めちゃくちゃ読みづらいだろうと思うけど，許して．
 
 namespace dlio = designlab::cmdio;
-using StrtoVal::StrToInt;
 
 
 GraphViewerSystemMain::GraphViewerSystemMain(
 	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	) :
 	graphic_system_(std::move(graphic_main_ptr), setting_ptr),
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	broker_ptr_(broker_ptr),
@@ -33,13 +30,28 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	dlio::OutputTitle("グラフ確認モード");	//タイトルを表示する
 
 	//マップを生成する
-	std::cout << "GraphViewerSystemMain : マップを生成します．" << std::endl;
-	std::cout << "GraphViewerSystemMain : オプションを入力してください" << std::endl;
-	MapCreator::PrintAllMapCreateMode();
-	std::string _mode;
-	std::cout << std::endl << "input : ";
-	std::cin >> _mode;
-	std::cout << std::endl;
+	std::cout << "まずは，マップを生成する．オプションを整数で入力すること．" << std::endl;
+	
+	//MapCreateModeの一覧を出力する．後でまとめる
+	const int kMapCreateModeNum = magic_enum::enum_count<MapCreateMode>();
+	
+	dlio::Output("MapCreateModeの一覧", OutputDetail::kInfo);
+
+	for (int i = 0; i < kMapCreateModeNum; i++)
+	{
+		MapCreateMode mode = static_cast<MapCreateMode>(i);	//MapCreateModeの値を取得する
+
+		std::string name = magic_enum::enum_name<MapCreateMode>(mode).data();	//MapCreateModeの名前を取得する
+		
+		name.erase(0, 1);	//先頭のkを削除する
+
+		dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kInfo);
+	}
+	
+	int selected_mode_num = dlio::InputInt(0, kMapCreateModeNum - 1, 0);	//MapCreateModeの値を入力する
+
+	MapCreateMode selected_mode = static_cast<MapCreateMode>(selected_mode_num);	//MapCreateModeの値を取得する
+
 
 	MapCreator::printAllMapCreateOption();
 	std::string _option;
@@ -47,22 +59,19 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	std::cin >> _option;
 	std::cout << std::endl;
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(static_cast<MapCreateMode>(StrToInt(_mode)), StrToInt(_option));
+	map_state_ = map_creator.Create(selected_mode, StrToInt(_option));
 	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
 
-
-	//仲介人を初期化する
-	std::cout << "GraphicDataBroker_Old : 仲介人を初期化します．" << std::endl << std::endl;
-	broker_ptr_->map_state.SetData(map_state_);
+	broker_ptr_->map_state.SetData(map_state_);	//仲介人を初期化する
 }
 
 
 void GraphViewerSystemMain::Main()
 {
-	//グラフィックシステムを起動する
-	dlio::Output("別スレッドでGUIを起動します．", OutputDetail::kInfo);
+	dlio::Output("別スレッドでGUIを起動します．", OutputDetail::kInfo);	
 
 	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
+
 
 	//ノードを初期化する
 	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
@@ -77,7 +86,7 @@ void GraphViewerSystemMain::Main()
 	{
 		std::cout << "--------------------------------------------------" << std::endl;
 		std::cout << std::endl;
-		showGraphStatus(_graph);
+		ShowGraphStatus(_graph);
 
 		if (_graph.size() == 0)
 		{
@@ -224,20 +233,7 @@ void GraphViewerSystemMain::SetGraphToBroker(const std::vector<RobotStateNode>& 
 	}
 }
 
-bool GraphViewerSystemMain::askYesNo(const std::string& question) const
-{
-	std::cout << question << " ( y / n )" << std::endl;
-	std::cout << std::endl;
-	std::cout << "input : ";
-	std::string _input;
-	std::cin >> _input;
-	std::cout << std::endl;
-
-	if (_input == "y" || _input == "Y" || _input == "yes" || _input == "Yes") { return true; }
-	return false;
-}
-
-void GraphViewerSystemMain::showGraphStatus(const std::vector<RobotStateNode>& _graph) const
+void GraphViewerSystemMain::ShowGraphStatus(const std::vector<RobotStateNode>& _graph) const
 {
 	std::cout << "GraphViewerSystemMain : グラフの状態を表示します．" << std::endl;
 	std::cout << "GraphViewerSystemMain : グラフのノード数 : " << _graph.size() << std::endl;

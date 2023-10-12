@@ -40,11 +40,8 @@ private:
 	//グラフを仲介人にセットする
 	void SetGraphToBroker(const std::vector<RobotStateNode>& graph);
 
-	// y / n の質問をする
-	bool askYesNo(const std::string& question) const;
-
 	// グラフのステータスを表示する
-	void showGraphStatus(const std::vector<RobotStateNode>& graph) const;
+	void ShowGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
 
 	GraphicSystem graphic_system_;
