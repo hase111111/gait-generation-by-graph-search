@@ -8,9 +8,9 @@
 
 //! @enum BootMode
 //! @brief 起動モードを表す列挙型
-enum class BootMode
+enum class BootMode : int
 {
-	kSimulation,	//!< シミュレーションモード
+	kSimulation = 0,//!< シミュレーションモード
 	kViewer,		//!< ビューワーモード
 	kDisplayTest,	//!< ディスプレイテストモード
 	kResultViewer	//!< リザルトビューワーモード

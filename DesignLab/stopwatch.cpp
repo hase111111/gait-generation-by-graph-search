@@ -1,5 +1,10 @@
 #include "stopwatch.h"
 
+#include "designlab_math_util.h"
+
+
+namespace dlm = designlab::math_util;
+
 
 Stopwatch::Stopwatch() : 
 	start_time_(std::chrono::system_clock::now()),
@@ -46,6 +51,22 @@ double Stopwatch::GetElapsedMicroSecond() const
 	auto usec = std::chrono::duration_cast<std::chrono::microseconds>(dur).count();		// É}ÉCÉNÉçïbÇ…ïœä∑	
 
 	return static_cast<double>(usec);
+}
+
+
+std::string Stopwatch::GetElapsedSecondsString() const
+{
+	return dlm::ConvertDoubleToString(GetElapsedSeconds()) + " [s]";
+}
+
+std::string Stopwatch::GetElapsedMilliSecondString() const
+{
+	return dlm::ConvertDoubleToString(GetElapsedMilliSecond()) + " [ms]";
+}
+
+std::string Stopwatch::GetElapsedMicroSecondString() const
+{
+	return dlm::ConvertDoubleToString(GetElapsedMicroSecond()) + "[É s]";
 }
 
 

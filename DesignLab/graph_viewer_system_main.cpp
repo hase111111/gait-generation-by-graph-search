@@ -1,5 +1,6 @@
 #include "graph_viewer_system_main.h"
 
+#include <bitset>
 #include <iostream>
 
 #include <boost/thread.hpp>
@@ -10,7 +11,6 @@
 #include "graph_search_const.h"
 #include "pass_finder_basic.h"
 #include "phantomx_state_calculator.h"
-#include "stopwatch.h"
 
 
 namespace dlio = designlab::cmdio;
@@ -30,37 +30,14 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	dlio::OutputTitle("グラフ確認モード");	//タイトルを表示する
 
 	//マップを生成する
-	std::cout << "まずは，マップを生成する．オプションを整数で入力すること．" << std::endl;
+	dlio::Output("まずは，マップを生成する．オプションを整数で入力すること．", OutputDetail::kSystem);
 	
-	//MapCreateModeの一覧を出力する．後でまとめる
-	const int kMapCreateModeNum = magic_enum::enum_count<MapCreateMode>();
-	
-	dlio::Output("MapCreateModeの一覧", OutputDetail::kInfo);
+	MapCreateMode selected_mode = InputMapCreateMode();
+	unsigned int selected_option = InputMapCreateOption();
 
-	for (int i = 0; i < kMapCreateModeNum; i++)
-	{
-		MapCreateMode mode = static_cast<MapCreateMode>(i);	//MapCreateModeの値を取得する
-
-		std::string name = magic_enum::enum_name<MapCreateMode>(mode).data();	//MapCreateModeの名前を取得する
-		
-		name.erase(0, 1);	//先頭のkを削除する
-
-		dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kInfo);
-	}
-	
-	int selected_mode_num = dlio::InputInt(0, kMapCreateModeNum - 1, 0);	//MapCreateModeの値を入力する
-
-	MapCreateMode selected_mode = static_cast<MapCreateMode>(selected_mode_num);	//MapCreateModeの値を取得する
-
-
-	MapCreator::printAllMapCreateOption();
-	std::string _option;
-	std::cout << std::endl << "input : ";
-	std::cin >> _option;
-	std::cout << std::endl;
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(selected_mode, StrToInt(_option));
-	std::cout << "MapCreator : マップを生成しました．" << std::endl << std::endl;
+	map_state_ = map_creator.Create(selected_mode, selected_option);
+
 
 	broker_ptr_->map_state.SetData(map_state_);	//仲介人を初期化する
 }
@@ -68,141 +45,123 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 
 void GraphViewerSystemMain::Main()
 {
-	dlio::Output("別スレッドでGUIを起動します．", OutputDetail::kInfo);	
+	//早期リターン
+	if (!pass_finder_ptr_) 
+	{
+		dlio::Output("グラフ木作成クラスが初期化されていない．終了する", OutputDetail::kError);
+		return;
+	}
+
+	dlio::Output("別スレッドでGUIを起動する．", OutputDetail::kInfo);	
 
 	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
 
 
 	//ノードを初期化する
-	std::cout << "GraphViewerSystemMain : ノードを初期化します．" << std::endl << std::endl;
-	RobotStateNode _node;
-	_node.Init(false);
-	std::cout << _node.ToString();
-	std::cout << std::endl;
+	dlio::Output("ノードを初期化する．", OutputDetail::kSystem);
 
-	std::vector<RobotStateNode> _graph;
+	RobotStateNode first_node;
+	std::vector<RobotStateNode> graph;
+
+	first_node.Init(false);
 
 	while (true)
 	{
-		std::cout << "--------------------------------------------------" << std::endl;
-		std::cout << std::endl;
-		ShowGraphStatus(_graph);
+		OutputGraphStatus(graph);
 
-		if (_graph.size() == 0)
+		if (graph.size() == 0)
 		{
-			std::cout << "GraphViewerSystemMain : まだグラフを生成していません" << std::endl;
+			// グラフがない場合，
 
-			if (askYesNo("GraphViewerSystemMain : グラフを作成しますか？"))
+			dlio::Output("まだグラフを生成していない．", OutputDetail::kSystem);
+
+			if (dlio::InputYesNo("グラフを作成しますか？"))
 			{
-				if (!pass_finder_ptr_)
-				{
-					std::cout << "GraphViewerSystemMain : グラフ木作成クラスが初期化されていません" << std::endl;
-					std::cout << "GraphViewerSystemMain : プログラムを終了します" << std::endl;
-					break;
-				}
-
-				std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
-
-				Stopwatch _timer;
-				_timer.Start();
-				CreateGraph(_node, _graph);
-				_timer.End();
-				SetGraphToBroker(_graph);
-				std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
-				std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.GetElapsedMilliSecond() << " [ms]" << std::endl;
-				std::cout << std::endl;
+				CreateGraph(first_node, &graph);	// グラフを作成する．
+				
+				broker_ptr_->graph.SetData(graph);	// グラフ木の値を仲介人にセットする．これでGUIにグラフが表示される．
 			}
 			else
 			{
 				//終了するか質問する
-				if (askYesNo("GraphViewerSystemMain : 終了しますか？")) { break; }
+				if (dlio::InputYesNo("終了しますか？")) { break; }
 			}
 		}
 		else
 		{
-			std::cout << "GraphViewerSystemMain : グラフを操作します" << std::endl;
+			//グラフがある場合
+
+			dlio::Output("グラフを操作する", OutputDetail::kSystem);
+			dlio::Output("操作メニューを表示します", OutputDetail::kSystem);
 
 			//操作メニューを表示する
-			std::cout << "GraphViewerSystemMain : 操作メニューを表示します" << std::endl;
-			std::cout << "GraphViewerSystemMain : 1 : ノード選択し，そのノードを親にしてグラフを生成する" << std::endl;
-			std::cout << "GraphViewerSystemMain : 2 : ノード選択して表示する" << std::endl;
-			std::cout << "GraphViewerSystemMain : 3 : グラフを全削除する" << std::endl;
-			std::cout << "GraphViewerSystemMain : other : 終了する" << std::endl;
-			std::cout << std::endl;
-			std::cout << "input : ";
-			std::string _str;
-			std::cin >> _str;
-			int _menu = StrToInt(_str);
-			std::cout << std::endl;
 
-			if (_menu == 1 || _menu == 2)
-			{
-				std::cout << "GraphViewerSystemMain : ノードを選択してください" << std::endl;
-				std::cout << "GraphViewerSystemMain : 0 ～ " << _graph.size() - 1 << " の数字を入力してください" << std::endl;
-				std::cout << std::endl;
-				std::cout << "input : ";
+			std::vector<std::function<void()>> func_list;	//操作をおこなう関数をラムダ式で受け取るvector
 
-				std::string _str_node;
-				std::cin >> _str_node;
-				int _node_num = StrToInt(_str_node);
-				std::cout << std::endl;
-
-				if (_node_num < 0 || _node_num >= _graph.size())
+			func_list.push_back(
+				[&]() 
 				{
-					std::cout << "GraphViewerSystemMain : 無効なノード番号です" << std::endl;
-					std::cout << std::endl;
-					continue;
+					RobotStateNode selected = SelectNode(graph);
+					CreateGraph(selected, &graph);
+					broker_ptr_->graph.SetData(graph);
 				}
-				else
+			);
+
+			func_list.push_back(
+				[&]()
 				{
-					if (_menu == 1)
-					{
-						std::cout << "--------------------------------------------------" << std::endl;
-						std::cout << "GraphViewerSystemMain : ノードを選択し，そのノードを親にしてグラフを生成します" << std::endl;
-						std::cout << std::endl;
-						std::cout << _graph[_node_num].ToString();
-						std::cout << std::endl;
-						std::cout << "IGraphTreeCreator : グラフを作成します" << std::endl;
+					RobotStateNode selected = SelectNode(graph);
 
-						Stopwatch _timer;
-						_timer.Start();
-						CreateGraph(_graph[_node_num], _graph);
-						_timer.End();
-						SetGraphToBroker(_graph);
-						std::cout << "IGraphTreeCreator : グラフを作成しました" << std::endl;
-						std::cout << "IGraphTreeCreator : グラフ作成にかかった時間 : " << _timer.GetElapsedMilliSecond() << " [ms]" << std::endl;
-						std::cout << std::endl;
-					}
-					else
-					{
-						std::cout << "--------------------------------------------------" << std::endl;
-						std::cout << "GraphViewerSystemMain : ノードを表示します" << std::endl;
-						std::cout << std::endl;
-						std::cout << _graph[_node_num].ToString();
-						std::cout << std::endl;
-					}
+					dlio::OutputNewLine(1, OutputDetail::kSystem);
+					dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
+					dlio::Output(selected.ToString(), OutputDetail::kSystem);
+					dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
+					dlio::OutputNewLine(1, OutputDetail::kSystem);
 				}
-			}
-			else if (_menu == 3)
-			{
-				broker_ptr_->graph.Clean();
-				_graph.clear();
-				std::cout << "GraphViewerSystemMain : グラフを全削除しました" << std::endl;
-				std::cout << std::endl;
-			}
-			else
-			{
-				//終了するか質問する
-				dlio::Output("終了します．", OutputDetail::kSystem);
+			);
 
-				if (dlio::InputYesNo()) { break; }
+			func_list.push_back(
+				[&]()
+				{
+					graph.clear();
+					broker_ptr_->graph.Clean();
+					dlio::Output("グラフを全て削除した", OutputDetail::kSystem);
+					dlio::OutputNewLine(1, OutputDetail::kSystem);
+				}
+			);
+
+			
+			dlio::OutputNewLine(1, OutputDetail::kSystem);
+			dlio::Output("操作を選択してください", OutputDetail::kSystem);
+			dlio::Output("　0 : ノード選択し，そのノードを親にしてグラフを生成する", OutputDetail::kSystem);
+			dlio::Output("　1 : ノード選択して表示する", OutputDetail::kSystem);
+			dlio::Output("　2 : グラフを全削除する", OutputDetail::kSystem);
+			dlio::Output("　3 : 終了する", OutputDetail::kSystem);
+
+			int selected_index = dlio::InputInt(0, static_cast<int>(func_list.size()), 3, "整数で操作を選択してください．範囲外の値の場合終了します．");
+	
+			//選択された操作を実行する
+			if (selected_index < func_list.size()) 
+			{
+				func_list[selected_index](); 
+			}
+			else 
+			{
+				if (dlio::InputYesNo("終了しますか？")) { break; }
 			}
 		}
-	}
+
+	}	//while (true)
 }
 
-void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>& graph)
+
+void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
 {
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("グラフ木を作成する", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+
+	// グラフ探索をする
 	RobotStateNode parent_node = parent;
 	parent_node.ChangeParentNode();
 
@@ -213,50 +172,158 @@ void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector
 
 	RobotStateNode fake_result_node;
 
+	stopwatch_.Start();
+
 	GraphSearchResult result =
 		pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
 
-	graph.clear();
+	stopwatch_.End();
 
-	pass_finder_ptr_->GetGraphTree(&graph);
 
-	if(result != GraphSearchResult::kSuccess)std::cout << fake_result_node.ToString();
+	// グラフ探索の結果を表示する
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("グラフ探索終了", OutputDetail::kSystem);
+	dlio::Output("グラフ探索にかかった時間 : " + stopwatch_.GetElapsedMilliSecondString(), OutputDetail::kSystem);
+
+	std::string res_str = magic_enum::enum_name<GraphSearchResult>(result).data();
+	res_str.erase(0, 1);	//先頭のkを削除する
+
+	dlio::Output("グラフ探索結果 : " + res_str, OutputDetail::kSystem);
+
+	// 値を返す．
+	graph->clear();
+	pass_finder_ptr_->GetGraphTree(graph);
 }
 
-void GraphViewerSystemMain::SetGraphToBroker(const std::vector<RobotStateNode>& _graph)
+void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
 {
-	broker_ptr_->graph.Clean();
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("グラフの状態を表示します．", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("グラフのノードの数 : " + std::to_string(graph.size()), OutputDetail::kSystem);
 
-	for (auto& i : _graph)
+
+	if (graph.size() > 0)
 	{
-		broker_ptr_->graph.PushBack(i);
+		//深さごとのノード数を記録する
+		
+		std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);	
+
+		dlio::Output("GraphViewerSystemMain : グラフ探索の最大深さ : " + std::to_string(GraphSearchConst::kMaxDepth), OutputDetail::kSystem);
+
+		for (const auto& i : graph)
+		{
+			if (i.depth < depth_num.size()) 
+			{
+				depth_num[i.depth]++;
+			}
+		}
+
+		//深さごとのノード数を表示する
+
+		int depth_cnt = 0;
+
+		for (const auto& i : depth_num)
+		{
+			dlio::Output("・深さ" + std::to_string(depth_cnt) + " : " + std::to_string(i), OutputDetail::kSystem);
+			depth_cnt++;
+		}
 	}
+	else 
+	{
+		dlio::Output("グラフが空なので，深さごとのノード数を表示できません．", OutputDetail::kSystem);
+	}
+
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
-void GraphViewerSystemMain::ShowGraphStatus(const std::vector<RobotStateNode>& _graph) const
+MapCreateMode GraphViewerSystemMain::InputMapCreateMode() const
 {
-	std::cout << "GraphViewerSystemMain : グラフの状態を表示します．" << std::endl;
-	std::cout << "GraphViewerSystemMain : グラフのノード数 : " << _graph.size() << std::endl;
+	const auto kMapCreateModeList = magic_enum::enum_values<MapCreateMode>();	//MapCreateModeのリストを取得する
 
-	if (_graph.size() > 0)
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("MapCreateModeを選択", OutputDetail::kSystem);
+
+	
+	//MapCreateModeの一覧を出力する．
+	for (int i = 0; i < kMapCreateModeList.size(); i++)
 	{
-		std::vector<int> _depth_num((size_t)GraphSearchConst::kMaxDepth + 1);
+		std::string name = magic_enum::enum_name<MapCreateMode>(kMapCreateModeList[i]).data();	//MapCreateModeの名前を取得する
 
-		std::cout << "GraphViewerSystemMain : グラフ探索の最大深さ : " << (int)GraphSearchConst::kMaxDepth << std::endl;
+		name.erase(0, 1);	//先頭のkを削除する
 
-		for (const auto& i : _graph)
-		{
-			_depth_num.at(static_cast<size_t>(i.depth))++;
-		}
-
-		int _cnt = 0;
-
-		for (const auto& i : _depth_num)
-		{
-			std::cout << "GraphViewerSystemMain : 深さ" << _cnt << " : " << i << std::endl;
-			_cnt++;
-		}
+		dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kSystem);
 	}
 
-	std::cout << std::endl;
+
+	int selected_mode_index = dlio::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateModeのindexを入力させる
+
+	return kMapCreateModeList[selected_mode_index];
+}
+
+unsigned int GraphViewerSystemMain::InputMapCreateOption() const
+{
+	const auto kMapCreateOptionList = magic_enum::enum_values<MapCreateOption>();	//MapCreateOptionのリストを取得する
+
+	//MapCreateOptionの合計値を計算する
+	unsigned int option_sum = 0;
+
+	for (const auto i : kMapCreateOptionList) 
+	{
+		option_sum += static_cast<unsigned int>(i);
+	}
+
+
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("MapCreateOptionを選択 (複数指定したい場合は値を足し算すること)", OutputDetail::kSystem);
+
+
+	//MapCreateOptionの一覧を出力する．
+	for (int i = 0; i < kMapCreateOptionList.size(); i++)
+	{
+		std::string name = magic_enum::enum_name<MapCreateOption>(kMapCreateOptionList[i]).data();	//MapCreateOptionのリストを取得する
+
+		name.erase(0, 1);	//先頭のkを削除する
+
+		unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
+
+		std::bitset<magic_enum::enum_count<MapCreateOption>()> bit(option_value);
+
+		dlio::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", OutputDetail::kSystem);
+	}
+
+	int selected_option = dlio::InputInt(0, option_sum, 0);	//MapCreateOptionの合計値を入力させる
+
+	return selected_option;
+}
+
+RobotStateNode GraphViewerSystemMain::SelectNode(const std::vector<RobotStateNode>& graph) const
+{
+	dlio::OutputNewLine(1, OutputDetail::kSystem);
+	dlio::Output("ノードを選択する", OutputDetail::kSystem);
+
+	if (graph.size() == 0)
+	{
+		dlio::Output("グラフが空なので，初期状態のノードを返す", OutputDetail::kSystem);
+
+		RobotStateNode first_node;
+		first_node.Init(false);
+
+		return first_node;
+	}
+	else
+	{
+		dlio::Output("グラフの中から1つのノードを選択してください．", OutputDetail::kSystem);
+
+		//ノードを選択する
+		int selected_node_index = dlio::InputInt(0, static_cast<int>(graph.size()) - 1, 0 , "整数でノードを選択してください．");
+
+		dlio::Output("選択されたノード，" + std::to_string(selected_node_index) + "番を親にする．", OutputDetail::kSystem);
+
+		return graph[selected_node_index];
+	}
 }

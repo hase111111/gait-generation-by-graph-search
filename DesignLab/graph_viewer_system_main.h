@@ -11,7 +11,9 @@
 #include "graphic_data_broker.h"
 #include "interface_pass_finder.h"
 #include "interface_system_main.h"
+#include "map_creator.h"
 #include "map_state.h"
+#include "stopwatch.h"
 
 
 //! @class GraphViewerSystemMain
@@ -34,14 +36,29 @@ public:
 
 private:
 
-	// グラフを作成する
-	void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>& graph);
+	//! @brief グラフを作成する．
+	//! @param [in] parent 親ノード
+	//! @param [out] graph 作成したグラフ
+	void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
 
-	//グラフを仲介人にセットする
-	void SetGraphToBroker(const std::vector<RobotStateNode>& graph);
 
-	// グラフのステータスを表示する
-	void ShowGraphStatus(const std::vector<RobotStateNode>& graph) const;
+	//! @brief グラフのステータスを表示する．
+	//! @n 全ノード数，木の深さ，各深さごとのノード数を表示する．
+	//! @param [in] graph グラフ
+	void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
+
+	//! @brief マップ生成のモードを入力する
+	//! @return MapCreateMode マップ生成のモード
+	MapCreateMode InputMapCreateMode() const;
+
+	//! @brief マップ生成のオプションを入力する
+	//! @return unsigned int MapCreateOption マップ生成のオプション
+	unsigned int InputMapCreateOption() const;
+
+	//! @brief グラフの中から1つのノードを選択する．グラフが空の場合は，初期状態のノードを返す．
+	//! @param [in] graph グラフ
+	//! @return RobotStateNode 選択されたノード
+	RobotStateNode SelectNode(const std::vector<RobotStateNode>& graph) const;
 
 
 	GraphicSystem graphic_system_;
@@ -53,6 +70,8 @@ private:
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 
 	MapState map_state_;
+
+	Stopwatch stopwatch_;
 };
 
 

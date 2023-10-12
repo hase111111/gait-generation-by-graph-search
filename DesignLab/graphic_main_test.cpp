@@ -26,7 +26,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 	m_node.Init(false);
 
 	MapCreator map_creator;
-	map_state_ = map_creator.Create(MapCreateMode::kFlat, MapCreator::OPTION_NONE);
+	map_state_ = map_creator.Create(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
 	devide_map_state_.Init(map_state_);
 
 

@@ -20,6 +20,8 @@ public:
 
 	//! @brief 起動モードを選択する
 	//! @return BootMode 起動モード
+	//! @note BootModeがint型をもとにしているかつ，0から始まることを前提にしているので，うまく動作しない場合は
+	//! @n BootModeの定義を見直すこと
 	BootMode SelectBootMode();
 
 private:
