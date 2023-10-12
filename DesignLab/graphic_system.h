@@ -61,14 +61,14 @@ private:
 
 	//! @brief Dxlibの初期化処理を行います．
 	//! @return bool 初期化に成功したかどうか．
-	bool DxlibInit();
+	bool MyDxlibInit();
 
 	//! @brief GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理
-	//! @return bool ループを続けるかどうか．falseならばループを抜ける．以上が起きた場合もfaseを返す．
+	//! @return bool ループを続けるかどうか．falseならばループを抜ける．異常が起きた場合もfaseを返す．
 	bool Loop();
 
 	//! @brief Dxlibの終了処理を行います．
-	void DxlibFinalize() const;
+	void MyDxlibFinalize() const;
 
 
 	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< グラフィックの表示を行うクラスのポインタ．

@@ -12,7 +12,7 @@
 GraphicSystem::GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
 	graphic_main_ptr_(std::move(graphic_main_ptr)),
 	setting_ptr_(setting_ptr),
-	fps_controller_(setting_ptr ? setting_ptr->window_fps : 60)
+	fps_controller_(setting_ptr ? setting_ptr->window_fps : 60)		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
 {
 }
 
@@ -42,8 +42,8 @@ void GraphicSystem::Main()
 		return; 
 	}
 
-	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きます．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要があります．
-	if (!DxlibInit()) 
+	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きる．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要がある
+	if (!MyDxlibInit()) 
 	{
 		assert(false);
 		return; 
@@ -62,11 +62,11 @@ void GraphicSystem::Main()
 	}
 
 	//終了処理を行う．
-	DxlibFinalize();
+	MyDxlibFinalize();
 }
 
 
-bool GraphicSystem::DxlibInit()
+bool GraphicSystem::MyDxlibInit()
 {
 	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行する．
 
@@ -145,8 +145,10 @@ bool GraphicSystem::Loop()
 }
 
 
-void GraphicSystem::DxlibFinalize() const
+void GraphicSystem::MyDxlibFinalize() const
 {
 	// DXライブラリの終了処理を呼ぶ.
 	DxLib_End();
+
+	//ほかにも処理があればここに追記する
 }

@@ -60,7 +60,7 @@
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="hexapod_renderer.h" />
-    <ClInclude Include="hexapod_state_calculator.h" />
+    <ClInclude Include="_hexapod_state_calculator.h" />
     <ClInclude Include="interface_pass_finder.h" />
     <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graph_tree_creator.h" />
@@ -153,7 +153,7 @@
     <ClCompile Include="graph_tree_creator_hato.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="hexapod_renderer.cpp" />
-    <ClCompile Include="hexapod_state_calculator.cpp" />
+    <ClCompile Include="_hexapod_state_calculator.cpp" />
     <ClCompile Include="_BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
     <ClCompile Include="cmdio_util.cpp" />

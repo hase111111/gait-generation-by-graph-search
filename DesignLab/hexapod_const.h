@@ -30,11 +30,11 @@ public:
 	constexpr static float PHANTOMX_FEMUR_LENGTH = 66.0f;			//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_TIBIA_LENGTH = 130.0f;			//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_COXA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-40.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_COXA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_COXA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-90.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(90.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-102.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(100.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．

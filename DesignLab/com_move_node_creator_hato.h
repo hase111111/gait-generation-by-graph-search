@@ -12,7 +12,6 @@
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
 #include "designlab_polygon2.h"
-#include "hexapod_state_calculator.h"
 #include "map_state.h"
 
 

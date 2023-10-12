@@ -10,7 +10,6 @@
 #include <memory>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "hexapod_state_calculator.h"
 #include "map_state.h"
 
 

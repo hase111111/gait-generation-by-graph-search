@@ -174,9 +174,6 @@
     <ClInclude Include="node_validity_checker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="hexapod_state_calculator.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
     <ClInclude Include="graph_searcher_random.h">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
     </ClInclude>
@@ -402,6 +399,9 @@
     <ClInclude Include="interface_map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
+    <ClInclude Include="_hexapod_state_calculator.h">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -460,9 +460,6 @@
     </ClCompile>
     <ClCompile Include="graph_tree_creator_hato.cpp">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
-    </ClCompile>
-    <ClCompile Include="hexapod_state_calculator.cpp">
-      <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_random.cpp">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
@@ -634,6 +631,9 @@
     </ClCompile>
     <ClCompile Include="result_file_importer.cpp">
       <Filter>ソース ファイル\FileIO\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="_hexapod_state_calculator.cpp">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
