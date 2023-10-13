@@ -75,6 +75,10 @@ private:
 	bool IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
 	bool IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
 
+	void DrawBody() const;
+
+	void DrawCoxaLink(int leg_index) const;
+
 
 	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 
@@ -83,8 +87,6 @@ private:
 	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
 
 	std::array<PhantomXDrawData, HexapodConst::kLegNum> draw_data_;			//!< 描画に必要なデータ
-
-	int body_model_handle_;		//!< ロボットのボディのモデルハンドル
 
 	DisplayQuality display_quality_;	//!< 描画品質
 };

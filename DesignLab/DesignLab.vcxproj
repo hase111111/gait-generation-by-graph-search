@@ -65,6 +65,7 @@
     <ClInclude Include="graph_tree_creator_hato.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
+    <ClInclude Include="phantomx_const.h" />
     <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
     <ClInclude Include="_hexapod_state_calculator.h" />

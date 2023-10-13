@@ -2,6 +2,7 @@
 
 #include <Dxlib.h>
 
+#include "designlab_vector3.h"
 #include "graphic_const.h"
 
 
@@ -13,11 +14,13 @@ namespace designlab
 		void InitDxlib3DSetting()
 		{
 			//カメラの描画範囲を設定する
-			SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);
+			//SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);	//描画がおかしくなったのでコメントアウト
 
-			SetUseLighting(FALSE);			// ライティングの計算をしないように設定を変更	
-			SetUseBackCulling(FALSE);		// ポリゴンの両面を描画しない
-			SetFogEnable(FALSE);			// フォグは使用しない．
+			SetUseLighting(TRUE);
+			SetLightEnable(TRUE);
+
+			// ライトの設定
+			ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec() * -1));
 		}
 
 

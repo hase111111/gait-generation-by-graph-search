@@ -44,8 +44,12 @@ namespace designlab
 		~RotationMatrix3x3() = default;
 
 
-		RotationMatrix3x3& operator* (const RotationMatrix3x3& other);
+		RotationMatrix3x3 operator* (const RotationMatrix3x3& other) const;
 
+
+		//! @brief ‰ñ“]s—ñ‚ğXYZƒIƒCƒ‰[Šp‚É•ÏŠ·‚·‚éD
+		//! @return XYZƒIƒCƒ‰[Šp
+		EulerXYZ ToEulerXYZ() const;
 
 		//! @brief x²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
 		//! @param [in] angle ‰ñ“]Šp [rad]

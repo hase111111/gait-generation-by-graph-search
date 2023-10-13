@@ -18,7 +18,7 @@ namespace designlab
 		*this = rot_z * rot_y * rot_x;
 	}
 
-	RotationMatrix3x3& RotationMatrix3x3::operator*(const RotationMatrix3x3& other)
+	RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) const
 	{
 		RotationMatrix3x3 res;
 
@@ -35,9 +35,18 @@ namespace designlab
 			}
 		}
 
-		*this = res;
+		return res;
+	}
 
-		return *this;
+	EulerXYZ RotationMatrix3x3::ToEulerXYZ() const
+	{
+		EulerXYZ res;
+
+		res.x_angle = std::atan2(element[2][1], element[2][2]);
+		res.y_angle = std::atan2(-element[2][0], std::sqrt(element[2][1] * element[2][1] + element[2][2] * element[2][2]));
+		res.z_angle = std::atan2(element[1][0], element[0][0]);
+
+		return res;
 	}
 
 	RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)

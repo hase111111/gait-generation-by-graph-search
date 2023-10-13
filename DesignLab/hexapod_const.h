@@ -44,11 +44,11 @@ public:
 		::designlab::math_util::ConvertDegToRad(135.0f), ::designlab::math_util::ConvertDegToRad(90.0f),  ::designlab::math_util::ConvertDegToRad(45.0f) 
 	};
 
-	constexpr static float BODY_FRONT_WIDTH = 60.0f;	//!< 前方の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_CENTER_WIDTH = 100.0f;	//!< 中心の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_REAR_WIDTH = 60.0f;		//!< 後方の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_FRONT_LENGTH = 120.0f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
-	constexpr static float BODY_REAR_LENGTH = 120.0f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
+	constexpr static float BODY_FRONT_WIDTH = 61.64f;	//!< 前方の幅[mm]．phantomXの横幅.
+	constexpr static float BODY_CENTER_WIDTH = 103.4f;	//!< 中心の幅[mm]．phantomXの横幅.
+	constexpr static float BODY_REAR_WIDTH = 61.64f;		//!< 後方の幅[mm]．phantomXの横幅.
+	constexpr static float BODY_FRONT_LENGTH = 124.8f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
+	constexpr static float BODY_REAR_LENGTH = 124.8f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
 	constexpr static float BODY_HEIGHT = 40.0f;			//!< 胴体の高さ[mm]．
 
 	//ロボットの可動範囲

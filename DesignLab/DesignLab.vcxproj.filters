@@ -426,6 +426,9 @@
     <ClInclude Include="phantomx_renderer_model.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
     </ClInclude>
+    <ClInclude Include="phantomx_const.h">
+      <Filter>ソース ファイル\Hexapod\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

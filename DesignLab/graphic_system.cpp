@@ -6,7 +6,6 @@
 #include "dxlib_util.h"
 #include "graphic_const.h"
 #include "keyboard.h"
-#include "model_loader.h"
 #include "mouse.h"
 
 
@@ -69,9 +68,7 @@ void GraphicSystem::Main()
 
 bool GraphicSystem::MyDxlibInit()
 {
-	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行する．
-
-	designlab::dxlib_util::InitDxlib3DSetting();	// 3D関連の初期化を行う．		
+	// 1部の初期化用関数はDxlib_Initを呼ぶ前に実行する必要があるのでここで実行する．	
 
 	SetOutApplicationLogValidFlag(FALSE);					// ログ出力無しに変更．これをしないとLog.txtという邪魔なファイルが出力される．
 	SetMainWindowText(GraphicConst::kWindowName.c_str());	// タイトルを変更．ウィンドウの左上に表示されるもの．
@@ -97,7 +94,8 @@ bool GraphicSystem::MyDxlibInit()
 	// 背景色の設定
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
-	ModelLoader::GetIns()->LoadModel("model/connect.mv1");
+	// 3D関連の初期化を行う．	
+	designlab::dxlib_util::InitDxlib3DSetting();	
 
 	return true;
 }
