@@ -16,7 +16,7 @@ namespace designlab
 			SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);
 
 			SetUseLighting(FALSE);			// ライティングの計算をしないように設定を変更	
-			SetUseBackCulling(FALSE);		// ポリゴンの両面を描画する．
+			SetUseBackCulling(FALSE);		// ポリゴンの両面を描画しない
 			SetFogEnable(FALSE);			// フォグは使用しない．
 		}
 

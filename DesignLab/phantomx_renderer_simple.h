@@ -71,6 +71,13 @@ private:
 		bool is_able_tibia_angle;	//!< 第３関節の角度が有効かどうか
 	};
 
+
+	//! @brief 通常通りにロボットの描画をする
+	void DrawHexapodNormal() const;
+
+	//! @brief 低品質にロボットの描画をする
+	void DrawHexapodLow() const;
+
 	bool IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const;
 	bool IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
 	bool IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;

@@ -65,6 +65,7 @@
     <ClInclude Include="graph_tree_creator_hato.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
+    <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
     <ClInclude Include="_hexapod_state_calculator.h" />
     <ClInclude Include="interface_pass_finder.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
+    <ClCompile Include="phantomx_renderer_model.cpp" />
     <ClCompile Include="phantomx_state_calculator_hato.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />

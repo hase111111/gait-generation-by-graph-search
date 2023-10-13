@@ -6,6 +6,7 @@
 #include "dxlib_util.h"
 #include "graphic_const.h"
 #include "keyboard.h"
+#include "model_loader.h"
 #include "mouse.h"
 
 
@@ -95,6 +96,8 @@ bool GraphicSystem::MyDxlibInit()
 
 	// ”wŒiF‚ÌÝ’è
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
+
+	ModelLoader::GetIns()->LoadModel("model/connect.mv1");
 
 	return true;
 }

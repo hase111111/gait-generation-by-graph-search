@@ -50,7 +50,7 @@ window_pos_x = 60
 #GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．
 window_size_y = 720
 #GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．
-gui_display_quality = "kMedium"
+gui_display_quality = "kHigh"
 #コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い
 cmd_permission = "kDebug"
 #GUI(dxlibによる表示)での表示を行います (true/false)
