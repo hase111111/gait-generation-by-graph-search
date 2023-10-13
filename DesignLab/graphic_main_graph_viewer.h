@@ -11,7 +11,7 @@
 #include "camera_gui.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
-#include "hexapod_renderer.h"
+#include "interface_hexapod_renderer.h"
 #include "map_state.h"
 #include "node_display_gui.h"
 
@@ -46,7 +46,7 @@ private:
 
 	MapState map_state_;
 
-	HexapodRenderer hexapod_renderer_;
+	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;
 
 
 	std::vector<RobotStateNode> graph_;

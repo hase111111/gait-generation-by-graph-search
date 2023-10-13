@@ -4,6 +4,7 @@
 
 #include "dxlib_util.h"
 #include "graph_tree_creator_hato.h"
+#include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
 
@@ -17,7 +18,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	camera_gui_{ 10, setting_ptr ? setting_ptr->window_size_y - 10 : 0 ,CameraGui::kOptionLeftBottom},
 	node_display_gui_{ setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr },
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
-	hexapod_renderer_(calculator_ptr),
+	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality)),
 	graph_({}),
 	display_node_index_(0),
 	map_update_count_(0),
@@ -27,7 +28,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	RobotStateNode init_node;
 	init_node.Init(false);
 
-	hexapod_renderer_.SetDrawNode(init_node);
+	hexapod_renderer_->SetDrawNode(init_node);
 
 	// GUI にグラフのポインタを渡す.
 	gui_controller_ptr_ = std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr);
@@ -62,7 +63,7 @@ bool GraphicMainGraphViewer::Update()
 	//HexapodReanderの更新
 	if (display_node_index_ < graph_.size() && graph_.size() != 0)
 	{
-		hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));
+		hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
 
 		camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
 
@@ -89,7 +90,7 @@ void GraphicMainGraphViewer::Draw() const
 
 	if (display_node_index_ < graph_.size())
 	{
-		hexapod_renderer_.Draw();
+		hexapod_renderer_->Draw();
 	}
 
 

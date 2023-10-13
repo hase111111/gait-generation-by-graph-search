@@ -4,6 +4,7 @@
 
 #include "dxlib_util.h"
 #include "keyboard.h"
+#include "hexapod_renderer_builder.h"
 #include "map_renderer.h"
 #include "world_grid_renderer.h"
 
@@ -14,7 +15,7 @@ GraphicMainBasic::GraphicMainBasic(const std::shared_ptr<const GraphicDataBroker
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 0),
-	hexapod_renderer_(calculator_ptr),
+	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality)),
 	robot_graund_point_renderer_(calculator_ptr),
 	stability_margin_renderer_(calculator_ptr),
 	map_state_(broker_ptr_ ? broker_ptr_->map_state.GetData() : MapState()),
@@ -72,7 +73,7 @@ bool GraphicMainBasic::Update()
 		{
 			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();	//表示するノードを取得する．
 
-			hexapod_renderer_.SetDrawNode(graph_.at(display_node_index_));					//ロボットの状態を更新する．
+			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));					//ロボットの状態を更新する．
 
 			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
@@ -137,7 +138,7 @@ void GraphicMainBasic::Draw() const
 	if (!graph_.empty())
 	{
 		//ノードが存在しているならば，ロボットを描画する．
-		hexapod_renderer_.Draw();
+		hexapod_renderer_->Draw();
 
 		stability_margin_renderer_.Draw(graph_.at(display_node_index_));
 	}

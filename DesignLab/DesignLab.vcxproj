@@ -39,6 +39,7 @@
     <ClInclude Include="com_up_down_node_creator.h" />
     <ClInclude Include="designlab_quaternion.h" />
     <ClInclude Include="display_node_switch_gui.h" />
+    <ClInclude Include="display_quality.h" />
     <ClInclude Include="file_tree.h" />
     <ClInclude Include="graphic_main_advance.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
@@ -46,7 +47,9 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="hexapod_renderer_builder.h" />
     <ClInclude Include="interface_application_setting_reader.h" />
+    <ClInclude Include="interface_hexapod_renderer.h" />
     <ClInclude Include="interface_map_creator.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
     <ClInclude Include="interface_system_main.h" />
@@ -62,7 +65,7 @@
     <ClInclude Include="graph_tree_creator_hato.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
-    <ClInclude Include="hexapod_renderer.h" />
+    <ClInclude Include="phantomx_renderer_simple.h" />
     <ClInclude Include="_hexapod_state_calculator.h" />
     <ClInclude Include="interface_pass_finder.h" />
     <ClInclude Include="interface_graph_searcher.h" />
@@ -105,7 +108,6 @@
     <ClInclude Include="application_setting_recorder.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
-    <ClInclude Include="StringToValue.h" />
     <ClInclude Include="simulation_system_main.h" />
     <ClInclude Include="graph_viewer_system_main.h" />
     <ClInclude Include="target.h" />
@@ -143,6 +145,7 @@
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_recoder.cpp" />
+    <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
@@ -155,7 +158,7 @@
     <ClCompile Include="pass_finder_basic.cpp" />
     <ClCompile Include="graph_tree_creator_hato.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
-    <ClCompile Include="hexapod_renderer.cpp" />
+    <ClCompile Include="phantomx_renderer_simple.cpp" />
     <ClCompile Include="_hexapod_state_calculator.cpp" />
     <ClCompile Include="_BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
@@ -276,7 +279,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -289,7 +292,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -309,7 +312,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -324,7 +327,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -340,7 +343,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -353,7 +356,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -373,7 +376,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -388,7 +391,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)\toml11-3.7.1;$(SolutionDir)\magic_enum\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>

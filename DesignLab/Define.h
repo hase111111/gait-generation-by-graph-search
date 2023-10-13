@@ -4,6 +4,7 @@
 #ifndef DESIGNLAB_DEFINE_H_
 #define DESIGNLAB_DEFINE_H_
 
+//#define DESIGNLAB_DONOT_USE_DXLIB	//!< DXライブラリを使用しない場合はコメントアウトを外す
 
 #include <string>
 

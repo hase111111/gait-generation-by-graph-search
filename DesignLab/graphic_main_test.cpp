@@ -2,6 +2,7 @@
 
 #include "designlab_math_util.h"
 #include "dxlib_util.h"
+#include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
 #include "simulation_map_creator.h"
@@ -22,9 +23,9 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	calculator_ptr_(calculator_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
-	hexapod_renderer_(calculator_ptr)
+	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality))
 {
-	m_node.Init(false);
+	node_.Init(false);
 
 	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
 	map_state_ = map_creator.InitMap();
@@ -66,16 +67,16 @@ bool GraphicMainTest::Update()
 	{
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
 		{
-			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { m_node.leg_pos[i].z += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { m_node.leg_pos[i].z -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { m_node.leg_pos[i].y += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { m_node.leg_pos[i].y -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { m_node.leg_pos[i].x += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { m_node.leg_pos[i].x -= kSpeed; }
+			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { node_.leg_pos[i].z += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { node_.leg_pos[i].z -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { node_.leg_pos[i].y += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { node_.leg_pos[i].y -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { node_.leg_pos[i].x += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_.leg_pos[i].x -= kSpeed; }
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
 				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
-					i,m_node.leg_reference_pos[i],m_node.global_center_of_mass,m_node.rot,true
+					i,node_.leg_reference_pos[i],node_.global_center_of_mass,node_.rot,true
 				);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
@@ -86,11 +87,11 @@ bool GraphicMainTest::Update()
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
 
-				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, m_map_index % devide_map_state_.GetPointNum(map_x, map_y));
-				m_map_index++;
+				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, map_index_ % devide_map_state_.GetPointNum(map_x, map_y));
+				map_index_++;
 
-				m_node.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
-					i,map_pos, m_node.global_center_of_mass,m_node.rot, true
+				node_.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
+					i,map_pos, node_.global_center_of_mass,node_.rot, true
 				);
 			}
 		}
@@ -102,55 +103,55 @@ bool GraphicMainTest::Update()
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.z += kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.z -= kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.y += kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.y -= kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.x += kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 		{
-			auto com = m_node.global_center_of_mass;
+			auto com = node_.global_center_of_mass;
 			com.x -= kComSpeed;
-			m_node.ChangeGlobalCenterOfMass(com, false);
+			node_.ChangeGlobalCenterOfMass(com, false);
 		}
 		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 		{
-			auto rot = m_node.rot;
+			auto rot = node_.rot;
 			rot.z_angle += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
-			m_node.rot = rot;
+			node_.rot = rot;
 		}
 	}
 
-	hexapod_renderer_.SetDrawNode(m_node);
+	hexapod_renderer_->SetDrawNode(node_);
 
-	node_display_gui_.SetDisplayNode(m_node);
+	node_display_gui_.SetDisplayNode(node_);
 
 	node_display_gui_.Update();
 
-	camera_gui_.SetHexapodPos(m_node.global_center_of_mass);  //カメラの位置を更新する．
+	camera_gui_.SetHexapodPos(node_.global_center_of_mass);  //カメラの位置を更新する．
 
 	camera_gui_.Update();      //カメラのGUIを更新する．
 
@@ -168,7 +169,7 @@ void GraphicMainTest::Draw() const
 	map_render.Draw(map_state_);
 
 
-	hexapod_renderer_.Draw();
+	hexapod_renderer_->Draw();
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -193,7 +194,7 @@ void GraphicMainTest::Draw() const
 							//GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255)
 						};
 
-						dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, pos, m_node.global_center_of_mass, m_node.rot, true)), 10, color[i]);
+						dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, pos, node_.global_center_of_mass, node_.rot, true)), 10, color[i]);
 						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 					}
 					else

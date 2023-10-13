@@ -15,7 +15,7 @@
 #include "display_node_switch_gui.h"
 #include "graphic_const.h"
 #include "graphic_data_broker.h"
-#include "hexapod_renderer.h"
+#include "interface_hexapod_renderer.h"
 #include "map_state.h"
 #include "movement_locus_renderer.h"
 #include "robot_state_node.h"
@@ -58,7 +58,7 @@ private:
 	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
 
-	HexapodRenderer hexapod_renderer_;						//!< ロボットを表示するクラス．	
+	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;						//!< ロボットを表示するクラス．	
 
 	MovementLocusRenderer movement_locus_renderer_;			//!< ロボットの動きの軌跡を表示するクラス．
 

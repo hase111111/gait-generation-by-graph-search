@@ -118,6 +118,9 @@
     <Filter Include="ソース ファイル\GraphicSystem\Common\Resource">
       <UniqueIdentifier>{b427decb-1887-44ee-a050-25b663a0db81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GraphicSystem\3DRender\HexapodRender">
+      <UniqueIdentifier>{eb158091-82ec-4928-a3c0-ecb913980896}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="S_NE.h">
@@ -157,9 +160,6 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
     <ClInclude Include="map_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapod_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_const.h">
@@ -208,9 +208,6 @@
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="stopwatch.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="StringToValue.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="graph_searcher_hato.h">
@@ -414,6 +411,18 @@
     <ClInclude Include="boot_mode_selecter.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
+    <ClInclude Include="phantomx_renderer_simple.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_renderer.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod_renderer_builder.h">
+      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+    </ClInclude>
+    <ClInclude Include="display_quality.h">
+      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -453,9 +462,6 @@
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
-    <ClCompile Include="hexapod_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="hexapod_const.cpp">
@@ -646,6 +652,12 @@
     </ClCompile>
     <ClCompile Include="boot_mode_selecter.cpp">
       <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="phantomx_renderer_simple.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+    </ClCompile>
+    <ClCompile Include="hexapod_renderer_builder.cpp">
+      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

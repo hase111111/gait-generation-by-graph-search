@@ -175,7 +175,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 					{ ApplicationSettingTomlKey::kOutputCmd.key, kDefaultSetting.cmd_output},
 					{ ApplicationSettingTomlKey::kCmdPermission.key, magic_enum::enum_name(kDefaultSetting.cmd_permission) },
 					{ ApplicationSettingTomlKey::kDisplayGui.key, kDefaultSetting.gui_display },
-					{ ApplicationSettingTomlKey::kGuiDisplayQuality.key, kDefaultSetting.gui_display_quality },
+					{ ApplicationSettingTomlKey::kGuiDisplayQuality.key, magic_enum::enum_name(kDefaultSetting.gui_display_quality) },
 					{ ApplicationSettingTomlKey::kWindowSizeX.key,kDefaultSetting.window_size_x },
 					{ ApplicationSettingTomlKey::kWindowSizeY.key,kDefaultSetting.window_size_y },
 					{ ApplicationSettingTomlKey::kWindowFps.key,kDefaultSetting.window_fps }
@@ -357,8 +357,9 @@ void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, 
 
 		if (value.at(ApplicationSettingTomlKey::kGuiDisplayQuality.table_name).contains(ApplicationSettingTomlKey::kGuiDisplayQuality.key))
 		{
-			recorder->gui_display_quality = value.at(ApplicationSettingTomlKey::kGuiDisplayQuality.table_name).at(ApplicationSettingTomlKey::kGuiDisplayQuality.key).as_string();
-			std::cout << "〇GUI表示品質を読み込みました．value = " << recorder->gui_display_quality << "\n";
+			std::string read_str = value.at(ApplicationSettingTomlKey::kGuiDisplayQuality.table_name).at(ApplicationSettingTomlKey::kGuiDisplayQuality.key).as_string();
+			recorder->gui_display_quality = magic_enum::enum_cast<DisplayQuality>(read_str).value();
+			std::cout << "〇GUI表示品質を読み込みました．value = " << magic_enum::enum_name(recorder->gui_display_quality) << "\n";
 		}
 		else
 		{
