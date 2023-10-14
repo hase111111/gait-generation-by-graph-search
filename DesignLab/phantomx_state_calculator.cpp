@@ -5,27 +5,28 @@
 #include "cassert_define.h"
 #include "designlab_line_segment2.h"
 #include "designlab_math_util.h"
+#include "phantomx_const.h"
 
 namespace dlm = designlab::math_util;
 
 
-PhantomXStateCalclator::PhantomXStateCalclator() : 
+PhantomXStateCalclator::PhantomXStateCalclator() :
 	free_leg_pos_({ {
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[0]),-25},
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[1]),-25},
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[2]),-25},
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[3]),-25},
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[4]),-25},
-		{160 * cos(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),160 * sin(HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[5]),-25}
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[0]),160 * sin(PhantomXConst::kCoxaDefaultAngle[0]),-25},
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[1]),160 * sin(PhantomXConst::kCoxaDefaultAngle[1]),-25},
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[2]),160 * sin(PhantomXConst::kCoxaDefaultAngle[2]),-25},
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[3]),160 * sin(PhantomXConst::kCoxaDefaultAngle[3]),-25},
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[4]),160 * sin(PhantomXConst::kCoxaDefaultAngle[4]),-25},
+		{160 * cos(PhantomXConst::kCoxaDefaultAngle[5]),160 * sin(PhantomXConst::kCoxaDefaultAngle[5]),-25}
 	} })
 {
 	//ãrÇÃïtÇØç™ÇÃà íuÇèâä˙âªÇ∑ÇÈ
-	local_leg_base_pos_[0] = designlab::Vector3(HexapodConst::BODY_FRONT_LENGTH, -HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr0 âEè„
-	local_leg_base_pos_[1] = designlab::Vector3(0.0f, -HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr1 âEâ°
-	local_leg_base_pos_[2] = designlab::Vector3(-HexapodConst::BODY_REAR_LENGTH, -HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr2 âEâ∫
-	local_leg_base_pos_[3] = designlab::Vector3(-HexapodConst::BODY_REAR_LENGTH, HexapodConst::BODY_REAR_WIDTH, 0.0f);	// ãr3 ç∂â∫
-	local_leg_base_pos_[4] = designlab::Vector3(0.0f, HexapodConst::BODY_CENTER_WIDTH, 0.0f);	// ãr4 ç∂â°
-	local_leg_base_pos_[5] = designlab::Vector3(HexapodConst::BODY_FRONT_LENGTH, HexapodConst::BODY_FRONT_WIDTH, 0.0f);	// ãr5 ç∂è„
+	local_leg_base_pos_[0] = designlab::Vector3{ PhantomXConst::kCoxaBaseOffsetX, -PhantomXConst::kCoxaBaseOffsetY, 0.0f };	// ãr0 âEè„
+	local_leg_base_pos_[1] = designlab::Vector3{ 0.0f, -PhantomXConst::kCenterCoxaBaseOffsetY, 0.0f };						// ãr1 âEâ°
+	local_leg_base_pos_[2] = designlab::Vector3{ -PhantomXConst::kCoxaBaseOffsetX, -PhantomXConst::kCoxaBaseOffsetY, 0.0f };// ãr2 âEâ∫
+	local_leg_base_pos_[3] = designlab::Vector3{ -PhantomXConst::kCoxaBaseOffsetX, PhantomXConst::kCoxaBaseOffsetY, 0.0f };	// ãr3 ç∂â∫
+	local_leg_base_pos_[4] = designlab::Vector3{ 0.0f, PhantomXConst::kCenterCoxaBaseOffsetY, 0.0f };						// ãr4 ç∂â°
+	local_leg_base_pos_[5] = designlab::Vector3{ PhantomXConst::kCoxaBaseOffsetX, PhantomXConst::kCoxaBaseOffsetY, 0.0f };	// ãr5 ç∂è„
 
 
 	// is_able_leg_pos_ Çèâä˙âªÇ∑ÇÈÅDà´ñ≤ÇÃ4èdÉãÅ[Év
@@ -196,28 +197,20 @@ bool PhantomXStateCalclator::InitIsAbleLegPos(const int leg_index, const int x, 
 
 
 	// coxaä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kCoxaMargim = dlm::ConvertDegToRad(0.0f);
-
-	if (HexapodConst::PHANTOMX_COXA_ANGLE_MIN + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] + kCoxaMargim > joint_state.joint_angle[0]) { return false; }
-
-	if (HexapodConst::PHANTOMX_COXA_ANGLE_MAX + HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index] - kCoxaMargim < joint_state.joint_angle[0]) { return false; }
+	if (not PhantomXConst::IsVaildCoxaAngle(leg_index, joint_state.joint_angle[0])) { return false; }
 
 	// femurä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kFemurMargim = dlm::ConvertDegToRad(0.0f);
-
-	if (joint_state.joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN + kFemurMargim || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX - kFemurMargim < joint_state.joint_angle[1]) { return false; }
+	if (not PhantomXConst::IsVaildFemurAngle(joint_state.joint_angle[1])) { return false; }
 
 	// tibiaä÷êﬂÇÃîÕàÕì‡Ç…ë∂ç›ÇµÇƒÇ¢ÇÈÇ©ÇämîFÇ∑ÇÈ
-	const float kTibiaMargim = dlm::ConvertDegToRad(0.0f);
-
-	if (joint_state.joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN + kTibiaMargim || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX - kTibiaMargim < joint_state.joint_angle[2]) { return false; }
+	if (not PhantomXConst::IsVaildTibiaAngle(joint_state.joint_angle[2])) { return false; }
 
 	// ÉäÉìÉNÇÃí∑Ç≥ÇämîFÇ∑ÇÈ
-	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).GetLength(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).GetLength(), PhantomXConst::kCoxaLength)) { return false; }
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).GetLength(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).GetLength(), PhantomXConst::kFemurLength)) { return false; }
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).GetLength(), HexapodConst::PHANTOMX_TIBIA_LENGTH)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).GetLength(), PhantomXConst::kTibiaLength)) { return false; }
 
 	return true;
 }
@@ -227,77 +220,99 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_indexÇÕ 0Å`5 Ç≈Ç†ÇÈÅD
 
-	const int kLinkNum = 4;
-	const int kJointNum = kLinkNum - 1;
+
+	//äeÉpÉâÉÅÅ[É^Çèâä˙âªÇ∑ÇÈ
+	const int kJointNum = 4;
+	const int kJointAngleNum = kJointNum - 1;
 
 	(*joint_state).local_joint_position.clear();
 	(*joint_state).joint_angle.clear();
 
-	(*joint_state).local_joint_position.resize(kLinkNum);
-	(*joint_state).joint_angle.resize(kJointNum);
+	(*joint_state).local_joint_position.resize(kJointNum);
+	(*joint_state).joint_angle.resize(kJointAngleNum);
+
+	(*joint_state).is_vaild = (*joint_state).is_in_range = (*joint_state).match_kinematics = false;	//ÉtÉâÉOÇëSÇƒfalseÇ…Ç∑ÇÈÅD
 
 
 	// coxa jointÇÃåvéZ
-	(*joint_state).local_joint_position[0] = designlab::Vector3{ 0, 0, 0 };
+	(*joint_state).local_joint_position[0] = designlab::Vector3{ 0, 0, 0 };	//ãrç¿ïWånÇ≈ÇÕcoxa jointÇÕå¥ì_Ç…Ç†ÇÈÅD
 
 
 	// coxa angleÇÃåvéZ
-	float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
+	{
+		float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
 
-	if (leg_pos.y == 0 && leg_pos.x == 0) { coxa_joint_angle = HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[leg_index]; }
+		if (leg_pos.y == 0 && leg_pos.x == 0) { coxa_joint_angle = PhantomXConst::kCoxaDefaultAngle[leg_index]; }
 
-	(*joint_state).joint_angle[0] = coxa_joint_angle;
+		if (not PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle))
+		{
+			//îÕàÕäOÇ»ÇÁÇŒÅC180ìxâÒì]Ç≥ÇπÇΩéûÇ…îÕàÕì‡Ç…Ç†ÇÈÇ©Çí≤Ç◊ÇÈÅD
+			if (PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle + dlm::kFloatPi))
+			{
+				coxa_joint_angle += dlm::kFloatPi;
+			}
+			else if (PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle - dlm::kFloatPi))
+			{
+				coxa_joint_angle -= dlm::kFloatPi;
+			}
 
+			//Ç«ÇÃÇ›ÇøîÕàÕäOÇ»ÇÁÇŒÅCÇªÇÃÇ‹Ç‹ë„ì¸Ç∑ÇÈ
+		}
+
+		(*joint_state).joint_angle[0] = coxa_joint_angle;
+	}
 
 	// femur jointÇÃåvéZ
-	const designlab::Vector3 femur_joint_pos = designlab::Vector3{ HexapodConst::PHANTOMX_COXA_LENGTH * std::cos(coxa_joint_angle), HexapodConst::PHANTOMX_COXA_LENGTH * std::sin(coxa_joint_angle), 0 };
-
-	(*joint_state).local_joint_position[1] = femur_joint_pos;
-
-
-	if ((leg_pos - femur_joint_pos).GetLength() > HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH) { return; }
-
-
-	// tibia joint / femur angle ÇÃåvéZ
-	const float leg_to_f_x = (leg_pos - femur_joint_pos).ProjectedXY().GetLength();				//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
-	const float leg_to_f_z = leg_pos.z - femur_joint_pos.z;
-
-	const float arccos_arg = (dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_z) + dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH))
-		/ (2 * HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sqrt(dlm::Squared(leg_to_f_x) + dlm::Squared(leg_to_f_z)));
-
-	float fumur_joint_angle1 = std::acos(arccos_arg) + std::atan2(leg_to_f_z, leg_to_f_x);
-	float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(leg_to_f_z, leg_to_f_x);
-
-	designlab::Vector3 tibia_joint_pos1 = femur_joint_pos +
-		designlab::Vector3 { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle1),
-		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle1),
-		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle1)
-	};
-
-	designlab::Vector3 tibia_joint_pos2 = femur_joint_pos +
-		designlab::Vector3 { HexapodConst::PHANTOMX_FEMUR_LENGTH* std::cos(coxa_joint_angle)* std::cos(fumur_joint_angle2),
-		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(coxa_joint_angle)* std::cos(fumur_joint_angle2),
-		HexapodConst::PHANTOMX_FEMUR_LENGTH* std::sin(fumur_joint_angle2)
-	};
-
-	//if (tibia_joint_pos1.ProjectedXY().GetSquaredLength() < tibia_joint_pos2.ProjectedXY().GetSquaredLength())
-	//{  Å™Ç±ÇÍÇÕä‘à·Ç¡ÇƒÇΩ
-	if (false)
 	{
-		(*joint_state).local_joint_position[2] = tibia_joint_pos2;
+		const designlab::Vector3 femur_joint_pos = designlab::Vector3{
+		PhantomXConst::kCoxaLength * std::cos((*joint_state).joint_angle[0]),
+		PhantomXConst::kCoxaLength * std::sin((*joint_state).joint_angle[0]),
+		0
+		};
 
-		(*joint_state).joint_angle[1] = fumur_joint_angle2;
-	}
-	else
-	{
-		(*joint_state).local_joint_position[2] = tibia_joint_pos1;
+		(*joint_state).local_joint_position[1] = femur_joint_pos;
 
-		(*joint_state).joint_angle[1] = fumur_joint_angle1;
+		// ÇªÇ‡ÇªÇ‡ãrêÊÇ™ãrÇÃïtÇØç™Ç©ÇÁìÕÇ©Ç»Ç¢èÍçáÇÕåvéZÇçsÇÌÇ»Ç¢
+		if ((leg_pos - femur_joint_pos).GetLength() > PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength) { return; }
 	}
 
-	(*joint_state).joint_angle[2] = std::atan2((leg_to_f_z - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::sin((*joint_state).joint_angle[1])),
-		(leg_to_f_x - HexapodConst::PHANTOMX_FEMUR_LENGTH * std::cos((*joint_state).joint_angle[1]))) - (*joint_state).joint_angle[1];
 
+	// femur angle ÇÃåvéZ
+	const designlab::Vector3 femur_to_leg = leg_pos - (*joint_state).local_joint_position[1];		//ãrêÊÇ©ÇÁëÊàÍä÷êﬂÇ‹Ç≈ÇÃí∑Ç≥ÅD
+	const float femur_to_leg_x = femur_to_leg.ProjectedXY().GetLength() * 																//ãrêÊÇ÷å¸Ç©Ç§ï˚å¸ÇxÇÃê≥ï˚å¸Ç…Ç∑ÇÈç¿ïWånÇ…íuÇ´ä∑Ç¶ÇÈ 			
+	((leg_pos.ProjectedXY().GetSquaredLength() > (*joint_state).local_joint_position[1].ProjectedXY().GetSquaredLength()) ? 1.f : -1.f);	//ãrêÊÇ™ëÊàÍä÷êﬂÇÊÇËÇ‡ãﬂÇ¢èÍçáÇÕê≥ÇÃï˚å¸Ç…Ç∑ÇÈÅD
+	const float femur_to_leg_z = femur_to_leg.z;
+
+	{
+		const float arccos_upper = femur_to_leg.GetSquaredLength() + dlm::Squared(PhantomXConst::kFemurLength) - dlm::Squared(PhantomXConst::kTibiaLength);
+		const float arccos_lower = 2 * PhantomXConst::kFemurLength * femur_to_leg.GetLength();
+		const float arccos_arg = arccos_upper / arccos_lower;
+
+		const float fumur_joint_angle = std::acos(arccos_arg) + std::atan2(femur_to_leg_z, femur_to_leg_x);
+		//float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(femur_to_leg_z, femur_to_leg_x);
+
+		(*joint_state).joint_angle[1] = fumur_joint_angle;
+	}
+
+	// tibia jointÇÃåvéZ
+	{
+		const designlab::Vector3 femur_to_tibia = designlab::Vector3{
+			PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[0]) * std::cos((*joint_state).joint_angle[1]),
+			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[0]) * std::cos((*joint_state).joint_angle[1]),
+			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1])
+		};
+
+		designlab::Vector3 tibia_joint_pos = (*joint_state).local_joint_position[1] + femur_to_tibia;
+
+		(*joint_state).local_joint_position[2] = tibia_joint_pos;
+	}
+
+
+	// tibia angleÇÃåvéZ
+	(*joint_state).joint_angle[2] = std::atan2(
+		(femur_to_leg_z - PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1])),
+		(femur_to_leg_x - PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[1]))
+	) - (*joint_state).joint_angle[1];
 
 	// ãrêÊÇÃí«â¡
 	(*joint_state).local_joint_position[3] = leg_pos;

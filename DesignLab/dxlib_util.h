@@ -22,7 +22,7 @@ namespace designlab
 	namespace dxlib_util
 	{
 		//! @brief 3D処理を行う上で必要な初期化処理をまとめたもの．
-		void InitDxlib3DSetting();
+		void InitDxlib3DSetting(bool high_quality);
 
 
 		//! @brief Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．

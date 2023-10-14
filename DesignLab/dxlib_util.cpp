@@ -11,16 +11,24 @@ namespace designlab
 	namespace dxlib_util
 	{
 
-		void InitDxlib3DSetting()
+		void InitDxlib3DSetting(const bool high_quality)
 		{
 			//カメラの描画範囲を設定する
 			//SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);	//描画がおかしくなったのでコメントアウト
 
-			SetUseLighting(TRUE);
-			SetLightEnable(TRUE);
+			if (high_quality) 
+			{
+				SetUseLighting(TRUE);
+				SetLightEnable(TRUE);
 
-			// ライトの設定
-			ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec() * -1));
+				// ライトの設定
+				ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec() * -1));
+			}
+			else 
+			{
+				SetUseLighting(FALSE);
+				SetLightEnable(FALSE);
+			}
 		}
 
 

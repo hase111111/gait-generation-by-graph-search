@@ -11,6 +11,7 @@
 #include <algorithm>
 
 #include "hexapod_const.h"
+#include "phantomx_const.h"
 
 
 //! @class PhantomXStateCalclator
@@ -52,9 +53,9 @@ private:
 
 	static constexpr float kLegPosMargin = 2;
 
-	static constexpr float kLegPosMin = -(HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH + kLegPosMargin);	//脚位置の最小値
+	static constexpr float kLegPosMin = -(PhantomXConst::kCoxaLength + PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength + kLegPosMargin);	//脚位置の最小値
 
-	static constexpr float kLegPosMax = (HexapodConst::PHANTOMX_COXA_LENGTH + HexapodConst::PHANTOMX_FEMUR_LENGTH + HexapodConst::PHANTOMX_TIBIA_LENGTH + kLegPosMargin);		//脚位置の最大値
+	static constexpr float kLegPosMax = (PhantomXConst::kCoxaLength + PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength + kLegPosMargin);	//脚位置の最大値
 
 	static constexpr float kMinLegR = 120;
 

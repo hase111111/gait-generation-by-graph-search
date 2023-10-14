@@ -26,30 +26,6 @@ public:
 	constexpr static int kLegNum = 6;	//!< Hexapodの脚の本数を表す．これを変更しても脚の本数が変更できるわけではない．マジックナンバーをなくすことが目的．
 
 	// PhantomXのパラメータ
-	constexpr static float PHANTOMX_COXA_LENGTH = 52.0f;			//!< 第1関節部の長さ．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_FEMUR_LENGTH = 66.0f;			//!< 第2関節部の長さ．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_TIBIA_LENGTH = 130.0f;			//!< 第3関節部の長さ．詳しくはreferenceをフォルダ参照．
-
-	constexpr static float PHANTOMX_COXA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_COXA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
-
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-102.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_FEMUR_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(100.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
-
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-135.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float PHANTOMX_TIBIA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(40.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
-
-	constexpr static float PHANTOMX_COXA_DEFAULT_ANGLE[kLegNum] = { 
-		::designlab::math_util::ConvertDegToRad(-45.0f), ::designlab::math_util::ConvertDegToRad(-90.0f), ::designlab::math_util::ConvertDegToRad(-135.0f),
-		::designlab::math_util::ConvertDegToRad(135.0f), ::designlab::math_util::ConvertDegToRad(90.0f),  ::designlab::math_util::ConvertDegToRad(45.0f) 
-	};
-
-	constexpr static float BODY_FRONT_WIDTH = 61.64f;	//!< 前方の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_CENTER_WIDTH = 103.4f;	//!< 中心の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_REAR_WIDTH = 61.64f;		//!< 後方の幅[mm]．phantomXの横幅.
-	constexpr static float BODY_FRONT_LENGTH = 124.8f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
-	constexpr static float BODY_REAR_LENGTH = 124.8f;	//!< 中央から前方までの距離[mm]．phantomXの縦幅.
-	constexpr static float BODY_HEIGHT = 40.0f;			//!< 胴体の高さ[mm]．
 
 	//ロボットの可動範囲
 	const static float VERTICAL_MAX_RANGE;			//!< 地面の最高点と胴体下方の隙間の最大値を示す．脚を伸ばし切らない程度に設定する．旧名 MAX_DELTAZ

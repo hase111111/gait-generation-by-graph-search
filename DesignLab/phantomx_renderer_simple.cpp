@@ -5,6 +5,7 @@
 #include "dxlib_util.h"
 #include "designlab_math_util.h"
 #include "leg_state.h"
+#include "phantomx_const.h"
 
 
 namespace dldu = designlab::dxlib_util;
@@ -67,9 +68,9 @@ void PhantomXRendererSimple::SetDrawNode(const RobotStateNode& node)
 
 		//正しい値になっているかチェックするために，順運動学で計算しなおす
 		draw_data_[i].kine_coxa_joint_vec = draw_joint_state_[i].local_joint_position[0];
-		draw_data_[i].kine_femur_joint_vec = draw_data_[i].kine_coxa_joint_vec + HexapodConst::PHANTOMX_COXA_LENGTH * designlab::Vector3{ draw_data_[i].coxa_cos, draw_data_[i].coxa_sin, 0};
-		draw_data_[i].kine_tibia_joint_vec = draw_data_[i].kine_femur_joint_vec + HexapodConst::PHANTOMX_FEMUR_LENGTH * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].femur_cos, draw_data_[i].coxa_sin * draw_data_[i].femur_cos, draw_data_[i].femur_sin };
-		draw_data_[i].kine_leg_end_vec = draw_data_[i].kine_tibia_joint_vec + HexapodConst::PHANTOMX_TIBIA_LENGTH * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].tibia_cos, draw_data_[i].coxa_sin * draw_data_[i].tibia_cos, draw_data_[i].tibia_sin};
+		draw_data_[i].kine_femur_joint_vec = draw_data_[i].kine_coxa_joint_vec + PhantomXConst::kCoxaLength * designlab::Vector3{ draw_data_[i].coxa_cos, draw_data_[i].coxa_sin, 0};
+		draw_data_[i].kine_tibia_joint_vec = draw_data_[i].kine_femur_joint_vec + PhantomXConst::kFemurLength * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].femur_cos, draw_data_[i].coxa_sin * draw_data_[i].femur_cos, draw_data_[i].femur_sin };
+		draw_data_[i].kine_leg_end_vec = draw_data_[i].kine_tibia_joint_vec + PhantomXConst::kTibiaLength * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].tibia_cos, draw_data_[i].coxa_sin * draw_data_[i].tibia_cos, draw_data_[i].tibia_sin};
 
 		draw_data_[i].kine_coxa_joint_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_coxa_joint_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
 		draw_data_[i].kine_femur_joint_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_femur_joint_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
@@ -82,10 +83,9 @@ void PhantomXRendererSimple::SetDrawNode(const RobotStateNode& node)
 		draw_data_[i].tibia_link_length = (draw_joint_state_[i].local_joint_position[2] - draw_joint_state_[i].local_joint_position[3]).GetLength();
 
 		// 間接角度が範囲内にあるかどうかを調べる．
-		draw_data_[i].is_able_coxa_angle = !(draw_joint_state_[i].joint_angle[0] < HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MIN ||
-			HexapodConst::PHANTOMX_COXA_DEFAULT_ANGLE[i] + HexapodConst::PHANTOMX_COXA_ANGLE_MAX < draw_joint_state_[i].joint_angle[0]);
-		draw_data_[i].is_able_femur_angle = !(draw_joint_state_[i].joint_angle[1] < HexapodConst::PHANTOMX_FEMUR_ANGLE_MIN || HexapodConst::PHANTOMX_FEMUR_ANGLE_MAX < draw_joint_state_[i].joint_angle[1]);
-		draw_data_[i].is_able_tibia_angle = !(draw_joint_state_[i].joint_angle[2] < HexapodConst::PHANTOMX_TIBIA_ANGLE_MIN || HexapodConst::PHANTOMX_TIBIA_ANGLE_MAX < draw_joint_state_[i].joint_angle[2]);
+		draw_data_[i].is_able_coxa_angle = PhantomXConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0]);
+		draw_data_[i].is_able_femur_angle = PhantomXConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1]);
+		draw_data_[i].is_able_tibia_angle = PhantomXConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2]);
 	}
 }
 
@@ -105,7 +105,7 @@ void PhantomXRendererSimple::Draw() const
 	// エラー出力．
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (!dlm::IsEqual(draw_data_[i].coxa_link_length, HexapodConst::PHANTOMX_COXA_LENGTH))
+		if (!dlm::IsEqual(draw_data_[i].coxa_link_length, PhantomXConst::kCoxaLength))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
@@ -114,7 +114,7 @@ void PhantomXRendererSimple::Draw() const
 			);
 		}
 
-		if (!dlm::IsEqual(draw_data_[i].femur_link_length, HexapodConst::PHANTOMX_FEMUR_LENGTH))
+		if (!dlm::IsEqual(draw_data_[i].femur_link_length, PhantomXConst::kFemurLength))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
@@ -123,7 +123,7 @@ void PhantomXRendererSimple::Draw() const
 			);
 		}
 
-		if (!dlm::IsEqual(draw_data_[i].tibia_link_length, HexapodConst::PHANTOMX_TIBIA_LENGTH))
+		if (!dlm::IsEqual(draw_data_[i].tibia_link_length, PhantomXConst::kTibiaLength))
 		{
 			DrawString(
 				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
@@ -145,7 +145,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 	}
 
-	dldu::DrawHexagonalPrism(vertex, HexapodConst::BODY_HEIGHT, kColorBody);
+	dldu::DrawHexagonalPrism(vertex, PhantomXConst::BODY_HEIGHT, kColorBody);
 
 	//脚を描画する．
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -238,20 +238,20 @@ void PhantomXRendererSimple::DrawHexapodLow() const
 
 bool PhantomXRendererSimple::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
 {
-	if (abs((coxa_joint - femur_joint).GetLength() - HexapodConst::PHANTOMX_COXA_LENGTH) < dlm::kAllowableError) { return true; }
+	if (abs((coxa_joint - femur_joint).GetLength() - PhantomXConst::kCoxaLength) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
 bool PhantomXRendererSimple::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
 {
-	if (abs((femur_joint - tibia_joint).GetLength() - HexapodConst::PHANTOMX_FEMUR_LENGTH) < dlm::kAllowableError) { return true; }
+	if (abs((femur_joint - tibia_joint).GetLength() - PhantomXConst::kFemurLength) < dlm::kAllowableError) { return true; }
 	return false;
 }
 
 
 bool PhantomXRendererSimple::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
 {
-	if (abs((tibia_joint - leg_joint).GetLength() - HexapodConst::PHANTOMX_TIBIA_LENGTH) < 10) { return true; }
+	if (abs((tibia_joint - leg_joint).GetLength() - PhantomXConst::kTibiaLength) < 10) { return true; }
 	return false;
 }

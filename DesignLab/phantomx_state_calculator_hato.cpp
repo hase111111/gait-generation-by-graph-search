@@ -2,6 +2,7 @@
 
 #include "cassert_define.h"
 #include "designlab_math_util.h"
+#include "phantomx_const.h"
 
 namespace dlm = ::designlab::math_util;
 
@@ -61,20 +62,20 @@ std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator
 
 			//const float _coxa_angle = atan2(line_end.x, line_end.y);	//coxa角度
 
-			const float _IK_trueX = sqrt(dlm::Squared(line_end.x) + dlm::Squared(line_end.y)) - HexapodConst::PHANTOMX_COXA_LENGTH;	//femurから足先までを結ぶベクトルをxy平面に投影したときのベクトルの大きさ
+			const float _IK_trueX = sqrt(dlm::Squared(line_end.x) + dlm::Squared(line_end.y)) - PhantomXConst::kCoxaLength;	//femurから足先までを結ぶベクトルをxy平面に投影したときのベクトルの大きさ
 			float _im = sqrt(dlm::Squared(_IK_trueX) + dlm::Squared(line_end.z));					//絶対に正
 			if (_im == 0.0f) _im += 0.01f;	//0割り対策
 
 			const float _q1 = -atan2(line_end.z, _IK_trueX);													//マイナスでおｋ座標系的にq1自体は常に負//xがゼロだと定義域エラー
 			const float _q2 = acos(
-				(dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(_im) - dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH)) / 
-				(2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * _im)
+				(dlm::Squared(PhantomXConst::kFemurLength) + dlm::Squared(_im) - dlm::Squared(PhantomXConst::kTibiaLength)) /
+				(2.0f * PhantomXConst::kFemurLength * _im)
 			);	//im=0だと定義域エラー
 
 			const float _femur_angle = _q1 + _q2;
 			const float _tibia_angle = acos(
-				(dlm::Squared(HexapodConst::PHANTOMX_FEMUR_LENGTH) + dlm::Squared(HexapodConst::PHANTOMX_TIBIA_LENGTH) - dlm::Squared(_im)) / 
-				(2.0f * HexapodConst::PHANTOMX_FEMUR_LENGTH * HexapodConst::PHANTOMX_TIBIA_LENGTH)
+				(dlm::Squared(PhantomXConst::kFemurLength) + dlm::Squared(PhantomXConst::kTibiaLength) - dlm::Squared(_im)) /
+				(2.0f * PhantomXConst::kFemurLength * PhantomXConst::kTibiaLength)
 			) - dlm::kFloatPi / 2.0f;
 
 			//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femurから足先の距離
@@ -94,12 +95,12 @@ std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator
 			//if(tibiaMaxs < tibia )break;
 
 			//運動学
-			const float _K_trueX = HexapodConst::PHANTOMX_FEMUR_LENGTH * cos(_femur_angle) + HexapodConst::PHANTOMX_TIBIA_LENGTH * cos(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f);
+			const float _K_trueX = PhantomXConst::kFemurLength * cos(_femur_angle) + PhantomXConst::kTibiaLength * cos(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f);
 
 			designlab::Vector3 _kinematics;
-			_kinematics.x = _K_trueX + HexapodConst::PHANTOMX_COXA_LENGTH;
+			_kinematics.x = _K_trueX + PhantomXConst::kCoxaLength;
 			_kinematics.y = 0.0f;
-			_kinematics.z = -(HexapodConst::PHANTOMX_FEMUR_LENGTH * sin(_femur_angle) + HexapodConst::PHANTOMX_TIBIA_LENGTH * sin(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f));
+			_kinematics.z = -(PhantomXConst::kFemurLength * sin(_femur_angle) + PhantomXConst::kTibiaLength * sin(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f));
 
 			const float _Permission = (_kinematics - line_end).GetSquaredLength();
 

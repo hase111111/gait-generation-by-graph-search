@@ -95,7 +95,14 @@ bool GraphicSystem::MyDxlibInit()
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
 	// 3DŠÖ˜A‚Ì‰Šú‰»‚ðs‚¤D	
-	designlab::dxlib_util::InitDxlib3DSetting();	
+	if (setting_ptr_ && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
+	{
+		designlab::dxlib_util::InitDxlib3DSetting(true);
+	}
+	else 
+	{
+		designlab::dxlib_util::InitDxlib3DSetting(false);
+	}
 
 	return true;
 }

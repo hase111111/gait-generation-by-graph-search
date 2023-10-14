@@ -61,21 +61,21 @@ void PhantomXRendererModel::Draw() const
 
 bool PhantomXRendererModel::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
 {
-	if (dlm::IsEqual((coxa_joint - femur_joint).GetLength(), HexapodConst::PHANTOMX_COXA_LENGTH)) { return true; }
+	if (dlm::IsEqual((coxa_joint - femur_joint).GetLength(), PhantomXConst::kCoxaLength)) { return true; }
 	return false;
 }
 
 
 bool PhantomXRendererModel::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
 {
-	if (dlm::IsEqual((femur_joint - tibia_joint).GetLength(), HexapodConst::PHANTOMX_FEMUR_LENGTH)) { return true; }
+	if (dlm::IsEqual((femur_joint - tibia_joint).GetLength(), PhantomXConst::kFemurLength)) { return true; }
 	return false;
 }
 
 
 bool PhantomXRendererModel::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
 {
-	if (dlm::IsEqual((tibia_joint - leg_joint).GetLength(), HexapodConst::PHANTOMX_TIBIA_LENGTH) ) { return true; }
+	if (dlm::IsEqual((tibia_joint - leg_joint).GetLength(), PhantomXConst::kTibiaLength) ) { return true; }
 	return false;
 }
 
