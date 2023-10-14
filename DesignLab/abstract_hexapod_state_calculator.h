@@ -37,6 +37,12 @@
 //! @details 関節の位置と角度を表す．
 struct HexapodJointState
 {
+	bool is_vaild;		//!< 逆運動学解が算出できない場合はfalse．例えばリンクの長さの関係でどれだけ伸ばしても届かない場合など．
+
+	bool is_in_range;	//!< 関節の可動域の外まで動いた場合false
+
+	bool match_kinematics;	//!< 順運動学解と逆運動学解が一致しない場合falseになる．
+
 	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．
 	//! @n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系である．
 	std::vector<designlab::Vector3> local_joint_position;
@@ -65,10 +71,11 @@ public:
 
 
 	//! @brief 全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．
+	//! @n 逆運動学解が算出できない場合は，JointStateのis_vaildがfalseになる．
+	//! @n 逆運動学解が算出できたとしても，関節の可動範囲外に接地してしまう場合，is_in_rangeをfalseにする
 	//! @param [in] node ノードの情報．
 	//! @param [out] joint_state 関節の状態．
-	//! @return bool 計算に成功したらtrue．失敗したらfalse．
-	virtual bool CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const = 0;
+	virtual void CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const = 0;
 
 
 	//! @brief グローバル座標系→脚座標系に変換する．

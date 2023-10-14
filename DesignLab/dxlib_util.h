@@ -75,4 +75,14 @@ namespace designlab
 } // namespace designlab
 
 
+namespace DxLib
+{
+	//VECTORÇÃéZèpââéZéqÇé©çÏÇ∑ÇÈ
+	constexpr VECTOR operator+(const VECTOR& vec1, const VECTOR& vec2) { return { vec1.x + vec2.x,vec1.y + vec2.y,vec1.z + vec2.z }; };
+	constexpr VECTOR operator-(const VECTOR& vec1, const VECTOR& vec2) { return { vec1.x - vec2.x,vec1.y - vec2.y,vec1.z - vec2.z }; };
+	constexpr VECTOR operator*(const VECTOR& vec, const float s) { return { vec.x * s,vec.y * s,vec.z * s }; };
+	constexpr VECTOR operator*(const float s, const VECTOR& vec) { return vec * s; };
+	constexpr VECTOR operator/(const VECTOR& vec, const float s) { return { vec.x / s,vec.y / s,vec.z / s }; };
+}
+
 #endif // !DESIGNLAB_DXLIB_H_

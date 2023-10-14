@@ -45,7 +45,7 @@ PhantomXStateCalclator::PhantomXStateCalclator() :
 }
 
 
-bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const
+void PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const
 {
 	assert(joint_state != nullptr);		//joint_state‚Ínullptr‚Å‚Í‚È‚¢D
 
@@ -64,8 +64,6 @@ bool PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, 
 		joint_state->at(i).global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2], node.rot);
 		joint_state->at(i).global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
 	}
-
-	return false;
 }
 
 
