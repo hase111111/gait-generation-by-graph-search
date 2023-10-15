@@ -16,13 +16,13 @@ namespace designlab
 			//カメラの描画範囲を設定する
 			//SetCameraNearFar(GraphicConst::kCameraNear, GraphicConst::kCameraFar);	//描画がおかしくなったのでコメントアウト
 
-			if (high_quality) 
+			if (high_quality)
 			{
 				SetUseLighting(TRUE);
 				SetLightEnable(TRUE);
 
 				// ライトの設定
-				ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec() * -1));
+				ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec()));
 			}
 			else 
 			{

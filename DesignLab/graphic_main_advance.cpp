@@ -12,7 +12,7 @@
 GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
-	kInterpolatedAnimeCount(15),
+	kInterpolatedAnimeCount(60),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),

@@ -44,6 +44,8 @@ namespace designlab::com_func
 		// そしてそれに 0 から始まる番号を割り振る．(管理しやすくするため．)
 		// 全パターンを総当りで書いてあるけど，本当はこのリストを作成する関数を作りたい．
 
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
+		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
 
 		// 6脚全て接地している場合
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111111"), counter++));
@@ -85,7 +87,6 @@ namespace designlab::com_func
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001101"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001110"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010110"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011001"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011010"), counter++));
@@ -94,7 +95,6 @@ namespace designlab::com_func
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100101"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100110"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101001"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101100"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110001"), counter++));
 		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110010"), counter++));

@@ -12,12 +12,12 @@ namespace dlm = designlab::math_util;
 
 PhantomXStateCalclator::PhantomXStateCalclator() :
 	free_leg_pos_({ {
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[0]),160 * sin(PhantomXConst::kCoxaDefaultAngle[0]),-25},
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[1]),160 * sin(PhantomXConst::kCoxaDefaultAngle[1]),-25},
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[2]),160 * sin(PhantomXConst::kCoxaDefaultAngle[2]),-25},
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[3]),160 * sin(PhantomXConst::kCoxaDefaultAngle[3]),-25},
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[4]),160 * sin(PhantomXConst::kCoxaDefaultAngle[4]),-25},
-		{160 * cos(PhantomXConst::kCoxaDefaultAngle[5]),160 * sin(PhantomXConst::kCoxaDefaultAngle[5]),-25}
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[0]),170 * sin(PhantomXConst::kCoxaDefaultAngle[0]),-25},
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[1]),170 * sin(PhantomXConst::kCoxaDefaultAngle[1]),-25},
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[2]),170 * sin(PhantomXConst::kCoxaDefaultAngle[2]),-25},
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[3]),170 * sin(PhantomXConst::kCoxaDefaultAngle[3]),-25},
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[4]),170 * sin(PhantomXConst::kCoxaDefaultAngle[4]),-25},
+		{170 * cos(PhantomXConst::kCoxaDefaultAngle[5]),170 * sin(PhantomXConst::kCoxaDefaultAngle[5]),-25}
 	} })
 {
 	//ãrÇÃïtÇØç™ÇÃà íuÇèâä˙âªÇ∑ÇÈ

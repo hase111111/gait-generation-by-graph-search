@@ -174,4 +174,8 @@ void CameraStateManager::SetCameraPosAndRot()
 		dldu::ConvertToDxlibVec(now_camera_state_.target_pos), 
 		camera_upvec
 	);
+
+	// ChangeLightTypeDirを使っているので，カメラ向きに合わせてライトの向きも変更する．
+	VECTOR light_dir = dldu::ConvertToDxlibVec(-dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat, false));
+	ChangeLightTypeDir(light_dir);
 }

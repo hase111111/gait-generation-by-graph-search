@@ -79,6 +79,11 @@ private:
 
 	void DrawCoxaLink(int leg_index) const;
 
+	void DrawFemurLink(int leg_index) const;
+
+	void DrawTibiaLink(int leg_index) const;
+
+	void DrawJointAxis(int leg_index) const;
 
 	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 
