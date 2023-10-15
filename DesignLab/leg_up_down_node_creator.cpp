@@ -115,7 +115,7 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 			if (calclator_ptr_->CalculateStabilityMargin(res_node.leg_state,res_node.leg_pos) >= 0)
 			{
-				//脚が地面についているならば追加せずに続行．
+				//静的安定余裕が0以上ならば追加する．
 				(*output_graph).push_back(res_node);
 			}
 

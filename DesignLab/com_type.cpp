@@ -205,7 +205,7 @@ namespace designlab::com_func
 		// indexから遊脚のパターンを取得する．
 		res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
 
-		return std::move(res);
+		return res;
 	}
 
 
