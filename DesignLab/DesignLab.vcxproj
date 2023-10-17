@@ -155,6 +155,7 @@
     <ClCompile Include="phantomx_renderer_model.cpp" />
     <ClCompile Include="phantomx_state_calculator_hato.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
+    <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />

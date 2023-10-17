@@ -14,11 +14,9 @@ namespace dlio = designlab::cmdio;
 
 
 ResultViewerSystemMain::ResultViewerSystemMain(
-	std::unique_ptr<IGraphicMain>&& graphic_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 ) :
-	graphic_system_(std::move(graphic_ptr), setting_ptr),
 	broker_ptr_(broker_ptr)
 {
 }
@@ -26,9 +24,6 @@ ResultViewerSystemMain::ResultViewerSystemMain(
 void ResultViewerSystemMain::Main()
 {
 	dlio::OutputTitle("Result Viewer System");
-
-	// GUIを表示する
-	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
 
 	while (true)
 	{
@@ -70,7 +65,7 @@ void ResultViewerSystemMain::Main()
 
 		// 終了するかどうかを選択
 
-		if (dlio::InputYesNo("終了しますか？"))
+		if (dlio::InputYesNo("このモードを終了しますか？"))
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 
@@ -80,11 +75,4 @@ void ResultViewerSystemMain::Main()
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
 	}
 
-
-	// GUIの終了を待つ
-	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
-	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("GUIの終了を待っています", OutputDetail::kSystem);
-
-	graphic_thread.join();
 }

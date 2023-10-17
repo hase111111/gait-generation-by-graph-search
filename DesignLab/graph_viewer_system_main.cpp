@@ -18,11 +18,9 @@ namespace dlio = designlab::cmdio;
 
 GraphViewerSystemMain::GraphViewerSystemMain(
 	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
-	std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	) :
-	graphic_system_(std::move(graphic_main_ptr), setting_ptr),
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
@@ -53,9 +51,6 @@ void GraphViewerSystemMain::Main()
 	}
 
 	dlio::Output("別スレッドでGUIを起動する．", OutputDetail::kInfo);	
-
-	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
-
 
 	//ノードを初期化する
 	dlio::Output("ノードを初期化する．", OutputDetail::kSystem);

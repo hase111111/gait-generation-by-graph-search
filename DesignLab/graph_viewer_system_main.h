@@ -7,7 +7,6 @@
 #include <memory>
 
 #include "application_setting_recorder.h"
-#include "graphic_system.h"
 #include "graphic_data_broker.h"
 #include "interface_pass_finder.h"
 #include "interface_system_main.h"
@@ -26,7 +25,6 @@ public:
 
 	GraphViewerSystemMain(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
-		std::unique_ptr<IGraphicMain>&& graphic_main_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
@@ -60,8 +58,6 @@ private:
 	//! @return RobotStateNode ëIëÇ≥ÇÍÇΩÉmÅ[Éh
 	RobotStateNode SelectNode(const std::vector<RobotStateNode>& graph) const;
 
-
-	GraphicSystem graphic_system_;
 
 	std::unique_ptr<IPassFinder> pass_finder_ptr_;
 

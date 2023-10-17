@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include <fstream>
+#include <sstream>
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
@@ -74,16 +75,23 @@ bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_un
 
     // ファイルの内容を解析する
     // ノードリストの読み込み
-    //for (const auto &i : str_list)
-    //{
-    //    RobotStateNode node;
-    //}
+    for (const auto &i : str_list)
+    {
+        RobotStateNode node;
+        std::stringstream ss(i);
 
-    return false;
+        //ss >> node;
+
+		(*node_list).push_back(node);
+    }
+
+    return true;
 }
 
-bool ResultFileImporter::ImportMapState(const std::string& file_path, [[maybe_unused]]MapState* map_state) const
+bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* map_state) const
 {
+    assert(map_state != nullptr);   
+
     // ファイルを開く
     std::ifstream ifs(file_path);
 
@@ -109,6 +117,17 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, [[maybe_un
     ifs.close();
 
     // ファイルの内容を解析する
-    // ノードリストの読み込み
-    return false;
+    (*map_state).ClearMapPoint();
+
+    for (const auto &i : str_list)
+    {
+        designlab::Vector3 point;
+        std::stringstream ss(i);
+
+        ss >> point;
+
+		(*map_state).AddMapPoint(point);
+    }
+
+    return true;
 }

@@ -668,6 +668,9 @@
     <ClCompile Include="phantomx_renderer_model.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
     </ClCompile>
+    <ClCompile Include="ros_main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
