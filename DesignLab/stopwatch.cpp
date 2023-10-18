@@ -78,6 +78,6 @@ std::string Stopwatch::GetNowTimeString() const
 	std::tm now_tm;
 	localtime_s(&now_tm, &now_time);
 	char now_time_str[64];
-	strftime(now_time_str, sizeof(now_time_str), "%Y%m%d-%H%M", &now_tm);
+	strftime(now_time_str, sizeof(now_time_str), "%Y%m%d_%H%M_%S", &now_tm);
 	return std::string(now_time_str);
 }

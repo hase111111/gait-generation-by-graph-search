@@ -1,0 +1,44 @@
+説明
+
+【ファイルの拡張子について】
+
+・blend 
+	Blenderで作成した3Dモデル．Blender(ブレンダー)は3Dモデル・3DCGを作成するソフト．
+	blendファイルはBlenderで開いて，編集可能な形式．
+	power pointで言うところのpptxファイル．
+
+・fbx
+	Blenderで出力した3Dモデル．UnityとかUnreal Engineみたいなゲームエンジン(ゲーム作成ソフト)で使用する形式．
+	power pointで言うところのpdfファイル．
+	Blenderで一応開くことができる．
+
+・mv1
+	このソフトで使用している画像表示ライブラリのDxlib(DXライブラリ)は化石なので，ナウでヤングなfbxに対応していない．
+	しかし，代わりにDxlibそのものにfbx→mv1に変換するソフト(DxlibModelViewer)があり，それによって変換したものがmv1ファイル．
+	pdfを開けないから，jpegに変換した...みたいな．
+	Blenderでは開けない．DxlibModelViewerで確認可能．
+
+・blend1
+	Blenderで生成される一時ファイル(バックアップ用など)．削除してよい．
+
+・stl
+	3DCADで作成できる，3Dモデル．CADの図面データからモデルに起こしたもの．
+	3Dプリンタで出力するときに使用する．
+	寸法のデータを織り込める(? おそらく)
+	Fusion360などCADソフトで編集可能．
+
+【座標軸】
+機械は右手座標系，ゲームは左手座標系．
+(前方をx軸(親指)，上方向をz軸(中指)におくと，y軸が各座標系においてそれぞれ逆になる．)
+変換においてややこしいことになる原因で，表示や回転がおかしい時は大抵これが原因．
+自分の場合，画面を見ながら修正するのが結果的に一番早い解決法になってしまったが，本来は座標系をしっかり決めて出力すべきだろう．
+
+
+【モデルを取得したページ】
+基本的にはGRABCADというサイトからダウンロードした．(URL  https://grabcad.com/library/phantomx-hexapod-mark-ii-1 アクセス日2023 10/18)
+ここにPhantomX Mk-2のモデルがある．
+
+githubのphantomx_descriptionというレポジトリのmeshというフォルダにstlファイルがあるが，これはPhantomX Mk-3のもの．
+(URL https://github.com/HumaRobotics/phantomx_description アクセス日同上)
+Mk-3も概ね寸法が一緒だが，脚の長さが違う．
+

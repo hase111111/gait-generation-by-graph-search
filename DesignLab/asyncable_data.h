@@ -41,7 +41,7 @@ public:
 	AsyncableData& operator=(const AsyncableData&) = delete;
 	AsyncableData(AsyncableData&&) = delete;
 
-	//! @breif 値をコピーして返す．
+	//! @brief 値をコピーして返す．
 	//! @n この時，read lockをかける．
 	//! @n 当然，データの更新回数はインクリメントされない．
 	//! @return T 値のコピー
@@ -108,7 +108,7 @@ public:
 	AsyncableData& operator=(const AsyncableData&) = delete;
 	AsyncableData(AsyncableData&&) = delete;
 
-	//! @breif 値をコピーして返す．
+	//! @brief 値をコピーして返す．
 	//! @n この時，read lockをかける．
 	//! @n 当然，データの更新回数はインクリメントされない．
 	//!	@return T 値のコピー．

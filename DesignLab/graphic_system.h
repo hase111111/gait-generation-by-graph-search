@@ -18,12 +18,17 @@
 
 #include <memory>
 
+#include <boost/thread.hpp>
+
+#include "define.h"
+
+#ifndef DESIGNLAB_DONOT_USE_DXLIB
+
 #include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
-#include "interface_system_main.h"
 
 
 //! @class GraphicSystem
@@ -43,23 +48,27 @@
 //! @n Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと．
 //! @n 
 //! @n また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください．
-class GraphicSystem final : public ISystemMain
+class GraphicSystem final
 {
 public:
 
 	//! @param [in] graphic_main_ptr GraphicMainクラスのポインタ．
 	//! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
-	GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
+	GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
 
 
-	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行います．
-	//! @n initに失敗している，またはinitを呼ぶ前に実行した時は即座に終了します．
-	//! @n またメンバ関数のdxlibInit関数に失敗した場合も終了します．
-	void Main() override;
+	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行う．
+	//! @n メンバ関数のMyDxlibInit関数に失敗した場合，終了する．
+	void Main();
+
+	//! @brief グラフィックの表示を行うクラスを変更する．
+	//! @param [in] graphic_main_ptr GraphicMainクラスのユニークポインタ．
+	void ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr);
 
 private:
 
-	//! @brief Dxlibの初期化処理を行います．
+	//! @brief Dxlibの初期化処理を行う．
+	//! @n 処理をラッパして自作する場合はMyを頭につけると良いらしい．
 	//! @return bool 初期化に成功したかどうか．
 	bool MyDxlibInit();
 
@@ -67,7 +76,7 @@ private:
 	//! @return bool ループを続けるかどうか．falseならばループを抜ける．異常が起きた場合もfaseを返す．
 	bool Loop();
 
-	//! @brief Dxlibの終了処理を行います．
+	//! @brief Dxlibの終了処理を行う．
 	void MyDxlibFinalize() const;
 
 
@@ -76,7 +85,10 @@ private:
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
 	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
+
+	boost::mutex mutex_;	//!< 複数の関数から非同期的に，同時にアクセスすると危険なので，それを防ぐためにmutexを用いて排他制御を行う．
 };
 
+#endif	// DESIGNLAB_DONOT_USE_DXLIB
 
 #endif	// DESIGNLAB_GRAPHIC_SYSTEM_H_

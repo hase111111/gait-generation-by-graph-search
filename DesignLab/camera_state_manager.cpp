@@ -106,7 +106,7 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 	case CameraViewMode::kRightSideView:
 	{
 		goal_camera_state_.camera_quat =
-			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(270.0f), dl::Vector3::GetUpVec());
+			dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetUpVec());
 		return;
 	}
 

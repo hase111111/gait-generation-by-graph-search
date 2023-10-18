@@ -6,8 +6,6 @@
 
 #include "cmdio_util.h"
 #include "define.h"
-#include "graphic_main_basic.h"
-#include "graphic_main_test.h"
 #include "node_validity_checker.h"
 #include "simulation_map_creator.h"
 
@@ -17,12 +15,10 @@ namespace dlio = designlab::cmdio;
 
 SimulationSystemMain::SimulationSystemMain(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
-		std::unique_ptr<IGraphicMain>&& graphic_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
-	graphic_system_(std::move(graphic_ptr), setting_ptr),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
@@ -66,10 +62,6 @@ void SimulationSystemMain::Main()
 
 
 	NodeValidityChecker node_checker;	//ノードの妥当性をチェックするクラスを用意する．
-
-
-	//画像表示ウィンドウを別スレッドで立ち上げる．
-	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system_);
 
 
 	//シミュレーションを行う回数分ループする．
@@ -215,14 +207,6 @@ void SimulationSystemMain::Main()
 
 	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-
-	//画像表示ウィンドウの終了を待つ．
-	if (setting_ptr_->gui_display)
-	{
-		dlio::Output("DXlib(gui)の終了を待っています．GUIのXボタンを押してください", OutputDetail::kSystem);
-
-		graphic_thread.join();
-	}
 
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::Output("シミュレーションを終了します", OutputDetail::kSystem);

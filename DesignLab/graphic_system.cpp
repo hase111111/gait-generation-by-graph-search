@@ -1,18 +1,23 @@
 #include "graphic_system.h"
 
+#include "cassert_define.h"
+#include "define.h"
+
+// define.hでDESIGNLAB_DONOT_USE_DXLIBが定義されている場合は，Dxlibを使わない．
+// Dxlibを使わない場合は，このファイルの中身はすべて無視される．
+#ifndef DESIGNLAB_DONOT_USE_DXLIB
+
 #include <Dxlib.h>
 
-#include "cassert_define.h"
 #include "dxlib_util.h"
 #include "graphic_const.h"
 #include "keyboard.h"
 #include "mouse.h"
 
 
-GraphicSystem::GraphicSystem(std::unique_ptr<IGraphicMain>&& graphic_main_ptr, const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
-	graphic_main_ptr_(std::move(graphic_main_ptr)),
+GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
 	setting_ptr_(setting_ptr),
-	fps_controller_(setting_ptr ? setting_ptr->window_fps : 60)		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
+	fps_controller_{ setting_ptr ? setting_ptr->window_fps : 60 }		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
 {
 }
 
@@ -32,13 +37,6 @@ void GraphicSystem::Main()
 	//そもそも描画処理を使わないならば即終了
 	if (!setting_ptr_->gui_display) 
 	{
-		return; 
-	}
-
-	//GraphicMainが作成されていなければ終了
-	if (!graphic_main_ptr_) 
-	{
-		assert(false);
 		return; 
 	}
 
@@ -63,6 +61,20 @@ void GraphicSystem::Main()
 
 	//終了処理を行う．
 	MyDxlibFinalize();
+}
+
+void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr)
+{
+	// mutexで排他制御を行う．
+	boost::mutex::scoped_lock lock(mutex_);
+
+	//もともと持っていたIGraphicMainクラスのポインタを破棄する．
+	if (graphic_main_ptr_) 
+	{
+		graphic_main_ptr_.reset();
+	}
+
+	graphic_main_ptr_ = std::move(graphic_main_ptr);
 }
 
 
@@ -115,12 +127,11 @@ bool GraphicSystem::Loop()
 	// しかし，単に画面を切り替えた場合，本物のパラパラ漫画の様にウィンドウにちらつきがでてしまう．
 	// そこでGraphicSystemクラスのdxlibInit関数の中で呼ばれている SetDrawScreen(DX_SCREEN_BACK) によっていったん裏画面に絵を描画してから，
 	// ScreenFlip関数でウィンドウに絵を戻すことで画面のちらつきをなくしている．
-	// ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，loop関数の様な書き方となる．
+	// なお，ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，loop関数の様な書き方となる．
 
 
-	// グラフィックメインクラスが空ならfalseを返す．
-	if (!graphic_main_ptr_) { return false; }
-
+	// mutexで排他制御を行う．
+	boost::mutex::scoped_lock lock(mutex_);
 
 	// GUI画面への標準出力をリセットする
 	clsDx();
@@ -129,9 +140,11 @@ bool GraphicSystem::Loop()
 	Keyboard::GetIns()->Update();
 	Mouse::GetIns()->Update();
 
-	// 処理を行う
-	if (!graphic_main_ptr_->Update()) { return false; }
-
+	// 処理を行う．graphic_main_ptr_がfalseならば(nullであるならば)，処理を行わない．
+	if (graphic_main_ptr_)
+	{
+		if (!graphic_main_ptr_->Update()) { return false; }
+	}
 
 	// 描画する
 	if (!fps_controller_.SkipDrawScene())
@@ -139,7 +152,11 @@ bool GraphicSystem::Loop()
 		// 裏画面に描画した絵を消す
 		if (ClearDrawScreen() < 0) { return false; }
 
-		graphic_main_ptr_->Draw();
+		// 描画処理を行う．graphic_main_ptr_がfalseならば(nullであるならば)，処理を行わない．
+		if (graphic_main_ptr_) 
+		{
+			graphic_main_ptr_->Draw();
+		}
 
 		// スクリーンに裏画面に描画した内容を移す
 		if (ScreenFlip() < 0) { return false; }
@@ -160,3 +177,5 @@ void GraphicSystem::MyDxlibFinalize() const
 
 	//ほかにも処理があればここに追記する
 }
+
+#endif
