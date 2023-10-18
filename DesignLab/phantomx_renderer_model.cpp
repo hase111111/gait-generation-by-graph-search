@@ -122,9 +122,9 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	//Coxa JointÇÕ2Ç¬ÇÃConnect LinkÇ≈ç\ê¨Ç≥ÇÍÇƒÇ¢ÇÈÇÃÇ≈ÅCÇªÇÍÇºÇÍï`âÊÇ∑ÇÈ
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0]);
+	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0].value());
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
+	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0].value();
 
 	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
 
@@ -196,11 +196,11 @@ void PhantomXRendererModel::DrawFemurLink(int leg_index) const
 	//ÉpÉâÉÅÅ[É^ÇÃåvéZ
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1]);
+	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1].value());
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
+	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0].value();
 
-	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1];
+	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1].value();
 
 	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
 
@@ -245,13 +245,13 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 	//ÉpÉâÉÅÅ[É^ÇÃåvéZ
 	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
 
-	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2]);
+	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2].value());
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
+	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0].value();
 
-	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1];
+	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1].value();
 
-	const float kTibiaAngle = draw_joint_state_[leg_index].joint_angle[2];
+	const float kTibiaAngle = draw_joint_state_[leg_index].joint_angle[2].value();
 
 	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
 
@@ -297,13 +297,13 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 	const unsigned int kSpecColor = GetColor(255, 255, 255);
 	[[maybe_unused]]const unsigned int kJointColor = GetColor(64, 64, 64);
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
+	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0].value();
 
 	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
 
 	//CoxaÇÃâÒì]é≤
 	{
-		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0]);
+		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0].value());
 
 		const VECTOR kAxisVec = dldu::ConvertToDxlibVec(
 			designlab::rotVector(designlab::Vector3::GetUpVec() * kAxisLength / 2, kBodyRotMat)
@@ -317,7 +317,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	//FemurÇÃâÒì]é≤
 	{
-		const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1]);
+		const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1].value());
 
 		const designlab::RotationMatrix3x3 kDefRotMat =
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);
@@ -338,7 +338,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	//TibiaÇÃâÒì]é≤
 	{
-		const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2]);
+		const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2].value());
 
 		const designlab::RotationMatrix3x3 kDefRotMat =
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);

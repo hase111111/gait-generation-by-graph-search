@@ -138,48 +138,61 @@ void GraphicMainTest::Draw() const
 
 void GraphicMainTest::MoveBody()
 {
-	const float kComSpeed = 1;
+	const float kComSpeed = 1.1f;
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.z += kComSpeed;
+		designlab::Vector3 com = 
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetUpVec() * kComSpeed,node_.rot);
+		
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.z -= kComSpeed;
+		designlab::Vector3 com =
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetUpVec() * -kComSpeed, node_.rot);
+
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.y += kComSpeed;
+		designlab::Vector3 com =
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetLeftVec() * kComSpeed, node_.rot);
+
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.y -= kComSpeed;
+		designlab::Vector3 com =
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetLeftVec() * -kComSpeed, node_.rot);
+
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.x += kComSpeed;
+		designlab::Vector3 com =
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetFrontVec() * kComSpeed, node_.rot);
+
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 	{
-		auto com = node_.global_center_of_mass;
-		com.x -= kComSpeed;
+		designlab::Vector3 com =
+			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetFrontVec() * -kComSpeed, node_.rot);
+
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 	{
-		auto rot = node_.rot;
-		rot.z_angle += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
+		designlab::EulerXYZ rot = node_.rot;
+		float angle_speed = kComSpeed / 360.0f * 2.f * dlm::kFloatPi;
+
+		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0) 
+		{
+			angle_speed *= -1.f;
+		}
+
+		rot.z_angle += angle_speed;
 		node_.rot = rot;
 	}
 }
@@ -187,7 +200,7 @@ void GraphicMainTest::MoveBody()
 void GraphicMainTest::MoveLeg()
 {
 	const float kSpeed = 1;
-	const float kAngleSpeed = 0.01f;
+	//const float kAngleSpeed = 0.01f;
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{

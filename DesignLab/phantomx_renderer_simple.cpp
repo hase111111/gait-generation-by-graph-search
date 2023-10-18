@@ -42,96 +42,45 @@ void PhantomXRendererSimple::SetDrawNode(const RobotStateNode& node)
 	if (!calculator_ptr_) { return; }	//åvéZäÌÇ™Ç»Ç¢Ç»ÇÁÇŒâΩÇ‡ÇµÇ»Ç¢
 
 	calculator_ptr_->CalculateAllJointState(node, &draw_joint_state_);
-
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		// êîÇ™çáÇÌÇ»Ç¢Ç»ÇÁÇŒâΩÇ‡ÇµÇ»Ç¢
-		if (draw_joint_state_[i].global_joint_position.size() != 4) { continue; }
-		if (draw_joint_state_[i].local_joint_position.size() != 4) { continue; }
-		if (draw_joint_state_[i].joint_angle.size() != 3) { continue; }
-
-		draw_data_[i].leg_reference_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_reference_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true));
-
-		// globalç¿ïWÇÃä‘ê⁄ÇÃà íuÇDxlibÇÃVECTORÇ…ïœä∑Ç∑ÇÈÅD
-		draw_data_[i].coxa_joint_pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
-		draw_data_[i].femur_joint_pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[1]);
-		draw_data_[i].tibia_joint_pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[2]);
-		draw_data_[i].leg_end_pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[3]);
-
-		// åvéZÇÃçÇë¨âªÇÃÇΩÇﬂÇ…ÅCsin, cosÇåvéZÇµÇƒÇ®Ç≠ÅD
-		draw_data_[i].coxa_cos = std::cos(draw_joint_state_[i].joint_angle[0]);
-		draw_data_[i].coxa_sin = std::sin(draw_joint_state_[i].joint_angle[0]);
-		draw_data_[i].femur_cos = std::cos(draw_joint_state_[i].joint_angle[1]);
-		draw_data_[i].femur_sin = std::sin(draw_joint_state_[i].joint_angle[1]);
-		draw_data_[i].tibia_cos = std::cos(draw_joint_state_[i].joint_angle[1] + draw_joint_state_[i].joint_angle[2]);
-		draw_data_[i].tibia_sin = std::sin(draw_joint_state_[i].joint_angle[1] + draw_joint_state_[i].joint_angle[2]);
-
-		//ê≥ÇµÇ¢ílÇ…Ç»Ç¡ÇƒÇ¢ÇÈÇ©É`ÉFÉbÉNÇ∑ÇÈÇΩÇﬂÇ…ÅCèáâ^ìÆäwÇ≈åvéZÇµÇ»Ç®Ç∑
-		draw_data_[i].kine_coxa_joint_vec = draw_joint_state_[i].local_joint_position[0];
-		draw_data_[i].kine_femur_joint_vec = draw_data_[i].kine_coxa_joint_vec + PhantomXConst::kCoxaLength * designlab::Vector3{ draw_data_[i].coxa_cos, draw_data_[i].coxa_sin, 0};
-		draw_data_[i].kine_tibia_joint_vec = draw_data_[i].kine_femur_joint_vec + PhantomXConst::kFemurLength * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].femur_cos, draw_data_[i].coxa_sin * draw_data_[i].femur_cos, draw_data_[i].femur_sin };
-		draw_data_[i].kine_leg_end_vec = draw_data_[i].kine_tibia_joint_vec + PhantomXConst::kTibiaLength * designlab::Vector3{ draw_data_[i].coxa_cos * draw_data_[i].tibia_cos, draw_data_[i].coxa_sin * draw_data_[i].tibia_cos, draw_data_[i].tibia_sin};
-
-		draw_data_[i].kine_coxa_joint_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_coxa_joint_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
-		draw_data_[i].kine_femur_joint_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_femur_joint_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
-		draw_data_[i].kine_tibia_joint_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_tibia_joint_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
-		draw_data_[i].kine_leg_end_pos = dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, draw_data_[i].kine_leg_end_vec, draw_node_.global_center_of_mass, draw_node_.rot, true));
-
-		// ãtâ^ìÆäwÇ≈åvéZÇµÇΩãrÇÃí∑Ç≥ÇåvéZÇ∑ÇÈÅD
-		draw_data_[i].coxa_link_length = (draw_joint_state_[i].local_joint_position[0] - draw_joint_state_[i].local_joint_position[1]).GetLength();
-		draw_data_[i].femur_link_length = (draw_joint_state_[i].local_joint_position[1] - draw_joint_state_[i].local_joint_position[2]).GetLength();
-		draw_data_[i].tibia_link_length = (draw_joint_state_[i].local_joint_position[2] - draw_joint_state_[i].local_joint_position[3]).GetLength();
-
-		// ä‘ê⁄äpìxÇ™îÕàÕì‡Ç…Ç†ÇÈÇ©Ç«Ç§Ç©Çí≤Ç◊ÇÈÅD
-		draw_data_[i].is_able_coxa_angle = PhantomXConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0]);
-		draw_data_[i].is_able_femur_angle = PhantomXConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1]);
-		draw_data_[i].is_able_tibia_angle = PhantomXConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2]);
-	}
 }
 
 
 void PhantomXRendererSimple::Draw() const
 {
 	// ÉçÉ{ÉbÉgÇÃï`âÊ
-	if (display_quality_ == DisplayQuality::kLow) 
-	{
-		DrawHexapodLow();
-	}
-	else
-	{
-		DrawHexapodNormal();
-	}
+	DrawHexapodNormal();
 
-	// ÉGÉâÅ[èoóÕÅD
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		if (!dlm::IsEqual(draw_data_[i].coxa_link_length, PhantomXConst::kCoxaLength))
-		{
-			DrawString(
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).y),
-				"Error : Coxa Length", kColorErrorText
-			);
-		}
 
-		if (!dlm::IsEqual(draw_data_[i].femur_link_length, PhantomXConst::kFemurLength))
-		{
-			DrawString(
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).y),
-				"Error : Femur Length", kColorErrorText
-			);
-		}
+	//// ÉGÉâÅ[èoóÕÅD
+	//for (int i = 0; i < HexapodConst::kLegNum; i++)
+	//{
+	//	if (!dlm::IsEqual(draw_data_[i].coxa_link_length.value(), PhantomXConst::kCoxaLength))
+	//	{
+	//		DrawString(
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).y),
+	//			"Error : Coxa Length", kColorErrorText
+	//		);
+	//	}
 
-		if (!dlm::IsEqual(draw_data_[i].tibia_link_length, PhantomXConst::kTibiaLength))
-		{
-			DrawString(
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
-				static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).y),
-				"Error : Tibia Length", kColorErrorText
-			);
-		}
-	}
+	//	if (!dlm::IsEqual(draw_data_[i].femur_link_length, PhantomXConst::kFemurLength))
+	//	{
+	//		DrawString(
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).y),
+	//			"Error : Femur Length", kColorErrorText
+	//		);
+	//	}
+
+	//	if (!dlm::IsEqual(draw_data_[i].tibia_link_length, PhantomXConst::kTibiaLength))
+	//	{
+	//		DrawString(
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
+	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).y),
+	//			"Error : Tibia Length", kColorErrorText
+	//		);
+	//	}
+	//}
 }
 
 
@@ -142,11 +91,16 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
+		assert(draw_joint_state_[i].global_joint_position[0].has_value());
+
+		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0].value());
 	}
 
 	dldu::DrawHexagonalPrism(vertex, PhantomXConst::BODY_HEIGHT, kColorBody);
 
+	//èdêSÇÃï`âÊ
+	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
+
 	//ãrÇï`âÊÇ∑ÇÈÅD
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -154,85 +108,51 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
 		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
 
-		//èdêSÇÃï`âÊ
-		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
+		if (draw_joint_state_[i].global_joint_position.size() != 4) { continue; }
+		if (draw_joint_state_[i].local_joint_position.size() != 4) { continue; }
+		if (draw_joint_state_[i].joint_angle.size() != 3) { continue; }
 
 		//äeãrÇÃï`âÊ
-		DrawCapsule3D(draw_data_[i].coxa_joint_pos, draw_data_[i].femur_joint_pos, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);		//coxa
-		DrawCapsule3D(draw_data_[i].femur_joint_pos, draw_data_[i].tibia_joint_pos, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);	//femur
-		DrawCone3D(draw_data_[i].leg_end_pos, draw_data_[i].tibia_joint_pos, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);			//tibia 
+		for (int j = 0; j < 3; j++)
+		{
+			if (! draw_joint_state_[i].global_joint_position[j].has_value() || ! draw_joint_state_[i].global_joint_position[j + 1].has_value())
+			{
+				continue;
+			}
 
+			VECTOR start = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j].value());
+			VECTOR end = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j + 1].value());
+
+			DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);
+		}
+
+		
 		//ä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].coxa_joint_pos, kJointRadius, kSphereDivNum, draw_data_[i].is_able_coxa_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_coxa_angle ? kJointColor : kColorErrorJoint, TRUE);
-		DrawSphere3D(draw_data_[i].femur_joint_pos, kJointRadius, kSphereDivNum, draw_data_[i].is_able_femur_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_femur_angle ? kJointColor : kColorErrorJoint, TRUE);
-		DrawSphere3D(draw_data_[i].tibia_joint_pos, kJointRadius, kSphereDivNum, draw_data_[i].is_able_tibia_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_tibia_angle ? kJointColor : kColorErrorJoint, TRUE);
+		for (int j = 0; j < 4; j++) 
+		{
+			if (! draw_joint_state_[i].global_joint_position[j].has_value()) { continue; }
 
-		//ãrêÊÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].leg_end_pos, kJointRadius / 2, kSphereDivNum, kJointColor, kJointColor, TRUE);
+			VECTOR pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j].value());
+			DrawSphere3D(pos, kJointRadius, kSphereDivNum, kJointColor, kJointColor, TRUE);
+		}
+
 
 		//ãrÇÃê⁄ínÇÃäÓèÄínì_ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].leg_reference_pos, kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
+		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.leg_reference_pos[i]), kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
 
 
-		//â^ìÆäwÇ≈åvéZÇµÇΩãrÇÃï`âÊ
-		DrawCapsule3D(draw_data_[i].kine_coxa_joint_pos, draw_data_[i].kine_femur_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);		//coxa
-		DrawCapsule3D(draw_data_[i].kine_femur_joint_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//femur
-		DrawCone3D(draw_data_[i].kine_leg_end_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);				//tibia
+		////â^ìÆäwÇ≈åvéZÇµÇΩãrÇÃï`âÊ
+		//DrawCapsule3D(draw_data_[i].kine_coxa_joint_pos, draw_data_[i].kine_femur_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);		//coxa
+		//DrawCapsule3D(draw_data_[i].kine_femur_joint_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//femur
+		//DrawCone3D(draw_data_[i].kine_leg_end_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);				//tibia
 
-		//â^ìÆäwÇ≈åvéZÇµÇΩä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].kine_coxa_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
-		DrawSphere3D(draw_data_[i].kine_femur_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
-		DrawSphere3D(draw_data_[i].kine_tibia_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
+		////â^ìÆäwÇ≈åvéZÇµÇΩä‘ê⁄ÇÃï`âÊ
+		//DrawSphere3D(draw_data_[i].kine_coxa_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
+		//DrawSphere3D(draw_data_[i].kine_femur_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
+		//DrawSphere3D(draw_data_[i].kine_tibia_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
 
-		//â^ìÆäwÇ≈åvéZÇµÇΩãrêÊÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].kine_leg_end_pos, kJointRadius / 2 - 2, kSphereDivNum, kColorKineLeg, kColorKineLeg, TRUE);
-	}
-}
-
-void PhantomXRendererSimple::DrawHexapodLow() const
-{
-	//ãrÇï`âÊÇ∑ÇÈÅD
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		//ãrÇÃêFÇóVãrÅEê⁄ínÇ≈ïœçXÇ∑ÇÈÅD
-		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
-		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
-		const int kCapsuleDivMin = 2;
-		const int kSphereDivMin = 4;
-
-		//èdêSÇÃï`âÊ
-		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivMin, kColorJoint, kColorJoint, TRUE);
-
-		//äeãrÇÃï`âÊ
-		DrawCapsule3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), draw_data_[i].coxa_joint_pos, kLegRadius, kCapsuleDivMin, kLegBaseColor, kLegBaseColor, TRUE);
-		DrawCapsule3D(draw_data_[i].coxa_joint_pos, draw_data_[i].femur_joint_pos, kLegRadius, kCapsuleDivMin, kLegBaseColor, kLegBaseColor, TRUE);		//coxa
-		DrawCapsule3D(draw_data_[i].femur_joint_pos, draw_data_[i].tibia_joint_pos, kLegRadius, kCapsuleDivMin, kLegBaseColor, kLegBaseColor, TRUE);	//femur
-		DrawCone3D(draw_data_[i].leg_end_pos, draw_data_[i].tibia_joint_pos, kLegRadius, kCapsuleDivMin, kLegBaseColor, kLegBaseColor, TRUE);			//tibia 
-
-		//ä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].coxa_joint_pos, kJointRadius, kSphereDivMin, draw_data_[i].is_able_coxa_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_coxa_angle ? kJointColor : kColorErrorJoint, TRUE);
-		DrawSphere3D(draw_data_[i].femur_joint_pos, kJointRadius, kSphereDivMin, draw_data_[i].is_able_femur_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_femur_angle ? kJointColor : kColorErrorJoint, TRUE);
-		DrawSphere3D(draw_data_[i].tibia_joint_pos, kJointRadius, kSphereDivMin, draw_data_[i].is_able_tibia_angle ? kJointColor : kColorErrorJoint, draw_data_[i].is_able_tibia_angle ? kJointColor : kColorErrorJoint, TRUE);
-
-		//ãrêÊÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].leg_end_pos, kJointRadius / 2, kSphereDivMin, kJointColor, kJointColor, TRUE);
-
-		//ãrÇÃê⁄ínÇÃäÓèÄínì_ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].leg_reference_pos, kJointRadius / 3, kSphereDivMin, kColorLegBase, kColorLegBase, TRUE);
-
-
-		//â^ìÆäwÇ≈åvéZÇµÇΩãrÇÃï`âÊ
-		DrawCapsule3D(draw_data_[i].kine_coxa_joint_pos, draw_data_[i].kine_femur_joint_pos, kLegRadius - 5, kCapsuleDivMin, kColorKineLeg, kColorKineLeg, TRUE);		//coxa
-		DrawCapsule3D(draw_data_[i].kine_femur_joint_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivMin, kColorKineLeg, kColorKineLeg, TRUE);	//femur
-		DrawCone3D(draw_data_[i].kine_leg_end_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivMin, kColorKineLeg, kColorKineLeg, TRUE);				//tibia
-
-		//â^ìÆäwÇ≈åvéZÇµÇΩä‘ê⁄ÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].kine_coxa_joint_pos, kJointRadius - 5, kSphereDivMin, kColorKineJoint, kColorKineJoint, TRUE);
-		DrawSphere3D(draw_data_[i].kine_femur_joint_pos, kJointRadius - 5, kSphereDivMin, kColorKineJoint, kColorKineJoint, TRUE);
-		DrawSphere3D(draw_data_[i].kine_tibia_joint_pos, kJointRadius - 5, kSphereDivMin, kColorKineJoint, kColorKineJoint, TRUE);
-
-		//â^ìÆäwÇ≈åvéZÇµÇΩãrêÊÇÃï`âÊ
-		DrawSphere3D(draw_data_[i].kine_leg_end_pos, kJointRadius / 2 - 2, kSphereDivMin, kColorKineLeg, kColorKineLeg, TRUE);
+		////â^ìÆäwÇ≈åvéZÇµÇΩãrêÊÇÃï`âÊ
+		//DrawSphere3D(draw_data_[i].kine_leg_end_pos, kJointRadius / 2 - 2, kSphereDivNum, kColorKineLeg, kColorKineLeg, TRUE);
 	}
 }
 

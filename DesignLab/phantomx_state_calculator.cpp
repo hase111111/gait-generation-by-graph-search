@@ -61,8 +61,17 @@ void PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, 
 		(*joint_state)[i].global_joint_position.resize(4);
 
 		(*joint_state)[i].global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
-		(*joint_state)[i].global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1].value(), node.rot);
-		(*joint_state)[i].global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2].value(), node.rot);
+
+		if (joint_state->at(i).local_joint_position[1].has_value()) 
+		{
+			(*joint_state)[i].global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1].value(), node.rot);
+		}
+
+		if (joint_state->at(i).local_joint_position[2].has_value()) 
+		{
+			(*joint_state)[i].global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2].value(), node.rot);
+		}
+
 		(*joint_state)[i].global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
 	}
 }

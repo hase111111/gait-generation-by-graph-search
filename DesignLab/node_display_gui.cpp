@@ -204,13 +204,13 @@ void NodeDisplayGui::DrawJointInfo() const
 		);
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
-			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).GetLength(),
-			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).GetLength(),
-			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).GetLength()
+			(joint_state_[i].local_joint_position[0].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[1].value_or(designlab::Vector3{})).GetLength(),
+			(joint_state_[i].local_joint_position[1].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[2].value_or(designlab::Vector3{})).GetLength(),
+			(joint_state_[i].local_joint_position[2].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[3].value_or(designlab::Vector3{})).GetLength()
 		);
 
 
-		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3]))
+		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3].value_or(designlab::Vector3{})))
 		{
 			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    ‹ßŽ—’l true");
 		}
