@@ -55,12 +55,13 @@ public:
 
 
 	constexpr static float kCoxaLength = 52.0f;		//!< 第1関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kFemurLength = 66.0f;	//!< 第2関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kTibiaLength = 130.0f;	//!< 第3関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(163mm)
+	constexpr static float kFemurLength = 66.0f;	//!< 第2関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータスは66.061mm)
+	constexpr static float kTibiaLength = 137.0f;	//!< 第3関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(旧ステータス130mm)
 
 	constexpr static float kCoxaBaseOffsetY = 61.64f;		//!< coxa linkの付け根(前方・後方)までの長さ[mm]．
 	constexpr static float kCenterCoxaBaseOffsetY = 103.4f;	//!< coxa linkの付け根(中央)までの長さ[mm]．
 	constexpr static float kCoxaBaseOffsetX = 124.8f;		//!< coxa linkの付け根(前方・後方)までの長さ[mm]．
+	constexpr static float kCoxaBaseOffsetZ = 1.116f;		//!< coxa linkの付け根までの長さ(上方向)[mm]．
 	constexpr static float BODY_HEIGHT = 40.0f;			//!< 胴体の高さ[mm]．
 
 

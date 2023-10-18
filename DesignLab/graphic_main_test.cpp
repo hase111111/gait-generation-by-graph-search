@@ -194,7 +194,7 @@ void GraphicMainTest::Draw() const
 							//GetColor(128, 255, 128),GetColor(128, 255, 255),GetColor(128, 128, 255)
 						};
 
-						dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, pos, node_.global_center_of_mass, node_.rot, true)), 10, color[i]);
+						//dldu::DrawCube3D(dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i, pos, node_.global_center_of_mass, node_.rot, true)), 10, color[i]);
 						SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 					}
 					else

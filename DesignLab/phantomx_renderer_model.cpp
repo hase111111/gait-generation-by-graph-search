@@ -46,23 +46,23 @@ void PhantomXRendererModel::Draw() const
 		DrawJointAxis(i);	// 関節軸の描画
 	}
 
-	{
-		unsigned int color = GetColor(0, 0, 0);
+	//{
+	//	unsigned int color = GetColor(0, 0, 0);
 
-		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), 10, 16, color, color, TRUE);
-	
-		for (int i = 0; i < 6; i++)
-		{
-			designlab::Vector3 leg_joint = calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true);
+	//	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), 10, 16, color, color, TRUE);
+	//
+	//	for (int i = 0; i < 6; i++)
+	//	{
+	//		designlab::Vector3 leg_joint = calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true);
 
-			DrawSphere3D(dldu::ConvertToDxlibVec(leg_joint), 5, 16, color, color, TRUE);
+	//		DrawSphere3D(dldu::ConvertToDxlibVec(leg_joint), 5, 16, color, color, TRUE);
 
-			designlab::Vector3 coxa_joint = calculator_ptr_->GetGlobalLegBasePosition(i, draw_node_.global_center_of_mass, draw_node_.rot, true);
+	//		designlab::Vector3 coxa_joint = calculator_ptr_->GetGlobalLegBasePosition(i, draw_node_.global_center_of_mass, draw_node_.rot, true);
 
-			DrawSphere3D(dldu::ConvertToDxlibVec(coxa_joint), 5, 16, color, color, TRUE);
-		}
+	//		DrawSphere3D(dldu::ConvertToDxlibVec(coxa_joint), 5, 16, color, color, TRUE);
+	//	}
 
-	}
+	//}
 }
 
 bool PhantomXRendererModel::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
@@ -111,9 +111,9 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 {
 	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
 	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int connect_model_handle = ModelLoader::GetIns()->LoadModel("model/connect.mv1");
+	int coxa_model_handle = ModelLoader::GetIns()->LoadModel("model/coxa_fixed.mv1");
 
-	if (connect_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(connect_model_handle)"); }
+	if (coxa_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(coxa_model_handle)"); }
 
 	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
@@ -128,12 +128,12 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 
 	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
 
-	const float kOffsetLength = 26.33f;	//回転中心と原点がずれているので，その分を補正する
+	const float kOffsetLength = 0;	//回転中心と原点がずれているので，その分を補正する
 
 	{
 		const designlab::RotationMatrix3x3 kDefRotMat =
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-			designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.0f));
+			designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(-90.0f));
 
 		const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
 			designlab::rotVector
@@ -143,43 +143,43 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 			)
 		);
 
-		MV1SetScale(connect_model_handle, kScale);
+		MV1SetScale(coxa_model_handle, kScale);
 
 		// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
 		designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-		MV1SetRotationXYZ(connect_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
+		MV1SetRotationXYZ(coxa_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
 
-		MV1SetPosition(connect_model_handle, kCoxaJointPos + kOffsetPos);
+		MV1SetPosition(coxa_model_handle, kCoxaJointPos + kOffsetPos);
 
-		MV1DrawModel(connect_model_handle);
+		MV1DrawModel(coxa_model_handle);
 	}
 
-	{
-		const designlab::RotationMatrix3x3 kDefRotMat =
-			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-			designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
-			designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
+	//{
+	//	const designlab::RotationMatrix3x3 kDefRotMat =
+	//		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
+	//		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
+	//		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
 
-		const float kOffsetLength2 = kOffsetLength + 5.0f;	//回転中心と原点がずれているので，その分を補正する
+	//	const float kOffsetLength2 = kOffsetLength + 5.0f;	//回転中心と原点がずれているので，その分を補正する
 
-		const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-			designlab::rotVector
-			(
-				designlab::Vector3::GetFrontVec() * kOffsetLength2,
-				designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
-			)
-		);
+	//	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
+	//		designlab::rotVector
+	//		(
+	//			designlab::Vector3::GetFrontVec() * kOffsetLength2,
+	//			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
+	//		)
+	//	);
 
-		MV1SetScale(connect_model_handle, kScale);
+	//	MV1SetScale(connect_model_handle, kScale);
 
-		// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-		designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-		MV1SetRotationXYZ(connect_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
+	//	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
+	//	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
+	//	MV1SetRotationXYZ(connect_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
 
-		MV1SetPosition(connect_model_handle, kCoxaJointPos + kOffsetPos);
+	//	MV1SetPosition(connect_model_handle, kCoxaJointPos + kOffsetPos);
 
-		MV1DrawModel(connect_model_handle);
-	}
+	//	MV1DrawModel(connect_model_handle);
+	//}
 }
 
 void PhantomXRendererModel::DrawFemurLink(int leg_index) const
@@ -235,7 +235,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 {
 	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
 	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int tibia_model_handle = ModelLoader::GetIns()->LoadModel("model/tibia_l.mv1");
+	int tibia_model_handle = ModelLoader::GetIns()->LoadModel("model/tibia_l_fixed.mv1");
 
 	if (tibia_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(tibia_model_handle)"); }
 
@@ -243,7 +243,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//パラメータの計算
-	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
+	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
 
 	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2]);
 
@@ -295,7 +295,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 	const unsigned int kFemurAxisColor = GetColor(0, 255, 0);
 	const unsigned int kTibiaAxisColor = kFemurAxisColor;
 	const unsigned int kSpecColor = GetColor(255, 255, 255);
-	const unsigned int kJointColor = GetColor(64, 64, 64);
+	[[maybe_unused]]const unsigned int kJointColor = GetColor(64, 64, 64);
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
@@ -311,7 +311,8 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kCoxaJointPos - kAxisVec, kCoxaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kCoxaAxisColor, kSpecColor, TRUE);
 
-		DrawSphere3D(kCoxaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
+		//間接に点を描画する
+		//DrawSphere3D(kCoxaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 
 	//Femurの回転軸
@@ -331,7 +332,8 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kFemurJointPos - kAxisVec, kFemurJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kFemurAxisColor, kSpecColor, TRUE);
 
-		DrawSphere3D(kFemurJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
+		//間接に点を描画する
+		//DrawSphere3D(kFemurJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 
 	//Tibiaの回転軸
@@ -351,7 +353,8 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kTibiaJointPos - kAxisVec, kTibiaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kTibiaAxisColor, kSpecColor, TRUE);
 
-		DrawSphere3D(kTibiaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
+		//間接に点を描画する
+		//DrawSphere3D(kTibiaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 }
 
