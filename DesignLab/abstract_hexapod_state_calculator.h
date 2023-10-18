@@ -23,6 +23,7 @@
 #define DESIGNLAB_ABSTRACT_HEXAPOD_STATE_CALCULATOR_H_
 
 #include <array>
+#include <optional>
 #include <vector>
 
 #include "designlab_vector3.h"
@@ -37,25 +38,18 @@
 //! @details 関節の位置と角度を表す．
 struct HexapodJointState
 {
-	bool is_vaild;		//!< 逆運動学解が算出できない場合はfalse．例えばリンクの長さの関係でどれだけ伸ばしても届かない場合など．
-
-	bool is_in_range;	//!< 関節の可動域の外まで動いた場合false
-
-	bool match_kinematics;	//!< 順運動学解と逆運動学解が一致しない場合falseになる．
-
 	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．
 	//! @n この座標は脚の付け根を原点とし，軸はロボット座標系と同様な脚座標系である．
-	std::vector<designlab::Vector3> local_joint_position;
+	std::vector< std::optional<designlab::Vector3> > local_joint_position;
 
 	//! 関節の位置．付け根から初めて，脚先の順に並んでいる．脚の付け根の座標はjoint_position[0]である．
 	//! @n この座標はグローバル座標系である．
-	std::vector<designlab::Vector3> global_joint_position;
+	std::vector< std::optional<designlab::Vector3> > global_joint_position;
 
 	//! 関節の角度．付け根から初めて，脚先の順に並んでいる．脚の付け根の角度はjoint_angle[0]である．
 	//! @n この角度の単位はradである．
-	std::vector<float> joint_angle;
+	std::vector< std::optional<float> > joint_angle;
 };
-
 
 
 //! @class AbstractHexapodStateCalculator

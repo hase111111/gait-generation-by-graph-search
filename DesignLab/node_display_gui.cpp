@@ -192,12 +192,16 @@ void NodeDisplayGui::DrawJointInfo() const
 
 
 	int text_line = 0;
-
+	
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %3.3f[deg],f %3.3f[deg],t %3.3f[deg]", i,
-			dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1]), dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2]));
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %s[deg],f %s[deg],t %s[deg]", 
+			i,
+			joint_state_[i].joint_angle[0].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0].value())).c_str() : "null",
+			joint_state_[i].joint_angle[1].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1].value())).c_str() : "null",
+			joint_state_[i].joint_angle[2].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2].value())).c_str() : "null"
+		);
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
 			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).GetLength(),

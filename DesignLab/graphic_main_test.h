@@ -32,6 +32,10 @@ public:
 
 private:
 
+	void MoveBody();
+
+	void MoveLeg();
+
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラスのシェアードポインタ．
 
 

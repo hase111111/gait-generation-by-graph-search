@@ -61,88 +61,11 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 
 bool GraphicMainTest::Update()
 {
-	const float kSpeed = 1;
-
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
-		{
-			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { node_.leg_pos[i].z += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { node_.leg_pos[i].z -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { node_.leg_pos[i].y += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { node_.leg_pos[i].y -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { node_.leg_pos[i].x += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_.leg_pos[i].x -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
-			{
-				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
-					i,node_.leg_reference_pos[i],node_.global_center_of_mass,node_.rot,true
-				);
-
-				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
-				int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
-
-				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { map_x++; }
-				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { map_x--; }
-				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
-				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
-
-				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, map_index_ % devide_map_state_.GetPointNum(map_x, map_y));
-				map_index_++;
-
-				node_.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
-					i,map_pos, node_.global_center_of_mass,node_.rot, true
-				);
-			}
-		}
-	}
+	MoveLeg();
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LSHIFT) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RSHIFT) > 0)
 	{
-		const float kComSpeed = 1;
-
-		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.z += kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.z -= kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.y += kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.y -= kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.x += kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
-		{
-			auto com = node_.global_center_of_mass;
-			com.x -= kComSpeed;
-			node_.ChangeGlobalCenterOfMass(com, false);
-		}
-		else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
-		{
-			auto rot = node_.rot;
-			rot.z_angle += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
-			node_.rot = rot;
-		}
+		MoveBody();
 	}
 
 	hexapod_renderer_->SetDrawNode(node_);
@@ -211,4 +134,98 @@ void GraphicMainTest::Draw() const
 
 	node_display_gui_.Draw();	 //ƒm[ƒh‚Ìî•ñ‚ð•\Ž¦‚·‚éGUI‚ð•`‰æ‚·‚éD
 
+}
+
+void GraphicMainTest::MoveBody()
+{
+	const float kComSpeed = 1;
+
+	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.z += kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.z -= kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.y += kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.y -= kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.x += kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
+	{
+		auto com = node_.global_center_of_mass;
+		com.x -= kComSpeed;
+		node_.ChangeGlobalCenterOfMass(com, false);
+	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
+	{
+		auto rot = node_.rot;
+		rot.z_angle += kComSpeed / 360.0f * 2 * dlm::kFloatPi;
+		node_.rot = rot;
+	}
+}
+
+void GraphicMainTest::MoveLeg()
+{
+	const float kSpeed = 1;
+	const float kAngleSpeed = 0.01f;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
+		{
+			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { node_.leg_pos[i].z += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { node_.leg_pos[i].z -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { node_.leg_pos[i].y += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { node_.leg_pos[i].y -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { node_.leg_pos[i].x += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_.leg_pos[i].x -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
+			{
+				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
+					i, node_.leg_reference_pos[i], node_.global_center_of_mass, node_.rot, true
+				);
+
+				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
+				int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
+
+				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { map_x++; }
+				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { map_x--; }
+				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
+				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
+
+				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, map_index_ % devide_map_state_.GetPointNum(map_x, map_y));
+				map_index_++;
+
+				node_.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
+					i, map_pos, node_.global_center_of_mass, node_.rot, true
+				);
+			}
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0) 
+			{
+				//coxa joint‰ñ“]
+				std::array<HexapodJointState, HexapodConst::kLegNum> res;
+				calculator_ptr_->CalculateAllJointState(node_, &res);
+			}
+		}
+	}
 }

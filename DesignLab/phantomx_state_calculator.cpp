@@ -57,13 +57,13 @@ void PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, 
 	{
 		CalculateLocalJointState(i, node.leg_pos[i], &joint_state->at(i));
 
-		joint_state->at(i).global_joint_position.clear();
-		joint_state->at(i).global_joint_position.resize(4);
+		(*joint_state)[i].global_joint_position.clear();
+		(*joint_state)[i].global_joint_position.resize(4);
 
-		joint_state->at(i).global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
-		joint_state->at(i).global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1], node.rot);
-		joint_state->at(i).global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2], node.rot);
-		joint_state->at(i).global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
+		(*joint_state)[i].global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
+		(*joint_state)[i].global_joint_position[1] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[1].value(), node.rot);
+		(*joint_state)[i].global_joint_position[2] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[2].value(), node.rot);
+		(*joint_state)[i].global_joint_position[3] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + node.leg_pos[i], node.rot);
 	}
 }
 
@@ -195,22 +195,49 @@ bool PhantomXStateCalclator::InitIsAbleLegPos(const int leg_index, const int x, 
 
 	CalculateLocalJointState(leg_index, leg_pos, &joint_state);
 
+	//値の数と有効性を確認する
+	if (joint_state.local_joint_position.size() != 4) { return false; }
+	if (joint_state.joint_angle.size() != 3) { return false; }
 
+	for (int i = 0; i < 4; i++) 
+	{
+		if (!joint_state.local_joint_position[i].has_value()) { return false; }
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (!joint_state.joint_angle[i].has_value()) { return false; }
+	}
+
+	//以下，少々冗長なコードになっている．削除可能．
+	
 	// coxa関節の範囲内に存在しているかを確認する
-	if (not PhantomXConst::IsVaildCoxaAngle(leg_index, joint_state.joint_angle[0])) { return false; }
+	if (! PhantomXConst::IsVaildCoxaAngle(leg_index, joint_state.joint_angle[0].value())) { return false; }
 
 	// femur関節の範囲内に存在しているかを確認する
-	if (not PhantomXConst::IsVaildFemurAngle(joint_state.joint_angle[1])) { return false; }
+	if (! PhantomXConst::IsVaildFemurAngle(joint_state.joint_angle[1].value())) { return false; }
 
 	// tibia関節の範囲内に存在しているかを確認する
-	if (not PhantomXConst::IsVaildTibiaAngle(joint_state.joint_angle[2])) { return false; }
+	if (! PhantomXConst::IsVaildTibiaAngle(joint_state.joint_angle[2].value())) { return false; }
 
 	// リンクの長さを確認する
-	if (!dlm::IsEqual((joint_state.local_joint_position[0] - joint_state.local_joint_position[1]).GetLength(), PhantomXConst::kCoxaLength)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[0].value() - joint_state.local_joint_position[1].value()).GetLength(), 
+		PhantomXConst::kCoxaLength)) 
+	{
+		return false; 
+	}
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[1] - joint_state.local_joint_position[2]).GetLength(), PhantomXConst::kFemurLength)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[1].value() - joint_state.local_joint_position[2].value()).GetLength(), 
+		PhantomXConst::kFemurLength)) 
+	{
+		return false; 
+	}
 
-	if (!dlm::IsEqual((joint_state.local_joint_position[2] - joint_state.local_joint_position[3]).GetLength(), PhantomXConst::kTibiaLength)) { return false; }
+	if (!dlm::IsEqual((joint_state.local_joint_position[2].value() - joint_state.local_joint_position[3].value()).GetLength(), 
+		PhantomXConst::kTibiaLength)) 
+	{
+		return false; 
+	}
 
 	return true;
 }
@@ -231,20 +258,21 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 	(*joint_state).local_joint_position.resize(kJointNum);
 	(*joint_state).joint_angle.resize(kJointAngleNum);
 
-	(*joint_state).is_vaild = (*joint_state).is_in_range = (*joint_state).match_kinematics = false;	//フラグを全てfalseにする．
-
 
 	// coxa jointの計算
 	(*joint_state).local_joint_position[0] = designlab::Vector3{ 0, 0, 0 };	//脚座標系ではcoxa jointは原点にある．
 
+	// 脚先の追加
+	(*joint_state).local_joint_position[3] = leg_pos;
 
 	// coxa angleの計算
 	{
 		float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
+		bool is_vaild = true;
 
 		if (leg_pos.y == 0 && leg_pos.x == 0) { coxa_joint_angle = PhantomXConst::kCoxaDefaultAngle[leg_index]; }
 
-		if (not PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle))
+		if (! PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle))
 		{
 			//範囲外ならば，180度回転させた時に範囲内にあるかを調べる．
 			if (PhantomXConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle + dlm::kFloatPi))
@@ -255,22 +283,40 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 			{
 				coxa_joint_angle -= dlm::kFloatPi;
 			}
-
-			//どのみち範囲外ならば，そのまま代入する
+			else 
+			{
+				//どのみち範囲外ならば，そのまま代入する
+				is_vaild = false;
+			}
 		}
 
-		(*joint_state).joint_angle[0] = coxa_joint_angle;
+		if (is_vaild) 
+		{
+			(*joint_state).joint_angle[0] = coxa_joint_angle;
+		}
+		else 
+		{
+			return;
+		}
 	}
 
 	// femur jointの計算
 	{
 		const designlab::Vector3 femur_joint_pos = designlab::Vector3{
-		PhantomXConst::kCoxaLength * std::cos((*joint_state).joint_angle[0]),
-		PhantomXConst::kCoxaLength * std::sin((*joint_state).joint_angle[0]),
-		0
+			PhantomXConst::kCoxaLength * std::cos((*joint_state).joint_angle[0].value()),
+			PhantomXConst::kCoxaLength * std::sin((*joint_state).joint_angle[0].value()),
+			0
 		};
 
-		(*joint_state).local_joint_position[1] = femur_joint_pos;
+		//長さを確認し，問題なければ代入する
+		if (dlm::IsEqual((femur_joint_pos - (*joint_state).local_joint_position[0].value()).GetLength(), PhantomXConst::kCoxaLength)) 
+		{
+			(*joint_state).local_joint_position[1] = femur_joint_pos;
+		}
+		else 
+		{
+			return;
+		}
 
 		// そもそも脚先が脚の付け根から届かない場合は計算を行わない
 		if ((leg_pos - femur_joint_pos).GetLength() > PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength) { return; }
@@ -278,9 +324,9 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 
 
 	// femur angle の計算
-	const designlab::Vector3 femur_to_leg = leg_pos - (*joint_state).local_joint_position[1];		//脚先から第一関節までの長さ．
+	const designlab::Vector3 femur_to_leg = leg_pos - (*joint_state).local_joint_position[1].value();		//脚先から第一関節までの長さ．
 	const float femur_to_leg_x = femur_to_leg.ProjectedXY().GetLength() * 																//脚先へ向かう方向をxの正方向にする座標系に置き換える 			
-	((leg_pos.ProjectedXY().GetSquaredLength() > (*joint_state).local_joint_position[1].ProjectedXY().GetSquaredLength()) ? 1.f : -1.f);	//脚先が第一関節よりも近い場合は正の方向にする．
+	((leg_pos.ProjectedXY().GetSquaredLength() > (*joint_state).local_joint_position[1].value().ProjectedXY().GetSquaredLength()) ? 1.f : -1.f);	//脚先が第一関節よりも近い場合は正の方向にする．
 	const float femur_to_leg_z = femur_to_leg.z;
 
 	{
@@ -289,31 +335,58 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 		const float arccos_arg = arccos_upper / arccos_lower;
 
 		const float fumur_joint_angle = std::acos(arccos_arg) + std::atan2(femur_to_leg_z, femur_to_leg_x);
-		//float fumur_joint_angle2 = -std::acos(arccos_arg) + std::atan2(femur_to_leg_z, femur_to_leg_x);
 
-		(*joint_state).joint_angle[1] = fumur_joint_angle;
+		if (PhantomXConst::IsVaildFemurAngle(fumur_joint_angle)) 
+		{
+			(*joint_state).joint_angle[1] = fumur_joint_angle;
+		}
+		else 
+		{
+			return;
+		}
 	}
 
 	// tibia jointの計算
 	{
 		const designlab::Vector3 femur_to_tibia = designlab::Vector3{
-			PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[0]) * std::cos((*joint_state).joint_angle[1]),
-			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[0]) * std::cos((*joint_state).joint_angle[1]),
-			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1])
+			PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[0].value()) * std::cos((*joint_state).joint_angle[1].value()),
+			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[0].value()) * std::cos((*joint_state).joint_angle[1].value()),
+			PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1].value())
 		};
 
-		designlab::Vector3 tibia_joint_pos = (*joint_state).local_joint_position[1] + femur_to_tibia;
+		designlab::Vector3 tibia_joint_pos = (*joint_state).local_joint_position[1].value() + femur_to_tibia;
 
 		(*joint_state).local_joint_position[2] = tibia_joint_pos;
+
+		//長さを確認し，問題なければ代入する
+		if (
+			dlm::IsEqual((tibia_joint_pos - (*joint_state).local_joint_position[1].value()).GetLength(), PhantomXConst::kFemurLength) &&
+			dlm::IsEqual((tibia_joint_pos - (*joint_state).local_joint_position[3].value()).GetLength(), PhantomXConst::kTibiaLength)
+		)
+		{
+			(*joint_state).local_joint_position[2] = tibia_joint_pos;
+		}
+		else
+		{
+			return;
+		}
 	}
 
 
 	// tibia angleの計算
-	(*joint_state).joint_angle[2] = std::atan2(
-		(femur_to_leg_z - PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1])),
-		(femur_to_leg_x - PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[1]))
-	) - (*joint_state).joint_angle[1];
+	{
+		float tibia_angle = std::atan2(
+			(femur_to_leg_z - PhantomXConst::kFemurLength * std::sin((*joint_state).joint_angle[1].value())),
+			(femur_to_leg_x - PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[1].value()))
+		) - (*joint_state).joint_angle[1].value();
 
-	// 脚先の追加
-	(*joint_state).local_joint_position[3] = leg_pos;
+		if (PhantomXConst::IsVaildTibiaAngle(tibia_angle))
+		{
+			(*joint_state).joint_angle[2] = tibia_angle;
+		}
+		else
+		{
+			return;
+		}
+	}
 }
