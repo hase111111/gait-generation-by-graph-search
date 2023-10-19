@@ -277,7 +277,6 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 	// coxa angleの計算
 	{
 		float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
-		bool is_vaild = true;
 
 		if (leg_pos.y == 0 && leg_pos.x == 0) { coxa_joint_angle = PhantomXConst::kCoxaDefaultAngle[leg_index]; }
 
@@ -292,21 +291,9 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 			{
 				coxa_joint_angle -= dlm::kFloatPi;
 			}
-			else 
-			{
-				//どのみち範囲外ならば，そのまま代入する
-				is_vaild = false;
-			}
 		}
 
-		if (is_vaild) 
-		{
-			(*joint_state).joint_angle[0] = coxa_joint_angle;
-		}
-		else 
-		{
-			return;
-		}
+		(*joint_state).joint_angle[0] = coxa_joint_angle;
 	}
 
 	// femur jointの計算
@@ -317,15 +304,7 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 			0
 		};
 
-		//長さを確認し，問題なければ代入する
-		if (dlm::IsEqual((femur_joint_pos - (*joint_state).local_joint_position[0].value()).GetLength(), PhantomXConst::kCoxaLength)) 
-		{
-			(*joint_state).local_joint_position[1] = femur_joint_pos;
-		}
-		else 
-		{
-			return;
-		}
+		(*joint_state).local_joint_position[1] = femur_joint_pos;
 
 		// そもそも脚先が脚の付け根から届かない場合は計算を行わない
 		if ((leg_pos - femur_joint_pos).GetLength() > PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength) { return; }
@@ -345,14 +324,8 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 
 		const float fumur_joint_angle = std::acos(arccos_arg) + std::atan2(femur_to_leg_z, femur_to_leg_x);
 
-		if (PhantomXConst::IsVaildFemurAngle(fumur_joint_angle)) 
-		{
-			(*joint_state).joint_angle[1] = fumur_joint_angle;
-		}
-		else 
-		{
-			return;
-		}
+
+		(*joint_state).joint_angle[1] = fumur_joint_angle;
 	}
 
 	// tibia jointの計算
@@ -366,19 +339,6 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 		designlab::Vector3 tibia_joint_pos = (*joint_state).local_joint_position[1].value() + femur_to_tibia;
 
 		(*joint_state).local_joint_position[2] = tibia_joint_pos;
-
-		//長さを確認し，問題なければ代入する
-		if (
-			dlm::IsEqual((tibia_joint_pos - (*joint_state).local_joint_position[1].value()).GetLength(), PhantomXConst::kFemurLength) &&
-			dlm::IsEqual((tibia_joint_pos - (*joint_state).local_joint_position[3].value()).GetLength(), PhantomXConst::kTibiaLength)
-		)
-		{
-			(*joint_state).local_joint_position[2] = tibia_joint_pos;
-		}
-		else
-		{
-			return;
-		}
 	}
 
 
@@ -389,13 +349,6 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 			(femur_to_leg_x - PhantomXConst::kFemurLength * std::cos((*joint_state).joint_angle[1].value()))
 		) - (*joint_state).joint_angle[1].value();
 
-		if (PhantomXConst::IsVaildTibiaAngle(tibia_angle))
-		{
-			(*joint_state).joint_angle[2] = tibia_angle;
-		}
-		else
-		{
-			return;
-		}
+		(*joint_state).joint_angle[2] = tibia_angle;
 	}
 }

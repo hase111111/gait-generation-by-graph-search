@@ -223,10 +223,10 @@ void NodeDisplayGui::DrawJointInfo() const
 		std::string str = "";
 		if (joint_state_[i].joint_angle[0] < PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMin) { str += "coxa_min "; }
 		if (joint_state_[i].joint_angle[0] > PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax) { str += "coxa_max "; }
-		if (joint_state_[i].joint_angle[1] < PhantomXConst::kFEMUR_ANGLE_MIN) { str += "femur_min "; }
-		if (joint_state_[i].joint_angle[1] > PhantomXConst::kFEMUR_ANGLE_MAX) { str += "femur_max "; }
-		if (joint_state_[i].joint_angle[2] < PhantomXConst::kTIBIA_ANGLE_MIN) { str += "tibia_min "; }
-		if (joint_state_[i].joint_angle[2] > PhantomXConst::kTIBIA_ANGLE_MAX) { str += "tibia_max "; }
+		if (joint_state_[i].joint_angle[1] < PhantomXConst::kFemurAngleMin) { str += "femur_min "; }
+		if (joint_state_[i].joint_angle[1] > PhantomXConst::kFemurAngleMax) { str += "femur_max "; }
+		if (joint_state_[i].joint_angle[2] < PhantomXConst::kTibiaAngleMin) { str += "tibia_min "; }
+		if (joint_state_[i].joint_angle[2] > PhantomXConst::kTibiaAngleMax) { str += "tibia_max "; }
 
 		if (!str.empty())
 		{

@@ -118,6 +118,8 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
+	if (!draw_joint_state_[leg_index].global_joint_position[0].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[0].has_value()) { return; }
 
 	//Coxa Jointは2つのConnect Linkで構成されているので，それぞれ描画する
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
@@ -159,9 +161,9 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	//		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
 	//		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
 	//		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
-
+	//
 	//	const float kOffsetLength2 = kOffsetLength + 5.0f;	//回転中心と原点がずれているので，その分を補正する
-
+	//
 	//	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
 	//		designlab::rotVector
 	//		(
@@ -169,15 +171,15 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	//			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
 	//		)
 	//	);
-
+	//
 	//	MV1SetScale(connect_model_handle, kScale);
-
+	//
 	//	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
 	//	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
 	//	MV1SetRotationXYZ(connect_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
-
+	//
 	//	MV1SetPosition(connect_model_handle, kCoxaJointPos + kOffsetPos);
-
+	//
 	//	MV1DrawModel(connect_model_handle);
 	//}
 }
@@ -192,6 +194,10 @@ void PhantomXRendererModel::DrawFemurLink(int leg_index) const
 
 	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
+
+	if (!draw_joint_state_[leg_index].global_joint_position[1].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[0].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[1].has_value()) { return; }
 
 	//パラメータの計算
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
@@ -242,6 +248,11 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
+	if (!draw_joint_state_[leg_index].global_joint_position[2].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[0].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[1].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].joint_angle[2].has_value()) { return; }
+
 	//パラメータの計算
 	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
 
@@ -286,6 +297,12 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 {
 	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
+
+	if (!draw_joint_state_[leg_index].joint_angle[0].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].global_joint_position[0].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].global_joint_position[1].has_value()) { return; }
+	if (!draw_joint_state_[leg_index].global_joint_position[2].has_value()) { return; }
+
 
 	const float kAxisLength = 100.f;
 	const float kAxisRadius = 2.f;

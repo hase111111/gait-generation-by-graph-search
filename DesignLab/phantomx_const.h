@@ -41,11 +41,11 @@ public:
 	constexpr static float kCoxaAngleMin = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float kCoxaAngleMax = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float kFEMUR_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kFEMUR_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(100.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kFemurAngleMin = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(100.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float kTIBIA_ANGLE_MIN = ::designlab::math_util::ConvertDegToRad(-115.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kTIBIA_ANGLE_MAX = ::designlab::math_util::ConvertDegToRad(56.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-115.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(56.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	//!< 第2関節は曲がっているので，直線的に考えるためのオフセット角度[rad]．
 	constexpr static float kFemurVirtualLinkOffsetAngle = ::designlab::math_util::ConvertDegToRad(-13.5f);	
@@ -56,7 +56,7 @@ public:
 
 	constexpr static float kCoxaLength = 52.0f;		//!< 第1関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．
 	constexpr static float kFemurLength = 66.0f;	//!< 第2関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータスは66.061mm)
-	constexpr static float kTibiaLength = 137.0f;	//!< 第3関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(旧ステータス130mm)
+	constexpr static float kTibiaLength = 130.0f;	//!< 第3関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータス137mm)
 
 	constexpr static float kCoxaBaseOffsetY = 61.64f;		//!< coxa linkの付け根(前方・後方)までの長さ[mm]．
 	constexpr static float kCenterCoxaBaseOffsetY = 103.4f;	//!< coxa linkの付け根(中央)までの長さ[mm]．
@@ -84,7 +84,7 @@ public:
 	//! @return bool 有効な範囲内ならtrue．
 	constexpr static bool IsVaildFemurAngle(const float angle)
 	{
-		return (kFEMUR_ANGLE_MIN <= angle && angle <= kFEMUR_ANGLE_MAX);
+		return (kFemurAngleMin <= angle && angle <= kFemurAngleMax);
 	};
 
 	//! @brief 第3関節の角度が有効な範囲内かどうかを判定する．
@@ -92,7 +92,7 @@ public:
 	//! @return bool 有効な範囲内ならtrue．
 	constexpr static bool IsVaildTibiaAngle(const float angle)
 	{
-		return (kTIBIA_ANGLE_MIN <= angle && angle <= kTIBIA_ANGLE_MAX);
+		return (kTibiaAngleMin <= angle && angle <= kTibiaAngleMax);
 	};
 };
 
