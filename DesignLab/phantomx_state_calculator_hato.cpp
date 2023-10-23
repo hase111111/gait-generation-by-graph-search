@@ -32,7 +32,7 @@ bool PhantomXStateCalclator_Hato::IsLegInRange(const int leg_index, const design
 
 	if (dlm::Squared(leg_max_r_[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.GetSquaredLength()) { return false; }
 
-	if (dlm::Squared(120) > leg_pos_xy.GetSquaredLength()) { return false; }
+	if (dlm::Squared(kMinR) > leg_pos_xy.GetSquaredLength()) { return false; }
 
 	return true;
 }

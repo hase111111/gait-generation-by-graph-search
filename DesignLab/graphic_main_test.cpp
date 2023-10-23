@@ -240,14 +240,9 @@ void GraphicMainTest::MoveLeg()
 				std::array<HexapodJointState, HexapodConst::kLegNum> res;
 				calculator_ptr_->CalculateAllJointState(node_, &res);
 
-				if (res[i].joint_angle.size() != 3) { continue; }
-				if (!res[i].joint_angle[0].has_value()) { continue; }
-				if (!res[i].joint_angle[1].has_value()) { continue; }
-				if (!res[i].joint_angle[2].has_value()) { continue; }
-
-				float coxa = res[i].joint_angle[0].value();
-				float femur = res[i].joint_angle[1].value();
-				float tibia = res[i].joint_angle[2].value();
+				float coxa = res[i].joint_angle[0];
+				float femur = res[i].joint_angle[1];
+				float tibia = res[i].joint_angle[2];
 
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0) 
 				{

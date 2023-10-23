@@ -42,10 +42,10 @@ public:
 	constexpr static float kCoxaAngleMax = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	constexpr static float kFemurAngleMin = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(100.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(99.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-115.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(56.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-145.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(25.5f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	//!< 第2関節は曲がっているので，直線的に考えるためのオフセット角度[rad]．
 	constexpr static float kFemurVirtualLinkOffsetAngle = ::designlab::math_util::ConvertDegToRad(-13.5f);	

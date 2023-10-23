@@ -16,6 +16,8 @@ private:
 
 	static constexpr int kMaxDifZ = 200;
 
+	static constexpr float kMinR = 130;	// 120mmCÀ‹@Œ±130mm
+
 	static std::array <float, kMaxDifZ> initLegMaxR();
 
 	static std::array <float,kMaxDifZ> leg_max_r_;

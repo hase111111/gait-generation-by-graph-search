@@ -198,19 +198,19 @@ void NodeDisplayGui::DrawJointInfo() const
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %s[deg],f %s[deg],t %s[deg]", 
 			i,
-			joint_state_[i].joint_angle[0].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0].value())).c_str() : "null",
-			joint_state_[i].joint_angle[1].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1].value())).c_str() : "null",
-			joint_state_[i].joint_angle[2].has_value() ? dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2].value())).c_str() : "null"
+			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0])).c_str(),
+			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1])).c_str(),
+			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2])).c_str()
 		);
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
-			(joint_state_[i].local_joint_position[0].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[1].value_or(designlab::Vector3{})).GetLength(),
-			(joint_state_[i].local_joint_position[1].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[2].value_or(designlab::Vector3{})).GetLength(),
-			(joint_state_[i].local_joint_position[2].value_or(designlab::Vector3{}) - joint_state_[i].local_joint_position[3].value_or(designlab::Vector3{})).GetLength()
+			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).GetLength(),
+			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).GetLength(),
+			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).GetLength()
 		);
 
 
-		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3].value_or(designlab::Vector3{})))
+		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3]))
 		{
 			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    ‹ßŽ—’l true");
 		}

@@ -58,6 +58,14 @@ namespace designlab
 		template <typename T>
 		constexpr T Squared(const T num) { return num * num; }
 
+		//! @brief 3辺で三角形が作れるか調べる関数．
+		//! @param [in] a 1辺目．
+		//! @param [in] b 2辺目．
+		//! @param [in] c 3辺目．
+		//! @return bool 三角形が作れるならばtrue．
+		template <typename T>
+		constexpr bool CanMakeTriangle(const T a, const T b, const T c) { return (a + b > c && b + c > a && c + a > b); }
+		
 		//! @brief 目標値に値を近づける関数．
 		//! @n 適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと
 		//! @param [in] current 現在の値．

@@ -91,9 +91,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		assert(draw_joint_state_[i].global_joint_position[0].has_value());
-
-		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0].value());
+		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 	}
 
 	dldu::DrawHexagonalPrism(vertex, PhantomXConst::BODY_HEIGHT, kColorBody);
@@ -115,27 +113,41 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		//Še‹r‚Ì•`‰æ
 		for (int j = 0; j < 3; j++)
 		{
-			if (! draw_joint_state_[i].global_joint_position[j].has_value() || ! draw_joint_state_[i].global_joint_position[j + 1].has_value())
+			VECTOR start = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j]);
+			VECTOR end = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j + 1]);
+
+			if (draw_joint_state_[i].is_in_range) 
 			{
-				continue;
+				DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);
 			}
-
-			VECTOR start = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j].value());
-			VECTOR end = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j + 1].value());
-
-			DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);
+			else 
+			{
+				DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kColorErrorJoint, kColorErrorJoint, TRUE);
+			}
 		}
 
 		
 		//ŠÔÚ‚Ì•`‰æ
 		for (int j = 0; j < 4; j++) 
 		{
-			if (! draw_joint_state_[i].global_joint_position[j].has_value()) { continue; }
+			unsigned int color = kJointColor;
 
-			VECTOR pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j].value());
-			DrawSphere3D(pos, kJointRadius, kSphereDivNum, kJointColor, kJointColor, TRUE);
+			if (j == 0 && !PhantomXConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0])) { color = kColorErrorJoint; }
+			if (j == 1 && !PhantomXConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
+			if (j == 2 && !PhantomXConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
+
+			VECTOR pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j]);
+			DrawSphere3D(pos, kJointRadius, kSphereDivNum, color, color, TRUE);
 		}
-
+		
+		DrawSphere3D(
+			dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i,draw_node_.leg_pos[i],draw_node_.global_center_of_mass,draw_node_.rot,true)),
+			kJointRadius / 2,
+			kSphereDivNum, 
+			kJointColor, 
+			kJointColor, 
+			TRUE
+		);
 
 		//‹r‚ÌÚ’n‚ÌŠî€’n“_‚Ì•`‰æ
 		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.leg_reference_pos[i]), kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
