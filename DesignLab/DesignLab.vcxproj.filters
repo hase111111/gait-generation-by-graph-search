@@ -429,6 +429,9 @@
     <ClInclude Include="phantomx_const.h">
       <Filter>ソース ファイル\Hexapod\Common</Filter>
     </ClInclude>
+    <ClInclude Include="graph_tree_creator_basic.h">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -670,6 +673,9 @@
     </ClCompile>
     <ClCompile Include="ros_main.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_tree_creator_basic.cpp">
+      <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

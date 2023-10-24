@@ -2,6 +2,8 @@
 
 #include <string>
 
+// todo : 後で消す
+
 //! @class MapConst
 //! @brief 地形状態を表す定数．
 //! @details 地形のデータの表現方法や，読み取り方を定義している． 

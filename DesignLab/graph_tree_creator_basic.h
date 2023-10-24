@@ -1,8 +1,8 @@
-//! @file graph_tree_creator_hato.h 
-//! @brief 波東さんのグラフを作成するプログラムを移植したクラスの実装
+//! @file graph_tree_creator_basic.h 
+//! @brief 歩容パターングラフを作成するクラス
 
-#ifndef DESIGNLAB_GRAPH_TREE_CREATOR_HATO_H_
-#define DESIGNLAB_GRAPH_TREE_CREATOR_HATO_H_
+#ifndef DESIGNLAB_GRAPH_TREE_CREATOR_BASIC_H_
+#define DESIGNLAB_GRAPH_TREE_CREATOR_BASIC_H_
 
 #include "interface_graph_tree_creator.h"
 
@@ -14,19 +14,19 @@
 #include "interface_node_creator_builder.h"
 
 
-//! @class GraphTreeCreatorHato
-//! @brief 波東さんのグラフを作成するプログラムを移植したもの
-//! @details もともとのプログラムで行われた処理の中でコメントアウトされていたものはすべて削除したので，
-//! @n 知りたければ過去のプログラムを参照すること．
-class GraphTreeCreatorHato final : public IGraphTreeCreator
+//! @class GraphTreeCreatorBasic
+//! @brief 歩容パターングラフを作成するクラス
+//! @details 先行研究のプログラムを見ればわかる通り，実際には処理効率をあげるために，
+//! @n 複数スレッド同時に処理を行うのだが，このクラスでは単一のスレッドで処理を行う．
+class GraphTreeCreatorBasic final : public IGraphTreeCreator
 {
 public:
-	GraphTreeCreatorHato(
+	GraphTreeCreatorBasic(
 		std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr,
 		const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr
 	);
 
-	~GraphTreeCreatorHato() = default;
+	~GraphTreeCreatorBasic() = default;
 
 
 	void Init(const DevideMapState& map_state);
@@ -35,19 +35,12 @@ public:
 
 private:
 
-	//! @brief 現在のグラフから，最大深さまでノードを生成する．
-	//! @param[in] max_depth 最大深さ
-	//! @param[out] output_graph 生成したノードを追加するベクタ．
-	void MakeGraphTreeToMaxDepth(int max_depth, std::vector<RobotStateNode>* output_graph) const;
-
 	//! @brief current_nodeの子ノードを生成して，output_graphに代入する．
 	//! @param[in] current_node 現在のノード
 	//! @param[in] current_num 現在のノードのindex
 	//! @param[out] output_graph 生成したノードを代入するベクタ．空にしておくこと.
-	void MakeNewNodesByCurrentNode(const RobotStateNode& current_node, int current_index, std::vector<RobotStateNode>* output_graph) const;
+	void MakeNewNodesByCurrentNode(const RobotStateNode& current_node, const int current_index, std::vector<RobotStateNode>* output_graph) const;
 
-
-	constexpr static int kMultiThreadNum = 6;		//!< マルチスレッドの数．
 
 	std::map<HexapodMove, std::unique_ptr<INodeCreator>> node_creator_map_;		//!< ノード生成クラスのマップ．
 
@@ -57,4 +50,4 @@ private:
 };
 
 
-#endif	//DESIGNLAB_GRAPH_TREE_CREATOR_HATO_H_
+#endif

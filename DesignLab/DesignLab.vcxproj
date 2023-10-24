@@ -47,6 +47,7 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="graph_tree_creator_basic.h" />
     <ClInclude Include="hexapod_renderer_builder.h" />
     <ClInclude Include="interface_application_setting_reader.h" />
     <ClInclude Include="interface_hexapod_renderer.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_recoder.cpp" />
+    <ClCompile Include="graph_tree_creator_basic.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
