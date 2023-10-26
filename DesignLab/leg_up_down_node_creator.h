@@ -23,15 +23,15 @@ public:
 	LegUpDownNodeCreator(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~LegUpDownNodeCreator() = default;
 
-	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const override;
 
 private:
 
 	//脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
-	bool IsGroundableLeg(int leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos);
+	bool IsGroundableLeg(int leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos) const;
 
 	//離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
-	bool IsAbleLegPos(const RobotStateNode& node, int leg_num);
+	bool IsAbleLegPos(const RobotStateNode& node, int leg_num) const;
 
 
 	const float kLegMargin;		//!< これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．

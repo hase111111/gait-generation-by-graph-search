@@ -66,14 +66,16 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 		int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
 
-		dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
+		if (mouse_move != 0) 
+		{
+			dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
-		dl::Quaternion res = camera_manager->GetCameraQuat() * move_quat;
+			dl::Quaternion res = camera_manager->GetCameraQuat() * move_quat;
 
-		res = res.GetNormalized();
+			res = res.GetNormalized();
 
-		camera_manager->SetCameraQuat(res);
-
+			camera_manager->SetCameraQuat(res);
+		}
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && Mouse::GetIns()->GetDiffPos() > kMouseMoveMargin)
 	{

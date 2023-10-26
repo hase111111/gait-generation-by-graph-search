@@ -12,7 +12,7 @@
 GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
-	kInterpolatedAnimeCount(60),
+	kInterpolatedAnimeCount(180),
 	broker_ptr_(broker_ptr),
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
@@ -70,13 +70,13 @@ bool GraphicMainAdvance::Update()
 	//ノードが存在しているのならば，各クラスに情報を伝達する
 	if (!graph_.empty())
 	{
-		// 表示ノードが変更されたら，表示するノードを変更する．
+		// 表示ノードが更新されたら，表示するノードを変更する．
 		if (display_node_index_ != display_node_switch_gui_.GetDisplayNodeNum())
 		{
 			if (display_node_index_ > 0)
 			{
 				interpolated_anime_start_count_ = counter_;		//アニメーションを開始した時間を記録する．
-				interpolated_node_creator_.createInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.GetDisplayNodeNum()], &interpolated_node_);
+				interpolated_node_creator_.CreateInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.GetDisplayNodeNum()], &interpolated_node_);
 			}
 
 

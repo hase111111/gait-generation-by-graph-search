@@ -20,7 +20,7 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const 
 }
 
 
-void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
+void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
 	std::array<ComPosAndPolygon, ComCandidatePolygonMaker::MAKE_POLYGON_NUM> candidate_polygons;
 
@@ -28,8 +28,6 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 	maker_.MakeCandidatePolygon(current_node, &candidate_polygons);
 
 	//候補範囲から実際に移動する先の座標を選択する
-	selecter_.SetCurrentNode(current_node);
-
 	for (int i = 0; i < ComCandidatePolygonMaker::MAKE_POLYGON_NUM; ++i)
 	{
 		//そもそも多角形が候補点になりえないならば，その多角形は無視する
@@ -37,7 +35,7 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 
 		designlab::Vector3 result_com;
 
-		if (selecter_.GetComFromPolygon(candidate_polygons[i].polygon, &result_com))
+		if (selecter_.GetComFromPolygon(candidate_polygons[i].polygon, current_node, &result_com))
 		{
 			RobotStateNode next_node = current_node;
 

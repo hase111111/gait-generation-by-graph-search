@@ -118,7 +118,7 @@ void SimulationSystemMain::Main()
 
 
 			//グラフ探索に失敗
-			if (result_state != GraphSearchResult::kSuccess)
+			if (result_state != GraphSearchResult::kSuccess && result_state != GraphSearchResult::kFailureByLegPathGenerationError)
 			{
 				record.simulation_result = SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
 

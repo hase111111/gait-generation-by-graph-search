@@ -21,12 +21,12 @@ public:
 	ComUpDownNodeCreator(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~ComUpDownNodeCreator() = default;
 
-	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const override;
 
 private:
 
 	// グローバル座標の重心の最低位置と最高位置から，重心を上下に変化させたノードを追加する．
-	void pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, int current_num, float high, float low, std::vector<RobotStateNode>* output_graph);
+	void pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, int current_num, float high, float low, std::vector<RobotStateNode>* output_graph) const;
 
 
 	static constexpr int DISCRETIZATION = 5;	//離散化数．最大位置を最小位置を何分割するのか．

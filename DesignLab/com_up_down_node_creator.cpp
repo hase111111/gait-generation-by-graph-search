@@ -22,7 +22,7 @@ ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std:
 }
 
 
-void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph)
+void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
 	//重心を最も高くあげることのできる位置と，最も低く下げることのできる位置を求める．グローバル座標で Zの位置．
 	//マップを確認して地面の最高点を求め，そこからMAX_RANGE，MIN_RANGEの分だけ離す．
@@ -80,7 +80,7 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 }
 
 
-void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, const int current_num, const float high, const float low, std::vector<RobotStateNode>* output_graph)
+void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, const int current_num, const float high, const float low, std::vector<RobotStateNode>* output_graph) const
 {
 	//重心を変化させたものを追加する．変化量が一番少ないノードは削除する．
 	{

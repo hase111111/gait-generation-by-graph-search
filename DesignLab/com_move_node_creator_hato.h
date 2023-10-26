@@ -24,7 +24,7 @@ public:
 	ComMoveNodeCreatorHato(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
 	~ComMoveNodeCreatorHato() = default;
 
-	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const override;
 
 
 private:
@@ -43,7 +43,7 @@ private:
 
 	const ComCandidatePolygonMaker maker_;	//!< 候補地点を含む多角形を作成するクラス
 
-	ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
+	const ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
 
 	const HexapodMove next_move_;	//!< 次の移動方向
 };

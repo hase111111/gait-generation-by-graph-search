@@ -432,6 +432,9 @@
     <ClInclude Include="graph_tree_creator_basic.h">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
     </ClInclude>
+    <ClInclude Include="pass_finder_revaluation.h">
+      <Filter>ソース ファイル\PassFinder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -676,6 +679,9 @@
     </ClCompile>
     <ClCompile Include="graph_tree_creator_basic.cpp">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="pass_finder_revaluation.cpp">
+      <Filter>ソース ファイル\PassFinder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

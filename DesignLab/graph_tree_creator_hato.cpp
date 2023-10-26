@@ -96,27 +96,27 @@ GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const RobotStateNode& cu
 }
 
 
-void GraphTreeCreatorHato::MakeGraphTreeToMaxDepth(int max_depth, std::vector<RobotStateNode>* output_graph) const
+void GraphTreeCreatorHato::MakeGraphTreeToMaxDepth(int max_depth, std::vector<RobotStateNode>* current_graph) const
 {
-	assert(output_graph != nullptr);	//nullptrでない．
+	assert(current_graph != nullptr);	//nullptrでない．
 
-	if ((*output_graph).empty()) { return; }	//空ならば何もしない．
+	if ((*current_graph).empty()) { return; }	//空ならば何もしない．
 
 	int cnt = 0;	//カウンタを用意
 
 	//カウンタがvectorのサイズを超えるまでループする．
-	while (cnt < output_graph->size())
+	while (cnt < current_graph->size())
 	{
 		//探索深さが足りていないノードにのみ処理をする．
-		if ((*output_graph)[cnt].depth < max_depth)
+		if ((*current_graph)[cnt].depth < max_depth)
 		{
 			std::vector<RobotStateNode> res_vec;	// _cnt番目のノードの子ノードを入れるベクター
 
-			MakeNewNodesByCurrentNode((*output_graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
+			MakeNewNodesByCurrentNode((*current_graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
 
 			for (const auto& i : res_vec)
 			{
-				output_graph->emplace_back(i);		//子ノードを結果に追加する．
+				current_graph->emplace_back(i);		//子ノードを結果に追加する．
 			}
 		}
 

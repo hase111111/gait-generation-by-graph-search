@@ -8,7 +8,7 @@
 class PhantomXStateCalclator_Hato final : public PhantomXStateCalclator
 {
 public:
-	PhantomXStateCalclator_Hato();
+	PhantomXStateCalclator_Hato(const float min_r);
 
 	bool IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const override;
 
@@ -16,7 +16,7 @@ private:
 
 	static constexpr int kMaxDifZ = 200;
 
-	static constexpr float kMinR = 130;	// 120mm，実機試験130mm
+	const float kMinR = 130;	// 120mm，実機試験130mm
 
 	static std::array <float, kMaxDifZ> initLegMaxR();
 

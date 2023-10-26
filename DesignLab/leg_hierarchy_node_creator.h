@@ -25,19 +25,19 @@ public:
 	LegHierarchyNodeCreator(HexapodMove next_move);
 	~LegHierarchyNodeCreator() = default;
 
-	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) override;
+	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const override;
 
 private:
 
 
 	// 1‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
-	void create1LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph);
+	void create1LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const;
 
 	// 2‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
-	void create2LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph);
+	void create2LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const;
 
 	// 3‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
-	void create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph);
+	void create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const;
 
 
 	const HexapodMove next_move_;									

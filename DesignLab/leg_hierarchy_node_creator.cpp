@@ -22,7 +22,7 @@ LegHierarchyNodeCreator::LegHierarchyNodeCreator(const HexapodMove next_move) :
 }
 
 
-void LegHierarchyNodeCreator::Create(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph)
+void LegHierarchyNodeCreator::Create(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//Œ»İCÚ’n‚µ‚Ä‚¢‚é‹r‚Ì–{”‚ğ”‚¦‚é
 	const int kLiftedLegNum = dllf::GetLiftedLegNum(current_node.leg_state);
@@ -58,7 +58,7 @@ void LegHierarchyNodeCreator::Create(const RobotStateNode& current_node, const i
 
 //‘S‚Äã‚ÌŠÖ”‚É‚Ü‚Æ‚ß‚é‚Æ‚²‚¿‚á‚Â‚­‚Ì‚ÅCˆÈ‰º‚ÌŠÖ”‚Éˆ—‚ğ•ª‚¯‚Ä‚¨‚­D
 
-void LegHierarchyNodeCreator::create1LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph)
+void LegHierarchyNodeCreator::create1LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í1‚È‚Ì‚Å1‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
@@ -80,7 +80,7 @@ void LegHierarchyNodeCreator::create1LegLifted(const RobotStateNode& current_nod
 }
 
 
-void LegHierarchyNodeCreator::create2LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph)
+void LegHierarchyNodeCreator::create2LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í2‚È‚Ì‚Å2‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;
@@ -106,7 +106,7 @@ void LegHierarchyNodeCreator::create2LegLifted(const RobotStateNode& current_nod
 }
 
 
-void LegHierarchyNodeCreator::create3LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph)
+void LegHierarchyNodeCreator::create3LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//—V‹r‚µ‚Ä‚¢‚é‹r‚ğ’T‚·D—V‹r”‚Í3‚È‚Ì‚Å3‚Â‚Ì”š‚ª‹A‚é‚Í‚¸
 	std::vector<int> lifted_leg_list;

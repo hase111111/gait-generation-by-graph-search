@@ -3,7 +3,7 @@
 #include <filesystem>
 
 
-const int Define::kSimurateNum = 2;
+const int Define::kSimurateNum = 10;
 
 const int Define::kGaitPatternGenerationLimit = 1000;
 

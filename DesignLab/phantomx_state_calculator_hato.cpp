@@ -9,7 +9,7 @@ namespace dlm = ::designlab::math_util;
 std::array <float, PhantomXStateCalclator_Hato::kMaxDifZ> PhantomXStateCalclator_Hato::leg_max_r_ = PhantomXStateCalclator_Hato::initLegMaxR();
 
 
-PhantomXStateCalclator_Hato::PhantomXStateCalclator_Hato() 
+PhantomXStateCalclator_Hato::PhantomXStateCalclator_Hato(const float min_r) : kMinR(min_r)
 {
     initLegMaxR();
 }

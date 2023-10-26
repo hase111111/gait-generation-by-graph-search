@@ -73,6 +73,45 @@ void PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, 
 	}
 }
 
+bool PhantomXStateCalclator::IsVaildJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const
+{
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		assert(joint_state[i].local_joint_position.size() == 4);
+		assert(joint_state[i].joint_angle.size() == 3);
+
+		// coxa関節の範囲内に存在しているかを確認する
+		if (! PhantomXConst::IsVaildCoxaAngle(i, joint_state[i].joint_angle[0])) { return false; }
+
+		// femur関節の範囲内に存在しているかを確認する
+		if (! PhantomXConst::IsVaildFemurAngle(joint_state[i].joint_angle[1])) { return false; }
+
+		// tibia関節の範囲内に存在しているかを確認する
+		if (! PhantomXConst::IsVaildTibiaAngle(joint_state[i].joint_angle[2])) { return false; }
+
+		// リンクの長さを確認する
+		if (!dlm::IsEqual((joint_state[i].local_joint_position[0] - joint_state[i].local_joint_position[1]).GetLength(), PhantomXConst::kCoxaLength)) 
+		{
+			return false; 
+		}
+
+		if (!dlm::IsEqual((joint_state[i].local_joint_position[1] - joint_state[i].local_joint_position[2]).GetLength(), PhantomXConst::kFemurLength)) 
+		{
+			return false; 
+		}
+
+		if (!dlm::IsEqual((joint_state[i].local_joint_position[2] - joint_state[i].local_joint_position[3]).GetLength(), PhantomXConst::kTibiaLength)) 
+		{
+			return false; 
+		}
+
+		// 脚位置と脚先座標が一致しているかを確認する
+		if (joint_state[i].local_joint_position[3] !=  node.leg_pos[i]) { return false; }
+	}
+
+	return true;
+}
+
 
 designlab::Vector3 PhantomXStateCalclator::ConvertGlobalToLegPosition(const int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const
 {

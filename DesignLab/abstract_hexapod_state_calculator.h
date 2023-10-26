@@ -74,6 +74,7 @@ public:
 	//! @param [out] joint_state 関節の状態．
 	virtual void CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const = 0;
 
+	virtual bool IsVaildJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const = 0;
 
 	//! @brief グローバル座標系→脚座標系に変換する．
 	//! @param [in] leg_index 脚番号．

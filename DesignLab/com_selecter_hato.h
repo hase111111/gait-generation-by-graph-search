@@ -31,35 +31,24 @@ public:
 
 	ComSelecterHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : calculator_ptr_(calc) {};
 
-
-	//! @brief 現在のノードを設定する
-	//! @param [in] current_node 現在のノード
-	inline void SetCurrentNode(const RobotStateNode& current_node) { current_node_ = current_node; } //!< 現在のノードを設定する
-
 	//! @brief 重心を求める
 	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
+	//! @param [in] current_node 現在のノード
 	//! @param [out] output_com 重心
 	//! @return 重心を求めることができたかどうか
-	bool GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const;
+	bool GetComFromPolygon(const designlab::Polygon2& polygon, const RobotStateNode& current_node, designlab::Vector3* output_com) const;
 
 private:
 
-	static constexpr int kDiscretizationNum = 10; // 重心を求める際の分割数
+	static constexpr int kDiscretizationNum = 10;	//!< 重心を求める際の分割数
 
-	const float kStabilityMargin = 10.0f; // 絶対安全余裕
-
-
-	RobotStateNode GetCurrentNode() const { return current_node_; } //!< 現在のノードを取得する
+	const float kStabilityMargin = 10.0f;			//!< 絶対安全余裕
 
 	//! @brief 候補地点を生成する
 	bool MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[kDiscretizationNum * kDiscretizationNum]) const;
 
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
 	bool IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
-
-
-
-	RobotStateNode current_node_; //!< 現在のノード
 
 	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 };

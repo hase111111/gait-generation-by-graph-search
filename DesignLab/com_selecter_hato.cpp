@@ -11,7 +11,7 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, designlab::Vector3* output_com) const
+bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, const RobotStateNode& current_node, designlab::Vector3* output_com) const
 {
 	std::pair<bool, designlab::Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
@@ -46,13 +46,13 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 		}
 
 		//Œ»İ‚ÌdS‚ğˆÚ“®‚³‚¹‚½‚à‚Ì‚ğì¬‚·‚é
-		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, GetCurrentNode().global_center_of_mass.z };
+		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
-			if (dllf::IsGrounded(GetCurrentNode().leg_state, j))
+			if (dllf::IsGrounded(current_node.leg_state, j))
 			{
-				after_move_leg_pos[j] = GetCurrentNode().leg_pos[j] - (after_move_com - GetCurrentNode().global_center_of_mass);
+				after_move_leg_pos[j] = current_node.leg_pos[j] - (after_move_com - current_node.global_center_of_mass);
 
 				if (!calculator_ptr_->IsLegInRange(j, after_move_leg_pos[j]))
 				{
@@ -95,13 +95,13 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, desi
 
 	if (min_index == -1)
 	{
+		//ŠY“–‚·‚é‚à‚Ì‚ª‚È‚¯‚ê‚Îfalse‚ğ•Ô‚·
 		return false;
 	}
 
-	//ŠY“–‚·‚é‚à‚Ì‚ª‚È‚¯‚ê‚Îfalse‚ğ•Ô‚·
 	(*output_com).x = com_candidate[min_index].second.x;
 	(*output_com).y = com_candidate[min_index].second.y;
-	(*output_com).z = GetCurrentNode().global_center_of_mass.z;
+	(*output_com).z = current_node.global_center_of_mass.z;
 	return true;
 }
 

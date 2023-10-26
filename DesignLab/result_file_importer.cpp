@@ -22,7 +22,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
 
     // ファイルが存在するかどうかを確認．ないならばfalseを返す．
-    if (not fs::exists(file_path)) 
+    if (! fs::exists(file_path)) 
     {
         dlio::Output("NodeListファイルが存在しませんでした．", OutputDetail::kError);
 		return false;
@@ -32,14 +32,14 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
     std::string map_file_path = file_path;
     map_file_path.replace(map_file_path.find(ResultFileConst::kNodeListName), ResultFileConst::kNodeListName.size(), ResultFileConst::kMapStateName);
 
-    if (not fs::exists(map_file_path))
+    if (! fs::exists(map_file_path))
     {
         dlio::Output("MapStateファイルが存在しませんでした．", OutputDetail::kError);
         return false;
     }
 
 
-    if (not ImportNodeList(file_path, node_list) || not ImportMapState(map_file_path, map_state)) 
+    if (! ImportNodeList(file_path, node_list) || ! ImportMapState(map_file_path, map_state)) 
     {
         dlio::Output("ファイル読み込み中にエラーが発生しました．", OutputDetail::kError);
     }
@@ -80,7 +80,7 @@ bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_un
         RobotStateNode node;
         std::stringstream ss(i);
 
-        //ss >> node;
+        node = RobotStateNode::FromString(ss.str());
 
 		(*node_list).push_back(node);
     }

@@ -3,7 +3,7 @@
 #include "hexapod_const.h"
 
 
-void InterpolatedNodeCreator::createInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const
+void InterpolatedNodeCreator::CreateInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const
 {
 	(*interpolated_node).clear();
 
