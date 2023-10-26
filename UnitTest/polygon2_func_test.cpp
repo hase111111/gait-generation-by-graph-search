@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "../DesignLab/designlab_polygon2.h"
-#include "../DesignLab/designlab_polygon.cpp"
+#include "../DesignLab/designlab_polygon2.cpp"
 
 
 namespace dl_vec_test

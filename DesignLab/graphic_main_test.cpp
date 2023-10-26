@@ -144,42 +144,42 @@ void GraphicMainTest::MoveBody()
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 	{
 		designlab::Vector3 com = 
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetUpVec() * kComSpeed,node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * kComSpeed,node_.rot);
 		
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetUpVec() * -kComSpeed, node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * -kComSpeed, node_.rot);
 
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetLeftVec() * kComSpeed, node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * kComSpeed, node_.rot);
 
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetLeftVec() * -kComSpeed, node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * -kComSpeed, node_.rot);
 
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetFrontVec() * kComSpeed, node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * kComSpeed, node_.rot);
 
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::rotVector(designlab::Vector3::GetFrontVec() * -kComSpeed, node_.rot);
+			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * -kComSpeed, node_.rot);
 
 		node_.ChangeGlobalCenterOfMass(com, false);
 	}

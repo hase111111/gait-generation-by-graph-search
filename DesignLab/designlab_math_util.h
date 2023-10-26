@@ -25,8 +25,8 @@ namespace designlab
 		constexpr double kDoublePi = 3.141592653589793;		//!< double型の円周率
 		constexpr float kFloatPi = 3.141592653589793f;		//!< float型の円周率
 
-		constexpr double kDoubleAllowableError = 0.001;								//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．0.1とか，大きな値は非推奨．
-		constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．0.1とか，大きな値は非推奨．
+		constexpr double kDoubleAllowableError = 0.001;									//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
+		constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
 
 
 		//! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．

@@ -34,11 +34,11 @@ namespace designlab
 		return str;
 	}
 
-	Vector3 rotVector(const Vector3& vec, const EulerXYZ& rot)
+	Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot)
 	{
 		RotationMatrix3x3 rot_mat(rot);
 
-		return rotVector(vec, rot_mat);
+		return RotateVector3(vec, rot_mat);
 
 		//const float x = cos(rot.z_angle) * cos(rot.y_angle) * vec.x
 		//	+ (cos(rot.z_angle) * sin(rot.y_angle) * sin(rot.x_angle) - sin(rot.z_angle) * cos(rot.x_angle)) * vec.y

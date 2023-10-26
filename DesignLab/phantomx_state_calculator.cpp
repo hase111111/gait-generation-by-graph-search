@@ -63,12 +63,12 @@ void PhantomXStateCalclator::CalculateAllJointState(const RobotStateNode& node, 
 		(*joint_state)[i].global_joint_position.clear();
 		(*joint_state)[i].global_joint_position.resize(4);
 
-		(*joint_state)[i].global_joint_position[0] = node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i), node.rot);
+		(*joint_state)[i].global_joint_position[0] = node.global_center_of_mass + designlab::RotateVector3(GetLocalLegBasePosition(i), node.rot);
 		
 		for (int j = 0; j < 4; j++)
 		{
 			(*joint_state)[i].global_joint_position[j] = 
-				node.global_center_of_mass + designlab::rotVector(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[j], node.rot);
+				node.global_center_of_mass + designlab::RotateVector3(GetLocalLegBasePosition(i) + joint_state->at(i).local_joint_position[j], node.rot);
 		}
 	}
 }
@@ -117,7 +117,7 @@ designlab::Vector3 PhantomXStateCalclator::ConvertGlobalToLegPosition(const int 
 {
 	if (consider_rot)
 	{
-		return designlab::rotVector(leg_pos - global_center_of_mass, robot_rot * -1) - GetLocalLegBasePosition(leg_index);
+		return designlab::RotateVector3(leg_pos - global_center_of_mass, robot_rot * -1) - GetLocalLegBasePosition(leg_index);
 	}
 	else
 	{
@@ -152,7 +152,7 @@ designlab::Vector3 PhantomXStateCalclator::GetGlobalLegBasePosition(const int le
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
 
-	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
+	if (consider_rot) { return designlab::RotateVector3(GetLocalLegBasePosition(leg_index), robot_rot) + global_center_of_mass; }
 	else { return GetLocalLegBasePosition(leg_index) + global_center_of_mass; }
 }
 
@@ -161,7 +161,7 @@ designlab::Vector3 PhantomXStateCalclator::GetGlobalLegPosition(const int leg_in
 {
 	assert(0 <= leg_index && leg_index < HexapodConst::kLegNum);	//leg_index‚Í 0`5 ‚Å‚ ‚éD
 
-	if (consider_rot) { return designlab::rotVector(GetLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
+	if (consider_rot) { return designlab::RotateVector3(GetLocalLegBasePosition(leg_index) + leg_pos, robot_rot) + global_center_of_mass; }
 	else { return global_center_of_mass + GetLocalLegBasePosition(leg_index) + leg_pos; }
 }
 

@@ -85,7 +85,7 @@ namespace designlab
 		);
 	}
 
-	Vector3 rotVector(const Vector3& vec, const RotationMatrix3x3& rot)
+	Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot)
 	{
 		Vector3 res;
 

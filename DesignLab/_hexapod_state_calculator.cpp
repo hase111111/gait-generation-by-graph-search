@@ -28,7 +28,7 @@
 //{
 //	if (do_consider_rot)
 //	{
-//		return rotVector(global_pos - node.global_center_of_mass, node.rot * -1) - getLocalCoxaJointPos(leg_num);
+//		return RotateVector3(global_pos - node.global_center_of_mass, node.rot * -1) - getLocalCoxaJointPos(leg_num);
 //	}
 //	else
 //	{
@@ -81,13 +81,13 @@
 //
 //designlab::Vector3 HexapodStateCalclator_Old::getGlobalFemurJointPos(const RobotStateNode& _node, const int _leg_num) const
 //{
-//	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_femurjoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
+//	return RotateVector3(getLocalCoxaJointPos(_leg_num) + m_local_femurjoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 //}
 //
 //
 //designlab::Vector3 HexapodStateCalclator_Old::getGlobalTibiaJointPos(const RobotStateNode& _node, const int _leg_num) const
 //{
-//	return rotVector(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
+//	return RotateVector3(getLocalCoxaJointPos(_leg_num) + m_local_tibiajoint_pos[_leg_num], _node.rot) + _node.global_center_of_mass;
 //}
 //
 //

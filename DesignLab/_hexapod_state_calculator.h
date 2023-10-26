@@ -55,7 +55,7 @@
 //	// @return designlab::Vector3 グローバル座標の脚の付け根の座標
 //	inline designlab::Vector3 GetGlobalCoxaJointPos(const RobotStateNode& _node, const int _leg_num, const bool _consider_rot) const
 //	{
-//		if (consider_rot) { return rotVector(getLocalCoxaJointPos(_leg_num), _node.rot) + _node.global_center_of_mass; }
+//		if (consider_rot) { return RotateVector3(getLocalCoxaJointPos(_leg_num), _node.rot) + _node.global_center_of_mass; }
 //		else { return _node.global_center_of_mass + getLocalCoxaJointPos(_leg_num); }
 //	}
 //

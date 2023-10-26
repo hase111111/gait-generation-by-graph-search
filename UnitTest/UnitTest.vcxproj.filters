@@ -3,31 +3,31 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="vector3_func_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="vector_operator_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="line2_func_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="vector2_arithmetic_operator_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="vector2_unary_operator_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="polygon2_func_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="vector2_func_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="make_leg_state_test.cpp">
       <Filter>LegState</Filter>
     </ClCompile>
     <ClCompile Include="polygon2_is_inside_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="LegStateIsGroundTest.cpp">
       <Filter>LegState\Ground</Filter>
@@ -42,9 +42,9 @@
       <Filter>LegState\Ground</Filter>
     </ClCompile>
     <ClCompile Include="polygon2_maxmin_test.cpp">
-      <Filter>Vector</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="MyMathTest.cpp">
+    <ClCompile Include="math_util_test.cpp">
       <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
@@ -61,11 +61,11 @@
     <Filter Include="LegState\Ground">
       <UniqueIdentifier>{6290727c-da48-408b-89e6-26f233dd40e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Vector">
-      <UniqueIdentifier>{6af5b4c4-b496-4759-b698-38b3cd0491f0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Math">
       <UniqueIdentifier>{3ef40a76-f474-450a-815d-63ae5493ae6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vector">
+      <UniqueIdentifier>{6af5b4c4-b496-4759-b698-38b3cd0491f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

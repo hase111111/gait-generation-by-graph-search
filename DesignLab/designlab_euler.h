@@ -97,7 +97,7 @@ namespace designlab
 	//! @param [in] vec 位置ベクトル
 	//! @param [in] rot 回転ベクトル
 	//! @return Vector3 回転した後の位置ベクトル
-	Vector3 rotVector(const Vector3& vec, const EulerXYZ& rot);
+	Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
 }	// namespace designlab
 

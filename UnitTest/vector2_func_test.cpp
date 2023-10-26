@@ -1,40 +1,31 @@
 #include "pch.h"
 
 #include "../DesignLab/designlab_vector2.h"
+#include "../DesignLab/designlab_vector2.cpp"
+
+
+namespace dl = ::designlab;
 
 
 namespace dl_vec_test
 {
-	//length関数のテスト
-	TEST(Vector2, GetLength)
+	std::string ToString(const dl::Vector2& vec)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		EXPECT_FLOAT_EQ(5.0f, vec.GetLength());
-
-		//sample2
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(1.41421356f, vec2.GetLength());
-
-		//sample3
-		designlab::Vector2 vec3(0.0f, 0.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec3.GetLength());
-
-		//sample4
-		designlab::Vector2 vec4(-1.0f, -1.0f);
-		EXPECT_FLOAT_EQ(1.41421356f, vec4.GetLength());
-
-		//sample5
-		designlab::Vector2 vec5(-3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(5.0f, vec5.GetLength());
-
-		//sample6
-		designlab::Vector2 vec6(3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(5.0f, vec6.GetLength());
+		return "(" + std::to_string(vec.x) + "," + std::to_string(vec.y) + ")";
 	}
 
-	//lengthSquare関数のテスト
-	TEST(Vector2, GetSquaredLength)
+
+	TEST(Vector2Test, GetLength)
+	{
+		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, 4.0f).GetLength());
+		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(-3.0f, -4.0f).GetLength());
+		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, -4.0f).GetLength());
+		EXPECT_FLOAT_EQ(341.760149f, dl::Vector2(120.0f, 320.0f).GetLength());
+
+		EXPECT_FLOAT_EQ(0.0f, dl::Vector2(0.0f, 0.0f).GetLength());
+	}
+
+	TEST(Vector2Test, GetSquaredLength)
 	{
 		//sample1
 		designlab::Vector2 vec(3.0f, 4.0f);
@@ -62,41 +53,32 @@ namespace dl_vec_test
 	}
 
 	//dot関数のテスト
-	TEST(Vector2, Dot)
+	TEST(Vector2Test, Dot)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(7.0f, vec.Dot(vec2));
+		std::vector<std::tuple<dl::Vector2, dl::Vector2,float>> data_table = {
+			std::make_tuple(dl::Vector2(3.0f, 4.0f),	dl::Vector2(1.0f, 1.0f),	7.0f),
+			std::make_tuple(dl::Vector2(1.0f, 1.0f),	dl::Vector2(1.0f, 1.0f),	2.0f),
+			std::make_tuple(dl::Vector2(0.0f, 0.0f),	dl::Vector2(0.0f, 0.0f),	0.0f),
+			std::make_tuple(dl::Vector2(-1.0f, -1.0f),	dl::Vector2(-1.0f, -1.0f),	2.0f),
+			std::make_tuple(dl::Vector2(-3.0f, -4.0f),	dl::Vector2(-3.0f, -4.0f),	25.0f),
+			std::make_tuple(dl::Vector2(3.0f, -4.0f),	dl::Vector2(3.0f, -4.0f),	25.0f)
+		};
 
-		//sample2
-		designlab::Vector2 vec3(1.0f, 1.0f);
-		designlab::Vector2 vec4(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(2.0f, vec3.Dot(vec4));
+		for (const auto& data : data_table)
+		{
+			const dl::Vector2 vec1 = std::get<0>(data);
+			const dl::Vector2 vec2 = std::get<1>(data);
+			const float expected = std::get<2>(data);
 
-		//sample3
-		designlab::Vector2 vec5(0.0f, 0.0f);
-		designlab::Vector2 vec6(0.0f, 0.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec5.Dot(vec6));
+			std::string test_discription = "Dot expected : \n " + ToString(vec1) + "・" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
+			test_discription += "Actual :" + std::to_string(vec1.Dot(vec2));
 
-		//sample4
-		designlab::Vector2 vec7(-1.0f, -1.0f);
-		designlab::Vector2 vec8(-1.0f, -1.0f);
-		EXPECT_FLOAT_EQ(2.0f, vec7.Dot(vec8));
-
-		//sample5
-		designlab::Vector2 vec9(-3.0f, -4.0f);
-		designlab::Vector2 vec10(-3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(25.0f, vec9.Dot(vec10));
-
-		//sample6
-		designlab::Vector2 vec11(3.0f, -4.0f);
-		designlab::Vector2 vec12(3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(25.0f, vec11.Dot(vec12));
+			EXPECT_FLOAT_EQ(expected, vec1.Dot(vec2)) << test_discription;
+		}
 	}
 
 	//cross関数のテスト
-	TEST(Vector2, Cross)
+	TEST(Vector2Test, Cross)
 	{
 		//sample1
 		designlab::Vector2 vec(3.0f, 4.0f);
@@ -130,7 +112,7 @@ namespace dl_vec_test
 	}
 
 	//distanceFrom関数のテスト
-	TEST(Vector2, GetDistanceFrom)
+	TEST(Vector2Test, GetDistanceFrom)
 	{
 		//sample1
 		designlab::Vector2 vec(3.0f, 4.0f);
@@ -163,8 +145,7 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(0.854400374f, vec11.GetDistanceFrom(vec12));
 	}
 
-	//normalized関数のテスト
-	TEST(Vector2, GetNormalized)
+	TEST(Vector2Test, GetNormalized)
 	{
 		//sample1
 		designlab::Vector2 vec(3.0f, 4.0f);
@@ -203,32 +184,14 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(-0.8f, res6.y);
 	}
 
-	//isZero関数のテスト
-	TEST(Vector2, IsZero)
+	TEST(Vector2Test, IsZero)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		EXPECT_FALSE(vec.IsZero());
+		EXPECT_TRUE(dl::Vector2(0.0f, 0.0f).IsZero());
 
-		//sample2
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FALSE(vec2.IsZero());
-
-		//sample3
-		designlab::Vector2 vec3(0.0f, 0.0f);
-		EXPECT_TRUE(vec3.IsZero());
-
-		//sample4
-		designlab::Vector2 vec4(-1.0f, -1.0f);
-		EXPECT_FALSE(vec4.IsZero());
-
-		//sample5
-		designlab::Vector2 vec5(-3.0f, -4.0f);
-		EXPECT_FALSE(vec5.IsZero());
-
-		//sample6
-		designlab::Vector2 vec6(3.0f, -4.0f);
-		EXPECT_FALSE(vec6.IsZero());
+		EXPECT_FALSE(dl::Vector2(1.0f, 0.0f).IsZero());
+		EXPECT_FALSE(dl::Vector2(0.0f, 1.0f).IsZero());
+		EXPECT_FALSE(dl::Vector2(3.0f, 4.0f).IsZero());
+		EXPECT_FALSE(dl::Vector2(-1.0f, -1.0f).IsZero());
 	}
 
 }

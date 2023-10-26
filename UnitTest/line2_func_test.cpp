@@ -1,15 +1,15 @@
 #include "pch.h"
 
 #include "../DesignLab/designlab_line_segment2.h"
-#include "../DesignLab/designlab_line.cpp"
+#include "../DesignLab/designlab_line_segment2.cpp"
 
 
 
 namespace dl_vec_test
 {
-	TEST(LineSegment2, GetIntersection)
+	TEST(LineSegment2Test, GetIntersection)
 	{
-		//辺が平行の場合交点はない，(0,0)が返る
+		//辺が平行の場合交点はない扱いにする，(0,0)が返る
 		designlab::LineSegment2 line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
 		designlab::LineSegment2 line2 = designlab::LineSegment2({ 0, 1 }, { 1, 2 });
 		EXPECT_EQ(line1.GetIntersection(line2), designlab::Vector2(0, 0));
@@ -40,7 +40,7 @@ namespace dl_vec_test
 	}
 
 	//hasIntersection関数のテスト
-	TEST(LineSegment2, HasIntersection)
+	TEST(LineSegment2Test, HasIntersection)
 	{
 		//辺が平行の場合交点はない
 		designlab::LineSegment2 line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
@@ -73,7 +73,7 @@ namespace dl_vec_test
 	}
 
 	//getLength関数のテスト
-	TEST(LineSegment2, GetLength)
+	TEST(LineSegment2Test, GetLength)
 	{
 		//辺の長さが正しく返る
 		designlab::LineSegment2 line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });
@@ -99,7 +99,7 @@ namespace dl_vec_test
 	}
 
 	//isParallel関数のテスト
-	TEST(LineSegment2, IsParallel)
+	TEST(LineSegment2Test, IsParallel)
 	{
 		//辺が平行の場合trueが返る
 		designlab::LineSegment2 line1 = designlab::LineSegment2({ 0, 0 }, { 1, 1 });

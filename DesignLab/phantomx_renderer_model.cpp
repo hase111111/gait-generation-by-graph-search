@@ -135,7 +135,7 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 			designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(-90.0f));
 
 		const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-			designlab::rotVector
+			designlab::RotateVector3
 			(
 				designlab::Vector3::GetFrontVec() * kOffsetLength,
 				designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
@@ -162,7 +162,7 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	//	const float kOffsetLength2 = kOffsetLength + 5.0f;	//âÒì]íÜêSÇ∆å¥ì_Ç™Ç∏ÇÍÇƒÇ¢ÇÈÇÃÇ≈ÅCÇªÇÃï™Çï‚ê≥Ç∑ÇÈ
 	//
 	//	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-	//		designlab::rotVector
+	//		designlab::RotateVector3
 	//		(
 	//			designlab::Vector3::GetFrontVec() * kOffsetLength2,
 	//			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
@@ -211,7 +211,7 @@ void PhantomXRendererModel::DrawFemurLink(int leg_index) const
 		designlab::RotationMatrix3x3::CreateRotationMatrixX(PhantomXConst::kFemurVirtualLinkOffsetAngle);
 
 	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-		designlab::rotVector
+		designlab::RotateVector3
 		(
 			designlab::Vector3::GetFrontVec(),
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
@@ -262,7 +262,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
 
 	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-	designlab::rotVector
+	designlab::RotateVector3
 		(
 			designlab::Vector3::GetFrontVec(),
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
@@ -306,7 +306,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0]);
 
 		const VECTOR kAxisVec = dldu::ConvertToDxlibVec(
-			designlab::rotVector(designlab::Vector3::GetUpVec() * kAxisLength / 2, kBodyRotMat)
+			designlab::RotateVector3(designlab::Vector3::GetUpVec() * kAxisLength / 2, kBodyRotMat)
 		);
 
 		DrawCapsule3D(kCoxaJointPos - kAxisVec, kCoxaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kCoxaAxisColor, kSpecColor, TRUE);
@@ -323,7 +323,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);
 
 		const VECTOR kAxisVec = dldu::ConvertToDxlibVec(
-			designlab::rotVector
+			designlab::RotateVector3
 			(
 				designlab::Vector3::GetLeftVec() * kAxisLength / 2,
 				kDefRotMat * kBodyRotMat
@@ -344,7 +344,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);
 
 		const VECTOR kAxisVec = dldu::ConvertToDxlibVec(
-			designlab::rotVector
+			designlab::RotateVector3
 			(
 				designlab::Vector3::GetLeftVec() * kAxisLength / 2,
 				kDefRotMat * kBodyRotMat
