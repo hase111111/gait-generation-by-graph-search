@@ -7,6 +7,7 @@
 
 
 #include <cmath>
+#include <string>
 
 #include "cassert_define.h"
 #include "designlab_euler.h"
@@ -113,6 +114,23 @@ namespace designlab
 
 
 	constexpr Quaternion operator * (float s, const Quaternion& q) { return q * s; }
+
+	// 出力ストリーム
+	template <class Char>
+	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Quaternion& q)
+	{
+		os << ::designlab::math_util::ConvertFloatToString(q.w) << Char(',') << q.v;
+
+		return os;
+	}
+
+	//入力ストリーム
+	template <class Char>
+	inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Quaternion& q)
+	{
+		Char unused;
+		return is >> unused >> q.w >> unused >> q.v;
+	}
 
 	//! @brief 3次元の位置ベクトルを回転させる．
 	//! @param [in] vec 回転させるベクトル．
