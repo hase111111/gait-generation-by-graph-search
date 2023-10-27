@@ -4,9 +4,10 @@
 
 using namespace designlab;
 
-namespace dl_vec_test
+
+namespace designlab::test::common::math
 {
-	TEST(Vector2, PlusOperator)
+	TEST(Vector2Test, PlusOperator)
 	{
 		//®”“¯m‚Ì‘«‚µZ
 		Vector2 v1(1, 2);
@@ -45,7 +46,7 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(v11.y, v12.y);
 	}
 
-	TEST(Vector2, MinusOperator)
+	TEST(Vector2Test, MinusOperator)
 	{
 		//®”“¯m‚Ìˆø‚«Z
 		Vector2 v1(1, 2);
@@ -84,7 +85,7 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(v11.y, v12.y);
 	}
 
-	TEST(Vector2, MultipleOperator)
+	TEST(Vector2Test, MultipleOperator)
 	{
 		//®”‚Æ‚ÌŠ|‚¯Z
 		Vector2 v1(1, 2);
@@ -114,7 +115,7 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(v7.y, -1.0f);
 	}
 
-	TEST(Vector2, DivisionOperator)
+	TEST(Vector2Test, DivisionOperator)
 	{
 		//®”‚Æ‚ÌŠ„‚èZ
 		Vector2 v1(1, 2);
@@ -137,4 +138,5 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(v5.x, -2);
 		EXPECT_FLOAT_EQ(v5.y, -4);
 	}
-}
+
+}	// namespace designlab::test::common::math

@@ -38,21 +38,21 @@
 //		bool is_ground[HexapodConst::kLegNum] = { true, true, true, true, true, true };
 //		DiscreteLegPos discretized_leg_pos[HexapodConst::kLegNum] = { DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
 //																				DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter };
-//		std::bitset<dl_leg::kLegStateBitNum> res = dl_leg::MakeLegStateBit(com, is_ground, discretized_leg_pos);
+//		std::bitset<dllf::kLegStateBitNum> res = dllf::MakeLegStateBit(com, is_ground, discretized_leg_pos);
 //		std::vector<int> grounded_leg_index;
-//		dl_leg::GetGroundedLegIndexByVector(res, &grounded_leg_index);
+//		dllf::GetGroundedLegIndexByVector(res, &grounded_leg_index);
 //		testBoolArrayAndVectorIndex(is_ground, grounded_leg_index);
 //
 //
 //		// テストケース2 5脚接地
 //		bool is_ground1_1[HexapodConst::kLegNum] = { true, true, true, true, true, false };
-//		res = dl_leg::MakeLegStateBit(com, is_ground1_1, discretized_leg_pos);
-//		dl_leg::GetGroundedLegIndexByVector(res, &grounded_leg_index);
+//		res = dllf::MakeLegStateBit(com, is_ground1_1, discretized_leg_pos);
+//		dllf::GetGroundedLegIndexByVector(res, &grounded_leg_index);
 //		testBoolArrayAndVectorIndex(is_ground1_1, grounded_leg_index);
 //
 //		bool is_ground1_2[HexapodConst::kLegNum] = { true, true, true, true, false, true };
-//		res = dl_leg::MakeLegStateBit(com, is_ground1_2, discretized_leg_pos);
-//		dl_leg::GetGroundedLegIndexByVector(res, &grounded_leg_index);
+//		res = dllf::MakeLegStateBit(com, is_ground1_2, discretized_leg_pos);
+//		dllf::GetGroundedLegIndexByVector(res, &grounded_leg_index);
 //		testBoolArrayAndVectorIndex(is_ground1_2, grounded_leg_index);
 //	}
 //}

@@ -53,7 +53,7 @@ namespace
 
 namespace designlab::test::common::math
 {
-	TEST(Vector3Test, GetSquaredLength)
+	TEST(Vector3Test, GetSquaredLengthTest)
 	{
 		std::vector<std::tuple<dl::Vector3, float>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),			0.f),
@@ -76,7 +76,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, GetLength)
+	TEST(Vector3Test, GetLengthTest)
 	{
 		std::vector<std::tuple<dl::Vector3, float>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),			0.f),
@@ -98,7 +98,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, GetDistanceFrom)
+	TEST(Vector3Test, GetDistanceFromTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3, float>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),	MakeVec3(0.f, 0.f, 0.f),		0.f),
@@ -123,7 +123,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, GetNormalized)
+	TEST(Vector3Test, GetNormalizedTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3>> testcase_list{
 			std::make_tuple(MakeVec3(500.f, 0.f, 0.f),			MakeVec3(1.f, 0.f, 0.f)),
@@ -156,7 +156,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "長さが0のベクトルを渡されると，そのまま0ベクトルを返す．";
 	}
 
-	TEST(Vector3Test, IsZero)
+	TEST(Vector3Test, IsZeroTest)
 	{
 		dl::Vector3 zero_vec = MakeVec3(0.f, 0.f, 0.f);
 		EXPECT_TRUE(zero_vec.IsZero()) << "長さが0のベクトルを渡されるとtrueになる．";
@@ -180,7 +180,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, Dot)
+	TEST(Vector3Test, DotTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3, float>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),			MakeVec3(0.f, 0.f, 0.f),		0.f),
@@ -204,7 +204,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, Cross)
+	TEST(Vector3Test, CrossTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3, dl::Vector3>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),			MakeVec3(0.f, 0.f, 0.f),		MakeVec3(0.f, 0.f, 0.f)),
@@ -224,7 +224,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, ProjectXY) 
+	TEST(Vector3Test, ProjectXYTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector2>> testcase_list{
 			std::make_tuple(MakeVec3(0,0,0),			MakeVec2(0.f, 0.f)),

@@ -9,7 +9,7 @@ namespace dl = ::designlab;
 
 namespace designlab::test::common::math
 {
-	TEST(Vector3Test, DefaultConstructor)
+	TEST(Vector3Test, DefaultConstructorTest)
 	{
 		//デフォルトコンストラクタのテスト
 		dl::Vector3 vec;
@@ -20,7 +20,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec.z, 0.f) << str;
 	}
 
-	TEST(Vector3Test, Constructor)
+	TEST(Vector3Test, ConstructorTest)
 	{
 		//コンストラクタのテスト
 		dl::Vector3 vec(1.f, 2.f, 3.f);
@@ -31,7 +31,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec.z, 3.f) << str;
 	}
 
-	TEST(Vector3Test, CopyConstructor)
+	TEST(Vector3Test, CopyConstructorTest)
 	{
 		//コピーコンストラクタのテスト
 		dl::Vector3 vec(1.f, 2.f, 3.f);
@@ -43,7 +43,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec2.z, 3.f) << str;
 	}
 
-	TEST(Vector3Test, AssignmentOperator)
+	TEST(Vector3Test, AssignmentOperatorTest)
 	{
 		// Assignment Operator = 代入演算子
 		dl::Vector3 vec(1.f, 2.f, 3.f);

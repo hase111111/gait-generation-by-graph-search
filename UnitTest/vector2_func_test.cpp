@@ -1,7 +1,6 @@
 #include "pch.h"
 
 #include "../DesignLab/designlab_vector2.h"
-#include "../DesignLab/designlab_vector2.cpp"
 
 
 namespace dl = ::designlab;
@@ -31,6 +30,7 @@ namespace designlab::test::common::math
 {
 	TEST(Vector2Test, GetLength)
 	{
+
 		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, 4.0f).GetLength());
 		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(-3.0f, -4.0f).GetLength());
 		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, -4.0f).GetLength());

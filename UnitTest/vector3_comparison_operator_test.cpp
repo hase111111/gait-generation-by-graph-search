@@ -33,7 +33,7 @@ namespace
 
 namespace designlab::test::common::math
 {
-	TEST(Vector3Test, EqualityOperator)
+	TEST(Vector3Test, EqualityOperatorTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3, bool>> testcase_list{
 			{MakeVec3(10.f, -5.f, 0.f),				MakeVec3(10.f, -5.f, 0.f),				true,},
@@ -65,7 +65,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, InequalityOperator)
+	TEST(Vector3Test, InequalityOperatorTest)
 	{
 		std::vector<std::tuple<dl::Vector3, dl::Vector3, bool>> testcase_list{
 			std::make_tuple(MakeVec3(10.f, -5.f, 0.f),				MakeVec3(10.f, -5.f, 0.f),				false),
@@ -97,22 +97,49 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, ComparisonOperator)
+	TEST(Vector3Test, ComparisonLessThanOperatorTest)
 	{
-		//比較演算子のテスト．比較演算子はベクトルの長さを用いて比較を行う．
+		//比較演算子はベクトルの長さを用いて比較を行う．
+		// < less than
 
-		EXPECT_TRUE(designlab::Vector3(0, 0, 0) < designlab::Vector3(5, 10, -6));
-		EXPECT_TRUE(designlab::Vector3(2, -6, 3) < designlab::Vector3(56, 20, -94));
-		EXPECT_TRUE(designlab::Vector3(5, 10, -6) > designlab::Vector3(0, 0, 0));
-		EXPECT_TRUE(designlab::Vector3(56, 20, -94) > designlab::Vector3(2, -6, 3));
+		EXPECT_TRUE(MakeVec3(0.f, 0.f, 0.f)		< MakeVec3(5.f, 10.f, -6.f));
+		EXPECT_TRUE(MakeVec3(2.f, -6.f, 3.f)	< MakeVec3(56.f, 20.f, -94.f));
 
-		EXPECT_TRUE(designlab::Vector3(0, 0, 0) <= designlab::Vector3(5, 10, -6));
-		EXPECT_TRUE(designlab::Vector3(2, -6, 3) <= designlab::Vector3(56, 20, -94));
-		EXPECT_TRUE(designlab::Vector3(5, 10, -6) >= designlab::Vector3(0, 0, 0));
-		EXPECT_TRUE(designlab::Vector3(56, 20, -94) >= designlab::Vector3(2, -6, 3));
+		EXPECT_FALSE(MakeVec3(4.0f, 5.6f, -2.0f)	< MakeVec3(4.0f, 5.6f, -2.0f));
+		EXPECT_FALSE(MakeVec3(-26.f, 85.f, 120.f)	< MakeVec3(-23, 85, 91));
+	}
 
-		EXPECT_TRUE(designlab::Vector3(-23, 85, 91) <= designlab::Vector3(-23, 85, 91));
-		EXPECT_TRUE(designlab::Vector3(-23, 85, 91) >= designlab::Vector3(-23, 85, 91));
+	TEST(Vector3Test, ComparisonLessThanOrEqualToOperatorTest)
+	{
+		// <= less than or equal to
+		 
+		EXPECT_TRUE(MakeVec3(0.f, 0.f, 0.f)		<= MakeVec3(5.f, 10.f, -6.f));
+		EXPECT_TRUE(MakeVec3(2.f, -6.f, 3.f)	<= MakeVec3(56.f, 20.f, -94.f));
+		EXPECT_TRUE(MakeVec3(4.0f, 5.6f, -2.0f) <= MakeVec3(4.0f, 5.6f, -2.0f));
+
+		EXPECT_FALSE(MakeVec3(-26.f, 85.f, 120.f) <= MakeVec3(-23, 85, 91));
+	}
+
+	TEST(Vector3Test, ComparisonGreaterThanOperatorTest)
+	{
+		// > greater than
+
+		EXPECT_TRUE(MakeVec3(5.f, 10.f, -6.f)	> MakeVec3(0.f, 0.f, 0.f));
+		EXPECT_TRUE(MakeVec3(56.f, 20.f, -94.f)	> MakeVec3(2.f, -6.f, 3.f));
+
+		EXPECT_FALSE(MakeVec3(4.0f, 5.6f, -2.0f)	> MakeVec3(4.0f, 5.6f, -2.0f));
+		EXPECT_FALSE(MakeVec3(-23, 85, 91)		> MakeVec3(-26.f, 85.f, 120.f));
+	}
+
+	TEST(Vector3Test, ComparisonGreaterThanOrEqualToOperatorTest)
+	{
+		// >= greater than or equal to
+
+		EXPECT_TRUE(MakeVec3(5.f, 10.f, -6.f)	>= MakeVec3(0.f, 0.f, 0.f));
+		EXPECT_TRUE(MakeVec3(56.f, 20.f, -94.f)	>= MakeVec3(2.f, -6.f, 3.f));
+		EXPECT_TRUE(MakeVec3(4.0f, 5.6f, -2.0f)	>= MakeVec3(4.0f, 5.6f, -2.0f));
+
+		EXPECT_FALSE(MakeVec3(-23, 85, 91)		>= MakeVec3(-26.f, 85.f, 120.f));
 	}
 
 }	// namespace designlab::test::common::math

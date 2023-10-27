@@ -23,16 +23,13 @@
     <ClCompile Include="vector2_func_test.cpp">
       <Filter>Common\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="make_leg_state_test.cpp">
-      <Filter>LegState</Filter>
-    </ClCompile>
     <ClCompile Include="polygon2_is_inside_test.cpp">
       <Filter>Common\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="LegStateIsGroundTest.cpp">
+    <ClCompile Include="leg_func_test.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
-    <ClCompile Include="get_lifted_leg_num_test.cpp">
+    <ClCompile Include="leg_func_ground_test.cpp">
       <Filter>LegState\Ground</Filter>
     </ClCompile>
     <ClCompile Include="get_grounded_leg_num_test.cpp">
@@ -58,6 +55,15 @@
     </ClCompile>
     <ClCompile Include="vector3_unary_operator_test.cpp">
       <Filter>Common\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2_test.cpp">
+      <Filter>Common\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="asyncable_data_test.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="asyncable_data_vector_test.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

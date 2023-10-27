@@ -219,7 +219,7 @@
 //{
 //	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
-//		if (dl_leg::IsGrounded(node.leg_state, i))
+//		if (dllf::IsGrounded(node.leg_state, i))
 //		{
 //			if (!IsLegInRange(node.leg_pos[i], i)) { return false; }
 //		}
@@ -240,7 +240,7 @@
 //	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 //	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
-//		if (dl_leg::IsGrounded(_node.leg_state, i) == true)
+//		if (dllf::IsGrounded(_node.leg_state, i) == true)
 //		{
 //			leg_pos[leg_pos_index] = _node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY();
 //			++leg_pos_index;
@@ -269,7 +269,7 @@
 //	//Ú’n‹r‚Ì‚Ý’Ç‰Á‚·‚é
 //	for (int i = 0; i < HexapodConst::kLegNum; i++)
 //	{
-//		if (dl_leg::IsGrounded(node.leg_state, i) == true)
+//		if (dllf::IsGrounded(node.leg_state, i) == true)
 //		{
 //			leg_pos.push_back(node.leg_pos[i].ProjectedXY() + getLocalCoxaJointPos(i).ProjectedXY());
 //		}

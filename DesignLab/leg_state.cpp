@@ -10,7 +10,7 @@ namespace designlab::leg_func
 	{
 		LegStateBit res = 0;
 
-		res |= static_cast<int>(discrete_com_pos) << kShiftToComNum;	//重心パターンの数値だけbitを立てる
+		res |= static_cast<unsigned int>(discrete_com_pos) << kShiftToComNum;	//重心パターンの数値だけbitを立てる
 
 
 		for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -19,7 +19,7 @@ namespace designlab::leg_func
 			if (is_ground[i]) { res[(i + 1) * 4 - 1] = true; }
 
 			// 脚のbitを立てる
-			res |= static_cast<int>(discretized_leg_pos[i]) << (i * 4);
+			res |= static_cast<unsigned int>(discretized_leg_pos[i]) << (i * 4);
 		}
 
 		return res;
@@ -159,7 +159,7 @@ namespace designlab::leg_func
 
 		//新しい脚状態を生成する
 		LegStateBit mask = kLegStateMaskbit << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
-		LegStateBit  state = static_cast<int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+		LegStateBit  state = static_cast<unsigned int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
 
 		//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
 		LegStateBit res = ((*leg_state) ^ state) & mask;
@@ -183,7 +183,7 @@ namespace designlab::leg_func
 
 		//新しい脚状態を生成する
 		LegStateBit mask = kLegPosMaskbit << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
-		LegStateBit state = static_cast<int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+		LegStateBit state = static_cast<unsigned int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
 
 		//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
 		LegStateBit res = ((*leg_state) ^ state) & mask;
@@ -232,7 +232,7 @@ namespace designlab::leg_func
 		// leg_state は nullptrではない
 		assert(leg_state != nullptr);
 
-		const LegStateBit state = static_cast<int>(new_com_pattern) << kShiftToComNum;
+		const LegStateBit state = static_cast<unsigned int>(new_com_pattern) << kShiftToComNum;
 		LegStateBit sub = ((*leg_state) ^ state) & kComStateMaskbit;
 		(*leg_state) ^= sub;
 	}

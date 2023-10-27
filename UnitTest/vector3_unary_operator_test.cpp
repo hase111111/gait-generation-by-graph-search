@@ -26,7 +26,7 @@ namespace designlab::test::common::math
 {
 	// ’P€‰‰Zq = Unary Operator
 
-	TEST(Vector3Test, UnaryPlusOperator)
+	TEST(Vector3Test, UnaryPlusOperatorTest)
 	{
 		dl::Vector3 v1 = MakeVec3(1.0f, 2.0f, 0.5f);
 		v1 = +v1;
@@ -41,7 +41,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(v2.z, 0.0f);
 	}
 
-	TEST(Vector3Test, UnaryMinusOperator)
+	TEST(Vector3Test, UnaryMinusOperatorTest)
 	{
 		designlab::Vector3 v1 = MakeVec3(1.0f, 2.0f, 0.7f);
 		v1 = -v1;
