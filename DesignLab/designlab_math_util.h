@@ -64,7 +64,13 @@ namespace designlab
 		//! @param [in] c 3辺目．
 		//! @return bool 三角形が作れるならばtrue．
 		template <typename T>
-		constexpr bool CanMakeTriangle(const T a, const T b, const T c) { return (a + b > c && b + c > a && c + a > b); }
+		constexpr bool CanMakeTriangle(const T a, const T b, const T c) 
+		{ 
+			assert(a > 0);
+			assert(b > 0);
+			assert(c > 0);
+			return (a + b > c && b + c > a && c + a > b); 
+		}
 		
 		//! @brief 目標値に値を近づける関数．
 		//! @n 適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと

@@ -7,14 +7,28 @@
 namespace dl = ::designlab;
 
 
-namespace dl_vec_test
+namespace 
 {
+	// テスト用のヘルパー関数
+
+	dl::Vector2 MakeVec2(float x, float y)
+	{
+		dl::Vector2 vec;
+		vec.x = x;
+		vec.y = y;
+
+		return vec;
+	}
+
 	std::string ToString(const dl::Vector2& vec)
 	{
 		return "(" + std::to_string(vec.x) + "," + std::to_string(vec.y) + ")";
 	}
+}
 
 
+namespace designlab::test::common::math
+{
 	TEST(Vector2Test, GetLength)
 	{
 		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, 4.0f).GetLength());
@@ -55,16 +69,16 @@ namespace dl_vec_test
 	//dot関数のテスト
 	TEST(Vector2Test, Dot)
 	{
-		std::vector<std::tuple<dl::Vector2, dl::Vector2,float>> data_table = {
-			std::make_tuple(dl::Vector2(3.0f, 4.0f),	dl::Vector2(1.0f, 1.0f),	7.0f),
-			std::make_tuple(dl::Vector2(1.0f, 1.0f),	dl::Vector2(1.0f, 1.0f),	2.0f),
-			std::make_tuple(dl::Vector2(0.0f, 0.0f),	dl::Vector2(0.0f, 0.0f),	0.0f),
-			std::make_tuple(dl::Vector2(-1.0f, -1.0f),	dl::Vector2(-1.0f, -1.0f),	2.0f),
-			std::make_tuple(dl::Vector2(-3.0f, -4.0f),	dl::Vector2(-3.0f, -4.0f),	25.0f),
-			std::make_tuple(dl::Vector2(3.0f, -4.0f),	dl::Vector2(3.0f, -4.0f),	25.0f)
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
+			{MakeVec2(3.0f, 4.0f),		MakeVec2(1.0f, 1.0f),	7.0f },
+			{MakeVec2(1.0f, 1.0f),		MakeVec2(1.0f, 1.0f),	2.0f},
+			{MakeVec2(0.0f, 0.0f),		MakeVec2(0.0f, 0.0f),	0.0f },
+			{MakeVec2(-1.0f, -1.0f),	MakeVec2(-1.0f, -1.0f),	2.0f },
+			{MakeVec2(-3.0f, -4.0f),	MakeVec2(-3.0f, -4.0f),	25.0f },
+			{MakeVec2(3.0f, -4.0f),		MakeVec2(3.0f, -4.0f),	25.0f }
 		};
 
-		for (const auto& data : data_table)
+		for (const auto& data : testcase_list)
 		{
 			const dl::Vector2 vec1 = std::get<0>(data);
 			const dl::Vector2 vec2 = std::get<1>(data);

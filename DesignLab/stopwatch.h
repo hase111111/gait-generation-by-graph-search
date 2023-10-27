@@ -17,6 +17,8 @@ class Stopwatch final
 {
 public:
 
+	//! @brief コンストラクタ
+	//! @n 現在時刻で初期化する．
 	Stopwatch();
 
 	//! @brief 計測開始にこの関数を呼ぶ．

@@ -53,11 +53,15 @@
     <ClCompile Include="polygon2_is_inside_test.cpp" />
     <ClCompile Include="polygon2_maxmin_test.cpp" />
     <ClCompile Include="polygon2_func_test.cpp" />
+    <ClCompile Include="stopwatch_test.cpp" />
     <ClCompile Include="vector2_arithmetic_operator_test.cpp" />
     <ClCompile Include="vector2_func_test.cpp" />
     <ClCompile Include="vector2_unary_operator_test.cpp" />
+    <ClCompile Include="vector3_comparison_operator_test.cpp" />
     <ClCompile Include="vector3_func_test.cpp" />
-    <ClCompile Include="vector_operator_test.cpp" />
+    <ClCompile Include="vector3_arithmetic_operator_test.cpp" />
+    <ClCompile Include="vector3_test.cpp" />
+    <ClCompile Include="vector3_unary_operator_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesignLab\DesignLab.vcxproj">

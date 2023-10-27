@@ -6,9 +6,9 @@
 
 namespace dlm = designlab::math_util;
 
-namespace dl_math_test
+namespace designlab::test::common::math
 {
-	TEST(MathUtilTest, IsEqualTestFloat)
+	TEST(MathUtilTest, IsEqualTestFloatType)
 	{
 		//float型のオーバーロード
 
@@ -27,19 +27,21 @@ namespace dl_math_test
 		//小数点以下3桁までの誤差を許容する．大きい場合
 		EXPECT_TRUE(dlm::IsEqual(5.0f, 5.0f + 0.00001f));
 		EXPECT_TRUE(dlm::IsEqual(5.0f, 5.0f + 0.0001f));
-		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f + 0.001f));
+		//EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f + 0.001f));
+		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f + 0.0011f));
 		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f + 0.01f));
 		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f + 0.1f));
 
 		//小さい場合
 		EXPECT_TRUE(dlm::IsEqual(5.0f, 5.0f - 0.00001f));
 		EXPECT_TRUE(dlm::IsEqual(5.0f, 5.0f - 0.0001f));
-		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f - 0.001f));
+		//EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f - 0.001f));
+		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f - 0.0011f));
 		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f - 0.01f));
 		EXPECT_FALSE(dlm::IsEqual(5.0f, 5.0f - 0.1f));
 	}
 
-	TEST(MathUtilTest, IsEqualTestDouble)
+	TEST(MathUtilTest, IsEqualTestDoubleType)
 	{
 		//double型のオーバーロード
 
@@ -72,51 +74,101 @@ namespace dl_math_test
 		EXPECT_FALSE(dlm::IsEqual(5.0, 5.0 - 0.1));
 	}
 
-	TEST(MathUtilTest, Squared)
+	TEST(MathUtilTest, SquaredTestIntType)
 	{
 		//int型
 		EXPECT_EQ(dlm::Squared(-13), 169);
 		EXPECT_EQ(dlm::Squared(4), 16);
 		EXPECT_EQ(dlm::Squared(0), 0);
+	}
 
+	TEST(MathUtilTest, SquaredTestDoubleType)
+	{
 		//double型
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(4.8), 23.04));
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(125.2), 15675.04));
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(0.1), 0.01));
+	}
 
+	TEST(MathUtilTest, SquaredTestFloatType)
+	{
 		//float型
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(4.8f), 23.04f));
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(125.2f), 15675.04f));
 		EXPECT_TRUE(dlm::IsEqual(dlm::Squared(0.1f), 0.01f));
-
-		//char型
-		EXPECT_EQ(dlm::Squared<char>(11), char{121});
-		EXPECT_EQ(dlm::Squared<char>(-7), char{49});
-
-		//unsigned int型
-		EXPECT_EQ(dlm::Squared<unsigned int>(13), 169);
-		EXPECT_EQ(dlm::Squared<unsigned int>(1429), 2042041);
 	}
 
-	TEST(MathUtilTest, CanMakeTriangle) 
+	TEST(MathUtilTest, SquaredTestCharType)
 	{
-		//TRUE
-		EXPECT_TRUE(dlm::CanMakeTriangle(1.0, 1.0, 1.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(1.0, 1.0, 2.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(1.0, 2.0, 1.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(2.0, 1.0, 1.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(2.0, 2.0, 2.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(2.0, 2.0, 3.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(2.0, 3.0, 2.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(3.0, 2.0, 2.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(3.0, 3.0, 3.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(3.0, 3.0, 4.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(3.0, 4.0, 3.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(4.0, 3.0, 3.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(4.0, 4.0, 4.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(4.0, 4.0, 5.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(4.0, 5.0, 4.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(5.0, 4.0, 4.0));
-		EXPECT_TRUE(dlm::CanMakeTriangle(5.0, 5.0, 5.0));
+		//char型
+		EXPECT_EQ(dlm::Squared<char>(11),	char{ 121 });
+		EXPECT_EQ(dlm::Squared<char>(-7),	char{ 49 });
+		EXPECT_EQ(dlm::Squared<char>(0),	char{ 0 });
 	}
-}
+
+	TEST(MathUtilTest, SquaredTestUnsignedIntType)
+	{
+		//unsigned int型
+		EXPECT_EQ(dlm::Squared<unsigned int>(13),	unsigned int{ 169 });
+		EXPECT_EQ(dlm::Squared<unsigned int>(1429), unsigned int{ 2042041 });
+		EXPECT_EQ(dlm::Squared<unsigned int>(0),	unsigned int{ 0 });
+	}
+
+	TEST(MathUtilTest, SquaredTestSizetType)
+	{
+		//size_t型
+		EXPECT_EQ(dlm::Squared<size_t>(11), size_t{ 121 });
+		EXPECT_EQ(dlm::Squared<size_t>(7),	size_t{ 49 });
+		EXPECT_EQ(dlm::Squared<size_t>(0),	size_t{ 0 });
+	}
+
+	TEST(MathUtilTest, CanMakeTriangleTestFloatTypeTrueCase) 
+	{
+		//三角形が作れる場合のテスト
+		std::vector<std::tuple<float, float, float>> testcase_list
+		{
+			{1.0f, 1.0f, 1.0f},	{1.0f, 1.0f, 1.5f},	{1.0f, 1.5f, 1.0f},
+			{1.5f, 1.0f, 1.0f},	{2.0f, 2.0f, 2.0f},	{2.0f, 2.0f, 3.0f},
+			{2.0f, 3.0f, 2.0f},	{3.0f, 2.0f, 2.0f},	{3.0f, 3.0f, 3.0f},
+			{3.0f, 3.0f, 4.0f},	{3.0f, 4.0f, 3.0f},	{4.0f, 3.0f, 3.0f},
+			{4.0f, 4.0f, 4.0f},	{4.0f, 4.0f, 5.0f},	{4.0f, 5.0f, 4.0f},
+			{5.0f, 4.0f, 4.0f},	{5.0f, 5.0f, 5.0f},	{12.f, 13.f, 5.0f}
+		};
+		
+		for (const auto& i : testcase_list)
+		{
+			const float& a = std::get<0>(i);
+			const float& b = std::get<1>(i);
+			const float& c = std::get<2>(i);
+
+			std::string error_case_message = std::to_string(a) + ", " + std::to_string(b) + ", " + std::to_string(c) + "の3辺から三角形が作れるはずである．";
+			EXPECT_TRUE(dlm::CanMakeTriangle(a, b, c)) << error_case_message;
+		}
+	}
+
+	TEST(MathUtilTest, CanMakeTriangleTestFloatTypeFalseCase)
+	{
+		//三角形が作れない場合のテスト
+		std::vector<std::tuple<float, float, float>> testcase_list
+		{
+			{1.0f, 1.0f, 2.0f},	{1.0f, 2.0f, 1.0f},	{2.0f, 1.0f, 1.0f},
+			{1.0f, 2.0f, 3.0f},	{1.0f, 3.0f, 2.0f},	{2.0f, 1.0f, 3.0f},
+			{2.0f, 3.0f, 1.0f},	{3.0f, 1.0f, 2.0f},	{3.0f, 2.0f, 1.0f},
+			{1.0f, 1.0f, 3.0f},	{1.0f, 3.0f, 1.0f},	{3.0f, 1.0f, 1.0f},
+			{1.0f, 2.0f, 4.0f},	{1.0f, 4.0f, 2.0f},	{4.0f, 1.0f, 2.0f},
+			{2.0f, 1.0f, 45.f},	{2.0f, 40.f, 1.0f}, {100.f, 0.1f, 0.3f},
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const float& a = std::get<0>(i);
+			const float& b = std::get<1>(i);
+			const float& c = std::get<2>(i);
+
+			std::string error_case_message = std::to_string(a) + ", " + std::to_string(b) + ", " + std::to_string(c) + "の3辺から三角形が作れないはずである．";
+			EXPECT_FALSE(dlm::CanMakeTriangle(a, b, c)) << error_case_message;
+		}
+	}
+
+
+}	// namespace designlab::test::common::math

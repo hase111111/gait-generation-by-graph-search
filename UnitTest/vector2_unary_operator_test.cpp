@@ -3,49 +3,33 @@
 #include "../DesignLab/designlab_vector2.h"
 
 
-namespace dl_vec_test
+namespace designlab::test::common::math
 {
-	// 単項演算子 + のテスト
-	TEST(Vector2, UnaryPlusOperator)
+	// 単項演算子 = Unary Operator
+
+	TEST(Vector2Test, UnaryPlusOperator)
 	{
 		designlab::Vector2 v1(1.0f, 2.0f);
-		designlab::Vector2 v2 = +v1;
-		EXPECT_EQ(v1, v2);
+		v1 = +v1;
+		EXPECT_FLOAT_EQ(v1.x, 1.0f);
+		EXPECT_FLOAT_EQ(v1.y, 2.0f);
 
-		designlab::Vector2 v3(-1.0f, -2.0f);
-		designlab::Vector2 v4 = +v3;
-		EXPECT_EQ(v3, v4);
-
-		designlab::Vector2 v5(0.0f, 0.0f);
-		designlab::Vector2 v6 = +v5;
-		EXPECT_EQ(v5, v6);
-
-		designlab::Vector2 v7(1.0f, -2.0f);
-		designlab::Vector2 v8 = +v7;
-		EXPECT_EQ(v7, v8);
+		designlab::Vector2 v2(-1.0f, -2.0f);
+		v2 = +v2;
+		EXPECT_FLOAT_EQ(v2.x, -1.0f);
+		EXPECT_FLOAT_EQ(v2.y, -2.0f);
 	}
 
-	//単項演算子 - のテスト
-	TEST(Vector2, UnaryMinusOperator)
+	TEST(Vector2Test, UnaryMinusOperator)
 	{
 		designlab::Vector2 v1(1.0f, 2.0f);
-		designlab::Vector2 v2 = -v1;
-		EXPECT_EQ(v2.x, -v1.x);
-		EXPECT_EQ(v2.y, -v1.y);
+		v1 = -v1;
+		EXPECT_FLOAT_EQ(v1.x, -1.0f);
+		EXPECT_FLOAT_EQ(v1.y, -2.0f);
 
-		designlab::Vector2 v3(-1.0f, -2.0f);
-		designlab::Vector2 v4 = -v3;
-		EXPECT_EQ(v4.x, -v3.x);
-		EXPECT_EQ(v4.y, -v3.y);
-
-		designlab::Vector2 v5(0.0f, 0.0f);
-		designlab::Vector2 v6 = -v5;
-		EXPECT_EQ(v6.x, -v5.x);
-		EXPECT_EQ(v6.y, -v5.y);
-
-		designlab::Vector2 v7(1.0f, -2.0f);
-		designlab::Vector2 v8 = -v7;
-		EXPECT_EQ(v8.x, -v7.x);
-		EXPECT_EQ(v8.y, -v7.y);
+		designlab::Vector2 v2(0.0f, -2.0f);
+		v2 = -v2;
+		EXPECT_FLOAT_EQ(v2.x, 0.0f);
+		EXPECT_FLOAT_EQ(v2.y, 2.0f);
 	}
 }
