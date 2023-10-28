@@ -9,6 +9,7 @@ namespace dllf = ::designlab::leg_func;
 
 namespace 
 {
+	//! @brief std::array‚ð“¯‚¶’l‚Å–„‚ß‚é
 	template<typename T, size_t S>
 	std::array<T, S> MakeArraySameValue(const T& value)
 	{

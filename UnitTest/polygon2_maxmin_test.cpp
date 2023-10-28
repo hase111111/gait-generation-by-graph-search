@@ -3,10 +3,9 @@
 #include "../DesignLab/designlab_polygon2.h"
 
 
-namespace dl_vec_test
+namespace designlab::test::common::math
 {
-	//GetMaxX関数のテスト
-	TEST(Polygon2, GetMaxX)
+	TEST(Polygon2Test, GetMaxXTest)
 	{
 		//三角形を生成して，X座標の最大値を求める
 		designlab::Polygon2 polygon;
@@ -50,7 +49,7 @@ namespace dl_vec_test
 	}
 
 	//GetMinXのテスト
-	TEST(Polygon2, GetMinX)
+	TEST(Polygon2Test, GetMinXTest)
 	{
 		//三角形を生成して，X座標の最小値を求める
 		designlab::Polygon2 polygon;
@@ -94,7 +93,7 @@ namespace dl_vec_test
 	}
 
 	//GetMaxYのテスト
-	TEST(Polygon2, GetMaxY)
+	TEST(Polygon2Test, GetMaxYTest)
 	{
 		//三角形を生成して，Y座標の最大値を求める
 		designlab::Polygon2 polygon;
@@ -137,7 +136,7 @@ namespace dl_vec_test
 		EXPECT_FLOAT_EQ(polygon3.GetMaxY(), 1.0f);
 	}
 
-	TEST(Polygon2, GetMinY)
+	TEST(Polygon2Test, GetMinYTest)
 	{
 		//三角形を生成して，Y座標の最小値を求める
 		designlab::Polygon2 polygon;

@@ -3,10 +3,10 @@
 #include "../DesignLab/designlab_polygon2.h"
 
 
-namespace dl_vec_test
+namespace designlab::test::common::math
 {
 	//IsInside関数のテスト(右回り)
-	TEST(Polygon2, IsInsideRightTurn)
+	TEST(Polygon2Test, IsInsideRightTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
 		designlab::Polygon2 polygon;
@@ -69,7 +69,7 @@ namespace dl_vec_test
 	}
 
 	//IsInside関数のテスト(左回り)
-	TEST(Polygon2, IsInsideLeftTurn)
+	TEST(Polygon2Test, IsInsideLeftTurn)
 	{
 		//4角形を作成し，内部にある点と外部にある点を確認する
 		designlab::Polygon2 polygon;

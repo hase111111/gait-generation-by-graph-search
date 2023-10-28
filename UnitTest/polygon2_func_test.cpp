@@ -4,10 +4,10 @@
 #include "../DesignLab/designlab_polygon2.cpp"
 
 
-namespace dl_vec_test
+namespace designlab::test::common::math
 {
 	//addVertex関数のテスト
-	TEST(Polygon2, AddVertex)
+	TEST(Polygon2Test, AddVertex)
 	{
 		//四角形を作成し，その頂点の座標を確認する
 		designlab::Polygon2 polygon;
@@ -41,7 +41,7 @@ namespace dl_vec_test
 	}
 
 	//addVertexCheckForDuplicates関数のテスト
-	TEST(Polygon2, AddVertexCheckForDuplicates)
+	TEST(Polygon2Test, AddVertexCheckForDuplicates)
 	{
 		//重複する頂点を追加し，その頂点の座標を確認する
 		designlab::Polygon2 polygon;
@@ -74,7 +74,7 @@ namespace dl_vec_test
 	}
 
 	//removeVertex関数のテスト
-	TEST(Polygon2, RemoveVertex)
+	TEST(Polygon2Test, RemoveVertex)
 	{
 		//四角形を作成し，頂点を削除する
 		designlab::Polygon2 polygon;
@@ -132,7 +132,7 @@ namespace dl_vec_test
 	}
 
 	//removeLastVertex関数のテスト
-	TEST(Polygon2, RemoveLastVertex)
+	TEST(Polygon2Test, RemoveLastVertex)
 	{
 		//四角形を作成し，頂点を削除する
 		designlab::Polygon2 polygon;
@@ -178,7 +178,7 @@ namespace dl_vec_test
 	}
 
 	//getVertexNum関数のテスト
-	TEST(Polygon2, GetVertexNum)
+	TEST(Polygon2Test, GetVertexNum)
 	{
 		//頂点がない多角形を作成し，頂点数を確認する
 		designlab::Polygon2 polygon2;
@@ -225,7 +225,7 @@ namespace dl_vec_test
 	}
 
 	//getVertex関数のテスト
-	TEST(Polygon2, GetVertex)
+	TEST(Polygon2Test, GetVertex)
 	{
 		//4角形を作成し，その頂点の座標を確認する
 		designlab::Polygon2 polygon;
@@ -257,7 +257,7 @@ namespace dl_vec_test
 	}
 
 	//IsConvex関数のテスト
-	TEST(Polygon2, IsConvexRightTurn)
+	TEST(Polygon2Test, IsConvexRightTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
 		designlab::Polygon2 polygon;
@@ -298,7 +298,7 @@ namespace dl_vec_test
 	}
 
 	//IsConvex関数のテスト(左回り)
-	TEST(Polygon2, IsConvexLeftTurn)
+	TEST(Polygon2Test, IsConvexLeftTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
 		designlab::Polygon2 polygon;

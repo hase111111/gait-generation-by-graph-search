@@ -9,7 +9,7 @@ namespace dl = ::designlab;
 
 namespace designlab::test::common::math
 {
-	TEST(Vector2Test, DefaultConstructor)
+	TEST(Vector2Test, DefaultConstructorTest)
 	{
 		//デフォルトコンストラクタのテスト
 		dl::Vector2 vec;
@@ -19,7 +19,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec.y, 0.f) << str;
 	}
 
-	TEST(Vector2Test, Constructor)
+	TEST(Vector2Test, ConstructorTest)
 	{
 		//コンストラクタのテスト
 		dl::Vector2 vec(1.f, 2.f);
@@ -29,7 +29,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec.y, 2.f) << str;
 	}
 
-	TEST(Vector2Test, CopyConstructor)
+	TEST(Vector2Test, CopyConstructorTest)
 	{
 		//コピーコンストラクタのテスト
 		dl::Vector2 vec(1.f, 2.f);
@@ -40,7 +40,18 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
 	}
 
-	TEST(Vector2Test, AssignmentOperator)
+	TEST(Vector2Test, MoveConstructorTest)
+	{
+		//ムーブコンストラクタのテスト
+		dl::Vector2 vec(1.f, 2.f);
+		dl::Vector2 vec2(std::move(vec));
+
+		std::string str = "ムーブコンストラクタは与えられた値をムーブして，Vector2を作成する";
+		EXPECT_FLOAT_EQ(vec2.x, 1.f) << str;
+		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
+	}
+
+	TEST(Vector2Test, AssignmentOperatorTest)
 	{
 		// Assignment Operator = 代入演算子
 		dl::Vector2 vec(1.f, 2.f);

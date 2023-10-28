@@ -123,9 +123,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="S_NE.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="_phantomxCommander.h">
       <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClInclude>
@@ -223,9 +220,6 @@
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
     <ClInclude Include="com_selecter_hato.h">
-      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
-    </ClInclude>
-    <ClInclude Include="com_selecter.h">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClInclude>
     <ClInclude Include="com_move_node_creator_hato.h">
@@ -435,6 +429,12 @@
     <ClInclude Include="pass_finder_revaluation.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
+    <ClInclude Include="_com_selecter.h">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClInclude>
+    <ClInclude Include="S_NE.h">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -526,9 +526,6 @@
     </ClCompile>
     <ClCompile Include="com_up_down_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClCompile>
-    <ClCompile Include="com_selecter.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClCompile>
     <ClCompile Include="com_selecter_hato.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
@@ -682,6 +679,9 @@
     </ClCompile>
     <ClCompile Include="pass_finder_revaluation.cpp">
       <Filter>ソース ファイル\PassFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="_com_selecter.cpp">
+      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

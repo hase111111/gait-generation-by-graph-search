@@ -11,7 +11,7 @@ namespace
 	// テスト用のヘルパー関数
 
 	//! @brief 与えられた値からVector3を作成する
-	dl::Vector3 MakeVec3(float x, float y, float z)
+	dl::Vector3 MakeVec3(const float x, const  float y, const float z)
 	{
 		dl::Vector3 vec;
 		vec.x = x;
@@ -21,6 +21,7 @@ namespace
 		return vec;
 	}
 }
+
 
 namespace designlab::test::common::math
 {

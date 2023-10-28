@@ -23,10 +23,12 @@ namespace designlab
 		constexpr LineSegment2& operator=(const LineSegment2& other) = default;
 
 
-		bool operator==(const LineSegment2& other) const
+		constexpr bool operator==(const LineSegment2& other) const
 		{
 			return start == other.start && end == other.end;
 		}
+
+		constexpr bool operator!=(const LineSegment2& other) const { return !(*this == other); }
 
 
 		//! @brief ü•ª‚Ì’·‚³‚ğ‹‚ß‚éŠÖ”

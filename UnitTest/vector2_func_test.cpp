@@ -10,7 +10,7 @@ namespace
 {
 	// テスト用のヘルパー関数
 
-	dl::Vector2 MakeVec2(float x, float y)
+	dl::Vector2 MakeVec2(const float x, const float y)
 	{
 		dl::Vector2 vec;
 		vec.x = x;
@@ -28,54 +28,62 @@ namespace
 
 namespace designlab::test::common::math
 {
-	TEST(Vector2Test, GetLength)
+	TEST(Vector2Test, GetLengthTest)
 	{
+		std::vector<std::tuple<dl::Vector2, float>> testcase_list{
+			{ MakeVec2(3.f, 4.f), 5.f },
+			{ MakeVec2(1.f, 1.f), 1.414213562f },
+			{ MakeVec2(0.f, 0.f), 0.f },
+			{ MakeVec2(-1.f, -1.f), 1.414213562f },
+			{ MakeVec2(-3.f, -4.f), 5.f },
+			{ MakeVec2(3.f, -4.f), 5.f }
+		};
 
-		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, 4.0f).GetLength());
-		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(-3.0f, -4.0f).GetLength());
-		EXPECT_FLOAT_EQ(5.0f, dl::Vector2(3.0f, -4.0f).GetLength());
-		EXPECT_FLOAT_EQ(341.760149f, dl::Vector2(120.0f, 320.0f).GetLength());
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec = std::get<0>(data);
+			const float expected = std::get<1>(data);
 
-		EXPECT_FLOAT_EQ(0.0f, dl::Vector2(0.0f, 0.0f).GetLength());
+			std::string test_discription = " GetLength 正解は : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
+			test_discription += " 実際は :" + std::to_string(vec.GetLength());
+
+			EXPECT_FLOAT_EQ(expected, vec.GetLength()) << test_discription;
+		}
 	}
 
-	TEST(Vector2Test, GetSquaredLength)
+	TEST(Vector2Test, GetSquaredLengthTest)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		EXPECT_FLOAT_EQ(25.0f, vec.GetSquaredLength());
+		std::vector<std::tuple<dl::Vector2, float>> testcase_list{
+			{ MakeVec2(3.f, 4.f), 25.f },
+			{ MakeVec2(1.f, 1.f), 2.f },
+			{ MakeVec2(0.f, 0.f), 0.f },
+			{ MakeVec2(-1.f, -1.f), 2.f },
+			{ MakeVec2(-3.f, -4.f), 25.f },
+			{ MakeVec2(3.f, -4.f), 25.f }
+		};
 
-		//sample2
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(2.0f, vec2.GetSquaredLength());
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec = std::get<0>(data);
+			const float expected = std::get<1>(data);
 
-		//sample3
-		designlab::Vector2 vec3(0.0f, 0.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec3.GetSquaredLength());
+			std::string test_discription = " GetSquaredLength 正解は : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
+			test_discription += " 実際は :" + std::to_string(vec.GetSquaredLength());
 
-		//sample4
-		designlab::Vector2 vec4(-1.0f, -1.0f);
-		EXPECT_FLOAT_EQ(2.0f, vec4.GetSquaredLength());
-
-		//sample5
-		designlab::Vector2 vec5(-3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(25.0f, vec5.GetSquaredLength());
-
-		//sample6
-		designlab::Vector2 vec6(3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(25.0f, vec6.GetSquaredLength());
+			EXPECT_FLOAT_EQ(expected, vec.GetSquaredLength()) << test_discription;
+		}
 	}
 
-	//dot関数のテスト
-	TEST(Vector2Test, Dot)
+	TEST(Vector2Test, DotTest)
 	{
+		// vec1 ・ vec2 = expected の順のタプル
 		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
-			{MakeVec2(3.0f, 4.0f),		MakeVec2(1.0f, 1.0f),	7.0f },
-			{MakeVec2(1.0f, 1.0f),		MakeVec2(1.0f, 1.0f),	2.0f},
-			{MakeVec2(0.0f, 0.0f),		MakeVec2(0.0f, 0.0f),	0.0f },
-			{MakeVec2(-1.0f, -1.0f),	MakeVec2(-1.0f, -1.0f),	2.0f },
-			{MakeVec2(-3.0f, -4.0f),	MakeVec2(-3.0f, -4.0f),	25.0f },
-			{MakeVec2(3.0f, -4.0f),		MakeVec2(3.0f, -4.0f),	25.0f }
+			{ MakeVec2(3.0f, 4.0f),		MakeVec2(1.0f, 1.0f),	7.0f },
+			{ MakeVec2(1.0f, 1.0f),		MakeVec2(1.0f, 1.0f),	2.0f},
+			{ MakeVec2(0.0f, 0.0f),		MakeVec2(0.0f, 0.0f),	0.0f },
+			{ MakeVec2(-1.0f, -1.0f),	MakeVec2(-1.0f, -1.0f),	2.0f },
+			{ MakeVec2(-3.0f, -4.0f),	MakeVec2(-3.0f, -4.0f),	25.0f },
+			{ MakeVec2(3.0f, -4.0f),	MakeVec2(3.0f, -4.0f),	25.0f }
 		};
 
 		for (const auto& data : testcase_list)
@@ -84,128 +92,120 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec2 = std::get<1>(data);
 			const float expected = std::get<2>(data);
 
-			std::string test_discription = "Dot expected : \n " + ToString(vec1) + "・" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
-			test_discription += "Actual :" + std::to_string(vec1.Dot(vec2));
+			std::string test_discription = " Dot 正解は : \n " + ToString(vec1) + "・" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
+			test_discription += " 実際は :" + std::to_string(vec1.Dot(vec2));
 
 			EXPECT_FLOAT_EQ(expected, vec1.Dot(vec2)) << test_discription;
 		}
 	}
 
-	//cross関数のテスト
-	TEST(Vector2Test, Cross)
+	TEST(Vector2Test, CrossTest)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(-1.0f, vec.Cross(vec2));
+		// vec1 × vec2 = expected の順のタプル
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
+			{ MakeVec2(3.f, 4.f), MakeVec2(1.f, 1.f), -1.f},
+			{ MakeVec2(1.f, 1.f), MakeVec2(1.f, 1.f), 0.f},
+			{ MakeVec2(0.f, 0.f), MakeVec2(0.f, 0.f), 0.f},
+			{ MakeVec2(-1.f, -1.f), MakeVec2(-1.f, -1.f), 0.f},
+			{ MakeVec2(-3.f, -4.f), MakeVec2(-3.f, -4.f), 0.f},
+			{ MakeVec2(3.f, -4.f), MakeVec2(3.f, -4.f), 0.f}
+		};
 
-		//sample2
-		designlab::Vector2 vec3(1.0f, 1.0f);
-		designlab::Vector2 vec4(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec3.Cross(vec4));
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec1 = std::get<0>(data);
+			const dl::Vector2 vec2 = std::get<1>(data);
+			const float expected = std::get<2>(data);
 
-		//sample3
-		designlab::Vector2 vec5(0.0f, 0.0f);
-		designlab::Vector2 vec6(0.0f, 0.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec5.Cross(vec6));
+			std::string test_discription = " Cross 正解は : \n " + ToString(vec1) + "×" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
+			test_discription += " 実際は :" + std::to_string(vec1.Cross(vec2));
 
-		//sample4
-		designlab::Vector2 vec7(-1.0f, -1.0f);
-		designlab::Vector2 vec8(-1.0f, -1.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec7.Cross(vec8));
-
-		//sample5
-		designlab::Vector2 vec9(-3.0f, -4.0f);
-		designlab::Vector2 vec10(-3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec9.Cross(vec10));
-
-		//sample6
-		designlab::Vector2 vec11(3.0f, -4.0f);
-		designlab::Vector2 vec12(3.0f, -4.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec11.Cross(vec12));
+			EXPECT_FLOAT_EQ(expected, vec1.Cross(vec2)) << test_discription;
+		}
 	}
 
 	//distanceFrom関数のテスト
-	TEST(Vector2Test, GetDistanceFrom)
+	TEST(Vector2Test, GetDistanceFromTest)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(3.60555128f, vec.GetDistanceFrom(vec2));
+		// vec1 と vec2 の距離 = expected の順のタプル
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
+			{ MakeVec2(3.f, 4.f), MakeVec2(1.f, 1.f), 3.60555128f },
+			{ MakeVec2(1.f, 1.f), MakeVec2(1.f, 1.f), 0.0f },
+			{ MakeVec2(0.f, 0.f), MakeVec2(0.f, 0.f), 0.0f },
+			{ MakeVec2(-1.f, -1.f), MakeVec2(-1.f, -1.f), 0.0f },
+			{ MakeVec2(-3.f, -4.f), MakeVec2(-3.f, -4.f), 0.0f },
+			{ MakeVec2(3.f, -4.f), MakeVec2(3.f, -4.f), 0.0f },
+			{ MakeVec2(30.f, 20.f), MakeVec2(-5.f, -10.f), 46.09772228f },
+			{ MakeVec2(0.3f, 0.2f), MakeVec2(-0.5f, -0.1f), 0.854400374f }
+		};
 
-		//sample2
-		designlab::Vector2 vec3(1.0f, 1.0f);
-		designlab::Vector2 vec4(1.0f, 1.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec3.GetDistanceFrom(vec4));
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec1 = std::get<0>(data);
+			const dl::Vector2 vec2 = std::get<1>(data);
+			const float expected = std::get<2>(data);
 
-		//sample3
-		designlab::Vector2 vec5(0.0f, 0.0f);
-		designlab::Vector2 vec6(0.0f, 0.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec5.GetDistanceFrom(vec6));
+			std::string test_discription = " GetDistanceFrom 正解は : \n " + ToString(vec1) + "と" + ToString(vec2) + "の距離 = " + std::to_string(expected) + "\n";
+			test_discription += " 実際は :" + std::to_string(vec1.GetDistanceFrom(vec2));
 
-		//sample4
-		designlab::Vector2 vec7(-1.0f, -1.0f);
-		designlab::Vector2 vec8(-1.0f, -1.0f);
-		EXPECT_FLOAT_EQ(0.0f, vec7.GetDistanceFrom(vec8));
-
-		//sample5 - 大きな値の計算
-		designlab::Vector2 vec9(30.0f, 20.0f);
-		designlab::Vector2 vec10(-5.0f, -10.0f);
-		EXPECT_FLOAT_EQ(46.09772228f, vec9.GetDistanceFrom(vec10));
-
-		//sample6 - 浮動小数の計算
-		designlab::Vector2 vec11(0.3f, 0.2f);
-		designlab::Vector2 vec12(-0.5f, -0.1f);
-		EXPECT_FLOAT_EQ(0.854400374f, vec11.GetDistanceFrom(vec12));
+			EXPECT_FLOAT_EQ(expected, vec1.GetDistanceFrom(vec2)) << test_discription;
+		}
 	}
 
-	TEST(Vector2Test, GetNormalized)
+	TEST(Vector2Test, GetNormalizedTest)
 	{
-		//sample1
-		designlab::Vector2 vec(3.0f, 4.0f);
-		designlab::Vector2 res = vec.GetNormalized();
-		EXPECT_FLOAT_EQ(0.6f, res.x);
-		EXPECT_FLOAT_EQ(0.8f, res.y);
+		std::vector<std::tuple<dl::Vector2, dl::Vector2>> testcase_list{
+			{ MakeVec2(3.f, 4.f), MakeVec2(0.6f, 0.8f) },
+			{ MakeVec2(1.f, 1.f), MakeVec2(0.707106781f, 0.707106781f) },
+			{ MakeVec2(-1.f, -1.f), MakeVec2(-0.707106781f, -0.707106781f) },
+			{ MakeVec2(-3.f, -4.f), MakeVec2(-0.6f, -0.8f) },
+			{ MakeVec2(3.f, -4.f), MakeVec2(0.6f, -0.8f) }
+		};
+		
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec = std::get<0>(data);
+			const dl::Vector2 expected = std::get<1>(data);
 
-		//sample2
-		designlab::Vector2 vec2(1.0f, 1.0f);
-		designlab::Vector2 res2 = vec2.GetNormalized();
-		EXPECT_FLOAT_EQ(0.707106781f, res2.x);
-		EXPECT_FLOAT_EQ(0.707106781f, res2.y);
+			std::string test_discription = " GetNormalized 正解は : \n " + ToString(vec) + " = " + ToString(expected) + "\n";
+			test_discription += " 実際は :" + ToString(vec.GetNormalized());
 
-		//sample3　
-		designlab::Vector2 vec3(0.0f, 0.0f);
-		designlab::Vector2 res3 = vec3.GetNormalized();
-		EXPECT_FLOAT_EQ(0.0f, res3.x);
-		EXPECT_FLOAT_EQ(0.0f, res3.y);
-
-		//sample4
-		designlab::Vector2 vec4(-1.0f, -1.0f);
-		designlab::Vector2 res4 = vec4.GetNormalized();
-		EXPECT_FLOAT_EQ(-0.707106781f, res4.x);
-		EXPECT_FLOAT_EQ(-0.707106781f, res4.y);
-
-		//sample5
-		designlab::Vector2 vec5(-3.0f, -4.0f);
-		designlab::Vector2 res5 = vec5.GetNormalized();
-		EXPECT_FLOAT_EQ(-0.6f, res5.x);
-		EXPECT_FLOAT_EQ(-0.8f, res5.y);
-
-		//sample6
-		designlab::Vector2 vec6(3.0f, -4.0f);
-		designlab::Vector2 res6 = vec6.GetNormalized();
-		EXPECT_FLOAT_EQ(0.6f, res6.x);
-		EXPECT_FLOAT_EQ(-0.8f, res6.y);
+			EXPECT_EQ(expected, vec.GetNormalized()) << test_discription;
+		}
 	}
 
-	TEST(Vector2Test, IsZero)
+	TEST(Vector2Test, GetNormalizedTestZeroVecTransToZeroVec) 
 	{
-		EXPECT_TRUE(dl::Vector2(0.0f, 0.0f).IsZero());
+		const auto zero_vec = MakeVec2(0.0f, 0.0f);	
 
-		EXPECT_FALSE(dl::Vector2(1.0f, 0.0f).IsZero());
-		EXPECT_FALSE(dl::Vector2(0.0f, 1.0f).IsZero());
-		EXPECT_FALSE(dl::Vector2(3.0f, 4.0f).IsZero());
-		EXPECT_FALSE(dl::Vector2(-1.0f, -1.0f).IsZero());
+		EXPECT_EQ(MakeVec2(0.0f, 0.0f).GetNormalized(), zero_vec) << "零ベクトルは正規化しても零ベクトルとなります．";
+
+		EXPECT_EQ(MakeVec2(0.0001f, 0.00001f).GetNormalized(), zero_vec) << "実際に零でなくとも，零に十分近い場合零ベクトルとみなします．";
+		EXPECT_EQ(MakeVec2(-0.0001f, -0.00001f).GetNormalized(), zero_vec) << "実際に零でなくとも，零に十分近い場合零ベクトルとみなします．";
+	}
+
+	TEST(Vector2Test, IsZeroTest)
+	{
+		std::vector<std::tuple<dl::Vector2, bool>> testcase_list{
+			{ MakeVec2(0.0f, 0.0f), true },
+			{ MakeVec2(0.00001f, -0.00001f), true },
+
+			{ MakeVec2(1.0f, 0.0f), false },
+			{ MakeVec2(0.0f, 1.0f), false },
+			{ MakeVec2(3.0f, 4.0f), false },
+			{ MakeVec2(-1.0f, -1.0f), false }
+		};
+
+		for (const auto& data : testcase_list)
+		{
+			const dl::Vector2 vec = std::get<0>(data);
+			const bool expected = std::get<1>(data);
+
+			std::string test_discription = "IsZero expected : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
+			test_discription += "Actual :" + std::to_string(vec.IsZero());
+
+			EXPECT_EQ(expected, vec.IsZero()) << test_discription;
+		}
 	}
 
 }

@@ -43,6 +43,18 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(vec2.z, 3.f) << str;
 	}
 
+	TEST(Vector3Test, MoveConstructorTest)
+	{
+		//ムーブコンストラクタのテスト
+		dl::Vector3 vec(1.f, 2.f, 3.f);
+		dl::Vector3 vec2(std::move(vec));
+
+		std::string str = "ムーブコンストラクタは与えられた値をムーブして，Vector3を作成する";
+		EXPECT_FLOAT_EQ(vec2.x, 1.f) << str;
+		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
+		EXPECT_FLOAT_EQ(vec2.z, 3.f) << str;
+	}
+
 	TEST(Vector3Test, AssignmentOperatorTest)
 	{
 		// Assignment Operator = 代入演算子

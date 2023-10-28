@@ -25,7 +25,7 @@ public:
 	//! @n リセット処理などを呼ぶ必要なしで，再度計測できる．
 	void Start();
 
-	//! @brief 計測終了にこの関数を呼ぶ．
+	//! @brief 計測終了時にこの関数を呼ぶ．
 	void End();
 
 	//! @brief 経過時間を秒で取得．
@@ -38,7 +38,7 @@ public:
 	//! @return double 計測結果(ミリ秒)
 	double GetElapsedMilliSecond() const;
 
-	//! @biref 計測結果をマイクロ秒で取得．
+	//! @brief 計測結果をマイクロ秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
 	//! @n (このレベルのオーダーで精度出せるのか...?)
 	//! @return double  計測結果(マイクロ秒)

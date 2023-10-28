@@ -23,7 +23,7 @@ namespace designlab::test::common
 		EXPECT_EQ(data.GetUpdateCount(), 0) << "コンストラクタで初期化した場合，更新回数は0です．";
 	}
 
-	TEST(AsyncableDataTestIntType, GetUpdateCountTest)
+	TEST(AsyncableDataTestIntType, GetUpdateCountTestCaseOfSetData)
 	{
 		AsyncableData<int> data(0);	//初期化
 
@@ -34,6 +34,19 @@ namespace designlab::test::common
 
 		data.SetData(20);
 		EXPECT_EQ(data.GetUpdateCount(), 2) << "データを更新すると，更新回数が1ずつ増えます．";
+	}
+
+	TEST(AsyncableDataTestIntType, GetUpdateCountTestCaseOfGetData)
+	{
+		AsyncableData<int> data(10);	//初期化
+
+		EXPECT_EQ(data.GetUpdateCount(), 0) << "初期化時点では，更新回数は0です．";
+
+		data.GetData();
+		EXPECT_EQ(data.GetUpdateCount(), 0) << "データの読み込みだけでは，更新関係は増えません．";
+
+		data.GetData();
+		EXPECT_EQ(data.GetUpdateCount(), 0) << "データの読み込みだけでは，更新関係は増えません．";
 	}
 
 	TEST(AsyncableDataTestIntType, TestCanGetAndSetData)

@@ -28,9 +28,7 @@ namespace designlab
 		constexpr Vector2 operator +() const { return *this; }
 		constexpr Vector2 operator -() const { return{ -x, -y }; }
 		constexpr Vector2 operator +(const Vector2& other) const { return{ x + other.x, y + other.y }; }
-		constexpr Vector2 operator +(const float s) const { return{ x + s, y + s }; }
 		constexpr Vector2 operator -(const Vector2& other) const { return{ x - other.x, y - other.y }; }
-		constexpr Vector2 operator -(const float s) const { return{ x - s, y - s }; }
 		constexpr Vector2 operator *(float s) const { return{ x * s, y * s }; }
 		constexpr Vector2 operator /(float s) const { return{ x / s, y / s }; }
 
@@ -43,6 +41,8 @@ namespace designlab
 		{
 			return ::designlab::math_util::IsEqual(x, other.x) && ::designlab::math_util::IsEqual(y, other.y);
 		}
+
+		constexpr bool operator!=(const Vector2& other) const { return !(*this == other); }
 
 
 		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Ì’·‚³‚ð•Ô‚·

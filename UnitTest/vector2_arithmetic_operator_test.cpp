@@ -2,141 +2,232 @@
 
 #include "../DesignLab/designlab_vector2.h"
 
-using namespace designlab;
+
+namespace dl = ::designlab;
+
+
+namespace
+{
+	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+
+	dl::Vector2 MakeVec2(const float x, const float y)
+	{
+		dl::Vector2 vec;
+		vec.x = x;
+		vec.y = y;
+
+		return vec;
+	}
+
+	std::string ToString(const dl::Vector2& vec)
+	{
+		return "(" + std::to_string(vec.x) + "," + std::to_string(vec.y) + ")";
+	}
+}
 
 
 namespace designlab::test::common::math
 {
-	TEST(Vector2Test, PlusOperator)
+	TEST(Vector2Test, PlusOperatorTest)
 	{
-		//®”“¯m‚Ì‘«‚µZ
-		Vector2 v1(1, 2);
-		Vector2 v2(3, 4);
-		Vector2 v3 = v1 + v2;
-		EXPECT_FLOAT_EQ(v3.x, 4);
-		EXPECT_FLOAT_EQ(v3.y, 6);
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), MakeVec2(3, 4), MakeVec2(4, 6)},
+			{ MakeVec2(0.4f, 0.9f), MakeVec2(11.7f, 8.3f), MakeVec2(12.1f, 9.2f)},
+			{ MakeVec2(3, 7), MakeVec2(10, 42), MakeVec2(13, 49)},
+			{ MakeVec2(10, 42), MakeVec2(3, 7), MakeVec2(13, 49)},
+		};
 
-		//®”‚Æ‚Ì‘«‚µZ
-		Vector2 v4 = v1 + 1;
-		EXPECT_FLOAT_EQ(v4.x, 2);
-		EXPECT_FLOAT_EQ(v4.y, 3);
+		for (const auto& i : testcase_list)
+		{
+			const dl::Vector2& vec1 = std::get<0>(i);
+			const dl::Vector2& vec2 = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
 
-		//•‚“®¬”“_”“¯m‚Ì‘«‚µZ
-		Vector2 v5(0.4f, 0.9f);
-		Vector2 v6(11.7f, 8.3f);
-		Vector2 v7 = v5 + v6;
-		EXPECT_FLOAT_EQ(v7.x, 12.1f);
-		EXPECT_FLOAT_EQ(v7.y, 9.2f);
-
-		//•‚“®¬”“_”‚Æ‚Ì‘«‚µZ
-		Vector2 v8 = v5 + 1.1f;
-		EXPECT_FLOAT_EQ(v8.x, 1.5f);
-		EXPECT_FLOAT_EQ(v8.y, 2.0f);
-
-		//‡”Ô‚ª‹t‚Å‚à“¯‚¶’l‚É‚È‚é
-		Vector2 v9 = v1 + v2;
-		Vector2 v10 = v2 + v1;
-		EXPECT_FLOAT_EQ(v9.x, v10.x);
-		EXPECT_FLOAT_EQ(v9.y, v10.y);
-
-		//Œ‹‡–@‘¥
-		Vector2 v11 = v1 + (v2 + v3);
-		Vector2 v12 = (v1 + v2) + v3;
-		EXPECT_FLOAT_EQ(v11.x, v12.x);
-		EXPECT_FLOAT_EQ(v11.y, v12.y);
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" + 
+				" " + ToString(vec2) + "‚Ì˜a‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			EXPECT_EQ(vec1 + vec2, expected) << error_case_message;
+		}
 	}
 
-	TEST(Vector2Test, MinusOperator)
+	TEST(Vector2Test, CompoundAssignmentPlusOperatorTest)
 	{
-		//®”“¯m‚Ìˆø‚«Z
-		Vector2 v1(1, 2);
-		Vector2 v2(3, 4);
-		Vector2 v3 = v1 - v2;
-		EXPECT_FLOAT_EQ(v3.x, -2);
-		EXPECT_FLOAT_EQ(v3.y, -2);
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), MakeVec2(3, 4), MakeVec2(4, 6)},
+			{ MakeVec2(0.4f, 0.9f), MakeVec2(11.7f, 8.3f), MakeVec2(12.1f, 9.2f) },
+			{ MakeVec2(3, 7), MakeVec2(10, 42), MakeVec2(13, 49) },
+			{ MakeVec2(10, 42), MakeVec2(3, 7), MakeVec2(13, 49) },
+		};
 
-		//®”‚Æ‚Ìˆø‚«Z
-		Vector2 v4 = v1 - 1;
-		EXPECT_FLOAT_EQ(v4.x, 0);
-		EXPECT_FLOAT_EQ(v4.y, 1);
+		for (const auto& i : testcase_list)
+		{
+			dl::Vector2 vec1 = std::get<0>(i);
+			const dl::Vector2& vec2 = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
 
-		//•‚“®¬”“_”“¯m‚Ìˆø‚«Z
-		Vector2 v5(0.4f, 0.9f);
-		Vector2 v6(11.7f, 8.3f);
-		Vector2 v7 = v5 - v6;
-		EXPECT_FLOAT_EQ(v7.x, -11.3f);
-		EXPECT_FLOAT_EQ(v7.y, -7.4f);
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + ToString(vec2) + "‚Ì˜a‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
 
-		//•‚“®¬”“_”‚Æ‚Ìˆø‚«Z
-		Vector2 v8 = v5 - 1.1f;
-		EXPECT_FLOAT_EQ(v8.x, -0.7f);
-		EXPECT_FLOAT_EQ(v8.y, -0.2f);
+			vec1 += vec2;
 
-		//‡”Ô‚ª‹t‚Å‚à“¯‚¶’l‚É‚È‚é
-		Vector2 v9 = v1 - v2;
-		Vector2 v10 = v2 - v1;
-		EXPECT_FLOAT_EQ(v9.x, -v10.x);
-		EXPECT_FLOAT_EQ(v9.y, -v10.y);
-
-		//•ª”z–@‘¥
-		Vector2 v11 = v1 - (v2 - v3);
-		Vector2 v12 = v1 - v2 + v3;
-		EXPECT_FLOAT_EQ(v11.x, v12.x);
-		EXPECT_FLOAT_EQ(v11.y, v12.y);
+			EXPECT_EQ(vec1, expected) << error_case_message;
+		}
 	}
 
-	TEST(Vector2Test, MultipleOperator)
+	TEST(Vector2Test, MinusOperatorTest)
 	{
-		//®”‚Æ‚ÌŠ|‚¯Z
-		Vector2 v1(1, 2);
-		Vector2 v2 = v1 * 2;
-		EXPECT_FLOAT_EQ(v2.x, 2);
-		EXPECT_FLOAT_EQ(v2.y, 4);
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), MakeVec2(3, 4), MakeVec2(-2, -2)},
+			{ MakeVec2(0.4f, 0.9f), MakeVec2(11.7f, 8.3f), MakeVec2(-11.3f, -7.4f) },
+			{ MakeVec2(3, 7), MakeVec2(10, 42), MakeVec2(-7, -35) },
+			{ MakeVec2(10, 42), MakeVec2(3, 7), MakeVec2(7, 35) },
+		};
 
-		//•‚“®¬”“_”‚Æ‚ÌŠ|‚¯Z
-		Vector2 v3 = v1 * 0.5f;
-		EXPECT_FLOAT_EQ(v3.x, 0.5f);
-		EXPECT_FLOAT_EQ(v3.y, 1.0f);
+		for (const auto& i : testcase_list)
+		{
+			const dl::Vector2& vec1 = std::get<0>(i);
+			const dl::Vector2& vec2 = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
 
-		//‡”Ô‚ª‹t‚Å‚à“¯‚¶’l‚É‚È‚é
-		Vector2 v4 = v1 * 2;
-		Vector2 v5 = 2 * v1;
-		EXPECT_FLOAT_EQ(v4.x, v5.x);
-		EXPECT_FLOAT_EQ(v4.y, v5.y);
-
-		//•‰‚Ì”‚Æ‚ÌŠ|‚¯Z
-		Vector2 v6 = v1 * -2;
-		EXPECT_FLOAT_EQ(v6.x, -2);
-		EXPECT_FLOAT_EQ(v6.y, -4);
-
-		//•‰‚Ì•‚“®¬”“_”‚Æ‚ÌŠ|‚¯Z
-		Vector2 v7 = v1 * -0.5f;
-		EXPECT_FLOAT_EQ(v7.x, -0.5f);
-		EXPECT_FLOAT_EQ(v7.y, -1.0f);
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + ToString(vec2) + "‚Ì·‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			EXPECT_EQ(vec1 - vec2, expected) << error_case_message;
+		}
 	}
 
-	TEST(Vector2Test, DivisionOperator)
+	TEST(Vector2Test, CompoundAssignmentMinusOperatorTest)
 	{
-		//®”‚Æ‚ÌŠ„‚èZ
-		Vector2 v1(1, 2);
-		Vector2 v2 = v1 / 2;
-		EXPECT_FLOAT_EQ(v2.x, 0.5f);
-		EXPECT_FLOAT_EQ(v2.y, 1);
+		std::vector<std::tuple<dl::Vector2, dl::Vector2, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), MakeVec2(3, 4), MakeVec2(-2, -2)},
+			{ MakeVec2(0.4f, 0.9f), MakeVec2(11.7f, 8.3f), MakeVec2(-11.3f, -7.4f) },
+			{ MakeVec2(3, 7), MakeVec2(10, 42), MakeVec2(-7, -35) },
+			{ MakeVec2(10, 42), MakeVec2(3, 7), MakeVec2(7, 35) },
+		};
 
-		//•‚“®¬”“_”‚Æ‚ÌŠ„‚èZ
-		Vector2 v3 = v1 / 0.5f;
-		EXPECT_FLOAT_EQ(v3.x, 2);
-		EXPECT_FLOAT_EQ(v3.y, 4);
+		for (const auto& i : testcase_list)
+		{
+			dl::Vector2 vec1 = std::get<0>(i);
+			const dl::Vector2& vec2 = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
 
-		//•‰‚Ì”‚Æ‚ÌŠ„‚èZ
-		Vector2 v4 = v1 / -2;
-		EXPECT_FLOAT_EQ(v4.x, -0.5f);
-		EXPECT_FLOAT_EQ(v4.y, -1);
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + ToString(vec2) + "‚Ì·‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
 
-		//•‰‚Ì•‚“®¬”“_”‚Æ‚ÌŠ„‚èZ
-		Vector2 v5 = v1 / -0.5f;
-		EXPECT_FLOAT_EQ(v5.x, -2);
-		EXPECT_FLOAT_EQ(v5.y, -4);
+			vec1 -= vec2;
+
+			EXPECT_EQ(vec1, expected) << error_case_message;
+		}
+	}
+
+	TEST(Vector2Test, MultipleOperatorTest)
+	{
+		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), 3.f, MakeVec2(3, 6)},
+			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(4.f, 9.f) },
+			{ MakeVec2(3, 7), 0.5f, MakeVec2(1.5f, 3.5f) },
+			{ MakeVec2(10, 42), -2.f, MakeVec2(-20.f, -84.f) },
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const dl::Vector2& vec1 = std::get<0>(i);
+			const float s = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
+
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + std::to_string(s) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			EXPECT_EQ(vec1 * s, expected) << error_case_message;
+		}
+	}
+
+	TEST(Vector2Test, MultiplyOperatorTestScalarFirst)
+	{
+		// vec, scalar, expected ‚Ì‡”Ô‚Ìƒ^ƒvƒ‹‚ğ“n‚·
+		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), 3.f, MakeVec2(3, 6)},
+			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(4.f, 9.f) },
+			{ MakeVec2(3, 7), 0.5f, MakeVec2(1.5f, 3.5f) },
+			{ MakeVec2(10, 42), -2.f, MakeVec2(-20.f, -84.f) },
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const dl::Vector2& vec1 = std::get<0>(i);
+			const float s = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
+
+			std::string error_case_message = " " + std::to_string(s) + "‚Æ\n" +
+				" " + ToString(vec1) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			EXPECT_EQ(s * vec1, expected) << error_case_message;
+		}
+	}
+
+	TEST(Vector2Test, CompoundAssignmentMultipleOperatorTest)
+	{
+		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), 3.f, MakeVec2(3, 6)},
+			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(4.f, 9.f) },
+			{ MakeVec2(3, 7), 0.5f, MakeVec2(1.5f, 3.5f) },
+			{ MakeVec2(10, 42), -2.f, MakeVec2(-20.f, -84.f) },
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			dl::Vector2 vec1 = std::get<0>(i);
+			const float s = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
+
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + std::to_string(s) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+
+			vec1 *= s;
+
+			EXPECT_EQ(vec1, expected) << error_case_message;
+		}
+	}
+
+	TEST(Vector2Test, DivisionOperatorTest)
+	{
+		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), 2.f, MakeVec2(0.5f, 1.f) },
+			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(0.04f, 0.09f) },
+			{ MakeVec2(3, 7), 0.5f, MakeVec2(6.f, 14.f) },
+			{ MakeVec2(10, 42), -2.f, MakeVec2(-5.f, -21.f) },
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const dl::Vector2& vec1 = std::get<0>(i);
+			const float s = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
+
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + std::to_string(s) + "‚Ì¤‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			EXPECT_EQ(vec1 / s, expected) << error_case_message;
+		}
+	}
+
+	TEST(Vector2Test, CompoundAssignmentDivisionOperatorTest)
+	{
+		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
+			{ MakeVec2(1, 2), 2.f, MakeVec2(0.5f, 1.f) },
+			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(0.04f, 0.09f) },
+			{ MakeVec2(3, 7), 0.5f, MakeVec2(6.f, 14.f) },
+			{ MakeVec2(10, 42), -2.f, MakeVec2(-5.f, -21.f) },
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			dl::Vector2 vec1 = std::get<0>(i);
+			const float s = std::get<1>(i);
+			const dl::Vector2& expected = std::get<2>(i);
+
+			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
+				" " + std::to_string(s) + "‚Ì¤‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+
+			vec1 /= s;
+
+			EXPECT_EQ(vec1, expected) << error_case_message;
+		}
 	}
 
 }	// namespace designlab::test::common::math

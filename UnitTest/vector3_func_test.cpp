@@ -150,7 +150,7 @@ namespace designlab::test::common::math
 		}
 	}
 
-	TEST(Vector3Test, GetNormalizedTestZeroVec) 
+	TEST(Vector3Test, GetNormalizedTestZeroVecTransToZeroVec) 
 	{
 		dl::Vector3 zero_vec = MakeVec3(0.f, 0.f, 0.f);
 		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "長さが0のベクトルを渡されると，そのまま0ベクトルを返す．";
