@@ -1,6 +1,5 @@
 #include "leg_hierarchy_node_creator.h"
 
-#include "graph_search_const.h"
 #include "leg_state.h"
 
 

@@ -38,7 +38,7 @@ namespace designlab
 			return (end - start).GetLength();
 		}
 
-		//! @brief 線分が平行かどうか調べる関数
+		//! @brief 線分が平行かどうか調べる関数．全てconstexpr関数で処理できるため非常に高速．
 		//! @param[in] other 他の線分
 		//! @return bool 平行ならtrue，そうでなければfalse
 		constexpr bool IsParallel(const LineSegment2& other) const
@@ -53,8 +53,8 @@ namespace designlab
 		//! @brief 他の線分との交点を求める．
 		//! @param [in] other 他の線分
 		//! @return designlab::Vector2 交点．交点がないor平行な場合は(0, 0)を返す．
-		//! @note 参考：http://marupeke296.com/COL_main.html
 		//! @n 端点一致，かつ平行の場合を考慮していないので注意
+		//! @note 参考：http://marupeke296.com/COL_main.html 
 		Vector2 GetIntersection(const LineSegment2& other) const;
 
 		//! @brief 他の線分と交点が存在しているかどうか調べる関数
@@ -65,7 +65,7 @@ namespace designlab
 		//! @brief 他の線分と交点が存在しているかどうか調べ，交点を返す関数
 		//! @param [in] other 他の線分
 		//! @param [out] intersection 交点
-		//! @return bool 交点があるならtrue．ないor平行ならfalse
+		//! @return bool 交点が1つだけあるならtrue．ないor線分が重なっていて交点が無限にあるならfalse
 		bool CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const;
 
 

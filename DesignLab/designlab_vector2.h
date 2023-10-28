@@ -91,9 +91,9 @@ namespace designlab
 	};
 
 
-	inline constexpr Vector2 operator *(float s, const Vector2& v)
+	constexpr Vector2 operator *(float s, const Vector2& v)
 	{
-		return{ s * v.x, s * v.y };
+		return { s * v.x, s * v.y };
 	}
 
 	template <class Char>

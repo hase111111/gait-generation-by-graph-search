@@ -6,21 +6,20 @@
 
 namespace designlab::test::common::math
 {
-	//addVertex関数のテスト
-	TEST(Polygon2Test, AddVertex)
+	TEST(Polygon2Test, AddVertexTest)
 	{
 		//四角形を作成し，その頂点の座標を確認する
-		designlab::Polygon2 polygon;
-		polygon.AddVertex({ 0, 0 });
-		polygon.AddVertex({ 1, 0 });
-		polygon.AddVertex({ 1, 1 });
-		polygon.AddVertex({ 0, 1 });
+		designlab::Polygon2 polygon1;
+		polygon1.AddVertex({ 0, 0 });
+		polygon1.AddVertex({ 1, 0 });
+		polygon1.AddVertex({ 1, 1 });
+		polygon1.AddVertex({ 0, 1 });
 
-		EXPECT_EQ(polygon.GetVertexNum(), 4);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon1.GetVertexNum(), 4);
+		EXPECT_EQ(polygon1.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon1.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon1.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon1.GetVertex(3), designlab::Vector2(0, 1));
 
 		//6角形を作成し，その頂点の座標を確認する
 		designlab::Polygon2 polygon2;
@@ -40,30 +39,32 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(5), designlab::Vector2(-1, 0));
 	}
 
-	//addVertexCheckForDuplicates関数のテスト
-	TEST(Polygon2Test, AddVertexCheckForDuplicates)
+	TEST(Polygon2Test, AddVertexCheckForDuplicatesTestDonotAddDuplicates)
 	{
-		//重複する頂点を追加し，その頂点の座標を確認する
-		designlab::Polygon2 polygon;
-		polygon.AddVertexCheckForDuplicates({ 0, 0 });
-		polygon.AddVertexCheckForDuplicates({ 1, 0 });
-		polygon.AddVertexCheckForDuplicates({ 1, 1 });
-		polygon.AddVertexCheckForDuplicates({ 0, 1 });
-		polygon.AddVertexCheckForDuplicates({ 0, 0 });	//重複する頂点
+		// 重複する頂点を追加し，その頂点の座標を確認する
+		designlab::Polygon2 polygon1;
+		polygon1.AddVertexCheckForDuplicates({ 0, 0 });
+		polygon1.AddVertexCheckForDuplicates({ 1, 0 });
+		polygon1.AddVertexCheckForDuplicates({ 1, 1 });
+		polygon1.AddVertexCheckForDuplicates({ 0, 1 });
+		polygon1.AddVertexCheckForDuplicates({ 0, 0 });	//重複する頂点
 
-		EXPECT_EQ(polygon.GetVertexNum(), 4);
-		EXPECT_EQ(polygon.GetVertex(0), designlab::Vector2(0, 0));
-		EXPECT_EQ(polygon.GetVertex(1), designlab::Vector2(1, 0));
-		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
-		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
+		EXPECT_EQ(polygon1.GetVertexNum(), 4);
+		EXPECT_EQ(polygon1.GetVertex(0), designlab::Vector2(0, 0));
+		EXPECT_EQ(polygon1.GetVertex(1), designlab::Vector2(1, 0));
+		EXPECT_EQ(polygon1.GetVertex(2), designlab::Vector2(1, 1));
+		EXPECT_EQ(polygon1.GetVertex(3), designlab::Vector2(0, 1));
 
-		//重複しない頂点を追加し，その頂点の座標を確認する
+		// ケース2	
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertexCheckForDuplicates({ 0, 0 });
+		polygon2.AddVertexCheckForDuplicates({ 0, 0 }); //重複する頂点
 		polygon2.AddVertexCheckForDuplicates({ 1, 0 });
 		polygon2.AddVertexCheckForDuplicates({ 1, 1 });
+		polygon2.AddVertexCheckForDuplicates({ 1, 0 });	//重複する頂点
 		polygon2.AddVertexCheckForDuplicates({ 0, 1 });
 		polygon2.AddVertexCheckForDuplicates({ -1, 1 });
+		polygon2.AddVertexCheckForDuplicates({ -1, 1 }); //重複する頂点
 
 		EXPECT_EQ(polygon2.GetVertexNum(), 5);
 		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
@@ -73,7 +74,6 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
 	}
 
-	//removeVertex関数のテスト
 	TEST(Polygon2Test, RemoveVertex)
 	{
 		//四角形を作成し，頂点を削除する
@@ -122,8 +122,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
 		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 
-		//負の値を指定した場合
-		polygon2.RemoveVertex(-1);
+		polygon2.RemoveVertex(-1);		//負の値を指定した場合もなにもしない
 		EXPECT_EQ(polygon2.GetVertexNum(), 4);
 		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
 		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
@@ -131,7 +130,6 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 	}
 
-	//removeLastVertex関数のテスト
 	TEST(Polygon2Test, RemoveLastVertex)
 	{
 		//四角形を作成し，頂点を削除する
@@ -177,7 +175,6 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(4), designlab::Vector2(-1, 1));
 	}
 
-	//getVertexNum関数のテスト
 	TEST(Polygon2Test, GetVertexNum)
 	{
 		//頂点がない多角形を作成し，頂点数を確認する
@@ -224,7 +221,6 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon3.GetVertexNum(), 0);
 	}
 
-	//getVertex関数のテスト
 	TEST(Polygon2Test, GetVertex)
 	{
 		//4角形を作成し，その頂点の座標を確認する
@@ -256,7 +252,6 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(5), designlab::Vector2(-1, 0));
 	}
 
-	//IsConvex関数のテスト
 	TEST(Polygon2Test, IsConvexRightTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
@@ -297,7 +292,6 @@ namespace designlab::test::common::math
 		EXPECT_FALSE(polygon4.IsConvex());
 	}
 
-	//IsConvex関数のテスト(左回り)
 	TEST(Polygon2Test, IsConvexLeftTurn)
 	{
 		//4角形を作成し，凸多角形かどうかを確認する
@@ -339,4 +333,4 @@ namespace designlab::test::common::math
 		EXPECT_FALSE(polygon4.IsConvex());
 	}
 
-}	//namespace dl_vec_test
+}	//namespace designlab::test::common::math

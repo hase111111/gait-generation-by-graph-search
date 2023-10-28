@@ -64,6 +64,18 @@ namespace designlab
 		// intersectionはnullptrであってはならない
 		assert(intersection != nullptr);
 
+		//端点一致の場合，その点を返す
+		if ((start == other.start && end != other.end) || (start == other.end && end != other.start))
+		{
+			(*intersection) = start;
+			return true;
+		}
+		else if ((end == other.start && start != other.end) || (end == other.end && start != other.start))
+		{
+			(*intersection) = end;
+			return true;
+		}
+
 		if (IsParallel(other))
 		{
 			return false;	//平行ならば交点は存在しない．
