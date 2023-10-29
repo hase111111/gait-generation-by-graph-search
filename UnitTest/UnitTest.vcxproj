@@ -39,6 +39,7 @@
   <ItemGroup>
     <ClCompile Include="asyncable_data_test.cpp" />
     <ClCompile Include="asyncable_data_vector_test.cpp" />
+    <ClCompile Include="cmdio_util_test.cpp" />
     <ClCompile Include="com_move_node_creator_hato_test.cpp" />
     <ClCompile Include="leg_func_change_test.cpp" />
     <ClCompile Include="leg_func_ground_test.cpp" />
@@ -46,6 +47,7 @@
     <ClCompile Include="leg_hierarchy_node_creator_test.cpp" />
     <ClCompile Include="line_segment2_func_test.cpp" />
     <ClCompile Include="line_segment2_operator_test.cpp" />
+    <ClCompile Include="math_util_random_test.cpp" />
     <ClCompile Include="math_util_test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

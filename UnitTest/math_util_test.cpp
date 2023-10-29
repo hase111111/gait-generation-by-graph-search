@@ -6,6 +6,7 @@
 
 namespace dlm = designlab::math_util;
 
+
 namespace designlab::test::common::math
 {
 	TEST(MathUtilTest, IsEqualTestFloatType)
@@ -167,6 +168,90 @@ namespace designlab::test::common::math
 
 			std::string error_case_message = std::to_string(a) + ", " + std::to_string(b) + ", " + std::to_string(c) + "の3辺から三角形が作れないはずである．";
 			EXPECT_FALSE(dlm::CanMakeTriangle(a, b, c)) << error_case_message;
+		}
+	}
+
+	TEST(MathUtilTest, ConvertRadToDegTestFloatType)
+	{
+		//Rad ,Deg の順番
+		std::vector<std::tuple<float, float>> testcase_list
+		{
+			{0.0f, 0.0f},		{0.5f * dlm::kFloatPi, 90.0f},	{dlm::kFloatPi, 180.0f},
+			{1.5f * dlm::kFloatPi, 270.0f},	{2.0f * dlm::kFloatPi, 360.0f},	{3.0f * dlm::kFloatPi, 540.0f},
+			{-0.5f * dlm::kFloatPi, -90.0f},	{-dlm::kFloatPi, -180.0f},		{-1.5f * dlm::kFloatPi, -270.0f},
+			{-2.0f * dlm::kFloatPi, -360.0f},	{-3.0f * dlm::kFloatPi, -540.0f}
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const float& rad = std::get<0>(i);
+			const float& deg = std::get<1>(i);
+
+			std::string error_case_message = std::to_string(rad) + " [rad] は" + std::to_string(deg) + " [deg]になるはずである．\n_";
+			EXPECT_TRUE(dlm::IsEqual(dlm::ConvertRadToDeg(rad), deg)) << error_case_message;
+		}
+	}
+
+	TEST(MathUtilTest, ConvertRadToDegTestDoubleType)
+	{
+		//Rad ,Deg の順番
+		std::vector<std::tuple<double, double>> testcase_list
+		{
+			{0.0, 0.0},		{0.5 * dlm::kDoublePi, 90.0},	{dlm::kDoublePi, 180.0},
+			{1.5 * dlm::kDoublePi, 270.0},	{2.0 * dlm::kDoublePi, 360.0},	{3.0 * dlm::kDoublePi, 540.0},
+			{-0.5 * dlm::kDoublePi, -90.0},	{-dlm::kDoublePi, -180.0},		{-1.5 * dlm::kDoublePi, -270.0},
+			{-2.0 * dlm::kDoublePi, -360.0},	{-3.0 * dlm::kDoublePi, -540.0}
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const double& rad = std::get<0>(i);
+			const double& deg = std::get<1>(i);
+
+			std::string error_case_message = std::to_string(rad) + " [rad] は" + std::to_string(deg) + " [deg]になるはずである．\n_";
+			EXPECT_TRUE(dlm::IsEqual(dlm::ConvertRadToDeg(rad), deg)) << error_case_message;
+		}
+	}
+
+	TEST(MathUtilTest, ConvertDegToRadTestFloatType)
+	{
+		//Deg ,Rad の順番
+		std::vector<std::tuple<float, float>> testcase_list
+		{
+			{0.0f, 0.0f},		{90.0f, 0.5f * dlm::kFloatPi},	{180.0f, dlm::kFloatPi},
+			{270.0f, 1.5f * dlm::kFloatPi},	{360.0f, 2.0f * dlm::kFloatPi},	{540.0f, 3.0f * dlm::kFloatPi},
+			{-90.0f, -0.5f * dlm::kFloatPi},	{-180.0f, -dlm::kFloatPi},		{-270.0f, -1.5f * dlm::kFloatPi},
+			{-360.0f, -2.0f * dlm::kFloatPi},	{-540.0f, -3.0f * dlm::kFloatPi}
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const float& deg = std::get<0>(i);
+			const float& rad = std::get<1>(i);
+
+			std::string error_case_message = std::to_string(deg) + " [deg] は" + std::to_string(rad) + " [rad]になるはずである．\n_";
+			EXPECT_TRUE(dlm::IsEqual(dlm::ConvertDegToRad(deg), rad)) << error_case_message;
+		}
+	}
+
+	TEST(MathUtilTest, ConvertDegToRadTestDoubleType)
+	{
+		//Deg ,Rad の順番
+		std::vector<std::tuple<double, double>> testcase_list
+		{
+			{0.0, 0.0},		{90.0, 0.5 * dlm::kDoublePi},	{180.0, dlm::kDoublePi},
+			{270.0, 1.5 * dlm::kDoublePi},	{360.0, 2.0 * dlm::kDoublePi},	{540.0, 3.0 * dlm::kDoublePi},
+			{-90.0, -0.5 * dlm::kDoublePi},	{-180.0, -dlm::kDoublePi},		{-270.0, -1.5 * dlm::kDoublePi},
+			{-360.0, -2.0 * dlm::kDoublePi},	{-540.0, -3.0 * dlm::kDoublePi}
+		};
+
+		for (const auto& i : testcase_list)
+		{
+			const double& deg = std::get<0>(i);
+			const double& rad = std::get<1>(i);
+
+			std::string error_case_message = std::to_string(deg) + " [deg] は" + std::to_string(rad) + " [rad]になるはずである．\n_";
+			EXPECT_TRUE(dlm::IsEqual(dlm::ConvertDegToRad(deg), rad)) << error_case_message;
 		}
 	}
 

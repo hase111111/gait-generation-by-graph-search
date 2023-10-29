@@ -77,6 +77,12 @@
     <ClCompile Include="leg_hierarchy_node_creator_test.cpp">
       <Filter>Node\NodeCreator</Filter>
     </ClCompile>
+    <ClCompile Include="math_util_random_test.cpp">
+      <Filter>Common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdio_util_test.cpp">
+      <Filter>Common\CommandIO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -99,6 +105,12 @@
     </Filter>
     <Filter Include="Node\NodeCreator">
       <UniqueIdentifier>{3722a6c9-7bf5-4a20-b0c1-c49a22c20313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Math\Rot">
+      <UniqueIdentifier>{e0e230ee-62e8-4d66-a99e-be1d24810f36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\CommandIO">
+      <UniqueIdentifier>{a8cd1c27-0a7b-4486-ba73-2e40b29eece1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

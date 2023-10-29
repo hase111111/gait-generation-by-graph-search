@@ -3,23 +3,16 @@
 #include "cassert_define.h"
 
 
-constexpr designlab::EulerXYZ designlab::Quaternion::toRotator() const
-{
-	// クオータニオンをXYZオイラー角に変換
-
-	return { 0,0,0 };
-}
-
 designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const Vector3& axis)
 {
 	// オイラー角をクオータニオンに変換
 
 	const float kHalfAngle = angle * 0.5f;
 
-	return Quaternion{ cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(kHalfAngle) };
+	return { cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(kHalfAngle) };
 }
 
-designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q,const bool use_normalized_quaternions)
+designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q, const bool use_normalized_quaternions)
 {
 	designlab::Quaternion p{0, vec.x, vec.y, vec.z};	// 回転させるベクトルをスカラーが0のクオータニオンに変換
 	designlab::Quaternion res;	// 結果
