@@ -83,6 +83,15 @@
     <ClCompile Include="cmdio_util_test.cpp">
       <Filter>Common\CommandIO</Filter>
     </ClCompile>
+    <ClCompile Include="euler_angle_func_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
+    <ClCompile Include="euler_angle_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
+    <ClCompile Include="euler_angle_operator_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

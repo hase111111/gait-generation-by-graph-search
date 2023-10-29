@@ -44,12 +44,8 @@ namespace designlab::test::common::math
 			{MakeVec3(0.2f, 34.8f, 6.78f),	MakeVec3(2.6f, -13.2f, 6.11f),	MakeVec3(2.8f, 21.6f, 12.89f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			const dl::Vector3& vec1 = std::get<0>(i);
-			const dl::Vector3& vec2 = std::get<1>(i);
-			const dl::Vector3& expected = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec1) + "と" + ToString(vec2) + "の和は" + ToString(expected) + "である．";
 			EXPECT_EQ(vec1 + vec2, expected) << error_case_message;
 		}
@@ -68,16 +64,13 @@ namespace designlab::test::common::math
 			{MakeVec3(0.2f, 34.8f, 6.78f),	MakeVec3(2.6f, -13.2f, 6.11f),	MakeVec3(2.8f, 21.6f, 12.89f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			dl::Vector3 vec1 = std::get<0>(i);
-			const dl::Vector3 vec2 = std::get<1>(i);
-			const dl::Vector3 expected = std::get<2>(i);
-
-			vec1 += vec2;
+			dl::Vector3 vec1_copy = vec1;
+			vec1_copy += vec2;
 
 			std::string error_case_message = ToString(vec1) + "と" + ToString(vec2) + "の和は" + ToString(expected) + "である．";
-			EXPECT_EQ(vec1, expected) << error_case_message;
+			EXPECT_EQ(vec1_copy, expected) << error_case_message;
 		}
 	}
 
@@ -89,12 +82,8 @@ namespace designlab::test::common::math
 			{MakeVec3(15.f, 66.f, 1010.f),	MakeVec3(5.f, 60.f, 1000.f), MakeVec3(10.f, 6.f, 10.f)}
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			const dl::Vector3& vec1 = std::get<0>(i);
-			const dl::Vector3& vec2 = std::get<1>(i);
-			const dl::Vector3& expected = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec1) + "と" + ToString(vec2) + "の差は" + ToString(expected) + "である．";
 			EXPECT_EQ(vec1 - vec2, expected) << error_case_message;
 		}
@@ -108,16 +97,13 @@ namespace designlab::test::common::math
 			{MakeVec3(15.f, 66.f, 1010.f),	MakeVec3(5.f, 60.f, 1000.f), MakeVec3(10.f, 6.f, 10.f)}
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			dl::Vector3 vec1 = std::get<0>(i);
-			const dl::Vector3 vec2 = std::get<1>(i);
-			const dl::Vector3 expected = std::get<2>(i);
-
-			vec1 -= vec2;
+			dl::Vector3 vec1_copy = vec1;
+			vec1_copy -= vec2;
 
 			std::string error_case_message = ToString(vec1) + "と" + ToString(vec2) + "の差は" + ToString(expected) + "である．";
-			EXPECT_EQ(vec1, expected) << error_case_message;
+			EXPECT_EQ(vec1_copy, expected) << error_case_message;
 		}
 	}
 
@@ -130,12 +116,8 @@ namespace designlab::test::common::math
 			{MakeVec3(0.256f, -34.21f, 6.002f), 25.3f,	MakeVec3(6.4768f, -865.513f, 151.8506f)},
 		};
 
-		for (const auto &i : testcase_list)
+		for (const auto & [vec, scalar, expected] : testcase_list)
 		{
-			const dl::Vector3& vec = std::get<0>(i);
-			const float scalar = std::get<1>(i);
-			const dl::Vector3& expected = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + std::to_string(scalar) + "の積は正しくは" + ToString(expected) + "である．";
 			EXPECT_EQ(vec * scalar, expected) << error_case_message;
 		}
@@ -152,12 +134,8 @@ namespace designlab::test::common::math
 			{MakeVec3(0.256f, -34.21f, 6.002f), 25.3f,	MakeVec3(6.4768f, -865.513f, 151.8506f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, scalar, expected] : testcase_list)
 		{
-			const dl::Vector3& vec = std::get<0>(i);
-			const float scalar = std::get<1>(i);
-			const dl::Vector3& expected = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + std::to_string(scalar) + "の積は正しくは" + ToString(expected) + "である．";
 			EXPECT_EQ(scalar * vec, expected) << error_case_message;
 		}
@@ -172,16 +150,13 @@ namespace designlab::test::common::math
 			{MakeVec3(0.256f, -34.21f, 6.002f), 25.3f,	MakeVec3(6.4768f, -865.513f, 151.8506f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, scalar, expected] : testcase_list)
 		{
-			dl::Vector3 vec = std::get<0>(i);
-			const float scalar = std::get<1>(i);
-			const dl::Vector3 expected = std::get<2>(i);
-
-			vec *= scalar;
+			dl::Vector3 vec_copy = vec;
+			vec_copy *= scalar;
 
 			std::string error_case_message = ToString(vec) + "と" + std::to_string(scalar) + "の積は正しくは" + ToString(expected) + "である．";
-			EXPECT_EQ(vec, expected) << error_case_message;
+			EXPECT_EQ(vec_copy, expected) << error_case_message;
 		}
 	}
 
@@ -194,12 +169,8 @@ namespace designlab::test::common::math
 			{MakeVec3(0.256f, -34.21f, 6.002f), 25.3f,	MakeVec3(0.010138f, -1.352174f, 0.237425f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, scalar, expected] : testcase_list)
 		{
-			const dl::Vector3& vec = std::get<0>(i);
-			const float scalar = std::get<1>(i);
-			const dl::Vector3& expected = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + std::to_string(scalar) + "の商は正しくは" + ToString(expected) + "である．";
 			EXPECT_EQ(vec / scalar, expected) << error_case_message;
 		}
@@ -214,16 +185,13 @@ namespace designlab::test::common::math
 			{MakeVec3(0.256f, -34.21f, 6.002f), 25.3f,	MakeVec3(0.010138f, -1.352174f, 0.237425f)},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, scalar, expected] : testcase_list)
 		{
-			dl::Vector3 vec = std::get<0>(i);
-			const float scalar = std::get<1>(i);
-			const dl::Vector3 expected = std::get<2>(i);
-
-			vec /= scalar;
+			dl::Vector3 vec_copy = vec;
+			vec_copy /= scalar;
 
 			std::string error_case_message = ToString(vec) + "と" + std::to_string(scalar) + "の商は正しくは" + ToString(expected) + "である．";
-			EXPECT_EQ(vec, expected) << error_case_message;
+			EXPECT_EQ(vec_copy, expected) << error_case_message;
 		}
 	}
 }

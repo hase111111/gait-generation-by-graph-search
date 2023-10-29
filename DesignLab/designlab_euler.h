@@ -59,12 +59,22 @@ namespace designlab
 		//! @brief オイラー角を文字列に変換する
 		//! @n 単位は ラジアン [rad]
 		//! @return std::string オイラー角を表す文字列
-		std::string ToString() const;
+		[[nodiscard]] std::string ToString() const;
 
 		//! @brief オイラー角を文字列に変換する
 		//! @n 単位は 度 [deg]
 		//! @return std::string オイラー角を表す文字列
-		std::string ToStringDeg() const;
+		[[nodiscard]] std::string ToStringDeg() const;
+
+		//! @brief オイラー角を 単位[deg] で作成する
+		//! @param [in] x X軸周りの回転．[deg]
+		//! @param [in] y Y軸周りの回転．[deg]
+		//! @param [in] z Z軸周りの回転．[deg]
+		//! @return EulerXYZ オイラー角
+		[[nodiscard]] static constexpr EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
+		{
+			return EulerXYZ{ ::designlab::math_util::ConvertDegToRad(x), ::designlab::math_util::ConvertDegToRad(y), ::designlab::math_util::ConvertDegToRad(z) }; 
+		}
 
 
 		float x_angle;	//!< X 軸周りの回転．[rad]

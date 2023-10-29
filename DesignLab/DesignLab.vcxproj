@@ -24,6 +24,7 @@
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="designlab_rotation_matrix.h" />
+    <ClInclude Include="designlab_rot_converter.h" />
     <ClInclude Include="designlab_string_util.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="com_move_node_creator_hato.cpp" />
+    <ClCompile Include="designlab_rot_converter.cpp" />
     <ClCompile Include="designlab_string_util.cpp" />
     <ClCompile Include="_com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />

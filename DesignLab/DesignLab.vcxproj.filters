@@ -438,6 +438,9 @@
     <ClInclude Include="designlab_string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_rot_converter.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -688,6 +691,9 @@
     </ClCompile>
     <ClCompile Include="designlab_string_util.cpp">
       <Filter>ソース ファイル\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_rot_converter.cpp">
+      <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

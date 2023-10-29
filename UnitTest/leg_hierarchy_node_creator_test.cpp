@@ -6,7 +6,6 @@
 #include "../DesignLab/leg_hierarchy_node_creator.cpp"
 #include "../DesignLab/designlab_string_util.cpp"
 #include "../DesignLab/robot_state_node.cpp"
-#include "../DesignLab/designlab_euler.cpp"
 #include "../DesignLab/designlab_rotation_matrix.cpp"
 #include "../DesignLab/hexapod_const.cpp"
 

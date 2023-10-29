@@ -61,43 +61,46 @@ namespace designlab
 		//! @brief クォータニオンの内積を返す．クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める
 		//! @param [in] other 内積を求めるクォータニオン
 		//! @return float 内積
-		constexpr float Dot(Quaternion other) const noexcept { return w * other.w + v.Dot(other.v); }
+		[[nodiscard]] constexpr float Dot(Quaternion other) const noexcept { return w * other.w + v.Dot(other.v); }
 
 		//! @brief クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの
 		//! @n q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回転は逆方向になる
 		//! @return designlab::Quaternion 共役クォータニオン
-		constexpr Quaternion Conjugate() const noexcept { return { w, -v }; }
+		[[nodiscard]] constexpr Quaternion GetConjugate() const noexcept { return { w, -v }; }
 
 		//! @brief クォータニオンの長さの2乗を返す(ノルムの2乗)．
 		//! @n クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる
 		//! @return float 長さの2乗
-		constexpr float LengthSquared() const noexcept { return w * w + v.Dot(v); }
+		[[nodiscard]] constexpr float GetLengthSquared() const noexcept { return w * w + v.Dot(v); }
 
 		//! @brief クォータニオンのノルムを返す
 		//! @n ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる
 		//! @return float ノルム
-		inline float Norm() const { return std::sqrt(LengthSquared()); }
+		[[nodiscard]] inline float GetNorm() const noexcept { return std::sqrt(GetLengthSquared()); }
 
 		//! @brief クォータニオンの逆数を返す
 		//! @n クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの
-		inline Quaternion Inverse() const { return Conjugate() * (1 / Norm()); }
+		[[nodiscard]] inline Quaternion GetInverse() const { return GetConjugate() * (1 / GetNorm()); }
 
 		//! @brief 正規化したクォータニオンを返す
 		//! @n クォータニオンの正規化とは，ノルムを1にすること．
 		//! @n クォータニオンqの正規化は，q / |q| で求められる
 		//! @return designlab::Quaternion 正規化されたクォータニオン
-		inline Quaternion GetNormalized() const { return *this * (1 / Norm()); }
+		[[nodiscard]] Quaternion GetNormalized() const noexcept;
 
 		//! @brief 他のクォータニオンとの距離の2乗を返す．クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める
 		//! @return float 距離の2乗
-		constexpr float DistanceSquared(const Quaternion& q) const noexcept { return (*this - q).LengthSquared(); }
+		[[nodiscard]] constexpr float GetDistanceSquared(const Quaternion& q) const noexcept { return (*this - q).GetLengthSquared(); }
+
+		//! @brief 自身を正規化する．ノルムが１になる．
+		inline void Normalize() noexcept { *this = GetNormalized(); }
 
 		//! @brief 回転軸と回転角からクォータニオンを作成する．
 		//! @n q = cos(θ/2) * w + sin(θ/2) * { v.x  + v.y  + v.z } となる．
 		//! @n ノルムは必ず1になる．
 		//! @param [in] rad_angle 回転角θ [rad]
 		//! @param [in] axis 回転軸
-		static Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
+		static [[nodiscard]] Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
 
 
 		float w;	//!< スカラー成分
@@ -141,7 +144,6 @@ namespace designlab
 	Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, float t);
 
 }	// namespace designlab	
-
 
 
 #endif	// DESIGNLAB_QUATERNION_H_

@@ -46,12 +46,8 @@ namespace designlab::test::common::math
 			{MakeVec3(4.f, 8.f, -9.f),				MakeVec3(-9.f, 3.f, 1.f),				false,},
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			const dl::Vector3& vec1 = std::get<0>(i);
-			const dl::Vector3& vec2 = std::get<1>(i);
-			const bool expected = std::get<2>(i);
-
 			if (expected == true)
 			{
 				std::string error_case_message = ToString(vec1) + "Ç∆" + ToString(vec2) + "ÇÕìôÇµÇ¢ÇÕÇ∏Ç≈Ç†ÇÈÅD";
@@ -78,12 +74,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(4.f, 8.f, -9.f),				MakeVec3(-9.f, 3.f, 1.f),				true)
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec1, vec2, expected] : testcase_list)
 		{
-			const dl::Vector3& vec1 = std::get<0>(i);
-			const dl::Vector3& vec2 = std::get<1>(i);
-			const bool expected = std::get<2>(i);
-
 			if (expected == true)
 			{
 				std::string error_case_message = ToString(vec1) + "Ç∆" + ToString(vec2) + "ÇÕìôÇµÇ≠Ç»Ç¢ÇÕÇ∏Ç≈Ç†ÇÈÅD";

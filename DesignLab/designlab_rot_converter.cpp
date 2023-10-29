@@ -1,5 +1,6 @@
 #include "designlab_rot_converter.h"
 
+
 designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
 {
 	designlab::Quaternion q;
@@ -11,22 +12,25 @@ designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
 	q.v.y = (rot.element[0][2] - rot.element[2][0]) / w4;
 	q.v.z = (rot.element[1][0] - rot.element[0][1]) / w4;
 
+	q.Normalize();
+
 	return q;
 }
 
 designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const Quaternion& q)
 {
 	designlab::RotationMatrix3x3 mat;
+	designlab::Quaternion q_norm = q.GetNormalized();
 
-	const float x2 = q.v.x * q.v.x;
-	const float y2 = q.v.y * q.v.y;
-	const float z2 = q.v.z * q.v.z;
-	const float xy = q.v.x * q.v.y;
-	const float xz = q.v.x * q.v.z;
-	const float yz = q.v.y * q.v.z;
-	const float wx = q.w * q.v.x;
-	const float wy = q.w * q.v.y;
-	const float wz = q.w * q.v.z;
+	const float x2 = q_norm.v.x * q_norm.v.x;
+	const float y2 = q_norm.v.y * q_norm.v.y;
+	const float z2 = q_norm.v.z * q_norm.v.z;
+	const float xy = q_norm.v.x * q_norm.v.y;
+	const float xz = q_norm.v.x * q_norm.v.z;
+	const float yz = q_norm.v.y * q_norm.v.z;
+	const float wx = q_norm.w * q_norm.v.x;
+	const float wy = q_norm.w * q_norm.v.y;
+	const float wz = q_norm.w * q_norm.v.z;
 
 	mat.element[0][0] = 1.0f - 2.0f * (y2 + z2);
 	mat.element[0][1] = 2.0f * (xy - wz);

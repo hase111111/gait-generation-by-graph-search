@@ -66,11 +66,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(0.1f, -0.7f, 3.5f),12.75f),
 		};
 
-		for (const auto& data : testcase_list)
+		for (const auto& [vec, length] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(data);
-			const float length = std::get<1>(data);
-
 			std::string error_case_message = ToString(vec) + "の長さの二乗は正しくは" + std::to_string(length) + "である．";
 			EXPECT_FLOAT_EQ(vec.GetSquaredLength(), length) << error_case_message;
 		}
@@ -88,11 +85,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(100, -80, -35),	132.75919f),
 		};
 
-		for (const auto &i : testcase_list)
+		for (const auto & [vec, length] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const float length = std::get<1>(i);
-
 			std::string error_case_message = ToString(vec) + "の長さは正しくは" + std::to_string(length) + "である．";
 			EXPECT_FLOAT_EQ(vec.GetLength(), length) << error_case_message;
 		}
@@ -112,12 +106,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(0.2f, 1.f, -3.f),	MakeVec3(-4.4f, 1.4f, 31.6f),		34.906732f),
 		};
 
-		for (const auto &i : testcase_list)
+		for (const auto & [vec, other, distance] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const dl::Vector3 other = std::get<1>(i);
-			const float distance = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + ToString(other) + "の距離は正しくは" + std::to_string(distance) + "である．";
 			EXPECT_FLOAT_EQ(vec.GetDistanceFrom(other), distance) << error_case_message;
 		}
@@ -137,11 +127,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(62.51f, -94.78f, 25.89f),	MakeVec3(0.536788f, -0.813898f, 0.222324f)),
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, normalized_vec] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const dl::Vector3 normalized_vec = std::get<1>(i);
-
 			std::string error_case_message = ToString(vec) + "の正規化は正しくは" + ToString(normalized_vec) + "である．";
 			EXPECT_EQ(vec.GetNormalized(), normalized_vec) << error_case_message;
 
@@ -153,7 +140,7 @@ namespace designlab::test::common::math
 	TEST(Vector3Test, GetNormalizedTestZeroVecTransToZeroVec) 
 	{
 		dl::Vector3 zero_vec = MakeVec3(0.f, 0.f, 0.f);
-		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "長さが0のベクトルを渡されると，そのまま0ベクトルを返す．";
+		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "長さが0のベクトルを渡されると，そのまま0ベクトルを返します．";
 	}
 
 	TEST(Vector3Test, IsZeroTest)
@@ -193,12 +180,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(0.1f, -0.7f, 3.5f),MakeVec3(0.1f, -0.7f, 3.5f),	12.75f),
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, other, dot] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const dl::Vector3 other = std::get<1>(i);
-			const float dot = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + ToString(other) + "の内積は正しくは" + std::to_string(dot) + "である．";
 			EXPECT_FLOAT_EQ(vec.Dot(other), dot) << error_case_message;
 		}
@@ -213,12 +196,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(1.f, 1.f, 1.f),		MakeVec3(3.f, 4.f, 1.f),		MakeVec3(-3.f, 2.f, 1.f)),
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, other, cross] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const dl::Vector3 other = std::get<1>(i);
-			const dl::Vector3 cross = std::get<2>(i);
-
 			std::string error_case_message = ToString(vec) + "と" + ToString(other) + "の外積は正しくは" + ToString(cross) + "である．";
 			EXPECT_EQ(vec.Cross(other), cross) << error_case_message;
 		}
@@ -233,11 +212,8 @@ namespace designlab::test::common::math
 			std::make_tuple(MakeVec3(-1,10,-1),			MakeVec2(-1.f, 10.f)),
 		};
 
-		for (const auto& i : testcase_list)
+		for (const auto& [vec, projected_vec] : testcase_list)
 		{
-			const dl::Vector3 vec = std::get<0>(i);
-			const dl::Vector2 projected_vec = std::get<1>(i);
-
 			std::string error_case_message = ToString(vec) + "をXY平面に射影したベクトルは正しくは" + ToString(projected_vec) + "である．";
 			EXPECT_EQ(vec.ProjectedXY(), projected_vec) << error_case_message;
 		}

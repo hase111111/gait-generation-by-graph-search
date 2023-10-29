@@ -3,6 +3,18 @@
 #include "cassert_define.h"
 
 
+namespace dlm = ::designlab::math_util;
+
+
+designlab::Quaternion designlab::Quaternion::GetNormalized() const noexcept
+{
+	//ノルムが0の場合は，(0,0,0,0)を返す
+	const float norm = GetNorm();
+	if (norm == 0) { return { 0,0,0,0 }; }
+
+	return *this * (1.f / norm);
+}
+
 designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const Vector3& axis)
 {
 	// オイラー角をクオータニオンに変換
@@ -14,20 +26,20 @@ designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const 
 
 designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q, const bool use_normalized_quaternions)
 {
-	designlab::Quaternion p{0, vec.x, vec.y, vec.z};	// 回転させるベクトルをスカラーが0のクオータニオンに変換
+	const designlab::Quaternion p{0, vec.x, vec.y, vec.z};	// 回転させるベクトルをスカラーが0のクオータニオンに変換
 	designlab::Quaternion res;	// 結果
 
 	if (use_normalized_quaternions)
 	{
 		// 正規化されたクォータニオンを使う場合は，共役と逆数が等しいので，計算量を減らすことができる
 
-		assert(designlab::math_util::IsEqual(q.Norm(), 1.0f));	// 正規化されたクォータニオンを使う場合は，正規化されたクォータニオンを渡す必要がある
+		assert(dlm::IsEqual(q.GetNorm(), 1.0f));	// 正規化されたクォータニオンを使う場合は，正規化されたクォータニオンを渡す必要がある
 		
-		res = q * p * q.Conjugate();	// Q * P * Q^-1 
+		res = q * p * q.GetConjugate();	// Q * P * Q^-1 
 	}
 	else 
 	{
-		res = q * p * q.Inverse();	// Q * P * Q^-1
+		res = q * p * q.GetInverse();	// Q * P * Q^-1
 	}
 
 	return res.v;	// ベクトル成分を返す
