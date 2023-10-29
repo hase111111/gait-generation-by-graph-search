@@ -349,5 +349,86 @@ namespace designlab::test::node::node_creator
 		}
 	}
 
+	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfTwoLegLifted)
+	{
+		// 2本の脚が遊脚している場合，その他の変更されてはいけない値が変更されていないかのテスト
 
+		for (const auto& i : twoleg_lifted_testcase)
+		{
+			const RobotStateNode test_node = MakeTestNode(i);
+
+			std::vector<RobotStateNode> output_nodes;
+
+			// テスト対象の関数を実行
+			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
+
+			for (const auto& j : output_nodes)
+			{
+				// 出力されたノードを確認する．
+				std::string error_message = ToString(i) + "\n" +
+					"生成されたノード" + j.ToString() + "\n_";
+
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.rot, test_node.rot) << error_message << "姿勢は変化しません．\n_";
+
+			}
+		}
+	}
+
+	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfThreeLegLifted)
+	{
+		// 3本の脚が遊脚している場合，その他の変更されてはいけない値が変更されていないかのテスト
+
+		for (const auto& i : threeleg_lifted_testcase)
+		{
+			const RobotStateNode test_node = MakeTestNode(i);
+
+			std::vector<RobotStateNode> output_nodes;
+
+			// テスト対象の関数を実行
+			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
+
+			for (const auto& j : output_nodes)
+			{
+				// 出力されたノードを確認する．
+				std::string error_message = ToString(i) + "\n" +
+					"生成されたノード" + j.ToString() + "\n_";
+
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.rot, test_node.rot) << error_message << "姿勢は変化しません．\n_";
+
+			}
+		}
+	}
+
+	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfNoLegLifted)
+	{
+		// 全ての脚が接地している場合，その他の変更されてはいけない値が変更されていないかのテスト
+
+		std::array<bool, HexapodConst::kLegNum> is_ground = { true, true, true, true, true, true };
+
+		const RobotStateNode test_node = MakeTestNode(is_ground);
+
+		std::vector<RobotStateNode> output_nodes;
+
+		// テスト対象の関数を実行
+		creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
+
+		for (const auto& j : output_nodes)
+		{
+			// 出力されたノードを確認する．
+			std::string error_message = ToString(is_ground) + "\n" +
+				"生成されたノード" + j.ToString() + "\n_";
+
+			EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
+			EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
+			EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+			EXPECT_EQ(j.rot, test_node.rot) << error_message << "姿勢は変化しません．\n_";
+
+		}
+	}
 }

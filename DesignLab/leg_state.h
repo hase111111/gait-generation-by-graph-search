@@ -70,8 +70,11 @@ namespace designlab
 		//! @param [in] is_ground ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·boolŒ^‚Ì”z—ñDÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
 		//! @param [in] discretized_leg_pos —£U‰»‚µ‚½‹rˆÊ’u‚ğ•\‚·•Ï”D
 		//! @return LegStateBit ì¬‚µ‚½‹ró‘Ô‚ğ•Ô‚·D
-		LegStateBit MakeLegStateBit(DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::kLegNum>& is_ground,
-			const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos);
+		LegStateBit MakeLegStateBit(
+			DiscreteComPos discrete_com_pos, 
+			const std::array<bool, HexapodConst::kLegNum>& is_ground,
+			const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
+		);
 
 
 		//! @brief ‹r”Ô† leg_index 0 ` 5 ‚É‰‚¶‚ÄC‚»‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚éD

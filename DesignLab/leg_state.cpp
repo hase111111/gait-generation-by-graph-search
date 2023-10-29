@@ -3,38 +3,45 @@
 #include "cassert_define.h"
 
 
-namespace dllf = ::designlab::leg_func;
-
-
-dllf::LegStateBit dllf::MakeLegStateBit(const DiscreteComPos discrete_com_pos, const std::array<bool, HexapodConst::kLegNum>& is_ground,
-	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos)
+designlab::leg_func::LegStateBit designlab::leg_func::MakeLegStateBit(
+	const DiscreteComPos discrete_com_pos, 
+	const std::array<bool, HexapodConst::kLegNum>& is_ground,
+	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
+)
 {
 	LegStateBit res = 0;
 
-	res |= static_cast<unsigned int>(discrete_com_pos) << kShiftToComNum;	//重心パターンの数値だけbitを立てる
+	LegStateBit discrete_com_pos_bit = static_cast<unsigned int>(discrete_com_pos);		//bitに変換する
+	res |= discrete_com_pos_bit << kShiftToComNum;	//重心パターンの数値だけbitを立てる
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//接地しているならば上位bitを立てる
-		if (is_ground[i]) { res[(i + 1) * 4 - 1] = true; }
+		size_t ground_bit_index = static_cast<size_t>(i + 1) * 4 - 1;
+		if (is_ground[i]) { res[ground_bit_index] = true; }
 
 		// 脚のbitを立てる
-		res |= static_cast<unsigned int>(discretized_leg_pos[i]) << (i * 4);
+		LegStateBit discrete_leg_pos_bit = static_cast<unsigned int>(discretized_leg_pos[i]);	//bitに変換する
+		size_t shift_num = static_cast<size_t>(i) * 4;	//4bitずつずらす
+
+		res |= discrete_leg_pos_bit << shift_num;	//脚の位置の数値だけbitを立てる
 	}
 
 	return res;
 }
 
 
-bool dllf::IsGrounded(const LegStateBit& leg_state, const int leg_index)
+bool designlab::leg_func::IsGrounded(const LegStateBit& leg_state, const int leg_index)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
 	//指定された脚の接地脚のbitが立っているか調べる
-	if (leg_state[(leg_index + 1) * 4 - 1])
+	size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
+
+	if (leg_state[ground_bit_index])
 	{
 		return true;
 	}
@@ -44,7 +51,7 @@ bool dllf::IsGrounded(const LegStateBit& leg_state, const int leg_index)
 	}
 }
 
-dllf::LegGroundedBit dllf::GetLegGroundedBit(const LegStateBit& leg_state)
+designlab::leg_func::LegGroundedBit designlab::leg_func::GetLegGroundedBit(const LegStateBit& leg_state)
 {
 	LegGroundedBit res;
 
@@ -60,10 +67,10 @@ dllf::LegGroundedBit dllf::GetLegGroundedBit(const LegStateBit& leg_state)
 		}
 	}
 
-	return std::move(res);
+	return res;
 }
 
-int dllf::GetGroundedLegNum(const LegStateBit& leg_state)
+int designlab::leg_func::GetGroundedLegNum(const LegStateBit& leg_state)
 {
 	int res = 0;
 
@@ -80,12 +87,12 @@ int dllf::GetGroundedLegNum(const LegStateBit& leg_state)
 	return res;
 }
 
-int dllf::GetLiftedLegNum(const LegStateBit& leg_state)
+int designlab::leg_func::GetLiftedLegNum(const LegStateBit& leg_state)
 {
 	return HexapodConst::kLegNum - GetGroundedLegNum(leg_state);
 }
 
-void dllf::GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
+void designlab::leg_func::GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
 	// res_indexはnullptrでないこと，かつ空である必要がある
 	assert(res_index != nullptr);
@@ -102,7 +109,7 @@ void dllf::GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector
 	}
 }
 
-void dllf::GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
+void designlab::leg_func::GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
 	// res_indexはnullptrでないこと，かつ空である必要がある
 	assert(res_index != nullptr);
@@ -119,7 +126,7 @@ void dllf::GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<i
 	}
 }
 
-DiscreteLegPos dllf::GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
+DiscreteLegPos designlab::leg_func::GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
@@ -132,7 +139,7 @@ DiscreteLegPos dllf::GetDiscreteLegPos(const LegStateBit& leg_state, const int l
 	return static_cast<DiscreteLegPos>(res);
 }
 
-DiscreteComPos dllf::GetDiscreteComPos(const LegStateBit& leg_state)
+DiscreteComPos designlab::leg_func::GetDiscreteComPos(const LegStateBit& leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	const int res = static_cast<int>(((leg_state & kComStateMaskbit) >> kShiftToComNum).to_ulong());
@@ -141,7 +148,12 @@ DiscreteComPos dllf::GetDiscreteComPos(const LegStateBit& leg_state)
 }
 
 
-void dllf::ChangeLegState(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, const bool is_ground, LegStateBit* leg_state)
+void designlab::leg_func::ChangeLegState(
+	const int leg_index, 
+	const DiscreteLegPos new_discretized_leg_pos,
+	const bool is_ground,
+	LegStateBit* leg_state
+)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
@@ -150,19 +162,15 @@ void dllf::ChangeLegState(const int leg_index, const DiscreteLegPos new_discreti
 	// leg_state は nullptrではない
 	assert(leg_state != nullptr);
 
-
-	//新しい脚状態を生成する
-	LegStateBit mask = kLegStateMaskbit << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
-	LegStateBit  state = static_cast<unsigned int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
-
-	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
-	LegStateBit res = ((*leg_state) ^ state) & mask;
-	(*leg_state) ^= res;
-
+	ChangeDiscreteLegPos(leg_index, new_discretized_leg_pos, leg_state);
 	ChangeGround(leg_index, is_ground, leg_state);
 }
 
-void dllf::ChangeDiscreteLegPos(const int leg_index, const DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state)
+void designlab::leg_func::ChangeDiscreteLegPos(
+	const int leg_index, 
+	const DiscreteLegPos new_discretized_leg_pos,
+	LegStateBit* leg_state
+)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
@@ -173,15 +181,17 @@ void dllf::ChangeDiscreteLegPos(const int leg_index, const DiscreteLegPos new_di
 
 
 	//新しい脚状態を生成する
-	LegStateBit mask = kLegPosMaskbit << (leg_index * 4);								//4bitのデータを変更する地点までマスクをずらす
-	LegStateBit state = static_cast<unsigned int>(new_discretized_leg_pos) << (leg_index * 4);	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
+	const size_t shift_num = static_cast<size_t>(leg_index) * 4;									//4bitずつずらす
+	const LegStateBit mask = kLegPosMaskbit << shift_num;											//4bitのデータを変更する地点までマスクをずらす
+	const LegStateBit discreate_leg_pos_bit = static_cast<unsigned int>(new_discretized_leg_pos);	//bitに変換する
+	const LegStateBit state = discreate_leg_pos_bit << shift_num;	//脚位置のデータは4bitづつ配置されているのでその位置まで移動する
 
 	//浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換 https://qiita.com/vivisuke/items/bc707190e008551ca07f）
 	LegStateBit res = ((*leg_state) ^ state) & mask;
 	(*leg_state) ^= res;
 }
 
-void dllf::ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
+void designlab::leg_func::ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
@@ -192,17 +202,19 @@ void dllf::ChangeGround(const int leg_index, const bool is_ground, LegStateBit* 
 
 
 	//指定された脚の接地脚のbitを立てるか消すかする
+	const size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
+
 	if (is_ground)
 	{
-		(*leg_state)[(leg_index + 1) * 4 - 1] = true;
+		(*leg_state)[ground_bit_index] = true;
 	}
 	else
 	{
-		(*leg_state)[(leg_index + 1) * 4 - 1] = false;
+		(*leg_state)[ground_bit_index] = false;
 	}
 }
 
-void dllf::ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
+void designlab::leg_func::ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
 {
 	// leg_state は nullptrではない
 	assert(leg_state != nullptr);
@@ -213,7 +225,7 @@ void dllf::ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit*
 	}
 }
 
-void dllf::ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
+void designlab::leg_func::ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 {
 	// leg_state は nullptrではない
 	assert(leg_state != nullptr);
