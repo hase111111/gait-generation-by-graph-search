@@ -28,23 +28,20 @@ LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std:
 
 void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
-	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはComtype.hを参照)．まずは全てtrueにしておく．
+	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはcom_type.hを参照)．
+	// vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で通常のvectorとは違う挙動をするので，boost::dynamic_bitset<>を使用する．
 	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
 
 	is_able_leg_ground_pattern.set();	//全てtrueにする．
 
 
-
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
-
 	dlcf::RemoveLegGroundPatternFromCom(dllf::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
-
 	//次に脚が地面に接地可能か調べる．
-
 	bool is_groundable_leg[HexapodConst::kLegNum];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	designlab::Vector3 ground_pos[HexapodConst::kLegNum];		//脚が接地する座標．
+	designlab::Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -126,18 +123,24 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos) const
 {
-	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．ちなみに読みづらくなるので本当は使わないほうがいい．．
+	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(now_leg_num, current_node.leg_reference_pos[now_leg_num], current_node.global_center_of_mass, current_node.rot, false);
-	//m_calclator.getGlobalLegBasePos(current_node, now_leg_num, false);
+	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(
+		now_leg_num, 
+		current_node.leg_reference_pos[now_leg_num],
+		current_node.global_center_of_mass, 
+		current_node.rot, 
+		false
+	);
+
 
 	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
 	int min_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) - 2;
 	int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
 	int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
 
-	////値がdevide mapの範囲外にあるときは丸める．
+	//値がdevide mapの範囲外にあるときは丸める．
 	max_x_dev = (max_x_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : max_x_dev;
 	min_x_dev = (min_x_dev < 0) ? 0 : min_x_dev;
 	max_y_dev = (max_y_dev >= MapConst::LP_DIVIDE_NUM) ? MapConst::LP_DIVIDE_NUM - 1 : max_y_dev;
@@ -146,7 +149,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	designlab::Vector3 candidate_pos;		//現在の脚位置に合致する候補座標群．
+	designlab::Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
 	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
@@ -229,8 +232,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
-
-		if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kFront || _leg_state == DiscreteLegPos::kUpperFront)
+		if (_leg_state == DiscreteLegPos::kLowerBack || _leg_state == DiscreteLegPos::kBack || _leg_state == DiscreteLegPos::kUpperBack)
 		{
 			return false;
 		}
@@ -238,8 +240,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	else
 	{
 		//後ろ
-
-		if (_leg_state == DiscreteLegPos::kLowerBack || _leg_state == DiscreteLegPos::kBack || _leg_state == DiscreteLegPos::kUpperBack)
+		if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kFront || _leg_state == DiscreteLegPos::kUpperFront)
 		{
 			return false;
 		}

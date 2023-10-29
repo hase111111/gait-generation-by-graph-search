@@ -31,10 +31,10 @@ namespace designlab
 		
 		~EulerXYZ() = default;
 
-		constexpr EulerXYZ operator *(const float s) const { return { x_angle * s, y_angle * s, z_angle * s }; }
+		constexpr EulerXYZ operator *(const float s) const noexcept { return { x_angle * s, y_angle * s, z_angle * s }; }
 
 
-		constexpr bool operator ==(const EulerXYZ& other) const
+		constexpr bool operator ==(const EulerXYZ& other) const noexcept
 		{
 			return (
 				::designlab::math_util::IsEqual(x_angle, other.x_angle) && 
@@ -42,7 +42,7 @@ namespace designlab
 				::designlab::math_util::IsEqual(z_angle, other.z_angle)
 			);
 		}
-		constexpr bool operator !=(const EulerXYZ& other) const { return !(*this == other); }
+		constexpr bool operator !=(const EulerXYZ& other) const noexcept { return !(*this == other); }
 
 
 		//! @brief オイラー角を 単位[deg] で初期化する

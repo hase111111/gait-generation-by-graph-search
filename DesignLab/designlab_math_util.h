@@ -33,7 +33,7 @@ namespace designlab
 		//! @param [in] num1 比較する数字1つ目 
 		//! @param [in] num2 比較する数字2つ目
 		//! @return bool 等しいならばtrue 
-		constexpr bool IsEqual(const float num1, const float num2)
+		constexpr bool IsEqual(const float num1, const float num2) noexcept
 		{
 			const float dif = num1 - num2;
 			if (dif > 0) { return (dif <= kAllowableError); }
@@ -44,7 +44,7 @@ namespace designlab
 		//! @param [in] num1 比較する数字1つ目 
 		//! @param [in] num2 比較する数字2つ目
 		//! @return bool 等しいならばtrue 
-		constexpr bool IsEqual(const double num1, const double num2)
+		constexpr bool IsEqual(const double num1, const double num2) noexcept
 		{
 			const double dif = num1 - num2;
 			if (dif > 0) { return (dif <= kDoubleAllowableError); }
@@ -56,7 +56,7 @@ namespace designlab
 		//! @param [in] num 2乗する数．
 		//! @return T 2乗した値． 
 		template <typename T>
-		constexpr T Squared(const T num) { return num * num; }
+		constexpr T Squared(const T num) noexcept { return num * num; }
 
 		//! @brief 3辺で三角形が作れるか調べる関数．
 		//! @param [in] a 1辺目．
@@ -64,7 +64,7 @@ namespace designlab
 		//! @param [in] c 3辺目．
 		//! @return bool 三角形が作れるならばtrue．
 		template <typename T>
-		constexpr bool CanMakeTriangle(const T a, const T b, const T c) 
+		constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 		{ 
 			assert(a > 0);
 			assert(b > 0);
@@ -111,22 +111,22 @@ namespace designlab
 		//! @brief 角度をradからdegに変換する関数．
 		//! @param [in] rad 角度[rad]．
 		//! @return double 角度[deg]．
-		constexpr double ConvertRadToDeg(const double rad) { return rad * 180.0 / kDoublePi; };
+		constexpr double ConvertRadToDeg(const double rad) noexcept { return rad * 180.0 / kDoublePi; };
 
 		//! @brief 角度をradからdegに変換する関数．
 		//! @param [in] rad 角度[rad]．
 		//! @return float 角度[deg]．
-		constexpr float ConvertRadToDeg(const float rad) { return rad * 180.0f / kFloatPi; };
+		constexpr float ConvertRadToDeg(const float rad) noexcept { return rad * 180.0f / kFloatPi; };
 
 		//! @brief 角度をdegからradに変換する関数．
 		//! @param [in] deg 角度[deg]．
 		//! @return double 角度[rad]．
-		constexpr double ConvertDegToRad(const double deg) { return deg * kDoublePi / 180.0; }
+		constexpr double ConvertDegToRad(const double deg) noexcept { return deg * kDoublePi / 180.0; }
 
 		//! @brief 角度をdegからradに変換する関数．
 		//! @param [in] deg 角度[deg]．
 		//! @return float 角度[rad]．
-		constexpr float ConvertDegToRad(const float deg) { return deg * kFloatPi / 180.0f; }
+		constexpr float ConvertDegToRad(const float deg) noexcept { return deg * kFloatPi / 180.0f; }
 
 
 		[[deprecated]] 

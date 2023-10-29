@@ -43,13 +43,13 @@ namespace designlab
 		//const float x = cos(rot.z_angle) * cos(rot.y_angle) * vec.x
 		//	+ (cos(rot.z_angle) * sin(rot.y_angle) * sin(rot.x_angle) - sin(rot.z_angle) * cos(rot.x_angle)) * vec.y
 		//	+ (cos(rot.z_angle) * sin(rot.y_angle) * cos(rot.x_angle) + sin(rot.z_angle) * sin(rot.x_angle)) * vec.z;
-
+		//
 		//const float y = sin(rot.z_angle) * cos(rot.y_angle) * vec.x
 		//	+ (sin(rot.z_angle) * sin(rot.y_angle) * sin(rot.x_angle) + cos(rot.z_angle) * cos(rot.x_angle)) * vec.y
 		//	+ (sin(rot.z_angle) * sin(rot.y_angle) * cos(rot.x_angle) - cos(rot.z_angle) * sin(rot.x_angle)) * vec.z;
-
+		//
 		//const float z = -sin(rot.y_angle) * vec.x + cos(rot.y_angle) * sin(rot.x_angle) * vec.y + cos(rot.y_angle) * cos(rot.x_angle) * vec.z;
-
+		//
 		//return Vector3{ x, y, z };
 	}
 
