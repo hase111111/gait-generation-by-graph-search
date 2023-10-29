@@ -251,6 +251,7 @@ namespace designlab::test::node::node_creator
 			{
 				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
+				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
 		}
 	}
@@ -272,6 +273,7 @@ namespace designlab::test::node::node_creator
 			{
 				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
+				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
 		}
 	}
@@ -293,6 +295,7 @@ namespace designlab::test::node::node_creator
 			{
 				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
+				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
 		}
 	}
@@ -314,6 +317,37 @@ namespace designlab::test::node::node_creator
 		{
 			EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 			EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
+			EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 		}
 	}
+
+	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfOneLegLifted)
+	{
+		// 1本の脚が遊脚している場合，その他の変更されてはいけない値が変更されていないかのテスト
+
+		for (const auto& i : oneleg_lifted_testcase)
+		{
+			const RobotStateNode test_node = MakeTestNode(i);
+
+			std::vector<RobotStateNode> output_nodes;
+
+			// テスト対象の関数を実行
+			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
+
+			for (const auto& j : output_nodes)
+			{
+				// 出力されたノードを確認する．
+				std::string error_message = ToString(i) + "\n" +
+					"生成されたノード" + j.ToString() + "\n_";
+
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.rot, test_node.rot) << error_message << "姿勢は変化しません．\n_";
+
+			}
+		}
+	}
+
+
 }
