@@ -441,6 +441,9 @@
     <ClInclude Include="designlab_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_array_util.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -481,9 +484,6 @@
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
-    <ClCompile Include="hexapod_const.cpp">
-      <Filter>ソース ファイル\Hexapod\Const</Filter>
     </ClCompile>
     <ClCompile Include="map_const.cpp">
       <Filter>ソース ファイル\Map\Const</Filter>

@@ -9,13 +9,16 @@
 #include "abstract_hexapod_state_calculator.h"
 
 #include <algorithm>
+#include <array>
 
+#include "designlab_vector2.h"
 #include "hexapod_const.h"
 #include "phantomx_const.h"
 
 
 //! @class PhantomXStateCalclator
 //! @brief PhantomXの状態を計算するクラス．
+// todo いろいろ怪しい設計なので，全面的に改修する．
 class PhantomXStateCalclator : public AbstractHexapodStateCalculator
 {
 public:
@@ -48,6 +51,9 @@ public:
 
 	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
+protected:
+	const std::array<::designlab::Vector2, HexapodConst::kLegNum> min_leg_pos_xy_;
+	const std::array<::designlab::Vector2, HexapodConst::kLegNum> max_leg_pos_xy_;
 
 private:
 
@@ -61,7 +67,6 @@ private:
 
 	static constexpr float kMinLegR = 120;
 
-
 	constexpr int GetLegPosIndex(const float leg_pos) const
 	{
 		constexpr float converter = kLegPosDivNum / (kLegPosMax - kLegPosMin);
@@ -73,7 +78,9 @@ private:
 	bool InitIsAbleLegPos(int leg_index, int x, int y, int z) const;		// 脚位置の有効無効を初期化する
 
 	void CalculateLocalJointState(int leg_index, const designlab::Vector3& leg_pos, HexapodJointState* joint_state) const;		// 脚位置から関節角度を計算する．1脚版
-
+	
+	std::array<::designlab::Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;		// 脚の付け根の座標( leg base position)の最小値を計算する
+	std::array<::designlab::Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;		// 脚の付け根の座標( leg base position)の最小値を計算する
 
 
 	// 脚番号，x座標，y座標，z座標の順でアクセスすると，その座標が有効かどうかがboolで格納されている

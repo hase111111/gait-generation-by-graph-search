@@ -17,12 +17,10 @@ PhantomXStateCalclator_Hato::PhantomXStateCalclator_Hato(const float min_r) : kM
 bool PhantomXStateCalclator_Hato::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
 	const designlab::Vector2 leg_pos_xy = leg_pos.ProjectedXY();
-	const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
-	const designlab::Vector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
 
 	//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
-	if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
-	if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
+	if (min_leg_pos_xy_[leg_index].Cross(leg_pos_xy) < 0.0f) { return false; }
+	if (max_leg_pos_xy_[leg_index].Cross(leg_pos_xy) > 0.0f) { return false; }
 
 
 	//‹r‚ğL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD

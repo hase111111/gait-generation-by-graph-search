@@ -1,0 +1,27 @@
+//! @file designlab_array_util.h
+//! @brief std::arrayを作成する関数．
+
+
+#ifndef DESIGNLAB_ARRAY_UTIL_H_
+#define DESIGNLAB_ARRAY_UTIL_H_
+
+
+#include <array>
+
+
+namespace designlab 
+{
+	//! @brief std::arrayを作成する関数．
+	//! @n この関数を作成したモチベーションとしては，std::arrayをconstexprで初期化する際に苦戦したため．
+	//! @n この関数を使うことで，std::arrayをconstexprで初期化することができる．
+	//! @n 例えば，std::array<int, 3>を作成する場合は，make_array<int>(1, 2, 3)とする．
+	template<typename T, typename ...Args>
+	constexpr std::array<T, sizeof...(Args)> make_array(Args&&... args)
+	{
+		return std::array<T, sizeof...(Args)>{ static_cast<Args&&>(args)... };
+	}
+
+}  // namespace designlab
+
+
+#endif

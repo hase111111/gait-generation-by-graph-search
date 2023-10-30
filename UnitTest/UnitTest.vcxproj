@@ -41,6 +41,7 @@
     <ClCompile Include="asyncable_data_vector_test.cpp" />
     <ClCompile Include="cmdio_util_test.cpp" />
     <ClCompile Include="com_move_node_creator_hato_test.cpp" />
+    <ClCompile Include="designlab_string_util_test.cpp" />
     <ClCompile Include="euler_angle_func_test.cpp" />
     <ClCompile Include="euler_angle_operator_test.cpp" />
     <ClCompile Include="euler_angle_test.cpp" />
@@ -62,6 +63,8 @@
     <ClCompile Include="polygon2_is_inside_test.cpp" />
     <ClCompile Include="polygon2_const_func_test.cpp" />
     <ClCompile Include="polygon2_func_test.cpp" />
+    <ClCompile Include="robot_state_node_func_test.cpp" />
+    <ClCompile Include="robot_state_node_test.cpp" />
     <ClCompile Include="stopwatch_test.cpp" />
     <ClCompile Include="vector2_arithmetic_operator_test.cpp" />
     <ClCompile Include="vector2_comparison_operator_test.cpp" />

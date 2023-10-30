@@ -1,5 +1,8 @@
 #include "designlab_string_util.h"
 
+#include "cassert_define.h"
+
+
 std::vector<std::string> designlab::string_util::Split(const std::string& str, const char delim)
 {
     return Split(str, std::string(1, delim));
@@ -7,6 +10,8 @@ std::vector<std::string> designlab::string_util::Split(const std::string& str, c
 
 std::vector<std::string> designlab::string_util::Split(const std::string& str, const std::string& delim)
 {
+	assert(delim.size() == 1);	// ‹æØ‚è•¶š‚Í1•¶š‚Ì‚İ
+
 	std::vector<std::string> ans;
 
 	int first = 0;

@@ -7,7 +7,9 @@
 #include "designlab_math_util.h"
 #include "phantomx_const.h"
 
-namespace dlm = designlab::math_util;
+
+namespace dl = ::designlab;
+namespace dlm = ::designlab::math_util;
 
 
 PhantomXStateCalclator::PhantomXStateCalclator() :
@@ -18,7 +20,9 @@ PhantomXStateCalclator::PhantomXStateCalclator() :
 		{170 * cos(PhantomXConst::kCoxaDefaultAngle[3]),170 * sin(PhantomXConst::kCoxaDefaultAngle[3]),-25},
 		{170 * cos(PhantomXConst::kCoxaDefaultAngle[4]),170 * sin(PhantomXConst::kCoxaDefaultAngle[4]),-25},
 		{170 * cos(PhantomXConst::kCoxaDefaultAngle[5]),170 * sin(PhantomXConst::kCoxaDefaultAngle[5]),-25}
-	} })
+	} }),
+	min_leg_pos_xy_(InitMinLegPosXY()),
+	max_leg_pos_xy_(InitMaxLegPosXY())
 {
 	//‹r‚Ì•t‚¯ª‚ÌˆÊ’u‚ð‰Šú‰»‚·‚é
 	local_leg_base_pos_[0] = designlab::Vector3{ PhantomXConst::kCoxaBaseOffsetX, -PhantomXConst::kCoxaBaseOffsetY, PhantomXConst::kCoxaBaseOffsetZ };	// ‹r0 ‰Eã
@@ -178,12 +182,10 @@ bool PhantomXStateCalclator::IsLegInRange(const int leg_index, const designlab::
 	if (is_able_leg_pos_[leg_index][GetLegPosIndex(leg_pos.x)][GetLegPosIndex(leg_pos.y)][GetLegPosIndex(leg_pos.z)])
 	{
 		const designlab::Vector2 leg_pos_xy = leg_pos.ProjectedXY();
-		const designlab::Vector2 min_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MIN[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MAX[leg_index]};
-		const designlab::Vector2 max_leg_pos_xy{HexapodConst::MOVABLE_LEG_RANGE_COS_MAX[leg_index], HexapodConst::MOVABLE_LEG_RANGE_SIN_MIN[leg_index]};
 
 		//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvŽZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
-		if (min_leg_pos_xy.Cross(leg_pos_xy) > 0.0f) { return false; }
-		if (max_leg_pos_xy.Cross(leg_pos_xy) < 0.0f) { return false; }
+		if (min_leg_pos_xy_[leg_index].Cross(leg_pos_xy) < 0.0f) { return false; }
+		if (max_leg_pos_xy_[leg_index].Cross(leg_pos_xy) > 0.0f) { return false; }
 
 		return true;
 	}
@@ -421,4 +423,36 @@ void PhantomXStateCalclator::CalculateLocalJointState(const int leg_index, const
 	}
 
 	(*joint_state).is_in_range = true;
+}
+
+std::array<::designlab::Vector2, HexapodConst::kLegNum> PhantomXStateCalclator::InitMinLegPosXY() const
+{
+	const float move_range = dlm::ConvertDegToRad(40.f);
+
+	std::array<dl::Vector2, HexapodConst::kLegNum> min_leg_pos_xy;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		const float coxa_min_angle = PhantomXConst::kCoxaDefaultAngle[i] - move_range;
+
+		min_leg_pos_xy[i] = { std::cos(coxa_min_angle),std::sin(coxa_min_angle) };
+	}
+
+	return min_leg_pos_xy;
+}
+
+std::array<::designlab::Vector2, HexapodConst::kLegNum> PhantomXStateCalclator::InitMaxLegPosXY() const
+{
+	const float move_range = dlm::ConvertDegToRad(40.f);
+
+	std::array<dl::Vector2, HexapodConst::kLegNum> max_leg_pos_xy;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		const float coxa_max_angle = PhantomXConst::kCoxaDefaultAngle[i] + move_range;
+
+		max_leg_pos_xy[i] = { std::cos(coxa_max_angle),std::sin(coxa_max_angle) };
+	}
+
+	return max_leg_pos_xy;
 }

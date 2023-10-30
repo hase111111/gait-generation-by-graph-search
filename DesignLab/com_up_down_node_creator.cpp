@@ -52,8 +52,8 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 
 	//ロボットの重心の最も低く下げることのできるz座標と，高くあげることができるz座標を求める．どちらもグローバル座標．
-	float highest_body_zpos = map_highest_z + HexapodConst::VERTICAL_MAX_RANGE;
-	float lowest_body_zpos = map_highest_z + HexapodConst::VERTICAL_MIN_RANGE;
+	float highest_body_zpos = map_highest_z + PhantomXConst::kBodyLiftingHeightMax;
+	float lowest_body_zpos = map_highest_z + PhantomXConst::kBodyLiftingHeightMin;
 
 
 	// 最も高い地点を修正する．

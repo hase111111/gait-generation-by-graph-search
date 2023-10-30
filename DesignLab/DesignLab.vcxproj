@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstract_hexapod_state_calculator.h" />
+    <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
@@ -181,7 +182,6 @@
     <ClCompile Include="graphic_const.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_system.cpp" />
-    <ClCompile Include="hexapod_const.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />
     <ClCompile Include="leg_state.cpp" />

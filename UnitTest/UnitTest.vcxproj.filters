@@ -92,6 +92,15 @@
     <ClCompile Include="euler_angle_operator_test.cpp">
       <Filter>Common\Math\Rot</Filter>
     </ClCompile>
+    <ClCompile Include="robot_state_node_test.cpp">
+      <Filter>Node</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_state_node_func_test.cpp">
+      <Filter>Node\NodeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_string_util_test.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

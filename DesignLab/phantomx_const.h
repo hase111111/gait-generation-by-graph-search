@@ -14,6 +14,7 @@
 //! @brief PhantomXのパラメータを定数で表現したもの．
 //! @n コンストラクタを削除したので，実体は生成できない．( PhantomXConst::kLegNum みたいに値を呼び出すこと )
 //! @details 簡単のため値をここにまとめたが，むやみにこの値を参照せずにHexapodStateCalculatorを使うこと．
+//! @n 設計的にあまり正しくない気がするが，現状効率よく開発できているので問題が起きたときに考えることにする．
 //! @n また，座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
 class PhantomXConst final
 {
@@ -64,6 +65,9 @@ public:
 	constexpr static float kCoxaBaseOffsetZ = 1.116f;		//!< coxa linkの付け根までの長さ(上方向)[mm]．
 	constexpr static float BODY_HEIGHT = 40.0f;			//!< 胴体の高さ[mm]．
 
+
+	constexpr static float kBodyLiftingHeightMin = 30;	//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+	constexpr static float kBodyLiftingHeightMax = 160;	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
 
 	//! @brief 第1関節の角度が有効な範囲内かどうかを判定する．
 	//! @param [in] leg_index 脚の番号．

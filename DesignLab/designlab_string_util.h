@@ -22,7 +22,7 @@ namespace designlab
 
 		//! @brief 文字列を分割する関数．
 		//! @param [in] str 分割する文字列．
-		//! @param [in] delim 分割する文字．
+		//! @param [in] delim 分割する文字．2文字以上の文字列を指定できない．
 		//! @return std::vector<std::string> 分割した文字列．
 		std::vector<std::string> Split(const std::string& str, const std::string& delim);
 
