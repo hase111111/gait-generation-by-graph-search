@@ -134,7 +134,7 @@ namespace designlab
 	//! @param [in] use_normalized_quaternions 正規化されたクォータニオンを使うかどうか．
 	//! @n 正規化クォータニオンならば，共役と逆数が等しいので，計算量を減らすことができる．
 	//! @return designlab::Vector3 回転後のベクトル．
-	Vector3 RotateVector3(const Vector3& vec, const Quaternion& q, bool use_normalized_quaternions);
+	[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const Quaternion& q, bool use_normalized_quaternions);
 
 	//! @brief 球面線形補間を行う．
 	//! @param [in] q1 クォータニオン1
