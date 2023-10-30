@@ -46,3 +46,22 @@ designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const Quaternion& q)
 
 	return mat;
 }
+
+designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const EulerXYZ& q)
+{
+	const auto mat_x = RotationMatrix3x3::CreateRotationMatrixX(q.x_angle);
+	const auto mat_y = RotationMatrix3x3::CreateRotationMatrixY(q.y_angle);
+	const auto mat_z = RotationMatrix3x3::CreateRotationMatrixZ(q.z_angle);
+
+	//_ XÅ®YÅ®ZÇÃèáÇ…âÒì]Ç∑ÇÈÅD
+	return mat_z * mat_y * mat_x;
+}
+
+designlab::EulerXYZ designlab::ToEulerXYZ(const RotationMatrix3x3& rot)
+{
+	return {
+		std::atan2(rot.element[2][1], rot.element[2][2]),
+		std::atan2(-rot.element[2][0], std::sqrt(rot.element[2][1] * rot.element[2][1] + rot.element[2][2] * rot.element[2][2])),
+		std::atan2(rot.element[1][0], rot.element[0][0])
+	};
+}

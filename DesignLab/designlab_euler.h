@@ -56,34 +56,43 @@ namespace designlab
 			z_angle = ::designlab::math_util::ConvertDegToRad(z);
 		}
 
-		//! @brief オイラー角を文字列に変換する
-		//! @n 単位は ラジアン [rad]
-		//! @return std::string オイラー角を表す文字列
+		//! @brief オイラー角を文字列に変換する．
+		//! @n 単位は ラジアン [rad]．
+		//! @return std::string オイラー角を表す文字列．
 		[[nodiscard]] std::string ToString() const;
 
-		//! @brief オイラー角を文字列に変換する
-		//! @n 単位は 度 [deg]
-		//! @return std::string オイラー角を表す文字列
+		//! @brief オイラー角をCsv形式の文字列に変換する．カンマ区切り．
+		//! @n 単位は ラジアン [rad]．
+		//! @return std::string オイラー角を表す文字列．
+		[[nodiscard]] std::string ToCsvString() const;
+
+		//! @brief オイラー角を文字列に変換する．
+		//! @n 単位は 度 [deg]．
+		//! @return std::string オイラー角を表す文字列．
 		[[nodiscard]] std::string ToStringDeg() const;
 
-		//! @brief オイラー角を 単位[deg] で作成する
-		//! @param [in] x X軸周りの回転．[deg]
-		//! @param [in] y Y軸周りの回転．[deg]
-		//! @param [in] z Z軸周りの回転．[deg]
-		//! @return EulerXYZ オイラー角
+		//! @brief オイラー角を 単位[deg] で作成する．
+		//! @param [in] x X軸周りの回転．[deg]．
+		//! @param [in] y Y軸周りの回転．[deg]．
+		//! @param [in] z Z軸周りの回転．[deg]．
+		//! @return EulerXYZ オイラー角．
 		[[nodiscard]] static constexpr EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
 		{
-			return EulerXYZ{ ::designlab::math_util::ConvertDegToRad(x), ::designlab::math_util::ConvertDegToRad(y), ::designlab::math_util::ConvertDegToRad(z) }; 
+			return EulerXYZ{ 
+				::designlab::math_util::ConvertDegToRad(x), 
+				::designlab::math_util::ConvertDegToRad(y), 
+				::designlab::math_util::ConvertDegToRad(z) 
+			}; 
 		}
 
 
-		float x_angle;	//!< X 軸周りの回転．[rad]
-		float y_angle;	//!< Y 軸周りの回転．[rad]
-		float z_angle;	//!< Z 軸周りの回転．[rad]
+		float x_angle;	//!< X 軸周りの回転 [rad]．
+		float y_angle;	//!< Y 軸周りの回転 [rad]．
+		float z_angle;	//!< Z 軸周りの回転 [rad]．
 	};
 
 
-	// 出力ストリーム
+	//! @brief 出力ストリーム．Csv形式で出力する．カンマ区切り．単位は [rad]．
 	template <class Char>
 	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const EulerXYZ& r)
 	{
@@ -107,7 +116,7 @@ namespace designlab
 	//! @param [in] vec 位置ベクトル
 	//! @param [in] rot 回転ベクトル
 	//! @return Vector3 回転した後の位置ベクトル
-	Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
+	[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
 }	// namespace designlab
 

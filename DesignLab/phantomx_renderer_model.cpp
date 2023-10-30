@@ -5,6 +5,7 @@
 #include <DxLib.h>
 
 #include "designlab_math_util.h"
+#include "designlab_rot_converter.h"
 #include "designlab_rotation_matrix.h"
 #include "dxlib_util.h"
 #include "model_loader.h"
@@ -125,7 +126,7 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
 
 	const float kOffsetLength = 0;	//âÒì]íÜêSÇ∆å¥ì_Ç™Ç∏ÇÍÇƒÇ¢ÇÈÇÃÇ≈ÅCÇªÇÃï™Çï‚ê≥Ç∑ÇÈ
 
@@ -201,7 +202,7 @@ void PhantomXRendererModel::DrawFemurLink(int leg_index) const
 
 	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
 
 	const designlab::RotationMatrix3x3 kDefRotMat =
 		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
@@ -252,7 +253,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 
 	const float kTibiaAngle = draw_joint_state_[leg_index].joint_angle[2];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
 
 	const designlab::RotationMatrix3x3 kDefRotMat =
 		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
@@ -299,7 +300,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
 
 	//CoxaÇÃâÒì]é≤
 	{

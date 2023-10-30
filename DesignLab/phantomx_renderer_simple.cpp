@@ -94,7 +94,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
 	}
 
-	dldu::DrawHexagonalPrism(vertex, PhantomXConst::BODY_HEIGHT, kColorBody);
+	dldu::DrawHexagonalPrism(vertex, PhantomXConst::kBodyHeight, kColorBody);
 
 	//èdêSÇÃï`âÊ
 	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);

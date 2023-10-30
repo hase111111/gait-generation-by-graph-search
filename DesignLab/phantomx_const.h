@@ -63,7 +63,7 @@ public:
 	constexpr static float kCenterCoxaBaseOffsetY = 103.4f;	//!< coxa linkの付け根(中央)までの長さ[mm]．
 	constexpr static float kCoxaBaseOffsetX = 124.8f;		//!< coxa linkの付け根(前方・後方)までの長さ[mm]．
 	constexpr static float kCoxaBaseOffsetZ = 1.116f;		//!< coxa linkの付け根までの長さ(上方向)[mm]．
-	constexpr static float BODY_HEIGHT = 40.0f;			//!< 胴体の高さ[mm]．
+	constexpr static float kBodyHeight = 40.0f;			//!< 胴体の高さ[mm]．
 
 
 	constexpr static float kBodyLiftingHeightMin = 30;	//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．

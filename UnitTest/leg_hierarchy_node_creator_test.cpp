@@ -4,7 +4,6 @@
 
 #include "../DesignLab/leg_hierarchy_node_creator.h"
 #include "../DesignLab/leg_hierarchy_node_creator.cpp"
-#include "../DesignLab/designlab_rotation_matrix.cpp"
 
 
 namespace dl = ::designlab;

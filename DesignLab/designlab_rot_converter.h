@@ -20,6 +20,16 @@ namespace designlab
 	//! @param[in] q クォータニオン
 	//! @return 回転角行列
 	RotationMatrix3x3 ToRotationMatrix(const Quaternion& q);
+
+	//! @brief XYZオイラー角から回転角行列への変換
+	//! @param[in] e XYZオイラー角
+	//! @return 回転角行列
+	RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& e);
+
+	//! @brief 回転角行列からXYZオイラー角への変換
+	//! @param[in] rot 回転角行列
+	//! @return XYZオイラー角
+	EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
 }
 
 #endif

@@ -15,6 +15,9 @@ namespace designlab
 {
 	//! @struct designlab::RotationMatrix3x3
 	//! @brief 3次元の回転行列を表す構造体
+	//! 	@details 回転行列について
+	//! @n https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
+	//! @n https://programming-surgeon.com/script/euler-angle/
 	struct RotationMatrix3x3 final
 	{
 		//! @brief 単位行列を生成する
@@ -35,14 +38,10 @@ namespace designlab
 			{ r31, r32, r33 }
 		} }) {};
 
-		//! @brief XYZオイラー角から回転行列を生成する．X→Y→Zの順に回転する．
-		RotationMatrix3x3(const EulerXYZ& euler_xyz);
-
 		RotationMatrix3x3(const RotationMatrix3x3& other) = default;
 		RotationMatrix3x3(RotationMatrix3x3&& other) noexcept = default;
 		RotationMatrix3x3& operator =(const RotationMatrix3x3& other) = default;
 		~RotationMatrix3x3() = default;
-
 
 		RotationMatrix3x3 operator* (const RotationMatrix3x3& other) const;
 

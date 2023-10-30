@@ -101,6 +101,18 @@
     <ClCompile Include="designlab_string_util_test.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="designlab_rot_converter_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_rotation_matrix_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_quaternion_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
+    <ClCompile Include="designlab_quaternion_operator_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
