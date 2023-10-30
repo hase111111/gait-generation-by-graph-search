@@ -103,6 +103,16 @@ namespace designlab
 		static [[nodiscard]] Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
 
 
+		//! @brief クォータニオンを文字列に変換する．
+		//! @n w, x, y, z の順で出力する．
+		//! @return std::string クォータニオンを表す文字列．
+		[[nodiscard]] std::string ToString() const;
+
+		//! @brief クォータニオンをCsv形式の文字列に変換する．カンマ区切り．
+		//! @n w, x, y, z の順にカンマ区切りで出力する．
+		//! @return std::string クォータニオンを表す文字列．
+		[[nodiscard]] std::string ToCsvString() const;
+
 		float w;	//!< スカラー成分
 		::designlab::Vector3 v;	//!< ベクトル成分
 

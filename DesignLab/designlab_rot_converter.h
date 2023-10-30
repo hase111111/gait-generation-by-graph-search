@@ -16,6 +16,11 @@ namespace designlab
 	//! @return クォータニオン
 	Quaternion ToQuaternion(const RotationMatrix3x3& rot);
 
+	//! @brief クォータニオンからXYZオイラー角への変換
+	//! @param[in] q クォータニオン
+	//! @return XYZオイラー角
+	Quaternion ToQuaternion(const EulerXYZ& e);
+
 	//! @brief クォータニオンから回転角行列への変換
 	//! @param[in] q クォータニオン
 	//! @return 回転角行列
@@ -30,6 +35,11 @@ namespace designlab
 	//! @param[in] rot 回転角行列
 	//! @return XYZオイラー角
 	EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
+
+	//! @brief 回転角行列からクォータニオンへの変換
+	//! @param[in] e XYZオイラー角
+	//! @return クォータニオン
+	EulerXYZ ToEulerXYZ(const Quaternion& q);
 }
 
 #endif

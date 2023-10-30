@@ -1,5 +1,10 @@
 #include "designlab_rot_converter.h"
 
+#include "designlab_math_util.h"
+
+
+namespace dlm = ::designlab::math_util;
+
 
 designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
 {
@@ -15,6 +20,32 @@ designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
 	q.Normalize();
 
 	return q;
+}
+
+designlab::Quaternion designlab::ToQuaternion(const EulerXYZ& e)
+{
+	const float cos_x = std::cos(e.x_angle / 2.0f);
+	const float cos_y = std::cos(e.y_angle / 2.0f);
+	const float cos_z = std::cos(e.z_angle / 2.0f);
+	const float sin_x = std::sin(e.x_angle / 2.0f);
+	const float sin_y = std::sin(e.y_angle / 2.0f);
+	const float sin_z = std::sin(e.z_angle / 2.0f);
+
+	designlab::Quaternion q;
+	q.w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
+	q.v.x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
+	q.v.y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
+	q.v.z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
+
+	if (dlm::IsEqual(q.GetNorm(), 0.0f)) 
+	{
+		return Quaternion{};
+	}
+	else 
+	{
+		assert(dlm::IsEqual(q.GetNorm(), 1.0f));
+		return q;
+	}
 }
 
 designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const Quaternion& q)
@@ -64,4 +95,10 @@ designlab::EulerXYZ designlab::ToEulerXYZ(const RotationMatrix3x3& rot)
 		std::atan2(-rot.element[2][0], std::sqrt(rot.element[2][1] * rot.element[2][1] + rot.element[2][2] * rot.element[2][2])),
 		std::atan2(rot.element[1][0], rot.element[0][0])
 	};
+}
+
+designlab::EulerXYZ designlab::ToEulerXYZ(const Quaternion& q)
+{
+	// クォータニオンを回転行列に変換してから，回転行列をオイラー角に変換する
+	return ToEulerXYZ(ToRotationMatrix(q));
 }

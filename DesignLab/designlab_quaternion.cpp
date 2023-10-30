@@ -1,5 +1,7 @@
 #include "designlab_quaternion.h"
 
+#include <sstream>
+
 #include "cassert_define.h"
 
 
@@ -22,6 +24,23 @@ designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const 
 	const float kHalfAngle = angle * 0.5f;
 
 	return { cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(kHalfAngle) };
+}
+
+std::string designlab::Quaternion::ToString() const
+{
+	std::string str;
+	str += "( w: " + dlm::ConvertFloatToString(w) + 
+		", x: " + dlm::ConvertFloatToString(v.x) + 
+		", y: " + dlm::ConvertFloatToString(v.y) + 
+		", z: " + dlm::ConvertFloatToString(v.z) + " ) quaternion";
+	return str;
+}
+
+std::string designlab::Quaternion::ToCsvString() const
+{
+	std::stringstream ss;
+	ss << *this;
+	return ss.str();
 }
 
 designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q, const bool use_normalized_quaternions)

@@ -53,17 +53,22 @@ namespace designlab
 		//! @brief x²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
 		//! @param [in] angle ‰ñ“]Šp [rad]
 		//! @return x²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static RotationMatrix3x3 CreateRotationMatrixX(float angle);
+		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixX(float angle);
 
 		//! @brief y²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
 		//! @param [in] angle ‰ñ“]Šp [rad]
 		//! @return y²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static RotationMatrix3x3 CreateRotationMatrixY(float angle);
+		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixY(float angle);
 
 		//! @brief z²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
 		//! @param [in] angle ‰ñ“]Šp [rad]
 		//! @return z²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static RotationMatrix3x3 CreateRotationMatrixZ(float angle);
+		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixZ(float angle);
+
+
+		//! @brief ‰ñ“]s—ñ‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éD
+		//! @return std::string ‰ñ“]s—ñ‚ğ•\‚·•¶š—ñD
+		[[nodiscard]] std::string ToString() const;
 		
 
 		//! ƒf[ƒ^‚Ì•À‚Ñ‚É‚Â‚¢‚Ä

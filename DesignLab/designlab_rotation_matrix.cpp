@@ -2,6 +2,11 @@
 
 #include <cmath>
 
+#include "designlab_math_util.h"
+
+
+namespace dlm = ::designlab::math_util;
+
 
 namespace designlab 
 {
@@ -70,6 +75,17 @@ namespace designlab
 			sin_angle, cos_angle, 0.0f,
 			0.0f, 0.0f, 1.0f
 		);
+	}
+
+	std::string RotationMatrix3x3::ToString() const
+	{
+		std::string res;
+
+		res += dlm::ConvertFloatToString(element[0][0]) + "," + dlm::ConvertFloatToString(element[0][1]) + "," + dlm::ConvertFloatToString(element[0][2]) + "\n";
+		res += dlm::ConvertFloatToString(element[1][0]) + "," + dlm::ConvertFloatToString(element[1][1]) + "," + dlm::ConvertFloatToString(element[1][2]) + "\n";
+		res += dlm::ConvertFloatToString(element[2][0]) + "," + dlm::ConvertFloatToString(element[2][1]) + "," + dlm::ConvertFloatToString(element[2][2]) + "\n";
+
+		return res;
 	}
 
 	Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot)
