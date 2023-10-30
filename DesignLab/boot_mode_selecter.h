@@ -16,7 +16,7 @@ public:
 	BootModeSelecter();
 
 	//! @brief デフォルトの起動モードを設定する
-	inline void SetDefaultBootMode(BootMode default_mode) { default_mode_ = default_mode; };
+	inline void SetDefaultBootMode(const BootMode default_mode) { default_mode_ = default_mode; };
 
 	//! @brief 起動モードを選択する
 	//! @return BootMode 起動モード

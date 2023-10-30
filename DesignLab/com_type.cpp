@@ -11,32 +11,17 @@ namespace dlcf = designlab::com_func;
 namespace dllf = designlab::leg_func;
 
 
+// com_func内の関数は実際に処理を行う際に計算を行うと遅くなるため，初期化時に一度だけ呼び出して，結果を保存しておく．
+// その値を呼び出すことで速度を上げている．
+// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．こうしてできた変数に結果を保存する．
+// アクセスするには，先頭に::をつける．
+// ここまでやるなら，classにすりゃよかったかも
 namespace
 {
-	// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．
-	// アクセスするには，先頭に::をつける．
-	// ここまでやるなら，classにすりゃよかったかも
-
-
-	//! 脚の接地パターンに数値を割り振ったマップ．接地を1，遊脚を0として，
-	//! { 111111 , 0 } のような形式で代入されている 
-	const dlcf::LegGroundedMap kLegGrouededPatternMap = dlcf::MakeLegGroundedMap();		
-
-	//!< 脚の接地パターンの数．
-	const int kLegGroundedPatternNum = static_cast<int>(kLegGrouededPatternMap.size());	
-
-	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
-	const std::unordered_map<DiscreteComPos, std::vector<int>> kLegGroundedPatternBanList = dlcf::MakeLegGroundedPatternBanList();	
-
-	//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
-	const std::vector<std::vector<int>> kLegGroundedPatternBanListFromLeg = dlcf::MakeLegGroundedPatternBanListFromLeg();
-}
-
-namespace designlab::com_func
-{
-	LegGroundedMap MakeLegGroundedMap()
+	//! @brief 脚の接地パターンを表すマップを作成する関数．初期化時に一度だけ呼び出す．
+	dlcf::LegGroundedMap MakeLegGroundedMap() 
 	{
-		LegGroundedMap res;
+		dlcf::LegGroundedMap res;
 		int counter = 0;
 
 
@@ -44,67 +29,80 @@ namespace designlab::com_func
 		// そしてそれに 0 から始まる番号を割り振る．(管理しやすくするため．)
 		// 全パターンを総当りで書いてあるけど，本当はこのリストを作成する関数を作りたい．
 
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
+		// トライポット歩容に使用するパターン．
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
 
 		// 6脚全て接地している場合
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111111"), counter++));
 
 
 		// 5脚接地している場合
 
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111110"), counter++));
 
 
 		// 4脚接地している場合
 
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111001"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111010"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111100"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100111"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111001"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111010"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111100"), counter++));
 
 
 		// 3脚接地している場合．隣り合う3脚が遊脚している場合は除く(転倒してしまうため)．
 
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("000111"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001101"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("010110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011001"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011010"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010011"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011001"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011010"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011100"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100011"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100101"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100110"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101001"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("101100"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100101"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100110"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101001"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101100"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110001"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110010"), counter++));
-		res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110100"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110010"), counter++));
+		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110100"), counter++));
 		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111000"), counter++));
 
 		return std::move(res);
 	}
 
+	//! 脚の接地パターンに数値を割り振ったマップ．接地を1，遊脚を0として，
+	//! { 111111 , 0 } のような形式で代入されている 
+	const dlcf::LegGroundedMap kLegGrouededPatternMap = MakeLegGroundedMap();
 
+	//!< 脚の接地パターンの数．
+	const int kLegGroundedPatternNum = static_cast<int>(kLegGrouededPatternMap.size());
+
+
+
+	//! @brief leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrueを返す関数．初期化用に使用している
+	//! @param leg_index 脚の番号．
+	//! @param leg_ground_pattern_index 脚の接地パターンの番号．
+	//! @return leg_indexと leg_index + 1 番の脚がともに遊脚になる時にtrue．
 	bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
 	{
 		dllf::LegGroundedBit leg_ground_pattern;
@@ -130,14 +128,14 @@ namespace designlab::com_func
 		}
 	}
 
-
+	//! @brief 重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．
 	std::unordered_map<DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList()
 	{
 		std::unordered_map<DiscreteComPos, std::vector<int>> res;
 
 
 		// ロボットの体が前に寄っている時に前足が両方とも遊脚だと転倒してしまう．
-		// そのため，離散化された重心から，連続する脚が両方とも遊脚になるパターンを禁止するのがこの関数の目的である．
+		// そのため，離散化された重心から，とることができない，連続する脚が両方とも遊脚になるパターンを禁止するのがこの関数の目的である．
 		std::unordered_map<DiscreteComPos, std::vector<int>> ban_leg_index_list;
 		ban_leg_index_list[DiscreteComPos::kFront] = { 0,4,5 };
 		ban_leg_index_list[DiscreteComPos::kFrontRight] = { 0,1,5 };
@@ -149,8 +147,9 @@ namespace designlab::com_func
 		ban_leg_index_list[DiscreteComPos::kCenterFront] = { 1,3,5 };
 
 
-		// DiscreteComPosの要素数だけループする
-		for (const auto &i : magic_enum::enum_values<DiscreteComPos>())
+		// DiscreteComPosの要素数だけループする．
+		// magic_enum::enum_values<DiscreteComPos>()は，DiscreteComPosの要素を列挙したarrayを返す．
+		for (const auto& i : magic_enum::enum_values<DiscreteComPos>())
 		{
 			if (ban_leg_index_list.count(i) == 0) { continue; }
 
@@ -169,7 +168,7 @@ namespace designlab::com_func
 		return std::move(res);
 	}
 
-
+	//! @brief 特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の．初期化時に一度だけ呼び出す． 
 	std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg()
 	{
 		std::vector<std::vector<int>> res;
@@ -193,74 +192,68 @@ namespace designlab::com_func
 	}
 
 
-	int GetLegGroundPatternNum()
+	//!< 重心位置から使用不可能な接地パターンをmapで管理する．
+	const std::unordered_map<DiscreteComPos, std::vector<int>> kLegGroundedPatternBanList = MakeLegGroundedPatternBanList();	
+
+	//!< その脚が遊脚のとき，取り得ない脚の接地パターンを管理する．
+	const std::vector<std::vector<int>> kLegGroundedPatternBanListFromLeg = MakeLegGroundedPatternBanListFromLeg();
+}
+
+
+int designlab::com_func::GetLegGroundPatternNum()
+{
+	return kLegGroundedPatternNum;
+}
+
+dllf::LegGroundedBit designlab::com_func::GetLegGroundedBitFromLegGroundPatternIndex(const int leg_ground_pattern_index)
+{
+	dllf::LegGroundedBit res;
+
+	// indexから遊脚のパターンを取得する．
+	res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
+
+	return res;
+}
+
+
+void designlab::com_func::RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
+{
+	assert(output != nullptr);
+	assert((*output).size() == GetLegGroundPatternNum());
+
+	// kLegGroundedPatternBanList にキーが存在していないことや，
+	// 値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+	for (auto& i : kLegGroundedPatternBanList.at(discrete_com_pos))
 	{
-		return kLegGroundedPatternNum;
+		(*output)[i] = false;
+	}
+}
+
+void designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
+{
+	assert(output != nullptr);
+	assert((*output).size() == GetLegGroundPatternNum());
+
+	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+
+	for (auto& i : kLegGroundedPatternBanListFromLeg[not_groundble_leg_index])
+	{
+		(*output)[i] = false;
+	}
+}
+
+void designlab::com_func::RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
+{
+	assert(output != nullptr);
+	assert((*output).size() == GetLegGroundPatternNum());
+
+	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
+	boost::dynamic_bitset<> inverse_output(GetLegGroundPatternNum());
+
+	for (auto& i : kLegGroundedPatternBanListFromLeg[not_lift_leg_index])
+	{
+		inverse_output[i] = true;
 	}
 
-	dllf::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index)
-	{
-		dllf::LegGroundedBit res;
-
-		// indexから遊脚のパターンを取得する．
-		res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
-
-		return res;
-	}
-
-
-	void RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
-	{
-		//異常な値ならばreturn
-
-		if (output == nullptr) { return; }
-
-		if ((*output).size() != GetLegGroundPatternNum()) { return; }
-
-
-		// LEG_GROUNDE_PATTERN_BAN_LISTにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
-
-		for (auto& i : kLegGroundedPatternBanList.at(discrete_com_pos))
-		{
-			(*output)[i] = false;
-		}
-	}
-
-	void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
-	{
-		//異常な値ならばreturn
-
-		if (output == nullptr) { return; }
-
-		if ((*output).size() != GetLegGroundPatternNum()) { return; }
-
-
-		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
-
-		for (auto& i : kLegGroundedPatternBanListFromLeg[not_groundble_leg_index])
-		{
-			(*output)[i] = false;
-		}
-	}
-
-	void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
-	{
-		//異常な値ならばreturn
-
-		if (output == nullptr) { return; }
-
-		if ((*output).size() != GetLegGroundPatternNum()) { return; }
-
-
-		// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGにキーが存在していないことや，値がgetLegGroundPatternNumを超えてないことを確認していない．エラーが出たらそこが原因かもしれない．
-		boost::dynamic_bitset<> inverse_output(GetLegGroundPatternNum());
-
-		for (auto& i : kLegGroundedPatternBanListFromLeg[not_lift_leg_index])
-		{
-			inverse_output[i] = true;
-		}
-
-		(*output) &= inverse_output;
-	}
-
-}	// namespace designlab::com_func
+	(*output) &= inverse_output;
+}

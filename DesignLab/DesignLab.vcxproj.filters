@@ -52,9 +52,6 @@
     <Filter Include="ソース ファイル\Node\NodeCreator\ComChanger">
       <UniqueIdentifier>{527ad95b-d1c1-4ac8-b586-46847f5a2a56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Node\CenterOfMass\ComSelector">
-      <UniqueIdentifier>{91e9c015-fa69-4525-bc84-497dab4a352b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GraphicSystem\Common\Camera">
       <UniqueIdentifier>{41ec5cfa-6960-4c66-b4a4-99ea386443cb}</UniqueIdentifier>
     </Filter>
@@ -218,9 +215,6 @@
     </ClInclude>
     <ClInclude Include="com_up_down_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="com_selecter_hato.h">
-      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClInclude>
     <ClInclude Include="com_move_node_creator_hato.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
@@ -444,6 +438,9 @@
     <ClInclude Include="designlab_array_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
+    <ClInclude Include="com_selecter_hato.h">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -532,9 +529,6 @@
     </ClCompile>
     <ClCompile Include="com_up_down_node_creator.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClCompile>
-    <ClCompile Include="com_selecter_hato.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass\ComSelector</Filter>
     </ClCompile>
     <ClCompile Include="com_move_node_creator_hato.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
@@ -694,6 +688,9 @@
     </ClCompile>
     <ClCompile Include="designlab_rot_converter.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="com_selecter_hato.cpp">
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
