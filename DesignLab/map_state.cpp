@@ -1,20 +1,6 @@
 #include "map_state.h"
 
 
-MapState& MapState::operator=(const MapState& other)
-{
-	//自分自身への代入は無視する．
-	if (this == &other) { return *this; }
-
-	//メンバ変数をコピーする．
-	map_point_.clear();
-
-	map_point_ = other.map_point_;
-
-	return *this;
-}
-
-
 DevideMapState::DevideMapState() :
 	devided_map_point_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM),
 	devided_map_top_z_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM)
