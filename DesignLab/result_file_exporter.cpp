@@ -101,7 +101,7 @@ void ResultFileExporter::ExportLatestNodeList() const
 	std::ofstream ofs(output_file_name);
 
 	//ファイルが作成できなかった場合は，なにも出力しない．
-	if (not ofs)
+	if ( ! ofs)
 	{
 		dlio::Output("ファイル " + output_file_name + "を作成できませんでした．", OutputDetail::kError);
 		return;

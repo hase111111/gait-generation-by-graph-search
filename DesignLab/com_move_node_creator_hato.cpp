@@ -51,7 +51,10 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 
 			next_node.ChangeToNextNode(current_num, next_move_);	//[‚³‚âeƒm[ƒh‚ð•ÏX‚·‚é
 
-			if (IsStable(next_node) && !IsIntersectGround(next_node))
+			if (
+				calculator_ptr_->CalculateStabilityMargin(next_node.leg_state, next_node.leg_pos) > kStableMargin &&
+				!IsIntersectGround(next_node)
+			)
 			{
 				(*output_graph).push_back(next_node);
 			}

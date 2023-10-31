@@ -63,12 +63,6 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 			}
 		}
 
-		//if (!m_calclator.isAblePause(_temp))
-		//{
-		//	//姿勢が安定できないならば次の候補点へ
-		//	com_candidate[i].first = false;
-		//	continue;
-		//}
 	}
 
 	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
