@@ -81,6 +81,9 @@ public:
 		map_point_.clear();
 	}
 
+
+	static constexpr float kMapPointDistance = 20.0f;	//!< z軸からみたとき，格子点状に分けられた脚接地可能点の間隔 [mm]．
+
 private:
 
 	// friendにすることで，privateなメンバ変数にアクセスできるようになる．
@@ -88,6 +91,9 @@ private:
 	friend std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapState& v);
 
 	std::vector<designlab::Vector3> map_point_;	//!< ロボットが歩くマップ．脚設置可能点の集合で表現される．
+
+
+	static_assert(kMapPointDistance > 0.0f, "kMapPointDistanceは正の実数である必要があります．");
 };
 
 
@@ -104,8 +110,9 @@ std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapSta
 
 
 //! @class DevideMapState
-//! @details 処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものがdevided_map_point_．
+//! @brief 処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものがdevided_map_point_．
 //! @n devide_mapの要素は https://atcoder.jp/contests/APG4b/tasks/APG4b_t の 「1次元の配列を多次元配列として使う」の要領で並んでいる．
+//! @n 座標はグローバル座標である．
 class DevideMapState
 {
 public:
@@ -119,18 +126,19 @@ public:
 
 	void Clear();
 
-	constexpr bool IsInMap(const designlab::Vector3& pos) const
-	{
-		if (pos.x < MapConst::MAP_MIN_FORWARD || pos.x > MapConst::MAP_MAX_FORWARD) { return false; }
-		if (pos.y < MapConst::MAP_MIN_HORIZONTAL || pos.y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
-		return true;
-	}
-
 	constexpr bool IsInMap(const float x, const float y) const
 	{
 		if (x < MapConst::MAP_MIN_FORWARD || x > MapConst::MAP_MAX_FORWARD) { return false; }
 		if (y < MapConst::MAP_MIN_HORIZONTAL || y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
 		return true;
+	}
+
+	//! @brief 指定した座標がDevideマップの範囲内に存在するかどうかを返す．
+	//! @param [in] pos グローバル座標．
+	//! @return bool 範囲内に存在するならtrue．
+	constexpr bool IsInMap(const designlab::Vector3& pos) const
+	{
+		return IsInMap(pos.x, pos.y);
 	}
 
 	static constexpr int GetDevideMapIndexX(const float posx) 
@@ -164,7 +172,7 @@ public:
 	//! @return Vector3 脚設置可能点の座標．
 	designlab::Vector3 GetPointPos(int x_index, int y_index, int devide_map_index) const;
 
-	//! @brief 長方形状に切り分けられたマップから，脚設置可能点vectorを取得する
+	//! @brief 長方形状に切り分けられたマップから，脚設置可能点のvectorを取得する
 	//! @n 範囲外の値を指定した場合は，空のvectorを返す．
 	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
@@ -179,8 +187,16 @@ public:
 
 private:
 
-	static constexpr int kDevideNum = 40;
-	float kMapMinZ = -100000.0f;	//!< マップの最低のZ座標
+	static constexpr int kDevideMapPointNum = 3;	//!< 1つのマスに存在する脚設置可能点の数はkDevideMapPointNum × kDevideMapPointNum 個．
+	static constexpr float kDevideAreaLength = MapState::kMapPointDistance * kDevideMapPointNum;	//!< 1つのマスの一辺の長さ．
+
+	static constexpr int kDevideNum = 30;
+	static constexpr float kDevideMapMaxX = kDevideAreaLength * kDevideNum / 2.0f;	//!< マップの最大のX座標
+	static constexpr float kDevideMapMinX = -kDevideMapMaxX;						//!< マップの最小のX座標
+	static constexpr float kDevideMapMaxY = kDevideAreaLength * kDevideNum / 2.0f;	//!< マップの最大のY座標
+	static constexpr float kDevideMapMinY = -kDevideMapMaxY;						//!< マップの最小のY座標
+
+	static constexpr float kMapMinZ = -100000.0f;	//!< マップの最低のZ座標
 
 	//! @brief Devide Mapでは，2次元の配列を1次元の配列として扱っている．
 	//! @n そのため，2次元の配列のインデックスを1次元の配列のインデックスに変換する．
@@ -193,7 +209,14 @@ private:
 	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	
 
 	//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
-	std::vector<float> devided_map_top_z_;							
+	std::vector<float> devided_map_top_z_;	
+
+
+	static_assert(kDevideMapPointNum > 0, "kDevideMapPointNumは正の整数である必要があります．");
+	static_assert(kDevideAreaLength > 0.0f, "kDevideAreaLengthは正の実数である必要があります．");
+	static_assert(kDevideNum > 0, "kDevideNumは正の整数である必要があります．");
+	static_assert(kDevideMapMaxX > kDevideMapMinX, "kDevideMapMaxXはMinより大きい必要があります．");
+	static_assert(kDevideMapMaxY > kDevideMapMinY, "kDevideMapMaxYはMinより大きい必要があります．");
 };
 
 

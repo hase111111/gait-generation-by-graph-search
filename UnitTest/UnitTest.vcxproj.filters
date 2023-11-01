@@ -119,7 +119,7 @@
     <ClCompile Include="map_state_func_test.cpp">
       <Filter>Map</Filter>
     </ClCompile>
-    <ClCompile Include="devide_map_state.cpp">
+    <ClCompile Include="devide_map_state_test.cpp">
       <Filter>Map</Filter>
     </ClCompile>
   </ItemGroup>

@@ -46,7 +46,7 @@
     <ClCompile Include="designlab_rotation_matrix_test.cpp" />
     <ClCompile Include="designlab_rot_converter_test.cpp" />
     <ClCompile Include="designlab_string_util_test.cpp" />
-    <ClCompile Include="devide_map_state.cpp" />
+    <ClCompile Include="devide_map_state_test.cpp" />
     <ClCompile Include="euler_angle_func_test.cpp" />
     <ClCompile Include="euler_angle_operator_test.cpp" />
     <ClCompile Include="euler_angle_test.cpp" />

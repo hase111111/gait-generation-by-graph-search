@@ -98,6 +98,15 @@ public:
 	{
 		return (kTibiaAngleMin <= angle && angle <= kTibiaAngleMax);
 	};
+
+
+	static_assert(kCoxaAngleMin < kCoxaAngleMax, "kCoxaAngleMax > Minである必要があります．");
+	static_assert(kFemurAngleMin < kFemurAngleMax, "kFemurAngleMax > Minである必要があります．");
+	static_assert(kTibiaAngleMin < kTibiaAngleMax, "kTibiaAngleMax > Minである必要があります．");
+	static_assert(kCoxaLength > 0.f, "kCoxaLength，Coxa Linkの長さは正である必要があります．");
+	static_assert(kFemurLength > 0.f, "kFemurLength，Femur Linkの長さは正である必要があります．");
+	static_assert(kTibiaLength > 0.f, "kTibiaLength，Tibia Linkの長さは正である必要があります．");
+	static_assert(kBodyLiftingHeightMin < kBodyLiftingHeightMax, "kBodyLiftingHeightMax > Minである必要があります．");
 };
 
 #endif 
