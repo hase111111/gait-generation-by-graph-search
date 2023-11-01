@@ -21,7 +21,7 @@ graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
 {
 }
 
-GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const TargetRobotState& target, RobotStateNode* output_node)
+GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_state, const TargetRobotState& target, RobotStateNode* output_node)
 {
 	assert(output_node != nullptr);	// output_node‚Ínullptr‚Å‚È‚¢
 
@@ -34,7 +34,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 	if (!graph_searcher_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
 
 	DevideMapState devide_map;
-	devide_map.Init(map_ref);
+	devide_map.Init(map_state, {});
 
 	graph_tree_creator_ptr_->Init(devide_map);
 	graph_tree_creator_revaluation_ptr_->Init(devide_map);

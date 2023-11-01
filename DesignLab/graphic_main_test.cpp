@@ -30,7 +30,7 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 
 	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
 	map_state_ = map_creator.InitMap();
-	devide_map_state_.Init(map_state_);
+	devide_map_state_.Init(map_state_, {});
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)

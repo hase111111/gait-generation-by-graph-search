@@ -14,6 +14,9 @@
 #include "map_const.h"
 
 
+namespace dl = ::designlab;
+
+
 //! @class MapState
 //! @brief マップを表すクラス．
 //! @details この研究の手法では，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合．
@@ -122,7 +125,8 @@ public:
 	//! @brief Devideマップのデータを初期化する．
 	//! @n マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．
 	//! @param [in] map_state マップのデータ．
-	void Init(const MapState& map_state);
+	//! @param [in] global_robot_com ロボットの重心のグローバル座標．
+	void Init(const MapState& map_state, const dl::Vector3 global_robot_com);
 
 	void Clear();
 
@@ -141,8 +145,9 @@ public:
 		return IsInMap(pos.x, pos.y);
 	}
 
-	static constexpr int GetDevideMapIndexX(const float posx) 
+	constexpr int GetDevideMapIndexX(const float posx) const
 	{
+		auto a = posx - global_robot_com_.x;
 		const int res = static_cast<int>(
 			(posx - MapConst::MAP_MIN_FORWARD) / 
 			(((float)MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / 
@@ -209,7 +214,9 @@ private:
 	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	
 
 	//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
-	std::vector<float> devided_map_top_z_;	
+	std::vector<float> devided_map_top_z_;
+
+	designlab::Vector3 global_robot_com_;	//!< ロボットの重心のグローバル座標．
 
 
 	static_assert(kDevideMapPointNum > 0, "kDevideMapPointNumは正の整数である必要があります．");

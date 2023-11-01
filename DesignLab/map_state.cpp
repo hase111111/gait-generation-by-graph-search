@@ -1,36 +1,43 @@
 #include "map_state.h"
 
+#include "designlab_math_util.h"
+
+
+namespace dlm = ::designlab::math_util;
+
 
 DevideMapState::DevideMapState() :
-	devided_map_point_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM),
-	devided_map_top_z_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM)
+	devided_map_point_(dlm::Squared(kDevideNum)),
+	devided_map_top_z_(dlm::Squared(kDevideNum))
 {
 	// コンストラクタで，vectorの大きさを確保しておく．
 	Clear();
 }
 
 DevideMapState::DevideMapState(const MapState& map_state) :
-	devided_map_point_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM),
-	devided_map_top_z_(MapConst::LP_DIVIDE_NUM* MapConst::LP_DIVIDE_NUM)
+	devided_map_point_(dlm::Squared(kDevideNum)),
+	devided_map_top_z_(dlm::Squared(kDevideNum))
 {
-	Init(map_state);
+	assert(false);
+	Init(map_state, {});
 }
 
-void DevideMapState::Init(const MapState& map_state)
+void DevideMapState::Init(const MapState& map_state, const dl::Vector3 global_robot_com)
 {
 	Clear();
 
-	//マップを切り分ける四角形の辺の長さを算出する．
-	constexpr float kLengthX = (MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / static_cast<float>(MapConst::LP_DIVIDE_NUM);
-	constexpr float kLengthY = (MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / static_cast<float>(MapConst::LP_DIVIDE_NUM);
 
 	//マップのデータ全てを参照し，切り分ける
 	const size_t kMapPointSize = map_state.GetMapPointSize();
 
 	for (size_t i = 0; i < kMapPointSize; ++i)
 	{
-		//xy方向のブロック番号をそれぞれ求める
+		//_ xy方向のブロック番号をそれぞれ求める
 		const designlab::Vector3 point = map_state.GetMapPoint(i);
+
+		//範囲内にいないならば処理をやめ，continue
+		if (point.x < global_robot_com.x + kDevideMapMinX || global_robot_com.x + kDevideMapMaxX < point.x) { continue; }
+		if (point.y < global_robot_com.y + kDevideMapMinY || global_robot_com.y + kDevideMapMaxY < point.y) { continue; }
 
 		const int x = static_cast<int>((point.x - static_cast<float>(MapConst::MAP_MIN_FORWARD)) / kLengthX);
 		const int y = static_cast<int>((point.y - static_cast<float>(MapConst::MAP_MIN_HORIZONTAL)) / kLengthY);
