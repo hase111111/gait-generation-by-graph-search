@@ -178,16 +178,22 @@ public:
 	float GetTopZ(int x_index, int y_index) const;
 
 private:
+
+	static constexpr int kDevideNum = 40;
 	float kMapMinZ = -100000.0f;	//!< マップの最低のZ座標
 
+	//! @brief Devide Mapでは，2次元の配列を1次元の配列として扱っている．
+	//! @n そのため，2次元の配列のインデックスを1次元の配列のインデックスに変換する．
 	constexpr int GetDevideMapIndex(const int x_index, const int y_index) const
 	{
 		return x_index * MapConst::LP_DIVIDE_NUM + y_index;
 	}
 
-	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	//!< マップが存在する領域を正方形に切り分けて，その中に存在する脚設置可能点を集めたもの．
+	//!< マップが存在する領域を格子状に切り分けて，その中に存在する脚設置可能点を集めたもの．
+	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	
 
-	std::vector<float> devided_map_top_z_;							//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
+	//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
+	std::vector<float> devided_map_top_z_;							
 };
 
 

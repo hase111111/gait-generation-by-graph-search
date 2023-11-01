@@ -89,4 +89,25 @@ namespace designlab::test::map
 		EXPECT_EQ(map_state.GetMapPoint(1), map_point_list[1]);
 		EXPECT_EQ(map_state.GetMapPoint(2), map_point_list[2]);
 	}
+
+	TEST(MapStateTest, ClearMapPointTest)
+	{
+		std::vector<dl::Vector3> map_point_list{
+			dl::Vector3(1, 2, 3),
+			dl::Vector3(4, 5, 6),
+			dl::Vector3(7, 8, 9)
+		};
+
+		MapState map_state(map_point_list);
+
+		EXPECT_EQ(map_state.GetMapPointSize(), 3);
+
+		EXPECT_EQ(map_state.GetMapPoint(0), map_point_list[0]);
+		EXPECT_EQ(map_state.GetMapPoint(1), map_point_list[1]);
+		EXPECT_EQ(map_state.GetMapPoint(2), map_point_list[2]);
+
+		map_state.ClearMapPoint();
+
+		EXPECT_EQ(map_state.GetMapPointSize(), 0);
+	}
 }
