@@ -120,7 +120,6 @@ class DevideMapState
 {
 public:
 	DevideMapState();
-	DevideMapState(const MapState& map_state);	//!< メンバ関数のInitを呼び出す．
 
 	//! @brief Devideマップのデータを初期化する．
 	//! @n マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．
@@ -132,34 +131,28 @@ public:
 
 	constexpr bool IsInMap(const float x, const float y) const
 	{
-		if (x < MapConst::MAP_MIN_FORWARD || x > MapConst::MAP_MAX_FORWARD) { return false; }
-		if (y < MapConst::MAP_MIN_HORIZONTAL || y > MapConst::MAP_MAX_HORIZONTAL) { return false; }
+		if (x < global_robot_com_.x + kDevideMapMinX || global_robot_com_.x + kDevideMapMaxX < x) { return false; }
+		if (y < global_robot_com_.y + kDevideMapMinY || global_robot_com_.y + kDevideMapMaxY < y) { return false; }
+
 		return true;
 	}
 
 	//! @brief 指定した座標がDevideマップの範囲内に存在するかどうかを返す．
 	//! @param [in] pos グローバル座標．
 	//! @return bool 範囲内に存在するならtrue．
-	constexpr bool IsInMap(const designlab::Vector3& pos) const
+	constexpr bool IsInMap(const designlab::Vector3& pos) const noexcept
 	{
 		return IsInMap(pos.x, pos.y);
 	}
 
-	constexpr int GetDevideMapIndexX(const float posx) const
+	constexpr int GetDevideMapIndexX(const float posx) const noexcept
 	{
-		auto a = posx - global_robot_com_.x;
-		const int res = static_cast<int>(
-			(posx - MapConst::MAP_MIN_FORWARD) / 
-			(((float)MapConst::MAP_MAX_FORWARD - MapConst::MAP_MIN_FORWARD) / 
-				MapConst::LP_DIVIDE_NUM)
-		);
-		return res;
+		return static_cast<int>((posx - global_robot_com_.x - kDevideMapMinX) * static_cast<float>(kDevideNum) / (kDevideMapMaxX - kDevideMapMinX));
 	}
 
-	static constexpr int GetDevideMapIndexY(const float posy) 
+	constexpr int GetDevideMapIndexY(const float posy) const noexcept
 	{
-		const int res = static_cast<int>((posy - MapConst::MAP_MIN_HORIZONTAL) / (((float)MapConst::MAP_MAX_HORIZONTAL - MapConst::MAP_MIN_HORIZONTAL) / MapConst::LP_DIVIDE_NUM));
-		return res;
+		return static_cast<int>((posy - global_robot_com_.y - kDevideMapMinY) * static_cast<float>(kDevideNum) / (kDevideMapMaxY - kDevideMapMinY));
 	}
 
 	//! @brief 長方形状に切り分けられたマップから，脚設置可能点の数を取得する．
@@ -192,7 +185,7 @@ public:
 
 private:
 
-	static constexpr int kDevideMapPointNum = 3;	//!< 1つのマスに存在する脚設置可能点の数はkDevideMapPointNum × kDevideMapPointNum 個．
+	static constexpr int kDevideMapPointNum = 4;	//!< 1つのマスに存在する脚設置可能点の数はkDevideMapPointNum × kDevideMapPointNum 個．
 	static constexpr float kDevideAreaLength = MapState::kMapPointDistance * kDevideMapPointNum;	//!< 1つのマスの一辺の長さ．
 
 	static constexpr int kDevideNum = 30;
@@ -205,18 +198,31 @@ private:
 
 	//! @brief Devide Mapでは，2次元の配列を1次元の配列として扱っている．
 	//! @n そのため，2次元の配列のインデックスを1次元の配列のインデックスに変換する．
-	constexpr int GetDevideMapIndex(const int x_index, const int y_index) const
+	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
+	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
+	//! @return int 1次元の配列のインデックス．
+	constexpr int GetDevideMapIndex(const int x_index, const int y_index) const noexcept
 	{
-		return x_index * MapConst::LP_DIVIDE_NUM + y_index;
+		return x_index * kDevideNum + y_index;
 	}
+
+	//! @brief 与えられたインデックスが有効な値かどうかを返す．
+	//! @param [in] index マップのインデックス．
+	//! @return bool 有効な値ならtrue．
+	constexpr bool IsVaildIndex(const int index) const noexcept
+	{
+		if (index < 0 || kDevideNum <= index) { return false; }
+
+		return true;
+	}
+
+	designlab::Vector3 global_robot_com_;	//!< ロボットの重心のグローバル座標．
 
 	//!< マップが存在する領域を格子状に切り分けて，その中に存在する脚設置可能点を集めたもの．
 	std::vector<std::vector<designlab::Vector3> > devided_map_point_;	
 
 	//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
 	std::vector<float> devided_map_top_z_;
-
-	designlab::Vector3 global_robot_com_;	//!< ロボットの重心のグローバル座標．
 
 
 	static_assert(kDevideMapPointNum > 0, "kDevideMapPointNumは正の整数である必要があります．");

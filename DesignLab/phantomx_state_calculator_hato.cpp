@@ -26,7 +26,7 @@ bool PhantomXStateCalclator_Hato::IsLegInRange(const int leg_index, const design
 	//‹r‚ğL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
 	
 	//assert(0 <= -leg_pos.z && -leg_pos.z <= kMaxDifZ);
-	if (leg_pos.z > 0 || -kMaxDifZ > leg_pos.z) { return false; }
+	if (static_cast<int>(leg_pos.z)  < -kMaxDifZ || 0 < static_cast<int>(leg_pos.z)) { return false; }
 
 	if (dlm::Squared(leg_max_r_[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.GetSquaredLength()) { return false; }
 

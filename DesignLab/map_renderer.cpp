@@ -23,8 +23,8 @@ void MapRenderer::Draw(const MapState& map) const
 
 	for (size_t i = 0; i < kSize; i++)
 	{
-		int x_index = DevideMapState::GetDevideMapIndexX(map.GetMapPoint(i).x);
-		int y_index = DevideMapState::GetDevideMapIndexY(map.GetMapPoint(i).y);
+		int x_index = 0;// DevideMapState::GetDevideMapIndexX(map.GetMapPoint(i).x);
+		int y_index = 0;// DevideMapState::GetDevideMapIndexY(map.GetMapPoint(i).y);
 
 		dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.GetMapPoint(i)), kCubeSize, (x_index + y_index) % 2 == 0 ? kColorGray : kColorLightGray);
 	}

@@ -32,7 +32,7 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 	if (!graph_searcher_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
 
 	DevideMapState devide_map;
-	devide_map.Init(map_state, {});
+	devide_map.Init(map_state, current_node.global_center_of_mass);
 
 	graph_tree_creator_ptr_->Init(devide_map);
 
