@@ -32,7 +32,7 @@ void ResultViewerSystemMain::Main()
 
 		std::string res_path;
 		
-		if (not file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path)) 
+		if ( ! file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path)) 
 		{
 			dlio::Output("該当のデータがありませんでした．終了します．", OutputDetail::kSystem);
 

@@ -6,11 +6,13 @@
 
 #include "cmdio_util.h"
 #include "define.h"
+#include "designlab_string_util.h"
 #include "node_validity_checker.h"
 #include "simulation_map_creator.h"
 
 
 namespace dlio = designlab::cmdio;
+namespace dlsu = designlab::string_util;
 
 
 SimulationSystemMain::SimulationSystemMain(
@@ -124,12 +126,11 @@ void SimulationSystemMain::Main()
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " + 
-					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
+					dlsu::MyEnumToString(record.simulation_result) +
 					"/ GraphSearch = " + 
-					static_cast<std::string>(magic_enum::enum_name(result_state)),
+					dlsu::MyEnumToString(result_state),
 					OutputDetail::kSystem
 				);
-
 
 				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
 			}
@@ -161,9 +162,9 @@ void SimulationSystemMain::Main()
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " + 
-					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)) +
+					dlsu::MyEnumToString(record.simulation_result) +
 					"/ GraphSearch = " +
-					static_cast<std::string>(magic_enum::enum_name(result_state)),
+					dlsu::MyEnumToString(result_state),
 					OutputDetail::kSystem
 				);
 
@@ -178,11 +179,11 @@ void SimulationSystemMain::Main()
 
 				dlio::Output(
 					"シミュレーションに成功しました．SimulationResult = " + 
-					static_cast<std::string>(magic_enum::enum_name(record.simulation_result)),
+					dlsu::MyEnumToString(record.simulation_result),
 					OutputDetail::kSystem
 				);
 
-				break;
+				break;	//成功したら，このループを抜け，次のシミュレーションへ進む．
 			}
 
 		}	//歩容生成のループ終了

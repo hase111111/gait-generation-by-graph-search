@@ -1,4 +1,10 @@
-#pragma once
+//! @file result_viewer_system_main.h
+//! @brief 結果を表示するシステムのクラス．
+
+
+#ifndef DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_
+#define DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_
+
 
 #include <memory>
 #include <string>
@@ -9,6 +15,8 @@
 #include "result_file_importer.h"
 
 
+//! @class ResultViewerSystemMain
+//! @brief 結果を表示するシステムのクラス．
 class ResultViewerSystemMain final : public ISystemMain
 {
 public:
@@ -27,3 +35,5 @@ private:
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 };
 
+
+#endif

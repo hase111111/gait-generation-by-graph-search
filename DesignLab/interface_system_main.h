@@ -1,6 +1,7 @@
 //! @file interface_system_main.h
 //! @brief システムのインターフェース．
 
+
 #ifndef DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 #define DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 
@@ -16,4 +17,4 @@ public:
 };
 
 
-#endif //DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
+#endif

@@ -21,7 +21,6 @@
 //! @class SimulationSystemMain
 //! @brief 中～大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．
 //! @details 処理の内容を書き換えるときには，int main()から呼ぶクラスを変えるだけでいい．
-
 class SimulationSystemMain final : public ISystemMain
 {
 public:
@@ -47,7 +46,7 @@ private:
 	void OutputSetting() const;
 
 
-	std::unique_ptr<IPassFinder> pass_finder_ptr_;
+	const std::unique_ptr<IPassFinder> pass_finder_ptr_;
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;					//!< グラフィックデータを管理するクラス．
 

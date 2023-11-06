@@ -5,9 +5,11 @@
 #include <magic_enum.hpp>
 
 #include "cmdio_util.h"
+#include "designlab_string_util.h"
 
 
 namespace dlio = designlab::cmdio;
+namespace dlsu = designlab::string_util;
 
 
 BootModeSelecter::BootModeSelecter() :
@@ -19,24 +21,22 @@ BootModeSelecter::BootModeSelecter() :
 
 BootMode BootModeSelecter::SelectBootMode()
 {
-	OutputDetail output_detail = OutputDetail::kSystem;
+	const OutputDetail output_detail = OutputDetail::kSystem;	// kSystem にすると、設定にかかわらず必ず表示される
 
 	dlio::Output("起動モードを選択してください", output_detail);
 
 	//起動モードの名前を表示する
 	for (int i = 0; i < kBootModeNum; i++)
 	{
-		std::string boot_mode_name = static_cast<std::string>(magic_enum::enum_name(static_cast<BootMode>(i)).data());
+		const BootMode boot_mode = static_cast<BootMode>(i);
 
-		boot_mode_name.erase(0, 1);	//先頭のkを削除
+		const std::string boot_mode_name = dlsu::MyEnumToString(boot_mode);
 
 		dlio::Output(std::to_string(i) + " : " + boot_mode_name, output_detail);
 	}
 
 
-	std::string default_mode_name = static_cast<std::string>(magic_enum::enum_name(default_mode_).data());
-	
-	default_mode_name.erase(0, 1);	//先頭のkを削除
+	std::string default_mode_name = dlsu::MyEnumToString(default_mode_);
 
 	dlio::Output("other : デフォルトのモード ( " + default_mode_name + " )", output_detail);
 
@@ -55,6 +55,10 @@ BootMode BootModeSelecter::SelectBootMode()
 	}
 	else
 	{
+		// 入力が不正な場合はデフォルトのモードを返す
+
+		dlio::Output("入力が不正です。デフォルトのモードを選択します。", OutputDetail::kSystem);
+		
 		return default_mode_;
 	}
 }
