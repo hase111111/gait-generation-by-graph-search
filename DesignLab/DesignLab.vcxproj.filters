@@ -467,9 +467,6 @@
     <ClCompile Include="simulation_map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="map_state.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>

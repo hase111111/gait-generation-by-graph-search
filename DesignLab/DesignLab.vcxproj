@@ -196,7 +196,6 @@
     <ClCompile Include="map_const.cpp" />
     <ClCompile Include="simulation_map_creator.cpp" />
     <ClCompile Include="map_renderer.cpp" />
-    <ClCompile Include="map_state.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
