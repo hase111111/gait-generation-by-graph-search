@@ -85,7 +85,7 @@ void GraphicMainGraphViewer::Draw() const
 
 	MapRenderer map_renderer;
 
-	map_renderer.Draw(map_state_);
+	//map_renderer.Draw(map_state_);
 
 
 	if (display_node_index_ < graph_.size())

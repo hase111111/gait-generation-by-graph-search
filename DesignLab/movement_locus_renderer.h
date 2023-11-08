@@ -45,7 +45,7 @@ private:
 
 	const float kLocusLineMaxLength;			//!< ‹OÕ‚Ìü‚ÌÅ‘å’·‚³D‚±‚Ì’l‚ðã‰ñ‚éê‡‚Í•\Ž¦‚µ‚È‚¢D
 
-	const int kLocusLineRadius;					//!< ‹OÕ‚Ìü‚Ì”¼Œa
+	const float kLocusLineRadius;					//!< ‹OÕ‚Ìü‚Ì”¼Œa
 
 
 	std::vector<designlab::Vector3> move_locus_point_;	//!< ƒƒ{ƒbƒg‚Ì“®‚«‚Ì‘JˆÚ‚ð‹L˜^‚·‚évector

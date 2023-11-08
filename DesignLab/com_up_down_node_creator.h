@@ -10,7 +10,7 @@
 #include <memory>
 
 #include "abstract_hexapod_state_calculator.h"
-#include "map_state.h"
+#include "devide_map_state.h"
 
 
 //! @class ComUpDownNodeCreator

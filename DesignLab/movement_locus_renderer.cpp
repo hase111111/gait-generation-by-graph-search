@@ -12,7 +12,7 @@ MovementLocusRenderer::MovementLocusRenderer() :
 	kDisplayLocusLineColor(GetColor(239, 237, 84)),
 	kHiddenLocusLineAlpha(128),
 	kLocusLineMaxLength(300.0f),
-	kLocusLineRadius(5),
+	kLocusLineRadius(5.0f),
 	is_high_quality_(false)
 {
 }
@@ -83,7 +83,7 @@ void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all
 			{
 				if (is_high_quality_)
 				{
-					DrawCapsule3D(start, end, kLocusLineMaxLength, kDivNum, kDisplayLocusLineColor, kDisplayLocusLineColor, TRUE);
+					DrawCapsule3D(start, end, kLocusLineRadius, kDivNum, kDisplayLocusLineColor, kDisplayLocusLineColor, TRUE);
 				}
 				else
 				{
@@ -96,7 +96,7 @@ void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all
 
 				if (is_high_quality_)
 				{
-					DrawCapsule3D(start, end, kLocusLineMaxLength, kDivNum, kHiddenLocusLineColor, kHiddenLocusLineColor, TRUE);
+					DrawCapsule3D(start, end, kLocusLineRadius, kDivNum, kHiddenLocusLineColor, kHiddenLocusLineColor, TRUE);
 				}
 				else
 				{

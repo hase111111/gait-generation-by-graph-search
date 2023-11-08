@@ -10,6 +10,7 @@
 #include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "graphic_data_broker.h"
+#include "interface_map_creator.h"
 #include "interface_pass_finder.h"
 #include "interface_system_main.h"
 #include "map_state.h"
@@ -32,6 +33,7 @@ public:
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SimulationSystemMain(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
 
@@ -46,18 +48,20 @@ private:
 	void OutputSetting() const;
 
 
-	const std::unique_ptr<IPassFinder> pass_finder_ptr_;
+	const std::unique_ptr<IPassFinder> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．
 
-	const std::shared_ptr<GraphicDataBroker> broker_ptr_;					//!< グラフィックデータを管理するクラス．
+	const std::unique_ptr<IMapCreator> map_creator_ptr_;	//!< マップを生成するクラス．
+
+	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
 
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
 
-	MapState map_state_;	//!< 地形の状態を管理するクラス．
+	MapState map_state_;		//!< 地形の状態
 
-	TargetRobotState target_;		//!< 目標地点．
+	TargetRobotState target_;	//!< 目標地点．
 
-	Stopwatch timer_;		//!< 時間計測用のクラス．
+	Stopwatch timer_;			//!< 時間計測用のクラス．
 
 	ResultFileExporter result_exporter_;	//!< 結果をファイルに出力するクラス．
 };

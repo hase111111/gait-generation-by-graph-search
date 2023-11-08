@@ -11,6 +11,7 @@
 #include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "camera_gui.h"
+#include "devide_map_state.h"
 #include "interface_hexapod_renderer.h"
 #include "map_state.h"
 #include "robot_state_node.h"

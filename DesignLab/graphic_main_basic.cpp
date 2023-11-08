@@ -121,7 +121,7 @@ void GraphicMainBasic::Draw() const
 
 	MapRenderer map_render;				//マップを描画する．
 
-	map_render.Draw(map_state_);
+	//map_render.Draw(map_state_);
 
 
 	if (is_displayed_movement_locus_)

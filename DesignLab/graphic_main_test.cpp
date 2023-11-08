@@ -90,7 +90,7 @@ void GraphicMainTest::Draw() const
 
 	MapRenderer map_render;
 
-	map_render.Draw(map_state_);
+	//map_render.Draw(map_state_);
 
 
 	hexapod_renderer_->Draw();

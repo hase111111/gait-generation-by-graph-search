@@ -17,10 +17,12 @@ namespace dlsu = designlab::string_util;
 
 SimulationSystemMain::SimulationSystemMain(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
+	map_creator_ptr_(std::move(map_creator_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
@@ -28,8 +30,7 @@ SimulationSystemMain::SimulationSystemMain(
 	result_exporter_.Init();
 
 	//マップを生成する．
-	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kStep));
-	map_state_ = map_creator.InitMap();
+	map_state_ = map_creator_ptr_->InitMap();
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);

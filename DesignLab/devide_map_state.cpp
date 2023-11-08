@@ -1,4 +1,4 @@
-#include "map_state.h"
+#include "devide_map_state.h"
 
 #include "designlab_math_util.h"
 
@@ -33,7 +33,7 @@ void DevideMapState::Init(const MapState& map_state, const dl::Vector3 global_ro
 		const designlab::Vector3 point = map_state.GetMapPoint(i);
 
 		//範囲内にいないならば処理をやめ，continue
-		if ( ! IsInMap(point)) { continue; }
+		if (!IsInMap(point)) { continue; }
 
 		const int x = GetDevideMapIndexX(point.x);
 		const int y = GetDevideMapIndexY(point.y);
@@ -77,7 +77,7 @@ designlab::Vector3 DevideMapState::GetPointPos(int x_index, int y_index, int dev
 	//存在していなければ終了
 	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return designlab::Vector3{ 0, 0, 0 }; }
 
-	if (devide_map_index < 0 || static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size()) <= devide_map_index) { return designlab::Vector3{0, 0, 0}; }
+	if (devide_map_index < 0 || static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size()) <= devide_map_index) { return designlab::Vector3{ 0, 0, 0 }; }
 
 	//存在しているならば値を返す．
 	return devided_map_point_[GetDevideMapIndex(x_index, y_index)][devide_map_index];
@@ -96,7 +96,7 @@ void DevideMapState::GetPointVector(int x_index, int y_index, std::vector<design
 float DevideMapState::GetTopZ(int x_index, int y_index) const
 {
 	//存在していなければ終了
-	if ( ! IsVaildIndex(x_index) || ! IsVaildIndex(y_index)) { return kMapMinZ; }
+	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return kMapMinZ; }
 
 	return devided_map_top_z_[GetDevideMapIndex(x_index, y_index)];
 }

@@ -12,7 +12,7 @@
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
 #include "designlab_polygon2.h"
-#include "map_state.h"
+#include "devide_map_state.h"
 
 
 //! @class ComMoveNodeCreatorHato

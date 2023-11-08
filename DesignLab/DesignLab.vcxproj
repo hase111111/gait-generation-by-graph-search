@@ -27,6 +27,7 @@
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="designlab_rot_converter.h" />
     <ClInclude Include="designlab_string_util.h" />
+    <ClInclude Include="devide_map_state.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="application_setting_toml_key.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="com_move_node_creator_hato.cpp" />
     <ClCompile Include="designlab_rot_converter.cpp" />
     <ClCompile Include="designlab_string_util.cpp" />
+    <ClCompile Include="devide_map_state.cpp" />
     <ClCompile Include="_com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />

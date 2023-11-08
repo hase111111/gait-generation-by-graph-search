@@ -17,6 +17,7 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
 	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality)),
+	movement_locus_renderer_{},
 	robot_graund_point_renderer_(calculator_ptr),
 	stability_margin_renderer_(calculator_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
@@ -27,6 +28,10 @@ GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBr
 	is_displayed_movement_locus_(true),
 	is_displayed_robot_graund_point_(true)
 {
+	if (setting_ptr->gui_display_quality == DisplayQuality::kHigh) 
+	{
+		movement_locus_renderer_.SetIsHighQuality(true);
+	}
 }
 
 
@@ -36,6 +41,8 @@ bool GraphicMainAdvance::Update()
 	{
 		map_update_count = broker_ptr_->map_state.GetUpdateCount();
 		map_state_ = broker_ptr_->map_state.GetData();
+
+		map_renderer_.SetMapState(map_state_);
 	}
 
 
@@ -80,11 +87,13 @@ bool GraphicMainAdvance::Update()
 			}
 
 
-			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();				//表示するノードを取得する．
+			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();					//表示するノードを取得する．
 
 			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
 			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
+
+			map_renderer_.SetHexapodPosition(graph_.at(display_node_index_).global_center_of_mass);	//マップの表示を更新する．
 
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
 		}
@@ -143,10 +152,7 @@ void GraphicMainAdvance::Draw() const
 
 	grid_renderer.Draw();				//グリッドを描画する．
 
-
-	MapRenderer map_render;				//マップを描画する．
-
-	map_render.Draw(map_state_);
+	map_renderer_.Draw();
 
 
 	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //移動軌跡を描画する．

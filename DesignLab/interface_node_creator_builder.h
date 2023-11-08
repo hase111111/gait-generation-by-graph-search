@@ -8,6 +8,7 @@
 #include <memory>
 
 #include "abstract_hexapod_state_calculator.h"
+#include "devide_map_state.h"
 #include "hexapod_next_move.h"
 #include "interface_node_creator.h"
 #include "map_state.h"

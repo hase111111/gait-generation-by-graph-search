@@ -1,8 +1,5 @@
 #include "map_const.h"
 
-const std::string MapConst::INPUT_FILE_NAME = "map.csv";
-const std::string MapConst::OUTPUT_FILE_NAME = "map.csv";
-
 const unsigned int MapConst::HOLE_RATE = 20;
 
 const float MapConst::STEP_HEIGHT = 100.0f;		//段差高さ[mm]．負の値にすると下りの階段になる．

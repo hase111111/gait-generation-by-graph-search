@@ -16,6 +16,7 @@
 #include "interface_hexapod_renderer.h"
 #include "interpolated_node_creator.h"
 #include "map_state.h"
+#include "map_renderer.h"
 #include "movement_locus_renderer.h"
 #include "robot_state_node.h"
 #include "node_display_gui.h"
@@ -51,7 +52,7 @@ private:
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
 
-	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;						//!< ロボットを表示するクラス．	
+	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ロボットを表示するクラス．	
 
 	MovementLocusRenderer movement_locus_renderer_;			//!< ロボットの動きの軌跡を表示するクラス．
 
@@ -60,6 +61,8 @@ private:
 	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの安定性マージンを表示するクラス．
 
 	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
+
+	MapRenderer map_renderer_;								//!< マップを表示するクラス．
 
 
 	MapState map_state_;		//!< 表示するマップ．

@@ -441,6 +441,9 @@
     <ClInclude Include="com_selecter_hato.h">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClInclude>
+    <ClInclude Include="devide_map_state.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -691,6 +694,9 @@
     </ClCompile>
     <ClCompile Include="com_selecter_hato.cpp">
       <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+    </ClCompile>
+    <ClCompile Include="devide_map_state.cpp">
+      <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

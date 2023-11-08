@@ -12,20 +12,51 @@ namespace dldu = designlab::dxlib_util;
 MapRenderer::MapRenderer() : 
 	kColorGray(GetColor(80, 80, 80)), 
 	kColorLightGray(GetColor(160, 160, 160)),
+	kColorDarkGray(GetColor(40, 40, 40)),
 	kCubeSize(15.f)
 {
 }
 
-
-void MapRenderer::Draw(const MapState& map) const
+void MapRenderer::SetHexapodPosition(const designlab::Vector3& pos)
 {
-	size_t kSize = map.GetMapPointSize();
+	hexapod_pos_ = pos;
+
+	devide_map_.Init(map_, hexapod_pos_);
+}
+
+void MapRenderer::SetMapState(const MapState& map)
+{
+	map_ = map;
+
+	devide_map_.Init(map_, hexapod_pos_);
+}
+
+
+void MapRenderer::Draw() const
+{
+	size_t kSize = map_.GetMapPointSize();
 
 	for (size_t i = 0; i < kSize; i++)
 	{
-		int x_index = 0;// DevideMapState::GetDevideMapIndexX(map.GetMapPoint(i).x);
-		int y_index = 0;// DevideMapState::GetDevideMapIndexY(map.GetMapPoint(i).y);
+		dldu::DrawCube3DWithTopPos(
+			dldu::ConvertToDxlibVec(map_.GetMapPoint(i)), 
+			kCubeSize, 
+			kColorDarkGray
+		);
+	}
 
-		dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(map.GetMapPoint(i)), kCubeSize, (x_index + y_index) % 2 == 0 ? kColorGray : kColorLightGray);
+	for (int i = 0; i < 30; i++)
+	{
+		for (int j = 0; j < 30; j++)
+		{
+			for (int k = 0; k < devide_map_.GetPointNum(i, j); k++)
+			{
+				dldu::DrawCube3DWithTopPos(
+					dldu::ConvertToDxlibVec(devide_map_.GetPointPos(i, j, k)),
+					kCubeSize,
+					(i + j) % 2 == 0 ? kColorLightGray : kColorGray
+				);
+			}
+		}
 	}
 }

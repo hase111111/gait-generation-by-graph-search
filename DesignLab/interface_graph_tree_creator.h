@@ -9,7 +9,7 @@
 
 #include "graph_search_result_recoder.h"
 #include "robot_state_node.h"
-#include "map_state.h"
+#include "devide_map_state.h"
 
 
 //! @class IGraphTreeCreator
