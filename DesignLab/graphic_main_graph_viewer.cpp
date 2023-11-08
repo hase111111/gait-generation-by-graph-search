@@ -7,6 +7,7 @@
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
+#include "node_initializer.h"
 
 namespace dldu = designlab::dxlib_util;
 
@@ -25,8 +26,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const Graph
 	graph_update_count_(0)
 {
 	//適当なノードを生成して，描画クラスを初期化する
-	RobotStateNode init_node;
-	init_node.Init(false);
+	NodeInitializer node_initializer;
+	RobotStateNode init_node = node_initializer.InitNode();
 
 	hexapod_renderer_->SetDrawNode(init_node);
 

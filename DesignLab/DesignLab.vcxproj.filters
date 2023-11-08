@@ -444,6 +444,9 @@
     <ClInclude Include="devide_map_state.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
+    <ClInclude Include="node_initializer.h">
+      <Filter>ソース ファイル\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -694,6 +697,9 @@
     </ClCompile>
     <ClCompile Include="devide_map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="node_initializer.cpp">
+      <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

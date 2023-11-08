@@ -8,6 +8,7 @@
 #include "define.h"
 #include "designlab_string_util.h"
 #include "node_validity_checker.h"
+#include "node_initializer.h"
 #include "simulation_map_creator.h"
 
 
@@ -70,9 +71,8 @@ void SimulationSystemMain::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < Define::kSimurateNum; i++)
 	{
-		RobotStateNode current_node;							//現在のノードの状態を格納する変数．
-		const bool do_random_init = (i == 0) ? false : true;	// i の値が 0 ならばランダムな場所に初期化はしない．(i == 0)を評価して，trueならば前者(false)，falseならば後者(true)を代入する．
-		current_node.Init(do_random_init);
+		NodeInitializer node_initializer;							//ノードを初期化するクラスを用意する．
+		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
 		//シミュレーションの結果を格納する変数．
 		SimulationResultRecorder record;	

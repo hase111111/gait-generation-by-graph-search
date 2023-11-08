@@ -9,6 +9,7 @@
 #include "cmdio_util.h"
 #include "define.h"
 #include "graph_search_const.h"
+#include "node_initializer.h"
 #include "pass_finder_basic.h"
 #include "phantomx_state_calculator.h"
 
@@ -55,10 +56,10 @@ void GraphViewerSystemMain::Main()
 	//ノードを初期化する
 	dlio::Output("ノードを初期化する．", OutputDetail::kSystem);
 
-	RobotStateNode first_node;
+	NodeInitializer node_initializer;
+	RobotStateNode first_node = node_initializer.InitNode();
 	std::vector<RobotStateNode> graph;
 
-	first_node.Init(false);
 
 	while (true)
 	{
@@ -305,8 +306,8 @@ RobotStateNode GraphViewerSystemMain::SelectNode(const std::vector<RobotStateNod
 	{
 		dlio::Output("グラフが空なので，初期状態のノードを返す", OutputDetail::kSystem);
 
-		RobotStateNode first_node;
-		first_node.Init(false);
+		NodeInitializer node_initializer;
+		RobotStateNode first_node = node_initializer.InitNode();
 
 		return first_node;
 	}

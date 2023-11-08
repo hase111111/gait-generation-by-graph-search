@@ -5,6 +5,7 @@
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
+#include "node_initializer.h"
 #include "phantomx_const.h"
 #include "simulation_map_creator.h"
 
@@ -26,7 +27,8 @@ GraphicMainTest::GraphicMainTest(const std::shared_ptr<const AbstractHexapodStat
 	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr),
 	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality))
 {
-	node_.Init(false);
+	NodeInitializer node_initializer;
+	RobotStateNode init_node = node_initializer.InitNode();
 
 	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
 	map_state_ = map_creator.InitMap();
