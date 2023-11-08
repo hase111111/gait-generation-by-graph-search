@@ -48,7 +48,7 @@ namespace designlab
 		//! @brief このベクトルの長さを返す
 		//! @return このベクトルの長さ
 		//! @note sqrtは重いので，長さの2乗を返すlengthSquare()を使うことを推奨
-		float GetLength() const noexcept { return std::sqrt(GetSquaredLength()); }
+		float GetLength() const { return std::sqrt(GetSquaredLength()); }
 
 		//! @brief このベクトルの長さの2乗を返す
 		//! @return このベクトルの長さの2乗
