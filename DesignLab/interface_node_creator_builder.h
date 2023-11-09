@@ -30,7 +30,7 @@ public:
 	//! @n key:HexapodMove, value:INodeCreator
 	//! @n つまり，ロボットの動作に対応するINodeCreatorを格納する必要がある
 	virtual void Build(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		std::map<HexapodMove,std::unique_ptr<INodeCreator>> *node_creator) const = 0;
+		std::map<HexapodMove, std::unique_ptr<INodeCreator> > *node_creator) const = 0;
 };
 
 
