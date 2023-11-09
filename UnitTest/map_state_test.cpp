@@ -1,7 +1,8 @@
 #include "pch.h"
 
 #include "../DesignLab/map_state.h"
-#include "../DesignLab/map_state.cpp"
+#include "../DesignLab/devide_map_state.h"
+#include "../DesignLab/devide_map_state.cpp"
 
 
 namespace dl = ::designlab;

@@ -1,5 +1,7 @@
 #include "pch.h"
 
+#include <magic_enum.hpp>
+
 #include "../DesignLab/leg_state.h"
 #include "../DesignLab/leg_state.cpp"
 
@@ -15,6 +17,21 @@ namespace
 	{
 		std::array<T, S> res;
 		res.fill(value);
+		return res;
+	}
+
+
+	//! @brief LegStateBitを文字列に変換する．すでにto_string関数があるが，見栄えが悪いので，
+	//! 4文字ごとに区切って表示するようにした．
+	std::string ToStringLegStateBit(const dllf::LegStateBit& leg_state_bit)
+	{
+		std::string res = leg_state_bit.to_string();
+		
+		for (int i = 4; i < res.size(); i += 5)
+		{
+			res.insert(i, " ");
+		}
+
 		return res;
 	}
 }
@@ -42,13 +59,14 @@ namespace designlab::test::node::leg_state
 
 		for (const auto& i : testcase_list)
 		{
-			dllf::LegStateBit leg_state = dllf::MakeLegStateBit(i, is_ground, leg_pos);
-			auto com_pos = dllf::GetDiscreteComPos(leg_state);
+			const dllf::LegStateBit leg_state = dllf::MakeLegStateBit(i, is_ground, leg_pos);
+			const DiscreteComPos com_pos = dllf::GetDiscreteComPos(leg_state);
+			
+			const std::string error_message = "leg_stateは" + ToStringLegStateBit(leg_state) + "です．\n" +
+											  "期待されるcom_patternの値は " + magic_enum::enum_name(i).data() + " ですが，\n" +
+											  "結果は " + magic_enum::enum_name(com_pos).data() + " でした．\n.";
 
-			std::string error_message = " leg_state = " + leg_state.to_string() + ",\n com_pattern : 正解" + std::to_string(static_cast<int>(i)) +
-				", 結果" + std::to_string(static_cast<int>(com_pos));
-
-			EXPECT_EQ(com_pos, i) << error_message;
+			EXPECT_EQ(com_pos, i) << "\n" << error_message;
 		}
 	}
 
@@ -90,7 +108,7 @@ namespace designlab::test::node::leg_state
 
 	TEST(LegFuncTest, MakeLegStateBitTestLegPos)
 	{
-		// 接地・遊脚の状態のみを変更して，これらがうまく反映されているか確認する
+		// 離散化された脚位置のみを変更して，これらがうまく反映されているか確認する
 
 		const DiscreteComPos com_pattern = DiscreteComPos::kFront;
 		const auto is_ground = MakeArraySameValue<bool, HexapodConst::kLegNum>(true);
