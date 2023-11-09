@@ -45,11 +45,11 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 
 		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
-			graund_point[i] = { 
-				calclator_ptr_->GetGlobalLegPosition(
-					i,node[loaded_node_num_].leg_pos[i],node[loaded_node_num_].global_center_of_mass,node[loaded_node_num_].rot , true
+			graund_point[i] = {
+				calclator_ptr_->ConvertLegToGlobalCoordinate(
+					node[loaded_node_num_].leg_pos[i], i, node[loaded_node_num_].global_center_of_mass, node[loaded_node_num_].rot, true
 				),
-				dllf::IsGrounded(node[loaded_node_num_].leg_state, i) 
+				dllf::IsGrounded(node[loaded_node_num_].leg_state, i)
 			};
 		}
 

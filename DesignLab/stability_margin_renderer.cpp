@@ -36,7 +36,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 		if (dllf::IsGrounded(node.leg_state, i))
 		{
 			polygon.push_back(
-				calclator_ptr_->GetGlobalLegPosition(i,node.leg_pos[i],node.global_center_of_mass, node.rot, true)
+				calclator_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, true)
 			);
 
 			polygon.back() += designlab::Vector3{0, 0, 5};

@@ -42,7 +42,7 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 	{
 		//‹r‚Ìæ’[‚ÌÀ•W‚ð‹‚ß‚éD
 		const designlab::Vector3 kCoxaVec = calclator_->ConvertRobotToGlobalCoordinate(
-			calclator_->GetLegBasePositionRobotCoodinate(i), current_node.global_center_of_mass, current_node.rot, false
+			calclator_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.rot, false
 		);
 
 		if (map_.IsInMap(kCoxaVec)) 

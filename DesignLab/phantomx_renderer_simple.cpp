@@ -141,7 +141,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		}
 		
 		DrawSphere3D(
-			dldu::ConvertToDxlibVec(calculator_ptr_->GetGlobalLegPosition(i,draw_node_.leg_pos[i],draw_node_.global_center_of_mass,draw_node_.rot,true)),
+			dldu::ConvertToDxlibVec(calculator_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.rot, true)),
 			kJointRadius / 2,
 			kSphereDivNum, 
 			kJointColor, 

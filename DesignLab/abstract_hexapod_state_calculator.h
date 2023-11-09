@@ -108,24 +108,12 @@ public:
 	//! @brief 遊脚する位置を返す，脚座標系
 	//! @param [in] leg_index 脚番号．
 	//! @return designlab::Vector3 遊脚する位置．脚座標系
-	virtual designlab::Vector3 GetFreeLegPosition(int leg_index) const = 0;
-
+	virtual designlab::Vector3 GetFreeLegPosLegCoodinate(int leg_index) const = 0;
 
 	//! @brief 脚の付け根の座標( leg base position )を取得する．ロボット座標系．
 	//! @param [in] leg_index 脚番号．
 	//! @return designlab::Vector3 脚の付け根の座標．ロボット座標系．
-	virtual designlab::Vector3 GetLegBasePositionRobotCoodinate(int leg_index) const = 0;
-
-	//! @brief 脚の先端の座標を取得する．グローバル(ワールド)座標系
-	//! @param [in] leg_index 脚番号．
-	//! @param [in] leg_pos 脚座標系における脚先の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
-	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
-	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
-	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 脚先の座標．グローバル座標系．
-	virtual designlab::Vector3 GetGlobalLegPosition(int leg_index, const designlab::Vector3& leg_pos, 
-		const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
-
+	virtual designlab::Vector3 GetLegBasePosRobotCoodinate(int leg_index) const = 0;
 
 	//! @brief 脚が可動範囲内にあるかどうかを判定する．
 	//! @param [in] leg_index 脚番号．

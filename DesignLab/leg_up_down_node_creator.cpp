@@ -100,7 +100,7 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 				}
 				else
 				{
-					res_node.leg_pos[j] = calclator_ptr_->GetFreeLegPosition(j);
+					res_node.leg_pos[j] = calclator_ptr_->GetFreeLegPosLegCoodinate(j);
 					res_node.leg_pos[j].z = -25;
 
 					res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
@@ -126,9 +126,9 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->GetGlobalLegPosition(
-		now_leg_num, 
+	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->ConvertLegToGlobalCoordinate(
 		current_node.leg_reference_pos[now_leg_num],
+		now_leg_num, 
 		current_node.global_center_of_mass, 
 		current_node.rot, 
 		false

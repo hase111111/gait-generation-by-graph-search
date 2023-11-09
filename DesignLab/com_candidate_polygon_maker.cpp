@@ -20,7 +20,7 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		leg_pos_xy[i] = calculator_ptr_->GetGlobalLegPosition(i, node.leg_pos[i], node.global_center_of_mass, node.rot, false).ProjectedXY();		//脚位置(グローバル座標)をXY平面に射影する
+		leg_pos_xy[i] = calculator_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, false).ProjectedXY();		//脚位置(グローバル座標)をXY平面に射影する
 	}
 
 	//中心を囲むように4角形を作成する

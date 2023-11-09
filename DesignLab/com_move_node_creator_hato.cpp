@@ -86,7 +86,7 @@ bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 	{
 		//脚の根元の座標(グローバル)を取得する
 		const designlab::Vector3 kCoxaPos = calculator_ptr_->ConvertRobotToGlobalCoordinate(
-			calculator_ptr_->GetLegBasePositionRobotCoodinate(i), node.global_center_of_mass, node.rot, false
+			calculator_ptr_->GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.rot, false
 		);
 
 		if (map_.IsInMap(kCoxaPos)) 

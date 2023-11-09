@@ -217,8 +217,8 @@ void GraphicMainTest::MoveLeg()
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_.leg_pos[i].x -= kSpeed; }
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
-				designlab::Vector3 global = calculator_ptr_->GetGlobalLegPosition(
-					i, node_.leg_reference_pos[i], node_.global_center_of_mass, node_.rot, true
+				designlab::Vector3 global = calculator_ptr_->ConvertLegToGlobalCoordinate(
+					node_.leg_reference_pos[i], i, node_.global_center_of_mass, node_.rot, true
 				);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
