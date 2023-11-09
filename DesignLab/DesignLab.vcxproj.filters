@@ -447,6 +447,9 @@
     <ClInclude Include="node_initializer.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
+    <ClInclude Include="interface_hexapod_joint_calculator.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
