@@ -84,13 +84,16 @@ bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		const designlab::Vector3 kCoxaPos = calculator_ptr_->GetGlobalLegBasePosition(i, node.global_center_of_mass, node.rot, false);	//脚の根元の座標(グローバル)を取得する
+		//脚の根元の座標(グローバル)を取得する
+		const designlab::Vector3 kCoxaPos = calculator_ptr_->ConvertRobotToGlobalCoordinate(
+			calculator_ptr_->GetLegBasePositionRobotCoodinate(i), node.global_center_of_mass, node.rot, false
+		);
 
 		if (map_.IsInMap(kCoxaPos)) 
 		{
-			const float kMapTopZ = map_.GetTopZ(map_.GetDevideMapIndexX(kCoxaPos.x), map_.GetDevideMapIndexY(kCoxaPos.y));
+			const float map_top_z = map_.GetTopZ(map_.GetDevideMapIndexX(kCoxaPos.x), map_.GetDevideMapIndexY(kCoxaPos.y));
 
-			top_z = (std::max)(top_z, kMapTopZ);	//最も高い点を求める		
+			top_z = (std::max)(top_z, map_top_z);	//最も高い点を求める		
 		}
 	}
 

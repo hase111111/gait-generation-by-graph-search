@@ -76,16 +76,34 @@ public:
 
 	virtual bool IsVaildJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const = 0;
 
-	//! @brief グローバル座標系→脚座標系に変換する．
+	//! @brief グローバル座標系で表現されている座標を，脚座標系に変換する．
+	//! @param [in] converted_position 変換対象．グローバル座標系．
 	//! @param [in] leg_index 脚番号．
-	//! @param [in] global_pos グローバル座標系の脚先座標．
-	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
+	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 脚座標系の脚先座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
-	virtual designlab::Vector3 ConvertGlobalToLegPosition(int leg_index, const designlab::Vector3& global_pos, 
-		const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+	//! @return designlab::Vector3 脚座標系の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
+	virtual designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index,
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
 
+	//! @brief 脚座標系で表現されている座標を，グローバル座標系に変換する．
+	//! @param [in] converted_position 変換対象．脚座標系．
+	//! @param [in] leg_index 脚番号．
+	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
+	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
+	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
+	//! @return designlab::Vector3 グローバル座標系の座標．
+	virtual designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index,
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+
+	//! @brief ロボット座標系で表現されている座標を，グローバル座標系に変換する．
+	//! @param [in] converted_position 変換対象．ロボット座標系．
+	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
+	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
+	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
+	//! @return designlab::Vector3 グローバル座標系の座標．
+	virtual designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position,
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
 
 	//! @brief 遊脚する位置を返す，脚座標系
 	//! @param [in] leg_index 脚番号．
@@ -93,26 +111,10 @@ public:
 	virtual designlab::Vector3 GetFreeLegPosition(int leg_index) const = 0;
 
 
-	//! @brief 脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系
+	//! @brief 脚の付け根の座標( leg base position )を取得する．ロボット座標系．
 	//! @param [in] leg_index 脚番号．
-	//! @return designlab::Vector3 脚の付け根の座標．ローカル(ロボット)座標系
-	virtual designlab::Vector3 GetLocalLegBasePosition(int leg_index) const = 0;
-
-	//! @brief 脚先の座標を取得する．ローカル(ロボット)座標系
-	//! @param [in] leg_index 脚番号．
-	//! @param [in] leg_pos 脚座標系における脚先の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
-	//! @return designlab::Vector3 脚先の座標．ローカル座標系
-	virtual designlab::Vector3 GetLocalLegPosition(int leg_index, const designlab::Vector3& leg_pos) const = 0;
-
-
-	//! @brief 脚の付け根の座標( leg base position)を取得する．グローバル(ワールド)座標系
-	//! @param [in] leg_index 脚番号．
-	//! @param [in] global_center_of_mass ロボットの重心の座標．グローバル座標系．
-	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
-	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 脚の付け根の座標．グローバル座標系．
-	virtual designlab::Vector3 GetGlobalLegBasePosition(int leg_index, const designlab::Vector3& global_center_of_mass, 
-		const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+	//! @return designlab::Vector3 脚の付け根の座標．ロボット座標系．
+	virtual designlab::Vector3 GetLegBasePositionRobotCoodinate(int leg_index) const = 0;
 
 	//! @brief 脚の先端の座標を取得する．グローバル(ワールド)座標系
 	//! @param [in] leg_index 脚番号．

@@ -232,8 +232,8 @@ void GraphicMainTest::MoveLeg()
 				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, map_index_ % devide_map_state_.GetPointNum(map_x, map_y));
 				map_index_++;
 
-				node_.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegPosition(
-					i, map_pos, node_.global_center_of_mass, node_.rot, true
+				node_.leg_pos[i] = calculator_ptr_->ConvertGlobalToLegCoordinate(
+					map_pos, i, node_.global_center_of_mass, node_.rot, true
 				);
 			}
 			

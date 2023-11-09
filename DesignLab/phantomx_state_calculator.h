@@ -18,7 +18,7 @@
 
 //! @class PhantomXStateCalclator
 //! @brief PhantomXの状態を計算するクラス．
-// todo いろいろ怪しい設計なので，全面的に改修する．
+//! @todo いろいろ怪しい設計なので，全面的に改修する．
 class PhantomXStateCalclator : public AbstractHexapodStateCalculator
 {
 public:
@@ -31,18 +31,16 @@ public:
 	bool IsVaildJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const override;
 
 
-	designlab::Vector3 ConvertGlobalToLegPosition(int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+	designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
 
 
 	designlab::Vector3 GetFreeLegPosition(int leg_index) const override;
 
-
-	designlab::Vector3 GetLocalLegBasePosition(int leg_index) const override;
-
-	designlab::Vector3 GetLocalLegPosition(int leg_index, const designlab::Vector3& leg_pos) const override;
-
-
-	designlab::Vector3 GetGlobalLegBasePosition(int leg_index, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	designlab::Vector3 GetLegBasePositionRobotCoodinate(int leg_index) const override;
 
 	designlab::Vector3 GetGlobalLegPosition(int leg_index, const designlab::Vector3& leg_pos, const designlab::Vector3& global_center_of_mass, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
 

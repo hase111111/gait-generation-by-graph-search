@@ -19,7 +19,7 @@ float AbstractHexapodStateCalculator::CalculateStabilityMargin(const dllf::LegSt
 	{
 		if (dllf::IsGrounded(leg_state, i))
 		{
-			ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLocalLegBasePosition(i).ProjectedXY();
+			ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLegBasePositionRobotCoodinate(i).ProjectedXY();
 			ground_leg_pos_num++;
 		}
 	}

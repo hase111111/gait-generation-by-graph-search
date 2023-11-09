@@ -160,7 +160,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 			for (int n = 0; n < kPosNum; n++)
 			{
 				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = calclator_ptr_->ConvertGlobalToLegPosition(now_leg_num, map_point_pos, current_node.global_center_of_mass, current_node.rot, false);
+				map_point_pos = calclator_ptr_->ConvertGlobalToLegCoordinate(map_point_pos, now_leg_num, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．
 				RobotStateNode new_node = current_node;
