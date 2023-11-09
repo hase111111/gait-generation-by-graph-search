@@ -38,6 +38,7 @@
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
     <ClInclude Include="com_move_node_creator_hato.h" />
+    <ClInclude Include="interface_hexapod_coordinate_converter.h" />
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="_com_selecter.h" />

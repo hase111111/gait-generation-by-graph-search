@@ -66,7 +66,6 @@ public:
 	AbstractHexapodStateCalculator() = default;
 	virtual ~AbstractHexapodStateCalculator() = default;
 
-
 	//! @brief 全ての関節のグローバル座標と，角度を計算する．重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．
 	//! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合でも，答えを返す．
 	//! @n 脚が届かない場合は，戻り値のis_in_rangeがfalseになる．
