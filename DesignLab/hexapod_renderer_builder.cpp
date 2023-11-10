@@ -3,31 +3,21 @@
 #include "phantomx_renderer_model.h"
 #include "phantomx_renderer_simple.h"
 #include "phantomx_state_calculator.h"
-#include "phantomx_state_calculator_hato.h"
 
 std::unique_ptr<IHexapodRenderer> HexapodRendererBuilder::Build(
-    const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
     const DisplayQuality display_quality
-    )
+)
 {
-    //AbstractHexapodStateCalculatorのtypeを見て、適切なrendererを返す
-    bool is_phantomx = (
-        typeid(*calculator) == typeid(const std::shared_ptr<const PhantomXStateCalclator>&) ||
-        typeid(*calculator) == typeid(PhantomXStateCalclator_Hato)
-    );
+    //! @todo IHexapodのtypeを見て、適切なrendererを返す
 
-    if (is_phantomx)
+    if (display_quality == DisplayQuality::kHigh)
     {
-        if (display_quality == DisplayQuality::kHigh) 
-        {
-            return std::make_unique<PhantomXRendererModel>(calculator);
-        }
-        else 
-        {
-            return std::make_unique<PhantomXRendererSimple>(calculator, display_quality);
-        }
-	}
-
-
-    return std::make_unique<PhantomXRendererSimple>(calculator, display_quality);
+        return std::make_unique<PhantomXRendererModel>(converter_ptr, calculator_ptr);
+    }
+    else
+    {
+        return std::make_unique<PhantomXRendererSimple>(converter_ptr, calculator_ptr, display_quality);
+    }
 }

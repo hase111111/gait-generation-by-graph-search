@@ -8,7 +8,7 @@
 
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
+#include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"
 
 
@@ -19,7 +19,7 @@ class StabilityMarginRenderer final
 {
 public:
 
-	StabilityMarginRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr);
+	StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 	~StabilityMarginRenderer() = default;
 
 	//! @brief ロボットの静的安定余裕(支持脚多角形)を描画する．
@@ -35,7 +35,7 @@ private:
 	const int kAlpha;						//!< 透明度．
 
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr_;	//!< ロボットの状態を計算するクラス．
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
 
 

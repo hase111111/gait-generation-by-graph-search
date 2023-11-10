@@ -8,10 +8,11 @@
 #include <array>
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "define.h"
 #include "display_quality.h"
 #include "hexapod_const.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
 
 #ifndef DESIGNLAB_DONOT_USE_DXLIB
@@ -27,7 +28,11 @@ class PhantomXRendererSimple final : public IHexapodRenderer
 {
 public:
 
-	PhantomXRendererSimple(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, DisplayQuality display_quality);
+	PhantomXRendererSimple(
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		DisplayQuality display_quality
+	);
 
 	void SetDrawNode(const RobotStateNode& node) override;
 
@@ -62,7 +67,8 @@ private:
 	const bool kDoOutputDebugLog = false;	//!< 脚状態を文字列で出力するかどうか
 
 
-	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	
 
 	RobotStateNode draw_node_;						//!< 描画するロボットの状態
 

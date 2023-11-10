@@ -13,7 +13,11 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-PhantomXRendererSimple::PhantomXRendererSimple(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, DisplayQuality display_quality) :
+PhantomXRendererSimple::PhantomXRendererSimple(
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+	DisplayQuality display_quality
+) :
 	kColorBody(GetColor(23, 58, 235)),
 	kColorLeg(GetColor(23, 58, 235)),
 	kColorLiftedLeg(GetColor(240, 30, 60)),
@@ -28,7 +32,8 @@ PhantomXRendererSimple::PhantomXRendererSimple(const std::shared_ptr<const Abstr
 	kSphereDivNum(16),
 	kLegRadius(10.0f),
 	kJointRadius(20.0f),
-	calculator_ptr_(calc),
+	converter_ptr_(converter_ptr),
+	calculator_ptr_(calculator_ptr),
 	display_quality_(display_quality)
 {
 	SetDrawNode(RobotStateNode{});
@@ -41,7 +46,7 @@ void PhantomXRendererSimple::SetDrawNode(const RobotStateNode& node)
 
 	if (!calculator_ptr_) { return; }	//åvéZäÌÇ™Ç»Ç¢Ç»ÇÁÇŒâΩÇ‡ÇµÇ»Ç¢
 
-	calculator_ptr_->CalculateAllJointState(node, &draw_joint_state_);
+	draw_joint_state_ = calculator_ptr_->CalculateAllJointState(node);
 }
 
 
@@ -62,7 +67,7 @@ void PhantomXRendererSimple::Draw() const
 	//			"Error : Coxa Length", kColorErrorText
 	//		);
 	//	}
-
+	//
 	//	if (!dlm::IsEqual(draw_data_[i].femur_link_length, PhantomXConst::kFemurLength))
 	//	{
 	//		DrawString(
@@ -71,7 +76,7 @@ void PhantomXRendererSimple::Draw() const
 	//			"Error : Femur Length", kColorErrorText
 	//		);
 	//	}
-
+	//
 	//	if (!dlm::IsEqual(draw_data_[i].tibia_link_length, PhantomXConst::kTibiaLength))
 	//	{
 	//		DrawString(
@@ -91,7 +96,15 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		vertex[i] = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[0]);
+		vertex[i] = dldu::ConvertToDxlibVec(
+			converter_ptr_->ConvertLegToGlobalCoordinate(
+				draw_joint_state_[i].joint_pos_leg_coordinate[0], 
+				i, 
+				draw_node_.global_center_of_mass, 
+				draw_node_.rot, 
+				true
+			)
+		);
 	}
 
 	dldu::DrawHexagonalPrism(vertex, PhantomXConst::kBodyHeight, kColorBody);
@@ -106,15 +119,31 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
 		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
 
-		if (draw_joint_state_[i].global_joint_position.size() != 4) { continue; }
-		if (draw_joint_state_[i].local_joint_position.size() != 4) { continue; }
+		if (draw_joint_state_[i].joint_pos_leg_coordinate.size() != 4) { continue; }
 		if (draw_joint_state_[i].joint_angle.size() != 3) { continue; }
 
 		//äeãrÇÃï`âÊ
 		for (int j = 0; j < 3; j++)
 		{
-			VECTOR start = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j]);
-			VECTOR end = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j + 1]);
+			const VECTOR start = dldu::ConvertToDxlibVec(
+				converter_ptr_->ConvertLegToGlobalCoordinate(
+					draw_joint_state_[i].joint_pos_leg_coordinate[j], 
+					i, 
+					draw_node_.global_center_of_mass, 
+					draw_node_.rot, 
+					true
+				)
+			);
+
+			const VECTOR end = dldu::ConvertToDxlibVec(
+				converter_ptr_->ConvertLegToGlobalCoordinate(
+					draw_joint_state_[i].joint_pos_leg_coordinate[j + 1],
+					i,
+					draw_node_.global_center_of_mass,
+					draw_node_.rot,
+					true
+				)
+			);
 
 			if (draw_joint_state_[i].is_in_range) 
 			{
@@ -136,12 +165,21 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 			if (j == 1 && !PhantomXConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
 			if (j == 2 && !PhantomXConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
 
-			VECTOR pos = dldu::ConvertToDxlibVec(draw_joint_state_[i].global_joint_position[j]);
+			VECTOR pos = dldu::ConvertToDxlibVec(
+				converter_ptr_->ConvertLegToGlobalCoordinate(
+					draw_joint_state_[i].joint_pos_leg_coordinate[j], 
+					i, 
+					draw_node_.global_center_of_mass, 
+					draw_node_.rot, 
+					true
+				)
+			);
+
 			DrawSphere3D(pos, kJointRadius, kSphereDivNum, color, color, TRUE);
 		}
 		
 		DrawSphere3D(
-			dldu::ConvertToDxlibVec(calculator_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.rot, true)),
+			dldu::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.rot, true)),
 			kJointRadius / 2,
 			kSphereDivNum, 
 			kJointColor, 
@@ -151,20 +189,6 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 		//ãrÇÃê⁄ínÇÃäÓèÄínì_ÇÃï`âÊ
 		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.leg_reference_pos[i]), kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
-
-
-		////â^ìÆäwÇ≈åvéZÇµÇΩãrÇÃï`âÊ
-		//DrawCapsule3D(draw_data_[i].kine_coxa_joint_pos, draw_data_[i].kine_femur_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);		//coxa
-		//DrawCapsule3D(draw_data_[i].kine_femur_joint_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);	//femur
-		//DrawCone3D(draw_data_[i].kine_leg_end_pos, draw_data_[i].kine_tibia_joint_pos, kLegRadius - 5, kCapsuleDivNum, kColorKineLeg, kColorKineLeg, TRUE);				//tibia
-
-		////â^ìÆäwÇ≈åvéZÇµÇΩä‘ê⁄ÇÃï`âÊ
-		//DrawSphere3D(draw_data_[i].kine_coxa_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
-		//DrawSphere3D(draw_data_[i].kine_femur_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
-		//DrawSphere3D(draw_data_[i].kine_tibia_joint_pos, kJointRadius - 5, kSphereDivNum, kColorKineJoint, kColorKineJoint, TRUE);
-
-		////â^ìÆäwÇ≈åvéZÇµÇΩãrêÊÇÃï`âÊ
-		//DrawSphere3D(draw_data_[i].kine_leg_end_pos, kJointRadius / 2 - 2, kSphereDivNum, kColorKineLeg, kColorKineLeg, TRUE);
 	}
 }
 

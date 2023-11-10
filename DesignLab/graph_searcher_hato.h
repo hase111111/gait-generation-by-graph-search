@@ -6,6 +6,7 @@
 
 
 #include "interface_graph_searcher.h"
+#include "interface_hexapod_vaild_checker.h"
 
 
 //! @class GraphSearcherHato
@@ -14,7 +15,7 @@ class GraphSearcherHato final : public IGraphSearcher
 {
 public:
 
-	GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
+	GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
 	~GraphSearcherHato();
 
 	GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) override;
@@ -45,7 +46,7 @@ private:
 
 	RobotStateNode parent_node_;
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ヘキサポッドの状態を計算するクラス
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
 
 

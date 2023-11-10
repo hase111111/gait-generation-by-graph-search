@@ -10,11 +10,12 @@
 
 #include <Dxlib.h>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "define.h"
 #include "display_quality.h"
 #include "hexapod_const.h"
 #include "interface_hexapod_renderer.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
 
 
@@ -27,7 +28,10 @@ class PhantomXRendererModel final : public IHexapodRenderer
 {
 public:
 
-	PhantomXRendererModel(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr);
+	PhantomXRendererModel(
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr
+	);
 
 	void SetDrawNode(const RobotStateNode& node) override;
 
@@ -85,7 +89,8 @@ private:
 
 	void DrawJointAxis(int leg_index) const;
 
-	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
 
 	RobotStateNode draw_node_;						//!< 描画するロボットの状態
 

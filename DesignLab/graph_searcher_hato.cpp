@@ -12,8 +12,8 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
-	calculator_ptr_(calc)
+GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
+	checker_ptr_(checker_ptr)
 {
 }
 
@@ -51,14 +51,14 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStat
 				result_index = static_cast<int>(i);
 				max_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
 				max_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], target);
-				max_margin = calculator_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+				max_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 				min_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 				continue;
 			}
 
 			float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
 			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], target);
-			float candiate_margin = calculator_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
+			float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 			float candiate_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 
 			if (max_rot_angle < candiate_rot_angle)

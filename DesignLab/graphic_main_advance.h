@@ -7,13 +7,15 @@
 #include <memory>
 #include <vector>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "camera_gui.h"
 #include "display_node_switch_gui.h"
 #include "graphic_const.h"
 #include "graphic_data_broker.h"
 #include "interface_hexapod_renderer.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
+#include "interface_hexapod_vaild_checker.h"
 #include "interpolated_node_creator.h"
 #include "map_state.h"
 #include "map_renderer.h"
@@ -27,8 +29,13 @@
 class GraphicMainAdvance final : public IGraphicMain
 {
 public:
-	GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
+	GraphicMainAdvance(
+		const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	);
 	~GraphicMainAdvance() = default;
 
 	bool Update() override;

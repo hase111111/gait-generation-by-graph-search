@@ -15,11 +15,19 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-LegUpDownNodeCreator::LegUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
+LegUpDownNodeCreator::LegUpDownNodeCreator(
+	const DevideMapState& devide_map,
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	HexapodMove next_move
+) :
 	kLegMargin(20),
 	kHighMargin(5),
-	map_(map),
-	calclator_ptr_(calc),
+	map_(devide_map),
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr),
 	next_move_(next_move)
 {
 };
@@ -100,7 +108,7 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 				}
 				else
 				{
-					res_node.leg_pos[j] = calclator_ptr_->GetFreeLegPosLegCoodinate(j);
+					res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoodinate(j);
 					res_node.leg_pos[j].z = -25;
 
 					res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
@@ -108,7 +116,7 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 				}
 			}
 
-			if (calclator_ptr_->CalculateStabilityMargin(res_node.leg_state,res_node.leg_pos) >= 0)
+			if (checker_ptr_->CalculateStabilityMargin(res_node.leg_state,res_node.leg_pos) >= 0)
 			{
 				//静的安定余裕が0以上ならば追加する．
 				(*output_graph).push_back(res_node);
@@ -126,7 +134,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const designlab::Vector3 kGlobalLegbasePos = calclator_ptr_->ConvertLegToGlobalCoordinate(
+	const designlab::Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
 		current_node.leg_reference_pos[now_leg_num],
 		now_leg_num, 
 		current_node.global_center_of_mass, 
@@ -160,7 +168,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 			for (int n = 0; n < kPosNum; n++)
 			{
 				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = calclator_ptr_->ConvertGlobalToLegCoordinate(map_point_pos, now_leg_num, current_node.global_center_of_mass, current_node.rot, false);
+				map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(map_point_pos, now_leg_num, current_node.global_center_of_mass, current_node.rot, false);
 
 				//脚位置を更新したノードを作成する．
 				RobotStateNode new_node = current_node;
@@ -186,9 +194,7 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 				dllf::ChangeGround(now_leg_num, true, &new_node.leg_state);
 
-				if (!calclator_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }			//脚が範囲外ならば追加せずに続行．
-
-				//if (m_calclator.IsLegInterfering(new_node)) { continue; }					//脚が干渉しているならば追加せずに続行．
+				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//脚が範囲外ならば追加せずに続行．
 
 				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
 

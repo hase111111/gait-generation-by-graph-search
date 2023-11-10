@@ -12,13 +12,11 @@ namespace dlio = designlab::cmdio;
 PassFinderRevaluation::PassFinderRevaluation(
 	std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_ptr,
 	std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
-	std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
-	const std::shared_ptr<const AbstractHexapodStateCalculator>& hexapod_state_calculator_ptr
+	std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
 ) : 
-graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
+	graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
 	graph_tree_creator_revaluation_ptr_(std::move(graph_tree_creator_revaluation_ptr)),
-	graph_searcher_ptr_(std::move(graph_searcher_ptr)),
-	hexapod_state_calculator_ptr_(hexapod_state_calculator_ptr)
+	graph_searcher_ptr_(std::move(graph_searcher_ptr))
 {
 }
 
@@ -143,44 +141,44 @@ void PassFinderRevaluation::GetGraphTree(std::vector<RobotStateNode>* output_gra
 	(*output_graph) = graph_tree_;
 }
 
-bool PassFinderRevaluation::IsVaildNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+bool PassFinderRevaluation::IsVaildNode([[maybe_unused]]const RobotStateNode& current_node, [[maybe_unused]] const RobotStateNode& next_node) const
 {
-	//‹t‰^“®Šw‚ÅŠÔÚŠp“x‚ğŒvZ‚·‚é
-	//ŠÔÚŠp“x‚ª”ÍˆÍ“à‚Éû‚Ü‚Á‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
-	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
+	////‹t‰^“®Šw‚ÅŠÔÚŠp“x‚ğŒvZ‚·‚é
+	////ŠÔÚŠp“x‚ª”ÍˆÍ“à‚Éû‚Ü‚Á‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
+	//std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
 
-	//Œ»İ‚Ìƒm[ƒh‚ÌŠÔÚŠp“x‚ğŒvZ‚·‚é
-	hexapod_state_calculator_ptr_->CalculateAllJointState(current_node, &joint_state);
+	////Œ»İ‚Ìƒm[ƒh‚ÌŠÔÚŠp“x‚ğŒvZ‚·‚é
+	//hexapod_state_calculator_ptr_->CalculateAllJointState(current_node, &joint_state);
 
-	//‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
-	if (!hexapod_state_calculator_ptr_->IsVaildJointState(current_node, joint_state))
-	{
-		return false;
-	}
+	////‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
+	//if (!hexapod_state_calculator_ptr_->IsVaildJointState(current_node, joint_state))
+	//{
+	//	return false;
+	//}
 
-	//Ÿ‚Ìƒm[ƒh‚ÌŠÔÚŠp“x‚ğŒvZ‚·‚é
-	hexapod_state_calculator_ptr_->CalculateAllJointState(next_node, &joint_state);
+	////Ÿ‚Ìƒm[ƒh‚ÌŠÔÚŠp“x‚ğŒvZ‚·‚é
+	//hexapod_state_calculator_ptr_->CalculateAllJointState(next_node, &joint_state);
 
-	//‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
-	if (!hexapod_state_calculator_ptr_->IsVaildJointState(next_node, joint_state))
-	{
-		return false;
-	}
+	////‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
+	//if (!hexapod_state_calculator_ptr_->IsVaildJointState(next_node, joint_state))
+	//{
+	//	return false;
+	//}
 
-	std::vector<RobotStateNode> interpolated_node;
+	//std::vector<RobotStateNode> interpolated_node;
 
-	interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node, &interpolated_node);
+	//interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node, &interpolated_node);
 
-	for (const auto &i : interpolated_node)
-	{
-		hexapod_state_calculator_ptr_->CalculateAllJointState(i, &joint_state);
+	//for (const auto &i : interpolated_node)
+	//{
+	//	hexapod_state_calculator_ptr_->CalculateAllJointState(i, &joint_state);
 
-		//‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
-		if (!hexapod_state_calculator_ptr_->IsVaildJointState(i, joint_state))
-		{
-			return false;
-		}
-	}
+	//	//‰ğ‚ª³‚µ‚¢‚©Šm‚©‚ß‚é
+	//	if (!hexapod_state_calculator_ptr_->IsVaildJointState(i, joint_state))
+	//	{
+	//		return false;
+	//	}
+	//}
 
 	return true;
 }

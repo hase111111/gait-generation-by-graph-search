@@ -11,7 +11,11 @@ class NodeCreatorBuilderHato : public INodeCreatorBuilder
 {
 public:
 
-	void Build(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+	void Build(
+		const DevideMapState& map, 
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
 
 };

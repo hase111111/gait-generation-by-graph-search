@@ -10,12 +10,12 @@ namespace dldu = designlab::dxlib_util;
 namespace dllf = designlab::leg_func;
 
 
-RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr) :
+RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
 	kRightLegGraundPointColor(GetColor(230, 15, 145)), 
 	kLeftLegGraundPointColor(GetColor(15, 230, 145)), 
 	kRightLegGraundPointDarkColor(GetColor(237, 159, 160)),
 	kLeftLegGraundPointDarkColor(GetColor(159, 237, 160)),
-	calclator_ptr_(calclator_ptr)
+	converter_ptr_(converter_ptr)
 {
 }
 
@@ -46,7 +46,7 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			graund_point[i] = {
-				calclator_ptr_->ConvertLegToGlobalCoordinate(
+				converter_ptr_->ConvertLegToGlobalCoordinate(
 					node[loaded_node_num_].leg_pos[i], i, node[loaded_node_num_].global_center_of_mass, node[loaded_node_num_].rot, true
 				),
 				dllf::IsGrounded(node[loaded_node_num_].leg_state, i)

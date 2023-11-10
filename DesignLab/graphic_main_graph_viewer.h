@@ -12,6 +12,9 @@
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_hexapod_renderer.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
+#include "interface_hexapod_vaild_checker.h"
 #include "map_state.h"
 #include "node_display_gui.h"
 
@@ -21,8 +24,13 @@
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
-	GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
+	GraphicMainGraphViewer(
+		const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	);
 
 	~GraphicMainGraphViewer() = default;
 
@@ -33,8 +41,6 @@ public:
 private:
 
 	std::shared_ptr<const GraphicDataBroker> broker_ptr_;
-
-	std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;
 
 
 	CameraGui camera_gui_;

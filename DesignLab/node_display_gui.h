@@ -6,11 +6,12 @@
 #define DESIGNLAB_NODE_DISPLAY_GUI_H_
 
 #include <array>
-#include <memory>
 #include <map>
+#include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "button_controller.h"
+#include "interface_hexapod_joint_calculator.h"
+#include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
 
 
@@ -23,7 +24,12 @@ public:
 	//! @param [in] x_pos GUIの左上のx座標
 	//! @param [in] y_pos GUIの左上のy座標
 	//! @param [in] calculator_ptr 六脚歩行ロボットの状態を計算するクラス
-	NodeDisplayGui(int x_pos, int y_pos, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr);
+	NodeDisplayGui(
+		int x_pos, 
+		int y_pos, 
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+	);
 
 
 	//! @brief 表示するノードを設定する，その後関節の角度を計算し，セットする
@@ -71,7 +77,8 @@ private:
 
 	std::map<ButtonType, std::unique_ptr<ButtomController>> buttons_;				//!< ボタン
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr_;
 
 
 	RobotStateNode display_node_;										//!< 表示するノード

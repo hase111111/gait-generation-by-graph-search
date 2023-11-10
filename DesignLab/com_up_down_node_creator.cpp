@@ -14,9 +14,17 @@ namespace dllf = designlab::leg_func;
 namespace dlm = ::designlab::math_util;
 
 
-ComUpDownNodeCreator::ComUpDownNodeCreator(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
-	map_(map),
-	calclator_(calc),
+ComUpDownNodeCreator::ComUpDownNodeCreator(
+	const DevideMapState& devide_map,
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	HexapodMove next_move
+) :
+	map_(devide_map),
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr),
 	next_move_(next_move)
 {
 }
@@ -41,8 +49,8 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//脚の先端の座標を求める．
-		const designlab::Vector3 kCoxaVec = calclator_->ConvertRobotToGlobalCoordinate(
-			calclator_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.rot, false
+		const designlab::Vector3 kCoxaVec = converter_ptr_->ConvertRobotToGlobalCoordinate(
+			presenter_ptr_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.rot, false
 		);
 
 		if (map_.IsInMap(kCoxaVec)) 
@@ -107,7 +115,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 
 			for (int j = 0; j < HexapodConst::kLegNum; j++)
 			{
-				if (!calclator_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
+				if (!checker_ptr_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}
 
 			//current_numを親とする，新しいノードに変更する

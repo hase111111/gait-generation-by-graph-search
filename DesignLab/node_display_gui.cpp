@@ -17,8 +17,18 @@ const int NodeDisplayGui::kHeight = 550;
 const int NodeDisplayGui::kClosedHeight = 50;
 
 
-NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) :
-	kGuiLeftPosX(x_pos), kGuiTopPosY(y_pos), calculator_ptr_(calc), is_closed_(false), display_type_(DisplayMode::kDefualt)
+NodeDisplayGui::NodeDisplayGui(
+	const int x_pos, 
+	const int y_pos, 
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+) :
+	kGuiLeftPosX(x_pos),
+	kGuiTopPosY(y_pos),
+	calculator_ptr_(calculator_ptr),
+	checker_ptr_(checker_ptr),
+	is_closed_(false), 
+	display_type_(DisplayMode::kDefualt)
 {
 	//ボタンを作成する
 	const int kButtonSizeX = 100;
@@ -31,8 +41,7 @@ NodeDisplayGui::NodeDisplayGui(const int x_pos, const int y_pos, const std::shar
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		joint_state_[i].global_joint_position.resize(4);
-		joint_state_[i].local_joint_position.resize(4);
+		joint_state_[i].joint_pos_leg_coordinate.resize(4);
 		joint_state_[i].joint_angle.resize(3);
 	}
 }
@@ -46,7 +55,7 @@ void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 	if (!calculator_ptr_) { return; }
 
 	// 関節の角度をセットする
-	calculator_ptr_->CalculateAllJointState(display_node_, &joint_state_);
+	joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
 
 
@@ -204,13 +213,13 @@ void NodeDisplayGui::DrawJointInfo() const
 		);
 
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
-			(joint_state_[i].local_joint_position[0] - joint_state_[i].local_joint_position[1]).GetLength(),
-			(joint_state_[i].local_joint_position[1] - joint_state_[i].local_joint_position[2]).GetLength(),
-			(joint_state_[i].local_joint_position[2] - joint_state_[i].local_joint_position[3]).GetLength()
+			(joint_state_[i].joint_pos_leg_coordinate[0] - joint_state_[i].joint_pos_leg_coordinate[1]).GetLength(),
+			(joint_state_[i].joint_pos_leg_coordinate[1] - joint_state_[i].joint_pos_leg_coordinate[2]).GetLength(),
+			(joint_state_[i].joint_pos_leg_coordinate[2] - joint_state_[i].joint_pos_leg_coordinate[3]).GetLength()
 		);
 
 
-		if (calculator_ptr_->IsLegInRange(i, joint_state_[i].local_joint_position[3]))
+		if (checker_ptr_->IsLegInRange(i, joint_state_[i].joint_pos_leg_coordinate[3]))
 		{
 			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    近似値 true");
 		}

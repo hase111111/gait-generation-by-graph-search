@@ -10,10 +10,8 @@
 #include <memory>
 #include <vector>
 
-#include "abstract_hexapod_state_calculator.h"
-#include "discrete_leg_pos.h"
 #include "hexapod_next_move.h"
-
+#include "discrete_leg_pos.h"
 
 
 //! @class LegHierarchyNodeCreator

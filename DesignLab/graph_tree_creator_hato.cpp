@@ -11,11 +11,20 @@
 
 GraphTreeCreatorHato::GraphTreeCreatorHato(
 	std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr,
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr
-) :
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+	) :
 	node_creator_builder_ptr_(std::move(node_creator_builder_ptr)),
-	calculator_ptr_(calculator_ptr)
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr)
 {
+	//引数が全てnullptrでないことを確認する．
+	assert(node_creator_builder_ptr_ != nullptr);	
+	assert(converter_ptr_ != nullptr);	
+	assert(presenter_ptr_ != nullptr);
+	assert(checker_ptr_ != nullptr);
 }
 
 
@@ -23,7 +32,13 @@ void GraphTreeCreatorHato::Init(const DevideMapState& map_state)
 {
 	node_creator_map_.clear();
 
-	node_creator_builder_ptr_->Build(map_state, calculator_ptr_, &node_creator_map_);
+	node_creator_builder_ptr_->Build(
+		map_state, 
+		converter_ptr_,
+		presenter_ptr_,
+		checker_ptr_,
+		&node_creator_map_
+	);
 }
 
 GraphSearchResult GraphTreeCreatorHato::CreateGraphTree(const RobotStateNode& current_node, const int max_depth, std::vector<RobotStateNode>* output_graph)
@@ -149,93 +164,3 @@ void GraphTreeCreatorHato::MakeNewNodesByCurrentNode(const RobotStateNode& curre
 		(*output_graph).emplace_back(new_node);
 	}
 }
-
-
-//std::unique_ptr<IGraphTreeCreator> graph_tree_creator = createGraphTreeCreator(devide_map_, calculator_ptr_);	//!< グラフ木の作成クラス
-//std::unique_ptr<IGraphSearcher> graph_searcher = createGraphSearcher(calculator_ptr_);			//!< グラフ探索クラス
-
-
-
-
-//if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderBasic : 初期化終了．グラフ探索を開始する．\n"; }
-//
-//m_graph_tree.clear();
-//
-//まずはグラフを作成する．_graph_tree 変数に結果を参照渡しされる．
-//{
-//	//深さ1までのグラフを作成する．
-//	RobotStateNode parent_node = current_node;
-//	parent_node.ChangeParentNode();
-//	m_graph_tree.emplace_back(parent_node);
-//
-//	std::vector<RobotStateNode> depth1_node;
-//
-//	GraphSearchResult result = graph_tree_creator->CreateGraphTree(parent_node, 1, &depth1_node);
-//
-//	if (!graphSeachResultIsSuccessful(result)) { return result; }
-//
-//	depth1_node.erase(depth1_node.begin());	//深さ0のノードは親ノードと同じなので，削除する．
-//
-//	if (GraphSearchConst::DO_DEBUG_PRINT)
-//	{
-//		std::cout << "\n[PassFinder] PassFinderBasic : 深さ1のノードは" << depth1_node.size() << "個\n";
-//		std::cout << "[PassFinder] PassFinderBasic : スレッドを" << depth1_node.size() << "個作成します\n\n";
-//	}
-//
-//	//深さ1のノードを親にして，続きのグラフを作成する．
-//	const size_t kDepth1NodeNum = depth1_node.size();
-//	std::vector<std::unique_ptr<IGraphTreeCreator>> tree_creators(kDepth1NodeNum);
-//	std::vector<std::vector<RobotStateNode>> threads_result(kDepth1NodeNum);
-//	boost::thread_group tree_creator_threads;
-//
-//	for (size_t i = 0; i < kDepth1NodeNum; i++)
-//	{
-//		tree_creators[i] = createGraphTreeCreator(devide_map_, calculator_ptr_);
-//
-//		if (!tree_creators[i]) { return GraphSearchResult::kFailureByInitializationFailed; }
-//
-//		tree_creator_threads.create_thread(boost::bind(&IGraphTreeCreator::CreateGraphTree, tree_creators[i].get(), depth1_node[i], GraphSearchConst::kMaxDepth, &threads_result[i]));
-//	}
-//
-//	tree_creator_threads.join_all();
-//
-//	if (GraphSearchConst::DO_DEBUG_PRINT)
-//	{
-//		std::cout << "\n[PassFinder] PassFinderBasic : スレッド終了\n";
-//
-//		for (size_t i = 0; i < kDepth1NodeNum; i++)
-//		{
-//			std::cout << "[PassFinder] PassFinderBasic : 子ノード数" << threads_result[i].size() << "\n";
-//		}
-//	}
-//
-//	//スレッドごとの結果を結合する．
-//	for (size_t i = 0; i < kDepth1NodeNum; ++i)
-//	{
-//		const int kParentIndex = static_cast<int>(m_graph_tree.size());	//親のインデックス
-//
-//		for (auto j : threads_result[i])
-//		{
-//			if (j.depth != 1)
-//			{
-//				j.parent_num += kParentIndex;
-//			}
-//
-//			m_graph_tree.emplace_back(j);
-//		}
-//	}
-//
-//	if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderBasic : 統合完了．全部で" << m_graph_tree.size() << "個\n"; }
-//}
-//
-//if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ作成終了．グラフを評価する．\n"; }
-//
-////次にグラフを評価して，次の動作を決定する．put_node 変数に結果を参照渡しされる．
-//{
-//	GraphSearchResult result = graph_searcher->SearchGraphTree(m_graph_tree, target, &output_node);
-//	if (!graphSeachResultIsSuccessful(result)) { return result; }
-//}
-//
-//if (GraphSearchConst::DO_DEBUG_PRINT) { std::cout << "\n[PassFinder] PassFinderHato : グラフ評価終了．グラフ探索を終了する．\n"; }
-//
-//return GraphSearchResult::kSuccess;

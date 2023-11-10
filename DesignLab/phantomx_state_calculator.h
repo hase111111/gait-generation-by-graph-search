@@ -6,85 +6,86 @@
 #define DESIGNLAB_PHANTOMX_STATE_CALCULATOR_H_
 
 
-#include "abstract_hexapod_state_calculator.h"
-
-#include <algorithm>
-#include <array>
-
-#include "designlab_vector2.h"
-#include "hexapod_const.h"
-#include "phantomx_const.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
+#include "interface_hexapod_state_presenter.h"
+#include "interface_hexapod_vaild_checker.h"
 
 
 //! @class PhantomXStateCalclator
 //! @brief PhantomXの状態を計算するクラス．
 //! @todo いろいろ怪しい設計なので，全面的に改修する．
-class PhantomXStateCalclator : public AbstractHexapodStateCalculator
+class PhantomXStateCalclator : public IHexapodCoordinateConverter, public IHexapodJointCalculator, public IHexapodStatePresenter, public IHexapodVaildChecker
 {
 public:
 
 	PhantomXStateCalclator();
 
 
-	void CalculateAllJointState(const RobotStateNode& node, std::array<HexapodJointState, HexapodConst::kLegNum>* joint_state) const override;
+	std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(const RobotStateNode& node) const noexcept override;
 
-	bool IsVaildJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const override;
+	HexapodJointState CalculateJointState(const int leg_index, const designlab::Vector3& leg_pos) const noexcept override;
 
-	designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+	bool IsVaildAllJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept override;
 
-	designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
-
-	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position, const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
-
-	designlab::Vector3 GetFreeLegPosLegCoodinate(int leg_index) const override;
-
-	designlab::Vector3 GetLegBasePosRobotCoodinate(int leg_index) const override;
+	bool IsVaildJointState(const int leg_index, const designlab::Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept override;
 
 
-	virtual bool IsLegInRange(int leg_index, const designlab::Vector3& leg_pos) const override;
+	designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index, 
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+	designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index, 
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position, 
+		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, const bool consider_rot) const override;
+
+
+	designlab::Vector3 GetFreeLegPosLegCoodinate(int leg_index) const noexcept override;
+
+	designlab::Vector3 GetLegBasePosRobotCoodinate(int leg_index) const noexcept override;
+
+	float GetGroundHeightMarginMin() const noexcept override;
+
+	float GetGroundHeightMarginMax() const noexcept override;
+
+
+	bool IsLegInRange(int leg_index, const designlab::Vector3& leg_pos) const override;
 
 	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
-protected:
-	const std::array<::designlab::Vector2, HexapodConst::kLegNum> min_leg_pos_xy_;
-	const std::array<::designlab::Vector2, HexapodConst::kLegNum> max_leg_pos_xy_;
+	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state,
+		const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
+
 
 private:
 
-	static constexpr int kLegPosDivNum = 50;	//!< 脚位置の離散化数
+	const float kBodyLiftingHeightMin = 30;		//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+	const float kBodyLiftingHeightMax = 160;	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
 
-	static constexpr float kLegPosMargin = 2;
+	const float kMovableCoxaAngleMin = designlab::math_util::ConvertDegToRad(-40.f);	//!< 脚の可動範囲の最小値[rad]
+	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< 脚の可動範囲の最大値[rad]
 
-	static constexpr float kLegPosMin = -(PhantomXConst::kCoxaLength + PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength + kLegPosMargin);	//脚位置の最小値
+	static constexpr float kMinLegR{120.f};		//!< 脚の付け根から脚先までの最小距離[mm]
+	static constexpr int kMaxLegRSize{200};		//!< kMaxLegRの配列のサイズ．
+	std::array<float, kMaxLegRSize> kMaxLegR;	//!< 脚の付け根から脚先までの最大距離[mm]．脚の付け根と重心のz方向の距離の差をインデックスにする．
 
-	static constexpr float kLegPosMax = (PhantomXConst::kCoxaLength + PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength + kLegPosMargin);	//脚位置の最大値
+	std::array<designlab::Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa jointの最小位置まで回した時の脚先座標．脚座標系のxyからみた座標．
+	std::array<designlab::Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa jointの最大位置まで回した時の脚先座標．脚座標系のxyからみた座標．
 
-	static constexpr float kMinLegR = 120;
-
-	constexpr int GetLegPosIndex(const float leg_pos) const
-	{
-		constexpr float converter = kLegPosDivNum / (kLegPosMax - kLegPosMin);
-		int res = static_cast<int>((leg_pos - kLegPosMin) * converter);			// 離散化した脚位置を取得
-
-		return res;										// 離散化した脚位置を返す
-	}
-
-	bool InitIsAbleLegPos(int leg_index, int x, int y, int z) const;		// 脚位置の有効無効を初期化する
-
-	void CalculateLocalJointState(int leg_index, const designlab::Vector3& leg_pos, HexapodJointState* joint_state) const;		// 脚位置から関節角度を計算する．1脚版
-	
-	std::array<::designlab::Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;		// 脚の付け根の座標( leg base position)の最小値を計算する
-	std::array<::designlab::Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;		// 脚の付け根の座標( leg base position)の最小値を計算する
+	const float kFreeLegHeight = -20.f;			//!< 重心から見た遊脚高さ[mm]．
 
 
-	// 脚番号，x座標，y座標，z座標の順でアクセスすると，その座標が有効かどうかがboolで格納されている
-	bool is_able_leg_pos_[HexapodConst::kLegNum][kLegPosDivNum][kLegPosDivNum][kLegPosDivNum];
+	//!< 脚の付け根の座標( leg base position )．ロボット座標系．
+	const std::array<designlab::Vector3, HexapodConst::kLegNum> leg_base_pos_robot_coordinate_;
 
-	//!< 脚の付け根の座標( leg base position)．ロボットの重心を原点，向いている方向をx軸としたローカル(ロボット)座標系である．
-	designlab::Vector3 local_leg_base_pos_[HexapodConst::kLegNum];	
+	//!< 遊脚する位置．脚座標系．
+	const std::array<designlab::Vector3, HexapodConst::kLegNum> free_leg_pos_leg_coordinate_;
 
-	//!< 遊脚する位置．脚座標系
-	const std::array<designlab::Vector3, HexapodConst::kLegNum> free_leg_pos_;
+
+	std::array<float, kMaxLegRSize> InitMaxLegR() const;
+	std::array<designlab::Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;
+	std::array<designlab::Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;
 };
 
 

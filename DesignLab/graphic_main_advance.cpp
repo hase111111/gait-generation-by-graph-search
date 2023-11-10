@@ -9,17 +9,22 @@
 #include "world_grid_renderer.h"
 
 
-GraphicMainAdvance::GraphicMainAdvance(const std::shared_ptr<const GraphicDataBroker>& broker_ptr, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
+GraphicMainAdvance::GraphicMainAdvance(
+	const std::shared_ptr<const GraphicDataBroker>& broker_ptr, 
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
-	kInterpolatedAnimeCount(180),
+	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
-	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr),
+	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr, checker_ptr),
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
-	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality)),
+	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
-	robot_graund_point_renderer_(calculator_ptr),
-	stability_margin_renderer_(calculator_ptr),
+	robot_graund_point_renderer_(converter_ptr),
+	stability_margin_renderer_(converter_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
 	graph_({}),
 	display_node_index_(0),

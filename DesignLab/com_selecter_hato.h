@@ -8,10 +8,10 @@
 #include <vector>
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "com_type.h"
 #include "designlab_vector3.h"
 #include "designlab_polygon2.h"
+#include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
 
 
@@ -29,7 +29,7 @@ class ComSelecterHato final
 {
 public:
 
-	ComSelecterHato(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc) : calculator_ptr_(calc) {};
+	ComSelecterHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) : checker_ptr_(checker_ptr) {};
 
 	//! @brief 重心を求める
 	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
@@ -50,7 +50,7 @@ private:
 	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
 	bool IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
 
 

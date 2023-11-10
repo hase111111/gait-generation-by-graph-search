@@ -13,11 +13,11 @@ namespace dllf = designlab::leg_func;
 namespace dldu = designlab::dxlib_util;
 
 
-StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr) :
+StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
 	kMarginColor(GetColor(0, 255, 0)), 
 	kMarginErrorColor(GetColor(255, 0, 0)), 
 	kAlpha(128),
-	calclator_ptr_(calclator_ptr)
+	converter_ptr_(converter_ptr)
 {
 }
 
@@ -36,7 +36,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 		if (dllf::IsGrounded(node.leg_state, i))
 		{
 			polygon.push_back(
-				calclator_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, true)
+				converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, true)
 			);
 
 			polygon.back() += designlab::Vector3{0, 0, 5};

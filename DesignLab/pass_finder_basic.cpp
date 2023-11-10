@@ -5,18 +5,17 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
+
 namespace dlio = designlab::cmdio;
 
 
 PassFinderBasic::PassFinderBasic(
 	std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator, 
-	std::unique_ptr<IGraphSearcher>&& graph_searcher,
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr
+	std::unique_ptr<IGraphSearcher>&& graph_searcher
 ) :
 	graph_tree_({}),
 	graph_tree_creator_ptr_(std::move(graph_tree_creator)), 
-	graph_searcher_ptr_(std::move(graph_searcher)),
-	calculator_ptr_(calculator_ptr)
+	graph_searcher_ptr_(std::move(graph_searcher))
 {
 }
 

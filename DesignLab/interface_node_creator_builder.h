@@ -7,10 +7,12 @@
 #include <map>
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "devide_map_state.h"
 #include "hexapod_next_move.h"
 #include "interface_node_creator.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_state_presenter.h"
+#include "interface_hexapod_vaild_checker.h"
 
 
 //! @class INodeCreatorBuilder
@@ -28,7 +30,11 @@ public:
 	//! @param [out] node_creator INodeCreator‚ğŠi”[‚·‚émap
 	//! @n key:HexapodMove, value:INodeCreator
 	//! @n ‚Â‚Ü‚èCƒƒ{ƒbƒg‚Ì“®ì‚É‘Î‰‚·‚éINodeCreator‚ğŠi”[‚·‚é•K—v‚ª‚ ‚é
-	virtual void Build(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr,
+	virtual void Build(
+		const DevideMapState& map, 
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		std::map<HexapodMove, std::unique_ptr<INodeCreator> > *node_creator) const = 0;
 };
 

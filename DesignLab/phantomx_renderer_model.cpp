@@ -16,7 +16,11 @@ namespace dlm = designlab::math_util;
 namespace dldu = designlab::dxlib_util;
 
 
-PhantomXRendererModel::PhantomXRendererModel(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr) :
+PhantomXRendererModel::PhantomXRendererModel(
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr_,
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr
+) :
+	converter_ptr_(converter_ptr_),
 	calculator_ptr_(calculator_ptr),
 	draw_node_{}
 {
@@ -26,8 +30,7 @@ void PhantomXRendererModel::SetDrawNode(const RobotStateNode& node)
 {
 	draw_node_ = node;
 
-	// ãtâ^ìÆäwÇ≈ãÅÇﬂÇΩãrÇÃà íuÇåvéZÇ∑ÇÈ
-	calculator_ptr_->CalculateAllJointState(draw_node_ , &draw_joint_state_);
+	draw_joint_state_ = calculator_ptr_->CalculateAllJointState(node);
 }
 
 void PhantomXRendererModel::Draw() const
@@ -46,24 +49,6 @@ void PhantomXRendererModel::Draw() const
 
 		DrawJointAxis(i);	// ä÷êﬂé≤ÇÃï`âÊ
 	}
-
-	//{
-	//	unsigned int color = GetColor(0, 0, 0);
-
-	//	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), 10, 16, color, color, TRUE);
-	//
-	//	for (int i = 0; i < 6; i++)
-	//	{
-	//		designlab::Vector3 leg_joint = calculator_ptr_->GetGlobalLegPosition(i, draw_node_.leg_pos[i], draw_node_.global_center_of_mass, draw_node_.rot, true);
-
-	//		DrawSphere3D(dldu::ConvertToDxlibVec(leg_joint), 5, 16, color, color, TRUE);
-
-	//		designlab::Vector3 coxa_joint = calculator_ptr_->GetGlobalLegBasePosition(i, draw_node_.global_center_of_mass, draw_node_.rot, true);
-
-	//		DrawSphere3D(dldu::ConvertToDxlibVec(coxa_joint), 5, 16, color, color, TRUE);
-	//	}
-
-	//}
 }
 
 bool PhantomXRendererModel::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
@@ -116,13 +101,17 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 
 	if (coxa_model_handle == -1) { printfDx("ÉÇÉfÉãÇÃì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩÅD(coxa_model_handle)"); }
 
-	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
+	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//Coxa JointÇÕ2Ç¬ÇÃConnect LinkÇ≈ç\ê¨Ç≥ÇÍÇƒÇ¢ÇÈÇÃÇ≈ÅCÇªÇÍÇºÇÍï`âÊÇ∑ÇÈ
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0]);
+	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(
+		converter_ptr_->ConvertLegToGlobalCoordinate(
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+		)
+	);
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
@@ -153,33 +142,6 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 
 		MV1DrawModel(coxa_model_handle);
 	}
-
-	//{
-	//	const designlab::RotationMatrix3x3 kDefRotMat =
-	//		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-	//		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
-	//		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
-	//
-	//	const float kOffsetLength2 = kOffsetLength + 5.0f;	//âÒì]íÜêSÇ∆å¥ì_Ç™Ç∏ÇÍÇƒÇ¢ÇÈÇÃÇ≈ÅCÇªÇÃï™Çï‚ê≥Ç∑ÇÈ
-	//
-	//	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-	//		designlab::RotateVector3
-	//		(
-	//			designlab::Vector3::GetFrontVec() * kOffsetLength2,
-	//			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
-	//		)
-	//	);
-	//
-	//	MV1SetScale(connect_model_handle, kScale);
-	//
-	//	// dxlibÇÃç¿ïWånÇÕç∂éËç¿ïWånÇ»ÇÃÇ≈ÅCâEéËç¿ïWånÇ…ïœä∑Ç∑ÇÈÇΩÇﬂÇ…ãtì]Ç≥ÇπÇÈÅD
-	//	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-	//	MV1SetRotationXYZ(connect_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
-	//
-	//	MV1SetPosition(connect_model_handle, kCoxaJointPos + kOffsetPos);
-	//
-	//	MV1DrawModel(connect_model_handle);
-	//}
 }
 
 void PhantomXRendererModel::DrawFemurLink(int leg_index) const
@@ -190,13 +152,17 @@ void PhantomXRendererModel::DrawFemurLink(int leg_index) const
 
 	if (thign_model_handle == -1) { printfDx("ÉÇÉfÉãÇÃì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩÅD(thign_model_handle)"); }
 
-	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
+	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//ÉpÉâÉÅÅ[É^ÇÃåvéZ
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1]);
+	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(
+		converter_ptr_->ConvertLegToGlobalCoordinate(
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+		)
+	);
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
@@ -239,13 +205,17 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 
 	if (tibia_model_handle == -1) { printfDx("ÉÇÉfÉãÇÃì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩÅD(tibia_model_handle)"); }
 
-	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
+	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//ÉpÉâÉÅÅ[É^ÇÃåvéZ
 	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
 
-	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2]);
+	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(
+		converter_ptr_->ConvertLegToGlobalCoordinate(
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+		)
+	);
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
@@ -284,7 +254,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 
 void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 {
-	if (draw_joint_state_[leg_index].global_joint_position.size() != 4) { return; }
+	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 
@@ -304,7 +274,11 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	//CoxaÇÃâÒì]é≤
 	{
-		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[0]);
+		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(
+			converter_ptr_->ConvertLegToGlobalCoordinate(
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			)
+		);
 
 		const VECTOR kAxisVec = dldu::ConvertToDxlibVec(
 			designlab::RotateVector3(designlab::Vector3::GetUpVec() * kAxisLength / 2, kBodyRotMat)
@@ -318,7 +292,11 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	//FemurÇÃâÒì]é≤
 	{
-		const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[1]);
+		const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(
+			converter_ptr_->ConvertLegToGlobalCoordinate(
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			)
+		);
 
 		const designlab::RotationMatrix3x3 kDefRotMat =
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);
@@ -339,7 +317,11 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	//TibiaÇÃâÒì]é≤
 	{
-		const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(draw_joint_state_[leg_index].global_joint_position[2]);
+		const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(
+			converter_ptr_->ConvertLegToGlobalCoordinate(
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			)
+		);
 
 		const designlab::RotationMatrix3x3 kDefRotMat =
 			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle);

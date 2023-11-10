@@ -40,6 +40,8 @@
     <ClInclude Include="com_move_node_creator_hato.h" />
     <ClInclude Include="interface_hexapod_coordinate_converter.h" />
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
+    <ClInclude Include="interface_hexapod_state_presenter.h" />
+    <ClInclude Include="interface_hexapod_vaild_checker.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="_com_selecter.h" />
     <ClInclude Include="com_selecter_hato.h" />

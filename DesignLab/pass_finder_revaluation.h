@@ -20,12 +20,10 @@ class PassFinderRevaluation final : public IPassFinder
 {
 public:
 
-
 	PassFinderRevaluation(
 		std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_ptr,
 		std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
-		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
-		const std::shared_ptr<const AbstractHexapodStateCalculator>& hexapod_state_calculator_ptr
+		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
 	);
 
 	~PassFinderRevaluation() = default;
@@ -47,11 +45,10 @@ private:
 
 	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< グラフ探索を行うクラス
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> hexapod_state_calculator_ptr_;	//!< ヘキサポッドの状態を計算するクラス
-
 	InterpolatedNodeCreator interpolated_node_creator_;	//!< 補間ノードを作成するクラス
 
 	bool IsVaildNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 };
+
 
 #endif

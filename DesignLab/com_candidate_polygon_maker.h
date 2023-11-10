@@ -10,9 +10,9 @@
 #include <memory>
 #include <vector>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "designlab_polygon2.h"
 #include "discrete_com_pos.h"
+#include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"
 
 
@@ -38,7 +38,7 @@ class ComCandidatePolygonMaker final
 {
 public:
 
-	ComCandidatePolygonMaker(const std::shared_ptr<const AbstractHexapodStateCalculator>& calc);
+	ComCandidatePolygonMaker(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
 
 	static constexpr int MAKE_POLYGON_NUM = 7;	//!< 作成する多角形の数
@@ -68,9 +68,7 @@ private:
 
 	static constexpr bool kDoCheckPolygon = true;	// 多角形のチェックを行う場合はtrueにする．重いのでfalseにしたいが，深さ5までなら問題なし．
 
-
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr_;	//!< ロボットの状態を計算するクラス
-
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
 
 

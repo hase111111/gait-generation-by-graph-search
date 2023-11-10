@@ -9,8 +9,11 @@
 
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "devide_map_state.h"
+#include "hexapod_next_move.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_state_presenter.h"
+#include "interface_hexapod_vaild_checker.h"
 
 
 //! @class LegUpDownNodeCreator
@@ -20,7 +23,13 @@ class LegUpDownNodeCreator final : public INodeCreator
 {
 public:
 
-	LegUpDownNodeCreator(const DevideMapState& devide_map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, HexapodMove next_move);
+	LegUpDownNodeCreator(
+		const DevideMapState& devide_map, 
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+		HexapodMove next_move
+	);
 	~LegUpDownNodeCreator() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const override;
@@ -39,9 +48,11 @@ private:
 
 	const DevideMapState map_;	//!< マップの状態．
 
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calclator_ptr_;	//!< ロボットの座標計算クラス．
-
 	const HexapodMove next_move_;	//!< 次の移動方向．
+
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
 
 

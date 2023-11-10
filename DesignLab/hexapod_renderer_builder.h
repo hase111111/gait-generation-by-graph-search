@@ -8,10 +8,10 @@
 
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "display_quality.h"
 #include "interface_hexapod_renderer.h"
-
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
 
 //! @class HexapodRendererBuilder
 //! @brief HexapodRendererクラスのインスタンスを作成するクラス
@@ -24,7 +24,11 @@ public:
 	//! @n このクラスの型を判別して，適切なHexapodRendererクラスのインスタンスを作成する
 	//! @param [in] display_quality 描画品質
 	//! @return HexapodRendererクラスのインスタンス
-	static std::unique_ptr<IHexapodRenderer> Build(const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator, DisplayQuality display_quality);
+	static std::unique_ptr<IHexapodRenderer> Build(
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		DisplayQuality display_quality
+	);
 };
 
 

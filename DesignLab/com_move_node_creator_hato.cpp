@@ -10,13 +10,21 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(const DevideMapState& map, const std::shared_ptr<const AbstractHexapodStateCalculator>& calc, const HexapodMove next_move) :
+ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(
+	const DevideMapState& map, 
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	const HexapodMove next_move
+) :
 	kStableMargin(15.0f),
 	map_(map), 
-	calculator_ptr_(calc), 
-	maker_(calc),
-	selecter_(calc),
-	next_move_(next_move)
+	maker_(converter_ptr),
+	selecter_(checker_ptr),
+	next_move_(next_move),
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr)
 {
 }
 
@@ -52,7 +60,7 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 			next_node.ChangeToNextNode(current_num, next_move_);	//深さや親ノードを変更する
 
 			if (
-				calculator_ptr_->CalculateStabilityMargin(next_node.leg_state, next_node.leg_pos) > kStableMargin &&
+				checker_ptr_->CalculateStabilityMargin(next_node.leg_state, next_node.leg_pos) > kStableMargin &&
 				!IsIntersectGround(next_node)
 			)
 			{
@@ -67,7 +75,7 @@ bool ComMoveNodeCreatorHato::IsStable(const RobotStateNode& node) const
 {
 	//重心を原点とした座標系で，脚の位置を計算する．
 
-	if (calculator_ptr_->CalculateStabilityMargin(node.leg_state, node.leg_pos) < kStableMargin)
+	if (checker_ptr_->CalculateStabilityMargin(node.leg_state, node.leg_pos) < kStableMargin)
 	{
 		return false;
 	}
@@ -85,8 +93,8 @@ bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//脚の根元の座標(グローバル)を取得する
-		const designlab::Vector3 kCoxaPos = calculator_ptr_->ConvertRobotToGlobalCoordinate(
-			calculator_ptr_->GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.rot, false
+		const designlab::Vector3 kCoxaPos = converter_ptr_->ConvertRobotToGlobalCoordinate(
+			presenter_ptr_->GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.rot, false
 		);
 
 		if (map_.IsInMap(kCoxaPos)) 

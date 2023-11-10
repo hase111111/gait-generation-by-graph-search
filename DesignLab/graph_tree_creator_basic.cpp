@@ -9,11 +9,20 @@
 
 GraphTreeCreatorBasic::GraphTreeCreatorBasic(
 	std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr,
-	const std::shared_ptr<const AbstractHexapodStateCalculator> calculator_ptr
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 ) :
 	node_creator_builder_ptr_(std::move(node_creator_builder_ptr)),
-	calculator_ptr_(calculator_ptr)
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr)
 {
+	//引数が全てnullptrでないことを確認する．
+	assert(node_creator_builder_ptr_ != nullptr);
+	assert(converter_ptr_ != nullptr);
+	assert(presenter_ptr_ != nullptr);
+	assert(checker_ptr_ != nullptr);
 }
 
 
@@ -21,7 +30,13 @@ void GraphTreeCreatorBasic::Init(const DevideMapState& map_state)
 {
 	node_creator_map_.clear();
 
-	node_creator_builder_ptr_->Build(map_state, calculator_ptr_, &node_creator_map_);
+	node_creator_builder_ptr_->Build(
+		map_state, 
+		converter_ptr_,
+		presenter_ptr_,
+		checker_ptr_,
+		&node_creator_map_
+	);
 }
 
 GraphSearchResult GraphTreeCreatorBasic::CreateGraphTree(const RobotStateNode& current_node, const int max_depth, std::vector<RobotStateNode>* output_graph)

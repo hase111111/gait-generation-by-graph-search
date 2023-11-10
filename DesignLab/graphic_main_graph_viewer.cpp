@@ -12,14 +12,18 @@
 namespace dldu = designlab::dxlib_util;
 
 
-GraphicMainGraphViewer::GraphicMainGraphViewer(const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const AbstractHexapodStateCalculator>& calculator_ptr, const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
+GraphicMainGraphViewer::GraphicMainGraphViewer(
+	const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+) :
 	broker_ptr_(broker_ptr),
-	calculator_ptr_(calculator_ptr),
-	camera_gui_{ 10, setting_ptr ? setting_ptr->window_size_y - 10 : 0 ,CameraGui::kOptionLeftBottom},
-	node_display_gui_{ setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr },
+	camera_gui_{ 10, setting_ptr ? setting_ptr->window_size_y - 10 : 0 ,CameraGui::kOptionLeftBottom },
+	node_display_gui_{ setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr, checker_ptr },
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
-	hexapod_renderer_(HexapodRendererBuilder::Build(calculator_ptr, setting_ptr->gui_display_quality)),
+	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	graph_({}),
 	display_node_index_(0),
 	map_update_count_(0),

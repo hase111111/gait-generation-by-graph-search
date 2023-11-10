@@ -453,6 +453,12 @@
     <ClInclude Include="interface_hexapod_coordinate_converter.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="interface_hexapod_state_presenter.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_vaild_checker.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
