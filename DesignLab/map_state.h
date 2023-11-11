@@ -14,9 +14,6 @@
 #include "map_const.h"
 
 
-namespace dl = ::designlab;
-
-
 //! @class MapState
 //! @brief マップを表すクラス．
 //! @details この研究の手法では，ロボットが歩くマップは脚設置可能点の集合で表現される．面ではなく点の集合．

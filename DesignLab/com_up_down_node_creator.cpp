@@ -7,7 +7,7 @@
 #include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 
 
 namespace dllf = designlab::leg_func;
@@ -63,8 +63,8 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 
 	//ロボットの重心の最も低く下げることのできるz座標と，高くあげることができるz座標を求める．どちらもグローバル座標．
-	float highest_body_zpos = map_highest_z + PhantomXConst::kBodyLiftingHeightMax;
-	float lowest_body_zpos = map_highest_z + PhantomXConst::kBodyLiftingHeightMin;
+	float highest_body_zpos = map_highest_z + presenter_ptr_->GetGroundHeightMarginMax();
+	float lowest_body_zpos = map_highest_z + presenter_ptr_->GetGroundHeightMarginMin();
 
 
 	// 最も高い地点を修正する．
@@ -75,8 +75,8 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
-			const float edge_c = PhantomXConst::kFemurLength + PhantomXConst::kTibiaLength - MARGIN;
-			const float edge_b = current_node.leg_pos[i].ProjectedXY().GetLength() - PhantomXConst::kCoxaLength;
+			const float edge_c = PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength - MARGIN;
+			const float edge_b = current_node.leg_pos[i].ProjectedXY().GetLength() - PhantomXMkIIConst::kCoxaLength;
 
 			const float edge_a = sqrt(dlm::Squared(edge_c) - dlm::Squared(edge_b));
 

@@ -1,4 +1,4 @@
-//! @file phantomx_const.h
+//! @file phantomx_mk2_const.h
 //! @brief PhantomXのステータスをまとめた定数クラス．
 
 #ifndef DESIGNLAB_PHANTOMX_CONST_H_
@@ -10,13 +10,13 @@
 #include "designlab_math_util.h"
 
 
-//! @class PhantomXConst
-//! @brief PhantomXのパラメータを定数で表現したもの．
-//! @n コンストラクタを削除したので，実体は生成できない．( PhantomXConst::kLegNum みたいに値を呼び出すこと )
+//! @class PhantomXMkIIConst
+//! @brief PhantomX mk-Ⅱ のパラメータを定数で表現したもの．
+//! @n コンストラクタを削除したので，実体は生成できない．( PhantomXMkIIConst::kLegNum みたいに値を呼び出すこと )
 //! @details 簡単のため値をここにまとめたが，むやみにこの値を参照せずにHexapodStateCalculatorを使うこと．
 //! @n 設計的にあまり正しくない気がするが，現状効率よく開発できているので問題が起きたときに考えることにする．
 //! @n また，座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
-class PhantomXConst final
+class PhantomXMkIIConst final
 {
 private:
 	constexpr static  int kPhantomXLegNum = 6;
@@ -24,10 +24,10 @@ private:
 public:
 
 	// コンストラクタとコピーコンストラクタを削除し，実体を生成できないようにする．
-	PhantomXConst() = delete;
-	PhantomXConst(const PhantomXConst& other) = delete;
-	PhantomXConst& operator=(const PhantomXConst& other) = delete;
-	PhantomXConst(PhantomXConst&& other) = delete;
+	PhantomXMkIIConst() = delete;
+	PhantomXMkIIConst(const PhantomXMkIIConst& other) = delete;
+	PhantomXMkIIConst& operator=(const PhantomXMkIIConst& other) = delete;
+	PhantomXMkIIConst(PhantomXMkIIConst&& other) = delete;
 
 	//! 第1関節の初期角度[rad]
 	constexpr static std::array<float, kPhantomXLegNum> kCoxaDefaultAngle = {
@@ -48,13 +48,6 @@ public:
 	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-145.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
 	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(25.5f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	//!< 第2関節は曲がっているので，直線的に考えるためのオフセット角度[rad]．
-	constexpr static float kFemurVirtualLinkOffsetAngle = ::designlab::math_util::ConvertDegToRad(-13.5f);	
-
-	//!< 第3関節は曲がっているので，直線的に考えるためのオフセット角度[rad]．
-	constexpr static float kTibiaVirtualLinkOffsetAangle = ::designlab::math_util::ConvertDegToRad(13.5f);
-
-
 	constexpr static float kCoxaLength = 52.0f;		//!< 第1関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．
 	constexpr static float kFemurLength = 66.0f;	//!< 第2関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータスは66.061mm)
 	constexpr static float kTibiaLength = 130.0f;	//!< 第3関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータス137mm)
@@ -66,16 +59,15 @@ public:
 	constexpr static float kBodyHeight = 40.0f;			//!< 胴体の高さ[mm]．
 
 
-	constexpr static float kBodyLiftingHeightMin = 30;	//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-	constexpr static float kBodyLiftingHeightMax = 160;	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
-
 	//! @brief 第1関節の角度が有効な範囲内かどうかを判定する．
 	//! @param [in] leg_index 脚の番号．
 	//! @param [in] angle 判定する角度．
 	//! @return bool 有効な範囲内ならtrue．
 	constexpr static bool IsVaildCoxaAngle(const int leg_index, const float angle)
 	{
-		assert(0 <= leg_index && leg_index < kPhantomXLegNum);
+		// 0 <= leg_index < kPhantomXLegNum であることを保証する．
+		assert(0 <= leg_index);
+		assert(leg_index < kPhantomXLegNum);
 
 		return (
 			kCoxaAngleMin + kCoxaDefaultAngle[leg_index] <= angle && 
@@ -88,7 +80,7 @@ public:
 	//! @return bool 有効な範囲内ならtrue．
 	constexpr static bool IsVaildFemurAngle(const float angle)
 	{
-		return (kFemurAngleMin <= angle && angle <= kFemurAngleMax);
+		return kFemurAngleMin <= angle && angle <= kFemurAngleMax;
 	};
 
 	//! @brief 第3関節の角度が有効な範囲内かどうかを判定する．
@@ -96,7 +88,7 @@ public:
 	//! @return bool 有効な範囲内ならtrue．
 	constexpr static bool IsVaildTibiaAngle(const float angle)
 	{
-		return (kTibiaAngleMin <= angle && angle <= kTibiaAngleMax);
+		return kTibiaAngleMin <= angle && angle <= kTibiaAngleMax;
 	};
 
 
@@ -106,7 +98,7 @@ public:
 	static_assert(kCoxaLength > 0.f, "kCoxaLength，Coxa Linkの長さは正である必要があります．");
 	static_assert(kFemurLength > 0.f, "kFemurLength，Femur Linkの長さは正である必要があります．");
 	static_assert(kTibiaLength > 0.f, "kTibiaLength，Tibia Linkの長さは正である必要があります．");
-	static_assert(kBodyLiftingHeightMin < kBodyLiftingHeightMax, "kBodyLiftingHeightMax > Minである必要があります．");
 };
 
-#endif 
+
+#endif	// DESIGNLAB_PHANTOMX_CONST_H_

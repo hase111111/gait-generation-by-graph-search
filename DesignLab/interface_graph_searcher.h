@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif	
+#endif	// DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_

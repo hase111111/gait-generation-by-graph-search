@@ -1,5 +1,5 @@
-//@file graph_searcher_random.h
-//@brief ランダムにグラフ探索を行うクラス．
+//! @file graph_searcher_random.h
+//! @brief ランダムにグラフ探索を行うクラス．
 
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_RANDOM_H_

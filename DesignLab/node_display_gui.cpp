@@ -5,7 +5,7 @@
 
 #include "designlab_math_util.h"
 #include "leg_state.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 
 
 namespace dllf = designlab::leg_func;
@@ -230,12 +230,12 @@ void NodeDisplayGui::DrawJointInfo() const
 
 
 		std::string str = "";
-		if (joint_state_[i].joint_angle[0] < PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMin) { str += "coxa_min "; }
-		if (joint_state_[i].joint_angle[0] > PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax) { str += "coxa_max "; }
-		if (joint_state_[i].joint_angle[1] < PhantomXConst::kFemurAngleMin) { str += "femur_min "; }
-		if (joint_state_[i].joint_angle[1] > PhantomXConst::kFemurAngleMax) { str += "femur_max "; }
-		if (joint_state_[i].joint_angle[2] < PhantomXConst::kTibiaAngleMin) { str += "tibia_min "; }
-		if (joint_state_[i].joint_angle[2] > PhantomXConst::kTibiaAngleMax) { str += "tibia_max "; }
+		if (joint_state_[i].joint_angle[0] < PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMin) { str += "coxa_min "; }
+		if (joint_state_[i].joint_angle[0] > PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMax) { str += "coxa_max "; }
+		if (joint_state_[i].joint_angle[1] < PhantomXMkIIConst::kFemurAngleMin) { str += "femur_min "; }
+		if (joint_state_[i].joint_angle[1] > PhantomXMkIIConst::kFemurAngleMax) { str += "femur_max "; }
+		if (joint_state_[i].joint_angle[2] < PhantomXMkIIConst::kTibiaAngleMin) { str += "tibia_min "; }
+		if (joint_state_[i].joint_angle[2] > PhantomXMkIIConst::kTibiaAngleMax) { str += "tibia_max "; }
 
 		if (!str.empty())
 		{

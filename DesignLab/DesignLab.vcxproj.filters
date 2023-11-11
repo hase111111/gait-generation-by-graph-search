@@ -288,7 +288,7 @@
     <ClInclude Include="stability_margin_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="phantomx_state_calculator.h">
+    <ClInclude Include="phantomx_mk2.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="graph_viewer_system_main.h">
@@ -405,7 +405,7 @@
     <ClInclude Include="phantomx_renderer_model.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
     </ClInclude>
-    <ClInclude Include="phantomx_const.h">
+    <ClInclude Include="phantomx_mk2_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
     </ClInclude>
     <ClInclude Include="graph_tree_creator_basic.h">
@@ -599,7 +599,7 @@
     <ClCompile Include="stability_margin_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="phantomx_state_calculator.cpp">
+    <ClCompile Include="phantomx_mk2.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
     <ClCompile Include="graph_viewer_system_main.cpp">

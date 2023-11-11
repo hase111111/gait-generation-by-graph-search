@@ -5,7 +5,7 @@
 #include "dxlib_util.h"
 #include "designlab_math_util.h"
 #include "leg_state.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 
 
 namespace dldu = designlab::dxlib_util;
@@ -75,7 +75,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		);
 	}
 
-	dldu::DrawHexagonalPrism(vertex, PhantomXConst::kBodyHeight, kColorBody);
+	dldu::DrawHexagonalPrism(vertex, PhantomXMkIIConst::kBodyHeight, kColorBody);
 
 	//dS‚Ì•`‰æ
 	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
@@ -129,9 +129,9 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		{
 			unsigned int color = kJointColor;
 
-			if (j == 0 && !PhantomXConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0])) { color = kColorErrorJoint; }
-			if (j == 1 && !PhantomXConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
-			if (j == 2 && !PhantomXConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
+			if (j == 0 && !PhantomXMkIIConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0])) { color = kColorErrorJoint; }
+			if (j == 1 && !PhantomXMkIIConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
+			if (j == 2 && !PhantomXMkIIConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
 
 			VECTOR pos = dldu::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(

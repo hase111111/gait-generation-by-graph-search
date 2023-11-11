@@ -1,7 +1,7 @@
 #include "node_initializer.h"
 
 #include "leg_state.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 
 namespace dllf = designlab::leg_func;
 
@@ -23,13 +23,13 @@ RobotStateNode NodeInitializer::InitNode() const
 
 	//脚付け根を原点とした，脚先の位置を初期化する．
 	const float z_base = 0.0f;
-	const float kComZ = PhantomXConst::kBodyLiftingHeightMin + z_base;	// ロボットの重心のZ座標
+	const float kComZ = 30.f + z_base;	// ロボットの重心のZ座標
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		res.leg_pos[i] = res.leg_reference_pos[i] = {
-			170 * cos(PhantomXConst::kCoxaDefaultAngle[i]),
-			170 * sin(PhantomXConst::kCoxaDefaultAngle[i]),
+			170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
+			170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
 			-kComZ
 		};
 	}

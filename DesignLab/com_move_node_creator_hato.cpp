@@ -3,7 +3,6 @@
 #include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
-#include "phantomx_const.h"
 
 
 namespace dllf = designlab::leg_func;
@@ -105,7 +104,7 @@ bool ComMoveNodeCreatorHato::IsIntersectGround(const RobotStateNode& node) const
 		}
 	}
 
-	if (top_z + PhantomXConst::kBodyLiftingHeightMin - dlm::kAllowableError < node.global_center_of_mass.z)
+	if (top_z + presenter_ptr_->GetGroundHeightMarginMin() - dlm::kAllowableError < node.global_center_of_mass.z)
 	{
 		return false;
 	}

@@ -3,6 +3,7 @@
 #include "designlab_math_util.h"
 
 
+namespace dl = ::designlab;
 namespace dlm = ::designlab::math_util;
 
 

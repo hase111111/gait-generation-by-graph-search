@@ -2,7 +2,7 @@
 
 #include "phantomx_renderer_model.h"
 #include "phantomx_renderer_simple.h"
-#include "phantomx_state_calculator.h"
+#include "phantomx_mk2.h"
 
 std::unique_ptr<IHexapodRenderer> HexapodRendererBuilder::Build(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,

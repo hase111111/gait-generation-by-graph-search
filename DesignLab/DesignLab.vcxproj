@@ -75,7 +75,7 @@
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="pass_finder_revaluation.h" />
-    <ClInclude Include="phantomx_const.h" />
+    <ClInclude Include="phantomx_mk2_const.h" />
     <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
     <ClInclude Include="_hexapod_state_calculator.h" />
@@ -110,7 +110,7 @@
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
-    <ClInclude Include="phantomx_state_calculator.h" />
+    <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="result_viewer_system_main.h" />
     <ClInclude Include="robot_graund_point_renderer.h" />
@@ -200,7 +200,7 @@
     <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
     <ClCompile Include="_phantomxCommander.cpp" />
-    <ClCompile Include="phantomx_state_calculator.cpp" />
+    <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="result_viewer_system_main.cpp" />
     <ClCompile Include="robot_graund_point_renderer.cpp" />

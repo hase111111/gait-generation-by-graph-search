@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif
+#endif	//DESIGNLAB_GRAPH_SEARCH_CONST_H_

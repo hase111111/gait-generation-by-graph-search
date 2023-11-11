@@ -22,14 +22,14 @@ public:
 
 private:
 
-	//! @brief 見つからないと-1がかえる
+	//! @brief 見つからないと -1 が返る．
 	size_t GetParentNodeIndex(const std::vector<RobotStateNode>& graph) const;
 
-	//! @brief 見つからないとfalseがかえる．MAX_DEPTHさかのぼっても見つからない場合はfalseがかえる
-	//! @param [in] graph グラフ
-	//! @param [in] max_depth_node_index 最大深さのノードのインデックス
-	//! @param [out] put_node 親ノードの情報を格納する
-	//! @return bool 見つかったかどうか
+	//! @brief 見つからないとfalseが返る．
+	//! @param [in] graph グラフ．
+	//! @param [in] max_depth_node_index 最大深さのノードのインデックス．
+	//! @param [out] put_node 親ノードの情報を格納する．
+	//! @return bool 見つかったかどうか．
 	bool GetDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, size_t max_depth_node_index, RobotStateNode* output_node) const;
 
 	void InitEvaluationValue(const RobotStateNode& parent_node, const TargetRobotState& target);

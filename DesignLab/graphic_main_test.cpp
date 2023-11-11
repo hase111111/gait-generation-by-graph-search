@@ -5,7 +5,7 @@
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "node_initializer.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 #include "simulation_map_creator.h"
 
 
@@ -185,11 +185,11 @@ void GraphicMainTest::MoveLeg()
 					
 					coxa += speed;
 
-					coxa = PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax <= coxa ?
-						PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax : coxa;
+					coxa = PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMax <= coxa ?
+						PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMax : coxa;
 
-					coxa = PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMin >= coxa ?
-						PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMin : coxa;
+					coxa = PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMin >= coxa ?
+						PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMin : coxa;
 				}
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0) 
 				{
@@ -198,30 +198,30 @@ void GraphicMainTest::MoveLeg()
 					femur += speed;
 
 					femur = (femur + tibia - dlm::kFloatPi) > 0 ? femur - speed : femur;
-					femur = PhantomXConst::kFemurAngleMax <= femur ? PhantomXConst::kFemurAngleMax : femur;
-					femur = PhantomXConst::kFemurAngleMin >= femur ? PhantomXConst::kFemurAngleMin : femur;
+					femur = PhantomXMkIIConst::kFemurAngleMax <= femur ? PhantomXMkIIConst::kFemurAngleMax : femur;
+					femur = PhantomXMkIIConst::kFemurAngleMin >= femur ? PhantomXMkIIConst::kFemurAngleMin : femur;
 				}
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0) 
 				{
 					float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
 					tibia += spped;
 					tibia = (femur + tibia - dlm::kFloatPi) > 0 ? tibia - spped : tibia;
-					tibia = PhantomXConst::kTibiaAngleMax <= tibia ? PhantomXConst::kTibiaAngleMax : tibia;
-					tibia = PhantomXConst::kTibiaAngleMin >= tibia ? PhantomXConst::kTibiaAngleMin : tibia;
+					tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
+					tibia = PhantomXMkIIConst::kTibiaAngleMin >= tibia ? PhantomXMkIIConst::kTibiaAngleMin : tibia;
 				}
 
 				designlab::Vector3 leg_pos;
-				leg_pos += designlab::Vector3{ PhantomXConst::kCoxaLength * cos(coxa),PhantomXConst::kCoxaLength * sin(coxa),0 };
+				leg_pos += designlab::Vector3{ PhantomXMkIIConst::kCoxaLength * cos(coxa),PhantomXMkIIConst::kCoxaLength * sin(coxa),0 };
 
 				leg_pos += designlab::Vector3{
-					PhantomXConst::kFemurLength * cos(coxa) * cos(femur),
-					PhantomXConst::kFemurLength * sin(coxa) * cos(femur),
-					PhantomXConst::kFemurLength * sin(femur) 
+					PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
+					PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
+					PhantomXMkIIConst::kFemurLength * sin(femur) 
 				};
 				leg_pos += designlab::Vector3{
-					PhantomXConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
-					PhantomXConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
-					PhantomXConst::kTibiaLength * sin(femur + tibia)
+					PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
+					PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
+					PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
 				};
 
 				node_.leg_pos[i] = leg_pos;

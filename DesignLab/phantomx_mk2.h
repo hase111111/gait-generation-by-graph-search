@@ -1,4 +1,4 @@
-//! @file phantomx_state_calculator.h
+//! @file phantomx_mk2.h
 //! @brief PhantomXの状態を計算するクラス．
 
 
@@ -12,14 +12,13 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
-//! @class PhantomXStateCalclator
-//! @brief PhantomXの状態を計算するクラス．
-//! @todo いろいろ怪しい設計なので，全面的に改修する．
-class PhantomXStateCalclator : public IHexapodCoordinateConverter, public IHexapodJointCalculator, public IHexapodStatePresenter, public IHexapodVaildChecker
+//! @class PhantomXMkII
+//! @brief PhantomX mk-2 の状態を計算するクラス．
+class PhantomXMkII : public IHexapodCoordinateConverter, public IHexapodJointCalculator, public IHexapodStatePresenter, public IHexapodVaildChecker
 {
 public:
 
-	PhantomXStateCalclator();
+	PhantomXMkII();
 
 
 	std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(const RobotStateNode& node) const noexcept override;

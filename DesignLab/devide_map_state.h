@@ -21,7 +21,7 @@ public:
 	//! @n マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．
 	//! @param [in] map_state マップのデータ．
 	//! @param [in] global_robot_com ロボットの重心のグローバル座標．
-	void Init(const MapState& map_state, const dl::Vector3 global_robot_com);
+	void Init(const MapState& map_state, const designlab::Vector3 global_robot_com);
 
 	//! @brief Devideマップのデータを初期化する．
 	void Clear();
@@ -147,4 +147,6 @@ private:
 	static_assert(kDevideMapMaxX > kDevideMapMinX, "kDevideMapMaxXはMinより大きい必要があります．");
 	static_assert(kDevideMapMaxY > kDevideMapMinY, "kDevideMapMaxYはMinより大きい必要があります．");
 };
-#endif
+
+
+#endif	// DESIGNLAB_DEVIDE_MAP_STATE_H_

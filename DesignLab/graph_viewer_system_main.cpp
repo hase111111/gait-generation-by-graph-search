@@ -11,7 +11,7 @@
 #include "graph_search_const.h"
 #include "node_initializer.h"
 #include "pass_finder_basic.h"
-#include "phantomx_state_calculator.h"
+#include "phantomx_mk2.h"
 
 
 namespace dlio = designlab::cmdio;

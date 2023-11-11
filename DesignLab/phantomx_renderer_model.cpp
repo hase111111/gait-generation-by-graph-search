@@ -9,7 +9,7 @@
 #include "designlab_rotation_matrix.h"
 #include "dxlib_util.h"
 #include "model_loader.h"
-#include "phantomx_const.h"
+#include "phantomx_mk2_const.h"
 
 
 namespace dlm = designlab::math_util;
@@ -144,12 +144,16 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 
 	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
 
+	// リンクが曲がっているため，簡単のために回転軸を結ぶように仮想的なリンクを使っている．
+	// そのため，仮想的なリンクの角度を補正する必要がある．
+	const float virtual_link_offset_angle = dlm::ConvertDegToRad(-13.5f);	
+	
 	const designlab::RotationMatrix3x3 kDefRotMat =
 		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
 		designlab::RotationMatrix3x3::CreateRotationMatrixY(-kFemurAngle) *
 		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
 		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(-90.f)) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixX(PhantomXConst::kFemurVirtualLinkOffsetAngle);
+		designlab::RotationMatrix3x3::CreateRotationMatrixX(virtual_link_offset_angle);
 
 	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
 		designlab::RotateVector3
