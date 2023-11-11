@@ -10,7 +10,7 @@
 #include <boost/thread.hpp>
 
 
-// テンプレートの実装は .hに書いたほうがいいらしい https://qiita.com/i153/items/38f9688a9c80b2cb7da7
+// テンプレートの実装はヘッダーに書く． https://qiita.com/i153/items/38f9688a9c80b2cb7da7
 
 
 //! @class AsyncableData
@@ -28,9 +28,13 @@
 //! @n 
 //! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
 //! @n 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
+//! @tparam T 非同期処理を行うデータ．代入を行うことができる型を指定すること．
+//! @n C++20ではconceptを使うことで，代入を行うことができる型を指定できる．アップデートしたらそれを使用する用に変更する．
 template <typename T>
 class AsyncableData
 {
+	static_assert(std::is_copy_assignable<T>::value, "代入を行うことができる型を指定してください．");
+
 public:
 
 	AsyncableData() : update_count_(0) {};
@@ -91,12 +95,12 @@ private:
 };
 
 
-//! @class AsyncableData< std::vector< T > >
+//! @class AsyncableData
 //! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 (vector版)
 //! @n コピー・ムーブは禁止
 //! @details vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
 template <typename T>
-class AsyncableData <std::vector<T>>
+class AsyncableData <std::vector<T> >
 {
 public:
 
@@ -136,7 +140,7 @@ public:
 		}
 	};
 
-	//! @brief push_backを行う．
+	//! @brief 最後尾に値を追加する．
 	//! @n この時，write lockをかける．
 	//! @n データの更新回数をインクリメントする．
 	//! @param [in] data 後ろに追加する値．const参照渡しされる．
@@ -153,7 +157,7 @@ public:
 		}
 	};
 
-	//! @brief cleanを行う．値をすべて削除する.
+	//! @brief 値をすべて削除する.
 	//! @n この時，write lockをかける．
 	//! @n データの更新回数をインクリメントする．
 	void Clean()
@@ -182,7 +186,7 @@ public:
 	//! @brief データの更新回数を返す．
 	//! @n この時，read lockをかける．
 	//! @n この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．
-	//! @return int データの更新回数
+	//! @return int データの更新回数．
 	int GetUpdateCount() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -192,7 +196,7 @@ public:
 
 private:
 
-	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex
+	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex．
 
 	std::vector<T> data_;
 
@@ -200,4 +204,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_ASYNCABLE_DATA_H_

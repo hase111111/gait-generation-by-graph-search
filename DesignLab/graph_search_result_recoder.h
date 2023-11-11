@@ -65,4 +65,4 @@ struct GraphSearchResultRecoder final
 };
 
 
-#endif
+#endif	// DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_

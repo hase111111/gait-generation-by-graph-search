@@ -42,4 +42,4 @@ struct SimulationResultRecorder final
 };
 
 
-#endif
+#endif	// DESIGNLAB_SIMULATION_RESULT_RECORDER_H_

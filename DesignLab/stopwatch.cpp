@@ -3,52 +3,55 @@
 #include "designlab_math_util.h"
 
 
-namespace dlm = designlab::math_util;
+namespace sc = ::std::chrono;
+namespace dlm = ::designlab::math_util;
 
 
 Stopwatch::Stopwatch() : 
-	start_time_(std::chrono::system_clock::now()),
-	end_time_(std::chrono::system_clock::now())
+	start_time_(sc::system_clock::now()),
+	end_time_(sc::system_clock::now())
 {
 }
 
 void Stopwatch::Start()
 {
-	start_time_ = std::chrono::system_clock::now();
+	start_time_ = sc::system_clock::now();
 }
 
 
 void Stopwatch::End()
 {
-	end_time_ = std::chrono::system_clock::now();
+	end_time_ = sc::system_clock::now();
 }
 
 
 double Stopwatch::GetElapsedSeconds() const
 {
-	auto dur = end_time_ - start_time_;        // 要した時間を計算
+	const auto dur = end_time_ - start_time_;        // 要した時間を計算
 
-	auto sec = std::chrono::duration_cast<std::chrono::seconds>(dur).count();	// 秒に変換
+	const long long sec = sc::duration_cast<sc::seconds>(dur).count();			// 秒に変換
+	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ミリ秒に変換
 
-	return static_cast<double>(sec);
+	return static_cast<double>(sec) + static_cast<double>(msec) / 1000.0;
 }
 
 
 double Stopwatch::GetElapsedMilliSecond() const
 {
-	auto dur = end_time_ - start_time_;        // 要した時間を計算
+	const auto dur = end_time_ - start_time_;        // 要した時間を計算
 
-	auto msec = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();		// ミリ秒に変換
+	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ミリ秒に変換
+	const long long usec = sc::duration_cast<sc::microseconds>(dur).count();	// マイクロ秒に変換
 
-	return static_cast<double>(msec);
+	return static_cast<double>(msec) + static_cast<double>(usec) / 1000.0;
 }
 
 
 double Stopwatch::GetElapsedMicroSecond() const
 {
-	auto dur = end_time_ - start_time_;        // 要した時間を計算
+	const auto dur = end_time_ - start_time_;        // 要した時間を計算
 
-	auto usec = std::chrono::duration_cast<std::chrono::microseconds>(dur).count();		// マイクロ秒に変換	
+	const auto usec = sc::duration_cast<sc::microseconds>(dur).count();		// マイクロ秒に変換	
 
 	return static_cast<double>(usec);
 }

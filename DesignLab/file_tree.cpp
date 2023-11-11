@@ -17,8 +17,10 @@ void FileTree::DisplayFileTree(const std::string& path, int max_depth) const
     OutputFileTree(tree, 0, true, &count);
 }
 
-bool FileTree::SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string* output)
+bool FileTree::SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string* output) const
 {
+    assert(output != nullptr);
+
     // ファイルツリーを作成
     FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
 

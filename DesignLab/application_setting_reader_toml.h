@@ -45,4 +45,4 @@ private:
 };
 
 
-#endif
+#endif	// APPLICATION_SETTING_READER_TOML_H_

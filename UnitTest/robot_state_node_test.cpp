@@ -14,7 +14,7 @@ namespace designlab::test::node
 	{
 		RobotStateNode node;
 		const auto zero_vec = dl::Vector3{0.f, 0.f, 0.f};
-		const auto zero_leg_pos = dl::make_array<dl::Vector3>(zero_vec, zero_vec, zero_vec, zero_vec, zero_vec, zero_vec);
+		const auto zero_leg_pos = dl::MakeArray<dl::Vector3>(zero_vec, zero_vec, zero_vec, zero_vec, zero_vec, zero_vec);
 		const auto zero_rot = dl::EulerXYZ{0.f, 0.f, 0.f};
 
 		EXPECT_EQ(node.leg_state.to_ullong(), 0);
@@ -36,7 +36,7 @@ namespace designlab::test::node
 			{DiscreteLegPos::kCenter, DiscreteLegPos::kBack, DiscreteLegPos::kLowerFront, 
 			DiscreteLegPos::kUpperBack, DiscreteLegPos::kUpperFront, DiscreteLegPos::kLowerBack}
 		);
-		const auto leg_pos = dl::make_array<dl::Vector3>(
+		const auto leg_pos = dl::MakeArray<dl::Vector3>(
 			dl::Vector3{ 1.f, 2.f, 3.f },
 			dl::Vector3{ 4.f, 5.f, 6.f },
 			dl::Vector3{ 7.f, 8.f, 9.f },
@@ -44,7 +44,7 @@ namespace designlab::test::node
 			dl::Vector3{ 13.f, 14.f, 15.f },
 			dl::Vector3{ 16.f, 17.f, 18.f }
 		);
-		const auto leg_reference_pos = dl::make_array<dl::Vector3>(
+		const auto leg_reference_pos = dl::MakeArray<dl::Vector3>(
 			dl::Vector3{ 19.f, 20.f, 21.f },
 			dl::Vector3{ 22.f, 23.f, 24.f },
 			dl::Vector3{ 25.f, 26.f, 27.f },

@@ -2,17 +2,19 @@
 
 #include <sstream>
 
-#include <magic_enum.hpp>
-
+#include "designlab_string_util.h"
 #include "leg_state.h"
 #include "hexapod_const.h"
+
+
+namespace dlsu = ::designlab::string_util;
 
 
 std::string SimulationResultRecorder::ToCsvString() const
 {
 	//シミュレーションの最終的な結果の出力
 	std::stringstream ss;
-	ss << "Simulation Result," << magic_enum::enum_name(simulation_result) << std::endl;
+	ss << "Simulation Result," << dlsu::MyEnumToString(simulation_result) << std::endl;
 	ss << std::endl;
 
 	ss << GraphSearchResultRecoder::GetCsvHeader() << std::endl;

@@ -28,4 +28,4 @@ public:
 };
 
 
-#endif
+#endif	// DESIGNLAB_INTERFACE_APPLICATION_SETTING_READER_H_

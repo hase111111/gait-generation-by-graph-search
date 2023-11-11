@@ -181,9 +181,9 @@ void GraphicMainTest::MoveLeg()
 
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0) 
 				{
-					float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+					const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
 					
-					coxa += spped;
+					coxa += speed;
 
 					coxa = PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax <= coxa ?
 						PhantomXConst::kCoxaDefaultAngle[i] + PhantomXConst::kCoxaAngleMax : coxa;
@@ -193,14 +193,13 @@ void GraphicMainTest::MoveLeg()
 				}
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0) 
 				{
-					float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+					const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
 					
-					femur += spped;
+					femur += speed;
 
-					femur = (femur + tibia - dlm::kFloatPi) > 0 ? femur - spped : femur;
+					femur = (femur + tibia - dlm::kFloatPi) > 0 ? femur - speed : femur;
 					femur = PhantomXConst::kFemurAngleMax <= femur ? PhantomXConst::kFemurAngleMax : femur;
 					femur = PhantomXConst::kFemurAngleMin >= femur ? PhantomXConst::kFemurAngleMin : femur;
-
 				}
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0) 
 				{

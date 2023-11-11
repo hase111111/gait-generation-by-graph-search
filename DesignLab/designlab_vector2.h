@@ -112,4 +112,4 @@ namespace designlab
 } // namespace designlab
 
 
-#endif	
+#endif	// DESIGNLAB_VECTOR2_H_

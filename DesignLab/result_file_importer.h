@@ -33,4 +33,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_RESULT_FILE_IMPORTER_H_

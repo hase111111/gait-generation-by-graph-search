@@ -205,13 +205,18 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 	double min_time = max_time;
 	double sum_time = 0.0;
 
-	for (const auto& i : recoder.graph_search_result_recoder)
+	if (recoder.graph_search_result_recoder.size() > 1) 
 	{
-		if (i.computation_time > max_time) { max_time = i.computation_time; }
+		for (size_t i = 1; i < recoder.graph_search_result_recoder.size(); ++i)
+		{
+			const double time = recoder.graph_search_result_recoder[i].computation_time;
 
-		if (i.computation_time < min_time) { min_time = i.computation_time; }
+			if (time > max_time) { max_time = time; }
 
-		sum_time += i.computation_time;
+			if (time < min_time) { min_time = time; }
+
+			sum_time += time;
+		}
 	}
 
 	const double average_time = sum_time / static_cast<double>(recoder.graph_search_result_recoder.size());

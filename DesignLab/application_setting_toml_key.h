@@ -10,7 +10,7 @@
 
 //! @struct TomlSettingKeyData
 //! @brief 設定ファイルのデータのキーをまとめた構造体
-struct TomlSettingKeyData
+struct TomlSettingKeyData final
 {
 	std::string table_name;		//!< データが入っているテーブル名
 	std::string key;			//!< キー名
@@ -20,7 +20,7 @@ struct TomlSettingKeyData
 
 //! @struct TomlSettingTableData
 //! @brief 設定ファイルのテーブルのデータをまとめた構造体
-struct TomlSettingTableData
+struct TomlSettingTableData final
 {
 	std::string table_name;		//!< テーブル名
 	std::string description;	//!< 説明

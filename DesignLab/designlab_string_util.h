@@ -33,6 +33,7 @@ namespace designlab
 		//! @n 例えば enum class Color { kRed, kGreen, kBlue } と書く．このため，この関数はそのkを除去する機能を提供し，Color::kRed を渡すと "Red" という文字列を返す．
 		//! @param [in] enum_value enumの要素．
 		//! @return std::string enumの要素を文字列にしたもの．
+		//! @tparam T enum型．
 		template <typename T>
 		std::string MyEnumToString( const T& enum_value )
 		{
@@ -55,4 +56,4 @@ namespace designlab
 }	// namespace designlab
 
 
-#endif	
+#endif	// DESIGNLAB_STRING_UTIL_H_

@@ -13,8 +13,8 @@ namespace designlab::test::node
 	{
 		const RobotStateNode node(
 			dllf::MakeLegStateBit(DiscreteComPos::kCenterFront, { true, true, false, true, false, true }, {}),
-			dl::make_array<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
-			dl::make_array<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
+			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
+			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::Vector3{ 300, 50, -10 },
 			dl::EulerXYZ{ 0.1f, 1.2f, 3.14f },
 			HexapodMove::kLegHierarchyChange,
@@ -45,8 +45,8 @@ namespace designlab::test::node
 	{
 		const RobotStateNode node(
 			dllf::MakeLegStateBit(DiscreteComPos::kCenterFront, { true, true, false, true, false, true }, {}),
-			dl::make_array<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
-			dl::make_array<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
+			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
+			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::Vector3{ 300, 50, -10 },
 			dl::EulerXYZ{ 0.1f, 1.2f, 3.14f },
 			HexapodMove::kLegHierarchyChange,

@@ -116,7 +116,7 @@ void SimulationSystemMain::Main()
 
 			record.graph_search_result_recoder.push_back (
 				// ノード，計算時間，結果を格納する．
-				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMicroSecond() / 1000.0, result_state }
+				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMilliSecond(), result_state}
 			);
 
 

@@ -48,7 +48,7 @@ namespace designlab
 
 		//! @brief 回転行列をXYZオイラー角に変換する．
 		//! @return XYZオイラー角
-		EulerXYZ ToEulerXYZ() const;
+		[[nodiscard]] EulerXYZ ToEulerXYZ() const;
 
 		//! @brief x軸周りに回転する回転行列を生成する
 		//! @param [in] angle 回転角 [rad]

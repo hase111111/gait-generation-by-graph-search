@@ -16,7 +16,7 @@
 
 //! @struct ApplicationSettingRecorder
 //! @brief アプリの設定を記録する構造体
-struct ApplicationSettingRecorder
+struct ApplicationSettingRecorder final
 {
 	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< 設定ファイルのタイトル
 
@@ -39,4 +39,4 @@ struct ApplicationSettingRecorder
 };
 
 
-#endif
+#endif	// DESIGNLAB_APPLICATION_SETTING_RECORDER_H_

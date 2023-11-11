@@ -14,32 +14,32 @@ namespace designlab
 	//! @brief 回転角行列からクォータニオンへの変換
 	//! @param[in] rot 回転角行列
 	//! @return クォータニオン
-	Quaternion ToQuaternion(const RotationMatrix3x3& rot);
+	[[nodiscard]] Quaternion ToQuaternion(const RotationMatrix3x3& rot);
 
 	//! @brief クォータニオンからXYZオイラー角への変換
 	//! @param[in] q クォータニオン
 	//! @return XYZオイラー角
-	Quaternion ToQuaternion(const EulerXYZ& e);
+	[[nodiscard]] Quaternion ToQuaternion(const EulerXYZ& e);
 
 	//! @brief クォータニオンから回転角行列への変換
 	//! @param[in] q クォータニオン
 	//! @return 回転角行列
-	RotationMatrix3x3 ToRotationMatrix(const Quaternion& q);
+	[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const Quaternion& q);
 
 	//! @brief XYZオイラー角から回転角行列への変換
 	//! @param[in] e XYZオイラー角
 	//! @return 回転角行列
-	RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& e);
+	[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& e);
 
 	//! @brief 回転角行列からXYZオイラー角への変換
 	//! @param[in] rot 回転角行列
 	//! @return XYZオイラー角
-	EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
+	[[nodiscard]] EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
 
 	//! @brief 回転角行列からクォータニオンへの変換
 	//! @param[in] e XYZオイラー角
 	//! @return クォータニオン
-	EulerXYZ ToEulerXYZ(const Quaternion& q);
+	[[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
 }
 
-#endif
+#endif	// DESIGNLAB_ROT_CONVERTER_H_

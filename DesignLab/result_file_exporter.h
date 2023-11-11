@@ -82,4 +82,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_RESULT_FILE_EXPORTER_H_
