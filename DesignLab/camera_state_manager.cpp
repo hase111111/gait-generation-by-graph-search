@@ -28,6 +28,9 @@ CameraStateManager::CameraStateManager() :
 	SetCameraPosAndRot();		//カメラ位置をセットする．
 
 	InitCaneraTargetLength();	//カメラの距離を初期化する．
+
+	now_camera_state_.camera_quat = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) * 
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetFrontVec());
 }
 
 
@@ -71,6 +74,24 @@ void CameraStateManager::Update()
 
 	//カメラ位置をセットする．
 	SetCameraPosAndRot();
+
+	if (kOutputDebugLog) 
+	{
+		printfDx("cameraの姿勢(クォータニオン) w = %f, v= { %f, %f, %f }\n",
+			now_camera_state_.camera_quat.w,
+			now_camera_state_.camera_quat.v.x,
+			now_camera_state_.camera_quat.v.y,
+			now_camera_state_.camera_quat.v.z
+		);
+
+		printfDx("cameraの注視点 x = %f, y = %f, z = %f\n",
+			now_camera_state_.target_pos.x,
+			now_camera_state_.target_pos.y,
+			now_camera_state_.target_pos.z
+		);
+
+		printfDx("cameraの距離 %f\n", now_camera_state_.length_camera_to_target);
+	}
 }
 
 

@@ -38,20 +38,12 @@ public:
 
 private:
 
-	bool IsStable(const RobotStateNode& node) const;
-
-	bool IsIntersectGround(const RobotStateNode& node) const;
-
-
 	const float kStableMargin;	//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
-
-	const DevideMapState map_;	//!< 地面の状態を格納したクラス
-
 	const ComCandidatePolygonMaker maker_;	//!< 候補地点を含む多角形を作成するクラス
+	const ComSelecterHato selecter_;		//!< 多角形から最適な地面を選択するクラス
 
-	const ComSelecterHato selecter_;	//!< 多角形から最適な地面を選択するクラス
-
+	const DevideMapState map_;		//!< 地面の状態を格納したクラス
 	const HexapodMove next_move_;	//!< 次の移動方向
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

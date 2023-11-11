@@ -66,18 +66,24 @@ designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const
 
 designlab::Quaternion designlab::SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const float t)
 {
+	assert(0 <= t && t <= 1);	// tが0~1の間に収まっているか確認
+
 	if(q1 == q2) { return q1; }	// クォータニオンが等しい場合は，q1を返す
 
 	// 球面線形補間を行う
 	float dot = q1.Dot(q2);		// 内積
-	float theta = acosf(dot);	// 角度
+
+	if(1.0f < dot) { dot = 1.0f; }			// 内積が1より小さい場合は，1にする
+	else if (dot < -1.0f) { dot = -1.0f; }	// 内積が-1より大きい場合は，-1にする
+
+	const float theta = acosf(dot);	// 角度
 	if (math_util::IsEqual(theta, 0.f)) { return q1; }	// 角度が0の場合は，q1を返す
 
-	float sin_theta = sinf(theta);			// sinθ
-	float sin_theta_inv = 1 / sin_theta;	// 1 / sinθ
+	const float sin_theta = sinf(theta);		// sinθ
+	const float sin_theta_inv = 1 / sin_theta;	// 1 / sinθ
 
-	float sin_t_theta = sinf(t * theta);			// sin(tθ)
-	float sin_1_t_theta = sinf((1 - t) * theta);	// sin((1-t)θ)
+	const float sin_t_theta = sinf(t * theta);			// sin(tθ)
+	const float sin_1_t_theta = sinf((1 - t) * theta);	// sin((1-t)θ)
 
 	return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;	// 補間されたクォータニオンを返す
 }

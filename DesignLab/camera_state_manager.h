@@ -98,6 +98,9 @@ private:
 	// now_camera_state_の値で，カメラの位置と姿勢をdxlibの関数でセットする	
 	void SetCameraPosAndRot();
 
+
+	constexpr static bool kOutputDebugLog = true;	//!< デバッグログを出力するかどうか
+
 	const designlab::Vector3 kDefaultCameraFrontVec;	//!< デフォルトのカメラの方向を表す単位ベクトル
 
 	const designlab::Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの方向を表す単位ベクトル

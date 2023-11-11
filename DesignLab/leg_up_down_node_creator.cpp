@@ -109,14 +109,13 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 				else
 				{
 					res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoodinate(j);
-					res_node.leg_pos[j].z = -25;
 
 					res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
 					res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;
 				}
 			}
 
-			if (checker_ptr_->CalculateStabilityMargin(res_node.leg_state,res_node.leg_pos) >= 0)
+			if (checker_ptr_->IsStable(res_node.leg_state, res_node.leg_pos))
 			{
 				//Ã“IˆÀ’è—]—T‚ª0ˆÈã‚È‚ç‚Î’Ç‰Á‚·‚éD
 				(*output_graph).push_back(res_node);

@@ -56,6 +56,10 @@ public:
 	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state,
 		const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
+	bool IsStable(const ::designlab::leg_func::LegStateBit& leg_state,
+		const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
+
+	bool IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const override;
 
 private:
 
@@ -72,7 +76,8 @@ private:
 	std::array<designlab::Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa jointの最小位置まで回した時の脚先座標．脚座標系のxyからみた座標．
 	std::array<designlab::Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa jointの最大位置まで回した時の脚先座標．脚座標系のxyからみた座標．
 
-	const float kFreeLegHeight = -20.f;			//!< 重心から見た遊脚高さ[mm]．
+	const float kFreeLegHeight{ -20.f };	//!< 重心から見た遊脚高さ[mm]．
+	const float kStableMargin{ 15.f };		//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
 
 
 	//!< 脚の付け根の座標( leg base position )．ロボット座標系．

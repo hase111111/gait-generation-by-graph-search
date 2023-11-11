@@ -51,7 +51,6 @@ void CameraGui::SetHexapodPos(const designlab::Vector3& pos)
 
 void CameraGui::Update()
 {
-
 	//Šeƒ{ƒ^ƒ“‚Ìˆ—
 	for (auto& button : button_list_)
 	{

@@ -443,6 +443,39 @@ float PhantomXMkII::CalculateStabilityMargin(const::designlab::leg_func::LegStat
 	return min_margin;
 }
 
+bool PhantomXMkII::IsStable(const::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
+{
+	// kStableMargin 以上の余裕があるか調べる
+	return CalculateStabilityMargin(leg_state, leg_pos) > kStableMargin;
+}
+
+bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const
+{
+	float top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		//脚の根元の座標(グローバル)を取得する
+		const designlab::Vector3 kCoxaPos = ConvertRobotToGlobalCoordinate(
+			GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.rot, false
+		);
+
+		if (devide_map.IsInMap(kCoxaPos))
+		{
+			const float map_top_z = devide_map.GetTopZ(devide_map.GetDevideMapIndexX(kCoxaPos.x), devide_map.GetDevideMapIndexY(kCoxaPos.y));
+
+			top_z = (std::max)(top_z, map_top_z);	//最も高い点を求める		
+		}
+	}
+
+	if (top_z + GetGroundHeightMarginMin() - dlm::kAllowableError < node.global_center_of_mass.z)
+	{
+		return false;
+	}
+
+	return true;
+}
+
 
 std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 {

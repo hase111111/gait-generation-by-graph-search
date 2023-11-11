@@ -64,22 +64,20 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 	{
 		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転
 
-		int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
+		const int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? 
+			Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
 
 		if (mouse_move != 0) 
 		{
-			dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
+			const dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
-			dl::Quaternion res = camera_manager->GetCameraQuat() * move_quat;
-
-			res = res.GetNormalized();
+			const dl::Quaternion res = (camera_manager->GetCameraQuat() * move_quat).GetNormalized();
 
 			camera_manager->SetCameraQuat(res);
 		}
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && Mouse::GetIns()->GetDiffPos() > kMouseMoveMargin)
 	{
-
 		//右クリックしていたらカメラの平行移動
 
 		if (camera_manager->GetCameraViewMode() != CameraViewMode::kFreeControlledAndMovableTarget)
@@ -93,7 +91,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 		if (abs(Mouse::GetIns()->GetDiffPosX()) > 0)
 		{
-			//Xの移動量が大きい場合は横移動量を移動量とする
+			//_Xの移動量が大きい場合は横移動量を移動量とする
 
 			move_vec_x = { 0, Mouse::GetIns()->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
 

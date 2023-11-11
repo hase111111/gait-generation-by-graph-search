@@ -39,4 +39,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_NODE_VALIDITY_CHECKER_H_
