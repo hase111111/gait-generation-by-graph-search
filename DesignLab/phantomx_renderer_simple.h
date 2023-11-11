@@ -43,11 +43,6 @@ private:
 	//! @brief ’Êí’Ê‚è‚Éƒƒ{ƒbƒg‚Ì•`‰æ‚ğ‚·‚é
 	void DrawHexapodNormal() const;
 
-	bool IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const;
-	bool IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const;
-	bool IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const;
-
-
 	const unsigned int kColorBody;			//!< “·‘Ì‚ÌF
 	const unsigned int kColorLeg;			//!< ‹r‚ÌF
 	const unsigned int kColorLiftedLeg;		//!< —V‹r‚µ‚Ä‚¢‚é‹r‚ÌF
@@ -77,6 +72,6 @@ private:
 	DisplayQuality display_quality_;	//!< •`‰æ•i¿
 };
 
-#endif
+#endif	// #ifndef DESIGNLAB_DONOT_USE_DXLIB
 
-#endif
+#endif	// #ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_

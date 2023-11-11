@@ -24,7 +24,6 @@
 
 #ifndef DESIGNLAB_DONOT_USE_DXLIB
 
-#include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "fps_controller.h"
 #include "graphic_data_broker.h"

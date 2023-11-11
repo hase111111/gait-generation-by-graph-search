@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="abstract_hexapod_state_calculator.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
@@ -93,7 +92,6 @@
     <ClInclude Include="fps_controller.h" />
     <ClInclude Include="camera_state_manager.h" />
     <ClInclude Include="graphic_data_broker.h" />
-    <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_system.h" />
     <ClInclude Include="graphic_const.h" />
     <ClInclude Include="hexapod_const.h" />
@@ -109,7 +107,6 @@
     <ClInclude Include="designlab_line_segment2.h" />
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
-    <ClInclude Include="phantomx_state_calculator_hato.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="node_validity_checker.h" />
@@ -134,7 +131,6 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="abstract_hexapod_state_calculator.cpp" />
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
@@ -170,7 +166,6 @@
     <ClCompile Include="node_creator_builder_hato.cpp" />
     <ClCompile Include="pass_finder_revaluation.cpp" />
     <ClCompile Include="phantomx_renderer_model.cpp" />
-    <ClCompile Include="phantomx_state_calculator_hato.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="stopwatch.cpp" />
@@ -188,7 +183,6 @@
     <ClCompile Include="fps_controller.cpp" />
     <ClCompile Include="camera_state_manager.cpp" />
     <ClCompile Include="graphic_const.cpp" />
-    <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_system.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />

@@ -54,38 +54,6 @@ void PhantomXRendererSimple::Draw() const
 {
 	// ロボットの描画
 	DrawHexapodNormal();
-
-
-	//// エラー出力．
-	//for (int i = 0; i < HexapodConst::kLegNum; i++)
-	//{
-	//	if (!dlm::IsEqual(draw_data_[i].coxa_link_length.value(), PhantomXConst::kCoxaLength))
-	//	{
-	//		DrawString(
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).x),
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[0] + draw_joint_state_[i].global_joint_position[1]) / 2)).y),
-	//			"Error : Coxa Length", kColorErrorText
-	//		);
-	//	}
-	//
-	//	if (!dlm::IsEqual(draw_data_[i].femur_link_length, PhantomXConst::kFemurLength))
-	//	{
-	//		DrawString(
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).x),
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[1] + draw_joint_state_[i].global_joint_position[2]) / 2)).y),
-	//			"Error : Femur Length", kColorErrorText
-	//		);
-	//	}
-	//
-	//	if (!dlm::IsEqual(draw_data_[i].tibia_link_length, PhantomXConst::kTibiaLength))
-	//	{
-	//		DrawString(
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).x),
-	//			static_cast<int>(ConvWorldPosToScreenPos(dldu::ConvertToDxlibVec((draw_joint_state_[i].global_joint_position[2] + draw_joint_state_[i].global_joint_position[3]) / 2)).y),
-	//			"Error : Tibia Length", kColorErrorText
-	//		);
-	//	}
-	//}
 }
 
 
@@ -190,24 +158,4 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		//脚の接地の基準地点の描画
 		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.leg_reference_pos[i]), kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
 	}
-}
-
-bool PhantomXRendererSimple::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
-{
-	if (abs((coxa_joint - femur_joint).GetLength() - PhantomXConst::kCoxaLength) < dlm::kAllowableError) { return true; }
-	return false;
-}
-
-
-bool PhantomXRendererSimple::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
-{
-	if (abs((femur_joint - tibia_joint).GetLength() - PhantomXConst::kFemurLength) < dlm::kAllowableError) { return true; }
-	return false;
-}
-
-
-bool PhantomXRendererSimple::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
-{
-	if (abs((tibia_joint - leg_joint).GetLength() - PhantomXConst::kTibiaLength) < 10) { return true; }
-	return false;
 }

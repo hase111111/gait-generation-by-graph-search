@@ -8,7 +8,6 @@
 #include <memory>
 #include <vector>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "graph_search_result_recoder.h"
 #include "robot_state_node.h"
 #include "target.h"

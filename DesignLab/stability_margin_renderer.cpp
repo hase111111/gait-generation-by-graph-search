@@ -9,8 +9,9 @@
 #include "leg_state.h"
 
 
-namespace dllf = designlab::leg_func;
-namespace dldu = designlab::dxlib_util;
+namespace dl = ::designlab;
+namespace dllf = ::designlab::leg_func;
+namespace dldu = ::designlab::dxlib_util;
 
 
 StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
@@ -24,11 +25,11 @@ StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHe
 
 void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 {
-	designlab::Polygon2 polygon_xy;			//平面に投影した多角形
+	dl::Polygon2 polygon_xy;			//平面に投影した多角形．
 
-	std::vector<designlab::Vector3> polygon;	//多角形の頂点
+	std::vector<dl::Vector3> polygon;	//多角形の頂点．
 
-	designlab::Vector3 polygon_sum{0, 0, 0};	//多角形の頂点の合計
+	dl::Vector3 polygon_sum{0, 0, 0};	//多角形の頂点の合計，重心を求めるために使用する
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -39,7 +40,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 				converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, true)
 			);
 
-			polygon.back() += designlab::Vector3{0, 0, 5};
+			polygon.back() += dl::Vector3{0, 0, 5};	//わかりやすさのため，高さを少し上げる
 
 			polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
@@ -48,12 +49,14 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 
 	}
 
-	designlab::Vector3 center = polygon_sum / static_cast<float>(polygon.size());
+	// 重心の座標
+	const dl::Vector3 center = polygon_sum / static_cast<float>(polygon.size());
 
 
+	//多角形を描画する
 	for (size_t i = 0; i < polygon.size(); i++)
 	{
-		VECTOR poly[3] = {
+		const VECTOR poly[3] = {
 			dldu::ConvertToDxlibVec(polygon[i]),
 			dldu::ConvertToDxlibVec(polygon[(i + 1) % polygon.size()]),
 			dldu::ConvertToDxlibVec(center)
@@ -75,10 +78,10 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 	}
 
 	//投射した重心を描画する
-	VECTOR projected_center = dldu::ConvertToDxlibVec(
+	VECTOR projected_center_pos = dldu::ConvertToDxlibVec(
 		//わかりやすさのため，重心の高さを少し上げる
 		{ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 }	
 	);
 
-	DrawSphere3D(projected_center, 5, 10, 10, GetColor(255, 255, 255), TRUE);
+	DrawSphere3D(projected_center_pos, 5, 10, 10, GetColor(255, 255, 255), TRUE);
 }

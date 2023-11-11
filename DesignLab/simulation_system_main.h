@@ -7,7 +7,6 @@
 #include <memory>
 #include <string>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "application_setting_recorder.h"
 #include "graphic_data_broker.h"
 #include "interface_map_creator.h"

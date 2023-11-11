@@ -16,8 +16,8 @@ namespace dllf = designlab::leg_func;
 
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateNode>* const p_graph, size_t* const p_display_node_index,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
-	mp_graph(p_graph),
-	mp_display_node_index(p_display_node_index),
+	graph_ptr_(p_graph),
+	display_node_index_ptr_(p_display_node_index),
 	setting_ptr_(setting_ptr)
 {
 }
@@ -25,25 +25,25 @@ GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateN
 
 void GraphViewerGUIController::Update()
 {
-	inputNumber();
-	updateChildrenList();
-	changeDisplayNodeIndex();
+	InputNumber();
+	UpdateChildrenList();
+	ChangeDisplayNodeIndex();
 }
 
 
 void GraphViewerGUIController::Draw() const
 {
-	drawGraphData();
-	drawNodeControllPanel();
+	DrawGraphData();
+	DrawNodeControllPanel();
 
-	if (mp_graph->size() != 0 && *mp_display_node_index < mp_graph->size())
+	if (graph_ptr_->size() != 0 && *display_node_index_ptr_ < graph_ptr_->size())
 	{
-		//drawNodeData(mp_graph->at(*mp_display_node_index));
+		//DrawNodeData(graph_ptr_->at(*display_node_index_ptr_));
 	}
 }
 
 
-void GraphViewerGUIController::drawGraphData() const
+void GraphViewerGUIController::DrawGraphData() const
 {
 	const int kBoxSizeX = 250;
 	const int kBoxSizeY = 200;
@@ -59,26 +59,26 @@ void GraphViewerGUIController::drawGraphData() const
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 
 	// テキスト
-	if (mp_graph->size() == 0)
+	if (graph_ptr_->size() == 0)
 	{
 		DrawString(kBoxMinX + 10, kBoxMinY + 10, "ノード数 : 0", kTextColor);
 		DrawString(kBoxMinX + 10, kBoxMinY + 30, "グラフを生成してください", kTextColor);
 	}
 	else
 	{
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "総ノード数:%d", mp_graph->size());
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "表示ノード:%d番", *mp_display_node_index);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "総ノード数:%d", graph_ptr_->size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "表示ノード:%d番", *display_node_index_ptr_);
 
 		//深さごとのノードの数
-		for (size_t i = 0; i < m_graph_node_depth_data.size(); i++)
+		for (size_t i = 0; i < graph_node_depth_data_.size(); i++)
 		{
-			DrawFormatString(kBoxMinX + 10, kBoxMinY + 50 + 20 * (int)i, kTextColor, "　(深さ%dのノード:%d)", (int)i, (int)m_graph_node_depth_data.at(i));
+			DrawFormatString(kBoxMinX + 10, kBoxMinY + 50 + 20 * (int)i, kTextColor, "　(深さ%dのノード:%d)", (int)i, (int)graph_node_depth_data_.at(i));
 		}
 	}
 }
 
 
-void GraphViewerGUIController::drawNodeControllPanel() const
+void GraphViewerGUIController::DrawNodeControllPanel() const
 {
 	const int kBoxSizeX = 350;
 	const int kBoxSizeY = 250;
@@ -95,26 +95,26 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 
 	// テキスト
 	DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "input ( C でクリア)");
-	if (m_input_number < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　数字を入力してください");
-	else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　%d", m_input_number);
+	if (input_number_ < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　数字を入力してください");
+	else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　%d", input_number_);
 
-	if (mp_graph->size() > *mp_display_node_index)
+	if (graph_ptr_->size() > *display_node_index_ptr_)
 	{
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%d番ノードの親ノード:%d番", *mp_display_node_index, mp_graph->at(*mp_display_node_index).parent_num);
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%d番ノードの子ノード数:%d個", m_childen_list.first, m_childen_list.second.size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%d番ノードの親ノード:%d番", *display_node_index_ptr_, graph_ptr_->at(*display_node_index_ptr_).parent_num);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%d番ノードの子ノード数:%d個", childen_list_.first, childen_list_.second.size());
 
-		std::string str = m_childen_list.second.size() == 0 ? "None" : "　";
+		std::string str = childen_list_.second.size() == 0 ? "None" : "　";
 
-		for (size_t i = 0; i < m_childen_list.second.size(); i++)
+		for (size_t i = 0; i < childen_list_.second.size(); i++)
 		{
 			if (i > (size_t)6 * 5 - 1) { str += "..."; break; }
 
-			str += std::to_string(m_childen_list.second.at(i)) + ",";
+			str += std::to_string(childen_list_.second.at(i)) + ",";
 
 			if (i % 6 == 0 && i != 0) { str += "\n　"; }
 		}
 
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d番ノードの子ノードリスト", m_childen_list.first);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d番ノードの子ノードリスト", childen_list_.first);
 		DrawFormatString(kBoxMinX + 10, kBoxMinY + 130, kTextColor, str.c_str());
 		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "　(子ノードリストの更新は U )");
 		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "　(上下キーでノード移動)");
@@ -124,7 +124,7 @@ void GraphViewerGUIController::drawNodeControllPanel() const
 }
 
 
-void GraphViewerGUIController::drawNodeData(const RobotStateNode& node) const
+void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 {
 	const int kBoxSizeX = 400;
 	const int KBoxSizeY = 300;
@@ -176,12 +176,12 @@ void GraphViewerGUIController::drawNodeData(const RobotStateNode& node) const
 }
 
 
-void GraphViewerGUIController::inputNumber()
+void GraphViewerGUIController::InputNumber()
 {
 	// Cキーでリセット
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) == 1)
 	{
-		m_input_number = -1;
+		input_number_ = -1;
 		return;
 	}
 
@@ -201,99 +201,99 @@ void GraphViewerGUIController::inputNumber()
 
 	if (input_number >= 0)
 	{
-		if (m_input_number < 0)
+		if (input_number_ < 0)
 		{
-			m_input_number = input_number;
+			input_number_ = input_number;
 		}
 		else
 		{
-			m_input_number *= 10;
-			m_input_number += input_number;
+			input_number_ *= 10;
+			input_number_ += input_number;
 		}
 	}
 }
 
 
-void GraphViewerGUIController::changeDisplayNodeIndex()
+void GraphViewerGUIController::ChangeDisplayNodeIndex()
 {
-	if (mp_graph->size() == 0) return;
+	if (graph_ptr_->size() == 0) return;
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) == 1)
 	{
-		(*mp_display_node_index)--;
+		(*display_node_index_ptr_)--;
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) == 1)
 	{
-		(*mp_display_node_index)++;
+		(*display_node_index_ptr_)++;
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RETURN) == 1)
 	{
-		(*mp_display_node_index) = m_input_number;
-		m_input_number = -1;
+		(*display_node_index_ptr_) = input_number_;
+		input_number_ = -1;
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) == 1)
 	{
-		if (mp_graph->size() > *mp_display_node_index)
+		if (graph_ptr_->size() > *display_node_index_ptr_)
 		{
-			(*mp_display_node_index) = mp_graph->at(*mp_display_node_index).parent_num;
+			(*display_node_index_ptr_) = graph_ptr_->at(*display_node_index_ptr_).parent_num;
 		}
 	}
-	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) == 1 && !m_childen_list.second.empty())
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) == 1 && !childen_list_.second.empty())
 	{
-		m_display_children_list_index--;
+		display_children_list_index_--;
 
-		if (m_display_children_list_index < 0) m_display_children_list_index = (int)m_childen_list.second.size() - 1;
-		m_display_children_list_index = m_display_children_list_index < 0 ? 0 : m_display_children_list_index;
+		if (display_children_list_index_ < 0) display_children_list_index_ = (int)childen_list_.second.size() - 1;
+		display_children_list_index_ = display_children_list_index_ < 0 ? 0 : display_children_list_index_;
 
-		(*mp_display_node_index) = m_childen_list.second.at(m_display_children_list_index);
+		(*display_node_index_ptr_) = childen_list_.second.at(display_children_list_index_);
 	}
-	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) == 1 && !m_childen_list.second.empty())
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) == 1 && !childen_list_.second.empty())
 	{
-		m_display_children_list_index++;
+		display_children_list_index_++;
 
-		if (m_display_children_list_index >= m_childen_list.second.size()) m_display_children_list_index = 0;
-		(*mp_display_node_index) = m_childen_list.second.at(m_display_children_list_index);
+		if (display_children_list_index_ >= childen_list_.second.size()) display_children_list_index_ = 0;
+		(*display_node_index_ptr_) = childen_list_.second.at(display_children_list_index_);
 	}
 
 
-	if (*mp_display_node_index < 0)*mp_display_node_index = mp_graph->size() - 1;
-	else if (*mp_display_node_index >= mp_graph->size()) *mp_display_node_index = 0;
+	if (*display_node_index_ptr_ < 0)*display_node_index_ptr_ = graph_ptr_->size() - 1;
+	else if (*display_node_index_ptr_ >= graph_ptr_->size()) *display_node_index_ptr_ = 0;
 }
 
 
-void GraphViewerGUIController::updateChildrenList()
+void GraphViewerGUIController::UpdateChildrenList()
 {
-	if (mp_graph->size() == 0) return;
+	if (graph_ptr_->size() == 0) return;
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_U) == 1)
 	{
-		m_childen_list.first = (int)(*mp_display_node_index);
-		m_childen_list.second.clear();
+		childen_list_.first = (int)(*display_node_index_ptr_);
+		childen_list_.second.clear();
 
-		const size_t kGraphSize = mp_graph->size();
+		const size_t kGraphSize = graph_ptr_->size();
 
 		for (size_t i = 0; i < kGraphSize; i++)
 		{
-			if (mp_graph->at(i).parent_num == m_childen_list.first)
+			if (graph_ptr_->at(i).parent_num == childen_list_.first)
 			{
-				m_childen_list.second.push_back((int)i);
+				childen_list_.second.push_back((int)i);
 			}
 		}
 	}
 }
 
 
-void GraphViewerGUIController::updateGraphNodeDepthData()
+void GraphViewerGUIController::UpdateGraphNodeDepthData()
 {
-	m_graph_node_depth_data.clear();
+	graph_node_depth_data_.clear();
 
-	if (mp_graph->size() > 0)
+	if (graph_ptr_->size() > 0)
 	{
-		m_graph_node_depth_data.resize((size_t)GraphSearchConst::kMaxDepth + 1);
+		graph_node_depth_data_.resize((size_t)GraphSearchConst::kMaxDepth + 1);
 
-		for (size_t i = 0; i < mp_graph->size(); ++i)
+		for (size_t i = 0; i < graph_ptr_->size(); ++i)
 		{
-			m_graph_node_depth_data.at(static_cast<size_t>(mp_graph->at(i).depth))++;
+			graph_node_depth_data_.at(static_cast<size_t>(graph_ptr_->at(i).depth))++;
 		}
 	}
 }

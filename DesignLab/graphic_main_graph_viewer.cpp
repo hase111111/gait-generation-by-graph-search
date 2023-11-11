@@ -27,16 +27,14 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	graph_({}),
 	display_node_index_(0),
 	map_update_count_(0),
-	graph_update_count_(0)
+	graph_update_count_(0),
+	gui_controller_ptr_(std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr))
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	NodeInitializer node_initializer;
 	RobotStateNode init_node = node_initializer.InitNode();
 
 	hexapod_renderer_->SetDrawNode(init_node);
-
-	// GUI にグラフのポインタを渡す.
-	gui_controller_ptr_ = std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr);
 }
 
 
@@ -60,7 +58,7 @@ bool GraphicMainGraphViewer::Update()
 		//グラフの中身が空でないならば，表示するノードを初期化する
 		if (!graph_.empty()) { display_node_index_ = 0; }
 
-		gui_controller_ptr_->updateGraphNodeDepthData();
+		gui_controller_ptr_->UpdateGraphNodeDepthData();
 
 		graph_update_count_ = broker_ptr_->graph.GetUpdateCount();
 	}

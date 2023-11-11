@@ -56,7 +56,7 @@ private:
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< ロボットの座標計算クラス．
 
-	size_t loaded_node_num_;	//!< 読み込んだノードの数，データが更新されるたび毎回全部読込なおさないように，読み込んだノードの数を記憶しておく
+	size_t loaded_node_num_;	//!< 読み込んだノードの数，データが更新されるたび毎回全部読込なおさないように，すでに読み込んだノードの数を記憶しておく
 
 	//!< ロボットの脚接地点の座標，graund_point[シミュレーション番号][ノード番号][脚番号]の順でアクセスする
 	std::vector<std::vector<std::array<VectorAndIsGround, HexapodConst::kLegNum>>> graund_point_;

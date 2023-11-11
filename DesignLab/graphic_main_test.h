@@ -53,7 +53,7 @@ private:
 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr_;
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr_;
-	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ロボットを表示するクラス．
+	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	
 
 	MapState map_state_;				//!< マップの状態を保持するクラス．
 

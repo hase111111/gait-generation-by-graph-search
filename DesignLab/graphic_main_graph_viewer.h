@@ -40,19 +40,19 @@ public:
 
 private:
 
-	std::shared_ptr<const GraphicDataBroker> broker_ptr_;
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
 
 
 	CameraGui camera_gui_;
 
 	NodeDisplayGui node_display_gui_;
 
-	std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
+	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
 
 	MapState map_state_;
 
-	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;
+	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;
 
 
 	std::vector<RobotStateNode> graph_;

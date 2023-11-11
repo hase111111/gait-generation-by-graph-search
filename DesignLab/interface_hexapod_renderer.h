@@ -17,6 +17,7 @@ public:
 	virtual ~IHexapodRenderer() = default;
 
 	//! @brief ロボットの状態を更新する．
+	//! @n 更新の際に，ジョイントの計算が入る可能性があるため，計算負荷が高い．連続して呼び出さないこと．
 	//! @param [in] node 描画するロボットの状態
 	virtual void SetDrawNode(const RobotStateNode& node) = 0;
 
@@ -25,4 +26,4 @@ public:
 };
 
 
-#endif
+#endif	// #ifndef INTERFACE_HEXAPOD_RENDERER_H_

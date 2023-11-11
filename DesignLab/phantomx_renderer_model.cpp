@@ -51,31 +51,9 @@ void PhantomXRendererModel::Draw() const
 	}
 }
 
-bool PhantomXRendererModel::IsAbleCoxaLeg(const designlab::Vector3& coxa_joint, const designlab::Vector3& femur_joint) const
-{
-	if (dlm::IsEqual((coxa_joint - femur_joint).GetLength(), PhantomXConst::kCoxaLength)) { return true; }
-	return false;
-}
-
-
-bool PhantomXRendererModel::IsAbleFemurLeg(const designlab::Vector3& femur_joint, const designlab::Vector3& tibia_joint) const
-{
-	if (dlm::IsEqual((femur_joint - tibia_joint).GetLength(), PhantomXConst::kFemurLength)) { return true; }
-	return false;
-}
-
-
-bool PhantomXRendererModel::IsAbleTibiaLeg(const designlab::Vector3& tibia_joint, const designlab::Vector3& leg_joint) const
-{
-	if (dlm::IsEqual((tibia_joint - leg_joint).GetLength(), PhantomXConst::kTibiaLength) ) { return true; }
-	return false;
-}
-
 void PhantomXRendererModel::DrawBody() const
 {
-	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
-	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int body_model_handle = ModelLoader::GetIns()->LoadModel("model/body.mv1");
+	const int body_model_handle = ModelLoader::GetIns()->GetModelHandle("model/body.mv1");
 
 	// モデルの読み込みがされていなければ描画しない(というかできない)
 	if (body_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(body_model_handle)"); }
@@ -95,9 +73,7 @@ void PhantomXRendererModel::DrawBody() const
 
 void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 {
-	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
-	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int coxa_model_handle = ModelLoader::GetIns()->LoadModel("model/coxa_fixed.mv1");
+	const int coxa_model_handle = ModelLoader::GetIns()->GetModelHandle("model/coxa_fixed.mv1");
 
 	if (coxa_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(coxa_model_handle)"); }
 
@@ -144,11 +120,9 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	}
 }
 
-void PhantomXRendererModel::DrawFemurLink(int leg_index) const
+void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 {
-	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
-	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int thign_model_handle = ModelLoader::GetIns()->LoadModel("model/thign_l.mv1");
+	const int thign_model_handle = ModelLoader::GetIns()->GetModelHandle("model/thign_l.mv1");
 
 	if (thign_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(thign_model_handle)"); }
 
@@ -201,7 +175,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 {
 	// モデルの読み込みを行う．ここで呼び出すと毎フレーム読み込むことになりそうだが，実際は既に読込済みならばそのハンドルが返ってくるだけなので問題ない．
 	// こんなところでこの処理を書いているのは，コンストラクタで呼び出すと，Dxlibの初期化が終わっていないので，エラーが出るからである．
-	int tibia_model_handle = ModelLoader::GetIns()->LoadModel("model/tibia_l_fixed.mv1");
+	int tibia_model_handle = ModelLoader::GetIns()->GetModelHandle("model/tibia_l_fixed.mv1");
 
 	if (tibia_model_handle == -1) { printfDx("モデルの読み込みに失敗しました．(tibia_model_handle)"); }
 
@@ -342,5 +316,4 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 }
 
 
-
-#endif
+#endif	// #ifndef DESIGNLAB_DONOT_USE_DXLIB

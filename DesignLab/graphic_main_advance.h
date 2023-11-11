@@ -59,7 +59,7 @@ private:
 	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
 
 
-	std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ロボットを表示するクラス．	
+	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ロボットを表示するクラス．	
 
 	MovementLocusRenderer movement_locus_renderer_;			//!< ロボットの動きの軌跡を表示するクラス．
 

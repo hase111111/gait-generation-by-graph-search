@@ -9,7 +9,6 @@
 #include <map>
 #include <memory>
 
-#include "abstract_hexapod_state_calculator.h"
 #include "interface_node_creator.h"
 #include "interface_node_creator_builder.h"
 

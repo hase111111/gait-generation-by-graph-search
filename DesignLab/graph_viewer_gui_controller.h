@@ -10,6 +10,7 @@
 #include "application_setting_recorder.h"
 #include "robot_state_node.h"
 
+//! @todo 仮置きのはずが，本実装になっているので，後で直す
 
 //! @class GraphViewerGUIController
 //! @brief グラフのノードのデータを表示するGUIのコントローラークラス
@@ -24,29 +25,29 @@ public:
 
 	void Draw() const;
 
-	void updateGraphNodeDepthData();
+	void UpdateGraphNodeDepthData();
 
 private:
 
-	void drawGraphData() const;
-	void drawNodeControllPanel() const;
-	void drawNodeData(const RobotStateNode& node) const;
+	void DrawGraphData() const;
+	void DrawNodeControllPanel() const;
+	void DrawNodeData(const RobotStateNode& node) const;
 
-	void inputNumber();
-	void changeDisplayNodeIndex();
-	void updateChildrenList();
+	void InputNumber();
+	void ChangeDisplayNodeIndex();
+	void UpdateChildrenList();
 
-	const std::vector<RobotStateNode>* const mp_graph;
+	const std::vector<RobotStateNode>* const graph_ptr_;
 
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
 
 
-	size_t* const mp_display_node_index;
-	std::pair<int, std::vector<int>> m_childen_list = std::make_pair<int, std::vector<int>>(-1, {});	//子ノードのリスト
-	int m_display_children_list_index = 0;	//表示する子ノードのリストのインデックス
+	size_t* const display_node_index_ptr_;
+	std::pair<int, std::vector<int>> childen_list_ = std::make_pair<int, std::vector<int>>(-1, {});	//子ノードのリスト
+	int display_children_list_index_ = 0;	//表示する子ノードのリストのインデックス
 
-	std::vector<int> m_graph_node_depth_data;	//各深さごとのノード数のデータ
-	int m_input_number = -1;	//入力された数値
+	std::vector<int> graph_node_depth_data_;	//各深さごとのノード数のデータ
+	int input_number_ = -1;	//入力された数値
 };
 
 

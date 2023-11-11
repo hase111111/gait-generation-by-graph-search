@@ -3,7 +3,7 @@
 #include <DxLib.h>
 
 
-int ModelLoader::LoadModel(const std::string file_path)
+int ModelLoader::GetModelHandle(const std::string& file_path)
 {
 	//すでに読み込み済みのモデルの場合は，ハンドル番号を返す．
 	if (model_handle_map_.count(file_path) != 0)

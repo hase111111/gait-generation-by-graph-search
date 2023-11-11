@@ -144,9 +144,6 @@
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_main_basic.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_const.h">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClInclude>
@@ -291,9 +288,6 @@
     <ClInclude Include="stability_margin_renderer.h">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="abstract_hexapod_state_calculator.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
     <ClInclude Include="phantomx_state_calculator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -350,9 +344,6 @@
     </ClInclude>
     <ClInclude Include="node_creator_builder_hato.h">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="phantomx_state_calculator_hato.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
       <Filter>ソース ファイル\GraphicSystem</Filter>
@@ -485,9 +476,6 @@
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\GraphicSystem</Filter>
     </ClCompile>
-    <ClCompile Include="graphic_main_basic.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
-    </ClCompile>
     <ClCompile Include="graphic_const.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common</Filter>
     </ClCompile>
@@ -611,9 +599,6 @@
     <ClCompile Include="stability_margin_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="abstract_hexapod_state_calculator.cpp">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
     <ClCompile Include="phantomx_state_calculator.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
@@ -646,9 +631,6 @@
     </ClCompile>
     <ClCompile Include="node_creator_builder_hato.cpp">
       <Filter>ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder</Filter>
-    </ClCompile>
-    <ClCompile Include="phantomx_state_calculator_hato.cpp">
-      <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
     <ClCompile Include="designlab_rotation_matrix.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>

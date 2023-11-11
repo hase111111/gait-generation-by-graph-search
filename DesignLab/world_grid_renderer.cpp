@@ -25,7 +25,7 @@ void WorldGridRenderer::Draw() const
 	const float kGridMinY = -kGridMaxY;
 
 
-	// X²‚ÆY²‚ÌŠiqü‚ğ•`‰æ‚·‚é
+	//_ X²‚ÆY²‚ÌŠiqü‚ğ•`‰æ‚·‚é
 	DrawLine3D(VGet(kGridMinX, 0.0f, kGridLineZPos), VGet(kGridMaxX, 0.0f, kGridLineZPos), kMainGridXColor);
 	DrawLine3D(VGet(0.0f, kGridMinY, kGridLineZPos), VGet(0.0f, kGridMaxY, kGridLineZPos), kMainGridYColor);
 
