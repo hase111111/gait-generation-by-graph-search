@@ -31,4 +31,4 @@ private:
 	BootMode default_mode_;	//!< デフォルトの起動モード
 };
 
-#endif
+#endif	// DESIGNLAB_BOOT_MODE_SELECTER_H_

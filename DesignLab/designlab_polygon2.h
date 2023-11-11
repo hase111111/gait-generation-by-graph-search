@@ -206,4 +206,4 @@ namespace designlab
 }	// namespace designlab
 
 
-#endif // !DESIGNLAB_POLYGON2_H
+#endif // DESIGNLAB_POLYGON2_H

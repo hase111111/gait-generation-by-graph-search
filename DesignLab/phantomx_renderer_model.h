@@ -57,6 +57,6 @@ private:
 	DisplayQuality display_quality_;	//!< •`‰æ•iŽ¿
 };
 
-#endif	// #ifndef DESIGNLAB_DONOT_USE_DXLIB
+#endif	// DESIGNLAB_DONOT_USE_DXLIB
 
-#endif	// #ifndef DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
+#endif	// DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_

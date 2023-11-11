@@ -116,4 +116,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_CAMERA_MANAGER_H_
+#endif // DESIGNLAB_CAMERA_MANAGER_H_

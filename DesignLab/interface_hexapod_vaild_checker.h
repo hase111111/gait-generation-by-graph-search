@@ -1,8 +1,8 @@
 //! @file interface_hexapod_vaild_checker.h
 //! @brief 6脚ロボットが有効な姿勢をとっているかをチェックするクラス
 
-#ifndef INTERFACE_HEXAPOD_VAILD_CHECKER_H
-#define INTERFACE_HEXAPOD_VAILD_CHECKER_H
+#ifndef DESIGNLAB_INTERFACE_HEXAPOD_VAILD_CHECKER_H_
+#define DESIGNLAB_INTERFACE_HEXAPOD_VAILD_CHECKER_H_
 
 #include <array>
 
@@ -55,4 +55,4 @@ public:
 };
 
 
-#endif	// INTERFACE_HEXAPOD_VAILD_CHECKER_H
+#endif	// DESIGNLAB_INTERFACE_HEXAPOD_VAILD_CHECKER_H_

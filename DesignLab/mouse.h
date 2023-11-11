@@ -79,4 +79,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_MOUSE_H_
+#endif // DESIGNLAB_MOUSE_H_

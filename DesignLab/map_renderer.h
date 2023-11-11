@@ -47,4 +47,4 @@ private:
 };
 
 
-#endif //DESIGNLAB_MAP_RENDERER_H_
+#endif // DESIGNLAB_MAP_RENDERER_H_

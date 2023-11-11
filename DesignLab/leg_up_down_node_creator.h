@@ -56,4 +56,4 @@ private:
 };
 
 
-#endif	//DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
+#endif	// DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_

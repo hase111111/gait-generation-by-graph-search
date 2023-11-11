@@ -34,4 +34,4 @@ public:
 };
 
 
-#endif	// #ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
+#endif	// DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_

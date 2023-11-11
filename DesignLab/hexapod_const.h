@@ -29,4 +29,4 @@ public:
 };
 
 
-#endif
+#endif	// DESIGNLAB_HEXAPOD_CONST_H_

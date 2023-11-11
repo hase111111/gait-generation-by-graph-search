@@ -2,8 +2,8 @@
 //! @brief 6脚ロボットの描画のインターフェース
 
 
-#ifndef INTERFACE_HEXAPOD_RENDERER_H_
-#define INTERFACE_HEXAPOD_RENDERER_H_
+#ifndef DESIGNLAB_INTERFACE_HEXAPOD_RENDERER_H_
+#define DESIGNLAB_INTERFACE_HEXAPOD_RENDERER_H_
 
 #include "robot_state_node.h"
 
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif	// #ifndef INTERFACE_HEXAPOD_RENDERER_H_
+#endif	// DESIGNLAB_INTERFACE_HEXAPOD_RENDERER_H_

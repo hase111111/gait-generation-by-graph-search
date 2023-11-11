@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif
+#endif	// DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_

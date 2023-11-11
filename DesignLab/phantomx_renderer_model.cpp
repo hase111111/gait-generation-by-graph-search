@@ -320,4 +320,4 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 }
 
 
-#endif	// #ifndef DESIGNLAB_DONOT_USE_DXLIB
+#endif	// DESIGNLAB_DONOT_USE_DXLIB

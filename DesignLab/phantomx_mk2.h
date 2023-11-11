@@ -2,8 +2,8 @@
 //! @brief PhantomXの状態を計算するクラス．
 
 
-#ifndef DESIGNLAB_PHANTOMX_STATE_CALCULATOR_H_
-#define DESIGNLAB_PHANTOMX_STATE_CALCULATOR_H_
+#ifndef DESIGNLAB_PHANTOMX_MK2_H_
+#define DESIGNLAB_PHANTOMX_MK2_H_
 
 
 #include "interface_hexapod_coordinate_converter.h"
@@ -93,4 +93,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_PHANTOMX_MK2_H_

@@ -96,4 +96,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
+#endif // DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_

@@ -41,4 +41,4 @@ protected:
 };
 
 
-#endif //DESIGNLAB_SINGLETON_H_
+#endif // DESIGNLAB_SINGLETON_H_

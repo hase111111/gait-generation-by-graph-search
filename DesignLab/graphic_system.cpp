@@ -178,4 +178,4 @@ void GraphicSystem::MyDxlibFinalize() const
 	//‚Ù‚©‚É‚àˆ—‚ª‚ ‚ê‚Î‚±‚±‚É’Ç‹L‚·‚é
 }
 
-#endif
+#endif	// DESIGNLAB_DONOT_USE_DXLIB

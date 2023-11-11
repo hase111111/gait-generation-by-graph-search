@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_

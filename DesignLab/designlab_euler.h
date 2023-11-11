@@ -121,4 +121,4 @@ namespace designlab
 }	// namespace designlab
 
 
-#endif // !DESIGNLAB_EULER_H_
+#endif // DESIGNLAB_EULER_H_

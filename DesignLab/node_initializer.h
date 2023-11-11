@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif
+#endif	// DESIGNLAB_NODE_INITIALIZER_H_

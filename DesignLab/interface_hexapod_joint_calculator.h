@@ -1,8 +1,8 @@
 //! @file interface_hexapod_joint_calculator.h
 //! @brief 6脚ロボットの間接角度やジョイントの位置を計算する処理のインターフェース．
  
-#ifndef	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H
-#define	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H
+#ifndef	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
+#define	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
 
 
 #include <array>
@@ -71,4 +71,4 @@ public:
 };
 
 
-#endif
+#endif	// DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_

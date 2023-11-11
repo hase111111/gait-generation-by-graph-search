@@ -40,4 +40,4 @@ public:
 };
 
 
-#endif // !DESIGNLAB_GRAPHIC_CONST_H_
+#endif // DESIGNLAB_GRAPHIC_CONST_H_

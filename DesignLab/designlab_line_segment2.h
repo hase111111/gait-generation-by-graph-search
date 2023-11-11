@@ -76,4 +76,4 @@ namespace designlab
 } //namespace designlab
 
 
-#endif // !DESIGNLAB_LINE_SEGMENT2_H_
+#endif // DESIGNLAB_LINE_SEGMENT2_H_

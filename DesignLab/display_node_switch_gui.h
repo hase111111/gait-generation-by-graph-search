@@ -2,8 +2,8 @@
 //! @brief ÉmÅ[ÉhÇÃï\é¶êÿÇËë÷Ç¶GUI
 
 
-#ifndef DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_
-#define DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_
+#ifndef DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
+#define DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
 
 
 #include <vector>
@@ -117,4 +117,4 @@ private:
 };
 
 
-#endif 
+#endif	// DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_

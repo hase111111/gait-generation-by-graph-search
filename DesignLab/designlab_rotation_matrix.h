@@ -90,4 +90,4 @@ namespace designlab
 }
 
 
-#endif	// !DESIGNLAB_ROTATION_MATRIX_H_
+#endif	// DESIGNLAB_ROTATION_MATRIX_H_

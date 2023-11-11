@@ -91,4 +91,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_NODE_DISPLAY_GUI_H_
+#endif // DESIGNLAB_NODE_DISPLAY_GUI_H_

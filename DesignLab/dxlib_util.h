@@ -2,8 +2,8 @@
 //! @brief Dxlib‚Ì3D•\¦‚ğs‚¤ˆ—‚ğ‘‚«’¼‚µ‚½ŠÖ”‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌD
 
 
-#ifndef DESIGNLAB_DXLIB_H_
-#define DESIGNLAB_DXLIB_H_
+#ifndef DESIGNLAB_DXLIB_UTIL_H_
+#define DESIGNLAB_DXLIB_UTIL_H_
 
 #include <Dxlib.h>
 
@@ -85,4 +85,4 @@ namespace DxLib
 	constexpr VECTOR operator/(const VECTOR& vec, const float s) { return { vec.x / s,vec.y / s,vec.z / s }; };
 }
 
-#endif // !DESIGNLAB_DXLIB_H_
+#endif // DESIGNLAB_DXLIB_UTIL_H_

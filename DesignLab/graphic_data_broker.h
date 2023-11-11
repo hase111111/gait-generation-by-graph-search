@@ -26,4 +26,4 @@ struct GraphicDataBroker final
 };
 
 
-#endif // !DESIGNLAB_GRAPHIC_DATA_BROKER_H_
+#endif // DESIGNLAB_GRAPHIC_DATA_BROKER_H_

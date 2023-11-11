@@ -2,8 +2,8 @@
 //! @brief ノード間を補間するクラス
 
 
-#ifndef INTERPOLATED_NODE_CREATOR_H_
-#define INTERPOLATED_NODE_CREATOR_H_
+#ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
+#define DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
 
 #include <vector>
 
@@ -32,4 +32,4 @@ private:
 };
 
 
-#endif
+#endif	//	DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_

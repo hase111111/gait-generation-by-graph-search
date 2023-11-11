@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif	//DESIGNLAB_GRAPH_SEARCHER_HATO_H_
+#endif	// DESIGNLAB_GRAPH_SEARCHER_HATO_H_

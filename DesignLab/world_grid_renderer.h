@@ -37,4 +37,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_WORLD_GRID_RENDERER_H_
+#endif // DESIGNLAB_WORLD_GRID_RENDERER_H_

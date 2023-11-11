@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_BUTTON_CONTROLLER_H_
+#endif // DESIGNLAB_BUTTON_CONTROLLER_H_

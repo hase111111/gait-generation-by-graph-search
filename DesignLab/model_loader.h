@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif	// #ifndef DESIGNLAB_MODEL_LOADER_H_
+#endif	// DESIGNLAB_MODEL_LOADER_H_

@@ -54,4 +54,4 @@ public:
 };
 
 
-#endif // !DESIGNLAB_DEFINE_H_
+#endif // DESIGNLAB_DEFINE_H_

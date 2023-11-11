@@ -54,4 +54,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_COM_SELECTER_HATO_H_

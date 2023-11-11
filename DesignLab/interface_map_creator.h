@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif 
+#endif	// DESIGNLAB_INTERFACE_MAP_CREATOR_H_

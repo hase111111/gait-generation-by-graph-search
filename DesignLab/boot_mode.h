@@ -17,4 +17,4 @@ enum class BootMode : int
 };
 
 
-#endif
+#endif	// DESIGNLAB_BOOT_MODE_H_

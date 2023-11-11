@@ -57,4 +57,4 @@ private:
 };
 
 
-#endif // !DESIGNLAB_KEYBOARD_H_
+#endif // DESIGNLAB_KEYBOARD_H_

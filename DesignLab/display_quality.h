@@ -15,4 +15,4 @@ enum class DisplayQuality
 };
 
 
-#endif 
+#endif	// DESIGNLAB_DISPLAY_QUALITY_H_

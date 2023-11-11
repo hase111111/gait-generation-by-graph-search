@@ -1,8 +1,8 @@
 //! @file simulation_system_main.h
 //! @brief 歩容生成シミュレーションを行うクラス．先行研究におけるint main()で行われていた処理をまとめたもの．
 
-#ifndef SIMULATION_SYSTEM_MAIN_H_
-#define SIMULATION_SYSTEM_MAIN_H_
+#ifndef DESIGNLAB_SIMULATION_SYSTEM_MAIN_H_
+#define DESIGNLAB_SIMULATION_SYSTEM_MAIN_H_
 
 #include <memory>
 #include <string>
@@ -66,4 +66,4 @@ private:
 };
 
 
-#endif
+#endif	// DESIGNLAB_SIMULATION_SYSTEM_MAIN_H_

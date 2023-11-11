@@ -109,4 +109,4 @@ std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapSta
 }
 
 
-#endif // !DESIGNLAB_MAP_STATE_H_
+#endif // DESIGNLAB_MAP_STATE_H_
