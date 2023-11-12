@@ -1,4 +1,4 @@
-#include "graphic_main_test.h"
+ï»¿#include "graphic_main_test.h"
 
 #include "designlab_math_util.h"
 #include "dxlib_util.h"
@@ -27,7 +27,9 @@ GraphicMainTest::GraphicMainTest(
 	NodeInitializer node_initializer;
 	node_ = node_initializer.InitNode();
 
-	SimulationMapCreator map_creator(MapCreateMode::kFlat, static_cast<unsigned int>(MapCreateOption::kNone));
+	const MapCreateModeMessanger messanger;
+	SimulationMapCreator map_creator(messanger);
+
 	map_state_ = map_creator.InitMap();
 	devide_map_state_.Init(map_state_, {});
 
@@ -51,9 +53,9 @@ bool GraphicMainTest::Update()
 
 	node_display_gui_.Update();
 
-	camera_gui_.SetHexapodPos(node_.global_center_of_mass);  //ƒJƒƒ‰‚ÌˆÊ’u‚ğXV‚·‚éD
+	camera_gui_.SetHexapodPos(node_.global_center_of_mass);  //ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ï¼
 
-	camera_gui_.Update();      //ƒJƒƒ‰‚ÌGUI‚ğXV‚·‚éD
+	camera_gui_.Update();      //ã‚«ãƒ¡ãƒ©ã®GUIã‚’æ›´æ–°ã™ã‚‹ï¼
 
 	return true;
 }
@@ -67,9 +69,9 @@ void GraphicMainTest::Draw() const
 
 	hexapod_renderer_->Draw();
 
-	camera_gui_.Draw();        //ƒJƒƒ‰‚ÌGUI‚ğ•`‰æ‚·‚éD
+	camera_gui_.Draw();        //ã‚«ãƒ¡ãƒ©ã®GUIã‚’æç”»ã™ã‚‹ï¼
 
-	node_display_gui_.Draw();	 //ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚ğ•`‰æ‚·‚éD
+	node_display_gui_.Draw();	 //ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã‚’æç”»ã™ã‚‹ï¼
 
 }
 

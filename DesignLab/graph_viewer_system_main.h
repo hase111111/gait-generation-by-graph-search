@@ -1,5 +1,5 @@
-//! @file graph_viewer_system_main.h
-//! @brief ƒOƒ‰ƒt‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚ÌƒƒCƒ“ƒNƒ‰ƒX
+ï»¿//! @file graph_viewer_system_main.h
+//! @brief ã‚°ãƒ©ãƒ•ã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ¡ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_GRAPH_VIEWER_SYSTEM_MAIN_H_
 #define DESIGNLAB_GRAPH_VIEWER_SYSTEM_MAIN_H_
@@ -16,9 +16,9 @@
 
 
 //! @class GraphViewerSystemMain
-//! @brief ƒOƒ‰ƒt‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚ÌƒƒCƒ“ƒNƒ‰ƒX
-//! @details ‚±‚ÌŒ¤‹†‚Ìè–@‚Å‚Í–Ø\‘¢‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éD
-//! ‚Ç‚Ì‚æ‚¤‚ÈƒOƒ‰ƒt‚ªì¬‚³‚ê‚é‚©‚ğŠm”F‚·‚é‚½‚ß‚ÉC‚±‚ÌƒOƒ‰ƒt‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚ğì¬‚µ‚½D
+//! @brief ã‚°ãƒ©ãƒ•ã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ¡ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
+//! @details ã“ã®ç ”ç©¶ã®æ‰‹æ³•ã§ã¯æœ¨æ§‹é€ ã®ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ï¼
+//! ã©ã®ã‚ˆã†ãªã‚°ãƒ©ãƒ•ãŒä½œæˆã•ã‚Œã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹ãŸã‚ã«ï¼Œã“ã®ã‚°ãƒ©ãƒ•ã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚’ä½œæˆã—ãŸï¼
 class GraphViewerSystemMain final : public ISystemMain
 {
 public:
@@ -29,33 +29,29 @@ public:
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
 
-	//! @brief ƒƒCƒ“ŠÖ”
+	//! @brief ãƒ¡ã‚¤ãƒ³é–¢æ•°
 	void Main() override;
 
 private:
 
-	//! @brief ƒOƒ‰ƒt‚ğì¬‚·‚éD
-	//! @param [in] parent eƒm[ƒh
-	//! @param [out] graph ì¬‚µ‚½ƒOƒ‰ƒt
+	//! @brief ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ï¼
+	//! @param [in] parent è¦ªãƒãƒ¼ãƒ‰
+	//! @param [out] graph ä½œæˆã—ãŸã‚°ãƒ©ãƒ•
 	void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
 
 
-	//! @brief ƒOƒ‰ƒt‚ÌƒXƒe[ƒ^ƒX‚ğ•\¦‚·‚éD
-	//! @n ‘Sƒm[ƒh”C–Ø‚Ì[‚³CŠe[‚³‚²‚Æ‚Ìƒm[ƒh”‚ğ•\¦‚·‚éD
-	//! @param [in] graph ƒOƒ‰ƒt
+	//! @brief ã‚°ãƒ©ãƒ•ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ï¼
+	//! @n å…¨ãƒãƒ¼ãƒ‰æ•°ï¼Œæœ¨ã®æ·±ã•ï¼Œå„æ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰æ•°ã‚’è¡¨ç¤ºã™ã‚‹ï¼
+	//! @param [in] graph ã‚°ãƒ©ãƒ•
 	void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
-	//! @brief ƒ}ƒbƒv¶¬‚Ìƒ‚[ƒh‚ğ“ü—Í‚·‚é
-	//! @return MapCreateMode ƒ}ƒbƒv¶¬‚Ìƒ‚[ƒh
-	MapCreateMode InputMapCreateMode() const;
+	//! @brief ãƒãƒƒãƒ—ç”Ÿæˆã®ãƒ¢ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ï¼ŒMapCreateModeMessangerå‹ã§è¿”ã™ï¼
+	//! @return MapCreateModeMessanger ãƒãƒƒãƒ—ç”Ÿæˆã®ãƒ¢ãƒ¼ãƒ‰ã¨ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æŒ‡å®šã™ã‚‹æ§‹é€ ä½“ï¼
+	MapCreateModeMessanger InputMapCreateMode() const;
 
-	//! @brief ƒ}ƒbƒv¶¬‚ÌƒIƒvƒVƒ‡ƒ“‚ğ“ü—Í‚·‚é
-	//! @return unsigned int MapCreateOption ƒ}ƒbƒv¶¬‚ÌƒIƒvƒVƒ‡ƒ“
-	unsigned int InputMapCreateOption() const;
-
-	//! @brief ƒOƒ‰ƒt‚Ì’†‚©‚ç1‚Â‚Ìƒm[ƒh‚ğ‘I‘ğ‚·‚éDƒOƒ‰ƒt‚ª‹ó‚Ìê‡‚ÍC‰Šúó‘Ô‚Ìƒm[ƒh‚ğ•Ô‚·D
-	//! @param [in] graph ƒOƒ‰ƒt
-	//! @return RobotStateNode ‘I‘ğ‚³‚ê‚½ƒm[ƒh
+	//! @brief ã‚°ãƒ©ãƒ•ã®ä¸­ã‹ã‚‰1ã¤ã®ãƒãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹ï¼ã‚°ãƒ©ãƒ•ãŒç©ºã®å ´åˆã¯ï¼ŒåˆæœŸçŠ¶æ…‹ã®ãƒãƒ¼ãƒ‰ã‚’è¿”ã™ï¼
+	//! @param [in] graph ã‚°ãƒ©ãƒ•
+	//! @return RobotStateNode é¸æŠã•ã‚ŒãŸãƒãƒ¼ãƒ‰
 	RobotStateNode SelectNode(const std::vector<RobotStateNode>& graph) const;
 
 

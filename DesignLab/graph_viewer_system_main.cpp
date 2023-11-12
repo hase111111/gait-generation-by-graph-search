@@ -1,4 +1,4 @@
-#include "graph_viewer_system_main.h"
+ï»¿#include "graph_viewer_system_main.h"
 
 #include <bitset>
 #include <iostream>
@@ -8,6 +8,7 @@
 
 #include "cmdio_util.h"
 #include "define.h"
+#include "designlab_string_util.h"
 #include "graph_search_const.h"
 #include "node_initializer.h"
 #include "pass_finder_basic.h"
@@ -15,6 +16,7 @@
 
 
 namespace dlio = designlab::cmdio;
+namespace dlsu = designlab::string_util;
 
 
 GraphViewerSystemMain::GraphViewerSystemMain(
@@ -26,35 +28,34 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
-	dlio::OutputTitle("ƒOƒ‰ƒtŠm”Fƒ‚[ƒh");	//ƒ^ƒCƒgƒ‹‚ğ•\¦‚·‚é
+	dlio::OutputTitle("ã‚°ãƒ©ãƒ•ç¢ºèªãƒ¢ãƒ¼ãƒ‰");	//ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
 
-	//ƒ}ƒbƒv‚ğ¶¬‚·‚é
-	dlio::Output("‚Ü‚¸‚ÍCƒ}ƒbƒv‚ğ¶¬‚·‚éDƒIƒvƒVƒ‡ƒ“‚ğ®”‚Å“ü—Í‚·‚é‚±‚ÆD", OutputDetail::kSystem);
+	//ãƒãƒƒãƒ—ã‚’ç”Ÿæˆã™ã‚‹
+	dlio::Output("ã¾ãšã¯ï¼Œãƒãƒƒãƒ—ã‚’ç”Ÿæˆã™ã‚‹ï¼ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æ•´æ•°ã§å…¥åŠ›ã™ã‚‹ã“ã¨ï¼", OutputDetail::kSystem);
 	
-	MapCreateMode selected_mode = InputMapCreateMode();
-	unsigned int selected_option = InputMapCreateOption();
+	MapCreateModeMessanger messanger = InputMapCreateMode();
 
-	SimulationMapCreator map_creator(selected_mode, selected_option);
+	SimulationMapCreator map_creator(messanger);
+
 	map_state_ = map_creator.InitMap();
 
-
-	broker_ptr_->map_state.SetData(map_state_);	//’‡‰îl‚ğ‰Šú‰»‚·‚é
+	broker_ptr_->map_state.SetData(map_state_);	//ä»²ä»‹äººã‚’åˆæœŸåŒ–ã™ã‚‹
 }
 
 
 void GraphViewerSystemMain::Main()
 {
-	//‘ŠúƒŠƒ^[ƒ“
+	//æ—©æœŸãƒªã‚¿ãƒ¼ãƒ³
 	if (!pass_finder_ptr_) 
 	{
-		dlio::Output("ƒOƒ‰ƒt–Øì¬ƒNƒ‰ƒX‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚È‚¢DI—¹‚·‚é", OutputDetail::kError);
+		dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ä½œæˆã‚¯ãƒ©ã‚¹ãŒåˆæœŸåŒ–ã•ã‚Œã¦ã„ãªã„ï¼çµ‚äº†ã™ã‚‹", OutputDetail::kError);
 		return;
 	}
 
-	dlio::Output("•ÊƒXƒŒƒbƒh‚ÅGUI‚ğ‹N“®‚·‚éD", OutputDetail::kInfo);	
+	dlio::Output("åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§GUIã‚’èµ·å‹•ã™ã‚‹ï¼", OutputDetail::kInfo);	
 
-	//ƒm[ƒh‚ğ‰Šú‰»‚·‚é
-	dlio::Output("ƒm[ƒh‚ğ‰Šú‰»‚·‚éD", OutputDetail::kSystem);
+	//ãƒãƒ¼ãƒ‰ã‚’åˆæœŸåŒ–ã™ã‚‹
+	dlio::Output("ãƒãƒ¼ãƒ‰ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼", OutputDetail::kSystem);
 
 	NodeInitializer node_initializer;
 	RobotStateNode first_node = node_initializer.InitNode();
@@ -67,32 +68,32 @@ void GraphViewerSystemMain::Main()
 
 		if (graph.size() == 0)
 		{
-			// ƒOƒ‰ƒt‚ª‚È‚¢ê‡C
+			// ã‚°ãƒ©ãƒ•ãŒãªã„å ´åˆï¼Œ
 
-			dlio::Output("‚Ü‚¾ƒOƒ‰ƒt‚ğ¶¬‚µ‚Ä‚¢‚È‚¢D", OutputDetail::kSystem);
+			dlio::Output("ã¾ã ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã—ã¦ã„ãªã„ï¼", OutputDetail::kSystem);
 
-			if (dlio::InputYesNo("ƒOƒ‰ƒt‚ğì¬‚µ‚Ü‚·‚©H"))
+			if (dlio::InputYesNo("ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã—ã¾ã™ã‹ï¼Ÿ"))
 			{
-				CreateGraph(first_node, &graph);	// ƒOƒ‰ƒt‚ğì¬‚·‚éD
+				CreateGraph(first_node, &graph);	// ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ï¼
 				
-				broker_ptr_->graph.SetData(graph);	// ƒOƒ‰ƒt–Ø‚Ì’l‚ğ’‡‰îl‚ÉƒZƒbƒg‚·‚éD‚±‚ê‚ÅGUI‚ÉƒOƒ‰ƒt‚ª•\¦‚³‚ê‚éD
+				broker_ptr_->graph.SetData(graph);	// ã‚°ãƒ©ãƒ•æœ¨ã®å€¤ã‚’ä»²ä»‹äººã«ã‚»ãƒƒãƒˆã™ã‚‹ï¼ã“ã‚Œã§GUIã«ã‚°ãƒ©ãƒ•ãŒè¡¨ç¤ºã•ã‚Œã‚‹ï¼
 			}
 			else
 			{
-				//I—¹‚·‚é‚©¿–â‚·‚é
-				if (dlio::InputYesNo("I—¹‚µ‚Ü‚·‚©H")) { break; }
+				//çµ‚äº†ã™ã‚‹ã‹è³ªå•ã™ã‚‹
+				if (dlio::InputYesNo("çµ‚äº†ã—ã¾ã™ã‹ï¼Ÿ")) { break; }
 			}
 		}
 		else
 		{
-			//ƒOƒ‰ƒt‚ª‚ ‚éê‡
+			//ã‚°ãƒ©ãƒ•ãŒã‚ã‚‹å ´åˆ
 
-			dlio::Output("ƒOƒ‰ƒt‚ğ‘€ì‚·‚é", OutputDetail::kSystem);
-			dlio::Output("‘€ìƒƒjƒ…[‚ğ•\¦‚µ‚Ü‚·", OutputDetail::kSystem);
+			dlio::Output("ã‚°ãƒ©ãƒ•ã‚’æ“ä½œã™ã‚‹", OutputDetail::kSystem);
+			dlio::Output("æ“ä½œãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—ã¾ã™", OutputDetail::kSystem);
 
-			//‘€ìƒƒjƒ…[‚ğ•\¦‚·‚é
+			//æ“ä½œãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹
 
-			std::vector<std::function<void()>> func_list;	//‘€ì‚ğ‚¨‚±‚È‚¤ŠÖ”‚ğƒ‰ƒ€ƒ_®‚Åó‚¯æ‚évector
+			std::vector<std::function<void()>> func_list;	//æ“ä½œã‚’ãŠã“ãªã†é–¢æ•°ã‚’ãƒ©ãƒ ãƒ€å¼ã§å—ã‘å–ã‚‹vector
 
 			func_list.push_back(
 				[&]() 
@@ -121,29 +122,29 @@ void GraphViewerSystemMain::Main()
 				{
 					graph.clear();
 					broker_ptr_->graph.Clean();
-					dlio::Output("ƒOƒ‰ƒt‚ğ‘S‚Äíœ‚µ‚½", OutputDetail::kSystem);
+					dlio::Output("ã‚°ãƒ©ãƒ•ã‚’å…¨ã¦å‰Šé™¤ã—ãŸ", OutputDetail::kSystem);
 					dlio::OutputNewLine(1, OutputDetail::kSystem);
 				}
 			);
 
 			
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
-			dlio::Output("‘€ì‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", OutputDetail::kSystem);
-			dlio::Output("@0 : ƒm[ƒh‘I‘ğ‚µC‚»‚Ìƒm[ƒh‚ğe‚É‚µ‚ÄƒOƒ‰ƒt‚ğ¶¬‚·‚é", OutputDetail::kSystem);
-			dlio::Output("@1 : ƒm[ƒh‘I‘ğ‚µ‚Ä•\¦‚·‚é", OutputDetail::kSystem);
-			dlio::Output("@2 : ƒOƒ‰ƒt‚ğ‘Síœ‚·‚é", OutputDetail::kSystem);
-			dlio::Output("@3 : I—¹‚·‚é", OutputDetail::kSystem);
+			dlio::Output("æ“ä½œã‚’é¸æŠã—ã¦ãã ã•ã„", OutputDetail::kSystem);
+			dlio::Output("ã€€0 : ãƒãƒ¼ãƒ‰é¸æŠã—ï¼Œãã®ãƒãƒ¼ãƒ‰ã‚’è¦ªã«ã—ã¦ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã™ã‚‹", OutputDetail::kSystem);
+			dlio::Output("ã€€1 : ãƒãƒ¼ãƒ‰é¸æŠã—ã¦è¡¨ç¤ºã™ã‚‹", OutputDetail::kSystem);
+			dlio::Output("ã€€2 : ã‚°ãƒ©ãƒ•ã‚’å…¨å‰Šé™¤ã™ã‚‹", OutputDetail::kSystem);
+			dlio::Output("ã€€3 : çµ‚äº†ã™ã‚‹", OutputDetail::kSystem);
 
-			int selected_index = dlio::InputInt(0, static_cast<int>(func_list.size()), 3, "®”‚Å‘€ì‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢D”ÍˆÍŠO‚Ì’l‚Ìê‡I—¹‚µ‚Ü‚·D");
+			int selected_index = dlio::InputInt(0, static_cast<int>(func_list.size()), 3, "æ•´æ•°ã§æ“ä½œã‚’é¸æŠã—ã¦ãã ã•ã„ï¼ç¯„å›²å¤–ã®å€¤ã®å ´åˆçµ‚äº†ã—ã¾ã™ï¼");
 	
-			//‘I‘ğ‚³‚ê‚½‘€ì‚ğÀs‚·‚é
+			//é¸æŠã•ã‚ŒãŸæ“ä½œã‚’å®Ÿè¡Œã™ã‚‹
 			if (selected_index < func_list.size()) 
 			{
 				func_list[selected_index](); 
 			}
 			else 
 			{
-				if (dlio::InputYesNo("I—¹‚µ‚Ü‚·‚©H")) { break; }
+				if (dlio::InputYesNo("çµ‚äº†ã—ã¾ã™ã‹ï¼Ÿ")) { break; }
 			}
 		}
 
@@ -154,10 +155,10 @@ void GraphViewerSystemMain::Main()
 void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
 {
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("ƒOƒ‰ƒt–Ø‚ğì¬‚·‚é", OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã‚’ä½œæˆã™ã‚‹", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
-	// ƒOƒ‰ƒt’Tõ‚ğ‚·‚é
+	// ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’ã™ã‚‹
 	RobotStateNode parent_node = parent;
 	parent_node.ChangeParentNode();
 
@@ -176,17 +177,17 @@ void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector
 	stopwatch_.End();
 
 
-	// ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğ•\¦‚·‚é
+	// ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’è¡¨ç¤ºã™ã‚‹
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("ƒOƒ‰ƒt’TõI—¹", OutputDetail::kSystem);
-	dlio::Output("ƒOƒ‰ƒt’Tõ‚É‚©‚©‚Á‚½ŠÔ : " + stopwatch_.GetElapsedMilliSecondString(), OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•æ¢ç´¢çµ‚äº†", OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•æ¢ç´¢ã«ã‹ã‹ã£ãŸæ™‚é–“ : " + stopwatch_.GetElapsedMilliSecondString(), OutputDetail::kSystem);
 
 	std::string res_str = magic_enum::enum_name<GraphSearchResult>(result).data();
-	res_str.erase(0, 1);	//æ“ª‚Ìk‚ğíœ‚·‚é
+	res_str.erase(0, 1);	//å…ˆé ­ã®kã‚’å‰Šé™¤ã™ã‚‹
 
-	dlio::Output("ƒOƒ‰ƒt’TõŒ‹‰Ê : " + res_str, OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•æ¢ç´¢çµæœ : " + res_str, OutputDetail::kSystem);
 
-	// ’l‚ğ•Ô‚·D
+	// å€¤ã‚’è¿”ã™ï¼
 	graph->clear();
 	pass_finder_ptr_->GetGraphTree(graph);
 }
@@ -196,18 +197,18 @@ void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>&
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("ƒOƒ‰ƒt‚Ìó‘Ô‚ğ•\¦‚µ‚Ü‚·D", OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•ã®çŠ¶æ…‹ã‚’è¡¨ç¤ºã—ã¾ã™ï¼", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("ƒOƒ‰ƒt‚Ìƒm[ƒh‚Ì” : " + std::to_string(graph.size()), OutputDetail::kSystem);
+	dlio::Output("ã‚°ãƒ©ãƒ•ã®ãƒãƒ¼ãƒ‰ã®æ•° : " + std::to_string(graph.size()), OutputDetail::kSystem);
 
 
 	if (graph.size() > 0)
 	{
-		//[‚³‚²‚Æ‚Ìƒm[ƒh”‚ğ‹L˜^‚·‚é
+		//æ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰æ•°ã‚’è¨˜éŒ²ã™ã‚‹
 		
 		std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);	
 
-		dlio::Output("GraphViewerSystemMain : ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³ : " + std::to_string(GraphSearchConst::kMaxDepth), OutputDetail::kSystem);
+		dlio::Output("GraphViewerSystemMain : ã‚°ãƒ©ãƒ•æ¢ç´¢ã®æœ€å¤§æ·±ã• : " + std::to_string(GraphSearchConst::kMaxDepth), OutputDetail::kSystem);
 
 		for (const auto& i : graph)
 		{
@@ -217,19 +218,19 @@ void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>&
 			}
 		}
 
-		//[‚³‚²‚Æ‚Ìƒm[ƒh”‚ğ•\¦‚·‚é
+		//æ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰æ•°ã‚’è¡¨ç¤ºã™ã‚‹
 
 		int depth_cnt = 0;
 
 		for (const auto& i : depth_num)
 		{
-			dlio::Output("E[‚³" + std::to_string(depth_cnt) + " : " + std::to_string(i), OutputDetail::kSystem);
+			dlio::Output("ãƒ»æ·±ã•" + std::to_string(depth_cnt) + " : " + std::to_string(i), OutputDetail::kSystem);
 			depth_cnt++;
 		}
 	}
 	else 
 	{
-		dlio::Output("ƒOƒ‰ƒt‚ª‹ó‚È‚Ì‚ÅC[‚³‚²‚Æ‚Ìƒm[ƒh”‚ğ•\¦‚Å‚«‚Ü‚¹‚ñD", OutputDetail::kSystem);
+		dlio::Output("ã‚°ãƒ©ãƒ•ãŒç©ºãªã®ã§ï¼Œæ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰æ•°ã‚’è¡¨ç¤ºã§ãã¾ã›ã‚“ï¼", OutputDetail::kSystem);
 	}
 
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
@@ -237,74 +238,69 @@ void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>&
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
-MapCreateMode GraphViewerSystemMain::InputMapCreateMode() const
+MapCreateModeMessanger GraphViewerSystemMain::InputMapCreateMode() const
 {
-	const auto kMapCreateModeList = magic_enum::enum_values<MapCreateMode>();	//MapCreateMode‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
-
-	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("MapCreateMode‚ğ‘I‘ğ", OutputDetail::kSystem);
-
+	MapCreateModeMessanger messanger;
 	
-	//MapCreateMode‚Ìˆê——‚ğo—Í‚·‚éD
-	for (int i = 0; i < kMapCreateModeList.size(); i++)
 	{
-		std::string name = magic_enum::enum_name<MapCreateMode>(kMapCreateModeList[i]).data();	//MapCreateMode‚Ì–¼‘O‚ğæ“¾‚·‚é
+		const auto kMapCreateModeList = magic_enum::enum_values<MapCreateModeMessanger::MapCreateMode>();	//MapCreateModeã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
 
-		name.erase(0, 1);	//æ“ª‚Ìk‚ğíœ‚·‚é
+		dlio::OutputNewLine(1, OutputDetail::kSystem);
+		dlio::Output("MapCreateModeã‚’é¸æŠ", OutputDetail::kSystem);
 
-		dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kSystem);
+		//MapCreateModeã®ä¸€è¦§ã‚’å‡ºåŠ›ã™ã‚‹ï¼
+		for (int i = 0; i < kMapCreateModeList.size(); i++)
+		{
+			const std::string name = dlsu::MyEnumToString(kMapCreateModeList[i]);	//MapCreateModeã®åå‰ã‚’å–å¾—ã™ã‚‹
+
+			dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kSystem);
+		}
+
+		const int selected_mode_index = dlio::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateModeã®indexã‚’å…¥åŠ›ã•ã›ã‚‹
+
+		messanger.mode = kMapCreateModeList[selected_mode_index];
 	}
 
-
-	int selected_mode_index = dlio::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateMode‚Ìindex‚ğ“ü—Í‚³‚¹‚é
-
-	return kMapCreateModeList[selected_mode_index];
-}
-
-unsigned int GraphViewerSystemMain::InputMapCreateOption() const
-{
-	const auto kMapCreateOptionList = magic_enum::enum_values<MapCreateOption>();	//MapCreateOption‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
-
-	//MapCreateOption‚Ì‡Œv’l‚ğŒvZ‚·‚é
-	unsigned int option_sum = 0;
-
-	for (const auto i : kMapCreateOptionList) 
 	{
-		option_sum += static_cast<unsigned int>(i);
+		const auto kMapCreateOptionList = magic_enum::enum_values<MapCreateModeMessanger::MapCreateOption>();	//MapCreateOptionã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
+
+		//MapCreateOptionã®åˆè¨ˆå€¤ã‚’è¨ˆç®—ã™ã‚‹
+		unsigned int option_sum = 0;
+
+		for (const auto i : kMapCreateOptionList)
+		{
+			option_sum += static_cast<unsigned int>(i);
+		}
+
+		dlio::OutputNewLine(1, OutputDetail::kSystem);
+		dlio::Output("MapCreateOptionã‚’é¸æŠ (è¤‡æ•°æŒ‡å®šã—ãŸã„å ´åˆã¯å€¤ã‚’è¶³ã—ç®—ã™ã‚‹ã“ã¨)", OutputDetail::kSystem);
+
+		//MapCreateOptionã®ä¸€è¦§ã‚’å‡ºåŠ›ã™ã‚‹ï¼
+		for (int i = 0; i < kMapCreateOptionList.size(); i++)
+		{
+			const std::string name = dlsu::MyEnumToString(kMapCreateOptionList[i]);	//MapCreateOptionã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
+
+			unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
+
+			std::bitset<magic_enum::enum_count<MapCreateModeMessanger::MapCreateOption>()> bit(option_value);
+
+			dlio::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", OutputDetail::kSystem);
+		}
+
+		messanger.option = static_cast<unsigned int>(dlio::InputInt(0, option_sum, 0));	//MapCreateOptionã®åˆè¨ˆå€¤ã‚’å…¥åŠ›ã•ã›ã‚‹
 	}
 
-
-	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("MapCreateOption‚ğ‘I‘ğ (•¡”w’è‚µ‚½‚¢ê‡‚Í’l‚ğ‘«‚µZ‚·‚é‚±‚Æ)", OutputDetail::kSystem);
-
-
-	//MapCreateOption‚Ìˆê——‚ğo—Í‚·‚éD
-	for (int i = 0; i < kMapCreateOptionList.size(); i++)
-	{
-		std::string name = magic_enum::enum_name<MapCreateOption>(kMapCreateOptionList[i]).data();	//MapCreateOption‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
-
-		name.erase(0, 1);	//æ“ª‚Ìk‚ğíœ‚·‚é
-
-		unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
-
-		std::bitset<magic_enum::enum_count<MapCreateOption>()> bit(option_value);
-
-		dlio::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", OutputDetail::kSystem);
-	}
-
-	int selected_option = dlio::InputInt(0, option_sum, 0);	//MapCreateOption‚Ì‡Œv’l‚ğ“ü—Í‚³‚¹‚é
-
-	return selected_option;
+	return messanger;
 }
 
 RobotStateNode GraphViewerSystemMain::SelectNode(const std::vector<RobotStateNode>& graph) const
 {
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
-	dlio::Output("ƒm[ƒh‚ğ‘I‘ğ‚·‚é", OutputDetail::kSystem);
+	dlio::Output("ãƒãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹", OutputDetail::kSystem);
 
 	if (graph.size() == 0)
 	{
-		dlio::Output("ƒOƒ‰ƒt‚ª‹ó‚È‚Ì‚ÅC‰Šúó‘Ô‚Ìƒm[ƒh‚ğ•Ô‚·", OutputDetail::kSystem);
+		dlio::Output("ã‚°ãƒ©ãƒ•ãŒç©ºãªã®ã§ï¼ŒåˆæœŸçŠ¶æ…‹ã®ãƒãƒ¼ãƒ‰ã‚’è¿”ã™", OutputDetail::kSystem);
 
 		NodeInitializer node_initializer;
 		RobotStateNode first_node = node_initializer.InitNode();
@@ -313,12 +309,12 @@ RobotStateNode GraphViewerSystemMain::SelectNode(const std::vector<RobotStateNod
 	}
 	else
 	{
-		dlio::Output("ƒOƒ‰ƒt‚Ì’†‚©‚ç1‚Â‚Ìƒm[ƒh‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢D", OutputDetail::kSystem);
+		dlio::Output("ã‚°ãƒ©ãƒ•ã®ä¸­ã‹ã‚‰1ã¤ã®ãƒãƒ¼ãƒ‰ã‚’é¸æŠã—ã¦ãã ã•ã„ï¼", OutputDetail::kSystem);
 
-		//ƒm[ƒh‚ğ‘I‘ğ‚·‚é
-		int selected_node_index = dlio::InputInt(0, static_cast<int>(graph.size()) - 1, 0 , "®”‚Åƒm[ƒh‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢D");
+		//ãƒãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹
+		int selected_node_index = dlio::InputInt(0, static_cast<int>(graph.size()) - 1, 0 , "æ•´æ•°ã§ãƒãƒ¼ãƒ‰ã‚’é¸æŠã—ã¦ãã ã•ã„ï¼");
 
-		dlio::Output("‘I‘ğ‚³‚ê‚½ƒm[ƒhC" + std::to_string(selected_node_index) + "”Ô‚ğe‚É‚·‚éD", OutputDetail::kSystem);
+		dlio::Output("é¸æŠã•ã‚ŒãŸãƒãƒ¼ãƒ‰ï¼Œ" + std::to_string(selected_node_index) + "ç•ªã‚’è¦ªã«ã™ã‚‹ï¼", OutputDetail::kSystem);
 
 		return graph[selected_node_index];
 	}

@@ -1,4 +1,4 @@
-#include "leg_up_down_node_creator.h"
+ï»¿#include "leg_up_down_node_creator.h"
 
 #include <algorithm>
 
@@ -36,20 +36,20 @@ LegUpDownNodeCreator::LegUpDownNodeCreator(
 
 void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
-	//‹r‚Ì—V‹rEÚ’n‚É‚æ‚Á‚Ä¶‚¶‚é‚Æ‚è‚¤‚édS‚ğcomtype‚Æ‚µ‚Äd•ª‚¯‚Ä‚¢‚éD(Ú‚µ‚­‚Ícom_type.h‚ğQÆ)D
-	// vector<bool>‚ğg—p‚µ‚½‚¢‚ªCvector<bool>‚Íƒeƒ“ƒvƒŒ[ƒg‚Ì“Áê‰»‚Å’Êí‚Ìvector‚Æ‚Íˆá‚¤‹““®‚ğ‚·‚é‚Ì‚ÅCboost::dynamic_bitset<>‚ğg—p‚·‚éD
+	//è„šã®éŠè„šãƒ»æ¥åœ°ã«ã‚ˆã£ã¦ç”Ÿã˜ã‚‹ã¨ã‚Šã†ã‚‹é‡å¿ƒã‚’comtypeã¨ã—ã¦ä»•åˆ†ã‘ã¦ã„ã‚‹ï¼(è©³ã—ãã¯com_type.hã‚’å‚ç…§)ï¼
+	// vector<bool>ã‚’ä½¿ç”¨ã—ãŸã„ãŒï¼Œvector<bool>ã¯ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®ç‰¹æ®ŠåŒ–ã§é€šå¸¸ã®vectorã¨ã¯é•ã†æŒ™å‹•ã‚’ã™ã‚‹ã®ã§ï¼Œboost::dynamic_bitset<>ã‚’ä½¿ç”¨ã™ã‚‹ï¼
 	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
 
-	is_able_leg_ground_pattern.set();	//‘S‚Ätrue‚É‚·‚éD
+	is_able_leg_ground_pattern.set();	//å…¨ã¦trueã«ã™ã‚‹ï¼
 
 
-	//‚Ü‚¸—£U‰»‚³‚ê‚½dSˆÊ’u‚©‚çæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğœŠO‚·‚éD
+	//ã¾ãšé›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‹ã‚‰å–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’é™¤å¤–ã™ã‚‹ï¼
 	dlcf::RemoveLegGroundPatternFromCom(dllf::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
-	//Ÿ‚É‹r‚ª’n–Ê‚ÉÚ’n‰Â”\‚©’²‚×‚éD
-	bool is_groundable_leg[HexapodConst::kLegNum];			//‹r‚ªİ’u‰Â”\‚È‚ç‚Îtrue‚É‚È‚éDŠù‚ÉÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚Îtrue‚É‚È‚éD
-	designlab::Vector3 ground_pos[HexapodConst::kLegNum];	//‹r‚ªÚ’n‚·‚éÀ•WD
+	//æ¬¡ã«è„šãŒåœ°é¢ã«æ¥åœ°å¯èƒ½ã‹èª¿ã¹ã‚‹ï¼
+	bool is_groundable_leg[HexapodConst::kLegNum];			//è„šãŒè¨­ç½®å¯èƒ½ãªã‚‰ã°trueã«ãªã‚‹ï¼æ—¢ã«æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueã«ãªã‚‹ï¼
+	designlab::Vector3 ground_pos[HexapodConst::kLegNum];	//è„šãŒæ¥åœ°ã™ã‚‹åº§æ¨™ï¼
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
@@ -57,33 +57,33 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
-			//‚·‚Å‚ÉÚ’n‚µ‚Ä‚¢‚é‹r‚ÍÚ’n‰Â”\‚ÉŒˆ‚Ü‚Á‚Ä‚¢‚é‚Ì‚Åtrue‚É‚·‚éD
+			//ã™ã§ã«æ¥åœ°ã—ã¦ã„ã‚‹è„šã¯æ¥åœ°å¯èƒ½ã«æ±ºã¾ã£ã¦ã„ã‚‹ã®ã§trueã«ã™ã‚‹ï¼
 			is_groundable_leg[i] = true;
 			ground_pos[i] = current_node.leg_pos[i];
 		}
 		else
 		{
-			//Œ»İ—V‹r’†‚Ì‹r‚Í©g‚Ì‹ró‘Ô‚ÅÚ’n‚Å‚«‚é‚©ŒŸ“¢‚·‚éD
+			//ç¾åœ¨éŠè„šä¸­ã®è„šã¯è‡ªèº«ã®è„šçŠ¶æ…‹ã§æ¥åœ°ã§ãã‚‹ã‹æ¤œè¨ã™ã‚‹ï¼
 			designlab::Vector3 res_ground_pos;
 
 			if (IsGroundableLeg(i, current_node, &res_ground_pos))
 			{
-				is_groundable_leg[i] = true;	//Ú’n‰Â”\‚É‚·‚éD
+				is_groundable_leg[i] = true;	//æ¥åœ°å¯èƒ½ã«ã™ã‚‹ï¼
 				ground_pos[i] = res_ground_pos;
 			}
 			else
 			{
-				is_groundable_leg[i] = false;	//Ú’n•s‰Â”\‚É‚·‚éD
+				is_groundable_leg[i] = false;	//æ¥åœ°ä¸å¯èƒ½ã«ã™ã‚‹ï¼
 				dlcf::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
 			}
 		}
 	}
 
 
-	//qƒm[ƒh‚ğ¶¬‚·‚éD
+	//å­ãƒãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ï¼
 	for (int i = 0; i < dlcf::GetLegGroundPatternNum(); i++)
 	{
-		//‚»‚ÌdSƒ^ƒCƒv‚ª‰Â”\‚Å‚ ‚ê‚ÎC
+		//ãã®é‡å¿ƒã‚¿ã‚¤ãƒ—ãŒå¯èƒ½ã§ã‚ã‚Œã°ï¼Œè¿½åŠ ã™ã‚‹
 		if (is_able_leg_ground_pattern[i])
 		{
 			RobotStateNode res_node = current_node;
@@ -91,13 +91,13 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 			res_node.ChangeToNextNode(current_num, next_move_);
 
 
-			//—V‹rEÚ’n‚ğ‘‚«Š·‚¦‚éD
+			//éŠè„šãƒ»æ¥åœ°ã‚’æ›¸ãæ›ãˆã‚‹ï¼
 			dllf::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
 			dllf::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
 
 
-			//‹rˆÊ’u‚ğ‘‚«Š·‚¦‚éD
+			//è„šä½ç½®ã‚’æ›¸ãæ›ãˆã‚‹ï¼
 			for (int j = 0; j < HexapodConst::kLegNum; j++)
 			{
 				if (new_is_ground[j])
@@ -117,7 +117,6 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 			if (checker_ptr_->IsStable(res_node.leg_state, res_node.leg_pos))
 			{
-				//Ã“IˆÀ’è—]—T‚ª0ˆÈã‚È‚ç‚Î’Ç‰Á‚·‚éD
 				(*output_graph).push_back(res_node);
 			}
 
@@ -130,9 +129,9 @@ void LegUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos) const
 {
-	//for•¶‚Ì’†‚Ìcontinue‚É‚Â‚¢‚Ä‚Í http://www9.plala.or.jp/sgwr-t/c/sec06-7.html ‚ğQÆD
+	//foræ–‡ã®ä¸­ã®continueã«ã¤ã„ã¦ã¯ http://www9.plala.or.jp/sgwr-t/c/sec06-7.html ã‚’å‚ç…§ï¼
 
-	//‹rÀ•W‚ªdevide map‚Å‚Ç‚±‚É“–‚½‚é‚©’²‚×‚ÄC‚»‚Ìƒ}ƒX‚Ì2‚Âã‚Æ2‚Â‰º‚Ì”ÍˆÍ“à‚ğ‘S‚Ä’Tõ‚·‚éD
+	//è„šåº§æ¨™ãŒdevide mapã§ã©ã“ã«å½“ãŸã‚‹ã‹èª¿ã¹ã¦ï¼Œãã®ãƒã‚¹ã®2ã¤ä¸Šã¨2ã¤ä¸‹ã®ç¯„å›²å†…ã‚’å…¨ã¦æ¢ç´¢ã™ã‚‹ï¼
 	const designlab::Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
 		current_node.leg_reference_pos[now_leg_num],
 		now_leg_num, 
@@ -147,17 +146,17 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 	int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
 	int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
 
-	//’l‚ªdevide map‚Ì”ÍˆÍŠO‚É‚ ‚é‚Æ‚«‚ÍŠÛ‚ß‚éD
+	//å€¤ãŒdevide mapã®ç¯„å›²å¤–ã«ã‚ã‚‹ã¨ãã¯ä¸¸ã‚ã‚‹ï¼
 	max_x_dev = DevideMapState::ClampDevideMapIndex(max_x_dev);
 	min_x_dev = DevideMapState::ClampDevideMapIndex(min_x_dev);
 	max_y_dev = DevideMapState::ClampDevideMapIndex(max_y_dev);
 	min_y_dev = DevideMapState::ClampDevideMapIndex(min_y_dev);
 
-	//devide map“à‚ğ‘S’Tõ‚µ‚ÄCŒ»İ‚Ì‹rˆÊ’u(—£U‰»‚µ‚½•¨)‚É“K‚µ‚½‹rİ’u‰Â”\“_‚ª‘¶İ‚·‚é‚©’²‚×‚éD
-	designlab::Vector3 candidate_pos;	//Œ»İ‚Ì‹rˆÊ’u‚É‡’v‚·‚éŒó•âÀ•WŒQD
-	bool is_candidate_pos = false;		//Œó•âÀ•W‚ª‘¶İ‚·‚é‚©‚Ç‚¤‚©D
+	//devide mapå†…ã‚’å…¨æ¢ç´¢ã—ã¦ï¼Œç¾åœ¨ã®è„šä½ç½®(é›¢æ•£åŒ–ã—ãŸç‰©)ã«é©ã—ãŸè„šè¨­ç½®å¯èƒ½ç‚¹ãŒå­˜åœ¨ã™ã‚‹ã‹èª¿ã¹ã‚‹ï¼
+	designlab::Vector3 candidate_pos;	//ç¾åœ¨ã®è„šä½ç½®ã«åˆè‡´ã™ã‚‹å€™è£œåº§æ¨™ç¾¤ï¼
+	bool is_candidate_pos = false;		//å€™è£œåº§æ¨™ãŒå­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹ï¼
 
-	//”ÍˆÍ“à‚Ì“_‚ğ‘S‚Ä’²‚×‚éD
+	//ç¯„å›²å†…ã®ç‚¹ã‚’å…¨ã¦èª¿ã¹ã‚‹ï¼
 	for (int x = min_x_dev; x < max_x_dev; x++)
 	{
 		for (int y = min_y_dev; y < max_y_dev; y++)
@@ -166,25 +165,25 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//‹rİ’u‰Â”\“_‚ÌÀ•W‚ğæ‚èo‚·D
+				designlab::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’å–ã‚Šå‡ºã™ï¼
 				map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(map_point_pos, now_leg_num, current_node.global_center_of_mass, current_node.rot, false);
 
-				//‹rˆÊ’u‚ğXV‚µ‚½ƒm[ƒh‚ğì¬‚·‚éD
+				//è„šä½ç½®ã‚’æ›´æ–°ã—ãŸãƒãƒ¼ãƒ‰ã‚’ä½œæˆã™ã‚‹ï¼
 				RobotStateNode new_node = current_node;
 
 				new_node.leg_pos[now_leg_num] = map_point_pos;
 
 
-				//‘O‚ÌŒó•â’n“_‚Æ”äŠr‚µ‚ÄC‚æ‚è—Ç‚¢Œó•â’n“_‚Ì‚Ì‚İÀs‚·‚·‚é
+				//å‰ã®å€™è£œåœ°ç‚¹ã¨æ¯”è¼ƒã—ã¦ï¼Œã‚ˆã‚Šè‰¯ã„å€™è£œåœ°ç‚¹ã®æ™‚ã®ã¿å®Ÿè¡Œã™ã™ã‚‹
 				if (is_candidate_pos)
 				{
-					//”½‘Î•ûŒü‚ğ‚Ş‚¢‚Ä‚¢‚éê‡‚ÍŒó•â’n“_‚Æ‚µ‚ÄÌ—p‚µ‚È‚¢D
+					//åå¯¾æ–¹å‘ã‚’ã‚€ã„ã¦ã„ã‚‹å ´åˆã¯å€™è£œåœ°ç‚¹ã¨ã—ã¦æ¡ç”¨ã—ãªã„ï¼
 					if (new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(candidate_pos.ProjectedXY()) * new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(map_point_pos.ProjectedXY()) < 0)
 					{
 						continue;
 					}
 
-					//Œ»İ‚Ì‹rˆÊ’u‚ÆŒó•â’n“_‚ÌŠÔ‚ÉáŠQ•¨‚ª‚ ‚éê‡‚ÍŒó•â’n“_‚Æ‚µ‚ÄÌ—p‚µ‚È‚¢D
+					//ç¾åœ¨ã®è„šä½ç½®ã¨å€™è£œåœ°ç‚¹ã®é–“ã«éšœå®³ç‰©ãŒã‚ã‚‹å ´åˆã¯å€™è£œåœ°ç‚¹ã¨ã—ã¦æ¡ç”¨ã—ãªã„ï¼
 					if (map_point_pos.ProjectedXY().Cross(candidate_pos.ProjectedXY()) * map_point_pos.ProjectedXY().Cross(new_node.leg_reference_pos[now_leg_num].ProjectedXY()) < 0)
 					{
 						continue;
@@ -193,9 +192,9 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 				dllf::ChangeGround(now_leg_num, true, &new_node.leg_state);
 
-				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//‹r‚ª”ÍˆÍŠO‚È‚ç‚Î’Ç‰Á‚¹‚¸‚É‘±sD
+				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//è„šãŒç¯„å›²å¤–ãªã‚‰ã°è¿½åŠ ã›ãšã«ç¶šè¡Œï¼
 
-				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//Œó•âÀ•W‚Æ‚µ‚ÄC“K‚µ‚Ä‚¢‚È‚¢‚È‚ç‚Î’Ç‰Á‚¹‚¸‚É‘±sD
+				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//å€™è£œåº§æ¨™ã¨ã—ã¦ï¼Œé©ã—ã¦ã„ãªã„ãªã‚‰ã°è¿½åŠ ã›ãšã«ç¶šè¡Œï¼
 
 				is_candidate_pos = true;
 				candidate_pos = map_point_pos;
@@ -206,10 +205,10 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 	}	//for x
 
 
-	//Œó•â“_‚ğ‘S—ñ‹“‚µ‚½‚Ì‚¿CŒó•â“_‚ªˆê‚Â‚à‚È‚¯‚ê‚Îfalse
+	//å€™è£œç‚¹ã‚’å…¨åˆ—æŒ™ã—ãŸã®ã¡ï¼Œå€™è£œç‚¹ãŒä¸€ã¤ã‚‚ãªã‘ã‚Œã°false
 	if (!is_candidate_pos) { return false; }
 
-	//‘¶İ‚·‚é‚È‚çC‚»‚Ì’†‚ÅÅ‚à“K‚µ‚½‚à‚Ì‚ğŒ‹‰Ê‚Æ‚µ‚Ä•Ô‚µCtrue
+	//å­˜åœ¨ã™ã‚‹ãªã‚‰ï¼Œãã®ä¸­ã§æœ€ã‚‚é©ã—ãŸã‚‚ã®ã‚’çµæœã¨ã—ã¦è¿”ã—ï¼Œtrue
 	(*output_ground_pos) = candidate_pos;
 
 	return true;
@@ -218,9 +217,9 @@ bool LegUpDownNodeCreator::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
 {
-	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//‹rˆÊ’u‚ğæ“¾(1`7)
+	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//è„šä½ç½®ã‚’å–å¾—(1ï½7)
 
-	//‚Ü‚¸Å‰‚É‹rˆÊ’u4‚Ì‚Æ‚±‚ë‚É‚È‚¢‚©Šm‚©‚ß‚éD
+	//ã¾ãšæœ€åˆã«è„šä½ç½®4ã®ã¨ã“ã‚ã«ãªã„ã‹ç¢ºã‹ã‚ã‚‹ï¼
 	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
 	{
 		if (_leg_state == DiscreteLegPos::kCenter) { return true; }
@@ -231,10 +230,10 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 		if (_leg_state == DiscreteLegPos::kCenter) { return false; }
 	}
 
-	//‹rˆÊ’u4‚Æ”äŠr‚µ‚Ä‘O‚©Œã‚ë‚©
+	//è„šä½ç½®4ã¨æ¯”è¼ƒã—ã¦å‰ã‹å¾Œã‚ã‹
 	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
-		//‘O
+		//å‰
 		if (_leg_state == DiscreteLegPos::kLowerBack || _leg_state == DiscreteLegPos::kBack || _leg_state == DiscreteLegPos::kUpperBack)
 		{
 			return false;
@@ -242,7 +241,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	}
 	else
 	{
-		//Œã‚ë
+		//å¾Œã‚
 		if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kFront || _leg_state == DiscreteLegPos::kUpperFront)
 		{
 			return false;
@@ -250,10 +249,10 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	}
 
 
-	//‹rˆÊ’u4‚Æ”äŠr‚µ‚Äã‚©‰º‚©
+	//è„šä½ç½®4ã¨æ¯”è¼ƒã—ã¦ä¸Šã‹ä¸‹ã‹
 	if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kLowerBack)
 	{
-		//‹rˆÊ’u4‚Æ”äŠr‚µ‚Ä‰º
+		//è„šä½ç½®4ã¨æ¯”è¼ƒã—ã¦ä¸‹
 		if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
 		{
 			return true;
@@ -261,7 +260,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	}
 	else if (_leg_state == DiscreteLegPos::kUpperFront || _leg_state == DiscreteLegPos::kUpperBack)
 	{
-		//‹rˆÊ’u4‚Æ”äŠr‚µ‚Äã
+		//è„šä½ç½®4ã¨æ¯”è¼ƒã—ã¦ä¸Š
 		if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
 		{
 			return true;
@@ -269,7 +268,7 @@ bool LegUpDownNodeCreator::IsAbleLegPos(const RobotStateNode& _node, const int l
 	}
 	else
 	{
-		//‹rˆÊ’u4‚Æ“¯‚¶‚­‚ç‚¢
+		//è„šä½ç½®4ã¨åŒã˜ãã‚‰ã„
 		if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
 		{
 			return true;
