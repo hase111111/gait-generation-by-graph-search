@@ -270,7 +270,7 @@
     <ClInclude Include="application_setting_recorder.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_system_main.h">
+    <ClInclude Include="system_main_simulation.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
     <ClInclude Include="boot_mode.h">
@@ -288,10 +288,10 @@
     <ClInclude Include="phantomx_mk2.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
-    <ClInclude Include="graph_viewer_system_main.h">
+    <ClInclude Include="system_main_graph_viewer.h">
       <Filter>ソース ファイル\System\GraphViewer</Filter>
     </ClInclude>
-    <ClInclude Include="result_viewer_system_main.h">
+    <ClInclude Include="system_main_result_viewer.h">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
@@ -578,7 +578,7 @@
     <ClCompile Include="application_setting_reader_toml.cpp">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_system_main.cpp">
+    <ClCompile Include="system_main_simulation.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
     <ClCompile Include="robot_graund_point_renderer.cpp">
@@ -593,10 +593,10 @@
     <ClCompile Include="phantomx_mk2.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
-    <ClCompile Include="graph_viewer_system_main.cpp">
+    <ClCompile Include="system_main_graph_viewer.cpp">
       <Filter>ソース ファイル\System\GraphViewer</Filter>
     </ClCompile>
-    <ClCompile Include="result_viewer_system_main.cpp">
+    <ClCompile Include="system_main_result_viewer.cpp">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_basic.cpp">

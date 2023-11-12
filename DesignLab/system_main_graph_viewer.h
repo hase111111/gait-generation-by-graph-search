@@ -1,8 +1,8 @@
-﻿//! @file graph_viewer_system_main.h
+﻿//! @file system_main_graph_viewer.h
 //! @brief グラフを表示するシステムのメインクラス
 
-#ifndef DESIGNLAB_GRAPH_VIEWER_SYSTEM_MAIN_H_
-#define DESIGNLAB_GRAPH_VIEWER_SYSTEM_MAIN_H_
+#ifndef DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
+#define DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
 
 #include <memory>
 
@@ -15,15 +15,15 @@
 #include "stopwatch.h"
 
 
-//! @class GraphViewerSystemMain
+//! @class SystemMainGraphViewer
 //! @brief グラフを表示するシステムのメインクラス
 //! @details この研究の手法では木構造のグラフを作成する．
 //! どのようなグラフが作成されるかを確認するために，このグラフを表示するシステムを作成した．
-class GraphViewerSystemMain final : public ISystemMain
+class SystemMainGraphViewer final : public ISystemMain
 {
 public:
 
-	GraphViewerSystemMain(
+	SystemMainGraphViewer(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
@@ -67,4 +67,4 @@ private:
 };
 
 
-#endif // DESIGNLAB_GRAPH_VIEWER_SYSTEM_MAIN_H_
+#endif // DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_

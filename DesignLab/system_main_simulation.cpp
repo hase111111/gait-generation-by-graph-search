@@ -1,4 +1,4 @@
-﻿#include "simulation_system_main.h"
+﻿#include "system_main_simulation.h"
 
 #include <boost/thread.hpp>
 
@@ -16,7 +16,7 @@ namespace dlio = designlab::cmdio;
 namespace dlsu = designlab::string_util;
 
 
-SimulationSystemMain::SimulationSystemMain(
+SystemMainSimulation::SystemMainSimulation(
 		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
@@ -42,7 +42,7 @@ SimulationSystemMain::SimulationSystemMain(
 }
 
 
-void SimulationSystemMain::Main()
+void SystemMainSimulation::Main()
 {
 	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
 
@@ -216,7 +216,7 @@ void SimulationSystemMain::Main()
 }
 
 
-void SimulationSystemMain::OutputSetting() const
+void SystemMainSimulation::OutputSetting() const
 {
 	dlio::Output("[設定]", OutputDetail::kSystem);
 	dlio::OutputNewLine(1, OutputDetail::kSystem);

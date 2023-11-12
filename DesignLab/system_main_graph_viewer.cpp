@@ -1,4 +1,4 @@
-﻿#include "graph_viewer_system_main.h"
+﻿#include "system_main_graph_viewer.h"
 
 #include <bitset>
 #include <iostream>
@@ -19,7 +19,7 @@ namespace dlio = designlab::cmdio;
 namespace dlsu = designlab::string_util;
 
 
-GraphViewerSystemMain::GraphViewerSystemMain(
+SystemMainGraphViewer::SystemMainGraphViewer(
 	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
@@ -43,7 +43,7 @@ GraphViewerSystemMain::GraphViewerSystemMain(
 }
 
 
-void GraphViewerSystemMain::Main()
+void SystemMainGraphViewer::Main()
 {
 	//早期リターン
 	if (!pass_finder_ptr_) 
@@ -152,7 +152,7 @@ void GraphViewerSystemMain::Main()
 }
 
 
-void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
+void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
 {
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::Output("グラフ木を作成する", OutputDetail::kSystem);
@@ -193,7 +193,7 @@ void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector
 	//pass_finder_ptr_->GetGraphTree(graph);
 }
 
-void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
+void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
 {
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::OutputHorizontalLine("=", OutputDetail::kSystem);
@@ -209,7 +209,7 @@ void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>&
 		
 		std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);	
 
-		dlio::Output("GraphViewerSystemMain : グラフ探索の最大深さ : " + std::to_string(GraphSearchConst::kMaxDepth), OutputDetail::kSystem);
+		dlio::Output("SystemMainGraphViewer : グラフ探索の最大深さ : " + std::to_string(GraphSearchConst::kMaxDepth), OutputDetail::kSystem);
 
 		for (const auto& i : graph)
 		{
@@ -239,7 +239,7 @@ void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>&
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
-MapCreateModeMessanger GraphViewerSystemMain::InputMapCreateMode() const
+MapCreateModeMessanger SystemMainGraphViewer::InputMapCreateMode() const
 {
 	MapCreateModeMessanger messanger;
 	
@@ -294,7 +294,7 @@ MapCreateModeMessanger GraphViewerSystemMain::InputMapCreateMode() const
 	return messanger;
 }
 
-RobotStateNode GraphViewerSystemMain::SelectNode(const std::vector<RobotStateNode>& graph) const
+RobotStateNode SystemMainGraphViewer::SelectNode(const std::vector<RobotStateNode>& graph) const
 {
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 	dlio::Output("ノードを選択する", OutputDetail::kSystem);

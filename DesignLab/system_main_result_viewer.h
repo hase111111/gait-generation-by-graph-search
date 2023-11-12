@@ -1,9 +1,9 @@
-//! @file result_viewer_system_main.h
-//! @brief Œ‹‰Ê‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚ÌƒNƒ‰ƒXD
+ï»¿//! @file system_main_result_viewer.h
+//! @brief çµæœã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã®ã‚¯ãƒ©ã‚¹ï¼
 
 
-#ifndef DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_
-#define DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_
+#ifndef DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
+#define DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
 
 
 #include <memory>
@@ -15,12 +15,12 @@
 #include "result_file_importer.h"
 
 
-//! @class ResultViewerSystemMain
-//! @brief Œ‹‰Ê‚ğ•\¦‚·‚éƒVƒXƒeƒ€‚ÌƒNƒ‰ƒXD
-class ResultViewerSystemMain final : public ISystemMain
+//! @class SystemMainResultViewer
+//! @brief çµæœã‚’è¡¨ç¤ºã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã®ã‚¯ãƒ©ã‚¹ï¼
+class SystemMainResultViewer final : public ISystemMain
 {
 public:
-	ResultViewerSystemMain(
+	SystemMainResultViewer(
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 	);
@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif	// DESIGNLAB_RESULT_VIEWER_SYSTEM_MAIN_H_
+#endif	// DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_

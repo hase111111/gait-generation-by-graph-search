@@ -1,4 +1,4 @@
-#include "result_viewer_system_main.h"
+ï»¿#include "system_main_result_viewer.h"
 
 #include <filesystem>
 
@@ -13,7 +13,7 @@
 namespace dlio = designlab::cmdio;
 
 
-ResultViewerSystemMain::ResultViewerSystemMain(
+SystemMainResultViewer::SystemMainResultViewer(
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 ) :
@@ -21,39 +21,39 @@ ResultViewerSystemMain::ResultViewerSystemMain(
 {
 }
 
-void ResultViewerSystemMain::Main()
+void SystemMainResultViewer::Main()
 {
 	dlio::OutputTitle("Result Viewer System");
 
 	while (true)
 	{
-		// ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğ•\¦‚µCƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚·‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’è¡¨ç¤ºã—ï¼Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã™ã‚‹
 		FileTree file_tree;
 
 		std::string res_path;
 		
 		if ( ! file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path)) 
 		{
-			dlio::Output("ŠY“–‚Ìƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½DI—¹‚µ‚Ü‚·D", OutputDetail::kSystem);
+			dlio::Output("è©²å½“ã®ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼çµ‚äº†ã—ã¾ã™ï¼", OutputDetail::kSystem);
 
 			break;
 		}
 
 
-		// ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
 
-		std::vector<RobotStateNode> graph;		// ƒf[ƒ^‚ğó‚¯æ‚é‚½‚ß‚Ì•Ï”
+		std::vector<RobotStateNode> graph;		// ãƒ‡ãƒ¼ã‚¿ã‚’å—ã‘å–ã‚‹ãŸã‚ã®å¤‰æ•°
 		MapState map_state;
 
 		if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state)) 
 		{
-			// ƒf[ƒ^‚ğ’‡‰îl‚É“n‚·
+			// ãƒ‡ãƒ¼ã‚¿ã‚’ä»²ä»‹äººã«æ¸¡ã™
 			broker_ptr_->graph.SetData(graph);
 			broker_ptr_->map_state.SetData(map_state);
 			broker_ptr_->simu_end_index.SetData({graph.size() - 1});
 
-			// ƒf[ƒ^‚ğ•\¦‚·‚é
-			dlio::Output("ƒf[ƒ^‚ğ•\¦‚µ‚Ü‚·D", OutputDetail::kSystem);
+			// ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã™ã‚‹
+			dlio::Output("ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã—ã¾ã™ï¼", OutputDetail::kSystem);
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 			dlio::WaitAnyKey();
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
@@ -61,12 +61,12 @@ void ResultViewerSystemMain::Main()
 		}
 		else 
 		{
-			dlio::Output("ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½DI—¹‚µ‚Ü‚·D", OutputDetail::kSystem);
+			dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼çµ‚äº†ã—ã¾ã™ï¼", OutputDetail::kSystem);
 		}
 
-		// I—¹‚·‚é‚©‚Ç‚¤‚©‚ğ‘I‘ğ
+		// çµ‚äº†ã™ã‚‹ã‹ã©ã†ã‹ã‚’é¸æŠ
 
-		if (dlio::InputYesNo("‚±‚Ìƒ‚[ƒh‚ğI—¹‚µ‚Ü‚·‚©H"))
+		if (dlio::InputYesNo("ã“ã®ãƒ¢ãƒ¼ãƒ‰ã‚’çµ‚äº†ã—ã¾ã™ã‹ï¼Ÿ"))
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 
