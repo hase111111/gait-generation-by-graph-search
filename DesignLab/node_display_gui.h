@@ -27,8 +27,8 @@ public:
 	NodeDisplayGui(
 		int x_pos, 
 		int y_pos, 
-		const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker> checker_ptr
+		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
 
 

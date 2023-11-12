@@ -20,8 +20,8 @@ const int NodeDisplayGui::kClosedHeight = 50;
 NodeDisplayGui::NodeDisplayGui(
 	const int x_pos, 
 	const int y_pos, 
-	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr
+	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 ) :
 	kGuiLeftPosX(x_pos),
 	kGuiTopPosY(y_pos),
