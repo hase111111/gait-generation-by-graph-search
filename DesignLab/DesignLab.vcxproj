@@ -42,7 +42,6 @@
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
     <ClInclude Include="node_initializer.h" />
-    <ClInclude Include="_com_selecter.h" />
     <ClInclude Include="com_selecter_hato.h" />
     <ClInclude Include="com_up_down_node_creator.h" />
     <ClInclude Include="designlab_quaternion.h" />
@@ -77,12 +76,10 @@
     <ClInclude Include="phantomx_mk2_const.h" />
     <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
-    <ClInclude Include="_hexapod_state_calculator.h" />
     <ClInclude Include="interface_pass_finder.h" />
     <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="result_file_importer.h" />
-    <ClInclude Include="_BFSinHierarchy.h" />
     <ClInclude Include="com_type.h" />
     <ClInclude Include="cmdio_util.h" />
     <ClInclude Include="define.h" />
@@ -119,12 +116,8 @@
     <ClInclude Include="system_main_simulation.h" />
     <ClInclude Include="system_main_graph_viewer.h" />
     <ClInclude Include="target.h" />
-    <ClInclude Include="_hexapod.h" />
     <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="simulation_map_creator.h" />
-    <ClInclude Include="_phantomxCommander.h" />
-    <ClInclude Include="S_NE.h" />
-    <ClInclude Include="_TimeManager.h" />
     <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
@@ -141,7 +134,6 @@
     <ClCompile Include="designlab_string_util.cpp" />
     <ClCompile Include="devide_map_state.cpp" />
     <ClCompile Include="node_initializer.cpp" />
-    <ClCompile Include="_com_selecter.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
@@ -172,8 +164,6 @@
     <ClCompile Include="pass_finder_basic.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="phantomx_renderer_simple.cpp" />
-    <ClCompile Include="_hexapod_state_calculator.cpp" />
-    <ClCompile Include="_BFSinHierarchy.cpp" />
     <ClCompile Include="com_type.cpp" />
     <ClCompile Include="cmdio_util.cpp" />
     <ClCompile Include="dxlib_util.cpp" />
@@ -185,7 +175,6 @@
     <ClCompile Include="leg_hierarchy_node_creator.cpp" />
     <ClCompile Include="leg_state.cpp" />
     <ClCompile Include="leg_up_down_node_creator.cpp" />
-    <ClCompile Include="_hexapod.cpp" />
     <ClCompile Include="designlab_line_segment2.cpp" />
     <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="robot_state_node.cpp" />
@@ -196,7 +185,6 @@
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math_util.cpp" />
     <ClCompile Include="node_validity_checker.cpp" />
-    <ClCompile Include="_phantomxCommander.cpp" />
     <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="system_main_result_viewer.cpp" />
@@ -205,7 +193,6 @@
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
-    <ClCompile Include="_TimeManager.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="define.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />

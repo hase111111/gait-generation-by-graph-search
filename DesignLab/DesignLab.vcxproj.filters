@@ -91,9 +91,6 @@
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\PreviousResearch">
-      <UniqueIdentifier>{39493255-5b06-4c98-80e6-cfc66f595f30}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator\NodeCreatorBuilder">
       <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
     </Filter>
@@ -120,12 +117,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="_phantomxCommander.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
-    <ClInclude Include="_TimeManager.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
     <ClInclude Include="define.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -315,12 +306,6 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="_BFSinHierarchy.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
-    <ClInclude Include="_hexapod.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
     <ClInclude Include="target.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
@@ -369,9 +354,6 @@
     <ClInclude Include="interface_map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="_hexapod_state_calculator.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
     <ClInclude Include="interface_application_setting_reader.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
@@ -408,12 +390,6 @@
     <ClInclude Include="pass_finder_revaluation.h">
       <Filter>ソース ファイル\PassFinder</Filter>
     </ClInclude>
-    <ClInclude Include="_com_selecter.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
-    <ClInclude Include="S_NE.h">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClInclude>
     <ClInclude Include="designlab_string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -448,12 +424,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="_phantomxCommander.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClCompile>
-    <ClCompile Include="_TimeManager.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="define.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -608,12 +578,6 @@
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\PassFinder\Common</Filter>
     </ClCompile>
-    <ClCompile Include="_BFSinHierarchy.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClCompile>
-    <ClCompile Include="_hexapod.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClCompile>
     <ClCompile Include="designlab_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
@@ -641,9 +605,6 @@
     <ClCompile Include="result_file_importer.cpp">
       <Filter>ソース ファイル\Common\FileIO\Result</Filter>
     </ClCompile>
-    <ClCompile Include="_hexapod_state_calculator.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
-    </ClCompile>
     <ClCompile Include="model_loader.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
     </ClCompile>
@@ -667,9 +628,6 @@
     </ClCompile>
     <ClCompile Include="pass_finder_revaluation.cpp">
       <Filter>ソース ファイル\PassFinder</Filter>
-    </ClCompile>
-    <ClCompile Include="_com_selecter.cpp">
-      <Filter>ソース ファイル\PreviousResearch</Filter>
     </ClCompile>
     <ClCompile Include="designlab_string_util.cpp">
       <Filter>ソース ファイル\Common</Filter>
