@@ -5,7 +5,6 @@
 #include <magic_enum.hpp>
 
 #include "cmdio_util.h"
-#include "define.h"
 #include "designlab_string_util.h"
 #include "node_validity_checker.h"
 #include "node_initializer.h"
@@ -24,6 +23,7 @@ SystemMainSimulation::SystemMainSimulation(
 	) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
+	simu_end_checker_ptr_(std::make_unique<const SimulationEndChecker>()),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
@@ -69,7 +69,7 @@ void SystemMainSimulation::Main()
 
 
 	//シミュレーションを行う回数分ループする．
-	for (int i = 0; i < Define::kSimurateNum; i++)
+	for (int i = 0; i < kSimurateNum; i++)
 	{
 		NodeInitializer node_initializer;							//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
@@ -103,7 +103,7 @@ void SystemMainSimulation::Main()
 
 
 		//最大歩容生成回数分までループする．
-		for (int j = 0; j < Define::kGaitPatternGenerationLimit; j++)
+		for (int j = 0; j < kGaitPatternGenerationLimit; j++)
 		{
 			timer_.Start();			//タイマースタート
 
@@ -174,7 +174,7 @@ void SystemMainSimulation::Main()
 
 
 			//成功時の処理
-			if (current_node.global_center_of_mass.x > Define::kGoalTape)
+			if (simu_end_checker_ptr_->IsEnd(current_node))
 			{
 				record.simulation_result = SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
 

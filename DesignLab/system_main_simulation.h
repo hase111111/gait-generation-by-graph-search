@@ -14,6 +14,7 @@
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
+#include "simulation_end_checker.h"
 #include "stopwatch.h"
 #include "target.h"
 
@@ -46,6 +47,10 @@ private:
 
 	void OutputSetting() const;
 
+	static constexpr int kSimurateNum{5};	//!< 連続でシミュレーションを行う回数
+
+	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
+
 
 	const std::unique_ptr<IPassFinder> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．
 
@@ -55,6 +60,7 @@ private:
 
 	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
+	const std::unique_ptr<const SimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 
 	MapState map_state_;		//!< 地形の状態
 

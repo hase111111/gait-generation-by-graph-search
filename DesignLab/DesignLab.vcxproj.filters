@@ -420,13 +420,13 @@
     <ClInclude Include="interface_hexapod_vaild_checker.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="simulation_end_checker.h">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="define.cpp">
-      <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="leg_state.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
@@ -643,6 +643,9 @@
     </ClCompile>
     <ClCompile Include="node_initializer.cpp">
       <Filter>ソース ファイル\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_end_checker.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,57 +1,19 @@
-//! @file define.h
-//! @brief ƒvƒƒWƒFƒNƒg‘S‘Ì‚Åg—p‚·‚é’è”‚ğ‚Ü‚Æ‚ß‚½‚à‚Ì
+ï»¿//! @file define.h
+//! @brief ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå…¨ä½“ã§ä½¿ç”¨ã™ã‚‹Defineã‚’ã¾ã¨ã‚ãŸã‚‚ã®
 
 #ifndef DESIGNLAB_DEFINE_H_
 #define DESIGNLAB_DEFINE_H_
 
-//#define DESIGNLAB_DONOT_USE_DXLIB	//!< DXƒ‰ƒCƒuƒ‰ƒŠ‚ğg—p‚µ‚È‚¢ê‡‚ÍƒRƒƒ“ƒgƒAƒEƒg‚ğŠO‚·
+//#define DESIGNLAB_DONOT_USE_DXLIB	//!< DXãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ä½¿ç”¨ã—ãªã„å ´åˆã¯ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã‚’å¤–ã™
 
-//#define DESIGNLAB_USE_ROS	//!< ROS‚ğg—p‚·‚éê‡‚ÍƒRƒƒ“ƒgƒAƒEƒg‚ğŠO‚·
+//#define DESIGNLAB_USE_ROS			//!< ROSã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã‚’å¤–ã™
 
-// DESIGNLAB_USE_ROS‚ªdefine‚³‚ê‚Ä‚¢‚é‚©‚ÂCDESIGNLAB_DONOT_USE_DXLIB‚ªdefine‚³‚ê‚Ä‚¢‚È‚¢ê‡CDESIGNLAB_DONOT_USE_DXLIB‚ğdefine‚·‚é
+
+// DESIGNLAB_USE_ROSãŒdefineã•ã‚Œã¦ã„ã‚‹ã‹ã¤ï¼ŒDESIGNLAB_DONOT_USE_DXLIBãŒdefineã•ã‚Œã¦ã„ãªã„å ´åˆï¼ŒDESIGNLAB_DONOT_USE_DXLIBã‚’defineã™ã‚‹
 #ifdef DESIGNLAB_USE_ROS
 #ifndef DESIGNLAB_DONOT_USE_DXLIB
 #define DESIGNLAB_DONOT_USE_DXLIB
 #endif
 #endif
-
-#include <string>
-
-
-//! @class Define
-//! @brief ƒvƒƒWƒFƒNƒg‘S‘Ì‚Åg—p‚·‚é’è”‚ğ‚Ü‚Æ‚ß‚½’è”ƒNƒ‰ƒX
-//! @details Effective C++ ‚Æ‚¢‚¤–{ („‚ª‚Á‚Ä‚¢‚é‚Ì‚Í‚©‚È‚èŒÃ‚¢”Å‚Ì‚à‚Ì‚È‚Ì‚Å³’¼³‚µ‚¢‚Ì‚©‚Í‚æ‚­‚í‚©‚ç‚È‚¢‚¯‚Ç) ‚É‚æ‚é‚ÆC
-//! @n C++‚É‚¨‚¢‚Ä‚Í‚ ‚Ü‚è’è”‚ğéŒ¾‚·‚é‚½‚ß‚É #define‚ğg—p‚·‚é‚×‚«‚Å‚Í‚È‚¢‚æ‚¤‚Å‚ ‚éDŒ‹\‚¢‚ë‚ñ‚ÈƒTƒCƒg‚Å‚à“¯‚¶‚±‚Æ‚ªŒ¾‚í‚ê‚Ä‚¢‚éD
-//! @n https://qiita.com/jonichonpa/items/595ed7914751787ebaee
-//! @n https://myon.info/blog/2015/12/18/avoid-defining-macros/
-//! @n
-//! @n const statis‚È’è”Dinline ŠÖ”Dconstexpr’è”‚ğg‚¤‚×‚«D
-//! @n
-//! @n ˆÈ‰ºQl‘—¿D 
-//! @n ƒNƒ‰ƒXƒƒ“ƒo‚É constexpr static •Ï”‚Í‚¨‚·‚·‚ß‚µ‚È‚¢ \ Œ»Û‚Æ‘Îô
-//! @n https://qiita.com/Nabetani/items/d8a3ebccaef03cd18d81
-//! @attention GRAPH_SEARCH_DEPTH‚Ì’l‚ğ‘å‚«‚­‚µ‚·‚¬‚é‚Æ“®ì‚µ‚È‚­‚È‚éD
-//! @n æsŒ¤‹†‚Å‚Í[‚³4`5‚ ‚½‚è‚Å“®ì‚¹‚Ä‚¢‚½‚Ì‚Å‚»‚Ì‚ ‚½‚è‚ÅC
-//! @n ‚¿‚È‚İ‚ÉC[‚³‚ğ1‚Â[‚­‚µ‚½‚¾‚¯‚ÅC’Tõ‚·‚é”ÍˆÍ‚Í–c‘å‚É‘‚¦‚é‚Ì‚Å’ˆÓ‚ª•K—vD[‚³6ˆÈã‚ğÀŠÔ“à‚É’Tõ‚µI‚í‚é‚Ì‚ÍC‚»‚±‚»‚±‚Ì«”\‚ÌPC‚ª•K—vD
-class Define final
-{
-public:
-
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ‘S‚Äíœ‚µ‚ÄCƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚é
-	Define() = delete;
-	Define(const Define& _other) = delete;
-	Define(const Define&& _other) = delete;
-	Define& operator = (const Define& _other) = delete;
-
-
-	const static int kSimurateNum;	//!< ˜A‘±‚ÅƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ğs‚¤‰ñ”
-
-	const static int kGaitPatternGenerationLimit;	//!< 1ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ““–‚½‚è‚ÌÅ‘å•à—e¶¬‰ñ”
-
-	const static int kGoalTape;	//!< ’¼i‚Ì‚Æ‚«‚ÉAY•ûŒü‚É‚±‚Ì’l‚¾‚¯i‚ß‚½‚ç1ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“I—¹
-
-	const static std::string kResultFilePath;	//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê‚ğ•Û‘¶‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX
-};
-
 
 #endif // DESIGNLAB_DEFINE_H_
