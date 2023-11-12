@@ -1,5 +1,5 @@
-//! @file graph_search_result_recoder.h
-//! @brief ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é\‘¢‘ÌD
+ï»¿//! @file graph_search_result_recoder.h
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’æ ¼ç´ã™ã‚‹æ§‹é€ ä½“ï¼
 
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
@@ -12,21 +12,20 @@
 
 
 //! @enum GraphSearchReslut
-//! @brief ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğ•\‚·—ñ‹“Œ^
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’è¡¨ã™åˆ—æŒ™å‹
 enum class GraphSearchResult
 {
-	kSuccess,							//!< ƒOƒ‰ƒt’Tõ‚É¬Œ÷‚µ‚½
-	kFailure,							//!< ƒOƒ‰ƒt’Tõ‚É¸”s‚µ‚½
-	kFailureByInitializationFailed,		//!< ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒX‚Ì‰Šú‰»‚É¸”s‚µ‚½
-	kFailureByNodeLimitExceeded,		//!< ƒm[ƒh”‚ÌãŒÀ‚É’B‚µ‚½‚½‚ßƒOƒ‰ƒt’Tõ‚É¸”s‚µ‚½
-	kFailureByNoNode,					//!< ƒOƒ‰ƒt–Ø‚ğì¬‚µ‚½‚ªCƒm[ƒh‚ª1‚Â‚à¶¬‚Å‚«‚È‚©‚Á‚½D
-	kFailureByNotReachedDepth,			//!< ƒOƒ‰ƒt–Ø‚ğì¬‚µ‚½‚ªC–Ú•W[‚³‚É“’B‚Å‚«‚È‚©‚Á‚½D
-	kFailureByLegPathGenerationError,	//!< ‹r‚Ì‹O“¹¶¬‚É¸”s‚µ‚½
+	kSuccess,							//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã«æˆåŠŸã—ãŸ
+	kFailure,							//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã«å¤±æ•—ã—ãŸ
+	kFailureByNodeLimitExceeded,		//!< ãƒãƒ¼ãƒ‰æ•°ã®ä¸Šé™ã«é”ã—ãŸãŸã‚ã‚°ãƒ©ãƒ•æ¢ç´¢ã«å¤±æ•—ã—ãŸ
+	kFailureByNoNode,					//!< ã‚°ãƒ©ãƒ•æœ¨ã‚’ä½œæˆã—ãŸãŒï¼Œãƒãƒ¼ãƒ‰ãŒ1ã¤ã‚‚ç”Ÿæˆã§ããªã‹ã£ãŸï¼
+	kFailureByNotReachedDepth,			//!< ã‚°ãƒ©ãƒ•æœ¨ã‚’ä½œæˆã—ãŸãŒï¼Œç›®æ¨™æ·±ã•ã«åˆ°é”ã§ããªã‹ã£ãŸï¼
+	kFailureByLegPathGenerationError,	//!< è„šã®è»Œé“ç”Ÿæˆã«å¤±æ•—ã—ãŸ
 };
 
 
 //! @struct GraphSearchResultRecoder
-//! @brief ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é\‘¢‘ÌD•Ï”‚ğ‚²‚¿‚á‚²‚¿‚á‚³‚¹‚½‚­‚È‚¢‚Ì‚Åì¬
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’æ ¼ç´ã™ã‚‹æ§‹é€ ä½“ï¼å¤‰æ•°ã‚’ã”ã¡ã‚ƒã”ã¡ã‚ƒã•ã›ãŸããªã„ã®ã§ä½œæˆ
 struct GraphSearchResultRecoder final
 {
 	GraphSearchResultRecoder() : 
@@ -46,21 +45,21 @@ struct GraphSearchResultRecoder final
 	};
 
 
-	//! @brief \‘¢‘Ì‚Ì“à—e‚ğCSVŒ`®‚Ì•¶š—ñ‚É‚µ‚Ä•Ô‚·D , (ƒJƒ“ƒ}) ‚Å‹æØ‚ç‚ê‚éD
-	//! @return \‘¢‘Ì‚Ì“à—e‚ğCSVŒ`®‚Ì•¶š—ñ‚É‚µ‚½‚à‚Ì
+	//! @brief æ§‹é€ ä½“ã®å†…å®¹ã‚’CSVå½¢å¼ã®æ–‡å­—åˆ—ã«ã—ã¦è¿”ã™ï¼ , (ã‚«ãƒ³ãƒ) ã§åŒºåˆ‡ã‚‰ã‚Œã‚‹ï¼
+	//! @return æ§‹é€ ä½“ã®å†…å®¹ã‚’CSVå½¢å¼ã®æ–‡å­—åˆ—ã«ã—ãŸã‚‚ã®
 	std::string ToCsvString() const;
 
-	//! @brief CSVŒ`®‚Ìƒwƒbƒ_‚ğ•Ô‚·D
-	//! @return CSVŒ`®‚Ìƒwƒbƒ_
+	//! @brief CSVå½¢å¼ã®ãƒ˜ãƒƒãƒ€ã‚’è¿”ã™ï¼
+	//! @return CSVå½¢å¼ã®ãƒ˜ãƒƒãƒ€
 	static std::string GetCsvHeader();
 
-	RobotStateNode result_node;		//!< ƒOƒ‰ƒt’Tõ‚É‚æ‚Á‚Ä‘I‘ğ‚³‚ê‚½ƒm[ƒh
+	RobotStateNode result_node;		//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã«ã‚ˆã£ã¦é¸æŠã•ã‚ŒãŸãƒãƒ¼ãƒ‰
 
-	double computation_time;		//!< ƒOƒ‰ƒt’Tõ‚É‚©‚©‚Á‚½ŒvZŠÔ [msec]
+	double computation_time;		//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã«ã‹ã‹ã£ãŸè¨ˆç®—æ™‚é–“ [msec]
 
-	GraphSearchResult graph_search_result;	//!< ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰ÊC¬Œ÷‚©¸”s‚©
+	GraphSearchResult graph_search_result;	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœï¼ŒæˆåŠŸã‹å¤±æ•—ã‹
 
-	bool did_reevaluation;			//!< Ä•]‰¿‚ğs‚Á‚½‚©‚Ç‚¤‚©
+	bool did_reevaluation;			//!< å†è©•ä¾¡ã‚’è¡Œã£ãŸã‹ã©ã†ã‹
 
 };
 

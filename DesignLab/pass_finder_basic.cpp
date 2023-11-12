@@ -1,4 +1,4 @@
-#include "pass_finder_basic.h"
+ï»¿#include "pass_finder_basic.h"
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
@@ -21,14 +21,12 @@ PassFinderBasic::PassFinderBasic(
 
 GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_state, const TargetRobotState& target, RobotStateNode* output_node)
 {
-	assert(output_node != nullptr);	// output_node‚Ínullptr‚Å‚È‚¢
+	assert(output_node != nullptr);
+	assert(graph_tree_creator_ptr_ != nullptr);
+	assert(graph_searcher_ptr_ != nullptr);
 
+	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearchï¼\nã¾ãšã¯åˆæœŸåŒ–ã™ã‚‹ï¼(ãƒãƒƒãƒ—ã‚’åˆ†å‰²ã™ã‚‹)\n", OutputDetail::kDebug);
 
-	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearchD\n‚Ü‚¸‚Í‰Šú‰»‚·‚éD(ƒ}ƒbƒv‚ğ•ªŠ„‚·‚é)\n", OutputDetail::kDebug);
-
-	//‘ŠúƒŠƒ^[ƒ“D2‚Â‚ÌƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚¢‚È‚ç‚ÎC‘¦À‚ÉI—¹‚·‚éDassert‚Å‚à‚æ‚©‚Á‚½‚©‚à
-	if (!graph_tree_creator_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
-	if (!graph_searcher_ptr_) { return GraphSearchResult::kFailureByInitializationFailed; }
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state, current_node.global_center_of_mass);
@@ -37,11 +35,11 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 
 	graph_tree_.clear();
 
-	dlio::Output("‰Šú‰»I—¹D", OutputDetail::kDebug);
+	dlio::Output("åˆæœŸåŒ–çµ‚äº†ï¼", OutputDetail::kDebug);
 
 
-	// ƒOƒ‰ƒt’Tõ‚ğ‚·‚é‚½‚ß‚ÌC•à—eƒpƒ^[ƒ“ƒOƒ‰ƒt‚ğ¶¬‚·‚é
-	dlio::Output("ƒOƒ‰ƒt–Ø‚ğì¬‚·‚é", OutputDetail::kDebug);
+	// ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’ã™ã‚‹ãŸã‚ã®ï¼Œæ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã™ã‚‹
+	dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã‚’ä½œæˆã™ã‚‹", OutputDetail::kDebug);
 
 	RobotStateNode parent_node = current_node;
 	parent_node.ChangeParentNode();
@@ -50,26 +48,26 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 
 	if (result != GraphSearchResult::kSuccess)
 	{
-		dlio::Output("ƒOƒ‰ƒt–Ø‚Ìì¬‚É¸”sD", OutputDetail::kDebug);
+		dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã®ä½œæˆã«å¤±æ•—ï¼", OutputDetail::kDebug);
 		return result; 
 	}
 
-	dlio::Output("ƒOƒ‰ƒt–Ø‚Ìì¬I—¹D", OutputDetail::kDebug);
-	dlio::Output("ƒOƒ‰ƒt‚ÌƒTƒCƒY" + std::to_string(graph_tree_.size()), OutputDetail::kDebug);
+	dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã®ä½œæˆçµ‚äº†ï¼", OutputDetail::kDebug);
+	dlio::Output("ã‚°ãƒ©ãƒ•ã®ã‚µã‚¤ã‚º" + std::to_string(graph_tree_.size()), OutputDetail::kDebug);
 
 
-	// ƒOƒ‰ƒt’Tõ‚ğs‚¤
-	dlio::Output("ƒOƒ‰ƒt–Ø‚ğ•]‰¿‚·‚é", OutputDetail::kDebug);
+	// ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†
+	dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã‚’è©•ä¾¡ã™ã‚‹", OutputDetail::kDebug);
 
 	result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, output_node);
 
 	if (result != GraphSearchResult::kSuccess)
 	{
-		dlio::Output("ƒOƒ‰ƒt–Ø‚Ì•]‰¿‚É¸”sD", OutputDetail::kDebug);
+		dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã®è©•ä¾¡ã«å¤±æ•—ï¼", OutputDetail::kDebug);
 		return result; 
 	}
 
-	dlio::Output("ƒOƒ‰ƒt–Ø‚Ì•]‰¿I—¹DƒOƒ‰ƒt’Tõ‚É¬Œ÷‚µ‚½", OutputDetail::kDebug);
+	dlio::Output("ã‚°ãƒ©ãƒ•æœ¨ã®è©•ä¾¡çµ‚äº†ï¼ã‚°ãƒ©ãƒ•æ¢ç´¢ã«æˆåŠŸã—ãŸ", OutputDetail::kDebug);
 
 	return GraphSearchResult::kSuccess;
 }
