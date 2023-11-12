@@ -1,5 +1,5 @@
-//! @file interface_hexapod_vaild_checker.h
-//! @brief 6‹rƒƒ{ƒbƒg‚ª—LŒø‚Èp¨‚ğ‚Æ‚Á‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN‚·‚éƒNƒ‰ƒX
+ï»¿//! @file interface_hexapod_vaild_checker.h
+//! @brief 6è„šãƒ­ãƒœãƒƒãƒˆãŒæœ‰åŠ¹ãªå§¿å‹¢ã‚’ã¨ã£ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_VAILD_CHECKER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_VAILD_CHECKER_H_
@@ -14,43 +14,43 @@
 
 
 //! @class IHexapodVaildChecker
-//! @brief 6‹rƒƒ{ƒbƒg‚ª—LŒø‚Èp¨‚ğ‚Æ‚Á‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN‚·‚éƒNƒ‰ƒX
+//! @brief 6è„šãƒ­ãƒœãƒƒãƒˆãŒæœ‰åŠ¹ãªå§¿å‹¢ã‚’ã¨ã£ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‚¯ãƒ©ã‚¹
 class IHexapodVaildChecker
 {
 public:
 	virtual ~IHexapodVaildChecker() = default;
 
 
-	//! @brief ‹r‚ª‰Â“®”ÍˆÍ“à‚É‚ ‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] leg_index ‹r”Ô†D
-	//! @param [in] leg_pos ‹rÀ•WŒn‚É‚¨‚¯‚é‹ræ‚ÌÀ•WD‹ræÀ•WŒn‚Æ‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚ÈÀ•WŒnD
-	//! @return bool ‹r‚ª‰Â“®”ÍˆÍ“à‚É‚ ‚ê‚ÎtrueD‰Â“®”ÍˆÍŠO‚É‚ ‚ê‚ÎfalseD
+	//! @brief è„šãŒå¯å‹•ç¯„å›²å†…ã«ã‚ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] leg_index è„šç•ªå·ï¼
+	//! @param [in] leg_pos è„šåº§æ¨™ç³»ã«ãŠã‘ã‚‹è„šå…ˆã®åº§æ¨™ï¼è„šå…ˆåº§æ¨™ç³»ã¨ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªåº§æ¨™ç³»ï¼
+	//! @return bool è„šãŒå¯å‹•ç¯„å›²å†…ã«ã‚ã‚Œã°trueï¼å¯å‹•ç¯„å›²å¤–ã«ã‚ã‚Œã°falseï¼
 	virtual bool IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const = 0;
 
-	//! @brief ‹r‚ª‘¼‚Ì‹r‚ÆŠ±Â‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] leg_pos ‹rÀ•WŒn‚É‚¨‚¯‚é‹ræ‚ÌÀ•W‚Ì”z—ñD‹ræÀ•WŒn‚Æ‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚ÈÀ•WŒnD
-	//! @return bool ‹r‚ª‘¼‚Ì‹r‚ÆŠ±Â‚µ‚Ä‚¢‚ê‚ÎtrueDŠ±Â‚µ‚Ä‚¢‚È‚¯‚ê‚ÎfalseD
+	//! @brief è„šãŒä»–ã®è„šã¨å¹²æ¸‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] leg_pos è„šåº§æ¨™ç³»ã«ãŠã‘ã‚‹è„šå…ˆã®åº§æ¨™ã®é…åˆ—ï¼è„šå…ˆåº§æ¨™ç³»ã¨ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªåº§æ¨™ç³»ï¼
+	//! @return bool è„šãŒä»–ã®è„šã¨å¹²æ¸‰ã—ã¦ã„ã‚Œã°trueï¼å¹²æ¸‰ã—ã¦ã„ãªã‘ã‚Œã°falseï¼
 	virtual bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
 
-	//! @brief ˆÀ’è—]—T(Stability Margin))‚ğŒvZ‚·‚éDÚ‚µ‚­‚Íu•s®’n‚É‚¨‚¯‚é•às‹@ŠB‚ÌÃ“IˆÀ’è«•]‰¿Šî€v‚Æ‚¢‚¤˜_•¶‚ğ“Ç‚ñ‚Å—~‚µ‚¢
-	//! @n Ú’n‹r‚ğŒq‚¢‚Åì‚ç‚ê‚é‘½ŠpŒ`‚Ì•Ó‚ÆdS‚Ì‹——£‚ÌÅ¬’l‚ğŒvZ‚·‚éD
-	//! @param [in] leg_state ‹r‚Ìó‘ÔDbit‚Å•\Œ»‚³‚ê‚éC—V‹rEÚ’n‹r‚Ìî•ñ‚ğ‚ÂD
-	//! @param [in] leg_pos ‹rÀ•WŒn‚É‚¨‚¯‚é‹ræ‚ÌÀ•W‚Ì”z—ñD‹ræÀ•WŒn‚Æ‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚ÈÀ•WŒnD
-	//! @return float ˆÀ’è—]—TD‘å‚«‚¢•û‚ªˆÀ’è‚Æ‚È‚éC‚Ü‚½‚±‚Ì’l‚ª0ˆÈ‰º‚È‚ç“]“|‚·‚éD
+	//! @brief å®‰å®šä½™è£•(Stability Margin))ã‚’è¨ˆç®—ã™ã‚‹ï¼è©³ã—ãã¯ã€Œä¸æ•´åœ°ã«ãŠã‘ã‚‹æ­©è¡Œæ©Ÿæ¢°ã®é™çš„å®‰å®šæ€§è©•ä¾¡åŸºæº–ã€ã¨ã„ã†è«–æ–‡ã‚’èª­ã‚“ã§æ¬²ã—ã„
+	//! @n æ¥åœ°è„šã‚’ç¹‹ã„ã§ä½œã‚‰ã‚Œã‚‹å¤šè§’å½¢ã®è¾ºã¨é‡å¿ƒã®è·é›¢ã®æœ€å°å€¤ã‚’è¨ˆç®—ã™ã‚‹ï¼
+	//! @param [in] leg_state è„šã®çŠ¶æ…‹ï¼bitã§è¡¨ç¾ã•ã‚Œã‚‹ï¼ŒéŠè„šãƒ»æ¥åœ°è„šã®æƒ…å ±ã‚’æŒã¤ï¼
+	//! @param [in] leg_pos è„šåº§æ¨™ç³»ã«ãŠã‘ã‚‹è„šå…ˆã®åº§æ¨™ã®é…åˆ—ï¼è„šå…ˆåº§æ¨™ç³»ã¨ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªåº§æ¨™ç³»ï¼
+	//! @return float å®‰å®šä½™è£•ï¼å¤§ãã„æ–¹ãŒå®‰å®šã¨ãªã‚‹ï¼Œã¾ãŸã“ã®å€¤ãŒ0ä»¥ä¸‹ãªã‚‰è»¢å€’ã™ã‚‹ï¼
 	virtual float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state,
 		const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
 
-	//! @brief ˆÀ’è—]—T‚ğ—p‚¢‚ÄCÃ“I‚ÉˆÀ’è‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] leg_state ‹r‚Ìó‘ÔDbit‚Å•\Œ»‚³‚ê‚éC—V‹rEÚ’n‹r‚Ìî•ñ‚ğ‚ÂD
-	//! @param [in] leg_pos ‹rÀ•WŒn‚É‚¨‚¯‚é‹ræ‚ÌÀ•W‚Ì”z—ñD‹ræÀ•WŒn‚Æ‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚ÈÀ•WŒnD
-	//! @return bool Ã“I‚ÉˆÀ’è‚µ‚Ä‚¢‚ê‚ÎtrueD‚»‚¤‚Å‚È‚¯‚ê‚ÎfalseD
+	//! @brief å®‰å®šä½™è£•ã‚’ç”¨ã„ã¦ï¼Œé™çš„ã«å®‰å®šã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] leg_state è„šã®çŠ¶æ…‹ï¼bitã§è¡¨ç¾ã•ã‚Œã‚‹ï¼ŒéŠè„šãƒ»æ¥åœ°è„šã®æƒ…å ±ã‚’æŒã¤ï¼
+	//! @param [in] leg_pos è„šåº§æ¨™ç³»ã«ãŠã‘ã‚‹è„šå…ˆã®åº§æ¨™ã®é…åˆ—ï¼è„šå…ˆåº§æ¨™ç³»ã¨ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªåº§æ¨™ç³»ï¼
+	//! @return bool é™çš„ã«å®‰å®šã—ã¦ã„ã‚Œã°trueï¼ãã†ã§ãªã‘ã‚Œã°falseï¼
 	virtual bool IsStable(const ::designlab::leg_func::LegStateBit& leg_state,
 		const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
 
-	//! @brief “·‘Ì‚ª’n–Ê‚ÆŠ±Â‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] node ƒƒ{ƒbƒg‚Ìó‘ÔD
-	//! @param [in] devide_map ’n–Ê‚Ìó‘ÔD
-	//! @return bool “·‘Ì‚ª’n–Ê‚ÆŠ±Â‚µ‚Ä‚¢‚ê‚ÎtrueDŠ±Â‚µ‚Ä‚¢‚È‚¯‚ê‚ÎfalseD
+	//! @brief èƒ´ä½“ãŒåœ°é¢ã¨å¹²æ¸‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] node ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ï¼
+	//! @param [in] devide_map åœ°é¢ã®çŠ¶æ…‹ï¼
+	//! @return bool èƒ´ä½“ãŒåœ°é¢ã¨å¹²æ¸‰ã—ã¦ã„ã‚Œã°trueï¼å¹²æ¸‰ã—ã¦ã„ãªã‘ã‚Œã°falseï¼
 	virtual bool IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const = 0;
 };
 

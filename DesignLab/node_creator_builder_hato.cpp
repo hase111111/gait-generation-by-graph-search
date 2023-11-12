@@ -1,4 +1,4 @@
-#include "node_creator_builder_hato.h"
+ï»¿#include "node_creator_builder_hato.h"
 
 #include "cassert_define.h"
 #include "com_move_node_creator_hato.h"
@@ -7,44 +7,51 @@
 #include "leg_up_down_node_creator.h"
 
 
+NodeCreatorBuilderHato::NodeCreatorBuilderHato(
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr, 
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr, 
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) : 
+	converter_ptr_(converter_ptr),
+	presenter_ptr_(presenter_ptr),
+	checker_ptr_(checker_ptr)
+{
+}
+
 void NodeCreatorBuilderHato::Build(
 	const DevideMapState& map,
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const
 {
-	assert(node_creator != nullptr);	// node_creator‚ªnullptr‚Å‚È‚¢D
-	assert(node_creator->size() == 0);	// node_creator‚Í‹ó‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢D
+	assert(node_creator != nullptr);	// node_creatorãŒnullptrã§ãªã„ï¼
+	assert(node_creator->size() == 0);	// node_creatorã¯ç©ºã§ãªã‘ã‚Œã°ãªã‚‰ãªã„ï¼
 
 
-	// ’Ç‰Á‚µ‚½‚¢ê‡CˆÈ‰º‚Ì‚æ‚¤‚É‹Lq‚·‚éD
-	// (*node_creator)[HexapodMove::???] = std::make_unique<ƒNƒ‰ƒX–¼>(ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”);
-	// ‚±‚Ìê‡CHexapodMove::???‚Ìƒm[ƒh‚ğì¬‚·‚éƒNƒ‰ƒX‚ÍCª ‚Å‚ ‚éD
+	// è¿½åŠ ã—ãŸã„å ´åˆï¼Œä»¥ä¸‹ã®ã‚ˆã†ã«è¨˜è¿°ã™ã‚‹ï¼
+	// (*node_creator)[HexapodMove::???] = std::make_unique<ã‚¯ãƒ©ã‚¹å>(ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°);
+	// ã“ã®å ´åˆï¼ŒHexapodMove::???ã®ãƒãƒ¼ãƒ‰ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã¯ï¼Œâ†‘ ã§ã‚ã‚‹ï¼
 
 	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<LegHierarchyNodeCreator>(HexapodMove::kLegUpDown);
 
 	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<LegUpDownNodeCreator>(
 		map,
-		converter_ptr, 
-		presenter_ptr, 
-		checker_ptr,
+		converter_ptr_, 
+		presenter_ptr_, 
+		checker_ptr_,
 		HexapodMove::kComUpDown
 	);
 
 	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<ComUpDownNodeCreator>(
 		map, 
-		converter_ptr, 
-		presenter_ptr,
-		checker_ptr,
+		converter_ptr_, 
+		presenter_ptr_,
+		checker_ptr_,
 		HexapodMove::kComMove
 	);
 
 	(*node_creator)[HexapodMove::kComMove] = std::make_unique<ComMoveNodeCreatorHato>(
 		map, 
-		converter_ptr, 
-		presenter_ptr, 
-		checker_ptr, 
+		converter_ptr_, 
+		presenter_ptr_, 
+		checker_ptr_, 
 		HexapodMove::kLegHierarchyChange
 	);
 }

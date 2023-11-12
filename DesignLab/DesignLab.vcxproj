@@ -55,7 +55,7 @@
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_hato.h" />
     <ClInclude Include="designlab_euler.h" />
-    <ClInclude Include="graph_tree_creator_basic.h" />
+    <ClInclude Include="graph_tree_creator.h" />
     <ClInclude Include="hexapod_renderer_builder.h" />
     <ClInclude Include="interface_application_setting_reader.h" />
     <ClInclude Include="interface_hexapod_renderer.h" />
@@ -71,7 +71,6 @@
     <ClInclude Include="graph_searcher_random.h" />
     <ClInclude Include="pass_finder_basic.h" />
     <ClInclude Include="graph_search_result_recoder.h" />
-    <ClInclude Include="graph_tree_creator_hato.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="pass_finder_revaluation.h" />
@@ -81,7 +80,6 @@
     <ClInclude Include="_hexapod_state_calculator.h" />
     <ClInclude Include="interface_pass_finder.h" />
     <ClInclude Include="interface_graph_searcher.h" />
-    <ClInclude Include="interface_graph_tree_creator.h" />
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="result_file_importer.h" />
     <ClInclude Include="_BFSinHierarchy.h" />
@@ -158,7 +156,7 @@
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_recoder.cpp" />
-    <ClCompile Include="graph_tree_creator_basic.cpp" />
+    <ClCompile Include="graph_tree_creator.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
@@ -172,7 +170,6 @@
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
     <ClCompile Include="pass_finder_basic.cpp" />
-    <ClCompile Include="graph_tree_creator_hato.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="phantomx_renderer_simple.cpp" />
     <ClCompile Include="_hexapod_state_calculator.cpp" />

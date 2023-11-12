@@ -1,9 +1,8 @@
-#include "graphic_main_graph_viewer.h"
+ï»¿#include "graphic_main_graph_viewer.h"
 
 #include <memory>
 
 #include "dxlib_util.h"
-#include "graph_tree_creator_hato.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
@@ -30,7 +29,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	graph_update_count_(0),
 	gui_controller_ptr_(std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr))
 {
-	//“K“–‚Èƒm[ƒh‚ğ¶¬‚µ‚ÄC•`‰æƒNƒ‰ƒX‚ğ‰Šú‰»‚·‚é
+	//é©å½“ãªãƒãƒ¼ãƒ‰ã‚’ç”Ÿæˆã—ã¦ï¼Œæç”»ã‚¯ãƒ©ã‚¹ã‚’åˆæœŸåŒ–ã™ã‚‹
 	NodeInitializer node_initializer;
 	RobotStateNode init_node = node_initializer.InitNode();
 
@@ -42,7 +41,7 @@ bool GraphicMainGraphViewer::Update()
 {
 	gui_controller_ptr_->Update();
 
-	//’‡‰îl‚Ì‚Âƒf[ƒ^‚Æ©g‚Ì‚Á‚Ä‚¢‚éƒOƒ‰ƒtƒf[ƒ^‚ªˆê’v‚µ‚Ä‚¢‚È‚¢‚È‚ç‚ÎXV‚·‚é
+	//ä»²ä»‹äººã®æŒã¤ãƒ‡ãƒ¼ã‚¿ã¨è‡ªèº«ã®æŒã£ã¦ã„ã‚‹ã‚°ãƒ©ãƒ•ãƒ‡ãƒ¼ã‚¿ãŒä¸€è‡´ã—ã¦ã„ãªã„ãªã‚‰ã°æ›´æ–°ã™ã‚‹
 	if (map_update_count_ != broker_ptr_->map_state.GetUpdateCount())
 	{
 		map_state_ = broker_ptr_->map_state.GetData();
@@ -51,11 +50,11 @@ bool GraphicMainGraphViewer::Update()
 
 	if (graph_update_count_ != broker_ptr_->graph.GetUpdateCount())
 	{
-		graph_.clear();	//ƒOƒ‰ƒt‚ğ‰Šú‰»‚·‚é
+		graph_.clear();	//ã‚°ãƒ©ãƒ•ã‚’åˆæœŸåŒ–ã™ã‚‹
 
-		graph_ = broker_ptr_->graph.GetData();	//ƒf[ƒ^‚ğXV‚·‚é
+		graph_ = broker_ptr_->graph.GetData();	//ãƒ‡ãƒ¼ã‚¿ã‚’æ›´æ–°ã™ã‚‹
 
-		//ƒOƒ‰ƒt‚Ì’†g‚ª‹ó‚Å‚È‚¢‚È‚ç‚ÎC•\¦‚·‚éƒm[ƒh‚ğ‰Šú‰»‚·‚é
+		//ã‚°ãƒ©ãƒ•ã®ä¸­èº«ãŒç©ºã§ãªã„ãªã‚‰ã°ï¼Œè¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã‚’åˆæœŸåŒ–ã™ã‚‹
 		if (!graph_.empty()) { display_node_index_ = 0; }
 
 		gui_controller_ptr_->UpdateGraphNodeDepthData();
@@ -63,7 +62,7 @@ bool GraphicMainGraphViewer::Update()
 		graph_update_count_ = broker_ptr_->graph.GetUpdateCount();
 	}
 
-	//HexapodReander‚ÌXV
+	//HexapodReanderã®æ›´æ–°
 	if (display_node_index_ < graph_.size() && graph_.size() != 0)
 	{
 		hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));

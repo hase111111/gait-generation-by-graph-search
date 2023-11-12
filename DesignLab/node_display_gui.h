@@ -1,5 +1,5 @@
-//! @file node_display_gui.h
-//! @brief ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI
+ï»¿//! @file node_display_gui.h
+//! @brief ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUI
 
 
 #ifndef DESIGNLAB_NODE_DISPLAY_GUI_H_
@@ -16,37 +16,37 @@
 
 
 //! @class NodeDisplayGui
-//! @brief ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI
+//! @brief ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUI
 class NodeDisplayGui final
 {
 public:
 
-	//! @param [in] x_pos GUI‚Ì¶ã‚ÌxÀ•W
-	//! @param [in] y_pos GUI‚Ì¶ã‚ÌyÀ•W
-	//! @param [in] calculator_ptr ˜Z‹r•àsƒƒ{ƒbƒg‚Ìó‘Ô‚ğŒvZ‚·‚éƒNƒ‰ƒX
+	//! @param [in] x_pos GUIã®å·¦ä¸Šã®xåº§æ¨™
+	//! @param [in] y_pos GUIã®å·¦ä¸Šã®yåº§æ¨™
+	//! @param [in] calculator_ptr å…­è„šæ­©è¡Œãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹
 	NodeDisplayGui(
 		int x_pos, 
 		int y_pos, 
-		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+		const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker> checker_ptr
 	);
 
 
-	//! @brief •\¦‚·‚éƒm[ƒh‚ğİ’è‚·‚éC‚»‚ÌŒãŠÖß‚ÌŠp“x‚ğŒvZ‚µCƒZƒbƒg‚·‚é
-	//! @param [in] node •\¦‚·‚éƒm[ƒh
+	//! @brief è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã‚’è¨­å®šã™ã‚‹ï¼Œãã®å¾Œé–¢ç¯€ã®è§’åº¦ã‚’è¨ˆç®—ã—ï¼Œã‚»ãƒƒãƒˆã™ã‚‹
+	//! @param [in] node è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰
 	void SetDisplayNode(const RobotStateNode& node);
 
 
-	//! @brief GUI‚Ìƒ{ƒ^ƒ“‚ÌXV‚ğs‚¤
+	//! @brief GUIã®ãƒœã‚¿ãƒ³ã®æ›´æ–°ã‚’è¡Œã†
 	void Update();
 
-	//! @brief GUI‚Ì•\¦‚ğs‚¤
+	//! @brief GUIã®è¡¨ç¤ºã‚’è¡Œã†
 	void Draw() const;
 
 
-	const static int kWidth;			//!< GUI‚Ì•
-	const static int kHeight;			//!< GUI‚Ì‚‚³
-	const static int kClosedHeight;		//!< GUI‚ª•Â‚¶‚Ä‚¢‚é‚Æ‚«‚Ì‚‚³
+	const static int kWidth;			//!< GUIã®å¹…
+	const static int kHeight;			//!< GUIã®é«˜ã•
+	const static int kClosedHeight;		//!< GUIãŒé–‰ã˜ã¦ã„ã‚‹ã¨ãã®é«˜ã•
 
 private:
 
@@ -58,8 +58,8 @@ private:
 
 	enum class DisplayMode
 	{
-		kDefualt,		//ƒfƒtƒHƒ‹ƒg
-		kJointState		//Šp“x
+		kDefualt,		//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ
+		kJointState		//è§’åº¦
 	};
 
 
@@ -75,19 +75,19 @@ private:
 	const int kGuiTopPosY;
 
 
-	std::map<ButtonType, std::unique_ptr<ButtomController>> buttons_;				//!< ƒ{ƒ^ƒ“
+	std::map<ButtonType, std::unique_ptr<ButtomController>> buttons_;				//!< ãƒœã‚¿ãƒ³
 
-	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< ˜Z‹r•àsƒƒ{ƒbƒg‚Ìó‘Ô‚ğŒvZ‚·‚éƒNƒ‰ƒX
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr_;
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< å…­è„šæ­©è¡Œãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 
 
-	RobotStateNode display_node_;										//!< •\¦‚·‚éƒm[ƒh
+	RobotStateNode display_node_;										//!< è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰
 
-	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;	//!< ŠÖß‚ÌŠp“x
+	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;	//!< é–¢ç¯€ã®è§’åº¦
 
-	bool is_closed_;			//!< GUI‚ª•Â‚¶‚Ä‚¢‚é‚©(Å¬‰»‚µ‚Ä‚¢‚é‚©)‚Ç‚¤‚©
+	bool is_closed_;			//!< GUIãŒé–‰ã˜ã¦ã„ã‚‹ã‹(æœ€å°åŒ–ã—ã¦ã„ã‚‹ã‹)ã©ã†ã‹
 
-	DisplayMode display_type_;	//!< •\¦‚·‚éî•ñ‚Ìí—Ş
+	DisplayMode display_type_;	//!< è¡¨ç¤ºã™ã‚‹æƒ…å ±ã®ç¨®é¡
 };
 
 

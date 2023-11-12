@@ -189,7 +189,8 @@ void GraphViewerSystemMain::CreateGraph(const RobotStateNode parent, std::vector
 
 	// 値を返す．
 	graph->clear();
-	pass_finder_ptr_->GetGraphTree(graph);
+	//! @todo ここでグラフを返す．
+	//pass_finder_ptr_->GetGraphTree(graph);
 }
 
 void GraphViewerSystemMain::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const

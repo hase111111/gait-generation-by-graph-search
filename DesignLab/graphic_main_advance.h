@@ -1,4 +1,4 @@
-#ifndef DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
+ï»¿#ifndef DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
 #define DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
 
 
@@ -30,11 +30,11 @@ class GraphicMainAdvance final : public IGraphicMain
 {
 public:
 	GraphicMainAdvance(
-		const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const GraphicDataBroker> broker_ptr,
+		const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr,
+		const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker> checker_ptr,
+		const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 	);
 	~GraphicMainAdvance() = default;
 
@@ -44,55 +44,55 @@ public:
 
 private:
 
-	const int kNodeGetCount;			//!< ƒm[ƒh‚ðŽæ“¾‚·‚éŠÔŠuD
+	const int kNodeGetCount;			//!< ãƒŽãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹é–“éš”ï¼Ž
 
-	const int kInterpolatedAnimeCount;	//!< •âŠÔ‚³‚ê‚½ƒm[ƒh‚Ì•\Ž¦‚ðØ‚è‘Ö‚¦‚éŠÔŠuD
-
-
-	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;		//!< ƒf[ƒ^‚ðŽó‚¯Žæ‚éƒNƒ‰ƒXD
+	const int kInterpolatedAnimeCount;	//!< è£œé–“ã•ã‚ŒãŸãƒŽãƒ¼ãƒ‰ã®è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹é–“éš”ï¼Ž
 
 
-	CameraGui camera_gui_;							//!< ƒJƒƒ‰‚ÌˆÊ’u‚ð§Œä‚·‚éGUI
-
-	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ƒm[ƒh‚Ì•\Ž¦‚ðØ‚è‘Ö‚¦‚éGUI
-
-	NodeDisplayGui node_display_gui_;				//!< ƒm[ƒh‚Ì•\Ž¦‚ð§Œä‚·‚éGUI
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;		//!< ãƒ‡ãƒ¼ã‚¿ã‚’å—ã‘å–ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
 
-	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ƒƒ{ƒbƒg‚ð•\Ž¦‚·‚éƒNƒ‰ƒXD	
+	CameraGui camera_gui_;							//!< ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’åˆ¶å¾¡ã™ã‚‹GUI
 
-	MovementLocusRenderer movement_locus_renderer_;			//!< ƒƒ{ƒbƒg‚Ì“®‚«‚Ì‹OÕ‚ð•\Ž¦‚·‚éƒNƒ‰ƒXD
+	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ãƒŽãƒ¼ãƒ‰ã®è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹GUI
 
-	RobotGraundPointRenderer robot_graund_point_renderer_;	//!< ƒƒ{ƒbƒg‚Ì‘«æ‚ÌˆÊ’u‚ð•\Ž¦‚·‚éƒNƒ‰ƒXD
-
-	StabilityMarginRenderer stability_margin_renderer_;		//!< ƒƒ{ƒbƒg‚ÌˆÀ’è«ƒ}[ƒWƒ“‚ð•\Ž¦‚·‚éƒNƒ‰ƒXD
-
-	InterpolatedNodeCreator interpolated_node_creator_;		//!< ƒm[ƒhŠÔ‚ð•âŠÔ‚·‚éƒNƒ‰ƒXD
-
-	MapRenderer map_renderer_;								//!< ƒ}ƒbƒv‚ð•\Ž¦‚·‚éƒNƒ‰ƒXD
+	NodeDisplayGui node_display_gui_;				//!< ãƒŽãƒ¼ãƒ‰ã®è¡¨ç¤ºã‚’åˆ¶å¾¡ã™ã‚‹GUI
 
 
-	MapState map_state_;		//!< •\Ž¦‚·‚éƒ}ƒbƒvD
+	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ãƒ­ãƒœãƒƒãƒˆã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž	
 
-	std::vector<RobotStateNode> graph_;	//!< ƒƒ{ƒbƒg‚Ì“®‚«‚Ì‘JˆÚ‚ð‹L˜^‚·‚évector
+	MovementLocusRenderer movement_locus_renderer_;			//!< ãƒ­ãƒœãƒƒãƒˆã®å‹•ãã®è»Œè·¡ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
-	size_t display_node_index_;	//!< •`‰æ‚µ‚Ä‚¢‚éƒm[ƒh
+	RobotGraundPointRenderer robot_graund_point_renderer_;	//!< ãƒ­ãƒœãƒƒãƒˆã®è¶³å…ˆã®ä½ç½®ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
-	int counter_;				//!< ‚±‚ÌƒNƒ‰ƒX‚ªŽÀs‚³‚ê‚Ä‚©‚ç‰½‰ñupdateŠÖ”‚ªŒÄ‚Î‚ê‚½‚©ƒJƒEƒ“ƒg‚·‚éD
+	StabilityMarginRenderer stability_margin_renderer_;		//!< ãƒ­ãƒœãƒƒãƒˆã®å®‰å®šæ€§ãƒžãƒ¼ã‚¸ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
-	std::vector<RobotStateNode> interpolated_node_;	//!< •âŠÔ‚³‚ê‚½ƒm[ƒh‚ð‹L˜^‚·‚évector
+	InterpolatedNodeCreator interpolated_node_creator_;		//!< ãƒŽãƒ¼ãƒ‰é–“ã‚’è£œé–“ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
-	int interpolated_anime_start_count_;	//!< •âŠÔ‚³‚ê‚½ƒm[ƒh‚ð•\Ž¦‚µŽn‚ß‚éƒJƒEƒ“ƒg
-
-
-	bool is_displayed_movement_locus_;		//!< ƒƒ{ƒbƒg‚Ì“®‚«‚Ì‹OÕ‚ð•\Ž¦‚·‚é‚©‚Ç‚¤‚©D
-
-	bool is_displayed_robot_graund_point_;	//!< ƒƒ{ƒbƒg‚Ì‘«æ‚ÌˆÊ’u‚ð•\Ž¦‚·‚é‚©‚Ç‚¤‚©D
+	MapRenderer map_renderer_;								//!< ãƒžãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼Ž
 
 
-	int graph_update_count;	//!< ˆ—•”‚Å‚ÌƒOƒ‰ƒt‚ÌXV‰ñ”D
+	MapState map_state_;		//!< è¡¨ç¤ºã™ã‚‹ãƒžãƒƒãƒ—ï¼Ž
 
-	int map_update_count;	//!< ˆ—•”‚Å‚Ìƒ}ƒbƒv‚ÌXV‰ñ”D
+	std::vector<RobotStateNode> graph_;	//!< ãƒ­ãƒœãƒƒãƒˆã®å‹•ãã®é·ç§»ã‚’è¨˜éŒ²ã™ã‚‹vector
+
+	size_t display_node_index_;	//!< æç”»ã—ã¦ã„ã‚‹ãƒŽãƒ¼ãƒ‰
+
+	int counter_;				//!< ã“ã®ã‚¯ãƒ©ã‚¹ãŒå®Ÿè¡Œã•ã‚Œã¦ã‹ã‚‰ä½•å›župdateé–¢æ•°ãŒå‘¼ã°ã‚ŒãŸã‹ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ï¼Ž
+
+	std::vector<RobotStateNode> interpolated_node_;	//!< è£œé–“ã•ã‚ŒãŸãƒŽãƒ¼ãƒ‰ã‚’è¨˜éŒ²ã™ã‚‹vector
+
+	int interpolated_anime_start_count_;	//!< è£œé–“ã•ã‚ŒãŸãƒŽãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã—å§‹ã‚ã‚‹ã‚«ã‚¦ãƒ³ãƒˆ
+
+
+	bool is_displayed_movement_locus_;		//!< ãƒ­ãƒœãƒƒãƒˆã®å‹•ãã®è»Œè·¡ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ï¼Ž
+
+	bool is_displayed_robot_graund_point_;	//!< ãƒ­ãƒœãƒƒãƒˆã®è¶³å…ˆã®ä½ç½®ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ï¼Ž
+
+
+	int graph_update_count;	//!< å‡¦ç†éƒ¨ã§ã®ã‚°ãƒ©ãƒ•ã®æ›´æ–°å›žæ•°ï¼Ž
+
+	int map_update_count;	//!< å‡¦ç†éƒ¨ã§ã®ãƒžãƒƒãƒ—ã®æ›´æ–°å›žæ•°ï¼Ž
 };
 
 

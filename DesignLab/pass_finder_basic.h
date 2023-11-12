@@ -1,5 +1,5 @@
-//! @file pass_finder_basic.h
-//! @brief •’Ê‚ÉƒOƒ‰ƒt’Tõ‚ğs‚¢C•à—eƒpƒ^[ƒ“¶¬‚ğs‚¤ƒNƒ‰ƒX
+ï»¿//! @file pass_finder_basic.h
+//! @brief æ™®é€šã«ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã„ï¼Œæ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ç”Ÿæˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_PASS_FINDER_BASIC_H_
 #define DESIGNLAB_PASS_FINDER_BASIC_H_
@@ -10,20 +10,20 @@
 #include <vector>
 
 #include "interface_graph_searcher.h"
-#include "interface_graph_tree_creator.h"
+#include "graph_tree_creator.h"
 #include "robot_state_node.h"
 
 
 //! @class PassFinderBasic
-//! @brief •’Ê‚ÉƒOƒ‰ƒt’Tõ‚ğs‚¢C•à—eƒpƒ^[ƒ“¶¬‚ğs‚¤ƒNƒ‰ƒX
+//! @brief æ™®é€šã«ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã„ï¼Œæ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ç”Ÿæˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 class PassFinderBasic final : public IPassFinder
 {
 public:
 
-	//! @param[in] graph_tree_creator ƒOƒ‰ƒt’Tõ‚ğs‚¤–Ø\‘¢‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éƒNƒ‰ƒXDunique_ptr‚Å“n‚·D
-	//! @param[in] graph_searcher ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒXDunique_ptr‚Å“n‚·D
+	//! @param[in] graph_tree_creator ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†æœ¨æ§‹é€ ã®ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼unique_ptrã§æ¸¡ã™ï¼
+	//! @param[in] graph_searcher ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼unique_ptrã§æ¸¡ã™ï¼
 	PassFinderBasic(
-		std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_ptr, 
+		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr, 
 		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
 	);
 
@@ -32,17 +32,11 @@ public:
 
 	GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const TargetRobotState& target, RobotStateNode* output_node) override;
 
-	int GetMadeNodeNum() const;
-
-	void GetGraphTree(std::vector<RobotStateNode>* output_graph) const;
-
 private:
 
-	std::vector<RobotStateNode> graph_tree_;	//!< ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê“¾‚ç‚ê‚½–Ø\‘¢‚ÌƒOƒ‰ƒt
+	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†æœ¨æ§‹é€ ã®ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 
-	const std::unique_ptr<IGraphTreeCreator> graph_tree_creator_ptr_;	//!< ƒOƒ‰ƒt’Tõ‚ğs‚¤–Ø\‘¢‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éƒNƒ‰ƒX
-
-	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;		//!< ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒX
+	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;		//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 };
 
 

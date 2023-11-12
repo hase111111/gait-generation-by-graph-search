@@ -1,4 +1,4 @@
-#include "node_display_gui.h"
+ï»¿#include "node_display_gui.h"
 
 #include <Dxlib.h>
 #include <magic_enum.hpp>
@@ -20,8 +20,8 @@ const int NodeDisplayGui::kClosedHeight = 50;
 NodeDisplayGui::NodeDisplayGui(
 	const int x_pos, 
 	const int y_pos, 
-	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr
 ) :
 	kGuiLeftPosX(x_pos),
 	kGuiTopPosY(y_pos),
@@ -30,38 +30,32 @@ NodeDisplayGui::NodeDisplayGui(
 	is_closed_(false), 
 	display_type_(DisplayMode::kDefualt)
 {
-	//ƒ{ƒ^ƒ“‚ğì¬‚·‚é
+	//ãƒœã‚¿ãƒ³ã‚’ä½œæˆã™ã‚‹
 	const int kButtonSizeX = 100;
 	const int kButtonSizeY = 30;
 
 	buttons_[ButtonType::kOpenClose] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + 10 + kButtonSizeY / 2,
-		kButtonSizeX, kButtonSizeY, "Å‘å/¬‰»");
+		kButtonSizeX, kButtonSizeY, "æœ€å¤§/å°åŒ–");
 	buttons_[ButtonType::kModeSwitching] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
-		kButtonSizeX, kButtonSizeY, "Ø‚è‘Ö‚¦");
-
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		joint_state_[i].joint_pos_leg_coordinate.resize(4);
-		joint_state_[i].joint_angle.resize(3);
-	}
+		kButtonSizeX, kButtonSizeY, "åˆ‡ã‚Šæ›¿ãˆ");
 }
 
 
 void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 {
-	//ƒm[ƒh‚ğƒZƒbƒg‚·‚é
+	//ãƒãƒ¼ãƒ‰ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	display_node_ = node;
 
 	if (!calculator_ptr_) { return; }
 
-	// ŠÖß‚ÌŠp“x‚ğƒZƒbƒg‚·‚é
+	// é–¢ç¯€ã®è§’åº¦ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
 
 
 void NodeDisplayGui::Update()
 {
-	//ƒ{ƒ^ƒ“‚ÌXV‚ğs‚¤
+	//ãƒœã‚¿ãƒ³ã®æ›´æ–°ã‚’è¡Œã†
 	for (auto& button : buttons_)
 	{
 		button.second->Update();
@@ -87,10 +81,10 @@ void NodeDisplayGui::Update()
 
 void NodeDisplayGui::Draw() const
 {
-	// ˜g
+	// æ 
 	DrawBackground();
 
-	// ƒeƒLƒXƒg
+	// ãƒ†ã‚­ã‚¹ãƒˆ
 	if (!is_closed_)
 	{
 		if (display_type_ == DisplayMode::kDefualt)
@@ -104,7 +98,7 @@ void NodeDisplayGui::Draw() const
 	}
 
 
-	//ƒ{ƒ^ƒ“‚ğ•`‰æ‚·‚é
+	//ãƒœã‚¿ãƒ³ã‚’æç”»ã™ã‚‹
 	for (auto& button : buttons_)
 	{
 		if (!(button.first == ButtonType::kModeSwitching && is_closed_))
@@ -145,60 +139,81 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "dSF%dC‹rˆÊ’uF%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(display_node_.leg_state),
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "é‡å¿ƒï¼š%dï¼Œè„šä½ç½®ï¼š%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(display_node_.leg_state),
 		dllf::GetDiscreteLegPos(display_node_.leg_state, 0), dllf::GetDiscreteLegPos(display_node_.leg_state, 1), dllf::GetDiscreteLegPos(display_node_.leg_state, 2),
 		dllf::GetDiscreteLegPos(display_node_.leg_state, 3), dllf::GetDiscreteLegPos(display_node_.leg_state, 4), dllf::GetDiscreteLegPos(display_node_.leg_state, 5));
 
-	// dS‚ğ•\¦‚·‚é
+	// é‡å¿ƒã‚’è¡¨ç¤ºã™ã‚‹
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"dSˆÊ’u(x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.global_center_of_mass.x, display_node_.global_center_of_mass.y, display_node_.global_center_of_mass.z);
+		"é‡å¿ƒä½ç½®(x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.global_center_of_mass.x, display_node_.global_center_of_mass.y, display_node_.global_center_of_mass.z);
 
-	// ‰ñ“]‚ğ•\¦‚·‚é
+	// å›è»¢ã‚’è¡¨ç¤ºã™ã‚‹
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"‰ñ“](x_angle:%5.3f,y_angle:%5.3f,z_angle:%5.3f)", display_node_.rot.x_angle, display_node_.rot.y_angle, display_node_.rot.z_angle);
+		"å›è»¢(x_angle:%5.3f,y_angle:%5.3f,z_angle:%5.3f)", display_node_.rot.x_angle, display_node_.rot.y_angle, display_node_.rot.z_angle);
 
-	//—V‹r‚©Ú’n‹r‚©
+	//éŠè„šã‹æ¥åœ°è„šã‹
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "Ú’n,"; }
-		else { str += "—V‹r,"; }
+		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "æ¥åœ°,"; }
+		else { str += "éŠè„š,"; }
 	}
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "‹r‚Ìó‘ÔF%s", str.c_str());
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "è„šã®çŠ¶æ…‹ï¼š%s", str.c_str());
 
-	// ‹r‚ÌˆÊ’u‚ğ•\¦‚·‚é
+	// è„šã®ä½ç½®ã‚’è¡¨ç¤ºã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-			"%d”Ô‹r‚ÌˆÊ’u(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_pos[i].x, display_node_.leg_pos[i].y, display_node_.leg_pos[i].z);
+			"%dç•ªè„šã®ä½ç½®(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_pos[i].x, display_node_.leg_pos[i].y, display_node_.leg_pos[i].z);
 	}
 
-	// ‹r‚ÌŠî€À•W‚ğ•\¦‚·‚é
+	// è„šã®åŸºæº–åº§æ¨™ã‚’è¡¨ç¤ºã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor,
-			" %d”Ô‹r‚ÌŠî€À•W(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
+			" %dç•ªè„šã®åŸºæº–åº§æ¨™(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
 	}
 
-	// [‚³‚ÆŸ‚Ì“®ì‚ğ•\¦‚·‚é
+	// æ·±ã•ã¨æ¬¡ã®å‹•ä½œã‚’è¡¨ç¤ºã™ã‚‹
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"[‚³F%d, Ÿ‚Ì“®ì : %s", display_node_.depth, static_cast<std::string>(magic_enum::enum_name(display_node_.next_move)).c_str());
+		"æ·±ã•ï¼š%d, æ¬¡ã®å‹•ä½œ : %s", display_node_.depth, static_cast<std::string>(magic_enum::enum_name(display_node_.next_move)).c_str());
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "’PˆÊ‚Í’·‚³‚ª[mm]CŠp“x‚ª[rad]");
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "å˜ä½ã¯é•·ã•ãŒ[mm]ï¼Œè§’åº¦ãŒ[rad]");
 }
 
 
 void NodeDisplayGui::DrawJointInfo() const
 {
-	if (!calculator_ptr_) { return; }
-
-
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
 	const int kTextXPos = kGuiLeftPosX + 10;
 	const int kTextYMinPos = kGuiTopPosY + 50;
 	const int kTextYInterval = 30;
 
+	if (!calculator_ptr_) 
+	{
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "è¨ˆç®—ã‚¯ãƒ©ã‚¹ãŒnullptrã§ã™");
+		return;
+	}
+	if (!checker_ptr_) 
+	{ 
+		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "ãƒã‚§ãƒƒã‚«ãƒ¼ã‚¯ãƒ©ã‚¹ãŒnullptrã§ã™");
+		return; 
+	}
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (joint_state_[i].joint_angle.size() != 3) 
+		{
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "é–“æ¥ã®è¨ˆç®—ãŒã§ãã¦ã„ãªã„ï¼Œã¾ãŸã¯ã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼");
+			return;
+		}
+		if (joint_state_[i].joint_pos_leg_coordinate.size() != 4) 
+		{
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "é–“æ¥ã®è¨ˆç®—ãŒã§ãã¦ã„ãªã„ï¼Œã¾ãŸã¯ã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼");
+			return; 
+		}
+	}
 
 	int text_line = 0;
 	
@@ -221,11 +236,11 @@ void NodeDisplayGui::DrawJointInfo() const
 
 		if (checker_ptr_->IsLegInRange(i, joint_state_[i].joint_pos_leg_coordinate[3]))
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    ‹ß—’l true");
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    è¿‘ä¼¼å€¤ true");
 		}
 		else
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "    ‹ß—’l false");
+			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "    è¿‘ä¼¼å€¤ false");
 		}
 
 

@@ -1,5 +1,5 @@
-//! @file node_creator_builder_hato.h
-//! @brief ”g“Œ‚³‚ñ‚ªs‚Á‚½ˆ—‚Æ“¯—l‚ÌŒ‹‰Ê‚ª“¾‚ç‚ê‚é‚æ‚¤‚É‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX
+ï»¿//! @file node_creator_builder_hato.h
+//! @brief æ³¢æ±ã•ã‚“ãŒè¡Œã£ãŸå‡¦ç†ã¨åŒæ§˜ã®çµæœãŒå¾—ã‚‰ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
 #define DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
@@ -7,17 +7,24 @@
 #include "interface_node_creator_builder.h"
 
 
-class NodeCreatorBuilderHato : public INodeCreatorBuilder
+class NodeCreatorBuilderHato final : public INodeCreatorBuilder
 {
 public:
 
-	void Build(
-		const DevideMapState& map, 
+	NodeCreatorBuilderHato(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+	);
+
+	void Build(
+		const DevideMapState& map, 
 		std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
 
+private:
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
 
 

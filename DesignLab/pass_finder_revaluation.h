@@ -1,5 +1,5 @@
-//! @file pass_finder_revaluation.h
-//! @brief Ä•]‰¿è–@‚ğÀ‘•‚µ‚½ƒNƒ‰ƒX
+ï»¿//! @file pass_finder_revaluation.h
+//! @brief å†è©•ä¾¡æ‰‹æ³•ã‚’å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹
 
 
 #ifndef PASS_FINDER_REVALUATION_H_
@@ -11,7 +11,7 @@
 
 #include "interface_pass_finder.h"
 #include "interface_graph_searcher.h"
-#include "interface_graph_tree_creator.h"
+#include "graph_tree_creator.h"
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
@@ -21,31 +21,30 @@ class PassFinderRevaluation final : public IPassFinder
 public:
 
 	PassFinderRevaluation(
-		std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_ptr,
-		std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
+		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
+		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
 		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
 	);
 
 	~PassFinderRevaluation() = default;
 
 
-	GraphSearchResult GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_ref, const TargetRobotState& target, RobotStateNode* output_node) override;
-
-	int GetMadeNodeNum() const;
-
-	void GetGraphTree(std::vector<RobotStateNode>* output_graph) const;
+	GraphSearchResult GetNextNodebyGraphSearch(
+		const RobotStateNode& current_node,
+		const MapState& map, 
+		const TargetRobotState& target,
+		RobotStateNode* output_node
+	) override;
 
 private:
 
-	std::vector<RobotStateNode> graph_tree_;	//!< ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê“¾‚ç‚ê‚½–Ø\‘¢‚ÌƒOƒ‰ƒt
+	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†æœ¨æ§‹é€ ã®ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 
-	const std::unique_ptr<IGraphTreeCreator> graph_tree_creator_ptr_;	//!< ƒOƒ‰ƒt’Tõ‚ğs‚¤–Ø\‘¢‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éƒNƒ‰ƒX
+	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_revaluation_ptr_;	//!< å†è©•ä¾¡ç”¨ã®æœ¨æ§‹é€ ã®ã‚°ãƒ©ãƒ•ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 
-	const std::unique_ptr<IGraphTreeCreator> graph_tree_creator_revaluation_ptr_;	//!< Ä•]‰¿—p‚Ì–Ø\‘¢‚ÌƒOƒ‰ƒt‚ğì¬‚·‚éƒNƒ‰ƒX
+	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 
-	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒX
-
-	InterpolatedNodeCreator interpolated_node_creator_;	//!< •âŠÔƒm[ƒh‚ğì¬‚·‚éƒNƒ‰ƒX
+	InterpolatedNodeCreator interpolated_node_creator_;	//!< è£œé–“ãƒãƒ¼ãƒ‰ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 	bool IsVaildNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 };

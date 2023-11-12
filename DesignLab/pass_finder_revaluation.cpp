@@ -10,8 +10,8 @@ namespace dlio = designlab::cmdio;
 
 
 PassFinderRevaluation::PassFinderRevaluation(
-	std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_ptr,
-	std::unique_ptr<IGraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
+	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
+	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_revaluation_ptr,
 	std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
 ) : 
 	graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
@@ -28,6 +28,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 	assert(graph_searcher_ptr_ != nullptr);	// graph_searcher_ptr_はnullptrでない
 
 
+	//初期化処理を行う．
 	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
 
 	DevideMapState devide_map;
@@ -36,8 +37,8 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 	graph_tree_creator_ptr_->Init(devide_map);
 	graph_tree_creator_revaluation_ptr_->Init(devide_map);
 
-	graph_tree_.clear();
 
+	//従来手法によるグラフ探索を行う
 	{
 		dlio::Output("初期化終了．", OutputDetail::kDebug);
 
@@ -48,7 +49,8 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		RobotStateNode parent_node = current_node;
 		parent_node.ChangeParentNode();
 
-		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree_);
+		std::vector<RobotStateNode> graph_tree;
+		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -57,13 +59,13 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		}
 
 		dlio::Output("グラフ木の作成終了．", OutputDetail::kDebug);
-		dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.size()), OutputDetail::kDebug);
+		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.size()), OutputDetail::kDebug);
 
 
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, output_node);
+		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -79,6 +81,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		}
 	}
 
+	//再評価手法によるグラフ探索を行う
 	{
 		// グラフ探索をするための，歩容パターングラフを生成する
 		dlio::Output("脚軌道生成に失敗したため，再評価を行う", OutputDetail::kDebug);
@@ -86,8 +89,8 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		RobotStateNode parent_node = current_node;
 		parent_node.ChangeParentNode();
 
-		graph_tree_.clear();
-		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree_);
+		std::vector<RobotStateNode> graph_tree;
+		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -96,13 +99,13 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		}
 
 		dlio::Output("グラフ木の作成終了．", OutputDetail::kDebug);
-		dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.size()), OutputDetail::kDebug);
+		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.size()), OutputDetail::kDebug);
 
 
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, output_node);
+		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -121,19 +124,6 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 	dlio::Output("脚軌道生成に失敗した", OutputDetail::kDebug);
 
 	return GraphSearchResult::kFailureByLegPathGenerationError;
-}
-
-int PassFinderRevaluation::GetMadeNodeNum() const
-{
-	return static_cast<int>(graph_tree_.size());
-}
-
-void PassFinderRevaluation::GetGraphTree(std::vector<RobotStateNode>* output_graph) const
-{
-	assert(output_graph != nullptr);
-	assert((*output_graph).size() == 0);
-
-	(*output_graph) = graph_tree_;
 }
 
 bool PassFinderRevaluation::IsVaildNode([[maybe_unused]]const RobotStateNode& current_node, [[maybe_unused]] const RobotStateNode& next_node) const

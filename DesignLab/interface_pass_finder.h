@@ -1,5 +1,5 @@
-//! @file interface_pass_finder.h
-//! @brief ƒOƒ‰ƒt’Tõ‚É‚æ‚é•à—eƒpƒ^[ƒ“¶¬‚ğs‚¤ƒNƒ‰ƒX‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
+ï»¿//! @file interface_pass_finder.h
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã«ã‚ˆã‚‹æ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ç”Ÿæˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 
 #ifndef DESIGNLAB_INTERFACE_PASS_FINDER_H_
 #define DESIGNLAB_INTERFACE_PASS_FINDER_H_
@@ -13,12 +13,12 @@
 
 
 //! @class IPassFinder
-//! @brief ƒOƒ‰ƒt’Tõ‚É‚æ‚é•à—eƒpƒ^[ƒ“¶¬‚ğs‚¤ƒNƒ‰ƒX‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã«ã‚ˆã‚‹æ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ç”Ÿæˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 //! @details 
-//! @n ”g“Œ‚³‚ñ‚ÌƒvƒƒOƒ‰ƒ€‚ÅŒ¾‚¤‚Æ‚±‚ë‚ÌPassFindingƒNƒ‰ƒXD
-//! @n À‘Ì‚Íì¬‚Å‚«‚È‚¢‚Ì‚Å‚±‚ê‚ğŒp³‚µ‚Ä‚½ƒNƒ‰ƒX‚ğg‚¤‚±‚ÆD
-//! @n Œp³‚ğ‚·‚éƒNƒ‰ƒX‚ÌƒfƒXƒgƒ‰ƒNƒ^‚Ívirtual‚É‚µ‚Ä‚¨‚­D
-//! @n Ql https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+//! @n æ³¢æ±ã•ã‚“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§è¨€ã†ã¨ã“ã‚ã®PassFindingã‚¯ãƒ©ã‚¹ï¼
+//! @n å®Ÿä½“ã¯ä½œæˆã§ããªã„ã®ã§ã“ã‚Œã‚’ç¶™æ‰¿ã—ã¦ãŸã‚¯ãƒ©ã‚¹ã‚’ä½¿ã†ã“ã¨ï¼
+//! @n ç¶™æ‰¿ã‚’ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯virtualã«ã—ã¦ãŠãï¼
+//! @n å‚è€ƒ https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 class IPassFinder
 {
 public:
@@ -27,27 +27,18 @@ public:
 	virtual ~IPassFinder() = default;
 
 
-	//! @brief ƒOƒ‰ƒt’Tõ‚ğs‚¢CŸ‚Ì“®ì‚Æ‚µ‚ÄÅ“K‚Èƒm[ƒh‚ğ•Ô‚·D
-	//! @param [in] current_node Œ»İ‚Ìó‘Ô‚ğ•\‚·ƒm[ƒh
-	//! @param [in] map Œ»İ‚Ìƒ}ƒbƒv‚Ìó‘Ô
-	//!	@param [in] target –Ú•W‚Ìó‘Ô
-	//! @param [out] output_node Œ‹‰Ê‚Ìƒm[ƒh
-	//! @return GraphSearchResult ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğ•Ô‚·D¬Œ÷‚©¸”s‚©
+	//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã„ï¼Œæ¬¡ã®å‹•ä½œã¨ã—ã¦æœ€é©ãªãƒãƒ¼ãƒ‰ã‚’è¿”ã™ï¼
+	//! @param [in] current_node ç¾åœ¨ã®çŠ¶æ…‹ã‚’è¡¨ã™ãƒãƒ¼ãƒ‰
+	//! @param [in] map ç¾åœ¨ã®ãƒãƒƒãƒ—ã®çŠ¶æ…‹
+	//!	@param [in] target ç›®æ¨™ã®çŠ¶æ…‹
+	//! @param [out] output_node çµæœã®ãƒãƒ¼ãƒ‰
+	//! @return GraphSearchResult ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’è¿”ã™ï¼æˆåŠŸã‹å¤±æ•—ã‹
 	virtual GraphSearchResult GetNextNodebyGraphSearch(
 		const RobotStateNode& current_node, 
 		const MapState& map, 
 		const TargetRobotState& target, 
 		RobotStateNode* output_node
 	) = 0;
-
-	//! @brief ì¬‚µ‚½ƒOƒ‰ƒt‚Ìƒm[ƒh‚Ì”‚ğ•Ô‚·
-	//! @return int ì¬‚µ‚½ƒOƒ‰ƒt‚Ì”
-	virtual int GetMadeNodeNum() const = 0;
-
-	//! @brief ì¬‚µ‚½ƒOƒ‰ƒt–Ø‚ğ•Ô‚·D
-	//! @n output_graph‚Í‹ó‚Å‚ ‚é‚±‚ÆD
-	//! @param [out] output_graph ì¬‚µ‚½ƒOƒ‰ƒt–Ø‚ğ“n‚·D
-	virtual void GetGraphTree(std::vector<RobotStateNode>* output_graph) const = 0;
 };
 
 

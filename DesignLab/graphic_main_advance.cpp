@@ -1,4 +1,4 @@
-#include "graphic_main_advance.h"
+ï»¿#include "graphic_main_advance.h"
 
 #include <Dxlib.h>
 
@@ -10,16 +10,16 @@
 
 
 GraphicMainAdvance::GraphicMainAdvance(
-	const std::shared_ptr<const GraphicDataBroker>& broker_ptr, 
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	const std::shared_ptr<const GraphicDataBroker> broker_ptr, 
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr,
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr,
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
 ) :
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
-	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr, checker_ptr),
+	node_display_gui_{ setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr, checker_ptr },
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
@@ -51,27 +51,27 @@ bool GraphicMainAdvance::Update()
 	}
 
 
-	//ƒm[ƒh‚ğ“Ç‚İo‚·ŠÔ‚É‚È‚Á‚½‚çC’‡‰îl‚©‚çƒf[ƒ^‚ğ“Ç‚İo‚·D
+	//ãƒãƒ¼ãƒ‰ã‚’èª­ã¿å‡ºã™æ™‚é–“ã«ãªã£ãŸã‚‰ï¼Œä»²ä»‹äººã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã™ï¼
 	if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.GetUpdateCount())
 	{
-		//’‡‰îl‚©‚çƒf[ƒ^‚ğ“Ç‚İo‚·
+		//ä»²ä»‹äººã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã™
 		graph_ = broker_ptr_->graph.GetData();
 
 		std::vector<size_t> simu_end_index;
 
 		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
-		//ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚Éî•ñ‚ğ“`’B‚·‚éD
+		//ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã«æƒ…å ±ã‚’ä¼é”ã™ã‚‹ï¼
 		display_node_switch_gui_.SetGraphData(graph_.size(), simu_end_index);
 
 
-		//ˆÚ“®‹OÕ‚ğXV‚·‚éD
+		//ç§»å‹•è»Œè·¡ã‚’æ›´æ–°ã™ã‚‹ï¼
 		movement_locus_renderer_.SetMoveLocusPoint(graph_);
 
 		movement_locus_renderer_.SetSimulationEndIndexes(simu_end_index);
 
 
-		//ƒƒ{ƒbƒg‚ÌÚ’n“_‚ğXV‚·‚éD
+		//ãƒ­ãƒœãƒƒãƒˆã®æ¥åœ°ç‚¹ã‚’æ›´æ–°ã™ã‚‹ï¼
 		robot_graund_point_renderer_.SetNodeAndSimulationEndNodeIndex(graph_, simu_end_index);
 
 
@@ -79,33 +79,33 @@ bool GraphicMainAdvance::Update()
 	}
 
 
-	//ƒm[ƒh‚ª‘¶İ‚µ‚Ä‚¢‚é‚Ì‚È‚ç‚ÎCŠeƒNƒ‰ƒX‚Éî•ñ‚ğ“`’B‚·‚é
+	//ãƒãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã®ãªã‚‰ã°ï¼Œå„ã‚¯ãƒ©ã‚¹ã«æƒ…å ±ã‚’ä¼é”ã™ã‚‹
 	if (!graph_.empty())
 	{
-		// •\¦ƒm[ƒh‚ªXV‚³‚ê‚½‚çC•\¦‚·‚éƒm[ƒh‚ğ•ÏX‚·‚éD
+		// è¡¨ç¤ºãƒãƒ¼ãƒ‰ãŒæ›´æ–°ã•ã‚ŒãŸã‚‰ï¼Œè¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã‚’å¤‰æ›´ã™ã‚‹ï¼
 		if (display_node_index_ != display_node_switch_gui_.GetDisplayNodeNum())
 		{
 			if (display_node_index_ > 0)
 			{
-				interpolated_anime_start_count_ = counter_;		//ƒAƒjƒ[ƒVƒ‡ƒ“‚ğŠJn‚µ‚½ŠÔ‚ğ‹L˜^‚·‚éD
+				interpolated_anime_start_count_ = counter_;		//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ãŸæ™‚é–“ã‚’è¨˜éŒ²ã™ã‚‹ï¼
 				interpolated_node_creator_.CreateInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.GetDisplayNodeNum()], &interpolated_node_);
 			}
 
 
-			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();					//•\¦‚·‚éƒm[ƒh‚ğæ“¾‚·‚éD
+			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();					//è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ï¼
 
-			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));							//ƒƒ{ƒbƒg‚Ìó‘Ô‚ğXV‚·‚éD
+			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));							//ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’æ›´æ–°ã™ã‚‹ï¼
 
-			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//ƒJƒƒ‰‚ÌˆÊ’u‚ğXV‚·‚éD
+			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ï¼
 
-			map_renderer_.SetHexapodPosition(graph_.at(display_node_index_).global_center_of_mass);	//ƒ}ƒbƒv‚Ì•\¦‚ğXV‚·‚éD
+			map_renderer_.SetHexapodPosition(graph_.at(display_node_index_).global_center_of_mass);	//ãƒãƒƒãƒ—ã®è¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ï¼
 
-			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚Éî•ñ‚ğ“`’B‚·‚éD
+			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã«æƒ…å ±ã‚’ä¼é”ã™ã‚‹ï¼
 		}
 
 		if (interpolated_anime_start_count_ <= counter_ && counter_ < interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
-			//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Í interpolated_node_ ‚Ì•âŠ®‚³‚ê‚½ƒm[ƒh‚ğ•\¦‚·‚é
+			//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã¯ interpolated_node_ ã®è£œå®Œã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹
 			size_t anime_index = interpolated_node_.size() * (static_cast<size_t>(counter_) - static_cast<size_t>(interpolated_anime_start_count_))
 				/ static_cast<size_t>(kInterpolatedAnimeCount);
 
@@ -115,7 +115,7 @@ bool GraphicMainAdvance::Update()
 		}
 		else if (counter_ == interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
-			//ƒAƒjƒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚½‚çCŒ³‚Ìƒm[ƒh‚ğ•\¦‚·‚é
+			//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ãŸã‚‰ï¼Œå…ƒã®ãƒãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹
 			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
 
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
@@ -123,16 +123,16 @@ bool GraphicMainAdvance::Update()
 	}
 
 
-	counter_++;				//ƒJƒEƒ“ƒ^‚ği‚ß‚éD
+	counter_++;				//ã‚«ã‚¦ãƒ³ã‚¿ã‚’é€²ã‚ã‚‹ï¼
 
-	camera_gui_.Update();				//ƒJƒƒ‰‚ÌGUI‚ğXV‚·‚éD
+	camera_gui_.Update();				//ã‚«ãƒ¡ãƒ©ã®GUIã‚’æ›´æ–°ã™ã‚‹ï¼
 
-	node_display_gui_.Update();			//ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚ğXV‚·‚éD
+	node_display_gui_.Update();			//ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã‚’æ›´æ–°ã™ã‚‹ï¼
 
-	display_node_switch_gui_.Update();	//ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚ğXV‚·‚éD
+	display_node_switch_gui_.Update();	//ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã‚’æ›´æ–°ã™ã‚‹ï¼
 
 
-	//ƒL[“ü—Í‚Å•\¦‚ğØ‚è‘Ö‚¦‚é
+	//ã‚­ãƒ¼å…¥åŠ›ã§è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_L) == 1)
 	{
 		is_displayed_movement_locus_ = !is_displayed_movement_locus_;
@@ -148,26 +148,26 @@ bool GraphicMainAdvance::Update()
 
 void GraphicMainAdvance::Draw() const
 {
-	// 3D‚ÌƒIƒuƒWƒFƒNƒg‚Ì•`‰æ
+	// 3Dã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æç”»
 
-	designlab::dxlib_util::SetZBufferEnable();		//Zƒoƒbƒtƒ@‚ğ—LŒø‚É‚·‚éD
+	designlab::dxlib_util::SetZBufferEnable();		//Zãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹ï¼
 
 
-	WorldGridRenderer grid_renderer;	//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éD
+	WorldGridRenderer grid_renderer;	//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ï¼
 
-	grid_renderer.Draw();				//ƒOƒŠƒbƒh‚ğ•`‰æ‚·‚éD
+	grid_renderer.Draw();				//ã‚°ãƒªãƒƒãƒ‰ã‚’æç”»ã™ã‚‹ï¼
 
 	map_renderer_.Draw();
 
 
-	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //ˆÚ“®‹OÕ‚ğ•`‰æ‚·‚éD
+	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //ç§»å‹•è»Œè·¡ã‚’æç”»ã™ã‚‹ï¼
 
 	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());
 
 
 	if (!graph_.empty())
 	{
-		//ƒm[ƒh‚ª‘¶İ‚µ‚Ä‚¢‚é‚È‚ç‚ÎCƒƒ{ƒbƒg‚ğ•`‰æ‚·‚éD
+		//ãƒãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ã¦ã„ã‚‹ãªã‚‰ã°ï¼Œãƒ­ãƒœãƒƒãƒˆã‚’æç”»ã™ã‚‹ï¼
 		hexapod_renderer_->Draw();
 
 		if (counter_ > interpolated_anime_start_count_ + kInterpolatedAnimeCount)
@@ -177,11 +177,11 @@ void GraphicMainAdvance::Draw() const
 	}
 
 
-	// 2D‚ÌGUI‚Ì•`‰æ
+	// 2Dã®GUIã®æç”»
 
-	camera_gui_.Draw();        //ƒJƒƒ‰‚ÌGUI‚ğ•`‰æ‚·‚éD
+	camera_gui_.Draw();        //ã‚«ãƒ¡ãƒ©ã®GUIã‚’æç”»ã™ã‚‹ï¼
 
-	node_display_gui_.Draw();	 //ƒm[ƒh‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚ğ•`‰æ‚·‚éD
+	node_display_gui_.Draw();	 //ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã‚’æç”»ã™ã‚‹ï¼
 
-	display_node_switch_gui_.Draw();	//•\¦‚·‚éƒm[ƒh‚ğØ‚è‘Ö‚¦‚éGUI‚ğ•`‰æ‚·‚éD
+	display_node_switch_gui_.Draw();	//è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹GUIã‚’æç”»ã™ã‚‹ï¼
 }

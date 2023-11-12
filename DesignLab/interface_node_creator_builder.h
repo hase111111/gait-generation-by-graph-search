@@ -1,5 +1,5 @@
-//! @file interface_node_creator_builder
-//! @brief INodeCreator‚ğ¶¬‚·‚é‚½‚ß‚Ìƒrƒ‹ƒ_[ƒNƒ‰ƒX
+ï»¿//! @file interface_node_creator_builder
+//! @brief INodeCreatorã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ãƒ“ãƒ«ãƒ€ãƒ¼ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
 #define DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
@@ -16,7 +16,7 @@
 
 
 //! @class INodeCreatorBuilder
-//! @brief INodeCreator‚ğ¶¬‚·‚é‚½‚ß‚Ìƒrƒ‹ƒ_[ƒNƒ‰ƒX
+//! @brief INodeCreatorã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ãƒ“ãƒ«ãƒ€ãƒ¼ã‚¯ãƒ©ã‚¹
 class INodeCreatorBuilder
 {
 public:
@@ -24,17 +24,13 @@ public:
 	INodeCreatorBuilder() = default;
 	virtual ~INodeCreatorBuilder() = default;
 
-	//! @brief INodeCreator‚ğ¶¬‚·‚é
-	//! @param [in] map •ªŠ„‚³‚ê‚½ƒ}ƒbƒv
-	//! @param [in] calculator_ptr ƒƒ{ƒbƒg‚Ìó‘Ô‚ğŒvZ‚·‚éƒNƒ‰ƒX
-	//! @param [out] node_creator INodeCreator‚ğŠi”[‚·‚émap
+	//! @brief INodeCreatorã‚’ç”Ÿæˆã™ã‚‹
+	//! @param [in] map åˆ†å‰²ã•ã‚ŒãŸãƒãƒƒãƒ—
+	//! @param [out] node_creator INodeCreatorã‚’æ ¼ç´ã™ã‚‹map
 	//! @n key:HexapodMove, value:INodeCreator
-	//! @n ‚Â‚Ü‚èCƒƒ{ƒbƒg‚Ì“®ì‚É‘Î‰‚·‚éINodeCreator‚ğŠi”[‚·‚é•K—v‚ª‚ ‚é
+	//! @n ã¤ã¾ã‚Šï¼Œãƒ­ãƒœãƒƒãƒˆã®å‹•ä½œã«å¯¾å¿œã™ã‚‹INodeCreatorã‚’æ ¼ç´ã™ã‚‹å¿…è¦ãŒã‚ã‚‹
 	virtual void Build(
 		const DevideMapState& map, 
-		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		std::map<HexapodMove, std::unique_ptr<INodeCreator> > *node_creator) const = 0;
 };
 
