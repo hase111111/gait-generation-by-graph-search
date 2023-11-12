@@ -109,13 +109,12 @@ void SystemMainSimulation::Main()
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
-			GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
+			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 
-
+			// ノード，計算時間，結果を格納する．
 			record.graph_search_result_recoder.push_back (
-				// ノード，計算時間，結果を格納する．
 				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMilliSecond(), result_state}
 			);
 
@@ -146,15 +145,7 @@ void SystemMainSimulation::Main()
 			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
 			dlio::Output(current_node.ToString(), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
 
-			if (setting_ptr_->do_step_execution_each_gait)
-			{
-				dlio::OutputNewLine(1, OutputDetail::kSystem);
-				dlio::WaitAnyKey("キー入力で次の歩容を生成します");
-			}
-
-
 			node_checker.SetNode(current_node);													//動作チェッカーにもノードを通達する．
-
 
 			//動作がループして失敗
 			if (node_checker.IsLoopMove())
@@ -172,7 +163,6 @@ void SystemMainSimulation::Main()
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
 			}
 
-
 			//成功時の処理
 			if (simu_end_checker_ptr_->IsEnd(current_node))
 			{
@@ -185,6 +175,13 @@ void SystemMainSimulation::Main()
 				);
 
 				break;	//成功したら，このループを抜け，次のシミュレーションへ進む．
+			}
+
+			//ステップ実行にしているならば，ここで一時停止する．
+			if (setting_ptr_->do_step_execution_each_gait)
+			{
+				dlio::OutputNewLine(1, OutputDetail::kSystem);
+				dlio::WaitAnyKey("キー入力で次の歩容を生成します");
 			}
 
 		}	//歩容生成のループ終了
