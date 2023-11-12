@@ -292,7 +292,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -305,7 +305,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -325,7 +325,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -340,7 +340,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -356,7 +356,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -369,7 +369,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
@@ -389,7 +389,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -404,7 +404,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)toml11-3.7.1;$(SolutionDir)magic_enum\include;$(SolutionDir)jsoncons\include</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\lib;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include</AdditionalLibraryDirectories>
       <HeapReserveSize>2000000000</HeapReserveSize>
       <HeapCommitSize>400000</HeapCommitSize>
       <StackReserveSize>200000000</StackReserveSize>
