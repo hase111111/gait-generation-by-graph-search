@@ -1,4 +1,4 @@
-﻿#include "graphic_main_advance.h"
+﻿#include "graphic_main_basic.h"
 
 #include <Dxlib.h>
 
@@ -9,7 +9,7 @@
 #include "world_grid_renderer.h"
 
 
-GraphicMainAdvance::GraphicMainAdvance(
+GraphicMainBasic::GraphicMainBasic(
 	const std::shared_ptr<const GraphicDataBroker>& broker_ptr, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
@@ -40,7 +40,7 @@ GraphicMainAdvance::GraphicMainAdvance(
 }
 
 
-bool GraphicMainAdvance::Update()
+bool GraphicMainBasic::Update()
 {
 	if (map_update_count != broker_ptr_->map_state.GetUpdateCount())
 	{
@@ -146,7 +146,7 @@ bool GraphicMainAdvance::Update()
 }
 
 
-void GraphicMainAdvance::Draw() const
+void GraphicMainBasic::Draw() const
 {
 	// 3Dのオブジェクトの描画
 

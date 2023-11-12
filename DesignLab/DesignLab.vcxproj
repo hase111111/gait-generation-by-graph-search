@@ -49,7 +49,7 @@
     <ClInclude Include="display_node_switch_gui.h" />
     <ClInclude Include="display_quality.h" />
     <ClInclude Include="file_tree.h" />
-    <ClInclude Include="graphic_main_advance.h" />
+    <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
@@ -149,7 +149,7 @@
     <ClCompile Include="designlab_vector2.cpp" />
     <ClCompile Include="display_node_switch_gui.cpp" />
     <ClCompile Include="file_tree.cpp" />
-    <ClCompile Include="graphic_main_advance.cpp" />
+    <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
     <ClCompile Include="graph_searcher_hato.cpp" />

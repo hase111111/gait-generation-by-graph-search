@@ -294,7 +294,7 @@
     <ClInclude Include="result_viewer_system_main.h">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_main_advance.h">
+    <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClInclude>
     <ClInclude Include="interpolated_node_creator.h">
@@ -599,7 +599,7 @@
     <ClCompile Include="result_viewer_system_main.cpp">
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClCompile>
-    <ClCompile Include="graphic_main_advance.cpp">
+    <ClCompile Include="graphic_main_basic.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
     </ClCompile>
     <ClCompile Include="interpolated_node_creator.cpp">

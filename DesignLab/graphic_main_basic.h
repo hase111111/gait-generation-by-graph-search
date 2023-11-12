@@ -1,5 +1,5 @@
-﻿#ifndef DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
-#define DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
+﻿#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
 
 
 #include "interface_graphic_main.h"
@@ -26,17 +26,17 @@
 #include "stability_margin_renderer.h"
 
 
-class GraphicMainAdvance final : public IGraphicMain
+class GraphicMainBasic final : public IGraphicMain
 {
 public:
-	GraphicMainAdvance(
+	GraphicMainBasic(
 		const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
-	~GraphicMainAdvance() = default;
+	~GraphicMainBasic() = default;
 
 	bool Update() override;
 
@@ -96,4 +96,4 @@ private:
 };
 
 
-#endif // DESIGNLAB_GRAPHIC_MAIN_ADVANCE_H_
+#endif // DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
