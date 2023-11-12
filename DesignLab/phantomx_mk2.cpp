@@ -1,4 +1,4 @@
-#include "phantomx_mk2.h"
+ï»¿#include "phantomx_mk2.h"
 
 #include <cmath>
 
@@ -24,12 +24,12 @@ PhantomXMkII::PhantomXMkII() :
 		{170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[5]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[5]), kFreeLegHeight},
 	} }),
 	leg_base_pos_robot_coordinate_({ {
-		{ PhantomXMkIIConst::kCoxaBaseOffsetX, -PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// ‹r0 ‰Eã
-		{ 0.0f, -PhantomXMkIIConst::kCenterCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },						// ‹r1 ‰E‰¡
-		{ -PhantomXMkIIConst::kCoxaBaseOffsetX, -PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },// ‹r2 ‰E‰º
-		{ -PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// ‹r3 ¶‰º
-		{ 0.0f, PhantomXMkIIConst::kCenterCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },						// ‹r4 ¶‰¡
-		{ PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// ‹r5 ¶ã
+		{ PhantomXMkIIConst::kCoxaBaseOffsetX, -PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// è„š0 å³ä¸Š
+		{ 0.0f, -PhantomXMkIIConst::kCenterCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },						// è„š1 å³æ¨ª
+		{ -PhantomXMkIIConst::kCoxaBaseOffsetX, -PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },// è„š2 å³ä¸‹
+		{ -PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// è„š3 å·¦ä¸‹
+		{ 0.0f, PhantomXMkIIConst::kCenterCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },						// è„š4 å·¦æ¨ª
+		{ PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// è„š5 å·¦ä¸Š
 	}}),
 	kMaxLegR(InitMaxLegR()),
 	kMinLegPosXY(InitMinLegPosXY()),
@@ -42,7 +42,7 @@ std::array<HexapodJointState, HexapodConst::kLegNum> PhantomXMkII::CalculateAllJ
 {
 	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
 
-	//ŒvZ‚ğs‚¤D
+	//è¨ˆç®—ã‚’è¡Œã†ï¼
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		joint_state[i] = CalculateJointState(i, node.leg_pos[i]);
@@ -53,11 +53,11 @@ std::array<HexapodJointState, HexapodConst::kLegNum> PhantomXMkII::CalculateAllJ
 
 HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const dl::Vector3& leg_pos) const noexcept
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	//Šeƒpƒ‰ƒ[ƒ^‚ğ‰Šú‰»‚·‚é
+	//å„ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹
 	HexapodJointState res;
 
 	const int kJointNum = 4;
@@ -70,13 +70,13 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 	res.joint_angle.resize(kJointAngleNum);
 
 
-	// coxa joint‚ÌŒvZ
-	res.joint_pos_leg_coordinate[0] = designlab::Vector3{ 0, 0, 0 };	//‹rÀ•WŒn‚Å‚Ícoxa joint‚ÍŒ´“_‚É‚ ‚éD
+	// coxa jointã®è¨ˆç®—
+	res.joint_pos_leg_coordinate[0] = designlab::Vector3{ 0, 0, 0 };	//è„šåº§æ¨™ç³»ã§ã¯coxa jointã¯åŸç‚¹ã«ã‚ã‚‹ï¼
 
-	// ‹ræ‚Ì’Ç‰Á
+	// è„šå…ˆã®è¿½åŠ 
 	res.joint_pos_leg_coordinate[3] = leg_pos;
 
-	// coxa angle‚ÌŒvZ
+	// coxa angleã®è¨ˆç®—
 	{
 		float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
 
@@ -84,7 +84,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 
 		if (!PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle))
 		{
-			//”ÍˆÍŠO‚È‚ç‚ÎC180“x‰ñ“]‚³‚¹‚½‚É”ÍˆÍ“à‚É‚ ‚é‚©‚ğ’²‚×‚éD
+			//ç¯„å›²å¤–ãªã‚‰ã°ï¼Œ180åº¦å›è»¢ã•ã›ãŸæ™‚ã«ç¯„å›²å†…ã«ã‚ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ï¼
 			if (PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle + dlm::kFloatPi))
 			{
 				coxa_joint_angle += dlm::kFloatPi;
@@ -98,7 +98,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 		res.joint_angle[0] = coxa_joint_angle;
 	}
 
-	// femur joint‚ÌŒvZ
+	// femur jointã®è¨ˆç®—
 	{
 		const dl::Vector3 femur_joint_pos = dl::Vector3{
 			PhantomXMkIIConst::kCoxaLength * std::cos(res.joint_angle[0]),
@@ -110,11 +110,11 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 
 		if ( ! dlm::CanMakeTriangle((leg_pos - femur_joint_pos).GetLength(), PhantomXMkIIConst::kFemurLength, PhantomXMkIIConst::kTibiaLength))
 		{
-			// ‚»‚à‚»‚à‹ræ‚ª‹r‚Ì•t‚¯ª‚©‚ç“Í‚©‚È‚¢ê‡Cˆê”Ô‹ß‚¢ˆÊ’u‚Ü‚Å‹r‚ğL‚Î‚·D
+			// ãã‚‚ãã‚‚è„šå…ˆãŒè„šã®ä»˜ã‘æ ¹ã‹ã‚‰å±Šã‹ãªã„å ´åˆï¼Œä¸€ç•ªè¿‘ã„ä½ç½®ã¾ã§è„šã‚’ä¼¸ã°ã™ï¼
 
 			const float angle_ft = std::atan2(leg_pos.z - femur_joint_pos.z, (leg_pos.ProjectedXY() - femur_joint_pos.ProjectedXY()).GetLength());
 
-			// angle_ft‚ÌˆÊ‘Š‚ğ180“x‰ñ“]‚·‚éD-180“x`180“x‚Ì”ÍˆÍ‚É‚·‚éD
+			// angle_ftã®ä½ç›¸ã‚’180åº¦å›è»¢ã™ã‚‹ï¼-180åº¦ï½180åº¦ã®ç¯„å›²ã«ã™ã‚‹ï¼
 			float angle_ft_phase = angle_ft + dlm::kFloatPi;
 			angle_ft_phase = angle_ft_phase > dlm::kFloatPi ? angle_ft_phase - dlm::kFloatPi : angle_ft_phase;
 
@@ -161,17 +161,17 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 				PhantomXMkIIConst::kTibiaLength * std::sin(angle_f + angle_t)
 			};
 
-			res.is_in_range = false;	//”ÍˆÍŠO‚Å‚ ‚é‚±‚Æ‚ğ¦‚·D
+			res.is_in_range = false;	//ç¯„å›²å¤–ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™ï¼
 
 			return res;
 		}
 	}
 
 
-	// femur angle ‚ÌŒvZ
-	const designlab::Vector3 femur_to_leg = leg_pos - res.joint_pos_leg_coordinate[1];		//‹ræ‚©‚ç‘æˆêŠÖß‚Ü‚Å‚Ì’·‚³D
-	const float femur_to_leg_x = femur_to_leg.ProjectedXY().GetLength() * 																//‹ræ‚ÖŒü‚©‚¤•ûŒü‚ğx‚Ì³•ûŒü‚É‚·‚éÀ•WŒn‚É’u‚«Š·‚¦‚é 			
-		((leg_pos.ProjectedXY().GetSquaredLength() > res.joint_pos_leg_coordinate[1].ProjectedXY().GetSquaredLength()) ? 1.f : -1.f);	//‹ræ‚ª‘æˆêŠÖß‚æ‚è‚à‹ß‚¢ê‡‚Í³‚Ì•ûŒü‚É‚·‚éD
+	// femur angle ã®è¨ˆç®—
+	const designlab::Vector3 femur_to_leg = leg_pos - res.joint_pos_leg_coordinate[1];		//è„šå…ˆã‹ã‚‰ç¬¬ä¸€é–¢ç¯€ã¾ã§ã®é•·ã•ï¼
+	const float femur_to_leg_x = femur_to_leg.ProjectedXY().GetLength() * 																//è„šå…ˆã¸å‘ã‹ã†æ–¹å‘ã‚’xã®æ­£æ–¹å‘ã«ã™ã‚‹åº§æ¨™ç³»ã«ç½®ãæ›ãˆã‚‹ 			
+		((leg_pos.ProjectedXY().GetSquaredLength() > res.joint_pos_leg_coordinate[1].ProjectedXY().GetSquaredLength()) ? 1.f : -1.f);	//è„šå…ˆãŒç¬¬ä¸€é–¢ç¯€ã‚ˆã‚Šã‚‚è¿‘ã„å ´åˆã¯æ­£ã®æ–¹å‘ã«ã™ã‚‹ï¼
 	const float femur_to_leg_z = femur_to_leg.z;
 
 	{
@@ -184,7 +184,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 		res.joint_angle[1] = fumur_joint_angle;
 	}
 
-	// tibia joint‚ÌŒvZ
+	// tibia jointã®è¨ˆç®—
 	{
 		const designlab::Vector3 femur_to_tibia = designlab::Vector3{
 			PhantomXMkIIConst::kFemurLength * std::cos(res.joint_angle[0]) * std::cos(res.joint_angle[1]),
@@ -198,7 +198,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 	}
 
 
-	// tibia angle‚ÌŒvZ
+	// tibia angleã®è¨ˆç®—
 	{
 		const float tibia_angle = std::atan2(
 			(femur_to_leg_z - PhantomXMkIIConst::kFemurLength * std::sin(res.joint_angle[1])),
@@ -231,16 +231,16 @@ bool PhantomXMkII::IsVaildJointState(const int leg_index, const dl::Vector3& leg
 	assert(joint_state.joint_pos_leg_coordinate.size() == 4);
 	assert(joint_state.joint_angle.size() == 3);
 
-	// coxaŠÖß‚Ì”ÍˆÍ“à‚É‘¶İ‚µ‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
+	// coxaé–¢ç¯€ã®ç¯„å›²å†…ã«å­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 	if (!PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, joint_state.joint_angle[0])) { return false; }
 
-	// femurŠÖß‚Ì”ÍˆÍ“à‚É‘¶İ‚µ‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
+	// femuré–¢ç¯€ã®ç¯„å›²å†…ã«å­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 	if (!PhantomXMkIIConst::IsVaildFemurAngle(joint_state.joint_angle[1])) { return false; }
 
-	// tibiaŠÖß‚Ì”ÍˆÍ“à‚É‘¶İ‚µ‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
+	// tibiaé–¢ç¯€ã®ç¯„å›²å†…ã«å­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 	if (!PhantomXMkIIConst::IsVaildTibiaAngle(joint_state.joint_angle[2])) { return false; }
 
-	// ƒŠƒ“ƒN‚Ì’·‚³‚ğŠm”F‚·‚é
+	// ãƒªãƒ³ã‚¯ã®é•·ã•ã‚’ç¢ºèªã™ã‚‹
 	if (!dlm::IsEqual((joint_state.joint_pos_leg_coordinate[0] - joint_state.joint_pos_leg_coordinate[1]).GetLength(), PhantomXMkIIConst::kCoxaLength))
 	{
 		return false;
@@ -256,7 +256,7 @@ bool PhantomXMkII::IsVaildJointState(const int leg_index, const dl::Vector3& leg
 		return false;
 	}
 
-	// ‹rˆÊ’u‚Æ‹ræÀ•W‚ªˆê’v‚µ‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
+	// è„šä½ç½®ã¨è„šå…ˆåº§æ¨™ãŒä¸€è‡´ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 	if (joint_state.joint_pos_leg_coordinate[3] != leg_pos) { return false; }
 
 	return true;
@@ -270,7 +270,7 @@ dl::Vector3 PhantomXMkII::ConvertGlobalToLegCoordinate(
 	const dl::EulerXYZ& robot_rot, 
 	const bool consider_rot) const
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
@@ -291,7 +291,7 @@ dl::Vector3 PhantomXMkII::ConvertLegToGlobalCoordinate(
 	const dl::EulerXYZ& robot_rot,
 	const bool consider_rot) const
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
@@ -324,7 +324,7 @@ designlab::Vector3 PhantomXMkII::ConvertRobotToGlobalCoordinate(
 
 designlab::Vector3 PhantomXMkII::GetFreeLegPosLegCoodinate(const int leg_index) const noexcept
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
@@ -333,7 +333,7 @@ designlab::Vector3 PhantomXMkII::GetFreeLegPosLegCoodinate(const int leg_index) 
 
 designlab::Vector3 PhantomXMkII::GetLegBasePosRobotCoodinate(const int leg_index) const noexcept
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
@@ -343,18 +343,18 @@ designlab::Vector3 PhantomXMkII::GetLegBasePosRobotCoodinate(const int leg_index
 
 bool PhantomXMkII::IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const
 {
-	//leg_index‚Í 0`5 ‚Å‚ ‚éD
+	//leg_indexã¯ 0ï½5 ã§ã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	const dl::Vector2 leg_pos_xy = leg_pos.ProjectedXY();	//“ŠË‚µ‚½‹ræÀ•W‚ğ‚¦‚éD
+	const dl::Vector2 leg_pos_xy = leg_pos.ProjectedXY();	//æŠ•å°„ã—ãŸè„šå…ˆåº§æ¨™ã‚’ãˆã‚‹ï¼
 
-	//‹r‚ÌŠp“x‚ª”ÍˆÍ“à‚É‚ ‚é‚©’²‚×‚éDŠOÏŒvZ‚ÅŠÔ‚É‚ ‚é‚©’²‚×‚é
+	//è„šã®è§’åº¦ãŒç¯„å›²å†…ã«ã‚ã‚‹ã‹èª¿ã¹ã‚‹ï¼å¤–ç©è¨ˆç®—ã§é–“ã«ã‚ã‚‹ã‹èª¿ã¹ã‚‹
 	if (kMinLegPosXY[leg_index].Cross(leg_pos_xy) < 0.0f) { return false; }
 	if (kMaxLegPosXY[leg_index].Cross(leg_pos_xy) > 0.0f) { return false; }
 
 
-	//‹r‚ğL‚Î‚·‚±‚Æ‚Ì‚Å‚«‚È‚¢”ÍˆÍ‚ÉL‚Î‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éD
+	//è„šã‚’ä¼¸ã°ã™ã“ã¨ã®ã§ããªã„ç¯„å›²ã«ä¼¸ã°ã—ã¦ã„ãªã„ã‹èª¿ã¹ã‚‹ï¼
 	if (static_cast<int>(leg_pos.z) < -kMaxLegRSize || 0 < static_cast<int>(leg_pos.z)) { return false; }
 
 	if (leg_pos_xy.GetSquaredLength() < dlm::Squared(kMinLegR)) { return false; }
@@ -366,9 +366,9 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const designlab::Vector3& l
 
 bool PhantomXMkII::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
-	//dS‚ğŒ´“_‚Æ‚µ‚½CÀ•WŒn‚É‚¨‚¢‚ÄC‹r‚ÌŠ±Â‚ğ’²‚×‚éD
+	//é‡å¿ƒã‚’åŸç‚¹ã¨ã—ãŸï¼Œåº§æ¨™ç³»ã«ãŠã„ã¦ï¼Œè„šã®å¹²æ¸‰ã‚’èª¿ã¹ã‚‹ï¼
 
-	//‹r‚ÌŠ±Â‚ğ’²‚×‚éD
+	//è„šã®å¹²æ¸‰ã‚’èª¿ã¹ã‚‹ï¼
 	designlab::Vector2 leg_pos_xy[HexapodConst::kLegNum];
 	designlab::Vector2 joint_pos_xy[HexapodConst::kLegNum];
 
@@ -378,7 +378,7 @@ bool PhantomXMkII::IsLegInterfering(const std::array<designlab::Vector3, Hexapod
 		leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
 	}
 
-	//—×‚Ì‹r‚Æ‚ÌŠ±Â‚ğ’²‚×‚éD
+	//éš£ã®è„šã¨ã®å¹²æ¸‰ã‚’èª¿ã¹ã‚‹ï¼
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		designlab::LineSegment2 line1(joint_pos_xy[i], leg_pos_xy[i]);
@@ -402,12 +402,12 @@ float PhantomXMkII::GetGroundHeightMarginMax() const noexcept
 
 float PhantomXMkII::CalculateStabilityMargin(const::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
-	// std::min ‚ğƒJƒbƒR‚ÅˆÍ‚ñ‚Å‚¢‚é‚Ì‚ÍCƒ}ƒNƒ‚Ì min ‚Æ”í‚é‚½‚ßD(std::min) ‚Æ‘‚­‚Æ–¼‘O‚ªÕ“Ë‚µ‚È‚¢
+	// std::min ã‚’ã‚«ãƒƒã‚³ã§å›²ã‚“ã§ã„ã‚‹ã®ã¯ï¼Œãƒã‚¯ãƒ­ã® min ã¨è¢«ã‚‹ãŸã‚ï¼(std::min) ã¨æ›¸ãã¨åå‰ãŒè¡çªã—ãªã„
 
-	std::array<designlab::Vector2, HexapodConst::kLegNum> ground_leg_pos;	// xy•½–Ê‚É“ŠË‚µ‚½CdS‚ğŒ´“_‚Æ‚µ‚½ƒ[ƒJƒ‹(ƒƒ{ƒbƒg)À•WŒn‚ÅC‹r‚ÌˆÊ’u‚ğŒvZ‚·‚éD
-	int ground_leg_pos_num = 0;												// ‘¬“x‚ÌŠÖŒWã vector‚Å‚È‚­array‚ğg‚¤D
+	std::array<designlab::Vector2, HexapodConst::kLegNum> ground_leg_pos;	// xyå¹³é¢ã«æŠ•å°„ã—ãŸï¼Œé‡å¿ƒã‚’åŸç‚¹ã¨ã—ãŸãƒ­ãƒ¼ã‚«ãƒ«(ãƒ­ãƒœãƒƒãƒˆ)åº§æ¨™ç³»ã§ï¼Œè„šã®ä½ç½®ã‚’è¨ˆç®—ã™ã‚‹ï¼
+	int ground_leg_pos_num = 0;												// é€Ÿåº¦ã®é–¢ä¿‚ä¸Š vectorã§ãªãarrayã‚’ä½¿ã†ï¼
 
-	//Ú’n‹r‚Ì‚İ’Ç‰Á‚·‚é
+	//æ¥åœ°è„šã®ã¿è¿½åŠ ã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (dllf::IsGrounded(leg_state, i))
@@ -418,8 +418,8 @@ float PhantomXMkII::CalculateStabilityMargin(const::designlab::leg_func::LegStat
 	}
 
 
-	float min_margin = 0;	// ‘½ŠpŒ`‚Ì•Ó‚ÆdS‚Ì‹——£‚ÌÅ¬’l
-	bool is_first = true;	// ‰‰ñ‚©‚Ç‚¤‚©CÅ‰‚Í•K‚¸’l‚ğXV‚·‚é
+	float min_margin = 0;	// å¤šè§’å½¢ã®è¾ºã¨é‡å¿ƒã®è·é›¢ã®æœ€å°å€¤
+	bool is_first = true;	// åˆå›ã‹ã©ã†ã‹ï¼Œæœ€åˆã¯å¿…ãšå€¤ã‚’æ›´æ–°ã™ã‚‹
 
 	for (int i = 0; i < ground_leg_pos_num; i++)
 	{
@@ -427,7 +427,7 @@ float PhantomXMkII::CalculateStabilityMargin(const::designlab::leg_func::LegStat
 		i_to_i_plus_1.GetNormalized();
 		designlab::Vector2 i_to_com = designlab::Vector2{ 0,0 } - ground_leg_pos[i];
 
-		float margin = i_to_com.Cross(i_to_i_plus_1);	// ‘½ŠpŒ`‚Ì•Ó‚ÆdS‚Ì‹——£(Ã“IˆÀ’è—]—T)
+		float margin = i_to_com.Cross(i_to_i_plus_1);	// å¤šè§’å½¢ã®è¾ºã¨é‡å¿ƒã®è·é›¢(é™çš„å®‰å®šä½™è£•)
 
 		if (is_first)
 		{
@@ -445,17 +445,17 @@ float PhantomXMkII::CalculateStabilityMargin(const::designlab::leg_func::LegStat
 
 bool PhantomXMkII::IsStable(const::designlab::leg_func::LegStateBit& leg_state, const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
-	// kStableMargin ˆÈã‚Ì—]—T‚ª‚ ‚é‚©’²‚×‚é
+	// kStableMargin ä»¥ä¸Šã®ä½™è£•ãŒã‚ã‚‹ã‹èª¿ã¹ã‚‹
 	return CalculateStabilityMargin(leg_state, leg_pos) > kStableMargin;
 }
 
 bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const
 {
-	float top_z = -10000.0f;	//’n–Ê‚Æ‚ÌŒğ“_‚Ì‚¤‚¿Å‚à‚‚¢‚à‚Ì‚ğŠi”[‚·‚é
+	float top_z = -10000.0f;	//åœ°é¢ã¨ã®äº¤ç‚¹ã®ã†ã¡æœ€ã‚‚é«˜ã„ã‚‚ã®ã‚’æ ¼ç´ã™ã‚‹
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//‹r‚ÌªŒ³‚ÌÀ•W(ƒOƒ[ƒoƒ‹)‚ğæ“¾‚·‚é
+		//è„šã®æ ¹å…ƒã®åº§æ¨™(ã‚°ãƒ­ãƒ¼ãƒãƒ«)ã‚’å–å¾—ã™ã‚‹
 		const designlab::Vector3 kCoxaPos = ConvertRobotToGlobalCoordinate(
 			GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.rot, false
 		);
@@ -464,7 +464,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 		{
 			const float map_top_z = devide_map.GetTopZ(devide_map.GetDevideMapIndexX(kCoxaPos.x), devide_map.GetDevideMapIndexY(kCoxaPos.y));
 
-			top_z = (std::max)(top_z, map_top_z);	//Å‚à‚‚¢“_‚ğ‹‚ß‚é		
+			top_z = (std::max)(top_z, map_top_z);	//æœ€ã‚‚é«˜ã„ç‚¹ã‚’æ±‚ã‚ã‚‹		
 		}
 	}
 
@@ -479,38 +479,38 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 
 std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 {
-	// ‹t‰^“®Šwcoxa‚È‚µ‚ÌŒvZŒ‹‰Ê‚ğ—p‚¢‚Ä€‰^“®Šw‚ğŒvZ‚·‚é
+	// é€†é‹å‹•å­¦coxaãªã—ã®è¨ˆç®—çµæœã‚’ç”¨ã„ã¦æº–é‹å‹•å­¦ã‚’è¨ˆç®—ã™ã‚‹
 	std::array <float, kMaxLegRSize> res;
 
 	for (auto i : res) { i = 0; }
 
-	const float PERMISSION = 0.5f;			//‹t‰^“®Šw‚Æ‰^“®Šw‚ğs‚Á‚½Œ‹‰Ê‚ª”¼ŒaPermission^0.5‚Ì‰~‚Ì’†‚È‚ç“™‚µ‚¢‚Æl‚¦‚é
+	const float PERMISSION = 0.5f;			//é€†é‹å‹•å­¦ã¨é‹å‹•å­¦ã‚’è¡Œã£ãŸçµæœãŒåŠå¾„Permission^0.5ã®å††ã®ä¸­ãªã‚‰ç­‰ã—ã„ã¨è€ƒãˆã‚‹
 
-	const float mins[3] = { -1.428f, -1.780f, -1.194f };	// ‹r‰Â“®”ÍˆÍ ‚¨‚»‚ç‚­rad •ÏŠ·‚µ‚½‚â‚Â(-81.8‹ -101.98‹ -68.41‹)  190527
-	const float maxs[3] = { 1.402f,  1.744f,  1.769f };		// ¶‚©‚çcoxa,femur,tibia (80.32‹ 99.92‹ 101.36‹)
+	const float mins[3] = { -1.428f, -1.780f, -1.194f };	// è„šå¯å‹•ç¯„å›² ãŠãã‚‰ãrad å¤‰æ›ã—ãŸã‚„ã¤(-81.8Â° -101.98Â° -68.41Â°)  190527
+	const float maxs[3] = { 1.402f,  1.744f,  1.769f };		// å·¦ã‹ã‚‰coxa,femur,tibia (80.32Â° 99.92Â° 101.36Â°)
 
 	//ans of kinematics use sorution of i_kinematics 
 
-	//z‚ÍÅ‘å196Dix‚ÍÅ‘å248
+	//zã¯æœ€å¤§196ï¼ixã¯æœ€å¤§248
 	for (int iz = 0; iz < 200; iz++)
 	{
 		for (int ix = 53; ix < 248; ix++)
 		{
-			const designlab::Vector3 line_end((float)ix, 0.0f, (float)iz);		//‹ræÀ•Wiƒ[ƒJƒ‹j
+			const designlab::Vector3 line_end((float)ix, 0.0f, (float)iz);		//è„šå…ˆåº§æ¨™ï¼ˆãƒ­ãƒ¼ã‚«ãƒ«ï¼‰
 
-			//‹t‰^“®Šwcoxa‚È‚µ
+			//é€†é‹å‹•å­¦coxaãªã—
 
-			//const float _coxa_angle = atan2(line_end.x, line_end.y);	//coxaŠp“x
+			//const float _coxa_angle = atan2(line_end.x, line_end.y);	//coxaè§’åº¦
 
-			const float _IK_trueX = sqrt(dlm::Squared(line_end.x) + dlm::Squared(line_end.y)) - PhantomXMkIIConst::kCoxaLength;	//femur‚©‚ç‘«æ‚Ü‚Å‚ğŒ‹‚ÔƒxƒNƒgƒ‹‚ğxy•½–Ê‚É“Š‰e‚µ‚½‚Æ‚«‚ÌƒxƒNƒgƒ‹‚Ì‘å‚«‚³
-			float _im = sqrt(dlm::Squared(_IK_trueX) + dlm::Squared(line_end.z));					//â‘Î‚É³
-			if (_im == 0.0f) _im += 0.01f;	//0Š„‚è‘Îô
+			const float _IK_trueX = sqrt(dlm::Squared(line_end.x) + dlm::Squared(line_end.y)) - PhantomXMkIIConst::kCoxaLength;	//femurã‹ã‚‰è¶³å…ˆã¾ã§ã‚’çµã¶ãƒ™ã‚¯ãƒˆãƒ«ã‚’xyå¹³é¢ã«æŠ•å½±ã—ãŸã¨ãã®ãƒ™ã‚¯ãƒˆãƒ«ã®å¤§ãã•
+			float _im = sqrt(dlm::Squared(_IK_trueX) + dlm::Squared(line_end.z));					//çµ¶å¯¾ã«æ­£
+			if (_im == 0.0f) _im += 0.01f;	//0å‰²ã‚Šå¯¾ç­–
 
-			const float _q1 = -atan2(line_end.z, _IK_trueX);													//ƒ}ƒCƒiƒX‚Å‚¨‚‹À•WŒn“I‚Éq1©‘Ì‚Íí‚É•‰//x‚ªƒ[ƒ‚¾‚Æ’è‹`ˆæƒGƒ‰[
+			const float _q1 = -atan2(line_end.z, _IK_trueX);													//ãƒã‚¤ãƒŠã‚¹ã§ãŠï½‹åº§æ¨™ç³»çš„ã«q1è‡ªä½“ã¯å¸¸ã«è² //xãŒã‚¼ãƒ­ã ã¨å®šç¾©åŸŸã‚¨ãƒ©ãƒ¼
 			const float _q2 = acos(
 				(dlm::Squared(PhantomXMkIIConst::kFemurLength) + dlm::Squared(_im) - dlm::Squared(PhantomXMkIIConst::kTibiaLength)) /
 				(2.0f * PhantomXMkIIConst::kFemurLength * _im)
-			);	//im=0‚¾‚Æ’è‹`ˆæƒGƒ‰[
+			);	//im=0ã ã¨å®šç¾©åŸŸã‚¨ãƒ©ãƒ¼
 
 			const float _femur_angle = _q1 + _q2;
 			const float _tibia_angle = acos(
@@ -518,23 +518,23 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 				(2.0f * PhantomXMkIIConst::kFemurLength * PhantomXMkIIConst::kTibiaLength)
 			) - dlm::kFloatPi / 2.0f;
 
-			//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femur‚©‚ç‘«æ‚Ì‹——£
+			//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femurã‹ã‚‰è¶³å…ˆã®è·é›¢
 			//float d1 = pow((float)L_FEMUR, 2.0) - pow((float)L_TIBIA, 2.0) + pow(fabs((float)im), 2.0);
 			//float d2 = 2 * L_FEMUR*im;
-			//float q2 = acos((float)d1 / (float)d2);	//—]Œ·’è—
+			//float q2 = acos((float)d1 / (float)d2);	//ä½™å¼¦å®šç†
 			//d1 = pow((float)L_FEMUR, 2.0) - pow(fabs((float)im), 2.0) + pow((float)L_TIBIA, 2.0);
 			//d2 = 2 * L_TIBIA*L_FEMUR;
 			//tibia = acos((float)d1 / (float)d2) - 1.570796326795;
 
 			//lange of motion
-			//À‹@‚Í‚í‚©‚ç‚ñ‚ªAƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚¾‚ÆA‚±‚ê‚ª‚¢‚ç‚È‚¢B
-			//if•¶“ü‚ê‚é‚ÆAdS‚Æ‘«æ‚‚³‚Ì·‚ªA73mmˆÈ‰º‚Íæ‚ê‚È‚¢Bhato
+			//å®Ÿæ©Ÿã¯ã‚ã‹ã‚‰ã‚“ãŒã€ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã ã¨ã€ã“ã‚ŒãŒã„ã‚‰ãªã„ã€‚
+			//ifæ–‡å…¥ã‚Œã‚‹ã¨ã€é‡å¿ƒã¨è¶³å…ˆé«˜ã•ã®å·®ãŒã€73mmä»¥ä¸‹ã¯å–ã‚Œãªã„ã€‚hato
 			//if ( femur < femurMins)break;
 			//if (femurMaxs < femur)break;
 			//if (tibia < tibiaMins)break;
 			//if(tibiaMaxs < tibia )break;
 
-			//‰^“®Šw
+			//é‹å‹•å­¦
 			const float _K_trueX = PhantomXMkIIConst::kFemurLength * cos(_femur_angle) + PhantomXMkIIConst::kTibiaLength * cos(_femur_angle + _tibia_angle - dlm::kFloatPi / 2.0f);
 
 			designlab::Vector3 _kinematics;
@@ -547,10 +547,10 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 			if (PERMISSION > _Permission)
 			{
 				constexpr float kLegRom_RMargin = 10.f;
-				res[iz] = static_cast<float>(ix) - kLegRom_RMargin;//y=0‚Ì‚Æ‚«C‹r‚‚³z‚Ì‚Æ‚«‚Ìx•ûŒü‚ÌÅ‘å‚Ì”ÍˆÍ
+				res[iz] = static_cast<float>(ix) - kLegRom_RMargin;//y=0ã®ã¨ãï¼Œè„šé«˜ã•zã®ã¨ãã®xæ–¹å‘ã®æœ€å¤§ã®ç¯„å›²
 
 #ifdef  MAX_LEG_RADIUS
-				if (iz <= 115) { res[iz] = MAX_LEG_RADIUS; }//‹r‚ğ’u‚­ˆÊ’u‚ª‰“‚·‚¬‚é‚Æƒgƒ‹ƒN‚ª‘«‚è‚È‚­‚Ä’¾‚İ‚İ‚ªŒƒ‚µ‚¢‚©‚ç200‚Ü‚Å‚É‚µ‚½2020/11/09hato
+				if (iz <= 115) { res[iz] = MAX_LEG_RADIUS; }//è„šã‚’ç½®ãä½ç½®ãŒé ã™ãã‚‹ã¨ãƒˆãƒ«ã‚¯ãŒè¶³ã‚Šãªãã¦æ²ˆã¿è¾¼ã¿ãŒæ¿€ã—ã„ã‹ã‚‰200ã¾ã§ã«ã—ãŸ2020/11/09hato
 #endif
 			}
 		}

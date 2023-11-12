@@ -1,5 +1,5 @@
-//! @file phantomx_mk2.h
-//! @brief PhantomX‚Ìó‘Ô‚ğŒvZ‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file phantomx_mk2.h
+//! @brief PhantomXã®çŠ¶æ…‹ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_PHANTOMX_MK2_H_
@@ -13,11 +13,11 @@
 
 
 //! @class PhantomXMkII
-//! @brief PhantomX mk-2 ‚Ìó‘Ô‚ğŒvZ‚·‚éƒNƒ‰ƒXD
+//! @brief PhantomX mk-2 ã®çŠ¶æ…‹ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class PhantomXMkII : public IHexapodCoordinateConverter, public IHexapodJointCalculator, public IHexapodStatePresenter, public IHexapodVaildChecker
 {
 public:
-
+	
 	PhantomXMkII();
 
 
@@ -63,27 +63,27 @@ public:
 
 private:
 
-	const float kBodyLiftingHeightMin = 30;		//!< ’n–Ê‚©‚ç“·‘Ì‚ğ‚¿ã‚°‚é‚‚³[mm]DÅ¬‚±‚±‚Ü‚Å‰º‚°‚ç‚ê‚éD
-	const float kBodyLiftingHeightMax = 160;	//!< ’n–Ê‚©‚ç“·‘Ì‚ğ‚¿ã‚°‚é‚‚³[mm]DÅ‘å‚±‚±‚Ü‚Åã‚°‚ç‚ê‚éD
+	const float kBodyLiftingHeightMin = 30;		//!< åœ°é¢ã‹ã‚‰èƒ´ä½“ã‚’æŒã¡ä¸Šã’ã‚‹é«˜ã•[mm]ï¼æœ€å°ã“ã“ã¾ã§ä¸‹ã’ã‚‰ã‚Œã‚‹ï¼
+	const float kBodyLiftingHeightMax = 160;	//!< åœ°é¢ã‹ã‚‰èƒ´ä½“ã‚’æŒã¡ä¸Šã’ã‚‹é«˜ã•[mm]ï¼æœ€å¤§ã“ã“ã¾ã§ä¸Šã’ã‚‰ã‚Œã‚‹ï¼
 
-	const float kMovableCoxaAngleMin = designlab::math_util::ConvertDegToRad(-40.f);	//!< ‹r‚Ì‰Â“®”ÍˆÍ‚ÌÅ¬’l[rad]
-	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< ‹r‚Ì‰Â“®”ÍˆÍ‚ÌÅ‘å’l[rad]
+	const float kMovableCoxaAngleMin = designlab::math_util::ConvertDegToRad(-40.f);	//!< è„šã®å¯å‹•ç¯„å›²ã®æœ€å°å€¤[rad]
+	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< è„šã®å¯å‹•ç¯„å›²ã®æœ€å¤§å€¤[rad]
 
-	static constexpr float kMinLegR{120.f};		//!< ‹r‚Ì•t‚¯ª‚©‚ç‹ræ‚Ü‚Å‚ÌÅ¬‹——£[mm]
-	static constexpr int kMaxLegRSize{200};		//!< kMaxLegR‚Ì”z—ñ‚ÌƒTƒCƒYD
-	std::array<float, kMaxLegRSize> kMaxLegR;	//!< ‹r‚Ì•t‚¯ª‚©‚ç‹ræ‚Ü‚Å‚ÌÅ‘å‹——£[mm]D‹r‚Ì•t‚¯ª‚ÆdS‚Ìz•ûŒü‚Ì‹——£‚Ì·‚ğƒCƒ“ƒfƒbƒNƒX‚É‚·‚éD
+	static constexpr float kMinLegR{120.f};		//!< è„šã®ä»˜ã‘æ ¹ã‹ã‚‰è„šå…ˆã¾ã§ã®æœ€å°è·é›¢[mm]
+	static constexpr int kMaxLegRSize{200};		//!< kMaxLegRã®é…åˆ—ã®ã‚µã‚¤ã‚ºï¼
+	std::array<float, kMaxLegRSize> kMaxLegR;	//!< è„šã®ä»˜ã‘æ ¹ã‹ã‚‰è„šå…ˆã¾ã§ã®æœ€å¤§è·é›¢[mm]ï¼è„šã®ä»˜ã‘æ ¹ã¨é‡å¿ƒã®zæ–¹å‘ã®è·é›¢ã®å·®ã‚’ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«ã™ã‚‹ï¼
 
-	std::array<designlab::Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa joint‚ÌÅ¬ˆÊ’u‚Ü‚Å‰ñ‚µ‚½‚Ì‹ræÀ•WD‹rÀ•WŒn‚Ìxy‚©‚ç‚İ‚½À•WD
-	std::array<designlab::Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa joint‚ÌÅ‘åˆÊ’u‚Ü‚Å‰ñ‚µ‚½‚Ì‹ræÀ•WD‹rÀ•WŒn‚Ìxy‚©‚ç‚İ‚½À•WD
+	std::array<designlab::Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa jointã®æœ€å°ä½ç½®ã¾ã§å›ã—ãŸæ™‚ã®è„šå…ˆåº§æ¨™ï¼è„šåº§æ¨™ç³»ã®xyã‹ã‚‰ã¿ãŸåº§æ¨™ï¼
+	std::array<designlab::Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa jointã®æœ€å¤§ä½ç½®ã¾ã§å›ã—ãŸæ™‚ã®è„šå…ˆåº§æ¨™ï¼è„šåº§æ¨™ç³»ã®xyã‹ã‚‰ã¿ãŸåº§æ¨™ï¼
 
-	const float kFreeLegHeight{ -20.f };	//!< dS‚©‚çŒ©‚½—V‹r‚‚³[mm]D
-	const float kStableMargin{ 15.f };		//!< Ã“IˆÀ‘S—]—T 15mm’ö“x‚ª‘Ã“–‚ç‚µ‚¢(”g“Œ‚³‚ñ‚ÌƒvƒƒOƒ‰ƒ€‚æ‚èCMAX‚Å40mm’ö“x)
+	const float kFreeLegHeight{ -20.f };	//!< é‡å¿ƒã‹ã‚‰è¦‹ãŸéŠè„šé«˜ã•[mm]ï¼
+	const float kStableMargin{ 15.f };		//!< é™çš„å®‰å…¨ä½™è£• 15mmç¨‹åº¦ãŒå¦¥å½“ã‚‰ã—ã„(æ³¢æ±ã•ã‚“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚ˆã‚Šï¼ŒMAXã§40mmç¨‹åº¦)
 
 
-	//!< ‹r‚Ì•t‚¯ª‚ÌÀ•W( leg base position )Dƒƒ{ƒbƒgÀ•WŒnD
+	//!< è„šã®ä»˜ã‘æ ¹ã®åº§æ¨™( leg base position )ï¼ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ï¼
 	const std::array<designlab::Vector3, HexapodConst::kLegNum> leg_base_pos_robot_coordinate_;
 
-	//!< —V‹r‚·‚éˆÊ’uD‹rÀ•WŒnD
+	//!< éŠè„šã™ã‚‹ä½ç½®ï¼è„šåº§æ¨™ç³»ï¼
 	const std::array<designlab::Vector3, HexapodConst::kLegNum> free_leg_pos_leg_coordinate_;
 
 
