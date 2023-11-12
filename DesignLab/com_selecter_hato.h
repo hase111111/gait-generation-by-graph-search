@@ -40,7 +40,7 @@ public:
 
 private:
 
-	static constexpr int kDiscretizationNum = 5;	//!< 重心を求める際の分割数
+	static constexpr int kDiscretizationNum = 10;	//!< 重心を求める際の分割数
 
 	//! @todo この値をphantomx_mk2に移行する
 	const float kStabilityMargin = 10.0f;			//!< 絶対安全余裕

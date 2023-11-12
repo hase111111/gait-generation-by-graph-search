@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
 #include "../DesignLab/robot_state_node.h"
 
@@ -16,7 +16,7 @@ namespace designlab::test::node
 			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::Vector3{ 300, 50, -10 },
-			dl::EulerXYZ{ 0.1f, 1.2f, 3.14f },
+			dl::Quaternion{ 1.0f, 0.0f, 0.0f, 0.0f },
 			HexapodMove::kLegHierarchyChange,
 			315,
 			5
@@ -29,15 +29,15 @@ namespace designlab::test::node
 
 		changeed.ChangeParentNode();
 
-		EXPECT_EQ(changeed.parent_num, -1) << "e‚ª‚¢‚È‚¢‚È‚ç‚ÎCindex‚Í-1‚Å‚·D";
-		EXPECT_EQ(changeed.depth, 0) << "eƒm[ƒh‚Ì[‚³‚Í0‚Å‚·D";
+		EXPECT_EQ(changeed.parent_num, -1) << "è¦ªãŒã„ãªã„ãªã‚‰ã°ï¼Œindexã¯-1ã§ã™ï¼Ž";
+		EXPECT_EQ(changeed.depth, 0) << "è¦ªãƒŽãƒ¼ãƒ‰ã®æ·±ã•ã¯0ã§ã™ï¼Ž";
 
-		const std::string error_mes = "‚»‚Ì‘¼‚Ì’l‚Í•ÏX‚³‚ê‚Ü‚¹‚ñD";
+		const std::string error_mes = "ãã®ä»–ã®å€¤ã¯å¤‰æ›´ã•ã‚Œã¾ã›ã‚“ï¼Ž";
 		EXPECT_EQ(node.leg_state, changeed.leg_state) << error_mes;
 		EXPECT_EQ(node.leg_pos, changeed.leg_pos) << error_mes;
 		EXPECT_EQ(node.leg_reference_pos, changeed.leg_reference_pos) << error_mes;
 		EXPECT_EQ(node.global_center_of_mass, changeed.global_center_of_mass) << error_mes;
-		EXPECT_EQ(node.rot, changeed.rot) << error_mes;
+		EXPECT_EQ(node.quat, changeed.quat) << error_mes;
 		EXPECT_EQ(node.next_move, changeed.next_move) << error_mes;
 	}
 
@@ -48,7 +48,7 @@ namespace designlab::test::node
 			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::MakeArray<dl::Vector3>(dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }, dl::Vector3{ 10,10,10 }),
 			dl::Vector3{ 300, 50, -10 },
-			dl::EulerXYZ{ 0.1f, 1.2f, 3.14f },
+			dl::Quaternion{ 1.0f, 0.0f, 0.0f, 0.0f },
 			HexapodMove::kLegHierarchyChange,
 			315,
 			5
@@ -64,15 +64,15 @@ namespace designlab::test::node
 
 		changeed.ChangeToNextNode(parent_index, next_move);
 
-		EXPECT_EQ(changeed.next_move, next_move) << "ŽŸ‚Ì“®ì‚Í•ÏX‚³‚ê‚Ü‚¹‚ñD";
-		EXPECT_EQ(changeed.parent_num, parent_index) << "e‚Í•ÏX‚³‚ê‚Ü‚¹‚ñD";
-		EXPECT_EQ(changeed.depth, node.depth + 1) << "[‚³‚Í•ÏX‚³‚ê‚Ü‚¹‚ñD";
+		EXPECT_EQ(changeed.next_move, next_move) << "æ¬¡ã®å‹•ä½œã¯å¤‰æ›´ã•ã‚Œã¾ã›ã‚“ï¼Ž";
+		EXPECT_EQ(changeed.parent_num, parent_index) << "è¦ªã¯å¤‰æ›´ã•ã‚Œã¾ã›ã‚“ï¼Ž";
+		EXPECT_EQ(changeed.depth, node.depth + 1) << "æ·±ã•ã¯å¤‰æ›´ã•ã‚Œã¾ã›ã‚“ï¼Ž";
 
-		const std::string error_mes = "‚»‚Ì‘¼‚Ì’l‚Í•ÏX‚³‚ê‚Ü‚·D";
+		const std::string error_mes = "ãã®ä»–ã®å€¤ã¯å¤‰æ›´ã•ã‚Œã¾ã™ï¼Ž";
 		EXPECT_EQ(node.leg_state, changeed.leg_state) << error_mes;
 		EXPECT_EQ(node.leg_pos, changeed.leg_pos) << error_mes;
 		EXPECT_EQ(node.leg_reference_pos, changeed.leg_reference_pos) << error_mes;
 		EXPECT_EQ(node.global_center_of_mass, changeed.global_center_of_mass) << error_mes;
-		EXPECT_EQ(node.rot, changeed.rot) << error_mes;
+		EXPECT_EQ(node.quat, changeed.quat) << error_mes;
 	}
 }

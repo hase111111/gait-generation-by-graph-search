@@ -23,20 +23,17 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 	}
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
-	std::vector<designlab::Vector2> edge_vec;
+	std::vector<dl::Vector2> edge_vec;
 	edge_vec.resize(polygon.GetVertexNum());
 
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
+		dl::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
 		edge.GetNormalized();
 		edge_vec[i] = edge;
 	}
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．
-	designlab::Vector3 after_move_com;
-	designlab::Vector3 after_move_leg_pos[HexapodConst::kLegNum];
-
 	for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
 	{
 		if (!IsInMargin(polygon, edge_vec, com_candidate[i].second))
@@ -47,18 +44,18 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 		}
 
 		//現在の重心を移動させたものを作成する
-		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
+		dl::Vector3 after_move_com_pos = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
+		const dl::Vector3 dif = after_move_com_pos - current_node.global_center_of_mass;
+		const dl::Vector3 real_dif = dl::RotateVector3(dif, current_node.quat.GetConjugate(), true);
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
 			if (dllf::IsGrounded(current_node.leg_state, j))
 			{
-				//after_move_leg_pos[j] = current_node.leg_pos[j] - (after_move_com - current_node.global_center_of_mass);	//回転しないversion
+				//const dl::Vector3 after_move_leg_pos = current_node.leg_pos[j] - dif;	//回転しないversion
+				const dl::Vector3 after_move_leg_pos = current_node.leg_pos[j] - real_dif;	//回転するversion
 
-				after_move_leg_pos[j] = current_node.leg_pos[j] -
-					dl::RotateVector3(after_move_com - current_node.global_center_of_mass, current_node.quat.GetConjugate(), true);	//回転するversion
-
-				if (!checker_ptr_->IsLegInRange(j, after_move_leg_pos[j]))
+				if (!checker_ptr_->IsLegInRange(j, after_move_leg_pos))
 				{
 					//脚が可動範囲外ならば次の候補点へ
 					com_candidate[i].first = false;
@@ -71,7 +68,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 
 	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
 
-	const designlab::Vector2 k_rotate_center = { -10000,0 };
+	const dl::Vector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
 
 	float min_dist = -100000;
@@ -135,11 +132,11 @@ bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, 
 }
 
 
-bool ComSelecterHato::IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const
+bool ComSelecterHato::IsInMargin(const dl::Polygon2& polygon, const std::vector<dl::Vector2>& edge_vec, const dl::Vector2& candidate_point) const
 {
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		designlab::Vector2 v_map = candidate_point - polygon.GetVertex(i);
+		dl::Vector2 v_map = candidate_point - polygon.GetVertex(i);
 
 		if (v_map.Cross(edge_vec[i]) > -kStabilityMargin)
 		{

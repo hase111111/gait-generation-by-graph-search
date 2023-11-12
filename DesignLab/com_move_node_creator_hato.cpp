@@ -1,4 +1,4 @@
-#include "com_move_node_creator_hato.h"
+ï»¿#include "com_move_node_creator_hato.h"
 
 #include "designlab_math_util.h"
 #include "graph_search_const.h"
@@ -16,7 +16,6 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	const HexapodMove next_move
 ) :
-	kStableMargin(15.0f),
 	map_(map), 
 	maker_(converter_ptr),
 	selecter_(checker_ptr),
@@ -32,13 +31,13 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 {
 	std::array<ComPosAndPolygon, ComCandidatePolygonMaker::MAKE_POLYGON_NUM> candidate_polygons;
 
-	//dSˆÚ“®æ‚ÌŒó•â’n“_‚Ì”ÍˆÍ‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚é
+	//é‡å¿ƒç§»å‹•å…ˆã®å€™è£œåœ°ç‚¹ã®ç¯„å›²ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹
 	maker_.MakeCandidatePolygon(current_node, &candidate_polygons);
 
-	//Œó•â”ÍˆÍ‚©‚çÀÛ‚ÉˆÚ“®‚·‚éæ‚ÌÀ•W‚ğ‘I‘ğ‚·‚é
+	//å€™è£œç¯„å›²ã‹ã‚‰å®Ÿéš›ã«ç§»å‹•ã™ã‚‹å…ˆã®åº§æ¨™ã‚’é¸æŠã™ã‚‹
 	for (int i = 0; i < ComCandidatePolygonMaker::MAKE_POLYGON_NUM; ++i)
 	{
-		//‚»‚à‚»‚à‘½ŠpŒ`‚ªŒó•â“_‚É‚È‚è‚¦‚È‚¢‚È‚ç‚ÎC‚»‚Ì‘½ŠpŒ`‚Í–³‹‚·‚é
+		//ãã‚‚ãã‚‚å¤šè§’å½¢ãŒå€™è£œç‚¹ã«ãªã‚Šãˆãªã„ãªã‚‰ã°ï¼Œãã®å¤šè§’å½¢ã¯ç„¡è¦–ã™ã‚‹
 		if (!candidate_polygons[i].is_able) { continue; }
 
 		designlab::Vector3 result_com;
@@ -47,16 +46,16 @@ void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const in
 		{
 			RobotStateNode next_node = current_node;
 
-			next_node.ChangeGlobalCenterOfMass(result_com, false);					//dSˆÊ’u‚ğ•ÏX‚µC‚»‚ê‚É”º‚¢Ú’n‹r‚ÌˆÊ’u‚à•ÏX‚·‚é
+			next_node.ChangeGlobalCenterOfMass(result_com, false);					//é‡å¿ƒä½ç½®ã‚’å¤‰æ›´ã—ï¼Œãã‚Œã«ä¼´ã„æ¥åœ°è„šã®ä½ç½®ã‚‚å¤‰æ›´ã™ã‚‹
 
-			dllf::ChangeDiscreteComPos(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_state‚Ìcom_pattern‚ğ•ÏX‚·‚é
+			dllf::ChangeDiscreteComPos(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateã®com_patternã‚’å¤‰æ›´ã™ã‚‹
 
 			for (int j = 0; j < HexapodConst::kLegNum; ++j)
 			{
 				dllf::ChangeDiscreteLegPos(j, DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
 
-			next_node.ChangeToNextNode(current_num, next_move_);	//[‚³‚âeƒm[ƒh‚ğ•ÏX‚·‚é
+			next_node.ChangeToNextNode(current_num, next_move_);	//æ·±ã•ã‚„è¦ªãƒãƒ¼ãƒ‰ã‚’å¤‰æ›´ã™ã‚‹
 
 			if (
 				checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) &&

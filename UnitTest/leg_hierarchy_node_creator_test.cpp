@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
 #include <cmath>
 
@@ -59,7 +59,7 @@ namespace
 		//{ true, true, false, false, false, true },
 		{ true, true, false, false, true, false },
 		{ true, true, false, true, false, false },
-		//{ true, true, true, false, false, false } //ÀÛ‚Ìƒƒ{ƒbƒg‚Í˜A‘±‚·‚é3‹r‚ğ—V‹r‚·‚é‚Æ“|‚ê‚é‚Ì‚ÅC‚»‚ê‚ç‚ğœ‚­D
+		//{ true, true, true, false, false, false } //å®Ÿéš›ã®ãƒ­ãƒœãƒƒãƒˆã¯é€£ç¶šã™ã‚‹3è„šã‚’éŠè„šã™ã‚‹ã¨å€’ã‚Œã‚‹ã®ã§ï¼Œãã‚Œã‚‰ã‚’é™¤ãï¼
 	};
 
 	const std::vector<DiscreteLegPos> all_discrete_leg_pos({
@@ -73,8 +73,8 @@ namespace
 		}
 	);
 
-	//! @brief ƒeƒXƒg—p‚Ìƒm[ƒh‚ğì¬‚·‚éŠÖ”D
-	//! @param [in] is_ground Ú’n‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚Ì”z—ñ
+	//! @brief ãƒ†ã‚¹ãƒˆç”¨ã®ãƒãƒ¼ãƒ‰ã‚’ä½œæˆã™ã‚‹é–¢æ•°ï¼
+	//! @param [in] is_ground æ¥åœ°ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã®é…åˆ—
 	RobotStateNode MakeTestNode(const std::array<bool, HexapodConst::kLegNum>& is_ground)
 	{
 		RobotStateNode test_node;
@@ -96,7 +96,7 @@ namespace
 			dl::Vector3{ 0.f, 120.f, -120.f }, dl::Vector3{ 0.f,120.f,-120.f }, dl::Vector3{ 0.f,120.f,-120.f }
 		};
 		test_node.global_center_of_mass = dl::Vector3{ 100.f, 0.f, 0.f };
-		test_node.rot = dl::EulerXYZ{ 0.f, 0.f, 1.57f };
+		test_node.quat = { 1.0f, 0.f, 0.f, 0.0f };
 
 		test_node.next_move = HexapodMove::kLegHierarchyChange;
 		test_node.depth = 0;
@@ -105,14 +105,14 @@ namespace
 		return test_node;
 	}
 
-	//! @brief Ú’nE—V‹r‚Ì”z—ñ‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”D
+	//! @brief æ¥åœ°ãƒ»éŠè„šã®é…åˆ—ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
 	std::string ToString(const std::array<bool, HexapodConst::kLegNum>& is_ground)
 	{
 		std::string str = "{";
 
 		for (const auto& i : is_ground)
 		{
-			str += i ? "Ú’n" : "—V‹r";
+			str += i ? "æ¥åœ°" : "éŠè„š";
 			str += ",";
 		}
 
@@ -125,7 +125,7 @@ namespace
 
 namespace designlab::test::node::node_creator 
 {
-	//ƒeƒXƒgƒtƒBƒNƒXƒ`ƒƒ
+	//ãƒ†ã‚¹ãƒˆãƒ•ã‚£ã‚¯ã‚¹ãƒãƒ£
 	class LegHierarchyNodeCreatorTest : public ::testing::Test
 	{
 	protected:
@@ -149,7 +149,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestNodeNumCheckCaseOfOneLegLifted)
 	{
-		// 1–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ì”‚ÌƒeƒXƒg
+		// 1æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®æ•°ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto &i : oneleg_lifted_testcase)
 		{
@@ -157,10 +157,10 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
-			// o—Í‚³‚ê‚½ƒm[ƒh‚Ì”‚ğŠm”F
+			// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã®æ•°ã‚’ç¢ºèª
 			std::string error_message = ToString(i) + "\n" + 
 				test_node.ToString() + "\n_";
 
@@ -170,7 +170,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestNodeNumCheckCaseOfTwoLegLifted)
 	{
-		// 2–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ì”‚ÌƒeƒXƒg
+		// 2æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®æ•°ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : twoleg_lifted_testcase)
 		{
@@ -178,12 +178,12 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
-			// o—Í‚³‚ê‚½ƒm[ƒh‚Ì”‚ğŠm”F
+			// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã®æ•°ã‚’ç¢ºèª
 			std::string error_message = ToString(i) + "\n" +
-				"eƒm[ƒh" + test_node.ToString() + "\n_";
+				"è¦ªãƒãƒ¼ãƒ‰" + test_node.ToString() + "\n_";
 
 			EXPECT_EQ(output_nodes.size(), pow(all_discrete_leg_pos.size(), 2)) << error_message;
 		}
@@ -191,7 +191,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestNodeNumCheckCaseOfThreeLegLifted)
 	{
-		// 3–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ì”‚ÌƒeƒXƒg
+		// 3æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®æ•°ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : threeleg_lifted_testcase)
 		{
@@ -199,12 +199,12 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
-			// o—Í‚³‚ê‚½ƒm[ƒh‚Ì”‚ğŠm”F
+			// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã®æ•°ã‚’ç¢ºèª
 			std::string error_message = ToString(i) + "\n" +
-				"eƒm[ƒh" + test_node.ToString() + "\n_";
+				"è¦ªãƒãƒ¼ãƒ‰" + test_node.ToString() + "\n_";
 
 			EXPECT_EQ(output_nodes.size(), pow(all_discrete_leg_pos.size(), 3)) << error_message;
 		}
@@ -212,7 +212,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestNodeNumCheckCaseOfNoLegLifted)
 	{
-		// ‘S‚Ä‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ì”‚ÌƒeƒXƒg
+		// å…¨ã¦ã®è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®æ•°ã®ãƒ†ã‚¹ãƒˆ
 
 		std::array<bool, HexapodConst::kLegNum> is_ground = { true, true, true, true, true, true };
 
@@ -220,19 +220,19 @@ namespace designlab::test::node::node_creator
 
 		std::vector<RobotStateNode> output_nodes;
 
-		// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+		// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 		creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
-		// o—Í‚³‚ê‚½ƒm[ƒh‚Ì”‚ğŠm”F
+		// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã®æ•°ã‚’ç¢ºèª
 		std::string error_message = ToString(is_ground) + "\n" +
-			"eƒm[ƒh" + test_node.ToString() + "\n_";
+			"è¦ªãƒãƒ¼ãƒ‰" + test_node.ToString() + "\n_";
 
 		EXPECT_EQ(output_nodes.size(), 1) << error_message;
 	}
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestParentCheckCaseOfOneLegLifted)
 	{
-		// 1–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ìe‚ª³‚µ‚¢‚©‚Ç‚¤‚©‚ÌƒeƒXƒg
+		// 1æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®è¦ªãŒæ­£ã—ã„ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : oneleg_lifted_testcase)
 		{
@@ -240,21 +240,21 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "CreateŠÖ”‚Ìˆø”‚Åw’è‚µ‚½index‚É‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.depth, test_node.depth + 1) << "[‚³‚ª1‚Â[‚­‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.next_move, next_move_) << "Ÿ‚Ì“®ì‚ªw’è‚µ‚½‚à‚Ì‚É‚È‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+				EXPECT_EQ(j.parent_num, next_node_index_) << "Createé–¢æ•°ã®å¼•æ•°ã§æŒ‡å®šã—ãŸindexã«ãªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.depth, test_node.depth + 1) << "æ·±ã•ãŒ1ã¤æ·±ããªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.next_move, next_move_) << "æ¬¡ã®å‹•ä½œãŒæŒ‡å®šã—ãŸã‚‚ã®ã«ãªã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 			}
 		}
 	}
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestParentCheckCaseOfTwoLegLifted)
 	{
-		// 2–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ìe‚ª³‚µ‚¢‚©‚Ç‚¤‚©‚ÌƒeƒXƒg
+		// 2æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®è¦ªãŒæ­£ã—ã„ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : twoleg_lifted_testcase)
 		{
@@ -262,21 +262,21 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "CreateŠÖ”‚Ìˆø”‚Åw’è‚µ‚½index‚É‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.depth, test_node.depth + 1) << "[‚³‚ª1‚Â[‚­‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.next_move, next_move_) << "Ÿ‚Ì“®ì‚ªw’è‚µ‚½‚à‚Ì‚É‚È‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+				EXPECT_EQ(j.parent_num, next_node_index_) << "Createé–¢æ•°ã®å¼•æ•°ã§æŒ‡å®šã—ãŸindexã«ãªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.depth, test_node.depth + 1) << "æ·±ã•ãŒ1ã¤æ·±ããªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.next_move, next_move_) << "æ¬¡ã®å‹•ä½œãŒæŒ‡å®šã—ãŸã‚‚ã®ã«ãªã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 			}
 		}
 	}
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestParentCheckCaseOfThreeLegLifted)
 	{
-		// 3–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ìe‚ª³‚µ‚¢‚©‚Ç‚¤‚©‚ÌƒeƒXƒg
+		// 3æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®è¦ªãŒæ­£ã—ã„ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : threeleg_lifted_testcase)
 		{
@@ -284,21 +284,21 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "CreateŠÖ”‚Ìˆø”‚Åw’è‚µ‚½index‚É‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.depth, test_node.depth + 1) << "[‚³‚ª1‚Â[‚­‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-				EXPECT_EQ(j.next_move, next_move_) << "Ÿ‚Ì“®ì‚ªw’è‚µ‚½‚à‚Ì‚É‚È‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+				EXPECT_EQ(j.parent_num, next_node_index_) << "Createé–¢æ•°ã®å¼•æ•°ã§æŒ‡å®šã—ãŸindexã«ãªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.depth, test_node.depth + 1) << "æ·±ã•ãŒ1ã¤æ·±ããªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+				EXPECT_EQ(j.next_move, next_move_) << "æ¬¡ã®å‹•ä½œãŒæŒ‡å®šã—ãŸã‚‚ã®ã«ãªã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 			}
 		}
 	}
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestParentCheckCaseOfNoLegLifted)
 	{
-		// ‘S‚Ä‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚éê‡Co—Í‚³‚ê‚éƒm[ƒh‚Ìe‚ª³‚µ‚¢‚©‚Ç‚¤‚©‚ÌƒeƒXƒg
+		// å…¨ã¦ã®è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆï¼Œå‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®è¦ªãŒæ­£ã—ã„ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		std::array<bool, HexapodConst::kLegNum> is_ground = { true, true, true, true, true, true };
 
@@ -306,20 +306,20 @@ namespace designlab::test::node::node_creator
 
 		std::vector<RobotStateNode> output_nodes;
 
-		// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+		// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 		creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 		for (const auto& j : output_nodes)
 		{
-			EXPECT_EQ(j.parent_num, next_node_index_) << "CreateŠÖ”‚Ìˆø”‚Åw’è‚µ‚½index‚É‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-			EXPECT_EQ(j.depth, test_node.depth + 1) << "[‚³‚ª1‚Â[‚­‚È‚é•K—v‚ª‚ ‚è‚Ü‚·D";
-			EXPECT_EQ(j.next_move, next_move_) << "Ÿ‚Ì“®ì‚ªw’è‚µ‚½‚à‚Ì‚É‚È‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+			EXPECT_EQ(j.parent_num, next_node_index_) << "Createé–¢æ•°ã®å¼•æ•°ã§æŒ‡å®šã—ãŸindexã«ãªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+			EXPECT_EQ(j.depth, test_node.depth + 1) << "æ·±ã•ãŒ1ã¤æ·±ããªã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
+			EXPECT_EQ(j.next_move, next_move_) << "æ¬¡ã®å‹•ä½œãŒæŒ‡å®šã—ãŸã‚‚ã®ã«ãªã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 		}
 	}
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfOneLegLifted)
 	{
-		// 1–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡C‚»‚Ì‘¼‚Ì•ÏX‚³‚ê‚Ä‚Í‚¢‚¯‚È‚¢’l‚ª•ÏX‚³‚ê‚Ä‚¢‚È‚¢‚©‚ÌƒeƒXƒg
+		// 1æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œãã®ä»–ã®å¤‰æ›´ã•ã‚Œã¦ã¯ã„ã‘ãªã„å€¤ãŒå¤‰æ›´ã•ã‚Œã¦ã„ãªã„ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : oneleg_lifted_testcase)
 		{
@@ -327,19 +327,19 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				// o—Í‚³‚ê‚½ƒm[ƒh‚ğŠm”F‚·‚éD
+				// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã‚’ç¢ºèªã™ã‚‹ï¼
 				std::string error_message = ToString(i) + "\n" +
-					"¶¬‚³‚ê‚½ƒm[ƒh" + j.ToString() + "\n_";
+					"ç”Ÿæˆã•ã‚ŒãŸãƒãƒ¼ãƒ‰" + j.ToString() + "\n_";
 
-				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "‹rˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "‹r‚ÌŠî€ˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "dSˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.rot, test_node.rot) << error_message << "p¨‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "è„šä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "è„šã®åŸºæº–ä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "é‡å¿ƒä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.quat, test_node.quat) << error_message << "å§¿å‹¢ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
 
 			}
 		}
@@ -347,7 +347,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfTwoLegLifted)
 	{
-		// 2–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡C‚»‚Ì‘¼‚Ì•ÏX‚³‚ê‚Ä‚Í‚¢‚¯‚È‚¢’l‚ª•ÏX‚³‚ê‚Ä‚¢‚È‚¢‚©‚ÌƒeƒXƒg
+		// 2æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œãã®ä»–ã®å¤‰æ›´ã•ã‚Œã¦ã¯ã„ã‘ãªã„å€¤ãŒå¤‰æ›´ã•ã‚Œã¦ã„ãªã„ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : twoleg_lifted_testcase)
 		{
@@ -355,19 +355,19 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				// o—Í‚³‚ê‚½ƒm[ƒh‚ğŠm”F‚·‚éD
+				// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã‚’ç¢ºèªã™ã‚‹ï¼
 				std::string error_message = ToString(i) + "\n" +
-					"¶¬‚³‚ê‚½ƒm[ƒh" + j.ToString() + "\n_";
+					"ç”Ÿæˆã•ã‚ŒãŸãƒãƒ¼ãƒ‰" + j.ToString() + "\n_";
 
-				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "‹rˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "‹r‚ÌŠî€ˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "dSˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.rot, test_node.rot) << error_message << "p¨‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "è„šä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "è„šã®åŸºæº–ä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "é‡å¿ƒä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.quat, test_node.quat) << error_message << "å§¿å‹¢ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
 
 			}
 		}
@@ -375,7 +375,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfThreeLegLifted)
 	{
-		// 3–{‚Ì‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡C‚»‚Ì‘¼‚Ì•ÏX‚³‚ê‚Ä‚Í‚¢‚¯‚È‚¢’l‚ª•ÏX‚³‚ê‚Ä‚¢‚È‚¢‚©‚ÌƒeƒXƒg
+		// 3æœ¬ã®è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆï¼Œãã®ä»–ã®å¤‰æ›´ã•ã‚Œã¦ã¯ã„ã‘ãªã„å€¤ãŒå¤‰æ›´ã•ã‚Œã¦ã„ãªã„ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		for (const auto& i : threeleg_lifted_testcase)
 		{
@@ -383,19 +383,19 @@ namespace designlab::test::node::node_creator
 
 			std::vector<RobotStateNode> output_nodes;
 
-			// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+			// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 			creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 			for (const auto& j : output_nodes)
 			{
-				// o—Í‚³‚ê‚½ƒm[ƒh‚ğŠm”F‚·‚éD
+				// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã‚’ç¢ºèªã™ã‚‹ï¼
 				std::string error_message = ToString(i) + "\n" +
-					"¶¬‚³‚ê‚½ƒm[ƒh" + j.ToString() + "\n_";
+					"ç”Ÿæˆã•ã‚ŒãŸãƒãƒ¼ãƒ‰" + j.ToString() + "\n_";
 
-				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "‹rˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "‹r‚ÌŠî€ˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "dSˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-				EXPECT_EQ(j.rot, test_node.rot) << error_message << "p¨‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
+				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "è„šä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "è„šã®åŸºæº–ä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "é‡å¿ƒä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+				EXPECT_EQ(j.quat, test_node.quat) << error_message << "å§¿å‹¢ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
 
 			}
 		}
@@ -403,7 +403,7 @@ namespace designlab::test::node::node_creator
 
 	TEST_F(LegHierarchyNodeCreatorTest, CreateTestOtherValueCheckCaseOfNoLegLifted)
 	{
-		// ‘S‚Ä‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚éê‡C‚»‚Ì‘¼‚Ì•ÏX‚³‚ê‚Ä‚Í‚¢‚¯‚È‚¢’l‚ª•ÏX‚³‚ê‚Ä‚¢‚È‚¢‚©‚ÌƒeƒXƒg
+		// å…¨ã¦ã®è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆï¼Œãã®ä»–ã®å¤‰æ›´ã•ã‚Œã¦ã¯ã„ã‘ãªã„å€¤ãŒå¤‰æ›´ã•ã‚Œã¦ã„ãªã„ã‹ã®ãƒ†ã‚¹ãƒˆ
 
 		std::array<bool, HexapodConst::kLegNum> is_ground = { true, true, true, true, true, true };
 
@@ -411,19 +411,19 @@ namespace designlab::test::node::node_creator
 
 		std::vector<RobotStateNode> output_nodes;
 
-		// ƒeƒXƒg‘ÎÛ‚ÌŠÖ”‚ğÀs
+		// ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®é–¢æ•°ã‚’å®Ÿè¡Œ
 		creator_ptr_->Create(test_node, next_node_index_, &output_nodes);
 
 		for (const auto& j : output_nodes)
 		{
-			// o—Í‚³‚ê‚½ƒm[ƒh‚ğŠm”F‚·‚éD
+			// å‡ºåŠ›ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã‚’ç¢ºèªã™ã‚‹ï¼
 			std::string error_message = ToString(is_ground) + "\n" +
-				"¶¬‚³‚ê‚½ƒm[ƒh" + j.ToString() + "\n_";
+				"ç”Ÿæˆã•ã‚ŒãŸãƒãƒ¼ãƒ‰" + j.ToString() + "\n_";
 
-			EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "‹rˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-			EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "‹r‚ÌŠî€ˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-			EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "dSˆÊ’u‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
-			EXPECT_EQ(j.rot, test_node.rot) << error_message << "p¨‚Í•Ï‰»‚µ‚Ü‚¹‚ñD\n_";
+			EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "è„šä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+			EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "è„šã®åŸºæº–ä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+			EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "é‡å¿ƒä½ç½®ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
+			EXPECT_EQ(j.quat, test_node.quat) << error_message << "å§¿å‹¢ã¯å¤‰åŒ–ã—ã¾ã›ã‚“ï¼\n_";
 
 		}
 	}

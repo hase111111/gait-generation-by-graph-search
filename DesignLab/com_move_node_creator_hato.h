@@ -1,5 +1,5 @@
-//! @file com_move_node_creator_hato.h
-//! @brief dS‚Ì•½sˆÚ“®‚ğs‚¤ƒNƒ‰ƒXD”g“Œ‚³‚ñ‚Ìè–@D
+ï»¿//! @file com_move_node_creator_hato.h
+//! @brief é‡å¿ƒã®å¹³è¡Œç§»å‹•ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼æ³¢æ±ã•ã‚“ã®æ‰‹æ³•ï¼
 
 #ifndef DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
 #define DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
@@ -19,7 +19,7 @@
 
 
 //! @class ComMoveNodeCreatorHato
-//! @brief dS‚Ì•½sˆÚ“®‚ğs‚¤ƒNƒ‰ƒXD”g“Œ‚³‚ñ‚Ìè–@D
+//! @brief é‡å¿ƒã®å¹³è¡Œç§»å‹•ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼æ³¢æ±ã•ã‚“ã®æ‰‹æ³•ï¼
 class ComMoveNodeCreatorHato final : public INodeCreator
 {
 public:
@@ -38,13 +38,11 @@ public:
 
 private:
 
-	const float kStableMargin;	//!< Ã“IˆÀ‘S—]—T 15mm’ö“x‚ª‘Ã“–‚ç‚µ‚¢(”g“Œ‚³‚ñ‚ÌƒvƒƒOƒ‰ƒ€‚æ‚èCMAX‚Å40mm’ö“x)
+	const ComCandidatePolygonMaker maker_;	//!< å€™è£œåœ°ç‚¹ã‚’å«ã‚€å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
+	const ComSelecterHato selecter_;		//!< å¤šè§’å½¢ã‹ã‚‰æœ€é©ãªåœ°é¢ã‚’é¸æŠã™ã‚‹ã‚¯ãƒ©ã‚¹
 
-	const ComCandidatePolygonMaker maker_;	//!< Œó•â’n“_‚ğŠÜ‚Ş‘½ŠpŒ`‚ğì¬‚·‚éƒNƒ‰ƒX
-	const ComSelecterHato selecter_;		//!< ‘½ŠpŒ`‚©‚çÅ“K‚È’n–Ê‚ğ‘I‘ğ‚·‚éƒNƒ‰ƒX
-
-	const DevideMapState map_;		//!< ’n–Ê‚Ìó‘Ô‚ğŠi”[‚µ‚½ƒNƒ‰ƒX
-	const HexapodMove next_move_;	//!< Ÿ‚ÌˆÚ“®•ûŒü
+	const DevideMapState map_;		//!< åœ°é¢ã®çŠ¶æ…‹ã‚’æ ¼ç´ã—ãŸã‚¯ãƒ©ã‚¹
+	const HexapodMove next_move_;	//!< æ¬¡ã®ç§»å‹•æ–¹å‘
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

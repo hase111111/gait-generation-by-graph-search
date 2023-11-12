@@ -122,6 +122,9 @@
     <ClCompile Include="devide_map_state_test.cpp">
       <Filter>Map</Filter>
     </ClCompile>
+    <ClCompile Include="designlab_quaternion_func_test.cpp">
+      <Filter>Common\Math\Rot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

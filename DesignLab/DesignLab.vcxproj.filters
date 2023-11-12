@@ -28,9 +28,6 @@
     <Filter Include="ソース ファイル\Node\NodeCreator">
       <UniqueIdentifier>{33a12a61-307b-4f44-be6c-797f8141ec5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Node\CenterOfMass">
-      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Node\LegState">
       <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
     </Filter>
@@ -115,6 +112,9 @@
     <Filter Include="ソース ファイル\Map\Const">
       <UniqueIdentifier>{4cbf193f-9b99-4485-b951-d73d36506f65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Node\CenterofMass">
+      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -124,7 +124,7 @@
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
     <ClInclude Include="com_type.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="simulation_map_creator.h">
       <Filter>ソース ファイル\Map</Filter>
@@ -175,7 +175,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="com_candidate_polygon_maker.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_next_move.h">
       <Filter>ソース ファイル\Node</Filter>
@@ -295,7 +295,7 @@
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
     <ClInclude Include="discrete_com_pos.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="interface_pass_finder.h">
       <Filter>ソース ファイル\PassFinder</Filter>
@@ -400,7 +400,7 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="com_selecter_hato.h">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="devide_map_state.h">
       <Filter>ソース ファイル\Map</Filter>
@@ -432,7 +432,7 @@
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
     <ClCompile Include="com_type.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
     <ClCompile Include="simulation_map_creator.cpp">
       <Filter>ソース ファイル\Map</Filter>
@@ -468,7 +468,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
     <ClCompile Include="designlab_line_segment2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -636,7 +636,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_selecter_hato.cpp">
-      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
+      <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
     <ClCompile Include="devide_map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>

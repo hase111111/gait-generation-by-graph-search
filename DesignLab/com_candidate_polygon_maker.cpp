@@ -16,7 +16,7 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 	assert(output_poly != nullptr);		//nullptrでないことを確認する
 
 
-	std::array<designlab::Vector2, HexapodConst::kLegNum> leg_pos_xy;	//XY平面に射影した脚位置を算出する
+	std::array<designlab::Vector2, HexapodConst::kLegNum> leg_pos_xy;	//_XY平面に射影した脚位置を算出する．(グローバル座標系)
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{

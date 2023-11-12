@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 
 #include "../DesignLab/robot_state_node.h"
 #include "../DesignLab/robot_state_node.cpp"
@@ -15,13 +15,13 @@ namespace designlab::test::node
 		RobotStateNode node;
 		const auto zero_vec = dl::Vector3{0.f, 0.f, 0.f};
 		const auto zero_leg_pos = dl::MakeArray<dl::Vector3>(zero_vec, zero_vec, zero_vec, zero_vec, zero_vec, zero_vec);
-		const auto zero_rot = dl::EulerXYZ{0.f, 0.f, 0.f};
+		const auto zero_quat = dl::Quaternion();
 
 		EXPECT_EQ(node.leg_state.to_ullong(), 0);
 		EXPECT_EQ(node.leg_pos, zero_leg_pos);
 		EXPECT_EQ(node.leg_reference_pos, zero_leg_pos);
 		EXPECT_EQ(node.global_center_of_mass, zero_vec);
-		EXPECT_EQ(node.rot, zero_rot);
+		EXPECT_EQ(node.quat, zero_quat);
 		EXPECT_EQ(node.next_move, HexapodMove::kComUpDown);
 		EXPECT_EQ(node.parent_num, -1);
 		EXPECT_EQ(node.depth, 0);
@@ -53,7 +53,7 @@ namespace designlab::test::node
 			dl::Vector3{ 34.f, 35.f, 36.f }
 		);
 		const auto global_center_of_mass = dl::Vector3{ 37.f, 38.f, 39.f };
-		const auto rot = dl::EulerXYZ{ 40.f, 41.f, 42.f };
+		const auto quat = dl::Quaternion{};
 		const HexapodMove next_move = HexapodMove::kComUpDown;
 		const int parent_num = 43;
 		const int depth = 44;
@@ -63,7 +63,7 @@ namespace designlab::test::node
 			leg_pos,
 			leg_reference_pos,
 			global_center_of_mass,
-			rot,
+			quat,
 			next_move,
 			parent_num,
 			depth
@@ -73,7 +73,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.leg_pos, leg_pos);
 		EXPECT_EQ(node.leg_reference_pos, leg_reference_pos);
 		EXPECT_EQ(node.global_center_of_mass, global_center_of_mass);
-		EXPECT_EQ(node.rot, rot);
+		EXPECT_EQ(node.quat, quat);
 		EXPECT_EQ(node.next_move, next_move);
 		EXPECT_EQ(node.parent_num, parent_num);
 		EXPECT_EQ(node.depth, depth);

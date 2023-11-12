@@ -20,11 +20,11 @@ namespace dlsu = designlab::string_util;
 
 
 SystemMainGraphViewer::SystemMainGraphViewer(
-	std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	) :
-	pass_finder_ptr_(std::move(pass_finder_ptr)),
+	graph_tree_creator_ptr_(std::move(graph_tree_creator)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
@@ -46,7 +46,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 void SystemMainGraphViewer::Main()
 {
 	//早期リターン
-	if (!pass_finder_ptr_) 
+	if (!graph_tree_creator_ptr_)
 	{
 		dlio::Output("グラフ木作成クラスが初期化されていない．終了する", OutputDetail::kError);
 		return;
@@ -169,10 +169,15 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
 	RobotStateNode fake_result_node;
 
-	stopwatch_.Start();
+	DevideMapState devide_map;
+	devide_map.Init(map_state_, parent_node.global_center_of_mass);
 
+	graph_tree_creator_ptr_->Init(devide_map);
+
+	stopwatch_.Start();
+	
 	GraphSearchResult result =
-		pass_finder_ptr_->GetNextNodebyGraphSearch(parent_node, map_state_, target, &fake_result_node);
+		graph_tree_creator_ptr_->CreateGraphTree(parent_node, 5, graph);
 
 	stopwatch_.End();
 
@@ -186,11 +191,6 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 	res_str.erase(0, 1);	//先頭のkを削除する
 
 	dlio::Output("グラフ探索結果 : " + res_str, OutputDetail::kSystem);
-
-	// 値を返す．
-	graph->clear();
-	//! @todo ここでグラフを返す．
-	//pass_finder_ptr_->GetGraphTree(graph);
 }
 
 void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const

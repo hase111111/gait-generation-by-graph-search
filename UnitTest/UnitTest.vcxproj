@@ -41,6 +41,7 @@
     <ClCompile Include="asyncable_data_vector_test.cpp" />
     <ClCompile Include="cmdio_util_test.cpp" />
     <ClCompile Include="com_move_node_creator_hato_test.cpp" />
+    <ClCompile Include="designlab_quaternion_func_test.cpp" />
     <ClCompile Include="designlab_quaternion_operator_test.cpp" />
     <ClCompile Include="designlab_quaternion_test.cpp" />
     <ClCompile Include="designlab_rotation_matrix_test.cpp" />

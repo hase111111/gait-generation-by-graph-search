@@ -8,7 +8,7 @@
 
 #include "application_setting_recorder.h"
 #include "graphic_data_broker.h"
-#include "interface_pass_finder.h"
+#include "graph_tree_creator.h"
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "simulation_map_creator.h"
@@ -24,7 +24,7 @@ class SystemMainGraphViewer final : public ISystemMain
 public:
 
 	SystemMainGraphViewer(
-		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 	);
@@ -55,7 +55,7 @@ private:
 	RobotStateNode SelectNode(const std::vector<RobotStateNode>& graph) const;
 
 
-	std::unique_ptr<IPassFinder> pass_finder_ptr_;
+	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
