@@ -15,9 +15,12 @@
 #include "mouse.h"
 
 
+namespace dldu = ::designlab::dxlib_util;
+
+
 GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
 	setting_ptr_(setting_ptr),
-	fps_controller_{ setting_ptr ? setting_ptr->window_fps : 60 }		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
+	fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
 {
 }
 
@@ -53,7 +56,7 @@ void GraphicSystem::Main()
 	while (ProcessMessage() >= 0)
 	{
 		// メインループ，falseが帰った場合，ループを抜ける．
-		if (!Loop())
+		if ( ! Loop())
 		{
 			break;
 		}
@@ -65,10 +68,10 @@ void GraphicSystem::Main()
 
 void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr)
 {
-	// mutexで排他制御を行う．
+	// mutexで排他制御を行う．GraphicMainを切り替える際に，Main関数を呼んでしまうとエラーが発生する可能性があるため，それを抑制する．
 	boost::mutex::scoped_lock lock(mutex_);
 
-	//もともと持っていたIGraphicMainクラスのポインタを破棄する．
+	//もともと持っていたIGraphicMainクラスのインスタンスを破棄する．
 	if (graphic_main_ptr_) 
 	{
 		graphic_main_ptr_.reset();
@@ -89,7 +92,6 @@ bool GraphicSystem::MyDxlibInit()
 	SetWaitVSyncFlag(FALSE);								// 垂直同期信号を待たないように変更．これをしないとFPSが60固定になる．	
 	ChangeWindowMode(TRUE);									// ウインドウモードに変更．これをしないとフルスクリーンで表示される．
 	SetUseDirectInputFlag(TRUE);							// DirectInputを使用するように変更．これをしないとマウス入力でサイドボタンが受け付けられない．
-	SetDxLibEndPostQuitMessageFlag(FALSE);					// DxLib_End関数を呼び出した際に PostQuitMessage を呼ばないようにする(何度もGUIを立ち上げられるようにするため)．
 
 	//ウィンドウの横幅，縦幅，カラーを設定する．
 	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::kColorBit);
@@ -107,13 +109,13 @@ bool GraphicSystem::MyDxlibInit()
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
 	// 3D関連の初期化を行う．	
-	if (setting_ptr_ && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
+	if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
 	{
-		designlab::dxlib_util::InitDxlib3DSetting(true);
+		dldu::InitDxlib3DSetting(true);
 	}
 	else 
 	{
-		designlab::dxlib_util::InitDxlib3DSetting(false);
+		dldu::InitDxlib3DSetting(false);
 	}
 
 	return true;
@@ -130,7 +132,7 @@ bool GraphicSystem::Loop()
 	// なお，ClearDrawScreen も ScreenFlip も ProcessMessageと返す値が同じなので，loop関数の様な書き方となる．
 
 
-	// mutexで排他制御を行う．
+	// mutexで排他制御を行う．Main関数を呼ぶと同時に，GraphicMainを切り替えるとエラーが発生する可能性があるため，それを抑制する．
 	boost::mutex::scoped_lock lock(mutex_);
 
 	// GUI画面への標準出力をリセットする
@@ -141,22 +143,24 @@ bool GraphicSystem::Loop()
 	Mouse::GetIns()->Update();
 
 	// 処理を行う．graphic_main_ptr_がfalseならば(nullであるならば)，処理を行わない．
-	if (graphic_main_ptr_)
+	if (graphic_main_ptr_ != nullptr)
 	{
 		if (!graphic_main_ptr_->Update()) { return false; }
 	}
 
 	// 描画する
-	if (!fps_controller_.SkipDrawScene())
+	if ( ! fps_controller_.SkipDrawScene())
 	{
 		// 裏画面に描画した絵を消す
 		if (ClearDrawScreen() < 0) { return false; }
 
 		// 描画処理を行う．graphic_main_ptr_がfalseならば(nullであるならば)，処理を行わない．
-		if (graphic_main_ptr_) 
+		if (graphic_main_ptr_ != nullptr)
 		{
 			graphic_main_ptr_->Draw();
 		}
+
+		fps_controller_.DrawFps();
 
 		// スクリーンに裏画面に描画した内容を移す
 		if (ScreenFlip() < 0) { return false; }

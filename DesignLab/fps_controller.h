@@ -31,19 +31,22 @@ public:
 	//! @return bool 処理が詰まって描画を飛ばしたいときにtrueを返す．その後フラグをfalseにする．
 	bool SkipDrawScene();
 
+	void DrawFps() const;
+
 private:
 
 	//! @brief 現在の時刻を記録する関数
 	//! @param [in] now_time 現在の時刻(ミリ秒) 
 	void RegistTime(int now_time);
 
-	//! @brief どれだけ待てばよいか返す関数．
-	//! @param [out] wait_time 待つべき時間
-	//! @return bool コマ落ちしている場合はfalse
+	//! @brief どれだけ待てばよいか返す関数．また，コマ落ちしているかどうかも判定する．
+	//! @n 機能が2つあるので分けたほうがよいが，めんどいので直していない．
+	//! @param [out] wait_time 待つべき時間 [msec]．
+	//! @return bool コマ落ちしている場合はfalse．
 	bool CheckNeedSkipDrawScreen(int* wait_time) const;
 
-	// @brief 目標のFPSが正しいかどうかを判定する関数
-	// @return bool 負の値，または60より大きい値であればfalse
+	//! @brief 目標のFPSが正しいかどうかを判定する関数．
+	//! @return bool 負の値，または60より大きい値であればfalse．
 	bool TargetFpsIsVaild() const;
 
 
@@ -56,7 +59,7 @@ private:
 
 	std::list<int> time_list_;		//!< 1フレームごとにかかった時間を記録するリスト．
 
-	bool need_skip_draw_screen_;	//!< コマ落ちを実装するためのフラグ．trueであれば 1フレーム描画を飛ばし，フラグを折る
+	bool need_skip_draw_screen_;	//!< コマ落ちを実装するためのフラグ．trueであれば 1フレーム描画を飛ばし，その後フラグを折る
 };
 
 

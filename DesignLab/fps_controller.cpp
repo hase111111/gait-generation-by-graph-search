@@ -6,8 +6,10 @@
 #include <Dxlib.h>
 
 
-FpsController::FpsController(const int target_fps)
-	: kTargetFpsValue(target_fps), kOneFrameTime((int)(1000.0 / target_fps)), kListMax(target_fps * 2),
+FpsController::FpsController(const int target_fps) : 
+	kTargetFpsValue(target_fps), 
+	kOneFrameTime(static_cast<int>(1000.0 / target_fps)), 
+	kListMax(target_fps * 2),
 	need_skip_draw_screen_(false)
 {
 }
@@ -44,7 +46,6 @@ bool FpsController::SkipDrawScene()
 {
 	if (!TargetFpsIsVaild()) { return false; }
 
-
 	//スキップフラグが立っているならば，そのフラグを折り，シーンをスキップする
 	if (need_skip_draw_screen_)
 	{
@@ -53,6 +54,26 @@ bool FpsController::SkipDrawScene()
 	}
 
 	return false;
+}
+
+void FpsController::DrawFps() const
+{
+	if (!TargetFpsIsVaild()) 
+	{
+		printfDx("FPS:%dは推奨されません．(FPSの調整は行われません．)\n", kTargetFpsValue);
+		return; 
+	}
+
+	if (time_list_.size() < 2) 
+	{
+		printfDx("計測中です．\n");
+		return; 
+	}
+
+	//FPSを計算する
+	const int duration = (time_list_.back() - time_list_.front()) / static_cast<int>(time_list_.size() - 1);
+
+	printfDx("FPS:%d\n", static_cast<int>(1000.0 / duration));
 }
 
 
@@ -123,5 +144,5 @@ bool FpsController::TargetFpsIsVaild() const
 		return false;
 	}
 
-	return false;
+	return true;
 }
