@@ -1,62 +1,62 @@
-//! @file interface_hexapod_coordinate_converter.h
-//! @brief ƒƒ{ƒbƒg‚ÍdSˆÊ’uEƒAƒNƒ`ƒ…ƒG[ƒ^‚È‚Ç—lX‚È“_‚ğŠî€‚Æ‚·‚éÀ•WŒn‚ğ‚ÂD‚±‚ê‚ç‚ğ‘ŠŒİ‚É•ÏŠ·‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file interface_hexapod_coordinate_converter.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã¯é‡å¿ƒä½ç½®ãƒ»ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ãªã©æ§˜ã€…ãªç‚¹ã‚’åŸºæº–ã¨ã™ã‚‹åº§æ¨™ç³»ã‚’æŒã¤ï¼ã“ã‚Œã‚‰ã‚’ç›¸äº’ã«å¤‰æ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
 
 
+#include "designlab_quaternion.h"
 #include "designlab_vector3.h"
-#include "designlab_euler.h"
 
 
 //! @class IHexapodCoordinateConverter
-//! @brief ƒƒ{ƒbƒg‚ÍdSˆÊ’uEƒAƒNƒ`ƒ…ƒG[ƒ^‚È‚Ç—lX‚È“_‚ğŠî€‚Æ‚·‚éÀ•WŒn‚ğ‚ÂD‚±‚ê‚ç‚ğ‘ŠŒİ‚É•ÏŠ·‚·‚éƒNƒ‰ƒXD
-//! @details ƒvƒƒOƒ‰ƒ€‚É‚Í3‚Â‚ÌÀ•WŒn‚ª‘¶İ‚µ‚Ä‚¢‚éC
+//! @brief ãƒ­ãƒœãƒƒãƒˆã¯é‡å¿ƒä½ç½®ãƒ»ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ãªã©æ§˜ã€…ãªç‚¹ã‚’åŸºæº–ã¨ã™ã‚‹åº§æ¨™ç³»ã‚’æŒã¤ï¼ã“ã‚Œã‚‰ã‚’ç›¸äº’ã«å¤‰æ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+//! @details ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«ã¯3ã¤ã®åº§æ¨™ç³»ãŒå­˜åœ¨ã—ã¦ã„ã‚‹ï¼Œ
 //! @n
-//! @n [1] ƒOƒ[ƒoƒ‹À•WŒn (Global Coordinate)
-//! @n		ƒ}ƒbƒv‚ÌŒ´“_‚ğŒ´“_‚Æ‚·‚éÀ•WŒnCÀ•W²‚Íƒ}ƒbƒv‚ÌÀ•W²‚Æ“¯‚¶D
+//! @n [1] ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³» (Global Coordinate)
+//! @n		ãƒãƒƒãƒ—ã®åŸç‚¹ã‚’åŸç‚¹ã¨ã™ã‚‹åº§æ¨™ç³»ï¼Œåº§æ¨™è»¸ã¯ãƒãƒƒãƒ—ã®åº§æ¨™è»¸ã¨åŒã˜ï¼
 //! @n
-//! @n [2] ƒƒ{ƒbƒgÀ•WŒn (Robot Coordinate)
-//! @n		ƒƒ{ƒbƒg‚ÌdS‚ğŒ´“_‚Æ‚·‚éÀ•WŒnCÀ•W²‚Íƒƒ{ƒbƒg‚Ìp¨‚É‡‚í‚¹‚éD
+//! @n [2] ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³» (Robot Coordinate)
+//! @n		ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã‚’åŸç‚¹ã¨ã™ã‚‹åº§æ¨™ç³»ï¼Œåº§æ¨™è»¸ã¯ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ã«åˆã‚ã›ã‚‹ï¼
 //! @n 
-//! @n [3] ‹rÀ•WŒn (Leg Coordinate)
-//! @n		‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚·‚éÀ•WŒnCÀ•W²‚Íƒƒ{ƒbƒg‚Ìp¨‚É‡‚í‚¹‚é(ƒ[ƒJƒ‹À•WŒn‚Æ“¯‚¶)D
-//! @n		‰^“®Šw‚Ì‹³‰È‘‚Æ‚©“Ç‚ŞŠ´‚¶C‚±‚ÌÀ•WŒn‚Ìæ‚è•û‚Æ‚Íˆá‚¤‚Ì‚¾‚ªCæsŒ¤‹†‚Åg‚í‚ê‚½è–@‚Å‚ ‚èC
-//! @n		À—pã–â‘è‚È‚¢‚Ì‚Å‚±‚Ì‚Ü‚ÜD
+//! @n [3] è„šåº§æ¨™ç³» (Leg Coordinate)
+//! @n		è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã™ã‚‹åº§æ¨™ç³»ï¼Œåº§æ¨™è»¸ã¯ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ã«åˆã‚ã›ã‚‹(ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ç³»ã¨åŒã˜)ï¼
+//! @n		é‹å‹•å­¦ã®æ•™ç§‘æ›¸ã¨ã‹èª­ã‚€æ„Ÿã˜ï¼Œã“ã®åº§æ¨™ç³»ã®å–ã‚Šæ–¹ã¨ã¯é•ã†ã®ã ãŒï¼Œå…ˆè¡Œç ”ç©¶ã§ä½¿ã‚ã‚ŒãŸæ‰‹æ³•ã§ã‚ã‚Šï¼Œ
+//! @n		å®Ÿç”¨ä¸Šå•é¡Œãªã„ã®ã§ã“ã®ã¾ã¾ï¼
 class IHexapodCoordinateConverter
 {
 public:
-	virtual ~IHexapodCoordinateConverter() = default;	//Œp³‚·‚éƒNƒ‰ƒX‚ÍƒfƒXƒgƒ‰ƒNƒ^‚ğvirtual‚É‚·‚é‚±‚ÆD
+	virtual ~IHexapodCoordinateConverter() = default;	//ç¶™æ‰¿ã™ã‚‹ã‚¯ãƒ©ã‚¹ã¯ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’virtualã«ã™ã‚‹ã“ã¨ï¼
 
-	//! @brief ƒOƒ[ƒoƒ‹À•WŒn‚Å•\Œ»‚³‚ê‚Ä‚¢‚éÀ•W‚ğC‹rÀ•WŒn‚É•ÏŠ·‚·‚éD
-	//! @param [in] converted_position •ÏŠ·‘ÎÛDƒOƒ[ƒoƒ‹À•WŒnD
-	//! @param [in] leg_index ‹r”Ô†D
-	//! @param [in] center_of_mass_global ƒƒ{ƒbƒg‚ÌdS‚ÌÀ•WDƒOƒ[ƒoƒ‹À•WŒnD
-	//! @param [in] robot_rot ƒƒ{ƒbƒg‚Ìp¨DŠp“x‚Írad.
-	//! @param [in] consider_rot ƒƒ{ƒbƒg‚Ìp¨‚ğl—¶‚·‚é‚©‚Ç‚¤‚©Dfalse‚È‚ç‰ñ“]‚ğl—¶‚µ‚È‚¢D
-	//! @return designlab::Vector3 ‹rÀ•WŒn‚ÌÀ•WD‹ræÀ•WŒn‚Æ‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚ÈÀ•WŒnD
+	//! @brief ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ã§è¡¨ç¾ã•ã‚Œã¦ã„ã‚‹åº§æ¨™ã‚’ï¼Œè„šåº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @param [in] converted_position å¤‰æ›å¯¾è±¡ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ï¼
+	//! @param [in] leg_index è„šç•ªå·ï¼
+	//! @param [in] center_of_mass_global ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®åº§æ¨™ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ï¼
+	//! @param [in] robot_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ï¼è§’åº¦ã¯rad.
+	//! @param [in] consider_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ã‚’è€ƒæ…®ã™ã‚‹ã‹ã©ã†ã‹ï¼falseãªã‚‰å›è»¢ã‚’è€ƒæ…®ã—ãªã„ï¼
+	//! @return designlab::Vector3 è„šåº§æ¨™ç³»ã®åº§æ¨™ï¼è„šå…ˆåº§æ¨™ç³»ã¨ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªåº§æ¨™ç³»ï¼
 	virtual designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index,
-		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
 
-	//! @brief ‹rÀ•WŒn‚Å•\Œ»‚³‚ê‚Ä‚¢‚éÀ•W‚ğCƒOƒ[ƒoƒ‹À•WŒn‚É•ÏŠ·‚·‚éD
-	//! @param [in] converted_position •ÏŠ·‘ÎÛD‹rÀ•WŒnD
-	//! @param [in] leg_index ‹r”Ô†D
-	//! @param [in] center_of_mass_global ƒƒ{ƒbƒg‚ÌdS‚ÌÀ•WDƒOƒ[ƒoƒ‹À•WŒnD
-	//! @param [in] robot_rot ƒƒ{ƒbƒg‚Ìp¨DŠp“x‚Írad.
-	//! @param [in] consider_rot ƒƒ{ƒbƒg‚Ìp¨‚ğl—¶‚·‚é‚©‚Ç‚¤‚©Dfalse‚È‚ç‰ñ“]‚ğl—¶‚µ‚È‚¢D
-	//! @return designlab::Vector3 ƒOƒ[ƒoƒ‹À•WŒn‚ÌÀ•WD
+	//! @brief è„šåº§æ¨™ç³»ã§è¡¨ç¾ã•ã‚Œã¦ã„ã‚‹åº§æ¨™ã‚’ï¼Œã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @param [in] converted_position å¤‰æ›å¯¾è±¡ï¼è„šåº§æ¨™ç³»ï¼
+	//! @param [in] leg_index è„šç•ªå·ï¼
+	//! @param [in] center_of_mass_global ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®åº§æ¨™ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ï¼
+	//! @param [in] robot_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ï¼è§’åº¦ã¯rad.
+	//! @param [in] consider_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ã‚’è€ƒæ…®ã™ã‚‹ã‹ã©ã†ã‹ï¼falseãªã‚‰å›è»¢ã‚’è€ƒæ…®ã—ãªã„ï¼
+	//! @return designlab::Vector3 ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ã®åº§æ¨™ï¼
 	virtual designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index,
-		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
 
-	//! @brief ƒƒ{ƒbƒgÀ•WŒn‚Å•\Œ»‚³‚ê‚Ä‚¢‚éÀ•W‚ğCƒOƒ[ƒoƒ‹À•WŒn‚É•ÏŠ·‚·‚éD
-	//! @param [in] converted_position •ÏŠ·‘ÎÛDƒƒ{ƒbƒgÀ•WŒnD
-	//! @param [in] center_of_mass_global ƒƒ{ƒbƒg‚ÌdS‚ÌÀ•WDƒOƒ[ƒoƒ‹À•WŒnD
-	//! @param [in] robot_rot ƒƒ{ƒbƒg‚Ìp¨DŠp“x‚Írad.
-	//! @param [in] consider_rot ƒƒ{ƒbƒg‚Ìp¨‚ğl—¶‚·‚é‚©‚Ç‚¤‚©Dfalse‚È‚ç‰ñ“]‚ğl—¶‚µ‚È‚¢D
-	//! @return designlab::Vector3 ƒOƒ[ƒoƒ‹À•WŒn‚ÌÀ•WD
+	//! @brief ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã§è¡¨ç¾ã•ã‚Œã¦ã„ã‚‹åº§æ¨™ã‚’ï¼Œã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @param [in] converted_position å¤‰æ›å¯¾è±¡ï¼ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ï¼
+	//! @param [in] center_of_mass_global ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®åº§æ¨™ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ï¼
+	//! @param [in] robot_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ï¼è§’åº¦ã¯rad.
+	//! @param [in] consider_rot ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢ã‚’è€ƒæ…®ã™ã‚‹ã‹ã©ã†ã‹ï¼falseãªã‚‰å›è»¢ã‚’è€ƒæ…®ã—ãªã„ï¼
+	//! @return designlab::Vector3 ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ç³»ã®åº§æ¨™ï¼
 	virtual designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position,
-		const designlab::Vector3& center_of_mass_global, const designlab::EulerXYZ& robot_rot, bool consider_rot) const = 0;
+		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
 };
 
 

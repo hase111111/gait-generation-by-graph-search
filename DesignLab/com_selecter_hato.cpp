@@ -1,4 +1,4 @@
-#include "com_selecter_hato.h"
+ï»¿#include "com_selecter_hato.h"
 
 #include <algorithm>
 #include <iostream>
@@ -7,6 +7,7 @@
 #include "leg_state.h"
 
 
+namespace dl = ::designlab;
 namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
@@ -15,13 +16,13 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 {
 	std::pair<bool, designlab::Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
-	//Œó•â“_‚ğ¶¬‚·‚é
+	//å€™è£œç‚¹ã‚’ç”Ÿæˆã™ã‚‹
 	if (!MakeComCandidatePoint(polygon, com_candidate))
 	{
 		return false;
 	}
 
-	//’¸“_‚©‚çŸ‚Ì’¸“_‚ÖŒü‚©‚¤•Ó‚ğ³‹K‰»‚µ‚½ƒxƒNƒgƒ‹‚ğì¬‚·‚é
+	//é ‚ç‚¹ã‹ã‚‰æ¬¡ã®é ‚ç‚¹ã¸å‘ã‹ã†è¾ºã‚’æ­£è¦åŒ–ã—ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’ä½œæˆã™ã‚‹
 	std::vector<designlab::Vector2> edge_vec;
 	edge_vec.resize(polygon.GetVertexNum());
 
@@ -32,7 +33,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 		edge_vec[i] = edge;
 	}
 
-	//Œó•â“_‚ğ‡”Ô‚Éƒ`ƒFƒbƒN‚µCˆÚ“®Œã‚ÌdS‚ªˆÀ’è—]—T‚ğ–‚½‚·‚È‚ç‚ÎC‚»‚Ì“_‚ğdS‚Æ‚µ‚ÄÌ—p‚·‚éD
+	//å€™è£œç‚¹ã‚’é †ç•ªã«ãƒã‚§ãƒƒã‚¯ã—ï¼Œç§»å‹•å¾Œã®é‡å¿ƒãŒå®‰å®šä½™è£•ã‚’æº€ãŸã™ãªã‚‰ã°ï¼Œãã®ç‚¹ã‚’é‡å¿ƒã¨ã—ã¦æ¡ç”¨ã™ã‚‹ï¼
 	designlab::Vector3 after_move_com;
 	designlab::Vector3 after_move_leg_pos[HexapodConst::kLegNum];
 
@@ -40,23 +41,26 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 	{
 		if (!IsInMargin(polygon, edge_vec, com_candidate[i].second))
 		{
-			//Œó•â“_‚ª‘½ŠpŒ`‚ÌŠO‘¤‚È‚ç‚ÎŸ‚ÌŒó•â“_‚Ö
+			//å€™è£œç‚¹ãŒå¤šè§’å½¢ã®å¤–å´ãªã‚‰ã°æ¬¡ã®å€™è£œç‚¹ã¸
 			com_candidate[i].first = false;
 			continue;
 		}
 
-		//Œ»İ‚ÌdS‚ğˆÚ“®‚³‚¹‚½‚à‚Ì‚ğì¬‚·‚é
+		//ç¾åœ¨ã®é‡å¿ƒã‚’ç§»å‹•ã•ã›ãŸã‚‚ã®ã‚’ä½œæˆã™ã‚‹
 		after_move_com = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
 			if (dllf::IsGrounded(current_node.leg_state, j))
 			{
-				after_move_leg_pos[j] = current_node.leg_pos[j] - (after_move_com - current_node.global_center_of_mass);
+				//after_move_leg_pos[j] = current_node.leg_pos[j] - (after_move_com - current_node.global_center_of_mass);	//å›è»¢ã—ãªã„version
+
+				after_move_leg_pos[j] = current_node.leg_pos[j] -
+					dl::RotateVector3(after_move_com - current_node.global_center_of_mass, current_node.quat.GetConjugate(), true);	//å›è»¢ã™ã‚‹version
 
 				if (!checker_ptr_->IsLegInRange(j, after_move_leg_pos[j]))
 				{
-					//‹r‚ª‰Â“®”ÍˆÍŠO‚È‚ç‚ÎŸ‚ÌŒó•â“_‚Ö
+					//è„šãŒå¯å‹•ç¯„å›²å¤–ãªã‚‰ã°æ¬¡ã®å€™è£œç‚¹ã¸
 					com_candidate[i].first = false;
 					continue;
 				}
@@ -65,7 +69,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 
 	}
 
-	//Œó•â“_‚Ì’†‚©‚çŒ»İ‚ÌdS‚©‚çÅ‚à‰“‚­‚ÉˆÚ“®‚Å‚«‚é‚à‚Ì‚ğ‘I‘ğ‚·‚é
+	//å€™è£œç‚¹ã®ä¸­ã‹ã‚‰ç¾åœ¨ã®é‡å¿ƒã‹ã‚‰æœ€ã‚‚é ãã«ç§»å‹•ã§ãã‚‹ã‚‚ã®ã‚’é¸æŠã™ã‚‹
 
 	const designlab::Vector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
@@ -89,7 +93,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 
 	if (min_index == -1)
 	{
-		//ŠY“–‚·‚é‚à‚Ì‚ª‚È‚¯‚ê‚Îfalse‚ğ•Ô‚·
+		//è©²å½“ã™ã‚‹ã‚‚ã®ãŒãªã‘ã‚Œã°falseã‚’è¿”ã™
 		return false;
 	}
 
@@ -102,7 +106,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 
 bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
-	//”g“Œ‚³‚ñ‚Ìˆ—‚Å‚Í‘½ŠpŒ`‚ğˆÍ‚Ş‚æ‚¤‚ÈlŠpŒ`‚ğì‚é‚Ì‚ÅC‚Ü‚¸‚Í‚»‚ê‚ğì‚é
+	//æ³¢æ±ã•ã‚“ã®å‡¦ç†ã§ã¯å¤šè§’å½¢ã‚’å›²ã‚€ã‚ˆã†ãªå››è§’å½¢ã‚’ä½œã‚‹ã®ã§ï¼Œã¾ãšã¯ãã‚Œã‚’ä½œã‚‹
 	const float kMinX = polygon.GetMinX();
 	const float kMaxX = polygon.GetMaxX();
 	const float kMinY = polygon.GetMinY();
@@ -116,7 +120,7 @@ bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, 
 	const float kDeltaWidth = kWidth / (float)kDiscretizationNum;
 	const float kDeltaHeight = kHeight / (float)kDiscretizationNum;
 
-	//ã‹L‚ÌlŠpŒ`‚Ì’†‚É‚ ‚é“_‚ğ‘S‚ÄŒó•â‚É’Ç‰Á‚·‚éD
+	//ä¸Šè¨˜ã®å››è§’å½¢ã®ä¸­ã«ã‚ã‚‹ç‚¹ã‚’å…¨ã¦å€™è£œã«è¿½åŠ ã™ã‚‹ï¼
 	for (int x = 0; x < kDiscretizationNum; ++x)
 	{
 		for (int y = 0; y < kDiscretizationNum; ++y)
@@ -139,7 +143,7 @@ bool ComSelecterHato::IsInMargin(const designlab::Polygon2& polygon, const std::
 
 		if (v_map.Cross(edge_vec[i]) > -kStabilityMargin)
 		{
-			//ˆÀ’è—]—T‚ğ–‚½‚³‚È‚¢‚È‚ç‚ÎŒó•â‚©‚çíœ‚·‚éD
+			//å®‰å®šä½™è£•ã‚’æº€ãŸã•ãªã„ãªã‚‰ã°å€™è£œã‹ã‚‰å‰Šé™¤ã™ã‚‹ï¼
 			return false;
 		}
 	}

@@ -1,4 +1,4 @@
-#include "com_candidate_polygon_maker.h"
+ï»¿#include "com_candidate_polygon_maker.h"
 
 #include "cassert_define.h"
 #include "designlab_line_segment2.h"
@@ -12,19 +12,19 @@ ComCandidatePolygonMaker::ComCandidatePolygonMaker(const std::shared_ptr<const I
 
 void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const
 {
-	assert(converter_ptr_ != nullptr);	//nullptr‚Å‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é
-	assert(output_poly != nullptr);		//nullptr‚Å‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é
+	assert(converter_ptr_ != nullptr);	//nullptrã§ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+	assert(output_poly != nullptr);		//nullptrã§ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹
 
 
-	std::array<designlab::Vector2, HexapodConst::kLegNum> leg_pos_xy;	//XY•½–Ê‚ÉË‰e‚µ‚½‹rˆÊ’u‚ğZo‚·‚é
+	std::array<designlab::Vector2, HexapodConst::kLegNum> leg_pos_xy;	//XYå¹³é¢ã«å°„å½±ã—ãŸè„šä½ç½®ã‚’ç®—å‡ºã™ã‚‹
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//‹rˆÊ’u(ƒOƒ[ƒoƒ‹À•W)‚ğXY•½–Ê‚ÉË‰e‚·‚é
-		leg_pos_xy[i] = converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, false).ProjectedXY();
+		//è„šä½ç½®(ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™)ã‚’XYå¹³é¢ã«å°„å½±ã™ã‚‹
+		leg_pos_xy[i] = converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.quat, true).ProjectedXY();
 	}
 
-	//’†S‚ğˆÍ‚Ş‚æ‚¤‚É4ŠpŒ`‚ğì¬‚·‚é
+	//ä¸­å¿ƒã‚’å›²ã‚€ã‚ˆã†ã«4è§’å½¢ã‚’ä½œæˆã™ã‚‹
 	MakeCandidateBox(leg_pos_xy, 0, &(*output_poly)[0].polygon); 
 	(*output_poly)[0].com_pos = DiscreteComPos::kFrontLeft;
 	(*output_poly)[0].is_able = true;
@@ -49,10 +49,10 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 	(*output_poly)[5].com_pos = DiscreteComPos::kFront;
 	(*output_poly)[5].is_able = true;
 
-	//’†S‚É3ŠpŒ`‚ğì¬‚·‚é
+	//ä¸­å¿ƒã«3è§’å½¢ã‚’ä½œæˆã™ã‚‹
 	MakeCandidateTriangle(leg_pos_xy, &(*output_poly)[6]);
 
-	//¶¬‚µ‚½‘½ŠpŒ`‚ª³‚µ‚¢‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚µCˆÙí‚È‚à‚Ì‚Ííœ‚·‚é
+	//ç”Ÿæˆã—ãŸå¤šè§’å½¢ãŒæ­£ã—ã„ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ï¼Œç•°å¸¸ãªã‚‚ã®ã¯å‰Šé™¤ã™ã‚‹
 	if (kDoCheckPolygon)
 	{
 		for (int i = 0; i < MAKE_POLYGON_NUM; ++i)
@@ -68,29 +68,29 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(const RobotStateNode& node, 
 
 void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vector2, HexapodConst::kLegNum>& leg_pos, const int start_leg_num, designlab::Polygon2* output_poly) const
 {
-	//‹rˆÊ’u‚ğü‚ÅŒ‹‚ÔD‚±‚ÌŒğ“_‚©‚çdSŒó•â’n“_‚ª‘¶İ‚·‚é‘½ŠpŒ`‚ğ‹‚ß‚é
+	//è„šä½ç½®ã‚’ç·šã§çµã¶ï¼ã“ã®äº¤ç‚¹ã‹ã‚‰é‡å¿ƒå€™è£œåœ°ç‚¹ãŒå­˜åœ¨ã™ã‚‹å¤šè§’å½¢ã‚’æ±‚ã‚ã‚‹
 	designlab::LineSegment2 leg_line_02(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum]);
 	designlab::LineSegment2 leg_line_03(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 3) % HexapodConst::kLegNum]);
 	designlab::LineSegment2 leg_line_14(leg_pos[(start_leg_num + 1) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 4) % HexapodConst::kLegNum]);
 	designlab::LineSegment2 leg_line_15(leg_pos[(start_leg_num + 1) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 5) % HexapodConst::kLegNum]);
 	designlab::LineSegment2 leg_line_25(leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum], leg_pos[(start_leg_num + 5) % HexapodConst::kLegNum]);
 
-	//Œğ“_(intersection)‚ğ‹‚ß‚é
+	//äº¤ç‚¹(intersection)ã‚’æ±‚ã‚ã‚‹
 	designlab::Vector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
 	designlab::Vector2 intersection_02_15 = leg_line_02.GetIntersection(leg_line_15);
 	designlab::Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
 	designlab::Vector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
 
-	//’†S‚Æ0”Ô‚Ì‹rˆÊ’u‚ğŒ‹‚ñ‚¾ü•ª‚ğ‹‚ß‚é
+	//ä¸­å¿ƒã¨0ç•ªã®è„šä½ç½®ã‚’çµã‚“ã ç·šåˆ†ã‚’æ±‚ã‚ã‚‹
 	designlab::LineSegment2 leg_line_0_center(leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], intersection_03_14);
 
-	//‘½ŠpŒ`¶¬
+	//å¤šè§’å½¢ç”Ÿæˆ
 
 	(*output_poly).Reset();
 
 	if (leg_line_0_center.HasIntersection(leg_line_25))
 	{
-		//Œğ“_‚ª‚ ‚éê‡C5ŠpŒ`‚Ì‘½ŠpŒ`‚ğì¬‚·‚é
+		//äº¤ç‚¹ãŒã‚ã‚‹å ´åˆï¼Œ5è§’å½¢ã®å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹
 		designlab::Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
 		designlab::Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
@@ -102,7 +102,7 @@ void ComCandidatePolygonMaker::MakeCandidateBox(const std::array<designlab::Vect
 	}
 	else
 	{
-		//Œğ“_‚ª‚È‚¢ê‡CŠù‚É‹‚ß‚½4“_‚ÅC4ŠpŒ`‚Ì‘½ŠpŒ`‚ğì¬‚·‚é
+		//äº¤ç‚¹ãŒãªã„å ´åˆï¼Œæ—¢ã«æ±‚ã‚ãŸ4ç‚¹ã§ï¼Œ4è§’å½¢ã®å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹
 		(*output_poly).AddVertex(intersection_03_15);
 		(*output_poly).AddVertex(intersection_02_15);
 		(*output_poly).AddVertex(intersection_02_14);
@@ -116,12 +116,12 @@ void ComCandidatePolygonMaker::MakeCandidateTriangle(const std::array<designlab:
 	designlab::LineSegment2 leg_line_14(leg_pos[1], leg_pos[4]);
 	designlab::LineSegment2 leg_line_25(leg_pos[2], leg_pos[5]);
 
-	//Œğ“_(intersection)‚ğ‹‚ß‚é
+	//äº¤ç‚¹(intersection)ã‚’æ±‚ã‚ã‚‹
 	designlab::Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
 	designlab::Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
 	designlab::Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
-	//OŠpŒ`‚ğì¬‚·‚éD
+	//ä¸‰è§’å½¢ã‚’ä½œæˆã™ã‚‹ï¼
 	output->polygon.Reset();
 	output->polygon.AddVertex(intersection_03_14);
 	output->polygon.AddVertex(intersection_03_25);
@@ -143,10 +143,10 @@ void ComCandidatePolygonMaker::MakeCandidateTriangle(const std::array<designlab:
 
 bool ComCandidatePolygonMaker::IsAblePolygon(const designlab::Polygon2& _poly) const
 {
-	//¶¬‚³‚ê‚é‚Ì‚Í 3 or 4 or 5ŠpŒ`‚Ì‚İ
+	//ç”Ÿæˆã•ã‚Œã‚‹ã®ã¯ 3 or 4 or 5è§’å½¢ã®ã¿
 	if (_poly.GetVertexNum() == 3 || _poly.GetVertexNum() == 4 || _poly.GetVertexNum() == 5)
 	{
-		//“Ê‘½ŠpŒ`‚Å‚ ‚é‚©‚ğŠm”F‚·‚é
+		//å‡¸å¤šè§’å½¢ã§ã‚ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 		if (_poly.IsConvex())
 		{
 			return true;

@@ -1,4 +1,4 @@
-#include "robot_graund_point_renderer.h"
+ï»¿#include "robot_graund_point_renderer.h"
 
 #include <Dxlib.h>
 
@@ -24,7 +24,7 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 {
 	while (loaded_node_num_ < node.size())
 	{
-		int simu_num = 0;	//‚±‚Ìƒm[ƒh‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô†
+		int simu_num = 0;	//ã“ã®ãƒãƒ¼ãƒ‰ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå·
 
 		for (size_t i = 0; i < simu_end_node_index.size(); i++)
 		{
@@ -36,18 +36,18 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 		}
 
 
-		//Œ»İ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô†‚Ìƒf[ƒ^‚ª‚È‚¢‚È‚ç‚Î’Ç‰Á‚·‚é
+		//ç¾åœ¨ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå·ã®ãƒ‡ãƒ¼ã‚¿ãŒãªã„ãªã‚‰ã°è¿½åŠ ã™ã‚‹
 		while (simu_num >= graund_point_.size()) { graund_point_.push_back({}); }
 
 
-		//Ú’n“_‚ğŒvZ‚µC‹L˜^‚·‚é
+		//æ¥åœ°ç‚¹ã‚’è¨ˆç®—ã—ï¼Œè¨˜éŒ²ã™ã‚‹
 		std::array<VectorAndIsGround, HexapodConst::kLegNum> graund_point;
 
 		for (int i = 0; i < HexapodConst::kLegNum; i++)
 		{
 			graund_point[i] = {
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					node[loaded_node_num_].leg_pos[i], i, node[loaded_node_num_].global_center_of_mass, node[loaded_node_num_].rot, true
+					node[loaded_node_num_].leg_pos[i], i, node[loaded_node_num_].global_center_of_mass, node[loaded_node_num_].quat, true
 				),
 				dllf::IsGrounded(node[loaded_node_num_].leg_state, i)
 			};

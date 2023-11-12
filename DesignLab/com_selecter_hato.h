@@ -1,5 +1,5 @@
-//! @file com_selecter_hato.h
-//! @brief �d�S�����߂�N���X�D�g������̃v���O�����ɂ�����CCC�̏����Ɠ��l�̏������s���D
+﻿//! @file com_selecter_hato.h
+//! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
 
 
 #ifndef DESIGNLAB_COM_SELECTER_HATO_H_
@@ -16,38 +16,39 @@
 
 
 //! @class ComSelecterHato
-//! @brief �d�S�����߂�N���X�D�g������̃v���O�����ɂ�����CCC�̏����Ɠ��l�̏������s���D
-//! @details �d�S�ʒu�̌��ߕ��͔g������̃v���O�����ɏ������Ă���D
-//! @n �܂��́C���n�_�̑��p�`���͂ގl�p�`�𐶐��C���̒��ɓ��Ԋu�Ō��_��łD 
-//! @n ���ɑ��p�`�̒��ɓ����Ă��Ȃ��_�����O����D 
-//! @n �����āC��Έ��S�]�T���v�Z���C�}�[�W�����O�ꂽ�_�����O����D
-//! @n �܂��C�ړ���̍��W�ɂ����āC�r�����̋r�Ɗ�����ꍇ�͏��O����D
-//! @n �ȏ�̏������s������C�c�����_�̏d�S�����߂�D 
-//! @note CCC�ł�Target�̒l�������Ă���̂ŁC���̒l�𗘗p���ďd�S�ʒu�I�����邪�C���̎����ł͂��̃N���X�ɂ��̑I����C�������Ȃ��D
-//! ���l�̏������s�����߂ɁCTarget�̒l��K���Ɍ��߂Ă���D
+//! @brief 重心を求めるクラス．波東さんのプログラムにおけるCCCの処理と同様の処理を行う．
+//! @details 重心位置の決め方は波東さんのプログラムに準拠している．
+//! @n まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ． 
+//! @n 次に多角形の中に入っていない点を除外する． 
+//! @n そして，絶対安全余裕を計算し，マージンを外れた点を除外する．
+//! @n また，移動後の座標において，脚が他の脚と干渉する場合は除外する．
+//! @n 以上の処理を行った後，残った点の重心を求める． 
+//! @note CCCではTargetの値を持っているので，その値を利用して重心位置選択するが，この実装ではこのクラスにその選択を任せたくない．
+//! 同様の処理を行うために，Targetの値を適当に決めている．
 class ComSelecterHato final
 {
 public:
 
 	ComSelecterHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) : checker_ptr_(checker_ptr) {};
 
-	//! @brief �d�S�����߂�
-	//! @param [in] polygon �d�S�����߂�Ώۂ̃|���S���D���̒��ɓ���_���o�͂���D
-	//! @param [in] current_node ���݂̃m�[�h
-	//! @param [out] output_com �d�S
-	//! @return �d�S�����߂邱�Ƃ��ł������ǂ���
+	//! @brief 重心を求める
+	//! @param [in] polygon 重心を求める対象のポリゴン．この中に入る点を出力する．
+	//! @param [in] current_node 現在のノード
+	//! @param [out] output_com 重心
+	//! @return 重心を求めることができたかどうか
 	bool GetComFromPolygon(const designlab::Polygon2& polygon, const RobotStateNode& current_node, designlab::Vector3* output_com) const;
 
 private:
 
-	static constexpr int kDiscretizationNum = 10;	//!< �d�S�����߂�ۂ̕�����
+	static constexpr int kDiscretizationNum = 5;	//!< 重心を求める際の分割数
 
-	const float kStabilityMargin = 10.0f;			//!< ��Έ��S�]�T
+	//! @todo この値をphantomx_mk2に移行する
+	const float kStabilityMargin = 10.0f;			//!< 絶対安全余裕
 
-	//! @brief ���n�_�𐶐�����
+	//! @brief 候補地点を生成する
 	bool MakeComCandidatePoint(const designlab::Polygon2& polygon, std::pair<bool, designlab::Vector2> output_coms[kDiscretizationNum * kDiscretizationNum]) const;
 
-	//! @brief ��Έ��S�]�T���v�Z���C�}�[�W�����O��Ă��Ȃ������ׂ�
+	//! @brief 絶対安全余裕を計算し，マージンを外れていないか調べる
 	bool IsInMargin(const designlab::Polygon2& polygon, const std::vector<designlab::Vector2>& edge_vec, const designlab::Vector2& candidate_point) const;
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;

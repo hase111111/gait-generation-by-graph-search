@@ -1,4 +1,4 @@
-#include "graph_search_result_recoder.h"
+ï»¿#include "graph_search_result_recoder.h"
 
 #include <sstream>
 
@@ -12,8 +12,8 @@ namespace dlsu = ::designlab::string_util;
 
 std::string GraphSearchResultRecoder::ToCsvString() const
 { 
-    // std::boolalpha‚ğg‚¤‚ÆCbool’l‚ğ•¶š—ñ‚É•ÏŠ·‚Å‚«‚éD
-    // excel‚É‚¨‚¢‚ÄC”’l‚ğ•¶š—ñ‚Æ‚µ‚Äˆµ‚¤‚½‚ß‚É‚ÍC”’l‚Ì‘O‚ÉƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“ ' ‚ğ‚Â‚¯‚é•K—v‚ª‚ ‚éD
+    // std::boolalphaã‚’ä½¿ã†ã¨ï¼Œboolå€¤ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã§ãã‚‹ï¼
+    // excelã«ãŠã„ã¦ï¼Œæ•°å€¤ã‚’æ–‡å­—åˆ—ã¨ã—ã¦æ‰±ã†ãŸã‚ã«ã¯ï¼Œæ•°å€¤ã®å‰ã«ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ' ã‚’ã¤ã‘ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 
     std::stringstream stream;
 
@@ -22,7 +22,7 @@ std::string GraphSearchResultRecoder::ToCsvString() const
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << dlsu::MyEnumToString(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
     stream << dlsu::MyEnumToString(dllf::GetDiscreteComPos(result_node.leg_state)) << ",";
     stream << result_node.global_center_of_mass << ",";
-    stream << result_node.rot << ",";
+    stream << result_node.quat << ",";
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_pos[i] << ","; }
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_reference_pos[i] << ","; }
     stream << dlsu::MyEnumToString(result_node.next_move) << ",";
@@ -42,7 +42,7 @@ std::string GraphSearchResultRecoder::GetCsvHeader()
     stream << "Discretized Leg Pos, , , , , , ";
     stream << "Discretized Com Pos,";
     stream << "Center of Mass[mm], , ,";
-    stream << "Rotate[rad], , ,";
+    stream << "Quaternion, , , ,";
     stream << "Leg Pos 0[mm],,,Leg Pos 1[mm], , ,Leg Pos 2[mm], , ,Leg Pos 3[mm], , ,Leg Pos 4[mm], , ,Leg Pos 5[mm], , , ";
     stream << "Reference Pos 0[mm],,,Reference Pos 1[mm],,,Reference Pos 2[mm],,,Reference Pos 3[mm],,,Reference Pos 4[mm],,,Reference Pos 5[mm],,,";
     stream << "Next Move,";
@@ -55,7 +55,7 @@ std::string GraphSearchResultRecoder::GetCsvHeader()
     stream << "leg0,leg1,leg2,leg3,leg4,leg5,";
     stream << ",";
     stream << "x,y,z,";
-    stream << "x-axis,y-axis,z-axis,";
+    stream << "w,v-x,v-y,v-z,";
     stream << "x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,";
     stream << "x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,";
     stream << ",";

@@ -1,4 +1,4 @@
-#include "phantomx_renderer_model.h"
+ï»¿#include "phantomx_renderer_model.h"
 
 #ifndef DESIGNLAB_DONOT_USE_DXLIB
 
@@ -35,19 +35,19 @@ void PhantomXRendererModel::SetDrawNode(const RobotStateNode& node)
 
 void PhantomXRendererModel::Draw() const
 {
-	dldu::SetZBufferEnable();	// Zƒoƒbƒtƒ@‚ğ—LŒø‚É‚·‚é
+	dldu::SetZBufferEnable();	// Zãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹
 
-	DrawBody();		// ƒ{ƒfƒB‚Ì•`‰æ
+	DrawBody();		// ãƒœãƒ‡ã‚£ã®æç”»
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawCoxaLink(i);	// ‹r‚Ì•`‰æ
+		DrawCoxaLink(i);	// è„šã®æç”»
 
-		DrawFemurLink(i);	// ‹r‚Ì•`‰æ
+		DrawFemurLink(i);	// è„šã®æç”»
 
-		DrawTibiaLink(i);	// ‹r‚Ì•`‰æ
+		DrawTibiaLink(i);	// è„šã®æç”»
 
-		DrawJointAxis(i);	// ŠÖß²‚Ì•`‰æ
+		DrawJointAxis(i);	// é–¢ç¯€è»¸ã®æç”»
 	}
 }
 
@@ -55,16 +55,17 @@ void PhantomXRendererModel::DrawBody() const
 {
 	const int body_model_handle = ModelLoader::GetIns()->GetModelHandle("model/body.mv1");
 
-	// ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚ª‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î•`‰æ‚µ‚È‚¢(‚Æ‚¢‚¤‚©‚Å‚«‚È‚¢)
-	if (body_model_handle == -1) { printfDx("ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½D(body_model_handle)"); }
+	// ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ãŒã•ã‚Œã¦ã„ãªã‘ã‚Œã°æç”»ã—ãªã„(ã¨ã„ã†ã‹ã§ããªã„)
+	if (body_model_handle == -1) { printfDx("ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼(body_model_handle)"); }
 
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
 
 	MV1SetScale(body_model_handle, kScale);
 
-	// dxlib‚ÌÀ•WŒn‚Í¶èÀ•WŒn‚È‚Ì‚ÅC‰EèÀ•WŒn‚É•ÏŠ·‚·‚é‚½‚ß‚É‹t“]‚³‚¹‚éD
-	MV1SetRotationXYZ(body_model_handle, VGet(-draw_node_.rot.x_angle, -draw_node_.rot.y_angle, -draw_node_.rot.z_angle ));
+	// dxlibã®åº§æ¨™ç³»ã¯å·¦æ‰‹åº§æ¨™ç³»ãªã®ã§ï¼Œå³æ‰‹åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ãŸã‚ã«é€†è»¢ã•ã›ã‚‹ï¼
+	designlab::EulerXYZ euler = designlab::ToEulerXYZ(draw_node_.quat) * -1.f;
+	MV1SetRotationXYZ(body_model_handle, VGet(euler.x_angle, euler.y_angle, euler.z_angle ));
 
 	MV1SetPosition(body_model_handle, dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass));
 
@@ -75,25 +76,25 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 {
 	const int coxa_model_handle = ModelLoader::GetIns()->GetModelHandle("model/coxa_fixed.mv1");
 
-	if (coxa_model_handle == -1) { printfDx("ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½D(coxa_model_handle)"); }
+	if (coxa_model_handle == -1) { printfDx("ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼(coxa_model_handle)"); }
 
 	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
-	//Coxa Joint‚Í2‚Â‚ÌConnect Link‚Å\¬‚³‚ê‚Ä‚¢‚é‚Ì‚ÅC‚»‚ê‚¼‚ê•`‰æ‚·‚é
+	//Coxa Jointã¯2ã¤ã®Connect Linkã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹ã®ã§ï¼Œãã‚Œãã‚Œæç”»ã™ã‚‹
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
 	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 		)
 	);
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
 
-	const float kOffsetLength = 0;	//‰ñ“]’†S‚ÆŒ´“_‚ª‚¸‚ê‚Ä‚¢‚é‚Ì‚ÅC‚»‚Ì•ª‚ğ•â³‚·‚é
+	const float kOffsetLength = 0;	//å›è»¢ä¸­å¿ƒã¨åŸç‚¹ãŒãšã‚Œã¦ã„ã‚‹ã®ã§ï¼Œãã®åˆ†ã‚’è£œæ­£ã™ã‚‹
 
 	{
 		const designlab::RotationMatrix3x3 kDefRotMat =
@@ -110,7 +111,7 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 
 		MV1SetScale(coxa_model_handle, kScale);
 
-		// dxlib‚ÌÀ•WŒn‚Í¶èÀ•WŒn‚È‚Ì‚ÅC‰EèÀ•WŒn‚É•ÏŠ·‚·‚é‚½‚ß‚É‹t“]‚³‚¹‚éD
+		// dxlibã®åº§æ¨™ç³»ã¯å·¦æ‰‹åº§æ¨™ç³»ãªã®ã§ï¼Œå³æ‰‹åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ãŸã‚ã«é€†è»¢ã•ã›ã‚‹ï¼
 		designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
 		MV1SetRotationXYZ(coxa_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
 
@@ -124,17 +125,17 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 {
 	const int thign_model_handle = ModelLoader::GetIns()->GetModelHandle("model/thign_l.mv1");
 
-	if (thign_model_handle == -1) { printfDx("ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½D(thign_model_handle)"); }
+	if (thign_model_handle == -1) { printfDx("ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼(thign_model_handle)"); }
 
 	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
-	//ƒpƒ‰ƒ[ƒ^‚ÌŒvZ
+	//ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è¨ˆç®—
 	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
 
 	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 		)
 	);
 
@@ -142,10 +143,10 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 
 	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
 
-	// ƒŠƒ“ƒN‚ª‹È‚ª‚Á‚Ä‚¢‚é‚½‚ßCŠÈ’P‚Ì‚½‚ß‚É‰ñ“]²‚ğŒ‹‚Ô‚æ‚¤‚É‰¼‘z“I‚ÈƒŠƒ“ƒN‚ğg‚Á‚Ä‚¢‚éD
-	// ‚»‚Ì‚½‚ßC‰¼‘z“I‚ÈƒŠƒ“ƒN‚ÌŠp“x‚ğ•â³‚·‚é•K—v‚ª‚ ‚éD
+	// ãƒªãƒ³ã‚¯ãŒæ›²ãŒã£ã¦ã„ã‚‹ãŸã‚ï¼Œç°¡å˜ã®ãŸã‚ã«å›è»¢è»¸ã‚’çµã¶ã‚ˆã†ã«ä»®æƒ³çš„ãªãƒªãƒ³ã‚¯ã‚’ä½¿ã£ã¦ã„ã‚‹ï¼
+	// ãã®ãŸã‚ï¼Œä»®æƒ³çš„ãªãƒªãƒ³ã‚¯ã®è§’åº¦ã‚’è£œæ­£ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	const float virtual_link_offset_angle = dlm::ConvertDegToRad(-13.5f);	
 	
 	const designlab::RotationMatrix3x3 kDefRotMat =
@@ -163,10 +164,10 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 		)
 	);
 
-	//•`‰æ‚·‚éD
+	//æç”»ã™ã‚‹ï¼
 	MV1SetScale(thign_model_handle, kScale);
 
-	// dxlib‚ÌÀ•WŒn‚Í¶èÀ•WŒn‚È‚Ì‚ÅC‰EèÀ•WŒn‚É•ÏŠ·‚·‚é‚½‚ß‚É‹t“]‚³‚¹‚éD
+	// dxlibã®åº§æ¨™ç³»ã¯å·¦æ‰‹åº§æ¨™ç³»ãªã®ã§ï¼Œå³æ‰‹åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ãŸã‚ã«é€†è»¢ã•ã›ã‚‹ï¼
 	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
 	MV1SetRotationXYZ(thign_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
 
@@ -177,21 +178,21 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 
 void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 {
-	// ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚ğs‚¤D‚±‚±‚ÅŒÄ‚Ño‚·‚Æ–ˆƒtƒŒ[ƒ€“Ç‚İ‚Ş‚±‚Æ‚É‚È‚è‚»‚¤‚¾‚ªCÀÛ‚ÍŠù‚É“ÇÏ‚İ‚È‚ç‚Î‚»‚Ìƒnƒ“ƒhƒ‹‚ª•Ô‚Á‚Ä‚­‚é‚¾‚¯‚È‚Ì‚Å–â‘è‚È‚¢D
-	// ‚±‚ñ‚È‚Æ‚±‚ë‚Å‚±‚Ìˆ—‚ğ‘‚¢‚Ä‚¢‚é‚Ì‚ÍCƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅŒÄ‚Ño‚·‚ÆCDxlib‚Ì‰Šú‰»‚ªI‚í‚Á‚Ä‚¢‚È‚¢‚Ì‚ÅCƒGƒ‰[‚ªo‚é‚©‚ç‚Å‚ ‚éD
+	// ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†ï¼ã“ã“ã§å‘¼ã³å‡ºã™ã¨æ¯ãƒ•ãƒ¬ãƒ¼ãƒ èª­ã¿è¾¼ã‚€ã“ã¨ã«ãªã‚Šãã†ã ãŒï¼Œå®Ÿéš›ã¯æ—¢ã«èª­è¾¼æ¸ˆã¿ãªã‚‰ã°ãã®ãƒãƒ³ãƒ‰ãƒ«ãŒè¿”ã£ã¦ãã‚‹ã ã‘ãªã®ã§å•é¡Œãªã„ï¼
+	// ã“ã‚“ãªã¨ã“ã‚ã§ã“ã®å‡¦ç†ã‚’æ›¸ã„ã¦ã„ã‚‹ã®ã¯ï¼Œã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‘¼ã³å‡ºã™ã¨ï¼ŒDxlibã®åˆæœŸåŒ–ãŒçµ‚ã‚ã£ã¦ã„ãªã„ã®ã§ï¼Œã‚¨ãƒ©ãƒ¼ãŒå‡ºã‚‹ã‹ã‚‰ã§ã‚ã‚‹ï¼
 	int tibia_model_handle = ModelLoader::GetIns()->GetModelHandle("model/tibia_l_fixed.mv1");
 
-	if (tibia_model_handle == -1) { printfDx("ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½D(tibia_model_handle)"); }
+	if (tibia_model_handle == -1) { printfDx("ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼(tibia_model_handle)"); }
 
 	if (draw_joint_state_[leg_index].joint_pos_leg_coordinate.size() != 4) { return; }
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
-	//ƒpƒ‰ƒ[ƒ^‚ÌŒvZ
+	//ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è¨ˆç®—
 	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
 
 	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 		)
 	);
 
@@ -201,7 +202,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 
 	const float kTibiaAngle = draw_joint_state_[leg_index].joint_angle[2];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
 
 	const designlab::RotationMatrix3x3 kDefRotMat =
 		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
@@ -218,10 +219,10 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 		)
 	);
 
-	//•`‰æ‚·‚éD
+	//æç”»ã™ã‚‹ï¼
 	MV1SetScale(tibia_model_handle, kScale);
 
-	// dxlib‚ÌÀ•WŒn‚Í¶èÀ•WŒn‚È‚Ì‚ÅC‰EèÀ•WŒn‚É•ÏŠ·‚·‚é‚½‚ß‚É‹t“]‚³‚¹‚éD
+	// dxlibã®åº§æ¨™ç³»ã¯å·¦æ‰‹åº§æ¨™ç³»ãªã®ã§ï¼Œå³æ‰‹åº§æ¨™ç³»ã«å¤‰æ›ã™ã‚‹ãŸã‚ã«é€†è»¢ã•ã›ã‚‹ï¼
 	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
 	MV1SetRotationXYZ(tibia_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
 
@@ -248,13 +249,13 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.rot);
+	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
 
-	//Coxa‚Ì‰ñ“]²
+	//Coxaã®å›è»¢è»¸
 	{
 		const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 			)
 		);
 
@@ -264,15 +265,15 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kCoxaJointPos - kAxisVec, kCoxaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kCoxaAxisColor, kSpecColor, TRUE);
 
-		//ŠÔÚ‚É“_‚ğ•`‰æ‚·‚é
+		//é–“æ¥ã«ç‚¹ã‚’æç”»ã™ã‚‹
 		//DrawSphere3D(kCoxaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 
-	//Femur‚Ì‰ñ“]²
+	//Femurã®å›è»¢è»¸
 	{
 		const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 			)
 		);
 
@@ -289,15 +290,15 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kFemurJointPos - kAxisVec, kFemurJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kFemurAxisColor, kSpecColor, TRUE);
 
-		//ŠÔÚ‚É“_‚ğ•`‰æ‚·‚é
+		//é–“æ¥ã«ç‚¹ã‚’æç”»ã™ã‚‹
 		//DrawSphere3D(kFemurJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 
-	//Tibia‚Ì‰ñ“]²
+	//Tibiaã®å›è»¢è»¸
 	{
 		const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.rot, true
+				draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 			)
 		);
 
@@ -314,7 +315,7 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 
 		DrawCapsule3D(kTibiaJointPos - kAxisVec, kTibiaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kTibiaAxisColor, kSpecColor, TRUE);
 
-		//ŠÔÚ‚É“_‚ğ•`‰æ‚·‚é
+		//é–“æ¥ã«ç‚¹ã‚’æç”»ã™ã‚‹
 		//DrawSphere3D(kTibiaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 }

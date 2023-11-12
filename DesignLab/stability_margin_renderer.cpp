@@ -1,4 +1,4 @@
-#include "stability_margin_renderer.h"
+ï»¿#include "stability_margin_renderer.h"
 
 #include <vector>
 
@@ -25,11 +25,11 @@ StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHe
 
 void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 {
-	dl::Polygon2 polygon_xy;			//•½–Ê‚É“Š‰e‚µ‚½‘½ŠpŒ`D
+	dl::Polygon2 polygon_xy;			//å¹³é¢ã«æŠ•å½±ã—ãŸå¤šè§’å½¢ï¼
 
-	std::vector<dl::Vector3> polygon;	//‘½ŠpŒ`‚Ì’¸“_D
+	std::vector<dl::Vector3> polygon;	//å¤šè§’å½¢ã®é ‚ç‚¹ï¼
 
-	dl::Vector3 polygon_sum{0, 0, 0};	//‘½ŠpŒ`‚Ì’¸“_‚Ì‡ŒvCdS‚ğ‹‚ß‚é‚½‚ß‚Ég—p‚·‚é
+	dl::Vector3 polygon_sum{0, 0, 0};	//å¤šè§’å½¢ã®é ‚ç‚¹ã®åˆè¨ˆï¼Œé‡å¿ƒã‚’æ±‚ã‚ã‚‹ãŸã‚ã«ä½¿ç”¨ã™ã‚‹
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -37,10 +37,10 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 		if (dllf::IsGrounded(node.leg_state, i))
 		{
 			polygon.push_back(
-				converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.rot, true)
+				converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.quat, true)
 			);
 
-			polygon.back() += dl::Vector3{0, 0, 5};	//‚í‚©‚è‚â‚·‚³‚Ì‚½‚ßC‚‚³‚ğ­‚µã‚°‚é
+			polygon.back() += dl::Vector3{0, 0, 5};	//ã‚ã‹ã‚Šã‚„ã™ã•ã®ãŸã‚ï¼Œé«˜ã•ã‚’å°‘ã—ä¸Šã’ã‚‹
 
 			polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
@@ -49,11 +49,11 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 
 	}
 
-	// dS‚ÌÀ•W
+	// é‡å¿ƒã®åº§æ¨™
 	const dl::Vector3 center = polygon_sum / static_cast<float>(polygon.size());
 
 
-	//‘½ŠpŒ`‚ğ•`‰æ‚·‚é
+	//å¤šè§’å½¢ã‚’æç”»ã™ã‚‹
 	for (size_t i = 0; i < polygon.size(); i++)
 	{
 		const VECTOR poly[3] = {
@@ -77,9 +77,9 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 
-	//“ŠË‚µ‚½dS‚ğ•`‰æ‚·‚é
+	//æŠ•å°„ã—ãŸé‡å¿ƒã‚’æç”»ã™ã‚‹
 	VECTOR projected_center_pos = dldu::ConvertToDxlibVec(
-		//‚í‚©‚è‚â‚·‚³‚Ì‚½‚ßCdS‚Ì‚‚³‚ğ­‚µã‚°‚é
+		//ã‚ã‹ã‚Šã‚„ã™ã•ã®ãŸã‚ï¼Œé‡å¿ƒã®é«˜ã•ã‚’å°‘ã—ä¸Šã’ã‚‹
 		{ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 }	
 	);
 

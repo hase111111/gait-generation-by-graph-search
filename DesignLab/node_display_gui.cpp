@@ -149,7 +149,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 	// 回転を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"回転(x_angle:%5.3f,y_angle:%5.3f,z_angle:%5.3f)", display_node_.rot.x_angle, display_node_.rot.y_angle, display_node_.rot.z_angle);
+		"回転(w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.quat.w, display_node_.quat.v.x, display_node_.quat.v.y, display_node_.quat.v.z);
 
 	//遊脚か接地脚か
 	std::string str = "";

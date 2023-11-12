@@ -1,4 +1,4 @@
-#include "node_initializer.h"
+ï»¿#include "node_initializer.h"
 
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
@@ -9,11 +9,10 @@ namespace dllf = designlab::leg_func;
 RobotStateNode NodeInitializer::InitNode() const
 {
 	using designlab::Vector3;
-	using designlab::EulerXYZ;
 
 	RobotStateNode res;
 
-	//‹ró‘Ô
+	//è„šçŠ¶æ…‹
 	res.leg_state = dllf::MakeLegStateBit(
 		DiscreteComPos::kCenterBack,
 		{ true, true, true, true, true, true },
@@ -21,9 +20,9 @@ RobotStateNode NodeInitializer::InitNode() const
 		DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter }
 	);
 
-	//‹r•t‚¯ª‚ğŒ´“_‚Æ‚µ‚½C‹ræ‚ÌˆÊ’u‚ğ‰Šú‰»‚·‚éD
+	//è„šä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ãŸï¼Œè„šå…ˆã®ä½ç½®ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
 	const float z_base = 0.0f;
-	const float kComZ = 30.f + z_base;	// ƒƒ{ƒbƒg‚ÌdS‚ÌZÀ•W
+	const float kComZ = 30.f + z_base;	// ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®Zåº§æ¨™
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -34,7 +33,7 @@ RobotStateNode NodeInitializer::InitNode() const
 		};
 	}
 
-	//ƒOƒ[ƒoƒ‹À•W‚ÌdSˆÊ’uDƒOƒ[ƒoƒ‹À•W(0,0,0)‚ğ’†S‚Æ‚µ‚½C‰º‚Ì•Ï” _xC_y‚ğ”¼Œa‚Æ‚·‚é‘È‰~Œ`‚Ì‚È‚©‚ÉdS‚ğˆÚ“®‚·‚éD
+	//ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã®é‡å¿ƒä½ç½®ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™(0,0,0)ã‚’ä¸­å¿ƒã¨ã—ãŸï¼Œä¸‹ã®å¤‰æ•° _xï¼Œ_yã‚’åŠå¾„ã¨ã™ã‚‹æ¥•å††å½¢ã®ãªã‹ã«é‡å¿ƒã‚’ç§»å‹•ã™ã‚‹ï¼
 	const float kAngle = 0; // do_random ? dlm::GenerateRandomNumber(0.0f, 2.0f * dlm::kFloatPi) : 0;
 	const float kEx = 0; // do_random ? dlm::GenerateRandomNumber(0.0f, 1.0f) : 0;
 
@@ -44,8 +43,8 @@ RobotStateNode NodeInitializer::InitNode() const
 
 	res.global_center_of_mass = designlab::Vector3(kEx * kX * cos(kAngle), kEx * kY * sin(kAngle), kComZ);
 
-	//ƒ[ƒ‹ƒsƒbƒ`ƒˆ[‚Å‰ñ“]‚ğ•\Œ»‚·‚éDƒƒ{ƒbƒg‚ÌdS‚ğ’†S‚É‚µ‚Ä‰ñ“]‚·‚éD 
-	res.rot = designlab::EulerXYZ(0, 0, 0);
+	//ãƒ­ãƒ¼ãƒ«ãƒ”ãƒƒãƒãƒ¨ãƒ¼ã§å›è»¢ã‚’è¡¨ç¾ã™ã‚‹ï¼ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã‚’ä¸­å¿ƒã«ã—ã¦å›è»¢ã™ã‚‹ï¼ 
+	res.quat = designlab::Quaternion(0.983f, 0.f, 0.f, 0.181f);
 
 	res.next_move = HexapodMove::kComUpDown;
 	res.parent_num = -1;

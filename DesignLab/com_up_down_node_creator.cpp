@@ -1,4 +1,4 @@
-#include "com_up_down_node_creator.h"
+ï»¿#include "com_up_down_node_creator.h"
 
 #include <algorithm>
 #include <cfloat>
@@ -32,11 +32,11 @@ ComUpDownNodeCreator::ComUpDownNodeCreator(
 
 void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
-	//dS‚ğÅ‚à‚‚­‚ ‚°‚é‚±‚Æ‚Ì‚Å‚«‚éˆÊ’u‚ÆCÅ‚à’á‚­‰º‚°‚é‚±‚Æ‚Ì‚Å‚«‚éˆÊ’u‚ğ‹‚ß‚éDƒOƒ[ƒoƒ‹À•W‚Å Z‚ÌˆÊ’uD
-	//ƒ}ƒbƒv‚ğŠm”F‚µ‚Ä’n–Ê‚ÌÅ‚“_‚ğ‹‚ßC‚»‚±‚©‚çMAX_RANGECMIN_RANGE‚Ì•ª‚¾‚¯—£‚·D
+	//é‡å¿ƒã‚’æœ€ã‚‚é«˜ãã‚ã’ã‚‹ã“ã¨ã®ã§ãã‚‹ä½ç½®ã¨ï¼Œæœ€ã‚‚ä½ãä¸‹ã’ã‚‹ã“ã¨ã®ã§ãã‚‹ä½ç½®ã‚’æ±‚ã‚ã‚‹ï¼ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã§ Zã®ä½ç½®ï¼
+	//ãƒãƒƒãƒ—ã‚’ç¢ºèªã—ã¦åœ°é¢ã®æœ€é«˜ç‚¹ã‚’æ±‚ã‚ï¼Œãã“ã‹ã‚‰MAX_RANGEï¼ŒMIN_RANGEã®åˆ†ã ã‘é›¢ã™ï¼
 
 
-	//ƒ}ƒbƒv‚ÌÅ‘åzÀ•W‚ğ‹‚ß‚éD
+	//ãƒãƒƒãƒ—ã®æœ€å¤§zåº§æ¨™ã‚’æ±‚ã‚ã‚‹ï¼
 	float map_highest_z = -100000;
 
 	if (map_.IsInMap(current_node.global_center_of_mass)) 
@@ -48,9 +48,9 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//‹r‚Ìæ’[‚ÌÀ•W‚ğ‹‚ß‚éD
+		//è„šã®å…ˆç«¯ã®åº§æ¨™ã‚’æ±‚ã‚ã‚‹ï¼
 		const designlab::Vector3 kCoxaVec = converter_ptr_->ConvertRobotToGlobalCoordinate(
-			presenter_ptr_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.rot, false
+			presenter_ptr_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.quat, true
 		);
 
 		if (map_.IsInMap(kCoxaVec)) 
@@ -62,51 +62,51 @@ void ComUpDownNodeCreator::Create(const RobotStateNode& current_node, const int 
 	}
 
 
-	//ƒƒ{ƒbƒg‚ÌdS‚ÌÅ‚à’á‚­‰º‚°‚é‚±‚Æ‚Ì‚Å‚«‚ézÀ•W‚ÆC‚‚­‚ ‚°‚é‚±‚Æ‚ª‚Å‚«‚ézÀ•W‚ğ‹‚ß‚éD‚Ç‚¿‚ç‚àƒOƒ[ƒoƒ‹À•WD
+	//ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®æœ€ã‚‚ä½ãä¸‹ã’ã‚‹ã“ã¨ã®ã§ãã‚‹zåº§æ¨™ã¨ï¼Œé«˜ãã‚ã’ã‚‹ã“ã¨ãŒã§ãã‚‹zåº§æ¨™ã‚’æ±‚ã‚ã‚‹ï¼ã©ã¡ã‚‰ã‚‚ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
 	float highest_body_zpos = map_highest_z + presenter_ptr_->GetGroundHeightMarginMax();
 	float lowest_body_zpos = map_highest_z + presenter_ptr_->GetGroundHeightMarginMin();
 
 
-	// Å‚à‚‚¢’n“_‚ğC³‚·‚éD
+	// æœ€ã‚‚é«˜ã„åœ°ç‚¹ã‚’ä¿®æ­£ã™ã‚‹ï¼
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//Ú’n‚µ‚Ä‚¢‚é‹r‚É‚Â‚¢‚Ä‚Ì‚İl‚¦‚éD
+		//æ¥åœ°ã—ã¦ã„ã‚‹è„šã«ã¤ã„ã¦ã®ã¿è€ƒãˆã‚‹ï¼
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
-			//O•½•û‚Ì’è—‚ğg‚Á‚ÄC‹rÚ’n’n“_‚©‚çdSˆÊ’u‚ğ‚Ç‚ê‚¾‚¯ã‚°‚ç‚ê‚é‚©l‚¦‚éD
+			//ä¸‰å¹³æ–¹ã®å®šç†ã‚’ä½¿ã£ã¦ï¼Œè„šæ¥åœ°åœ°ç‚¹ã‹ã‚‰é‡å¿ƒä½ç½®ã‚’ã©ã‚Œã ã‘ä¸Šã’ã‚‰ã‚Œã‚‹ã‹è€ƒãˆã‚‹ï¼
 			const float edge_c = PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength - MARGIN;
 			const float edge_b = current_node.leg_pos[i].ProjectedXY().GetLength() - PhantomXMkIIConst::kCoxaLength;
 
 			const float edge_a = sqrt(dlm::Squared(edge_c) - dlm::Squared(edge_b));
 
-			//Ú’n‹r‚ÌÅ‘ådS‚‚³‚Ì’†‚©‚çˆê”Ô¬‚³‚¢‚à‚Ì‚ğ‘S‘Ì‚ÌÅ‘ådSˆÊ’u‚Æ‚µ‚Ä‹L˜^‚·‚éD_a‚Í‹r‚ÌÚ’n“_‚©‚ç‚Ç‚ê‚¾‚¯ã‚°‚ç‚ê‚é‚©‚ğ•\‚µ‚Ä‚¢‚é‚Ì‚ÅCƒOƒ[ƒoƒ‹À•W‚É•ÏX‚·‚éD
+			//æ¥åœ°è„šã®æœ€å¤§é‡å¿ƒé«˜ã•ã®ä¸­ã‹ã‚‰ä¸€ç•ªå°ã•ã„ã‚‚ã®ã‚’å…¨ä½“ã®æœ€å¤§é‡å¿ƒä½ç½®ã¨ã—ã¦è¨˜éŒ²ã™ã‚‹ï¼_aã¯è„šã®æ¥åœ°ç‚¹ã‹ã‚‰ã©ã‚Œã ã‘ä¸Šã’ã‚‰ã‚Œã‚‹ã‹ã‚’è¡¨ã—ã¦ã„ã‚‹ã®ã§ï¼Œã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã«å¤‰æ›´ã™ã‚‹ï¼
 			highest_body_zpos = (std::min)(edge_a + current_node.global_center_of_mass.z + current_node.leg_pos[i].z, highest_body_zpos);
 		}
 	}
 
 
-	//ƒm[ƒh‚ğ’Ç‰Á‚·‚éD
+	//ãƒãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ï¼
 	pushNodeByMaxAndMinPosZ(current_node, current_num, highest_body_zpos, lowest_body_zpos, output_graph);
 }
 
 
 void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, const int current_num, const float high, const float low, std::vector<RobotStateNode>* output_graph) const
 {
-	//dS‚ğ•Ï‰»‚³‚¹‚½‚à‚Ì‚ğ’Ç‰Á‚·‚éD•Ï‰»—Ê‚ªˆê”Ô­‚È‚¢ƒm[ƒh‚Ííœ‚·‚éD
+	//é‡å¿ƒã‚’å¤‰åŒ–ã•ã›ãŸã‚‚ã®ã‚’è¿½åŠ ã™ã‚‹ï¼å¤‰åŒ–é‡ãŒä¸€ç•ªå°‘ãªã„ãƒãƒ¼ãƒ‰ã¯å‰Šé™¤ã™ã‚‹ï¼
 	{
-		//Å‘å‚ÆÅ¬‚ÌŠÔ‚ğ•ªŠ„‚·‚éD
+		//æœ€å¤§ã¨æœ€å°ã®é–“ã‚’åˆ†å‰²ã™ã‚‹ï¼
 		const float kDivZ = (high - low) / (float)DISCRETIZATION;
 
 
-		//•ªŠ„‚µ‚½•ªV‚µ‚¢ƒm[ƒh‚ğ’Ç‰Á‚·‚éD
+		//åˆ†å‰²ã—ãŸåˆ†æ–°ã—ã„ãƒãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ï¼
 		for (int i = 0; i < DISCRETIZATION + 1; i++)
 		{
 			bool is_vaild = true;
 
 			RobotStateNode new_node = current_node;
 
-			//dS‚ÌˆÊ’u‚ğ•ÏX‚·‚éD
+			//é‡å¿ƒã®ä½ç½®ã‚’å¤‰æ›´ã™ã‚‹ï¼
 			designlab::Vector3 new_com = current_node.global_center_of_mass;
 			new_com.z = low + kDivZ * i;
 
@@ -118,10 +118,10 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 				if (!checker_ptr_->IsLegInRange(j, new_node.leg_pos[j])) { is_vaild = false; }
 			}
 
-			//current_num‚ğe‚Æ‚·‚éCV‚µ‚¢ƒm[ƒh‚É•ÏX‚·‚é
+			//current_numã‚’è¦ªã¨ã™ã‚‹ï¼Œæ–°ã—ã„ãƒãƒ¼ãƒ‰ã«å¤‰æ›´ã™ã‚‹
 			new_node.ChangeToNextNode(current_num, next_move_);
 
-			//ƒm[ƒh‚ğ’Ç‰Á‚·‚éD
+			//ãƒãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ï¼
 			if (is_vaild)
 			{
 				(*output_graph).emplace_back(new_node);
@@ -131,7 +131,7 @@ void ComUpDownNodeCreator::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 	}
 
 
-	//dS‚Ì•Ï‰»‚ªˆêØ‚È‚¢‚à‚Ì‚ğ’Ç‰Á‚·‚éD
+	//é‡å¿ƒã®å¤‰åŒ–ãŒä¸€åˆ‡ãªã„ã‚‚ã®ã‚’è¿½åŠ ã™ã‚‹ï¼
 	{
 		RobotStateNode same_node = current_node;
 
