@@ -1,4 +1,4 @@
-#include "graph_searcher_hato.h"
+ï»¿#include "graph_searcher_hato.h"
 
 #include <iostream>
 #include <cmath>
@@ -21,11 +21,16 @@ GraphSearcherHato::~GraphSearcherHato()
 {
 }
 
-GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result)
+GraphSearchResult GraphSearcherHato::SearchGraphTree(
+	const std::vector<RobotStateNode>& graph,
+	const int graph_size,
+	const TargetRobotState& target,
+	RobotStateNode* output_result
+)
 {
-	// target‚Ì’l‚É‚æ‚Á‚ÄC’Tõ•û–@‚ğ•Ï‚¦‚é•K—v‚ª‚ ‚éD’Tõ•û–@‚ğ’ŠÛ‰»‚·‚é‚×‚«D
+	// targetã®å€¤ã«ã‚ˆã£ã¦ï¼Œæ¢ç´¢æ–¹æ³•ã‚’å¤‰ãˆã‚‹å¿…è¦ãŒã‚ã‚‹ï¼æ¢ç´¢æ–¹æ³•ã‚’æŠ½è±¡åŒ–ã™ã‚‹ã¹ãï¼
 
-	// ƒ^[ƒQƒbƒgƒ‚[ƒh‚ª’¼i‚Æ‰¼’è‚µ‚Äˆ—‚ğ‘‚¢‚Ä‚¢‚é
+	// ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰ãŒç›´é€²ã¨ä»®å®šã—ã¦å‡¦ç†ã‚’æ›¸ã„ã¦ã„ã‚‹
 
 	int result_index = -1;
 	float max_rot_angle = 0;
@@ -33,19 +38,18 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStat
 	float max_margin = 0;
 	float min_leg_dif = 0;
 
-	const size_t kGraphSize = graph.size();
-	size_t parent_num = GetParentNodeIndex(graph);
+	const size_t parent_num = GetParentNodeIndex(graph, graph_size);
 
 	if (parent_num < 0) { return GraphSearchResult::kFailureByNoNode; }
 
 	InitEvaluationValue(graph.at(parent_num), target);
 
-	for (size_t i = 0; i < kGraphSize; i++)
+	for (size_t i = 0; i < graph_size; i++)
 	{
-		//Å‘å[‚³‚Ìƒm[ƒh‚Ì‚İ‚ğ•]‰¿‚·‚é
+		//æœ€å¤§æ·±ã•ã®ãƒãƒ¼ãƒ‰ã®ã¿ã‚’è©•ä¾¡ã™ã‚‹
 		if (graph[i].depth == GraphSearchConst::kMaxDepth)
 		{
-			//Œ‹‰Ê‚ªŒ©‚Â‚©‚Á‚Ä‚¢‚È‚¢ê‡‚ÍC•K‚¸Œ‹‰Ê‚ğXV‚·‚é
+			//çµæœãŒè¦‹ã¤ã‹ã£ã¦ã„ãªã„å ´åˆã¯ï¼Œå¿…ãšçµæœã‚’æ›´æ–°ã™ã‚‹
 			if (result_index < 0)
 			{
 				result_index = static_cast<int>(i);
@@ -106,21 +110,20 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(const std::vector<RobotStat
 		}
 	}
 
-	// index ‚ª”ÍˆÍŠO‚È‚ç‚Î¸”s
-	if (result_index < 0 || result_index >= kGraphSize) { return GraphSearchResult::kFailureByNoNode; }
+	// index ãŒç¯„å›²å¤–ãªã‚‰ã°å¤±æ•—
+	if (result_index < 0 || result_index >= graph_size) { return GraphSearchResult::kFailureByNoNode; }
 
-	//[‚³1‚Ü‚Å‘k‚Á‚Ä’l‚ğ•Ô‚·
+	//æ·±ã•1ã¾ã§é¡ã£ã¦å€¤ã‚’è¿”ã™
 	if (GetDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::kFailureByNotReachedDepth; }
 
 	return GraphSearchResult::kSuccess;
 }
 
-size_t GraphSearcherHato::GetParentNodeIndex(const std::vector<RobotStateNode>& graph) const
+size_t GraphSearcherHato::GetParentNodeIndex(const std::vector<RobotStateNode>& graph, const int graph_size) const
 {
-	const size_t kGraphSize = graph.size();
 	size_t parent_num = 0;
 
-	for (size_t i = 0; i < kGraphSize; i++)
+	for (size_t i = 0; i < graph_size; i++)
 	{
 		if (graph.at(i).depth == 0)
 		{

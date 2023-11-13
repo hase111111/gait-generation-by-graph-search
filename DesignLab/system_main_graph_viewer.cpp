@@ -171,13 +171,16 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state_, parent_node.global_center_of_mass);
+	graph->resize(GraphSearchConst::kMaxNodeNum);
+	graph->at(0) = parent_node;
+	int graph_size = 1;
 
 	graph_tree_creator_ptr_->Init(devide_map);
 
 	stopwatch_.Start();
 	
 	GraphSearchResult result =
-		graph_tree_creator_ptr_->CreateGraphTree(parent_node, 5, graph);
+		graph_tree_creator_ptr_->CreateGraphTree(0, 5, graph, &graph_size);
 
 	stopwatch_.End();
 

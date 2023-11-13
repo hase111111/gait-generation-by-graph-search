@@ -1,5 +1,5 @@
-//! @file graph_searcher_hato.h
-//! @brief ”g“Œ‚³‚ñ‚Ìè–@‚ÅƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒX‚ÌÀ‘•D
+ï»¿//! @file graph_searcher_hato.h
+//! @brief æ³¢æ±ã•ã‚“ã®æ‰‹æ³•ã§ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã®å®Ÿè£…ï¼
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_HATO_H_
 #define DESIGNLAB_GRAPH_SEARCHER_HATO_H_
@@ -10,7 +10,7 @@
 
 
 //! @class GraphSearcherHato
-//! @brief ”g“Œæ”y‚Ìè–@‚ÅCƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒXD
+//! @brief æ³¢æ±å…ˆè¼©ã®æ‰‹æ³•ã§ï¼Œã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 class GraphSearcherHato final : public IGraphSearcher
 {
 public:
@@ -18,26 +18,30 @@ public:
 	GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
 	~GraphSearcherHato();
 
-	GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) override;
+	GraphSearchResult SearchGraphTree(
+		const std::vector<RobotStateNode>& graph,
+		int graph_size,
+		const TargetRobotState& target,
+		RobotStateNode* output_result) override;
 
 private:
 
-	//! @brief Œ©‚Â‚©‚ç‚È‚¢‚Æ -1 ‚ª•Ô‚éD
-	size_t GetParentNodeIndex(const std::vector<RobotStateNode>& graph) const;
+	//! @brief è¦‹ã¤ã‹ã‚‰ãªã„ã¨ -1 ãŒè¿”ã‚‹ï¼
+	size_t GetParentNodeIndex(const std::vector<RobotStateNode>& graph, int graph_size) const;
 
-	//! @brief Œ©‚Â‚©‚ç‚È‚¢‚Æfalse‚ª•Ô‚éD
-	//! @param [in] graph ƒOƒ‰ƒtD
-	//! @param [in] max_depth_node_index Å‘å[‚³‚Ìƒm[ƒh‚ÌƒCƒ“ƒfƒbƒNƒXD
-	//! @param [out] put_node eƒm[ƒh‚Ìî•ñ‚ğŠi”[‚·‚éD
-	//! @return bool Œ©‚Â‚©‚Á‚½‚©‚Ç‚¤‚©D
+	//! @brief è¦‹ã¤ã‹ã‚‰ãªã„ã¨falseãŒè¿”ã‚‹ï¼
+	//! @param [in] graph ã‚°ãƒ©ãƒ•ï¼
+	//! @param [in] max_depth_node_index æœ€å¤§æ·±ã•ã®ãƒãƒ¼ãƒ‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
+	//! @param [out] put_node è¦ªãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ï¼
+	//! @return bool è¦‹ã¤ã‹ã£ãŸã‹ã©ã†ã‹ï¼
 	bool GetDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, size_t max_depth_node_index, RobotStateNode* output_node) const;
 
 	void InitEvaluationValue(const RobotStateNode& parent_node, const TargetRobotState& target);
 
-	//! @brief ‘Oi‚·‚é‚½‚ß‚Ì•]‰¿’l‚ğŒvZ‚·‚é
+	//! @brief å‰é€²ã™ã‚‹ãŸã‚ã®è©•ä¾¡å€¤ã‚’è¨ˆç®—ã™ã‚‹
 	float CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
 
-	//! @brief ‹r‚Ì•½‹Ï‰ñ“]—Ê‚Ì•]‰¿’l‚ğŒvZ‚·‚é
+	//! @brief è„šã®å¹³å‡å›è»¢é‡ã®è©•ä¾¡å€¤ã‚’è¨ˆç®—ã™ã‚‹
 	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
 
 

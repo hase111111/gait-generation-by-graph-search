@@ -1,27 +1,27 @@
-//! @file cassert_define.h
-//! @brief �f�o�b�O���[�h�ƃ����[�X���[�h�ŃA�T�[�g��L�����E���������邽�߂̃w�b�_�t�@�C��
+﻿//! @file cassert_define.h
+//! @brief デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル
 //! 
-//! @details Visual Studio�ł́C�f�o�b�O���[�h�ł̓A�T�[�g��L�������C�����[�X���[�h�ł̓A�T�[�g�𖳌�������D
-//! @n �������C���̃v���O�����͏������d�������ŁC���ɂ���Ă͂��������f�o�b�O���[�h�Ŏ��s���邱�Ƃ�����D
-//! @n �����ŁC�����[�X���[�h�ł��A�T�[�g��L�������邽�߂ɁC�ȉ��̂悤�ȃw�b�_�t�@�C�����쐬�����D
+//! @details Visual Studioでは，デバッグモードではアサートを有効化し，リリースモードではアサートを無効化する．
+//! @n しかし，このプログラムは処理が重いせいで，環境によってはそもそもデバッグモードで実行することが難しい．
+//! @n そこで，リリースモードでもアサートを有効化するために，以下のようなヘッダファイルを作成した．
 //! @n
-//! @n �����[�X���[�h�ŃA�T�[�g���o�������ꍇ�́C�ȉ��̃����[�X���[�h�̂Ƃ����
-//! @n #undef NDEBUG �ŃA�T�[�g��L�������邱�ƁD
-//! @n NDEBUG��define����Ă���Ƃ��́Cassert�𖳌�������D
-//! @n #undef ��define����Ă�����̂𖳌�������D
-//! @n �܂�C#undef NDEBUG �́Cassert��L��������D
-//! @n �t�ɁC#define NDEBUG �́Cassert�𖳌�������D
-//! @n �����̏����́Ccassert�̃C���N���[�h���O�ɍs���K�v������D
+//! @n リリースモードでアサートを出したい場合は，以下のリリースモードのところで
+//! @n #undef NDEBUG でアサートを有効化すること．
+//! @n NDEBUGがdefineされているときは，assertを無効化する．
+//! @n #undef はdefineされているものを無効化する．
+//! @n つまり，#undef NDEBUG は，assertを有効化する．
+//! @n 逆に，#define NDEBUG は，assertを無効化する．
+//! @n これらの処理は，cassertのインクルードより前に行う必要がある．
 
 
 #ifndef DESIGNLAB_CASSERT_DEFINE_H_
 #define DESIGNLAB_CASSERT_DEFINE_H_
 
 
-#ifndef _DEBUG	// if not define _DEBUG �܂�C�����[�X���[�h�̏ꍇ�C
+#ifndef _DEBUG	// if not define _DEBUG つまり，リリースモードの場合，
 
-// �A�T�[�g��L��������ꍇ�́C�ȉ��̍s�̃R�����g( // )���͂�������
-#undef NDEBUG	
+// アサートを有効化する場合は，以下の行のコメント( // )をはずすこと
+//#undef NDEBUG	
 
 #endif 
 

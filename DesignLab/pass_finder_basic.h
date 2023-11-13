@@ -37,6 +37,8 @@ private:
 	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス
 
 	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;		//!< グラフ探索を行うクラス
+
+	std::vector<RobotStateNode> graph_tree_;
 };
 
 

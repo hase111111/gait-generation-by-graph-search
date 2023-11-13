@@ -27,7 +27,7 @@ public:
 
 	void Init(const DevideMapState& map_state);
 
-	GraphSearchResult CreateGraphTree(const RobotStateNode& current_node, int max_depth, std::vector<RobotStateNode>* output_graph);
+	GraphSearchResult CreateGraphTree(int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size);
 
 private:
 

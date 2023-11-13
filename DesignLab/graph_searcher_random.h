@@ -1,5 +1,5 @@
-//! @file graph_searcher_random.h
-//! @brief ƒ‰ƒ“ƒ_ƒ€‚ÉƒOƒ‰ƒt’Tõ‚ğs‚¤ƒNƒ‰ƒXD
+ï»¿//! @file graph_searcher_random.h
+//! @brief ãƒ©ãƒ³ãƒ€ãƒ ã«ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_RANDOM_H_
@@ -10,16 +10,20 @@
 
 
 //! @class GraphSearcherRandom
-//! @brief Š®‘Sƒ‰ƒ“ƒ_ƒ€‚ÉŸ‚Ì“®ì‚ğ‘I‚ñ‚Å•Ô‚µ‚Ü‚·D
-//! @n Œp³‚Ì•û–@‚Ìà–¾—pD
+//! @brief å®Œå…¨ãƒ©ãƒ³ãƒ€ãƒ ã«æ¬¡ã®å‹•ä½œã‚’é¸ã‚“ã§è¿”ã—ã¾ã™ï¼
+//! @n ç¶™æ‰¿ã®æ–¹æ³•ã®èª¬æ˜ç”¨ï¼
 class GraphSearcherRandom final : public IGraphSearcher
 {
 public:
 
-	// Œp³‚É‚ÍC–ß‚è’lCŠÖ”–¼Cˆø”‚ÌŒ^(–¼‘O‚Íˆá‚Á‚Ä‚à‚æ‚¢)C‚ğ‘S‚Ä“¯‚¶‚É‚·‚é•K—v‚ª‚ ‚éD
-	// ‚Ü‚½CÅŒã‚É•K‚¸override‚ğ‚Â‚¯‚éD
+	// ç¶™æ‰¿æ™‚ã«ã¯ï¼Œæˆ»ã‚Šå€¤ï¼Œé–¢æ•°åï¼Œå¼•æ•°ã®å‹(åå‰ã¯é•ã£ã¦ã‚‚ã‚ˆã„)ï¼Œã‚’å…¨ã¦åŒã˜ã«ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+	// ã¾ãŸï¼Œæœ€å¾Œã«å¿…ãšoverrideã‚’ã¤ã‘ã‚‹ï¼
 
-	GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) override;
+	GraphSearchResult SearchGraphTree(
+		const std::vector<RobotStateNode>& graph,
+		int graph_size,
+		const TargetRobotState& target,
+		RobotStateNode* output_result) override;
 };
 
 

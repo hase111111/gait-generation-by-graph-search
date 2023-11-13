@@ -1,4 +1,4 @@
-#include "graph_searcher_random.h"
+ï»¿#include "graph_searcher_random.h"
 
 #include "designlab_math_util.h"
 
@@ -7,32 +7,31 @@ namespace dlm = designlab::math_util;
 
 GraphSearchResult GraphSearcherRandom::SearchGraphTree(
 	const std::vector<RobotStateNode>& graph, 
+	const int graph_size,
 	[[maybe_unused]]const TargetRobotState& target, 
 	RobotStateNode* output_result
 )
 {
-	//ƒOƒ‰ƒt‚ğ’Tõ‚¹‚¸‚ÉCŸ‚Ì“®ì‚Ì’†‚©‚çƒ‰ƒ“ƒ_ƒ€‚Éˆê‚Â‘I‘ğ‚µ‚ÄˆÚ“®‚·‚éD
+	//ã‚°ãƒ©ãƒ•ã‚’æ¢ç´¢ã›ãšã«ï¼Œæ¬¡ã®å‹•ä½œã®ä¸­ã‹ã‚‰ãƒ©ãƒ³ãƒ€ãƒ ã«ä¸€ã¤é¸æŠã—ã¦ç§»å‹•ã™ã‚‹ï¼
 
-	if (graph.empty()) { return GraphSearchResult::kFailure; }	//ƒOƒ‰ƒt‚ª‚È‚¢‚È‚ç¸”s	
+	if (graph.empty()) { return GraphSearchResult::kFailure; }	//ã‚°ãƒ©ãƒ•ãŒãªã„ãªã‚‰å¤±æ•—	
 
-	//ƒOƒ‰ƒt‚Ì’†‚ğ‘S‚Ä’Tõ‚·‚éD
+	//ã‚°ãƒ©ãƒ•ã®ä¸­ã‚’å…¨ã¦æ¢ç´¢ã™ã‚‹ï¼
 	std::vector<RobotStateNode> depth1_node;
 
-	size_t kGraphSize = graph.size();
-
-	for (size_t i = 0; i < kGraphSize; i++)
+	for (size_t i = 0; i < graph_size; i++)
 	{
-		// [‚³1‚Ì“®ì‚ğ‘S‚Ä‹L˜^‚·‚éD
+		// æ·±ã•1ã®å‹•ä½œã‚’å…¨ã¦è¨˜éŒ²ã™ã‚‹ï¼
 		if (graph[i].depth == 1)
 		{
 			depth1_node.emplace_back(graph[i]);
 		}
 	}
 
-	if (depth1_node.empty()) { return GraphSearchResult::kFailureByNotReachedDepth; }		//[‚³1‚Ìƒm[ƒh‚ª‘¶İ‚µ‚È‚¢‚È‚çCI—¹D
+	if (depth1_node.empty()) { return GraphSearchResult::kFailureByNotReachedDepth; }		//æ·±ã•1ã®ãƒãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„ãªã‚‰ï¼Œçµ‚äº†ï¼
 
 	const int select_index = depth1_node.size() == 1 ? 0 : dlm::GenerateRandomNumber(0, static_cast<int>(depth1_node.size()) - 1);
-	(*output_result) = depth1_node[static_cast<size_t>(select_index)];									// ƒ‰ƒ“ƒ_ƒ€‚È‚â‚Â‚ğˆê‚Â‘I‘ğ‚·‚éD
+	(*output_result) = depth1_node[static_cast<size_t>(select_index)];									// ãƒ©ãƒ³ãƒ€ãƒ ãªã‚„ã¤ã‚’ä¸€ã¤é¸æŠã™ã‚‹ï¼
 
 	return GraphSearchResult::kSuccess;
 }

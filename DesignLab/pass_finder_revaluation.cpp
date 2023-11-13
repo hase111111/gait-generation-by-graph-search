@@ -50,7 +50,11 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		parent_node.ChangeParentNode();
 
 		std::vector<RobotStateNode> graph_tree;
-		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree);
+		graph_tree.resize(GraphSearchConst::kMaxNodeNum);
+		graph_tree[0] = parent_node;
+		int graph_tree_size = 1;
+
+		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree, &graph_tree_size);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -65,7 +69,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, target, output_node);
+		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -90,7 +94,10 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		parent_node.ChangeParentNode();
 
 		std::vector<RobotStateNode> graph_tree;
-		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree);
+		graph_tree.resize(GraphSearchConst::kMaxNodeNum);
+		graph_tree[0] = parent_node;
+		int graph_tree_size = 1;
+		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree, &graph_tree_size);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -105,7 +112,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, target, output_node);
+		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{

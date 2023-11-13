@@ -15,46 +15,46 @@ GraphTreeCreator::GraphTreeCreator(std::unique_ptr<INodeCreatorBuilder>&& node_c
 
 void GraphTreeCreator::Init(const DevideMapState& map_state)
 {
+	// 現在持っているノード生成クラスを全て削除する．
 	node_creator_map_.clear();
 
 	node_creator_builder_ptr_->Build(map_state, &node_creator_map_);
 }
 
-GraphSearchResult GraphTreeCreator::CreateGraphTree(const RobotStateNode& current_node, const int max_depth, std::vector<RobotStateNode>* output_graph)
+GraphSearchResult GraphTreeCreator::CreateGraphTree([[maybe_unused]]int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size)
 {
-	assert(output_graph != nullptr);	//nullptrでない．
-	assert(output_graph->empty());		//空である．
-	assert(current_node.depth == 0);	//深さが0である．
-
-	output_graph->emplace_back(current_node);	//親を追加する．
-
+	assert(0 <= start_depth);			// start_depthは0以上である．
+	assert(start_depth < max_depth);	// start_depthはmax_depthより小さい．
+	assert(graph != nullptr);			// nullptrでない．
+	assert(!graph->empty());			// 空でない．
+	assert(graph_size != nullptr);		// nullptrでない．
 
 	int cnt = 0;	//カウンタを用意
 
 	//カウンタがvectorのサイズを超えるまでループする．
-	while (cnt < output_graph->size())
+	while (cnt < *graph_size)
 	{
 		//探索深さが足りていないノードにのみ処理をする．
-		if ((*output_graph)[cnt].depth < max_depth)
+		if ((*graph)[cnt].depth < max_depth)
 		{
-			std::vector<RobotStateNode> res_vec;	// _cnt番目のノードの子ノードを入れるベクター
+			std::vector<RobotStateNode> res_vec;	// cnt番目のノードの子ノードを入れるベクター
 
-			MakeNewNodesByCurrentNode((*output_graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
+			MakeNewNodesByCurrentNode((*graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
 
 			for (const auto& i : res_vec)
 			{
-				output_graph->emplace_back(i);		//子ノードを結果に追加する．
+				if (GraphSearchConst::kMaxNodeNum < *graph_size) { break; }
+
+				(*graph)[*graph_size] = i;
+				(*graph_size)++;
 			}
 		}
 
 		cnt++;	//カウンタを進める．
 	}
 
-
 	//ノード数が上限を超えていないか確認する．
-	int make_node_num = static_cast<int>(output_graph->size());
-
-	if (GraphSearchConst::kMaxNodeNum < make_node_num)
+	if (GraphSearchConst::kMaxNodeNum < *graph_size)
 	{
 		return GraphSearchResult::kFailureByNodeLimitExceeded;
 	}

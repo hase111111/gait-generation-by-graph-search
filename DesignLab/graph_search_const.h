@@ -1,26 +1,26 @@
-//! @file graph_search_const.h
-//! @brief ƒOƒ‰ƒt’Tõ‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+ï»¿//! @file graph_search_const.h
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã®å®šæ•°ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_CONST_H_
 #define DESIGNLAB_GRAPH_SEARCH_CONST_H_
 
 
 //! @clas GraphSearchConst
-//! @brief ƒOƒ‰ƒt’Tõ‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã®å®šæ•°ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 class GraphSearchConst final
 {
 public:
 
-	//À‘Ì‚ª¶¬‚Å‚«‚È‚¢‚æ‚¤‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğprivate‚É‚·‚é
+	//å®Ÿä½“ãŒç”Ÿæˆã§ããªã„ã‚ˆã†ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’privateã«ã™ã‚‹
 	GraphSearchConst() = default;
 	GraphSearchConst(const GraphSearchConst&) = default;
 	GraphSearchConst(GraphSearchConst&&) = default;
 	GraphSearchConst& operator=(const GraphSearchConst&) = default;
 
 
-	static const int kMaxDepth;	//!< ƒOƒ‰ƒt’Tõ‚ÌÅ‘å[‚³
+	static const int kMaxDepth;	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã®æœ€å¤§æ·±ã•
 
-	static constexpr int kMaxNodeNum = 100000000;	//!< ƒOƒ‰ƒt’Tõ‚ÌÅ‘åƒm[ƒh”
+	static constexpr int kMaxNodeNum = 10000000;	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã®æœ€å¤§ãƒãƒ¼ãƒ‰æ•°
 
 };
 

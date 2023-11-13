@@ -41,9 +41,13 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 	RobotStateNode parent_node = current_node;
 	parent_node.ChangeParentNode();
 
-	std::vector<RobotStateNode> graph_tree;
+	graph_tree_.resize(GraphSearchConst::kMaxNodeNum);
 
-	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(parent_node, GraphSearchConst::kMaxDepth, &graph_tree);
+	graph_tree_[0] = parent_node;
+
+	int graph_tree_size = 1;
+
+	GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree_, &graph_tree_size);
 
 	if (result != GraphSearchResult::kSuccess)
 	{
@@ -52,13 +56,13 @@ GraphSearchResult PassFinderBasic::GetNextNodebyGraphSearch(const RobotStateNode
 	}
 
 	dlio::Output("グラフ木の作成終了．", OutputDetail::kDebug);
-	dlio::Output("グラフのサイズ" + std::to_string(graph_tree.size()), OutputDetail::kDebug);
+	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_size), OutputDetail::kDebug);
 
 
 	// グラフ探索を行う
 	dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-	result = graph_searcher_ptr_->SearchGraphTree(graph_tree, target, output_node);
+	result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, graph_tree_size, target, output_node);
 
 	if (result != GraphSearchResult::kSuccess)
 	{

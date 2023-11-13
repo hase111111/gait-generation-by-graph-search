@@ -1,5 +1,5 @@
-//! @file interface_graph_searcher.h
-//! @brief ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒCƒ“ƒ^[ƒtƒF[ƒX
+ï»¿//! @file interface_graph_searcher.h
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 
 #ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 #define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
@@ -14,21 +14,26 @@
 
 
 //! @class IGraphSearcher
-//! @brief ƒOƒ‰ƒt’Tõ‚ğs‚¤ƒCƒ“ƒ^[ƒtƒF[ƒXDÀ‘Ì‚Íì¬‚Å‚«‚È‚¢‚Ì‚Å‚±‚ê‚ğŒp³‚µ‚Ä‚½ƒNƒ‰ƒX‚ğg‚¤‚±‚ÆD
+//! @brief ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚’è¡Œã†ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼å®Ÿä½“ã¯ä½œæˆã§ããªã„ã®ã§ã“ã‚Œã‚’ç¶™æ‰¿ã—ã¦ãŸã‚¯ãƒ©ã‚¹ã‚’ä½¿ã†ã“ã¨ï¼
 class IGraphSearcher
 {
 public:
 
 	IGraphSearcher() = default;
-	virtual ~IGraphSearcher() = default;		//!< Œp³‚ğ‚·‚éƒNƒ‰ƒX‚ÌƒfƒXƒgƒ‰ƒNƒ^‚Ívirtual‚É‚µ‚Ä‚¨‚­DQl https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+	virtual ~IGraphSearcher() = default;		//!< ç¶™æ‰¿ã‚’ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯virtualã«ã—ã¦ãŠãï¼å‚è€ƒ https://www.yunabe.jp/docs/cpp_virtual_destructor.html
 
 
-	//! @brief ƒOƒ‰ƒt‚ğó‚¯æ‚èC‚»‚Ì’†‚©‚çÅ“K‚ÈŸ‚Ì“®ì‚ğo—Í‚·‚éD
-	//! @param graph [in] ƒOƒ‰ƒt–Ø
-	//! @param target [in] –Ú•W’n“_
-	//! @param output_result [out] o—Í‚³‚ê‚éƒm[ƒh
-	//! @return GraphSearchResult ’Tõ‚ÌŒ‹‰Ê
-	virtual GraphSearchResult SearchGraphTree(const std::vector<RobotStateNode>& graph, const TargetRobotState& target, RobotStateNode* output_result) = 0;
+	//! @brief ã‚°ãƒ©ãƒ•ã‚’å—ã‘å–ã‚Šï¼Œãã®ä¸­ã‹ã‚‰æœ€é©ãªæ¬¡ã®å‹•ä½œã‚’å‡ºåŠ›ã™ã‚‹ï¼
+	//! @param [in] graph ã‚°ãƒ©ãƒ•æœ¨
+	//! @param [in] graph_size ã‚°ãƒ©ãƒ•æœ¨ã®ã‚µã‚¤ã‚º
+	//! @param [in] target ç›®æ¨™åœ°ç‚¹
+	//! @param [out] output_result å‡ºåŠ›ã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰
+	//! @return GraphSearchResult æ¢ç´¢ã®çµæœ
+	virtual GraphSearchResult SearchGraphTree(
+		const std::vector<RobotStateNode>& graph, 
+		int graph_size,
+		const TargetRobotState& target, 
+		RobotStateNode* output_result) = 0;
 };
 
 
