@@ -46,7 +46,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 		//現在の重心を移動させたものを作成する
 		dl::Vector3 after_move_com_pos = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
 		const dl::Vector3 dif = after_move_com_pos - current_node.global_center_of_mass;
-		const dl::Vector3 real_dif = dl::RotateVector3(dif, current_node.quat.GetConjugate(), true);
+		const dl::Vector3 real_dif = dl::RotateVector3(dif, current_node.quat.GetConjugate());
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{

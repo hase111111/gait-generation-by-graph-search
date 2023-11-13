@@ -1,5 +1,5 @@
-//! @file designlab_quaternion.h
-//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_quaternion.h
+//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¡¨ã™æ§‹é€ ä½“
 
 
 #ifndef DESIGNLAB_QUATERNION_H_
@@ -17,24 +17,24 @@
 namespace designlab
 {
 	//! @struct designlab::Quaternion
-	//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•\‚·\‘¢‘Ì
-	//! @details ƒNƒH[ƒ^ƒjƒIƒ“‚ÍCƒXƒJƒ‰[¬•ª‚ÆƒxƒNƒgƒ‹¬•ª‚©‚ç‚È‚éD
-	//! @n lŒ³”‚Æ‚àŒÄ‚Î‚ê‚éD
-	//! @n Ql
+	//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¡¨ã™æ§‹é€ ä½“
+	//! @details ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¯ï¼Œã‚¹ã‚«ãƒ©ãƒ¼æˆåˆ†ã¨ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã‹ã‚‰ãªã‚‹ï¼
+	//! @n å››å…ƒæ•°ã¨ã‚‚å‘¼ã°ã‚Œã‚‹ï¼
+	//! @n å‚è€ƒ
 	//! @n https://zenn.dev/mebiusbox/books/132b654aa02124/viewer/2966c7
 	//! @n https://www.sports-sensing.com/brands/labss/motionmeasurement/motion_biomechanics/quaternion04.html#:~:text=%E3%82%AF%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%8B%E3%82%AA%E3%83%B3%EF%BC%88quaternion%EF%BC%89%E3%81%AF%E5%9B%9B%E5%85%83,%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E7%8F%BE%E3%81%97%E3%81%BE%E3%81%99%EF%BC%8E
 	//! @n https://www.f-sp.com/entry/2017/06/30/221124
 	struct Quaternion
 	{
-		//! @brief 1 + {0,0,0}‚Å‰Šú‰»‚·‚éC
+		//! @brief 1 + {0,0,0}ã§åˆæœŸåŒ–ã™ã‚‹ï¼Œ
 		constexpr Quaternion() : w(1.0f), v(0.0f, 0.0f, 0.0f) {}
 
-		//! @brief ƒXƒJƒ‰[¬•ª‚ÆƒxƒNƒgƒ‹¬•ª‚ğw’è‚µ‚Ä‰Šú‰»‚·‚éDƒmƒ‹ƒ€‚ª1‚É‚È‚é‚æ‚¤‚É‘ã“ü‚·‚é‚±‚ÆC
-		//! @n g—p‚Í”ñ„§ClŠÔ‹Z‚Å‚Í‚È‚¢CMakeByAngleAxis‚ğg‚¤‚±‚Æ
+		//! @brief ã‚¹ã‚«ãƒ©ãƒ¼æˆåˆ†ã¨ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã‚’æŒ‡å®šã—ã¦åˆæœŸåŒ–ã™ã‚‹ï¼ãƒãƒ«ãƒ ãŒ1ã«ãªã‚‹ã‚ˆã†ã«ä»£å…¥ã™ã‚‹ã“ã¨ï¼Œ
+		//! @n ä½¿ç”¨ã¯éæ¨å¥¨ï¼Œäººé–“æŠ€ã§ã¯ãªã„ï¼ŒMakeByAngleAxisã‚’ä½¿ã†ã“ã¨
 		constexpr Quaternion(const float w_, const float x_, const float y_, const float z_) : w(w_), v(x_, y_, z_) {}
 
-		//! @brief ƒXƒJƒ‰[¬•ª‚ÆƒxƒNƒgƒ‹¬•ª‚ğw’è‚µ‚Ä‰Šú‰»‚·‚éDƒmƒ‹ƒ€‚ª1‚É‚È‚é‚æ‚¤‚É‘ã“ü‚·‚é‚±‚ÆC
-		//! @n g—p‚Í”ñ„§ClŠÔ‹Z‚Å‚Í‚È‚¢CMakeByAngleAxis‚ğg‚¤‚±‚Æ
+		//! @brief ã‚¹ã‚«ãƒ©ãƒ¼æˆåˆ†ã¨ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã‚’æŒ‡å®šã—ã¦åˆæœŸåŒ–ã™ã‚‹ï¼ãƒãƒ«ãƒ ãŒ1ã«ãªã‚‹ã‚ˆã†ã«ä»£å…¥ã™ã‚‹ã“ã¨ï¼Œ
+		//! @n ä½¿ç”¨ã¯éæ¨å¥¨ï¼Œäººé–“æŠ€ã§ã¯ãªã„ï¼ŒMakeByAngleAxisã‚’ä½¿ã†ã“ã¨
 		constexpr Quaternion(const float w_, const ::designlab::Vector3& v_) : w(w_), v(v_)	{}
 
 		constexpr Quaternion(const Quaternion& q) = default;
@@ -58,70 +58,70 @@ namespace designlab
 		bool operator >= (const Quaternion& other) const noexcept { return !(*this < other); }
 
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚Ì“àÏ‚ğ•Ô‚·DƒNƒH[ƒ^ƒjƒIƒ“‚ğ4ŸŒ³‚ÌƒxƒNƒgƒ‹‚Æ‚İ‚È‚µCƒxƒNƒgƒ‹‚Ì“àÏ‚ğ‹‚ß‚é
-		//! @param [in] other “àÏ‚ğ‹‚ß‚éƒNƒH[ƒ^ƒjƒIƒ“
-		//! @return float “àÏ
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®å†…ç©ã‚’è¿”ã™ï¼ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’4æ¬¡å…ƒã®ãƒ™ã‚¯ãƒˆãƒ«ã¨ã¿ãªã—ï¼Œãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©ã‚’æ±‚ã‚ã‚‹
+		//! @param [in] other å†…ç©ã‚’æ±‚ã‚ã‚‹ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
+		//! @return float å†…ç©
 		[[nodiscard]] constexpr float Dot(Quaternion other) const noexcept { return w * other.w + v.Dot(other.v); }
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚Ì‹¤–ğ‚ğ•Ô‚·D‹¤–ğ‚ÈƒNƒH[ƒ^ƒjƒIƒ“‚Æ‚ÍCƒxƒNƒgƒ‹¬•ª‚Ì•„†‚ğ”½“]‚³‚¹‚½‚à‚Ì
-		//! @n q = w + xi + yj + zk ‚Æ‚·‚é‚ÆCq‚Ì‹¤–ğ‚Í w - xi - yj - zk ‚Æ‚È‚éD‰ñ“]‚Í‹t•ûŒü‚É‚È‚é
-		//! @return designlab::Quaternion ‹¤–ğƒNƒH[ƒ^ƒjƒIƒ“
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®å…±å½¹ã‚’è¿”ã™ï¼å…±å½¹ãªã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¨ã¯ï¼Œãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã®ç¬¦å·ã‚’åè»¢ã•ã›ãŸã‚‚ã®
+		//! @n q = w + xi + yj + zk ã¨ã™ã‚‹ã¨ï¼Œqã®å…±å½¹ã¯ w - xi - yj - zk ã¨ãªã‚‹ï¼å›è»¢ã¯é€†æ–¹å‘ã«ãªã‚‹
+		//! @return designlab::Quaternion å…±å½¹ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
 		[[nodiscard]] constexpr Quaternion GetConjugate() const noexcept { return { w, -v }; }
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚Ì’·‚³‚Ì2æ‚ğ•Ô‚·(ƒmƒ‹ƒ€‚Ì2æ)D
-		//! @n ƒNƒH[ƒ^ƒjƒIƒ“‚Ì’·‚³‚Ì2æ‚ÍCw^2 + x^2 + y^2 + z^2 ‚Å‹‚ß‚ç‚ê‚é
-		//! @return float ’·‚³‚Ì2æ
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®é•·ã•ã®2ä¹—ã‚’è¿”ã™(ãƒãƒ«ãƒ ã®2ä¹—)ï¼
+		//! @n ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®é•·ã•ã®2ä¹—ã¯ï¼Œw^2 + x^2 + y^2 + z^2 ã§æ±‚ã‚ã‚‰ã‚Œã‚‹
+		//! @return float é•·ã•ã®2ä¹—
 		[[nodiscard]] constexpr float GetLengthSquared() const noexcept { return w * w + v.Dot(v); }
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚ğ•Ô‚·
-		//! @n ƒmƒ‹ƒ€‚Æ‚ÍCƒxƒNƒgƒ‹‚Ì‘å‚«‚³‚Ì‚±‚ÆDƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚ÍCw^2 + x^2 + y^2 + z^2 ‚Å‹‚ß‚ç‚ê‚é
-		//! @return float ƒmƒ‹ƒ€
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã‚’è¿”ã™
+		//! @n ãƒãƒ«ãƒ ã¨ã¯ï¼Œãƒ™ã‚¯ãƒˆãƒ«ã®å¤§ãã•ã®ã“ã¨ï¼ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã¯ï¼Œw^2 + x^2 + y^2 + z^2 ã§æ±‚ã‚ã‚‰ã‚Œã‚‹
+		//! @return float ãƒãƒ«ãƒ 
 		[[nodiscard]] inline float GetNorm() const noexcept { return std::sqrt(GetLengthSquared()); }
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚Ì‹t”‚ğ•Ô‚·
-		//! @n ƒNƒH[ƒ^ƒjƒIƒ“q‚Ì‹t”q^-1‚ÍCq‚Ì‹¤–ğ‚ğƒmƒ‹ƒ€‚ÅŠ„‚Á‚½‚à‚Ì
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®é€†æ•°ã‚’è¿”ã™
+		//! @n ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³qã®é€†æ•°q^-1ã¯ï¼Œqã®å…±å½¹ã‚’ãƒãƒ«ãƒ ã§å‰²ã£ãŸã‚‚ã®
 		[[nodiscard]] inline Quaternion GetInverse() const { return GetConjugate() * (1 / GetNorm()); }
 
-		//! @brief ³‹K‰»‚µ‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•Ô‚·
-		//! @n ƒNƒH[ƒ^ƒjƒIƒ“‚Ì³‹K‰»‚Æ‚ÍCƒmƒ‹ƒ€‚ğ1‚É‚·‚é‚±‚ÆD
-		//! @n ƒNƒH[ƒ^ƒjƒIƒ“q‚Ì³‹K‰»‚ÍCq / |q| ‚Å‹‚ß‚ç‚ê‚é
-		//! @return designlab::Quaternion ³‹K‰»‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“
+		//! @brief æ­£è¦åŒ–ã—ãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¿”ã™
+		//! @n ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®æ­£è¦åŒ–ã¨ã¯ï¼Œãƒãƒ«ãƒ ã‚’1ã«ã™ã‚‹ã“ã¨ï¼
+		//! @n ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³qã®æ­£è¦åŒ–ã¯ï¼Œq / |q| ã§æ±‚ã‚ã‚‰ã‚Œã‚‹
+		//! @return designlab::Quaternion æ­£è¦åŒ–ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
 		[[nodiscard]] Quaternion GetNormalized() const noexcept;
 
-		//! @brief ‘¼‚ÌƒNƒH[ƒ^ƒjƒIƒ“‚Æ‚Ì‹——£‚Ì2æ‚ğ•Ô‚·DƒNƒH[ƒ^ƒjƒIƒ“‚ğ4ŸŒ³ƒxƒNƒgƒ‹‚Æ‚İ‚È‚µCƒxƒNƒgƒ‹‚Ì‹——£‚Ì2æ‚ğ‹‚ß‚é
-		//! @return float ‹——£‚Ì2æ
+		//! @brief ä»–ã®ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¨ã®è·é›¢ã®2ä¹—ã‚’è¿”ã™ï¼ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’4æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã¨ã¿ãªã—ï¼Œãƒ™ã‚¯ãƒˆãƒ«ã®è·é›¢ã®2ä¹—ã‚’æ±‚ã‚ã‚‹
+		//! @return float è·é›¢ã®2ä¹—
 		[[nodiscard]] constexpr float GetDistanceSquared(const Quaternion& q) const noexcept { return (*this - q).GetLengthSquared(); }
 
-		//! @brief ©g‚ğ³‹K‰»‚·‚éDƒmƒ‹ƒ€‚ª‚P‚É‚È‚éD
+		//! @brief è‡ªèº«ã‚’æ­£è¦åŒ–ã™ã‚‹ï¼ãƒãƒ«ãƒ ãŒï¼‘ã«ãªã‚‹ï¼
 		inline void Normalize() noexcept { *this = GetNormalized(); }
 
-		//! @brief ‰ñ“]²‚Æ‰ñ“]Šp‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚ğì¬‚·‚éD
-		//! @n q = cos(ƒÆ/2) * w + sin(ƒÆ/2) * { v.x  + v.y  + v.z } ‚Æ‚È‚éD
-		//! @n ƒmƒ‹ƒ€‚Í•K‚¸1‚É‚È‚éD
-		//! @param [in] rad_angle ‰ñ“]ŠpƒÆ [rad]
-		//! @param [in] axis ‰ñ“]²
+		//! @brief å›è»¢è»¸ã¨å›è»¢è§’ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ä½œæˆã™ã‚‹ï¼
+		//! @n q = cos(Î¸/2) * w + sin(Î¸/2) * { v.x  + v.y  + v.z } ã¨ãªã‚‹ï¼
+		//! @n ãƒãƒ«ãƒ ã¯å¿…ãš1ã«ãªã‚‹ï¼
+		//! @param [in] rad_angle å›è»¢è§’Î¸ [rad]
+		//! @param [in] axis å›è»¢è»¸
 		static [[nodiscard]] Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
 
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éD
-		//! @n w, x, y, z ‚Ì‡‚Åo—Í‚·‚éD
-		//! @return std::string ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•\‚·•¶š—ñD
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼
+		//! @n w, x, y, z ã®é †ã§å‡ºåŠ›ã™ã‚‹ï¼
+		//! @return std::string ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
 		[[nodiscard]] std::string ToString() const;
 
-		//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚ğCsvŒ`®‚Ì•¶š—ñ‚É•ÏŠ·‚·‚éDƒJƒ“ƒ}‹æØ‚èD
-		//! @n w, x, y, z ‚Ì‡‚ÉƒJƒ“ƒ}‹æØ‚è‚Åo—Í‚·‚éD
-		//! @return std::string ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•\‚·•¶š—ñD
+		//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’Csvå½¢å¼ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šï¼
+		//! @n w, x, y, z ã®é †ã«ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã§å‡ºåŠ›ã™ã‚‹ï¼
+		//! @return std::string ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
 		[[nodiscard]] std::string ToCsvString() const;
 
-		float w;	//!< ƒXƒJƒ‰[¬•ª
-		::designlab::Vector3 v;	//!< ƒxƒNƒgƒ‹¬•ª
+		float w;	//!< ã‚¹ã‚«ãƒ©ãƒ¼æˆåˆ†
+		::designlab::Vector3 v;	//!< ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†
 
 	};
 
 
 	constexpr Quaternion operator * (float s, const Quaternion& q) { return q * s; }
 
-	// o—ÍƒXƒgƒŠ[ƒ€
+	// å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
 	template <class Char>
 	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Quaternion& q)
 	{
@@ -130,7 +130,7 @@ namespace designlab
 		return os;
 	}
 
-	//“ü—ÍƒXƒgƒŠ[ƒ€
+	//å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
 	template <class Char>
 	inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Quaternion& q)
 	{
@@ -138,19 +138,30 @@ namespace designlab
 		return is >> unused >> q.w >> unused >> q.v;
 	}
 
-	//! @brief 3ŸŒ³‚ÌˆÊ’uƒxƒNƒgƒ‹‚ğ‰ñ“]‚³‚¹‚éD
-	//! @param [in] vec ‰ñ“]‚³‚¹‚éƒxƒNƒgƒ‹D
-	//! @param [in] q ‰ñ“]‚³‚¹‚éƒNƒH[ƒ^ƒjƒIƒ“D
-	//! @param [in] use_normalized_quaternions ³‹K‰»‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğg‚¤‚©‚Ç‚¤‚©D
-	//! @n ³‹K‰»ƒNƒH[ƒ^ƒjƒIƒ“‚È‚ç‚ÎC‹¤–ğ‚Æ‹t”‚ª“™‚µ‚¢‚Ì‚ÅCŒvZ—Ê‚ğŒ¸‚ç‚·‚±‚Æ‚ª‚Å‚«‚éD
-	//! @return designlab::Vector3 ‰ñ“]Œã‚ÌƒxƒNƒgƒ‹D
-	[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const Quaternion& q, bool use_normalized_quaternions);
+	//! @brief 3æ¬¡å…ƒã®ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«ã‚’å›è»¢ã•ã›ã‚‹ï¼å¿…ãšæ­£è¦åŒ–ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ç”¨ã„ã‚‹ã“ã¨ï¼
+	//! @param [in] vec å›è»¢ã•ã›ã‚‹ãƒ™ã‚¯ãƒˆãƒ«ï¼
+	//! @param [in] q å›è»¢ã•ã›ã‚‹ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ï¼
+	//! @param [in] use_normalized_quaternions æ­£è¦åŒ–ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ä½¿ã†ã‹ã©ã†ã‹ï¼
+	//! @n æ­£è¦åŒ–ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ãªã‚‰ã°ï¼Œå…±å½¹ã¨é€†æ•°ãŒç­‰ã—ã„ã®ã§ï¼Œè¨ˆç®—é‡ã‚’æ¸›ã‚‰ã™ã“ã¨ãŒã§ãã‚‹ï¼
+	//! @return designlab::Vector3 å›è»¢å¾Œã®ãƒ™ã‚¯ãƒˆãƒ«ï¼
+	[[nodiscard]] constexpr Vector3 RotateVector3(const Vector3& vec, const Quaternion& q)
+	{
+		const designlab::Quaternion p{ 0, vec.x, vec.y, vec.z };	// å›è»¢ã•ã›ã‚‹ãƒ™ã‚¯ãƒˆãƒ«ã‚’ã‚¹ã‚«ãƒ©ãƒ¼ãŒ0ã®ã‚¯ã‚ªãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã«å¤‰æ›
 
-	//! @brief ‹…–ÊüŒ`•âŠÔ‚ğs‚¤D
-	//! @param [in] q1 ƒNƒH[ƒ^ƒjƒIƒ“1
-	//! @param [in] q2 ƒNƒH[ƒ^ƒjƒIƒ“2
-	//! @param [in] t •âŠÔŒW”D0`1‚Ì’l‚ğæ‚éD
-	//! @return designlab::Quaternion •âŠÔ‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“
+		// æ­£è¦åŒ–ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ä½¿ã†å ´åˆã¯ï¼Œå…±å½¹ã¨é€†æ•°ãŒç­‰ã—ã„ã®ã§ï¼Œè¨ˆç®—é‡ã‚’æ¸›ã‚‰ã™ã“ã¨ãŒã§ãã‚‹
+
+		assert(dlm::IsEqual(q.GetNorm(), 1.0f));	// æ­£è¦åŒ–ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ä½¿ã†å ´åˆã¯ï¼Œæ­£è¦åŒ–ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’æ¸¡ã™å¿…è¦ãŒã‚ã‚‹
+
+		//designlab::Quaternion res = q * p * q.GetInverse();	// Q * P * Q^-1 æ­£è¦åŒ–ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã§ãªã„ãªã‚‰ã°ï¼Œã“ã¡ã‚‰ã‚’ä½¿ã†ï¼
+
+		return (q * p * q.GetConjugate()).v;	// ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã‚’è¿”ã™
+	}
+
+	//! @brief çƒé¢ç·šå½¢è£œé–“ã‚’è¡Œã†ï¼
+	//! @param [in] q1 ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³1
+	//! @param [in] q2 ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³2
+	//! @param [in] t è£œé–“ä¿‚æ•°ï¼0ï½1ã®å€¤ã‚’å–ã‚‹ï¼
+	//! @return designlab::Quaternion è£œé–“ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
 	Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, float t);
 
 }	// namespace designlab	

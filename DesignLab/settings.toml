@@ -54,7 +54,7 @@ gui_display_quality = "kMedium"
 #コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い
 cmd_permission = "kDebug"
 #GUI(dxlibによる表示)での表示を行います (true/false)
-gui_display = false
+gui_display = true
 #GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．
 window_size_x = 1280
 

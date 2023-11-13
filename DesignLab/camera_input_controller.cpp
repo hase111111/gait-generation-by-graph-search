@@ -1,4 +1,4 @@
-#include "camera_input_controller.h"
+ï»¿#include "camera_input_controller.h"
 
 #include "cassert_define.h"
 #include "mouse.h"
@@ -22,20 +22,20 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 {
 	assert(camera_manager != nullptr);
 
-	//ƒzƒC[ƒ‹‚ª“®‚¢‚Ä‚¢‚½‚çƒJƒƒ‰‹——£‚ð•ÏX‚·‚é
+	//ãƒ›ã‚¤ãƒ¼ãƒ«ãŒå‹•ã„ã¦ã„ãŸã‚‰ã‚«ãƒ¡ãƒ©è·é›¢ã‚’å¤‰æ›´ã™ã‚‹
 	if (Mouse::GetIns()->GetWheelRot() != 0)
 	{
 		camera_manager->AddCameraToTargetLength(kCameraZoomSpeed * Mouse::GetIns()->GetWheelRot() * -1);
 	}
 
-	// ƒJ[ƒ\ƒ‹‚ª“®‚¢‚Ä‚¢‚½‚çCƒJƒƒ‰‚Ì‰ñ“]‚ð•ÏX‚·‚é
+	// ã‚«ãƒ¼ã‚½ãƒ«ãŒå‹•ã„ã¦ã„ãŸã‚‰ï¼Œã‚«ãƒ¡ãƒ©ã®å›žè»¢ã‚’å¤‰æ›´ã™ã‚‹
 	if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) > 0)
 	{
-		//ƒzƒC[ƒ‹ƒNƒŠƒbƒN‚ð‚µ‚Ä‚¢‚½‚çƒJƒƒ‰‚ð‰ñ“]‚³‚¹‚éDX‚ÆY‚Ì‚Ç‚¿‚ç‚©‚ÌˆÚ“®—Ê‚ª‘å‚«‚¢•û‚ðˆ—‚·‚é
+		//ãƒ›ã‚¤ãƒ¼ãƒ«ã‚¯ãƒªãƒƒã‚¯ã‚’ã—ã¦ã„ãŸã‚‰ã‚«ãƒ¡ãƒ©ã‚’å›žè»¢ã•ã›ã‚‹ï¼ŽXã¨Yã®ã©ã¡ã‚‰ã‹ã®ç§»å‹•é‡ãŒå¤§ãã„æ–¹ã‚’å‡¦ç†ã™ã‚‹
 
 		if (abs(Mouse::GetIns()->GetDiffPosX()) > 0)
 		{
-			//ƒJƒƒ‰‚Ì‰ñ“]‚ðƒ}ƒEƒX‚Ì‰¡ˆÚ“®—Ê‚É‡‚í‚¹‚Ä•ÏX
+			//ã‚«ãƒ¡ãƒ©ã®å›žè»¢ã‚’ãƒžã‚¦ã‚¹ã®æ¨ªç§»å‹•é‡ã«åˆã‚ã›ã¦å¤‰æ›´
 			dl::Quaternion move_quatx = {0, 0, 0, 0};
 
 			move_quatx = dl::Quaternion::MakeByAngleAxis(Mouse::GetIns()->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
@@ -49,7 +49,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 		if (abs(Mouse::GetIns()->GetDiffPosY()) > 0)
 		{
-			//ƒJƒƒ‰‚Ì‰ñ“]‚ðƒ}ƒEƒX‚ÌcˆÚ“®—Ê‚É‡‚í‚¹‚Ä•ÏX
+			//ã‚«ãƒ¡ãƒ©ã®å›žè»¢ã‚’ãƒžã‚¦ã‚¹ã®ç¸¦ç§»å‹•é‡ã«åˆã‚ã›ã¦å¤‰æ›´
 			dl::Quaternion move_quaty = dl::Quaternion::MakeByAngleAxis(Mouse::GetIns()->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
 
 			dl::Quaternion res = camera_manager->GetCameraQuat() * move_quaty;
@@ -62,7 +62,7 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
 	{
-		//¶ƒNƒŠƒbƒN‚µ‚Ä‚¢‚½‚çƒJƒƒ‰‚Ìƒrƒ…[Ž‹“_‚Ì’†SŽ²‚ð‰ñ“]Ž²‚Æ‚µ‚½‰ñ“]
+		//å·¦ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ãŸã‚‰ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¦–ç‚¹ã®ä¸­å¿ƒè»¸ã‚’å›žè»¢è»¸ã¨ã—ãŸå›žè»¢
 
 		const int mouse_move = (abs(Mouse::GetIns()->GetDiffPosX()) > abs(Mouse::GetIns()->GetDiffPosY())) ? 
 			Mouse::GetIns()->GetDiffPosX() : Mouse::GetIns()->GetDiffPosY();
@@ -78,11 +78,11 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 	}
 	else if (Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && Mouse::GetIns()->GetDiffPos() > kMouseMoveMargin)
 	{
-		//‰EƒNƒŠƒbƒN‚µ‚Ä‚¢‚½‚çƒJƒƒ‰‚Ì•½sˆÚ“®
+		//å³ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ãŸã‚‰ã‚«ãƒ¡ãƒ©ã®å¹³è¡Œç§»å‹•
 
 		if (camera_manager->GetCameraViewMode() != CameraViewMode::kFreeControlledAndMovableTarget)
 		{
-			//•\Ž¦ƒ‚[ƒh‚ð’Ž‹“_‚ðŽ©—R‚É“®‚©‚¹‚éƒ‚[ƒh‚É•ÏX
+			//è¡¨ç¤ºãƒ¢ãƒ¼ãƒ‰ã‚’æ³¨è¦–ç‚¹ã‚’è‡ªç”±ã«å‹•ã‹ã›ã‚‹ãƒ¢ãƒ¼ãƒ‰ã«å¤‰æ›´
 			camera_manager->SetCameraViewMode(CameraViewMode::kFreeControlledAndMovableTarget);
 		}
 
@@ -91,28 +91,28 @@ void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager
 
 		if (abs(Mouse::GetIns()->GetDiffPosX()) > 0)
 		{
-			//_X‚ÌˆÚ“®—Ê‚ª‘å‚«‚¢ê‡‚Í‰¡ˆÚ“®—Ê‚ðˆÚ“®—Ê‚Æ‚·‚é
+			//_Xã®ç§»å‹•é‡ãŒå¤§ãã„å ´åˆã¯æ¨ªç§»å‹•é‡ã‚’ç§»å‹•é‡ã¨ã™ã‚‹
 
 			move_vec_x = { 0, Mouse::GetIns()->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
 
-			move_vec_x = dl::RotateVector3(move_vec_x, camera_manager->GetCameraQuat(), true);
+			move_vec_x = dl::RotateVector3(move_vec_x, camera_manager->GetCameraQuat());
 		}
 
 		dl::Vector3 move_vec_y;
 
 		if (abs(Mouse::GetIns()->GetDiffPosY()) > 0)
 		{
-			//Y‚ÌˆÚ“®—Ê‚ª‘å‚«‚¢ê‡‚ÍcˆÚ“®—Ê‚ðˆÚ“®—Ê‚Æ‚·‚é
+			//Yã®ç§»å‹•é‡ãŒå¤§ãã„å ´åˆã¯ç¸¦ç§»å‹•é‡ã‚’ç§»å‹•é‡ã¨ã™ã‚‹
 
 			move_vec_y = { 0, 0, Mouse::GetIns()->GetDiffPosY() * kCameraTargetMoveSpeed };
 
-			move_vec_y = dl::RotateVector3(move_vec_y, camera_manager->GetCameraQuat(), true);
+			move_vec_y = dl::RotateVector3(move_vec_y, camera_manager->GetCameraQuat());
 		}
 
-		dl::Vector3 now_target_pos = camera_manager->GetFreeTargetPos();	//Œ»Ý‚Ìƒ^[ƒQƒbƒgÀ•W‚ðŽæ“¾
+		dl::Vector3 now_target_pos = camera_manager->GetFreeTargetPos();	//ç¾åœ¨ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ã‚’å–å¾—
 
-		now_target_pos = now_target_pos + move_vec_x + move_vec_y;			//ˆÚ“®—Ê‚ð‰ÁŽZ
+		now_target_pos = now_target_pos + move_vec_x + move_vec_y;			//ç§»å‹•é‡ã‚’åŠ ç®—
 
-		camera_manager->SetFreeTargetPos(now_target_pos);					//ƒ^[ƒQƒbƒgÀ•W‚ðXV	
+		camera_manager->SetFreeTargetPos(now_target_pos);					//ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ã‚’æ›´æ–°	
 	}
 }

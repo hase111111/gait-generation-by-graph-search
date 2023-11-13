@@ -276,7 +276,7 @@ dl::Vector3 PhantomXMkII::ConvertGlobalToLegCoordinate(
 
 	if (consider_rot)
 	{
-		return dl::RotateVector3(converted_position - center_of_mass_global, robot_quat.GetConjugate(), true) - GetLegBasePosRobotCoodinate(leg_index);
+		return dl::RotateVector3(converted_position - center_of_mass_global, robot_quat.GetConjugate()) - GetLegBasePosRobotCoodinate(leg_index);
 	}
 	else
 	{
@@ -297,7 +297,7 @@ dl::Vector3 PhantomXMkII::ConvertLegToGlobalCoordinate(
 
 	if (consider_rot)
 	{
-		return dl::RotateVector3(converted_position + GetLegBasePosRobotCoodinate(leg_index), robot_quat, true) + center_of_mass_global;
+		return dl::RotateVector3(converted_position + GetLegBasePosRobotCoodinate(leg_index), robot_quat) + center_of_mass_global;
 	}
 	else
 	{
@@ -313,7 +313,7 @@ designlab::Vector3 PhantomXMkII::ConvertRobotToGlobalCoordinate(
 {
 	if (consider_rot)
 	{
-		return designlab::RotateVector3(converted_position, robot_quat, true) + center_of_mass_global;
+		return designlab::RotateVector3(converted_position, robot_quat) + center_of_mass_global;
 	}
 	else
 	{

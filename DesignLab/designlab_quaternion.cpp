@@ -1,4 +1,4 @@
-#include "designlab_quaternion.h"
+ï»¿#include "designlab_quaternion.h"
 
 #include <sstream>
 
@@ -10,7 +10,7 @@ namespace dlm = ::designlab::math_util;
 
 designlab::Quaternion designlab::Quaternion::GetNormalized() const noexcept
 {
-	//ƒmƒ‹ƒ€‚ª0‚Ìê‡‚ÍC(0,0,0,0)‚ğ•Ô‚·
+	//ãƒãƒ«ãƒ ãŒ0ã®å ´åˆã¯ï¼Œ(0,0,0,0)ã‚’è¿”ã™
 	const float norm = GetNorm();
 	if (norm == 0) { return { 0,0,0,0 }; }
 
@@ -19,7 +19,7 @@ designlab::Quaternion designlab::Quaternion::GetNormalized() const noexcept
 
 designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const Vector3& axis)
 {
-	// ƒIƒCƒ‰[Šp‚ğƒNƒI[ƒ^ƒjƒIƒ“‚É•ÏŠ·
+	// ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’ã‚¯ã‚ªãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã«å¤‰æ›
 
 	const float kHalfAngle = angle * 0.5f;
 
@@ -43,47 +43,26 @@ std::string designlab::Quaternion::ToCsvString() const
 	return ss.str();
 }
 
-designlab::Vector3 designlab::RotateVector3(const designlab::Vector3& vec, const designlab::Quaternion& q, const bool use_normalized_quaternions)
-{
-	const designlab::Quaternion p{0, vec.x, vec.y, vec.z};	// ‰ñ“]‚³‚¹‚éƒxƒNƒgƒ‹‚ğƒXƒJƒ‰[‚ª0‚ÌƒNƒI[ƒ^ƒjƒIƒ“‚É•ÏŠ·
-	designlab::Quaternion res;	// Œ‹‰Ê
-
-	if (use_normalized_quaternions)
-	{
-		// ³‹K‰»‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğg‚¤ê‡‚ÍC‹¤–ğ‚Æ‹t”‚ª“™‚µ‚¢‚Ì‚ÅCŒvZ—Ê‚ğŒ¸‚ç‚·‚±‚Æ‚ª‚Å‚«‚é
-
-		assert(dlm::IsEqual(q.GetNorm(), 1.0f));	// ³‹K‰»‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğg‚¤ê‡‚ÍC³‹K‰»‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğ“n‚·•K—v‚ª‚ ‚é
-		
-		res = q * p * q.GetConjugate();	// Q * P * Q^-1 
-	}
-	else 
-	{
-		res = q * p * q.GetInverse();	// Q * P * Q^-1
-	}
-
-	return res.v;	// ƒxƒNƒgƒ‹¬•ª‚ğ•Ô‚·
-}
-
 designlab::Quaternion designlab::SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const float t)
 {
-	assert(0 <= t && t <= 1);	// t‚ª0~1‚ÌŠÔ‚Éû‚Ü‚Á‚Ä‚¢‚é‚©Šm”F
+	assert(0 <= t && t <= 1);	// tãŒ0~1ã®é–“ã«åã¾ã£ã¦ã„ã‚‹ã‹ç¢ºèª
 
-	if(q1 == q2) { return q1; }	// ƒNƒH[ƒ^ƒjƒIƒ“‚ª“™‚µ‚¢ê‡‚ÍCq1‚ğ•Ô‚·
+	if(q1 == q2) { return q1; }	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ãŒç­‰ã—ã„å ´åˆã¯ï¼Œq1ã‚’è¿”ã™
 
-	// ‹…–ÊüŒ`•âŠÔ‚ğs‚¤
-	float dot = q1.Dot(q2);		// “àÏ
+	// çƒé¢ç·šå½¢è£œé–“ã‚’è¡Œã†
+	float dot = q1.Dot(q2);		// å†…ç©
 
-	if(1.0f < dot) { dot = 1.0f; }			// “àÏ‚ª1‚æ‚è¬‚³‚¢ê‡‚ÍC1‚É‚·‚é
-	else if (dot < -1.0f) { dot = -1.0f; }	// “àÏ‚ª-1‚æ‚è‘å‚«‚¢ê‡‚ÍC-1‚É‚·‚é
+	if(1.0f < dot) { dot = 1.0f; }			// å†…ç©ãŒ1ã‚ˆã‚Šå°ã•ã„å ´åˆã¯ï¼Œ1ã«ã™ã‚‹
+	else if (dot < -1.0f) { dot = -1.0f; }	// å†…ç©ãŒ-1ã‚ˆã‚Šå¤§ãã„å ´åˆã¯ï¼Œ-1ã«ã™ã‚‹
 
-	const float theta = acosf(dot);	// Šp“x
-	if (math_util::IsEqual(theta, 0.f)) { return q1; }	// Šp“x‚ª0‚Ìê‡‚ÍCq1‚ğ•Ô‚·
+	const float theta = acosf(dot);	// è§’åº¦
+	if (math_util::IsEqual(theta, 0.f)) { return q1; }	// è§’åº¦ãŒ0ã®å ´åˆã¯ï¼Œq1ã‚’è¿”ã™
 
-	const float sin_theta = sinf(theta);		// sinƒÆ
-	const float sin_theta_inv = 1 / sin_theta;	// 1 / sinƒÆ
+	const float sin_theta = sinf(theta);		// sinÎ¸
+	const float sin_theta_inv = 1 / sin_theta;	// 1 / sinÎ¸
 
-	const float sin_t_theta = sinf(t * theta);			// sin(tƒÆ)
-	const float sin_1_t_theta = sinf((1 - t) * theta);	// sin((1-t)ƒÆ)
+	const float sin_t_theta = sinf(t * theta);			// sin(tÎ¸)
+	const float sin_1_t_theta = sinf((1 - t) * theta);	// sin((1-t)Î¸)
 
-	return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;	// •âŠÔ‚³‚ê‚½ƒNƒH[ƒ^ƒjƒIƒ“‚ğ•Ô‚·
+	return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;	// è£œé–“ã•ã‚ŒãŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’è¿”ã™
 }

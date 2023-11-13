@@ -1,4 +1,4 @@
-#include "camera_state_manager.h"
+ï»¿#include "camera_state_manager.h"
 
 #include <cmath>
 
@@ -23,11 +23,11 @@ CameraStateManager::CameraStateManager() :
 	now_camera_state_{},
 	goal_camera_state_{}
 {
-	SetCameraViewMode(CameraViewMode::kTopView);	//ƒJƒƒ‰‚Ì‰ŠúˆÊ’u‚ğƒZƒbƒg‚·‚éD
+	SetCameraViewMode(CameraViewMode::kTopView);	//ã‚«ãƒ¡ãƒ©ã®åˆæœŸä½ç½®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
 
-	SetCameraPosAndRot();		//ƒJƒƒ‰ˆÊ’u‚ğƒZƒbƒg‚·‚éD
+	SetCameraPosAndRot();		//ã‚«ãƒ¡ãƒ©ä½ç½®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
 
-	InitCaneraTargetLength();	//ƒJƒƒ‰‚Ì‹——£‚ğ‰Šú‰»‚·‚éD
+	InitCaneraTargetLength();	//ã‚«ãƒ¡ãƒ©ã®è·é›¢ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
 
 	now_camera_state_.camera_quat = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) * 
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetFrontVec());
@@ -36,14 +36,14 @@ CameraStateManager::CameraStateManager() :
 
 void CameraStateManager::Update()
 {
-	//ƒJƒƒ‰‚Ì‹——£‚ğ–Ú•W’l‚É‹ß‚Ã‚¯‚éD
+	//ã‚«ãƒ¡ãƒ©ã®è·é›¢ã‚’ç›®æ¨™å€¤ã«è¿‘ã¥ã‘ã‚‹ï¼
 	now_camera_state_.length_camera_to_target = dlm::ApproachTarget(
 		now_camera_state_.length_camera_to_target, 
 		goal_camera_state_.length_camera_to_target,
 		0.1f
 	);	
 
-	//ƒJƒƒ‰‚Ì‰ñ“]‚ğ–Ú•W’l‚É‹ß‚Ã‚¯‚éD
+	//ã‚«ãƒ¡ãƒ©ã®å›è»¢ã‚’ç›®æ¨™å€¤ã«è¿‘ã¥ã‘ã‚‹ï¼
 	now_camera_state_.camera_quat = dl::SlerpQuaternion(
 		now_camera_state_.camera_quat, 
 		goal_camera_state_.camera_quat,
@@ -53,7 +53,7 @@ void CameraStateManager::Update()
 	now_camera_state_.camera_quat = now_camera_state_.camera_quat.GetNormalized();
 
 
-	//ƒJƒƒ‰‚Ì’‹“_‚ğ–Ú•W’l‚É‹ß‚Ã‚¯‚éD
+	//ã‚«ãƒ¡ãƒ©ã®æ³¨è¦–ç‚¹ã‚’ç›®æ¨™å€¤ã«è¿‘ã¥ã‘ã‚‹ï¼
 	if (camera_view_mode_ != CameraViewMode::kFreeControlledAndMovableTarget)
 	{
 		now_camera_state_.target_pos = dlm::ApproachTarget(
@@ -72,25 +72,25 @@ void CameraStateManager::Update()
 	}
 
 
-	//ƒJƒƒ‰ˆÊ’u‚ğƒZƒbƒg‚·‚éD
+	//ã‚«ãƒ¡ãƒ©ä½ç½®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
 	SetCameraPosAndRot();
 
 	if (kOutputDebugLog) 
 	{
-		printfDx("camera‚Ìp¨(ƒNƒH[ƒ^ƒjƒIƒ“) w = %f, v= { %f, %f, %f }\n",
+		printfDx("cameraã®å§¿å‹¢(ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³) w = %f, v= { %f, %f, %f }\n",
 			now_camera_state_.camera_quat.w,
 			now_camera_state_.camera_quat.v.x,
 			now_camera_state_.camera_quat.v.y,
 			now_camera_state_.camera_quat.v.z
 		);
 
-		printfDx("camera‚Ì’‹“_ x = %f, y = %f, z = %f\n",
+		printfDx("cameraã®æ³¨è¦–ç‚¹ x = %f, y = %f, z = %f\n",
 			now_camera_state_.target_pos.x,
 			now_camera_state_.target_pos.y,
 			now_camera_state_.target_pos.z
 		);
 
-		printfDx("camera‚Ì‹——£ %f\n", now_camera_state_.length_camera_to_target);
+		printfDx("cameraã®è·é›¢ %f\n", now_camera_state_.length_camera_to_target);
 	}
 }
 
@@ -99,7 +99,7 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 {
 	camera_view_mode_ = mode;
 
-	// ƒS[ƒ‹À•W‚ğXV‚·‚é
+	// ã‚´ãƒ¼ãƒ«åº§æ¨™ã‚’æ›´æ–°ã™ã‚‹
 	switch (mode)
 	{
 	case CameraViewMode::kFrontView:
@@ -150,7 +150,7 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 	}
 
 	default:
-		assert(false);	//‚±‚±‚É—ˆ‚é‚±‚Æ‚Í‚È‚¢D
+		assert(false);	//ã“ã“ã«æ¥ã‚‹ã“ã¨ã¯ãªã„ï¼
 		break;
 	}
 }
@@ -158,7 +158,7 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 
 void CameraStateManager::InitCaneraTargetLength()
 {
-	//Å‘å‚ÆÅ¬‚Ì’†ŠÔ’l‚ğ‰Šú’l‚Æ‚·‚éD
+	//æœ€å¤§ã¨æœ€å°ã®ä¸­é–“å€¤ã‚’åˆæœŸå€¤ã¨ã™ã‚‹ï¼
 	goal_camera_state_.length_camera_to_target = (GraphicConst::kCameraToTargetMin + GraphicConst::kCameraToTargetMax) * 0.5f;
 }
 
@@ -167,13 +167,13 @@ void CameraStateManager::AddCameraToTargetLength(const float length_dif)
 {
 	goal_camera_state_.length_camera_to_target += length_dif;
 
-	// ƒJƒƒ‰‚Ì‹——£‚ªÅ‘å’l‚ğ’´‚¦‚½‚çÅ‘å’l‚É‚·‚éD
+	// ã‚«ãƒ¡ãƒ©ã®è·é›¢ãŒæœ€å¤§å€¤ã‚’è¶…ãˆãŸã‚‰æœ€å¤§å€¤ã«ã™ã‚‹ï¼
 	if (GraphicConst::kCameraToTargetMax < goal_camera_state_.length_camera_to_target)
 	{
 		goal_camera_state_.length_camera_to_target = GraphicConst::kCameraToTargetMax;
 	}
 
-	// ƒJƒƒ‰‚Ì‹——£‚ªÅ¬’l‚ğ‰º‰ñ‚Á‚½‚çÅ¬’l‚É‚·‚éD
+	// ã‚«ãƒ¡ãƒ©ã®è·é›¢ãŒæœ€å°å€¤ã‚’ä¸‹å›ã£ãŸã‚‰æœ€å°å€¤ã«ã™ã‚‹ï¼
 	if (goal_camera_state_.length_camera_to_target < GraphicConst::kCameraToTargetMin)
 	{
 		goal_camera_state_.length_camera_to_target = GraphicConst::kCameraToTargetMin;
@@ -183,12 +183,12 @@ void CameraStateManager::AddCameraToTargetLength(const float length_dif)
 
 void CameraStateManager::SetCameraPosAndRot()
 {
-	//ƒJƒƒ‰‚ÌˆÊ’u‚ğƒZƒbƒg‚·‚éDƒNƒH[ƒ^ƒjƒIƒ“‚ğ—p‚¢‚Ä‰ñ“]‚³‚¹Cdl_vec::vector‚©‚çdxlib::VECTOR‚É•ÏŠ·‚·‚éD
+	//ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ç”¨ã„ã¦å›è»¢ã•ã›ï¼Œdl_vec::vectorã‹ã‚‰dxlib::VECTORã«å¤‰æ›ã™ã‚‹ï¼
 
-	dl::Vector3 camera_target_dif = dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat, false) * now_camera_state_.length_camera_to_target;
+	dl::Vector3 camera_target_dif = dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) * now_camera_state_.length_camera_to_target;
 	VECTOR camera_pos = dldu::ConvertToDxlibVec(camera_target_dif + now_camera_state_.target_pos);
 
-	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::RotateVector3(kDefaultCameraUpVec, now_camera_state_.camera_quat, false));
+	VECTOR camera_upvec = dldu::ConvertToDxlibVec(dl::RotateVector3(kDefaultCameraUpVec, now_camera_state_.camera_quat));
 
 	SetCameraPositionAndTargetAndUpVec(
 		camera_pos, 
@@ -196,7 +196,7 @@ void CameraStateManager::SetCameraPosAndRot()
 		camera_upvec
 	);
 
-	// ChangeLightTypeDir‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅCƒJƒƒ‰Œü‚«‚É‡‚í‚¹‚Äƒ‰ƒCƒg‚ÌŒü‚«‚à•ÏX‚·‚éD
-	VECTOR light_dir = dldu::ConvertToDxlibVec(-dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat, false));
+	// ChangeLightTypeDirã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§ï¼Œã‚«ãƒ¡ãƒ©å‘ãã«åˆã‚ã›ã¦ãƒ©ã‚¤ãƒˆã®å‘ãã‚‚å¤‰æ›´ã™ã‚‹ï¼
+	VECTOR light_dir = dldu::ConvertToDxlibVec(-dl::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat));
 	ChangeLightTypeDir(light_dir);
 }
