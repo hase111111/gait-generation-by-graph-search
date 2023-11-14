@@ -7,11 +7,24 @@
 namespace dl = ::designlab;
 namespace dlm = ::designlab::math_util;
 
+InterpolatedNodeCreator::InterpolatedNodeCreator(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) : 
+	converter_ptr_(converter_ptr)
+{
+}
+
 std::vector<RobotStateNode>  InterpolatedNodeCreator::CreateInterpolatedNode(
 	const RobotStateNode& current_node, 
 	const RobotStateNode& next_node) const
 {
-	if (IsNoChange(current_node, next_node)) { return { current_node }; }
+	if (IsNoChange(current_node, next_node)) 
+	{ 
+		return { current_node }; 
+	}
+
+	if (IsBodyRot(current_node, next_node))
+	{
+		return CreateBodyRotInterpolatedNode(current_node, next_node);
+	}
 
 	if (IsBodyMove(current_node, next_node)) 
 	{
@@ -49,8 +62,12 @@ bool InterpolatedNodeCreator::IsNoChange(const RobotStateNode& current_node, con
 
 bool InterpolatedNodeCreator::IsBodyMove(const RobotStateNode& current_node, const RobotStateNode& next_node) const
 {
-	return (current_node.global_center_of_mass != next_node.global_center_of_mass) || 
-		(current_node.quat != next_node.quat);
+	return current_node.global_center_of_mass != next_node.global_center_of_mass;
+}
+
+bool InterpolatedNodeCreator::IsBodyRot(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	return current_node.quat != next_node.quat;
 }
 
 std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
@@ -63,12 +80,30 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedN
 		const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kBodyMoveInterpolatedNodeNum));
 
 		temp_node.global_center_of_mass = current_node.global_center_of_mass + (next_node.global_center_of_mass - current_node.global_center_of_mass) * ex;
-		temp_node.quat = dl::SlerpQuaternion(current_node.quat, next_node.quat, ex);
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
 			temp_node.leg_pos[j] = current_node.leg_pos[j] + (next_node.leg_pos[j] - current_node.leg_pos[j]) * ex;
 		}
+
+		res.push_back(temp_node);
+	}
+
+	return res;
+}
+
+std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyRotInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	std::vector<RobotStateNode> res;
+
+	for (int i = 0; i < kBodyMoveInterpolatedNodeNum; i++)
+	{
+		RobotStateNode temp_node = current_node;
+		const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kBodyMoveInterpolatedNodeNum));
+
+		const dl::Quaternion quat = dl::SlerpQuaternion(current_node.quat, next_node.quat, ex).GetNormalized();
+
+		temp_node.ChangeQuat(converter_ptr_, quat);
 
 		res.push_back(temp_node);
 	}

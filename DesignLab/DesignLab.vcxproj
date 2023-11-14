@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="body_yaw_rot_node_creator.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
     <ClInclude Include="map_create_mode_messenger.h" />
+    <ClInclude Include="node_creator_builder_rot_test.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="com_selecter_hato.h" />
     <ClInclude Include="com_up_down_node_creator.h" />
@@ -127,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
+    <ClCompile Include="body_yaw_rot_node_creator.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="button_controller.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />
@@ -136,6 +139,7 @@
     <ClCompile Include="designlab_rot_converter.cpp" />
     <ClCompile Include="designlab_string_util.cpp" />
     <ClCompile Include="devide_map_state.cpp" />
+    <ClCompile Include="node_creator_builder_rot_test.cpp" />
     <ClCompile Include="node_initializer.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />
     <ClCompile Include="com_up_down_node_creator.cpp" />

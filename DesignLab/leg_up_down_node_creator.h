@@ -1,5 +1,5 @@
-//! @file leg_up_down_node_creator.h
-//! @brief �r�̏グ����������G�b�W(�ӁC�m�[�h�ƃm�[�h���q����)�̏���������N���X�D
+﻿//! @file leg_up_down_node_creator.h
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
 
 #ifndef DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
 #define DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
@@ -17,8 +17,8 @@
 
 
 //! @class LegUpDownNodeCreator
-//! @brief �r�̏グ����������G�b�W(�ӁC�m�[�h�ƃm�[�h���q����)�̏���������N���X�D
-//! @note ��]���l�����Ă��Ȃ��̂Œ���
+//! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
+//! @note 回転を考慮していないので注意
 class LegUpDownNodeCreator final : public INodeCreator
 {
 public:
@@ -36,19 +36,19 @@ public:
 
 private:
 
-	//�r���ڒn�\�����ׂ�D�n�ʂɊ����邩�ǂ����𒲂ׂĂ��Ȃ��̂Œ��ӁD���ۂɐڒn����Ƃ�����ǂ��ɂȂ邩��output_ground_pos�ŏo�͂���D
+	//! @brief 脚が接地可能か調べる．地面に干渉するかどうかを調べていないので注意．実際に接地するとしたらどこになるかをoutput_ground_posで出力する．
 	bool IsGroundableLeg(int leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos) const;
 
-	//���U�������r�ʒu��4�̃O���[�o�����W�C���_�̃O���[�o�����W�C�t�����̃O���[�o�����W�D���݂̋r���(1�`7)�C�����𗘗p���Č��_�����U�������r�ʒu�ɓK���Ă��邩���ׂ�D
+	//! @brief 離散化した脚位置の4のグローバル座標，候補点のグローバル座標，付け根のグローバル座標．現在の脚状態(1～7)，これらを利用して候補点が離散化した脚位置に適しているか調べる．
 	bool IsAbleLegPos(const RobotStateNode& node, int leg_num) const;
 
 
-	const float kLegMargin;		//!< ���ꂾ���������Ό��݂̋r�ʒu�ł��͂��̂Ȃ�΁C�r�ʒu4����ƂȂ�D
-	const float kHighMargin;	//!< �c�����iZ�������j�̃}�[�W���D���͈͓̔��Ȃ�ΐ^�񒆂ɂ���Ƃ݂Ȃ��D
+	const float kLegMargin;		//!< これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
+	const float kHighMargin;	//!< 縦方向（Z軸方向）のマージン．この範囲内ならば真ん中にあるとみなす．
 
-	const DevideMapState map_;	//!< �}�b�v�̏�ԁD
+	const DevideMapState map_;	//!< マップの状態．
 
-	const HexapodMove next_move_;	//!< ���̈ړ������D
+	const HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

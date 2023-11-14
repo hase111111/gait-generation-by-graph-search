@@ -9,10 +9,9 @@
 #include <memory>
 #include <vector>
 
+#include "graph_tree_creator.h"
 #include "interface_pass_finder.h"
 #include "interface_graph_searcher.h"
-#include "graph_tree_creator.h"
-#include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
 
@@ -43,8 +42,6 @@ private:
 	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_revaluation_ptr_;	//!< 再評価用の木構造のグラフを作成するクラス
 
 	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< グラフ探索を行うクラス
-
-	InterpolatedNodeCreator interpolated_node_creator_;	//!< 補間ノードを作成するクラス
 
 	bool IsVaildNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 };

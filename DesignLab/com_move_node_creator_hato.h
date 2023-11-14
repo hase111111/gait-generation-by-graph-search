@@ -42,7 +42,7 @@ private:
 	const ComSelecterHato selecter_;		//!< 多角形から最適な地面を選択するクラス
 
 	const DevideMapState map_;		//!< 地面の状態を格納したクラス
-	const HexapodMove next_move_;	//!< 次の移動方向
+	const HexapodMove next_move_;	//!< 次の動作
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

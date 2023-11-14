@@ -23,6 +23,7 @@ GraphicMainBasic::GraphicMainBasic(
 	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
+	interpolated_node_creator_{converter_ptr},
 	robot_graund_point_renderer_(converter_ptr),
 	stability_margin_renderer_(converter_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),

@@ -1,5 +1,5 @@
-//! @file leg_hierarchy_node_creator.h
-//! @brief ‹r‚ÌŠK‘w\‘¢‚ğì‚é‚½‚ß‚ÌƒNƒ‰ƒXD
+ï»¿//! @file leg_hierarchy_node_creator.h
+//! @brief è„šã®éšå±¤æ§‹é€ ã‚’ä½œã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
 #define DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
@@ -15,7 +15,7 @@
 
 
 //! @class LegHierarchyNodeCreator
-//! @brief ‹r‚ÌŠK‘w\‘¢‚ğì‚é‚½‚ß‚ÌƒNƒ‰ƒXD
+//! @brief è„šã®éšå±¤æ§‹é€ ã‚’ä½œã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 class LegHierarchyNodeCreator final : public INodeCreator
 {
 public:
@@ -28,21 +28,20 @@ public:
 private:
 
 
-	// 1‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
+	//! @brief 1è„šãŒéŠè„šã—ã¦ã„ã‚‹ã¨ãï¼Œãã®è„šã®çŠ¶æ…‹ã‚’åˆ¥ã®çŠ¶æ…‹ã«å¤‰æ›´ã™ã‚‹ï¼
 	void create1LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
-	// 2‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
+	//! @brief 2è„šãŒéŠè„šã—ã¦ã„ã‚‹ã¨ãï¼Œãã®è„šã®çŠ¶æ…‹ã‚’åˆ¥ã®çŠ¶æ…‹ã«å¤‰æ›´ã™ã‚‹ï¼
 	void create2LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
-	// 3‹r‚ª—V‹r‚µ‚Ä‚¢‚é‚Æ‚«C‚»‚Ì‹r‚Ìó‘Ô‚ğ•Ê‚Ìó‘Ô‚É•ÏX‚·‚éD
+	//! @brief 3è„šãŒéŠè„šã—ã¦ã„ã‚‹ã¨ãï¼Œãã®è„šã®çŠ¶æ…‹ã‚’åˆ¥ã®çŠ¶æ…‹ã«å¤‰æ›´ã™ã‚‹ï¼
 	void create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 
-	const HexapodMove next_move_;									
+	const HexapodMove next_move_;	//!< æ¬¡ã®å‹•ä½œï¼						
 
-	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< —£U‰»‚³‚ê‚½‹rˆÊ’u‚ÌƒŠƒXƒgC‚±‚ÌƒŠƒXƒg‚Ì’†‚Ì’l‚©‚ç‹r‚Ìó‘Ô‚ğ•ÏX‚·‚éD
+	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< é›¢æ•£åŒ–ã•ã‚ŒãŸè„šä½ç½®ã®ãƒªã‚¹ãƒˆï¼Œã“ã®ãƒªã‚¹ãƒˆã®ä¸­ã®å€¤ã‹ã‚‰è„šã®çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹ï¼
 };
-
 
 
 #endif // DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
