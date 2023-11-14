@@ -1,22 +1,27 @@
-#include "result_file_exporter.h"
+ï»¿#include "result_file_exporter.h"
 
 #include <filesystem>
+#include <map>
 
 #include <magic_enum.hpp>
 
 #include "cmdio_util.h"
+#include "designlab_avarage.h"
 #include "designlab_math_util.h"
 #include "stopwatch.h"
 
 
-namespace dlio = designlab::cmdio;
-namespace dlm = designlab::math_util;
-namespace sf = std::filesystem;	//’·‚·‚¬‚é‚Ì‚ÅCfilesystem‚Ì–¼‘O‹óŠÔ‚ğ’Zk‚·‚éD
+namespace dl = ::designlab;
+namespace dlio = ::designlab::cmdio;
+namespace dlm = ::designlab::math_util;
+namespace sf = ::std::filesystem;	//é•·ã™ãã‚‹ã®ã§ï¼Œfilesystemã®åå‰ç©ºé–“ã‚’çŸ­ç¸®ã™ã‚‹ï¼
 
 
-const std::string ResultFileConst::kDirectoryPath = sf::current_path().string() + "/result";
+const std::string ResultFileConst::kDirectoryPath = sf::current_path().string() + "\\result";
 
 const std::string ResultFileConst::kFileName = "sim_result";
+
+const std::string ResultFileConst::kDetailFileName = "sim_result_detail";
 
 const std::string ResultFileConst::kNodeListName = "node_list";
 
@@ -31,39 +36,39 @@ ResultFileExporter::ResultFileExporter() :
 
 void ResultFileExporter::Init()
 {
-	//resultƒtƒHƒ‹ƒ_‚ª‚È‚¯‚ê‚Îì¬‚·‚éD
+	//resultãƒ•ã‚©ãƒ«ãƒ€ãŒãªã‘ã‚Œã°ä½œæˆã™ã‚‹ï¼
 	if (not sf::exists(ResultFileConst::kDirectoryPath))
 	{
-		dlio::Output("Œ‹‰Êo—ÍæƒtƒHƒ‹ƒ_ " + ResultFileConst::kDirectoryPath + "‚ª‘¶İ‚µ‚È‚¢‚Ì‚Åì¬‚µ‚Ü‚·D", OutputDetail::kInfo);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ " + ResultFileConst::kDirectoryPath + "ãŒå­˜åœ¨ã—ãªã„ã®ã§ä½œæˆã—ã¾ã™ï¼", OutputDetail::kInfo);
 		sf::create_directory(ResultFileConst::kDirectoryPath);
 	}
 
-	//ƒtƒHƒ‹ƒ_–¼‚ğw’è‚·‚éDŒ»İ‚ğæ“¾‚µC‚»‚ê‚ğƒtƒHƒ‹ƒ_–¼‚É‚·‚éD
+	//ãƒ•ã‚©ãƒ«ãƒ€åã‚’æŒ‡å®šã™ã‚‹ï¼ç¾åœ¨æ™‚åˆ»ã‚’å–å¾—ã—ï¼Œãã‚Œã‚’ãƒ•ã‚©ãƒ«ãƒ€åã«ã™ã‚‹ï¼
 	Stopwatch timer;
 	folder_name_ = timer.GetNowTimeString();
 
 
-	//o—ÍæƒtƒHƒ‹ƒ_‚ğì¬‚·‚éD
+	//å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã™ã‚‹ï¼
 	std::string output_folder_name = ResultFileConst::kDirectoryPath + "/" + folder_name_;
 
 	if (sf::exists(output_folder_name))
 	{
-		//‚·‚Å‚É“¯–¼‚ÌƒtƒHƒ‹ƒ_‚ª‘¶İ‚·‚éê‡‚ÍC‰Šú‰»¸”sƒtƒ‰ƒO‚ğ—§‚Ä‚éD
+		//ã™ã§ã«åŒåã®ãƒ•ã‚©ãƒ«ãƒ€ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ï¼ŒåˆæœŸåŒ–å¤±æ•—ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹ï¼
 		init_success_ = false;
 
-		dlio::Output("Œ‹‰Êo—Íæ‚ÌƒtƒHƒ‹ƒ_ " + output_folder_name + "‚Í‚·‚Å‚É‘¶İ‚µ‚Ü‚·D", OutputDetail::kError);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ " + output_folder_name + "ã¯ã™ã§ã«å­˜åœ¨ã—ã¾ã™ï¼", OutputDetail::kError);
 
 		return;
 	}
 
-	sf::create_directory(output_folder_name);	//ƒtƒHƒ‹ƒ_‚ğì¬‚·‚éD
+	sf::create_directory(output_folder_name);	//ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã™ã‚‹ï¼
 
 	if (not sf::exists(output_folder_name))
 	{
-		//¡“x‚Í‹t‚ÉCƒtƒHƒ‹ƒ_‚ªì¬‚Å‚«‚È‚©‚Á‚½ê‡‚ÍC‰Šú‰»¸”sƒtƒ‰ƒO‚ğ—§‚Ä‚éD
+		//ä»Šåº¦ã¯é€†ã«ï¼Œãƒ•ã‚©ãƒ«ãƒ€ãŒä½œæˆã§ããªã‹ã£ãŸå ´åˆã¯ï¼ŒåˆæœŸåŒ–å¤±æ•—ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹ï¼
 		init_success_ = false;
 
-		dlio::Output("Œ‹‰Êo—Íæ‚ÌƒtƒHƒ‹ƒ_ " + output_folder_name + "‚ğì¬‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kError);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ " + output_folder_name + "ã‚’ä½œæˆã§ãã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
 
 		return;
 	}
@@ -73,137 +78,185 @@ void ResultFileExporter::Init()
 
 void ResultFileExporter::PushSimulationResult(const SimulationResultRecorder& simu_result)
 {
-	//Œ‹‰Ê‚ğƒZƒbƒg‚·‚é
+	//çµæœã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	result_list_.push_back(simu_result);
 }
 
 
 void ResultFileExporter::ExportLatestNodeList() const 
 {
-	//‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
+	//åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
 	if (not init_success_)
 	{
-		dlio::Output("Œ‹‰Êo—Íæ‚ÌƒtƒHƒ‹ƒ_‚Ì‰Šú‰»‚É¸”s‚µ‚Ä‚¢‚é‚½‚ßCNodeList‚ğo—Í‚Å‚«‚Ü‚¹‚ñ", OutputDetail::kError);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ã®åˆæœŸåŒ–ã«å¤±æ•—ã—ã¦ã„ã‚‹ãŸã‚ï¼ŒNodeListã‚’å‡ºåŠ›ã§ãã¾ã›ã‚“", OutputDetail::kError);
 		return;
 	}
 
 	if (not do_export_)
 	{
-		dlio::Output("Œ‹‰Êo—Íƒtƒ‰ƒO‚ªfalse‚Ì‚½‚ßCNodeList‚ğo—Í‚µ‚Ü‚¹‚ñ", OutputDetail::kInfo);
+		dlio::Output("çµæœå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®ãŸã‚ï¼ŒNodeListã‚’å‡ºåŠ›ã—ã¾ã›ã‚“", OutputDetail::kInfo);
 		return;
 	}
 
-	dlio::Output("NodeList‚ğo—Í‚µ‚Ü‚·D", OutputDetail::kInfo);
+	dlio::Output("NodeListã‚’å‡ºåŠ›ã—ã¾ã™ï¼", OutputDetail::kInfo);
 
-	//o—Íæƒtƒ@ƒCƒ‹‚ğì¬‚·‚éD
-	std::string output_file_name = ResultFileConst::kDirectoryPath + "/" + folder_name_ + "/" + ResultFileConst::kNodeListName + std::to_string(result_list_.size()) + ".csv";
+	//å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹ï¼
+	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kNodeListName + std::to_string(result_list_.size()) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
-	//ƒtƒ@ƒCƒ‹‚ªì¬‚Å‚«‚È‚©‚Á‚½ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D
+	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆã§ããªã‹ã£ãŸå ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
 	if ( ! ofs)
 	{
-		dlio::Output("ƒtƒ@ƒCƒ‹ " + output_file_name + "‚ğì¬‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kError);
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ« " + output_file_name + "ã‚’ä½œæˆã§ãã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
 		return;
 	}
 
 	for (const auto& i : result_list_.back().graph_search_result_recoder)
 	{
-		ofs << i.result_node << "\n";	//ƒm[ƒh‚ğo—Í‚·‚éD
+		ofs << i.result_node << "\n";	//ãƒãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹ï¼
 	}
 
-	ofs.close();	//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚éD
+	ofs.close();	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹ï¼
 
-	dlio::Output("o—ÍŠ®—¹ : " + output_file_name, OutputDetail::kInfo);
+	dlio::Output("å‡ºåŠ›å®Œäº† : " + output_file_name, OutputDetail::kInfo);
 }
 
 
 void ResultFileExporter::ExportLatestMapState() const 
 {
-	//‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
+	//åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
 	if (not init_success_)
 	{
-		dlio::Output("Œ‹‰Êo—Íæ‚ÌƒtƒHƒ‹ƒ_‚Ì‰Šú‰»‚É¸”s‚µ‚Ä‚¢‚é‚½‚ßCMapState‚ğo—Í‚Å‚«‚Ü‚¹‚ñ", OutputDetail::kError);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ã®åˆæœŸåŒ–ã«å¤±æ•—ã—ã¦ã„ã‚‹ãŸã‚ï¼ŒMapStateã‚’å‡ºåŠ›ã§ãã¾ã›ã‚“", OutputDetail::kError);
 		return;
 	}
 
 	if (not do_export_)
 	{
-		dlio::Output("Œ‹‰Êo—Íƒtƒ‰ƒO‚ªfalse‚Ì‚½‚ßCMapState‚ğo—Í‚µ‚Ü‚¹‚ñ", OutputDetail::kInfo);
+		dlio::Output("çµæœå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®ãŸã‚ï¼ŒMapStateã‚’å‡ºåŠ›ã—ã¾ã›ã‚“", OutputDetail::kInfo);
 		return;
 	}
 
-	dlio::Output("MapState‚ğo—Í‚µ‚Ü‚·D", OutputDetail::kInfo);
+	dlio::Output("MapStateã‚’å‡ºåŠ›ã—ã¾ã™ï¼", OutputDetail::kInfo);
 
-	//o—Íæƒtƒ@ƒCƒ‹‚ğì¬‚·‚éD
-	std::string output_file_name = ResultFileConst::kDirectoryPath + "/" + folder_name_ + "/" + ResultFileConst::kMapStateName + std::to_string(result_list_.size()) + ".csv";
+	//å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹ï¼
+	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kMapStateName + std::to_string(result_list_.size()) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
-	//ƒtƒ@ƒCƒ‹‚ªì¬‚Å‚«‚È‚©‚Á‚½ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D
-	if (not ofs)
+	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆã§ããªã‹ã£ãŸå ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	if (! ofs)
 	{
-		dlio::Output("ƒtƒ@ƒCƒ‹ " + output_file_name + " ‚ğì¬‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kError);
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ« " + output_file_name + " ã‚’ä½œæˆã§ãã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
 		return;
 	}
 
-	ofs << result_list_.back().map_state;	//ƒ}ƒbƒvó‘Ô‚ğo—Í‚·‚éD
+	ofs << result_list_.back().map_state;	//ãƒãƒƒãƒ—çŠ¶æ…‹ã‚’å‡ºåŠ›ã™ã‚‹ï¼
 
-	ofs.close();	//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚éD
+	ofs.close();	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹ï¼
 
-	dlio::Output("o—ÍŠ®—¹ : " + output_file_name, OutputDetail::kInfo);
+	dlio::Output("å‡ºåŠ›å®Œäº† : " + output_file_name, OutputDetail::kInfo);
+}
+
+void ResultFileExporter::ExportAllResultDetail() const
+{
+	//åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	if (!init_success_)
+	{
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ã®åˆæœŸåŒ–ã«å¤±æ•—ã—ã¦ã„ã‚‹ãŸã‚ï¼Œçµæœã‚’å‡ºåŠ›ã§ãã¾ã›ã‚“", OutputDetail::kError);
+		return;
+	}
+
+	if (!do_export_)
+	{
+		dlio::Output("çµæœå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®ãŸã‚ï¼Œçµæœã‚’å‡ºåŠ›ã—ã¾ã›ã‚“", OutputDetail::kInfo);
+		return;
+	}
+
+	dlio::Output("ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å…¨ä½“ã®çµæœã‚’å‡ºåŠ›ã—ã¾ã™ï¼ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•° : " + std::to_string(result_list_.size()), OutputDetail::kInfo);
+
+	//å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹ï¼
+	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kDetailFileName + ".csv";
+
+	std::ofstream ofs(output_file_name);
+
+	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆã§ããªã‹ã£ãŸå ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	if (!ofs)
+	{
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ« " + output_file_name + " ã‚’ä½œæˆã§ãã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
+		return;
+	}
+
+	ofs << "ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°" << result_list_.size() << "\n";
+
+	//æˆåŠŸã—ãŸã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°ã‚’æ•°ãˆã‚‹ï¼
+	std::map<SimulationResult, int> result_count;
+
+	for (const auto& i : result_list_)
+	{
+		result_count[i.simulation_result]++;
+	}
+
+	ofs << "æˆåŠŸã—ãŸã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°," << result_count[SimulationResult::kSuccess] << "\n";
+	ofs << "å¤±æ•—ã—ãŸã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°," << 
+		result_count[SimulationResult::kFailureByGraphSearch] + result_count[SimulationResult::kFailureByLoopMotion] +
+		result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
+	ofs << "ã‚°ãƒ©ãƒ•æ¢ç´¢ã«å¤±æ•—,"  << result_count[SimulationResult::kFailureByGraphSearch] << "\n";
+	ofs << "ãƒ‡ãƒƒãƒ‰ãƒ­ãƒƒã‚¯ã«é™¥ã£ãŸ," << result_count[SimulationResult::kFailureByLoopMotion] << "\n";
+	ofs << "ãƒãƒ¼ãƒ‰æ•°åˆ¶é™ã‚’è¶…ãˆãŸ," << result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
 }
 
 
 void ResultFileExporter::ExportResult() const
 {
-	//‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
-	if (not init_success_) 
+	//åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	if (! init_success_) 
 	{
-		dlio::Output("Œ‹‰Êo—Íæ‚ÌƒtƒHƒ‹ƒ_‚Ì‰Šú‰»‚É¸”s‚µ‚Ä‚¢‚é‚½‚ßCŒ‹‰Ê‚ğo—Í‚Å‚«‚Ü‚¹‚ñ", OutputDetail::kError);
+		dlio::Output("çµæœå‡ºåŠ›å…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ã®åˆæœŸåŒ–ã«å¤±æ•—ã—ã¦ã„ã‚‹ãŸã‚ï¼Œçµæœã‚’å‡ºåŠ›ã§ãã¾ã›ã‚“", OutputDetail::kError);
 		return; 
 	}
 
-	if (not do_export_) 
+	if (! do_export_) 
 	{
-		dlio::Output("Œ‹‰Êo—Íƒtƒ‰ƒO‚ªfalse‚Ì‚½‚ßCŒ‹‰Ê‚ğo—Í‚µ‚Ü‚¹‚ñ", OutputDetail::kInfo);
+		dlio::Output("çµæœå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®ãŸã‚ï¼Œçµæœã‚’å‡ºåŠ›ã—ã¾ã›ã‚“", OutputDetail::kInfo);
 		return; 
 	}
 
-	dlio::Output("Œ‹‰Ê‚ğo—Í‚µ‚Ü‚·DƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“” : " + std::to_string(result_list_.size()), OutputDetail::kInfo);
+	dlio::Output("çµæœã‚’å‡ºåŠ›ã—ã¾ã™ï¼ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•° : " + std::to_string(result_list_.size()), OutputDetail::kInfo);
 
 	for (int i = 0; i < result_list_.size(); i++)
 	{
 		if (OutputResultDetail(result_list_[i], i)) 
 		{
-			dlio::Output("o—ÍŠ®—¹ : ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô† " + std::to_string(i + 1), OutputDetail::kInfo);
+			dlio::Output("å‡ºåŠ›å®Œäº† : ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå· " + std::to_string(i + 1), OutputDetail::kInfo);
 		}
 		else 
 		{
-			dlio::Output("o—Í¸”s : ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô† " + std::to_string(i + 1), OutputDetail::kInfo);
+			dlio::Output("å‡ºåŠ›å¤±æ•— : ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå· " + std::to_string(i + 1), OutputDetail::kInfo);
 		}
 	}
 }
 
 bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& recoder, const int index) const
 {
-	//o—Íæƒtƒ@ƒCƒ‹‚ğì¬‚·‚éD
+	//å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹ï¼
 	std::string output_file_name = 
-		ResultFileConst::kDirectoryPath + "/" + folder_name_ + "/" + ResultFileConst::kFileName + std::to_string(index + 1) + ".csv";
+		ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kFileName + std::to_string(index + 1) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
-	//ƒtƒ@ƒCƒ‹‚ªì¬‚Å‚«‚È‚©‚Á‚½ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D
-	if (not ofs) { return false; }
+	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆã§ããªã‹ã£ãŸå ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	if (! ofs) { return false; }
 
-	//Œ‹‰Ê‚ğo—Í‚·‚éD
+	//çµæœã‚’å‡ºåŠ›ã™ã‚‹ï¼
 	ofs << recoder.ToCsvString() << std::endl;
 
 
-	//ŠÔ‚Ì“Œv‚ğo—Í‚·‚éD
-	double max_time = recoder.graph_search_result_recoder[1].computation_time;	//Å‰‚Ìƒm[ƒh‚Íœ‚­(ŒvZŠÔ0‚ÅŒÅ’è‚Ì‚½‚ß)
+	//æ™‚é–“ã®çµ±è¨ˆã‚’å‡ºåŠ›ã™ã‚‹ï¼
+	double max_time = recoder.graph_search_result_recoder[1].computation_time;	//æœ€åˆã®ãƒãƒ¼ãƒ‰ã¯é™¤ã(è¨ˆç®—æ™‚é–“0ã§å›ºå®šã®ãŸã‚)
 	double min_time = max_time;
-	double sum_time = 0.0;
+	dl::AverageCalculator<double> ave_calculator;
 
 	if (recoder.graph_search_result_recoder.size() > 1) 
 	{
@@ -215,19 +268,23 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 
 			if (time < min_time) { min_time = time; }
 
-			sum_time += time;
+			ave_calculator.AddData(time);
 		}
 	}
 
-	const double average_time = sum_time / static_cast<double>(recoder.graph_search_result_recoder.size());
+	ofs << "æœ€å¤§æ¢ç´¢æ™‚é–“," << dlm::ConvertDoubleToString(max_time) << ",[msec]" << std::endl;
+	ofs << "æœ€å°æ¢ç´¢æ™‚é–“," << dlm::ConvertDoubleToString(min_time) << ",[msec]" << std::endl;
+	ofs << "ç·åˆæ¢ç´¢æ™‚é–“," << dlm::ConvertDoubleToString(ave_calculator.GetSum().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "å¹³å‡æ¢ç´¢æ™‚é–“," << dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "åˆ†æ•£," << dlm::ConvertDoubleToString(ave_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
+	ofs << "æ¨™æº–åå·®," << dlm::ConvertDoubleToString(ave_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "å…¨ãƒ‡ãƒ¼ã‚¿ã®ç´„68%ã¯" << 
+		dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f) + ave_calculator.GetStandardDeviation().value_or(-1.f)) << " [msec]ä»¥ä¸‹ã§" <<
+		dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f) - ave_calculator.GetStandardDeviation().value_or(-1.f)) << " [msec]ä»¥ä¸Šã§ã™ï¼" << 
+		std::endl << std::endl;
 
-	ofs << "Å‘å’TõŠÔ," << dlm::ConvertDoubleToString(max_time) << ",[msec]" << std::endl;
-	ofs << "Å¬’TõŠÔ," << dlm::ConvertDoubleToString(min_time) << ",[msec]" << std::endl;
-	ofs << "‘‡’TõŠÔ," << dlm::ConvertDoubleToString(sum_time) << ",[msec]" << std::endl;
-	ofs << "•½‹Ï’TõŠÔ," << dlm::ConvertDoubleToString(average_time) << ",[msec]" << std::endl;
 
-
-	// ˆÚ“®‹——£‚Ì“Œv‚ğo—Í‚·‚é
+	// ç§»å‹•è·é›¢ã®çµ±è¨ˆã‚’å‡ºåŠ›ã™ã‚‹
 	if (recoder.graph_search_result_recoder.size() > 1)
 	{
 		float x_move_sum = 0.0f;
@@ -249,17 +306,17 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 		const double y_move_average = y_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
 		const double z_move_average = z_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
 
-		ofs << "X•ûŒü‘ˆÚ“®‹——£," << dlm::ConvertDoubleToString(x_move_sum) << ",[mm]" << std::endl;
-		ofs << "Y•ûŒü‘ˆÚ“®‹——£," << dlm::ConvertDoubleToString(y_move_sum) << ",[mm]" << std::endl;
-		ofs << "Z•ûŒü‘ˆÚ“®‹——£," << dlm::ConvertDoubleToString(z_move_sum) << ",[mm]" << std::endl;
-		ofs << "X•ûŒü•½‹ÏˆÚ“®‹——£," << dlm::ConvertDoubleToString(x_move_average) << ",[mm/“®ì]" << std::endl;
-		ofs << "Y•ûŒü•½‹ÏˆÚ“®‹——£," << dlm::ConvertDoubleToString(y_move_average) << ",[mm/“®ì]" << std::endl;
-		ofs << "Z•ûŒü•½‹ÏˆÚ“®‹——£," << dlm::ConvertDoubleToString(z_move_average) << ",[mm/“®ì]" << std::endl;
+		ofs << "Xæ–¹å‘ç·ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(x_move_sum) << ",[mm]" << std::endl;
+		ofs << "Yæ–¹å‘ç·ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(y_move_sum) << ",[mm]" << std::endl;
+		ofs << "Zæ–¹å‘ç·ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(z_move_sum) << ",[mm]" << std::endl;
+		ofs << "Xæ–¹å‘å¹³å‡ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(x_move_average) << ",[mm/å‹•ä½œ]" << std::endl;
+		ofs << "Yæ–¹å‘å¹³å‡ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(y_move_average) << ",[mm/å‹•ä½œ]" << std::endl;
+		ofs << "Zæ–¹å‘å¹³å‡ç§»å‹•è·é›¢," << dlm::ConvertDoubleToString(z_move_average) << ",[mm/å‹•ä½œ]" << std::endl;
 	}
 
 	ofs.close();
 
-	dlio::Output("o—Íƒtƒ@ƒCƒ‹ : " + output_file_name, OutputDetail::kInfo);
+	dlio::Output("å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ« : " + output_file_name, OutputDetail::kInfo);
 
 	return true;
 }

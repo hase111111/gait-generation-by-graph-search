@@ -205,6 +205,7 @@ void SystemMainSimulation::Main()
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
+	result_exporter_.ExportAllResultDetail();
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 	dlio::OutputNewLine(1, OutputDetail::kSystem);

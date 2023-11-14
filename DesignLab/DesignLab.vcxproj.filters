@@ -423,6 +423,9 @@
     <ClInclude Include="map_create_mode_messenger.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_avarage.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

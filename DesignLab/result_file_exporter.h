@@ -1,5 +1,5 @@
-//! @file result_file_exporter.h
-//! @brief Œ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file result_file_exporter.h
+//! @brief çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_RESULT_FILE_EXPORTER_H_
@@ -17,68 +17,75 @@
 class ResultFileConst final
 {
 public:
-	const static std::string kDirectoryPath;//!< o—ÍæƒfƒBƒŒƒNƒgƒŠ(ƒtƒHƒ‹ƒ_)–¼
+	const static std::string kDirectoryPath;//!< å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª(ãƒ•ã‚©ãƒ«ãƒ€)å
 
-	const static std::string kFileName;		//!< ƒtƒ@ƒCƒ‹–¼ ( lŠÔ‚ªŒ©‚é—p )
+	const static std::string kFileName;		//!< ãƒ•ã‚¡ã‚¤ãƒ«å ( äººé–“ãŒè¦‹ã‚‹ç”¨ )
 
-	const static std::string kNodeListName;	//!< ƒm[ƒhƒŠƒXƒg‚Ìƒtƒ@ƒCƒ‹–¼( ƒvƒƒOƒ‰ƒ€‚Ì“Ç‚İ‚İ—p )
+	const static std::string kDetailFileName;	//!< ãƒ•ã‚¡ã‚¤ãƒ«å ( ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®èª­ã¿è¾¼ã¿ç”¨ )
 
-	const static std::string kMapStateName;	//!< ƒ}ƒbƒvó‘Ô‚Ìƒtƒ@ƒCƒ‹–¼( ƒvƒƒOƒ‰ƒ€‚Ì“Ç‚İ‚İ—p )
+	const static std::string kNodeListName;	//!< ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«å( ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®èª­ã¿è¾¼ã¿ç”¨ )
+
+	const static std::string kMapStateName;	//!< ãƒãƒƒãƒ—çŠ¶æ…‹ã®ãƒ•ã‚¡ã‚¤ãƒ«å( ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®èª­ã¿è¾¼ã¿ç”¨ )
 };
 
 
 //! @class ResultFileExporter
-//! @brief Œ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éƒNƒ‰ƒXD
+//! @brief çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class ResultFileExporter final
 {
 public:
 
 	ResultFileExporter();
 
-	//! @brief resultƒtƒHƒ‹ƒ_‚ª‚È‚¯‚ê‚Îì¬‚·‚éD‚Ü‚½CƒtƒHƒ‹ƒ_–¼‚ğw’è‚·‚éD
+	//! @brief resultãƒ•ã‚©ãƒ«ãƒ€ãŒãªã‘ã‚Œã°ä½œæˆã™ã‚‹ï¼ã¾ãŸï¼Œãƒ•ã‚©ãƒ«ãƒ€åã‚’æŒ‡å®šã™ã‚‹ï¼
 	void Init();
 
-	//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê‚ğ’Ç‰Á‚·‚éD
-	//! @param [in] simu_result ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê
+	//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœã‚’è¿½åŠ ã™ã‚‹ï¼
+	//! @param [in] simu_result ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœ
 	void PushSimulationResult(const SimulationResultRecorder& simu_result);
 
-	//! @brief o—Í‚ğs‚¤‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğİ’è‚·‚éD
-	//! @param [in] do_export o—Í‚ğs‚¤‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
+	//! @brief å‡ºåŠ›ã‚’è¡Œã†ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ï¼
+	//! @param [in] do_export å‡ºåŠ›ã‚’è¡Œã†ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
 	inline void SetDoExport(const bool do_export) { do_export_ = do_export; }
 
 
-	//! @brief ÅV‚Ìƒm[ƒhƒŠƒXƒg‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éD
-	//! @n ‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
-	//! @n Init()‚ªŒÄ‚Î‚ê‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢‚Ì‚ÅC•K‚¸Init()‚ğŒÄ‚Ño‚µ‚Ä‚©‚çŒÄ‚Ño‚·‚±‚ÆD
+	//! @brief æœ€æ–°ã®ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼result_viewerã§ä½¿ç”¨ã™ã‚‹ï¼
+	//! @n åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	//! @n Init()ãŒå‘¼ã°ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ã®ã§ï¼Œå¿…ãšInit()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰å‘¼ã³å‡ºã™ã“ã¨ï¼
 	void ExportLatestNodeList() const;
 
-	//! @brief ÅV‚Ìƒ}ƒbƒvó‘Ô‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éD
-	//! @n ‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
-	//! @n Init()‚ªŒÄ‚Î‚ê‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢‚Ì‚ÅC•K‚¸Init()‚ğŒÄ‚Ño‚µ‚Ä‚©‚çŒÄ‚Ño‚·‚±‚ÆD
+	//! @brief æœ€æ–°ã®ãƒãƒƒãƒ—çŠ¶æ…‹ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼result_viewerã§ä½¿ç”¨ã™ã‚‹ï¼
+	//! @n åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	//! @n Init()ãŒå‘¼ã°ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ã®ã§ï¼Œå¿…ãšInit()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰å‘¼ã³å‡ºã™ã“ã¨ï¼
 	void ExportLatestMapState() const;
 
-	//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê‚ğ‘S‚Äƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éD
-	//! @n ‰Šú‰»‚ª‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢D‚Ü‚½Co—Íƒtƒ‰ƒO‚ªfalse‚Ìê‡‚à‚È‚É‚ào—Í‚µ‚È‚¢D
-	//! @n Init()‚ªŒÄ‚Î‚ê‚Ä‚¢‚È‚¢ê‡‚ÍC‚È‚É‚ào—Í‚µ‚È‚¢‚Ì‚ÅC•K‚¸Init()‚ğŒÄ‚Ño‚µ‚Ä‚©‚çŒÄ‚Ño‚·‚±‚ÆD
+	//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼äººé–“ãŒè¦‹ã‚‹ç”¨ï¼
+	//! @n åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	//! @n Init()ãŒå‘¼ã°ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ã®ã§ï¼Œå¿…ãšInit()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰å‘¼ã³å‡ºã™ã“ã¨ï¼
 	void ExportResult() const;
+
+	//! @brief å…¨ã¦ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœã‚’ã¾ã¨ã‚ã¦ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼äººé–“ãŒè¦‹ã‚‹ç”¨ï¼
+	//! @n åˆæœŸåŒ–ãŒã§ãã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼ã¾ãŸï¼Œå‡ºåŠ›ãƒ•ãƒ©ã‚°ãŒfalseã®å ´åˆã‚‚ãªã«ã‚‚å‡ºåŠ›ã—ãªã„ï¼
+	//! @n Init()ãŒå‘¼ã°ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œãªã«ã‚‚å‡ºåŠ›ã—ãªã„ã®ã§ï¼Œå¿…ãšInit()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰å‘¼ã³å‡ºã™ã“ã¨ï¼
+	void ExportAllResultDetail() const;
 
 private:
 
-	//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éD
-	//! @param [in] recoder ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê
-	//! @param [in] simu_index ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô†
-	//! @return o—Í‚É¬Œ÷‚µ‚½‚©
+	//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ï¼
+	//! @param [in] recoder ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœ
+	//! @param [in] simu_index ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå·
+	//! @return å‡ºåŠ›ã«æˆåŠŸã—ãŸã‹
 	bool OutputResultDetail(const SimulationResultRecorder& recoder, int simu_index) const;
 
 
-	std::string folder_name_;	//!< o—ÍæƒtƒHƒ‹ƒ_–¼
+	std::string folder_name_;	//!< å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€å
 
-	bool init_success_;	//!< ‰Šú‰»¬Œ÷ƒtƒ‰ƒO
+	bool init_success_;	//!< åˆæœŸåŒ–æˆåŠŸãƒ•ãƒ©ã‚°
 
-	bool do_export_;	//!< o—Í‚ğs‚¤‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
+	bool do_export_;	//!< å‡ºåŠ›ã‚’è¡Œã†ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
 
 
-	std::vector<SimulationResultRecorder> result_list_;	//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“Œ‹‰Ê‚ÌƒŠƒXƒg
+	std::vector<SimulationResultRecorder> result_list_;	//!< ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµæœã®ãƒªã‚¹ãƒˆ
 };
 
 
