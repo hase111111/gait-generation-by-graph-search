@@ -23,6 +23,7 @@
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
+    <ClInclude Include="designlab_attribute.h" />
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="designlab_rot_converter.h" />
     <ClInclude Include="designlab_string_util.h" />
@@ -41,6 +42,7 @@
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
+    <ClInclude Include="map_create_mode_messenger.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="com_selecter_hato.h" />
     <ClInclude Include="com_up_down_node_creator.h" />
@@ -95,7 +97,6 @@
     <ClInclude Include="leg_hierarchy_node_creator.h" />
     <ClInclude Include="leg_state.h" />
     <ClInclude Include="leg_up_down_node_creator.h" />
-    <ClInclude Include="map_const.h" />
     <ClInclude Include="map_renderer.h" />
     <ClInclude Include="map_state.h" />
     <ClInclude Include="mouse.h" />
@@ -181,7 +182,6 @@
     <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="robot_state_node.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="map_const.cpp" />
     <ClCompile Include="simulation_map_creator.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="mouse.cpp" />

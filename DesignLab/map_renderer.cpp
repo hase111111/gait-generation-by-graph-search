@@ -1,9 +1,8 @@
-#include "map_renderer.h"
+﻿#include "map_renderer.h"
 
 #include <Dxlib.h>
 
 #include "dxlib_util.h"
-#include "map_const.h"
 
 
 namespace dldu = designlab::dxlib_util;

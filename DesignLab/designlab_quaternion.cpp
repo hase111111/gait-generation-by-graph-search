@@ -32,7 +32,7 @@ std::string designlab::Quaternion::ToString() const
 	str += "( w: " + dlm::ConvertFloatToString(w) + 
 		", x: " + dlm::ConvertFloatToString(v.x) + 
 		", y: " + dlm::ConvertFloatToString(v.y) + 
-		", z: " + dlm::ConvertFloatToString(v.z) + " ) quaternion";
+		", z: " + dlm::ConvertFloatToString(v.z) + " )";
 	return str;
 }
 

@@ -1,0 +1,6 @@
+﻿#ifndef DESIGNLAB_ATTRIBUTE_H_
+#define DESIGNLAB_ATTRIBUTE_H_
+
+#define PROPERTY ]]  [[
+
+#endif	// !DESIGNLAB_ATTRIBUTE_H_

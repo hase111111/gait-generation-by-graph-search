@@ -150,7 +150,7 @@ namespace designlab
 
 		// 正規化されたクォータニオンを使う場合は，共役と逆数が等しいので，計算量を減らすことができる
 
-		assert(dlm::IsEqual(q.GetNorm(), 1.0f));	// 正規化されたクォータニオンを使う場合は，正規化されたクォータニオンを渡す必要がある
+		assert(::designlab::math_util::IsEqual(q.GetNorm(), 1.0f));	// 正規化されたクォータニオンを使う場合は，正規化されたクォータニオンを渡す必要がある
 
 		//designlab::Quaternion res = q * p * q.GetInverse();	// Q * P * Q^-1 正規化クォータニオンでないならば，こちらを使う．
 

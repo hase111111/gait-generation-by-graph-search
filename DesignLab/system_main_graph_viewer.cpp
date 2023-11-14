@@ -33,7 +33,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 	//マップを生成する
 	dlio::Output("まずは，マップを生成する．オプションを整数で入力すること．", OutputDetail::kSystem);
 	
-	MapCreateModeMessanger messanger = InputMapCreateMode();
+	MapCreateModeMessenger messanger = InputMapCreateMode();
 
 	SimulationMapCreator map_creator(messanger);
 
@@ -242,12 +242,12 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
-MapCreateModeMessanger SystemMainGraphViewer::InputMapCreateMode() const
+MapCreateModeMessenger SystemMainGraphViewer::InputMapCreateMode() const
 {
-	MapCreateModeMessanger messanger;
+	MapCreateModeMessenger messanger;
 	
 	{
-		const auto kMapCreateModeList = magic_enum::enum_values<MapCreateModeMessanger::MapCreateMode>();	//MapCreateModeのリストを取得する
+		const auto kMapCreateModeList = magic_enum::enum_values<MapCreateModeMessenger::MapCreateMode>();	//MapCreateModeのリストを取得する
 
 		dlio::OutputNewLine(1, OutputDetail::kSystem);
 		dlio::Output("MapCreateModeを選択", OutputDetail::kSystem);
@@ -266,7 +266,7 @@ MapCreateModeMessanger SystemMainGraphViewer::InputMapCreateMode() const
 	}
 
 	{
-		const auto kMapCreateOptionList = magic_enum::enum_values<MapCreateModeMessanger::MapCreateOption>();	//MapCreateOptionのリストを取得する
+		const auto kMapCreateOptionList = magic_enum::enum_values<MapCreateModeMessenger::MapCreateOption>();	//MapCreateOptionのリストを取得する
 
 		//MapCreateOptionの合計値を計算する
 		unsigned int option_sum = 0;
@@ -286,7 +286,7 @@ MapCreateModeMessanger SystemMainGraphViewer::InputMapCreateMode() const
 
 			unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
 
-			std::bitset<magic_enum::enum_count<MapCreateModeMessanger::MapCreateOption>()> bit(option_value);
+			std::bitset<magic_enum::enum_count<MapCreateModeMessenger::MapCreateOption>()> bit(option_value);
 
 			dlio::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", OutputDetail::kSystem);
 		}

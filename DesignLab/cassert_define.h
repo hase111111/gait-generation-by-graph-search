@@ -21,7 +21,7 @@
 #ifndef _DEBUG	// if not define _DEBUG つまり，リリースモードの場合，
 
 // アサートを有効化する場合は，以下の行のコメント( // )をはずすこと
-//#undef NDEBUG	
+#undef NDEBUG	
 
 #endif 
 

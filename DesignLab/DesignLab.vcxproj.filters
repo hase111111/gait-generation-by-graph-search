@@ -106,9 +106,6 @@
     <Filter Include="ソース ファイル\Hexapod\Const">
       <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Map\Const">
-      <UniqueIdentifier>{4cbf193f-9b99-4485-b951-d73d36506f65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Node\CenterofMass">
       <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
     </Filter>
@@ -146,9 +143,6 @@
     </ClInclude>
     <ClInclude Include="hexapod_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
-    </ClInclude>
-    <ClInclude Include="map_const.h">
-      <Filter>ソース ファイル\Map\Const</Filter>
     </ClInclude>
     <ClInclude Include="robot_state_node.h">
       <Filter>ソース ファイル\Node</Filter>
@@ -423,6 +417,12 @@
     <ClInclude Include="simulation_end_checker.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_attribute.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="map_create_mode_messenger.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -448,9 +448,6 @@
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
-    </ClCompile>
-    <ClCompile Include="map_const.cpp">
-      <Filter>ソース ファイル\Map\Const</Filter>
     </ClCompile>
     <ClCompile Include="robot_state_node.cpp">
       <Filter>ソース ファイル\Node</Filter>

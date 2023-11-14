@@ -27,7 +27,7 @@ GraphicMainTest::GraphicMainTest(
 	NodeInitializer node_initializer;
 	node_ = node_initializer.InitNode();
 
-	const MapCreateModeMessanger messanger;
+	const MapCreateModeMessenger messanger;
 	SimulationMapCreator map_creator(messanger);
 
 	map_state_ = map_creator.InitMap();

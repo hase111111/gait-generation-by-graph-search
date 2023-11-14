@@ -1,5 +1,5 @@
-//! @file map_state.h
-//! @brief ƒ}ƒbƒv‚Ìƒf[ƒ^‚ğ‚à‚ÂƒNƒ‰ƒXD
+ï»¿//! @file map_state.h
+//! @brief ãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿ã‚’ã‚‚ã¤ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_MAP_STATE_H_
@@ -11,30 +11,29 @@
 
 #include "cassert_define.h"
 #include "designlab_vector3.h"
-#include "map_const.h"
 
 
 //! @class MapState
-//! @brief ƒ}ƒbƒv‚ğ•\‚·ƒNƒ‰ƒXD
-//! @details ‚±‚ÌŒ¤‹†‚Ìè–@‚Å‚ÍCƒƒ{ƒbƒg‚ª•à‚­ƒ}ƒbƒv‚Í‹rİ’u‰Â”\“_‚ÌW‡‚Å•\Œ»‚³‚ê‚éD–Ê‚Å‚Í‚È‚­“_‚ÌW‡D
-//! @n ‹rİ’u‰Â”\’n“_‚Ìƒf[ƒ^‚ÍˆÊ’uƒxƒNƒgƒ‹‚Ì”z—ñ‚ÅÀ‘•‚µ‚Ä‚¢‚éD
-//! @n À¿“I‚Éstd::vector<designlab::Vector3>‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚Æ‚¢‚¦‚éD
-//! @n ƒƒ“ƒo•Ï”‚Ìƒf[ƒ^‚Ö‚ÌƒAƒNƒZƒX‚ÍCƒƒ“ƒoŠÖ”‚ÌGet????Œn‚ÌŠÖ”‚Ås‚¤D
-//! @n ’¼Úƒf[ƒ^‚Ì‚â‚èæ‚è‚ğs‚í‚È‚¢‚Ì‚ÍC¶ƒf[ƒ^‚Å‚ ‚é‚Æ’l‚ğ•ÏX‰Â”\‚É‚È‚Á‚Ä‚µ‚Ü‚¤‚©‚ç‚Å‚ ‚éD
-//! @n const‚ÈŠÖ”‚ğg‚¦‚ÎCŠÔˆá‚Á‚Ä‚à’l‚Ì•ÏX‚ª‚Å‚«‚È‚¢‚Ì‚ÅCƒf[ƒ^‚Ì‚â‚èæ‚è‚É—D‚ê‚éD
+//! @brief ãƒãƒƒãƒ—ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
+//! @details ã“ã®ç ”ç©¶ã®æ‰‹æ³•ã§ã¯ï¼Œãƒ­ãƒœãƒƒãƒˆãŒæ­©ããƒãƒƒãƒ—ã¯è„šè¨­ç½®å¯èƒ½ç‚¹ã®é›†åˆã§è¡¨ç¾ã•ã‚Œã‚‹ï¼é¢ã§ã¯ãªãç‚¹ã®é›†åˆï¼
+//! @n è„šè¨­ç½®å¯èƒ½åœ°ç‚¹ã®ãƒ‡ãƒ¼ã‚¿ã¯ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«ã®é…åˆ—ã§å®Ÿè£…ã—ã¦ã„ã‚‹ï¼
+//! @n å®Ÿè³ªçš„ã«std::vector<designlab::Vector3>ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¨ã„ãˆã‚‹ï¼
+//! @n ãƒ¡ãƒ³ãƒå¤‰æ•°ã®ãƒ‡ãƒ¼ã‚¿ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã¯ï¼Œãƒ¡ãƒ³ãƒé–¢æ•°ã®Get????ç³»ã®é–¢æ•°ã§è¡Œã†ï¼
+//! @n ç›´æ¥ãƒ‡ãƒ¼ã‚¿ã®ã‚„ã‚Šå–ã‚Šã‚’è¡Œã‚ãªã„ã®ã¯ï¼Œç”Ÿãƒ‡ãƒ¼ã‚¿ã§ã‚ã‚‹ã¨å€¤ã‚’å¤‰æ›´å¯èƒ½ã«ãªã£ã¦ã—ã¾ã†ã‹ã‚‰ã§ã‚ã‚‹ï¼
+//! @n constãªé–¢æ•°ã‚’ä½¿ãˆã°ï¼Œé–“é•ã£ã¦ã‚‚å€¤ã®å¤‰æ›´ãŒã§ããªã„ã®ã§ï¼Œãƒ‡ãƒ¼ã‚¿ã®ã‚„ã‚Šå–ã‚Šã«å„ªã‚Œã‚‹ï¼
 class MapState final
 {
 public:
 	MapState() : map_point_({}) {};
 	MapState(const std::vector<designlab::Vector3>& map_point) : map_point_(map_point) {};
-	MapState(const MapState& other) = default;					//!< ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	MapState(MapState&& other) noexcept = default;				//!< ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	MapState& operator = (const MapState& other) = default;		//!< ‘ã“ü‰‰Zq
+	MapState(const MapState& other) = default;					//!< ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	MapState(MapState&& other) noexcept = default;				//!< ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	MapState& operator = (const MapState& other) = default;		//!< ä»£å…¥æ¼”ç®—å­
 
-	//! @brief ‹rİ’u‰Â”\“_‚ÌÀ•W‚ğ•Ô‚·D
-	//! @param [in] index ‰½”Ô–Ú‚Ì‹rİ’u‰Â”\“_‚ÌÀ•W‚ğ•Ô‚·‚©D
-	//! @n ”ÍˆÍŠO‚ÉƒAƒNƒZƒX‚µ‚½ê‡Cassert‚Å~‚Ü‚éD
-	//! @return Vector3 ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’è¿”ã™ï¼
+	//! @param [in] index ä½•ç•ªç›®ã®è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’è¿”ã™ã‹ï¼
+	//! @n ç¯„å›²å¤–ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ãŸå ´åˆï¼Œassertã§æ­¢ã¾ã‚‹ï¼
+	//! @return Vector3 è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	inline designlab::Vector3 GetMapPoint(const size_t index) const noexcept
 	{
 		assert(index < map_point_.size());
@@ -42,58 +41,58 @@ public:
 		return map_point_[index];
 	}
 
-	//! @brief ‹rİ’u‰Â”\“_‚Ì‘”‚ğ•Ô‚·D
-	//! @return size_t ‹rİ’u‰Â”\“_‚Ì‘”
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®ç·æ•°ã‚’è¿”ã™ï¼
+	//! @return size_t è„šè¨­ç½®å¯èƒ½ç‚¹ã®ç·æ•°
 	inline size_t GetMapPointSize() const noexcept
 	{
 		return map_point_.size();
 	}
 
-	//! @brief ‹rİ’u‰Â”\“_‚ÌÀ•W‚ğ1‚Â‘I‚Ñã‘‚«‚·‚éD
-	//! @n ˆê‰ì‚Á‚½‚¯‚ÇCg‚¤‚±‚Æ‚Í‚È‚¢‚Æv‚¤D
-	//! @n “à—e‚ğ‘‚«Š·‚¦‚½‚¢‚È‚ç‚ÎClear‚µ‚½ŒãCAddMapPoint‚ğg‚¤‚±‚ÆD
-	//! @param [in] index •ÏX‚·‚é‹rİ’u‰Â”\“_‚Ì”Ô†D
-	//! @n ”ÍˆÍŠO‚ÉƒAƒNƒZƒX‚µ‚½ê‡Cassert‚Å~‚Ü‚éD
-	//! @param [in] point ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’1ã¤é¸ã³ä¸Šæ›¸ãã™ã‚‹ï¼
+	//! @n ä¸€å¿œä½œã£ãŸã‘ã©ï¼Œä½¿ã†ã“ã¨ã¯ãªã„ã¨æ€ã†ï¼
+	//! @n å†…å®¹ã‚’æ›¸ãæ›ãˆãŸã„ãªã‚‰ã°Clearã—ãŸå¾Œï¼ŒAddMapPointã‚’ä½¿ã†ã“ã¨ï¼
+	//! @param [in] index å¤‰æ›´ã™ã‚‹è„šè¨­ç½®å¯èƒ½ç‚¹ã®ç•ªå·ï¼
+	//! @n ç¯„å›²å¤–ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ãŸå ´åˆï¼Œassertã§æ­¢ã¾ã‚‹ï¼
+	//! @param [in] point è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	inline void SetMapPoint(const size_t index, const designlab::Vector3& point) noexcept
 	{
 		assert(index < map_point_.size());
 		map_point_[index] = point;
 	}
 
-	//! @brief ‹rİ’u‰Â”\“_‚ÌÀ•W‚ğİ’è‚·‚é
-	//! @param [in] point ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’è¨­å®šã™ã‚‹
+	//! @param [in] point è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	inline void SetMapPointVec(const std::vector<designlab::Vector3>& point) noexcept
 	{
 		map_point_ = point;
 	}
 
-	//! @brief ‹rİ’u‰Â”\“_‚ÌÀ•W‚ğ’Ç‰Á‚·‚éD
-	//! @param [in] point ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’è¿½åŠ ã™ã‚‹ï¼
+	//! @param [in] point è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	inline void AddMapPoint(const designlab::Vector3& point) noexcept
 	{
 		map_point_.push_back(point);
 	}
 
-	//! @brief ‹rİ’u‰Â”\“_‚ÌÀ•W‚ğÁ‹‚·‚éD
+	//! @brief è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ã‚’æ¶ˆå»ã™ã‚‹ï¼
 	inline void ClearMapPoint() noexcept
 	{
 		map_point_.clear();
 	}
 
 
-	static constexpr float kMapPointDistance = 20.0f;	//!< z²‚©‚ç(ã‚©‚ç)‚İ‚½‚Æ‚«CŠiq“_ó‚É•ª‚¯‚ç‚ê‚½‹rÚ’n‰Â”\“_‚ÌŠÔŠu [mm]D
+	static constexpr float kMapPointDistance = 20.0f;	//!< zè»¸ã‹ã‚‰(ä¸Šã‹ã‚‰)ã¿ãŸã¨ãï¼Œæ ¼å­ç‚¹çŠ¶ã«åˆ†ã‘ã‚‰ã‚ŒãŸè„šæ¥åœ°å¯èƒ½ç‚¹ã®é–“éš” [mm]ï¼
 
 private:
 
-	// friend‚É‚·‚é‚±‚Æ‚ÅCprivate‚Èƒƒ“ƒo•Ï”‚ÉƒAƒNƒZƒX‚Å‚«‚é‚æ‚¤‚É‚È‚éD
+	// friendã«ã™ã‚‹ã“ã¨ã§ï¼Œprivateãªãƒ¡ãƒ³ãƒå¤‰æ•°ã«ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹ã‚ˆã†ã«ãªã‚‹ï¼
 	template <class Char>
 	friend std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const MapState& v);
 
-	std::vector<designlab::Vector3> map_point_;	//!< ƒƒ{ƒbƒg‚ª•à‚­ƒ}ƒbƒvD‹rİ’u‰Â”\“_‚ÌW‡‚Å•\Œ»‚³‚ê‚éD
+	std::vector<designlab::Vector3> map_point_;	//!< ãƒ­ãƒœãƒƒãƒˆãŒæ­©ããƒãƒƒãƒ—ï¼è„šè¨­ç½®å¯èƒ½ç‚¹ã®é›†åˆã§è¡¨ç¾ã•ã‚Œã‚‹ï¼
 
 
-	static_assert(kMapPointDistance > 0.0f, "kMapPointDistance‚Í³‚ÌÀ”‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
+	static_assert(kMapPointDistance > 0.0f, "kMapPointDistanceã¯æ­£ã®å®Ÿæ•°ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
 };
 
 
