@@ -463,27 +463,37 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 {
 	float top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
 
+	top_z = (std::max)(
+		top_z, 
+		devide_map.GetTopZ(devide_map.GetDevideMapIndexX(node.global_center_of_mass.x), devide_map.GetDevideMapIndexY(node.global_center_of_mass.y))
+	);
+
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//脚の根元の座標(グローバル)を取得する
-		const designlab::Vector3 kCoxaPos = ConvertRobotToGlobalCoordinate(
+		const designlab::Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
 			GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.quat, true
 		);
 
-		if (devide_map.IsInMap(kCoxaPos))
+		if (devide_map.IsInMap(coxa_pos_global_coord))
 		{
-			const float map_top_z = devide_map.GetTopZ(devide_map.GetDevideMapIndexX(kCoxaPos.x), devide_map.GetDevideMapIndexY(kCoxaPos.y));
+			const float map_top_z = devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y));
 
-			top_z = (std::max)(top_z, map_top_z);	//最も高い点を求める		
+			top_z = (std::max)(top_z, map_top_z);	//最も高い点を求める	
+
+			if (top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
+			{
+				return true;
+			}
 		}
 	}
 
-	if (top_z + GetGroundHeightMarginMin() - dlm::kAllowableError < node.global_center_of_mass.z)
+	if (top_z + GetGroundHeightMarginMin() > node.global_center_of_mass.z)
 	{
-		return false;
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 
