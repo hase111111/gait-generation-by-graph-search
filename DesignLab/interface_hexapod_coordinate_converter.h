@@ -57,6 +57,12 @@ public:
 	//! @return designlab::Vector3 グローバル座標系の座標．
 	virtual designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position,
 		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
+
+	//! @brief ロボット座標系で表現されている座標を，脚座標系に変換する．
+	virtual designlab::Vector3 ConvertRobotToLegCoordinate(const designlab::Vector3& converted_position, int leg_index) const = 0;
+
+	//! @brief 脚座標系で表現されている座標を，ロボット座標系に変換する．
+	virtual designlab::Vector3 ConvertLegToRobotCoordinate(const designlab::Vector3& converted_position, int leg_index) const = 0;
 };
 
 

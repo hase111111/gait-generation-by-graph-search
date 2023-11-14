@@ -1,5 +1,5 @@
-//! @file graphic_main_test.h
-//! @brief GraphicMainTestƒNƒ‰ƒX
+ï»¿//! @file graphic_main_test.h
+//! @brief GraphicMainTestã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_TEST_H_
 #define DESIGNLAB_GRAPHIC_MAIN_TEST_H_
@@ -22,7 +22,7 @@
 
 
 //! @class GraphicMainTest
-//! @brief MapState‚âHexapodStateClaculator‚ª“®ì‚µ‚Ä‚¢‚é‚©ƒeƒXƒg‚ğs‚¤‚½‚ß‚ÌƒNƒ‰ƒXD
+//! @brief MapStateã‚„HexapodStateClaculatorãŒå‹•ä½œã—ã¦ã„ã‚‹ã‹ãƒ†ã‚¹ãƒˆã‚’è¡Œã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 class GraphicMainTest final : public IGraphicMain
 {
 public:
@@ -45,23 +45,23 @@ private:
 	void MoveLeg();
 
 
-	CameraGui camera_gui_;				//!< ƒJƒƒ‰‚ÌˆÊ’u‚ğ§Œä‚·‚éGUI
+	CameraGui camera_gui_;				//!< ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’åˆ¶å¾¡ã™ã‚‹GUI
 
-	NodeDisplayGui node_display_gui_;	//!< ƒm[ƒh‚Ì•\¦‚ğ§Œä‚·‚éGUI
+	NodeDisplayGui node_display_gui_;	//!< ãƒãƒ¼ãƒ‰ã®è¡¨ç¤ºã‚’åˆ¶å¾¡ã™ã‚‹GUI
 
 	MapRenderer map_render_;
 
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr_;
-	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr_;
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	
 
-	MapState map_state_;				//!< ƒ}ƒbƒv‚Ìó‘Ô‚ğ•Û‚·‚éƒNƒ‰ƒXD
+	MapState map_state_;				//!< ãƒãƒƒãƒ—ã®çŠ¶æ…‹ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
-	DevideMapState devide_map_state_;	//!< ƒ}ƒbƒv‚ğ•ªŠ„‚·‚éƒNƒ‰ƒXD
+	DevideMapState devide_map_state_;	//!< ãƒãƒƒãƒ—ã‚’åˆ†å‰²ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
-	RobotStateNode node_;						//!< ƒƒ{ƒbƒg‚Ìó‘Ô
+	RobotStateNode node_;						//!< ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹
 
-	int map_index_ = 0;				//!< ƒ}ƒbƒv‚ÌƒCƒ“ƒfƒbƒNƒX
+	int map_index_ = 0;				//!< ãƒãƒƒãƒ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 };
 
 

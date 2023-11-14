@@ -9,8 +9,9 @@
 #include "simulation_map_creator.h"
 
 
-namespace dldu = designlab::dxlib_util;
-namespace dlm = designlab::math_util;
+namespace dl = ::designlab;
+namespace dldu = ::designlab::dxlib_util;
+namespace dlm = ::designlab::math_util;
 
 
 GraphicMainTest::GraphicMainTest(
@@ -130,8 +131,9 @@ void GraphicMainTest::MoveBody()
 			angle_speed *= -1.f;
 		}
 
-		designlab::Quaternion rot = designlab::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetUpVec());
-		node_.quat = rot * node_.quat;
+		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetUpVec()) * node_.quat;
+
+		node_.ChangeQuat(converter_ptr_, rot);
 	}
 }
 

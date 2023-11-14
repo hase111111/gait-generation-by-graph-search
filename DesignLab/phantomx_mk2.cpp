@@ -321,6 +321,16 @@ designlab::Vector3 PhantomXMkII::ConvertRobotToGlobalCoordinate(
 	}
 }
 
+designlab::Vector3 PhantomXMkII::ConvertRobotToLegCoordinate(const designlab::Vector3& converted_position, const int leg_index) const
+{
+	return converted_position - GetLegBasePosRobotCoodinate(leg_index);
+}
+
+designlab::Vector3 PhantomXMkII::ConvertLegToRobotCoordinate(const designlab::Vector3& converted_position, const int leg_index) const
+{
+	return converted_position + GetLegBasePosRobotCoodinate(leg_index);
+}
+
 
 designlab::Vector3 PhantomXMkII::GetFreeLegPosLegCoodinate(const int leg_index) const noexcept
 {

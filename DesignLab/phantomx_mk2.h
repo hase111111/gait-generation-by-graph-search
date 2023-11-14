@@ -39,6 +39,10 @@ public:
 	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position, 
 		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, const bool consider_rot) const override;
 
+	designlab::Vector3 ConvertRobotToLegCoordinate(const designlab::Vector3& converted_position, int leg_index) const;
+
+	designlab::Vector3 ConvertLegToRobotCoordinate(const designlab::Vector3& converted_position, int leg_index) const;
+
 
 	designlab::Vector3 GetFreeLegPosLegCoodinate(int leg_index) const noexcept override;
 
