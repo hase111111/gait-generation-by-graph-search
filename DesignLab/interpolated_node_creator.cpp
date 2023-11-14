@@ -1,73 +1,213 @@
-#include "interpolated_node_creator.h"
+ï»¿#include "interpolated_node_creator.h"
 
+#include "cassert_define.h"
+#include "designlab_math_util.h"
 #include "hexapod_const.h"
 
+namespace dl = ::designlab;
+namespace dlm = ::designlab::math_util;
 
-void InterpolatedNodeCreator::CreateInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node, std::vector<RobotStateNode>* interpolated_node) const
+std::vector<RobotStateNode>  InterpolatedNodeCreator::CreateInterpolatedNode(
+	const RobotStateNode& current_node, 
+	const RobotStateNode& next_node) const
 {
-	(*interpolated_node).clear();
+	if (IsNoChange(current_node, next_node)) { return { current_node }; }
 
-	designlab::Vector3 dif[HexapodConst::kLegNum];
+	if (IsBodyMove(current_node, next_node)) 
+	{
+		return CreateBodyMoveInterpolatedNode(current_node, next_node);
+	}
+
+	return CreateLegMoveInterpolatedNode(current_node, next_node);
+}
+
+bool InterpolatedNodeCreator::IsNoChange(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	bool res = true;
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		dif[i] = next_node.leg_pos[i] - node.leg_pos[i];
+		if (current_node.leg_pos[i] != next_node.leg_pos[i])
+		{
+			res = false;
+			break;
+		}
 	}
 
-
-	// Še‹r‚É‚Â‚¢‚ÄCŒ»İ‚Ìƒm[ƒh‚ÆŸ‚Ìƒm[ƒh‚ÌŠÔ‚ğ•âŠÔ‚·‚é
-	for (int i = 0; i < INTERPOLATED_NODE_NUM; i++)
+	if (current_node.global_center_of_mass != next_node.global_center_of_mass)
 	{
-		RobotStateNode new_node = node;
+		res = false;
+	}
 
-		//dSˆÊ’u‚ğ•âŠ®‚·‚é
-		new_node.global_center_of_mass = node.global_center_of_mass +
-			(next_node.global_center_of_mass - node.global_center_of_mass) * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
+	if (current_node.quat != next_node.quat)
+	{
+		res = false;
+	}
 
+	return res;
+}
+
+bool InterpolatedNodeCreator::IsBodyMove(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	return (current_node.global_center_of_mass != next_node.global_center_of_mass) || 
+		(current_node.quat != next_node.quat);
+}
+
+std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	std::vector<RobotStateNode> res;
+
+	for (int i = 0; i < kBodyMoveInterpolatedNodeNum; i++)
+	{
+		RobotStateNode temp_node = current_node;
+		const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kBodyMoveInterpolatedNodeNum));
+
+		temp_node.global_center_of_mass = current_node.global_center_of_mass + (next_node.global_center_of_mass - current_node.global_center_of_mass) * ex;
+		temp_node.quat = dl::SlerpQuaternion(current_node.quat, next_node.quat, ex);
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
-			// dif z‚ª0‚Ì‚ÍC•½sˆÚ“®‚Ì‚İ
-			if (dif[j].z == 0 || dif[j].ProjectedXY().IsZero())
+			temp_node.leg_pos[j] = current_node.leg_pos[j] + (next_node.leg_pos[j] - current_node.leg_pos[j]) * ex;
+		}
+
+		res.push_back(temp_node);
+	}
+
+	return res;
+}
+
+std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	std::vector<RobotStateNode> res;
+
+	// æ¥åœ°è„šã®å¹³è¡Œç§»å‹•ï¼Œä¸‹é™å‹•ä½œï¼ŒéŠè„šã®ä¸Šæ˜‡å‹•ä½œï¼Œå¹³è¡Œç§»å‹•ã‚’è¡Œã†ï¼
+	RobotStateNode last_state = current_node;
+
+	//æ¥åœ°
+	{
+		std::vector<int> ground_move_index = GetGroundMoveIndex(current_node, next_node);
+
+		for (int i = 0; i < kGroundInterpolatedNodeNum; i++)
+		{
+			RobotStateNode temp_node = last_state;
+			const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kGroundInterpolatedNodeNum));
+
+			for (int j = 0; j < ground_move_index.size(); j++)
 			{
-				new_node.leg_pos[j] = node.leg_pos[j] + dif[j] * (static_cast<float>(i) + 1.0f) / (static_cast<float>(INTERPOLATED_NODE_NUM) + 1.0f);
-			}
-			// dif z‚ª³‚Ì‚ÍC‹r‚ªã‚Éã‚ª‚é¨•½sˆÚ“®
-			else if (dif[j].z > 0)
-			{
-				if (i < INTERPOLATED_NODE_NUM1)
-				{
-					// ã¸’†
-					new_node.leg_pos[j].z = node.leg_pos[j].z + dif[j].z * (i + 1) / (INTERPOLATED_NODE_NUM1 + 1);
-				}
-				else
-				{
-					// •½sˆÚ“®’†
-					new_node.leg_pos[j].x = node.leg_pos[j].x + dif[j].x * (i - INTERPOLATED_NODE_NUM1 + 1) / (INTERPOLATED_NODE_NUM2 + 1);
-					new_node.leg_pos[j].y = node.leg_pos[j].y + dif[j].y * (i - INTERPOLATED_NODE_NUM1 + 1) / (INTERPOLATED_NODE_NUM2 + 1);
-					new_node.leg_pos[j].z = node.leg_pos[j].z + dif[j].z;
-				}
-			}
-			// dif z‚ª•‰‚Ì‚ÍC•½sˆÚ“®¨‹r‚ª‰º‚É‰º‚ª‚é
-			else
-			{
-				if (i < INTERPOLATED_NODE_NUM1)
-				{
-					// •½sˆÚ“®’†
-					new_node.leg_pos[j].x = node.leg_pos[j].x + dif[j].x * (i + 1) / (INTERPOLATED_NODE_NUM1 + 1);
-					new_node.leg_pos[j].y = node.leg_pos[j].y + dif[j].y * (i + 1) / (INTERPOLATED_NODE_NUM1 + 1);
-				}
-				else
-				{
-					// ‰º~’†
-					new_node.leg_pos[j].x = node.leg_pos[j].x + dif[j].x;
-					new_node.leg_pos[j].y = node.leg_pos[j].y + dif[j].y;
-					new_node.leg_pos[j].z = node.leg_pos[j].z + dif[j].z * (i - INTERPOLATED_NODE_NUM1 + 1) / (INTERPOLATED_NODE_NUM2 + 1);
-				}
+				temp_node.leg_pos[ground_move_index[j]].x = last_state.leg_pos[ground_move_index[j]].x +
+					(next_node.leg_pos[ground_move_index[j]].x - last_state.leg_pos[ground_move_index[j]].x) * ex;
+
+				temp_node.leg_pos[ground_move_index[j]].y = last_state.leg_pos[ground_move_index[j]].y +
+					(next_node.leg_pos[ground_move_index[j]].y - last_state.leg_pos[ground_move_index[j]].y) * ex;
 			}
 
+			res.push_back(temp_node);
 		}
-		// Œ‹‰Ê‚ğpush 
-		(*interpolated_node).push_back(new_node);
+
+		last_state = res.back();
+
+		for (int i = 0; i < kGroundInterpolatedNodeNum; i++)
+		{
+			RobotStateNode temp_node = last_state;
+			const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kGroundInterpolatedNodeNum));
+
+			for (int j = 0; j < ground_move_index.size(); j++)
+			{
+				temp_node.leg_pos[ground_move_index[j]].z = last_state.leg_pos[ground_move_index[j]].z +
+					(next_node.leg_pos[ground_move_index[j]].z - last_state.leg_pos[ground_move_index[j]].z) * ex;
+			}
+
+			res.push_back(temp_node);
+		}
+
+		last_state = res.back();
 	}
+
+	//éŠè„š
+	{
+		std::vector<int> free_move_index = GetFreeMoveIndex(current_node, next_node);
+
+		for (int i = 0; i < kFreeInterpolatedNodeNum; i++)
+		{
+			RobotStateNode temp_node = last_state;
+			const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kFreeInterpolatedNodeNum));
+
+			for (int j = 0; j < free_move_index.size(); j++)
+			{
+				temp_node.leg_pos[free_move_index[j]].z = last_state.leg_pos[free_move_index[j]].z +
+					(next_node.leg_pos[free_move_index[j]].z - last_state.leg_pos[free_move_index[j]].z) * ex;
+			}
+
+			res.push_back(temp_node);
+		}
+
+		last_state = res.back();
+
+		for (int i = 0; i < kFreeInterpolatedNodeNum; i++)
+		{
+			RobotStateNode temp_node = last_state;
+			const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kFreeInterpolatedNodeNum));
+
+			for (int j = 0; j < free_move_index.size(); j++)
+			{
+				temp_node.leg_pos[free_move_index[j]].x = last_state.leg_pos[free_move_index[j]].x +
+					(next_node.leg_pos[free_move_index[j]].x - last_state.leg_pos[free_move_index[j]].x) * ex;
+
+				temp_node.leg_pos[free_move_index[j]].y = last_state.leg_pos[free_move_index[j]].y +
+					(next_node.leg_pos[free_move_index[j]].y - last_state.leg_pos[free_move_index[j]].y) * ex;
+			}
+
+			res.push_back(temp_node);
+		}
+	}
+
+	return res;
+}
+
+std::vector<int> InterpolatedNodeCreator::GetGroundMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	// è„šå…ˆåº§æ¨™ã®å·®åˆ†ã‚’è¨ˆç®—ï¼
+	std::array<dl::Vector3, HexapodConst::kLegNum> dif;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		dif[i] = next_node.leg_pos[i] - current_node.leg_pos[i];
+	}
+
+	//indexã‚’è¿”ã™ï¼
+	std::vector<int> res_index;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (dif[i].z < 0)
+		{
+			res_index.push_back(i);
+		}
+	}
+
+	return res_index;
+}
+
+std::vector<int> InterpolatedNodeCreator::GetFreeMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const
+{
+	// è„šå…ˆåº§æ¨™ã®å·®åˆ†ã‚’è¨ˆç®—ï¼
+	std::array<dl::Vector3, HexapodConst::kLegNum> dif;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		dif[i] = next_node.leg_pos[i] - current_node.leg_pos[i];
+	}
+
+	// indexã‚’è¿”ã™ï¼
+	std::vector<int> res_index;
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (!dif[i].ProjectedXY().IsZero())
+		{
+			res_index.push_back(i);
+		}
+	}
+
+	return res_index;
 }

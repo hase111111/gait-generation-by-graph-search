@@ -88,7 +88,13 @@ bool GraphicMainBasic::Update()
 			if (display_node_index_ > 0)
 			{
 				interpolated_anime_start_count_ = counter_;		//アニメーションを開始した時間を記録する．
-				interpolated_node_creator_.CreateInterpolatedNode(graph_[display_node_index_], graph_[display_node_switch_gui_.GetDisplayNodeNum()], &interpolated_node_);
+
+				interpolated_node_.clear();
+
+				interpolated_node_ = interpolated_node_creator_.CreateInterpolatedNode(
+					graph_[display_node_index_],
+					graph_[display_node_switch_gui_.GetDisplayNodeNum()]
+				);
 			}
 
 
