@@ -67,8 +67,8 @@ public:
 
 private:
 
-	const float kBodyLiftingHeightMin = 30;		//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-	const float kBodyLiftingHeightMax = 160;	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
+	const float kBodyLiftingHeightMin{ 30.f };		//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+	const float kBodyLiftingHeightMax{ 160.f };	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
 
 	const float kMovableCoxaAngleMin = designlab::math_util::ConvertDegToRad(-40.f);	//!< 脚の可動範囲の最小値[rad]
 	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< 脚の可動範囲の最大値[rad]

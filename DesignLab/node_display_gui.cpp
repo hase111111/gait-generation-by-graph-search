@@ -4,16 +4,18 @@
 #include <magic_enum.hpp>
 
 #include "designlab_math_util.h"
+#include "designlab_rot_converter.h"
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
 
 
-namespace dllf = designlab::leg_func;
-namespace dlm = designlab::math_util;
+namespace dl = ::designlab;
+namespace dllf = ::designlab::leg_func;
+namespace dlm = ::designlab::math_util;
 
 
 const int NodeDisplayGui::kWidth = 450;
-const int NodeDisplayGui::kHeight = 550;
+const int NodeDisplayGui::kHeight = 600;
 const int NodeDisplayGui::kClosedHeight = 50;
 
 
@@ -150,6 +152,12 @@ void NodeDisplayGui::DrawNodeInfo() const
 	// 回転を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
 		"回転(w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.quat.w, display_node_.quat.v.x, display_node_.quat.v.y, display_node_.quat.v.z);
+
+	dl::EulerXYZ euler = dl::ToEulerXYZ(display_node_.quat);
+
+	// オイラー角版
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
+		"オイラー角(x:%5.3f,y:%5.3f,z:%5.3f)", dlm::ConvertRadToDeg(euler.x_angle), dlm::ConvertRadToDeg(euler.y_angle), dlm::ConvertRadToDeg(euler.z_angle));
 
 	//遊脚か接地脚か
 	std::string str = "";
