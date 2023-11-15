@@ -11,6 +11,7 @@
 
 #include "cassert_define.h"
 #include "designlab_euler.h"
+#include "designlab_math_util.h"
 #include "designlab_vector3.h"
 
 
@@ -49,7 +50,7 @@ namespace designlab
 		constexpr Quaternion operator * (const float s) const noexcept { return { w * s, v * s }; }
 		constexpr Quaternion operator / (const float s) const { return { w / s, v / s }; }
 
-		bool operator == (const Quaternion& q) const noexcept { return (w == q.w) && (v == q.v); }
+		bool operator == (const Quaternion& q) const noexcept { return ::designlab::math_util::IsEqual(w, q.w) && (v == q.v); }
 		bool operator != (const Quaternion& q) const noexcept { return !(*this == q); }
 
 		bool operator < (const Quaternion& q) const noexcept { return (w < q.w) || (w == q.w && v < q.v); }

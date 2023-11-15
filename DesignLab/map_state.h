@@ -82,6 +82,7 @@ public:
 
 
 	static constexpr float kMapPointDistance = 20.0f;	//!< z軸から(上から)みたとき，格子点状に分けられた脚接地可能点の間隔 [mm]．
+	static constexpr float kMapMinZ = -10000000.0f;		//!< マップの最低のZ座標
 
 private:
 

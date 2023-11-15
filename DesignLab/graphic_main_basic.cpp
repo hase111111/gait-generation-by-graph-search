@@ -113,7 +113,7 @@ bool GraphicMainBasic::Update()
 		if (interpolated_anime_start_count_ <= counter_ && counter_ < interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
 			//アニメーション中は interpolated_node_ の補完されたノードを表示する
-			size_t anime_index = interpolated_node_.size() * (static_cast<size_t>(counter_) - static_cast<size_t>(interpolated_anime_start_count_))
+			const size_t anime_index = interpolated_node_.size() * (static_cast<size_t>(counter_) - static_cast<size_t>(interpolated_anime_start_count_))
 				/ static_cast<size_t>(kInterpolatedAnimeCount);
 
 			hexapod_renderer_->SetDrawNode(interpolated_node_[anime_index]);
@@ -128,7 +128,6 @@ bool GraphicMainBasic::Update()
 			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
 		}
 	}
-
 
 	counter_++;				//カウンタを進める．
 

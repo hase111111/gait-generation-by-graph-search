@@ -1,5 +1,5 @@
-//! @file devide_map_state.h
-//! @brief ƒ}ƒbƒv‚ğ•ªŠ„‚µ‚ÄŠÇ—‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file devide_map_state.h
+//! @brief ãƒãƒƒãƒ—ã‚’åˆ†å‰²ã—ã¦ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_DEVIDE_MAP_STATE_H_
 #define DESIGNLAB_DEVIDE_MAP_STATE_H_
@@ -9,27 +9,27 @@
 #include "designlab_vector3.h"
 
 //! @class DevideMapState
-//! @brief ˆ—‚ğŒy‚­‚·‚é‚½‚ß‚ÉCƒ}ƒbƒv‚ª‘¶İ‚·‚é—Ìˆæ‚ğ’·•ûŒ`‚ÉØ‚è•ª‚¯‚ÄC‚»‚Ì’†‚É‘¶İ‚·‚é‹rİ’u‰Â”\“_‚ğW‚ß‚½‚à‚Ì‚ªdevided_map_point_D
-//! @n devide_map‚Ì—v‘f‚Í https://atcoder.jp/contests/APG4b/tasks/APG4b_t ‚Ì u1ŸŒ³‚Ì”z—ñ‚ğ‘½ŸŒ³”z—ñ‚Æ‚µ‚Äg‚¤v‚Ì—v—Ì‚Å•À‚ñ‚Å‚¢‚éD
-//! @n À•W‚ÍƒOƒ[ƒoƒ‹À•W‚Å‚ ‚éD
+//! @brief å‡¦ç†ã‚’è»½ãã™ã‚‹ãŸã‚ã«ï¼Œãƒãƒƒãƒ—ãŒå­˜åœ¨ã™ã‚‹é ˜åŸŸã‚’é•·æ–¹å½¢ã«åˆ‡ã‚Šåˆ†ã‘ã¦ï¼Œãã®ä¸­ã«å­˜åœ¨ã™ã‚‹è„šè¨­ç½®å¯èƒ½ç‚¹ã‚’é›†ã‚ãŸã‚‚ã®ãŒdevided_map_point_ï¼
+//! @n devide_mapã®è¦ç´ ã¯ https://atcoder.jp/contests/APG4b/tasks/APG4b_t ã® ã€Œ1æ¬¡å…ƒã®é…åˆ—ã‚’å¤šæ¬¡å…ƒé…åˆ—ã¨ã—ã¦ä½¿ã†ã€ã®è¦é ˜ã§ä¸¦ã‚“ã§ã„ã‚‹ï¼
+//! @n åº§æ¨™ã¯ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã§ã‚ã‚‹ï¼
 class DevideMapState
 {
 public:
-	DevideMapState();
+	DevideMapState(float min_z = MapState::kMapMinZ);
 
-	//! @brief Devideƒ}ƒbƒv‚Ìƒf[ƒ^‚ğ‰Šú‰»‚·‚éD
-	//! @n ƒ}ƒbƒv‚Ìƒf[ƒ^‚ğŠiqó‚É•ªŠ„‚µC‚»‚Ì’†‚É‘¶İ‚·‚é‹rİ’u‰Â”\“_‚ğW‚ß‚éD
-	//! @param [in] map_state ƒ}ƒbƒv‚Ìƒf[ƒ^D
-	//! @param [in] global_robot_com ƒƒ{ƒbƒg‚ÌdS‚ÌƒOƒ[ƒoƒ‹À•WD
+	//! @brief Devideãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
+	//! @n ãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼å­çŠ¶ã«åˆ†å‰²ã—ï¼Œãã®ä¸­ã«å­˜åœ¨ã™ã‚‹è„šè¨­ç½®å¯èƒ½ç‚¹ã‚’é›†ã‚ã‚‹ï¼
+	//! @param [in] map_state ãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿ï¼
+	//! @param [in] global_robot_com ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
 	void Init(const MapState& map_state, const designlab::Vector3 global_robot_com);
 
-	//! @brief Devideƒ}ƒbƒv‚Ìƒf[ƒ^‚ğ‰Šú‰»‚·‚éD
+	//! @brief Devideãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼
 	void Clear();
 
-	//! @brief w’è‚µ‚½À•W‚ªDevideƒ}ƒbƒv‚Ì”ÍˆÍ“à‚É‘¶İ‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·D
-	//! @param [in] x ƒOƒ[ƒoƒ‹À•WD
-	//! @param [in] y ƒOƒ[ƒoƒ‹À•WD
-	//! @return bool ”ÍˆÍ“à‚É‘¶İ‚·‚é‚È‚çtrueD
+	//! @brief æŒ‡å®šã—ãŸåº§æ¨™ãŒDevideãƒãƒƒãƒ—ã®ç¯„å›²å†…ã«å­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ï¼
+	//! @param [in] x ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
+	//! @param [in] y ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
+	//! @return bool ç¯„å›²å†…ã«å­˜åœ¨ã™ã‚‹ãªã‚‰trueï¼
 	constexpr bool IsInMap(const float x, const float y) const
 	{
 		if (x < global_robot_com_.x + kDevideMapMinX || global_robot_com_.x + kDevideMapMaxX < x) { return false; }
@@ -38,31 +38,31 @@ public:
 		return true;
 	}
 
-	//! @brief w’è‚µ‚½À•W‚ªDevideƒ}ƒbƒv‚Ì”ÍˆÍ“à‚É‘¶İ‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·D
-	//! @param [in] pos ƒOƒ[ƒoƒ‹À•WD
-	//! @return bool ”ÍˆÍ“à‚É‘¶İ‚·‚é‚È‚çtrueD
+	//! @brief æŒ‡å®šã—ãŸåº§æ¨™ãŒDevideãƒãƒƒãƒ—ã®ç¯„å›²å†…ã«å­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ï¼
+	//! @param [in] pos ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
+	//! @return bool ç¯„å›²å†…ã«å­˜åœ¨ã™ã‚‹ãªã‚‰trueï¼
 	constexpr bool IsInMap(const designlab::Vector3& pos) const noexcept
 	{
 		return IsInMap(pos.x, pos.y);
 	}
 
-	//! @brief w’è‚µ‚½À•W‚ªDevideƒ}ƒbƒv‚Ìindex‚É‚¨‚¢‚Ä‚Ç‚ÌˆÊ’u‚É‚ ‚é‚©‚ğ•Ô‚·D
-	//! @param [in] posx ƒOƒ[ƒoƒ‹À•W‚ÌxÀ•WD
-	//! @return int ‰½”Ô–Ú‚Ì‹rİ’u‰Â”\“_‚©D
+	//! @brief æŒ‡å®šã—ãŸåº§æ¨™ãŒDevideãƒãƒƒãƒ—ã®indexã«ãŠã„ã¦ã©ã®ä½ç½®ã«ã‚ã‚‹ã‹ã‚’è¿”ã™ï¼
+	//! @param [in] posx ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã®xåº§æ¨™ï¼
+	//! @return int ä½•ç•ªç›®ã®è„šè¨­ç½®å¯èƒ½ç‚¹ã‹ï¼
 	constexpr int GetDevideMapIndexX(const float posx) const noexcept
 	{
 		return static_cast<int>((posx - global_robot_com_.x - kDevideMapMinX) * static_cast<float>(kDevideNum) / (kDevideMapMaxX - kDevideMapMinX));
 	}
 
-	//! @brief w’è‚µ‚½À•W‚ªDevideƒ}ƒbƒv‚Ìindex‚É‚¨‚¢‚Ä‚Ç‚ÌˆÊ’u‚É‚ ‚é‚©‚ğ•Ô‚·D
-	//! @param [in] posy ƒOƒ[ƒoƒ‹À•W‚ÌyÀ•WD
-	//! @return int ‰½”Ô–Ú‚Ì‹rİ’u‰Â”\“_‚©D
+	//! @brief æŒ‡å®šã—ãŸåº§æ¨™ãŒDevideãƒãƒƒãƒ—ã®indexã«ãŠã„ã¦ã©ã®ä½ç½®ã«ã‚ã‚‹ã‹ã‚’è¿”ã™ï¼
+	//! @param [in] posy ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã®yåº§æ¨™ï¼
+	//! @return int ä½•ç•ªç›®ã®è„šè¨­ç½®å¯èƒ½ç‚¹ã‹ï¼
 	constexpr int GetDevideMapIndexY(const float posy) const noexcept
 	{
 		return static_cast<int>((posy - global_robot_com_.y - kDevideMapMinY) * static_cast<float>(kDevideNum) / (kDevideMapMaxY - kDevideMapMinY));
 	}
 
-	//! @brief w’è‚µ‚½À•W‚ªDevideƒ}ƒbƒv‚Ìindex‚Ì”ÍˆÍ“à‚É‚È‚é‚æ‚¤‚ÉŠÛ‚ß‚éD
+	//! @brief æŒ‡å®šã—ãŸåº§æ¨™ãŒDevideãƒãƒƒãƒ—ã®indexã®ç¯„å›²å†…ã«ãªã‚‹ã‚ˆã†ã«ä¸¸ã‚ã‚‹ï¼
 	static constexpr int ClampDevideMapIndex(const int index) noexcept
 	{
 		if (index < 0) { return 0; }
@@ -71,60 +71,62 @@ public:
 		return index;
 	}
 
-	//! @brief ’·•ûŒ`ó‚ÉØ‚è•ª‚¯‚ç‚ê‚½ƒ}ƒbƒv‚©‚çC‹rİ’u‰Â”\“_‚Ì”‚ğæ“¾‚·‚éD
-	//! @n ”ÍˆÍŠO‚Ì’l‚ğw’è‚µ‚½ê‡‚ÍC0‚ğ•Ô‚·D
-	//! @param [in] x_index XÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] y_index YÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @return int ‹rİ’u‰Â”\“_‚Ì”
+	//! @brief é•·æ–¹å½¢çŠ¶ã«åˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸãƒãƒƒãƒ—ã‹ã‚‰ï¼Œè„šè¨­ç½®å¯èƒ½ç‚¹ã®æ•°ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @n ç¯„å›²å¤–ã®å€¤ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ï¼Œ0ã‚’è¿”ã™ï¼
+	//! @param [in] x_index Xåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] y_index Yåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @return int è„šè¨­ç½®å¯èƒ½ç‚¹ã®æ•°
 	int GetPointNum(int x_index, int y_index) const;
 
-	//! @brief ’·•ûŒ`ó‚ÉØ‚è•ª‚¯‚ç‚ê‚½ƒ}ƒbƒv‚©‚çC‹rİ’u‰Â”\“_‚ÌÀÛ‚ÌÀ•W‚ğæ“¾‚·‚éD
-	//! @n ”ÍˆÍŠO‚Ì’l‚ğw’è‚µ‚½ê‡‚ÍC(0,0,0)‚ğ•Ô‚·D
-	//! @param [in] x_index xÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] y_index yÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] devide_map_index ‰½”Ô–Ú‚Ì‹rİ’u‰Â”\“_‚©D
-	//! @return Vector3 ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief é•·æ–¹å½¢çŠ¶ã«åˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸãƒãƒƒãƒ—ã‹ã‚‰ï¼Œè„šè¨­ç½®å¯èƒ½ç‚¹ã®å®Ÿéš›ã®åº§æ¨™ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @n ç¯„å›²å¤–ã®å€¤ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ï¼Œ(0,0,0)ã‚’è¿”ã™ï¼
+	//! @param [in] x_index xåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] y_index yåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] devide_map_index ä½•ç•ªç›®ã®è„šè¨­ç½®å¯èƒ½ç‚¹ã‹ï¼
+	//! @return Vector3 è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	designlab::Vector3 GetPointPos(int x_index, int y_index, int devide_map_index) const;
 
-	//! @brief ’·•ûŒ`ó‚ÉØ‚è•ª‚¯‚ç‚ê‚½ƒ}ƒbƒv‚©‚çC‹rİ’u‰Â”\“_‚Ìvector‚ğæ“¾‚·‚é
-	//! @n ”ÍˆÍŠO‚Ì’l‚ğw’è‚µ‚½ê‡‚ÍC‹ó‚Ìvector‚ğ•Ô‚·D
-	//! @param [in] x_index xÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] y_index yÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [out] std::vector<Vector3> point_vec ‹rİ’u‰Â”\“_‚ÌÀ•WD
+	//! @brief é•·æ–¹å½¢çŠ¶ã«åˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸãƒãƒƒãƒ—ã‹ã‚‰ï¼Œè„šè¨­ç½®å¯èƒ½ç‚¹ã®vectorã‚’å–å¾—ã™ã‚‹
+	//! @n ç¯„å›²å¤–ã®å€¤ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ï¼Œç©ºã®vectorã‚’è¿”ã™ï¼
+	//! @param [in] x_index xåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] y_index yåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [out] std::vector<Vector3> point_vec è„šè¨­ç½®å¯èƒ½ç‚¹ã®åº§æ¨™ï¼
 	void GetPointVector(int x_index, int y_index, std::vector<designlab::Vector3>* point_vec) const;
 
-	//! @brief ’·•ûŒ`ó‚ÉØ‚è•ª‚¯‚ç‚ê‚½ƒ}ƒbƒv‚©‚çCÅ‚à‚‚¢ZÀ•W‚ğ•Ô‚·D
-	//! @param [in] x_index XÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] y_index YÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @return float Å‚à‚‚¢ZÀ•WD
+	//! @brief é•·æ–¹å½¢çŠ¶ã«åˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸãƒãƒƒãƒ—ã‹ã‚‰ï¼Œæœ€ã‚‚é«˜ã„Zåº§æ¨™ã‚’è¿”ã™ï¼
+	//! @param [in] x_index Xåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] y_index Yåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @return float æœ€ã‚‚é«˜ã„Zåº§æ¨™ï¼
 	float GetTopZ(int x_index, int y_index) const;
+
+	float GetMapMinZ() const noexcept { return kMapMinZ; }
 
 private:
 
-	static constexpr int kDevideMapPointNum = 4;	//!< 1‚Â‚Ìƒ}ƒX‚É‘¶İ‚·‚é‹rİ’u‰Â”\“_‚Ì”‚ÍkDevideMapPointNum ~ kDevideMapPointNum ŒÂD
-	static constexpr float kDevideAreaLength = MapState::kMapPointDistance * kDevideMapPointNum;	//!< 1‚Â‚Ìƒ}ƒX‚Ìˆê•Ó‚Ì’·‚³D
+	static constexpr int kDevideMapPointNum = 4;	//!< 1ã¤ã®ãƒã‚¹ã«å­˜åœ¨ã™ã‚‹è„šè¨­ç½®å¯èƒ½ç‚¹ã®æ•°ã¯kDevideMapPointNum Ã— kDevideMapPointNum å€‹ï¼
+	static constexpr float kDevideAreaLength = MapState::kMapPointDistance * kDevideMapPointNum;	//!< 1ã¤ã®ãƒã‚¹ã®ä¸€è¾ºã®é•·ã•ï¼
 
 	static constexpr int kDevideNum = 15;
-	static constexpr float kDevideMapMaxX = kDevideAreaLength * kDevideNum / 2.0f;	//!< ƒ}ƒbƒv‚ÌÅ‘å‚ÌXÀ•W
-	static constexpr float kDevideMapMinX = -kDevideMapMaxX;						//!< ƒ}ƒbƒv‚ÌÅ¬‚ÌXÀ•W
-	static constexpr float kDevideMapMaxY = kDevideAreaLength * kDevideNum / 2.0f;	//!< ƒ}ƒbƒv‚ÌÅ‘å‚ÌYÀ•W
-	static constexpr float kDevideMapMinY = -kDevideMapMaxY;						//!< ƒ}ƒbƒv‚ÌÅ¬‚ÌYÀ•W
+	static constexpr float kDevideMapMaxX = kDevideAreaLength * kDevideNum / 2.0f;	//!< ãƒãƒƒãƒ—ã®æœ€å¤§ã®Xåº§æ¨™
+	static constexpr float kDevideMapMinX = -kDevideMapMaxX;						//!< ãƒãƒƒãƒ—ã®æœ€å°ã®Xåº§æ¨™
+	static constexpr float kDevideMapMaxY = kDevideAreaLength * kDevideNum / 2.0f;	//!< ãƒãƒƒãƒ—ã®æœ€å¤§ã®Yåº§æ¨™
+	static constexpr float kDevideMapMinY = -kDevideMapMaxY;						//!< ãƒãƒƒãƒ—ã®æœ€å°ã®Yåº§æ¨™
 
-	static constexpr float kMapMinZ = -100000.0f;	//!< ƒ}ƒbƒv‚ÌÅ’á‚ÌZÀ•W
+	const float kMapMinZ;	//!< ãƒãƒƒãƒ—ã®æœ€ä½ã®Zåº§æ¨™
 
-	//! @brief Devide Map‚Å‚ÍC2ŸŒ³‚Ì”z—ñ‚ğ1ŸŒ³‚Ì”z—ñ‚Æ‚µ‚Äˆµ‚Á‚Ä‚¢‚éD
-	//! @n ‚»‚Ì‚½‚ßC2ŸŒ³‚Ì”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ1ŸŒ³‚Ì”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX‚É•ÏŠ·‚·‚éD
-	//! @param [in] x_index xÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @param [in] y_index yÀ•WCØ‚è•ª‚¯‚ç‚ê‚½ƒ^ƒCƒ‹‚ÌˆÊ’u‚Åw’è‚·‚éD
-	//! @return int 1ŸŒ³‚Ì”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒXD
+	//! @brief Devide Mapã§ã¯ï¼Œ2æ¬¡å…ƒã®é…åˆ—ã‚’1æ¬¡å…ƒã®é…åˆ—ã¨ã—ã¦æ‰±ã£ã¦ã„ã‚‹ï¼
+	//! @n ãã®ãŸã‚ï¼Œ2æ¬¡å…ƒã®é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’1æ¬¡å…ƒã®é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @param [in] x_index xåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] y_index yåº§æ¨™ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‰ã‚ŒãŸã‚¿ã‚¤ãƒ«ã®ä½ç½®ã§æŒ‡å®šã™ã‚‹ï¼
+	//! @return int 1æ¬¡å…ƒã®é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
 	constexpr int GetDevideMapIndex(const int x_index, const int y_index) const noexcept
 	{
 		return x_index * kDevideNum + y_index;
 	}
 
-	//! @brief —^‚¦‚ç‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚ª—LŒø‚È’l‚©‚Ç‚¤‚©‚ğ•Ô‚·D
-	//! @param [in] index ƒ}ƒbƒv‚ÌƒCƒ“ƒfƒbƒNƒXD
-	//! @return bool —LŒø‚È’l‚È‚çtrueD
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒæœ‰åŠ¹ãªå€¤ã‹ã©ã†ã‹ã‚’è¿”ã™ï¼
+	//! @param [in] index ãƒãƒƒãƒ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
+	//! @return bool æœ‰åŠ¹ãªå€¤ãªã‚‰trueï¼
 	constexpr bool IsVaildIndex(const int index) const noexcept
 	{
 		if (index < 0 || kDevideNum <= index) { return false; }
@@ -132,20 +134,20 @@ private:
 		return true;
 	}
 
-	designlab::Vector3 global_robot_com_;	//!< ƒƒ{ƒbƒg‚ÌdS‚ÌƒOƒ[ƒoƒ‹À•WD
+	designlab::Vector3 global_robot_com_;	//!< ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
 
-	//!< ƒ}ƒbƒv‚ª‘¶İ‚·‚é—Ìˆæ‚ğŠiqó‚ÉØ‚è•ª‚¯‚ÄC‚»‚Ì’†‚É‘¶İ‚·‚é‹rİ’u‰Â”\“_‚ğW‚ß‚½‚à‚ÌD
+	//!< ãƒãƒƒãƒ—ãŒå­˜åœ¨ã™ã‚‹é ˜åŸŸã‚’æ ¼å­çŠ¶ã«åˆ‡ã‚Šåˆ†ã‘ã¦ï¼Œãã®ä¸­ã«å­˜åœ¨ã™ã‚‹è„šè¨­ç½®å¯èƒ½ç‚¹ã‚’é›†ã‚ãŸã‚‚ã®ï¼
 	std::vector<std::vector<designlab::Vector3> > devided_map_point_;
 
-	//!< devided_map_point_‚Ì’†‚ÌÅ‚à‚‚¢zÀ•W‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌC—v‘f‚ª‘¶İ‚µ‚È‚¢‚È‚çCkMapMinZ‚ª“ü‚éD
+	//!< devided_map_point_ã®ä¸­ã®æœ€ã‚‚é«˜ã„zåº§æ¨™ã‚’ã¾ã¨ã‚ãŸã‚‚ã®ï¼Œè¦ç´ ãŒå­˜åœ¨ã—ãªã„ãªã‚‰ï¼ŒkMapMinZãŒå…¥ã‚‹ï¼
 	std::vector<float> devided_map_top_z_;
 
 
-	static_assert(kDevideMapPointNum > 0, "kDevideMapPointNum‚Í³‚Ì®”‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kDevideAreaLength > 0.0f, "kDevideAreaLength‚Í³‚ÌÀ”‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kDevideNum > 0, "kDevideNum‚Í³‚Ì®”‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kDevideMapMaxX > kDevideMapMinX, "kDevideMapMaxX‚ÍMin‚æ‚è‘å‚«‚¢•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kDevideMapMaxY > kDevideMapMinY, "kDevideMapMaxY‚ÍMin‚æ‚è‘å‚«‚¢•K—v‚ª‚ ‚è‚Ü‚·D");
+	static_assert(kDevideMapPointNum > 0, "kDevideMapPointNumã¯æ­£ã®æ•´æ•°ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kDevideAreaLength > 0.0f, "kDevideAreaLengthã¯æ­£ã®å®Ÿæ•°ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kDevideNum > 0, "kDevideNumã¯æ­£ã®æ•´æ•°ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kDevideMapMaxX > kDevideMapMinX, "kDevideMapMaxXã¯Minã‚ˆã‚Šå¤§ãã„å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kDevideMapMaxY > kDevideMapMinY, "kDevideMapMaxYã¯Minã‚ˆã‚Šå¤§ãã„å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
 };
 
 

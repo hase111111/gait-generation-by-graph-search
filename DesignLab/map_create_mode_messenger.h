@@ -77,19 +77,19 @@ struct MapCreateModeMessenger final
 		assert(start_rough_x > min_x);
 		assert(start_rough_x < max_x);
 
-		this->map_max_x = max_x;
-		this->map_min_x = min_x;
-		this->map_max_y = max_y;
-		this->map_min_y = min_y;
-		this->map_start_rough_x = start_rough_x;
-		this->base_z = map_base_z;
+		map_max_x = max_x;
+		map_min_x = min_x;
+		map_max_y = max_y;
+		map_min_y = min_y;
+		map_start_rough_x = start_rough_x;
+		base_z = map_base_z;
 	}
 
 	constexpr void SetStripeInterval(const int interval)
 	{
 		assert(interval > 0);
 
-		this->stripe_interval = interval;
+		stripe_interval = interval;
 	}
 
 	constexpr void SetHoleRate(const int rate)
@@ -97,35 +97,35 @@ struct MapCreateModeMessenger final
 		assert(rate >= 0);
 		assert(rate <= 100);
 
-		this->hole_rate = rate;
+		hole_rate = rate;
 	}
 
 	constexpr void SetStepHeight(const float height)
 	{
-		this->step_height = height;
+		step_height = height;
 	}
 
 	constexpr void SetStepLength(const float length)
 	{
-		this->step_length = length;
+		step_length = length;
 	}
 
 	constexpr void SetSlopeAngle(const float angle)
 	{
-		this->slope_angle = angle;
+		slope_angle = angle;
 	}
 
 	constexpr void SetTiltAngle(const float angle)
 	{
-		this->tilt_angle = angle;
+		tilt_angle = angle;
 	}
 
 	constexpr void SetRouthHeight(const float height_min, const float height_max)
 	{
 		assert(height_min < height_max);
 
-		this->routh_min_height = height_min;
-		this->routh_max_height = height_max;
+		routh_min_height = height_min;
+		routh_max_height = height_max;
 	}
 
 

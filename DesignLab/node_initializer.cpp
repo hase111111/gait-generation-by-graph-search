@@ -2,6 +2,7 @@
 
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
+#include "designlab_math_util.h"
 
 
 namespace dl = ::designlab;
@@ -44,6 +45,11 @@ RobotStateNode NodeInitializer::InitNode() const
 	const float kY = 2000.f / 2.0f * 0.8f;
 
 	res.global_center_of_mass = dl::Vector3(kEx * kX * cos(kAngle), kEx * kY * sin(kAngle), kComZ);
+	res.global_center_of_mass += dl::Vector3(
+		designlab::math_util::GenerateRandomNumber(-100.f,100.f),
+		designlab::math_util::GenerateRandomNumber(-100.f, 100.f), 
+		0
+	);
 
 	//ロールピッチヨーで回転を表現する．ロボットの重心を中心にして回転する． 
 	res.quat = dl::Quaternion::MakeByAngleAxis(0.0f, dl::Vector3::GetUpVec());

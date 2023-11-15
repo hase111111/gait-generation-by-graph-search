@@ -1,4 +1,4 @@
-#include "devide_map_state.h"
+ï»¿#include "devide_map_state.h"
 
 #include "designlab_math_util.h"
 
@@ -7,44 +7,45 @@ namespace dl = ::designlab;
 namespace dlm = ::designlab::math_util;
 
 
-DevideMapState::DevideMapState() :
+DevideMapState::DevideMapState(const float min_z) :
+	kMapMinZ(min_z),
 	global_robot_com_{},
 	devided_map_point_(dlm::Squared(kDevideNum)),
 	devided_map_top_z_(dlm::Squared(kDevideNum))
 {
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅCvector‚Ì‘å‚«‚³‚ğŠm•Û‚µ‚Ä‚¨‚­D
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ï¼Œvectorã®å¤§ãã•ã‚’ç¢ºä¿ã—ã¦ãŠãï¼
 	Clear();
 }
 
 void DevideMapState::Init(const MapState& map_state, const dl::Vector3 global_robot_com)
 {
-	assert(devided_map_point_.size() == dlm::Squared(kDevideNum));	//vector‚Ì‘å‚«‚³‚ªŠm•Û‚³‚ê‚Ä‚¢‚é‚©Šm”F
-	assert(devided_map_top_z_.size() == dlm::Squared(kDevideNum));	//vector‚Ì‘å‚«‚³‚ªŠm•Û‚³‚ê‚Ä‚¢‚é‚©Šm”F
+	assert(devided_map_point_.size() == dlm::Squared(kDevideNum));	//vectorã®å¤§ãã•ãŒç¢ºä¿ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
+	assert(devided_map_top_z_.size() == dlm::Squared(kDevideNum));	//vectorã®å¤§ãã•ãŒç¢ºä¿ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
 
 	Clear();
 
-	global_robot_com_ = global_robot_com;	//ƒƒ{ƒbƒg‚ÌˆÊ’u‚ğXV‚·‚éD
+	global_robot_com_ = global_robot_com;	//ãƒ­ãƒœãƒƒãƒˆã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ï¼
 
-	//ƒ}ƒbƒv‚Ìƒf[ƒ^‘S‚Ä‚ğQÆ‚µCØ‚è•ª‚¯‚é
+	//ãƒãƒƒãƒ—ã®ãƒ‡ãƒ¼ã‚¿å…¨ã¦ã‚’å‚ç…§ã—ï¼Œåˆ‡ã‚Šåˆ†ã‘ã‚‹
 	const size_t kMapPointSize = map_state.GetMapPointSize();
 
 	for (size_t i = 0; i < kMapPointSize; ++i)
 	{
-		//_ xy•ûŒü‚ÌƒuƒƒbƒN”Ô†‚ğ‚»‚ê‚¼‚ê‹‚ß‚é
+		//_ xyæ–¹å‘ã®ãƒ–ãƒ­ãƒƒã‚¯ç•ªå·ã‚’ãã‚Œãã‚Œæ±‚ã‚ã‚‹
 		const designlab::Vector3 point = map_state.GetMapPoint(i);
 
-		//”ÍˆÍ“à‚É‚¢‚È‚¢‚È‚ç‚Îˆ—‚ğ‚â‚ßCcontinue
+		//ç¯„å›²å†…ã«ã„ãªã„ãªã‚‰ã°å‡¦ç†ã‚’ã‚„ã‚ï¼Œcontinue
 		if (!IsInMap(point)) { continue; }
 
 		const int x = GetDevideMapIndexX(point.x);
 		const int y = GetDevideMapIndexY(point.y);
 
-		//ƒ}ƒbƒv‚Ì”ÍˆÍ“à‚É‚¢‚é‚Ì‚İ’Ç‰Á‚·‚é
+		//ãƒãƒƒãƒ—ã®ç¯„å›²å†…ã«ã„ã‚‹æ™‚ã®ã¿è¿½åŠ ã™ã‚‹
 		if (IsVaildIndex(x) && IsVaildIndex(y))
 		{
 			devided_map_point_[GetDevideMapIndex(x, y)].push_back(point);
 
-			//Å‘å’l‚ğXV‚·‚é
+			//æœ€å¤§å€¤ã‚’æ›´æ–°ã™ã‚‹
 			devided_map_top_z_[GetDevideMapIndex(x, y)] = std::max(point.z, devided_map_top_z_[GetDevideMapIndex(x, y)]);
 		}
 	}
@@ -52,13 +53,13 @@ void DevideMapState::Init(const MapState& map_state, const dl::Vector3 global_ro
 
 void DevideMapState::Clear()
 {
-	// vector‚Ì’†g‚ğ‘S‚ÄƒNƒŠƒA‚·‚éD
+	// vectorã®ä¸­èº«ã‚’å…¨ã¦ã‚¯ãƒªã‚¢ã™ã‚‹ï¼
 	for (auto& i : devided_map_point_)
 	{
 		i.clear();
 	}
 
-	// Å¬’l‚Å–„‚ß‚éD
+	// æœ€å°å€¤ã§åŸ‹ã‚ã‚‹ï¼
 	for (auto& i : devided_map_top_z_)
 	{
 		i = kMapMinZ;
@@ -67,7 +68,7 @@ void DevideMapState::Clear()
 
 int DevideMapState::GetPointNum(const int x_index, const int y_index) const
 {
-	//‘¶İ‚µ‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
+	//å­˜åœ¨ã—ã¦ã„ãªã‘ã‚Œã°çµ‚äº†
 	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return 0; }
 
 	return static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size());
@@ -75,12 +76,12 @@ int DevideMapState::GetPointNum(const int x_index, const int y_index) const
 
 designlab::Vector3 DevideMapState::GetPointPos(int x_index, int y_index, int devide_map_index) const
 {
-	//‘¶İ‚µ‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
+	//å­˜åœ¨ã—ã¦ã„ãªã‘ã‚Œã°çµ‚äº†
 	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return designlab::Vector3{ 0, 0, 0 }; }
 
 	if (devide_map_index < 0 || static_cast<int>(devided_map_point_[GetDevideMapIndex(x_index, y_index)].size()) <= devide_map_index) { return designlab::Vector3{ 0, 0, 0 }; }
 
-	//‘¶İ‚µ‚Ä‚¢‚é‚È‚ç‚Î’l‚ğ•Ô‚·D
+	//å­˜åœ¨ã—ã¦ã„ã‚‹ãªã‚‰ã°å€¤ã‚’è¿”ã™ï¼
 	return devided_map_point_[GetDevideMapIndex(x_index, y_index)][devide_map_index];
 }
 
@@ -88,7 +89,7 @@ void DevideMapState::GetPointVector(int x_index, int y_index, std::vector<design
 {
 	if (point_vec == nullptr) { return; }
 
-	//‘¶İ‚µ‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
+	//å­˜åœ¨ã—ã¦ã„ãªã‘ã‚Œã°çµ‚äº†
 	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return; }
 
 	(*point_vec) = devided_map_point_[GetDevideMapIndex(x_index, y_index)];
@@ -96,7 +97,7 @@ void DevideMapState::GetPointVector(int x_index, int y_index, std::vector<design
 
 float DevideMapState::GetTopZ(int x_index, int y_index) const
 {
-	//‘¶İ‚µ‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
+	//å­˜åœ¨ã—ã¦ã„ãªã‘ã‚Œã°çµ‚äº†
 	if (!IsVaildIndex(x_index) || !IsVaildIndex(y_index)) { return kMapMinZ; }
 
 	return devided_map_top_z_[GetDevideMapIndex(x_index, y_index)];

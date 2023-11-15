@@ -21,7 +21,7 @@ void BodyYawRotNodeCreator::Create(const RobotStateNode& current_node, int curre
 	for (int i = 0; i < kBodyYawRotAngleDivNum + 1; ++i)
 	{
 		const float angle = kBodyYawRotAngleMin + (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
-		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(angle, dl::Vector3::GetLeftVec());
+		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(angle, dl::Vector3::GetUpVec());
 
 		RobotStateNode node = current_node;
 		node.ChangeQuat(converter_ptr_, current_node.quat * quat);

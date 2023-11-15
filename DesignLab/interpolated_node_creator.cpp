@@ -6,6 +6,7 @@
 
 namespace dl = ::designlab;
 namespace dlm = ::designlab::math_util;
+namespace dllf = ::designlab::leg_func;
 
 InterpolatedNodeCreator::InterpolatedNodeCreator(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) : 
 	converter_ptr_(converter_ptr)
@@ -67,7 +68,7 @@ bool InterpolatedNodeCreator::IsBodyMove(const RobotStateNode& current_node, con
 
 bool InterpolatedNodeCreator::IsBodyRot(const RobotStateNode& current_node, const RobotStateNode& next_node) const
 {
-	return current_node.quat != next_node.quat;
+	return current_node.quat.GetNormalized() != next_node.quat.GetNormalized();
 }
 
 std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const
@@ -79,12 +80,15 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedN
 		RobotStateNode temp_node = current_node;
 		const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kBodyMoveInterpolatedNodeNum));
 
-		temp_node.global_center_of_mass = current_node.global_center_of_mass + (next_node.global_center_of_mass - current_node.global_center_of_mass) * ex;
+		temp_node.ChangeGlobalCenterOfMass(
+			temp_node.global_center_of_mass + (next_node.global_center_of_mass - temp_node.global_center_of_mass) * ex,
+			true
+			);
 
-		for (int j = 0; j < HexapodConst::kLegNum; j++)
-		{
-			temp_node.leg_pos[j] = current_node.leg_pos[j] + (next_node.leg_pos[j] - current_node.leg_pos[j]) * ex;
-		}
+		//for (int j = 0; j < HexapodConst::kLegNum; j++)
+		//{
+		//	temp_node.leg_pos[j] = temp_node.leg_pos[j] + (next_node.leg_pos[j] - temp_node.leg_pos[j]) * ex;
+		//}
 
 		res.push_back(temp_node);
 	}

@@ -461,36 +461,56 @@ bool PhantomXMkII::IsStable(const::designlab::leg_func::LegStateBit& leg_state, 
 
 bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const
 {
-	float top_z = -10000.0f;	//地面との交点のうち最も高いものを格納する
+	//重心の干渉を調べる．
+	{
+		const float top_z = (std::max)(
+			devide_map.GetMapMinZ(),
+			devide_map.GetTopZ(devide_map.GetDevideMapIndexX(node.global_center_of_mass.x), devide_map.GetDevideMapIndexY(node.global_center_of_mass.y))
+			);
 
-	top_z = (std::max)(
-		top_z, 
-		devide_map.GetTopZ(devide_map.GetDevideMapIndexX(node.global_center_of_mass.x), devide_map.GetDevideMapIndexY(node.global_center_of_mass.y))
-	);
+		if (top_z != devide_map.GetMapMinZ() && top_z + GetGroundHeightMarginMin() > node.global_center_of_mass.z)
+		{
+			return true;
+		}
+	}
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//脚の根元の座標(グローバル)を取得する
-		const designlab::Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
+		//脚の根元の座標(グローバル)を取得する．
+		const dl::Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
 			GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.quat, true
 		);
 
 		if (devide_map.IsInMap(coxa_pos_global_coord))
 		{
-			const float map_top_z = devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y));
+			const float coxa_top_z = (std::max)(
+				devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y)),
+				devide_map.GetMapMinZ()
+			);
 
-			top_z = (std::max)(top_z, map_top_z);	//最も高い点を求める	
-
-			if (top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
+			if (coxa_top_z != devide_map.GetMapMinZ() && coxa_top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
 			{
 				return true;
 			}
 		}
-	}
 
-	if (top_z + GetGroundHeightMarginMin() > node.global_center_of_mass.z)
-	{
-		return true;
+		//脚先の座標(グローバル)を取得する．
+		dl::Vector3 leg_pos_global_coord = ConvertLegToGlobalCoordinate(
+			{ node.leg_pos[i].x, node.leg_pos[i].y, GetFreeLegPosLegCoodinate(i).z }, i, node.global_center_of_mass, node.quat, true
+		);
+
+		if (devide_map.IsInMap(leg_pos_global_coord))
+		{
+			const float leg_top_z = (std::max)(
+				devide_map.GetTopZ(devide_map.GetDevideMapIndexX(leg_pos_global_coord.x), devide_map.GetDevideMapIndexY(leg_pos_global_coord.y)),
+				devide_map.GetMapMinZ()
+			);
+
+			if (leg_top_z != devide_map.GetMapMinZ() && leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoodinate(i).z > leg_pos_global_coord.z)
+			{
+				return true;
+			}
+		}
 	}
 
 	return false;
