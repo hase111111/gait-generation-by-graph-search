@@ -357,6 +357,8 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const designlab::Vector3& l
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
+	if (GetFreeLegPosLegCoodinate(leg_index).z < leg_pos.z) { return false; }
+
 	const dl::Vector2 leg_pos_xy = leg_pos.ProjectedXY();	//投射した脚先座標をえる．
 
 	//脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
@@ -496,7 +498,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 
 		//脚先の座標(グローバル)を取得する．
 		dl::Vector3 leg_pos_global_coord = ConvertLegToGlobalCoordinate(
-			{ node.leg_pos[i].x, node.leg_pos[i].y, GetFreeLegPosLegCoodinate(i).z }, i, node.global_center_of_mass, node.quat, true
+			GetFreeLegPosLegCoodinate(i), i, node.global_center_of_mass, node.quat, true
 		);
 
 		if (devide_map.IsInMap(leg_pos_global_coord))

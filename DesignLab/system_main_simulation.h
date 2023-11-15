@@ -9,8 +9,8 @@
 
 #include "application_setting_recorder.h"
 #include "graphic_data_broker.h"
+#include "interface_gait_pattern_generator.h"
 #include "interface_map_creator.h"
-#include "interface_pass_finder.h"
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
@@ -32,7 +32,7 @@ public:
 	//! @param[in] broker_ptr グラフィックデータを管理するクラス．
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SystemMainSimulation(
-		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
@@ -52,7 +52,7 @@ private:
 	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
 
 
-	const std::unique_ptr<IPassFinder> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．
+	const std::unique_ptr<IGaitPatternGenerator> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．
 
 	const std::unique_ptr<IMapCreator> map_creator_ptr_;	//!< マップを生成するクラス．
 

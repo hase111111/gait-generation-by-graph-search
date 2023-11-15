@@ -29,7 +29,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 
 
 	//初期化処理を行う．
-	dlio::Output("PassFinderBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
+	dlio::Output("GaitPatternGeneratorBasic::GetNextNodebyGraphSearch．\nまずは初期化する．(マップを分割する)\n", OutputDetail::kDebug);
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state, current_node.global_center_of_mass);

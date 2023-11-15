@@ -16,7 +16,7 @@ namespace dlsu = designlab::string_util;
 
 
 SystemMainSimulation::SystemMainSimulation(
-		std::unique_ptr<IPassFinder>&& pass_finder_ptr,
+		std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
@@ -105,6 +105,8 @@ void SystemMainSimulation::Main()
 		//最大歩容生成回数分までループする．
 		for (int j = 0; j < kGaitPatternGenerationLimit; j++)
 		{
+			current_node.ChangeParentNode();
+
 			timer_.Start();			//タイマースタート
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．

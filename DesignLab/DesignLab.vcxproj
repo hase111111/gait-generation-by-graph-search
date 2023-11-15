@@ -73,7 +73,7 @@
     <ClInclude Include="node_display_gui.h" />
     <ClInclude Include="output_detail.h" />
     <ClInclude Include="graph_searcher_random.h" />
-    <ClInclude Include="pass_finder_basic.h" />
+    <ClInclude Include="gait_pattern_generator_basic.h" />
     <ClInclude Include="graph_search_result_recoder.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
@@ -81,7 +81,7 @@
     <ClInclude Include="phantomx_mk2_const.h" />
     <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
-    <ClInclude Include="interface_pass_finder.h" />
+    <ClInclude Include="interface_gait_pattern_generator.h" />
     <ClInclude Include="interface_graph_searcher.h" />
     <ClInclude Include="interface_graphic_main.h" />
     <ClInclude Include="result_file_importer.h" />
@@ -169,7 +169,7 @@
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="node_display_gui.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
-    <ClCompile Include="pass_finder_basic.cpp" />
+    <ClCompile Include="gait_pattern_generator_basic.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="phantomx_renderer_simple.cpp" />
     <ClCompile Include="com_type.cpp" />

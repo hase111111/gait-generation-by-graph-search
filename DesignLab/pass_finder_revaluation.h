@@ -10,12 +10,12 @@
 #include <vector>
 
 #include "graph_tree_creator.h"
-#include "interface_pass_finder.h"
+#include "interface_gait_pattern_generator.h"
 #include "interface_graph_searcher.h"
 #include "robot_state_node.h"
 
 
-class PassFinderRevaluation final : public IPassFinder
+class PassFinderRevaluation final : public IGaitPatternGenerator
 {
 public:
 

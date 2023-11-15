@@ -9,9 +9,9 @@
 #include "cmdio_util.h"
 #include "define.h"
 #include "designlab_string_util.h"
+#include "gait_pattern_generator_basic.h"
 #include "graph_search_const.h"
 #include "node_initializer.h"
-#include "pass_finder_basic.h"
 #include "phantomx_mk2.h"
 
 
