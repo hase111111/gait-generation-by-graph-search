@@ -20,17 +20,17 @@ void BodyYawRotNodeCreator::Create(const RobotStateNode& current_node, int curre
 {
 	for (int i = 0; i < kBodyYawRotAngleDivNum; ++i)
 	{
-		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(candiate_angle_[i], dl::Vector3::GetUpVec());
+		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(candiate_angle_[i], dl::Vector3::GetFrontVec());
 
 		RobotStateNode node = current_node;
 		node.ChangeQuat(converter_ptr_, current_node.quat * quat);
 
-		bool is_vaild = true;
-
 		if (checker_ptr_->IsBodyInterferingWithGround(node, map_)) 
 		{
-			is_vaild = false;
+			continue;
 		}
+
+		bool is_vaild = true;
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{

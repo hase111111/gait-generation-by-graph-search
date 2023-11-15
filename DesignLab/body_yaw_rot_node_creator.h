@@ -32,8 +32,8 @@ public:
 
 private:
 	
-	static constexpr float kBodyYawRotAngleMax = ::designlab::math_util::ConvertDegToRad(20.f);		//!< ロボットのヨー軸周りの回転角度．
-	static constexpr float kBodyYawRotAngleMin = ::designlab::math_util::ConvertDegToRad(-20.f);	//!< ロボットのヨー軸周りの回転角度．
+	static constexpr float kBodyYawRotAngleMax = ::designlab::math_util::ConvertDegToRad(10.f);		//!< ロボットのヨー軸周りの回転角度．
+	static constexpr float kBodyYawRotAngleMin = ::designlab::math_util::ConvertDegToRad(-10.f);	//!< ロボットのヨー軸周りの回転角度．
 	static constexpr int kBodyYawRotAngleDivNum = 11;	//!< ロボットのヨー軸周りの回転角度の分割数（奇数にすること）．
 
 	constexpr std::array<float, kBodyYawRotAngleDivNum> CreateCandiateAngle() const
@@ -44,10 +44,12 @@ private:
 		res[count++] = (kBodyYawRotAngleMax + kBodyYawRotAngleMin) / 2;
 
 		//絶対値の小さい順に並べる
-		for (int i = 1; i <= kBodyYawRotAngleDivNum / 2; ++i)
+		const float dif = (kBodyYawRotAngleMax - kBodyYawRotAngleMin) / (kBodyYawRotAngleDivNum - 1);
+
+		for (int i = 0; i < kBodyYawRotAngleDivNum / 2; ++i)
 		{
-			res[count++] = kBodyYawRotAngleMin + (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
-			res[count++] = kBodyYawRotAngleMax - (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
+			res[count++] = res[0] + dif * (i + 1);
+			res[count++] = res[0] - dif * (i + 1);
 		}
 
 		return res;
