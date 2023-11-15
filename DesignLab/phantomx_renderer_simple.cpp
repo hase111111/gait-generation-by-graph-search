@@ -156,6 +156,13 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		);
 
 		//脚の接地の基準地点の描画
-		DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.leg_reference_pos[i]), kJointRadius / 3, kSphereDivNum, kColorLegBase, kColorLegBase, TRUE);
+		DrawSphere3D(
+			dldu::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_reference_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
+			kJointRadius / 3,
+			kSphereDivNum,
+			kColorLegBase,
+			kColorLegBase, 
+			TRUE
+		);
 	}
 }

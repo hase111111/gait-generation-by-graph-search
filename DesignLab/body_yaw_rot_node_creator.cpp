@@ -18,17 +18,16 @@ BodyYawRotNodeCreator::BodyYawRotNodeCreator(
 
 void BodyYawRotNodeCreator::Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const
 {
-	for (int i = 0; i < kBodyYawRotAngleDivNum + 1; ++i)
+	for (int i = 0; i < kBodyYawRotAngleDivNum; ++i)
 	{
-		const float angle = kBodyYawRotAngleMin + (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
-		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(angle, dl::Vector3::GetLeftVec());
+		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(candiate_angle_[i], dl::Vector3::GetUpVec());
 
 		RobotStateNode node = current_node;
 		node.ChangeQuat(converter_ptr_, current_node.quat * quat);
 
 		bool is_vaild = true;
 
-		if (! checker_ptr_->IsBodyInterferingWithGround(node, map_)) 
+		if (checker_ptr_->IsBodyInterferingWithGround(node, map_)) 
 		{
 			is_vaild = false;
 		}

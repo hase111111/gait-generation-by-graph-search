@@ -479,20 +479,22 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//脚の根元の座標(グローバル)を取得する．
-		const dl::Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
-			GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.quat, true
-		);
-
-		if (devide_map.IsInMap(coxa_pos_global_coord))
 		{
-			const float coxa_top_z = (std::max)(
-				devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y)),
-				devide_map.GetMapMinZ()
+			const dl::Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
+				GetLegBasePosRobotCoodinate(i), node.global_center_of_mass, node.quat, true
 			);
 
-			if (coxa_top_z != devide_map.GetMapMinZ() && coxa_top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
+			if (devide_map.IsInMap(coxa_pos_global_coord))
 			{
-				return true;
+				const float coxa_top_z = (std::max)(
+					devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y)),
+					devide_map.GetMapMinZ()
+					);
+
+				if (coxa_top_z != devide_map.GetMapMinZ() && coxa_top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
+				{
+					return true;
+				}
 			}
 		}
 

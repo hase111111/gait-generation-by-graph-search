@@ -47,7 +47,7 @@ RobotStateNode NodeInitializer::InitNode() const
 	res.global_center_of_mass = dl::Vector3(kEx * kX * cos(kAngle), kEx * kY * sin(kAngle), kComZ);
 	res.global_center_of_mass += dl::Vector3(
 		designlab::math_util::GenerateRandomNumber(-100.f,100.f),
-		designlab::math_util::GenerateRandomNumber(-100.f, 100.f), 
+		designlab::math_util::GenerateRandomNumber(-400.f, 400.f), 
 		0
 	);
 

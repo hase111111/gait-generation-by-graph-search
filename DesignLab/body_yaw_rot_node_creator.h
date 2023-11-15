@@ -32,9 +32,28 @@ public:
 
 private:
 	
-	static constexpr float kBodyYawRotAngleMax = ::designlab::math_util::ConvertDegToRad(20.f);	//!< ロボットのヨー軸周りの回転角度．
+	static constexpr float kBodyYawRotAngleMax = ::designlab::math_util::ConvertDegToRad(20.f);		//!< ロボットのヨー軸周りの回転角度．
 	static constexpr float kBodyYawRotAngleMin = ::designlab::math_util::ConvertDegToRad(-20.f);	//!< ロボットのヨー軸周りの回転角度．
-	static constexpr int kBodyYawRotAngleDivNum = 10;	//!< ロボットのヨー軸周りの回転角度の分割数．
+	static constexpr int kBodyYawRotAngleDivNum = 11;	//!< ロボットのヨー軸周りの回転角度の分割数（奇数にすること）．
+
+	constexpr std::array<float, kBodyYawRotAngleDivNum> CreateCandiateAngle() const
+	{
+		std::array<float, kBodyYawRotAngleDivNum> res{};
+		int count = 0;
+
+		res[count++] = (kBodyYawRotAngleMax + kBodyYawRotAngleMin) / 2;
+
+		//絶対値の小さい順に並べる
+		for (int i = 1; i <= kBodyYawRotAngleDivNum / 2; ++i)
+		{
+			res[count++] = kBodyYawRotAngleMin + (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
+			res[count++] = kBodyYawRotAngleMax - (kBodyYawRotAngleMax - kBodyYawRotAngleMin) * i / kBodyYawRotAngleDivNum;
+		}
+
+		return res;
+	}
+
+	const std::array<float, kBodyYawRotAngleDivNum> candiate_angle_ = CreateCandiateAngle();
 
 	const DevideMapState map_;		//!< 地面の状態を格納したクラス．
 	const HexapodMove next_move_;	//!< 次の動作．
@@ -42,8 +61,8 @@ private:
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 
-
 	static_assert(kBodyYawRotAngleMax > kBodyYawRotAngleMin, "kBodyYawRotAngleMax は kBodyYawRotAngleMinよりも大きい必要があります.");
+	static_assert(kBodyYawRotAngleDivNum % 2 == 1, "kBodyYawRotAngleDivNum は奇数である必要があります.");
 };
 
 
