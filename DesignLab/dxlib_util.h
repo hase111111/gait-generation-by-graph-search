@@ -1,5 +1,5 @@
-//! @file dxlib_util.h
-//! @brief Dxlib‚Ì3D•\¦‚ğs‚¤ˆ—‚ğ‘‚«’¼‚µ‚½ŠÖ”‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌD
+ï»¿//! @file dxlib_util.h
+//! @brief Dxlibã®3Dè¡¨ç¤ºã‚’è¡Œã†å‡¦ç†ã‚’æ›¸ãç›´ã—ãŸé–¢æ•°ã‚’ã¾ã¨ã‚ãŸã‚‚ã®ï¼
 
 
 #ifndef DESIGNLAB_DXLIB_UTIL_H_
@@ -10,64 +10,75 @@
 #include <array>
 
 #include "designlab_vector3.h"
+#include "designlab_rotation_matrix.h"
 
 
 namespace designlab
 {
 
 	//! @namespace designlab::dxlib_util
-	//! @brief Dxlib‚Ì3D•\¦‚ğs‚¤ˆ—‚ğ‘‚«’¼‚µ‚½ŠÖ”‚ğ‚Ü‚Æ‚ß‚½–¼‘O‹óŠÔD
-	//! @details Dxlib ‚Ì 3D‚Å•\¦‚·‚é‹@”\‚ÍƒnƒbƒLƒŠŒ¾‚Á‚Ä€‚Ê‚Ù‚Çg‚¢‚Ã‚ç‚¢‚Ì‚ÅC
-	//! @n ‚±‚±‚Å‚ ‚é’ö“xg‚¢‚â‚·‚­‚È‚é‚æ‚¤‚Éˆ—‚ğ‘‚¢‚Ä‚Ü‚Æ‚ß‚Ä‚¨‚­D
+	//! @brief Dxlibã®3Dè¡¨ç¤ºã‚’è¡Œã†å‡¦ç†ã‚’æ›¸ãç›´ã—ãŸé–¢æ•°ã‚’ã¾ã¨ã‚ãŸåå‰ç©ºé–“ï¼
+	//! @details Dxlib ã® 3Dã§è¡¨ç¤ºã™ã‚‹æ©Ÿèƒ½ã¯ãƒãƒƒã‚­ãƒªè¨€ã£ã¦æ­»ã¬ã»ã©ä½¿ã„ã¥ã‚‰ã„ã®ã§ï¼Œ
+	//! @n ã“ã“ã§ã‚ã‚‹ç¨‹åº¦ä½¿ã„ã‚„ã™ããªã‚‹ã‚ˆã†ã«å‡¦ç†ã‚’æ›¸ã„ã¦ã¾ã¨ã‚ã¦ãŠãï¼
 	namespace dxlib_util
 	{
-		//! @brief 3Dˆ—‚ğs‚¤ã‚Å•K—v‚È‰Šú‰»ˆ—‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌD
+		//! @brief 3Då‡¦ç†ã‚’è¡Œã†ä¸Šã§å¿…è¦ãªåˆæœŸåŒ–å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚‚ã®ï¼
 		void InitDxlib3DSetting(bool high_quality);
 
 
-		//! @brief Dxlib‚ÌÀ•W‚ğ¦‚·VECTOR‚ÆC‚±‚ÌƒvƒƒOƒ‰ƒ€‚Åg—p‚µ‚Ä‚¢‚éVector‚ğ•ÏŠ·‚·‚éD
-		//! @n ƒƒ{ƒbƒgÀ•WŒn‚Í‰EèÀ•WŒnCDxlib‚Í¶èÀ•WŒn(HŠw‚Í‰EèEƒQ[ƒ€ƒ‰ƒCƒuƒ‰ƒŠ‚Í¶è‚ª‘½‚¢‹C‚ª‚·‚é)‚È‚Ì‚Åy‚ğ”½“]‚·‚éD
-		//! @param [in] vec •ÏŠ·‘O‚ÌÀ•WD
-		//! @return VECTOR •ÏŠ·Œã‚ÌÀ•WD
+		//! @brief Dxlibã®åº§æ¨™ã‚’ç¤ºã™VECTORã¨ï¼Œã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ä½¿ç”¨ã—ã¦ã„ã‚‹Vectorã‚’å¤‰æ›ã™ã‚‹ï¼
+		//! @n ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¯å³æ‰‹åº§æ¨™ç³»ï¼ŒDxlibã¯å·¦æ‰‹åº§æ¨™ç³»(å·¥å­¦ã¯å³æ‰‹ãƒ»ã‚²ãƒ¼ãƒ ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯å·¦æ‰‹ãŒå¤šã„æ°—ãŒã™ã‚‹)ãªã®ã§yã‚’åè»¢ã™ã‚‹ï¼
+		//! @param [in] vec å¤‰æ›å‰ã®åº§æ¨™ï¼
+		//! @return VECTOR å¤‰æ›å¾Œã®åº§æ¨™ï¼
 		inline VECTOR ConvertToDxlibVec(const designlab::Vector3& vec) { return VGet(vec.x, -vec.y, vec.z); }
 
 
-		//! @brief ‚±‚ÌƒvƒƒOƒ‰ƒ€‚Åg—p‚µ‚Ä‚¢‚éVector‚ÆCDxlib‚ÌÀ•W‚ğ¦‚·VECTOR‚ğ•ÏŠ·‚·‚éD
-		//! @n ƒƒ{ƒbƒgÀ•WŒn‚Í‰EèÀ•WŒnCDxlib‚Í¶èÀ•WŒn(HŠw‚Í‰EèEƒQ[ƒ€ƒ‰ƒCƒuƒ‰ƒŠ‚Í¶è‚ª‘½‚¢‹C‚ª‚·‚é)‚È‚Ì‚Åy‚ğ”½“]‚·‚éD
-		//! @param [in] vec •ÏŠ·‘O‚ÌÀ•WD
-		//! @return Vector3 •ÏŠ·Œã‚ÌÀ•WD
+		inline MATRIX ConvertToDxlibMat(const designlab::RotationMatrix3x3& mat)
+		{
+			return {
+				mat.element[0][0],mat.element[0][1],mat.element[0][2],0,
+				mat.element[1][0],mat.element[1][1],mat.element[1][2],0,
+				mat.element[2][0],mat.element[2][1],mat.element[2][2],0,
+				0,0,0,1
+			};
+		}
+
+		//! @brief ã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ä½¿ç”¨ã—ã¦ã„ã‚‹Vectorã¨ï¼ŒDxlibã®åº§æ¨™ã‚’ç¤ºã™VECTORã‚’å¤‰æ›ã™ã‚‹ï¼
+		//! @n ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¯å³æ‰‹åº§æ¨™ç³»ï¼ŒDxlibã¯å·¦æ‰‹åº§æ¨™ç³»(å·¥å­¦ã¯å³æ‰‹ãƒ»ã‚²ãƒ¼ãƒ ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯å·¦æ‰‹ãŒå¤šã„æ°—ãŒã™ã‚‹)ãªã®ã§yã‚’åè»¢ã™ã‚‹ï¼
+		//! @param [in] vec å¤‰æ›å‰ã®åº§æ¨™ï¼
+		//! @return Vector3 å¤‰æ›å¾Œã®åº§æ¨™ï¼
 		inline designlab::Vector3 ConvertDesignLabVec(const VECTOR& vec) { return designlab::Vector3(vec.x, -vec.y, vec.z); }
 
 
-		//! @brief ƒfƒtƒHƒ‹ƒg‚¾‚Æ•`‰æˆ—‚ğ‘‚¢‚½‡‚É•`‰æ‚³‚ê‚é‚ªC‚±‚ê‚ğZƒoƒbƒtƒ@‚ğg—p‚µ‚Ä‰œs‚«‚ğl—¶‚µ‚Ä•`‰æ‚·‚é‚æ‚¤‚É‚·‚éD
-		//! @n ‚È‚ñ‚©–ˆƒtƒŒ[ƒ€Às‚µ‚È‚«‚á‚¢‚¯‚È‚¢‚Á‚Û‚¢Hd—l‚ª‚æ‚­‚í‚©‚ç‚ñ
+		//! @brief ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã ã¨æç”»å‡¦ç†ã‚’æ›¸ã„ãŸé †ã«æç”»ã•ã‚Œã‚‹ãŒï¼Œã“ã‚Œã‚’Zãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨ã—ã¦å¥¥è¡Œãã‚’è€ƒæ…®ã—ã¦æç”»ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ï¼
+		//! @n ãªã‚“ã‹æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å®Ÿè¡Œã—ãªãã‚ƒã„ã‘ãªã„ã£ã½ã„ï¼Ÿä»•æ§˜ãŒã‚ˆãã‚ã‹ã‚‰ã‚“
 		void SetZBufferEnable();
 
 
-		//! @brief 3D‹óŠÔ‚É—§•û‘Ì‚ğ•`‰æ‚·‚éD
-		//! @param [in] center_pos —§•û‘Ì‚Ì’†S‚ÌÀ•WD
-		//! @param [in] side_len —§•û‘Ì‚Ì1•Ó‚Ì’·‚³D
-		//! @param [in] color —§•û‘Ì‚ÌFDdxlib‚ÌGetColor‚Åæ“¾‚·‚é.
+		//! @brief 3Dç©ºé–“ã«ç«‹æ–¹ä½“ã‚’æç”»ã™ã‚‹ï¼
+		//! @param [in] center_pos ç«‹æ–¹ä½“ã®ä¸­å¿ƒã®åº§æ¨™ï¼
+		//! @param [in] side_len ç«‹æ–¹ä½“ã®1è¾ºã®é•·ã•ï¼
+		//! @param [in] color ç«‹æ–¹ä½“ã®è‰²ï¼dxlibã®GetColorã§å–å¾—ã™ã‚‹.
 		void DrawCube3D(const VECTOR& center_pos, float side_len, unsigned int color);
 
 
-		//! @brief 3D‹óŠÔ‚É—§•û‘Ì‚ğ•`‰æ‚·‚éD—§•û‘Ì‚Ìã–Ê‚Ì’†S‚ÌÀ•W‚©‚ç•`‰æ‚·‚éD
-		//! @param [in] center_pos —§•û‘Ì‚Ìã–Ê‚Ì’†S‚ÌÀ•WD
-		//! @param [in] side_len —§•û‘Ì‚Ì1•Ó‚Ì’·‚³D
-		//! @param [in] color —§•û‘Ì‚ÌFDdxlib‚ÌGetColor‚Åæ“¾‚·‚é.
+		//! @brief 3Dç©ºé–“ã«ç«‹æ–¹ä½“ã‚’æç”»ã™ã‚‹ï¼ç«‹æ–¹ä½“ã®ä¸Šé¢ã®ä¸­å¿ƒã®åº§æ¨™ã‹ã‚‰æç”»ã™ã‚‹ï¼
+		//! @param [in] center_pos ç«‹æ–¹ä½“ã®ä¸Šé¢ã®ä¸­å¿ƒã®åº§æ¨™ï¼
+		//! @param [in] side_len ç«‹æ–¹ä½“ã®1è¾ºã®é•·ã•ï¼
+		//! @param [in] color ç«‹æ–¹ä½“ã®è‰²ï¼dxlibã®GetColorã§å–å¾—ã™ã‚‹.
 		void DrawCube3DWithTopPos(const VECTOR& top_pos, float side_len, unsigned int color);
 
 
-		//! @brief 3D‹óŠÔ‚É˜ZŠpŒ`‚ğ•`‰æ‚·‚éDŠe“_‚Í“¯ˆê•½–Êã‚É‚ ‚é‚à‚Ì‚É‚µ‚È‚¢‚ÆC•`‰æ‚ª˜c‚ŞD
-		//! @param [in] vertex Še’¸“_‚ÌÀ•WD
-		//! @param [in] color FDdxlib‚ÌGetColor‚Åæ“¾‚·‚é.
+		//! @brief 3Dç©ºé–“ã«å…­è§’å½¢ã‚’æç”»ã™ã‚‹ï¼å„ç‚¹ã¯åŒä¸€å¹³é¢ä¸Šã«ã‚ã‚‹ã‚‚ã®ã«ã—ãªã„ã¨ï¼Œæç”»ãŒæ­ªã‚€ï¼
+		//! @param [in] vertex å„é ‚ç‚¹ã®åº§æ¨™ï¼
+		//! @param [in] color è‰²ï¼dxlibã®GetColorã§å–å¾—ã™ã‚‹.
 		void DrawHexagon(const std::array<VECTOR, 6>& vertex, unsigned int color);
 
 
-		//! @brief 3D‹óŠÔ‚É˜ZŠp’Œ‚ğ•`‰æ‚·‚éD
-		//! @param vertex ˜ZŠp’Œ‚Ì^‚ñ’†‚ÌŠe’¸“_‚ÌÀ•WC“¯ˆê•½–Êã‚É‚ ‚é‚à‚Ì‚É‚·‚é‚±‚ÆD
-		//! @param height ˜ZŠp’Œ‚Ì‚‚³D
-		//! @param color FDdxlib‚ÌGetColor‚Åæ“¾‚·‚é.
+		//! @brief 3Dç©ºé–“ã«å…­è§’æŸ±ã‚’æç”»ã™ã‚‹ï¼
+		//! @param vertex å…­è§’æŸ±ã®çœŸã‚“ä¸­ã®å„é ‚ç‚¹ã®åº§æ¨™ï¼ŒåŒä¸€å¹³é¢ä¸Šã«ã‚ã‚‹ã‚‚ã®ã«ã™ã‚‹ã“ã¨ï¼
+		//! @param height å…­è§’æŸ±ã®é«˜ã•ï¼
+		//! @param color è‰²ï¼dxlibã®GetColorã§å–å¾—ã™ã‚‹.
 		void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, float height, unsigned int color);
 
 	} // namespace dxlib_util
@@ -77,7 +88,7 @@ namespace designlab
 
 namespace DxLib
 {
-	//VECTOR‚ÌZp‰‰Zq‚ğ©ì‚·‚é
+	//VECTORã®ç®—è¡“æ¼”ç®—å­ã‚’è‡ªä½œã™ã‚‹
 	constexpr VECTOR operator+(const VECTOR& vec1, const VECTOR& vec2) { return { vec1.x + vec2.x,vec1.y + vec2.y,vec1.z + vec2.z }; };
 	constexpr VECTOR operator-(const VECTOR& vec1, const VECTOR& vec2) { return { vec1.x - vec2.x,vec1.y - vec2.y,vec1.z - vec2.z }; };
 	constexpr VECTOR operator*(const VECTOR& vec, const float s) { return { vec.x * s,vec.y * s,vec.z * s }; };

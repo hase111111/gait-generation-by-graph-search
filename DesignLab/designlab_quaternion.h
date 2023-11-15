@@ -96,6 +96,15 @@ namespace designlab
 		//! @brief 自身を正規化する．ノルムが１になる．
 		inline void Normalize() noexcept { *this = GetNormalized(); }
 
+		//! @brief 左手座標系への変換を行う．
+		//! @n 言うまでもないが，機械工学では通例右手座標系を使う．
+		//! @n しかし，dxlibは左手座標系なので，dxlibで描画するときは，この関数を使って左手座標系に変換する必要がある．
+		//! @return designlab::Quaternion 左手座標系に変換されたクォータニオン
+		[[nodiscard]] constexpr Quaternion ToLeftHandCoordinate() const noexcept
+		{
+			return { w, v.x, -v.y, v.z };
+		}
+
 		//! @brief 回転軸と回転角からクォータニオンを作成する．
 		//! @n q = cos(θ/2) * w + sin(θ/2) * { v.x  + v.y  + v.z } となる．
 		//! @n ノルムは必ず1になる．

@@ -148,6 +148,19 @@ void GraphicMainTest::MoveBody()
 
 		node_.ChangeQuat(converter_ptr_, rot);
 	}
+	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
+	{
+		float angle_speed = kComSpeed / 360.0f * 2.f * dlm::kFloatPi;
+
+		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
+		{
+			angle_speed *= -1.f;
+		}
+
+		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetUpVec()) * node_.quat;
+
+		node_.ChangeQuat(converter_ptr_, rot);
+	}
 }
 
 void GraphicMainTest::MoveLeg()

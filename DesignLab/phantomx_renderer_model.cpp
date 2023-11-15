@@ -12,8 +12,9 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace dlm = designlab::math_util;
-namespace dldu = designlab::dxlib_util;
+namespace dl = ::designlab;
+namespace dlm = ::designlab::math_util;
+namespace dldu = ::designlab::dxlib_util;
 
 
 PhantomXRendererModel::PhantomXRendererModel(
@@ -64,8 +65,9 @@ void PhantomXRendererModel::DrawBody() const
 	MV1SetScale(body_model_handle, kScale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	designlab::EulerXYZ euler = designlab::ToEulerXYZ(draw_node_.quat) * -1.f;
-	MV1SetRotationXYZ(body_model_handle, VGet(euler.x_angle, euler.y_angle, euler.z_angle ));
+	MV1SetRotationMatrix(body_model_handle,
+		dldu::ConvertToDxlibMat(dl::ToRotationMatrix(draw_node_.quat.ToLeftHandCoordinate()))
+	);
 
 	MV1SetPosition(body_model_handle, dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass));
 
@@ -82,43 +84,26 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//Coxa Jointは2つのConnect Linkで構成されているので，それぞれ描画する
-	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
+	const VECTOR scale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR kCoxaJointPos = dldu::ConvertToDxlibVec(
+	const VECTOR coxa_joint_pos_global = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
 			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
 		)
 	);
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
+	const dl::Quaternion coxa_quat = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(draw_joint_state_[leg_index].joint_angle[0], dl::Vector3::GetUpVec()) *
+		draw_node_.quat.ToLeftHandCoordinate();
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
+	MV1SetScale(coxa_model_handle, scale);
 
-	const float kOffsetLength = 0;	//回転中心と原点がずれているので，その分を補正する
+	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
+	MV1SetRotationMatrix(coxa_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(coxa_quat)));
 
-	{
-		const designlab::RotationMatrix3x3 kDefRotMat =
-			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-			designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(-90.0f));
+	MV1SetPosition(coxa_model_handle, coxa_joint_pos_global);
 
-		const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-			designlab::RotateVector3
-			(
-				designlab::Vector3::GetFrontVec() * kOffsetLength,
-				designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
-			)
-		);
-
-		MV1SetScale(coxa_model_handle, kScale);
-
-		// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-		designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-		MV1SetRotationXYZ(coxa_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
-
-		MV1SetPosition(coxa_model_handle, kCoxaJointPos + kOffsetPos);
-
-		MV1DrawModel(coxa_model_handle);
-	}
+	MV1DrawModel(coxa_model_handle);
 }
 
 void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
@@ -131,7 +116,7 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//パラメータの計算
-	const VECTOR kScale = VGet(10.f, 10.f, 10.f);
+	const VECTOR scale = VGet(10.f, 10.f, 10.f);
 
 	const VECTOR kFemurJointPos = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
@@ -139,39 +124,36 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 		)
 	);
 
-	const float kCoxaAngle = draw_joint_state_[leg_index].joint_angle[0];
-
-	const float kFemurAngle = draw_joint_state_[leg_index].joint_angle[1];
-
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
+	const float coxa_angle = draw_joint_state_[leg_index].joint_angle[0];
+	const float femur_angle = draw_joint_state_[leg_index].joint_angle[1];
 
 	// リンクが曲がっているため，簡単のために回転軸を結ぶように仮想的なリンクを使っている．
 	// そのため，仮想的なリンクの角度を補正する必要がある．
-	const float virtual_link_offset_angle = dlm::ConvertDegToRad(-13.5f);	
+	const float virtual_link_offset_angle = dlm::ConvertDegToRad(12.5f);	
 	
-	const designlab::RotationMatrix3x3 kDefRotMat =
-		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixY(-kFemurAngle) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(-90.f)) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixX(virtual_link_offset_angle);
+	const dl::Quaternion thign_def_quat =
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
+		dl::Quaternion::MakeByAngleAxis(femur_angle, dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(virtual_link_offset_angle, dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec());
 
-	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-		designlab::RotateVector3
+	const VECTOR offset_pos = dldu::ConvertToDxlibVec(
+		dl::RotateVector3
 		(
-			designlab::Vector3::GetFrontVec(),
-			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
+			dl::Vector3::GetFrontVec(),
+			dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
 		)
 	);
 
 	//描画する．
-	MV1SetScale(thign_model_handle, kScale);
+	MV1SetScale(thign_model_handle, scale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-	MV1SetRotationXYZ(thign_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
+	dl::Quaternion thign_quat = thign_def_quat * draw_node_.quat.ToLeftHandCoordinate();
+	MV1SetRotationMatrix(thign_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(thign_quat)));
 
-	MV1SetPosition(thign_model_handle, kFemurJointPos + kOffsetPos);
+	MV1SetPosition(thign_model_handle, kFemurJointPos + offset_pos);
 
 	MV1DrawModel(thign_model_handle);
 }
@@ -188,7 +170,7 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 	if (draw_joint_state_[leg_index].joint_angle.size() != 3) { return; }
 
 	//パラメータの計算
-	const VECTOR kScale = VGet(0.01f, 0.01f, 0.01f);
+	const VECTOR scale = VGet(0.01f, 0.01f, 0.01f);
 
 	const VECTOR kTibiaJointPos = dldu::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
@@ -202,31 +184,31 @@ void PhantomXRendererModel::DrawTibiaLink(int leg_index) const
 
 	const float kTibiaAngle = draw_joint_state_[leg_index].joint_angle[2];
 
-	const designlab::RotationMatrix3x3 kBodyRotMat = designlab::ToRotationMatrix(draw_node_.quat);
+	const dl::Quaternion kDefRotMat = 
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(-kFemurAngle - kTibiaAngle, dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) *
+		dl::Quaternion::MakeByAngleAxis(kCoxaAngle, dl::Vector3::GetUpVec()) * 
+		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetUpVec());
 
-	const designlab::RotationMatrix3x3 kDefRotMat =
-		designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixY(-kFemurAngle) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixY(-kTibiaAngle) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixX(dlm::ConvertDegToRad(-90.0f)) *
-		designlab::RotationMatrix3x3::CreateRotationMatrixY(dlm::ConvertDegToRad(90.f));
-
-	const VECTOR kOffsetPos = dldu::ConvertToDxlibVec(
-	designlab::RotateVector3
+	const VECTOR offset_pos = dldu::ConvertToDxlibVec(
+	dl::RotateVector3
 		(
-			designlab::Vector3::GetFrontVec(),
-			designlab::RotationMatrix3x3::CreateRotationMatrixZ(kCoxaAngle) * kBodyRotMat
+			dl::Vector3::GetFrontVec(),
+			dl::Quaternion::MakeByAngleAxis(kCoxaAngle, dl::Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
 		)
 	);
 
 	//描画する．
-	MV1SetScale(tibia_model_handle, kScale);
+	MV1SetScale(tibia_model_handle, scale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	designlab::EulerXYZ rot = (kBodyRotMat * kDefRotMat).ToEulerXYZ() * -1.f;
-	MV1SetRotationXYZ(tibia_model_handle, VGet(rot.x_angle, rot.y_angle, rot.z_angle));
+	const dl::Quaternion tibia_quat = kDefRotMat * draw_node_.quat.ToLeftHandCoordinate();
+	MV1SetRotationMatrix(tibia_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(tibia_quat)));
 
-	MV1SetPosition(tibia_model_handle, kTibiaJointPos + kOffsetPos);
+	MV1SetPosition(tibia_model_handle, kTibiaJointPos + offset_pos);
 
 	MV1DrawModel(tibia_model_handle);
 }
@@ -264,9 +246,6 @@ void PhantomXRendererModel::DrawJointAxis(int leg_index) const
 		);
 
 		DrawCapsule3D(kCoxaJointPos - kAxisVec, kCoxaJointPos + kAxisVec, kAxisRadius, kAxisDivNum, kCoxaAxisColor, kSpecColor, TRUE);
-
-		//間接に点を描画する
-		//DrawSphere3D(kCoxaJointPos, kAxisRadius * 2, kAxisDivNum, kJointColor, kSpecColor, TRUE);
 	}
 
 	//Femurの回転軸

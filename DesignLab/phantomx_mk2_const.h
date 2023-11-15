@@ -1,5 +1,5 @@
-//! @file phantomx_mk2_const.h
-//! @brief PhantomX‚ÌƒXƒe[ƒ^ƒX‚ğ‚Ü‚Æ‚ß‚½’è”ƒNƒ‰ƒXD
+ï»¿//! @file phantomx_mk2_const.h
+//! @brief PhantomXã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ã¾ã¨ã‚ãŸå®šæ•°ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_PHANTOMX_CONST_H_
 #define DESIGNLAB_PHANTOMX_CONST_H_
@@ -11,11 +11,11 @@
 
 
 //! @class PhantomXMkIIConst
-//! @brief PhantomX mk-‡U ‚Ìƒpƒ‰ƒ[ƒ^‚ğ’è”‚Å•\Œ»‚µ‚½‚à‚ÌD
-//! @n ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğíœ‚µ‚½‚Ì‚ÅCÀ‘Ì‚Í¶¬‚Å‚«‚È‚¢D( PhantomXMkIIConst::kLegNum ‚İ‚½‚¢‚É’l‚ğŒÄ‚Ño‚·‚±‚Æ )
-//! @details ŠÈ’P‚Ì‚½‚ß’l‚ğ‚±‚±‚É‚Ü‚Æ‚ß‚½‚ªC‚Ş‚â‚İ‚É‚±‚Ì’l‚ğQÆ‚¹‚¸‚ÉHexapodStateCalculator‚ğg‚¤‚±‚ÆD
-//! @n İŒv“I‚É‚ ‚Ü‚è³‚µ‚­‚È‚¢‹C‚ª‚·‚é‚ªCŒ»óŒø—¦‚æ‚­ŠJ”­‚Å‚«‚Ä‚¢‚é‚Ì‚Å–â‘è‚ª‹N‚«‚½‚Æ‚«‚Él‚¦‚é‚±‚Æ‚É‚·‚éD
-//! @n ‚Ü‚½CÀ•WŒn‚Íƒƒ{ƒbƒg‘O•û‚Éx²C¶•ûŒü‚Éy²Cã•ûŒü‚Éz²‚ğ‚Æ‚é‰EèÀ•WŒn‚Å‚ ‚éD
+//! @brief PhantomX mk-â…¡ ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®šæ•°ã§è¡¨ç¾ã—ãŸã‚‚ã®ï¼
+//! @n ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‰Šé™¤ã—ãŸã®ã§ï¼Œå®Ÿä½“ã¯ç”Ÿæˆã§ããªã„ï¼( PhantomXMkIIConst::kLegNum ã¿ãŸã„ã«å€¤ã‚’å‘¼ã³å‡ºã™ã“ã¨ )
+//! @details ç°¡å˜ã®ãŸã‚å€¤ã‚’ã“ã“ã«ã¾ã¨ã‚ãŸãŒï¼Œã‚€ã‚„ã¿ã«ã“ã®å€¤ã‚’å‚ç…§ã›ãšã«HexapodStateCalculatorã‚’ä½¿ã†ã“ã¨ï¼
+//! @n è¨­è¨ˆçš„ã«ã‚ã¾ã‚Šæ­£ã—ããªã„æ°—ãŒã™ã‚‹ãŒï¼Œç¾çŠ¶åŠ¹ç‡ã‚ˆãé–‹ç™ºã§ãã¦ã„ã‚‹ã®ã§å•é¡ŒãŒèµ·ããŸã¨ãã«è€ƒãˆã‚‹ã“ã¨ã«ã™ã‚‹ï¼
+//! @n ã¾ãŸï¼Œåº§æ¨™ç³»ã¯ãƒ­ãƒœãƒƒãƒˆå‰æ–¹ã«xè»¸ï¼Œå·¦æ–¹å‘ã«yè»¸ï¼Œä¸Šæ–¹å‘ã«zè»¸ã‚’ã¨ã‚‹å³æ‰‹åº§æ¨™ç³»ã§ã‚ã‚‹ï¼
 class PhantomXMkIIConst final
 {
 private:
@@ -23,13 +23,13 @@ private:
 
 public:
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÆƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğíœ‚µCÀ‘Ì‚ğ¶¬‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚éD
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¨ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‰Šé™¤ã—ï¼Œå®Ÿä½“ã‚’ç”Ÿæˆã§ããªã„ã‚ˆã†ã«ã™ã‚‹ï¼
 	PhantomXMkIIConst() = delete;
 	PhantomXMkIIConst(const PhantomXMkIIConst& other) = delete;
 	PhantomXMkIIConst& operator=(const PhantomXMkIIConst& other) = delete;
 	PhantomXMkIIConst(PhantomXMkIIConst&& other) = delete;
 
-	//! ‘æ1ŠÖß‚Ì‰ŠúŠp“x[rad]
+	//! ç¬¬1é–¢ç¯€ã®åˆæœŸè§’åº¦[rad]
 	constexpr static std::array<float, kPhantomXLegNum> kCoxaDefaultAngle = {
 		::designlab::math_util::ConvertDegToRad(-45.0f), 
 		::designlab::math_util::ConvertDegToRad(-90.0f), 
@@ -39,33 +39,33 @@ public:
 		::designlab::math_util::ConvertDegToRad(45.0f) 
 	};
 
-	constexpr static float kCoxaAngleMin = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< ‘æ1ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ¬’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
-	constexpr static float kCoxaAngleMax = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< ‘æ1ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ‘å’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
+	constexpr static float kCoxaAngleMin = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< ç¬¬1é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å°å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
+	constexpr static float kCoxaAngleMax = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< ç¬¬1é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å¤§å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
 
-	constexpr static float kFemurAngleMin = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< ‘æ2ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ¬’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
-	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(99.0f);	//!< ‘æ2ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ‘å’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
+	constexpr static float kFemurAngleMin = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< ç¬¬2é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å°å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
+	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(99.0f);	//!< ç¬¬2é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å¤§å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
 
-	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-145.0f);	//!< ‘æ2ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ¬’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
-	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(25.5f);	//!< ‘æ2ŠÖß‚Ì‰Â“®”ÍˆÍ‚ÌÅ‘å’l[rad]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
+	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-145.0f);	//!< ç¬¬2é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å°å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
+	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(25.5f);	//!< ç¬¬2é–¢ç¯€ã®å¯å‹•ç¯„å›²ã®æœ€å¤§å€¤[rad]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
 
-	constexpr static float kCoxaLength = 52.0f;		//!< ‘æ1ŠÖß•”‚Ì’·‚³[mm]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD
-	constexpr static float kFemurLength = 66.0f;	//!< ‘æ2ŠÖß•”‚Ì’·‚³[mm]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD(³Šm‚ÈƒXƒe[ƒ^ƒX‚Í66.061mm)
-	constexpr static float kTibiaLength = 130.0f;	//!< ‘æ3ŠÖß•”‚Ì’·‚³[mm]DÚ‚µ‚­‚Íreference‚ğƒtƒHƒ‹ƒ_QÆD(³Šm‚ÈƒXƒe[ƒ^ƒX137mm)
+	constexpr static float kCoxaLength = 52.0f;		//!< ç¬¬1é–¢ç¯€éƒ¨ã®é•·ã•[mm]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼
+	constexpr static float kFemurLength = 66.0f;	//!< ç¬¬2é–¢ç¯€éƒ¨ã®é•·ã•[mm]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼(æ­£ç¢ºãªã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã¯66.061mm)
+	constexpr static float kTibiaLength = 130.0f;	//!< ç¬¬3é–¢ç¯€éƒ¨ã®é•·ã•[mm]ï¼è©³ã—ãã¯referenceã‚’ãƒ•ã‚©ãƒ«ãƒ€å‚ç…§ï¼(æ­£ç¢ºãªã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹137mm)
 
-	constexpr static float kCoxaBaseOffsetY = 61.64f;		//!< coxa link‚Ì•t‚¯ª(‘O•ûEŒã•û)‚Ü‚Å‚Ì’·‚³[mm]D
-	constexpr static float kCenterCoxaBaseOffsetY = 103.4f;	//!< coxa link‚Ì•t‚¯ª(’†‰›)‚Ü‚Å‚Ì’·‚³[mm]D
-	constexpr static float kCoxaBaseOffsetX = 124.8f;		//!< coxa link‚Ì•t‚¯ª(‘O•ûEŒã•û)‚Ü‚Å‚Ì’·‚³[mm]D
-	constexpr static float kCoxaBaseOffsetZ = 1.116f;		//!< coxa link‚Ì•t‚¯ª‚Ü‚Å‚Ì’·‚³(ã•ûŒü)[mm]D
-	constexpr static float kBodyHeight = 40.0f;			//!< “·‘Ì‚Ì‚‚³[mm]D
+	constexpr static float kCoxaBaseOffsetY = 61.f;		//!< coxa linkã®ä»˜ã‘æ ¹(å‰æ–¹ãƒ»å¾Œæ–¹)ã¾ã§ã®é•·ã•[mm]ï¼
+	constexpr static float kCenterCoxaBaseOffsetY = 103.4f;	//!< coxa linkã®ä»˜ã‘æ ¹(ä¸­å¤®)ã¾ã§ã®é•·ã•[mm]ï¼
+	constexpr static float kCoxaBaseOffsetX = 122.f;		//!< coxa linkã®ä»˜ã‘æ ¹(å‰æ–¹ãƒ»å¾Œæ–¹)ã¾ã§ã®é•·ã•[mm]ï¼
+	constexpr static float kCoxaBaseOffsetZ = 1.116f;		//!< coxa linkã®ä»˜ã‘æ ¹ã¾ã§ã®é•·ã•(ä¸Šæ–¹å‘)[mm]ï¼
+	constexpr static float kBodyHeight = 40.0f;			//!< èƒ´ä½“ã®é«˜ã•[mm]ï¼
 
 
-	//! @brief ‘æ1ŠÖß‚ÌŠp“x‚ª—LŒø‚È”ÍˆÍ“à‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] leg_index ‹r‚Ì”Ô†D
-	//! @param [in] angle ”»’è‚·‚éŠp“xD
-	//! @return bool —LŒø‚È”ÍˆÍ“à‚È‚çtrueD
+	//! @brief ç¬¬1é–¢ç¯€ã®è§’åº¦ãŒæœ‰åŠ¹ãªç¯„å›²å†…ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] leg_index è„šã®ç•ªå·ï¼
+	//! @param [in] angle åˆ¤å®šã™ã‚‹è§’åº¦ï¼
+	//! @return bool æœ‰åŠ¹ãªç¯„å›²å†…ãªã‚‰trueï¼
 	constexpr static bool IsVaildCoxaAngle(const int leg_index, const float angle)
 	{
-		// 0 <= leg_index < kPhantomXLegNum ‚Å‚ ‚é‚±‚Æ‚ğ•ÛØ‚·‚éD
+		// 0 <= leg_index < kPhantomXLegNum ã§ã‚ã‚‹ã“ã¨ã‚’ä¿è¨¼ã™ã‚‹ï¼
 		assert(0 <= leg_index);
 		assert(leg_index < kPhantomXLegNum);
 
@@ -75,29 +75,29 @@ public:
 		);
 	};
 
-	//! @biref ‘æ2ŠÖß‚ÌŠp“x‚ª—LŒø‚È”ÍˆÍ“à‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] angle ”»’è‚·‚éŠp“xD
-	//! @return bool —LŒø‚È”ÍˆÍ“à‚È‚çtrueD
+	//! @biref ç¬¬2é–¢ç¯€ã®è§’åº¦ãŒæœ‰åŠ¹ãªç¯„å›²å†…ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] angle åˆ¤å®šã™ã‚‹è§’åº¦ï¼
+	//! @return bool æœ‰åŠ¹ãªç¯„å›²å†…ãªã‚‰trueï¼
 	constexpr static bool IsVaildFemurAngle(const float angle)
 	{
 		return kFemurAngleMin <= angle && angle <= kFemurAngleMax;
 	};
 
-	//! @brief ‘æ3ŠÖß‚ÌŠp“x‚ª—LŒø‚È”ÍˆÍ“à‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éD
-	//! @param [in] angle ”»’è‚·‚éŠp“xD
-	//! @return bool —LŒø‚È”ÍˆÍ“à‚È‚çtrueD
+	//! @brief ç¬¬3é–¢ç¯€ã®è§’åº¦ãŒæœ‰åŠ¹ãªç¯„å›²å†…ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+	//! @param [in] angle åˆ¤å®šã™ã‚‹è§’åº¦ï¼
+	//! @return bool æœ‰åŠ¹ãªç¯„å›²å†…ãªã‚‰trueï¼
 	constexpr static bool IsVaildTibiaAngle(const float angle)
 	{
 		return kTibiaAngleMin <= angle && angle <= kTibiaAngleMax;
 	};
 
 
-	static_assert(kCoxaAngleMin < kCoxaAngleMax, "kCoxaAngleMax > Min‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kFemurAngleMin < kFemurAngleMax, "kFemurAngleMax > Min‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kTibiaAngleMin < kTibiaAngleMax, "kTibiaAngleMax > Min‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kCoxaLength > 0.f, "kCoxaLengthCCoxa Link‚Ì’·‚³‚Í³‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kFemurLength > 0.f, "kFemurLengthCFemur Link‚Ì’·‚³‚Í³‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
-	static_assert(kTibiaLength > 0.f, "kTibiaLengthCTibia Link‚Ì’·‚³‚Í³‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D");
+	static_assert(kCoxaAngleMin < kCoxaAngleMax, "kCoxaAngleMax > Minã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kFemurAngleMin < kFemurAngleMax, "kFemurAngleMax > Minã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kTibiaAngleMin < kTibiaAngleMax, "kTibiaAngleMax > Minã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kCoxaLength > 0.f, "kCoxaLengthï¼ŒCoxa Linkã®é•·ã•ã¯æ­£ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kFemurLength > 0.f, "kFemurLengthï¼ŒFemur Linkã®é•·ã•ã¯æ­£ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+	static_assert(kTibiaLength > 0.f, "kTibiaLengthï¼ŒTibia Linkã®é•·ã•ã¯æ­£ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
 };
 
 
