@@ -1,10 +1,10 @@
 ﻿#include "node_creator_builder_hato.h"
 
 #include "cassert_define.h"
-#include "com_move_node_creator_hato.h"
-#include "com_up_down_node_creator.h"
-#include "leg_hierarchy_node_creator.h"
-#include "leg_up_down_node_creator.h"
+#include "node_creator_com_move.h"
+#include "node_creator_com_up_down.h"
+#include "node_creator_leg_hierarchy.h"
+#include "node_creator_leg_up_down.h"
 
 
 NodeCreatorBuilderHato::NodeCreatorBuilderHato(
@@ -19,7 +19,7 @@ NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 
 void NodeCreatorBuilderHato::Build(
 	const DevideMapState& map,
-	std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const
+	std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
 	assert(node_creator != nullptr);	// node_creatorがnullptrでない．
 	assert(node_creator->size() == 0);	// node_creatorは空でなければならない．
@@ -29,9 +29,9 @@ void NodeCreatorBuilderHato::Build(
 	// (*node_creator)[HexapodMove::???] = std::make_unique<クラス名>(クラスのコンストラクタの引数);
 	// この場合，HexapodMove::???のノードを作成するクラスは，↑ である．
 
-	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<LegHierarchyNodeCreator>(HexapodMove::kLegUpDown);
+	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(HexapodMove::kLegUpDown);
 
-	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<LegUpDownNodeCreator>(
+	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
 		map,
 		converter_ptr_, 
 		presenter_ptr_, 
@@ -39,7 +39,7 @@ void NodeCreatorBuilderHato::Build(
 		HexapodMove::kComUpDown
 	);
 
-	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<ComUpDownNodeCreator>(
+	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
 		map, 
 		converter_ptr_, 
 		presenter_ptr_,
@@ -47,7 +47,7 @@ void NodeCreatorBuilderHato::Build(
 		HexapodMove::kComMove
 	);
 
-	(*node_creator)[HexapodMove::kComMove] = std::make_unique<ComMoveNodeCreatorHato>(
+	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
 		map, 
 		converter_ptr_, 
 		presenter_ptr_, 

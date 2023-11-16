@@ -1,8 +1,8 @@
-﻿//! @file leg_up_down_node_creator.h
+﻿//! @file node_creator_leg_up_down.h
 //! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
 
-#ifndef DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
-#define DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
+#ifndef DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_
+#define DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_
 
 
 #include "interface_node_creator.h"
@@ -16,21 +16,21 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
-//! @class LegUpDownNodeCreator
+//! @class NodeCreatorLegUpDown
 //! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
 //! @note 回転を考慮していないので注意
-class LegUpDownNodeCreator final : public INodeCreator
+class NodeCreatorLegUpDown final : public INodeCreator
 {
 public:
 
-	LegUpDownNodeCreator(
+	NodeCreatorLegUpDown(
 		const DevideMapState& devide_map, 
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		HexapodMove next_move
 	);
-	~LegUpDownNodeCreator() = default;
+	~NodeCreatorLegUpDown() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const override;
 
@@ -56,4 +56,4 @@ private:
 };
 
 
-#endif	// DESIGNLAB_LEG_UP_DOWN_NODE_CREATOR_H_
+#endif	// DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_

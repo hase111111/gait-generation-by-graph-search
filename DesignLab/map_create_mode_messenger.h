@@ -8,38 +8,39 @@
 #include "cassert_define.h"
 
 
-//! @struct MapCreateModeMessenger
-//! @brief マップ生成時のモードとオプションを指定する構造体．
-struct MapCreateModeMessenger final
-{
 	//! @enum MapCreateMode
 	//! @brief getMap関数のマップ生成のモードを指定する列挙体．
-	enum class MapCreateMode : int
-	{
-		kFlat = 0,			//!< 普通の平らな面を生成する．
-		kVerticalStripe,	//!< 縦じまの面を生成する．
-		kHorizontalStripe,	//!< 横じまの面を生成する．
-		kDiagonalStripe,	//!< 斜めじまの面を生成する．
-		kMesh,				//!< 格子状の面を生成する．網目状の地形ともいっていい．
-		kLatticePoint,		//!< 格子点の面を生成する．網目状の逆．
-	};
+enum class MapCreateMode : int
+{
+	kFlat = 0,			//!< 普通の平らな面を生成する．
+	kVerticalStripe,	//!< 縦じまの面を生成する．
+	kHorizontalStripe,	//!< 横じまの面を生成する．
+	kDiagonalStripe,	//!< 斜めじまの面を生成する．
+	kMesh,				//!< 格子状の面を生成する．網目状の地形ともいっていい．
+	kLatticePoint,		//!< 格子点の面を生成する．網目状の逆．
+};
 
-	//! @enum MapCreateOption
-	//! @brief getMap関数のマップ生成のオプションを指定する列挙体．
-	//! @n bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，MapCreateOption::kPerforated | MapCreateOption::kStep と指定する．
-	//! @n bit演算ができるようにunsigned int型にしている．
-	enum class MapCreateOption : unsigned int
-	{
-		// 1 <<  x は 2^x を表す．
+//! @enum MapCreateOption
+//! @brief getMap関数のマップ生成のオプションを指定する列挙体．
+//! @n bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，MapCreateOption::kPerforated | MapCreateOption::kStep と指定する．
+//! @n bit演算ができるようにunsigned int型にしている．
+enum class MapCreateOption : unsigned int
+{
+	// 1 <<  x は 2^x を表す．
 
-		kNone = 0,				//!< 特にオプションを指定しない．
-		kPerforated = 1 << 0,	//!< 穴の空いたマップに変化させる．
-		kStep = 1 << 1,			//!< 階段状の地形に変化させる．
-		kSlope = 1 << 2,		//!< スロープ状の地形に変化させる．
-		kTilt = 1 << 3,			//!< 縦軸を中心軸として回転させた地形に変化させる．
-		kRough = 1 << 4,		//!< 凸凹の地形に変化させる．
-	};
+	kNone = 0,				//!< 特にオプションを指定しない．
+	kPerforated = 1 << 0,	//!< 穴の空いたマップに変化させる．
+	kStep = 1 << 1,			//!< 階段状の地形に変化させる．
+	kSlope = 1 << 2,		//!< スロープ状の地形に変化させる．
+	kTilt = 1 << 3,			//!< 縦軸を中心軸として回転させた地形に変化させる．
+	kRough = 1 << 4,		//!< 凸凹の地形に変化させる．
+};
 
+//! @class MapCreateModeMessenger
+//! @brief マップ生成時のモードとオプションを指定する構造体．
+class MapCreateModeMessenger final
+{
+public:
 	constexpr MapCreateModeMessenger() :
 		mode(MapCreateMode::kFlat),
 		option(static_cast<unsigned int>(MapCreateOption::kNone))
@@ -100,24 +101,22 @@ struct MapCreateModeMessenger final
 		hole_rate = rate;
 	}
 
-	constexpr void SetStepHeight(const float height)
+	constexpr void SetStepValue(const float height, const float length)
 	{
+		assert(0 < length);
+
 		step_height = height;
-	}
-
-	constexpr void SetStepLength(const float length)
-	{
 		step_length = length;
-	}
-
-	constexpr void SetSlopeAngle(const float angle)
-	{
-		slope_angle = angle;
 	}
 
 	constexpr void SetTiltAngle(const float angle)
 	{
 		tilt_angle = angle;
+	}
+
+	constexpr void SetSlopeAngle(const float angle)
+	{
+		slope_angle = angle;
 	}
 
 	constexpr void SetRouthHeight(const float height_min, const float height_max)

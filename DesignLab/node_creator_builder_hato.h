@@ -19,7 +19,7 @@ public:
 
 	void Build(
 		const DevideMapState& map, 
-		std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
+		std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const override;
 
 private:
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

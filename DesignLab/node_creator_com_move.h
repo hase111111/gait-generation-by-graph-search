@@ -1,4 +1,4 @@
-﻿//! @file com_move_node_creator_hato.h
+﻿//! @file node_creator_com_move.h
 //! @brief 重心の平行移動を行うクラス．波東さんの手法．
 
 #ifndef DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
@@ -18,20 +18,20 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
-//! @class ComMoveNodeCreatorHato
+//! @class NodeCreatorComMove
 //! @brief 重心の平行移動を行うクラス．波東さんの手法．
-class ComMoveNodeCreatorHato final : public INodeCreator
+class NodeCreatorComMove final : public INodeCreator
 {
 public:
 
-	ComMoveNodeCreatorHato(
+	NodeCreatorComMove(
 		const DevideMapState& devide_map, 
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		HexapodMove next_move
 	);
-	~ComMoveNodeCreatorHato() = default;
+	~NodeCreatorComMove() = default;
 
 	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const override;
 

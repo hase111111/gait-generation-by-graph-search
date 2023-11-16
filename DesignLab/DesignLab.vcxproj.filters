@@ -186,16 +186,16 @@
     <ClInclude Include="graph_searcher_hato.h">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="leg_hierarchy_node_creator.h">
+    <ClInclude Include="node_creator_leg_hierarchy.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="leg_up_down_node_creator.h">
+    <ClInclude Include="node_creator_leg_up_down.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="com_up_down_node_creator.h">
+    <ClInclude Include="node_creator_com_up_down.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
-    <ClInclude Include="com_move_node_creator_hato.h">
+    <ClInclude Include="node_creator_com_move.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_basic.h">
@@ -491,16 +491,16 @@
     <ClCompile Include="graph_searcher_hato.cpp">
       <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
     </ClCompile>
-    <ClCompile Include="leg_hierarchy_node_creator.cpp">
+    <ClCompile Include="node_creator_leg_hierarchy.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="leg_up_down_node_creator.cpp">
+    <ClCompile Include="node_creator_leg_up_down.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="com_up_down_node_creator.cpp">
+    <ClCompile Include="node_creator_com_up_down.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
-    <ClCompile Include="com_move_node_creator_hato.cpp">
+    <ClCompile Include="node_creator_com_move.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
     <ClCompile Include="gait_pattern_generator_basic.cpp">

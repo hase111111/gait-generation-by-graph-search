@@ -1,4 +1,4 @@
-﻿#include "com_move_node_creator_hato.h"
+﻿#include "node_creator_com_move.h"
 
 #include "designlab_math_util.h"
 #include "graph_search_const.h"
@@ -9,7 +9,7 @@ namespace dllf = designlab::leg_func;
 namespace dlm = designlab::math_util;
 
 
-ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(
+NodeCreatorComMove::NodeCreatorComMove(
 	const DevideMapState& map, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
@@ -27,7 +27,7 @@ ComMoveNodeCreatorHato::ComMoveNodeCreatorHato(
 }
 
 
-void ComMoveNodeCreatorHato::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorComMove::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
 {
 	std::array<ComPosAndPolygon, ComCandidatePolygonMaker::MAKE_POLYGON_NUM> candidate_polygons;
 

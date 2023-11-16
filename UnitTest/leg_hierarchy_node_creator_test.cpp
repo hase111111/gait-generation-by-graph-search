@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "../DesignLab/leg_hierarchy_node_creator.h"
+#include "../DesignLab/node_creator_leg_hierarchy.h"
 #include "../DesignLab/leg_hierarchy_node_creator.cpp"
 
 
@@ -134,11 +134,11 @@ namespace designlab::test::node::node_creator
 
 		const int next_node_index_ = 0;
 
-		std::unique_ptr<LegHierarchyNodeCreator> creator_ptr_;
+		std::unique_ptr<NodeCreatorLegHierarchy> creator_ptr_;
 
 		virtual void SetUp() 
 		{
-			creator_ptr_ = std::make_unique<LegHierarchyNodeCreator>(next_move_);
+			creator_ptr_ = std::make_unique<NodeCreatorLegHierarchy>(next_move_);
 		}
 
 		virtual void TearDown() 

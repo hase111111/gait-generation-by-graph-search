@@ -1,8 +1,8 @@
-﻿//! @file leg_hierarchy_node_creator.h
+﻿//! @file node_creator_leg_hierarchy.h
 //! @brief 脚の階層構造を作るためのクラス．
 
-#ifndef DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
-#define DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
+#ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
+#define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
 
 
 #include "interface_node_creator.h"
@@ -14,14 +14,14 @@
 #include "discrete_leg_pos.h"
 
 
-//! @class LegHierarchyNodeCreator
+//! @class NodeCreatorLegHierarchy
 //! @brief 脚の階層構造を作るためのクラス．
-class LegHierarchyNodeCreator final : public INodeCreator
+class NodeCreatorLegHierarchy final : public INodeCreator
 {
 public:
 
-	LegHierarchyNodeCreator(HexapodMove next_move);
-	~LegHierarchyNodeCreator() = default;
+	NodeCreatorLegHierarchy(HexapodMove next_move);
+	~NodeCreatorLegHierarchy() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const override;
 
@@ -44,4 +44,4 @@ private:
 };
 
 
-#endif // DESIGNLAB_LEG_HIERARCHY_NODE_CREATOR_H_
+#endif // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
