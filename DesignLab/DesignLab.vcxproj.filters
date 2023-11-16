@@ -432,6 +432,15 @@
     <ClInclude Include="node_creator_builder_rot_test.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
+    <ClInclude Include="font_loader.h">
+      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_clickable_gui.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_gui.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -658,6 +667,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_builder_rot_test.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="font_loader.cpp">
+      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

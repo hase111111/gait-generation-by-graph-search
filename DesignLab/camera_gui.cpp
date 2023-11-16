@@ -1,4 +1,4 @@
-#include "camera_gui.h"
+Ôªø#include "camera_gui.h"
 
 #include <string>
 
@@ -26,20 +26,42 @@ CameraGui::CameraGui(const int left_x_pos, const int top_y_pos, const unsigned i
 	const int kCloseButtonSizeX = 100;
 	const int kCloseButtonSizeY = 30;
 
-	button_list_[ButtonType::kClosed] = std::make_unique<ButtomController>(kGuiLeftPosX + kGuiSizeX - kCloseButtonSizeX / 2 - 10, kGuiTopPosY + kCloseButtonSizeY - 10,
-		kCloseButtonSizeX, kCloseButtonSizeY, "ç≈ëÂ/è¨âª");
+	button_list_.push_back(
+		std::make_unique<SimpleButton>(
+			"ÊúÄÂ§ß/Â∞èÂåñ",
+			kGuiLeftPosX + kGuiSizeX - kCloseButtonSizeX / 2 - 10,
+			kGuiTopPosY + kCloseButtonSizeY - 10,
+			kCloseButtonSizeX,
+			kCloseButtonSizeY
+		)
+	);
+
+	button_list_.back()->SetActivateFunction([this]() { is_closed_ = !is_closed_; });
 
 	const int kButtonRange = kButtonSize + kButtonDistance;
 	const int kLeftPosX = kGuiLeftPosX + kButtonRange / 2 + 15;
 	const int kTopPosY = kGuiTopPosY + kButtonRange / 2 + kCloseButtonSizeY + 10;
 
-	button_list_[ButtonType::kLenghReset] = std::make_unique<ButtomController>(kLeftPosX, kTopPosY, kButtonSize, kButtonSize, "Reset\nZoom");
-	button_list_[ButtonType::kFront] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize, "Front");
-	button_list_[ButtonType::kLeft] = std::make_unique<ButtomController>(kLeftPosX, kTopPosY + kButtonRange, kButtonSize, kButtonSize, "Left");
-	button_list_[ButtonType::kTop] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange, kTopPosY + kButtonRange, kButtonSize, kButtonSize, "Top");
-	button_list_[ButtonType::kRight] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange * 2, kTopPosY + kButtonRange, kButtonSize, kButtonSize, "Right");
-	button_list_[ButtonType::kBack] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange, kTopPosY + kButtonRange * 2, kButtonSize, kButtonSize, "Back");
-	button_list_[ButtonType::kTargetReset] = std::make_unique<ButtomController>(kLeftPosX + kButtonRange * 2, kTopPosY, kButtonSize, kButtonSize, "Reset\nTarget");
+	button_list_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", kLeftPosX, kTopPosY, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.InitCaneraTargetLength(); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Front", kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kFrontView); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Left", kLeftPosX, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kLeftSideView); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Top", kLeftPosX + kButtonRange, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kTopView); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Right", kLeftPosX + kButtonRange * 2, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kRightSideView); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Back", kLeftPosX + kButtonRange, kTopPosY + kButtonRange * 2, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kBackView); });
+
+	button_list_.push_back(std::make_unique<SimpleButton>("Reset\nTarget", kLeftPosX + kButtonRange * 2, kTopPosY, kButtonSize, kButtonSize));
+	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kFreeControlled); });
 }
 
 
@@ -48,63 +70,23 @@ void CameraGui::SetHexapodPos(const designlab::Vector3& pos)
 	camera_manager_.SetTargetPos(pos);
 }
 
-
 void CameraGui::Update()
 {
-	//äeÉ{É^ÉìÇÃèàóù
+	//ÂêÑ„Éú„Çø„É≥„ÅÆÂá¶ÁêÜ
 	for (auto& button : button_list_)
 	{
-		button.second->Update();
+		button->Update();
 
-		//É{É^ÉìÇ™âüÇ≥ÇÍÇΩÇÁ(ç≈è¨âªÉ{É^Éìà»äO)
-		if (button.second->IsPushedNow() && !is_closed_)
+		if (button->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()) && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1) 
 		{
-			//É{É^ÉìÇÃéÌóﬁÇ…ÇÊÇ¡ÇƒèàóùÇïœÇ¶ÇÈ
-			switch (button.first)
-			{
-			case ButtonType::kLenghReset:
-				camera_manager_.InitCaneraTargetLength();
-				break;
-
-			case ButtonType::kFront:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kFrontView);
-				break;
-
-			case ButtonType::kLeft:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kLeftSideView);
-				break;
-
-			case ButtonType::kTop:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kTopView);
-				break;
-
-			case ButtonType::kRight:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kRightSideView);
-				break;
-
-			case ButtonType::kBack:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kBackView);
-				break;
-
-			case ButtonType::kTargetReset:
-				camera_manager_.SetCameraViewMode(CameraViewMode::kFreeControlled);
-				break;
-
-			}	//switch (button.first)
-		}
-
-		//ç≈è¨âªÉ{É^ÉìÇ™âüÇ≥ÇÍÇΩÇÁ
-		if (button.second->IsPushedNow() && button.first == ButtonType::kClosed)
-		{
-			is_closed_ = !is_closed_;
+			button->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
 		}
 	}
 
-
-	//ÉLÅ[É{Å[ÉhÇ…ÇÊÇÈÉJÉÅÉâÇÃëÄçÏ
+	//„Ç≠„Éº„Éú„Éº„Éâ„Å´„Çà„Çã„Ç´„É°„É©„ÅÆÊìç‰Ωú
 	camera_controller_.ChangeCameraState(&camera_manager_);
 
-	//ÉJÉÅÉâÇÃçXêV
+	//„Ç´„É°„É©„ÅÆÊõ¥Êñ∞
 	camera_manager_.Update();
 }
 
@@ -121,13 +103,10 @@ void CameraGui::Draw() const
 	}
 
 
-	//ëSÇƒÇÃÉ{É^ÉìÇÃï`âÊ
+	//ÂÖ®„Å¶„ÅÆ„Éú„Çø„É≥„ÅÆÊèèÁîª
 	for (auto& button : button_list_)
 	{
-		if (!(is_closed_ && button.first != ButtonType::kClosed))
-		{
-			button.second->Draw();
-		}
+		button->Draw();
 	}
 
 	if (!is_closed_)
@@ -168,26 +147,26 @@ void CameraGui::DrawString() const
 	int text_line = 0;
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, "É}ÉEÉXÉzÉCÅ[ÉãâÒì]");
+		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, "„Éû„Ç¶„Çπ„Éõ„Ç§„Éº„É´ÂõûËª¢");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, " ÅEÉYÅ[ÉÄ");
+		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, " „Éª„Ç∫„Éº„É†");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, "ÉzÉCÅ[ÉãÉNÉäÉbÉNÅïÉhÉâÉbÉO");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, "„Éõ„Ç§„Éº„É´„ÇØ„É™„ÉÉ„ÇØÔºÜ„Éâ„É©„ÉÉ„Ç∞");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, " ÅEÉrÉÖÅ[ÇâÒì]");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, " „Éª„Éì„É•„Éº„ÇíÂõûËª¢");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, "ç∂ÉNÉäÉbÉNÅïÉhÉâÉbÉO");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, "Â∑¶„ÇØ„É™„ÉÉ„ÇØÔºÜ„Éâ„É©„ÉÉ„Ç∞");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, " ÅEâÊñ ÇÃíÜêSÇ©ÇÁâÒì]");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, " „ÉªÁîªÈù¢„ÅÆ‰∏≠ÂøÉ„Åã„ÇâÂõûËª¢");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, "âEÉNÉäÉbÉNÅïÉhÉâÉbÉO");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, "Âè≥„ÇØ„É™„ÉÉ„ÇØÔºÜ„Éâ„É©„ÉÉ„Ç∞");
 
 	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, " ÅEâÊñ ÇÃïΩçsà⁄ìÆ");
+		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, " „ÉªÁîªÈù¢„ÅÆÂπ≥Ë°åÁßªÂãï");
 }

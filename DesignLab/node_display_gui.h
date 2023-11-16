@@ -6,8 +6,8 @@
 #define DESIGNLAB_NODE_DISPLAY_GUI_H_
 
 #include <array>
-#include <map>
 #include <memory>
+#include <vector>
 
 #include "button_controller.h"
 #include "interface_hexapod_joint_calculator.h"
@@ -50,12 +50,6 @@ public:
 
 private:
 
-	enum class ButtonType
-	{
-		kOpenClose,
-		kModeSwitching
-	};
-
 	enum class DisplayMode
 	{
 		kDefualt,		//デフォルト
@@ -75,7 +69,7 @@ private:
 	const int kGuiTopPosY;
 
 
-	std::map<ButtonType, std::unique_ptr<ButtomController>> buttons_;				//!< ボタン
+	std::vector<std::unique_ptr<SimpleButton>> buttons_;				//!< ボタン
 
 	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;

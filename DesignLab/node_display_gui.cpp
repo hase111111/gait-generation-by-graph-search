@@ -6,6 +6,7 @@
 #include "designlab_math_util.h"
 #include "designlab_rot_converter.h"
 #include "leg_state.h"
+#include "mouse.h"
 #include "phantomx_mk2_const.h"
 
 
@@ -20,8 +21,8 @@ const int NodeDisplayGui::kClosedHeight = 50;
 
 
 NodeDisplayGui::NodeDisplayGui(
-	const int x_pos, 
-	const int y_pos, 
+	const int x_pos,
+	const int y_pos,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 ) :
@@ -29,19 +30,43 @@ NodeDisplayGui::NodeDisplayGui(
 	kGuiTopPosY(y_pos),
 	calculator_ptr_(calculator_ptr),
 	checker_ptr_(checker_ptr),
-	is_closed_(false), 
+	is_closed_(false),
 	display_type_(DisplayMode::kDefualt)
 {
 	//ボタンを作成する
 	const int kButtonSizeX = 100;
 	const int kButtonSizeY = 30;
 
-	buttons_[ButtonType::kOpenClose] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + 10 + kButtonSizeY / 2,
-		kButtonSizeX, kButtonSizeY, "最大/小化");
-	buttons_[ButtonType::kModeSwitching] = std::make_unique<ButtomController>(kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10, kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
-		kButtonSizeX, kButtonSizeY, "切り替え");
-}
+	buttons_.push_back(
+		std::make_unique<SimpleButton>(
+			"最大/小化",
+			kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10,
+			kGuiTopPosY + 10 + kButtonSizeY / 2,
+			kButtonSizeX,
+			kButtonSizeY)
+	);
+	buttons_.back()->SetActivateFunction([this]() { is_closed_ = !is_closed_; });
 
+	buttons_.push_back(std::make_unique<SimpleButton>(
+		"切り替え",
+		kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10,
+		kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
+		kButtonSizeX,
+		kButtonSizeY)
+	);
+	buttons_.back()->SetActivateFunction([this]()
+		{
+			if (display_type_ == DisplayMode::kDefualt)
+			{
+				display_type_ = DisplayMode::kJointState;
+			}
+			else
+			{
+				display_type_ = DisplayMode::kDefualt;
+			}
+		}
+	);
+}
 
 void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 {
@@ -60,22 +85,11 @@ void NodeDisplayGui::Update()
 	//ボタンの更新を行う
 	for (auto& button : buttons_)
 	{
-		button.second->Update();
+		button->Update();
 
-		if (button.second->IsPushedNow() && button.first == ButtonType::kOpenClose)
+		if (button->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()))
 		{
-			is_closed_ = !is_closed_;
-		}
-		else if (button.second->IsPushedNow() && button.first == ButtonType::kModeSwitching && !is_closed_)
-		{
-			if (display_type_ == DisplayMode::kDefualt)
-			{
-				display_type_ = DisplayMode::kJointState;
-			}
-			else
-			{
-				display_type_ = DisplayMode::kDefualt;
-			}
+			button->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
 		}
 	}
 }
@@ -103,10 +117,7 @@ void NodeDisplayGui::Draw() const
 	//ボタンを描画する
 	for (auto& button : buttons_)
 	{
-		if (!(button.first == ButtonType::kModeSwitching && is_closed_))
-		{
-			button.second->Draw();
-		}
+		button->Draw();
 	}
 }
 

@@ -1,26 +1,26 @@
-#include "model_loader.h"
+ï»¿#include "model_loader.h"
 
 #include <DxLib.h>
 
 
 int ModelLoader::GetModelHandle(const std::string& file_path)
 {
-	//‚·‚Å‚É“Ç‚İ‚İÏ‚İ‚Ìƒ‚ƒfƒ‹‚Ìê‡‚ÍCƒnƒ“ƒhƒ‹”Ô†‚ğ•Ô‚·D
+	//ã™ã§ã«èª­ã¿è¾¼ã¿æ¸ˆã¿ã®ãƒ¢ãƒ‡ãƒ«ã®å ´åˆã¯ï¼Œãƒãƒ³ãƒ‰ãƒ«ç•ªå·ã‚’è¿”ã™ï¼
 	if (model_handle_map_.count(file_path) != 0)
 	{
 		return model_handle_map_[file_path];
 	}
 
-	//ƒ‚ƒfƒ‹‚ğ“Ç‚İ‚ŞD
+	//ãƒ¢ãƒ‡ãƒ«ã‚’èª­ã¿è¾¼ã‚€ï¼
 	int handle = MV1LoadModel(file_path.c_str());
 
-	//“Ç‚İ‚İ‚É¸”s‚µ‚½ê‡‚Í-1‚ğ•Ô‚·D
+	//èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ãŸå ´åˆã¯-1ã‚’è¿”ã™ï¼
 	if (handle == -1)
 	{
 		return -1;
 	}
 
-	//“Ç‚İ‚İ‚É¬Œ÷‚µ‚½ê‡‚ÍC‘Î‰•\‚É’Ç‰Á‚·‚éD
+	//èª­ã¿è¾¼ã¿ã«æˆåŠŸã—ãŸå ´åˆã¯ï¼Œå¯¾å¿œè¡¨ã«è¿½åŠ ã™ã‚‹ï¼
 	model_handle_map_[file_path] = handle;
 
 	return handle;

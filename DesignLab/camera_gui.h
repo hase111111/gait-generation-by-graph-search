@@ -1,5 +1,5 @@
-//! @file camera_gui.h
-//! @brief ƒJƒƒ‰‚Ì‘€ìEŠÇ—‚ğs‚¤Gui‚Ìˆ—C•\¦‚ğs‚¤ƒNƒ‰ƒX
+ï»¿//! @file camera_gui.h
+//! @brief ã‚«ãƒ¡ãƒ©ã®æ“ä½œãƒ»ç®¡ç†ã‚’è¡Œã†Guiã®å‡¦ç†ï¼Œè¡¨ç¤ºã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 
 
 #ifndef DESIGNLAB_CAMERA_GUI_H_
@@ -16,77 +16,64 @@
 
 
 //! @class CameraGui
-//! @brief ƒJƒƒ‰‚Ì‘€ìEŠÇ—‚ğs‚¤GUI‚ğs‚¤ƒNƒ‰ƒX
-//! @details g—p‚µ‚½‚¢ê‡‚ÍCƒƒ“ƒo‚É‚±‚¢‚Â‚ğ‚½‚¹‚ÄCUpdate‚ÆDraw‚ğŒÄ‚Ño‚·‚¾‚¯‚Å‚æ‚¢D
+//! @brief ã‚«ãƒ¡ãƒ©ã®æ“ä½œãƒ»ç®¡ç†ã‚’è¡Œã†GUIã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
+//! @details ä½¿ç”¨ã—ãŸã„å ´åˆã¯ï¼Œãƒ¡ãƒ³ãƒã«ã“ã„ã¤ã‚’æŒãŸã›ã¦ï¼ŒUpdateã¨Drawã‚’å‘¼ã³å‡ºã™ã ã‘ã§ã‚ˆã„ï¼
 class CameraGui final
 {
 public:
 
-	//! @brief GUI‚ğ•\¦‚·‚éˆÊ’u‚ğw’è‚µ‚È‚¢ê‡‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^C¶ã (0, 0) ‚ğ‹N“_‚É•\¦‚·‚é
+	//! @brief GUIã‚’è¡¨ç¤ºã™ã‚‹ä½ç½®ã‚’æŒ‡å®šã—ãªã„å ´åˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼Œå·¦ä¸Š (0, 0) ã‚’èµ·ç‚¹ã«è¡¨ç¤ºã™ã‚‹
 	CameraGui();
 
-	//! @param [in] x_pos GUI‚ğ•\¦‚·‚éxÀ•W
-	//! @param [in] y_pos GUI‚ğ•\¦‚·‚éyÀ•W
-	//! @param [in] option GUI‚Ì‚Ç‚Ì’n“_‚ğ‹N“_‚É•\¦ˆÊ’u‚ğw’è‚·‚é‚©
+	//! @param [in] x_pos GUIã‚’è¡¨ç¤ºã™ã‚‹xåº§æ¨™
+	//! @param [in] y_pos GUIã‚’è¡¨ç¤ºã™ã‚‹yåº§æ¨™
+	//! @param [in] option GUIã®ã©ã®åœ°ç‚¹ã‚’èµ·ç‚¹ã«è¡¨ç¤ºä½ç½®ã‚’æŒ‡å®šã™ã‚‹ã‹
 	CameraGui(int x_pos, int y_pos, unsigned int option);
 
-	//! @brief ƒJƒƒ‰‚ª’‹‚·‚éƒƒ{ƒbƒg‚ÌÀ•W‚ğİ’è‚·‚é
-	//! @param[in] pos ƒƒ{ƒbƒg‚ÌÀ•W
+	//! @brief ã‚«ãƒ¡ãƒ©ãŒæ³¨è¦–ã™ã‚‹ãƒ­ãƒœãƒƒãƒˆã®åº§æ¨™ã‚’è¨­å®šã™ã‚‹
+	//! @param[in] pos ãƒ­ãƒœãƒƒãƒˆã®åº§æ¨™
 	void SetHexapodPos(const designlab::Vector3& pos);
 
-	//! @brief GUI‚âƒJƒƒ‰‚ÌXV‚ğs‚¤
+	//! @brief GUIã‚„ã‚«ãƒ¡ãƒ©ã®æ›´æ–°ã‚’è¡Œã†
 	void Update();
 
-	//! @brief GUI‚Ì•`‰æ‚ğs‚¤
+	//! @brief GUIã®æç”»ã‚’è¡Œã†
 	void Draw() const;
 
 	
-	constexpr static unsigned int kOptionLeftTop = 0b00;		//!< ¶ã‚ğ‹N“_‚ÉÀ•W‚ğİ’è‚·‚é
-	constexpr static unsigned int kOptionLeftBottom = 0b10;		//!< ¶‰º‚ğ‹N“_‚ÉÀ•W‚ğİ’è‚·‚é
-	constexpr static unsigned int kOptionRightTop = 0b01;		//!< ‰Eã‚ğ‹N“_‚ÉÀ•W‚ğİ’è‚·‚é
-	constexpr static unsigned int kOptionRightBottom = 0b11;	//!< ‰E‰º‚ğ‹N“_‚ÉÀ•W‚ğİ’è‚·‚é
+	constexpr static unsigned int kOptionLeftTop = 0b00;		//!< å·¦ä¸Šã‚’èµ·ç‚¹ã«åº§æ¨™ã‚’è¨­å®šã™ã‚‹
+	constexpr static unsigned int kOptionLeftBottom = 0b10;		//!< å·¦ä¸‹ã‚’èµ·ç‚¹ã«åº§æ¨™ã‚’è¨­å®šã™ã‚‹
+	constexpr static unsigned int kOptionRightTop = 0b01;		//!< å³ä¸Šã‚’èµ·ç‚¹ã«åº§æ¨™ã‚’è¨­å®šã™ã‚‹
+	constexpr static unsigned int kOptionRightBottom = 0b11;	//!< å³ä¸‹ã‚’èµ·ç‚¹ã«åº§æ¨™ã‚’è¨­å®šã™ã‚‹
 
 private:
 
-	enum class ButtonType
-	{
-		kLenghReset,
-		kFront,
-		kBack,
-		kLeft,
-		kRight,
-		kTop,
-		kTargetReset,
-		kClosed
-	};
-
-
-	//! @brief GUI‚Ì”wŒi‚ğ•`‰æ‚·‚é
+	//! @brief GUIã®èƒŒæ™¯ã‚’æç”»ã™ã‚‹
 	void DrawBackground() const;
 
-	//! @brief Å¬‰»‚ÌGUI‚Ì”wŒi‚ğ•`‰æ‚·‚é
+	//! @brief æœ€å°åŒ–æ™‚ã®GUIã®èƒŒæ™¯ã‚’æç”»ã™ã‚‹
 	void DrawClosedBackground() const;
 
-	//! @brief GUI‚Ì•¶š‚ğ•`‰æ‚·‚é
+	//! @brief GUIã®æ–‡å­—ã‚’æç”»ã™ã‚‹
 	void DrawString() const;
 
 
-	const int kGuiSizeX;		//!< GUI‚Ì‰¡•
-	const int kGuiSizeY;		//!< GUI‚Ìc•
-	const int kGuiSizeYClosed;	//!< GUI‚Ìc•(Å¬‰»)
+	const int kGuiSizeX;		//!< GUIã®æ¨ªå¹…
+	const int kGuiSizeY;		//!< GUIã®ç¸¦å¹…
+	const int kGuiSizeYClosed;	//!< GUIã®ç¸¦å¹…(æœ€å°åŒ–æ™‚)
 
-	const int kGuiLeftPosX;		//!< GUI‚Ì¶’[‚ÌˆÊ’u
-	const int kGuiTopPosY;		//!< GUI‚Ìã’[‚ÌˆÊ’u
+	const int kGuiLeftPosX;		//!< GUIã®å·¦ç«¯ã®ä½ç½®
+	const int kGuiTopPosY;		//!< GUIã®ä¸Šç«¯ã®ä½ç½®
 
-	const int kButtonDistance;	//!< ƒ{ƒ^ƒ““¯m‚ÌŠÔŠu
-	const int kButtonSize;		//!< ƒ{ƒ^ƒ“‚ÌƒTƒCƒY
+	const int kButtonDistance;	//!< ãƒœã‚¿ãƒ³åŒå£«ã®é–“éš”
+	const int kButtonSize;		//!< ãƒœã‚¿ãƒ³ã®ã‚µã‚¤ã‚º
 
 
-	CameraInputController camera_controller_;	//!< ƒJƒƒ‰‚Ì‘€ì‚ğs‚¤ƒNƒ‰ƒX
+	CameraInputController camera_controller_;	//!< ã‚«ãƒ¡ãƒ©ã®æ“ä½œã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 
-	CameraStateManager camera_manager_;			//!< ƒJƒƒ‰‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒX
+	CameraStateManager camera_manager_;			//!< ã‚«ãƒ¡ãƒ©ã®ç®¡ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 
-	std::map<ButtonType, std::unique_ptr<ButtomController>> button_list_;	//!< ƒ{ƒ^ƒ“‚ÌƒŠƒXƒg
+	std::vector<std::unique_ptr<SimpleButton>> button_list_;	//!< ãƒœã‚¿ãƒ³ã®ãƒªã‚¹ãƒˆ
 
 
 	bool is_closed_;

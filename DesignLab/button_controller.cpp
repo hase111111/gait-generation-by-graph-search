@@ -1,87 +1,118 @@
-#include "button_controller.h"
+Ôªø#include "button_controller.h"
 
 #include <Dxlib.h>
 
+#include "cassert_define.h"
+#include "designlab_string_util.h"
+#include "font_loader.h"
 #include "mouse.h"
 
 
-ButtomController::ButtomController() : ButtomController{0,0,100,50,""}
+namespace dlsu = ::designlab::string_util;
+
+
+SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int pos_y, const int size_x, const int size_y, const bool fit_size) :
+	text_(dlsu::Split(text, "\n")),
+	font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft")),
+	kXPos(fit_size ? GetFitButtonSizeX(pos_x) : pos_x),
+	kYPos(fit_size ? GetFitButtonSizeY(pos_y) : pos_y),
+	kSizeX(size_x),
+	kSizeY(size_y)
 {
-}
+	assert(0 < kSizeX);
+	assert(0 < kSizeY);
 
-
-ButtomController::ButtomController(const int _xpos, const int _ypos, const int _xsize, const int _ysize, const std::string& _text) : 
-	kXPos(_xpos), 
-	kYPos(_ypos), 
-	kXSize(_xsize), 
-	kYSize(_ysize), 
-	is_mouse_in_button_(false),
-	is_pushed_(false),
-	pushing_frame_(0),
-	text_(_text)
-{
-}
-
-
-void ButtomController::Update()
-{
-	//É}ÉEÉXÉJÅ[É\ÉãÇ™É{É^Éìì‡Ç…Ç†ÇÈÇ©Ç«Ç§Ç©í≤Ç◊ÇÈÅD
-	is_mouse_in_button_ = false;
-
-	if (kXPos - kXSize / 2 < Mouse::GetIns()->GetCursorPosX() && Mouse::GetIns()->GetCursorPosX() < kXPos + kXSize / 2)
+	//text_„Åå2„Å§„Å®„ÇÇÂêå„Åò„Å™„Çâ„Å∞1„Å§„Å´„Åô„Çã
+	if (text_.size() == 2 && text_[0] == text_[1])
 	{
-		if (kYPos - kYSize / 2 < Mouse::GetIns()->GetCursorPosY() && Mouse::GetIns()->GetCursorPosY() < kYPos + kYSize / 2)
+		text_.pop_back();
+	}
+}
+
+void SimpleButton::SetActivateFunction(std::function<void()> func)
+{
+	click_function_ = func;
+}
+
+void SimpleButton::Update()
+{
+}
+
+void SimpleButton::Draw() const
+{
+	const int kBaseColor = GetColor(20, 20, 20);
+	const int kButtomColor = GetColor(255, 255, 255);
+	const int kStrColor = GetColor(20, 20, 20);
+	const int kFrameSize = 3;
+
+	//„Éô„Éº„Çπ„ÇíÊèèÁîª
+	DrawBox(kXPos - kSizeX / 2, kYPos - kSizeY / 2, kXPos + kSizeX / 2, kYPos + kSizeY / 2, kBaseColor, TRUE);
+
+	//„Åù„ÅÆ‰∏ä„Å´„Éú„Çø„É≥„ÇíÊèèÁîª
+	DrawBox(kXPos - kSizeX / 2 + kFrameSize, kYPos - kSizeY / 2 + kFrameSize, kXPos + kSizeX / 2 - kFrameSize, kYPos + kSizeY / 2 - kFrameSize, kButtomColor, TRUE);
+
+	//„ÉÜ„Ç≠„Çπ„Éà„ÇíË°®Á§∫
+	for (int i = 0; i < text_.size(); ++i)
+	{
+		DrawStringToHandle(
+			kXPos - GetDrawStringWidthToHandle(text_[i].c_str(), (int)text_[i].size(), font_handle_) / 2,
+			kYPos - static_cast<int>(text_.size()) * kFontSize / 2 + i * kFontSize,
+			text_[i].c_str(),
+			kStrColor,
+			font_handle_
+		);
+	}
+}
+
+void SimpleButton::Activate([[maybe_unused]] const int cursor_x, [[maybe_unused]] const int cursor_y)
+{
+	if (click_function_)
+	{
+		click_function_();
+	}
+}
+
+bool SimpleButton::IsCursorInGui(const int cursor_x, const int cursor_y) const noexcept
+{
+	return (kXPos - kSizeX / 2 < cursor_x && cursor_x < kXPos + kSizeX / 2) && 
+		(kYPos - kSizeY / 2 < cursor_y && cursor_y < kYPos + kSizeY / 2);
+}
+
+int SimpleButton::GetFitButtonSizeX(int now_size_x) const noexcept
+{
+	//ÊñáÂ≠óÂàó„ÅÆ‰∏≠„Åã„Çâ„ÇÇ„Å£„Å®Ê®™ÂπÖ„ÅåÂ§ß„Åç„ÅÑ„ÇÇ„ÅÆ„ÇíÊé¢„Åô
+	int max_width = 0;
+	for (const auto& i : text_)
+	{
+		int width = GetDrawStringWidthToHandle(i.c_str(), (int)i.size(), font_handle_);
+
+		if (max_width < width)
 		{
-			is_mouse_in_button_ = true;
+			max_width = width;
 		}
 	}
 
-	//É{É^ÉìÇ™âüÇ≥ÇÍÇƒÇ¢ÇÈÇ©í≤Ç◊ÇÈ
-	if (is_mouse_in_button_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
+	//Ê®™ÂπÖ„ÅåÂ§ß„Åç„ÅÑÊñáÂ≠óÂàó„Å´Âêà„Çè„Åõ„Å¶„Éú„Çø„É≥„ÅÆÊ®™ÂπÖ„ÇíÂ§âÊõ¥„Åô„Çã
+	if (now_size_x < max_width)
 	{
-		is_pushed_ = true;
-		pushing_frame_++;
+		return max_width;
 	}
 	else
 	{
-		is_pushed_ = false;
-		pushing_frame_ = 0;
+		return now_size_x;
 	}
 }
 
-
-void ButtomController::Draw() const
+int SimpleButton::GetFitButtonSizeY(int now_size_y) const noexcept
 {
-	const int kBaseColor = GetColor(20, 20, 20);
-	const int kButtomColor = is_pushed_ ? GetColor(40, 40, 40) : GetColor(255, 255, 255);
-	const int kStrColor = is_pushed_ ? GetColor(200, 200, 200) : GetColor(20, 20, 20);
-	const int kFrameSize = 3;
-	const int kStrHeight = 16;
+	int height = static_cast<int>(text_.size()) * kFontSize;
 
-	//ÉxÅ[ÉXÇï`âÊ
-	DrawBox(kXPos - kXSize / 2, kYPos - kYSize / 2, kXPos + kXSize / 2, kYPos + kYSize / 2, kBaseColor, TRUE);
-
-	//ÇªÇÃè„Ç…É{É^ÉìÇï`âÊ
-	DrawBox(kXPos - kXSize / 2 + kFrameSize, kYPos - kYSize / 2 + kFrameSize, kXPos + kXSize / 2 - kFrameSize, kYPos + kYSize / 2 - kFrameSize, kButtomColor, TRUE);
-
-	//ÉeÉLÉXÉgÇï\é¶
-	DrawString(kXPos - GetDrawStringWidth(text_.c_str(), (int)text_.size()) / 2, kYPos - kStrHeight / 2, text_.c_str(), kStrColor);
-}
-
-
-bool ButtomController::IsPushedNow() const
-{
-	return is_pushed_ && (pushing_frame_ == 1);
-}
-
-
-bool ButtomController::IsPushed() const
-{
-	return is_pushed_;
-}
-
-
-int ButtomController::GetPushingFlame() const
-{
-	return pushing_frame_;
+	if (now_size_y < height)
+	{
+		return height;
+	}
+	else
+	{
+		return now_size_y;
+	}
 }

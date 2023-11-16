@@ -1,20 +1,18 @@
-//! @file display_node_switch_gui.h
-//! @brief ƒm[ƒh‚Ì•\¦Ø‚è‘Ö‚¦GUI
+ï»¿//! @file display_node_switch_gui.h
+//! @brief ãƒãƒ¼ãƒ‰ã®è¡¨ç¤ºåˆ‡ã‚Šæ›¿ãˆGUI
 
 
 #ifndef DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
 #define DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
 
-
-#include <vector>
-#include <map>
 #include <memory>
+#include <vector>
 
 #include "button_controller.h"
 
 
 //! @class DisplayNodeSwitchGui
-//! @brief ƒm[ƒh‚Ì•\¦Ø‚è‘Ö‚¦GUI
+//! @brief ãƒãƒ¼ãƒ‰ã®è¡¨ç¤ºåˆ‡ã‚Šæ›¿ãˆGUI
 class DisplayNodeSwitchGui final
 {
 public:
@@ -22,98 +20,83 @@ public:
 	DisplayNodeSwitchGui();
 
 
-	//! @brief GUI‚É•\¦‚·‚éƒm[ƒh‚Ìî•ñ‚ğİ’è‚·‚é
-	//! @param[in] node_num ‘Sƒm[ƒh”
-	//! @param[in] simu_end_index ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌI—¹ƒm[ƒh”Ô†
+	//! @brief GUIã«è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã®æƒ…å ±ã‚’è¨­å®šã™ã‚‹
+	//! @param[in] node_num å…¨ãƒãƒ¼ãƒ‰æ•°
+	//! @param[in] simu_end_index ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†ãƒãƒ¼ãƒ‰ç•ªå·
 	void SetGraphData(size_t node_num, const std::vector<size_t>& simu_end_index);
 
 
-	//! @brief Œ»İ•\¦‚·‚éƒm[ƒh‚Ì”Ô†‚ğæ“¾‚·‚é
-	//! @return size_t Œ»İ•\¦‚·‚éƒm[ƒh‚Ì”Ô†
+	//! @brief ç¾åœ¨è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã®ç•ªå·ã‚’å–å¾—ã™ã‚‹
+	//! @return size_t ç¾åœ¨è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã®ç•ªå·
 	size_t GetDisplayNodeNum() const;
 
-	//! @brief Œ»İ•\¦‚·‚éƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì”Ô†‚ğæ“¾‚·‚é
-	//! @return int Œ»İ•\¦‚·‚éƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì”Ô†
+	//! @brief ç¾åœ¨è¡¨ç¤ºã™ã‚‹ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç•ªå·ã‚’å–å¾—ã™ã‚‹
+	//! @return int ç¾åœ¨è¡¨ç¤ºã™ã‚‹ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç•ªå·
 	int GetSimulationNum() const;
 
 
-	//! @brief GUI‚ÌXVC–ˆƒtƒŒ[ƒ€Às‚·‚é‚±‚Æ
+	//! @brief GUIã®æ›´æ–°ï¼Œæ¯ãƒ•ãƒ¬ãƒ¼ãƒ å®Ÿè¡Œã™ã‚‹ã“ã¨
 	void Update();
 
-	//! @brief GUI‚Ì•`‰æ
+	//! @brief GUIã®æç”»
 	void Draw() const;
 
 
-	const static int kGuiWidth = 275;	//!< GUI‚Ì•
+	const static int kGuiWidth = 275;	//!< GUIã®å¹…
 
-	const static int kGuiHeight = 250;	//!< GUI‚Ì‚‚³
+	const static int kGuiHeight = 250;	//!< GUIã®é«˜ã•
 
 private:
 
-	//! @brief ƒ{ƒ^ƒ“‚Ìí—Ş
-	enum class ButtonType : int
-	{
-		kPrevNode,		//!< ‘O‚Ìƒm[ƒh
-		kNextNode,		//!< Ÿ‚Ìƒm[ƒh
-		kMostPrevNode,	//!< Å‚à‘O‚Ìƒm[ƒh‚Ö
-		kMostNextNode,	//!< Å‚àŒã‚ë‚Ìƒm[ƒh‚Ö
-		kPrevSimu,		//!< ‘O‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“
-		kNextSimu,		//!< Ÿ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“
-		kPlayStop,		//!< Ä¶/’â~
-		kSpeedUp,		//!< ‘¬“xƒAƒbƒv
-		kSpeedDown,		//!< ‘¬“xƒ_ƒEƒ“
-	};
-
-
-	//! ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì’†‚ÅÅ‰‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚éŠÖ”
+	//! ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸­ã§æœ€åˆã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MoveMostPrevNode();
 
-	//! ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì’†‚Å‘O‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚éŠÖ”
+	//! ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸­ã§å‰ã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MovePrevNode();
 
-	//! ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì’†‚ÅÅŒã‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚éŠÖ”
+	//! ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸­ã§æœ€å¾Œã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MoveMostNextNode();
 
-	//! ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì’†‚ÅŸ‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚éŠÖ”
+	//! ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸­ã§æ¬¡ã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MoveNextNode();
 
-	//! ‘O‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÉˆÚ“®‚·‚éŠÖ”
+	//! å‰ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MovePrevSimulation();
 
-	//! Ÿ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÉˆÚ“®‚·‚éŠÖ”
+	//! æ¬¡ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«ç§»å‹•ã™ã‚‹é–¢æ•°
 	void MoveNextSimulation();
 
-	//! ‘SƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”‚ğ‹‚ß‚é
+	//! å…¨ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°ã‚’æ±‚ã‚ã‚‹
 	int GetAllSimulationNum() const;
 
 
 
-	const int kGuiLeftPosX;		//!< GUI‚Ì¶ã‚ÌXÀ•W
+	const int kGuiLeftPosX;		//!< GUIã®å·¦ä¸Šã®Xåº§æ¨™
 
-	const int kGuiTopPosY;		//!< GUI‚Ì¶ã‚ÌYÀ•W
+	const int kGuiTopPosY;		//!< GUIã®å·¦ä¸Šã®Yåº§æ¨™
 
-	const int kAnimeSpeedMax;	//!< ƒAƒjƒ[ƒVƒ‡ƒ“‘¬“x‚ÌÅ‘å’l
+	const int kAnimeSpeedMax;	//!< ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é€Ÿåº¦ã®æœ€å¤§å€¤
 
-	const int kAnimeSpeedMin;	//!< ƒAƒjƒ[ƒVƒ‡ƒ“‘¬“x‚ÌÅ¬’l
-
-
-	std::map<ButtonType, std::unique_ptr<ButtomController>> button_;	//!< ƒ{ƒ^ƒ“
+	const int kAnimeSpeedMin;	//!< ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é€Ÿåº¦ã®æœ€å°å€¤
 
 
-	size_t all_node_num_;			//!< ‘Sƒm[ƒh”
-
-	std::vector<size_t> simu_end_index_;	//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌI—¹ƒm[ƒh”Ô†
-
-	size_t display_node_num_;		//!< •\¦‚·‚éƒm[ƒh‚Ì”Ô†
-
-	int simulation_num_;			//!< •\¦‚·‚éƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì”Ô†
+	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ãƒœã‚¿ãƒ³
 
 
-	bool do_auto_animation_;		//!< ©“®Ä¶’†‚©‚Ç‚¤‚©
+	size_t all_node_num_;			//!< å…¨ãƒãƒ¼ãƒ‰æ•°
 
-	int animation_speed_;			//!< Ä¶‘¬“x
+	std::vector<size_t> simu_end_index_;	//!< ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†ãƒãƒ¼ãƒ‰ç•ªå·
 
-	int counter_;					//!< ƒJƒEƒ“ƒ^[
+	size_t display_node_num_;		//!< è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ãƒ‰ã®ç•ªå·
+
+	int simulation_num_;			//!< è¡¨ç¤ºã™ã‚‹ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç•ªå·
+
+
+	bool do_auto_animation_;		//!< è‡ªå‹•å†ç”Ÿä¸­ã‹ã©ã†ã‹
+
+	int animation_speed_;			//!< å†ç”Ÿé€Ÿåº¦
+
+	int counter_;					//!< ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
 };
 
 

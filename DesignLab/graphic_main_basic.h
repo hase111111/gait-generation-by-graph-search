@@ -67,9 +67,9 @@ private:
 
 	StabilityMarginRenderer stability_margin_renderer_;		//!< ロボットの安定性マージンを表示するクラス．
 
-	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
-
 	MapRenderer map_renderer_;								//!< マップを表示するクラス．
+
+	InterpolatedNodeCreator interpolated_node_creator_;		//!< ノード間を補間するクラス．
 
 
 	MapState map_state_;		//!< 表示するマップ．

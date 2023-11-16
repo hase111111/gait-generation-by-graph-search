@@ -1,52 +1,52 @@
-//! @file button_controller.h
-//! @brief ƒ{ƒ^ƒ“‚Ìˆ—C•`‰æ‚ğŠÇ—‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file button_controller.h
+//! @brief ãƒœã‚¿ãƒ³ã®å‡¦ç†ï¼Œæç”»ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_BUTTON_CONTROLLER_H_
 #define DESIGNLAB_BUTTON_CONTROLLER_H_
 
+#include "interface_clickable_gui.h"
 
+#include <functional>
 #include <string>
+#include <vector>
 
-
-//! @class ButtomController
-//! @brief ƒ{ƒ^ƒ“‚Ìˆ—C•`‰æ‚ğŠÇ—‚·‚éƒNƒ‰ƒXD
-class ButtomController final
+//! @class SimpleButton
+//! @brief ãƒœã‚¿ãƒ³ã®å‡¦ç†ï¼Œæç”»ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+class SimpleButton final : public IClickableGui
 {
 public:
 
-	ButtomController();
-	ButtomController(int x_pos, int y_pos, int x_size, int y_size, const std::string& text);
-	~ButtomController() = default;
+	SimpleButton(const std::string& text, int x_pos, int y_pos, int x_size, int y_size, bool fit_size = false);
+	~SimpleButton() = default;
 
-	//! @brief ƒ{ƒ^ƒ“‚Ìó‘Ô‚ğXV‚·‚éD–ˆƒtƒŒ[ƒ€Às‚·‚é‚±‚ÆD
-	void Update();
+	//! @brief ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å®Ÿè¡Œã•ã‚Œã‚‹é–¢æ•°ã‚’è¨­å®šã™ã‚‹ï¼
+	//! @param[in] func ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å®Ÿè¡Œã•ã‚Œã‚‹é–¢æ•°ï¼
+	void SetActivateFunction(std::function<void()> func);
 
-	//! @brief ƒ{ƒ^ƒ“‚ğ•`‰æ‚·‚éDƒfƒUƒCƒ“‚ğ•ÏX‚µ‚½‚¢‚È‚ç‚Î‚±‚±‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢D
-	void Draw() const;
+	void Update() override;
 
+	void Draw() const override;
 
-	//! @biref ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½uŠÔ‚Étrue‚ğ•Ô‚·D
-	//! @return bool ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½uŠÔ‚Étrue‚ğ•Ô‚·D‰Ÿ‚³‚ê‘±‚¯‚Ä‚¢‚Ä‚àˆê“x‚µ‚©true‚ğ•Ô‚³‚È‚¢D
-	bool IsPushedNow() const;
+	void Activate(int cursor_x, int cursor_y) override;
 
-	//! @brief ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚È‚ç‚Îtrue‚ğ•Ô‚·D
-	//! @return bool ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚È‚ç‚Îtrue‚ğ•Ô‚·D
-	bool IsPushed() const;
-
-	//! @brief ƒ{ƒ^ƒ“‚ª‰½ƒtƒŒ[ƒ€‚É“n‚Á‚Ä‰Ÿ‚³‚ê‘±‚¯‚Ä‚¢‚é‚Ì‚©‚ğ•Ô‚·D
-	//! @return int ƒ{ƒ^ƒ“‚ª‰½ƒtƒŒ[ƒ€‚É“n‚Á‚Ä‰Ÿ‚³‚ê‘±‚¯‚Ä‚¢‚é‚Ì‚©‚ğ•Ô‚·D®”’l[ƒtƒŒ[ƒ€]D60ƒtƒŒ[ƒ€‚Å1•bD
-	int GetPushingFlame() const;
+	bool IsCursorInGui(int cursor_x, int cursor_y) const noexcept override;
 
 private:
 
-	const int kXPos, kYPos;			//!< ƒ{ƒ^ƒ“‚ÌÀ•W
-	const int kXSize, kYSize;		//!< ƒ{ƒ^ƒ“‚Ì‰¡•‚Æc•
+	int GetFitButtonSizeX(int now_size_x) const noexcept;
+	int GetFitButtonSizeY(int now_size_y) const noexcept;
 
-	bool is_mouse_in_button_;	//!< ƒ{ƒ^ƒ“‚Ì’†‚Éƒ}ƒEƒX‚ª‚¢‚é‚©D
-	bool is_pushed_;			//!< ƒ{ƒ^ƒ“‚Í‰Ÿ‚³‚ê‚Ä‚¢‚é‚©D
-	int pushing_frame_;			//!< ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‘±‚¯‚Ä‚¢‚éŠÔD’PˆÊ‚ÍƒtƒŒ[ƒ€D
-	std::string text_;			//!< ƒ{ƒ^ƒ“‚É‘‚©‚ê‚Ä‚¢‚éƒeƒLƒXƒg
+	const int kFontSize{ 16 };		//!< ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< ãƒ•ã‚©ãƒ³ãƒˆã¸ã®ãƒ‘ã‚¹
+
+	std::vector<std::string> text_;		//!< ãƒœã‚¿ãƒ³ã«æ›¸ã‹ã‚Œã¦ã„ã‚‹ãƒ†ã‚­ã‚¹ãƒˆï¼Œè¤‡æ•°è¡Œã«å¯¾å¿œï¼
+	int font_handle_;	//!< ãƒ•ã‚©ãƒ³ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«
+
+	const int kXPos, kYPos;		//!< ãƒœã‚¿ãƒ³ã®åº§æ¨™ï¼Œä¸­å¿ƒåº§æ¨™ï¼
+	const int kSizeX, kSizeY;	//!< ãƒœã‚¿ãƒ³ã®æ¨ªå¹…ã¨ç¸¦å¹…
+
+	std::function<void()> click_function_;	//!< ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å®Ÿè¡Œã•ã‚Œã‚‹é–¢æ•°ï¼
 };
 
 

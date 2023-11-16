@@ -1,9 +1,10 @@
-#include "display_node_switch_gui.h"
+ï»¿#include "display_node_switch_gui.h"
 
 #include <algorithm>
 
 #include <Dxlib.h>
 
+#include "mouse.h"
 
 
 DisplayNodeSwitchGui::DisplayNodeSwitchGui(const int x, const int y) : 
@@ -23,20 +24,53 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui(const int x, const int y) :
 	const int kButtonLeftX = kButtonWidth / 2 + kGuiLeftPosX + 10;
 	const int kButtonTopY = kButtonWidth / 2 + kGuiTopPosY + 100;
 
+	//å„ç¨®ãƒœã‚¿ãƒ³ã‚’ä½œæˆã™ã‚‹
+	button_.push_back(std::make_unique<SimpleButton>("<<", kButtonLeftX, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MoveMostPrevNode(); });
 
-	//Šeíƒ{ƒ^ƒ“‚ğì¬‚·‚é
-	button_[ButtonType::kMostPrevNode] = std::make_unique<ButtomController>(kButtonLeftX, kButtonTopY, kButtonWidth, kButtonWidth, "<<");
-	button_[ButtonType::kPrevNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY, kButtonWidth, kButtonWidth, "<");
-	button_[ButtonType::kPlayStop] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 2, kButtonTopY, kButtonWidth, kButtonWidth, "Ä¶\n’â~");
-	button_[ButtonType::kNextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY, kButtonWidth, kButtonWidth, ">");
-	button_[ButtonType::kMostNextNode] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY, kButtonWidth, kButtonWidth, ">>");
-	button_[ButtonType::kSpeedDown] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "«");
-	button_[ButtonType::kSpeedUp] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth, "ª");
+	button_.push_back(std::make_unique<SimpleButton>("<", kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MovePrevNode(); });
 
-	button_[ButtonType::kPrevSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
-		kButtonWidth * 2, kButtonWidth, "Prev Simu");
-	button_[ButtonType::kNextSimu] = std::make_unique<ButtomController>(kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
-		kButtonWidth * 2, kButtonWidth, "Next Simu");
+	button_.push_back(std::make_unique<SimpleButton>("å†ç”Ÿ\nåœæ­¢", kButtonLeftX + (kButtonDif + kButtonWidth) * 2, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { do_auto_animation_ = !do_auto_animation_; });
+
+	button_.push_back(std::make_unique<SimpleButton>(">", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MoveNextNode(); });
+
+	button_.push_back(std::make_unique<SimpleButton>(">>", kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MoveMostNextNode(); });
+
+	button_.push_back(
+		std::make_unique<SimpleButton>("â†“", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth)
+	);
+	button_.back()->SetActivateFunction([this]() 
+		{
+			if (animation_speed_ > kAnimeSpeedMin)
+			{
+				--animation_speed_;
+			}
+		}
+	);
+
+	button_.push_back(
+		std::make_unique<SimpleButton>("â†‘", kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth)
+	);
+	button_.back()->SetActivateFunction([this]() 
+		{
+			if (animation_speed_ < kAnimeSpeedMax)
+			{
+				++animation_speed_;
+			}
+		}
+	);
+
+	button_.push_back( std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
+		kButtonWidth * 2, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MovePrevSimulation(); });
+
+	button_.push_back(std::make_unique<SimpleButton>("Next Simu", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
+		kButtonWidth * 2, kButtonWidth));
+	button_.back()->SetActivateFunction([this]() { MoveNextSimulation(); });
 }
 
 
@@ -57,11 +91,11 @@ void DisplayNodeSwitchGui::SetGraphData(const size_t node_num, const std::vector
 
 size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
 {
-	// ”ÍˆÍŠO‚Ì’l‚ğ•Ô‚³‚È‚¢‚æ‚¤‚É‚·‚éD
+	// ç¯„å›²å¤–ã®å€¤ã‚’è¿”ã•ãªã„ã‚ˆã†ã«ã™ã‚‹ï¼
 	if (display_node_num_ > all_node_num_ && all_node_num_ != 0) { return all_node_num_ - 1; }
 
 
-	// ”ÍˆÍ“à‚Ì’l‚È‚ç‚ÎC‚»‚Ì‚Ü‚Ü•Ô‚·
+	// ç¯„å›²å†…ã®å€¤ãªã‚‰ã°ï¼Œãã®ã¾ã¾è¿”ã™
 	return display_node_num_;
 }
 
@@ -77,70 +111,22 @@ void DisplayNodeSwitchGui::Update()
 	++counter_;
 
 
-	// ©“®Ä¶‚ğs‚¤
+	// è‡ªå‹•å†ç”Ÿã‚’è¡Œã†
 	if (do_auto_animation_ && counter_ % (180 / animation_speed_) == 0)
 	{
 		MoveNextNode();
 	}
 
 
-	// ƒ{ƒ^ƒ“‚ğXV‚·‚é
+	// ãƒœã‚¿ãƒ³ã‚’æ›´æ–°ã™ã‚‹
 	for (auto& i : button_)
 	{
-		i.second->Update();
+		i->Update();
 
-		if (i.second->IsPushedNow())
+		if (i->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()))
 		{
-			switch (i.first)
-			{
-			case ButtonType::kMostPrevNode:
-				MoveMostPrevNode();
-				break;
-
-			case ButtonType::kMostNextNode:
-				MoveMostNextNode();
-				break;
-
-			case ButtonType::kPrevNode:
-				MovePrevNode();
-				break;
-
-			case ButtonType::kNextNode:
-				MoveNextNode();
-				break;
-
-			case ButtonType::kPrevSimu:
-				MovePrevSimulation();
-				break;
-
-			case ButtonType::kNextSimu:
-				MoveNextSimulation();
-				break;
-
-			case ButtonType::kPlayStop:
-				do_auto_animation_ = !do_auto_animation_;
-				break;
-			}
+			i->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
 		}
-
-		if (i.second->IsPushedNow())
-		{
-			if (i.first == ButtonType::kSpeedDown)
-			{
-				if (animation_speed_ > kAnimeSpeedMin)
-				{
-					--animation_speed_;
-				}
-			}
-			else if (i.first == ButtonType::kSpeedUp)
-			{
-				if (animation_speed_ < kAnimeSpeedMax)
-				{
-					++animation_speed_;
-				}
-			}
-		}
-
 	}
 }
 
@@ -151,7 +137,7 @@ void DisplayNodeSwitchGui::Draw() const
 
 	const unsigned int kColor = GetColor(255, 255, 255);
 
-	// ƒ{ƒbƒNƒX‚ğ•`‰æ‚·‚é
+	// ãƒœãƒƒã‚¯ã‚¹ã‚’æç”»ã™ã‚‹
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
 	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kGuiWidth, kGuiTopPosY + kGuiHeight, kColor, TRUE);
@@ -159,21 +145,21 @@ void DisplayNodeSwitchGui::Draw() const
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 
-	// ƒ{ƒ^ƒ“‚ğ•`‰æ‚·‚é
+	// ãƒœã‚¿ãƒ³ã‚’æç”»ã™ã‚‹
 	for (const auto& i : button_)
 	{
-		i.second->Draw();
+		i->Draw();
 	}
 
 
-	//•¶š‚ğ•`‰æ‚·‚é
+	//æ–‡å­—ã‚’æç”»ã™ã‚‹
 
 	const int kTextLeftX = kGuiLeftPosX + 10;
 
 	const unsigned int kTextColor = GetColor(0, 0, 0);
 
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“%d‰ñ–Ú(‘S%d‰ñ)]", simulation_num_ + 1, GetAllSimulationNum(), display_node_num_, all_node_num_);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 10, kTextColor, "[ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³%då›ç›®(å…¨%då›)]", simulation_num_ + 1, GetAllSimulationNum(), display_node_num_, all_node_num_);
 
 	int start_node_num = 0;
 	int end_node_num = 0;
@@ -195,19 +181,19 @@ void DisplayNodeSwitchGui::Draw() const
 		end_node_num = (int)simu_end_index_[simulation_num_];
 	}
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 30, kTextColor, "•\¦ƒm[ƒh : %d (%d`%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 30, kTextColor, "è¡¨ç¤ºãƒãƒ¼ãƒ‰ : %d (%dï½%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 50, kTextColor, "‘Sƒm[ƒh : %d ", all_node_num_ - 1);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 50, kTextColor, "å…¨ãƒãƒ¼ãƒ‰ : %d ", all_node_num_ - 1);
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 70, kTextColor, do_auto_animation_ == true ? "©“®Ä¶ : Ä¶/‘¬“x%d" : "©“®Ä¶ : ’â~", animation_speed_);
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 70, kTextColor, do_auto_animation_ == true ? "è‡ªå‹•å†ç”Ÿ : å†ç”Ÿ/é€Ÿåº¦%d" : "è‡ªå‹•å†ç”Ÿ : åœæ­¢", animation_speed_);
 
-	DrawFormatString(kTextLeftX, kGuiTopPosY + 150, kTextColor, "ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì\n     ‘¬“x•ÏX");
+	DrawFormatString(kTextLeftX, kGuiTopPosY + 150, kTextColor, "ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®\n     é€Ÿåº¦å¤‰æ›´");
 }
 
 
 void DisplayNodeSwitchGui::MoveMostPrevNode()
 {
-	//Œó•â
+	//å€™è£œ
 	size_t candidate = 0;
 
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
@@ -244,7 +230,7 @@ void DisplayNodeSwitchGui::MovePrevNode()
 
 void DisplayNodeSwitchGui::MoveMostNextNode()
 {
-	//Œó•â
+	//å€™è£œ
 	size_t candidate = all_node_num_ - 1;
 
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
@@ -278,12 +264,12 @@ void DisplayNodeSwitchGui::MoveNextNode()
 
 void DisplayNodeSwitchGui::MovePrevSimulation()
 {
-	//‘O‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÖˆÚ“®‚·‚é
+	//å‰ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã¸ç§»å‹•ã™ã‚‹
 	--simulation_num_;
 
 	simulation_num_ = static_cast<size_t>((std::max)(static_cast<int>(simulation_num_), 0));
 
-	//ƒm[ƒh‚ğ‚»‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌÅ‰‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚é
+	//ãƒãƒ¼ãƒ‰ã‚’ãã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®æœ€åˆã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹
 	if (simulation_num_ == 0)
 	{
 		display_node_num_ = 0;
@@ -297,14 +283,14 @@ void DisplayNodeSwitchGui::MovePrevSimulation()
 
 void DisplayNodeSwitchGui::MoveNextSimulation()
 {
-	//Ÿ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÖˆÚ“®‚·‚é
+	//æ¬¡ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã¸ç§»å‹•ã™ã‚‹
 	++simulation_num_;
 
 
 	simulation_num_ = static_cast<size_t>((std::min)(static_cast<int>(simulation_num_), GetAllSimulationNum() - 1));
 
 
-	//ƒm[ƒh‚ğ‚»‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌÅ‰‚Ìƒm[ƒh‚ÉˆÚ“®‚·‚é
+	//ãƒãƒ¼ãƒ‰ã‚’ãã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®æœ€åˆã®ãƒãƒ¼ãƒ‰ã«ç§»å‹•ã™ã‚‹
 	if (simulation_num_ == 0)
 	{
 		display_node_num_ = 0;

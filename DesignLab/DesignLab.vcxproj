@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="font_loader.h" />
+    <ClInclude Include="interface_clickable_gui.h" />
+    <ClInclude Include="interface_gui.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
@@ -129,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
+    <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="button_controller.cpp" />
