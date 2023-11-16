@@ -1,8 +1,8 @@
 ﻿//! @file node_creator_com_move.h
 //! @brief 重心の平行移動を行うクラス．波東さんの手法．
 
-#ifndef DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
-#define DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
+#ifndef DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
+#define DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
 
 
 #include "interface_node_creator.h"
@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif // DESIGNLAB_COM_MOVE_NODE_CREATOR_HATO_H_
+#endif // DESIGNLAB_NODE_CREATOR_COM_MOVE_H_

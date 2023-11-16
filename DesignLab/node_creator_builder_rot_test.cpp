@@ -1,11 +1,15 @@
 ﻿#include "node_creator_builder_rot_test.h"
 
-#include "body_yaw_rot_node_creator.h"
+#include "node_creator_body_rot.h"
 #include "cassert_define.h"
 #include "node_creator_com_move.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
 #include "node_creator_leg_up_down.h"
+
+
+namespace dl = ::designlab;
+
 
 NodeCreatorBuilderRotTest::NodeCreatorBuilderRotTest(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -35,10 +39,11 @@ void NodeCreatorBuilderRotTest::Build(
 		HexapodMove::kBodyYawRot
 	);
 
-	(*node_creator)[HexapodMove::kBodyYawRot] = std::make_unique<BodyYawRotNodeCreator>(
+	(*node_creator)[HexapodMove::kBodyYawRot] = std::make_unique<NodeCreatorBodyRot>(
 		map,
 		converter_ptr_,
 		checker_ptr_,
+		dl::Vector3::GetUpVec(),
 		HexapodMove::kComUpDown
 	);
 

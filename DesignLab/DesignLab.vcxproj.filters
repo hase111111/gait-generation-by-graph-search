@@ -426,7 +426,7 @@
     <ClInclude Include="designlab_avarage.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="body_yaw_rot_node_creator.h">
+    <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_builder_rot_test.h">
@@ -653,7 +653,7 @@
     <ClCompile Include="simulation_end_checker.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="body_yaw_rot_node_creator.cpp">
+    <ClCompile Include="node_creator_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
     <ClCompile Include="node_creator_builder_rot_test.cpp">

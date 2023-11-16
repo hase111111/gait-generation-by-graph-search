@@ -1,26 +1,28 @@
-﻿#include "body_yaw_rot_node_creator.h"
+﻿#include "node_creator_body_rot.h"
 
 
 namespace dl = ::designlab;
 
 
-BodyYawRotNodeCreator::BodyYawRotNodeCreator(
+NodeCreatorBodyRot::NodeCreatorBodyRot(
 	const DevideMapState& devide_map, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr, 
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	const ::designlab::Vector3& rot_axis,
 	HexapodMove next_move):
 	map_(devide_map),
 	next_move_(next_move),
 	converter_ptr_(converter_ptr),
-	checker_ptr_(checker_ptr)
+	checker_ptr_(checker_ptr),
+	rot_axis_(rot_axis)
 {
 }
 
-void BodyYawRotNodeCreator::Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorBodyRot::Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const
 {
 	for (int i = 0; i < kBodyYawRotAngleDivNum; ++i)
 	{
-		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(candiate_angle_[i], dl::Vector3::GetLeftVec());
+		const dl::Quaternion quat = dl::Quaternion::MakeByAngleAxis(candiate_angle_[i], rot_axis_);
 
 		RobotStateNode node = current_node;
 		node.ChangeQuat(converter_ptr_, current_node.quat * quat);

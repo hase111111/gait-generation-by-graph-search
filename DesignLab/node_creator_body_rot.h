@@ -1,4 +1,4 @@
-﻿//! @file body_yaw_rot_node_creator.h
+﻿//! @file node_creator_body_rot.h
 //! @brief ロボットのヨー軸周りの回転を表すノードを生成するクラス．
 
 #ifndef DESIGNLAB_BODY_YAW_ROT_NODE_CREATOR_H_
@@ -15,17 +15,18 @@
 
 
 
-class BodyYawRotNodeCreator final : public INodeCreator
+class NodeCreatorBodyRot final : public INodeCreator
 {
 public:
 
-	BodyYawRotNodeCreator(
+	NodeCreatorBodyRot(
 		const DevideMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+		const ::designlab::Vector3& rot_axis,
 		HexapodMove next_move
 	);
-	~BodyYawRotNodeCreator() = default;
+	~NodeCreatorBodyRot() = default;
 
 	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const override;
 
@@ -62,6 +63,8 @@ private:
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+
+	::designlab::Vector3 rot_axis_;	//!< 回転軸．
 
 	static_assert(kBodyYawRotAngleMax > kBodyYawRotAngleMin, "kBodyYawRotAngleMax は kBodyYawRotAngleMinよりも大きい必要があります.");
 	static_assert(kBodyYawRotAngleDivNum % 2 == 1, "kBodyYawRotAngleDivNum は奇数である必要があります.");
