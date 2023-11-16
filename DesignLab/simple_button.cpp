@@ -1,13 +1,16 @@
-﻿#include "button_controller.h"
+﻿#include "simple_button.h"
 
 #include <Dxlib.h>
 
 #include "cassert_define.h"
+#include "designlab_math_util.h"
 #include "designlab_string_util.h"
 #include "font_loader.h"
 #include "mouse.h"
 
 
+namespace dl = ::designlab;
+namespace dlm = ::designlab::math_util;
 namespace dlsu = ::designlab::string_util;
 
 
@@ -29,27 +32,57 @@ SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int p
 	}
 }
 
-void SimpleButton::SetActivateFunction(std::function<void()> func)
+void SimpleButton::SetActivateFunction(const std::function<void()>& func)
 {
 	click_function_ = func;
 }
 
 void SimpleButton::Update()
 {
+	if (IsCursorInGui()) 
+	{
+		target_color_blue_ = 64;
+	}
+	else 
+	{
+		target_color_blue_ = 0;
+	}
+
+	//now_color_blue_をtarget_color_blue_に近づける
+	now_color_blue_ = dlm::ApproachTarget(now_color_blue_, target_color_blue_, 0.1f);
 }
 
 void SimpleButton::Draw() const
 {
-	const int kBaseColor = GetColor(20, 20, 20);
-	const int kButtomColor = GetColor(255, 255, 255);
+	if (!visible_)
+	{
+		return;
+	}
+
+	const int kBaseColor = GetColor(128, 128, 128);
+	const int kButtomColor = GetColor(255 - now_color_blue_, 255 - now_color_blue_ / 2, 255);
 	const int kStrColor = GetColor(20, 20, 20);
-	const int kFrameSize = 3;
+	const int kFrameSize = 1;
 
 	//ベースを描画
-	DrawBox(kXPos - kSizeX / 2, kYPos - kSizeY / 2, kXPos + kSizeX / 2, kYPos + kSizeY / 2, kBaseColor, TRUE);
+	DrawBox(
+		kXPos - kSizeX / 2,
+		kYPos - kSizeY / 2, 
+		kXPos + kSizeX / 2, 
+		kYPos + kSizeY / 2,
+		kBaseColor, 
+		TRUE
+	);
 
 	//その上にボタンを描画
-	DrawBox(kXPos - kSizeX / 2 + kFrameSize, kYPos - kSizeY / 2 + kFrameSize, kXPos + kSizeX / 2 - kFrameSize, kYPos + kSizeY / 2 - kFrameSize, kButtomColor, TRUE);
+	DrawBox(
+		kXPos - kSizeX / 2 + kFrameSize,
+		kYPos - kSizeY / 2 + kFrameSize,
+		kXPos + kSizeX / 2 - kFrameSize,
+		kYPos + kSizeY / 2 - kFrameSize,
+		kButtomColor,
+		TRUE
+	);
 
 	//テキストを表示
 	for (int i = 0; i < text_.size(); ++i)
@@ -64,16 +97,31 @@ void SimpleButton::Draw() const
 	}
 }
 
-void SimpleButton::Activate([[maybe_unused]] const int cursor_x, [[maybe_unused]] const int cursor_y)
+void SimpleButton::SetVisible(const bool visible)
 {
-	if (click_function_)
+	visible_ = visible;
+}
+
+bool SimpleButton::IsVisible() const
+{
+	return visible_;
+}
+
+void SimpleButton::Activate()
+{
+	if (click_function_ && visible_)
 	{
+		now_color_blue_ = 128;
+
 		click_function_();
 	}
 }
 
-bool SimpleButton::IsCursorInGui(const int cursor_x, const int cursor_y) const noexcept
+bool SimpleButton::IsCursorInGui() const noexcept
 {
+	const int cursor_x = Mouse::GetIns()->GetCursorPosX();
+	const int cursor_y = Mouse::GetIns()->GetCursorPosY();
+
 	return (kXPos - kSizeX / 2 < cursor_x && cursor_x < kXPos + kSizeX / 2) && 
 		(kYPos - kSizeY / 2 < cursor_y && cursor_y < kYPos + kSizeY / 2);
 }

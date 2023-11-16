@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 
-#include "button_controller.h"
+#include "simple_button.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
@@ -50,10 +50,12 @@ public:
 
 private:
 
-	enum class DisplayMode
+	enum class DisplayMode : int
 	{
-		kDefualt,		//デフォルト
-		kJointState		//角度
+		kDefualt,		//!< デフォルト
+		kJointState,	//!< 角度
+		kGlobalPos,		//!< グローバル座標
+		kChecker,		//!< 正しい状態かチェックするモード
 	};
 
 
@@ -63,13 +65,15 @@ private:
 
 	void DrawJointInfo() const;
 
+	void DrawGlobalPosInfo() const;
+
 
 	const int kGuiLeftPosX;
 
 	const int kGuiTopPosY;
 
 
-	std::vector<std::unique_ptr<SimpleButton>> buttons_;				//!< ボタン
+	std::vector<std::unique_ptr<SimpleButton> > buttons_;				//!< ボタン
 
 	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
@@ -82,6 +86,11 @@ private:
 	bool is_closed_;			//!< GUIが閉じているか(最小化しているか)どうか
 
 	DisplayMode display_type_;	//!< 表示する情報の種類
+
+	const int kFontSize{ 16 };		//!< フォントのサイズ
+	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
+
+	int font_handle_;	//!< フォントのハンドル
 };
 
 

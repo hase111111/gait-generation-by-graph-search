@@ -20,8 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="font_loader.h" />
-    <ClInclude Include="interface_clickable_gui.h" />
-    <ClInclude Include="interface_gui.h" />
+    <ClInclude Include="interface_clickable.h" />
+    <ClInclude Include="interface_dxlib_gui.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
@@ -38,7 +38,7 @@
     <ClInclude Include="application_setting_toml_key.h" />
     <ClInclude Include="application_setting_reader_toml.h" />
     <ClInclude Include="boot_mode.h" />
-    <ClInclude Include="button_controller.h" />
+    <ClInclude Include="simple_button.h" />
     <ClInclude Include="camera_input_controller.h" />
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
@@ -135,7 +135,7 @@
     <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
-    <ClCompile Include="button_controller.cpp" />
+    <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />

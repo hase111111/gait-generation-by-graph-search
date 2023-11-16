@@ -5,6 +5,8 @@
 
 #include "designlab_math_util.h"
 #include "designlab_rot_converter.h"
+#include "designlab_string_util.h"
+#include "font_loader.h"
 #include "leg_state.h"
 #include "mouse.h"
 #include "phantomx_mk2_const.h"
@@ -13,9 +15,10 @@
 namespace dl = ::designlab;
 namespace dllf = ::designlab::leg_func;
 namespace dlm = ::designlab::math_util;
+namespace dlsu = ::designlab::string_util;
 
 
-const int NodeDisplayGui::kWidth = 450;
+const int NodeDisplayGui::kWidth = 470;
 const int NodeDisplayGui::kHeight = 600;
 const int NodeDisplayGui::kClosedHeight = 50;
 
@@ -31,7 +34,8 @@ NodeDisplayGui::NodeDisplayGui(
 	calculator_ptr_(calculator_ptr),
 	checker_ptr_(checker_ptr),
 	is_closed_(false),
-	display_type_(DisplayMode::kDefualt)
+	display_type_(DisplayMode::kDefualt),
+	font_handle_(FontLoader::GetIns()->GetFontHandle(kFontPath))
 {
 	//ボタンを作成する
 	const int kButtonSizeX = 100;
@@ -87,9 +91,9 @@ void NodeDisplayGui::Update()
 	{
 		button->Update();
 
-		if (button->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()))
+		if (button->IsCursorInGui() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 		{
-			button->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
+			button->Activate();
 		}
 	}
 }
@@ -148,58 +152,103 @@ void NodeDisplayGui::DrawNodeInfo() const
 	const unsigned int kBaseTextColor = GetColor(80, 80, 80);
 	const int kTextXPos = kGuiLeftPosX + 10;
 	const int kTextYMinPos = kGuiTopPosY + 10;
-	const int kTextYInterval = 30;
+	const int kTextYInterval = kFontSize + 4;
+	const std::array<std::string, HexapodConst::kLegNum> leg_name = { "右前","右中","右後","左後","左中","左前" };
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(display_node_.leg_state),
-		dllf::GetDiscreteLegPos(display_node_.leg_state, 0), dllf::GetDiscreteLegPos(display_node_.leg_state, 1), dllf::GetDiscreteLegPos(display_node_.leg_state, 2),
-		dllf::GetDiscreteLegPos(display_node_.leg_state, 3), dllf::GetDiscreteLegPos(display_node_.leg_state, 4), dllf::GetDiscreteLegPos(display_node_.leg_state, 5));
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "階層");
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		" bit : %s", display_node_.leg_state.to_string().c_str()
+	);
+
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		" 重心 : %s(%d)", 
+		dlsu::MyEnumToString(dllf::GetDiscreteComPos(display_node_.leg_state)).c_str(),
+		dllf::GetDiscreteComPos(display_node_.leg_state)
+	);
+
+	std::string str_leg_pos_right = "";
+	std::string str_leg_pos_left = "";
+	std::string str_ground = "";
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (dllf::IsGrounded(display_node_.leg_state, i)) { str_ground += "接地,"; }
+		else { str_ground += "遊脚,"; }
+
+		DiscreteLegPos pos = dllf::GetDiscreteLegPos(display_node_.leg_state, i);
+
+		if (i < HexapodConst::kLegNum / 2) 
+		{
+			str_leg_pos_right += leg_name[i] + "-" + dlsu::MyEnumToString(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
+		}
+		else
+		{
+			str_leg_pos_left += leg_name[i] + "-" + dlsu::MyEnumToString(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
+		}
+	}
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, " 脚位置 : ", str_leg_pos_right.c_str());
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "  %s", str_leg_pos_right.c_str());
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "  %s", str_leg_pos_left.c_str());
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, " 脚の状態：%s", str_ground.c_str());
 
 	// 重心を表示する
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.global_center_of_mass.x, display_node_.global_center_of_mass.y, display_node_.global_center_of_mass.z);
+	++text_line;
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "重心位置");
+
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		" %s", display_node_.global_center_of_mass.ToString().c_str());
 
 	// 回転を表示する
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"回転(w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.quat.w, display_node_.quat.v.x, display_node_.quat.v.y, display_node_.quat.v.z);
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		"回転 (w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)", display_node_.quat.w, display_node_.quat.v.x, display_node_.quat.v.y, display_node_.quat.v.z);
 
-	dl::EulerXYZ euler = dl::ToEulerXYZ(display_node_.quat);
-
-	// オイラー角版
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"オイラー角(x:%5.3f,y:%5.3f,z:%5.3f)", dlm::ConvertRadToDeg(euler.x_angle), dlm::ConvertRadToDeg(euler.y_angle), dlm::ConvertRadToDeg(euler.z_angle));
-
-	//遊脚か接地脚か
-	std::string str = "";
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		if (dllf::IsGrounded(display_node_.leg_state, i)) { str += "接地,"; }
-		else { str += "遊脚,"; }
-	}
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
+	// オイラー角にして表示する．
+	const dl::EulerXYZ euler = dl::ToEulerXYZ(display_node_.quat);
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		"　オイラー角(x:%5.3f[deg],y:%5.3f[deg],z:%5.3f[deg])", 
+		dlm::ConvertRadToDeg(euler.x_angle),
+		dlm::ConvertRadToDeg(euler.y_angle), 
+		dlm::ConvertRadToDeg(euler.z_angle)
+	);
 
 	// 脚の位置を表示する
+	++text_line;
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "脚位置");
+
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-			"%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_pos[i].x, display_node_.leg_pos[i].y, display_node_.leg_pos[i].z);
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+			"%s %s", leg_name[i].c_str(), display_node_.leg_pos[i].ToString().c_str());
 	}
 
 	// 脚の基準座標を表示する
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor,
-			" %d番脚の基準座標(x:%5.3f,y:%5.3f,z:%5.3f)", i, display_node_.leg_reference_pos[i].x, display_node_.leg_reference_pos[i].y, display_node_.leg_reference_pos[i].z);
+		if (display_node_.leg_pos[i] == display_node_.leg_reference_pos[i])
+		{
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor, font_handle_,
+				" %s脚の基準座標は現在の脚位置と同じです．", leg_name[i].c_str());
+		}
+		else
+		{
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kBaseTextColor, font_handle_,
+				" %s脚の基準座標(x:%5.3f,y:%5.3f,z:%5.3f)",
+				leg_name[i].c_str(),
+				display_node_.leg_reference_pos[i].x,
+				display_node_.leg_reference_pos[i].y,
+				display_node_.leg_reference_pos[i].z
+			);
+		}
 	}
 
 	// 深さと次の動作を表示する
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", display_node_.depth, static_cast<std::string>(magic_enum::enum_name(display_node_.next_move)).c_str());
+	++text_line;
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+		"深さ：%d, 次の動作 : %s", display_node_.depth, dlsu::MyEnumToString(display_node_.next_move).c_str());
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "単位は長さが[mm]，角度が[rad]");
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "指定がなければ単位は長さが[mm]，角度が[rad]");
 }
-
 
 void NodeDisplayGui::DrawJointInfo() const
 {
@@ -207,16 +256,16 @@ void NodeDisplayGui::DrawJointInfo() const
 	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
 	const int kTextXPos = kGuiLeftPosX + 10;
 	const int kTextYMinPos = kGuiTopPosY + 50;
-	const int kTextYInterval = 30;
+	const int kTextYInterval = 20;
 
 	if (!calculator_ptr_) 
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "計算クラスがnullptrです");
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "計算クラスがnullptrです");
 		return;
 	}
 	if (!checker_ptr_) 
 	{ 
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "チェッカークラスがnullptrです");
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "チェッカークラスがnullptrです");
 		return; 
 	}
 
@@ -224,12 +273,12 @@ void NodeDisplayGui::DrawJointInfo() const
 	{
 		if (joint_state_[i].joint_angle.size() != 3) 
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "間接の計算ができていない，またはされていません．");
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "間接の計算ができていない，またはされていません．");
 			return;
 		}
 		if (joint_state_[i].joint_pos_leg_coordinate.size() != 4) 
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, "間接の計算ができていない，またはされていません．");
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "間接の計算ができていない，またはされていません．");
 			return; 
 		}
 	}
@@ -239,14 +288,14 @@ void NodeDisplayGui::DrawJointInfo() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "[%d] c %s[deg],f %s[deg],t %s[deg]", 
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "[%d] c %s[deg],f %s[deg],t %s[deg]",
 			i,
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0])).c_str(),
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1])).c_str(),
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2])).c_str()
 		);
 
-		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
 			(joint_state_[i].joint_pos_leg_coordinate[0] - joint_state_[i].joint_pos_leg_coordinate[1]).GetLength(),
 			(joint_state_[i].joint_pos_leg_coordinate[1] - joint_state_[i].joint_pos_leg_coordinate[2]).GetLength(),
 			(joint_state_[i].joint_pos_leg_coordinate[2] - joint_state_[i].joint_pos_leg_coordinate[3]).GetLength()
@@ -255,11 +304,13 @@ void NodeDisplayGui::DrawJointInfo() const
 
 		if (checker_ptr_->IsLegInRange(i, joint_state_[i].joint_pos_leg_coordinate[3]))
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "    近似値 true");
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, 
+				font_handle_, "    近似値された可動域内にあります．");
 		}
 		else
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "    近似値 false");
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, 
+				font_handle_, "    近似値された可動域外です．");
 		}
 
 
@@ -270,10 +321,42 @@ void NodeDisplayGui::DrawJointInfo() const
 		if (joint_state_[i].joint_angle[1] > PhantomXMkIIConst::kFemurAngleMax) { str += "femur_max "; }
 		if (joint_state_[i].joint_angle[2] < PhantomXMkIIConst::kTibiaAngleMin) { str += "tibia_min "; }
 		if (joint_state_[i].joint_angle[2] > PhantomXMkIIConst::kTibiaAngleMax) { str += "tibia_max "; }
+		if (! joint_state_[i].is_in_range) { str += "脚先が届いていません "; }
 
 		if (!str.empty())
 		{
-			DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, "error %s", str.c_str());
+			const size_t max_str_size = 30;
+			if (str.size() > max_str_size) { str = str.substr(0, max_str_size); }
+
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, 
+				font_handle_, "    実際の可動域の外です． %s", str.c_str());
+		}
+		else 
+		{
+			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, 
+								font_handle_, "    実際の可動域の内です．");
 		}
 	}
+}
+
+void NodeDisplayGui::DrawGlobalPosInfo() const
+{
+	const unsigned int kTextColor = GetColor(10, 10, 10);
+	const int kTextXPos = kGuiLeftPosX + 10;
+	const int kTextYMinPos = kGuiTopPosY + 10;
+	const int kTextYInterval = kFontSize + 4;
+	const std::array<std::string, HexapodConst::kLegNum> leg_name = { "右前","右中","右後","左後","左中","左前" };
+
+	int text_line = 0;
+
+	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "脚先座標(グローバル座標)");
+
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		dl::Vector3 global_pos = display_node_.leg_pos[i];
+
+		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
+						"%s %s", leg_name[i].c_str(), global_pos.ToString().c_str());
+	}
+
 }

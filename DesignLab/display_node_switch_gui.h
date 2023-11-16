@@ -8,7 +8,7 @@
 #include <memory>
 #include <vector>
 
-#include "button_controller.h"
+#include "simple_button.h"
 
 
 //! @class DisplayNodeSwitchGui

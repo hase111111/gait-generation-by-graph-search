@@ -11,7 +11,7 @@
 
 #include "camera_input_controller.h"
 #include "camera_state_manager.h"
-#include "button_controller.h"
+#include "simple_button.h"
 #include "designlab_vector3.h"
 
 

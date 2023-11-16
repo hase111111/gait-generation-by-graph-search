@@ -123,9 +123,9 @@ void DisplayNodeSwitchGui::Update()
 	{
 		i->Update();
 
-		if (i->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()))
+		if (i->IsCursorInGui() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 		{
-			i->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
+			i->Activate();
 		}
 	}
 }

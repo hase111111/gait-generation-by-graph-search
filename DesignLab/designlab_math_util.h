@@ -86,7 +86,7 @@ namespace designlab
 
 			if (current == target) { return current; }
 
-			return current * (1 - rate) + target * rate;
+			return static_cast<T>(current * (1 - rate) + target * rate);
 		}
 
 		//! @brief w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚éD

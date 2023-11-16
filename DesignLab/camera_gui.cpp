@@ -36,7 +36,23 @@ CameraGui::CameraGui(const int left_x_pos, const int top_y_pos, const unsigned i
 		)
 	);
 
-	button_list_.back()->SetActivateFunction([this]() { is_closed_ = !is_closed_; });
+	button_list_.back()->SetActivateFunction([this]() 
+		{
+			is_closed_ = !is_closed_; 
+
+			for (size_t i = 1; i < button_list_.size(); i++)
+			{
+				if (is_closed_)
+				{
+					button_list_[i]->SetVisible(false);
+				}
+				else
+				{
+					button_list_[i]->SetVisible(true);
+				}
+			}
+		}
+	);
 
 	const int kButtonRange = kButtonSize + kButtonDistance;
 	const int kLeftPosX = kGuiLeftPosX + kButtonRange / 2 + 15;
@@ -77,9 +93,9 @@ void CameraGui::Update()
 	{
 		button->Update();
 
-		if (button->IsCursorInGui(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY()) && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1) 
+		if (button->IsCursorInGui() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1) 
 		{
-			button->Activate(Mouse::GetIns()->GetCursorPosX(), Mouse::GetIns()->GetCursorPosY());
+			button->Activate();
 		}
 	}
 
