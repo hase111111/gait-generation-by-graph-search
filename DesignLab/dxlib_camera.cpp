@@ -1,4 +1,4 @@
-﻿#include "camera_state_manager.h"
+﻿#include "dxlib_camera.h"
 
 #include <cmath>
 
@@ -15,7 +15,7 @@ namespace dlm = designlab::math_util;
 namespace dldu = designlab::dxlib_util;
 
 
-CameraStateManager::CameraStateManager() :
+DxlibCamera::DxlibCamera() :
 	kDefaultCameraFrontVec{ dl::Vector3::GetFrontVec() },
 	kDefaultCameraUpVec{ dl::Vector3::GetUpVec() },
 	camera_view_mode_(CameraViewMode::kTopView),
@@ -34,7 +34,7 @@ CameraStateManager::CameraStateManager() :
 }
 
 
-void CameraStateManager::Update()
+void DxlibCamera::Update()
 {
 	//カメラの距離を目標値に近づける．
 	now_camera_state_.length_camera_to_target = dlm::ApproachTarget(
@@ -95,7 +95,7 @@ void CameraStateManager::Update()
 }
 
 
-void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
+void DxlibCamera::SetCameraViewMode(const CameraViewMode mode)
 {
 	camera_view_mode_ = mode;
 
@@ -156,14 +156,14 @@ void CameraStateManager::SetCameraViewMode(const CameraViewMode mode)
 }
 
 
-void CameraStateManager::InitCaneraTargetLength()
+void DxlibCamera::InitCaneraTargetLength()
 {
 	//最大と最小の中間値を初期値とする．
 	goal_camera_state_.length_camera_to_target = (GraphicConst::kCameraToTargetMin + GraphicConst::kCameraToTargetMax) * 0.5f;
 }
 
 
-void CameraStateManager::AddCameraToTargetLength(const float length_dif)
+void DxlibCamera::AddCameraToTargetLength(const float length_dif)
 {
 	goal_camera_state_.length_camera_to_target += length_dif;
 
@@ -181,7 +181,7 @@ void CameraStateManager::AddCameraToTargetLength(const float length_dif)
 }
 
 
-void CameraStateManager::SetCameraPosAndRot()
+void DxlibCamera::SetCameraPosAndRot()
 {
 	//カメラの位置をセットする．クォータニオンを用いて回転させ，dl_vec::vectorからdxlib::VECTORに変換する．
 

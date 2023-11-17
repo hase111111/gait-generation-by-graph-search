@@ -91,7 +91,7 @@ void NodeDisplayGui::Update()
 	{
 		button->Update();
 
-		if (button->IsCursorInGui() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+		if (button->OnCursor() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 		{
 			button->Activate();
 		}

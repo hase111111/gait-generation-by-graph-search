@@ -18,7 +18,7 @@ CameraInputController::CameraInputController() :
 }
 
 
-void CameraInputController::ChangeCameraState(CameraStateManager* camera_manager)
+void CameraInputController::ChangeCameraState(DxlibCamera* camera_manager)
 {
 	assert(camera_manager != nullptr);
 

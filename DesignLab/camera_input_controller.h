@@ -1,35 +1,35 @@
-//! @file camera_input_controller.h
-//! @brief ƒ}ƒEƒX‚Ì“ü—Í‚ÅƒJƒƒ‰‚ğ“®‚©‚·ƒNƒ‰ƒX
+ï»¿//! @file camera_input_controller.h
+//! @brief ãƒã‚¦ã‚¹ã®å…¥åŠ›ã§ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_CAMERA_INPUT_CONTROLLER_H_
 #define DESIGNLAB_CAMERA_INPUT_CONTROLLER_H_
 
 
-#include "camera_state_manager.h"
+#include "dxlib_camera.h"
 
 
 //! @class CameraInputController
-//! @brief ƒ}ƒEƒX‚Ì“ü—Í‚ÅƒJƒƒ‰‚ğ“®‚©‚·ƒNƒ‰ƒX
+//! @brief ãƒã‚¦ã‚¹ã®å…¥åŠ›ã§ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™ã‚¯ãƒ©ã‚¹ï¼
 class CameraInputController
 {
 public:
 
 	CameraInputController();
 
-	//! @brief ƒL[“ü—Í‚ÅƒJƒƒ‰‚ğ“®‚©‚·D
-	//! @n Šî–{“I‚É‚Í–ˆƒtƒŒ[ƒ€ŒÄ‚Ño‚·
-	//! @param [out] camera_manager ƒJƒƒ‰‚Ìó‘Ô‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Ìƒ|ƒCƒ“ƒ^Dó‚¯æ‚Á‚½’l‚ğ‘‚«Š·‚¦‚é
-	void ChangeCameraState(CameraStateManager* camera_manager);
+	//! @brief ã‚­ãƒ¼å…¥åŠ›ã§ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™ï¼
+	//! @n åŸºæœ¬çš„ã«ã¯æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã³å‡ºã™
+	//! @param [out] camera_manager ã‚«ãƒ¡ãƒ©ã®çŠ¶æ…‹ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ³ã‚¿ï¼å—ã‘å–ã£ãŸå€¤ã‚’æ›¸ãæ›ãˆã‚‹
+	void ChangeCameraState(DxlibCamera* camera_manager);
 
 private:
 
-	const float kCameraZoomSpeed;		//!< ƒJƒƒ‰‚ÌƒY[ƒ€‘¬“x
+	const float kCameraZoomSpeed;		//!< ã‚«ãƒ¡ãƒ©ã®ã‚ºãƒ¼ãƒ é€Ÿåº¦
 
-	const float kCameraMoveSpeed;		//!< ƒJƒƒ‰‚ÌˆÚ“®‘¬“x
+	const float kCameraMoveSpeed;		//!< ã‚«ãƒ¡ãƒ©ã®ç§»å‹•é€Ÿåº¦
 
-	const float kCameraTargetMoveSpeed;	//!< ƒJƒƒ‰‚Ì’‹“_‚ÌˆÚ“®‘¬“x
+	const float kCameraTargetMoveSpeed;	//!< ã‚«ãƒ¡ãƒ©ã®æ³¨è¦–ç‚¹ã®ç§»å‹•é€Ÿåº¦
 
-	const double kMouseMoveMargin;		//!< ƒ}ƒEƒX‚ÌˆÚ“®—Ê‚ª‚±‚Ì—ÊˆÈ‰º‚È‚ç‚Î0‚Æ‚İ‚È‚·
+	const double kMouseMoveMargin;		//!< ãƒã‚¦ã‚¹ã®ç§»å‹•é‡ãŒã“ã®é‡ä»¥ä¸‹ãªã‚‰ã°0ã¨ã¿ãªã™
 };
 
 

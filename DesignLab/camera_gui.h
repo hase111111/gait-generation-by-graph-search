@@ -10,19 +10,19 @@
 #include <memory>
 
 #include "camera_input_controller.h"
-#include "camera_state_manager.h"
+#include "dxlib_camera.h"
 #include "simple_button.h"
 #include "designlab_vector3.h"
 
 
 //! @class CameraGui
-//! @brief カメラの操作・管理を行うGUIを行うクラス
+//! @brief カメラの操作・管理を行うGUIを行うクラス．
 //! @details 使用したい場合は，メンバにこいつを持たせて，UpdateとDrawを呼び出すだけでよい．
 class CameraGui final
 {
 public:
 
-	//! @brief GUIを表示する位置を指定しない場合のコンストラクタ，左上 (0, 0) を起点に表示する
+	//! @brief GUIを表示する位置を指定しない場合のコンストラクタ，左上 (0, 0) を起点に表示する．
 	CameraGui();
 
 	//! @param [in] x_pos GUIを表示するx座標
@@ -70,8 +70,8 @@ private:
 
 
 	CameraInputController camera_controller_;	//!< カメラの操作を行うクラス
-
-	CameraStateManager camera_manager_;			//!< カメラの管理を行うクラス
+	
+	DxlibCamera camera_manager_;			//!< カメラの管理を行うクラス
 
 	std::vector<std::unique_ptr<SimpleButton>> button_list_;	//!< ボタンのリスト
 

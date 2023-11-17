@@ -14,7 +14,7 @@
 
 //! @class SimpleButton
 //! @brief ボタンの処理，描画を管理するクラス．
-class SimpleButton final : public IDxlibGui, public IClickable
+class SimpleButton final : public IDxlibGui, public IClickHandler
 {
 public:
 
@@ -35,7 +35,7 @@ public:
 
 	void Activate() override;
 
-	bool IsCursorInGui() const noexcept override;
+	bool OnCursor() const noexcept override;
 
 private:
 

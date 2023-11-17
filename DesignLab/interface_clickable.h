@@ -1,25 +1,25 @@
 ﻿//! @file interface_clickable.h
 //! @brief クリック可能なGUIのインターフェース．
 
-#ifndef DESIGNLAB_INTERFACE_CLICKABLE_H_
-#define DESIGNLAB_INTERFACE_CLICKABLE_H_
+#ifndef DESIGNLAB_INTERFACE_CLICK_HANDLER_H_
+#define DESIGNLAB_INTERFACE_CLICK_HANDLER_H_
 
 
 #include "interface_dxlib_gui.h"
 
 
-class IClickable
+class IClickHandler
 {
 public:
 
-	virtual ~IClickable() = default;
+	virtual ~IClickHandler() = default;
 
 	//! @brief GUIがクリックされたときに実行される関数．
 	virtual void Activate() = 0;
 
 	//! @brief GUIがクリックされたかどうかを返す．
 	//! @return bool GUIがクリックされたかどうか．
-	virtual bool IsCursorInGui() const noexcept = 0;
+	virtual bool OnCursor() const noexcept = 0;
 };
 
-#endif	// DESIGNLAB_INTERFACE_CLICKABLE_H_
+#endif	// DESIGNLAB_INTERFACE_CLICK_HANDLER_H_

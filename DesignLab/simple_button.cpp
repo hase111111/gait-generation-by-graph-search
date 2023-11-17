@@ -39,7 +39,7 @@ void SimpleButton::SetActivateFunction(const std::function<void()>& func)
 
 void SimpleButton::Update()
 {
-	if (IsCursorInGui()) 
+	if (OnCursor()) 
 	{
 		target_color_blue_ = 64;
 	}
@@ -109,7 +109,7 @@ bool SimpleButton::IsVisible() const
 
 void SimpleButton::Activate()
 {
-	if (click_function_ && visible_)
+	if (click_function_ && visible_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 	{
 		now_color_blue_ = 128;
 
@@ -117,7 +117,7 @@ void SimpleButton::Activate()
 	}
 }
 
-bool SimpleButton::IsCursorInGui() const noexcept
+bool SimpleButton::OnCursor() const noexcept
 {
 	const int cursor_x = Mouse::GetIns()->GetCursorPosX();
 	const int cursor_y = Mouse::GetIns()->GetCursorPosY();
