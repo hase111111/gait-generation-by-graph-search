@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="font_loader.h" />
+    <ClInclude Include="gait_pattern_generator_thread.h" />
     <ClInclude Include="interface_clickable.h" />
     <ClInclude Include="interface_dxlib_gui.h" />
     <ClInclude Include="node_creator_body_rot.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="application_setting_toml_key.cpp" />
     <ClCompile Include="application_setting_reader_toml.cpp" />
     <ClCompile Include="font_loader.cpp" />
+    <ClCompile Include="gait_pattern_generator_thread.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="simple_button.cpp" />

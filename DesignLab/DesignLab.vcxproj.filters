@@ -73,18 +73,6 @@
     <Filter Include="ソース ファイル\System\ResultViewer">
       <UniqueIdentifier>{d65f5b8b-b4b0-4225-9f6a-a31897756b1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\PassFinder">
-      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\PassFinder\GraphSearcher">
-      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\PassFinder\GraphTreeCreator">
-      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\PassFinder\Common">
-      <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
@@ -111,6 +99,18 @@
     </Filter>
     <Filter Include="ソース ファイル\Node\NodeCreator\NodeCreatorBuilder">
       <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator">
+      <UniqueIdentifier>{13719d39-0b92-44e4-8baa-fc8465850973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher">
+      <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphTreeCreator">
+      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\Common">
+      <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -151,7 +151,7 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="graph_searcher_random.h">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_test.h">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -184,7 +184,7 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="graph_searcher_hato.h">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_leg_hierarchy.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
@@ -199,10 +199,10 @@
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_basic.h">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_const.h">
-      <Filter>ソース ファイル\PassFinder\Common</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Common</Filter>
     </ClInclude>
     <ClInclude Include="designlab_euler.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -292,16 +292,16 @@
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="interface_gait_pattern_generator.h">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="interface_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
     <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="target.h">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -379,10 +379,10 @@
       <Filter>ソース ファイル\Hexapod\Const</Filter>
     </ClInclude>
     <ClInclude Include="graph_tree_creator.h">
-      <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClInclude>
     <ClInclude Include="pass_finder_revaluation.h">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="designlab_string_util.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -441,6 +441,9 @@
     <ClInclude Include="interface_dxlib_gui.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="gait_pattern_generator_thread.h">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -474,7 +477,7 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_random.cpp">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_test.cpp">
       <Filter>ソース ファイル\GraphicSystem\Main</Filter>
@@ -498,7 +501,7 @@
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_hato.cpp">
-      <Filter>ソース ファイル\PassFinder\GraphSearcher</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="node_creator_leg_hierarchy.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
@@ -513,7 +516,7 @@
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
     <ClCompile Include="gait_pattern_generator_basic.cpp">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="stopwatch.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -591,7 +594,7 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_const.cpp">
-      <Filter>ソース ファイル\PassFinder\Common</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Common</Filter>
     </ClCompile>
     <ClCompile Include="designlab_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -639,10 +642,10 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="graph_tree_creator.cpp">
-      <Filter>ソース ファイル\PassFinder\GraphTreeCreator</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="pass_finder_revaluation.cpp">
-      <Filter>ソース ファイル\PassFinder</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="designlab_string_util.cpp">
       <Filter>ソース ファイル\Common</Filter>
@@ -670,6 +673,9 @@
     </ClCompile>
     <ClCompile Include="font_loader.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="gait_pattern_generator_thread.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

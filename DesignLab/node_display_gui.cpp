@@ -49,7 +49,20 @@ NodeDisplayGui::NodeDisplayGui(
 			kButtonSizeX,
 			kButtonSizeY)
 	);
-	buttons_.back()->SetActivateFunction([this]() { is_closed_ = !is_closed_; });
+	buttons_.back()->SetActivateFunction([this]() 
+		{
+			is_closed_ = !is_closed_; 
+
+			if (is_closed_)
+			{
+				buttons_.back()->SetVisible(false);
+			}
+			else
+			{
+				buttons_.back()->SetVisible(true);
+			}
+		}
+	);
 
 	buttons_.push_back(std::make_unique<SimpleButton>(
 		"切り替え",

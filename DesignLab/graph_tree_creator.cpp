@@ -21,7 +21,7 @@ void GraphTreeCreator::Init(const DevideMapState& map_state)
 	node_creator_builder_ptr_->Build(map_state, &node_creator_map_);
 }
 
-GraphSearchResult GraphTreeCreator::CreateGraphTree([[maybe_unused]]int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size)
+GraphSearchResult GraphTreeCreator::CreateGraphTree([[maybe_unused]]int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size) const
 {
 	assert(0 <= start_depth);			// start_depthは0以上である．
 	assert(start_depth < max_depth);	// start_depthはmax_depthより小さい．

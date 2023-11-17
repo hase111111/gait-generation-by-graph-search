@@ -43,7 +43,7 @@ void NodeCreatorBuilderRotTest::Build(
 		map,
 		converter_ptr_,
 		checker_ptr_,
-		dl::Vector3::GetUpVec(),
+		dl::Vector3::GetLeftVec(),
 		HexapodMove::kComUpDown
 	);
 
