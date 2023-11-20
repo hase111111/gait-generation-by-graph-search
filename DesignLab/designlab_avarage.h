@@ -1,5 +1,5 @@
 ﻿//! @file designlab_avarage.h
-//! @brief 平均値を求める関数をまとめたもの．
+//! @brief 平均値，分散，標準偏差を求めるテンプレートクラス．
 
 
 #ifndef	DESIGNLAB_AVERAGE_H_
@@ -19,7 +19,7 @@ namespace designlab
 	class AverageCalculator final
 	{
 		// T は足し算・割り算ができることを前提としている．
-		static_assert(std::is_arithmetic<T>::value, "T must be arithmetic type.");
+		static_assert(std::is_arithmetic<T>::value, "足し算，割り算ができる変数を指定してください．");
 
 	public:
 
