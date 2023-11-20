@@ -26,7 +26,7 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(
 	const int graph_size,
 	const TargetRobotState& target,
 	RobotStateNode* output_result
-)
+) const
 {
 	// targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
 
@@ -39,10 +39,9 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(
 	float min_leg_dif = 0;
 
 	const size_t parent_num = GetParentNodeIndex(graph, graph_size);
+	const RobotStateNode& parent_node = graph.at(parent_num);
 
 	if (parent_num < 0) { return GraphSearchResult::kFailureByNoNode; }
-
-	InitEvaluationValue(graph.at(parent_num), target);
 
 	for (size_t i = 0; i < graph_size; i++)
 	{
@@ -54,14 +53,14 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(
 			{
 				result_index = static_cast<int>(i);
 				max_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
-				max_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], target);
+				max_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], parent_node);
 				max_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 				min_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 				continue;
 			}
 
 			float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
-			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], target);
+			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], parent_node);
 			float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
 			float candiate_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
 
@@ -155,11 +154,6 @@ bool GraphSearcherHato::GetDepth1NodeFromMaxDepthNode(const std::vector<RobotSta
 	return true;
 }
 
-void GraphSearcherHato::InitEvaluationValue(const RobotStateNode& parent_node, [[maybe_unused]]const TargetRobotState& target)
-{
-	parent_node_ = parent_node;
-}
-
 float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, [[maybe_unused]] const TargetRobotState& target) const
 {
 	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.target_position;
@@ -173,7 +167,7 @@ float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& cu
 	return target_pos.GetLength() - target_to_parent.GetLength();
 }
 
-float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current_node, [[maybe_unused]] const TargetRobotState& target) const
+float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
 {
 
 	float result = 0.0f;
@@ -182,7 +176,7 @@ float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
-			result += (current_node.leg_pos[i] - parent_node_.leg_pos[i]).GetLength();
+			result += (current_node.leg_pos[i] - parent_node.leg_pos[i]).GetLength();
 		}
 	}
 

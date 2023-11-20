@@ -9,6 +9,17 @@
 #include "interface_graph_searcher.h"
 
 
+struct RandomEvaluationValue final : public IEvaluationValue
+{
+	RandomEvaluationValue() = default;
+	~RandomEvaluationValue() = default;
+
+	int GetValue(const IEvaluationValue& other) const override
+	{
+		return 0;
+	}
+};
+
 //! @class GraphSearcherRandom
 //! @brief 完全ランダムに次の動作を選んで返します．
 //! @n 継承の方法の説明用．
@@ -19,11 +30,11 @@ public:
 	// 継承時には，戻り値，関数名，引数の型(名前は違ってもよい)，を全て同じにする必要がある．
 	// また，最後に必ずoverrideをつける．
 
-	GraphSearchResult SearchGraphTree(
+	std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> SearchGraphTree(
 		const std::vector<RobotStateNode>& graph,
 		int graph_size,
-		const TargetRobotState& target,
-		RobotStateNode* output_result) override;
+		const TargetRobotState& target
+	)const override;
 };
 
 

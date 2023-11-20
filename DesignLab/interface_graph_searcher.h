@@ -6,11 +6,20 @@
 
 
 #include <memory>
+#include <tuple>
 #include <vector>
 
 #include "graph_search_result_recoder.h"
 #include "robot_state_node.h"
 #include "target.h"
+
+
+struct IEvaluationValue
+{
+	virtual ~IEvaluationValue() = default;
+
+	virtual int GetValue(const IEvaluationValue& other) const = 0;
+};
 
 
 //! @class IGraphSearcher
@@ -24,16 +33,15 @@ public:
 
 
 	//! @brief グラフを受け取り，その中から最適な次の動作を出力する．
-	//! @param [in] graph グラフ木
-	//! @param [in] graph_size グラフ木のサイズ
-	//! @param [in] target 目標地点
-	//! @param [out] output_result 出力されるノード
-	//! @return GraphSearchResult 探索の結果
-	virtual GraphSearchResult SearchGraphTree(
-		const std::vector<RobotStateNode>& graph, 
+	//! @param [in] graph グラフ木．
+	//! @param [in] graph_size グラフ木のサイズ．
+	//! @param [in] target 目標地点．
+	//! @return std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> グラフ探索の結果，次のノード，評価値のタプル．
+	virtual std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> SearchGraphTree(
+		const std::vector<RobotStateNode>& graph,
 		int graph_size,
-		const TargetRobotState& target, 
-		RobotStateNode* output_result) = 0;
+		const TargetRobotState& target
+	) const = 0;
 };
 
 

@@ -22,7 +22,7 @@ public:
 		const std::vector<RobotStateNode>& graph,
 		int graph_size,
 		const TargetRobotState& target,
-		RobotStateNode* output_result) override;
+		RobotStateNode* output_result) const override;
 
 private:
 
@@ -36,19 +36,13 @@ private:
 	//! @return bool 見つかったかどうか．
 	bool GetDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, size_t max_depth_node_index, RobotStateNode* output_node) const;
 
-	void InitEvaluationValue(const RobotStateNode& parent_node, const TargetRobotState& target);
-
 	//! @brief 前進するための評価値を計算する
 	float CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
 
 	//! @brief 脚の平均回転量の評価値を計算する
-	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
+	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const;
 
-
-	const float kMarginOfMove = 10;
-
-
-	RobotStateNode parent_node_;
+	static constexpr float kMarginOfMove = 10;
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
