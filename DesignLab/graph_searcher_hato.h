@@ -18,11 +18,11 @@ public:
 	GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
 	~GraphSearcherHato();
 
-	GraphSearchResult SearchGraphTree(
+	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
 		const std::vector<RobotStateNode>& graph,
 		int graph_size,
-		const TargetRobotState& target,
-		RobotStateNode* output_result) const override;
+		const TargetRobotState& target
+	) const override;
 
 private:
 

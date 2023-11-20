@@ -67,7 +67,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	// グラフ探索を行う
 	dlio::Output("グラフ木を評価します．", OutputDetail::kDebug);
 
-	const GraphSearchResult search_result = graph_searcher_ptr_->SearchGraphTree(graph_tree_, graph_tree_size, target, output_node);
+	const auto [search_result, next_node, high_rated_node_index] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, graph_tree_size, target);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{
@@ -75,6 +75,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 		return search_result;
 	}
 
+	*output_node = next_node;
 	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", OutputDetail::kDebug);
 
 	return GraphSearchResult::kSuccess;

@@ -14,14 +14,6 @@
 #include "target.h"
 
 
-struct IEvaluationValue
-{
-	virtual ~IEvaluationValue() = default;
-
-	virtual int GetValue(const IEvaluationValue& other) const = 0;
-};
-
-
 //! @class IGraphSearcher
 //! @brief グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
 class IGraphSearcher
@@ -36,12 +28,13 @@ public:
 	//! @param [in] graph グラフ木．
 	//! @param [in] graph_size グラフ木のサイズ．
 	//! @param [in] target 目標地点．
-	//! @return std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> グラフ探索の結果，次のノード，評価値のタプル．
-	virtual std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> SearchGraphTree(
+	//! @return std::tuple<GraphSearchResult, RobotStateNode, int> グラフ探索の結果，次のノード，最高評価ノードのindexのタプル．
+	virtual std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
 		const std::vector<RobotStateNode>& graph,
 		int graph_size,
 		const TargetRobotState& target
 	) const = 0;
+
 };
 
 

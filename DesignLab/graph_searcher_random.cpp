@@ -5,7 +5,7 @@
 namespace dlm = designlab::math_util;
 
 
-std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>> GraphSearcherRandom::SearchGraphTree(
+std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherRandom::SearchGraphTree(
 	const std::vector<RobotStateNode>& graph, 
 	const int graph_size,
 	[[maybe_unused]]const TargetRobotState& target
@@ -17,7 +17,7 @@ std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>>
 	{
 		//グラフがないなら失敗	
 		const RobotStateNode dummy_node;
-		return { GraphSearchResult::kFailure, dummy_node, std::make_unique<RandomEvaluationValue>() };
+		return { GraphSearchResult::kFailure, dummy_node, -1 };
 	}	
 
 	//グラフの中を全て探索する．
@@ -36,11 +36,11 @@ std::tuple<GraphSearchResult, RobotStateNode, std::unique_ptr<IEvaluationValue>>
 	{
 		//深さ1のノードが存在しないなら，終了．
 		const RobotStateNode dummy_node;
-		return { GraphSearchResult::kFailureByNotReachedDepth, dummy_node, std::make_unique<RandomEvaluationValue>() };
+		return { GraphSearchResult::kFailureByNotReachedDepth, dummy_node, -1 };
 	}		
 
 	const int select_index = depth1_node.size() == 1 ? 0 : dlm::GenerateRandomNumber(0, static_cast<int>(depth1_node.size()) - 1);
 	const RobotStateNode result_node = depth1_node[static_cast<size_t>(select_index)];									// ランダムなやつを一つ選択する．
 
-	return { GraphSearchResult::kSuccess, result_node, std::make_unique<RandomEvaluationValue>() };
+	return { GraphSearchResult::kSuccess, result_node, -1 };
 }

@@ -21,11 +21,10 @@ GraphSearcherHato::~GraphSearcherHato()
 {
 }
 
-GraphSearchResult GraphSearcherHato::SearchGraphTree(
+std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGraphTree(
 	const std::vector<RobotStateNode>& graph,
 	const int graph_size,
-	const TargetRobotState& target,
-	RobotStateNode* output_result
+	const TargetRobotState& target
 ) const
 {
 	// targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
@@ -41,7 +40,11 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(
 	const size_t parent_num = GetParentNodeIndex(graph, graph_size);
 	const RobotStateNode& parent_node = graph.at(parent_num);
 
-	if (parent_num < 0) { return GraphSearchResult::kFailureByNoNode; }
+	if (parent_num < 0) 
+	{
+		RobotStateNode dummy_node;
+		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
+	}
 
 	for (size_t i = 0; i < graph_size; i++)
 	{
@@ -110,12 +113,21 @@ GraphSearchResult GraphSearcherHato::SearchGraphTree(
 	}
 
 	// index が範囲外ならば失敗
-	if (result_index < 0 || result_index >= graph_size) { return GraphSearchResult::kFailureByNoNode; }
+	if (result_index < 0 || result_index >= graph_size) 
+	{
+		RobotStateNode dummy_node;
+		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
+	}
 
 	//深さ1まで遡って値を返す
-	if (GetDepth1NodeFromMaxDepthNode(graph, result_index, output_result) == false) { return GraphSearchResult::kFailureByNotReachedDepth; }
+	RobotStateNode output_result;
+	if (! GetDepth1NodeFromMaxDepthNode(graph, result_index, &output_result)) 
+	{
+		const RobotStateNode dummy_node;
+		return { GraphSearchResult::kFailureByNotReachedDepth, dummy_node, -1 };
+	}
 
-	return GraphSearchResult::kSuccess;
+	return { GraphSearchResult::kSuccess, output_result, result_index };
 }
 
 size_t GraphSearcherHato::GetParentNodeIndex(const std::vector<RobotStateNode>& graph, const int graph_size) const

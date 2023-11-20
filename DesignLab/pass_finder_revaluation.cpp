@@ -69,7 +69,8 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
+		std::ignore = target;
+		//result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -112,7 +113,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		// グラフ探索を行う
 		dlio::Output("グラフ木を評価する", OutputDetail::kDebug);
 
-		result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
+		//result = graph_searcher_ptr_->SearchGraphTree(graph_tree, graph_tree_size, target, output_node);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
