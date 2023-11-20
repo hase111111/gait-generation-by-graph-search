@@ -25,7 +25,7 @@
 class SystemMainSimulation final : public ISystemMain
 {
 public:
-	SystemMainSimulation() = delete;		//デフォルトコンストラクタは禁止．
+	SystemMainSimulation() = delete;		//!< デフォルトコンストラクタは禁止．
 
 	//! @param[in] pass_finder_ptr 自由歩容パターン生成を行うクラス．
 	//! @param[in] graphic_ptr グラフィックを描画するクラス．

@@ -47,14 +47,14 @@ void SystemMainSimulation::Main()
 	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
 
 
-	if (!pass_finder_ptr_)
+	if (! pass_finder_ptr_)
 	{
 		//早期リターン，グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
 		dlio::Output("パスファインダークラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
 		return;
 	}
 
-	if (!setting_ptr_)
+	if (! setting_ptr_)
 	{
 		//早期リターン，設定クラスがセットされていない場合は，エラーを出力して終了する．
 		dlio::Output("設定クラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
@@ -92,7 +92,7 @@ void SystemMainSimulation::Main()
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 
-			if (not dlio::InputYesNo("シミュレーションを開始しますか")) 
+			if (! dlio::InputYesNo("シミュレーションを開始しますか")) 
 			{
 				break;
 			}
@@ -143,9 +143,9 @@ void SystemMainSimulation::Main()
 			if (setting_ptr_->gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dlio::OutputNewLine(1, OutputDetail::kInfo);
-			dlio::OutputHorizontalLine("-", OutputDetail::kInfo);
 			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
 			dlio::Output(current_node.ToString(), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
+			dlio::OutputHorizontalLine("-", OutputDetail::kInfo);
 
 			node_checker.SetNode(current_node);													//動作チェッカーにもノードを通達する．
 
