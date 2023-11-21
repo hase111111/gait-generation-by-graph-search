@@ -52,7 +52,7 @@ window_size_y = 720
 #GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．
 gui_display_quality = "kHigh"
 #コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い
-cmd_permission = "kDebug"
+cmd_permission = "kInfo"
 #GUI(dxlibによる表示)での表示を行います (true/false)
 gui_display = true
 #GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．

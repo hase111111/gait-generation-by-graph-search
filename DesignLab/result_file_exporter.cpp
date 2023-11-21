@@ -1,5 +1,6 @@
 ﻿#include "result_file_exporter.h"
 
+#include <algorithm>
 #include <filesystem>
 #include <map>
 
@@ -122,7 +123,6 @@ void ResultFileExporter::ExportLatestNodeList() const
 	dlio::Output("出力完了 : " + output_file_name, OutputDetail::kInfo);
 }
 
-
 void ResultFileExporter::ExportLatestMapState() const 
 {
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
@@ -241,13 +241,13 @@ void ResultFileExporter::ExportResult() const
 bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& recoder, const int index) const
 {
 	//出力先ファイルを作成する．
-	std::string output_file_name = 
+	std::string output_file_name =
 		ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kFileName + std::to_string(index + 1) + ".csv";
 
 	std::ofstream ofs(output_file_name);
 
 	//ファイルが作成できなかった場合は，なにも出力しない．
-	if (! ofs) { return false; }
+	if (!ofs) { return false; }
 
 	//結果を出力する．
 	ofs << recoder.ToCsvString() << std::endl;
@@ -258,7 +258,7 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 	double min_time = max_time;
 	dl::AverageCalculator<double> ave_calculator;
 
-	if (recoder.graph_search_result_recoder.size() > 1) 
+	if (recoder.graph_search_result_recoder.size() > 1)
 	{
 		for (size_t i = 1; i < recoder.graph_search_result_recoder.size(); ++i)
 		{
@@ -278,9 +278,11 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 	ofs << "平均探索時間," << dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
 	ofs << "分散," << dlm::ConvertDoubleToString(ave_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
 	ofs << "標準偏差," << dlm::ConvertDoubleToString(ave_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
-	ofs << "全データの約68%は" << 
-		dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f) + ave_calculator.GetStandardDeviation().value_or(-1.f)) << " [msec]以下で" <<
-		dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f) - ave_calculator.GetStandardDeviation().value_or(-1.f)) << " [msec]以上です．" << 
+
+	const double time_1sigma_plus = ave_calculator.GetAverage().value_or(-1.f) + ave_calculator.GetStandardDeviation().value_or(-1.f);
+	const double time_1sigma_minus = (std::max)(ave_calculator.GetAverage().value_or(-1.f) - ave_calculator.GetStandardDeviation().value_or(-1.f), 0.0);
+	ofs << "全データの約68%は" <<
+		dlm::ConvertDoubleToString(time_1sigma_plus) << " [msec]以下で" << dlm::ConvertDoubleToString(time_1sigma_minus) << " [msec]以上です．" <<
 		std::endl << std::endl;
 
 
