@@ -10,8 +10,8 @@
 
 
 //! @class HexapodConst
-//! @brief Hexapod，phantomXのパラメータを定数で表現したもの．
-//! @n 先行研究との兼ね合いでできた，徐々にここから値を消していく．
+//! @brief Hexapodの定数をまとめたクラス．
+//! @n 先行研究のマクロをまとめたもの，徐々にここから値を消していく．
 //! @details コンストラクタを削除したので，実体は生成できない．( HexapodConst::kLegNum みたいに値を呼び出すこと )
 class HexapodConst final
 {

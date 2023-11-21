@@ -92,7 +92,7 @@ namespace designlab::test::common::math
 
 				const dl::RotationMatrix3x3 rot_mat = dl::ToRotationMatrix(qua);
 
-				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua, true);
+				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua);
 				const dl::Vector3 rot_vec_by_mat = dl::RotateVector3(vec, rot_mat);
 
 				std::string error_mes = " クォータニオン : " + qua.ToString() + "\n" +
@@ -142,7 +142,7 @@ namespace designlab::test::common::math
 				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "クォータニオンのノルムは1である必要があります．";
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, euler);
-				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua, true);
+				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua);
 
 				std::string error_mes = " euler : " + euler.ToStringDeg() + "\n" +
 					" クォータニオン ; " + rot_qua.ToString() + "\n" +
@@ -194,7 +194,7 @@ namespace designlab::test::common::math
 				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "クォータニオンのノルムは1である必要があります．";
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, euler);
-				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua, true);
+				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua);
 
 				std::string error_mes = " euler : " + euler.ToStringDeg() + "\n" +
 					" クォータニオン ; " + rot_qua.ToString() + "\n" +
@@ -298,7 +298,7 @@ namespace designlab::test::common::math
 
 				const dl::EulerXYZ rot_euler = dl::ToEulerXYZ(qua);
 
-				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua, true);
+				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua);
 				const dl::Vector3 rot_vec_by_euler = dl::RotateVector3(vec, rot_euler);
 
 				std::string error_mes = " クォータニオン : " + qua.ToString() + "\n" +

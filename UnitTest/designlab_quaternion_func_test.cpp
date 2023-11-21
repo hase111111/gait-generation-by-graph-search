@@ -10,7 +10,7 @@ namespace designlab::test::common::math
 		const Quaternion q = Quaternion(1.0f, 0.f, 0.f, 0.f);
 		const Vector3 vec = { 100.f, 120.f, 0.f };
 
-		const Vector3 actual = RotateVector3(vec, q, true);
+		const Vector3 actual = RotateVector3(vec, q);
 
 		EXPECT_EQ(vec, actual);
 	}

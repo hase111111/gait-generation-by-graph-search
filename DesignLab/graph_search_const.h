@@ -1,12 +1,13 @@
 ﻿//! @file graph_search_const.h
-//! @brief グラフ探索の定数をまとめたクラス
+//! @brief グラフ探索の定数をまとめたクラス．
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_CONST_H_
 #define DESIGNLAB_GRAPH_SEARCH_CONST_H_
 
 
 //! @clas GraphSearchConst
-//! @brief グラフ探索の定数をまとめたクラス
+//! @brief グラフ探索の定数をまとめたクラス．
+//! @n 先行研究のマクロをまとめたもの，最終的に消す．
 class GraphSearchConst final
 {
 public:

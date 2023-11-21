@@ -6,6 +6,8 @@
 #define DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 
 
+//! @class ISystemMain
+//! @brief システムのインターフェース．
 class ISystemMain
 {
 public:

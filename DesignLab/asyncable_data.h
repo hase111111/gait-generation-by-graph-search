@@ -1,9 +1,9 @@
 //! @file asyncable_data.h
 //! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
 
+
 #ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_
-
 
 #include <vector>
 
@@ -55,7 +55,6 @@ public:
 		boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
 		return data_;
 	};
-
 
 	//! @brief 値を変更する．
 	//! @n この時，write lockをかける．

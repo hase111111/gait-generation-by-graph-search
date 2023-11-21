@@ -13,9 +13,8 @@
 //! @class PhantomXMkIIConst
 //! @brief PhantomX mk-Ⅱ のパラメータを定数で表現したもの．
 //! @n コンストラクタを削除したので，実体は生成できない．( PhantomXMkIIConst::kLegNum みたいに値を呼び出すこと )
-//! @details 簡単のため値をここにまとめたが，むやみにこの値を参照せずにHexapodStateCalculatorを使うこと．
-//! @n 設計的にあまり正しくない気がするが，現状効率よく開発できているので問題が起きたときに考えることにする．
-//! @n また，座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
+//! @details 簡単のため値をここにまとめたが，むやみにここの値を参照せずにHexapodStateCalculatorを使うこと．
+//! @n 座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
 class PhantomXMkIIConst final
 {
 private:

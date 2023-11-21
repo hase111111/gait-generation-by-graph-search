@@ -29,7 +29,7 @@
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="designlab_attribute.h" />
-    <ClInclude Include="designlab_avarage.h" />
+    <ClInclude Include="avarage_calculator.h" />
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="designlab_rot_converter.h" />
     <ClInclude Include="designlab_string_util.h" />

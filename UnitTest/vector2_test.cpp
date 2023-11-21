@@ -9,12 +9,12 @@ namespace dl = ::designlab;
 
 namespace designlab::test::common::math
 {
-	TEST(Vector2Test, DefaultConstructorTest)
+	TEST(Vector2Test, DefaultConstructorShouldZeroVec)
 	{
 		//デフォルトコンストラクタのテスト
 		dl::Vector2 vec;
 
-		std::string str = "デフォルトコンストラクタは(0,0)となる";
+		std::string str = "デフォルトコンストラクタで初期化すると(0,0)となる";
 		EXPECT_FLOAT_EQ(vec.x, 0.f) << str;
 		EXPECT_FLOAT_EQ(vec.y, 0.f) << str;
 	}

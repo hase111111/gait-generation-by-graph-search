@@ -3,7 +3,7 @@
 #include <cmath>
 
 #include "../DesignLab/node_creator_leg_hierarchy.h"
-#include "../DesignLab/leg_hierarchy_node_creator.cpp"
+#include "../DesignLab/node_creator_leg_hierarchy.cpp"
 
 
 namespace dl = ::designlab;

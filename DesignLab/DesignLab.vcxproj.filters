@@ -423,9 +423,6 @@
     <ClInclude Include="map_create_mode_messenger.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_avarage.h">
-      <Filter>ソース ファイル\Common\Math</Filter>
-    </ClInclude>
     <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
@@ -443,6 +440,9 @@
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_thread.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="avarage_calculator.h">
+      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

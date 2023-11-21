@@ -6,8 +6,8 @@
 
 #include <magic_enum.hpp>
 
+#include "avarage_calculator.h"
 #include "cmdio_util.h"
-#include "designlab_avarage.h"
 #include "designlab_math_util.h"
 #include "stopwatch.h"
 
@@ -256,7 +256,7 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 	//時間の統計を出力する．
 	double max_time = recoder.graph_search_result_recoder[1].computation_time;	//最初のノードは除く(計算時間0で固定のため)
 	double min_time = max_time;
-	dl::AverageCalculator<double> ave_calculator;
+	AverageCalculator<double> average_calculator;
 
 	if (recoder.graph_search_result_recoder.size() > 1)
 	{
@@ -268,19 +268,19 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& reco
 
 			if (time < min_time) { min_time = time; }
 
-			ave_calculator.AddData(time);
+			average_calculator.AddData(time);
 		}
 	}
 
 	ofs << "最大探索時間," << dlm::ConvertDoubleToString(max_time) << ",[msec]" << std::endl;
 	ofs << "最小探索時間," << dlm::ConvertDoubleToString(min_time) << ",[msec]" << std::endl;
-	ofs << "総合探索時間," << dlm::ConvertDoubleToString(ave_calculator.GetSum().value_or(-1.f)) << ",[msec]" << std::endl;
-	ofs << "平均探索時間," << dlm::ConvertDoubleToString(ave_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
-	ofs << "分散," << dlm::ConvertDoubleToString(ave_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
-	ofs << "標準偏差," << dlm::ConvertDoubleToString(ave_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "総合探索時間," << dlm::ConvertDoubleToString(average_calculator.GetSum().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "平均探索時間," << dlm::ConvertDoubleToString(average_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "分散," << dlm::ConvertDoubleToString(average_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
+	ofs << "標準偏差," << dlm::ConvertDoubleToString(average_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
 
-	const double time_1sigma_plus = ave_calculator.GetAverage().value_or(-1.f) + ave_calculator.GetStandardDeviation().value_or(-1.f);
-	const double time_1sigma_minus = (std::max)(ave_calculator.GetAverage().value_or(-1.f) - ave_calculator.GetStandardDeviation().value_or(-1.f), 0.0);
+	const double time_1sigma_plus = average_calculator.GetAverage().value_or(-1.f) + average_calculator.GetStandardDeviation().value_or(-1.f);
+	const double time_1sigma_minus = (std::max)(average_calculator.GetAverage().value_or(-1.f) - average_calculator.GetStandardDeviation().value_or(-1.f), 0.0);
 	ofs << "全データの約68%は" <<
 		dlm::ConvertDoubleToString(time_1sigma_plus) << " [msec]以下で" << dlm::ConvertDoubleToString(time_1sigma_minus) << " [msec]以上です．" <<
 		std::endl << std::endl;

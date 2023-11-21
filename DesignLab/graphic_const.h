@@ -13,7 +13,7 @@
 //! @brief 画像表示処理用の定数をまとめたもの．
 //! @details 定数クラスの詳細はdefine.hを参照．
 //! @n カメラに関する値を変更する時は慎重に行うこと，下げすぎると何も見えなくなるし，上げすぎると尋常じゃなく重くなる．
-//! @n 値を編集したい場合は graphic_const cpp を編集すること．
+//! @n 値を編集したい場合は graphic_const.cpp を編集すること．
 class GraphicConst final
 {
 public:
