@@ -20,7 +20,7 @@ GraphicMainTest::GraphicMainTest(
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 ) :
-	node_display_gui_(setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 0, 10, calculator_ptr, checker_ptr),
+	node_display_gui_{ calculator_ptr, checker_ptr },
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	calculator_ptr_(calculator_ptr),
 	converter_ptr_(converter_ptr)
@@ -36,6 +36,8 @@ GraphicMainTest::GraphicMainTest(
 
 	map_render_.SetMapState(map_state_);
 	map_render_.SetHexapodPosition(node_.global_center_of_mass);
+
+	node_display_gui_.SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 }
 
 

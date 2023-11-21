@@ -8,23 +8,26 @@
 #include <memory>
 #include <vector>
 
+#include "interface_dxlib_clickable.h"
+#include "interface_dxlib_gui.h"
 #include "simple_button.h"
 
 
 //! @class DisplayNodeSwitchGui
 //! @brief ノードの表示切り替えGUI
-class DisplayNodeSwitchGui final
+class DisplayNodeSwitchGui final : public IDxlibGui, public IDxlibClickable
 {
 public:
-	DisplayNodeSwitchGui(int x, int y);
+
 	DisplayNodeSwitchGui();
 
+
+	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
 
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数
 	//! @param[in] simu_end_index シミュレーションの終了ノード番号
 	void SetGraphData(size_t node_num, const std::vector<size_t>& simu_end_index);
-
 
 	//! @brief 現在表示するノードの番号を取得する
 	//! @return size_t 現在表示するノードの番号
@@ -35,16 +38,17 @@ public:
 	int GetSimulationNum() const;
 
 
-	//! @brief GUIの更新，毎フレーム実行すること
-	void Update();
+	void Update() override;
 
-	//! @brief GUIの描画
-	void Draw() const;
+	void Draw() const override;
 
+	void SetVisible(bool visible) override;
 
-	const static int kGuiWidth = 275;	//!< GUIの幅
+	bool IsVisible() const override { return visible_; }
 
-	const static int kGuiHeight = 250;	//!< GUIの高さ
+	void Activate() override;
+
+	bool OnCursor() const noexcept override;
 
 private:
 
@@ -70,15 +74,13 @@ private:
 	int GetAllSimulationNum() const;
 
 
-
-	const int kGuiLeftPosX;		//!< GUIの左上のX座標
-
-	const int kGuiTopPosY;		//!< GUIの左上のY座標
-
+	static constexpr int kWidth{ 275 };		//!< GUIの幅
+	static constexpr int kHeight{ 250 };	//!< GUIの高さ
 	const int kAnimeSpeedMax;	//!< アニメーション速度の最大値
-
 	const int kAnimeSpeedMin;	//!< アニメーション速度の最小値
 
+	int gui_left_pos_x_{ 0 };		//!< GUIの左上のX座標
+	int gui_top_pos_y_{ 0 };		//!< GUIの左上のY座標
 
 	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ボタン
 
@@ -97,6 +99,16 @@ private:
 	int animation_speed_;			//!< 再生速度
 
 	int counter_;					//!< カウンター
+
+	bool is_dragging_{ false };		//!< ドラッグ中か．
+
+	bool visible_{ true };			//!< GUIを表示するか．
+
+
+	const int kFontSize{ 16 };		//!< フォントのサイズ
+	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
+
+	int font_handle_;	//!< フォントのハンドル
 };
 
 

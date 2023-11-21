@@ -19,8 +19,8 @@ GraphicMainBasic::GraphicMainBasic(
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
-	node_display_gui_{ setting_ptr ? setting_ptr->window_size_x - NodeDisplayGui::kWidth - 10 : 10, 10, calculator_ptr, checker_ptr },
-	display_node_switch_gui_(10, setting_ptr ? setting_ptr->window_size_y - DisplayNodeSwitchGui::kGuiHeight - 10 : 10),
+	node_display_gui_{ calculator_ptr, checker_ptr },
+	display_node_switch_gui_(),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
 	interpolated_node_creator_{converter_ptr},
@@ -38,6 +38,9 @@ GraphicMainBasic::GraphicMainBasic(
 	{
 		movement_locus_renderer_.SetIsHighQuality(true);
 	}
+
+	display_node_switch_gui_.SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
+	node_display_gui_.SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 }
 
 
@@ -135,7 +138,11 @@ bool GraphicMainBasic::Update()
 
 	node_display_gui_.Update();			//ノードの情報を表示するGUIを更新する．
 
+	if (node_display_gui_.OnCursor()) { node_display_gui_.Activate(); }
+
 	display_node_switch_gui_.Update();	//ノードの情報を表示するGUIを更新する．
+
+	if (display_node_switch_gui_.OnCursor()) { display_node_switch_gui_.Activate(); }
 
 
 	//キー入力で表示を切り替える

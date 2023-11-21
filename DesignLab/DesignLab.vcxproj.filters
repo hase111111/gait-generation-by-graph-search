@@ -435,7 +435,7 @@
     <ClInclude Include="font_loader.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="interface_clickable.h">
+    <ClInclude Include="interface_dxlib_clickable.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_gui.h">

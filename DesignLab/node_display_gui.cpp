@@ -18,19 +18,10 @@ namespace dlm = ::designlab::math_util;
 namespace dlsu = ::designlab::string_util;
 
 
-const int NodeDisplayGui::kWidth = 470;
-const int NodeDisplayGui::kHeight = 600;
-const int NodeDisplayGui::kClosedHeight = 50;
-
-
 NodeDisplayGui::NodeDisplayGui(
-	const int x_pos,
-	const int y_pos,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 ) :
-	kGuiLeftPosX(x_pos),
-	kGuiTopPosY(y_pos),
 	calculator_ptr_(calculator_ptr),
 	checker_ptr_(checker_ptr),
 	is_closed_(false),
@@ -44,10 +35,11 @@ NodeDisplayGui::NodeDisplayGui(
 	buttons_.push_back(
 		std::make_unique<SimpleButton>(
 			"最大/小化",
-			kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10,
-			kGuiTopPosY + 10 + kButtonSizeY / 2,
+			gui_left_pos_x_ + kWidth - kButtonSizeX / 2 - 10,
+			gui_top_pos_y_ + 10 + kButtonSizeY / 2,
 			kButtonSizeX,
-			kButtonSizeY)
+			kButtonSizeY
+		)
 	);
 	buttons_.back()->SetActivateFunction([this]() 
 		{
@@ -64,13 +56,16 @@ NodeDisplayGui::NodeDisplayGui(
 		}
 	);
 
-	buttons_.push_back(std::make_unique<SimpleButton>(
+	buttons_.push_back(
+		std::make_unique<SimpleButton>(
 		"切り替え",
-		kGuiLeftPosX + kWidth - kButtonSizeX / 2 - 10,
-		kGuiTopPosY + kHeight - kButtonSizeY / 2 - 10,
+			gui_left_pos_x_ + kWidth - kButtonSizeX / 2 - 10,
+			gui_top_pos_y_ + kHeight - kButtonSizeY / 2 - 10,
 		kButtonSizeX,
-		kButtonSizeY)
+		kButtonSizeY
+		)
 	);
+
 	buttons_.back()->SetActivateFunction([this]()
 		{
 			if (display_type_ == DisplayMode::kDefualt)
@@ -83,6 +78,28 @@ NodeDisplayGui::NodeDisplayGui(
 			}
 		}
 	);
+}
+
+void NodeDisplayGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+{
+	const int past_x = gui_left_pos_x_;
+	const int past_y = gui_top_pos_y_;
+
+	if (option & dl::kOptionLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & dl::kOptionMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & dl::kOptionRight) { gui_left_pos_x_ = pos_x - kWidth; }
+
+	if (option & dl::kOptionTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & dl::kOptionMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & dl::kOptionBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+
+	const int diff_x = gui_left_pos_x_ - past_x;
+	const int diff_y = gui_top_pos_y_ - past_y;
+
+	for (auto& button : buttons_)
+	{
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kOptionMidleXMidleY);
+	}
 }
 
 void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
@@ -99,18 +116,17 @@ void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 
 void NodeDisplayGui::Update()
 {
+	if (is_dragging_) 
+	{
+		SetPos(gui_left_pos_x_ + Mouse::GetIns()->GetDiffPosX(), gui_top_pos_y_ + Mouse::GetIns()->GetDiffPosY(), dl::kOptionLeftTop);
+	}
+
 	//ボタンの更新を行う
 	for (auto& button : buttons_)
 	{
 		button->Update();
-
-		if (button->OnCursor() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
-		{
-			button->Activate();
-		}
 	}
 }
-
 
 void NodeDisplayGui::Draw() const
 {
@@ -138,22 +154,64 @@ void NodeDisplayGui::Draw() const
 	}
 }
 
+void NodeDisplayGui::SetVisible(const bool visible)
+{
+	visible_ = visible;
+
+	for (auto& button : buttons_)
+	{
+		button->SetVisible(visible);
+	}
+}
+
+
+void NodeDisplayGui::Activate()
+{
+	if (!is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+	{
+		is_dragging_ = true;
+	}
+	
+	if(is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
+	{
+		is_dragging_ = false;
+	}
+
+	//ボタンの処理を行う．
+	for (auto& button : buttons_)
+	{
+		if (button->OnCursor())
+		{
+			button->Activate();
+			break;				//1度に1つのボタンしか処理しない．
+		}
+	}
+}
+
+bool NodeDisplayGui::OnCursor() const noexcept
+{
+	return (gui_left_pos_x_ < Mouse::GetIns()->GetCursorPosX() && Mouse::GetIns()->GetCursorPosX() < gui_left_pos_x_ + kWidth) &&
+		(gui_top_pos_y_ < Mouse::GetIns()->GetCursorPosY() && Mouse::GetIns()->GetCursorPosY() < gui_top_pos_y_ + kHeight);
+}
+
 
 void NodeDisplayGui::DrawBackground() const
 {
+	if (!visible_) { return; }
+
 	const unsigned int kBoxColor = GetColor(255, 255, 255);
 	const unsigned int kBoxAlpha = 200;
 
 	if (is_closed_)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-		DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kWidth, kGuiTopPosY + kClosedHeight, kBoxColor, TRUE);
+		DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kClosedHeight, kBoxColor, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 	else
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-		DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kWidth, kGuiTopPosY + kHeight, kBoxColor, TRUE);
+		DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, kBoxColor, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 
@@ -163,8 +221,8 @@ void NodeDisplayGui::DrawNodeInfo() const
 {
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const unsigned int kBaseTextColor = GetColor(80, 80, 80);
-	const int kTextXPos = kGuiLeftPosX + 10;
-	const int kTextYMinPos = kGuiTopPosY + 10;
+	const int kTextXPos = gui_left_pos_x_ + 10;
+	const int kTextYMinPos = gui_top_pos_y_ + 10;
 	const int kTextYInterval = kFontSize + 4;
 	const std::array<std::string, HexapodConst::kLegNum> leg_name = { "右前","右中","右後","左後","左中","左前" };
 
@@ -265,20 +323,20 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 void NodeDisplayGui::DrawJointInfo() const
 {
-	const unsigned int kTextColor = GetColor(10, 10, 10);
-	const unsigned int kErrorTextColor = GetColor(128, 10, 10);
-	const int kTextXPos = kGuiLeftPosX + 10;
-	const int kTextYMinPos = kGuiTopPosY + 50;
-	const int kTextYInterval = 20;
+	const unsigned int text_color = GetColor(10, 10, 10);
+	const unsigned int error_text_color = GetColor(128, 10, 10);
+	const int text_pos_x = gui_left_pos_x_ + 10;
+	const int text_pos_y_min = gui_top_pos_y_ + 50;
+	const int text_interval_y = 20;
 
 	if (!calculator_ptr_) 
 	{
-		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "計算クラスがnullptrです");
+		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "計算クラスがnullptrです");
 		return;
 	}
 	if (!checker_ptr_) 
 	{ 
-		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "チェッカークラスがnullptrです");
+		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "チェッカークラスがnullptrです");
 		return; 
 	}
 
@@ -286,12 +344,12 @@ void NodeDisplayGui::DrawJointInfo() const
 	{
 		if (joint_state_[i].joint_angle.size() != 3) 
 		{
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "間接の計算ができていない，またはされていません．");
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "間接の計算ができていない，またはされていません．");
 			return;
 		}
 		if (joint_state_[i].joint_pos_leg_coordinate.size() != 4) 
 		{
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * 0, kTextColor, font_handle_, "間接の計算ができていない，またはされていません．");
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "間接の計算ができていない，またはされていません．");
 			return; 
 		}
 	}
@@ -301,14 +359,14 @@ void NodeDisplayGui::DrawJointInfo() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "[%d] c %s[deg],f %s[deg],t %s[deg]",
+		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "[%d] c %s[deg],f %s[deg],t %s[deg]",
 			i,
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[0])).c_str(),
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[1])).c_str(),
 			dlm::ConvertFloatToString(dlm::ConvertRadToDeg(joint_state_[i].joint_angle[2])).c_str()
 		);
 
-		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
+		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "    c %3.3f[mm],f %3.3f[mm],t %3.3f[mm]",
 			(joint_state_[i].joint_pos_leg_coordinate[0] - joint_state_[i].joint_pos_leg_coordinate[1]).GetLength(),
 			(joint_state_[i].joint_pos_leg_coordinate[1] - joint_state_[i].joint_pos_leg_coordinate[2]).GetLength(),
 			(joint_state_[i].joint_pos_leg_coordinate[2] - joint_state_[i].joint_pos_leg_coordinate[3]).GetLength()
@@ -317,12 +375,12 @@ void NodeDisplayGui::DrawJointInfo() const
 
 		if (checker_ptr_->IsLegInRange(i, joint_state_[i].joint_pos_leg_coordinate[3]))
 		{
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, 
 				font_handle_, "    近似値された可動域内にあります．");
 		}
 		else
 		{
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color, 
 				font_handle_, "    近似値された可動域外です．");
 		}
 
@@ -341,12 +399,12 @@ void NodeDisplayGui::DrawJointInfo() const
 			const size_t max_str_size = 30;
 			if (str.size() > max_str_size) { str = str.substr(0, max_str_size); }
 
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kErrorTextColor, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color, 
 				font_handle_, "    実際の可動域の外です． %s", str.c_str());
 		}
 		else 
 		{
-			DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, 
 								font_handle_, "    実際の可動域の内です．");
 		}
 	}
@@ -354,22 +412,26 @@ void NodeDisplayGui::DrawJointInfo() const
 
 void NodeDisplayGui::DrawGlobalPosInfo() const
 {
-	const unsigned int kTextColor = GetColor(10, 10, 10);
-	const int kTextXPos = kGuiLeftPosX + 10;
-	const int kTextYMinPos = kGuiTopPosY + 10;
-	const int kTextYInterval = kFontSize + 4;
+	const unsigned int text_color = GetColor(10, 10, 10);
+	const int text_pos_x = gui_left_pos_x_ + 10;
+	const int text_pos_y_min = gui_top_pos_y_ + 10;
+	const int text_interval_y = kFontSize + 4;
 	const std::array<std::string, HexapodConst::kLegNum> leg_name = { "右前","右中","右後","左後","左中","左前" };
 
 	int text_line = 0;
 
-	DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_, "脚先座標(グローバル座標)");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "脚先座標(グローバル座標)");
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		dl::Vector3 global_pos = display_node_.leg_pos[i];
-
-		DrawFormatStringToHandle(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, font_handle_,
-						"%s %s", leg_name[i].c_str(), global_pos.ToString().c_str());
+		DrawFormatStringToHandle(
+			text_pos_x, 
+			text_pos_y_min + text_interval_y * (text_line++),
+			text_color, 
+			font_handle_,
+			"%s %s", 
+			leg_name[i].c_str(),
+			display_node_.leg_pos[i].ToString().c_str()
+		);
 	}
-
 }

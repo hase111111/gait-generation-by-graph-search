@@ -1,5 +1,7 @@
 ﻿#include "simple_button.h"
 
+#include <algorithm>
+
 #include <Dxlib.h>
 
 #include "cassert_define.h"
@@ -17,70 +19,67 @@ namespace dlsu = ::designlab::string_util;
 SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int pos_y, const int size_x, const int size_y, const bool fit_size) :
 	text_(dlsu::Split(text, "\n")),
 	font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft")),
-	kXPos(fit_size ? GetFitButtonSizeX(pos_x) : pos_x),
-	kYPos(fit_size ? GetFitButtonSizeY(pos_y) : pos_y),
-	kSizeX(size_x),
-	kSizeY(size_y)
+	pos_middle_x(pos_x),
+	pos_middle_y(pos_y),
+	kSizeX(fit_size ? GetFitButtonSizeX(size_x) : size_x),
+	kSizeY(fit_size ? GetFitButtonSizeX(size_y) : size_y)
 {
 	assert(0 < kSizeX);
 	assert(0 < kSizeY);
 
-	//text_が2つとも同じならば1つにする
+	//text_が2つとも同じならば1つにする．おそらくSplit関数のバグ．
 	if (text_.size() == 2 && text_[0] == text_[1])
 	{
 		text_.pop_back();
 	}
 }
 
-void SimpleButton::SetActivateFunction(const std::function<void()>& func)
+void SimpleButton::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
-	click_function_ = func;
+	if (option & dl::kOptionLeft) { pos_middle_x = pos_x - kSizeX / 2; }
+	else if (option & dl::kOptionMidleX) { pos_middle_x = pos_x; }
+	else if (option & dl::kOptionRight) { pos_middle_x = pos_x + kSizeX / 2; }
+
+	if (option & dl::kOptionTop) { pos_middle_y = pos_y - kSizeY / 2; }
+	else if (option & dl::kOptionMidleY) { pos_middle_y = pos_y; }
+	else if (option & dl::kOptionBottom) { pos_middle_y = pos_y + kSizeY / 2; }
 }
 
 void SimpleButton::Update()
 {
-	if (OnCursor()) 
-	{
-		target_color_blue_ = 64;
-	}
-	else 
-	{
-		target_color_blue_ = 0;
-	}
-
 	//now_color_blue_をtarget_color_blue_に近づける
 	now_color_blue_ = dlm::ApproachTarget(now_color_blue_, target_color_blue_, 0.1f);
+
+	target_color_blue_ -= 4;
+	target_color_blue_ = target_color_blue_ < 0 ? 0 : target_color_blue_;
 }
 
 void SimpleButton::Draw() const
 {
-	if (!visible_)
-	{
-		return;
-	}
+	if (!visible_) { return; }
 
-	const int kBaseColor = GetColor(128, 128, 128);
-	const int kButtomColor = GetColor(255 - now_color_blue_, 255 - now_color_blue_ / 2, 255);
-	const int kStrColor = GetColor(20, 20, 20);
-	const int kFrameSize = 1;
+	const int base_color = GetColor(128, 128, 128);
+	const int button_color = GetColor(255 - now_color_blue_, 255 - now_color_blue_ / 2, 255);
+	const int str_color = GetColor(20, 20, 20);
+	const int frame_size = 1;
 
 	//ベースを描画
 	DrawBox(
-		kXPos - kSizeX / 2,
-		kYPos - kSizeY / 2, 
-		kXPos + kSizeX / 2, 
-		kYPos + kSizeY / 2,
-		kBaseColor, 
+		pos_middle_x - kSizeX / 2,
+		pos_middle_y - kSizeY / 2,
+		pos_middle_x + kSizeX / 2,
+		pos_middle_y + kSizeY / 2,
+		base_color,
 		TRUE
 	);
 
 	//その上にボタンを描画
 	DrawBox(
-		kXPos - kSizeX / 2 + kFrameSize,
-		kYPos - kSizeY / 2 + kFrameSize,
-		kXPos + kSizeX / 2 - kFrameSize,
-		kYPos + kSizeY / 2 - kFrameSize,
-		kButtomColor,
+		pos_middle_x - kSizeX / 2 + frame_size,
+		pos_middle_y - kSizeY / 2 + frame_size,
+		pos_middle_x + kSizeX / 2 - frame_size,
+		pos_middle_y + kSizeY / 2 - frame_size,
+		button_color,
 		TRUE
 	);
 
@@ -88,27 +87,19 @@ void SimpleButton::Draw() const
 	for (int i = 0; i < text_.size(); ++i)
 	{
 		DrawStringToHandle(
-			kXPos - GetDrawStringWidthToHandle(text_[i].c_str(), (int)text_[i].size(), font_handle_) / 2,
-			kYPos - static_cast<int>(text_.size()) * kFontSize / 2 + i * kFontSize,
+			pos_middle_x - GetDrawStringWidthToHandle(text_[i].c_str(), (int)text_[i].size(), font_handle_) / 2,
+			pos_middle_y - static_cast<int>(text_.size()) * kFontSize / 2 + i * kFontSize,
 			text_[i].c_str(),
-			kStrColor,
+			str_color,
 			font_handle_
 		);
 	}
 }
 
-void SimpleButton::SetVisible(const bool visible)
-{
-	visible_ = visible;
-}
-
-bool SimpleButton::IsVisible() const
-{
-	return visible_;
-}
-
 void SimpleButton::Activate()
 {
+	target_color_blue_ = 64;
+
 	if (click_function_ && visible_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 	{
 		now_color_blue_ = 128;
@@ -122,8 +113,8 @@ bool SimpleButton::OnCursor() const noexcept
 	const int cursor_x = Mouse::GetIns()->GetCursorPosX();
 	const int cursor_y = Mouse::GetIns()->GetCursorPosY();
 
-	return (kXPos - kSizeX / 2 < cursor_x && cursor_x < kXPos + kSizeX / 2) && 
-		(kYPos - kSizeY / 2 < cursor_y && cursor_y < kYPos + kSizeY / 2);
+	return (pos_middle_x - kSizeX / 2 < cursor_x && cursor_x < pos_middle_x + kSizeX / 2) &&
+		(pos_middle_y - kSizeY / 2 < cursor_y && cursor_y < pos_middle_y + kSizeY / 2);
 }
 
 int SimpleButton::GetFitButtonSizeX(int now_size_x) const noexcept

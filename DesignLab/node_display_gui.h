@@ -10,6 +10,8 @@
 #include <vector>
 
 #include "simple_button.h"
+#include "interface_dxlib_clickable.h"
+#include "interface_dxlib_gui.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
@@ -17,38 +19,39 @@
 
 //! @class NodeDisplayGui
 //! @brief ノードの情報を表示するGUI
-class NodeDisplayGui final
+class NodeDisplayGui final : public IDxlibGui, public IDxlibClickable
 {
 public:
 
-	//! @param [in] x_pos GUIの左上のx座標
-	//! @param [in] y_pos GUIの左上のy座標
-	//! @param [in] calculator_ptr 六脚歩行ロボットの状態を計算するクラス
 	NodeDisplayGui(
-		int x_pos, 
-		int y_pos, 
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
 
+	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
 
 	//! @brief 表示するノードを設定する，その後関節の角度を計算し，セットする
 	//! @param [in] node 表示するノード
 	void SetDisplayNode(const RobotStateNode& node);
 
 
-	//! @brief GUIのボタンの更新を行う
-	void Update();
+	void Update() override;
 
-	//! @brief GUIの表示を行う
-	void Draw() const;
+	void Draw() const override;
 
+	void SetVisible(bool visible) override;
 
-	const static int kWidth;			//!< GUIの幅
-	const static int kHeight;			//!< GUIの高さ
-	const static int kClosedHeight;		//!< GUIが閉じているときの高さ
+	inline bool IsVisible() const override { return visible_; }
+
+	void Activate() override;
+
+	bool OnCursor() const noexcept override;
 
 private:
+
+	static constexpr int kWidth{ 470 };			//!< GUIの幅
+	static constexpr int kHeight{ 600 };		//!< GUIの高さ
+	static constexpr int kClosedHeight{ 50 };	//!< GUIが閉じているときの高さ
 
 	enum class DisplayMode : int
 	{
@@ -68,9 +71,9 @@ private:
 	void DrawGlobalPosInfo() const;
 
 
-	const int kGuiLeftPosX;
+	int gui_left_pos_x_{ 0 };
 
-	const int kGuiTopPosY;
+	int gui_top_pos_y_{ 0 };
 
 
 	std::vector<std::unique_ptr<SimpleButton> > buttons_;				//!< ボタン
@@ -83,7 +86,12 @@ private:
 
 	std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;	//!< 関節の角度
 
+
+	bool is_dragging_{ false };		//!< ドラッグ中かどうか
+
 	bool is_closed_;			//!< GUIが閉じているか(最小化しているか)どうか
+
+	bool visible_{ true };	//!< ボタンの表示を行うかどうか．
 
 	DisplayMode display_type_;	//!< 表示する情報の種類
 

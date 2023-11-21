@@ -5,7 +5,7 @@
 #ifndef DESIGNLAB_BUTTON_CONTROLLER_H_
 #define DESIGNLAB_BUTTON_CONTROLLER_H_
 
-#include "interface_clickable.h"
+#include "interface_dxlib_clickable.h"
 #include "interface_dxlib_gui.h"
 
 #include <functional>
@@ -14,7 +14,7 @@
 
 //! @class SimpleButton
 //! @brief ボタンの処理，描画を管理するクラス．
-class SimpleButton final : public IDxlibGui, public IClickHandler
+class SimpleButton final : public IDxlibGui, public IDxlibClickable
 {
 public:
 
@@ -23,15 +23,20 @@ public:
 
 	//! @brief ボタンがクリックされたときに実行される関数を設定する．
 	//! @param[in] func ボタンがクリックされたときに実行される関数．
-	void SetActivateFunction(const std::function<void()>& func);
+	inline void SetActivateFunction(const std::function<void()>& func) { click_function_ = func; }
+
+	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
+
+	constexpr int GetPosMiddleX() const noexcept { return pos_middle_x; }
+	constexpr int GetPosMiddleY() const noexcept { return pos_middle_y; }
 
 	void Update() override;
 
 	void Draw() const override;
 
-	void SetVisible(bool visible) override;
+	void SetVisible(bool visible) override { visible_ = visible; }
 
-	bool IsVisible() const override;
+	bool IsVisible() const override { return visible_; }
 
 	void Activate() override;
 
@@ -53,7 +58,7 @@ private:
 
 	bool visible_{ true };	//!< ボタンの表示を行うかどうか．
 
-	const int kXPos, kYPos;		//!< ボタンの座標，中心座標．
+	int pos_middle_x, pos_middle_y;		//!< ボタンの座標，中心座標．
 	const int kSizeX, kSizeY;	//!< ボタンの横幅と縦幅
 
 	std::function<void()> click_function_;	//!< ボタンがクリックされたときに実行される関数．
