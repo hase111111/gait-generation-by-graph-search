@@ -1,81 +1,76 @@
-//! @file mouse.h
-//! @brief Dxlib‚Ìƒ}ƒEƒX“ü—Í‚ğæ“¾‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file mouse.h
+//! @brief Dxlibã®ãƒã‚¦ã‚¹å…¥åŠ›ã‚’å–å¾—ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_MOUSE_H_
 #define DESIGNLAB_MOUSE_H_
 
-
 #include <array>
 #include <map>
 
-#include "singleton.h"
-
 
 //! @class Mouse
-//! @brief Dxlib‚Ìƒ}ƒEƒX“ü—Í‚ğæ“¾‚·‚éƒNƒ‰ƒXD
-//! @details ’ˆÓ“_‚ÍKeyboardƒNƒ‰ƒX‚Æ‘S‚­“¯‚¶D‚»‚¿‚ç‚ğQÆ‚µ‚ÄŠm”F‚µ‚Ä‚Ù‚µ‚¢D
-class Mouse final : public Singleton<Mouse>
+//! @brief Dxlibã®ãƒã‚¦ã‚¹å…¥åŠ›ã‚’å–å¾—ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+class Mouse final
 {
 public:
 
-	//! @brief ƒ}ƒEƒX“ü—Í‚ğXV‚·‚éD‚±‚ê‚ğ–ˆƒtƒŒ[ƒ€Às‚µ‚È‚¢‚ÆCƒ}ƒEƒX“ü—Í‚ğæ“¾‚Å‚«‚È‚¢D
+	Mouse();
+
+	//! @brief ãƒã‚¦ã‚¹å…¥åŠ›ã‚’æ›´æ–°ã™ã‚‹ï¼ã“ã‚Œã‚’æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å®Ÿè¡Œã—ãªã„ã¨ï¼Œãƒã‚¦ã‚¹å…¥åŠ›ã‚’å–å¾—ã§ããªã„ï¼
 	void Update();
 
-	//! @brief mouseCode‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éƒtƒŒ[ƒ€”‚ğæ“¾‚·‚éD
-	//! @param [in] mouseCode ‚Ç‚Ìƒ{ƒ^ƒ“‚ğ’²‚×‚½‚¢‚©D
-	//! @n —á‚¦‚Î‰EƒNƒŠƒbƒN‚¾‚Á‚½‚çCMOUSE_INPUT_RIGHT‚Æ‚È‚éD
-	//! @return int ‰Ÿ‚³‚ê‚Ä‚¢‚éƒtƒŒ[ƒ€”DˆÙí‚Èmouse_code‚ª“n‚³‚ê‚½ê‡‚Í-1‚ğ•Ô‚·D
-	int GetPressingCount(int mouse_code) const;
+	//! @brief mouseCodeã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @param [in] mouseCode ã©ã®ãƒœã‚¿ãƒ³ã‚’èª¿ã¹ãŸã„ã‹ï¼
+	//! @n ä¾‹ãˆã°å³ã‚¯ãƒªãƒƒã‚¯ã ã£ãŸã‚‰ï¼ŒMOUSE_INPUT_RIGHTã¨ãªã‚‹ï¼
+	//! @return int æŠ¼ã•ã‚Œã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ï¼ç•°å¸¸ãªmouse_codeãŒæ¸¡ã•ã‚ŒãŸå ´åˆã¯-1ã‚’è¿”ã™ï¼
+	[[nodiscard]] int GetPressingCount(int mouse_code) const;
 
-	//! @brief mouseCode‚Ìƒ{ƒ^ƒ“‚ª—£‚³‚ê‚Ä‚¢‚éƒtƒŒ[ƒ€”‚ğæ“¾‚·‚éD
-	//! @param [in] mouseCode ‚Ç‚Ìƒ{ƒ^ƒ“‚ğ’²‚×‚½‚¢‚©D
-	//! @n —á‚¦‚Î‰EƒNƒŠƒbƒN‚¾‚Á‚½‚çCMOUSE_INPUT_RIGHT‚Æ‚È‚éD
-	//! @return int —£‚³‚ê‚Ä‚¢‚éƒtƒŒ[ƒ€”DˆÙí‚Èmouse_code‚ª“n‚³‚ê‚½ê‡‚Í-1‚ğ•Ô‚·D
-	int GetReleasingCount(int mouse_code) const;
+	//! @brief mouseCodeã®ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚Œã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @param [in] mouseCode ã©ã®ãƒœã‚¿ãƒ³ã‚’èª¿ã¹ãŸã„ã‹ï¼
+	//! @n ä¾‹ãˆã°å³ã‚¯ãƒªãƒƒã‚¯ã ã£ãŸã‚‰ï¼ŒMOUSE_INPUT_RIGHTã¨ãªã‚‹ï¼
+	//! @return int é›¢ã•ã‚Œã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ï¼ç•°å¸¸ãªmouse_codeãŒæ¸¡ã•ã‚ŒãŸå ´åˆã¯-1ã‚’è¿”ã™ï¼
+	[[nodiscard]] int GetReleasingCount(int mouse_code) const;
 
-	//! @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÊ’u‚ğæ“¾‚·‚éDXÀ•W‚Í‰æ–Ê‚Ì¶’[‚ğ0‚Æ‚µ‚ÄC‰EŒü‚«‚ª³D‚±‚ê‚ÍDxlib‚Ìd—l‚È‚Ì‚Å•ÏX•s”\D
-	//! @return int ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌXÀ•WD
-	inline int GetCursorPosX() const { return cursor_pos_x_; };
+	//! @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®ã‚’å–å¾—ã™ã‚‹ï¼Xåº§æ¨™ã¯ç”»é¢ã®å·¦ç«¯ã‚’0ã¨ã—ã¦ï¼Œå³å‘ããŒæ­£ï¼ã“ã‚Œã¯Dxlibã®ä»•æ§˜ãªã®ã§å¤‰æ›´ä¸èƒ½ï¼
+	//! @return int ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®Xåº§æ¨™ï¼
+	[[nodiscard]] constexpr int GetCursorPosX() const noexcept{ return cursor_pos_x_; };
 
-	//! @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÚ“®—Ê‚ğæ“¾‚·‚éDXÀ•W‚Í‰æ–Ê‚Ì¶’[‚ğ0‚Æ‚µ‚ÄC‰EŒü‚«‚ª³D‚±‚ê‚ÍDxlib‚Ìd—l‚È‚Ì‚Å•ÏX•s”\D
-	//! @return int ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌX•ûŒü‚ÌˆÚ“®—ÊD
-	int GetDiffPosX() const;
+	//! @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ã‚’å–å¾—ã™ã‚‹ï¼Xåº§æ¨™ã¯ç”»é¢ã®å·¦ç«¯ã‚’0ã¨ã—ã¦ï¼Œå³å‘ããŒæ­£ï¼ã“ã‚Œã¯Dxlibã®ä»•æ§˜ãªã®ã§å¤‰æ›´ä¸èƒ½ï¼
+	//! @return int ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®Xæ–¹å‘ã®ç§»å‹•é‡ï¼
+	[[nodiscard]] int GetDiffPosX() const;
 
-	//! @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÊ’u‚ğæ“¾‚·‚éDYÀ•W‚Í‰æ–Ê‚Ìã’[‚ğ0‚Æ‚µ‚ÄC‰ºŒü‚«‚ª³D‚±‚ê‚ÍDxlib‚Ìd—l‚È‚Ì‚Å•ÏX•s”\D
-	//! @return int ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌYÀ•WD
-	inline int GetCursorPosY() const { return cursor_pos_y_; };
+	//! @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®ã‚’å–å¾—ã™ã‚‹ï¼Yåº§æ¨™ã¯ç”»é¢ã®ä¸Šç«¯ã‚’0ã¨ã—ã¦ï¼Œä¸‹å‘ããŒæ­£ï¼ã“ã‚Œã¯Dxlibã®ä»•æ§˜ãªã®ã§å¤‰æ›´ä¸èƒ½ï¼
+	//! @return int ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®Yåº§æ¨™ï¼
+	[[nodiscard]] constexpr int GetCursorPosY() const noexcept { return cursor_pos_y_; };
 
-	//! @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÚ“®—Ê‚ğæ“¾‚·‚éDYÀ•W‚Í‰æ–Ê‚Ìã’[‚ğ0‚Æ‚µ‚ÄC‰ºŒü‚«‚ª³D‚±‚ê‚ÍDxlib‚Ìd—l‚È‚Ì‚Å•ÏX•s”\D
-	//! @return int ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌY•ûŒü‚ÌˆÚ“®—ÊD
-	int GetDiffPosY() const;
+	//! @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ã‚’å–å¾—ã™ã‚‹ï¼Yåº§æ¨™ã¯ç”»é¢ã®ä¸Šç«¯ã‚’0ã¨ã—ã¦ï¼Œä¸‹å‘ããŒæ­£ï¼ã“ã‚Œã¯Dxlibã®ä»•æ§˜ãªã®ã§å¤‰æ›´ä¸èƒ½ï¼
+	//! @return int ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®Yæ–¹å‘ã®ç§»å‹•é‡ï¼
+	[[nodiscard]] int GetDiffPosY() const;
 
-	//! @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÚ“®—Ê‚ğæ“¾‚·‚éD
-	//! @return double ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÚ“®—ÊD
-	double GetDiffPos() const;
+	//! @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @return double ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ï¼
+	[[nodiscard]] double GetDiffPos() const;
 
-	//! @brief ƒ}ƒEƒX‚ÌƒzƒC[ƒ‹‚Ì‰ñ“]—Ê‚ğæ“¾‚·‚éD
-	//! @n 1ƒtƒŒ[ƒ€‚Å‰ñ“]‚µ‚½—Ê‚ğæ“¾‚·‚éD
-	//! @n è‘O‚É‰ñ‚µ‚½•ª‚Íƒ}ƒCƒiƒX‚Ì’l‚Æ‚µ‚ÄA‰œ‚É‰ñ‚µ‚½•ª‚Íƒvƒ‰ƒX‚Ì’l‚Æ‚µ‚Ä•Ô‚é
-	//! @return int ƒ}ƒEƒXƒzƒC[ƒ‹‚Ì‰ñ“]—ÊD
-	inline int GetWheelRot() const { return wheel_rot_; };
+	//! @brief ãƒã‚¦ã‚¹ã®ãƒ›ã‚¤ãƒ¼ãƒ«ã®å›è»¢é‡ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @n 1ãƒ•ãƒ¬ãƒ¼ãƒ ã§å›è»¢ã—ãŸé‡ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @n æ‰‹å‰ã«å›ã—ãŸåˆ†ã¯ãƒã‚¤ãƒŠã‚¹ã®å€¤ã¨ã—ã¦ã€å¥¥ã«å›ã—ãŸåˆ†ã¯ãƒ—ãƒ©ã‚¹ã®å€¤ã¨ã—ã¦è¿”ã‚‹
+	//! @return int ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã®å›è»¢é‡ï¼
+	[[nodiscard]] constexpr int GetWheelRot() const noexcept { return wheel_rot_; };
 
 private:
 
-	Mouse();
-	friend Singleton<Mouse>;
+	constexpr static int kMouseKeyNum{ 8 };		//!< ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã®æ•°ï¼å³ãƒ»å·¦ãƒ»ä¸­å¤® + 5ã¤ã®ãƒœã‚¿ãƒ³ï¼
 
-	constexpr static int kMouseKeyNum = 8;		//!< ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚Ì”D‰EE¶E’†‰› + 5‚Â‚Ìƒ{ƒ^ƒ“D
+	const std::array<int, kMouseKeyNum> kMouseKeyCodes;	//!< ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã®ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
 
-	const std::array<int, kMouseKeyNum> kMouseKeyCodes;	//!< ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ÌƒL[ƒR[ƒh
+	int cursor_pos_x_, cursor_pos_y_;			//!< ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®
+	int cursor_past_pos_x_, cursor_past_pos_y_;	//!< 1ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã®ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®
 
-	int cursor_pos_x_, cursor_pos_y_;			//!< ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÊ’u
-	int cursor_past_pos_x_, cursor_past_pos_y_;	//!< 1ƒtƒŒ[ƒ€‘O‚Ìƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÊ’u
+	std::map<int, int> pushing_counter_;	//!< ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œç¶šã‘ã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ï¼
+	std::map<int, int> releasing_counter_;	//!< ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚Œç¶šã‘ã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ï¼
 
-	std::map<int, int> pushing_counter_;	//!< ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‘±‚¯‚Ä‚¢‚éƒtƒŒ[ƒ€”D
-	std::map<int, int> releasing_counter_;	//!< ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª—£‚³‚ê‘±‚¯‚Ä‚¢‚éƒtƒŒ[ƒ€”D
-
-	int wheel_rot_;		//!< ƒ}ƒEƒXƒzƒC[ƒ‹‚Ì‰ñ“]—ÊCè‘O‚É‰ñ‚µ‚½•ª‚Íƒ}ƒCƒiƒX‚Ì’l‚Æ‚µ‚ÄA‰œ‚É‰ñ‚µ‚½•ª‚Íƒvƒ‰ƒX‚Ì’l‚Æ‚µ‚Ä•Ô‚é
+	int wheel_rot_;		//!< ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã®å›è»¢é‡ï¼Œæ‰‹å‰ã«å›ã—ãŸåˆ†ã¯ãƒã‚¤ãƒŠã‚¹ã®å€¤ã¨ã—ã¦ã€å¥¥ã«å›ã—ãŸåˆ†ã¯ãƒ—ãƒ©ã‚¹ã®å€¤ã¨ã—ã¦è¿”ã‚‹
 };
 
 

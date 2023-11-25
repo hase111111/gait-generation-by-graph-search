@@ -38,9 +38,9 @@ public:
 
 	bool IsVisible() const override { return visible_; }
 
-	void Activate() override;
+	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
 
-	bool OnCursor() const noexcept override;
+	bool OnCursor(int cursor_x, int cursor_y) const noexcept override;
 
 private:
 

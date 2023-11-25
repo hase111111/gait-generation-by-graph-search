@@ -5,46 +5,42 @@
 #include <Dxlib.h>
 
 #include "font_loader.h"
-#include "mouse.h"
 
 
 namespace dl = ::designlab;
 
 
 DisplayNodeSwitchGui::DisplayNodeSwitchGui() : 
-	kAnimeSpeedMax(120),
-	kAnimeSpeedMin(1),
 	display_node_num_(0), 
 	all_node_num_(0), 
 	simulation_num_(0),
-	counter_(0), 
 	do_auto_animation_(false), 
 	animation_speed_(kAnimeSpeedMin),
 	font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft"))
 {
-	const int kButtonDif = 10;
-	const int kButtonWidth = 40;
-	const int kButtonLeftX = kButtonWidth / 2 + gui_left_pos_x_ + 10;
-	const int kButtonTopY = kButtonWidth / 2 + gui_top_pos_y_ + 100;
+	const int button_interval = 10;
+	const int button_width = 40;
+	const int kButtonLeftX = button_width / 2 + gui_left_pos_x_ + 10;
+	const int kButtonTopY = button_width / 2 + gui_top_pos_y_ + kTitleBarHeight + 100;
 
 	//各種ボタンを作成する
-	button_.push_back(std::make_unique<SimpleButton>("<<", kButtonLeftX, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>("<<", kButtonLeftX, kButtonTopY, button_width, button_width));
 	button_.back()->SetActivateFunction([this]() { MoveMostPrevNode(); });
 
-	button_.push_back(std::make_unique<SimpleButton>("<", kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>("<", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY, button_width, button_width));
 	button_.back()->SetActivateFunction([this]() { MovePrevNode(); });
 
-	button_.push_back(std::make_unique<SimpleButton>("再生\n停止", kButtonLeftX + (kButtonDif + kButtonWidth) * 2, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>("再生\n停止", kButtonLeftX + (button_interval + button_width) * 2, kButtonTopY, button_width, button_width));
 	button_.back()->SetActivateFunction([this]() { do_auto_animation_ = !do_auto_animation_; });
 
-	button_.push_back(std::make_unique<SimpleButton>(">", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>(">", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY, button_width, button_width));
 	button_.back()->SetActivateFunction([this]() { MoveNextNode(); });
 
-	button_.push_back(std::make_unique<SimpleButton>(">>", kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY, kButtonWidth, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>(">>", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY, button_width, button_width));
 	button_.back()->SetActivateFunction([this]() { MoveMostNextNode(); });
 
 	button_.push_back(
-		std::make_unique<SimpleButton>("↓", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth)
+		std::make_unique<SimpleButton>("↓", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
 	button_.back()->SetActivateFunction([this]() 
 		{
@@ -56,7 +52,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 	);
 
 	button_.push_back(
-		std::make_unique<SimpleButton>("↑", kButtonLeftX + (kButtonDif + kButtonWidth) * 4, kButtonTopY + (kButtonDif + kButtonWidth), kButtonWidth, kButtonWidth)
+		std::make_unique<SimpleButton>("↑", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
 	button_.back()->SetActivateFunction([this]() 
 		{
@@ -67,12 +63,12 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 		}
 	);
 
-	button_.push_back( std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (kButtonDif + kButtonWidth) * 1, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
-		kButtonWidth * 2, kButtonWidth));
+	button_.push_back( std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY + (button_interval + button_width) * 2,
+		button_width * 2, button_width));
 	button_.back()->SetActivateFunction([this]() { MovePrevSimulation(); });
 
-	button_.push_back(std::make_unique<SimpleButton>("Next Simu", kButtonLeftX + (kButtonDif + kButtonWidth) * 3, kButtonTopY + (kButtonDif + kButtonWidth) * 2,
-		kButtonWidth * 2, kButtonWidth));
+	button_.push_back(std::make_unique<SimpleButton>("Next Simu", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width) * 2,
+		button_width * 2, button_width));
 	button_.back()->SetActivateFunction([this]() { MoveNextSimulation(); });
 }
 
@@ -120,17 +116,13 @@ size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
 }
 
 
-int DisplayNodeSwitchGui::GetSimulationNum() const
-{
-	return simulation_num_;
-}
-
-
 void DisplayNodeSwitchGui::Update()
 {
 	if (is_dragging_)
 	{
-		SetPos(gui_left_pos_x_ + Mouse::GetIns()->GetDiffPosX(), gui_top_pos_y_ + Mouse::GetIns()->GetDiffPosY(), dl::kOptionLeftTop);
+		SetPos(gui_left_pos_x_ + mouse_cursor_dif_x_, gui_top_pos_y_ + mouse_cursor_dif_y_, dl::kOptionLeftTop);
+		mouse_cursor_dif_x_ = 0;
+		mouse_cursor_dif_y_ = 0;
 	}
 
 	++counter_;
@@ -153,14 +145,21 @@ void DisplayNodeSwitchGui::Draw() const
 {
 	if (!visible_) { return; }
 
-	const unsigned int kAlpha = 200;
+	const unsigned int alpha = 200;
 
-	const unsigned int kColor = GetColor(255, 255, 255);
+	const unsigned int base_color = GetColor(255, 255, 255);
+	const unsigned int frame_color = GetColor(30, 30, 30);
+
+	const int frame_width = 1;
 
 	// ボックスを描画する
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
-	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, kColor, TRUE);
+	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
+		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
+	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
+
+	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
@@ -173,16 +172,15 @@ void DisplayNodeSwitchGui::Draw() const
 
 
 	//文字を描画する
+	const int text_left_x = gui_left_pos_x_ + 10;
 
-	const int kTextLeftX = gui_left_pos_x_ + 10;
-
-	const unsigned int kTextColor = GetColor(0, 0, 0);
+	const unsigned int text_color = GetColor(0, 0, 0);
 
 
 	DrawFormatStringToHandle(
-		kTextLeftX,
-		gui_top_pos_y_ + 10, 
-		kTextColor,
+		text_left_x,
+		gui_top_pos_y_ + kTitleBarHeight + 10,
+		text_color,
 		font_handle_,
 		"[シミュレーション%d回目(全%d回)]", 
 		simulation_num_ + 1,
@@ -211,13 +209,13 @@ void DisplayNodeSwitchGui::Draw() const
 		end_node_num = (int)simu_end_index_[simulation_num_];
 	}
 
-	DrawFormatStringToHandle(kTextLeftX, gui_top_pos_y_ + 30, kTextColor, font_handle_, "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
+	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 30, text_color, font_handle_, "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
 
-	DrawFormatStringToHandle(kTextLeftX, gui_top_pos_y_ + 50, kTextColor, font_handle_, "全ノード : %d ", all_node_num_ - 1);
+	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 50, text_color, font_handle_, "全ノード : %d ", all_node_num_ - 1);
 
-	DrawFormatStringToHandle(kTextLeftX, gui_top_pos_y_ + 70, kTextColor, font_handle_, do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
+	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 70, text_color, font_handle_, do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
 
-	DrawFormatStringToHandle(kTextLeftX, gui_top_pos_y_ + 150, kTextColor, font_handle_, "アニメーションの\n     速度変更");
+	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 150, text_color, font_handle_, "アニメーションの\n     速度変更");
 }
 
 void DisplayNodeSwitchGui::SetVisible(const bool visible)
@@ -230,33 +228,42 @@ void DisplayNodeSwitchGui::SetVisible(const bool visible)
 	}
 }
 
-void DisplayNodeSwitchGui::Activate()
+void DisplayNodeSwitchGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 {
-	if (!is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
-	{
-		is_dragging_ = true;
-	}
+	mouse_cursor_dif_x_ = mouse_ptr->GetDiffPosX();
+	mouse_cursor_dif_y_ = mouse_ptr->GetDiffPosY();
 
-	if (is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
+	const bool cursor_in_gui_ber = gui_left_pos_x_ < mouse_ptr->GetCursorPosX() && mouse_ptr->GetCursorPosX() < gui_left_pos_x_ + kWidth &&
+		gui_top_pos_y_ < mouse_ptr->GetCursorPosY() && mouse_ptr->GetCursorPosY() < gui_top_pos_y_ + kTitleBarHeight;
+
+	if (cursor_in_gui_ber)
 	{
-		is_dragging_ = false;
+		if (!is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+		{
+			is_dragging_ = true;
+		}
+
+		if (is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
+		{
+			is_dragging_ = false;
+		}
 	}
 
 	// ボタンを更新する
 	for (auto& i : button_)
 	{
-		if (i->OnCursor())
+		if (i->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
 		{
-			i->Activate();
+			i->Activate(mouse_ptr);
 			break;
 		}
 	}
 }
 
-bool DisplayNodeSwitchGui::OnCursor() const noexcept
+bool DisplayNodeSwitchGui::OnCursor(int cursor_x, int cursor_y) const noexcept
 {
-	return Mouse::GetIns()->GetCursorPosX() > gui_left_pos_x_ && Mouse::GetIns()->GetCursorPosX() < gui_left_pos_x_ + kWidth &&
-		Mouse::GetIns()->GetCursorPosY() > gui_top_pos_y_ && Mouse::GetIns()->GetCursorPosY() < gui_top_pos_y_ + kHeight;
+	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
+		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
 }
 
 

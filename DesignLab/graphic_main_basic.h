@@ -10,6 +10,7 @@
 #include "application_setting_recorder.h"
 #include "camera_gui.h"
 #include "display_node_switch_gui.h"
+#include "gui_activator.h"
 #include "graphic_const.h"
 #include "graphic_data_broker.h"
 #include "interface_hexapod_renderer.h"
@@ -20,6 +21,7 @@
 #include "map_state.h"
 #include "map_renderer.h"
 #include "movement_locus_renderer.h"
+#include "mouse.h"
 #include "robot_state_node.h"
 #include "node_display_gui.h"
 #include "robot_graund_point_renderer.h"
@@ -52,11 +54,14 @@ private:
 	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;		//!< データを受け取るクラス．
 
 
-	CameraGui camera_gui_;							//!< カメラの位置を制御するGUI
+	std::shared_ptr<Mouse> mouse_ptr_;	//!< マウスの情報を取得するクラス．
 
-	DisplayNodeSwitchGui display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 
-	NodeDisplayGui node_display_gui_;				//!< ノードの表示を制御するGUI
+	GuiActivator gui_activator_;	//!< GUIをアクティブにするクラス．
+
+	std::shared_ptr<CameraGui> camera_gui_;							//!< カメラの位置を制御するGUI
+	std::shared_ptr<DisplayNodeSwitchGui> display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
+	std::shared_ptr<NodeDisplayGui> node_display_gui_;				//!< ノードの表示を制御するGUI
 
 
 	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	//!< ロボットを表示するクラス．	

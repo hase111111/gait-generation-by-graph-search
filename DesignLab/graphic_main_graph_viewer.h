@@ -1,5 +1,5 @@
-//! @file graphic_main_graph_viewer.h
-//! @brief GraphViewer‚Ì‰æ–Ê‚ğ•\¦‚·‚éƒNƒ‰ƒX
+ï»¿//! @file graphic_main_graph_viewer.h
+//! @brief GraphViewerã®ç”»é¢ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
@@ -11,16 +11,18 @@
 #include "camera_gui.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
+#include "gui_activator.h"
 #include "interface_hexapod_renderer.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "map_state.h"
+#include "mouse.h"
 #include "node_display_gui.h"
 
 
 //! @class GraphicMainGraphViewer
-//! @brief GraphViewer‚Ì‰æ–Ê‚ğ•\¦‚·‚éƒNƒ‰ƒX
+//! @brief GraphViewerã®ç”»é¢ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
@@ -42,12 +44,16 @@ private:
 
 	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
 
+	std::shared_ptr<Mouse> mouse_ptr_;
 
-	CameraGui camera_gui_;
 
-	NodeDisplayGui node_display_gui_;
+	std::shared_ptr<CameraGui> camera_gui_;
+
+	std::shared_ptr<NodeDisplayGui> node_display_gui_;
 
 	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
+
+	GuiActivator gui_activator_;
 
 
 	MapState map_state_;

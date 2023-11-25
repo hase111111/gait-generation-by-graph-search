@@ -8,7 +8,6 @@
 #include "designlab_string_util.h"
 #include "font_loader.h"
 #include "leg_state.h"
-#include "mouse.h"
 #include "phantomx_mk2_const.h"
 
 
@@ -118,7 +117,7 @@ void NodeDisplayGui::Update()
 {
 	if (is_dragging_) 
 	{
-		SetPos(gui_left_pos_x_ + Mouse::GetIns()->GetDiffPosX(), gui_top_pos_y_ + Mouse::GetIns()->GetDiffPosY(), dl::kOptionLeftTop);
+		SetPos(gui_left_pos_x_ + mouse_cursor_dif_x_, gui_top_pos_y_ + mouse_cursor_dif_y_, dl::kOptionLeftTop);
 	}
 
 	//ボタンの更新を行う
@@ -165,14 +164,17 @@ void NodeDisplayGui::SetVisible(const bool visible)
 }
 
 
-void NodeDisplayGui::Activate()
+void NodeDisplayGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 {
-	if (!is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+	mouse_cursor_dif_x_ = mouse_ptr->GetDiffPosX();
+	mouse_cursor_dif_y_ = mouse_ptr->GetDiffPosY();
+
+	if (!is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 	{
 		is_dragging_ = true;
 	}
 	
-	if(is_dragging_ && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
+	if(is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
 	{
 		is_dragging_ = false;
 	}
@@ -180,18 +182,18 @@ void NodeDisplayGui::Activate()
 	//ボタンの処理を行う．
 	for (auto& button : buttons_)
 	{
-		if (button->OnCursor())
+		if (button->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
 		{
-			button->Activate();
+			button->Activate(mouse_ptr);
 			break;				//1度に1つのボタンしか処理しない．
 		}
 	}
 }
 
-bool NodeDisplayGui::OnCursor() const noexcept
+bool NodeDisplayGui::OnCursor(int cursor_x, int cursor_y) const noexcept
 {
-	return (gui_left_pos_x_ < Mouse::GetIns()->GetCursorPosX() && Mouse::GetIns()->GetCursorPosX() < gui_left_pos_x_ + kWidth) &&
-		(gui_top_pos_y_ < Mouse::GetIns()->GetCursorPosY() && Mouse::GetIns()->GetCursorPosY() < gui_top_pos_y_ + kHeight);
+	return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
+		(gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
 }
 
 

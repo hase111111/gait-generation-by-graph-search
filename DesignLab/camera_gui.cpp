@@ -6,151 +6,151 @@
 #include "mouse.h"
 
 
-namespace dldu = designlab::dxlib_util;
+namespace dl = ::designlab;
+namespace dldu = ::designlab::dxlib_util;
 
 
-CameraGui::CameraGui() : CameraGui::CameraGui{ 0, 0, kOptionLeftTop }
+CameraGui::CameraGui()
 {
-}
+	const int kButtonDistance = 10;	//!< ボタン同士の間隔
+	const int kButtonSize = 60;		//!< ボタンのサイズ
 
-CameraGui::CameraGui(const int left_x_pos, const int top_y_pos, const unsigned int option) :
-	kGuiSizeX(235),
-	kGuiSizeY(410),
-	kGuiSizeYClosed(40),
-	kButtonDistance(10),
-	kButtonSize(60),
-	kGuiLeftPosX(option & 0b01 ? left_x_pos - kGuiSizeX : left_x_pos),
-	kGuiTopPosY(option & 0b10 ? top_y_pos - kGuiSizeY : top_y_pos),
-	is_closed_{ false }
-{
 	const int kCloseButtonSizeX = 100;
 	const int kCloseButtonSizeY = 30;
 
-	button_list_.push_back(
+	button_.push_back(
 		std::make_unique<SimpleButton>(
 			"最大/小化",
-			kGuiLeftPosX + kGuiSizeX - kCloseButtonSizeX / 2 - 10,
-			kGuiTopPosY + kCloseButtonSizeY - 10,
+			gui_left_pos_x_ + kWidth - kCloseButtonSizeX / 2 - 10,
+			gui_top_pos_y_ + kCloseButtonSizeY - 10,
 			kCloseButtonSizeX,
 			kCloseButtonSizeY
 		)
 	);
 
-	button_list_.back()->SetActivateFunction([this]() 
+	button_.back()->SetActivateFunction([this]()
 		{
-			is_closed_ = !is_closed_; 
-
-			for (size_t i = 1; i < button_list_.size(); i++)
+			for (size_t i = 1; i < button_.size(); i++)
 			{
-				if (is_closed_)
-				{
-					button_list_[i]->SetVisible(false);
-				}
-				else
-				{
-					button_list_[i]->SetVisible(true);
-				}
+				button_[i]->SetVisible(false);
 			}
 		}
 	);
 
 	const int kButtonRange = kButtonSize + kButtonDistance;
-	const int kLeftPosX = kGuiLeftPosX + kButtonRange / 2 + 15;
-	const int kTopPosY = kGuiTopPosY + kButtonRange / 2 + kCloseButtonSizeY + 10;
+	const int kLeftPosX = gui_left_pos_x_ + kButtonRange / 2 + 15;
+	const int kTopPosY = gui_top_pos_y_ + kButtonRange / 2 + kCloseButtonSizeY + 10;
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", kLeftPosX, kTopPosY, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.InitCaneraTargetLength(); });
+	button_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", kLeftPosX, kTopPosY, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.InitCaneraTargetLength(); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Front", kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kFrontView); });
+	button_.push_back(std::make_unique<SimpleButton>("Front", kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kFrontView); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Left", kLeftPosX, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kLeftSideView); });
+	button_.push_back(std::make_unique<SimpleButton>("Left", kLeftPosX, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kLeftSideView); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Top", kLeftPosX + kButtonRange, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kTopView); });
+	button_.push_back(std::make_unique<SimpleButton>("Top", kLeftPosX + kButtonRange, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kTopView); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Right", kLeftPosX + kButtonRange * 2, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kRightSideView); });
+	button_.push_back(std::make_unique<SimpleButton>("Right", kLeftPosX + kButtonRange * 2, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kRightSideView); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Back", kLeftPosX + kButtonRange, kTopPosY + kButtonRange * 2, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kBackView); });
+	button_.push_back(std::make_unique<SimpleButton>("Back", kLeftPosX + kButtonRange, kTopPosY + kButtonRange * 2, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kBackView); });
 
-	button_list_.push_back(std::make_unique<SimpleButton>("Reset\nTarget", kLeftPosX + kButtonRange * 2, kTopPosY, kButtonSize, kButtonSize));
-	button_list_.back()->SetActivateFunction([this]() { camera_manager_.SetCameraViewMode(CameraViewMode::kFreeControlled); });
+	button_.push_back(std::make_unique<SimpleButton>("Reset\nTarget", kLeftPosX + kButtonRange * 2, kTopPosY, kButtonSize, kButtonSize));
+	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kFreeControlled); });
 }
 
+void CameraGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+{
+	const int past_x = gui_left_pos_x_;
+	const int past_y = gui_top_pos_y_;
+
+	if (option & dl::kOptionLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & dl::kOptionMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & dl::kOptionRight) { gui_left_pos_x_ = pos_x - kWidth; }
+
+	if (option & dl::kOptionTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & dl::kOptionMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & dl::kOptionBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+
+	const int diff_x = gui_left_pos_x_ - past_x;
+	const int diff_y = gui_top_pos_y_ - past_y;
+
+	for (auto& button : button_)
+	{
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kOptionMidleXMidleY);
+	}
+}
 
 void CameraGui::SetHexapodPos(const designlab::Vector3& pos)
 {
-	camera_manager_.SetTargetPos(pos);
+	camera_.SetTargetPos(pos);
 }
 
 void CameraGui::Update()
 {
 	//各ボタンの処理
-	for (auto& button : button_list_)
+	for (auto& button : button_)
 	{
 		button->Update();
-
-		if (button->OnCursor() && Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 1) 
-		{
-			button->Activate();
-		}
 	}
 
-	//キーボードによるカメラの操作
-	camera_controller_.ChangeCameraState(&camera_manager_);
-
 	//カメラの更新
-	camera_manager_.Update();
+	camera_.Update();
 }
-
 
 void CameraGui::Draw() const
 {
-	if (is_closed_)
-	{
-		DrawClosedBackground();
-	}
-	else
-	{
-		DrawBackground();
-	}
-
+	DrawBackground();
 
 	//全てのボタンの描画
-	for (auto& button : button_list_)
+	for (auto& button : button_)
 	{
 		button->Draw();
 	}
 
-	if (!is_closed_)
+	DrawString();
+}
+
+void CameraGui::SetVisible(const bool visible)
+{
+	visible_ = visible;
+
+	for (auto& button : button_)
 	{
-		DrawString();
+		button->SetVisible(visible);
 	}
 }
 
+void CameraGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+{
+	//各ボタンの処理
+	for (auto& button : button_)
+	{
+		if (button->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()) && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+		{
+			button->Activate(mouse_ptr);
+		}
+	}
+}
+
+bool CameraGui::OnCursor(int cursor_x, int cursor_y) const noexcept
+{
+	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
+		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
+}
 
 void CameraGui::DrawBackground() const
 {
 	const unsigned int kBackColor = GetColor(255, 255, 255);
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
-	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kGuiSizeX, kGuiTopPosY + kGuiSizeY, kBackColor, TRUE);
+	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, kBackColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
-
-
-void CameraGui::DrawClosedBackground() const
-{
-	const unsigned int kBackColor = GetColor(255, 255, 255);
-
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
-	DrawBox(kGuiLeftPosX, kGuiTopPosY, kGuiLeftPosX + kGuiSizeX, kGuiTopPosY + kGuiSizeYClosed, kBackColor, TRUE);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-}
-
 
 void CameraGui::DrawString() const
 {
@@ -158,31 +158,31 @@ void CameraGui::DrawString() const
 	const unsigned int kStrRedColor = GetColor(255, 128, 128);
 
 	const int kTextYInterval = 20;
-	const int kTextYTop = kGuiTopPosY + 250;
+	const int kTextYTop = gui_top_pos_y_ + 250;
 
 	int text_line = 0;
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, "マウスホイール回転");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetWheelRot() == 0 */ ? kStrColor : kStrRedColor, "マウスホイール回転");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetWheelRot() == 0 ? kStrColor : kStrRedColor, " ・ズーム");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetWheelRot() == 0 */ ? kStrColor : kStrRedColor, " ・ズーム");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, "ホイールクリック＆ドラッグ");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 */ ? kStrColor : kStrRedColor, "ホイールクリック＆ドラッグ");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 ? kStrColor : kStrRedColor, " ・ビューを回転");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_MIDDLE) == 0 */ ? kStrColor : kStrRedColor, " ・ビューを回転");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, "左クリック＆ドラッグ");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 */ ? kStrColor : kStrRedColor, "左クリック＆ドラッグ");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 ? kStrColor : kStrRedColor, " ・画面の中心から回転");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_LEFT) == 0 */ ? kStrColor : kStrRedColor, " ・画面の中心から回転");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, "右クリック＆ドラッグ");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 */ ? kStrColor : kStrRedColor, "右クリック＆ドラッグ");
 
-	DrawFormatString(kGuiLeftPosX + 10, kTextYTop + kTextYInterval * (text_line++),
-		Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 ? kStrColor : kStrRedColor, " ・画面の平行移動");
+	DrawFormatString(gui_left_pos_x_ + 10, kTextYTop + kTextYInterval * (text_line++),
+		true /*Mouse::GetIns()->GetPressingCount(MOUSE_INPUT_RIGHT) == 0 */ ? kStrColor : kStrRedColor, " ・画面の平行移動");
 }

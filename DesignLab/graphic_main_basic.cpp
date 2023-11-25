@@ -19,8 +19,10 @@ GraphicMainBasic::GraphicMainBasic(
 	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
-	node_display_gui_{ calculator_ptr, checker_ptr },
-	display_node_switch_gui_(),
+	mouse_ptr_(std::make_shared<Mouse>()),
+	node_display_gui_( std::make_shared<NodeDisplayGui>(calculator_ptr, checker_ptr)),
+	display_node_switch_gui_(std::make_shared<DisplayNodeSwitchGui>()),
+	camera_gui_(std::make_shared<CameraGui>()),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
 	interpolated_node_creator_{converter_ptr},
@@ -39,13 +41,19 @@ GraphicMainBasic::GraphicMainBasic(
 		movement_locus_renderer_.SetIsHighQuality(true);
 	}
 
-	display_node_switch_gui_.SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
-	node_display_gui_.SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
+	node_display_gui_->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+
+	gui_activator_.Register(display_node_switch_gui_);
+	gui_activator_.Register(node_display_gui_);
+	gui_activator_.Register(camera_gui_);
 }
 
 
 bool GraphicMainBasic::Update()
 {
+	mouse_ptr_->Update();
+
 	if (map_update_count != broker_ptr_->map_state.GetUpdateCount())
 	{
 		map_update_count = broker_ptr_->map_state.GetUpdateCount();
@@ -66,7 +74,7 @@ bool GraphicMainBasic::Update()
 		simu_end_index = broker_ptr_->simu_end_index.GetData();
 
 		//ノードの情報を表示するGUIに情報を伝達する．
-		display_node_switch_gui_.SetGraphData(graph_.size(), simu_end_index);
+		display_node_switch_gui_->SetGraphData(graph_.size(), simu_end_index);
 
 
 		//移動軌跡を更新する．
@@ -87,7 +95,7 @@ bool GraphicMainBasic::Update()
 	if (!graph_.empty())
 	{
 		// 表示ノードが更新されたら，表示するノードを変更する．
-		if (display_node_index_ != display_node_switch_gui_.GetDisplayNodeNum())
+		if (display_node_index_ != display_node_switch_gui_->GetDisplayNodeNum())
 		{
 			if (display_node_index_ > 0)
 			{
@@ -97,20 +105,20 @@ bool GraphicMainBasic::Update()
 
 				interpolated_node_ = interpolated_node_creator_.CreateInterpolatedNode(
 					graph_[display_node_index_],
-					graph_[display_node_switch_gui_.GetDisplayNodeNum()]
+					graph_[display_node_switch_gui_->GetDisplayNodeNum()]
 				);
 			}
 
 
-			display_node_index_ = display_node_switch_gui_.GetDisplayNodeNum();					//表示するノードを取得する．
+			display_node_index_ = display_node_switch_gui_->GetDisplayNodeNum();					//表示するノードを取得する．
 
 			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));							//ロボットの状態を更新する．
 
-			camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
+			camera_gui_->SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
 
 			map_renderer_.SetHexapodPosition(graph_.at(display_node_index_).global_center_of_mass);	//マップの表示を更新する．
 
-			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
+			node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
 		}
 
 		if (interpolated_anime_start_count_ <= counter_ && counter_ < interpolated_anime_start_count_ + kInterpolatedAnimeCount)
@@ -121,29 +129,24 @@ bool GraphicMainBasic::Update()
 
 			hexapod_renderer_->SetDrawNode(interpolated_node_[anime_index]);
 
-			node_display_gui_.SetDisplayNode(interpolated_node_[anime_index]);
+			node_display_gui_->SetDisplayNode(interpolated_node_[anime_index]);
 		}
 		else if (counter_ == interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
 			//アニメーションが終了したら，元のノードを表示する
 			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
 
-			node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
+			node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));
 		}
 	}
 
 	counter_++;				//カウンタを進める．
 
-	camera_gui_.Update();				//カメラのGUIを更新する．
+	camera_gui_->Update();				//カメラのGUIを更新する．
+	node_display_gui_->Update();			//ノードの情報を表示するGUIを更新する．
+	display_node_switch_gui_->Update();	//ノードの情報を表示するGUIを更新する．
 
-	node_display_gui_.Update();			//ノードの情報を表示するGUIを更新する．
-
-	if (node_display_gui_.OnCursor()) { node_display_gui_.Activate(); }
-
-	display_node_switch_gui_.Update();	//ノードの情報を表示するGUIを更新する．
-
-	if (display_node_switch_gui_.OnCursor()) { display_node_switch_gui_.Activate(); }
-
+	gui_activator_.Activate(mouse_ptr_);	//GUIをアクティブにする．
 
 	//キー入力で表示を切り替える
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_L) == 1)
@@ -173,9 +176,9 @@ void GraphicMainBasic::Draw() const
 	map_renderer_.Draw();
 
 
-	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());   //移動軌跡を描画する．
+	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());   //移動軌跡を描画する．
 
-	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_.GetSimulationNum());
+	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
 
 	if (!graph_.empty())
@@ -192,9 +195,9 @@ void GraphicMainBasic::Draw() const
 
 	// 2DのGUIの描画
 
-	camera_gui_.Draw();        //カメラのGUIを描画する．
+	camera_gui_->Draw();        //カメラのGUIを描画する．
 
-	node_display_gui_.Draw();	 //ノードの情報を表示するGUIを描画する．
+	node_display_gui_->Draw();	 //ノードの情報を表示するGUIを描画する．
 
-	display_node_switch_gui_.Draw();	//表示するノードを切り替えるGUIを描画する．
+	display_node_switch_gui_->Draw();	//表示するノードを切り替えるGUIを描画する．
 }

@@ -35,7 +35,7 @@ public:
 
 	//! @brief 現在表示するシミュレーションの番号を取得する
 	//! @return int 現在表示するシミュレーションの番号
-	int GetSimulationNum() const;
+	constexpr int GetSimulationNum() const { return simulation_num_; }
 
 
 	void Update() override;
@@ -46,9 +46,9 @@ public:
 
 	bool IsVisible() const override { return visible_; }
 
-	void Activate() override;
+	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
 
-	bool OnCursor() const noexcept override;
+	bool OnCursor(int cursor_x, int cursor_y) const noexcept override;
 
 private:
 
@@ -74,10 +74,12 @@ private:
 	int GetAllSimulationNum() const;
 
 
-	static constexpr int kWidth{ 275 };		//!< GUIの幅
-	static constexpr int kHeight{ 250 };	//!< GUIの高さ
-	const int kAnimeSpeedMax;	//!< アニメーション速度の最大値
-	const int kAnimeSpeedMin;	//!< アニメーション速度の最小値
+	static constexpr int kWidth{ 275 };			//!< GUIの幅
+	static constexpr int kHeight{ 282 };		//!< GUIの高さ
+	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ
+
+	const int kAnimeSpeedMax{ 120 };	//!< アニメーション速度の最大値
+	const int kAnimeSpeedMin{ 1 };		//!< アニメーション速度の最小値
 
 	int gui_left_pos_x_{ 0 };		//!< GUIの左上のX座標
 	int gui_top_pos_y_{ 0 };		//!< GUIの左上のY座標
@@ -98,17 +100,20 @@ private:
 
 	int animation_speed_;			//!< 再生速度
 
-	int counter_;					//!< カウンター
+	int counter_{ 0 };				//!< カウンター
+
 
 	bool is_dragging_{ false };		//!< ドラッグ中か．
 
-	bool visible_{ true };			//!< GUIを表示するか．
+	int mouse_cursor_dif_x_{ 0 };	//!< マウスカーソルのX座標
+	int mouse_cursor_dif_y_{ 0 };	//!< マウスカーソルのY座標
 
+	bool visible_{ true };			//!< GUIを表示するか．
 
 	const int kFontSize{ 16 };		//!< フォントのサイズ
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
 
-	int font_handle_;	//!< フォントのハンドル
+	const int font_handle_;	//!< フォントのハンドル
 };
 
 

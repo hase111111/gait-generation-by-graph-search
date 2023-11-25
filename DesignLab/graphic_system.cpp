@@ -1,10 +1,10 @@
-#include "graphic_system.h"
+ï»¿#include "graphic_system.h"
 
 #include "cassert_define.h"
 #include "define.h"
 
-// define.h‚ÅDESIGNLAB_DONOT_USE_DXLIB‚ª’è‹`‚³‚ê‚Ä‚¢‚éê‡‚ÍCDxlib‚ğg‚í‚È‚¢D
-// Dxlib‚ğg‚í‚È‚¢ê‡‚ÍC‚±‚Ìƒtƒ@ƒCƒ‹‚Ì’†g‚Í‚·‚×‚Ä–³‹‚³‚ê‚éD
+// define.hã§DESIGNLAB_DONOT_USE_DXLIBãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ï¼ŒDxlibã‚’ä½¿ã‚ãªã„ï¼
+// Dxlibã‚’ä½¿ã‚ãªã„å ´åˆã¯ï¼Œã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«ã¯ã™ã¹ã¦ç„¡è¦–ã•ã‚Œã‚‹ï¼
 #ifndef DESIGNLAB_DONOT_USE_DXLIB
 
 #include <Dxlib.h>
@@ -12,7 +12,6 @@
 #include "dxlib_util.h"
 #include "graphic_const.h"
 #include "keyboard.h"
-#include "mouse.h"
 
 
 namespace dldu = ::designlab::dxlib_util;
@@ -20,58 +19,58 @@ namespace dldu = ::designlab::dxlib_util;
 
 GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
 	setting_ptr_(setting_ptr),
-	fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }		// setting_ptr ‚ª null ‚©‚Ç‚¤‚©‚ğ’²‚×C‚»‚¤‚Å‚È‚¯‚ê‚Îwindow_fps‚Ì’l‚ğæ‚èo‚·D
+	fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }		// setting_ptr ãŒ null ã‹ã©ã†ã‹ã‚’èª¿ã¹ï¼Œãã†ã§ãªã‘ã‚Œã°window_fpsã®å€¤ã‚’å–ã‚Šå‡ºã™ï¼
 {
 }
 
 
 void GraphicSystem::Main()
 {
-	//İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ß‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
+	//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚ã¦ã„ãªã‘ã‚Œã°çµ‚äº†
 	if (!setting_ptr_) 
 	{
-		// assert‚Íˆø”‚ªfalse‚Ì‚ÉƒGƒ‰[‚ğo‚µC‚Ç‚±‚ÅƒGƒ‰[‚ªo‚½‚©o—Í‚·‚éDcassert_define.h‚Å—LŒø‰»‚³‚ê‚Ä‚¢‚ê‚ÎÀs‚³‚ê‚éD
-		// ‚±‚ÌŠÖ”‚ÍƒfƒoƒbƒO‚Ì‚İ—LŒø‚ÅCƒŠƒŠ[ƒX‚É‚Í–³Œø‚É‚È‚é‚Æ‚¢‚¤‚±‚ÆD
-		// ƒfƒoƒbƒO‚ÍƒGƒ‰[‚ğ“f‚«CƒŠƒŠ[ƒX‚Í‚Ğ‚Æ‚Ü‚¸“®ì‚Í‚µ‚Ä‚­‚ê‚é‚Æ‚¢‚¤Œ`‚É‚µ‚½‚¢‚½‚ßC‚±‚Ì‚æ‚¤‚É‚µ‚Ä‚¢‚éD
+		// assertã¯å¼•æ•°ãŒfalseã®æ™‚ã«ã‚¨ãƒ©ãƒ¼ã‚’å‡ºã—ï¼Œã©ã“ã§ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸã‹å‡ºåŠ›ã™ã‚‹ï¼cassert_define.hã§æœ‰åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚Œã°å®Ÿè¡Œã•ã‚Œã‚‹ï¼
+		// ã“ã®é–¢æ•°ã¯ãƒ‡ãƒãƒƒã‚°æ™‚ã®ã¿æœ‰åŠ¹ã§ï¼Œãƒªãƒªãƒ¼ã‚¹æ™‚ã«ã¯ç„¡åŠ¹ã«ãªã‚‹ã¨ã„ã†ã“ã¨ï¼
+		// ãƒ‡ãƒãƒƒã‚°æ™‚ã¯ã‚¨ãƒ©ãƒ¼ã‚’åãï¼Œãƒªãƒªãƒ¼ã‚¹æ™‚ã¯ã²ã¨ã¾ãšå‹•ä½œã¯ã—ã¦ãã‚Œã‚‹ã¨ã„ã†å½¢ã«ã—ãŸã„ãŸã‚ï¼Œã“ã®ã‚ˆã†ã«ã—ã¦ã„ã‚‹ï¼
 		assert(false);
 		return; 
 	}
 
-	//‚»‚à‚»‚à•`‰æˆ—‚ğg‚í‚È‚¢‚È‚ç‚Î‘¦I—¹
+	//ãã‚‚ãã‚‚æç”»å‡¦ç†ã‚’ä½¿ã‚ãªã„ãªã‚‰ã°å³çµ‚äº†
 	if (!setting_ptr_->gui_display) 
 	{
 		return; 
 	}
 
-	// Dxlib‚ÌŠÖ”‚Í•¡”ƒXƒŒƒbƒh‚ÅŒÄ‚Ô‚±‚Æ‚ğl—¶‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚ÅC•¡”‚ÌƒXƒŒƒbƒh‚©‚çŒÄ‚Ô‚Æ•K‚¸–â‘è‚ª‹N‚«‚éD‚»‚Ì‚½‚ßC‰Šú‰»ˆ—C•`‰æCI—¹ˆ—‚Ì‘S‚Ä‚ğ‚±‚ÌŠÖ”‚Ì’†‚ÅŒÄ‚Ô•K—v‚ª‚ ‚é
+	// Dxlibã®é–¢æ•°ã¯è¤‡æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ã§å‘¼ã¶ã“ã¨ã‚’è€ƒæ…®ã•ã‚Œã¦ã„ãªã„ã®ã§ï¼Œè¤‡æ•°ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰å‘¼ã¶ã¨å¿…ãšå•é¡ŒãŒèµ·ãã‚‹ï¼ãã®ãŸã‚ï¼ŒåˆæœŸåŒ–å‡¦ç†ï¼Œæç”»ï¼Œçµ‚äº†å‡¦ç†ã®å…¨ã¦ã‚’ã“ã®é–¢æ•°ã®ä¸­ã§å‘¼ã¶å¿…è¦ãŒã‚ã‚‹
 	if (!MyDxlibInit()) 
 	{
 		assert(false);
 		return; 
 	}
 
-	// ProcessMessageŠÖ”‚ÍƒEƒBƒ“ƒhƒE‚Ì~ƒ{ƒ^ƒ“‚ª‚¨‚³‚ê‚é‚Æ¸”s‚Ì’l‚ğ•Ô‚·D
-	// ‚Ü‚½CƒEƒBƒ“ƒhƒE‚ğˆÛ‚·‚é‚½‚ß‚É‚Í’èŠú“I‚ÉŒÄ‚Ño‚µ‘±‚¯‚é•K—v‚ª‚ ‚é‚Ì‚Åƒ‹[ƒv‚ÅŒÄ‚Ñ‘±‚¯‚Ä‚¢‚éD
-	// ProcessMessage‚Í¬Œ÷‚Å0(C++‚É‚¨‚¯‚éfalse)C¸”s‚Å-1(C++‚É‚¨‚¯‚étrue‚Í0ˆÈŠO‚Ì’l)‚ğ•Ô‚·C‚»‚Ì‚½‚ßC¸”s‚·‚é‚Ü‚Åƒ‹[ƒv‚·‚éê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‹Lq‚·‚é
+	// ProcessMessageé–¢æ•°ã¯ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Ã—ãƒœã‚¿ãƒ³ãŒãŠã•ã‚Œã‚‹ã¨å¤±æ•—ã®å€¤ã‚’è¿”ã™ï¼
+	// ã¾ãŸï¼Œã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¶­æŒã™ã‚‹ãŸã‚ã«ã¯å®šæœŸçš„ã«å‘¼ã³å‡ºã—ç¶šã‘ã‚‹å¿…è¦ãŒã‚ã‚‹ã®ã§ãƒ«ãƒ¼ãƒ—ã§å‘¼ã³ç¶šã‘ã¦ã„ã‚‹ï¼
+	// ProcessMessageã¯æˆåŠŸã§0(C++ã«ãŠã‘ã‚‹false)ï¼Œå¤±æ•—ã§-1(C++ã«ãŠã‘ã‚‹trueã¯0ä»¥å¤–ã®å€¤)ã‚’è¿”ã™ï¼Œãã®ãŸã‚ï¼Œå¤±æ•—ã™ã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—ã™ã‚‹å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«è¨˜è¿°ã™ã‚‹
 	while (ProcessMessage() >= 0)
 	{
-		// ƒƒCƒ“ƒ‹[ƒvCfalse‚ª‹A‚Á‚½ê‡Cƒ‹[ƒv‚ğ”²‚¯‚éD
+		// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—ï¼ŒfalseãŒå¸°ã£ãŸå ´åˆï¼Œãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹ï¼
 		if ( ! Loop())
 		{
 			break;
 		}
 	}
 
-	//I—¹ˆ—‚ğs‚¤D
+	//çµ‚äº†å‡¦ç†ã‚’è¡Œã†ï¼
 	MyDxlibFinalize();
 }
 
 void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr)
 {
-	// mutex‚Å”r‘¼§Œä‚ğs‚¤DGraphicMain‚ğØ‚è‘Ö‚¦‚éÛ‚ÉCMainŠÖ”‚ğŒÄ‚ñ‚Å‚µ‚Ü‚¤‚ÆƒGƒ‰[‚ª”­¶‚·‚é‰Â”\«‚ª‚ ‚é‚½‚ßC‚»‚ê‚ğ—}§‚·‚éD
+	// mutexã§æ’ä»–åˆ¶å¾¡ã‚’è¡Œã†ï¼GraphicMainã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹éš›ã«ï¼ŒMainé–¢æ•°ã‚’å‘¼ã‚“ã§ã—ã¾ã†ã¨ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ãŸã‚ï¼Œãã‚Œã‚’æŠ‘åˆ¶ã™ã‚‹ï¼
 	boost::mutex::scoped_lock lock(mutex_);
 
-	//‚à‚Æ‚à‚Æ‚Á‚Ä‚¢‚½IGraphicMainƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ”jŠü‚·‚éD
+	//ã‚‚ã¨ã‚‚ã¨æŒã£ã¦ã„ãŸIGraphicMainã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç ´æ£„ã™ã‚‹ï¼
 	if (graphic_main_ptr_) 
 	{
 		graphic_main_ptr_.reset();
@@ -83,32 +82,32 @@ void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_ma
 
 bool GraphicSystem::MyDxlibInit()
 {
-	// 1•”‚Ì‰Šú‰»—pŠÖ”‚ÍDxlib_Init‚ğŒÄ‚Ô‘O‚ÉÀs‚·‚é•K—v‚ª‚ ‚é‚Ì‚Å‚±‚±‚ÅÀs‚·‚éD	
+	// 1éƒ¨ã®åˆæœŸåŒ–ç”¨é–¢æ•°ã¯Dxlib_Initã‚’å‘¼ã¶å‰ã«å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã®ã§ã“ã“ã§å®Ÿè¡Œã™ã‚‹ï¼	
 
-	SetOutApplicationLogValidFlag(FALSE);					// ƒƒOo—Í–³‚µ‚É•ÏXD‚±‚ê‚ğ‚µ‚È‚¢‚ÆLog.txt‚Æ‚¢‚¤×–‚‚Èƒtƒ@ƒCƒ‹‚ªo—Í‚³‚ê‚éD
-	SetMainWindowText(GraphicConst::kWindowName.c_str());	// ƒ^ƒCƒgƒ‹‚ğ•ÏXDƒEƒBƒ“ƒhƒE‚Ì¶ã‚É•\¦‚³‚ê‚é‚à‚ÌD
-	SetWindowSizeChangeEnableFlag(FALSE);					// ƒEƒBƒ“ƒhƒEƒTƒCƒY‚ğ©—R‚É•ÏX‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚éD
-	SetAlwaysRunFlag(TRUE);									// ƒEƒCƒ“ƒhƒE‚ªƒAƒNƒeƒBƒu‚Å‚Í‚È‚¢ó‘Ô‚Å‚àˆ—‚ğ‘±s‚·‚é‚æ‚¤‚É•ÏX‚·‚éD
-	SetWaitVSyncFlag(FALSE);								// ‚’¼“¯ŠúM†‚ğ‘Ò‚½‚È‚¢‚æ‚¤‚É•ÏXD‚±‚ê‚ğ‚µ‚È‚¢‚ÆFPS‚ª60ŒÅ’è‚É‚È‚éD	
-	ChangeWindowMode(TRUE);									// ƒEƒCƒ“ƒhƒEƒ‚[ƒh‚É•ÏXD‚±‚ê‚ğ‚µ‚È‚¢‚Æƒtƒ‹ƒXƒNƒŠ[ƒ“‚Å•\¦‚³‚ê‚éD
-	SetUseDirectInputFlag(TRUE);							// DirectInput‚ğg—p‚·‚é‚æ‚¤‚É•ÏXD‚±‚ê‚ğ‚µ‚È‚¢‚Æƒ}ƒEƒX“ü—Í‚ÅƒTƒCƒhƒ{ƒ^ƒ“‚ªó‚¯•t‚¯‚ç‚ê‚È‚¢D
+	SetOutApplicationLogValidFlag(FALSE);					// ãƒ­ã‚°å‡ºåŠ›ç„¡ã—ã«å¤‰æ›´ï¼ã“ã‚Œã‚’ã—ãªã„ã¨Log.txtã¨ã„ã†é‚ªé­”ãªãƒ•ã‚¡ã‚¤ãƒ«ãŒå‡ºåŠ›ã•ã‚Œã‚‹ï¼
+	SetMainWindowText(GraphicConst::kWindowName.c_str());	// ã‚¿ã‚¤ãƒˆãƒ«ã‚’å¤‰æ›´ï¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å·¦ä¸Šã«è¡¨ç¤ºã•ã‚Œã‚‹ã‚‚ã®ï¼
+	SetWindowSizeChangeEnableFlag(FALSE);					// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã‚’è‡ªç”±ã«å¤‰æ›´ã§ããªã„ã‚ˆã†ã«ã™ã‚‹ï¼
+	SetAlwaysRunFlag(TRUE);									// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã§ã¯ãªã„çŠ¶æ…‹ã§ã‚‚å‡¦ç†ã‚’ç¶šè¡Œã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã™ã‚‹ï¼
+	SetWaitVSyncFlag(FALSE);								// å‚ç›´åŒæœŸä¿¡å·ã‚’å¾…ãŸãªã„ã‚ˆã†ã«å¤‰æ›´ï¼ã“ã‚Œã‚’ã—ãªã„ã¨FPSãŒ60å›ºå®šã«ãªã‚‹ï¼	
+	ChangeWindowMode(TRUE);									// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã«å¤‰æ›´ï¼ã“ã‚Œã‚’ã—ãªã„ã¨ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã§è¡¨ç¤ºã•ã‚Œã‚‹ï¼
+	SetUseDirectInputFlag(TRUE);							// DirectInputã‚’ä½¿ç”¨ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ï¼ã“ã‚Œã‚’ã—ãªã„ã¨ãƒã‚¦ã‚¹å…¥åŠ›ã§ã‚µã‚¤ãƒ‰ãƒœã‚¿ãƒ³ãŒå—ã‘ä»˜ã‘ã‚‰ã‚Œãªã„ï¼
 
-	//ƒEƒBƒ“ƒhƒE‚Ì‰¡•Cc•CƒJƒ‰[‚ğİ’è‚·‚éD
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…ï¼Œç¸¦å¹…ï¼Œã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹ï¼
 	SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::kColorBit);
 
-	//‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+	//ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
 	if (DxLib_Init() < 0)
 	{
 		return false;
 	}
 
-	//•`‰ææ‚ğ— ‰æ–Ê‚É‚·‚éDà–¾‚ª“ï‚µ‚¢‚ªC‰æ–Ê‚Ì‚¿‚ç‚Â‚«‚ğ‰Ÿ‚¦‚Ä‚­‚ê‚éŒø‰Ê‚ª‚ ‚èCDxlib‚ğg‚¤ˆÈã•K{‚Ì€–ÚD
+	//æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹ï¼èª¬æ˜ãŒé›£ã—ã„ãŒï¼Œç”»é¢ã®ã¡ã‚‰ã¤ãã‚’æŠ¼ãˆã¦ãã‚Œã‚‹åŠ¹æœãŒã‚ã‚Šï¼ŒDxlibã‚’ä½¿ã†ä»¥ä¸Šå¿…é ˆã®é …ç›®ï¼
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	// ”wŒiF‚Ìİ’è
+	// èƒŒæ™¯è‰²ã®è¨­å®š
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
-	// 3DŠÖ˜A‚Ì‰Šú‰»‚ğs‚¤D	
+	// 3Dé–¢é€£ã®åˆæœŸåŒ–ã‚’è¡Œã†ï¼	
 	if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
 	{
 		dldu::InitDxlib3DSetting(true);
@@ -124,37 +123,36 @@ bool GraphicSystem::MyDxlibInit()
 
 bool GraphicSystem::Loop()
 {
-	// [•`‰æ‚Ìˆ—‚É‚Â‚¢‚Ä]
-	// ScreenFlipŠÖ”‚ÆClearDrawScreenŠÖ”‚ÌÚ×FƒEƒBƒ“ƒhƒE‚Ì‰æ‘œ•\¦‚Íƒpƒ‰ƒpƒ‰–Ÿ‰æ‚Ì—l‚É‰æ–Ê‚ğ‘f‘‚­Ø‚è‘Ö‚¦‚é‚±‚Æ‚ÅƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄŒ»‚µ‚Ä‚¢‚éD
-	// ‚µ‚©‚µC’P‚É‰æ–Ê‚ğØ‚è‘Ö‚¦‚½ê‡C–{•¨‚Ìƒpƒ‰ƒpƒ‰–Ÿ‰æ‚Ì—l‚ÉƒEƒBƒ“ƒhƒE‚É‚¿‚ç‚Â‚«‚ª‚Å‚Ä‚µ‚Ü‚¤D
-	// ‚»‚±‚ÅGraphicSystemƒNƒ‰ƒX‚ÌdxlibInitŠÖ”‚Ì’†‚ÅŒÄ‚Î‚ê‚Ä‚¢‚é SetDrawScreen(DX_SCREEN_BACK) ‚É‚æ‚Á‚Ä‚¢‚Á‚½‚ñ— ‰æ–Ê‚ÉŠG‚ğ•`‰æ‚µ‚Ä‚©‚çC
-	// ScreenFlipŠÖ”‚ÅƒEƒBƒ“ƒhƒE‚ÉŠG‚ğ–ß‚·‚±‚Æ‚Å‰æ–Ê‚Ì‚¿‚ç‚Â‚«‚ğ‚È‚­‚µ‚Ä‚¢‚éD
-	// ‚È‚¨CClearDrawScreen ‚à ScreenFlip ‚à ProcessMessage‚Æ•Ô‚·’l‚ª“¯‚¶‚È‚Ì‚ÅCloopŠÖ”‚Ì—l‚È‘‚«•û‚Æ‚È‚éD
+	// [æç”»ã®å‡¦ç†ã«ã¤ã„ã¦]
+	// ScreenFlipé–¢æ•°ã¨ClearDrawScreené–¢æ•°ã®è©³ç´°ï¼šã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç”»åƒè¡¨ç¤ºã¯ãƒ‘ãƒ©ãƒ‘ãƒ©æ¼«ç”»ã®æ§˜ã«ç”»é¢ã‚’ç´ æ—©ãåˆ‡ã‚Šæ›¿ãˆã‚‹ã“ã¨ã§ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç¾ã—ã¦ã„ã‚‹ï¼
+	// ã—ã‹ã—ï¼Œå˜ã«ç”»é¢ã‚’åˆ‡ã‚Šæ›¿ãˆãŸå ´åˆï¼Œæœ¬ç‰©ã®ãƒ‘ãƒ©ãƒ‘ãƒ©æ¼«ç”»ã®æ§˜ã«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã¡ã‚‰ã¤ããŒã§ã¦ã—ã¾ã†ï¼
+	// ãã“ã§GraphicSystemã‚¯ãƒ©ã‚¹ã®dxlibInité–¢æ•°ã®ä¸­ã§å‘¼ã°ã‚Œã¦ã„ã‚‹ SetDrawScreen(DX_SCREEN_BACK) ã«ã‚ˆã£ã¦ã„ã£ãŸã‚“è£ç”»é¢ã«çµµã‚’æç”»ã—ã¦ã‹ã‚‰ï¼Œ
+	// ScreenFlipé–¢æ•°ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«çµµã‚’æˆ»ã™ã“ã¨ã§ç”»é¢ã®ã¡ã‚‰ã¤ãã‚’ãªãã—ã¦ã„ã‚‹ï¼
+	// ãªãŠï¼ŒClearDrawScreen ã‚‚ ScreenFlip ã‚‚ ProcessMessageã¨è¿”ã™å€¤ãŒåŒã˜ãªã®ã§ï¼Œloopé–¢æ•°ã®æ§˜ãªæ›¸ãæ–¹ã¨ãªã‚‹ï¼
 
 
-	// mutex‚Å”r‘¼§Œä‚ğs‚¤DMainŠÖ”‚ğŒÄ‚Ô‚Æ“¯‚ÉCGraphicMain‚ğØ‚è‘Ö‚¦‚é‚ÆƒGƒ‰[‚ª”­¶‚·‚é‰Â”\«‚ª‚ ‚é‚½‚ßC‚»‚ê‚ğ—}§‚·‚éD
+	// mutexã§æ’ä»–åˆ¶å¾¡ã‚’è¡Œã†ï¼Mainé–¢æ•°ã‚’å‘¼ã¶ã¨åŒæ™‚ã«ï¼ŒGraphicMainã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã¨ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ãŸã‚ï¼Œãã‚Œã‚’æŠ‘åˆ¶ã™ã‚‹ï¼
 	boost::mutex::scoped_lock lock(mutex_);
 
-	// GUI‰æ–Ê‚Ö‚Ì•W€o—Í‚ğƒŠƒZƒbƒg‚·‚é
+	// GUIç”»é¢ã¸ã®æ¨™æº–å‡ºåŠ›ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
 	clsDx();
 
-	// ƒL[“ü—Í‚ğXV‚·‚éD
+	// ã‚­ãƒ¼å…¥åŠ›ã‚’æ›´æ–°ã™ã‚‹ï¼
 	Keyboard::GetIns()->Update();
-	Mouse::GetIns()->Update();
 
-	// ˆ—‚ğs‚¤Dgraphic_main_ptr_‚ªfalse‚È‚ç‚Î(null‚Å‚ ‚é‚È‚ç‚Î)Cˆ—‚ğs‚í‚È‚¢D
+	// å‡¦ç†ã‚’è¡Œã†ï¼graphic_main_ptr_ãŒfalseãªã‚‰ã°(nullã§ã‚ã‚‹ãªã‚‰ã°)ï¼Œå‡¦ç†ã‚’è¡Œã‚ãªã„ï¼
 	if (graphic_main_ptr_ != nullptr)
 	{
 		if (!graphic_main_ptr_->Update()) { return false; }
 	}
 
-	// •`‰æ‚·‚é
+	// æç”»ã™ã‚‹
 	if ( ! fps_controller_.SkipDrawScene())
 	{
-		// — ‰æ–Ê‚É•`‰æ‚µ‚½ŠG‚ğÁ‚·
+		// è£ç”»é¢ã«æç”»ã—ãŸçµµã‚’æ¶ˆã™
 		if (ClearDrawScreen() < 0) { return false; }
 
-		// •`‰æˆ—‚ğs‚¤Dgraphic_main_ptr_‚ªfalse‚È‚ç‚Î(null‚Å‚ ‚é‚È‚ç‚Î)Cˆ—‚ğs‚í‚È‚¢D
+		// æç”»å‡¦ç†ã‚’è¡Œã†ï¼graphic_main_ptr_ãŒfalseãªã‚‰ã°(nullã§ã‚ã‚‹ãªã‚‰ã°)ï¼Œå‡¦ç†ã‚’è¡Œã‚ãªã„ï¼
 		if (graphic_main_ptr_ != nullptr)
 		{
 			graphic_main_ptr_->Draw();
@@ -162,12 +160,12 @@ bool GraphicSystem::Loop()
 
 		fps_controller_.DrawFps();
 
-		// ƒXƒNƒŠ[ƒ“‚É— ‰æ–Ê‚É•`‰æ‚µ‚½“à—e‚ğˆÚ‚·
+		// ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã«è£ç”»é¢ã«æç”»ã—ãŸå†…å®¹ã‚’ç§»ã™
 		if (ScreenFlip() < 0) { return false; }
 
 	}
 
-	// FPS‚ğˆê’è‚É•Û‚Â‚½‚ß‚É‘Ò‚ÂD
+	// FPSã‚’ä¸€å®šã«ä¿ã¤ãŸã‚ã«å¾…ã¤ï¼
 	fps_controller_.Wait();
 
 	return true;
@@ -176,10 +174,10 @@ bool GraphicSystem::Loop()
 
 void GraphicSystem::MyDxlibFinalize() const
 {
-	// DXƒ‰ƒCƒuƒ‰ƒŠ‚ÌI—¹ˆ—‚ğŒÄ‚Ô.
+	// DXãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®çµ‚äº†å‡¦ç†ã‚’å‘¼ã¶.
 	DxLib_End();
 
-	//‚Ù‚©‚É‚àˆ—‚ª‚ ‚ê‚Î‚±‚±‚É’Ç‹L‚·‚é
+	//ã»ã‹ã«ã‚‚å‡¦ç†ãŒã‚ã‚Œã°ã“ã“ã«è¿½è¨˜ã™ã‚‹
 }
 
 #endif	// DESIGNLAB_DONOT_USE_DXLIB

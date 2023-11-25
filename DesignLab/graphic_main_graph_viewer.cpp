@@ -8,7 +8,9 @@
 #include "map_renderer.h"
 #include "node_initializer.h"
 
-namespace dldu = designlab::dxlib_util;
+
+namespace dl = ::designlab;
+namespace dldu = ::designlab::dxlib_util;
 
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(
@@ -19,8 +21,9 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 ) :
 	broker_ptr_(broker_ptr),
-	camera_gui_{ 10, setting_ptr ? setting_ptr->window_size_y - 10 : 0 ,CameraGui::kOptionLeftBottom },
-	node_display_gui_{ calculator_ptr, checker_ptr },
+	mouse_ptr_(std::make_shared<Mouse>()),
+	camera_gui_(std::make_shared<CameraGui>()),
+	node_display_gui_(std::make_shared<NodeDisplayGui>(calculator_ptr, checker_ptr)),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	graph_({}),
@@ -35,7 +38,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 
 	hexapod_renderer_->SetDrawNode(init_node);
 
-	node_display_gui_.SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+	node_display_gui_->SetPos(10, 10, dl::kOptionRightTop);
+	camera_gui_->SetPos(10, 10, dl::kOptionLeftBottom);
 }
 
 
@@ -69,14 +73,16 @@ bool GraphicMainGraphViewer::Update()
 	{
 		hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
 
-		camera_gui_.SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
+		camera_gui_->SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
 
-		node_display_gui_.SetDisplayNode(graph_.at(display_node_index_));
+		node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));
 	}
 
-	camera_gui_.Update();
+	camera_gui_->Update();
 
-	node_display_gui_.Update();
+	node_display_gui_->Update();
+
+	gui_activator_.Activate(mouse_ptr_);
 
 	return true;
 }
@@ -100,7 +106,7 @@ void GraphicMainGraphViewer::Draw() const
 
 	gui_controller_ptr_->Draw();
 
-	camera_gui_.Draw();
+	camera_gui_->Draw();
 
-	node_display_gui_.Draw();
+	node_display_gui_->Draw();
 }

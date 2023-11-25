@@ -43,9 +43,9 @@ public:
 
 	inline bool IsVisible() const override { return visible_; }
 
-	void Activate() override;
+	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
 
-	bool OnCursor() const noexcept override;
+	bool OnCursor(int cursor_x, int cursor_y) const noexcept override;
 
 private:
 
@@ -92,6 +92,9 @@ private:
 	bool is_closed_;			//!< GUIが閉じているか(最小化しているか)どうか
 
 	bool visible_{ true };	//!< ボタンの表示を行うかどうか．
+
+	int mouse_cursor_dif_x_{ 0 };	//!< マウスカーソルのX座標
+	int mouse_cursor_dif_y_{ 0 };	//!< マウスカーソルのY座標
 
 	DisplayMode display_type_;	//!< 表示する情報の種類
 
