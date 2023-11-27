@@ -95,11 +95,12 @@ void SimpleButton::Draw() const
 	}
 }
 
-void SimpleButton::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void SimpleButton::ClickedAction([[maybe_unused]] const int cursor_x, [[maybe_unused]] const int cursor_y,
+	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	target_color_blue_ = 64;
 
-	if (click_function_ && visible_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+	if (click_function_ && visible_ && left_pushing_count == 1)
 	{
 		now_color_blue_ = 128;
 
@@ -107,7 +108,7 @@ void SimpleButton::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 	}
 }
 
-bool SimpleButton::OnCursor(int cursor_x, int cursor_y) const noexcept
+bool SimpleButton::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 {
 	return (pos_middle_x - kSizeX / 2 < cursor_x && cursor_x < pos_middle_x + kSizeX / 2) &&
 		(pos_middle_y - kSizeY / 2 < cursor_y && cursor_y < pos_middle_y + kSizeY / 2);

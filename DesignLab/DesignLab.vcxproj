@@ -23,6 +23,7 @@
     <ClInclude Include="gait_pattern_generator_thread.h" />
     <ClInclude Include="gui_activator.h" />
     <ClInclude Include="interface_dxlib_clickable.h" />
+    <ClInclude Include="interface_dxlib_draggable.h" />
     <ClInclude Include="interface_dxlib_gui.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />

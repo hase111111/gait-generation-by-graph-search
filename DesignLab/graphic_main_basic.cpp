@@ -46,10 +46,18 @@ GraphicMainBasic::GraphicMainBasic(
 	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
 	node_display_gui_->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 
-	gui_activator_.Register(display_node_switch_gui_, 1);
-	gui_activator_.Register(node_display_gui_, 1);
-	gui_activator_.Register(camera_gui_, 1);
-	gui_activator_.Register(std::make_shared<CameraInputController>(camera_), 0);
+	gui_activator_.RegisterClickable(display_node_switch_gui_, 1);
+	gui_activator_.RegisterDraggable(display_node_switch_gui_, 1);
+	gui_activator_.RegisterGui(display_node_switch_gui_, 1);
+
+	gui_activator_.RegisterClickable(node_display_gui_, 1);
+	gui_activator_.RegisterDraggable(node_display_gui_, 1);
+	gui_activator_.RegisterGui(node_display_gui_, 1);
+
+	gui_activator_.RegisterClickable(camera_gui_, 1);
+	gui_activator_.RegisterGui(camera_gui_, 1);
+	
+	gui_activator_.RegisterDraggable(std::make_shared<CameraInputController>(camera_), 0);
 }
 
 
@@ -145,10 +153,6 @@ bool GraphicMainBasic::Update()
 
 	counter_++;				//カウンタを進める．
 
-	camera_gui_->Update();				//カメラのGUIを更新する．
-	node_display_gui_->Update();			//ノードの情報を表示するGUIを更新する．
-	display_node_switch_gui_->Update();	//ノードの情報を表示するGUIを更新する．
-
 	gui_activator_.Activate(mouse_ptr_);	//GUIをアクティブにする．
 
 	//キー入力で表示を切り替える
@@ -197,10 +201,5 @@ void GraphicMainBasic::Draw() const
 
 
 	// 2DのGUIの描画
-
-	camera_gui_->Draw();        //カメラのGUIを描画する．
-
-	node_display_gui_->Draw();	 //ノードの情報を表示するGUIを描画する．
-
-	display_node_switch_gui_->Draw();	//表示するノードを切り替えるGUIを描画する．
+	gui_activator_.Draw();
 }

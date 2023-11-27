@@ -447,6 +447,9 @@
     <ClInclude Include="gui_activator.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="interface_dxlib_draggable.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

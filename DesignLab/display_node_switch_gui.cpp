@@ -94,7 +94,6 @@ void DisplayNodeSwitchGui::SetPos(const int pos_x, const int pos_y, const unsign
 	}
 }
 
-
 void DisplayNodeSwitchGui::SetGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
 {
 	all_node_num_ = node_num;
@@ -118,13 +117,6 @@ size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
 
 void DisplayNodeSwitchGui::Update()
 {
-	if (is_dragging_)
-	{
-		SetPos(gui_left_pos_x_ + mouse_cursor_dif_x_, gui_top_pos_y_ + mouse_cursor_dif_y_, dl::kOptionLeftTop);
-		mouse_cursor_dif_x_ = 0;
-		mouse_cursor_dif_y_ = 0;
-	}
-
 	++counter_;
 
 	// 自動再生を行う
@@ -139,7 +131,6 @@ void DisplayNodeSwitchGui::Update()
 		i->Update();
 	}
 }
-
 
 void DisplayNodeSwitchGui::Draw() const
 {
@@ -225,42 +216,38 @@ void DisplayNodeSwitchGui::SetVisible(const bool visible)
 	}
 }
 
-void DisplayNodeSwitchGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+
+void DisplayNodeSwitchGui::ClickedAction(const int cursor_x, const int cursor_y,
+	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-	mouse_cursor_dif_x_ = mouse_ptr->GetDiffPosX();
-	mouse_cursor_dif_y_ = mouse_ptr->GetDiffPosY();
-
-	const bool cursor_in_gui_bar = gui_left_pos_x_ < mouse_ptr->GetCursorPosX() && mouse_ptr->GetCursorPosX() < gui_left_pos_x_ + kWidth &&
-		gui_top_pos_y_ < mouse_ptr->GetCursorPosY() && mouse_ptr->GetCursorPosY() < gui_top_pos_y_ + kTitleBarHeight;
-
-	if (cursor_in_gui_bar)
-	{
-		if (!is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
-		{
-			is_dragging_ = true;
-		}
-
-		if (is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
-		{
-			is_dragging_ = false;
-		}
-	}
-
 	// ボタンを更新する
 	for (auto& i : button_)
 	{
-		if (i->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
+		if (i->CursorOnGui(cursor_x, cursor_y))
 		{
-			i->Activate(mouse_ptr);
+			i->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
 			break;
 		}
 	}
 }
 
-bool DisplayNodeSwitchGui::OnCursor(const int cursor_x, const int cursor_y) const noexcept
+bool DisplayNodeSwitchGui::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
+}
+
+
+bool DisplayNodeSwitchGui::IsDraggable(const int cursor_x, const int cursor_y)
+{
+	//ドラッグ可能なのは，タイトルバーのみ
+	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
+		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kTitleBarHeight;
+}
+
+void DisplayNodeSwitchGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
+{
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
 }
 
 
@@ -284,7 +271,6 @@ void DisplayNodeSwitchGui::MoveMostPrevNode()
 	display_node_num_ = candidate;
 }
 
-
 void DisplayNodeSwitchGui::MovePrevNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
@@ -299,7 +285,6 @@ void DisplayNodeSwitchGui::MovePrevNode()
 
 	display_node_num_ = static_cast<size_t>((std::max)(static_cast<int>(display_node_num_), 0));
 }
-
 
 void DisplayNodeSwitchGui::MoveMostNextNode()
 {
@@ -318,7 +303,6 @@ void DisplayNodeSwitchGui::MoveMostNextNode()
 	display_node_num_ = candidate;
 }
 
-
 void DisplayNodeSwitchGui::MoveNextNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
@@ -333,7 +317,6 @@ void DisplayNodeSwitchGui::MoveNextNode()
 
 	display_node_num_ = static_cast<size_t>((std::min)(static_cast<int>(display_node_num_), static_cast<int>(all_node_num_ - 1)));
 }
-
 
 void DisplayNodeSwitchGui::MovePrevSimulation()
 {
@@ -352,7 +335,6 @@ void DisplayNodeSwitchGui::MovePrevSimulation()
 		display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
 	}
 }
-
 
 void DisplayNodeSwitchGui::MoveNextSimulation()
 {
@@ -373,7 +355,6 @@ void DisplayNodeSwitchGui::MoveNextSimulation()
 		display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
 	}
 }
-
 
 int DisplayNodeSwitchGui::GetAllSimulationNum() const
 {

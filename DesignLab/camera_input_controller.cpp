@@ -4,8 +4,9 @@
 #include "dxlib_util.h"
 
 
-namespace dl = designlab;
-namespace dldu = designlab::dxlib_util;
+namespace dl = ::designlab;
+namespace dlm = ::designlab::math_util;
+namespace dldu = ::designlab::dxlib_util;
 
 
 CameraInputController::CameraInputController(const std::shared_ptr<DxlibCamera> camera) : camera_ptr_(camera)
@@ -13,28 +14,27 @@ CameraInputController::CameraInputController(const std::shared_ptr<DxlibCamera> 
 	assert(camera_ptr_ != nullptr);
 }
 
-
-void CameraInputController::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void CameraInputController::DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit)
 {
 	assert(camera_ptr_ != nullptr);
 
-	//ホイールが動いていたらカメラ距離を変更する
-	if (mouse_ptr->GetWheelRot() != 0)
-	{
-		camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * mouse_ptr->GetWheelRot() * -1);
-	}
+	////ホイールが動いていたらカメラ距離を変更する．
+	//if (mouse_ptr->GetWheelRot() != 0)
+	//{
+	//	camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * mouse_ptr->GetWheelRot() * -1);
+	//}
 
-	// カーソルが動いていたら，カメラの回転を変更する
-	if (mouse_ptr->GetPressingCount(MOUSE_INPUT_MIDDLE) > 0)
+	// カーソルが動いていたら，カメラの回転を変更する．
+	if (mouse_key_bit & MOUSE_INPUT_MIDDLE)
 	{
-		//ホイールクリックをしていたらカメラを回転させる．XとYのどちらかの移動量が大きい方を処理する
+		//ホイールクリックをしていたらカメラを回転させる．XとYのどちらかの移動量が大きい方を処理する．
 
-		if (abs(mouse_ptr->GetDiffPosX()) > 0)
+		if (abs(cursor_dif_x) > 0)
 		{
-			//カメラの回転をマウスの横移動量に合わせて変更
+			//カメラの回転をマウスの横移動量に合わせて変更．
 			dl::Quaternion move_quatx = {0, 0, 0, 0};
 
-			move_quatx = dl::Quaternion::MakeByAngleAxis(mouse_ptr->GetDiffPosX() * kCameraMoveSpeed * -1, { 0,0,1 });
+			move_quatx = dl::Quaternion::MakeByAngleAxis(cursor_dif_x * kCameraMoveSpeed * -1, { 0,0,1 });
 
 			dl::Quaternion res = camera_ptr_->GetCameraQuat() * move_quatx;
 
@@ -43,10 +43,10 @@ void CameraInputController::Activate(const std::shared_ptr<const Mouse> mouse_pt
 			camera_ptr_->SetCameraQuat(res);
 		}
 
-		if (abs(mouse_ptr->GetDiffPosY()) > 0)
+		if (abs(cursor_dif_y) > 0)
 		{
-			//カメラの回転をマウスの縦移動量に合わせて変更
-			dl::Quaternion move_quaty = dl::Quaternion::MakeByAngleAxis(mouse_ptr->GetDiffPosY() * kCameraMoveSpeed * -1, { 0,1,0 });
+			//カメラの回転をマウスの縦移動量に合わせて変更．
+			dl::Quaternion move_quaty = dl::Quaternion::MakeByAngleAxis(cursor_dif_y * kCameraMoveSpeed * -1, { 0,1,0 });
 
 			dl::Quaternion res = camera_ptr_->GetCameraQuat() * move_quaty;
 
@@ -56,12 +56,10 @@ void CameraInputController::Activate(const std::shared_ptr<const Mouse> mouse_pt
 		}
 
 	}
-	else if (mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) > 0)
+	else if (mouse_key_bit & MOUSE_INPUT_LEFT)
 	{
-		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転
-
-		const int mouse_move = abs(mouse_ptr->GetDiffPosX()) > abs(mouse_ptr->GetDiffPosY()) ?
-			mouse_ptr->GetDiffPosX() : mouse_ptr->GetDiffPosY();
+		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転．
+		const int mouse_move = abs(cursor_dif_x) > abs(cursor_dif_y) ? cursor_dif_x : cursor_dif_y;
 
 		if (mouse_move != 0) 
 		{
@@ -72,10 +70,9 @@ void CameraInputController::Activate(const std::shared_ptr<const Mouse> mouse_pt
 			camera_ptr_->SetCameraQuat(res);
 		}
 	}
-	else if (mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT) > 0 && mouse_ptr->GetDiffPos() > kMouseMoveMargin)
+	else if (mouse_key_bit & MOUSE_INPUT_RIGHT && dlm::Squared(cursor_dif_x) + dlm::Squared(cursor_dif_y) > dlm::Squared(kMouseMoveMargin))
 	{
 		//右クリックしていたらカメラの平行移動
-
 		if (camera_ptr_->GetCameraViewMode() != CameraViewMode::kFreeControlledAndMovableTarget)
 		{
 			//表示モードを注視点を自由に動かせるモードに変更
@@ -83,24 +80,24 @@ void CameraInputController::Activate(const std::shared_ptr<const Mouse> mouse_pt
 		}
 
 
-		dl::Vector3 move_vec_x;
+		dl::Vector3 move_vec_x = { 0,0,0 };
 
-		if (abs(mouse_ptr->GetDiffPosX()) > 0)
+		if (abs(cursor_dif_x) > 0)
 		{
 			//_Xの移動量が大きい場合は横移動量を移動量とする
 
-			move_vec_x = { 0, mouse_ptr->GetDiffPosX() * kCameraTargetMoveSpeed * -1, 0 };
+			move_vec_x = { 0, cursor_dif_x * kCameraTargetMoveSpeed * -1, 0 };
 
 			move_vec_x = dl::RotateVector3(move_vec_x, camera_ptr_->GetCameraQuat());
 		}
 
-		dl::Vector3 move_vec_y;
+		dl::Vector3 move_vec_y = { 0,0,0 };
 
-		if (abs(mouse_ptr->GetDiffPosY()) > 0)
+		if (abs(cursor_dif_y) > 0)
 		{
 			//Yの移動量が大きい場合は縦移動量を移動量とする
 
-			move_vec_y = { 0, 0, mouse_ptr->GetDiffPosY() * kCameraTargetMoveSpeed };
+			move_vec_y = { 0, 0, cursor_dif_y * kCameraTargetMoveSpeed };
 
 			move_vec_y = dl::RotateVector3(move_vec_y, camera_ptr_->GetCameraQuat());
 		}

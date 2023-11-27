@@ -7,22 +7,25 @@
 #include <memory>
 
 #include "dxlib_camera.h"
-#include "interface_dxlib_clickable.h"
+#include "interface_dxlib_draggable.h"
 
 
 //! @class CameraInputController
 //! @brief マウスの入力でカメラを動かすクラス．
-class CameraInputController final : public IDxlibClickable
+class CameraInputController final : public IDxlibDraggable
 {
 public:
 
 	//! @param [in] camera_manager カメラの状態を管理するクラスをポインタで受け取る．
 	CameraInputController(const std::shared_ptr<DxlibCamera> camera);
 
-	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
+	bool IsDraggable([[maybe_unused]] int cursor_x, [[maybe_unused]] int cursor_y) override { return true; };
 
-	//! @brief 全ての場所においてクリック可能にするため，常にtrueを返す．
-	bool OnCursor([[maybe_unused]] int cursor_x, [[maybe_unused]] int cursor_y) const noexcept override { return true; };
+	bool IsDragged() const override { return is_dragged_; };
+
+	void SetDragged(bool is_dragged) override { is_dragged_ = is_dragged; };
+
+	void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
 private:
 
@@ -36,6 +39,7 @@ private:
 
 	const std::shared_ptr<DxlibCamera> camera_ptr_;		//!< カメラの状態を管理するクラスのポインタ
 
+	bool is_dragged_{ false };		//!< ドラッグ中かどうかのフラグ
 };
 
 

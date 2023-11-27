@@ -6,8 +6,11 @@
 
 #include <map>
 #include <memory>
+#include <optional>
 
 #include "interface_dxlib_clickable.h"
+#include "interface_dxlib_draggable.h"
+#include "interface_dxlib_gui.h"
 #include "mouse.h"
 
 
@@ -19,10 +22,20 @@ class GuiActivator final
 {
 public:
 
-	//! @brief GUIを登録する．
+	//! @brief UpdateとDrawを行うGUIを登録する．
+	//! @param[in] gui_ptr UpdateとDrawを行うGUIのポインタ．
+	//! @param[in] priority GUIの優先度．これが高いほど優先的にUpdateとDrawが行われる．
+	void RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority);
+
+	//! @brief クリック可能なGUIを登録する．
 	//! @param[in] clickable_ptr クリック可能なGUIのポインタ．
 	//! @param[in] priority クリック入力の優先度．これが高いほど優先的にクリックの判定がされる．
-	void Register(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority);
+	void RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority);
+
+	//! @brief ドラッグ可能なGUIを登録する．
+	//! @param[in] draggable_ptr ドラッグ可能なGUIのポインタ．
+	//! @param[in] priority ドラッグ入力の優先度．これが高いほど優先的にドラッグの判定がされる．
+	void RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority);
 
 	//! @brief クリック判定を行う．
 	//! @n 優先度の高いものから順にクリック判定を行う．
@@ -30,6 +43,8 @@ public:
 	//! @n 一度Activateされたら，それ以降のGUIのActivate関数は実行されない．
 	//! @param[in] mouse_ptr マウスの状態を管理するクラスのポインタ．
 	void Activate(const std::shared_ptr<const Mouse> mouse_ptr);
+
+	void Draw() const;
 
 private:
 	
@@ -56,9 +71,16 @@ private:
 		int order{ 0 };			//!< 追加された順番
 	};
 
+	void UpdateGui();
 
-	//! @brief クリック可能なGUIのポインタを優先度順に格納する．
+	void ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr);
+	void ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr);
+
+	std::map<Priority, std::shared_ptr<IDxlibGui>> gui_ptrs_;
 	std::map<Priority, std::shared_ptr<IDxlibClickable>> clickable_ptrs_;
+	std::map<Priority, std::shared_ptr<IDxlibDraggable>> draggable_ptrs_;
+
+	std::optional<Priority> now_dragging_gui_key_{ std::nullopt };		//!< ドラッグ中のGUIの優先度と順番
 };
 
 

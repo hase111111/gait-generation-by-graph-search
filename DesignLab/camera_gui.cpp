@@ -125,19 +125,20 @@ void CameraGui::SetVisible(const bool visible)
 	}
 }
 
-void CameraGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void CameraGui::ClickedAction(const int cursor_x, const int cursor_y,
+	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	//各ボタンの処理
 	for (auto& button : button_)
 	{
-		if (button->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()) && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+		if (button->CursorOnGui(cursor_x, cursor_y) && left_pushing_count == 1)
 		{
-			button->Activate(mouse_ptr);
+			button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
 		}
 	}
 }
 
-bool CameraGui::OnCursor(const int cursor_x, const int cursor_y) const noexcept
+bool CameraGui::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;

@@ -115,11 +115,6 @@ void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 
 void NodeDisplayGui::Update()
 {
-	if (is_dragging_) 
-	{
-		SetPos(gui_left_pos_x_ + mouse_cursor_dif_x_, gui_top_pos_y_ + mouse_cursor_dif_y_, dl::kOptionLeftTop);
-	}
-
 	//ボタンの更新を行う
 	for (auto& button : buttons_)
 	{
@@ -129,6 +124,9 @@ void NodeDisplayGui::Update()
 
 void NodeDisplayGui::Draw() const
 {
+	//is_dragging_ を出力
+	printfDx("is_dragging_ : %d\n", is_dragging_);
+
 	// 枠
 	DrawBackground();
 
@@ -164,17 +162,15 @@ void NodeDisplayGui::SetVisible(const bool visible)
 }
 
 
-void NodeDisplayGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void NodeDisplayGui::ClickedAction(const int cursor_x, const int cursor_y,
+	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-	mouse_cursor_dif_x_ = mouse_ptr->GetDiffPosX();
-	mouse_cursor_dif_y_ = mouse_ptr->GetDiffPosY();
-
-	if (!is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
+	if (!is_dragging_ && left_pushing_count > 0)
 	{
 		is_dragging_ = true;
 	}
 	
-	if(is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 0)
+	if(is_dragging_ && left_pushing_count == 0)
 	{
 		is_dragging_ = false;
 	}
@@ -182,18 +178,31 @@ void NodeDisplayGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 	//ボタンの処理を行う．
 	for (auto& button : buttons_)
 	{
-		if (button->OnCursor(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
+		if (button->CursorOnGui(cursor_x, cursor_y))
 		{
-			button->Activate(mouse_ptr);
+			button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
 			break;				//1度に1つのボタンしか処理しない．
 		}
 	}
 }
 
-bool NodeDisplayGui::OnCursor(int cursor_x, int cursor_y) const noexcept
+bool NodeDisplayGui::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 {
 	return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
 		(gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
+}
+
+
+bool NodeDisplayGui::IsDraggable(const int cursor_x, const int cursor_y)
+{
+	//ドラッグ可能なのは，タイトルバーのみ
+	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
+		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
+}
+
+void NodeDisplayGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
+{
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
 }
 
 

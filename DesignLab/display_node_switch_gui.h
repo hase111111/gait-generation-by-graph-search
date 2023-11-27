@@ -9,13 +9,14 @@
 #include <vector>
 
 #include "interface_dxlib_clickable.h"
+#include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"
 #include "simple_button.h"
 
 
 //! @class DisplayNodeSwitchGui
 //! @brief ノードの表示切り替えGUI
-class DisplayNodeSwitchGui final : public IDxlibGui, public IDxlibClickable
+class DisplayNodeSwitchGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
 {
 public:
 
@@ -46,9 +47,17 @@ public:
 
 	bool IsVisible() const override { return visible_; }
 
-	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
+	void ClickedAction(int cursor_x, int cursor_y, int left_pushing_count, int middle_pushing_count, int right_pushing_count) override;
 
-	bool OnCursor(int cursor_x, int cursor_y) const noexcept override;
+	bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
+
+	bool IsDraggable(int cursor_x, int cursor_y) override;
+
+	bool IsDragged() const override { return is_dragging_; };
+
+	void SetDragged(const bool is_dragged) override { is_dragging_ = is_dragged; };
+
+	void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
 private:
 
@@ -104,9 +113,6 @@ private:
 
 
 	bool is_dragging_{ false };		//!< ドラッグ中か．
-
-	int mouse_cursor_dif_x_{ 0 };	//!< マウスカーソルのX座標
-	int mouse_cursor_dif_y_{ 0 };	//!< マウスカーソルのY座標
 
 	bool visible_{ true };			//!< GUIを表示するか．
 
