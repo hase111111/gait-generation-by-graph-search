@@ -4,6 +4,7 @@
 #ifndef DESIGNLAB_CAMERA_INPUT_CONTROLLER_H_
 #define DESIGNLAB_CAMERA_INPUT_CONTROLLER_H_
 
+#include <memory>
 
 #include "dxlib_camera.h"
 #include "interface_dxlib_clickable.h"
@@ -16,7 +17,7 @@ class CameraInputController final : public IDxlibClickable
 public:
 
 	//! @param [in] camera_manager カメラの状態を管理するクラスをポインタで受け取る．
-	CameraInputController(DxlibCamera* const  camera_manager);
+	CameraInputController(const std::shared_ptr<DxlibCamera> camera);
 
 	void Activate(const std::shared_ptr<const Mouse> mouse_ptr) override;
 
@@ -33,7 +34,7 @@ private:
 
 	const double kMouseMoveMargin{ 0.5 };		//!< マウスの移動量がこの量以下ならば0とみなす
 
-	DxlibCamera* const camera_manager_{ nullptr };		//!< カメラの状態を管理するクラスのポインタ
+	const std::shared_ptr<DxlibCamera> camera_ptr_;		//!< カメラの状態を管理するクラスのポインタ
 
 };
 

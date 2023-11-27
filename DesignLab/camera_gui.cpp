@@ -10,7 +10,7 @@ namespace dl = ::designlab;
 namespace dldu = ::designlab::dxlib_util;
 
 
-CameraGui::CameraGui()
+CameraGui::CameraGui(const std::shared_ptr<DxlibCamera> camera) : 	camera_(camera)
 {
 	const int kButtonDistance = 10;	//!< ボタン同士の間隔
 	const int kButtonSize = 60;		//!< ボタンのサイズ
@@ -42,25 +42,25 @@ CameraGui::CameraGui()
 	const int kTopPosY = gui_top_pos_y_ + kButtonRange / 2 + kCloseButtonSizeY + 10;
 
 	button_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", kLeftPosX, kTopPosY, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.InitCaneraTargetLength(); });
+	button_.back()->SetActivateFunction([this]() { camera_->InitCaneraTargetLength(); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Front", kLeftPosX + kButtonRange, kTopPosY, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kFrontView); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kFrontView); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Left", kLeftPosX, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kLeftSideView); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kLeftSideView); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Top", kLeftPosX + kButtonRange, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kTopView); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kTopView); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Right", kLeftPosX + kButtonRange * 2, kTopPosY + kButtonRange, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kRightSideView); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kRightSideView); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Back", kLeftPosX + kButtonRange, kTopPosY + kButtonRange * 2, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kBackView); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kBackView); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Reset\nTarget", kLeftPosX + kButtonRange * 2, kTopPosY, kButtonSize, kButtonSize));
-	button_.back()->SetActivateFunction([this]() { camera_.SetCameraViewMode(CameraViewMode::kFreeControlled); });
+	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kFreeControlled); });
 }
 
 void CameraGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
@@ -87,7 +87,7 @@ void CameraGui::SetPos(const int pos_x, const int pos_y, const unsigned int opti
 
 void CameraGui::SetHexapodPos(const designlab::Vector3& pos)
 {
-	camera_.SetTargetPos(pos);
+	camera_->SetTargetPos(pos);
 }
 
 void CameraGui::Update()
@@ -99,7 +99,7 @@ void CameraGui::Update()
 	}
 
 	//カメラの更新
-	camera_.Update();
+	camera_->Update();
 }
 
 void CameraGui::Draw() const
@@ -137,7 +137,7 @@ void CameraGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 	}
 }
 
-bool CameraGui::OnCursor(int cursor_x, int cursor_y) const noexcept
+bool CameraGui::OnCursor(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;

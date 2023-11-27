@@ -2,6 +2,7 @@
 
 #include <Dxlib.h>
 
+#include "camera_input_controller.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
@@ -20,9 +21,10 @@ GraphicMainBasic::GraphicMainBasic(
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
+	camera_(std::make_shared<DxlibCamera>()),
 	node_display_gui_( std::make_shared<NodeDisplayGui>(calculator_ptr, checker_ptr)),
 	display_node_switch_gui_(std::make_shared<DisplayNodeSwitchGui>()),
-	camera_gui_(std::make_shared<CameraGui>()),
+	camera_gui_(std::make_shared<CameraGui>(camera_)),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
 	interpolated_node_creator_{converter_ptr},
@@ -44,9 +46,10 @@ GraphicMainBasic::GraphicMainBasic(
 	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
 	node_display_gui_->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 
-	gui_activator_.Register(display_node_switch_gui_);
-	gui_activator_.Register(node_display_gui_);
-	gui_activator_.Register(camera_gui_);
+	gui_activator_.Register(display_node_switch_gui_, 1);
+	gui_activator_.Register(node_display_gui_, 1);
+	gui_activator_.Register(camera_gui_, 1);
+	gui_activator_.Register(std::make_shared<CameraInputController>(camera_), 0);
 }
 
 

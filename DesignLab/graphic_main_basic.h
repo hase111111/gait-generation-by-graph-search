@@ -58,7 +58,7 @@ private:
 
 
 	GuiActivator gui_activator_;	//!< GUIをアクティブにするクラス．
-
+	std::shared_ptr<DxlibCamera> camera_;			//!< カメラの管理を行うクラス．
 	std::shared_ptr<CameraGui> camera_gui_;							//!< カメラの位置を制御するGUI
 	std::shared_ptr<DisplayNodeSwitchGui> display_node_switch_gui_;	//!< ノードの表示を切り替えるGUI
 	std::shared_ptr<NodeDisplayGui> node_display_gui_;				//!< ノードの表示を制御するGUI

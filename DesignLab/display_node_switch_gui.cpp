@@ -163,19 +163,16 @@ void DisplayNodeSwitchGui::Draw() const
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-
 	// ボタンを描画する
 	for (const auto& i : button_)
 	{
 		i->Draw();
 	}
 
-
 	//文字を描画する
 	const int text_left_x = gui_left_pos_x_ + 10;
 
 	const unsigned int text_color = GetColor(0, 0, 0);
-
 
 	DrawFormatStringToHandle(
 		text_left_x,
@@ -195,18 +192,18 @@ void DisplayNodeSwitchGui::Draw() const
 	if (simulation_num_ == 0)
 	{
 		start_node_num = 0;
-		if (!simu_end_index_.empty()) { end_node_num = (int)simu_end_index_[0]; }
-		else { end_node_num = (int)all_node_num_ - 1; }
+		if (!simu_end_index_.empty()) { end_node_num = static_cast<int>(simu_end_index_[0]); }
+		else { end_node_num = static_cast<int>(all_node_num_ - 1); }
 	}
-	else if (simulation_num_ == (int)simu_end_index_.size())
+	else if (simulation_num_ == static_cast<int>(simu_end_index_.size()))
 	{
-		start_node_num = (int)simu_end_index_[simulation_num_ - 1] + 1;
-		end_node_num = (int)all_node_num_ - 1;
+		start_node_num = static_cast<int>(simu_end_index_[simulation_num_ - 1] + 1);
+		end_node_num = static_cast<int>(all_node_num_ - 1);
 	}
 	else
 	{
-		start_node_num = (int)simu_end_index_[simulation_num_ - 1] + 1;
-		end_node_num = (int)simu_end_index_[simulation_num_];
+		start_node_num = static_cast<int>(simu_end_index_[simulation_num_ - 1] + 1);
+		end_node_num = static_cast<int>(simu_end_index_[simulation_num_]);
 	}
 
 	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 30, text_color, font_handle_, "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
@@ -233,10 +230,10 @@ void DisplayNodeSwitchGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr
 	mouse_cursor_dif_x_ = mouse_ptr->GetDiffPosX();
 	mouse_cursor_dif_y_ = mouse_ptr->GetDiffPosY();
 
-	const bool cursor_in_gui_ber = gui_left_pos_x_ < mouse_ptr->GetCursorPosX() && mouse_ptr->GetCursorPosX() < gui_left_pos_x_ + kWidth &&
+	const bool cursor_in_gui_bar = gui_left_pos_x_ < mouse_ptr->GetCursorPosX() && mouse_ptr->GetCursorPosX() < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < mouse_ptr->GetCursorPosY() && mouse_ptr->GetCursorPosY() < gui_top_pos_y_ + kTitleBarHeight;
 
-	if (cursor_in_gui_ber)
+	if (cursor_in_gui_bar)
 	{
 		if (!is_dragging_ && mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT) == 1)
 		{
@@ -260,7 +257,7 @@ void DisplayNodeSwitchGui::Activate(const std::shared_ptr<const Mouse> mouse_ptr
 	}
 }
 
-bool DisplayNodeSwitchGui::OnCursor(int cursor_x, int cursor_y) const noexcept
+bool DisplayNodeSwitchGui::OnCursor(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;

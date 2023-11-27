@@ -22,7 +22,8 @@ public:
 	//! @param [in] cursor_x マウスカーソルのX座標．
 	//! @param [in] cursor_y マウスカーソルのY座標．
 	//! @return bool GUIの上にカーソルがあるかどうか．
-	virtual bool OnCursor(int cursor_x, int cursor_y) const noexcept = 0;
+	[[nodiscard]]virtual bool OnCursor(int cursor_x, int cursor_y) const noexcept = 0;
 };
+
 
 #endif	// DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_

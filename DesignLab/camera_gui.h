@@ -22,7 +22,7 @@ class CameraGui final : public IDxlibGui, public IDxlibClickable
 public:
 
 	//! @brief GUIを表示する位置を指定しない場合のコンストラクタ，左上 (0, 0) を起点に表示する．
-	CameraGui();
+	CameraGui(const std::shared_ptr<DxlibCamera> camera);
 
 	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
 
@@ -57,7 +57,7 @@ private:
 	int gui_left_pos_x_{ 0 };	//!< GUIの左端の位置
 	int gui_top_pos_y_{ 0 };		//!< GUIの上端の位置
 	
-	DxlibCamera camera_;			//!< カメラの管理を行うクラス
+	const std::shared_ptr<DxlibCamera> camera_;			//!< カメラの管理を行うクラス
 
 	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ボタンのリスト
 

@@ -20,6 +20,8 @@ GraphicMainTest::GraphicMainTest(
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 ) :
+	camera_(std::make_shared<DxlibCamera>()),
+	camera_gui_(camera_),
 	node_display_gui_{ calculator_ptr, checker_ptr },
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	calculator_ptr_(calculator_ptr),

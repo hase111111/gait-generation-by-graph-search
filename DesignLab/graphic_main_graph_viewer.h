@@ -46,11 +46,9 @@ private:
 
 	std::shared_ptr<Mouse> mouse_ptr_;
 
-
+	std::shared_ptr<DxlibCamera> camera_;
 	std::shared_ptr<CameraGui> camera_gui_;
-
 	std::shared_ptr<NodeDisplayGui> node_display_gui_;
-
 	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
 	GuiActivator gui_activator_;

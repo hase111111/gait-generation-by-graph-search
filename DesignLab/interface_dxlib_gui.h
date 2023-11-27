@@ -45,7 +45,7 @@ public:
 
 	//! @brief GUIの表示を行うかどうかを返す．
 	//! @return bool GUIの表示を行うかどうか．
-	virtual bool IsVisible() const = 0;
+	[[nodiscard]]virtual bool IsVisible() const = 0;
 };
 
 #endif	// DESIGNLAB_INTERFACE_DXLIB_GUI_H_

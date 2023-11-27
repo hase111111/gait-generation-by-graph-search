@@ -44,7 +44,7 @@ private:
 
 	void MoveLeg();
 
-
+	std::shared_ptr<DxlibCamera> camera_;				//!< カメラの位置を制御するクラス
 	CameraGui camera_gui_;				//!< カメラの位置を制御するGUI
 
 	NodeDisplayGui node_display_gui_;	//!< ノードの表示を制御するGUI
