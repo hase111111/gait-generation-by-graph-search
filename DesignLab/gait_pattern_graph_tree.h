@@ -81,9 +81,9 @@ public:
 
 		nodes_[graph_size_++] = node;
 
-		assert(! nodes_[graph_size_ - 1].IsParentNode() && ! (0 <= nodes_[graph_size_ - 1].parent_num));
+		assert(nodes_[graph_size_ - 1].IsParentNode() || 0 <= nodes_[graph_size_ - 1].parent_num);
 		assert(nodes_[graph_size_ - 1].parent_num < graph_size_);
-		assert(! nodes_[graph_size_ - 1].IsParentNode() && nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_num].depth);
+		assert(nodes_[graph_size_ - 1].IsParentNode() || nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_num].depth);
 	}
 
 	//! @brief グラフをリセットする．
