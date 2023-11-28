@@ -24,7 +24,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	mouse_ptr_(std::make_shared<Mouse>()),
 	camera_(std::make_shared<DxlibCamera>()),
 	camera_gui_(std::make_shared<CameraGui>(camera_)),
-	node_display_gui_(std::make_shared<NodeDisplayGui>(calculator_ptr, checker_ptr)),
+	node_display_gui_(std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	graph_({}),

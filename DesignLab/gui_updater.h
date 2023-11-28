@@ -14,11 +14,11 @@
 #include "mouse.h"
 
 
-//! @class GuiActivator
+//! @class GuiUpdater
 //! @brief クリック判定を行うクラス．
 //! @n 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
 //! @n 優先度が高いものから順にクリック判定を行い，クリックされたらそのGUIのActivate関数を実行する．
-class GuiActivator final
+class GuiUpdater final
 {
 public:
 

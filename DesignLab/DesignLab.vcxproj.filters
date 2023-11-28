@@ -444,7 +444,7 @@
     <ClInclude Include="avarage_calculator.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="gui_activator.h">
+    <ClInclude Include="gui_updater.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_draggable.h">
@@ -683,7 +683,7 @@
     <ClCompile Include="gait_pattern_generator_thread.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
-    <ClCompile Include="gui_activator.cpp">
+    <ClCompile Include="gui_updater.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClCompile>
   </ItemGroup>

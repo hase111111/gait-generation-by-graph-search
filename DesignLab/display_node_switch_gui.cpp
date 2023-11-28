@@ -151,6 +151,8 @@ void DisplayNodeSwitchGui::Draw() const
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
 
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
+	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
+		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 

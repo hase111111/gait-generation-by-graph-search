@@ -61,6 +61,10 @@ public:
 
 private:
 
+	static constexpr int kWidth{ 275 };			//!< GUIの幅
+	static constexpr int kHeight{ 282 };		//!< GUIの高さ
+	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ
+
 	//! シミュレーションの中で最初のノードに移動する関数
 	void MoveMostPrevNode();
 
@@ -82,11 +86,6 @@ private:
 	//! 全シミュレーション数を求める
 	int GetAllSimulationNum() const;
 
-
-	static constexpr int kWidth{ 275 };			//!< GUIの幅
-	static constexpr int kHeight{ 282 };		//!< GUIの高さ
-	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ
-
 	const int kAnimeSpeedMax{ 120 };	//!< アニメーション速度の最大値
 	const int kAnimeSpeedMin{ 1 };		//!< アニメーション速度の最小値
 
@@ -95,30 +94,19 @@ private:
 
 	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ボタン
 
-
 	size_t all_node_num_;			//!< 全ノード数
-
 	std::vector<size_t> simu_end_index_;	//!< シミュレーションの終了ノード番号
-
 	size_t display_node_num_;		//!< 表示するノードの番号
-
 	int simulation_num_;			//!< 表示するシミュレーションの番号
-
-
 	bool do_auto_animation_;		//!< 自動再生中かどうか
-
 	int animation_speed_;			//!< 再生速度
-
 	int counter_{ 0 };				//!< カウンター
 
-
 	bool is_dragging_{ false };		//!< ドラッグ中か．
-
 	bool visible_{ true };			//!< GUIを表示するか．
 
 	const int kFontSize{ 16 };		//!< フォントのサイズ
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
-
 	const int font_handle_;	//!< フォントのハンドル
 };
 

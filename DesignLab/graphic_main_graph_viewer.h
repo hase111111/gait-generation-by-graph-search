@@ -11,7 +11,7 @@
 #include "camera_gui.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
-#include "gui_activator.h"
+#include "gui_updater.h"
 #include "interface_hexapod_renderer.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
@@ -51,7 +51,7 @@ private:
 	std::shared_ptr<NodeDisplayGui> node_display_gui_;
 	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
-	GuiActivator gui_activator_;
+	GuiUpdater gui_activator_;
 
 
 	MapState map_state_;

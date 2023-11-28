@@ -1,11 +1,11 @@
-﻿#include "gui_activator.h"
+﻿#include "gui_updater.h"
 
 #include <DxLib.h>
 
 #include "cassert_define.h"
 
 
-void GuiActivator::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
+void GuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
 {
 	assert(gui_ptr != nullptr);
 
@@ -20,7 +20,7 @@ void GuiActivator::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int pri
 	gui_ptrs_[p] = gui_ptr;
 }
 
-void GuiActivator::RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
+void GuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
 {
 	assert(clickable_ptr != nullptr);
 
@@ -35,7 +35,7 @@ void GuiActivator::RegisterClickable(const std::shared_ptr<IDxlibClickable> clic
 	clickable_ptrs_[p] = clickable_ptr;
 }
 
-void GuiActivator::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
+void GuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
 {
 	assert(draggable_ptr != nullptr);
 
@@ -51,7 +51,7 @@ void GuiActivator::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> drag
 }
 
 
-void GuiActivator::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void GuiUpdater::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	assert(mouse_ptr != nullptr);
 
@@ -60,7 +60,7 @@ void GuiActivator::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 	ActivateDraggable(mouse_ptr);
 }
 
-void GuiActivator::Draw() const
+void GuiUpdater::Draw() const
 {
 	//昇順にDrawする．
 	for (auto i = gui_ptrs_.begin(); i != gui_ptrs_.end(); ++i)
@@ -69,7 +69,7 @@ void GuiActivator::Draw() const
 	}
 }
 
-void GuiActivator::UpdateGui()
+void GuiUpdater::UpdateGui()
 {
 	//逆順にUpdateする．
 	for (auto i = gui_ptrs_.rbegin(); i != gui_ptrs_.rend(); ++i)
@@ -78,7 +78,7 @@ void GuiActivator::UpdateGui()
 	}
 }
 
-void GuiActivator::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
+void GuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	// 優先度の高いものから順にクリック判定を行う
 	// 昇順(増える順)に並んでいるので，rbeginからrendまで(降順に)走査する
@@ -94,7 +94,7 @@ void GuiActivator::ActivateClickable(const std::shared_ptr<const Mouse> mouse_pt
 	}
 }
 
-void GuiActivator::ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr)
+void GuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	unsigned int mouse_key{ 0 };
 	int pressing_count{ 0 };

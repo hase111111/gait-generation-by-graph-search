@@ -22,7 +22,7 @@ GraphicMainTest::GraphicMainTest(
 ) :
 	camera_(std::make_shared<DxlibCamera>()),
 	camera_gui_(camera_),
-	node_display_gui_{ calculator_ptr, checker_ptr },
+	node_display_gui_{ converter_ptr, calculator_ptr, checker_ptr },
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	calculator_ptr_(calculator_ptr),
 	converter_ptr_(converter_ptr)

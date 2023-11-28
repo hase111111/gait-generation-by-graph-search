@@ -25,6 +25,7 @@ class NodeDisplayGui final : public IDxlibGui, public IDxlibClickable, public ID
 public:
 
 	NodeDisplayGui(
+		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
@@ -63,12 +64,11 @@ private:
 		kDefualt,		//!< デフォルト
 		kJointState,	//!< 角度
 		kGlobalPos,		//!< グローバル座標
-		kChecker,		//!< 正しい状態かチェックするモード
 	};
 
 	static constexpr int kWidth{ 470 };			//!< GUIの幅
-	static constexpr int kHeight{ 600 };		//!< GUIの高さ
-	static constexpr int kClosedHeight{ 50 };	//!< GUIが閉じているときの高さ
+	static constexpr int kHeight{ 680 };		//!< GUIの高さ
+	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ
 
 	void DrawBackground() const;
 
@@ -78,9 +78,10 @@ private:
 
 	void DrawGlobalPosInfo() const;
 
-	std::vector<std::unique_ptr<SimpleButton> > buttons_;				//!< ボタン
+	std::vector<std::unique_ptr<SimpleButton> > buttons_;				//!< ボタン．
 
-	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< 六脚歩行ロボットの状態を計算するクラス
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< 座標変換を行うクラス．
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;		//!< 六脚歩行ロボットの状態を計算するクラス．
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 
 	RobotStateNode display_node_;										//!< 表示するノード
@@ -90,7 +91,6 @@ private:
 	int gui_left_pos_x_{ 0 };
 	int gui_top_pos_y_{ 0 };
 	bool is_dragging_{ false };	//!< ドラッグ中かどうか
-	bool is_closed_;			//!< GUIが閉じているか(最小化しているか)どうか
 	bool visible_{ true };		//!< ボタンの表示を行うかどうか．
 
 	const int kFontSize{ 16 };		//!< フォントのサイズ
