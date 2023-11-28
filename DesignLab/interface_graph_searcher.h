@@ -9,8 +9,8 @@
 #include <tuple>
 #include <vector>
 
+#include "gait_pattern_graph_tree.h"
 #include "graph_search_result_recoder.h"
-#include "robot_state_node.h"
 #include "target.h"
 
 
@@ -26,12 +26,10 @@ public:
 
 	//! @brief グラフを受け取り，その中から最適な次の動作を出力する．
 	//! @param [in] graph グラフ木．
-	//! @param [in] graph_size グラフ木のサイズ．
 	//! @param [in] target 目標地点．
 	//! @return std::tuple<GraphSearchResult, RobotStateNode, int> グラフ探索の結果，次のノード，最高評価ノードのindexのタプル．
 	virtual std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
-		const std::vector<RobotStateNode>& graph,
-		int graph_size,
+		const GaitPatternGraphTree& graph,
 		const TargetRobotState& target
 	) const = 0;
 

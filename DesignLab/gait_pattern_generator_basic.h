@@ -11,6 +11,7 @@
 
 #include "interface_graph_searcher.h"
 #include "interpolated_node_creator.h"
+#include "gait_pattern_graph_tree.h"
 #include "graph_tree_creator.h"
 #include "robot_state_node.h"
 
@@ -44,10 +45,7 @@ private:
 
 	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< グラフ探索を行うクラス
 
-	//! グラフ探索を行う木構造のグラフ．
-	//! push_backあるいはemplace_back関数とreserve関数を組み合わせるのは時間がかかるため，
-	//! resize関数を使用して予め確保した領域に，ノードを追加する． 
-	std::vector<RobotStateNode> graph_tree_;	
+	GaitPatternGraphTree graph_tree_;	//! グラフ探索を行う木構造のグラフ．
 };
 
 

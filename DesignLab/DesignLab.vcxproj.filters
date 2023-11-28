@@ -453,6 +453,9 @@
     <ClInclude Include="graph_searcher_spot_turn.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
+    <ClInclude Include="gait_pattern_graph_tree.h">
+      <Filter>ソース ファイル\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -691,6 +694,9 @@
     </ClCompile>
     <ClCompile Include="graph_searcher_spot_turn.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="gait_pattern_graph_tree.cpp">
+      <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -18,8 +18,7 @@ GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const IHexapodVaildCh
 }
 
 std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGraphTree(
-	const std::vector<RobotStateNode>& graph,
-	const int graph_size,
+	const GaitPatternGraphTree& graph,
 	const TargetRobotState& target
 ) const
 {
@@ -27,41 +26,38 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 
 	// ターゲットモードが直進と仮定して処理を書いている
 
-	int result_index = -1;
+	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_rot_angle = 0;
 	float max_leg_rot_angle = 0;
 	float max_margin = 0;
 	float min_leg_dif = 0;
 
-	const size_t parent_num = GetParentNodeIndex(graph, graph_size);
-	const RobotStateNode& parent_node = graph.at(parent_num);
-
-	if (parent_num < 0) 
+	if (!graph.HasRoot())
 	{
 		RobotStateNode dummy_node;
 		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
 	}
 
-	for (size_t i = 0; i < graph_size; i++)
+	for (int i = 0; i < graph.GetGraphSize(); i++)
 	{
 		//最大深さのノードのみを評価する
-		if (graph[i].depth == GraphSearchConst::kMaxDepth)
+		if (graph.GetNode(i).depth == GraphSearchConst::kMaxDepth)
 		{
 			//結果が見つかっていない場合は，必ず結果を更新する
 			if (result_index < 0)
 			{
 				result_index = static_cast<int>(i);
-				max_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
-				max_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], parent_node);
-				max_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
-				min_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
+				max_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+				max_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
+				max_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
+				min_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 				continue;
 			}
 
-			float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph[i], target);
-			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph[i], parent_node);
-			float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph[i].leg_state, graph[i].leg_pos);
-			float candiate_leg_dif = abs(graph[i].global_center_of_mass.z - graph[parent_num].global_center_of_mass.z);
+			float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
+			float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
+			float candiate_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 
 			if (max_rot_angle < candiate_rot_angle)
 			{
@@ -109,57 +105,13 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	}
 
 	// index が範囲外ならば失敗
-	if (result_index < 0 || result_index >= graph_size) 
+	if (result_index < 0 || result_index >= graph.GetGraphSize())
 	{
 		RobotStateNode dummy_node;
 		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
 	}
 
-	//深さ1まで遡って値を返す
-	RobotStateNode output_result;
-	if (! GetDepth1NodeFromMaxDepthNode(graph, result_index, &output_result)) 
-	{
-		const RobotStateNode dummy_node;
-		return { GraphSearchResult::kFailureByNotReachedDepth, dummy_node, -1 };
-	}
-
-	return { GraphSearchResult::kSuccess, output_result, result_index };
-}
-
-size_t GraphSearcherHato::GetParentNodeIndex(const std::vector<RobotStateNode>& graph, const int graph_size) const
-{
-	size_t parent_num = 0;
-
-	for (size_t i = 0; i < graph_size; i++)
-	{
-		if (graph.at(i).depth == 0)
-		{
-			parent_num = i;
-			break;
-		}
-	}
-
-	return parent_num;
-}
-
-bool GraphSearcherHato::GetDepth1NodeFromMaxDepthNode(const std::vector<RobotStateNode>& graph, const size_t max_depth_node_index, RobotStateNode* output_node) const
-{
-	size_t result_index = max_depth_node_index;
-	const size_t kGraphSize = graph.size();
-	int count = 0;
-
-	while (graph.at(result_index).depth != 1)
-	{
-		result_index = graph.at(result_index).parent_num;
-
-		if (result_index < 0 || result_index >= kGraphSize) { return false; }
-
-		count++;
-		if (count > GraphSearchConst::kMaxDepth) { return false; }
-	}
-
-	(*output_node) = graph.at(result_index);
-	return true;
+	return { GraphSearchResult::kSuccess, graph.GetParentNode(result_index, 1), result_index };
 }
 
 float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, [[maybe_unused]] const TargetRobotState& target) const
@@ -177,7 +129,6 @@ float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& cu
 
 float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
 {
-
 	float result = 0.0f;
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)

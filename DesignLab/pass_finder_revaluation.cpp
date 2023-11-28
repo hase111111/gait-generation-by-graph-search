@@ -2,6 +2,7 @@
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
+#include "gait_pattern_graph_tree.h"
 #include "graph_search_const.h"
 #include "map_state.h"
 
@@ -49,12 +50,10 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		RobotStateNode parent_node = current_node;
 		parent_node.ChangeParentNode();
 
-		std::vector<RobotStateNode> graph_tree;
-		graph_tree.resize(GraphSearchConst::kMaxNodeNum);
-		graph_tree[0] = parent_node;
-		int graph_tree_size = 1;
+		GaitPatternGraphTree graph_tree(GraphSearchConst::kMaxNodeNum);
+		graph_tree.AddNode(parent_node);
 
-		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree, &graph_tree_size);
+		GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -63,7 +62,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		}
 
 		dlio::Output("グラフ木の作成終了．", OutputDetail::kDebug);
-		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.size()), OutputDetail::kDebug);
+		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.GetGraphSize()), OutputDetail::kDebug);
 
 
 		// グラフ探索を行う
@@ -94,11 +93,9 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		RobotStateNode parent_node = current_node;
 		parent_node.ChangeParentNode();
 
-		std::vector<RobotStateNode> graph_tree;
-		graph_tree.resize(GraphSearchConst::kMaxNodeNum);
-		graph_tree[0] = parent_node;
-		int graph_tree_size = 1;
-		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree, &graph_tree_size);
+		GaitPatternGraphTree graph_tree(GraphSearchConst::kMaxNodeNum);
+		graph_tree.AddNode(parent_node);
+		GraphSearchResult result = graph_tree_creator_revaluation_ptr_->CreateGraphTree(0, GraphSearchConst::kMaxDepth, &graph_tree);
 
 		if (result != GraphSearchResult::kSuccess)
 		{
@@ -107,7 +104,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		}
 
 		dlio::Output("グラフ木の作成終了．", OutputDetail::kDebug);
-		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.size()), OutputDetail::kDebug);
+		dlio::Output("グラフのサイズ" + std::to_string(graph_tree.GetGraphSize()), OutputDetail::kDebug);
 
 
 		// グラフ探索を行う

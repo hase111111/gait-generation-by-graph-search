@@ -8,6 +8,7 @@
 #include <map>
 #include <memory>
 
+#include "gait_pattern_graph_tree.h"
 #include "graph_search_result_recoder.h"
 #include "interface_node_creator.h"
 #include "interface_node_creator_builder.h"
@@ -27,7 +28,7 @@ public:
 
 	void Init(const DevideMapState& map_state);
 
-	GraphSearchResult CreateGraphTree(int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size) const;
+	GraphSearchResult CreateGraphTree(int start_depth, int max_depth, GaitPatternGraphTree* graph) const;
 
 private:
 
@@ -35,7 +36,7 @@ private:
 	//! @param[in] current_node 現在のノード
 	//! @param[in] current_num 現在のノードのindex
 	//! @param[out] output_graph 生成したノードを代入するベクタ．空にしておくこと.
-	void MakeNewNodesByCurrentNode(const RobotStateNode& current_node, const int current_index, std::vector<RobotStateNode>* output_graph) const;
+	void MakeNewNodesByCurrentNode(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const;
 
 
 	std::map<HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;		//!< ノード生成クラスのマップ．

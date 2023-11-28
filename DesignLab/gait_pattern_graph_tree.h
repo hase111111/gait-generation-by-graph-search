@@ -15,35 +15,75 @@ public:
 
 	//! @brief コンストラクタ．
 	//! @n ノード数の最大値を指定する．
-	inline GaitPatternGraphTree(const int graph_max_size) : graph_size_(0), graph_max_size_(graph_max_size)
+	explicit inline GaitPatternGraphTree(const int graph_max_size) : 
+		graph_size_(0), 
+		kGraphMaxSize(graph_max_size)
 	{
 		nodes_.resize(graph_max_size);
 	}
 
 	//! @brief グラフのノードの総数を返す．
-	//! @return グラフのノードの総数．
+	//! @return int グラフのノードの総数．
 	constexpr int GetGraphSize() const { return graph_size_; }
+
+	//! @brief グラフが空かどうかを返す．
+	//! @return bool グラフが空ならtrue．
+	constexpr bool Empty() const { return graph_size_ == 0; }
+
+	//! @brief グラフが根ノードを持つかどうかを返す．
+	//! @n 根ノードとは，親を持たないノードのこと．
+	//! @n 一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．
+	//! @return bool グラフが親を持つならtrue．
+	constexpr bool HasRoot() const 
+	{
+		return graph_size_ != 0; 
+	}
+
+	//! @brief グラフの根ノードのindexを返す．
+	//! @n ノードがない場合を考慮していないため，HasRoot()で根ノードを持つかどうかを確認すること．
+	//! @n 一番最初に追加されたノードは必ず根ノードになるため，根ノードのindexは0で固定される．
+	//! @return int グラフの根ノードのindex．
+	constexpr int GetRootIndex() const 
+	{
+		return 0; 
+	}
+
+	//! @brief グラフの根ノードの参照を返す．
+	//! @return const RobotStateNode& グラフの根ノードの参照．
+	inline const RobotStateNode& GetRootNode() const
+	{
+		return nodes_[0];
+	}
 
 	//! @brief グラフのノードの参照を返す．
 	//! @param[in] index 参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる．
 	//! @return indexで指定したノードの参照．
 	inline const RobotStateNode& GetNode(const int index) const
 	{
+		assert(0 <= index);
 		assert(index < graph_size_);
 		return nodes_[index];
 	}
 
+	//! @brief 指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．
+	//! @param[in] index 参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる．
+	//! @param[in] depth 親ノードの深さ．
+	//! @return const RobotStateNode& indexで指定したノードの親ノードの参照．
+	const RobotStateNode& GetParentNode(const int index, const int depth) const;
+
 	//! @brief ノードを追加する．
 	//! @n 追加するノードは親ノードのindexと，depthの指定が適切にされている必要がある．
 	//! @n また，あらかじめ確保したノード数を超えて追加しようとするとassertionに引っかかる．
+	//! @n この条件下では一番最初に追加されるノードは必ず根ノード(親を持たず，深さ0)になる，
 	inline void AddNode(const RobotStateNode& node)
 	{
-		assert(graph_size_ < graph_max_size_);
+		assert(graph_size_ < kGraphMaxSize);
 
 		nodes_[graph_size_++] = node;
 
-		assert(nodes_[graph_size_ - 1].parent_num <= graph_size_);
-		assert(nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_num].depth);
+		assert(! nodes_[graph_size_ - 1].IsParentNode() && ! (0 <= nodes_[graph_size_ - 1].parent_num));
+		assert(nodes_[graph_size_ - 1].parent_num < graph_size_);
+		assert(! nodes_[graph_size_ - 1].IsParentNode() && nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_num].depth);
 	}
 
 	//! @brief グラフをリセットする．
@@ -53,7 +93,7 @@ private:
 
 	std::vector<RobotStateNode> nodes_;		//!< グラフのデータ．
 	int graph_size_;						//!< グラフのサイズ．push_backが重たいので，あらかじめresizeしておき，実際のサイズはgraph_size_で管理する．
-	const int graph_max_size_;				//!< グラフの最大サイズ．
+	const int kGraphMaxSize;				//!< グラフの最大サイズ．
 };
 
 

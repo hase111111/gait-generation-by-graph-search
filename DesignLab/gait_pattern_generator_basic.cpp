@@ -10,13 +10,13 @@ namespace dlio = designlab::cmdio;
 
 
 GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
-	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator, 
+	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
 	std::unique_ptr<IGraphSearcher>&& graph_searcher
 ) :
-	graph_tree_creator_ptr_(std::move(graph_tree_creator)), 
-	graph_searcher_ptr_(std::move(graph_searcher))
+	graph_tree_creator_ptr_(std::move(graph_tree_creator)),
+	graph_searcher_ptr_(std::move(graph_searcher)),
+	graph_tree_{ GraphSearchConst::kMaxNodeNum }
 {
-	graph_tree_.resize(GraphSearchConst::kMaxNodeNum);
 }
 
 GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
@@ -43,15 +43,13 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	// グラフ探索をするための，歩容パターングラフを生成する
 	dlio::Output("初期化が終了しました．グラフ木を作成します．", OutputDetail::kDebug);
 
-	graph_tree_[0] = current_node;
-
-	int graph_tree_size = 1;
+	graph_tree_.Reset();
+	graph_tree_.AddNode(current_node);
 
 	const GraphSearchResult create_result = graph_tree_creator_ptr_->CreateGraphTree(
 		0, 
 		GraphSearchConst::kMaxDepth,
-		&graph_tree_,
-		&graph_tree_size
+		&graph_tree_
 	);
 
 	if (create_result != GraphSearchResult::kSuccess)
@@ -61,13 +59,13 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	}
 
 	dlio::Output("グラフ木の作成が終了しました．", OutputDetail::kDebug);
-	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_size), OutputDetail::kDebug);
+	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()), OutputDetail::kDebug);
 
 
 	// グラフ探索を行う
 	dlio::Output("グラフ木を評価します．", OutputDetail::kDebug);
 
-	const auto [search_result, next_node, high_rated_node_index] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, graph_tree_size, target);
+	const auto [search_result, next_node, high_rated_node_index] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{

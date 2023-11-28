@@ -21,42 +21,32 @@ void GraphTreeCreator::Init(const DevideMapState& map_state)
 	node_creator_builder_ptr_->Build(map_state, &node_creator_map_);
 }
 
-GraphSearchResult GraphTreeCreator::CreateGraphTree(int start_depth, int max_depth, std::vector<RobotStateNode>* graph, int* graph_size) const
+GraphSearchResult GraphTreeCreator::CreateGraphTree(int start_depth, int max_depth, GaitPatternGraphTree* graph) const
 {
 	assert(0 <= start_depth);			// start_depthは0以上である．
 	assert(start_depth < max_depth);	// start_depthはmax_depthより小さい．
 	assert(graph != nullptr);			// nullptrでない．
-	assert(!graph->empty());			// 空でない．
-	assert(graph_size != nullptr);		// nullptrでない．
+	assert(!graph->Empty());			// 空でない．
 
 	int cnt = 0;	//カウンタを用意
 
 	//カウンタがvectorのサイズを超えるまでループする．
-	while (cnt < *graph_size)
+	while (cnt < graph->GetGraphSize())
 	{
 		//探索深さが足りていないノードにのみ処理をする．
-		if (start_depth <= (*graph)[cnt].depth && (*graph)[cnt].depth < max_depth)
+		if (start_depth <= graph->GetNode(cnt).depth && graph->GetNode(cnt).depth < max_depth)
 		{
 			std::vector<RobotStateNode> res_vec;	// cnt番目のノードの子ノードを入れるベクター
 
-			MakeNewNodesByCurrentNode((*graph)[cnt], cnt, &res_vec);		//子ノードを生成する．
+			MakeNewNodesByCurrentNode(graph->GetNode(cnt), cnt, &res_vec);		//子ノードを生成する．
 
 			for (const auto& i : res_vec)
 			{
-				if (GraphSearchConst::kMaxNodeNum < *graph_size) { break; }
-
-				(*graph)[*graph_size] = i;
-				(*graph_size)++;
+				graph->AddNode(i);	//子ノードを追加する．
 			}
 		}
 
-		cnt++;	//カウンタを進める．
-	}
-
-	//ノード数が上限を超えていないか確認する．
-	if (GraphSearchConst::kMaxNodeNum < *graph_size)
-	{
-		return GraphSearchResult::kFailureByNodeLimitExceeded;
+		++cnt;	//カウンタを進める．
 	}
 
 	return GraphSearchResult::kSuccess;

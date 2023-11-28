@@ -13,8 +13,7 @@ public:
 	~GraphSearcherSpotTurn() = default;
 
 	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
-		const std::vector<RobotStateNode>& graph,
-		int graph_size,
+		const GaitPatternGraphTree& graph_tree,
 		const TargetRobotState& target
 	) const override;
 };

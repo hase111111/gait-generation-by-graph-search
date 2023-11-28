@@ -167,18 +167,26 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state_, parent_node.global_center_of_mass);
-	graph->resize(GraphSearchConst::kMaxNodeNum);
-	graph->at(0) = parent_node;
-	int graph_size = 1;
+
+	GaitPatternGraphTree graph_tree(GraphSearchConst::kMaxNodeNum);
+	graph_tree.Reset();
+	graph_tree.AddNode(parent_node);
+
 
 	graph_tree_creator_ptr_->Init(devide_map);
 
 	stopwatch_.Start();
 	
 	GraphSearchResult result =
-		graph_tree_creator_ptr_->CreateGraphTree(0, 5, graph, &graph_size);
+		graph_tree_creator_ptr_->CreateGraphTree(0, 5, &graph_tree);
 
 	stopwatch_.End();
+
+	// グラフ探索の結果を取得する
+	for (int i = 0; i < graph_tree.GetGraphSize(); i++)
+	{
+		(*graph).push_back(graph_tree.GetNode(i));
+	}
 
 
 	// グラフ探索の結果を表示する

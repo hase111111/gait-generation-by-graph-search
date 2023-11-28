@@ -16,12 +16,11 @@ class GraphSearcherRandom final : public IGraphSearcher
 {
 public:
 
-	// 継承時には，戻り値，関数名，引数の型(名前は違ってもよい)，を全て同じにする必要がある．
+	// 継承時には，戻り値，関数名，引数の型(引数名は違ってもよい)，を全て同じにする必要がある．
 	// また，最後に必ずoverrideをつける．
 
 	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
-		const std::vector<RobotStateNode>& graph,
-		int graph_size,
+		const GaitPatternGraphTree& graph,
 		const TargetRobotState& target
 	) const override;
 };
