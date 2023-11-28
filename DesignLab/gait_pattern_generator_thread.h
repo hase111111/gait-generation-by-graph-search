@@ -51,10 +51,11 @@ private:
 	int graph_tree_size_;
 
 	static constexpr int kThreadNum = 6;
-	std::array< std::vector<RobotStateNode>, kThreadNum > graph_tree_array_;
-	std::array< int, kThreadNum > graph_tree_size_array_;
+	std::array<std::vector<RobotStateNode>, kThreadNum> graph_tree_array_;
+	std::array<int, kThreadNum> graph_tree_size_array_;
 
 	void AppendGraphTree(const std::array<std::tuple<GraphSearchResult, RobotStateNode, int>, kThreadNum>& search_result_array);
 };
+
 
 #endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_	

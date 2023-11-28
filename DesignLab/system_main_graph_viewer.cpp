@@ -163,10 +163,6 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 	parent_node.ChangeParentNode();
 
 	TargetRobotState target;
-	target.target_mode = TargetMode::kStraightPosition;
-	target.target_position = { 100000,0,0 };
-	target.rotation_center = { 0,100000,0 };
-
 	RobotStateNode fake_result_node;
 
 	DevideMapState devide_map;

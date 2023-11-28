@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_GRAPH_SEARCHER_HATO_H_
 #define DESIGNLAB_GRAPH_SEARCHER_HATO_H_
 
-
 #include "interface_graph_searcher.h"
 #include "interface_hexapod_vaild_checker.h"
 
@@ -16,7 +15,7 @@ class GraphSearcherHato final : public IGraphSearcher
 public:
 
 	GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
-	~GraphSearcherHato();
+	~GraphSearcherHato() = default;
 
 	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
 		const std::vector<RobotStateNode>& graph,

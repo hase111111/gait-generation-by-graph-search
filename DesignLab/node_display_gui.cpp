@@ -130,10 +130,6 @@ void NodeDisplayGui::Draw() const
 	{
 		DrawGlobalPosInfo();
 	}
-	else if (display_type_ == DisplayMode::kChecker)
-	{
-
-	}
 
 	//ボタンを描画する
 	for (auto& button : buttons_)

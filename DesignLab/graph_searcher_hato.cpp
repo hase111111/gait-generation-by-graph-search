@@ -17,10 +17,6 @@ GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const IHexapodVaildCh
 {
 }
 
-GraphSearcherHato::~GraphSearcherHato()
-{
-}
-
 std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGraphTree(
 	const std::vector<RobotStateNode>& graph,
 	const int graph_size,

@@ -6,6 +6,7 @@
 #define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_
 
 
+
 //! @enum HexapodMove
 //! @brief ロボットが次にどの動作をするのかを表す列挙体．
 //! @n 先行研究では int型の変数 debug を用いていたが，可読性が低いので列挙体を用いる．

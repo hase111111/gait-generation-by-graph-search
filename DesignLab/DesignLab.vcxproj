@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="font_loader.h" />
     <ClInclude Include="gait_pattern_generator_thread.h" />
+    <ClInclude Include="graph_searcher_spot_turn.h" />
     <ClInclude Include="gui_updater.h" />
     <ClInclude Include="interface_dxlib_clickable.h" />
     <ClInclude Include="interface_dxlib_draggable.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="application_setting_reader_toml.cpp" />
     <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="gait_pattern_generator_thread.cpp" />
+    <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="gui_updater.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />

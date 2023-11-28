@@ -450,6 +450,9 @@
     <ClInclude Include="interface_dxlib_draggable.h">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="graph_searcher_spot_turn.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -685,6 +688,9 @@
     </ClCompile>
     <ClCompile Include="gui_updater.cpp">
       <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_searcher_spot_turn.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
