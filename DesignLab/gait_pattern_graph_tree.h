@@ -7,6 +7,9 @@
 #include "robot_state_node.h"
 
 
+//! @class GaitPatternGraphTree
+//! @brief グラフ構造を持つRobotStateNodeのツリー構造を管理するクラス．
+//! @n 歩容パターングラフ．
 class GaitPatternGraphTree final
 {
 public:
@@ -81,9 +84,9 @@ public:
 
 		nodes_[graph_size_++] = node;
 
-		assert(nodes_[graph_size_ - 1].IsParentNode() || 0 <= nodes_[graph_size_ - 1].parent_num);
-		assert(nodes_[graph_size_ - 1].parent_num < graph_size_);
-		assert(nodes_[graph_size_ - 1].IsParentNode() || nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_num].depth);
+		assert(nodes_[graph_size_ - 1].IsLootNode() || 0 <= nodes_[graph_size_ - 1].parent_index);
+		assert(nodes_[graph_size_ - 1].parent_index < graph_size_);
+		assert(nodes_[graph_size_ - 1].IsLootNode() || nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_index].depth);
 	}
 
 	//! @brief グラフをリセットする．

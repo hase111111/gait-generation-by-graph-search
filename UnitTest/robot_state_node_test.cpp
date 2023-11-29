@@ -23,7 +23,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.global_center_of_mass, zero_vec);
 		EXPECT_EQ(node.quat, zero_quat);
 		EXPECT_EQ(node.next_move, HexapodMove::kComUpDown);
-		EXPECT_EQ(node.parent_num, -1);
+		EXPECT_EQ(node.parent_index, -1);
 		EXPECT_EQ(node.depth, 0);
 	}
 
@@ -55,7 +55,7 @@ namespace designlab::test::node
 		const auto global_center_of_mass = dl::Vector3{ 37.f, 38.f, 39.f };
 		const auto quat = dl::Quaternion{};
 		const HexapodMove next_move = HexapodMove::kComUpDown;
-		const int parent_num = 43;
+		const int parent_index = 43;
 		const int depth = 44;
 
 		RobotStateNode node{
@@ -65,7 +65,7 @@ namespace designlab::test::node
 			global_center_of_mass,
 			quat,
 			next_move,
-			parent_num,
+			parent_index,
 			depth
 		};
 
@@ -75,7 +75,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.global_center_of_mass, global_center_of_mass);
 		EXPECT_EQ(node.quat, quat);
 		EXPECT_EQ(node.next_move, next_move);
-		EXPECT_EQ(node.parent_num, parent_num);
+		EXPECT_EQ(node.parent_index, parent_index);
 		EXPECT_EQ(node.depth, depth);
 	}
 }

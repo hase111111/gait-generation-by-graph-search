@@ -22,15 +22,11 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	const TargetRobotState& target
 ) const
 {
-	// targetの値によって，探索方法を変える必要がある．探索方法を抽象化するべき．
-
-	// ターゲットモードが直進と仮定して処理を書いている
-
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
-	float max_rot_angle = 0;
-	float max_leg_rot_angle = 0;
-	float max_margin = 0;
-	float min_leg_dif = 0;
+	float max_rot_angle = 0.f;
+	float max_leg_rot_angle = 0.f;
+	float max_margin = 0.f;
+	float min_leg_dif = 0.f;
 
 	if (!graph.HasRoot())
 	{

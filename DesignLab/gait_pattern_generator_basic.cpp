@@ -26,7 +26,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	RobotStateNode* output_node
 )
 {
-	assert(current_node.IsParentNode());
+	assert(current_node.IsLootNode());
 	assert(output_node != nullptr);
 	assert(graph_tree_creator_ptr_ != nullptr);
 	assert(graph_searcher_ptr_ != nullptr);

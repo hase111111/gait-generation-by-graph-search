@@ -101,7 +101,7 @@ void SystemMainSimulation::Main()
 		//最大歩容生成回数分までループする．
 		for (int j = 0; j < kGaitPatternGenerationLimit; j++)
 		{
-			current_node.ChangeParentNode();
+			current_node.ChangeLootNode();
 
 			timer_.Start();			//タイマースタート
 

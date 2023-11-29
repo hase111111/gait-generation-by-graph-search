@@ -22,14 +22,14 @@ namespace designlab::test::node
 			5
 		);
 
-		EXPECT_EQ(node.parent_num, 315);
+		EXPECT_EQ(node.parent_index, 315);
 		EXPECT_EQ(node.depth, 5);
 
 		RobotStateNode changeed = node;
 
-		changeed.ChangeParentNode();
+		changeed.ChangeLootNode();
 
-		EXPECT_EQ(changeed.parent_num, -1) << "親がいないならば，indexは-1です．";
+		EXPECT_EQ(changeed.parent_index, -1) << "親がいないならば，indexは-1です．";
 		EXPECT_EQ(changeed.depth, 0) << "親ノードの深さは0です．";
 
 		const std::string error_mes = "その他の値は変更されません．";
@@ -55,7 +55,7 @@ namespace designlab::test::node
 		);
 
 		EXPECT_EQ(node.next_move, HexapodMove::kLegHierarchyChange);
-		EXPECT_EQ(node.parent_num, 315);
+		EXPECT_EQ(node.parent_index, 315);
 		EXPECT_EQ(node.depth, 5);
 
 		RobotStateNode changeed = node;
@@ -65,7 +65,7 @@ namespace designlab::test::node
 		changeed.ChangeToNextNode(parent_index, next_move);
 
 		EXPECT_EQ(changeed.next_move, next_move) << "次の動作は変更されません．";
-		EXPECT_EQ(changeed.parent_num, parent_index) << "親は変更されません．";
+		EXPECT_EQ(changeed.parent_index, parent_index) << "親は変更されません．";
 		EXPECT_EQ(changeed.depth, node.depth + 1) << "深さは変更されません．";
 
 		const std::string error_mes = "その他の値は変更されます．";

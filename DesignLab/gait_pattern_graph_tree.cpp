@@ -16,7 +16,7 @@ const RobotStateNode& GaitPatternGraphTree::GetParentNode(const int index, const
 			break;
 		}
 
-		res_index = nodes_[res_index].parent_num;
+		res_index = nodes_[res_index].parent_index;
 	}
 
 	return nodes_[res_index];

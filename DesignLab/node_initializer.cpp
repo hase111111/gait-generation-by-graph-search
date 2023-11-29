@@ -55,7 +55,7 @@ RobotStateNode NodeInitializer::InitNode() const
 	res.quat = dl::Quaternion::MakeByAngleAxis(0.0f, dl::Vector3::GetUpVec());
 
 	res.next_move = HexapodMove::kComUpDown;
-	res.parent_num = -1;
+	res.parent_index = -1;
 	res.depth = 0;
 
 	return res;

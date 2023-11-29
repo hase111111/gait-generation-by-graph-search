@@ -1,4 +1,4 @@
-#include "graph_viewer_gui_controller.h"
+ï»¿#include "graph_viewer_gui_controller.h"
 
 #include <string>
 
@@ -51,28 +51,28 @@ void GraphViewerGUIController::DrawGraphData() const
 	const int kBoxMinY = setting_ptr_->window_size_y - kBoxSizeY - 10;
 	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
-	// ˜g
+	// æ 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
 	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 
-	// ƒeƒLƒXƒg
+	// ãƒ†ã‚­ã‚¹ãƒˆ
 	if (graph_ptr_->size() == 0)
 	{
-		DrawString(kBoxMinX + 10, kBoxMinY + 10, "ƒm[ƒh” : 0", kTextColor);
-		DrawString(kBoxMinX + 10, kBoxMinY + 30, "ƒOƒ‰ƒt‚ğ¶¬‚µ‚Ä‚­‚¾‚³‚¢", kTextColor);
+		DrawString(kBoxMinX + 10, kBoxMinY + 10, "ãƒãƒ¼ãƒ‰æ•° : 0", kTextColor);
+		DrawString(kBoxMinX + 10, kBoxMinY + 30, "ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã—ã¦ãã ã•ã„", kTextColor);
 	}
 	else
 	{
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "‘ƒm[ƒh”:%d", graph_ptr_->size());
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "•\¦ƒm[ƒh:%d”Ô", *display_node_index_ptr_);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "ç·ãƒãƒ¼ãƒ‰æ•°:%d", graph_ptr_->size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "è¡¨ç¤ºãƒãƒ¼ãƒ‰:%dç•ª", *display_node_index_ptr_);
 
-		//[‚³‚²‚Æ‚Ìƒm[ƒh‚Ì”
+		//æ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰ã®æ•°
 		for (size_t i = 0; i < graph_node_depth_data_.size(); i++)
 		{
-			DrawFormatString(kBoxMinX + 10, kBoxMinY + 50 + 20 * (int)i, kTextColor, "@([‚³%d‚Ìƒm[ƒh:%d)", (int)i, (int)graph_node_depth_data_.at(i));
+			DrawFormatString(kBoxMinX + 10, kBoxMinY + 50 + 20 * (int)i, kTextColor, "ã€€(æ·±ã•%dã®ãƒãƒ¼ãƒ‰:%d)", (int)i, (int)graph_node_depth_data_.at(i));
 		}
 	}
 }
@@ -86,24 +86,24 @@ void GraphViewerGUIController::DrawNodeControllPanel() const
 	const int kBoxMinY = 10;
 	const unsigned int kBaseColor = GetColor(255, 255, 255);
 
-	// ˜g
+	// æ 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
 	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 
-	// ƒeƒLƒXƒg
-	DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "input ( C ‚ÅƒNƒŠƒA)");
-	if (input_number_ < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "@”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
-	else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "@%d", input_number_);
+	// ãƒ†ã‚­ã‚¹ãƒˆ
+	DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "input ( C ã§ã‚¯ãƒªã‚¢)");
+	if (input_number_ < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "ã€€æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
+	else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "ã€€%d", input_number_);
 
 	if (graph_ptr_->size() > *display_node_index_ptr_)
 	{
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%d”Ôƒm[ƒh‚Ìeƒm[ƒh:%d”Ô", *display_node_index_ptr_, graph_ptr_->at(*display_node_index_ptr_).parent_num);
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%d”Ôƒm[ƒh‚Ìqƒm[ƒh”:%dŒÂ", childen_list_.first, childen_list_.second.size());
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%dç•ªãƒãƒ¼ãƒ‰ã®è¦ªãƒãƒ¼ãƒ‰:%dç•ª", *display_node_index_ptr_, graph_ptr_->at(*display_node_index_ptr_).parent_index);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%dç•ªãƒãƒ¼ãƒ‰ã®å­ãƒãƒ¼ãƒ‰æ•°:%då€‹", childen_list_.first, childen_list_.second.size());
 
-		std::string str = childen_list_.second.size() == 0 ? "None" : "@";
+		std::string str = childen_list_.second.size() == 0 ? "None" : "ã€€";
 
 		for (size_t i = 0; i < childen_list_.second.size(); i++)
 		{
@@ -111,15 +111,15 @@ void GraphViewerGUIController::DrawNodeControllPanel() const
 
 			str += std::to_string(childen_list_.second.at(i)) + ",";
 
-			if (i % 6 == 0 && i != 0) { str += "\n@"; }
+			if (i % 6 == 0 && i != 0) { str += "\nã€€"; }
 		}
 
-		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d”Ôƒm[ƒh‚Ìqƒm[ƒhƒŠƒXƒg", childen_list_.first);
+		DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%dç•ªãƒãƒ¼ãƒ‰ã®å­ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆ", childen_list_.first);
 		DrawFormatString(kBoxMinX + 10, kBoxMinY + 130, kTextColor, str.c_str());
-		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "@(qƒm[ƒhƒŠƒXƒg‚ÌXV‚Í U )");
-		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "@(ã‰ºƒL[‚Åƒm[ƒhˆÚ“®)");
-		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "@(¶‰EƒL[‚Å•\¦‚·‚éqƒm[ƒhØ‚è‘Ö‚¦)");
-		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "@(ZƒL[‚ÅƒJƒƒ‰•\¦‚ğØ‚è‘Ö‚¦)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "ã€€(å­ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®æ›´æ–°ã¯ U )");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "ã€€(ä¸Šä¸‹ã‚­ãƒ¼ã§ãƒãƒ¼ãƒ‰ç§»å‹•)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "ã€€(å·¦å³ã‚­ãƒ¼ã§è¡¨ç¤ºã™ã‚‹å­ãƒãƒ¼ãƒ‰åˆ‡ã‚Šæ›¿ãˆ)");
+		//DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "ã€€(Zã‚­ãƒ¼ã§ã‚«ãƒ¡ãƒ©è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆ)");
 	}
 }
 
@@ -133,12 +133,12 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 	const unsigned int kBoxColor = GetColor(255, 255, 255);
 	const unsigned int kBoxAlpha = 128;
 
-	// ˜g
+	// æ 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
 	DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + KBoxSizeY, kBoxColor, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-	// ƒeƒLƒXƒg
+	// ãƒ†ã‚­ã‚¹ãƒˆ
 	const unsigned int kTextColor = GetColor(10, 10, 10);
 	const int kTextXPos = kBoxMinX + 10;
 	const int kTextYMinPos = kBoxMinY + 10;
@@ -146,46 +146,46 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "dSF%dC‹rˆÊ’uF%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(node.leg_state),
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "é‡å¿ƒï¼š%dï¼Œè„šä½ç½®ï¼š%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(node.leg_state),
 		dllf::GetDiscreteLegPos(node.leg_state, 0), dllf::GetDiscreteLegPos(node.leg_state, 1), dllf::GetDiscreteLegPos(node.leg_state, 2),
 		dllf::GetDiscreteLegPos(node.leg_state, 3), dllf::GetDiscreteLegPos(node.leg_state, 4), dllf::GetDiscreteLegPos(node.leg_state, 5));
 
-	// dS‚ğ•\¦‚·‚é
+	// é‡å¿ƒã‚’è¡¨ç¤ºã™ã‚‹
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"dSˆÊ’u(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
+		"é‡å¿ƒä½ç½®(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
 
-	//—V‹r‚©Ú’n‹r‚©
+	//éŠè„šã‹æ¥åœ°è„šã‹
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(node.leg_state, i)) { str += "Ú’n,"; }
-		else { str += "—V‹r,"; }
+		if (dllf::IsGrounded(node.leg_state, i)) { str += "æ¥åœ°,"; }
+		else { str += "éŠè„š,"; }
 	}
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "‹r‚Ìó‘ÔF%s", str.c_str());
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "è„šã®çŠ¶æ…‹ï¼š%s", str.c_str());
 
-	// ‹r‚ÌˆÊ’u‚ğ•\¦‚·‚é
+	// è„šã®ä½ç½®ã‚’è¡¨ç¤ºã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-			"%d”Ô‹r‚ÌˆÊ’u(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
+			"%dç•ªè„šã®ä½ç½®(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
 	}
 
-	// [‚³‚ÆŸ‚Ì“®ì‚ğ•\¦‚·‚é
+	// æ·±ã•ã¨æ¬¡ã®å‹•ä½œã‚’è¡¨ç¤ºã™ã‚‹
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"[‚³F%d, Ÿ‚Ì“®ì : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
+		"æ·±ã•ï¼š%d, æ¬¡ã®å‹•ä½œ : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
 }
 
 
 void GraphViewerGUIController::InputNumber()
 {
-	// CƒL[‚ÅƒŠƒZƒbƒg
+	// Cã‚­ãƒ¼ã§ãƒªã‚»ãƒƒãƒˆ
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) == 1)
 	{
 		input_number_ = -1;
 		return;
 	}
 
-	// ”š“ü—Í
+	// æ•°å­—å…¥åŠ›
 	int input_number = -1;
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_0) == 1) { input_number = 0; }
@@ -235,7 +235,7 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
 	{
 		if (graph_ptr_->size() > *display_node_index_ptr_)
 		{
-			(*display_node_index_ptr_) = graph_ptr_->at(*display_node_index_ptr_).parent_num;
+			(*display_node_index_ptr_) = graph_ptr_->at(*display_node_index_ptr_).parent_index;
 		}
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) == 1 && !childen_list_.second.empty())
@@ -274,7 +274,7 @@ void GraphViewerGUIController::UpdateChildrenList()
 
 		for (size_t i = 0; i < kGraphSize; i++)
 		{
-			if (graph_ptr_->at(i).parent_num == childen_list_.first)
+			if (graph_ptr_->at(i).parent_index == childen_list_.first)
 			{
 				childen_list_.second.push_back((int)i);
 			}

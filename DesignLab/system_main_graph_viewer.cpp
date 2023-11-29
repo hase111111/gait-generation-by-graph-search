@@ -160,7 +160,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
 	// グラフ探索をする
 	RobotStateNode parent_node = parent;
-	parent_node.ChangeParentNode();
+	parent_node.ChangeLootNode();
 
 	TargetRobotState target;
 	RobotStateNode fake_result_node;

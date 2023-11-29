@@ -40,7 +40,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	RobotStateNode* output_node
 )
 {
-	assert(current_node.IsParentNode());
+	assert(current_node.IsLootNode());
 	assert(output_node != nullptr);
 	assert(graph_tree_creator_ptr_ != nullptr);
 	assert(graph_searcher_ptr_ != nullptr);
@@ -177,7 +177,7 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 
 		while (add_node.back().depth != 0)
 		{
-			add_node.push_back(graph_tree_array_[i].GetNode(add_node.back().parent_num));
+			add_node.push_back(graph_tree_array_[i].GetNode(add_node.back().parent_index));
 		}
 
 		if (add_node.size() != GraphSearchConst::kMaxDepth + 1) { continue; }
@@ -191,11 +191,11 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 			//add_nodeの中から，深さjのノードをgraph_tree_に格納する．
 			if (add_node[j].depth == 1)
 			{
-				add_node[j].parent_num = 0;
+				add_node[j].parent_index = 0;
 			}
 			else
 			{
-				add_node[j].parent_num = graph_tree_.GetGraphSize() - 1;
+				add_node[j].parent_index = graph_tree_.GetGraphSize() - 1;
 			}
 
 			graph_tree_.AddNode(add_node[j]);

@@ -48,7 +48,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		dlio::Output("グラフ木を作成する", OutputDetail::kDebug);
 
 		RobotStateNode parent_node = current_node;
-		parent_node.ChangeParentNode();
+		parent_node.ChangeLootNode();
 
 		GaitPatternGraphTree graph_tree(GraphSearchConst::kMaxNodeNum);
 		graph_tree.AddNode(parent_node);
@@ -91,7 +91,7 @@ GraphSearchResult PassFinderRevaluation::GetNextNodebyGraphSearch(const RobotSta
 		dlio::Output("脚軌道生成に失敗したため，再評価を行う", OutputDetail::kDebug);
 
 		RobotStateNode parent_node = current_node;
-		parent_node.ChangeParentNode();
+		parent_node.ChangeLootNode();
 
 		GaitPatternGraphTree graph_tree(GraphSearchConst::kMaxNodeNum);
 		graph_tree.AddNode(parent_node);

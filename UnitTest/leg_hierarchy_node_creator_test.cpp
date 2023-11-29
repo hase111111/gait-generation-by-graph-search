@@ -100,7 +100,7 @@ namespace
 
 		test_node.next_move = HexapodMove::kLegHierarchyChange;
 		test_node.depth = 0;
-		test_node.parent_num = -1;
+		test_node.parent_index = -1;
 
 		return test_node;
 	}
@@ -245,7 +245,7 @@ namespace designlab::test::node::node_creator
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
+				EXPECT_EQ(j.parent_index, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
 				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
@@ -267,7 +267,7 @@ namespace designlab::test::node::node_creator
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
+				EXPECT_EQ(j.parent_index, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
 				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
@@ -289,7 +289,7 @@ namespace designlab::test::node::node_creator
 
 			for (const auto& j : output_nodes)
 			{
-				EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
+				EXPECT_EQ(j.parent_index, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 				EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
 				EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 			}
@@ -311,7 +311,7 @@ namespace designlab::test::node::node_creator
 
 		for (const auto& j : output_nodes)
 		{
-			EXPECT_EQ(j.parent_num, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
+			EXPECT_EQ(j.parent_index, next_node_index_) << "Create関数の引数で指定したindexになる必要があります．";
 			EXPECT_EQ(j.depth, test_node.depth + 1) << "深さが1つ深くなる必要があります．";
 			EXPECT_EQ(j.next_move, next_move_) << "次の動作が指定したものになっている必要があります．";
 		}
