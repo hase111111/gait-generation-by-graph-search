@@ -1,4 +1,4 @@
-﻿#include "graph_searcher_hato.h"
+﻿#include "graph_searcher_straight_move.h"
 
 #include <iostream>
 #include <cmath>
@@ -13,12 +13,12 @@ namespace dllf = ::designlab::leg_func;
 namespace dlm = ::designlab::math_util;
 
 
-GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
+GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
 	checker_ptr_(checker_ptr)
 {
 }
 
-std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGraphTree(
+std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherStraightMove::SearchGraphTree(
 	const GaitPatternGraphTree& graph,
 	const TargetRobotState& target
 ) const
@@ -26,10 +26,10 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	assert(target.GetTargetMode() == TargetMode::kStraightMovePosition || target.GetTargetMode() == TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
-	float max_rot_angle = 0.f;
+	float max_move_length = 0.f;
 	float max_leg_rot_angle = 0.f;
 	float max_margin = 0.f;
-	float min_leg_dif = 0.f;
+	float min_com_z_dif = 0.f;
 
 	if (!graph.HasRoot())
 	{
@@ -45,10 +45,10 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 			if (result_index < 0)
 			{
 				result_index = static_cast<int>(i);
-				max_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+				max_move_length = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
 				max_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 				max_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
-				min_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
+				min_com_z_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 				continue;
 			}
 
@@ -57,42 +57,42 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 			const float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
 			const float candiate_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 
-			if (max_rot_angle < candiate_rot_angle)
+			if (max_move_length < candiate_rot_angle)
 			{
-				max_rot_angle = candiate_rot_angle;
+				max_move_length = candiate_rot_angle;
 				max_leg_rot_angle = candiate_leg_rot_angle;
 				max_margin = candiate_margin;
-				min_leg_dif = candiate_leg_dif;
+				min_com_z_dif = candiate_leg_dif;
 				result_index = static_cast<int>(i);
 			}
-			else if (dlm::IsEqual(max_rot_angle, candiate_rot_angle))
+			else if (dlm::IsEqual(max_move_length, candiate_rot_angle))
 			{
-				if (min_leg_dif > candiate_leg_dif)
+				if (min_com_z_dif > candiate_leg_dif)
 				{
-					max_rot_angle = candiate_rot_angle;
+					max_move_length = candiate_rot_angle;
 					max_leg_rot_angle = candiate_leg_rot_angle;
 					max_margin = candiate_margin;
-					min_leg_dif = candiate_leg_dif;
+					min_com_z_dif = candiate_leg_dif;
 					result_index = static_cast<int>(i);
 				}
-				else if (dlm::IsEqual(min_leg_dif, candiate_leg_dif))
+				else if (dlm::IsEqual(min_com_z_dif, candiate_leg_dif))
 				{
 					if (max_leg_rot_angle < candiate_leg_rot_angle)
 					{
-						max_rot_angle = candiate_rot_angle;
+						max_move_length = candiate_rot_angle;
 						max_leg_rot_angle = candiate_leg_rot_angle;
 						max_margin = candiate_margin;
-						min_leg_dif = candiate_leg_dif;
+						min_com_z_dif = candiate_leg_dif;
 						result_index = static_cast<int>(i);
 					}
 					else if (dlm::IsEqual(max_leg_rot_angle, candiate_leg_rot_angle))
 					{
 						if (max_margin < candiate_margin)
 						{
-							max_rot_angle = candiate_rot_angle;
+							max_move_length = candiate_rot_angle;
 							max_leg_rot_angle = candiate_leg_rot_angle;
 							max_margin = candiate_margin;
-							min_leg_dif = candiate_leg_dif;
+							min_com_z_dif = candiate_leg_dif;
 							result_index = static_cast<int>(i);
 						}
 					}
@@ -111,7 +111,7 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	return { GraphSearchResult::kSuccess, graph.GetParentNode(result_index, 1), result_index };
 }
 
-float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
+float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
@@ -123,7 +123,7 @@ float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& cu
 	return target_pos.GetLength() - target_to_parent.GetLength();
 }
 
-float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
+float GraphSearcherStraightMove::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
 {
 	float result = 0.0f;
 

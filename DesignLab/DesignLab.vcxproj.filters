@@ -183,7 +183,7 @@
     <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="graph_searcher_hato.h">
+    <ClInclude Include="graph_searcher_straight_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_leg_hierarchy.h">
@@ -456,6 +456,9 @@
     <ClInclude Include="gait_pattern_graph_tree.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_builder_turn_spot.h">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -512,7 +515,7 @@
     <ClCompile Include="graph_viewer_gui_controller.cpp">
       <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="graph_searcher_hato.cpp">
+    <ClCompile Include="graph_searcher_straight_move.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="node_creator_leg_hierarchy.cpp">
@@ -697,6 +700,9 @@
     </ClCompile>
     <ClCompile Include="gait_pattern_graph_tree.cpp">
       <Filter>ソース ファイル\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_builder_turn_spot.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

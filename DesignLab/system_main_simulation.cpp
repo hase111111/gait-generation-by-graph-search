@@ -37,7 +37,7 @@ SystemMainSimulation::SystemMainSimulation(
 	broker_ptr_->map_state.SetData(map_state_);
 
 	//ターゲットの方向を初期化する．
-	target_.SetSpotTurnRotAxis(dl::Vector3::GetUpVec());
+	target_.SetStraightMoveVector(dl::Vector3{ 10,0,-1 }.GetNormalized());
 }
 
 

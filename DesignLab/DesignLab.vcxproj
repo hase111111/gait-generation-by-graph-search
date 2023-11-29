@@ -43,6 +43,7 @@
     <ClInclude Include="application_setting_toml_key.h" />
     <ClInclude Include="application_setting_reader_toml.h" />
     <ClInclude Include="boot_mode.h" />
+    <ClInclude Include="node_creator_builder_turn_spot.h" />
     <ClInclude Include="simple_button.h" />
     <ClInclude Include="camera_input_controller.h" />
     <ClInclude Include="camera_gui.h" />
@@ -65,7 +66,7 @@
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_test.h" />
     <ClInclude Include="graph_search_const.h" />
-    <ClInclude Include="graph_searcher_hato.h" />
+    <ClInclude Include="graph_searcher_straight_move.h" />
     <ClInclude Include="designlab_euler.h" />
     <ClInclude Include="graph_tree_creator.h" />
     <ClInclude Include="hexapod_renderer_builder.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="gui_updater.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
+    <ClCompile Include="node_creator_builder_turn_spot.cpp" />
     <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_input_controller.cpp" />
     <ClCompile Include="camera_gui.cpp" />
@@ -164,7 +166,7 @@
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_test.cpp" />
-    <ClCompile Include="graph_searcher_hato.cpp" />
+    <ClCompile Include="graph_searcher_straight_move.cpp" />
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_recoder.cpp" />

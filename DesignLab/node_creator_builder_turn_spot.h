@@ -1,17 +1,14 @@
-﻿//! @file node_creator_builder_rot_test.h
-//! @brief 回転動作のテスト用ビルダークラス．
-
-#ifndef DESIGNLAB_NODE_CREATOR_BUILDER_ROT_TEST_H_
-#define DESIGNLAB_NODE_CREATOR_BUILDER_ROT_TEST_H_
+﻿#ifndef DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_
+#define DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_
 
 #include "interface_node_creator_builder.h"
 
 
-class NodeCreatorBuilderRotTest final : public INodeCreatorBuilder
+class NodeCreatorBuilderTurnSpot final : public INodeCreatorBuilder
 {
 public:
 
-	NodeCreatorBuilderRotTest(
+	NodeCreatorBuilderTurnSpot(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
@@ -27,4 +24,5 @@ private:
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
 
-#endif	// DESIGNLAB_NODE_CREATOR_BUILDER_ROT_TEST_H_
+
+#endif	//	DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_

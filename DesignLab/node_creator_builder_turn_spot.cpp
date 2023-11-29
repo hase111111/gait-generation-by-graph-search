@@ -1,4 +1,4 @@
-﻿#include "node_creator_builder_rot_test.h"
+﻿#include "node_creator_builder_turn_spot.h"
 
 #include "node_creator_body_rot.h"
 #include "cassert_define.h"
@@ -11,7 +11,7 @@
 namespace dl = ::designlab;
 
 
-NodeCreatorBuilderRotTest::NodeCreatorBuilderRotTest(
+NodeCreatorBuilderTurnSpot::NodeCreatorBuilderTurnSpot(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
@@ -21,7 +21,7 @@ NodeCreatorBuilderRotTest::NodeCreatorBuilderRotTest(
 {
 }
 
-void NodeCreatorBuilderRotTest::Build(
+void NodeCreatorBuilderTurnSpot::Build(
 	const DevideMapState& map,
 	std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const
 {
@@ -43,19 +43,11 @@ void NodeCreatorBuilderRotTest::Build(
 		map,
 		converter_ptr_,
 		checker_ptr_,
-		dl::Vector3::GetLeftVec(),
+		dl::Vector3::GetUpVec(),
 		HexapodMove::kComUpDown
 	);
 
 	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
-		map,
-		converter_ptr_,
-		presenter_ptr_,
-		checker_ptr_,
-		HexapodMove::kComMove
-	);
-
-	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
