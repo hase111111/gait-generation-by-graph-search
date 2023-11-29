@@ -3,13 +3,14 @@
 #include <iostream>
 #include <cmath>
 
+#include "cassert_define.h"
 #include "designlab_math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
 
-
-namespace dllf = designlab::leg_func;
-namespace dlm = designlab::math_util;
+namespace dl = ::designlab;
+namespace dllf = ::designlab::leg_func;
+namespace dlm = ::designlab::math_util;
 
 
 GraphSearcherHato::GraphSearcherHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
@@ -22,6 +23,8 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	const TargetRobotState& target
 ) const
 {
+	assert(target.target_mode == TargetMode::kStraightMovePosition || target.target_mode == TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
+
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_rot_angle = 0.f;
 	float max_leg_rot_angle = 0.f;
@@ -50,10 +53,10 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 				continue;
 			}
 
-			float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
-			float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
-			float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
-			float candiate_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
+			const float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+			const float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
+			const float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
+			const float candiate_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 
 			if (max_rot_angle < candiate_rot_angle)
 			{
@@ -110,15 +113,11 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	return { GraphSearchResult::kSuccess, graph.GetParentNode(result_index, 1), result_index };
 }
 
-float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, [[maybe_unused]] const TargetRobotState& target) const
+float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
 {
-	//designlab::Vector3 center_com_dif = current_node.global_center_of_mass - target.target_position;
-	//designlab::Vector3 m_target_to_parent = parent_node_.global_center_of_mass - target.target_position;
-
-	//return (int)(m_target_to_parent.ProjectedXY().GetLength() - center_com_dif.ProjectedXY().GetLength()) / 10 * 10.0f;
-
-	designlab::Vector3 target_pos {10000, 0, 0};
-	designlab::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
+	dl::Vector3 target_pos = target.target_mode == TargetMode::kStraightMovePosition ? 
+		target.target_position : target.target_direction * 100000.0f + current_node.global_center_of_mass;
+	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
 	return target_pos.GetLength() - target_to_parent.GetLength();
 }
@@ -135,5 +134,5 @@ float GraphSearcherHato::CalcLegRotEvaluationValue(const RobotStateNode& current
 		}
 	}
 
-	return result / (float)HexapodConst::kLegNum;
+	return result / static_cast<float>(HexapodConst::kLegNum);
 }

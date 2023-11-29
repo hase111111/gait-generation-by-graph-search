@@ -10,9 +10,9 @@
 #include "node_initializer.h"
 #include "simulation_map_creator.h"
 
-
-namespace dlio = designlab::cmdio;
-namespace dlsu = designlab::string_util;
+namespace dl = ::designlab;
+namespace dlio = ::designlab::cmdio;
+namespace dlsu = ::designlab::string_util;
 
 
 SystemMainSimulation::SystemMainSimulation(
@@ -35,6 +35,9 @@ SystemMainSimulation::SystemMainSimulation(
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);
+
+	target_.target_mode = TargetMode::kStraightMovePosition;	//ターゲットのモードを初期化する．
+	target_.target_position = dl::Vector3(1000000.f, 0.f, 0.f);	//ターゲットの方向を初期化する．
 }
 
 
