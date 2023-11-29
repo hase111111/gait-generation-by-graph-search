@@ -9,7 +9,7 @@
 #include "graph_search_result_recoder.h"
 #include "map_state.h"
 #include "robot_state_node.h"
-#include "target.h"
+#include "target_robot_state.h"
 
 
 //! @class IGaitPatternGenerator

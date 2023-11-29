@@ -17,7 +17,7 @@ public:
 
 private:
 
-	const float kGoalTape{ 1200.0f };	//!< 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了
+	const float kGoalTape{ 1600.f };	//!< 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了
 };
 
 

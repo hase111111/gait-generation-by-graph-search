@@ -23,7 +23,7 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	const TargetRobotState& target
 ) const
 {
-	assert(target.target_mode == TargetMode::kStraightMovePosition || target.target_mode == TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
+	assert(target.GetTargetMode() == TargetMode::kStraightMovePosition || target.GetTargetMode() == TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_rot_angle = 0.f;
@@ -33,8 +33,7 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 
 	if (!graph.HasRoot())
 	{
-		RobotStateNode dummy_node;
-		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
+		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
 	}
 
 	for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -106,8 +105,7 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 	// index が範囲外ならば失敗
 	if (result_index < 0 || result_index >= graph.GetGraphSize())
 	{
-		RobotStateNode dummy_node;
-		return { GraphSearchResult::kFailureByNoNode, dummy_node, -1 };
+		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
 	}
 
 	return { GraphSearchResult::kSuccess, graph.GetParentNode(result_index, 1), result_index };
@@ -115,8 +113,11 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherHato::SearchGrap
 
 float GraphSearcherHato::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
 {
-	dl::Vector3 target_pos = target.target_mode == TargetMode::kStraightMovePosition ? 
-		target.target_position : target.target_direction * 100000.0f + current_node.global_center_of_mass;
+	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
+
+	dl::Vector3 target_pos = target.GetTargetMode() == TargetMode::kStraightMovePosition ?
+		target.GetStraightMovePosition() : target.GetStraightMoveVector() * target_weight + current_node.global_center_of_mass;
+
 	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
 	return target_pos.GetLength() - target_to_parent.GetLength();

@@ -16,11 +16,11 @@ namespace dlsu = ::designlab::string_util;
 
 
 SystemMainSimulation::SystemMainSimulation(
-		std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
-		std::unique_ptr<IMapCreator>&& map_creator_ptr,
-		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
-	) :
+	std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
+	std::unique_ptr<IMapCreator>&& map_creator_ptr,
+	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
 	simu_end_checker_ptr_(std::make_unique<const SimulationEndChecker>()),
@@ -36,8 +36,8 @@ SystemMainSimulation::SystemMainSimulation(
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);
 
-	target_.target_mode = TargetMode::kStraightMovePosition;	//ターゲットのモードを初期化する．
-	target_.target_position = dl::Vector3(1000000.f, 0.f, 0.f);	//ターゲットの方向を初期化する．
+	//ターゲットの方向を初期化する．
+	target_.SetSpotTurnRotAxis(dl::Vector3::GetUpVec());
 }
 
 
@@ -46,14 +46,14 @@ void SystemMainSimulation::Main()
 	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
 
 
-	if (! pass_finder_ptr_)
+	if (!pass_finder_ptr_)
 	{
 		//早期リターン，グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
 		dlio::Output("パスファインダークラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
 		return;
 	}
 
-	if (! setting_ptr_)
+	if (!setting_ptr_)
 	{
 		//早期リターン，設定クラスがセットされていない場合は，エラーを出力して終了する．
 		dlio::Output("設定クラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
@@ -74,11 +74,11 @@ void SystemMainSimulation::Main()
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
 		//シミュレーションの結果を格納する変数．
-		SimulationResultRecorder record;	
+		SimulationResultRecorder record;
 
 		record.graph_search_result_recoder.push_back(
 			GraphSearchResultRecoder{ current_node , 0, GraphSearchResult::kSuccess }
-		);	
+		);
 
 
 		dlio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", OutputDetail::kSystem);
@@ -91,7 +91,7 @@ void SystemMainSimulation::Main()
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 
-			if (! dlio::InputYesNo("シミュレーションを開始しますか")) 
+			if (!dlio::InputYesNo("シミュレーションを開始しますか"))
 			{
 				break;
 			}
@@ -115,8 +115,8 @@ void SystemMainSimulation::Main()
 			timer_.End();			//タイマーストップ
 
 			// ノード，計算時間，結果を格納する．
-			record.graph_search_result_recoder.push_back (
-				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMilliSecond(), result_state}
+			record.graph_search_result_recoder.push_back(
+				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMilliSecond(), result_state }
 			);
 
 
@@ -126,9 +126,9 @@ void SystemMainSimulation::Main()
 				record.simulation_result = SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				dlio::Output(
-					"シミュレーションに失敗しました．SimulationResult = " + 
+					"シミュレーションに失敗しました．SimulationResult = " +
 					dlsu::MyEnumToString(record.simulation_result) +
-					"/ GraphSearch = " + 
+					"/ GraphSearch = " +
 					dlsu::MyEnumToString(result_state),
 					OutputDetail::kSystem
 				);
@@ -154,7 +154,7 @@ void SystemMainSimulation::Main()
 				record.simulation_result = SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
 				dlio::Output(
-					"シミュレーションに失敗しました．SimulationResult = " + 
+					"シミュレーションに失敗しました．SimulationResult = " +
 					dlsu::MyEnumToString(record.simulation_result) +
 					"/ GraphSearch = " +
 					dlsu::MyEnumToString(result_state),
@@ -170,7 +170,7 @@ void SystemMainSimulation::Main()
 				record.simulation_result = SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
 
 				dlio::Output(
-					"シミュレーションに成功しました．SimulationResult = " + 
+					"シミュレーションに成功しました．SimulationResult = " +
 					dlsu::MyEnumToString(record.simulation_result),
 					OutputDetail::kSystem
 				);

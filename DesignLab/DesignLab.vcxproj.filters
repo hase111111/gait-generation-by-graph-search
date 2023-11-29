@@ -300,7 +300,7 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="target.h">
+    <ClInclude Include="target_robot_state.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">

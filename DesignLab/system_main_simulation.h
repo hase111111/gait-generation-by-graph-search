@@ -16,7 +16,7 @@
 #include "result_file_exporter.h"
 #include "simulation_end_checker.h"
 #include "stopwatch.h"
-#include "target.h"
+#include "target_robot_state.h"
 
 
 //! @class SystemMainSimulation

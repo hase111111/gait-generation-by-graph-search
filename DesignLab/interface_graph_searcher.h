@@ -11,7 +11,7 @@
 
 #include "gait_pattern_graph_tree.h"
 #include "graph_search_result_recoder.h"
-#include "target.h"
+#include "target_robot_state.h"
 
 
 //! @class IGraphSearcher
