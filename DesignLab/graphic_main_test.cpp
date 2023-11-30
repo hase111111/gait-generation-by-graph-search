@@ -28,7 +28,7 @@ GraphicMainTest::GraphicMainTest(
 	converter_ptr_(converter_ptr)
 {
 	NodeInitializer node_initializer;
-	node_ = node_initializer.InitNode();
+	node_vec_ = node_initializer.InitNode();
 
 	const MapCreateModeMessenger messanger;
 	SimulationMapCreator map_creator(messanger);
@@ -37,7 +37,7 @@ GraphicMainTest::GraphicMainTest(
 	devide_map_state_.Init(map_state_, {});
 
 	map_render_.SetMapState(map_state_);
-	map_render_.SetHexapodPosition(node_.global_center_of_mass);
+	map_render_.SetHexapodPosition(node_vec_.global_center_of_mass);
 
 	node_display_gui_.SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 }
@@ -52,13 +52,13 @@ bool GraphicMainTest::Update()
 		MoveBody();
 	}
 
-	hexapod_renderer_->SetDrawNode(node_);
+	hexapod_renderer_->SetDrawNode(node_vec_);
 
-	node_display_gui_.SetDisplayNode(node_);
+	node_display_gui_.SetDisplayNode(node_vec_);
 
 	node_display_gui_.Update();
 
-	camera_gui_.SetHexapodPos(node_.global_center_of_mass);  //カメラの位置を更新する．
+	camera_gui_.SetHexapodPos(node_vec_.global_center_of_mass);  //カメラの位置を更新する．
 
 	camera_gui_.Update();      //カメラのGUIを更新する．
 
@@ -87,44 +87,44 @@ void GraphicMainTest::MoveBody()
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 	{
 		designlab::Vector3 com = 
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * kComSpeed,node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * kComSpeed,node_vec_.quat);
 		
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * -kComSpeed, node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetUpVec() * -kComSpeed, node_vec_.quat);
 
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * kComSpeed, node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * kComSpeed, node_vec_.quat);
 
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * -kComSpeed, node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetLeftVec() * -kComSpeed, node_vec_.quat);
 
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * kComSpeed, node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * kComSpeed, node_vec_.quat);
 
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 	{
 		designlab::Vector3 com =
-			node_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * -kComSpeed, node_.quat);
+			node_vec_.global_center_of_mass + designlab::RotateVector3(designlab::Vector3::GetFrontVec() * -kComSpeed, node_vec_.quat);
 
-		node_.ChangeGlobalCenterOfMass(com, false);
+		node_vec_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 	{
@@ -135,9 +135,9 @@ void GraphicMainTest::MoveBody()
 			angle_speed *= -1.f;
 		}
 
-		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetFrontVec()) * node_.quat;
+		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetFrontVec()) * node_vec_.quat;
 
-		node_.ChangeQuat(converter_ptr_, rot);
+		node_vec_.ChangeQuat(converter_ptr_, rot);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) > 0)
 	{
@@ -148,9 +148,9 @@ void GraphicMainTest::MoveBody()
 			angle_speed *= -1.f;
 		}
 
-		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetLeftVec()) * node_.quat;
+		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetLeftVec()) * node_vec_.quat;
 
-		node_.ChangeQuat(converter_ptr_, rot);
+		node_vec_.ChangeQuat(converter_ptr_, rot);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
 	{
@@ -161,9 +161,9 @@ void GraphicMainTest::MoveBody()
 			angle_speed *= -1.f;
 		}
 
-		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetUpVec()) * node_.quat;
+		designlab::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, designlab::Vector3::GetUpVec()) * node_vec_.quat;
 
-		node_.ChangeQuat(converter_ptr_, rot);
+		node_vec_.ChangeQuat(converter_ptr_, rot);
 	}
 }
 
@@ -176,16 +176,16 @@ void GraphicMainTest::MoveLeg()
 	{
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
 		{
-			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { node_.leg_pos[i].z += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { node_.leg_pos[i].z -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { node_.leg_pos[i].y += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { node_.leg_pos[i].y -= kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { node_.leg_pos[i].x += kSpeed; }
-			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_.leg_pos[i].x -= kSpeed; }
+			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { node_vec_.leg_pos[i].z += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { node_vec_.leg_pos[i].z -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { node_vec_.leg_pos[i].y += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { node_vec_.leg_pos[i].y -= kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { node_vec_.leg_pos[i].x += kSpeed; }
+			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { node_vec_.leg_pos[i].x -= kSpeed; }
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
 				designlab::Vector3 global = converter_ptr_->ConvertLegToGlobalCoordinate(
-					node_.leg_reference_pos[i], i, node_.global_center_of_mass, node_.quat, true
+					node_vec_.leg_reference_pos[i], i, node_vec_.global_center_of_mass, node_vec_.quat, true
 				);
 
 				int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
@@ -199,14 +199,14 @@ void GraphicMainTest::MoveLeg()
 				designlab::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, map_index_ % devide_map_state_.GetPointNum(map_x, map_y));
 				map_index_++;
 
-				node_.leg_pos[i] = converter_ptr_->ConvertGlobalToLegCoordinate(
-					map_pos, i, node_.global_center_of_mass, node_.quat, true
+				node_vec_.leg_pos[i] = converter_ptr_->ConvertGlobalToLegCoordinate(
+					map_pos, i, node_vec_.global_center_of_mass, node_vec_.quat, true
 				);
 			}
 			
 			if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
 			{
-				std::array<HexapodJointState, HexapodConst::kLegNum> res = calculator_ptr_->CalculateAllJointState(node_);
+				std::array<HexapodJointState, HexapodConst::kLegNum> res = calculator_ptr_->CalculateAllJointState(node_vec_);
 
 				float coxa = res[i].joint_angle[0];
 				float femur = res[i].joint_angle[1];
@@ -257,7 +257,7 @@ void GraphicMainTest::MoveLeg()
 					PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
 				};
 
-				node_.leg_pos[i] = leg_pos;
+				node_vec_.leg_pos[i] = leg_pos;
 			}
 		}
 	}

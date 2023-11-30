@@ -147,7 +147,7 @@
     <ClInclude Include="robot_state_node.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="node_validity_checker.h">
+    <ClInclude Include="dead_lock_checker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="graph_searcher_random.h">
@@ -491,7 +491,7 @@
     <ClCompile Include="robot_state_node.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
-    <ClCompile Include="node_validity_checker.cpp">
+    <ClCompile Include="dead_lock_checker.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_random.cpp">

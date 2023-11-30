@@ -119,7 +119,7 @@
     <ClInclude Include="simulation_end_checker.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
-    <ClInclude Include="node_validity_checker.h" />
+    <ClInclude Include="dead_lock_checker.h" />
     <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="system_main_result_viewer.h" />
@@ -207,7 +207,7 @@
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math_util.cpp" />
-    <ClCompile Include="node_validity_checker.cpp" />
+    <ClCompile Include="dead_lock_checker.cpp" />
     <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="system_main_result_viewer.cpp" />

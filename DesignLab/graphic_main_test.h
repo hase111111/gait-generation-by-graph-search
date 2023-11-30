@@ -59,7 +59,7 @@ private:
 
 	DevideMapState devide_map_state_;	//!< マップを分割するクラス．
 
-	RobotStateNode node_;						//!< ロボットの状態
+	RobotStateNode node_vec_;						//!< ロボットの状態
 
 	int map_index_ = 0;				//!< マップのインデックス
 };

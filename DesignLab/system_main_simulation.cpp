@@ -5,8 +5,8 @@
 #include <magic_enum.hpp>
 
 #include "cmdio_util.h"
+#include "dead_lock_checker.h"
 #include "designlab_string_util.h"
-#include "node_validity_checker.h"
 #include "node_initializer.h"
 #include "simulation_map_creator.h"
 
@@ -64,7 +64,7 @@ void SystemMainSimulation::Main()
 	OutputSetting();	//コマンドラインに設定を表示する．
 
 
-	NodeValidityChecker node_checker;	//ノードの妥当性をチェックするクラスを用意する．
+	DeadLockChecker dead_lock_checker;	//ノードの妥当性をチェックするクラスを用意する．
 
 
 	//シミュレーションを行う回数分ループする．
@@ -146,10 +146,10 @@ void SystemMainSimulation::Main()
 			dlio::Output(current_node.ToString(), OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
 			dlio::OutputHorizontalLine("-", OutputDetail::kInfo);
 
-			node_checker.SetNode(current_node);													//動作チェッカーにもノードを通達する．
+			dead_lock_checker.AddNode(current_node);													//動作チェッカーにもノードを通達する．
 
 			//動作がループして失敗
-			if (node_checker.IsLoopMove())
+			if (dead_lock_checker.IsDeadLock())
 			{
 				record.simulation_result = SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
