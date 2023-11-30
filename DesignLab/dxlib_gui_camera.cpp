@@ -42,6 +42,13 @@ DxlibGuiCamera::DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera) :
 
 	button_.push_back(std::make_unique<SimpleButton>("Reset\nTarget", left_pos_x + button_range * 2, top_pos_y, button_size, button_size));
 	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kFreeControlled); });
+
+	const int close_button_size = 28;
+	const int close_button_x = gui_left_pos_x_ + kWidth - close_button_size / 2 - 2;
+	const int close_button_y = gui_top_pos_y_ + close_button_size / 2 + 2;
+
+	button_.push_back(std::make_unique<SimpleButton>("×", close_button_x, close_button_y, close_button_size, close_button_size));
+	button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
 void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int option)
@@ -112,7 +119,7 @@ void DxlibGuiCamera::ClickedAction(const int cursor_x, const int cursor_y,
 	//各ボタンの処理
 	for (auto& button : button_)
 	{
-		if (button->CursorOnGui(cursor_x, cursor_y) && left_pushing_count == 1)
+		if (button->CursorOnGui(cursor_x, cursor_y))
 		{
 			button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
 		}
@@ -121,12 +128,16 @@ void DxlibGuiCamera::ClickedAction(const int cursor_x, const int cursor_y,
 
 bool DxlibGuiCamera::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
+	if (!IsVisible()) { return false; }
+
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
 }
 
 bool DxlibGuiCamera::IsDraggable(int cursor_x, int cursor_y) const
 {
+	if (!IsVisible()) { return false; }
+
 	return CursorOnGui(cursor_x, cursor_y);
 }
 
@@ -137,8 +148,6 @@ void DxlibGuiCamera::DraggedAction(int cursor_dif_x, int cursor_dif_y, [[maybe_u
 
 void DxlibGuiCamera::DrawBackground() const
 {
-	if (!visible_) { return; }
-
 	const unsigned int base_color = GetColor(255, 255, 255);
 	const unsigned int frame_color = GetColor(30, 30, 30);
 	const unsigned int alpha = 200;

@@ -180,9 +180,6 @@
     <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
-    <ClInclude Include="graph_viewer_gui_controller.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
     <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -474,6 +471,12 @@
     <ClInclude Include="hexapod_renderer_builder.h">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
+    <ClInclude Include="dxlib_gui_terminal.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_viewer_gui_controller.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -526,9 +529,6 @@
     </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="graph_viewer_gui_controller.cpp">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_straight_move.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
@@ -724,6 +724,12 @@
     </ClCompile>
     <ClCompile Include="hexapod_renderer_builder.cpp">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib_gui_terminal.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_viewer_gui_controller.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

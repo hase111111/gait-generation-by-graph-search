@@ -67,6 +67,13 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
 	);
 
 	buttons_.back()->SetActivateFunction([this]() {display_type_ = DisplayMode::kGlobalPos; });
+
+	const int close_button_size = 28;
+	const int close_button_x = gui_left_pos_x_ + kWidth - close_button_size / 2 - 2;
+	const int close_button_y = gui_top_pos_y_ + close_button_size / 2 + 2;
+
+	buttons_.push_back(std::make_unique<SimpleButton>("×", close_button_x, close_button_y, close_button_size, close_button_size));
+	buttons_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
 void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsigned int option)
@@ -174,13 +181,16 @@ void DxlibGuiNodeDisplayer::ClickedAction(const int cursor_x, const int cursor_y
 
 bool DxlibGuiNodeDisplayer::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 {
+	if (!IsVisible()) { return false; }
+
 	return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
 		(gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
 }
 
 bool DxlibGuiNodeDisplayer::IsDraggable(const int cursor_x, const int cursor_y) const
 {
-	//ドラッグ可能なのは，タイトルバーのみ
+	if (!IsVisible()) { return false; }
+
 	return CursorOnGui(cursor_x, cursor_y);
 }
 
@@ -191,8 +201,6 @@ void DxlibGuiNodeDisplayer::DraggedAction(const int cursor_dif_x, const int curs
 
 void DxlibGuiNodeDisplayer::DrawBackground() const
 {
-	if (!visible_) { return; }
-
 	const unsigned int base_color = GetColor(255, 255, 255);
 	const unsigned int frame_color = GetColor(30, 30, 30);
 	const unsigned int alpha = 200;

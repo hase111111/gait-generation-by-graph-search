@@ -8,16 +8,15 @@
 
 #include <memory>
 
-#include "dxlib_gui_camera.h"
+#include "dxlib_3d_renderer_group.h"
+#include "dxlib_gui_updater.h"
+#include "dxlib_node_setter_group.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
-#include "dxlib_gui_updater.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
-#include "map_state.h"
 #include "mouse.h"
-#include "dxlib_gui_node_displayer.h"
 
 
 //! @class GraphicMainGraphViewer
@@ -42,28 +41,18 @@ public:
 private:
 
 	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
+	const std::shared_ptr<Mouse> mouse_ptr_;
 
-	std::shared_ptr<Mouse> mouse_ptr_;
-
-	std::shared_ptr<DxlibCamera> camera_;
-	std::shared_ptr<DxlibGuiCamera> camera_gui_;
-	std::shared_ptr<DxlibGuiNodeDisplayer> node_display_gui_;
 	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
-	DxlibGuiUpdater gui_activator_;
-
-
-	MapState map_state_;
-
+	Dxlib3dRendererGroup renderer_group_;
+	DxlibGuiUpdater gui_updater_;
+	DxlibNodeSetterGroup node_setter_group_;
 
 	std::vector<RobotStateNode> graph_;
+	size_t display_node_index_{ 0 };
 
-	size_t display_node_index_ = 0;
-
-
-	int map_update_count_;
-
-	int graph_update_count_;
+	int graph_update_count_{ 0 };
 };
 
 

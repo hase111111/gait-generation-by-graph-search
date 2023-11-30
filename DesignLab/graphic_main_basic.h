@@ -54,7 +54,7 @@ private:
 
 	std::shared_ptr<Mouse> mouse_ptr_;		//!< マウスの情報を取得するクラス．
 
-	DxlibGuiUpdater gui_activator_;					//!< GUIをアクティブにするクラス．
+	DxlibGuiUpdater gui_updater_;					//!< GUIをアクティブにするクラス．
 	Dxlib3dRendererGroup render_group_;				//!< 描画を行うクラス．
 	DxlibNodeSetterGroup node_setter_group_;	//!< ノードを設定するクラス．
 

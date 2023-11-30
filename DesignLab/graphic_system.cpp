@@ -158,7 +158,7 @@ bool GraphicSystem::Loop()
 			graphic_main_ptr_->Draw();
 		}
 
-		fps_controller_.DrawFps();
+		//fps_controller_.DrawFps();
 
 		// スクリーンに裏画面に描画した内容を移す
 		if (ScreenFlip() < 0) { return false; }

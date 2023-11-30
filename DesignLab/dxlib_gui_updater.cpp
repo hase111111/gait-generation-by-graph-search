@@ -3,10 +3,14 @@
 #include <DxLib.h>
 
 #include "cassert_define.h"
+#include "dxlib_gui_terminal.h"
 
 
 void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int priority)
 {
+	assert(kBottomPriority <= priority);
+	assert(priority <= kTopPriority);
+
 	RegisterGui(gui_ptr, priority);
 
 	// IDxlibClickableも継承しているならば，clickable_ptrs_にも登録する．
@@ -36,6 +40,9 @@ void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int pr
 
 void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibClickable>& clickable_ptr, int priority)
 {
+	assert(kBottomPriority <= priority);
+	assert(priority <= kTopPriority);
+
 	RegisterClickable(clickable_ptr, priority);
 
 	// IDxlibGuiも継承しているならば，gui_ptrs_にも登録する．
@@ -65,6 +72,9 @@ void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibClickable>& clickable
 
 void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibDraggable>& draggable_ptr, int priority)
 {
+	assert(kBottomPriority <= priority);
+	assert(priority <= kTopPriority);
+
 	RegisterDraggable(draggable_ptr, priority);
 
 	// IDxlibGuiも継承しているならば，gui_ptrs_にも登録する．
@@ -94,6 +104,9 @@ void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibDraggable>& draggable
 
 void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibWheelHandler>& wheel_handler_ptr, int priority)
 {
+	assert(kBottomPriority <= priority);
+	assert(priority <= kTopPriority);
+
 	RegisterWheelHandler(wheel_handler_ptr, priority);
 
 	// IDxlibGuiも継承しているならば，gui_ptrs_にも登録する．
@@ -122,6 +135,29 @@ void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibWheelHandler>& wheel_
 }
 
 
+void DxlibGuiUpdater::OpenTerminal()
+{
+	//2回以上呼ばれたら何もしない
+	if (is_terminal_opened_) { return; }
+
+	//ターミナルに渡すGUIのリストを作成
+	std::vector<std::shared_ptr<IDxlibGui> > gui_list;
+
+	for (const auto& i : gui_ptrs_)
+	{
+		gui_list.push_back(i.second);
+	}
+
+	//ターミナルを登録
+	const auto terminal_ptr = std::make_shared<DxlibGuiTerminal>(gui_list);
+	const int terminal_priority = kTopPriority + 1;
+
+	RegisterGui(terminal_ptr, terminal_priority);
+	RegisterClickable(terminal_ptr, terminal_priority);
+
+	is_terminal_opened_ = true;
+}
+
 void DxlibGuiUpdater::Activate(const std::shared_ptr<const Mouse>& mouse_ptr)
 {
 	assert(mouse_ptr != nullptr);
@@ -137,7 +173,10 @@ void DxlibGuiUpdater::Draw() const
 	//昇順にDrawする．
 	for (auto i = gui_ptrs_.begin(); i != gui_ptrs_.end(); ++i)
 	{
-		(*i).second->Draw();
+		if ((*i).second->IsVisible()) 
+		{
+			(*i).second->Draw();
+		}
 	}
 }
 

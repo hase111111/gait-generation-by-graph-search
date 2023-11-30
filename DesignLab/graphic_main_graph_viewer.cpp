@@ -2,11 +2,15 @@
 
 #include <memory>
 
+#include "camera_dragger.h"
+#include "dxlib_gui_camera.h"
+#include "dxlib_gui_node_displayer.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
 #include "node_initializer.h"
+#include "world_grid_renderer.h"
 
 
 namespace dl = ::designlab;
@@ -22,37 +26,55 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 ) :
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
-	camera_(std::make_shared<DxlibCamera>()),
-	camera_gui_(std::make_shared<DxlibGuiCamera>(camera_)),
-	node_display_gui_(std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr)),
-	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
 	graph_({}),
-	display_node_index_(0),
-	map_update_count_(0),
-	graph_update_count_(0),
 	gui_controller_ptr_(std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr))
 {
 	//適当なノードを生成して，描画クラスを初期化する
 	NodeInitializer node_initializer;
 	RobotStateNode init_node = node_initializer.InitNode();
 
-	//hexapod_renderer_->SetDrawNode(init_node);
 
-	node_display_gui_->SetPos(10, 10, dl::kDxlibGuiAnchorRightTop);
-	camera_gui_->SetPos(10, 10, dl::kDxlibGuiAnchorLeftBottom);
+	const auto camera_ = std::make_shared<DxlibCamera>();
+
+	const auto camera_gui = std::make_shared<DxlibGuiCamera>(camera_);
+	camera_gui->SetPos(10, setting_ptr->window_size_y - 10, dl::kDxlibGuiAnchorLeftBottom);
+
+	const auto camera_dragger = std::make_shared<CameraDragger>(camera_);
+
+	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
+	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, dl::kDxlibGuiAnchorRightTop);
+
+	const auto [hexapod_renderer_, hexapod_node_setter] = 
+		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality);
+
+	const auto map_renderer = std::make_shared<MapRenderer>();
+	map_renderer->SetMapState(broker_ptr ? broker_ptr->map_state.GetData() : MapState{});
+
+	const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
+
+
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), DxlibGuiUpdater::kTopPriority);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), DxlibGuiUpdater::kBottomPriority);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), DxlibGuiUpdater::kTopPriority);
+
+	gui_updater_.OpenTerminal();
+
+	renderer_group_.Register(hexapod_renderer_);
+	renderer_group_.Register(map_renderer);
+	renderer_group_.Register(world_grid_renderer);
+
+	node_setter_group_.Register(camera_gui);
+	node_setter_group_.Register(node_display_gui);
+	node_setter_group_.Register(hexapod_node_setter);
+	node_setter_group_.Register(map_renderer);
 }
 
 
 bool GraphicMainGraphViewer::Update()
 {
-	gui_controller_ptr_->Update();
+	mouse_ptr_->Update();
 
-	//仲介人の持つデータと自身の持っているグラフデータが一致していないならば更新する
-	if (map_update_count_ != broker_ptr_->map_state.GetUpdateCount())
-	{
-		map_state_ = broker_ptr_->map_state.GetData();
-		map_update_count_ = broker_ptr_->map_state.GetUpdateCount();
-	}
+	gui_controller_ptr_->Update();
 
 	if (graph_update_count_ != broker_ptr_->graph.GetUpdateCount())
 	{
@@ -68,21 +90,12 @@ bool GraphicMainGraphViewer::Update()
 		graph_update_count_ = broker_ptr_->graph.GetUpdateCount();
 	}
 
-	//HexapodReanderの更新
 	if (display_node_index_ < graph_.size() && graph_.size() != 0)
 	{
-		//hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
-
-		camera_gui_->SetNode(graph_.at(display_node_index_));
-
-		node_display_gui_->SetNode(graph_.at(display_node_index_));
+		node_setter_group_.SetNode(graph_.at(display_node_index_));
 	}
 
-	camera_gui_->Update();
-
-	node_display_gui_->Update();
-
-	gui_activator_.Activate(mouse_ptr_);
+	gui_updater_.Activate(mouse_ptr_);
 
 	return true;
 }
@@ -90,23 +103,9 @@ bool GraphicMainGraphViewer::Update()
 
 void GraphicMainGraphViewer::Draw() const
 {
-	dldu::SetZBufferEnable();
-
-
-	MapRenderer map_renderer;
-
-	//map_renderer.Draw(map_state_);
-
-
-	if (display_node_index_ < graph_.size())
-	{
-		//hexapod_renderer_->Draw();
-	}
-
+	renderer_group_.Draw();
 
 	gui_controller_ptr_->Draw();
 
-	camera_gui_->Draw();
-
-	node_display_gui_->Draw();
+	gui_updater_.Draw();
 }

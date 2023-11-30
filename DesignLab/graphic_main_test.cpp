@@ -58,6 +58,8 @@ GraphicMainTest::GraphicMainTest(
 	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
 	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
 
+	gui_updater_.OpenTerminal();
+
 	node_setter_group_.Register(camera_gui);
 	node_setter_group_.Register(node_display_gui);
 	node_setter_group_.Register(hexapod_node_setter);

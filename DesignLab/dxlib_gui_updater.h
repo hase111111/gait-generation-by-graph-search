@@ -19,33 +19,47 @@
 //! @brief クリック判定を行うクラス．
 //! @n 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
 //! @n 優先度が高いものから順にクリック判定を行い，クリックされたらそのGUIのActivate関数を実行する．
+//! @n 神クラスになっている感は否めないが，また問題が起きたら修正する．
 class DxlibGuiUpdater final
 {
 public:
+
+	static constexpr int kBottomPriority{ 0 };			//!< 最も優先度が低い．
+	static constexpr int kTopPriority{ 1000000 };		//!< 最も優先的に処理される．
 
 	//! @brief UpdateとDrawを行うGUIを登録する．
 	//! @n IDxlibClickableまたは，IDxlibDraggable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
 	//! @param[in] gui_ptr UpdateとDrawを行うGUIのポインタ．
 	//! @param[in] priority GUIの優先度．これが高いほど優先的にUpdateとDrawが行われる．
+	//! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
 	void Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int priority);
 
 	//! @brief クリック可能なGUIを登録する．
 	//! @n IDxlibGuiまたは，IDxlibDraggable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
 	//! @param[in] clickable_ptr クリック可能なGUIのポインタ．
 	//! @param[in] priority クリック入力の優先度．これが高いほど優先的にクリックの判定がされる．
+	//! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
 	void Register(const std::shared_ptr<IDxlibClickable>& clickable_ptr, int priority);
 
 	//! @brief ドラッグ可能なGUIを登録する．
 	//! @n IDxlibGuiまたは，IDxlibClickable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
 	//! @param[in] draggable_ptr ドラッグ可能なGUIのポインタ．
 	//! @param[in] priority ドラッグ入力の優先度．これが高いほど優先的にドラッグの判定がされる．
+	//! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
 	void Register(const std::shared_ptr<IDxlibDraggable>& draggable_ptr, int priority);
 
 	//! @brief ホイール操作を行うGUIを登録する．
 	//! @n IDxlibGuiまたは，IDxlibClickable,IDxlibDraggableを継承している場合は，それらも同時に登録する．
 	//! @param[in] wheel_handler_ptr ホイール操作を行うGUIのポインタ．
 	//! @param[in] priority ホイール操作の優先度．これが高いほど優先的にホイール操作の判定がされる．
+	//! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
 	void Register(const std::shared_ptr<IDxlibWheelHandler>& wheel_handler_ptr, int priority);
+
+	//! @brief Terminalを開く.
+	//! @n 他のGUIをRegisterした後に呼び出すこと．
+	//! @n 2回目以降の呼び出しは無視される．
+	//! @n また，Terminalは最も優先度が高い．
+	void OpenTerminal();
 
 	//! @brief GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う．
 	//! @n 優先度の高いものから順に各種判定を行う．
@@ -97,6 +111,8 @@ private:
 	std::map<Priority, std::shared_ptr<IDxlibWheelHandler> > wheel_handler_ptrs_;
 
 	std::optional<Priority> now_dragging_gui_key_{ std::nullopt };		//!< ドラッグ中のGUIの優先度と順番，未ドラッグ時はstd::nullopt．
+
+	bool is_terminal_opened_{ false };		//!< Terminalが開かれているかどうか．
 };
 
 

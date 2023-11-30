@@ -52,10 +52,12 @@ GraphicMainBasic::GraphicMainBasic(
 	const auto stability_margin_renderer = std::make_shared<StabilityMarginRenderer>(converter_ptr);
 	const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
 
-	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), 1);
-	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
-	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
-	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), DxlibGuiUpdater::kTopPriority);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), DxlibGuiUpdater::kTopPriority);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), DxlibGuiUpdater::kTopPriority);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), DxlibGuiUpdater::kBottomPriority);
+
+	gui_updater_.OpenTerminal();
 
 	render_group_.Register(map_renderer_ptr_);
 	render_group_.Register(hexapod_renderer);
@@ -151,7 +153,7 @@ bool GraphicMainBasic::Update()
 
 	counter_++;				//カウンタを進める．
 
-	gui_activator_.Activate(mouse_ptr_);	//GUIをアクティブにする．
+	gui_updater_.Activate(mouse_ptr_);	//GUIをアクティブにする．
 
 	return true;
 }
@@ -166,5 +168,5 @@ void GraphicMainBasic::Draw() const
 	robot_graund_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
 	// 2DのGUIの描画
-	gui_activator_.Draw();
+	gui_updater_.Draw();
 }
