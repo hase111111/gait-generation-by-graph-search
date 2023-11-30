@@ -31,32 +31,11 @@
     <Filter Include="ソース ファイル\Node\LegState">
       <UniqueIdentifier>{2500ddaa-0eac-4e3a-8940-26819bea1d61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem">
-      <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Main">
-      <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Common">
-      <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\3DRender">
-      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger">
       <UniqueIdentifier>{028b5f8b-3a6e-48d1-a3c9-e610d6a9bcd4}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Node\NodeCreator\ComChanger">
       <UniqueIdentifier>{527ad95b-d1c1-4ac8-b586-46847f5a2a56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Common\Camera">
-      <UniqueIdentifier>{41ec5cfa-6960-4c66-b4a4-99ea386443cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\GUI">
-      <UniqueIdentifier>{df7998dd-914b-4696-8d2e-2c87e003cbb5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Common\Input">
-      <UniqueIdentifier>{806e9277-ed43-427a-be39-f48c5524a3e8}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\System">
       <UniqueIdentifier>{1959d369-af6e-477e-b55b-c7a0ee3536c7}</UniqueIdentifier>
@@ -75,12 +54,6 @@
     </Filter>
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\Common\Resource">
-      <UniqueIdentifier>{b427decb-1887-44ee-a050-25b663a0db81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GraphicSystem\3DRender\HexapodRender">
-      <UniqueIdentifier>{eb158091-82ec-4928-a3c0-ecb913980896}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Common\FileIO">
       <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
@@ -112,6 +85,36 @@
     <Filter Include="ソース ファイル\GaitPatternGenerator\Common">
       <UniqueIdentifier>{0e295e39-e3da-4b35-88ea-2a5470ea7295}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Graphic">
+      <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Main">
+      <UniqueIdentifier>{cf849e47-1672-4375-881b-671d39bebf14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Common">
+      <UniqueIdentifier>{a651eeb8-05bc-4d75-8d27-a249cfbe51a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Common\Camera">
+      <UniqueIdentifier>{41ec5cfa-6960-4c66-b4a4-99ea386443cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Common\Input">
+      <UniqueIdentifier>{806e9277-ed43-427a-be39-f48c5524a3e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Common\Resource">
+      <UniqueIdentifier>{b427decb-1887-44ee-a050-25b663a0db81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\3DRender">
+      <UniqueIdentifier>{f3d51702-5a31-4cf7-8353-879d6ef35141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\3DRender\HexapodRender">
+      <UniqueIdentifier>{eb158091-82ec-4928-a3c0-ecb913980896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\GUI">
+      <UniqueIdentifier>{df7998dd-914b-4696-8d2e-2c87e003cbb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic\Interface">
+      <UniqueIdentifier>{686ea2ca-ca07-416f-b8da-79761b5b6465}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -130,16 +133,16 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="graphic_system.h">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="graphic_const.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="fps_controller.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="map_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
@@ -154,7 +157,7 @@
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_test.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -175,10 +178,10 @@
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="graph_viewer_gui_controller.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -211,34 +214,34 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_camera.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClInclude>
     <ClInclude Include="camera_dragger.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClInclude>
     <ClInclude Include="camera_gui.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_util.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
     </ClInclude>
     <ClInclude Include="mouse.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
     </ClInclude>
     <ClInclude Include="simple_button.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="world_grid_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="movement_locus_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="node_display_gui.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="cmdio_util.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
@@ -262,13 +265,13 @@
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="robot_graund_point_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="display_node_switch_gui.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    <ClInclude Include="dxlib_gui_display_node_switcher.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="stability_margin_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2.h">
       <Filter>ソース ファイル\Hexapod</Filter>
@@ -280,7 +283,7 @@
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="interpolated_node_creator.h">
       <Filter>ソース ファイル\Node</Filter>
@@ -310,7 +313,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="interface_graphic_main.h">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="interface_node_creator_builder.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
@@ -319,7 +322,7 @@
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="asyncable_data.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -352,28 +355,22 @@
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="model_loader.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
     <ClInclude Include="singleton.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="boot_mode_selecter.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_renderer_simple.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_hexapod_renderer.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapod_renderer_builder.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
     <ClInclude Include="display_quality.h">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_renderer_model.h">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
@@ -430,13 +427,7 @@
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="font_loader.h">
-      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_dxlib_clickable.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_dxlib_gui.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_thread.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
@@ -444,11 +435,8 @@
     <ClInclude Include="avarage_calculator.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="gui_updater.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_dxlib_draggable.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    <ClInclude Include="dxlib_gui_updater.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="graph_searcher_spot_turn.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
@@ -459,8 +447,32 @@
     <ClInclude Include="node_creator_builder_turn_spot.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
+    <ClInclude Include="interface_dxlib_clickable.h">
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_dxlib_draggable.h">
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_dxlib_gui.h">
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
     <ClInclude Include="interface_dxlib_wheel_handler.h">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_dxlib_node_setter.h">
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_dxlib_3d_renderer.h">
+      <Filter>ソース ファイル\Graphic\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_3d_renderer_group.h">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_node_setter_group.h">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod_renderer_builder.h">
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -477,16 +489,16 @@
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
-      <Filter>ソース ファイル\GraphicSystem</Filter>
+      <Filter>ソース ファイル\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="graphic_const.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClCompile>
     <ClCompile Include="fps_controller.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClCompile>
     <ClCompile Include="map_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="robot_state_node.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -498,7 +510,7 @@
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_test.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
     <ClCompile Include="designlab_vector3.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -513,10 +525,10 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_graph_viewer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
     <ClCompile Include="graph_viewer_gui_controller.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_straight_move.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
@@ -546,34 +558,34 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="camera_dragger.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_camera.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClCompile>
     <ClCompile Include="camera_gui.cpp">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_util.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common</Filter>
+      <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClCompile>
     <ClCompile Include="keyboard.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
     </ClCompile>
     <ClCompile Include="mouse.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Input</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
     </ClCompile>
     <ClCompile Include="simple_button.cpp">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="world_grid_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="movement_locus_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="node_display_gui.cpp">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
@@ -588,13 +600,13 @@
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
     <ClCompile Include="robot_graund_point_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="display_node_switch_gui.cpp">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    <ClCompile Include="dxlib_gui_display_node_switcher.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="stability_margin_renderer.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="phantomx_mk2.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
@@ -606,7 +618,7 @@
       <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_basic.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Main</Filter>
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
     <ClCompile Include="interpolated_node_creator.cpp">
       <Filter>ソース ファイル\Node</Filter>
@@ -642,19 +654,16 @@
       <Filter>ソース ファイル\Common\FileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="model_loader.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClCompile>
     <ClCompile Include="boot_mode_selecter.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="phantomx_renderer_simple.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
-    </ClCompile>
-    <ClCompile Include="hexapod_renderer_builder.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
     <ClCompile Include="phantomx_renderer_model.cpp">
-      <Filter>ソース ファイル\GraphicSystem\3DRender\HexapodRender</Filter>
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
     <ClCompile Include="ros_main.cpp">
       <Filter>ソース ファイル</Filter>
@@ -690,13 +699,13 @@
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="font_loader.cpp">
-      <Filter>ソース ファイル\GraphicSystem\Common\Resource</Filter>
+      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClCompile>
     <ClCompile Include="gait_pattern_generator_thread.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
-    <ClCompile Include="gui_updater.cpp">
-      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    <ClCompile Include="dxlib_gui_updater.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="graph_searcher_spot_turn.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
@@ -706,6 +715,15 @@
     </ClCompile>
     <ClCompile Include="node_creator_builder_turn_spot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib_3d_renderer_group.cpp">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib_node_setter_group.cpp">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="hexapod_renderer_builder.cpp">
+      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

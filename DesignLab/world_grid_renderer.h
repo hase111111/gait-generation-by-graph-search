@@ -1,39 +1,41 @@
-//! @file world_grid_renderer.h
-//! @brief ƒ[ƒ‹ƒh‚ÌŠiqü‚ğ•`‰æ‚·‚éƒNƒ‰ƒX
+ï»¿//! @file world_grid_renderer.h
+//! @brief ãƒ¯ãƒ¼ãƒ«ãƒ‰ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_WORLD_GRID_RENDERER_H_
 #define DESIGNLAB_WORLD_GRID_RENDERER_H_
 
 
+#include "interface_dxlib_3d_renderer.h"
+
+
 //! @class WorldGridRenderer
-//! @brief ƒ[ƒ‹ƒh‚ÌŠiqü‚ğ•`‰æ‚·‚éƒNƒ‰ƒX
-class WorldGridRenderer final
+//! @brief ãƒ¯ãƒ¼ãƒ«ãƒ‰ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹
+class WorldGridRenderer final : public IDxlib3dRenderer
 {
 public:
 
 	WorldGridRenderer();
 
-	//! @brief ƒ[ƒ‹ƒh‚ÌŠiqü‚ğ•`‰æ‚·‚é
-	void Draw() const;
-
+	//! @brief ãƒ¯ãƒ¼ãƒ«ãƒ‰ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹
+	void Draw() const override;
 
 private:
 
-	const unsigned int kMainGridXColor;		//!< Šiqü‚ÌF
+	const unsigned int kMainGridXColor;		//!< æ ¼å­ç·šã®è‰²
 
-	const unsigned int kMainGridYColor;		//!< Šiqü‚ÌF
+	const unsigned int kMainGridYColor;		//!< æ ¼å­ç·šã®è‰²
 
-	const unsigned int kSubGridXColor;		//!< ×‚¢Šiqü‚ÌF
+	const unsigned int kSubGridXColor;		//!< ç´°ã„æ ¼å­ç·šã®è‰²
 
-	const unsigned int kSubGridYColor;		//!< ×‚¢Šiqü‚ÌF
+	const unsigned int kSubGridYColor;		//!< ç´°ã„æ ¼å­ç·šã®è‰²
 
-	const int kMainGridNum;					//!< ƒƒCƒ“‚ÌŠiqü‚Ì”
+	const int kMainGridNum;					//!< ãƒ¡ã‚¤ãƒ³ã®æ ¼å­ç·šã®æ•°
 
-	const float kMainGridInterval;			//!< Šiqü‚ÌŠÔŠu
+	const float kMainGridInterval;			//!< æ ¼å­ç·šã®é–“éš”
 
-	const int kSubGridDevideNum;			//!< ƒƒCƒ“‚ÌŠiqü‚ğ‰½•ªŠ„‚µ‚ÄƒTƒu‚ÌŠiqü‚ğ‚¢‚ê‚é‚©
+	const int kSubGridDevideNum;			//!< ãƒ¡ã‚¤ãƒ³ã®æ ¼å­ç·šã‚’ä½•åˆ†å‰²ã—ã¦ã‚µãƒ–ã®æ ¼å­ç·šã‚’ã„ã‚Œã‚‹ã‹
 
-	const float kGridLineZPos;				//!< Šiqü‚ÌZÀ•W
+	const float kGridLineZPos;				//!< æ ¼å­ç·šã®Zåº§æ¨™
 };
 
 

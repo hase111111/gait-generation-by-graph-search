@@ -1,11 +1,11 @@
-﻿#include "gui_updater.h"
+﻿#include "dxlib_gui_updater.h"
 
 #include <DxLib.h>
 
 #include "cassert_define.h"
 
 
-void GuiUpdater::Register(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
+void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int priority)
 {
 	RegisterGui(gui_ptr, priority);
 
@@ -34,7 +34,7 @@ void GuiUpdater::Register(const std::shared_ptr<IDxlibGui> gui_ptr, int priority
 	}
 }
 
-void GuiUpdater::Register(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
+void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibClickable>& clickable_ptr, int priority)
 {
 	RegisterClickable(clickable_ptr, priority);
 
@@ -63,7 +63,7 @@ void GuiUpdater::Register(const std::shared_ptr<IDxlibClickable> clickable_ptr, 
 	}
 }
 
-void GuiUpdater::Register(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
+void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibDraggable>& draggable_ptr, int priority)
 {
 	RegisterDraggable(draggable_ptr, priority);
 
@@ -92,7 +92,7 @@ void GuiUpdater::Register(const std::shared_ptr<IDxlibDraggable> draggable_ptr, 
 	}
 }
 
-void GuiUpdater::Register(const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority)
+void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibWheelHandler>& wheel_handler_ptr, int priority)
 {
 	RegisterWheelHandler(wheel_handler_ptr, priority);
 
@@ -122,7 +122,7 @@ void GuiUpdater::Register(const std::shared_ptr<IDxlibWheelHandler> wheel_handle
 }
 
 
-void GuiUpdater::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
+void DxlibGuiUpdater::Activate(const std::shared_ptr<const Mouse>& mouse_ptr)
 {
 	assert(mouse_ptr != nullptr);
 
@@ -132,7 +132,7 @@ void GuiUpdater::Activate(const std::shared_ptr<const Mouse> mouse_ptr)
 	ActivateWheelHandler(mouse_ptr);
 }
 
-void GuiUpdater::Draw() const
+void DxlibGuiUpdater::Draw() const
 {
 	//昇順にDrawする．
 	for (auto i = gui_ptrs_.begin(); i != gui_ptrs_.end(); ++i)
@@ -142,7 +142,7 @@ void GuiUpdater::Draw() const
 }
 
 
-void GuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
+void DxlibGuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
 {
 	assert(gui_ptr != nullptr);
 
@@ -167,7 +167,7 @@ void GuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int prior
 	gui_ptrs_[p] = gui_ptr;
 }
 
-void GuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
+void DxlibGuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
 {
 	assert(clickable_ptr != nullptr);
 
@@ -192,7 +192,7 @@ void GuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> clicka
 	clickable_ptrs_[p] = clickable_ptr;
 }
 
-void GuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
+void DxlibGuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
 {
 	assert(draggable_ptr != nullptr);
 
@@ -217,7 +217,7 @@ void GuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> dragga
 	draggable_ptrs_[p] = draggable_ptr;
 }
 
-void GuiUpdater::RegisterWheelHandler(const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority)
+void DxlibGuiUpdater::RegisterWheelHandler(const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority)
 {
 	assert(wheel_handler_ptr != nullptr);
 
@@ -242,7 +242,7 @@ void GuiUpdater::RegisterWheelHandler(const std::shared_ptr<IDxlibWheelHandler> 
 	wheel_handler_ptrs_[p] = wheel_handler_ptr;
 }
 
-void GuiUpdater::UpdateGui()
+void DxlibGuiUpdater::UpdateGui()
 {
 	//逆順にUpdateする．
 	for (auto i = gui_ptrs_.rbegin(); i != gui_ptrs_.rend(); ++i)
@@ -251,7 +251,7 @@ void GuiUpdater::UpdateGui()
 	}
 }
 
-void GuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
+void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	// 優先度の高いものから順にクリック判定を行う
 	// 昇順(増える順)に並んでいるので，rbeginからrendまで(降順に)走査する
@@ -267,7 +267,7 @@ void GuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
 	}
 }
 
-void GuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr)
+void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	unsigned int mouse_key{ 0 };
 	int pressing_count{ 0 };
@@ -321,7 +321,7 @@ void GuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse_ptr)
 	}
 }
 
-void GuiUpdater::ActivateWheelHandler(const std::shared_ptr<const Mouse> mouse_ptr)
+void DxlibGuiUpdater::ActivateWheelHandler(const std::shared_ptr<const Mouse> mouse_ptr)
 {
 	if (mouse_ptr->GetWheelRot() == 0) { return; }
 

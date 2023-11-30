@@ -1,4 +1,4 @@
-﻿//! @file camera_input_controller.h
+﻿//! @file camera_dragger.h
 //! @brief マウスの入力でカメラを動かすクラス．
 
 #ifndef DESIGNLAB_CAMERA_DRAGGER_H_

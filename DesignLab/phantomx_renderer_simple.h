@@ -1,5 +1,5 @@
-//! @file phantomx_renderer_simple.h
-//! @brief ƒƒ{ƒbƒg‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
+ï»¿//! @file phantomx_renderer_simple.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
@@ -19,12 +19,13 @@
 
 #include <Dxlib.h>
 
-#include "interface_hexapod_renderer.h"
+#include "interface_dxlib_3d_renderer.h"
+#include "interface_dxlib_node_setter.h"
 
 
 //! @class PhantomXRendererSimple
-//! @brief PhantomX‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD3Dƒ‚ƒfƒ‹‚ğg—p‚¹‚¸C‘½ŠpŒ`‚ğ‘g‚İ‡‚í‚¹‚Äƒƒ{ƒbƒg‚ğ•`‰æ‚·‚éD
-class PhantomXRendererSimple final : public IHexapodRenderer
+//! @brief PhantomXã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼3Dãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ç”¨ã›ãšï¼Œå¤šè§’å½¢ã‚’çµ„ã¿åˆã‚ã›ã¦ãƒ­ãƒœãƒƒãƒˆã‚’æç”»ã™ã‚‹ï¼
+class PhantomXRendererSimple final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
 
@@ -34,42 +35,42 @@ public:
 		DisplayQuality display_quality
 	);
 
-	void SetDrawNode(const RobotStateNode& node) override;
+	void SetNode(const RobotStateNode& node) override;
 
 	void Draw() const override;
 
 private:
 
-	//! @brief ’Êí’Ê‚è‚Éƒƒ{ƒbƒg‚Ì•`‰æ‚ğ‚·‚é
+	//! @brief é€šå¸¸é€šã‚Šã«ãƒ­ãƒœãƒƒãƒˆã®æç”»ã‚’ã™ã‚‹
 	void DrawHexapodNormal() const;
 
-	const unsigned int kColorBody;			//!< “·‘Ì‚ÌF
-	const unsigned int kColorLeg;			//!< ‹r‚ÌF
-	const unsigned int kColorLiftedLeg;		//!< —V‹r‚µ‚Ä‚¢‚é‹r‚ÌF
-	const unsigned int kColorJoint;			//!< ƒWƒ‡ƒCƒ“ƒg‚ÌF
-	const unsigned int kColorLiftedJoint;	//!< —V‹r‚µ‚Ä‚¢‚éƒWƒ‡ƒCƒ“ƒg‚ÌF
-	const unsigned int kColorLegBase;		//!< ‹r‚ÌŠî•”‚ÌF
+	const unsigned int kColorBody;			//!< èƒ´ä½“ã®è‰²
+	const unsigned int kColorLeg;			//!< è„šã®è‰²
+	const unsigned int kColorLiftedLeg;		//!< éŠè„šã—ã¦ã„ã‚‹è„šã®è‰²
+	const unsigned int kColorJoint;			//!< ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®è‰²
+	const unsigned int kColorLiftedJoint;	//!< éŠè„šã—ã¦ã„ã‚‹ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®è‰²
+	const unsigned int kColorLegBase;		//!< è„šã®åŸºéƒ¨ã®è‰²
 	const unsigned int kColorKineLeg;
 	const unsigned int kColorKineJoint;
-	const unsigned int kColorErrorJoint;	//!< •¶š‚ÌF
-	const unsigned int kColorErrorText;		//!< ƒGƒ‰[‚Ì•¶šF
+	const unsigned int kColorErrorJoint;	//!< æ–‡å­—ã®è‰²
+	const unsigned int kColorErrorText;		//!< ã‚¨ãƒ©ãƒ¼ã®æ–‡å­—è‰²
 
-	const int kCapsuleDivNum;	//!< ƒƒ{ƒbƒg‚Ìƒ‚ƒfƒ‹‚Ì‰~’Œ‚ğ‚Ç‚ê‚¾‚¯×‚©‚­•`‰æ‚·‚é‚©D4 ` 20‚®‚ç‚¢‚ª‚¿‚å‚¤‚Ç‚æ‚¢‚Æv‚¤D
-	const int kSphereDivNum;	//!< ƒƒ{ƒbƒg‚Ìƒ‚ƒfƒ‹‚Ì‹…‚ğ‚Ç‚ê‚¾‚¯×‚©‚­•`‰æ‚·‚é‚©D16 ` 32‚®‚ç‚¢‚ª‚¿‚å‚¤‚Ç‚æ‚¢‚Æv‚¤D
-	const float kLegRadius;		//!< ‹r‚Ì”¼ŒaD‚±‚ÌƒNƒ‰ƒX‚Å‚Í‹r‚ğ‰~’Œ‚É‹ß—‚µ‚Ä•`‰æ‚µ‚Ä‚¢‚éD•`‰æ‚Ìƒf[ƒ^‚Ì‚½‚ßC‚±‚ê‚ğ•Ï‰»‚³‚¹‚Ä‚àƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É‰e‹¿‚Í‚È‚¢D
-	const float kJointRadius;	//!< ƒWƒ‡ƒCƒ“ƒg‚Ì”¼ŒaD•`‰æ‚Ìƒf[ƒ^‚Ì‚½‚ßC‚±‚ê‚ğ•Ï‰»‚³‚¹‚Ä‚àƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É‰e‹¿‚Í‚È‚¢D
+	const int kCapsuleDivNum;	//!< ãƒ­ãƒœãƒƒãƒˆã®ãƒ¢ãƒ‡ãƒ«ã®å††æŸ±ã‚’ã©ã‚Œã ã‘ç´°ã‹ãæç”»ã™ã‚‹ã‹ï¼4 ï½ 20ãã‚‰ã„ãŒã¡ã‚‡ã†ã©ã‚ˆã„ã¨æ€ã†ï¼
+	const int kSphereDivNum;	//!< ãƒ­ãƒœãƒƒãƒˆã®ãƒ¢ãƒ‡ãƒ«ã®çƒã‚’ã©ã‚Œã ã‘ç´°ã‹ãæç”»ã™ã‚‹ã‹ï¼16 ï½ 32ãã‚‰ã„ãŒã¡ã‚‡ã†ã©ã‚ˆã„ã¨æ€ã†ï¼
+	const float kLegRadius;		//!< è„šã®åŠå¾„ï¼ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯è„šã‚’å††æŸ±ã«è¿‘ä¼¼ã—ã¦æç”»ã—ã¦ã„ã‚‹ï¼æç”»æ™‚ã®ãƒ‡ãƒ¼ã‚¿ã®ãŸã‚ï¼Œã“ã‚Œã‚’å¤‰åŒ–ã•ã›ã¦ã‚‚ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å½±éŸ¿ã¯ãªã„ï¼
+	const float kJointRadius;	//!< ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®åŠå¾„ï¼æç”»æ™‚ã®ãƒ‡ãƒ¼ã‚¿ã®ãŸã‚ï¼Œã“ã‚Œã‚’å¤‰åŒ–ã•ã›ã¦ã‚‚ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å½±éŸ¿ã¯ãªã„ï¼
 
-	const bool kDoOutputDebugLog = false;	//!< ‹ró‘Ô‚ğ•¶š—ñ‚Åo—Í‚·‚é‚©‚Ç‚¤‚©
+	const bool kDoOutputDebugLog = false;	//!< è„šçŠ¶æ…‹ã‚’æ–‡å­—åˆ—ã§å‡ºåŠ›ã™ã‚‹ã‹ã©ã†ã‹
 
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
-	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
-	RobotStateNode draw_node_;						//!< •`‰æ‚·‚éƒƒ{ƒbƒg‚Ìó‘Ô
+	RobotStateNode draw_node_;						//!< æç”»ã™ã‚‹ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹
 
-	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< •`‰æ‚·‚éƒƒ{ƒbƒg‚ÌƒWƒ‡ƒCƒ“ƒg‚Ìó‘Ô
+	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< æç”»ã™ã‚‹ãƒ­ãƒœãƒƒãƒˆã®ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®çŠ¶æ…‹
 
-	DisplayQuality display_quality_;	//!< •`‰æ•i¿
+	DisplayQuality display_quality_;	//!< æç”»å“è³ª
 };
 
 #endif	// DESIGNLAB_DONOT_USE_DXLIB

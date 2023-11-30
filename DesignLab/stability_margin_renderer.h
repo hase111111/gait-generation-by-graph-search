@@ -1,5 +1,5 @@
-//! @file stability_margin_renderer.h
-//! @brief ƒƒ{ƒbƒg‚ÌÃ“IˆÀ’è—]—T(x‹r‘½ŠpŒ`)‚ğ•`‰æ‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file stability_margin_renderer.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®é™çš„å®‰å®šä½™è£•(æ”¯æŒè„šå¤šè§’å½¢)ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
@@ -8,34 +8,38 @@
 
 #include <memory>
 
+#include "interface_dxlib_node_setter.h"
+#include "interface_dxlib_3d_renderer.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"
 
 
 //! @class StabilityMarginRenderer
-//! @brief ƒƒ{ƒbƒg‚ÌÃ“IˆÀ’è—]—T(x‹r‘½ŠpŒ`)‚ğ•`‰æ‚·‚éƒNƒ‰ƒXD
-//! @n Ú’n“_‚ğ“Š‰e‚µ‚½‘½ŠpŒ`‚Ì“à•”‚ÉCdS‚ª“ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ÅˆÀ’è«‚ğ”»’è‚·‚éDStability Margin ‚ÅƒOƒO‚é‚ÆÚ‚µ‚¢à–¾‚ªo‚Ä‚­‚éD
-class StabilityMarginRenderer final
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®é™çš„å®‰å®šä½™è£•(æ”¯æŒè„šå¤šè§’å½¢)ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+//! @n æ¥åœ°ç‚¹ã‚’æŠ•å½±ã—ãŸå¤šè§’å½¢ã®å†…éƒ¨ã«ï¼Œé‡å¿ƒãŒå…¥ã£ã¦ã„ã‚‹ã‹ã©ã†ã‹ã§å®‰å®šæ€§ã‚’åˆ¤å®šã™ã‚‹ï¼Stability Margin ã§ã‚°ã‚°ã‚‹ã¨è©³ã—ã„èª¬æ˜ãŒå‡ºã¦ãã‚‹ï¼
+class StabilityMarginRenderer final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
 
 	StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 	~StabilityMarginRenderer() = default;
 
-	//! @brief ƒƒ{ƒbƒg‚ÌÃ“IˆÀ’è—]—T(x‹r‘½ŠpŒ`)‚ğ•`‰æ‚·‚éD
-	//! @param [in] node ƒƒ{ƒbƒg‚Ìó‘ÔD
-	void Draw(const RobotStateNode& node) const;
+	void SetNode(const RobotStateNode& node) override { node_ = node; };
+
+	void Draw() const override;
 
 
 private:
-	const unsigned int kMarginColor;		//!< x‹r‘½ŠpŒ`‚ÌFD
+	const unsigned int kMarginColor;		//!< æ”¯æŒè„šå¤šè§’å½¢ã®è‰²ï¼
 
-	const unsigned int kMarginErrorColor;	//!< ˆÀ’è‚Å‚È‚¢‚Æ‚«‚ÌF
+	const unsigned int kMarginErrorColor;	//!< å®‰å®šã§ãªã„ã¨ãã®è‰²
 
-	const int kAlpha;						//!< “§–¾“xD
+	const int kAlpha;						//!< é€æ˜åº¦ï¼
 
 
-	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< åº§æ¨™å¤‰æ›å™¨ï¼
+
+	RobotStateNode node_;	//!< ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ï¼
 };
 
 

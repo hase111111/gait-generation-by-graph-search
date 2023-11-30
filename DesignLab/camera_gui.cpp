@@ -66,9 +66,9 @@ void CameraGui::SetPos(const int pos_x, const int pos_y, const unsigned int opti
 	}
 }
 
-void CameraGui::SetHexapodPos(const dl::Vector3& pos)
+void CameraGui::SetNode(const RobotStateNode& node)
 {
-	camera_->SetTargetPos(pos);
+	camera_->SetTargetPos(node.global_center_of_mass);
 }
 
 void CameraGui::Update()

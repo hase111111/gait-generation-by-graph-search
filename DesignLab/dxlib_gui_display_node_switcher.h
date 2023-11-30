@@ -1,9 +1,9 @@
-﻿//! @file display_node_switch_gui.h
+﻿//! @file dxlib_gui_display_node_switcher.h
 //! @brief ノードの表示切り替えGUI
 
 
-#ifndef DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
-#define DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
+#ifndef DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
+#define DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
 
 #include <memory>
 #include <vector>
@@ -14,13 +14,13 @@
 #include "simple_button.h"
 
 
-//! @class DisplayNodeSwitchGui
+//! @class DxlibGuiDisplayNodeSwitcher
 //! @brief ノードの表示切り替えGUI
-class DisplayNodeSwitchGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
+class DxlibGuiDisplayNodeSwitcher final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
 {
 public:
 
-	DisplayNodeSwitchGui();
+	DxlibGuiDisplayNodeSwitcher();
 
 
 	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
@@ -113,4 +113,4 @@ private:
 };
 
 
-#endif	// DESIGNLAB_DISPLAY_NODE_SWITCH_GUI_H_
+#endif	// DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_

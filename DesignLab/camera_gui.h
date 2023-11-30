@@ -14,12 +14,13 @@
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"
+#include "interface_dxlib_node_setter.h"
 #include "simple_button.h"
 
 
 //! @class CameraGui
 //! @brief カメラの操作・管理を行うGUIを行うクラス．
-class CameraGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
+class CameraGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
@@ -36,9 +37,8 @@ public:
 	//! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
 	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
 
-	//! @brief カメラが注視するロボットの座標を設定する．
-	//! @param[in] pos ロボットの座標．
-	void SetHexapodPos(const designlab::Vector3& pos);
+
+	void SetNode(const RobotStateNode& node) override;
 
 	void Update() override;
 
@@ -62,7 +62,7 @@ public:
 
 private:
 
-	static constexpr int kWidth{ 235 };			//!< GUIの横幅．
+	static constexpr int kWidth{ 245 };			//!< GUIの横幅．
 	static constexpr int kHeight{ 410 };		//!< GUIの縦幅．
 	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ．
 

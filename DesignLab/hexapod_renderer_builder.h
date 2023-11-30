@@ -1,32 +1,35 @@
-//! @file hexapod_renderer_builder.h
-//! @brief HexapodRendererƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éƒNƒ‰ƒX
+ï»¿//! @file hexapod_renderer_builder.h
+//! @brief HexapodRendererã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 
 #ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
 #define DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
 
-
 #include <memory>
+#include <tuple>
 
 #include "display_quality.h"
-#include "interface_hexapod_renderer.h"
+#include "interface_dxlib_node_setter.h"
+#include "interface_dxlib_3d_renderer.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 
+
 //! @class HexapodRendererBuilder
-//! @brief HexapodRendererƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éƒNƒ‰ƒX
+//! @brief HexapodRendererã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹
 class HexapodRendererBuilder final
 {
 public:
 
-	//! @brief HexapodRendererƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éDstaticŠÖ”‚È‚Ì‚ÅCHexapodRendererBuilder::Build()‚ÆŒÄ‚Ño‚·D
-	//! @param [in] calculator AbstractHexapodStateCalculatorƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒXD
-	//! @n ‚±‚ÌƒNƒ‰ƒX‚ÌŒ^‚ğ”»•Ê‚µ‚ÄC“KØ‚ÈHexapodRendererƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éD
-	//! @param [in] converter AbstractHexapodCoordinateConverterƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒXDshared_ptr‚Å“n‚·‚±‚ÆD
-	//! @param [in] calculator AbstractHexapodStateCalculatorƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒXDshared_ptr‚Å“n‚·‚±‚ÆD
-	//! @param [in] display_quality •`‰æ•i¿D
-	//! @return HexapodRendererƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒXDunique_ptr‚Å•Ô‚·D
-	static std::unique_ptr<IHexapodRenderer> Build(
+	//! @brief HexapodRendererã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ï¼staticé–¢æ•°ãªã®ã§ï¼ŒHexapodRendererBuilder::Build()ã¨å‘¼ã³å‡ºã™ï¼
+	//! @param [in] calculator AbstractHexapodStateCalculatorã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ï¼
+	//! @n ã“ã®ã‚¯ãƒ©ã‚¹ã®å‹ã‚’åˆ¤åˆ¥ã—ã¦ï¼Œé©åˆ‡ãªHexapodRendererã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ï¼
+	//! @param [in] converter AbstractHexapodCoordinateConverterã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ï¼shared_ptrã§æ¸¡ã™ã“ã¨ï¼
+	//! @param [in] calculator AbstractHexapodStateCalculatorã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ï¼shared_ptrã§æ¸¡ã™ã“ã¨ï¼
+	//! @param [in] display_quality æç”»å“è³ªï¼
+	//! @return std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > HexapodRendererã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ï¼
+	//! @n ã‚ã¾ã‚Šã‚ˆããªã„æ°—ãŒã™ã‚‹ãŒï¼Œç¶™æ‰¿ã—ã¦ã„ã‚‹2ã¤ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§è¿”ã™ãŸã‚ã«ï¼Œstd::tupleã§è¿”ã™ï¼
+	static std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > Build(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		DisplayQuality display_quality

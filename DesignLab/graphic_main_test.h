@@ -9,16 +9,15 @@
 #include <memory>
 
 #include "application_setting_recorder.h"
-#include "camera_gui.h"
 #include "devide_map_state.h"
-#include "interface_hexapod_renderer.h"
+#include "dxlib_3d_renderer_group.h"
+#include "dxlib_node_setter_group.h"
+#include "dxlib_gui_updater.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "map_state.h"
-#include "map_renderer.h"
 #include "robot_state_node.h"
-#include "node_display_gui.h"
 
 
 //! @class GraphicMainTest
@@ -44,24 +43,20 @@ private:
 
 	void MoveLeg();
 
-	std::shared_ptr<DxlibCamera> camera_;				//!< カメラの位置を制御するクラス
-	CameraGui camera_gui_;				//!< カメラの位置を制御するGUI
+	std::shared_ptr<Mouse> mouse_ptr_;			//!< マウスの位置を制御するクラス．
 
-	NodeDisplayGui node_display_gui_;	//!< ノードの表示を制御するGUI
-
-	MapRenderer map_render_;
+	DxlibGuiUpdater gui_updater_;				//!< GUIの更新を行うクラス
+	DxlibNodeSetterGroup node_setter_group_;	//!< ノードの設定を行うクラス
+	Dxlib3dRendererGroup render_group_;			//!< 描画を行うクラス
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
-	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;	
 
 	MapState map_state_;				//!< マップの状態を保持するクラス．
+	DevideMapState devide_map_state_;	//!< 分割したマップの状態を保持するクラス．
+	RobotStateNode robot_;				//!< ロボットの状態．
 
-	DevideMapState devide_map_state_;	//!< マップを分割するクラス．
-
-	RobotStateNode node_vec_;						//!< ロボットの状態
-
-	int map_index_ = 0;				//!< マップのインデックス
+	int devide_map_tile_index_{ 0 };		//!< 脚を接地しているデバイドマップのインデックス．
 };
 
 

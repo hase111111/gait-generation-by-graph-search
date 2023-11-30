@@ -14,7 +14,7 @@ CameraDragger::CameraDragger(const std::shared_ptr<DxlibCamera> camera) : camera
 	assert(camera_ptr_ != nullptr);
 }
 
-void CameraDragger::DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit)
+void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, const unsigned int mouse_key_bit)
 {
 	assert(camera_ptr_ != nullptr);
 
@@ -106,6 +106,5 @@ void CameraDragger::DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned i
 
 void CameraDragger::RotMouseWheel(const int rot) const
 {
-	printfDx("wheel rot:%d\n", rot);
 	camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * rot * -1);
 }

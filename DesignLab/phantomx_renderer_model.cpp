@@ -27,9 +27,11 @@ PhantomXRendererModel::PhantomXRendererModel(
 {
 }
 
-void PhantomXRendererModel::SetDrawNode(const RobotStateNode& node)
+void PhantomXRendererModel::SetNode(const RobotStateNode& node)
 {
 	draw_node_ = node;
+
+	if (calculator_ptr_ == nullptr) { return; }
 
 	draw_joint_state_ = calculator_ptr_->CalculateAllJointState(node);
 }
@@ -129,8 +131,8 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 
 	// リンクが曲がっているため，簡単のために回転軸を結ぶように仮想的なリンクを使っている．
 	// そのため，仮想的なリンクの角度を補正する必要がある．
-	const float virtual_link_offset_angle = dlm::ConvertDegToRad(12.5f);	
-	
+	const float virtual_link_offset_angle = dlm::ConvertDegToRad(12.5f);
+
 	const dl::Quaternion thign_def_quat =
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
@@ -185,17 +187,17 @@ void PhantomXRendererModel::DrawTibiaLink(const int leg_index) const
 
 	const float tibia_angle = draw_joint_state_[leg_index].joint_angle[2];
 
-	const dl::Quaternion default_quat = 
+	const dl::Quaternion default_quat =
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
 		dl::Quaternion::MakeByAngleAxis(-femur_angle - tibia_angle, dl::Vector3::GetLeftVec()) *
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) * 
+		dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) *
 		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetUpVec());
 
 	const VECTOR offset_pos = dldu::ConvertToDxlibVec(
-	dl::RotateVector3
+		dl::RotateVector3
 		(
 			dl::Vector3::GetFrontVec(),
 			dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()

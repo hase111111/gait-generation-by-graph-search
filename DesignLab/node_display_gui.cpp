@@ -91,7 +91,8 @@ void NodeDisplayGui::SetPos(const int pos_x, const int pos_y, const unsigned int
 	}
 }
 
-void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
+
+void NodeDisplayGui::SetNode(const RobotStateNode& node)
 {
 	//ノードをセットする
 	display_node_ = node;
@@ -101,7 +102,6 @@ void NodeDisplayGui::SetDisplayNode(const RobotStateNode& node)
 	// 関節の角度をセットする
 	joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
-
 
 void NodeDisplayGui::Update()
 {
@@ -148,7 +148,6 @@ void NodeDisplayGui::SetVisible(const bool visible)
 	}
 }
 
-
 void NodeDisplayGui::ClickedAction(const int cursor_x, const int cursor_y,
 	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
@@ -179,7 +178,6 @@ bool NodeDisplayGui::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 		(gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
 }
 
-
 bool NodeDisplayGui::IsDraggable(const int cursor_x, const int cursor_y) const
 {
 	//ドラッグ可能なのは，タイトルバーのみ
@@ -190,7 +188,6 @@ void NodeDisplayGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_
 {
 	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
 }
-
 
 void NodeDisplayGui::DrawBackground() const
 {

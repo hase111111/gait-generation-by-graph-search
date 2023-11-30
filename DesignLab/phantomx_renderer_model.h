@@ -1,5 +1,5 @@
-//! @file phantomx_renderer_model.h
-//! @brief ƒƒ{ƒbƒg‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
+ï»¿//! @file phantomx_renderer_model.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
@@ -13,7 +13,8 @@
 #include "define.h"
 #include "display_quality.h"
 #include "hexapod_const.h"
-#include "interface_hexapod_renderer.h"
+#include "interface_dxlib_3d_renderer.h"
+#include "interface_dxlib_node_setter.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
@@ -23,8 +24,8 @@
 
 
 //! @class PhantomXRendererModel
-//! @brief PhantomX‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD3Dƒ‚ƒfƒ‹‚ğg—p‚·‚é
-class PhantomXRendererModel final : public IHexapodRenderer
+//! @brief PhantomXã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼3Dãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
+class PhantomXRendererModel final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
 
@@ -33,7 +34,7 @@ public:
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr
 	);
 
-	void SetDrawNode(const RobotStateNode& node) override;
+	void SetNode(const RobotStateNode& node) override;
 
 	void Draw() const override;
 
@@ -49,12 +50,12 @@ private:
 
 	void DrawJointAxis(int leg_index) const;
 
-	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< ƒƒ{ƒbƒg‚Ì‹ræÀ•W‚ğŒvZ‚·‚éƒNƒ‰ƒX
-	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< ƒƒ{ƒbƒg‚ÌŠÔÚˆÊ’u‚ğŒvZ‚·‚éƒNƒ‰ƒX
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< ãƒ­ãƒœãƒƒãƒˆã®è„šå…ˆåº§æ¨™ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹
+	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;	//!< ãƒ­ãƒœãƒƒãƒˆã®é–“æ¥ä½ç½®ã‚’è¨ˆç®—ã™ã‚‹ã‚¯ãƒ©ã‚¹
 
-	RobotStateNode draw_node_;	//!< •`‰æ‚·‚éƒƒ{ƒbƒg‚Ìó‘Ô
-	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< •`‰æ‚·‚éƒƒ{ƒbƒg‚ÌƒWƒ‡ƒCƒ“ƒg‚Ìó‘Ô
-	DisplayQuality display_quality_;	//!< •`‰æ•i¿
+	RobotStateNode draw_node_;	//!< æç”»ã™ã‚‹ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹
+	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< æç”»ã™ã‚‹ãƒ­ãƒœãƒƒãƒˆã®ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®çŠ¶æ…‹
+	DisplayQuality display_quality_;	//!< æç”»å“è³ª
 };
 
 #endif	// DESIGNLAB_DONOT_USE_DXLIB

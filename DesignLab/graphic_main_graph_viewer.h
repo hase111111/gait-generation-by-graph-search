@@ -11,8 +11,7 @@
 #include "camera_gui.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
-#include "gui_updater.h"
-#include "interface_hexapod_renderer.h"
+#include "dxlib_gui_updater.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
@@ -51,12 +50,10 @@ private:
 	std::shared_ptr<NodeDisplayGui> node_display_gui_;
 	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
-	GuiUpdater gui_activator_;
+	DxlibGuiUpdater gui_activator_;
 
 
 	MapState map_state_;
-
-	const std::unique_ptr<IHexapodRenderer> hexapod_renderer_;
 
 
 	std::vector<RobotStateNode> graph_;

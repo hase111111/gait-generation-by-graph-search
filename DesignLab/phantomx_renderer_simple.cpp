@@ -36,11 +36,11 @@ PhantomXRendererSimple::PhantomXRendererSimple(
 	calculator_ptr_(calculator_ptr),
 	display_quality_(display_quality)
 {
-	SetDrawNode(RobotStateNode{});
+	SetNode(RobotStateNode{});
 }
 
 
-void PhantomXRendererSimple::SetDrawNode(const RobotStateNode& node)
+void PhantomXRendererSimple::SetNode(const RobotStateNode& node)
 {
 	draw_node_ = node;
 
@@ -66,10 +66,10 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 	{
 		vertex[i] = dldu::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[i].joint_pos_leg_coordinate[0], 
-				i, 
-				draw_node_.global_center_of_mass, 
-				draw_node_.quat, 
+				draw_joint_state_[i].joint_pos_leg_coordinate[0],
+				i,
+				draw_node_.global_center_of_mass,
+				draw_node_.quat,
 				true
 			)
 		);
@@ -95,10 +95,10 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		{
 			const VECTOR start = dldu::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					draw_joint_state_[i].joint_pos_leg_coordinate[j], 
-					i, 
-					draw_node_.global_center_of_mass, 
-					draw_node_.quat, 
+					draw_joint_state_[i].joint_pos_leg_coordinate[j],
+					i,
+					draw_node_.global_center_of_mass,
+					draw_node_.quat,
 					true
 				)
 			);
@@ -113,19 +113,19 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 				)
 			);
 
-			if (draw_joint_state_[i].is_in_range) 
+			if (draw_joint_state_[i].is_in_range)
 			{
 				DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kLegBaseColor, kLegBaseColor, TRUE);
 			}
-			else 
+			else
 			{
 				DrawCapsule3D(start, end, kLegRadius, kCapsuleDivNum, kColorErrorJoint, kColorErrorJoint, TRUE);
 			}
 		}
 
-		
+
 		//間接の描画
-		for (int j = 0; j < 4; j++) 
+		for (int j = 0; j < 4; j++)
 		{
 			unsigned int color = kJointColor;
 
@@ -135,23 +135,23 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 			VECTOR pos = dldu::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					draw_joint_state_[i].joint_pos_leg_coordinate[j], 
-					i, 
-					draw_node_.global_center_of_mass, 
-					draw_node_.quat, 
+					draw_joint_state_[i].joint_pos_leg_coordinate[j],
+					i,
+					draw_node_.global_center_of_mass,
+					draw_node_.quat,
 					true
 				)
 			);
 
 			DrawSphere3D(pos, kJointRadius, kSphereDivNum, color, color, TRUE);
 		}
-		
+
 		DrawSphere3D(
 			dldu::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
 			kJointRadius / 2,
-			kSphereDivNum, 
-			kJointColor, 
-			kJointColor, 
+			kSphereDivNum,
+			kJointColor,
+			kJointColor,
 			TRUE
 		);
 
@@ -161,7 +161,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 			kJointRadius / 3,
 			kSphereDivNum,
 			kColorLegBase,
-			kColorLegBase, 
+			kColorLegBase,
 			TRUE
 		);
 	}

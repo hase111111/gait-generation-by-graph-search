@@ -1,4 +1,4 @@
-﻿#include "display_node_switch_gui.h"
+﻿#include "dxlib_gui_display_node_switcher.h"
 
 #include <algorithm>
 
@@ -10,7 +10,7 @@
 namespace dl = ::designlab;
 
 
-DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
+DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher() :
 	display_node_num_(0),
 	all_node_num_(0),
 	simulation_num_(0),
@@ -72,7 +72,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 	button_.back()->SetActivateFunction([this]() { MoveNextSimulation(); });
 }
 
-void DisplayNodeSwitchGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
@@ -94,7 +94,7 @@ void DisplayNodeSwitchGui::SetPos(const int pos_x, const int pos_y, const unsign
 	}
 }
 
-void DisplayNodeSwitchGui::SetGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
+void DxlibGuiDisplayNodeSwitcher::SetGraphData(const size_t node_num, const std::vector<size_t>& simu_end_index)
 {
 	all_node_num_ = node_num;
 
@@ -104,7 +104,7 @@ void DisplayNodeSwitchGui::SetGraphData(const size_t node_num, const std::vector
 }
 
 
-size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
+size_t DxlibGuiDisplayNodeSwitcher::GetDisplayNodeNum() const
 {
 	// 範囲外の値を返さないようにする．
 	if (display_node_num_ > all_node_num_ && all_node_num_ != 0) { return all_node_num_ - 1; }
@@ -115,7 +115,7 @@ size_t DisplayNodeSwitchGui::GetDisplayNodeNum() const
 }
 
 
-void DisplayNodeSwitchGui::Update()
+void DxlibGuiDisplayNodeSwitcher::Update()
 {
 	++counter_;
 
@@ -132,7 +132,7 @@ void DisplayNodeSwitchGui::Update()
 	}
 }
 
-void DisplayNodeSwitchGui::Draw() const
+void DxlibGuiDisplayNodeSwitcher::Draw() const
 {
 	if (!visible_) { return; }
 
@@ -190,7 +190,7 @@ void DisplayNodeSwitchGui::Draw() const
 	DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 150, text_color, font_handle_, "アニメーションの\n     速度変更");
 }
 
-void DisplayNodeSwitchGui::SetVisible(const bool visible)
+void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
 {
 	visible_ = visible;
 
@@ -201,7 +201,7 @@ void DisplayNodeSwitchGui::SetVisible(const bool visible)
 }
 
 
-void DisplayNodeSwitchGui::ClickedAction(const int cursor_x, const int cursor_y,
+void DxlibGuiDisplayNodeSwitcher::ClickedAction(const int cursor_x, const int cursor_y,
 	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	// ボタンを更新する
@@ -215,26 +215,26 @@ void DisplayNodeSwitchGui::ClickedAction(const int cursor_x, const int cursor_y,
 	}
 }
 
-bool DisplayNodeSwitchGui::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
+bool DxlibGuiDisplayNodeSwitcher::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
 }
 
 
-bool DisplayNodeSwitchGui::IsDraggable(const int cursor_x, const int cursor_y) const
+bool DxlibGuiDisplayNodeSwitcher::IsDraggable(const int cursor_x, const int cursor_y) const
 {
 	//ドラッグ可能なのは，タイトルバーのみ
 	return CursorOnGui(cursor_x, cursor_y);
 }
 
-void DisplayNodeSwitchGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
+void DxlibGuiDisplayNodeSwitcher::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
 {
 	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
 }
 
 
-void DisplayNodeSwitchGui::MoveMostPrevNode()
+void DxlibGuiDisplayNodeSwitcher::MoveMostPrevNode()
 {
 	//候補
 	size_t candidate = 0;
@@ -254,7 +254,7 @@ void DisplayNodeSwitchGui::MoveMostPrevNode()
 	display_node_num_ = candidate;
 }
 
-void DisplayNodeSwitchGui::MovePrevNode()
+void DxlibGuiDisplayNodeSwitcher::MovePrevNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
@@ -269,7 +269,7 @@ void DisplayNodeSwitchGui::MovePrevNode()
 	display_node_num_ = static_cast<size_t>((std::max)(static_cast<int>(display_node_num_), 0));
 }
 
-void DisplayNodeSwitchGui::MoveMostNextNode()
+void DxlibGuiDisplayNodeSwitcher::MoveMostNextNode()
 {
 	//候補
 	size_t candidate = all_node_num_ - 1;
@@ -286,7 +286,7 @@ void DisplayNodeSwitchGui::MoveMostNextNode()
 	display_node_num_ = candidate;
 }
 
-void DisplayNodeSwitchGui::MoveNextNode()
+void DxlibGuiDisplayNodeSwitcher::MoveNextNode()
 {
 	for (size_t i = 0; i < simu_end_index_.size(); i++)
 	{
@@ -301,7 +301,7 @@ void DisplayNodeSwitchGui::MoveNextNode()
 	display_node_num_ = static_cast<size_t>((std::min)(static_cast<int>(display_node_num_), static_cast<int>(all_node_num_ - 1)));
 }
 
-void DisplayNodeSwitchGui::MovePrevSimulation()
+void DxlibGuiDisplayNodeSwitcher::MovePrevSimulation()
 {
 	//前のシミュレーションへ移動する
 	--simulation_num_;
@@ -319,7 +319,7 @@ void DisplayNodeSwitchGui::MovePrevSimulation()
 	}
 }
 
-void DisplayNodeSwitchGui::MoveNextSimulation()
+void DxlibGuiDisplayNodeSwitcher::MoveNextSimulation()
 {
 	//次のシミュレーションへ移動する
 	++simulation_num_;
@@ -339,7 +339,7 @@ void DisplayNodeSwitchGui::MoveNextSimulation()
 	}
 }
 
-int DisplayNodeSwitchGui::GetAllSimulationNum() const
+int DxlibGuiDisplayNodeSwitcher::GetAllSimulationNum() const
 {
 	int all_simu_num = 1;
 
@@ -352,7 +352,7 @@ int DisplayNodeSwitchGui::GetAllSimulationNum() const
 	return all_simu_num;
 }
 
-void DisplayNodeSwitchGui::DrawBackground() const
+void DxlibGuiDisplayNodeSwitcher::DrawBackground() const
 {
 	const unsigned int alpha = 200;
 

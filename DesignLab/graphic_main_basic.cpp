@@ -3,9 +3,11 @@
 #include <Dxlib.h>
 
 #include "camera_dragger.h"
+#include "camera_gui.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
+#include "node_display_gui.h"
 #include "map_renderer.h"
 #include "world_grid_renderer.h"
 
@@ -21,42 +23,49 @@ GraphicMainBasic::GraphicMainBasic(
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
-	camera_(std::make_shared<DxlibCamera>()),
-	node_display_gui_(std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
-	display_node_switch_gui_(std::make_shared<DisplayNodeSwitchGui>()),
-	camera_gui_(std::make_shared<CameraGui>(camera_)),
-	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
+	display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>()),
+	map_renderer_ptr_(std::make_shared<MapRenderer>()),
 	movement_locus_renderer_{},
 	interpolated_node_creator_{ converter_ptr },
-	robot_graund_point_renderer_(converter_ptr),
-	stability_margin_renderer_(converter_ptr),
+	robot_graund_point_renderer_{ converter_ptr },
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),
-	interpolated_anime_start_count_(kInterpolatedAnimeCount * -10),
-	is_displayed_movement_locus_(true),
-	is_displayed_robot_graund_point_(true)
+	interpolated_anime_start_count_(kInterpolatedAnimeCount * -10)
 {
 	if (setting_ptr->gui_display_quality == DisplayQuality::kHigh)
 	{
 		movement_locus_renderer_.SetIsHighQuality(true);
 	}
 
+	const auto camera = std::make_shared<DxlibCamera>();
+	const auto camera_gui = std::make_shared<CameraGui>(camera);
 	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
-	node_display_gui_->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+	const auto node_display_gui = std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr);
+	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
-	std::shared_ptr<IDxlibGui> display_node_switch_gui_ptr = display_node_switch_gui_;
-	gui_activator_.Register(display_node_switch_gui_ptr, 1);
+	const auto [hexapod_renderer, hexapod_node_setter] =
+		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr ? setting_ptr->gui_display_quality : DisplayQuality::kMedium);
+	const auto stability_margin_renderer = std::make_shared<StabilityMarginRenderer>(converter_ptr);
+	const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
 
-	std::shared_ptr<IDxlibGui> node_display_gui_ptr = node_display_gui_;
-	gui_activator_.Register(node_display_gui_ptr, 1);
+	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), 1);
+	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
+	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
+	gui_activator_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
 
-	std::shared_ptr<IDxlibGui> camera_gui_ptr = camera_gui_;
-	gui_activator_.Register(camera_gui_ptr, 1);
+	render_group_.Register(map_renderer_ptr_);
+	render_group_.Register(hexapod_renderer);
+	render_group_.Register(stability_margin_renderer);
+	render_group_.Register(world_grid_renderer);
 
-	std::shared_ptr<IDxlibDraggable> camera_dragger_ptr = std::make_shared<CameraDragger>(camera_);
-	gui_activator_.Register(camera_dragger_ptr, 0);
+	node_setter_group_.Register(map_renderer_ptr_);
+	node_setter_group_.Register(camera_gui);
+	node_setter_group_.Register(hexapod_node_setter);
+	node_setter_group_.Register(node_display_gui);
+	node_setter_group_.Register(stability_margin_renderer);
 }
 
 
@@ -69,7 +78,7 @@ bool GraphicMainBasic::Update()
 		map_update_count = broker_ptr_->map_state.GetUpdateCount();
 		map_state_ = broker_ptr_->map_state.GetData();
 
-		map_renderer_.SetMapState(map_state_);
+		map_renderer_ptr_->SetMapState(map_state_);
 	}
 
 
@@ -122,13 +131,7 @@ bool GraphicMainBasic::Update()
 
 			display_node_index_ = display_node_switch_gui_->GetDisplayNodeNum();					//表示するノードを取得する．
 
-			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));							//ロボットの状態を更新する．
-
-			camera_gui_->SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);		//カメラの位置を更新する．
-
-			map_renderer_.SetHexapodPosition(graph_.at(display_node_index_).global_center_of_mass);	//マップの表示を更新する．
-
-			node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));						//ノードの情報を表示するGUIに情報を伝達する．
+			node_setter_group_.SetNode(graph_.at(display_node_index_));						//ノードの情報を設定するGUIに情報を伝達する．
 		}
 
 		if (interpolated_anime_start_count_ <= counter_ && counter_ < interpolated_anime_start_count_ + kInterpolatedAnimeCount)
@@ -137,16 +140,11 @@ bool GraphicMainBasic::Update()
 			const size_t anime_index = interpolated_node_.size() * (static_cast<size_t>(counter_) - static_cast<size_t>(interpolated_anime_start_count_))
 				/ static_cast<size_t>(kInterpolatedAnimeCount);
 
-			hexapod_renderer_->SetDrawNode(interpolated_node_[anime_index]);
-
-			node_display_gui_->SetDisplayNode(interpolated_node_[anime_index]);
+			node_setter_group_.SetNode(interpolated_node_[anime_index]);
 		}
 		else if (counter_ == interpolated_anime_start_count_ + kInterpolatedAnimeCount)
 		{
-			//アニメーションが終了したら，元のノードを表示する
-			hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
-
-			node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));
+			node_setter_group_.SetNode(graph_.at(display_node_index_));						//ノードの情報を設定するGUIに情報を伝達する．
 		}
 	}
 
@@ -154,50 +152,17 @@ bool GraphicMainBasic::Update()
 
 	gui_activator_.Activate(mouse_ptr_);	//GUIをアクティブにする．
 
-	//キー入力で表示を切り替える
-	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_L) == 1)
-	{
-		is_displayed_movement_locus_ = !is_displayed_movement_locus_;
-	}
-	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_G) == 1)
-	{
-		is_displayed_robot_graund_point_ = !is_displayed_robot_graund_point_;
-	}
-
 	return true;
 }
 
 
 void GraphicMainBasic::Draw() const
 {
-	// 3Dのオブジェクトの描画
+	render_group_.Draw();
 
-	designlab::dxlib_util::SetZBufferEnable();		//Zバッファを有効にする．
+	movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());   //移動軌跡を描画する．
 
-
-	WorldGridRenderer grid_renderer;	//インスタンスを生成する．
-
-	grid_renderer.Draw();				//グリッドを描画する．
-
-	map_renderer_.Draw();
-
-
-	if (is_displayed_movement_locus_)movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());   //移動軌跡を描画する．
-
-	if (is_displayed_robot_graund_point_)robot_graund_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
-
-
-	if (!graph_.empty())
-	{
-		//ノードが存在しているならば，ロボットを描画する．
-		hexapod_renderer_->Draw();
-
-		if (counter_ > interpolated_anime_start_count_ + kInterpolatedAnimeCount)
-		{
-			stability_margin_renderer_.Draw(graph_.at(display_node_index_));
-		}
-	}
-
+	robot_graund_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
 	// 2DのGUIの描画
 	gui_activator_.Draw();

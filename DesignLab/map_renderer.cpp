@@ -8,17 +8,17 @@
 namespace dldu = designlab::dxlib_util;
 
 
-MapRenderer::MapRenderer() : 
-	kColorGray(GetColor(80, 80, 80)), 
+MapRenderer::MapRenderer() :
+	kColorGray(GetColor(80, 80, 80)),
 	kColorLightGray(GetColor(160, 160, 160)),
 	kColorDarkGray(GetColor(40, 40, 40)),
 	kCubeSize(15.f)
 {
 }
 
-void MapRenderer::SetHexapodPosition(const designlab::Vector3& pos)
+void MapRenderer::SetNode(const RobotStateNode& pos)
 {
-	hexapod_pos_ = pos;
+	hexapod_pos_ = pos.global_center_of_mass;
 
 	devide_map_.Init(map_, hexapod_pos_);
 }
@@ -38,8 +38,8 @@ void MapRenderer::Draw() const
 	for (size_t i = 0; i < kSize; i++)
 	{
 		dldu::DrawCube3DWithTopPos(
-			dldu::ConvertToDxlibVec(map_.GetMapPoint(i)), 
-			kCubeSize, 
+			dldu::ConvertToDxlibVec(map_.GetMapPoint(i)),
+			kCubeSize,
 			kColorDarkGray
 		);
 	}

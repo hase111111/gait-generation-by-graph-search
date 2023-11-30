@@ -26,7 +26,6 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	camera_gui_(std::make_shared<CameraGui>(camera_)),
 	node_display_gui_(std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
-	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	graph_({}),
 	display_node_index_(0),
 	map_update_count_(0),
@@ -37,7 +36,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	NodeInitializer node_initializer;
 	RobotStateNode init_node = node_initializer.InitNode();
 
-	hexapod_renderer_->SetDrawNode(init_node);
+	//hexapod_renderer_->SetDrawNode(init_node);
 
 	node_display_gui_->SetPos(10, 10, dl::kOptionRightTop);
 	camera_gui_->SetPos(10, 10, dl::kOptionLeftBottom);
@@ -72,11 +71,11 @@ bool GraphicMainGraphViewer::Update()
 	//HexapodReanderの更新
 	if (display_node_index_ < graph_.size() && graph_.size() != 0)
 	{
-		hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
+		//hexapod_renderer_->SetDrawNode(graph_.at(display_node_index_));
 
-		camera_gui_->SetHexapodPos(graph_.at(display_node_index_).global_center_of_mass);
+		camera_gui_->SetNode(graph_.at(display_node_index_));
 
-		node_display_gui_->SetDisplayNode(graph_.at(display_node_index_));
+		node_display_gui_->SetNode(graph_.at(display_node_index_));
 	}
 
 	camera_gui_->Update();
@@ -101,7 +100,7 @@ void GraphicMainGraphViewer::Draw() const
 
 	if (display_node_index_ < graph_.size())
 	{
-		hexapod_renderer_->Draw();
+		//hexapod_renderer_->Draw();
 	}
 
 

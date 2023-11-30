@@ -13,6 +13,7 @@
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"
+#include "interface_dxlib_node_setter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
@@ -20,7 +21,7 @@
 
 //! @class NodeDisplayGui
 //! @brief ノードの情報を表示するGUI
-class NodeDisplayGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
+class NodeDisplayGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
@@ -32,10 +33,8 @@ public:
 
 	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
 
-	//! @brief 表示するノードを設定する，その後関節の角度を計算し，セットする
-	//! @param [in] node 表示するノード
-	void SetDisplayNode(const RobotStateNode& node);
 
+	void SetNode(const RobotStateNode& node) override;
 
 	void Update() override;
 

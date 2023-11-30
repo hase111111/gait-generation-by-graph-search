@@ -15,32 +15,32 @@ namespace dldu = ::designlab::dxlib_util;
 
 
 StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
-	kMarginColor(GetColor(0, 255, 0)), 
-	kMarginErrorColor(GetColor(255, 0, 0)), 
+	kMarginColor(GetColor(0, 255, 0)),
+	kMarginErrorColor(GetColor(255, 0, 0)),
 	kAlpha(128),
 	converter_ptr_(converter_ptr)
 {
 }
 
 
-void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
+void StabilityMarginRenderer::Draw() const
 {
 	dl::Polygon2 polygon_xy;			//平面に投影した多角形．
 
 	std::vector<dl::Vector3> polygon;	//多角形の頂点．
 
-	dl::Vector3 polygon_sum{0, 0, 0};	//多角形の頂点の合計，重心を求めるために使用する
+	dl::Vector3 polygon_sum{ 0, 0, 0 };	//多角形の頂点の合計，重心を求めるために使用する
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(node.leg_state, i))
+		if (dllf::IsGrounded(node_.leg_state, i))
 		{
 			polygon.push_back(
-				converter_ptr_->ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.global_center_of_mass, node.quat, true)
+				converter_ptr_->ConvertLegToGlobalCoordinate(node_.leg_pos[i], i, node_.global_center_of_mass, node_.quat, true)
 			);
 
-			polygon.back() += dl::Vector3{0, 0, 5};	//わかりやすさのため，高さを少し上げる
+			polygon.back() += dl::Vector3{ 0, 0, 5 };	//わかりやすさのため，高さを少し上げる
 
 			polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
@@ -64,7 +64,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
 
-		if (polygon_xy.IsInside(node.global_center_of_mass.ProjectedXY()))
+		if (polygon_xy.IsInside(node_.global_center_of_mass.ProjectedXY()))
 		{
 			DrawTriangle3D(poly[0], poly[1], poly[2], kMarginColor, TRUE);
 		}
@@ -80,7 +80,7 @@ void StabilityMarginRenderer::Draw(const RobotStateNode& node) const
 	//投射した重心を描画する
 	VECTOR projected_center_pos = dldu::ConvertToDxlibVec(
 		//わかりやすさのため，重心の高さを少し上げる
-		{ node.global_center_of_mass.x,node.global_center_of_mass.y, center.z + 10 }	
+		{ node_.global_center_of_mass.x,node_.global_center_of_mass.y, center.z + 10 }
 	);
 
 	DrawSphere3D(projected_center_pos, 5, 10, 10, GetColor(255, 255, 255), TRUE);

@@ -1,5 +1,5 @@
-//! @file map_renderer.h
-//! @brief ƒ}ƒbƒv‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
+ï»¿//! @file map_renderer.h
+//! @brief ãƒãƒƒãƒ—ã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_MAP_RENDERER_H_
@@ -7,30 +7,32 @@
 
 #include "devide_map_state.h"
 #include "designlab_vector3.h"
+#include "interface_dxlib_node_setter.h"
+#include "interface_dxlib_3d_renderer.h"
 #include "map_state.h"
 
 
 //! @class MapRenderer
-//! @brief Map‚Ì•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
-class MapRenderer final
+//! @brief Mapã®æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
+class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer
 {
 public:
 	MapRenderer();
 	~MapRenderer() = default;
 
-	//! @brief ƒƒ{ƒbƒg‚ÌdS‚ÌƒOƒ[ƒoƒ‹À•W‚ğİ’è‚·‚éD
-	//! @n DevideMap‚Íƒƒ{ƒbƒg‚ÌdS‚ğ’†S‚É‚µ‚Ä‚¢‚é‚Ì‚ÅCƒƒ{ƒbƒg‚ÌdS‚ÌƒOƒ[ƒoƒ‹À•W‚ğİ’è‚·‚é•K—v‚ª‚ ‚éD
-	//! @n ‘ã“ü‚Æ“¯‚ÉDevideMap‚àXV‚³‚ê‚éD
-	//! @param [in] pos ƒƒ{ƒbƒg‚ÌdS‚ÌƒOƒ[ƒoƒ‹À•WD
-	void SetHexapodPosition(const designlab::Vector3& pos);
+	//! @brief ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã‚’è¨­å®šã™ã‚‹ï¼
+	//! @n DevideMapã¯ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã‚’ä¸­å¿ƒã«ã—ã¦ã„ã‚‹ã®ã§ï¼Œãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã‚’è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+	//! @n ä»£å…¥ã¨åŒæ™‚ã«DevideMapã‚‚æ›´æ–°ã•ã‚Œã‚‹ï¼
+	//! @param [in] pos ãƒ­ãƒœãƒƒãƒˆã®é‡å¿ƒã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼
+	void SetNode(const RobotStateNode& pos) override;
 
-	//! @brief ƒ}ƒbƒv‚Ìó‘Ô‚ğİ’è‚·‚éD‘ã“ü‚Æ“¯‚ÉDevideMap‚àXV‚³‚ê‚éD
-	//! @param [in] map ƒ}ƒbƒv‚Ìó‘ÔD
+	//! @brief ãƒãƒƒãƒ—ã®çŠ¶æ…‹ã‚’è¨­å®šã™ã‚‹ï¼ä»£å…¥ã¨åŒæ™‚ã«DevideMapã‚‚æ›´æ–°ã•ã‚Œã‚‹ï¼
+	//! @param [in] map ãƒãƒƒãƒ—ã®çŠ¶æ…‹ï¼
 	void SetMapState(const MapState& map);
 
-	//! @brief ƒ}ƒbƒv‚Ì•`‰æ‚ğs‚¤D
-	//! @param [in] map ƒ}ƒbƒv‚Ìó‘ÔD
-	void Draw() const;
+	//! @brief ãƒãƒƒãƒ—ã®æç”»ã‚’è¡Œã†ï¼
+	//! @param [in] map ãƒãƒƒãƒ—ã®çŠ¶æ…‹ï¼
+	void Draw() const override;
 
 private:
 
@@ -40,10 +42,8 @@ private:
 	const float kCubeSize;
 
 	MapState map_;
-
 	DevideMapState devide_map_;
-
-	designlab::Vector3 hexapod_pos_;
+	::designlab::Vector3 hexapod_pos_;
 };
 
 
