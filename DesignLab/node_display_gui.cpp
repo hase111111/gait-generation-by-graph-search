@@ -156,8 +156,8 @@ void NodeDisplayGui::ClickedAction(const int cursor_x, const int cursor_y,
 	{
 		is_dragging_ = true;
 	}
-	
-	if(is_dragging_ && left_pushing_count == 0)
+
+	if (is_dragging_ && left_pushing_count == 0)
 	{
 		is_dragging_ = false;
 	}
@@ -180,11 +180,10 @@ bool NodeDisplayGui::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 }
 
 
-bool NodeDisplayGui::IsDraggable(const int cursor_x, const int cursor_y)
+bool NodeDisplayGui::IsDraggable(const int cursor_x, const int cursor_y) const
 {
 	//ドラッグ可能なのは，タイトルバーのみ
-	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
-		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kTitleBarHeight;
+	return CursorOnGui(cursor_x, cursor_y);
 }
 
 void NodeDisplayGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
@@ -230,7 +229,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	const int text_pos_x = gui_left_pos_x_ + 10;
 	const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
 	const int text_interval_y = kFontSize + 4;
-	
+
 	const std::array<std::string, HexapodConst::kLegNum> leg_name = { "右前","右中","右後","左後","左中","左前" };
 
 	int text_line = 0;
@@ -241,7 +240,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	);
 
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
-		" 重心 : %s(%d)", 
+		" 重心 : %s(%d)",
 		dlsu::MyEnumToString(dllf::GetDiscreteComPos(display_node_.leg_state)).c_str(),
 		dllf::GetDiscreteComPos(display_node_.leg_state)
 	);
@@ -256,7 +255,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 
 		DiscreteLegPos pos = dllf::GetDiscreteLegPos(display_node_.leg_state, i);
 
-		if (i < HexapodConst::kLegNum / 2) 
+		if (i < HexapodConst::kLegNum / 2)
 		{
 			str_leg_pos_right += leg_name[i] + "-" + dlsu::MyEnumToString(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
 		}
@@ -284,9 +283,9 @@ void NodeDisplayGui::DrawNodeInfo() const
 	// オイラー角にして表示する．
 	const dl::EulerXYZ euler = dl::ToEulerXYZ(display_node_.quat);
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
-		"　オイラー角(x:%5.3f[deg],y:%5.3f[deg],z:%5.3f[deg])", 
+		"　オイラー角(x:%5.3f[deg],y:%5.3f[deg],z:%5.3f[deg])",
 		dlm::ConvertRadToDeg(euler.x_angle),
-		dlm::ConvertRadToDeg(euler.y_angle), 
+		dlm::ConvertRadToDeg(euler.y_angle),
 		dlm::ConvertRadToDeg(euler.z_angle)
 	);
 
@@ -336,33 +335,33 @@ void NodeDisplayGui::DrawJointInfo() const
 	const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
 	const int text_interval_y = 20;
 
-	if (!calculator_ptr_) 
+	if (!calculator_ptr_)
 	{
 		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "計算クラスがnullptrです");
 		return;
 	}
-	if (!checker_ptr_) 
-	{ 
+	if (!checker_ptr_)
+	{
 		DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "チェッカークラスがnullptrです");
-		return; 
+		return;
 	}
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (joint_state_[i].joint_angle.size() != 3) 
+		if (joint_state_[i].joint_angle.size() != 3)
 		{
 			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "間接の計算ができていない，またはされていません．");
 			return;
 		}
-		if (joint_state_[i].joint_pos_leg_coordinate.size() != 4) 
+		if (joint_state_[i].joint_pos_leg_coordinate.size() != 4)
 		{
 			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * 0, text_color, font_handle_, "間接の計算ができていない，またはされていません．");
-			return; 
+			return;
 		}
 	}
 
 	int text_line = 0;
-	
+
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -382,12 +381,12 @@ void NodeDisplayGui::DrawJointInfo() const
 
 		if (checker_ptr_->IsLegInRange(i, joint_state_[i].joint_pos_leg_coordinate[3]))
 		{
-			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color,
 				font_handle_, "    近似値された可動域内にあります．");
 		}
 		else
 		{
-			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color,
 				font_handle_, "    近似値された可動域外です．");
 		}
 
@@ -399,20 +398,20 @@ void NodeDisplayGui::DrawJointInfo() const
 		if (joint_state_[i].joint_angle[1] > PhantomXMkIIConst::kFemurAngleMax) { str += "femur_max "; }
 		if (joint_state_[i].joint_angle[2] < PhantomXMkIIConst::kTibiaAngleMin) { str += "tibia_min "; }
 		if (joint_state_[i].joint_angle[2] > PhantomXMkIIConst::kTibiaAngleMax) { str += "tibia_max "; }
-		if (! joint_state_[i].is_in_range) { str += "脚先が届いていません "; }
+		if (!joint_state_[i].is_in_range) { str += "脚先が届いていません "; }
 
 		if (!str.empty())
 		{
 			const size_t max_str_size = 30;
 			if (str.size() > max_str_size) { str = str.substr(0, max_str_size); }
 
-			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color, 
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), error_text_color,
 				font_handle_, "    実際の可動域の外です． %s", str.c_str());
 		}
-		else 
+		else
 		{
-			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, 
-								font_handle_, "    実際の可動域の内です．");
+			DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color,
+				font_handle_, "    実際の可動域の内です．");
 		}
 	}
 }

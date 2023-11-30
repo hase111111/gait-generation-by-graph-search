@@ -7,10 +7,10 @@
 
 namespace designlab
 {
-	static constexpr unsigned int kOptionLeft	= 0b1;
+	static constexpr unsigned int kOptionLeft = 0b1;
 	static constexpr unsigned int kOptionMidleX = 0b10;
-	static constexpr unsigned int kOptionRight	= 0b100;
-	static constexpr unsigned int kOptionTop	= 0b1000;
+	static constexpr unsigned int kOptionRight = 0b100;
+	static constexpr unsigned int kOptionTop = 0b1000;
 	static constexpr unsigned int kOptionMidleY = 0b10000;
 	static constexpr unsigned int kOptionBottom = 0b100000;
 
@@ -45,7 +45,7 @@ public:
 
 	//! @brief GUIの表示を行うかどうかを返す．
 	//! @return bool GUIの表示を行うかどうか．
-	[[nodiscard]]virtual bool IsVisible() const = 0;
+	[[nodiscard]] virtual bool IsVisible() const = 0;
 };
 
 #endif	// DESIGNLAB_INTERFACE_DXLIB_GUI_H_

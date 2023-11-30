@@ -10,11 +10,11 @@
 namespace dl = ::designlab;
 
 
-DisplayNodeSwitchGui::DisplayNodeSwitchGui() : 
-	display_node_num_(0), 
-	all_node_num_(0), 
+DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
+	display_node_num_(0),
+	all_node_num_(0),
 	simulation_num_(0),
-	do_auto_animation_(false), 
+	do_auto_animation_(false),
 	animation_speed_(kAnimeSpeedMin),
 	font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft"))
 {
@@ -42,7 +42,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 	button_.push_back(
 		std::make_unique<SimpleButton>("↓", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
-	button_.back()->SetActivateFunction([this]() 
+	button_.back()->SetActivateFunction([this]()
 		{
 			if (animation_speed_ > kAnimeSpeedMin)
 			{
@@ -54,7 +54,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 	button_.push_back(
 		std::make_unique<SimpleButton>("↑", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
-	button_.back()->SetActivateFunction([this]() 
+	button_.back()->SetActivateFunction([this]()
 		{
 			if (animation_speed_ < kAnimeSpeedMax)
 			{
@@ -63,7 +63,7 @@ DisplayNodeSwitchGui::DisplayNodeSwitchGui() :
 		}
 	);
 
-	button_.push_back( std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY + (button_interval + button_width) * 2,
+	button_.push_back(std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY + (button_interval + button_width) * 2,
 		button_width * 2, button_width));
 	button_.back()->SetActivateFunction([this]() { MovePrevSimulation(); });
 
@@ -136,25 +136,7 @@ void DisplayNodeSwitchGui::Draw() const
 {
 	if (!visible_) { return; }
 
-	const unsigned int alpha = 200;
-
-	const unsigned int base_color = GetColor(255, 255, 255);
-	const unsigned int frame_color = GetColor(30, 30, 30);
-
-	const int frame_width = 1;
-
-	// ボックスを描画する
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
-
-	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
-	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
-
-	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
-	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
-
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	DrawBackground();
 
 	// ボタンを描画する
 	for (const auto& i : button_)
@@ -172,10 +154,10 @@ void DisplayNodeSwitchGui::Draw() const
 		gui_top_pos_y_ + kTitleBarHeight + 10,
 		text_color,
 		font_handle_,
-		"[シミュレーション%d回目(全%d回)]", 
+		"[シミュレーション%d回目(全%d回)]",
 		simulation_num_ + 1,
-		GetAllSimulationNum(), 
-		display_node_num_, 
+		GetAllSimulationNum(),
+		display_node_num_,
 		all_node_num_
 	);
 
@@ -240,11 +222,10 @@ bool DisplayNodeSwitchGui::CursorOnGui(const int cursor_x, const int cursor_y) c
 }
 
 
-bool DisplayNodeSwitchGui::IsDraggable(const int cursor_x, const int cursor_y)
+bool DisplayNodeSwitchGui::IsDraggable(const int cursor_x, const int cursor_y) const
 {
 	//ドラッグ可能なのは，タイトルバーのみ
-	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
-		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kTitleBarHeight;
+	return CursorOnGui(cursor_x, cursor_y);
 }
 
 void DisplayNodeSwitchGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
@@ -369,4 +350,32 @@ int DisplayNodeSwitchGui::GetAllSimulationNum() const
 	}
 
 	return all_simu_num;
+}
+
+void DisplayNodeSwitchGui::DrawBackground() const
+{
+	const unsigned int alpha = 200;
+
+	const unsigned int base_color = GetColor(255, 255, 255);
+	const unsigned int frame_color = GetColor(30, 30, 30);
+
+	const int frame_width = 1;
+
+	// ボックスを描画する
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
+
+	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
+		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
+	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
+
+	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
+	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
+		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
+
+	const int text_pos_x = gui_left_pos_x_ + 10;
+	const int text_pos_y = gui_top_pos_y_ + 10;
+	const unsigned int text_color = GetColor(10, 10, 10);
+	DrawFormatStringToHandle(text_pos_x, text_pos_y, text_color, font_handle_, "DisplayNodeSwitch");
+
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }

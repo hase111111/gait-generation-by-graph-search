@@ -1,4 +1,4 @@
-﻿#include "camera_input_controller.h"
+﻿#include "camera_dragger.h"
 
 #include "cassert_define.h"
 #include "dxlib_util.h"
@@ -9,20 +9,14 @@ namespace dlm = ::designlab::math_util;
 namespace dldu = ::designlab::dxlib_util;
 
 
-CameraInputController::CameraInputController(const std::shared_ptr<DxlibCamera> camera) : camera_ptr_(camera)
+CameraDragger::CameraDragger(const std::shared_ptr<DxlibCamera> camera) : camera_ptr_(camera)
 {
 	assert(camera_ptr_ != nullptr);
 }
 
-void CameraInputController::DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit)
+void CameraDragger::DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit)
 {
 	assert(camera_ptr_ != nullptr);
-
-	////ホイールが動いていたらカメラ距離を変更する．
-	//if (mouse_ptr->GetWheelRot() != 0)
-	//{
-	//	camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * mouse_ptr->GetWheelRot() * -1);
-	//}
 
 	// カーソルが動いていたら，カメラの回転を変更する．
 	if (mouse_key_bit & MOUSE_INPUT_MIDDLE)
@@ -32,7 +26,7 @@ void CameraInputController::DraggedAction(int cursor_dif_x, int cursor_dif_y, un
 		if (abs(cursor_dif_x) > 0)
 		{
 			//カメラの回転をマウスの横移動量に合わせて変更．
-			dl::Quaternion move_quatx = {0, 0, 0, 0};
+			dl::Quaternion move_quatx = { 0, 0, 0, 0 };
 
 			move_quatx = dl::Quaternion::MakeByAngleAxis(cursor_dif_x * kCameraMoveSpeed * -1, { 0,0,1 });
 
@@ -61,7 +55,7 @@ void CameraInputController::DraggedAction(int cursor_dif_x, int cursor_dif_y, un
 		//左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転．
 		const int mouse_move = abs(cursor_dif_x) > abs(cursor_dif_y) ? cursor_dif_x : cursor_dif_y;
 
-		if (mouse_move != 0) 
+		if (mouse_move != 0)
 		{
 			const dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
@@ -108,4 +102,10 @@ void CameraInputController::DraggedAction(int cursor_dif_x, int cursor_dif_y, un
 
 		camera_ptr_->SetFreeTargetPos(now_target_pos);					//ターゲット座標を更新	
 	}
+}
+
+void CameraDragger::RotMouseWheel(const int rot) const
+{
+	printfDx("wheel rot:%d\n", rot);
+	camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * rot * -1);
 }

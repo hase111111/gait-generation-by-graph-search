@@ -17,7 +17,7 @@ public:
 	//! @param[in] cursor_x マウスカーソルのX座標．左端が0．右方向に正．
 	//! @param[in] cursor_y マウスカーソルのY座標．上端が0．下方向に正．
 	//! @return GUI状にマウスカーネルがあって，ドラッグ可能であるならば	true．
-	virtual bool IsDraggable(int cursor_x, int cursor_y) = 0;
+	virtual bool IsDraggable(int cursor_x, int cursor_y) const = 0;
 
 	//! @brief ドラッグ中かどうかを取得する．
 	//! @return ドラッグ中ならばtrue．

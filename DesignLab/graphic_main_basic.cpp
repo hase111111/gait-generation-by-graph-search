@@ -2,7 +2,7 @@
 
 #include <Dxlib.h>
 
-#include "camera_input_controller.h"
+#include "camera_dragger.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
@@ -11,7 +11,7 @@
 
 
 GraphicMainBasic::GraphicMainBasic(
-	const std::shared_ptr<const GraphicDataBroker>& broker_ptr, 
+	const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -22,12 +22,12 @@ GraphicMainBasic::GraphicMainBasic(
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
 	camera_(std::make_shared<DxlibCamera>()),
-	node_display_gui_( std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
+	node_display_gui_(std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
 	display_node_switch_gui_(std::make_shared<DisplayNodeSwitchGui>()),
 	camera_gui_(std::make_shared<CameraGui>(camera_)),
 	hexapod_renderer_(HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality)),
 	movement_locus_renderer_{},
-	interpolated_node_creator_{converter_ptr},
+	interpolated_node_creator_{ converter_ptr },
 	robot_graund_point_renderer_(converter_ptr),
 	stability_margin_renderer_(converter_ptr),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
@@ -38,7 +38,7 @@ GraphicMainBasic::GraphicMainBasic(
 	is_displayed_movement_locus_(true),
 	is_displayed_robot_graund_point_(true)
 {
-	if (setting_ptr->gui_display_quality == DisplayQuality::kHigh) 
+	if (setting_ptr->gui_display_quality == DisplayQuality::kHigh)
 	{
 		movement_locus_renderer_.SetIsHighQuality(true);
 	}
@@ -46,18 +46,17 @@ GraphicMainBasic::GraphicMainBasic(
 	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
 	node_display_gui_->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
 
-	gui_activator_.RegisterClickable(display_node_switch_gui_, 1);
-	gui_activator_.RegisterDraggable(display_node_switch_gui_, 1);
-	gui_activator_.RegisterGui(display_node_switch_gui_, 1);
+	std::shared_ptr<IDxlibGui> display_node_switch_gui_ptr = display_node_switch_gui_;
+	gui_activator_.Register(display_node_switch_gui_ptr, 1);
 
-	gui_activator_.RegisterClickable(node_display_gui_, 1);
-	gui_activator_.RegisterDraggable(node_display_gui_, 1);
-	gui_activator_.RegisterGui(node_display_gui_, 1);
+	std::shared_ptr<IDxlibGui> node_display_gui_ptr = node_display_gui_;
+	gui_activator_.Register(node_display_gui_ptr, 1);
 
-	gui_activator_.RegisterClickable(camera_gui_, 1);
-	gui_activator_.RegisterGui(camera_gui_, 1);
-	
-	gui_activator_.RegisterDraggable(std::make_shared<CameraInputController>(camera_), 0);
+	std::shared_ptr<IDxlibGui> camera_gui_ptr = camera_gui_;
+	gui_activator_.Register(camera_gui_ptr, 1);
+
+	std::shared_ptr<IDxlibDraggable> camera_dragger_ptr = std::make_shared<CameraDragger>(camera_);
+	gui_activator_.Register(camera_dragger_ptr, 0);
 }
 
 

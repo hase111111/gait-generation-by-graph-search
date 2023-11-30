@@ -30,7 +30,7 @@ public:
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
 
 	//! @brief 表示するノードを設定する，その後関節の角度を計算し，セットする
 	//! @param [in] node 表示するノード
@@ -49,7 +49,7 @@ public:
 
 	bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
 
-	bool IsDraggable(int cursor_x, int cursor_y) override;
+	bool IsDraggable(int cursor_x, int cursor_y) const override;
 
 	bool IsDragged() const override { return is_dragging_; };
 
@@ -66,9 +66,9 @@ private:
 		kGlobalPos,		//!< グローバル座標
 	};
 
-	static constexpr int kWidth{ 470 };			//!< GUIの幅
-	static constexpr int kHeight{ 680 };		//!< GUIの高さ
-	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ
+	static constexpr int kWidth{ 470 };			//!< GUIの幅．
+	static constexpr int kHeight{ 680 };		//!< GUIの高さ．
+	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ．
 
 	void DrawBackground() const;
 

@@ -27,6 +27,7 @@
     <ClInclude Include="interface_dxlib_clickable.h" />
     <ClInclude Include="interface_dxlib_draggable.h" />
     <ClInclude Include="interface_dxlib_gui.h" />
+    <ClInclude Include="interface_dxlib_wheel_handler.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
@@ -45,7 +46,7 @@
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="node_creator_builder_turn_spot.h" />
     <ClInclude Include="simple_button.h" />
-    <ClInclude Include="camera_input_controller.h" />
+    <ClInclude Include="camera_dragger.h" />
     <ClInclude Include="camera_gui.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
     <ClInclude Include="node_creator_com_move.h" />
@@ -147,7 +148,7 @@
     <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="node_creator_builder_turn_spot.cpp" />
     <ClCompile Include="simple_button.cpp" />
-    <ClCompile Include="camera_input_controller.cpp" />
+    <ClCompile Include="camera_dragger.cpp" />
     <ClCompile Include="camera_gui.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="node_creator_com_move.cpp" />

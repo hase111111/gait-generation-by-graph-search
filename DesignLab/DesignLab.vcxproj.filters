@@ -213,7 +213,7 @@
     <ClInclude Include="dxlib_camera.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="camera_input_controller.h">
+    <ClInclude Include="camera_dragger.h">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClInclude>
     <ClInclude Include="camera_gui.h">
@@ -459,6 +459,9 @@
     <ClInclude Include="node_creator_builder_turn_spot.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
+    <ClInclude Include="interface_dxlib_wheel_handler.h">
+      <Filter>ソース ファイル\GraphicSystem\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -542,7 +545,7 @@
     <ClCompile Include="designlab_quaternion.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="camera_input_controller.cpp">
+    <ClCompile Include="camera_dragger.cpp">
       <Filter>ソース ファイル\GraphicSystem\Common\Camera</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_camera.cpp">

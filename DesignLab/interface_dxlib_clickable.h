@@ -18,6 +18,7 @@ public:
 	virtual ~IDxlibClickable() = default;
 
 	//! @brief GUIがクリックされたときに実行される関数．
+	//! @n CursorOnGuiがtrueを返すときに呼び出される．複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．
 	//! @param [in] cursor_x マウスカーソルのX座標．左端を0とし，右に正の値をとる．
 	//! @param [in] cursor_y マウスカーソルのY座標．上端を0とし，下に正の値をとる．
 	//! @param [in] left_pushing_count マウスの左ボタンが押されているフレーム数．

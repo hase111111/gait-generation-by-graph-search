@@ -23,7 +23,7 @@ public:
 	DisplayNodeSwitchGui();
 
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
 
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数
@@ -51,7 +51,7 @@ public:
 
 	bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
 
-	bool IsDraggable(int cursor_x, int cursor_y) override;
+	bool IsDraggable(int cursor_x, int cursor_y) const override;
 
 	bool IsDragged() const override { return is_dragging_; };
 
@@ -85,6 +85,8 @@ private:
 
 	//! 全シミュレーション数を求める
 	int GetAllSimulationNum() const;
+
+	void DrawBackground() const;
 
 	const int kAnimeSpeedMax{ 120 };	//!< アニメーション速度の最大値
 	const int kAnimeSpeedMin{ 1 };		//!< アニメーション速度の最小値
