@@ -1,5 +1,5 @@
 ﻿//! @file node_creator_leg_hierarchy.h
-//! @brief 脚の階層構造を作るためのクラス．
+//! @brief 脚の階層を変えるクラス．
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
@@ -20,7 +20,7 @@ class NodeCreatorLegHierarchy final : public INodeCreator
 {
 public:
 
-	NodeCreatorLegHierarchy(HexapodMove next_move);
+	NodeCreatorLegHierarchy(HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
 	~NodeCreatorLegHierarchy() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const override;
@@ -29,13 +29,13 @@ private:
 
 
 	//! @brief 1脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-	void create1LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
+	void Create1LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 	//! @brief 2脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-	void create2LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
+	void Create2LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 	//! @brief 3脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-	void create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
+	void Create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 
 	const HexapodMove next_move_;	//!< 次の動作．						

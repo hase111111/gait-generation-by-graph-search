@@ -8,9 +8,9 @@
 
 
 NodeCreatorBuilderHato::NodeCreatorBuilderHato(
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr, 
-	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr, 
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) : 
+	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
 	converter_ptr_(converter_ptr),
 	presenter_ptr_(presenter_ptr),
 	checker_ptr_(checker_ptr)
@@ -29,29 +29,42 @@ void NodeCreatorBuilderHato::Build(
 	// (*node_creator)[HexapodMove::???] = std::make_unique<クラス名>(クラスのコンストラクタの引数);
 	// この場合，HexapodMove::???のノードを作成するクラスは，↑ である．
 
-	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(HexapodMove::kLegUpDown);
+	const auto hierarchy_list = std::vector<DiscreteLegPos>{
+		//DiscreteLegPos::kBack,
+		DiscreteLegPos::kCenter,
+		DiscreteLegPos::kFront,
+		//DiscreteLegPos::kLowerBack,
+		DiscreteLegPos::kLowerFront,
+		//DiscreteLegPos::kUpperBack,
+		DiscreteLegPos::kUpperFront
+	};
+
+	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
+		HexapodMove::kLegUpDown,
+		hierarchy_list
+	);
 
 	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
 		map,
-		converter_ptr_, 
-		presenter_ptr_, 
+		converter_ptr_,
+		presenter_ptr_,
 		checker_ptr_,
 		HexapodMove::kComUpDown
 	);
 
 	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
-		map, 
-		converter_ptr_, 
+		map,
+		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
 		HexapodMove::kComMove
 	);
 
 	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
-		map, 
-		converter_ptr_, 
-		presenter_ptr_, 
-		checker_ptr_, 
+		map,
+		converter_ptr_,
+		presenter_ptr_,
+		checker_ptr_,
 		HexapodMove::kLegHierarchyChange
 	);
 }

@@ -28,8 +28,20 @@ void NodeCreatorBuilderRotTest::Build(
 	assert(node_creator != nullptr);	// node_creatorがnullptrでない．
 	assert(node_creator->size() == 0);	// node_creatorは空でなければならない．
 
+	const auto hierarchy_list = std::vector<DiscreteLegPos>{
+		DiscreteLegPos::kBack,
+		DiscreteLegPos::kCenter,
+		DiscreteLegPos::kFront,
+		DiscreteLegPos::kLowerBack,
+		DiscreteLegPos::kLowerFront,
+		DiscreteLegPos::kUpperBack,
+		DiscreteLegPos::kUpperFront
+	};
 
-	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(HexapodMove::kLegUpDown);
+	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
+		HexapodMove::kLegUpDown,
+		hierarchy_list
+	);
 
 	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
 		map,

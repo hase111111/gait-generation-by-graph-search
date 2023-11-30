@@ -6,18 +6,11 @@
 namespace dllf = designlab::leg_func;
 
 
-NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const HexapodMove next_move) : 
+NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list) :
 	next_move_(next_move),
-	discrete_leg_pos_list_({ 
-		DiscreteLegPos::kBack,
-		DiscreteLegPos::kCenter,
-		DiscreteLegPos::kFront,
-		DiscreteLegPos::kLowerBack,
-		DiscreteLegPos::kLowerFront,
-		DiscreteLegPos::kUpperBack,
-		DiscreteLegPos::kUpperFront 
-	})
+	discrete_leg_pos_list_(discrete_leg_pos_list)
 {
+	assert(discrete_leg_pos_list.size() != 0);
 }
 
 
@@ -30,17 +23,17 @@ void NodeCreatorLegHierarchy::Create(const RobotStateNode& current_node, const i
 	if (kLiftedLegNum == 1)
 	{
 		// 1 本遊脚している．
-		create1LegLifted(current_node, current_node_index, output_graph);
+		Create1LegLifted(current_node, current_node_index, output_graph);
 	}
 	else if (kLiftedLegNum == 2)
 	{
 		// 2 本遊脚している．
-		create2LegLifted(current_node, current_node_index, output_graph);
+		Create2LegLifted(current_node, current_node_index, output_graph);
 	}
 	else if (kLiftedLegNum == 3)
 	{
 		// 3 本遊脚している．
-		create3LegLifted(current_node, current_node_index, output_graph);
+		Create3LegLifted(current_node, current_node_index, output_graph);
 	}
 	else
 	{
@@ -57,7 +50,7 @@ void NodeCreatorLegHierarchy::Create(const RobotStateNode& current_node, const i
 
 //全て上の関数にまとめるとごちゃつくので，以下の関数に処理を分けておく．
 
-void NodeCreatorLegHierarchy::create1LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorLegHierarchy::Create1LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
@@ -79,7 +72,7 @@ void NodeCreatorLegHierarchy::create1LegLifted(const RobotStateNode& current_nod
 }
 
 
-void NodeCreatorLegHierarchy::create2LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorLegHierarchy::Create2LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
@@ -105,7 +98,7 @@ void NodeCreatorLegHierarchy::create2LegLifted(const RobotStateNode& current_nod
 }
 
 
-void NodeCreatorLegHierarchy::create3LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorLegHierarchy::Create3LegLifted(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
