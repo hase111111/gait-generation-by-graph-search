@@ -25,7 +25,7 @@ public:
 	//! @param[in] func ボタンがクリックされたときに実行される関数．
 	inline void SetActivateFunction(const std::function<void()>& func) { click_function_ = func; }
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kDxlibGuiAnchorLeftTop);
 
 	constexpr int GetPosMiddleX() const noexcept { return pos_middle_x; }
 	constexpr int GetPosMiddleY() const noexcept { return pos_middle_y; }

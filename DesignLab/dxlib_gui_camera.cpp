@@ -1,4 +1,4 @@
-﻿#include "camera_gui.h"
+﻿#include "dxlib_gui_camera.h"
 
 #include <string>
 
@@ -11,7 +11,7 @@ namespace dl = ::designlab;
 namespace dldu = ::designlab::dxlib_util;
 
 
-CameraGui::CameraGui(const std::shared_ptr<DxlibCamera> camera) :
+DxlibGuiCamera::DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera) :
 	camera_(camera),
 	font_handle_(FontLoader::GetIns()->GetFontHandle(kFontPath))
 {
@@ -44,34 +44,34 @@ CameraGui::CameraGui(const std::shared_ptr<DxlibCamera> camera) :
 	button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(CameraViewMode::kFreeControlled); });
 }
 
-void CameraGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
 
-	if (option & dl::kOptionLeft) { gui_left_pos_x_ = pos_x; }
-	else if (option & dl::kOptionMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-	else if (option & dl::kOptionRight) { gui_left_pos_x_ = pos_x - kWidth; }
+	if (option & dl::kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & dl::kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & dl::kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
-	if (option & dl::kOptionTop) { gui_top_pos_y_ = pos_y; }
-	else if (option & dl::kOptionMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-	else if (option & dl::kOptionBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+	if (option & dl::kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & dl::kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & dl::kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
 	const int diff_x = gui_left_pos_x_ - past_x;
 	const int diff_y = gui_top_pos_y_ - past_y;
 
 	for (auto& button : button_)
 	{
-		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kOptionMidleXMidleY);
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
 	}
 }
 
-void CameraGui::SetNode(const RobotStateNode& node)
+void DxlibGuiCamera::SetNode(const RobotStateNode& node)
 {
 	camera_->SetTargetPos(node.global_center_of_mass);
 }
 
-void CameraGui::Update()
+void DxlibGuiCamera::Update()
 {
 	//各ボタンの処理
 	for (auto& button : button_)
@@ -83,7 +83,7 @@ void CameraGui::Update()
 	camera_->Update();
 }
 
-void CameraGui::Draw() const
+void DxlibGuiCamera::Draw() const
 {
 	DrawBackground();
 
@@ -96,7 +96,7 @@ void CameraGui::Draw() const
 	DrawString();
 }
 
-void CameraGui::SetVisible(const bool visible)
+void DxlibGuiCamera::SetVisible(const bool visible)
 {
 	visible_ = visible;
 
@@ -106,7 +106,7 @@ void CameraGui::SetVisible(const bool visible)
 	}
 }
 
-void CameraGui::ClickedAction(const int cursor_x, const int cursor_y,
+void DxlibGuiCamera::ClickedAction(const int cursor_x, const int cursor_y,
 	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	//各ボタンの処理
@@ -119,23 +119,23 @@ void CameraGui::ClickedAction(const int cursor_x, const int cursor_y,
 	}
 }
 
-bool CameraGui::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
+bool DxlibGuiCamera::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
 	return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
 		gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
 }
 
-bool CameraGui::IsDraggable(int cursor_x, int cursor_y) const
+bool DxlibGuiCamera::IsDraggable(int cursor_x, int cursor_y) const
 {
 	return CursorOnGui(cursor_x, cursor_y);
 }
 
-void CameraGui::DraggedAction(int cursor_dif_x, int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
+void DxlibGuiCamera::DraggedAction(int cursor_dif_x, int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
 {
-	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kDxlibGuiAnchorLeftTop);
 }
 
-void CameraGui::DrawBackground() const
+void DxlibGuiCamera::DrawBackground() const
 {
 	if (!visible_) { return; }
 
@@ -164,7 +164,7 @@ void CameraGui::DrawBackground() const
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-void CameraGui::DrawString() const
+void DxlibGuiCamera::DrawString() const
 {
 	const unsigned int str_color = GetColor(54, 54, 54);
 

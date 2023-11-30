@@ -7,22 +7,22 @@
 
 namespace designlab
 {
-	static constexpr unsigned int kOptionLeft = 0b1;
-	static constexpr unsigned int kOptionMidleX = 0b10;
-	static constexpr unsigned int kOptionRight = 0b100;
-	static constexpr unsigned int kOptionTop = 0b1000;
-	static constexpr unsigned int kOptionMidleY = 0b10000;
-	static constexpr unsigned int kOptionBottom = 0b100000;
+	constexpr unsigned int kDxlibGuiAnchorLeft = 1 << 0;
+	constexpr unsigned int kDxlibGuiAnchorMidleX = 1 << 1;
+	constexpr unsigned int kDxlibGuiAnchorRight = 1 << 2;
+	constexpr unsigned int kDxlibGuiAnchorTop = 1 << 3;
+	constexpr unsigned int kDxlibGuiAnchorMidleY = 1 << 4;
+	constexpr unsigned int kDxlibGuiAnchorBottom = 1 << 5;
 
-	static constexpr unsigned int kOptionLeftTop = kOptionLeft | kOptionTop;
-	static constexpr unsigned int kOptionLeftMidleY = kOptionLeft | kOptionMidleY;
-	static constexpr unsigned int kOptionLeftBottom = kOptionLeft | kOptionBottom;
-	static constexpr unsigned int kOptionMidleXTop = kOptionMidleX | kOptionTop;
-	static constexpr unsigned int kOptionMidleXMidleY = kOptionMidleX | kOptionMidleY;
-	static constexpr unsigned int kOptionMidleXBottom = kOptionMidleX | kOptionBottom;
-	static constexpr unsigned int kOptionRightTop = kOptionRight | kOptionTop;
-	static constexpr unsigned int kOptionRightMidleY = kOptionRight | kOptionMidleY;
-	static constexpr unsigned int kOptionRightBottom = kOptionRight | kOptionBottom;
+	constexpr unsigned int kDxlibGuiAnchorLeftTop = kDxlibGuiAnchorLeft | kDxlibGuiAnchorTop;
+	constexpr unsigned int kDxlibGuiAnchorLeftMidleY = kDxlibGuiAnchorLeft | kDxlibGuiAnchorMidleY;
+	constexpr unsigned int kDxlibGuiAnchorLeftBottom = kDxlibGuiAnchorLeft | kDxlibGuiAnchorBottom;
+	constexpr unsigned int kDxlibGuiAnchorMidleXTop = kDxlibGuiAnchorMidleX | kDxlibGuiAnchorTop;
+	constexpr unsigned int kDxlibGuiAnchorMidleXMidleY = kDxlibGuiAnchorMidleX | kDxlibGuiAnchorMidleY;
+	constexpr unsigned int kDxlibGuiAnchorMidleXBottom = kDxlibGuiAnchorMidleX | kDxlibGuiAnchorBottom;
+	constexpr unsigned int kDxlibGuiAnchorRightTop = kDxlibGuiAnchorRight | kDxlibGuiAnchorTop;
+	constexpr unsigned int kDxlibGuiAnchorRightMidleY = kDxlibGuiAnchorRight | kDxlibGuiAnchorMidleY;
+	constexpr unsigned int kDxlibGuiAnchorRightBottom = kDxlibGuiAnchorRight | kDxlibGuiAnchorBottom;
 }
 
 //! @class IDxlibGui

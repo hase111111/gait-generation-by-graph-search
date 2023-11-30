@@ -3,11 +3,11 @@
 #include <Dxlib.h>
 
 #include "camera_dragger.h"
-#include "camera_gui.h"
+#include "dxlib_gui_camera.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
-#include "node_display_gui.h"
+#include "dxlib_gui_node_displayer.h"
 #include "map_renderer.h"
 #include "world_grid_renderer.h"
 
@@ -40,10 +40,11 @@ GraphicMainBasic::GraphicMainBasic(
 	}
 
 	const auto camera = std::make_shared<DxlibCamera>();
-	const auto camera_gui = std::make_shared<CameraGui>(camera);
-	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kOptionLeftBottom);
-	const auto node_display_gui = std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kOptionRightTop);
+	const auto camera_gui = std::make_shared<DxlibGuiCamera>(camera);
+	camera_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop);
+	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kDxlibGuiAnchorLeftBottom);
+	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
+	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kDxlibGuiAnchorRightTop);
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
 	const auto [hexapod_renderer, hexapod_node_setter] =

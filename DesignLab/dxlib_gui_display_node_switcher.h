@@ -23,7 +23,7 @@ public:
 	DxlibGuiDisplayNodeSwitcher();
 
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
 
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数

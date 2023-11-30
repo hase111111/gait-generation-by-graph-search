@@ -23,8 +23,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
 	camera_(std::make_shared<DxlibCamera>()),
-	camera_gui_(std::make_shared<CameraGui>(camera_)),
-	node_display_gui_(std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr)),
+	camera_gui_(std::make_shared<DxlibGuiCamera>(camera_)),
+	node_display_gui_(std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr)),
 	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState{}),
 	graph_({}),
 	display_node_index_(0),
@@ -38,8 +38,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 
 	//hexapod_renderer_->SetDrawNode(init_node);
 
-	node_display_gui_->SetPos(10, 10, dl::kOptionRightTop);
-	camera_gui_->SetPos(10, 10, dl::kOptionLeftBottom);
+	node_display_gui_->SetPos(10, 10, dl::kDxlibGuiAnchorRightTop);
+	camera_gui_->SetPos(10, 10, dl::kDxlibGuiAnchorLeftBottom);
 }
 
 

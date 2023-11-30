@@ -219,7 +219,7 @@
     <ClInclude Include="camera_dragger.h">
       <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="camera_gui.h">
+    <ClInclude Include="dxlib_gui_camera.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_util.h">
@@ -240,7 +240,7 @@
     <ClInclude Include="movement_locus_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="node_display_gui.h">
+    <ClInclude Include="dxlib_gui_node_displayer.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="cmdio_util.h">
@@ -563,7 +563,7 @@
     <ClCompile Include="dxlib_camera.cpp">
       <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="camera_gui.cpp">
+    <ClCompile Include="dxlib_gui_camera.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_util.cpp">
@@ -584,7 +584,7 @@
     <ClCompile Include="movement_locus_renderer.cpp">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="node_display_gui.cpp">
+    <ClCompile Include="dxlib_gui_node_displayer.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
     <ClCompile Include="cmdio_util.cpp">

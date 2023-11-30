@@ -77,20 +77,20 @@ void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
 
-	if (option & dl::kOptionLeft) { gui_left_pos_x_ = pos_x; }
-	else if (option & dl::kOptionMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-	else if (option & dl::kOptionRight) { gui_left_pos_x_ = pos_x - kWidth; }
+	if (option & dl::kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & dl::kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & dl::kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
-	if (option & dl::kOptionTop) { gui_top_pos_y_ = pos_y; }
-	else if (option & dl::kOptionMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-	else if (option & dl::kOptionBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+	if (option & dl::kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & dl::kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & dl::kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
 	const int diff_x = gui_left_pos_x_ - past_x;
 	const int diff_y = gui_top_pos_y_ - past_y;
 
 	for (auto& button : button_)
 	{
-		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kOptionMidleXMidleY);
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
 	}
 }
 
@@ -230,7 +230,7 @@ bool DxlibGuiDisplayNodeSwitcher::IsDraggable(const int cursor_x, const int curs
 
 void DxlibGuiDisplayNodeSwitcher::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
 {
-	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kDxlibGuiAnchorLeftTop);
 }
 
 

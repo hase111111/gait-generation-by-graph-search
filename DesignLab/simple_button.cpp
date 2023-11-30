@@ -35,13 +35,13 @@ SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int p
 
 void SimpleButton::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
-	if (option & dl::kOptionLeft) { pos_middle_x = pos_x - kSizeX / 2; }
-	else if (option & dl::kOptionMidleX) { pos_middle_x = pos_x; }
-	else if (option & dl::kOptionRight) { pos_middle_x = pos_x + kSizeX / 2; }
+	if (option & dl::kDxlibGuiAnchorLeft) { pos_middle_x = pos_x - kSizeX / 2; }
+	else if (option & dl::kDxlibGuiAnchorMidleX) { pos_middle_x = pos_x; }
+	else if (option & dl::kDxlibGuiAnchorRight) { pos_middle_x = pos_x + kSizeX / 2; }
 
-	if (option & dl::kOptionTop) { pos_middle_y = pos_y - kSizeY / 2; }
-	else if (option & dl::kOptionMidleY) { pos_middle_y = pos_y; }
-	else if (option & dl::kOptionBottom) { pos_middle_y = pos_y + kSizeY / 2; }
+	if (option & dl::kDxlibGuiAnchorTop) { pos_middle_y = pos_y - kSizeY / 2; }
+	else if (option & dl::kDxlibGuiAnchorMidleY) { pos_middle_y = pos_y; }
+	else if (option & dl::kDxlibGuiAnchorBottom) { pos_middle_y = pos_y + kSizeY / 2; }
 }
 
 void SimpleButton::Update()

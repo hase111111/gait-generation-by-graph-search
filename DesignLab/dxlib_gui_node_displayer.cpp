@@ -1,4 +1,4 @@
-﻿#include "node_display_gui.h"
+﻿#include "dxlib_gui_node_displayer.h"
 
 #include <Dxlib.h>
 #include <magic_enum.hpp>
@@ -17,7 +17,7 @@ namespace dlm = ::designlab::math_util;
 namespace dlsu = ::designlab::string_util;
 
 
-NodeDisplayGui::NodeDisplayGui(
+DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
@@ -69,30 +69,30 @@ NodeDisplayGui::NodeDisplayGui(
 	buttons_.back()->SetActivateFunction([this]() {display_type_ = DisplayMode::kGlobalPos; });
 }
 
-void NodeDisplayGui::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
 
-	if (option & dl::kOptionLeft) { gui_left_pos_x_ = pos_x; }
-	else if (option & dl::kOptionMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-	else if (option & dl::kOptionRight) { gui_left_pos_x_ = pos_x - kWidth; }
+	if (option & dl::kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & dl::kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & dl::kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
-	if (option & dl::kOptionTop) { gui_top_pos_y_ = pos_y; }
-	else if (option & dl::kOptionMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-	else if (option & dl::kOptionBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+	if (option & dl::kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & dl::kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & dl::kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
 	const int diff_x = gui_left_pos_x_ - past_x;
 	const int diff_y = gui_top_pos_y_ - past_y;
 
 	for (auto& button : buttons_)
 	{
-		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kOptionMidleXMidleY);
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
 	}
 }
 
 
-void NodeDisplayGui::SetNode(const RobotStateNode& node)
+void DxlibGuiNodeDisplayer::SetNode(const RobotStateNode& node)
 {
 	//ノードをセットする
 	display_node_ = node;
@@ -103,7 +103,7 @@ void NodeDisplayGui::SetNode(const RobotStateNode& node)
 	joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
 
-void NodeDisplayGui::Update()
+void DxlibGuiNodeDisplayer::Update()
 {
 	//ボタンの更新を行う
 	for (auto& button : buttons_)
@@ -112,7 +112,7 @@ void NodeDisplayGui::Update()
 	}
 }
 
-void NodeDisplayGui::Draw() const
+void DxlibGuiNodeDisplayer::Draw() const
 {
 	// 枠
 	DrawBackground();
@@ -138,7 +138,7 @@ void NodeDisplayGui::Draw() const
 	}
 }
 
-void NodeDisplayGui::SetVisible(const bool visible)
+void DxlibGuiNodeDisplayer::SetVisible(const bool visible)
 {
 	visible_ = visible;
 
@@ -148,7 +148,7 @@ void NodeDisplayGui::SetVisible(const bool visible)
 	}
 }
 
-void NodeDisplayGui::ClickedAction(const int cursor_x, const int cursor_y,
+void DxlibGuiNodeDisplayer::ClickedAction(const int cursor_x, const int cursor_y,
 	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	if (!is_dragging_ && left_pushing_count > 0)
@@ -172,24 +172,24 @@ void NodeDisplayGui::ClickedAction(const int cursor_x, const int cursor_y,
 	}
 }
 
-bool NodeDisplayGui::CursorOnGui(int cursor_x, int cursor_y) const noexcept
+bool DxlibGuiNodeDisplayer::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 {
 	return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
 		(gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
 }
 
-bool NodeDisplayGui::IsDraggable(const int cursor_x, const int cursor_y) const
+bool DxlibGuiNodeDisplayer::IsDraggable(const int cursor_x, const int cursor_y) const
 {
 	//ドラッグ可能なのは，タイトルバーのみ
 	return CursorOnGui(cursor_x, cursor_y);
 }
 
-void NodeDisplayGui::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
+void DxlibGuiNodeDisplayer::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
 {
-	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kOptionLeftTop);
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kDxlibGuiAnchorLeftTop);
 }
 
-void NodeDisplayGui::DrawBackground() const
+void DxlibGuiNodeDisplayer::DrawBackground() const
 {
 	if (!visible_) { return; }
 
@@ -218,7 +218,7 @@ void NodeDisplayGui::DrawBackground() const
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-void NodeDisplayGui::DrawNodeInfo() const
+void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 {
 	const unsigned int text_color = GetColor(10, 10, 10);
 	const unsigned int text_color_dark = GetColor(80, 80, 80);
@@ -324,7 +324,7 @@ void NodeDisplayGui::DrawNodeInfo() const
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "指定がなければ単位は長さが[mm]，角度が[rad]");
 }
 
-void NodeDisplayGui::DrawJointInfo() const
+void DxlibGuiNodeDisplayer::DrawJointInfo() const
 {
 	const unsigned int text_color = GetColor(10, 10, 10);
 	const unsigned int error_text_color = GetColor(128, 10, 10);
@@ -413,7 +413,7 @@ void NodeDisplayGui::DrawJointInfo() const
 	}
 }
 
-void NodeDisplayGui::DrawGlobalPosInfo() const
+void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 {
 	const unsigned int text_color = GetColor(10, 10, 10);
 	const int text_pos_x = gui_left_pos_x_ + 10;

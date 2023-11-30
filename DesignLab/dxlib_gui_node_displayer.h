@@ -1,9 +1,9 @@
-﻿//! @file node_display_gui.h
+﻿//! @file dxlib_gui_node_displayer.h
 //! @brief ノードの情報を表示するGUI
 
 
-#ifndef DESIGNLAB_NODE_DISPLAY_GUI_H_
-#define DESIGNLAB_NODE_DISPLAY_GUI_H_
+#ifndef DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
+#define DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
 
 #include <array>
 #include <memory>
@@ -19,19 +19,19 @@
 #include "robot_state_node.h"
 
 
-//! @class NodeDisplayGui
+//! @class DxlibGuiNodeDisplayer
 //! @brief ノードの情報を表示するGUI
-class NodeDisplayGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
+class DxlibGuiNodeDisplayer final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
-	NodeDisplayGui(
+	DxlibGuiNodeDisplayer(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
 
 
 	void SetNode(const RobotStateNode& node) override;
@@ -98,4 +98,4 @@ private:
 };
 
 
-#endif // DESIGNLAB_NODE_DISPLAY_GUI_H_
+#endif // DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_

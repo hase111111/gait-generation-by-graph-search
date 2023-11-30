@@ -1,9 +1,9 @@
-﻿//! @file camera_gui.h
+﻿//! @file dxlib_gui_camera.h
 //! @brief カメラの操作・管理を行うGuiの処理，表示を行うクラス
 
 
-#ifndef DESIGNLAB_CAMERA_GUI_H_
-#define DESIGNLAB_CAMERA_GUI_H_
+#ifndef DESIGNLAB_DXLIB_GUI_CAMERA_H_
+#define DESIGNLAB_DXLIB_GUI_CAMERA_H_
 
 
 #include <map>
@@ -18,16 +18,16 @@
 #include "simple_button.h"
 
 
-//! @class CameraGui
+//! @class DxlibGuiCamera
 //! @brief カメラの操作・管理を行うGUIを行うクラス．
-class CameraGui final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
+class DxlibGuiCamera final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
-	CameraGui() = delete;
+	DxlibGuiCamera() = delete;
 
 	//! @brief コンストラクタでカメラの管理を行うクラスを受け取る．
-	CameraGui(const std::shared_ptr<DxlibCamera> camera);
+	DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera);
 
 	//! @brief GUIの位置を設定する．
 	//! @n Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる．
@@ -35,7 +35,7 @@ public:
 	//! @param[in] pos_x GUIのx座標．
 	//! @param[in] pos_y GUIのy座標．
 	//! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kOptionLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
 
 
 	void SetNode(const RobotStateNode& node) override;
@@ -87,4 +87,4 @@ private:
 };
 
 
-#endif	// DESIGNLAB_CAMERA_GUI_H_
+#endif	// DESIGNLAB_DXLIB_GUI_CAMERA_H_

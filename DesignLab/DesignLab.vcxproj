@@ -52,7 +52,7 @@
     <ClInclude Include="dxlib_node_setter_group.h" />
     <ClInclude Include="simple_button.h" />
     <ClInclude Include="camera_dragger.h" />
-    <ClInclude Include="camera_gui.h" />
+    <ClInclude Include="dxlib_gui_camera.h" />
     <ClInclude Include="com_candidate_polygon_maker.h" />
     <ClInclude Include="node_creator_com_move.h" />
     <ClInclude Include="interface_hexapod_coordinate_converter.h" />
@@ -83,7 +83,7 @@
     <ClInclude Include="model_loader.h" />
     <ClInclude Include="movement_locus_renderer.h" />
     <ClInclude Include="node_creator_builder_hato.h" />
-    <ClInclude Include="node_display_gui.h" />
+    <ClInclude Include="dxlib_gui_node_displayer.h" />
     <ClInclude Include="output_detail.h" />
     <ClInclude Include="graph_searcher_random.h" />
     <ClInclude Include="gait_pattern_generator_basic.h" />
@@ -155,7 +155,7 @@
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_dragger.cpp" />
-    <ClCompile Include="camera_gui.cpp" />
+    <ClCompile Include="dxlib_gui_camera.cpp" />
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="node_creator_com_move.cpp" />
     <ClCompile Include="designlab_rot_converter.cpp" />
@@ -188,7 +188,7 @@
     <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="simulation_end_checker.cpp" />
     <ClCompile Include="stopwatch.cpp" />
-    <ClCompile Include="node_display_gui.cpp" />
+    <ClCompile Include="dxlib_gui_node_displayer.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />
     <ClCompile Include="gait_pattern_generator_basic.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />

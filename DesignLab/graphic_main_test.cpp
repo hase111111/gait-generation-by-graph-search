@@ -1,6 +1,6 @@
 ﻿#include "graphic_main_test.h"
 
-#include "camera_gui.h"
+#include "dxlib_gui_camera.h"
 #include "camera_dragger.h"
 #include "designlab_math_util.h"
 #include "dxlib_camera.h"
@@ -9,7 +9,7 @@
 #include "keyboard.h"
 #include "map_renderer.h"
 #include "node_initializer.h"
-#include "node_display_gui.h"
+#include "dxlib_gui_node_displayer.h"
 #include "phantomx_mk2_const.h"
 #include "simulation_map_creator.h"
 
@@ -39,13 +39,13 @@ GraphicMainTest::GraphicMainTest(
 	devide_map_state_.Init(map_state_, {});
 
 	const auto camera = std::make_shared<DxlibCamera>();
-	const auto camera_gui = std::make_shared<CameraGui>(camera);
-	camera_gui->SetPos(10, 10, dl::kOptionLeftTop);
+	const auto camera_gui = std::make_shared<DxlibGuiCamera>(camera);
+	camera_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop);
 
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
-	const auto node_display_gui = std::make_shared<NodeDisplayGui>(converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, dl::kOptionRightTop);
+	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
+	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, dl::kDxlibGuiAnchorRightTop);
 
 	const auto [hexapod_renderer, hexapod_node_setter] =
 		HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_, setting_ptr ? setting_ptr->gui_display_quality : DisplayQuality::kMedium);
