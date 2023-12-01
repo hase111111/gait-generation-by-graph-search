@@ -12,9 +12,10 @@ public:
 	GraphSearcherSpotTurn() = default;
 	~GraphSearcherSpotTurn() = default;
 
-	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
+	std::tuple<GraphSearchResult, int, int> SearchGraphTree(
 		const GaitPatternGraphTree& graph_tree,
-		const TargetRobotState& target
+		const TargetRobotState& target,
+		int max_depth
 	) const override;
 
 private:

@@ -8,16 +8,17 @@ namespace dlm = ::designlab::math_util;
 namespace dllf = ::designlab::leg_func;
 
 
-std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherSpotTurn::SearchGraphTree(
+std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const GaitPatternGraphTree& graph_tree,
-	const TargetRobotState& target
+	const TargetRobotState& target,
+	const int max_depth
 ) const
 {
 	assert(target.GetTargetMode() == TargetMode::kSpotTurnLastPosture || target.GetTargetMode() == TargetMode::kSpotTurnRotAxis);
 
 	if (!graph_tree.HasRoot())
 	{
-		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
+		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
 	}
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
@@ -27,13 +28,13 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherSpotTurn::Search
 
 	if (!graph_tree.HasRoot())
 	{
-		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
+		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
 	}
 
 	for (int i = 0; i < graph_tree.GetGraphSize(); i++)
 	{
 		//最大深さのノードのみを評価する
-		if (graph_tree.GetNode(i).depth == GraphSearchConst::kMaxDepth)
+		if (graph_tree.GetNode(i).depth == max_depth)
 		{
 			//結果が見つかっていない場合は，必ず結果を更新する
 			if (result_index < 0)
@@ -83,10 +84,10 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherSpotTurn::Search
 	// index が範囲外ならば失敗
 	if (result_index < 0 || result_index >= graph_tree.GetGraphSize())
 	{
-		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
+		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
 	}
 
-	return { GraphSearchResult::kSuccess, graph_tree.GetParentNode(result_index, 1), result_index };
+	return { GraphSearchResult::kSuccess, graph_tree.GetParentNodeIndex(result_index, 1), result_index };
 }
 
 float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const

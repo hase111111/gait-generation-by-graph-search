@@ -16,20 +16,23 @@ namespace dlsu = ::designlab::string_util;
 
 
 GaitPatternGeneratorThread::GaitPatternGeneratorThread(
-    std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
-    std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
-) : 
-    graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
-    graph_searcher_ptr_(std::move(graph_searcher_ptr)),
-	graph_tree_{1000},
+	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
+	std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
+	const int max_depth,
+	const int max_node_num
+) :
+	graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
+	graph_searcher_ptr_(std::move(graph_searcher_ptr)),
+	graph_tree_{ 1000 },
 	graph_tree_array_(dl::MakeArray<GaitPatternGraphTree>(
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum),
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum),
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum),
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum),
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum),
-		GaitPatternGraphTree(GraphSearchConst::kMaxNodeNum / kThreadNum)
-	))
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum }
+	)),
+	max_depth_(max_depth)
 {
 }
 
@@ -97,7 +100,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 					&GraphTreeCreator::CreateGraphTree,
 					graph_tree_creator_ptr_.get(),
 					1,
-					GraphSearchConst::kMaxDepth,
+					max_depth_,
 					&graph_tree_array_[i]
 				)
 			);
@@ -115,14 +118,15 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 
 	//グラフ探索を行う．
-	std::array<std::tuple<GraphSearchResult, RobotStateNode, int>, kThreadNum> search_result_array;
+	std::array<std::tuple<GraphSearchResult, int, int>, kThreadNum> search_result_array;
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", OutputDetail::kDebug);
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
-			target
+			target,
+			max_depth_
 		);
 
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", OutputDetail::kDebug);
@@ -134,10 +138,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	AppendGraphTree(search_result_array);
 
 	//統合されたグラフを，再び探索する．
-	const auto [search_result, next_node, _ ] = graph_searcher_ptr_->SearchGraphTree(
-		graph_tree_,
-		target
-	);
+	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, max_depth_);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{
@@ -147,13 +148,13 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", OutputDetail::kDebug);
 
-	*output_node = next_node;
+	(*output_node) = graph_tree_.GetNode(next_node_index);
 
 	return GraphSearchResult::kSuccess;
 }
 
 void GaitPatternGeneratorThread::AppendGraphTree(
-	const std::array<std::tuple<GraphSearchResult, RobotStateNode, int>, kThreadNum>& search_result_array
+	const std::array<std::tuple<GraphSearchResult, int, int>, kThreadNum>& search_result_array
 )
 {
 	const RobotStateNode root_node = graph_tree_.GetRootNode();
@@ -162,12 +163,12 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		const auto [search_result, next_node, next_node_index] = search_result_array[i];
+		const auto [search_result, _, next_node_index] = search_result_array[i];
 
 		//条件を満たしていない場合は，次のスレッドの結果を見る．
 		if (search_result != GraphSearchResult::kSuccess) { continue; }
 
-		if (graph_tree_array_[i].GetNode(next_node_index).depth != GraphSearchConst::kMaxDepth) { continue; }
+		if (graph_tree_array_[i].GetNode(next_node_index).depth != max_depth_) { continue; }
 
 
 		//追加するノードを格納する．
@@ -180,13 +181,13 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 			add_node.push_back(graph_tree_array_[i].GetNode(add_node.back().parent_index));
 		}
 
-		if (add_node.size() != GraphSearchConst::kMaxDepth + 1) { continue; }
+		if (add_node.size() != max_depth_ + 1) { continue; }
 
 		//深さ順にソートする．0から最も深いノードまでの順番になる．
 		std::sort(add_node.begin(), add_node.end(), [](const RobotStateNode& a, const RobotStateNode& b) { return a.depth < b.depth; });
 
 		//追加するノードをgraph_tree_に格納する．
-		for (size_t j = 1; j < GraphSearchConst::kMaxDepth + 1; ++j)
+		for (size_t j = 1; j < max_depth_ + 1; ++j)
 		{
 			//add_nodeの中から，深さjのノードをgraph_tree_に格納する．
 			if (add_node[j].depth == 1)

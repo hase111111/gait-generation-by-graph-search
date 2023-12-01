@@ -26,7 +26,9 @@ public:
 	//! @param[in] graph_searcher グラフ探索を行うクラス．unique_ptrで渡す．
 	GaitPatternGeneratorThread(
 		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
-		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr
+		std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
+		int max_depth,
+		int max_node_num
 	);
 
 	~GaitPatternGeneratorThread() = default;
@@ -43,13 +45,15 @@ private:
 
 	static constexpr int kThreadNum = 6;
 
-	void AppendGraphTree(const std::array<std::tuple<GraphSearchResult, RobotStateNode, int>, kThreadNum>& search_result_array);
+	void AppendGraphTree(const std::array<std::tuple<GraphSearchResult, int, int>, kThreadNum>& search_result_array);
 
 	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス．
 	const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;			//!< グラフ探索を行うクラス．
 
 	GaitPatternGraphTree graph_tree_;
 	std::array<GaitPatternGraphTree, kThreadNum> graph_tree_array_;
+
+	const int max_depth_;				//!< グラフ探索の最大深さ
 
 
 	static_assert(0 < kThreadNum, "スレッド数は正の数である必要があります．");

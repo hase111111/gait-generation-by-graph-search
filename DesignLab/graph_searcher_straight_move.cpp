@@ -18,9 +18,10 @@ GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const
 {
 }
 
-std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherStraightMove::SearchGraphTree(
+std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTree(
 	const GaitPatternGraphTree& graph,
-	const TargetRobotState& target
+	const TargetRobotState& target,
+	const int max_depth
 ) const
 {
 	assert(target.GetTargetMode() == TargetMode::kStraightMovePosition || target.GetTargetMode() == TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
@@ -33,13 +34,13 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherStraightMove::Se
 
 	if (!graph.HasRoot())
 	{
-		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
+		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
 	}
 
 	for (int i = 0; i < graph.GetGraphSize(); i++)
 	{
 		//最大深さのノードのみを評価する
-		if (graph.GetNode(i).depth == GraphSearchConst::kMaxDepth)
+		if (graph.GetNode(i).depth == max_depth)
 		{
 			//結果が見つかっていない場合は，必ず結果を更新する
 			if (result_index < 0)
@@ -105,10 +106,10 @@ std::tuple<GraphSearchResult, RobotStateNode, int> GraphSearcherStraightMove::Se
 	// index が範囲外ならば失敗
 	if (result_index < 0 || result_index >= graph.GetGraphSize())
 	{
-		return { GraphSearchResult::kFailureByNoNode, RobotStateNode(), -1 };
+		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
 	}
 
-	return { GraphSearchResult::kSuccess, graph.GetParentNode(result_index, 1), result_index };
+	return { GraphSearchResult::kSuccess, graph.GetParentNodeIndex(result_index, 1), result_index };
 }
 
 float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const

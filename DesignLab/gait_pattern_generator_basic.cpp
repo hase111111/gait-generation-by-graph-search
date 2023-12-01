@@ -11,18 +11,25 @@ namespace dlio = designlab::cmdio;
 
 GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
 	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
-	std::unique_ptr<IGraphSearcher>&& graph_searcher
+	std::unique_ptr<IGraphSearcher>&& graph_searcher,
+	const int max_depth,
+	const int max_node_num
 ) :
 	graph_tree_creator_ptr_(std::move(graph_tree_creator)),
 	graph_searcher_ptr_(std::move(graph_searcher)),
-	graph_tree_{ GraphSearchConst::kMaxNodeNum }
+	graph_tree_{ max_node_num },
+	max_depth_(max_depth)
 {
+	assert(graph_tree_creator_ptr_ != nullptr);
+	assert(graph_searcher_ptr_ != nullptr);
+	assert(0 < max_depth_);
+	assert(0 < max_node_num);
 }
 
 GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
-	const RobotStateNode& current_node, 
-	const MapState& map_state, 
-	const TargetRobotState& target, 
+	const RobotStateNode& current_node,
+	const MapState& map_state,
+	const TargetRobotState& target,
 	RobotStateNode* output_node
 )
 {
@@ -47,8 +54,8 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	graph_tree_.AddNode(current_node);
 
 	const GraphSearchResult create_result = graph_tree_creator_ptr_->CreateGraphTree(
-		0, 
-		GraphSearchConst::kMaxDepth,
+		0,
+		max_depth_,
 		&graph_tree_
 	);
 
@@ -65,7 +72,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	// グラフ探索を行う
 	dlio::Output("グラフ木を評価します．", OutputDetail::kDebug);
 
-	const auto [search_result, next_node, high_rated_node_index] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target);
+	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, max_depth_);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{
@@ -73,7 +80,8 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 		return search_result;
 	}
 
-	*output_node = next_node;
+	(*output_node) = graph_tree_.GetNode(next_node_index);
+
 	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", OutputDetail::kDebug);
 
 	return GraphSearchResult::kSuccess;

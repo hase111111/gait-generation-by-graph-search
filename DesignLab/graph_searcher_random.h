@@ -19,10 +19,7 @@ public:
 	// 継承時には，戻り値，関数名，引数の型(引数名は違ってもよい)，を全て同じにする必要がある．
 	// また，最後に必ずoverrideをつける．
 
-	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
-		const GaitPatternGraphTree& graph,
-		const TargetRobotState& target
-	) const override;
+	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const TargetRobotState& target, int max_depth) const override;
 };
 
 

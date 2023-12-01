@@ -16,10 +16,7 @@ public:
 
 	GraphSearcherStraightMove(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
 
-	std::tuple<GraphSearchResult, RobotStateNode, int> SearchGraphTree(
-		const GaitPatternGraphTree& graph,
-		const TargetRobotState& target
-	) const override;
+	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const TargetRobotState& target, int max_depth) const override;
 
 private:
 
