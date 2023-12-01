@@ -92,7 +92,7 @@
     <ClInclude Include="graph_search_result_recoder.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
-    <ClInclude Include="pass_finder_revaluation.h" />
+    <ClInclude Include="gait_pattern_generator_revaluation.h" />
     <ClInclude Include="phantomx_mk2_const.h" />
     <ClInclude Include="phantomx_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
@@ -186,7 +186,7 @@
     <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
-    <ClCompile Include="pass_finder_revaluation.cpp" />
+    <ClCompile Include="gait_pattern_generator_revaluation.cpp" />
     <ClCompile Include="phantomx_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="ros_main.cpp" />

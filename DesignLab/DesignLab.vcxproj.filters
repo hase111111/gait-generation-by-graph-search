@@ -375,7 +375,7 @@
     <ClInclude Include="graph_tree_creator.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClInclude>
-    <ClInclude Include="pass_finder_revaluation.h">
+    <ClInclude Include="gait_pattern_generator_revaluation.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="designlab_string_util.h">
@@ -674,7 +674,7 @@
     <ClCompile Include="graph_tree_creator.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="pass_finder_revaluation.cpp">
+    <ClCompile Include="gait_pattern_generator_revaluation.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="designlab_string_util.cpp">
