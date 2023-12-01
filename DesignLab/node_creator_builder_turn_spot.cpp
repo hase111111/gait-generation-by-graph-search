@@ -5,7 +5,7 @@
 #include "node_creator_com_move.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
-#include "node_creator_leg_up_down.h"
+#include "node_creator_leg_up_down_2d.h"
 
 
 namespace dl = ::designlab;
@@ -31,11 +31,7 @@ void NodeCreatorBuilderTurnSpot::Build(
 	const auto hierarchy_list = std::vector<DiscreteLegPos>{
 		DiscreteLegPos::kBack,
 		DiscreteLegPos::kCenter,
-		DiscreteLegPos::kFront,
-		DiscreteLegPos::kLowerBack,
-		DiscreteLegPos::kLowerFront,
-		DiscreteLegPos::kUpperBack,
-		DiscreteLegPos::kUpperFront
+		DiscreteLegPos::kFront
 	};
 
 	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
@@ -43,7 +39,7 @@ void NodeCreatorBuilderTurnSpot::Build(
 		hierarchy_list
 	);
 
-	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown2d>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,

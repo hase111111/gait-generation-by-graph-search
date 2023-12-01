@@ -1,4 +1,4 @@
-﻿#include "node_creator_leg_up_down.h"
+﻿#include "node_creator_leg_up_down_2d.h"
 
 #include <algorithm>
 
@@ -16,7 +16,7 @@ namespace dllf = ::designlab::leg_func;
 namespace dlm = ::designlab::math_util;
 
 
-NodeCreatorLegUpDown::NodeCreatorLegUpDown(
+NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
 	const DevideMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
@@ -24,7 +24,6 @@ NodeCreatorLegUpDown::NodeCreatorLegUpDown(
 	HexapodMove next_move
 ) :
 	kLegMargin(20),
-	kHighMargin(5),
 	map_(devide_map),
 	converter_ptr_(converter_ptr),
 	presenter_ptr_(presenter_ptr),
@@ -33,10 +32,39 @@ NodeCreatorLegUpDown::NodeCreatorLegUpDown(
 {
 };
 
-
-
-void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kFront
+	);
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kFront
+	);
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kFront
+	);
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kFront
+	);
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kFront
+	);
+	assert(
+		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kBack ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kCenter ||
+		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kFront
+	);
+
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはcom_type.hを参照)．
 	// vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で通常のvectorとは違う挙動をするので，boost::dynamic_bitset<>を使用する．
 	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
@@ -89,7 +117,7 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 		{
 			RobotStateNode res_node = current_node;
 
-			res_node.ChangeToNextNode(current_num, next_move_);
+			res_node.ChangeToNextNode(current_node_index, next_move_);
 
 
 			//遊脚・接地を書き換える．
@@ -124,11 +152,9 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 		}	//if is_able_leg_ground_pattern[i]
 
 	}	//for i
-
 }
 
-
-bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, dl::Vector3* output_ground_pos) const
+bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNode& current_node, designlab::Vector3* output_ground_pos) const
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
@@ -221,27 +247,26 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 	return true;
 }
 
-
-bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
+bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_index) const
 {
-	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
+	const DiscreteLegPos discrete_leg_pos = dllf::GetDiscreteLegPos(node.leg_state, leg_index);		//脚位置を取得
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
+	if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
 	{
-		if (_leg_state == DiscreteLegPos::kCenter) { return true; }
+		if (discrete_leg_pos == DiscreteLegPos::kCenter) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (_leg_state == DiscreteLegPos::kCenter) { return false; }
+		if (discrete_leg_pos == DiscreteLegPos::kCenter) { return false; }
 	}
 
 	//脚位置4と比較して前か後ろか
-	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
+	if (node.leg_reference_pos[leg_index].ProjectedXY().Cross(node.leg_pos[leg_index].ProjectedXY()) * node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
-		if (_leg_state == DiscreteLegPos::kLowerBack || _leg_state == DiscreteLegPos::kBack || _leg_state == DiscreteLegPos::kUpperBack)
+		if (discrete_leg_pos == DiscreteLegPos::kBack)
 		{
 			return false;
 		}
@@ -249,38 +274,11 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
 	else
 	{
 		//後ろ
-		if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kFront || _leg_state == DiscreteLegPos::kUpperFront)
+		if (discrete_leg_pos == DiscreteLegPos::kFront)
 		{
 			return false;
 		}
 	}
 
-
-	//脚位置4と比較して上か下か
-	if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kLowerBack)
-	{
-		//脚位置4と比較して下
-		if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
-		{
-			return true;
-		}
-	}
-	else if (_leg_state == DiscreteLegPos::kUpperFront || _leg_state == DiscreteLegPos::kUpperBack)
-	{
-		//脚位置4と比較して上
-		if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
-		{
-			return true;
-		}
-	}
-	else
-	{
-		//脚位置4と同じくらい
-		if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
-		{
-			return true;
-		}
-	}
-
-	return false;
+	return true;
 }

@@ -477,6 +477,9 @@
     <ClInclude Include="graph_viewer_gui_controller.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down_2d.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -730,6 +733,9 @@
     </ClCompile>
     <ClCompile Include="graph_viewer_gui_controller.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_leg_up_down_2d.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

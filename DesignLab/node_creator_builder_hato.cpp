@@ -30,12 +30,12 @@ void NodeCreatorBuilderHato::Build(
 	// この場合，HexapodMove::???のノードを作成するクラスは，↑ である．
 
 	const auto hierarchy_list = std::vector<DiscreteLegPos>{
-		//DiscreteLegPos::kBack,
+		DiscreteLegPos::kBack,
 		DiscreteLegPos::kCenter,
 		DiscreteLegPos::kFront,
-		//DiscreteLegPos::kLowerBack,
+		DiscreteLegPos::kLowerBack,
 		DiscreteLegPos::kLowerFront,
-		//DiscreteLegPos::kUpperBack,
+		DiscreteLegPos::kUpperBack,
 		DiscreteLegPos::kUpperFront
 	};
 

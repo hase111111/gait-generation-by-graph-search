@@ -93,12 +93,18 @@ float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& curre
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	dl::Vector3 target_pos = target.GetTargetMode() == TargetMode::kStraightMovePosition ?
-		target.GetStraightMovePosition() : target.GetStraightMoveVector() * target_weight + current_node.global_center_of_mass;
+	if (target.GetTargetMode() == TargetMode::kSpotTurnLastPosture)
+	{
+		//最終姿勢を表すクォータニオンとの差分を計算する
+		const dl::Quaternion target_quat = target.GetSpotTurnLastPosture();
+		const dl::Quaternion current_quat = current_node.quat;
 
-	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
+		const dl::Quaternion target_to_current = target_quat * current_quat.GetInverse();
 
-	return target_pos.GetLength() - target_to_parent.GetLength();
+		return target_weight * target_to_current.w;
+	}
+
+	return 0;
 }
 
 float GraphSearcherSpotTurn::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
