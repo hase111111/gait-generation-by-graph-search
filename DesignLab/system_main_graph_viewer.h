@@ -52,7 +52,7 @@ private:
 	//! @brief グラフの中から1つのノードを選択する．グラフが空の場合は，初期状態のノードを返す．
 	//! @param [in] graph グラフ
 	//! @return RobotStateNode 選択されたノード
-	RobotStateNode SelectNode(const std::vector<RobotStateNode>& graph) const;
+	RobotStateNode SelectNodeByInput(const std::vector<RobotStateNode>& graph) const;
 
 
 	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;

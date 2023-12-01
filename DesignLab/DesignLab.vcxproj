@@ -228,7 +228,6 @@
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
-    <ClCompile Include="test_main.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>

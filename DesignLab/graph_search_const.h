@@ -21,8 +21,6 @@ public:
 
 	static const int kMaxDepth;	//!< グラフ探索の最大深さ
 
-	static constexpr int kMaxNodeNum = 10000000;	//!< グラフ探索の最大ノード数
-
 };
 
 
