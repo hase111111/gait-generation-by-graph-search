@@ -115,6 +115,9 @@
     <Filter Include="ソース ファイル\Graphic\Interface">
       <UniqueIdentifier>{686ea2ca-ca07-416f-b8da-79761b5b6465}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Node\Test">
+      <UniqueIdentifier>{6abfc652-16b7-4965-813b-9bf99d8feb01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -480,6 +483,12 @@
     <ClInclude Include="node_creator_leg_up_down_2d.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
+    <ClInclude Include="gait_pattern_graph_tree_test.h">
+      <Filter>ソース ファイル\Node\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="test_registration_form.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -736,6 +745,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_leg_up_down_2d.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="test_main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ public:
 
 	//! @brief グラフが空かどうかを返す．
 	//! @return bool グラフが空ならtrue．
-	constexpr bool Empty() const { return graph_size_ == 0; }
+	constexpr bool IsEmpty() const { return graph_size_ == 0; }
 
 	//! @brief グラフが根ノードを持つかどうかを返す．
 	//! @n 根ノードとは，親を持たないノードのこと．

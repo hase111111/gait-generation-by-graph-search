@@ -26,7 +26,7 @@ GraphSearchResult GraphTreeCreator::CreateGraphTree(int start_depth, int max_dep
 	assert(0 <= start_depth);			// start_depthは0以上である．
 	assert(start_depth < max_depth);	// start_depthはmax_depthより小さい．
 	assert(graph != nullptr);			// nullptrでない．
-	assert(!graph->Empty());			// 空でない．
+	assert(!graph->IsEmpty());			// 空でない．
 
 	int cnt = 0;	//カウンタを用意
 

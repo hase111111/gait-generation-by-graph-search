@@ -13,7 +13,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherRandom::SearchGraphTree(
 {
 	//グラフを探索せずに，次の動作の中からランダムに一つ選択して移動する．
 
-	if (graph.Empty())
+	if (graph.IsEmpty())
 	{
 		//グラフがないなら失敗	
 		return { GraphSearchResult::kFailure, -1, -1 };
