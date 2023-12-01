@@ -1,16 +1,16 @@
-//! @file graphic_system.h
-//! @brief Dxlib�̏������s���N���X�D
-//! @details Dxlib(�f���b�N�X ���C�u����)�̓E�B���h�E��\�����āC
-//! @n �����R�}���h���C���ɕ�����\�����邾���̎₵���v���O�����ɍʂ��^���Ă�����D
-//! @n ��ɃQ�[���v���O���~���O������ۂɁC�E�B���h�E��\�����邽�߂̃��C�u�����Ƃ��Ďg�p�����D
-//! @n Dxlib�ȊO�ɂ� OpenCV�Ȃǂɂ��E�B���h�E��\������@�\�����邪�C����̃v���O�����ł�Dxlib��p���Č��ʂ�\������D
-//! @n Dxlib�� Windows API �Ƃ�����Windows�̃A�v���P�[�V��������邽�߂̋@�\���C�g���₷�����Ă���郉�C�u�����ł���D���Ԃ�
+﻿//! @file graphic_system.h
+//! @brief Dxlibの処理を行うクラス．
+//! @details Dxlib(デラックス ライブラリ)はウィンドウを表示して，
+//! @n 所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつ．
+//! @n 主にゲームプログラミングをする際に，ウィンドウを表示するためのライブラリとして使用される．
+//! @n Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが，今回のプログラムではDxlibを用いて結果を表示する．
+//! @n Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．たぶん
 //! @n  
-//! @n �ȉ��Q�l�y�[�W 
+//! @n 以下参考ページ 
 //! @n
-//! @n �Ehttps://dixq.net/rp2/ ��C++�p�̎����D���X��� 
-//! @n �Ehttps://dixq.net/g/   ��C����p�̎����D���܂�Q�l�ɂȂ�Ȃ����� 
-//! @n �Ehttps://dxlib.xsrv.jp/dxfunc.html �������̊֐��̃��t�@�����X(�֐��̖ڎ�)�D
+//! @n ・https://dixq.net/rp2/ ←C++用の資料．少々難しい 
+//! @n ・https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも 
+//! @n ・https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次)．
 
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
@@ -20,10 +20,6 @@
 
 #include <boost/thread.hpp>
 
-#include "define.h"
-
-#ifndef DESIGNLAB_DONOT_USE_DXLIB
-
 #include "application_setting_recorder.h"
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
@@ -31,63 +27,62 @@
 
 
 //! @class GraphicSystem
-//! @brief Dxlib�̏������s���N���X�D
-//! @details Dxlib��񓯊������œ��������ƂŕʃX���b�h�ōs���Ă���O���t�T���̏��������ƂɃ��{�b�g�̏�Ԃ�\������D
-//! @n �������CDxlib�͔񓯊��������l�����Đ݌v����Ă��Ȃ��̂ŁC���������ɂ���Ă͂��܂����삵�Ȃ��D
-//! @n ���̃v���W�F�N�g�ł͂��̊֐��̒��ł̂�Dxlib�̏����𓮂������ƂŁC�G���[��h���ł��邪�C�\�����ʃG���[����������\��������D
+//! @brief Dxlibの処理を行うクラス．
+//! @details Dxlibを非同期処理で動かすことで別スレッドで行っているグラフ探索の処理をもとにロボットの状態を表示する．
+//! @n しかし，Dxlibは非同期処理を考慮して設計されていないので，動かし方によってはうまく動作しない．
+//! @n このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで，エラーを防いでいるが，予期せぬエラーが発生する可能性がある．
 //! @n 
-//! @n [Dxlib�̒���] 
-//! @n ���ӂƂ��āCDxlib�n�̊֐��� �^�U��啶���� TRUE��FALSE���g���ĕ\���̂ŁC�]����true false���g�p���Ȃ��悤�ɂ��邱�ƁD
-//! @n (���͏������̕��ł��������ǁC�o�[�W�����̍X�V�ɂ���ē����Ȃ��Ȃ�\��������̂�Dxlib�ɑg�ݍ��܂�Ă�����̂��g���̂�����D)
-//! @n �܂��CDxlib�̓G���[���o���Ƃ��� - 1 ��Ԃ��֐������ɑ����D���̂��ߗႦ�� if (DxLib_Init() == false) �Ə����Ă�
-//! @n �G���[���󂯎��Ȃ����Ƃ�����D
-//! @n �������� if (DxLib_Init() < 0) �ƂȂ�D
-//! @n ����� bool�^ ���f�t�H���g�ő��݂��Ȃ�C����ł��g�p���邱�Ƃ��ł���悤�ɂ��邽�߂̔z���ł���C
-//! @n C++�ŏ�����Ă���{�R�[�h�ɂ����Ă͍����̌��ł����Ȃ�(��)�D
-//! @n Dxlib�̃G���[��bool�ł͂Ȃ��Cint�^�̕��̒l�Ƃ������Ƃ��o���Ă������ƁD
+//! @n [Dxlibの注意] 
+//! @n 注意として，Dxlib系の関数は 真偽を大文字の TRUEとFALSEを使って表すので，従来のtrue falseを使用しないようにすること．
+//! @n (実は小文字の方でも動くけど，バージョンの更新によって動かなくなる可能性があるのでDxlibに組み込まれているものを使うのが無難．)
+//! @n また，Dxlibはエラーが出たときに - 1 を返す関数が非常に多い．そのため例えば if (DxLib_Init() == false) と書いても
+//! @n エラーを受け取れないことがある．
+//! @n 正しくは if (DxLib_Init() < 0) となる．
+//! @n これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，
+//! @n C++で書かれている本コードにおいては混乱の元でしかない(涙)．
+//! @n Dxlibのエラーはboolではなく，int型の負の値ということを覚えておくこと．
 //! @n 
-//! @n �܂��CDxlib��2���ł��Ȃ��̂ŁC���s�Ɏ��s����ꍇ�̓^�X�N�}�l�[�W���[����dxlib�𗎂Ƃ��Ă��������D
+//! @n また，Dxlibは2窓できないので，実行に失敗する場合はタスクマネージャーからdxlibを落としてください．
 class GraphicSystem final
 {
 public:
 
-	//! @param [in] graphic_main_ptr GraphicMain�N���X�̃|�C���^�D
-	//! @param [in] setting_ptr �A�v���P�[�V�����̐ݒ���L�^����N���X�̃|�C���^�D
+	//! @param [in] graphic_main_ptr GraphicMainクラスのポインタ．
+	//! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
 	GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
 
 
-	//! @brief �E�B���h�E�̕\�����s���Ă����֐��ł��Dboost::thread�ɂ��̊֐���n���ĕ��񏈗����s���D
-	//! @n �����o�֐���MyDxlibInit�֐��Ɏ��s�����ꍇ�C�I������D
+	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行う．
+	//! @n メンバ関数のMyDxlibInit関数に失敗した場合，終了する．
 	void Main();
 
-	//! @brief �O���t�B�b�N�̕\�����s���N���X��ύX����D
-	//! @param [in] graphic_main_ptr GraphicMain�N���X�̃��j�[�N�|�C���^�D
+	//! @brief グラフィックの表示を行うクラスを変更する．
+	//! @param [in] graphic_main_ptr GraphicMainクラスのユニークポインタ．
 	void ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr);
 
 private:
 
-	//! @brief Dxlib�̏������������s���D
-	//! @n ���������b�p���Ď��삷��ꍇ��My�𓪂ɂ���Ɨǂ��炵���D
-	//! @return bool �������ɐ����������ǂ����D
+	//! @brief Dxlibの初期化処理を行う．
+	//! @n 処理をラッパして自作する場合はMyを頭につけると良いらしい．
+	//! @return bool 初期化に成功したかどうか．
 	bool MyDxlibInit();
 
-	//! @brief GraphicSystem�N���X��while���[�v�̒��Ŗ��t���[���Ă΂�鏈��
-	//! @return bool ���[�v�𑱂��邩�ǂ����Dfalse�Ȃ�΃��[�v�𔲂���D�ُ킪�N�����ꍇ��fase��Ԃ��D
+	//! @brief GraphicSystemクラスのwhileループの中で毎フレーム呼ばれる処理
+	//! @return bool ループを続けるかどうか．falseならばループを抜ける．異常が起きた場合もfaseを返す．
 	bool Loop();
 
-	//! @brief Dxlib�̏I���������s���D
+	//! @brief Dxlibの終了処理を行う．
 	void MyDxlibFinalize() const;
 
 
-	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< �O���t�B�b�N�̕\�����s���N���X�̃|�C���^�D
+	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< グラフィックの表示を行うクラスのポインタ．
 
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< �ݒ��ۑ�����\���̂̃|�C���^�D
+	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
-	FpsController fps_controller_;		//!< FPS�����ɐ��䂷��N���X�D�ڂ�����fps_controller.h��
+	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
 
-	boost::mutex mutex_;	//!< �����̊֐�����񓯊��I�ɁC�����ɃA�N�Z�X����Ɗ댯�Ȃ̂ŁC�����h�����߂�mutex��p���Ĕr��������s���D
+	boost::mutex mutex_;	//!< 複数の関数から非同期的に，同時にアクセスすると危険なので，それを防ぐためにmutexを用いて排他制御を行う．
 };
 
-#endif	// DESIGNLAB_DONOT_USE_DXLIB
 
 #endif	// DESIGNLAB_GRAPHIC_SYSTEM_H_

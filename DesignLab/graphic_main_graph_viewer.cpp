@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "cassert_define.h"
 #include "camera_dragger.h"
 #include "dxlib_gui_camera.h"
 #include "dxlib_gui_node_displayer.h"
@@ -29,6 +30,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	graph_({}),
 	gui_controller_ptr_(std::make_unique<GraphViewerGUIController>(&graph_, &display_node_index_, setting_ptr))
 {
+	assert(broker_ptr_ != nullptr);
+
 	//適当なノードを生成して，描画クラスを初期化する
 	NodeInitializer node_initializer;
 	RobotStateNode init_node = node_initializer.InitNode();
@@ -44,11 +47,11 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
 	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, dl::kDxlibGuiAnchorRightTop);
 
-	const auto [hexapod_renderer_, hexapod_node_setter] = 
+	const auto [hexapod_renderer_, hexapod_node_setter] =
 		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality);
 
 	const auto map_renderer = std::make_shared<MapRenderer>();
-	map_renderer->SetMapState(broker_ptr ? broker_ptr->map_state.GetData() : MapState{});
+	map_renderer->SetMapState(broker_ptr->map_state.GetData());
 
 	const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
 

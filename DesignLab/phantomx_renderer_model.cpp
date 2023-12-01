@@ -1,7 +1,5 @@
 ﻿#include "phantomx_renderer_model.h"
 
-#ifndef DESIGNLAB_DONOT_USE_DXLIB
-
 #include <DxLib.h>
 
 #include "designlab_math_util.h"
@@ -281,6 +279,3 @@ void PhantomXRendererModel::DrawJointAxis(const int leg_index) const
 		DrawCapsule3D(tibia_joint_pos_global_coord - axis_vec, tibia_joint_pos_global_coord + axis_vec, axis_radius, axis_div_num, tibia_axis_color, spec_color, TRUE);
 	}
 }
-
-
-#endif	// DESIGNLAB_DONOT_USE_DXLIB

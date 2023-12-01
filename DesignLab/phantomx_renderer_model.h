@@ -20,9 +20,6 @@
 #include "robot_state_node.h"
 
 
-#ifndef DESIGNLAB_DONOT_USE_DXLIB
-
-
 //! @class PhantomXRendererModel
 //! @brief PhantomXの描画を行うクラス．3Dモデルを使用する
 class PhantomXRendererModel final : public IDxlib3dRenderer, public IDxlibNodeSetter
@@ -58,6 +55,5 @@ private:
 	DisplayQuality display_quality_;	//!< 描画品質
 };
 
-#endif	// DESIGNLAB_DONOT_USE_DXLIB
 
 #endif	// DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_

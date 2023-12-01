@@ -19,7 +19,7 @@ GraphicMainBasic::GraphicMainBasic(
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
 ) :
-	kNodeGetCount(setting_ptr ? setting_ptr->window_fps * 2 : 60),
+	kNodeGetCount(setting_ptr->window_fps * 2),
 	kInterpolatedAnimeCount(30),
 	broker_ptr_(broker_ptr),
 	mouse_ptr_(std::make_shared<Mouse>()),
@@ -28,7 +28,7 @@ GraphicMainBasic::GraphicMainBasic(
 	movement_locus_renderer_{},
 	interpolated_node_creator_{ converter_ptr },
 	robot_graund_point_renderer_{ converter_ptr },
-	map_state_(broker_ptr ? broker_ptr->map_state.GetData() : MapState()),
+	map_state_(broker_ptr->map_state.GetData()),
 	graph_({}),
 	display_node_index_(0),
 	counter_(0),
@@ -42,13 +42,13 @@ GraphicMainBasic::GraphicMainBasic(
 	const auto camera = std::make_shared<DxlibCamera>();
 	const auto camera_gui = std::make_shared<DxlibGuiCamera>(camera);
 	camera_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop);
-	display_node_switch_gui_->SetPos(10, setting_ptr ? setting_ptr->window_size_y - 10 : 10, designlab::kDxlibGuiAnchorLeftBottom);
+	display_node_switch_gui_->SetPos(10, setting_ptr->window_size_y - 10, designlab::kDxlibGuiAnchorLeftBottom);
 	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, designlab::kDxlibGuiAnchorRightTop);
+	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, designlab::kDxlibGuiAnchorRightTop);
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
 	const auto [hexapod_renderer, hexapod_node_setter] =
-		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr ? setting_ptr->gui_display_quality : DisplayQuality::kMedium);
+		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality);
 	const auto stability_margin_renderer = std::make_shared<StabilityMarginRenderer>(converter_ptr);
 	const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
 

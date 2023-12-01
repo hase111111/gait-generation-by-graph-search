@@ -1,14 +1,8 @@
 ﻿#include "graphic_system.h"
 
-#include "cassert_define.h"
-#include "define.h"
-
-// define.hでDESIGNLAB_DONOT_USE_DXLIBが定義されている場合は，Dxlibを使わない．
-// Dxlibを使わない場合は，このファイルの中身はすべて無視される．
-#ifndef DESIGNLAB_DONOT_USE_DXLIB
-
 #include <Dxlib.h>
 
+#include "cassert_define.h"
 #include "dxlib_util.h"
 #include "graphic_const.h"
 #include "keyboard.h"
@@ -21,32 +15,24 @@ GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecor
 	setting_ptr_(setting_ptr),
 	fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
 {
+	assert(setting_ptr_ != nullptr);
 }
 
 
 void GraphicSystem::Main()
 {
-	//設定ファイルを読み込めていなければ終了
-	if (!setting_ptr_) 
+	//そもそも描画処理を使わないならば即終了．
+	if (!setting_ptr_->gui_display)
 	{
-		// assertは引数がfalseの時にエラーを出し，どこでエラーが出たか出力する．cassert_define.hで有効化されていれば実行される．
-		// この関数はデバッグ時のみ有効で，リリース時には無効になるということ．
-		// デバッグ時はエラーを吐き，リリース時はひとまず動作はしてくれるという形にしたいため，このようにしている．
-		assert(false);
-		return; 
+		return;
 	}
 
-	//そもそも描画処理を使わないならば即終了
-	if (!setting_ptr_->gui_display) 
-	{
-		return; 
-	}
+	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きる．
+	// そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要がある．
 
-	// Dxlibの関数は複数スレッドで呼ぶことを考慮されていないので，複数のスレッドから呼ぶと必ず問題が起きる．そのため，初期化処理，描画，終了処理の全てをこの関数の中で呼ぶ必要がある
-	if (!MyDxlibInit()) 
+	if (!MyDxlibInit())
 	{
-		assert(false);
-		return; 
+		return;
 	}
 
 	// ProcessMessage関数はウィンドウの×ボタンがおされると失敗の値を返す．
@@ -55,7 +41,7 @@ void GraphicSystem::Main()
 	while (ProcessMessage() >= 0)
 	{
 		// メインループ，falseが帰った場合，ループを抜ける．
-		if ( ! Loop())
+		if (!Loop())
 		{
 			break;
 		}
@@ -71,7 +57,7 @@ void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_ma
 	boost::mutex::scoped_lock lock(mutex_);
 
 	//もともと持っていたIGraphicMainクラスのインスタンスを破棄する．
-	if (graphic_main_ptr_) 
+	if (graphic_main_ptr_)
 	{
 		graphic_main_ptr_.reset();
 	}
@@ -112,7 +98,7 @@ bool GraphicSystem::MyDxlibInit()
 	{
 		dldu::InitDxlib3DSetting(true);
 	}
-	else 
+	else
 	{
 		dldu::InitDxlib3DSetting(false);
 	}
@@ -147,7 +133,7 @@ bool GraphicSystem::Loop()
 	}
 
 	// 描画する
-	if ( ! fps_controller_.SkipDrawScene())
+	if (!fps_controller_.SkipDrawScene())
 	{
 		// 裏画面に描画した絵を消す
 		if (ClearDrawScreen() < 0) { return false; }
@@ -179,5 +165,3 @@ void GraphicSystem::MyDxlibFinalize() const
 
 	//ほかにも処理があればここに追記する
 }
-
-#endif	// DESIGNLAB_DONOT_USE_DXLIB

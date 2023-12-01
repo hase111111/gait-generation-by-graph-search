@@ -8,19 +8,15 @@
 #include <array>
 #include <memory>
 
-#include "define.h"
+#include <Dxlib.h>
+
 #include "display_quality.h"
 #include "hexapod_const.h"
+#include "interface_dxlib_3d_renderer.h"
+#include "interface_dxlib_node_setter.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
-
-#ifndef DESIGNLAB_DONOT_USE_DXLIB
-
-#include <Dxlib.h>
-
-#include "interface_dxlib_3d_renderer.h"
-#include "interface_dxlib_node_setter.h"
 
 
 //! @class PhantomXRendererSimple
@@ -73,6 +69,5 @@ private:
 	DisplayQuality display_quality_;	//!< 描画品質
 };
 
-#endif	// DESIGNLAB_DONOT_USE_DXLIB
 
 #endif	// DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
