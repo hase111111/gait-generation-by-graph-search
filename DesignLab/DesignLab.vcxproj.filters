@@ -489,6 +489,9 @@
     <ClInclude Include="test_registration_form.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="gait_pattern_generator_switch_move.h">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

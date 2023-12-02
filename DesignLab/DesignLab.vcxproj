@@ -22,6 +22,7 @@
     <ClInclude Include="dxlib_3d_renderer_group.h" />
     <ClInclude Include="dxlib_gui_terminal.h" />
     <ClInclude Include="font_loader.h" />
+    <ClInclude Include="gait_pattern_generator_switch_move.h" />
     <ClInclude Include="gait_pattern_generator_thread.h" />
     <ClInclude Include="gait_pattern_graph_tree.h" />
     <ClInclude Include="gait_pattern_graph_tree_test.h" />
