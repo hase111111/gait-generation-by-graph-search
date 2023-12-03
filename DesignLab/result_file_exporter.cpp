@@ -9,6 +9,7 @@
 #include "avarage_calculator.h"
 #include "cmdio_util.h"
 #include "designlab_math_util.h"
+#include "map_file_exporter.h"
 #include "stopwatch.h"
 
 
@@ -84,7 +85,7 @@ void ResultFileExporter::PushSimulationResult(const SimulationResultRecorder& si
 }
 
 
-void ResultFileExporter::ExportLatestNodeList() const 
+void ResultFileExporter::ExportLatestNodeList() const
 {
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (not init_success_)
@@ -107,7 +108,7 @@ void ResultFileExporter::ExportLatestNodeList() const
 	std::ofstream ofs(output_file_name);
 
 	//ファイルが作成できなかった場合は，なにも出力しない．
-	if ( ! ofs)
+	if (!ofs)
 	{
 		dlio::Output("ファイル " + output_file_name + "を作成できませんでした．", OutputDetail::kError);
 		return;
@@ -123,7 +124,7 @@ void ResultFileExporter::ExportLatestNodeList() const
 	dlio::Output("出力完了 : " + output_file_name, OutputDetail::kInfo);
 }
 
-void ResultFileExporter::ExportLatestMapState() const 
+void ResultFileExporter::ExportLatestMapState() const
 {
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (not init_success_)
@@ -143,20 +144,17 @@ void ResultFileExporter::ExportLatestMapState() const
 	//出力先ファイルを作成する．
 	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kMapStateName + std::to_string(result_list_.size()) + ".csv";
 
-	std::ofstream ofs(output_file_name);
+	MapFileExporter map_file_exporter;
 
-	//ファイルが作成できなかった場合は，なにも出力しない．
-	if (! ofs)
+	if (map_file_exporter.ExportMap(output_file_name, result_list_.back().map_state))
 	{
-		dlio::Output("ファイル " + output_file_name + " を作成できませんでした．", OutputDetail::kError);
-		return;
+		dlio::Output("出力完了 : " + output_file_name, OutputDetail::kInfo);
+	}
+	else
+	{
+		dlio::Output("出力失敗 : " + output_file_name, OutputDetail::kInfo);
 	}
 
-	ofs << result_list_.back().map_state;	//マップ状態を出力する．
-
-	ofs.close();	//ファイルを閉じる．
-
-	dlio::Output("出力完了 : " + output_file_name, OutputDetail::kInfo);
 }
 
 void ResultFileExporter::ExportAllResultDetail() const
@@ -199,10 +197,10 @@ void ResultFileExporter::ExportAllResultDetail() const
 	}
 
 	ofs << "成功したシミュレーション数," << result_count[SimulationResult::kSuccess] << "\n";
-	ofs << "失敗したシミュレーション数," << 
+	ofs << "失敗したシミュレーション数," <<
 		result_count[SimulationResult::kFailureByGraphSearch] + result_count[SimulationResult::kFailureByLoopMotion] +
 		result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
-	ofs << "グラフ探索に失敗,"  << result_count[SimulationResult::kFailureByGraphSearch] << "\n";
+	ofs << "グラフ探索に失敗," << result_count[SimulationResult::kFailureByGraphSearch] << "\n";
 	ofs << "デッドロックに陥った," << result_count[SimulationResult::kFailureByLoopMotion] << "\n";
 	ofs << "ノード数制限を超えた," << result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
 }
@@ -211,27 +209,27 @@ void ResultFileExporter::ExportAllResultDetail() const
 void ResultFileExporter::ExportResult() const
 {
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
-	if (! init_success_) 
+	if (!init_success_)
 	{
 		dlio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", OutputDetail::kError);
-		return; 
+		return;
 	}
 
-	if (! do_export_) 
+	if (!do_export_)
 	{
 		dlio::Output("結果出力フラグがfalseのため，結果を出力しません", OutputDetail::kInfo);
-		return; 
+		return;
 	}
 
 	dlio::Output("結果を出力します．シミュレーション数 : " + std::to_string(result_list_.size()), OutputDetail::kInfo);
 
 	for (int i = 0; i < result_list_.size(); i++)
 	{
-		if (OutputResultDetail(result_list_[i], i)) 
+		if (OutputResultDetail(result_list_[i], i))
 		{
 			dlio::Output("出力完了 : シミュレーション番号 " + std::to_string(i + 1), OutputDetail::kInfo);
 		}
-		else 
+		else
 		{
 			dlio::Output("出力失敗 : シミュレーション番号 " + std::to_string(i + 1), OutputDetail::kInfo);
 		}

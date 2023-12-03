@@ -118,6 +118,12 @@
     <Filter Include="ソース ファイル\Node\Test">
       <UniqueIdentifier>{6abfc652-16b7-4965-813b-9bf99d8feb01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Map\Test">
+      <UniqueIdentifier>{cfea5932-4b68-4d6a-8bfd-65f88c2a0fe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Map\FileIo">
+      <UniqueIdentifier>{fb25e45b-efe3-41d2-a4eb-466f76c14f6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -129,7 +135,7 @@
     <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_map_creator.h">
+    <ClInclude Include="map_creator_for_simulation.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="map_state.h">
@@ -492,6 +498,24 @@
     <ClInclude Include="gait_pattern_generator_switch_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
+    <ClInclude Include="target_setter_for_gpg.h">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="map_creator_by_csv.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="map_state_test.h">
+      <Filter>ソース ファイル\Map\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="map_file_importer.h">
+      <Filter>ソース ファイル\Map\FileIo</Filter>
+    </ClInclude>
+    <ClInclude Include="map_file_exporter.h">
+      <Filter>ソース ファイル\Map\FileIo</Filter>
+    </ClInclude>
+    <ClInclude Include="devide_map_state_test.h">
+      <Filter>ソース ファイル\Map\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -503,7 +527,7 @@
     <ClCompile Include="com_type.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_map_creator.cpp">
+    <ClCompile Include="map_creator_for_simulation.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
@@ -751,6 +775,18 @@
     </ClCompile>
     <ClCompile Include="gait_pattern_generator_switch_move.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="target_setter_for_gpg.cpp">
+      <Filter>ソース ファイル\System\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="map_creator_by_csv.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="map_file_importer.cpp">
+      <Filter>ソース ファイル\Map\FileIo</Filter>
+    </ClCompile>
+    <ClCompile Include="map_file_exporter.cpp">
+      <Filter>ソース ファイル\Map\FileIo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

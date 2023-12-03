@@ -1,4 +1,4 @@
-#include "result_file_importer.h"
+ï»¿#include "result_file_importer.h"
 
 #include <filesystem>
 #include <fstream>
@@ -14,120 +14,127 @@ namespace fs = std::filesystem;
 
 bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path, std::vector<RobotStateNode>* node_list, MapState* map_state) const
 {
-    // ˆø”‚ÌŠm”F
-    assert(node_list != nullptr);
-    assert(node_list->empty());
-    assert(map_state != nullptr);
-    assert(map_state->GetMapPointSize() == 0);
+	// å¼•æ•°ã®ç¢ºèª
+	assert(node_list != nullptr);
+	assert(node_list->empty());
+	assert(map_state != nullptr);
+	assert(map_state->GetMapPointSize() == 0);
 
 
-    // ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©‚Ç‚¤‚©‚ğŠm”FD‚È‚¢‚È‚ç‚Îfalse‚ğ•Ô‚·D
-    if (! fs::exists(file_path)) 
-    {
-        dlio::Output("NodeListƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kError);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’ç¢ºèªï¼ãªã„ãªã‚‰ã°falseã‚’è¿”ã™ï¼
+	if (!fs::exists(file_path))
+	{
+		dlio::Output("NodeListãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
 		return false;
-    }
+	}
 
-    // node_list1.csv ‚È‚ç‚Î map_state1.csv‚à“Ç‚İ‚Ş
-    std::string map_file_path = file_path;
-    map_file_path.replace(map_file_path.find(ResultFileConst::kNodeListName), ResultFileConst::kNodeListName.size(), ResultFileConst::kMapStateName);
+	// node_list1.csv ãªã‚‰ã° map_state1.csvã‚‚èª­ã¿è¾¼ã‚€
+	std::string map_file_path = file_path;
+	map_file_path.replace(map_file_path.find(ResultFileConst::kNodeListName), ResultFileConst::kNodeListName.size(), ResultFileConst::kMapStateName);
 
-    if (! fs::exists(map_file_path))
-    {
-        dlio::Output("MapStateƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kError);
-        return false;
-    }
+	if (!fs::exists(map_file_path))
+	{
+		dlio::Output("MapStateãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kError);
+		return false;
+	}
 
 
-    if (! ImportNodeList(file_path, node_list) || ! ImportMapState(map_file_path, map_state)) 
-    {
-        dlio::Output("ƒtƒ@ƒCƒ‹“Ç‚İ‚İ’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D", OutputDetail::kError);
-    }
+	if (!ImportNodeList(file_path, node_list) || !ImportMapState(map_file_path, map_state))
+	{
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸï¼", OutputDetail::kError);
+	}
 
-    return true;
+	return true;
 }
 
-bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_unused]]std::vector<RobotStateNode>* node_list) const
+bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_unused]] std::vector<RobotStateNode>* node_list) const
 {
-    // ƒtƒ@ƒCƒ‹‚ğŠJ‚­
-    std::ifstream ifs(file_path);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+	std::ifstream ifs(file_path);
 
-    // ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚È‚¢‚È‚ç‚Îfalse‚ğ•Ô‚·D
-    if (not ifs.is_open())
-    {
-        dlio::Output("ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kSystem);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ãªã„ãªã‚‰ã°falseã‚’è¿”ã™ï¼
+	if (not ifs.is_open())
+	{
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kSystem);
 
-        return false;
-    }
+		return false;
+	}
 
 
-    // ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
-    std::string str;
-    std::vector<std::string> str_list;
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
+	std::string str;
+	std::vector<std::string> str_list;
 
-    while (std::getline(ifs, str))
-    {
-        str_list.push_back(str);
-    }
+	while (std::getline(ifs, str))
+	{
+		str_list.push_back(str);
+	}
 
-    // ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
-    ifs.close();
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+	ifs.close();
 
-    // ƒtƒ@ƒCƒ‹‚Ì“à—e‚ğ‰ğÍ‚·‚é
-    // ƒm[ƒhƒŠƒXƒg‚Ì“Ç‚İ‚İ
-    for (const auto &i : str_list)
-    {
-        RobotStateNode node;
-        std::stringstream ss(i);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã‚’è§£æã™ã‚‹
+	// ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+	for (const auto& i : str_list)
+	{
+		RobotStateNode node;
+		std::stringstream ss(i);
 
-        node = RobotStateNode::FromString(ss.str());
+		node = RobotStateNode::FromString(ss.str());
 
 		(*node_list).push_back(node);
-    }
+	}
 
-    return true;
+	return true;
 }
 
 bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* map_state) const
 {
-    assert(map_state != nullptr);   
+	assert(map_state != nullptr);
 
-    // ƒtƒ@ƒCƒ‹‚ğŠJ‚­
-    std::ifstream ifs(file_path);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+	std::ifstream ifs(file_path);
 
-    // ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚È‚¢‚È‚ç‚Îfalse‚ğ•Ô‚·D
-    if (not ifs.is_open())
-    {
-        dlio::Output("ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½D", OutputDetail::kSystem);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ãªã„ãªã‚‰ã°falseã‚’è¿”ã™ï¼
+	if (not ifs.is_open())
+	{
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸï¼", OutputDetail::kSystem);
 
-        return false;
-    }
+		return false;
+	}
 
 
-    // ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
-    std::string str;
-    std::vector<std::string> str_list;
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
+	std::string str;
+	std::vector<std::string> str_list;
 
-    while (std::getline(ifs, str))
-    {
-        str_list.push_back(str);
-    }
+	while (std::getline(ifs, str))
+	{
+		str_list.push_back(str);
+	}
 
-    // ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
-    ifs.close();
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+	ifs.close();
 
-    // ƒtƒ@ƒCƒ‹‚Ì“à—e‚ğ‰ğÍ‚·‚é
-    (*map_state).ClearMapPoint();
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã‚’è§£æã™ã‚‹
+	(*map_state).ClearMapPoint();
 
-    for (const auto &i : str_list)
-    {
-        designlab::Vector3 point;
-        std::stringstream ss(i);
+	for (const auto& i : str_list)
+	{
+		designlab::Vector3 point;
+		std::stringstream ss(i);
 
-        ss >> point;
+		try
+		{
+			ss >> point;
 
-		(*map_state).AddMapPoint(point);
-    }
+			(*map_state).AddMapPoint(point);
+		}
+		catch (...)
+		{
+			// ä½•ã‚‚ã—ãªã„
+		}
+	}
 
-    return true;
+	return true;
 }

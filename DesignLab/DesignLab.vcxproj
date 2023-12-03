@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="devide_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
     <ClInclude Include="dxlib_gui_terminal.h" />
     <ClInclude Include="font_loader.h" />
@@ -35,6 +36,10 @@
     <ClInclude Include="interface_dxlib_node_setter.h" />
     <ClInclude Include="interface_dxlib_3d_renderer.h" />
     <ClInclude Include="interface_dxlib_wheel_handler.h" />
+    <ClInclude Include="map_creator_by_csv.h" />
+    <ClInclude Include="map_file_exporter.h" />
+    <ClInclude Include="map_file_importer.h" />
+    <ClInclude Include="map_state_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
@@ -139,8 +144,9 @@
     <ClInclude Include="system_main_graph_viewer.h" />
     <ClInclude Include="target_robot_state.h" />
     <ClInclude Include="robot_state_node.h" />
-    <ClInclude Include="simulation_map_creator.h" />
+    <ClInclude Include="map_creator_for_simulation.h" />
     <ClInclude Include="designlab_vector3.h" />
+    <ClInclude Include="target_setter_for_gpg.h" />
     <ClInclude Include="test_registration_form.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
@@ -156,6 +162,9 @@
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
+    <ClCompile Include="map_creator_by_csv.cpp" />
+    <ClCompile Include="map_file_exporter.cpp" />
+    <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selecter.cpp" />
     <ClCompile Include="node_creator_builder_turn_spot.cpp" />
@@ -216,7 +225,7 @@
     <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="robot_state_node.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="simulation_map_creator.cpp" />
+    <ClCompile Include="map_creator_for_simulation.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="designlab_math_util.cpp" />
@@ -230,6 +239,7 @@
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
+    <ClCompile Include="target_setter_for_gpg.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
