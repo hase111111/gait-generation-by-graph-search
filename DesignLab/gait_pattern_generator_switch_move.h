@@ -1,5 +1,5 @@
-//! @file gait_pattern_generator_switch_move.h
-//! @brief •¡”í—Ş‚Ì•à—eƒpƒ^[ƒ“‚Ì¶¬•û–@‚ğØ‚è‘Ö‚¦‚é‚½‚ß‚ÌƒNƒ‰ƒXD
+ï»¿//! @file gait_pattern_generator_switch_move.h
+//! @brief è¤‡æ•°ã®ç¨®é¡ã®æ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç”Ÿæˆæ–¹æ³•ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 
 
 #ifndef GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H
@@ -16,13 +16,13 @@
 
 
 //! @class GaitPatternGeneratorSwitchMove
-//! @brief Ä•]‰¿è–@‚ğÀ‘•‚µ‚½ƒNƒ‰ƒXD
+//! @brief è¤‡æ•°ã®ç¨®é¡ã®æ­©å®¹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç”Ÿæˆæ–¹æ³•ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 class GaitPatternGeneratorSwitchMove final : public IGaitPatternGenerator
 {
 public:
 
-	//! @param[in] gait_pattern_generator_ptr ’Êí‚Ég—p‚·‚é‚à‚ÌD
-	//! @param[in] gait_pattern_generator_revaluation_ptr Ä•]‰¿‚Ég—p‚·‚é‚à‚ÌD
+	//! @param[in] gait_pattern_generator_for_straigt ç›´é€²æ™‚ã«ä½¿ç”¨ã™ã‚‹ã‚‚ã®ï¼
+	//! @param[in] gait_pattern_generator_for_turn_spot ãã®å ´æ—‹å›æ™‚ã«ä½¿ç”¨ã™ã‚‹ã‚‚ã®ï¼
 	GaitPatternGeneratorSwitchMove(
 		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straigt,
 		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot
