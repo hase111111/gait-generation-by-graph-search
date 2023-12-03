@@ -2,7 +2,7 @@
 #define DESIGNLAB_TEST_REGISTRATION_FORM_H_
 
 //↓テストを使用しない場合コメントアウトすること．
-//#define DESIGNLAB_USE_TEST
+#define DESIGNLAB_USE_TEST
 
 #if defined(DESIGNLAB_USE_TEST)
 
@@ -12,6 +12,7 @@
 
 //以下にテストコードが書かれたhファイルをインクルードすることで登録される．
 #include "gait_pattern_graph_tree_test.h"
+#include "map_state_test.h"
 
 
 #endif	// DESIGNLAB_USE_TEST

@@ -33,7 +33,7 @@ RobotStateNode NodeInitializer::InitNode() const
 		};
 	}
 
-	res.global_center_of_mass = dl::Vector3{ 0.f, 0.f, com_z };
+	res.global_center_of_mass = dl::Vector3{ 350.f, 400.f, com_z };
 	//res.global_center_of_mass += dl::Vector3(
 	//	designlab::math_util::GenerateRandomNumber(-100.f, 100.f),
 	//	designlab::math_util::GenerateRandomNumber(-400.f, 400.f),

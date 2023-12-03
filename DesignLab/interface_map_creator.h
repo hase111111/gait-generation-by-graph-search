@@ -1,5 +1,5 @@
-//! @file interface_map_creator.h
-//! @brief �}�b�v�����N���X�̃C���^�[�t�F�[�X
+﻿//! @file interface_map_creator.h
+//! @brief マップ生成クラスのインターフェース
 
 
 #ifndef DESIGNLAB_INTERFACE_MAP_CREATOR_H_
@@ -9,24 +9,24 @@
 
 
 //! @class IMapCreator
-//! @brief �}�b�v�����N���X�̃C���^�[�t�F�[�X
-class IMapCreator 
-{	
+//! @brief マップ生成クラスのインターフェース．
+class IMapCreator
+{
 public:
 
 	virtual ~IMapCreator() = default;
 
-	//! @brief �}�b�v�̏��������s���D
-	//! @details �V�~�����[�V�����ɂ����Ă͂��̋@�\�݂̂���΂悢���C
-	//! @n ���@�𓮍삳����ꍇ�C�J���������m�ɔF���ł��鋗���̊֌W�ŁC�}�b�v��ǂݒ����K�v������D
-	//! @n ���̂��߁C���@�������͂�����̊֐��ŏ�����������CUpdateMap()�Ń}�b�v���X�V����K�v������D
-	//! @return �����������}�b�v
+	//! @brief マップの初期化を行う．
+	//! @details シミュレーションにおいてはこの機能のみあればよいが，
+	//! @n 実機を動作させる場合，カメラが正確に認識できる距離の関係で，マップを読み直す必要がある．
+	//! @n そのため，実機試験時はこちらの関数で初期化した後，UpdateMap()でマップを更新する必要がある．
+	//! @return 初期化したマップ
 	virtual MapState InitMap() = 0;
 
-	//! @brief �}�b�v�̍X�V���s���D
-	//! @details ���@�𓮍삳����ꍇ�ɁC�}�b�v��ǂݒ����K�v������D
-	//! @n �V�~�����[�V�����ł͂��̋@�\�͕s�v�D
-	//! @param [in,out] current_map ���݂̃}�b�v���󂯎��C�X�V�����}�b�v��Ԃ��D
+	//! @brief マップの更新を行う．
+	//! @details 実機を動作させる場合に，マップを読み直す必要がある．
+	//! @n シミュレーションではこの機能は不要．
+	//! @param [in,out] current_map 現在のマップを受け取り，更新したマップを返す．
 	virtual void UpdateMap(MapState* current_map) = 0;
 
 };

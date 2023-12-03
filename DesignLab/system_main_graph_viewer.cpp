@@ -35,7 +35,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 
 	MapCreateModeMessenger messanger = InputMapCreateMode();
 
-	SimulationMapCreator map_creator(messanger);
+	MapCreatorForSimulation map_creator(messanger);
 
 	map_state_ = map_creator.InitMap();
 

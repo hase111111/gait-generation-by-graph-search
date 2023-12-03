@@ -17,7 +17,7 @@
 class PhantomXMkII : public IHexapodCoordinateConverter, public IHexapodJointCalculator, public IHexapodStatePresenter, public IHexapodVaildChecker
 {
 public:
-	
+
 	PhantomXMkII();
 
 
@@ -30,13 +30,13 @@ public:
 	bool IsVaildJointState(const int leg_index, const designlab::Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept override;
 
 
-	designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index, 
+	designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index,
 		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, const bool consider_rot) const override;
 
-	designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index, 
+	designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index,
 		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, const bool consider_rot) const override;
 
-	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position, 
+	designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position,
 		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, const bool consider_rot) const override;
 
 	designlab::Vector3 ConvertRobotToLegCoordinate(const designlab::Vector3& converted_position, int leg_index) const;
@@ -73,9 +73,10 @@ private:
 	const float kMovableCoxaAngleMin = designlab::math_util::ConvertDegToRad(-40.f);	//!< 脚の可動範囲の最小値[rad]
 	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< 脚の可動範囲の最大値[rad]
 
-	static constexpr float kMinLegR{140.f};		//!< 脚の付け根から脚先までの最小距離[mm]
-	static constexpr int kMaxLegRSize{200};		//!< kMaxLegRの配列のサイズ．
-	std::array<float, kMaxLegRSize> kMaxLegR;	//!< 脚の付け根から脚先までの最大距離[mm]．脚の付け根と重心のz方向の距離の差をインデックスにする．
+	static constexpr float kMinLegR{ 140.f };		//!< 脚の付け根から脚先までの最小距離[mm]
+	static constexpr float kMaxLegR{ 200.f };		//!< 脚の付け根から脚先までの最大距離[mm]
+	static constexpr int kMaxLegRSize{ 200 };		//!< kMaxLegRの配列のサイズ．
+	std::array<float, kMaxLegRSize> kMaxLegRArray;	//!< 脚の付け根から脚先までの最大距離[mm]．脚の付け根と重心のz方向の距離の差をインデックスにする．
 
 	std::array<designlab::Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa jointの最小位置まで回した時の脚先座標．脚座標系のxyからみた座標．
 	std::array<designlab::Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa jointの最大位置まで回した時の脚先座標．脚座標系のxyからみた座標．

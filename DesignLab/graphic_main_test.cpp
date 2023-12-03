@@ -11,7 +11,7 @@
 #include "node_initializer.h"
 #include "dxlib_gui_node_displayer.h"
 #include "phantomx_mk2_const.h"
-#include "simulation_map_creator.h"
+#include "map_creator_for_simulation.h"
 
 
 namespace dl = ::designlab;
@@ -33,7 +33,7 @@ GraphicMainTest::GraphicMainTest(
 	robot_ = node_initializer.InitNode();
 
 	const MapCreateModeMessenger messanger;
-	SimulationMapCreator map_creator(messanger);
+	MapCreatorForSimulation map_creator(messanger);
 
 	map_state_ = map_creator.InitMap();
 	devide_map_state_.Init(map_state_, {});

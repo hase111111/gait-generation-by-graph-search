@@ -8,7 +8,7 @@
 #include "dead_lock_checker.h"
 #include "designlab_string_util.h"
 #include "node_initializer.h"
-#include "simulation_map_creator.h"
+#include "map_creator_for_simulation.h"
 
 namespace dl = ::designlab;
 namespace dlio = ::designlab::cmdio;
@@ -106,6 +106,8 @@ void SystemMainSimulation::Main()
 		for (int j = 0; j < kGaitPatternGenerationLimit; j++)
 		{
 			current_node.ChangeLootNode();
+
+			target_ = target_setter_.GetTarget(current_node);	//ターゲットの方向を更新する．
 
 			timer_.Start();			//タイマースタート
 

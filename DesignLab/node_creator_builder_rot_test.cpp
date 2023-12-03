@@ -5,7 +5,7 @@
 #include "node_creator_com_move.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
-#include "node_creator_leg_up_down.h"
+#include "node_creator_leg_up_down_2d.h"
 
 
 namespace dl = ::designlab;
@@ -32,10 +32,10 @@ void NodeCreatorBuilderRotTest::Build(
 		DiscreteLegPos::kBack,
 		DiscreteLegPos::kCenter,
 		DiscreteLegPos::kFront,
-		DiscreteLegPos::kLowerBack,
-		DiscreteLegPos::kLowerFront,
-		DiscreteLegPos::kUpperBack,
-		DiscreteLegPos::kUpperFront
+		//DiscreteLegPos::kLowerBack,
+		//DiscreteLegPos::kLowerFront,
+		//DiscreteLegPos::kUpperBack,
+		//DiscreteLegPos::kUpperFront
 	};
 
 	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
@@ -43,7 +43,7 @@ void NodeCreatorBuilderRotTest::Build(
 		hierarchy_list
 	);
 
-	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown2d>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
@@ -55,7 +55,7 @@ void NodeCreatorBuilderRotTest::Build(
 		map,
 		converter_ptr_,
 		checker_ptr_,
-		dl::Vector3::GetLeftVec(),
+		dl::Vector3::GetUpVec(),
 		HexapodMove::kComUpDown
 	);
 

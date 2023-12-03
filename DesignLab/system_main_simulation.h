@@ -17,6 +17,7 @@
 #include "simulation_end_checker.h"
 #include "stopwatch.h"
 #include "target_robot_state.h"
+#include "target_setter_for_gpg.h"
 
 
 //! @class SystemMainSimulation
@@ -47,7 +48,7 @@ private:
 
 	void OutputSetting() const;
 
-	static constexpr int kSimurateNum{5};	//!< 連続でシミュレーションを行う回数
+	static constexpr int kSimurateNum{ 5 };	//!< 連続でシミュレーションを行う回数
 
 	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
 
@@ -65,6 +66,7 @@ private:
 	MapState map_state_;		//!< 地形の状態
 
 	TargetRobotState target_;	//!< 目標地点．
+	TargetSetterForGpg target_setter_;	//!< 目標地点を決定するクラス．
 
 	Stopwatch timer_;			//!< 時間計測用のクラス．
 

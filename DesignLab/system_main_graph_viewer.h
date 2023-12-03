@@ -11,7 +11,7 @@
 #include "graph_tree_creator.h"
 #include "interface_system_main.h"
 #include "map_state.h"
-#include "simulation_map_creator.h"
+#include "map_creator_for_simulation.h"
 #include "stopwatch.h"
 
 

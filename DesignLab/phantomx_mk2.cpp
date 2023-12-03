@@ -30,8 +30,8 @@ PhantomXMkII::PhantomXMkII() :
 		{ -PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// 脚3 左下
 		{ 0.0f, PhantomXMkIIConst::kCenterCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },						// 脚4 左横
 		{ PhantomXMkIIConst::kCoxaBaseOffsetX, PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },	// 脚5 左上
-	}}),
-	kMaxLegR(InitMaxLegR()),
+	} }),
+	kMaxLegRArray(InitMaxLegR()),
 	kMinLegPosXY(InitMinLegPosXY()),
 	kMaxLegPosXY(InitMaxLegPosXY())
 {
@@ -108,7 +108,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const d
 
 		res.joint_pos_leg_coordinate[1] = femur_joint_pos;
 
-		if ( ! dlm::CanMakeTriangle((leg_pos - femur_joint_pos).GetLength(), PhantomXMkIIConst::kFemurLength, PhantomXMkIIConst::kTibiaLength))
+		if (!dlm::CanMakeTriangle((leg_pos - femur_joint_pos).GetLength(), PhantomXMkIIConst::kFemurLength, PhantomXMkIIConst::kTibiaLength))
 		{
 			// そもそも脚先が脚の付け根から届かない場合，一番近い位置まで脚を伸ばす．
 
@@ -265,7 +265,7 @@ bool PhantomXMkII::IsVaildJointState(const int leg_index, const dl::Vector3& leg
 
 dl::Vector3 PhantomXMkII::ConvertGlobalToLegCoordinate(
 	const dl::Vector3& converted_position,
-	const int leg_index, 
+	const int leg_index,
 	const dl::Vector3& center_of_mass_global,
 	const dl::Quaternion& robot_quat,
 	const bool consider_rot) const
@@ -371,7 +371,9 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const designlab::Vector3& l
 
 	if (leg_pos_xy.GetSquaredLength() < dlm::Squared(kMinLegR)) { return false; }
 
-	if (dlm::Squared(kMaxLegR[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.GetSquaredLength()) { return false; }
+	if (dlm::Squared(kMaxLegR) < leg_pos_xy.GetSquaredLength()) { return false; }
+
+	if (dlm::Squared(kMaxLegRArray[-static_cast<int>(leg_pos.z)]) < leg_pos_xy.GetSquaredLength()) { return false; }
 
 	return true;
 }
@@ -508,7 +510,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 			const float leg_top_z = (std::max)(
 				devide_map.GetTopZ(devide_map.GetDevideMapIndexX(leg_pos_global_coord.x), devide_map.GetDevideMapIndexY(leg_pos_global_coord.y)),
 				devide_map.GetMapMinZ()
-			);
+				);
 
 			if (leg_top_z != devide_map.GetMapMinZ() && leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoodinate(i).z > leg_pos_global_coord.z)
 			{
