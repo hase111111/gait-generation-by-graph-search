@@ -124,6 +124,9 @@
     <Filter Include="ソース ファイル\Map\FileIo">
       <UniqueIdentifier>{fb25e45b-efe3-41d2-a4eb-466f76c14f6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Map\MapCreator">
+      <UniqueIdentifier>{f4309f83-9585-47fc-8d63-df66452be9d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -134,9 +137,6 @@
     </ClInclude>
     <ClInclude Include="com_type.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClInclude>
-    <ClInclude Include="map_creator_for_simulation.h">
-      <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="map_state.h">
       <Filter>ソース ファイル\Map</Filter>
@@ -354,9 +354,6 @@
     <ClInclude Include="result_file_importer.h">
       <Filter>ソース ファイル\Common\FileIO\Result</Filter>
     </ClInclude>
-    <ClInclude Include="interface_map_creator.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="interface_application_setting_reader.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
@@ -422,9 +419,6 @@
     </ClInclude>
     <ClInclude Include="designlab_attribute.h">
       <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="map_create_mode_messenger.h">
-      <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
@@ -501,9 +495,6 @@
     <ClInclude Include="target_setter_for_gpg.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
-    <ClInclude Include="map_creator_by_csv.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="map_state_test.h">
       <Filter>ソース ファイル\Map\Test</Filter>
     </ClInclude>
@@ -516,6 +507,18 @@
     <ClInclude Include="devide_map_state_test.h">
       <Filter>ソース ファイル\Map\Test</Filter>
     </ClInclude>
+    <ClInclude Include="map_creator_by_csv.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_map_creator.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="map_create_mode_messenger.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="map_creator_for_simulation.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -526,9 +529,6 @@
     </ClCompile>
     <ClCompile Include="com_type.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClCompile>
-    <ClCompile Include="map_creator_for_simulation.cpp">
-      <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
@@ -779,14 +779,17 @@
     <ClCompile Include="target_setter_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="map_creator_by_csv.cpp">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClCompile>
     <ClCompile Include="map_file_importer.cpp">
       <Filter>ソース ファイル\Map\FileIo</Filter>
     </ClCompile>
     <ClCompile Include="map_file_exporter.cpp">
       <Filter>ソース ファイル\Map\FileIo</Filter>
+    </ClCompile>
+    <ClCompile Include="map_creator_by_csv.cpp">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="map_creator_for_simulation.cpp">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,8 +8,8 @@
 #include "cassert_define.h"
 
 
-	//! @enum MapCreateMode
-	//! @brief getMap関数のマップ生成のモードを指定する列挙体．
+//! @enum MapCreateMode
+//! @brief getMap関数のマップ生成のモードを指定する列挙体．
 enum class MapCreateMode : int
 {
 	kFlat = 0,			//!< 普通の平らな面を生成する．
@@ -36,6 +36,7 @@ enum class MapCreateOption : unsigned int
 	kRough = 1 << 4,		//!< 凸凹の地形に変化させる．
 };
 
+
 //! @class MapCreateModeMessenger
 //! @brief マップ生成時のモードとオプションを指定する構造体．
 class MapCreateModeMessenger final
@@ -51,31 +52,36 @@ public:
 	//! @param [in] mode マップ生成のモードを指定する列挙体．
 	constexpr void SetMode(const MapCreateMode create_mode)
 	{
-		this->mode = create_mode;
+		mode = create_mode;
 	}
-	 
+
 	//! @brief マップ生成のオプションを指定する．
-	//! @param [in] mode マップ生成のオプションを指定する列挙体．
-	//! @n 可変長引数を用いているので，複数個指定できる．
-	//! @tparam Args マップ生成のモードを指定する列挙体．
-	template<typename... Args>
-	constexpr void SetOption(Args... args)
+	//! @n この関数を呼んだあと，その他のSet～関数を呼ぶと，段差の高さや，傾斜角を指定できる．
+	//! @param [in] mode マップ生成のオプションを指定する列挙体をvectorで指定する．
+	//! @n emptyであってはならない．
+	void SetOption(const std::vector<MapCreateOption> create_options)
 	{
-		(..., (option |= static_cast<unsigned int>(args)));
+		assert(!create_options.empty());
+
+		for (const auto& i : create_options)
+		{
+			option |= static_cast<unsigned int>(i);
+		}
 	}
 
 	//! @brief マップの大きさを指定する．
-	//! @param [in] max_x マップのX座標の最大値．
-	//! @param [in] min_x マップのX座標の最小値．
-	//! @param [in] max_y マップのY座標の最大値．
-	//! @param [in] min_y マップのY座標の最小値．
-	//! @param [in] start_rough_x 不整地が始まるX座標．
-	//! @param [in] base_z マップの基準となるZ座標．
-	constexpr void SetMapSize(const float max_x, const float min_x, const float max_y, const float min_y, const float start_rough_x, const float map_base_z)
+	//! @param [in] max_x マップのX座標の最大値．単位は[mm]．
+	//! @param [in] min_x マップのX座標の最小値．単位は[mm]．
+	//! @param [in] max_y マップのY座標の最大値．単位は[mm]．
+	//! @param [in] min_y マップのY座標の最小値．単位は[mm]．
+	//! @param [in] start_rough_x 不整地が始まるX座標．単位は[mm]．
+	//! @param [in] base_z マップのZ座標．単位は[mm]．
+	constexpr void SetMapSize(const float max_x, const float min_x, const float max_y,
+		const float min_y, const float start_rough_x, const float map_base_z)
 	{
-		assert(max_x > min_x);
-		assert(max_y > min_y);
-		assert(start_rough_x > min_x);
+		assert(min_x < max_x);
+		assert(min_y < max_y);
+		assert(min_x < start_rough_x);
 		assert(start_rough_x < max_x);
 
 		map_max_x = max_x;
@@ -88,14 +94,14 @@ public:
 
 	constexpr void SetStripeInterval(const int interval)
 	{
-		assert(interval > 0);
+		assert(0 < interval);
 
 		stripe_interval = interval;
 	}
 
 	constexpr void SetHoleRate(const int rate)
 	{
-		assert(rate >= 0);
+		assert(0 <= rate);
 		assert(rate <= 100);
 
 		hole_rate = rate;
@@ -150,4 +156,4 @@ public:
 };
 
 
-#endif // !DESIGNLAB_CREATE_MODE_MESSENGER_H_
+#endif // DESIGNLAB_CREATE_MODE_MESSENGER_H_
