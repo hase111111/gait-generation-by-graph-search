@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <map>
 
 #include <magic_enum.hpp>
 
@@ -50,7 +51,7 @@ std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFi
 	{
 		//ファイルのタイトルが一致しない場合はデフォルトの設定を出力して終了
 		std::cout << "設定ファイルのタイトルが一致しませんでした．デフォルトの設定ファイルを出力します．\n";
-		
+
 		OutputDefaultSettingFile();
 
 		return std::make_shared<ApplicationSettingRecorder>();
@@ -76,7 +77,7 @@ std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFi
 		std::cout << "デフォルトの設定ファイルを出力します．\n";
 
 		OutputDefaultSettingFile();
-		
+
 		return std::make_shared<ApplicationSettingRecorder>();
 	}
 
@@ -112,10 +113,11 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 		res_str += u8"# このようにシャープで始まる行はコメントです．プログラムに影響を与えないため，メモ代わりに使うことができます．\n";
 		res_str += u8"\n\n\n";
 
-		toml::value title_data{
+		toml::basic_value<toml::preserve_comments> title_data{
 			{ ApplicationSettingTomlKey::kFileTitle.key, ApplicationSettingTomlKey::kFileTitleValue }
 		};
-		title_data.comments().push_back(ApplicationSettingTomlKey::kFileTitle.description);
+
+		title_data.at(ApplicationSettingTomlKey::kFileTitle.key).comments().push_back(ApplicationSettingTomlKey::kFileTitle.description);
 
 		res_str += toml::format(title_data, 0);
 		res_str += u8"\n";
@@ -151,7 +153,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 				{
 					{ ApplicationSettingTomlKey::kAskAboutBootMode.key, kDefaultSetting.ask_about_modes },
 					{ ApplicationSettingTomlKey::kDefaultMode.key, magic_enum::enum_name(kDefaultSetting.default_mode) },
-					{ ApplicationSettingTomlKey::kDoStepExecution.key, kDefaultSetting.do_step_execution },
+					{ ApplicationSettingTomlKey::kDoStepExecution.key, kDefaultSetting.do_step_execution_each_simulation },
 					{ ApplicationSettingTomlKey::kDoStepEexcutionEachGait.key, kDefaultSetting.do_step_execution_each_gait}
 				}
 			}
@@ -168,13 +170,13 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 
 	// 表示
 	{
-		toml::basic_value<toml::preserve_comments> display_data{
+		toml::basic_value<toml::preserve_comments, std::map> display_data{
 			{
 				ApplicationSettingTomlKey::kDisplayTable.table_name,
 				{
-					{ ApplicationSettingTomlKey::kOutputCmd.key, kDefaultSetting.cmd_output},
-					{ ApplicationSettingTomlKey::kCmdPermission.key, magic_enum::enum_name(kDefaultSetting.cmd_permission) },
-					{ ApplicationSettingTomlKey::kDisplayGui.key, kDefaultSetting.gui_display },
+					{ ApplicationSettingTomlKey::kOutputCmd.key, kDefaultSetting.do_cmd_output},
+					{ ApplicationSettingTomlKey::kCmdPermission.key, magic_enum::enum_name(kDefaultSetting.cmd_output_detail) },
+					{ ApplicationSettingTomlKey::kDisplayGui.key, kDefaultSetting.do_gui_display },
 					{ ApplicationSettingTomlKey::kGuiDisplayQuality.key, magic_enum::enum_name(kDefaultSetting.gui_display_quality) },
 					{ ApplicationSettingTomlKey::kWindowSizeX.key,kDefaultSetting.window_size_x },
 					{ ApplicationSettingTomlKey::kWindowSizeY.key,kDefaultSetting.window_size_y },
@@ -290,8 +292,8 @@ void ApplicationSettingReaderToml::ReadBootModeSetting(const toml::value& value,
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kDoStepExecution.key))
 		{
-			recorder->do_step_execution = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDoStepExecution.key).as_boolean();
-			std::cout << "〇ステップ実行フラグを読み込みました．value = " << std::boolalpha << recorder->do_step_execution << "\n";
+			recorder->do_step_execution_each_simulation = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDoStepExecution.key).as_boolean();
+			std::cout << "〇ステップ実行フラグを読み込みました．value = " << std::boolalpha << recorder->do_step_execution_each_simulation << "\n";
 		}
 		else
 		{
@@ -326,8 +328,8 @@ void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, 
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kOutputCmd.key))
 		{
-			recorder->cmd_output = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kOutputCmd.key).as_boolean();
-			std::cout << "〇コマンド出力のフラグを読み込みました．value = " << std::boolalpha << recorder->cmd_output << "\n";
+			recorder->do_cmd_output = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kOutputCmd.key).as_boolean();
+			std::cout << "〇コマンド出力のフラグを読み込みました．value = " << std::boolalpha << recorder->do_cmd_output << "\n";
 		}
 		else
 		{
@@ -337,8 +339,8 @@ void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kCmdPermission.key))
 		{
 			std::string read_str = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kCmdPermission.key).as_string();
-			recorder->cmd_permission = magic_enum::enum_cast<OutputDetail>(read_str).value();
-			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << magic_enum::enum_name(recorder->cmd_permission) << "\n";
+			recorder->cmd_output_detail = magic_enum::enum_cast<OutputDetail>(read_str).value();
+			std::cout << "〇コマンド表示制限の情報を読み込みました．value = " << magic_enum::enum_name(recorder->cmd_output_detail) << "\n";
 		}
 		else
 		{
@@ -347,8 +349,8 @@ void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, 
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kDisplayGui.key))
 		{
-			recorder->gui_display = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kDisplayGui.key).as_boolean();
-			std::cout << "〇GUI表示のフラグを読み込みました．value = " << std::boolalpha << recorder->gui_display << "\n";
+			recorder->do_gui_display = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kDisplayGui.key).as_boolean();
+			std::cout << "〇GUI表示のフラグを読み込みました．value = " << std::boolalpha << recorder->do_gui_display << "\n";
 		}
 		else
 		{

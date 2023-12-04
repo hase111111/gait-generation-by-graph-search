@@ -22,7 +22,7 @@ GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecor
 void GraphicSystem::Main()
 {
 	//そもそも描画処理を使わないならば即終了．
-	if (!setting_ptr_->gui_display)
+	if (!setting_ptr_->do_gui_display)
 	{
 		return;
 	}

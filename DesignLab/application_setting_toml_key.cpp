@@ -24,16 +24,16 @@ const TomlSettingKeyData ApplicationSettingTomlKey::kAskAboutBootMode = { Applic
 
 const TomlSettingKeyData ApplicationSettingTomlKey::kDefaultMode = { ApplicationSettingTomlKey::kMoveTable.table_name ,"default_mode",u8"デフォルトの実行モードを設定します．(simulation/viewer/display_test/result_viewer)" };
 
-const TomlSettingKeyData ApplicationSettingTomlKey::kDoStepExecution = { ApplicationSettingTomlKey::kMoveTable.table_name ,"do_step_execution",u8"シミュレーションをステップ実行するかどうかを設定します (true/false)" };
+const TomlSettingKeyData ApplicationSettingTomlKey::kDoStepExecution = { ApplicationSettingTomlKey::kMoveTable.table_name ,"do_step_execution_each_simulation",u8"シミュレーションをステップ実行するかどうかを設定します (true/false)" };
 
 const TomlSettingKeyData ApplicationSettingTomlKey::kDoStepEexcutionEachGait = { ApplicationSettingTomlKey::kMoveTable.table_name ,"do_step_execution_each_gait",u8"各歩容生成ごとにステップ実行するかどうかを設定します (true/false)" };
 
 
-const TomlSettingKeyData ApplicationSettingTomlKey::kOutputCmd = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"cmd_output",u8"コマンドラインへの出力を行います (true/false)" };
+const TomlSettingKeyData ApplicationSettingTomlKey::kOutputCmd = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"do_cmd_output",u8"コマンドラインへの出力を行います (true/false)" };
 
-const TomlSettingKeyData ApplicationSettingTomlKey::kCmdPermission = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"cmd_permission",u8"コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い" };
+const TomlSettingKeyData ApplicationSettingTomlKey::kCmdPermission = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"cmd_output_detail",u8"コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い" };
 
-const TomlSettingKeyData ApplicationSettingTomlKey::kDisplayGui = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"gui_display",u8"GUI(dxlibによる表示)での表示を行います (true/false)" };
+const TomlSettingKeyData ApplicationSettingTomlKey::kDisplayGui = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"do_gui_display",u8"GUI(dxlibによる表示)での表示を行います (true/false)" };
 
 const TomlSettingKeyData ApplicationSettingTomlKey::kGuiDisplayQuality = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"gui_display_quality",u8"GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．" };
 
@@ -41,4 +41,4 @@ const TomlSettingKeyData ApplicationSettingTomlKey::kWindowSizeX = { Application
 
 const TomlSettingKeyData ApplicationSettingTomlKey::kWindowSizeY = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"window_size_y",u8"GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．" };
 
-const TomlSettingKeyData ApplicationSettingTomlKey::kWindowFps = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"window_pos_x",u8"ウィンドウのフレームレートを設定します．推奨値は60か30です．" };
+const TomlSettingKeyData ApplicationSettingTomlKey::kWindowFps = { ApplicationSettingTomlKey::kDisplayTable.table_name ,"window_fps",u8"ウィンドウのフレームレートを設定します．推奨値は60か30です．" };

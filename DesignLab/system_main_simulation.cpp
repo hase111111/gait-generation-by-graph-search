@@ -88,7 +88,7 @@ void SystemMainSimulation::Main()
 		dlio::Output(current_node.ToString(), OutputDetail::kInfo);
 		dlio::OutputNewLine(1, OutputDetail::kInfo);
 
-		if (setting_ptr_->do_step_execution)
+		if (setting_ptr_->do_step_execution_each_simulation)
 		{
 			dlio::OutputNewLine(1, OutputDetail::kSystem);
 
@@ -99,7 +99,7 @@ void SystemMainSimulation::Main()
 		}
 
 
-		if (setting_ptr_->gui_display) { broker_ptr_->graph.PushBack(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
+		if (setting_ptr_->do_gui_display) { broker_ptr_->graph.PushBack(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
 
 
 		//最大歩容生成回数分までループする．
@@ -142,7 +142,7 @@ void SystemMainSimulation::Main()
 
 			current_node = result_node;		//次の歩容が生成できているならば，ノードを更新する．
 
-			if (setting_ptr_->gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
+			if (setting_ptr_->do_gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
 			dlio::OutputNewLine(1, OutputDetail::kInfo);
 			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
@@ -224,11 +224,11 @@ void SystemMainSimulation::OutputSetting() const
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 
-	if (setting_ptr_->cmd_output)
+	if (setting_ptr_->do_cmd_output)
 	{
 		dlio::Output("・コマンドラインへの出力を行います", OutputDetail::kSystem);
 
-		std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_permission).data();
+		std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
 		dlio::Output("　　・priorityが" + output_str + "以上のもののみ出力されます", OutputDetail::kSystem);
 	}
 	else
@@ -240,7 +240,7 @@ void SystemMainSimulation::OutputSetting() const
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
 
-	if (setting_ptr_->do_step_execution)
+	if (setting_ptr_->do_step_execution_each_simulation)
 	{
 		dlio::Output("・シミュレーションをステップ実行します", OutputDetail::kSystem);
 	}
@@ -263,7 +263,7 @@ void SystemMainSimulation::OutputSetting() const
 
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 
-	if (setting_ptr_->gui_display)
+	if (setting_ptr_->do_gui_display)
 	{
 		dlio::Output("・GUIを表示します", OutputDetail::kSystem);
 	}

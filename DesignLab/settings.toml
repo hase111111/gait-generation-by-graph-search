@@ -16,6 +16,7 @@
 
 
 
+#タイトルが"graph_search_settings"の物のみを読み込みます
 title = "graph_search_settings"
 
 
@@ -35,26 +36,26 @@ patch = 0
 ask_about_modes = true
 #デフォルトの実行モードを設定します．(simulation/viewer/display_test/result_viewer)
 default_mode = "kSimulation"
+#シミュレーションをステップ実行するかどうかを設定します (true/false)
+do_step_execution_each_simulation = true
 #各歩容生成ごとにステップ実行するかどうかを設定します (true/false)
 do_step_execution_each_gait = false
-#シミュレーションをステップ実行するかどうかを設定します (true/false)
-do_step_execution = true
 
 
 #表示に関する設定です．グラフ探索をする際の設定で，viewerモードで実行した場合は無視されます．
 [display]
+#コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い
+cmd_output_detail = "kDebug"
 #コマンドラインへの出力を行います (true/false)
-cmd_output = true
-#ウィンドウのフレームレートを設定します．推奨値は60か30です．
-window_pos_x = 60
-#GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．
-window_size_y = 900
+do_cmd_output = true
+#GUI(dxlibによる表示)での表示を行います (true/false)
+do_gui_display = true
 #GUIでの表示の品質を設定します．(low,medium,high)の順に品質が高くなります．
 gui_display_quality = "kMedium"
-#コマンドラインに出力する文字列をどこまで許可するか，(debug,info,warning,error,system)の順に優先順位が高い
-cmd_permission = "kInfo"
-#GUI(dxlibによる表示)での表示を行います (true/false)
-gui_display = true
+#ウィンドウのフレームレートを設定します．推奨値は60か30です．
+window_fps = 60
 #GUIのウィンドウのサイズの横幅を設定します．xとyが16：9 になるように設定してください．
-window_size_x = 1600
+window_size_x = 1280
+#GUIのウィンドウのサイズの縦幅を設定します．推奨値は (x, y) = (960, 540) (1280, 720) (1600, 900) (1920, 1080) などです．
+window_size_y = 720
 
