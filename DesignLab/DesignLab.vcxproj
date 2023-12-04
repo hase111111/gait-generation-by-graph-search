@@ -147,6 +147,7 @@
     <ClInclude Include="map_creator_for_simulation.h" />
     <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="target_setter_for_gpg.h" />
+    <ClInclude Include="temp_macro.h" />
     <ClInclude Include="test_registration_form.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>

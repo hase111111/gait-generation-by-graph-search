@@ -15,6 +15,7 @@
 #include "display_quality.h"
 #include "output_detail.h"
 
+#include "temp_macro.h"
 
 //! @struct ApplicationSettingRecorder
 //! @brief アプリの設定を記録する構造体．
@@ -40,5 +41,6 @@ struct ApplicationSettingRecorder final
 	int window_fps{ 60 }; 											//!< グラフィカルウィンドウのFPS	
 };
 
+DESIGNLAB_TOML_CONVERSION(ApplicationSettingRecorder, version_major, version_minor, version_patch, ask_about_modes, default_mode, do_step_execution_each_simulation, do_step_execution_each_gait, do_cmd_output, cmd_output_detail, do_gui_display, gui_display_quality, window_size_x, window_size_y, window_fps)
 
 #endif	// DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
