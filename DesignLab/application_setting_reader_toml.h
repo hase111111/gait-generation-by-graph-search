@@ -1,5 +1,5 @@
-//! @file application_setting_reader.h
-//! @brief ƒAƒvƒŠƒP[ƒVƒ‡ƒ“İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒX
+ï»¿//! @file application_setting_reader.h
+//! @brief ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹
 
 #ifndef APPLICATION_SETTING_READER_TOML_H_
 #define APPLICATION_SETTING_READER_TOML_H_
@@ -8,19 +8,17 @@
 #include <memory>
 #include <string>
 
-#include "toml.hpp"
+// toml11ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚’ä¿æŒã™ã‚‹ãŸã‚ã®ãƒã‚¯ãƒ­
+#define TOML11_PRESERVE_COMMENTS_BY_DEFAULT
+#include <toml.hpp>
 
 #include "application_setting_recorder.h"
 #include "application_setting_toml_key.h"
 #include "interface_application_setting_reader.h"
 
 
-// toml11‚ÅƒRƒƒ“ƒg‚ğ•Û‚·‚é‚½‚ß‚Ìƒ}ƒNƒ
-#define TOML11_PRESERVE_COMMENTS_BY_DEFAULT
-
-
 //! @class ApplicationSettingReaderToml
-//! @brief tomlŒ`®‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒX
+//! @brief tomlå½¢å¼ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹
 class ApplicationSettingReaderToml final : public IApplicationSettingReader
 {
 public:
@@ -29,16 +27,16 @@ public:
 
 private:
 
-	//ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡‚Ì‚½‚ß‚ÉƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚·‚é
+	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã®ãŸã‚ã«ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã™ã‚‹
 	void OutputDefaultSettingFile();
 
-	//İ’èƒtƒ@ƒCƒ‹‚©‚çƒo[ƒWƒ‡ƒ“î•ñ‚ğ“Ç‚İ‚Ş
+	//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’èª­ã¿è¾¼ã‚€
 	void ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
-	//İ’èƒtƒ@ƒCƒ‹‚©‚ç‹N“®ƒ‚[ƒh‚Ìî•ñ‚ğ“Ç‚İ‚Ş
+	//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã®æƒ…å ±ã‚’èª­ã¿è¾¼ã‚€
 	void ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
-	//İ’èƒtƒ@ƒCƒ‹‚©‚çƒfƒBƒXƒvƒŒƒCî•ñ‚ğ“Ç‚İ‚Ş
+	//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤æƒ…å ±ã‚’èª­ã¿è¾¼ã‚€
 	void ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
 
 	const std::string kSettingFileName = u8"settings.toml";

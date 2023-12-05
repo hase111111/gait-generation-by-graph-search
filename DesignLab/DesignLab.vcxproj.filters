@@ -519,7 +519,7 @@
     <ClInclude Include="map_creator_for_simulation.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
-    <ClInclude Include="temp_macro.h">
+    <ClInclude Include="toml_serialize_macro.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
-//! @file application_setting_recorder.h
-//! @brief ƒAƒvƒŠ‚Ìİ’è‚ğ‹L˜^‚·‚é\‘¢‘Ì
+ï»¿//! @file application_setting_recorder.h
+//! @brief ã‚¢ãƒ—ãƒªã®è¨­å®šã‚’è¨˜éŒ²ã™ã‚‹æ§‹é€ ä½“
 
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
@@ -8,39 +8,36 @@
 #include <map>
 #include <string>
 
-#include <toml.hpp>
 
 #include "application_setting_toml_key.h"
 #include "boot_mode.h"
 #include "display_quality.h"
 #include "output_detail.h"
 
-#include "temp_macro.h"
 
 //! @struct ApplicationSettingRecorder
-//! @brief ƒAƒvƒŠ‚Ìİ’è‚ğ‹L˜^‚·‚é\‘¢‘ÌD
+//! @brief ã‚¢ãƒ—ãƒªã®è¨­å®šã‚’è¨˜éŒ²ã™ã‚‹æ§‹é€ ä½“ï¼
 struct ApplicationSettingRecorder final
 {
-	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< İ’èƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒgƒ‹
+	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒˆãƒ«
 
-	int version_major{ 0 };	//!< ƒo[ƒWƒ‡ƒ“”Ô†(ƒƒWƒƒ[)
-	int version_minor{ 5 };	//!< ƒo[ƒWƒ‡ƒ“”Ô†(ƒ}ƒCƒi[)
-	int version_patch{ 0 };	//!< ƒo[ƒWƒ‡ƒ“”Ô†(ƒpƒbƒ`)
+	int version_major{ 0 };	//!< ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·(ãƒ¡ã‚¸ãƒ£ãƒ¼)
+	int version_minor{ 5 };	//!< ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·(ãƒã‚¤ãƒŠãƒ¼)
+	int version_patch{ 0 };	//!< ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·(ãƒ‘ãƒƒãƒ)
 
-	bool ask_about_modes{ true };					//!< ‹N“®‚Éƒ‚[ƒh‘I‘ğ‚ÌŠm”F‚ğ‚·‚é‚©‚Ç‚¤‚©
-	BootMode default_mode{ BootMode::kSimulation };	//!< ƒfƒtƒHƒ‹ƒg‚Ì‹N“®ƒ‚[ƒh
-	bool do_step_execution_each_simulation{ true };	//!< 1ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚²‚Æ‚ÉƒXƒeƒbƒvÀs‚ğ‚·‚é‚©‚Ç‚¤‚©
-	bool do_step_execution_each_gait{ false };		//!< 1“®ì‚²‚Æ‚ÉƒXƒeƒbƒvÀs‚ğ‚·‚é‚©‚Ç‚¤‚©
+	bool ask_about_modes{ true };					//!< èµ·å‹•æ™‚ã«ãƒ¢ãƒ¼ãƒ‰é¸æŠã®ç¢ºèªã‚’ã™ã‚‹ã‹ã©ã†ã‹
+	BootMode default_mode{ BootMode::kSimulation };	//!< ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰
+	bool do_step_execution_each_simulation{ true };	//!< 1ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã”ã¨ã«ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œã‚’ã™ã‚‹ã‹ã©ã†ã‹
+	bool do_step_execution_each_gait{ false };		//!< 1å‹•ä½œã”ã¨ã«ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œã‚’ã™ã‚‹ã‹ã©ã†ã‹
 
-	bool do_cmd_output{ true };										//!< ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Éo—Í‚·‚é‚©‚Ç‚¤‚©
-	OutputDetail cmd_output_detail{ OutputDetail::kDebug };			//!< ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Éo—Í‚·‚éÛC‚Ç‚±‚Ü‚Å‹–‰Â‚·‚é‚©
-	bool do_gui_display{ true };									//!< GUI‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
-	DisplayQuality gui_display_quality{ DisplayQuality::kMedium };	//!< GUI‚ğ•\¦‚·‚éÛC‚Ç‚±‚Ü‚Å‹–‰Â‚·‚é‚©
-	int window_size_x{ 1280 };										//!< ƒOƒ‰ƒtƒBƒJƒ‹ƒEƒBƒ“ƒhƒE‚Ì‰¡•
-	int window_size_y{ 720 };										//!< ƒOƒ‰ƒtƒBƒJƒ‹ƒEƒBƒ“ƒhƒE‚Ìc•
-	int window_fps{ 60 }; 											//!< ƒOƒ‰ƒtƒBƒJƒ‹ƒEƒBƒ“ƒhƒE‚ÌFPS	
+	bool do_cmd_output{ true };										//!< ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«å‡ºåŠ›ã™ã‚‹ã‹ã©ã†ã‹
+	OutputDetail cmd_output_detail{ OutputDetail::kDebug };			//!< ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«å‡ºåŠ›ã™ã‚‹éš›ï¼Œã©ã“ã¾ã§è¨±å¯ã™ã‚‹ã‹
+	bool do_gui_display{ true };									//!< GUIã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
+	DisplayQuality gui_display_quality{ DisplayQuality::kMedium };	//!< GUIã‚’è¡¨ç¤ºã™ã‚‹éš›ï¼Œã©ã“ã¾ã§è¨±å¯ã™ã‚‹ã‹
+	int window_size_x{ 1280 };										//!< ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…
+	int window_size_y{ 720 };										//!< ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…
+	int window_fps{ 60 }; 											//!< ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®FPS	
 };
 
-DESIGNLAB_TOML_CONVERSION(ApplicationSettingRecorder, version_major, version_minor, version_patch, ask_about_modes, default_mode, do_step_execution_each_simulation, do_step_execution_each_gait, do_cmd_output, cmd_output_detail, do_gui_display, gui_display_quality, window_size_x, window_size_y, window_fps)
 
 #endif	// DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
