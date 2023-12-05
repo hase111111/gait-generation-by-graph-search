@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <iostream>
+#include <map>
 #include <string>
 
 
@@ -18,19 +19,21 @@ struct Toml11Description final
 };
 
 
-//// 一般的な関数テンプレート
-//template <typename T>
-//typename std::enable_if<!std::is_enum<T>::value>::type
-//printValue(const T& value) {
-//    std::cout << "General case: " << value << std::endl;
-//}
-//
-//// enum型に対する特殊化
-//template <typename T>
-//typename std::enable_if<std::is_enum<T>::value>::type
-//printValue(const T& value) {
-//    std::cout << "Specialized for enum: " << static_cast<int>(value) << std::endl;
-//}
+// 一般的な関数テンプレート
+template <typename T>
+typename std::enable_if<!std::is_enum<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
+{
+	v[str] = value;
+}
+
+// enum型に対する特殊化
+template <typename T>
+typename std::enable_if<std::is_enum<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
+{
+	v[str] = static_cast<std::string>(magic_enum::enum_name(value));
+}
 
 #define DESIGNLAB_ADD_COMMENT(VARNAME)                              \
 if (desc.VARNAME.description != "")                                 \
@@ -50,15 +53,9 @@ obj.VAR_NAME = toml::find<decltype(obj.VAR_NAME)>(v, TOML11_STRINGIZE(VAR_NAME))
 }
 
 
-#define DESIGNLAB_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME)\
-if constexpr (std::is_enum<decltype(obj.VAR_NAME)>::value) {\
-    /*enumだった場合のみstd::string型に変換する*/\
-	std::string str = static_cast<std::string>(magic_enum::enum_name(obj.VAR_NAME));\
-	v[TOML11_STRINGIZE(VAR_NAME)] = str;\
-}\
-else {\
-    v[TOML11_STRINGIZE(VAR_NAME)] = obj.VAR_NAME;\
-}
+#define DESIGNLAB_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME) \
+/*enumだった場合のみstd::string型に変換する*/                \
+SetTomlValue(v, TOML11_STRINGIZE(VAR_NAME), obj.VAR_NAME);
 
 
 #define DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVE(NAME, DESCRIPTION, ...)            \
@@ -88,7 +85,7 @@ struct into<NAME>                                                               
 {                                                                                    \
     static value into_toml(const NAME& obj)                                          \
     {                                                                                \
-        ::toml::basic_value<toml::preserve_comments> v = ::toml::table{};            \
+        ::toml::basic_value<toml::preserve_comments, std::map> v = ::toml::table{};            \
         DESCRIPTION desc;															 \
         v.comments().push_back(desc.file_description.description);                   \
         TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_ASSIGN_MEMBER_VARIABLE_TO_VALUE, __VA_ARGS__) \
