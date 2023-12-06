@@ -8,14 +8,10 @@
 #include <memory>
 #include <string>
 
-// toml11でコメントを保持するためのマクロ
-#define TOML11_PRESERVE_COMMENTS_BY_DEFAULT
-#include <toml.hpp>
-
 #include "application_setting_recorder.h"
 #include "application_setting_toml_key.h"
 #include "interface_application_setting_reader.h"
-
+#include "toml11_define.h"
 
 //! @class ApplicationSettingReaderToml
 //! @brief toml形式のアプリケーション設定ファイルを読み込むクラス

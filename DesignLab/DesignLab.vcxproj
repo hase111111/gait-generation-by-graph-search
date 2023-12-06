@@ -148,6 +148,7 @@
     <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="target_setter_for_gpg.h" />
     <ClInclude Include="test_registration_form.h" />
+    <ClInclude Include="toml11_define.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
@@ -241,6 +242,7 @@
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="target_setter_for_gpg.cpp" />
+    <ClCompile Include="toml_serialize_macro.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>
   <ItemGroup>

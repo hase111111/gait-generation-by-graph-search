@@ -522,6 +522,9 @@
     <ClInclude Include="toml_serialize_macro.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
+    <ClInclude Include="toml11_define.h">
+      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -793,6 +796,9 @@
     </ClCompile>
     <ClCompile Include="map_creator_for_simulation.cpp">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="toml_serialize_macro.cpp">
+      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
