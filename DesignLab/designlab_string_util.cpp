@@ -3,33 +3,47 @@
 #include "cassert_define.h"
 
 
+//Ql 
+// https://marycore.jp/prog/cpp/std-string-split/
+// https://marycore.jp/prog/cpp/std-string-find-search/#find%EF%BC%8Frfind
+
 std::vector<std::string> designlab::string_util::Split(const std::string& str, const char delim)
 {
     return Split(str, std::string(1, delim));
 }
 
-std::vector<std::string> designlab::string_util::Split(const std::string& str, const std::string& delim)
+std::vector<std::string> designlab::string_util::Split(const std::string& str, const std::string& separator)
 {
-	assert(delim.size() == 1);	// ‹æØ‚è•¶š‚Í1•¶š‚Ì‚İ
+    std::vector<std::string> list;
+    const size_t separator_length = separator.length();
 
-	std::vector<std::string> ans;
+    if (separator_length == 0) 
+    {
+        list.push_back(str);
+    }
+    else 
+    {
+        size_t offset = 0;
 
-	int first = 0;
-	int last = static_cast<int>(str.find_first_of(delim));
+        while (1) 
+        {
+            const size_t pos = str.find(separator, offset);
 
-	while (first < str.size())
-	{
-		std::string subStr(str, first, last - first);
+            if (pos == std::string::npos) 
+            {
+                list.push_back(str.substr(offset));
+                break;
+            }
 
-		ans.push_back(subStr);
+            list.push_back(str.substr(offset, pos - offset));
+            offset = pos + separator_length;
 
-		first = last + 1;
-		last = static_cast<int>(str.find_first_of(delim, first));
+            if (offset >= str.length())
+            {
+				break;
+			}
+        }
+    }
 
-		if (last == std::string::npos)
-		{
-			last = static_cast<int>(str.size());
-		}
-	}
-    return ans;
+    return list;
 }

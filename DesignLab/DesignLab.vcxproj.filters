@@ -127,6 +127,9 @@
     <Filter Include="ソース ファイル\Map\MapCreator">
       <UniqueIdentifier>{f4309f83-9585-47fc-8d63-df66452be9d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\Test">
+      <UniqueIdentifier>{2b307fe3-198f-429d-ba96-648ccd6295ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -524,6 +527,9 @@
     </ClInclude>
     <ClInclude Include="toml11_define.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="designlab_string_util_test.h">
+      <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
