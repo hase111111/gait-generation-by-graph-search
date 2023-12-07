@@ -19,15 +19,15 @@ std::string GraphSearchResultRecoder::ToCsvString() const
 
     stream << "'" << result_node.leg_state.to_string() << ",";
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << std::boolalpha << dllf::IsGrounded(result_node.leg_state, i) << ","; }
-    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << dlsu::MyEnumToString(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
-    stream << dlsu::MyEnumToString(dllf::GetDiscreteComPos(result_node.leg_state)) << ",";
+    for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << dlsu::EnumToStringRemoveTopK(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
+    stream << dlsu::EnumToStringRemoveTopK(dllf::GetDiscreteComPos(result_node.leg_state)) << ",";
     stream << result_node.global_center_of_mass << ",";
     stream << result_node.quat << ",";
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_pos[i] << ","; }
     for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_reference_pos[i] << ","; }
-    stream << dlsu::MyEnumToString(result_node.next_move) << ",";
+    stream << dlsu::EnumToStringRemoveTopK(result_node.next_move) << ",";
     stream << dlm::ConvertDoubleToString(computation_time) << ",";
-    stream << dlsu::MyEnumToString(graph_search_result);
+    stream << dlsu::EnumToStringRemoveTopK(graph_search_result);
 
     return stream.str();
 }

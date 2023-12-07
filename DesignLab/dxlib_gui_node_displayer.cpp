@@ -246,7 +246,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
 		" 重心 : %s(%d)",
-		dlsu::MyEnumToString(dllf::GetDiscreteComPos(display_node_.leg_state)).c_str(),
+		dlsu::EnumToStringRemoveTopK(dllf::GetDiscreteComPos(display_node_.leg_state)).c_str(),
 		dllf::GetDiscreteComPos(display_node_.leg_state)
 	);
 
@@ -262,11 +262,11 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 
 		if (i < HexapodConst::kLegNum / 2)
 		{
-			str_leg_pos_right += leg_name[i] + "-" + dlsu::MyEnumToString(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
+			str_leg_pos_right += leg_name[i] + "-" + dlsu::EnumToStringRemoveTopK(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
 		}
 		else
 		{
-			str_leg_pos_left += leg_name[i] + "-" + dlsu::MyEnumToString(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
+			str_leg_pos_left += leg_name[i] + "-" + dlsu::EnumToStringRemoveTopK(pos) + "(" + std::to_string(static_cast<int>(pos)) + "), ";
 		}
 	}
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, " 脚位置 : ", str_leg_pos_right.c_str());
@@ -327,7 +327,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 	// 深さと次の動作を表示する
 	++text_line;
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
-		"深さ：%d, 次の動作 : %s", display_node_.depth, dlsu::MyEnumToString(display_node_.next_move).c_str());
+		"深さ：%d, 次の動作 : %s", display_node_.depth, dlsu::EnumToStringRemoveTopK(display_node_.next_move).c_str());
 
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "指定がなければ単位は長さが[mm]，角度が[rad]");
 }

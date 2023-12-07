@@ -19,7 +19,7 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path) : map_file_pa
 
 	if (!is_exist)
 	{
-		dlio::Output("map fileが存在しません．ファイルのパスは" + map_file_path_ + "です．(" + 
+		dlio::Output("map fileが存在しません．ファイルのパスは" + map_file_path_ + "です．(" +
 			typeid(MapCreatorByCsv).name() + "のコンストラクタ)", OutputDetail::kError);
 
 		assert(false);
@@ -36,7 +36,7 @@ MapState MapCreatorByCsv::InitMap()
 	if (!ifs)
 	{
 		dlio::Output("map fileが開けません．ファイルのパスは" + map_file_path_ + "です．(" +
-					typeid(MapCreatorByCsv).name() + "のInitMap関数)", OutputDetail::kError);
+			typeid(MapCreatorByCsv).name() + "のInitMap関数)", OutputDetail::kError);
 
 		assert(false);
 
@@ -51,7 +51,7 @@ MapState MapCreatorByCsv::InitMap()
 
 	while (std::getline(ifs, str))
 	{
-		str_vec = dlsu::Split(str, ',');
+		str_vec = dlsu::Split(str, ",");
 		str_vec_vec.push_back(str_vec);
 
 		map_state.AddMapPoint(designlab::Vector3{ std::stof(str_vec[0]), std::stof(str_vec[1]), std::stof(str_vec[2]) });

@@ -1,4 +1,4 @@
-#include "simulation_result_recorder.h"
+ï»¿#include "simulation_result_recorder.h"
 
 #include <sstream>
 
@@ -12,9 +12,9 @@ namespace dlsu = ::designlab::string_util;
 
 std::string SimulationResultRecorder::ToCsvString() const
 {
-	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌÅI“I‚ÈŒ‹‰Ê‚Ìo—Í
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®æœ€çµ‚çš„ãªçµæœã®å‡ºåŠ›
 	std::stringstream ss;
-	ss << "Simulation Result," << dlsu::MyEnumToString(simulation_result) << std::endl;
+	ss << "Simulation Result," << dlsu::EnumToStringRemoveTopK(simulation_result) << std::endl;
 	ss << std::endl;
 
 	ss << GraphSearchResultRecoder::GetCsvHeader() << std::endl;
@@ -25,7 +25,7 @@ std::string SimulationResultRecorder::ToCsvString() const
 	{
 		ss << i << ",";
 
-		//ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚Ìo—Í
+		//ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã®å‡ºåŠ›
 		ss << graph_search_result_recoder[i].ToCsvString() << ",";
 
 		ss << std::endl;

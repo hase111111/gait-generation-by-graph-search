@@ -130,9 +130,9 @@ void SystemMainSimulation::Main()
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " +
-					dlsu::MyEnumToString(record.simulation_result) +
+					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
-					dlsu::MyEnumToString(result_state),
+					dlsu::EnumToStringRemoveTopK(result_state),
 					OutputDetail::kSystem
 				);
 
@@ -158,9 +158,9 @@ void SystemMainSimulation::Main()
 
 				dlio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " +
-					dlsu::MyEnumToString(record.simulation_result) +
+					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
-					dlsu::MyEnumToString(result_state),
+					dlsu::EnumToStringRemoveTopK(result_state),
 					OutputDetail::kSystem
 				);
 
@@ -174,7 +174,7 @@ void SystemMainSimulation::Main()
 
 				dlio::Output(
 					"シミュレーションに成功しました．SimulationResult = " +
-					dlsu::MyEnumToString(record.simulation_result),
+					dlsu::EnumToStringRemoveTopK(record.simulation_result),
 					OutputDetail::kSystem
 				);
 

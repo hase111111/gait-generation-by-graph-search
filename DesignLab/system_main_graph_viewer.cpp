@@ -260,7 +260,7 @@ MapCreateModeMessenger SystemMainGraphViewer::InputMapCreateMode() const
 		//MapCreateModeの一覧を出力する．
 		for (int i = 0; i < kMapCreateModeList.size(); i++)
 		{
-			const std::string name = dlsu::MyEnumToString(kMapCreateModeList[i]);	//MapCreateModeの名前を取得する
+			const std::string name = dlsu::EnumToStringRemoveTopK(kMapCreateModeList[i]);	//MapCreateModeの名前を取得する
 
 			dlio::Output(std::to_string(i) + " : " + name, OutputDetail::kSystem);
 		}
@@ -287,7 +287,7 @@ MapCreateModeMessenger SystemMainGraphViewer::InputMapCreateMode() const
 		//MapCreateOptionの一覧を出力する．
 		for (int i = 0; i < kMapCreateOptionList.size(); i++)
 		{
-			const std::string name = dlsu::MyEnumToString(kMapCreateOptionList[i]);	//MapCreateOptionのリストを取得する
+			const std::string name = dlsu::EnumToStringRemoveTopK(kMapCreateOptionList[i]);	//MapCreateOptionのリストを取得する
 
 			unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
 

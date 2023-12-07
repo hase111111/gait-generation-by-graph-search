@@ -130,7 +130,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		);
 
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + dlsu::MyEnumToString(std::get<0>(search_result_array[i])) + "です．", OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + dlsu::EnumToStringRemoveTopK(std::get<0>(search_result_array[i])) + "です．", OutputDetail::kDebug);
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", OutputDetail::kDebug);
 	}
 

@@ -1,4 +1,4 @@
-#include "boot_mode_selecter.h"
+ï»¿#include "boot_mode_selecter.h"
 
 #include <string>
 
@@ -21,43 +21,43 @@ BootModeSelecter::BootModeSelecter() :
 
 BootMode BootModeSelecter::SelectBootMode()
 {
-	const OutputDetail output_detail = OutputDetail::kSystem;	// kSystem ‚É‚·‚é‚ÆAİ’è‚É‚©‚©‚í‚ç‚¸•K‚¸•\¦‚³‚ê‚é
+	const OutputDetail output_detail = OutputDetail::kSystem;	// kSystem ã«ã™ã‚‹ã¨ã€è¨­å®šã«ã‹ã‹ã‚ã‚‰ãšå¿…ãšè¡¨ç¤ºã•ã‚Œã‚‹
 
-	dlio::Output("‹N“®ƒ‚[ƒh‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", output_detail);
+	dlio::Output("èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠã—ã¦ãã ã•ã„", output_detail);
 
-	//‹N“®ƒ‚[ƒh‚Ì–¼‘O‚ğ•\¦‚·‚é
+	//èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã®åå‰ã‚’è¡¨ç¤ºã™ã‚‹
 	for (int i = 0; i < kBootModeNum; i++)
 	{
 		const BootMode boot_mode = static_cast<BootMode>(i);
 
-		const std::string boot_mode_name = dlsu::MyEnumToString(boot_mode);
+		const std::string boot_mode_name = dlsu::EnumToStringRemoveTopK(boot_mode);
 
 		dlio::Output(std::to_string(i) + " : " + boot_mode_name, output_detail);
 	}
 
 
-	std::string default_mode_name = dlsu::MyEnumToString(default_mode_);
+	std::string default_mode_name = dlsu::EnumToStringRemoveTopK(default_mode_);
 
-	dlio::Output("other : ƒfƒtƒHƒ‹ƒg‚Ìƒ‚[ƒh ( " + default_mode_name + " )", output_detail);
+	dlio::Output("other : ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ¢ãƒ¼ãƒ‰ ( " + default_mode_name + " )", output_detail);
 
 
 	dlio::OutputNewLine(1, output_detail);
 
-	//0‚©‚çBootMode‚Ì”‚Ü‚Å‚Ì®”‚ğ“ü—Í‚³‚¹‚é
+	//0ã‹ã‚‰BootModeã®æ•°ã¾ã§ã®æ•´æ•°ã‚’å…¥åŠ›ã•ã›ã‚‹
 	int default_mode_num = static_cast<int>(default_mode_);
 
 	const int input = dlio::InputInt(0, kBootModeNum - 1, default_mode_num);
 
-	//ó‚¯æ‚Á‚½’l‚ğmagic_enum‚Ìenum_cast‚ÅBootMode‚É•ÏŠ·‚·‚é
+	//å—ã‘å–ã£ãŸå€¤ã‚’magic_enumã®enum_castã§BootModeã«å¤‰æ›ã™ã‚‹
 	if (magic_enum::enum_cast<BootMode>(input).has_value()) 
 	{
 		return magic_enum::enum_cast<BootMode>(input).value();
 	}
 	else
 	{
-		// “ü—Í‚ª•s³‚Èê‡‚ÍƒfƒtƒHƒ‹ƒg‚Ìƒ‚[ƒh‚ğ•Ô‚·
+		// å…¥åŠ›ãŒä¸æ­£ãªå ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ¢ãƒ¼ãƒ‰ã‚’è¿”ã™
 
-		dlio::Output("“ü—Í‚ª•s³‚Å‚·BƒfƒtƒHƒ‹ƒg‚Ìƒ‚[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B", OutputDetail::kSystem);
+		dlio::Output("å…¥åŠ›ãŒä¸æ­£ã§ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠã—ã¾ã™ã€‚", OutputDetail::kSystem);
 		
 		return default_mode_;
 	}

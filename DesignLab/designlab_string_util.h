@@ -1,5 +1,5 @@
-//! @file designlab_string_util.h
-//! @brief •¶š—ñ‚ğˆµ‚¤ŠÖ”‚ğ‚Ü‚Æ‚ß‚½–¼‘O‹óŠÔD
+ï»¿//! @file designlab_string_util.h
+//! @brief æ–‡å­—åˆ—ã‚’æ‰±ã†é–¢æ•°ã‚’ã¾ã¨ã‚ãŸåå‰ç©ºé–“ï¼
 
 
 #ifndef	DESIGNLAB_STRING_UTIL_H_
@@ -12,43 +12,76 @@
 #include <magic_enum.hpp>
 
 
-namespace designlab 
+namespace designlab
 {
 	namespace string_util
 	{
-		//! @brief •¶š—ñ‚ğ•ªŠ„‚·‚éŠÖ”D
-		//! @param [in] str •ªŠ„‚·‚é•¶š—ñD
-		//! @param [in] delim •ªŠ„‚·‚é•¶šD
-		//! @return std::vector<std::string> •ªŠ„‚µ‚½•¶š—ñ‚Ì”z—ñD
-		std::vector<std::string> Split(const std::string& str, const char delim);
-
-		//! @brief •¶š—ñ‚ğ•ªŠ„‚·‚éŠÖ”Dw’è‚µ‚½•¶š‚Å•¶š—ñ‚ğ•ªŠ„‚·‚éD
-		//! @n •ªŠ„‚µ‚½Œ‹‰ÊC‹ó•¶š—ñ‚ªŠÜ‚Ü‚ê‚éê‡‚ÍC‹ó•¶š—ñ‚ğŠÜ‚ß‚Ä•Ô‚·D
-		//! @n ÅŒã‚ª‹æØ‚è•¶š‚ÅI‚í‚éê‡‚ÍC‚»‚ê‚ğ–³‹‚µ‚Ä•Ô‚·D
-		//! @param [in] str •ªŠ„‚·‚é•¶š—ñD
-		//! @param [in] delim •ªŠ„‚·‚é•¶šD2•¶šˆÈã‚Ì•¶š—ñ‚ğw’è‚Å‚«‚È‚¢D
-		//! @return std::vector<std::string> •ªŠ„‚µ‚½•¶š—ñD
+		//! @brief æ–‡å­—åˆ—ã‚’åˆ†å‰²ã™ã‚‹é–¢æ•°ï¼æŒ‡å®šã—ãŸæ–‡å­—ã§æ–‡å­—åˆ—ã‚’åˆ†å‰²ã™ã‚‹ï¼
+		//! @n åˆ†å‰²ã—ãŸçµæœï¼Œç©ºæ–‡å­—åˆ—ãŒå«ã¾ã‚Œã‚‹å ´åˆã¯ï¼Œç©ºæ–‡å­—åˆ—ã‚’å«ã‚ã¦è¿”ã™ï¼
+		//! @n æœ€å¾ŒãŒåŒºåˆ‡ã‚Šæ–‡å­—ã§çµ‚ã‚ã‚‹å ´åˆã¯ï¼Œãã‚Œã‚’ç„¡è¦–ã—ã¦è¿”ã™ï¼
+		//! @param [in] str åˆ†å‰²ã™ã‚‹æ–‡å­—åˆ—ï¼
+		//! @param [in] delim åˆ†å‰²ã™ã‚‹æ–‡å­—ï¼Œã‚ã‚‹ã„ã¯æ–‡å­—åˆ—ï¼
+		//! @return std::vector<std::string> åˆ†å‰²ã—ãŸæ–‡å­—åˆ—ï¼
 		std::vector<std::string> Split(const std::string& str, const std::string& delim);
 
-		//! @brief enum‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @n Google C++ coding style ‚¾‚Æenum‚Ì—v‘f‚Í æ“ª‚Ék‚ğ‚Â‚¯‚ÄƒLƒƒƒƒ‹ƒP[ƒX‚Å‘‚­‚±‚Æ‚ª„§‚³‚ê‚Ä‚¢‚éD
-		//! @n —á‚¦‚Î enum class Color { kRed, kGreen, kBlue } ‚Æ‘‚­D
-		//! @n ‚±‚Ì‚½‚ßC‚±‚ÌŠÖ”‚Í‚»‚Ìk‚ğœ‹‚·‚é‹@”\‚ğ’ñ‹Ÿ‚µCColor::kRed ‚ğ“n‚·‚Æ "Red" ‚Æ‚¢‚¤•¶š—ñ‚ğ•Ô‚·D
-		//! @param [in] enum_value enum‚Ì—v‘fD
-		//! @return std::string enum‚Ì—v‘f‚ğ•¶š—ñ‚É‚µ‚½‚à‚ÌD
-		//! @tparam T enumŒ^D
+		//! @brief enumã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+		//! @n Google C++ coding style ã ã¨enumã®è¦ç´ ã¯ å…ˆé ­ã«kã‚’ã¤ã‘ã¦ã‚­ãƒ£ãƒ¡ãƒ«ã‚±ãƒ¼ã‚¹ã§æ›¸ãã“ã¨ãŒæ¨å¥¨ã•ã‚Œã¦ã„ã‚‹ï¼
+		//! @n ä¾‹ãˆã°ï¼Œ
+		//! @code 
+		//! @n enum class Color 
+		//! @n {
+		//! @n	kRed,
+		//! @n	kGreen,
+		//! @n	kBlue 
+		//! @n }
+		//! @endcode
+		//! @n ã¨æ›¸ãï¼
+		//! @n ã“ã®ãŸã‚ï¼Œã“ã®é–¢æ•°ã¯ãã®å…ˆé ­ã®kã‚’é™¤å»ã™ã‚‹æ©Ÿèƒ½ã‚’æä¾›ã—ï¼ŒColor::kRed ã‚’æ¸¡ã™ã¨ "Red" ã¨ã„ã†æ–‡å­—åˆ—ã‚’è¿”ã™ï¼
+		//! @param [in] enum_value enumã®è¦ç´ ï¼
+		//! @return std::string enumã®è¦ç´ ã‚’æ–‡å­—åˆ—ã«ã—ãŸã‚‚ã®ï¼
+		//! @tparam T enumå‹ï¼
 		template <typename T>
-		std::string MyEnumToString( const T& enum_value )
+		std::string EnumToStringRemoveTopK(const T& enum_value)
 		{
-			//Œ^ƒ`ƒFƒbƒN T‚ªenumŒ^‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éD
-			static_assert( std::is_enum<T>::value, "ˆø”‚ÍenumC‚ ‚é‚¢‚Íenum class‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D" );
+			//å‹ãƒã‚§ãƒƒã‚¯ TãŒenumå‹ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ï¼
+			static_assert(std::is_enum<T>::value, "å¼•æ•°ã¯enumï¼Œã‚ã‚‹ã„ã¯enum classã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
 
 			std::string str = static_cast<std::string>(magic_enum::enum_name(enum_value));
 
-			if ( str.size() > 0 && str[0] == 'k' )
+			if (str.size() > 0 && str[0] == 'k')
 			{
-				// æ“ª‚Ìk‚ğíœ‚·‚éD
-				str.erase( 0, 1 );
+				// å…ˆé ­ã®kã‚’å‰Šé™¤ã™ã‚‹ï¼
+				str.erase(0, 1);
+			}
+
+			return str;
+		}
+
+		//! @brief enumå‹ã‚’æ¸¡ã™ã¨ï¼Œãã®è¦ç´ ã‚’åˆ—æŒ™ã—ãŸæ–‡å­—åˆ—ã‚’è¿”ã™é–¢æ•°ï¼
+		//! @param [in] separator åˆ—æŒ™ã—ãŸæ–‡å­—åˆ—ã®åŒºåˆ‡ã‚Šæ–‡å­—ï¼
+		//! @return std::string enumã®è¦ç´ ã‚’åˆ—æŒ™ã—ãŸæ–‡å­—åˆ—ï¼
+		//! @tparam T enumå‹ï¼
+		template <typename T>
+		std::string EnumValuesToString(const std::string separator)
+		{
+			//å‹ãƒã‚§ãƒƒã‚¯ TãŒenumå‹ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ï¼
+			static_assert(std::is_enum<T>::value, "å¼•æ•°ã¯enumï¼Œã‚ã‚‹ã„ã¯enum classã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼");
+
+			std::string str;
+			bool is_first = true;
+
+			for (const auto& e : magic_enum::enum_values<T>())
+			{
+				if (!is_first)
+				{
+					str += separator;
+				}
+				else
+				{
+					is_first = false;
+				}
+
+				str += static_cast<std::string>(magic_enum::enum_name(e));
 			}
 
 			return str;
