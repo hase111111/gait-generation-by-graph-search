@@ -8,13 +8,13 @@
 #include <map>
 #include <string>
 
-
 #include "application_setting_toml_key.h"
 #include "boot_mode.h"
 #include "display_quality.h"
 #include "output_detail.h"
 
 #include "toml_serialize_macro.h"
+
 
 //! @struct ApplicationSettingRecord
 //! @brief アプリの設定を記録する構造体．
