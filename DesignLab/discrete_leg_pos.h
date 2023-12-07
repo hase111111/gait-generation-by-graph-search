@@ -1,12 +1,12 @@
 //! @file discrete_leg_pos.h
-//! @breif 離散化された脚位置を表す列挙体
+//! @brief 離散化された脚位置を表す列挙体
 
 #ifndef DESIGNLAB_DISCRETE_LEG_POS_H_
 #define DESIGNLAB_DISCRETE_LEG_POS_H_
 
 
 //! @enum DiscreteLegPos
-//! @breif 離散化された脚位置を表すenum
+//! @brief 離散化された脚位置を表すenum
 //! @n 先行研究では 1～7のint型の数値で表現されているが，可読性を上げるためにenumにした
 //! @n 処理の速度は変わらんはず
 //! @n 離散化された脚位置は 3bit (0 ～ 7)の範囲で表現されるため，これを拡張する場合，

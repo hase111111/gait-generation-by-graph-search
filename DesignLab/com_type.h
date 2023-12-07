@@ -74,7 +74,7 @@ namespace designlab
 		//! @n 引数の重心位置では取り得ない脚接地パターンをfalseに変更する．
 		void RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output);
 
-		//! @breif 接地できない脚番号から，その脚が接地できない場合に取り得ない接地パターンをfalseにする．
+		//! @brief 接地できない脚番号から，その脚が接地できない場合に取り得ない接地パターンをfalseにする．
 		//! @param [in] not_groundble_leg_index 接地できない脚の脚番号．
 		//! @param [in,out] output 脚接地パターンが実行可能ならばtrue，不可能ならfalseにしたbool型の配列．
 		//! @n 引数で指定した脚が接地できない場合に，取り得ない接地パターンをfalseに変更する．

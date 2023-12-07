@@ -16,7 +16,7 @@ class Dxlib3dRendererGroup final
 {
 public:
 
-	//! @breif 3D描画を行うrendererを登録する．
+	//! @brief 3D描画を行うrendererを登録する．
 	void Register(const std::shared_ptr<IDxlib3dRenderer>& renderer);
 
 	//! @brief 登録されているrendererのdraw関数を呼ぶ．

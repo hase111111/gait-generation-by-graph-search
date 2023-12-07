@@ -136,7 +136,7 @@ namespace designlab
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
 		void ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
 
-		//! @breif 脚の接地・遊脚情報を変更する．
+		//! @brief 脚の接地・遊脚情報を変更する．
 		//! @param [in] leg_index 脚の番号 0～5
 		//! @param [in] is_ground 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse
 		//! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
