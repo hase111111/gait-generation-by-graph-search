@@ -21,7 +21,7 @@
 #起動時に実行モードについて質問をするようにします (true/false)
 ask_about_modes = false
 #起動時のデフォルトの実行モードを設定します (kSimulation/kViewer/kDisplayTest/kResultViewer)
-default_mode = "kViewer"
+default_mode = "kSimulation"
 #1動作ごとにステップ実行をするかどうかを設定します (true/false)
 do_step_execution_each_gait = false
 #1シミュレーションごとにステップ実行をするかどうかを設定します (true/false)
