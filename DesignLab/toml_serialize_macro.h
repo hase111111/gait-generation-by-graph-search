@@ -173,7 +173,7 @@ const std::vector<std::string> table_name_description_vec = {};
 
 
 //! @def DESIGNLAB_ADD_FILE_DESCRIPTION
-//! @brief tomlファイルにファイルの説明を追加するためのマクロ．
+//! @brief tomlファイルに変数とファイルの説明を追加するためのマクロ．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
 //! @param DESCRIPTION 説明．
@@ -181,14 +181,14 @@ const std::vector<std::string> table_name_description_vec = {};
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DESCRIPTION)} 
 
 //! @def DESIGNLAB_ADD_FILE_DESCRIPTION
-//! @brief ファイルの説明を追加したくない場合には，このマクロで追加する．
+//! @brief ファイルの説明を追加したくない場合には，このマクロで変数を追加する．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
 #define DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(VARIABLE, TABLE)		\
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""} 
 
 //! @def DESIGNLAB_TOML11_NO_TABLE
-//! @brief tomlファイルに追加する変数をテーブルに追加しないことを示すマクロ．
+//! @brief tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ．
 #define DESIGNLAB_TOML11_NO_TABLE	\
 ::designlab::toml_func::Toml11Description::NO_TABLE
 
@@ -228,28 +228,28 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! @endcode
 //! @param NAME クラス名．クラスの型を指定する．
 //! @param ... クラスのメンバ変数．過不足なく，全て指定する必要がある．可変長引数なので複数指定することができる．
-#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)                                                     \
-namespace toml                                                                                    \
-{                                                                                                 \
-template<>                                                                                        \
-struct from<NAME>                                                                                 \
-{                                                                                                 \
-    static_assert(std::is_class<NAME>::value,                                                     \
-        "第1引数はクラスか構造体である必要があります．" );                                        \
-	static_assert(std::is_default_constructible<NAME>::value,                                     \
-        "第1引数はデフォルトコンストラクタを持つ必要があります．");                               \
-                                                                                                  \
-    template<typename C, template<typename ...> class T,                                          \
-             template<typename ...> class A>                                                      \
+#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)														\
+namespace toml																						\
+{																									\
+template<>																							\
+struct from<NAME>																					\
+{																									\
+    static_assert(std::is_class<NAME>::value,														\
+        "第1引数はクラスか構造体である必要があります．" );											\
+	static_assert(std::is_default_constructible<NAME>::value,										\
+        "第1引数はデフォルトコンストラクタを持つ必要があります．");									\
+																									\
+    template<typename C, template<typename ...> class T,											\
+             template<typename ...> class A>														\
     static NAME from_toml(basic_value<C, T, A>& v)													\
-    {                                                                                             \
-        NAME obj;                                                                                 \
-        NAME##Description desc;															          \
-        TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__) \
-        return obj;                                                                               \
-    }                                                                                             \
-};                                                                                                \
-                                                                                                  \
+    {																								\
+        NAME obj;																					\
+        NAME##Description desc;																		\
+        TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)	\
+        return obj;																					\
+    }																								\
+};																									\
+																									\
 template<>																							\
 struct into<NAME>																					\
 {																									\
