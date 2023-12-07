@@ -22,6 +22,7 @@
     <ClInclude Include="designlab_string_util_test.h" />
     <ClInclude Include="devide_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
+    <ClInclude Include="dxlib_gui_camera_parameter_displayer.h" />
     <ClInclude Include="dxlib_gui_terminal.h" />
     <ClInclude Include="font_loader.h" />
     <ClInclude Include="gait_pattern_generator_switch_move.h" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="application_setting_importer_for_toml.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
+    <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
     <ClCompile Include="dxlib_gui_terminal.cpp" />
     <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="gait_pattern_generator_switch_move.cpp" />

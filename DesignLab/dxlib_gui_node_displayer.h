@@ -9,7 +9,6 @@
 #include <memory>
 #include <vector>
 
-#include "simple_button.h"
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"
@@ -17,6 +16,7 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
 #include "robot_state_node.h"
+#include "simple_button.h"
 
 
 //! @class DxlibGuiNodeDisplayer
@@ -26,12 +26,14 @@ class DxlibGuiNodeDisplayer final : public IDxlibGui, public IDxlibClickable, pu
 public:
 
 	DxlibGuiNodeDisplayer(
+		int window_x, 
+		int window_y,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 	);
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 
 	void SetNode(const RobotStateNode& node) override;
@@ -76,6 +78,14 @@ private:
 	void DrawJointInfo() const;
 
 	void DrawGlobalPosInfo() const;
+
+	bool IsInWindow() const;
+
+	int set_pos_x_{ 0 };	//!< SetされたGUIの左上のX座標
+	int set_pos_y_{ 0 };	//!< SetされたGUIの左上のY座標
+
+	const int window_x_;	//!< ウィンドウのX座標
+	const int window_y_;	//!< ウィンドウのY座標
 
 	std::vector<std::unique_ptr<SimpleButton> > buttons_;				//!< ボタン．
 

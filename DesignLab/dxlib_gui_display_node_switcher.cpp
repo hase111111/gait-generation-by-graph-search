@@ -10,7 +10,9 @@
 namespace dl = ::designlab;
 
 
-DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher() :
+DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, const int window_y) :
+	window_x_(window_x),
+	window_y_(window_y),
 	display_node_num_(0),
 	all_node_num_(0),
 	simulation_num_(0),
@@ -79,7 +81,7 @@ DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher() :
 	button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
-void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const unsigned int option, const bool this_is_first_time)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
@@ -98,6 +100,12 @@ void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const
 	for (auto& button : button_)
 	{
 		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
+	}
+
+	if (this_is_first_time)
+	{
+		set_pos_x_ = gui_left_pos_x_;
+		set_pos_y_ = gui_top_pos_y_;
 	}
 }
 
@@ -136,6 +144,11 @@ void DxlibGuiDisplayNodeSwitcher::Update()
 	for (auto& i : button_)
 	{
 		i->Update();
+	}
+
+	if (!IsInWindow())
+	{
+		SetVisible(false);
 	}
 }
 
@@ -202,6 +215,11 @@ void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
 	for (auto& i : button_)
 	{
 		i->SetVisible(visible);
+	}
+
+	if (visible_)
+	{
+		SetPos(set_pos_x_, set_pos_y_, dl::kDxlibGuiAnchorLeftTop);
 	}
 }
 
@@ -386,4 +404,10 @@ void DxlibGuiDisplayNodeSwitcher::DrawBackground() const
 	DrawFormatStringToHandle(text_pos_x, text_pos_y, text_color, font_handle_, "DisplayNodeSwitch");
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+}
+
+bool DxlibGuiDisplayNodeSwitcher::IsInWindow() const
+{
+	return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
+		0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }

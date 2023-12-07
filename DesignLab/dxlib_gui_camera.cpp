@@ -11,7 +11,9 @@ namespace dl = ::designlab;
 namespace dldu = ::designlab::dxlib_util;
 
 
-DxlibGuiCamera::DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera) :
+DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y, const std::shared_ptr<DxlibCamera> camera) :
+	window_x_(window_x),
+	window_y_(window_y),
 	camera_(camera),
 	font_handle_(FontLoader::GetIns()->GetFontHandle(kFontPath))
 {
@@ -51,7 +53,7 @@ DxlibGuiCamera::DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera) :
 	button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
-void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int option, const bool this_is_first_time)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
@@ -71,6 +73,12 @@ void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int
 	{
 		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
 	}
+
+	if (this_is_first_time)
+	{
+		set_pos_x_ = gui_left_pos_x_;
+		set_pos_y_ = gui_top_pos_y_;
+	}
 }
 
 void DxlibGuiCamera::SetNode(const RobotStateNode& node)
@@ -88,6 +96,11 @@ void DxlibGuiCamera::Update()
 
 	//カメラの更新
 	camera_->Update();
+
+	if (!IsInWindow()) 
+	{
+		SetVisible(false);
+	}
 }
 
 void DxlibGuiCamera::Draw() const
@@ -110,6 +123,11 @@ void DxlibGuiCamera::SetVisible(const bool visible)
 	for (auto& button : button_)
 	{
 		button->SetVisible(visible);
+	}
+
+	if (visible)
+	{
+		SetPos(set_pos_x_, set_pos_y_, dl::kDxlibGuiAnchorLeftTop);
 	}
 }
 
@@ -193,4 +211,10 @@ void DxlibGuiCamera::DrawString() const
 
 	DrawFormatStringToHandle(gui_left_pos_x_ + 10, text_top_y + text_interval_y * (text_line++), str_color, font_handle_, "画面の平行移動");
 	DrawFormatStringToHandle(gui_left_pos_x_ + 10, text_top_y + text_interval_y * (text_line++), str_color, font_handle_, " ・右クリック＆ドラッグ");
+}
+
+bool DxlibGuiCamera::IsInWindow() const
+{
+	return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
+		0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }

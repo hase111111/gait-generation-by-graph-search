@@ -18,10 +18,14 @@ namespace dlsu = ::designlab::string_util;
 
 
 DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
+	const int pos_x,
+	const int pos_y,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
 ) :
+	window_x_(pos_x),
+	window_y_(pos_y),
 	converter_ptr_(converter_ptr),
 	calculator_ptr_(calculator_ptr),
 	checker_ptr_(checker_ptr),
@@ -76,7 +80,7 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
 	buttons_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
-void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsigned int option)
+void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsigned int option, const bool this_is_first_time)
 {
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
@@ -95,6 +99,12 @@ void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsig
 	for (auto& button : buttons_)
 	{
 		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
+	}
+
+	if (this_is_first_time)
+	{
+		set_pos_x_ = gui_left_pos_x_;
+		set_pos_y_ = gui_top_pos_y_;
 	}
 }
 
@@ -116,6 +126,11 @@ void DxlibGuiNodeDisplayer::Update()
 	for (auto& button : buttons_)
 	{
 		button->Update();
+	}
+
+	if (!IsInWindow())
+	{
+		SetVisible(false);
 	}
 }
 
@@ -152,6 +167,11 @@ void DxlibGuiNodeDisplayer::SetVisible(const bool visible)
 	for (auto& button : buttons_)
 	{
 		button->SetVisible(visible);
+	}
+
+	if (visible_)
+	{
+		SetPos(set_pos_x_, set_pos_y_, dl::kDxlibGuiAnchorLeftTop);
 	}
 }
 
@@ -491,4 +511,10 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 			).ToString().c_str()
 		);
 	}
+}
+
+bool DxlibGuiNodeDisplayer::IsInWindow() const
+{
+	return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
+		0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }

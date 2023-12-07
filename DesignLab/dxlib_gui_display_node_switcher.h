@@ -20,10 +20,10 @@ class DxlibGuiDisplayNodeSwitcher final : public IDxlibGui, public IDxlibClickab
 {
 public:
 
-	DxlibGuiDisplayNodeSwitcher();
+	DxlibGuiDisplayNodeSwitcher(int window_x, int window_y);
 
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数
@@ -88,11 +88,20 @@ private:
 
 	void DrawBackground() const;
 
+	bool IsInWindow() const;
+
+
 	const int kAnimeSpeedMax{ 120 };	//!< アニメーション速度の最大値
 	const int kAnimeSpeedMin{ 1 };		//!< アニメーション速度の最小値
 
 	int gui_left_pos_x_{ 0 };		//!< GUIの左上のX座標
 	int gui_top_pos_y_{ 0 };		//!< GUIの左上のY座標
+
+	int set_pos_x_{ 0 };	//!< SetされたGUIの左上のX座標
+	int set_pos_y_{ 0 };	//!< SetされたGUIの左上のY座標
+
+	const int window_x_;	//!< ウィンドウのX座標
+	const int window_y_;	//!< ウィンドウのY座標
 
 	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ボタン
 

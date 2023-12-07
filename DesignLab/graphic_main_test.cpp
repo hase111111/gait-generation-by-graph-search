@@ -1,17 +1,18 @@
 ﻿#include "graphic_main_test.h"
 
-#include "dxlib_gui_camera.h"
 #include "camera_dragger.h"
 #include "designlab_math_util.h"
 #include "dxlib_camera.h"
+#include "dxlib_gui_camera.h"
+#include "dxlib_gui_camera_parameter_displayer.h"
+#include "dxlib_gui_node_displayer.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
+#include "map_creator_for_simulation.h"
 #include "map_renderer.h"
 #include "node_initializer.h"
-#include "dxlib_gui_node_displayer.h"
 #include "phantomx_mk2_const.h"
-#include "map_creator_for_simulation.h"
 
 
 namespace dl = ::designlab;
@@ -39,24 +40,29 @@ GraphicMainTest::GraphicMainTest(
 	devide_map_state_.Init(map_state_, {});
 
 	const auto camera = std::make_shared<DxlibCamera>();
-	const auto camera_gui = std::make_shared<DxlibGuiCamera>(camera);
-	camera_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop);
+	const auto camera_gui = std::make_shared<DxlibGuiCamera>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
+	camera_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop, true);
 
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
-	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr ? setting_ptr->window_size_x - 10 : 10, 10, dl::kDxlibGuiAnchorRightTop);
+	const auto camera_parameter_gui = std::make_shared<DxlibGuiCameraParameterDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
+	camera_parameter_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop, true);
+	camera_parameter_gui->SetVisible(false);
+
+	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, converter_ptr, calculator_ptr, checker_ptr);
+	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, dl::kDxlibGuiAnchorRightTop, true);
 
 	const auto [hexapod_renderer, hexapod_node_setter] =
-		HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_, setting_ptr ? setting_ptr->gui_display_quality : DisplayQuality::kMedium);
+		HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_, setting_ptr->gui_display_quality);
 
 	const auto map_renderer = std::make_shared<MapRenderer>();
 	map_renderer->SetMapState(map_state_);
 	map_renderer->SetNode(robot_);
 
-	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
 	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
 	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
+	gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
 
 	gui_updater_.OpenTerminal();
 
@@ -265,18 +271,18 @@ void GraphicMainTest::MoveLeg()
 
 				dl::Vector3 leg_pos;
 
-				leg_pos += dl::Vector3{ PhantomXMkIIConst::kCoxaLength * cos(coxa),PhantomXMkIIConst::kCoxaLength * sin(coxa),0 };
+				leg_pos += dl::Vector3{ PhantomXMkIIConst::kCoxaLength* cos(coxa), PhantomXMkIIConst::kCoxaLength* sin(coxa), 0 };
 
 				leg_pos += dl::Vector3{
-					PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
-					PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
-					PhantomXMkIIConst::kFemurLength * sin(femur)
+					PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
+						PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
+						PhantomXMkIIConst::kFemurLength* sin(femur)
 				};
 
 				leg_pos += dl::Vector3{
-					PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
-					PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
-					PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
+					PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
 				};
 
 				robot_.leg_pos[i] = leg_pos;

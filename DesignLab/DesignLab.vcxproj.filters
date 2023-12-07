@@ -537,6 +537,9 @@
     <ClInclude Include="simulation_map_parameter_importer.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
+    <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -814,6 +817,9 @@
     </ClCompile>
     <ClCompile Include="simulation_map_parameter_importer.cpp">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

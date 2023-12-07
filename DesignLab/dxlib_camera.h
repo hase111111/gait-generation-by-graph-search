@@ -80,6 +80,14 @@ public:
 	//! @return designlab::Vector3 カメラの注視する座標
 	inline designlab::Vector3 GetFreeTargetPos() const { return free_controlled_target_pos_; }
 
+	constexpr ::designlab::Quaternion GetNowCameraQuat() const { return now_camera_state_.camera_quat; }
+	constexpr ::designlab::Vector3 GetNowTargetPos() const { return now_camera_state_.target_pos; }
+	constexpr float GetNowCameraToTargetLength() const { return now_camera_state_.length_camera_to_target; }
+	constexpr ::designlab::Vector3 GetNowCameraPos() const 
+	{
+		::designlab::Vector3 camera_target_dif = ::designlab::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) * now_camera_state_.length_camera_to_target;
+		return camera_target_dif + now_camera_state_.target_pos;
+	}
 
 private:
 
@@ -89,8 +97,8 @@ private:
 		CameraState() : camera_quat{}, target_pos{}, length_camera_to_target(0) {}
 
 		designlab::Quaternion camera_quat;	//!< カメラの回転を表すクォータニオン
-		designlab::Vector3 target_pos;			//!< カメラの注視点
-		float length_camera_to_target;	//!< カメラと注視点との距離
+		designlab::Vector3 target_pos;		//!< カメラの注視点
+		float length_camera_to_target;		//!< カメラと注視点との距離
 	};
 
 
@@ -102,7 +110,7 @@ private:
 
 	const designlab::Vector3 kDefaultCameraFrontVec;	//!< デフォルトのカメラの方向を表す単位ベクトル
 
-	const designlab::Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの方向を表す単位ベクトル
+	const designlab::Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの上方向を表す単位ベクトル
 
 
 	CameraViewMode camera_view_mode_;	//!< カメラの視点を決定する．

@@ -27,7 +27,7 @@ public:
 	DxlibGuiCamera() = delete;
 
 	//! @brief コンストラクタでカメラの管理を行うクラスを受け取る．
-	DxlibGuiCamera(const std::shared_ptr<DxlibCamera> camera);
+	DxlibGuiCamera(int window_x, int window_y, const std::shared_ptr<DxlibCamera> camera);
 
 	//! @brief GUIの位置を設定する．
 	//! @n Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる．
@@ -35,7 +35,7 @@ public:
 	//! @param[in] pos_x GUIのx座標．
 	//! @param[in] pos_y GUIのy座標．
 	//! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 
 	void SetNode(const RobotStateNode& node) override;
@@ -72,9 +72,18 @@ private:
 	//! @brief GUIの文字を描画する
 	void DrawString() const;
 
+	bool IsInWindow() const;
+
 
 	int gui_left_pos_x_{ 0 };	//!< GUIの左端の位置
 	int gui_top_pos_y_{ 0 };	//!< GUIの上端の位置
+
+	int set_pos_x_{ 0 };	//!< SetされたGUIの左上のX座標
+	int set_pos_y_{ 0 };	//!< SetされたGUIの左上のY座標
+
+	const int window_x_;	//!< ウィンドウのX座標
+	const int window_y_;	//!< ウィンドウのY座標
+
 	bool visible_{ true };		//!< GUIが表示されているかどうかのフラグ
 	bool is_dragging_{ false };	//!< ドラッグ中かどうかのフラグ
 
