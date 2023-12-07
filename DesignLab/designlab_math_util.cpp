@@ -45,20 +45,20 @@ namespace designlab
 		float limitRangeAngle(const float angle)
 		{
 			//atan2‚É‡‚í‚¹‚é‚½‚ßCŠp“x‚ğ -ƒÎ < angle < ƒÎ ‚É‚·‚é (—á‚¦‚Î 340‹¨-20‹,-340‹¨20‹)
-			float _res = angle + kFloatPi;
+			float res = angle + kFloatPi;
 
-			_res = std::fmodf(_res, 2.0 * kFloatPi);
+			res = std::fmodf(res, 2.0 * kFloatPi);
 
-			if (_res < 0)
+			if (res < 0)
 			{
-				_res += kFloatPi;
+				res += kFloatPi;
 			}
 			else
 			{
-				_res -= kFloatPi;
+				res -= kFloatPi;
 			}
 
-			return _res;
+			return res;
 		}
 
 

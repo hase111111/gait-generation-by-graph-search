@@ -24,7 +24,7 @@ namespace designlab
 				// ƒ‰ƒCƒg‚Ìİ’è
 				ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec()));
 			}
-			else 
+			else
 			{
 				SetUseLighting(FALSE);
 				SetLightEnable(FALSE);
