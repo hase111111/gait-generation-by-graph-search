@@ -26,15 +26,6 @@ private:
 	//ファイルが存在しなかった場合のためにデフォルトの設定ファイルを出力する
 	void OutputDefaultSettingFile();
 
-	//設定ファイルからバージョン情報を読み込む
-	void ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
-
-	//設定ファイルから起動モードの情報を読み込む
-	void ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
-
-	//設定ファイルからディスプレイ情報を読み込む
-	void ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
-
 	const std::string kSettingFileName = u8"settings.toml";
 };
 

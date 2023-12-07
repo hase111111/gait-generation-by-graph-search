@@ -15,6 +15,7 @@
 #include <vector>
 
 #include <magic_enum.hpp>
+#include <strconv2.h>
 
 #include "toml11_define.h"
 
@@ -36,6 +37,8 @@ namespace designlab
 			std::string table_name;
 			std::string description;
 		};
+
+		std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_vec);
 
 		//! @brief tomlファイルに値を追加するための関数．
 		//! @n enumに関して特殊化されており，enum型の値を文字列に変換してから追加する．
@@ -66,7 +69,7 @@ if constexpr (std::is_enum<decltype(obj.VAR_NAME)>::value)                      
 {                                                                                                   \
     const std::string table_str = desc.VAR_NAME.table_name;                                         \
                                                                                                     \
-    if(table_str != ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
+    if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
     {                                                                                               \
         std::string str = toml::find<std::string>(v, TOML11_STRINGIZE(VAR_NAME));                   \
         obj.VAR_NAME = magic_enum::enum_cast<decltype(obj.VAR_NAME)>(str).value();                  \
@@ -81,7 +84,7 @@ else                                                                            
 {                                                                                                   \
     const std::string table_str = desc.VAR_NAME.table_name;                                         \
 																								    \
-	if(table_str != ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
+	if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
     {																						        \
         obj.VAR_NAME = toml::find<decltype(obj.VAR_NAME)>(v, TOML11_STRINGIZE(VAR_NAME));           \
 	}                                                                                               \
@@ -145,14 +148,14 @@ const ::std::vector<::std::string> file_description_vec{};
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param DESCRIPTION 説明．文字列で指定する．
 #define DESIGNLAB_TOML11_FILE_DESCRIPTION(DESCRIPTION)						\
-const ::std::vector<::std::string> file_description_vec{(DESCRIPTION)};
+const ::std::vector<::std::string> file_description_vec{sjis_to_utf8(DESCRIPTION)};
 
 //! @def DESIGNLAB_TOML11_FILE_DESCRIPTION_MULTI_LINE
 //! @brief tomlファイルにファイルの説明を追加するためのマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param DESCRIPTION_VEC 説明．文字列のvectorで指定する．
 #define DESIGNLAB_TOML11_FILE_DESCRIPTION_MULTI_LINE(DESCRIPTION_VEC)		\
-const ::std::vector<::std::string> file_description_vec = (DESCRIPTION_VEC);
+const ::std::vector<::std::string> file_description_vec = ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);
 
 
 //! @def DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION
@@ -160,7 +163,7 @@ const ::std::vector<::std::string> file_description_vec = (DESCRIPTION_VEC);
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param ... テーブル名と説明．
 #define DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(...)							\
-const std::vector<std::string> table_name_description_vec{__VA_ARGS__};
+const std::vector<std::string> table_name_description_vec = ::designlab::toml_func::sjis_to_utf8_vec({__VA_ARGS__});
 
 //! @def DESIGNLAB_TOML11_NO_TABLE
 //! @brief tomlファイルに追加するテーブルにコメントを追加するためのマクロ．
@@ -175,7 +178,7 @@ const std::vector<std::string> table_name_description_vec = {};
 //! @param TABLE テーブル名．
 //! @param DESCRIPTION 説明．
 #define DESIGNLAB_TOML11_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)		\
-const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, DESCRIPTION} 
+const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DESCRIPTION)} 
 
 //! @def DESIGNLAB_ADD_FILE_DESCRIPTION
 //! @brief ファイルの説明を追加したくない場合には，このマクロで追加する．
@@ -233,7 +236,7 @@ struct from<NAME>                                                               
                                                                                                   \
     template<typename C, template<typename ...> class T,                                          \
              template<typename ...> class A>                                                      \
-    static NAME from_toml(const basic_value<C, T, A>& v)                                          \
+    static NAME from_toml(basic_value<C, T, A>& v)                                          \
     {                                                                                             \
         NAME obj;                                                                                 \
         NAME##Description desc;															          \

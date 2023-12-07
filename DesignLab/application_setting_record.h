@@ -10,6 +10,7 @@
 
 #include "application_setting_toml_key.h"
 #include "boot_mode.h"
+#include "designlab_string_util.h"
 #include "display_quality.h"
 #include "output_detail.h"
 
@@ -20,6 +21,30 @@
 //! @brief アプリの設定を記録する構造体．
 struct ApplicationSettingRecord final
 {
+	//代入演算子
+	ApplicationSettingRecord& operator=(const ApplicationSettingRecord& other)
+	{
+		version_major = other.version_major;
+		version_minor = other.version_minor;
+		version_patch = other.version_patch;
+
+		ask_about_modes = other.ask_about_modes;
+		default_mode = other.default_mode;
+		do_step_execution_each_simulation = other.do_step_execution_each_simulation;
+		do_step_execution_each_gait = other.do_step_execution_each_gait;
+
+		do_cmd_output = other.do_cmd_output;
+		cmd_output_detail = other.cmd_output_detail;
+		do_gui_display = other.do_gui_display;
+		gui_display_quality = other.gui_display_quality;
+		window_size_x = other.window_size_x;
+		window_size_y = other.window_size_y;
+		window_fps = other.window_fps;
+
+		return *this;
+
+	}
+
 	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< 設定ファイルのタイトル
 
 	int version_major{ 0 };	//!< バージョン番号(メジャー)
@@ -75,25 +100,34 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 	DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(version_patch, "1-Verion");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(ask_about_modes, "2-Mode", "起動時に実行モードについて質問をするようにします (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "2-Mode", "起動時のデフォルトの実行モードを設定します (simulation/real)");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "2-Mode", "起動時のデフォルトの実行モードを設定します (" + ::designlab::string_util::EnumValuesToString<BootMode>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_simulation, "2-Mode", "1シミュレーションごとにステップ実行をするかどうかを設定します (true/false)");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_gait, "2-Mode", "1動作ごとにステップ実行をするかどうかを設定します (true/false)");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_cmd_output, "3-Output", "コマンドラインに出力するかどうかを設定します (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(cmd_output_detail, "3-Output", "コマンドラインに出力する際，どこまで許可するかを設定します (debug/info/warning/error)");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(cmd_output_detail, "3-Output", "コマンドラインに出力する際，どこまで許可するかを設定します(" + ::designlab::string_util::EnumValuesToString<OutputDetail>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_gui_display, "3-Output", "GUIを表示するかどうかを設定します (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(gui_display_quality, "3-Output", "GUIを表示する際，どこまで許可するかを設定します (low/medium/high)");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(gui_display_quality, "3-Output", "GUIを表示する際，どこまで許可するかを設定します(" + ::designlab::string_util::EnumValuesToString<DisplayQuality>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_size_x, "3-Output", "グラフィカルウィンドウの横幅を設定します (int)");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_size_y, "3-Output", "グラフィカルウィンドウの縦幅を設定します (int)");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_fps, "3-Output", "グラフィカルウィンドウのFPSを設定します (int)");
 };
+
 
 DESIGNLAB_TOML11_SERIALIZE(
 	ApplicationSettingRecord,
 	version_major, version_minor, version_patch,
 	ask_about_modes, default_mode, do_step_execution_each_simulation, do_step_execution_each_gait,
 	do_cmd_output, cmd_output_detail, do_gui_display, gui_display_quality, window_size_x, window_size_y, window_fps
+
 );
+
+//TOML11_DEFINE_CONVERSION_NON_INTRUSIVE(
+//	ApplicationSettingRecord,
+//	version_major, version_minor, version_patch,
+//	ask_about_modes, do_step_execution_each_simulation, do_step_execution_each_gait,
+//	do_cmd_output, do_gui_display, window_size_x, window_size_y, window_fps
+//);
 
 
 #endif	// DESIGNLAB_APPLICATION_SETTING_RECORD_H_
