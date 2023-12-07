@@ -6,6 +6,7 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 #include "designlab_string_util.h"
+#include "map_file_importer.h"
 
 
 namespace dlio = ::designlab::cmdio;
@@ -29,33 +30,12 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path) : map_file_pa
 
 MapState MapCreatorByCsv::InitMap()
 {
-	// ファイルを読み込む
-	std::ifstream ifs(map_file_path_);
+	std::optional<MapState> map_state;
+	MapFileImporter map_file_importer;
 
-	// ファイルが開けなかったらassert．
-	if (!ifs)
-	{
-		dlio::Output("map fileが開けません．ファイルのパスは" + map_file_path_ + "です．(" +
-			typeid(MapCreatorByCsv).name() + "のInitMap関数)", OutputDetail::kError);
+	map_state = map_file_importer.ImportMap(map_file_path_);
 
-		assert(false);
-
-		return MapState();
-	}
-
-	std::string str;
-	std::vector<std::string> str_vec;
-
-	MapState map_state;
-
-	while (std::getline(ifs, str))
-	{
-		str_vec = dlsu::Split(str, ",");
-
-		map_state.AddMapPoint(designlab::Vector3{ std::stof(str_vec[0]), std::stof(str_vec[1]), std::stof(str_vec[2]) });
-	}
-
-	return map_state;
+	return map_state.value_or(MapState());
 }
 
 void MapCreatorByCsv::UpdateMap([[maybe_unused]] MapState* current_map)
