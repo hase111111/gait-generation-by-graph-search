@@ -38,7 +38,7 @@ namespace designlab
 
 		constexpr Polygon2() : vertex_num(0) {};
 
-		Polygon2(std::vector<Vector2> vertex);
+		Polygon2(const std::vector<Vector2>& vertex);
 
 
 		//! @brief ’¸“_‚ğ’Ç‰Á‚·‚éŠÖ”

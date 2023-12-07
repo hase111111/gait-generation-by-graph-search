@@ -8,7 +8,7 @@ namespace dlm = ::designlab::math_util;	// ’·‚·‚¬‚é‚Ì‚Å math_util‚Ì•Ê–¼‚ğì¬
 
 
 
-designlab::Polygon2::Polygon2(std::vector<Vector2> vertex)
+designlab::Polygon2::Polygon2(const std::vector<Vector2>& vertex)
 {
 	assert(vertex.size() <= kMaxVertexNum);	// ’¸“_”‚ÍÅ‘å’l‚ğ’´‚¦‚Ä‚Í‚¢‚¯‚È‚¢
 
