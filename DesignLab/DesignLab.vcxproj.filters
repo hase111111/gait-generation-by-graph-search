@@ -130,6 +130,9 @@
     <Filter Include="ソース ファイル\Common\Test">
       <UniqueIdentifier>{2b307fe3-198f-429d-ba96-648ccd6295ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System\Simulation\Setting">
+      <UniqueIdentifier>{24e512b5-5bf6-4133-8f62-e4201200e5e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -526,7 +529,13 @@
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
     <ClInclude Include="simulation_setting_record.h">
-      <Filter>ソース ファイル\System\Simulation</Filter>
+      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_setting_importer.h">
+      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter_importer.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -799,6 +808,12 @@
     </ClCompile>
     <ClCompile Include="toml_serialize_macro.cpp">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_setting_importer.cpp">
+      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_map_parameter_importer.cpp">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 
 #include <magic_enum.hpp>
 
+#include "cassert_define.h"
 #include "cmdio_util.h"
 #include "dead_lock_checker.h"
 #include "designlab_string_util.h"
@@ -27,6 +28,11 @@ SystemMainSimulation::SystemMainSimulation(
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
+	assert(pass_finder_ptr_ != nullptr);
+	assert(map_creator_ptr_ != nullptr);
+	assert(broker_ptr_ != nullptr);
+	assert(setting_ptr_ != nullptr);
+
 	//結果をファイルに出力するクラスを初期化する．
 	result_exporter_.Init();
 

@@ -128,6 +128,8 @@
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="simulation_end_checker.h" />
+    <ClInclude Include="simulation_map_parameter_importer.h" />
+    <ClInclude Include="simulation_setting_importer.h" />
     <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
@@ -205,6 +207,8 @@
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="simulation_end_checker.cpp" />
+    <ClCompile Include="simulation_map_parameter_importer.cpp" />
+    <ClCompile Include="simulation_setting_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="dxlib_gui_node_displayer.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />

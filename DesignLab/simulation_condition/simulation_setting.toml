@@ -1,0 +1,12 @@
+#シミュレーションを行う際の設定はこのファイルで設定します．
+
+
+#シミュレーションを行うマップについての設定です．
+[Map]
+#マップの作成方法を設定します．(kForSimulation/kFromFile)
+map_create_mode = "kForSimulation"
+#マップの作成方法がファイルから読み込むモードの場合，マップのcsvファイルの名前を設定します．
+map_file_name = "map_state.csv"
+#マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．
+simulation_map_param_file_name = "simulation_map.toml"
+

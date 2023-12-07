@@ -43,9 +43,6 @@ std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::Rea
 		return std::make_shared<ApplicationSettingRecord>();
 	}
 
-
-	std::cout << "設定ファイルの読み込みに成功しました．ファイルのtitleキーを確認します\n\n";
-
 	ApplicationSettingRecord setting;
 
 	try
