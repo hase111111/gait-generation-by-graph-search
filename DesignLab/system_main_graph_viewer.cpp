@@ -33,7 +33,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 	//マップを生成する
 	dlio::Output("まずは，マップを生成する．オプションを整数で入力すること．", OutputDetail::kSystem);
 
-	MapCreateModeMessenger messanger = InputMapCreateMode();
+	MapCreateModeMessage messanger = InputMapCreateMode();
 
 	MapCreatorForSimulation map_creator(messanger);
 
@@ -247,9 +247,9 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 	dlio::OutputNewLine(1, OutputDetail::kSystem);
 }
 
-MapCreateModeMessenger SystemMainGraphViewer::InputMapCreateMode() const
+MapCreateModeMessage SystemMainGraphViewer::InputMapCreateMode() const
 {
-	MapCreateModeMessenger messanger;
+	MapCreateModeMessage messanger;
 
 	{
 		const auto kMapCreateModeList = magic_enum::enum_values<MapCreateMode>();	//MapCreateModeのリストを取得する

@@ -1,9 +1,10 @@
-﻿//! @file map_create_mode_messenger.h
+﻿//! @file map_create_mode_message.h
 //! @brief マップ生成時のモードとオプションを指定する構造体．
 
-#ifndef DESIGNLAB_CREATE_MODE_MESSENGER_H_
-#define DESIGNLAB_CREATE_MODE_MESSENGER_H_
+#ifndef DESIGNLAB_CREATE_MODE_MESSAGE_H_
+#define DESIGNLAB_CREATE_MODE_MESSAGE_H_
 
+#include <vector>
 
 #include "cassert_define.h"
 
@@ -37,12 +38,12 @@ enum class MapCreateOption : unsigned int
 };
 
 
-//! @class MapCreateModeMessenger
+//! @struct MapCreateModeMessage
 //! @brief マップ生成時のモードとオプションを指定する構造体．
-class MapCreateModeMessenger final
+struct MapCreateModeMessage final
 {
 public:
-	constexpr MapCreateModeMessenger() :
+	constexpr MapCreateModeMessage() :
 		mode(MapCreateMode::kFlat),
 		option(static_cast<unsigned int>(MapCreateOption::kNone))
 	{
@@ -156,4 +157,4 @@ public:
 };
 
 
-#endif // DESIGNLAB_CREATE_MODE_MESSENGER_H_
+#endif // DESIGNLAB_CREATE_MODE_MESSAGE_H_
