@@ -45,7 +45,7 @@ namespace designlab
 
 	Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot)
 	{
-		RotationMatrix3x3 rot_mat = ToRotationMatrix(rot);
+		const RotationMatrix3x3 rot_mat = ToRotationMatrix(rot);
 
 		return RotateVector3(vec, rot_mat);
 	}
