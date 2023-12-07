@@ -165,8 +165,8 @@ const ::std::vector<::std::string> file_description_vec = ::designlab::toml_func
 #define DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(...)							\
 const std::vector<std::string> table_name_description_vec = ::designlab::toml_func::sjis_to_utf8_vec({__VA_ARGS__});
 
-//! @def DESIGNLAB_TOML11_NO_TABLE
-//! @brief tomlファイルに追加するテーブルにコメントを追加するためのマクロ．
+//! @def DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION
+//! @brief tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 #define DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION()			\
 const std::vector<std::string> table_name_description_vec = {};
@@ -186,6 +186,11 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DES
 //! @param TABLE テーブル名．
 #define DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(VARIABLE, TABLE)		\
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""} 
+
+//! @def DESIGNLAB_TOML11_NO_TABLE
+//! @brief tomlファイルに追加する変数をテーブルに追加しないことを示すマクロ．
+#define DESIGNLAB_TOML11_NO_TABLE	\
+::designlab::toml_func::Toml11Description::NO_TABLE
 
 
 //! @def DESIGNLAB_TOML11_SERIALIZE
@@ -236,7 +241,7 @@ struct from<NAME>                                                               
                                                                                                   \
     template<typename C, template<typename ...> class T,                                          \
              template<typename ...> class A>                                                      \
-    static NAME from_toml(basic_value<C, T, A>& v)                                          \
+    static NAME from_toml(basic_value<C, T, A>& v)													\
     {                                                                                             \
         NAME obj;                                                                                 \
         NAME##Description desc;															          \
@@ -245,7 +250,7 @@ struct from<NAME>                                                               
     }                                                                                             \
 };                                                                                                \
                                                                                                   \
-template<>                                                                                        \
+template<>																							\
 struct into<NAME>																					\
 {																									\
     static value into_toml(const NAME& obj)															\

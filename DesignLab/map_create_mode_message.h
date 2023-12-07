@@ -7,6 +7,8 @@
 #include <vector>
 
 #include "cassert_define.h"
+#include "designlab_string_util.h"
+#include "toml_serialize_macro.h"
 
 
 //! @enum MapCreateMode
@@ -135,8 +137,8 @@ public:
 	}
 
 
-	MapCreateMode mode;		//!< マップ生成のモードを指定する列挙体．
-	unsigned int option;	//!< マップ生成のオプションを指定するbit．
+	MapCreateMode mode{ MapCreateMode::kFlat };		//!< マップ生成のモードを指定する列挙体．
+	unsigned int option{ 0 };	//!< マップ生成のオプションを指定するbit．
 
 	float base_z{ 0.0f };		//!< マップの基準となるZ座標．
 	float map_max_x{ 2600.f };	//!< マップのX座標の最大値．
@@ -156,5 +158,40 @@ public:
 	float routh_min_height{ 0.f };		//!< デコボコな地形の最小高さ[mm]
 };
 
+
+DESIGNLAB_TOML11_DESCRIPTION_CLASS(MapCreateModeMessage)
+{
+	DESIGNLAB_TOML11_NO_FILE_DESCRIPTION();
+
+	DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION();
+
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のモードを指定する列挙体．(" + ::designlab::string_util::EnumValuesToString<MapCreateMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプションを指定するbit．(" + ::designlab::string_util::EnumValuesToString<MapCreateOption>("/") + ")");
+
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_min_x, "Basic", "マップのX座標の最小値．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_y, "Basic", "マップのY座標の最大値．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_min_y, "Basic", "マップのY座標の最小値．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_start_rough_x, "Basic", "不整地が始まるX座標．");
+
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(stripe_interval, "Stripe", "各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．");
+
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(hole_rate, "Perforated", "不整地上の足場を除外する割合。ホール率[%]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(step_height, "Step", "段差高さ[mm]．負の値にすると下りの階段になる．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(step_length, "Step", "階段の奥行[mm]．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(slope_angle, "Slope", "斜面の傾斜角[deg]．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(tilt_angle, "Tilt", "地形を傾ける角度[deg]．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(routh_max_height, "Rough", "デコボコな地形の最大高さ[mm]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(routh_min_height, "Rough", "デコボコな地形の最小高さ[mm]");
+};
+
+DESIGNLAB_TOML11_SERIALIZE(
+	MapCreateModeMessage,
+	mode, option,
+	base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
+	stripe_interval,
+	hole_rate, step_height, step_length, slope_angle, tilt_angle, routh_max_height, routh_min_height
+);
 
 #endif // DESIGNLAB_CREATE_MODE_MESSAGE_H_
