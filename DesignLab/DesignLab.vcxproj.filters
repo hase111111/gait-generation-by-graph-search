@@ -258,10 +258,7 @@
     <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_toml_key.h">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
-    </ClInclude>
-    <ClInclude Include="application_setting_reader_toml.h">
+    <ClInclude Include="application_setting_importer_for_toml.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_record.h">
@@ -357,7 +354,7 @@
     <ClInclude Include="result_file_importer.h">
       <Filter>ソース ファイル\Common\FileIO\Result</Filter>
     </ClInclude>
-    <ClInclude Include="interface_application_setting_reader.h">
+    <ClInclude Include="interface_application_setting_importer.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="model_loader.h">
@@ -641,10 +638,7 @@
     <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
-    <ClCompile Include="application_setting_toml_key.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
-    </ClCompile>
-    <ClCompile Include="application_setting_reader_toml.cpp">
+    <ClCompile Include="application_setting_importer_for_toml.cpp">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClCompile>
     <ClCompile Include="system_main_simulation.cpp">

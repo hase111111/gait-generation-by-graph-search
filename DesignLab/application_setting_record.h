@@ -8,7 +8,6 @@
 #include <map>
 #include <string>
 
-#include "application_setting_toml_key.h"
 #include "boot_mode.h"
 #include "designlab_string_util.h"
 #include "display_quality.h"
@@ -21,32 +20,6 @@
 //! @brief アプリの設定を記録する構造体．
 struct ApplicationSettingRecord final
 {
-	//代入演算子
-	ApplicationSettingRecord& operator=(const ApplicationSettingRecord& other)
-	{
-		version_major = other.version_major;
-		version_minor = other.version_minor;
-		version_patch = other.version_patch;
-
-		ask_about_modes = other.ask_about_modes;
-		default_mode = other.default_mode;
-		do_step_execution_each_simulation = other.do_step_execution_each_simulation;
-		do_step_execution_each_gait = other.do_step_execution_each_gait;
-
-		do_cmd_output = other.do_cmd_output;
-		cmd_output_detail = other.cmd_output_detail;
-		do_gui_display = other.do_gui_display;
-		gui_display_quality = other.gui_display_quality;
-		window_size_x = other.window_size_x;
-		window_size_y = other.window_size_y;
-		window_fps = other.window_fps;
-
-		return *this;
-
-	}
-
-	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< 設定ファイルのタイトル
-
 	int version_major{ 0 };	//!< バージョン番号(メジャー)
 	int version_minor{ 5 };	//!< バージョン番号(マイナー)
 	int version_patch{ 0 };	//!< バージョン番号(パッチ)

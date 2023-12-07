@@ -1,4 +1,4 @@
-﻿#include "application_setting_reader_toml.h"
+﻿#include "application_setting_importer_for_toml.h"
 
 #include <iostream>
 #include <fstream>
@@ -10,7 +10,7 @@
 #include "output_detail.h"
 
 
-std::shared_ptr<ApplicationSettingRecord> ApplicationSettingReaderToml::ReadFileOrUseAndOutputDefault()
+std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::ReadFileOrUseAndOutputDefault()
 {
 	std::cout << "設定ファイル" << kSettingFileName << "を読み込みます\n\n";
 
@@ -73,7 +73,7 @@ std::shared_ptr<ApplicationSettingRecord> ApplicationSettingReaderToml::ReadFile
 
 
 
-void ApplicationSettingReaderToml::OutputDefaultSettingFile()
+void ApplicationSettingImporterForToml::OutputDefaultSettingFile()
 {
 	const ApplicationSettingRecord kDefaultSetting;
 

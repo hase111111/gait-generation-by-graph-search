@@ -54,8 +54,7 @@
     <ClInclude Include="devide_map_state.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
-    <ClInclude Include="application_setting_toml_key.h" />
-    <ClInclude Include="application_setting_reader_toml.h" />
+    <ClInclude Include="application_setting_importer_for_toml.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="node_creator_builder_turn_spot.h" />
     <ClInclude Include="dxlib_node_setter_group.h" />
@@ -85,7 +84,7 @@
     <ClInclude Include="graph_searcher_straight_move.h" />
     <ClInclude Include="designlab_euler.h" />
     <ClInclude Include="graph_tree_creator.h" />
-    <ClInclude Include="interface_application_setting_reader.h" />
+    <ClInclude Include="interface_application_setting_importer.h" />
     <ClInclude Include="interface_map_creator.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
     <ClInclude Include="interface_system_main.h" />
@@ -154,8 +153,7 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application_setting_toml_key.cpp" />
-    <ClCompile Include="application_setting_reader_toml.cpp" />
+    <ClCompile Include="application_setting_importer_for_toml.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_terminal.cpp" />
     <ClCompile Include="font_loader.cpp" />

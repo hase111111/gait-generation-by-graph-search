@@ -1,4 +1,4 @@
-﻿//! @file application_setting_reader.h
+﻿//! @file application_setting_importer_for_toml.h
 //! @brief アプリケーション設定ファイルを読み込むクラス
 
 #ifndef APPLICATION_SETTING_READER_TOML_H_
@@ -9,13 +9,12 @@
 #include <string>
 
 #include "application_setting_record.h"
-#include "application_setting_toml_key.h"
-#include "interface_application_setting_reader.h"
+#include "interface_application_setting_importer.h"
 #include "toml11_define.h"
 
-//! @class ApplicationSettingReaderToml
+//! @class ApplicationSettingImporterForToml
 //! @brief toml形式のアプリケーション設定ファイルを読み込むクラス
-class ApplicationSettingReaderToml final : public IApplicationSettingReader
+class ApplicationSettingImporterForToml final : public IApplicationSettingImporter
 {
 public:
 
