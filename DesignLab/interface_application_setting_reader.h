@@ -1,5 +1,5 @@
-//! @file interface_application_setting_reader.h
-//! @brief İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒX‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
+ï»¿//! @file interface_application_setting_reader.h
+//! @brief è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 
 
 #ifndef DESIGNLAB_INTERFACE_APPLICATION_SETTING_READER_H_
@@ -8,23 +8,23 @@
 
 #include <memory>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 
 
 //! @class IApplicationSettingReader
-//! @brief İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒX‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
-//! @n Œ»İv‚¢•t‚«‚Åtomlƒtƒ@ƒCƒ‹‚Å“Ç‚İ‚İ‚ğ‚µ‚Ä‚¢‚é‚ªCŒãX•ÏX‚·‚é‰Â”\«‚ª‚ ‚é‚Ì‚ÅC‚±‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ğ—pˆÓ‚µ‚Ä‚¢‚éD
-//! @n json‚Æ‚©‚É•Ï‚¦‚½‚ç‚±‚ÌƒNƒ‰ƒX‚ğŒp³‚µ‚ÄCjsonƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒX‚ğì¬‚µ‚Ä‚ËD
+//! @brief è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
+//! @n ç¾åœ¨æ€ã„ä»˜ãã§tomlãƒ•ã‚¡ã‚¤ãƒ«ã§èª­ã¿è¾¼ã¿ã‚’ã—ã¦ã„ã‚‹ãŒï¼Œå¾Œã€…å¤‰æ›´ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§ï¼Œã“ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ç”¨æ„ã—ã¦ã„ã‚‹ï¼
+//! @n jsonã¨ã‹ã«å¤‰ãˆãŸã‚‰ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ç¶™æ‰¿ã—ã¦ï¼Œjsonãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦ã­ï¼
 class IApplicationSettingReader
 {
 public:
 
 	virtual ~IApplicationSettingReader() = default;
 
-	//! @brief İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞD
-	//! @n İ’èƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚·‚éD
-	//! @return std::shared_ptr<ApplicationSettingRecorder> İ’èƒtƒ@ƒCƒ‹‚Ì“à—eD
-	virtual std::shared_ptr<ApplicationSettingRecorder> ReadFileOrUseAndOutputDefault() = 0;
+	//! @brief è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ï¼
+	//! @n è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã™ã‚‹ï¼
+	//! @return std::shared_ptr<ApplicationSettingRecord> è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ï¼
+	virtual std::shared_ptr<ApplicationSettingRecord> ReadFileOrUseAndOutputDefault() = 0;
 };
 
 

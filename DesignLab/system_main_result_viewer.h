@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "graphic_data_broker.h"
 #include "interface_system_main.h"
 #include "result_file_importer.h"
@@ -22,7 +22,7 @@ class SystemMainResultViewer final : public ISystemMain
 public:
 	SystemMainResultViewer(
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecord> setting_ptr
 	);
 
 

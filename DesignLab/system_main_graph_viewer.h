@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "graphic_data_broker.h"
 #include "graph_tree_creator.h"
 #include "interface_system_main.h"
@@ -26,7 +26,7 @@ public:
 	SystemMainGraphViewer(
 		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
 
 	//! @brief メイン関数
@@ -59,7 +59,7 @@ private:
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
+	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
 	MapState map_state_;
 

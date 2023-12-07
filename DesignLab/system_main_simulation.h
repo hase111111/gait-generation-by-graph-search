@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "graphic_data_broker.h"
 #include "interface_gait_pattern_generator.h"
 #include "interface_map_creator.h"
@@ -36,7 +36,7 @@ public:
 		std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．
@@ -59,7 +59,7 @@ private:
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
 
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
+	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
 	const std::unique_ptr<const SimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 

@@ -15,7 +15,7 @@ namespace dlio = designlab::cmdio;
 
 SystemMainResultViewer::SystemMainResultViewer(
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr
+	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr
 ) :
 	broker_ptr_(broker_ptr)
 {

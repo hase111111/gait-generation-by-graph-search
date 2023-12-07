@@ -22,7 +22,7 @@ namespace dlsu = designlab::string_util;
 SystemMainGraphViewer::SystemMainGraphViewer(
 	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	graph_tree_creator_ptr_(std::move(graph_tree_creator)),
 	broker_ptr_(broker_ptr),

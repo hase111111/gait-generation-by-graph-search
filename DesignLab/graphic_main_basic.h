@@ -7,7 +7,7 @@
 #include <memory>
 #include <vector>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "dxlib_gui_display_node_switcher.h"
 #include "dxlib_3d_renderer_group.h"
 #include "dxlib_gui_updater.h"
@@ -35,7 +35,7 @@ public:
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
 	~GraphicMainBasic() = default;
 

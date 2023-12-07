@@ -138,7 +138,7 @@
     <ClInclude Include="system_main_result_viewer.h" />
     <ClInclude Include="robot_graund_point_renderer.h" />
     <ClInclude Include="simulation_result_recorder.h" />
-    <ClInclude Include="application_setting_recorder.h" />
+    <ClInclude Include="application_setting_record.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
     <ClInclude Include="system_main_simulation.h" />

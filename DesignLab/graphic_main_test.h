@@ -8,7 +8,7 @@
 
 #include <memory>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "devide_map_state.h"
 #include "dxlib_3d_renderer_group.h"
 #include "dxlib_node_setter_group.h"
@@ -29,7 +29,7 @@ public:
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
 	~GraphicMainTest() = default;
 

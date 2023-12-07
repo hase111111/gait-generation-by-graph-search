@@ -264,7 +264,7 @@
     <ClInclude Include="application_setting_reader_toml.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_recorder.h">
+    <ClInclude Include="application_setting_record.h">
       <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="system_main_simulation.h">

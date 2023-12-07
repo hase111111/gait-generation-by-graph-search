@@ -15,7 +15,7 @@ namespace dllf = designlab::leg_func;
 
 
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateNode>* const p_graph, size_t* const p_display_node_index,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr) :
+	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
 	graph_ptr_(p_graph),
 	display_node_index_ptr_(p_display_node_index),
 	setting_ptr_(setting_ptr)

@@ -19,7 +19,7 @@ SystemMainSimulation::SystemMainSimulation(
 	std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
 	std::unique_ptr<IMapCreator>&& map_creator_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr
+	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	pass_finder_ptr_(std::move(pass_finder_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),

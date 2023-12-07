@@ -1,5 +1,5 @@
-//! @file graph_viewer_gui_controller.h
-//! @brief ƒOƒ‰ƒt‚Ìƒm[ƒh‚Ìƒf[ƒ^‚ğ•\¦‚·‚éGUI‚ÌƒRƒ“ƒgƒ[ƒ‰[ƒNƒ‰ƒX
+ï»¿//! @file graph_viewer_gui_controller.h
+//! @brief ã‚°ãƒ©ãƒ•ã®ãƒãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã™ã‚‹GUIã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
 #define DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
@@ -7,18 +7,18 @@
 #include <memory>
 #include <vector>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "robot_state_node.h"
 
-//! @todo ‰¼’u‚«‚Ì‚Í‚¸‚ªC–{À‘•‚É‚È‚Á‚Ä‚¢‚é‚Ì‚ÅCŒã‚Å’¼‚·
+//! @todo ä»®ç½®ãã®ã¯ãšãŒï¼Œæœ¬å®Ÿè£…ã«ãªã£ã¦ã„ã‚‹ã®ã§ï¼Œå¾Œã§ç›´ã™
 
 //! @class GraphViewerGUIController
-//! @brief ƒOƒ‰ƒt‚Ìƒm[ƒh‚Ìƒf[ƒ^‚ğ•\¦‚·‚éGUI‚ÌƒRƒ“ƒgƒ[ƒ‰[ƒNƒ‰ƒX
+//! @brief ã‚°ãƒ©ãƒ•ã®ãƒãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã™ã‚‹GUIã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã‚¯ãƒ©ã‚¹
 class GraphViewerGUIController final
 {
 public:
 	GraphViewerGUIController(const std::vector<RobotStateNode>* const graph_ptr, size_t* const display_node_index_ptr,
-		const std::shared_ptr<const ApplicationSettingRecorder>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 	~GraphViewerGUIController() = default;
 
 	void Update();
@@ -39,15 +39,15 @@ private:
 
 	const std::vector<RobotStateNode>* const graph_ptr_;
 
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;
+	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
 
 	size_t* const display_node_index_ptr_;
-	std::pair<int, std::vector<int>> childen_list_ = std::make_pair<int, std::vector<int>>(-1, {});	//qƒm[ƒh‚ÌƒŠƒXƒg
-	int display_children_list_index_ = 0;	//•\¦‚·‚éqƒm[ƒh‚ÌƒŠƒXƒg‚ÌƒCƒ“ƒfƒbƒNƒX
+	std::pair<int, std::vector<int>> childen_list_ = std::make_pair<int, std::vector<int>>(-1, {});	//å­ãƒãƒ¼ãƒ‰ã®ãƒªã‚¹ãƒˆ
+	int display_children_list_index_ = 0;	//è¡¨ç¤ºã™ã‚‹å­ãƒãƒ¼ãƒ‰ã®ãƒªã‚¹ãƒˆã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 
-	std::vector<int> graph_node_depth_data_;	//Še[‚³‚²‚Æ‚Ìƒm[ƒh”‚Ìƒf[ƒ^
-	int input_number_ = -1;	//“ü—Í‚³‚ê‚½”’l
+	std::vector<int> graph_node_depth_data_;	//å„æ·±ã•ã”ã¨ã®ãƒãƒ¼ãƒ‰æ•°ã®ãƒ‡ãƒ¼ã‚¿
+	int input_number_ = -1;	//å…¥åŠ›ã•ã‚ŒãŸæ•°å€¤
 };
 
 

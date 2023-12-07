@@ -45,14 +45,12 @@ MapState MapCreatorByCsv::InitMap()
 
 	std::string str;
 	std::vector<std::string> str_vec;
-	std::vector<std::vector<std::string>> str_vec_vec;
 
 	MapState map_state;
 
 	while (std::getline(ifs, str))
 	{
 		str_vec = dlsu::Split(str, ",");
-		str_vec_vec.push_back(str_vec);
 
 		map_state.AddMapPoint(designlab::Vector3{ std::stof(str_vec[0]), std::stof(str_vec[1]), std::stof(str_vec[2]) });
 	}

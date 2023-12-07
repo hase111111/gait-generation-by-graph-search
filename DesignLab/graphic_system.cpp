@@ -11,7 +11,7 @@
 namespace dldu = ::designlab::dxlib_util;
 
 
-GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr) :
+GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr) :
 	setting_ptr_(setting_ptr),
 	fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }		// setting_ptr が null かどうかを調べ，そうでなければwindow_fpsの値を取り出す．
 {

@@ -1,4 +1,4 @@
-#include "application_setting_reader_toml.h"
+ï»¿#include "application_setting_reader_toml.h"
 
 #include <iostream>
 #include <fstream>
@@ -10,57 +10,57 @@
 #include "output_detail.h"
 
 
-std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFileOrUseAndOutputDefault()
+std::shared_ptr<ApplicationSettingRecord> ApplicationSettingReaderToml::ReadFileOrUseAndOutputDefault()
 {
-	std::cout << "İ’èƒtƒ@ƒCƒ‹" << kSettingFileName << "‚ğ“Ç‚İ‚İ‚Ü‚·\n\n";
+	std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«" << kSettingFileName << "ã‚’èª­ã¿è¾¼ã¿ã¾ã™\n\n";
 
-	//ƒtƒ@ƒCƒ‹‚ğ’T‚·C‘¶İ‚µ‚È‚©‚Á‚½‚çƒfƒtƒHƒ‹ƒg‚Ìİ’è‚ğo—Í‚µ‚ÄI—¹Cfsystem‚ÍC++17‚©‚çCÀs‚Å‚«‚È‚¢ê‡‚Íİ’è‚ğŒ©’¼‚µ‚Ä‚İ‚Ä‚­‚¾‚³‚¢
+	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¢ã™ï¼Œå­˜åœ¨ã—ãªã‹ã£ãŸã‚‰ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šã‚’å‡ºåŠ›ã—ã¦çµ‚äº†ï¼Œfsystemã¯C++17ã‹ã‚‰ï¼Œå®Ÿè¡Œã§ããªã„å ´åˆã¯è¨­å®šã‚’è¦‹ç›´ã—ã¦ã¿ã¦ãã ã•ã„
 	if (!std::filesystem::is_regular_file(kSettingFileName))
 	{
-		std::cout << "İ’èƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½DƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·D\n";
+		std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ï¼\n";
 		OutputDefaultSettingFile();
-		return std::make_shared<ApplicationSettingRecorder>();
+		return std::make_shared<ApplicationSettingRecord>();
 	}
 
-	std::cout << "İ’èƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½D“Ç‚İ‚İ‚ğŠJn‚¢‚½‚µ‚Ü‚·\n\n";
+	std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸï¼èª­ã¿è¾¼ã¿ã‚’é–‹å§‹ã„ãŸã—ã¾ã™\n\n";
 
-	//ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
+	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
 	toml::value data;
 
 	try
 	{
-		std::ifstream ifs(kSettingFileName, std::ios::binary);		//ƒoƒCƒiƒŠƒ‚[ƒh‚Å“Ç‚İ‚Ş
+		std::ifstream ifs(kSettingFileName, std::ios::binary);		//ãƒã‚¤ãƒŠãƒªãƒ¢ãƒ¼ãƒ‰ã§èª­ã¿è¾¼ã‚€
 
-		data = toml::parse(ifs, kSettingFileName);					//ƒtƒ@ƒCƒ‹‚ğƒp[ƒX(“Ç‚İ‚±‚İ&‰ğÍ)‚·‚é
+		data = toml::parse(ifs, kSettingFileName);					//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‘ãƒ¼ã‚¹(èª­ã¿ã“ã¿&è§£æ)ã™ã‚‹
 	}
 	catch (toml::syntax_error err)
 	{
-		std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½DƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·D\n";
+		std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ï¼\n";
 		std::cout << err.what() << std::endl;
 
 		OutputDefaultSettingFile();
 
-		return std::make_shared<ApplicationSettingRecorder>();
+		return std::make_shared<ApplicationSettingRecord>();
 	}
 
 
-	std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚É¬Œ÷‚µ‚Ü‚µ‚½Dƒtƒ@ƒCƒ‹‚ÌtitleƒL[‚ğŠm”F‚µ‚Ü‚·\n\n";
+	std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«æˆåŠŸã—ã¾ã—ãŸï¼ãƒ•ã‚¡ã‚¤ãƒ«ã®titleã‚­ãƒ¼ã‚’ç¢ºèªã—ã¾ã™\n\n";
 
 
 	if (toml::get<std::string>(data.at(ApplicationSettingTomlKey::kFileTitle.key)) != ApplicationSettingTomlKey::kFileTitleValue)
 	{
-		//ƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒgƒ‹‚ªˆê’v‚µ‚È‚¢ê‡‚ÍƒfƒtƒHƒ‹ƒg‚Ìİ’è‚ğo—Í‚µ‚ÄI—¹
-		std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒgƒ‹‚ªˆê’v‚µ‚Ü‚¹‚ñ‚Å‚µ‚½DƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·D\n";
+		//ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒˆãƒ«ãŒä¸€è‡´ã—ãªã„å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šã‚’å‡ºåŠ›ã—ã¦çµ‚äº†
+		std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒˆãƒ«ãŒä¸€è‡´ã—ã¾ã›ã‚“ã§ã—ãŸï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ï¼\n";
 
 		OutputDefaultSettingFile();
 
-		return std::make_shared<ApplicationSettingRecorder>();
+		return std::make_shared<ApplicationSettingRecord>();
 	}
 
 
-	std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒgƒ‹‚ªˆê’v‚µ‚Ü‚µ‚½Dİ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ğ‘±s‚µ‚Ü‚·\n\n";
+	std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒˆãƒ«ãŒä¸€è‡´ã—ã¾ã—ãŸï¼è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’ç¶šè¡Œã—ã¾ã™\n\n";
 
-	std::shared_ptr<ApplicationSettingRecorder> result = std::make_shared<ApplicationSettingRecorder>();
+	std::shared_ptr<ApplicationSettingRecord> result = std::make_shared<ApplicationSettingRecord>();
 
 	try
 	{
@@ -72,17 +72,17 @@ std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFi
 	}
 	catch (...)
 	{
-		//İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚½ê‡‚ÍƒfƒtƒHƒ‹ƒg‚Ìİ’è‚ğo—Í‚µ‚ÄI—¹
-		std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚Ì“r’†‚ÅƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D“Ç‚İ‚ß‚È‚©‚Á‚½İ’è‚ÍƒfƒtƒHƒ‹ƒg‚Ì’l‚ğg—p‚µ‚Ü‚·D\n";
-		std::cout << "ƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·D\n";
+		//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ãŸå ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šã‚’å‡ºåŠ›ã—ã¦çµ‚äº†
+		std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã®é€”ä¸­ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸï¼èª­ã¿è¾¼ã‚ãªã‹ã£ãŸè¨­å®šã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å€¤ã‚’ä½¿ç”¨ã—ã¾ã™ï¼\n";
+		std::cout << "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ï¼\n";
 
 		OutputDefaultSettingFile();
 
-		return std::make_shared<ApplicationSettingRecorder>();
+		return std::make_shared<ApplicationSettingRecord>();
 	}
 
 
-	std::cout << "İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ªŠ®—¹‚µ‚Ü‚µ‚½D\n";
+	std::cout << "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ãŒå®Œäº†ã—ã¾ã—ãŸï¼\n";
 
 	return std::move(result);
 }
@@ -91,12 +91,12 @@ std::shared_ptr<ApplicationSettingRecorder> ApplicationSettingReaderToml::ReadFi
 
 void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 {
-	const ApplicationSettingRecorder kDefaultSetting;
+	const ApplicationSettingRecord kDefaultSetting;
 
-	std::string res_str;	//o—Í‚·‚é•¶š—ñ
+	std::string res_str;	//å‡ºåŠ›ã™ã‚‹æ–‡å­—åˆ—
 
 
-	//ƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒgƒ‹
+	//ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒˆãƒ«
 	{
 		res_str += u8"# If this file is garbled, the problem is most likely due to character encoding.\n";
 		res_str += u8"# This file is written in utf - 8, and can be read by installing VS Code and configuring it to automatically detect the character encoding.\n\n";
@@ -106,11 +106,11 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 		res_str += u8"# If you want to change the simulation conditions, try changing them from here.\n";
 		res_str += u8"# Lines starting with a sharp are comments. They do not affect the program.\n";
 		res_str += u8"# Following description is written in Japanese. \n\n";
-		res_str += u8"# TOML‚Æ‚¢‚¤Œ`®‚Å‹Lq‚µ‚Ä‚¢‚Ü‚·Dwiki‚ÅƒOƒO‚é‚¾‚¯‚Å‚à‚í‚©‚è‚â‚·‚¢î•ñ‚ªo‚é‚Ì‚Å’²‚×‚Ä‚İ‚Ä‚­‚¾‚³‚¢D\n";
-		res_str += u8"# ‚±‚Ìƒtƒ@ƒCƒ‹‚ÍCƒvƒƒOƒ‰ƒ€‚Ìİ’è‚ğ‹Lq‚·‚é‚½‚ß‚Ìƒtƒ@ƒCƒ‹‚Å‚·D\n";
-		res_str += u8"# ƒƒ‚’ ‚È‚Ç‚ÌƒeƒLƒXƒgƒGƒfƒBƒ^‚Å‚à‚±‚Ìƒtƒ@ƒCƒ‹‚Í•ÒW‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·D\n";
-		res_str += u8"# ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ğŒ‚ğ•ÏX‚µ‚½‚¢ê‡‚ÍC‚±‚±‚©‚ç•ÏX‚ğs‚¤‚æ‚¤‚É‚µ‚Ä‚İ‚Ä‚­‚¾‚³‚¢D\n";
-		res_str += u8"# ‚±‚Ì‚æ‚¤‚ÉƒVƒƒ[ƒv‚Ån‚Ü‚és‚ÍƒRƒƒ“ƒg‚Å‚·DƒvƒƒOƒ‰ƒ€‚É‰e‹¿‚ğ—^‚¦‚È‚¢‚½‚ßCƒƒ‚‘ã‚í‚è‚Ég‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·D\n";
+		res_str += u8"# TOMLã¨ã„ã†å½¢å¼ã§è¨˜è¿°ã—ã¦ã„ã¾ã™ï¼wikiã§ã‚°ã‚°ã‚‹ã ã‘ã§ã‚‚ã‚ã‹ã‚Šã‚„ã™ã„æƒ…å ±ãŒå‡ºã‚‹ã®ã§èª¿ã¹ã¦ã¿ã¦ãã ã•ã„ï¼\n";
+		res_str += u8"# ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ï¼Œãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¨­å®šã‚’è¨˜è¿°ã™ã‚‹ãŸã‚ã®ãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ï¼\n";
+		res_str += u8"# ãƒ¡ãƒ¢å¸³ãªã©ã®ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã§ã‚‚ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ç·¨é›†ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ï¼\n";
+		res_str += u8"# ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ¡ä»¶ã‚’å¤‰æ›´ã—ãŸã„å ´åˆã¯ï¼Œã“ã“ã‹ã‚‰å¤‰æ›´ã‚’è¡Œã†ã‚ˆã†ã«ã—ã¦ã¿ã¦ãã ã•ã„ï¼\n";
+		res_str += u8"# ã“ã®ã‚ˆã†ã«ã‚·ãƒ£ãƒ¼ãƒ—ã§å§‹ã¾ã‚‹è¡Œã¯ã‚³ãƒ¡ãƒ³ãƒˆã§ã™ï¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«å½±éŸ¿ã‚’ä¸ãˆãªã„ãŸã‚ï¼Œãƒ¡ãƒ¢ä»£ã‚ã‚Šã«ä½¿ã†ã“ã¨ãŒã§ãã¾ã™ï¼\n";
 		res_str += u8"\n\n\n";
 
 		toml::basic_value<toml::preserve_comments> title_data{
@@ -124,7 +124,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 	}
 
 
-	//ƒo[ƒWƒ‡ƒ“
+	//ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 	{
 		toml::basic_value<toml::preserve_comments> version_data{
 			{
@@ -145,7 +145,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 		res_str += toml::format(version_data, 0);
 	}
 
-	//ƒ‚[ƒh
+	//ãƒ¢ãƒ¼ãƒ‰
 	{
 		toml::basic_value<toml::preserve_comments> mode_data{
 			{
@@ -168,7 +168,7 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 		res_str += toml::format(mode_data, 0);
 	}
 
-	// •\¦
+	// è¡¨ç¤º
 	{
 		toml::basic_value<toml::preserve_comments, std::map> display_data{
 			{
@@ -200,206 +200,206 @@ void ApplicationSettingReaderToml::OutputDefaultSettingFile()
 	std::ofstream ofs;
 	ofs.open(kSettingFileName);
 
-	// ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚È‚©‚Á‚½‚ç‰½‚à‚µ‚È‚¢
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ãªã‹ã£ãŸã‚‰ä½•ã‚‚ã—ãªã„
 	if (!ofs)
 	{
-		std::cout << "ƒfƒtƒHƒ‹ƒg‚Ìİ’èƒtƒ@ƒCƒ‹‚Ìo—Í‚É¸”s‚µ‚Ü‚µ‚½D\n";
+		std::cout << "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ã«å¤±æ•—ã—ã¾ã—ãŸï¼\n";
 		return;
 	}
 
-	ofs.write(res_str.c_str(), res_str.length());	// ƒtƒ@ƒCƒ‹‚É‘‚«‚Ş
+	ofs.write(res_str.c_str(), res_str.length());	// ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€
 
-	ofs.close();	// ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+	ofs.close();	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 
 	return;
 }
 
 
-void ApplicationSettingReaderToml::ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReaderToml::ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder)
 {
 	std::cout << std::endl;
 
 	if (value.contains(ApplicationSettingTomlKey::kVersionTable.table_name))
 	{
-		std::cout << "Zƒo[ƒWƒ‡ƒ“İ’è‚ğ“Ç‚İ‚İ‚Ü‚·D\n";
+		std::cout << "ã€‡ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¨­å®šã‚’èª­ã¿è¾¼ã¿ã¾ã™ï¼\n";
 
-		// ƒo[ƒWƒ‡ƒ“İ’è‚ğ“Ç‚İ‚Ş
+		// ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¨­å®šã‚’èª­ã¿è¾¼ã‚€
 		if (value.at(ApplicationSettingTomlKey::kVersionTable.table_name).contains(ApplicationSettingTomlKey::kVersionMajor.key))
 		{
 			recorder->version_major = (int)value.at(ApplicationSettingTomlKey::kVersionTable.table_name).at(ApplicationSettingTomlKey::kVersionMajor.key).as_integer();
-			std::cout << "ZƒƒWƒƒ[ƒo[ƒWƒ‡ƒ“‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->version_major << "\n";
+			std::cout << "ã€‡ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->version_major << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒƒWƒƒ[ƒo[ƒWƒ‡ƒ“‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kVersionTable.table_name).contains(ApplicationSettingTomlKey::kVersionMinor.key))
 		{
 			recorder->version_minor = (int)value.at(ApplicationSettingTomlKey::kVersionTable.table_name).at(ApplicationSettingTomlKey::kVersionMinor.key).as_integer();
-			std::cout << "Zƒ}ƒCƒi[ƒo[ƒWƒ‡ƒ“‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->version_minor << "\n";
+			std::cout << "ã€‡ãƒã‚¤ãƒŠãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->version_minor << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒ}ƒCƒi[ƒo[ƒWƒ‡ƒ“‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ãƒã‚¤ãƒŠãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kVersionTable.table_name).contains(ApplicationSettingTomlKey::kVersionPatch.key))
 		{
 			recorder->version_patch = (int)value.at(ApplicationSettingTomlKey::kVersionTable.table_name).at(ApplicationSettingTomlKey::kVersionPatch.key).as_integer();
-			std::cout << "Zƒpƒbƒ`ƒo[ƒWƒ‡ƒ“‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->version_patch << "\n";
+			std::cout << "ã€‡ãƒ‘ãƒƒãƒãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->version_patch << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒpƒbƒ`ƒo[ƒWƒ‡ƒ“‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ãƒ‘ãƒƒãƒãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 	}
 	else
 	{
-		std::cout << "~ƒo[ƒWƒ‡ƒ“İ’è‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+		std::cout << "Ã—ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¨­å®šãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 	}
 }
 
 
-void ApplicationSettingReaderToml::ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReaderToml::ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder)
 {
 	std::cout << std::endl;
 
 	if (value.contains(ApplicationSettingTomlKey::kMoveTable.table_name))
 	{
-		std::cout << "Z‹N“®ƒ‚[ƒhİ’è‚ğ“Ç‚İ‚İ‚Ü‚·D\n";
+		std::cout << "ã€‡èµ·å‹•ãƒ¢ãƒ¼ãƒ‰è¨­å®šã‚’èª­ã¿è¾¼ã¿ã¾ã™ï¼\n";
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kAskAboutBootMode.key))
 		{
 			recorder->ask_about_modes = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kAskAboutBootMode.key).as_boolean();
-			std::cout << "Z‹N“®ƒ‚[ƒh‘I‘ğ‚ÌŠm”Fƒtƒ‰ƒO‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->ask_about_modes << "\n";
+			std::cout << "ã€‡èµ·å‹•ãƒ¢ãƒ¼ãƒ‰é¸æŠã®ç¢ºèªãƒ•ãƒ©ã‚°ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->ask_about_modes << "\n";
 		}
 		else
 		{
-			std::cout << "~‹N“®ƒ‚[ƒh‘I‘ğ‚ÌŠm”Fƒtƒ‰ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—èµ·å‹•ãƒ¢ãƒ¼ãƒ‰é¸æŠã®ç¢ºèªãƒ•ãƒ©ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kDefaultMode.key))
 		{
 			std::string read_value = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDefaultMode.key).as_string();
 			recorder->default_mode = magic_enum::enum_cast<BootMode>(read_value).value();
-			std::cout << "ZƒfƒtƒHƒ‹ƒg‚Ì‹N“®ƒ‚[ƒh‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << magic_enum::enum_name(recorder->default_mode) << "\n";
+			std::cout << "ã€‡ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << magic_enum::enum_name(recorder->default_mode) << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒfƒtƒHƒ‹ƒg‚Ì‹N“®ƒ‚[ƒh‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kDoStepExecution.key))
 		{
 			recorder->do_step_execution_each_simulation = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDoStepExecution.key).as_boolean();
-			std::cout << "ZƒXƒeƒbƒvÀsƒtƒ‰ƒO‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << std::boolalpha << recorder->do_step_execution_each_simulation << "\n";
+			std::cout << "ã€‡ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œãƒ•ãƒ©ã‚°ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << std::boolalpha << recorder->do_step_execution_each_simulation << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒXƒeƒbƒvÀsƒtƒ‰ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œãƒ•ãƒ©ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kMoveTable.table_name).contains(ApplicationSettingTomlKey::kDoStepEexcutionEachGait.key))
 		{
 			recorder->do_step_execution_each_gait = value.at(ApplicationSettingTomlKey::kMoveTable.table_name).at(ApplicationSettingTomlKey::kDoStepEexcutionEachGait.key).as_boolean();
-			std::cout << "ZƒXƒeƒbƒvÀsƒtƒ‰ƒO(Še•à—e)‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << std::boolalpha << recorder->do_step_execution_each_gait << "\n";
+			std::cout << "ã€‡ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œãƒ•ãƒ©ã‚°(å„æ­©å®¹)ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << std::boolalpha << recorder->do_step_execution_each_gait << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒXƒeƒbƒvÀsƒtƒ‰ƒO(Še•à—e)‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡Œãƒ•ãƒ©ã‚°(å„æ­©å®¹)ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 	}
 	else
 	{
-		std::cout << "~‹N“®ƒ‚[ƒhİ’è‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+		std::cout << "Ã—èµ·å‹•ãƒ¢ãƒ¼ãƒ‰è¨­å®šãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 	}
 }
 
 
-void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder)
+void ApplicationSettingReaderToml::ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder)
 {
 	std::cout << "\n";
 
 	if (value.contains(ApplicationSettingTomlKey::kDisplayTable.table_name))
 	{
-		std::cout << "Z•\¦İ’è‚ğ“Ç‚İ‚İ‚Ü‚·D" << "\n";
+		std::cout << "ã€‡è¡¨ç¤ºè¨­å®šã‚’èª­ã¿è¾¼ã¿ã¾ã™ï¼" << "\n";
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kOutputCmd.key))
 		{
 			recorder->do_cmd_output = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kOutputCmd.key).as_boolean();
-			std::cout << "ZƒRƒ}ƒ“ƒho—Í‚Ìƒtƒ‰ƒO‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << std::boolalpha << recorder->do_cmd_output << "\n";
+			std::cout << "ã€‡ã‚³ãƒãƒ³ãƒ‰å‡ºåŠ›ã®ãƒ•ãƒ©ã‚°ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << std::boolalpha << recorder->do_cmd_output << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒRƒ}ƒ“ƒho—Í‚Ìƒtƒ‰ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚³ãƒãƒ³ãƒ‰å‡ºåŠ›ã®ãƒ•ãƒ©ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kCmdPermission.key))
 		{
 			std::string read_str = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kCmdPermission.key).as_string();
 			recorder->cmd_output_detail = magic_enum::enum_cast<OutputDetail>(read_str).value();
-			std::cout << "ZƒRƒ}ƒ“ƒh•\¦§ŒÀ‚Ìî•ñ‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << magic_enum::enum_name(recorder->cmd_output_detail) << "\n";
+			std::cout << "ã€‡ã‚³ãƒãƒ³ãƒ‰è¡¨ç¤ºåˆ¶é™ã®æƒ…å ±ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << magic_enum::enum_name(recorder->cmd_output_detail) << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒRƒ}ƒ“ƒh•\¦§ŒÀ‚Ìî•ñ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚³ãƒãƒ³ãƒ‰è¡¨ç¤ºåˆ¶é™ã®æƒ…å ±ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kDisplayGui.key))
 		{
 			recorder->do_gui_display = value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kDisplayGui.key).as_boolean();
-			std::cout << "ZGUI•\¦‚Ìƒtƒ‰ƒO‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << std::boolalpha << recorder->do_gui_display << "\n";
+			std::cout << "ã€‡GUIè¡¨ç¤ºã®ãƒ•ãƒ©ã‚°ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << std::boolalpha << recorder->do_gui_display << "\n";
 		}
 		else
 		{
-			std::cout << "~GUI•\¦‚Ìƒtƒ‰ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—GUIè¡¨ç¤ºã®ãƒ•ãƒ©ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kGuiDisplayQuality.table_name).contains(ApplicationSettingTomlKey::kGuiDisplayQuality.key))
 		{
 			std::string read_str = value.at(ApplicationSettingTomlKey::kGuiDisplayQuality.table_name).at(ApplicationSettingTomlKey::kGuiDisplayQuality.key).as_string();
 			recorder->gui_display_quality = magic_enum::enum_cast<DisplayQuality>(read_str).value();
-			std::cout << "ZGUI•\¦•i¿‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << magic_enum::enum_name(recorder->gui_display_quality) << "\n";
+			std::cout << "ã€‡GUIè¡¨ç¤ºå“è³ªã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << magic_enum::enum_name(recorder->gui_display_quality) << "\n";
 		}
 		else
 		{
-			std::cout << "~GUI•\¦•i¿‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—GUIè¡¨ç¤ºå“è³ªãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kWindowSizeX.key))
 		{
 			recorder->window_size_x = (int)value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kWindowSizeX.key).as_integer();
-			std::cout << "ZƒEƒBƒ“ƒhƒE‚ÌXƒTƒCƒY(‰¡•)‚Ì’l‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->window_size_x << "\n";
+			std::cout << "ã€‡ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Xã‚µã‚¤ã‚º(æ¨ªå¹…)ã®å€¤ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->window_size_x << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒEƒBƒ“ƒhƒE‚ÌXƒTƒCƒY(‰¡•)‚Ì’l‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Xã‚µã‚¤ã‚º(æ¨ªå¹…)ã®å€¤ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kWindowSizeY.key))
 		{
 			recorder->window_size_y = (int)value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kWindowSizeY.key).as_integer();
-			std::cout << "ZƒEƒBƒ“ƒhƒE‚ÌYƒTƒCƒY(c•)‚Ì’l‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->window_size_y << "\n";
+			std::cout << "ã€‡ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Yã‚µã‚¤ã‚º(ç¸¦å¹…)ã®å€¤ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->window_size_y << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒEƒBƒ“ƒhƒE‚ÌYƒTƒCƒY(c•)‚Ì’l‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Yã‚µã‚¤ã‚º(ç¸¦å¹…)ã®å€¤ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 
 		if (value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).contains(ApplicationSettingTomlKey::kWindowFps.key))
 		{
 			recorder->window_fps = (int)value.at(ApplicationSettingTomlKey::kDisplayTable.table_name).at(ApplicationSettingTomlKey::kWindowFps.key).as_integer();
-			std::cout << "ZƒEƒBƒ“ƒhƒE‚ÌFPS‚Ì’l‚ğ“Ç‚İ‚İ‚Ü‚µ‚½Dvalue = " << recorder->window_fps << "\n";
+			std::cout << "ã€‡ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®FPSã®å€¤ã‚’èª­ã¿è¾¼ã¿ã¾ã—ãŸï¼value = " << recorder->window_fps << "\n";
 		}
 		else
 		{
-			std::cout << "~ƒEƒBƒ“ƒhƒE‚ÌFPS‚Ì’l‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+			std::cout << "Ã—ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®FPSã®å€¤ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 		}
 	}
 	else
 	{
-		std::cout << "~•\¦İ’è‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½D\n";
+		std::cout << "Ã—è¡¨ç¤ºè¨­å®šãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼\n";
 	}
 }

@@ -8,7 +8,7 @@
 #include <memory>
 #include <string>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "application_setting_toml_key.h"
 #include "interface_application_setting_reader.h"
 #include "toml11_define.h"
@@ -19,7 +19,7 @@ class ApplicationSettingReaderToml final : public IApplicationSettingReader
 {
 public:
 
-	std::shared_ptr<ApplicationSettingRecorder> ReadFileOrUseAndOutputDefault() override;
+	std::shared_ptr<ApplicationSettingRecord> ReadFileOrUseAndOutputDefault() override;
 
 private:
 
@@ -27,13 +27,13 @@ private:
 	void OutputDefaultSettingFile();
 
 	//設定ファイルからバージョン情報を読み込む
-	void ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadVersionSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
 
 	//設定ファイルから起動モードの情報を読み込む
-	void ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadBootModeSetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
 
 	//設定ファイルからディスプレイ情報を読み込む
-	void ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecorder>& recorder);
+	void ReadDisplaySetting(const toml::value& value, std::shared_ptr<ApplicationSettingRecord>& recorder);
 
 	const std::string kSettingFileName = u8"settings.toml";
 };

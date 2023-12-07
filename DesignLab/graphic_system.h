@@ -20,7 +20,7 @@
 
 #include <boost/thread.hpp>
 
-#include "application_setting_recorder.h"
+#include "application_setting_record.h"
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
@@ -49,7 +49,7 @@ public:
 
 	//! @param [in] graphic_main_ptr GraphicMainクラスのポインタ．
 	//! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
-	GraphicSystem(const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr);
+	GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
 
 
 	//! @brief ウィンドウの表示を行ってくれる関数です．boost::threadにこの関数を渡して並列処理を行う．
@@ -77,7 +77,7 @@ private:
 
 	std::unique_ptr<IGraphicMain> graphic_main_ptr_;	//!< グラフィックの表示を行うクラスのポインタ．
 
-	const std::shared_ptr<const ApplicationSettingRecorder> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
+	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
 	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
 

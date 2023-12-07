@@ -1,9 +1,9 @@
-﻿//! @file application_setting_recorder.h
+﻿//! @file application_setting_record.h
 //! @brief アプリの設定を記録する構造体
 
 
-#ifndef DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
-#define DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
+#ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
+#define DESIGNLAB_APPLICATION_SETTING_RECORD_H_
 
 #include <map>
 #include <string>
@@ -16,9 +16,9 @@
 
 #include "toml_serialize_macro.h"
 
-//! @struct ApplicationSettingRecorder
+//! @struct ApplicationSettingRecord
 //! @brief アプリの設定を記録する構造体．
-struct ApplicationSettingRecorder final
+struct ApplicationSettingRecord final
 {
 	const std::string kSettingFileTitle = ApplicationSettingTomlKey::kFileTitleValue;		//!< 設定ファイルのタイトル
 
@@ -41,7 +41,7 @@ struct ApplicationSettingRecorder final
 };
 
 
-DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecorder)
+DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 {
 	const std::vector<std::string> kFileDiscription{
 		"If this file is garbled, the problem is most likely due to character encoding.",
@@ -89,11 +89,11 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecorder)
 };
 
 DESIGNLAB_TOML11_SERIALIZE(
-	ApplicationSettingRecorder,
+	ApplicationSettingRecord,
 	version_major, version_minor, version_patch,
 	ask_about_modes, default_mode, do_step_execution_each_simulation, do_step_execution_each_gait,
 	do_cmd_output, cmd_output_detail, do_gui_display, gui_display_quality, window_size_x, window_size_y, window_fps
 );
 
 
-#endif	// DESIGNLAB_APPLICATION_SETTING_RECORDER_H_
+#endif	// DESIGNLAB_APPLICATION_SETTING_RECORD_H_
