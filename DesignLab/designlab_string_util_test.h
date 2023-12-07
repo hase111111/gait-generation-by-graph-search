@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <doctest.h>
 
@@ -13,7 +13,7 @@ TEST_SUITE("namespace string_util")
 
 		for (const auto& s : str_vec)
 		{
-			str += s + "]E[";
+			str += s + "]ãƒ»[";
 		}
 
 		str += "]";
@@ -24,7 +24,7 @@ TEST_SUITE("namespace string_util")
 
 	TEST_CASE("Split")
 	{
-		SUBCASE("•¶š—ñ [a,b,c] ‚ğ std::stringŒ^‚Ì[,] ‚Å‹æØ‚é‚ÆC[a]E[b]E[c] ‚É•ª‚¯‚ç‚ê‚é")
+		SUBCASE("æ–‡å­—åˆ— [a,b,c] ã‚’ std::stringå‹ã®[,] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[a]ãƒ»[b]ãƒ»[c] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
 		{
 			const std::string str = "a,b,c";
 			const std::string delim = ",";
@@ -32,47 +32,98 @@ TEST_SUITE("namespace string_util")
 			const std::vector<std::string> ans = { "a", "b", "c" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("•ªŠ„‚³‚ê‚½•¶š—ñ‚ÍŸ‚Ì’Ê‚è‚Å‚·¨" << StringVectorToString(result));
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
 
-		SUBCASE("•¶š—ñ [abc,d, e,f,] ‚ğ std::stringŒ^‚Ì[,] ‚Å‹æØ‚é‚ÆC[abc]E[d]E[ e]E[f] ‚É•ª‚¯‚ç‚ê‚é")
+		SUBCASE("æ–‡å­—åˆ— [a,b,c] ã‚’ std::stringå‹ã®[c] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[a,b,] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
 		{
-			std::string str = "abc,d, e,f,";
+			const std::string str = "a,b,c";
+			const std::string delim = "c";
+
+			const std::vector<std::string> ans = { "a,b," };
+			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
+
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
+
+			CHECK(result == ans);
+		}
+
+		SUBCASE("æ–‡å­—åˆ— [a,b,c] ã‚’ std::stringå‹ã®[a] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[]ãƒ»[,b,c] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
+		{
+			const std::string str = "a,b,c";
+			const std::string delim = "a";
+
+			const std::vector<std::string> ans = { "", ",b,c" };
+			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
+
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
+
+			CHECK(result == ans);
+		}
+
+		SUBCASE("æ–‡å­—åˆ— [a,b,c] ã‚’ std::stringå‹ã®[h] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œåˆ†ã‘ã‚‰ã‚Œãš [a,b,c] ã®ã¾ã¾")
+		{
+			const std::string str = "a,b,c";
+			const std::string delim = "h";
+
+			const std::vector<std::string> ans = { "a,b,c" };
+			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
+
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
+
+			CHECK(result == ans);
+		}
+
+		SUBCASE("æ–‡å­—åˆ— [a,b,c,] ã‚’ std::stringå‹ã®[,] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[a]ãƒ»[b]ãƒ»[c] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
+		{
+			const std::string str = "a,b,c,";
 			const std::string delim = ",";
 
-			const std::vector<std::string> ans = { "abc", "d", " e", "f" };
+			const std::vector<std::string> ans = { "a", "b", "c" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("•ªŠ„‚³‚ê‚½•¶š—ñ‚ÍŸ‚Ì’Ê‚è‚Å‚·¨" << StringVectorToString(result));
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
 
-		SUBCASE("•¶š—ñ [ ,,,there are ,many empty area,  ,] ‚ğ std::stringŒ^‚Ì[,] ‚Å‹æØ‚é‚ÆC"
-			"[ ]E[]E[]E[there are]E[many empty area]E[  ]‚É•ª‚¯‚ç‚ê‚é")
+		SUBCASE("æ–‡å­—åˆ— [a,b,c, ] ã‚’ std::stringå‹ã®[,] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[a]ãƒ»[b]ãƒ»[c]ãƒ»[ ] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
 		{
-			std::string str = " ,,,there are ,many empty area,  ,";
+			const std::string str = "a,b,c, ";
 			const std::string delim = ",";
 
-			const std::vector<std::string> ans = { " ", "", "", "there are ", "many empty area", "  " };
+			const std::vector<std::string> ans = { "a", "b", "c", " " };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("•ªŠ„‚³‚ê‚½•¶š—ñ‚ÍŸ‚Ì’Ê‚è‚Å‚·¨" << StringVectorToString(result));
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
 
-		SUBCASE("•¶š—ñ [é‹Ê‘åŠw‚Í‘å‚«‚­‘åØ‚Å—Y‘å‚È‘å‹Ë] ‚ğ std::stringŒ^‚Ì[‘å] ‚Å‹æØ‚é‚ÆC[é‹Ê]E[Šw‚Í]E[‚«‚­]E[Ø‚Å—Y]E[‚È]E[‹Ë]‚É•ª‚¯‚ç‚ê‚é")
+		SUBCASE("æ–‡å­—åˆ— [çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨\nã‚ãªãŸ,cap,] ã‚’ std::stringå‹ã®[,] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[çŠ¬]ãƒ»[çŒ«andãƒã‚ºãƒŸ]ãƒ»[ç§ã¨\nã‚ãªãŸ]ãƒ»[cap] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
 		{
-			std::string str = "é‹Ê‘åŠw‚Í‘å‚«‚­‘åØ‚Å—Y‘å‚È‘å‹Ë";
-			const std::string delim = "‘å";
+			const std::string str = "çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨\nã‚ãªãŸ,cap,";
+			const std::string delim = ",";
 
-			const std::vector<std::string> ans = { "é‹Ê", "Šw‚Í", "‚«‚­", "Ø‚Å—Y", "‚È", "‹Ë" };
+			const std::vector<std::string> ans = { "çŠ¬", "çŒ«andãƒã‚ºãƒŸ", "ç§ã¨\nã‚ãªãŸ", "cap" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("•ªŠ„‚³‚ê‚½•¶š—ñ‚ÍŸ‚Ì’Ê‚è‚Å‚·¨" << StringVectorToString(result));
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
+
+			CHECK(result == ans);
+		}
+
+		SUBCASE("æ–‡å­—åˆ— [çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨\nã‚ãªãŸ,cap,] ã‚’ std::stringå‹ã®[\n] ã§åŒºåˆ‡ã‚‹ã¨ï¼Œ[çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨]ãƒ»[ã‚ãªãŸ,cap,] ã«åˆ†ã‘ã‚‰ã‚Œã‚‹")
+		{
+			const std::string str = "çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨\nã‚ãªãŸ,cap,";
+			const std::string delim = "\n";
+
+			const std::vector<std::string> ans = { "çŠ¬,çŒ«andãƒã‚ºãƒŸ,ç§ã¨", "ã‚ãªãŸ,cap," };
+			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
+
+			INFO("åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã¯æ¬¡ã®é€šã‚Šã§ã™â†’" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
