@@ -417,9 +417,6 @@
     <ClInclude Include="simulation_end_checker.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_attribute.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
     <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
@@ -513,7 +510,7 @@
     <ClInclude Include="interface_map_creator.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
-    <ClInclude Include="map_create_mode_messenger.h">
+    <ClInclude Include="map_create_mode_message.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
     <ClInclude Include="map_creator_for_simulation.h">
