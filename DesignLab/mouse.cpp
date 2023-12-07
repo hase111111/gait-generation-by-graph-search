@@ -6,7 +6,7 @@
 
 #include "designlab_math_util.h"
 
-namespace dlm = designlab::math_util;
+namespace dlm = ::designlab::math_util;
 
 
 Mouse::Mouse() : 
