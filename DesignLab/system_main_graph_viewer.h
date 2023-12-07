@@ -46,8 +46,8 @@ private:
 	void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
 	//! @brief マップ生成のモードを入力し，MapCreateModeMessanger型で返す．
-	//! @return MapCreateModeMessage マップ生成のモードとオプションを指定する構造体．
-	MapCreateModeMessage InputMapCreateMode() const;
+	//! @return SimulationMapParameter マップ生成のモードとオプションを指定する構造体．
+	SimulationMapParameter InputMapCreateMode() const;
 
 	//! @brief グラフの中から1つのノードを選択する．グラフが空の場合は，初期状態のノードを返す．
 	//! @param [in] graph グラフ

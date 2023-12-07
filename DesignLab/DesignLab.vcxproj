@@ -67,7 +67,7 @@
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
-    <ClInclude Include="map_create_mode_message.h" />
+    <ClInclude Include="simulation_map_parameter.h" />
     <ClInclude Include="node_creator_builder_rot_test.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="com_selecter_hato.h" />
@@ -128,6 +128,7 @@
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="simulation_end_checker.h" />
+    <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
     <ClInclude Include="dead_lock_checker.h" />
@@ -146,7 +147,7 @@
     <ClInclude Include="map_creator_for_simulation.h" />
     <ClInclude Include="designlab_vector3.h" />
     <ClInclude Include="target_setter_for_gpg.h" />
-    <ClInclude Include="test_registration_form.h" />
+    <ClInclude Include="test_main.h" />
     <ClInclude Include="toml11_define.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />

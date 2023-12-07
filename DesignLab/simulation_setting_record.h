@@ -1,0 +1,9 @@
+﻿#ifndef DESIGNLAB_SIMULATION_SETTING_RECORD_H_
+#define DESIGNLAB_SIMULATION_SETTING_RECORD_H_
+
+struct SimulationSettingRecord final
+{
+
+};
+
+#endif //DESIGNLAB_SIMULATION_SETTING_RECORD_H_

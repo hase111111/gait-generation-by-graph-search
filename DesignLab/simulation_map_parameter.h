@@ -1,8 +1,8 @@
-﻿//! @file map_create_mode_message.h
+﻿//! @file simulation_map_parameter.h
 //! @brief マップ生成時のモードとオプションを指定する構造体．
 
-#ifndef DESIGNLAB_CREATE_MODE_MESSAGE_H_
-#define DESIGNLAB_CREATE_MODE_MESSAGE_H_
+#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
+#define DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
 
 #include <vector>
 
@@ -11,9 +11,9 @@
 #include "toml_serialize_macro.h"
 
 
-//! @enum MapCreateMode
+//! @enum SimulationMapMode
 //! @brief getMap関数のマップ生成のモードを指定する列挙体．
-enum class MapCreateMode : int
+enum class SimulationMapMode : int
 {
 	kFlat = 0,			//!< 普通の平らな面を生成する．
 	kVerticalStripe,	//!< 縦じまの面を生成する．
@@ -23,11 +23,11 @@ enum class MapCreateMode : int
 	kLatticePoint,		//!< 格子点の面を生成する．網目状の逆．
 };
 
-//! @enum MapCreateOption
+//! @enum SimulationMapOption
 //! @brief getMap関数のマップ生成のオプションを指定する列挙体．
-//! @n bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，MapCreateOption::kPerforated | MapCreateOption::kStep と指定する．
+//! @n bit演算を利用して複数指定できる．例えば穴あきかつ，階段状にしたいならば，MapCreateOption::kPerforated | SimulationMapOption::kStep と指定する．
 //! @n bit演算ができるようにunsigned int型にしている．
-enum class MapCreateOption : unsigned int
+enum class SimulationMapOption : unsigned int
 {
 	// 1 <<  x は 2^x を表す．
 
@@ -40,20 +40,20 @@ enum class MapCreateOption : unsigned int
 };
 
 
-//! @struct MapCreateModeMessage
+//! @struct SimulationMapParameter
 //! @brief マップ生成時のモードとオプションを指定する構造体．
-struct MapCreateModeMessage final
+struct SimulationMapParameter final
 {
 public:
-	constexpr MapCreateModeMessage() :
-		mode(MapCreateMode::kFlat),
-		option(static_cast<unsigned int>(MapCreateOption::kNone))
+	constexpr SimulationMapParameter() :
+		mode(SimulationMapMode::kFlat),
+		option(static_cast<unsigned int>(SimulationMapOption::kNone))
 	{
 	}
 
 	//! @brief マップ生成のモードを指定する．
 	//! @param [in] mode マップ生成のモードを指定する列挙体．
-	constexpr void SetMode(const MapCreateMode create_mode)
+	constexpr void SetMode(const SimulationMapMode create_mode)
 	{
 		mode = create_mode;
 	}
@@ -62,7 +62,7 @@ public:
 	//! @n この関数を呼んだあと，その他のSet～関数を呼ぶと，段差の高さや，傾斜角を指定できる．
 	//! @param [in] mode マップ生成のオプションを指定する列挙体をvectorで指定する．
 	//! @n emptyであってはならない．
-	void SetOption(const std::vector<MapCreateOption> create_options)
+	void SetOption(const std::vector<SimulationMapOption> create_options)
 	{
 		assert(!create_options.empty());
 
@@ -137,7 +137,7 @@ public:
 	}
 
 
-	MapCreateMode mode{ MapCreateMode::kFlat };		//!< マップ生成のモードを指定する列挙体．
+	SimulationMapMode mode{ SimulationMapMode::kFlat };		//!< マップ生成のモードを指定する列挙体．
 	unsigned int option{ 0 };	//!< マップ生成のオプションを指定するbit．
 
 	float base_z{ 0.0f };		//!< マップの基準となるZ座標．
@@ -159,14 +159,14 @@ public:
 };
 
 
-DESIGNLAB_TOML11_DESCRIPTION_CLASS(MapCreateModeMessage)
+DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
 {
 	DESIGNLAB_TOML11_NO_FILE_DESCRIPTION();
 
 	DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION();
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のモードを指定する列挙体．(" + ::designlab::string_util::EnumValuesToString<MapCreateMode>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプションを指定するbit．(" + ::designlab::string_util::EnumValuesToString<MapCreateOption>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のモードを指定する列挙体．(" + ::designlab::string_util::EnumValuesToString<SimulationMapMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプションを指定するbit．(" + ::designlab::string_util::EnumValuesToString<SimulationMapOption>("/") + ")");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");
@@ -187,11 +187,11 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(MapCreateModeMessage)
 };
 
 DESIGNLAB_TOML11_SERIALIZE(
-	MapCreateModeMessage,
+	SimulationMapParameter,
 	mode, option,
 	base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
 	stripe_interval,
 	hole_rate, step_height, step_length, slope_angle, tilt_angle, routh_max_height, routh_min_height
 );
 
-#endif // DESIGNLAB_CREATE_MODE_MESSAGE_H_
+#endif // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

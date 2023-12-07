@@ -32,7 +32,7 @@ GraphicMainTest::GraphicMainTest(
 	NodeInitializer node_initializer;
 	robot_ = node_initializer.InitNode();
 
-	const MapCreateModeMessage messanger;
+	const SimulationMapParameter messanger;
 	MapCreatorForSimulation map_creator(messanger);
 
 	map_state_ = map_creator.InitMap();
