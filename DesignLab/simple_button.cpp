@@ -25,12 +25,6 @@ SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int p
 {
 	assert(0 < kSizeX);
 	assert(0 < kSizeY);
-
-	//text_が2つとも同じならば1つにする．おそらくSplit関数のバグ．
-	if (text_.size() == 2 && text_[0] == text_[1])
-	{
-		text_.pop_back();
-	}
 }
 
 void SimpleButton::SetPos(const int pos_x, const int pos_y, const unsigned int option)
@@ -108,13 +102,13 @@ void SimpleButton::ClickedAction([[maybe_unused]] const int cursor_x, [[maybe_un
 	}
 }
 
-bool SimpleButton::CursorOnGui(int cursor_x, int cursor_y) const noexcept
+bool SimpleButton::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
 	return (pos_middle_x - kSizeX / 2 < cursor_x && cursor_x < pos_middle_x + kSizeX / 2) &&
 		(pos_middle_y - kSizeY / 2 < cursor_y && cursor_y < pos_middle_y + kSizeY / 2);
 }
 
-int SimpleButton::GetFitButtonSizeX(int now_size_x) const noexcept
+int SimpleButton::GetFitButtonSizeX(const int now_size_x) const noexcept
 {
 	//文字列の中からもっと横幅が大きいものを探す
 	int max_width = 0;
@@ -139,7 +133,7 @@ int SimpleButton::GetFitButtonSizeX(int now_size_x) const noexcept
 	}
 }
 
-int SimpleButton::GetFitButtonSizeY(int now_size_y) const noexcept
+int SimpleButton::GetFitButtonSizeY(const int now_size_y) const noexcept
 {
 	int height = static_cast<int>(text_.size()) * kFontSize;
 
