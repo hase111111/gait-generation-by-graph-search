@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_STOPWATCH_H_
 #define DESIGNLAB_STOPWATCH_H_
 
-
 #include <chrono>
 #include <string>
 
@@ -30,36 +29,36 @@ public:
 
 	//! @brief 経過時間を秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @return double 計測結果(秒)
+	//! @return double 計測結果(秒)．
 	double GetElapsedSeconds() const;
 
 	//! @brief 計測結果をミリ秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @return double 計測結果(ミリ秒)
+	//! @return double 計測結果(ミリ秒)．
 	double GetElapsedMilliSecond() const;
 
 	//! @brief 計測結果をマイクロ秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @n (このレベルのオーダーで精度出せるのか...?)
-	//! @return double  計測結果(マイクロ秒)
+	//! @n (このレベルのオーダーで精度出せるのか...?)．
+	//! @return double  計測結果(マイクロ秒)．
 	double GetElapsedMicroSecond() const;
 
 
-	//! @brief 経過時間を秒で表した文字列を取得する
-	//! @return std::string 経過時間
+	//! @brief 経過時間を秒で表した文字列を取得する．
+	//! @return std::string 経過時間．
 	std::string GetElapsedSecondsString() const;
 
-	//! @brief 経過時間をミリ秒で表した文字列を取得する
-	//! @return std::string 経過時間
+	//! @brief 経過時間をミリ秒で表した文字列を取得する．
+	//! @return std::string 経過時間．
 	std::string GetElapsedMilliSecondString() const;
 
-	//! @brief 経過時間をマイクロ秒で表した文字列を取得する
-	//! @return std::string 経過時間
+	//! @brief 経過時間をマイクロ秒で表した文字列を取得する．
+	//! @return std::string 経過時間．
 	std::string GetElapsedMicroSecondString() const;
 
 
-	//! @brief 現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する
-	//! @return std::string 現在の日時
+	//! @brief 現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．
+	//! @return std::string 現在の日時．
 	std::string GetNowTimeString() const;
 
 private:
