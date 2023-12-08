@@ -22,11 +22,15 @@
 
 namespace designlab
 {
-	//! @namespace toml_func
+	//! @namespace designlab::toml_func
 	//! @brief tomlファイルのシリアライズ/デシリアライズを行うための関数群．
+	//! @details ここで定義されている関数は，tomlファイルのシリアライズ/デシリアライズを行うための関数である．
 	//! @n 他のファイルから呼び出すことを想定していないので，このように奥まった名前空間に配置している．
+	//! @n C#のinternalがC++にもあればこのような処理を書かなくともすむが，マクロの仕様上，このような処理を書かなければならない．
 	namespace toml_func
 	{
+		//! @struct Toml11Description
+		//! @brief tomlファイルに追加する変数の説明を追加するための構造体．
 		struct Toml11Description final
 		{
 			//! テーブルがない場合に指定する文字列
@@ -34,14 +38,22 @@ namespace designlab
 
 			Toml11Description(const std::string& t, const std::string& d) : table_name(t), description(d) {}
 
-			std::string table_name;
-			std::string description;
+			std::string table_name;		//!< テーブル名
+			std::string description;	//!< 説明，tomlファイルにはコメントとして追加される．
 		};
 
+
+		//! @brief 文字列のベクターをShift-jisからUTF-8に変換する．
+		//! @param str_vec 変換する文字列のベクター．
+		//! @return std::vector<std::string> 変換後の文字列のベクター．
 		std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_vec);
+
 
 		//! @brief tomlファイルに値を追加するための関数．
 		//! @n enumに関して特殊化されており，enum型の値を文字列に変換してから追加する．
+		//! @param v tomlファイルのデータ．
+		//! @param str 追加する変数の名前．
+		//! @param value 追加する値．
 		template <typename T>
 		typename std::enable_if<!std::is_enum<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
@@ -64,6 +76,7 @@ namespace designlab
 //! @def DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE
 //! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
 //! @n tomlファイルからクラスのメンバ変数を取得する．
+//! @param VAR_NAME 変数名．
 #define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)                               \
 if constexpr (std::is_enum<decltype(obj.VAR_NAME)>::value)                                          \
 {                                                                                                   \
@@ -98,6 +111,7 @@ else                                                                            
 //! @def DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE
 //! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
 //! @n クラスのメンバ変数をtomlファイルに追加する．
+//! @param VAR_NAME 変数名．
 #define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME)                                           \
 if(desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::NO_TABLE)                             \
 {                                                                                                               \
@@ -133,6 +147,9 @@ if (desc.VAR_NAME.description != "")                                            
 }
 
 
+//! @def DESIGNLAB_TOML11_DESCRIPTION_CLASS
+//! @brief tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ．
+//! @param CLASS クラス名．
 #define DESIGNLAB_TOML11_DESCRIPTION_CLASS(CLASS) \
 struct CLASS##Description final
 
@@ -172,7 +189,7 @@ const std::vector<std::string> table_name_description_vec = ::designlab::toml_fu
 const std::vector<std::string> table_name_description_vec = {};
 
 
-//! @def DESIGNLAB_ADD_FILE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_ADD_DESCRIPTION
 //! @brief tomlファイルに変数とファイルの説明を追加するためのマクロ．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
@@ -180,7 +197,7 @@ const std::vector<std::string> table_name_description_vec = {};
 #define DESIGNLAB_TOML11_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)		\
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DESCRIPTION)} 
 
-//! @def DESIGNLAB_ADD_FILE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_ADD_NO_DESCRIPTION
 //! @brief ファイルの説明を追加したくない場合には，このマクロで変数を追加する．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
@@ -219,6 +236,12 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! DESIGNLAB_TOML11_DESCRIPTION_CLASS(Sample)
 //! {
 //!     DESIGNLAB_TOML11_NO_FILE_DESCRIPTION();
+//! 
+//!     DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(
+//!			"number", "This is Number Table."
+//!			"enum", "This is Enum Table."
+//!		);
+//! 
 //!     DESIGNLAB_TOML11_ADD_DESCRIPTION(data, "number", "This is data");
 //!     DESIGNLAB_TOML11_ADD_DESCRIPTION(str, DESIGNLAB_TOML11_NO_TABLE, "This is str");
 //!     DESIGNLAB_TOML11_ADD_DESCRIPTION(enum_data, "enum", "This is enum_data");
