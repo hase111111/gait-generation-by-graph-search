@@ -39,6 +39,7 @@
     <ClInclude Include="interface_dxlib_3d_renderer.h" />
     <ClInclude Include="interface_dxlib_wheel_handler.h" />
     <ClInclude Include="map_creator_by_csv.h" />
+    <ClInclude Include="map_creator_factory.h" />
     <ClInclude Include="map_file_exporter.h" />
     <ClInclude Include="map_file_importer.h" />
     <ClInclude Include="map_state_test.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="map_creator_by_csv.cpp" />
+    <ClCompile Include="map_creator_factory.cpp" />
     <ClCompile Include="map_file_exporter.cpp" />
     <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />

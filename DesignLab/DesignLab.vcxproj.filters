@@ -540,6 +540,9 @@
     <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="map_creator_factory.h">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -820,6 +823,9 @@
     </ClCompile>
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="map_creator_factory.cpp">
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

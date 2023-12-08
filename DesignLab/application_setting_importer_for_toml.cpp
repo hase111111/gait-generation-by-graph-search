@@ -12,7 +12,8 @@
 
 std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::ReadFileOrUseAndOutputDefault()
 {
-	std::cout << "設定ファイル" << kSettingFileName << "を読み込みます\n\n";
+	std::cout << "[" << typeid(ApplicationSettingImporterForToml).name() << "]\n";
+	std::cout << "設定ファイル " << kSettingFileName << " を読み込みます．\n";
 
 	//ファイルを探す，存在しなかったらデフォルトの設定を出力して終了，fsystemはC++17から，実行できない場合は設定を見直してみてください
 	if (!std::filesystem::is_regular_file(kSettingFileName))
@@ -22,7 +23,7 @@ std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::Rea
 		return std::make_shared<ApplicationSettingRecord>();
 	}
 
-	std::cout << "設定ファイルが見つかりました．読み込みを開始いたします\n\n";
+	std::cout << "設定ファイルが見つかりました．読み込みを開始します．\n";
 
 	//ファイルを読み込む
 	toml::value data;
@@ -43,6 +44,7 @@ std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::Rea
 		return std::make_shared<ApplicationSettingRecord>();
 	}
 
+	std::cout << "設定ファイルの読み込みに成功しました．パースを開始します．\n";
 	ApplicationSettingRecord setting;
 
 	try
@@ -51,7 +53,7 @@ std::shared_ptr<ApplicationSettingRecord> ApplicationSettingImporterForToml::Rea
 	}
 	catch (...)
 	{
-		std::cout << "設定ファイルの読み込みに失敗しました．デフォルトの設定ファイルを出力します．\n";
+		std::cout << "設定ファイルのパースに失敗しました．デフォルトの設定ファイルを出力します．\n";
 		OutputDefaultSettingFile();
 
 		return std::make_shared<ApplicationSettingRecord>();
@@ -90,6 +92,8 @@ void ApplicationSettingImporterForToml::OutputDefaultSettingFile()
 	ofs.write(res_str.c_str(), res_str.length());	// ファイルに書き込む
 
 	ofs.close();	// ファイルを閉じる
+
+	std::cout << "デフォルトの設定ファイルを出力しました．\n";
 
 	return;
 }
