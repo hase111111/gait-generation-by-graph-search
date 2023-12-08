@@ -38,6 +38,7 @@
     <ClInclude Include="interface_dxlib_node_setter.h" />
     <ClInclude Include="interface_dxlib_3d_renderer.h" />
     <ClInclude Include="interface_dxlib_wheel_handler.h" />
+    <ClInclude Include="interface_simulation_end_checker.h" />
     <ClInclude Include="map_creator_by_csv.h" />
     <ClInclude Include="map_creator_factory.h" />
     <ClInclude Include="map_file_exporter.h" />
@@ -69,6 +70,7 @@
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
+    <ClInclude Include="simulation_end_checker_factory.h" />
     <ClInclude Include="simulation_map_parameter.h" />
     <ClInclude Include="node_creator_builder_rot_test.h" />
     <ClInclude Include="node_initializer.h" />
@@ -129,7 +131,7 @@
     <ClInclude Include="designlab_line_segment2.h" />
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
-    <ClInclude Include="simulation_end_checker.h" />
+    <ClInclude Include="simulation_end_checker_by_goal_tape.h" />
     <ClInclude Include="simulation_map_parameter_importer.h" />
     <ClInclude Include="simulation_setting_importer.h" />
     <ClInclude Include="simulation_setting_record.h" />
@@ -210,7 +212,8 @@
     <ClCompile Include="phantomx_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="ros_main.cpp" />
-    <ClCompile Include="simulation_end_checker.cpp" />
+    <ClCompile Include="simulation_end_checker_by_goal_tape.cpp" />
+    <ClCompile Include="simulation_end_checker_factory.cpp" />
     <ClCompile Include="simulation_map_parameter_importer.cpp" />
     <ClCompile Include="simulation_setting_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />

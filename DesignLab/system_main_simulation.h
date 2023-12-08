@@ -11,10 +11,10 @@
 #include "graphic_data_broker.h"
 #include "interface_gait_pattern_generator.h"
 #include "interface_map_creator.h"
+#include "interface_simulation_end_checker.h"
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
-#include "simulation_end_checker.h"
 #include "stopwatch.h"
 #include "target_robot_state.h"
 #include "target_setter_for_gpg.h"
@@ -28,13 +28,15 @@ class SystemMainSimulation final : public ISystemMain
 public:
 	SystemMainSimulation() = delete;		//!< デフォルトコンストラクタは禁止．
 
-	//! @param[in] pass_finder_ptr 自由歩容パターン生成を行うクラス．
-	//! @param[in] graphic_ptr グラフィックを描画するクラス．
-	//! @param[in] broker_ptr グラフィックデータを管理するクラス．
+	//! @param[in] gait_pattern_generator_ptr 自由歩容パターン生成を行うクラス．
+	//! @param[in] map_creator_ptr マップを生成するクラス．
+	//! @param[in] simu_end_checker_ptr シミュレーションの終了を判定するクラス．
+	//! @param[in] broker_ptr グラフィックデータを別スレッドに送るための構造体．
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SystemMainSimulation(
-		std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
+		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
+		std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 
@@ -50,6 +52,7 @@ private:
 
 	static constexpr int kSimurateNum{ 5 };	//!< 連続でシミュレーションを行う回数
 
+
 	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
 
 
@@ -61,7 +64,7 @@ private:
 
 	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
-	const std::unique_ptr<const SimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
+	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 
 	MapState map_state_;		//!< 地形の状態
 

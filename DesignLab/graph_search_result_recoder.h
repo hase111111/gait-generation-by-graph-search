@@ -25,20 +25,20 @@ enum class GraphSearchResult
 
 
 //! @struct GraphSearchResultRecoder
-//! @brief グラフ探索の結果を格納する構造体．変数をごちゃごちゃさせたくないので作成
+//! @brief グラフ探索の結果を格納する構造体．変数をごちゃごちゃさせたくないので作成した．
 struct GraphSearchResultRecoder final
 {
-	GraphSearchResultRecoder() : 
-		result_node{}, 
-		computation_time(0.0), 
+	GraphSearchResultRecoder() :
+		result_node{},
+		computation_time(0.0),
 		graph_search_result(GraphSearchResult::kFailure),
 		did_reevaluation(false)
 	{
 	};
 
-	GraphSearchResultRecoder(const RobotStateNode& node,const double time, const GraphSearchResult result) : 
-		result_node(node), 
-		computation_time(time), 
+	GraphSearchResultRecoder(const RobotStateNode& node, const double time, const GraphSearchResult result) :
+		result_node(node),
+		computation_time(time),
 		graph_search_result(result),
 		did_reevaluation(false)
 	{

@@ -17,19 +17,21 @@ namespace dlsu = ::designlab::string_util;
 
 
 SystemMainSimulation::SystemMainSimulation(
-	std::unique_ptr<IGaitPatternGenerator>&& pass_finder_ptr,
+	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 	std::unique_ptr<IMapCreator>&& map_creator_ptr,
+	std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
-	pass_finder_ptr_(std::move(pass_finder_ptr)),
+	pass_finder_ptr_(std::move(gait_pattern_generator_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
-	simu_end_checker_ptr_(std::make_unique<const SimulationEndChecker>()),
+	simu_end_checker_ptr_(std::move(simu_end_checker_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
 	assert(pass_finder_ptr_ != nullptr);
 	assert(map_creator_ptr_ != nullptr);
+	assert(simu_end_checker_ptr_ != nullptr);
 	assert(broker_ptr_ != nullptr);
 	assert(setting_ptr_ != nullptr);
 

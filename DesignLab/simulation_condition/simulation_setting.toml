@@ -10,3 +10,36 @@ map_file_name = "map_state.csv"
 #マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．
 simulation_map_param_file_name = "simulation_map.toml"
 
+#シミュレーションの終了条件についての設定です．
+[SimulationEndCheck]
+
+#シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]
+goal_tape_position = 1200.0
+
+#シミュレーションの終了条件の種類を設定します．(kGoalTape/kPosture/kPosition)
+simulation_end_check_type = "kGoalTape"
+
+#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標の許容誤差を設定します．[mm]
+target_position_allowable_error = 50.0
+
+#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のx座標を設定します．[mm]
+target_position_x = 1200.0
+
+#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のy座標を設定します．[mm]
+target_position_y = 0.0
+
+#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のz座標を設定します．[mm]
+target_position_z = 0.0
+
+#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢の角度の許容誤差を設定します．[deg]
+target_posture_allowable_error = 1.0
+
+#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のx軸周りの角度を設定します．[deg]
+target_posture_x_angle = 0.0
+
+#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のy軸周りの角度を設定します．[deg]
+target_posture_y_angle = 0.0
+
+#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のz軸周りの角度を設定します．[deg]
+target_posture_z_angle = 0.0
+
