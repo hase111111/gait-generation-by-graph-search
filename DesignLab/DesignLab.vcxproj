@@ -70,6 +70,8 @@
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="interface_hexapod_state_presenter.h" />
     <ClInclude Include="interface_hexapod_vaild_checker.h" />
+    <ClInclude Include="simulation_end_checker_by_position.h" />
+    <ClInclude Include="simulation_end_checker_by_posture.h" />
     <ClInclude Include="simulation_end_checker_factory.h" />
     <ClInclude Include="simulation_map_parameter.h" />
     <ClInclude Include="node_creator_builder_rot_test.h" />
@@ -213,6 +215,8 @@
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="simulation_end_checker_by_goal_tape.cpp" />
+    <ClCompile Include="simulation_end_checker_by_position.cpp" />
+    <ClCompile Include="simulation_end_checker_by_posture.cpp" />
     <ClCompile Include="simulation_end_checker_factory.cpp" />
     <ClCompile Include="simulation_map_parameter_importer.cpp" />
     <ClCompile Include="simulation_setting_importer.cpp" />

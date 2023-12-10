@@ -552,6 +552,12 @@
     <ClInclude Include="toml_serialize_macro.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
+    <ClInclude Include="simulation_end_checker_by_posture.h">
+      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_end_checker_by_position.h">
+      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -837,6 +843,12 @@
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="simulation_end_checker_factory.cpp">
+      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_end_checker_by_posture.cpp">
+      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_end_checker_by_position.cpp">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClCompile>
   </ItemGroup>

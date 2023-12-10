@@ -1,5 +1,5 @@
 ﻿//! @file simulation_end_checker_by_goal_tape.h
-//! @brief シミュレーションの終了を判定するクラス
+//! @brief シミュレーションの終了を判定するクラス．
 
 
 #ifndef DESIGNLAB_SIMULATION_END_CHECKER_BY_GOAL_TAPE_H_
@@ -10,6 +10,8 @@
 #include "robot_state_node.h"
 
 
+//! @class SimulationEndCheckerByGoalTape
+//! @brief ゴールテープによるシミュレーション終了判定クラス．
 class SimulationEndCheckerByGoalTape final : public ISimulationEndChecker
 {
 public:

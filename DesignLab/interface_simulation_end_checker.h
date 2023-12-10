@@ -13,6 +13,9 @@ class ISimulationEndChecker
 public:
 	virtual ~ISimulationEndChecker() = default;
 
+	//! @brief シミュレーションの終了を判定する．
+	//! @param[in] node ロボットの状態
+	//! @return シミュレーションを終了するならtrue．
 	virtual bool IsEnd(const RobotStateNode& node) const = 0;
 };
 
