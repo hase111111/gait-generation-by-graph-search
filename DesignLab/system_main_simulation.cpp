@@ -20,18 +20,21 @@ SystemMainSimulation::SystemMainSimulation(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 	std::unique_ptr<IMapCreator>&& map_creator_ptr,
 	std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
+	std::unique_ptr<ITargetUpdater>&& target_updater_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	pass_finder_ptr_(std::move(gait_pattern_generator_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
 	simu_end_checker_ptr_(std::move(simu_end_checker_ptr)),
+	target_updater_ptr_(std::move(target_updater_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
 	assert(pass_finder_ptr_ != nullptr);
 	assert(map_creator_ptr_ != nullptr);
 	assert(simu_end_checker_ptr_ != nullptr);
+	assert(target_updater_ptr_ != nullptr);
 	assert(broker_ptr_ != nullptr);
 	assert(setting_ptr_ != nullptr);
 
@@ -43,44 +46,23 @@ SystemMainSimulation::SystemMainSimulation(
 
 	//仲介人にマップを渡す．
 	broker_ptr_->map_state.SetData(map_state_);
-
-	//ターゲットの方向を初期化する．
-	//target_.SetStraightMoveVector(dl::Vector3{ 10,0,-1 }.GetNormalized());
-	target_.SetSpotTurnLastPosture(dl::Quaternion::MakeByAngleAxis(1.57f, dl::Vector3::GetUpVec()));
 }
 
 
 void SystemMainSimulation::Main()
 {
 	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
-
-
-	if (!pass_finder_ptr_)
-	{
-		//早期リターン，グラフ探索クラスがセットされていない場合は，エラーを出力して終了する．
-		dlio::Output("パスファインダークラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
-		return;
-	}
-
-	if (!setting_ptr_)
-	{
-		//早期リターン，設定クラスがセットされていない場合は，エラーを出力して終了する．
-		dlio::Output("設定クラスがありません\nシミュレーションを終了します．", OutputDetail::kError);
-		return;
-	}
-
-
 	OutputSetting();	//コマンドラインに設定を表示する．
 
-
 	DeadLockChecker dead_lock_checker;	//ノードの妥当性をチェックするクラスを用意する．
-
 
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < kSimurateNum; i++)
 	{
 		NodeInitializer node_initializer;							//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
+
+		TargetRobotState target = target_updater_ptr_->Init();		//目標地点を決定する．
 
 		//シミュレーションの結果を格納する変数．
 		SimulationResultRecorder record;
@@ -115,13 +97,13 @@ void SystemMainSimulation::Main()
 		{
 			current_node.ChangeLootNode();
 
-			target_ = target_setter_.GetTarget(current_node);	//ターゲットの方向を更新する．
+			target = target_updater_ptr_->Update(current_node);	//目標地点を更新する．
 
 			timer_.Start();			//タイマースタート
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
-			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target_, &result_node);		//グラフ探索を行う．
+			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 

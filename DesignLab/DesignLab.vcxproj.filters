@@ -136,6 +136,9 @@
     <Filter Include="ソース ファイル\System\ApplicationSetting">
       <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System\Simulation\TargetUpdater">
+      <UniqueIdentifier>{ad665007-1db5-47af-89b6-f7b2864b7708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -489,9 +492,6 @@
     <ClInclude Include="gait_pattern_generator_switch_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="target_setter_for_gpg.h">
-      <Filter>ソース ファイル\System\Simulation</Filter>
-    </ClInclude>
     <ClInclude Include="map_state_test.h">
       <Filter>ソース ファイル\Map\Test</Filter>
     </ClInclude>
@@ -560,6 +560,12 @@
     </ClInclude>
     <ClInclude Include="application_setting_exporter.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_target_updater.h">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="target_updater_for_gpg.h">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -812,9 +818,6 @@
     <ClCompile Include="gait_pattern_generator_switch_move.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
-    <ClCompile Include="target_setter_for_gpg.cpp">
-      <Filter>ソース ファイル\System\Simulation</Filter>
-    </ClCompile>
     <ClCompile Include="map_file_importer.cpp">
       <Filter>ソース ファイル\Map\FileIo</Filter>
     </ClCompile>
@@ -859,6 +862,9 @@
     </ClCompile>
     <ClCompile Include="application_setting_exporter.cpp">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="target_updater_for_gpg.cpp">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

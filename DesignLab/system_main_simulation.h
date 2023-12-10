@@ -12,12 +12,13 @@
 #include "interface_gait_pattern_generator.h"
 #include "interface_map_creator.h"
 #include "interface_simulation_end_checker.h"
+#include "interface_target_updater.h"
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
 #include "stopwatch.h"
 #include "target_robot_state.h"
-#include "target_setter_for_gpg.h"
+#include "target_updater_for_gpg.h"
 
 
 //! @class SystemMainSimulation
@@ -31,14 +32,17 @@ public:
 	//! @param[in] gait_pattern_generator_ptr 自由歩容パターン生成を行うクラス．
 	//! @param[in] map_creator_ptr マップを生成するクラス．
 	//! @param[in] simu_end_checker_ptr シミュレーションの終了を判定するクラス．
+	//! @param[in] target_updater_ptr 目標地点を決定するクラス．
 	//! @param[in] broker_ptr グラフィックデータを別スレッドに送るための構造体．
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SystemMainSimulation(
 		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
+		std::unique_ptr<ITargetUpdater>&& target_updater_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
+		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
+	);
 
 
 	//! @brief いままでint mainで行われた処理をまとめたもの．
@@ -60,16 +64,15 @@ private:
 
 	const std::unique_ptr<IMapCreator> map_creator_ptr_;	//!< マップを生成するクラス．
 
+	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
+
+	const std::unique_ptr<const ITargetUpdater> target_updater_ptr_;	//!< 目標地点を決定するクラス．
+
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
 
 	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
-	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
-
 	MapState map_state_;		//!< 地形の状態
-
-	TargetRobotState target_;	//!< 目標地点．
-	TargetSetterForGpg target_setter_;	//!< 目標地点を決定するクラス．
 
 	Stopwatch timer_;			//!< 時間計測用のクラス．
 

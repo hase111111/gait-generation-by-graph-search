@@ -10,7 +10,7 @@ class SimulationSettingImporter final
 {
 public:
 
-	SimulationSettingRecord ImportOrUseAndOutputDefault() const;
+	SimulationSettingRecord ImportOrUsDefault() const;
 
 	static const std::string kFilePath;
 
