@@ -162,6 +162,7 @@
     <ClInclude Include="test_main.h" />
     <ClInclude Include="toml11_define.h" />
     <ClInclude Include="toml_data_validator_always_true.h" />
+    <ClInclude Include="toml_file_exporter.h" />
     <ClInclude Include="toml_file_importer.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />

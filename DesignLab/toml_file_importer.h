@@ -14,6 +14,7 @@
 #include "interface_toml_data_validator.h"
 #include "toml11_define.h"
 #include "toml_data_validator_always_true.h"
+#include "toml_file_exporter.h"
 
 
 template <typename T, typename = void>
@@ -24,7 +25,7 @@ struct has_from_toml<T, std::void_t<decltype(toml::from<T>())> > : std::true_typ
 
 
 //Tはデフォルトコンストラクタを持っている必要がある．
-template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T> && has_from_toml<T>::value> >
+template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& has_from_toml<T>::value> >
 class TomlFileImporter final
 {
 public:
@@ -112,6 +113,25 @@ public:
 		if (do_output_message_) { ::designlab::cmdio::Output("読み込みは正常に完了しました．", OutputDetail::kSystem); }
 
 		return data;
+	}
+
+	T ImportOrUseDefault(const std::string& file_path) const
+	{
+		const auto data = Import(file_path);
+
+		if (data.has_value()) { return data.value(); }
+
+		if (::designlab::cmdio::InputYesNo("デフォルトのファイルを出力しますか"))
+		{
+			TomlFileExporter<T> exporter;
+			exporter.Export(file_path, T());
+
+		}
+
+		::designlab::cmdio::Output("デフォルトのデータを使用します．", OutputDetail::kSystem);
+		::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
+
+		return T();
 	}
 
 private:

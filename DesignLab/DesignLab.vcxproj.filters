@@ -579,6 +579,9 @@
     <ClInclude Include="toml_data_validator_always_true.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
+    <ClInclude Include="toml_file_exporter.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
