@@ -80,7 +80,7 @@ ApplicationSettingRecord ApplicationSettingImporter::ImportOrUseDefault() const
 
 	ApplicationSettingRecordVaildator vaildator;
 
-	const auto [is_vaild, err_str] = vaildator.Vaildate(setting);
+	const auto [is_vaild, err_str] = vaildator.Validate(setting);
 
 	if (!is_vaild)
 	{

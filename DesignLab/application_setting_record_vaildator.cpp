@@ -11,7 +11,8 @@ ApplicationSettingRecordVaildator::ApplicationSettingRecordVaildator() :
 {
 }
 
-std::tuple<bool, std::string> ApplicationSettingRecordVaildator::Vaildate(const ApplicationSettingRecord& setting_record)
+std::tuple<bool, std::string> ApplicationSettingRecordVaildator::Validate(const ApplicationSettingRecord& setting_record) const
+
 {
 	if (setting_record.window_size_x <= 0)
 	{

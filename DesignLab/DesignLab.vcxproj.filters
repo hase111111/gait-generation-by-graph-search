@@ -570,6 +570,15 @@
     <ClInclude Include="simulation_setting_exporter.h">
       <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClInclude>
+    <ClInclude Include="toml_file_importer.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_toml_data_validator.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="toml_data_validator_always_true.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

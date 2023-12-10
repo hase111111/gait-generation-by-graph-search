@@ -36,7 +36,7 @@ do_gui_display = true
 #GUIを表示する際，どこまで許可するかを設定します(kLow/kMedium/kHigh)
 gui_display_quality = "kMedium"
 #グラフィカルウィンドウのFPSを設定します．1 ～ 60の範囲．推奨値は60です．
-window_fps = 60
+window_fps = 20
 #グラフィカルウィンドウの横幅を設定します．1 ～ 1920の範囲．推奨値は1600です．
 window_size_x = 1600
 #グラフィカルウィンドウの縦幅を設定します．1 ～ 1080の範囲．推奨値は900です．
