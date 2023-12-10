@@ -567,6 +567,9 @@
     <ClInclude Include="target_updater_for_gpg.h">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClInclude>
+    <ClInclude Include="simulation_setting_exporter.h">
+      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -865,6 +868,9 @@
     </ClCompile>
     <ClCompile Include="target_updater_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_setting_exporter.cpp">
+      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

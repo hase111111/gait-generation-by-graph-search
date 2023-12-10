@@ -17,7 +17,7 @@ namespace dlio = ::designlab::cmdio;
 ApplicationSettingRecord ApplicationSettingImporter::ImportOrUseDefault() const
 {
 	dlio::Output("[" + static_cast<std::string>(typeid(ApplicationSettingImporter).name()) + "]", OutputDetail::kSystem);
-	dlio::Output("設定ファイル " + kSettingFileName + " を読み込みます．", OutputDetail::kSystem);
+	dlio::Output("設定ファイルを読み込みます．file_path : " + kSettingFileName, OutputDetail::kSystem);
 
 	//ファイルを探す，存在しなかったらデフォルトの設定を出力して終了，fsystemはC++17から，実行できない場合は設定を見直してみてください
 	if (!std::filesystem::is_regular_file(kSettingFileName))

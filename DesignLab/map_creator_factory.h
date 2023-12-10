@@ -19,7 +19,7 @@ public:
 	//! @brief マップを生成するクラスを生成する．
 	//! @param [in] record マップを生成する際の設定．
 	//! @return std::unique_ptr<IMapCreator> マップを生成するクラスのインスタンス．
-	static std::unique_ptr<IMapCreator> Create(const std::shared_ptr<const SimulationSettingRecord>& record);
+	static std::unique_ptr<IMapCreator> Create(const SimulationSettingRecord& record);
 };
 
 

@@ -27,7 +27,7 @@ private:
 	//! @breif ファイルが存在しなかった場合のためにデフォルトの設定ファイルを出力する
 	void OutputDefaultSettingFile() const;
 
-	const std::string kSettingFileName = "settings.toml";
+	const std::string kSettingFileName = "./settings.toml";
 };
 
 

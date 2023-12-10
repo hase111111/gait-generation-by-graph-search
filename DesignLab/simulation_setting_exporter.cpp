@@ -1,19 +1,25 @@
-﻿#include "application_setting_exporter.h"
+﻿#include "simulation_setting_exporter.h"
 
 #include <fstream>
 #include <filesystem>
 #include <map>
 
 #include "cmdio_util.h"
+#include "simulation_setting_importer.h"
 #include "toml11_define.h"
 
 namespace dlio = ::designlab::cmdio;
 
 
-void ApplicationSettingExporter::Export(const std::string& file_path, const ApplicationSettingRecord& setting_record) const
+void SimulationSettingExporter::Export(const SimulationSettingRecord& record, std::string file_path) const
 {
-	const toml::basic_value<toml::preserve_comments, std::map> value(setting_record);
-	const std::string res_str = toml::format(value);	// 設定を文字列に変換
+	toml::basic_value<toml::preserve_comments, std::map> value(record);
+	std::string res_str = toml::format(value);	// 設定を文字列に変換
+
+	if (!std::filesystem::exists(SimulationSettingImporter::kFilePath))
+	{
+		std::filesystem::create_directory(SimulationSettingImporter::kFilePath);
+	}
 
 	std::ofstream ofs;
 	ofs.open(file_path);
