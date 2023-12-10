@@ -48,12 +48,12 @@ public:
 
 private:
 
-	void OutputSetting() const;
-
 	static constexpr int kSimurateNum{ 5 };	//!< 連続でシミュレーションを行う回数
 
-
 	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
+
+
+	void OutputSetting() const;
 
 
 	const std::unique_ptr<IGaitPatternGenerator> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．

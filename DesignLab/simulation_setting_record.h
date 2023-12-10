@@ -32,7 +32,7 @@ struct SimulationSettingRecord final
 
 	SimulationEndCheckType simulation_end_check_type{ SimulationEndCheckType::kGoalTape };
 
-	float goal_tape_position{ 1200.0f };
+	float goal_tape_position_x{ 1200.0f };
 
 	float target_posture_x_angle{ 0.0f };
 
@@ -67,7 +67,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_end_check_type, "SimulationEndCheck", "シミュレーションの終了条件の種類を設定します．(" +
 		::designlab::string_util::EnumValuesToString<SimulationEndCheckType>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(goal_tape_position, "SimulationEndCheck", "シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(goal_tape_position_x, "SimulationEndCheck", "シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture_x_angle, "SimulationEndCheck", "シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のx軸周りの角度を設定します．[deg]");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture_y_angle, "SimulationEndCheck", "シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のy軸周りの角度を設定します．[deg]");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture_z_angle, "SimulationEndCheck", "シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のz軸周りの角度を設定します．[deg]");
@@ -81,7 +81,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 DESIGNLAB_TOML11_SERIALIZE(
 	SimulationSettingRecord,
 	map_create_mode, simulation_map_param_file_name, map_file_name,
-	simulation_end_check_type, goal_tape_position, target_posture_x_angle, target_posture_y_angle, target_posture_z_angle, target_posture_allowable_error,
+	simulation_end_check_type, goal_tape_position_x, target_posture_x_angle, target_posture_y_angle, target_posture_z_angle, target_posture_allowable_error,
 	target_position_x, target_position_y, target_position_z, target_position_allowable_error
 );
 

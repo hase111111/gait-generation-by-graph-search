@@ -13,11 +13,9 @@
 #シミュレーション条件を変更したい場合は，ここから変更してみてください．
 #シャープから始まる行はコメントです．プログラムに影響を与えることはありません．
 
-#ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく．
-1-Verion = {version_major=0,version_minor=5,version_patch=0}
 
 #プログラムの起動モードの設定です
-[2-Mode]
+[Mode]
 #起動時に実行モードについて質問をするようにします (true/false)
 ask_about_modes = true
 #起動時のデフォルトの実行モードを設定します (kSimulation/kViewer/kDisplayTest/kResultViewer)
@@ -28,19 +26,26 @@ do_step_execution_each_gait = false
 do_step_execution_each_simulation = true
 
 #プログラムの出力の設定です
-[3-Output]
+[Output]
 #コマンドラインに出力する際，どこまで許可するかを設定します(kSystem/kError/kWarning/kInfo/kDebug)
-cmd_output_detail = "kDebug"
+cmd_output_detail = "kInfo"
 #コマンドラインに出力するかどうかを設定します (true/false)
 do_cmd_output = true
 #GUIを表示するかどうかを設定します (true/false)
 do_gui_display = true
 #GUIを表示する際，どこまで許可するかを設定します(kLow/kMedium/kHigh)
 gui_display_quality = "kMedium"
-#グラフィカルウィンドウのFPSを設定します (int)
+#グラフィカルウィンドウのFPSを設定します．1 ～ 60の範囲．推奨値は60です．
 window_fps = 60
-#グラフィカルウィンドウの横幅を設定します (int)
-window_size_x = 1280
-#グラフィカルウィンドウの縦幅を設定します (int)
-window_size_y = 720
+#グラフィカルウィンドウの横幅を設定します．1 ～ 1920の範囲．推奨値は1600です．
+window_size_x = 1600
+#グラフィカルウィンドウの縦幅を設定します．1 ～ 1080の範囲．推奨値は900です．
+window_size_y = 900
+
+#ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく．
+[Verion]
+#メジャーバージョンは大きな更新があったときに変えます．
+version_major = 0
+version_minor = 5
+version_patch = 0
 

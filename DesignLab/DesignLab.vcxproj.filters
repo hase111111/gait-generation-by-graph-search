@@ -61,9 +61,6 @@
     <Filter Include="ソース ファイル\Common\FileIO\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\FileIO\Setting">
-      <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Hexapod\Const">
       <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
     </Filter>
@@ -135,6 +132,9 @@
     </Filter>
     <Filter Include="ソース ファイル\System\Simulation\EndChecker">
       <UniqueIdentifier>{f054ece9-6b6f-4d15-a4f1-10bc603ff2d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\ApplicationSetting">
+      <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -264,11 +264,11 @@
     <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_importer_for_toml.h">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+    <ClInclude Include="application_setting_importer.h">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
     <ClInclude Include="application_setting_record.h">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
     <ClInclude Include="system_main_simulation.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
@@ -359,9 +359,6 @@
     </ClInclude>
     <ClInclude Include="result_file_importer.h">
       <Filter>ソース ファイル\Common\FileIO\Result</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_application_setting_importer.h">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
     </ClInclude>
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
@@ -558,6 +555,12 @@
     <ClInclude Include="simulation_end_checker_by_position.h">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClInclude>
+    <ClInclude Include="application_setting_record_vaildator.h">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_exporter.h">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -668,8 +671,8 @@
     <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClCompile>
-    <ClCompile Include="application_setting_importer_for_toml.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Setting</Filter>
+    <ClCompile Include="application_setting_importer.cpp">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
     <ClCompile Include="system_main_simulation.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
@@ -850,6 +853,12 @@
     </ClCompile>
     <ClCompile Include="simulation_end_checker_by_position.cpp">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
+    </ClCompile>
+    <ClCompile Include="application_setting_record_vaildator.cpp">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="application_setting_exporter.cpp">
+      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

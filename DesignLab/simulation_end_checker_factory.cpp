@@ -14,7 +14,7 @@ std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const
 {
 	if (record->simulation_end_check_type == SimulationEndCheckType::kGoalTape)
 	{
-		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByGoalTape>(record->goal_tape_position);
+		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByGoalTape>(record->goal_tape_position_x);
 
 		return std::move(simulation_end_checker);
 	}
