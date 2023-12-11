@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application_setting_exporter.h" />
     <ClInclude Include="application_setting_record_vaildator.h" />
     <ClInclude Include="designlab_string_util_test.h" />
     <ClInclude Include="devide_map_state_test.h" />
@@ -60,7 +59,6 @@
     <ClInclude Include="devide_map_state.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
-    <ClInclude Include="application_setting_importer.h" />
     <ClInclude Include="boot_mode.h" />
     <ClInclude Include="node_creator_builder_turn_spot.h" />
     <ClInclude Include="dxlib_node_setter_group.h" />
@@ -137,7 +135,6 @@
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="simulation_end_checker_by_goal_tape.h" />
-    <ClInclude Include="simulation_map_parameter_importer.h" />
     <ClInclude Include="simulation_setting_exporter.h" />
     <ClInclude Include="simulation_setting_importer.h" />
     <ClInclude Include="simulation_setting_record.h" />
@@ -164,12 +161,11 @@
     <ClInclude Include="toml_data_validator_always_true.h" />
     <ClInclude Include="toml_file_exporter.h" />
     <ClInclude Include="toml_file_importer.h" />
+    <ClInclude Include="toml_file_setupper.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application_setting_exporter.cpp" />
-    <ClCompile Include="application_setting_importer.cpp" />
     <ClCompile Include="application_setting_record_vaildator.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
@@ -227,7 +223,6 @@
     <ClCompile Include="simulation_end_checker_by_position.cpp" />
     <ClCompile Include="simulation_end_checker_by_posture.cpp" />
     <ClCompile Include="simulation_end_checker_factory.cpp" />
-    <ClCompile Include="simulation_map_parameter_importer.cpp" />
     <ClCompile Include="simulation_setting_exporter.cpp" />
     <ClCompile Include="simulation_setting_importer.cpp" />
     <ClCompile Include="stopwatch.cpp" />
@@ -266,6 +261,7 @@
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="target_updater_for_gpg.cpp" />
+    <ClCompile Include="toml_file_setupper.cpp" />
     <ClCompile Include="toml_serialize_macro.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>

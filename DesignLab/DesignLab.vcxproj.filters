@@ -267,9 +267,6 @@
     <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_importer.h">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClInclude>
     <ClInclude Include="application_setting_record.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
@@ -525,9 +522,6 @@
     <ClInclude Include="simulation_setting_importer.h">
       <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_map_parameter_importer.h">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
-    </ClInclude>
     <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
@@ -558,9 +552,6 @@
     <ClInclude Include="application_setting_record_vaildator.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_exporter.h">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClInclude>
     <ClInclude Include="interface_target_updater.h">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClInclude>
@@ -580,6 +571,9 @@
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_exporter.h">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="toml_file_setupper.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
   </ItemGroup>
@@ -691,9 +685,6 @@
     </ClCompile>
     <ClCompile Include="cmdio_util.cpp">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
-    </ClCompile>
-    <ClCompile Include="application_setting_importer.cpp">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
     <ClCompile Include="system_main_simulation.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
@@ -848,9 +839,6 @@
     <ClCompile Include="simulation_setting_importer.cpp">
       <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_map_parameter_importer.cpp">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
-    </ClCompile>
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
@@ -875,14 +863,14 @@
     <ClCompile Include="application_setting_record_vaildator.cpp">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
-    <ClCompile Include="application_setting_exporter.cpp">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClCompile>
     <ClCompile Include="target_updater_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClCompile>
     <ClCompile Include="simulation_setting_exporter.cpp">
       <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="toml_file_setupper.cpp">
+      <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

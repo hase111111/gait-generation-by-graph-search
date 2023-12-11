@@ -1,9 +1,12 @@
 ﻿#include "map_creator_factory.h"
 
+#include <memory>
+
 #include "map_creator_by_csv.h"
 #include "map_creator_for_simulation.h"
 #include "simulation_setting_importer.h"
-#include "simulation_map_parameter_importer.h"
+#include "toml_file_importer.h"
+
 
 
 std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRecord& record)
@@ -16,9 +19,9 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 	}
 	else if (record.map_create_mode == MapCreateMode::kForSimulation)
 	{
-		SimulationMapParameterImporter simulation_map_parameter_importer;
+		TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer;
 
-		const SimulationMapParameter simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseAndOutputDefault(record.simulation_map_param_file_name);
+		const SimulationMapParameter simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseDefault(record.simulation_map_param_file_name);
 
 		map_creator = std::make_unique<MapCreatorForSimulation>(simulation_map_parameter);
 	}

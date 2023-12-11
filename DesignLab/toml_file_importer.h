@@ -1,5 +1,5 @@
-//! @file toml_file_importer.h
-//! @brief tomlƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚Å\‘¢‘Ì‚É•ÏŠ·‚·‚éƒeƒ“ƒvƒŒ[ƒgƒNƒ‰ƒXD
+ï»¿//! @file toml_file_importer.h
+//! @brief tomlãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§æ§‹é€ ä½“ã«å¤‰æ›ã™ã‚‹ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_
@@ -24,7 +24,7 @@ template <typename T>
 struct has_from_toml<T, std::void_t<decltype(toml::from<T>())> > : std::true_type {};
 
 
-//T‚ÍƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚éD
+//Tã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’æŒã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& has_from_toml<T>::value> >
 class TomlFileImporter final
 {
@@ -42,23 +42,27 @@ public:
 			const std::string type_name = typeid(*this).name();
 			::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
 			::designlab::cmdio::Output("[" + type_name + "]", OutputDetail::kSystem);
-			::designlab::cmdio::Output("ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·Dfile_path : " + file_path, OutputDetail::kSystem);
+			::designlab::cmdio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™ï¼file_path : " + file_path, OutputDetail::kSystem);
 		}
 
 		if (!std::filesystem::exists(file_path))
 		{
-			::designlab::cmdio::Output("ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñD", OutputDetail::kSystem);
-			::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
+			if (do_output_message_)
+			{
+				::designlab::cmdio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“ï¼", OutputDetail::kSystem);
+				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
+			}
+
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("İ’èƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½Dƒp[ƒX‚ğŠJn‚µ‚Ü‚·D", OutputDetail::kSystem); }
+		if (do_output_message_) { ::designlab::cmdio::Output("è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸï¼ãƒ‘ãƒ¼ã‚¹ã‚’é–‹å§‹ã—ã¾ã™ï¼", OutputDetail::kSystem); }
 
 		toml::value toml_value;
 
 		try
 		{
-			std::ifstream ifs(file_path, std::ios::binary);		//ƒoƒCƒiƒŠƒ‚[ƒh‚Å“Ç‚İ‚Ş
+			std::ifstream ifs(file_path, std::ios::binary);		//ãƒã‚¤ãƒŠãƒªãƒ¢ãƒ¼ãƒ‰ã§èª­ã¿è¾¼ã‚€
 
 			toml_value = toml::parse(ifs, file_path);
 		}
@@ -66,9 +70,9 @@ public:
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("İ’èƒtƒ@ƒCƒ‹‚Ìƒp[ƒX‚É¸”s‚µ‚Ü‚µ‚½D", OutputDetail::kSystem);
+				::designlab::cmdio::Output("è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ãƒ¼ã‚¹ã«å¤±æ•—ã—ã¾ã—ãŸï¼", OutputDetail::kSystem);
 				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
-				::designlab::cmdio::Output("<ƒp[ƒX‚É¸”s‚µ‚½‰ÓŠ>", OutputDetail::kSystem);
+				::designlab::cmdio::Output("<ãƒ‘ãƒ¼ã‚¹ã«å¤±æ•—ã—ãŸç®‡æ‰€>", OutputDetail::kSystem);
 				::designlab::cmdio::Output(err.what(), OutputDetail::kSystem);
 				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
 			}
@@ -76,7 +80,7 @@ public:
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("İ’èƒtƒ@ƒCƒ‹‚Ìƒp[ƒX‚É¬Œ÷‚µ‚Ü‚µ‚½Dƒf[ƒ^‚ğƒVƒŠƒAƒ‰ƒCƒY‚µ‚Ü‚·D", OutputDetail::kSystem); }
+		if (do_output_message_) { ::designlab::cmdio::Output("è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ãƒ¼ã‚¹ã«æˆåŠŸã—ã¾ã—ãŸï¼ãƒ‡ãƒ¼ã‚¿ã‚’ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ã¾ã™ï¼", OutputDetail::kSystem); }
 
 		T data;
 
@@ -86,12 +90,16 @@ public:
 		}
 		catch (...)
 		{
-			if (do_output_message_) { ::designlab::cmdio::Output("ƒf[ƒ^‚ÌƒVƒŠƒAƒ‰ƒCƒY‚É¸”s‚µ‚Ü‚µ‚½D", OutputDetail::kSystem); }
+			if (do_output_message_)
+			{
+				::designlab::cmdio::Output("ãƒ‡ãƒ¼ã‚¿ã®ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã«å¤±æ•—ã—ã¾ã—ãŸï¼", OutputDetail::kSystem);
+				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
+			}
 
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("ƒf[ƒ^‚ÌƒVƒŠƒAƒ‰ƒCƒY‚É¬Œ÷‚µ‚Ü‚µ‚½Dƒf[ƒ^‚ÌŒŸØ‚ğŠJn‚µ‚Ü‚·D", OutputDetail::kSystem); }
+		if (do_output_message_) { ::designlab::cmdio::Output("ãƒ‡ãƒ¼ã‚¿ã®ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã«æˆåŠŸã—ã¾ã—ãŸï¼ãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼ã‚’é–‹å§‹ã—ã¾ã™ï¼", OutputDetail::kSystem); }
 
 		const auto [is_valid, error_message] = validator_->Validate(data);
 
@@ -99,9 +107,9 @@ public:
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("ƒf[ƒ^‚ÌŒŸØ‚É¸”s‚µ‚Ü‚µ‚½D", OutputDetail::kSystem);
+				::designlab::cmdio::Output("ãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼ã«å¤±æ•—ã—ã¾ã—ãŸï¼", OutputDetail::kSystem);
 				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
-				::designlab::cmdio::Output("<ŒŸØ‚É¸”s‚µ‚½——R>", OutputDetail::kSystem);
+				::designlab::cmdio::Output("<æ¤œè¨¼ã«å¤±æ•—ã—ãŸç†ç”±>", OutputDetail::kSystem);
 				::designlab::cmdio::Output(error_message, OutputDetail::kSystem);
 				::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
 			}
@@ -109,8 +117,12 @@ public:
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("ƒf[ƒ^‚ÌŒŸØ‚É¬Œ÷‚µ‚Ü‚µ‚½D", OutputDetail::kSystem); }
-		if (do_output_message_) { ::designlab::cmdio::Output("“Ç‚İ‚İ‚Í³í‚ÉŠ®—¹‚µ‚Ü‚µ‚½D", OutputDetail::kSystem); }
+		if (do_output_message_)
+		{
+			::designlab::cmdio::Output("ãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼ã«æˆåŠŸã—ã¾ã—ãŸï¼", OutputDetail::kSystem);
+			::designlab::cmdio::Output("èª­ã¿è¾¼ã¿ã¯æ­£å¸¸ã«å®Œäº†ã—ã¾ã—ãŸï¼", OutputDetail::kSystem);
+			::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
+		}
 
 		return data;
 	}
@@ -121,14 +133,13 @@ public:
 
 		if (data.has_value()) { return data.value(); }
 
-		if (::designlab::cmdio::InputYesNo("ƒfƒtƒHƒ‹ƒg‚Ìƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·‚©"))
+		if (::designlab::cmdio::InputYesNo("ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ã‹"))
 		{
 			TomlFileExporter<T> exporter;
 			exporter.Export(file_path, T());
-
 		}
 
-		::designlab::cmdio::Output("ƒfƒtƒHƒ‹ƒg‚Ìƒf[ƒ^‚ğg—p‚µ‚Ü‚·D", OutputDetail::kSystem);
+		::designlab::cmdio::Output("ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ç”¨ã—ã¾ã™ï¼", OutputDetail::kSystem);
 		::designlab::cmdio::OutputNewLine(1, OutputDetail::kSystem);
 
 		return T();
