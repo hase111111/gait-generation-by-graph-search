@@ -29,7 +29,7 @@ struct ApplicationSettingRecord final
 	bool do_step_execution_each_gait{ false };		//!< 1動作ごとにステップ実行をするかどうか
 
 	bool do_cmd_output{ true };										//!< コマンドラインに出力するかどうか
-	OutputDetail cmd_output_detail{ OutputDetail::kInfo };			//!< コマンドラインに出力する際，どこまで許可するか
+	::designlab::enums::OutputDetail cmd_output_detail{ ::designlab::enums::OutputDetail::kInfo };			//!< コマンドラインに出力する際，どこまで許可するか
 	bool do_gui_display{ true };									//!< GUIを表示するかどうか
 	DisplayQuality gui_display_quality{ DisplayQuality::kMedium };	//!< GUIを表示する際，どこまで許可するか
 	int window_size_x{ 1600 };										//!< グラフィカルウィンドウの横幅
@@ -72,14 +72,17 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 	DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(version_patch, "Verion");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(ask_about_modes, "Mode", "起動時に実行モードについて質問をするようにします (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "Mode", "起動時のデフォルトの実行モードを設定します (" + ::designlab::string_util::EnumValuesToString<::designlab::enums::BootMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "Mode", "起動時のデフォルトの実行モードを設定します (" +
+		::designlab::string_util::EnumValuesToString<::designlab::enums::BootMode>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_simulation, "Mode", "1シミュレーションごとにステップ実行をするかどうかを設定します (true/false)");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_gait, "Mode", "1動作ごとにステップ実行をするかどうかを設定します (true/false)");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_cmd_output, "Output", "コマンドラインに出力するかどうかを設定します (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(cmd_output_detail, "Output", "コマンドラインに出力する際，どこまで許可するかを設定します(" + ::designlab::string_util::EnumValuesToString<OutputDetail>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(cmd_output_detail, "Output", "コマンドラインに出力する際，どこまで許可するかを設定します(" +
+		::designlab::string_util::EnumValuesToString<::designlab::enums::OutputDetail>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_gui_display, "Output", "GUIを表示するかどうかを設定します (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(gui_display_quality, "Output", "GUIを表示する際，どこまで許可するかを設定します(" + ::designlab::string_util::EnumValuesToString<DisplayQuality>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(gui_display_quality, "Output", "GUIを表示する際，どこまで許可するかを設定します(" +
+		::designlab::string_util::EnumValuesToString<DisplayQuality>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_size_x, "Output", "グラフィカルウィンドウの横幅を設定します．1 ～ 1920の範囲．推奨値は1600です．");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_size_y, "Output", "グラフィカルウィンドウの縦幅を設定します．1 ～ 1080の範囲．推奨値は900です．");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(window_fps, "Output", "グラフィカルウィンドウのFPSを設定します．1 ～ 60の範囲．推奨値は60です．");

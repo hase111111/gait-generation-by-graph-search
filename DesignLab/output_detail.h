@@ -1,21 +1,27 @@
-//! @file output_detail.h
-//! @brief ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚É•¶š‚ğo—Í‚·‚éÛ‚ÌÚ×‚ğ‚Ü‚Æ‚ß‚½—ñ‹“‘ÌD
+ï»¿//! @file output_detail.h
+//! @brief ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«æ–‡å­—ã‚’å‡ºåŠ›ã™ã‚‹éš›ã®è©³ç´°ã‚’ã¾ã¨ã‚ãŸåˆ—æŒ™ä½“ï¼
 
 #ifndef DESIGNLAB_OUTPUT_DETAIL_H_
 #define DESIGNLAB_OUTPUT_DETAIL_H_
 
 
-//! @enum OutputDetail
-//! @brief ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚É•¶š‚ğo—Í‚·‚éÛ‚ÌÚ×D
-//! @details Settingƒtƒ@ƒCƒ‹‚Åw’è‚³‚ê‚½—Dæ“xˆÈã‚ÌƒƒbƒZ[ƒW‚Ì‚İo—Í‚·‚éD
-enum class OutputDetail
+namespace designlab
 {
-	kSystem = 0,	//!< ƒVƒXƒeƒ€ƒƒbƒZ[ƒWCí‚Éo—Í‚·‚éD
-	kError,			//!< ƒGƒ‰[ƒƒbƒZ[ƒWD
-	kWarning,		//!< ŒxƒƒbƒZ[ƒWCƒGƒ‰[‚Å‚Í‚È‚¢‚ª’ˆÓ‚ª•K—v‚ÈƒƒbƒZ[ƒWD
-	kInfo,			//!< —Dæ“x’á‚ß‚Ìî•ñD
-	kDebug,			//!< ƒfƒoƒbƒO‚Ì‚İo—ÍCˆê”Ô—Dæ“x‚ª’á‚¢D
-};
+	namespace enums
+	{
+		//! @enum OutputDetail
+		//! @brief ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«æ–‡å­—ã‚’å‡ºåŠ›ã™ã‚‹éš›ã®è©³ç´°ï¼
+		//! @details Settingãƒ•ã‚¡ã‚¤ãƒ«ã§æŒ‡å®šã•ã‚ŒãŸå„ªå…ˆåº¦ä»¥ä¸Šã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ã¿å‡ºåŠ›ã™ã‚‹ï¼
+		enum class OutputDetail : int
+		{
+			kSystem = 0,	//!< ã‚·ã‚¹ãƒ†ãƒ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼Œå¸¸ã«å‡ºåŠ›ã™ã‚‹ï¼
+			kError,			//!< ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼
+			kWarning,		//!< è­¦å‘Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼Œã‚¨ãƒ©ãƒ¼ã§ã¯ãªã„ãŒæ³¨æ„ãŒå¿…è¦ãªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼
+			kInfo,			//!< å„ªå…ˆåº¦ä½ã‚ã®æƒ…å ±ï¼
+			kDebug,			//!< ãƒ‡ãƒãƒƒã‚°æ™‚ã®ã¿å‡ºåŠ›ï¼Œä¸€ç•ªå„ªå…ˆåº¦ãŒä½ã„ï¼
+		};
+	}
+}
 
 
 #endif	// DESIGNLAB_OUTPUT_DETAIL_H_

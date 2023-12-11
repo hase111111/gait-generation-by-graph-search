@@ -5,8 +5,8 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
-
-namespace dlio = designlab::cmdio;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
 
 
 GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
@@ -39,7 +39,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	assert(graph_searcher_ptr_ != nullptr);
 
 	//初期化処理を行う．
-	dlio::Output("グラフ探索中を開始します．まずは初期化します．\n", OutputDetail::kDebug);
+	dlio::Output("グラフ探索中を開始します．まずは初期化します．\n", dle::OutputDetail::kDebug);
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state, current_node.global_center_of_mass);
@@ -48,7 +48,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 
 	// グラフ探索をするための，歩容パターングラフを生成する
-	dlio::Output("初期化が終了しました．グラフ木を作成します．", OutputDetail::kDebug);
+	dlio::Output("初期化が終了しました．グラフ木を作成します．", dle::OutputDetail::kDebug);
 
 	graph_tree_.Reset();
 	graph_tree_.AddNode(current_node);
@@ -61,28 +61,28 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 	if (create_result != GraphSearchResult::kSuccess)
 	{
-		dlio::Output("グラフ木の作成に失敗しました．", OutputDetail::kDebug);
+		dlio::Output("グラフ木の作成に失敗しました．", dle::OutputDetail::kDebug);
 		return create_result;
 	}
 
-	dlio::Output("グラフ木の作成が終了しました．", OutputDetail::kDebug);
-	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()), OutputDetail::kDebug);
+	dlio::Output("グラフ木の作成が終了しました．", dle::OutputDetail::kDebug);
+	dlio::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()), dle::OutputDetail::kDebug);
 
 
 	// グラフ探索を行う
-	dlio::Output("グラフ木を評価します．", OutputDetail::kDebug);
+	dlio::Output("グラフ木を評価します．", dle::OutputDetail::kDebug);
 
 	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, max_depth_);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{
-		dlio::Output("グラフ木の評価に失敗しました．", OutputDetail::kDebug);
+		dlio::Output("グラフ木の評価に失敗しました．", dle::OutputDetail::kDebug);
 		return search_result;
 	}
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
-	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", OutputDetail::kDebug);
+	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", dle::OutputDetail::kDebug);
 
 	return GraphSearchResult::kSuccess;
 }

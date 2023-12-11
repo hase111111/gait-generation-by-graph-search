@@ -1,4 +1,4 @@
-#include "file_tree.h"
+ï»¿#include "file_tree.h"
 
 #include <filesystem>
 
@@ -6,155 +6,156 @@
 #include "cmdio_util.h"
 
 
-namespace dlio = designlab::cmdio;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
 
 
 void FileTree::DisplayFileTree(const std::string& path, int max_depth) const
 {
 	FileTreeData tree = MakeFileTree(path, max_depth, "", "sim");
 
-    int count = 0;
-    OutputFileTree(tree, 0, true, &count);
+	int count = 0;
+	OutputFileTree(tree, 0, true, &count);
 }
 
 bool FileTree::SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string* output) const
 {
-    assert(output != nullptr);
+	assert(output != nullptr);
 
-    // ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬
-    FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆ
+	FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
 
-    // ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğ•\¦
-    dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’è¡¨ç¤º
+	dlio::OutputHorizontalLine("*", dle::OutputDetail::kSystem);
 
-    int count = 0;
-    OutputFileTree(tree, 0, true, &count);
-    dlio::OutputNewLine(1, OutputDetail::kSystem);
-    dlio::OutputHorizontalLine("*", OutputDetail::kSystem);
-    dlio::OutputNewLine(1, OutputDetail::kSystem);
+	int count = 0;
+	OutputFileTree(tree, 0, true, &count);
+	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	dlio::OutputHorizontalLine("*", dle::OutputDetail::kSystem);
+	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
 
-    // ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
-    std::vector<std::string> file_list = MakeFileList(tree);
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+	std::vector<std::string> file_list = MakeFileList(tree);
 
-    if (file_list.empty())
+	if (file_list.empty())
 	{
-        dlio::Output("ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñ‚Å‚µ‚½D",OutputDetail::kSystem);
+		dlio::Output("ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã§ã—ãŸï¼", dle::OutputDetail::kSystem);
 		return false;
 	}
 
-    while (true)
-    {
-        int select_index = dlio::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢D®”‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢D");
+	while (true)
+	{
+		int select_index = dlio::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„ï¼æ•´æ•°ã§å…¥åŠ›ã—ã¦ãã ã•ã„ï¼");
 
-        dlio::OutputNewLine(1, OutputDetail::kSystem);
-        dlio::Output("‘I‘ğ‚µ‚½ƒtƒ@ƒCƒ‹‚Í" + file_list[select_index] + "‚Å‚·D", OutputDetail::kSystem);
+		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+		dlio::Output("é¸æŠã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯" + file_list[select_index] + "ã§ã™ï¼", dle::OutputDetail::kSystem);
 
-		if (dlio::InputYesNo("‚æ‚ë‚µ‚¢‚Å‚·‚©H"))
+		if (dlio::InputYesNo("ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"))
 		{
 			*output = file_list[select_index];
-            break;
+			break;
 		}
 
-        dlio::OutputNewLine(1, OutputDetail::kSystem);
-    }
+		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	}
 
-    return true;
+	return true;
 }
 
 FileTree::FileTreeData FileTree::MakeFileTree(const std::string& path, int max_depth, const std::string& extension, const std::string keyword) const
 {
-    FileTreeData tree;
+	FileTreeData tree;
 
-    tree.path = path;
+	tree.path = path;
 
-    assert(std::filesystem::exists(tree.path));
+	assert(std::filesystem::exists(tree.path));
 
-    for (const auto& entry : std::filesystem::directory_iterator(path)) 
-    {
-        if (entry.is_directory()) 
-        {
-            // ƒfƒBƒŒƒNƒgƒŠ‚Ìê‡AÄ‹A“I‚Éƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬
-            if (max_depth == 0) 
-            {
-                tree.directory.push_back(FileTreeData{ entry.path().string(), {}, {} });
-            }
-            else
-            {
-                tree.directory.push_back(MakeFileTree(entry.path().string(), max_depth - 1, extension, keyword));
-            }
-        }
-        else if (entry.is_regular_file()) 
-        {
-            // ƒtƒ@ƒCƒ‹‚Ìê‡Aƒtƒ@ƒCƒ‹–¼‚ğ’Ç‰Á
+	for (const auto& entry : std::filesystem::directory_iterator(path))
+	{
+		if (entry.is_directory())
+		{
+			// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å ´åˆã€å†å¸°çš„ã«ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆ
+			if (max_depth == 0)
+			{
+				tree.directory.push_back(FileTreeData{ entry.path().string(), {}, {} });
+			}
+			else
+			{
+				tree.directory.push_back(MakeFileTree(entry.path().string(), max_depth - 1, extension, keyword));
+			}
+		}
+		else if (entry.is_regular_file())
+		{
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆã€ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¿½åŠ 
 
-            if (not extension.empty()) 
-            {
-                if (not (entry.path().extension().string() == extension || entry.path().extension().string() == "." + extension))
-                {
+			if (not extension.empty())
+			{
+				if (not (entry.path().extension().string() == extension || entry.path().extension().string() == "." + extension))
+				{
 					continue;
 				}
-            }
+			}
 
-            if (not keyword.empty()) 
-            {
-                if (entry.path().filename().string().find(keyword) == std::string::npos)
-                {
-                    continue;
-                }
-            }
+			if (not keyword.empty())
+			{
+				if (entry.path().filename().string().find(keyword) == std::string::npos)
+				{
+					continue;
+				}
+			}
 
-            tree.file.push_back(entry.path().filename().string());
-        }
-    }
+			tree.file.push_back(entry.path().filename().string());
+		}
+	}
 
-    return tree;
+	return tree;
 }
 
 void FileTree::OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty, int* file_count) const
 {
-    assert(file_count != nullptr);
+	assert(file_count != nullptr);
 
-    std::string indent = "";
-    for (int i = 0; i < depth; ++i)
-    {
+	std::string indent = "";
+	for (int i = 0; i < depth; ++i)
+	{
 		indent += "| ";
 	}
 
-    // ‹ó ‚©‚Â ‹ó‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğ•\¦‚µ‚È‚¢İ’è ‚Å‚È‚¢‚È‚ç‚Î•\¦‚·‚é
-    if(not (not_display_empty && tree.file.empty() && tree.directory.empty()))
-    {
-        // ƒfƒBƒŒƒNƒgƒŠ–¼‚ğo—Í‚·‚éÛ‚ÉCƒpƒX‚ÌŠK‘w‚ğíœ‚·‚é
+	// ç©º ã‹ã¤ ç©ºã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤ºã—ãªã„è¨­å®š ã§ãªã„ãªã‚‰ã°è¡¨ç¤ºã™ã‚‹
+	if (not (not_display_empty && tree.file.empty() && tree.directory.empty()))
+	{
+		// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã‚’å‡ºåŠ›ã™ã‚‹éš›ã«ï¼Œãƒ‘ã‚¹ã®éšå±¤ã‚’å‰Šé™¤ã™ã‚‹
 
-        dlio::Output(indent, OutputDetail::kSystem);
+		dlio::Output(indent, dle::OutputDetail::kSystem);
 
-        std::string::size_type pos = tree.path.find_last_of("/\\");
-        std::string dir_name = ((depth == 0) ? "" : "- ");
-        dir_name += std::string("[ ") + tree.path.substr(pos + 1) + std::string(" ]");
+		std::string::size_type pos = tree.path.find_last_of("/\\");
+		std::string dir_name = ((depth == 0) ? "" : "- ");
+		dir_name += std::string("[ ") + tree.path.substr(pos + 1) + std::string(" ]");
 
-        dlio::Output(indent + dir_name, OutputDetail::kSystem);
-    }
+		dlio::Output(indent + dir_name, dle::OutputDetail::kSystem);
+	}
 
-    for (const auto& directory : tree.directory)
-    {
+	for (const auto& directory : tree.directory)
+	{
 		OutputFileTree(directory, depth + 1, not_display_empty, file_count);
 	}
 
-    if(not tree.file.empty())
-    {
-        dlio::Output(indent + "|", OutputDetail::kSystem);
+	if (not tree.file.empty())
+	{
+		dlio::Output(indent + "|", dle::OutputDetail::kSystem);
 
-        for (const auto& file : tree.file)
-        {
-            dlio::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", OutputDetail::kSystem);
+		for (const auto& file : tree.file)
+		{
+			dlio::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", dle::OutputDetail::kSystem);
 
-            (*file_count)++;
-        }
-    }
+			(*file_count)++;
+		}
+	}
 }
 
 std::vector<std::string> FileTree::MakeFileList(const FileTreeData& tree) const
 {
-    std::vector<std::string> file_list;
+	std::vector<std::string> file_list;
 
 	for (const auto& directory : tree.directory)
 	{

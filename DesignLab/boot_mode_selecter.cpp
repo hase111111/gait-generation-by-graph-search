@@ -22,7 +22,7 @@ BootModeSelecter::BootModeSelecter() :
 
 dle::BootMode BootModeSelecter::SelectBootMode()
 {
-	const OutputDetail output_detail = OutputDetail::kSystem;	// kSystem にすると、設定にかかわらず必ず表示される
+	const dle::OutputDetail output_detail = dle::OutputDetail::kSystem;	// kSystem にすると、設定にかかわらず必ず表示される
 
 	dlio::Output("起動モードを選択してください", output_detail);
 
@@ -58,7 +58,7 @@ dle::BootMode BootModeSelecter::SelectBootMode()
 	{
 		// 入力が不正な場合はデフォルトのモードを返す
 
-		dlio::Output("入力が不正です。デフォルトのモードを選択します。", OutputDetail::kSystem);
+		dlio::Output("入力が不正です。デフォルトのモードを選択します。", dle::OutputDetail::kSystem);
 
 		return default_mode_;
 	}

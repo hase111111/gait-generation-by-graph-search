@@ -11,6 +11,7 @@
 
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dlio = ::designlab::cmdio;
 namespace dlsu = ::designlab::string_util;
 
@@ -66,8 +67,8 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	if (create_result != GraphSearchResult::kSuccess) { return create_result; }
 
-	dlio::Output("深さ1までグラフ木の生成が終了しました．", OutputDetail::kDebug);
-	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", OutputDetail::kDebug);
+	dlio::Output("深さ1までグラフ木の生成が終了しました．", dle::OutputDetail::kDebug);
+	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
 
 	// 深さ0のノードをarrayにコピーする
 	for (int i = 0; i < kThreadNum; i++)
@@ -92,8 +93,8 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	{
 		if (graph_tree_array_[i].GetGraphSize() > 1)
 		{
-			dlio::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", OutputDetail::kDebug);
-			dlio::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", OutputDetail::kDebug);
+			dlio::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", dle::OutputDetail::kDebug);
+			dlio::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
 
 			thread_group.create_thread(
 				boost::bind(
@@ -109,11 +110,11 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	thread_group.join_all();
 
-	dlio::Output("グラフ木の生成が終了しました．\n", OutputDetail::kDebug);
+	dlio::Output("グラフ木の生成が終了しました．\n", dle::OutputDetail::kDebug);
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		dlio::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", OutputDetail::kDebug);
+		dlio::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
 	}
 
 
@@ -122,16 +123,16 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", dle::OutputDetail::kDebug);
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
 			target,
 			max_depth_
 		);
 
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + dlsu::EnumToStringRemoveTopK(std::get<0>(search_result_array[i])) + "です．", OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", dle::OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + dlsu::EnumToStringRemoveTopK(std::get<0>(search_result_array[i])) + "です．", dle::OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", dle::OutputDetail::kDebug);
 	}
 
 	//各スレッドごとの探索結果を統合する．
@@ -142,11 +143,11 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{
-		dlio::Output("グラフ木の評価に失敗しました．", OutputDetail::kDebug);
+		dlio::Output("グラフ木の評価に失敗しました．", dle::OutputDetail::kDebug);
 		return search_result;
 	}
 
-	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", OutputDetail::kDebug);
+	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", dle::OutputDetail::kDebug);
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
@@ -203,6 +204,6 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 		}
 	}
 
-	dlio::Output("グラフ木の統合が終了しました．", OutputDetail::kDebug);
-	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", OutputDetail::kDebug);
+	dlio::Output("グラフ木の統合が終了しました．", dle::OutputDetail::kDebug);
+	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
 }

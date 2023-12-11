@@ -7,8 +7,8 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 
-
-namespace dlio = designlab::cmdio;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
 namespace fs = std::filesystem;
 
 
@@ -24,7 +24,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 	// ファイルが存在するかどうかを確認．ないならばfalseを返す．
 	if (!fs::exists(file_path))
 	{
-		dlio::Output("NodeListファイルが存在しませんでした．", OutputDetail::kError);
+		dlio::Output("NodeListファイルが存在しませんでした．", dle::OutputDetail::kError);
 		return false;
 	}
 
@@ -34,14 +34,14 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
 	if (!fs::exists(map_file_path))
 	{
-		dlio::Output("MapStateファイルが存在しませんでした．", OutputDetail::kError);
+		dlio::Output("MapStateファイルが存在しませんでした．", dle::OutputDetail::kError);
 		return false;
 	}
 
 
 	if (!ImportNodeList(file_path, node_list) || !ImportMapState(map_file_path, map_state))
 	{
-		dlio::Output("ファイル読み込み中にエラーが発生しました．", OutputDetail::kError);
+		dlio::Output("ファイル読み込み中にエラーが発生しました．", dle::OutputDetail::kError);
 	}
 
 	return true;
@@ -55,7 +55,7 @@ bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_un
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
+		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kSystem);
 
 		return false;
 	}
@@ -98,7 +98,7 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", OutputDetail::kSystem);
+		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kSystem);
 
 		return false;
 	}

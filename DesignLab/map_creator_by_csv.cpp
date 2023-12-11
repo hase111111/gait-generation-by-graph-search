@@ -9,6 +9,7 @@
 #include "map_file_importer.h"
 
 
+namespace dle = ::designlab::enums;
 namespace dlio = ::designlab::cmdio;
 namespace dlsu = ::designlab::string_util;
 
@@ -21,7 +22,7 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path) : map_file_pa
 	if (!is_exist)
 	{
 		dlio::Output("map fileが存在しません．ファイルのパスは" + map_file_path_ + "です．(" +
-			typeid(MapCreatorByCsv).name() + "のコンストラクタ)", OutputDetail::kError);
+			typeid(MapCreatorByCsv).name() + "のコンストラクタ)", dle::OutputDetail::kError);
 
 		assert(false);
 	}

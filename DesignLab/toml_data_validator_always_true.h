@@ -1,5 +1,5 @@
-//! @file toml_data_validator_always_true.h
-//! @brief í‚Étrue‚ğ•Ô‚·ITomlDataValidator‚ÌÀ‘•ƒNƒ‰ƒXD
+ï»¿//! @file toml_data_validator_always_true.h
+//! @brief å¸¸ã«trueã‚’è¿”ã™ITomlDataValidatorã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H
 #define DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H
@@ -12,9 +12,10 @@ template <typename T>
 class TomlDataValidatorAlwaysTrue final : public ITomlDataValidator<T>
 {
 public:
-	std::tuple<bool, std::string> Validate([[maybe_unused]] const T& toml_data) const override 
+
+	std::tuple<bool, std::string> Validate([[maybe_unused]] const T& toml_data) const override
 	{
-		::designlab::cmdio::Output("(Œ»İ‚Ìİ’è‚Å‚ÍŒŸØ‚Ís‚¢‚Ü‚¹‚ñD)", OutputDetail::kSystem);
+		::designlab::cmdio::Output("(ç¾åœ¨ã®è¨­å®šã§ã¯æ¤œè¨¼ã¯è¡Œã„ã¾ã›ã‚“ï¼)", ::designlab::enums::OutputDetail::kSystem);
 		return { true ,"" };
 	}
 

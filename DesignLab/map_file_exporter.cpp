@@ -4,8 +4,8 @@
 
 #include "cmdio_util.h"
 
-
-namespace dlio = designlab::cmdio;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
 
 
 bool MapFileExporter::ExportMap(const std::string& file_path, const MapState& map_state) const noexcept
@@ -16,7 +16,7 @@ bool MapFileExporter::ExportMap(const std::string& file_path, const MapState& ma
 	// ファイルが開けないならばfalseを返す．
 	if (not ofs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", OutputDetail::kError);
+		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kError);
 
 		return false;
 	}

@@ -8,15 +8,19 @@
 
 
 //! @class BootModeSelecter
-//! @brief 起動モードを選択するクラス
+//! @brief 起動モードを選択するクラス．
 class BootModeSelecter final
 {
 public:
 
 	BootModeSelecter();
 
-	//! @brief デフォルトの起動モードを設定する
-	constexpr void SetDefaultBootMode(const ::designlab::enums::BootMode default_mode) { default_mode_ = default_mode; };
+	//! @brief デフォルトの起動モードを設定する．
+	//! @param[in] default_mode デフォルトの起動モード．
+	constexpr void SetDefaultBootMode(const ::designlab::enums::BootMode default_mode)
+	{
+		default_mode_ = default_mode;
+	};
 
 	//! @brief 起動モードを選択する
 	//! @n BootModeがint型をもとにしているかつ，0から始まることを前提にしているので，うまく動作しない場合は

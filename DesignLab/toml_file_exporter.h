@@ -35,7 +35,7 @@ public:
 		// ファイルが開けなかったら何もしない
 		if (!ofs)
 		{
-			::designlab::cmdio::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path, OutputDetail::kSystem);
+			::designlab::cmdio::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path, ::designlab::enums::OutputDetail::kSystem);
 			return;
 		}
 
@@ -43,7 +43,7 @@ public:
 
 		ofs.close();	// ファイルを閉じる
 
-		::designlab::cmdio::Output("TOMLファイルを出力しました．file_path : " + file_path, OutputDetail::kSystem);
+		::designlab::cmdio::Output("TOMLファイルを出力しました．file_path : " + file_path, ::designlab::enums::OutputDetail::kSystem);
 	}
 };
 

@@ -1,4 +1,4 @@
-#include "cmdio_util.h"
+ï»¿#include "cmdio_util.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -10,23 +10,25 @@
 #include "cassert_define.h"
 
 
+namespace dle = ::designlab::enums;
+
 namespace
 {
-	// ‚±‚Ì‚æ‚¤‚È–¼‘O‚Ì‚È‚¢–¼‘O‹óŠÔ‚ğ“½–¼–¼‘O‹óŠÔ‚Æ‚¢‚¤
+	// ã“ã®ã‚ˆã†ãªåå‰ã®ãªã„åå‰ç©ºé–“ã‚’åŒ¿ååå‰ç©ºé–“ã¨ã„ã†
 
-	// “½–¼–¼‘O‹óŠÔ‚É‚¢‚ê‚½’l‚ÍC‚±‚Ìƒtƒ@ƒCƒ‹‚©‚ç‚Ì‚İƒAƒNƒZƒX‰Â”\‚ÈƒOƒ[ƒoƒ‹•Ï”‚Æ‚È‚é
-	// ƒAƒNƒZƒX‚·‚éê‡‚Í :: ‚ğæ“ª‚É‚Â‚¯‚é
+	// åŒ¿ååå‰ç©ºé–“ã«ã„ã‚ŒãŸå€¤ã¯ï¼Œã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã®ã¿ã‚¢ã‚¯ã‚»ã‚¹å¯èƒ½ãªã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã¨ãªã‚‹
+	// ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹å ´åˆã¯ :: ã‚’å…ˆé ­ã«ã¤ã‘ã‚‹
 
-	// (‚±‚±‚Ü‚Å‚·‚é‚È‚çƒNƒ‰ƒX‚É‚µ‚Æ‚«‚á‚æ‚©‚Á‚½‚©‚à)
+	// (ã“ã“ã¾ã§ã™ã‚‹ãªã‚‰ã‚¯ãƒ©ã‚¹ã«ã—ã¨ãã‚ƒã‚ˆã‹ã£ãŸã‹ã‚‚)
 
 
-	// o—Í§ŒÀC‚±‚Ì’l–¢–‚ÌƒƒbƒZ[ƒW‚Ìo—Í‚Ís‚í‚ê‚È‚¢
-	OutputDetail output_limit = OutputDetail::kSystem;
+	// å‡ºåŠ›åˆ¶é™ï¼Œã“ã®å€¤æœªæº€ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å‡ºåŠ›ã¯è¡Œã‚ã‚Œãªã„
+	dle::OutputDetail output_limit = dle::OutputDetail::kSystem;
 
-	// false‚Ìê‡Co—Í‚ğs‚í‚È‚¢(ƒVƒXƒeƒ€ƒƒbƒZ[ƒW‚Íœ‚­)
+	// falseã®å ´åˆï¼Œå‡ºåŠ›ã‚’è¡Œã‚ãªã„(ã‚·ã‚¹ãƒ†ãƒ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯é™¤ã)
 	bool do_output = true;
 
-	// ‰Šú‰»‚ğŠù‚És‚Á‚½‚©‚Ç‚¤‚©
+	// åˆæœŸåŒ–ã‚’æ—¢ã«è¡Œã£ãŸã‹ã©ã†ã‹
 	bool is_initialized = false;
 }
 
@@ -35,13 +37,13 @@ namespace designlab
 {
 	namespace cmdio
 	{
-		void SetOutputLimit(const OutputDetail limit)
+		void SetOutputLimit(const dle::OutputDetail limit)
 		{
 			::output_limit = limit;
 
-			if (!::is_initialized) 
+			if (!::is_initialized)
 			{
-				//‚±‚ê‚ğ‹Lq‚µ‚Ä‚¨‚­‚ÆÀs‘¬“x‚ª‘‚­‚È‚éD‚»‚Ì‚©‚í‚èprintf‚ğg—p‚Å‚«‚È‚¢DÚ‚µ‚ÍReference‚ğQÆ
+				//ã“ã‚Œã‚’è¨˜è¿°ã—ã¦ãŠãã¨å®Ÿè¡Œé€Ÿåº¦ãŒæ—©ããªã‚‹ï¼ãã®ã‹ã‚ã‚Šprintfã‚’ä½¿ç”¨ã§ããªã„ï¼è©³ã—ã¯Referenceã‚’å‚ç…§
 				std::cin.tie(&std::cout);
 				std::ios_base::sync_with_stdio(true);
 
@@ -55,23 +57,23 @@ namespace designlab
 		}
 
 
-		void Output(const std::string& str, const OutputDetail detail)
+		void Output(const std::string& str, const dle::OutputDetail detail)
 		{
-			assert(is_initialized);	// SetOutputLimit‚ğŒÄ‚ñ‚Å‚©‚çg—p‚·‚é‚±‚Æ.
+			assert(is_initialized);	// SetOutputLimitã‚’å‘¼ã‚“ã§ã‹ã‚‰ä½¿ç”¨ã™ã‚‹ã“ã¨.
 
 
-			// o—Í‚ğ‹–‰Â‚µ‚Ä‚¢‚é@‚©‚Â@o—Í‚·‚é•¶š—ñ‚ÌÚ×‚ªİ’èƒtƒ@ƒCƒ‹‚Å‹–‰Â‚³‚ê‚Ä‚¢‚éê‡@‚Ü‚½‚Í
-			// o—Í‚ğ‹–‰Â‚µ‚Ä‚¢‚È‚¢@‚©‚Â@o—Í‚·‚é•¶š—ñ‚ÌÚ×‚ªƒVƒXƒeƒ€ƒƒbƒZ[ƒW‚Ìê‡
+			// å‡ºåŠ›ã‚’è¨±å¯ã—ã¦ã„ã‚‹ã€€ã‹ã¤ã€€å‡ºåŠ›ã™ã‚‹æ–‡å­—åˆ—ã®è©³ç´°ãŒè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã§è¨±å¯ã•ã‚Œã¦ã„ã‚‹å ´åˆã€€ã¾ãŸã¯
+			// å‡ºåŠ›ã‚’è¨±å¯ã—ã¦ã„ãªã„ã€€ã‹ã¤ã€€å‡ºåŠ›ã™ã‚‹æ–‡å­—åˆ—ã®è©³ç´°ãŒã‚·ã‚¹ãƒ†ãƒ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å ´åˆ
 
-			if ((detail <= ::output_limit && do_output) || (detail == OutputDetail::kSystem && !do_output))
+			if ((detail <= ::output_limit && do_output) || (detail == dle::OutputDetail::kSystem && !do_output))
 			{
 				std::cout << str << std::endl;
 			}
 		}
 
-		void OutputCenter(const std::string& str, const OutputDetail detail)
+		void OutputCenter(const std::string& str, const dle::OutputDetail detail)
 		{
-			//‰üs‚²‚Æ‚É•¶š—ñ‚ğæ‚èo‚·
+			//æ”¹è¡Œã”ã¨ã«æ–‡å­—åˆ—ã‚’å–ã‚Šå‡ºã™
 			std::stringstream ss(str);
 			std::string line;
 
@@ -96,9 +98,9 @@ namespace designlab
 			}
 		}
 
-		void OutputRight(const std::string& str, const OutputDetail detail)
+		void OutputRight(const std::string& str, const dle::OutputDetail detail)
 		{
-			//‰üs‚²‚Æ‚É•¶š—ñ‚ğæ‚èo‚·
+			//æ”¹è¡Œã”ã¨ã«æ–‡å­—åˆ—ã‚’å–ã‚Šå‡ºã™
 			std::stringstream ss(str);
 			std::string line;
 
@@ -124,7 +126,7 @@ namespace designlab
 		}
 
 
-		void OutputNewLine(const int num, const OutputDetail detail)
+		void OutputNewLine(const int num, const dle::OutputDetail detail)
 		{
 			if (num <= 0) { return; }
 
@@ -134,7 +136,7 @@ namespace designlab
 			}
 		}
 
-		void OutputHorizontalLine(const std::string& line_visual, const OutputDetail detail)
+		void OutputHorizontalLine(const std::string& line_visual, const dle::OutputDetail detail)
 		{
 			if (line_visual.size() != 1) { return; }
 
@@ -150,7 +152,7 @@ namespace designlab
 
 		void OutputTitle(const std::string& title_name, bool output_copy_right)
 		{
-			OutputDetail detail = OutputDetail::kSystem;
+			dle::OutputDetail detail = dle::OutputDetail::kSystem;
 
 			OutputNewLine(1, detail);
 			OutputHorizontalLine("=", detail);
@@ -158,9 +160,9 @@ namespace designlab
 			OutputCenter(title_name, detail);
 			OutputNewLine(1, detail);
 
-			if (output_copy_right) 
+			if (output_copy_right)
 			{
-				OutputRight("Coprright 2015 - 2023 é‹Ê‘åŠw İŒvHŠwŒ¤‹†º  ", detail);
+				OutputRight("Coprright 2015 - 2023 åŸ¼ç‰å¤§å­¦ è¨­è¨ˆå·¥å­¦ç ”ç©¶å®¤  ", detail);
 				OutputNewLine(1, detail);
 			}
 
@@ -171,17 +173,17 @@ namespace designlab
 
 		void WaitAnyKey(const std::string& str)
 		{
-			Output(str, OutputDetail::kSystem);
+			Output(str, dle::OutputDetail::kSystem);
 
-			//‰½‚©ƒL[‚ğ‰Ÿ‚·‚Ü‚Å‘Ò‹@
+			//ä½•ã‹ã‚­ãƒ¼ã‚’æŠ¼ã™ã¾ã§å¾…æ©Ÿ
 			system("PAUSE");
 		}
 
 		int InputInt(const int min, const int max, const int default_num, const std::string& str)
 		{
-			assert(min <= max);	// min‚Ímax‚æ‚è¬‚³‚¢D
+			assert(min <= max);	// minã¯maxã‚ˆã‚Šå°ã•ã„ï¼
 
-			Output(str + " (" + std::to_string(min) + " ` " + std::to_string(max) + ") : ", OutputDetail::kSystem);
+			Output(str + " (" + std::to_string(min) + " ï½ " + std::to_string(max) + ") : ", dle::OutputDetail::kSystem);
 
 			std::string input_str;
 			std::cout << std::flush;
@@ -191,13 +193,13 @@ namespace designlab
 
 			try
 			{
-				res = std::stoi(input_str);	// “ü—Í‚³‚ê‚½•¶š—ñ‚ğintŒ^‚É•ÏŠ·
+				res = std::stoi(input_str);	// å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’intå‹ã«å¤‰æ›
 
 				if (res < min || res > max)
 				{
 					Output(
-						"“ü—Í‚³‚ê‚½’lu" + input_str + "v‚Í”ÍˆÍŠO‚Å‚·DƒfƒtƒHƒ‹ƒg‚Ì’lCu" + std::to_string(default_num) + "v‚ğg—p‚µ‚Ü‚·D",
-						OutputDetail::kSystem
+						"å…¥åŠ›ã•ã‚ŒãŸå€¤ã€Œ" + input_str + "ã€ã¯ç¯„å›²å¤–ã§ã™ï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å€¤ï¼Œã€Œ" + std::to_string(default_num) + "ã€ã‚’ä½¿ç”¨ã—ã¾ã™ï¼",
+						dle::OutputDetail::kSystem
 					);
 
 					res = default_num;
@@ -205,11 +207,11 @@ namespace designlab
 			}
 			catch (...)
 			{
-				// stoi‚Å—áŠO‚ª”­¶‚µ‚½ê‡C‚±‚±‚Éˆ—‚ª”ò‚Ô
+				// stoiã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆï¼Œã“ã“ã«å‡¦ç†ãŒé£›ã¶
 
 				Output(
-					"“ü—Í‚³‚ê‚½’lu" + input_str + "v‚Í•]‰¿‚Å‚«‚Ü‚¹‚ñDƒfƒtƒHƒ‹ƒg‚Ì’lCu" + std::to_string(default_num) + "v‚ğg—p‚µ‚Ü‚·D", 
-					OutputDetail::kSystem
+					"å…¥åŠ›ã•ã‚ŒãŸå€¤ã€Œ" + input_str + "ã€ã¯è©•ä¾¡ã§ãã¾ã›ã‚“ï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å€¤ï¼Œã€Œ" + std::to_string(default_num) + "ã€ã‚’ä½¿ç”¨ã—ã¾ã™ï¼",
+					dle::OutputDetail::kSystem
 				);
 
 				res = default_num;
@@ -220,7 +222,7 @@ namespace designlab
 
 		bool InputYesNo(const std::string& str)
 		{
-			Output(str + " ( y / n ) ", OutputDetail::kSystem);
+			Output(str + " ( y / n ) ", dle::OutputDetail::kSystem);
 
 			while (true)
 			{
@@ -238,7 +240,7 @@ namespace designlab
 					return false;
 				}
 
-				Output("“ü—Í‚³‚ê‚½’lu" + input_str + "v‚Í•]‰¿‚Å‚«‚Ü‚¹‚ñDy / n‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢D", OutputDetail::kSystem);
+				Output("å…¥åŠ›ã•ã‚ŒãŸå€¤ã€Œ" + input_str + "ã€ã¯è©•ä¾¡ã§ãã¾ã›ã‚“ï¼y / nã§å…¥åŠ›ã—ã¦ãã ã•ã„ï¼", dle::OutputDetail::kSystem);
 			}
 
 		}
