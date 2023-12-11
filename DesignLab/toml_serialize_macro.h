@@ -74,8 +74,7 @@ namespace designlab
 
 
 		//! @brief tomlファイルに値を追加するための関数．
-		//! @n enumに関して特殊化されており，enum型の値を文字列に変換してから追加する．
-		//! @n また，Vector3に関して特殊化されており，Vector3の値を文字列に変換してから追加する．
+		//! @n enum 型と vector3 型と euler_xyz 型以外の型に対応している．
 		//! @param v tomlファイルのデータ．
 		//! @param str 追加する変数の名前．
 		//! @param value 追加する値．
@@ -86,6 +85,11 @@ namespace designlab
 			v[str] = value;
 		}
 
+		//! @brief tomlファイルに値を追加するための関数．
+		//! @n enum 型に対応している．値をmagic_enumで文字列に変換してから追加する．
+		//! @param v tomlファイルのデータ．
+		//! @param str 追加する変数の名前．
+		//! @param value 追加する値．
 		template <typename T>
 		typename std::enable_if<std::is_enum<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
@@ -93,6 +97,11 @@ namespace designlab
 			v[str] = static_cast<std::string>(magic_enum::enum_name(value));
 		}
 
+		//! @brief tomlファイルに値を追加するための関数．
+		//! @n vector3 型と euler_xyz 型に対応している．値をストリームを用いて文字列に変換してから追加する．
+		//! @param v tomlファイルのデータ．
+		//! @param str 追加する変数の名前．
+		//! @param value 追加する値．
 		template <typename T>
 		typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
@@ -106,7 +115,6 @@ namespace designlab
 		template <typename T, typename Enable = void>
 		struct GetTomlValueImpl;
 
-		//! @struct GetTomlValueImpl
 		//! @brief tomlファイルから値を取得するための関数を特殊化するために暗黙的に呼ばれる構造体．
 		//! @tparam T はenum型かvector3型ではない型．
 		//! @details 型の条件によって，Get関数を特殊化する．
@@ -120,13 +128,17 @@ namespace designlab
 			}
 		};
 
-		//! @struct GetTomlValueImpl
-		//! @brief プライマリ テンプレートの特殊化: enum 型
+		//! @brief プライマリ テンプレートの特殊化 : enum 型
 		//! @tparam T はenum型．
-		//! @details enum型の値を文字列に変換してから取得する．
+		//! @details enum型の値をmagic_enumで文字列に変換してから取得する．
 		template <typename T>
 		struct GetTomlValueImpl<T, typename std::enable_if<std::is_enum<T>::value>::type>
 		{
+			//! @brief tomlファイルから値を取得するための関数．
+			//! @details enum型の値をmagic_enumで文字列に変換してから取得する．
+			//! @param [in] v tomlファイルのデータ．
+			//! @param [in] var_str 取得する変数の名前．
+			//! @return T 取得した値．
 			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 			{
 				std::string str = toml::find<std::string>(v, var_str);
@@ -134,13 +146,17 @@ namespace designlab
 			}
 		};
 
-		//! @struct GetTomlValueImpl
-		//! @brief プライマリ テンプレートの特殊化: is_vector3 型
-		//! @tparam T はvector3型．
-		//! @details vector3型の値を文字列に変換してから取得する．
+		//! @brief プライマリ テンプレートの特殊化 : is_vector3 型と is_euler_xyz 型
+		//! @tparam T が Vector3 型の場合と EulerXYZ 型の場合にこの特殊化が呼ばれる．
+		//! @details 値をストリームを用いて文字列に変換してから取得する．
 		template <typename T>
 		struct GetTomlValueImpl<T, typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type>
 		{
+			//! @brief tomlファイルから値を取得するための関数．
+			//! @details enum型の値をmagic_enumで文字列に変換してから取得する．
+			//! @param [in] v tomlファイルのデータ．
+			//! @param [in] var_str 取得する変数の名前．
+			//! @return T 取得した値．
 			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 			{
 				std::string str = toml::find<std::string>(v, var_str);
@@ -152,7 +168,11 @@ namespace designlab
 			}
 		};
 
-		//! @brief ユーザーが直接呼ぶ関数．GetTomlValueImplを利用してテンプレートの型を解決し，それに応じたGet関数を呼び出す．
+		//! @brief ユーザーが直接呼ぶ関数．GetTomlValueImpl を利用してテンプレートの型を解決し，それに応じたGet関数を呼び出す．
+		//! @tparam T 取得する値の型．
+		//! @param [in] v tomlファイルのデータ．
+		//! @param [in] var_str 取得する変数の名前．
+		//! @return T 取得した値．
 		template <typename T>
 		T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 		{
