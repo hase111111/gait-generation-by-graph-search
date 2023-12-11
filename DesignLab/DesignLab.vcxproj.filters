@@ -519,9 +519,6 @@
     <ClInclude Include="simulation_setting_record.h">
       <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_setting_importer.h">
-      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
-    </ClInclude>
     <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
@@ -557,9 +554,6 @@
     </ClInclude>
     <ClInclude Include="target_updater_for_gpg.h">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_setting_exporter.h">
-      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_importer.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
@@ -836,9 +830,6 @@
     <ClCompile Include="map_creator_for_simulation.cpp">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_setting_importer.cpp">
-      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
-    </ClCompile>
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
@@ -865,9 +856,6 @@
     </ClCompile>
     <ClCompile Include="target_updater_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
-    </ClCompile>
-    <ClCompile Include="simulation_setting_exporter.cpp">
-      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
     </ClCompile>
     <ClCompile Include="toml_file_setupper.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
