@@ -9,7 +9,7 @@
 #include "graph_search_result_recoder.h"
 #include "map_state.h"
 #include "robot_state_node.h"
-#include "target_robot_state.h"
+#include "robot_operation.h"
 
 
 //! @class IGaitPatternGenerator
@@ -30,13 +30,13 @@ public:
 	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
 	//! @param [in] current_node 現在のロボットの状態を表すノード．親ノードを渡す必要がある．
 	//! @param [in] map 現在のマップの状態．
-	//!	@param [in] target 目標．
+	//!	@param [in] operation 目標．
 	//! @param [out] output_node 結果のノード．
 	//! @return GraphSearchResult グラフ探索の結果を返す．成功か失敗か．
 	virtual GraphSearchResult GetNextNodebyGraphSearch(
-		const RobotStateNode& current_node, 
-		const MapState& map, 
-		const TargetRobotState& target, 
+		const RobotStateNode& current_node,
+		const MapState& map,
+		const RobotOperation& operation,
 		RobotStateNode* output_node
 	) = 0;
 };

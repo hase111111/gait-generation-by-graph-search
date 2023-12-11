@@ -149,7 +149,7 @@
     <ClInclude Include="stability_margin_renderer.h" />
     <ClInclude Include="system_main_simulation.h" />
     <ClInclude Include="system_main_graph_viewer.h" />
-    <ClInclude Include="target_robot_state.h" />
+    <ClInclude Include="robot_operation.h" />
     <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator_for_simulation.h" />
     <ClInclude Include="designlab_vector3.h" />

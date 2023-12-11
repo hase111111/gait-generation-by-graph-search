@@ -40,7 +40,7 @@ GaitPatternGeneratorThread::GaitPatternGeneratorThread(
 GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	const RobotStateNode& current_node,
 	const MapState& map_state,
-	const TargetRobotState& target,
+	const RobotOperation& operation,
 	RobotStateNode* output_node
 )
 {
@@ -126,7 +126,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", dle::OutputDetail::kDebug);
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
-			target,
+			operation,
 			max_depth_
 		);
 
@@ -139,7 +139,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	AppendGraphTree(search_result_array);
 
 	//統合されたグラフを，再び探索する．
-	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, target, max_depth_);
+	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
 
 	if (search_result != GraphSearchResult::kSuccess)
 	{

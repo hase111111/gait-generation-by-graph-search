@@ -247,12 +247,12 @@ TargetUpdaterForGpg::TargetUpdaterForGpg() : global_route_{
 {
 }
 
-TargetRobotState TargetUpdaterForGpg::Init() const
+RobotOperation TargetUpdaterForGpg::Init() const
 {
-	return TargetRobotState();
+	return RobotOperation();
 }
 
-TargetRobotState TargetUpdaterForGpg::Update(const RobotStateNode& node) const
+RobotOperation TargetUpdaterForGpg::Update(const RobotStateNode& node) const
 {
 	//まず，現在の重心位置から最も近い点を探す
 	int most_near_index = 0;
@@ -280,13 +280,13 @@ TargetRobotState TargetUpdaterForGpg::Update(const RobotStateNode& node) const
 
 	if (abs(rot_dif) > kAllowableAngleError)
 	{
-		TargetRobotState target_robot_state;
-		target_robot_state.target_mode = dle::TargetMode::kSpotTurnLastPosture;
-		target_robot_state.spot_turn_last_posture_ = dl::Quaternion::MakeByAngleAxis(target_angle, dl::Vector3::GetUpVec());
+		RobotOperation operation;
+		operation.operation_type = dle::RobotOperationType::kSpotTurnLastPosture;
+		operation.spot_turn_last_posture_ = dl::Quaternion::MakeByAngleAxis(target_angle, dl::Vector3::GetUpVec());
 
-		std::cout << "target_quat : " << target_robot_state.spot_turn_last_posture_;
+		std::cout << "target_quat : " << operation.spot_turn_last_posture_;
 		std::cout << "/ now_quat : " << node.quat << std::endl;
-		return target_robot_state;
+		return operation;
 	}
 
 	const int loop_num = 10;
@@ -301,9 +301,9 @@ TargetRobotState TargetUpdaterForGpg::Update(const RobotStateNode& node) const
 
 	std::cout << "target_vector: " << target_vector << "/ normalized" << target_vector.GetNormalized() << std::endl;
 
-	TargetRobotState target_robot_state;
-	target_robot_state.target_mode = dle::TargetMode::kStraightMoveVector;
-	target_robot_state.straight_move_vector_ = (dl::Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
+	RobotOperation operation;
+	operation.operation_type = dle::RobotOperationType::kStraightMoveVector;
+	operation.straight_move_vector_ = (dl::Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
 
-	return target_robot_state;
+	return operation;
 }

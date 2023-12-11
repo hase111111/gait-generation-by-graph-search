@@ -163,7 +163,6 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 	RobotStateNode parent_node = parent;
 	parent_node.ChangeLootNode();
 
-	TargetRobotState target;
 	RobotStateNode fake_result_node;
 
 	DevideMapState devide_map;

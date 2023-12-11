@@ -18,25 +18,25 @@ GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
 GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 	const RobotStateNode& current_node,
 	const MapState& map,
-	const TargetRobotState& target,
+	const RobotOperation& operation,
 	RobotStateNode* output_node
 )
 {
-	if (target.target_mode == dle::TargetMode::kStraightMoveVector || target.target_mode == dle::TargetMode::kStraightMovePosition)
+	if (operation.operation_type == dle::RobotOperationType::kStraightMoveVector || operation.operation_type == dle::RobotOperationType::kStraightMovePosition)
 	{
 		return gait_pattern_generator_for_straigt_ptr_->GetNextNodebyGraphSearch(
 			current_node,
 			map,
-			target,
+			operation,
 			output_node
 		);
 	}
-	else if (target.target_mode == dle::TargetMode::kSpotTurnRotAxis || target.target_mode == dle::TargetMode::kSpotTurnLastPosture)
+	else if (operation.operation_type == dle::RobotOperationType::kSpotTurnRotAxis || operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture)
 	{
 		return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodebyGraphSearch(
 			current_node,
 			map,
-			target,
+			operation,
 			output_node
 		);
 	}

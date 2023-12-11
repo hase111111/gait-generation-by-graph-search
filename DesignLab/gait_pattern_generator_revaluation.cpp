@@ -21,11 +21,16 @@ GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
 	assert(gait_pattern_generator_revaluation_ptr_ != nullptr);	// gait_pattern_generator_revaluation_ptr_はnullptrでない
 }
 
-GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodebyGraphSearch(const RobotStateNode& current_node, const MapState& map_state, const TargetRobotState& target, RobotStateNode* output_node)
+GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodebyGraphSearch(
+	const RobotStateNode& current_node,
+	const MapState& map_state,
+	const RobotOperation& operation,
+	RobotStateNode* output_node
+)
 {
 	assert(output_node != nullptr);	// output_nodeはnullptrでない
 
-	const GraphSearchResult result = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state, target, output_node);
+	const GraphSearchResult result = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state, operation, output_node);
 
 	if (result != GraphSearchResult::kSuccess)
 	{

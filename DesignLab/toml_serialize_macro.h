@@ -12,11 +12,14 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <sstream>
 #include <vector>
 
 #include <magic_enum.hpp>
 #include <strconv2.h>
 
+#include "designlab_euler.h"
+#include "designlab_vector3.h"
 #include "toml11_define.h"
 
 
@@ -49,13 +52,35 @@ namespace designlab
 		std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_vec);
 
 
+		//! @struct is_vector3
+		//! @brief Tがvector3型か調べるメタ関数．
+		//! @details vector3型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
+		//! @tparam T 調べる型．
+		template <typename T>
+		struct is_vector3 : std::false_type {};
+
+		template <>
+		struct is_vector3<::designlab::Vector3> : std::true_type {};
+
+		//! @struct is_euler_xyz
+		//! @brief Tがeuler_xyz型か調べるメタ関数．
+		//! @details euler_xyz型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
+		//! @tparam T 調べる型．
+		template <typename T>
+		struct is_euler_xyz : std::false_type {};
+
+		template <>
+		struct is_euler_xyz<::designlab::EulerXYZ> : std::true_type {};
+
+
 		//! @brief tomlファイルに値を追加するための関数．
 		//! @n enumに関して特殊化されており，enum型の値を文字列に変換してから追加する．
+		//! @n また，Vector3に関して特殊化されており，Vector3の値を文字列に変換してから追加する．
 		//! @param v tomlファイルのデータ．
 		//! @param str 追加する変数の名前．
 		//! @param value 追加する値．
 		template <typename T>
-		typename std::enable_if<!std::is_enum<T>::value>::type
+		typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 		{
 			v[str] = value;
@@ -68,6 +93,72 @@ namespace designlab
 			v[str] = static_cast<std::string>(magic_enum::enum_name(value));
 		}
 
+		template <typename T>
+		typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type
+			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
+		{
+			std::stringstream ss;
+			ss << value;
+			v[str] = ss.str();
+		}
+
+		// プライマリ テンプレート
+		template <typename T, typename Enable = void>
+		struct GetTomlValueImpl;
+
+		//! @struct GetTomlValueImpl
+		//! @brief tomlファイルから値を取得するための関数を特殊化するために暗黙的に呼ばれる構造体．
+		//! @tparam T はenum型かvector3型ではない型．
+		//! @details 型の条件によって，Get関数を特殊化する．
+		//! @see GetTomlValue
+		template <typename T>
+		struct GetTomlValueImpl<T, typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value>::type>
+		{
+			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
+			{
+				return toml::find<T>(v, var_str);
+			}
+		};
+
+		//! @struct GetTomlValueImpl
+		//! @brief プライマリ テンプレートの特殊化: enum 型
+		//! @tparam T はenum型．
+		//! @details enum型の値を文字列に変換してから取得する．
+		template <typename T>
+		struct GetTomlValueImpl<T, typename std::enable_if<std::is_enum<T>::value>::type>
+		{
+			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
+			{
+				std::string str = toml::find<std::string>(v, var_str);
+				return magic_enum::enum_cast<T>(str).value();
+			}
+		};
+
+		//! @struct GetTomlValueImpl
+		//! @brief プライマリ テンプレートの特殊化: is_vector3 型
+		//! @tparam T はvector3型．
+		//! @details vector3型の値を文字列に変換してから取得する．
+		template <typename T>
+		struct GetTomlValueImpl<T, typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type>
+		{
+			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
+			{
+				std::string str = toml::find<std::string>(v, var_str);
+				std::stringstream ss;
+				ss << str;
+				T temp;
+				ss >> temp;
+				return temp;
+			}
+		};
+
+		//! @brief ユーザーが直接呼ぶ関数．GetTomlValueImplを利用してテンプレートの型を解決し，それに応じたGet関数を呼び出す．
+		template <typename T>
+		T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
+		{
+			return GetTomlValueImpl<T>::Get(v, var_str);
+		}
+
 	} // namespace toml_func
 
 } // namespace designlab
@@ -77,35 +168,20 @@ namespace designlab
 //! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
 //! @n tomlファイルからクラスのメンバ変数を取得する．
 //! @param VAR_NAME 変数名．
-#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)                               \
-if constexpr (std::is_enum<decltype(obj.VAR_NAME)>::value)                                          \
-{                                                                                                   \
-    const std::string table_str = desc.VAR_NAME.table_name;                                         \
-                                                                                                    \
-    if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
-    {                                                                                               \
-        std::string str = toml::find<std::string>(v, TOML11_STRINGIZE(VAR_NAME));                   \
-        obj.VAR_NAME = magic_enum::enum_cast<decltype(obj.VAR_NAME)>(str).value();                  \
-    }                                                                                               \
-	else                                                                                            \
-	{                                                                                               \
-		std::string str = toml::find<std::string>(v[table_str], TOML11_STRINGIZE(VAR_NAME));        \
-		obj.VAR_NAME = magic_enum::enum_cast<decltype(obj.VAR_NAME)>(str).value();                  \
-	}                                                                                               \
-}                                                                                                   \
-else                                                                                                \
-{                                                                                                   \
-    const std::string table_str = desc.VAR_NAME.table_name;                                         \
-																								    \
-	if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)                            \
-    {																						        \
-        obj.VAR_NAME = toml::find<decltype(obj.VAR_NAME)>(v, TOML11_STRINGIZE(VAR_NAME));           \
-	}                                                                                               \
-	else                                                                                            \
-	{                                                                                               \
-		obj.VAR_NAME = toml::find<decltype(obj.VAR_NAME)>(v[table_str], TOML11_STRINGIZE(VAR_NAME));\
-	}                                                                                               \
+#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)															\
+{																																\
+	const std::string table_str = desc.VAR_NAME.table_name;																		\
+																																\
+	if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)														\
+	{																															\
+		obj.VAR_NAME = ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(v_, TOML11_STRINGIZE(VAR_NAME));			\
+	}																															\
+	else																														\
+	{																															\
+		obj.VAR_NAME = ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(v_[table_str], TOML11_STRINGIZE(VAR_NAME));	\
+	}																															\
 }
+
 
 
 //! @def DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE
@@ -266,6 +342,7 @@ struct from<NAME>																					\
              template<typename ...> class A>														\
     static NAME from_toml(basic_value<C, T, A>& v)													\
     {																								\
+        ::toml::basic_value<toml::preserve_comments, std::map> v_ = v;								\
         NAME obj;																					\
         NAME##Description desc;																		\
         TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)	\

@@ -17,15 +17,15 @@ public:
 
 	//! @brief コンストラクタで指定したターゲットを常に返す．
 	//! @param[in] target ターゲット.
-	TargetUpdaterOnce(const TargetRobotState& target);
+	TargetUpdaterOnce(const RobotOperation& target);
 
-	TargetRobotState Init() const override;
+	RobotOperation Init() const override;
 
-	TargetRobotState Update(const RobotStateNode& state) const override;
+	RobotOperation Update(const RobotStateNode& state) const override;
 
 private:
 
-	const TargetRobotState target_;
+	const RobotOperation operation_;
 };
 
 

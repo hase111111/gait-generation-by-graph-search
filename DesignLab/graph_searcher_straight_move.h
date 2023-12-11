@@ -16,14 +16,14 @@ public:
 
 	GraphSearcherStraightMove(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
 
-	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const TargetRobotState& target, int max_depth) const override;
+	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const RobotOperation& operation, int max_depth) const override;
 
 private:
 
 	static constexpr float kMarginOfMove = 10;
 
 	//! @brief 前進するための評価値を計算する
-	float CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
+	float CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const;
 
 	//! @brief 脚の平均回転量の評価値を計算する
 	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const;

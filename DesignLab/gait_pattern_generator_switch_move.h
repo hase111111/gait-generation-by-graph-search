@@ -34,7 +34,7 @@ public:
 	GraphSearchResult GetNextNodebyGraphSearch(
 		const RobotStateNode& current_node,
 		const MapState& map,
-		const TargetRobotState& target,
+		const RobotOperation& operation,
 		RobotStateNode* output_node
 	) override;
 

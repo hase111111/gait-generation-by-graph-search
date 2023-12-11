@@ -11,11 +11,11 @@ namespace dllf = ::designlab::leg_func;
 
 std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const GaitPatternGraphTree& graph_tree,
-	const TargetRobotState& target,
+	const RobotOperation& operation,
 	const int max_depth
 ) const
 {
-	assert(target.target_mode == dle::TargetMode::kSpotTurnLastPosture || target.target_mode == dle::TargetMode::kSpotTurnRotAxis);
+	assert(operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture || operation.operation_type == dle::RobotOperationType::kSpotTurnRotAxis);
 
 	if (!graph_tree.HasRoot())
 	{
@@ -41,13 +41,13 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 			if (result_index < 0)
 			{
 				result_index = static_cast<int>(i);
-				max_turn_angle = CalcTurnEvaluationValue(graph_tree.GetNode(i), target);
+				max_turn_angle = CalcTurnEvaluationValue(graph_tree.GetNode(i), operation);
 				max_leg_rot_angle = CalcLegRotEvaluationValue(graph_tree.GetNode(i), graph_tree.GetRootNode());
 				min_com_z_dif = abs(graph_tree.GetNode(i).global_center_of_mass.z - graph_tree.GetRootNode().global_center_of_mass.z);
 				continue;
 			}
 
-			const float candiate_rot_angle = CalcTurnEvaluationValue(graph_tree.GetNode(i), target);
+			const float candiate_rot_angle = CalcTurnEvaluationValue(graph_tree.GetNode(i), operation);
 			const float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph_tree.GetNode(i), graph_tree.GetRootNode());
 			const float candiate_leg_dif = abs(graph_tree.GetNode(i).global_center_of_mass.z - graph_tree.GetRootNode().global_center_of_mass.z);
 
@@ -91,14 +91,14 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	return { GraphSearchResult::kSuccess, graph_tree.GetParentNodeIndex(result_index, 1), result_index };
 }
 
-float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
+float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	if (target.target_mode == dle::TargetMode::kSpotTurnLastPosture)
+	if (operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture)
 	{
 		//最終姿勢を表すクォータニオンとの差分を計算する
-		const dl::Quaternion target_quat = target.spot_turn_last_posture_;
+		const dl::Quaternion target_quat = operation.spot_turn_last_posture_;
 		const dl::Quaternion current_quat = current_node.quat;
 
 		const dl::Quaternion target_to_current = target_quat * current_quat.GetInverse();

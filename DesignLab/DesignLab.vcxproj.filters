@@ -136,7 +136,7 @@
     <Filter Include="ソース ファイル\System\ApplicationSetting">
       <UniqueIdentifier>{8d778b33-1437-4be0-9afb-2d2adb096af3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\System\Simulation\TargetUpdater">
+    <Filter Include="ソース ファイル\System\Simulation\RobotOperator">
       <UniqueIdentifier>{ad665007-1db5-47af-89b6-f7b2864b7708}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -314,9 +314,6 @@
     </ClInclude>
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
-    <ClInclude Include="target_robot_state.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -550,10 +547,10 @@
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
     <ClInclude Include="interface_target_updater.h">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="target_updater_for_gpg.h">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_importer.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
@@ -571,10 +568,13 @@
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="target_updater_once.h">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="target_updater_factory.h">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operation.h">
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -861,16 +861,16 @@
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
     <ClCompile Include="target_updater_for_gpg.cpp">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
     <ClCompile Include="toml_file_setupper.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="target_updater_once.cpp">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
     <ClCompile Include="target_updater_factory.cpp">
-      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

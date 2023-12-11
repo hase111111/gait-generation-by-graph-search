@@ -17,7 +17,7 @@
 #include "map_state.h"
 #include "result_file_exporter.h"
 #include "stopwatch.h"
-#include "target_robot_state.h"
+#include "robot_operation.h"
 #include "target_updater_for_gpg.h"
 
 

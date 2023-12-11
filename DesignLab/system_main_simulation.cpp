@@ -63,7 +63,7 @@ void SystemMainSimulation::Main()
 		NodeInitializer node_initializer;							//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
-		TargetRobotState target = target_updater_ptr_->Init();		//目標地点を決定する．
+		RobotOperation operation = target_updater_ptr_->Init();		//目標地点を決定する．
 
 		//シミュレーションの結果を格納する変数．
 		SimulationResultRecorder record;
@@ -98,13 +98,13 @@ void SystemMainSimulation::Main()
 		{
 			current_node.ChangeLootNode();
 
-			target = target_updater_ptr_->Update(current_node);	//目標地点を更新する．
+			operation = target_updater_ptr_->Update(current_node);	//目標地点を更新する．
 
 			timer_.Start();			//タイマースタート
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
-			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, target, &result_node);		//グラフ探索を行う．
+			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 

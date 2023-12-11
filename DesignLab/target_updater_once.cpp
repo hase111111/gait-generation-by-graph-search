@@ -1,16 +1,16 @@
 ﻿#include "target_updater_once.h"
 
 
-TargetUpdaterOnce::TargetUpdaterOnce(const TargetRobotState& target) : target_(target)
+TargetUpdaterOnce::TargetUpdaterOnce(const RobotOperation& operation) : operation_(operation)
 {
 }
 
-TargetRobotState TargetUpdaterOnce::Init() const
+RobotOperation TargetUpdaterOnce::Init() const
 {
-	return target_;
+	return operation_;
 }
 
-TargetRobotState TargetUpdaterOnce::Update([[maybe_unused]] const RobotStateNode& state) const
+RobotOperation TargetUpdaterOnce::Update([[maybe_unused]] const RobotStateNode& state) const
 {
-	return target_;
+	return operation_;
 }

@@ -7,7 +7,7 @@ namespace dlm = designlab::math_util;
 
 std::tuple<GraphSearchResult, int, int> GraphSearcherRandom::SearchGraphTree(
 	const GaitPatternGraphTree& graph,
-	[[maybe_unused]] const TargetRobotState& target,
+	[[maybe_unused]] const RobotOperation& operation,
 	[[maybe_unused]] const int max_depth
 ) const
 {

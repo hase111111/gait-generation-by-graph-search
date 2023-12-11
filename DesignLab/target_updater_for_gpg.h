@@ -15,9 +15,9 @@ public:
 
 	TargetUpdaterForGpg();
 
-	TargetRobotState Init() const override;
+	RobotOperation Init() const override;
 
-	TargetRobotState Update(const RobotStateNode& node) const override;
+	RobotOperation Update(const RobotStateNode& node) const override;
 
 private:
 

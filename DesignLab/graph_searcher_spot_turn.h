@@ -14,13 +14,13 @@ public:
 
 	std::tuple<GraphSearchResult, int, int> SearchGraphTree(
 		const GaitPatternGraphTree& graph_tree,
-		const TargetRobotState& target,
+		const RobotOperation& operation,
 		int max_depth
 	) const override;
 
 private:
 	//! @brief 前進するための評価値を計算する
-	float CalcTurnEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const;
+	float CalcTurnEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const;
 
 	//! @brief 脚の平均回転量の評価値を計算する
 	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const;

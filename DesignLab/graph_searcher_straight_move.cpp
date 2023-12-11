@@ -21,11 +21,11 @@ GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const
 
 std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTree(
 	const GaitPatternGraphTree& graph,
-	const TargetRobotState& target,
+	const RobotOperation& operation,
 	const int max_depth
 ) const
 {
-	assert(target.target_mode == dle::TargetMode::kStraightMovePosition || target.target_mode == dle::TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
+	assert(operation.operation_type == dle::RobotOperationType::kStraightMovePosition || operation.operation_type == dle::RobotOperationType::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_move_length = 0.f;
@@ -47,14 +47,14 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 			if (result_index < 0)
 			{
 				result_index = static_cast<int>(i);
-				max_move_length = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+				max_move_length = CalcMoveFrowardEvaluationValue(graph.GetNode(i), operation);
 				max_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 				max_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
 				min_com_z_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
 				continue;
 			}
 
-			const float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), target);
+			const float candiate_rot_angle = CalcMoveFrowardEvaluationValue(graph.GetNode(i), operation);
 			const float candiate_leg_rot_angle = CalcLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 			const float candiate_margin = checker_ptr_->CalculateStabilityMargin(graph.GetNode(i).leg_state, graph.GetNode(i).leg_pos);
 			const float candiate_leg_dif = abs(graph.GetNode(i).global_center_of_mass.z - graph.GetRootNode().global_center_of_mass.z);
@@ -113,12 +113,12 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	return { GraphSearchResult::kSuccess, graph.GetParentNodeIndex(result_index, 1), result_index };
 }
 
-float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const TargetRobotState& target) const
+float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	dl::Vector3 target_pos = target.target_mode == dle::TargetMode::kStraightMovePosition ?
-		target.straight_move_position_ : target.straight_move_vector_ * target_weight + current_node.global_center_of_mass;
+	dl::Vector3 target_pos = operation.operation_type == dle::RobotOperationType::kStraightMovePosition ?
+		operation.straight_move_position_ : operation.straight_move_vector_ * target_weight + current_node.global_center_of_mass;
 
 	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 
