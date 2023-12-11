@@ -1,7 +1,22 @@
 #シミュレーションを行う際の設定はこのファイルで設定します．
 
 
-#シミュレーションを行うマップについての設定です．
+#終了条件についての設定です．
+[EndChecker]
+#どのような方法で終了させるかを設定します．(kGoalTape/kPosture/kPosition)
+end_check_mode = "kGoalTape"
+#終了条件が「ゴールテープに到達したか」どうかの場合，ゴールテープのx座標を設定します．[mm]
+goal_tape_position_x = 1200.0
+#終了条件が「目的の座標に到達したか」の場合，目標の座標を設定します．[mm]
+target_position = "     0.000,     0.000,     0.000"
+#終了条件が「目的の座標に到達したか」の場合，目標の座標の許容誤差を設定します．[mm]
+target_position_allowable_error = 50.0
+#終了条件が「目標姿勢となったか」の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]
+target_posture = "     0.000,     0.000,     0.000"
+#終了条件が「目標姿勢となったか」の場合，目標の姿勢の角度の許容誤差を設定します．[deg]
+target_posture_allowable_error_deg = 1.0
+
+#マップについての設定です．
 [Map]
 #マップの作成方法を設定します．(kForSimulation/kFromFile)
 map_create_mode = "kForSimulation"
@@ -10,25 +25,10 @@ map_file_name = "map_state.csv"
 #マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．
 simulation_map_param_file_name = "simulation_map.toml"
 
-#シミュレーションの終了条件についての設定です．
-[SimulationEndCheck]
-#シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]
-goal_tape_position_x = 1200.0
-#シミュレーションの終了条件の種類を設定します．(kGoalTape/kPosture/kPosition)
-simulation_end_check_type = "kGoalTape"
-#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のx座標を設定します．[mm]
-target_position = "1000.000,     -30.000,     0.000"
-#シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標の許容誤差を設定します．[mm]
-target_position_allowable_error = 50.0
-#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のx軸周りの角度を設定します．[deg]
-target_posture = "     0.000,     0.000,     0.000"
-#シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢の角度の許容誤差を設定します．[deg]
-target_posture_allowable_error_deg = 1.0
-
-#シミュレーションの目標の更新方法についての設定です．
-[TargetUpdate]
-#シミュレーションの目標の更新方法がファイルから読み込むモードの場合，目標の更新方法の設定を記述したtomlファイル名を設定します．
-simulation_target_update_file_name = "similation_target_update.toml"
-#シミュレーションの目標の更新方法を設定します．(kForGloabalPathGeneration/kOnce)
-simulation_target_update_mode = "kOnce"
+#ロボットの操作方法の設定です．
+[RobotOperator]
+#ロボットの操作方法が固定の場合，その操作方法を指定するファイルを設定します．
+fixed_operate_file_name = "robot_operator.toml"
+#ロボットの操作方法を設定します．(kForGloabalPathGenerate/kFixed)
+operate_mode = "kFixed"
 

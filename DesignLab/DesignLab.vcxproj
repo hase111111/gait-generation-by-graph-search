@@ -259,7 +259,7 @@
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
     <ClCompile Include="robot_operator_factory.cpp" />
-    <ClCompile Include="target_updater_for_gpg.cpp" />
+    <ClCompile Include="robot_operator_for_gpg.cpp" />
     <ClCompile Include="robot_operator_fixed.cpp" />
     <ClCompile Include="toml_file_setupper.cpp" />
     <ClCompile Include="toml_serialize_macro.cpp" />

@@ -9,36 +9,42 @@
 #include "toml_serialize_macro.h"
 
 
-enum class MapCreateMode : int
+namespace designlab 
 {
-	kForSimulation,
-	kFromFile
-};
+	namespace enums 
+	{
+		enum class MapCreateMode : int
+		{
+			kForSimulation,
+			kFromFile
+		};
 
-enum class SimulationTargetUpdateMode : int
-{
-	kForGloabalPathGeneration,
-	kOnce
-};
+		enum class RobotOperateMode : int
+		{
+			kForGloabalPathGenerate,
+			kFixed
+		};
 
-enum class SimulationEndCheckType : int
-{
-	kGoalTape,	//!< ゴールテープに到達したかどうか．
-	kPosture,	//!< 姿勢が一定の範囲内に収まっているかどうか．
-	kPosition,	//!< 目的の座標に到達したかどうか．
-};
+		enum class SimulationEndCheckMode : int
+		{
+			kGoalTape,	//!< ゴールテープに到達したかどうか．
+			kPosture,	//!< 姿勢が一定の範囲内に収まっているかどうか．
+			kPosition,	//!< 目的の座標に到達したかどうか．
+		};
+	}
+}
 
 
 struct SimulationSettingRecord final
 {
-	MapCreateMode map_create_mode{ MapCreateMode::kForSimulation };
+	::designlab::enums::MapCreateMode map_create_mode{ ::designlab::enums::MapCreateMode::kForSimulation };
 
 	std::string simulation_map_param_file_name{ "simulation_map.toml" };
 
 	std::string map_file_name{ "map_state.csv" };
 
 
-	SimulationEndCheckType simulation_end_check_type{ SimulationEndCheckType::kGoalTape };
+	::designlab::enums::SimulationEndCheckMode end_check_mode{ ::designlab::enums::SimulationEndCheckMode::kGoalTape };
 
 	float goal_tape_position_x{ 1200.0f };
 
@@ -50,9 +56,10 @@ struct SimulationSettingRecord final
 
 	float target_position_allowable_error{ 50.0f };
 
-	SimulationTargetUpdateMode simulation_target_update_mode{ SimulationTargetUpdateMode::kOnce };
 
-	std::string simulation_target_update_file_name{ "similation_target_update.toml" };
+	::designlab::enums::RobotOperateMode operate_mode{ ::designlab::enums::RobotOperateMode::kFixed };
+
+	std::string fixed_operate_file_name{ "robot_operator.toml" };
 };
 
 
@@ -61,34 +68,37 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 	DESIGNLAB_TOML11_FILE_DESCRIPTION("シミュレーションを行う際の設定はこのファイルで設定します．");
 
 	DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(
-		"Map", "シミュレーションを行うマップについての設定です．",
-		"SimulationEndCheck", "シミュレーションの終了条件についての設定です．",
-		"TargetUpdate", "シミュレーションの目標の更新方法についての設定です．"
+		"Map", "マップについての設定です．",
+		"EndChecker", "終了条件についての設定です．",
+		"RobotOperator", "ロボットの操作方法の設定です．"
 	);
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_create_mode, "Map", "マップの作成方法を設定します．(" + ::designlab::string_util::EnumValuesToString<MapCreateMode>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_map_param_file_name, "Map", "マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_create_mode, "Map", "マップの作成方法を設定します．(" + 
+		::designlab::string_util::EnumValuesToString<::designlab::enums::MapCreateMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_map_param_file_name, "Map", 
+		"マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_file_name, "Map", "マップの作成方法がファイルから読み込むモードの場合，マップのcsvファイルの名前を設定します．");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_end_check_type, "SimulationEndCheck", "シミュレーションの終了条件の種類を設定します．(" +
-		::designlab::string_util::EnumValuesToString<SimulationEndCheckType>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(goal_tape_position_x, "SimulationEndCheck", "シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture, "SimulationEndCheck", "シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢のx軸周りの角度を設定します．[deg]");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture_allowable_error_deg, "SimulationEndCheck", "シミュレーションの終了条件が姿勢が一定の範囲内に収まっているかどうかの場合，目標の姿勢の角度の許容誤差を設定します．[deg]");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position, "SimulationEndCheck", "シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のx座標を設定します．[mm]");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position_allowable_error, "SimulationEndCheck", "シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標の許容誤差を設定します．[mm]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(end_check_mode, "EndChecker", "どのような方法で終了させるかを設定します．(" +
+		::designlab::string_util::EnumValuesToString<::designlab::enums::SimulationEndCheckMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(goal_tape_position_x, "EndChecker", "終了条件が「ゴールテープに到達したか」どうかの場合，ゴールテープのx座標を設定します．[mm]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture, "EndChecker", "終了条件が「目標姿勢となったか」の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_posture_allowable_error_deg, "EndChecker", "終了条件が「目標姿勢となったか」の場合，目標の姿勢の角度の許容誤差を設定します．[deg]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position, "EndChecker", "終了条件が「目的の座標に到達したか」の場合，目標の座標を設定します．[mm]");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position_allowable_error, "EndChecker", "終了条件が「目的の座標に到達したか」の場合，目標の座標の許容誤差を設定します．[mm]");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_target_update_mode, "TargetUpdate", "シミュレーションの目標の更新方法を設定します．(" +
-		::designlab::string_util::EnumValuesToString<SimulationTargetUpdateMode>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_target_update_file_name, "TargetUpdate", "シミュレーションの目標の更新方法がファイルから読み込むモードの場合，目標の更新方法の設定を記述したtomlファイル名を設定します．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(operate_mode, "RobotOperator", "ロボットの操作方法を設定します．(" +
+		::designlab::string_util::EnumValuesToString<::designlab::enums::RobotOperateMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(fixed_operate_file_name, "RobotOperator",
+		"ロボットの操作方法が固定の場合，その操作方法を指定するファイルを設定します．");
 };
 
 DESIGNLAB_TOML11_SERIALIZE(
 	SimulationSettingRecord,
 	map_create_mode, simulation_map_param_file_name, map_file_name,
-	simulation_end_check_type, goal_tape_position_x, target_posture, target_posture_allowable_error_deg,
+	end_check_mode, goal_tape_position_x, target_posture, target_posture_allowable_error_deg,
 	target_position, target_position_allowable_error,
-	simulation_target_update_mode, simulation_target_update_file_name
+	operate_mode, fixed_operate_file_name
 );
 
 #endif //DESIGNLAB_SIMULATION_SETTING_RECORD_H_

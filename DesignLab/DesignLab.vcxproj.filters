@@ -860,7 +860,7 @@
     <ClCompile Include="application_setting_record_vaildator.cpp">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
-    <ClCompile Include="target_updater_for_gpg.cpp">
+    <ClCompile Include="robot_operator_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
     <ClCompile Include="toml_file_setupper.cpp">

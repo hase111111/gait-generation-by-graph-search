@@ -1,0 +1,21 @@
+
+[a]
+#float
+straight_move_vector_ = "     1.000,     0.000,     0.000"
+
+[b]
+#float
+straight_move_position_ = " 10000.000,     0.000,     0.000"
+
+[c]
+#float
+spot_turn_last_posture_ = "     1.000,     0.000,     0.000,     0.000"
+
+[d]
+#float
+spot_turn_rot_axis = "     0.000,     0.000,     1.000"
+
+[e]
+#float
+operation_type = "kStraightMovePosition"
+

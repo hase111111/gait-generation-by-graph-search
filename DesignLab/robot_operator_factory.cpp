@@ -4,17 +4,22 @@
 #include "robot_operation.h"
 #include "robot_operator_for_gpg.h"
 #include "robot_operator_fixed.h"
+#include "toml_file_importer.h"
+#include "toml_file_setupper.h"
+
+namespace dle = ::designlab::enums;
 
 
 std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSettingRecord& setting)
 {
-	if (setting.simulation_target_update_mode == SimulationTargetUpdateMode::kForGloabalPathGeneration)
+	if (setting.operate_mode == dle::RobotOperateMode::kForGloabalPathGenerate)
 	{
 		return std::make_unique<RobotOperatorForGpg>();
 	}
-	else if (setting.simulation_target_update_mode == SimulationTargetUpdateMode::kOnce)
+	else if (setting.operate_mode == dle::RobotOperateMode::kFixed)
 	{
-		return std::make_unique<RobotOperatorFixed>(RobotOperation());
+		TomlFileImporter<RobotOperation> importer;
+		return std::make_unique<RobotOperatorFixed>(importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + setting.fixed_operate_file_name));
 	}
 	else
 	{

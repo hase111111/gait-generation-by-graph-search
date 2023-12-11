@@ -8,18 +8,19 @@
 #include "simulation_end_checker_by_posture.h"
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dlm = ::designlab::math_util;
 
 
 std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const SimulationSettingRecord& record)
 {
-	if (record.simulation_end_check_type == SimulationEndCheckType::kGoalTape)
+	if (record.end_check_mode == dle::SimulationEndCheckMode::kGoalTape)
 	{
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByGoalTape>(record.goal_tape_position_x);
 
 		return std::move(simulation_end_checker);
 	}
-	else if (record.simulation_end_check_type == SimulationEndCheckType::kPosture)
+	else if (record.end_check_mode == dle::SimulationEndCheckMode::kPosture)
 	{
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByPosture>(
 			dl::ToQuaternion(record.target_posture),
@@ -28,7 +29,7 @@ std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const
 
 		return std::move(simulation_end_checker);
 	}
-	else if (record.simulation_end_check_type == SimulationEndCheckType::kPosition)
+	else if (record.end_check_mode == dle::SimulationEndCheckMode::kPosition)
 	{
 		const dl::Vector3 goal_position(record.target_position);
 
