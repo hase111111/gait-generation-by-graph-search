@@ -546,10 +546,10 @@
     <ClInclude Include="application_setting_record_vaildator.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
-    <ClInclude Include="interface_target_updater.h">
+    <ClInclude Include="interface_robot_operator.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
-    <ClInclude Include="target_updater_for_gpg.h">
+    <ClInclude Include="robot_operator_for_gpg.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_importer.h">
@@ -567,10 +567,10 @@
     <ClInclude Include="toml_file_setupper.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
-    <ClInclude Include="target_updater_once.h">
+    <ClInclude Include="robot_operator_fixed.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
-    <ClInclude Include="target_updater_factory.h">
+    <ClInclude Include="robot_operator_factory.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="robot_operation.h">
@@ -866,10 +866,10 @@
     <ClCompile Include="toml_file_setupper.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="target_updater_once.cpp">
+    <ClCompile Include="robot_operator_fixed.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
-    <ClCompile Include="target_updater_factory.cpp">
+    <ClCompile Include="robot_operator_factory.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
   </ItemGroup>

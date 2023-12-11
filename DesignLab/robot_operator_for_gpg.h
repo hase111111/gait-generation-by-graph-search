@@ -4,16 +4,16 @@
 #include <vector>
 
 #include "designlab_math_util.h"
-#include "interface_target_updater.h"
+#include "interface_robot_operator.h"
 
 
-//! @class TargetUpdaterForGpg
-//! @brief global path planningを行うための仮置きクラス．
-class TargetUpdaterForGpg final : public ITargetUpdater
+//! @class RobotOperatorForGpg
+//! @brief global path generator を行うための仮置きクラス．
+class RobotOperatorForGpg final : public IRobotOperator
 {
 public:
 
-	TargetUpdaterForGpg();
+	RobotOperatorForGpg();
 
 	RobotOperation Init() const override;
 

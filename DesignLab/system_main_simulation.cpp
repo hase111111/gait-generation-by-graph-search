@@ -21,21 +21,21 @@ SystemMainSimulation::SystemMainSimulation(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 	std::unique_ptr<IMapCreator>&& map_creator_ptr,
 	std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
-	std::unique_ptr<ITargetUpdater>&& target_updater_ptr,
+	std::unique_ptr<IRobotOperator>&& target_updater_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
-	pass_finder_ptr_(std::move(gait_pattern_generator_ptr)),
+	gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
 	simu_end_checker_ptr_(std::move(simu_end_checker_ptr)),
-	target_updater_ptr_(std::move(target_updater_ptr)),
+	robot_operator_ptr_(std::move(target_updater_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
-	assert(pass_finder_ptr_ != nullptr);
+	assert(gait_pattern_generator_ptr_ != nullptr);
 	assert(map_creator_ptr_ != nullptr);
 	assert(simu_end_checker_ptr_ != nullptr);
-	assert(target_updater_ptr_ != nullptr);
+	assert(robot_operator_ptr_ != nullptr);
 	assert(broker_ptr_ != nullptr);
 	assert(setting_ptr_ != nullptr);
 
@@ -63,7 +63,7 @@ void SystemMainSimulation::Main()
 		NodeInitializer node_initializer;							//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
-		RobotOperation operation = target_updater_ptr_->Init();		//目標地点を決定する．
+		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．
 
 		//シミュレーションの結果を格納する変数．
 		SimulationResultRecorder record;
@@ -98,13 +98,13 @@ void SystemMainSimulation::Main()
 		{
 			current_node.ChangeLootNode();
 
-			operation = target_updater_ptr_->Update(current_node);	//目標地点を更新する．
+			operation = robot_operator_ptr_->Update(current_node);	//目標地点を更新する．
 
 			timer_.Start();			//タイマースタート
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
-			const GraphSearchResult result_state = pass_finder_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
+			const GraphSearchResult result_state = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 

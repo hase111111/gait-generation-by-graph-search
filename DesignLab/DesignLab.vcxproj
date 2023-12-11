@@ -40,7 +40,7 @@
     <ClInclude Include="interface_dxlib_3d_renderer.h" />
     <ClInclude Include="interface_dxlib_wheel_handler.h" />
     <ClInclude Include="interface_simulation_end_checker.h" />
-    <ClInclude Include="interface_target_updater.h" />
+    <ClInclude Include="interface_robot_operator.h" />
     <ClInclude Include="interface_toml_data_validator.h" />
     <ClInclude Include="map_creator_by_csv.h" />
     <ClInclude Include="map_creator_factory.h" />
@@ -153,9 +153,9 @@
     <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator_for_simulation.h" />
     <ClInclude Include="designlab_vector3.h" />
-    <ClInclude Include="target_updater_factory.h" />
-    <ClInclude Include="target_updater_for_gpg.h" />
-    <ClInclude Include="target_updater_once.h" />
+    <ClInclude Include="robot_operator_factory.h" />
+    <ClInclude Include="robot_operator_for_gpg.h" />
+    <ClInclude Include="robot_operator_fixed.h" />
     <ClInclude Include="test_main.h" />
     <ClInclude Include="toml11_define.h" />
     <ClInclude Include="toml_data_validator_always_true.h" />
@@ -258,9 +258,9 @@
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="designlab_vector3.cpp" />
-    <ClCompile Include="target_updater_factory.cpp" />
+    <ClCompile Include="robot_operator_factory.cpp" />
     <ClCompile Include="target_updater_for_gpg.cpp" />
-    <ClCompile Include="target_updater_once.cpp" />
+    <ClCompile Include="robot_operator_fixed.cpp" />
     <ClCompile Include="toml_file_setupper.cpp" />
     <ClCompile Include="toml_serialize_macro.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />

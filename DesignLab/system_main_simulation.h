@@ -12,13 +12,13 @@
 #include "interface_gait_pattern_generator.h"
 #include "interface_map_creator.h"
 #include "interface_simulation_end_checker.h"
-#include "interface_target_updater.h"
+#include "interface_robot_operator.h"
 #include "interface_system_main.h"
 #include "map_state.h"
 #include "result_file_exporter.h"
 #include "stopwatch.h"
 #include "robot_operation.h"
-#include "target_updater_for_gpg.h"
+#include "robot_operator_for_gpg.h"
 
 
 //! @class SystemMainSimulation
@@ -39,7 +39,7 @@ public:
 		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
-		std::unique_ptr<ITargetUpdater>&& target_updater_ptr,
+		std::unique_ptr<IRobotOperator>&& target_updater_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
@@ -60,13 +60,13 @@ private:
 	void OutputSetting() const;
 
 
-	const std::unique_ptr<IGaitPatternGenerator> pass_finder_ptr_;	//!< 自由歩容パターン生成を行うクラス．
+	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;	//!< 自由歩容パターン生成を行うクラス．
 
 	const std::unique_ptr<IMapCreator> map_creator_ptr_;	//!< マップを生成するクラス．
 
 	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 
-	const std::unique_ptr<const ITargetUpdater> target_updater_ptr_;	//!< 目標地点を決定するクラス．
+	const std::unique_ptr<const IRobotOperator> robot_operator_ptr_;	//!< ロボットの操作を行うクラス．
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
 

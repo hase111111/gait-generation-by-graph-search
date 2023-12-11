@@ -1,23 +1,23 @@
-﻿//! @file target_updater_once.h
+﻿//! @file robot_operator_fixed.h
 //! @brief ターゲットの更新をせず，初期化時のみに更新するクラス．
-
 
 #ifndef DESIGNLAB_TARGET_UPDATER_ONCE_H_
 #define DESIGNLAB_TARGET_UPDATER_ONCE_H_
 
-#include "interface_target_updater.h"
+#include "interface_robot_operator.h"
 
 
+//! @class RobotOperatorFixed
 //! @brief ターゲットの更新をせず，初期化時のみに更新するクラス．
-class TargetUpdaterOnce : public ITargetUpdater
+class RobotOperatorFixed : public IRobotOperator
 {
 public:
 
-	TargetUpdaterOnce() = delete;
+	RobotOperatorFixed() = delete;
 
 	//! @brief コンストラクタで指定したターゲットを常に返す．
 	//! @param[in] target ターゲット.
-	TargetUpdaterOnce(const RobotOperation& target);
+	RobotOperatorFixed(const RobotOperation& target);
 
 	RobotOperation Init() const override;
 

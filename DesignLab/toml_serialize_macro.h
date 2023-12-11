@@ -19,6 +19,7 @@
 #include <strconv2.h>
 
 #include "designlab_euler.h"
+#include "designlab_quaternion.h"
 #include "designlab_vector3.h"
 #include "toml11_define.h"
 
@@ -52,15 +53,20 @@ namespace designlab
 		std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_vec);
 
 
-		//! @struct is_vector3
 		//! @brief Tがvector3型か調べるメタ関数．
-		//! @details vector3型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
+		//! @details SFINAEでは構造体のタイプを調べることで，型の条件によって関数を特殊化することができる．
+		//! そのため，メタ関数と言いつつもこれは構造体である．
+		//! vector3型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
 		//! @tparam T 調べる型．
 		template <typename T>
 		struct is_vector3 : std::false_type {};
 
+		//! @brief Tがvector3型の時に呼ばれる．
+		//! @details vector3型の場合はtrue_typeを継承する．
+		//! @tparam T 調べる型．
 		template <>
 		struct is_vector3<::designlab::Vector3> : std::true_type {};
+
 
 		//! @struct is_euler_xyz
 		//! @brief Tがeuler_xyz型か調べるメタ関数．
@@ -69,8 +75,24 @@ namespace designlab
 		template <typename T>
 		struct is_euler_xyz : std::false_type {};
 
+		//! @brief Tがeuler_xyz型の時に呼ばれる．
+		//! @details euler_xyz型の場合はtrue_typeを継承する．
+		//! @tparam T 調べる型．
 		template <>
 		struct is_euler_xyz<::designlab::EulerXYZ> : std::true_type {};
+
+
+		//! @brief Tがquaternion型か調べるメタ関数．
+		//! @details quaternion型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
+		//! @tparam T 調べる型．
+		template <typename T>
+		struct is_quaternion : std::false_type {};
+
+		//! @brief Tがquaternion型の時に呼ばれる．
+		//! @details quaternion型の場合はtrue_typeを継承する．
+		//! @tparam T 調べる型．
+		template <>
+		struct is_quaternion<::designlab::Quaternion> : std::true_type {};
 
 
 		//! @brief tomlファイルに値を追加するための関数．
@@ -79,7 +101,7 @@ namespace designlab
 		//! @param str 追加する変数の名前．
 		//! @param value 追加する値．
 		template <typename T>
-		typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value>::type
+		typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value && ! is_quaternion<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 		{
 			v[str] = value;
@@ -103,7 +125,7 @@ namespace designlab
 		//! @param str 追加する変数の名前．
 		//! @param value 追加する値．
 		template <typename T>
-		typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type
+		typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value || is_quaternion<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 		{
 			std::stringstream ss;
@@ -120,7 +142,8 @@ namespace designlab
 		//! @details 型の条件によって，Get関数を特殊化する．
 		//! @see GetTomlValue
 		template <typename T>
-		struct GetTomlValueImpl<T, typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value>::type>
+		struct GetTomlValueImpl<T, 
+			typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value && !is_quaternion<T>::value>::type>
 		{
 			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 			{
@@ -150,7 +173,8 @@ namespace designlab
 		//! @tparam T が Vector3 型の場合と EulerXYZ 型の場合にこの特殊化が呼ばれる．
 		//! @details 値をストリームを用いて文字列に変換してから取得する．
 		template <typename T>
-		struct GetTomlValueImpl<T, typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value>::type>
+		struct GetTomlValueImpl<T, 
+			typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value || is_quaternion<T>::value>::type>
 		{
 			//! @brief tomlファイルから値を取得するための関数．
 			//! @details enum型の値をmagic_enumで文字列に変換してから取得する．

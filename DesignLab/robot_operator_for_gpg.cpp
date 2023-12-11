@@ -1,4 +1,4 @@
-﻿#include "target_updater_for_gpg.h"
+﻿#include "robot_operator_for_gpg.h"
 
 #include <iostream>
 
@@ -29,7 +29,7 @@ namespace
 	}
 }
 
-TargetUpdaterForGpg::TargetUpdaterForGpg() : global_route_{
+RobotOperatorForGpg::RobotOperatorForGpg() : global_route_{
 {4130,210,40},
 {4110,230,40},
 {4090,250,40},
@@ -247,12 +247,12 @@ TargetUpdaterForGpg::TargetUpdaterForGpg() : global_route_{
 {
 }
 
-RobotOperation TargetUpdaterForGpg::Init() const
+RobotOperation RobotOperatorForGpg::Init() const
 {
 	return RobotOperation();
 }
 
-RobotOperation TargetUpdaterForGpg::Update(const RobotStateNode& node) const
+RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) const
 {
 	//まず，現在の重心位置から最も近い点を探す
 	int most_near_index = 0;
