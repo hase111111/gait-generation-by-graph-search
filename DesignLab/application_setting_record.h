@@ -24,7 +24,7 @@ struct ApplicationSettingRecord final
 	int version_patch{ 0 };	//!< バージョン番号(パッチ)
 
 	bool ask_about_modes{ true };					//!< 起動時にモード選択の確認をするかどうか
-	BootMode default_mode{ BootMode::kSimulation };	//!< デフォルトの起動モード
+	::designlab::enums::BootMode default_mode{ ::designlab::enums::BootMode::kSimulation };	//!< デフォルトの起動モード
 	bool do_step_execution_each_simulation{ true };	//!< 1シミュレーションごとにステップ実行をするかどうか
 	bool do_step_execution_each_gait{ false };		//!< 1動作ごとにステップ実行をするかどうか
 
@@ -72,7 +72,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 	DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(version_patch, "Verion");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(ask_about_modes, "Mode", "起動時に実行モードについて質問をするようにします (true/false)");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "Mode", "起動時のデフォルトの実行モードを設定します (" + ::designlab::string_util::EnumValuesToString<BootMode>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(default_mode, "Mode", "起動時のデフォルトの実行モードを設定します (" + ::designlab::string_util::EnumValuesToString<::designlab::enums::BootMode>("/") + ")");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_simulation, "Mode", "1シミュレーションごとにステップ実行をするかどうかを設定します (true/false)");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(do_step_execution_each_gait, "Mode", "1動作ごとにステップ実行をするかどうかを設定します (true/false)");
 

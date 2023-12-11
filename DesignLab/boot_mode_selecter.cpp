@@ -8,18 +8,19 @@
 #include "designlab_string_util.h"
 
 
-namespace dlio = designlab::cmdio;
-namespace dlsu = designlab::string_util;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
+namespace dlsu = ::designlab::string_util;
 
 
 BootModeSelecter::BootModeSelecter() :
-	kBootModeNum(static_cast<int>(magic_enum::enum_count<BootMode>())),
-	default_mode_(BootMode::kSimulation)
+	kBootModeNum(static_cast<int>(magic_enum::enum_count<dle::BootMode>())),
+	default_mode_(dle::BootMode::kSimulation)
 {
 }
 
 
-BootMode BootModeSelecter::SelectBootMode()
+dle::BootMode BootModeSelecter::SelectBootMode()
 {
 	const OutputDetail output_detail = OutputDetail::kSystem;	// kSystem にすると、設定にかかわらず必ず表示される
 
@@ -28,7 +29,7 @@ BootMode BootModeSelecter::SelectBootMode()
 	//起動モードの名前を表示する
 	for (int i = 0; i < kBootModeNum; i++)
 	{
-		const BootMode boot_mode = static_cast<BootMode>(i);
+		const dle::BootMode boot_mode = static_cast<dle::BootMode>(i);
 
 		const std::string boot_mode_name = dlsu::EnumToStringRemoveTopK(boot_mode);
 
@@ -49,16 +50,16 @@ BootMode BootModeSelecter::SelectBootMode()
 	const int input = dlio::InputInt(0, kBootModeNum - 1, default_mode_num);
 
 	//受け取った値をmagic_enumのenum_castでBootModeに変換する
-	if (magic_enum::enum_cast<BootMode>(input).has_value()) 
+	if (magic_enum::enum_cast<dle::BootMode>(input).has_value())
 	{
-		return magic_enum::enum_cast<BootMode>(input).value();
+		return magic_enum::enum_cast<dle::BootMode>(input).value();
 	}
 	else
 	{
 		// 入力が不正な場合はデフォルトのモードを返す
 
 		dlio::Output("入力が不正です。デフォルトのモードを選択します。", OutputDetail::kSystem);
-		
+
 		return default_mode_;
 	}
 }

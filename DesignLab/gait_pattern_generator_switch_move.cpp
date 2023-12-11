@@ -3,6 +3,9 @@
 #include "cassert_define.h"
 
 
+namespace dle = ::designlab::enums;
+
+
 GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straigt,
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot
@@ -19,7 +22,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 	RobotStateNode* output_node
 )
 {
-	if (target.GetTargetMode() == TargetMode::kStraightMoveVector || target.GetTargetMode() == TargetMode::kStraightMovePosition)
+	if (target.GetTargetMode() == dle::TargetMode::kStraightMoveVector || target.GetTargetMode() == dle::TargetMode::kStraightMovePosition)
 	{
 		return gait_pattern_generator_for_straigt_ptr_->GetNextNodebyGraphSearch(
 			current_node,
@@ -28,7 +31,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 			output_node
 		);
 	}
-	else if (target.GetTargetMode() == TargetMode::kSpotTurnRotAxis || target.GetTargetMode() == TargetMode::kSpotTurnLastPosture)
+	else if (target.GetTargetMode() == dle::TargetMode::kSpotTurnRotAxis || target.GetTargetMode() == dle::TargetMode::kSpotTurnLastPosture)
 	{
 		return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodebyGraphSearch(
 			current_node,

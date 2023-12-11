@@ -1,34 +1,33 @@
-//! @file boot_mode_selecter.h
-//! @brief ‹N“®ƒ‚[ƒh‚ğ‘I‘ğ‚·‚éƒNƒ‰ƒX
+ï»¿//! @file boot_mode_selecter.h
+//! @brief èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹ã‚¯ãƒ©ã‚¹
 
 #ifndef DESIGNLAB_BOOT_MODE_SELECTER_H_
 #define DESIGNLAB_BOOT_MODE_SELECTER_H_
-
 
 #include "boot_mode.h"
 
 
 //! @class BootModeSelecter
-//! @brief ‹N“®ƒ‚[ƒh‚ğ‘I‘ğ‚·‚éƒNƒ‰ƒX
+//! @brief èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹ã‚¯ãƒ©ã‚¹
 class BootModeSelecter final
 {
 public:
 
 	BootModeSelecter();
 
-	//! @brief ƒfƒtƒHƒ‹ƒg‚Ì‹N“®ƒ‚[ƒh‚ğİ’è‚·‚é
-	constexpr void SetDefaultBootMode(const BootMode default_mode) { default_mode_ = default_mode; };
+	//! @brief ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®šã™ã‚‹
+	constexpr void SetDefaultBootMode(const ::designlab::enums::BootMode default_mode) { default_mode_ = default_mode; };
 
-	//! @brief ‹N“®ƒ‚[ƒh‚ğ‘I‘ğ‚·‚é
-	//! @n BootMode‚ªintŒ^‚ğ‚à‚Æ‚É‚µ‚Ä‚¢‚é‚©‚ÂC0‚©‚çn‚Ü‚é‚±‚Æ‚ğ‘O’ñ‚É‚µ‚Ä‚¢‚é‚Ì‚ÅC‚¤‚Ü‚­“®ì‚µ‚È‚¢ê‡‚Í
-	//! @n BootMode‚Ì’è‹`‚ğŒ©’¼‚·‚±‚Æ
-	//! @return BootMode ‹N“®ƒ‚[ƒh
-	BootMode SelectBootMode();
+	//! @brief èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠã™ã‚‹
+	//! @n BootModeãŒintå‹ã‚’ã‚‚ã¨ã«ã—ã¦ã„ã‚‹ã‹ã¤ï¼Œ0ã‹ã‚‰å§‹ã¾ã‚‹ã“ã¨ã‚’å‰æã«ã—ã¦ã„ã‚‹ã®ã§ï¼Œã†ã¾ãå‹•ä½œã—ãªã„å ´åˆã¯
+	//! @n BootModeã®å®šç¾©ã‚’è¦‹ç›´ã™ã“ã¨
+	//! @return designlab::enums::BootMode èµ·å‹•ãƒ¢ãƒ¼ãƒ‰
+	::designlab::enums::BootMode SelectBootMode();
 
 private:
-	const int kBootModeNum;	//!< ‹N“®ƒ‚[ƒh‚ÌÅ‘å”
+	const int kBootModeNum;	//!< èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã®æœ€å¤§æ•°
 
-	BootMode default_mode_;	//!< ƒfƒtƒHƒ‹ƒg‚Ì‹N“®ƒ‚[ƒh
+	::designlab::enums::BootMode default_mode_;	//!< ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰
 };
 
 #endif	// DESIGNLAB_BOOT_MODE_SELECTER_H_

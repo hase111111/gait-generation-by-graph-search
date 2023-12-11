@@ -4,6 +4,7 @@
 #include "graph_search_const.h"
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dlm = ::designlab::math_util;
 namespace dllf = ::designlab::leg_func;
 
@@ -14,7 +15,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const int max_depth
 ) const
 {
-	assert(target.GetTargetMode() == TargetMode::kSpotTurnLastPosture || target.GetTargetMode() == TargetMode::kSpotTurnRotAxis);
+	assert(target.GetTargetMode() == dle::TargetMode::kSpotTurnLastPosture || target.GetTargetMode() == dle::TargetMode::kSpotTurnRotAxis);
 
 	if (!graph_tree.HasRoot())
 	{
@@ -94,7 +95,7 @@ float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& curre
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	if (target.GetTargetMode() == TargetMode::kSpotTurnLastPosture)
+	if (target.GetTargetMode() == dle::TargetMode::kSpotTurnLastPosture)
 	{
 		//最終姿勢を表すクォータニオンとの差分を計算する
 		const dl::Quaternion target_quat = target.GetSpotTurnLastPosture();

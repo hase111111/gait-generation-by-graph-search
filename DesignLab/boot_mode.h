@@ -1,20 +1,26 @@
-//! @file boot_mode.h
-//! @brief ‹N“®ƒ‚[ƒh‚ğ•\‚·—ñ‹“Œ^
+ï»¿//! @file boot_mode.h
+//! @brief èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ã™åˆ—æŒ™å‹
 
 
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_
 
 
-//! @enum BootMode
-//! @brief ‹N“®ƒ‚[ƒh‚ğ•\‚·—ñ‹“Œ^
-enum class BootMode : int
+namespace designlab
 {
-	kSimulation = 0,//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh
-	kViewer,		//!< ƒrƒ…[ƒ[ƒ‚[ƒh
-	kDisplayTest,	//!< ƒfƒBƒXƒvƒŒƒCƒeƒXƒgƒ‚[ƒh
-	kResultViewer	//!< ƒŠƒUƒ‹ƒgƒrƒ…[ƒ[ƒ‚[ƒh
-};
+	namespace enums
+	{
+		//! @enum BootMode
+		//! @brief èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ã™åˆ—æŒ™å‹
+		enum class BootMode : int
+		{
+			kSimulation = 0,//!< ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¢ãƒ¼ãƒ‰
+			kViewer,		//!< ãƒ“ãƒ¥ãƒ¼ãƒ¯ãƒ¼ãƒ¢ãƒ¼ãƒ‰
+			kDisplayTest,	//!< ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰
+			kResultViewer	//!< ãƒªã‚¶ãƒ«ãƒˆãƒ“ãƒ¥ãƒ¼ãƒ¯ãƒ¼ãƒ¢ãƒ¼ãƒ‰
+		};
+	}
+}
 
 
 #endif	// DESIGNLAB_BOOT_MODE_H_
