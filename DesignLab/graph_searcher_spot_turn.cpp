@@ -15,7 +15,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const int max_depth
 ) const
 {
-	assert(target.GetTargetMode() == dle::TargetMode::kSpotTurnLastPosture || target.GetTargetMode() == dle::TargetMode::kSpotTurnRotAxis);
+	assert(target.target_mode == dle::TargetMode::kSpotTurnLastPosture || target.target_mode == dle::TargetMode::kSpotTurnRotAxis);
 
 	if (!graph_tree.HasRoot())
 	{
@@ -95,10 +95,10 @@ float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& curre
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	if (target.GetTargetMode() == dle::TargetMode::kSpotTurnLastPosture)
+	if (target.target_mode == dle::TargetMode::kSpotTurnLastPosture)
 	{
 		//最終姿勢を表すクォータニオンとの差分を計算する
-		const dl::Quaternion target_quat = target.GetSpotTurnLastPosture();
+		const dl::Quaternion target_quat = target.spot_turn_last_posture_;
 		const dl::Quaternion current_quat = current_node.quat;
 
 		const dl::Quaternion target_to_current = target_quat * current_quat.GetInverse();

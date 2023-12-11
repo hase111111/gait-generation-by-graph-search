@@ -6,6 +6,7 @@
 
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dlm = ::designlab::math_util;
 
 
@@ -280,9 +281,10 @@ TargetRobotState TargetUpdaterForGpg::Update(const RobotStateNode& node) const
 	if (abs(rot_dif) > kAllowableAngleError)
 	{
 		TargetRobotState target_robot_state;
-		target_robot_state.SetSpotTurnLastPosture(dl::Quaternion::MakeByAngleAxis(target_angle, dl::Vector3::GetUpVec()));
+		target_robot_state.target_mode = dle::TargetMode::kSpotTurnLastPosture;
+		target_robot_state.spot_turn_last_posture_ = dl::Quaternion::MakeByAngleAxis(target_angle, dl::Vector3::GetUpVec());
 
-		std::cout << "target_quat : " << target_robot_state.GetSpotTurnLastPosture();
+		std::cout << "target_quat : " << target_robot_state.spot_turn_last_posture_;
 		std::cout << "/ now_quat : " << node.quat << std::endl;
 		return target_robot_state;
 	}
@@ -300,7 +302,8 @@ TargetRobotState TargetUpdaterForGpg::Update(const RobotStateNode& node) const
 	std::cout << "target_vector: " << target_vector << "/ normalized" << target_vector.GetNormalized() << std::endl;
 
 	TargetRobotState target_robot_state;
-	target_robot_state.SetStraightMoveVector((dl::Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized());
+	target_robot_state.target_mode = dle::TargetMode::kStraightMoveVector;
+	target_robot_state.straight_move_vector_ = (dl::Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
 
 	return target_robot_state;
 }

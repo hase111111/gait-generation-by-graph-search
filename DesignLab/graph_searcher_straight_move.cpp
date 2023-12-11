@@ -25,7 +25,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	const int max_depth
 ) const
 {
-	assert(target.GetTargetMode() == dle::TargetMode::kStraightMovePosition || target.GetTargetMode() == dle::TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
+	assert(target.target_mode == dle::TargetMode::kStraightMovePosition || target.target_mode == dle::TargetMode::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_move_length = 0.f;
@@ -117,8 +117,8 @@ float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotState
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	dl::Vector3 target_pos = target.GetTargetMode() == dle::TargetMode::kStraightMovePosition ?
-		target.GetStraightMovePosition() : target.GetStraightMoveVector() * target_weight + current_node.global_center_of_mass;
+	dl::Vector3 target_pos = target.target_mode == dle::TargetMode::kStraightMovePosition ?
+		target.straight_move_position_ : target.straight_move_vector_ * target_weight + current_node.global_center_of_mass;
 
 	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
 

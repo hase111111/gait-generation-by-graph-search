@@ -4,7 +4,7 @@
 #シミュレーションを行うマップについての設定です．
 [Map]
 #マップの作成方法を設定します．(kForSimulation/kFromFile)
-map_create_mode = "kForSimulation"
+map_create_mode = "kFromFile"
 #マップの作成方法がファイルから読み込むモードの場合，マップのcsvファイルの名前を設定します．
 map_file_name = "map_state.csv"
 #マップの作成方法がシミュレーション専用マップを出力するモードの場合，マップのパラメータを記述したtomlファイル名を設定します．
@@ -13,7 +13,7 @@ simulation_map_param_file_name = "simulation_map.toml"
 #シミュレーションの終了条件についての設定です．
 [SimulationEndCheck]
 #シミュレーションの終了条件がゴールテープに到達したかどうかの場合，ゴールテープのx座標を設定します．[mm]
-goal_tape_position_x = 1200.0
+goal_tape_position_x = 4000.0
 #シミュレーションの終了条件の種類を設定します．(kGoalTape/kPosture/kPosition)
 simulation_end_check_type = "kGoalTape"
 #シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標の許容誤差を設定します．[mm]
