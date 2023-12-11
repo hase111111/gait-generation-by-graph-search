@@ -26,4 +26,5 @@ public:
 	virtual TargetRobotState Update(const RobotStateNode& state) const = 0;
 };
 
+
 #endif // DESIGNLAB_INTERFACE_TARGET_UPDATER_H_

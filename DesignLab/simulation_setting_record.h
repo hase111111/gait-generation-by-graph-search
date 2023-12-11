@@ -57,9 +57,9 @@ struct SimulationSettingRecord final
 	float target_position_allowable_error{ 50.0f };
 
 
-	SimulationTargetUpdateMode similation_target_update_mode{ SimulationTargetUpdateMode::kOnce };
+	SimulationTargetUpdateMode simulation_target_update_mode{ SimulationTargetUpdateMode::kOnce };
 
-	std::string similation_target_update_file_name{ "similation_target_update.toml" };
+	std::string simulation_target_update_file_name{ "similation_target_update.toml" };
 };
 
 
@@ -89,9 +89,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position_z, "SimulationEndCheck", "シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標のz座標を設定します．[mm]");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(target_position_allowable_error, "SimulationEndCheck", "シミュレーションの終了条件が目的の座標に到達したかどうかの場合，目標の座標の許容誤差を設定します．[mm]");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(similation_target_update_mode, "TargetUpdate", "シミュレーションの目標の更新方法を設定します．(" +
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_target_update_mode, "TargetUpdate", "シミュレーションの目標の更新方法を設定します．(" +
 		::designlab::string_util::EnumValuesToString<SimulationTargetUpdateMode>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(similation_target_update_file_name, "TargetUpdate", "シミュレーションの目標の更新方法がファイルから読み込むモードの場合，目標の更新方法の設定を記述したtomlファイル名を設定します．");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(simulation_target_update_file_name, "TargetUpdate", "シミュレーションの目標の更新方法がファイルから読み込むモードの場合，目標の更新方法の設定を記述したtomlファイル名を設定します．");
 };
 
 DESIGNLAB_TOML11_SERIALIZE(
@@ -99,7 +99,7 @@ DESIGNLAB_TOML11_SERIALIZE(
 	map_create_mode, simulation_map_param_file_name, map_file_name,
 	simulation_end_check_type, goal_tape_position_x, target_posture_x_angle, target_posture_y_angle, target_posture_z_angle, target_posture_allowable_error,
 	target_position_x, target_position_y, target_position_z, target_position_allowable_error,
-	similation_target_update_mode, similation_target_update_file_name
+	simulation_target_update_mode, simulation_target_update_file_name
 );
 
 #endif //DESIGNLAB_SIMULATION_SETTING_RECORD_H_

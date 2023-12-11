@@ -570,6 +570,12 @@
     <ClInclude Include="toml_file_setupper.h">
       <Filter>ソース ファイル\Common\FileIO</Filter>
     </ClInclude>
+    <ClInclude Include="target_updater_once.h">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="target_updater_factory.h">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -859,6 +865,12 @@
     </ClCompile>
     <ClCompile Include="toml_file_setupper.cpp">
       <Filter>ソース ファイル\Common\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="target_updater_once.cpp">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="target_updater_factory.cpp">
+      <Filter>ソース ファイル\System\Simulation\TargetUpdater</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

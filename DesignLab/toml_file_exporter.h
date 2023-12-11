@@ -1,5 +1,5 @@
-//! @file toml_file_exporter.h
-//! @brief TOMLƒtƒ@ƒCƒ‹‚ğo—Í‚·‚éƒeƒ“ƒvƒŒ[ƒgƒNƒ‰ƒXD
+ï»¿//! @file toml_file_exporter.h
+//! @brief TOMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã™ã‚‹ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_TOML_FILE_EXPORTER_H_
 #define DESIGNLAB_TOML_FILE_EXPORTER_H_
@@ -27,23 +27,23 @@ public:
 	void Export(const std::string& file_path, const T& data)
 	{
 		const toml::basic_value<toml::preserve_comments, std::map> value(data);
-		const std::string res_str = toml::format(value);	// İ’è‚ğ•¶š—ñ‚É•ÏŠ·
+		const std::string res_str = toml::format(value);	// è¨­å®šã‚’æ–‡å­—åˆ—ã«å¤‰æ›
 
 		std::ofstream ofs;
 		ofs.open(file_path);
 
-		// ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚È‚©‚Á‚½‚ç‰½‚à‚µ‚È‚¢
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ãªã‹ã£ãŸã‚‰ä½•ã‚‚ã—ãªã„
 		if (!ofs)
 		{
-			::designlab::cmdio::Output("İ’èƒtƒ@ƒCƒ‹‚Ìo—Í‚É¸”s‚µ‚Ü‚µ‚½Dfile_path : " + file_path, OutputDetail::kSystem);
+			::designlab::cmdio::Output("TOMLãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ã«å¤±æ•—ã—ã¾ã—ãŸï¼file_path : " + file_path, OutputDetail::kSystem);
 			return;
 		}
 
-		ofs.write(res_str.c_str(), res_str.length());	// ƒtƒ@ƒCƒ‹‚É‘‚«‚Ş
+		ofs.write(res_str.c_str(), res_str.length());	// ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€
 
-		ofs.close();	// ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+		ofs.close();	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 
-		::designlab::cmdio::Output("İ’èƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚µ‚½Dfile_path : " + file_path, OutputDetail::kSystem);
+		::designlab::cmdio::Output("TOMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã—ãŸï¼file_path : " + file_path, OutputDetail::kSystem);
 	}
 };
 
