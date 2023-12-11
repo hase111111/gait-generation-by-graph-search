@@ -149,13 +149,13 @@ public:
 
 	int stripe_interval{ 5 };	//!< 各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 
-	int hole_rate{ 0 };			//!< 不整地上の足場を除外する割合。ホール率[%]
-	float step_height{ 0.f };	//!< 段差高さ[mm]．負の値にすると下りの階段になる．
-	float step_length{ 0.f };	//!< 階段の奥行[mm]．
-	float slope_angle{ 0.f };	//!< 斜面の傾斜角[deg]．
-	float tilt_angle{ 0.f };	//!< 地形を傾ける角度[deg]．
-	float routh_max_height{ 0.f };		//!< デコボコな地形の最大高さ[mm]
-	float routh_min_height{ 0.f };		//!< デコボコな地形の最小高さ[mm]
+	int hole_rate{ 20 };			//!< 不整地上の足場を除外する割合。ホール率[%]
+	float step_height{ 100.f };	//!< 段差高さ[mm]．負の値にすると下りの階段になる．
+	float step_length{ 600.f };	//!< 階段の奥行[mm]．
+	float slope_angle{ 10.f };	//!< 斜面の傾斜角[deg]．
+	float tilt_angle{ 5.f };	//!< 地形を傾ける角度[deg]．
+	float routh_max_height{ 30.f };		//!< デコボコな地形の最大高さ[mm]
+	float routh_min_height{ -30.f };		//!< デコボコな地形の最小高さ[mm]
 };
 
 
@@ -165,8 +165,10 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
 
 	DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION();
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のモードを指定する列挙体．(" + ::designlab::string_util::EnumValuesToString<SimulationMapMode>("/") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプションを指定するbit．(" + ::designlab::string_util::EnumValuesToString<SimulationMapOption>("/") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "生成するマップの種類．(" + 
+		::designlab::string_util::EnumValuesToString<SimulationMapMode>(" / ") + ")");
+	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプション．複数指定したいならば足し合わせて指定すること.(" + 
+		::designlab::string_util::EnumEntriesToString<SimulationMapOption>("/") + ")");
 
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
 	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");

@@ -87,6 +87,37 @@ namespace designlab
 			return str;
 		}
 
+
+		//! @brief enum型を渡すと，その要素と値を変換したものを列挙した文字列を返す関数．
+		//! @param [in] separator 列挙した文字列の区切り文字．
+		//! @return std::string enumの要素と値を変換したものを列挙した文字列．
+		//! @tparam T enum型．
+		template <typename T, typename = std::enable_if_t<std::is_enum<T>::value>>
+		std::string EnumEntriesToString(const std::string separator)
+		{
+			std::string str;
+			using enum_type = typename std::underlying_type<T>::type;
+			bool is_first = true;
+
+			for (const auto& e : magic_enum::enum_values<T>())
+			{
+				if (!is_first)
+				{
+					str += separator;
+				}
+				else
+				{
+					is_first = false;
+				}
+
+				str += static_cast<std::string>(magic_enum::enum_name(e));
+				str += " = ";
+				str += std::to_string(static_cast<enum_type>(e));
+			}
+
+			return str;
+		}
+
 	}	// namespace string_util
 
 }	// namespace designlab
