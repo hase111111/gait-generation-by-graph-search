@@ -133,9 +133,18 @@ float GraphSearcherStraightMove::CalcLegRotEvaluationValue(const RobotStateNode&
 	{
 		if (dllf::IsGrounded(current_node.leg_state, i))
 		{
+			result += (current_node.leg_pos[i].ProjectedXY() - parent_node.leg_pos[i].ProjectedXY()).GetLength();
+		}
+		else
+		{
 			result += (current_node.leg_pos[i] - parent_node.leg_pos[i]).GetLength();
 		}
 	}
 
 	return result / static_cast<float>(HexapodConst::kLegNum);
+}
+
+void GraphSearcherStraightMove::EvaluationValue::Update(const int current_max_index, const int new_index, const GaitPatternGraphTree& tree)
+{
+
 }
