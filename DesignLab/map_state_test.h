@@ -7,33 +7,26 @@
 
 TEST_SUITE("MapStateTest")
 {
-	TEST_CASE("DefaultConstructor")
+	TEST_CASE("DefaultConstructor_呼び出し時_マップのサイズは0になるべき")
 	{
-		SUBCASE("初期化時,マップのサイズは0になるべき")
-		{
-			MapState map_state;
+		MapState map_state;
 
-			CHECK(map_state.GetMapPointSize() == 0);
-		}
+		CHECK(map_state.GetMapPointSize() == 0);
 	}
 
-	TEST_CASE("Constructor")
+	TEST_CASE("Constructor_std::vector<Vector3>で初期化時_マップの要素は引数のvectorと同じになるべき")
 	{
-		SUBCASE("初期化時，マップのサイズは引数のvectorと同じサイズになる")
+		std::vector<designlab::Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
+
+		MapState map_state(map_point);
+
+		SUBCASE("初期化時_マップのサイズは引数のvectorと同じサイズになるべき")
 		{
-			std::vector<designlab::Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
-
-			MapState map_state(map_point);
-
 			CHECK(map_state.GetMapPointSize() == map_point.size());
 		}
 
-		SUBCASE("初期化時，追加した順番で脚接地可能点を取得できる")
+		SUBCASE("初期化時_追加した順番で脚接地可能点を取得できるべき")
 		{
-			std::vector<designlab::Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
-
-			MapState map_state(map_point);
-
 			CHECK(map_state.GetMapPoint(0) == map_point[0]);
 			CHECK(map_state.GetMapPoint(1) == map_point[1]);
 		}

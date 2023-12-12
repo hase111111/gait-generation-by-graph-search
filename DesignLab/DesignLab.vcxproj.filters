@@ -142,6 +142,9 @@
     <Filter Include="ソース ファイル\Map\MapCreator\Parameter">
       <UniqueIdentifier>{c791aefb-7715-470d-b459-535a83a92da9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Map\MapCreator\Parameter\Test">
+      <UniqueIdentifier>{a613336f-29f0-4470-9f7e-eb2fb6ba5730}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -581,6 +584,9 @@
     </ClInclude>
     <ClInclude Include="simulation_map_parameter_validator.h">
       <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter_validator_test.h">
+      <Filter>ソース ファイル\Map\MapCreator\Parameter\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

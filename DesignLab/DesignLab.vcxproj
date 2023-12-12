@@ -136,6 +136,7 @@
     <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="simulation_end_checker_by_goal_tape.h" />
     <ClInclude Include="simulation_map_parameter_validator.h" />
+    <ClInclude Include="simulation_map_parameter_validator_test.h" />
     <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
