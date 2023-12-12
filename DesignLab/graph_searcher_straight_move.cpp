@@ -144,7 +144,12 @@ float GraphSearcherStraightMove::CalcLegRotEvaluationValue(const RobotStateNode&
 	return result / static_cast<float>(HexapodConst::kLegNum);
 }
 
-void GraphSearcherStraightMove::EvaluationValue::Update(const int current_max_index, const int new_index, const GaitPatternGraphTree& tree)
+void GraphSearcherStraightMove::EvaluationValue::Update(const int new_index, const GaitPatternGraphTree& tree)
 {
 
+}
+
+float GraphSearcherStraightMove::EvaluationValue::CalcMoveForwardEvaluationValue([[maybe_unused]] int selected_index, [[maybe_unused]] const GaitPatternGraphTree& tree) const
+{
+	return 0.0f;
 }

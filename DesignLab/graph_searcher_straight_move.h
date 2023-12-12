@@ -30,7 +30,7 @@ private:
 		static constexpr float kMaxEvaluationValue = 1000000.0f;
 		static constexpr float kMinEvaluationValue = -1000000.0f;
 
-		void Update(int current_max_index, int new_index, const GaitPatternGraphTree& tree);
+		void Update(int new_index, const GaitPatternGraphTree& tree);
 
 		const RobotOperation operation_;
 
