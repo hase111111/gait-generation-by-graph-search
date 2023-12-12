@@ -10,7 +10,8 @@
 
 //! @class Stopwatch
 //! @brief 時間計測用のクラス．
-//! @n Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する．
+//! @details
+//! Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する．
 //! @n 実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．
 class Stopwatch final
 {
