@@ -4,6 +4,7 @@
 
 #include "map_creator_by_csv.h"
 #include "map_creator_for_simulation.h"
+#include "simulation_map_parameter_validator.h"
 #include "toml_file_importer.h"
 #include "toml_file_setupper.h"
 
@@ -20,7 +21,7 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 	}
 	else if (record.map_create_mode == dle::MapCreateMode::kForSimulation)
 	{
-		TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer;
+		TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer(std::make_unique<SimulationMapParameterValidator>());
 
 		const SimulationMapParameter simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + record.simulation_map_param_file_name);
 

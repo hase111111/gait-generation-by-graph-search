@@ -139,6 +139,9 @@
     <Filter Include="ソース ファイル\System\Simulation\RobotOperator">
       <UniqueIdentifier>{ad665007-1db5-47af-89b6-f7b2864b7708}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Map\MapCreator\Parameter">
+      <UniqueIdentifier>{c791aefb-7715-470d-b459-535a83a92da9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -504,9 +507,6 @@
     <ClInclude Include="interface_map_creator.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_map_parameter.h">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
-    </ClInclude>
     <ClInclude Include="map_creator_for_simulation.h">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClInclude>
@@ -575,6 +575,12 @@
     </ClInclude>
     <ClInclude Include="robot_operation.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter.h">
+      <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter_validator.h">
+      <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -871,6 +877,9 @@
     </ClCompile>
     <ClCompile Include="robot_operator_factory.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_map_parameter_validator.cpp">
+      <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

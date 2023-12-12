@@ -2,44 +2,44 @@
 
 
 ApplicationSettingRecordVaildator::ApplicationSettingRecordVaildator() :
-	kErrorMesForWindowWidthGtZero("ウィンドウの幅は0より大きい値を設定してください．"),
-	kErrorMesForWindowWidthLeMax("ウィンドウの幅は最大値以下の値を設定してください．"),
-	kErrorMesForWindowHeightGtZero("ウィンドウの高さは0より大きい値を設定してください．"),
-	kErrorMesForWindowHeightLeMax("ウィンドウの高さは最大値以下の値を設定してください．"),
-	kErrorMesForFpsGtZero("FPSは0より大きい値を設定してください．"),
-	kErrorMesForFpsLeMax("FPSは最大値以下の値を設定してください．")
+	kErrorMesForWindowWidthGeMin("ウィンドウの幅は" + std::to_string(ApplicationSettingRecord::kWindowWidthMin) + "以上の値を設定してください．"),
+	kErrorMesForWindowWidthLeMax("ウィンドウの幅は" + std::to_string(ApplicationSettingRecord::kWindowWidthMax) + "以下の値を設定してください．"),
+	kErrorMesForWindowHeightGeMin("ウィンドウの高さは" + std::to_string(ApplicationSettingRecord::kWindowHeightMin) + "以上の値を設定してください．"),
+	kErrorMesForWindowHeightLeMax("ウィンドウの高さは" + std::to_string(ApplicationSettingRecord::kWindowHeightMax) + "以下の値を設定してください．"),
+	kErrorMesForFpsGeMin("FPSは" + std::to_string(ApplicationSettingRecord::kFpsMin) + "以上の値を設定してください．"),
+	kErrorMesForFpsLeMax("FPSは" + std::to_string(ApplicationSettingRecord::kFpsMax) + "以下の値を設定してください．")
 {
 }
 
 std::tuple<bool, std::string> ApplicationSettingRecordVaildator::Validate(const ApplicationSettingRecord& setting_record) const
 
 {
-	if (setting_record.window_size_x <= 0)
+	if (setting_record.window_size_x < ApplicationSettingRecord::kWindowWidthMin)
 	{
-		return std::make_tuple(false, kErrorMesForWindowWidthGtZero);
+		return std::make_tuple(false, kErrorMesForWindowWidthGeMin);
 	}
 
-	if (setting_record.window_size_x > 1920)
+	if (setting_record.window_size_x > ApplicationSettingRecord::kWindowWidthMax)
 	{
 		return std::make_tuple(false, kErrorMesForWindowWidthLeMax);
 	}
 
-	if (setting_record.window_size_y <= 0)
+	if (setting_record.window_size_y < ApplicationSettingRecord::kWindowHeightMin)
 	{
-		return std::make_tuple(false, kErrorMesForWindowHeightGtZero);
+		return std::make_tuple(false, kErrorMesForWindowHeightGeMin);
 	}
 
-	if (setting_record.window_size_y > 1080)
+	if (setting_record.window_size_y > ApplicationSettingRecord::kWindowHeightMax)
 	{
 		return std::make_tuple(false, kErrorMesForWindowHeightLeMax);
 	}
 
-	if (setting_record.window_fps <= 0)
+	if (setting_record.window_fps < ApplicationSettingRecord::kFpsMin)
 	{
-		return std::make_tuple(false, kErrorMesForFpsGtZero);
+		return std::make_tuple(false, kErrorMesForFpsGeMin);
 	}
 
-	if (setting_record.window_fps > 60)
+	if (setting_record.window_fps > ApplicationSettingRecord::kFpsMax)
 	{
 		return std::make_tuple(false, kErrorMesForFpsLeMax);
 	}

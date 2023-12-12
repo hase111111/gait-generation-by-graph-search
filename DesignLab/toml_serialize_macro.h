@@ -101,7 +101,7 @@ namespace designlab
 		//! @param str 追加する変数の名前．
 		//! @param value 追加する値．
 		template <typename T>
-		typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value && ! is_quaternion<T>::value>::type
+		typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value && !is_quaternion<T>::value>::type
 			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 		{
 			v[str] = value;
@@ -126,7 +126,7 @@ namespace designlab
 		//! @param value 追加する値．
 		template <typename T>
 		typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value || is_quaternion<T>::value>::type
-			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
+			SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>&v, const std::string & str, const T & value)
 		{
 			std::stringstream ss;
 			ss << value;
@@ -142,7 +142,7 @@ namespace designlab
 		//! @details 型の条件によって，Get関数を特殊化する．
 		//! @see GetTomlValue
 		template <typename T>
-		struct GetTomlValueImpl<T, 
+		struct GetTomlValueImpl<T,
 			typename std::enable_if<!std::is_enum<T>::value && !is_vector3<T>::value && !is_euler_xyz<T>::value && !is_quaternion<T>::value>::type>
 		{
 			static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
@@ -173,7 +173,7 @@ namespace designlab
 		//! @tparam T が Vector3 型の場合と EulerXYZ 型の場合にこの特殊化が呼ばれる．
 		//! @details 値をストリームを用いて文字列に変換してから取得する．
 		template <typename T>
-		struct GetTomlValueImpl<T, 
+		struct GetTomlValueImpl<T,
 			typename std::enable_if<is_vector3<T>::value || is_euler_xyz<T>::value || is_quaternion<T>::value>::type>
 		{
 			//! @brief tomlファイルから値を取得するための関数．
@@ -274,54 +274,54 @@ if (desc.VAR_NAME.description != "")                                            
 struct CLASS##Description final
 
 
-//! @def DESIGNLAB_TOML11_NO_FILE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_FILE_NO_DESCRIPTION
 //! @brief tomlファイルにファイルの説明を追加しないことを示す文字列．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
-#define DESIGNLAB_TOML11_NO_FILE_DESCRIPTION()				\
+#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION()				\
 const ::std::vector<::std::string> file_description_vec{};
 
-//! @def DESIGNLAB_TOML11_FILE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION
 //! @brief tomlファイルにファイルの説明を追加するためのマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param DESCRIPTION 説明．文字列で指定する．
-#define DESIGNLAB_TOML11_FILE_DESCRIPTION(DESCRIPTION)						\
+#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(DESCRIPTION)						\
 const ::std::vector<::std::string> file_description_vec{sjis_to_utf8(DESCRIPTION)};
 
-//! @def DESIGNLAB_TOML11_FILE_DESCRIPTION_MULTI_LINE
+//! @def DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE
 //! @brief tomlファイルにファイルの説明を追加するためのマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param DESCRIPTION_VEC 説明．文字列のvectorで指定する．
-#define DESIGNLAB_TOML11_FILE_DESCRIPTION_MULTI_LINE(DESCRIPTION_VEC)		\
+#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE(DESCRIPTION_VEC)		\
 const ::std::vector<::std::string> file_description_vec = ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);
 
 
-//! @def DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION
 //! @brief tomlファイルにテーブルの説明を追加するためのマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
 //! @param ... テーブル名と説明．
-#define DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(...)							\
+#define DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(...)							\
 const std::vector<std::string> table_name_description_vec = ::designlab::toml_func::sjis_to_utf8_vec({__VA_ARGS__});
 
-//! @def DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION
+//! @def DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION
 //! @brief tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ．
 //! @n DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．
-#define DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION()			\
+#define DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION()			\
 const std::vector<std::string> table_name_description_vec = {};
 
 
-//! @def DESIGNLAB_TOML11_ADD_DESCRIPTION
+//! @def DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION
 //! @brief tomlファイルに変数とファイルの説明を追加するためのマクロ．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
 //! @param DESCRIPTION 説明．
-#define DESIGNLAB_TOML11_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)		\
+#define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)		\
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DESCRIPTION)} 
 
-//! @def DESIGNLAB_TOML11_ADD_NO_DESCRIPTION
+//! @def DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION
 //! @brief ファイルの説明を追加したくない場合には，このマクロで変数を追加する．
 //! @param VARIABLE 変数名．
 //! @param TABLE テーブル名．
-#define DESIGNLAB_TOML11_ADD_NO_DESCRIPTION(VARIABLE, TABLE)		\
+#define DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION(VARIABLE, TABLE)		\
 const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""} 
 
 //! @def DESIGNLAB_TOML11_NO_TABLE
@@ -355,16 +355,16 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! 
 //! DESIGNLAB_TOML11_DESCRIPTION_CLASS(Sample)
 //! {
-//!     DESIGNLAB_TOML11_NO_FILE_DESCRIPTION();
+//!     DESIGNLAB_TOML11_FILE_NO_DESCRIPTION();
 //! 
-//!     DESIGNLAB_TOML11_ADD_TABLE_DESCRIPTION(
+//!     DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(
 //!			"number", "This is Number Table."
 //!			"enum", "This is Enum Table."
 //!		);
 //! 
-//!     DESIGNLAB_TOML11_ADD_DESCRIPTION(data, "number", "This is data");
-//!     DESIGNLAB_TOML11_ADD_DESCRIPTION(str, DESIGNLAB_TOML11_NO_TABLE, "This is str");
-//!     DESIGNLAB_TOML11_ADD_DESCRIPTION(enum_data, "enum", "This is enum_data");
+//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(data, "number", "This is data");
+//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(str, DESIGNLAB_TOML11_NO_TABLE, "This is str");
+//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(enum_data, "enum", "This is enum_data");
 //! };
 //! 
 //! DESIGNLAB_TOML11_SERIALIZE(Sample, data, str, enum_data);

@@ -30,13 +30,13 @@ public:
 
 private:
 
-	//gt = greater than． le = less equal．
+	//ge = greater equal． le = less equal．
 
-	const std::string kErrorMesForWindowWidthGtZero;
+	const std::string kErrorMesForWindowWidthGeMin;
 	const std::string kErrorMesForWindowWidthLeMax;
-	const std::string kErrorMesForWindowHeightGtZero;
+	const std::string kErrorMesForWindowHeightGeMin;
 	const std::string kErrorMesForWindowHeightLeMax;
-	const std::string kErrorMesForFpsGtZero;
+	const std::string kErrorMesForFpsGeMin;
 	const std::string kErrorMesForFpsLeMax;
 };
 

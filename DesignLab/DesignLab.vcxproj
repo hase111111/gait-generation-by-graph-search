@@ -135,6 +135,7 @@
     <ClInclude Include="designlab_math_util.h" />
     <ClInclude Include="designlab_polygon2.h" />
     <ClInclude Include="simulation_end_checker_by_goal_tape.h" />
+    <ClInclude Include="simulation_map_parameter_validator.h" />
     <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="designlab_vector2.h" />
@@ -223,6 +224,7 @@
     <ClCompile Include="simulation_end_checker_by_position.cpp" />
     <ClCompile Include="simulation_end_checker_by_posture.cpp" />
     <ClCompile Include="simulation_end_checker_factory.cpp" />
+    <ClCompile Include="simulation_map_parameter_validator.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="dxlib_gui_node_displayer.cpp" />
     <ClCompile Include="graph_searcher_random.cpp" />

@@ -161,31 +161,35 @@ public:
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
 {
-	DESIGNLAB_TOML11_NO_FILE_DESCRIPTION();
+	DESIGNLAB_TOML11_FILE_NO_DESCRIPTION();
 
-	DESIGNLAB_TOML11_NO_TABLE_DESCRIPTION();
+	DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "生成するマップの種類．(" + 
-		::designlab::string_util::EnumValuesToString<SimulationMapMode>(" / ") + ")");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプション．複数指定したいならば足し合わせて指定すること.(" + 
-		::designlab::string_util::EnumEntriesToString<SimulationMapOption>("/") + ")");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "生成するマップの種類．(\"" +
+		::designlab::string_util::EnumValuesToString<SimulationMapMode>("\" / \"") + "\")");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( " +
+		::designlab::string_util::EnumEntriesToString<SimulationMapOption>(" / ") + " )");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_min_x, "Basic", "マップのX座標の最小値．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_max_y, "Basic", "マップのY座標の最大値．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_min_y, "Basic", "マップのY座標の最小値．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(map_start_rough_x, "Basic", "不整地が始まるX座標．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_x, "Basic", "マップのX座標の最小値．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_y, "Basic", "マップのY座標の最大値．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_y, "Basic", "マップのY座標の最小値．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_start_rough_x, "Basic", "不整地が始まるX座標．");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(stripe_interval, "Stripe", "各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける．0より大きくすること．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(stripe_interval, "Stripe", "各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける．0より大きくすること．");
 
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(hole_rate, "Perforated", "不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(step_height, "Step", "段差高さ[mm]．負の値にすると下りの階段になる．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(step_length, "Step", "階段の奥行[mm]．正の値にすること．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(slope_angle, "Slope", "斜面の傾斜角[deg]．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(tilt_angle, "Tilt", "地形を傾ける角度[deg]．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(routh_max_height, "Rough", "デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．");
-	DESIGNLAB_TOML11_ADD_DESCRIPTION(routh_min_height, "Rough", "デコボコな地形の最小高さ[mm]");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(hole_rate, "Perforated", "不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．");
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_height, "Step", "段差高さ[mm]．負の値にすると下りの階段になる．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_length, "Step", "階段の奥行[mm]．正の値にすること．");
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_angle, "Slope", "斜面の傾斜角[deg]．");
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(tilt_angle, "Tilt", "地形を傾ける角度[deg]．");
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(routh_max_height, "Rough", "デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(routh_min_height, "Rough", "デコボコな地形の最小高さ[mm]");
 };
 
 DESIGNLAB_TOML11_SERIALIZE(
