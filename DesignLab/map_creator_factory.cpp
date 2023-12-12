@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "cassert_define.h"
 #include "map_creator_by_csv.h"
 #include "map_creator_for_simulation.h"
 #include "simulation_map_parameter_validator.h"
@@ -21,11 +22,19 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 	}
 	else if (record.map_create_mode == dle::MapCreateMode::kForSimulation)
 	{
-		TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer(std::make_unique<SimulationMapParameterValidator>());
+		auto validator_ptr = std::make_unique<SimulationMapParameterValidator>();
 
-		const SimulationMapParameter simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + record.simulation_map_param_file_name);
+		const TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer(std::move(validator_ptr));
+
+		const std::string simulation_map_param_file_path = TomlFileSetupper::kTomlFileDirPath + record.simulation_map_param_file_name;
+
+		const auto simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseDefault(simulation_map_param_file_path);
 
 		map_creator = std::make_unique<MapCreatorForSimulation>(simulation_map_parameter);
+	}
+	else
+	{	
+		assert(false && "MapCreateMode is not supported.");
 	}
 
 	return std::move(map_creator);
