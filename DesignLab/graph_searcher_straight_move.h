@@ -42,14 +42,14 @@ private:
 
 	private:
 		float CalcMoveForwardEvaluationValue(int index, const GaitPatternGraphTree& tree) const;
-
+		float CalcLegRotEvaluationValue(int index, const GaitPatternGraphTree& tree) const;
 	};
 
 	//! @brief 前進するための評価値を計算する
 	float CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const;
 
 	//! @brief 脚の平均回転量の評価値を計算する
-	float CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const;
+
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
