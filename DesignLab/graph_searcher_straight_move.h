@@ -22,7 +22,14 @@ private:
 
 	static constexpr float kMaxEvaluationValue = 1000000.0f;
 	static constexpr float kMinEvaluationValue = -1000000.0f;
-	static constexpr float kMarginOfMove = 10;
+
+
+	enum class EvaluationResult
+	{
+		kUpdate,
+		kEqual,
+		kNotUpdate,
+	};
 
 	struct EvaluationValue final
 	{
@@ -33,24 +40,22 @@ private:
 		float z_diff{ kMaxEvaluationValue };
 	};
 
-	bool UpdateEvaluationValueByAmoutOfMovement(int index, const GaitPatternGraphTree& tree, EvaluationValue* candiate) const;
+	struct InitialValue final
+	{
+		::designlab::Vector3 normalized_move_direction;
+	};
 
-	bool UpdateEvalutionValueByLegRot(int index, const GaitPatternGraphTree& tree, 
-		const RobotOperation& operation, EvaluationValue* candiate);
 
-	bool UpdateEvalutionValueByStablyMargin(int index, const GaitPatternGraphTree& tree,
-		const RobotOperation& operation, EvaluationValue* candiate);
+	EvaluationResult UpdateEvaluationValueByAmoutOfMovement(int index, const GaitPatternGraphTree& tree, const EvaluationValue& max_evaluation_value, const InitialValue& init_value, EvaluationValue* candiate) const;
 
-	bool UpdateEvalutionValueByZDiff(int index, const GaitPatternGraphTree& tree,
-		const RobotOperation& operation, EvaluationValue* candiate);
+	EvaluationResult UpdateEvalutionValueByLegRot(int index, const GaitPatternGraphTree& tree, const EvaluationValue& max_evaluation_value, const InitialValue& init_value, EvaluationValue* candiate) const;
+
+	EvaluationResult UpdateEvalutionValueByStablyMargin(int index, const GaitPatternGraphTree& tree, const EvaluationValue& max_evaluation_value, const InitialValue& init_value, EvaluationValue* candiate) const;
+
+	EvaluationResult UpdateEvalutionValueByZDiff(int index, const GaitPatternGraphTree& tree, const EvaluationValue& max_evaluation_value, const InitialValue& init_value, EvaluationValue* candiate) const;
+
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
-
-	EvaluationValue max_evaluation_value_;
-
-	EvaluationValue candiate_evaluation_value_;
-
-	::designlab::Vector3 no
 };
 
 
