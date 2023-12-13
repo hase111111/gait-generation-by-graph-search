@@ -32,9 +32,6 @@ public:
 	const static int kBackColorGreen;	//!< ウィンドウ背景色． 緑色成分．0～255の範囲で指定．
 	const static int kBackColorBlue;	//!< ウィンドウ背景色． 青色成分．0～255の範囲で指定．
 
-	const static float kCameraFar;		//!< カメラが表示できる最も遠い座標までの距離．
-	const static float kCameraNear;		//!< カメラが表示できる最も近い座標までの距離．
-
 	const static float kCameraToTargetMax;	//!< カメラと注視目標の最大距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
 	const static float kCameraToTargetMin;	//!< カメラと注視目標の最小距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
 };
