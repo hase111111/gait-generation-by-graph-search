@@ -74,7 +74,7 @@ private:
 	const float kMovableCoxaAngleMax = designlab::math_util::ConvertDegToRad(40.f);	//!< 脚の可動範囲の最大値[rad]
 
 	static constexpr float kMinLegR{ 140.f };		//!< 脚の付け根から脚先までの最小距離[mm]
-	static constexpr float kMaxLegR{ 260.f };		//!< 脚の付け根から脚先までの最大距離[mm]
+	static constexpr float kMaxLegR{ 200.f };		//!< 脚の付け根から脚先までの最大距離[mm]
 	static constexpr int kMaxLegRSize{ 200 };		//!< kMaxLegRの配列のサイズ．
 	std::array<float, kMaxLegRSize> kMaxLegRArray;	//!< 脚の付け根から脚先までの最大距離[mm]．脚の付け根と重心のz方向の距離の差をインデックスにする．
 

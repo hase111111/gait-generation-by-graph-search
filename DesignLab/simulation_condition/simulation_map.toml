@@ -1,47 +1,62 @@
-#生成するマップの種類．(kFlat / kVerticalStripe / kHorizontalStripe / kDiagonalStripe / kMesh / kLatticePoint)
+#生成するマップの種類．("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kMesh" / "kLatticePoint")
 mode = "kFlat"
-#マップ生成のオプション．複数指定したいならば足し合わせて指定すること.(kNone = 0/kPerforated = 1/kStep = 2/kSlope = 4/kTilt = 8/kRough = 16)
+
+#マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 )
 option = 0
 
 [Basic]
-#マップの基準となるZ座標．
-base_z = 0.0
-#マップのX座標の最大値．
-map_max_x = 2600.0
-#マップのY座標の最大値．
-map_max_y = 2000.0
-#マップのX座標の最小値．
-map_min_x = -400.0
-#マップのY座標の最小値．
-map_min_y = -2000.0
-#不整地が始まるX座標．
-map_start_rough_x = 400.0
+    
+    #マップの基準となるZ座標．
+    base_z = 0.0
+    
+    #マップのX座標の最大値．
+    map_max_x = 4000.0
+    
+    #マップのY座標の最大値．
+    map_max_y = 2000.0
+    
+    #マップのX座標の最小値．
+    map_min_x = -400.0
+    
+    #マップのY座標の最小値．
+    map_min_y = -2000.0
+    
+    #不整地が始まるX座標．
+    map_start_rough_x = 400.0
 
 [Perforated]
-#不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．
-hole_rate = 20
+    
+    #不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．
+    hole_rate = 20
 
 [Rough]
-#デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．
-routh_max_height = 30.0
-#デコボコな地形の最小高さ[mm]
-routh_min_height = -30.0
+    
+    #デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．
+    routh_max_height = 30.0
+    
+    #デコボコな地形の最小高さ[mm]
+    routh_min_height = -30.0
 
 [Slope]
-#斜面の傾斜角[deg]．
-slope_angle = 10.0
+    
+    #斜面の傾斜角[deg]．
+    slope_angle = 10.0
 
 [Step]
-#段差高さ[mm]．負の値にすると下りの階段になる．
-step_height = 100.0
-#階段の奥行[mm]．正の値にすること．
-step_length = 600.0
+    
+    #段差高さ[mm]．負の値にすると下りの階段になる．
+    step_height = 100.0
+    
+    #階段の奥行[mm]．正の値にすること．
+    step_length = 600.0
 
 [Stripe]
-#各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける．0より大きくすること．
-stripe_interval = 5
+    
+    #各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける．0より大きくすること．
+    stripe_interval = 5
 
 [Tilt]
-#地形を傾ける角度[deg]．
-tilt_angle = 5.0
-
+    
+    #地形を傾ける角度[deg]．
+    tilt_angle = 5.0
+    

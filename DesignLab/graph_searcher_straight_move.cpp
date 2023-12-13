@@ -47,11 +47,12 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	}
 
 	//Calcなどの関数をvectorに格納する．
-	std::vector<std::function<EvaluationResult(const int, const GaitPatternGraphTree&, const EvaluationValue&, const InitialValue&, EvaluationValue*)>> update_evaluation_value_func_vec{
+	std::vector<std::function<EvaluationResult(const int, const GaitPatternGraphTree&, const EvaluationValue&, const InitialValue&, EvaluationValue*)>> update_evaluation_value_func_vec
+	{
 		std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
+			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
 	};
 
 	for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -111,13 +112,14 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 
 	//root_to_currentのinit_value.normalized_move_direction方向の成分を取り出す．
 	const float result = root_to_current.Dot(init_value.normalized_move_direction);
+	const float margin = 7.5f;
 
-	if (max_evaluation_value.move_forward < result)
+	if (max_evaluation_value.move_forward + margin < result)
 	{
 		(*candiate).move_forward = result;
 		return EvaluationResult::kUpdate;
 	}
-	else if (max_evaluation_value.move_forward == result)
+	else if (abs(max_evaluation_value.move_forward - result) < margin)
 	{
 		(*candiate).move_forward = result;
 		return EvaluationResult::kEqual;
@@ -151,12 +153,14 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 		}
 	}
 
-	if (max_evaluation_value.leg_rot < result)
+	const float margin = 10.0f;
+
+	if (max_evaluation_value.leg_rot + margin < result)
 	{
 		(*candiate).leg_rot = result;
 		return EvaluationResult::kUpdate;
 	}
-	else if (max_evaluation_value.leg_rot == result)
+	else if (abs(max_evaluation_value.leg_rot - result) < margin)
 	{
 		(*candiate).leg_rot = result;
 		return EvaluationResult::kEqual;

@@ -366,9 +366,6 @@
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
     <ClInclude Include="boot_mode_selecter.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
@@ -587,6 +584,9 @@
     </ClInclude>
     <ClInclude Include="simulation_map_parameter_validator_test.h">
       <Filter>ソース ファイル\Map\MapCreator\Parameter\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
