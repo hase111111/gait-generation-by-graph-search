@@ -91,6 +91,7 @@ public:
 
 private:
 
+	static constexpr float kDefaultCameraZoom{ 1500.f };	//!< カメラのズームの初期値．
 
 	struct CameraState final
 	{

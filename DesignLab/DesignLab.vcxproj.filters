@@ -55,12 +55,6 @@
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\FileIO">
-      <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Common\FileIO\Result">
-      <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Hexapod\Const">
       <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
     </Filter>
@@ -144,6 +138,12 @@
     </Filter>
     <Filter Include="ソース ファイル\Map\MapCreator\Parameter\Test">
       <UniqueIdentifier>{a613336f-29f0-4470-9f7e-eb2fb6ba5730}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\TomlFileIO">
+      <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\TomlFileIO\Result">
+      <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -352,16 +352,16 @@
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="simulation_result_recorder.h">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_result_recoder.h">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="result_file_importer.h">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
@@ -535,10 +535,10 @@
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClInclude>
     <ClInclude Include="toml11_define.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="toml_serialize_macro.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="simulation_end_checker_by_posture.h">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
@@ -556,19 +556,19 @@
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_importer.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="interface_toml_data_validator.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="toml_data_validator_always_true.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_exporter.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_setupper.h">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="robot_operator_fixed.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
@@ -744,16 +744,16 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="simulation_result_recorder.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_result_recoder.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="result_file_importer.cpp">
-      <Filter>ソース ファイル\Common\FileIO\Result</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="model_loader.cpp">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
@@ -858,7 +858,7 @@
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClCompile>
     <ClCompile Include="toml_serialize_macro.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClCompile>
     <ClCompile Include="simulation_end_checker_factory.cpp">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
@@ -876,7 +876,7 @@
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
     <ClCompile Include="toml_file_setupper.cpp">
-      <Filter>ソース ファイル\Common\FileIO</Filter>
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClCompile>
     <ClCompile Include="robot_operator_fixed.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>

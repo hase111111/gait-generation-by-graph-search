@@ -159,7 +159,7 @@ void DxlibCamera::SetCameraViewMode(const CameraViewMode mode)
 void DxlibCamera::InitCaneraTargetLength()
 {
 	//最大と最小の中間値を初期値とする．
-	goal_camera_state_.length_camera_to_target = (GraphicConst::kCameraToTargetMin + GraphicConst::kCameraToTargetMax) * 0.5f;
+	goal_camera_state_.length_camera_to_target = kDefaultCameraZoom;
 }
 
 

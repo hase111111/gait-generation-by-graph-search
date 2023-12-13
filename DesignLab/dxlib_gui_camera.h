@@ -66,6 +66,7 @@ private:
 	static constexpr int kHeight{ 410 };		//!< GUIの縦幅．
 	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ．
 
+
 	//! @brief GUIの背景を描画する
 	void DrawBackground() const;
 
