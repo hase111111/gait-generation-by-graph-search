@@ -33,18 +33,24 @@ private:
 		float z_diff{ kMaxEvaluationValue };
 	};
 
-	//直進量を比較し，評価値を更新するか返す関数
-	bool UpdateEvaluationValueByAmoutOfMovement(int index, const GaitPatternGraphTree& tree,
+	bool UpdateEvaluationValueByAmoutOfMovement(int index, const GaitPatternGraphTree& tree, EvaluationValue* candiate) const;
+
+	bool UpdateEvalutionValueByLegRot(int index, const GaitPatternGraphTree& tree, 
 		const RobotOperation& operation, EvaluationValue* candiate);
 
-	float CalcMoveForwardEvaluationValue(int index, const GaitPatternGraphTree& tree, const RobotOperation& operation) const;
-	float CalcLegRotEvaluationValue(int index, const GaitPatternGraphTree& tree) const;
+	bool UpdateEvalutionValueByStablyMargin(int index, const GaitPatternGraphTree& tree,
+		const RobotOperation& operation, EvaluationValue* candiate);
+
+	bool UpdateEvalutionValueByZDiff(int index, const GaitPatternGraphTree& tree,
+		const RobotOperation& operation, EvaluationValue* candiate);
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 
 	EvaluationValue max_evaluation_value_;
 
 	EvaluationValue candiate_evaluation_value_;
+
+
 };
 
 

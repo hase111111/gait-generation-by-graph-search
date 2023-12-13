@@ -113,6 +113,16 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	return { GraphSearchResult::kSuccess, graph.GetParentNodeIndex(result_index, 1), result_index };
 }
 
+bool GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement(
+	const int index, 
+	const GaitPatternGraphTree& tree, 
+	const RobotOperation& operation, 
+	EvaluationValue* candiate
+)
+{
+	return false;
+}
+
 float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
