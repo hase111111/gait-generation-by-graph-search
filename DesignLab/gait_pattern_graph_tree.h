@@ -18,6 +18,7 @@ public:
 
 	//! @brief コンストラクタ．
 	//! @n ノード数の最大値を指定する．
+	//! @param[in] graph_max_size ノード数の最大値．
 	explicit inline GaitPatternGraphTree(const int graph_max_size) :
 		graph_size_(0),
 		kGraphMaxSize(graph_max_size)
@@ -82,8 +83,10 @@ public:
 
 	//! @brief ノードを追加する．
 	//! @n 追加するノードは親ノードのindexと，depthの指定が適切にされている必要がある．
+	//! @n これらが適切にされていない場合，assertionに引っかかる．
 	//! @n また，あらかじめ確保したノード数を超えて追加しようとするとassertionに引っかかる．
 	//! @n この条件下では一番最初に追加されるノードは必ず根ノード(親を持たず，深さ0)になる，
+	//! @param [in] node 追加するノード．
 	inline void AddNode(const RobotStateNode& node)
 	{
 		assert(graph_size_ < kGraphMaxSize);

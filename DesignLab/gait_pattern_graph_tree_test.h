@@ -6,51 +6,55 @@
 
 TEST_SUITE("GaitPatternGraphTree")
 {
-	TEST_CASE("ConstructorTest")
+	TEST_CASE("DefaultConstructor_初期化時_グラフの要素は０になるべき")
 	{
-		SUBCASE("初期化時はグラフのサイズが0になる")
+		const GaitPatternGraphTree tree_10(10);
+		const GaitPatternGraphTree tree_1000(1000);
+
+		SUBCASE("初期化時_グラフのサイズが0になるべき")
 		{
-			GaitPatternGraphTree tree_10(10);
 			CHECK(tree_10.GetGraphSize() == 0);
 
-			GaitPatternGraphTree tree_1000(1000);
 			CHECK(tree_1000.GetGraphSize() == 0);
 		}
 
-		SUBCASE("初期化時はグラフが空になる")
+		SUBCASE("初期化時_グラフが空になるべき")
 		{
-			GaitPatternGraphTree tree_10(10);
 			CHECK(tree_10.IsEmpty());
 
-			GaitPatternGraphTree tree_1000(1000);
 			CHECK(tree_1000.IsEmpty());
 		}
 	}
 
-	TEST_CASE("HasRootTest")
+	TEST_CASE("DefaultConstructor_初期化時_ルートは存在するべきでない")
 	{
-		SUBCASE("初期化時はルートが存在しない")
-		{
-			GaitPatternGraphTree tree_10(10);
-			CHECK_FALSE(tree_10.HasRoot());
+		GaitPatternGraphTree tree_10(10);
+		CHECK_FALSE(tree_10.HasRoot());
 
-			GaitPatternGraphTree tree_1000(1000);
-			CHECK_FALSE(tree_1000.HasRoot());
-		}
+		GaitPatternGraphTree tree_1000(1000);
+		CHECK_FALSE(tree_1000.HasRoot());
+	}
 
-		SUBCASE("ルートを追加するとルートが存在する")
-		{
-			RobotStateNode root_node;
-			root_node.ChangeLootNode();
+	TEST_CASE("HasRoot_ルートを追加した時_ルートは存在するべき")
+	{
+		RobotStateNode root_node;
+		root_node.ChangeLootNode();
 
-			GaitPatternGraphTree tree_10(10);
-			tree_10.AddNode(root_node);
-			CHECK(tree_10.HasRoot());
+		//Arrange1
+		GaitPatternGraphTree tree_10(10);
+		CHECK_FALSE(tree_10.HasRoot());
+		tree_10.AddNode(root_node);
 
-			GaitPatternGraphTree tree_1000(1000);
-			tree_1000.AddNode(root_node);
-			CHECK(tree_1000.HasRoot());
-		}
+		//Assert1
+		CHECK(tree_10.HasRoot());
+
+		//Arrange2
+		GaitPatternGraphTree tree_1000(1000);
+		CHECK_FALSE(tree_1000.HasRoot());
+		tree_1000.AddNode(root_node);
+
+		//Assert2
+		CHECK(tree_1000.HasRoot());
 	}
 
 	TEST_CASE("AddNodeTest")

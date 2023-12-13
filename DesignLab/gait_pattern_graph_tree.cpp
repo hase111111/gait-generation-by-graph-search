@@ -2,10 +2,10 @@
 
 const RobotStateNode& GaitPatternGraphTree::GetParentNode(const int index, const int depth) const
 {
-	assert(0 <= depth);
-	assert(depth <= nodes_[index].depth);
 	assert(0 <= index);
 	assert(index < graph_size_);
+	assert(0 <= depth);
+	assert(depth <= nodes_[index].depth);
 
 	int res_index = index;
 
