@@ -14,8 +14,7 @@ namespace dldu = ::designlab::dxlib_util;
 DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y, const std::shared_ptr<DxlibCamera> camera) :
 	window_x_(window_x),
 	window_y_(window_y),
-	camera_(camera),
-	font_handle_(FontLoader::GetIns()->GetFontHandle(kFontPath))
+	camera_(camera)
 {
 	const int button_distance = 10;	//!< ボタン同士の間隔
 	const int button_size = 60;		//!< ボタンのサイズ
@@ -185,8 +184,9 @@ void DxlibGuiCamera::DrawBackground() const
 
 	const int text_pos_x = gui_left_pos_x_ + 10;
 	const int text_pos_y = gui_top_pos_y_ + 10;
+	const int font_handle = FontLoader::GetIns()->GetFontHandle(kFontPath);
 	const unsigned int text_color = GetColor(10, 10, 10);
-	DrawFormatStringToHandle(text_pos_x, text_pos_y, text_color, font_handle_, "CameraGui");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y, text_color, font_handle, "CameraGui");
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
@@ -194,6 +194,8 @@ void DxlibGuiCamera::DrawBackground() const
 void DxlibGuiCamera::DrawString() const
 {
 	const unsigned int str_color = GetColor(54, 54, 54);
+
+	const int font_handle_ = FontLoader::GetIns()->GetFontHandle(kFontPath);
 
 	const int text_interval_y = 20;
 	const int text_top_y = gui_top_pos_y_ + 250;

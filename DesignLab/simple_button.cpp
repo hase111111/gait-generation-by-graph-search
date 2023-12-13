@@ -17,7 +17,6 @@ namespace dlsu = ::designlab::string_util;
 
 SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int pos_y, const int size_x, const int size_y, const bool fit_size) :
 	text_(dlsu::Split(text, "\n")),
-	font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft")),
 	pos_middle_x(pos_x),
 	pos_middle_y(pos_y),
 	kSizeX(fit_size ? GetFitButtonSizeX(size_x) : size_x),
@@ -77,14 +76,16 @@ void SimpleButton::Draw() const
 	);
 
 	//テキストを表示
+	const int font_handle = FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft");
+
 	for (int i = 0; i < text_.size(); ++i)
 	{
 		DrawStringToHandle(
-			pos_middle_x - GetDrawStringWidthToHandle(text_[i].c_str(), (int)text_[i].size(), font_handle_) / 2,
+			pos_middle_x - GetDrawStringWidthToHandle(text_[i].c_str(), (int)text_[i].size(), font_handle) / 2,
 			pos_middle_y - static_cast<int>(text_.size()) * kFontSize / 2 + i * kFontSize,
 			text_[i].c_str(),
 			str_color,
-			font_handle_
+			font_handle
 		);
 	}
 }
@@ -111,10 +112,12 @@ bool SimpleButton::CursorOnGui(const int cursor_x, const int cursor_y) const noe
 int SimpleButton::GetFitButtonSizeX(const int now_size_x) const noexcept
 {
 	//文字列の中からもっと横幅が大きいものを探す
+	const int font_handle = FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft");
+
 	int max_width = 0;
 	for (const auto& i : text_)
 	{
-		int width = GetDrawStringWidthToHandle(i.c_str(), (int)i.size(), font_handle_);
+		int width = GetDrawStringWidthToHandle(i.c_str(), (int)i.size(), font_handle);
 
 		if (max_width < width)
 		{

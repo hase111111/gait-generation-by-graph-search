@@ -1,5 +1,5 @@
 ﻿//! @file dxlib_gui_camera.h
-//! @brief カメラの操作・管理を行うGuiの処理，表示を行うクラス
+//! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス．
 
 
 #ifndef DESIGNLAB_DXLIB_GUI_CAMERA_H_
@@ -19,14 +19,17 @@
 
 
 //! @class DxlibGuiCamera
-//! @brief カメラの操作・管理を行うGUIを行うクラス．
+//! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス．
 class DxlibGuiCamera final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
-	DxlibGuiCamera() = delete;
+	DxlibGuiCamera() = delete;	//!< デフォルトコンストラクタは生成できない．
 
-	//! @brief コンストラクタでカメラの管理を行うクラスを受け取る．
+	//! @brief コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．
+	//! @param[in] window_x ウィンドウの横幅．
+	//! @param[in] window_y ウィンドウの縦幅．
+	//! @param[in] camera カメラの管理を行うクラス．
 	DxlibGuiCamera(int window_x, int window_y, const std::shared_ptr<DxlibCamera> camera);
 
 	//! @brief GUIの位置を設定する．
@@ -35,6 +38,8 @@ public:
 	//! @param[in] pos_x GUIのx座標．
 	//! @param[in] pos_y GUIのy座標．
 	//! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
+	//! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する．defaultではfalse．
+	//! trueを指定すると，GUIの位置を設定するだけでなく，GUIの初期位置を更新する．
 	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 
@@ -93,7 +98,6 @@ private:
 
 	const int kFontSize{ 16 };		//!< フォントのサイズ
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
-	int font_handle_;	//!< フォントのハンドル
 };
 
 

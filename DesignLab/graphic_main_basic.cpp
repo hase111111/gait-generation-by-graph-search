@@ -76,7 +76,6 @@ GraphicMainBasic::GraphicMainBasic(
 	node_setter_group_.Register(stability_margin_renderer);
 }
 
-
 bool GraphicMainBasic::Update()
 {
 	mouse_ptr_->Update();

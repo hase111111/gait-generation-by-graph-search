@@ -1,5 +1,5 @@
 ﻿//! @file button_controller.h
-//! @brief ボタンの処理，描画を管理するクラス．
+//! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス．
 
 
 #ifndef DESIGNLAB_BUTTON_CONTROLLER_H_
@@ -13,22 +13,41 @@
 #include <vector>
 
 //! @class SimpleButton
-//! @brief ボタンの処理，描画を管理するクラス．
+//! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス．
 class SimpleButton final : public IDxlibGui, public IDxlibClickable
 {
 public:
 
+	SimpleButton() = delete;	//!< デフォルトコンストラクタは生成できない．
+
+	//! @brief コンストラクタでボタンのテキスト，座標，サイズを受け取る．
+	//! @param[in] text ボタンに書かれるテキスト．
+	//! @param[in] x_pos ボタンのx座標．ボタンの中心座標．
+	//!	@param[in] y_pos ボタンのy座標．ボタンの中心座標．
+	//! @param[in] x_size ボタンの横幅．
+	//! @param[in] y_size ボタンの縦幅．
+	//! @param[in] fit_size ボタンのサイズをテキストに合わせるかどうか．defaultではfalse．
 	SimpleButton(const std::string& text, int x_pos, int y_pos, int x_size, int y_size, bool fit_size = false);
+
 	~SimpleButton() = default;
 
 	//! @brief ボタンがクリックされたときに実行される関数を設定する．
 	//! @param[in] func ボタンがクリックされたときに実行される関数．
 	inline void SetActivateFunction(const std::function<void()>& func) { click_function_ = func; }
 
+	//! @brief ボタンの座標を設定する．
+	//! @param[in] pos_x ボタンのx座標．
+	//!	@param[in] pos_y ボタンのy座標．
+	//! @param[in] option ボタンのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
 	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kDxlibGuiAnchorLeftTop);
 
-	constexpr int GetPosMiddleX() const noexcept { return pos_middle_x; }
-	constexpr int GetPosMiddleY() const noexcept { return pos_middle_y; }
+	//! @brief ボタンのx座標を取得する．
+	//! @return int ボタンのx座標．ボタンの中心座標．
+	[[nodiscard]] constexpr int GetPosMiddleX() const noexcept { return pos_middle_x; }
+
+	//! @brief ボタンのy座標を取得する．
+	//! @return int ボタンのy座標．ボタンの中心座標．
+	[[nodiscard]] constexpr int GetPosMiddleY() const noexcept { return pos_middle_y; }
 
 	void Update() override;
 
@@ -51,7 +70,6 @@ private:
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
 
 	std::vector<std::string> text_;		//!< ボタンに書かれているテキスト，複数行に対応．
-	int font_handle_;	//!< フォントのハンドル
 
 	int now_color_blue_{ 0 };	//!< クリック時，あるいはマウスが乗ったときにボタンの色を変える．
 	int target_color_blue_{ 0 };	//!< そのための色の目標値と現在値．
