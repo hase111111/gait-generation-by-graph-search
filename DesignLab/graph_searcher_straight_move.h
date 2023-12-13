@@ -50,7 +50,7 @@ private:
 
 	EvaluationValue candiate_evaluation_value_;
 
-
+	::designlab::Vector3 no
 };
 
 

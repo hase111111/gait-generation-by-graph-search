@@ -116,10 +116,10 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 bool GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement(
 	const int index, 
 	const GaitPatternGraphTree& tree, 
-	const RobotOperation& operation, 
 	EvaluationValue* candiate
 )
 {
+	const dl::Vector3 root_to_current = tree.GetNode(index).global_center_of_mass - tree.GetRootNode().global_center_of_mass;
 	return false;
 }
 
