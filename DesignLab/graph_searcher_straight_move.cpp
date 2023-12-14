@@ -12,6 +12,7 @@ namespace dl = ::designlab;
 namespace dle = ::designlab::enums;
 namespace dllf = ::designlab::leg_func;
 namespace dlm = ::designlab::math_util;
+namespace dlsu = ::designlab::string_util;
 
 
 GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
@@ -70,14 +71,21 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 			{
 				const EvaluationResult result = update_evaluation_value_func_vec[j](i, graph, max_evaluation_value, init_value, &candiate_evaluation_value);
 
-				if (result == EvaluationResult::kUpdate)
+				if (max_evaluation_value.index != -1)
+				{
+					if (result == EvaluationResult::kUpdate)
+					{
+						do_update = true;
+					}
+
+					if (!do_update && result == EvaluationResult::kNotUpdate)
+					{
+						break;
+					}
+				}
+				else
 				{
 					do_update = true;
-				}
-
-				if (!do_update && result == EvaluationResult::kNotUpdate)
-				{
-					break;
 				}
 			}
 
@@ -96,9 +104,20 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 		return { result, -1, -1 };
 	}
 
-	const GraphSearchResult result = { dle::Result::kSuccess, "" };
+	const GraphSearchResult result = { dle::Result::kSuccess, max_evaluation_value.ToString() };
 
 	return { result, graph.GetParentNodeIndex(max_evaluation_value.index, 1), max_evaluation_value.index };
+}
+
+std::string GraphSearcherStraightMove::EvaluationValue::ToString() const
+{
+	std::string result = "index:" + std::to_string(index) + "/";
+	result += "move_forward:" + dlm::ConvertFloatToString(move_forward, 3, 7) + "/";
+	result += "leg_rot:" + dlm::ConvertFloatToString(leg_rot, 3, 7) + "/";
+	result += "z_diff:" + dlm::ConvertFloatToString(z_diff, 3, 7) + "/";
+	result += "stably_margin:" + dlm::ConvertFloatToString(stably_margin, 3, 7);
+
+	return result;
 }
 
 GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement(

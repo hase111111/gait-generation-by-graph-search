@@ -5,10 +5,10 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kPosition" 
+    end_check_mode = "kGoalTape" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
-    goal_tape_position_x = 4000.0
+    goal_tape_position_x = 1200.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
     target_position = " 4000,400,40"
@@ -41,5 +41,5 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" )
-    operate_mode = "kFree"
+    operate_mode = "kFixed" 
     

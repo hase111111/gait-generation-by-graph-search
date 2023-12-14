@@ -38,6 +38,8 @@ private:
 		float leg_rot{ kMinEvaluationValue };
 		float stably_margin{ kMinEvaluationValue };
 		float z_diff{ kMaxEvaluationValue };
+
+		std::string ToString() const;
 	};
 
 	struct InitialValue final

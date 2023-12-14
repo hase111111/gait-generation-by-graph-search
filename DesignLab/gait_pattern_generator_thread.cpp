@@ -151,7 +151,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
-	return { dle::Result::kSuccess,"" };
+	return { dle::Result::kSuccess,"" + search_result.message };
 }
 
 void GaitPatternGeneratorThread::AppendGraphTree(
