@@ -30,7 +30,8 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 
 	if (!graph.HasRoot())
 	{
-		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
+		const GraphSearchResult result = { dle::Result::kFailure, "ルートノードがありません．" };
+		return { result, -1, -1 };
 	}
 
 	//初期化
@@ -90,10 +91,14 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	// index が範囲外ならば失敗
 	if (max_evaluation_value.index < 0 || max_evaluation_value.index >= graph.GetGraphSize())
 	{
-		return { GraphSearchResult::kFailureByNotReachedDepth, -1, -1 };
+		std::string error_message = "最大評価値のインデックスが範囲外です．" + std::to_string(max_evaluation_value.index);
+		const GraphSearchResult result = { dle::Result::kFailure,error_message };
+		return { result, -1, -1 };
 	}
 
-	return { GraphSearchResult::kSuccess, graph.GetParentNodeIndex(max_evaluation_value.index, 1), max_evaluation_value.index };
+	const GraphSearchResult result = { dle::Result::kSuccess, "" };
+
+	return { result, graph.GetParentNodeIndex(max_evaluation_value.index, 1), max_evaluation_value.index };
 }
 
 GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement(

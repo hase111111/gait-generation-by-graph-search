@@ -69,7 +69,7 @@ void SystemMainSimulation::Main()
 		SimulationResultRecorder record;
 
 		record.graph_search_result_recoder.push_back(
-			GraphSearchResultRecoder{ current_node , 0, GraphSearchResult::kSuccess }
+			GraphSearchResultRecoder{ current_node , 0, {dle::Result::kSuccess,""} }
 		);
 
 
@@ -115,7 +115,7 @@ void SystemMainSimulation::Main()
 
 
 			//グラフ探索に失敗
-			if (result_state != GraphSearchResult::kSuccess && result_state != GraphSearchResult::kFailureByLegPathGenerationError)
+			if (result_state.result != dle::Result::kSuccess)
 			{
 				record.simulation_result = SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
@@ -123,7 +123,7 @@ void SystemMainSimulation::Main()
 					"シミュレーションに失敗しました．SimulationResult = " +
 					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
-					dlsu::EnumToStringRemoveTopK(result_state),
+					result_state.ToString(),
 					dle::OutputDetail::kSystem
 				);
 
@@ -151,7 +151,7 @@ void SystemMainSimulation::Main()
 					"シミュレーションに失敗しました．SimulationResult = " +
 					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
-					dlsu::EnumToStringRemoveTopK(result_state),
+					result_state.ToString(),
 					dle::OutputDetail::kSystem
 				);
 

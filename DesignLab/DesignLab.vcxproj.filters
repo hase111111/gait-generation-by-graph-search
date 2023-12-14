@@ -145,6 +145,9 @@
     <Filter Include="ソース ファイル\Common\TomlFileIO\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface">
+      <UniqueIdentifier>{6335a7de-59b3-4cf8-94a6-1ea84bad89ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -317,9 +320,6 @@
     </ClInclude>
     <ClInclude Include="interface_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -593,6 +593,9 @@
     </ClInclude>
     <ClInclude Include="robot_operator_free.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graph_searcher.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

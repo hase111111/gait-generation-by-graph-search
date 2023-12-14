@@ -1,5 +1,7 @@
 ﻿#include "gait_pattern_generator_switch_move.h"
 
+#include <magic_enum.hpp>
+
 #include "cassert_define.h"
 
 
@@ -43,6 +45,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 	else
 	{
 		assert(false);
-		return GraphSearchResult::kFailure;
+		std::string error_message = "存在していない動作種別です。";
+		return { dle::Result::kFailure,error_message };
 	}
 }

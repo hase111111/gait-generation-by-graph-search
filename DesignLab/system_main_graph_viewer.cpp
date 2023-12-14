@@ -194,7 +194,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 	dlio::Output("グラフ探索終了", dle::OutputDetail::kSystem);
 	dlio::Output("グラフ探索にかかった時間 : " + stopwatch_.GetElapsedMilliSecondString(), dle::OutputDetail::kSystem);
 
-	std::string res_str = magic_enum::enum_name<GraphSearchResult>(result).data();
+	std::string res_str = magic_enum::enum_name<dle::Result>(result.result).data();
 	res_str.erase(0, 1);	//先頭のkを削除する
 
 	dlio::Output("グラフ探索結果 : " + res_str, dle::OutputDetail::kSystem);

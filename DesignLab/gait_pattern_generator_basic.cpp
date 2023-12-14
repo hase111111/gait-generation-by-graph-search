@@ -59,7 +59,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 		&graph_tree_
 	);
 
-	if (create_result != GraphSearchResult::kSuccess)
+	if (create_result.result != dle::Result::kSuccess)
 	{
 		dlio::Output("グラフ木の作成に失敗しました．", dle::OutputDetail::kDebug);
 		return create_result;
@@ -74,7 +74,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
 
-	if (search_result != GraphSearchResult::kSuccess)
+	if (search_result.result != dle::Result::kSuccess)
 	{
 		dlio::Output("グラフ木の評価に失敗しました．", dle::OutputDetail::kDebug);
 		return search_result;
@@ -84,5 +84,5 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", dle::OutputDetail::kDebug);
 
-	return GraphSearchResult::kSuccess;
+	return { dle::Result::kSuccess,std::string("") };
 }

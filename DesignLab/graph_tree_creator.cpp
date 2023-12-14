@@ -5,6 +5,8 @@
 #include "cassert_define.h"
 #include "graph_search_const.h"
 
+namespace dle = ::designlab::enums;
+
 
 GraphTreeCreator::GraphTreeCreator(std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr) :
 	node_creator_builder_ptr_(std::move(node_creator_builder_ptr))
@@ -49,7 +51,7 @@ GraphSearchResult GraphTreeCreator::CreateGraphTree(int start_depth, int max_dep
 		++cnt;	//カウンタを進める．
 	}
 
-	return GraphSearchResult::kSuccess;
+	return { dle::Result::kSuccess,"" };
 }
 
 

@@ -19,18 +19,15 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 
 	if (!graph_tree.HasRoot())
 	{
-		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
+		const GraphSearchResult result = { dle::Result::kFailure ,"グラフが空のため評価できません．" };
+
+		return { result, -1, -1 };
 	}
 
 	int result_index = -1;	//糞みたいな書き方なので，後で直す
 	float max_turn_angle = 0.f;
 	float max_leg_rot_angle = 0.f;
 	float min_com_z_dif = 0.f;
-
-	if (!graph_tree.HasRoot())
-	{
-		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
-	}
 
 	for (int i = 0; i < graph_tree.GetGraphSize(); i++)
 	{
@@ -85,10 +82,14 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	// index が範囲外ならば失敗
 	if (result_index < 0 || result_index >= graph_tree.GetGraphSize())
 	{
-		return { GraphSearchResult::kFailureByNoNode, -1, -1 };
+		//深さ1のノードが存在しないなら，終了．
+		const GraphSearchResult result = { dle::Result::kFailure ,"深さ1のノードが存在しません．" };
+
+		return { result, -1, -1 };
 	}
 
-	return { GraphSearchResult::kSuccess, graph_tree.GetParentNodeIndex(result_index, 1), result_index };
+	const GraphSearchResult result = { dle::Result::kSuccess ,"" };
+	return { result, graph_tree.GetParentNodeIndex(result_index, 1), result_index };
 }
 
 float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const

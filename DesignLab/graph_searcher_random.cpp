@@ -2,7 +2,8 @@
 
 #include "designlab_math_util.h"
 
-namespace dlm = designlab::math_util;
+namespace dle = ::designlab::enums;
+namespace dlm = ::designlab::math_util;
 
 
 std::tuple<GraphSearchResult, int, int> GraphSearcherRandom::SearchGraphTree(
@@ -16,13 +17,15 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherRandom::SearchGraphTree(
 	if (graph.IsEmpty())
 	{
 		//グラフがないなら失敗	
-		return { GraphSearchResult::kFailure, -1, -1 };
+		const GraphSearchResult result = { dle::Result::kFailure ,"グラフが空のため評価できません．" };
+
+		return { result, -1, -1 };
 	}
 
 	//グラフの中を全て探索する．
 	std::vector<int> depth1_node;
 
-	for (int i = 0; i < graph.GetGraphSize(); i++)
+	for (int i = 0; i < graph.GetGraphSize(); ++i)
 	{
 		// 深さ1の動作を全て記録する．
 		if (graph.GetNode(i).depth == 1)
@@ -34,12 +37,16 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherRandom::SearchGraphTree(
 	if (depth1_node.empty())
 	{
 		//深さ1のノードが存在しないなら，終了．
-		return { GraphSearchResult::kFailureByNotReachedDepth, -1, -1 };
+		const GraphSearchResult result = { dle::Result::kFailure ,"深さ1のノードが存在しません．" };
+
+		return { result, -1, -1 };
 	}
 
 	// ランダムなやつを一つ選択する．
 	const int select_index = depth1_node.size() == 1 ? 0 : dlm::GenerateRandomNumber(0, static_cast<int>(depth1_node.size()) - 1);
 	const int result_node_index = depth1_node[static_cast<size_t>(select_index)];
 
-	return { GraphSearchResult::kSuccess, result_node_index, -1 };
+	const GraphSearchResult result = { dle::Result::kSuccess ,"" };
+
+	return { result, result_node_index, -1 };
 }

@@ -65,7 +65,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		&graph_tree_
 	);
 
-	if (create_result != GraphSearchResult::kSuccess) { return create_result; }
+	if (create_result.result != dle::Result::kSuccess) { return create_result; }
 
 	dlio::Output("深さ1までグラフ木の生成が終了しました．", dle::OutputDetail::kDebug);
 	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
@@ -131,7 +131,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		);
 
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", dle::OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + dlsu::EnumToStringRemoveTopK(std::get<0>(search_result_array[i])) + "です．", dle::OutputDetail::kDebug);
+		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + std::get<0>(search_result_array[i]).ToString() + "です．", dle::OutputDetail::kDebug);
 		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", dle::OutputDetail::kDebug);
 	}
 
@@ -141,7 +141,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	//統合されたグラフを，再び探索する．
 	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
 
-	if (search_result != GraphSearchResult::kSuccess)
+	if (search_result.result != dle::Result::kSuccess)
 	{
 		dlio::Output("グラフ木の評価に失敗しました．", dle::OutputDetail::kDebug);
 		return search_result;
@@ -151,7 +151,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
-	return GraphSearchResult::kSuccess;
+	return { dle::Result::kSuccess,"" };
 }
 
 void GaitPatternGeneratorThread::AppendGraphTree(
@@ -167,7 +167,7 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 		const auto [search_result, _, next_node_index] = search_result_array[i];
 
 		//条件を満たしていない場合は，次のスレッドの結果を見る．
-		if (search_result != GraphSearchResult::kSuccess) { continue; }
+		if (search_result.result != dle::Result::kSuccess) { continue; }
 
 		if (graph_tree_array_[i].GetNode(next_node_index).depth != max_depth_) { continue; }
 

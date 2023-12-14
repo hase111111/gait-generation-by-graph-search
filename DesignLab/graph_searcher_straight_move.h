@@ -9,7 +9,7 @@
 
 
 //! @class GraphSearcherStraightMove
-//! @brief グラフ探索を行うクラス．直進を評価する．
+//! @brief グラフ探索を行い，直進する動作を評価するクラス．
 class GraphSearcherStraightMove final : public IGraphSearcher
 {
 public:
@@ -24,7 +24,7 @@ private:
 	static constexpr float kMinEvaluationValue = -1000000.0f;
 
 
-	enum class EvaluationResult
+	enum class EvaluationResult : int
 	{
 		kUpdate,
 		kEqual,

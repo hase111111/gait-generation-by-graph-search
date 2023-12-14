@@ -6,8 +6,8 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
-
-namespace dlio = designlab::cmdio;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
 
 
 GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
@@ -32,7 +32,7 @@ GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodebyGraphSearch(
 
 	const GraphSearchResult result = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state, operation, output_node);
 
-	if (result != GraphSearchResult::kSuccess)
+	if (result.result != dle::Result::kSuccess)
 	{
 		// グラフ探索に失敗した場合は終了．
 		return result;
