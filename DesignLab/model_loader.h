@@ -1,5 +1,5 @@
 //! @file model_loader.h
-//! @brief Dxlibの3Dモデルを読み込むクラス
+//! @brief Dxlibの3Dモデルを読み込むクラス．
 
 #ifndef DESIGNLAB_MODEL_LOADER_H_
 #define DESIGNLAB_MODEL_LOADER_H_
@@ -11,8 +11,22 @@
 
 
 //! @class ModelLoader
-//! @brief Dxlibの3Dモデルを読み込むクラス．シングルトンであり，ModelLoader::GetIns()でインスタンスを取得する．
+//! @brief Dxlibの3Dモデルを読み込むクラス．
+//! @details シングルトンであり，ModelLoader::GetIns()でインスタンスを取得する．
 //! @n 呼び出すときはModelLoader::GetIns()->GetModelHandle(file_path)とする．
+//! @code
+//! // 例
+//! 
+//! // モデルのファイルパス
+//! std::string file_path = "data/model/robot/robot.x";
+//! 
+//! // モデルのハンドル番号
+//! int model_handle = ModelLoader::GetIns()->GetModelHandle(file_path);
+//! @endcode
+//! @see Singleton
+//! @attention このクラスを使用するときは，必ずDxLib_Init()の後に使用すること．
+//! また，DxLib_End()の前に使用を終了すること．
+//! これらを守らないと，アプリがクラッシュする．
 class ModelLoader final : public Singleton<ModelLoader>
 {
 public:

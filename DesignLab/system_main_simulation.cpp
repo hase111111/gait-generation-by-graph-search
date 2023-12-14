@@ -53,9 +53,9 @@ SystemMainSimulation::SystemMainSimulation(
 void SystemMainSimulation::Main()
 {
 	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
-	OutputSetting();	//コマンドラインに設定を表示する．
+	OutputSetting();								//コマンドラインに設定を表示する．
 
-	DeadLockChecker dead_lock_checker;	//ノードの妥当性をチェックするクラスを用意する．
+	DeadLockChecker dead_lock_checker;	
 
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < kSimurateNum; i++)

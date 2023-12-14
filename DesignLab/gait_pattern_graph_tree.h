@@ -8,8 +8,8 @@
 
 
 //! @class GaitPatternGraphTree
-//! @brief グラフ構造を持つRobotStateNodeのツリー構造を管理するクラス．
-//! @n 歩容パターングラフ．
+//! @brief RobotStateNode 構造体をノードとする木構造のグラフのクラス．
+//! @details 論文でいうところの歩容パターングラフ．
 class GaitPatternGraphTree final
 {
 public:
@@ -28,17 +28,17 @@ public:
 
 	//! @brief グラフのノードの総数を返す．
 	//! @return int グラフのノードの総数．
-	constexpr int GetGraphSize() const { return graph_size_; }
+	[[nodiscard]] constexpr int GetGraphSize() const { return graph_size_; }
 
 	//! @brief グラフが空かどうかを返す．
 	//! @return bool グラフが空ならtrue．
-	constexpr bool IsEmpty() const { return graph_size_ == 0; }
+	[[nodiscard]] constexpr bool IsEmpty() const { return graph_size_ == 0; }
 
 	//! @brief グラフが根ノードを持つかどうかを返す．
 	//! @n 根ノードとは，親を持たないノードのこと．
 	//! @n 一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．
 	//! @return bool グラフが親を持つならtrue．
-	constexpr bool HasRoot() const
+	[[nodiscard]] constexpr bool HasRoot() const
 	{
 		return graph_size_ != 0;
 	}
@@ -47,22 +47,22 @@ public:
 	//! @n ノードがない場合を考慮していないため，HasRoot()で根ノードを持つかどうかを確認すること．
 	//! @n 一番最初に追加されたノードは必ず根ノードになるため，根ノードのindexは0で固定される．
 	//! @return int グラフの根ノードのindex．
-	constexpr int GetRootIndex() const
+	[[nodiscard]] constexpr int GetRootIndex() const
 	{
 		return 0;
 	}
 
 	//! @brief グラフの根ノードの参照を返す．
 	//! @return const RobotStateNode& グラフの根ノードの参照．
-	inline const RobotStateNode& GetRootNode() const
+	[[nodiscard]] inline const RobotStateNode& GetRootNode() const
 	{
 		return nodes_[0];
 	}
 
 	//! @brief グラフのノードの参照を返す．
 	//! @param[in] index 参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる．
-	//! @return indexで指定したノードの参照．
-	inline const RobotStateNode& GetNode(const int index) const
+	//! @return const RobotStateNode& indexで指定したノードの参照．
+	[[nodiscard]] inline const RobotStateNode& GetNode(const int index) const
 	{
 		assert(0 <= index);
 		assert(index < graph_size_);
@@ -73,13 +73,13 @@ public:
 	//! @param[in] index 参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる．
 	//! @param[in] depth 親ノードの深さ．
 	//! @return const RobotStateNode& indexで指定したノードの親ノードの参照．
-	const RobotStateNode& GetParentNode(const int index, const int depth) const;
+	[[nodiscard]] const RobotStateNode& GetParentNode(const int index, const int depth) const;
 
 	//! @brief 指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．
 	//! @param[in] index 参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる．
 	//! @param[in] depth 親ノードの深さ．
 	//! @return int indexで指定したノードの親ノードのindex．
-	const int GetParentNodeIndex(const int index, const int depth) const;
+	[[nodiscard]] const int GetParentNodeIndex(const int index, const int depth) const;
 
 	//! @brief ノードを追加する．
 	//! @n 追加するノードは親ノードのindexと，depthの指定が適切にされている必要がある．

@@ -18,7 +18,7 @@ public:
 	MovementLocusRenderer();
 
 
-	//! @brief ロボットの移動軌跡を記録する．ノードのvectorから，重心位置の軌跡を取得する
+	//! @brief ロボットの移動軌跡を記録する．ノードのvectorから，重心位置の軌跡を取得する．
 	//! @param [in] locus 選択されたノードのvector
 	void SetMoveLocusPoint(const std::vector<RobotStateNode>& locus);
 

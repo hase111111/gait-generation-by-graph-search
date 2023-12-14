@@ -17,8 +17,9 @@
 
 //! @class DxlibGuiUpdater
 //! @brief クリック判定を行うクラス．
-//! @n 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
+//! @details 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
 //! @n 優先度が高いものから順にクリック判定を行い，クリックされたらそのGUIのActivate関数を実行する．
+//! @n 同様に，ドラッグ判定，ホイール操作判定も行う．
 //! @n 神クラスになっている感は否めないが，また問題が起きたら修正する．
 class DxlibGuiUpdater final
 {
@@ -72,6 +73,7 @@ public:
 private:
 
 	//! @struct Priority
+	//! @brief 優先度と判定の順番を管理する構造体．
 	struct Priority final
 	{
 		constexpr Priority(const int p, const int o) noexcept : priority(p), order(o) {}

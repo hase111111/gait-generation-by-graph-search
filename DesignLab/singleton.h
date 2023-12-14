@@ -1,21 +1,17 @@
 //! @file singleton.h
-//! @brief Singletonクラスのためのテンプレート
+//! @brief Singletonクラス作成のためのテンプレートクラス．
 
 #ifndef DESIGNLAB_SINGLETON_H_
 #define DESIGNLAB_SINGLETON_H_
 
 
 //! @class Singleton
-//! @brief このクラスを継承するとSingletonクラスになる．グラフ探索では絶対に使わないこと!
-//! @details Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である．
-//! @n Singletonパターンを使うと複雑になりがちなので，グラフ探索では絶対に使わないこと!!
-//! @n このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．
-//! @n というかほとんど https://dixq.net/rp2/ の丸パクリ．
-//! @n 
-//! @n グラフ探索では""絶対""に使わないこと!! 
-//! @n 絶対だよ!!!! 
-//! @n
-//! @n 使い方については 継承先の keyboard.h を参照してみてほしい．
+//! @brief Singletonクラス作成のためのテンプレートクラス．
+//! @details このクラスを継承するとSingletonクラスになる．Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である．
+//! 多用するとプログラムが複雑になりがちなので，グラフ探索では絶対に使わないこと．
+//! このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．
+//! 参考 https://dixq.net/rp2/ 
+//! @see FontLoader
 template <typename _T>
 class Singleton
 {
