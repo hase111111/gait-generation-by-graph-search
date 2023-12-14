@@ -94,7 +94,7 @@ private:
 };
 
 
-//! @class AsyncableData
+
 //! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 (vector版)
 //! @n コピー・ムーブは禁止
 //! @details vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．

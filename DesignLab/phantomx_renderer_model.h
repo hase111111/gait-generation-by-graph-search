@@ -1,5 +1,5 @@
 ﻿//! @file phantomx_renderer_model.h
-//! @brief ロボットの描画を行うクラス．
+//! @brief 3Dモデルを使用してPhantomXの描画を行うクラス．
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
@@ -10,7 +10,6 @@
 
 #include <Dxlib.h>
 
-#include "define.h"
 #include "display_quality.h"
 #include "hexapod_const.h"
 #include "interface_dxlib_3d_renderer.h"
@@ -21,7 +20,7 @@
 
 
 //! @class PhantomXRendererModel
-//! @brief PhantomXの描画を行うクラス．3Dモデルを使用する
+//! @brief 3Dモデルを使用してPhantomXの描画を行うクラス．
 class PhantomXRendererModel final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:

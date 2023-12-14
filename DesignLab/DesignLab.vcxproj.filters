@@ -150,9 +150,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="define.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
     <ClInclude Include="leg_state.h">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClInclude>
