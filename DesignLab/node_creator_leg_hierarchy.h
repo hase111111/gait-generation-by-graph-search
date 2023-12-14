@@ -20,7 +20,7 @@ class NodeCreatorLegHierarchy final : public INodeCreator
 {
 public:
 
-	NodeCreatorLegHierarchy(HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
+	NodeCreatorLegHierarchy(::designlab::enums::HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
 	~NodeCreatorLegHierarchy() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const override;
@@ -38,7 +38,7 @@ private:
 	void Create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 
-	const HexapodMove next_move_;	//!< 次の動作．						
+	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．						
 
 	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
 };

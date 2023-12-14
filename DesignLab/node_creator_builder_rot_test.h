@@ -7,6 +7,8 @@
 #include "interface_node_creator_builder.h"
 
 
+//! @class NodeCreatorBuilderRotTest
+//! @brief 回転動作のテスト用ビルダークラス．
 class NodeCreatorBuilderRotTest final : public INodeCreatorBuilder
 {
 public:
@@ -19,7 +21,7 @@ public:
 
 	void Build(
 		const DevideMapState& map,
-		std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
+		std::map<::designlab::enums::HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
 
 private:
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

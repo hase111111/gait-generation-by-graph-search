@@ -9,7 +9,7 @@
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
 
-
+namespace dle = designlab::enums;
 namespace dllf = designlab::leg_func;
 namespace dlm = ::designlab::math_util;
 
@@ -19,7 +19,7 @@ NodeCreatorComUpDown::NodeCreatorComUpDown(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	HexapodMove next_move
+	dle::HexapodMove next_move
 ) :
 	map_(devide_map),
 	converter_ptr_(converter_ptr),

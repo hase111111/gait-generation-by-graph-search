@@ -10,7 +10,7 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	HexapodMove next_move
+	::designlab::enums::HexapodMove next_move
 ) :
 	map_(devide_map),
 	next_move_(next_move),

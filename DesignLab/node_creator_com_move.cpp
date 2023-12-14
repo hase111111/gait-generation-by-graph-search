@@ -4,9 +4,9 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
-
-namespace dllf = designlab::leg_func;
-namespace dlm = designlab::math_util;
+namespace dle = ::designlab::enums;
+namespace dllf = ::designlab::leg_func;
+namespace dlm = ::designlab::math_util;
 
 
 NodeCreatorComMove::NodeCreatorComMove(
@@ -14,7 +14,7 @@ NodeCreatorComMove::NodeCreatorComMove(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	const HexapodMove next_move
+	const dle::HexapodMove next_move
 ) :
 	map_(map), 
 	maker_(converter_ptr),

@@ -3,10 +3,11 @@
 #include "leg_state.h"
 
 
-namespace dllf = designlab::leg_func;
+namespace dle = ::designlab::enums;
+namespace dllf = ::designlab::leg_func;
 
 
-NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list) :
+NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const dle::HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list) :
 	next_move_(next_move),
 	discrete_leg_pos_list_(discrete_leg_pos_list)
 {

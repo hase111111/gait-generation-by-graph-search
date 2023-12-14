@@ -30,7 +30,7 @@ GraphicMainTest::GraphicMainTest(
 	calculator_ptr_(calculator_ptr),
 	converter_ptr_(converter_ptr)
 {
-	NodeInitializer node_initializer;
+	NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
 	robot_ = node_initializer.InitNode();
 
 	const SimulationMapParameter messanger;

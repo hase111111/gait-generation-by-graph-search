@@ -1,9 +1,14 @@
-﻿#ifndef DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_
+﻿//! @file node_creator_builder_turn_spot.h
+//! @brief 旋回動作用のノード生成クラスを生成するクラス．
+
+#ifndef DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_
 #define DESIGNLAB_CREATOR_BUILDER_TURN_SPOT_H_
 
 #include "interface_node_creator_builder.h"
 
 
+//! @class NodeCreatorBuilderTurnSpot
+//! @brief 旋回動作用のノード生成クラスを生成するクラス．
 class NodeCreatorBuilderTurnSpot final : public INodeCreatorBuilder
 {
 public:
@@ -16,7 +21,7 @@ public:
 
 	void Build(
 		const DevideMapState& map,
-		std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const override;
+		std::map<::designlab::enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const override;
 
 private:
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

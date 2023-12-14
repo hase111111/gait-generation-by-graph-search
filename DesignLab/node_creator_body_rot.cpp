@@ -1,15 +1,14 @@
 ﻿#include "node_creator_body_rot.h"
 
-
 namespace dl = ::designlab;
-
+namespace dle = ::designlab::enums;
 
 NodeCreatorBodyRot::NodeCreatorBodyRot(
 	const DevideMapState& devide_map, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr, 
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 	const ::designlab::Vector3& rot_axis,
-	HexapodMove next_move):
+	dle::HexapodMove next_move):
 	map_(devide_map),
 	next_move_(next_move),
 	converter_ptr_(converter_ptr),

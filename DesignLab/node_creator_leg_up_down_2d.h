@@ -28,7 +28,7 @@ public:
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		HexapodMove next_move
+		::designlab::enums::HexapodMove next_move
 	);
 	~NodeCreatorLegUpDown2d() = default;
 
@@ -47,7 +47,7 @@ private:
 
 	const DevideMapState map_;	//!< マップの状態．
 
-	const HexapodMove next_move_;	//!< 次の動作．
+	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

@@ -5,8 +5,13 @@
 #include "phantomx_mk2_const.h"
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dllf = ::designlab::leg_func;
 
+
+NodeInitializer::NodeInitializer(const::designlab::Vector3& pos, ::designlab::enums::HexapodMove move) : pos_(pos), move_(move)
+{
+}
 
 RobotStateNode NodeInitializer::InitNode() const
 {
@@ -22,7 +27,7 @@ RobotStateNode NodeInitializer::InitNode() const
 
 
 	const float base_z = 0.0f;			// 地面のZ座標	
-	const float com_z = 30.f + base_z;	// ロボットの重心のZ座標
+	const float com_z = pos_.z + base_z;	// ロボットの重心のZ座標
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -33,17 +38,12 @@ RobotStateNode NodeInitializer::InitNode() const
 		};
 	}
 
-	res.global_center_of_mass = dl::Vector3{ 350.f, 400.f, com_z };
-	//res.global_center_of_mass += dl::Vector3(
-	//	designlab::math_util::GenerateRandomNumber(-100.f, 100.f),
-	//	designlab::math_util::GenerateRandomNumber(-400.f, 400.f),
-	//	0
-	//);
+	res.global_center_of_mass = pos_;
 
 	//ロールピッチヨーで回転を表現する．ロボットの重心を中心にして回転する． 
 	res.quat = dl::Quaternion::MakeByAngleAxis(0.f, dl::Vector3::GetUpVec());
 
-	res.next_move = HexapodMove::kComUpDown;
+	res.next_move = move_;
 	res.parent_index = -1;
 	res.depth = 0;
 

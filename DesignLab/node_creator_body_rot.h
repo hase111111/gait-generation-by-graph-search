@@ -14,7 +14,8 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
-
+//! @class NodeCreatorBodyRot
+//! @brief ロボットの回転を表すノードを生成するクラス．
 class NodeCreatorBodyRot final : public INodeCreator
 {
 public:
@@ -24,8 +25,9 @@ public:
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		const ::designlab::Vector3& rot_axis,
-		HexapodMove next_move
+		::designlab::enums::HexapodMove next_move
 	);
+
 	~NodeCreatorBodyRot() = default;
 
 	void Create(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const override;
@@ -59,7 +61,7 @@ private:
 	const std::array<float, kBodyYawRotAngleDivNum> candiate_angle_ = CreateCandiateAngle();
 
 	const DevideMapState map_;		//!< 地面の状態を格納したクラス．
-	const HexapodMove next_move_;	//!< 次の動作．
+	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;

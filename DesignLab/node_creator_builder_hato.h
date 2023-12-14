@@ -1,5 +1,5 @@
 ﻿//! @file node_creator_builder_hato.h
-//! @brief 波東さんが行った処理と同様の結果が得られるようにするためのクラス
+//! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
 
 #ifndef DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
 #define DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
@@ -7,6 +7,8 @@
 #include "interface_node_creator_builder.h"
 
 
+//! @class NodeCreatorBuilderHato
+//! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
 class NodeCreatorBuilderHato final : public INodeCreatorBuilder
 {
 public:
@@ -19,7 +21,7 @@ public:
 
 	void Build(
 		const DevideMapState& map, 
-		std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const override;
+		std::map<::designlab::enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const override;
 
 private:
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

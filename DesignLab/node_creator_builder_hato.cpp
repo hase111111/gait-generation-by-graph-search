@@ -8,6 +8,8 @@
 #include "node_creator_leg_up_down.h"
 #include "node_creator_body_rot.h"
 
+namespace dle = ::designlab::enums;
+
 
 NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -21,7 +23,7 @@ NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 
 void NodeCreatorBuilderHato::Build(
 	const DevideMapState& map,
-	std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
+	std::map<dle::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
 	assert(node_creator != nullptr);	// node_creatorがnullptrでない．
 	assert(node_creator->size() == 0);	// node_creatorは空でなければならない．
@@ -41,32 +43,32 @@ void NodeCreatorBuilderHato::Build(
 		DiscreteLegPos::kUpperFront
 	};
 
-	(*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
-		HexapodMove::kLegUpDown,
+	(*node_creator)[dle::HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
+		dle::HexapodMove::kLegUpDown,
 		hierarchy_list
 	);
 
-	(*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+	(*node_creator)[dle::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		HexapodMove::kComUpDown
+		dle::HexapodMove::kComUpDown
 	);
 
-	(*node_creator)[HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+	(*node_creator)[dle::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		HexapodMove::kComMove
+		dle::HexapodMove::kComMove
 	);
 
-	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
+	(*node_creator)[dle::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		HexapodMove::kLegHierarchyChange
+		dle::HexapodMove::kLegHierarchyChange
 	);
 }

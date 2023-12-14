@@ -13,9 +13,10 @@
 #include "node_initializer.h"
 #include "phantomx_mk2.h"
 
-namespace dle = designlab::enums;
-namespace dlio = designlab::cmdio;
-namespace dlsu = designlab::string_util;
+namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
+namespace dlio = ::designlab::cmdio;
+namespace dlsu = ::designlab::string_util;
 
 
 SystemMainGraphViewer::SystemMainGraphViewer(
@@ -56,7 +57,7 @@ void SystemMainGraphViewer::Main()
 	//ノードを初期化する
 	dlio::Output("ノードを初期化する．", dle::OutputDetail::kSystem);
 
-	NodeInitializer node_initializer;
+	NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
 	RobotStateNode first_node = node_initializer.InitNode();
 	std::vector<RobotStateNode> graph;
 
@@ -309,7 +310,7 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(const std::vector<RobotS
 	{
 		dlio::Output("グラフが空なので，初期状態のノードを返す", dle::OutputDetail::kSystem);
 
-		NodeInitializer node_initializer;
+		NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
 		RobotStateNode first_node = node_initializer.InitNode();
 
 		return first_node;

@@ -11,6 +11,7 @@
 
 
 namespace dl = ::designlab;
+namespace dle = ::designlab::enums;
 namespace dlcf = ::designlab::com_func;
 namespace dllf = ::designlab::leg_func;
 namespace dlm = ::designlab::math_util;
@@ -21,7 +22,7 @@ NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	HexapodMove next_move
+	dle::HexapodMove next_move
 ) :
 	kLegMargin(20),
 	map_(devide_map),

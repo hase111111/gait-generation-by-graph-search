@@ -34,7 +34,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	assert(broker_ptr_ != nullptr);
 
 	//適当なノードを生成して，描画クラスを初期化する
-	NodeInitializer node_initializer;
+	NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
 	RobotStateNode init_node = node_initializer.InitNode();
 
 
