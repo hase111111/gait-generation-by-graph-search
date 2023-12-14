@@ -1,16 +1,15 @@
 ﻿//! @file dxlib_util.h
 //! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめたもの．
 
-
 #ifndef DESIGNLAB_DXLIB_UTIL_H_
 #define DESIGNLAB_DXLIB_UTIL_H_
 
-#include <Dxlib.h>
-
 #include <array>
 
-#include "designlab_vector3.h"
+#include <Dxlib.h>
+
 #include "designlab_rotation_matrix.h"
+#include "designlab_vector3.h"
 
 
 namespace designlab
@@ -18,22 +17,23 @@ namespace designlab
 
 	//! @namespace designlab::dxlib_util
 	//! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間．
-	//! @details Dxlib の 3Dで表示する機能はハッキリ言って死ぬほど使いづらいので，
-	//! @n ここである程度使いやすくなるように処理を書いてまとめておく．
+	//! @details Dxlib の 3Dで表示する機能は使いづらいので，
+	//! ここである程度使いやすくなるように処理を書いてまとめておく．
 	namespace dxlib_util
 	{
 		//! @brief 3D処理を行う上で必要な初期化処理をまとめたもの．
+		//! @param [in] high_quality trueなら高品質モードで初期化する．
 		void InitDxlib3DSetting(bool high_quality);
 
 
 		//! @brief Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．
-		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
+		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
 		//! @return VECTOR 変換後の座標．
-		inline VECTOR ConvertToDxlibVec(const designlab::Vector3& vec) { return VGet(vec.x, -vec.y, vec.z); }
+		inline VECTOR ConvertToDxlibVec(const ::designlab::Vector3& vec) { return VGet(vec.x, -vec.y, vec.z); }
 
 
-		inline MATRIX ConvertToDxlibMat(const designlab::RotationMatrix3x3& mat)
+		inline MATRIX ConvertToDxlibMat(const ::designlab::RotationMatrix3x3& mat)
 		{
 			return {
 				mat.element[0][0],mat.element[0][1],mat.element[0][2],0,
@@ -47,11 +47,11 @@ namespace designlab
 		//! @n ロボット座標系は右手座標系，Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い気がする)なのでyを反転する．
 		//! @param [in] vec 変換前の座標．
 		//! @return Vector3 変換後の座標．
-		inline designlab::Vector3 ConvertDesignLabVec(const VECTOR& vec) { return designlab::Vector3(vec.x, -vec.y, vec.z); }
+		inline ::designlab::Vector3 ConvertDesignLabVec(const VECTOR& vec) { return ::designlab::Vector3(vec.x, -vec.y, vec.z); }
 
 
 		//! @brief デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする．
-		//! @n なんか毎フレーム実行しなきゃいけないっぽい？仕様がよくわからん
+		//! 毎フレーム実行する必要がある．
 		void SetZBufferEnable();
 
 
