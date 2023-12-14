@@ -10,7 +10,7 @@ RobotOperation RobotOperatorFixed::Init() const
 	return operation_;
 }
 
-RobotOperation RobotOperatorFixed::Update([[maybe_unused]] const RobotStateNode& state) const
+RobotOperation RobotOperatorFixed::Update([[maybe_unused]] const RobotStateNode& state)
 {
 	return operation_;
 }

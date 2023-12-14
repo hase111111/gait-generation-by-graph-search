@@ -23,7 +23,7 @@ public:
 	//! @brief ロボットの動作を更新する．
 	//! @param[in] state ロボットの現在の状態．
 	//! @return ロボットの動作．
-	virtual RobotOperation Update(const RobotStateNode& state) const = 0;
+	virtual RobotOperation Update(const RobotStateNode& state) = 0;
 };
 
 

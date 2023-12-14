@@ -5,16 +5,16 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kGoalTape"
+    end_check_mode = "kPosition" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 4000.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
-    target_position = "     0.000,     0.000,     0.000"
+    target_position = " 4000,400,40"
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標の許容誤差を設定します．[mm]
-    target_position_allowable_error = 50.0
+    target_position_allowable_error = 200.0
     
     #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]
     target_posture = "     0.000,     0.000,     0.000"
@@ -26,7 +26,7 @@
 [Map]
     
     #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kForSimulation"
+    map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップのcsvファイルの名前を設定します．
     map_file_name = "map_state.csv"
@@ -41,5 +41,5 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" )
-    operate_mode = "kForGloabalPathGenerate"
+    operate_mode = "kFree"
     

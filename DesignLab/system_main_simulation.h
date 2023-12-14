@@ -66,7 +66,7 @@ private:
 
 	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 
-	const std::unique_ptr<const IRobotOperator> robot_operator_ptr_;	//!< ロボットの操作を行うクラス．
+	const std::unique_ptr<IRobotOperator> robot_operator_ptr_;	//!< ロボットの操作を行うクラス．
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
 

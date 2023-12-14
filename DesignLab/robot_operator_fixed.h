@@ -21,7 +21,7 @@ public:
 
 	RobotOperation Init() const override;
 
-	RobotOperation Update(const RobotStateNode& state) const override;
+	RobotOperation Update(const RobotStateNode& state) override;
 
 private:
 

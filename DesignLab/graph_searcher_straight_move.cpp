@@ -222,34 +222,3 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 
 	return EvaluationResult::kNotUpdate;
 }
-
-//float GraphSearcherStraightMove::CalcMoveFrowardEvaluationValue(const RobotStateNode& current_node, const RobotOperation& operation) const
-//{
-//	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
-//
-//	dl::Vector3 target_pos = operation.operation_type == dle::RobotOperationType::kStraightMovePosition ?
-//		operation.straight_move_position_ : operation.straight_move_vector_ * target_weight + current_node.global_center_of_mass;
-//
-//	dl::Vector3 target_to_parent = current_node.global_center_of_mass - target_pos;
-//
-//	return target_pos.GetLength() - target_to_parent.GetLength();
-//}
-
-//float GraphSearcherStraightMove::CalcLegRotEvaluationValue(const RobotStateNode& current_node, const RobotStateNode& parent_node) const
-//{
-//	float result = 0.0f;
-//
-//	for (int i = 0; i < HexapodConst::kLegNum; i++)
-//	{
-//		if (dllf::IsGrounded(current_node.leg_state, i))
-//		{
-//			result += (current_node.leg_pos[i].ProjectedXY() - parent_node.leg_pos[i].ProjectedXY()).GetLength();
-//		}
-//		else
-//		{
-//			result += (current_node.leg_pos[i] - parent_node.leg_pos[i]).GetLength();
-//		}
-//	}
-//
-//	return result / static_cast<float>(HexapodConst::kLegNum);
-//}

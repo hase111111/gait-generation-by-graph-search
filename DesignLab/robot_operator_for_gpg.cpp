@@ -252,7 +252,7 @@ RobotOperation RobotOperatorForGpg::Init() const
 	return RobotOperation();
 }
 
-RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) const
+RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 {
 	//まず，現在の重心位置から最も近い点を探す
 	int most_near_index = 0;
@@ -260,9 +260,9 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) const
 
 	for (int i = 0; i < global_route_.size(); ++i)
 	{
-		if (distance > global_route_[i].GetDistanceFrom(node.global_center_of_mass))
+		if (distance > global_route_[i].ProjectedXY().GetDistanceFrom(node.global_center_of_mass.ProjectedXY()))
 		{
-			distance = global_route_[i].GetDistanceFrom(node.global_center_of_mass);
+			distance = global_route_[i].ProjectedXY().GetDistanceFrom(node.global_center_of_mass.ProjectedXY());
 
 			most_near_index = i;
 		}

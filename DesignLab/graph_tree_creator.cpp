@@ -66,15 +66,15 @@ void GraphTreeCreator::MakeNewNodesByCurrentNode(const RobotStateNode& current_n
 	}
 	else
 	{
-		assert(false);	//ノード生成クラスが登録されていない．
+		node_creator_map_.begin()->second->Create(current_node, current_num, output_graph);
 
-		//assertの下に処理を追加する理由としては，assertが呼ばれない場合(Releaseビルドの際など)にも動作可能にするため． 
+		//assert(false && "ノード生成クラスが登録されていない．");
 
-		//定義されていないならば，同じノードをそのまま追加する．
-		RobotStateNode new_node = current_node;
+		////定義されていないならば，同じノードをそのまま追加する．
+		//RobotStateNode new_node = current_node;
 
-		new_node.ChangeToNextNode(current_num, current_node.next_move);
+		//new_node.ChangeToNextNode(current_num, current_node.next_move);
 
-		(*output_graph).emplace_back(new_node);
+		//(*output_graph).emplace_back(new_node);
 	}
 }

@@ -55,6 +55,8 @@ public:
 
 	bool IsLegInRange(int leg_index, const designlab::Vector3& leg_pos) const override;
 
+	bool IsAllLegInRange(const ::designlab::leg_func::LegStateBit leg_state, const std::array<::designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
+
 	bool IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
 	float CalculateStabilityMargin(const ::designlab::leg_func::LegStateBit& leg_state,

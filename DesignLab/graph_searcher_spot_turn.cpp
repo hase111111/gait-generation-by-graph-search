@@ -101,9 +101,12 @@ float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& curre
 		const dl::Quaternion target_quat = operation.spot_turn_last_posture_;
 		const dl::Quaternion current_quat = current_node.quat;
 
-		const dl::Quaternion target_to_current = target_quat * current_quat.GetInverse();
+		const dl::Quaternion target_to_current = current_quat.GetInverse() * target_quat;
 
-		return target_weight * target_to_current.w;
+		//回転角を計算する．
+		const float rot_angle = dlm::ConvertRadToDeg(2.f * asin(target_to_current.v.GetLength()));
+
+		return target_weight - rot_angle;
 	}
 
 	return 0;

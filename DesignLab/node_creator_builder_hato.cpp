@@ -2,9 +2,11 @@
 
 #include "cassert_define.h"
 #include "node_creator_com_move.h"
+#include "node_creator_com_move_straight.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
 #include "node_creator_leg_up_down.h"
+#include "node_creator_body_rot.h"
 
 
 NodeCreatorBuilderHato::NodeCreatorBuilderHato(
@@ -60,7 +62,7 @@ void NodeCreatorBuilderHato::Build(
 		HexapodMove::kComMove
 	);
 
-	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
+	(*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,

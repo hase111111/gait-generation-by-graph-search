@@ -378,6 +378,19 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const designlab::Vector3& l
 	return true;
 }
 
+bool PhantomXMkII::IsAllLegInRange(const::designlab::leg_func::LegStateBit leg_state, const std::array<::designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
+{
+	for (int i = 0; i < HexapodConst::kLegNum; i++)
+	{
+		if (dllf::IsGrounded(leg_state, i) && !IsLegInRange(i, leg_pos[i]))
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 bool PhantomXMkII::IsLegInterfering(const std::array<designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const
 {
 	//重心を原点とした，座標系において，脚の干渉を調べる．

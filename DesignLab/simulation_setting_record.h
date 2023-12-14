@@ -22,7 +22,8 @@ namespace designlab
 		enum class RobotOperateMode : int
 		{
 			kForGloabalPathGenerate,
-			kFixed
+			kFixed,
+			kFree
 		};
 
 		enum class SimulationEndCheckMode : int

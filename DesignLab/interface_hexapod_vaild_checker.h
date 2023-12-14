@@ -27,6 +27,12 @@ public:
 	//! @return bool 脚が可動範囲内にあればtrue．可動範囲外にあればfalse．
 	virtual bool IsLegInRange(const int leg_index, const designlab::Vector3& leg_pos) const = 0;
 
+	//! @brief 全ての脚が可動範囲内にあるかどうかを判定する．
+	//! @param [in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
+	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
+	//! @return bool 全ての脚が可動範囲内にあればtrue．可動範囲外にあればfalse．
+	virtual bool IsAllLegInRange(const ::designlab::leg_func::LegStateBit leg_state, const std::array<::designlab::Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
+
 	//! @brief 脚が他の脚と干渉しているかどうかを判定する．
 	//! @param [in] leg_pos 脚座標系における脚先の座標の配列．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
 	//! @return bool 脚が他の脚と干渉していればtrue．干渉していなければfalse．

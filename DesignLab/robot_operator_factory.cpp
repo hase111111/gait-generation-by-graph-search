@@ -4,6 +4,7 @@
 #include "robot_operation.h"
 #include "robot_operator_for_gpg.h"
 #include "robot_operator_fixed.h"
+#include "robot_operator_free.h"
 #include "toml_file_importer.h"
 #include "toml_file_setupper.h"
 
@@ -20,6 +21,10 @@ std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSet
 	{
 		TomlFileImporter<RobotOperation> importer;
 		return std::make_unique<RobotOperatorFixed>(importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + setting.fixed_operate_file_name));
+	}
+	else if (setting.operate_mode == dle::RobotOperateMode::kFree)
+	{
+		return std::make_unique<RobotOperatorFree>();
 	}
 	else
 	{

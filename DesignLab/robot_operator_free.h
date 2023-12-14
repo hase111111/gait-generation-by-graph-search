@@ -1,5 +1,5 @@
-﻿#ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
-#define DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
+﻿#ifndef DESIGNLAB_ROBOT_OPERATOR_FREE_H_
+#define DESIGNLAB_ROBOT_OPERATOR_FREE_H_
 
 #include <vector>
 
@@ -7,13 +7,13 @@
 #include "interface_robot_operator.h"
 
 
-//! @class RobotOperatorForGpg
+//! @class RobotOperatorFree
 //! @brief global path generator を行うための仮置きクラス．
-class RobotOperatorForGpg final : public IRobotOperator
+class RobotOperatorFree final : public IRobotOperator
 {
 public:
 
-	RobotOperatorForGpg();
+	RobotOperatorFree();
 
 	RobotOperation Init() const override;
 
@@ -24,6 +24,7 @@ private:
 	static constexpr float kAllowableAngleError{ ::designlab::math_util::ConvertDegToRad(2.0f) };	//!< 目標角度と現在の角度の許容誤差．
 
 	std::vector<::designlab::Vector3> global_route_;	//!< グローバルパス．
+	int most_near_index_{ 0 };
 };
 
-#endif  // DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
+#endif  // DESIGNLAB_ROBOT_OPERATOR_FREE_H_
