@@ -14,27 +14,26 @@
 
 
 //! @class AsyncableData
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．(コピー・ムーブは禁止)
-//! @details この構造体は，データの更新回数とデータをまとめて扱うためのクラス．
-//! @n 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，データの更新回数をカウントする．
-//! @n また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．ミューテックスについては以下を参照．
+//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
+//! @details 
+//! この構造体は，データの更新回数とデータをまとめて扱うためのクラス．
+//! 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，データの更新回数をカウントする．
+//! また，値の参照と変更を行う際にミューテックスを用いて，同時に変更されることを防ぐ．ミューテックスについては以下を参照．
 //! @n
 //! @n [非同期処理について] 
 //! @n 非同期処理 (並列・同時に処理を行うこと) を行う際に，一つのにデータに同じタイミングで操作すると危険(未定義処理になり，成功か失敗かが不定になる)．
-//! @n このクラスはそれを防ぐためにboost::shared_mutexを使用している．
-//! @n 詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章を参照してほしい．
-//! @n このクラス内ではread lock, write lockを使っている． 
-//! @n 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 
+//! このクラスはそれを防ぐためにboost::shared_mutexを使用している．
+//! 詳しくは https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 の5章を参照してほしい．
+//! このクラス内ではread lock, write lockを使っている． 
+//! 参考 https://iorate.hatenablog.com/entry/20130222/1361538198 
 //! @n 
 //! @n メンバのm_mtxについているmutable は constなメンバ関数(メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
-//! @n 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
+//! 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
 //! @tparam T 非同期処理を行うデータ．代入を行うことができる型を指定すること．
-//! @n C++20ではconceptを使うことで，代入を行うことができる型を指定できる．アップデートしたらそれを使用する用に変更する．
-template <typename T>
-class AsyncableData
+//! @todo C++20ではconceptを使うことで，代入を行うことができる型を指定できる．アップデートしたらそれを使用するように変更する．
+template <typename T, typename = std::enable_if_t<std::is_copy_assignable<T>::value> >
+class AsyncableData final
 {
-	static_assert(std::is_copy_assignable<T>::value, "代入を行うことができる型を指定してください．");
-
 public:
 
 	AsyncableData() : update_count_(0) {};
@@ -99,7 +98,7 @@ private:
 //! @n コピー・ムーブは禁止
 //! @details vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
 template <typename T>
-class AsyncableData <std::vector<T> >
+class AsyncableData <std::vector<T> > final
 {
 public:
 
