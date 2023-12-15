@@ -1,32 +1,40 @@
-//! @file hexapod_const.h
-//! @brief Hexapod‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒXD
-
+ï»¿//! @file hexapod_const.h
+//! @brief Hexapodã®å®šæ•°ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_HEXAPOD_CONST_H_
 #define DESIGNLAB_HEXAPOD_CONST_H_
 
-
 #include "designlab_math_util.h"
 
 
+namespace designlab 
+{
+
 //! @class HexapodConst
-//! @brief Hexapod‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒXD
-//! @n æsŒ¤‹†‚Ìƒ}ƒNƒ‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌC™X‚É‚±‚±‚©‚ç’l‚ğÁ‚µ‚Ä‚¢‚­D
-//! @details ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğíœ‚µ‚½‚Ì‚ÅCÀ‘Ì‚Í¶¬‚Å‚«‚È‚¢D( HexapodConst::kLegNum ‚İ‚½‚¢‚É’l‚ğŒÄ‚Ño‚·‚±‚Æ )
+//! @brief Hexapodã®å®šæ•°ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹ï¼
+//! @details ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‰Šé™¤ã—ãŸã®ã§ï¼Œå®Ÿä½“ã¯ç”Ÿæˆã§ããªã„ï¼
+//! @code
+//! int a = HexapodConst::kLegNum;	// OK
+//! 
+//! HexapodConst h;	// ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼
+//! @endcode
+//! @n å…ˆè¡Œç ”ç©¶ã®ãƒã‚¯ãƒ­ã‚’ã¾ã¨ã‚ãŸã‚‚ã®ï¼Œå¾ã€…ã«ã“ã“ã‹ã‚‰å€¤ã‚’æ¶ˆã—ã¦ã„ãï¼
 class HexapodConst final
 {
 public:
 
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÆƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğíœ‚µCÀ‘Ì‚ğ¶¬‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚éD
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¨ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‰Šé™¤ã—ï¼Œå®Ÿä½“ã‚’ç”Ÿæˆã§ããªã„ã‚ˆã†ã«ã™ã‚‹ï¼
 	HexapodConst() = delete;
 	HexapodConst(const HexapodConst& other) = delete;
 	HexapodConst& operator=(const HexapodConst& other) = delete;
 	HexapodConst(HexapodConst&& other) = delete;
 
 
-	constexpr static int kLegNum = 6;	//!< Hexapod‚Ì‹r‚Ì–{”‚ğ•\‚·D‚±‚ê‚ğ•ÏX‚µ‚Ä‚à‹r‚Ì–{”‚ª•ÏX‚Å‚«‚é‚í‚¯‚Å‚Í‚È‚¢Dƒ}ƒWƒbƒNƒiƒ“ƒo[‚ğ‚È‚­‚·‚±‚Æ‚ª–Ú“ID
+	constexpr static int kLegNum = 6;	//!< Hexapodã®è„šã®æœ¬æ•°ã‚’è¡¨ã™ï¼ã“ã‚Œã‚’å¤‰æ›´ã—ã¦ã‚‚è„šã®æœ¬æ•°ãŒå¤‰æ›´ã§ãã‚‹ã‚ã‘ã§ã¯ãªã„ï¼ãƒã‚¸ãƒƒã‚¯ãƒŠãƒ³ãƒãƒ¼ã‚’ãªãã™ã“ã¨ãŒç›®çš„ï¼
 
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_HEXAPOD_CONST_H_

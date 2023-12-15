@@ -10,10 +10,17 @@
 #include "designlab_math_util.h"
 
 
+namespace designlab
+{
+
 //! @class PhantomXMkIIConst
 //! @brief PhantomX mk-Ⅱ のパラメータを定数で表現したもの．
-//! @n コンストラクタを削除したので，実体は生成できない．( PhantomXMkIIConst::kLegNum みたいに値を呼び出すこと )
-//! @details 簡単のため値をここにまとめたが，むやみにここの値を参照せずにHexapodStateCalculatorを使うこと．
+//! @details コンストラクタを削除したので，実体は生成できない．呼び出す際は，
+//! @code 
+//! float coxa_angle_min = PhantomXMkIIConst::kCoxaAngleMin;
+//! @endcode
+//! として呼び出す．
+//! 簡単のため値をここにまとめたが，むやみにここの値を参照せずに PhantomXMkII を使うこと．
 //! @n 座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
 class PhantomXMkIIConst final
 {
@@ -30,22 +37,22 @@ public:
 
 	//! 第1関節の初期角度[rad]
 	constexpr static std::array<float, kPhantomXLegNum> kCoxaDefaultAngle = {
-		::designlab::math_util::ConvertDegToRad(-45.0f), 
-		::designlab::math_util::ConvertDegToRad(-90.0f), 
-		::designlab::math_util::ConvertDegToRad(-135.0f),
-		::designlab::math_util::ConvertDegToRad(135.0f), 
-		::designlab::math_util::ConvertDegToRad(90.0f),  
-		::designlab::math_util::ConvertDegToRad(45.0f) 
+		math_util::ConvertDegToRad(-45.0f),
+		math_util::ConvertDegToRad(-90.0f),
+		math_util::ConvertDegToRad(-135.0f),
+		math_util::ConvertDegToRad(135.0f),
+		math_util::ConvertDegToRad(90.0f),
+		math_util::ConvertDegToRad(45.0f)
 	};
 
-	constexpr static float kCoxaAngleMin = ::designlab::math_util::ConvertDegToRad(-81.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kCoxaAngleMax = ::designlab::math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kCoxaAngleMin = math_util::ConvertDegToRad(-81.0f);	//!< 第1関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kCoxaAngleMax = math_util::ConvertDegToRad(81.0f);	//!< 第1関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float kFemurAngleMin = ::designlab::math_util::ConvertDegToRad(-105.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kFemurAngleMax = ::designlab::math_util::ConvertDegToRad(99.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kFemurAngleMin = math_util::ConvertDegToRad(-105.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kFemurAngleMax = math_util::ConvertDegToRad(99.0f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
-	constexpr static float kTibiaAngleMin = ::designlab::math_util::ConvertDegToRad(-145.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
-	constexpr static float kTibiaAngleMax = ::designlab::math_util::ConvertDegToRad(25.5f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMin = math_util::ConvertDegToRad(-145.0f);	//!< 第2関節の可動範囲の最小値[rad]．詳しくはreferenceをフォルダ参照．
+	constexpr static float kTibiaAngleMax = math_util::ConvertDegToRad(25.5f);	//!< 第2関節の可動範囲の最大値[rad]．詳しくはreferenceをフォルダ参照．
 
 	constexpr static float kCoxaLength = 52.0f;		//!< 第1関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．
 	constexpr static float kFemurLength = 66.0f;	//!< 第2関節部の長さ[mm]．詳しくはreferenceをフォルダ参照．(正確なステータスは66.061mm)
@@ -69,9 +76,9 @@ public:
 		assert(leg_index < kPhantomXLegNum);
 
 		return (
-			kCoxaAngleMin + kCoxaDefaultAngle[leg_index] <= angle && 
+			kCoxaAngleMin + kCoxaDefaultAngle[leg_index] <= angle &&
 			angle <= kCoxaAngleMax + kCoxaDefaultAngle[leg_index]
-		);
+			);
 	};
 
 	//! @biref 第2関節の角度が有効な範囲内かどうかを判定する．
@@ -98,6 +105,8 @@ public:
 	static_assert(kFemurLength > 0.f, "kFemurLength，Femur Linkの長さは正である必要があります．");
 	static_assert(kTibiaLength > 0.f, "kTibiaLength，Tibia Linkの長さは正である必要があります．");
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_PHANTOMX_CONST_H_

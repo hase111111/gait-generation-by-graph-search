@@ -1,38 +1,44 @@
-//! @file interface_hexapod_state_presenter.h
-//! @brief 6‹rƒƒ{ƒbƒg‚Ìó‘Ô‚ğ•\¦‚·‚éƒNƒ‰ƒX
-
+ï»¿//! @file interface_hexapod_state_presenter.h
+//! @brief 6è„šãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
 
-
 #include "designlab_vector3.h"
 
 
+namespace designlab
+{
+
 //! @class IHexapodStatePresenter
-//! @brief 6‹rƒƒ{ƒbƒg‚Ìó‘Ô‚ğ•\¦‚·‚éƒNƒ‰ƒX
+//! @brief 6è„šãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¡¨ç¤ºã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class IHexapodStatePresenter
 {
 public:
 
 	virtual ~IHexapodStatePresenter() = default;
 
-	//! @brief —V‹r‚·‚éˆÊ’u‚ğ•Ô‚·C‹rÀ•WŒnD
-	//! @param [in] leg_index ‹r”Ô†D
-	//! @return designlab::Vector3 —V‹r‚·‚éˆÊ’uD‹rÀ•WŒnD
-	[[nodiscard]] virtual designlab::Vector3 GetFreeLegPosLegCoodinate(int leg_index) const noexcept = 0;
+	//! @brief éŠè„šã™ã‚‹ä½ç½®ã‚’è¿”ã™ï¼Œè„šåº§æ¨™ç³»ï¼
+	//! @param [in] leg_index è„šç•ªå·ï¼
+	//! @return Vector3 éŠè„šã™ã‚‹ä½ç½®ï¼è„šåº§æ¨™ç³»ï¼
+	[[nodiscard]] virtual Vector3 GetFreeLegPosLegCoodinate(int leg_index) const noexcept = 0;
 
-	//! @brief ‹r‚Ì•t‚¯ª‚ÌÀ•W( leg base position )‚ğæ“¾‚·‚éDƒƒ{ƒbƒgÀ•WŒnD
-	//! @param [in] leg_index ‹r”Ô†D
-	//! @return designlab::Vector3 ‹r‚Ì•t‚¯ª‚ÌÀ•WDƒƒ{ƒbƒgÀ•WŒnD
-	[[nodiscard]] virtual designlab::Vector3 GetLegBasePosRobotCoodinate(int leg_index) const noexcept = 0;
+	//! @brief è„šã®ä»˜ã‘æ ¹ã®åº§æ¨™( leg base position )ã‚’å–å¾—ã™ã‚‹ï¼ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ï¼
+	//! @param [in] leg_index è„šç•ªå·ï¼
+	//! @return Vector3 è„šã®ä»˜ã‘æ ¹ã®åº§æ¨™ï¼ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ï¼
+	[[nodiscard]] virtual Vector3 GetLegBasePosRobotCoodinate(int leg_index) const noexcept = 0;
 
-	//! @brief ’n–Ê‚ÌÅ‘å‚‚³‚ÆdSˆÊ’u‚ğÅ¬‚Ç‚ê‚¾‚¯—£‚·‚©‚ğ•Ô‚·
+	//! @brief åœ°é¢ã®æœ€å¤§é«˜ã•ã¨é‡å¿ƒä½ç½®ã‚’æœ€å°ã©ã‚Œã ã‘é›¢ã™ã‹ã‚’è¿”ã™ï¼
+	//! @return float åœ°é¢ã®æœ€å¤§é«˜ã•ã¨é‡å¿ƒä½ç½®ã¨ã®æœ€å°è·é›¢ [mm]ï¼
 	[[nodiscard]] virtual float GetGroundHeightMarginMin() const noexcept = 0;
 
-	//! @brief ’n–Ê‚ÌÅ‘å‚‚³‚ÆdSˆÊ’u‚ğÅ‘å‚Ç‚ê‚¾‚¯—£‚·‚©‚ğ•Ô‚·
+	//! @brief åœ°é¢ã®æœ€å¤§é«˜ã•ã¨é‡å¿ƒä½ç½®ã‚’æœ€å¤§ã©ã‚Œã ã‘é›¢ã™ã‹ã‚’è¿”ã™ï¼
+	//! @return float åœ°é¢ã®æœ€å¤§é«˜ã•ã¨é‡å¿ƒä½ç½®ã¨ã®æœ€å¤§è·é›¢ [mm]ï¼
 	[[nodiscard]] virtual float GetGroundHeightMarginMax() const noexcept = 0;
 
 };
+
+}	// namespace designlab
+
 
 #endif	// DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_

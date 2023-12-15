@@ -1,74 +1,79 @@
-//! @file interface_hexapod_joint_calculator.h
-//! @brief 6‹rƒƒ{ƒbƒg‚ÌŠÔÚŠp“x‚âƒWƒ‡ƒCƒ“ƒg‚ÌˆÊ’u‚ğŒvZ‚·‚éˆ—‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
- 
+ï»¿//! @file interface_hexapod_joint_calculator.h
+//! @brief 6è„šãƒ­ãƒœãƒƒãƒˆã®é–“æ¥è§’åº¦ã‚„ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã®ä½ç½®ã‚’è¨ˆç®—ã™ã‚‹å‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
+
 #ifndef	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
 #define	DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
-
 
 #include <array>
 
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @struct HexapodJointState
-//! @brief ƒƒ{ƒbƒg‚ÌŠÖß‚Ìó‘Ô‚ğ•\‚·\‘¢‘ÌD
-//! @n ŠÖß‚ÌˆÊ’u‚ÆŠp“x‚ğ•\‚·D
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®é–¢ç¯€ã®çŠ¶æ…‹ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+//! @details é–¢ç¯€ã®ä½ç½®ã¨è§’åº¦ã‚’è¡¨ã™ï¼
 struct HexapodJointState
 {
-	//! ŠÖß‚ÌˆÊ’uD•t‚¯ª‚©‚ç‰‚ß‚ÄC‹ræ‚Ì‡‚É•À‚ñ‚Å‚¢‚éD‹r‚Ì•t‚¯ª‚ÌÀ•W‚Íjoint_position[0]‚Å‚ ‚éD
-	//! @n ‚±‚ÌÀ•W‚Í‹r‚Ì•t‚¯ª‚ğŒ´“_‚Æ‚µC²‚Íƒƒ{ƒbƒgÀ•WŒn‚Æ“¯—l‚È‹rÀ•WŒn ( leg coordinate ) ‚Å‚ ‚éD’PˆÊ‚Í [mm]D
-	std::vector<designlab::Vector3> joint_pos_leg_coordinate;
+	//! é–¢ç¯€ã®ä½ç½®ï¼ä»˜ã‘æ ¹ã‹ã‚‰åˆã‚ã¦ï¼Œè„šå…ˆã®é †ã«ä¸¦ã‚“ã§ã„ã‚‹ï¼è„šã®ä»˜ã‘æ ¹ã®åº§æ¨™ã¯joint_position[0]ã§ã‚ã‚‹ï¼
+	//! @n ã“ã®åº§æ¨™ã¯è„šã®ä»˜ã‘æ ¹ã‚’åŸç‚¹ã¨ã—ï¼Œè»¸ã¯ãƒ­ãƒœãƒƒãƒˆåº§æ¨™ç³»ã¨åŒæ§˜ãªè„šåº§æ¨™ç³» ( leg coordinate ) ã§ã‚ã‚‹ï¼å˜ä½ã¯ [mm]ï¼
+	std::vector<Vector3> joint_pos_leg_coordinate;
 
-	//! ŠÖß‚ÌŠp“xD•t‚¯ª‚©‚ç‰‚ß‚ÄC‹ræ‚Ì‡‚É•À‚ñ‚Å‚¢‚éD‹r‚Ì•t‚¯ª‚ÌŠp“x‚Íjoint_angle[0]‚Å‚ ‚éD
-	//! @n ‚±‚ÌŠp“x‚Ì’PˆÊ‚Í [rad] ‚Å‚ ‚éD
+	//! é–¢ç¯€ã®è§’åº¦ï¼ä»˜ã‘æ ¹ã‹ã‚‰åˆã‚ã¦ï¼Œè„šå…ˆã®é †ã«ä¸¦ã‚“ã§ã„ã‚‹ï¼è„šã®ä»˜ã‘æ ¹ã®è§’åº¦ã¯joint_angle[0]ã§ã‚ã‚‹ï¼
+	//! @n ã“ã®è§’åº¦ã®å˜ä½ã¯ [rad] ã§ã‚ã‚‹ï¼
 	std::vector<float> joint_angle;
 
-	//! –Ú•WÀ•W‚É‹r‚ª“Í‚©‚È‚¢‚È‚ç‚Îfalse‚É‚È‚é
-	bool is_in_range{false};
+	//! ç›®æ¨™åº§æ¨™ã«è„šãŒå±Šã‹ãªã„ãªã‚‰ã°falseã«ãªã‚‹ï¼
+	bool is_in_range{ false };
 };
 
 
 //! class IHexapodJointCalculator
-//! @brief ŠÔÚŠp“x‚âŠp‘¬“x‚ğŒvZ‚·‚éˆ—‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
+//! @brief é–“æ¥è§’åº¦ã‚„è§’é€Ÿåº¦ã‚’è¨ˆç®—ã™ã‚‹å‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 class IHexapodJointCalculator
 {
 public:
 
 	virtual ~IHexapodJointCalculator() = default;
 
-	//! @brief ‘S‚Ä‚ÌŠÖß‚ÌƒOƒ[ƒoƒ‹À•W‚ÆCŠp“x‚ğŒvZ‚·‚éD
-	//! @n d‚½‚¢‚Ì‚ÅƒOƒ‰ƒt’Tõ‚âC•`‰æˆ—’†‚Éƒ‹[ƒv‚Åg—p‚·‚é‚±‚Æ‚Í„§‚µ‚È‚¢D
-	//! @n ŠÔÚ‚Ì‰Â“®”ÍˆÍŠO‚Ü‚Å“®‚¢‚Ä‚µ‚Ü‚¤ê‡‚Å‚àC“š‚¦‚ğ•Ô‚·D
-	//! @n –Ú•WÀ•W‚É“Í‚©‚È‚¢ê‡‚ÍCÅ‚à‹ß‚¢À•W‚Ü‚Å‹r‚ğL‚Î‚µC–ß‚è’l‚Ìis_in_range‚ğfalse‚É‚·‚éD
-	//! @param [in] node ƒm[ƒh‚Ìî•ñD
-	//! @return ‘S‚Ä‚ÌŠÖß‚Ìó‘ÔD
+
+	//! @brief å…¨ã¦ã®é–¢ç¯€ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã¨ï¼Œè§’åº¦ã‚’è¨ˆç®—ã™ã‚‹ï¼
+	//! @n é‡ãŸã„ã®ã§ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚„ï¼Œæç”»å‡¦ç†ä¸­ã«ãƒ«ãƒ¼ãƒ—ã§ä½¿ç”¨ã™ã‚‹ã“ã¨ã¯æ¨å¥¨ã—ãªã„ï¼
+	//! @n é–“æ¥ã®å¯å‹•ç¯„å›²å¤–ã¾ã§å‹•ã„ã¦ã—ã¾ã†å ´åˆã§ã‚‚ï¼Œç­”ãˆã‚’è¿”ã™ï¼
+	//! @n ç›®æ¨™åº§æ¨™ã«å±Šã‹ãªã„å ´åˆã¯ï¼Œæœ€ã‚‚è¿‘ã„åº§æ¨™ã¾ã§è„šã‚’ä¼¸ã°ã—ï¼Œæˆ»ã‚Šå€¤ã®is_in_rangeã‚’falseã«ã™ã‚‹ï¼
+	//! @param [in] node ãƒãƒ¼ãƒ‰ã®æƒ…å ±ï¼
+	//! @return std::array<HexapodJointState, HexapodConst::kLegNum> å…¨ã¦ã®é–¢ç¯€ã®çŠ¶æ…‹ï¼
 	[[nodiscard]] virtual std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(const RobotStateNode& node) const noexcept = 0;
 
-	//! @brief w’è‚µ‚½‹r‚ÌŠÖß‚ÌƒOƒ[ƒoƒ‹À•W‚ÆCŠp“x‚ğŒvZ‚·‚éD
-	//! @n d‚½‚¢‚Ì‚ÅƒOƒ‰ƒt’Tõ‚âC•`‰æˆ—’†‚Éƒ‹[ƒv‚Åg—p‚·‚é‚±‚Æ‚Í„§‚µ‚È‚¢D
-	//! @n ŠÔÚ‚Ì‰Â“®”ÍˆÍŠO‚Ü‚Å“®‚¢‚Ä‚µ‚Ü‚¤ê‡‚Å‚àC“š‚¦‚ğ•Ô‚·D
-	//! @n –Ú•WÀ•W‚É“Í‚©‚È‚¢ê‡‚ÍCÅ‚à‹ß‚¢À•W‚Ü‚Å‹r‚ğL‚Î‚µC–ß‚è’l‚Ìis_in_range‚ğfalse‚É‚·‚éD
-	//! @param [in] leg_index ‹r‚ÌƒCƒ“ƒfƒbƒNƒXD
-	//! @param [in] leg_pos ‹ræÀ•WC‹rÀ•WŒnD
-	//! @return w’è‚µ‚½‹r‚ÌŠÖß‚Ìó‘ÔD
-	[[nodiscard]] virtual HexapodJointState CalculateJointState(const int leg_index, const designlab::Vector3& leg_pos) const noexcept = 0;
+	//! @brief æŒ‡å®šã—ãŸè„šã®é–¢ç¯€ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ã¨ï¼Œè§’åº¦ã‚’è¨ˆç®—ã™ã‚‹ï¼
+	//! @n é‡ãŸã„ã®ã§ã‚°ãƒ©ãƒ•æ¢ç´¢ã‚„ï¼Œæç”»å‡¦ç†ä¸­ã«ãƒ«ãƒ¼ãƒ—ã§ä½¿ç”¨ã™ã‚‹ã“ã¨ã¯æ¨å¥¨ã—ãªã„ï¼
+	//! @n é–“æ¥ã®å¯å‹•ç¯„å›²å¤–ã¾ã§å‹•ã„ã¦ã—ã¾ã†å ´åˆã§ã‚‚ï¼Œç­”ãˆã‚’è¿”ã™ï¼
+	//! @n ç›®æ¨™åº§æ¨™ã«å±Šã‹ãªã„å ´åˆã¯ï¼Œæœ€ã‚‚è¿‘ã„åº§æ¨™ã¾ã§è„šã‚’ä¼¸ã°ã—ï¼Œæˆ»ã‚Šå€¤ã®is_in_rangeã‚’falseã«ã™ã‚‹ï¼
+	//! @param [in] leg_index è„šã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
+	//! @param [in] leg_pos è„šå…ˆåº§æ¨™ï¼Œè„šåº§æ¨™ç³»ï¼
+	//! @return HexapodJointState æŒ‡å®šã—ãŸè„šã®é–¢ç¯€ã®çŠ¶æ…‹ï¼
+	[[nodiscard]] virtual HexapodJointState CalculateJointState(const int leg_index, const Vector3& leg_pos) const noexcept = 0;
 
-	//! @brief HexapodJointState‚ª³‚µ‚­ŒvZ‚Å‚«‚Ä‚¢‚é‚©‚ğ’²‚×‚éD
-	//! @n –Ú•WÀ•W‚É“Í‚©‚È‚¢ê‡‚âCŠÔÚ‚Ì‰Â“®”ÍˆÍŠO‚Ü‚Å“®‚¢‚Ä‚µ‚Ü‚¤ê‡C–ß‚è’l‚Ífalse‚É‚È‚éD
-	//! @param [in] node ƒm[ƒh‚Ìî•ñD
-	//! @param [in] joint_state ŠÖß‚Ìó‘ÔD
-	//! @return ŒvZ‚ª³‚µ‚­‚Å‚«‚Ä‚¢‚é‚È‚ç‚Îtrue‚ğ•Ô‚·
-	[[nodiscard]] virtual bool IsVaildAllJointState(const RobotStateNode& node, 
+	//! @brief HexapodJointStateãŒæ­£ã—ãè¨ˆç®—ã§ãã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ï¼
+	//! @n ç›®æ¨™åº§æ¨™ã«å±Šã‹ãªã„å ´åˆã‚„ï¼Œé–“æ¥ã®å¯å‹•ç¯„å›²å¤–ã¾ã§å‹•ã„ã¦ã—ã¾ã†å ´åˆï¼Œæˆ»ã‚Šå€¤ã¯falseã«ãªã‚‹ï¼
+	//! @param [in] node ãƒãƒ¼ãƒ‰ã®æƒ…å ±ï¼
+	//! @param [in] joint_state é–¢ç¯€ã®çŠ¶æ…‹ï¼
+	//! @return bool è¨ˆç®—ãŒæ­£ã—ãã§ãã¦ã„ã‚‹ãªã‚‰ã°trueã‚’è¿”ã™
+	[[nodiscard]] virtual bool IsVaildAllJointState(const RobotStateNode& node,
 		const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept = 0;
 
-	//! @brief w’è‚µ‚½‹r‚ÌHexapodJointState‚ª³‚µ‚­ŒvZ‚Å‚«‚Ä‚¢‚é‚©‚ğ’²‚×‚éD
-	//! @n –Ú•WÀ•W‚É“Í‚©‚È‚¢ê‡‚âCŠÔÚ‚Ì‰Â“®”ÍˆÍŠO‚Ü‚Å“®‚¢‚Ä‚µ‚Ü‚¤ê‡C–ß‚è’l‚Ífalse‚É‚È‚éD
-	//! @param [in] leg_index ‹r‚ÌƒCƒ“ƒfƒbƒNƒXD
-	//! @param [in] leg_pos ‹ræÀ•WC‹rÀ•WŒnD
-	//! @param [in] joint_state ŠÖß‚Ìó‘ÔD
-	//! @return ŒvZ‚ª³‚µ‚­‚Å‚«‚Ä‚¢‚é‚È‚ç‚Îtrue‚ğ•Ô‚·
-	[[nodiscard]] virtual bool IsVaildJointState(const int leg_index, const designlab::Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept = 0;
+	//! @brief æŒ‡å®šã—ãŸè„šã®HexapodJointStateãŒæ­£ã—ãè¨ˆç®—ã§ãã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ï¼
+	//! @n ç›®æ¨™åº§æ¨™ã«å±Šã‹ãªã„å ´åˆã‚„ï¼Œé–“æ¥ã®å¯å‹•ç¯„å›²å¤–ã¾ã§å‹•ã„ã¦ã—ã¾ã†å ´åˆï¼Œæˆ»ã‚Šå€¤ã¯falseã«ãªã‚‹ï¼
+	//! @param [in] leg_index è„šã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
+	//! @param [in] leg_pos è„šå…ˆåº§æ¨™ï¼Œè„šåº§æ¨™ç³»ï¼
+	//! @param [in] joint_state é–¢ç¯€ã®çŠ¶æ…‹ï¼
+	//! @return bool è¨ˆç®—ãŒæ­£ã—ãã§ãã¦ã„ã‚‹ãªã‚‰ã°trueã‚’è¿”ã™
+	[[nodiscard]] virtual bool IsVaildJointState(const int leg_index, const Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_

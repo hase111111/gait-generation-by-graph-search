@@ -1,17 +1,18 @@
 ﻿//! @file interface_hexapod_coordinate_converter.h
-//! @brief ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ．これらを相互に変換するクラス．
-
+//! @brief ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ．これらを相互に変換する処理のインターフェース．
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
-
 
 #include "designlab_quaternion.h"
 #include "designlab_vector3.h"
 
 
+namespace designlab
+{
+
 //! @class IHexapodCoordinateConverter
-//! @brief ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ．これらを相互に変換するクラス．
+//! @brief ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ．これらを相互に変換する処理のインターフェース．
 //! @details プログラムには3つの座標系が存在している，
 //! @n
 //! @n [1] グローバル座標系 (Global Coordinate)
@@ -35,9 +36,9 @@ public:
 	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 脚座標系の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
-	virtual designlab::Vector3 ConvertGlobalToLegCoordinate(const designlab::Vector3& converted_position, int leg_index,
-		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
+	//! @return Vector3 脚座標系の座標．脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系．
+	virtual Vector3 ConvertGlobalToLegCoordinate(const Vector3& converted_position, int leg_index,
+		const Vector3& center_of_mass_global, const Quaternion& robot_quat, bool consider_rot) const = 0;
 
 	//! @brief 脚座標系で表現されている座標を，グローバル座標系に変換する．
 	//! @param [in] converted_position 変換対象．脚座標系．
@@ -45,25 +46,27 @@ public:
 	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 グローバル座標系の座標．
-	virtual designlab::Vector3 ConvertLegToGlobalCoordinate(const designlab::Vector3& converted_position, int leg_index,
-		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
+	//! @return Vector3 グローバル座標系の座標．
+	virtual Vector3 ConvertLegToGlobalCoordinate(const Vector3& converted_position, int leg_index,
+		const Vector3& center_of_mass_global, const Quaternion& robot_quat, bool consider_rot) const = 0;
 
 	//! @brief ロボット座標系で表現されている座標を，グローバル座標系に変換する．
 	//! @param [in] converted_position 変換対象．ロボット座標系．
 	//! @param [in] center_of_mass_global ロボットの重心の座標．グローバル座標系．
 	//! @param [in] robot_rot ロボットの姿勢．角度はrad.
 	//! @param [in] consider_rot ロボットの姿勢を考慮するかどうか．falseなら回転を考慮しない．
-	//! @return designlab::Vector3 グローバル座標系の座標．
-	virtual designlab::Vector3 ConvertRobotToGlobalCoordinate(const designlab::Vector3& converted_position,
-		const designlab::Vector3& center_of_mass_global, const designlab::Quaternion& robot_quat, bool consider_rot) const = 0;
+	//! @return Vector3 グローバル座標系の座標．
+	virtual Vector3 ConvertRobotToGlobalCoordinate(const Vector3& converted_position,
+		const Vector3& center_of_mass_global, const Quaternion& robot_quat, bool consider_rot) const = 0;
 
 	//! @brief ロボット座標系で表現されている座標を，脚座標系に変換する．
-	virtual designlab::Vector3 ConvertRobotToLegCoordinate(const designlab::Vector3& converted_position, int leg_index) const = 0;
+	virtual Vector3 ConvertRobotToLegCoordinate(const Vector3& converted_position, int leg_index) const = 0;
 
 	//! @brief 脚座標系で表現されている座標を，ロボット座標系に変換する．
-	virtual designlab::Vector3 ConvertLegToRobotCoordinate(const designlab::Vector3& converted_position, int leg_index) const = 0;
+	virtual Vector3 ConvertLegToRobotCoordinate(const Vector3& converted_position, int leg_index) const = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
