@@ -1,10 +1,8 @@
-//! @file leg_state.h
-//! @brief ‚±‚ÌƒvƒƒOƒ‰ƒ€‚Å‚Í‹ró‘Ô‚ğƒrƒbƒg(28bit)‚Ìî•ñ‚Å•\‚·D‚»‚Ìƒf[ƒ^‚ğˆ—‚·‚é‚½‚ß‚ÌŠÖ”
-
+ï»¿//! @file leg_state.h
+//! @brief ã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ã¯è„šçŠ¶æ…‹ã‚’ãƒ“ãƒƒãƒˆ(28bit)ã®æƒ…å ±ã§è¡¨ã™ï¼ãã®ãƒ‡ãƒ¼ã‚¿ã‚’å‡¦ç†ã™ã‚‹ãŸã‚ã®é–¢æ•°ï¼
 
 #ifndef DESIGNLAB_LEG_STATE_H_
 #define DESIGNLAB_LEG_STATE_H_
-
 
 #include <array>
 #include <bitset>
@@ -15,147 +13,144 @@
 #include "hexapod_const.h"
 
 
-namespace designlab
+//! @namespace designlab::leg_func
+//! @brief è„šçŠ¶æ…‹ã‚’ç·¨é›†ã™ã‚‹ãŸã‚ã®é–¢æ•°ã‚’ã¾ã¨ã‚ãŸåå‰ç©ºé–“ï¼
+//! @details è„šçŠ¶æ…‹ã£ã¦è¨€ã£ã¦ã‚‹ã‘ã©é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‚‚å…¥ã£ã¦ã‚‹ï¼	
+//! @n 1è„šã®è„šçŠ¶æ…‹ã‚’4bitã§è¡¨ã™ æœ€ä¸Šä½0:éŠè„š,1:æ¥åœ°ï¼ã€€æ®‹ã‚Š3bitã§é›¢æ•£åŒ–ã—ãŸè„šä½ç½®ï¼
+//! @n é›¢æ•£åŒ–ã—ãŸè„šä½ç½®ã¯åŸºæº–ä½ç½®ã‚’4ã¨ã—ã¦ï¼Œãã‚Œã‚ˆã‚Šå‰ã«ã‚ã‚‹ãªã‚‰4ã‚ˆã‚Šå¤§ãã„æ•°å­—ï¼Œå¾Œã‚ã«ã‚ã‚‹ãªã‚‰ã°4ã‚ˆã‚Šå°ã•ã„æ•°å­—ï¼ 
+//! @n
+//! @n [é›¢æ•£åŒ–ã—ãŸè„šä½ç½®] 
+//!	@n 7___3    (0ã¯ä½¿ã‚ãªã„) 
+//! @n 6_4_2  
+//! @n 5___1 
+//! @n
+//! @n [bitã®ãƒ‡ãƒ¼ã‚¿]  	
+//! @n é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã€€è„šï¼•ã€€è„šï¼”ã€€è„šï¼“ã€€è„šï¼’ã€€è„šï¼‘ã€€è„šï¼
+//! @n 1111ã€€ã€€ã€€ã€€ã€€1111ã€€1111ã€€1111ã€€1111ã€€1111ã€€1111 
+//! @n
+//! @n è„šã¯å³å‰è„šã‚’0ã¨ã—ã¦æ™‚è¨ˆå›ã‚Šã« 0 ï½ 5 ï¼
+//! @n å®šæ•°ã¯åŸºæœ¬çš„ã«ã¯ç·¨é›†ã—ãªã„ã‚ˆã†ã«ï¼è„šã®é›¢æ•£åŒ–æ–¹æ³•ã‚’å¤‰æ›´ã™ã‚‹æ™‚ä»¥å¤–ç·¨é›†ã™ã‚‹å¿…è¦ã¯ãªã„ã¯ãšï¼
+namespace designlab::leg_func
 {
-	//! @namespace designlab::leg_func
-	//! @brief ‹ró‘Ô‚ğ•ÒW‚·‚é‚½‚ß‚ÌŠÖ”‚ğ‚Ü‚Æ‚ß‚½–¼‘O‹óŠÔD
-	//! @details ‹ró‘Ô‚Á‚ÄŒ¾‚Á‚Ä‚é‚¯‚Ç—£U‰»‚³‚ê‚½dSˆÊ’u‚à“ü‚Á‚Ä‚éD	
-	//! @n 1‹r‚Ì‹ró‘Ô‚ğ4bit‚Å•\‚· ÅãˆÊ0:—V‹r,1:Ú’nD@c‚è3bit‚Å—£U‰»‚µ‚½‹rˆÊ’uD
-	//! @n —£U‰»‚µ‚½‹rˆÊ’u‚ÍŠî€ˆÊ’u‚ğ4‚Æ‚µ‚ÄC‚»‚ê‚æ‚è‘O‚É‚ ‚é‚È‚ç4‚æ‚è‘å‚«‚¢”šCŒã‚ë‚É‚ ‚é‚È‚ç‚Î4‚æ‚è¬‚³‚¢”šD 
-	//! @n
-	//! @n [—£U‰»‚µ‚½‹rˆÊ’u] 
-	//!	@n 7___3    (0‚Íg‚í‚È‚¢) 
-	//! @n 6_4_2  
-	//! @n 5___1 
-	//! @n
-	//! @n [bit‚Ìƒf[ƒ^]  	
-	//! @n dSƒpƒ^[ƒ“@‹r‚T@‹r‚S@‹r‚R@‹r‚Q@‹r‚P@‹r‚O
-	//! @n 1111@@@@@1111@1111@1111@1111@1111@1111 
-	//! @n
-	//! @n ‹r‚Í‰E‘O‹r‚ğ0‚Æ‚µ‚ÄŒv‰ñ‚è‚É 0 ` 5 D
-	//! @n ’è”‚ÍŠî–{“I‚É‚Í•ÒW‚µ‚È‚¢‚æ‚¤‚ÉD‹r‚Ì—£U‰»•û–@‚ğ•ÏX‚·‚éˆÈŠO•ÒW‚·‚é•K—v‚Í‚È‚¢‚Í‚¸D
-	namespace leg_func
-	{
-		//g—p‚·‚éŒ^‚Ì’è‹`
 
-		constexpr int kLegPosBitNum = 4;									//!< ‹rˆÊ’u‚ğ•\‚·ƒrƒbƒg”D—£U‰»‚³‚ê‚½‹rˆÊ’u‚Í3bitC—V‹rEÚ’n‚Í1bitD‚ ‚í‚¹‚Ä4bit
+//ä½¿ç”¨ã™ã‚‹å‹ã®å®šç¾©
 
-		constexpr int kComPosBitNum = 4;									//!< dSƒpƒ^[ƒ“‚ğ•\‚·ƒrƒbƒg”D
+constexpr int kLegPosBitNum = 4;									//!< è„šä½ç½®ã‚’è¡¨ã™ãƒ“ãƒƒãƒˆæ•°ï¼é›¢æ•£åŒ–ã•ã‚ŒãŸè„šä½ç½®ã¯3bitï¼ŒéŠè„šãƒ»æ¥åœ°ã¯1bitï¼ã‚ã‚ã›ã¦4bitï¼
 
-		constexpr int kLegStateBitNum = HexapodConst::kLegNum * kLegPosBitNum + kComPosBitNum;	//!< ‹ró‘Ô‚ğ•Û‘¶‚·‚éƒrƒbƒg”D28bit
+constexpr int kComPosBitNum = 4;									//!< é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¡¨ã™ãƒ“ãƒƒãƒˆæ•°ï¼
 
-		using LegStateBit = std::bitset<kLegStateBitNum>;					//!< ‹ró‘Ô‚ğ•Û‘¶‚·‚éŒ^D28bit‚ÌƒrƒbƒgŒ^
+constexpr int kLegStateBitNum = HexapodConst::kLegNum * kLegPosBitNum + kComPosBitNum;	//!< è„šçŠ¶æ…‹ã‚’ä¿å­˜ã™ã‚‹ãƒ“ãƒƒãƒˆæ•°ï¼28bitï¼
 
-		using LegGroundedBit = std::bitset<HexapodConst::kLegNum>;			//!< ‹r‚Ì—V‹rEÚ’n‚ğ•\‚·Œ^D6bit‚ÌƒrƒbƒgŒ^DÚ’n‚ª 1 —V‹r‚ª 0D
+using LegStateBit = std::bitset<kLegStateBitNum>;					//!< è„šçŠ¶æ…‹ã‚’ä¿å­˜ã™ã‚‹å‹ï¼28bitã®ãƒ“ãƒƒãƒˆå‹ï¼
+
+using LegGroundedBit = std::bitset<HexapodConst::kLegNum>;			//!< è„šã®éŠè„šãƒ»æ¥åœ°ã‚’è¡¨ã™å‹ï¼6bitã®ãƒ“ãƒƒãƒˆå‹ï¼æ¥åœ°ãŒ 1 éŠè„šãŒ 0ï¼
 
 
 
-		//ƒrƒbƒg‚ğƒ}ƒXƒN‚·‚é‚½‚ß‚Ì’è”
+//ãƒ“ãƒƒãƒˆã‚’ãƒã‚¹ã‚¯ã™ã‚‹ãŸã‚ã®å®šæ•°
 
-		constexpr LegStateBit kLegPosMaskbit(0b0111);		//!< ‹rˆÊ’u‚Í4bit‚Ì‰ºˆÊOŒ…‚ÅŠÇ—‚³‚ê‚é‚Ì‚ÅC‚»‚±‚ğƒ}ƒXƒN‚·‚é
+constexpr LegStateBit kLegPosMaskbit(0b0111);		//!< è„šä½ç½®ã¯4bitã®ä¸‹ä½ä¸‰æ¡ã§ç®¡ç†ã•ã‚Œã‚‹ã®ã§ï¼Œãã“ã‚’ãƒã‚¹ã‚¯ã™ã‚‹ï¼
 
-		constexpr LegStateBit kLegGrouededMaskbit(0b1000);	//!< ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·ƒrƒbƒg‚ğƒ}ƒXƒN‚·‚éD(Ú’n‚µ‚Ä‚¢‚é‚È‚ç‚Î1D—V‹r‚È‚ç‚Î0D)
+constexpr LegStateBit kLegGrouededMaskbit(0b1000);	//!< è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’è¡¨ã™ãƒ“ãƒƒãƒˆã‚’ãƒã‚¹ã‚¯ã™ã‚‹ï¼(æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°1ï¼éŠè„šãªã‚‰ã°0ï¼)
 
-		constexpr LegStateBit kLegStateMaskbit(0b1111);	//!< ‹ró‘Ô‚Í4bit‚ÅŠÇ—‚³‚ê‚é‚Ì‚ÅC‚»‚±‚ğƒ}ƒXƒN‚·‚é
-
-
-		constexpr int kShiftToComNum = HexapodConst::kLegNum * 4;				//!< dSƒpƒ^[ƒ“‚ğ•Û‘¶‚·‚éƒrƒbƒg‚Ü‚Ås‚­‚½‚ß‚ÉC‚Ç‚ê‚¾‚¯ƒrƒbƒg‚ğƒVƒtƒg‚·‚é‚©D
-
-		constexpr LegStateBit kComStateMaskbit = (0b1111 << kShiftToComNum);	//!< dSƒpƒ^[ƒ“‚ğ•Û‘¶‚·‚éƒrƒbƒg‚ğƒ}ƒXƒN‚·‚éƒrƒbƒgD
+constexpr LegStateBit kLegStateMaskbit(0b1111);		//!< è„šçŠ¶æ…‹ã¯4bitã§ç®¡ç†ã•ã‚Œã‚‹ã®ã§ï¼Œãã“ã‚’ãƒã‚¹ã‚¯ã™ã‚‹ï¼
 
 
+constexpr int kShiftToComNum = HexapodConst::kLegNum * 4;				//!< é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä¿å­˜ã™ã‚‹ãƒ“ãƒƒãƒˆã¾ã§è¡ŒããŸã‚ã«ï¼Œã©ã‚Œã ã‘ãƒ“ãƒƒãƒˆã‚’ã‚·ãƒ•ãƒˆã™ã‚‹ã‹ï¼
 
-		//! @brief ‹ró‘Ô‚ğì¬‚µ‚Ä•Ô‚·ŠÖ”D‹ró‘Ô‚ÍdSƒpƒ^[ƒ“C‹r‚ÌÚ’nE—V‹rC—£U‰»‚µ‚½‹rˆÊ’u‚Ìƒf[ƒ^‚ªŠÜ‚Ü‚ê‚éD
-		//! @param [in] discrete_com_pos ‚Ç‚ÌdSƒpƒ^[ƒ“‚©DÚ‚µ‚­‚Í com_type.h ‚É‹LqD
-		//! @param [in] is_ground ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·boolŒ^‚Ì”z—ñDÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
-		//! @param [in] discretized_leg_pos —£U‰»‚µ‚½‹rˆÊ’u‚ğ•\‚·•Ï”D
-		//! @return LegStateBit ì¬‚µ‚½‹ró‘Ô‚ğ•Ô‚·D
-		LegStateBit MakeLegStateBit(
-			DiscreteComPos discrete_com_pos, 
-			const std::array<bool, HexapodConst::kLegNum>& is_ground,
-			const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
-		);
+constexpr LegStateBit kComStateMaskbit = (0b1111 << kShiftToComNum);	//!< é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä¿å­˜ã™ã‚‹ãƒ“ãƒƒãƒˆã‚’ãƒã‚¹ã‚¯ã™ã‚‹ãƒ“ãƒƒãƒˆï¼
 
 
-		//! @brief ‹r”Ô† leg_index 0 ` 5 ‚É‰‚¶‚ÄC‚»‚Ì‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚éD
-		//! @n ‹r‚Í‰E‘O‹r‚ğ0”Ô‚Æ‚µ‚ÄCŒv‰ñ‚è‚É0,1,2,3,4,5‚Æ‚È‚éD¶‘O‘«‚ª5”ÔD
-		//! @param [in] leg_state_bit Œ»İ‚Ì‹ró‘Ô
-		//! @param [in] leg_index ‚Ç‚Ì‹r‚ğ’²‚×‚é‚©D 0 ` 5 ‚Ì®”‚Å“ü—Í‚·‚éD
-		//! @return bool ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚Îtrue‚ğ•Ô‚·D
-		bool IsGrounded(const LegStateBit& leg_state_bit, int leg_index);
 
-		//! @brief ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚È‚ç1C—V‹r‚ğ0‚Æ‚µ‚½bit‚Å—V‹rEÚ’n‹r‚Ìó‘Ô‚ğ•Ô‚·D
-		//! @n —á‚¦‚Î 0 ”Ô‹r‚Ì‚İ‚ª—V‹r‚µ‚Ä‚¢‚é‚È‚ç 0b111 110 ‚ğ•Ô‚·D
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @return LegGroundedBit ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚È‚ç1C—V‹r‚ğ0‚Æ‚µ‚½bit‚Å—V‹rEÚ’n‹r‚Ìó‘Ô‚ğ•Ô‚·D
-		LegGroundedBit GetLegGroundedBit(const LegStateBit& leg_state);
-
-		//! @brief Ú’n‚µ‚Ä‚¢‚é‹r‚Ì–{”‚ğ•Ô‚·ŠÖ”D
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @return int Ú’n‚µ‚Ä‚¢‚é‹r‚Ì–{”
-		int GetGroundedLegNum(const LegStateBit& leg_state);
-
-		//! @brief —V‹r‚µ‚Ä‚¢‚é‹r‚Ì–{”‚ğ•Ô‚·ŠÖ”D
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @return int —V‹r‚µ‚Ä‚¢‚é‹r‚Ì–{”
-		int GetLiftedLegNum(const LegStateBit& leg_state);
-
-		//! @brief Ú’n‚µ‚Ä‚¢‚é‹r‚Ì‹r”Ô†0`5‚ğCˆø”res_index‚ÅQÆ“n‚µ‚·‚éŠÖ”
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @param [out] res_index Ú’n‚µ‚Ä‚¢‚é‹r‚Ì‹r”Ô†‚ğŠi”[‚·‚é•Ï”D‹ó‚Å‚ ‚é‚±‚Æ
-		void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index);
-
-		//! @brief —V‹r‚µ‚Ä‚¢‚é‹r‚Ì‹r”Ô†0`5‚ğCˆø”_res_number‚ÅQÆ“n‚µ‚·‚éŠÖ”
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @param [out] res_index —V‹r‚µ‚Ä‚¢‚é‹r‚Ì‹r”Ô†‚ğŠi”[‚·‚é•Ï”D‹ó‚Å‚ ‚é‚±‚Æ
-		void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index);
+//! @brief è„šçŠ¶æ…‹ã‚’ä½œæˆã—ã¦è¿”ã™é–¢æ•°ï¼è„šçŠ¶æ…‹ã¯é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ï¼Œè„šã®æ¥åœ°ãƒ»éŠè„šï¼Œé›¢æ•£åŒ–ã—ãŸè„šä½ç½®ã®ãƒ‡ãƒ¼ã‚¿ãŒå«ã¾ã‚Œã‚‹ï¼
+//! @param [in] discrete_com_pos ã©ã®é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‹ï¼è©³ã—ãã¯ com_type.h ã«è¨˜è¿°ï¼
+//! @param [in] is_ground è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’è¡¨ã™boolå‹ã®é…åˆ—ï¼æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueï¼éŠè„šã—ã¦ã„ã‚‹ãªã‚‰ã°falseï¼
+//! @param [in] discretized_leg_pos é›¢æ•£åŒ–ã—ãŸè„šä½ç½®ã‚’è¡¨ã™å¤‰æ•°ï¼
+//! @return LegStateBit ä½œæˆã—ãŸè„šçŠ¶æ…‹ã‚’è¿”ã™ï¼
+LegStateBit MakeLegStateBit(
+	DiscreteComPos discrete_com_pos,
+	const std::array<bool, HexapodConst::kLegNum>& is_ground,
+	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
+);
 
 
-		//! @brief ‹ró‘Ô‚ğæ“¾‚·‚éD
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @param [in] leg_index ‚Ç‚Ì‹r‚Ìó‘Ô‚ğæ“¾‚·‚é‚©D 0 ` 5 ‚Ì®”‚Å“ü—Í‚·‚éD
-		//! @return DiscreteLegPos —£U‰»‚³‚ê‚½‹r‚ÌˆÊ’u‚ğ•Ô‚·D
-		DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
+//! @brief è„šç•ªå· leg_index 0 ï½ 5 ã«å¿œã˜ã¦ï¼Œãã®è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ï¼
+//! @n è„šã¯å³å‰è„šã‚’0ç•ªã¨ã—ã¦ï¼Œæ™‚è¨ˆå›ã‚Šã«0,1,2,3,4,5ã¨ãªã‚‹ï¼å·¦å‰è¶³ãŒ5ç•ªï¼
+//! @param [in] leg_state_bit ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @param [in] leg_index ã©ã®è„šã‚’èª¿ã¹ã‚‹ã‹ï¼ 0 ï½ 5 ã®æ•´æ•°ã§å…¥åŠ›ã™ã‚‹ï¼
+//! @return bool è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueã‚’è¿”ã™ï¼
+bool IsGrounded(const LegStateBit& leg_state_bit, int leg_index);
 
-		//! @brief Œ»İ‚Ì‹ró‘Ô‚©‚çdSƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @return DiscreteComPos dSƒpƒ^[ƒ“‚ğ•Ô‚·D
-		DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
+//! @brief è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰1ï¼ŒéŠè„šã‚’0ã¨ã—ãŸbitã§éŠè„šãƒ»æ¥åœ°è„šã®çŠ¶æ…‹ã‚’è¿”ã™ï¼
+//! @n ä¾‹ãˆã° 0 ç•ªè„šã®ã¿ãŒéŠè„šã—ã¦ã„ã‚‹ãªã‚‰ 0b111 110 ã‚’è¿”ã™ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @return LegGroundedBit è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰1ï¼ŒéŠè„šã‚’0ã¨ã—ãŸbitã§éŠè„šãƒ»æ¥åœ°è„šã®çŠ¶æ…‹ã‚’è¿”ã™ï¼
+LegGroundedBit GetLegGroundedBit(const LegStateBit& leg_state);
+
+//! @brief æ¥åœ°ã—ã¦ã„ã‚‹è„šã®æœ¬æ•°ã‚’è¿”ã™é–¢æ•°ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @return int æ¥åœ°ã—ã¦ã„ã‚‹è„šã®æœ¬æ•°ï¼
+int GetGroundedLegNum(const LegStateBit& leg_state);
+
+//! @brief éŠè„šã—ã¦ã„ã‚‹è„šã®æœ¬æ•°ã‚’è¿”ã™é–¢æ•°ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @return int éŠè„šã—ã¦ã„ã‚‹è„šã®æœ¬æ•°ï¼
+int GetLiftedLegNum(const LegStateBit& leg_state);
+
+//! @brief æ¥åœ°ã—ã¦ã„ã‚‹è„šã®è„šç•ªå·0ï½5ã‚’ï¼Œå¼•æ•°res_indexã§å‚ç…§æ¸¡ã—ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @param [out] res_index æ¥åœ°ã—ã¦ã„ã‚‹è„šã®è„šç•ªå·ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ï¼ç©ºã§ã‚ã‚‹ã“ã¨ï¼
+void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index);
+
+//! @brief éŠè„šã—ã¦ã„ã‚‹è„šã®è„šç•ªå·0ï½5ã‚’ï¼Œå¼•æ•°_res_numberã§å‚ç…§æ¸¡ã—ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @param [out] res_index éŠè„šã—ã¦ã„ã‚‹è„šã®è„šç•ªå·ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ï¼ç©ºã§ã‚ã‚‹ã“ã¨ï¼
+void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index);
 
 
-		//! @brief ‹r‚Ìî•ñ‚ğ•ÏX‚·‚éD
-		//! @param [in] leg_index ‹r‚Ì”Ô† 0`5
-		//! @param [in] new_discretized_leg_pos V‚µ‚¢‹ró‘Ô
-		//! @param [in] is_ground ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·DÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
-		//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
-		void ChangeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
+//! @brief è„šçŠ¶æ…‹ã‚’å–å¾—ã™ã‚‹ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @param [in] leg_index ã©ã®è„šã®çŠ¶æ…‹ã‚’å–å¾—ã™ã‚‹ã‹ï¼ 0 ï½ 5 ã®æ•´æ•°ã§å…¥åŠ›ã™ã‚‹ï¼
+//! @return DiscreteLegPos é›¢æ•£åŒ–ã•ã‚ŒãŸè„šã®ä½ç½®ã‚’è¿”ã™ï¼
+DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
 
-		//! @brief ‹r‚Ìó‘Ô‚ğ•ÏX‚·‚éD—V‹r‚ğ•\‚·bit‚Í‚»‚Ì‚Ü‚ÜD
-		//! @param [in] leg_index ‹r‚Ì”Ô† 0`5
-		//! @param [in] new_discretized_leg_pos V‚µ‚¢‹ró‘Ô
-		//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
-		void ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
+//! @brief ç¾åœ¨ã®è„šçŠ¶æ…‹ã‹ã‚‰é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—ã™ã‚‹ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @return DiscreteComPos é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”ã™ï¼
+DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
 
-		//! @brief ‹r‚ÌÚ’nE—V‹rî•ñ‚ğ•ÏX‚·‚éD
-		//! @param [in] leg_index ‹r‚Ì”Ô† 0`5
-		//! @param [in] is_ground ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·DÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
-		//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
-		void ChangeGround(int leg_index, bool is_ground, LegStateBit* leg_state);
 
-		//! @brief ‘S‚Ä‚Ì‹r‚ÌÚ’nE—V‹rî•ñ‚ğ•ÏX‚·‚éD
-		//! @param [in] is_ground_list ‹r‚ªÚ’n‚µ‚Ä‚¢‚é‚©‚ğ•\‚·DÚ’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎtrueD—V‹r‚µ‚Ä‚¢‚é‚È‚ç‚Îfalse
-		//! @param [in,out] leg_state Œ»İ‚Ì‹ró‘ÔC‚±‚ê‚ğ‚à‚Æ‚ÉV‚µ‚¢‹ró‘Ô‚ğì¬‚·‚éD
-		void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state);
+//! @brief è„šã®æƒ…å ±ã‚’å¤‰æ›´ã™ã‚‹ï¼
+//! @param [in] leg_index è„šã®ç•ªå· 0ï½5ï¼
+//! @param [in] new_discretized_leg_pos æ–°ã—ã„è„šçŠ¶æ…‹ï¼
+//! @param [in] is_ground è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’è¡¨ã™ï¼æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueï¼éŠè„šã—ã¦ã„ã‚‹ãªã‚‰ã°falseï¼
+//! @param [in,out] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼Œã“ã‚Œã‚’ã‚‚ã¨ã«æ–°ã—ã„è„šçŠ¶æ…‹ã‚’ä½œæˆã™ã‚‹ï¼
+void ChangeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
 
-		//! @brief dS‚Ìƒf[ƒ^‚ğ•ÏX‚·‚éD
-		//! @param [in] leg_state Œ»İ‚Ì‹ró‘Ô
-		//! @param [in] new_com_pattern V‚µ‚¢dSƒpƒ^[ƒ“
-		//! @return LegStateBit •ÏX‚µ‚½dSƒpƒ^[ƒ“‚ğ•Ô‚·D
-		void ChangeDiscreteComPos(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
+//! @brief è„šã®çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹ï¼éŠè„šã‚’è¡¨ã™bitã¯ãã®ã¾ã¾ï¼
+//! @param [in] leg_index è„šã®ç•ªå·ï¼0ï½5ã®ç¯„å›²å†…ã§ãªã‘ã‚Œã°assertã§æ­¢ã¾ã‚‹ï¼
+//! @param [in] new_discretized_leg_pos æ–°ã—ã„è„šçŠ¶æ…‹ï¼
+//! @param [in,out] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼Œã“ã‚Œã‚’ã‚‚ã¨ã«æ–°ã—ã„è„šçŠ¶æ…‹ã‚’ä½œæˆã™ã‚‹ï¼
+void ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
 
-	}	// namespace leg_func
+//! @brief è„šã®æ¥åœ°ãƒ»éŠè„šæƒ…å ±ã‚’å¤‰æ›´ã™ã‚‹ï¼
+//! @param [in] leg_index è„šã®ç•ªå·ï¼0ï½5ã®ç¯„å›²å†…ã§ãªã‘ã‚Œã°assertã§æ­¢ã¾ã‚‹ï¼
+//! @param [in] is_ground è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’è¡¨ã™ï¼æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueï¼éŠè„šã—ã¦ã„ã‚‹ãªã‚‰ã°falseï¼
+//! @param [in,out] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼Œã“ã‚Œã‚’ã‚‚ã¨ã«æ–°ã—ã„è„šçŠ¶æ…‹ã‚’ä½œæˆã™ã‚‹ï¼
+void ChangeGround(int leg_index, bool is_ground, LegStateBit* leg_state);
 
-}	// namespace designlab
+//! @brief å…¨ã¦ã®è„šã®æ¥åœ°ãƒ»éŠè„šæƒ…å ±ã‚’å¤‰æ›´ã™ã‚‹ï¼
+//! @param [in] is_ground_list è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹ã‹ã‚’è¡¨ã™ï¼æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°trueï¼éŠè„šã—ã¦ã„ã‚‹ãªã‚‰ã°falseï¼
+//! @param [in,out] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼Œã“ã‚Œã‚’ã‚‚ã¨ã«æ–°ã—ã„è„šçŠ¶æ…‹ã‚’ä½œæˆã™ã‚‹ï¼
+void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state);
+
+//! @brief é‡å¿ƒã®ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ›´ã™ã‚‹ï¼
+//! @param [in] leg_state ç¾åœ¨ã®è„šçŠ¶æ…‹ï¼
+//! @param [in] new_com_pattern æ–°ã—ã„é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ï¼
+//! @return LegStateBit å¤‰æ›´ã—ãŸé‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”ã™ï¼
+void ChangeDiscreteComPos(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
+
+}	// namespace designlab::leg_func
 
 
 #endif	// DESIGNLAB_LEG_STATE_H_

@@ -1,13 +1,14 @@
-#include "stopwatch.h"
+ï»¿#include "stopwatch.h"
 
 #include "designlab_math_util.h"
 
 
 namespace sc = ::std::chrono;
-namespace dlm = ::designlab::math_util;
 
+namespace designlab
+{
 
-Stopwatch::Stopwatch() : 
+Stopwatch::Stopwatch() :
 	start_time_(sc::system_clock::now()),
 	end_time_(sc::system_clock::now())
 {
@@ -27,10 +28,10 @@ void Stopwatch::End()
 
 double Stopwatch::GetElapsedSeconds() const
 {
-	const auto dur = end_time_ - start_time_;        // —v‚µ‚½ŠÔ‚ğŒvZ
+	const auto dur = end_time_ - start_time_;        // è¦ã—ãŸæ™‚é–“ã‚’è¨ˆç®—
 
-	const long long sec = sc::duration_cast<sc::seconds>(dur).count();			// •b‚É•ÏŠ·
-	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ƒ~ƒŠ•b‚É•ÏŠ·
+	const long long sec = sc::duration_cast<sc::seconds>(dur).count();			// ç§’ã«å¤‰æ›
+	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ãƒŸãƒªç§’ã«å¤‰æ›
 
 	return static_cast<double>(sec) + static_cast<double>(msec) / 1000.0;
 }
@@ -38,10 +39,10 @@ double Stopwatch::GetElapsedSeconds() const
 
 double Stopwatch::GetElapsedMilliSecond() const
 {
-	const auto dur = end_time_ - start_time_;        // —v‚µ‚½ŠÔ‚ğŒvZ
+	const auto dur = end_time_ - start_time_;        // è¦ã—ãŸæ™‚é–“ã‚’è¨ˆç®—
 
-	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ƒ~ƒŠ•b‚É•ÏŠ·
-	const long long usec = sc::duration_cast<sc::microseconds>(dur).count();	// ƒ}ƒCƒNƒ•b‚É•ÏŠ·
+	const long long msec = sc::duration_cast<sc::milliseconds>(dur).count();	// ãƒŸãƒªç§’ã«å¤‰æ›
+	const long long usec = sc::duration_cast<sc::microseconds>(dur).count();	// ãƒã‚¤ã‚¯ãƒ­ç§’ã«å¤‰æ›
 
 	return static_cast<double>(msec) + static_cast<double>(usec) / 1000.0;
 }
@@ -49,9 +50,9 @@ double Stopwatch::GetElapsedMilliSecond() const
 
 double Stopwatch::GetElapsedMicroSecond() const
 {
-	const auto dur = end_time_ - start_time_;        // —v‚µ‚½ŠÔ‚ğŒvZ
+	const auto dur = end_time_ - start_time_;        // è¦ã—ãŸæ™‚é–“ã‚’è¨ˆç®—
 
-	const auto usec = sc::duration_cast<sc::microseconds>(dur).count();		// ƒ}ƒCƒNƒ•b‚É•ÏŠ·	
+	const auto usec = sc::duration_cast<sc::microseconds>(dur).count();		// ãƒã‚¤ã‚¯ãƒ­ç§’ã«å¤‰æ›	
 
 	return static_cast<double>(usec);
 }
@@ -59,23 +60,23 @@ double Stopwatch::GetElapsedMicroSecond() const
 
 std::string Stopwatch::GetElapsedSecondsString() const
 {
-	return dlm::ConvertDoubleToString(GetElapsedSeconds()) + " [s]";
+	return math_util::ConvertDoubleToString(GetElapsedSeconds()) + " [s]";
 }
 
 std::string Stopwatch::GetElapsedMilliSecondString() const
 {
-	return dlm::ConvertDoubleToString(GetElapsedMilliSecond()) + " [ms]";
+	return math_util::ConvertDoubleToString(GetElapsedMilliSecond()) + " [ms]";
 }
 
 std::string Stopwatch::GetElapsedMicroSecondString() const
 {
-	return dlm::ConvertDoubleToString(GetElapsedMicroSecond()) + "[ƒÊs]";
+	return math_util::ConvertDoubleToString(GetElapsedMicroSecond()) + "[Î¼s]";
 }
 
 
 std::string Stopwatch::GetNowTimeString() const
 {
-	// Œ»İ‚Ì“ú‚ğYYYY/MM/DD HH:MMŒ`®‚Ì•¶š—ñ‚Åæ“¾‚·‚é
+	// ç¾åœ¨ã®æ—¥æ™‚ã‚’YYYY/MM/DD HH:MMå½¢å¼ã®æ–‡å­—åˆ—ã§å–å¾—ã™ã‚‹
 	auto now = std::chrono::system_clock::now();
 	auto now_time = std::chrono::system_clock::to_time_t(now);
 	std::tm now_tm;
@@ -84,3 +85,5 @@ std::string Stopwatch::GetNowTimeString() const
 	strftime(now_time_str, sizeof(now_time_str), "%Y%m%d_%H%M_%S", &now_tm);
 	return std::string(now_time_str);
 }
+
+}	// namespace designlab

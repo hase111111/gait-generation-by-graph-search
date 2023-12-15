@@ -1,4 +1,4 @@
-#include "designlab_math_util.h"
+ï»¿#include "designlab_math_util.h"
 
 #include <iomanip>
 #include <random>
@@ -7,83 +7,78 @@
 #include "cassert_define.h"
 
 
-
-namespace designlab
+namespace designlab::math_util
 {
-	namespace math_util
+
+double GenerateRandomNumber(const double min, const double max)
+{
+	assert(min < max);	//min < max ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(min, max);
+	return dis(gen);
+}
+
+float GenerateRandomNumber(const float min, const float max)
+{
+	assert(min < max);	//min < max ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(min, max);
+	return (float)dis(gen);
+}
+
+int GenerateRandomNumber(const int min, const int max)
+{
+	assert(min < max);	//min < max ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(min, max);
+	return (int)dis(gen);
+}
+
+float limitRangeAngle(const float angle)
+{
+	//atan2ã«åˆã‚ã›ã‚‹ãŸã‚ï¼Œè§’åº¦ã‚’ -Ï€ < angle < Ï€ ã«ã™ã‚‹ (ä¾‹ãˆã° 340Â°â†’-20Â°,-340Â°â†’20Â°)
+	float res = angle + kFloatPi;
+
+	res = std::fmodf(res, 2.0 * kFloatPi);
+
+	if (res < 0)
 	{
-		double GenerateRandomNumber(const double min, const double max)
-		{
-			assert(min < max);	//min < max ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+		res += kFloatPi;
+	}
+	else
+	{
+		res -= kFloatPi;
+	}
 
-			std::random_device rd;
-			std::mt19937 gen(rd());
-			std::uniform_real_distribution<> dis(min, max);
-			return dis(gen);
-		}
-
-		float GenerateRandomNumber(const float min, const float max)
-		{
-			assert(min < max);	//min < max ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-
-			std::random_device rd;
-			std::mt19937 gen(rd());
-			std::uniform_real_distribution<> dis(min, max);
-			return (float)dis(gen);
-		}
-
-		int GenerateRandomNumber(const int min, const int max)
-		{
-			assert(min < max);	//min < max ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-
-			std::random_device rd;
-			std::mt19937 gen(rd());
-			std::uniform_real_distribution<> dis(min, max);
-			return (int)dis(gen);
-		}
-
-		float limitRangeAngle(const float angle)
-		{
-			//atan2‚É‡‚í‚¹‚é‚½‚ßCŠp“x‚ğ -ƒÎ < angle < ƒÎ ‚É‚·‚é (—á‚¦‚Î 340‹¨-20‹,-340‹¨20‹)
-			float res = angle + kFloatPi;
-
-			res = std::fmodf(res, 2.0 * kFloatPi);
-
-			if (res < 0)
-			{
-				res += kFloatPi;
-			}
-			else
-			{
-				res -= kFloatPi;
-			}
-
-			return res;
-		}
+	return res;
+}
 
 
-		std::string ConvertFloatToString(const float num, const int digit, const int width)
-		{
-			std::ostringstream ss;
+std::string ConvertFloatToString(const float num, const int digit, const int width)
+{
+	std::ostringstream ss;
 
-			ss << std::fixed << std::setprecision(digit);
-			ss << std::setw(width) << std::setfill(' ') << num;
-			
-			return ss.str();
-		}
+	ss << std::fixed << std::setprecision(digit);
+	ss << std::setw(width) << std::setfill(' ') << num;
 
-		std::string ConvertDoubleToString(const double num, const int digit, const int width)
-		{
-			std::ostringstream ss;
+	return ss.str();
+}
 
-			ss << std::fixed << std::setprecision(digit);
-			ss << std::setw(width) << std::setfill(' ') << num;
+std::string ConvertDoubleToString(const double num, const int digit, const int width)
+{
+	std::ostringstream ss;
 
-			return ss.str();
-		}
+	ss << std::fixed << std::setprecision(digit);
+	ss << std::setw(width) << std::setfill(' ') << num;
+
+	return ss.str();
+}
 
 
-
-	}	// namespace math_util
-
-}	// namespace designlab
+}	// namespace designlab::math_util

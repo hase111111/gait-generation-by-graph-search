@@ -1,9 +1,8 @@
-//! @file designlab_line_segment2.h
-//! @brief 2ŸŒ³‚Ìü•ª‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_line_segment2.h
+//! @brief 2æ¬¡å…ƒã®ç·šåˆ†ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
 
 #ifndef DESIGNLAB_LINE_SEGMENT2_H_
 #define DESIGNLAB_LINE_SEGMENT2_H_
-
 
 #include "designlab_vector2.h"
 #include "designlab_math_util.h"
@@ -11,67 +10,68 @@
 
 namespace designlab
 {
-	//! @struct LineSegment2
-	//! @brief 2ŸŒ³‚Ìü•ª‚ğ•\‚·\‘¢‘Ì
-	struct LineSegment2 final
+
+//! @struct LineSegment2
+//! @brief 2æ¬¡å…ƒã®ç·šåˆ†ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+struct LineSegment2 final
+{
+	LineSegment2() = default;
+	constexpr LineSegment2(const Vector2& start, const Vector2& end) : start(start), end(end) {}
+	constexpr LineSegment2(float startx, float starty, float endx, float endy) : start(startx, starty), end(endx, endy) {}
+	constexpr LineSegment2(const LineSegment2& other) = default;
+	constexpr LineSegment2(LineSegment2&& other) noexcept = default;
+	constexpr LineSegment2& operator=(const LineSegment2& other) = default;
+
+
+	constexpr bool operator==(const LineSegment2& other) const
 	{
-		LineSegment2() = default;
-		constexpr LineSegment2(const Vector2& start, const Vector2& end) : start(start), end(end) {}
-		constexpr LineSegment2(float startx, float starty, float endx, float endy) : start(startx, starty), end(endx, endy) {}
-		constexpr LineSegment2(const LineSegment2& other) = default;
-		constexpr LineSegment2(LineSegment2&& other) noexcept = default;
-		constexpr LineSegment2& operator=(const LineSegment2& other) = default;
+		return start == other.start && end == other.end;
+	}
+
+	constexpr bool operator!=(const LineSegment2& other) const { return !(*this == other); }
 
 
-		constexpr bool operator==(const LineSegment2& other) const
-		{
-			return start == other.start && end == other.end;
-		}
+	//! @brief ç·šåˆ†ã®é•·ã•ã‚’æ±‚ã‚ã‚‹é–¢æ•°
+	//! @return float ç·šåˆ†ã®é•·ã•
+	inline float GetLength() const
+	{
+		return (end - start).GetLength();
+	}
 
-		constexpr bool operator!=(const LineSegment2& other) const { return !(*this == other); }
+	//! @brief ç·šåˆ†ãŒå¹³è¡Œã‹ã©ã†ã‹èª¿ã¹ã‚‹é–¢æ•°ï¼å…¨ã¦constexpré–¢æ•°ã§å‡¦ç†ã§ãã‚‹ãŸã‚éå¸¸ã«é«˜é€Ÿï¼
+	//! @param[in] other ä»–ã®ç·šåˆ†ï¼
+	//! @return bool å¹³è¡Œãªã‚‰trueï¼Œãã†ã§ãªã‘ã‚Œã°falseï¼
+	constexpr bool IsParallel(const LineSegment2& other) const
+	{
+		//å¤–ç©ãŒ0ãªã‚‰å¹³è¡Œ
+		return ::designlab::math_util::IsEqual(
+			(end - start).Cross(other.end - other.start),
+			0.0f
+		);
+	}
 
+	//! @brief ä»–ã®ç·šåˆ†ã¨ã®äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹ï¼
+	//! @param [in] other ä»–ã®ç·šåˆ†ï¼
+	//! @return designlab::Vector2 äº¤ç‚¹ï¼äº¤ç‚¹ãŒãªã„orå¹³è¡Œãªå ´åˆã¯(0, 0)ã‚’è¿”ã™ï¼
+	//! @n ç«¯ç‚¹ä¸€è‡´ï¼Œã‹ã¤å¹³è¡Œã®å ´åˆã‚’è€ƒæ…®ã—ã¦ã„ãªã„ã®ã§æ³¨æ„ï¼
+	//! @note å‚è€ƒï¼šhttp://marupeke296.com/COL_main.html 
+	Vector2 GetIntersection(const LineSegment2& other) const;
 
-		//! @brief ü•ª‚Ì’·‚³‚ğ‹‚ß‚éŠÖ”
-		//! @return float ü•ª‚Ì’·‚³
-		inline float GetLength() const
-		{
-			return (end - start).GetLength();
-		}
+	//! @brief ä»–ã®ç·šåˆ†ã¨äº¤ç‚¹ãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹èª¿ã¹ã‚‹é–¢æ•°ï¼
+	//! @param [in] other ä»–ã®ç·šåˆ†ï¼
+	//!	@return bool äº¤ç‚¹ãŒã‚ã‚‹ãªã‚‰trueï¼ãªã„orå¹³è¡Œãªã‚‰falseï¼
+	bool HasIntersection(const LineSegment2& other) const;
 
-		//! @brief ü•ª‚ª•½s‚©‚Ç‚¤‚©’²‚×‚éŠÖ”D‘S‚ÄconstexprŠÖ”‚Åˆ—‚Å‚«‚é‚½‚ß”ñí‚É‚‘¬D
-		//! @param[in] other ‘¼‚Ìü•ª
-		//! @return bool •½s‚È‚çtrueC‚»‚¤‚Å‚È‚¯‚ê‚Îfalse
-		constexpr bool IsParallel(const LineSegment2& other) const
-		{
-			//ŠOÏ‚ª0‚È‚ç•½s
-			return ::designlab::math_util::IsEqual(
-				(end - start).Cross(other.end - other.start), 
-				0.0f
-			);
-		}
-
-		//! @brief ‘¼‚Ìü•ª‚Æ‚ÌŒğ“_‚ğ‹‚ß‚éD
-		//! @param [in] other ‘¼‚Ìü•ª
-		//! @return designlab::Vector2 Œğ“_DŒğ“_‚ª‚È‚¢or•½s‚Èê‡‚Í(0, 0)‚ğ•Ô‚·D
-		//! @n ’[“_ˆê’vC‚©‚Â•½s‚Ìê‡‚ğl—¶‚µ‚Ä‚¢‚È‚¢‚Ì‚Å’ˆÓ
-		//! @note QlFhttp://marupeke296.com/COL_main.html 
-		Vector2 GetIntersection(const LineSegment2& other) const;
-
-		//! @brief ‘¼‚Ìü•ª‚ÆŒğ“_‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©’²‚×‚éŠÖ”
-		//! @param [in] other ‘¼‚Ìü•ª
-		//!	@return bool Œğ“_‚ª‚ ‚é‚È‚çtrueD‚È‚¢or•½s‚È‚çfalse
-		bool HasIntersection(const LineSegment2& other) const;
-
-		//! @brief ‘¼‚Ìü•ª‚ÆŒğ“_‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©’²‚×CŒğ“_‚ğ•Ô‚·ŠÖ”
-		//! @param [in] other ‘¼‚Ìü•ª
-		//! @param [out] intersection Œğ“_
-		//! @return bool Œğ“_‚ª1‚Â‚¾‚¯‚ ‚é‚È‚çtrueD‚È‚¢orü•ª‚ªd‚È‚Á‚Ä‚¢‚ÄŒğ“_‚ª–³ŒÀ‚É‚ ‚é‚È‚çfalse
-		bool CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const;
+	//! @brief ä»–ã®ç·šåˆ†ã¨äº¤ç‚¹ãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹èª¿ã¹ï¼Œäº¤ç‚¹ã‚’è¿”ã™é–¢æ•°ï¼
+	//! @param [in] other ä»–ã®ç·šåˆ†ï¼
+	//! @param [out] intersection äº¤ç‚¹ï¼
+	//! @return bool äº¤ç‚¹ãŒ1ã¤ã ã‘ã‚ã‚‹ãªã‚‰trueï¼ãªã„orç·šåˆ†ãŒé‡ãªã£ã¦ã„ã¦äº¤ç‚¹ãŒç„¡é™ã«ã‚ã‚‹ãªã‚‰falseï¼
+	bool CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const;
 
 
-		Vector2 start;	//!< ü•ª‚Ìn“_
-		Vector2 end;	//!< ü•ª‚ÌI“_
-	};
+	Vector2 start;	//!< ç·šåˆ†ã®å§‹ç‚¹
+	Vector2 end;	//!< ç·šåˆ†ã®çµ‚ç‚¹
+};
 
 } //namespace designlab
 

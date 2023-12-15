@@ -1,102 +1,100 @@
-#include "designlab_rotation_matrix.h"
+ï»¿#include "designlab_rotation_matrix.h"
 
 #include <cmath>
 
 #include "designlab_math_util.h"
 
 
-namespace dlm = ::designlab::math_util;
-
-
-namespace designlab 
+namespace designlab
 {
-	RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) const
+
+RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) const
+{
+	RotationMatrix3x3 res;
+
+	for (int i = 0; i < 3; i++)
 	{
-		RotationMatrix3x3 res;
-
-		for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
 		{
-			for (int j = 0; j < 3; j++)
-			{
-				res.element[i][j] = 0.0f;
+			res.element[i][j] = 0.0f;
 
-				for (int k = 0; k < 3; k++)
-				{
-					res.element[i][j] += element[i][k] * other.element[k][j];
-				}
+			for (int k = 0; k < 3; k++)
+			{
+				res.element[i][j] += element[i][k] * other.element[k][j];
 			}
 		}
-
-		return res;
 	}
 
-	EulerXYZ RotationMatrix3x3::ToEulerXYZ() const
-	{
-		EulerXYZ res;
+	return res;
+}
 
-		res.x_angle = std::atan2(element[2][1], element[2][2]);
-		res.y_angle = std::atan2(-element[2][0], std::sqrt(element[2][1] * element[2][1] + element[2][2] * element[2][2]));
-		res.z_angle = std::atan2(element[1][0], element[0][0]);
+EulerXYZ RotationMatrix3x3::ToEulerXYZ() const
+{
+	EulerXYZ res;
 
-		return res;
-	}
+	res.x_angle = std::atan2(element[2][1], element[2][2]);
+	res.y_angle = std::atan2(-element[2][0], std::sqrt(element[2][1] * element[2][1] + element[2][2] * element[2][2]));
+	res.z_angle = std::atan2(element[1][0], element[0][0]);
 
-	RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
-	{
-		const float cos_angle = std::cos(angle);	// cos‚Íd‚¢‚Ì‚ÅCŽg‚¤‚Æ‚«‚ÍƒLƒƒƒbƒVƒ…‚µ‚Ä‚¨‚­
-		const float sin_angle = std::sin(angle);	// “¯ã
+	return res;
+}
 
-		return RotationMatrix3x3(
-			1.0f, 0.0f, 0.0f,
-			0.0f, cos_angle, -sin_angle,
-			0.0f, sin_angle, cos_angle
-		);
-	}
+RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
+{
+	const float cos_angle = std::cos(angle);	// cosã¯é‡ã„ã®ã§ï¼Œä½¿ã†ã¨ãã¯ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ãŠã
+	const float sin_angle = std::sin(angle);	// åŒä¸Š
 
-	RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
-	{
-		const float cos_angle = std::cos(angle);	// cos‚Íd‚¢‚Ì‚ÅCŽg‚¤‚Æ‚«‚ÍƒLƒƒƒbƒVƒ…‚µ‚Ä‚¨‚­
-		const float sin_angle = std::sin(angle);	// “¯ã
+	return RotationMatrix3x3(
+		1.0f, 0.0f, 0.0f,
+		0.0f, cos_angle, -sin_angle,
+		0.0f, sin_angle, cos_angle
+	);
+}
 
-		return RotationMatrix3x3(
-			cos_angle, 0.0f, sin_angle,
-			0.0f, 1.0f, 0.0f,
-			-sin_angle, 0.0f, cos_angle
-		);
-	}
+RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
+{
+	const float cos_angle = std::cos(angle);	// cosã¯é‡ã„ã®ã§ï¼Œä½¿ã†ã¨ãã¯ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ãŠã
+	const float sin_angle = std::sin(angle);	// åŒä¸Š
 
-	RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixZ(const float angle)
-	{
-		const float cos_angle = std::cos(angle);	// cos‚Íd‚¢‚Ì‚ÅCŽg‚¤‚Æ‚«‚ÍƒLƒƒƒbƒVƒ…‚µ‚Ä‚¨‚­
-		const float sin_angle = std::sin(angle);	// “¯ã
+	return RotationMatrix3x3(
+		cos_angle, 0.0f, sin_angle,
+		0.0f, 1.0f, 0.0f,
+		-sin_angle, 0.0f, cos_angle
+	);
+}
 
-		return RotationMatrix3x3(
-			cos_angle, -sin_angle, 0.0f,
-			sin_angle, cos_angle, 0.0f,
-			0.0f, 0.0f, 1.0f
-		);
-	}
+RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixZ(const float angle)
+{
+	const float cos_angle = std::cos(angle);	// cosã¯é‡ã„ã®ã§ï¼Œä½¿ã†ã¨ãã¯ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ãŠã
+	const float sin_angle = std::sin(angle);	// åŒä¸Š
 
-	std::string RotationMatrix3x3::ToString() const
-	{
-		std::string res;
+	return RotationMatrix3x3(
+		cos_angle, -sin_angle, 0.0f,
+		sin_angle, cos_angle, 0.0f,
+		0.0f, 0.0f, 1.0f
+	);
+}
 
-		res += dlm::ConvertFloatToString(element[0][0]) + "," + dlm::ConvertFloatToString(element[0][1]) + "," + dlm::ConvertFloatToString(element[0][2]) + "\n";
-		res += dlm::ConvertFloatToString(element[1][0]) + "," + dlm::ConvertFloatToString(element[1][1]) + "," + dlm::ConvertFloatToString(element[1][2]) + "\n";
-		res += dlm::ConvertFloatToString(element[2][0]) + "," + dlm::ConvertFloatToString(element[2][1]) + "," + dlm::ConvertFloatToString(element[2][2]) + "\n";
+std::string RotationMatrix3x3::ToString() const
+{
+	std::string res;
 
-		return res;
-	}
+	res += math_util::ConvertFloatToString(element[0][0]) + "," + math_util::ConvertFloatToString(element[0][1]) + "," + math_util::ConvertFloatToString(element[0][2]) + "\n";
+	res += math_util::ConvertFloatToString(element[1][0]) + "," + math_util::ConvertFloatToString(element[1][1]) + "," + math_util::ConvertFloatToString(element[1][2]) + "\n";
+	res += math_util::ConvertFloatToString(element[2][0]) + "," + math_util::ConvertFloatToString(element[2][1]) + "," + math_util::ConvertFloatToString(element[2][2]) + "\n";
 
-	Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot)
-	{
-		Vector3 res;
+	return res;
+}
 
-		res.x = rot.element[0][0] * vec.x + rot.element[0][1] * vec.y + rot.element[0][2] * vec.z;
-		res.y = rot.element[1][0] * vec.x + rot.element[1][1] * vec.y + rot.element[1][2] * vec.z;
-		res.z = rot.element[2][0] * vec.x + rot.element[2][1] * vec.y + rot.element[2][2] * vec.z;
+Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot)
+{
+	Vector3 res;
 
-		return res;
-	}
+	res.x = rot.element[0][0] * vec.x + rot.element[0][1] * vec.y + rot.element[0][2] * vec.z;
+	res.y = rot.element[1][0] * vec.x + rot.element[1][1] * vec.y + rot.element[1][2] * vec.z;
+	res.z = rot.element[2][0] * vec.x + rot.element[2][1] * vec.y + rot.element[2][2] * vec.z;
+
+	return res;
+}
 
 }	// namespace designlab

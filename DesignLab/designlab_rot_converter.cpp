@@ -1,14 +1,14 @@
-#include "designlab_rot_converter.h"
+ï»¿#include "designlab_rot_converter.h"
 
 #include "designlab_math_util.h"
 
 
-namespace dlm = ::designlab::math_util;
-
-
-designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
+namespace designlab
 {
-	designlab::Quaternion q;
+
+Quaternion ToQuaternion(const RotationMatrix3x3& rot)
+{
+	Quaternion q;
 
 	q.w = sqrt(1.0f + rot.element[0][0] + rot.element[1][1] + rot.element[2][2]) / 2.0f;
 
@@ -22,7 +22,7 @@ designlab::Quaternion designlab::ToQuaternion(const RotationMatrix3x3& rot)
 	return q;
 }
 
-designlab::Quaternion designlab::ToQuaternion(const EulerXYZ& e)
+Quaternion ToQuaternion(const EulerXYZ& e)
 {
 	const float cos_x = std::cos(e.x_angle / 2.0f);
 	const float cos_y = std::cos(e.y_angle / 2.0f);
@@ -31,27 +31,27 @@ designlab::Quaternion designlab::ToQuaternion(const EulerXYZ& e)
 	const float sin_y = std::sin(e.y_angle / 2.0f);
 	const float sin_z = std::sin(e.z_angle / 2.0f);
 
-	designlab::Quaternion q;
+	Quaternion q;
 	q.w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
 	q.v.x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
 	q.v.y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
 	q.v.z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
 
-	if (dlm::IsEqual(q.GetNorm(), 0.0f)) 
+	if (math_util::IsEqual(q.GetNorm(), 0.0f))
 	{
 		return Quaternion{};
 	}
-	else 
+	else
 	{
-		assert(dlm::IsEqual(q.GetNorm(), 1.0f));
+		assert(math_util::IsEqual(q.GetNorm(), 1.0f));
 		return q;
 	}
 }
 
-designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const Quaternion& q)
+RotationMatrix3x3 ToRotationMatrix(const Quaternion& q)
 {
-	designlab::RotationMatrix3x3 mat;
-	designlab::Quaternion q_norm = q.GetNormalized();
+	RotationMatrix3x3 mat;
+	Quaternion q_norm = q.GetNormalized();
 
 	const float x2 = q_norm.v.x * q_norm.v.x;
 	const float y2 = q_norm.v.y * q_norm.v.y;
@@ -78,17 +78,17 @@ designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const Quaternion& q)
 	return mat;
 }
 
-designlab::RotationMatrix3x3 designlab::ToRotationMatrix(const EulerXYZ& q)
+RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& q)
 {
 	const auto mat_x = RotationMatrix3x3::CreateRotationMatrixX(q.x_angle);
 	const auto mat_y = RotationMatrix3x3::CreateRotationMatrixY(q.y_angle);
 	const auto mat_z = RotationMatrix3x3::CreateRotationMatrixZ(q.z_angle);
 
-	//_ X¨Y¨Z‚Ì‡‚É‰ñ“]‚·‚éD
+	//_ Xâ†’Yâ†’Zã®é †ã«å›è»¢ã™ã‚‹ï¼
 	return mat_z * mat_y * mat_x;
 }
 
-designlab::EulerXYZ designlab::ToEulerXYZ(const RotationMatrix3x3& rot)
+EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot)
 {
 	return {
 		std::atan2(rot.element[2][1], rot.element[2][2]),
@@ -97,8 +97,11 @@ designlab::EulerXYZ designlab::ToEulerXYZ(const RotationMatrix3x3& rot)
 	};
 }
 
-designlab::EulerXYZ designlab::ToEulerXYZ(const Quaternion& q)
+EulerXYZ ToEulerXYZ(const Quaternion& q)
 {
-	// ƒNƒH[ƒ^ƒjƒIƒ“‚ğ‰ñ“]s—ñ‚É•ÏŠ·‚µ‚Ä‚©‚çC‰ñ“]s—ñ‚ğƒIƒCƒ‰[Šp‚É•ÏŠ·‚·‚é
+	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’å›è»¢è¡Œåˆ—ã«å¤‰æ›ã—ã¦ã‹ã‚‰ï¼Œå›è»¢è¡Œåˆ—ã‚’ã‚ªã‚¤ãƒ©ãƒ¼è§’ã«å¤‰æ›ã™ã‚‹
 	return ToEulerXYZ(ToRotationMatrix(q));
 }
+
+
+} // namespace designlab

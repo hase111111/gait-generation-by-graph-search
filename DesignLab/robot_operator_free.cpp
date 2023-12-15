@@ -30,7 +30,7 @@ RobotOperatorFree::RobotOperatorFree()
 {
 	global_route_ =
 	{
-		dl::Vector3{350,400,40},
+		dl::Vector3{400,400,40},
 		dl::Vector3{1300,400,40},
 		dl::Vector3{2450,1400,40},
 		dl::Vector3{3900,1400,40},

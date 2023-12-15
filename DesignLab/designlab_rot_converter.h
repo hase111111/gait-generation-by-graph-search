@@ -1,45 +1,49 @@
-//! @file designlab_rot_converter.h
-//! @brief ‰ñ“]Šps—ñCƒIƒCƒ‰[ŠpCƒNƒH[ƒ^ƒjƒIƒ“‚Ì•ÏŠ·‚ğs‚¤ŠÖ”
+ï»¿//! @file designlab_rot_converter.h
+//! @brief å›è»¢è§’è¡Œåˆ—ï¼Œã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼Œã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®å¤‰æ›ã‚’è¡Œã†é–¢æ•°ï¼
 
 #ifndef DESIGNLAB_ROT_CONVERTER_H_
 #define DESIGNLAB_ROT_CONVERTER_H_
-
 
 #include "designlab_euler.h"
 #include "designlab_quaternion.h"
 #include "designlab_rotation_matrix.h"
 
-namespace designlab 
+
+namespace designlab
 {
-	//! @brief ‰ñ“]Šps—ñ‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚Ö‚Ì•ÏŠ·
-	//! @param[in] rot ‰ñ“]Šps—ñ
-	//! @return ƒNƒH[ƒ^ƒjƒIƒ“
-	[[nodiscard]] Quaternion ToQuaternion(const RotationMatrix3x3& rot);
 
-	//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚©‚çXYZƒIƒCƒ‰[Šp‚Ö‚Ì•ÏŠ·
-	//! @param[in] q ƒNƒH[ƒ^ƒjƒIƒ“
-	//! @return XYZƒIƒCƒ‰[Šp
-	[[nodiscard]] Quaternion ToQuaternion(const EulerXYZ& e);
+//! @brief å›è»¢è§’è¡Œåˆ—ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¸ã®å¤‰æ›
+//! @param[in] rot å›è»¢è§’è¡Œåˆ—
+//! @return ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
+[[nodiscard]] Quaternion ToQuaternion(const RotationMatrix3x3& rot);
 
-	//! @brief ƒNƒH[ƒ^ƒjƒIƒ“‚©‚ç‰ñ“]Šps—ñ‚Ö‚Ì•ÏŠ·
-	//! @param[in] q ƒNƒH[ƒ^ƒjƒIƒ“
-	//! @return ‰ñ“]Šps—ñ
-	[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const Quaternion& q);
+//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‹ã‚‰XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã¸ã®å¤‰æ›
+//! @param[in] q ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
+//! @return XYZã‚ªã‚¤ãƒ©ãƒ¼è§’
+[[nodiscard]] Quaternion ToQuaternion(const EulerXYZ& e);
 
-	//! @brief XYZƒIƒCƒ‰[Šp‚©‚ç‰ñ“]Šps—ñ‚Ö‚Ì•ÏŠ·
-	//! @param[in] e XYZƒIƒCƒ‰[Šp
-	//! @return ‰ñ“]Šps—ñ
-	[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& e);
+//! @brief ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‹ã‚‰å›è»¢è§’è¡Œåˆ—ã¸ã®å¤‰æ›
+//! @param[in] q ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
+//! @return å›è»¢è§’è¡Œåˆ—
+[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const Quaternion& q);
 
-	//! @brief ‰ñ“]Šps—ñ‚©‚çXYZƒIƒCƒ‰[Šp‚Ö‚Ì•ÏŠ·
-	//! @param[in] rot ‰ñ“]Šps—ñ
-	//! @return XYZƒIƒCƒ‰[Šp
-	[[nodiscard]] EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
+//! @brief XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã‹ã‚‰å›è»¢è§’è¡Œåˆ—ã¸ã®å¤‰æ›
+//! @param[in] e XYZã‚ªã‚¤ãƒ©ãƒ¼è§’
+//! @return å›è»¢è§’è¡Œåˆ—
+[[nodiscard]] RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& e);
 
-	//! @brief ‰ñ“]Šps—ñ‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚Ö‚Ì•ÏŠ·
-	//! @param[in] e XYZƒIƒCƒ‰[Šp
-	//! @return ƒNƒH[ƒ^ƒjƒIƒ“
-	[[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
-}
+//! @brief å›è»¢è§’è¡Œåˆ—ã‹ã‚‰XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã¸ã®å¤‰æ›
+//! @param[in] rot å›è»¢è§’è¡Œåˆ—
+//! @return XYZã‚ªã‚¤ãƒ©ãƒ¼è§’
+[[nodiscard]] EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
+
+//! @brief å›è»¢è§’è¡Œåˆ—ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¸ã®å¤‰æ›
+//! @param[in] e XYZã‚ªã‚¤ãƒ©ãƒ¼è§’
+//! @return ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
+[[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
+
+
+}	// namespace designlab
+
 
 #endif	// DESIGNLAB_ROT_CONVERTER_H_

@@ -1,103 +1,101 @@
-#include "designlab_line_segment2.h"
+ï»¿#include "designlab_line_segment2.h"
 
 #include "cassert_define.h"
 #include "designlab_math_util.h"
 
 
-namespace dlm = ::designlab::math_util;
-
-namespace designlab 
+namespace designlab
 {
 
-	Vector2 LineSegment2::GetIntersection(const LineSegment2& other) const
+Vector2 LineSegment2::GetIntersection(const LineSegment2& other) const
+{
+	if (IsParallel(other))
 	{
-		if (IsParallel(other))
-		{
-			return Vector2{ 0, 0 };	//•½s‚È‚ç‚ÎŒğ“_‚Í‘¶İ‚µ‚È‚¢D
-		}
-
-		const Vector2 v1 = end - start;
-		const Vector2 v2 = other.end - other.start;
-		const Vector2 v3 = other.start - start;
-		const float d = v1.Cross(v2);
-
-		const float t1 = v3.Cross(v2) / d;
-		const float t2 = v3.Cross(v1) / d;
-
-		// t1, t2‚ª0~1‚Ì”ÍˆÍ“à‚É‚ ‚é‚©‚È‚ç‚ÎCŒğ“_‚Íü•ªã‚É‘¶İ‚·‚é
-
-		if (t1 < 0.0f - dlm::kAllowableError || t1 > 1.0f + dlm::kAllowableError || t2 < 0.0f - dlm::kAllowableError || t2 > 1.0f + dlm::kAllowableError)
-		{
-			return Vector2{ 0, 0 };	//Œğ“_‚Íü•ª‚ÌŠO
-		}
-
-		return start + v1 * t1;
+		return Vector2{ 0, 0 };	//å¹³è¡Œãªã‚‰ã°äº¤ç‚¹ã¯å­˜åœ¨ã—ãªã„ï¼
 	}
 
-	bool LineSegment2::HasIntersection(const LineSegment2& other) const
+	const Vector2 v1 = end - start;
+	const Vector2 v2 = other.end - other.start;
+	const Vector2 v3 = other.start - start;
+	const float d = v1.Cross(v2);
+
+	const float t1 = v3.Cross(v2) / d;
+	const float t2 = v3.Cross(v1) / d;
+
+	// t1, t2ãŒ0~1ã®ç¯„å›²å†…ã«ã‚ã‚‹ã‹ãªã‚‰ã°ï¼Œäº¤ç‚¹ã¯ç·šåˆ†ä¸Šã«å­˜åœ¨ã™ã‚‹
+
+	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
 	{
-		if (IsParallel(other))
-		{
-			return false;	//•½s‚È‚ç‚ÎŒğ“_‚Í‘¶İ‚µ‚È‚¢D
-		}
-
-		const Vector2 v1 = end - start;
-		const Vector2 v2 = other.end - other.start;
-		const Vector2 v3 = other.start - start;
-		const float d = v1.Cross(v2);
-
-		const float t1 = v3.Cross(v2) / d;
-		const float t2 = v3.Cross(v1) / d;
-
-		// t1, t2‚ª0~1‚Ì”ÍˆÍ“à‚É‚ ‚é‚©‚È‚ç‚ÎCŒğ“_‚Íü•ªã‚É‘¶İ‚·‚é
-
-		if (t1 < 0.0f - dlm::kAllowableError || t1 > 1.0f + dlm::kAllowableError || t2 < 0.0f - dlm::kAllowableError || t2 > 1.0f + dlm::kAllowableError)
-		{
-			return false;	//Œğ“_‚Íü•ª‚ÌŠO
-		}
-
-		return true;
+		return Vector2{ 0, 0 };	//äº¤ç‚¹ã¯ç·šåˆ†ã®å¤–
 	}
 
-	bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const
-	{
-		// intersection‚Ínullptr‚Å‚ ‚Á‚Ä‚Í‚È‚ç‚È‚¢
-		assert(intersection != nullptr);
-
-		//’[“_ˆê’v‚Ìê‡C‚»‚Ì“_‚ğ•Ô‚·
-		if ((start == other.start && end != other.end) || (start == other.end && end != other.start))
-		{
-			(*intersection) = start;
-			return true;
-		}
-		else if ((end == other.start && start != other.end) || (end == other.end && start != other.start))
-		{
-			(*intersection) = end;
-			return true;
-		}
-
-		if (IsParallel(other))
-		{
-			return false;	//•½s‚È‚ç‚ÎŒğ“_‚Í‘¶İ‚µ‚È‚¢D
-		}
-
-		const Vector2 v1 = end - start;
-		const Vector2 v2 = other.end - other.start;
-		const Vector2 v3 = other.start - start;
-		const float d = v1.Cross(v2);
-
-		const float t1 = v3.Cross(v2) / d;
-		const float t2 = v3.Cross(v1) / d;
-
-		// t1, t2‚ª0~1‚Ì”ÍˆÍ“à‚É‚ ‚é‚©‚È‚ç‚ÎCŒğ“_‚Íü•ªã‚É‘¶İ‚·‚é
-
-		if (t1 < 0.0f - dlm::kAllowableError || t1 > 1.0f + dlm::kAllowableError || t2 < 0.0f - dlm::kAllowableError || t2 > 1.0f + dlm::kAllowableError)
-		{
-			return false;	//Œğ“_‚Íü•ª‚ÌŠO
-		}
-
-		*intersection = start + v1 * t1;
-		return true;
-	}
-
+	return start + v1 * t1;
 }
+
+bool LineSegment2::HasIntersection(const LineSegment2& other) const
+{
+	if (IsParallel(other))
+	{
+		return false;	//å¹³è¡Œãªã‚‰ã°äº¤ç‚¹ã¯å­˜åœ¨ã—ãªã„ï¼
+	}
+
+	const Vector2 v1 = end - start;
+	const Vector2 v2 = other.end - other.start;
+	const Vector2 v3 = other.start - start;
+	const float d = v1.Cross(v2);
+
+	const float t1 = v3.Cross(v2) / d;
+	const float t2 = v3.Cross(v1) / d;
+
+	// t1, t2ãŒ0~1ã®ç¯„å›²å†…ã«ã‚ã‚‹ã‹ãªã‚‰ã°ï¼Œäº¤ç‚¹ã¯ç·šåˆ†ä¸Šã«å­˜åœ¨ã™ã‚‹
+
+	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
+	{
+		return false;	//äº¤ç‚¹ã¯ç·šåˆ†ã®å¤–
+	}
+
+	return true;
+}
+
+bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const
+{
+	// intersectionã¯nullptrã§ã‚ã£ã¦ã¯ãªã‚‰ãªã„
+	assert(intersection != nullptr);
+
+	//ç«¯ç‚¹ä¸€è‡´ã®å ´åˆï¼Œãã®ç‚¹ã‚’è¿”ã™
+	if ((start == other.start && end != other.end) || (start == other.end && end != other.start))
+	{
+		(*intersection) = start;
+		return true;
+	}
+	else if ((end == other.start && start != other.end) || (end == other.end && start != other.start))
+	{
+		(*intersection) = end;
+		return true;
+	}
+
+	if (IsParallel(other))
+	{
+		return false;	//å¹³è¡Œãªã‚‰ã°äº¤ç‚¹ã¯å­˜åœ¨ã—ãªã„ï¼
+	}
+
+	const Vector2 v1 = end - start;
+	const Vector2 v2 = other.end - other.start;
+	const Vector2 v3 = other.start - start;
+	const float d = v1.Cross(v2);
+
+	const float t1 = v3.Cross(v2) / d;
+	const float t2 = v3.Cross(v1) / d;
+
+	// t1, t2ãŒ0~1ã®ç¯„å›²å†…ã«ã‚ã‚‹ã‹ãªã‚‰ã°ï¼Œäº¤ç‚¹ã¯ç·šåˆ†ä¸Šã«å­˜åœ¨ã™ã‚‹
+
+	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
+	{
+		return false;	//äº¤ç‚¹ã¯ç·šåˆ†ã®å¤–
+	}
+
+	*intersection = start + v1 * t1;
+	return true;
+}
+
+}	// namespace designlab

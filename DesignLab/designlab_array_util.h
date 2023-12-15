@@ -1,25 +1,24 @@
-//! @file designlab_array_util.h
-//! @brief std::array‚ğ‰Šú‰»‚·‚éŠÖ”D
-
+ï»¿//! @file designlab_array_util.h
+//! @brief std::arrayã‚’åˆæœŸåŒ–ã™ã‚‹é–¢æ•°ï¼
 
 #ifndef DESIGNLAB_ARRAY_UTIL_H_
 #define DESIGNLAB_ARRAY_UTIL_H_
 
-
 #include <array>
 
 
-namespace designlab 
+namespace designlab
 {
-	//! @brief std::array‚ğì¬‚·‚éŠÖ”D
-	//! @n ‚±‚ÌŠÖ”‚ğì¬‚µ‚½ƒ‚ƒ`ƒx[ƒVƒ‡ƒ“‚Æ‚µ‚Ä‚ÍCstd::array‚ğconstexpr‚Å‰Šú‰»‚·‚éÛ‚É‹êí‚µ‚½‚½‚ßD
-	//! @n ‚±‚ÌŠÖ”‚ğg‚¤‚±‚Æ‚ÅCstd::array‚ğconstexpr‚Å‰Šú‰»‚·‚é‚±‚Æ‚ª‚Å‚«‚éD
-	//! @n —á‚¦‚ÎCstd::array<int, 3>‚ğì¬‚·‚éê‡‚ÍCMakeArray<int>(1, 2, 3)‚Æ‚·‚éD
-	template<typename T, typename ...Args>
-	constexpr std::array<T, sizeof...(Args)> MakeArray(Args&&... args)
-	{
-		return std::array<T, sizeof...(Args)>{ static_cast<Args&&>(args)... };
-	}
+
+//! @brief std::arrayã‚’ä½œæˆã™ã‚‹é–¢æ•°ï¼
+//! @n ã“ã®é–¢æ•°ã‚’ä½œæˆã—ãŸãƒ¢ãƒãƒ™ãƒ¼ã‚·ãƒ§ãƒ³ã¨ã—ã¦ã¯ï¼Œstd::arrayã‚’constexprã§åˆæœŸåŒ–ã™ã‚‹éš›ã«è‹¦æˆ¦ã—ãŸãŸã‚ï¼
+//! @n ã“ã®é–¢æ•°ã‚’ä½¿ã†ã“ã¨ã§ï¼Œstd::arrayã‚’constexprã§åˆæœŸåŒ–ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ï¼
+//! @n ä¾‹ãˆã°ï¼Œstd::array<int, 3>ã‚’ä½œæˆã™ã‚‹å ´åˆã¯ï¼ŒMakeArray<int>(1, 2, 3)ã¨ã™ã‚‹ï¼
+template<typename T, typename ...Args>
+constexpr std::array<T, sizeof...(Args)> MakeArray(Args&&... args)
+{
+	return std::array<T, sizeof...(Args)>{ static_cast<Args&&>(args)... };
+}
 
 }  // namespace designlab
 

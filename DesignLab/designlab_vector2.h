@@ -1,9 +1,8 @@
-//! @file designlab_vector2.h
-//! @brief 2ŸŒ³‚ÌˆÊ’uƒxƒNƒgƒ‹‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_vector2.h
+//! @brief 2æ¬¡å…ƒã®ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
 
 #ifndef DESIGNLAB_VECTOR2_H_
 #define DESIGNLAB_VECTOR2_H_
-
 
 #include <cmath>
 #include <string>
@@ -13,101 +12,101 @@
 
 namespace designlab
 {
-	//! @struct designlab::Vector2
-	//! @brief 2ŸŒ³‚ÌˆÊ’uƒxƒNƒgƒ‹‚ğ•\‚·\‘¢‘Ì
-	//! @details Ql : https://qiita.com/Reputeless/items/96226cfe1282a014b147
-	//! @n –{“–‚Íƒeƒ“ƒvƒŒ[ƒg\‘¢‘Ì‚É‚·‚é‚×‚«‚¾‚¯‚ÇC‚ß‚ñ‚Ç‚¢‚µ...Œ^‚½‚Ô‚ñfloat‚Ì‚Ü‚Ü‚©‚¦‚È‚¢‚µ.... 
-	struct Vector2 final
+//! @struct designlab::Vector2
+//! @brief 2æ¬¡å…ƒã®ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+//! @details å‚è€ƒ : https://qiita.com/Reputeless/items/96226cfe1282a014b147
+//! @n æœ¬å½“ã¯ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆæ§‹é€ ä½“ã«ã™ã‚‹ã¹ãï¼Œã—ã‹ã—ï¼Œå®Ÿç”¨çš„ã«ä½¿ç”¨ã™ã‚‹ã®ã¯2æ¬¡å…ƒï¼Œ3æ¬¡å…ƒç¨‹åº¦ã§ã‚ã‚‹ãŸã‚ï¼Œã“ã®ã‚ˆã†ã«åˆ†ã‘ã¦ä½œæˆã™ã‚‹ï¼ 
+struct Vector2 final
+{
+	constexpr Vector2() : x(0), y(0) {};
+	constexpr Vector2(float x_pos, float y_pos) : x(x_pos), y(y_pos) {}
+	constexpr Vector2(const Vector2& other) = default;
+	constexpr Vector2(Vector2&& other) noexcept = default;
+	constexpr Vector2& operator =(const Vector2& other) = default;
+
+	constexpr Vector2 operator +() const { return *this; }
+	constexpr Vector2 operator -() const { return{ -x, -y }; }
+	constexpr Vector2 operator +(const Vector2& other) const { return{ x + other.x, y + other.y }; }
+	constexpr Vector2 operator -(const Vector2& other) const { return{ x - other.x, y - other.y }; }
+	constexpr Vector2 operator *(float s) const { return{ x * s, y * s }; }
+	constexpr Vector2 operator /(float s) const { return{ x / s, y / s }; }
+
+	Vector2& operator +=(const Vector2& other);
+	Vector2& operator -=(const Vector2& other);
+	Vector2& operator *=(float s);
+	Vector2& operator /=(float s);
+
+	constexpr bool operator==(const Vector2& other) const
 	{
-		constexpr Vector2() : x(0), y(0) {};
-		constexpr Vector2(float x_pos, float y_pos) : x(x_pos), y(y_pos) {}
-		constexpr Vector2(const Vector2& other) = default;
-		constexpr Vector2(Vector2&& other) noexcept = default;
-		constexpr Vector2& operator =(const Vector2& other) = default;
-
-		constexpr Vector2 operator +() const { return *this; }
-		constexpr Vector2 operator -() const { return{ -x, -y }; }
-		constexpr Vector2 operator +(const Vector2& other) const { return{ x + other.x, y + other.y }; }
-		constexpr Vector2 operator -(const Vector2& other) const { return{ x - other.x, y - other.y }; }
-		constexpr Vector2 operator *(float s) const { return{ x * s, y * s }; }
-		constexpr Vector2 operator /(float s) const { return{ x / s, y / s }; }
-
-		Vector2& operator +=(const Vector2& other);
-		Vector2& operator -=(const Vector2& other);
-		Vector2& operator *=(float s);
-		Vector2& operator /=(float s);
-
-		constexpr bool operator==(const Vector2& other) const
-		{
-			return ::designlab::math_util::IsEqual(x, other.x) && ::designlab::math_util::IsEqual(y, other.y);
-		}
-
-		constexpr bool operator!=(const Vector2& other) const { return !(*this == other); }
-
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Ì’·‚³‚ğ•Ô‚·
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚Ì’·‚³
-		//! @note sqrt‚Íd‚¢‚Ì‚ÅC’·‚³‚Ì2æ‚ğ•Ô‚·lengthSquare()‚ğg‚¤‚±‚Æ‚ğ„§
-		float GetLength() const { return std::sqrt(GetSquaredLength()); }
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Ì’·‚³‚Ì2æ‚ğ•Ô‚·
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚Ì’·‚³‚Ì2æ
-		constexpr float GetSquaredLength() const noexcept { return Dot(*this); }
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚Ì“àÏ‚ğ•Ô‚·
-		//! @param [in] other ‘¼‚ÌƒxƒNƒgƒ‹
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚Ì“àÏ
-		constexpr float Dot(const Vector2& other) const noexcept { return x * other.x + y * other.y; }
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚ÌŠOÏ‚ğ•Ô‚·
-		//! @param [in] other ‘¼‚ÌƒxƒNƒgƒ‹
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚ÌŠOÏ
-		//! @note 2ŸŒ³‚È‚Ì‚ÅCŠOÏ‚ÍƒXƒJƒ‰[
-		constexpr float Cross(const Vector2& other) const noexcept { return x * other.y - y * other.x; }
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚Ì‹——£‚ğ•Ô‚·
-		//! @param [in] other ‘¼‚ÌƒxƒNƒgƒ‹
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚Æother‚Ì‹——£
-		float GetDistanceFrom(const Vector2& other) const noexcept { return (other - *this).GetLength(); }
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚ğ³‹K‰»‚µ‚½ƒxƒNƒgƒ‹‚ğ•Ô‚·
-		//! @return ³‹K‰»‚³‚ê‚½ƒxƒNƒgƒ‹
-		Vector2 GetNormalized() const;
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚ª0‚È‚ç‚Îtrue
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚ª0‚È‚ç‚Îtrue
-		//! @note Œë·‚ğl—¶‚µ‚Ä‚¢‚é
-		constexpr bool IsZero() const noexcept{ return ::designlab::math_util::IsEqual(x, 0.0f) && ::designlab::math_util::IsEqual(y, 0.0f); }
-
-
-		//! @brief ‚±‚ÌƒxƒNƒgƒ‹‚ğ•¶š—ñ‚É‚µ‚Ä•Ô‚·
-		//! @n (x, y) ‚ÌŒ`®C¬”“_ˆÈ‰º3Œ…‚Ü‚Å
-		//! @return ‚±‚ÌƒxƒNƒgƒ‹‚ğ•¶š—ñ‚É‚µ‚½‚à‚Ì
-		std::string ToString() const;
-
-
-		float x;
-		float y;
-	};
-
-
-	constexpr Vector2 operator *(float s, const Vector2& v)
-	{
-		return { s * v.x, s * v.y };
+		return math_util::IsEqual(x, other.x) && math_util::IsEqual(y, other.y);
 	}
 
-	template <class Char>
-	std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Vector2& v)
-	{
-		return os << ::designlab::math_util::ConvertFloatToString(v.x) << Char(',') << ::designlab::math_util::ConvertFloatToString(v.y);
-	}
+	constexpr bool operator!=(const Vector2& other) const { return !(*this == other); }
 
-	template <class Char>
-	inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Vector2& v)
-	{
-		Char unused;
-		return is >> unused >> v.x >> unused >> v.y >> unused;
-	}
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ã‚’è¿”ã™ï¼
+	//! @return float ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ï¼
+	//! @note sqrtã¯é‡ã„ã®ã§ï¼Œé•·ã•ã®2ä¹—ã‚’è¿”ã™ GetSquaredLength ã‚’ä½¿ã†ã“ã¨ã‚’æ¨å¥¨ï¼
+	[[maybe_unused]] float GetLength() const { return std::sqrt(GetSquaredLength()); }
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ã®2ä¹—ã‚’è¿”ã™ï¼
+	//! @return float ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ã®2ä¹—ï¼
+	[[maybe_unused]] constexpr float GetSquaredLength() const noexcept { return Dot(*this); }
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®å†…ç©ã‚’è¿”ã™ï¼
+	//! @param [in] other ä»–ã®ãƒ™ã‚¯ãƒˆãƒ«ï¼
+	//! @return float ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®å†…ç©ï¼
+	[[maybe_unused]] constexpr float Dot(const Vector2& other) const noexcept { return x * other.x + y * other.y; }
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®å¤–ç©ã‚’è¿”ã™
+	//! @param [in] other ä»–ã®ãƒ™ã‚¯ãƒˆãƒ«
+	//! @return float ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®å¤–ç©
+	//! @note 2æ¬¡å…ƒãªã®ã§ï¼Œå¤–ç©ã¯ã‚¹ã‚«ãƒ©ãƒ¼
+	[[maybe_unused]] constexpr float Cross(const Vector2& other) const noexcept { return x * other.y - y * other.x; }
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®è·é›¢ã‚’è¿”ã™
+	//! @param [in] other ä»–ã®ãƒ™ã‚¯ãƒˆãƒ«
+	//! @return float ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã¨otherã®è·é›¢
+	[[maybe_unused]] float GetDistanceFrom(const Vector2& other) const noexcept { return (other - *this).GetLength(); }
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ­£è¦åŒ–ã—ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’è¿”ã™ï¼
+	//! @return Vector2 æ­£è¦åŒ–ã•ã‚ŒãŸãƒ™ã‚¯ãƒˆãƒ«ï¼
+	Vector2 GetNormalized() const;
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ãŒ0ãªã‚‰ã°trueï¼
+	//! @return bool ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ãŒ0ãªã‚‰ã°trueï¼
+	//! @note èª¤å·®ã‚’è€ƒæ…®ã—ã¦ã„ã‚‹
+	[[maybe_unused]] constexpr bool IsZero() const noexcept { return math_util::IsEqual(x, 0.0f) && math_util::IsEqual(y, 0.0f); }
+
+
+	//! @brief ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ–‡å­—åˆ—ã«ã—ã¦è¿”ã™ï¼
+	//! @n (x, y) ã®å½¢å¼ï¼Œå°æ•°ç‚¹ä»¥ä¸‹3æ¡ã¾ã§ï¼
+	//! @return std::string ã“ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ–‡å­—åˆ—ã«ã—ãŸã‚‚ã®ï¼
+	[[maybe_unused]] std::string ToString() const;
+
+
+	float x;
+	float y;
+};
+
+
+constexpr Vector2 operator *(float s, const Vector2& v)
+{
+	return { s * v.x, s * v.y };
+}
+
+template <class Char>
+std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Vector2& v)
+{
+	return os << math_util::ConvertFloatToString(v.x) << Char(',') << math_util::ConvertFloatToString(v.y);
+}
+
+template <class Char>
+inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Vector2& v)
+{
+	Char unused;
+	return is >> unused >> v.x >> unused >> v.y >> unused;
+}
 
 } // namespace designlab
 

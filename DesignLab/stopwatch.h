@@ -1,5 +1,5 @@
-//! @file stopwatch.h
-//! @brief ©ì‚ÌŠÔŒv‘ªƒNƒ‰ƒXD
+ï»¿//! @file stopwatch.h
+//! @brief è‡ªä½œã®æ™‚é–“è¨ˆæ¸¬ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_STOPWATCH_H_
 #define DESIGNLAB_STOPWATCH_H_
@@ -8,66 +8,71 @@
 #include <string>
 
 
+namespace designlab
+{
+
 //! @class Stopwatch
-//! @brief ŠÔŒv‘ª—p‚ÌƒNƒ‰ƒXD
+//! @brief æ™‚é–“è¨ˆæ¸¬ç”¨ã®ã‚¯ãƒ©ã‚¹ï¼
 //! @details
-//! StartŠÖ”‚ğŒÄ‚Ño‚µ‚Ä‚©‚çEndŠÖ”‚ğŒÄ‚Ño‚·‚Ü‚Å‚ÌŒo‰ßŠÔ‚ğŒv‘ª‚·‚éD
-//! @n À‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É‚ÄŒ»İ‚Å‰Šú‰»‚·‚é‚Ì‚ÅCStartŠÖ”‚ğŒÄ‚Î‚¸‚Æ‚àŒv‘ªŠJn‚Å‚«‚éD
+//! Starté–¢æ•°ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰Endé–¢æ•°ã‚’å‘¼ã³å‡ºã™ã¾ã§ã®çµŒéæ™‚é–“ã‚’è¨ˆæ¸¬ã™ã‚‹ï¼
+//! @n å®Ÿã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã¦ç¾åœ¨æ™‚åˆ»ã§åˆæœŸåŒ–ã™ã‚‹ã®ã§ï¼ŒStarté–¢æ•°ã‚’å‘¼ã°ãšã¨ã‚‚è¨ˆæ¸¬é–‹å§‹ã§ãã‚‹ï¼
 class Stopwatch final
 {
 public:
 
-	//! @brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	//! @n Œ»İ‚Å‰Šú‰»‚·‚éD
+	//! @brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	//! @n ç¾åœ¨æ™‚åˆ»ã§åˆæœŸåŒ–ã™ã‚‹ï¼
 	Stopwatch();
 
-	//! @brief Œv‘ªŠJn‚É‚±‚ÌŠÖ”‚ğŒÄ‚ÔD
-	//! @n ƒŠƒZƒbƒgˆ—‚È‚Ç‚ğŒÄ‚Ô•K—v‚È‚µ‚ÅCÄ“xŒv‘ª‚Å‚«‚éD
+	//! @brief è¨ˆæ¸¬é–‹å§‹ã«ã“ã®é–¢æ•°ã‚’å‘¼ã¶ï¼
+	//! @n ãƒªã‚»ãƒƒãƒˆå‡¦ç†ãªã©ã‚’å‘¼ã¶å¿…è¦ãªã—ã§ï¼Œå†åº¦è¨ˆæ¸¬ã§ãã‚‹ï¼
 	void Start();
 
-	//! @brief Œv‘ªI—¹‚É‚±‚ÌŠÖ”‚ğŒÄ‚ÔD
+	//! @brief è¨ˆæ¸¬çµ‚äº†æ™‚ã«ã“ã®é–¢æ•°ã‚’å‘¼ã¶ï¼
 	void End();
 
-	//! @brief Œo‰ßŠÔ‚ğ•b‚Åæ“¾D
-	//! @n start()‚Æend()‚ğŒÄ‚Ño‚µ‚Ä‚©‚ç‚±‚ÌŠÖ”‚ğŒÄ‚ÔD
-	//! @return double Œv‘ªŒ‹‰Ê(•b)D
+	//! @brief çµŒéæ™‚é–“ã‚’ç§’ã§å–å¾—ï¼
+	//! @n start()ã¨end()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰ã“ã®é–¢æ•°ã‚’å‘¼ã¶ï¼
+	//! @return double è¨ˆæ¸¬çµæœ(ç§’)ï¼
 	double GetElapsedSeconds() const;
 
-	//! @brief Œv‘ªŒ‹‰Ê‚ğƒ~ƒŠ•b‚Åæ“¾D
-	//! @n start()‚Æend()‚ğŒÄ‚Ño‚µ‚Ä‚©‚ç‚±‚ÌŠÖ”‚ğŒÄ‚ÔD
-	//! @return double Œv‘ªŒ‹‰Ê(ƒ~ƒŠ•b)D
+	//! @brief è¨ˆæ¸¬çµæœã‚’ãƒŸãƒªç§’ã§å–å¾—ï¼
+	//! @n start()ã¨end()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰ã“ã®é–¢æ•°ã‚’å‘¼ã¶ï¼
+	//! @return double è¨ˆæ¸¬çµæœ(ãƒŸãƒªç§’)ï¼
 	double GetElapsedMilliSecond() const;
 
-	//! @brief Œv‘ªŒ‹‰Ê‚ğƒ}ƒCƒNƒ•b‚Åæ“¾D
-	//! @n start()‚Æend()‚ğŒÄ‚Ño‚µ‚Ä‚©‚ç‚±‚ÌŠÖ”‚ğŒÄ‚ÔD
-	//! @n (‚±‚ÌƒŒƒxƒ‹‚ÌƒI[ƒ_[‚Å¸“xo‚¹‚é‚Ì‚©...?)D
-	//! @return double  Œv‘ªŒ‹‰Ê(ƒ}ƒCƒNƒ•b)D
+	//! @brief è¨ˆæ¸¬çµæœã‚’ãƒã‚¤ã‚¯ãƒ­ç§’ã§å–å¾—ï¼
+	//! @n start()ã¨end()ã‚’å‘¼ã³å‡ºã—ã¦ã‹ã‚‰ã“ã®é–¢æ•°ã‚’å‘¼ã¶ï¼
+	//! @n (ã“ã®ãƒ¬ãƒ™ãƒ«ã®ã‚ªãƒ¼ãƒ€ãƒ¼ã§ç²¾åº¦å‡ºã›ã‚‹ã®ã‹...?)ï¼
+	//! @return double  è¨ˆæ¸¬çµæœ(ãƒã‚¤ã‚¯ãƒ­ç§’)ï¼
 	double GetElapsedMicroSecond() const;
 
 
-	//! @brief Œo‰ßŠÔ‚ğ•b‚Å•\‚µ‚½•¶š—ñ‚ğæ“¾‚·‚éD
-	//! @return std::string Œo‰ßŠÔD
+	//! @brief çµŒéæ™‚é–“ã‚’ç§’ã§è¡¨ã—ãŸæ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @return std::string çµŒéæ™‚é–“ï¼
 	std::string GetElapsedSecondsString() const;
 
-	//! @brief Œo‰ßŠÔ‚ğƒ~ƒŠ•b‚Å•\‚µ‚½•¶š—ñ‚ğæ“¾‚·‚éD
-	//! @return std::string Œo‰ßŠÔD
+	//! @brief çµŒéæ™‚é–“ã‚’ãƒŸãƒªç§’ã§è¡¨ã—ãŸæ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @return std::string çµŒéæ™‚é–“ï¼
 	std::string GetElapsedMilliSecondString() const;
 
-	//! @brief Œo‰ßŠÔ‚ğƒ}ƒCƒNƒ•b‚Å•\‚µ‚½•¶š—ñ‚ğæ“¾‚·‚éD
-	//! @return std::string Œo‰ßŠÔD
+	//! @brief çµŒéæ™‚é–“ã‚’ãƒã‚¤ã‚¯ãƒ­ç§’ã§è¡¨ã—ãŸæ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @return std::string çµŒéæ™‚é–“ï¼
 	std::string GetElapsedMicroSecondString() const;
 
 
-	//! @brief Œ»İ‚Ì“ú‚ğYYYY/MM/DD HH:MMŒ`®‚Ì•¶š—ñ‚Åæ“¾‚·‚éD
-	//! @return std::string Œ»İ‚Ì“úD
+	//! @brief ç¾åœ¨ã®æ—¥æ™‚ã‚’YYYY/MM/DD HH:MMå½¢å¼ã®æ–‡å­—åˆ—ã§å–å¾—ã™ã‚‹ï¼
+	//! @return std::string ç¾åœ¨ã®æ—¥æ™‚ï¼
 	std::string GetNowTimeString() const;
 
 private:
 
-	std::chrono::system_clock::time_point start_time_;		//!< ‘ª’èŠJnŠÔ
+	std::chrono::system_clock::time_point start_time_;		//!< æ¸¬å®šé–‹å§‹æ™‚é–“
 
-	std::chrono::system_clock::time_point end_time_;		//!< ‘ª’èI—¹ŠÔ	
+	std::chrono::system_clock::time_point end_time_;		//!< æ¸¬å®šçµ‚äº†æ™‚é–“	
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_STOPWATCH_H_

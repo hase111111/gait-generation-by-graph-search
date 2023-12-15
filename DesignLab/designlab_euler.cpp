@@ -1,4 +1,4 @@
-#include "designlab_euler.h"
+﻿#include "designlab_euler.h"
 
 #include <cmath>
 #include <sstream>
@@ -7,47 +7,45 @@
 #include "designlab_rot_converter.h"
 
 
-namespace dlm = ::designlab::math_util;
-
-
-namespace designlab 
+namespace designlab
 {
-	std::string EulerXYZ::ToString() const
-	{
-		std::string str;
 
-		str += "( x-axis: " 
-			+ dlm::ConvertFloatToString(x_angle) + " [rad], y-axis : " 
-			+ dlm::ConvertFloatToString(y_angle) + " [rad], z-axis: "
-			+ dlm::ConvertFloatToString(z_angle) + " [rad]) xyz-euler angles";
+std::string EulerXYZ::ToString() const
+{
+	std::string str;
 
-		return str;
-	}
+	str += "( x-axis: "
+		+ math_util::ConvertFloatToString(x_angle) + " [rad], y-axis : "
+		+ math_util::ConvertFloatToString(y_angle) + " [rad], z-axis: "
+		+ math_util::ConvertFloatToString(z_angle) + " [rad]) xyz-euler angles";
 
-	std::string EulerXYZ::ToCsvString() const
-	{
-		std::stringstream ss;
-		ss << *this;
-		return ss.str();
-	}
+	return str;
+}
 
-	std::string EulerXYZ::ToStringDeg() const
-	{
-		std::string str;
+std::string EulerXYZ::ToCsvString() const
+{
+	std::stringstream ss;
+	ss << *this;
+	return ss.str();
+}
 
-		str += "( x-axis: "
-			+ dlm::ConvertFloatToString(dlm::ConvertRadToDeg(x_angle)) + " [deg], y-axis : "
-			+ dlm::ConvertFloatToString(dlm::ConvertRadToDeg(y_angle)) + " [deg], z-axis: "
-			+ dlm::ConvertFloatToString(dlm::ConvertRadToDeg(z_angle)) + " [deg]) xyz-euler angles";
+std::string EulerXYZ::ToStringDeg() const
+{
+	std::string str;
 
-		return str;
-	}
+	str += "( x-axis: "
+		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(x_angle)) + " [deg], y-axis : "
+		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(y_angle)) + " [deg], z-axis: "
+		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(z_angle)) + " [deg]) xyz-euler angles";
 
-	Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot)
-	{
-		const RotationMatrix3x3 rot_mat = ToRotationMatrix(rot);
+	return str;
+}
 
-		return RotateVector3(vec, rot_mat);
-	}
+Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot)
+{
+	const RotationMatrix3x3 rot_mat = ToRotationMatrix(rot);
+
+	return RotateVector3(vec, rot_mat);
+}
 
 } // namespace designlab

@@ -1,9 +1,8 @@
-//! @file designlab_euler.h
-//! @brief ƒIƒCƒ‰[Šp‚ğ—p‚¢‚½‰ñ“]‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_euler.h
+//! @brief XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’ç”¨ã„ãŸå›è»¢ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
 
 #ifndef DESIGNLAB_EULER_H_
 #define DESIGNLAB_EULER_H_
-
 
 #include <string>
 
@@ -13,110 +12,112 @@
 
 namespace designlab
 {
-	//! @struct designlab::EulerXYZ
-	//! @brief ‰ñ“]‚ğ•\‚·\‘¢‘ÌDXYZƒIƒCƒ‰[ŠpD’PˆÊ‚Í [rad]
-	//! @details XYZƒIƒCƒ‰[Šp‚É‚æ‚Á‚Ä‰ñ“]‚ğ•\Œ»‚·‚éD
-	//! @n ƒ[ƒ‹(X²)Cƒsƒbƒ`(Y²)Cƒˆ[(Z²)‚Í‚»‚ê‚¼‚ê‰E‚Ë‚¶‚Ì•ûŒü‚É‰ñ“]‚·‚éD
-	//! @n
-	//! @n Ql‘—¿ :  https://watako-lab.com/2019/01/23/roll_pitch_yaw/
-	//! @n 
-	//! @n ’m‚Á‚Ä‚Ì’Ê‚èŒvZŠÔ‚ª‚©‚È‚èŠ|‚©‚é‚Ì‚ÅC‘¬“x‚ğl‚¦‚é‚È‚ç‚ÎƒNƒH[ƒ^ƒjƒIƒ“(lŒ³”)‚ğ—p‚¢‚½‰ñ“]‚ğ„§‚·‚éD
-	struct EulerXYZ
+
+//! @struct designlab::EulerXYZ
+//! @brief XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’ç”¨ã„ãŸå›è»¢ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+//! @details å›è»¢ã‚’è¡¨ã™æ§‹é€ ä½“ï¼XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼å˜ä½ã¯ [rad]ï¼
+//! XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã«ã‚ˆã£ã¦å›è»¢ã‚’è¡¨ç¾ã™ã‚‹ï¼
+//! @n ãƒ­ãƒ¼ãƒ«(Xè»¸)ï¼Œãƒ”ãƒƒãƒ(Yè»¸)ï¼Œãƒ¨ãƒ¼(Zè»¸)ã¯ãã‚Œãã‚Œå³ã­ã˜ã®æ–¹å‘ã«å›è»¢ã™ã‚‹ï¼
+//! @n
+//! @n å‚è€ƒè³‡æ–™ :  https://watako-lab.com/2019/01/23/roll_pitch_yaw/
+//! @n 
+//! @n çŸ¥ã£ã¦ã®é€šã‚Šè¨ˆç®—æ™‚é–“ãŒã‹ãªã‚Šæ›ã‹ã‚‹ã®ã§ï¼Œé€Ÿåº¦ã‚’è€ƒãˆã‚‹ãªã‚‰ã°ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³(å››å…ƒæ•°)ã‚’ç”¨ã„ãŸå›è»¢ã‚’æ¨å¥¨ã™ã‚‹ï¼
+struct EulerXYZ final
+{
+	constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {};
+	constexpr EulerXYZ(const float x, const float y, const float z) : x_angle(x), y_angle(y), z_angle(z) {};
+	constexpr EulerXYZ(const EulerXYZ& other) = default;
+	constexpr EulerXYZ(EulerXYZ&& other) noexcept = default;
+	constexpr EulerXYZ& operator =(const EulerXYZ& other) = default;
+
+	~EulerXYZ() = default;
+
+	constexpr EulerXYZ operator *(const float s) const noexcept { return { x_angle * s, y_angle * s, z_angle * s }; }
+
+
+	constexpr bool operator ==(const EulerXYZ& other) const noexcept
 	{
-		constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {};
-		constexpr EulerXYZ(const float x, const float y, const float z) : x_angle(x), y_angle(y), z_angle(z) {};
-		constexpr EulerXYZ(const EulerXYZ& other) = default;
-		constexpr EulerXYZ(EulerXYZ&& other) noexcept = default;
-		constexpr EulerXYZ& operator =(const EulerXYZ& other) = default;
-		
-		~EulerXYZ() = default;
-
-		constexpr EulerXYZ operator *(const float s) const noexcept { return { x_angle * s, y_angle * s, z_angle * s }; }
-
-
-		constexpr bool operator ==(const EulerXYZ& other) const noexcept
-		{
-			return (
-				::designlab::math_util::IsEqual(x_angle, other.x_angle) && 
-				::designlab::math_util::IsEqual(y_angle, other.y_angle) &&
-				::designlab::math_util::IsEqual(z_angle, other.z_angle)
+		return (
+			::designlab::math_util::IsEqual(x_angle, other.x_angle) &&
+			::designlab::math_util::IsEqual(y_angle, other.y_angle) &&
+			::designlab::math_util::IsEqual(z_angle, other.z_angle)
 			);
-		}
-		constexpr bool operator !=(const EulerXYZ& other) const noexcept { return !(*this == other); }
+	}
+	constexpr bool operator !=(const EulerXYZ& other) const noexcept { return !(*this == other); }
 
 
-		//! @brief ƒIƒCƒ‰[Šp‚ğ ’PˆÊ[deg] ‚Å‰Šú‰»‚·‚é
-		//! @param [in] x X²ü‚è‚Ì‰ñ“]D[deg]
-		//! @param [in] y Y²ü‚è‚Ì‰ñ“]D[deg]
-		//! @param [in] z Z²ü‚è‚Ì‰ñ“]D[deg]
-		constexpr void SetDeg(const float x, const float y, const float z) 
-		{
-			x_angle = ::designlab::math_util::ConvertDegToRad(x);
-			y_angle = ::designlab::math_util::ConvertDegToRad(y);
-			z_angle = ::designlab::math_util::ConvertDegToRad(z);
-		}
-
-		//! @brief ƒIƒCƒ‰[Šp‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éD
-		//! @n ’PˆÊ‚Í ƒ‰ƒWƒAƒ“ [rad]D
-		//! @return std::string ƒIƒCƒ‰[Šp‚ğ•\‚·•¶š—ñD
-		[[nodiscard]] std::string ToString() const;
-
-		//! @brief ƒIƒCƒ‰[Šp‚ğCsvŒ`®‚Ì•¶š—ñ‚É•ÏŠ·‚·‚éDƒJƒ“ƒ}‹æØ‚èD
-		//! @n ’PˆÊ‚Í ƒ‰ƒWƒAƒ“ [rad]D
-		//! @return std::string ƒIƒCƒ‰[Šp‚ğ•\‚·•¶š—ñD
-		[[nodiscard]] std::string ToCsvString() const;
-
-		//! @brief ƒIƒCƒ‰[Šp‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éD
-		//! @n ’PˆÊ‚Í “x [deg]D
-		//! @return std::string ƒIƒCƒ‰[Šp‚ğ•\‚·•¶š—ñD
-		[[nodiscard]] std::string ToStringDeg() const;
-
-		//! @brief ƒIƒCƒ‰[Šp‚ğ ’PˆÊ[deg] ‚Åì¬‚·‚éD
-		//! @param [in] x X²ü‚è‚Ì‰ñ“]D[deg]D
-		//! @param [in] y Y²ü‚è‚Ì‰ñ“]D[deg]D
-		//! @param [in] z Z²ü‚è‚Ì‰ñ“]D[deg]D
-		//! @return EulerXYZ ƒIƒCƒ‰[ŠpD
-		[[nodiscard]] static constexpr EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
-		{
-			return EulerXYZ{ 
-				::designlab::math_util::ConvertDegToRad(x), 
-				::designlab::math_util::ConvertDegToRad(y), 
-				::designlab::math_util::ConvertDegToRad(z) 
-			}; 
-		}
-
-
-		float x_angle;	//!< X ²ü‚è‚Ì‰ñ“] [rad]D
-		float y_angle;	//!< Y ²ü‚è‚Ì‰ñ“] [rad]D
-		float z_angle;	//!< Z ²ü‚è‚Ì‰ñ“] [rad]D
-	};
-
-
-	//! @brief o—ÍƒXƒgƒŠ[ƒ€DCsvŒ`®‚Åo—Í‚·‚éDƒJƒ“ƒ}‹æØ‚èD’PˆÊ‚Í [rad]D
-	template <class Char>
-	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const EulerXYZ& r)
+	//! @brief ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’ å˜ä½[deg] ã§åˆæœŸåŒ–ã™ã‚‹
+	//! @param [in] x Xè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]
+	//! @param [in] y Yè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]
+	//! @param [in] z Zè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]
+	constexpr void SetDeg(const float x, const float y, const float z)
 	{
-		os << ::designlab::math_util::ConvertFloatToString(r.x_angle) << Char(',') << 
-			::designlab::math_util::ConvertFloatToString(r.y_angle) << Char(',') << 
-			::designlab::math_util::ConvertFloatToString(r.z_angle);
-
-		return os;
+		x_angle = ::designlab::math_util::ConvertDegToRad(x);
+		y_angle = ::designlab::math_util::ConvertDegToRad(y);
+		z_angle = ::designlab::math_util::ConvertDegToRad(z);
 	}
 
-	//“ü—ÍƒXƒgƒŠ[ƒ€
-	template <class Char>
-	inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, EulerXYZ& r)
+	//! @brief ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @n å˜ä½ã¯ ãƒ©ã‚¸ã‚¢ãƒ³ [rad]ï¼
+	//! @return std::string ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
+	[[nodiscard]] std::string ToString() const;
+
+	//! @brief ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’Csvå½¢å¼ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šï¼
+	//! @n å˜ä½ã¯ ãƒ©ã‚¸ã‚¢ãƒ³ [rad]ï¼
+	//! @return std::string ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
+	[[nodiscard]] std::string ToCsvString() const;
+
+	//! @brief ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @n å˜ä½ã¯ åº¦ [deg]ï¼
+	//! @return std::string ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
+	[[nodiscard]] std::string ToStringDeg() const;
+
+	//! @brief ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’ å˜ä½[deg] ã§ä½œæˆã™ã‚‹ï¼
+	//! @param [in] x Xè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]ï¼
+	//! @param [in] y Yè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]ï¼
+	//! @param [in] z Zè»¸å‘¨ã‚Šã®å›è»¢ï¼[deg]ï¼
+	//! @return EulerXYZ ã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼
+	[[nodiscard]] static constexpr EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
 	{
-		Char unused;
-		return is >> unused >> r.x_angle >> unused >> r.y_angle >> unused >> r.z_angle >> unused;
+		return EulerXYZ{
+			::designlab::math_util::ConvertDegToRad(x),
+			::designlab::math_util::ConvertDegToRad(y),
+			::designlab::math_util::ConvertDegToRad(z)
+		};
 	}
 
 
-	//! @brief ‰ñ“]‚³‚¹‚½ƒxƒNƒgƒ‹‚ğ•Ô‚·DOŠpŠÖ”‚Ìˆ—‚ª‘½‚­d‚½‚¢‚Ì‚Å’ˆÓD
-	//! @param [in] vec ˆÊ’uƒxƒNƒgƒ‹
-	//! @param [in] rot ‰ñ“]ƒxƒNƒgƒ‹
-	//! @return Vector3 ‰ñ“]‚µ‚½Œã‚ÌˆÊ’uƒxƒNƒgƒ‹
-	[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
+	float x_angle;	//!< X è»¸å‘¨ã‚Šã®å›è»¢ [rad]ï¼
+	float y_angle;	//!< Y è»¸å‘¨ã‚Šã®å›è»¢ [rad]ï¼
+	float z_angle;	//!< Z è»¸å‘¨ã‚Šã®å›è»¢ [rad]ï¼
+};
+
+
+//! @brief å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ï¼Csvå½¢å¼ã§å‡ºåŠ›ã™ã‚‹ï¼ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šï¼å˜ä½ã¯ [rad]ï¼
+template <class Char>
+inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const EulerXYZ& r)
+{
+	os << ::designlab::math_util::ConvertFloatToString(r.x_angle) << Char(',') <<
+		::designlab::math_util::ConvertFloatToString(r.y_angle) << Char(',') <<
+		::designlab::math_util::ConvertFloatToString(r.z_angle);
+
+	return os;
+}
+
+//å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+template <class Char>
+inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, EulerXYZ& r)
+{
+	Char unused;
+	return is >> unused >> r.x_angle >> unused >> r.y_angle >> unused >> r.z_angle >> unused;
+}
+
+
+//! @brief å›è»¢ã•ã›ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’è¿”ã™ï¼ä¸‰è§’é–¢æ•°ã®å‡¦ç†ãŒå¤šãé‡ãŸã„ã®ã§æ³¨æ„ï¼
+//! @param [in] vec ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«
+//! @param [in] rot å›è»¢ãƒ™ã‚¯ãƒˆãƒ«
+//! @return Vector3 å›è»¢ã—ãŸå¾Œã®ä½ç½®ãƒ™ã‚¯ãƒˆãƒ«
+[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
 }	// namespace designlab
 

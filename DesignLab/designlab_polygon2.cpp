@@ -1,16 +1,14 @@
-#include "designlab_polygon2.h"
+ï»¿#include "designlab_polygon2.h"
 
 #include "designlab_math_util.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;	// ’·‚·‚¬‚é‚Ì‚Å math_util‚Ì•Ê–¼‚ğì¬
-
-
-
-designlab::Polygon2::Polygon2(const std::vector<Vector2>& vertex)
+namespace designlab
 {
-	assert(vertex.size() <= kMaxVertexNum);	// ’¸“_”‚ÍÅ‘å’l‚ğ’´‚¦‚Ä‚Í‚¢‚¯‚È‚¢
+
+Polygon2::Polygon2(const std::vector<Vector2>& vertex)
+{
+	assert(vertex.size() <= kMaxVertexNum);	// é ‚ç‚¹æ•°ã¯æœ€å¤§å€¤ã‚’è¶…ãˆã¦ã¯ã„ã‘ãªã„
 
 	for (int i = 0; i < vertex.size(); ++i)
 	{
@@ -18,7 +16,7 @@ designlab::Polygon2::Polygon2(const std::vector<Vector2>& vertex)
 	}
 }
 
-bool dl::Polygon2::AddVertexCheckForDuplicates(const dl::Vector2& v)
+bool Polygon2::AddVertexCheckForDuplicates(const Vector2& v)
 {
 	for (int i = 0; i < vertex_num; i++)
 	{
@@ -31,19 +29,19 @@ bool dl::Polygon2::AddVertexCheckForDuplicates(const dl::Vector2& v)
 	vertex[vertex_num] = v;
 	++vertex_num;
 
-	assert(vertex_num <= kMaxVertexNum);	// ’¸“_”‚ÍÅ‘å’l‚ğ’´‚¦‚Ä‚Í‚¢‚¯‚È‚¢
+	assert(vertex_num <= kMaxVertexNum);	// é ‚ç‚¹æ•°ã¯æœ€å¤§å€¤ã‚’è¶…ãˆã¦ã¯ã„ã‘ãªã„
 
 	return true;
 }
 
-void dl::Polygon2::RemoveVertex(const int i)
+void Polygon2::RemoveVertex(const int i)
 {
 	if (i < 0 || i >= GetVertexNum())
 	{
 		return;
 	}
 
-	// i”Ô–Ú‚Ì’¸“_‚ğíœ‚·‚éD‚»‚µ‚ÄCi+1”Ô–ÚˆÈ~‚Ì’¸“_‚ği”Ô–ÚˆÈ~‚ÉƒRƒs[‚·‚éD
+	// iç•ªç›®ã®é ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹ï¼ãã—ã¦ï¼Œi+1ç•ªç›®ä»¥é™ã®é ‚ç‚¹ã‚’iç•ªç›®ä»¥é™ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹ï¼
 	for (int j = i; j < GetVertexNum() - 1; ++j)
 	{
 		vertex[j] = vertex[j + 1];
@@ -54,17 +52,17 @@ void dl::Polygon2::RemoveVertex(const int i)
 	--vertex_num;
 }
 
-bool dl::Polygon2::IsConvex() const
+bool Polygon2::IsConvex() const
 {
 	const int num = GetVertexNum();
 
-	//‘ŠúƒŠƒ^[ƒ“.’¸“_”‚ª3–¢–‚Ìê‡‚Í‘½ŠpŒ`‚Å‚Í‚È‚¢
+	//æ—©æœŸãƒªã‚¿ãƒ¼ãƒ³.é ‚ç‚¹æ•°ãŒ3æœªæº€ã®å ´åˆã¯å¤šè§’å½¢ã§ã¯ãªã„
 	if (num < 3)
 	{
 		return false;
 	}
 
-	//‰E‰ñ‚è‚©¶‰ñ‚è‚©‚ğ’²‚×‚é
+	//å³å›ã‚Šã‹å·¦å›ã‚Šã‹ã‚’èª¿ã¹ã‚‹
 	const auto v1 = vertex[1] - vertex[0];
 	const auto v2 = vertex[2] - vertex[1];
 
@@ -87,14 +85,14 @@ bool dl::Polygon2::IsConvex() const
 
 	return true;
 
-	//‚¿‚È‚İ‚Éˆ—‚Í‚·‚×‚Ägithun copilot‚ª‘‚¢‚Ä‚­‚ê‚½‚Ì‚ÅCˆ—‚Ì’†g‚Í‚æ‚­‚í‚©‚Á‚Ä‚¢‚È‚¢...
+	//ã¡ãªã¿ã«å‡¦ç†ã¯ã™ã¹ã¦githun copilotãŒæ›¸ã„ã¦ãã‚ŒãŸã®ã§ï¼Œå‡¦ç†ã®ä¸­èº«ã¯ã‚ˆãã‚ã‹ã£ã¦ã„ãªã„...
 }
 
-bool dl::Polygon2::IsInside(const Vector2& point) const
+bool Polygon2::IsInside(const Vector2& point) const
 {
 	const int num = GetVertexNum();
 
-	//‘ŠúƒŠƒ^[ƒ“.’¸“_”‚ª3–¢–‚Ìê‡‚Í‘½ŠpŒ`‚Å‚Í‚È‚¢
+	//æ—©æœŸãƒªã‚¿ãƒ¼ãƒ³.é ‚ç‚¹æ•°ãŒ3æœªæº€ã®å ´åˆã¯å¤šè§’å½¢ã§ã¯ãªã„
 	if (num < 3)
 	{
 		return false;
@@ -102,7 +100,7 @@ bool dl::Polygon2::IsInside(const Vector2& point) const
 
 	int cnt = 0;
 
-	//’¸“_‚ª‰E‰ñ‚è‚©¶‰ñ‚è‚©‚ğ’²‚×‚é
+	//é ‚ç‚¹ãŒå³å›ã‚Šã‹å·¦å›ã‚Šã‹ã‚’èª¿ã¹ã‚‹
 	bool is_left_turn = (vertex[1] - vertex[0]).Cross(vertex[2] - vertex[1]) > 0.0f;
 
 	if (!is_left_turn)
@@ -114,7 +112,7 @@ bool dl::Polygon2::IsInside(const Vector2& point) const
 
 			if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
 			{
-				return true;	//“_‚ª•Óã‚É‚ ‚é
+				return true;	//ç‚¹ãŒè¾ºä¸Šã«ã‚ã‚‹
 			}
 
 			if (v1.y < v2.y)
@@ -142,7 +140,7 @@ bool dl::Polygon2::IsInside(const Vector2& point) const
 
 			if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
 			{
-				return true;	//“_‚ª•Óã‚É‚ ‚é
+				return true;	//ç‚¹ãŒè¾ºä¸Šã«ã‚ã‚‹
 			}
 
 			if (v1.y > v2.y)
@@ -164,10 +162,10 @@ bool dl::Polygon2::IsInside(const Vector2& point) const
 
 	return (cnt % 2 == 1);
 
-	//‚¿‚È‚İ‚Éˆ—‚Í‚·‚×‚Ägithun copilot‚ª‘‚¢‚Ä‚­‚ê‚½‚Ì‚ÅCˆ—‚Ì’†g‚Í‚æ‚­‚í‚©‚Á‚Ä‚¢‚È‚¢...
+	//ã¡ãªã¿ã«å‡¦ç†ã¯ã™ã¹ã¦githun copilotãŒæ›¸ã„ã¦ãã‚ŒãŸã®ã§ï¼Œå‡¦ç†ã®ä¸­èº«ã¯ã‚ˆãã‚ã‹ã£ã¦ã„ãªã„...
 }
 
-std::string dl::Polygon2::ToString() const
+std::string Polygon2::ToString() const
 {
 	std::string res;
 
@@ -178,10 +176,10 @@ std::string dl::Polygon2::ToString() const
 		res += "Vertex " + std::to_string(i) + " : " + GetVertex(i).ToString() + "\n";
 	}
 
-	res += "Max X : " + dlm::ConvertFloatToString(GetMaxX()) + "\n";
-	res += "Min X : " + dlm::ConvertFloatToString(GetMinX()) + "\n";
-	res += "Max Y : " + dlm::ConvertFloatToString(GetMaxY()) + "\n";
-	res += "Min Y : " + dlm::ConvertFloatToString(GetMinY()) + "\n";
+	res += "Max X : " + math_util::ConvertFloatToString(GetMaxX()) + "\n";
+	res += "Min X : " + math_util::ConvertFloatToString(GetMinX()) + "\n";
+	res += "Max Y : " + math_util::ConvertFloatToString(GetMaxY()) + "\n";
+	res += "Min Y : " + math_util::ConvertFloatToString(GetMinY()) + "\n";
 
 	res += "Convex :";
 	res += (IsConvex() ? "TRUE" : "FALSE");
@@ -189,3 +187,5 @@ std::string dl::Polygon2::ToString() const
 
 	return res;
 }
+
+}	// namespace designlab

@@ -3,11 +3,10 @@
 #include "cassert_define.h"
 
 
-//参考 
-// https://marycore.jp/prog/cpp/std-string-split/
-// https://marycore.jp/prog/cpp/std-string-find-search/#find%EF%BC%8Frfind
+namespace designlab::string_util
+{
 
-std::vector<std::string> designlab::string_util::Split(const std::string& str, const std::string& separator)
+std::vector<std::string> Split(const std::string& str, const std::string& separator)
 {
 	std::vector<std::string> list;
 	const size_t separator_length = separator.length();
@@ -42,3 +41,5 @@ std::vector<std::string> designlab::string_util::Split(const std::string& str, c
 
 	return list;
 }
+
+} // namespace designlab::string_util

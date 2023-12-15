@@ -1,7 +1,6 @@
 ﻿//! @file designlab_avarage.h
 //! @brief 平均値，分散，標準偏差を求めるテンプレートクラス．
 
-
 #ifndef	DESIGNLAB_AVERAGE_CALCULATOR_H_
 #define DESIGNLAB_AVERAGE_CALCULATOR_H_
 
@@ -10,15 +9,15 @@
 #include <vector>
 
 
+namespace designlab
+{
+
 //! @class AverageCalculator
 //! @brief 平均値，分散，標準偏差を求めるテンプレートクラス．
 //! @tparam T 平均値，分散，標準偏差を求める型．
-template <typename T>
+template <typename T, typename = std::enable_if_t<std::is_arithmetic<T>::value>>
 class AverageCalculator final
 {
-	// T は足し算・割り算ができることを前提としている．
-	static_assert(std::is_arithmetic<T>::value, "足し算，割り算ができる変数を指定してください．");
-
 public:
 
 	AverageCalculator() :
@@ -30,7 +29,11 @@ public:
 	{
 	}
 
-	void AddData(const T& data)
+	//! @brief データを追加する．
+	//! @n この関数を呼び出すたびに，平均値，分散，標準偏差が再計算される．
+	//! @param[in] data 追加するデータ．
+	//! @param[in] do_calc 平均値，分散，標準偏差を再計算するかどうか．デフォルトでは再計算する．
+	void AddData(const T& data, const bool do_calc = true)
 	{
 		data_.push_back(data);
 
@@ -43,9 +46,14 @@ public:
 			sum_ = data;
 		}
 
-		Calculate();
+		if (do_calc)
+		{
+			Calculate();
+		}
 	}
 
+	//! @brief データをクリアする．
+	//! @note 平均値，分散，標準偏差はnulloptになる．
 	void Clear()
 	{
 		data_.clear();
@@ -55,6 +63,7 @@ public:
 		standard_deviation_ = std::nullopt;
 	}
 
+	//! @brief 平均値，分散，標準偏差を計算する．
 	void Calculate()
 	{
 		//データが空の場合は，平均値，分散，標準偏差をnulloptにする．
@@ -81,26 +90,36 @@ public:
 		standard_deviation_ = sqrt(variance_.value());
 	}
 
+	//! @brief 平均値を取得する．
+	//! @return std::optional<T> 平均値．データが空の場合はnullopt．
 	std::optional<T> GetAverage() const
 	{
 		return average_;
 	}
 
+	//! @brief 分散を取得する．
+	//! @return std::optional<T> 分散．データが空の場合はnullopt．
 	std::optional<T> GetVariance() const
 	{
 		return variance_;
 	}
 
+	//! @brief 標準偏差を取得する．
+	//! @return std::optional<T> 標準偏差．データが空の場合はnullopt．
 	std::optional<T> GetStandardDeviation() const
 	{
 		return standard_deviation_;
 	}
 
+	//! @brief データ数を取得する．
+	//! @return size_t データ数．
 	size_t GetDataNum() const
 	{
 		return data_.size();
 	}
 
+	//! @brief データの合計を取得する．
+	//! @return std::optional<T> データの合計．データが空の場合はnullopt．
 	std::optional<T> GetSum() const
 	{
 		return sum_;
@@ -113,6 +132,8 @@ private:
 	std::optional<T> variance_;
 	std::optional<T> standard_deviation_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_AVERAGE_CALCULATOR_H_

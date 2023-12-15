@@ -60,7 +60,7 @@ void SystemMainSimulation::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < kSimurateNum; i++)
 	{
-		NodeInitializer node_initializer{ {0,0,30},dle::HexapodMove::kLegUpDown };		//ノードを初期化するクラスを用意する．
+		NodeInitializer node_initializer{ {300,300,40},dle::HexapodMove::kLegUpDown };		//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
 		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．

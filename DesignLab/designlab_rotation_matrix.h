@@ -1,9 +1,8 @@
-//! @file designlab_rotation_matrix.h
-//! @brief ‰ñ“]s—ñ‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_rotation_matrix.h
+//! @brief å›è»¢è¡Œåˆ—ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
 
 #ifndef DESIGNLAB_ROTATION_MATRIX_H_
 #define DESIGNLAB_ROTATION_MATRIX_H_
-
 
 #include <array>
 
@@ -11,83 +10,85 @@
 #include "designlab_vector3.h"
 
 
-namespace designlab 
+namespace designlab
 {
-	//! @struct designlab::RotationMatrix3x3
-	//! @brief 3ŸŒ³‚Ì‰ñ“]s—ñ‚ğ•\‚·\‘¢‘Ì
-	//! 	@details ‰ñ“]s—ñ‚É‚Â‚¢‚Ä
-	//! @n https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
-	//! @n https://programming-surgeon.com/script/euler-angle/
-	struct RotationMatrix3x3 final
-	{
-		//! @brief ’PˆÊs—ñ‚ğ¶¬‚·‚é
-		RotationMatrix3x3() : element({ {
-			{ 1.0f, 0.0f, 0.0f },
-			{ 0.0f, 1.0f, 0.0f },
-			{ 0.0f, 0.0f, 1.0f }
-		} }) {};
 
-		//! @brief ”CˆÓ‚Ì‰ñ“]s—ñ‚ğ¶¬‚·‚é
-		RotationMatrix3x3(
-			const float r11, const float r12, const float r13,
-			const float r21, const float r22, const float r23,
-			const float r31, const float r32, const float r33
-		) : element({ {
-			{ r11, r12, r13 },
-			{ r21, r22, r23 },
-			{ r31, r32, r33 }
-		} }) {};
+//! @struct designlab::RotationMatrix3x3
+//! @brief 3æ¬¡å…ƒã®å›è»¢è¡Œåˆ—ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+//! 	@details å›è»¢è¡Œåˆ—ã«ã¤ã„ã¦ï¼
+//! @li https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
+//! @li https://programming-surgeon.com/script/euler-angle/
+struct RotationMatrix3x3 final
+{
+	//! @brief å˜ä½è¡Œåˆ—ã‚’ç”Ÿæˆã™ã‚‹
+	RotationMatrix3x3() : element({ {
+		{ 1.0f, 0.0f, 0.0f },
+		{ 0.0f, 1.0f, 0.0f },
+		{ 0.0f, 0.0f, 1.0f }
+	} }) {};
 
-		RotationMatrix3x3(const RotationMatrix3x3& other) = default;
-		RotationMatrix3x3(RotationMatrix3x3&& other) noexcept = default;
-		RotationMatrix3x3& operator =(const RotationMatrix3x3& other) = default;
-		~RotationMatrix3x3() = default;
+	//! @brief ä»»æ„ã®å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆã™ã‚‹
+	RotationMatrix3x3(
+		const float r11, const float r12, const float r13,
+		const float r21, const float r22, const float r23,
+		const float r31, const float r32, const float r33
+	) : element({ {
+		{ r11, r12, r13 },
+		{ r21, r22, r23 },
+		{ r31, r32, r33 }
+	} }) {};
 
-		RotationMatrix3x3 operator* (const RotationMatrix3x3& other) const;
+	RotationMatrix3x3(const RotationMatrix3x3& other) = default;
+	RotationMatrix3x3(RotationMatrix3x3&& other) noexcept = default;
+	RotationMatrix3x3& operator =(const RotationMatrix3x3& other) = default;
+	~RotationMatrix3x3() = default;
 
-
-		//! @brief ‰ñ“]s—ñ‚ğXYZƒIƒCƒ‰[Šp‚É•ÏŠ·‚·‚éD
-		//! @return XYZƒIƒCƒ‰[Šp
-		[[nodiscard]] EulerXYZ ToEulerXYZ() const;
-
-		//! @brief x²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
-		//! @param [in] angle ‰ñ“]Šp [rad]
-		//! @return x²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixX(float angle);
-
-		//! @brief y²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
-		//! @param [in] angle ‰ñ“]Šp [rad]
-		//! @return y²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixY(float angle);
-
-		//! @brief z²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ‚ğ¶¬‚·‚é
-		//! @param [in] angle ‰ñ“]Šp [rad]
-		//! @return z²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
-		static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixZ(float angle);
+	RotationMatrix3x3 operator* (const RotationMatrix3x3& other) const;
 
 
-		//! @brief ‰ñ“]s—ñ‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éD
-		//! @return std::string ‰ñ“]s—ñ‚ğ•\‚·•¶š—ñD
-		[[nodiscard]] std::string ToString() const;
-		
+	//! @brief å›è»¢è¡Œåˆ—ã‚’XYZã‚ªã‚¤ãƒ©ãƒ¼è§’ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @return XYZã‚ªã‚¤ãƒ©ãƒ¼è§’
+	[[nodiscard]] EulerXYZ ToEulerXYZ() const;
 
-		//! ƒf[ƒ^‚Ì•À‚Ñ‚É‚Â‚¢‚Ä
-		//! @n | R11 R12 R13 |
-		//! @n | R21 R22 R23 |   
-		//! @n | R31 R32 R33 |
-		//! @n
-		//! @n R11‚Íelement[0][0]CR12‚Íelement[0][1]CR32‚Íelement[2][1]‚Æ‚È‚éD
-		//! @n ‚Â‚Ü‚èCelement[ s - 1 ][ —ñ - 1 ]‚Æ‚È‚éD
-		std::array<std::array<float,3>, 3> element;
-	};
+	//! @brief xè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆã™ã‚‹
+	//! @param [in] angle å›è»¢è§’ [rad]
+	//! @return xè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—
+	static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixX(float angle);
+
+	//! @brief yè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆã™ã‚‹
+	//! @param [in] angle å›è»¢è§’ [rad]
+	//! @return yè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—
+	static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixY(float angle);
+
+	//! @brief zè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆã™ã‚‹
+	//! @param [in] angle å›è»¢è§’ [rad]
+	//! @return zè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—
+	static [[nodiscard]] RotationMatrix3x3 CreateRotationMatrixZ(float angle);
 
 
-	//! @brief ‰ñ“]‚³‚¹‚½ƒxƒNƒgƒ‹‚ğ•Ô‚·
-	//! @param [in] vec ‰ñ“]‚³‚¹‚éƒxƒNƒgƒ‹
-	//! @param [in] rot ‰ñ“]s—ñ
-	Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot);
+	//! @brief å›è»¢è¡Œåˆ—ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @return std::string å›è»¢è¡Œåˆ—ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼
+	[[nodiscard]] std::string ToString() const;
 
-}
+
+	//! ãƒ‡ãƒ¼ã‚¿ã®ä¸¦ã³ã«ã¤ã„ã¦
+	//! @n | R11 R12 R13 |
+	//! @n | R21 R22 R23 |   
+	//! @n | R31 R32 R33 |
+	//! @n
+	//! @n R11ã¯element[0][0]ï¼ŒR12ã¯element[0][1]ï¼ŒR32ã¯element[2][1]ã¨ãªã‚‹ï¼
+	//! @n ã¤ã¾ã‚Šï¼Œelement[ è¡Œ - 1 ][ åˆ— - 1 ]ã¨ãªã‚‹ï¼
+	std::array<std::array<float, 3>, 3> element;
+};
+
+
+//! @brief å›è»¢ã•ã›ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’è¿”ã™
+//! @param [in] vec å›è»¢ã•ã›ã‚‹ãƒ™ã‚¯ãƒˆãƒ«
+//! @param [in] rot å›è»¢è¡Œåˆ—
+Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot);
+
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_ROTATION_MATRIX_H_

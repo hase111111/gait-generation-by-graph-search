@@ -6,9 +6,8 @@
 #include "cmdio_util.h"
 
 
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
-
+namespace designlab
+{
 
 void FileTree::DisplayFileTree(const std::string& path, int max_depth) const
 {
@@ -26,37 +25,37 @@ bool FileTree::SelectFile(const std::string& path, int max_depth, const std::str
 	FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
 
 	// ファイルツリーを表示
-	dlio::OutputHorizontalLine("*", dle::OutputDetail::kSystem);
+	cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
 
 	int count = 0;
 	OutputFileTree(tree, 0, true, &count);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-	dlio::OutputHorizontalLine("*", dle::OutputDetail::kSystem);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	// ファイルを選択
 	std::vector<std::string> file_list = MakeFileList(tree);
 
 	if (file_list.empty())
 	{
-		dlio::Output("ファイルが存在しませんでした．", dle::OutputDetail::kSystem);
+		cmdio::Output("ファイルが存在しませんでした．", enums::OutputDetail::kSystem);
 		return false;
 	}
 
 	while (true)
 	{
-		int select_index = dlio::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ファイルを選択してください．整数で入力してください．");
+		int select_index = cmdio::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ファイルを選択してください．整数で入力してください．");
 
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-		dlio::Output("選択したファイルは" + file_list[select_index] + "です．", dle::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		cmdio::Output("選択したファイルは" + file_list[select_index] + "です．", enums::OutputDetail::kSystem);
 
-		if (dlio::InputYesNo("よろしいですか？"))
+		if (cmdio::InputYesNo("よろしいですか？"))
 		{
 			*output = file_list[select_index];
 			break;
 		}
 
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 	}
 
 	return true;
@@ -126,13 +125,13 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth, bool not_disp
 	{
 		// ディレクトリ名を出力する際に，パスの階層を削除する
 
-		dlio::Output(indent, dle::OutputDetail::kSystem);
+		cmdio::Output(indent, enums::OutputDetail::kSystem);
 
 		std::string::size_type pos = tree.path.find_last_of("/\\");
 		std::string dir_name = ((depth == 0) ? "" : "- ");
 		dir_name += std::string("[ ") + tree.path.substr(pos + 1) + std::string(" ]");
 
-		dlio::Output(indent + dir_name, dle::OutputDetail::kSystem);
+		cmdio::Output(indent + dir_name, enums::OutputDetail::kSystem);
 	}
 
 	for (const auto& directory : tree.directory)
@@ -142,11 +141,11 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth, bool not_disp
 
 	if (not tree.file.empty())
 	{
-		dlio::Output(indent + "|", dle::OutputDetail::kSystem);
+		cmdio::Output(indent + "|", enums::OutputDetail::kSystem);
 
 		for (const auto& file : tree.file)
 		{
-			dlio::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", dle::OutputDetail::kSystem);
+			cmdio::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", enums::OutputDetail::kSystem);
 
 			(*file_count)++;
 		}
@@ -171,3 +170,5 @@ std::vector<std::string> FileTree::MakeFileList(const FileTreeData& tree) const
 
 	return file_list;
 }
+
+} // namespace designlab

@@ -1,44 +1,45 @@
-#include "leg_state.h"
+ï»¿#include "leg_state.h"
 
 #include "cassert_define.h"
 
+namespace designlab::leg_func
+{
 
-designlab::leg_func::LegStateBit designlab::leg_func::MakeLegStateBit(
-	const DiscreteComPos discrete_com_pos, 
+LegStateBit MakeLegStateBit(
+	const DiscreteComPos discrete_com_pos,
 	const std::array<bool, HexapodConst::kLegNum>& is_ground,
 	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
 )
 {
 	LegStateBit res = 0;
 
-	LegStateBit discrete_com_pos_bit = static_cast<unsigned int>(discrete_com_pos);		//bit‚É•ÏŠ·‚·‚é
-	res |= discrete_com_pos_bit << kShiftToComNum;	//dSƒpƒ^[ƒ“‚Ì”’l‚¾‚¯bit‚ğ—§‚Ä‚é
-
+	LegStateBit discrete_com_pos_bit = static_cast<unsigned int>(discrete_com_pos);		//bitã«å¤‰æ›ã™ã‚‹
+	res |= discrete_com_pos_bit << kShiftToComNum;	//é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã®æ•°å€¤ã ã‘bitã‚’ç«‹ã¦ã‚‹
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		//Ú’n‚µ‚Ä‚¢‚é‚È‚ç‚ÎãˆÊbit‚ğ—§‚Ä‚é
+		//æ¥åœ°ã—ã¦ã„ã‚‹ãªã‚‰ã°ä¸Šä½bitã‚’ç«‹ã¦ã‚‹
 		size_t ground_bit_index = static_cast<size_t>(i + 1) * 4 - 1;
 		if (is_ground[i]) { res[ground_bit_index] = true; }
 
-		// ‹r‚Ìbit‚ğ—§‚Ä‚é
-		LegStateBit discrete_leg_pos_bit = static_cast<unsigned int>(discretized_leg_pos[i]);	//bit‚É•ÏŠ·‚·‚é
-		size_t shift_num = static_cast<size_t>(i) * 4;	//4bit‚¸‚Â‚¸‚ç‚·
+		// è„šã®bitã‚’ç«‹ã¦ã‚‹
+		LegStateBit discrete_leg_pos_bit = static_cast<unsigned int>(discretized_leg_pos[i]);	//bitã«å¤‰æ›ã™ã‚‹
+		size_t shift_num = static_cast<size_t>(i) * 4;	//4bitãšã¤ãšã‚‰ã™
 
-		res |= discrete_leg_pos_bit << shift_num;	//‹r‚ÌˆÊ’u‚Ì”’l‚¾‚¯bit‚ğ—§‚Ä‚é
+		res |= discrete_leg_pos_bit << shift_num;	//è„šã®ä½ç½®ã®æ•°å€¤ã ã‘bitã‚’ç«‹ã¦ã‚‹
 	}
 
 	return res;
 }
 
 
-bool designlab::leg_func::IsGrounded(const LegStateBit& leg_state, const int leg_index)
+bool IsGrounded(const LegStateBit& leg_state, const int leg_index)
 {
-	// leg_index‚Í0`5‚Ì”ÍˆÍ‚É‚ ‚é•K—v‚ª‚ ‚éD
+	// leg_indexã¯0ï½5ã®ç¯„å›²ã«ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	//w’è‚³‚ê‚½‹r‚ÌÚ’n‹r‚Ìbit‚ª—§‚Á‚Ä‚¢‚é‚©’²‚×‚é
+	//æŒ‡å®šã•ã‚ŒãŸè„šã®æ¥åœ°è„šã®bitãŒç«‹ã£ã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹
 	size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
 
 	if (leg_state[ground_bit_index])
@@ -51,7 +52,7 @@ bool designlab::leg_func::IsGrounded(const LegStateBit& leg_state, const int leg
 	}
 }
 
-designlab::leg_func::LegGroundedBit designlab::leg_func::GetLegGroundedBit(const LegStateBit& leg_state)
+LegGroundedBit GetLegGroundedBit(const LegStateBit& leg_state)
 {
 	LegGroundedBit res;
 
@@ -70,16 +71,16 @@ designlab::leg_func::LegGroundedBit designlab::leg_func::GetLegGroundedBit(const
 	return res;
 }
 
-int designlab::leg_func::GetGroundedLegNum(const LegStateBit& leg_state)
+int GetGroundedLegNum(const LegStateBit& leg_state)
 {
 	int res = 0;
 
-	//‹r‚Ì–{”•ªƒ‹[ƒv‚·‚é
+	//è„šã®æœ¬æ•°åˆ†ãƒ«ãƒ¼ãƒ—ã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (IsGrounded(leg_state, i))
 		{
-			//Ú’n‚µ‚Ä‚¢‚é‹r‚ª‚ ‚ê‚ÎƒJƒEƒ“ƒgƒAƒbƒv‚·‚é
+			//æ¥åœ°ã—ã¦ã„ã‚‹è„šãŒã‚ã‚Œã°ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹
 			res++;
 		}
 	}
@@ -87,121 +88,121 @@ int designlab::leg_func::GetGroundedLegNum(const LegStateBit& leg_state)
 	return res;
 }
 
-int designlab::leg_func::GetLiftedLegNum(const LegStateBit& leg_state)
+int GetLiftedLegNum(const LegStateBit& leg_state)
 {
 	return HexapodConst::kLegNum - GetGroundedLegNum(leg_state);
 }
 
-void designlab::leg_func::GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
+void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
-	// res_index‚Ínullptr‚Å‚È‚¢‚±‚ÆC‚©‚Â‹ó‚Å‚ ‚é•K—v‚ª‚ ‚é
+	// res_indexã¯nullptrã§ãªã„ã“ã¨ï¼Œã‹ã¤ç©ºã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹
 	assert(res_index != nullptr);
 	assert((*res_index).size() == 0);
 
-	//‹r‚Í6–{‚ ‚é‚Ì‚Å6‰ñƒ‹[ƒv‚·‚é
+	//è„šã¯6æœ¬ã‚ã‚‹ã®ã§6å›ãƒ«ãƒ¼ãƒ—ã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (IsGrounded(leg_state, i))
 		{
-			//Ú’n‚µ‚Ä‚¢‚é‹r‚Ì‹r”Ô†‚ğvector‚É‘ã“ü
+			//æ¥åœ°ã—ã¦ã„ã‚‹è„šã®è„šç•ªå·ã‚’vectorã«ä»£å…¥
 			(*res_index).push_back(i);
 		}
 	}
 }
 
-void designlab::leg_func::GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
+void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
-	// res_index‚Ínullptr‚Å‚È‚¢‚±‚ÆC‚©‚Â‹ó‚Å‚ ‚é•K—v‚ª‚ ‚é
+	// res_indexã¯nullptrã§ãªã„ã“ã¨ï¼Œã‹ã¤ç©ºã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹
 	assert(res_index != nullptr);
 	assert((*res_index).size() == 0);
 
-	//‹r‚Í6–{‚ ‚é‚Ì‚Å6‰ñƒ‹[ƒv‚·‚é
+	//è„šã¯6æœ¬ã‚ã‚‹ã®ã§6å›ãƒ«ãƒ¼ãƒ—ã™ã‚‹
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		if (!IsGrounded(leg_state, i))
 		{
-			//•‚‚¢‚Ä‚¢‚é‹r‚Ì‹r”Ô†‚ğvector‚É‘ã“ü
+			//æµ®ã„ã¦ã„ã‚‹è„šã®è„šç•ªå·ã‚’vectorã«ä»£å…¥
 			(*res_index).push_back(i);
 		}
 	}
 }
 
-DiscreteLegPos designlab::leg_func::GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
+DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 {
-	// leg_index‚Í0`5‚Ì”ÍˆÍ‚É‚ ‚é•K—v‚ª‚ ‚éD
+	// leg_indexã¯0ï½5ã®ç¯„å›²ã«ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	const int shift_num = 4 * leg_index;	//4bit‚¸‚Â‚¸‚ç‚·
+	const int shift_num = 4 * leg_index;	//4bitãšã¤ãšã‚‰ã™
 
 	const int res = static_cast<int>(((leg_state & (kLegPosMaskbit << shift_num)) >> shift_num).to_ulong());
 
 	return static_cast<DiscreteLegPos>(res);
 }
 
-DiscreteComPos designlab::leg_func::GetDiscreteComPos(const LegStateBit& leg_state)
+DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
 {
-	//dSƒpƒ^[ƒ“‚ğ•Û‘¶‚·‚éƒrƒbƒg‚ğƒ}ƒXƒN‚µC‚»‚Ì’l‚¾‚¯æ“¾‚Å‚«‚é‚æ‚¤‚É‰E‚ÖƒVƒtƒg‚·‚éD
+	//é‡å¿ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä¿å­˜ã™ã‚‹ãƒ“ãƒƒãƒˆã‚’ãƒã‚¹ã‚¯ã—ï¼Œãã®å€¤ã ã‘å–å¾—ã§ãã‚‹ã‚ˆã†ã«å³ã¸ã‚·ãƒ•ãƒˆã™ã‚‹ï¼
 	const int res = static_cast<int>(((leg_state & kComStateMaskbit) >> kShiftToComNum).to_ulong());
 
 	return static_cast<DiscreteComPos>(res);
 }
 
 
-void designlab::leg_func::ChangeLegState(
-	const int leg_index, 
+void ChangeLegState(
+	const int leg_index,
 	const DiscreteLegPos new_discretized_leg_pos,
 	const bool is_ground,
 	LegStateBit* leg_state
 )
 {
-	// leg_index‚Í0`5‚Ì”ÍˆÍ‚É‚ ‚é•K—v‚ª‚ ‚éD
+	// leg_indexã¯0ï½5ã®ç¯„å›²ã«ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	// leg_state ‚Í nullptr‚Å‚Í‚È‚¢
+	// leg_state ã¯ nullptrã§ã¯ãªã„
 	assert(leg_state != nullptr);
 
 	ChangeDiscreteLegPos(leg_index, new_discretized_leg_pos, leg_state);
 	ChangeGround(leg_index, is_ground, leg_state);
 }
 
-void designlab::leg_func::ChangeDiscreteLegPos(
-	const int leg_index, 
+void ChangeDiscreteLegPos(
+	const int leg_index,
 	const DiscreteLegPos new_discretized_leg_pos,
 	LegStateBit* leg_state
 )
 {
-	// leg_index‚Í0`5‚Ì”ÍˆÍ‚É‚ ‚é•K—v‚ª‚ ‚éD
+	// leg_indexã¯0ï½5ã®ç¯„å›²ã«ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	// leg_state ‚Í nullptr‚Å‚Í‚È‚¢
+	// leg_state ã¯ nullptrã§ã¯ãªã„
 	assert(leg_state != nullptr);
 
 
-	//V‚µ‚¢‹ró‘Ô‚ğ¶¬‚·‚é
-	const size_t shift_num = static_cast<size_t>(leg_index) * 4;									//4bit‚¸‚Â‚¸‚ç‚·
-	const LegStateBit mask = kLegPosMaskbit << shift_num;											//4bit‚Ìƒf[ƒ^‚ğ•ÏX‚·‚é’n“_‚Ü‚Åƒ}ƒXƒN‚ğ‚¸‚ç‚·
-	const LegStateBit discreate_leg_pos_bit = static_cast<unsigned int>(new_discretized_leg_pos);	//bit‚É•ÏŠ·‚·‚é
-	const LegStateBit state = discreate_leg_pos_bit << shift_num;	//‹rˆÊ’u‚Ìƒf[ƒ^‚Í4bit‚Ã‚Â”z’u‚³‚ê‚Ä‚¢‚é‚Ì‚Å‚»‚ÌˆÊ’u‚Ü‚ÅˆÚ“®‚·‚é
+	//æ–°ã—ã„è„šçŠ¶æ…‹ã‚’ç”Ÿæˆã™ã‚‹
+	const size_t shift_num = static_cast<size_t>(leg_index) * 4;									//4bitãšã¤ãšã‚‰ã™
+	const LegStateBit mask = kLegPosMaskbit << shift_num;											//4bitã®ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ›´ã™ã‚‹åœ°ç‚¹ã¾ã§ãƒã‚¹ã‚¯ã‚’ãšã‚‰ã™
+	const LegStateBit discreate_leg_pos_bit = static_cast<unsigned int>(new_discretized_leg_pos);	//bitã«å¤‰æ›ã™ã‚‹
+	const LegStateBit state = discreate_leg_pos_bit << shift_num;	//è„šä½ç½®ã®ãƒ‡ãƒ¼ã‚¿ã¯4bitã¥ã¤é…ç½®ã•ã‚Œã¦ã„ã‚‹ã®ã§ãã®ä½ç½®ã¾ã§ç§»å‹•ã™ã‚‹
 
-	//•‚‚¢‚Ä‚¢‚é‹r‚Ì‹rˆÊ’u‚Ì‚İ‚ğ•ÏXi”r‘¼“I˜_—˜a‚É‚æ‚é“Á’èƒrƒbƒg‚ÌŒğŠ· https://qiita.com/vivisuke/items/bc707190e008551ca07fj
+	//æµ®ã„ã¦ã„ã‚‹è„šã®è„šä½ç½®ã®ã¿ã‚’å¤‰æ›´ï¼ˆæ’ä»–çš„è«–ç†å’Œã«ã‚ˆã‚‹ç‰¹å®šãƒ“ãƒƒãƒˆã®äº¤æ› https://qiita.com/vivisuke/items/bc707190e008551ca07fï¼‰
 	LegStateBit res = ((*leg_state) ^ state) & mask;
 	(*leg_state) ^= res;
 }
 
-void designlab::leg_func::ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
+void ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
 {
-	// leg_index‚Í0`5‚Ì”ÍˆÍ‚É‚ ‚é•K—v‚ª‚ ‚éD
+	// leg_indexã¯0ï½5ã®ç¯„å›²ã«ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
 	assert(0 <= leg_index);
 	assert(leg_index < HexapodConst::kLegNum);
 
-	// leg_state ‚Í nullptr‚Å‚Í‚È‚¢
+	// leg_state ã¯ nullptrã§ã¯ãªã„
 	assert(leg_state != nullptr);
 
 
-	//w’è‚³‚ê‚½‹r‚ÌÚ’n‹r‚Ìbit‚ğ—§‚Ä‚é‚©Á‚·‚©‚·‚é
+	//æŒ‡å®šã•ã‚ŒãŸè„šã®æ¥åœ°è„šã®bitã‚’ç«‹ã¦ã‚‹ã‹æ¶ˆã™ã‹ã™ã‚‹
 	const size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
 
 	if (is_ground)
@@ -214,9 +215,9 @@ void designlab::leg_func::ChangeGround(const int leg_index, const bool is_ground
 	}
 }
 
-void designlab::leg_func::ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
+void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
 {
-	// leg_state ‚Í nullptr‚Å‚Í‚È‚¢
+	// leg_state ã¯ nullptrã§ã¯ãªã„
 	assert(leg_state != nullptr);
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -225,12 +226,14 @@ void designlab::leg_func::ChangeAllLegGround(const LegGroundedBit& is_ground_lis
 	}
 }
 
-void designlab::leg_func::ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
+void ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 {
-	// leg_state ‚Í nullptr‚Å‚Í‚È‚¢
+	// leg_state ã¯ nullptrã§ã¯ãªã„
 	assert(leg_state != nullptr);
 
 	const LegStateBit state = static_cast<unsigned int>(new_com_pattern) << kShiftToComNum;
 	LegStateBit sub = ((*leg_state) ^ state) & kComStateMaskbit;
 	(*leg_state) ^= sub;
 }
+
+}	// namespace designlab::leg_func

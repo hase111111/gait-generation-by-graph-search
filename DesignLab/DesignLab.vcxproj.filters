@@ -773,9 +773,6 @@
     <ClCompile Include="phantomx_renderer_model.cpp">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
-    <ClCompile Include="ros_main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="graph_tree_creator.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClCompile>

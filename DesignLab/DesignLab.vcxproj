@@ -223,7 +223,6 @@
     <ClCompile Include="gait_pattern_generator_revaluation.cpp" />
     <ClCompile Include="phantomx_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
-    <ClCompile Include="ros_main.cpp" />
     <ClCompile Include="simulation_end_checker_by_goal_tape.cpp" />
     <ClCompile Include="simulation_end_checker_by_position.cpp" />
     <ClCompile Include="simulation_end_checker_by_posture.cpp" />

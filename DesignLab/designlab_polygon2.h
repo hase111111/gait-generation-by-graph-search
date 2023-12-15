@@ -1,14 +1,12 @@
-//! @file designlab_polygon2.h
-//! @brief ‘½ŠpŒ`‚ğ•\‚·\‘¢‘Ì
+ï»¿//! @file designlab_polygon2.h
+//! @brief 2æ¬¡å…ƒã®å¤šè§’å½¢ã‚’è¡¨ã™æ§‹é€ ä½“
 
-
-#ifndef DESIGNLAB_POLYGON2_H
-#define DESIGNLAB_POLYGON2_H
-
+#ifndef DESIGNLAB_POLYGON2_H_
+#define DESIGNLAB_POLYGON2_H_
 
 #include <array>
-#include <string>
 #include <optional>
+#include <string>
 #include <vector>
 
 #include "cassert_define.h"
@@ -18,192 +16,192 @@
 namespace designlab
 {
 
-	static constexpr int kMaxVertexNum = 6;	//!< ‘¬“x‚ğ‘‚­‚·‚é‚½‚ß‚É‚ ‚ç‚©‚¶‚ßÅ‘åƒTƒCƒY‚ğŒˆ’è‚µ‚Ä‚¨‚­D
+static constexpr int kMaxVertexNum = 6;	//!< é€Ÿåº¦ã‚’æ—©ãã™ã‚‹ãŸã‚ã«ã‚ã‚‰ã‹ã˜ã‚æœ€å¤§ã‚µã‚¤ã‚ºã‚’æ±ºå®šã—ã¦ãŠãï¼
 
 
-	//! @struct designlab::Polygon2
-	//! @brief 2ŸŒ³‚Ì‘½ŠpŒ`‚ğ•\‚·\‘¢‘Ì
-	//! @details 2ŸŒ³‚Ì‘½ŠpŒ`‚ğ•\‚·\‘¢‘ÌD
-	//! @n ’¸“_‚Í”½Œv‰ñ‚èCˆ½‚¢‚ÍŒv‰ñ‚è‚É•À‚ñ‚Å‚¢‚é•K—v‚ª‚ ‚éD
-	//! @n ‚»‚¤‚Å‚È‚¢ê‡‚Í‚¢‚­‚Â‚©‚ÌŠÖ”‚ª³í‚É“®ì‚µ‚È‚¢D
-	//! @n
-	//! @n ‚Ü‚½C’¸“_‚Ì”‚ÍÅ‘å‚ÅkMaxVertexNumŒÂ‚Ü‚Å‚µ‚©“o˜^‚Å‚«‚È‚¢D
-	//! @n ‚±‚ê‚Í“®ì‚Ì‚‘¬‰»‚Ì‚½‚ß‚ÉŠm•Û‚µ‚½”z—ñ‚ÌƒTƒCƒY‚ğŒÅ’è‚µ‚Ä‚¢‚é‚½‚ß‚Å‚ ‚éD
-	//! @n ‚±‚Ì’l‚ğ•ÏX‚·‚éê‡‚ÍCƒR[ƒh’†‚ÌkMaxVertexNum‚Ì’l‚ğ•ÏX‚·‚é•K—v‚ª‚ ‚éD
-	//! @n
-	//! @n ‚È‚¨CƒR[ƒh’†‚ÌmaxŠÖ”CminŠÖ”‚É‚Â‚¢‚Ä‚ÍˆÈ‰º‚ğQÆD
-	//! @n QÆ : https://cpprefjp.github.io/reference/algorithm/max.html
-	struct Polygon2 final
+//! @struct designlab::Polygon2
+//! @brief 2æ¬¡å…ƒã®å¤šè§’å½¢ã‚’è¡¨ã™æ§‹é€ ä½“
+//! @details 
+//! @n é ‚ç‚¹ã¯åæ™‚è¨ˆå›ã‚Šï¼Œæˆ–ã„ã¯æ™‚è¨ˆå›ã‚Šã«ä¸¦ã‚“ã§ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+//! ãã†ã§ãªã„å ´åˆã¯ã„ãã¤ã‹ã®é–¢æ•°ãŒæ­£å¸¸ã«å‹•ä½œã—ãªã„ï¼
+//! @n
+//! @n ã¾ãŸï¼Œé ‚ç‚¹ã®æ•°ã¯æœ€å¤§ã§kMaxVertexNumå€‹ã¾ã§ã—ã‹ç™»éŒ²ã§ããªã„ï¼
+//! ã“ã‚Œã¯å‹•ä½œã®é«˜é€ŸåŒ–ã®ãŸã‚ã«ç¢ºä¿ã—ãŸé…åˆ—ã®ã‚µã‚¤ã‚ºã‚’å›ºå®šã—ã¦ã„ã‚‹ãŸã‚ã§ã‚ã‚‹ï¼
+//! ã“ã®å€¤ã‚’å¤‰æ›´ã™ã‚‹å ´åˆã¯ï¼Œã‚³ãƒ¼ãƒ‰ä¸­ã®kMaxVertexNumã®å€¤ã‚’å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+//! @n
+//! @n ãªãŠï¼Œã‚³ãƒ¼ãƒ‰ä¸­ã®maxé–¢æ•°ï¼Œminé–¢æ•°ã«ã¤ã„ã¦ã¯ä»¥ä¸‹ã‚’å‚ç…§ï¼
+//! @n å‚ç…§ : https://cpprefjp.github.io/reference/algorithm/max.html
+struct Polygon2 final
+{
+
+	constexpr Polygon2() : vertex_num(0) {};
+
+	Polygon2(const std::vector<Vector2>& vertex);
+
+
+	//! @brief é ‚ç‚¹ã‚’è¿½åŠ ã™ã‚‹é–¢æ•°
+	//! @param [in] v è¿½åŠ ã™ã‚‹é ‚ç‚¹
+	//! @note ä»–ã®é ‚ç‚¹ã¨é‡ãªã£ã¦ã„ã‚‹å ´åˆã§ã‚‚è¿½åŠ ã™ã‚‹ï¼
+	constexpr void AddVertex(const Vector2& v)
 	{
+		vertex[vertex_num] = v;
+		++vertex_num;
 
-		constexpr Polygon2() : vertex_num(0) {};
-
-		Polygon2(const std::vector<Vector2>& vertex);
-
-
-		//! @brief ’¸“_‚ğ’Ç‰Á‚·‚éŠÖ”
-		//! @param [in] v ’Ç‰Á‚·‚é’¸“_
-		//! @note ‘¼‚Ì’¸“_‚Æd‚È‚Á‚Ä‚¢‚éê‡‚Å‚à’Ç‰Á‚·‚éD
-		constexpr void AddVertex(const Vector2& v)
-		{
-			vertex[vertex_num] = v;
-			++vertex_num;
-
-			assert(vertex_num <= kMaxVertexNum);	// ’¸“_”‚ÍÅ‘å’l‚ğ’´‚¦‚Ä‚Í‚¢‚¯‚È‚¢
-		}
-
-		//! @brief ’¸“_‚ğ’Ç‰Á‚·‚éŠÖ”D‘¼‚Ì’¸“_‚Æd‚È‚Á‚Ä‚¢‚éê‡‚Í’Ç‰Á‚µ‚È‚¢D
-		//! @param[in] v ’Ç‰Á‚·‚é’¸“_‚ÌÀ•W
-		//! @note ‘¼‚Ì’¸“_‚Æd‚È‚Á‚Ä‚¢‚éê‡‚Í’Ç‰Á‚µ‚È‚¢D‚±‚Ìˆ—‚Ì•ª‚¾‚¯’x‚­‚È‚é‚Ì‚ÅCd‚È‚é‚±‚Æ‚ª‚È‚¢ê‡‚ÍaddVertex‚ğg‚¤‚±‚Æ
-		//! @return bool ’Ç‰Á‚Å‚«‚½‚©‚Ç‚¤‚©C’Ç‰Á‚Å‚«‚½ê‡‚ÍtrueC’Ç‰Á‚Å‚«‚È‚©‚Á‚½ê‡‚Ífalse
-		bool AddVertexCheckForDuplicates(const Vector2& v);
-
-
-		//! @brief ’¸“_‚ğíœ‚·‚éŠÖ”D’x‚¢‚Ì‚Å‘½—p‚·‚é‚×‚«‚Å‚Í‚È‚¢
-		//! @param [in] index íœ‚·‚é’¸“_‚ÌƒCƒ“ƒfƒbƒNƒX
-		//! @note ‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚µ‚½ê‡‚Í‰½‚à‚µ‚È‚¢D
-		//! @note íœ‚µ‚½’¸“_‚ÌƒCƒ“ƒfƒbƒNƒX‚Í•Ï‚í‚é‚Ì‚Å’ˆÓD
-		void RemoveVertex(const int index);
-
-		//! @brief 1”ÔÅŒã‚Ì’¸“_‚ğíœ‚·‚éŠÖ”
-		//! @note ’¸“_‚ª1‚Â‚à‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢D
-		constexpr void RemoveLastVertex()
-		{
-			if (GetVertexNum() == 0)
-			{
-				return;
-			}
-
-			--vertex_num;
-		}
-
-		//! @brief ‘½ŠpŒ`‚ğƒŠƒZƒbƒg‚·‚éŠÖ”
-		//! @n ’¸“_‚ğíœ‚µ‚ÄC’¸“_”‚ğ0‚É‚·‚éD
-		constexpr void Reset() { vertex_num = 0; }
-
-		//! @brief ‘½ŠpŒ`‚Ì’¸“_”‚ğ•Ô‚·ŠÖ”
-		//! @return int ‘½ŠpŒ`‚Ì’¸“_”
-		constexpr int GetVertexNum() const { return vertex_num; }
-
-		//! @brief ’¸“_‚ÌÀ•W‚ğ•Ô‚·ŠÖ”
-		//! @param [in] i ’¸“_‚ÌƒCƒ“ƒfƒbƒNƒX
-		//! @return Vector2 ’¸“_‚ÌÀ•W
-		//! @n ‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚µ‚½ê‡‚Í(0,0)‚ğ•Ô‚·D
-		constexpr Vector2 GetVertex(const int i) const
-		{
-			if (i < 0 || i >= GetVertexNum())
-			{
-				return Vector2{ 0, 0 };
-			}
-
-			return vertex[i];
-		}
-
-		//! @brief ’¸“_‚ÌÀ•W‚ğ•Ô‚·ŠÖ”Dstd::optional‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅC‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚µ‚½ê‡‚Ístd::nullopt‚ğ•Ô‚·D
-		//! @param [in] i ’¸“_‚ÌƒCƒ“ƒfƒbƒNƒX
-		//! @return std::optional<Vector2> ’¸“_‚ÌÀ•W
-		//! @n ‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚µ‚½ê‡‚Ístd::nullopt‚ğ•Ô‚·D
-		constexpr std::optional<Vector2> GetVertexOpt(const int i) const
-		{
-			if (i < 0 || i >= GetVertexNum())
-			{
-				return std::nullopt;
-			}
-
-			return vertex[i];
-		}
-
-		//! @brief ’¸“_‚Ì’†‚ÅÅ‘å‚ÌxÀ•W‚ğ•Ô‚·ŠÖ”
-		//! @return float ’¸“_‚Ì’†‚ÅÅ‘å‚ÌxÀ•W
-		constexpr float GetMaxX() const 
-		{
-			float max_x = vertex[0].x;
-
-			for (int i = 1; i < GetVertexNum(); ++i)
-			{
-				max_x = (std::max)(max_x, vertex[i].x);
-			}
-
-			return max_x;
-		}
-
-		//! @brief ’¸“_‚Ì’†‚ÅÅ¬‚ÌxÀ•W‚ğ•Ô‚·ŠÖ”
-		//! @return float ’¸“_‚Ì’†‚ÅÅ¬‚ÌxÀ•W
-		constexpr float GetMinX() const 
-		{
-			float min_x = vertex[0].x;
-
-			for (int i = 1; i < GetVertexNum(); ++i)
-			{
-				min_x = (std::min)(min_x, vertex[i].x);
-			}
-
-			return min_x;
-		}
-
-		//! @brief ’¸“_‚Ì’†‚ÅÅ‘å‚ÌyÀ•W‚ğ•Ô‚·ŠÖ”
-		//! @return float ’¸“_‚Ì’†‚ÅÅ‘å‚ÌyÀ•W
-		constexpr float GetMaxY() const
-		{
-			float max_y = vertex[0].y;
-
-			for (int i = 1; i < GetVertexNum(); ++i)
-			{
-				max_y = (std::max)(max_y, vertex[i].y);
-			}
-
-			return max_y;
-		}
-
-		//! @brief ’¸“_‚Ì’†‚ÅÅ¬‚ÌyÀ•W‚ğ•Ô‚·ŠÖ”
-		//! @return float ’¸“_‚Ì’†‚ÅÅ¬‚ÌyÀ•W
-		constexpr float GetMinY() const
-		{
-			float min_y = vertex[0].y;
-
-			for (int i = 1; i < GetVertexNum(); ++i)
-			{
-				min_y = (std::min)(min_y, vertex[i].y);
-			}
-
-			return min_y;
-		}
-
-		//! @brief ‘½ŠpŒ`‚ª“Ê‚©‚Ç‚¤‚©’²‚×‚éŠÖ”
-		//! @return bool “Ê‚È‚çtrueC‰š‚È‚çfalse
-		bool IsConvex() const;
-
-		//! @brief “_‚ª‘½ŠpŒ`‚Ì“à•”‚É‚ ‚é‚©‚Ç‚¤‚©’²‚×‚éŠÖ”D‘½ŠpŒ`‚ª“Ê‚Å‚È‚¢ê‡‚Í³‚µ‚­”»’è‚Å‚«‚È‚¢D
-		//! @param [in] point ’²‚×‚é“_
-		//! @return bool “à•”‚É‚ ‚é‚È‚çtrueCŠO•”‚É‚ ‚é‚È‚çfalse
-		//! @note “_‚ªŒv‰ñ‚èC”½Œv‰ñ‚è‚Ì‚¢‚¸‚ê‚©‚Ì‡”Ô‚Å’¸“_‚ª•À‚ñ‚Å‚¢‚é•K—v‚ª‚ ‚éD
-		//! @note “_‚ª‘½ŠpŒ`‚Ì•Óã‚É‚ ‚éê‡‚Í“à•”‚É‚ ‚é‚Æ”»’è‚·‚éD
-		//! @note ‘½ŠpŒ`‚ª“Ê‚Å‚È‚¢ê‡‚Í³‚µ‚­”»’è‚Å‚«‚È‚¢D
-		bool IsInside(const Vector2& point) const;
-
-
-		//! @brief ‘½ŠpŒ`‚Ìƒf[ƒ^‚ğ•¶š—ñ‚Åo—Í‚·‚é
-		//! @return std::string ‘½ŠpŒ`‚Ìƒf[ƒ^‚ğ•¶š—ñ‚Åo—Í‚µ‚½‚à‚Ì
-		std::string ToString() const;
-
-	private:
-
-		std::array<Vector2, kMaxVertexNum> vertex;	//!< ’¸“_À•W
-
-		int vertex_num;					//!< ’¸“_”
-	};
-
-
-	// o—ÍƒXƒgƒŠ[ƒ€
-	template <class Char>
-	inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Polygon2& poly)
-	{
-		os << poly.ToString();
-
-		return os;
+		assert(vertex_num <= kMaxVertexNum);	// é ‚ç‚¹æ•°ã¯æœ€å¤§å€¤ã‚’è¶…ãˆã¦ã¯ã„ã‘ãªã„
 	}
+
+	//! @brief é ‚ç‚¹ã‚’è¿½åŠ ã™ã‚‹é–¢æ•°ï¼ä»–ã®é ‚ç‚¹ã¨é‡ãªã£ã¦ã„ã‚‹å ´åˆã¯è¿½åŠ ã—ãªã„ï¼
+	//! @param[in] v è¿½åŠ ã™ã‚‹é ‚ç‚¹ã®åº§æ¨™
+	//! @note ä»–ã®é ‚ç‚¹ã¨é‡ãªã£ã¦ã„ã‚‹å ´åˆã¯è¿½åŠ ã—ãªã„ï¼ã“ã®å‡¦ç†ã®åˆ†ã ã‘é…ããªã‚‹ã®ã§ï¼Œé‡ãªã‚‹ã“ã¨ãŒãªã„å ´åˆã¯addVertexã‚’ä½¿ã†ã“ã¨
+	//! @return bool è¿½åŠ ã§ããŸã‹ã©ã†ã‹ï¼Œè¿½åŠ ã§ããŸå ´åˆã¯trueï¼Œè¿½åŠ ã§ããªã‹ã£ãŸå ´åˆã¯false
+	bool AddVertexCheckForDuplicates(const Vector2& v);
+
+
+	//! @brief é ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹é–¢æ•°ï¼é…ã„ã®ã§å¤šç”¨ã™ã‚‹ã¹ãã§ã¯ãªã„
+	//! @param [in] index å‰Šé™¤ã™ã‚‹é ‚ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	//! @note å­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ä½•ã‚‚ã—ãªã„ï¼
+	//! @note å‰Šé™¤ã—ãŸé ‚ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¯å¤‰ã‚ã‚‹ã®ã§æ³¨æ„ï¼
+	void RemoveVertex(const int index);
+
+	//! @brief 1ç•ªæœ€å¾Œã®é ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹é–¢æ•°
+	//! @note é ‚ç‚¹ãŒ1ã¤ã‚‚ãªã„å ´åˆã¯ä½•ã‚‚ã—ãªã„ï¼
+	constexpr void RemoveLastVertex()
+	{
+		if (GetVertexNum() == 0)
+		{
+			return;
+		}
+
+		--vertex_num;
+	}
+
+	//! @brief å¤šè§’å½¢ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹é–¢æ•°
+	//! @n é ‚ç‚¹ã‚’å‰Šé™¤ã—ã¦ï¼Œé ‚ç‚¹æ•°ã‚’0ã«ã™ã‚‹ï¼
+	constexpr void Reset() { vertex_num = 0; }
+
+	//! @brief å¤šè§’å½¢ã®é ‚ç‚¹æ•°ã‚’è¿”ã™é–¢æ•°
+	//! @return int å¤šè§’å½¢ã®é ‚ç‚¹æ•°
+	constexpr int GetVertexNum() const { return vertex_num; }
+
+	//! @brief é ‚ç‚¹ã®åº§æ¨™ã‚’è¿”ã™é–¢æ•°
+	//! @param [in] i é ‚ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	//! @return Vector2 é ‚ç‚¹ã®åº§æ¨™
+	//! @n å­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆã¯(0,0)ã‚’è¿”ã™ï¼
+	constexpr Vector2 GetVertex(const int i) const
+	{
+		if (i < 0 || i >= GetVertexNum())
+		{
+			return Vector2{ 0, 0 };
+		}
+
+		return vertex[i];
+	}
+
+	//! @brief é ‚ç‚¹ã®åº§æ¨™ã‚’è¿”ã™é–¢æ•°ï¼std::optionalã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§ï¼Œå­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆã¯std::nulloptã‚’è¿”ã™ï¼
+	//! @param [in] i é ‚ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	//! @return std::optional<Vector2> é ‚ç‚¹ã®åº§æ¨™
+	//! @n å­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆã¯std::nulloptã‚’è¿”ã™ï¼
+	constexpr std::optional<Vector2> GetVertexOpt(const int i) const
+	{
+		if (i < 0 || i >= GetVertexNum())
+		{
+			return std::nullopt;
+		}
+
+		return vertex[i];
+	}
+
+	//! @brief é ‚ç‚¹ã®ä¸­ã§æœ€å¤§ã®xåº§æ¨™ã‚’è¿”ã™é–¢æ•°
+	//! @return float é ‚ç‚¹ã®ä¸­ã§æœ€å¤§ã®xåº§æ¨™
+	constexpr float GetMaxX() const
+	{
+		float max_x = vertex[0].x;
+
+		for (int i = 1; i < GetVertexNum(); ++i)
+		{
+			max_x = (std::max)(max_x, vertex[i].x);
+		}
+
+		return max_x;
+	}
+
+	//! @brief é ‚ç‚¹ã®ä¸­ã§æœ€å°ã®xåº§æ¨™ã‚’è¿”ã™é–¢æ•°
+	//! @return float é ‚ç‚¹ã®ä¸­ã§æœ€å°ã®xåº§æ¨™
+	constexpr float GetMinX() const
+	{
+		float min_x = vertex[0].x;
+
+		for (int i = 1; i < GetVertexNum(); ++i)
+		{
+			min_x = (std::min)(min_x, vertex[i].x);
+		}
+
+		return min_x;
+	}
+
+	//! @brief é ‚ç‚¹ã®ä¸­ã§æœ€å¤§ã®yåº§æ¨™ã‚’è¿”ã™é–¢æ•°
+	//! @return float é ‚ç‚¹ã®ä¸­ã§æœ€å¤§ã®yåº§æ¨™
+	constexpr float GetMaxY() const
+	{
+		float max_y = vertex[0].y;
+
+		for (int i = 1; i < GetVertexNum(); ++i)
+		{
+			max_y = (std::max)(max_y, vertex[i].y);
+		}
+
+		return max_y;
+	}
+
+	//! @brief é ‚ç‚¹ã®ä¸­ã§æœ€å°ã®yåº§æ¨™ã‚’è¿”ã™é–¢æ•°
+	//! @return float é ‚ç‚¹ã®ä¸­ã§æœ€å°ã®yåº§æ¨™
+	constexpr float GetMinY() const
+	{
+		float min_y = vertex[0].y;
+
+		for (int i = 1; i < GetVertexNum(); ++i)
+		{
+			min_y = (std::min)(min_y, vertex[i].y);
+		}
+
+		return min_y;
+	}
+
+	//! @brief å¤šè§’å½¢ãŒå‡¸ã‹ã©ã†ã‹èª¿ã¹ã‚‹é–¢æ•°
+	//! @return bool å‡¸ãªã‚‰trueï¼Œå‡¹ãªã‚‰false
+	bool IsConvex() const;
+
+	//! @brief ç‚¹ãŒå¤šè§’å½¢ã®å†…éƒ¨ã«ã‚ã‚‹ã‹ã©ã†ã‹èª¿ã¹ã‚‹é–¢æ•°ï¼å¤šè§’å½¢ãŒå‡¸ã§ãªã„å ´åˆã¯æ­£ã—ãåˆ¤å®šã§ããªã„ï¼
+	//! @param [in] point èª¿ã¹ã‚‹ç‚¹
+	//! @return bool å†…éƒ¨ã«ã‚ã‚‹ãªã‚‰trueï¼Œå¤–éƒ¨ã«ã‚ã‚‹ãªã‚‰false
+	//! @note ç‚¹ãŒæ™‚è¨ˆå›ã‚Šï¼Œåæ™‚è¨ˆå›ã‚Šã®ã„ãšã‚Œã‹ã®é †ç•ªã§é ‚ç‚¹ãŒä¸¦ã‚“ã§ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+	//! @note ç‚¹ãŒå¤šè§’å½¢ã®è¾ºä¸Šã«ã‚ã‚‹å ´åˆã¯å†…éƒ¨ã«ã‚ã‚‹ã¨åˆ¤å®šã™ã‚‹ï¼
+	//! @note å¤šè§’å½¢ãŒå‡¸ã§ãªã„å ´åˆã¯æ­£ã—ãåˆ¤å®šã§ããªã„ï¼
+	bool IsInside(const Vector2& point) const;
+
+
+	//! @brief å¤šè§’å½¢ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ–‡å­—åˆ—ã§å‡ºåŠ›ã™ã‚‹
+	//! @return std::string å¤šè§’å½¢ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ–‡å­—åˆ—ã§å‡ºåŠ›ã—ãŸã‚‚ã®
+	std::string ToString() const;
+
+private:
+
+	std::array<Vector2, kMaxVertexNum> vertex;	//!< é ‚ç‚¹åº§æ¨™
+
+	int vertex_num;					//!< é ‚ç‚¹æ•°
+};
+
+
+// å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+template <class Char>
+inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Polygon2& poly)
+{
+	os << poly.ToString();
+
+	return os;
+}
 
 }	// namespace designlab
 
 
-#endif // DESIGNLAB_POLYGON2_H
+#endif // DESIGNLAB_POLYGON2_H_

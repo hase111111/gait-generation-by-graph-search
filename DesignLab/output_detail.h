@@ -5,22 +5,21 @@
 #define DESIGNLAB_OUTPUT_DETAIL_H_
 
 
-namespace designlab
+namespace designlab::enums
 {
-	namespace enums
-	{
-		//! @enum OutputDetail
-		//! @brief コマンドラインに文字を出力する際の詳細．
-		//! @details Settingファイルで指定された優先度以上のメッセージのみ出力する．
-		enum class OutputDetail : int
-		{
-			kSystem = 0,	//!< システムメッセージ，常に出力する．
-			kError,			//!< エラーメッセージ．
-			kWarning,		//!< 警告メッセージ，エラーではないが注意が必要なメッセージ．
-			kInfo,			//!< 優先度低めの情報．
-			kDebug,			//!< デバッグ時のみ出力，一番優先度が低い．
-		};
-	}
+
+//! @enum OutputDetail
+//! @brief コマンドラインに文字を出力する際の詳細．
+//! @details Settingファイルで指定された優先度以上のメッセージのみ出力する．
+enum class OutputDetail : int
+{
+	kSystem = 0,	//!< システムメッセージ，常に出力する．
+	kError,			//!< エラーメッセージ．
+	kWarning,		//!< 警告メッセージ，エラーではないが注意が必要なメッセージ．
+	kInfo,			//!< 優先度低めの情報．
+	kDebug,			//!< デバッグ時のみ出力，一番優先度が低い．
+};
+
 }
 
 

@@ -5,10 +5,10 @@
 #include "cassert_define.h"
 
 
-namespace dlm = ::designlab::math_util;
+namespace designlab
+{
 
-
-designlab::Quaternion designlab::Quaternion::GetNormalized() const noexcept
+Quaternion Quaternion::GetNormalized() const noexcept
 {
 	//ノルムが0の場合は，(0,0,0,0)を返す
 	const float norm = GetNorm();
@@ -17,42 +17,42 @@ designlab::Quaternion designlab::Quaternion::GetNormalized() const noexcept
 	return *this * (1.f / norm);
 }
 
-designlab::Quaternion designlab::Quaternion::MakeByAngleAxis(float angle, const Vector3& axis)
+Quaternion Quaternion::MakeByAngleAxis(float angle, const Vector3& axis)
 {
 	// オイラー角をクオータニオンに変換
 
-	const float kHalfAngle = angle * 0.5f;
+	const float half_angle = angle * 0.5f;
 
-	return { cosf(kHalfAngle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(kHalfAngle) };
+	return { cosf(half_angle) , Vector3{ axis.x ,axis.y,axis.z }.GetNormalized() * sinf(half_angle) };
 }
 
-std::string designlab::Quaternion::ToString() const
+std::string Quaternion::ToString() const
 {
 	std::string str;
-	str += "( w: " + dlm::ConvertFloatToString(w) + 
-		", x: " + dlm::ConvertFloatToString(v.x) + 
-		", y: " + dlm::ConvertFloatToString(v.y) + 
-		", z: " + dlm::ConvertFloatToString(v.z) + " )";
+	str += "( w: " + math_util::ConvertFloatToString(w) +
+		", x: " + math_util::ConvertFloatToString(v.x) +
+		", y: " + math_util::ConvertFloatToString(v.y) +
+		", z: " + math_util::ConvertFloatToString(v.z) + " )";
 	return str;
 }
 
-std::string designlab::Quaternion::ToCsvString() const
+std::string Quaternion::ToCsvString() const
 {
 	std::stringstream ss;
 	ss << *this;
 	return ss.str();
 }
 
-designlab::Quaternion designlab::SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const float t)
+Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const float t)
 {
 	assert(0 <= t && t <= 1);	// tが0~1の間に収まっているか確認
 
-	if(q1 == q2) { return q1; }	// クォータニオンが等しい場合は，q1を返す
+	if (q1 == q2) { return q1; }	// クォータニオンが等しい場合は，q1を返す
 
 	// 球面線形補間を行う
 	float dot = q1.Dot(q2);		// 内積
 
-	if(1.0f < dot) { dot = 1.0f; }			// 内積が1より小さい場合は，1にする
+	if (1.0f < dot) { dot = 1.0f; }			// 内積が1より小さい場合は，1にする
 	else if (dot < -1.0f) { dot = -1.0f; }	// 内積が-1より大きい場合は，-1にする
 
 	const float theta = acosf(dot);	// 角度
@@ -66,3 +66,5 @@ designlab::Quaternion designlab::SlerpQuaternion(const Quaternion& q1, const Qua
 
 	return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;	// 補間されたクォータニオンを返す
 }
+
+}	// namespace designlab

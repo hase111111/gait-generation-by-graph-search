@@ -1,74 +1,79 @@
-//! @file file_tree.h
-//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file file_tree.h
+//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_FILE_TREE_H_
 #define DESIGNLAB_FILE_TREE_H_
-
 
 #include <string>
 #include <vector>
 
 
+namespace designlab
+{
+
 //! @class FileTree
-//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚éƒNƒ‰ƒXD
+//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class FileTree final
 {
 public:
 
-	//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğ•\¦‚·‚é
-	//! @param [in] path ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX
-	//! @param [in] max_depth ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ì[‚³C-1‚È‚ç‚Î–³ŒÀ‚És‚¤
+	//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ï¼
+	//! @param [in] path ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ï¼
+	//! @param [in] max_depth ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®æ·±ã•ï¼Œ-1ãªã‚‰ã°ç„¡é™ã«è¡Œã†ï¼
 	void DisplayFileTree(const std::string& path, int max_depth) const;
 
-	//! @brief ƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚©‚çCƒtƒ@ƒCƒ‹‚ğˆê‚Â‘I‘ğ‚·‚é
-	//! @param [in] path ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX
-	//! @param [in] max_depth ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ì[‚³C-1‚È‚ç‚Î–³ŒÀ‚És‚¤
-	//! @param [in] extension ƒtƒ@ƒCƒ‹‚ÌŠg’£q( ".txt" ".csv" ‚È‚Ç)C‹ó•¶š‚È‚ç‚Î‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğ‘ÎÛ‚Æ‚·‚é
-	//! @param [in] keyword ƒtƒ@ƒCƒ‹–¼‚ÉŠÜ‚Ü‚ê‚éƒL[ƒ[ƒhC‹ó•¶š‚È‚ç‚Î‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğ‘ÎÛ‚Æ‚·‚é
-	//! @param [out] output ‘I‘ğ‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ÌƒpƒX
-	//! @return bool ƒtƒ@ƒCƒ‹‚ª‘I‘ğ‚³‚ê‚½‚©‚Ç‚¤‚©
-	bool SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string *output) const;
+	//! @brief ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã‹ã‚‰ï¼Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸€ã¤é¸æŠã™ã‚‹ï¼
+	//! @param [in] path ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ï¼
+	//! @param [in] max_depth ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®æ·±ã•ï¼Œ-1ãªã‚‰ã°ç„¡é™ã«è¡Œã†ï¼
+	//! @param [in] extension ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­( ".txt" ".csv" ãªã©)ï¼Œç©ºæ–‡å­—ãªã‚‰ã°å…¨ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¯¾è±¡ã¨ã™ã‚‹ï¼
+	//! @param [in] keyword ãƒ•ã‚¡ã‚¤ãƒ«åã«å«ã¾ã‚Œã‚‹ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ï¼Œç©ºæ–‡å­—ãªã‚‰ã°å…¨ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¯¾è±¡ã¨ã™ã‚‹ï¼
+	//! @param [out] output é¸æŠã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ï¼
+	//! @return bool ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠã•ã‚ŒãŸã‹ã©ã†ã‹ï¼
+	bool SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string* output) const;
 
 private:
 
 	//! @struct FileTreeData
-	//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^D
-	//! @n ƒfƒBƒŒƒNƒgƒŠ‚ğ•\Œ»‚µ‚Ä‚¢‚éDÄ‹A“I‚Éˆ—‚ğ‚·‚é‚½‚ß©•ª©g‚ğŠ—L‚·‚éD
+	//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ï¼
+	//! @n ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¾ã—ã¦ã„ã‚‹ï¼å†å¸°çš„ã«å‡¦ç†ã‚’ã™ã‚‹ãŸã‚è‡ªåˆ†è‡ªèº«ã‚’æ‰€æœ‰ã™ã‚‹ï¼
 	struct FileTreeData final
 	{
 		FileTreeData() : path(""), directory({}), file({}) {}
-		FileTreeData(const std::string& _path, const std::vector<FileTreeData>& _directory, const std::vector<std::string>& _file) : 
-			path(_path), 
-			directory(_directory), 
-			file(_file) 
+		FileTreeData(const std::string& _path, const std::vector<FileTreeData>& _directory, const std::vector<std::string>& _file) :
+			path(_path),
+			directory(_directory),
+			file(_file)
 		{
 		}
 
-		std::string path;					//!< ©•ª©g‚Ö‚ÌƒpƒX
-		std::vector<FileTreeData> directory;//!< ƒfƒBƒŒƒNƒgƒŠ
-		std::vector<std::string> file;		//!< ƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚Ìƒtƒ@ƒCƒ‹
+		std::string path;					//!< è‡ªåˆ†è‡ªèº«ã¸ã®ãƒ‘ã‚¹ï¼
+		std::vector<FileTreeData> directory;//!< ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼
+		std::vector<std::string> file;		//!< ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ï¼
 	};
 
-	//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚é
-	//! @param [in] path ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğì¬‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX
-	//! @param [in] max_depth ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ì[‚³C-1‚È‚ç‚Î–³ŒÀ‚És‚¤
-	//! @param [in] extension ƒtƒ@ƒCƒ‹‚ÌŠg’£q( ".txt" ".csv" ‚È‚Ç)C‹ó•¶š‚È‚ç‚Î‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğ‘ÎÛ‚Æ‚·‚é
-	//! @param [in] keyword ƒtƒ@ƒCƒ‹–¼‚ÉŠÜ‚Ü‚ê‚éƒL[ƒ[ƒhC‹ó•¶š‚È‚ç‚Î‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğ‘ÎÛ‚Æ‚·‚é
-	//! @return FileTreeData ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^
+	//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ï¼
+	//! @param [in] path ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ï¼
+	//! @param [in] max_depth ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®æ·±ã•ï¼Œ-1ãªã‚‰ã°ç„¡é™ã«è¡Œã†ï¼
+	//! @param [in] extension ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­( ".txt" ".csv" ãªã©)ï¼Œç©ºæ–‡å­—ãªã‚‰ã°å…¨ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¯¾è±¡ã¨ã™ã‚‹ï¼
+	//! @param [in] keyword ãƒ•ã‚¡ã‚¤ãƒ«åã«å«ã¾ã‚Œã‚‹ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ï¼Œç©ºæ–‡å­—ãªã‚‰ã°å…¨ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¯¾è±¡ã¨ã™ã‚‹ï¼
+	//! @return FileTreeData ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ï¼
 	FileTreeData MakeFileTree(const std::string& path, int max_depth, const std::string& extension, const std::string keyword) const;
 
-	//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚ğƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Öo—Í‚·‚é
-	//! @n ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^‚ğÄ‹A“I‚Éo—Í‚·‚é
-	//! @param [in] tree ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^
-	//! @param [in] depth ƒfƒBƒŒƒNƒgƒŠ‚ÌŠK‘w‚Ì[‚³D
-	//! @param [in] not_display_empty ‹ó‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğ•\¦‚µ‚È‚¢‚È‚ç‚Îtrue‚ğw’è‚·‚éD
-	//! @param [in] file_count ƒtƒ@ƒCƒ‹‚Ì”Ô†‚ğŠ„‚è“–‚Ä‚é‚½‚ß‚ÌƒJƒEƒ“ƒ^D
+	//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã¸å‡ºåŠ›ã™ã‚‹ï¼
+	//! @n ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’å†å¸°çš„ã«å‡ºåŠ›ã™ã‚‹ï¼
+	//! @param [in] tree ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ï¼
+	//! @param [in] depth ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®éšå±¤ã®æ·±ã•ï¼
+	//! @param [in] not_display_empty ç©ºã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤ºã—ãªã„ãªã‚‰ã°trueã‚’æŒ‡å®šã™ã‚‹ï¼
+	//! @param [in] file_count ãƒ•ã‚¡ã‚¤ãƒ«ã®ç•ªå·ã‚’å‰²ã‚Šå½“ã¦ã‚‹ãŸã‚ã®ã‚«ã‚¦ãƒ³ã‚¿ï¼
 	void OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty, int* file_count) const;
 
-	//! @brief ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^‚©‚çCƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚ğì¬‚·‚é
-	//! @param [in] tree ƒtƒ@ƒCƒ‹ƒcƒŠ[‚Ìƒf[ƒ^
+	//! @brief ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰ï¼Œãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆã™ã‚‹ï¼
+	//! @param [in] tree ãƒ•ã‚¡ã‚¤ãƒ«ãƒ„ãƒªãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ï¼
+	//! @return std::vector<std::string> ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆï¼
 	std::vector<std::string> MakeFileList(const FileTreeData& tree) const;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_FILE_TREE_H_

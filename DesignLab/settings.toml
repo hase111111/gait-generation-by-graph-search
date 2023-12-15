@@ -33,7 +33,7 @@
 [Output]
     
     #コマンドラインに出力する際，どこまで許可するかを設定します．( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
-    cmd_output_detail = "kDebug" 
+    cmd_output_detail = "kInfo" 
     
     #コマンドラインに出力するかどうかを設定します．( true / false )
     do_cmd_output = true
@@ -45,7 +45,7 @@
     gui_display_quality = "kMedium" 
     
     #グラフィカルウィンドウのFPSを設定します．15 ～ 60の範囲．推奨値は60です．
-    window_fps = 60
+    window_fps =60
     
     #グラフィカルウィンドウの横幅を設定します．512 ～ 1920の範囲．推奨値は1600です．
     window_size_x = 1600

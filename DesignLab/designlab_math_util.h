@@ -1,10 +1,8 @@
-//! @file designlab_math_util.h
-//! @brief Šî–{“I‚ÈŒvZ‚ğs‚¤ŠÖ”D
-
+ï»¿//! @file designlab_math_util.h
+//! @brief åŸºæœ¬çš„ãªè¨ˆç®—ã‚’è¡Œã†é–¢æ•°ï¼
 
 #ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
-
 
 #include <string>
 #include <vector>
@@ -13,146 +11,147 @@
 
 
 //! @namespace designlab
-//! @brief DesignLab‚Ì–¼‘O‹óŠÔ
-//! @details ‚±‚ÌƒvƒƒWƒFƒNƒg‚Åì¬‚µ‚½ŠÖ”‚Í‘S‚Ä‚±‚Ì–¼‘O‹óŠÔ“à‚É“ü‚ê‚éD
-//! @n ƒOƒ[ƒoƒ‹‚È‹óŠÔ‚ÉŠÖ”‚ğ“ü‚ê‚é‚ÆC–¼‘O‚ÌÕ“Ë‚ª‹N‚±‚é‰Â”\«‚ª‚ ‚éD
-namespace designlab 
+//! @brief DesignLabã®åå‰ç©ºé–“
+//! @details ã“ã®ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã§ä½œæˆã—ãŸé–¢æ•°ã¯å…¨ã¦ã“ã®åå‰ç©ºé–“å†…ã«å…¥ã‚Œã‚‹ï¼
+//! @n ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªç©ºé–“ã«é–¢æ•°ã‚’å…¥ã‚Œã‚‹ã¨ï¼Œåå‰ã®è¡çªãŒèµ·ã“ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ï¼
+namespace designlab
 {
-	//! @namespacse math_util Šî–{“I‚ÈŒvZ‚ğs‚¤ŠÖ”‚ğ‚Ü‚Æ‚ß‚½–¼‘O‹óŠÔD
-	//! @brief Šî–{“I‚ÈŒvZ‚ğs‚¤ŠÖ”‚ğ‚Ü‚Æ‚ß‚½–¼‘O‹óŠÔD
-	namespace math_util 
-	{
-		constexpr double kDoublePi = 3.141592653589793;		//!< doubleŒ^‚Ì‰~ü—¦
-		constexpr float kFloatPi = 3.141592653589793f;		//!< floatŒ^‚Ì‰~ü—¦
+//! @namespacse math_util åŸºæœ¬çš„ãªè¨ˆç®—ã‚’è¡Œã†é–¢æ•°ã‚’ã¾ã¨ã‚ãŸåå‰ç©ºé–“ï¼
+//! @brief åŸºæœ¬çš„ãªè¨ˆç®—ã‚’è¡Œã†é–¢æ•°ã‚’ã¾ã¨ã‚ãŸåå‰ç©ºé–“ï¼
+namespace math_util
+{
 
-		constexpr double kDoubleAllowableError = 0.001;									//!< ‚±‚êˆÈã¬‚³‚¢’l‚Í0‚Æ‚İ‚È‚·Dallowable errorC‹–—eŒë·‚Ì‚±‚ÆD¬”“_3Œ…–¢–‚ÌŒë·‚ğ–³‹‚·‚éD
-		constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< ‚±‚êˆÈã¬‚³‚¢’l‚Í0‚Æ‚İ‚È‚·Dallowable errorC‹–—eŒë·‚Ì‚±‚ÆD¬”“_3Œ…–¢–‚ÌŒë·‚ğ–³‹‚·‚éD
+constexpr double kDoublePi = 3.141592653589793;		//!< doubleå‹ã®å††å‘¨ç‡
+constexpr float kFloatPi = 3.141592653589793f;		//!< floatå‹ã®å††å‘¨ç‡
 
-
-		//! @brief C++‚É‚¨‚¢‚ÄC¬”“¯m‚ÌŒvZ‚ÍŒë·‚ªo‚Ä‚µ‚Ü‚¤DŒë·‚İ‚Å’l‚ª“™‚µ‚¢‚©’²‚×‚éD
-		//! @param [in] num1 ”äŠr‚·‚é”š1‚Â–Ú 
-		//! @param [in] num2 ”äŠr‚·‚é”š2‚Â–Ú
-		//! @return bool “™‚µ‚¢‚È‚ç‚Îtrue 
-		constexpr bool IsEqual(const float num1, const float num2) noexcept
-		{
-			const float dif = num1 - num2;
-			if (dif > 0) { return (dif <= kAllowableError); }
-			else { return (dif >= -kAllowableError); }
-		}
-
-		//! @brief C++‚É‚¨‚¢‚ÄC¬”“¯m‚ÌŒvZ‚ÍŒë·‚ªo‚Ä‚µ‚Ü‚¤DŒë·‚İ‚Å’l‚ª“™‚µ‚¢‚©’²‚×‚éD
-		//! @param [in] num1 ”äŠr‚·‚é”š1‚Â–Ú 
-		//! @param [in] num2 ”äŠr‚·‚é”š2‚Â–Ú
-		//! @return bool “™‚µ‚¢‚È‚ç‚Îtrue 
-		constexpr bool IsEqual(const double num1, const double num2) noexcept
-		{
-			const double dif = num1 - num2;
-			if (dif > 0) { return (dif <= kDoubleAllowableError); }
-			else { return (dif >= -kDoubleAllowableError); }
-		}
-
-		//! @brief 2æ‚µ‚½’l‚ğ•Ô‚·ŠÖ”D
-		//! @n ®”Œ^‚âC¬”Œ^‚Ì‚İ‚ğ‘z’è‚µ‚Äì‚Á‚Ä‚¢‚é‚Ì‚ÅC‘¼‚ÌŒ^‚Åg‚¤‚ÆƒGƒ‰[‚ªo‚é‚©‚àD
-		//! @param [in] num 2æ‚·‚é”D
-		//! @return T 2æ‚µ‚½’lD 
-		template <typename T>
-		constexpr T Squared(const T num) noexcept { return num * num; }
-
-		//! @brief 3•Ó‚ÅOŠpŒ`‚ªì‚ê‚é‚©’²‚×‚éŠÖ”D
-		//! @param [in] a 1•Ó–ÚD
-		//! @param [in] b 2•Ó–ÚD
-		//! @param [in] c 3•Ó–ÚD
-		//! @return bool OŠpŒ`‚ªì‚ê‚é‚È‚ç‚ÎtrueD
-		template <typename T>
-		constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
-		{ 
-			assert(a > 0);
-			assert(b > 0);
-			assert(c > 0);
-			return (a + b > c && b + c > a && c + a > b); 
-		}
-		
-		//! @brief –Ú•W’l‚É’l‚ğ‹ß‚Ã‚¯‚éŠÖ”D
-		//! @n “K“–‚Éì‚Á‚Ä‚¢‚éCüŒ`‚Å‚à‚È‚¢C•`‰æ—p‚È‚Ì‚ÅŒvZ‚Ég‚¢‚½‚¢‚È‚çì‚è’¼‚·‚±‚Æ
-		//! @param [in] current Œ»İ‚Ì’lD
-		//! @param [in] target –Ú•W’lD
-		//! @param [in] rate ‹ß‚Ã‚¯‚éŠ„‡D0 ` 1‚Ì’l‚ğæ‚éD
-		//! @return T ‹ß‚Ã‚¯‚½’lD
-		template <typename T>
-		T ApproachTarget(const T& current,const T& target, float rate) 
-		{
-			assert(0 <= rate);
-			assert(rate <= 1);	//0 <= rate <= 1 ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-
-			if (current == target) { return current; }
-
-			return static_cast<T>(current * (1 - rate) + target * rate);
-		}
-
-		//! @brief w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚éD
-		//! @param [in] min —”‚ÌÅ¬’lD
-		//! @param [in] max —”‚ÌÅ‘å’lD
-		//! @return double ¶¬‚µ‚½—”D
-		double GenerateRandomNumber(double min, double max);
-
-		//! @brief w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚éD
-		//! @param [in] min —”‚ÌÅ¬’lD
-		//! @param [in] max —”‚ÌÅ‘å’lD
-		//! @return float ¶¬‚µ‚½—”D
-		float GenerateRandomNumber(float min, float max);
-
-		//! @brief w’è‚µ‚½”ÍˆÍ“à‚Ì—”‚ğ¶¬‚·‚éD
-		//! @param [in] min —”‚ÌÅ¬’lD
-		//! @param [in] max —”‚ÌÅ‘å’lD
-		//! @return int ¶¬‚µ‚½—”D
-		int GenerateRandomNumber(int min, int max);
+constexpr double kDoubleAllowableError = 0.001;									//!< ã“ã‚Œä»¥ä¸Šå°ã•ã„å€¤ã¯0ã¨ã¿ãªã™ï¼allowable errorï¼Œè¨±å®¹èª¤å·®ã®ã“ã¨ï¼å°æ•°ç‚¹3æ¡æœªæº€ã®èª¤å·®ã‚’ç„¡è¦–ã™ã‚‹ï¼
+constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< ã“ã‚Œä»¥ä¸Šå°ã•ã„å€¤ã¯0ã¨ã¿ãªã™ï¼allowable errorï¼Œè¨±å®¹èª¤å·®ã®ã“ã¨ï¼å°æ•°ç‚¹3æ¡æœªæº€ã®èª¤å·®ã‚’ç„¡è¦–ã™ã‚‹ï¼
 
 
-		//! @brief Šp“x‚ğrad‚©‚çdeg‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @param [in] rad Šp“x[rad]D
-		//! @return double Šp“x[deg]D
-		constexpr double ConvertRadToDeg(const double rad) noexcept { return rad * 180.0 / kDoublePi; };
+//! @brief C++ã«ãŠã„ã¦ï¼Œå°æ•°åŒå£«ã®è¨ˆç®—ã¯èª¤å·®ãŒå‡ºã¦ã—ã¾ã†ï¼èª¤å·®è¾¼ã¿ã§å€¤ãŒç­‰ã—ã„ã‹èª¿ã¹ã‚‹ï¼
+//! @param [in] num1 æ¯”è¼ƒã™ã‚‹æ•°å­—1ã¤ç›® 
+//! @param [in] num2 æ¯”è¼ƒã™ã‚‹æ•°å­—2ã¤ç›®
+//! @return bool ç­‰ã—ã„ãªã‚‰ã°true 
+constexpr bool IsEqual(const float num1, const float num2) noexcept
+{
+	const float dif = num1 - num2;
+	if (dif > 0) { return (dif <= kAllowableError); }
+	else { return (dif >= -kAllowableError); }
+}
 
-		//! @brief Šp“x‚ğrad‚©‚çdeg‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @param [in] rad Šp“x[rad]D
-		//! @return float Šp“x[deg]D
-		constexpr float ConvertRadToDeg(const float rad) noexcept { return rad * 180.0f / kFloatPi; };
+//! @brief C++ã«ãŠã„ã¦ï¼Œå°æ•°åŒå£«ã®è¨ˆç®—ã¯èª¤å·®ãŒå‡ºã¦ã—ã¾ã†ï¼èª¤å·®è¾¼ã¿ã§å€¤ãŒç­‰ã—ã„ã‹èª¿ã¹ã‚‹ï¼
+//! @param [in] num1 æ¯”è¼ƒã™ã‚‹æ•°å­—1ã¤ç›® 
+//! @param [in] num2 æ¯”è¼ƒã™ã‚‹æ•°å­—2ã¤ç›®
+//! @return bool ç­‰ã—ã„ãªã‚‰ã°true 
+constexpr bool IsEqual(const double num1, const double num2) noexcept
+{
+	const double dif = num1 - num2;
+	if (dif > 0) { return (dif <= kDoubleAllowableError); }
+	else { return (dif >= -kDoubleAllowableError); }
+}
 
-		//! @brief Šp“x‚ğdeg‚©‚çrad‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @param [in] deg Šp“x[deg]D
-		//! @return double Šp“x[rad]D
-		constexpr double ConvertDegToRad(const double deg) noexcept { return deg * kDoublePi / 180.0; }
+//! @brief 2ä¹—ã—ãŸå€¤ã‚’è¿”ã™é–¢æ•°ï¼
+//! @n æ•´æ•°å‹ã‚„ï¼Œå°æ•°å‹ã®ã¿ã‚’æƒ³å®šã—ã¦ä½œã£ã¦ã„ã‚‹ã®ã§ï¼Œä»–ã®å‹ã§ä½¿ã†ã¨ã‚¨ãƒ©ãƒ¼ãŒå‡ºã‚‹ã‹ã‚‚ï¼
+//! @param [in] num 2ä¹—ã™ã‚‹æ•°ï¼
+//! @return T 2ä¹—ã—ãŸå€¤ï¼ 
+template <typename T>
+constexpr T Squared(const T num) noexcept { return num * num; }
 
-		//! @brief Šp“x‚ğdeg‚©‚çrad‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @param [in] deg Šp“x[deg]D
-		//! @return float Šp“x[rad]D
-		constexpr float ConvertDegToRad(const float deg) noexcept { return deg * kFloatPi / 180.0f; }
+//! @brief 3è¾ºã§ä¸‰è§’å½¢ãŒä½œã‚Œã‚‹ã‹èª¿ã¹ã‚‹é–¢æ•°ï¼
+//! @param [in] a 1è¾ºç›®ï¼
+//! @param [in] b 2è¾ºç›®ï¼
+//! @param [in] c 3è¾ºç›®ï¼
+//! @return bool ä¸‰è§’å½¢ãŒä½œã‚Œã‚‹ãªã‚‰ã°trueï¼
+template <typename T>
+constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
+{
+	assert(a > 0);
+	assert(b > 0);
+	assert(c > 0);
+	return (a + b > c && b + c > a && c + a > b);
+}
+
+//! @brief ç›®æ¨™å€¤ã«å€¤ã‚’è¿‘ã¥ã‘ã‚‹é–¢æ•°ï¼
+//! @n é©å½“ã«ä½œã£ã¦ã„ã‚‹ï¼Œç·šå½¢ã§ã‚‚ãªã„ï¼Œæç”»ç”¨ãªã®ã§è¨ˆç®—ã«ä½¿ã„ãŸã„ãªã‚‰ä½œã‚Šç›´ã™ã“ã¨
+//! @param [in] current ç¾åœ¨ã®å€¤ï¼
+//! @param [in] target ç›®æ¨™å€¤ï¼
+//! @param [in] rate è¿‘ã¥ã‘ã‚‹å‰²åˆï¼0 ï½ 1ã®å€¤ã‚’å–ã‚‹ï¼
+//! @return T è¿‘ã¥ã‘ãŸå€¤ï¼
+template <typename T>
+T ApproachTarget(const T& current, const T& target, float rate)
+{
+	assert(0 <= rate);
+	assert(rate <= 1);	//0 <= rate <= 1 ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+
+	if (current == target) { return current; }
+
+	return static_cast<T>(current * (1 - rate) + target * rate);
+}
+
+//! @brief æŒ‡å®šã—ãŸç¯„å›²å†…ã®ä¹±æ•°ã‚’ç”Ÿæˆã™ã‚‹ï¼
+//! @param [in] min ä¹±æ•°ã®æœ€å°å€¤ï¼
+//! @param [in] max ä¹±æ•°ã®æœ€å¤§å€¤ï¼
+//! @return double ç”Ÿæˆã—ãŸä¹±æ•°ï¼
+double GenerateRandomNumber(double min, double max);
+
+//! @brief æŒ‡å®šã—ãŸç¯„å›²å†…ã®ä¹±æ•°ã‚’ç”Ÿæˆã™ã‚‹ï¼
+//! @param [in] min ä¹±æ•°ã®æœ€å°å€¤ï¼
+//! @param [in] max ä¹±æ•°ã®æœ€å¤§å€¤ï¼
+//! @return float ç”Ÿæˆã—ãŸä¹±æ•°ï¼
+float GenerateRandomNumber(float min, float max);
+
+//! @brief æŒ‡å®šã—ãŸç¯„å›²å†…ã®ä¹±æ•°ã‚’ç”Ÿæˆã™ã‚‹ï¼
+//! @param [in] min ä¹±æ•°ã®æœ€å°å€¤ï¼
+//! @param [in] max ä¹±æ•°ã®æœ€å¤§å€¤ï¼
+//! @return int ç”Ÿæˆã—ãŸä¹±æ•°ï¼
+int GenerateRandomNumber(int min, int max);
 
 
-		[[deprecated]] 
-		float limitRangeAngle(const float angle);
+//! @brief è§’åº¦ã‚’radã‹ã‚‰degã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] rad è§’åº¦[rad]ï¼
+//! @return double è§’åº¦[deg]ï¼
+constexpr double ConvertRadToDeg(const double rad) noexcept { return rad * 180.0 / kDoublePi; };
+
+//! @brief è§’åº¦ã‚’radã‹ã‚‰degã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] rad è§’åº¦[rad]ï¼
+//! @return float è§’åº¦[deg]ï¼
+constexpr float ConvertRadToDeg(const float rad) noexcept { return rad * 180.0f / kFloatPi; };
+
+//! @brief è§’åº¦ã‚’degã‹ã‚‰radã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] deg è§’åº¦[deg]ï¼
+//! @return double è§’åº¦[rad]ï¼
+constexpr double ConvertDegToRad(const double deg) noexcept { return deg * kDoublePi / 180.0; }
+
+//! @brief è§’åº¦ã‚’degã‹ã‚‰radã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @param [in] deg è§’åº¦[deg]ï¼
+//! @return float è§’åº¦[rad]ï¼
+constexpr float ConvertDegToRad(const float deg) noexcept { return deg * kFloatPi / 180.0f; }
 
 
-		constexpr int kDigit = 3;	//!< ¬”“_ˆÈ‰º‚ÌŒ…”D
-		constexpr int kWidth = 10;	//!< •¶š—ñ‚Ì•D
+[[deprecated]]
+float limitRangeAngle(const float angle);
 
-		//! @brief ¬”‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @n C++ ‚Å‚Í C ‚ÌƒtƒH[ƒ}ƒbƒg‚Ì‚æ‚¤‚É %3.3f ‚Æ‚©‚Å¬”‚ğ•¶š—ñ‚É•ÏŠ·‚Å‚«‚È‚¢‚½‚ß©ì‚·‚é
-		//! @param [in] num •ÏŠ·‚·‚é¬”D
-		//! @param [in] digit ¬”“_ˆÈ‰º‚ÌŒ…”D
-		//! @param [in] width •¶š—ñ‚Ì•D
-		//! @return std::string •ÏŠ·‚µ‚½•¶š—ñD
-		std::string ConvertFloatToString(const float num, const int digit = kDigit, const int width = kWidth);
 
-		//! @brief ¬”‚ğ•¶š—ñ‚É•ÏŠ·‚·‚éŠÖ”D
-		//! @n C++ ‚Å‚Í C ‚ÌƒtƒH[ƒ}ƒbƒg‚Ì‚æ‚¤‚É %3.3f ‚Æ‚©‚Å¬”‚ğ•¶š—ñ‚É•ÏŠ·‚Å‚«‚È‚¢‚½‚ß©ì‚·‚é
-		//! @param [in] num •ÏŠ·‚·‚é¬”D
-		//! @param [in] digit ¬”“_ˆÈ‰º‚ÌŒ…”D
-		//! @param [in] width •¶š—ñ‚Ì•D
-		//! @return std::string •ÏŠ·‚µ‚½•¶š—ñD
-		std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
+constexpr int kDigit = 3;	//!< å°æ•°ç‚¹ä»¥ä¸‹ã®æ¡æ•°ï¼
+constexpr int kWidth = 10;	//!< æ–‡å­—åˆ—ã®å¹…ï¼
 
-	}	// namespace math_util
+//! @brief å°æ•°ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @n C++ ã§ã¯ C ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚ˆã†ã« %3.3f ã¨ã‹ã§å°æ•°ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã§ããªã„ãŸã‚è‡ªä½œã™ã‚‹
+//! @param [in] num å¤‰æ›ã™ã‚‹å°æ•°ï¼
+//! @param [in] digit å°æ•°ç‚¹ä»¥ä¸‹ã®æ¡æ•°ï¼
+//! @param [in] width æ–‡å­—åˆ—ã®å¹…ï¼
+//! @return std::string å¤‰æ›ã—ãŸæ–‡å­—åˆ—ï¼
+std::string ConvertFloatToString(const float num, const int digit = kDigit, const int width = kWidth);
+
+//! @brief å°æ•°ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹é–¢æ•°ï¼
+//! @n C++ ã§ã¯ C ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚ˆã†ã« %3.3f ã¨ã‹ã§å°æ•°ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã§ããªã„ãŸã‚è‡ªä½œã™ã‚‹
+//! @param [in] num å¤‰æ›ã™ã‚‹å°æ•°ï¼
+//! @param [in] digit å°æ•°ç‚¹ä»¥ä¸‹ã®æ¡æ•°ï¼
+//! @param [in] width æ–‡å­—åˆ—ã®å¹…ï¼
+//! @return std::string å¤‰æ›ã—ãŸæ–‡å­—åˆ—ï¼
+std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
+
+}	// namespace math_util
 
 }	// namespace designlab
 
