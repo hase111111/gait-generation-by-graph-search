@@ -1,10 +1,8 @@
-//! @file com_candidate_polygon_maker.h
-//! @brief dSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚éƒNƒ‰ƒX
-
+ï»¿//! @file com_candidate_polygon_maker.h
+//! @brief é‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
 #define DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
-
 
 #include <array>
 #include <memory>
@@ -16,24 +14,28 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @struct ComPosAndPolygon
-//! @brief —£U‰»‚³‚ê‚½dSˆÊ’u‚Æ‚»‚ÌdSˆÊ’u‚ğŠÜ‚Ş‘½ŠpŒ`‚Ì‘g‚İ‡‚í‚¹D
+//! @brief é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã¨ãã®é‡å¿ƒä½ç½®ã‚’å«ã‚€å¤šè§’å½¢ã®çµ„ã¿åˆã‚ã›ã‚’è¡¨ã™æ§‹é€ ä½“ï¼
+//! @see ComCandidatePolygonMaker
 struct ComPosAndPolygon
 {
-	ComPosAndPolygon() : com_pos(DiscreteComPos::kFront), polygon(), is_able(false) {}
+	ComPosAndPolygon() : com_pos(enums::DiscreteComPos::kFront), polygon(), is_able(false) {}
 
-	DiscreteComPos com_pos;			//!< —£U‰»‚³‚ê‚½dSˆÊ’u
-	designlab::Polygon2 polygon;	//!< dSˆÊ’u‚ğŠÜ‚Ş‘½ŠpŒ`
-	bool is_able;					//!< dSˆÊ’u‚ğŠÜ‚Ş‘½ŠpŒ`‚ª³‚µ‚¢‚©‚Ç‚¤‚©
+	enums::DiscreteComPos com_pos;			//!< é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®
+	Polygon2 polygon;	//!< é‡å¿ƒä½ç½®ã‚’å«ã‚€å¤šè§’å½¢
+	bool is_able;					//!< é‡å¿ƒä½ç½®ã‚’å«ã‚€å¤šè§’å½¢ãŒæ­£ã—ã„ã‹ã©ã†ã‹
 };
 
 
 //! @class ComCandidatePolygonMaker
-//! @brief dSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚éƒNƒ‰ƒX
-//! @details Œ»İ‚Ìƒƒ{ƒbƒg‚Ìó‘Ô‚ğ•\‚·ƒm[ƒh‚©‚çCdSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚é
-//! @n è–@‚Í”g“Œ‚³‚ñ‚Ì‘²‹ÆŒ¤‹†‚ğQl‚É‚µ‚Ä‚¢‚é‚½‚ßCÚ×‚Í‚»‚¿‚ç‚ğQÆ‚Ì‚±‚Æ
-//! @n “–‘R‚¾‚ªC‚»‚Ìè–@‚Å‚Íƒƒ{ƒbƒg‚Ìp¨•ÏX‚ğl—¶‚µ‚Ä‚¢‚È‚¢‚Ì‚Å‚±‚ÌƒNƒ‰ƒX‚ğg—p‚·‚éê‡‚ÍC
-//! @n ƒƒ{ƒbƒg‚Ì‰ñ“]Eù‰ñ‚Ís‚¤‚±‚Æ‚ª‚Å‚«‚È‚¢
+//! @brief é‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+//! @details ç¾åœ¨ã®ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¡¨ã™ãƒãƒ¼ãƒ‰ã‹ã‚‰ï¼Œé‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ï¼
+//! @n æ‰‹æ³•ã¯æ³¢æ±ã•ã‚“ã®å’æ¥­ç ”ç©¶ã‚’å‚è€ƒã«ã—ã¦ã„ã‚‹ãŸã‚ï¼Œè©³ç´°ã¯ãã¡ã‚‰ã‚’å‚ç…§ã®ã“ã¨ï¼
+//! å½“ç„¶ã ãŒï¼Œãã®æ‰‹æ³•ã§ã¯ãƒ­ãƒœãƒƒãƒˆã®å§¿å‹¢å¤‰æ›´ã‚’è€ƒæ…®ã—ã¦ã„ãªã„ã®ã§ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ï¼Œ
+//! ãƒ­ãƒœãƒƒãƒˆã®å›è»¢ãƒ»æ—‹å›ã¯è¡Œã†ã“ã¨ãŒã§ããªã„
 class ComCandidatePolygonMaker final
 {
 public:
@@ -41,35 +43,37 @@ public:
 	ComCandidatePolygonMaker(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
 
-	static constexpr int MAKE_POLYGON_NUM = 7;	//!< ì¬‚·‚é‘½ŠpŒ`‚Ì”
+	static constexpr int MAKE_POLYGON_NUM = 7;	//!< ä½œæˆã™ã‚‹å¤šè§’å½¢ã®æ•°ï¼
 
 
-	//! @brief Œ»İ‚Ìƒƒ{ƒbƒg‚Ìó‘Ô‚ğ•\‚·ƒm[ƒh‚©‚çCdSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚é
-	//! @param [in] node Œ»İ‚Ìƒƒ{ƒbƒg‚Ìó‘Ô‚ğ•\‚·ƒm[ƒh
-	//! @param [out] output_poly dSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`
+	//! @brief ç¾åœ¨ã®ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¡¨ã™ãƒãƒ¼ãƒ‰ã‹ã‚‰ï¼Œé‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ï¼
+	//! @param [in] node ç¾åœ¨ã®ãƒ­ãƒœãƒƒãƒˆã®çŠ¶æ…‹ã‚’è¡¨ã™ãƒãƒ¼ãƒ‰ï¼
+	//! @param [out] output_poly é‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ï¼
 	void MakeCandidatePolygon(const RobotStateNode& node, std::array<ComPosAndPolygon, MAKE_POLYGON_NUM>* output_poly) const;
 
 
 private:
 
-	//! @brief dSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚éD’†Sü‚è‚Ì}Œ`‚Í4ŠpŒ`‚©5ŠpŒ`‚ğ—p‚¢‚Ä•\Œ»‚·‚éD
-	void MakeCandidateBox(const std::array<designlab::Vector2, HexapodConst::kLegNum>& leg_pos, const int start_leg_num, designlab::Polygon2* output_poly) const;
+	//! @brief é‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ï¼ä¸­å¿ƒå‘¨ã‚Šã®å›³å½¢ã¯4è§’å½¢ã‹5è§’å½¢ã‚’ç”¨ã„ã¦è¡¨ç¾ã™ã‚‹ï¼
+	void MakeCandidateBox(const std::array<Vector2, HexapodConst::kLegNum>& leg_pos, const int start_leg_num, Polygon2* output_poly) const;
 
 
-	//! @brief dSˆÊ’u‚ÌŒó•â’n“_‚ğ¦‚·‘½ŠpŒ`‚ğì¬‚·‚éD’†Sü‚è‚Ì}Œ`‚Í3ŠpŒ`‚ğ—p‚¢‚Ä•\Œ»‚·‚éD
-	void MakeCandidateTriangle(const std::array<designlab::Vector2, HexapodConst::kLegNum>& leg_pos, ComPosAndPolygon* output) const;
+	//! @brief é‡å¿ƒä½ç½®ã®å€™è£œåœ°ç‚¹ã‚’ç¤ºã™å¤šè§’å½¢ã‚’ä½œæˆã™ã‚‹ï¼ä¸­å¿ƒå‘¨ã‚Šã®å›³å½¢ã¯3è§’å½¢ã‚’ç”¨ã„ã¦è¡¨ç¾ã™ã‚‹ï¼
+	void MakeCandidateTriangle(const std::array<Vector2, HexapodConst::kLegNum>& leg_pos, ComPosAndPolygon* output) const;
 
 
-	//! @brief ³‚µ‚¢‘½ŠpŒ`‚ª¶¬‚³‚ê‚Ä‚¢‚é‚©‚ğŠm”F‚·‚é
-	//! @param [in] _poly Šm”F‚·‚é‘½ŠpŒ`
-	//! @return ³‚µ‚¢‘½ŠpŒ`‚ª¶¬‚³‚ê‚Ä‚¢‚é‚©
-	bool IsAblePolygon(const designlab::Polygon2& poly) const;
+	//! @brief æ­£ã—ã„å¤šè§’å½¢ãŒç”Ÿæˆã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹ï¼
+	//! @param [in] _poly ç¢ºèªã™ã‚‹å¤šè§’å½¢ï¼
+	//! @return æ­£ã—ã„å¤šè§’å½¢ãŒç”Ÿæˆã•ã‚Œã¦ã„ã‚‹ã‹ï¼
+	bool IsAblePolygon(const Polygon2& poly) const;
 
 
-	static constexpr bool kDoCheckPolygon = true;	// ‘½ŠpŒ`‚Ìƒ`ƒFƒbƒN‚ğs‚¤ê‡‚Ítrue‚É‚·‚éDd‚¢‚Ì‚Åfalse‚É‚µ‚½‚¢‚ªC[‚³5‚Ü‚Å‚È‚ç–â‘è‚È‚µD
+	static constexpr bool kDoCheckPolygon = true;	// å¤šè§’å½¢ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã«ã™ã‚‹ï¼é‡ã„ã®ã§falseã«ã—ãŸã„ãŒï¼Œæ·±ã•5ã¾ã§ãªã‚‰å•é¡Œãªã—ï¼
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_

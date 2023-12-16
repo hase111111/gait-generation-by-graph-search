@@ -7,10 +7,8 @@
 #include "leg_state.h"
 
 
-namespace dl = ::designlab;
-namespace dllf = designlab::leg_func;
-namespace dlm = designlab::math_util;
-
+namespace designlab
+{
 
 bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, const RobotStateNode& current_node, designlab::Vector3* output_com) const
 {
@@ -23,12 +21,12 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 	}
 
 	//頂点から次の頂点へ向かう辺を正規化したベクトルを作成する
-	std::vector<dl::Vector2> edge_vec;
+	std::vector<Vector2> edge_vec;
 	edge_vec.resize(polygon.GetVertexNum());
 
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		dl::Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
+		Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
 		edge.GetNormalized();
 		edge_vec[i] = edge;
 	}
@@ -44,16 +42,16 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 		}
 
 		//現在の重心を移動させたものを作成する
-		dl::Vector3 after_move_com_pos = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
-		const dl::Vector3 dif = after_move_com_pos - current_node.global_center_of_mass;
-		const dl::Vector3 real_dif = dl::RotateVector3(dif, current_node.quat.GetConjugate());
+		Vector3 after_move_com_pos = { com_candidate[i].second.x, com_candidate[i].second.y, current_node.global_center_of_mass.z };
+		const Vector3 dif = after_move_com_pos - current_node.global_center_of_mass;
+		const Vector3 real_dif = RotateVector3(dif, current_node.quat.GetConjugate());
 
 		for (int j = 0; j < HexapodConst::kLegNum; j++)
 		{
-			if (dllf::IsGrounded(current_node.leg_state, j))
+			if (leg_func::IsGrounded(current_node.leg_state, j))
 			{
-				//const dl::Vector3 after_move_leg_pos = current_node.leg_pos[j] - dif;	//回転しないversion
-				const dl::Vector3 after_move_leg_pos = current_node.leg_pos[j] - real_dif;	//回転するversion
+				//const Vector3 after_move_leg_pos = current_node.leg_pos[j] - dif;	//回転しないversion
+				const Vector3 after_move_leg_pos = current_node.leg_pos[j] - real_dif;	//回転するversion
 
 				if (!checker_ptr_->IsLegInRange(j, after_move_leg_pos))
 				{
@@ -68,7 +66,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 
 	//候補点の中から現在の重心から最も遠くに移動できるものを選択する
 
-	const dl::Vector2 k_rotate_center = { -10000,0 };
+	const Vector2 k_rotate_center = { -10000,0 };
 	const float k_rotate_r = 10000;
 
 	float min_dist = -100000;
@@ -112,7 +110,7 @@ bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, 
 	const float kWidth = kMaxX - kMinX;
 	const float kHeight = kMaxY - kMinY;
 
-	if (dlm::IsEqual(kWidth, 0.0f) || dlm::IsEqual(kHeight, 0.0f)) { return false; }
+	if (math_util::IsEqual(kWidth, 0.0f) || math_util::IsEqual(kHeight, 0.0f)) { return false; }
 
 	const float kDeltaWidth = kWidth / (float)kDiscretizationNum;
 	const float kDeltaHeight = kHeight / (float)kDiscretizationNum;
@@ -132,11 +130,11 @@ bool ComSelecterHato::MakeComCandidatePoint(const designlab::Polygon2& polygon, 
 }
 
 
-bool ComSelecterHato::IsInMargin(const dl::Polygon2& polygon, const std::vector<dl::Vector2>& edge_vec, const dl::Vector2& candidate_point) const
+bool ComSelecterHato::IsInMargin(const Polygon2& polygon, const std::vector<Vector2>& edge_vec, const Vector2& candidate_point) const
 {
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
-		dl::Vector2 v_map = candidate_point - polygon.GetVertex(i);
+		Vector2 v_map = candidate_point - polygon.GetVertex(i);
 
 		if (v_map.Cross(edge_vec[i]) > -kStabilityMargin)
 		{
@@ -147,3 +145,5 @@ bool ComSelecterHato::IsInMargin(const dl::Polygon2& polygon, const std::vector<
 
 	return true;
 }
+
+}	//namespace designlab

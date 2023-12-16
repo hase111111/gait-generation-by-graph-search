@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_
 
-
 #include "interface_node_creator.h"
 
 #include <memory>
@@ -16,20 +15,24 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
+namespace designlab
+{
+
 //! @class NodeCreatorLegUpDown
 //! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
-//! @note 回転を考慮していないので注意
+//! @note 回転を考慮していないので注意．
 class NodeCreatorLegUpDown final : public INodeCreator
 {
 public:
 
 	NodeCreatorLegUpDown(
-		const DevideMapState& devide_map, 
+		const DevideMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		::designlab::enums::HexapodMove next_move
+		enums::HexapodMove next_move
 	);
+
 	~NodeCreatorLegUpDown() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const override;
@@ -48,12 +51,14 @@ private:
 
 	const DevideMapState map_;	//!< マップの状態．
 
-	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．
+	const enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_

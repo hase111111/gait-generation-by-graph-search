@@ -6,9 +6,9 @@ namespace designlab::leg_func
 {
 
 LegStateBit MakeLegStateBit(
-	const DiscreteComPos discrete_com_pos,
+	const enums::DiscreteComPos discrete_com_pos,
 	const std::array<bool, HexapodConst::kLegNum>& is_ground,
-	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
+	const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
 )
 {
 	LegStateBit res = 0;
@@ -127,7 +127,7 @@ void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* r
 	}
 }
 
-DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
+enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 {
 	// leg_indexは0～5の範囲にある必要がある．
 	assert(0 <= leg_index);
@@ -137,21 +137,21 @@ DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_ind
 
 	const int res = static_cast<int>(((leg_state & (kLegPosMaskbit << shift_num)) >> shift_num).to_ulong());
 
-	return static_cast<DiscreteLegPos>(res);
+	return static_cast<enums::DiscreteLegPos>(res);
 }
 
-DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
+enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
 {
 	//重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
 	const int res = static_cast<int>(((leg_state & kComStateMaskbit) >> kShiftToComNum).to_ulong());
 
-	return static_cast<DiscreteComPos>(res);
+	return static_cast<enums::DiscreteComPos>(res);
 }
 
 
 void ChangeLegState(
 	const int leg_index,
-	const DiscreteLegPos new_discretized_leg_pos,
+	const enums::DiscreteLegPos new_discretized_leg_pos,
 	const bool is_ground,
 	LegStateBit* leg_state
 )
@@ -169,7 +169,7 @@ void ChangeLegState(
 
 void ChangeDiscreteLegPos(
 	const int leg_index,
-	const DiscreteLegPos new_discretized_leg_pos,
+	const enums::DiscreteLegPos new_discretized_leg_pos,
 	LegStateBit* leg_state
 )
 {
@@ -226,7 +226,7 @@ void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_s
 	}
 }
 
-void ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg_state)
+void ChangeDiscreteComPos(const enums::DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 {
 	// leg_state は nullptrではない
 	assert(leg_state != nullptr);
@@ -235,5 +235,6 @@ void ChangeDiscreteComPos(const DiscreteComPos new_com_pattern, LegStateBit* leg
 	LegStateBit sub = ((*leg_state) ^ state) & kComStateMaskbit;
 	(*leg_state) ^= sub;
 }
+
 
 }	// namespace designlab::leg_func

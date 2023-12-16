@@ -1,7 +1,6 @@
 ﻿//! @file interpolated_node_creator.h
 //! @brief ノード間を補間するクラス
 
-
 #ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
 #define DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
 
@@ -13,8 +12,11 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class InterpolatedNodeCreator
-//! @brief ノード間を補間するクラス．矩形軌道を生成する
+//! @brief 矩形軌道を生成し，ノード間を補間するクラス．
 class InterpolatedNodeCreator final
 {
 public:
@@ -28,9 +30,9 @@ public:
 	std::vector<RobotStateNode> CreateInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node) const;
 
 private:
-	static constexpr int kGroundInterpolatedNodeNum = 10;	//脚が接地する際の補間ノード数
-	static constexpr int kBodyMoveInterpolatedNodeNum = 10;	//胴体が移動する際の補間ノード数
-	static constexpr int kFreeInterpolatedNodeNum = 10;		//脚が遊脚する際の補間ノード数
+	static constexpr int kGroundInterpolatedNodeNum = 10;	//脚が接地する際の補間ノード数．
+	static constexpr int kBodyMoveInterpolatedNodeNum = 10;	//胴体が移動する際の補間ノード数．
+	static constexpr int kFreeInterpolatedNodeNum = 10;		//脚が遊脚する際の補間ノード数．
 
 	//! @return 補間が必要ないならばtrueを返す．
 	bool IsNoChange(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
@@ -56,6 +58,8 @@ private:
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
+
+}	// namespace designlab
 
 
 #endif	//	DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_

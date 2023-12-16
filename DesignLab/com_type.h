@@ -1,10 +1,8 @@
-//! @file com_type.h
-//! @brief —£U‰»‚³‚ê‚½dSˆÊ’u‚ğ‘€ì‚·‚éŠÖ”
-
+ï»¿//! @file com_type.h
+//! @brief é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‚’æ“ä½œã™ã‚‹é–¢æ•°ï¼
 
 #ifndef DESIGNLAB_COM_TYPE_H_
 #define DESIGNLAB_COM_TYPE_H_
-
 
 #include <bitset>
 #include <unordered_map>
@@ -20,76 +18,74 @@
 
 namespace std
 {
-	// boost bimap‚Ì‚½‚ß‚É”äŠr‰‰Zq‚ğ’è‹`‚µ‚Ä‚¢‚éDáŠ±×ˆ«‚È‰ğŒˆ–@
-	template <size_t N>
-	bool operator<(const std::bitset<N>& lhs, const std::bitset<N>& rhs)
-	{
-		return lhs.to_ulong() < rhs.to_ulong();
-	}
+
+// boost bimapã®ãŸã‚ã«æ¯”è¼ƒæ¼”ç®—å­ã‚’å®šç¾©ã—ã¦ã„ã‚‹ï¼stdåå‰ç©ºé–“ã®å¤‰æ›´ã¯éæ¨å¥¨ã®ãŸã‚ï¼Œå¤‰æ›´å¯èƒ½ã§ã‚ã‚Œã°å¤‰æ›´ã™ã‚‹ï¼
+template <size_t N>
+bool operator<(const std::bitset<N>& lhs, const std::bitset<N>& rhs)
+{
+	return lhs.to_ulong() < rhs.to_ulong();
 }
 
+}	// namespace std
 
-namespace designlab
+
+//! @namespace designlab::com_func
+//! @brief é‡å¿ƒã‚¿ã‚¤ãƒ—ã«é–¢ã™ã‚‹åå‰ç©ºé–“ï¼Center of Mass Function ã®ç•¥ï¼
+//! @details leg_stateã®ä¸Šä½bitã«ã¦è¡¨ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ï¼è©³ç´°ã¯æ³¢æ±ã•ã‚“ã®ä¿®è«–ã§
+//! @n BFSinHierarchyãƒ»CreateComCandidateãƒ»PassFindingã¨æ§˜ã€…ãªãƒ•ã‚¡ã‚¤ãƒ«ã«è·¨ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸãã¦ä½œã£ãŸã‚‚ã®. 
+//! @n é‡å¿ƒä½ç½®ã¯ã–ã£ãã‚Šé›¢æ•£åŒ–ã—ã¦ï¼Œ8é€šã‚Šï¼Œ
+//! @n è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³(ã©ã®è„šã‚’ä¸Šã’ã‚‹ã‹ï¼Œä¸‹ã’ã‚‹ã‹)ã¯36é€šã‚Šã‚ã‚‹ï¼
+//! @n é›¢æ•£åŒ–ã—ãŸé‡å¿ƒä½ç½®ã‹ã‚‰å–ã‚‹ã“ã¨ãŒã§ããªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’äºˆã‚å–ã‚Šé™¤ãã®ãŒã“ã‚Œã‚‰é–¢æ•°ã®å½¹å‰²ï¼
+//! @n
+//! @n è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯ï¼Œ
+//! @n ãƒ»å…¨æ¥åœ°  1é€šã‚Š 
+//! @n ãƒ»1æœ¬éŠè„š 6é€šã‚Š 
+//! @n ãƒ»2æœ¬éŠè„š 15é€šã‚Š 
+//! @n ãƒ»3æœ¬éŠè„š 20é€šã‚Š â†’ å®Ÿç¾å¯èƒ½ãªã‚‚ã®ã¯14é€šã‚Š 
+//!	@n ãªã®ã§å…¨éƒ¨ã§36é€šã‚Šã‚ã‚‹ï¼
+namespace designlab::com_func
 {
-	//! @namespace designlab::com_func
-	//! @brief dSƒ^ƒCƒv‚ÉŠÖ‚·‚é–¼‘O‹óŠÔDCenter of Mass Function ‚Ì—ªD
-	//! @details leg_state‚ÌãˆÊbit‚É‚Ä•\‚³‚ê‚Ä‚¢‚é‚à‚ÌDÚ×‚Í”g“Œ‚³‚ñ‚ÌC˜_‚Å
-	//! @n BFSinHierarchyECreateComCandidateEPassFinding‚Æ—lX‚Èƒtƒ@ƒCƒ‹‚ÉŒ×‚éˆ—‚ğ‚Ü‚Æ‚ß‚½‚­‚Äì‚Á‚½‚à‚Ì. 
-	//! @n dSˆÊ’u‚Í‚´‚Á‚­‚è—£U‰»‚µ‚ÄC8’Ê‚èC
-	//! @n ‹r‚ÌÚ’nƒpƒ^[ƒ“(‚Ç‚Ì‹r‚ğã‚°‚é‚©C‰º‚°‚é‚©)‚Í36’Ê‚è‚ ‚éD
-	//! @n —£U‰»‚µ‚½dSˆÊ’u‚©‚çæ‚é‚±‚Æ‚ª‚Å‚«‚È‚¢Ú’nƒpƒ^[ƒ“‚ğ—\‚ßæ‚èœ‚­‚Ì‚ª‚±‚ê‚çŠÖ”‚Ì–ğŠ„D
-	//! @n
-	//! @n ‹r‚ÌÚ’nƒpƒ^[ƒ“‚ÍC
-	//! @n E‘SÚ’n  1’Ê‚è 
-	//! @n E1–{—V‹r 6’Ê‚è 
-	//! @n E2–{—V‹r 15’Ê‚è 
-	//! @n E3–{—V‹r 20’Ê‚è ¨ ÀŒ»‰Â”\‚È‚à‚Ì‚Í14’Ê‚è 
-	//!	@n ‚È‚Ì‚Å‘S•”‚Å36’Ê‚è‚ ‚éD 
-	namespace com_func
-	{
-		//! @brief ‹r‚ÌÚ’nƒpƒ^[ƒ“‚ğ•\‚·Œ^Dleft‚ªbit‚Ìƒf[ƒ^Cright‚ªintŒ^‚Ì”Ô†D
-		//! @n bimaps::bimap‚ÍC¶‰E‚ÌŒ^‚Ì—¼•û‚©‚çƒAƒNƒZƒX‚Å‚«‚émapDkey¨valueCvalue¨key‚Ì—¼•û‚ª‰Â”\D
-		//! @n ‘Oq‚Ì’Ê‚è‹r‚ÌÚ’nƒpƒ^[ƒ“‚Í36’Ê‚è‚ ‚éD
-		//! @n ‚»‚ê‚¼‚ê‚ÌÚ’nƒpƒ^[ƒ“‚É‘Î‰‚·‚é”’l‚ğŠ„‚èU‚Á‚ÄŠÇ—‚ğ‚µ‚â‚·‚­‚·‚é‚½‚ß‚ÉCbimap‚ğ—p‚¢‚Ä‚¢‚éD
-		using LegGroundedMap = boost::bimaps::bimap<::designlab::leg_func::LegGroundedBit, int>;
 
-		//!< ‹r‚ÌÚ’nƒpƒ^[ƒ“‚ğ•\‚·ƒ}ƒbƒv‚Ì’l‚ÌŒ^D
-		using LegGroundedMapValue = LegGroundedMap::value_type;
+//! @brief è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¡¨ã™å‹ï¼leftãŒbitã®ãƒ‡ãƒ¼ã‚¿ï¼ŒrightãŒintå‹ã®ç•ªå·ï¼
+//! @n bimaps::bimapã¯ï¼Œå·¦å³ã®å‹ã®ä¸¡æ–¹ã‹ã‚‰ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹mapï¼keyâ†’valueï¼Œvalueâ†’keyã®ä¸¡æ–¹ãŒå¯èƒ½ï¼
+//! @n å‰è¿°ã®é€šã‚Šè„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯36é€šã‚Šã‚ã‚‹ï¼
+//! @n ãã‚Œãã‚Œã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã«å¯¾å¿œã™ã‚‹æ•°å€¤ã‚’å‰²ã‚ŠæŒ¯ã£ã¦ç®¡ç†ã‚’ã—ã‚„ã™ãã™ã‚‹ãŸã‚ã«ï¼Œbimapã‚’ç”¨ã„ã¦ã„ã‚‹ï¼
+using LegGroundedMap = boost::bimaps::bimap<leg_func::LegGroundedBit, int>;
+
+//!< è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¡¨ã™ãƒãƒƒãƒ—ã®å€¤ã®å‹ï¼
+using LegGroundedMapValue = LegGroundedMap::value_type;
 
 
-		//! @brief ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì‘”‚ğ•Ô‚·D
-		//! @return int ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì‘”D
-		int GetLegGroundPatternNum();
+//! @brief è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç·æ•°ã‚’è¿”ã™ï¼
+//! @return int è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç·æ•°ï¼
+int GetLegGroundPatternNum();
 
-		//! @brief ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì”Ô†‚©‚çC‚»‚Ì”Ô†‚ÉŠY“–‚·‚éÚ’nƒpƒ^[ƒ“‚ğ•Ô‚·D
-		//! @param [in] leg_ground_pattern_index ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì”Ô†D
-		//! @return designlab::leg_func::LegGroundedBit ‹r‚ÌÚ’nƒpƒ^[ƒ“D
-		//! @n 6bit‚Ìbit—ñD1‚ªÚ’n‚ÅC0‚ª—V‹r‚Æ‚È‚éD
-		::designlab::leg_func::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index);
+//! @brief è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç•ªå·ã‹ã‚‰ï¼Œãã®ç•ªå·ã«è©²å½“ã™ã‚‹æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”ã™ï¼
+//! @param [in] leg_ground_pattern_index è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç•ªå·ï¼
+//! @return designlab::leg_func::LegGroundedBit è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼
+//! @n 6bitã®bitåˆ—ï¼1ãŒæ¥åœ°ã§ï¼Œ0ãŒéŠè„šã¨ãªã‚‹ï¼
+::designlab::leg_func::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(int leg_ground_pattern_index);
 
 
-		//! @brief —£U‰»‚³‚ê‚½dSˆÊ’u‚©‚çC‚»‚ÌdSˆÊ’u‚Å‚Íæ‚è“¾‚È‚¢‹rÚ’nƒpƒ^[ƒ“‚ğfalse‚É‚·‚éD
-		//! @param [in] discrete_com_pos —£U‰»‚³‚ê‚½dSˆÊ’uD
-		//! @param [in,out] output ‹rÚ’nƒpƒ^[ƒ“‚ªÀs‰Â”\‚È‚ç‚ÎtrueC•s‰Â”\‚È‚çfalse‚É‚µ‚½boolŒ^‚Ì”z—ñD
-		//! @n ˆø”‚ÌdSˆÊ’u‚Å‚Íæ‚è“¾‚È‚¢‹rÚ’nƒpƒ^[ƒ“‚ğfalse‚É•ÏX‚·‚éD
-		void RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output);
+//! @brief é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‹ã‚‰ï¼Œãã®é‡å¿ƒä½ç½®ã§ã¯å–ã‚Šå¾—ãªã„è„šæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«ã™ã‚‹ï¼
+//! @param [in] discrete_com_pos é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ï¼
+//! @param [in,out] output è„šæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå®Ÿè¡Œå¯èƒ½ãªã‚‰ã°trueï¼Œä¸å¯èƒ½ãªã‚‰falseã«ã—ãŸboolå‹ã®é…åˆ—ï¼
+//! @n å¼•æ•°ã®é‡å¿ƒä½ç½®ã§ã¯å–ã‚Šå¾—ãªã„è„šæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«å¤‰æ›´ã™ã‚‹ï¼
+void RemoveLegGroundPatternFromCom(enums::DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output);
 
-		//! @brief Ú’n‚Å‚«‚È‚¢‹r”Ô†‚©‚çC‚»‚Ì‹r‚ªÚ’n‚Å‚«‚È‚¢ê‡‚Éæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğfalse‚É‚·‚éD
-		//! @param [in] not_groundble_leg_index Ú’n‚Å‚«‚È‚¢‹r‚Ì‹r”Ô†D
-		//! @param [in,out] output ‹rÚ’nƒpƒ^[ƒ“‚ªÀs‰Â”\‚È‚ç‚ÎtrueC•s‰Â”\‚È‚çfalse‚É‚µ‚½boolŒ^‚Ì”z—ñD
-		//! @n ˆø”‚Åw’è‚µ‚½‹r‚ªÚ’n‚Å‚«‚È‚¢ê‡‚ÉCæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğfalse‚É•ÏX‚·‚éD
-		void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output);
+//! @brief æ¥åœ°ã§ããªã„è„šç•ªå·ã‹ã‚‰ï¼Œãã®è„šãŒæ¥åœ°ã§ããªã„å ´åˆã«å–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«ã™ã‚‹ï¼
+//! @param [in] not_groundble_leg_index æ¥åœ°ã§ããªã„è„šã®è„šç•ªå·ï¼
+//! @param [in,out] output è„šæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå®Ÿè¡Œå¯èƒ½ãªã‚‰ã°trueï¼Œä¸å¯èƒ½ãªã‚‰falseã«ã—ãŸboolå‹ã®é…åˆ—ï¼
+//! @n å¼•æ•°ã§æŒ‡å®šã—ãŸè„šãŒæ¥åœ°ã§ããªã„å ´åˆã«ï¼Œå–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«å¤‰æ›´ã™ã‚‹ï¼
+void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output);
 
-		//! @brief —V‹r‚Å‚«‚È‚¢‹r”Ô†‚©‚çC‚»‚Ì‹r‚ª—V‹r‚Å‚«‚È‚¢ê‡‚Éæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğfalse‚É‚·‚éD
-		//! @param [in] not_lift_leg_index —V‹r‚Å‚«‚È‚¢‹r‚Ì‹r”Ô†D
-		//! @param [in,out] output ‹rÚ’nƒpƒ^[ƒ“‚ªÀs‰Â”\‚È‚ç‚ÎtrueC•s‰Â”\‚È‚çfalse‚É‚µ‚½boolŒ^‚Ì”z—ñD
-		//! @n ˆø”‚Åw’è‚µ‚½‹r‚ª—V‹r‚Å‚«‚È‚¢ê‡‚Éæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğfalse‚É•ÏX‚·‚éD
-		void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output);
+//! @brief éŠè„šã§ããªã„è„šç•ªå·ã‹ã‚‰ï¼Œãã®è„šãŒéŠè„šã§ããªã„å ´åˆã«å–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«ã™ã‚‹ï¼
+//! @param [in] not_lift_leg_index éŠè„šã§ããªã„è„šã®è„šç•ªå·ï¼
+//! @param [in,out] output è„šæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå®Ÿè¡Œå¯èƒ½ãªã‚‰ã°trueï¼Œä¸å¯èƒ½ãªã‚‰falseã«ã—ãŸboolå‹ã®é…åˆ—ï¼
+//! @n å¼•æ•°ã§æŒ‡å®šã—ãŸè„šãŒéŠè„šã§ããªã„å ´åˆã«å–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’falseã«å¤‰æ›´ã™ã‚‹ï¼
+void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output);
 
-	}	// namespace com_func
-
-} // namespace designlab
-
+}	// namespace designlab::com_func
 
 
 #endif	// DESIGNLAB_COM_TYPE_H_

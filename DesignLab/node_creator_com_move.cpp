@@ -4,17 +4,16 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
-namespace dle = ::designlab::enums;
-namespace dllf = ::designlab::leg_func;
-namespace dlm = ::designlab::math_util;
 
+namespace designlab
+{
 
 NodeCreatorComMove::NodeCreatorComMove(
 	const DevideMapState& map, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	const dle::HexapodMove next_move
+	const enums::HexapodMove next_move
 ) :
 	map_(map), 
 	maker_(converter_ptr),
@@ -40,7 +39,7 @@ void NodeCreatorComMove::Create(const RobotStateNode& current_node, const int cu
 		//そもそも多角形が候補点になりえないならば，その多角形は無視する
 		if (!candidate_polygons[i].is_able) { continue; }
 
-		designlab::Vector3 result_com;
+		Vector3 result_com;
 
 		if (selecter_.GetComFromPolygon(candidate_polygons[i].polygon, current_node, &result_com))
 		{
@@ -48,11 +47,11 @@ void NodeCreatorComMove::Create(const RobotStateNode& current_node, const int cu
 
 			next_node.ChangeGlobalCenterOfMass(result_com, false);					//重心位置を変更し，それに伴い接地脚の位置も変更する
 
-			dllf::ChangeDiscreteComPos(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateのcom_patternを変更する
+			leg_func::ChangeDiscreteComPos(candidate_polygons[i].com_pos, &next_node.leg_state);		//leg_stateのcom_patternを変更する
 
 			for (int j = 0; j < HexapodConst::kLegNum; ++j)
 			{
-				dllf::ChangeDiscreteLegPos(j, DiscreteLegPos::kCenter, &next_node.leg_state);
+				leg_func::ChangeDiscreteLegPos(j, enums::DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
 
 			next_node.ChangeToNextNode(current_num, next_move_);	//深さや親ノードを変更する
@@ -67,3 +66,5 @@ void NodeCreatorComMove::Create(const RobotStateNode& current_node, const int cu
 		}
 	}
 }
+
+} // namespace designlab

@@ -9,19 +9,16 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlcf = ::designlab::com_func;
-namespace dllf = ::designlab::leg_func;
-namespace dlm = ::designlab::math_util;
 
+namespace designlab
+{
 
 NodeCreatorLegUpDown::NodeCreatorLegUpDown(
 	const DevideMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	dle::HexapodMove next_move
+	enums::HexapodMove next_move
 ) :
 	kLegMargin(20),
 	kHighMargin(5),
@@ -39,24 +36,24 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 {
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはcom_type.hを参照)．
 	// vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で通常のvectorとは違う挙動をするので，boost::dynamic_bitset<>を使用する．
-	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
+	boost::dynamic_bitset<> is_able_leg_ground_pattern(com_func::GetLegGroundPatternNum());
 
 	is_able_leg_ground_pattern.set();	//全てtrueにする．
 
 
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
-	dlcf::RemoveLegGroundPatternFromCom(dllf::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
+	com_func::RemoveLegGroundPatternFromCom(leg_func::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
 	//次に脚が地面に接地可能か調べる．
 	bool is_groundable_leg[HexapodConst::kLegNum];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	dl::Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
+	Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(current_node.leg_state, i))
+		if (leg_func::IsGrounded(current_node.leg_state, i))
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			is_groundable_leg[i] = true;
@@ -65,7 +62,7 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			dl::Vector3 res_ground_pos;
+			Vector3 res_ground_pos;
 
 			if (IsGroundableLeg(i, current_node, &res_ground_pos))
 			{
@@ -75,14 +72,14 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 			else
 			{
 				is_groundable_leg[i] = false;	//接地不可能にする．
-				dlcf::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
+				com_func::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
 			}
 		}
 	}
 
 
 	//子ノードを生成する．
-	for (int i = 0; i < dlcf::GetLegGroundPatternNum(); i++)
+	for (int i = 0; i < com_func::GetLegGroundPatternNum(); i++)
 	{
 		//その重心タイプが可能であれば，追加する
 		if (is_able_leg_ground_pattern[i])
@@ -93,9 +90,9 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 
 
 			//遊脚・接地を書き換える．
-			dllf::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
+			leg_func::LegGroundedBit new_is_ground = com_func::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
-			dllf::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
+			leg_func::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
 
 
 			//脚位置を書き換える．
@@ -128,12 +125,12 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 }
 
 
-bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, dl::Vector3* output_ground_pos) const
+bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, Vector3* output_ground_pos) const
 {
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const dl::Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
+	const Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
 		current_node.leg_reference_pos[now_leg_num],
 		now_leg_num,
 		current_node.global_center_of_mass,
@@ -154,7 +151,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 	min_y_dev = DevideMapState::ClampDevideMapIndex(min_y_dev);
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
-	dl::Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
+	Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
 	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
@@ -166,7 +163,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				dl::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
+				Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
 				map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(
 					map_point_pos,
 					now_leg_num,
@@ -197,7 +194,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 					}
 				}
 
-				dllf::ChangeGround(now_leg_num, true, &new_node.leg_state);
+				leg_func::ChangeGround(now_leg_num, true, &new_node.leg_state);
 
 				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//脚が範囲外ならば追加せずに続行．
 
@@ -221,27 +218,28 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 	return true;
 }
 
+//! @todo この関数はもっと綺麗に書けるはず．
 
 bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
 {
-	const DiscreteLegPos _leg_state = dllf::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
+	const enums::DiscreteLegPos _leg_state = leg_func::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
+	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < math_util::Squared(kLegMargin))
 	{
-		if (_leg_state == DiscreteLegPos::kCenter) { return true; }
+		if (_leg_state == enums::DiscreteLegPos::kCenter) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (_leg_state == DiscreteLegPos::kCenter) { return false; }
+		if (_leg_state == enums::DiscreteLegPos::kCenter) { return false; }
 	}
 
 	//脚位置4と比較して前か後ろか
 	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
-		if (_leg_state == DiscreteLegPos::kLowerBack || _leg_state == DiscreteLegPos::kBack || _leg_state == DiscreteLegPos::kUpperBack)
+		if (_leg_state == enums::DiscreteLegPos::kLowerBack || _leg_state == enums::DiscreteLegPos::kBack || _leg_state == enums::DiscreteLegPos::kUpperBack)
 		{
 			return false;
 		}
@@ -249,7 +247,7 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
 	else
 	{
 		//後ろ
-		if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kFront || _leg_state == DiscreteLegPos::kUpperFront)
+		if (_leg_state == enums::DiscreteLegPos::kLowerFront || _leg_state == enums::DiscreteLegPos::kFront || _leg_state == enums::DiscreteLegPos::kUpperFront)
 		{
 			return false;
 		}
@@ -257,7 +255,7 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
 
 
 	//脚位置4と比較して上か下か
-	if (_leg_state == DiscreteLegPos::kLowerFront || _leg_state == DiscreteLegPos::kLowerBack)
+	if (_leg_state == enums::DiscreteLegPos::kLowerFront || _leg_state == enums::DiscreteLegPos::kLowerBack)
 	{
 		//脚位置4と比較して下
 		if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
@@ -265,7 +263,7 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
 			return true;
 		}
 	}
-	else if (_leg_state == DiscreteLegPos::kUpperFront || _leg_state == DiscreteLegPos::kUpperBack)
+	else if (_leg_state == enums::DiscreteLegPos::kUpperFront || _leg_state == enums::DiscreteLegPos::kUpperBack)
 	{
 		//脚位置4と比較して上
 		if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
@@ -284,3 +282,5 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
 
 	return false;
 }
+
+}	//namespace designlab

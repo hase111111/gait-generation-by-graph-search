@@ -1,4 +1,4 @@
-#include "com_type.h"
+ï»¿#include "com_type.h"
 
 #include <iostream>
 
@@ -7,107 +7,103 @@
 #include "cassert_define.h"
 
 
-namespace dlcf = designlab::com_func;
-namespace dllf = designlab::leg_func;
-
-
-// com_func“à‚ÌŠÖ”‚ÍÀÛ‚Éˆ—‚ğs‚¤Û‚ÉŒvZ‚ğs‚¤‚Æ’x‚­‚È‚é‚½‚ßC‰Šú‰»‚Éˆê“x‚¾‚¯ŒÄ‚Ño‚µ‚ÄCŒ‹‰Ê‚ğ•Û‘¶‚µ‚Ä‚¨‚­D
-// ‚»‚Ì’l‚ğŒÄ‚Ño‚·‚±‚Æ‚Å‘¬“x‚ğã‚°‚Ä‚¢‚éD
-// ‚±‚Ì‚æ‚¤‚É–³–¼–¼‘O‹óŠÔ‚Ì’†‚É•Ï”‚ğéŒ¾‚·‚é‚±‚Æ‚ÅC‚±‚Ìƒtƒ@ƒCƒ‹“à‚Å‚Ì‚İg—p‰Â”\‚É‚È‚éD‚±‚¤‚µ‚Ä‚Å‚«‚½•Ï”‚ÉŒ‹‰Ê‚ğ•Û‘¶‚·‚éD
-// ƒAƒNƒZƒX‚·‚é‚É‚ÍCæ“ª‚É::‚ğ‚Â‚¯‚éD
-// ‚±‚±‚Ü‚Å‚â‚é‚È‚çCclass‚É‚·‚è‚á‚æ‚©‚Á‚½‚©‚à
+// com_funcå†…ã®é–¢æ•°ã¯å®Ÿéš›ã«å‡¦ç†ã‚’è¡Œã†éš›ã«è¨ˆç®—ã‚’è¡Œã†ã¨é…ããªã‚‹ãŸã‚ï¼ŒåˆæœŸåŒ–æ™‚ã«ä¸€åº¦ã ã‘å‘¼ã³å‡ºã—ã¦ï¼Œçµæœã‚’ä¿å­˜ã—ã¦ãŠãï¼
+// ãã®å€¤ã‚’å‘¼ã³å‡ºã™ã“ã¨ã§é€Ÿåº¦ã‚’ä¸Šã’ã¦ã„ã‚‹ï¼
+// ã“ã®ã‚ˆã†ã«ç„¡ååå‰ç©ºé–“ã®ä¸­ã«å¤‰æ•°ã‚’å®£è¨€ã™ã‚‹ã“ã¨ã§ï¼Œã“ã®ãƒ•ã‚¡ã‚¤ãƒ«å†…ã§ã®ã¿ä½¿ç”¨å¯èƒ½ã«ãªã‚‹ï¼ã“ã†ã—ã¦ã§ããŸå¤‰æ•°ã«çµæœã‚’ä¿å­˜ã™ã‚‹ï¼
+// ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã«ã¯ï¼Œå…ˆé ­ã«::ã‚’ã¤ã‘ã‚‹ï¼
+//! @todo ã‚¯ãƒ©ã‚¹ã«ã™ã‚‹ã¹ã.
 namespace
 {
-	//! @brief ‹r‚ÌÚ’nƒpƒ^[ƒ“‚ğ•\‚·ƒ}ƒbƒv‚ğì¬‚·‚éŠÖ”D‰Šú‰»‚Éˆê“x‚¾‚¯ŒÄ‚Ño‚·D
-	dlcf::LegGroundedMap MakeLegGroundedMap() 
+	//! @brief è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¡¨ã™ãƒãƒƒãƒ—ã‚’ä½œæˆã™ã‚‹é–¢æ•°ï¼åˆæœŸåŒ–æ™‚ã«ä¸€åº¦ã ã‘å‘¼ã³å‡ºã™ï¼
+	designlab::com_func::LegGroundedMap MakeLegGroundedMap() 
 	{
-		dlcf::LegGroundedMap res;
+		designlab::com_func::LegGroundedMap res;
 		int counter = 0;
 
 
-		// ‹r‚ªÚ’n‚µ‚Ä‚¢‚éê‡1C—V‹r‚Ìê‡0‚Æ‚µ‚ÄC6bit‚Ì”’l‚ğì¬‚·‚éD0”Ô‹r‚ª—V‹rCc‚èÚ’n‚Ìê‡ 111 110 D
-		// ‚»‚µ‚Ä‚»‚ê‚É 0 ‚©‚çn‚Ü‚é”Ô†‚ğŠ„‚èU‚éD(ŠÇ—‚µ‚â‚·‚­‚·‚é‚½‚ßD)
-		// ‘Sƒpƒ^[ƒ“‚ğ‘“–‚è‚Å‘‚¢‚Ä‚ ‚é‚¯‚ÇC–{“–‚Í‚±‚ÌƒŠƒXƒg‚ğì¬‚·‚éŠÖ”‚ğì‚è‚½‚¢D
+		// è„šãŒæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆ1ï¼ŒéŠè„šã®å ´åˆ0ã¨ã—ã¦ï¼Œ6bitã®æ•°å€¤ã‚’ä½œæˆã™ã‚‹ï¼0ç•ªè„šãŒéŠè„šï¼Œæ®‹ã‚Šæ¥åœ°ã®å ´åˆ 111 110 ï¼
+		// ãã—ã¦ãã‚Œã« 0 ã‹ã‚‰å§‹ã¾ã‚‹ç•ªå·ã‚’å‰²ã‚ŠæŒ¯ã‚‹ï¼(ç®¡ç†ã—ã‚„ã™ãã™ã‚‹ãŸã‚ï¼)
+		// å…¨ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç·å½“ã‚Šã§æ›¸ã„ã¦ã‚ã‚‹ã‘ã©ï¼Œæœ¬å½“ã¯ã“ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆã™ã‚‹é–¢æ•°ã‚’ä½œã‚ŠãŸã„ï¼
 
-		// ƒgƒ‰ƒCƒ|ƒbƒg•à—e‚Ég—p‚·‚éƒpƒ^[ƒ“D
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101010"), counter++));
+		// ãƒˆãƒ©ã‚¤ãƒãƒƒãƒˆæ­©å®¹ã«ä½¿ç”¨ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("010101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101010"), counter++));
 
-		// 6‹r‘S‚ÄÚ’n‚µ‚Ä‚¢‚éê‡
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111111"), counter++));
-
-
-		// 5‹rÚ’n‚µ‚Ä‚¢‚éê‡
-
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111110"), counter++));
+		// 6è„šå…¨ã¦æ¥åœ°ã—ã¦ã„ã‚‹å ´åˆ
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111111"), counter++));
 
 
-		// 4‹rÚ’n‚µ‚Ä‚¢‚éê‡
+		// 5è„šæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆ
 
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111001"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111010"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("111100"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111110"), counter++));
 
 
-		// 3‹rÚ’n‚µ‚Ä‚¢‚éê‡D—×‚è‡‚¤3‹r‚ª—V‹r‚µ‚Ä‚¢‚éê‡‚Íœ‚­(“]“|‚µ‚Ä‚µ‚Ü‚¤‚½‚ß)D
+		// 4è„šæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆ
 
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("000111"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("001101"), counter++));
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("001110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("010110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011001"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("011010"), counter++));
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("011100"), counter++));
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("100011"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100101"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("100110"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101001"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("101100"), counter++));
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("110001"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110010"), counter++));
-		res.insert(dlcf::LegGroundedMapValue(dllf::LegGroundedBit("110100"), counter++));
-		//res.insert(LegGroundedMapValue(dllf::LegGroundedBit("111000"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("001111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("010111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("100111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111001"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111010"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111100"), counter++));
+
+
+		// 3è„šæ¥åœ°ã—ã¦ã„ã‚‹å ´åˆï¼éš£ã‚Šåˆã†3è„šãŒéŠè„šã—ã¦ã„ã‚‹å ´åˆã¯é™¤ã(è»¢å€’ã—ã¦ã—ã¾ã†ãŸã‚)ï¼
+
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("000111"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("001011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("001101"), counter++));
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("001110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("010011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("010110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011001"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011010"), counter++));
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("011100"), counter++));
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("100011"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("100101"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("100110"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101001"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("101100"), counter++));
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110001"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110010"), counter++));
+		res.insert(designlab::com_func::LegGroundedMapValue(designlab::leg_func::LegGroundedBit("110100"), counter++));
+		//res.insert(LegGroundedMapValue(designlab::leg_func::LegGroundedBit("111000"), counter++));
 
 		return std::move(res);
 	}
 
-	//! ‹r‚ÌÚ’nƒpƒ^[ƒ“‚É”’l‚ğŠ„‚èU‚Á‚½ƒ}ƒbƒvDÚ’n‚ğ1C—V‹r‚ğ0‚Æ‚µ‚ÄC
-	//! { 111111 , 0 } ‚Ì‚æ‚¤‚ÈŒ`®‚Å‘ã“ü‚³‚ê‚Ä‚¢‚é 
-	const dlcf::LegGroundedMap kLegGrouededPatternMap = MakeLegGroundedMap();
+	//! è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã«æ•°å€¤ã‚’å‰²ã‚ŠæŒ¯ã£ãŸãƒãƒƒãƒ—ï¼æ¥åœ°ã‚’1ï¼ŒéŠè„šã‚’0ã¨ã—ã¦ï¼Œ
+	//! { 111111 , 0 } ã®ã‚ˆã†ãªå½¢å¼ã§ä»£å…¥ã•ã‚Œã¦ã„ã‚‹ 
+	const designlab::com_func::LegGroundedMap kLegGrouededPatternMap = MakeLegGroundedMap();
 
-	//!< ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì”D
+	//!< è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®æ•°ï¼
 	const int kLegGroundedPatternNum = static_cast<int>(kLegGrouededPatternMap.size());
 
 
 
-	//! @brief leg_index‚Æ leg_index + 1 ”Ô‚Ì‹r‚ª‚Æ‚à‚É—V‹r‚É‚È‚é‚Étrue‚ğ•Ô‚·ŠÖ”D‰Šú‰»—p‚Ég—p‚µ‚Ä‚¢‚é
-	//! @param leg_index ‹r‚Ì”Ô†D
-	//! @param leg_ground_pattern_index ‹r‚ÌÚ’nƒpƒ^[ƒ“‚Ì”Ô†D
-	//! @return leg_index‚Æ leg_index + 1 ”Ô‚Ì‹r‚ª‚Æ‚à‚É—V‹r‚É‚È‚é‚ÉtrueD
+	//! @brief leg_indexã¨ leg_index + 1 ç•ªã®è„šãŒã¨ã‚‚ã«éŠè„šã«ãªã‚‹æ™‚ã«trueã‚’è¿”ã™é–¢æ•°ï¼åˆæœŸåŒ–ç”¨ã«ä½¿ç”¨ã—ã¦ã„ã‚‹
+	//! @param leg_index è„šã®ç•ªå·ï¼
+	//! @param leg_ground_pattern_index è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç•ªå·ï¼
+	//! @return leg_indexã¨ leg_index + 1 ç•ªã®è„šãŒã¨ã‚‚ã«éŠè„šã«ãªã‚‹æ™‚ã«trueï¼
 	bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
 	{
-		dllf::LegGroundedBit leg_ground_pattern;
+		designlab::leg_func::LegGroundedBit leg_ground_pattern;
 
-		// index‚©‚ç—V‹r‚Ìƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
+		// indexã‹ã‚‰éŠè„šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—ã™ã‚‹ï¼
 		try
 		{
 			leg_ground_pattern = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
@@ -117,8 +113,8 @@ namespace
 			return false;
 		}
 
-		// —¼—×‚ª—V‹r‚Ìê‡‚Ítrue‚ğ•Ô‚·D
-		if (!leg_ground_pattern[leg_index % HexapodConst::kLegNum] && !leg_ground_pattern[(leg_index + 1) % HexapodConst::kLegNum])
+		// ä¸¡éš£ãŒéŠè„šã®å ´åˆã¯trueã‚’è¿”ã™ï¼
+		if (!leg_ground_pattern[leg_index % designlab::HexapodConst::kLegNum] && !leg_ground_pattern[(leg_index + 1) % designlab::HexapodConst::kLegNum])
 		{
 			return true;
 		}
@@ -128,28 +124,28 @@ namespace
 		}
 	}
 
-	//! @brief dSˆÊ’u‚©‚çg—p•s‰Â”\‚ÈÚ’nƒpƒ^[ƒ“‚ğì¬‚·‚éŠÖ”D‰Šú‰»‚Éˆê“x‚¾‚¯ŒÄ‚Ño‚·D
-	std::unordered_map<DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList()
+	//! @brief é‡å¿ƒä½ç½®ã‹ã‚‰ä½¿ç”¨ä¸å¯èƒ½ãªæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½œæˆã™ã‚‹é–¢æ•°ï¼åˆæœŸåŒ–æ™‚ã«ä¸€åº¦ã ã‘å‘¼ã³å‡ºã™ï¼
+	std::unordered_map<designlab::enums::DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList()
 	{
-		std::unordered_map<DiscreteComPos, std::vector<int>> res;
+		std::unordered_map<designlab::enums::DiscreteComPos, std::vector<int>> res;
 
 
-		// ƒƒ{ƒbƒg‚Ì‘Ì‚ª‘O‚ÉŠñ‚Á‚Ä‚¢‚é‚É‘O‘«‚ª—¼•û‚Æ‚à—V‹r‚¾‚Æ“]“|‚µ‚Ä‚µ‚Ü‚¤D
-		// ‚»‚Ì‚½‚ßC—£U‰»‚³‚ê‚½dS‚©‚çC‚Æ‚é‚±‚Æ‚ª‚Å‚«‚È‚¢C˜A‘±‚·‚é‹r‚ª—¼•û‚Æ‚à—V‹r‚É‚È‚éƒpƒ^[ƒ“‚ğ‹Ö~‚·‚é‚Ì‚ª‚±‚ÌŠÖ”‚Ì–Ú“I‚Å‚ ‚éD
-		std::unordered_map<DiscreteComPos, std::vector<int>> ban_leg_index_list;
-		ban_leg_index_list[DiscreteComPos::kFront] = { 0,4,5 };
-		ban_leg_index_list[DiscreteComPos::kFrontRight] = { 0,1,5 };
-		ban_leg_index_list[DiscreteComPos::kFrontLeft] = { 3,4,5 };
-		ban_leg_index_list[DiscreteComPos::kBack] = { 1,2,3 };
-		ban_leg_index_list[DiscreteComPos::kBackRight] = { 0,1,2 };
-		ban_leg_index_list[DiscreteComPos::kBackLeft] = { 2,3,4 };
-		ban_leg_index_list[DiscreteComPos::kCenterBack] = { 0,2,4 };
-		ban_leg_index_list[DiscreteComPos::kCenterFront] = { 1,3,5 };
+		// ãƒ­ãƒœãƒƒãƒˆã®ä½“ãŒå‰ã«å¯„ã£ã¦ã„ã‚‹æ™‚ã«å‰è¶³ãŒä¸¡æ–¹ã¨ã‚‚éŠè„šã ã¨è»¢å€’ã—ã¦ã—ã¾ã†ï¼
+		// ãã®ãŸã‚ï¼Œé›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒã‹ã‚‰ï¼Œã¨ã‚‹ã“ã¨ãŒã§ããªã„ï¼Œé€£ç¶šã™ã‚‹è„šãŒä¸¡æ–¹ã¨ã‚‚éŠè„šã«ãªã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç¦æ­¢ã™ã‚‹ã®ãŒã“ã®é–¢æ•°ã®ç›®çš„ã§ã‚ã‚‹ï¼
+		std::unordered_map<designlab::enums::DiscreteComPos, std::vector<int>> ban_leg_index_list;
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kFront] = { 0,4,5 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kFrontRight] = { 0,1,5 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kFrontLeft] = { 3,4,5 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kBack] = { 1,2,3 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kBackRight] = { 0,1,2 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kBackLeft] = { 2,3,4 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kCenterBack] = { 0,2,4 };
+		ban_leg_index_list[designlab::enums::DiscreteComPos::kCenterFront] = { 1,3,5 };
 
 
-		// DiscreteComPos‚Ì—v‘f”‚¾‚¯ƒ‹[ƒv‚·‚éD
-		// magic_enum::enum_values<DiscreteComPos>()‚ÍCDiscreteComPos‚Ì—v‘f‚ğ—ñ‹“‚µ‚½array‚ğ•Ô‚·D
-		for (const auto& i : magic_enum::enum_values<DiscreteComPos>())
+		// DiscreteComPosã®è¦ç´ æ•°ã ã‘ãƒ«ãƒ¼ãƒ—ã™ã‚‹ï¼
+		// magic_enum::enum_values<DiscreteComPos>() ã¯ï¼ŒDiscreteComPos ã®è¦ç´ ã‚’åˆ—æŒ™ã—ãŸarrayã‚’è¿”ã™ï¼
+		for (const auto& i : magic_enum::enum_values<designlab::enums::DiscreteComPos>())
 		{
 			if (ban_leg_index_list.count(i) == 0) { continue; }
 
@@ -168,19 +164,19 @@ namespace
 		return std::move(res);
 	}
 
-	//! @brief “Á’è‚Ì‹r‚ªÚ’n‚Å‚«‚È‚¢ê‡‚Éæ‚è“¾‚È‚¢Ú’nƒpƒ^[ƒ“‚ğì¬‚·‚éŠÖ”‚ÌD‰Šú‰»‚Éˆê“x‚¾‚¯ŒÄ‚Ño‚·D 
+	//! @brief ç‰¹å®šã®è„šãŒæ¥åœ°ã§ããªã„å ´åˆã«å–ã‚Šå¾—ãªã„æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½œæˆã™ã‚‹é–¢æ•°ã®ï¼åˆæœŸåŒ–æ™‚ã«ä¸€åº¦ã ã‘å‘¼ã³å‡ºã™ï¼ 
 	std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg()
 	{
 		std::vector<std::vector<int>> res;
 
-		res.resize(HexapodConst::kLegNum);	// ‹r‚Ì”‚¾‚¯vector‚ğŠm•Û‚·‚éD
+		res.resize(designlab::HexapodConst::kLegNum);	// è„šã®æ•°ã ã‘vectorã‚’ç¢ºä¿ã™ã‚‹ï¼
 
-		// i ”Ô‹r‚ğÚ’n‚µ‚È‚¯‚ê‚ÎCæ‚é‚±‚Æ‚ª‚Å‚«‚È‚¢‚à‚Ì‚ğ•Û‘¶‚·‚éD
-		for (int i = 0; i < HexapodConst::kLegNum; i++)
+		// i ç•ªè„šã‚’æ¥åœ°ã—ãªã‘ã‚Œã°ï¼Œå–ã‚‹ã“ã¨ãŒã§ããªã„ã‚‚ã®ã‚’ä¿å­˜ã™ã‚‹ï¼
+		for (int i = 0; i < designlab::HexapodConst::kLegNum; i++)
 		{
 			for (int j = 0; j < ::kLegGroundedPatternNum; ++j)
 			{
-				// i”Ô–Ú‚Ìbit‚ğŠm”F‚µC—§‚Á‚Ä‚¢‚é‚È‚ç‚Î(‚Â‚Ü‚èC‚»‚Ì‹r‚ğÚ’n‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢‚È‚ç)C‚»‚Ìƒpƒ^[ƒ“‚ğ‹Ö~‚·‚éD
+				// iç•ªç›®ã®bitã‚’ç¢ºèªã—ï¼Œç«‹ã£ã¦ã„ã‚‹ãªã‚‰ã°(ã¤ã¾ã‚Šï¼Œãã®è„šã‚’æ¥åœ°ã—ãªã‘ã‚Œã°ã„ã‘ãªã„ãªã‚‰)ï¼Œãã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç¦æ­¢ã™ã‚‹ï¼
 				if (::kLegGrouededPatternMap.right.at(j)[i])
 				{
 					res[i].push_back(j);
@@ -192,49 +188,52 @@ namespace
 	}
 
 
-	//!< dSˆÊ’u‚©‚çg—p•s‰Â”\‚ÈÚ’nƒpƒ^[ƒ“‚ğmap‚ÅŠÇ—‚·‚éD
-	const std::unordered_map<DiscreteComPos, std::vector<int>> kLegGroundedPatternBanList = MakeLegGroundedPatternBanList();	
+	//!< é‡å¿ƒä½ç½®ã‹ã‚‰ä½¿ç”¨ä¸å¯èƒ½ãªæ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’mapã§ç®¡ç†ã™ã‚‹ï¼
+	const std::unordered_map<designlab::enums::DiscreteComPos, std::vector<int>> kLegGroundedPatternBanList = MakeLegGroundedPatternBanList();
 
-	//!< ‚»‚Ì‹r‚ª—V‹r‚Ì‚Æ‚«Cæ‚è“¾‚È‚¢‹r‚ÌÚ’nƒpƒ^[ƒ“‚ğŠÇ—‚·‚éD
+	//!< ãã®è„šãŒéŠè„šã®ã¨ãï¼Œå–ã‚Šå¾—ãªã„è„šã®æ¥åœ°ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç®¡ç†ã™ã‚‹ï¼
 	const std::vector<std::vector<int>> kLegGroundedPatternBanListFromLeg = MakeLegGroundedPatternBanListFromLeg();
 }
 
 
-int designlab::com_func::GetLegGroundPatternNum()
+namespace designlab::com_func
+{
+
+int GetLegGroundPatternNum()
 {
 	return kLegGroundedPatternNum;
 }
 
-dllf::LegGroundedBit designlab::com_func::GetLegGroundedBitFromLegGroundPatternIndex(const int leg_ground_pattern_index)
+leg_func::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(const int leg_ground_pattern_index)
 {
-	dllf::LegGroundedBit res;
+	leg_func::LegGroundedBit res;
 
-	// index‚©‚ç—V‹r‚Ìƒpƒ^[ƒ“‚ğæ“¾‚·‚éD
+	// indexã‹ã‚‰éŠè„šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—ã™ã‚‹ï¼
 	res = ::kLegGrouededPatternMap.right.at(leg_ground_pattern_index);
 
 	return res;
 }
 
 
-void designlab::com_func::RemoveLegGroundPatternFromCom(DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
+void RemoveLegGroundPatternFromCom(enums::DiscreteComPos discrete_com_pos, boost::dynamic_bitset<>* output)
 {
 	assert(output != nullptr);
 	assert((*output).size() == GetLegGroundPatternNum());
 
-	// kLegGroundedPatternBanList ‚ÉƒL[‚ª‘¶İ‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚âC
-	// ’l‚ªgetLegGroundPatternNum‚ğ’´‚¦‚Ä‚È‚¢‚±‚Æ‚ğŠm”F‚µ‚Ä‚¢‚È‚¢DƒGƒ‰[‚ªo‚½‚ç‚»‚±‚ªŒ´ˆö‚©‚à‚µ‚ê‚È‚¢D
+	// kLegGroundedPatternBanList ã«ã‚­ãƒ¼ãŒå­˜åœ¨ã—ã¦ã„ãªã„ã“ã¨ã‚„ï¼Œ
+	// å€¤ãŒgetLegGroundPatternNumã‚’è¶…ãˆã¦ãªã„ã“ã¨ã‚’ç¢ºèªã—ã¦ã„ãªã„ï¼ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸã‚‰ãã“ãŒåŸå› ã‹ã‚‚ã—ã‚Œãªã„ï¼
 	for (auto& i : kLegGroundedPatternBanList.at(discrete_com_pos))
 	{
 		(*output)[i] = false;
 	}
 }
 
-void designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
+void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundble_leg_index, boost::dynamic_bitset<>* output)
 {
 	assert(output != nullptr);
 	assert((*output).size() == GetLegGroundPatternNum());
 
-	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG‚ÉƒL[‚ª‘¶İ‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚âC’l‚ªgetLegGroundPatternNum‚ğ’´‚¦‚Ä‚È‚¢‚±‚Æ‚ğŠm”F‚µ‚Ä‚¢‚È‚¢DƒGƒ‰[‚ªo‚½‚ç‚»‚±‚ªŒ´ˆö‚©‚à‚µ‚ê‚È‚¢D
+	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGã«ã‚­ãƒ¼ãŒå­˜åœ¨ã—ã¦ã„ãªã„ã“ã¨ã‚„ï¼Œå€¤ãŒgetLegGroundPatternNumã‚’è¶…ãˆã¦ãªã„ã“ã¨ã‚’ç¢ºèªã—ã¦ã„ãªã„ï¼ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸã‚‰ãã“ãŒåŸå› ã‹ã‚‚ã—ã‚Œãªã„ï¼
 
 	for (auto& i : kLegGroundedPatternBanListFromLeg[not_groundble_leg_index])
 	{
@@ -242,12 +241,12 @@ void designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg(int not_gro
 	}
 }
 
-void designlab::com_func::RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
+void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
 {
 	assert(output != nullptr);
 	assert((*output).size() == GetLegGroundPatternNum());
 
-	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEG‚ÉƒL[‚ª‘¶İ‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚âC’l‚ªgetLegGroundPatternNum‚ğ’´‚¦‚Ä‚È‚¢‚±‚Æ‚ğŠm”F‚µ‚Ä‚¢‚È‚¢DƒGƒ‰[‚ªo‚½‚ç‚»‚±‚ªŒ´ˆö‚©‚à‚µ‚ê‚È‚¢D
+	// LEG_GROUNDED_PATTERN_BAN_LIST_FROM_LEGã«ã‚­ãƒ¼ãŒå­˜åœ¨ã—ã¦ã„ãªã„ã“ã¨ã‚„ï¼Œå€¤ãŒgetLegGroundPatternNumã‚’è¶…ãˆã¦ãªã„ã“ã¨ã‚’ç¢ºèªã—ã¦ã„ãªã„ï¼ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸã‚‰ãã“ãŒåŸå› ã‹ã‚‚ã—ã‚Œãªã„ï¼
 	boost::dynamic_bitset<> inverse_output(GetLegGroundPatternNum());
 
 	for (auto& i : kLegGroundedPatternBanListFromLeg[not_lift_leg_index])
@@ -257,3 +256,5 @@ void designlab::com_func::RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_
 
 	(*output) &= inverse_output;
 }
+
+}	// namespace designlab

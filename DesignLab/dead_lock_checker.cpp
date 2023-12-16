@@ -1,6 +1,9 @@
 ﻿#include "dead_lock_checker.h"
 
 
+namespace designlab
+{
+
 void DeadLockChecker::AddNode(const RobotStateNode& node)
 {
 	//ノードを前から追加する
@@ -45,3 +48,5 @@ bool DeadLockChecker::IsDeadLock() const
 
 	return false;
 }
+
+} //namespace designlab

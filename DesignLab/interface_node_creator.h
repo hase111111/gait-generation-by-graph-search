@@ -1,32 +1,36 @@
-//! @file interface_node_creator.h
-//! @brief ƒm[ƒh¶¬ƒCƒ“ƒ^[ƒtƒF[ƒX
+ï»¿//! @file interface_node_creator.h
+//! @brief ãƒãƒ¼ãƒ‰ç”Ÿæˆå‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 
 #ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_H_
 #define DESIGNLAB_INTERFACE_NODE_CREATOR_H_
-
 
 #include <vector>
 
 #include "robot_state_node.h"
 
 
+namespace designlab 
+{
+
 //! @class INodeCreator
-//! @brief ƒm[ƒh¶¬ƒCƒ“ƒ^[ƒtƒF[ƒX
+//! @brief ãƒãƒ¼ãƒ‰ç”Ÿæˆå‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 class INodeCreator
 {
 public:
 
-	//! @brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚ÍŸ“®ì‚ğİ’è‚·‚éD‚Ü‚½ƒ}ƒbƒv‚Ìƒ|ƒCƒ“ƒ^‚ğó‚¯æ‚é
+	//! @brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã¯æ¬¡å‹•ä½œã‚’è¨­å®šã™ã‚‹ï¼ã¾ãŸãƒãƒƒãƒ—ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å—ã‘å–ã‚‹ï¼
 	INodeCreator() = default;
 	virtual ~INodeCreator() = default;
 
 
-	//! @brief Œ»İ‚Ìƒm[ƒh‚©‚çŸ‚Ìƒm[ƒhŒQ‚ğ¶¬‚·‚é
-	//! @param[in] current_node Œ»İ‚Ìƒm[ƒh
-	//! @param[in] current_node_index Œ»İ‚Ìƒm[ƒh‚ÌƒCƒ“ƒfƒbƒNƒX
-	//! @param[out] output_graph ¶¬‚µ‚½ƒm[ƒhŒQ‚ğ•Ô‚·
+	//! @brief ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã‹ã‚‰æ¬¡ã®ãƒãƒ¼ãƒ‰ç¾¤ã‚’ç”Ÿæˆã™ã‚‹ï¼
+	//! @param[in] current_node ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ï¼
+	//! @param[in] current_node_index ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼
+	//! @param[out] output_graph ç”Ÿæˆã—ãŸãƒãƒ¼ãƒ‰ç¾¤ã‚’è¿”ã™ï¼
 	virtual void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const = 0;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_INTERFACE_NODE_CREATOR_H_

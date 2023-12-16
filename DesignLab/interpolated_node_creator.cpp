@@ -4,9 +4,9 @@
 #include "designlab_math_util.h"
 #include "hexapod_const.h"
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dllf = ::designlab::leg_func;
+
+namespace designlab 
+{
 
 InterpolatedNodeCreator::InterpolatedNodeCreator(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) : 
 	converter_ptr_(converter_ptr)
@@ -105,7 +105,7 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyRotInterpolatedNo
 		RobotStateNode temp_node = current_node;
 		const float ex = (static_cast<float>(i) + 1.0f) / (static_cast<float>(kBodyMoveInterpolatedNodeNum));
 
-		const dl::Quaternion quat = dl::SlerpQuaternion(current_node.quat, next_node.quat, ex).GetNormalized();
+		const Quaternion quat = SlerpQuaternion(current_node.quat, next_node.quat, ex).GetNormalized();
 
 		temp_node.ChangeQuat(converter_ptr_, quat);
 
@@ -206,7 +206,7 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
 std::vector<int> InterpolatedNodeCreator::GetGroundMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const
 {
 	// 脚先座標の差分を計算．
-	std::array<dl::Vector3, HexapodConst::kLegNum> dif;
+	std::array<Vector3, HexapodConst::kLegNum> dif;
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -230,7 +230,7 @@ std::vector<int> InterpolatedNodeCreator::GetGroundMoveIndex(const RobotStateNod
 std::vector<int> InterpolatedNodeCreator::GetFreeMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const
 {
 	// 脚先座標の差分を計算．
-	std::array<dl::Vector3, HexapodConst::kLegNum> dif;
+	std::array<Vector3, HexapodConst::kLegNum> dif;
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
@@ -250,3 +250,5 @@ std::vector<int> InterpolatedNodeCreator::GetFreeMoveIndex(const RobotStateNode&
 
 	return res_index;
 }
+
+} // namespace designlab

@@ -3,11 +3,10 @@
 #include "leg_state.h"
 
 
-namespace dle = ::designlab::enums;
-namespace dllf = ::designlab::leg_func;
+namespace designlab
+{
 
-
-NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const dle::HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list) :
+NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const enums::HexapodMove next_move, const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list) :
 	next_move_(next_move),
 	discrete_leg_pos_list_(discrete_leg_pos_list)
 {
@@ -18,7 +17,7 @@ NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(const dle::HexapodMove next_mov
 void NodeCreatorLegHierarchy::Create(const RobotStateNode& current_node, const int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	//現在，接地している脚の本数を数える
-	const int kLiftedLegNum = dllf::GetLiftedLegNum(current_node.leg_state);
+	const int kLiftedLegNum = leg_func::GetLiftedLegNum(current_node.leg_state);
 
 	//遊脚している脚の本数によって処理をする
 	if (kLiftedLegNum == 1)
@@ -56,7 +55,7 @@ void NodeCreatorLegHierarchy::Create1LegLifted(const RobotStateNode& current_nod
 	//遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dllf::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
+	leg_func::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
@@ -64,7 +63,7 @@ void NodeCreatorLegHierarchy::Create1LegLifted(const RobotStateNode& current_nod
 	{
 		RobotStateNode new_node = current_node;		//新しい脚状態を生成する.
 
-		dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
+		leg_func::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);	//脚状態を変更する．
 
 		new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -78,7 +77,7 @@ void NodeCreatorLegHierarchy::Create2LegLifted(const RobotStateNode& current_nod
 	//遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dllf::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
+	leg_func::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
@@ -88,8 +87,8 @@ void NodeCreatorLegHierarchy::Create2LegLifted(const RobotStateNode& current_nod
 		{
 			RobotStateNode new_node = current_node;		//新しい脚状態を生成する.
 
-			dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
-			dllf::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
+			leg_func::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+			leg_func::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
 
 			new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -104,7 +103,7 @@ void NodeCreatorLegHierarchy::Create3LegLifted(const RobotStateNode& current_nod
 	//遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず
 	std::vector<int> lifted_leg_list;
 
-	dllf::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
+	leg_func::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
 
 
 	// 列挙体 DiscreteLegPos の全ての要素でループを回す．
@@ -116,9 +115,9 @@ void NodeCreatorLegHierarchy::Create3LegLifted(const RobotStateNode& current_nod
 			{
 				RobotStateNode new_node = current_node;		//新しい脚状態を生成する.
 
-				dllf::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
-				dllf::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
-				dllf::ChangeDiscreteLegPos(lifted_leg_list[2], k, &new_node.leg_state);
+				leg_func::ChangeDiscreteLegPos(lifted_leg_list[0], i, &new_node.leg_state);			//脚状態を変更する．
+				leg_func::ChangeDiscreteLegPos(lifted_leg_list[1], j, &new_node.leg_state);
+				leg_func::ChangeDiscreteLegPos(lifted_leg_list[2], k, &new_node.leg_state);
 
 				new_node.ChangeToNextNode(current_node_index, next_move_);		//次のノード用に，深さ・親・次の動作を更新する．
 
@@ -127,3 +126,5 @@ void NodeCreatorLegHierarchy::Create3LegLifted(const RobotStateNode& current_nod
 		}
 	}
 }
+
+} // namespace designlab

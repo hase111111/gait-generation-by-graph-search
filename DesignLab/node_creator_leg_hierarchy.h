@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
 
-
 #include "interface_node_creator.h"
 
 #include <memory>
@@ -14,13 +13,16 @@
 #include "discrete_leg_pos.h"
 
 
+namespace designlab
+{
+
 //! @class NodeCreatorLegHierarchy
 //! @brief 脚の階層構造を作るためのクラス．
 class NodeCreatorLegHierarchy final : public INodeCreator
 {
 public:
 
-	NodeCreatorLegHierarchy(::designlab::enums::HexapodMove next_move, const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
+	NodeCreatorLegHierarchy(enums::HexapodMove next_move, const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list);
 	~NodeCreatorLegHierarchy() = default;
 
 	void Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const override;
@@ -38,10 +40,12 @@ private:
 	void Create3LegLifted(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_nodes) const;
 
 
-	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．						
+	const enums::HexapodMove next_move_;	//!< 次の動作．						
 
-	const std::vector<DiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
+	const std::vector<enums::DiscreteLegPos> discrete_leg_pos_list_;		//!< 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_

@@ -7,6 +7,9 @@
 #include "interface_node_creator_builder.h"
 
 
+namespace designlab
+{
+
 //! @class NodeCreatorBuilderRotTest
 //! @brief 回転動作のテスト用ビルダークラス．
 class NodeCreatorBuilderRotTest final : public INodeCreatorBuilder
@@ -28,5 +31,8 @@ private:
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
+
+}	// namespace designlab
+
 
 #endif	// DESIGNLAB_NODE_CREATOR_BUILDER_ROT_TEST_H_

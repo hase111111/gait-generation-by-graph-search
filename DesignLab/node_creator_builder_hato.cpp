@@ -8,8 +8,9 @@
 #include "node_creator_leg_up_down.h"
 #include "node_creator_body_rot.h"
 
-namespace dle = ::designlab::enums;
 
+namespace designlab
+{
 
 NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -23,7 +24,7 @@ NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 
 void NodeCreatorBuilderHato::Build(
 	const DevideMapState& map,
-	std::map<dle::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
+	std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
 	assert(node_creator != nullptr);	// node_creatorがnullptrでない．
 	assert(node_creator->size() == 0);	// node_creatorは空でなければならない．
@@ -33,42 +34,44 @@ void NodeCreatorBuilderHato::Build(
 	// (*node_creator)[HexapodMove::???] = std::make_unique<クラス名>(クラスのコンストラクタの引数);
 	// この場合，HexapodMove::???のノードを作成するクラスは，↑ である．
 
-	const auto hierarchy_list = std::vector<DiscreteLegPos>{
-		DiscreteLegPos::kBack,
-		DiscreteLegPos::kCenter,
-		DiscreteLegPos::kFront,
-		DiscreteLegPos::kLowerBack,
-		DiscreteLegPos::kLowerFront,
-		DiscreteLegPos::kUpperBack,
-		DiscreteLegPos::kUpperFront
+	const auto hierarchy_list = std::vector<enums::DiscreteLegPos>{
+		enums::DiscreteLegPos::kBack,
+		enums::DiscreteLegPos::kCenter,
+		enums::DiscreteLegPos::kFront,
+		enums::DiscreteLegPos::kLowerBack,
+		enums::DiscreteLegPos::kLowerFront,
+		enums::DiscreteLegPos::kUpperBack,
+		enums::DiscreteLegPos::kUpperFront
 	};
 
-	(*node_creator)[dle::HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
-		dle::HexapodMove::kLegUpDown,
+	(*node_creator)[enums::HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(
+		enums::HexapodMove::kLegUpDown,
 		hierarchy_list
 	);
 
-	(*node_creator)[dle::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+	(*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		dle::HexapodMove::kComUpDown
+		enums::HexapodMove::kComUpDown
 	);
 
-	(*node_creator)[dle::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+	(*node_creator)[enums::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		dle::HexapodMove::kComMove
+		enums::HexapodMove::kComMove
 	);
 
-	(*node_creator)[dle::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
+	(*node_creator)[enums::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
 		map,
 		converter_ptr_,
 		presenter_ptr_,
 		checker_ptr_,
-		dle::HexapodMove::kLegHierarchyChange
+		enums::HexapodMove::kLegHierarchyChange
 	);
 }
+
+} // namespace designlab

@@ -9,17 +9,16 @@
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
 
-namespace dle = designlab::enums;
-namespace dllf = designlab::leg_func;
-namespace dlm = ::designlab::math_util;
 
+namespace designlab
+{
 
 NodeCreatorComUpDown::NodeCreatorComUpDown(
 	const DevideMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	dle::HexapodMove next_move
+	enums::HexapodMove next_move
 ) :
 	map_(devide_map),
 	converter_ptr_(converter_ptr),
@@ -39,7 +38,7 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 	//マップの最大z座標を求める．
 	float map_highest_z = -100000;
 
-	if (map_.IsInMap(current_node.global_center_of_mass)) 
+	if (map_.IsInMap(current_node.global_center_of_mass))
 	{
 		const int kMapX = map_.GetDevideMapIndexX(current_node.global_center_of_mass.x);
 		const int kMapY = map_.GetDevideMapIndexY(current_node.global_center_of_mass.y);
@@ -53,7 +52,7 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 			presenter_ptr_->GetLegBasePosRobotCoodinate(i), current_node.global_center_of_mass, current_node.quat, true
 		);
 
-		if (map_.IsInMap(kCoxaVec)) 
+		if (map_.IsInMap(kCoxaVec))
 		{
 			const int kCoxaX = map_.GetDevideMapIndexX(kCoxaVec.x);
 			const int kCoxaY = map_.GetDevideMapIndexY(kCoxaVec.y);
@@ -72,13 +71,13 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//接地している脚についてのみ考える．
-		if (dllf::IsGrounded(current_node.leg_state, i))
+		if (leg_func::IsGrounded(current_node.leg_state, i))
 		{
 			//三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
 			const float edge_c = PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength - MARGIN;
 			const float edge_b = current_node.leg_pos[i].ProjectedXY().GetLength() - PhantomXMkIIConst::kCoxaLength;
 
-			const float edge_a = sqrt(dlm::Squared(edge_c) - dlm::Squared(edge_b));
+			const float edge_a = sqrt(math_util::Squared(edge_c) - math_util::Squared(edge_b));
 
 			//接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
 			highest_body_zpos = (std::min)(edge_a + current_node.global_center_of_mass.z + current_node.leg_pos[i].z, highest_body_zpos);
@@ -140,3 +139,5 @@ void NodeCreatorComUpDown::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 		(*output_graph).emplace_back(same_node);
 	}
 }
+
+} // namespace designlab

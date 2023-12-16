@@ -1,5 +1,5 @@
-//! @file node_initializer.h
-//! @brief ƒm[ƒh‚Ì‰Šú‰»‚ğs‚¤ƒNƒ‰ƒXD
+ï»¿//! @file node_initializer.h
+//! @brief ãƒãƒ¼ãƒ‰ã®åˆæœŸåŒ–ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_NODE_INITIALIZER_H_
 #define DESIGNLAB_NODE_INITIALIZER_H_
@@ -7,20 +7,27 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class NodeInitializer
-//! @brief ƒm[ƒh‚Ì‰Šú‰»‚ğs‚¤ƒNƒ‰ƒXD
-//! @n ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Éƒm[ƒh‚Ì‰Šú’l‚ğİ’è‚·‚é‚½‚ß‚Ég—p‚·‚éD
+//! @brief ãƒãƒ¼ãƒ‰ã®åˆæœŸåŒ–ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
+//! @n ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ™‚ã«ãƒãƒ¼ãƒ‰ã®åˆæœŸå€¤ã‚’è¨­å®šã™ã‚‹ãŸã‚ã«ä½¿ç”¨ã™ã‚‹ï¼
 class NodeInitializer final
 {
 public:
-	NodeInitializer(const ::designlab::Vector3& pos, ::designlab::enums::HexapodMove move);
+	NodeInitializer(const Vector3& pos, enums::HexapodMove move);
 
+	//! @brief ãƒãƒ¼ãƒ‰ã®åˆæœŸåŒ–ã‚’è¡Œã†ï¼
+	//! @return RobotStateNode åˆæœŸåŒ–ã•ã‚ŒãŸãƒãƒ¼ãƒ‰ï¼
 	RobotStateNode InitNode() const;
 
 private:
-	::designlab::Vector3 pos_;
-	::designlab::enums::HexapodMove move_;
+	Vector3 pos_;
+	enums::HexapodMove move_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_NODE_INITIALIZER_H_

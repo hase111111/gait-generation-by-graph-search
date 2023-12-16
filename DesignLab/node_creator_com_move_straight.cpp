@@ -1,16 +1,15 @@
 ﻿#include "node_creator_com_move_straight.h"
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dllf = ::designlab::leg_func;
 
+namespace designlab
+{
 
 NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
 	const DevideMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	::designlab::enums::HexapodMove next_move
+	enums::HexapodMove next_move
 ) :
 	map_(devide_map),
 	next_move_(next_move),
@@ -20,9 +19,9 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
 {
 	for (size_t i = 0; i < kCandidateDirectionNum; i++)
 	{
-		const float rad = static_cast<float>(i) * 2.f * dlm::kFloatPi / static_cast<float>(kCandidateDirectionNum);
+		const float rad = static_cast<float>(i) * 2.f * math_util::kFloatPi / static_cast<float>(kCandidateDirectionNum);
 
-		candidate_directions_[i] = ::designlab::Vector3(std::cos(rad), std::sin(rad), 0.0f);
+		candidate_directions_[i] = Vector3(std::cos(rad), std::sin(rad), 0.0f);
 	}
 }
 
@@ -30,11 +29,11 @@ void NodeCreatorComMoveStraight::Create(const RobotStateNode& current_node, int 
 {
 	RobotStateNode next_node;
 
-	std::array<::designlab::Vector3, kCandidateDirectionNum> candidate_directions_rotated;
+	std::array<Vector3, kCandidateDirectionNum> candidate_directions_rotated;
 
 	for (size_t i = 0; i < kCandidateDirectionNum; i++)
 	{
-		candidate_directions_rotated[i] = dl::RotateVector3(candidate_directions_[i], current_node.quat);
+		candidate_directions_rotated[i] = RotateVector3(candidate_directions_[i], current_node.quat);
 	}
 
 	for (size_t i = 0; i < kCandidateDirectionNum; i++)
@@ -70,12 +69,13 @@ void NodeCreatorComMoveStraight::Create(const RobotStateNode& current_node, int 
 			//discreate_leg_posを更新する．
 			for (int j = 0; j < HexapodConst::kLegNum; j++)
 			{
-				dllf::ChangeDiscreteLegPos(
-					j, DiscreteLegPos::kCenter, &next_node.leg_state
-				);
+				leg_func::ChangeDiscreteLegPos(j, enums::DiscreteLegPos::kCenter, &next_node.leg_state);
 			}
 
 			output_graph->push_back(next_node);
 		}
 	}
 }
+
+
+} // namespace designlab

@@ -4,6 +4,10 @@
 
 #include "gait_pattern_graph_tree.h"
 
+
+using namespace designlab;
+
+
 TEST_SUITE("GaitPatternGraphTree")
 {
 	TEST_CASE("DefaultConstructor_初期化時_グラフの要素は０になるべき")

@@ -12,6 +12,9 @@
 #include "robot_operation.h"
 
 
+namespace designlab 
+{
+
 //! @class IGaitPatternGenerator
 //! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース．
 //! @details 
@@ -40,6 +43,8 @@ public:
 		RobotStateNode* output_node
 	) = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_

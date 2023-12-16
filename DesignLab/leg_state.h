@@ -14,7 +14,7 @@
 
 
 //! @namespace designlab::leg_func
-//! @brief 脚状態を編集するための関数をまとめた名前空間．
+//! @brief このプログラムでは脚状態をビット(28bit)の情報で表す．そのデータを処理するための関数．
 //! @details 脚状態って言ってるけど離散化された重心位置も入ってる．	
 //! @n 1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地．　残り3bitで離散化した脚位置．
 //! @n 離散化した脚位置は基準位置を4として，それより前にあるなら4より大きい数字，後ろにあるならば4より小さい数字． 
@@ -68,9 +68,9 @@ constexpr LegStateBit kComStateMaskbit = (0b1111 << kShiftToComNum);	//!< 重心
 //! @param [in] discretized_leg_pos 離散化した脚位置を表す変数．
 //! @return LegStateBit 作成した脚状態を返す．
 LegStateBit MakeLegStateBit(
-	DiscreteComPos discrete_com_pos,
+	enums::DiscreteComPos discrete_com_pos,
 	const std::array<bool, HexapodConst::kLegNum>& is_ground,
-	const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
+	const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
 );
 
 
@@ -112,12 +112,12 @@ void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* r
 //! @param [in] leg_state 現在の脚状態．
 //! @param [in] leg_index どの脚の状態を取得するか． 0 ～ 5 の整数で入力する．
 //! @return DiscreteLegPos 離散化された脚の位置を返す．
-DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
+enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
 
 //! @brief 現在の脚状態から重心パターンを取得する．
 //! @param [in] leg_state 現在の脚状態．
 //! @return DiscreteComPos 重心パターンを返す．
-DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
+enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
 
 
 //! @brief 脚の情報を変更する．
@@ -125,13 +125,13 @@ DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
 //! @param [in] new_discretized_leg_pos 新しい脚状態．
 //! @param [in] is_ground 脚が接地しているかを表す．接地しているならばtrue．遊脚しているならばfalse．
 //! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
-void ChangeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
+void ChangeLegState(int leg_index, enums::DiscreteLegPos new_discretized_leg_pos, bool is_ground, LegStateBit* leg_state);
 
 //! @brief 脚の状態を変更する．遊脚を表すbitはそのまま．
 //! @param [in] leg_index 脚の番号．0～5の範囲内でなければassertで止まる．
 //! @param [in] new_discretized_leg_pos 新しい脚状態．
 //! @param [in,out] leg_state 現在の脚状態，これをもとに新しい脚状態を作成する．
-void ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
+void ChangeDiscreteLegPos(int leg_index, enums::DiscreteLegPos new_discretized_leg_pos, LegStateBit* leg_state);
 
 //! @brief 脚の接地・遊脚情報を変更する．
 //! @param [in] leg_index 脚の番号．0～5の範囲内でなければassertで止まる．
@@ -148,7 +148,8 @@ void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_s
 //! @param [in] leg_state 現在の脚状態．
 //! @param [in] new_com_pattern 新しい重心パターン．
 //! @return LegStateBit 変更した重心パターンを返す．
-void ChangeDiscreteComPos(DiscreteComPos new_com_pattern, LegStateBit* leg_state);
+void ChangeDiscreteComPos(enums::DiscreteComPos new_com_pattern, LegStateBit* leg_state);
+
 
 }	// namespace designlab::leg_func
 

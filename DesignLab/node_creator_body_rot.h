@@ -1,5 +1,5 @@
 ﻿//! @file node_creator_body_rot.h
-//! @brief ロボットのヨー軸周りの回転を表すノードを生成するクラス．
+//! @brief ロボットの回転を表すノードを生成するクラス．
 
 #ifndef DESIGNLAB_BODY_YAW_ROT_NODE_CREATOR_H_
 #define DESIGNLAB_BODY_YAW_ROT_NODE_CREATOR_H_
@@ -14,6 +14,9 @@
 #include "interface_hexapod_vaild_checker.h"
 
 
+namespace designlab
+{
+
 //! @class NodeCreatorBodyRot
 //! @brief ロボットの回転を表すノードを生成するクラス．
 class NodeCreatorBodyRot final : public INodeCreator
@@ -24,8 +27,8 @@ public:
 		const DevideMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		const ::designlab::Vector3& rot_axis,
-		::designlab::enums::HexapodMove next_move
+		const Vector3& rot_axis,
+		enums::HexapodMove next_move
 	);
 
 	~NodeCreatorBodyRot() = default;
@@ -35,8 +38,8 @@ public:
 
 private:
 	
-	static constexpr float kBodyYawRotAngleMax = ::designlab::math_util::ConvertDegToRad(10.f);		//!< ロボットのヨー軸周りの回転角度．
-	static constexpr float kBodyYawRotAngleMin = ::designlab::math_util::ConvertDegToRad(-10.f);	//!< ロボットのヨー軸周りの回転角度．
+	static constexpr float kBodyYawRotAngleMax = math_util::ConvertDegToRad(10.f);		//!< ロボットのヨー軸周りの回転角度．
+	static constexpr float kBodyYawRotAngleMin = math_util::ConvertDegToRad(-10.f);	//!< ロボットのヨー軸周りの回転角度．
 	static constexpr int kBodyYawRotAngleDivNum = 21;	//!< ロボットのヨー軸周りの回転角度の分割数（奇数にすること）．
 
 	constexpr std::array<float, kBodyYawRotAngleDivNum> CreateCandiateAngle() const
@@ -61,16 +64,18 @@ private:
 	const std::array<float, kBodyYawRotAngleDivNum> candiate_angle_ = CreateCandiateAngle();
 
 	const DevideMapState map_;		//!< 地面の状態を格納したクラス．
-	const ::designlab::enums::HexapodMove next_move_;	//!< 次の動作．
+	const enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 
-	::designlab::Vector3 rot_axis_;	//!< 回転軸．
+	Vector3 rot_axis_;	//!< 回転軸．
 
 	static_assert(kBodyYawRotAngleMax > kBodyYawRotAngleMin, "kBodyYawRotAngleMax は kBodyYawRotAngleMinよりも大きい必要があります.");
 	static_assert(kBodyYawRotAngleDivNum % 2 == 1, "kBodyYawRotAngleDivNum は奇数である必要があります.");
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_BODY_YAW_ROT_NODE_CREATOR_H_

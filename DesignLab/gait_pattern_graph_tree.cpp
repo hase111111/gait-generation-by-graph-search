@@ -1,5 +1,9 @@
 ﻿#include "gait_pattern_graph_tree.h"
 
+
+namespace designlab
+{
+
 const RobotStateNode& GaitPatternGraphTree::GetParentNode(const int index, const int depth) const
 {
 	assert(0 <= index);
@@ -43,3 +47,5 @@ const int GaitPatternGraphTree::GetParentNodeIndex(const int index, const int de
 
 	return res_index;
 }
+
+}	// namespace designlab

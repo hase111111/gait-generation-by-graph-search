@@ -1,4 +1,7 @@
-﻿#ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
+﻿//! @file gait_pattern_graph_tree.h
+//! @brief RobotStateNode 構造体をノードとする木構造のグラフのクラス．
+
+#ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
 #define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
 
 #include <vector>
@@ -6,6 +9,9 @@
 #include "cassert_define.h"
 #include "robot_state_node.h"
 
+
+namespace designlab
+{
 
 //! @class GaitPatternGraphTree
 //! @brief RobotStateNode 構造体をノードとする木構造のグラフのクラス．
@@ -107,6 +113,8 @@ private:
 	int graph_size_;						//!< グラフのサイズ．push_backが重たいので，あらかじめresizeしておき，実際のサイズはこの変数で管理する．
 	const int kGraphMaxSize;				//!< グラフの最大サイズ．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_

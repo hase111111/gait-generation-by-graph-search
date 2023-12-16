@@ -10,19 +10,15 @@
 #include "leg_state.h"
 
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlcf = ::designlab::com_func;
-namespace dllf = ::designlab::leg_func;
-namespace dlm = ::designlab::math_util;
-
+namespace designlab
+{
 
 NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
 	const DevideMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	dle::HexapodMove next_move
+	enums::HexapodMove next_move
 ) :
 	kLegMargin(20),
 	map_(devide_map),
@@ -36,56 +32,56 @@ NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
 void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node, int current_node_index, std::vector<RobotStateNode>* output_graph) const
 {
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 0) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kFront
 	);
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 1) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kFront
 	);
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 2) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kFront
 	);
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 3) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kFront
 	);
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 4) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kFront
 	);
 	assert(
-		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kBack ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kCenter ||
-		dllf::GetDiscreteLegPos(current_node.leg_state, 5) == DiscreteLegPos::kFront
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kBack ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kCenter ||
+		leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kFront
 	);
 
 	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはcom_type.hを参照)．
 	// vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で通常のvectorとは違う挙動をするので，boost::dynamic_bitset<>を使用する．
-	boost::dynamic_bitset<> is_able_leg_ground_pattern(dlcf::GetLegGroundPatternNum());
+	boost::dynamic_bitset<> is_able_leg_ground_pattern(com_func::GetLegGroundPatternNum());
 
 	is_able_leg_ground_pattern.set();	//全てtrueにする．
 
 
 	//まず離散化された重心位置から取り得ない接地パターンを除外する．
-	dlcf::RemoveLegGroundPatternFromCom(dllf::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
+	com_func::RemoveLegGroundPatternFromCom(leg_func::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
 	//次に脚が地面に接地可能か調べる．
 	bool is_groundable_leg[HexapodConst::kLegNum];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	dl::Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
+	Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(current_node.leg_state, i))
+		if (leg_func::IsGrounded(current_node.leg_state, i))
 		{
 			//すでに接地している脚は接地可能に決まっているのでtrueにする．
 			is_groundable_leg[i] = true;
@@ -94,7 +90,7 @@ void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node, int curr
 		else
 		{
 			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			dl::Vector3 res_ground_pos;
+			Vector3 res_ground_pos;
 
 			if (IsGroundableLeg(i, current_node, &res_ground_pos))
 			{
@@ -104,14 +100,14 @@ void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node, int curr
 			else
 			{
 				is_groundable_leg[i] = false;	//接地不可能にする．
-				dlcf::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
+				com_func::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
 			}
 		}
 	}
 
 
 	//子ノードを生成する．
-	for (int i = 0; i < dlcf::GetLegGroundPatternNum(); i++)
+	for (int i = 0; i < com_func::GetLegGroundPatternNum(); i++)
 	{
 		//その重心タイプが可能であれば，追加する
 		if (is_able_leg_ground_pattern[i])
@@ -122,9 +118,9 @@ void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node, int curr
 
 
 			//遊脚・接地を書き換える．
-			dllf::LegGroundedBit new_is_ground = dlcf::GetLegGroundedBitFromLegGroundPatternIndex(i);
+			leg_func::LegGroundedBit new_is_ground = com_func::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
-			dllf::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
+			leg_func::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
 
 
 			//脚位置を書き換える．
@@ -160,7 +156,7 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNo
 	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
 
 	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const dl::Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
+	const Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
 		current_node.leg_reference_pos[now_leg_num],
 		now_leg_num,
 		current_node.global_center_of_mass,
@@ -181,7 +177,7 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNo
 	min_y_dev = DevideMapState::ClampDevideMapIndex(min_y_dev);
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
-	dl::Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
+	Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
 	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
 
 	//範囲内の点を全て調べる．
@@ -193,7 +189,7 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNo
 
 			for (int n = 0; n < kPosNum; n++)
 			{
-				dl::Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
+				Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
 				map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(
 					map_point_pos,
 					now_leg_num,
@@ -224,7 +220,7 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNo
 					}
 				}
 
-				dllf::ChangeGround(now_leg_num, true, &new_node.leg_state);
+				leg_func::ChangeGround(now_leg_num, true, &new_node.leg_state);
 
 				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//脚が範囲外ならば追加せずに続行．
 
@@ -250,24 +246,24 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num, const RobotStateNo
 
 bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_index) const
 {
-	const DiscreteLegPos discrete_leg_pos = dllf::GetDiscreteLegPos(node.leg_state, leg_index);		//脚位置を取得
+	const enums::DiscreteLegPos discrete_leg_pos = leg_func::GetDiscreteLegPos(node.leg_state, leg_index);		//脚位置を取得
 
 	//まず最初に脚位置4のところにないか確かめる．
-	if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() < dlm::Squared(kLegMargin))
+	if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() < math_util::Squared(kLegMargin))
 	{
-		if (discrete_leg_pos == DiscreteLegPos::kCenter) { return true; }
+		if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) { return true; }
 		else { return false; }
 	}
 	else
 	{
-		if (discrete_leg_pos == DiscreteLegPos::kCenter) { return false; }
+		if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) { return false; }
 	}
 
 	//脚位置4と比較して前か後ろか
 	if (node.leg_reference_pos[leg_index].ProjectedXY().Cross(node.leg_pos[leg_index].ProjectedXY()) * node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
 	{
 		//前
-		if (discrete_leg_pos == DiscreteLegPos::kBack)
+		if (discrete_leg_pos == enums::DiscreteLegPos::kBack)
 		{
 			return false;
 		}
@@ -275,7 +271,7 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_in
 	else
 	{
 		//後ろ
-		if (discrete_leg_pos == DiscreteLegPos::kFront)
+		if (discrete_leg_pos == enums::DiscreteLegPos::kFront)
 		{
 			return false;
 		}
@@ -283,3 +279,5 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_in
 
 	return true;
 }
+
+}	//namespace designlab

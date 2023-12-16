@@ -7,6 +7,9 @@
 #include "interface_node_creator_builder.h"
 
 
+namespace designlab
+{
+
 //! @class NodeCreatorBuilderHato
 //! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
 class NodeCreatorBuilderHato final : public INodeCreatorBuilder
@@ -28,6 +31,8 @@ private:
 	const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_

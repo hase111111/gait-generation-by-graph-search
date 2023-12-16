@@ -4,10 +4,9 @@
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dllf = ::designlab::leg_func;
 
+namespace designlab 
+{
 
 NodeInitializer::NodeInitializer(const::designlab::Vector3& pos, ::designlab::enums::HexapodMove move) : pos_(pos), move_(move)
 {
@@ -18,7 +17,7 @@ RobotStateNode NodeInitializer::InitNode() const
 	RobotStateNode res;
 
 	//脚状態
-	res.leg_state = dllf::MakeLegStateBit(
+	res.leg_state = leg_func::MakeLegStateBit(
 		DiscreteComPos::kCenterBack,
 		{ true, true, true, true, true, true },
 		{ DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
@@ -41,7 +40,7 @@ RobotStateNode NodeInitializer::InitNode() const
 	res.global_center_of_mass = pos_;
 
 	//ロールピッチヨーで回転を表現する．ロボットの重心を中心にして回転する． 
-	res.quat = dl::Quaternion::MakeByAngleAxis(0.f, dl::Vector3::GetUpVec());
+	res.quat = Quaternion::MakeByAngleAxis(0.f, Vector3::GetUpVec());
 
 	res.next_move = move_;
 	res.parent_index = -1;
@@ -49,3 +48,5 @@ RobotStateNode NodeInitializer::InitNode() const
 
 	return res;
 }
+
+} // namespace designlab

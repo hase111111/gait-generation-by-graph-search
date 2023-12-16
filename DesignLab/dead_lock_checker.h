@@ -2,18 +2,20 @@
 //! @brief 動作のループを感知するクラス．
 
 #ifndef DESIGNLAB_DEAD_LOCK_CHECKER_H_
-#define DESIGNLAB_NODE_LOCK_CHECKER_H_
-
+#define DESIGNLAB_DEAD_LOCK_CHECKER_H_
 
 #include <deque>
 
 #include "robot_state_node.h"
 
 
+namespace designlab 
+{
+
 //! @class DeadLockChecker
 //! @brief 動作のループを感知するクラス．
 //! @details グラフ探索を用いてロボットの歩容生成をしていると，最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある．
-//! @n それを探知して，歩容生成に失敗していることを通達するクラス．
+//! それを探知して，歩容生成に失敗していることを通達するクラス．
 //! @n [deque(デック)について] 
 //! @n std::vectorの亜種．
 //! @n vectorとの違いとして，先頭と末尾の要素の追加・削除が高速である．
@@ -37,6 +39,8 @@ private:
 
 	std::deque<RobotStateNode> node_vec_;		//!< 歩容生成した物を保持する．
 };
+
+}	//	namespace designlab
 
 
 #endif	//	DESIGNLAB_DEAD_LOCK_CHECKER_H_

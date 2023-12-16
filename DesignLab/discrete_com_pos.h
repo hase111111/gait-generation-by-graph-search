@@ -1,24 +1,28 @@
-//! @file discrete_com_pos.h
-//! @brief —£U‰»‚³‚ê‚½dSˆÊ’u‚ğ•\‚·—ñ‹“‘Ì
-
+ï»¿//! @file discrete_com_pos.h
+//! @brief é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‚’è¡¨ã™åˆ—æŒ™ä½“ï¼
 
 #ifndef DESIGNLAB_DISCRETE_COM_POS_H_
 #define DESIGNLAB_DISCRETE_COM_POS_H_
 
 
-//! @enum —£U‰»‚³‚ê‚½dSˆÊ’u‚ğ•\‚·—ñ‹“Œ^
-//! @brief dS‚ª‚Ç‚±‚É‚ ‚é‚©‚ğ•\‚·D
+namespace designlab::enums
+{
+
+//! @enum é›¢æ•£åŒ–ã•ã‚ŒãŸé‡å¿ƒä½ç½®ã‚’è¡¨ã™åˆ—æŒ™å‹ï¼
+//! @brief é‡å¿ƒãŒã©ã“ã«ã‚ã‚‹ã‹ã‚’è¡¨ã™ï¼
 enum class DiscreteComPos
 {
-	kFront = 1,		//!< dS‚ª‘O•û‚É‚ ‚é
-	kFrontLeft,		//!< dS‚ª¶‘O•û‚É‚ ‚é
-	kBackLeft,		//!< dS‚ª¶Œã•û‚É‚ ‚é
-	kBack,			//!< dS‚ªŒã•û‚É‚ ‚é
-	kBackRight,		//!< dS‚ª‰EŒã•û‚É‚ ‚é
-	kFrontRight,	//!< dS‚ª‰E‘O•û‚É‚ ‚é
-	kCenterFront,	//!< dS‚ª’†‰›‘O•û‚É‚ ‚éDOŠpŒ`
-	kCenterBack,	//!< dS‚ª’†‰›Œã•û‚É‚ ‚éD‹tOŠpŒa
+	kFront = 1,		//!< é‡å¿ƒãŒå‰æ–¹ã«ã‚ã‚‹ï¼
+	kFrontLeft,		//!< é‡å¿ƒãŒå·¦å‰æ–¹ã«ã‚ã‚‹ï¼
+	kBackLeft,		//!< é‡å¿ƒãŒå·¦å¾Œæ–¹ã«ã‚ã‚‹ï¼
+	kBack,			//!< é‡å¿ƒãŒå¾Œæ–¹ã«ã‚ã‚‹ï¼
+	kBackRight,		//!< é‡å¿ƒãŒå³å¾Œæ–¹ã«ã‚ã‚‹ï¼
+	kFrontRight,	//!< é‡å¿ƒãŒå³å‰æ–¹ã«ã‚ã‚‹ï¼
+	kCenterFront,	//!< é‡å¿ƒãŒä¸­å¤®å‰æ–¹ã«ã‚ã‚‹ï¼ä¸‰è§’å½¢ï¼
+	kCenterBack,	//!< é‡å¿ƒãŒä¸­å¤®å¾Œæ–¹ã«ã‚ã‚‹ï¼é€†ä¸‰è§’å¾„ï¼
 };
+
+}	// namespace designlab::enums
 
 
 #endif	// DESIGNLAB_DISCRETE_COM_POS_H_
