@@ -1,23 +1,26 @@
-//! @file result_file_importer.h
-//! @brief Œ‹‰Ê‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ŞƒNƒ‰ƒXD
-
+ï»¿//! @file result_file_importer.h
+//! @brief çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_RESULT_FILE_IMPORTER_H_
 #define DESIGNLAB_RESULT_FILE_IMPORTER_H_
 
-
 #include "result_file_exporter.h"
 
 
+namespace designlab
+{
+
+//! @class ResultFileImporter
+//! @brief çµæœã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ï¼
 class ResultFileImporter final
 {
 public:
 
-	//! @brief ƒm[ƒhƒŠƒXƒg‚Æƒ}ƒbƒv‚Ìó‘Ô‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ŞD
-	//! @param [in] file_path ƒm[ƒhƒŠƒXƒg‚ÌƒpƒX
-	//! @param [out] node_list ƒm[ƒhƒŠƒXƒg
-	//! @param [out] map_state ƒ}ƒbƒv‚Ìó‘Ô
-	//! @return bool “Ç‚İ‚İ‚ª¬Œ÷‚µ‚½‚©‚Ç‚¤‚©
+	//! @brief ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã¨ãƒãƒƒãƒ—ã®çŠ¶æ…‹ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ï¼
+	//! @param [in] file_path ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®ãƒ‘ã‚¹ï¼
+	//! @param [out] node_list ãƒãƒ¼ãƒ‰ãƒªã‚¹ãƒˆï¼
+	//! @param [out] map_state ãƒãƒƒãƒ—ã®çŠ¶æ…‹ï¼
+	//! @return bool èª­ã¿è¾¼ã¿ãŒæˆåŠŸã—ãŸã‹ã©ã†ã‹ï¼
 	bool ImportNodeListAndMapState(
 		const std::string& file_path,
 		std::vector<RobotStateNode>* node_list,
@@ -31,6 +34,8 @@ private:
 
 	bool ImportMapState(const std::string& file_path, MapState* map_state) const;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_RESULT_FILE_IMPORTER_H_

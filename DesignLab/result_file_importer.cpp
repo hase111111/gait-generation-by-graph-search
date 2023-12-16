@@ -7,10 +7,11 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
-namespace fs = std::filesystem;
 
+namespace fs = ::std::filesystem;
+
+namespace designlab
+{
 
 bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path, std::vector<RobotStateNode>* node_list, MapState* map_state) const
 {
@@ -24,7 +25,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 	// ファイルが存在するかどうかを確認．ないならばfalseを返す．
 	if (!fs::exists(file_path))
 	{
-		dlio::Output("NodeListファイルが存在しませんでした．", dle::OutputDetail::kError);
+		cmdio::Output("NodeListファイルが存在しませんでした．", enums::OutputDetail::kError);
 		return false;
 	}
 
@@ -34,14 +35,14 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
 	if (!fs::exists(map_file_path))
 	{
-		dlio::Output("MapStateファイルが存在しませんでした．", dle::OutputDetail::kError);
+		cmdio::Output("MapStateファイルが存在しませんでした．", enums::OutputDetail::kError);
 		return false;
 	}
 
 
 	if (!ImportNodeList(file_path, node_list) || !ImportMapState(map_file_path, map_state))
 	{
-		dlio::Output("ファイル読み込み中にエラーが発生しました．", dle::OutputDetail::kError);
+		cmdio::Output("ファイル読み込み中にエラーが発生しました．", enums::OutputDetail::kError);
 	}
 
 	return true;
@@ -55,7 +56,7 @@ bool ResultFileImporter::ImportNodeList(const std::string& file_path, [[maybe_un
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kSystem);
+		cmdio::Output("ファイルを開けませんでした．", enums::OutputDetail::kSystem);
 
 		return false;
 	}
@@ -98,7 +99,7 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kSystem);
+		cmdio::Output("ファイルを開けませんでした．", enums::OutputDetail::kSystem);
 
 		return false;
 	}
@@ -138,3 +139,6 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
 
 	return true;
 }
+
+
+} // namespace designlab

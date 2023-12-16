@@ -5,13 +5,12 @@
 #include "designlab_string_util.h"
 
 
-namespace dlm = designlab::math_util;
-namespace dllf = designlab::leg_func;
-namespace dlsu = ::designlab::string_util;
+namespace designlab
+{
 
 std::string GraphSearchResult::ToString() const
 {
-	return dlsu::EnumToStringRemoveTopK(result) + "," + message;
+	return string_util::EnumToStringRemoveTopK(result) + "," + message;
 }
 
 std::string GraphSearchResultRecoder::ToCsvString() const
@@ -22,15 +21,15 @@ std::string GraphSearchResultRecoder::ToCsvString() const
 	std::stringstream stream;
 
 	stream << "'" << result_node.leg_state.to_string() << ",";
-	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << std::boolalpha << dllf::IsGrounded(result_node.leg_state, i) << ","; }
-	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << dlsu::EnumToStringRemoveTopK(dllf::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
-	stream << dlsu::EnumToStringRemoveTopK(dllf::GetDiscreteComPos(result_node.leg_state)) << ",";
+	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << std::boolalpha << leg_func::IsGrounded(result_node.leg_state, i) << ","; }
+	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << string_util::EnumToStringRemoveTopK(leg_func::GetDiscreteLegPos(result_node.leg_state, i)) << ","; }
+	stream << string_util::EnumToStringRemoveTopK(leg_func::GetDiscreteComPos(result_node.leg_state)) << ",";
 	stream << result_node.global_center_of_mass << ",";
 	stream << result_node.quat << ",";
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_pos[i] << ","; }
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_reference_pos[i] << ","; }
-	stream << dlsu::EnumToStringRemoveTopK(result_node.next_move) << ",";
-	stream << dlm::ConvertDoubleToString(computation_time) << ",";
+	stream << string_util::EnumToStringRemoveTopK(result_node.next_move) << ",";
+	stream << math_util::ConvertDoubleToString(computation_time) << ",";
 	stream << graph_search_result.ToString();
 
 	return stream.str();
@@ -68,3 +67,5 @@ std::string GraphSearchResultRecoder::GetCsvHeader()
 
 	return stream.str();
 }
+
+} // namespace designlab

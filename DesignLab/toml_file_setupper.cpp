@@ -3,6 +3,9 @@
 #include <filesystem>
 
 
+namespace designlab
+{
+
 const std::string TomlFileSetupper::kTomlFileDirPath = "./simulation_condition/";
 
 
@@ -14,3 +17,5 @@ void TomlFileSetupper::Setup()
 		std::filesystem::create_directory(kTomlFileDirPath);
 	}
 }
+
+} // namespace designlab

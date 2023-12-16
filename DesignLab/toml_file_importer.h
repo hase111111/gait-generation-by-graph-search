@@ -17,15 +17,33 @@
 #include "toml_file_exporter.h"
 
 
+namespace designlab::impl
+{
+
+//! @brief toml::from<T>()が存在するかどうかを判定するメタ関数．
+//! @details toml::from<T>()が存在する場合には，こちらが呼ばれる．
+//! false_typeを継承する．
 template <typename T, typename = void>
 struct has_from_toml : std::false_type {};
 
+
+//! @brief toml::from<T>()が存在するかどうかを判定するメタ関数．
+//! @details toml::from<T>()が存在しない場合には，こちらが呼ばれる．
+//! true_typeを継承する．
 template <typename T>
 struct has_from_toml<T, std::void_t<decltype(toml::from<T>())> > : std::true_type {};
 
 
-//Tはデフォルトコンストラクタを持っている必要がある．
-template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& has_from_toml<T>::value> >
+}	//namespace designlab::impl
+
+
+namespace designlab
+{
+
+//! @class TomlFileImporter
+//! @brief tomlファイルを読み込んで構造体に変換するテンプレートクラス．
+//! @tparam T 変換先の構造体．
+template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& impl::has_from_toml<T>::value> >
 class TomlFileImporter final
 {
 public:
@@ -35,6 +53,9 @@ public:
 	TomlFileImporter(std::unique_ptr<ITomlDataValidator<T>>&& validator) : validator_(std::move(validator)) {}
 
 
+	//! @brief 指定したファイルパスのファイルを読み込み，構造体に変換する．
+	//! @param file_path 読み込むファイルのパス．
+	//! @return std::optional<T> 読み込んだ構造体．失敗した場合はstd::nulloptを返す．
 	std::optional<T> Import(const std::string& file_path) const
 	{
 		if (do_output_message_)
@@ -127,6 +148,11 @@ public:
 		return data;
 	}
 
+	//! @brief 指定したファイルパスのファイルを読み込み，構造体に変換する．
+	//! 読込に失敗した場合は，デフォルトの構造体を返す．
+	//! また，読込に失敗した場合には，デフォルトの構造体をファイルに出力するかどうかをユーザに問う．
+	//! @param file_path 読み込むファイルのパス．
+	//! @return T 読み込んだ構造体．
 	T ImportOrUseDefault(const std::string& file_path) const
 	{
 		const auto data = Import(file_path);
@@ -151,6 +177,8 @@ private:
 
 	const std::unique_ptr<ITomlDataValidator<T>> validator_;
 };
+
+}	//namespace designlab
 
 
 #endif // DESIGNLAB_TOML_FILE_IMPORTER_H_

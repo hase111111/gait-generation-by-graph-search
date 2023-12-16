@@ -1,10 +1,8 @@
-//! @file simulation_result_recorder.h
-//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğ‹L˜^‚·‚éƒNƒ‰ƒXD
-
+ï»¿//! @file simulation_result_recorder.h
+//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’è¨˜éŒ²ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
 #define DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
-
 
 #include <string>
 #include <vector>
@@ -13,33 +11,44 @@
 #include "map_state.h"
 
 
+namespace designlab::enums 
+{
+
 //! @enum SimulationResult
-//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‘S‘Ì‚ÌŒ‹‰Ê‚ğ•\‚·—ñ‹“Œ^
+//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å…¨ä½“ã®çµæœã‚’è¡¨ã™åˆ—æŒ™å‹
 enum class SimulationResult
 {
-	kSuccess,						//!< –Ú•WÀ•WCp¨‚ğ–‚½‚µCƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É¬Œ÷‚µ‚½D
-	kFailureByGraphSearch,			//!< ƒOƒ‰ƒt’Tõ‚É¸”s‚µ‚½‚ßCƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É¸”s‚µ‚½D
-	kFailureByLoopMotion,			//!< “®ì‚ªƒ‹[ƒv‚µ‚Ä‚µ‚Ü‚Á‚½‚½‚ßCƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É¸”s‚µ‚½D
-	kFailureByNodeLimitExceeded,	//!< ƒm[ƒh”‚ÌãŒÀ‚É’B‚µ‚½‚½‚ßCƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É¸”s‚µ‚½D
+	kSuccess,						//!< ç›®æ¨™åº§æ¨™ï¼Œå§¿å‹¢ã‚’æº€ãŸã—ï¼Œã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«æˆåŠŸã—ãŸï¼
+	kFailureByGraphSearch,			//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã«å¤±æ•—ã—ãŸã‚ï¼Œã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å¤±æ•—ã—ãŸï¼
+	kFailureByLoopMotion,			//!< å‹•ä½œãŒãƒ«ãƒ¼ãƒ—ã—ã¦ã—ã¾ã£ãŸãŸã‚ï¼Œã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å¤±æ•—ã—ãŸï¼
+	kFailureByNodeLimitExceeded,	//!< ãƒãƒ¼ãƒ‰æ•°ã®ä¸Šé™ã«é”ã—ãŸãŸã‚ï¼Œã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«å¤±æ•—ã—ãŸï¼
 };
 
+}	// namespace designlab::enums
+
+
+namespace designlab 
+{
 
 //! @struct SimulationResultRecorder
-//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é\‘¢‘ÌD•Ï”‚ğ‚²‚¿‚á‚²‚¿‚á‚³‚¹‚½‚­‚È‚¢‚Ì‚Åì¬
+//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµæœã‚’æ ¼ç´ã™ã‚‹æ§‹é€ ä½“ï¼å¤‰æ•°ã‚’ã”ã¡ã‚ƒã”ã¡ã‚ƒã•ã›ãŸããªã„ã®ã§ä½œæˆï¼
+//! @todo åå‰ã‚’ãƒªãƒãƒ¼ãƒ ã™ã‚‹ï¼
 struct SimulationResultRecorder final
 {
-	//! @brief ‚±‚ÌƒNƒ‰ƒX‚Ìƒf[ƒ^‚ğcsvƒtƒ@ƒCƒ‹‚Éo—Í‚·‚é—p‚ÌŒ`®‚Å•¶š—ñ‚É•ÏŠ·‚·‚é
-	//! @return csvƒtƒ@ƒCƒ‹‚Éo—Í‚·‚é—p‚ÌŒ`®‚Ì•¶š—ñ
+	//! @brief ã“ã®ã‚¯ãƒ©ã‚¹ã®ãƒ‡ãƒ¼ã‚¿ã‚’csvãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ç”¨ã®å½¢å¼ã§æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ï¼
+	//! @return csvãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ç”¨ã®å½¢å¼ã®æ–‡å­—åˆ—ï¼
 	std::string ToCsvString() const;
 
 
-	//!< ƒOƒ‰ƒt’Tõ‚ÌŒ‹‰Ê‚ğŠi”[‚·‚é\‘¢‘Ì‚Ì”z—ñ
+	//!< ã‚°ãƒ©ãƒ•æ¢ç´¢ã®çµæœã‚’æ ¼ç´ã™ã‚‹æ§‹é€ ä½“ã®é…åˆ—ï¼
 	std::vector<GraphSearchResultRecoder> graph_search_result_recoder;	
 
-	MapState map_state;					//!< ÅV‚Ì’n–Ê‚Ìó‘Ô
+	MapState map_state;					//!< æœ€æ–°ã®åœ°é¢ã®çŠ¶æ…‹ï¼
 
-	SimulationResult simulation_result;	//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‘S‘Ì‚ÌŒ‹‰Ê
+	enums::SimulationResult simulation_result;	//!< ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å…¨ä½“ã®çµæœï¼
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_SIMULATION_RESULT_RECORDER_H_

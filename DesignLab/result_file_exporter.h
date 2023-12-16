@@ -1,23 +1,24 @@
 ﻿//! @file result_file_exporter.h
 //! @brief 結果をファイルに出力するクラス．
 
-
 #ifndef DESIGNLAB_RESULT_FILE_EXPORTER_H_
 #define DESIGNLAB_RESULT_FILE_EXPORTER_H_
 
-
+#include <fstream>
 #include <string>
 #include <vector>
-#include <fstream>
 
 #include "robot_state_node.h"
 #include "simulation_result_recorder.h"
 
 
+namespace designlab
+{
+
 class ResultFileConst final
 {
 public:
-	const static std::string kDirectoryPath;//!< 出力先ディレクトリ(フォルダ)名
+	const static std::string kDirectoryPath;//!< 出力先ディレクトリ(フォルダ)名．
 
 	const static std::string kFileName;		//!< ファイル名 ( 人間が見る用 )
 
@@ -72,21 +73,23 @@ public:
 private:
 
 	//! @brief シミュレーション結果をファイルに出力する．
-	//! @param [in] recoder シミュレーション結果
-	//! @param [in] simu_index シミュレーション番号
-	//! @return 出力に成功したか
+	//! @param [in] recoder シミュレーション結果．
+	//! @param [in] simu_index シミュレーション番号．
+	//! @return 出力に成功したか．
 	bool OutputResultDetail(const SimulationResultRecorder& recoder, int simu_index) const;
 
 
-	std::string folder_name_;	//!< 出力先フォルダ名
+	std::string folder_name_;	//!< 出力先フォルダ名．
 
-	bool init_success_;	//!< 初期化成功フラグ
+	bool init_success_;	//!< 初期化成功フラグ．
 
-	bool do_export_;	//!< 出力を行うかどうかのフラグ
+	bool do_export_;	//!< 出力を行うかどうかのフラグ．
 
 
-	std::vector<SimulationResultRecorder> result_list_;	//!< シミュレーション結果のリスト
+	std::vector<SimulationResultRecorder> result_list_;	//!< シミュレーション結果のリスト．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_RESULT_FILE_EXPORTER_H_

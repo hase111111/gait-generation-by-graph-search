@@ -14,6 +14,9 @@
 #include "toml11_define.h"
 
 
+namespace designlab::impl
+{
+
 template <typename T, typename = void>
 struct has_into_toml : std::false_type {};
 
@@ -21,11 +24,23 @@ template <typename T>
 struct has_into_toml<T, std::void_t<decltype(toml::into<T>())> > : std::true_type {};
 
 
-template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& has_into_toml<T>::value> >
+}	// namespace designlab
+
+
+namespace designlab
+{
+
+//! @class TomlFileExporter
+//! @brief TOMLファイルを出力するテンプレートクラス．
+//! @tparam T 出力するデータの型．条件として，デフォルトコンストラクタを持つことと，toml::into<T>()が定義されていることが必要．
+template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& impl::has_into_toml<T>::value> >
 class TomlFileExporter final
 {
 public:
 
+	//! @brief TOMLファイルを出力する．
+	//! @param [in] file_path 出力するファイルのパス．
+	//! @param [in] data 出力するデータ．
 	void Export(const std::string& file_path, const T& data)
 	{
 		const toml::basic_value<toml::preserve_comments, std::map> value(data);
@@ -123,6 +138,8 @@ private:
 		*str = res_str;
 	}
 };
+
+}	// namespace designlab
 
 
 #endif // DESIGNLAB_TOML_FILE_EXPORTER_H_

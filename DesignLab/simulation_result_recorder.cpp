@@ -3,18 +3,19 @@
 #include <sstream>
 
 #include "designlab_string_util.h"
-#include "leg_state.h"
 #include "hexapod_const.h"
+#include "leg_state.h"
 
 
-namespace dlsu = ::designlab::string_util;
+namespace designlab
+{
 
 
 std::string SimulationResultRecorder::ToCsvString() const
 {
 	//シミュレーションの最終的な結果の出力
 	std::stringstream ss;
-	ss << "Simulation Result," << dlsu::EnumToStringRemoveTopK(simulation_result) << std::endl;
+	ss << "Simulation Result," << string_util::EnumToStringRemoveTopK(simulation_result) << std::endl;
 	ss << std::endl;
 
 	ss << GraphSearchResultRecoder::GetCsvHeader() << std::endl;
@@ -36,3 +37,5 @@ std::string SimulationResultRecorder::ToCsvString() const
 
 	return ss.str();
 }
+
+} // namespace designlab

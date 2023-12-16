@@ -2,7 +2,6 @@
 //! @brief ライブラリのtoml11の設定を行うためのヘッダファイル．
 //! @n #include <toml.hpp>はこのプロジェクトの中では書かず，このファイルをインクルードすること．
 
-
 #ifndef DESIGNLAB_TOML11_DEFINE_H_
 #define DESIGNLAB_TOML11_DEFINE_H_
 

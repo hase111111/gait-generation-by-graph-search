@@ -1,5 +1,5 @@
 ﻿//! @file interface_toml_data_validator.h
-//! @brief TOMLファイルのデータの検証を行うインターフェース．
+//! @brief TOMLファイルのデータの検証を行う処理のインターフェース．
 
 #ifndef DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
 #define DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
@@ -12,7 +12,7 @@ namespace designlab
 {
 
 //! @class ITomlDataValidator
-//! @brief TOMLファイルのデータの検証を行うインターフェース．
+//! @brief TOMLファイルのデータの検証を行う処理のインターフェース．
 template <typename T>
 class ITomlDataValidator
 {

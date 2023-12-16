@@ -11,46 +11,49 @@
 #include "robot_state_node.h"
 
 
+namespace designlab::enums
+{
+
+//! @enum Result
+//! @brief 成功か失敗かを表す列挙型．
+//! @details この列挙型は，関数の戻り値として使うことを想定している．
+//! 関数の戻り値として使うときに，bool型よりも意図が明確になると思ったため作成した．
+enum class Result : int
+{
+	kSuccess,
+	kFailure
+};
+
+}	// namespace designlab::enums
+
+
 namespace designlab
 {
-	namespace enums
-	{
-		//! @enum Result
-		//! @brief 成功か失敗かを表す列挙型．
-		//! @details この列挙型は，関数の戻り値として使うことを想定している．
-		//! 関数の戻り値として使うときに，bool型よりも意図が明確になると思ったため作成した．
-		enum class Result : int
-		{
-			kSuccess,
-			kFailure
-		};
-	}
-}
 
-
-//! @enum GraphSearchReslut
-//! @brief グラフ探索の結果を表す列挙型
+//! @struct GraphSearchReslut
+//! @brief グラフ探索の結果を表す構造体．
 struct GraphSearchResult final
 {
 	GraphSearchResult() :
-		result(designlab::enums::Result::kFailure),
+		result(enums::Result::kFailure),
 		message("GraphSearchResultは初期化されていません")
 	{};
 
-	GraphSearchResult(const designlab::enums::Result result, const std::string& message) :
+	GraphSearchResult(const enums::Result result, const std::string& message) :
 		result(result),
 		message(message)
 	{};
 
-	::designlab::enums::Result result;	//!< 成功か失敗か
-	std::string message;				//!< 成功時・失敗時のメッセージ
+	enums::Result result;	//!< 成功か失敗か．
+	std::string message;	//!< 成功時・失敗時のメッセージ．
 
 	std::string ToString() const;
 };
 
 
 //! @struct GraphSearchResultRecoder
-//! @brief グラフ探索の結果を格納する構造体．変数をごちゃごちゃさせたくないので作成した．
+//! @brief グラフ探索の結果を格納する構造体．
+//! @note 変数をごちゃごちゃさせたくないので作成した．
 struct GraphSearchResultRecoder final
 {
 	GraphSearchResultRecoder() :
@@ -69,20 +72,23 @@ struct GraphSearchResultRecoder final
 
 
 	//! @brief 構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．
-	//! @return 構造体の内容をCSV形式の文字列にしたもの
+	//! @return std::string 構造体の内容をCSV形式の文字列にしたもの．
 	std::string ToCsvString() const;
 
 	//! @brief CSV形式のヘッダを返す．
-	//! @return CSV形式のヘッダ
+	//! @return std::string CSV形式のヘッダ．
+	//! @todo 処理を一般化する．
 	static std::string GetCsvHeader();
 
-	RobotStateNode result_node;		//!< グラフ探索によって選択されたノード
+	RobotStateNode result_node;		//!< グラフ探索によって選択されたノード.
 
 	double computation_time;		//!< グラフ探索にかかった計算時間 [msec]
 
-	GraphSearchResult graph_search_result;	//!< グラフ探索の結果，成功か失敗か
+	GraphSearchResult graph_search_result;	//!< グラフ探索の結果，成功か失敗か．
 
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
