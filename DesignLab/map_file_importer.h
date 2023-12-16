@@ -4,10 +4,13 @@
 #ifndef	DESIGNLAB_MAP_FILE_IMPORTER_H_
 #define	DESIGNLAB_MAP_FILE_IMPORTER_H_
 
-
 #include <optional>
 
 #include "map_state.h"
+
+
+namespace designlab
+{
 
 //! @class MapFileImporter
 //! @brief マップをcsvに出力したものを読み込むクラス．
@@ -21,5 +24,8 @@ public:
 	//! @return std::optional<MapState> 読み込みに成功した場合，MapStateを返す．
 	[[nodiscard]] std::optional<MapState> ImportMap(const std::string& file_path) const noexcept;
 };
+
+}	// namespace designlab
+
 
 #endif	// DESIGNLAB_MAP_FILE_IMPORTER_H_

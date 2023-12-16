@@ -3,24 +3,23 @@
 #include "designlab_math_util.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-
+namespace designlab
+{
 
 DevideMapState::DevideMapState(const float min_z) :
 	kMapMinZ(min_z),
 	global_robot_com_{},
-	devided_map_point_(dlm::Squared(kDevideNum)),
-	devided_map_top_z_(dlm::Squared(kDevideNum))
+	devided_map_point_(math_util::Squared(kDevideNum)),
+	devided_map_top_z_(math_util::Squared(kDevideNum))
 {
 	// コンストラクタで，vectorの大きさを確保しておく．
 	Clear();
 }
 
-void DevideMapState::Init(const MapState& map_state, const dl::Vector3 global_robot_com)
+void DevideMapState::Init(const MapState& map_state, const Vector3 global_robot_com)
 {
-	assert(devided_map_point_.size() == dlm::Squared(kDevideNum));	//vectorの大きさが確保されているか確認
-	assert(devided_map_top_z_.size() == dlm::Squared(kDevideNum));	//vectorの大きさが確保されているか確認
+	assert(devided_map_point_.size() == math_util::Squared(kDevideNum));	//vectorの大きさが確保されているか確認
+	assert(devided_map_top_z_.size() == math_util::Squared(kDevideNum));	//vectorの大きさが確保されているか確認
 
 	Clear();
 
@@ -102,3 +101,5 @@ float DevideMapState::GetTopZ(int x_index, int y_index) const
 
 	return devided_map_top_z_[GetDevideMapIndex(x_index, y_index)];
 }
+
+}	// namespace designlab

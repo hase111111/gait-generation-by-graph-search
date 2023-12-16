@@ -1,17 +1,18 @@
-#pragma once
+ï»¿#pragma once
 
 #include <doctest.h>
 
 #include "simulation_map_parameter_validator.h"
 
+using namespace designlab;
 
 TEST_SUITE("SimulationMapParameterValidator")
 {
 	SimulationMapParameterValidator validator;
 
-	TEST_CASE("Validate_ƒz[ƒ‹—¦‚ª0–¢–‚Ì_false‚ª•Ô‚é‚×‚«")
+	TEST_CASE("Validate_ãƒ›ãƒ¼ãƒ«ç‡ãŒ0æœªæº€ã®æ™‚_falseãŒè¿”ã‚‹ã¹ã")
 	{
-		SUBCASE("ƒz[ƒ‹—¦‚ª-1‚Ì_false‚ª•Ô‚é‚×‚«")
+		SUBCASE("ãƒ›ãƒ¼ãƒ«ç‡ãŒ-1ã®æ™‚_falseãŒè¿”ã‚‹ã¹ã")
 		{
 			SimulationMapParameter parameter;
 			parameter.hole_rate = -1;
@@ -20,7 +21,7 @@ TEST_SUITE("SimulationMapParameterValidator")
 			CHECK_FALSE(result);
 		}
 
-		SUBCASE("ƒz[ƒ‹—¦‚ª0‚Ì_true‚ª•Ô‚é‚×‚«")
+		SUBCASE("ãƒ›ãƒ¼ãƒ«ç‡ãŒ0ã®æ™‚_trueãŒè¿”ã‚‹ã¹ã")
 		{
 			SimulationMapParameter parameter;
 			parameter.hole_rate = 0;
@@ -30,9 +31,9 @@ TEST_SUITE("SimulationMapParameterValidator")
 		}
 	}
 
-	TEST_CASE("Validate_ƒz[ƒ‹—¦‚ª100‚æ‚è‘å‚«‚¢_false‚ª•Ô‚é‚×‚«")
+	TEST_CASE("Validate_ãƒ›ãƒ¼ãƒ«ç‡ãŒ100ã‚ˆã‚Šå¤§ãã„æ™‚_falseãŒè¿”ã‚‹ã¹ã")
 	{
-		SUBCASE("ƒz[ƒ‹—¦‚ª101‚Ì_false‚ª•Ô‚é‚×‚«")
+		SUBCASE("ãƒ›ãƒ¼ãƒ«ç‡ãŒ101ã®æ™‚_falseãŒè¿”ã‚‹ã¹ã")
 		{
 			SimulationMapParameter parameter;
 			parameter.hole_rate = 101;
@@ -41,7 +42,7 @@ TEST_SUITE("SimulationMapParameterValidator")
 			CHECK_FALSE(result);
 		}
 
-		SUBCASE("ƒz[ƒ‹—¦‚ª100‚Ì_true‚ª•Ô‚é‚×‚«")
+		SUBCASE("ãƒ›ãƒ¼ãƒ«ç‡ãŒ100ã®æ™‚_trueãŒè¿”ã‚‹ã¹ã")
 		{
 			SimulationMapParameter parameter;
 			parameter.hole_rate = 100;

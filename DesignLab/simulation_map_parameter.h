@@ -11,6 +11,9 @@
 #include "toml_serialize_macro.h"
 
 
+namespace designlab::enums
+{
+
 //! @enum SimulationMapMode
 //! @brief getMap関数のマップ生成のモードを指定する列挙体．
 enum class SimulationMapMode : int
@@ -39,6 +42,11 @@ enum class SimulationMapOption : unsigned int
 	kRough = 1 << 4,		//!< 凸凹の地形に変化させる．
 };
 
+} // namespace designlab::enums
+
+
+namespace designlab
+{
 
 //! @struct SimulationMapParameter
 //! @brief マップ生成時のモードとオプションを指定する構造体．
@@ -46,14 +54,14 @@ struct SimulationMapParameter final
 {
 public:
 	constexpr SimulationMapParameter() :
-		mode(SimulationMapMode::kFlat),
-		option(static_cast<unsigned int>(SimulationMapOption::kNone))
+		mode(enums::SimulationMapMode::kFlat),
+		option(static_cast<unsigned int>(enums::SimulationMapOption::kNone))
 	{
 	}
 
 	//! @brief マップ生成のモードを指定する．
 	//! @param [in] mode マップ生成のモードを指定する列挙体．
-	constexpr void SetMode(const SimulationMapMode create_mode)
+	constexpr void SetMode(const enums::SimulationMapMode create_mode)
 	{
 		mode = create_mode;
 	}
@@ -62,7 +70,7 @@ public:
 	//! @n この関数を呼んだあと，その他のSet～関数を呼ぶと，段差の高さや，傾斜角を指定できる．
 	//! @param [in] mode マップ生成のオプションを指定する列挙体をvectorで指定する．
 	//! @n emptyであってはならない．
-	void SetOption(const std::vector<SimulationMapOption> create_options)
+	void SetOption(const std::vector<enums::SimulationMapOption> create_options)
 	{
 		assert(!create_options.empty());
 
@@ -73,12 +81,12 @@ public:
 	}
 
 	//! @brief マップの大きさを指定する．
-	//! @param [in] max_x マップのX座標の最大値．単位は[mm]．
-	//! @param [in] min_x マップのX座標の最小値．単位は[mm]．
-	//! @param [in] max_y マップのY座標の最大値．単位は[mm]．
-	//! @param [in] min_y マップのY座標の最小値．単位は[mm]．
-	//! @param [in] start_rough_x 不整地が始まるX座標．単位は[mm]．
-	//! @param [in] base_z マップのZ座標．単位は[mm]．
+	//! @param [in] max_x マップのX座標の最大値．単位は[mm]
+	//! @param [in] min_x マップのX座標の最小値．単位は[mm]
+	//! @param [in] max_y マップのY座標の最大値．単位は[mm]
+	//! @param [in] min_y マップのY座標の最小値．単位は[mm]
+	//! @param [in] start_rough_x 不整地が始まるX座標．単位は[mm]
+	//! @param [in] base_z マップのZ座標．単位は[mm]
 	constexpr void SetMapSize(const float max_x, const float min_x, const float max_y,
 		const float min_y, const float start_rough_x, const float map_base_z)
 	{
@@ -137,25 +145,25 @@ public:
 	}
 
 
-	SimulationMapMode mode{ SimulationMapMode::kFlat };		//!< マップ生成のモードを指定する列挙体．
-	unsigned int option{ 0 };	//!< マップ生成のオプションを指定するbit．
+	enums::SimulationMapMode mode{ enums::SimulationMapMode::kFlat };	//!< マップ生成のモードを指定する列挙体．
+	unsigned int option{ 0 };											//!< マップ生成のオプションを指定するbit．
 
-	float base_z{ 0.0f };		//!< マップの基準となるZ座標．
-	float map_max_x{ 2600.f };	//!< マップのX座標の最大値．
-	float map_min_x{ -400.f };	//!< マップのX座標の最小値．
-	float map_max_y{ 2000.f };	//!< マップのY座標の最大値．
-	float map_min_y{ -2000.f };	//!< マップのY座標の最小値．
+	float base_z{ 0.0f };				//!< マップの基準となるZ座標．
+	float map_max_x{ 2600.f };			//!< マップのX座標の最大値．
+	float map_min_x{ -400.f };			//!< マップのX座標の最小値．
+	float map_max_y{ 2000.f };			//!< マップのY座標の最大値．
+	float map_min_y{ -2000.f };			//!< マップのY座標の最小値．
 	float map_start_rough_x{ 400.f };	//!< 不整地が始まるX座標．
 
 	int stripe_interval{ 5 };	//!< 各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
 
 	int hole_rate{ 20 };			//!< 不整地上の足場を除外する割合。ホール率[%]
-	float step_height{ 100.f };	//!< 段差高さ[mm]．負の値にすると下りの階段になる．
-	float step_length{ 600.f };	//!< 階段の奥行[mm]．
-	float slope_angle{ 10.f };	//!< 斜面の傾斜角[deg]．
-	float tilt_angle{ 5.f };	//!< 地形を傾ける角度[deg]．
-	float routh_max_height{ 30.f };		//!< デコボコな地形の最大高さ[mm]
-	float routh_min_height{ -30.f };		//!< デコボコな地形の最小高さ[mm]
+	float step_height{ 100.f };		//!< 段差高さ[mm]．負の値にすると下りの階段になる．
+	float step_length{ 600.f };		//!< 階段の奥行[mm]
+	float slope_angle{ 10.f };		//!< 斜面の傾斜角[deg]
+	float tilt_angle{ 5.f };		//!< 地形を傾ける角度[deg]
+	float routh_max_height{ 30.f };	//!< デコボコな地形の最大高さ[mm]
+	float routh_min_height{ -30.f };//!< デコボコな地形の最小高さ[mm]
 };
 
 
@@ -192,12 +200,16 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(routh_min_height, "Rough", "デコボコな地形の最小高さ[mm]");
 };
 
+} // namespace designlab
+
+
 DESIGNLAB_TOML11_SERIALIZE(
-	SimulationMapParameter,
+	designlab::SimulationMapParameter,
 	mode, option,
 	base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
 	stripe_interval,
 	hole_rate, step_height, step_length, slope_angle, tilt_angle, routh_max_height, routh_min_height
 );
+
 
 #endif // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

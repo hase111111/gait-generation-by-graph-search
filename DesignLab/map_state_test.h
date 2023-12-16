@@ -4,6 +4,7 @@
 
 #include "map_state.h"
 
+using namespace designlab;
 
 TEST_SUITE("MapStateTest")
 {

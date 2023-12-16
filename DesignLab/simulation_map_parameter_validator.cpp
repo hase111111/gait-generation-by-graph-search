@@ -1,6 +1,9 @@
 ﻿#include "simulation_map_parameter_validator.h"
 
 
+namespace designlab
+{
+
 std::tuple<bool, std::string> SimulationMapParameterValidator::Validate(const SimulationMapParameter& toml_data) const
 {
 	if (toml_data.hole_rate < 0 || 100 < toml_data.hole_rate)
@@ -25,3 +28,5 @@ std::tuple<bool, std::string> SimulationMapParameterValidator::Validate(const Si
 
 	return { true, "" };
 }
+
+} // namespace designlab

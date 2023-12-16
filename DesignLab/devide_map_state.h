@@ -4,10 +4,12 @@
 #ifndef DESIGNLAB_DEVIDE_MAP_STATE_H_
 #define DESIGNLAB_DEVIDE_MAP_STATE_H_
 
-
 #include "map_state.h"
 #include "designlab_vector3.h"
 
+
+namespace designlab
+{
 
 //! @class DevideMapState
 //! @brief マップを格子状に分割して管理するクラス．
@@ -25,7 +27,7 @@ public:
 	//! @n マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．
 	//! @param [in] map_state マップのデータ．
 	//! @param [in] global_robot_com ロボットの重心のグローバル座標．
-	void Init(const MapState& map_state, const ::designlab::Vector3 global_robot_com);
+	void Init(const MapState& map_state, const Vector3 global_robot_com);
 
 	//! @brief Devideマップのデータを初期化する．
 	void Clear();
@@ -45,7 +47,7 @@ public:
 	//! @brief 指定した座標がDevideマップの範囲内に存在するかどうかを返す．
 	//! @param [in] pos グローバル座標．
 	//! @return bool 範囲内に存在するならtrue．
-	constexpr bool IsInMap(const ::designlab::Vector3& pos) const noexcept
+	constexpr bool IsInMap(const Vector3& pos) const noexcept
 	{
 		return IsInMap(pos.x, pos.y);
 	}
@@ -88,14 +90,14 @@ public:
 	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] devide_map_index 何番目の脚設置可能点か．
 	//! @return Vector3 脚設置可能点の座標．
-	::designlab::Vector3 GetPointPos(int x_index, int y_index, int devide_map_index) const;
+	Vector3 GetPointPos(int x_index, int y_index, int devide_map_index) const;
 
 	//! @brief 長方形状に切り分けられたマップから，脚設置可能点のvectorを取得する
 	//! @n 範囲外の値を指定した場合は，空のvectorを返す．
 	//! @param [in] x_index x座標，切り分けられたタイルの位置で指定する．
 	//! @param [in] y_index y座標，切り分けられたタイルの位置で指定する．
 	//! @param [out] std::vector<Vector3> point_vec 脚設置可能点の座標．
-	void GetPointVector(int x_index, int y_index, std::vector<designlab::Vector3>* point_vec) const;
+	void GetPointVector(int x_index, int y_index, std::vector<Vector3>* point_vec) const;
 
 	//! @brief 長方形状に切り分けられたマップから，最も高いZ座標を返す．
 	//! @param [in] x_index X座標，切り分けられたタイルの位置で指定する．
@@ -138,10 +140,10 @@ private:
 		return true;
 	}
 
-	::designlab::Vector3 global_robot_com_;	//!< ロボットの重心のグローバル座標．
+	Vector3 global_robot_com_;	//!< ロボットの重心のグローバル座標．
 
 	//!< マップが存在する領域を格子状に切り分けて，その中に存在する脚設置可能点を集めたもの．
-	std::vector<std::vector<::designlab::Vector3> > devided_map_point_;
+	std::vector<std::vector<Vector3> > devided_map_point_;
 
 	//!< devided_map_point_の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZが入る．
 	std::vector<float> devided_map_top_z_;
@@ -153,6 +155,8 @@ private:
 	static_assert(kDevideMapMaxX > kDevideMapMinX, "kDevideMapMaxXはMinより大きい必要があります．");
 	static_assert(kDevideMapMaxY > kDevideMapMinY, "kDevideMapMaxYはMinより大きい必要があります．");
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_DEVIDE_MAP_STATE_H_

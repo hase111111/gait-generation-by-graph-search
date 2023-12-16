@@ -9,18 +9,19 @@
 #include "toml_file_importer.h"
 #include "toml_file_setupper.h"
 
-namespace dle = ::designlab::enums;
 
+namespace designlab 
+{
 
 std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRecord& record)
 {
 	std::unique_ptr<IMapCreator> map_creator;
 
-	if (record.map_create_mode == dle::MapCreateMode::kFromFile)
+	if (record.map_create_mode == enums::MapCreateMode::kFromFile)
 	{
 		map_creator = std::make_unique<MapCreatorByCsv>(TomlFileSetupper::kTomlFileDirPath + record.map_file_name);
 	}
-	else if (record.map_create_mode == dle::MapCreateMode::kForSimulation)
+	else if (record.map_create_mode == enums::MapCreateMode::kForSimulation)
 	{
 		auto validator_ptr = std::make_unique<SimulationMapParameterValidator>();
 
@@ -39,3 +40,6 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 
 	return std::move(map_creator);
 }
+
+
+} // namespace designlab

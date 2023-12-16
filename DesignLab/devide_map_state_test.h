@@ -4,6 +4,7 @@
 
 #include "devide_map_state.h"
 
+using namespace designlab;
 
 TEST_SUITE("DevideMapState")
 {

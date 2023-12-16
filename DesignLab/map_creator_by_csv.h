@@ -9,6 +9,9 @@
 #include "interface_map_creator.h"
 
 
+namespace designlab 
+{
+
 //! @class MapCreatorByCsv
 //! @brief CSVファイルからマップを生成するクラス．
 class MapCreatorByCsv final : public IMapCreator
@@ -27,6 +30,8 @@ public:
 private:
 	std::string map_file_path_;	//!< マップのCSVファイルのパス．
 };
+
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_MAP_CREATOR_BY_CSV_H_

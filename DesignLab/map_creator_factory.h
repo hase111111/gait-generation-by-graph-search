@@ -10,6 +10,9 @@
 #include <memory>
 
 
+namespace designlab
+{
+
 //! @class MapCreatorFactory
 //! @brief マップを生成するクラスを生成するクラス．
 class MapCreatorFactory final
@@ -21,6 +24,8 @@ public:
 	//! @return std::unique_ptr<IMapCreator> マップを生成するクラスのインスタンス．
 	static std::unique_ptr<IMapCreator> Create(const SimulationSettingRecord& record);
 };
+
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_MAP_CREATOR_FACTORY_H_

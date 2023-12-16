@@ -1,12 +1,14 @@
 ﻿//! @file interface_map_creator.h
-//! @brief マップ生成クラスのインターフェース
-
+//! @brief マップ生成クラスのインターフェース．
 
 #ifndef DESIGNLAB_INTERFACE_MAP_CREATOR_H_
 #define DESIGNLAB_INTERFACE_MAP_CREATOR_H_
 
 #include "map_state.h"
 
+
+namespace designlab
+{
 
 //! @class IMapCreator
 //! @brief マップ生成クラスのインターフェース．
@@ -20,7 +22,7 @@ public:
 	//! @details シミュレーションにおいてはこの機能のみあればよいが，
 	//! @n 実機を動作させる場合，カメラが正確に認識できる距離の関係で，マップを読み直す必要がある．
 	//! @n そのため，実機試験時はこちらの関数で初期化した後，UpdateMap()でマップを更新する必要がある．
-	//! @return 初期化したマップ
+	//! @return MapState 初期化したマップ．
 	virtual MapState InitMap() = 0;
 
 	//! @brief マップの更新を行う．
@@ -30,6 +32,8 @@ public:
 	virtual void UpdateMap(MapState* current_map) = 0;
 
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_MAP_CREATOR_H_

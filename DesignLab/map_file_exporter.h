@@ -9,6 +9,9 @@
 #include "map_state.h"
 
 
+namespace designlab
+{
+
 //! @class MapFileExporter
 //! @brief マップをcsvに出力するクラス．
 //! @n マップには脚接地可能点が羅列されているので，1行ずつ出力する．
@@ -22,5 +25,8 @@ public:
 	//! @return bool 出力に成功した場合，trueを返す．
 	bool ExportMap(const std::string& file_path, const MapState& map_state) const noexcept;
 };
+
+}	// namespace designlab
+
 
 #endif	// DESIGNLAB_MAP_FILE_EXPORTER_H_

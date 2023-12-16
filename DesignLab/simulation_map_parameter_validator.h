@@ -1,5 +1,8 @@
-﻿#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H
-#define DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H
+﻿//! @file simulation_map_parameter_validator.h
+//! @brief SimulationMapParameter のバリデータ．
+
+#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_
+#define DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_
 
 #include <string>
 
@@ -7,6 +10,11 @@
 #include "simulation_map_parameter.h"
 
 
+namespace designlab
+{
+
+//! @class SimulationMapParameterValidator
+//! @brief SimulationMapParameter のバリデータ．
 class SimulationMapParameterValidator final : public ITomlDataValidator<SimulationMapParameter>
 {
 public:
@@ -19,5 +27,7 @@ private:
 	const std::string kErrMesStepLengthGtZero{ "階段の奥行は0より大きい必要があります．" };
 };
 
+} // namespace designlab
 
-#endif //DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H
+
+#endif // DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_

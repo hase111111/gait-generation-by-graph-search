@@ -5,9 +5,9 @@
 
 #include "cmdio_util.h"
 
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
 
+namespace designlab 
+{
 
 std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path) const noexcept
 {
@@ -17,7 +17,7 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		dlio::Output("ファイルを開けませんでした．", dle::OutputDetail::kError);
+		cmdio::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
 
 		return std::nullopt;
 	}
@@ -40,9 +40,11 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
 		}
 		catch (...)
 		{
-			dlio::Output("読み込むことができないデータがあったため無視します.", dle::OutputDetail::kWarning);
+			cmdio::Output("読み込むことができないデータがあったため無視します.", enums::OutputDetail::kWarning);
 		}
 	}
 
 	return MapState(map_point);
 }
+
+} // namespace designlab
