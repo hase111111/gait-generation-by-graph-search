@@ -10,11 +10,8 @@
 #include "map_state.h"
 
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
-namespace dlsu = ::designlab::string_util;
-
+namespace designlab
+{
 
 GaitPatternGeneratorThread::GaitPatternGeneratorThread(
 	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
@@ -25,13 +22,13 @@ GaitPatternGeneratorThread::GaitPatternGeneratorThread(
 	graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
 	graph_searcher_ptr_(std::move(graph_searcher_ptr)),
 	graph_tree_{ 1000 },
-	graph_tree_array_(dl::MakeArray<GaitPatternGraphTree>(
-		GaitPatternGraphTree{ max_node_num / kThreadNum },
-		GaitPatternGraphTree{ max_node_num / kThreadNum },
-		GaitPatternGraphTree{ max_node_num / kThreadNum },
-		GaitPatternGraphTree{ max_node_num / kThreadNum },
-		GaitPatternGraphTree{ max_node_num / kThreadNum },
-		GaitPatternGraphTree{ max_node_num / kThreadNum }
+	graph_tree_array_(MakeArray<GaitPatternGraphTree>(
+	GaitPatternGraphTree{ max_node_num / kThreadNum },
+	GaitPatternGraphTree{ max_node_num / kThreadNum },
+	GaitPatternGraphTree{ max_node_num / kThreadNum },
+	GaitPatternGraphTree{ max_node_num / kThreadNum },
+	GaitPatternGraphTree{ max_node_num / kThreadNum },
+	GaitPatternGraphTree{ max_node_num / kThreadNum }
 	)),
 	max_depth_(max_depth)
 {
@@ -65,10 +62,10 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		&graph_tree_
 	);
 
-	if (create_result.result != dle::Result::kSuccess) { return create_result; }
+	if (create_result.result != enums::Result::kSuccess) { return create_result; }
 
-	dlio::Output("深さ1までグラフ木の生成が終了しました．", dle::OutputDetail::kDebug);
-	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
+	cmdio::Output("深さ1までグラフ木の生成が終了しました．", enums::OutputDetail::kDebug);
+	cmdio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 
 	// 深さ0のノードをarrayにコピーする
 	for (int i = 0; i < kThreadNum; i++)
@@ -93,28 +90,28 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	{
 		if (graph_tree_array_[i].GetGraphSize() > 1)
 		{
-			dlio::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", dle::OutputDetail::kDebug);
-			dlio::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
+			cmdio::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", enums::OutputDetail::kDebug);
+			cmdio::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 
 			thread_group.create_thread(
 				boost::bind(
-					&GraphTreeCreator::CreateGraphTree,
-					graph_tree_creator_ptr_.get(),
-					1,
-					max_depth_,
-					&graph_tree_array_[i]
-				)
+				&GraphTreeCreator::CreateGraphTree,
+				graph_tree_creator_ptr_.get(),
+				1,
+				max_depth_,
+				&graph_tree_array_[i]
+			)
 			);
 		}
 	}
 
 	thread_group.join_all();
 
-	dlio::Output("グラフ木の生成が終了しました．\n", dle::OutputDetail::kDebug);
+	cmdio::Output("グラフ木の生成が終了しました．\n", enums::OutputDetail::kDebug);
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		dlio::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
+		cmdio::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 	}
 
 
@@ -123,16 +120,16 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", dle::OutputDetail::kDebug);
+		cmdio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", enums::OutputDetail::kDebug);
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
 			operation,
 			max_depth_
 		);
 
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", dle::OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + std::get<0>(search_result_array[i]).ToString() + "です．", dle::OutputDetail::kDebug);
-		dlio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", dle::OutputDetail::kDebug);
+		cmdio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", enums::OutputDetail::kDebug);
+		cmdio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + std::get<0>(search_result_array[i]).ToString() + "です．", enums::OutputDetail::kDebug);
+		cmdio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", enums::OutputDetail::kDebug);
 	}
 
 	//各スレッドごとの探索結果を統合する．
@@ -141,17 +138,17 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	//統合されたグラフを，再び探索する．
 	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
 
-	if (search_result.result != dle::Result::kSuccess)
+	if (search_result.result != enums::Result::kSuccess)
 	{
-		dlio::Output("グラフ木の評価に失敗しました．", dle::OutputDetail::kDebug);
+		cmdio::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
 		return search_result;
 	}
 
-	dlio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", dle::OutputDetail::kDebug);
+	cmdio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", enums::OutputDetail::kDebug);
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
-	return { dle::Result::kSuccess,"" + search_result.message };
+	return { enums::Result::kSuccess,"" + search_result.message };
 }
 
 void GaitPatternGeneratorThread::AppendGraphTree(
@@ -167,7 +164,7 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 		const auto [search_result, _, next_node_index] = search_result_array[i];
 
 		//条件を満たしていない場合は，次のスレッドの結果を見る．
-		if (search_result.result != dle::Result::kSuccess) { continue; }
+		if (search_result.result != enums::Result::kSuccess) { continue; }
 
 		if (graph_tree_array_[i].GetNode(next_node_index).depth != max_depth_) { continue; }
 
@@ -204,6 +201,8 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 		}
 	}
 
-	dlio::Output("グラフ木の統合が終了しました．", dle::OutputDetail::kDebug);
-	dlio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", dle::OutputDetail::kDebug);
+	cmdio::Output("グラフ木の統合が終了しました．", enums::OutputDetail::kDebug);
+	cmdio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 }
+
+}  // namespace designlab

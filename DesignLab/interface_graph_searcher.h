@@ -1,9 +1,8 @@
 ﻿//! @file interface_graph_searcher.h
-//! @brief グラフ探索を行うインターフェース
+//! @brief グラフ探索の処理のインターフェース．
 
 #ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 #define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
-
 
 #include <memory>
 #include <tuple>
@@ -14,8 +13,11 @@
 #include "robot_operation.h"
 
 
+namespace designlab
+{
+
 //! @class IGraphSearcher
-//! @brief グラフ探索を行うインターフェース．実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @brief グラフ探索の処理のインターフェース．
 class IGraphSearcher
 {
 public:
@@ -30,6 +32,8 @@ public:
 	//! @return std::tuple<GraphSearchResult, int, int> グラフ探索の結果，選択されたノード(深さ1)のindex，最高評価ノード(深さmax_depth)のindexのタプル．
 	virtual std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const RobotOperation& operation, int max_depth) const = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_

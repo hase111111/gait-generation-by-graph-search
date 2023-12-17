@@ -16,6 +16,9 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class GaitPatternGeneratorThread
 //! @brief 普通にグラフ探索を行い，歩容パターン生成を行うクラス．
 class GaitPatternGeneratorThread final : public IGaitPatternGenerator
@@ -53,11 +56,13 @@ private:
 	GaitPatternGraphTree graph_tree_;
 	std::array<GaitPatternGraphTree, kThreadNum> graph_tree_array_;
 
-	const int max_depth_;				//!< グラフ探索の最大深さ
+	const int max_depth_;				//!< グラフ探索の最大深さ．
 
 
 	static_assert(0 < kThreadNum, "スレッド数は正の数である必要があります．");
 };
+
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_	

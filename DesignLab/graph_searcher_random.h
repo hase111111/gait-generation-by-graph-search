@@ -1,17 +1,18 @@
 ﻿//! @file graph_searcher_random.h
 //! @brief ランダムにグラフ探索を行うクラス．
 
-
 #ifndef DESIGNLAB_GRAPH_SEARCHER_RANDOM_H_
 #define DESIGNLAB_GRAPH_SEARCHER_RANDOM_H_
-
 
 #include "interface_graph_searcher.h"
 
 
+namespace designlab
+{
+
 //! @class GraphSearcherRandom
-//! @brief 完全ランダムに次の動作を選んで返します．
-//! @n 継承の方法の説明用．
+//! @brief ランダムにグラフ探索を行うクラス．
+//! @details 継承の方法の説明用．
 class GraphSearcherRandom final : public IGraphSearcher
 {
 public:
@@ -21,6 +22,8 @@ public:
 
 	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const RobotOperation& operation, int max_depth) const override;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPH_SEARCHER_RANDOM_H_

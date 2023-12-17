@@ -6,9 +6,8 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
-
+namespace designlab
+{
 
 GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
@@ -32,7 +31,7 @@ GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodebyGraphSearch(
 
 	const GraphSearchResult result = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state, operation, output_node);
 
-	if (result.result != dle::Result::kSuccess)
+	if (result.result != enums::Result::kSuccess)
 	{
 		// グラフ探索に失敗した場合は終了．
 		return result;
@@ -86,3 +85,5 @@ bool GaitPatternGeneratorRevaluation::IsVaildNode([[maybe_unused]] const RobotSt
 
 	return true;
 }
+
+} // namespace designlab

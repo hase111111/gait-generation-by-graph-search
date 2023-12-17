@@ -3,11 +3,9 @@
 #include "cassert_define.h"
 #include "graph_search_const.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlm = ::designlab::math_util;
-namespace dllf = ::designlab::leg_func;
 
+namespace designlab
+{
 
 std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const GaitPatternGraphTree& graph_tree,
@@ -15,11 +13,11 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const int max_depth
 ) const
 {
-	assert(operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture || operation.operation_type == dle::RobotOperationType::kSpotTurnRotAxis);
+	assert(operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture || operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis);
 
 	if (!graph_tree.HasRoot())
 	{
-		const GraphSearchResult result = { dle::Result::kFailure ,"グラフが空のため評価できません．" };
+		const GraphSearchResult result = { enums::Result::kFailure ,"グラフが空のため評価できません．" };
 
 		return { result, -1, -1 };
 	}
@@ -55,7 +53,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 				min_com_z_dif = candiate_leg_dif;
 				result_index = static_cast<int>(i);
 			}
-			else if (dlm::IsEqual(max_turn_angle, candiate_rot_angle))
+			else if (math_util::IsEqual(max_turn_angle, candiate_rot_angle))
 			{
 				if (min_com_z_dif > candiate_leg_dif)
 				{
@@ -64,7 +62,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 					min_com_z_dif = candiate_leg_dif;
 					result_index = static_cast<int>(i);
 				}
-				else if (dlm::IsEqual(min_com_z_dif, candiate_leg_dif))
+				else if (math_util::IsEqual(min_com_z_dif, candiate_leg_dif))
 				{
 					if (max_leg_rot_angle < candiate_leg_rot_angle)
 					{
@@ -83,12 +81,12 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	if (result_index < 0 || result_index >= graph_tree.GetGraphSize())
 	{
 		//深さ1のノードが存在しないなら，終了．
-		const GraphSearchResult result = { dle::Result::kFailure ,"深さ1のノードが存在しません．" };
+		const GraphSearchResult result = { enums::Result::kFailure ,"深さ1のノードが存在しません．" };
 
 		return { result, -1, -1 };
 	}
 
-	const GraphSearchResult result = { dle::Result::kSuccess ,"" };
+	const GraphSearchResult result = { enums::Result::kSuccess ,"" };
 	return { result, graph_tree.GetParentNodeIndex(result_index, 1), result_index };
 }
 
@@ -96,16 +94,16 @@ float GraphSearcherSpotTurn::CalcTurnEvaluationValue(const RobotStateNode& curre
 {
 	const float target_weight = 100000.f;	//方向指定の際のターゲットの重み．
 
-	if (operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture)
+	if (operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
 	{
 		//最終姿勢を表すクォータニオンとの差分を計算する
-		const dl::Quaternion target_quat = operation.spot_turn_last_posture_;
-		const dl::Quaternion current_quat = current_node.quat;
+		const Quaternion target_quat = operation.spot_turn_last_posture_;
+		const Quaternion current_quat = current_node.quat;
 
-		const dl::Quaternion target_to_current = current_quat.GetInverse() * target_quat;
+		const Quaternion target_to_current = current_quat.GetInverse() * target_quat;
 
 		//回転角を計算する．
-		const float rot_angle = dlm::ConvertRadToDeg(2.f * asin(target_to_current.v.GetLength()));
+		const float rot_angle = math_util::ConvertRadToDeg(2.f * asin(target_to_current.v.GetLength()));
 
 		return target_weight - rot_angle;
 	}
@@ -119,7 +117,7 @@ float GraphSearcherSpotTurn::CalcLegRotEvaluationValue(const RobotStateNode& cur
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(current_node.leg_state, i))
+		if (leg_func::IsGrounded(current_node.leg_state, i))
 		{
 			result += (current_node.leg_pos[i] - parent_node.leg_pos[i]).GetLength();
 		}
@@ -127,3 +125,5 @@ float GraphSearcherSpotTurn::CalcLegRotEvaluationValue(const RobotStateNode& cur
 
 	return result / static_cast<float>(HexapodConst::kLegNum);
 }
+
+} // namespace designlab

@@ -8,12 +8,9 @@
 #include "graph_search_const.h"
 #include "leg_state.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dllf = ::designlab::leg_func;
-namespace dlm = ::designlab::math_util;
-namespace dlsu = ::designlab::string_util;
 
+namespace designlab
+{
 
 GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
 	checker_ptr_(checker_ptr)
@@ -26,12 +23,12 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	const int max_depth
 ) const
 {
-	assert(operation.operation_type == dle::RobotOperationType::kStraightMovePosition ||
-		operation.operation_type == dle::RobotOperationType::kStraightMoveVector);	//ターゲットモードは直進である．
+	assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
+		   operation.operation_type == enums::RobotOperationType::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	if (!graph.HasRoot())
 	{
-		const GraphSearchResult result = { dle::Result::kFailure, "ルートノードがありません．" };
+		const GraphSearchResult result = { enums::Result::kFailure, "ルートノードがありません．" };
 		return { result, -1, -1 };
 	}
 
@@ -39,7 +36,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	EvaluationValue max_evaluation_value;
 	InitialValue init_value;
 
-	if (operation.operation_type == dle::RobotOperationType::kStraightMovePosition)
+	if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
 	{
 		init_value.normalized_move_direction = (operation.straight_move_position_ - graph.GetRootNode().global_center_of_mass).GetNormalized();
 	}
@@ -100,11 +97,11 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	if (max_evaluation_value.index < 0 || max_evaluation_value.index >= graph.GetGraphSize())
 	{
 		std::string error_message = "最大評価値のインデックスが範囲外です．" + std::to_string(max_evaluation_value.index);
-		const GraphSearchResult result = { dle::Result::kFailure,error_message };
+		const GraphSearchResult result = { enums::Result::kFailure,error_message };
 		return { result, -1, -1 };
 	}
 
-	const GraphSearchResult result = { dle::Result::kSuccess, max_evaluation_value.ToString() };
+	const GraphSearchResult result = { enums::Result::kSuccess, max_evaluation_value.ToString() };
 
 	return { result, graph.GetParentNodeIndex(max_evaluation_value.index, 1), max_evaluation_value.index };
 }
@@ -112,10 +109,10 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 std::string GraphSearcherStraightMove::EvaluationValue::ToString() const
 {
 	std::string result = "index:" + std::to_string(index) + "/";
-	result += "move_forward:" + dlm::ConvertFloatToString(move_forward, 3, 7) + "/";
-	result += "leg_rot:" + dlm::ConvertFloatToString(leg_rot, 3, 7) + "/";
-	result += "z_diff:" + dlm::ConvertFloatToString(z_diff, 3, 7) + "/";
-	result += "stably_margin:" + dlm::ConvertFloatToString(stably_margin, 3, 7);
+	result += "move_forward:" + math_util::ConvertFloatToString(move_forward, 3, 7) + "/";
+	result += "leg_rot:" + math_util::ConvertFloatToString(leg_rot, 3, 7) + "/";
+	result += "z_diff:" + math_util::ConvertFloatToString(z_diff, 3, 7) + "/";
+	result += "stably_margin:" + math_util::ConvertFloatToString(stably_margin, 3, 7);
 
 	return result;
 }
@@ -128,11 +125,11 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 	EvaluationValue* candiate
 ) const
 {
-	assert(dlm::IsEqual(init_value.normalized_move_direction.GetSquaredLength(), 1.f));	//正規化されていることを確認する．
+	assert(math_util::IsEqual(init_value.normalized_move_direction.GetSquaredLength(), 1.f));	//正規化されていることを確認する．
 	assert(0 <= index && index < tree.GetGraphSize());	//indexが範囲内であることを確認する．
 	assert(candiate != nullptr);	//candiateがnullptrでないことを確認する．
 
-	const dl::Vector3 root_to_current = tree.GetNode(index).global_center_of_mass - tree.GetRootNode().global_center_of_mass;
+	const Vector3 root_to_current = tree.GetNode(index).global_center_of_mass - tree.GetRootNode().global_center_of_mass;
 
 	//root_to_currentのinit_value.normalized_move_direction方向の成分を取り出す．
 	const float result = root_to_current.Dot(init_value.normalized_move_direction);
@@ -167,7 +164,7 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(tree.GetNode(index).leg_state, i))
+		if (leg_func::IsGrounded(tree.GetNode(index).leg_state, i))
 		{
 			result += (tree.GetNode(index).leg_pos[i].ProjectedXY() - tree.GetRootNode().leg_pos[i].ProjectedXY()).GetLength();
 		}
@@ -246,3 +243,5 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 
 	return EvaluationResult::kNotUpdate;
 }
+
+}  // namespace designlab

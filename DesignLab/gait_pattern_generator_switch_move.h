@@ -1,9 +1,8 @@
 ﻿//! @file gait_pattern_generator_switch_move.h
 //! @brief 複数の種類の歩容パターンの生成方法を切り替えるためのクラス．
 
-
-#ifndef GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H
-#define GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H
+#ifndef GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
+#define GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
 
 #include "interface_gait_pattern_generator.h"
 
@@ -14,6 +13,9 @@
 #include "interface_gait_pattern_generator.h"
 #include "robot_state_node.h"
 
+
+namespace designlab
+{
 
 //! @class GaitPatternGeneratorSwitchMove
 //! @brief 複数の種類の歩容パターンの生成方法を切り替えるためのクラス．
@@ -44,4 +46,7 @@ private:
 	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_for_turn_spot_ptr_;
 };
 
-#endif // GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H
+} // namespace designlab
+
+
+#endif // GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_

@@ -1,5 +1,5 @@
 ﻿//! @file graph_searcher_straight_move.h
-//! @brief グラフ探索を行うクラス.
+//! @brief グラフ探索を行い，直進する動作を評価するクラス．
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_HATO_H_
 #define DESIGNLAB_GRAPH_SEARCHER_HATO_H_
@@ -7,6 +7,9 @@
 #include "interface_graph_searcher.h"
 #include "interface_hexapod_vaild_checker.h"
 
+
+namespace designlab
+{
 
 //! @class GraphSearcherStraightMove
 //! @brief グラフ探索を行い，直進する動作を評価するクラス．
@@ -44,7 +47,7 @@ private:
 
 	struct InitialValue final
 	{
-		::designlab::Vector3 normalized_move_direction;
+		Vector3 normalized_move_direction;
 	};
 
 
@@ -59,6 +62,8 @@ private:
 
 	const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_GRAPH_SEARCHER_HATO_H_

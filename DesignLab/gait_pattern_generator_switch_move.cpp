@@ -5,13 +5,12 @@
 #include "cassert_define.h"
 
 
-namespace dle = ::designlab::enums;
-
+namespace designlab
+{
 
 GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straigt,
-	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot
-) :
+	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot) :
 	gait_pattern_generator_for_straigt_ptr_(std::move(gait_pattern_generator_for_straigt)),
 	gait_pattern_generator_for_turn_spot_ptr_(std::move(gait_pattern_generator_for_turn_spot))
 {
@@ -24,7 +23,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 	RobotStateNode* output_node
 )
 {
-	if (operation.operation_type == dle::RobotOperationType::kStraightMoveVector || operation.operation_type == dle::RobotOperationType::kStraightMovePosition)
+	if (operation.operation_type == enums::RobotOperationType::kStraightMoveVector || operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
 	{
 		return gait_pattern_generator_for_straigt_ptr_->GetNextNodebyGraphSearch(
 			current_node,
@@ -33,7 +32,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 			output_node
 		);
 	}
-	else if (operation.operation_type == dle::RobotOperationType::kSpotTurnRotAxis || operation.operation_type == dle::RobotOperationType::kSpotTurnLastPosture)
+	else if (operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis || operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
 	{
 		return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodebyGraphSearch(
 			current_node,
@@ -46,6 +45,8 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodebyGraphSearch(
 	{
 		assert(false);
 		std::string error_message = "存在していない動作種別です。";
-		return { dle::Result::kFailure,error_message };
+		return { enums::Result::kFailure,error_message };
 	}
 }
+
+}  // namespace designlab

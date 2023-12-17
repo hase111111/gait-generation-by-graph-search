@@ -1,5 +1,5 @@
 ﻿//! @file gait_pattern_generator_basic.h
-//! @brief 普通にグラフ探索を行い，歩容パターン生成を行うクラス
+//! @brief 普通にグラフ探索を行い，歩容パターン生成を行うクラス．
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
@@ -16,8 +16,11 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class GaitPatternGeneratorBasic
-//! @brief 普通にグラフ探索を行い，歩容パターン生成を行うクラス
+//! @brief 普通にグラフ探索を行い，歩容パターン生成を行うクラス．
 class GaitPatternGeneratorBasic final : public IGaitPatternGenerator
 {
 public:
@@ -45,14 +48,16 @@ public:
 
 private:
 
-	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス
+	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;	//!< グラフ探索を行う木構造のグラフを作成するクラス．
 
-	const std::unique_ptr<const IGraphSearcher> graph_searcher_ptr_;	//!< グラフ探索を行うクラス
+	const std::unique_ptr<const IGraphSearcher> graph_searcher_ptr_;	//!< グラフ探索を行うクラス．
 
 	GaitPatternGraphTree graph_tree_;	//! グラフ探索を行う木構造のグラフ．
 
-	const int max_depth_;				//!< グラフ探索の最大深さ
+	const int max_depth_;				//!< グラフ探索の最大深さ．
 };
+
+}  // namespace designlabk
 
 
 #endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_

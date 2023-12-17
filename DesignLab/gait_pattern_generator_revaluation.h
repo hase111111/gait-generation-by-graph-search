@@ -1,10 +1,8 @@
 ﻿//! @file gait_pattern_generator_revaluation.h
 //! @brief 再評価手法を実装したクラス．
 
-
 #ifndef GAIT_PATTERN_GENERATOR_REVALUATION_H_
 #define GAIT_PATTERN_GENERATOR_REVALUATION_H_
-
 
 #include <memory>
 #include <vector>
@@ -13,6 +11,9 @@
 #include "interface_gait_pattern_generator.h"
 #include "robot_state_node.h"
 
+
+namespace designlab
+{
 
 //! @class GaitPatternGeneratorRevaluation
 //! @brief 再評価手法を実装したクラス．
@@ -44,6 +45,8 @@ private:
 	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
 	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_revaluation_ptr_;
 };
+
+}	//	namespace designlab
 
 
 #endif	//	GAIT_PATTERN_GENERATOR_REVALUATION_H_

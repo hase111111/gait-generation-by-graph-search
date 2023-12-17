@@ -13,6 +13,9 @@
 #include "interface_node_creator_builder.h"
 
 
+namespace designlab
+{
+
 //! @class GraphTreeCreator
 //! @brief 歩容パターングラフを作成するクラス．
 //! @details 先行研究のプログラムを見ればわかる通り，実際には処理効率をあげるために，
@@ -38,16 +41,18 @@ public:
 private:
 
 	//! @brief current_nodeの子ノードを生成して，output_graphに代入する．
-	//! @param[in] current_node 現在のノード
-	//! @param[in] current_num 現在のノードのindex
+	//! @param[in] current_node 現在のノード．
+	//! @param[in] current_num 現在のノードのindex．
 	//! @param[out] output_graph 生成したノードを代入するベクタ．空にしておくこと.
 	void MakeNewNodesByCurrentNode(const RobotStateNode& current_node, int current_num, std::vector<RobotStateNode>* output_graph) const;
 
 
-	std::map<::designlab::enums::HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;		//!< ノード生成クラスのマップ．
+	std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;		//!< ノード生成クラスのマップ．
 
 	const std::unique_ptr<INodeCreatorBuilder> node_creator_builder_ptr_;		//!< ノード生成クラスのビルダー．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_GRAPH_TREE_CREATOR_H_
