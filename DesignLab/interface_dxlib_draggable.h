@@ -1,13 +1,15 @@
 ﻿//! @file interface_dxlib_draggable.h
 //! @brief ドラッグ可能なGUIのインターフェース．
 
+#ifndef	DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
+#define	DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
 
-#ifndef	INTERFACE_DXLIB_DRAGGABLE_H_
-#define	INTERFACE_DXLIB_DRAGGABLE_H_
 
+namespace designlab
+{
 
 //! @brief ドラッグ可能なGUIのインターフェース．
-//! @n ドラッグ動作を実装したいGUIはこのインターフェースを継承する．
+//! @details ドラッグ動作を実装したいGUIはこのインターフェースを継承する．
 class IDxlibDraggable
 {
 public:
@@ -35,5 +37,7 @@ public:
 	virtual void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) = 0;
 };
 
+}	// namespace designlab
 
-#endif	// INTERFACE_DXLIB_DRAGGABLE_H_
+
+#endif	// DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_

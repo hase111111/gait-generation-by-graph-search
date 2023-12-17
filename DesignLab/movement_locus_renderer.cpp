@@ -1,11 +1,12 @@
-#include "movement_locus_renderer.h"
+ï»¿#include "movement_locus_renderer.h"
 
 #include <Dxlib.h>
 
 #include "dxlib_util.h"
 
-namespace dldu = designlab::dxlib_util;
 
+namespace designlab
+{
 
 MovementLocusRenderer::MovementLocusRenderer() :
 	kHiddenLocusLineColor(GetColor(173, 187, 50)),
@@ -48,16 +49,16 @@ void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all
 
 	for (size_t i = 0; i < kSize - 1; i++)
 	{
-		//”ÍˆÍŠOƒAƒNƒZƒX‚ð–h‚®
+		//ç¯„å›²å¤–ã‚¢ã‚¯ã‚»ã‚¹ã‚’é˜²ã
 		if (i < 0 && kSize - 1 <= i) { break; }
 
 
-		size_t now_simu_num = simulation_end_indexes_.size();	//Œ»Ý‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‰ñ”
+		size_t now_simu_num = simulation_end_indexes_.size();	//ç¾åœ¨ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å›žæ•°
 
-		bool do_draw = true;	//•`‰æ‚·‚é‚©‚Ç‚¤‚©
+		bool do_draw = true;	//æç”»ã™ã‚‹ã‹ã©ã†ã‹
 
 
-		//Žn“_‚ÌƒCƒ“ƒfƒbƒNƒX‚ªƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“I—¹ƒCƒ“ƒfƒbƒNƒX‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚é‚È‚ç‚Î•`‰æ‚ð”ò‚Î‚·
+		//å§‹ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«å«ã¾ã‚Œã¦ã„ã‚‹ãªã‚‰ã°æç”»ã‚’é£›ã°ã™
 		for (size_t j = 0; j < simulation_end_indexes_.size(); j++)
 		{
 			if (i == simulation_end_indexes_[j]) { do_draw = false; }
@@ -69,12 +70,12 @@ void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all
 			}
 		}
 
-		//Žn“_‚ÆI“_‚ÌÀ•W‚ð•`‰æÀ•W‚É•ÏŠ·‚·‚é
-		VECTOR start = dldu::ConvertToDxlibVec(move_locus_point_.at(i));
-		VECTOR end = dldu::ConvertToDxlibVec(move_locus_point_.at(i + 1));
+		//å§‹ç‚¹ã¨çµ‚ç‚¹ã®åº§æ¨™ã‚’æç”»åº§æ¨™ã«å¤‰æ›ã™ã‚‹
+		VECTOR start = dxlib_util::ConvertToDxlibVec(move_locus_point_.at(i));
+		VECTOR end = dxlib_util::ConvertToDxlibVec(move_locus_point_.at(i + 1));
 
 
-		//•`‰æ
+		//æç”»
 		if (do_draw)
 		{
 			int kDivNum = 6;
@@ -108,3 +109,5 @@ void MovementLocusRenderer::Draw(const size_t draw_simu_num, const bool draw_all
 		}
 	}
 }
+
+}	// namespace designlab

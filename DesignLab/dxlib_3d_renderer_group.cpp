@@ -3,8 +3,9 @@
 #include "cassert_define.h"
 #include "dxlib_util.h"
 
-namespace dldu = ::designlab::dxlib_util;
 
+namespace designlab
+{
 
 void Dxlib3dRendererGroup::Register(const std::shared_ptr<IDxlib3dRenderer>& renderer)
 {
@@ -15,10 +16,12 @@ void Dxlib3dRendererGroup::Register(const std::shared_ptr<IDxlib3dRenderer>& ren
 
 void Dxlib3dRendererGroup::Draw() const
 {
-	dldu::SetZBufferEnable();
+	dxlib_util::SetZBufferEnable();
 
 	for (const auto& renderer : renderers_)
 	{
 		renderer->Draw();
 	}
 }
+
+} // namespace designlab

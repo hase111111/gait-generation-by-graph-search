@@ -9,10 +9,8 @@
 #include "leg_state.h"
 
 
-namespace dl = ::designlab;
-namespace dllf = ::designlab::leg_func;
-namespace dldu = ::designlab::dxlib_util;
-
+namespace designlab
+{
 
 StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
 	kMarginColor(GetColor(0, 255, 0)),
@@ -25,22 +23,22 @@ StabilityMarginRenderer::StabilityMarginRenderer(const std::shared_ptr<const IHe
 
 void StabilityMarginRenderer::Draw() const
 {
-	dl::Polygon2 polygon_xy;			//平面に投影した多角形．
+	Polygon2 polygon_xy;			//平面に投影した多角形．
 
-	std::vector<dl::Vector3> polygon;	//多角形の頂点．
+	std::vector<Vector3> polygon;	//多角形の頂点．
 
-	dl::Vector3 polygon_sum{ 0, 0, 0 };	//多角形の頂点の合計，重心を求めるために使用する
+	Vector3 polygon_sum{ 0, 0, 0 };	//多角形の頂点の合計，重心を求めるために使用する
 
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(node_.leg_state, i))
+		if (leg_func::IsGrounded(node_.leg_state, i))
 		{
 			polygon.push_back(
 				converter_ptr_->ConvertLegToGlobalCoordinate(node_.leg_pos[i], i, node_.global_center_of_mass, node_.quat, true)
 			);
 
-			polygon.back() += dl::Vector3{ 0, 0, 5 };	//わかりやすさのため，高さを少し上げる
+			polygon.back() += Vector3{ 0, 0, 5 };	//わかりやすさのため，高さを少し上げる
 
 			polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
@@ -50,16 +48,16 @@ void StabilityMarginRenderer::Draw() const
 	}
 
 	// 重心の座標
-	const dl::Vector3 center = polygon_sum / static_cast<float>(polygon.size());
+	const Vector3 center = polygon_sum / static_cast<float>(polygon.size());
 
 
 	//多角形を描画する
 	for (size_t i = 0; i < polygon.size(); i++)
 	{
 		const VECTOR poly[3] = {
-			dldu::ConvertToDxlibVec(polygon[i]),
-			dldu::ConvertToDxlibVec(polygon[(i + 1) % polygon.size()]),
-			dldu::ConvertToDxlibVec(center)
+			dxlib_util::ConvertToDxlibVec(polygon[i]),
+			dxlib_util::ConvertToDxlibVec(polygon[(i + 1) % polygon.size()]),
+			dxlib_util::ConvertToDxlibVec(center)
 		};
 
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kAlpha);
@@ -78,10 +76,12 @@ void StabilityMarginRenderer::Draw() const
 	}
 
 	//投射した重心を描画する
-	VECTOR projected_center_pos = dldu::ConvertToDxlibVec(
+	VECTOR projected_center_pos = dxlib_util::ConvertToDxlibVec(
 		//わかりやすさのため，重心の高さを少し上げる
 		{ node_.global_center_of_mass.x,node_.global_center_of_mass.y, center.z + 10 }
 	);
 
 	DrawSphere3D(projected_center_pos, 5, 10, 10, GetColor(255, 255, 255), TRUE);
 }
+
+}	// namespace designlab

@@ -5,8 +5,8 @@
 #include "dxlib_util.h"
 
 
-namespace dldu = designlab::dxlib_util;
-
+namespace designlab
+{
 
 MapRenderer::MapRenderer() :
 	kColorGray(GetColor(80, 80, 80)),
@@ -37,8 +37,8 @@ void MapRenderer::Draw() const
 
 	for (size_t i = 0; i < kSize; i++)
 	{
-		dldu::DrawCube3DWithTopPos(
-			dldu::ConvertToDxlibVec(map_.GetMapPoint(i)),
+		dxlib_util::DrawCube3DWithTopPos(
+			dxlib_util::ConvertToDxlibVec(map_.GetMapPoint(i)),
 			kCubeSize,
 			kColorDarkGray
 		);
@@ -50,8 +50,8 @@ void MapRenderer::Draw() const
 		{
 			for (int k = 0; k < devide_map_.GetPointNum(i, j); k++)
 			{
-				dldu::DrawCube3DWithTopPos(
-					dldu::ConvertToDxlibVec(devide_map_.GetPointPos(i, j, k)),
+				dxlib_util::DrawCube3DWithTopPos(
+					dxlib_util::ConvertToDxlibVec(devide_map_.GetPointPos(i, j, k)),
 					kCubeSize,
 					(i + j) % 2 == 0 ? kColorLightGray : kColorGray
 				);
@@ -59,3 +59,5 @@ void MapRenderer::Draw() const
 		}
 	}
 }
+
+} // namespace designlab

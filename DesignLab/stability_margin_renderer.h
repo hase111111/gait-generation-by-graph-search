@@ -1,10 +1,8 @@
 ﻿//! @file stability_margin_renderer.h
 //! @brief ロボットの静的安定余裕(支持脚多角形)を描画するクラス．
 
-
 #ifndef DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
 #define DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
-
 
 #include <memory>
 
@@ -14,9 +12,12 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class StabilityMarginRenderer
 //! @brief ロボットの静的安定余裕(支持脚多角形)を描画するクラス．
-//! @n 接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる．
+//! @details 接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる．
 class StabilityMarginRenderer final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
@@ -41,6 +42,8 @@ private:
 
 	RobotStateNode node_;	//!< ロボットの状態．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_STABILITY_MARGIN_RENDERER_H_

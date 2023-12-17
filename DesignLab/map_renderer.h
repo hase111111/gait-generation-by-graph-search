@@ -1,7 +1,6 @@
 ﻿//! @file map_renderer.h
 //! @brief マップの描画を行うクラス．
 
-
 #ifndef DESIGNLAB_MAP_RENDERER_H_
 #define DESIGNLAB_MAP_RENDERER_H_
 
@@ -12,8 +11,11 @@
 #include "map_state.h"
 
 
+namespace designlab
+{
+
 //! @class MapRenderer
-//! @brief Mapの描画を行うクラス．
+//! @brief マップの描画を行うクラス．
 class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer
 {
 public:
@@ -43,8 +45,10 @@ private:
 
 	MapState map_;
 	DevideMapState devide_map_;
-	::designlab::Vector3 hexapod_pos_;
+	Vector3 hexapod_pos_;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_MAP_RENDERER_H_

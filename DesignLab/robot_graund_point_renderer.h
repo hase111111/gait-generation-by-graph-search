@@ -1,9 +1,8 @@
-//! @file robot_graund_point_renderer.h
-//! @brief ƒƒ{ƒbƒg‚Ì‹rÚ’n“_‚ÌÀ•W‚ğ•`‰æ‚·‚éƒNƒ‰ƒX
+ï»¿//! @file robot_graund_point_renderer.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®è„šæ¥åœ°ç‚¹ã®åº§æ¨™ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H
 #define DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H
-
 
 #include <array>
 #include <vector>
@@ -14,8 +13,11 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class RobotGraundPointRenderer
-//! @brief ƒƒ{ƒbƒg‚ªÚ’n“_‚µ‚½’n“_‚Ì—š—ğ‚ğ•`‰æ‚·‚éƒNƒ‰ƒX
+//! @brief ãƒ­ãƒœãƒƒãƒˆãŒæ¥åœ°ç‚¹ã—ãŸåœ°ç‚¹ã®å±¥æ­´ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class RobotGraundPointRenderer final
 {
 public:
@@ -23,44 +25,46 @@ public:
 	RobotGraundPointRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
 
-	//! ƒƒ{ƒbƒg‚ªÚ’n“_‚µ‚½’n“_‚Ì—š—ğ‚ğƒZƒbƒg‚·‚éD
-	//! @n ‚Ü‚½CƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚½ƒm[ƒh‚ÌƒCƒ“ƒfƒbƒNƒX‚ğƒZƒbƒg‚·‚éD
-	//! @param [in] result_node ƒƒ{ƒbƒg‚ªÚ’n‚µ‚½À•W‚Ìvector
-	//! @param [in] simu_end_node_index ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚½ƒm[ƒh‚ÌƒCƒ“ƒfƒbƒNƒX‚Ìvector
+	//! ãƒ­ãƒœãƒƒãƒˆãŒæ¥åœ°ç‚¹ã—ãŸåœ°ç‚¹ã®å±¥æ­´ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
+	//! @n ã¾ãŸï¼Œã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ãŸãƒãƒ¼ãƒ‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
+	//! @param [in] result_node ãƒ­ãƒœãƒƒãƒˆãŒæ¥åœ°ã—ãŸåº§æ¨™ã®vectorï¼
+	//! @param [in] simu_end_node_index ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ãŸãƒãƒ¼ãƒ‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®vectorï¼
 	void SetNodeAndSimulationEndNodeIndex(const std::vector<RobotStateNode>& result_node, const std::vector<size_t>& simu_end_node_index);
 
 
-	//! ƒƒ{ƒbƒg‚ªÚ’n“_‚µ‚½’n“_‚Ì—š—ğ‚Ì•`‰æ‚ğs‚¤D
-	//! @param [in] draw_simu_num •`‰æ‚ğs‚¤ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì”Ô†( 0, 1, 2, ...)
-	//! @param [in] draw_all_simulation ã‚Ìƒpƒ‰ƒ[ƒ^‚ğ–³‹‚µ‚ÄC‚·‚×‚Ä‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É‚Â‚¢‚Ä•`‰æ‚·‚é
+	//! ãƒ­ãƒœãƒƒãƒˆãŒæ¥åœ°ç‚¹ã—ãŸåœ°ç‚¹ã®å±¥æ­´ã®æç”»ã‚’è¡Œã†ï¼
+	//! @param [in] draw_simu_num æç”»ã‚’è¡Œã†ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç•ªå·( 0, 1, 2, ...)
+	//! @param [in] draw_all_simulation ä¸Šã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ç„¡è¦–ã—ã¦ï¼Œã™ã¹ã¦ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«ã¤ã„ã¦æç”»ã™ã‚‹ï¼
 	void Draw(size_t draw_simu_num, bool draw_all_simulation = false) const;
 
 private:
 
 	struct VectorAndIsGround
 	{
-		designlab::Vector3 vec;	//!< À•W
+		designlab::Vector3 vec;	//!< åº§æ¨™ï¼
 
-		bool is_ground;			//!< Ú’n‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+		bool is_ground;			//!< æ¥åœ°ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ï¼
 	};
 
 
-	const unsigned int kRightLegGraundPointColor;		//!< ‹rÚ’n“_‚ÌF (‰E‘«)
+	const unsigned int kRightLegGraundPointColor;		//!< è„šæ¥åœ°ç‚¹ã®è‰² (å³è¶³)
 
-	const unsigned int kLeftLegGraundPointColor;		//!< ‹rÚ’n“_‚ÌF (¶‘«)
+	const unsigned int kLeftLegGraundPointColor;		//!< è„šæ¥åœ°ç‚¹ã®è‰² (å·¦è¶³)
 
-	const unsigned int kRightLegGraundPointDarkColor;	//!< Œ»İ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ˆÈŠO‚ÌF (‰E‘«)
+	const unsigned int kRightLegGraundPointDarkColor;	//!< ç¾åœ¨ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ä»¥å¤–ã®è‰² (å³è¶³)
 
-	const unsigned int kLeftLegGraundPointDarkColor;	//!< Œ»İ‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ˆÈŠO‚ÌF (¶‘«)
+	const unsigned int kLeftLegGraundPointDarkColor;	//!< ç¾åœ¨ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ä»¥å¤–ã®è‰² (å·¦è¶³)
 
 
-	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< ƒƒ{ƒbƒg‚ÌÀ•WŒvZƒNƒ‰ƒXD
+	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;	//!< ãƒ­ãƒœãƒƒãƒˆã®åº§æ¨™è¨ˆç®—ã‚¯ãƒ©ã‚¹ï¼
 
-	size_t loaded_node_num_;	//!< “Ç‚İ‚ñ‚¾ƒm[ƒh‚Ì”Cƒf[ƒ^‚ªXV‚³‚ê‚é‚½‚Ñ–ˆ‰ñ‘S•”“Ç‚È‚¨‚³‚È‚¢‚æ‚¤‚ÉC‚·‚Å‚É“Ç‚İ‚ñ‚¾ƒm[ƒh‚Ì”‚ğ‹L‰¯‚µ‚Ä‚¨‚­
+	size_t loaded_node_num_;	//!< èª­ã¿è¾¼ã‚“ã ãƒãƒ¼ãƒ‰ã®æ•°ï¼Œãƒ‡ãƒ¼ã‚¿ãŒæ›´æ–°ã•ã‚Œã‚‹ãŸã³æ¯å›å…¨éƒ¨èª­è¾¼ãªãŠã•ãªã„ã‚ˆã†ã«ï¼Œã™ã§ã«èª­ã¿è¾¼ã‚“ã ãƒãƒ¼ãƒ‰ã®æ•°ã‚’è¨˜æ†¶ã—ã¦ãŠãï¼
 
-	//!< ƒƒ{ƒbƒg‚Ì‹rÚ’n“_‚ÌÀ•WCgraund_point[ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“”Ô†][ƒm[ƒh”Ô†][‹r”Ô†]‚Ì‡‚ÅƒAƒNƒZƒX‚·‚é
+	//!< ãƒ­ãƒœãƒƒãƒˆã®è„šæ¥åœ°ç‚¹ã®åº§æ¨™ï¼Œgraund_point[ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç•ªå·][ãƒãƒ¼ãƒ‰ç•ªå·][è„šç•ªå·]ã®é †ã§ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ï¼
 	std::vector<std::vector<std::array<VectorAndIsGround, HexapodConst::kLegNum>>> graund_point_;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_ROBOT_GRAUND_POINT_RENDERER_H

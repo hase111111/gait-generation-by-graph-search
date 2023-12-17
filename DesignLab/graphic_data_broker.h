@@ -1,5 +1,5 @@
-//! @file graphic_data_broker.h
-//! @brief �O���t�T���̌��ʂ�ʃX���b�h�̃O���t�B�b�N�N���X�ɘA�����邽�߂̍\����
+﻿//! @file graphic_data_broker.h
+//! @brief グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．
 
 #ifndef DESIGNLAB_GRAPHIC_DATA_BROKER_H_
 #define DESIGNLAB_GRAPHIC_DATA_BROKER_H_
@@ -10,20 +10,26 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @struct GraphicDataBroker
-//! @brief �摜�\�����ƁC�f�[�^�����������т��钇��l
-//! @details Broker:�u���[�J�[�C����l�̂��ƁD
-//! @n �f�[�^������(�O���t�T��)���X�V�����f�[�^�����̍\���̂ɓn���C�摜�\���������̍\���̂���X�V���ꂽ�f�[�^�������Ă����C�`�悷��D
+//! @brief グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．
+//! @details Broker:ブローカー，仲介人のこと．
+//! @n データ処理部(グラフ探索)が更新したデータをこの構造体に渡し，画像表示部がこの構造体から更新されたデータを持っていき，描画する．
 //! @n
-//! @n �O���t�T���@���@GraphicDataBroker�@���@�摜�\����
+//! @n グラフ探索　→　GraphicDataBroker　→　画像表示部
+//! @todo リネームすること．
 struct GraphicDataBroker final
 {
-	AsyncableData<MapState> map_state;					//!< �}�b�v�̏��C�J���������{�b�g�ɐݒu����ꍇ�C
+	AsyncableData<MapState> map_state;					//!< マップの情報，カメラをロボットに設置する場合，
 
-	AsyncableData<std::vector<RobotStateNode>> graph;
+	AsyncableData<std::vector<RobotStateNode> > graph;
 
-	AsyncableData<std::vector<size_t>> simu_end_index;
+	AsyncableData<std::vector<size_t> > simu_end_index;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPHIC_DATA_BROKER_H_

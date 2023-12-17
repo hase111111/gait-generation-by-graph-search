@@ -15,10 +15,8 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace dl = ::designlab;
-namespace dldu = ::designlab::dxlib_util;
-namespace dlm = ::designlab::math_util;
-
+namespace designlab
+{
 
 GraphicMainTest::GraphicMainTest(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -30,7 +28,7 @@ GraphicMainTest::GraphicMainTest(
 	calculator_ptr_(calculator_ptr),
 	converter_ptr_(converter_ptr)
 {
-	NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
+	NodeInitializer node_initializer{ Vector3{0.f,0.f,30.f}, enums::HexapodMove::kNone };
 	robot_ = node_initializer.InitNode();
 
 	const SimulationMapParameter messanger;
@@ -41,16 +39,16 @@ GraphicMainTest::GraphicMainTest(
 
 	const auto camera = std::make_shared<DxlibCamera>();
 	const auto camera_gui = std::make_shared<DxlibGuiCamera>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
-	camera_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop, true);
+	camera_gui->SetPos(10, 10, kDxlibGuiAnchorLeftTop, true);
 
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
 	const auto camera_parameter_gui = std::make_shared<DxlibGuiCameraParameterDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
-	camera_parameter_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop, true);
+	camera_parameter_gui->SetPos(10, 10, kDxlibGuiAnchorLeftTop, true);
 	camera_parameter_gui->SetVisible(false);
 
 	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, dl::kDxlibGuiAnchorRightTop, true);
+	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, kDxlibGuiAnchorRightTop, true);
 
 	const auto [hexapod_renderer, hexapod_node_setter] =
 		HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_, setting_ptr->gui_display_quality);
@@ -112,82 +110,82 @@ void GraphicMainTest::MoveBody()
 
 	if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetUpVec() * kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetUpVec() * kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetUpVec() * -kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetUpVec() * -kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetLeftVec() * kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetLeftVec() * kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetLeftVec() * -kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetLeftVec() * -kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetFrontVec() * kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetFrontVec() * kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
 	{
-		dl::Vector3 com =
-			robot_.global_center_of_mass + dl::RotateVector3(dl::Vector3::GetFrontVec() * -kComSpeed, robot_.quat);
+		Vector3 com =
+			robot_.global_center_of_mass + RotateVector3(Vector3::GetFrontVec() * -kComSpeed, robot_.quat);
 
 		robot_.ChangeGlobalCenterOfMass(com, false);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * dlm::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
 			angle_speed *= -1.f;
 		}
 
-		dl::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, dl::Vector3::GetFrontVec()) * robot_.quat;
+		Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetFrontVec()) * robot_.quat;
 
 		robot_.ChangeQuat(converter_ptr_, rot);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * dlm::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
 			angle_speed *= -1.f;
 		}
 
-		dl::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, dl::Vector3::GetLeftVec()) * robot_.quat;
+		Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetLeftVec()) * robot_.quat;
 
 		robot_.ChangeQuat(converter_ptr_, rot);
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * dlm::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
 			angle_speed *= -1.f;
 		}
 
-		dl::Quaternion rot = dl::Quaternion::MakeByAngleAxis(angle_speed, dl::Vector3::GetUpVec()) * robot_.quat;
+		Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetUpVec()) * robot_.quat;
 
 		robot_.ChangeQuat(converter_ptr_, rot);
 	}
@@ -210,7 +208,7 @@ void GraphicMainTest::MoveLeg()
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { robot_.leg_pos[i].x -= kSpeed; }
 			else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
 			{
-				dl::Vector3 global = converter_ptr_->ConvertLegToGlobalCoordinate(
+				Vector3 global = converter_ptr_->ConvertLegToGlobalCoordinate(
 					robot_.leg_reference_pos[i], i, robot_.global_center_of_mass, robot_.quat, true
 				);
 
@@ -222,7 +220,7 @@ void GraphicMainTest::MoveLeg()
 				if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
 				else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
 
-				dl::Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, devide_map_tile_index_ % devide_map_state_.GetPointNum(map_x, map_y));
+				Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, devide_map_tile_index_ % devide_map_state_.GetPointNum(map_x, map_y));
 				++devide_map_tile_index_;
 
 				robot_.leg_pos[i] = converter_ptr_->ConvertGlobalToLegCoordinate(
@@ -256,7 +254,7 @@ void GraphicMainTest::MoveLeg()
 
 					femur += speed;
 
-					femur = (femur + tibia - dlm::kFloatPi) > 0 ? femur - speed : femur;
+					femur = (femur + tibia - math_util::kFloatPi) > 0 ? femur - speed : femur;
 					femur = PhantomXMkIIConst::kFemurAngleMax <= femur ? PhantomXMkIIConst::kFemurAngleMax : femur;
 					femur = PhantomXMkIIConst::kFemurAngleMin >= femur ? PhantomXMkIIConst::kFemurAngleMin : femur;
 				}
@@ -264,25 +262,25 @@ void GraphicMainTest::MoveLeg()
 				{
 					float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
 					tibia += spped;
-					tibia = (femur + tibia - dlm::kFloatPi) > 0 ? tibia - spped : tibia;
+					tibia = (femur + tibia - math_util::kFloatPi) > 0 ? tibia - spped : tibia;
 					tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
 					tibia = PhantomXMkIIConst::kTibiaAngleMin >= tibia ? PhantomXMkIIConst::kTibiaAngleMin : tibia;
 				}
 
-				dl::Vector3 leg_pos;
+				Vector3 leg_pos;
 
-				leg_pos += dl::Vector3{ PhantomXMkIIConst::kCoxaLength* cos(coxa), PhantomXMkIIConst::kCoxaLength* sin(coxa), 0 };
+				leg_pos += Vector3{ PhantomXMkIIConst::kCoxaLength * cos(coxa), PhantomXMkIIConst::kCoxaLength * sin(coxa), 0 };
 
-				leg_pos += dl::Vector3{
-					PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
-						PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
-						PhantomXMkIIConst::kFemurLength* sin(femur)
+				leg_pos += Vector3{
+					PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
+						PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
+						PhantomXMkIIConst::kFemurLength * sin(femur)
 				};
 
-				leg_pos += dl::Vector3{
-					PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
-						PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
-						PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
+				leg_pos += Vector3{
+					PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
 				};
 
 				robot_.leg_pos[i] = leg_pos;
@@ -290,3 +288,5 @@ void GraphicMainTest::MoveLeg()
 		}
 	}
 }
+
+} // namespace designlab

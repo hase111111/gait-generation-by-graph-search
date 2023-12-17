@@ -5,13 +5,16 @@
 #include "camera_dragger.h"
 #include "dxlib_gui_camera.h"
 #include "dxlib_gui_camera_parameter_displayer.h"
+#include "dxlib_gui_node_displayer.h"
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
-#include "dxlib_gui_node_displayer.h"
 #include "map_renderer.h"
 #include "world_grid_renderer.h"
 
+
+namespace designlab
+{
 
 GraphicMainBasic::GraphicMainBasic(
 	const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
@@ -174,3 +177,5 @@ void GraphicMainBasic::Draw() const
 	// 2DのGUIの描画
 	gui_updater_.Draw();
 }
+
+}	// namespace designlab

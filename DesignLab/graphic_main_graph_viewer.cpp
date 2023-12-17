@@ -15,9 +15,8 @@
 #include "world_grid_renderer.h"
 
 
-namespace dl = ::designlab;
-namespace dldu = ::designlab::dxlib_util;
-
+namespace designlab
+{
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(
 	const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
@@ -34,23 +33,23 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	assert(broker_ptr_ != nullptr);
 
 	//適当なノードを生成して，描画クラスを初期化する
-	NodeInitializer node_initializer{ dl::Vector3{0.f,0.f,30.f}, dl::enums::HexapodMove::kNone };
+	NodeInitializer node_initializer{ Vector3{0.f,0.f,30.f}, enums::HexapodMove::kNone };
 	RobotStateNode init_node = node_initializer.InitNode();
 
 
 	const auto camera = std::make_shared<DxlibCamera>();
 
 	const auto camera_gui = std::make_shared<DxlibGuiCamera>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
-	camera_gui->SetPos(10, setting_ptr->window_size_y - 10, dl::kDxlibGuiAnchorLeftBottom, true);
+	camera_gui->SetPos(10, setting_ptr->window_size_y - 10, kDxlibGuiAnchorLeftBottom, true);
 
 	const auto camera_dragger = std::make_shared<CameraDragger>(camera);
 
 	const auto camera_parameter_gui = std::make_shared<DxlibGuiCameraParameterDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
-	camera_parameter_gui->SetPos(10, 10, dl::kDxlibGuiAnchorLeftTop, true);
+	camera_parameter_gui->SetPos(10, 10, kDxlibGuiAnchorLeftTop, true);
 	camera_parameter_gui->SetVisible(false);
 
 	const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(setting_ptr->window_size_x, setting_ptr->window_size_y, converter_ptr, calculator_ptr, checker_ptr);
-	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, dl::kDxlibGuiAnchorRightTop, true);
+	node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10, kDxlibGuiAnchorRightTop, true);
 
 	const auto [hexapod_renderer_, hexapod_node_setter] =
 		HexapodRendererBuilder::Build(converter_ptr, calculator_ptr, setting_ptr->gui_display_quality);
@@ -118,3 +117,5 @@ void GraphicMainGraphViewer::Draw() const
 
 	gui_updater_.Draw();
 }
+
+}	// namespace designlab

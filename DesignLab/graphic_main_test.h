@@ -1,5 +1,5 @@
 ﻿//! @file graphic_main_test.h
-//! @brief GraphicMainTestクラス
+//! @brief MapState や IHexapodRenderer が動作しているかテストを行うためのクラス．
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_TEST_H_
 #define DESIGNLAB_GRAPHIC_MAIN_TEST_H_
@@ -20,8 +20,11 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class GraphicMainTest
-//! @brief MapStateやHexapodStateClaculatorが動作しているかテストを行うためのクラス．
+//! @brief MapState や IHexapodRenderer が動作しているかテストを行うためのクラス．
 class GraphicMainTest final : public IGraphicMain
 {
 public:
@@ -45,9 +48,9 @@ private:
 
 	std::shared_ptr<Mouse> mouse_ptr_;			//!< マウスの位置を制御するクラス．
 
-	DxlibGuiUpdater gui_updater_;				//!< GUIの更新を行うクラス
-	DxlibNodeSetterGroup node_setter_group_;	//!< ノードの設定を行うクラス
-	Dxlib3dRendererGroup render_group_;			//!< 描画を行うクラス
+	DxlibGuiUpdater gui_updater_;				//!< GUIの更新を行うクラス．
+	DxlibNodeSetterGroup node_setter_group_;	//!< ノードの設定を行うクラス．
+	Dxlib3dRendererGroup render_group_;			//!< 描画を行うクラス．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
@@ -56,8 +59,10 @@ private:
 	DevideMapState devide_map_state_;	//!< 分割したマップの状態を保持するクラス．
 	RobotStateNode robot_;				//!< ロボットの状態．
 
-	int devide_map_tile_index_{ 0 };		//!< 脚を接地しているデバイドマップのインデックス．
+	int devide_map_tile_index_{ 0 };	//!< 脚を接地しているデバイドマップのインデックス．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPHIC_MAIN_TEST_H_

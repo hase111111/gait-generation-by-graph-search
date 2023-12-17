@@ -1,6 +1,8 @@
-﻿#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
-#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+﻿//! @file graphic_main_basic.h
+//! @brief シミュレーションの一覧表示，ロボットの動きの軌跡の表示，などベーシックな機能を提供するクラス．
 
+#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
 
 #include "interface_graphic_main.h"
 
@@ -27,6 +29,11 @@
 #include "stability_margin_renderer.h"
 
 
+namespace designlab
+{
+
+//! @class GraphicMainBasic
+//! @brief シミュレーションの一覧表示，ロボットの動きの軌跡の表示，などベーシックな機能を提供するクラス．
 class GraphicMainBasic final : public IGraphicMain
 {
 public:
@@ -82,6 +89,8 @@ private:
 	int graph_update_count;	//!< 処理部でのグラフの更新回数．
 	int map_update_count;	//!< 処理部でのマップの更新回数．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPHIC_MAIN_BASIC_H_

@@ -1,9 +1,8 @@
 ﻿//! @file phantomx_renderer_simple.h
-//! @brief ロボットの描画を行うクラス．
+//! @brief 3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
-
 
 #include <array>
 #include <memory>
@@ -19,8 +18,11 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class PhantomXRendererSimple
-//! @brief PhantomXの描画を行うクラス．3Dモデルを使用せず，多角形を組み合わせてロボットを描画する．
+//! @brief 3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．
 class PhantomXRendererSimple final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
@@ -28,7 +30,7 @@ public:
 	PhantomXRendererSimple(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-		DisplayQuality display_quality
+		enums::DisplayQuality display_quality
 	);
 
 	void SetNode(const RobotStateNode& node) override;
@@ -66,8 +68,10 @@ private:
 
 	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
 
-	DisplayQuality display_quality_;	//!< 描画品質
+	enums::DisplayQuality display_quality_;	//!< 描画品質
 };
+
+} // namespace designlab
 
 
 #endif	// DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_

@@ -1,12 +1,16 @@
 ﻿//! @file inteface_dxlib_wheel_handler.h
 //! @brief マウスホイールの入力を受け取るためのインターフェース．
 
-#ifndef INTERFACE_DXLIB_WHEEL_HANDLER_H_
-#define INTERFACE_DXLIB_WHEEL_HANDLER_H_
+#ifndef DESIGLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
+#define DESIGLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
 
 
+namespace designlab
+{
+
+//! @class IDxlibWheelHandler
 //! @brief マウスホイールの入力を受け取るためのインターフェース．
-//! @n マウスホイールの入力を受け取りたいGUIはこのインターフェースを継承する．
+//! @details マウスホイールの入力を受け取りたいGUIはこのインターフェースを継承する．
 class IDxlibWheelHandler
 {
 public:
@@ -23,5 +27,7 @@ public:
 	virtual void RotMouseWheel(int rot) const = 0;
 };
 
+}	// namespace designlab
 
-#endif	// INTERFACE_DXLIB_WHEEL_HANDLER_H_
+
+#endif	// DESIGLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_

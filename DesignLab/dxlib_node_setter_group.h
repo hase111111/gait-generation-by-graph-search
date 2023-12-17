@@ -11,6 +11,9 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibNodeSetterGroup
 //! @brief DxLibでノードの設定を行うクラスをまとめるクラス．
 class DxlibNodeSetterGroup final
@@ -30,5 +33,8 @@ private:
 	std::vector<std::shared_ptr<IDxlibNodeSetter>> setters_;
 
 };
+
+} // namespace designlab
+
 
 #endif // DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_

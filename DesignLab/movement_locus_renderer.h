@@ -1,5 +1,5 @@
-//! @file movement_locus_renderer.h
-//! @brief ƒƒ{ƒbƒg‚ÌˆÚ“®‹OÕ‚ğ•`‰æ‚·‚éƒNƒ‰ƒXD
+ï»¿//! @file movement_locus_renderer.h
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®ç§»å‹•è»Œè·¡ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
 #define DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
@@ -10,50 +10,55 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class MovementLocusRenderer
-//! @brief ƒƒ{ƒbƒg‚ÌˆÚ“®‹OÕ‚ğ•`‰æ‚·‚éƒNƒ‰ƒXD
+//! @brief ãƒ­ãƒœãƒƒãƒˆã®ç§»å‹•è»Œè·¡ã‚’æç”»ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 class MovementLocusRenderer final
 {
 public:
 	MovementLocusRenderer();
 
 
-	//! @brief ƒƒ{ƒbƒg‚ÌˆÚ“®‹OÕ‚ğ‹L˜^‚·‚éDƒm[ƒh‚Ìvector‚©‚çCdSˆÊ’u‚Ì‹OÕ‚ğæ“¾‚·‚éD
-	//! @param [in] locus ‘I‘ğ‚³‚ê‚½ƒm[ƒh‚Ìvector
+	//! @brief ãƒ­ãƒœãƒƒãƒˆã®ç§»å‹•è»Œè·¡ã‚’è¨˜éŒ²ã™ã‚‹ï¼ãƒãƒ¼ãƒ‰ã®vectorã‹ã‚‰ï¼Œé‡å¿ƒä½ç½®ã®è»Œè·¡ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @param [in] locus é¸æŠã•ã‚ŒãŸãƒãƒ¼ãƒ‰ã®vectorï¼
 	void SetMoveLocusPoint(const std::vector<RobotStateNode>& locus);
 
-	//! @brief ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌI—¹“_‚ğæ“¾‚·‚é
-	//! @param [in] index ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌI—¹“_‚Ì”z—ñ
+	//! @brief ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†ç‚¹ã‚’å–å¾—ã™ã‚‹ï¼
+	//! @param [in] index ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†ç‚¹ã®é…åˆ—ï¼
 	void SetSimulationEndIndexes(const std::vector<size_t>& index);
 
-	//! @brief ‚‰æ¿ƒ‚[ƒh‚É‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
-	//! @param [in] is_high_quality ‚‰æ¿ƒ‚[ƒh‚É‚·‚é‚©‚Ç‚¤‚©
+	//! @brief é«˜ç”»è³ªãƒ¢ãƒ¼ãƒ‰ã«ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¨­å®šã™ã‚‹ï¼
+	//! @param [in] is_high_quality é«˜ç”»è³ªãƒ¢ãƒ¼ãƒ‰ã«ã™ã‚‹ã‹ã©ã†ã‹ï¼
 	inline void SetIsHighQuality(const bool is_high_quality) { is_high_quality_ = is_high_quality; }
 
-	//! @brief ƒƒ{ƒbƒg‚ÌˆÚ“®‹OÕ‚ğ•`‰æ‚·‚éD
-	//! @param [in] draw_simu_num •`‰æ‚ğs‚¤ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì”Ô†( 0, 1, 2, ...)
-	//! @param [in] draw_all_simulation ã‚Ìƒpƒ‰ƒ[ƒ^‚ğ–³‹‚µ‚ÄC‚·‚×‚Ä‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚É‚Â‚¢‚Ä•`‰æ‚·‚é
+	//! @brief ãƒ­ãƒœãƒƒãƒˆã®ç§»å‹•è»Œè·¡ã‚’æç”»ã™ã‚‹ï¼
+	//! @param [in] draw_simu_num æç”»ã‚’è¡Œã†ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç•ªå·( 0, 1, 2, ...)
+	//! @param [in] draw_all_simulation ä¸Šã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ç„¡è¦–ã—ã¦ï¼Œã™ã¹ã¦ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã«ã¤ã„ã¦æç”»ã™ã‚‹ï¼
 	void Draw(const size_t draw_simu_num, bool draw_all_simulation = false) const;
 
 private:
 
-	const unsigned int kHiddenLocusLineColor;	//!< Œ»İ•\¦’†‚Å‚È‚¢‹O“¹‚Ìü‚ÌF
+	const unsigned int kHiddenLocusLineColor;	//!< ç¾åœ¨è¡¨ç¤ºä¸­ã§ãªã„è»Œé“ã®ç·šã®è‰²ï¼
 
-	const unsigned int kDisplayLocusLineColor;	//!< Œ»İ•\¦’†‚Ì‹O“¹‚Ìü‚ÌF
+	const unsigned int kDisplayLocusLineColor;	//!< ç¾åœ¨è¡¨ç¤ºä¸­ã®è»Œé“ã®ç·šã®è‰²ï¼
 
-	const int kHiddenLocusLineAlpha;			//!< Œ»İ•\¦’†‚Å‚È‚¢‹OÕ‚Ì“§–¾“x
+	const int kHiddenLocusLineAlpha;			//!< ç¾åœ¨è¡¨ç¤ºä¸­ã§ãªã„è»Œè·¡ã®é€æ˜åº¦ï¼
 
-	const float kLocusLineMaxLength;			//!< ‹OÕ‚Ìü‚ÌÅ‘å’·‚³D‚±‚Ì’l‚ğã‰ñ‚éê‡‚Í•\¦‚µ‚È‚¢D
+	const float kLocusLineMaxLength;			//!< è»Œè·¡ã®ç·šã®æœ€å¤§é•·ã•ï¼ã“ã®å€¤ã‚’ä¸Šå›ã‚‹å ´åˆã¯è¡¨ç¤ºã—ãªã„ï¼
 
-	const float kLocusLineRadius;				//!< ‹OÕ‚Ìü‚Ì”¼Œa
+	const float kLocusLineRadius;				//!< è»Œè·¡ã®ç·šã®åŠå¾„ï¼
 
 
-	std::vector<designlab::Vector3> move_locus_point_;	//!< ƒƒ{ƒbƒg‚Ì“®‚«‚Ì‘JˆÚ‚ğ‹L˜^‚·‚évector
+	std::vector<Vector3> move_locus_point_;			//!< ãƒ­ãƒœãƒƒãƒˆã®å‹•ãã®é·ç§»ã‚’è¨˜éŒ²ã™ã‚‹vectorï¼
 
-	std::vector<size_t> simulation_end_indexes_;	//!< ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ÌI—¹“_‚ÌƒCƒ“ƒfƒbƒNƒX‚Ì”z—ñ
+	std::vector<size_t> simulation_end_indexes_;	//!< ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†ç‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®é…åˆ—ï¼
 
-	bool is_high_quality_;							//!< ‚‰æ¿ƒ‚[ƒh‚©‚Ç‚¤‚©	
+	bool is_high_quality_;							//!< é«˜ç”»è³ªãƒ¢ãƒ¼ãƒ‰ã‹ã©ã†ã‹ï¼
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_

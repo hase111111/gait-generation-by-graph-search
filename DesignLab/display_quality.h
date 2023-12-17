@@ -1,18 +1,23 @@
-//! @file display_quality.h
-//! @brief •`‰æ‚Ì•i¿İ’è‚ğ¦‚·—ñ‹“‘Ì
+ï»¿//! @file display_quality.h
+//! @brief æç”»ã®å“è³ªè¨­å®šã‚’ç¤ºã™åˆ—æŒ™ä½“ï¼
 
 #ifndef DESIGNLAB_DISPLAY_QUALITY_H_
 #define DESIGNLAB_DISPLAY_QUALITY_H_
 
 
-//! enum DisplayQuality
-//! @brief •`‰æ‚Ì•i¿İ’è‚ğ¦‚·—ñ‹“‘Ì
-enum class DisplayQuality 
+namespace designlab::enums
 {
-  kLow,		//!< ’á•i¿
-  kMedium,	//!< ’†•i¿
-  kHigh,	//!< ‚•i¿
+
+//! enum DisplayQuality
+//! @brief æç”»ã®å“è³ªè¨­å®šã‚’ç¤ºã™åˆ—æŒ™ä½“ï¼
+enum class DisplayQuality
+{
+	kLow,		//!< ä½å“è³ªï¼
+	kMedium,	//!< ä¸­å“è³ªï¼
+	kHigh,		//!< é«˜å“è³ªï¼
 };
+
+}	// namespace designlab::enums
 
 
 #endif	// DESIGNLAB_DISPLAY_QUALITY_H_

@@ -1,5 +1,5 @@
 ﻿//! @file graphic_main_graph_viewer.h
-//! @brief GraphViewerの画面を表示するクラス
+//! @brief GraphViewerの画面を表示するクラス．
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
@@ -19,8 +19,11 @@
 #include "mouse.h"
 
 
+namespace designlab
+{
+
 //! @class GraphicMainGraphViewer
-//! @brief GraphViewerの画面を表示するクラス
+//! @brief GraphViewerの画面を表示するクラス．
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
@@ -54,6 +57,8 @@ private:
 
 	int graph_update_count_{ 0 };
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_

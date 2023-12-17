@@ -1,17 +1,17 @@
 ﻿//! @file graphic_system.h
 //! @brief Dxlibの処理を行うクラス．
-//! @details Dxlib(デラックス ライブラリ)はウィンドウを表示して，
-//! @n 所謂コマンドラインに文字を表示するだけの寂しいプログラムに彩りを与えてくれるやつ．
+//! @details 
+//! Dxlib(デラックス ライブラリ)とは，C++のiostreamだけではできないウィンドウを表示して，
+//! 描画を行うためのライブラリである．
 //! @n 主にゲームプログラミングをする際に，ウィンドウを表示するためのライブラリとして使用される．
-//! @n Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが，今回のプログラムではDxlibを用いて結果を表示する．
-//! @n Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．たぶん
+//! Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが，今回のプログラムではDxlibを用いて結果を表示する．
+//! Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を，使いやすくしてくれるライブラリである．
 //! @n  
 //! @n 以下参考ページ 
 //! @n
-//! @n ・https://dixq.net/rp2/ ←C++用の資料．少々難しい 
-//! @n ・https://dixq.net/g/   ←C言語用の資料．あまり参考にならないかも 
-//! @n ・https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次)．
-
+//! @li https://dixq.net/rp2/ ←C++用の資料．少々難しい． 
+//! @li https://dixq.net/g/   ←C言語用の資料．
+//! @li https://dxlib.xsrv.jp/dxfunc.html ←公式の関数のリファレンス(関数の目次)．
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_
@@ -25,6 +25,9 @@
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
 
+
+namespace designlab
+{
 
 //! @class GraphicSystem
 //! @brief Dxlibの処理を行うクラス．
@@ -75,7 +78,7 @@ public:
 private:
 
 	//! @brief Dxlibの初期化処理を行う．
-	//! @n 処理をラッパして自作する場合はMyを頭につけると良いらしい．
+	//! @n 処理をラッパして自作する場合はMyを頭につけると良い．
 	//! @return bool 初期化に成功したかどうか．
 	bool MyDxlibInit();
 
@@ -91,10 +94,12 @@ private:
 
 	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定を保存する構造体のポインタ．
 
-	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．詳しくはfps_controller.hへ
+	FpsController fps_controller_;		//!< FPSを一定に制御するクラス．
 
 	boost::mutex mutex_;	//!< 複数の関数から非同期的に，同時にアクセスすると危険なので，それを防ぐためにmutexを用いて排他制御を行う．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_GRAPHIC_SYSTEM_H_

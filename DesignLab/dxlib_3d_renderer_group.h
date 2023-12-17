@@ -10,6 +10,9 @@
 #include "interface_dxlib_3d_renderer.h"
 
 
+namespace designlab
+{
+
 //! @class Dxlib3dRendererGroup
 //! @brief dxlib_rendererのdraw関数を呼ぶためのクラス．
 class Dxlib3dRendererGroup final
@@ -26,5 +29,8 @@ public:
 private:
 	std::vector<std::shared_ptr<const IDxlib3dRenderer> > renderers_;
 };
+
+} // namespace designlab
+
 
 #endif //DESIGN_DXLIB_3D_RENDER_GROUP_H_

@@ -22,8 +22,8 @@ enum class CameraViewMode
 	kTopView,			//!< 上からの見下ろし視点．
 	kRightSideView,		//!< 右から真横の視点．
 	kLeftSideView,		//!< 右から真横の視点．
-	kFreeControlled,	//!< 自由に操作可能
-	kFreeControlledAndMovableTarget	//!< 自由に操作可能かつ注視点を設定可能
+	kFreeControlled,	//!< 自由に操作可能．
+	kFreeControlledAndMovableTarget	//!< 自由に操作可能かつ注視点を設定可能．
 };
 
 
@@ -83,7 +83,7 @@ public:
 	constexpr ::designlab::Quaternion GetNowCameraQuat() const { return now_camera_state_.camera_quat; }
 	constexpr ::designlab::Vector3 GetNowTargetPos() const { return now_camera_state_.target_pos; }
 	constexpr float GetNowCameraToTargetLength() const { return now_camera_state_.length_camera_to_target; }
-	constexpr ::designlab::Vector3 GetNowCameraPos() const 
+	constexpr ::designlab::Vector3 GetNowCameraPos() const
 	{
 		::designlab::Vector3 camera_target_dif = ::designlab::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) * now_camera_state_.length_camera_to_target;
 		return camera_target_dif + now_camera_state_.target_pos;

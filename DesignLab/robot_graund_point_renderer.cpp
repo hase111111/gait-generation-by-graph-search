@@ -6,13 +6,12 @@
 #include "leg_state.h"
 
 
-namespace dldu = designlab::dxlib_util;
-namespace dllf = designlab::leg_func;
-
+namespace designlab
+{
 
 RobotGraundPointRenderer::RobotGraundPointRenderer(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
-	kRightLegGraundPointColor(GetColor(230, 15, 145)), 
-	kLeftLegGraundPointColor(GetColor(15, 230, 145)), 
+	kRightLegGraundPointColor(GetColor(230, 15, 145)),
+	kLeftLegGraundPointColor(GetColor(15, 230, 145)),
 	kRightLegGraundPointDarkColor(GetColor(237, 159, 160)),
 	kLeftLegGraundPointDarkColor(GetColor(159, 237, 160)),
 	converter_ptr_(converter_ptr)
@@ -49,7 +48,7 @@ void RobotGraundPointRenderer::SetNodeAndSimulationEndNodeIndex(const std::vecto
 				converter_ptr_->ConvertLegToGlobalCoordinate(
 					node[loaded_node_num_].leg_pos[i], i, node[loaded_node_num_].global_center_of_mass, node[loaded_node_num_].quat, true
 				),
-				dllf::IsGrounded(node[loaded_node_num_].leg_state, i)
+				leg_func::IsGrounded(node[loaded_node_num_].leg_state, i)
 			};
 		}
 
@@ -68,7 +67,7 @@ void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_
 
 	for (size_t i = 0; i < graund_point_.size(); i++)
 	{
-		for (auto &leg_data: graund_point_[i])
+		for (auto& leg_data : graund_point_[i])
 		{
 			for (size_t leg_index = 0; leg_index < HexapodConst::kLegNum; leg_index++)
 			{
@@ -76,12 +75,14 @@ void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_
 
 				if (draw_all_simulation || i == draw_simu_num)
 				{
-					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color[leg_index]);
+					dxlib_util::DrawCube3DWithTopPos(dxlib_util::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color[leg_index]);
 				}
 				else
 				{
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 32);
-					dldu::DrawCube3DWithTopPos(dldu::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color_black[leg_index]);
+
+					dxlib_util::DrawCube3DWithTopPos(dxlib_util::ConvertToDxlibVec(leg_data[leg_index].vec), 25, color_black[leg_index]);
+
 					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 
@@ -89,3 +90,5 @@ void RobotGraundPointRenderer::Draw(const size_t draw_simu_num, const bool draw_
 		}
 	}
 }
+
+}	//namespace designlab

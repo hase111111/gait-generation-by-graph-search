@@ -1,18 +1,22 @@
 ﻿#include "hexapod_renderer_builder.h"
 
+#include "phantomx_mk2.h"
 #include "phantomx_renderer_model.h"
 #include "phantomx_renderer_simple.h"
-#include "phantomx_mk2.h"
+
+
+namespace designlab
+{
 
 std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > HexapodRendererBuilder::Build(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	const DisplayQuality display_quality
+	const enums::DisplayQuality display_quality
 )
 {
 	//! @todo IHexapodのtypeを見て、適切なrendererを返す
 
-	if (display_quality == DisplayQuality::kHigh)
+	if (display_quality == enums::DisplayQuality::kHigh)
 	{
 		const auto renderer = std::make_shared<PhantomXRendererModel>(converter_ptr, calculator_ptr);
 
@@ -25,3 +29,5 @@ std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> 
 		return { renderer , renderer };
 	}
 }
+
+} // namespace designlab

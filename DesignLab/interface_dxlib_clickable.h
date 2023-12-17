@@ -9,8 +9,11 @@
 #include "mouse.h"
 
 
+namespace designlab
+{
+
 //! @brief クリック可能なGUIのインターフェース．
-//! @n クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．
+//! @details クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．
 class IDxlibClickable
 {
 public:
@@ -25,7 +28,7 @@ public:
 	//! @param [in] middle_pushing_count マウスの中ボタンが押されているフレーム数．
 	//! @param [in] right_pushing_count マウスの右ボタンが押されているフレーム数．
 	virtual void ClickedAction(int cursor_x, int cursor_y,
-		int left_pushing_count, int middle_pushing_count, int right_pushing_count) = 0;
+							   int left_pushing_count, int middle_pushing_count, int right_pushing_count) = 0;
 
 	//! @brief GUIの上にカーソルがあるかどうかを返す．
 	//! @param [in] cursor_x マウスカーソルのX座標．左端を0とし，右に正の値をとる．
@@ -33,6 +36,8 @@ public:
 	//! @return bool GUIの上にカーソルがあるならばtrueを返す．
 	[[nodiscard]] virtual bool CursorOnGui(int cursor_x, int cursor_y) const noexcept = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_

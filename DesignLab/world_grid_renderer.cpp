@@ -1,7 +1,10 @@
-#include "world_grid_renderer.h"
+ï»¿#include "world_grid_renderer.h"
 
 #include <Dxlib.h>
 
+
+namespace designlab
+{
 
 WorldGridRenderer::WorldGridRenderer() :
 	kMainGridXColor(GetColor(217, 0, 0)),
@@ -18,28 +21,28 @@ WorldGridRenderer::WorldGridRenderer() :
 
 void WorldGridRenderer::Draw() const
 {
-	//Šiqü‚ğ‚Ç‚±‚Ü‚Å•`‰æ‚·‚é‚©
+	//æ ¼å­ç·šã‚’ã©ã“ã¾ã§æç”»ã™ã‚‹ã‹
 	const float kGridMaxX = static_cast<float>(kMainGridNum) * kMainGridInterval;
 	const float kGridMinX = -kGridMaxX;
 	const float kGridMaxY = kGridMaxX;
 	const float kGridMinY = -kGridMaxY;
 
 
-	//_ X²‚ÆY²‚ÌŠiqü‚ğ•`‰æ‚·‚é
+	//_ Xè»¸ã¨Yè»¸ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹
 	DrawLine3D(VGet(kGridMinX, 0.0f, kGridLineZPos), VGet(kGridMaxX, 0.0f, kGridLineZPos), kMainGridXColor);
 	DrawLine3D(VGet(0.0f, kGridMinY, kGridLineZPos), VGet(0.0f, kGridMaxY, kGridLineZPos), kMainGridYColor);
 
 
-	//Šiqü‚ğ3D‹óŠÔ‚É•`‰æ‚·‚é
+	//æ ¼å­ç·šã‚’3Dç©ºé–“ã«æç”»ã™ã‚‹
 
-	const int kMainGridAlpha = 96;	//ƒƒCƒ“‚ÌŠiqü‚Ì“§–¾“x
-	const int kSubGridAlpha = 32;	//ƒTƒu‚ÌŠiqü‚Ì“§–¾“x
+	const int kMainGridAlpha = 96;	//ãƒ¡ã‚¤ãƒ³ã®æ ¼å­ç·šã®é€æ˜åº¦
+	const int kSubGridAlpha = 32;	//ã‚µãƒ–ã®æ ¼å­ç·šã®é€æ˜åº¦
 
 	for (int i = 0; i < kMainGridNum + 1 + kMainGridNum; i++)
 	{
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kMainGridAlpha);	//”¼“§–¾‚É‚·‚é
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, kMainGridAlpha);	//åŠé€æ˜ã«ã™ã‚‹
 
-		//ƒƒCƒ“‚ÌŠiqü‚ğ•`‰æ‚·‚é
+		//ãƒ¡ã‚¤ãƒ³ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹
 		VECTOR start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
 		VECTOR end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
 		DrawLine3D(start_pos, end_pos, kMainGridXColor);
@@ -49,10 +52,10 @@ void WorldGridRenderer::Draw() const
 		DrawLine3D(start_pos, end_pos, kMainGridYColor);
 
 
-		//ƒTƒu‚ÌŠiqü‚ğ•`‰æ‚·‚é
+		//ã‚µãƒ–ã®æ ¼å­ç·šã‚’æç”»ã™ã‚‹
 		for (int j = 0; j < kSubGridDevideNum - 1; j++)
 		{
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, kSubGridAlpha);	//”¼“§–¾‚É‚·‚é
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, kSubGridAlpha);	//åŠé€æ˜ã«ã™ã‚‹
 
 			start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridLineZPos);
 			end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDevideNum * (j + 1), kGridLineZPos);
@@ -63,6 +66,8 @@ void WorldGridRenderer::Draw() const
 			DrawLine3D(start_pos, end_pos, kSubGridYColor);
 		}
 
-		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);	//”¼“§–¾‚ğ‰ğœ‚·‚éD‚±‚ê‚ğ–Y‚ê‚é‚Æ•`‰æ‚ª‚¨‚©‚µ‚­‚È‚é
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);	//åŠé€æ˜ã‚’è§£é™¤ã™ã‚‹ï¼ã“ã‚Œã‚’å¿˜ã‚Œã‚‹ã¨æç”»ãŒãŠã‹ã—ããªã‚‹
 	}
 }
+
+}	// namespace designlab

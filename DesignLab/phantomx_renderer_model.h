@@ -4,7 +4,6 @@
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_
 
-
 #include <array>
 #include <memory>
 
@@ -19,8 +18,12 @@
 #include "robot_state_node.h"
 
 
+namespace designlab
+{
+
 //! @class PhantomXRendererModel
 //! @brief 3Dモデルを使用してPhantomXの描画を行うクラス．
+//! @todo リネームすること．
 class PhantomXRendererModel final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
@@ -51,8 +54,10 @@ private:
 
 	RobotStateNode draw_node_;	//!< 描画するロボットの状態
 	std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;	//!< 描画するロボットのジョイントの状態
-	DisplayQuality display_quality_;	//!< 描画品質
+	enums::DisplayQuality display_quality_;	//!< 描画品質
 };
+
+} // namespace designlab
 
 
 #endif	// DESIGNLAB_PHANTOMX_RENDERER_MODEL_H_

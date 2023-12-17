@@ -1,6 +1,5 @@
 ﻿//! @file hexapod_renderer_builder.h
-//! @brief HexapodRendererクラスのインスタンスを作成するクラス
-
+//! @brief HexapodRendererクラスのインスタンスを作成するクラス．
 
 #ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
 #define DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
@@ -15,8 +14,11 @@
 #include "interface_hexapod_joint_calculator.h"
 
 
+namespace designlab
+{
+
 //! @class HexapodRendererBuilder
-//! @brief HexapodRendererクラスのインスタンスを作成するクラス
+//! @brief HexapodRendererクラスのインスタンスを作成するクラス．
 class HexapodRendererBuilder final
 {
 public:
@@ -32,9 +34,11 @@ public:
 	static std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > Build(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-		DisplayQuality display_quality
+		enums::DisplayQuality display_quality
 	);
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_

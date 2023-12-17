@@ -8,15 +8,13 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace dldu = designlab::dxlib_util;
-namespace dllf = designlab::leg_func;
-namespace dlm = designlab::math_util;
-
+namespace designlab
+{
 
 PhantomXRendererSimple::PhantomXRendererSimple(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	DisplayQuality display_quality
+	enums::DisplayQuality display_quality
 ) :
 	kColorBody(GetColor(23, 58, 235)),
 	kColorLeg(GetColor(23, 58, 235)),
@@ -64,28 +62,28 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		vertex[i] = dldu::ConvertToDxlibVec(
+		vertex[i] = dxlib_util::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[i].joint_pos_leg_coordinate[0],
-				i,
-				draw_node_.global_center_of_mass,
-				draw_node_.quat,
-				true
-			)
+			draw_joint_state_[i].joint_pos_leg_coordinate[0],
+			i,
+			draw_node_.global_center_of_mass,
+			draw_node_.quat,
+			true
+		)
 		);
 	}
 
-	dldu::DrawHexagonalPrism(vertex, PhantomXMkIIConst::kBodyHeight, kColorBody);
+	dxlib_util::DrawHexagonalPrism(vertex, PhantomXMkIIConst::kBodyHeight, kColorBody);
 
 	//重心の描画
-	DrawSphere3D(dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
+	DrawSphere3D(dxlib_util::ConvertToDxlibVec(draw_node_.global_center_of_mass), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
 
 	//脚を描画する．
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		//脚の色を遊脚・接地で変更する．
-		const unsigned int kLegBaseColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
-		const unsigned int kJointColor = dllf::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
+		const unsigned int kLegBaseColor = leg_func::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
+		const unsigned int kJointColor = leg_func::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
 
 		if (draw_joint_state_[i].joint_pos_leg_coordinate.size() != 4) { continue; }
 		if (draw_joint_state_[i].joint_angle.size() != 3) { continue; }
@@ -93,24 +91,24 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		//各脚の描画
 		for (int j = 0; j < 3; j++)
 		{
-			const VECTOR start = dldu::ConvertToDxlibVec(
+			const VECTOR start = dxlib_util::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					draw_joint_state_[i].joint_pos_leg_coordinate[j],
-					i,
-					draw_node_.global_center_of_mass,
-					draw_node_.quat,
-					true
-				)
+				draw_joint_state_[i].joint_pos_leg_coordinate[j],
+				i,
+				draw_node_.global_center_of_mass,
+				draw_node_.quat,
+				true
+			)
 			);
 
-			const VECTOR end = dldu::ConvertToDxlibVec(
+			const VECTOR end = dxlib_util::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					draw_joint_state_[i].joint_pos_leg_coordinate[j + 1],
-					i,
-					draw_node_.global_center_of_mass,
-					draw_node_.quat,
-					true
-				)
+				draw_joint_state_[i].joint_pos_leg_coordinate[j + 1],
+				i,
+				draw_node_.global_center_of_mass,
+				draw_node_.quat,
+				true
+			)
 			);
 
 			if (draw_joint_state_[i].is_in_range)
@@ -133,21 +131,21 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 			if (j == 1 && !PhantomXMkIIConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
 			if (j == 2 && !PhantomXMkIIConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
 
-			VECTOR pos = dldu::ConvertToDxlibVec(
+			VECTOR pos = dxlib_util::ConvertToDxlibVec(
 				converter_ptr_->ConvertLegToGlobalCoordinate(
-					draw_joint_state_[i].joint_pos_leg_coordinate[j],
-					i,
-					draw_node_.global_center_of_mass,
-					draw_node_.quat,
-					true
-				)
+				draw_joint_state_[i].joint_pos_leg_coordinate[j],
+				i,
+				draw_node_.global_center_of_mass,
+				draw_node_.quat,
+				true
+			)
 			);
 
 			DrawSphere3D(pos, kJointRadius, kSphereDivNum, color, color, TRUE);
 		}
 
 		DrawSphere3D(
-			dldu::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
+			dxlib_util::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
 			kJointRadius / 2,
 			kSphereDivNum,
 			kJointColor,
@@ -157,7 +155,7 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 
 		//脚の接地の基準地点の描画
 		DrawSphere3D(
-			dldu::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_reference_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
+			dxlib_util::ConvertToDxlibVec(converter_ptr_->ConvertLegToGlobalCoordinate(draw_node_.leg_reference_pos[i], i, draw_node_.global_center_of_mass, draw_node_.quat, true)),
 			kJointRadius / 3,
 			kSphereDivNum,
 			kColorLegBase,
@@ -166,3 +164,5 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
 		);
 	}
 }
+
+} // namespace designlab

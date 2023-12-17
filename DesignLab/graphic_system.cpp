@@ -8,8 +8,8 @@
 #include "keyboard.h"
 
 
-namespace dldu = ::designlab::dxlib_util;
-
+namespace designlab
+{
 
 GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr) :
 	setting_ptr_(setting_ptr),
@@ -96,11 +96,11 @@ bool GraphicSystem::MyDxlibInit()
 	// 3D関連の初期化を行う．	
 	if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
 	{
-		dldu::InitDxlib3DSetting(true);
+		dxlib_util::InitDxlib3DSetting(true);
 	}
 	else
 	{
-		dldu::InitDxlib3DSetting(false);
+		dxlib_util::InitDxlib3DSetting(false);
 	}
 
 	return true;
@@ -165,3 +165,5 @@ void GraphicSystem::MyDxlibFinalize() const
 
 	//ほかにも処理があればここに追記する
 }
+
+}	// namespace designlab

@@ -10,10 +10,8 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dldu = ::designlab::dxlib_util;
-
+namespace designlab
+{
 
 PhantomXRendererModel::PhantomXRendererModel(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr_,
@@ -36,7 +34,7 @@ void PhantomXRendererModel::SetNode(const RobotStateNode& node)
 
 void PhantomXRendererModel::Draw() const
 {
-	dldu::SetZBufferEnable();	// Zバッファを有効にする
+	dxlib_util::SetZBufferEnable();	// Zバッファを有効にする
 
 	DrawBody();		// ボディの描画
 
@@ -66,10 +64,10 @@ void PhantomXRendererModel::DrawBody() const
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
 	MV1SetRotationMatrix(body_model_handle,
-		dldu::ConvertToDxlibMat(dl::ToRotationMatrix(draw_node_.quat.ToLeftHandCoordinate()))
+						 dxlib_util::ConvertToDxlibMat(ToRotationMatrix(draw_node_.quat.ToLeftHandCoordinate()))
 	);
 
-	MV1SetPosition(body_model_handle, dldu::ConvertToDxlibVec(draw_node_.global_center_of_mass));
+	MV1SetPosition(body_model_handle, dxlib_util::ConvertToDxlibVec(draw_node_.global_center_of_mass));
 
 	MV1DrawModel(body_model_handle);
 }
@@ -86,20 +84,20 @@ void PhantomXRendererModel::DrawCoxaLink(const int leg_index) const
 	//Coxa Jointは2つのConnect Linkで構成されているので，それぞれ描画する
 	const VECTOR scale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR coxa_joint_pos_global = dldu::ConvertToDxlibVec(
+	const VECTOR coxa_joint_pos_global = dxlib_util::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-		)
+		draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+	)
 	);
 
-	const dl::Quaternion coxa_quat = dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(draw_joint_state_[leg_index].joint_angle[0], dl::Vector3::GetUpVec()) *
+	const Quaternion coxa_quat = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(draw_joint_state_[leg_index].joint_angle[0], Vector3::GetUpVec()) *
 		draw_node_.quat.ToLeftHandCoordinate();
 
 	MV1SetScale(coxa_model_handle, scale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	MV1SetRotationMatrix(coxa_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(coxa_quat)));
+	MV1SetRotationMatrix(coxa_model_handle, dxlib_util::ConvertToDxlibMat(ToRotationMatrix(coxa_quat)));
 
 	MV1SetPosition(coxa_model_handle, coxa_joint_pos_global);
 
@@ -118,10 +116,10 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 	//パラメータの計算
 	const VECTOR scale = VGet(10.f, 10.f, 10.f);
 
-	const VECTOR femur_joint_pos_global_coord = dldu::ConvertToDxlibVec(
+	const VECTOR femur_joint_pos_global_coord = dxlib_util::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-		)
+		draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+	)
 	);
 
 	const float coxa_angle = draw_joint_state_[leg_index].joint_angle[0];
@@ -129,30 +127,30 @@ void PhantomXRendererModel::DrawFemurLink(const int leg_index) const
 
 	// リンクが曲がっているため，簡単のために回転軸を結ぶように仮想的なリンクを使っている．
 	// そのため，仮想的なリンクの角度を補正する必要がある．
-	const float virtual_link_offset_angle = dlm::ConvertDegToRad(12.5f);
+	const float virtual_link_offset_angle = math_util::ConvertDegToRad(12.5f);
 
-	const dl::Quaternion thign_def_quat =
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
-		dl::Quaternion::MakeByAngleAxis(femur_angle, dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(virtual_link_offset_angle, dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec());
+	const Quaternion thign_def_quat =
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetFrontVec()) *
+		Quaternion::MakeByAngleAxis(femur_angle, Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(virtual_link_offset_angle, Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec());
 
 	//原点の位置が少しズレているので，補正する．
-	const VECTOR offset_pos = dldu::ConvertToDxlibVec(
-		dl::RotateVector3
+	const VECTOR offset_pos = dxlib_util::ConvertToDxlibVec(
+		RotateVector3
 		(
-			dl::Vector3::GetFrontVec(),
-			dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
-		)
+		Vector3::GetFrontVec(),
+		Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
+	)
 	);
 
 	//描画する．
 	MV1SetScale(thign_model_handle, scale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	dl::Quaternion thign_quat = thign_def_quat * draw_node_.quat.ToLeftHandCoordinate();
-	MV1SetRotationMatrix(thign_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(thign_quat)));
+	Quaternion thign_quat = thign_def_quat * draw_node_.quat.ToLeftHandCoordinate();
+	MV1SetRotationMatrix(thign_model_handle, dxlib_util::ConvertToDxlibMat(ToRotationMatrix(thign_quat)));
 
 	MV1SetPosition(thign_model_handle, femur_joint_pos_global_coord + offset_pos);
 
@@ -173,10 +171,10 @@ void PhantomXRendererModel::DrawTibiaLink(const int leg_index) const
 	//パラメータの計算
 	const VECTOR scale = VGet(0.01f, 0.01f, 0.01f);
 
-	const VECTOR tibia_joint_pos_global_coord = dldu::ConvertToDxlibVec(
+	const VECTOR tibia_joint_pos_global_coord = dxlib_util::ConvertToDxlibVec(
 		converter_ptr_->ConvertLegToGlobalCoordinate(
-			draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-		)
+		draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+	)
 	);
 
 	const float coxa_angle = draw_joint_state_[leg_index].joint_angle[0];
@@ -185,29 +183,29 @@ void PhantomXRendererModel::DrawTibiaLink(const int leg_index) const
 
 	const float tibia_angle = draw_joint_state_[leg_index].joint_angle[2];
 
-	const dl::Quaternion default_quat =
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetFrontVec()) *
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(-femur_angle - tibia_angle, dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(-90.0f), dl::Vector3::GetLeftVec()) *
-		dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) *
-		dl::Quaternion::MakeByAngleAxis(dlm::ConvertDegToRad(180.0f), dl::Vector3::GetUpVec());
+	const Quaternion default_quat =
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetFrontVec()) *
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(-femur_angle - tibia_angle, Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetLeftVec()) *
+		Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec()) *
+		Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(180.0f), Vector3::GetUpVec());
 
-	const VECTOR offset_pos = dldu::ConvertToDxlibVec(
-		dl::RotateVector3
+	const VECTOR offset_pos = dxlib_util::ConvertToDxlibVec(
+		RotateVector3
 		(
-			dl::Vector3::GetFrontVec(),
-			dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
-		)
+		Vector3::GetFrontVec(),
+		Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec()) * draw_node_.quat.ToLeftHandCoordinate()
+	)
 	);
 
 	//描画する．
 	MV1SetScale(tibia_model_handle, scale);
 
 	// dxlibの座標系は左手座標系なので，右手座標系に変換するために逆転させる．
-	const dl::Quaternion tibia_quat = default_quat * draw_node_.quat.ToLeftHandCoordinate();
-	MV1SetRotationMatrix(tibia_model_handle, dldu::ConvertToDxlibMat(dl::ToRotationMatrix(tibia_quat)));
+	const Quaternion tibia_quat = default_quat * draw_node_.quat.ToLeftHandCoordinate();
+	MV1SetRotationMatrix(tibia_model_handle, dxlib_util::ConvertToDxlibMat(ToRotationMatrix(tibia_quat)));
 
 	MV1SetPosition(tibia_model_handle, tibia_joint_pos_global_coord + offset_pos);
 
@@ -232,14 +230,14 @@ void PhantomXRendererModel::DrawJointAxis(const int leg_index) const
 
 	//Coxaの回転軸
 	{
-		const VECTOR coxa_joint_pos_global_coord = dldu::ConvertToDxlibVec(
+		const VECTOR coxa_joint_pos_global_coord = dxlib_util::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-			)
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[0], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+		)
 		);
 
-		const VECTOR axis_vec = dldu::ConvertToDxlibVec(
-			dl::RotateVector3(dl::Vector3::GetUpVec() * axis_length / 2, draw_node_.quat)
+		const VECTOR axis_vec = dxlib_util::ConvertToDxlibVec(
+			RotateVector3(Vector3::GetUpVec() * axis_length / 2, draw_node_.quat)
 		);
 
 		DrawCapsule3D(coxa_joint_pos_global_coord - axis_vec, coxa_joint_pos_global_coord + axis_vec, axis_radius, axis_div_num, coxa_axis_color, spec_color, TRUE);
@@ -247,16 +245,16 @@ void PhantomXRendererModel::DrawJointAxis(const int leg_index) const
 
 	//Femurの回転軸
 	{
-		const VECTOR femur_joint_pos_global_coord = dldu::ConvertToDxlibVec(
+		const VECTOR femur_joint_pos_global_coord = dxlib_util::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-			)
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[1], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+		)
 		);
 
-		const dl::Quaternion default_quat = dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec());
+		const Quaternion default_quat = Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec());
 
-		const VECTOR axis_vec = dldu::ConvertToDxlibVec(
-			dl::RotateVector3(dl::Vector3::GetLeftVec() * axis_length / 2, draw_node_.quat * default_quat)
+		const VECTOR axis_vec = dxlib_util::ConvertToDxlibVec(
+			RotateVector3(Vector3::GetLeftVec() * axis_length / 2, draw_node_.quat * default_quat)
 		);
 
 		DrawCapsule3D(femur_joint_pos_global_coord - axis_vec, femur_joint_pos_global_coord + axis_vec, axis_radius, axis_div_num, femur_axis_color, spec_color, TRUE);
@@ -264,18 +262,20 @@ void PhantomXRendererModel::DrawJointAxis(const int leg_index) const
 
 	//Tibiaの回転軸
 	{
-		const VECTOR tibia_joint_pos_global_coord = dldu::ConvertToDxlibVec(
+		const VECTOR tibia_joint_pos_global_coord = dxlib_util::ConvertToDxlibVec(
 			converter_ptr_->ConvertLegToGlobalCoordinate(
-				draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
-			)
+			draw_joint_state_[leg_index].joint_pos_leg_coordinate[2], leg_index, draw_node_.global_center_of_mass, draw_node_.quat, true
+		)
 		);
 
-		const dl::Quaternion default_quat = dl::Quaternion::MakeByAngleAxis(coxa_angle, dl::Vector3::GetUpVec());
+		const Quaternion default_quat = Quaternion::MakeByAngleAxis(coxa_angle, Vector3::GetUpVec());
 
-		const VECTOR axis_vec = dldu::ConvertToDxlibVec(
-			dl::RotateVector3(dl::Vector3::GetLeftVec() * axis_length / 2, draw_node_.quat * default_quat)
+		const VECTOR axis_vec = dxlib_util::ConvertToDxlibVec(
+			RotateVector3(Vector3::GetLeftVec() * axis_length / 2, draw_node_.quat * default_quat)
 		);
 
 		DrawCapsule3D(tibia_joint_pos_global_coord - axis_vec, tibia_joint_pos_global_coord + axis_vec, axis_radius, axis_div_num, tibia_axis_color, spec_color, TRUE);
 	}
 }
+
+}	// namespace designlab
