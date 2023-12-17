@@ -1,7 +1,6 @@
 ﻿//! application_setting_record_vaildator.h
 //! @brief 設定ファイルの内容を検証するクラス．
 
-
 #ifndef APPLICATION_SETTING_RECORD_VAILDATOR_H_
 #define APPLICATION_SETTING_RECORD_VAILDATOR_H_
 
@@ -11,6 +10,9 @@
 #include "application_setting_record.h"
 #include "interface_toml_data_validator.h"
 
+
+namespace designlab
+{
 
 //! @class ApplicationSettingRecordVaildator
 //! @brief 設定ファイルの内容を検証するクラス．
@@ -39,6 +41,8 @@ private:
 	const std::string kErrorMesForFpsGeMin;
 	const std::string kErrorMesForFpsLeMax;
 };
+
+} // namespace designlab
 
 
 #endif // APPLICATION_SETTING_RECORD_VAILDATOR_H_

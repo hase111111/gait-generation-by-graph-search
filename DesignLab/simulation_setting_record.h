@@ -1,4 +1,7 @@
-﻿#ifndef DESIGNLAB_SIMULATION_SETTING_RECORD_H_
+﻿//! @file simulation_setting_record.h
+//! @brief シミュレーションの設定を記述する構造体を定義します．
+
+#ifndef DESIGNLAB_SIMULATION_SETTING_RECORD_H_
 #define DESIGNLAB_SIMULATION_SETTING_RECORD_H_
 
 #include <string>
@@ -9,56 +12,58 @@
 #include "toml_serialize_macro.h"
 
 
+namespace designlab::enums
+{
+
+enum class MapCreateMode : int
+{
+	kForSimulation,
+	kFromFile
+};
+
+enum class RobotOperateMode : int
+{
+	kForGloabalPathGenerate,
+	kFixed,
+	kFree
+};
+
+enum class SimulationEndCheckMode : int
+{
+	kGoalTape,	//!< ゴールテープに到達したかどうか．
+	kPosture,	//!< 姿勢が一定の範囲内に収まっているかどうか．
+	kPosition,	//!< 目的の座標に到達したかどうか．
+};
+
+} // namespace designlab::enums
+
+
 namespace designlab
 {
-	namespace enums
-	{
-		enum class MapCreateMode : int
-		{
-			kForSimulation,
-			kFromFile
-		};
-
-		enum class RobotOperateMode : int
-		{
-			kForGloabalPathGenerate,
-			kFixed,
-			kFree
-		};
-
-		enum class SimulationEndCheckMode : int
-		{
-			kGoalTape,	//!< ゴールテープに到達したかどうか．
-			kPosture,	//!< 姿勢が一定の範囲内に収まっているかどうか．
-			kPosition,	//!< 目的の座標に到達したかどうか．
-		};
-	}
-}
-
 
 struct SimulationSettingRecord final
 {
-	::designlab::enums::MapCreateMode map_create_mode{ ::designlab::enums::MapCreateMode::kForSimulation };
+	enums::MapCreateMode map_create_mode{ enums::MapCreateMode::kForSimulation };
 
 	std::string simulation_map_param_file_name{ "simulation_map.toml" };
 
 	std::string map_file_name{ "map_state.csv" };
 
 
-	::designlab::enums::SimulationEndCheckMode end_check_mode{ ::designlab::enums::SimulationEndCheckMode::kGoalTape };
+	enums::SimulationEndCheckMode end_check_mode{ enums::SimulationEndCheckMode::kGoalTape };
 
 	float goal_tape_position_x{ 1200.0f };
 
-	::designlab::EulerXYZ target_posture{ 0.f,0.f,0.f };
+	EulerXYZ target_posture{ 0.f,0.f,0.f };
 
 	float target_posture_allowable_error_deg{ 1.0f };
 
-	::designlab::Vector3 target_position{ 0.f,0.f,0.f };
+	Vector3 target_position{ 0.f,0.f,0.f };
 
 	float target_position_allowable_error{ 50.0f };
 
 
-	::designlab::enums::RobotOperateMode operate_mode{ ::designlab::enums::RobotOperateMode::kFixed };
+	enums::RobotOperateMode operate_mode{ enums::RobotOperateMode::kFixed };
 
 	std::string fixed_operate_file_name{ "robot_operator.toml" };
 };
@@ -75,43 +80,46 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 	);
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_create_mode, "Map", "マップの作成方法を設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<::designlab::enums::MapCreateMode>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::MapCreateMode>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(simulation_map_param_file_name, "Map",
-		"マップの作成方法がシミュレーション専用マップを出力するモード ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::MapCreateMode::kForSimulation) +
-		" ) の場合，マップのパラメータを記述したtomlファイルの名前を設定します．");
+											  "マップの作成方法がシミュレーション専用マップを出力するモード ( " +
+											  string_util::EnumToStringRemoveTopK(enums::MapCreateMode::kForSimulation) +
+											  " ) の場合，マップのパラメータを記述したtomlファイルの名前を設定します．");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_file_name, "Map", "マップの作成方法がファイルから読み込むモード ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::MapCreateMode::kFromFile) +
-		" ) の場合，マップのcsvファイルの名前を設定します．");
+											  string_util::EnumToStringRemoveTopK(enums::MapCreateMode::kFromFile) +
+											  " ) の場合，マップのcsvファイルの名前を設定します．");
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(end_check_mode, "EndChecker", "どのような方法で終了させるかを設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<::designlab::enums::SimulationEndCheckMode>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::SimulationEndCheckMode>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(goal_tape_position_x, "EndChecker", "終了条件がゴールテープに到達したか ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::SimulationEndCheckMode::kGoalTape) +
-		" ) の場合，ゴールテープのx座標を設定します．[mm]");
+											  string_util::EnumToStringRemoveTopK(enums::SimulationEndCheckMode::kGoalTape) +
+											  " ) の場合，ゴールテープのx座標を設定します．[mm]");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture, "EndChecker", "終了条件が目標姿勢となったか ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::SimulationEndCheckMode::kPosture) +
-		" ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]");
+											  string_util::EnumToStringRemoveTopK(enums::SimulationEndCheckMode::kPosture) +
+											  " ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture_allowable_error_deg, "EndChecker", "終了条件が目標姿勢となったか ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::SimulationEndCheckMode::kPosture) +
-		" ) の場合，目標の姿勢の角度の許容誤差を設定します．[deg]");
+											  string_util::EnumToStringRemoveTopK(enums::SimulationEndCheckMode::kPosture) +
+											  " ) の場合，目標の姿勢の角度の許容誤差を設定します．[deg]");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position, "EndChecker", "終了条件が目的の座標に到達したか ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::SimulationEndCheckMode::kPosition) +
-		" ) の場合，目標の座標を設定します．[mm]");
+											  string_util::EnumToStringRemoveTopK(enums::SimulationEndCheckMode::kPosition) +
+											  " ) の場合，目標の座標を設定します．[mm]");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position_allowable_error, "EndChecker", "終了条件が目的の座標に到達したか ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::SimulationEndCheckMode::kPosition) +
-		" ) の場合，目標の座標の許容誤差を設定します．[mm]");
+											  string_util::EnumToStringRemoveTopK(enums::SimulationEndCheckMode::kPosition) +
+											  " ) の場合，目標の座標の許容誤差を設定します．[mm]");
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(operate_mode, "RobotOperator", "ロボットの操作方法を設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<::designlab::enums::RobotOperateMode>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::RobotOperateMode>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(fixed_operate_file_name, "RobotOperator",
-		"ロボットの操作方法が固定 ( " +
-		::designlab::string_util::EnumToStringRemoveTopK(::designlab::enums::RobotOperateMode::kFixed) +
-		" ) の場合，その操作方法を指定するファイルを設定します．");
+											  "ロボットの操作方法が固定 ( " +
+											  string_util::EnumToStringRemoveTopK(enums::RobotOperateMode::kFixed) +
+											  " ) の場合，その操作方法を指定するファイルを設定します．");
 };
 
+} // namespace designlab
+
+
 DESIGNLAB_TOML11_SERIALIZE(
-	SimulationSettingRecord,
+	designlab::SimulationSettingRecord,
 	map_create_mode, simulation_map_param_file_name, map_file_name,
 	end_check_mode, goal_tape_position_x, target_posture, target_posture_allowable_error_deg,
 	target_position, target_position_allowable_error,

@@ -9,9 +9,9 @@
 #include "map_state.h"
 #include "result_file_exporter.h"
 
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
 
+namespace designlab
+{
 
 SystemMainResultViewer::SystemMainResultViewer(
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
@@ -23,7 +23,7 @@ SystemMainResultViewer::SystemMainResultViewer(
 
 void SystemMainResultViewer::Main()
 {
-	dlio::OutputTitle("Result Viewer System");
+	cmdio::OutputTitle("Result Viewer System");
 
 	while (true)
 	{
@@ -34,7 +34,7 @@ void SystemMainResultViewer::Main()
 
 		if (!file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
 		{
-			dlio::Output("該当のデータがありませんでした．終了します．", dle::OutputDetail::kSystem);
+			cmdio::Output("該当のデータがありませんでした．終了します．", enums::OutputDetail::kSystem);
 
 			break;
 		}
@@ -53,26 +53,28 @@ void SystemMainResultViewer::Main()
 			broker_ptr_->simu_end_index.SetData({ graph.size() - 1 });
 
 			// データを表示する
-			dlio::Output("データを表示します．", dle::OutputDetail::kSystem);
-			dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-			dlio::WaitAnyKey();
-			dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-			dlio::OutputHorizontalLine("=", dle::OutputDetail::kSystem);
+			cmdio::Output("データを表示します．", enums::OutputDetail::kSystem);
+			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+			cmdio::WaitAnyKey();
+			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+			cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
 		}
 		else
 		{
-			dlio::Output("ファイルの読み込みに失敗しました．終了します．", dle::OutputDetail::kSystem);
+			cmdio::Output("ファイルの読み込みに失敗しました．終了します．", enums::OutputDetail::kSystem);
 		}
 
 		// 終了するかどうかを選択
 
-		if (dlio::InputYesNo("このモードを終了しますか？"))
+		if (cmdio::InputYesNo("このモードを終了しますか？"))
 		{
-			dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 			break;
 		}
 
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 	}
 }
+
+}	// namespace designlab

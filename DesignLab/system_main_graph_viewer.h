@@ -1,5 +1,5 @@
 ﻿//! @file system_main_graph_viewer.h
-//! @brief グラフを表示するシステムのメインクラス
+//! @brief グラフを表示するシステムのメインクラス．
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
@@ -15,8 +15,11 @@
 #include "stopwatch.h"
 
 
+namespace designlab
+{
+
 //! @class SystemMainGraphViewer
-//! @brief グラフを表示するシステムのメインクラス
+//! @brief グラフを表示するシステムのメインクラス．
 //! @details この研究の手法では木構造のグラフを作成する．
 //! どのようなグラフが作成されるかを確認するために，このグラフを表示するシステムを作成した．
 class SystemMainGraphViewer final : public ISystemMain
@@ -65,6 +68,8 @@ private:
 
 	Stopwatch stopwatch_;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_

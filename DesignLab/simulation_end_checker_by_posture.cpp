@@ -3,16 +3,15 @@
 #include "designlab_rot_converter.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-
+namespace designlab
+{
 
 SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
 	const::designlab::Quaternion& goal_orientation,
 	const float allowable_error
 ) :
 	goal_orientation_(goal_orientation),
-	goal_euler_(dl::ToEulerXYZ(goal_orientation)),
+	goal_euler_(ToEulerXYZ(goal_orientation)),
 	allowable_error_(allowable_error)
 {
 }
@@ -20,10 +19,10 @@ SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
 bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 {
 	//角度を取得し，誤差を計算
-	auto now = dl::ToEulerXYZ(node.quat);
+	auto now = ToEulerXYZ(node.quat);
 
 	float error_x = std::abs(now.x_angle - goal_euler_.x_angle);
-	error_x = (std::min)(error_x, 2 * dlm::kFloatPi - error_x);
+	error_x = (std::min)(error_x, 2 * math_util::kFloatPi - error_x);
 
 	if (error_x > allowable_error_)
 	{
@@ -31,7 +30,7 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 	}
 
 	float error_y = std::abs(now.y_angle - goal_euler_.y_angle);
-	error_y = (std::min)(error_y, 2 * dlm::kFloatPi - error_y);
+	error_y = (std::min)(error_y, 2 * math_util::kFloatPi - error_y);
 
 	if (error_y > allowable_error_)
 	{
@@ -39,7 +38,7 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 	}
 
 	float error_z = std::abs(now.z_angle - goal_euler_.z_angle);
-	error_z = (std::min)(error_z, 2 * dlm::kFloatPi - error_z);
+	error_z = (std::min)(error_z, 2 * math_util::kFloatPi - error_z);
 
 	if (error_z > allowable_error_)
 	{
@@ -48,3 +47,5 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 
 	return true;
 }
+
+} // namespace designlab

@@ -1,22 +1,26 @@
-//! @file interface_system_main.h
-//! @brief ƒVƒXƒeƒ€‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
-
+ï»¿//! @file interface_system_main.h
+//! @brief ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®é¢ã®å‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 
 #ifndef DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 #define DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 
 
+namespace designlab
+{
+
 //! @class ISystemMain
-//! @brief ƒVƒXƒeƒ€‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXD
+//! @brief ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®é¢ã®å‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 class ISystemMain
 {
 public:
 
 	virtual ~ISystemMain() = default;
 
-	//! @brief å—v‚Èˆ—‚ğs‚¤ŠÖ”D
-	virtual void Main()	= 0;
+	//! @brief ä¸»è¦ãªå‡¦ç†ã‚’è¡Œã†é–¢æ•°ï¼
+	virtual void Main() = 0;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_

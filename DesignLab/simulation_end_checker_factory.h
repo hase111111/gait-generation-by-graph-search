@@ -1,7 +1,6 @@
 ﻿//! @file simulation_end_checker_factory.h
 //! @brief シミュレーションの終了を判定するクラスを生成するクラス．
 
-
 #ifndef DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_
 #define DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_
 
@@ -11,6 +10,11 @@
 #include "simulation_setting_record.h"
 
 
+namespace designlab
+{
+
+//! @class SimulationEndCheckerFactory
+//! @brief シミュレーションの終了を判定するクラスを生成するクラス．
 class SimulationEndCheckerFactory final
 {
 public:
@@ -20,6 +24,8 @@ public:
 	//! @return  std::unique_ptr<ISimulationEndChecker> シミュレーションの終了を判定するクラスのインスタンス．
 	static std::unique_ptr<ISimulationEndChecker> Create(const SimulationSettingRecord& record);
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_

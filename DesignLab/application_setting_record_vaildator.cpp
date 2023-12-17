@@ -1,6 +1,9 @@
 ﻿#include "application_setting_record_vaildator.h"
 
 
+namespace designlab
+{
+
 ApplicationSettingRecordVaildator::ApplicationSettingRecordVaildator() :
 	kErrorMesForWindowWidthGeMin("ウィンドウの幅は" + std::to_string(ApplicationSettingRecord::kWindowWidthMin) + "以上の値を設定してください．"),
 	kErrorMesForWindowWidthLeMax("ウィンドウの幅は" + std::to_string(ApplicationSettingRecord::kWindowWidthMax) + "以下の値を設定してください．"),
@@ -46,3 +49,5 @@ std::tuple<bool, std::string> ApplicationSettingRecordVaildator::Validate(const 
 
 	return std::make_tuple(true, "");
 }
+
+} // namespace designlab

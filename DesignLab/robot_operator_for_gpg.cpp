@@ -5,29 +5,28 @@
 #include "designlab_rot_converter.h"
 
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlm = ::designlab::math_util;
-
-
 namespace
 {
-	// -π～πの範囲に収める
-	float NormalizeAngle(float angle)
+// -π～πの範囲に収める
+float NormalizeAngle(float angle)
+{
+	while (angle > designlab::math_util::kFloatPi)
 	{
-		while (angle > dlm::kFloatPi)
-		{
-			angle -= dlm::kFloatPi;
-		}
-
-		while (angle < -dlm::kFloatPi)
-		{
-			angle += dlm::kFloatPi;
-		}
-
-		return angle;
+		angle -= designlab::math_util::kFloatPi;
 	}
+
+	while (angle < -designlab::math_util::kFloatPi)
+	{
+		angle += designlab::math_util::kFloatPi;
+	}
+
+	return angle;
 }
+}
+
+
+namespace designlab
+{
 
 RobotOperatorForGpg::RobotOperatorForGpg() : global_route_{
 {4130,210,40},
@@ -271,18 +270,18 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 	std::cout << "most_near_index: " << most_near_index << std::endl;
 
 	//次の地点への角度を計算する
-	const float euler_z_angle = NormalizeAngle(dl::ToEulerXYZ(node.quat).z_angle);
-	const dl::Vector3 diff_vector = global_route_[most_near_index - 1] - global_route_[most_near_index];
+	const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.quat).z_angle);
+	const Vector3 diff_vector = global_route_[most_near_index - 1] - global_route_[most_near_index];
 	const float target_angle = NormalizeAngle(atan2(diff_vector.y, diff_vector.x));
 	const float rot_dif = target_angle - euler_z_angle;
 
-	std::cout << "target_angle : " << dlm::ConvertRadToDeg(target_angle) << "/ now_angle : " << dlm::ConvertRadToDeg(euler_z_angle) << std::endl;
+	std::cout << "target_angle : " << math_util::ConvertRadToDeg(target_angle) << "/ now_angle : " << math_util::ConvertRadToDeg(euler_z_angle) << std::endl;
 
 	if (abs(rot_dif) > kAllowableAngleError)
 	{
 		RobotOperation operation;
-		operation.operation_type = dle::RobotOperationType::kSpotTurnLastPosture;
-		operation.spot_turn_last_posture_ = dl::Quaternion::MakeByAngleAxis(target_angle, dl::Vector3::GetUpVec());
+		operation.operation_type = enums::RobotOperationType::kSpotTurnLastPosture;
+		operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
 
 		std::cout << "target_quat : " << operation.spot_turn_last_posture_;
 		std::cout << "/ now_quat : " << node.quat << std::endl;
@@ -290,7 +289,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 	}
 
 	const int loop_num = 10;
-	dl::Vector3 target_vector;
+	Vector3 target_vector;
 
 	for (int i = 0; i < loop_num; i++)
 	{
@@ -302,8 +301,10 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 	std::cout << "target_vector: " << target_vector << "/ normalized" << target_vector.GetNormalized() << std::endl;
 
 	RobotOperation operation;
-	operation.operation_type = dle::RobotOperationType::kStraightMoveVector;
-	operation.straight_move_vector_ = (dl::Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
+	operation.operation_type = enums::RobotOperationType::kStraightMoveVector;
+	operation.straight_move_vector_ = (Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
 
 	return operation;
 }
+
+} // namespace designlab

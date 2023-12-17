@@ -1,10 +1,8 @@
 ﻿//! @file system_main_result_viewer.h
 //! @brief 結果を表示するシステムのクラス．
 
-
 #ifndef DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
 #define DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
-
 
 #include <memory>
 #include <string>
@@ -14,6 +12,9 @@
 #include "interface_system_main.h"
 #include "result_file_importer.h"
 
+
+namespace designlab
+{
 
 //! @class SystemMainResultViewer
 //! @brief 結果を表示するシステムのクラス．
@@ -34,6 +35,8 @@ private:
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_

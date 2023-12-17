@@ -7,6 +7,9 @@
 #include "interface_robot_operator.h"
 
 
+namespace designlab
+{
+
 //! @class RobotOperatorFixed
 //! @brief ターゲットの更新をせず，初期化時のみに更新するクラス．
 class RobotOperatorFixed : public IRobotOperator
@@ -27,6 +30,8 @@ private:
 
 	const RobotOperation operation_;
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_TARGET_UPDATER_ONCE_H_

@@ -8,21 +8,22 @@
 #include "toml_file_importer.h"
 #include "toml_file_setupper.h"
 
-namespace dle = ::designlab::enums;
 
+namespace designlab
+{
 
 std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSettingRecord& setting)
 {
-	if (setting.operate_mode == dle::RobotOperateMode::kForGloabalPathGenerate)
+	if (setting.operate_mode == enums::RobotOperateMode::kForGloabalPathGenerate)
 	{
 		return std::make_unique<RobotOperatorForGpg>();
 	}
-	else if (setting.operate_mode == dle::RobotOperateMode::kFixed)
+	else if (setting.operate_mode == enums::RobotOperateMode::kFixed)
 	{
 		TomlFileImporter<RobotOperation> importer;
 		return std::make_unique<RobotOperatorFixed>(importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + setting.fixed_operate_file_name));
 	}
-	else if (setting.operate_mode == dle::RobotOperateMode::kFree)
+	else if (setting.operate_mode == enums::RobotOperateMode::kFree)
 	{
 		return std::make_unique<RobotOperatorFree>();
 	}
@@ -32,3 +33,5 @@ std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSet
 		return nullptr;
 	}
 }
+
+} // namespace designlab

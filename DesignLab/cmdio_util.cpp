@@ -10,8 +10,6 @@
 #include "cassert_define.h"
 
 
-namespace dle = ::designlab::enums;
-
 namespace
 {
 // このような名前のない名前空間を匿名名前空間という
@@ -21,7 +19,7 @@ namespace
 
 
 // 出力制限，この値未満のメッセージの出力は行われない
-dle::OutputDetail output_limit = dle::OutputDetail::kSystem;
+designlab::enums::OutputDetail output_limit = designlab::enums::OutputDetail::kSystem;
 
 // falseの場合，出力を行わない(システムメッセージは除く)
 bool do_output = true;
@@ -35,7 +33,7 @@ bool is_initialized = false;
 namespace designlab::cmdio
 {
 
-void SetOutputLimit(const dle::OutputDetail limit)
+void SetOutputLimit(const enums::OutputDetail limit)
 {
 	::output_limit = limit;
 
@@ -55,7 +53,7 @@ void SetDoOutput(const bool do_output_)
 }
 
 
-void Output(const std::string& str, const dle::OutputDetail detail)
+void Output(const std::string& str, const enums::OutputDetail detail)
 {
 	assert(is_initialized);	// SetOutputLimitを呼んでから使用すること.
 
@@ -63,13 +61,13 @@ void Output(const std::string& str, const dle::OutputDetail detail)
 	// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
 	// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
 
-	if ((detail <= ::output_limit && do_output) || (detail == dle::OutputDetail::kSystem && !do_output))
+	if ((detail <= ::output_limit && do_output) || (detail == enums::OutputDetail::kSystem && !do_output))
 	{
 		std::cout << str << std::endl;
 	}
 }
 
-void OutputCenter(const std::string& str, const dle::OutputDetail detail)
+void OutputCenter(const std::string& str, const enums::OutputDetail detail)
 {
 	//改行ごとに文字列を取り出す
 	std::stringstream ss(str);
@@ -96,7 +94,7 @@ void OutputCenter(const std::string& str, const dle::OutputDetail detail)
 	}
 }
 
-void OutputRight(const std::string& str, const dle::OutputDetail detail)
+void OutputRight(const std::string& str, const enums::OutputDetail detail)
 {
 	//改行ごとに文字列を取り出す
 	std::stringstream ss(str);
@@ -124,7 +122,7 @@ void OutputRight(const std::string& str, const dle::OutputDetail detail)
 }
 
 
-void OutputNewLine(const int num, const dle::OutputDetail detail)
+void OutputNewLine(const int num, const enums::OutputDetail detail)
 {
 	if (num <= 0) { return; }
 
@@ -134,7 +132,7 @@ void OutputNewLine(const int num, const dle::OutputDetail detail)
 	}
 }
 
-void OutputHorizontalLine(const std::string& line_visual, const dle::OutputDetail detail)
+void OutputHorizontalLine(const std::string& line_visual, const enums::OutputDetail detail)
 {
 	if (line_visual.size() != 1) { return; }
 
@@ -150,7 +148,7 @@ void OutputHorizontalLine(const std::string& line_visual, const dle::OutputDetai
 
 void OutputTitle(const std::string& title_name, bool output_copy_right)
 {
-	dle::OutputDetail detail = dle::OutputDetail::kSystem;
+	enums::OutputDetail detail = enums::OutputDetail::kSystem;
 
 	OutputNewLine(1, detail);
 	OutputHorizontalLine("=", detail);
@@ -171,7 +169,7 @@ void OutputTitle(const std::string& title_name, bool output_copy_right)
 
 void WaitAnyKey(const std::string& str)
 {
-	Output(str, dle::OutputDetail::kSystem);
+	Output(str, enums::OutputDetail::kSystem);
 
 	//何かキーを押すまで待機
 	system("PAUSE");
@@ -181,7 +179,7 @@ int InputInt(const int min, const int max, const int default_num, const std::str
 {
 	assert(min <= max);	// minはmaxより小さい．
 
-	Output(str + " (" + std::to_string(min) + " ～ " + std::to_string(max) + ") : ", dle::OutputDetail::kSystem);
+	Output(str + " (" + std::to_string(min) + " ～ " + std::to_string(max) + ") : ", enums::OutputDetail::kSystem);
 
 	std::string input_str;
 	std::cout << std::flush;
@@ -197,7 +195,7 @@ int InputInt(const int min, const int max, const int default_num, const std::str
 		{
 			Output(
 				"入力された値「" + input_str + "」は範囲外です．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
-				dle::OutputDetail::kSystem
+				enums::OutputDetail::kSystem
 			);
 
 			res = default_num;
@@ -209,7 +207,7 @@ int InputInt(const int min, const int max, const int default_num, const std::str
 
 		Output(
 			"入力された値「" + input_str + "」は評価できません．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
-			dle::OutputDetail::kSystem
+			enums::OutputDetail::kSystem
 		);
 
 		res = default_num;
@@ -220,7 +218,7 @@ int InputInt(const int min, const int max, const int default_num, const std::str
 
 bool InputYesNo(const std::string& str)
 {
-	Output(str + " ( y / n ) ", dle::OutputDetail::kSystem);
+	Output(str + " ( y / n ) ", enums::OutputDetail::kSystem);
 
 	while (true)
 	{
@@ -238,7 +236,7 @@ bool InputYesNo(const std::string& str)
 			return false;
 		}
 
-		Output("入力された値「" + input_str + "」は評価できません．y / nで入力してください．", dle::OutputDetail::kSystem);
+		Output("入力された値「" + input_str + "」は評価できません．y / nで入力してください．", enums::OutputDetail::kSystem);
 	}
 
 }

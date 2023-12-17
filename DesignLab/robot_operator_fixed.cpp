@@ -1,6 +1,9 @@
 ﻿#include "robot_operator_fixed.h"
 
 
+namespace designlab
+{
+
 RobotOperatorFixed::RobotOperatorFixed(const RobotOperation& operation) : operation_(operation)
 {
 }
@@ -14,3 +17,5 @@ RobotOperation RobotOperatorFixed::Update([[maybe_unused]] const RobotStateNode&
 {
 	return operation_;
 }
+
+} // namespace designlab

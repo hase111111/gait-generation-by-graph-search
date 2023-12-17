@@ -11,11 +11,9 @@
 #include "node_initializer.h"
 #include "map_creator_for_simulation.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlio = ::designlab::cmdio;
-namespace dlsu = ::designlab::string_util;
 
+namespace designlab
+{
 
 SystemMainSimulation::SystemMainSimulation(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
@@ -52,7 +50,7 @@ SystemMainSimulation::SystemMainSimulation(
 
 void SystemMainSimulation::Main()
 {
-	dlio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
+	cmdio::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
 	OutputSetting();								//コマンドラインに設定を表示する．
 
 	DeadLockChecker dead_lock_checker;
@@ -60,7 +58,7 @@ void SystemMainSimulation::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < kSimurateNum; i++)
 	{
-		NodeInitializer node_initializer{ {300,300,40},dle::HexapodMove::kLegUpDown };		//ノードを初期化するクラスを用意する．
+		NodeInitializer node_initializer{ {300,300,40},enums::HexapodMove::kLegUpDown };		//ノードを初期化するクラスを用意する．
 		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
 
 		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．
@@ -69,21 +67,21 @@ void SystemMainSimulation::Main()
 		SimulationResultRecorder record;
 
 		record.graph_search_result_recoder.push_back(
-			GraphSearchResultRecoder{ current_node , 0, {dle::Result::kSuccess,""} }
+			GraphSearchResultRecoder{ current_node , 0, {enums::Result::kSuccess,""} }
 		);
 
 
-		dlio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", dle::OutputDetail::kSystem);
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-		dlio::Output("[初期ノードの状態]", dle::OutputDetail::kInfo);
-		dlio::Output(current_node.ToString(), dle::OutputDetail::kInfo);
-		dlio::OutputNewLine(1, dle::OutputDetail::kInfo);
+		cmdio::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", enums::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		cmdio::Output("[初期ノードの状態]", enums::OutputDetail::kInfo);
+		cmdio::Output(current_node.ToString(), enums::OutputDetail::kInfo);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kInfo);
 
 		if (setting_ptr_->do_step_execution_each_simulation)
 		{
-			dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
-			if (!dlio::InputYesNo("シミュレーションを開始しますか"))
+			if (!cmdio::InputYesNo("シミュレーションを開始しますか"))
 			{
 				break;
 			}
@@ -115,16 +113,16 @@ void SystemMainSimulation::Main()
 
 
 			//グラフ探索に失敗
-			if (result_state.result != dle::Result::kSuccess)
+			if (result_state.result != enums::Result::kSuccess)
 			{
-				record.simulation_result = SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
-				dlio::Output(
+				cmdio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " +
-					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
+					string_util::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
 					result_state.ToString(),
-					dle::OutputDetail::kSystem
+					enums::OutputDetail::kSystem
 				);
 
 				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
@@ -135,24 +133,24 @@ void SystemMainSimulation::Main()
 
 			if (setting_ptr_->do_gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
 
-			dlio::OutputNewLine(1, dle::OutputDetail::kInfo);
-			dlio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", dle::OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
-			dlio::Output(current_node.ToString(), dle::OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
-			dlio::OutputHorizontalLine("-", dle::OutputDetail::kInfo);
+			cmdio::OutputNewLine(1, enums::OutputDetail::kInfo);
+			cmdio::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", enums::OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
+			cmdio::Output(current_node.ToString(), enums::OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
+			cmdio::OutputHorizontalLine("-", enums::OutputDetail::kInfo);
 
 			dead_lock_checker.AddNode(current_node);													//動作チェッカーにもノードを通達する．
 
 			//動作がループして失敗
 			if (dead_lock_checker.IsDeadLock())
 			{
-				record.simulation_result = SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
+				record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
 
-				dlio::Output(
+				cmdio::Output(
 					"シミュレーションに失敗しました．SimulationResult = " +
-					dlsu::EnumToStringRemoveTopK(record.simulation_result) +
+					string_util::EnumToStringRemoveTopK(record.simulation_result) +
 					"/ GraphSearch = " +
 					result_state.ToString(),
-					dle::OutputDetail::kSystem
+					enums::OutputDetail::kSystem
 				);
 
 				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
@@ -161,12 +159,12 @@ void SystemMainSimulation::Main()
 			//成功時の処理
 			if (simu_end_checker_ptr_->IsEnd(current_node))
 			{
-				record.simulation_result = SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
+				record.simulation_result = enums::SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
 
-				dlio::Output(
+				cmdio::Output(
 					"シミュレーションに成功しました．SimulationResult = " +
-					dlsu::EnumToStringRemoveTopK(record.simulation_result),
-					dle::OutputDetail::kSystem
+					string_util::EnumToStringRemoveTopK(record.simulation_result),
+					enums::OutputDetail::kSystem
 				);
 
 				break;	//成功したら，このループを抜け，次のシミュレーションへ進む．
@@ -175,8 +173,8 @@ void SystemMainSimulation::Main()
 			//ステップ実行にしているならば，ここで一時停止する．
 			if (setting_ptr_->do_step_execution_each_gait)
 			{
-				dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-				dlio::WaitAnyKey("キー入力で次の歩容を生成します");
+				cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+				cmdio::WaitAnyKey("キー入力で次の歩容を生成します");
 			}
 
 		}	//歩容生成のループ終了
@@ -188,82 +186,84 @@ void SystemMainSimulation::Main()
 
 		broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);	//仲介人にシミュレーション終了を通達する．
 
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-		dlio::OutputHorizontalLine("=", dle::OutputDetail::kSystem);
-		dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	}	//シミュレーションのループ終了
 
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-	dlio::Output("シミュレーション終了", dle::OutputDetail::kSystem);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	cmdio::Output("シミュレーション終了", enums::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
 	result_exporter_.ExportAllResultDetail();
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-	dlio::Output("シミュレーションを終了します", dle::OutputDetail::kSystem);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	cmdio::Output("シミュレーションを終了します", enums::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 }
 
 
 void SystemMainSimulation::OutputSetting() const
 {
-	dlio::Output("[設定]", dle::OutputDetail::kSystem);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::Output("[設定]", enums::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 
 	if (setting_ptr_->do_cmd_output)
 	{
-		dlio::Output("・コマンドラインへの出力を行います", dle::OutputDetail::kSystem);
+		cmdio::Output("・コマンドラインへの出力を行います", enums::OutputDetail::kSystem);
 
 		std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
-		dlio::Output("　　・priorityが" + output_str + "以上のもののみ出力されます", dle::OutputDetail::kSystem);
+		cmdio::Output("　　・priorityが" + output_str + "以上のもののみ出力されます", enums::OutputDetail::kSystem);
 	}
 	else
 	{
-		std::string output_str = magic_enum::enum_name(dle::OutputDetail::kSystem).data();
-		dlio::Output("・コマンドラインへの出力を行いません．(priorityが" + output_str + "のものは例外的に出力されます)", dle::OutputDetail::kSystem);
+		std::string output_str = magic_enum::enum_name(enums::OutputDetail::kSystem).data();
+		cmdio::Output("・コマンドラインへの出力を行いません．(priorityが" + output_str + "のものは例外的に出力されます)", enums::OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 
 	if (setting_ptr_->do_step_execution_each_simulation)
 	{
-		dlio::Output("・シミュレーションをステップ実行します", dle::OutputDetail::kSystem);
+		cmdio::Output("・シミュレーションをステップ実行します", enums::OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・シミュレーションをステップ実行しません", dle::OutputDetail::kSystem);
+		cmdio::Output("・シミュレーションをステップ実行しません", enums::OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 
 	if (setting_ptr_->do_step_execution_each_gait)
 	{
-		dlio::Output("・各歩容をステップ実行します", dle::OutputDetail::kSystem);
+		cmdio::Output("・各歩容をステップ実行します", enums::OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・各歩容をステップ実行しません", dle::OutputDetail::kSystem);
+		cmdio::Output("・各歩容をステップ実行しません", enums::OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	if (setting_ptr_->do_gui_display)
 	{
-		dlio::Output("・GUIを表示します", dle::OutputDetail::kSystem);
+		cmdio::Output("・GUIを表示します", enums::OutputDetail::kSystem);
 	}
 	else
 	{
-		dlio::Output("・GUIを表示しません", dle::OutputDetail::kSystem);
+		cmdio::Output("・GUIを表示しません", enums::OutputDetail::kSystem);
 	}
 
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
-	dlio::OutputHorizontalLine("-", dle::OutputDetail::kSystem);
-	dlio::OutputNewLine(1, dle::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	cmdio::OutputHorizontalLine("-", enums::OutputDetail::kSystem);
+	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
 }
+
+}	//namespace designlab

@@ -1,6 +1,5 @@
 ﻿//! @file application_setting_record.h
-//! @brief アプリの設定を記録する構造体
-
+//! @brief アプリの設定を記録する構造体．
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_H_
@@ -14,6 +13,9 @@
 #include "output_detail.h"
 #include "toml_serialize_macro.h"
 
+
+namespace designlab
+{
 
 //! @struct ApplicationSettingRecord
 //! @brief アプリの設定を記録する構造体．
@@ -30,18 +32,18 @@ struct ApplicationSettingRecord final
 	int version_minor{ 5 };	//!< バージョン番号(マイナー)
 	int version_patch{ 0 };	//!< バージョン番号(パッチ)
 
-	bool ask_about_modes{ true };					//!< 起動時にモード選択の確認をするかどうか
-	::designlab::enums::BootMode default_mode{ ::designlab::enums::BootMode::kSimulation };	//!< デフォルトの起動モード
-	bool do_step_execution_each_simulation{ true };	//!< 1シミュレーションごとにステップ実行をするかどうか
-	bool do_step_execution_each_gait{ false };		//!< 1動作ごとにステップ実行をするかどうか
+	bool ask_about_modes{ true };					//!< 起動時にモード選択の確認をするかどうか．
+	enums::BootMode default_mode{ enums::BootMode::kSimulation };	//!< デフォルトの起動モード．
+	bool do_step_execution_each_simulation{ true };	//!< 1シミュレーションごとにステップ実行をするかどうか．
+	bool do_step_execution_each_gait{ false };		//!< 1動作ごとにステップ実行をするかどうか．
 
-	bool do_cmd_output{ true };										//!< コマンドラインに出力するかどうか
-	::designlab::enums::OutputDetail cmd_output_detail{ ::designlab::enums::OutputDetail::kInfo };			//!< コマンドラインに出力する際，どこまで許可するか
-	bool do_gui_display{ true };									//!< GUIを表示するかどうか
-	DisplayQuality gui_display_quality{ DisplayQuality::kHigh };	//!< GUIを表示する際，どこまで許可するか
-	int window_size_x{ 1600 };										//!< グラフィカルウィンドウの横幅
-	int window_size_y{ 900 };										//!< グラフィカルウィンドウの縦幅
-	int window_fps{ 60 }; 											//!< グラフィカルウィンドウのFPS	
+	bool do_cmd_output{ true };										//!< コマンドラインに出力するかどうか．
+	enums::OutputDetail cmd_output_detail{ enums::OutputDetail::kInfo };			//!< コマンドラインに出力する際，どこまで許可するか．
+	bool do_gui_display{ true };									//!< GUIを表示するかどうか．
+	DisplayQuality gui_display_quality{ DisplayQuality::kHigh };	//!< GUIを表示する際，どこまで許可するか．
+	int window_size_x{ 1600 };										//!< グラフィカルウィンドウの横幅．
+	int window_size_y{ 900 };										//!< グラフィカルウィンドウの縦幅．
+	int window_fps{ 60 }; 											//!< グラフィカルウィンドウのFPS．
 };
 
 
@@ -80,27 +82,29 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(ask_about_modes, "Mode", "起動時に実行モードについて質問をするようにします．( true / false )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(default_mode, "Mode", "起動時のデフォルトの実行モードを設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<::designlab::enums::BootMode>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::BootMode>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(do_step_execution_each_simulation, "Mode", "1シミュレーションごとにステップ実行をするかどうかを設定します．( true / false )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(do_step_execution_each_gait, "Mode", "1動作ごとにステップ実行をするかどうかを設定します．( true / false )");
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(do_cmd_output, "Output", "コマンドラインに出力するかどうかを設定します．( true / false )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(cmd_output_detail, "Output", "コマンドラインに出力する際，どこまで許可するかを設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<::designlab::enums::OutputDetail>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::OutputDetail>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(do_gui_display, "Output", "GUIを表示するかどうかを設定します．( true / false )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(gui_display_quality, "Output", "GUIを表示する際，どこまで許可するかを設定します．( \"" +
-		::designlab::string_util::EnumValuesToString<DisplayQuality>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<DisplayQuality>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(window_size_x, "Output", "グラフィカルウィンドウの横幅を設定します．" +
-		std::to_string(ApplicationSettingRecord::kWindowWidthMin) + " ～ " + std::to_string(ApplicationSettingRecord::kWindowWidthMax) + "の範囲．推奨値は1600です．");
+											  std::to_string(ApplicationSettingRecord::kWindowWidthMin) + " ～ " + std::to_string(ApplicationSettingRecord::kWindowWidthMax) + "の範囲．推奨値は1600です．");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(window_size_y, "Output", "グラフィカルウィンドウの縦幅を設定します．" +
-		std::to_string(ApplicationSettingRecord::kWindowHeightMin) + " ～ " + std::to_string(ApplicationSettingRecord::kWindowHeightMax) + "の範囲．推奨値は900です．");
+											  std::to_string(ApplicationSettingRecord::kWindowHeightMin) + " ～ " + std::to_string(ApplicationSettingRecord::kWindowHeightMax) + "の範囲．推奨値は900です．");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(window_fps, "Output", "グラフィカルウィンドウのFPSを設定します．" +
-		std::to_string(ApplicationSettingRecord::kFpsMin) + " ～ " + std::to_string(ApplicationSettingRecord::kFpsMax) + "の範囲．推奨値は60です．");
+											  std::to_string(ApplicationSettingRecord::kFpsMin) + " ～ " + std::to_string(ApplicationSettingRecord::kFpsMax) + "の範囲．推奨値は60です．");
 };
+
+}	// namespace designlab
 
 
 DESIGNLAB_TOML11_SERIALIZE(
-	ApplicationSettingRecord,
+	designlab::ApplicationSettingRecord,
 	version_major, version_minor, version_patch,
 	ask_about_modes, default_mode, do_step_execution_each_simulation, do_step_execution_each_gait,
 	do_cmd_output, cmd_output_detail, do_gui_display, gui_display_quality, window_size_x, window_size_y, window_fps

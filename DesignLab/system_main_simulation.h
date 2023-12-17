@@ -1,5 +1,5 @@
 ﻿//! @file system_main_simulation.h
-//! @brief 歩容生成シミュレーションを行うクラス．先行研究におけるint main()で行われていた処理をまとめたもの．
+//! @brief 先行研究におけるint main()で行われていた処理をまとめたもので，歩容生成シミュレーションを行うクラス．
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
 #define DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
@@ -21,8 +21,11 @@
 #include "robot_operator_for_gpg.h"
 
 
+namespace designlab
+{
+
 //! @class SystemMainSimulation
-//! @brief 中～大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．
+//! @brief 先行研究におけるint main()で行われていた処理をまとめたもので，歩容生成シミュレーションを行うクラス．
 //! @details 処理の内容を書き換えるときには，int main()から呼ぶクラスを変えるだけでいい．
 class SystemMainSimulation final : public ISystemMain
 {
@@ -52,9 +55,9 @@ public:
 
 private:
 
-	static constexpr int kSimurateNum{ 5 };	//!< 連続でシミュレーションを行う回数
+	static constexpr int kSimurateNum{ 5 };	//!< 連続でシミュレーションを行う回数．
 
-	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数
+	static constexpr int kGaitPatternGenerationLimit{ 1000 };	//!< 1シミュレーション当たりの最大歩容生成回数．
 
 
 	void OutputSetting() const;
@@ -72,12 +75,14 @@ private:
 
 	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
-	MapState map_state_;		//!< 地形の状態
+	MapState map_state_;		//!< 地形の状態．
 
 	Stopwatch timer_;			//!< 時間計測用のクラス．
 
 	ResultFileExporter result_exporter_;	//!< 結果をファイルに出力するクラス．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_

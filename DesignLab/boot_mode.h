@@ -1,27 +1,26 @@
 ﻿//! @file boot_mode.h
-//! @brief 起動モードを表す列挙型
+//! @brief 起動モードを表す列挙型．
 
 
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_
 
 
-namespace designlab
+namespace designlab::enums
 {
-	namespace enums
-	{
-		//! @enum BootMode
-		//! @brief 起動モードを表す列挙型．
-		//! @see BootModeSelecter
-		enum class BootMode : int
-		{
-			kSimulation = 0,//!< シミュレーションモード
-			kViewer,		//!< ビューワーモード
-			kDisplayTest,	//!< ディスプレイテストモード
-			kResultViewer	//!< リザルトビューワーモード
-		};
-	}
-}
+
+//! @enum BootMode
+//! @brief 起動モードを表す列挙型．
+//! @see BootModeSelecter
+enum class BootMode : int
+{
+	kSimulation = 0,//!< シミュレーションモード．
+	kViewer,		//!< ビューワーモード．
+	kDisplayTest,	//!< ディスプレイテストモード．
+	kResultViewer	//!< リザルトビューワーモード．
+};
+
+}	// namespace designlab::enums
 
 
 #endif	// DESIGNLAB_BOOT_MODE_H_

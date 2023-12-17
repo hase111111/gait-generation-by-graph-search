@@ -1,8 +1,11 @@
 ﻿#include "simulation_end_checker_by_position.h"
 
 
+namespace designlab
+{
+
 SimulationEndCheckerByPosition::SimulationEndCheckerByPosition(
-	const::designlab::Vector3& goal_position,
+	const Vector3& goal_position,
 	const float allowable_error
 ) :
 	goal_position_(goal_position),
@@ -22,3 +25,5 @@ bool SimulationEndCheckerByPosition::IsEnd(const RobotStateNode& node) const
 
 	return true;
 }
+
+} // namespace designlab

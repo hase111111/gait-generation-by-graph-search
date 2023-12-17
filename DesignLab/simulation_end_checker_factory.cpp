@@ -7,31 +7,29 @@
 #include "simulation_end_checker_by_position.h"
 #include "simulation_end_checker_by_posture.h"
 
-namespace dl = ::designlab;
-namespace dle = ::designlab::enums;
-namespace dlm = ::designlab::math_util;
-
+namespace designlab
+{
 
 std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const SimulationSettingRecord& record)
 {
-	if (record.end_check_mode == dle::SimulationEndCheckMode::kGoalTape)
+	if (record.end_check_mode == enums::SimulationEndCheckMode::kGoalTape)
 	{
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByGoalTape>(record.goal_tape_position_x);
 
 		return std::move(simulation_end_checker);
 	}
-	else if (record.end_check_mode == dle::SimulationEndCheckMode::kPosture)
+	else if (record.end_check_mode == enums::SimulationEndCheckMode::kPosture)
 	{
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByPosture>(
-			dl::ToQuaternion(record.target_posture),
-			dlm::ConvertDegToRad(record.target_posture_allowable_error_deg)
+			ToQuaternion(record.target_posture),
+			math_util::ConvertDegToRad(record.target_posture_allowable_error_deg)
 		);
 
 		return std::move(simulation_end_checker);
 	}
-	else if (record.end_check_mode == dle::SimulationEndCheckMode::kPosition)
+	else if (record.end_check_mode == enums::SimulationEndCheckMode::kPosition)
 	{
-		const dl::Vector3 goal_position(record.target_position);
+		const Vector3 goal_position(record.target_position);
 
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByPosition>(goal_position, record.target_position_allowable_error);
 
@@ -44,3 +42,5 @@ std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const
 
 	return nullptr;
 }
+
+} // namespace designlab

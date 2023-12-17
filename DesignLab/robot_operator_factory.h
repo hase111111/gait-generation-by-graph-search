@@ -10,6 +10,9 @@
 #include "simulation_setting_record.h"
 
 
+namespace designlab
+{
+
 //! @class RobotOperatorFactory
 //! @brief TargetUpdaterを生成するファクトリクラス．
 class RobotOperatorFactory final
@@ -21,6 +24,8 @@ public:
 	//! @return std::unique_ptr<IRobotOperator> 生成したTargetUpdater．
 	static std::unique_ptr<IRobotOperator> Create(const SimulationSettingRecord& setting);
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
