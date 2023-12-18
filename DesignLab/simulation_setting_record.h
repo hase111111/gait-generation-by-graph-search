@@ -25,7 +25,7 @@ enum class RobotOperateMode : int
 {
 	kForGloabalPathGenerate,
 	kFixed,
-	kFree
+	kForPath
 };
 
 enum class SimulationEndCheckMode : int
@@ -66,6 +66,8 @@ struct SimulationSettingRecord final
 	enums::RobotOperateMode operate_mode{ enums::RobotOperateMode::kFixed };
 
 	std::string fixed_operate_file_name{ "robot_operator.toml" };
+
+	std::vector<Vector3> path_points{ {0,0,0},{1000,0,0} };
 };
 
 
@@ -113,6 +115,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 											  "ロボットの操作方法が固定 ( " +
 											  string_util::EnumToStringRemoveTopK(enums::RobotOperateMode::kFixed) +
 											  " ) の場合，その操作方法を指定するファイルを設定します．");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(path_points, "RobotOperator", "ロボットの操作方法がパス ( " +
+											  string_util::EnumToStringRemoveTopK(enums::RobotOperateMode::kForPath) +
+											  " ) の場合，そのパスを設定します．");
 };
 
 } // namespace designlab
@@ -123,7 +128,7 @@ DESIGNLAB_TOML11_SERIALIZE(
 	map_create_mode, simulation_map_param_file_name, map_file_name,
 	end_check_mode, goal_tape_position_x, target_posture, target_posture_allowable_error_deg,
 	target_position, target_position_allowable_error,
-	operate_mode, fixed_operate_file_name
+	operate_mode, fixed_operate_file_name, path_points
 );
 
 #endif //DESIGNLAB_SIMULATION_SETTING_RECORD_H_

@@ -64,7 +64,7 @@
     <ClInclude Include="dxlib_node_setter_group.h" />
     <ClInclude Include="node_creator_com_move_straight.h" />
     <ClInclude Include="node_creator_leg_up_down_2d.h" />
-    <ClInclude Include="robot_operator_free.h" />
+    <ClInclude Include="robot_operator_for_path.h" />
     <ClInclude Include="simple_button.h" />
     <ClInclude Include="camera_dragger.h" />
     <ClInclude Include="dxlib_gui_camera.h" />
@@ -191,7 +191,7 @@
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
-    <ClCompile Include="robot_operator_free.cpp" />
+    <ClCompile Include="robot_operator_for_path.cpp" />
     <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_dragger.cpp" />
     <ClCompile Include="dxlib_gui_camera.cpp" />

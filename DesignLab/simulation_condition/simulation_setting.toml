@@ -11,10 +11,10 @@
     goal_tape_position_x = 1200.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
-    target_position = "     4130.0,     210.000,     40.000"
+    target_position =     "4000,1400,0"
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標の許容誤差を設定します．[mm]
-    target_position_allowable_error = 200.0
+    target_position_allowable_error = 50.0
     
     #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]
     target_posture = "     0.000,     0.000,     0.000"
@@ -40,6 +40,14 @@
     #ロボットの操作方法が固定 ( Fixed ) の場合，その操作方法を指定するファイルを設定します．
     fixed_operate_file_name = "robot_operator.toml"
     
-    #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kFree" )
-    operate_mode = "kForGloabalPathGenerate" 
+    #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
+    operate_mode = "kForPath" 
+    
+    #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
+    path_points = [
+    "     400.000,     400.000,     0.000",
+    "  1400.000,     400.000,     0.000",
+    "2200,1350,0",
+    "4000,1400,0"
+    ]
     

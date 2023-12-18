@@ -588,7 +588,7 @@
     <ClInclude Include="node_creator_com_move_straight.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
-    <ClInclude Include="robot_operator_free.h">
+    <ClInclude Include="robot_operator_for_path.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="interface_graph_searcher.h">
@@ -890,7 +890,7 @@
     <ClCompile Include="node_creator_com_move_straight.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
-    <ClCompile Include="robot_operator_free.cpp">
+    <ClCompile Include="robot_operator_for_path.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">

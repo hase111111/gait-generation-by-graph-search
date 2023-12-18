@@ -1,4 +1,4 @@
-﻿#include "robot_operator_free.h"
+﻿#include "robot_operator_for_path.h"
 
 #include "designlab_rot_converter.h"
 
@@ -27,7 +27,7 @@ float NormalizeAngle(float angle)
 namespace designlab
 {
 
-RobotOperatorFree::RobotOperatorFree()
+RobotOperatorForPath::RobotOperatorForPath()
 {
 	global_route_ =
 	{
@@ -39,7 +39,7 @@ RobotOperatorFree::RobotOperatorFree()
 	};
 }
 
-RobotOperation RobotOperatorFree::Init() const
+RobotOperation RobotOperatorForPath::Init() const
 {
 	RobotOperation operation;
 
@@ -49,7 +49,7 @@ RobotOperation RobotOperatorFree::Init() const
 	return operation;
 }
 
-RobotOperation RobotOperatorFree::Update(const RobotStateNode& node)
+RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
 {
 	if (
 		(global_route_[most_near_index_].ProjectedXY() - node.global_center_of_mass.ProjectedXY()).GetLength() < 100.f

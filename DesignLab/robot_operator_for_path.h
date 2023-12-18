@@ -1,8 +1,8 @@
-﻿//! @file robot_operator_free.h
+﻿//! @file robot_operator_for_path.h
 //! @brief 指定した中継地点を通るようにロボットを動かすクラス．
 
-#ifndef DESIGNLAB_ROBOT_OPERATOR_FREE_H_
-#define DESIGNLAB_ROBOT_OPERATOR_FREE_H_
+#ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
+#define DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
 
 #include <vector>
 
@@ -13,14 +13,13 @@
 namespace designlab
 {
 
-//! @class RobotOperatorFree
+//! @class RobotOperatorForPath
 //! @brief 指定した中継地点を通るようにロボットを動かすクラス．
-//! @todo リネームすること．
-class RobotOperatorFree final : public IRobotOperator
+class RobotOperatorForPath final : public IRobotOperator
 {
 public:
 
-	RobotOperatorFree();
+	RobotOperatorForPath();
 
 	RobotOperation Init() const override;
 

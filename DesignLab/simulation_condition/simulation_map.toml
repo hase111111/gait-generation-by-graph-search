@@ -2,7 +2,7 @@
 mode = "kFlat"
 
 #マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 )
-option = 2
+option = 0
 
 [Basic]
     
@@ -10,7 +10,7 @@ option = 2
     base_z = 0.0
     
     #マップのX座標の最大値．
-    map_max_x = 5000.0
+    map_max_x = 2600.0
     
     #マップのY座標の最大値．
     map_max_y = 2000.0
