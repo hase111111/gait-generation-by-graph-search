@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "robot_state_node.h"
-#include "simulation_result_recorder.h"
+#include "simulation_result_record.h"
 
 
 namespace designlab
@@ -43,7 +43,7 @@ public:
 
 	//! @brief シミュレーション結果を追加する．
 	//! @param [in] simu_result シミュレーションの結果
-	void PushSimulationResult(const SimulationResultRecorder& simu_result);
+	void PushSimulationResult(const SimulationResultRecord& simu_result);
 
 	//! @brief 出力を行うかどうかのフラグを設定する．
 	//! @param [in] do_export 出力を行うかどうかのフラグ
@@ -76,7 +76,7 @@ private:
 	//! @param [in] recoder シミュレーション結果．
 	//! @param [in] simu_index シミュレーション番号．
 	//! @return 出力に成功したか．
-	bool OutputResultDetail(const SimulationResultRecorder& recoder, int simu_index) const;
+	bool OutputResultDetail(const SimulationResultRecord& recoder, int simu_index) const;
 
 
 	std::string folder_name_;	//!< 出力先フォルダ名．
@@ -86,7 +86,7 @@ private:
 	bool do_export_;	//!< 出力を行うかどうかのフラグ．
 
 
-	std::vector<SimulationResultRecorder> result_list_;	//!< シミュレーション結果のリスト．
+	std::vector<SimulationResultRecord> result_list_;	//!< シミュレーション結果のリスト．
 };
 
 }	// namespace designlab

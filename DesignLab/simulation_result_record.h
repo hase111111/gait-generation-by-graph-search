@@ -1,21 +1,21 @@
-﻿//! @file simulation_result_recorder.h
+﻿//! @file simulation_result_record.h
 //! @brief シミュレーションの結果を記録するクラス．
 
-#ifndef DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
-#define DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
+#ifndef DESIGNLAB_SIMULATION_RESULT_RECORD_H_
+#define DESIGNLAB_SIMULATION_RESULT_RECORD_H_
 
 #include <string>
 #include <vector>
 
-#include "graph_search_result_recoder.h"
+#include "graph_search_result_record.h"
 #include "map_state.h"
 
 
-namespace designlab::enums 
+namespace designlab::enums
 {
 
 //! @enum SimulationResult
-//! @brief シミュレーション全体の結果を表す列挙型
+//! @brief シミュレーション全体の結果を表す列挙型．
 enum class SimulationResult
 {
 	kSuccess,						//!< 目標座標，姿勢を満たし，シミュレーションに成功した．
@@ -27,13 +27,13 @@ enum class SimulationResult
 }	// namespace designlab::enums
 
 
-namespace designlab 
+namespace designlab
 {
 
-//! @struct SimulationResultRecorder
-//! @brief シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成．
-//! @todo 名前をリネームする．
-struct SimulationResultRecorder final
+//! @struct SimulationResultRecord
+//! @brief シミュレーションの結果を格納する構造体．
+//! @details 変数をたくさん宣言させたくないので作成した．
+struct SimulationResultRecord final
 {
 	//! @brief このクラスのデータをcsvファイルに出力する用の形式で文字列に変換する．
 	//! @return csvファイルに出力する用の形式の文字列．
@@ -41,7 +41,7 @@ struct SimulationResultRecorder final
 
 
 	//!< グラフ探索の結果を格納する構造体の配列．
-	std::vector<GraphSearchResultRecoder> graph_search_result_recoder;	
+	std::vector<GraphSearchResultRecord> graph_search_result_recoder;
 
 	MapState map_state;					//!< 最新の地面の状態．
 
@@ -51,4 +51,4 @@ struct SimulationResultRecorder final
 }	// namespace designlab
 
 
-#endif	// DESIGNLAB_SIMULATION_RESULT_RECORDER_H_
+#endif	// DESIGNLAB_SIMULATION_RESULT_RECORD_H_

@@ -104,7 +104,7 @@
     <ClInclude Include="output_detail.h" />
     <ClInclude Include="graph_searcher_random.h" />
     <ClInclude Include="gait_pattern_generator_basic.h" />
-    <ClInclude Include="graph_search_result_recoder.h" />
+    <ClInclude Include="graph_search_result_record.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="gait_pattern_generator_revaluation.h" />
@@ -146,7 +146,7 @@
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="system_main_result_viewer.h" />
     <ClInclude Include="robot_graund_point_renderer.h" />
-    <ClInclude Include="simulation_result_recorder.h" />
+    <ClInclude Include="simulation_result_record.h" />
     <ClInclude Include="application_setting_record.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
@@ -214,7 +214,7 @@
     <ClCompile Include="graph_searcher_straight_move.cpp" />
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
-    <ClCompile Include="graph_search_result_recoder.cpp" />
+    <ClCompile Include="graph_search_result_record.cpp" />
     <ClCompile Include="graph_tree_creator.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
@@ -258,7 +258,7 @@
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="system_main_result_viewer.cpp" />
     <ClCompile Include="robot_graund_point_renderer.cpp" />
-    <ClCompile Include="simulation_result_recorder.cpp" />
+    <ClCompile Include="simulation_result_record.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />

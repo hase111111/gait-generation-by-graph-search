@@ -351,10 +351,10 @@
     <ClInclude Include="result_file_exporter.h">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_result_recorder.h">
+    <ClInclude Include="simulation_result_record.h">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
-    <ClInclude Include="graph_search_result_recoder.h">
+    <ClInclude Include="graph_search_result_record.h">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClInclude>
     <ClInclude Include="result_file_importer.h">
@@ -752,10 +752,10 @@
     <ClCompile Include="result_file_exporter.cpp">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
-    <ClCompile Include="simulation_result_recorder.cpp">
+    <ClCompile Include="simulation_result_record.cpp">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
-    <ClCompile Include="graph_search_result_recoder.cpp">
+    <ClCompile Include="graph_search_result_record.cpp">
       <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
     </ClCompile>
     <ClCompile Include="result_file_importer.cpp">

@@ -64,10 +64,10 @@ void SystemMainSimulation::Main()
 		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．
 
 		//シミュレーションの結果を格納する変数．
-		SimulationResultRecorder record;
+		SimulationResultRecord record;
 
 		record.graph_search_result_recoder.push_back(
-			GraphSearchResultRecoder{ current_node , 0, {enums::Result::kSuccess,""} }
+			GraphSearchResultRecord{ current_node , 0, {enums::Result::kSuccess,""} }
 		);
 
 
@@ -108,7 +108,7 @@ void SystemMainSimulation::Main()
 
 			// ノード，計算時間，結果を格納する．
 			record.graph_search_result_recoder.push_back(
-				GraphSearchResultRecoder{ result_node , timer_.GetElapsedMilliSecond(), result_state }
+				GraphSearchResultRecord{ result_node , timer_.GetElapsedMilliSecond(), result_state }
 			);
 
 

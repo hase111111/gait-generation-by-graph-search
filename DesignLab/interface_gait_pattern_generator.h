@@ -6,7 +6,7 @@
 
 #include <vector>
 
-#include "graph_search_result_recoder.h"
+#include "graph_search_result_record.h"
 #include "map_state.h"
 #include "robot_state_node.h"
 #include "robot_operation.h"

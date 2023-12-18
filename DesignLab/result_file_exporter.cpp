@@ -78,7 +78,7 @@ void ResultFileExporter::Init()
 	init_success_ = true;
 }
 
-void ResultFileExporter::PushSimulationResult(const SimulationResultRecorder& simu_result)
+void ResultFileExporter::PushSimulationResult(const SimulationResultRecord& simu_result)
 {
 	//結果をセットする
 	result_list_.push_back(simu_result);
@@ -236,7 +236,7 @@ void ResultFileExporter::ExportResult() const
 	}
 }
 
-bool ResultFileExporter::OutputResultDetail(const SimulationResultRecorder& recoder, const int index) const
+bool ResultFileExporter::OutputResultDetail(const SimulationResultRecord& recoder, const int index) const
 {
 	//出力先ファイルを作成する．
 	std::string output_file_name =

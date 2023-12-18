@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "gait_pattern_graph_tree.h"
-#include "graph_search_result_recoder.h"
+#include "graph_search_result_record.h"
 #include "robot_operation.h"
 
 

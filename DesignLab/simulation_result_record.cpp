@@ -1,4 +1,4 @@
-﻿#include "simulation_result_recorder.h"
+﻿#include "simulation_result_record.h"
 
 #include <sstream>
 
@@ -10,15 +10,14 @@
 namespace designlab
 {
 
-
-std::string SimulationResultRecorder::ToCsvString() const
+std::string SimulationResultRecord::ToCsvString() const
 {
 	//シミュレーションの最終的な結果の出力
 	std::stringstream ss;
 	ss << "Simulation Result," << string_util::EnumToStringRemoveTopK(simulation_result) << std::endl;
 	ss << std::endl;
 
-	ss << GraphSearchResultRecoder::GetCsvHeader() << std::endl;
+	ss << GraphSearchResultRecord::GetCsvHeader() << std::endl;
 
 	const size_t kLength = graph_search_result_recoder.size();
 

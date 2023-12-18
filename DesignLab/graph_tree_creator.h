@@ -8,7 +8,7 @@
 #include <memory>
 
 #include "gait_pattern_graph_tree.h"
-#include "graph_search_result_recoder.h"
+#include "graph_search_result_record.h"
 #include "interface_node_creator.h"
 #include "interface_node_creator_builder.h"
 

@@ -1,4 +1,4 @@
-﻿#include "graph_search_result_recoder.h"
+﻿#include "graph_search_result_record.h"
 
 #include <sstream>
 
@@ -13,7 +13,7 @@ std::string GraphSearchResult::ToString() const
 	return string_util::EnumToStringRemoveTopK(result) + "," + message;
 }
 
-std::string GraphSearchResultRecoder::ToCsvString() const
+std::string GraphSearchResultRecord::ToCsvString() const
 {
 	// std::boolalphaを使うと，bool値を文字列に変換できる．
 	// excelにおいて，数値を文字列として扱うためには，数値の前にシングルクォーテーション ' をつける必要がある．
@@ -35,7 +35,7 @@ std::string GraphSearchResultRecoder::ToCsvString() const
 	return stream.str();
 }
 
-std::string GraphSearchResultRecoder::GetCsvHeader()
+std::string GraphSearchResultRecord::GetCsvHeader()
 {
 	std::stringstream stream;
 

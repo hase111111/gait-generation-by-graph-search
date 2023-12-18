@@ -1,8 +1,8 @@
-﻿//! @file graph_search_result_recoder.h
+﻿//! @file graph_search_result_record.h
 //! @brief グラフ探索の結果を格納する構造体．
 
-#ifndef DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
-#define DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
+#ifndef DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
+#define DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
 
 #include <string>
 
@@ -51,19 +51,19 @@ struct GraphSearchResult final
 };
 
 
-//! @struct GraphSearchResultRecoder
+//! @struct GraphSearchResultRecord
 //! @brief グラフ探索の結果を格納する構造体．
 //! @note 変数をごちゃごちゃさせたくないので作成した．
-struct GraphSearchResultRecoder final
+struct GraphSearchResultRecord final
 {
-	GraphSearchResultRecoder() :
+	GraphSearchResultRecord() :
 		result_node{},
 		computation_time(0.0),
 		graph_search_result{}
 	{
 	};
 
-	GraphSearchResultRecoder(const RobotStateNode& node, const double time, const GraphSearchResult result) :
+	GraphSearchResultRecord(const RobotStateNode& node, const double time, const GraphSearchResult result) :
 		result_node(node),
 		computation_time(time),
 		graph_search_result(result)
@@ -91,4 +91,4 @@ struct GraphSearchResultRecoder final
 }	// namespace designlab
 
 
-#endif	// DESIGNLAB_GRAPH_SEARCH_RESULT_RECODER_H_
+#endif	// DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
