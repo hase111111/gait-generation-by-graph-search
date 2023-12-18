@@ -1,4 +1,4 @@
-﻿//! @file designlab_avarage.h
+﻿//! @file average_calculator.h
 //! @brief 平均値，分散，標準偏差を求めるテンプレートクラス．
 
 #ifndef	DESIGNLAB_AVERAGE_CALCULATOR_H_

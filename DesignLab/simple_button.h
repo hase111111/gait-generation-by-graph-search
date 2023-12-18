@@ -1,4 +1,4 @@
-﻿//! @file button_controller.h
+﻿//! @file simple_button.h
 //! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス．
 
 #ifndef DESIGNLAB_BUTTON_CONTROLLER_H_

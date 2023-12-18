@@ -30,7 +30,7 @@ enum class Result : int
 namespace designlab
 {
 
-//! @struct GraphSearchReslut
+//! @struct GraphSearchResult
 //! @brief グラフ探索の結果を表す構造体．
 struct GraphSearchResult final
 {

@@ -52,7 +52,7 @@
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
-    <ClInclude Include="avarage_calculator.h" />
+    <ClInclude Include="average_calculator.h" />
     <ClInclude Include="designlab_rotation_matrix.h" />
     <ClInclude Include="designlab_rot_converter.h" />
     <ClInclude Include="designlab_string_util.h" />
@@ -180,6 +180,7 @@
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="map_creator_by_csv.cpp" />
     <ClCompile Include="map_creator_factory.cpp" />
     <ClCompile Include="map_file_exporter.cpp" />
@@ -248,7 +249,6 @@
     <ClCompile Include="designlab_line_segment2.cpp" />
     <ClCompile Include="designlab_polygon2.cpp" />
     <ClCompile Include="robot_state_node.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="map_creator_for_simulation.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="mouse.cpp" />

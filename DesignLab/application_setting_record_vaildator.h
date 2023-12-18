@@ -1,5 +1,5 @@
-﻿//! application_setting_record_vaildator.h
-//! @brief 設定ファイルの内容を検証するクラス．
+﻿//! @file application_setting_record_vaildator.h
+//! @brief ApplicationSettingRecord のバリデータ．
 
 #ifndef APPLICATION_SETTING_RECORD_VAILDATOR_H_
 #define APPLICATION_SETTING_RECORD_VAILDATOR_H_
@@ -15,7 +15,7 @@ namespace designlab
 {
 
 //! @class ApplicationSettingRecordVaildator
-//! @brief 設定ファイルの内容を検証するクラス．
+//! @brief ApplicationSettingRecord のバリデータ．
 //! @details vaildator (バリデータ) は検証する人のこと．
 //! @n バリデータとは，バリデーションを行う機能，またはソフトウェアのことである．
 //! @n バリデータでは，入力されたデータが仕様にそって適切に記述されているかを判断し，不適切な箇所があった場合にはエラーとして通知する．

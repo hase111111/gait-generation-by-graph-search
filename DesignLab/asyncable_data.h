@@ -96,8 +96,9 @@ private:
 
 
 //! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 (vector版)
-//! @n コピー・ムーブは禁止
-//! @details vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
+//! @details 
+//! vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
+//! こちらもコピー・ムーブは禁止．
 template <typename T>
 class AsyncableData <std::vector<T> > final
 {

@@ -426,7 +426,7 @@
     <ClInclude Include="gait_pattern_generator_thread.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="avarage_calculator.h">
+    <ClInclude Include="average_calculator.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_gui_updater.h">
@@ -596,9 +596,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="leg_state.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
@@ -895,6 +892,9 @@
     </ClCompile>
     <ClCompile Include="robot_operator_free.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@
 
 #include <magic_enum.hpp>
 
-#include "avarage_calculator.h"
+#include "average_calculator.h"
 #include "cmdio_util.h"
 #include "designlab_math_util.h"
 #include "map_file_exporter.h"
