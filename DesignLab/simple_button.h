@@ -1,7 +1,6 @@
 ﻿//! @file button_controller.h
 //! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス．
 
-
 #ifndef DESIGNLAB_BUTTON_CONTROLLER_H_
 #define DESIGNLAB_BUTTON_CONTROLLER_H_
 
@@ -11,6 +10,10 @@
 #include <functional>
 #include <string>
 #include <vector>
+
+
+namespace designlab
+{
 
 //! @class SimpleButton
 //! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス．
@@ -39,7 +42,7 @@ public:
 	//! @param[in] pos_x ボタンのx座標．
 	//!	@param[in] pos_y ボタンのy座標．
 	//! @param[in] option ボタンのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
-	void SetPos(int pos_x, int pos_y, unsigned int option = designlab::kDxlibGuiAnchorLeftTop);
+	void SetPos(int pos_x, int pos_y, unsigned int option = kDxlibGuiAnchorLeftTop);
 
 	//! @brief ボタンのx座標を取得する．
 	//! @return int ボタンのx座標．ボタンの中心座標．
@@ -81,6 +84,8 @@ private:
 
 	std::function<void()> click_function_;	//!< ボタンがクリックされたときに実行される関数．
 };
+
+}	// namespace designlab
 
 
 #endif // DESIGNLAB_BUTTON_CONTROLLER_H_

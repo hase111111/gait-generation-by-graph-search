@@ -189,20 +189,20 @@ void ResultFileExporter::ExportAllResultDetail() const
 	ofs << "シミュレーション数" << result_list_.size() << "\n";
 
 	//成功したシミュレーション数を数える．
-	std::map<SimulationResult, int> result_count;
+	std::map<enums::SimulationResult, int> result_count;
 
 	for (const auto& i : result_list_)
 	{
 		result_count[i.simulation_result]++;
 	}
 
-	ofs << "成功したシミュレーション数," << result_count[SimulationResult::kSuccess] << "\n";
+	ofs << "成功したシミュレーション数," << result_count[enums::SimulationResult::kSuccess] << "\n";
 	ofs << "失敗したシミュレーション数," <<
-		result_count[SimulationResult::kFailureByGraphSearch] + result_count[SimulationResult::kFailureByLoopMotion] +
-		result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
-	ofs << "グラフ探索に失敗," << result_count[SimulationResult::kFailureByGraphSearch] << "\n";
-	ofs << "デッドロックに陥った," << result_count[SimulationResult::kFailureByLoopMotion] << "\n";
-	ofs << "ノード数制限を超えた," << result_count[SimulationResult::kFailureByNodeLimitExceeded] << "\n";
+		result_count[enums::SimulationResult::kFailureByGraphSearch] + result_count[enums::SimulationResult::kFailureByLoopMotion] +
+		result_count[enums::SimulationResult::kFailureByNodeLimitExceeded] << "\n";
+	ofs << "グラフ探索に失敗," << result_count[enums::SimulationResult::kFailureByGraphSearch] << "\n";
+	ofs << "デッドロックに陥った," << result_count[enums::SimulationResult::kFailureByLoopMotion] << "\n";
+	ofs << "ノード数制限を超えた," << result_count[enums::SimulationResult::kFailureByNodeLimitExceeded] << "\n";
 }
 
 

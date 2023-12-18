@@ -7,8 +7,8 @@
 #include "font_loader.h"
 
 
-namespace dl = ::designlab;
-
+namespace designlab
+{
 
 DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, const int window_y) :
 	window_x_(window_x),
@@ -45,32 +45,32 @@ DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, con
 		std::make_unique<SimpleButton>("↓", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
 	button_.back()->SetActivateFunction([this]()
-		{
-			if (animation_speed_ > kAnimeSpeedMin)
-			{
-				--animation_speed_;
-			}
-		}
+										{
+											if (animation_speed_ > kAnimeSpeedMin)
+											{
+												--animation_speed_;
+											}
+										}
 	);
 
 	button_.push_back(
 		std::make_unique<SimpleButton>("↑", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY + (button_interval + button_width), button_width, button_width)
 	);
 	button_.back()->SetActivateFunction([this]()
-		{
-			if (animation_speed_ < kAnimeSpeedMax)
-			{
-				++animation_speed_;
-			}
-		}
+										{
+											if (animation_speed_ < kAnimeSpeedMax)
+											{
+												++animation_speed_;
+											}
+										}
 	);
 
 	button_.push_back(std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY + (button_interval + button_width) * 2,
-		button_width * 2, button_width));
+					  button_width * 2, button_width));
 	button_.back()->SetActivateFunction([this]() { MovePrevSimulation(); });
 
 	button_.push_back(std::make_unique<SimpleButton>("Next Simu", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width) * 2,
-		button_width * 2, button_width));
+					  button_width * 2, button_width));
 	button_.back()->SetActivateFunction([this]() { MoveNextSimulation(); });
 
 	const int close_button_size = 28;
@@ -86,20 +86,20 @@ void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
 
-	if (option & dl::kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-	else if (option & dl::kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-	else if (option & dl::kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
+	if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
-	if (option & dl::kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-	else if (option & dl::kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-	else if (option & dl::kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+	if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
 	const int diff_x = gui_left_pos_x_ - past_x;
 	const int diff_y = gui_top_pos_y_ - past_y;
 
 	for (auto& button : button_)
 	{
-		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, kDxlibGuiAnchorMidleXMidleY);
 	}
 
 	if (this_is_first_time)
@@ -219,13 +219,13 @@ void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
 
 	if (visible_)
 	{
-		SetPos(set_pos_x_, set_pos_y_, dl::kDxlibGuiAnchorLeftTop);
+		SetPos(set_pos_x_, set_pos_y_, kDxlibGuiAnchorLeftTop);
 	}
 }
 
 
 void DxlibGuiDisplayNodeSwitcher::ClickedAction(const int cursor_x, const int cursor_y,
-	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
+												const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	// ボタンを更新する
 	for (auto& i : button_)
@@ -256,7 +256,7 @@ bool DxlibGuiDisplayNodeSwitcher::IsDraggable(const int cursor_x, const int curs
 
 void DxlibGuiDisplayNodeSwitcher::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] unsigned int mouse_key_bit)
 {
-	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kDxlibGuiAnchorLeftTop);
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, kDxlibGuiAnchorLeftTop);
 }
 
 
@@ -391,12 +391,12 @@ void DxlibGuiDisplayNodeSwitcher::DrawBackground() const
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
 	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
+			gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
 
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
 	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
+			gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
 
 	const int text_pos_x = gui_left_pos_x_ + 10;
 	const int text_pos_y = gui_top_pos_y_ + 10;
@@ -411,3 +411,5 @@ bool DxlibGuiDisplayNodeSwitcher::IsInWindow() const
 	return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
 		0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
+
+} // namespace designlab

@@ -1,5 +1,5 @@
-//! @file model_loader.h
-//! @brief Dxlib‚Ì3Dƒ‚ƒfƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒXD
+ï»¿//! @file model_loader.h
+//! @brief Dxlibã®3Dãƒ¢ãƒ‡ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_MODEL_LOADER_H_
 #define DESIGNLAB_MODEL_LOADER_H_
@@ -10,32 +10,35 @@
 #include "singleton.h"
 
 
+namespace designlab
+{
+
 //! @class ModelLoader
-//! @brief Dxlib‚Ì3Dƒ‚ƒfƒ‹‚ğ“Ç‚İ‚ŞƒNƒ‰ƒXD
-//! @details ƒVƒ“ƒOƒ‹ƒgƒ“‚Å‚ ‚èCModelLoader::GetIns()‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚éD
-//! @n ŒÄ‚Ño‚·‚Æ‚«‚ÍModelLoader::GetIns()->GetModelHandle(file_path)‚Æ‚·‚éD
+//! @brief Dxlibã®3Dãƒ¢ãƒ‡ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚¯ãƒ©ã‚¹ï¼
+//! @details ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã§ã‚ã‚Šï¼ŒModelLoader::GetIns()ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹ï¼
+//! @n å‘¼ã³å‡ºã™ã¨ãã¯ModelLoader::GetIns()->GetModelHandle(file_path)ã¨ã™ã‚‹ï¼
 //! @code
-//! // —á
+//! // ä¾‹
 //! 
-//! // ƒ‚ƒfƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX
+//! // ãƒ¢ãƒ‡ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
 //! std::string file_path = "data/model/robot/robot.x";
 //! 
-//! // ƒ‚ƒfƒ‹‚Ìƒnƒ“ƒhƒ‹”Ô†
+//! // ãƒ¢ãƒ‡ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ«ç•ªå·
 //! int model_handle = ModelLoader::GetIns()->GetModelHandle(file_path);
 //! @endcode
 //! @see Singleton
-//! @attention ‚±‚ÌƒNƒ‰ƒX‚ğg—p‚·‚é‚Æ‚«‚ÍC•K‚¸DxLib_Init()‚ÌŒã‚Ég—p‚·‚é‚±‚ÆD
-//! ‚Ü‚½CDxLib_End()‚Ì‘O‚Ég—p‚ğI—¹‚·‚é‚±‚ÆD
-//! ‚±‚ê‚ç‚ğç‚ç‚È‚¢‚ÆCƒAƒvƒŠ‚ªƒNƒ‰ƒbƒVƒ…‚·‚éD
+//! @attention ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹ã¨ãã¯ï¼Œå¿…ãšDxLib_Init()ã®å¾Œã«ä½¿ç”¨ã™ã‚‹ã“ã¨ï¼
+//! ã¾ãŸï¼ŒDxLib_End()ã®å‰ã«ä½¿ç”¨ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ï¼
+//! ã“ã‚Œã‚‰ã‚’å®ˆã‚‰ãªã„ã¨ï¼Œã‚¢ãƒ—ãƒªãŒã‚¯ãƒ©ãƒƒã‚·ãƒ¥ã™ã‚‹ï¼
 class ModelLoader final : public Singleton<ModelLoader>
 {
 public:
-	
-	//! @brief Dxlib‚Í3Dƒ‚ƒfƒ‹‚ğ•`‰æ‚·‚éÛ‚ÉCƒ‚ƒfƒ‹‚Ìƒnƒ“ƒhƒ‹‚ğw’è‚·‚éD
-	//! @n ƒ‚ƒfƒ‹‚ª‚Ü‚¾“Ç‚İ‚Ü‚ê‚Ä‚¢‚È‚¢ê‡‚ÍCƒ‚ƒfƒ‹‚ğ“Ç‚İ‚ñ‚Å‚©‚çCƒnƒ“ƒhƒ‹”Ô†‚ğ•Ô‚·D
-	//! @n ‚·‚Å‚É“Ç‚İ‚İ‚¸‚İ‚Ìƒ‚ƒfƒ‹‚ğ“Ç‚İ‚ñ‚¾ê‡‚ÍCƒnƒ“ƒhƒ‹”Ô†‚ğ•Ô‚·D
-	//! @param [in] file_path ƒ‚ƒfƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX.
-	//! @return int ƒ‚ƒfƒ‹‚Ìƒnƒ“ƒhƒ‹”Ô†D¸”s‚µ‚½‚ç-1‚ğ•Ô‚·D¬Œ÷’l‚Í³‚Ì’lD
+
+	//! @brief Dxlibã¯3Dãƒ¢ãƒ‡ãƒ«ã‚’æç”»ã™ã‚‹éš›ã«ï¼Œãƒ¢ãƒ‡ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ«ã‚’æŒ‡å®šã™ã‚‹ï¼
+	//! @n ãƒ¢ãƒ‡ãƒ«ãŒã¾ã èª­ã¿è¾¼ã¾ã‚Œã¦ã„ãªã„å ´åˆã¯ï¼Œãƒ¢ãƒ‡ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§ã‹ã‚‰ï¼Œãƒãƒ³ãƒ‰ãƒ«ç•ªå·ã‚’è¿”ã™ï¼
+	//! @n ã™ã§ã«èª­ã¿è¾¼ã¿ãšã¿ã®ãƒ¢ãƒ‡ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã å ´åˆã¯ï¼Œãƒãƒ³ãƒ‰ãƒ«ç•ªå·ã‚’è¿”ã™ï¼
+	//! @param [in] file_path ãƒ¢ãƒ‡ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹.
+	//! @return int ãƒ¢ãƒ‡ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ«ç•ªå·ï¼å¤±æ•—ã—ãŸã‚‰-1ã‚’è¿”ã™ï¼æˆåŠŸå€¤ã¯æ­£ã®å€¤ï¼
 	[[nodiscard]] int GetModelHandle(const std::string& file_path);
 
 private:
@@ -46,8 +49,10 @@ private:
 	ModelLoader(const ModelLoader& r) = default;
 	ModelLoader& operator=(const ModelLoader& r) = default;
 
-	std::map<std::string, int> model_handle_map_;	//!< “Ç‚İ‚İÏ‚İ‚Ìƒ‚ƒfƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚Æƒnƒ“ƒhƒ‹”Ô†‚Ì‘Î‰•\
+	std::map<std::string, int> model_handle_map_;	//!< èª­ã¿è¾¼ã¿æ¸ˆã¿ã®ãƒ¢ãƒ‡ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã¨ãƒãƒ³ãƒ‰ãƒ«ç•ªå·ã®å¯¾å¿œè¡¨ï¼
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_MODEL_LOADER_H_

@@ -1,4 +1,4 @@
-#include "dxlib_gui_camera_parameter_displayer.h"
+Ôªø#include "dxlib_gui_camera_parameter_displayer.h"
 
 #include <magic_enum.hpp>
 
@@ -7,10 +7,8 @@
 #include "font_loader.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dlsu = ::designlab::string_util;
-
+namespace designlab
+{
 
 DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer(
 	const int window_x,
@@ -25,7 +23,7 @@ DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer(
 	const int close_button_x = gui_left_pos_x_ + kWidth - close_button_size / 2 - 2;
 	const int close_button_y = gui_top_pos_y_ + close_button_size / 2 + 2;
 
-	button_.push_back(std::make_unique<SimpleButton>("Å~", close_button_x, close_button_y, close_button_size, close_button_size));
+	button_.push_back(std::make_unique<SimpleButton>("√ó", close_button_x, close_button_y, close_button_size, close_button_size));
 	button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
@@ -34,20 +32,20 @@ void DxlibGuiCameraParameterDisplayer::SetPos(const int pos_x, const int pos_y, 
 	const int past_x = gui_left_pos_x_;
 	const int past_y = gui_top_pos_y_;
 
-	if (option & dl::kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-	else if (option & dl::kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-	else if (option & dl::kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
+	if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
+	else if (option & kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+	else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
-	if (option & dl::kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-	else if (option & dl::kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-	else if (option & dl::kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+	if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
+	else if (option & kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+	else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
 	const int diff_x = gui_left_pos_x_ - past_x;
 	const int diff_y = gui_top_pos_y_ - past_y;
 
 	for (auto& button : button_)
 	{
-		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, dl::kDxlibGuiAnchorMidleXMidleY);
+		button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, kDxlibGuiAnchorMidleXMidleY);
 	}
 
 	if (this_is_first_time)
@@ -59,7 +57,7 @@ void DxlibGuiCameraParameterDisplayer::SetPos(const int pos_x, const int pos_y, 
 
 void DxlibGuiCameraParameterDisplayer::Update()
 {
-	// É{É^ÉìÇçXêVÇ∑ÇÈ
+	// „Éú„Çø„É≥„ÇíÊõ¥Êñ∞„Åô„Çã
 	for (auto& i : button_)
 	{
 		i->Update();
@@ -73,10 +71,10 @@ void DxlibGuiCameraParameterDisplayer::Update()
 
 void DxlibGuiCameraParameterDisplayer::Draw() const
 {
-	// òg
+	// Êû†
 	DrawBackground();
 
-	// É{É^ÉìÇï`âÊÇ∑ÇÈ
+	// „Éú„Çø„É≥„ÇíÊèèÁîª„Åô„Çã
 	for (const auto& i : button_)
 	{
 		i->Draw();
@@ -96,14 +94,14 @@ void DxlibGuiCameraParameterDisplayer::SetVisible(const bool visible)
 
 	if (visible_)
 	{
-		SetPos(set_pos_x_, set_pos_y_, dl::kDxlibGuiAnchorLeftTop);
+		SetPos(set_pos_x_, set_pos_y_, kDxlibGuiAnchorLeftTop);
 	}
 }
 
 void DxlibGuiCameraParameterDisplayer::ClickedAction(const int cursor_x, const int cursor_y,
-	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
+													 const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-	// É{É^ÉìÇçXêVÇ∑ÇÈ
+	// „Éú„Çø„É≥„ÇíÊõ¥Êñ∞„Åô„Çã
 	for (auto& i : button_)
 	{
 		if (i->CursorOnGui(cursor_x, cursor_y))
@@ -132,7 +130,7 @@ bool DxlibGuiCameraParameterDisplayer::IsDraggable(const int cursor_x, const int
 
 void DxlibGuiCameraParameterDisplayer::DraggedAction(const int cursor_dif_x, const int cursor_dif_y, [[maybe_unused]] const unsigned int mouse_key_bit)
 {
-	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, dl::kDxlibGuiAnchorLeftTop);
+	SetPos(gui_left_pos_x_ + cursor_dif_x, gui_top_pos_y_ + cursor_dif_y, kDxlibGuiAnchorLeftTop);
 }
 
 void DxlibGuiCameraParameterDisplayer::DrawBackground() const
@@ -146,12 +144,12 @@ void DxlibGuiCameraParameterDisplayer::DrawBackground() const
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
 	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
+			gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kHeight + frame_width, frame_color, TRUE);
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kHeight, base_color, TRUE);
 
 	DrawBox(gui_left_pos_x_, gui_top_pos_y_, gui_left_pos_x_ + kWidth, gui_top_pos_y_ + kTitleBarHeight, base_color, TRUE);
 	DrawBox(gui_left_pos_x_ - frame_width, gui_top_pos_y_ - frame_width,
-		gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
+			gui_left_pos_x_ + kWidth + frame_width, gui_top_pos_y_ + kTitleBarHeight + frame_width, frame_color, FALSE);
 
 
 	const int text_pos_x = gui_left_pos_x_ + 10;
@@ -174,31 +172,31 @@ void DxlibGuiCameraParameterDisplayer::DrawCameraParameter() const
 
 	int text_line = 0;
 
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇÃå¸Ç´(ê≥ãKâªÉNÉHÅ[É^ÉjÉIÉì)");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@(w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)",
-		camera_ptr_->GetNowCameraQuat().w, camera_ptr_->GetNowCameraQuat().v.x, camera_ptr_->GetNowCameraQuat().v.y, camera_ptr_->GetNowCameraQuat().v.z);
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„ÅÆÂêë„Åç(Ê≠£Ë¶èÂåñ„ÇØ„Ç©„Éº„Çø„Éã„Ç™„É≥)");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ(w:%5.3f,x:%5.3f,y:%5.3f,z:%5.3f)",
+							 camera_ptr_->GetNowCameraQuat().w, camera_ptr_->GetNowCameraQuat().v.x, camera_ptr_->GetNowCameraQuat().v.y, camera_ptr_->GetNowCameraQuat().v.z);
 
-	dl::EulerXYZ euler_xyz = dl::ToEulerXYZ(camera_ptr_->GetNowCameraQuat());
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇÃå¸Ç´(ÉIÉCÉâÅ[äp)");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@(roll:%5.3f[deg],pitch:%5.3f[deg],yaw:%5.3f[deg])",
-		dlm::ConvertRadToDeg(euler_xyz.x_angle), dlm::ConvertRadToDeg(euler_xyz.y_angle), dlm::ConvertRadToDeg(euler_xyz.z_angle));
-
-	text_line++;
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇÃï\é¶ÉÇÅ[Éh");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@%s", 
-		static_cast<std::string>(magic_enum::enum_name(camera_ptr_->GetCameraViewMode())).c_str());
-
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇÃíçéãì_ÇÃç¿ïW");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@(x:%5.3f [mm],y:%5.3f [mm],z:%5.3f [mm])",
-		camera_ptr_->GetNowTargetPos().x, camera_ptr_->GetNowTargetPos().y, camera_ptr_->GetNowTargetPos().z);
-
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇ∆ëŒè€Ç∆ÇÃãóó£");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@%5.3f [mm]", camera_ptr_->GetNowCameraToTargetLength());
+	EulerXYZ euler_xyz = ToEulerXYZ(camera_ptr_->GetNowCameraQuat());
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„ÅÆÂêë„Åç(„Ç™„Ç§„É©„ÉºËßí)");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ(roll:%5.3f[deg],pitch:%5.3f[deg],yaw:%5.3f[deg])",
+							 math_util::ConvertRadToDeg(euler_xyz.x_angle), math_util::ConvertRadToDeg(euler_xyz.y_angle), math_util::ConvertRadToDeg(euler_xyz.z_angle));
 
 	text_line++;
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "ÉJÉÅÉâÇÃà íu");
-	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "Å@(x:%5.3f [mm],y:%5.3f [mm],z:%5.3f [mm])",
-		camera_ptr_->GetNowCameraPos().x, camera_ptr_->GetNowCameraPos().y, camera_ptr_->GetNowCameraPos().z);
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„ÅÆË°®Á§∫„É¢„Éº„Éâ");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ%s",
+							 static_cast<std::string>(magic_enum::enum_name(camera_ptr_->GetCameraViewMode())).c_str());
+
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„ÅÆÊ≥®Ë¶ñÁÇπ„ÅÆÂ∫ßÊ®ô");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ(x:%5.3f [mm],y:%5.3f [mm],z:%5.3f [mm])",
+							 camera_ptr_->GetNowTargetPos().x, camera_ptr_->GetNowTargetPos().y, camera_ptr_->GetNowTargetPos().z);
+
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„Å®ÂØæË±°„Å®„ÅÆË∑ùÈõ¢");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ%5.3f [mm]", camera_ptr_->GetNowCameraToTargetLength());
+
+	text_line++;
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„Ç´„É°„É©„ÅÆ‰ΩçÁΩÆ");
+	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle, "„ÄÄ(x:%5.3f [mm],y:%5.3f [mm],z:%5.3f [mm])",
+							 camera_ptr_->GetNowCameraPos().x, camera_ptr_->GetNowCameraPos().y, camera_ptr_->GetNowCameraPos().z);
 }
 
 bool DxlibGuiCameraParameterDisplayer::IsInWindow() const
@@ -206,3 +204,5 @@ bool DxlibGuiCameraParameterDisplayer::IsInWindow() const
 	return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
 		0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
+
+} // namespace designlab

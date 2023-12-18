@@ -1,10 +1,8 @@
 ﻿//! @file dxlib_gui_camera.h
 //! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス．
 
-
 #ifndef DESIGNLAB_DXLIB_GUI_CAMERA_H_
 #define DESIGNLAB_DXLIB_GUI_CAMERA_H_
-
 
 #include <map>
 #include <memory>
@@ -17,6 +15,9 @@
 #include "interface_dxlib_node_setter.h"
 #include "simple_button.h"
 
+
+namespace designlab
+{
 
 //! @class DxlibGuiCamera
 //! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス．
@@ -40,7 +41,7 @@ public:
 	//! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．defaultでは左上を起点とする．
 	//! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する．defaultではfalse．
 	//! trueを指定すると，GUIの位置を設定するだけでなく，GUIの初期位置を更新する．
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
+	void SetPos(int pos_x, int pos_y, unsigned int option = kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 
 	void SetNode(const RobotStateNode& node) override;
@@ -72,10 +73,10 @@ private:
 	static constexpr int kTitleBarHeight{ 32 };	//!< タイトルバーの高さ．
 
 
-	//! @brief GUIの背景を描画する
+	//! @brief GUIの背景を描画する．
 	void DrawBackground() const;
 
-	//! @brief GUIの文字を描画する
+	//! @brief GUIの文字を描画する．
 	void DrawString() const;
 
 	bool IsInWindow() const;
@@ -99,6 +100,8 @@ private:
 	const int kFontSize{ 16 };		//!< フォントのサイズ
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_DXLIB_GUI_CAMERA_H_

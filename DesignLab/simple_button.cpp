@@ -10,13 +10,11 @@
 #include "font_loader.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dlsu = ::designlab::string_util;
-
+namespace designlab
+{
 
 SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int pos_y, const int size_x, const int size_y, const bool fit_size) :
-	text_(dlsu::Split(text, "\n")),
+	text_(string_util::Split(text, "\n")),
 	pos_middle_x(pos_x),
 	pos_middle_y(pos_y),
 	kSizeX(fit_size ? GetFitButtonSizeX(size_x) : size_x),
@@ -28,19 +26,19 @@ SimpleButton::SimpleButton(const std::string& text, const int pos_x, const int p
 
 void SimpleButton::SetPos(const int pos_x, const int pos_y, const unsigned int option)
 {
-	if (option & dl::kDxlibGuiAnchorLeft) { pos_middle_x = pos_x - kSizeX / 2; }
-	else if (option & dl::kDxlibGuiAnchorMidleX) { pos_middle_x = pos_x; }
-	else if (option & dl::kDxlibGuiAnchorRight) { pos_middle_x = pos_x + kSizeX / 2; }
+	if (option & kDxlibGuiAnchorLeft) { pos_middle_x = pos_x - kSizeX / 2; }
+	else if (option & kDxlibGuiAnchorMidleX) { pos_middle_x = pos_x; }
+	else if (option & kDxlibGuiAnchorRight) { pos_middle_x = pos_x + kSizeX / 2; }
 
-	if (option & dl::kDxlibGuiAnchorTop) { pos_middle_y = pos_y - kSizeY / 2; }
-	else if (option & dl::kDxlibGuiAnchorMidleY) { pos_middle_y = pos_y; }
-	else if (option & dl::kDxlibGuiAnchorBottom) { pos_middle_y = pos_y + kSizeY / 2; }
+	if (option & kDxlibGuiAnchorTop) { pos_middle_y = pos_y - kSizeY / 2; }
+	else if (option & kDxlibGuiAnchorMidleY) { pos_middle_y = pos_y; }
+	else if (option & kDxlibGuiAnchorBottom) { pos_middle_y = pos_y + kSizeY / 2; }
 }
 
 void SimpleButton::Update()
 {
 	//now_color_blue_をtarget_color_blue_に近づける
-	now_color_blue_ = dlm::ApproachTarget(now_color_blue_, target_color_blue_, 0.1f);
+	now_color_blue_ = math_util::ApproachTarget(now_color_blue_, target_color_blue_, 0.1f);
 
 	target_color_blue_ -= 4;
 	target_color_blue_ = target_color_blue_ < 0 ? 0 : target_color_blue_;
@@ -91,7 +89,7 @@ void SimpleButton::Draw() const
 }
 
 void SimpleButton::ClickedAction([[maybe_unused]] const int cursor_x, [[maybe_unused]] const int cursor_y,
-	const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
+								 const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
 	target_color_blue_ = 64;
 
@@ -149,3 +147,5 @@ int SimpleButton::GetFitButtonSizeY(const int now_size_y) const noexcept
 		return now_size_y;
 	}
 }
+
+} // namespace designlab

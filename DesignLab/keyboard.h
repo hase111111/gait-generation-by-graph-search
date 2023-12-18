@@ -1,43 +1,46 @@
-//! @file keyboard.h
-//! @brief Dxlib�̃L�[���͂��擾����N���X
+﻿//! @file keyboard.h
+//! @brief Dxlibのキーボード入力を取得するクラス．
 
 #ifndef DESIGNLAB_KEYBOARD_H_
 #define DESIGNLAB_KEYBOARD_H_
-
 
 #include <array>
 
 #include "singleton.h"
 
 
+namespace designlab
+{
+
 //! @class Keyboard
-//! @brief Dxlib�̃L�[���͂��擾����N���X�D
-//! @details �ڂ��������̓��e�͂����� https://dixq.net/rp2/08.html 
+//! @brief Dxlibのキーボード入力を取得するクラス．
+//! @details 
+//! 詳しい処理の内容はこちら https://dixq.net/rp2/08.html 
 //! @n
-//! @n Keyboard�̓V���O���g���N���X�Ȃ̂Ŏ��̂𐶐����邱�Ƃ��ł��Ȃ��D
-//! @n GetIns()��p���Ċ֐����Ăяo���K�v������D
+//! @n Keyboardはシングルトンクラスなので実体を生成することができない．
+//! GetIns()を用いて関数を呼び出す必要がある．
 //! @n
-//! @n ��) 
+//! @n 例) 
 //! @n @t Keyboard::GetIns()->Update() 
 //! @n
-//! @n �܂����ӓ_�Ƃ��ẮC�����܂�Dxlib�̏������s�����߁C�R�}���h���C���ł͌Ăяo���Ȃ��D
-//! @n �Ƃ������Ăяo���邯��ǂ��܂����삷�邩�͕ۏ؂���Ȃ��D�v���I�ȃo�O��G���[��U������\��������̂ŌĂԂׂ��łȂ��D
-//! @n �f���� std::cin ���g���ׂ��D( C����̊֐��� scanf �͎g�p���ׂ��łȂ�)
+//! @n また注意点としては，あくまでDxlibの処理を行うため，コマンドラインでは呼び出せない．
+//! @n というか呼び出せるけれどうまく動作するかは保証されない．致命的なバグやエラーを誘発する可能性があるので呼ぶべきでない．
+//! @n 素直に std::cin を使うべき．( C言語の関数の scanf は使用すべきでない)
 class Keyboard final : public Singleton<Keyboard>
 {
 public:
 
-	//! @brief �L�[���͂��X�V����D����𖈃t���[�����s���Ȃ��ƁC�L�[���͂��擾�ł��Ȃ��D
+	//! @brief キー入力を更新する．これを毎フレーム実行しないと，キー入力を取得できない．
 	void Update();
 
-	//! @brief keyCode�̃L�[��������Ă���t���[�������擾����D
-	//! @param [in] keyCode �ǂ̃L�[�𒲂ׂ������C�Ⴆ��Z�L�[��������CKEY_INPUT_Z�ƂȂ�D
-	//! @return int ������Ă���t���[�����D�ُ��key_code���n���ꂽ�ꍇ��-1��Ԃ��D
+	//! @brief keyCodeのキーが押されているフレーム数を取得する．
+	//! @param [in] keyCode どのキーを調べたいか，例えばZキーだったら，KEY_INPUT_Zとなる．
+	//! @return int 押されているフレーム数．異常なkey_codeが渡された場合は-1を返す．
 	int GetPressingCount(const int key_code) const;
 
-	//! @brief keyCode�̃L�[��������Ă���t���[�������擾����D
-	//! @param [in] keyCode �ǂ̃L�[�𒲂ׂ������C�Ⴆ��Z�L�[��������CKEY_INPUT_Z�ƂȂ�D
-	//! @return int ������Ă���t���[�����D�ُ��key_code���n���ꂽ�ꍇ��-1��Ԃ��D
+	//! @brief keyCodeのキーが離されているフレーム数を取得する．
+	//! @param [in] keyCode どのキーを調べたいか，例えばZキーだったら，KEY_INPUT_Zとなる．
+	//! @return int 離されているフレーム数．異常なkey_codeが渡された場合は-1を返す．
 	int GetReleasingCount(const int key_code) const;
 
 private:
@@ -45,16 +48,18 @@ private:
 	Keyboard();
 	friend Singleton< Keyboard >;
 
-	static const int kKeyNum = 256;						//!< Dxlib�ɂ�����L�[����
+	static const int kKeyNum = 256;						//!< Dxlibにおけるキー総数．
 
-	//! @brief keyCode���L���ȃL�[�ԍ����Ԃ�
-	//! @param [in] keyCode �ǂ̃L�[�𒲂ׂ������C�Ⴆ��Z�L�[��������CKEY_INPUT_Z�ƂȂ�D
-	//! @return bool �L���ȃL�[�ԍ��Ȃ�true�C�����łȂ����false�D
+	//! @brief keyCodeが有効なキー番号か返す．
+	//! @param [in] keyCode どのキーを調べたいか，例えばZキーだったら，KEY_INPUT_Zとなる．
+	//! @return bool 有効なキー番号ならtrue，そうでなければfalse．
 	bool IsAvailableCode(const int key_code) const;
 
-	std::array<int, kKeyNum> key_pressing_counter_;		//!< ������J�E���^
-	std::array<int, kKeyNum> key_releasing_counter_;	//!< ������J�E���^
+	std::array<int, kKeyNum> key_pressing_counter_;		//!< 押されカウンタ．
+	std::array<int, kKeyNum> key_releasing_counter_;	//!< 離されカウンタ．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_KEYBOARD_H_

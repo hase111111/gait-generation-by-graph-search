@@ -1,5 +1,5 @@
 ﻿//! @file dxlib_gui_node_displayer.h
-//! @brief ノードの情報を表示するGUI
+//! @brief ノードの情報を表示するGUIのクラス．
 
 
 #ifndef DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
@@ -19,14 +19,17 @@
 #include "simple_button.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibGuiNodeDisplayer
-//! @brief ノードの情報を表示するGUI
+//! @brief ノードの情報を表示するGUIのクラス．
 class DxlibGuiNodeDisplayer final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable, public IDxlibNodeSetter
 {
 public:
 
 	DxlibGuiNodeDisplayer(
-		int window_x, 
+		int window_x,
 		int window_y,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
@@ -106,6 +109,8 @@ private:
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
 	int font_handle_;	//!< フォントのハンドル
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_

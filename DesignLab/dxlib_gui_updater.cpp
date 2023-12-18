@@ -6,6 +6,10 @@
 #include "dxlib_gui_terminal.h"
 
 
+
+namespace designlab
+{
+
 void DxlibGuiUpdater::Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int priority)
 {
 	assert(kBottomPriority <= priority);
@@ -173,7 +177,7 @@ void DxlibGuiUpdater::Draw() const
 	//昇順にDrawする．
 	for (auto i = gui_ptrs_.begin(); i != gui_ptrs_.end(); ++i)
 	{
-		if ((*i).second->IsVisible()) 
+		if ((*i).second->IsVisible())
 		{
 			(*i).second->Draw();
 		}
@@ -300,7 +304,7 @@ void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse
 		if ((*i).second->CursorOnGui(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
 		{
 			(*i).second->ClickedAction(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY(),
-				mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT), mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE), mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT));
+									   mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT), mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE), mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT));
 			break;
 		}
 	}
@@ -376,3 +380,5 @@ void DxlibGuiUpdater::ActivateWheelHandler(const std::shared_ptr<const Mouse> mo
 		}
 	}
 }
+
+}	// namespace designlab

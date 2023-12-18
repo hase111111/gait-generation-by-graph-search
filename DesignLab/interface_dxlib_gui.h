@@ -7,6 +7,7 @@
 
 namespace designlab
 {
+
 constexpr unsigned int kDxlibGuiAnchorLeft = 1 << 0;
 constexpr unsigned int kDxlibGuiAnchorMidleX = 1 << 1;
 constexpr unsigned int kDxlibGuiAnchorRight = 1 << 2;
@@ -23,6 +24,7 @@ constexpr unsigned int kDxlibGuiAnchorMidleXBottom = kDxlibGuiAnchorMidleX | kDx
 constexpr unsigned int kDxlibGuiAnchorRightTop = kDxlibGuiAnchorRight | kDxlibGuiAnchorTop;
 constexpr unsigned int kDxlibGuiAnchorRightMidleY = kDxlibGuiAnchorRight | kDxlibGuiAnchorMidleY;
 constexpr unsigned int kDxlibGuiAnchorRightBottom = kDxlibGuiAnchorRight | kDxlibGuiAnchorBottom;
+
 
 //! @class IDxlibGui
 //! @brief Dxlibの画面に表示するGUIのインターフェース．

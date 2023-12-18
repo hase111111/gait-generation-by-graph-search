@@ -88,7 +88,7 @@ public:
 	//! @param [in] start_rough_x 不整地が始まるX座標．単位は[mm]
 	//! @param [in] base_z マップのZ座標．単位は[mm]
 	constexpr void SetMapSize(const float max_x, const float min_x, const float max_y,
-		const float min_y, const float start_rough_x, const float map_base_z)
+							  const float min_y, const float start_rough_x, const float map_base_z)
 	{
 		assert(min_x < max_x);
 		assert(min_y < max_y);
@@ -174,9 +174,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
 	DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(mode, DESIGNLAB_TOML11_NO_TABLE, "生成するマップの種類．(\"" +
-		::designlab::string_util::EnumValuesToString<SimulationMapMode>("\" / \"") + "\")");
+											  ::designlab::string_util::EnumValuesToString<enums::SimulationMapMode>("\" / \"") + "\")");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(option, DESIGNLAB_TOML11_NO_TABLE, "マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( " +
-		::designlab::string_util::EnumEntriesToString<SimulationMapOption>(" / ") + " )");
+											  ::designlab::string_util::EnumEntriesToString<enums::SimulationMapOption>(" / ") + " )");
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");

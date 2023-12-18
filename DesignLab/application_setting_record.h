@@ -40,7 +40,7 @@ struct ApplicationSettingRecord final
 	bool do_cmd_output{ true };										//!< コマンドラインに出力するかどうか．
 	enums::OutputDetail cmd_output_detail{ enums::OutputDetail::kInfo };			//!< コマンドラインに出力する際，どこまで許可するか．
 	bool do_gui_display{ true };									//!< GUIを表示するかどうか．
-	DisplayQuality gui_display_quality{ DisplayQuality::kHigh };	//!< GUIを表示する際，どこまで許可するか．
+	enums::DisplayQuality gui_display_quality{ enums::DisplayQuality::kHigh };	//!< GUIを表示する際，どこまで許可するか．
 	int window_size_x{ 1600 };										//!< グラフィカルウィンドウの横幅．
 	int window_size_y{ 900 };										//!< グラフィカルウィンドウの縦幅．
 	int window_fps{ 60 }; 											//!< グラフィカルウィンドウのFPS．
@@ -91,7 +91,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 											  string_util::EnumValuesToString<enums::OutputDetail>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(do_gui_display, "Output", "GUIを表示するかどうかを設定します．( true / false )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(gui_display_quality, "Output", "GUIを表示する際，どこまで許可するかを設定します．( \"" +
-											  string_util::EnumValuesToString<DisplayQuality>("\" / \"") + "\" )");
+											  string_util::EnumValuesToString<enums::DisplayQuality>("\" / \"") + "\" )");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(window_size_x, "Output", "グラフィカルウィンドウの横幅を設定します．" +
 											  std::to_string(ApplicationSettingRecord::kWindowWidthMin) + " ～ " + std::to_string(ApplicationSettingRecord::kWindowWidthMax) + "の範囲．推奨値は1600です．");
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(window_size_y, "Output", "グラフィカルウィンドウの縦幅を設定します．" +

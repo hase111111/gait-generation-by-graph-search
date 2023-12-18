@@ -11,6 +11,9 @@
 #include "interface_dxlib_wheel_handler.h"
 
 
+namespace designlab
+{
+
 //! @class CameraDragger
 //! @brief マウスの入力でカメラを動かすクラス．
 class CameraDragger final : public IDxlibDraggable, public IDxlibWheelHandler
@@ -54,6 +57,8 @@ private:
 
 	bool is_dragged_{ false };		//!< ドラッグ中かどうかのフラグ．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_CAMERA_DRAGGER_H_

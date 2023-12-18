@@ -4,12 +4,14 @@
 #ifndef DESIGNLAB_FONT_LOADER_H_
 #define DESIGNLAB_FONT_LOADER_H_
 
-
 #include <string>
 #include <map>
 
 #include "singleton.h"
 
+
+namespace designlab
+{
 
 //! @class FontLoader
 //! @brief Dxlibのフォントを読み込むクラス．
@@ -44,8 +46,10 @@ private:
 	FontLoader(const FontLoader& r) = default;
 	FontLoader& operator=(const FontLoader& r) = default;
 
-	std::map<std::string, int> font_handle_map_;	//!< 読み込み済みのモデルのファイルパスとハンドル番号の対応表
+	std::map<std::string, int> font_handle_map_;	//!< 読み込み済みのモデルのファイルパスとハンドル番号の対応表．
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_FONT_LOADER_H_

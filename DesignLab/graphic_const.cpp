@@ -1,7 +1,10 @@
-#include "graphic_const.h"
+﻿#include "graphic_const.h"
 
 #include <Dxlib.h>
 
+
+namespace designlab
+{
 
 const std::string GraphicConst::kWindowName = "HexapodGraphic";
 
@@ -14,3 +17,5 @@ const int GraphicConst::kBackColorBlue = 255;
 const float GraphicConst::kCameraToTargetMax = 10000.0f;
 
 const float GraphicConst::kCameraToTargetMin = 10.0f;
+
+} // namespace designlab

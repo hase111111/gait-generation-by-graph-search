@@ -1,25 +1,28 @@
-//! @file singleton.h
-//! @brief Singleton�N���X�쐬�̂��߂̃e���v���[�g�N���X�D
+﻿//! @file singleton.h
+//! @brief Singletonクラス作成のためのテンプレートクラス．
 
 #ifndef DESIGNLAB_SINGLETON_H_
 #define DESIGNLAB_SINGLETON_H_
 
 
+namespace designlab
+{
+
 //! @class Singleton
-//! @brief Singleton�N���X�쐬�̂��߂̃e���v���[�g�N���X�D
-//! @details ���̃N���X���p�������Singleton�N���X�ɂȂ�DSingleton�N���X�Ƃ́CC����ł����Ƃ���̃O���[�o���ϐ��i�ǂ�����ł��l��ύX�ł���ϐ��j�ł���D
-//! ���p����ƃv���O���������G�ɂȂ肪���Ȃ̂ŁC�O���t�T���ł͐�΂Ɏg��Ȃ����ƁD
-//! ���̃v���W�F�N�g�ł͉摜�\���N���X�ŃL�[�{�[�h�ƃ}�E�X�̓��͂��Ǘ����邽�߂Ɏg�p���Ă���D
-//! �Q�l https://dixq.net/rp2/ 
+//! @brief Singletonクラス作成のためのテンプレートクラス．
+//! @details このクラスを継承するとSingletonクラスになる．Singletonクラスとは，C言語でいうところのグローバル変数（どこからでも値を変更できる変数）である．
+//! 多用するとプログラムが複雑になりがちなので，グラフ探索では絶対に使わないこと．
+//! このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．
+//! 参考 https://dixq.net/rp2/ 
 //! @see FontLoader
 template <typename _T>
 class Singleton
 {
 public:
 
-	//! @brief �C���X�^���X���擾����D
-	//! @n ���̃N���X���p�������N���X�� �N���X��::getIns()-> �̌`���Ń����o�֐����Ăяo���D
-	//! @return _T* �C���X�^���X�̃|�C���^
+	//! @brief インスタンスを取得する．
+	//! @n このクラスを継承したクラスは クラス名::getIns()-> の形式でメンバ関数を呼び出す．
+	//! @return _T* インスタンスのポインタ．
 	static _T* GetIns()
 	{
 		static _T inst;
@@ -28,13 +31,15 @@ public:
 
 protected:
 
-	//�R���X�g���N�^�C�f�X�g���N�^�C�R�s�[�R���X�g���N�^�C������Z�q�͊O������Ăяo���Ȃ��悤�ɂ���D
+	//コンストラクタ，デストラクタ，コピーコンストラクタ，代入演算子は外部から呼び出せないようにする．
 	Singleton() = default;
 	virtual ~Singleton() = default;
 	Singleton(const Singleton& r) = default;
 	Singleton& operator=(const Singleton& r) = default;
 
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_SINGLETON_H_

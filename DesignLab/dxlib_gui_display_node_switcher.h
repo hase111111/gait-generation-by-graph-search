@@ -1,6 +1,5 @@
 ﻿//! @file dxlib_gui_display_node_switcher.h
-//! @brief ノードの表示切り替えGUI
-
+//! @brief ノードの表示・切り替えを行うGUIのクラス．
 
 #ifndef DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
 #define DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
@@ -14,8 +13,11 @@
 #include "simple_button.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibGuiDisplayNodeSwitcher
-//! @brief ノードの表示切り替えGUI
+//! @brief ノードの表示・切り替えを行うGUIのクラス．
 class DxlibGuiDisplayNodeSwitcher final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
 {
 public:
@@ -23,7 +25,7 @@ public:
 	DxlibGuiDisplayNodeSwitcher(int window_x, int window_y);
 
 
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
+	void SetPos(int pos_x, int pos_y, unsigned int option = kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 	//! @brief GUIに表示するノードの情報を設定する
 	//! @param[in] node_num 全ノード数
@@ -120,6 +122,8 @@ private:
 	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< フォントへのパス
 	const int font_handle_;	//!< フォントのハンドル
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_

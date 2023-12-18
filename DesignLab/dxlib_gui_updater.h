@@ -15,6 +15,9 @@
 #include "mouse.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibGuiUpdater
 //! @brief クリック判定を行うクラス．
 //! @details 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
@@ -116,6 +119,8 @@ private:
 
 	bool is_terminal_opened_{ false };		//!< Terminalが開かれているかどうか．
 };
+
+}	// namespace designlab
 
 
 #endif	// DESIGNLAB_DXLIB_GUI_UPDATER_H_

@@ -10,9 +10,9 @@ namespace designlab::enums
 
 //! enum DisplayQuality
 //! @brief 描画の品質設定を示す列挙体．
-enum class DisplayQuality
+enum class DisplayQuality : int
 {
-	kLow,		//!< 低品質．
+	kLow = 0,	//!< 低品質．
 	kMedium,	//!< 中品質．
 	kHigh,		//!< 高品質．
 };

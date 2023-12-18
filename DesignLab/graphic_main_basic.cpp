@@ -38,7 +38,7 @@ GraphicMainBasic::GraphicMainBasic(
 	counter_(0),
 	interpolated_anime_start_count_(kInterpolatedAnimeCount * -10)
 {
-	if (setting_ptr->gui_display_quality == DisplayQuality::kHigh)
+	if (setting_ptr->gui_display_quality == enums::DisplayQuality::kHigh)
 	{
 		movement_locus_renderer_.SetIsHighQuality(true);
 	}

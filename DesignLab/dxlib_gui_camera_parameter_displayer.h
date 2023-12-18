@@ -1,6 +1,5 @@
-//! @file dxlib_gui_camera_displayer.h
-//! @brief ƒJƒƒ‰‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚Ìˆ—E•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
-
+ï»¿//! @file dxlib_gui_camera_displayer.h
+//! @brief ã‚«ãƒ¡ãƒ©ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã®å‡¦ç†ãƒ»æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_DXLIB_GUI_CAMERA_DISPLAYER_H_
 #define DESIGNLAB_DXLIB_GUI_CAMERA_DISPLAYER_H_
@@ -16,33 +15,36 @@
 #include "simple_button.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibGuiCameraParameterDisplayer
-//! @brief ƒJƒƒ‰‚Ìî•ñ‚ğ•\¦‚·‚éGUI‚Ìˆ—E•`‰æ‚ğs‚¤ƒNƒ‰ƒXD
+//! @brief ã‚«ãƒ¡ãƒ©ã®æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹GUIã®å‡¦ç†ãƒ»æç”»ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 class DxlibGuiCameraParameterDisplayer final : public IDxlibGui, public IDxlibClickable, public IDxlibDraggable
 {
 public:
 
-	DxlibGuiCameraParameterDisplayer() = delete;	//!< ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í¶¬‚Å‚«‚È‚¢D
+	DxlibGuiCameraParameterDisplayer() = delete;	//!< ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ç”Ÿæˆã§ããªã„ï¼
 
-	//! @brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅWindow‚ÌƒTƒCƒY‚ÆCƒJƒƒ‰‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒX‚ğó‚¯æ‚éD
-	//! @param[in] window_x ƒEƒBƒ“ƒhƒE‚Ì‰¡•D
-	//! @param[in] window_y ƒEƒBƒ“ƒhƒE‚Ìc•D
-	//! @param[in] camera ƒJƒƒ‰‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒXD
+	//! @brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§Windowã®ã‚µã‚¤ã‚ºã¨ï¼Œã‚«ãƒ¡ãƒ©ã®ç®¡ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã‚’å—ã‘å–ã‚‹ï¼
+	//! @param[in] window_x ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…ï¼
+	//! @param[in] window_y ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…ï¼
+	//! @param[in] camera ã‚«ãƒ¡ãƒ©ã®ç®¡ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼
 	DxlibGuiCameraParameterDisplayer(
 		int window_x,
 		int window_y,
 		const std::shared_ptr<DxlibCamera> camera_ptr
 	);
 
-	//! @brief GUI‚ÌˆÊ’u‚ğİ’è‚·‚éD
-	//! @n Dxlib‚Ì‰æ–Ê‚ÌÀ•W‚Í¶ã‚ğŒ´“_‚Æ‚µC‰E‰º‚És‚­‚Ù‚Ç’l‚ª‘å‚«‚­‚È‚éD
-	//! @n ‰¡•ûŒü‚Éx²Cc•ûŒü‚Éy²‚ğ‚Æ‚éD
-	//! @param[in] pos_x GUI‚ÌxÀ•WD
-	//! @param[in] pos_y GUI‚ÌyÀ•WD
-	//! @param[in] option GUI‚Ì‚Ç‚Ì’n“_‚ğ‹N“_‚ÉÀ•W‚ğİ’è‚·‚é‚©‚ğw’è‚·‚éDdefault‚Å‚Í¶ã‚ğ‹N“_‚Æ‚·‚éD
-	//! @param[in] this_is_first_time ‚±‚ÌŒÄ‚Ño‚µ‚ª‰‚ß‚Ä‚©‚Ç‚¤‚©‚ğw’è‚·‚éDdefault‚Å‚ÍfalseD
-	//! true‚ğw’è‚·‚é‚ÆCGUI‚ÌˆÊ’u‚ğİ’è‚·‚é‚¾‚¯‚Å‚È‚­CGUI‚Ì‰ŠúˆÊ’u‚ğXV‚·‚éD
-	void SetPos(int pos_x, int pos_y, unsigned int option = ::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
+	//! @brief GUIã®ä½ç½®ã‚’è¨­å®šã™ã‚‹ï¼
+	//! @n Dxlibã®ç”»é¢ã®åº§æ¨™ã¯å·¦ä¸Šã‚’åŸç‚¹ã¨ã—ï¼Œå³ä¸‹ã«è¡Œãã»ã©å€¤ãŒå¤§ãããªã‚‹ï¼
+	//! @n æ¨ªæ–¹å‘ã«xè»¸ï¼Œç¸¦æ–¹å‘ã«yè»¸ã‚’ã¨ã‚‹ï¼
+	//! @param[in] pos_x GUIã®xåº§æ¨™ï¼
+	//! @param[in] pos_y GUIã®yåº§æ¨™ï¼
+	//! @param[in] option GUIã®ã©ã®åœ°ç‚¹ã‚’èµ·ç‚¹ã«åº§æ¨™ã‚’è¨­å®šã™ã‚‹ã‹ã‚’æŒ‡å®šã™ã‚‹ï¼defaultã§ã¯å·¦ä¸Šã‚’èµ·ç‚¹ã¨ã™ã‚‹ï¼
+	//! @param[in] this_is_first_time ã“ã®å‘¼ã³å‡ºã—ãŒåˆã‚ã¦ã‹ã©ã†ã‹ã‚’æŒ‡å®šã™ã‚‹ï¼defaultã§ã¯falseï¼
+	//! trueã‚’æŒ‡å®šã™ã‚‹ã¨ï¼ŒGUIã®ä½ç½®ã‚’è¨­å®šã™ã‚‹ã ã‘ã§ãªãï¼ŒGUIã®åˆæœŸä½ç½®ã‚’æ›´æ–°ã™ã‚‹ï¼
+	void SetPos(int pos_x, int pos_y, unsigned int option = kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
 
 	void Update() override;
 
@@ -66,9 +68,9 @@ public:
 
 private:
 
-	static constexpr int kWidth{ 470 };			//!< GUI‚Ì•D
-	static constexpr int kHeight{ 340 };		//!< GUI‚Ì‚‚³D
-	static constexpr int kTitleBarHeight{ 32 };	//!< ƒ^ƒCƒgƒ‹ƒo[‚Ì‚‚³D
+	static constexpr int kWidth{ 470 };			//!< GUIã®å¹…ï¼
+	static constexpr int kHeight{ 340 };		//!< GUIã®é«˜ã•ï¼
+	static constexpr int kTitleBarHeight{ 32 };	//!< ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ã®é«˜ã•ï¼
 
 	void DrawBackground() const;
 
@@ -76,24 +78,27 @@ private:
 
 	bool IsInWindow() const;
 
-	int gui_left_pos_x_{ 0 };	//!< GUI‚Ì¶ã‚ÌXÀ•WD
-	int gui_top_pos_y_{ 0 };	//!< GUI‚Ì¶ã‚ÌYÀ•WD
+	int gui_left_pos_x_{ 0 };	//!< GUIã®å·¦ä¸Šã®Xåº§æ¨™ï¼
+	int gui_top_pos_y_{ 0 };	//!< GUIã®å·¦ä¸Šã®Yåº§æ¨™ï¼
 
-	int set_pos_x_{ 0 };	//!< GUI‚Ì¶ã‚ÌXÀ•W(‰ŠúˆÊ’u)
-	int set_pos_y_{ 0 };	//!< GUI‚Ì¶ã‚ÌYÀ•W(‰ŠúˆÊ’u)
+	int set_pos_x_{ 0 };	//!< GUIã®å·¦ä¸Šã®Xåº§æ¨™(åˆæœŸä½ç½®)
+	int set_pos_y_{ 0 };	//!< GUIã®å·¦ä¸Šã®Yåº§æ¨™(åˆæœŸä½ç½®)
 
-	const int window_x_;	//!< ƒEƒBƒ“ƒhƒE‚ÌXÀ•WD
-	const int window_y_;	//!< ƒEƒBƒ“ƒhƒE‚ÌYÀ•WD
+	const int window_x_;	//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Xåº§æ¨™ï¼
+	const int window_y_;	//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®Yåº§æ¨™ï¼
 
-	bool is_dragging_{ false };	//!< ƒhƒ‰ƒbƒO’†‚©‚Ç‚¤‚©D
-	bool visible_{ true };		//!< ƒ{ƒ^ƒ“‚Ì•\¦‚ğs‚¤‚©‚Ç‚¤‚©D
+	bool is_dragging_{ false };	//!< ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã‹ã©ã†ã‹ï¼
+	bool visible_{ true };		//!< ãƒœã‚¿ãƒ³ã®è¡¨ç¤ºã‚’è¡Œã†ã‹ã©ã†ã‹ï¼
 
-	const std::shared_ptr<const DxlibCamera> camera_ptr_;	//!< ƒJƒƒ‰‚Ìƒ|ƒCƒ“ƒ^D
+	const std::shared_ptr<const DxlibCamera> camera_ptr_;	//!< ã‚«ãƒ¡ãƒ©ã®ãƒã‚¤ãƒ³ã‚¿ï¼
 
-	std::vector<std::unique_ptr<SimpleButton>> button_;	//!< ƒ{ƒ^ƒ“D
+	std::vector<std::unique_ptr<SimpleButton>> button_;		//!< ãƒœã‚¿ãƒ³ï¼
 
-	const int kFontSize{ 16 };		//!< ƒtƒHƒ“ƒg‚ÌƒTƒCƒYD
-	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< ƒtƒHƒ“ƒg‚Ö‚ÌƒpƒXD
+	const int kFontSize{ 16 };		//!< ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚ºï¼
+	const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };	//!< ãƒ•ã‚©ãƒ³ãƒˆã¸ã®ãƒ‘ã‚¹ï¼
 };
+
+}	// namespace designlab
+
 
 #endif	//DESIGNLAB_DXLIB_GUI_CAMERA_DISPLAYER_H_

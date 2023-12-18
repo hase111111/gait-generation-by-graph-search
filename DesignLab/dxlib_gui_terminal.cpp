@@ -1,31 +1,34 @@
-#include "dxlib_gui_terminal.h"
+ï»¿#include "dxlib_gui_terminal.h"
 
 #include <DxLib.h>
 
 
-DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_list) : 
-	kTerminalWidth(static_cast<int>(gui_list.size() + 2) * kButtonSize)
+namespace designlab
+{
+
+DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_list) :
+	kTerminalWidth(static_cast<int>(gui_list.size() + 2)* kButtonSize)
 {
 	gui_list_ = gui_list;
 
-	//gui‚Ì”‚¾‚¯ƒ{ƒ^ƒ“‚ğì¬
+	//guiã®æ•°ã ã‘ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 	for (int i = 0; i < gui_list_.size(); ++i)
 	{
 		std::string class_name = typeid(*gui_list_[i].get()).name();
 
-		//typeid‚Ì•Ô‚è’l‚Í"class DxlibGui`"‚Æ‚¢‚¤•¶š—ñ‚É‚È‚Á‚Ä‚¢‚é‚Ì‚ÅC×–‚‚È•¶š‚ğíœ‚·‚éD
+		//typeidã®è¿”ã‚Šå€¤ã¯"class DxlibGuiï½"ã¨ã„ã†æ–‡å­—åˆ—ã«ãªã£ã¦ã„ã‚‹ã®ã§ï¼Œé‚ªé­”ãªæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ï¼
 		const std::vector<std::string> unnecessary_words = { "class ", "DxlibGui", " ", "const", "*", "&" };
 
 		for (const auto& word : unnecessary_words)
 		{
-			//‚»‚à‚»‚à•¶š—ñ‚Éword‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
+			//ãã‚‚ãã‚‚æ–‡å­—åˆ—ã«wordãŒå«ã¾ã‚Œã¦ã„ãªã„å ´åˆã¯ä½•ã‚‚ã—ãªã„
 			if (class_name.find(word) == std::string::npos) { continue; }
 
-			//•¶š—ñ‚Éword‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Ííœ
+			//æ–‡å­—åˆ—ã«wordãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯å‰Šé™¤
 			class_name.erase(class_name.find(word), word.size());
 		}
 
-		//class_name‚ğ7•¶š‚²‚Æ‚É‰üs
+		//class_nameã‚’7æ–‡å­—ã”ã¨ã«æ”¹è¡Œ
 		for (int j = 7; j < class_name.size(); j += 7)
 		{
 			class_name.insert(j, "\n");
@@ -34,7 +37,7 @@ DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_l
 
 		button_list_.push_back(
 			std::make_shared<SimpleButton>(class_name,
-				kLeftTopX + kButtonSize + i * 100, kLeftTopY + kTerminalHeight / 2, kButtonSize, kButtonSize)
+			kLeftTopX + kButtonSize + i * 100, kLeftTopY + kTerminalHeight / 2, kButtonSize, kButtonSize)
 		);
 
 		button_list_.back()->SetActivateFunction([this, i]() { gui_list_[i]->SetVisible(true); });
@@ -45,7 +48,7 @@ DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_l
 
 void DxlibGuiTerminal::Update()
 {
-	//Šeƒ{ƒ^ƒ“‚ÌXV
+	//å„ãƒœã‚¿ãƒ³ã®æ›´æ–°
 	for (auto& button : button_list_)
 	{
 		button->Update();
@@ -54,15 +57,15 @@ void DxlibGuiTerminal::Update()
 
 void DxlibGuiTerminal::Draw() const
 {
-	if (is_closed_) 
+	if (is_closed_)
 	{
 		DrawClosedTerminal();
 	}
-	else 
+	else
 	{
 		DrawTerminal();
 
-		//ƒ{ƒ^ƒ“‚Ì•`‰æ
+		//ãƒœã‚¿ãƒ³ã®æç”»
 		for (const auto& button : button_list_)
 		{
 			button->Draw();
@@ -74,21 +77,21 @@ void DxlibGuiTerminal::Draw() const
 
 void DxlibGuiTerminal::SetVisible([[maybe_unused]] bool visible)
 {
-	//Á‚¦‚È‚¢D‚È‚Ì‚Å‰½‚à‚µ‚È‚¢D
+	//æ¶ˆãˆãªã„ï¼ãªã®ã§ä½•ã‚‚ã—ãªã„ï¼
 }
 
 bool DxlibGuiTerminal::IsVisible() const
 {
-	//Á‚¦‚È‚¢D‚È‚Ì‚Åí‚ÉtrueD
+	//æ¶ˆãˆãªã„ï¼ãªã®ã§å¸¸ã«trueï¼
 	return true;
 }
 
-void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y, 
-	const int left_pushing_count, const int middle_pushing_count, const int right_pushing_count)
+void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
+									 const int left_pushing_count, const int middle_pushing_count, const int right_pushing_count)
 {
 	bool is_clicked = false;
 
-	//Šeƒ{ƒ^ƒ“‚Ìˆ—
+	//å„ãƒœã‚¿ãƒ³ã®å‡¦ç†
 	for (auto& button : button_list_)
 	{
 		if (button->CursorOnGui(cursor_x, cursor_y))
@@ -99,15 +102,15 @@ void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
 		}
 	}
 
-	//ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ê‡‚ÍI—¹
+	//ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸå ´åˆã¯çµ‚äº†
 	if (is_clicked) { return; }
 
-	//ƒ^[ƒ~ƒiƒ‹‚Ìˆ—
+	//ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã®å‡¦ç†
 	if (left_pushing_count == 1 && is_closed_)
 	{
 		is_closed_ = false;
 
-		//ƒ{ƒ^ƒ“‚ğ•\¦
+		//ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
 		for (auto& button : button_list_)
 		{
 			button->SetVisible(true);
@@ -117,7 +120,7 @@ void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
 	{
 		is_closed_ = true;
 
-		//ƒ{ƒ^ƒ“‚ğ”ñ•\¦
+		//ãƒœã‚¿ãƒ³ã‚’éè¡¨ç¤º
 		for (auto& button : button_list_)
 		{
 			button->SetVisible(false);
@@ -127,12 +130,12 @@ void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
 
 bool DxlibGuiTerminal::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 {
-	if (is_closed_) 
+	if (is_closed_)
 	{
 		return cursor_x >= kLeftTopX && cursor_x <= kLeftTopX + kClosedTerminalWidth &&
 			cursor_y >= kLeftTopY && cursor_y <= kLeftTopY + kTerminalHeight;
 	}
-	else 
+	else
 	{
 		return cursor_x >= kLeftTopX && cursor_x <= kLeftTopX + kTerminalWidth &&
 			cursor_y >= kLeftTopY && cursor_y <= kLeftTopY + kTerminalHeight;
@@ -141,7 +144,7 @@ bool DxlibGuiTerminal::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 
 void DxlibGuiTerminal::DrawClosedTerminal() const
 {
-	const int closed_box_width = kClosedTerminalWidth - 20;	//lŠpŒ`•”•ª‚Ì•
+	const int closed_box_width = kClosedTerminalWidth - 20;	//å››è§’å½¢éƒ¨åˆ†ã®å¹…
 
 	const unsigned int base_color = GetColor(255, 255, 255);
 	const unsigned int frame_color = GetColor(30, 30, 30);
@@ -152,7 +155,7 @@ void DxlibGuiTerminal::DrawClosedTerminal() const
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
 	DrawBox(kLeftTopX - frame_width, kLeftTopY - frame_width,
-		kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight + frame_width, frame_color, TRUE);
+			kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight + frame_width, frame_color, TRUE);
 	DrawTriangleAA(
 		kLeftTopX + closed_box_width, kLeftTopY - frame_width,
 		kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight + frame_width,
@@ -162,14 +165,14 @@ void DxlibGuiTerminal::DrawClosedTerminal() const
 
 	DrawBox(kLeftTopX, kLeftTopY, kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight, base_color, TRUE);
 	DrawTriangleAA(kLeftTopX + closed_box_width, kLeftTopY, kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight,
-		kLeftTopX + kClosedTerminalWidth, kLeftTopY + kTerminalHeight / 2, base_color, TRUE);
+				   kLeftTopX + kClosedTerminalWidth, kLeftTopY + kTerminalHeight / 2, base_color, TRUE);
 
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
 void DxlibGuiTerminal::DrawTerminal() const
 {
-	const int closed_box_width = kTerminalWidth - 20;	//lŠpŒ`•”•ª‚Ì•
+	const int closed_box_width = kTerminalWidth - 20;	//å››è§’å½¢éƒ¨åˆ†ã®å¹…
 
 	const unsigned int base_color = GetColor(255, 255, 255);
 	const unsigned int frame_color = GetColor(30, 30, 30);
@@ -180,7 +183,7 @@ void DxlibGuiTerminal::DrawTerminal() const
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
 	DrawBox(kLeftTopX - frame_width, kLeftTopY - frame_width,
-		kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight + frame_width, frame_color, TRUE);
+			kLeftTopX + closed_box_width, kLeftTopY + kTerminalHeight + frame_width, frame_color, TRUE);
 	DrawTriangleAA(
 		static_cast<float>(kLeftTopX + closed_box_width), static_cast<float>(kLeftTopY - frame_width),
 		static_cast<float>(kLeftTopX + closed_box_width), static_cast<float>(kLeftTopY + kTerminalHeight + frame_width),
@@ -211,10 +214,12 @@ void DxlibGuiTerminal::DrawButtonGuard() const
 			SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 
 			DrawBox(button_list_[i]->GetPosMiddleX() - kButtonSize / 2, button_list_[i]->GetPosMiddleY() - kButtonSize / 2,
-				button_list_[i]->GetPosMiddleX() + kButtonSize / 2, button_list_[i]->GetPosMiddleY() + kButtonSize / 2, color, TRUE);
+					button_list_[i]->GetPosMiddleX() + kButtonSize / 2, button_list_[i]->GetPosMiddleY() + kButtonSize / 2, color, TRUE);
 
 			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 		}
 	}
 
 }
+
+}	// namespace designlab

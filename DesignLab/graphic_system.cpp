@@ -94,7 +94,7 @@ bool GraphicSystem::MyDxlibInit()
 	SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
 	// 3D関連の初期化を行う．	
-	if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
+	if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == enums::DisplayQuality::kHigh)
 	{
 		dxlib_util::InitDxlib3DSetting(true);
 	}

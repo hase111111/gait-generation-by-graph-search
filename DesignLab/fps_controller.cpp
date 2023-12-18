@@ -1,4 +1,4 @@
-#include "fps_controller.h"
+ï»¿#include "fps_controller.h"
 
 #include <cmath>
 #include <string>
@@ -6,9 +6,12 @@
 #include <Dxlib.h>
 
 
-FpsController::FpsController(const int target_fps) : 
-	kTargetFpsValue(target_fps), 
-	kOneFrameTime(static_cast<int>(1000.0 / target_fps)), 
+namespace designlab
+{
+
+FpsController::FpsController(const int target_fps) :
+	kTargetFpsValue(target_fps),
+	kOneFrameTime(static_cast<int>(1000.0 / target_fps)),
 	kListMax(target_fps * 2),
 	need_skip_draw_screen_(false)
 {
@@ -20,24 +23,24 @@ void FpsController::Wait()
 	if (!TargetFpsIsVaild()) { return; }
 
 
-	//‘Ò‚Â‚×‚«ŠÔ‚ğæ“¾‚µ‚Ä‘Ò‚Â
+	//å¾…ã¤ã¹ãæ™‚é–“ã‚’å–å¾—ã—ã¦å¾…ã¤
 	int wait_time = 0;
 
 	if (CheckNeedSkipDrawScreen(&wait_time))
 	{
-		WaitTimer(wait_time);  //æ“¾‚µ‚½ŠÔ•ª‘Ò‚Â
-		//Sleep(wait_time);    //windows API”Å
+		WaitTimer(wait_time);  //å–å¾—ã—ãŸæ™‚é–“åˆ†å¾…ã¤
+		//Sleep(wait_time);    //windows APIç‰ˆ
 
-		RegistTime(GetNowCount());  //Œ»İ‚Ì‚ğ‹L˜^‚·‚é
+		RegistTime(GetNowCount());  //ç¾åœ¨ã®æ™‚åˆ»ã‚’è¨˜éŒ²ã™ã‚‹
 	}
 	else
 	{
-		//ŠÔƒI[ƒo[‚µ‚Ä‚¢‚é‚Ì‚ÅCƒRƒ}—‚¿‚Ìˆ—‚ğ‚·‚éD
+		//æ™‚é–“ã‚ªãƒ¼ãƒãƒ¼ã—ã¦ã„ã‚‹ã®ã§ï¼Œã‚³ãƒè½ã¡ã®å‡¦ç†ã‚’ã™ã‚‹ï¼
 
-		//‚±‚ÌƒtƒŒ[ƒ€‚Í—‘z“I‚Èˆ—‚ğ‚µ‚½‚à‚Ì‚Æ‚µ‚ÄC‹L˜^‚·‚é
+		//ã“ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¯ç†æƒ³çš„ãªå‡¦ç†ã‚’ã—ãŸã‚‚ã®ã¨ã—ã¦ï¼Œè¨˜éŒ²ã™ã‚‹
 		RegistTime(time_list_.back() + kOneFrameTime);
 
-		need_skip_draw_screen_ = true;     //•`‰æ‚ğ”ò‚Î‚·ƒtƒ‰ƒO‚ğ—§‚Ä‚é
+		need_skip_draw_screen_ = true;     //æç”»ã‚’é£›ã°ã™ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
 	}
 }
 
@@ -46,7 +49,7 @@ bool FpsController::SkipDrawScene()
 {
 	if (!TargetFpsIsVaild()) { return false; }
 
-	//ƒXƒLƒbƒvƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚é‚È‚ç‚ÎC‚»‚Ìƒtƒ‰ƒO‚ğÜ‚èCƒV[ƒ“‚ğƒXƒLƒbƒv‚·‚é
+	//ã‚¹ã‚­ãƒƒãƒ—ãƒ•ãƒ©ã‚°ãŒç«‹ã£ã¦ã„ã‚‹ãªã‚‰ã°ï¼Œãã®ãƒ•ãƒ©ã‚°ã‚’æŠ˜ã‚Šï¼Œã‚·ãƒ¼ãƒ³ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
 	if (need_skip_draw_screen_)
 	{
 		need_skip_draw_screen_ = false;
@@ -58,19 +61,19 @@ bool FpsController::SkipDrawScene()
 
 void FpsController::DrawFps() const
 {
-	if (!TargetFpsIsVaild()) 
+	if (!TargetFpsIsVaild())
 	{
-		printfDx("FPS:%d‚Í„§‚³‚ê‚Ü‚¹‚ñD(FPS‚Ì’²®‚Ís‚í‚ê‚Ü‚¹‚ñD)\n", kTargetFpsValue);
-		return; 
+		printfDx("FPS:%dã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ï¼(FPSã®èª¿æ•´ã¯è¡Œã‚ã‚Œã¾ã›ã‚“ï¼)\n", kTargetFpsValue);
+		return;
 	}
 
-	if (time_list_.size() < 2) 
+	if (time_list_.size() < 2)
 	{
-		printfDx("Œv‘ª’†‚Å‚·D\n");
-		return; 
+		printfDx("è¨ˆæ¸¬ä¸­ã§ã™ï¼\n");
+		return;
 	}
 
-	//FPS‚ğŒvZ‚·‚é
+	//FPSã‚’è¨ˆç®—ã™ã‚‹
 	const int duration = (time_list_.back() - time_list_.front()) / static_cast<int>(time_list_.size() - 1);
 
 	printfDx("FPS:%d\n", static_cast<int>(1000.0 / duration));
@@ -79,11 +82,11 @@ void FpsController::DrawFps() const
 
 void FpsController::RegistTime(const int now_time)
 {
-	time_list_.push_back(now_time);   //Œ»İ‚Ì‚ğ‹L‰¯
+	time_list_.push_back(now_time);   //ç¾åœ¨ã®æ™‚åˆ»ã‚’è¨˜æ†¶
 
 	if (time_list_.size() > kListMax)
 	{
-		//Ší‚©‚ç˜R‚ê‚½‚çíœ‚·‚é
+		//å™¨ã‹ã‚‰æ¼ã‚ŒãŸã‚‰å‰Šé™¤ã™ã‚‹
 		time_list_.pop_front();
 	}
 }
@@ -91,40 +94,40 @@ void FpsController::RegistTime(const int now_time)
 
 bool FpsController::CheckNeedSkipDrawScreen(int* time) const
 {
-	//‚ğ‰Šú‰»
+	//æ™‚åˆ»ã‚’åˆæœŸåŒ–
 	(*time) = 0;
 
-	//ƒŠƒXƒg‚ª‹ó‚È‚çCWaitŠÔ‚Í0•b
+	//æ™‚åˆ»ãƒªã‚¹ãƒˆãŒç©ºãªã‚‰ï¼ŒWaitæ™‚é–“ã¯0ç§’
 	if (time_list_.empty())
 	{
 		(*time) = 0;
 		return true;
 	}
 
-	int actually_took_time = GetNowCount() - time_list_.back();   //ÀÛ‚É‚©‚©‚Á‚½ŠÔ‚ğ‹‚ß‚é
+	int actually_took_time = GetNowCount() - time_list_.back();   //å®Ÿéš›ã«ã‹ã‹ã£ãŸæ™‚é–“ã‚’æ±‚ã‚ã‚‹
 
-	//ŒvZã‚©‚©‚é‚×‚«ŠÔ - ÀÛ‚É‚©‚©‚Á‚½ŠÔ@‚Í‚·‚È‚í‚¿‘Ò‚Â‚×‚«ŠÔ
+	//è¨ˆç®—ä¸Šã‹ã‹ã‚‹ã¹ãæ™‚é–“ - å®Ÿéš›ã«ã‹ã‹ã£ãŸæ™‚é–“ã€€ã¯ã™ãªã‚ã¡å¾…ã¤ã¹ãæ™‚é–“
 	int wait_time = kOneFrameTime - actually_took_time;
 
 	if (wait_time >= 0)
 	{
-		//‘Ò‚¿ŠÔ‚ª³‚Ì’l‚Å‚ ‚é‚Æ‚«(‚Â‚Ü‚èC‚©‚©‚é‚×‚«ŠÔ‚æ‚èÀÛ‚É‚©‚©‚Á‚½ŠÔ‚ª¬‚³‚¢)‚Í‚»‚Ì‚Ü‚Ü’l‚ğ•Ô‚·D
+		//å¾…ã¡æ™‚é–“ãŒæ­£ã®å€¤ã§ã‚ã‚‹ã¨ã(ã¤ã¾ã‚Šï¼Œã‹ã‹ã‚‹ã¹ãæ™‚é–“ã‚ˆã‚Šå®Ÿéš›ã«ã‹ã‹ã£ãŸæ™‚é–“ãŒå°ã•ã„æ™‚)ã¯ãã®ã¾ã¾å€¤ã‚’è¿”ã™ï¼
 
 		(*time) = wait_time;
 		return true;
 	}
 	else
 	{
-		//‘Ò‚¿ŠÔ‚ª•‰‚Ì’l‚Å‚ ‚é‚Æ‚«
+		//å¾…ã¡æ™‚é–“ãŒè² ã®å€¤ã§ã‚ã‚‹ã¨ã
 
 		if ((int)abs(wait_time) < kOneFrameTime)
 		{
-			//‚PƒtƒŒ[ƒ€ˆÈã’x‚ê‚Ä‚¢‚È‚¢‚È‚ç‚ÎCˆ—‚ğs‚¤D
+			//ï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ ä»¥ä¸Šé…ã‚Œã¦ã„ãªã„ãªã‚‰ã°ï¼Œå‡¦ç†ã‚’è¡Œã†ï¼
 			return false;
 		}
 	}
 
-	//‚Ç‚ê‚É‚àˆø‚Á‚©‚©‚ç‚È‚©‚Á‚½ê‡‚O‚ğ•Ô‚·
+	//ã©ã‚Œã«ã‚‚å¼•ã£ã‹ã‹ã‚‰ãªã‹ã£ãŸå ´åˆï¼ã‚’è¿”ã™
 	(*time) = 0;
 	return true;
 }
@@ -132,13 +135,13 @@ bool FpsController::CheckNeedSkipDrawScreen(int* time) const
 
 bool FpsController::TargetFpsIsVaild() const
 {
-	//ƒ}ƒCƒiƒX‚Ì’l‚Í‹–—e‚µ‚È‚¢
+	//ãƒã‚¤ãƒŠã‚¹ã®å€¤ã¯è¨±å®¹ã—ãªã„
 	if (kTargetFpsValue <= 0)
 	{
 		return false;
 	}
 
-	//‚P•bŠÔ‚É‚PƒtƒŒ[ƒ€ˆÈã‚Í‹–—e‚µ‚È‚¢
+	//ï¼‘ç§’é–“ã«ï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ ä»¥ä¸Šã¯è¨±å®¹ã—ãªã„
 	if (kTargetFpsValue > 60)
 	{
 		return false;
@@ -146,3 +149,5 @@ bool FpsController::TargetFpsIsVaild() const
 
 	return true;
 }
+
+}  // namespace designlab

@@ -10,6 +10,9 @@
 #include "designlab_quaternion.h"
 
 
+namespace designlab::enums
+{
+
 //! @enum CameraViewMode
 //! @brief カメラの視点を表す列挙体．
 //! @details CameraControllerクラスで使用されている．
@@ -26,6 +29,11 @@ enum class CameraViewMode
 	kFreeControlledAndMovableTarget	//!< 自由に操作可能かつ注視点を設定可能．
 };
 
+}	// namespace designlab::enums
+
+
+namespace designlab
+{
 
 //! @class DxlibCamera
 //! @brief Dxlibの3Dのカメラの状態を管理するクラス．
@@ -53,39 +61,39 @@ public:
 
 	//! @brief カメラのモードをセットする．同時にカメラの目標回転角度などを設定する
 	//! @param [in] mode カメラの視点のモード
-	void SetCameraViewMode(CameraViewMode mode);
+	void SetCameraViewMode(enums::CameraViewMode mode);
 
 	//! @brief カメラのモードを取得する
 	//! @return CameraViewMode カメラの視点のモード
-	inline CameraViewMode GetCameraViewMode() const { return camera_view_mode_; }
+	inline enums::CameraViewMode GetCameraViewMode() const { return camera_view_mode_; }
 
 	//! @brief カメラの注視する目標の座標をセットする
 	//! @n cameraのmodeがFREE_CONTROLLED_TARGETの時はセットできない
 	//! @param [in] pos カメラの注視する目標の座標
-	inline void SetTargetPos(const designlab::Vector3& pos) { goal_camera_state_.target_pos = pos; }
+	inline void SetTargetPos(const Vector3& pos) { goal_camera_state_.target_pos = pos; }
 
 	//! @brief カメラの回転を表すクォータニオンを取得する．
 	//! @return カメラのクォータニオン
-	inline designlab::Quaternion GetCameraQuat() const { return goal_camera_state_.camera_quat.GetNormalized(); }
+	inline Quaternion GetCameraQuat() const { return goal_camera_state_.camera_quat.GetNormalized(); }
 
 	//! @brief カメラのクォータニオンをセットする
 	//! @param [in] quat カメラのクォータニオン
-	inline void SetCameraQuat(const designlab::Quaternion& quat) { goal_camera_state_.camera_quat = quat.GetNormalized(); }
+	inline void SetCameraQuat(const Quaternion& quat) { goal_camera_state_.camera_quat = quat.GetNormalized(); }
 
 	//! @brief 注視点を操作する際の，カメラの注視する座標をセットする
 	//! @param [in] pos カメラの注視する座標
-	inline void SetFreeTargetPos(const designlab::Vector3& pos) { free_controlled_target_pos_ = pos; }
+	inline void SetFreeTargetPos(const Vector3& pos) { free_controlled_target_pos_ = pos; }
 
 	//! @brief 注視点を操作する際の，カメラの注視する座標を取得する
-	//! @return designlab::Vector3 カメラの注視する座標
-	inline designlab::Vector3 GetFreeTargetPos() const { return free_controlled_target_pos_; }
+	//! @return Vector3 カメラの注視する座標
+	inline Vector3 GetFreeTargetPos() const { return free_controlled_target_pos_; }
 
-	constexpr ::designlab::Quaternion GetNowCameraQuat() const { return now_camera_state_.camera_quat; }
-	constexpr ::designlab::Vector3 GetNowTargetPos() const { return now_camera_state_.target_pos; }
+	constexpr Quaternion GetNowCameraQuat() const { return now_camera_state_.camera_quat; }
+	constexpr Vector3 GetNowTargetPos() const { return now_camera_state_.target_pos; }
 	constexpr float GetNowCameraToTargetLength() const { return now_camera_state_.length_camera_to_target; }
-	constexpr ::designlab::Vector3 GetNowCameraPos() const
+	constexpr Vector3 GetNowCameraPos() const
 	{
-		::designlab::Vector3 camera_target_dif = ::designlab::RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) * now_camera_state_.length_camera_to_target;
+		Vector3 camera_target_dif = RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) * now_camera_state_.length_camera_to_target;
 		return camera_target_dif + now_camera_state_.target_pos;
 	}
 
@@ -97,8 +105,8 @@ private:
 	{
 		CameraState() : camera_quat{}, target_pos{}, length_camera_to_target(0) {}
 
-		designlab::Quaternion camera_quat;	//!< カメラの回転を表すクォータニオン
-		designlab::Vector3 target_pos;		//!< カメラの注視点
+		Quaternion camera_quat;	//!< カメラの回転を表すクォータニオン
+		Vector3 target_pos;		//!< カメラの注視点
 		float length_camera_to_target;		//!< カメラと注視点との距離
 	};
 
@@ -109,19 +117,21 @@ private:
 
 	constexpr static bool kOutputDebugLog = false;	//!< デバッグログを出力するかどうか
 
-	const designlab::Vector3 kDefaultCameraFrontVec;	//!< デフォルトのカメラの方向を表す単位ベクトル
+	const Vector3 kDefaultCameraFrontVec;	//!< デフォルトのカメラの方向を表す単位ベクトル
 
-	const designlab::Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの上方向を表す単位ベクトル
+	const Vector3 kDefaultCameraUpVec;		//!< デフォルトのカメラの上方向を表す単位ベクトル
 
 
-	CameraViewMode camera_view_mode_;	//!< カメラの視点を決定する．
+	enums::CameraViewMode camera_view_mode_;	//!< カメラの視点を決定する．
 
-	designlab::Vector3 free_controlled_target_pos_;		//!< カメラの注視点を自由に操作する際の注視点の座標
+	Vector3 free_controlled_target_pos_;		//!< カメラの注視点を自由に操作する際の注視点の座標
 
 	CameraState now_camera_state_;		//!< 現在のカメラの状態をまとめた構造体
 
 	CameraState goal_camera_state_;		//!< 目標とするカメラの状態をまとめた構造体
 };
+
+}	// namespace designlab
 
 
 #endif // DESIGNLAB_DXLIB_CAMERA_H_

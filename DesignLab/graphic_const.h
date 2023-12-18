@@ -1,5 +1,5 @@
-//! @file graphic_const.h
-//! @brief ‰æ‘œ•\¦ˆ——p‚Ì’è”D
+ï»¿//! @file graphic_const.h
+//! @brief ç”»åƒè¡¨ç¤ºå‡¦ç†ç”¨ã®å®šæ•°ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_GRAPHIC_CONST_H_
 #define DESIGNLAB_GRAPHIC_CONST_H_
@@ -9,32 +9,37 @@
 #include "cassert_define.h"
 
 
+namespace designlab
+{
+
 //! @class GraphicConst
-//! @brief ‰æ‘œ•\¦ˆ——p‚Ì’è”‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌD
-//! @details ’è”ƒNƒ‰ƒX‚ÌÚ×‚Ídefine.h‚ğQÆD
-//! @n ƒJƒƒ‰‚ÉŠÖ‚·‚é’l‚ğ•ÏX‚·‚é‚ÍTd‚És‚¤‚±‚ÆC‰º‚°‚·‚¬‚é‚Æ‰½‚àŒ©‚¦‚È‚­‚È‚é‚µCã‚°‚·‚¬‚é‚Æqí‚¶‚á‚È‚­d‚­‚È‚éD
-//! @n ’l‚ğ•ÒW‚µ‚½‚¢ê‡‚Í graphic_const.cpp ‚ğ•ÒW‚·‚é‚±‚ÆD
+//! @brief ç”»åƒè¡¨ç¤ºå‡¦ç†ç”¨ã®å®šæ•°ã‚¯ãƒ©ã‚¹ï¼
+//! @details å®šæ•°ã‚¯ãƒ©ã‚¹ã®è©³ç´°ã¯define.hã‚’å‚ç…§ï¼
+//! @n ã‚«ãƒ¡ãƒ©ã«é–¢ã™ã‚‹å€¤ã‚’å¤‰æ›´ã™ã‚‹æ™‚ã¯æ…é‡ã«è¡Œã†ã“ã¨ï¼Œä¸‹ã’ã™ãã‚‹ã¨ä½•ã‚‚è¦‹ãˆãªããªã‚‹ã—ï¼Œä¸Šã’ã™ãã‚‹ã¨å°‹å¸¸ã˜ã‚ƒãªãé‡ããªã‚‹ï¼
+//! @n å€¤ã‚’ç·¨é›†ã—ãŸã„å ´åˆã¯ graphic_const.cpp ã‚’ç·¨é›†ã™ã‚‹ã“ã¨ï¼
 class GraphicConst final
 {
 public:
 
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğíœ‚µ‚ÄCÀ‘Ì‚ğ¶¬‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚éD
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‰Šé™¤ã—ã¦ï¼Œå®Ÿä½“ã‚’ç”Ÿæˆã§ããªã„ã‚ˆã†ã«ã™ã‚‹ï¼
 	GraphicConst() = delete;
 	GraphicConst(GraphicConst& other) = delete;
 	GraphicConst(GraphicConst&& other) = delete;
 	GraphicConst& operator=(GraphicConst& other) = delete;
 
 
-	const static std::string kWindowName;	//!< ƒEƒBƒ“ƒhƒE‚Ì–¼‘OD
-	const static int kColorBit;				//!< F‚ğ•\Œ»‚·‚ébit”D’Êí32‚Å—Ç‚¢‚ªŒy‚­‚·‚é‚È‚ç16‚É‚·‚éD
+	const static std::string kWindowName;	//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®åå‰ï¼
+	const static int kColorBit;				//!< è‰²ã‚’è¡¨ç¾ã™ã‚‹bitæ•°ï¼é€šå¸¸32ã§è‰¯ã„ãŒè»½ãã™ã‚‹ãªã‚‰16ã«ã™ã‚‹ï¼
 
-	const static int kBackColorRed;		//!< ƒEƒBƒ“ƒhƒE”wŒiFD ÔF¬•ªD0`255‚Ì”ÍˆÍ‚Åw’èD
-	const static int kBackColorGreen;	//!< ƒEƒBƒ“ƒhƒE”wŒiFD —ÎF¬•ªD0`255‚Ì”ÍˆÍ‚Åw’èD
-	const static int kBackColorBlue;	//!< ƒEƒBƒ“ƒhƒE”wŒiFD ÂF¬•ªD0`255‚Ì”ÍˆÍ‚Åw’èD
+	const static int kBackColorRed;		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦èƒŒæ™¯è‰²ï¼ èµ¤è‰²æˆåˆ†ï¼0ï½255ã®ç¯„å›²ã§æŒ‡å®šï¼
+	const static int kBackColorGreen;	//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦èƒŒæ™¯è‰²ï¼ ç·‘è‰²æˆåˆ†ï¼0ï½255ã®ç¯„å›²ã§æŒ‡å®šï¼
+	const static int kBackColorBlue;	//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦èƒŒæ™¯è‰²ï¼ é’è‰²æˆåˆ†ï¼0ï½255ã®ç¯„å›²ã§æŒ‡å®šï¼
 
-	const static float kCameraToTargetMax;	//!< ƒJƒƒ‰‚Æ’‹–Ú•W‚ÌÅ‘å‹——£DCAMERA_FAR‚ÆCAMERA_NEAR‚ÌŠÔ‚Ì’l‚¶‚á‚È‚¢‚Æ‚È‚É‚à•\¦‚³‚ê‚È‚­‚È‚éD
-	const static float kCameraToTargetMin;	//!< ƒJƒƒ‰‚Æ’‹–Ú•W‚ÌÅ¬‹——£DCAMERA_FAR‚ÆCAMERA_NEAR‚ÌŠÔ‚Ì’l‚¶‚á‚È‚¢‚Æ‚È‚É‚à•\¦‚³‚ê‚È‚­‚È‚éD
+	const static float kCameraToTargetMax;	//!< ã‚«ãƒ¡ãƒ©ã¨æ³¨è¦–ç›®æ¨™ã®æœ€å¤§è·é›¢ï¼CAMERA_FARã¨CAMERA_NEARã®é–“ã®å€¤ã˜ã‚ƒãªã„ã¨ãªã«ã‚‚è¡¨ç¤ºã•ã‚Œãªããªã‚‹ï¼
+	const static float kCameraToTargetMin;	//!< ã‚«ãƒ¡ãƒ©ã¨æ³¨è¦–ç›®æ¨™ã®æœ€å°è·é›¢ï¼CAMERA_FARã¨CAMERA_NEARã®é–“ã®å€¤ã˜ã‚ƒãªã„ã¨ãªã«ã‚‚è¡¨ç¤ºã•ã‚Œãªããªã‚‹ï¼
 };
+
+} // namespace designlab
 
 
 #endif // DESIGNLAB_GRAPHIC_CONST_H_

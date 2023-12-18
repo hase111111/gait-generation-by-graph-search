@@ -4,10 +4,8 @@
 #include "dxlib_util.h"
 
 
-namespace dl = ::designlab;
-namespace dlm = ::designlab::math_util;
-namespace dldu = ::designlab::dxlib_util;
-
+namespace designlab
+{
 
 CameraDragger::CameraDragger(const std::shared_ptr<DxlibCamera> camera) : camera_ptr_(camera)
 {
@@ -26,11 +24,11 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 		if (abs(cursor_dif_x) > 0)
 		{
 			//カメラの回転をマウスの横移動量に合わせて変更．
-			dl::Quaternion move_quatx = { 0, 0, 0, 0 };
+			Quaternion move_quatx = { 0, 0, 0, 0 };
 
-			move_quatx = dl::Quaternion::MakeByAngleAxis(cursor_dif_x * kCameraMoveSpeed * -1, { 0,0,1 });
+			move_quatx = Quaternion::MakeByAngleAxis(cursor_dif_x * kCameraMoveSpeed * -1, { 0,0,1 });
 
-			dl::Quaternion res = camera_ptr_->GetCameraQuat() * move_quatx;
+			Quaternion res = camera_ptr_->GetCameraQuat() * move_quatx;
 
 			res = res.GetNormalized();
 
@@ -40,9 +38,9 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 		if (abs(cursor_dif_y) > 0)
 		{
 			//カメラの回転をマウスの縦移動量に合わせて変更．
-			dl::Quaternion move_quaty = dl::Quaternion::MakeByAngleAxis(cursor_dif_y * kCameraMoveSpeed * -1, { 0,1,0 });
+			Quaternion move_quaty = Quaternion::MakeByAngleAxis(cursor_dif_y * kCameraMoveSpeed * -1, { 0,1,0 });
 
-			dl::Quaternion res = camera_ptr_->GetCameraQuat() * move_quaty;
+			Quaternion res = camera_ptr_->GetCameraQuat() * move_quaty;
 
 			res = res.GetNormalized();
 
@@ -57,24 +55,24 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 
 		if (mouse_move != 0)
 		{
-			const dl::Quaternion move_quat = dl::Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
+			const Quaternion move_quat = Quaternion::MakeByAngleAxis(mouse_move * kCameraMoveSpeed * -1.0f, { 1,0,0 });
 
-			const dl::Quaternion res = (camera_ptr_->GetCameraQuat() * move_quat).GetNormalized();
+			const Quaternion res = (camera_ptr_->GetCameraQuat() * move_quat).GetNormalized();
 
 			camera_ptr_->SetCameraQuat(res);
 		}
 	}
-	else if (mouse_key_bit & MOUSE_INPUT_RIGHT && dlm::Squared(cursor_dif_x) + dlm::Squared(cursor_dif_y) > dlm::Squared(kMouseMoveMargin))
+	else if (mouse_key_bit & MOUSE_INPUT_RIGHT && math_util::Squared(cursor_dif_x) + math_util::Squared(cursor_dif_y) > math_util::Squared(kMouseMoveMargin))
 	{
 		//右クリックしていたらカメラの平行移動
-		if (camera_ptr_->GetCameraViewMode() != CameraViewMode::kFreeControlledAndMovableTarget)
+		if (camera_ptr_->GetCameraViewMode() != enums::CameraViewMode::kFreeControlledAndMovableTarget)
 		{
 			//表示モードを注視点を自由に動かせるモードに変更
-			camera_ptr_->SetCameraViewMode(CameraViewMode::kFreeControlledAndMovableTarget);
+			camera_ptr_->SetCameraViewMode(enums::CameraViewMode::kFreeControlledAndMovableTarget);
 		}
 
 
-		dl::Vector3 move_vec_x = { 0,0,0 };
+		Vector3 move_vec_x = { 0,0,0 };
 
 		if (abs(cursor_dif_x) > 0)
 		{
@@ -82,10 +80,10 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 
 			move_vec_x = { 0, cursor_dif_x * kCameraTargetMoveSpeed * -1, 0 };
 
-			move_vec_x = dl::RotateVector3(move_vec_x, camera_ptr_->GetCameraQuat());
+			move_vec_x = RotateVector3(move_vec_x, camera_ptr_->GetCameraQuat());
 		}
 
-		dl::Vector3 move_vec_y = { 0,0,0 };
+		Vector3 move_vec_y = { 0,0,0 };
 
 		if (abs(cursor_dif_y) > 0)
 		{
@@ -93,10 +91,10 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 
 			move_vec_y = { 0, 0, cursor_dif_y * kCameraTargetMoveSpeed };
 
-			move_vec_y = dl::RotateVector3(move_vec_y, camera_ptr_->GetCameraQuat());
+			move_vec_y = RotateVector3(move_vec_y, camera_ptr_->GetCameraQuat());
 		}
 
-		dl::Vector3 now_target_pos = camera_ptr_->GetFreeTargetPos();	//現在のターゲット座標を取得
+		Vector3 now_target_pos = camera_ptr_->GetFreeTargetPos();	//現在のターゲット座標を取得
 
 		now_target_pos = now_target_pos + move_vec_x + move_vec_y;			//移動量を加算
 
@@ -108,3 +106,5 @@ void CameraDragger::RotMouseWheel(const int rot) const
 {
 	camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * rot * -1);
 }
+
+} // namespace designlab

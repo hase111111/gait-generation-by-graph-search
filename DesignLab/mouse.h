@@ -1,13 +1,15 @@
 ﻿//! @file mouse.h
 //! @brief Dxlibのマウス入力を取得するクラス．
 
-
 #ifndef DESIGNLAB_MOUSE_H_
 #define DESIGNLAB_MOUSE_H_
 
 #include <array>
 #include <map>
 
+
+namespace designlab
+{
 
 //! @class Mouse
 //! @brief Dxlibのマウス入力を取得するクラス．
@@ -34,7 +36,7 @@ public:
 
 	//! @brief マウスカーソルの位置を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．
 	//! @return int マウスカーソルのX座標．
-	[[nodiscard]] constexpr int GetCursorPosX() const noexcept{ return cursor_pos_x_; };
+	[[nodiscard]] constexpr int GetCursorPosX() const noexcept { return cursor_pos_x_; };
 
 	//! @brief マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．
 	//! @return int マウスカーソルのX方向の移動量．
@@ -72,6 +74,8 @@ private:
 
 	int wheel_rot_;		//!< マウスホイールの回転量，手前に回した分はマイナスの値として、奥に回した分はプラスの値として返る
 };
+
+}	// namespace designlab
 
 
 #endif // DESIGNLAB_MOUSE_H_

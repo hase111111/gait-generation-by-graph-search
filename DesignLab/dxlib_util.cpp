@@ -1,4 +1,4 @@
-#include "dxlib_util.h"
+ï»¿#include "dxlib_util.h"
 
 #include <Dxlib.h>
 
@@ -6,133 +6,129 @@
 #include "graphic_const.h"
 
 
-namespace designlab
+namespace designlab::dxlib_util
 {
-	namespace dxlib_util
+
+void InitDxlib3DSetting(const bool high_quality)
+{
+	if (high_quality)
 	{
+		SetUseLighting(TRUE);
+		SetLightEnable(TRUE);
 
-		void InitDxlib3DSetting(const bool high_quality)
-		{
-			if (high_quality)
-			{
-				SetUseLighting(TRUE);
-				SetLightEnable(TRUE);
-
-				// ƒ‰ƒCƒg‚Ìİ’è
-				ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec()));
-			}
-			else
-			{
-				SetUseLighting(FALSE);
-				SetLightEnable(FALSE);
-			}
-		}
+		// ãƒ©ã‚¤ãƒˆã®è¨­å®š
+		ChangeLightTypeDir(ConvertToDxlibVec(Vector3::GetUpVec()));
+	}
+	else
+	{
+		SetUseLighting(FALSE);
+		SetLightEnable(FALSE);
+	}
+}
 
 
-		void SetZBufferEnable()
-		{
-			// ‚yƒoƒbƒtƒ@‚ğ—LŒø‚É‚·‚é
-			SetUseZBuffer3D(TRUE);
+void SetZBufferEnable()
+{
+	// ï¼ºãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+	SetUseZBuffer3D(TRUE);
 
-			// ‚yƒoƒbƒtƒ@‚Ö‚Ì‘‚«‚İ‚ğ—LŒø‚É‚·‚é
-			SetWriteZBuffer3D(TRUE);
-		}
-
-
-		void DrawCube3D(const VECTOR& center_pos, const float side_len, const unsigned int color)
-		{
-			//—§•û‘Ì‚Í8‚Â‚Ì’¸“_‚ğ‚Â‚Ì‚ÅC‚»‚ê‚ç‚ÌÀ•W‚ğŒvZ‚·‚éD
-			const std::array<VECTOR, 8> vertex =
-			{
-				VGet(center_pos.x - side_len / 2,center_pos.y - side_len / 2,center_pos.z - side_len / 2),
-				VGet(center_pos.x + side_len / 2,center_pos.y - side_len / 2,center_pos.z - side_len / 2),
-				VGet(center_pos.x + side_len / 2,center_pos.y - side_len / 2,center_pos.z + side_len / 2),
-				VGet(center_pos.x - side_len / 2,center_pos.y - side_len / 2,center_pos.z + side_len / 2),
-				VGet(center_pos.x - side_len / 2,center_pos.y + side_len / 2,center_pos.z - side_len / 2),
-				VGet(center_pos.x + side_len / 2,center_pos.y + side_len / 2,center_pos.z - side_len / 2),
-				VGet(center_pos.x + side_len / 2,center_pos.y + side_len / 2,center_pos.z + side_len / 2),
-				VGet(center_pos.x - side_len / 2,center_pos.y + side_len / 2,center_pos.z + side_len / 2)
-			};
-
-			// 3D•`‰æ‚ÌŠÖ”‚Í3ŠpŒ`‚ğŠî–{’PˆÊ‚Æ‚·‚é‚Ì‚ÅC4ŠpŒ`‚Ì–Ê‚ğ’£‚è‚½‚¢ê‡‚ÍC2‚Â‚ÌOŠpŒ`‚ğ‘g‚İ‡‚í‚¹‚é•K—v‚ª‚ ‚éD‚Â‚Ü‚èC6–Ê~2‚Â12ŒÂ‚ÌOŠpŒ`‚Å—§•û‘Ì‚ª•`‰æ‚Å‚«‚éD
-
-			DrawTriangle3D(vertex[0], vertex[1], vertex[2], color, TRUE);
-			DrawTriangle3D(vertex[2], vertex[3], vertex[0], color, TRUE);
-
-			DrawTriangle3D(vertex[4], vertex[5], vertex[6], color, TRUE);
-			DrawTriangle3D(vertex[6], vertex[7], vertex[4], color, TRUE);
-
-			DrawTriangle3D(vertex[4], vertex[7], vertex[0], color, TRUE);
-			DrawTriangle3D(vertex[0], vertex[7], vertex[3], color, TRUE);
-
-			DrawTriangle3D(vertex[1], vertex[2], vertex[5], color, TRUE);
-			DrawTriangle3D(vertex[5], vertex[6], vertex[2], color, TRUE);
-
-			DrawTriangle3D(vertex[0], vertex[1], vertex[5], color, TRUE);
-			DrawTriangle3D(vertex[5], vertex[4], vertex[0], color, TRUE);
-
-			DrawTriangle3D(vertex[2], vertex[3], vertex[7], color, TRUE);
-			DrawTriangle3D(vertex[7], vertex[6], vertex[2], color, TRUE);
-
-		}
+	// ï¼ºãƒãƒƒãƒ•ã‚¡ã¸ã®æ›¸ãè¾¼ã¿ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+	SetWriteZBuffer3D(TRUE);
+}
 
 
-		void DrawCube3DWithTopPos(const VECTOR& top_pos, const float side_len, const unsigned int color)
-		{
-			DrawCube3D(VSub(top_pos, VGet(0, 0, side_len / 2)), side_len, color);
-		}
+void DrawCube3D(const VECTOR& center_pos, const float side_len, const unsigned int color)
+{
+	//ç«‹æ–¹ä½“ã¯8ã¤ã®é ‚ç‚¹ã‚’æŒã¤ã®ã§ï¼Œãã‚Œã‚‰ã®åº§æ¨™ã‚’è¨ˆç®—ã™ã‚‹ï¼
+	const std::array<VECTOR, 8> vertex =
+	{
+		VGet(center_pos.x - side_len / 2,center_pos.y - side_len / 2,center_pos.z - side_len / 2),
+		VGet(center_pos.x + side_len / 2,center_pos.y - side_len / 2,center_pos.z - side_len / 2),
+		VGet(center_pos.x + side_len / 2,center_pos.y - side_len / 2,center_pos.z + side_len / 2),
+		VGet(center_pos.x - side_len / 2,center_pos.y - side_len / 2,center_pos.z + side_len / 2),
+		VGet(center_pos.x - side_len / 2,center_pos.y + side_len / 2,center_pos.z - side_len / 2),
+		VGet(center_pos.x + side_len / 2,center_pos.y + side_len / 2,center_pos.z - side_len / 2),
+		VGet(center_pos.x + side_len / 2,center_pos.y + side_len / 2,center_pos.z + side_len / 2),
+		VGet(center_pos.x - side_len / 2,center_pos.y + side_len / 2,center_pos.z + side_len / 2)
+	};
+
+	// 3Dæç”»ã®é–¢æ•°ã¯3è§’å½¢ã‚’åŸºæœ¬å˜ä½ã¨ã™ã‚‹ã®ã§ï¼Œ4è§’å½¢ã®é¢ã‚’å¼µã‚ŠãŸã„å ´åˆã¯ï¼Œ2ã¤ã®ä¸‰è§’å½¢ã‚’çµ„ã¿åˆã‚ã›ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼ã¤ã¾ã‚Šï¼Œ6é¢Ã—2ã¤ï¼12å€‹ã®ä¸‰è§’å½¢ã§ç«‹æ–¹ä½“ãŒæç”»ã§ãã‚‹ï¼
+
+	DrawTriangle3D(vertex[0], vertex[1], vertex[2], color, TRUE);
+	DrawTriangle3D(vertex[2], vertex[3], vertex[0], color, TRUE);
+
+	DrawTriangle3D(vertex[4], vertex[5], vertex[6], color, TRUE);
+	DrawTriangle3D(vertex[6], vertex[7], vertex[4], color, TRUE);
+
+	DrawTriangle3D(vertex[4], vertex[7], vertex[0], color, TRUE);
+	DrawTriangle3D(vertex[0], vertex[7], vertex[3], color, TRUE);
+
+	DrawTriangle3D(vertex[1], vertex[2], vertex[5], color, TRUE);
+	DrawTriangle3D(vertex[5], vertex[6], vertex[2], color, TRUE);
+
+	DrawTriangle3D(vertex[0], vertex[1], vertex[5], color, TRUE);
+	DrawTriangle3D(vertex[5], vertex[4], vertex[0], color, TRUE);
+
+	DrawTriangle3D(vertex[2], vertex[3], vertex[7], color, TRUE);
+	DrawTriangle3D(vertex[7], vertex[6], vertex[2], color, TRUE);
+
+}
 
 
-		void DrawHexagon(const std::array<VECTOR, 6>& vertex, const unsigned int color)
-		{
-			// 3D•`‰æ‚ÌŠÖ”‚Í3ŠpŒ`‚ğŠî–{’PˆÊ‚Æ‚·‚é‚Ì‚ÅC6ŠpŒ`‚Ì–Ê‚ğ’£‚è‚½‚¢ê‡‚ÍC4‚Â‚ÌOŠpŒ`‚ğ‘g‚İ‡‚í‚¹‚é•K—v‚ª‚ ‚éD
-			DrawTriangle3D(vertex[0], vertex[1], vertex[5], color, TRUE);
-			DrawTriangle3D(vertex[1], vertex[2], vertex[4], color, TRUE);
-			DrawTriangle3D(vertex[1], vertex[4], vertex[5], color, TRUE);
-			DrawTriangle3D(vertex[2], vertex[3], vertex[4], color, TRUE);
-		}
+void DrawCube3DWithTopPos(const VECTOR& top_pos, const float side_len, const unsigned int color)
+{
+	DrawCube3D(VSub(top_pos, VGet(0, 0, side_len / 2)), side_len, color);
+}
 
 
-		void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, const float height, const unsigned int color)
-		{
-			// 6ŠpŒ`–Ê‚Ì–@ü•ûŒü‚ÌƒxƒNƒgƒ‹‚ğæ“¾‚·‚éD‚â‚Á‚Ä‚¢‚éˆ—‚Æ‚µ‚Ä‚ÍC’¸“_0‚©‚ç1‚Ös‚­ƒxƒNƒgƒ‹‚ğv01C“¯—l‚É’¸“_0‚©‚ç2‚Ös‚­ƒxƒNƒgƒ‹‚ğv02‚Æ‚·‚é‚ÆC
-			// v01‚Æv02‚ÌŠOÏ(Cross)‚ğ‚Æ‚é‚Æ–@ü•ûŒü‚ÌƒxƒNƒgƒ‹‚ªæ“¾‚Å‚«‚é‚½‚ßC‚±‚ê‚ğ’PˆÊƒxƒNƒgƒ‹‚É•ÏŠ·(NormCƒm[ƒ}ƒ‰ƒCƒY‚Ì‚±‚Æ)‚µC‚‚³‚Ì”¼•ª‚¾‚¯”{‚É‚µ‚½D
-			const VECTOR center_to_top = VScale(VNorm(VCross(VSub(vertex[0], vertex[1]), VSub(vertex[0], vertex[2]))), height / 2.0f);
+void DrawHexagon(const std::array<VECTOR, 6>& vertex, const unsigned int color)
+{
+	// 3Dæç”»ã®é–¢æ•°ã¯3è§’å½¢ã‚’åŸºæœ¬å˜ä½ã¨ã™ã‚‹ã®ã§ï¼Œ6è§’å½¢ã®é¢ã‚’å¼µã‚ŠãŸã„å ´åˆã¯ï¼Œ4ã¤ã®ä¸‰è§’å½¢ã‚’çµ„ã¿åˆã‚ã›ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼
+	DrawTriangle3D(vertex[0], vertex[1], vertex[5], color, TRUE);
+	DrawTriangle3D(vertex[1], vertex[2], vertex[4], color, TRUE);
+	DrawTriangle3D(vertex[1], vertex[4], vertex[5], color, TRUE);
+	DrawTriangle3D(vertex[2], vertex[3], vertex[4], color, TRUE);
+}
 
-			//ã–Ê‚Ì’¸“_D
-			const std::array<VECTOR, 6> vertex_top =
-			{
-				VAdd(vertex[0],center_to_top),
-				VAdd(vertex[1],center_to_top),
-				VAdd(vertex[2],center_to_top),
-				VAdd(vertex[3],center_to_top),
-				VAdd(vertex[4],center_to_top),
-				VAdd(vertex[5],center_to_top)
-			};
 
-			//’ê–Ê‚Ì’¸“_
-			const std::array<VECTOR, 6> vertex_bottom =
-			{
-				VSub(vertex[0],center_to_top),
-				VSub(vertex[1],center_to_top),
-				VSub(vertex[2],center_to_top),
-				VSub(vertex[3],center_to_top),
-				VSub(vertex[4],center_to_top),
-				VSub(vertex[5],center_to_top)
-			};
+void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, const float height, const unsigned int color)
+{
+	// 6è§’å½¢é¢ã®æ³•ç·šæ–¹å‘ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—ã™ã‚‹ï¼ã‚„ã£ã¦ã„ã‚‹å‡¦ç†ã¨ã—ã¦ã¯ï¼Œé ‚ç‚¹0ã‹ã‚‰1ã¸è¡Œããƒ™ã‚¯ãƒˆãƒ«ã‚’v01ï¼ŒåŒæ§˜ã«é ‚ç‚¹0ã‹ã‚‰2ã¸è¡Œããƒ™ã‚¯ãƒˆãƒ«ã‚’v02ã¨ã™ã‚‹ã¨ï¼Œ
+	// v01ã¨v02ã®å¤–ç©(Cross)ã‚’ã¨ã‚‹ã¨æ³•ç·šæ–¹å‘ã®ãƒ™ã‚¯ãƒˆãƒ«ãŒå–å¾—ã§ãã‚‹ãŸã‚ï¼Œã“ã‚Œã‚’å˜ä½ãƒ™ã‚¯ãƒˆãƒ«ã«å¤‰æ›(Normï¼Œãƒãƒ¼ãƒãƒ©ã‚¤ã‚ºã®ã“ã¨)ã—ï¼Œé«˜ã•ã®åŠåˆ†ã ã‘å€ã«ã—ãŸï¼
+	const VECTOR center_to_top = VScale(VNorm(VCross(VSub(vertex[0], vertex[1]), VSub(vertex[0], vertex[2]))), height / 2.0f);
 
-			DrawHexagon(vertex_top, color);		//ã–Ê‚ğ•`‰æ‚·‚éD
-			DrawHexagon(vertex_bottom, color);	//’ê–Ê‚ğ•`‰æ‚·‚éD
+	//ä¸Šé¢ã®é ‚ç‚¹ï¼
+	const std::array<VECTOR, 6> vertex_top =
+	{
+		VAdd(vertex[0],center_to_top),
+		VAdd(vertex[1],center_to_top),
+		VAdd(vertex[2],center_to_top),
+		VAdd(vertex[3],center_to_top),
+		VAdd(vertex[4],center_to_top),
+		VAdd(vertex[5],center_to_top)
+	};
 
-			//‘¤–Ê‚ğ•`‰æ‚µ‚Ä‚¢‚­D‘¤–Ê‚ÍlŠpŒ`6‚Â‚Å\¬‚³‚ê‚é‚Ì‚ÅC3ŠpŒ`‚ª12ŒÂ•K—v‚É‚È‚éD
-			for (int i = 0; i < 6; i++)
-			{
-				DrawTriangle3D(vertex_top[i % 6], vertex_top[(i + 1) % 6], vertex_bottom[i % 6], color, TRUE);
-				DrawTriangle3D(vertex_top[(i + 1) % 6], vertex_bottom[i % 6], vertex_bottom[(i + 1) % 6], color, TRUE);
-			}
+	//åº•é¢ã®é ‚ç‚¹
+	const std::array<VECTOR, 6> vertex_bottom =
+	{
+		VSub(vertex[0],center_to_top),
+		VSub(vertex[1],center_to_top),
+		VSub(vertex[2],center_to_top),
+		VSub(vertex[3],center_to_top),
+		VSub(vertex[4],center_to_top),
+		VSub(vertex[5],center_to_top)
+	};
 
-		}
+	DrawHexagon(vertex_top, color);		//ä¸Šé¢ã‚’æç”»ã™ã‚‹ï¼
+	DrawHexagon(vertex_bottom, color);	//åº•é¢ã‚’æç”»ã™ã‚‹ï¼
 
-	}	//namespace dxlib_util
+	//å´é¢ã‚’æç”»ã—ã¦ã„ãï¼å´é¢ã¯å››è§’å½¢6ã¤ã§æ§‹æˆã•ã‚Œã‚‹ã®ã§ï¼Œ3è§’å½¢ãŒ12å€‹å¿…è¦ã«ãªã‚‹ï¼
+	for (int i = 0; i < 6; i++)
+	{
+		DrawTriangle3D(vertex_top[i % 6], vertex_top[(i + 1) % 6], vertex_bottom[i % 6], color, TRUE);
+		DrawTriangle3D(vertex_top[(i + 1) % 6], vertex_bottom[i % 6], vertex_bottom[(i + 1) % 6], color, TRUE);
+	}
 
-}	//namespace designlab
+}
+
+}	//namespace designlab::dxlib_util

@@ -5,7 +5,7 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace designlab 
+namespace designlab
 {
 
 NodeInitializer::NodeInitializer(const::designlab::Vector3& pos, ::designlab::enums::HexapodMove move) : pos_(pos), move_(move)
@@ -18,10 +18,10 @@ RobotStateNode NodeInitializer::InitNode() const
 
 	//脚状態
 	res.leg_state = leg_func::MakeLegStateBit(
-		DiscreteComPos::kCenterBack,
+		enums::DiscreteComPos::kCenterBack,
 		{ true, true, true, true, true, true },
-		{ DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
-		DiscreteLegPos::kCenter, DiscreteLegPos::kCenter, DiscreteLegPos::kCenter }
+		{ enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter,
+		enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter }
 	);
 
 

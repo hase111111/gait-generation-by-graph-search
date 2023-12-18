@@ -3,6 +3,9 @@
 #include <DxLib.h>
 
 
+namespace designlab
+{
+
 int FontLoader::GetFontHandle(const std::string& file_path)
 {
 	//すでに読み込み済みのフォントの場合は，ハンドル番号を返す．
@@ -25,3 +28,5 @@ int FontLoader::GetFontHandle(const std::string& file_path)
 
 	return handle;
 }
+
+} // namespace designlab

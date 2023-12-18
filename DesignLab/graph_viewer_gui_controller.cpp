@@ -11,11 +11,11 @@
 #include "leg_state.h"
 
 
-namespace dllf = designlab::leg_func;
-
+namespace designlab
+{
 
 GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateNode>* const p_graph, size_t* const p_display_node_index,
-	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+												   const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
 	graph_ptr_(p_graph),
 	display_node_index_ptr_(p_display_node_index),
 	setting_ptr_(setting_ptr)
@@ -146,19 +146,19 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
 	int text_line = 0;
 
-	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", dllf::GetDiscreteComPos(node.leg_state),
-		dllf::GetDiscreteLegPos(node.leg_state, 0), dllf::GetDiscreteLegPos(node.leg_state, 1), dllf::GetDiscreteLegPos(node.leg_state, 2),
-		dllf::GetDiscreteLegPos(node.leg_state, 3), dllf::GetDiscreteLegPos(node.leg_state, 4), dllf::GetDiscreteLegPos(node.leg_state, 5));
+	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", leg_func::GetDiscreteComPos(node.leg_state),
+					 leg_func::GetDiscreteLegPos(node.leg_state, 0), leg_func::GetDiscreteLegPos(node.leg_state, 1), leg_func::GetDiscreteLegPos(node.leg_state, 2),
+					 leg_func::GetDiscreteLegPos(node.leg_state, 3), leg_func::GetDiscreteLegPos(node.leg_state, 4), leg_func::GetDiscreteLegPos(node.leg_state, 5));
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
+					 "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
 
 	//遊脚か接地脚か
 	std::string str = "";
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
-		if (dllf::IsGrounded(node.leg_state, i)) { str += "接地,"; }
+		if (leg_func::IsGrounded(node.leg_state, i)) { str += "接地,"; }
 		else { str += "遊脚,"; }
 	}
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
@@ -167,12 +167,12 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 	for (int i = 0; i < HexapodConst::kLegNum; i++)
 	{
 		DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-			"%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
+						 "%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
 	}
 
 	// 深さと次の動作を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-		"深さ：%d, 次の動作 : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
+					 "深さ：%d, 次の動作 : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
 }
 
 
@@ -297,3 +297,5 @@ void GraphViewerGUIController::UpdateGraphNodeDepthData()
 		}
 	}
 }
+
+}  // namespace designlab

@@ -1,7 +1,10 @@
-#include "keyboard.h"
+ï»¿#include "keyboard.h"
 
 #include <Dxlib.h>
 
+
+namespace designlab
+{
 
 Keyboard::Keyboard()
 {
@@ -15,32 +18,32 @@ Keyboard::Keyboard()
 void Keyboard::Update()
 {
 	char now_key_status[kKeyNum];
-	GetHitKeyStateAll(now_key_status);       //¡‚ÌƒL[‚Ì“ü—Íó‘Ô‚ğæ“¾
+	GetHitKeyStateAll(now_key_status);       //ä»Šã®ã‚­ãƒ¼ã®å…¥åŠ›çŠ¶æ…‹ã‚’å–å¾—
 
 	for (int i = 0; i < kKeyNum; i++)
 	{
 		if (now_key_status[i] != 0)
 		{
-			//i”Ô‚ÌƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç
+			//iç•ªã®ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰
 
 			if (key_releasing_counter_[i] > 0)
 			{
-				//—£‚³‚êƒJƒEƒ“ƒ^‚ª0‚æ‚è‘å‚«‚¯‚ê‚Î
-				key_releasing_counter_[i] = 0;   //0‚É–ß‚·
+				//é›¢ã•ã‚Œã‚«ã‚¦ãƒ³ã‚¿ãŒ0ã‚ˆã‚Šå¤§ãã‘ã‚Œã°
+				key_releasing_counter_[i] = 0;   //0ã«æˆ»ã™
 			}
 
-			key_pressing_counter_[i]++;          //‰Ÿ‚³‚êƒJƒEƒ“ƒ^‚ğ‘‚â‚·
+			key_pressing_counter_[i]++;          //æŠ¼ã•ã‚Œã‚«ã‚¦ãƒ³ã‚¿ã‚’å¢—ã‚„ã™
 		}
 		else
 		{
-			//i”Ô‚ÌƒL[‚ª—£‚³‚ê‚Ä‚¢‚½‚ç
+			//iç•ªã®ã‚­ãƒ¼ãŒé›¢ã•ã‚Œã¦ã„ãŸã‚‰
 			if (key_pressing_counter_[i] > 0)
 			{
-				//‰Ÿ‚³‚êƒJƒEƒ“ƒ^‚ª0‚æ‚è‘å‚«‚¯‚ê‚Î
-				key_pressing_counter_[i] = 0;    //0‚É–ß‚·
+				//æŠ¼ã•ã‚Œã‚«ã‚¦ãƒ³ã‚¿ãŒ0ã‚ˆã‚Šå¤§ãã‘ã‚Œã°
+				key_pressing_counter_[i] = 0;    //0ã«æˆ»ã™
 			}
 
-			key_releasing_counter_[i]++;         //—£‚³‚êƒJƒEƒ“ƒ^‚ğ‘‚â‚·
+			key_releasing_counter_[i]++;         //é›¢ã•ã‚Œã‚«ã‚¦ãƒ³ã‚¿ã‚’å¢—ã‚„ã™
 		}
 	}
 }
@@ -74,3 +77,5 @@ bool Keyboard::IsAvailableCode(const int key_code) const
 
 	return true;
 }
+
+} // namespace designlab

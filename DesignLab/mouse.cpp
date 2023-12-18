@@ -1,4 +1,4 @@
-#include "mouse.h"
+ï»¿#include "mouse.h"
 
 #include <cmath>
 
@@ -6,64 +6,65 @@
 
 #include "designlab_math_util.h"
 
-namespace dlm = ::designlab::math_util;
 
+namespace designlab
+{
 
-Mouse::Mouse() : 
+Mouse::Mouse() :
 	kMouseKeyCodes
-	{
-		MOUSE_INPUT_RIGHT,
-		MOUSE_INPUT_LEFT,
-		MOUSE_INPUT_MIDDLE,
-		MOUSE_INPUT_4,
-		MOUSE_INPUT_5,
-		MOUSE_INPUT_6,
-		MOUSE_INPUT_7,
-		MOUSE_INPUT_8
-	},
-	cursor_pos_x_(0),
-	cursor_pos_y_(0),
-	cursor_past_pos_x_(0),
-	cursor_past_pos_y_(0),
-	pushing_counter_({}),
-	releasing_counter_({}),
-	wheel_rot_(0)
+{
+	MOUSE_INPUT_RIGHT,
+	MOUSE_INPUT_LEFT,
+	MOUSE_INPUT_MIDDLE,
+	MOUSE_INPUT_4,
+	MOUSE_INPUT_5,
+	MOUSE_INPUT_6,
+	MOUSE_INPUT_7,
+	MOUSE_INPUT_8
+},
+cursor_pos_x_(0),
+cursor_pos_y_(0),
+cursor_past_pos_x_(0),
+cursor_past_pos_y_(0),
+pushing_counter_({}),
+releasing_counter_({}),
+wheel_rot_(0)
 {
 }
 
 void Mouse::Update()
 {
-	// ƒ}ƒEƒX‚ÌˆÊ’uæ“¾
+	// ãƒã‚¦ã‚¹ã®ä½ç½®å–å¾—
 	cursor_past_pos_x_ = cursor_pos_x_;
 	cursor_past_pos_y_ = cursor_pos_y_;
 	GetMousePoint(&cursor_pos_x_, &cursor_pos_y_);
 
-	// ƒ}ƒEƒX‚ÌƒNƒŠƒbƒNæ“¾
+	// ãƒã‚¦ã‚¹ã®ã‚¯ãƒªãƒƒã‚¯å–å¾—
 	const int mouse_input = GetMouseInput();
 
 	for (const auto& i : kMouseKeyCodes)
 	{
 		if (mouse_input & i)
 		{
-			// ‰Ÿ‚³‚ê‚Ä‚¢‚é‚È‚ç
+			// æŠ¼ã•ã‚Œã¦ã„ã‚‹ãªã‚‰
 			pushing_counter_[i]++;
 			releasing_counter_[i] = 0;
 		}
 		else
 		{
-			// —£‚³‚ê‚Ä‚¢‚é‚È‚ç
+			// é›¢ã•ã‚Œã¦ã„ã‚‹ãªã‚‰
 			pushing_counter_[i] = 0;
 			releasing_counter_[i]++;
 		}
 	}
 
-	// ƒzƒC[ƒ‹‰ñ“]‚ğæ“¾CGetMouseWheelRotVol()‚Í‘O‰ñ‚ÌŒÄ‚Ño‚µˆÈ~‚Ì‰ñ“]—Ê‚ğ•Ô‚·D
+	// ãƒ›ã‚¤ãƒ¼ãƒ«å›è»¢ã‚’å–å¾—ï¼ŒGetMouseWheelRotVol()ã¯å‰å›ã®å‘¼ã³å‡ºã—ä»¥é™ã®å›è»¢é‡ã‚’è¿”ã™ï¼
 	wheel_rot_ = GetMouseWheelRotVol();
 }
 
 int Mouse::GetPressingCount(const int mouse_code) const
 {
-	// std::map‚Å‚Ífind‚àcount‚àˆ—‘¬“x‚Í“¯‚¶‚­‚ç‚¢Cmultimap‚âmultiset‚Ífind‚ğ„§
+	// std::mapã§ã¯findã‚‚countã‚‚å‡¦ç†é€Ÿåº¦ã¯åŒã˜ãã‚‰ã„ï¼Œmultimapã‚„multisetã¯findã‚’æ¨å¥¨
 	if (releasing_counter_.count(mouse_code) == 0)
 	{
 		return -1;
@@ -94,11 +95,7 @@ int Mouse::GetDiffPosY() const
 
 double Mouse::GetDiffPos() const
 {
-	return sqrt
-	(
-		static_cast<double>
-		(
-			dlm::Squared(GetDiffPosY()) + dlm::Squared(GetDiffPosX())
-		)
-	);
+	return sqrt(static_cast<double>(math_util::Squared(GetDiffPosY()) + math_util::Squared(GetDiffPosX())));
 }
+
+} // namespace designlab

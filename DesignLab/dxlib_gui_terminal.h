@@ -1,9 +1,8 @@
-//! @file dxlib_gui_terminal.h
-//! @brief ~ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄÁ‚¦‚½GUI‚ğ•œŠˆ‚³‚¹‚é‚½‚ß‚ÌƒNƒ‰ƒXD
+ï»¿//! @file dxlib_gui_terminal.h
+//! @brief Ã—ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦æ¶ˆãˆãŸGUIã‚’å¾©æ´»ã•ã›ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 
 #ifndef DESIGNLAB_DXLIB_GUI_TERMINAL_H_
 #define DESIGNLAB_DXLIB_GUI_TERMINAL_H_
-
 
 #include <memory>
 #include <vector>
@@ -13,8 +12,11 @@
 #include "simple_button.h"
 
 
+namespace designlab
+{
+
 //! @class DxlibGuiTerminal
-//! @brief ~ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄÁ‚¦‚½GUI‚ğ•œŠˆ‚³‚¹‚é‚½‚ß‚ÌƒNƒ‰ƒXD
+//! @brief Ã—ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦æ¶ˆãˆãŸGUIã‚’å¾©æ´»ã•ã›ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ï¼
 class DxlibGuiTerminal final : public IDxlibGui, public IDxlibClickable
 {
 public:
@@ -51,5 +53,8 @@ private:
 
 	bool is_closed_{ true };
 };
+
+} // namespace desinglab
+
 
 #endif //DESIGNLAB_DXLIB_GUI_TERMINAL_H_
