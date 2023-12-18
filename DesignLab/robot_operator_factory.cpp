@@ -6,7 +6,7 @@
 #include "robot_operator_fixed.h"
 #include "robot_operator_free.h"
 #include "toml_file_importer.h"
-#include "toml_file_setupper.h"
+#include "toml_directory_exporter.h"
 
 
 namespace designlab
@@ -21,7 +21,7 @@ std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSet
 	else if (setting.operate_mode == enums::RobotOperateMode::kFixed)
 	{
 		TomlFileImporter<RobotOperation> importer;
-		return std::make_unique<RobotOperatorFixed>(importer.ImportOrUseDefault(TomlFileSetupper::kTomlFileDirPath + setting.fixed_operate_file_name));
+		return std::make_unique<RobotOperatorFixed>(importer.ImportOrUseDefault(TomlDirectoryExporter::kTomlFileDirPath + setting.fixed_operate_file_name));
 	}
 	else if (setting.operate_mode == enums::RobotOperateMode::kFree)
 	{

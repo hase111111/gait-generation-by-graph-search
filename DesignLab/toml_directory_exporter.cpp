@@ -1,4 +1,4 @@
-﻿#include "toml_file_setupper.h"
+﻿#include "toml_directory_exporter.h"
 
 #include <filesystem>
 
@@ -6,10 +6,10 @@
 namespace designlab
 {
 
-const std::string TomlFileSetupper::kTomlFileDirPath = "./simulation_condition/";
+const std::string TomlDirectoryExporter::kTomlFileDirPath = "./simulation_condition/";
 
 
-void TomlFileSetupper::Setup()
+void TomlDirectoryExporter::Export()
 {
 	// ディレクトリが存在しない場合は作成
 	if (!std::filesystem::exists(kTomlFileDirPath))

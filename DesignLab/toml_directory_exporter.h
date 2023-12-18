@@ -1,4 +1,4 @@
-﻿//! @file toml_file_setupper.h
+﻿//! @file toml_directory_exporter.h
 //! @brief TOMLファイルを入れるディレクトリを作成し，TOMLファイル読み込みの準備をするクラス．
 
 #ifndef DESIGNLAB_TOML_FILE_SETUPPER_H_
@@ -10,17 +10,16 @@
 namespace designlab
 {
 
-//! @class TomlFileSetupper
+//! @class TomlDirectoryExporter
 //! @brief TOMLファイルを入れるディレクトリを作成し，TOMLファイル読み込みの準備をするクラス．
-//! @todo リネームする．
-class TomlFileSetupper final
+class TomlDirectoryExporter final
 {
 public:
 
-	const static std::string kTomlFileDirPath;
+	const static std::string kTomlFileDirPath;	//!< TOMLファイルを入れるディレクトリのパス．
 
 	//! @brief TOMLファイルを入れるディレクトリを作成し，TOMLファイル読み込みの準備をする．
-	void Setup();
+	void Export();
 
 };
 

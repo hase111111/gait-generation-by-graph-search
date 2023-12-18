@@ -7,10 +7,10 @@
 #include "map_creator_for_simulation.h"
 #include "simulation_map_parameter_validator.h"
 #include "toml_file_importer.h"
-#include "toml_file_setupper.h"
+#include "toml_directory_exporter.h"
 
 
-namespace designlab 
+namespace designlab
 {
 
 std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRecord& record)
@@ -19,7 +19,7 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 
 	if (record.map_create_mode == enums::MapCreateMode::kFromFile)
 	{
-		map_creator = std::make_unique<MapCreatorByCsv>(TomlFileSetupper::kTomlFileDirPath + record.map_file_name);
+		map_creator = std::make_unique<MapCreatorByCsv>(TomlDirectoryExporter::kTomlFileDirPath + record.map_file_name);
 	}
 	else if (record.map_create_mode == enums::MapCreateMode::kForSimulation)
 	{
@@ -27,14 +27,14 @@ std::unique_ptr<IMapCreator> MapCreatorFactory::Create(const SimulationSettingRe
 
 		const TomlFileImporter<SimulationMapParameter> simulation_map_parameter_importer(std::move(validator_ptr));
 
-		const std::string simulation_map_param_file_path = TomlFileSetupper::kTomlFileDirPath + record.simulation_map_param_file_name;
+		const std::string simulation_map_param_file_path = TomlDirectoryExporter::kTomlFileDirPath + record.simulation_map_param_file_name;
 
 		const auto simulation_map_parameter = simulation_map_parameter_importer.ImportOrUseDefault(simulation_map_param_file_path);
 
 		map_creator = std::make_unique<MapCreatorForSimulation>(simulation_map_parameter);
 	}
 	else
-	{	
+	{
 		assert(false && "MapCreateMode is not supported.");
 	}
 

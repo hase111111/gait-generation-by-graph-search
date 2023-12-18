@@ -164,7 +164,7 @@
     <ClInclude Include="toml_data_validator_always_true.h" />
     <ClInclude Include="toml_file_exporter.h" />
     <ClInclude Include="toml_file_importer.h" />
-    <ClInclude Include="toml_file_setupper.h" />
+    <ClInclude Include="toml_directory_exporter.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
@@ -266,7 +266,7 @@
     <ClCompile Include="robot_operator_factory.cpp" />
     <ClCompile Include="robot_operator_for_gpg.cpp" />
     <ClCompile Include="robot_operator_fixed.cpp" />
-    <ClCompile Include="toml_file_setupper.cpp" />
+    <ClCompile Include="toml_directory_exporter.cpp" />
     <ClCompile Include="toml_serialize_macro.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
   </ItemGroup>

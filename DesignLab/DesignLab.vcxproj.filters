@@ -561,7 +561,7 @@
     <ClInclude Include="toml_file_exporter.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
-    <ClInclude Include="toml_file_setupper.h">
+    <ClInclude Include="toml_directory_exporter.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
     <ClInclude Include="robot_operator_fixed.h">
@@ -878,7 +878,7 @@
     <ClCompile Include="robot_operator_for_gpg.cpp">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClCompile>
-    <ClCompile Include="toml_file_setupper.cpp">
+    <ClCompile Include="toml_directory_exporter.cpp">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClCompile>
     <ClCompile Include="robot_operator_fixed.cpp">
