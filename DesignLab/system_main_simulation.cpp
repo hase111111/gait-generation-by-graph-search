@@ -8,7 +8,6 @@
 #include "cmdio_util.h"
 #include "dead_lock_checker.h"
 #include "designlab_string_util.h"
-#include "node_initializer.h"
 #include "map_creator_for_simulation.h"
 
 
@@ -19,14 +18,16 @@ SystemMainSimulation::SystemMainSimulation(
 	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 	std::unique_ptr<IMapCreator>&& map_creator_ptr,
 	std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
-	std::unique_ptr<IRobotOperator>&& target_updater_ptr,
+	std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
+	std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
 	map_creator_ptr_(std::move(map_creator_ptr)),
 	simu_end_checker_ptr_(std::move(simu_end_checker_ptr)),
-	robot_operator_ptr_(std::move(target_updater_ptr)),
+	robot_operator_ptr_(std::move(robot_operator_ptr)),
+	node_initializer_ptr_(std::move(node_initializer_ptr)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
@@ -58,8 +59,7 @@ void SystemMainSimulation::Main()
 	//シミュレーションを行う回数分ループする．
 	for (int i = 0; i < kSimurateNum; i++)
 	{
-		NodeInitializer node_initializer{ {300,400,40},enums::HexapodMove::kLegUpDown };		//ノードを初期化するクラスを用意する．
-		RobotStateNode current_node = node_initializer.InitNode();	//現在のノードの状態を格納する変数．
+		RobotStateNode current_node = node_initializer_ptr_->InitNode();	//現在のノードの状態を格納する変数．
 
 		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．
 

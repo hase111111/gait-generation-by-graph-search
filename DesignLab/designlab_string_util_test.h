@@ -72,7 +72,7 @@ TEST_SUITE("namespace string_util")
 		FOUR,
 	};
 
-	TEST_CASE("EnumToStringRemoveTopK")
+	TEST_CASE("EnumToStringRemoveTopK_Enumの要素を渡したとき_先頭のkを取り除いた要素名が返るべき")
 	{
 		SUBCASE("SampleEnum型の値 [kOne] を渡すと，文字列 [One] が返る")
 		{

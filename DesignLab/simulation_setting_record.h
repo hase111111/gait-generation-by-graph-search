@@ -9,6 +9,7 @@
 #include "designlab_euler.h"
 #include "designlab_string_util.h"
 #include "designlab_vector3.h"
+#include "hexapod_next_move.h"
 #include "toml_serialize_macro.h"
 
 
@@ -68,6 +69,11 @@ struct SimulationSettingRecord final
 	std::string fixed_operate_file_name{ "robot_operator.toml" };
 
 	std::vector<Vector3> path_points{ {0,0,0},{1000,0,0} };
+
+
+	Vector3 initial_positions{ 0,0,0 };
+
+	enums::HexapodMove initial_move{ enums::HexapodMove::kComMove };
 };
 
 
@@ -118,6 +124,12 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(path_points, "RobotOperator", "ロボットの操作方法がパス ( " +
 											  string_util::EnumToStringRemoveTopK(enums::RobotOperateMode::kForPath) +
 											  " ) の場合，そのパスを設定します．");
+
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_positions, "Initial", "シミュレーション開始時のロボットの位置を設定します．[mm]");
+
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_move, "Initial", "シミュレーション開始時のロボットの歩容を設定します．( \"" +
+											  string_util::EnumValuesToString<enums::HexapodMove>("\" / \"") + "\" )");
 };
 
 } // namespace designlab
@@ -128,7 +140,8 @@ DESIGNLAB_TOML11_SERIALIZE(
 	map_create_mode, simulation_map_param_file_name, map_file_name,
 	end_check_mode, goal_tape_position_x, target_posture, target_posture_allowable_error_deg,
 	target_position, target_position_allowable_error,
-	operate_mode, fixed_operate_file_name, path_points
+	operate_mode, fixed_operate_file_name, path_points,
+	initial_positions, initial_move
 );
 
 #endif //DESIGNLAB_SIMULATION_SETTING_RECORD_H_

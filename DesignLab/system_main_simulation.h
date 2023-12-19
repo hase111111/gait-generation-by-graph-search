@@ -15,6 +15,7 @@
 #include "interface_robot_operator.h"
 #include "interface_system_main.h"
 #include "map_state.h"
+#include "node_initializer.h"
 #include "result_file_exporter.h"
 #include "stopwatch.h"
 #include "robot_operation.h"
@@ -35,14 +36,16 @@ public:
 	//! @param[in] gait_pattern_generator_ptr 自由歩容パターン生成を行うクラス．
 	//! @param[in] map_creator_ptr マップを生成するクラス．
 	//! @param[in] simu_end_checker_ptr シミュレーションの終了を判定するクラス．
-	//! @param[in] target_updater_ptr 目標地点を決定するクラス．
+	//! @param[in] robot_operator_ptr 目標地点を決定するクラス．
+	//! @param[in] node_initializer_ptr ノードを初期化するクラス．
 	//! @param[in] broker_ptr グラフィックデータを別スレッドに送るための構造体．
 	//! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
 	SystemMainSimulation(
 		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
 		std::unique_ptr<IMapCreator>&& map_creator_ptr,
 		std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
-		std::unique_ptr<IRobotOperator>&& target_updater_ptr,
+		std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
+		std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
@@ -69,9 +72,11 @@ private:
 
 	const std::unique_ptr<const ISimulationEndChecker> simu_end_checker_ptr_;	//!< シミュレーションの終了を判定するクラス．
 
-	const std::unique_ptr<IRobotOperator> robot_operator_ptr_;	//!< ロボットの操作を行うクラス．
+	const std::unique_ptr<IRobotOperator> robot_operator_ptr_;		//!< ロボットの操作を行うクラス．
 
-	const std::shared_ptr<GraphicDataBroker> broker_ptr_;	//!< グラフィックデータを管理するクラス．
+	const std::unique_ptr<NodeInitializer> node_initializer_ptr_;	//!<ノードを初期化するクラスを用意する．
+
+	const std::shared_ptr<GraphicDataBroker> broker_ptr_;				//!< グラフィックデータを管理するクラス．
 
 	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;	//!< 設定ファイルの内容を格納する構造体．
 
