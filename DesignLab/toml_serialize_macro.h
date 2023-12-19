@@ -1,9 +1,9 @@
 ﻿//! @file toml_serialize_macro.h
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
-//! @details TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
-//! @n もともとのほうではenum型を取り扱うことができなかったが，このマクロでは取り扱うことができる．
-//! @n また，クラスの説明を追加することができる．
-//! @n 以下のように使用する．
+//! @details 
+//! TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
+//! もともとのほうではenum型を取り扱うことができなかったが，このマクロでは取り扱うことができる．
+//! また，クラスの説明を追加することができる．
 
 #ifndef DESIGNLAB_TOML_SERIALIZE_MACRO_H_
 #define DESIGNLAB_TOML_SERIALIZE_MACRO_H_
@@ -19,6 +19,7 @@
 #include <strconv2.h>
 
 #include "designlab_euler.h"
+#include "designlab_impl.h"
 #include "designlab_quaternion.h"
 #include "designlab_vector3.h"
 #include "toml11_define.h"
@@ -111,7 +112,7 @@ std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_ve
 //! @param str 追加する変数の名前．
 //! @param value 追加する値．
 template <typename T>
-typename std::enable_if<!std::is_enum<T>::value && !impl::is_vector3<T>::value && !impl::is_euler_xyz<T>::value && !impl::is_quaternion<T>::value && !impl::is_vector_of_vector3<T>::value>::type
+typename std::enable_if<impl::is_toml11_available_type<T>::value>::type
 SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 {
 	v[str] = value;
@@ -123,20 +124,20 @@ SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const st
 //! @param str 追加する変数の名前．
 //! @param value 追加する値．
 template <typename T>
-typename std::enable_if<std::is_enum<T>::value>::type
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& std::is_enum<T>::value>::type
 SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 {
 	v[str] = static_cast<std::string>(magic_enum::enum_name(value));
 }
 
 //! @brief tomlファイルに値を追加するための関数．
-//! @n vector3 型と euler_xyz 型に対応している．値をストリームを用いて文字列に変換してから追加する．
+//! @n 出力ストリームを実装している型に対応している．値をストリームを用いて文字列に変換してから追加する．
 //! @param v tomlファイルのデータ．
 //! @param str 追加する変数の名前．
 //! @param value 追加する値．
 template <typename T>
-typename std::enable_if<impl::is_vector3<T>::value || impl::is_euler_xyz<T>::value || impl::is_quaternion<T>::value>::type
-SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>&v, const std::string & str, const T & value)
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::has_output_operator<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 {
 	std::stringstream ss;
 	ss << value;
@@ -144,7 +145,7 @@ SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>&v, const std
 }
 
 template <typename T>
-typename std::enable_if<impl::is_vector_of_vector3<T>::value>::type
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_vector3<T>::value>::type
 SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 {
 	std::vector<std::string> str_vec(value.size());

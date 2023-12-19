@@ -594,6 +594,9 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="designlab_impl.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
