@@ -25,60 +25,6 @@
 #include "toml11_define.h"
 
 
-namespace designlab::impl
-{
-
-//! @brief Tがvector3型か調べるメタ関数．
-//! @details SFINAEでは構造体のタイプを調べることで，型の条件によって関数を特殊化することができる．
-//! そのため，メタ関数と言いつつもこれは構造体である．
-//! vector3型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
-//! @tparam T 調べる型．
-template <typename T>
-struct is_vector3 : std::false_type {};
-
-//! @brief Tがvector3型の時に呼ばれる．
-//! @details vector3型の場合はtrue_typeを継承する．
-//! @tparam T 調べる型．
-template <>
-struct is_vector3<Vector3> : std::true_type {};
-
-
-//! @struct is_euler_xyz
-//! @brief Tがeuler_xyz型か調べるメタ関数．
-//! @details euler_xyz型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
-//! @tparam T 調べる型．
-template <typename T>
-struct is_euler_xyz : std::false_type {};
-
-//! @brief Tがeuler_xyz型の時に呼ばれる．
-//! @details euler_xyz型の場合はtrue_typeを継承する．
-//! @tparam T 調べる型．
-template <>
-struct is_euler_xyz<EulerXYZ> : std::true_type {};
-
-
-//! @brief Tがquaternion型か調べるメタ関数．
-//! @details quaternion型の場合はtrue_type，それ以外の場合はfalse_typeを継承する．
-//! @tparam T 調べる型．
-template <typename T>
-struct is_quaternion : std::false_type {};
-
-//! @brief Tがquaternion型の時に呼ばれる．
-//! @details quaternion型の場合はtrue_typeを継承する．
-//! @tparam T 調べる型．
-template <>
-struct is_quaternion<Quaternion> : std::true_type {};
-
-
-template <typename T>
-struct is_vector_of_vector3 : std::false_type {};
-
-template <>
-struct is_vector_of_vector3<std::vector<Vector3> > : std::true_type {};
-
-}
-
-
 //! @namespace designlab::toml_func
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うための関数群．
 //! @details ここで定義されている関数は，tomlファイルのシリアライズ/デシリアライズを行うための関数である．
@@ -145,7 +91,7 @@ SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const st
 }
 
 template <typename T>
-typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_vector3<T>::value>::type
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_has_output_operator<T>::value>::type
 SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& str, const T& value)
 {
 	std::vector<std::string> str_vec(value.size());
@@ -170,7 +116,7 @@ struct GetTomlValueImpl;
 //! @see GetTomlValue
 template <typename T>
 struct GetTomlValueImpl < T,
-	typename std::enable_if < !std::is_enum<T>::value && !impl::is_vector3<T>::value && !impl::is_euler_xyz<T>::value && !impl::is_quaternion<T>::value && !impl::is_vector_of_vector3<T>::value > ::type >
+	typename std::enable_if<impl::is_toml11_available_type<T>::value> ::type >
 {
 	static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 	{
@@ -182,7 +128,7 @@ struct GetTomlValueImpl < T,
 //! @tparam T はenum型．
 //! @details enum型の値をmagic_enumで文字列に変換してから取得する．
 template <typename T>
-struct GetTomlValueImpl<T, typename std::enable_if<std::is_enum<T>::value>::type>
+struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_type<T>::value&& std::is_enum<T>::value>::type>
 {
 	//! @brief tomlファイルから値を取得するための関数．
 	//! @details enum型の値をmagic_enumで文字列に変換してから取得する．
@@ -201,7 +147,7 @@ struct GetTomlValueImpl<T, typename std::enable_if<std::is_enum<T>::value>::type
 //! @details 値をストリームを用いて文字列に変換してから取得する．
 template <typename T>
 struct GetTomlValueImpl<T,
-	typename std::enable_if<impl::is_vector3<T>::value || impl::is_euler_xyz<T>::value || impl::is_quaternion<T>::value>::type>
+	typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::has_input_operator<T>::value>::type>
 {
 	//! @brief tomlファイルから値を取得するための関数．
 	//! @details enum型の値をmagic_enumで文字列に変換してから取得する．
@@ -220,7 +166,7 @@ struct GetTomlValueImpl<T,
 };
 
 template <typename T>
-struct GetTomlValueImpl<T, typename std::enable_if<impl::is_vector_of_vector3<T>::value>::type>
+struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_has_input_operator<T>::value>::type>
 {
 	static T Get(::toml::basic_value<toml::preserve_comments, std::map>& v, const std::string& var_str)
 	{

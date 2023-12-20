@@ -11,30 +11,10 @@
 #include <string>
 
 #include "cmdio_util.h"
+#include "designlab_impl.h"
 #include "interface_toml_data_validator.h"
-#include "toml11_define.h"
 #include "toml_data_validator_always_true.h"
 #include "toml_file_exporter.h"
-
-
-namespace designlab::impl
-{
-
-//! @brief toml::from<T>()が存在するかどうかを判定するメタ関数．
-//! @details toml::from<T>()が存在する場合には，こちらが呼ばれる．
-//! false_typeを継承する．
-template <typename T, typename = void>
-struct has_from_toml : std::false_type {};
-
-
-//! @brief toml::from<T>()が存在するかどうかを判定するメタ関数．
-//! @details toml::from<T>()が存在しない場合には，こちらが呼ばれる．
-//! true_typeを継承する．
-template <typename T>
-struct has_from_toml<T, std::void_t<decltype(toml::from<T>())> > : std::true_type {};
-
-
-}	//namespace designlab::impl
 
 
 namespace designlab

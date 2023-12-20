@@ -10,21 +10,9 @@
 #include <map>
 
 #include "cmdio_util.h"
+#include "designlab_impl.h"
 #include "designlab_string_util.h"
 #include "toml11_define.h"
-
-
-namespace designlab::impl
-{
-
-template <typename T, typename = void>
-struct has_into_toml : std::false_type {};
-
-template <typename T>
-struct has_into_toml<T, std::void_t<decltype(toml::into<T>())> > : std::true_type {};
-
-
-}	// namespace designlab
 
 
 namespace designlab
