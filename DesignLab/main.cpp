@@ -59,7 +59,7 @@ int main()
 
 
 	//次に，コマンドラインの出力を設定する
-	CmdIOUtil::SetDoOutput(application_setting_record->do_cmd_output);
+	CmdIOUtil::DoOutput(application_setting_record->do_cmd_output);
 	CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
 
 	CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する

@@ -35,7 +35,7 @@ public:
 	//! @brief そもそも出力をするかを設定する関数．
 	//! @n falseに設定しても システムメッセージは出力される．
 	//! @param [in] do_output 出力をするかどうか
-	static void SetDoOutput(bool do_output);
+	static void DoOutput(bool do_output);
 
 
 	//! @brief コマンドラインに文字を出力する関数．

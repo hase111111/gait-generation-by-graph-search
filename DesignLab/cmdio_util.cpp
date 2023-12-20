@@ -35,7 +35,7 @@ void CmdIOUtil::SetOutputLimit(const enums::OutputDetail limit)
 	}
 }
 
-void CmdIOUtil::SetDoOutput(const bool do_output_)
+void CmdIOUtil::DoOutput(const bool do_output_)
 {
 	do_output = do_output_;
 }
