@@ -9,9 +9,9 @@
 #include "application_setting_record.h"
 #include "graphic_data_broker.h"
 #include "graph_tree_creator.h"
+#include "interface_map_creator.h"
 #include "interface_system_main.h"
 #include "map_state.h"
-#include "map_creator_for_simulation.h"
 #include "stopwatch.h"
 
 
@@ -28,6 +28,7 @@ public:
 
 	SystemMainGraphViewer(
 		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
+		std::unique_ptr<IMapCreator>&& map_creator,
 		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
@@ -48,9 +49,7 @@ private:
 	//! @param [in] graph グラフ
 	void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
-	//! @brief マップ生成のモードを入力し，MapCreateModeMessanger型で返す．
-	//! @return SimulationMapParameter マップ生成のモードとオプションを指定する構造体．
-	SimulationMapParameter InputMapCreateMode() const;
+
 
 	//! @brief グラフの中から1つのノードを選択する．グラフが空の場合は，初期状態のノードを返す．
 	//! @param [in] graph グラフ
@@ -59,6 +58,8 @@ private:
 
 
 	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
+
+	const std::unique_ptr<IMapCreator> map_creator_ptr_;
 
 	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 

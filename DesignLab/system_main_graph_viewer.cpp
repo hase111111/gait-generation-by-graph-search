@@ -6,6 +6,7 @@
 #include <boost/thread.hpp>
 #include <magic_enum.hpp>
 
+#include "cassert_define.h"
 #include "cmdio_util.h"
 #include "designlab_string_util.h"
 #include "gait_pattern_generator_basic.h"
@@ -19,25 +20,25 @@ namespace designlab
 
 SystemMainGraphViewer::SystemMainGraphViewer(
 	std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
+	std::unique_ptr<IMapCreator>&& map_creator,
 	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	graph_tree_creator_ptr_(std::move(graph_tree_creator)),
+	map_creator_ptr_(std::move(map_creator)),
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
+	assert(graph_tree_creator_ptr_ != nullptr);
+	assert(map_creator_ptr_ != nullptr);
+	assert(broker_ptr_ != nullptr);
+	assert(setting_ptr_ != nullptr);
+
 	CmdIOUtil::OutputTitle("グラフ確認モード");	//タイトルを表示する
 
-	//マップを生成する
-	CmdIOUtil::Output("まずは，マップを生成する．オプションを整数で入力すること．", enums::OutputDetail::kSystem);
+	map_state_ = map_creator_ptr_->InitMap();
 
-	SimulationMapParameter messanger = InputMapCreateMode();
-
-	MapCreatorForSimulation map_creator(messanger);
-
-	map_state_ = map_creator.InitMap();
-
-	broker_ptr_->map_state.SetData(map_state_);	//仲介人を初期化する
+	broker_ptr_->map_state.SetData(map_state_);
 }
 
 
@@ -242,61 +243,6 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 	CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
 	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-}
-
-SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
-{
-	SimulationMapParameter messanger;
-
-	{
-		const auto kMapCreateModeList = magic_enum::enum_values<enums::SimulationMapMode>();	//MapCreateModeのリストを取得する
-
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-		CmdIOUtil::Output("MapCreateModeを選択", enums::OutputDetail::kSystem);
-
-		//MapCreateModeの一覧を出力する．
-		for (int i = 0; i < kMapCreateModeList.size(); i++)
-		{
-			const std::string name = string_util::EnumToStringRemoveTopK(kMapCreateModeList[i]);	//MapCreateModeの名前を取得する
-
-			CmdIOUtil::Output(std::to_string(i) + " : " + name, enums::OutputDetail::kSystem);
-		}
-
-		const int selected_mode_index = CmdIOUtil::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateModeのindexを入力させる
-
-		messanger.mode = kMapCreateModeList[selected_mode_index];
-	}
-
-	{
-		const auto kMapCreateOptionList = magic_enum::enum_values<enums::SimulationMapOption>();	//MapCreateOptionのリストを取得する
-
-		//MapCreateOptionの合計値を計算する
-		unsigned int option_sum = 0;
-
-		for (const auto i : kMapCreateOptionList)
-		{
-			option_sum += static_cast<unsigned int>(i);
-		}
-
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-		CmdIOUtil::Output("MapCreateOptionを選択 (複数指定したい場合は値を足し算すること)", enums::OutputDetail::kSystem);
-
-		//MapCreateOptionの一覧を出力する．
-		for (int i = 0; i < kMapCreateOptionList.size(); i++)
-		{
-			const std::string name = string_util::EnumToStringRemoveTopK(kMapCreateOptionList[i]);	//MapCreateOptionのリストを取得する
-
-			unsigned int option_value = static_cast<unsigned int>(kMapCreateOptionList[i]);
-
-			std::bitset<magic_enum::enum_count<enums::SimulationMapOption>()> bit(option_value);
-
-			CmdIOUtil::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", enums::OutputDetail::kSystem);
-		}
-
-		messanger.option = static_cast<unsigned int>(CmdIOUtil::InputInt(0, option_sum, 0));	//MapCreateOptionの合計値を入力させる
-	}
-
-	return messanger;
 }
 
 RobotStateNode SystemMainGraphViewer::SelectNodeByInput(const std::vector<RobotStateNode>& graph) const

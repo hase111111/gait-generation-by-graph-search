@@ -112,7 +112,7 @@ int main()
 				auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
 				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
-				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");;
+				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 
 				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 				auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
@@ -145,8 +145,14 @@ int main()
 			{
 				//グラフビューアシステムクラスを作成する．
 
+				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
+				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+				
+				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
+
 				system_main = std::make_unique<SystemMainGraphViewer>(
 					std::move(graph_tree_creator_straight),
+					std::move(map_creator),
 					graphic_data_broker,
 					application_setting_record
 				);
