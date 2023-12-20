@@ -55,18 +55,18 @@ int main()
 	TomlDirectoryExporter toml_file_setupper;
 	toml_file_setupper.Export();
 	TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordVaildator>());
-	const auto setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));	// 読み込んだ設定ファイルを記録するクラスに記録する
+	const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));	// 読み込んだ設定ファイルを記録するクラスに記録する
 
 
 	//次に，コマンドラインの出力を設定する
-	CmdIOUtil::SetDoOutput(setting_record->do_cmd_output);
-	CmdIOUtil::SetOutputLimit(setting_record->cmd_output_detail);
+	CmdIOUtil::SetDoOutput(application_setting_record->do_cmd_output);
+	CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
 
 	CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する
 
 
 	//GUIを別のスレッドで実行する．このスレッドへはGraphicDataBrokerを通してデータを渡す．
-	GraphicSystem graphic_system(setting_record);
+	GraphicSystem graphic_system(application_setting_record);
 
 	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);	//グラフィックシステムを別スレッドで実行する．
 
@@ -75,13 +75,13 @@ int main()
 	while (true)
 	{
 		//起動モードを選択する
-		enums::BootMode boot_mode = setting_record->default_mode;
+		enums::BootMode boot_mode = application_setting_record->default_mode;
 
-		if (setting_record->ask_about_modes)
+		if (application_setting_record->ask_about_modes)
 		{
 			BootModeSelecter boot_mode_selecter;
 
-			boot_mode_selecter.SetDefaultBootMode(setting_record->default_mode);	//デフォルトの起動モードを設定する
+			boot_mode_selecter.SetDefaultBootMode(application_setting_record->default_mode);	//デフォルトの起動モードを設定する
 			boot_mode = boot_mode_selecter.SelectBootMode();		//起動モードを選択する
 		}
 
@@ -101,94 +101,104 @@ int main()
 
 		std::unique_ptr<ISystemMain> system_main;
 
-
-		if (boot_mode == enums::BootMode::kSimulation)
+		switch (boot_mode)
 		{
-			//シミュレーションシステムクラスを作成する．
+			case enums::BootMode::kSimulation:
+			{
+				//シミュレーションシステムクラスを作成する．
 
-			auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
-			auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 10000000);
-			auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
+				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
+				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 10000000);
+				auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
-			TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
-			const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");;
+				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
+				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");;
 
-			auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
-			auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
-			auto target_updater = RobotOperatorFactory::Create(simulation_setting_record);
-			auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
+				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
+				auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
+				auto target_updater = RobotOperatorFactory::Create(simulation_setting_record);
+				auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
 
-			system_main = std::make_unique<SystemMainSimulation>(
-				std::move(gait_pattern_generator),
-				std::move(map_creator),
-				std::move(simu_end_checker),
-				std::move(target_updater),
-				std::move(node_initializer),
-				graphic_data_broker,
-				setting_record
-			);
+				system_main = std::make_unique<SystemMainSimulation>(
+					std::move(gait_pattern_generator),
+					std::move(map_creator),
+					std::move(simu_end_checker),
+					std::move(target_updater),
+					std::move(node_initializer),
+					graphic_data_broker,
+					application_setting_record
+				);
 
-			auto graphic_main = std::make_unique<GraphicMainBasic>(
-				graphic_data_broker,
-				phantomx_mk2,
-				phantomx_mk2,
-				phantomx_mk2,
-				setting_record
-			);
+				auto graphic_main = std::make_unique<GraphicMainBasic>(
+					graphic_data_broker,
+					phantomx_mk2,
+					phantomx_mk2,
+					phantomx_mk2,
+					application_setting_record
+				);
 
-			graphic_system.ChangeGraphicMain(std::move(graphic_main));
+				graphic_system.ChangeGraphicMain(std::move(graphic_main));
+
+				break;
+			}
+			case enums::BootMode::kViewer:
+			{
+				//グラフビューアシステムクラスを作成する．
+
+				system_main = std::make_unique<SystemMainGraphViewer>(
+					std::move(graph_tree_creator_straight),
+					graphic_data_broker,
+					application_setting_record
+				);
+
+				std::unique_ptr<IGraphicMain> graphic_main_viewer = std::make_unique<GraphicMainGraphViewer>(
+					graphic_data_broker,
+					phantomx_mk2,
+					phantomx_mk2,
+					phantomx_mk2,
+					application_setting_record
+				);
+
+				graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
+
+				break;
+			}
+			case enums::BootMode::kDisplayTest:
+			{
+				std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainTest>(
+					phantomx_mk2,
+					phantomx_mk2,
+					phantomx_mk2,
+					application_setting_record
+				);
+
+				graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
+
+				break;
+			}
+			case enums::BootMode::kResultViewer:
+			{
+				//結果表示システムクラスを作成する．
+				system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record);
+
+				std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
+					graphic_data_broker,
+					phantomx_mk2,
+					phantomx_mk2,
+					phantomx_mk2,
+					application_setting_record
+				);
+
+				graphic_system.ChangeGraphicMain(std::move(graphic_main));
+
+				break;
+			}
+			default:
+			{
+				assert(false);	//無効なモードが指定された．
+				break;
+			}
 		}
-		else if (boot_mode == enums::BootMode::kViewer)
-		{
-			//グラフビューアシステムクラスを作成する．
-
-			system_main = std::make_unique<SystemMainGraphViewer>(
-				std::move(graph_tree_creator_straight),
-				graphic_data_broker,
-				setting_record
-			);
-
-			std::unique_ptr<IGraphicMain> graphic_main_viewer = std::make_unique<GraphicMainGraphViewer>(
-				graphic_data_broker,
-				phantomx_mk2,
-				phantomx_mk2,
-				phantomx_mk2,
-				setting_record
-			);
-
-			graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
-		}
-		else if (boot_mode == enums::BootMode::kDisplayTest)
-		{
-			std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainTest>(
-				phantomx_mk2,
-				phantomx_mk2,
-				phantomx_mk2,
-				setting_record
-			);
-
-			graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
-		}
-		else if (boot_mode == enums::BootMode::kResultViewer)
-		{
-			//結果表示システムクラスを作成する．
-			system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, setting_record);
-
-			std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
-				graphic_data_broker,
-				phantomx_mk2,
-				phantomx_mk2,
-				phantomx_mk2,
-				setting_record
-			);
-
-			graphic_system.ChangeGraphicMain(std::move(graphic_main));
-		}
-		else
-		{
-			assert(true);	//無効なモードが指定された．
-		}
-
 
 		//システムを実行する
 		if (system_main)
