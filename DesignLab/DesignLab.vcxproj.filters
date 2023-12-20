@@ -183,7 +183,7 @@
     <ClInclude Include="graph_searcher_random.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_main_test.h">
+    <ClInclude Include="graphic_main_display_model.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
     <ClInclude Include="designlab_vector2.h">
@@ -626,7 +626,7 @@
     <ClCompile Include="graph_searcher_random.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
-    <ClCompile Include="graphic_main_test.cpp">
+    <ClCompile Include="graphic_main_display_model.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
     <ClCompile Include="designlab_vector3.cpp">

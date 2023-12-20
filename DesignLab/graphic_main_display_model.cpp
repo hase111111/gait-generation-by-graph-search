@@ -1,4 +1,4 @@
-﻿#include "graphic_main_test.h"
+﻿#include "graphic_main_display_model.h"
 
 #include "camera_dragger.h"
 #include "designlab_math_util.h"
@@ -18,7 +18,7 @@
 namespace designlab
 {
 
-GraphicMainTest::GraphicMainTest(
+GraphicMainDisplayModel::GraphicMainDisplayModel(
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -74,7 +74,7 @@ GraphicMainTest::GraphicMainTest(
 }
 
 
-bool GraphicMainTest::Update()
+bool GraphicMainDisplayModel::Update()
 {
 	assert(mouse_ptr_ != nullptr);
 
@@ -96,7 +96,7 @@ bool GraphicMainTest::Update()
 	return true;
 }
 
-void GraphicMainTest::Draw() const
+void GraphicMainDisplayModel::Draw() const
 {
 	render_group_.Draw();
 
@@ -104,7 +104,7 @@ void GraphicMainTest::Draw() const
 }
 
 
-void GraphicMainTest::MoveBody()
+void GraphicMainDisplayModel::MoveBody()
 {
 	const float kComSpeed = 1.1f;
 
@@ -191,7 +191,7 @@ void GraphicMainTest::MoveBody()
 	}
 }
 
-void GraphicMainTest::MoveLeg()
+void GraphicMainDisplayModel::MoveLeg()
 {
 	const float kSpeed = 1;
 	const float kAngleSpeed = 0.01f;

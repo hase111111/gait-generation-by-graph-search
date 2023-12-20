@@ -16,7 +16,7 @@ enum class BootMode : int
 {
 	kSimulation = 0,//!< シミュレーションモード．
 	kViewer,		//!< ビューワーモード．
-	kDisplayTest,	//!< ディスプレイテストモード．
+	kDisplayModel,	//!< ディスプレイモード．
 	kResultViewer	//!< リザルトビューワーモード．
 };
 

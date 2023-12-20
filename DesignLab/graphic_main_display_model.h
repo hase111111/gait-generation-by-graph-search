@@ -1,10 +1,8 @@
-﻿//! @file graphic_main_test.h
+﻿//! @file graphic_main_display_model.h
 //! @brief MapState や IHexapodRenderer が動作しているかテストを行うためのクラス．
 
-#ifndef DESIGNLAB_GRAPHIC_MAIN_TEST_H_
-#define DESIGNLAB_GRAPHIC_MAIN_TEST_H_
-
-#include "interface_graphic_main.h"
+#ifndef DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_
+#define DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_
 
 #include <memory>
 
@@ -13,6 +11,7 @@
 #include "dxlib_3d_renderer_group.h"
 #include "dxlib_node_setter_group.h"
 #include "dxlib_gui_updater.h"
+#include "interface_graphic_main.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_vaild_checker.h"
@@ -23,18 +22,18 @@
 namespace designlab
 {
 
-//! @class GraphicMainTest
-//! @brief MapState や IHexapodRenderer が動作しているかテストを行うためのクラス．
-class GraphicMainTest final : public IGraphicMain
+//! @class GraphicMainDisplayModel
+//! @brief ロボットのモデルを表示して，正しく動作しているかを確認するためのクラス．
+class GraphicMainDisplayModel final : public IGraphicMain
 {
 public:
-	GraphicMainTest(
+	GraphicMainDisplayModel(
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 	);
-	~GraphicMainTest() = default;
+	~GraphicMainDisplayModel() = default;
 
 	bool Update() override;
 
@@ -65,4 +64,4 @@ private:
 } // namespace designlab
 
 
-#endif // DESIGNLAB_GRAPHIC_MAIN_TEST_H_
+#endif // DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_

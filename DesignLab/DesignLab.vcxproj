@@ -89,7 +89,7 @@
     <ClInclude Include="file_tree.h" />
     <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
-    <ClInclude Include="graphic_main_test.h" />
+    <ClInclude Include="graphic_main_display_model.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_straight_move.h" />
     <ClInclude Include="designlab_euler.h" />
@@ -212,7 +212,7 @@
     <ClCompile Include="file_tree.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
-    <ClCompile Include="graphic_main_test.cpp" />
+    <ClCompile Include="graphic_main_display_model.cpp" />
     <ClCompile Include="graph_searcher_straight_move.cpp" />
     <ClCompile Include="designlab_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />

@@ -20,7 +20,7 @@
 #include "graph_searcher_spot_turn.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_graph_viewer.h"
-#include "graphic_main_test.h"
+#include "graphic_main_display_model.h"
 #include "graphic_system.h"
 #include "node_creator_builder_hato.h"
 #include "node_creator_builder_rot_test.h"
@@ -163,9 +163,9 @@ int main()
 
 				break;
 			}
-			case enums::BootMode::kDisplayTest:
+			case enums::BootMode::kDisplayModel:
 			{
-				std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainTest>(
+				std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainDisplayModel>(
 					phantomx_mk2,
 					phantomx_mk2,
 					phantomx_mk2,
