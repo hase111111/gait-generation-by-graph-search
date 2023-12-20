@@ -25,37 +25,37 @@ bool FileTree::SelectFile(const std::string& path, int max_depth, const std::str
 	FileTreeData tree = MakeFileTree(path, max_depth, extension, keyword);
 
 	// ファイルツリーを表示
-	cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
 
 	int count = 0;
 	OutputFileTree(tree, 0, true, &count);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	// ファイルを選択
 	std::vector<std::string> file_list = MakeFileList(tree);
 
 	if (file_list.empty())
 	{
-		cmdio::Output("ファイルが存在しませんでした．", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("ファイルが存在しませんでした．", enums::OutputDetail::kSystem);
 		return false;
 	}
 
 	while (true)
 	{
-		int select_index = cmdio::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ファイルを選択してください．整数で入力してください．");
+		int select_index = CmdIOUtil::InputInt(0, static_cast<int>(file_list.size()) - 1, 0, "ファイルを選択してください．整数で入力してください．");
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-		cmdio::Output("選択したファイルは" + file_list[select_index] + "です．", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("選択したファイルは" + file_list[select_index] + "です．", enums::OutputDetail::kSystem);
 
-		if (cmdio::InputYesNo("よろしいですか？"))
+		if (CmdIOUtil::InputYesNo("よろしいですか？"))
 		{
 			*output = file_list[select_index];
 			break;
 		}
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 	}
 
 	return true;
@@ -125,13 +125,13 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth, bool not_disp
 	{
 		// ディレクトリ名を出力する際に，パスの階層を削除する
 
-		cmdio::Output(indent, enums::OutputDetail::kSystem);
+		CmdIOUtil::Output(indent, enums::OutputDetail::kSystem);
 
 		std::string::size_type pos = tree.path.find_last_of("/\\");
 		std::string dir_name = ((depth == 0) ? "" : "- ");
 		dir_name += std::string("[ ") + tree.path.substr(pos + 1) + std::string(" ]");
 
-		cmdio::Output(indent + dir_name, enums::OutputDetail::kSystem);
+		CmdIOUtil::Output(indent + dir_name, enums::OutputDetail::kSystem);
 	}
 
 	for (const auto& directory : tree.directory)
@@ -141,11 +141,11 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth, bool not_disp
 
 	if (not tree.file.empty())
 	{
-		cmdio::Output(indent + "|", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output(indent + "|", enums::OutputDetail::kSystem);
 
 		for (const auto& file : tree.file)
 		{
-			cmdio::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output(indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]", enums::OutputDetail::kSystem);
 
 			(*file_count)++;
 		}

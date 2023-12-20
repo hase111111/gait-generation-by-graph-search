@@ -10,50 +10,38 @@
 #include "cassert_define.h"
 
 
-namespace
-{
-// このような名前のない名前空間を匿名名前空間という
-
-// 匿名名前空間にいれた値は，このファイルからのみアクセス可能なグローバル変数となる
-// アクセスする場合は :: を先頭につける
-
-
-// 出力制限，この値未満のメッセージの出力は行われない
-designlab::enums::OutputDetail output_limit = designlab::enums::OutputDetail::kSystem;
-
-// falseの場合，出力を行わない(システムメッセージは除く)
-bool do_output = true;
-
-// 初期化を既に行ったかどうか
-bool is_initialized = false;
-
-}
-
-
-namespace designlab::cmdio
+namespace designlab
 {
 
-void SetOutputLimit(const enums::OutputDetail limit)
-{
-	::output_limit = limit;
 
-	if (!::is_initialized)
+enums::OutputDetail CmdIOUtil::output_limit = enums::OutputDetail::kSystem;
+
+bool CmdIOUtil::do_output = true;
+
+bool CmdIOUtil::is_initialized = false;
+
+
+void CmdIOUtil::SetOutputLimit(const enums::OutputDetail limit)
+{
+	output_limit = limit;
+
+	if (!is_initialized)
 	{
 		//これを記述しておくと実行速度が早くなる．そのかわりprintfを使用できない．詳しはReferenceを参照
 		std::cin.tie(&std::cout);
 		std::ios_base::sync_with_stdio(true);
 
-		::is_initialized = true;
+		is_initialized = true;
 	}
 }
 
-void SetDoOutput(const bool do_output_)
+void CmdIOUtil::SetDoOutput(const bool do_output_)
 {
-	::do_output = do_output_;
+	do_output = do_output_;
 }
 
 
-void Output(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
 {
 	assert(is_initialized);	// SetOutputLimitを呼んでから使用すること.
 
@@ -61,13 +49,13 @@ void Output(const std::string& str, const enums::OutputDetail detail)
 	// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
 	// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
 
-	if ((detail <= ::output_limit && do_output) || (detail == enums::OutputDetail::kSystem && !do_output))
+	if ((detail <= output_limit && do_output) || (detail == enums::OutputDetail::kSystem && !do_output))
 	{
 		std::cout << str << std::endl;
 	}
 }
 
-void OutputCenter(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail detail)
 {
 	//改行ごとに文字列を取り出す
 	std::stringstream ss(str);
@@ -94,7 +82,7 @@ void OutputCenter(const std::string& str, const enums::OutputDetail detail)
 	}
 }
 
-void OutputRight(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail detail)
 {
 	//改行ごとに文字列を取り出す
 	std::stringstream ss(str);
@@ -122,7 +110,7 @@ void OutputRight(const std::string& str, const enums::OutputDetail detail)
 }
 
 
-void OutputNewLine(const int num, const enums::OutputDetail detail)
+void CmdIOUtil::OutputNewLine(const int num, const enums::OutputDetail detail)
 {
 	if (num <= 0) { return; }
 
@@ -132,7 +120,7 @@ void OutputNewLine(const int num, const enums::OutputDetail detail)
 	}
 }
 
-void OutputHorizontalLine(const std::string& line_visual, const enums::OutputDetail detail)
+void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual, const enums::OutputDetail detail)
 {
 	if (line_visual.size() != 1) { return; }
 
@@ -146,7 +134,7 @@ void OutputHorizontalLine(const std::string& line_visual, const enums::OutputDet
 	Output(str, detail);
 }
 
-void OutputTitle(const std::string& title_name, bool output_copy_right)
+void CmdIOUtil::OutputTitle(const std::string& title_name, bool output_copy_right)
 {
 	enums::OutputDetail detail = enums::OutputDetail::kSystem;
 
@@ -167,7 +155,7 @@ void OutputTitle(const std::string& title_name, bool output_copy_right)
 }
 
 
-void WaitAnyKey(const std::string& str)
+void CmdIOUtil::WaitAnyKey(const std::string& str)
 {
 	Output(str, enums::OutputDetail::kSystem);
 
@@ -175,7 +163,7 @@ void WaitAnyKey(const std::string& str)
 	system("PAUSE");
 }
 
-int InputInt(const int min, const int max, const int default_num, const std::string& str)
+int CmdIOUtil::InputInt(const int min, const int max, const int default_num, const std::string& str)
 {
 	assert(min <= max);	// minはmaxより小さい．
 
@@ -216,7 +204,7 @@ int InputInt(const int min, const int max, const int default_num, const std::str
 	return res;
 }
 
-bool InputYesNo(const std::string& str)
+bool CmdIOUtil::InputYesNo(const std::string& str)
 {
 	Output(str + " ( y / n ) ", enums::OutputDetail::kSystem);
 

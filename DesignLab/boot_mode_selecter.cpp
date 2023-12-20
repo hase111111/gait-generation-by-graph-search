@@ -22,7 +22,7 @@ enums::BootMode BootModeSelecter::SelectBootMode()
 {
 	const enums::OutputDetail output_detail = enums::OutputDetail::kSystem;	// kSystem にすると、設定にかかわらず必ず表示される
 
-	cmdio::Output("起動モードを選択してください", output_detail);
+	CmdIOUtil::Output("起動モードを選択してください", output_detail);
 
 	//起動モードの名前を表示する
 	for (int i = 0; i < kBootModeNum; i++)
@@ -31,21 +31,21 @@ enums::BootMode BootModeSelecter::SelectBootMode()
 
 		const std::string boot_mode_name = string_util::EnumToStringRemoveTopK(boot_mode);
 
-		cmdio::Output(std::to_string(i) + " : " + boot_mode_name, output_detail);
+		CmdIOUtil::Output(std::to_string(i) + " : " + boot_mode_name, output_detail);
 	}
 
 
 	std::string default_mode_name = string_util::EnumToStringRemoveTopK(default_mode_);
 
-	cmdio::Output("other : デフォルトのモード ( " + default_mode_name + " )", output_detail);
+	CmdIOUtil::Output("other : デフォルトのモード ( " + default_mode_name + " )", output_detail);
 
 
-	cmdio::OutputNewLine(1, output_detail);
+	CmdIOUtil::OutputNewLine(1, output_detail);
 
 	//0からBootModeの数までの整数を入力させる
 	int default_mode_num = static_cast<int>(default_mode_);
 
-	const int input = cmdio::InputInt(0, kBootModeNum - 1, default_mode_num);
+	const int input = CmdIOUtil::InputInt(0, kBootModeNum - 1, default_mode_num);
 
 	//受け取った値をmagic_enumのenum_castでBootModeに変換する
 	if (magic_enum::enum_cast<enums::BootMode>(input).has_value())
@@ -56,7 +56,7 @@ enums::BootMode BootModeSelecter::SelectBootMode()
 	{
 		// 入力が不正な場合はデフォルトのモードを返す
 
-		cmdio::Output("入力が不正です。デフォルトのモードを選択します。", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("入力が不正です。デフォルトのモードを選択します。", enums::OutputDetail::kSystem);
 
 		return default_mode_;
 	}

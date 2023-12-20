@@ -6,7 +6,7 @@
 #include "cmdio_util.h"
 
 
-namespace designlab 
+namespace designlab
 {
 
 std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path) const noexcept
@@ -17,13 +17,13 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
 	// ファイルが開けないならばfalseを返す．
 	if (not ifs.is_open())
 	{
-		cmdio::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
 
 		return std::nullopt;
 	}
 
 	// ファイルを1行ずつ読み込み，Mapに追加する．
-	std::vector<::designlab::Vector3> map_point;
+	std::vector<Vector3> map_point;
 
 	std::string line;
 
@@ -33,14 +33,14 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
 
 		try
 		{
-			::designlab::Vector3 point;
+			Vector3 point;
 			iss >> point;
 
 			map_point.push_back(point);
 		}
 		catch (...)
 		{
-			cmdio::Output("読み込むことができないデータがあったため無視します.", enums::OutputDetail::kWarning);
+			CmdIOUtil::Output("読み込むことができないデータがあったため無視します.", enums::OutputDetail::kWarning);
 		}
 	}
 

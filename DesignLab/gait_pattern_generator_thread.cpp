@@ -64,8 +64,8 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	if (create_result.result != enums::Result::kSuccess) { return create_result; }
 
-	cmdio::Output("深さ1までグラフ木の生成が終了しました．", enums::OutputDetail::kDebug);
-	cmdio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("深さ1までグラフ木の生成が終了しました．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 
 	// 深さ0のノードをarrayにコピーする
 	for (int i = 0; i < kThreadNum; i++)
@@ -90,8 +90,8 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	{
 		if (graph_tree_array_[i].GetGraphSize() > 1)
 		{
-			cmdio::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", enums::OutputDetail::kDebug);
-			cmdio::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
+			CmdIOUtil::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．", enums::OutputDetail::kDebug);
+			CmdIOUtil::Output("スレッド" + std::to_string(i) + "で探索するノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 
 			thread_group.create_thread(
 				boost::bind(
@@ -107,11 +107,11 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	thread_group.join_all();
 
-	cmdio::Output("グラフ木の生成が終了しました．\n", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木の生成が終了しました．\n", enums::OutputDetail::kDebug);
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		cmdio::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("スレッド" + std::to_string(i) + "で作成したノード数は" + std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 	}
 
 
@@ -120,16 +120,16 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	for (size_t i = 0; i < kThreadNum; i++)
 	{
-		cmdio::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索を開始します．", enums::OutputDetail::kDebug);
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
 			operation,
 			max_depth_
 		);
 
-		cmdio::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", enums::OutputDetail::kDebug);
-		cmdio::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + std::get<0>(search_result_array[i]).ToString() + "です．", enums::OutputDetail::kDebug);
-		cmdio::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索の結果は" + std::get<0>(search_result_array[i]).ToString() + "です．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" + std::to_string(std::get<2>(search_result_array[i])) + "です．", enums::OutputDetail::kDebug);
 	}
 
 	//各スレッドごとの探索結果を統合する．
@@ -140,11 +140,11 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 	if (search_result.result != enums::Result::kSuccess)
 	{
-		cmdio::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
 		return search_result;
 	}
 
-	cmdio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", enums::OutputDetail::kDebug);
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
@@ -201,8 +201,8 @@ void GaitPatternGeneratorThread::AppendGraphTree(
 		}
 	}
 
-	cmdio::Output("グラフ木の統合が終了しました．", enums::OutputDetail::kDebug);
-	cmdio::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木の統合が終了しました．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．", enums::OutputDetail::kDebug);
 }
 
 }  // namespace designlab

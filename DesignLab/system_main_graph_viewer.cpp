@@ -26,10 +26,10 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 	broker_ptr_(broker_ptr),
 	setting_ptr_(setting_ptr)
 {
-	cmdio::OutputTitle("グラフ確認モード");	//タイトルを表示する
+	CmdIOUtil::OutputTitle("グラフ確認モード");	//タイトルを表示する
 
 	//マップを生成する
-	cmdio::Output("まずは，マップを生成する．オプションを整数で入力すること．", enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("まずは，マップを生成する．オプションを整数で入力すること．", enums::OutputDetail::kSystem);
 
 	SimulationMapParameter messanger = InputMapCreateMode();
 
@@ -46,14 +46,14 @@ void SystemMainGraphViewer::Main()
 	//早期リターン
 	if (!graph_tree_creator_ptr_)
 	{
-		cmdio::Output("グラフ木作成クラスが初期化されていない．終了する", enums::OutputDetail::kError);
+		CmdIOUtil::Output("グラフ木作成クラスが初期化されていない．終了する", enums::OutputDetail::kError);
 		return;
 	}
 
-	cmdio::Output("別スレッドでGUIを起動する．", enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("別スレッドでGUIを起動する．", enums::OutputDetail::kInfo);
 
 	//ノードを初期化する
-	cmdio::Output("ノードを初期化する．", enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("ノードを初期化する．", enums::OutputDetail::kSystem);
 
 	NodeInitializer node_initializer{ Vector3{0.f,0.f,30.f}, enums::HexapodMove::kNone };
 	RobotStateNode first_node = node_initializer.InitNode();
@@ -68,9 +68,9 @@ void SystemMainGraphViewer::Main()
 		{
 			// グラフがない場合，
 
-			cmdio::Output("まだグラフを生成していない．", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("まだグラフを生成していない．", enums::OutputDetail::kSystem);
 
-			if (cmdio::InputYesNo("グラフを作成しますか？"))
+			if (CmdIOUtil::InputYesNo("グラフを作成しますか？"))
 			{
 				CreateGraph(first_node, &graph);	// グラフを作成する．
 
@@ -79,15 +79,15 @@ void SystemMainGraphViewer::Main()
 			else
 			{
 				//終了するか質問する
-				if (cmdio::InputYesNo("終了しますか？")) { break; }
+				if (CmdIOUtil::InputYesNo("終了しますか？")) { break; }
 			}
 		}
 		else
 		{
 			//グラフがある場合
 
-			cmdio::Output("グラフを操作する", enums::OutputDetail::kSystem);
-			cmdio::Output("操作メニューを表示します", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("グラフを操作する", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("操作メニューを表示します", enums::OutputDetail::kSystem);
 
 			//操作メニューを表示する
 
@@ -107,11 +107,11 @@ void SystemMainGraphViewer::Main()
 				{
 					RobotStateNode selected = SelectNodeByInput(graph);
 
-					cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-					cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
-					cmdio::Output(selected.ToString(), enums::OutputDetail::kSystem);
-					cmdio::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
-					cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+					CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+					CmdIOUtil::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
+					CmdIOUtil::Output(selected.ToString(), enums::OutputDetail::kSystem);
+					CmdIOUtil::OutputHorizontalLine("*", enums::OutputDetail::kSystem);
+					CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 				}
 			);
 
@@ -120,21 +120,21 @@ void SystemMainGraphViewer::Main()
 				{
 					graph.clear();
 					broker_ptr_->graph.Clean();
-					cmdio::Output("グラフを全て削除した", enums::OutputDetail::kSystem);
-					cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+					CmdIOUtil::Output("グラフを全て削除した", enums::OutputDetail::kSystem);
+					CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 				}
 			);
 
 
-			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-			cmdio::Output("操作を選択してください", enums::OutputDetail::kSystem);
-			cmdio::Output("　0 : ノード選択し，そのノードを親にしてグラフを生成する", enums::OutputDetail::kSystem);
-			cmdio::Output("　1 : ノード選択して表示する", enums::OutputDetail::kSystem);
-			cmdio::Output("　2 : グラフを全削除する", enums::OutputDetail::kSystem);
-			cmdio::Output("　3 : 終了する", enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("操作を選択してください", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("　0 : ノード選択し，そのノードを親にしてグラフを生成する", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("　1 : ノード選択して表示する", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("　2 : グラフを全削除する", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("　3 : 終了する", enums::OutputDetail::kSystem);
 
 			int selected_index =
-				cmdio::InputInt(0, static_cast<int>(func_list.size()), static_cast<int>(func_list.size()), "整数で操作を選択してください．範囲外の値の場合終了します．");
+				CmdIOUtil::InputInt(0, static_cast<int>(func_list.size()), static_cast<int>(func_list.size()), "整数で操作を選択してください．範囲外の値の場合終了します．");
 
 			//選択された操作を実行する
 			if (selected_index < func_list.size())
@@ -143,7 +143,7 @@ void SystemMainGraphViewer::Main()
 			}
 			else
 			{
-				if (cmdio::InputYesNo("終了しますか？")) { break; }
+				if (CmdIOUtil::InputYesNo("終了しますか？")) { break; }
 			}
 		}
 
@@ -153,9 +153,9 @@ void SystemMainGraphViewer::Main()
 
 void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
 {
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::Output("グラフ木を作成する", enums::OutputDetail::kSystem);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフ木を作成する", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 	// グラフ探索をする
 	RobotStateNode parent_node = parent;
@@ -188,24 +188,24 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
 
 	// グラフ探索の結果を表示する
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::Output("グラフ探索終了", enums::OutputDetail::kSystem);
-	cmdio::Output("グラフ探索にかかった時間 : " + stopwatch_.GetElapsedMilliSecondString(), enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフ探索終了", enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフ探索にかかった時間 : " + stopwatch_.GetElapsedMilliSecondString(), enums::OutputDetail::kSystem);
 
 	std::string res_str = magic_enum::enum_name<enums::Result>(result.result).data();
 	res_str.erase(0, 1);	//先頭のkを削除する
 
-	cmdio::Output("グラフ探索結果 : " + res_str, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフ探索結果 : " + res_str, enums::OutputDetail::kSystem);
 }
 
 void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
 {
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::Output("グラフの状態を表示します．", enums::OutputDetail::kSystem);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::Output("グラフのノードの数 : " + std::to_string(graph.size()), enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフの状態を表示します．", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("グラフのノードの数 : " + std::to_string(graph.size()), enums::OutputDetail::kSystem);
 
 
 	if (graph.size() > 0)
@@ -214,7 +214,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
 		std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);
 
-		cmdio::Output("SystemMainGraphViewer : グラフ探索の最大深さ : " + std::to_string(GraphSearchConst::kMaxDepth), enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("SystemMainGraphViewer : グラフ探索の最大深さ : " + std::to_string(GraphSearchConst::kMaxDepth), enums::OutputDetail::kSystem);
 
 		for (const auto& i : graph)
 		{
@@ -230,18 +230,18 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
 		for (const auto& i : depth_num)
 		{
-			cmdio::Output("・深さ" + std::to_string(depth_cnt) + " : " + std::to_string(i), enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("・深さ" + std::to_string(depth_cnt) + " : " + std::to_string(i), enums::OutputDetail::kSystem);
 			depth_cnt++;
 		}
 	}
 	else
 	{
-		cmdio::Output("グラフが空なので，深さごとのノード数を表示できません．", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("グラフが空なので，深さごとのノード数を表示できません．", enums::OutputDetail::kSystem);
 	}
 
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 }
 
 SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
@@ -251,18 +251,18 @@ SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
 	{
 		const auto kMapCreateModeList = magic_enum::enum_values<enums::SimulationMapMode>();	//MapCreateModeのリストを取得する
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-		cmdio::Output("MapCreateModeを選択", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("MapCreateModeを選択", enums::OutputDetail::kSystem);
 
 		//MapCreateModeの一覧を出力する．
 		for (int i = 0; i < kMapCreateModeList.size(); i++)
 		{
 			const std::string name = string_util::EnumToStringRemoveTopK(kMapCreateModeList[i]);	//MapCreateModeの名前を取得する
 
-			cmdio::Output(std::to_string(i) + " : " + name, enums::OutputDetail::kSystem);
+			CmdIOUtil::Output(std::to_string(i) + " : " + name, enums::OutputDetail::kSystem);
 		}
 
-		const int selected_mode_index = cmdio::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateModeのindexを入力させる
+		const int selected_mode_index = CmdIOUtil::InputInt(0, static_cast<int>(kMapCreateModeList.size()) - 1, 0);	//MapCreateModeのindexを入力させる
 
 		messanger.mode = kMapCreateModeList[selected_mode_index];
 	}
@@ -278,8 +278,8 @@ SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
 			option_sum += static_cast<unsigned int>(i);
 		}
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-		cmdio::Output("MapCreateOptionを選択 (複数指定したい場合は値を足し算すること)", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("MapCreateOptionを選択 (複数指定したい場合は値を足し算すること)", enums::OutputDetail::kSystem);
 
 		//MapCreateOptionの一覧を出力する．
 		for (int i = 0; i < kMapCreateOptionList.size(); i++)
@@ -290,10 +290,10 @@ SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
 
 			std::bitset<magic_enum::enum_count<enums::SimulationMapOption>()> bit(option_value);
 
-			cmdio::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output(std::to_string(option_value) + " : " + name + " (" + bit.to_string() + ")", enums::OutputDetail::kSystem);
 		}
 
-		messanger.option = static_cast<unsigned int>(cmdio::InputInt(0, option_sum, 0));	//MapCreateOptionの合計値を入力させる
+		messanger.option = static_cast<unsigned int>(CmdIOUtil::InputInt(0, option_sum, 0));	//MapCreateOptionの合計値を入力させる
 	}
 
 	return messanger;
@@ -301,12 +301,12 @@ SimulationMapParameter SystemMainGraphViewer::InputMapCreateMode() const
 
 RobotStateNode SystemMainGraphViewer::SelectNodeByInput(const std::vector<RobotStateNode>& graph) const
 {
-	cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-	cmdio::Output("ノードを選択する", enums::OutputDetail::kSystem);
+	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("ノードを選択する", enums::OutputDetail::kSystem);
 
 	if (graph.size() == 0)
 	{
-		cmdio::Output("グラフが空なので，初期状態のノードを返す", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("グラフが空なので，初期状態のノードを返す", enums::OutputDetail::kSystem);
 
 		NodeInitializer node_initializer{ Vector3{0.f,0.f,30.f}, enums::HexapodMove::kNone };
 		RobotStateNode first_node = node_initializer.InitNode();
@@ -315,12 +315,12 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(const std::vector<RobotS
 	}
 	else
 	{
-		cmdio::Output("グラフの中から1つのノードを選択してください．", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("グラフの中から1つのノードを選択してください．", enums::OutputDetail::kSystem);
 
 		//ノードを選択する
-		int selected_node_index = cmdio::InputInt(0, static_cast<int>(graph.size()) - 1, 0, "整数でノードを選択してください．");
+		int selected_node_index = CmdIOUtil::InputInt(0, static_cast<int>(graph.size()) - 1, 0, "整数でノードを選択してください．");
 
-		cmdio::Output("選択されたノード，" + std::to_string(selected_node_index) + "番を親にする．", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("選択されたノード，" + std::to_string(selected_node_index) + "番を親にする．", enums::OutputDetail::kSystem);
 
 		return graph[selected_node_index];
 	}

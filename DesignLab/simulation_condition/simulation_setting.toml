@@ -28,7 +28,7 @@
     initial_move = "kComMove"
     
     #シミュレーション開始時のロボットの位置を設定します．[mm]
-    initial_positions = "     0.000,     0.000,     0.000"
+    initial_positions = "     0.000,     0.000,     30.000"
     
 #マップについての設定です．
 [Map]

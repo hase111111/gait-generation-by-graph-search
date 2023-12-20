@@ -19,8 +19,8 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path) : map_file_pa
 
 	if (!is_exist)
 	{
-		cmdio::Output("map fileが存在しません．ファイルのパスは" + map_file_path_ + "です．(" +
-			typeid(MapCreatorByCsv).name() + "のコンストラクタ)", enums::OutputDetail::kError);
+		CmdIOUtil::Output("map fileが存在しません．ファイルのパスは" + map_file_path_ + "です．(" +
+						  typeid(MapCreatorByCsv).name() + "のコンストラクタ)", enums::OutputDetail::kError);
 
 		assert(false);
 	}

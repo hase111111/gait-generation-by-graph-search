@@ -16,7 +16,7 @@ bool MapFileExporter::ExportMap(const std::string& file_path, const MapState& ma
 	// ファイルが開けないならばfalseを返す．
 	if (not ofs.is_open())
 	{
-		cmdio::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
 
 		return false;
 	}

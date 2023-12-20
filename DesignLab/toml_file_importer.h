@@ -41,23 +41,23 @@ public:
 		if (do_output_message_)
 		{
 			const std::string type_name = typeid(*this).name();
-			::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
-			::designlab::cmdio::Output("[" + type_name + "]", ::designlab::enums::OutputDetail::kSystem);
-			::designlab::cmdio::Output("ファイルを読み込みます．file_path : " + file_path, ::designlab::enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("[" + type_name + "]", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("ファイルを読み込みます．file_path : " + file_path, enums::OutputDetail::kSystem);
 		}
 
 		if (!std::filesystem::exists(file_path))
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("ファイルが存在しません．", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("ファイルが存在しません．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 			}
 
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("設定ファイルが見つかりました．パースを開始します．", ::designlab::enums::OutputDetail::kSystem); }
+		if (do_output_message_) { CmdIOUtil::Output("設定ファイルが見つかりました．パースを開始します．", enums::OutputDetail::kSystem); }
 
 		toml::value toml_value;
 
@@ -71,17 +71,17 @@ public:
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("設定ファイルのパースに失敗しました．", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::Output("<パースに失敗した箇所>", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::Output(err.what(), ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("設定ファイルのパースに失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("<パースに失敗した箇所>", enums::OutputDetail::kSystem);
+				CmdIOUtil::Output(err.what(), enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 			}
 
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("設定ファイルのパースに成功しました．データをシリアライズします．", ::designlab::enums::OutputDetail::kSystem); }
+		if (do_output_message_) { CmdIOUtil::Output("設定ファイルのパースに成功しました．データをシリアライズします．", enums::OutputDetail::kSystem); }
 
 		T data;
 
@@ -93,14 +93,14 @@ public:
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("データのシリアライズに失敗しました．", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("データのシリアライズに失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 			}
 
 			return std::nullopt;
 		}
 
-		if (do_output_message_) { ::designlab::cmdio::Output("データのシリアライズに成功しました．データの検証を開始します．", ::designlab::enums::OutputDetail::kSystem); }
+		if (do_output_message_) { CmdIOUtil::Output("データのシリアライズに成功しました．データの検証を開始します．", enums::OutputDetail::kSystem); }
 
 		const auto [is_valid, error_message] = validator_->Validate(data);
 
@@ -108,11 +108,11 @@ public:
 		{
 			if (do_output_message_)
 			{
-				::designlab::cmdio::Output("データの検証に失敗しました．", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::Output("<検証に失敗した理由>", ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::Output(error_message, ::designlab::enums::OutputDetail::kSystem);
-				::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("データの検証に失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("<検証に失敗した理由>", enums::OutputDetail::kSystem);
+				CmdIOUtil::Output(error_message, enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 			}
 
 			return std::nullopt;
@@ -120,9 +120,9 @@ public:
 
 		if (do_output_message_)
 		{
-			::designlab::cmdio::Output("データの検証に成功しました．", ::designlab::enums::OutputDetail::kSystem);
-			::designlab::cmdio::Output("読み込みは正常に完了しました．", ::designlab::enums::OutputDetail::kSystem);
-			::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("データの検証に成功しました．", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("読み込みは正常に完了しました．", enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 		}
 
 		return data;
@@ -139,14 +139,14 @@ public:
 
 		if (data.has_value()) { return data.value(); }
 
-		if (::designlab::cmdio::InputYesNo("デフォルトのファイルを出力しますか"))
+		if (::designlab::CmdIOUtil::InputYesNo("デフォルトのファイルを出力しますか"))
 		{
 			TomlFileExporter<T> exporter;
 			exporter.Export(file_path, T());
 		}
 
-		::designlab::cmdio::Output("デフォルトのデータを使用します．", ::designlab::enums::OutputDetail::kSystem);
-		::designlab::cmdio::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+		::designlab::CmdIOUtil::Output("デフォルトのデータを使用します．", ::designlab::enums::OutputDetail::kSystem);
+		::designlab::CmdIOUtil::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
 
 		return T();
 	}

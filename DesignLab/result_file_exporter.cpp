@@ -41,7 +41,7 @@ void ResultFileExporter::Init()
 	//resultフォルダがなければ作成する．
 	if (not sf::exists(ResultFileConst::kDirectoryPath))
 	{
-		cmdio::Output("結果出力先フォルダ " + ResultFileConst::kDirectoryPath + "が存在しないので作成します．", enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("結果出力先フォルダ " + ResultFileConst::kDirectoryPath + "が存在しないので作成します．", enums::OutputDetail::kInfo);
 		sf::create_directory(ResultFileConst::kDirectoryPath);
 	}
 
@@ -58,7 +58,7 @@ void ResultFileExporter::Init()
 		//すでに同名のフォルダが存在する場合は，初期化失敗フラグを立てる．
 		init_success_ = false;
 
-		cmdio::Output("結果出力先のフォルダ " + output_folder_name + "はすでに存在します．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダ " + output_folder_name + "はすでに存在します．", enums::OutputDetail::kError);
 
 		return;
 	}
@@ -70,7 +70,7 @@ void ResultFileExporter::Init()
 		//今度は逆に，フォルダが作成できなかった場合は，初期化失敗フラグを立てる．
 		init_success_ = false;
 
-		cmdio::Output("結果出力先のフォルダ " + output_folder_name + "を作成できませんでした．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダ " + output_folder_name + "を作成できませんでした．", enums::OutputDetail::kError);
 
 		return;
 	}
@@ -90,17 +90,17 @@ void ResultFileExporter::ExportLatestNodeList() const
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (not init_success_)
 	{
-		cmdio::Output("結果出力先のフォルダの初期化に失敗しているため，NodeListを出力できません", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダの初期化に失敗しているため，NodeListを出力できません", enums::OutputDetail::kError);
 		return;
 	}
 
 	if (not do_export_)
 	{
-		cmdio::Output("結果出力フラグがfalseのため，NodeListを出力しません", enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("結果出力フラグがfalseのため，NodeListを出力しません", enums::OutputDetail::kInfo);
 		return;
 	}
 
-	cmdio::Output("NodeListを出力します．", enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("NodeListを出力します．", enums::OutputDetail::kInfo);
 
 	//出力先ファイルを作成する．
 	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kNodeListName + std::to_string(result_list_.size()) + ".csv";
@@ -110,7 +110,7 @@ void ResultFileExporter::ExportLatestNodeList() const
 	//ファイルが作成できなかった場合は，なにも出力しない．
 	if (!ofs)
 	{
-		cmdio::Output("ファイル " + output_file_name + "を作成できませんでした．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("ファイル " + output_file_name + "を作成できませんでした．", enums::OutputDetail::kError);
 		return;
 	}
 
@@ -121,7 +121,7 @@ void ResultFileExporter::ExportLatestNodeList() const
 
 	ofs.close();	//ファイルを閉じる．
 
-	cmdio::Output("出力完了 : " + output_file_name, enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("出力完了 : " + output_file_name, enums::OutputDetail::kInfo);
 }
 
 void ResultFileExporter::ExportLatestMapState() const
@@ -129,17 +129,17 @@ void ResultFileExporter::ExportLatestMapState() const
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (not init_success_)
 	{
-		cmdio::Output("結果出力先のフォルダの初期化に失敗しているため，MapStateを出力できません", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダの初期化に失敗しているため，MapStateを出力できません", enums::OutputDetail::kError);
 		return;
 	}
 
 	if (not do_export_)
 	{
-		cmdio::Output("結果出力フラグがfalseのため，MapStateを出力しません", enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("結果出力フラグがfalseのため，MapStateを出力しません", enums::OutputDetail::kInfo);
 		return;
 	}
 
-	cmdio::Output("MapStateを出力します．", enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("MapStateを出力します．", enums::OutputDetail::kInfo);
 
 	//出力先ファイルを作成する．
 	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kMapStateName + std::to_string(result_list_.size()) + ".csv";
@@ -148,11 +148,11 @@ void ResultFileExporter::ExportLatestMapState() const
 
 	if (map_file_exporter.ExportMap(output_file_name, result_list_.back().map_state))
 	{
-		cmdio::Output("出力完了 : " + output_file_name, enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("出力完了 : " + output_file_name, enums::OutputDetail::kInfo);
 	}
 	else
 	{
-		cmdio::Output("出力失敗 : " + output_file_name, enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("出力失敗 : " + output_file_name, enums::OutputDetail::kInfo);
 	}
 
 }
@@ -162,17 +162,17 @@ void ResultFileExporter::ExportAllResultDetail() const
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (!init_success_)
 	{
-		cmdio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", enums::OutputDetail::kError);
 		return;
 	}
 
 	if (!do_export_)
 	{
-		cmdio::Output("結果出力フラグがfalseのため，結果を出力しません", enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("結果出力フラグがfalseのため，結果を出力しません", enums::OutputDetail::kInfo);
 		return;
 	}
 
-	cmdio::Output("シミュレーション全体の結果を出力します．シミュレーション数 : " + std::to_string(result_list_.size()), enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("シミュレーション全体の結果を出力します．シミュレーション数 : " + std::to_string(result_list_.size()), enums::OutputDetail::kInfo);
 
 	//出力先ファイルを作成する．
 	std::string output_file_name = ResultFileConst::kDirectoryPath + "\\" + folder_name_ + "\\" + ResultFileConst::kDetailFileName + ".csv";
@@ -182,7 +182,7 @@ void ResultFileExporter::ExportAllResultDetail() const
 	//ファイルが作成できなかった場合は，なにも出力しない．
 	if (!ofs)
 	{
-		cmdio::Output("ファイル " + output_file_name + " を作成できませんでした．", enums::OutputDetail::kError);
+		CmdIOUtil::Output("ファイル " + output_file_name + " を作成できませんでした．", enums::OutputDetail::kError);
 		return;
 	}
 
@@ -211,27 +211,27 @@ void ResultFileExporter::ExportResult() const
 	//初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない．
 	if (!init_success_)
 	{
-		cmdio::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", enums::OutputDetail::kError);
+		CmdIOUtil::Output("結果出力先のフォルダの初期化に失敗しているため，結果を出力できません", enums::OutputDetail::kError);
 		return;
 	}
 
 	if (!do_export_)
 	{
-		cmdio::Output("結果出力フラグがfalseのため，結果を出力しません", enums::OutputDetail::kInfo);
+		CmdIOUtil::Output("結果出力フラグがfalseのため，結果を出力しません", enums::OutputDetail::kInfo);
 		return;
 	}
 
-	cmdio::Output("結果を出力します．シミュレーション数 : " + std::to_string(result_list_.size()), enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("結果を出力します．シミュレーション数 : " + std::to_string(result_list_.size()), enums::OutputDetail::kInfo);
 
 	for (int i = 0; i < result_list_.size(); i++)
 	{
 		if (OutputResultDetail(result_list_[i], i))
 		{
-			cmdio::Output("出力完了 : シミュレーション番号 " + std::to_string(i + 1), enums::OutputDetail::kInfo);
+			CmdIOUtil::Output("出力完了 : シミュレーション番号 " + std::to_string(i + 1), enums::OutputDetail::kInfo);
 		}
 		else
 		{
-			cmdio::Output("出力失敗 : シミュレーション番号 " + std::to_string(i + 1), enums::OutputDetail::kInfo);
+			CmdIOUtil::Output("出力失敗 : シミュレーション番号 " + std::to_string(i + 1), enums::OutputDetail::kInfo);
 		}
 	}
 }
@@ -316,7 +316,7 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecord& recode
 
 	ofs.close();
 
-	cmdio::Output("出力ファイル : " + output_file_name, enums::OutputDetail::kInfo);
+	CmdIOUtil::Output("出力ファイル : " + output_file_name, enums::OutputDetail::kInfo);
 
 	return true;
 }

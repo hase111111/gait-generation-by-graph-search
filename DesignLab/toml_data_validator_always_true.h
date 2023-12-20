@@ -21,7 +21,7 @@ public:
 
 	std::tuple<bool, std::string> Validate([[maybe_unused]] const T& toml_data) const override
 	{
-		cmdio::Output("(現在の設定では検証は行いません．)", enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("(現在の設定では検証は行いません．)", enums::OutputDetail::kSystem);
 		return { true ,"" };
 	}
 

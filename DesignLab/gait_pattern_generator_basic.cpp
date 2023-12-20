@@ -38,7 +38,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 	assert(graph_searcher_ptr_ != nullptr);
 
 	//初期化処理を行う．
-	cmdio::Output("グラフ探索中を開始します．まずは初期化します．\n", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ探索中を開始します．まずは初期化します．\n", enums::OutputDetail::kDebug);
 
 	DevideMapState devide_map;
 	devide_map.Init(map_state, current_node.global_center_of_mass);
@@ -47,7 +47,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 
 	// グラフ探索をするための，歩容パターングラフを生成する
-	cmdio::Output("初期化が終了しました．グラフ木を作成します．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("初期化が終了しました．グラフ木を作成します．", enums::OutputDetail::kDebug);
 
 	graph_tree_.Reset();
 	graph_tree_.AddNode(current_node);
@@ -60,28 +60,28 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodebyGraphSearch(
 
 	if (create_result.result != enums::Result::kSuccess)
 	{
-		cmdio::Output("グラフ木の作成に失敗しました．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("グラフ木の作成に失敗しました．", enums::OutputDetail::kDebug);
 		return create_result;
 	}
 
-	cmdio::Output("グラフ木の作成が終了しました．", enums::OutputDetail::kDebug);
-	cmdio::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()), enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木の作成が終了しました．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()), enums::OutputDetail::kDebug);
 
 
 	// グラフ探索を行う
-	cmdio::Output("グラフ木を評価します．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木を評価します．", enums::OutputDetail::kDebug);
 
 	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
 
 	if (search_result.result != enums::Result::kSuccess)
 	{
-		cmdio::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
+		CmdIOUtil::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
 		return search_result;
 	}
 
 	(*output_node) = graph_tree_.GetNode(next_node_index);
 
-	cmdio::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", enums::OutputDetail::kDebug);
+	CmdIOUtil::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．", enums::OutputDetail::kDebug);
 
 	return { enums::Result::kSuccess,std::string("") };
 }

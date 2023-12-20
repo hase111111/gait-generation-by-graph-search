@@ -23,7 +23,7 @@ SystemMainResultViewer::SystemMainResultViewer(
 
 void SystemMainResultViewer::Main()
 {
-	cmdio::OutputTitle("Result Viewer System");
+	CmdIOUtil::OutputTitle("Result Viewer System");
 
 	while (true)
 	{
@@ -34,7 +34,7 @@ void SystemMainResultViewer::Main()
 
 		if (!file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
 		{
-			cmdio::Output("該当のデータがありませんでした．終了します．", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("該当のデータがありませんでした．終了します．", enums::OutputDetail::kSystem);
 
 			break;
 		}
@@ -53,27 +53,27 @@ void SystemMainResultViewer::Main()
 			broker_ptr_->simu_end_index.SetData({ graph.size() - 1 });
 
 			// データを表示する
-			cmdio::Output("データを表示します．", enums::OutputDetail::kSystem);
-			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-			cmdio::WaitAnyKey();
-			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-			cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("データを表示します．", enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::WaitAnyKey();
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
 		}
 		else
 		{
-			cmdio::Output("ファイルの読み込みに失敗しました．終了します．", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("ファイルの読み込みに失敗しました．終了します．", enums::OutputDetail::kSystem);
 		}
 
 		// 終了するかどうかを選択
 
-		if (cmdio::InputYesNo("このモードを終了しますか？"))
+		if (CmdIOUtil::InputYesNo("このモードを終了しますか？"))
 		{
-			cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 			break;
 		}
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 	}
 }
 

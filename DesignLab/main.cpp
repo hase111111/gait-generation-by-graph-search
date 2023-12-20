@@ -50,7 +50,7 @@ int main()
 	Sleep(100);
 
 	//まずは，設定ファイルを読み込む
-	cmdio::SetOutputLimit(enums::OutputDetail::kSystem);
+	CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
 
 	TomlDirectoryExporter toml_file_setupper;
 	toml_file_setupper.Export();
@@ -59,10 +59,10 @@ int main()
 
 
 	//次に，コマンドラインの出力を設定する
-	cmdio::SetDoOutput(setting_record->do_cmd_output);
-	cmdio::SetOutputLimit(setting_record->cmd_output_detail);
+	CmdIOUtil::SetDoOutput(setting_record->do_cmd_output);
+	CmdIOUtil::SetOutputLimit(setting_record->cmd_output_detail);
 
-	cmdio::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する
+	CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する
 
 
 	//GUIを別のスレッドで実行する．このスレッドへはGraphicDataBrokerを通してデータを渡す．
@@ -197,26 +197,26 @@ int main()
 		}
 		else
 		{
-			cmdio::Output("SystemMainクラスがありません．"
-						  "(GraphicSystemしか使用しない場合はこのメッセージが表示されることがあります．)", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("SystemMainクラスがありません．"
+							  "(GraphicSystemしか使用しない場合はこのメッセージが表示されることがあります．)", enums::OutputDetail::kSystem);
 		}
 
 
 		//もう一度実行するかどうかを選択する
-		cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
-		if (!cmdio::InputYesNo("アプリケーションを続行しますか？"))
+		if (!CmdIOUtil::InputYesNo("アプリケーションを続行しますか？"))
 		{
 			break;
 		}
 
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
-		cmdio::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-		cmdio::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 	}
 
-	cmdio::Output("Dxlibの終了を待っています．GUIの×ボタンを押してください．", enums::OutputDetail::kSystem);
+	CmdIOUtil::Output("Dxlibの終了を待っています．GUIの×ボタンを押してください．", enums::OutputDetail::kSystem);
 	graphic_thread.join();
 
 	return 0;

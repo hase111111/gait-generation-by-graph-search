@@ -44,7 +44,7 @@ public:
 		// ファイルが開けなかったら何もしない
 		if (!ofs)
 		{
-			::designlab::cmdio::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path, ::designlab::enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path, enums::OutputDetail::kSystem);
 			return;
 		}
 
@@ -52,7 +52,7 @@ public:
 
 		ofs.close();	// ファイルを閉じる
 
-		::designlab::cmdio::Output("TOMLファイルを出力しました．file_path : " + file_path, ::designlab::enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("TOMLファイルを出力しました．file_path : " + file_path, enums::OutputDetail::kSystem);
 	}
 
 private:
@@ -65,7 +65,7 @@ private:
 			return;
 		}
 
-		std::vector<std::string> splited_str = ::designlab::string_util::Split((*str), "\n");
+		std::vector<std::string> splited_str = string_util::Split((*str), "\n");
 
 		std::string res_str;
 		char past_first_char = ' ';
@@ -94,7 +94,7 @@ private:
 			return;
 		}
 
-		std::vector<std::string> splited_str = ::designlab::string_util::Split((*str), "\n");
+		std::vector<std::string> splited_str = string_util::Split((*str), "\n");
 
 		std::string res_str;
 		bool do_indent = false;
