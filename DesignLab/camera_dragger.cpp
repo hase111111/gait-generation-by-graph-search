@@ -17,7 +17,34 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 	assert(camera_ptr_ != nullptr);
 
 	// カーソルが動いていたら，カメラの回転を変更する．
-	if (mouse_key_bit & MOUSE_INPUT_MIDDLE)
+	if ((mouse_key_bit & MOUSE_INPUT_LEFT) && (mouse_key_bit & MOUSE_INPUT_RIGHT))
+	{
+		if (abs(cursor_dif_x) > abs(cursor_dif_y))
+		{
+			//カメラの回転をマウスの横移動量に合わせて変更．
+			Quaternion move_quatx = { 0, 0, 0, 0 };
+
+			move_quatx = Quaternion::MakeByAngleAxis(cursor_dif_x * kCameraMoveSpeed * -1, { 0,0,1 });
+
+			Quaternion res = camera_ptr_->GetCameraQuat() * move_quatx;
+
+			res = res.GetNormalized();
+
+			camera_ptr_->SetCameraQuat(res);
+		}
+		else 
+		{
+			//カメラの回転をマウスの縦移動量に合わせて変更．
+			Quaternion move_quaty = Quaternion::MakeByAngleAxis(cursor_dif_y * kCameraMoveSpeed * -1, { 0,1,0 });
+
+			Quaternion res = camera_ptr_->GetCameraQuat() * move_quaty;
+
+			res = res.GetNormalized();
+
+			camera_ptr_->SetCameraQuat(res);
+		}
+	}
+	else if (mouse_key_bit & MOUSE_INPUT_MIDDLE)
 	{
 		//ホイールクリックをしていたらカメラを回転させる．XとYのどちらかの移動量が大きい方を処理する．
 
@@ -76,8 +103,6 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 
 		if (abs(cursor_dif_x) > 0)
 		{
-			//_Xの移動量が大きい場合は横移動量を移動量とする
-
 			move_vec_x = { 0, cursor_dif_x * kCameraTargetMoveSpeed * -1, 0 };
 
 			move_vec_x = RotateVector3(move_vec_x, camera_ptr_->GetCameraQuat());
@@ -87,8 +112,6 @@ void CameraDragger::DraggedAction(const int cursor_dif_x, const int cursor_dif_y
 
 		if (abs(cursor_dif_y) > 0)
 		{
-			//Yの移動量が大きい場合は縦移動量を移動量とする
-
 			move_vec_y = { 0, 0, cursor_dif_y * kCameraTargetMoveSpeed };
 
 			move_vec_y = RotateVector3(move_vec_y, camera_ptr_->GetCameraQuat());

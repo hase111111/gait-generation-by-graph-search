@@ -304,7 +304,7 @@ void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse
 		if ((*i).second->CursorOnGui(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
 		{
 			(*i).second->ClickedAction(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY(),
-									   mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT), mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE), mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT));
+				mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT), mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE), mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT));
 			break;
 		}
 	}
@@ -320,9 +320,8 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
 	{
 		if (mouse_ptr->GetPressingCount(i) > 0)
 		{
-			mouse_key = i;
-			pressing_count = mouse_ptr->GetPressingCount(i);
-			break;
+			mouse_key += i;
+			pressing_count = (std::max)(mouse_ptr->GetPressingCount(i), pressing_count);
 		}
 	}
 
