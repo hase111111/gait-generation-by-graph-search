@@ -38,85 +38,17 @@ public:
 	//! @return std::optional<T> 読み込んだ構造体．失敗した場合はstd::nulloptを返す．
 	std::optional<T> Import(const std::string& file_path) const
 	{
-		if (do_output_message_)
-		{
-			const std::string type_name = typeid(*this).name();
-			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			CmdIOUtil::Output("[" + type_name + "]", enums::OutputDetail::kSystem);
-			CmdIOUtil::Output("ファイルを読み込みます．file_path : " + file_path, enums::OutputDetail::kSystem);
-		}
-
-		if (!std::filesystem::exists(file_path))
-		{
-			if (do_output_message_)
-			{
-				CmdIOUtil::Output("ファイルが存在しません．", enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			}
-
-			return std::nullopt;
-		}
-
-		if (do_output_message_) { CmdIOUtil::Output("設定ファイルが見つかりました．パースを開始します．", enums::OutputDetail::kSystem); }
+		if (!FileIsExist(file_path)) { return std::nullopt; }
 
 		toml::value toml_value;
 
-		try
-		{
-			std::ifstream ifs(file_path, std::ios::binary);		//バイナリモードで読み込む
-
-			toml_value = toml::parse(ifs, file_path);
-		}
-		catch (toml::syntax_error err)
-		{
-			if (do_output_message_)
-			{
-				CmdIOUtil::Output("設定ファイルのパースに失敗しました．", enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-				CmdIOUtil::Output("<パースに失敗した箇所>", enums::OutputDetail::kSystem);
-				CmdIOUtil::Output(err.what(), enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			}
-
-			return std::nullopt;
-		}
-
-		if (do_output_message_) { CmdIOUtil::Output("設定ファイルのパースに成功しました．データをシリアライズします．", enums::OutputDetail::kSystem); }
+		if (!ParseTomlFile(file_path, &toml_value)) { return std::nullopt; }
 
 		T data;
 
-		try
-		{
-			data = toml::from<T>::from_toml(toml_value);
-		}
-		catch (...)
-		{
-			if (do_output_message_)
-			{
-				CmdIOUtil::Output("データのシリアライズに失敗しました．", enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			}
+		if (!SerializeTomlData(toml_value, &data)) { return std::nullopt; }
 
-			return std::nullopt;
-		}
-
-		if (do_output_message_) { CmdIOUtil::Output("データのシリアライズに成功しました．データの検証を開始します．", enums::OutputDetail::kSystem); }
-
-		const auto [is_valid, error_message] = validator_->Validate(data);
-
-		if (!is_valid)
-		{
-			if (do_output_message_)
-			{
-				CmdIOUtil::Output("データの検証に失敗しました．", enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-				CmdIOUtil::Output("<検証に失敗した理由>", enums::OutputDetail::kSystem);
-				CmdIOUtil::Output(error_message, enums::OutputDetail::kSystem);
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			}
-
-			return std::nullopt;
-		}
+		if (!ValidateData(data)) { return std::nullopt; }
 
 		if (do_output_message_)
 		{
@@ -139,19 +71,115 @@ public:
 
 		if (data.has_value()) { return data.value(); }
 
-		if (::designlab::CmdIOUtil::InputYesNo("デフォルトのファイルを出力しますか"))
+		if (CmdIOUtil::InputYesNo("デフォルトのファイルを出力しますか"))
 		{
 			TomlFileExporter<T> exporter;
 			exporter.Export(file_path, T());
 		}
 
-		::designlab::CmdIOUtil::Output("デフォルトのデータを使用します．", ::designlab::enums::OutputDetail::kSystem);
-		::designlab::CmdIOUtil::OutputNewLine(1, ::designlab::enums::OutputDetail::kSystem);
+		CmdIOUtil::Output("デフォルトのデータを使用します．", enums::OutputDetail::kSystem);
+		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
 		return T();
 	}
 
 private:
+
+	bool FileIsExist(const std::string& file_path) const
+	{
+		if (do_output_message_)
+		{
+			const std::string type_name = typeid(*this).name();
+			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("[" + type_name + "]", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("ファイルを読み込みます．file_path : " + file_path, enums::OutputDetail::kSystem);
+		}
+
+		if (!std::filesystem::exists(file_path))
+		{
+			if (do_output_message_)
+			{
+				CmdIOUtil::Output("ファイルが存在しません．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			}
+
+			return false;
+		}
+
+		return true;
+	}
+
+	bool ParseTomlFile(const std::string& file_path, toml::value* toml_value) const
+	{
+		if (do_output_message_) { CmdIOUtil::Output("設定ファイルが見つかりました．パースを開始します．", enums::OutputDetail::kSystem); }
+
+		try
+		{
+			std::ifstream ifs(file_path, std::ios::binary);		//バイナリモードで読み込む
+
+			*toml_value = toml::parse(ifs, file_path);
+		}
+		catch (toml::syntax_error err)
+		{
+			if (do_output_message_)
+			{
+				CmdIOUtil::Output("設定ファイルのパースに失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("<パースに失敗した箇所>", enums::OutputDetail::kSystem);
+				CmdIOUtil::Output(err.what(), enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			}
+
+			return false;
+		}
+
+		return true;
+	}
+
+	bool SerializeTomlData(toml::value& toml_value, T* data) const
+	{
+		if (do_output_message_) { CmdIOUtil::Output("設定ファイルのパースに成功しました．データをシリアライズします．", enums::OutputDetail::kSystem); }
+
+		try
+		{
+			*data = toml::from<T>::from_toml(toml_value);
+		}
+		catch (...)
+		{
+			if (do_output_message_)
+			{
+				CmdIOUtil::Output("データのシリアライズに失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			}
+
+			return false;
+		}
+
+		return true;
+	}
+
+	bool ValidateData(const T& data) const
+	{
+		if (do_output_message_) { CmdIOUtil::Output("データのシリアライズに成功しました．データの検証を開始します．", enums::OutputDetail::kSystem); }
+
+		const auto [is_valid, error_message] = validator_->Validate(data);
+
+		if (!is_valid)
+		{
+			if (do_output_message_)
+			{
+				CmdIOUtil::Output("データの検証に失敗しました．", enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+				CmdIOUtil::Output("<検証に失敗した理由>", enums::OutputDetail::kSystem);
+				CmdIOUtil::Output(error_message, enums::OutputDetail::kSystem);
+				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+			}
+
+			return false;
+		}
+
+		return true;
+	}
 
 	bool do_output_message_{ true };
 
