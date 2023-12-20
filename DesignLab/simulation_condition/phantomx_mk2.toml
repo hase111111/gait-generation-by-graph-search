@@ -1,0 +1,33 @@
+
+[Body]
+    
+    #地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
+    body_lifting_height_max = 180.0
+    
+    #地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+    body_lifting_height_min = 30.0
+
+[CoxaRange]
+    
+    #脚の可動範囲の最大値[deg]
+    movable_coxa_angle_max_deg = 40.0
+    
+    #脚の可動範囲の最小値[deg]
+    movable_coxa_angle_min_deg = -40.0
+
+[LegRange]
+    
+    #脚の付け根から脚先までの最大距離[mm]
+    max_leg_range = 200.0
+    
+    #脚の付け根から脚先までの最小距離[mm]
+    min_leg_range = 140.0
+
+[Other]
+    
+    #重心から見た遊脚高さ[mm]．
+    free_leg_height = -20.0
+    
+    #静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
+    stable_margin = 15.0
+    

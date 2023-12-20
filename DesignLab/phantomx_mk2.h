@@ -8,6 +8,7 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_state_presenter.h"
 #include "interface_hexapod_vaild_checker.h"
+#include "phantomx_mk2_parameter_record.h"
 
 
 namespace designlab
@@ -19,7 +20,7 @@ class PhantomXMkII : public IHexapodCoordinateConverter, public IHexapodJointCal
 {
 public:
 
-	PhantomXMkII();
+	PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record);
 
 
 	std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(const RobotStateNode& node) const noexcept override;
@@ -70,34 +71,37 @@ public:
 
 private:
 
-	const float kBodyLiftingHeightMin{ 30.f };		//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-	const float kBodyLiftingHeightMax{ 160.f };	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
-
-	const float kMovableCoxaAngleMin = math_util::ConvertDegToRad(-40.f);	//!< 脚の可動範囲の最小値[rad]
-	const float kMovableCoxaAngleMax = math_util::ConvertDegToRad(40.f);	//!< 脚の可動範囲の最大値[rad]
-
-	static constexpr float kMinLegR{ 140.f };		//!< 脚の付け根から脚先までの最小距離[mm]
-	static constexpr float kMaxLegR{ 200.f };		//!< 脚の付け根から脚先までの最大距離[mm]
 	static constexpr int kMaxLegRSize{ 200 };		//!< kMaxLegRの配列のサイズ．
+
+
+	std::array<float, kMaxLegRSize> InitMaxLegR() const;
+	std::array<Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;
+	std::array<Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;
+
+
+	const float kBodyLiftingHeightMin;	//!< 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+	const float kBodyLiftingHeightMax;	//!< 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
+
+	const float kMovableCoxaAngleMin;	//!< 脚の可動範囲の最小値[rad]
+	const float kMovableCoxaAngleMax;	//!< 脚の可動範囲の最大値[rad]
+
+	const float kMinLegR;		//!< 脚の付け根から脚先までの最小距離[mm]
+	const float kMaxLegR;		//!< 脚の付け根から脚先までの最大距離[mm]
+
+	const float kFreeLegHeight;	//!< 重心から見た遊脚高さ[mm]．
+	const float kStableMargin;		//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
+
+
 	std::array<float, kMaxLegRSize> kMaxLegRArray;	//!< 脚の付け根から脚先までの最大距離[mm]．脚の付け根と重心のz方向の距離の差をインデックスにする．
 
 	std::array<Vector2, HexapodConst::kLegNum> kMinLegPosXY;	//!< coxa jointの最小位置まで回した時の脚先座標．脚座標系のxyからみた座標．
 	std::array<Vector2, HexapodConst::kLegNum> kMaxLegPosXY;	//!< coxa jointの最大位置まで回した時の脚先座標．脚座標系のxyからみた座標．
-
-	const float kFreeLegHeight{ -20.f };	//!< 重心から見た遊脚高さ[mm]．
-	const float kStableMargin{ 15.f };		//!< 静的安全余裕 15mm程度が妥当らしい(波東さんのプログラムより，MAXで40mm程度)
-
 
 	//!< 脚の付け根の座標( leg base position )．ロボット座標系．
 	const std::array<Vector3, HexapodConst::kLegNum> leg_base_pos_robot_coordinate_;
 
 	//!< 遊脚する位置．脚座標系．
 	const std::array<Vector3, HexapodConst::kLegNum> free_leg_pos_leg_coordinate_;
-
-
-	std::array<float, kMaxLegRSize> InitMaxLegR() const;
-	std::array<Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;
-	std::array<Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;
 };
 
 }	// namespace designlab

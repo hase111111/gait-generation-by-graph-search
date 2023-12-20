@@ -5,13 +5,13 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kGoalTape"
+    end_check_mode = "kPosition"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 1200.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
-    target_position = "     0.000,     0.000,     0.000"
+    target_position = "   500, 500, 0"
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標の許容誤差を設定します．[mm]
     target_position_allowable_error = 50.0
@@ -53,7 +53,10 @@
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
-    "     0.000,     0.000,     0.000",
+    "     100.000,     0.000,     0.000",
+    "     400.000,     0.000,     0.000",
     "  1000.000,     0.000,     0.000",
+	"500, 500, 0",
+    "     0.000,     0.000,     0.000"
     ]
     

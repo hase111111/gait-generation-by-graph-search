@@ -12,7 +12,15 @@
 namespace designlab
 {
 
-PhantomXMkII::PhantomXMkII() :
+PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) :
+	kBodyLiftingHeightMin(parameter_record.body_lifting_height_min),
+	kBodyLiftingHeightMax(parameter_record.body_lifting_height_max),
+	kMovableCoxaAngleMin(math_util::ConvertDegToRad(parameter_record.movable_coxa_angle_min_deg)),
+	kMovableCoxaAngleMax(math_util::ConvertDegToRad(parameter_record.movable_coxa_angle_max_deg)),
+	kMinLegR(parameter_record.min_leg_range),
+	kMaxLegR(parameter_record.max_leg_range),
+	kFreeLegHeight(parameter_record.free_leg_height),
+	kStableMargin(parameter_record.stable_margin),
 	free_leg_pos_leg_coordinate_({ {
 		{170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[0]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[0]), kFreeLegHeight},
 		{170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[1]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[1]), kFreeLegHeight},

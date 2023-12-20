@@ -88,7 +88,10 @@ int main()
 
 		//選択が終わったら，選択されたモードに応じてシステムを作成する
 		auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
-		auto phantomx_mk2 = std::make_shared<PhantomXMkII>();
+
+		TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
+		const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+		auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
 
 		auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderHato>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
 		auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
@@ -116,14 +119,14 @@ int main()
 
 				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 				auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
-				auto target_updater = RobotOperatorFactory::Create(simulation_setting_record);
+				auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
 				auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
 
 				system_main = std::make_unique<SystemMainSimulation>(
 					std::move(gait_pattern_generator),
 					std::move(map_creator),
 					std::move(simu_end_checker),
-					std::move(target_updater),
+					std::move(robot_operator),
 					std::move(node_initializer),
 					graphic_data_broker,
 					application_setting_record
