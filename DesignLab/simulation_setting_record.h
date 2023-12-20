@@ -71,7 +71,7 @@ struct SimulationSettingRecord final
 	std::vector<Vector3> path_points{ {0,0,0},{1000,0,0} };
 
 
-	Vector3 initial_positions{ 0,0,0 };
+	Vector3 initial_positions{ 0.f,30.0f,0.f };
 
 	enums::HexapodMove initial_move{ enums::HexapodMove::kComMove };
 };
@@ -126,7 +126,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
 											  " ) の場合，そのパスを設定します．");
 
 
-	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_positions, "Initial", "シミュレーション開始時のロボットの位置を設定します．[mm]");
+	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_positions, "Initial", "シミュレーション開始時のロボットの位置を設定します．[mm]．地面にめり込んでいる場合には機能しないため，注意すること．");
 
 	DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_move, "Initial", "シミュレーション開始時のロボットの歩容を設定します．( \"" +
 											  string_util::EnumValuesToString<enums::HexapodMove>("\" / \"") + "\" )");

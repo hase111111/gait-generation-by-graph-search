@@ -89,9 +89,8 @@ private:
 	{
 		if (do_output_message_)
 		{
-			const std::string type_name = typeid(*this).name();
 			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-			CmdIOUtil::Output("[" + type_name + "]", enums::OutputDetail::kSystem);
+			CmdIOUtil::Output("[" + string_util::GetTypeName(*this) + "]", enums::OutputDetail::kSystem);
 			CmdIOUtil::Output("ファイルを読み込みます．file_path : " + file_path, enums::OutputDetail::kSystem);
 		}
 

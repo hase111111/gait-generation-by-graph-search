@@ -1,10 +1,8 @@
 ﻿//! @file designlab_string_util.h
 //! @brief 文字列を扱う関数をまとめた名前空間．
 
-
 #ifndef	DESIGNLAB_STRING_UTIL_H_
 #define	DESIGNLAB_STRING_UTIL_H_
-
 
 #include <string>
 #include <vector>
@@ -119,6 +117,35 @@ std::string EnumEntriesToString(const std::string separator)
 		str += std::to_string(static_cast<enum_type>(e));
 	}
 
+	return str;
+}
+
+
+template <typename T>
+std::string GetTypeName(const T& type)
+{
+	std::string str = typeid(type).name();
+
+	std::vector<std::string> eliminate
+	{
+		"class ", "struct ", "designlab::", ",void"
+	};
+
+	for (const auto& e : eliminate)
+	{
+		while (true)
+		{
+			auto pos = str.find(e);
+
+			if (pos == std::string::npos)
+			{
+				break;
+			}
+
+			str.erase(pos, e.size());
+
+		}
+	}
 	return str;
 }
 

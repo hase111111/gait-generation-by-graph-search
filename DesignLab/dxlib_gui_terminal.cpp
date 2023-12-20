@@ -1,6 +1,10 @@
 ﻿#include "dxlib_gui_terminal.h"
 
+#include <typeinfo>
+
 #include <DxLib.h>
+
+#include "designlab_string_util.h"
 
 
 namespace designlab
@@ -14,10 +18,11 @@ DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_l
 	//guiの数だけボタンを作成
 	for (int i = 0; i < gui_list_.size(); ++i)
 	{
-		std::string class_name = typeid(*gui_list_[i].get()).name();
+		//型を取得する．
+		std::string class_name = string_util::GetTypeName(*gui_list_[i].get());
 
 		//typeidの返り値は"class DxlibGui～"という文字列になっているので，邪魔な文字を削除する．
-		const std::vector<std::string> unnecessary_words = { "class ", "DxlibGui", " ", "const", "*", "&" };
+		const std::vector<std::string> unnecessary_words = { "DxlibGui", " ", "const", "*", "&" };
 
 		for (const auto& word : unnecessary_words)
 		{
