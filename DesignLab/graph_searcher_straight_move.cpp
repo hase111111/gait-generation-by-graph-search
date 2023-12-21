@@ -39,20 +39,29 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 
 	if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
 	{
-		init_value.normalized_move_direction = (operation.straight_move_position_ - graph.GetRootNode().global_center_of_mass).GetNormalized();
+		init_value.normalized_move_direction = (operation.straight_move_position_ - graph.GetRootNode().global_center_of_mass);
+		init_value.normalized_move_direction.z = 0.0f;
+		init_value.normalized_move_direction = init_value.normalized_move_direction.GetNormalized();
 	}
 	else
 	{
-		init_value.normalized_move_direction = operation.straight_move_vector_.GetNormalized();
+		init_value.normalized_move_direction = operation.straight_move_vector_;
+		init_value.normalized_move_direction.z = 0.0f;
+		init_value.normalized_move_direction = init_value.normalized_move_direction.GetNormalized();
 	}
+
+	init_value.target_z_value = InitTargetZValue(graph.GetRootNode(), devide_map_state, init_value.normalized_move_direction);
+
+	std::cout << "init_value.target_z_value:" << init_value.target_z_value << std::endl;
+
 
 	//Calcなどの関数をvectorに格納する．
 	std::vector<std::function<EvaluationResult(const int, const GaitPatternGraphTree&, const EvaluationValue&, const InitialValue&, EvaluationValue*)>> update_evaluation_value_func_vec
 	{
+		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
 		std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
+		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
 	};
 
 	for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -116,6 +125,36 @@ std::string GraphSearcherStraightMove::EvaluationValue::ToString() const
 	result += "stably_margin:" + math_util::ConvertFloatToString(stably_margin, 3, 7);
 
 	return result;
+}
+
+float GraphSearcherStraightMove::InitTargetZValue(const RobotStateNode& node, const DevideMapState& devide_map_state, const Vector3& move_direction) const
+{
+	const float move_length = 100.0f;
+
+	const Vector3 target_position = move_direction * move_length;
+
+	const int div = 50;
+	const float min_z = -150.0f;
+	const float max_z = 150.0f;
+
+	for (int i = 0; i < div; i++)
+	{
+		const float z = min_z + (max_z - min_z) / static_cast<float>(div) * static_cast<float>(i);
+
+		Vector3 pos = node.global_center_of_mass;
+		pos += target_position;
+		pos.z += z;
+
+		RobotStateNode temp_node = node;
+		temp_node.ChangeGlobalCenterOfMass(pos, false);
+
+		if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, devide_map_state))
+		{
+			return node.global_center_of_mass.z + z;
+		}
+	}
+
+	return node.global_center_of_mass.z;
 }
 
 GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement(
@@ -229,7 +268,8 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
 	assert(0 <= index && index < tree.GetGraphSize());	//indexが範囲内であることを確認する．
 	assert(candiate != nullptr);	//candiateがnullptrでないことを確認する．
 
-	const float result = abs(tree.GetNode(index).global_center_of_mass.z - tree.GetRootNode().global_center_of_mass.z);
+	//const float result = abs(tree.GetNode(index).global_center_of_mass.z - tree.GetRootNode().global_center_of_mass.z);
+	const float result = abs(tree.GetNode(index).global_center_of_mass.z - init_value.target_z_value);
 
 	if (result < max_evaluation_value.z_diff)
 	{

@@ -100,7 +100,7 @@ int main()
 		auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
 
 		auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-		auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>();
+		auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2);
 
 		std::unique_ptr<ISystemMain> system_main;
 
@@ -110,8 +110,8 @@ int main()
 			{
 				//シミュレーションシステムクラスを作成する．
 
-				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 10000000);
-				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 60000000);
+				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
+				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
 				auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
 				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;

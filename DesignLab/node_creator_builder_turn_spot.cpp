@@ -56,7 +56,7 @@ void NodeCreatorBuilderTurnSpot::Build(
 		converter_ptr_,
 		checker_ptr_,
 		Vector3::GetUpVec(),
-		enums::HexapodMove::kComUpDown
+		enums::HexapodMove::kLegHierarchyChange
 	);
 
 	(*node_creator)[enums::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(

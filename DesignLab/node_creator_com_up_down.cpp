@@ -129,7 +129,6 @@ void NodeCreatorComUpDown::pushNodeByMaxAndMinPosZ(const RobotStateNode& current
 
 	}
 
-
 	//重心の変化が一切ないものを追加する．
 	{
 		RobotStateNode same_node = current_node;

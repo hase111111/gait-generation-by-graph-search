@@ -53,8 +53,11 @@ private:
 	struct InitialValue final
 	{
 		Vector3 normalized_move_direction;
+
+		float target_z_value;
 	};
 
+	float InitTargetZValue(const RobotStateNode& node, const DevideMapState& devide_map_state, const Vector3& move_direction) const;
 
 	EvaluationResult UpdateEvaluationValueByAmoutOfMovement(int index, const GaitPatternGraphTree& tree, const EvaluationValue& max_evaluation_value, const InitialValue& init_value, EvaluationValue* candiate) const;
 
