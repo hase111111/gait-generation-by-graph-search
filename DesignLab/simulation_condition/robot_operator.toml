@@ -1,12 +1,12 @@
 #設定によってはこのファイルは参照されないため注意．
 
 #ロボットの操作方法を設定します．( kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis )
-operation_type = "kStraightMovePosition"
+operation_type = "kSpotTurnLastPosture"
 
 [Param]
     
     #指定した姿勢になるまでその場で旋回する設定の場合に参照される値．
-    spot_turn_last_posture_ = "     1.000,     0.000,     0.000,     0.000"
+    spot_turn_last_posture_ = "     0.000,     0.000,     0.000,     1.000"
     
     #指定した軸周り(右ねじの方向)にその場で旋回する設定の場合に参照される値．
     spot_turn_rot_axis = "     0.000,     0.000,     1.000"

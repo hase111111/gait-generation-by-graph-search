@@ -110,8 +110,8 @@ int main()
 			{
 				//シミュレーションシステムクラスを作成する．
 
-				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
-				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 10000000);
+				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 10000000);
+				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 60000000);
 				auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
 				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
@@ -150,7 +150,7 @@ int main()
 
 				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
 				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
-				
+
 				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 
 				system_main = std::make_unique<SystemMainGraphViewer>(

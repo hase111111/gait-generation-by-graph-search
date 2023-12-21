@@ -20,8 +20,14 @@ std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(const
 	}
 	else if (record.end_check_mode == enums::SimulationEndCheckMode::kPosture)
 	{
+		EulerXYZ target_eular_rad{
+			math_util::ConvertDegToRad(record.target_posture.x_angle),
+			math_util::ConvertDegToRad(record.target_posture.y_angle),
+			math_util::ConvertDegToRad(record.target_posture.z_angle)
+		};
+
 		auto simulation_end_checker = std::make_unique<SimulationEndCheckerByPosture>(
-			ToQuaternion(record.target_posture),
+			ToQuaternion(target_eular_rad),
 			math_util::ConvertDegToRad(record.target_posture_allowable_error_deg)
 		);
 

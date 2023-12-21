@@ -5,7 +5,7 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kPosition"
+    end_check_mode = "kPosture" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 1200.0
@@ -17,7 +17,7 @@
     target_position_allowable_error = 50.0
     
     #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]
-    target_posture = "     0.000,     0.000,     0.000"
+    target_posture = "     0.000,     0.000,     180.000"
     
     #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢の角度の許容誤差を設定します．[deg]
     target_posture_allowable_error_deg = 1.0
@@ -49,7 +49,7 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kForPath" 
+    operate_mode = "kFixed" 
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
