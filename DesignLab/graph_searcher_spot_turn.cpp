@@ -10,6 +10,7 @@ namespace designlab
 std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	const GaitPatternGraphTree& graph_tree,
 	const RobotOperation& operation,
+	[[maybe_unused]] const DevideMapState& devide_map_state,
 	const int max_depth
 ) const
 {

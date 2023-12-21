@@ -124,6 +124,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 		search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
 			graph_tree_array_[i],
 			operation,
+			devide_map,
 			max_depth_
 		);
 
@@ -136,7 +137,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 	AppendGraphTree(search_result_array);
 
 	//統合されたグラフを，再び探索する．
-	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, max_depth_);
+	const auto [search_result, next_node_index, _] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, devide_map, max_depth_);
 
 	if (search_result.result != enums::Result::kSuccess)
 	{

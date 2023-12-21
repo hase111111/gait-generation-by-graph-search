@@ -20,7 +20,12 @@ public:
 	// 継承時には，戻り値，関数名，引数の型(引数名は違ってもよい)，を全て同じにする必要がある．
 	// また，最後に必ずoverrideをつける．
 
-	std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const RobotOperation& operation, int max_depth) const override;
+	std::tuple<GraphSearchResult, int, int> SearchGraphTree(
+		const GaitPatternGraphTree& graph,
+		const RobotOperation& operation,
+		const DevideMapState& devide_map_state,
+		int max_depth
+	) const override;
 };
 
 } // namespace designlab

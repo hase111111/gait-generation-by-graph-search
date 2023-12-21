@@ -20,6 +20,7 @@ GraphSearcherStraightMove::GraphSearcherStraightMove(const std::shared_ptr<const
 std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTree(
 	const GaitPatternGraphTree& graph,
 	const RobotOperation& operation,
+	[[maybe_unused]] const DevideMapState& devide_map_state,
 	const int max_depth
 ) const
 {

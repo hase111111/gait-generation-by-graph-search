@@ -19,6 +19,7 @@ public:
 	std::tuple<GraphSearchResult, int, int> SearchGraphTree(
 		const GaitPatternGraphTree& graph_tree,
 		const RobotOperation& operation,
+		const DevideMapState& devide_map_state,
 		int max_depth
 	) const override;
 

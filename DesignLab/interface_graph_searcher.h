@@ -8,6 +8,7 @@
 #include <tuple>
 #include <vector>
 
+#include "devide_map_state.h"
 #include "gait_pattern_graph_tree.h"
 #include "graph_search_result_record.h"
 #include "robot_operation.h"
@@ -29,8 +30,14 @@ public:
 	//! @param [in] graph グラフ木．
 	//! @param [in] operation 目標姿勢，方向．
 	//! @param [in] max_depth 探索する最大深さ．
+	//! @param [in] devide_map_state 分割されたマップの状態．
 	//! @return std::tuple<GraphSearchResult, int, int> グラフ探索の結果，選択されたノード(深さ1)のindex，最高評価ノード(深さmax_depth)のindexのタプル．
-	virtual std::tuple<GraphSearchResult, int, int> SearchGraphTree(const GaitPatternGraphTree& graph, const RobotOperation& operation, int max_depth) const = 0;
+	virtual std::tuple<GraphSearchResult, int, int> SearchGraphTree(
+		const GaitPatternGraphTree& graph,
+		const RobotOperation& operation,
+		const DevideMapState& devide_map_state,
+		int max_depth
+	) const = 0;
 };
 
 }	// namespace designlab
