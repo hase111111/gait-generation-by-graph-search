@@ -25,7 +25,7 @@ std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(const SimulationSet
 	}
 	else if (setting.operate_mode == enums::RobotOperateMode::kForPath)
 	{
-		return std::make_unique<RobotOperatorForPath>();
+		return std::make_unique<RobotOperatorForPath>(setting.path_points);
 	}
 	else
 	{

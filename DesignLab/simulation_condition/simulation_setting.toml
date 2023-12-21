@@ -49,14 +49,13 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kFixed"
+    operate_mode = "kForPath" 
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
     "     100.000,     0.000,     0.000",
     "     400.000,     0.000,     0.000",
     "  1000.000,     0.000,     0.000",
-	"500, 500, 0",
-    "     0.000,     0.000,     0.000"
+    "500, 500, 0",
     ]
     

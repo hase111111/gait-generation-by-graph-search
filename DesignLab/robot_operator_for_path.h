@@ -19,7 +19,7 @@ class RobotOperatorForPath final : public IRobotOperator
 {
 public:
 
-	RobotOperatorForPath();
+	RobotOperatorForPath(const std::vector<Vector3>& path);
 
 	RobotOperation Init() const override;
 

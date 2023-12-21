@@ -27,16 +27,10 @@ float NormalizeAngle(float angle)
 namespace designlab
 {
 
-RobotOperatorForPath::RobotOperatorForPath()
+RobotOperatorForPath::RobotOperatorForPath(const std::vector<Vector3>& path) :
+	global_route_(path),
+	most_near_index_(0)
 {
-	global_route_ =
-	{
-		Vector3{400,400,40},
-		Vector3{1300,400,40},
-		Vector3{2450,1400,40},
-		Vector3{3900,1400,40},
-		Vector3{3900,400,40},
-	};
 }
 
 RobotOperation RobotOperatorForPath::Init() const
@@ -81,7 +75,15 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
 	RobotOperation operation_straight;
 
 	operation_straight.operation_type = enums::RobotOperationType::kStraightMoveVector;
-	operation_straight.straight_move_vector_ = global_route_[most_near_index_] - global_route_[(most_near_index_ - 1) < 0 ? global_route_.size() - 1 : (most_near_index_ - 1)];
+
+	if (most_near_index_ == 0)
+	{
+		operation_straight.straight_move_vector_ = global_route_[most_near_index_] - node.global_center_of_mass;
+	}
+	else
+	{
+		operation_straight.straight_move_vector_ = global_route_[most_near_index_] - global_route_[most_near_index_ - 1];
+	}
 
 	return operation_straight;
 }
