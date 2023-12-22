@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_rot_converter.h"
+#include "../DesignLab/math_rot_converter.h"
 #include "../DesignLab/designlab_rot_converter.cpp"
 
 
@@ -12,7 +12,7 @@ namespace designlab::test::common::math
 {
 	TEST(RotConverterTest, ToRotationMatrixTestIsSameRotCaseOfEulerXYZ) 
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::EulerXYZ> testcase_euler_list{
 			{ dlm::ConvertDegToRad(30.f),dlm::ConvertDegToRad(0.f),dlm::ConvertDegToRad(0.f)},
@@ -47,7 +47,7 @@ namespace designlab::test::common::math
 				const dl::RotationMatrix3x3 rot_mat = dl::ToRotationMatrix(euler);
 
 				std::string error_mes = " euler : " + euler.ToString() + "\n" + 
-					" Œ³‚ÌÀ•W : " + vec.ToString();
+					" å…ƒã®åº§æ¨™ : " + vec.ToString();
 
 				EXPECT_EQ(dl::RotateVector3(vec, rot_mat), dl::RotateVector3(vec, euler)) << error_mes;
 			}
@@ -56,7 +56,7 @@ namespace designlab::test::common::math
 
 	TEST(RotConverterTest, ToRotationMatrixTestIsSameRotCaseOfQuaternion)
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::Quaternion> testcase_qua_list{
 			{ 1.f, { 0.f, 0.f, 0.f } },
@@ -88,18 +88,18 @@ namespace designlab::test::common::math
 		{
 			for (const auto& vec : testcase_vec_list)
 			{
-				ASSERT_TRUE(dlm::IsEqual(qua.GetNorm(), 1.f)) << "ƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚Í1‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·DƒeƒXƒgƒP[ƒX‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·D";
+				ASSERT_TRUE(dlm::IsEqual(qua.GetNorm(), 1.f)) << "ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã¯1ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ãŒé–“é•ã£ã¦ã„ã¾ã™ï¼";
 
 				const dl::RotationMatrix3x3 rot_mat = dl::ToRotationMatrix(qua);
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua);
 				const dl::Vector3 rot_vec_by_mat = dl::RotateVector3(vec, rot_mat);
 
-				std::string error_mes = " ƒNƒH[ƒ^ƒjƒIƒ“ : " + qua.ToString() + "\n" +
-					" ‰ñ“]Šps—ñ : \n" + rot_mat.ToString() + "\n" +
-					" Œ³‚ÌÀ•W : " + vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒNƒH[ƒ^ƒjƒIƒ“) : " + rot_vec.ToString() + "\n" +
-					" ‰ñ“]Œã(s—ñ) : " + rot_vec_by_mat.ToString() + "\n_";
+				std::string error_mes = " ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ : " + qua.ToString() + "\n" +
+					" å›è»¢è§’è¡Œåˆ— : \n" + rot_mat.ToString() + "\n" +
+					" å…ƒã®åº§æ¨™ : " + vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³) : " + rot_vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(è¡Œåˆ—) : " + rot_vec_by_mat.ToString() + "\n_";
 
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.x, rot_vec_by_mat.x)) << error_mes;
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.y, rot_vec_by_mat.y)) << error_mes;
@@ -110,7 +110,7 @@ namespace designlab::test::common::math
 
 	TEST(RotConverterTest, ToQuaternionTestIsSameRotCaseOfEulerXYZ)
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::EulerXYZ> testcase_euler_list{
 			{dlm::ConvertDegToRad(30.f), dlm::ConvertDegToRad(0.f), dlm::ConvertDegToRad(0.f)},
@@ -139,16 +139,16 @@ namespace designlab::test::common::math
 			{
 				const dl::Quaternion rot_qua = dl::ToQuaternion(euler);
 
-				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "ƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚Í1‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã¯1ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, euler);
 				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua);
 
 				std::string error_mes = " euler : " + euler.ToStringDeg() + "\n" +
-					" ƒNƒH[ƒ^ƒjƒIƒ“ ; " + rot_qua.ToString() + "\n" +
-					" Œ³‚ÌÀ•W : " + vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒIƒCƒ‰[) : " + rot_vec.ToString() + "\n" +
-					" ‰ñ“]Œã(lŒ³”) : " + rot_vec_by_qua.ToString() + "\n_";
+					" ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ ; " + rot_qua.ToString() + "\n" +
+					" å…ƒã®åº§æ¨™ : " + vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚ªã‚¤ãƒ©ãƒ¼) : " + rot_vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(å››å…ƒæ•°) : " + rot_vec_by_qua.ToString() + "\n_";
 					
 				EXPECT_EQ(rot_vec, rot_vec_by_qua) << error_mes;
 			}
@@ -157,7 +157,7 @@ namespace designlab::test::common::math
 
 	TEST(RotConverterTest, ToQuaternionTestIsSameRotCaseOfRotationMatrix)
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::EulerXYZ> testcase_euler_list{
 			{ dlm::ConvertDegToRad(30.f), dlm::ConvertDegToRad(0.f), dlm::ConvertDegToRad(0.f)},
@@ -191,16 +191,16 @@ namespace designlab::test::common::math
 			{
 				const dl::Quaternion rot_qua = dl::ToQuaternion(euler);
 
-				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "ƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚Í1‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·D";
+				ASSERT_FLOAT_EQ(rot_qua.GetNorm(), 1.f) << "ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã¯1ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼";
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, euler);
 				const dl::Vector3 rot_vec_by_qua = dl::RotateVector3(vec, rot_qua);
 
 				std::string error_mes = " euler : " + euler.ToStringDeg() + "\n" +
-					" ƒNƒH[ƒ^ƒjƒIƒ“ ; " + rot_qua.ToString() + "\n" +
-					" Œ³‚ÌÀ•W : " + vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒIƒCƒ‰[) : " + rot_vec.ToString() + "\n" +
-					" ‰ñ“]Œã(lŒ³”) : " + rot_vec_by_qua.ToString() + "\n_";
+					" ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ ; " + rot_qua.ToString() + "\n" +
+					" å…ƒã®åº§æ¨™ : " + vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚ªã‚¤ãƒ©ãƒ¼) : " + rot_vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(å››å…ƒæ•°) : " + rot_vec_by_qua.ToString() + "\n_";
 
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.x, rot_vec_by_qua.x)) << error_mes;
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.y, rot_vec_by_qua.y)) << error_mes;
@@ -211,7 +211,7 @@ namespace designlab::test::common::math
 
 	TEST(RotConverterTest, ToEulerXYZTestIsSameRotCaseOfRotationMatrix)
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::RotationMatrix3x3> testcase_euler_list{
 			{ 1.000000f,	0.000000f,	0.000000f,	0.000000f,	 0.866025f, -0.500000f, 0.000000f,	0.500000f,	0.866025f },
@@ -247,11 +247,11 @@ namespace designlab::test::common::math
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, rot_mat);
 				const dl::Vector3 rot_vec_by_euler = dl::RotateVector3(vec, rot_euler);
 
-				std::string error_mes = " ‰ñ“]Šps—ñ : \n" + rot_mat.ToString() + "\n" +
-					" ƒIƒCƒ‰[Šp : " + rot_euler.ToStringDeg() + "\n" +
-					" Œ³‚ÌÀ•W : " + vec.ToString() + "\n" +
-					" ‰ñ“]Œã(s—ñ) : " + rot_vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒIƒCƒ‰[Šp) : " + rot_vec_by_euler.ToString() + "\n_";
+				std::string error_mes = " å›è»¢è§’è¡Œåˆ— : \n" + rot_mat.ToString() + "\n" +
+					" ã‚ªã‚¤ãƒ©ãƒ¼è§’ : " + rot_euler.ToStringDeg() + "\n" +
+					" å…ƒã®åº§æ¨™ : " + vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(è¡Œåˆ—) : " + rot_vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚ªã‚¤ãƒ©ãƒ¼è§’) : " + rot_vec_by_euler.ToString() + "\n_";
 
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.x, rot_vec_by_euler.x)) << error_mes;
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.y, rot_vec_by_euler.y)) << error_mes;
@@ -262,7 +262,7 @@ namespace designlab::test::common::math
 
 	TEST(RotConverterTest, ToEulerXYZTestIsSameRotCaseOfQuaternion)
 	{
-		// ‰ñ“]‚ª“¯‚¶‚©‚Ç‚¤‚©‚ÌƒeƒXƒgC‰ñ“]‚ª³‚µ‚¢‚©‚ÍŠm‚©‚ß‚È‚¢D
+		// å›è»¢ãŒåŒã˜ã‹ã©ã†ã‹ã®ãƒ†ã‚¹ãƒˆï¼Œå›è»¢ãŒæ­£ã—ã„ã‹ã¯ç¢ºã‹ã‚ãªã„ï¼
 
 		std::vector<dl::Quaternion> testcase_qua_list{
 			{ 1.f, { 0.f, 0.f, 0.f } },
@@ -294,18 +294,18 @@ namespace designlab::test::common::math
 		{
 			for (const auto& vec : testcase_vec_list)
 			{
-				ASSERT_TRUE(dlm::IsEqual(qua.GetNorm(), 1.f)) << "ƒNƒH[ƒ^ƒjƒIƒ“‚Ìƒmƒ‹ƒ€‚Í1‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·DƒeƒXƒgƒP[ƒX‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·D";
+				ASSERT_TRUE(dlm::IsEqual(qua.GetNorm(), 1.f)) << "ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®ãƒãƒ«ãƒ ã¯1ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ãŒé–“é•ã£ã¦ã„ã¾ã™ï¼";
 
 				const dl::EulerXYZ rot_euler = dl::ToEulerXYZ(qua);
 
 				const dl::Vector3 rot_vec = dl::RotateVector3(vec, qua);
 				const dl::Vector3 rot_vec_by_euler = dl::RotateVector3(vec, rot_euler);
 
-				std::string error_mes = " ƒNƒH[ƒ^ƒjƒIƒ“ : " + qua.ToString() + "\n" +
-					" ƒIƒCƒ‰[Šp : " + rot_euler.ToStringDeg() + "\n" +
-					" Œ³‚ÌÀ•W : " + vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒNƒH[ƒ^ƒjƒIƒ“) : " + rot_vec.ToString() + "\n" +
-					" ‰ñ“]Œã(ƒIƒCƒ‰[Šp) : " + rot_vec_by_euler.ToString() + "\n_";
+				std::string error_mes = " ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ : " + qua.ToString() + "\n" +
+					" ã‚ªã‚¤ãƒ©ãƒ¼è§’ : " + rot_euler.ToStringDeg() + "\n" +
+					" å…ƒã®åº§æ¨™ : " + vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³) : " + rot_vec.ToString() + "\n" +
+					" å›è»¢å¾Œ(ã‚ªã‚¤ãƒ©ãƒ¼è§’) : " + rot_vec_by_euler.ToString() + "\n_";
 
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.x, rot_vec_by_euler.x)) << error_mes;
 				EXPECT_TRUE(dlm::IsEqual(rot_vec.y, rot_vec_by_euler.y)) << error_mes;

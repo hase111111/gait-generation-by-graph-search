@@ -7,7 +7,11 @@ namespace designlab
 
 //float と double以外は作成しない．
 template<typename T>
-struct MathConst {};
+struct MathConst
+{
+	//Tがfloat でも double でもない場合，エラーを出す．
+	static_assert(std::is_same<T, float>::value || std::is_same<T, double>::value, "T は float とdouble 型にのみ提供されます．");
+};
 
 
 template<>

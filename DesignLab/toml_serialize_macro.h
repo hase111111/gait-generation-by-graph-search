@@ -11,15 +11,15 @@
 
 #include <iostream>
 #include <map>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
 
 #include <magic_enum.hpp>
 #include <strconv2.h>
 
+#include "implicit_metafunction.h"
 #include "math_euler.h"
-#include "designlab_impl.h"
 #include "math_quaternion.h"
 #include "math_vector3.h"
 #include "toml11_define.h"
@@ -38,7 +38,7 @@ namespace designlab::toml_func
 struct Toml11Description final
 {
 	//! テーブルがない場合に指定する文字列．
-	static const std::string NO_TABLE;
+	static const std::string kNoTable;
 
 	Toml11Description(const std::string& t, const std::string& d) : table_name(t), description(d) {}
 
@@ -209,7 +209,7 @@ T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const 
 {																																\
 	const std::string table_str = desc.VAR_NAME.table_name;																		\
 																																\
-	if(table_str == ::designlab::toml_func::Toml11Description::NO_TABLE)														\
+	if(table_str == ::designlab::toml_func::Toml11Description::kNoTable)														\
 	{																															\
 		obj.VAR_NAME = ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(v_, TOML11_STRINGIZE(VAR_NAME));			\
 	}																															\
@@ -226,7 +226,7 @@ T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>& v, const 
 //! @n クラスのメンバ変数をtomlファイルに追加する．
 //! @param VAR_NAME 変数名．
 #define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME)                                           \
-if(desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::NO_TABLE)                             \
+if(desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::kNoTable)                             \
 {                                                                                                               \
 	if(v.count(desc.VAR_NAME.table_name) == 0)                                                                  \
 	{													                                                        \
@@ -248,7 +248,7 @@ else                                                                            
 #define DESIGNLAB_SUB_MACRO_ADD_COMMENT(VAR_NAME)                                       \
 if (desc.VAR_NAME.description != "")                                                    \
 {                                                                                       \
-	if(desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::NO_TABLE) \
+	if(desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::kNoTable) \
 	{                                                                                   \
 		v[desc.VAR_NAME.table_name][#VAR_NAME].comments().                              \
 			push_back(desc.VAR_NAME.description);                                       \
@@ -320,7 +320,7 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! @def DESIGNLAB_TOML11_NO_TABLE
 //! @brief tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ．
 #define DESIGNLAB_TOML11_NO_TABLE	\
-::designlab::toml_func::Toml11Description::NO_TABLE
+::designlab::toml_func::Toml11Description::kNoTable
 
 
 //! @def DESIGNLAB_TOML11_SERIALIZE

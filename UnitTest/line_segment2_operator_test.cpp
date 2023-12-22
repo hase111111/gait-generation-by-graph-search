@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_line_segment2.h"
+#include "../DesignLab/math_line_segment2.h"
 
 
 namespace dl = ::designlab;
@@ -8,7 +8,7 @@ namespace dl = ::designlab;
 
 namespace
 {
-	//! @brief ü•ª‚ğì¬‚·‚é
+	//! @brief ç·šåˆ†ã‚’ä½œæˆã™ã‚‹
 	dl::LineSegment2 MakeLineSegment2(const dl::Vector2& start, const dl::Vector2& end)
 	{
 		dl::LineSegment2 res;
@@ -40,7 +40,7 @@ namespace designlab::test::common::math
 
 		for (const auto& i : kTestcaseListTrueCase)
 		{
-			EXPECT_TRUE(i.first == i.second) << "n“_‚ÆI“_‚ª‚»‚ê‚¼‚êˆê’v‚µ‚Ä‚¢‚é‚È‚ç‚Î“™‚µ‚¢D‡•s“¯‚Å‚È‚¢‚Ì‚Å’ˆÓD";
+			EXPECT_TRUE(i.first == i.second) << "å§‹ç‚¹ã¨çµ‚ç‚¹ãŒãã‚Œãã‚Œä¸€è‡´ã—ã¦ã„ã‚‹ãªã‚‰ã°ç­‰ã—ã„ï¼é †ä¸åŒã§ãªã„ã®ã§æ³¨æ„ï¼";
 		}
 
 		const std::vector<std::pair<dl::LineSegment2, dl::LineSegment2>> kTestcaseListFalseCase{
@@ -52,7 +52,7 @@ namespace designlab::test::common::math
 
 		for (const auto& i : kTestcaseListFalseCase)
 		{
-			EXPECT_FALSE(i.first == i.second) << "n“_‚ÆI“_‚ª‚»‚ê‚¼‚êˆê’v‚µ‚Ä‚¢‚È‚¢‚È‚ç‚Î“™‚µ‚­‚È‚¢D‡•s“¯‚Å‚È‚¢‚Ì‚Å’ˆÓD";
+			EXPECT_FALSE(i.first == i.second) << "å§‹ç‚¹ã¨çµ‚ç‚¹ãŒãã‚Œãã‚Œä¸€è‡´ã—ã¦ã„ãªã„ãªã‚‰ã°ç­‰ã—ããªã„ï¼é †ä¸åŒã§ãªã„ã®ã§æ³¨æ„ï¼";
 		}
 	}
 
@@ -67,7 +67,7 @@ namespace designlab::test::common::math
 
 		for (const auto& i : kTestcaseListTrueCase)
 		{
-			EXPECT_TRUE(i.first != i.second) << "n“_‚ÆI“_‚ª‚»‚ê‚¼‚êˆê’v‚µ‚Ä‚¢‚È‚¢‚È‚ç‚Î“™‚µ‚­‚È‚¢D‡•s“¯‚Å‚È‚¢‚Ì‚Å’ˆÓD";
+			EXPECT_TRUE(i.first != i.second) << "å§‹ç‚¹ã¨çµ‚ç‚¹ãŒãã‚Œãã‚Œä¸€è‡´ã—ã¦ã„ãªã„ãªã‚‰ã°ç­‰ã—ããªã„ï¼é †ä¸åŒã§ãªã„ã®ã§æ³¨æ„ï¼";
 		}
 
 		const std::vector<std::pair<dl::LineSegment2, dl::LineSegment2>> kTestcaseListFalseCase{
@@ -78,7 +78,7 @@ namespace designlab::test::common::math
 
 		for (const auto& i : kTestcaseListFalseCase)
 		{
-			EXPECT_FALSE(i.first != i.second) << "n“_‚ÆI“_‚ª‚»‚ê‚¼‚êˆê’v‚µ‚Ä‚¢‚é‚È‚ç‚Î“™‚µ‚¢D‡•s“¯‚Å‚È‚¢‚Ì‚Å’ˆÓD";
+			EXPECT_FALSE(i.first != i.second) << "å§‹ç‚¹ã¨çµ‚ç‚¹ãŒãã‚Œãã‚Œä¸€è‡´ã—ã¦ã„ã‚‹ãªã‚‰ã°ç­‰ã—ã„ï¼é †ä¸åŒã§ãªã„ã®ã§æ³¨æ„ï¼";
 		}
 	}
 }

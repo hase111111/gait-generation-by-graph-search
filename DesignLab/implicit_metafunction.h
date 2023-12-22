@@ -1,8 +1,5 @@
-﻿//! @file designlab_impl.h
-//! @brief 型判別用のメタ関数．
-
-#ifndef DESIGNLAB_IMPL_H_
-#define DESIGNLAB_IMPL_H_
+﻿#ifndef DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_
+#define DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_
 
 #include <iostream>
 #include <type_traits>
@@ -111,4 +108,4 @@ struct is_vector_of_enum<std::vector<T>> : std::is_enum<T> {};
 }	// namespace designlab::impl
 
 
-#endif // !DESIGNLAB_IMPL_H_
+#endif // DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_

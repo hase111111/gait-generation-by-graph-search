@@ -4,7 +4,7 @@
 #include <sstream>
 
 #include "math_rotation_matrix.h"
-#include "designlab_rot_converter.h"
+#include "math_rot_converter.h"
 
 
 namespace designlab

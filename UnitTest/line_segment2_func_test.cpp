@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_line_segment2.h"
+#include "../DesignLab/math_line_segment2.h"
 
 
 namespace dl = ::designlab;
@@ -8,7 +8,7 @@ namespace dl = ::designlab;
 
 namespace 
 {
-	//! @brief ü•ª‚ğì¬‚·‚é
+	//! @brief ç·šåˆ†ã‚’ä½œæˆã™ã‚‹
 	dl::LineSegment2 MakeLineSegment2(const dl::Vector2& start, const dl::Vector2& end)
 	{
 		dl::LineSegment2 res;
@@ -70,11 +70,11 @@ namespace designlab::test::common::math
 
 			if (expected) 
 			{
-				EXPECT_TRUE(line1.IsParallel(line2)) << error_message << " ³‚µ‚­‚Í•½s‚Æ‚È‚éD";
+				EXPECT_TRUE(line1.IsParallel(line2)) << error_message << " æ­£ã—ãã¯å¹³è¡Œã¨ãªã‚‹ï¼";
 			}
 			else 
 			{
-				EXPECT_FALSE(line1.IsParallel(line2)) << error_message << " ³‚µ‚­‚Í•½s‚Å‚È‚¢D";
+				EXPECT_FALSE(line1.IsParallel(line2)) << error_message << " æ­£ã—ãã¯å¹³è¡Œã§ãªã„ï¼";
 			}
 		}
 	}
@@ -85,7 +85,7 @@ namespace designlab::test::common::math
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 0, 1 }, { 1, 0 }),		dl::Vector2(0.5, 0.5) },
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 0 }, { 0, 1 }),		dl::Vector2(0.5, 0.5) },
 			{ MakeLineSegment2({ 1,1 }, { 0,0 }),			MakeLineSegment2({ 0,1 }, { 1,0 }),			dl::Vector2(0.5, 0.5) },
-			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }),		dl::Vector2(1, 1) },		//’[“_ˆê’v
+			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }),		dl::Vector2(1, 1) },		//ç«¯ç‚¹ä¸€è‡´
 			{ MakeLineSegment2({ -8, -14 }, { 5, 25 }),		MakeLineSegment2({ -7, 4 }, { 1, -12 }),	dl::Vector2(-4, -2) },
 		};
 
@@ -97,7 +97,7 @@ namespace designlab::test::common::math
 
 			std::string error_message = " line1 = (" + line1.start.ToString() + ", " + line1.end.ToString() + ")\n" +
 				" line2 = (" + line2.start.ToString() + ", " + line2.end.ToString() + ")\n" + 
-				" Œğ“_‚Í" + expected.ToString() + "\n";
+				" äº¤ç‚¹ã¯" + expected.ToString() + "\n";
 
 			EXPECT_EQ(line1.GetIntersection(line2), expected) << error_message;
 		}
@@ -118,7 +118,7 @@ namespace designlab::test::common::math
 
 			std::string error_message = " line1 = (" + line1.start.ToString() + ", " + line1.end.ToString() + ")\n" +
 				" line2 = (" + line2.start.ToString() + ", " + line2.end.ToString() + ")\n" +
-				" Œğ“_‚Í‚È‚¢‚Ì‚Å(0,0)‚ğ•Ô‚·\n";
+				" äº¤ç‚¹ã¯ãªã„ã®ã§(0,0)ã‚’è¿”ã™\n";
 
 			EXPECT_EQ(line1.GetIntersection(line2), dl::Vector2(0, 0)) << error_message;
 		}
@@ -141,7 +141,7 @@ namespace designlab::test::common::math
 
 			std::string error_message = " line1 = (" + line1.start.ToString() + ", " + line1.end.ToString() + ")\n" +
 				" line2 = (" + line2.start.ToString() + ", " + line2.end.ToString() + ")\n" +
-				" •½s‚È‚Ì‚Å(0,0)‚ğ•Ô‚·Dd‚È‚Á‚Ä‚¢‚ÄŒğ“_‚ª–³”‚É‚ ‚éê‡‚àŒğ“_‚Í‚È‚¢ˆµ‚¢‚É‚È‚éD\n";
+				" å¹³è¡Œãªã®ã§(0,0)ã‚’è¿”ã™ï¼é‡ãªã£ã¦ã„ã¦äº¤ç‚¹ãŒç„¡æ•°ã«ã‚ã‚‹å ´åˆã‚‚äº¤ç‚¹ã¯ãªã„æ‰±ã„ã«ãªã‚‹ï¼\n";
 
 			EXPECT_EQ(line1.GetIntersection(line2), dl::Vector2(0, 0)) << error_message;
 		}
@@ -153,7 +153,7 @@ namespace designlab::test::common::math
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 0, 1 }, { 1, 0 }) },
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 0 }, { 0, 1 }) },
 			{ MakeLineSegment2({ 1,1 }, { 0,0 }),			MakeLineSegment2({ 0,1 }, { 1,0 }) },
-			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }) },		//’[“_ˆê’v
+			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }) },		//ç«¯ç‚¹ä¸€è‡´
 			{ MakeLineSegment2({ -8, -14 }, { 5, 25 }),		MakeLineSegment2({ -7, 4 }, { 1, -12 }) },
 		};
 
@@ -218,8 +218,8 @@ namespace designlab::test::common::math
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 0 }, { 0, 1 }),		dl::Vector2(0.5, 0.5) },
 			{ MakeLineSegment2({ 1,1 }, { 0,0 }),			MakeLineSegment2({ 0,1 }, { 1,0 }),			dl::Vector2(0.5, 0.5) },
 			{ MakeLineSegment2({ -8, -14 }, { 5, 25 }),		MakeLineSegment2({ -7, 4 }, { 1, -12 }),	dl::Vector2(-4, -2) },
-			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }),		dl::Vector2(1, 1) },	//’[“_ˆê’v
-			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),		MakeLineSegment2({ 1, 1 }, { 21, 21 }),		dl::Vector2(1, 1) },	//•½s‚©‚Â’[“_ˆê’v
+			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),			MakeLineSegment2({ 1, 1 }, { 2, 3 }),		dl::Vector2(1, 1) },	//ç«¯ç‚¹ä¸€è‡´
+			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),		MakeLineSegment2({ 1, 1 }, { 21, 21 }),		dl::Vector2(1, 1) },	//å¹³è¡Œã‹ã¤ç«¯ç‚¹ä¸€è‡´
 		};
 
 		for (const auto& i : testcase_list)
@@ -230,7 +230,7 @@ namespace designlab::test::common::math
 
 			std::string error_message = " line1 = (" + line1.start.ToString() + ", " + line1.end.ToString() + ")\n" +
 				" line2 = (" + line2.start.ToString() + ", " + line2.end.ToString() + ")\n" + 
-				" Œğ“_‚Í" + expected.ToString() + "\n";
+				" äº¤ç‚¹ã¯" + expected.ToString() + "\n";
 
 			dl::Vector2 intersection;
 			EXPECT_TRUE(line1.CheckAndGetIntersection(line2, &intersection)) << error_message;
@@ -244,8 +244,8 @@ namespace designlab::test::common::math
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),		MakeLineSegment2({ -5,-6 }, { -3,-1 }) },
 			{ MakeLineSegment2({ 0, 0 }, { 1, 1 }),		MakeLineSegment2({ 1.5f, 1.5f }, { 2, 3 }) },
 			{ MakeLineSegment2({ -1, 7 }, { 5, 25 }),	MakeLineSegment2({ -7, 4 }, { 1, -12 }) },
-			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),	MakeLineSegment2({ 2, 1 }, { 21, 20 }) },	//•½s‚ÅŒğ“_‚ª‚È‚¢
-			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),	MakeLineSegment2({ -4, -4 }, { 20, 20 }) },	//•½s‚ÅŒğ“_‚ª–³”‚É‚ ‚é
+			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),	MakeLineSegment2({ 2, 1 }, { 21, 20 }) },	//å¹³è¡Œã§äº¤ç‚¹ãŒãªã„
+			{ MakeLineSegment2({ -15, -15 }, { 1, 1 }),	MakeLineSegment2({ -4, -4 }, { 20, 20 }) },	//å¹³è¡Œã§äº¤ç‚¹ãŒç„¡æ•°ã«ã‚ã‚‹
 		};
 
 		for (const auto& i : testcase_list)
@@ -255,7 +255,7 @@ namespace designlab::test::common::math
 
 			std::string error_message = " line1 = (" + line1.start.ToString() + ", " + line1.end.ToString() + ")\n" +
 				" line2 = (" + line2.start.ToString() + ", " + line2.end.ToString() + ")\n" + 
-				" Œğ“_‚Í‚È‚¢C‚ ‚é‚¢‚ÍŒğ“_‚ª1‚Â‚É’è‚Ü‚ç‚È‚¢D";
+				" äº¤ç‚¹ã¯ãªã„ï¼Œã‚ã‚‹ã„ã¯äº¤ç‚¹ãŒ1ã¤ã«å®šã¾ã‚‰ãªã„ï¼";
 
 			dl::Vector2 intersection;
 			EXPECT_FALSE(line1.CheckAndGetIntersection(line2, &intersection)) << error_message;

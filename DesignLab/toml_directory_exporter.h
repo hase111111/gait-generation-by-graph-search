@@ -1,7 +1,4 @@
-﻿//! @file toml_directory_exporter.h
-//! @brief TOMLファイルを入れるディレクトリを作成し，TOMLファイル読み込みの準備をするクラス．
-
-#ifndef DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
+﻿#ifndef DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
 #define DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
 
 #include <string>

@@ -1,8 +1,5 @@
-﻿//! @file designlab_line_segment2.h
-//! @brief 2次元の線分を表す構造体．
-
-#ifndef DESIGNLAB_LINE_SEGMENT2_H_
-#define DESIGNLAB_LINE_SEGMENT2_H_
+﻿#ifndef DESIGNLAB_MATH_LINE_SEGMENT2_H_
+#define DESIGNLAB_MATH_LINE_SEGMENT2_H_
 
 #include "math_vector2.h"
 #include "math_util.h"

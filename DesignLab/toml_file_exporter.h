@@ -1,17 +1,14 @@
-﻿//! @file toml_file_exporter.h
-//! @brief TOMLファイルを出力するテンプレートクラス．
-
-#ifndef DESIGNLAB_TOML_FILE_EXPORTER_H_
+﻿#ifndef DESIGNLAB_TOML_FILE_EXPORTER_H_
 #define DESIGNLAB_TOML_FILE_EXPORTER_H_
 
-#include <fstream>
 #include <filesystem>
+#include <fstream>
 #include <string>
 #include <map>
 
 #include "cmdio_util.h"
-#include "designlab_impl.h"
 #include "designlab_string_util.h"
+#include "implicit_metafunction.h"
 #include "toml11_define.h"
 
 

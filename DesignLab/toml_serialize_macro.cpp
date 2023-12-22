@@ -3,7 +3,7 @@
 namespace designlab::toml_func
 {
 
-const std::string Toml11Description::NO_TABLE = "no_table_value";
+const std::string Toml11Description::kNoTable = "no_table_value";
 
 std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_vec)
 {

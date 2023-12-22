@@ -1,7 +1,4 @@
-﻿//! @file toml_data_validator_always_true.h
-//! @brief 常にtrueを返すITomlDataValidatorの実装クラス．
-
-#ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
+﻿#ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
 #define DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
 
 #include "cmdio_util.h"

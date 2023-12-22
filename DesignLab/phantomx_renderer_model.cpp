@@ -3,7 +3,7 @@
 #include <DxLib.h>
 
 #include "math_util.h"
-#include "designlab_rot_converter.h"
+#include "math_rot_converter.h"
 #include "math_rotation_matrix.h"
 #include "dxlib_util.h"
 #include "model_loader.h"

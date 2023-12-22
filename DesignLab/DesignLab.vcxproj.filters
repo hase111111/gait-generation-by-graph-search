@@ -198,7 +198,7 @@
     <ClInclude Include="math_polygon2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_line_segment2.h">
+    <ClInclude Include="math_line_segment2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="com_candidate_polygon_maker.h">
@@ -390,7 +390,7 @@
     <ClInclude Include="designlab_string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_rot_converter.h">
+    <ClInclude Include="math_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_array_util.h">
@@ -597,7 +597,7 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_impl.h">
+    <ClInclude Include="implicit_metafunction.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2_parameter_record.h">
@@ -647,7 +647,7 @@
     <ClCompile Include="com_candidate_polygon_maker.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_line_segment2.cpp">
+    <ClCompile Include="math_line_segment2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="math_polygon2.cpp">
@@ -794,7 +794,7 @@
     <ClCompile Include="designlab_string_util.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_rot_converter.cpp">
+    <ClCompile Include="math_rot_converter.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_selecter_hato.cpp">

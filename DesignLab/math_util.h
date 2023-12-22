@@ -18,7 +18,7 @@ namespace designlab::math_util
 //! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
 //! @param [in] num1 比較する数字1つ目．
 //! @param [in] num2 比較する数字2つ目．
-//! @return bool 等しいならばtrue．
+//! @return 等しいならばtrue．
 template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
 constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
@@ -34,12 +34,14 @@ constexpr bool IsEqual(const T num1, const T num2) noexcept
 	}
 }
 
+
 //! @brief 2乗した値を返す関数．
-//! @n 整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．
+//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
 //! @param [in] num 2乗する数．
 //! @return T 2乗した値． 
 template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr T Squared(const T num) noexcept { return num * num; }
+
 
 //! @brief 3辺で三角形が作れるか調べる関数．
 //! @param [in] a 1辺目．
@@ -55,12 +57,13 @@ constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 	return (a + b > c && b + c > a && c + a > b);
 }
 
+
 //! @brief 目標値に値を近づける関数．
-//! @n 適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと
+//! 描画用なので，線形でなく，適当に値を近づける．そのため，計算に使いたいなら作り直すこと．
 //! @param [in] current 現在の値．
 //! @param [in] target 目標値．
 //! @param [in] rate 近づける割合．0 ～ 1の値を取る．
-//! @return T 近づけた値．
+//! @return 近づけた値．
 template <typename T>
 T ApproachTarget(const T& current, const T& target, float rate)
 {
@@ -72,22 +75,23 @@ T ApproachTarget(const T& current, const T& target, float rate)
 	return static_cast<T>(current * (1 - rate) + target * rate);
 }
 
+
 //! @brief 指定した範囲内の乱数を生成する．
 //! @param [in] min 乱数の最小値．
 //! @param [in] max 乱数の最大値．
-//! @return double 生成した乱数．
+//! @return 生成した乱数．
 double GenerateRandomNumber(double min, double max);
 
 //! @brief 指定した範囲内の乱数を生成する．
 //! @param [in] min 乱数の最小値．
 //! @param [in] max 乱数の最大値．
-//! @return float 生成した乱数．
+//! @return 生成した乱数．
 float GenerateRandomNumber(float min, float max);
 
 //! @brief 指定した範囲内の乱数を生成する．
 //! @param [in] min 乱数の最小値．
 //! @param [in] max 乱数の最大値．
-//! @return int 生成した乱数．
+//! @return 生成した乱数．
 int GenerateRandomNumber(int min, int max);
 
 
@@ -117,7 +121,7 @@ constexpr int kWidth = 10;	//!< 文字列の幅．
 //! @param [in] num 変換する小数．
 //! @param [in] digit 小数点以下の桁数．
 //! @param [in] width 文字列の幅．
-//! @return std::string 変換した文字列．
+//! @return 変換した文字列．
 std::string ConvertFloatToString(const float num, const int digit = kDigit, const int width = kWidth);
 
 //! @brief 小数を文字列に変換する関数．
@@ -125,7 +129,7 @@ std::string ConvertFloatToString(const float num, const int digit = kDigit, cons
 //! @param [in] num 変換する小数．
 //! @param [in] digit 小数点以下の桁数．
 //! @param [in] width 文字列の幅．
-//! @return std::string 変換した文字列．
+//! @return 変換した文字列．
 std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
 
 

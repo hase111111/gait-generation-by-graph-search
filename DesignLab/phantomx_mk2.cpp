@@ -3,7 +3,7 @@
 #include <cmath>
 
 #include "cassert_define.h"
-#include "designlab_line_segment2.h"
+#include "math_line_segment2.h"
 #include "math_util.h"
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"

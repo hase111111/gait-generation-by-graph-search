@@ -23,6 +23,7 @@ namespace designlab
 //! @li https://watako-lab.com/2019/01/23/roll_pitch_yaw/
 //! 
 //! @note 計算時間がかなり掛かるので，速度を考えるならばクォータニオン(四元数)を用いた回転を推奨する．
+//! @see Quaternion
 struct EulerXYZ final
 {
 	constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {};		//!< コンストラクタ．0,0,0 で初期化する．

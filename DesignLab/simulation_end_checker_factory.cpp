@@ -2,7 +2,7 @@
 
 #include "cassert_define.h"
 #include "math_quaternion.h"
-#include "designlab_rot_converter.h"
+#include "math_rot_converter.h"
 #include "simulation_end_checker_by_goal_tape.h"
 #include "simulation_end_checker_by_position.h"
 #include "simulation_end_checker_by_posture.h"

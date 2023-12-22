@@ -1,17 +1,14 @@
-﻿//! @file toml_file_importer.h
-//! @brief tomlファイルを読み込んで構造体に変換するテンプレートクラス．
-
-#ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
+﻿#ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_
 
-#include <fstream>
 #include <filesystem>
+#include <fstream>
 #include <memory>
 #include <optional>
 #include <string>
 
 #include "cmdio_util.h"
-#include "designlab_impl.h"
+#include "implicit_metafunction.h"
 #include "interface_toml_data_validator.h"
 #include "toml_data_validator_always_true.h"
 #include "toml_file_exporter.h"
@@ -22,7 +19,7 @@ namespace designlab
 
 //! @class TomlFileImporter
 //! @brief tomlファイルを読み込んで構造体に変換するテンプレートクラス．
-//! @tparam T 変換先の構造体．
+//! @tparam T 変換先の構造体．デフォルトコンストラクタが実装されていること．toml::from<T>()が定義されている必要がある．
 template <typename T, typename = std::enable_if_t<std::is_default_constructible_v<T>&& impl::has_from_toml<T>::value> >
 class TomlFileImporter final
 {

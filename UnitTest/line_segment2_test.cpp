@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_line_segment2.h"
+#include "../DesignLab/math_line_segment2.h"
 #include "../DesignLab/designlab_line_segment2.cpp"
 
 
@@ -9,7 +9,7 @@ namespace dl = ::designlab;
 
 namespace
 {
-	//! @brief ü•ª‚ğì¬‚·‚é
+	//! @brief ç·šåˆ†ã‚’ä½œæˆã™ã‚‹
 	dl::LineSegment2 MakeLineSegment2(const dl::Vector2& start, const dl::Vector2& end)
 	{
 		dl::LineSegment2 res;
@@ -25,8 +25,8 @@ namespace designlab::test::common::math
 	TEST(LineSegment2Test, DefaultConstructorTest)
 	{
 		dl::LineSegment2 line;
-		EXPECT_EQ(line.start, dl::Vector2(0, 0)) << "ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚Í(0,0) (0,0)‚É‰Šú‰»‚³‚ê‚éD";
-		EXPECT_EQ(line.end, dl::Vector2(0, 0)) << "ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚Í(0,0) (0,0)‚É‰Šú‰»‚³‚ê‚éD";
+		EXPECT_EQ(line.start, dl::Vector2(0, 0)) << "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã¯(0,0) (0,0)ã«åˆæœŸåŒ–ã•ã‚Œã‚‹ï¼";
+		EXPECT_EQ(line.end, dl::Vector2(0, 0)) << "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã¯(0,0) (0,0)ã«åˆæœŸåŒ–ã•ã‚Œã‚‹ï¼";
 	}
 
 	TEST(LineSegment2Test, ConstructorTest)

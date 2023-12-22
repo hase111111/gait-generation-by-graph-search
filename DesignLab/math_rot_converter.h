@@ -1,5 +1,5 @@
-﻿#ifndef DESIGNLAB_ROT_CONVERTER_H_
-#define DESIGNLAB_ROT_CONVERTER_H_
+﻿#ifndef DESIGNLAB_MATH_ROT_CONVERTER_H_
+#define DESIGNLAB_MATH_ROT_CONVERTER_H_
 
 #include "math_euler.h"
 #include "math_quaternion.h"
@@ -43,4 +43,4 @@ namespace designlab
 }	// namespace designlab
 
 
-#endif	// DESIGNLAB_ROT_CONVERTER_H_
+#endif	// DESIGNLAB_MATH_ROT_CONVERTER_H_
