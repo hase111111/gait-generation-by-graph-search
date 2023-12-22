@@ -615,6 +615,9 @@
     <ClInclude Include="implicit_metafunction_for_math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
+    <ClInclude Include="math_util_test.h">
+      <Filter>ソース ファイル\Common\Math\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

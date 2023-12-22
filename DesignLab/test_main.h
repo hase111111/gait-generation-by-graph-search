@@ -15,6 +15,7 @@
 #include "designlab_string_util_test.h"
 #include "gait_pattern_graph_tree_test.h"
 #include "map_state_test.h"
+#include "math_util_test.h"
 #include "math_vector3_test.h"
 #include "simulation_map_parameter_validator_test.h"
 
