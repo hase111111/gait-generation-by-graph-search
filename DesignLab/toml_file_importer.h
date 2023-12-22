@@ -8,7 +8,7 @@
 #include <string>
 
 #include "cmdio_util.h"
-#include "implicit_metafunction.h"
+#include "implicit_metafunction_for_toml11.h"
 #include "interface_toml_data_validator.h"
 #include "toml_data_validator_always_true.h"
 #include "toml_file_exporter.h"

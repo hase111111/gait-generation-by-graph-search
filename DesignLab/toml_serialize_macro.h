@@ -18,7 +18,7 @@
 #include <magic_enum.hpp>
 #include <strconv2.h>
 
-#include "implicit_metafunction.h"
+#include "implicit_metafunction_for_toml11.h"
 #include "math_euler.h"
 #include "math_quaternion.h"
 #include "math_vector3.h"
@@ -159,7 +159,7 @@ struct GetTomlValueImpl<T,
 		std::string str = toml::find<std::string>(v, var_str);
 		std::stringstream ss;
 		ss << str;
-		T temp;
+		T temp{};
 		ss >> temp;
 		return temp;
 	}
@@ -172,7 +172,7 @@ struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_ty
 	{
 		std::vector<std::string> str_vec = toml::find<std::vector<std::string>>(v, var_str);
 
-		T temp;
+		T temp{};
 
 		temp.resize(str_vec.size());
 

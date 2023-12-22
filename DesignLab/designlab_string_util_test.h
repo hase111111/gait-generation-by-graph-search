@@ -31,7 +31,7 @@ TEST_SUITE("namespace string_util")
 			const std::vector<std::string> ans = { "a", "b", "c" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("分割された文字列は次の通りです→" << StringVectorToString(result));
+			INFO("分割された文字列は次の通りです．" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
@@ -44,7 +44,7 @@ TEST_SUITE("namespace string_util")
 			const std::vector<std::string> ans = { "a", "b", "c" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("分割された文字列は次の通りです→" << StringVectorToString(result));
+			INFO("分割された文字列は次の通りです．" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
@@ -57,7 +57,7 @@ TEST_SUITE("namespace string_util")
 			const std::vector<std::string> ans = { "", "a", "b", "c" };
 			const std::vector<std::string> result = designlab::string_util::Split(str, delim);
 
-			INFO("分割された文字列は次の通りです→" << StringVectorToString(result));
+			INFO("分割された文字列は次の通りです．" << StringVectorToString(result));
 
 			CHECK(result == ans);
 		}
@@ -80,7 +80,7 @@ TEST_SUITE("namespace string_util")
 			const std::string ans = "One";
 			const std::string result = designlab::string_util::EnumToStringRemoveTopK(sample_enum);
 
-			INFO("変換された文字列は次の通りです→" << result);
+			INFO("変換された文字列は次の通りです." << result);
 
 			CHECK(result == ans);
 		}
@@ -91,7 +91,7 @@ TEST_SUITE("namespace string_util")
 			const std::string ans = "Two";
 			const std::string result = designlab::string_util::EnumToStringRemoveTopK(sample_enum);
 
-			INFO("変換された文字列は次の通りです→" << result);
+			INFO("変換された文字列は次の通りです．" << result);
 
 			CHECK(result == ans);
 		}
@@ -102,7 +102,7 @@ TEST_SUITE("namespace string_util")
 			const std::string ans = "three";
 			const std::string result = designlab::string_util::EnumToStringRemoveTopK(sample_enum);
 
-			INFO("変換された文字列は次の通りです→" << result);
+			INFO("変換された文字列は次の通りです．" << result);
 
 			CHECK(result == ans);
 		}
@@ -113,7 +113,7 @@ TEST_SUITE("namespace string_util")
 			const std::string ans = "FOUR";
 			const std::string result = designlab::string_util::EnumToStringRemoveTopK(sample_enum);
 
-			INFO("変換された文字列は次の通りです→" << result);
+			INFO("変換された文字列は次の通りです．" << result);
 
 			CHECK(result == ans);
 		}
@@ -127,7 +127,7 @@ TEST_SUITE("namespace string_util")
 			const std::string sep = ",";
 			const std::string result = designlab::string_util::EnumValuesToString<SampleEnum>(sep);
 
-			INFO("変換された文字列は次の通りです→" << result);
+			INFO("変換された文字列は次の通りです．" << result);
 
 			CHECK(result == ans);
 		}

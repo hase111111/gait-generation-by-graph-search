@@ -12,7 +12,7 @@ namespace designlab
 
 //! @struct designlab::RotationMatrix3x3
 //! @brief 3次元の回転行列を表す構造体．
-//! 	@details 
+//! @details 
 //! 回転行列については以下の参考資料を確認すること．
 //! @subsubsection 参考
 //! @li https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
@@ -62,13 +62,13 @@ struct RotationMatrix3x3 final
 
 
 	//! @brief 回転行列を文字列に変換する．
-	//! @return std::string 回転行列を表す文字列．
+	//! @return 回転行列を表す文字列．
 	[[nodiscard]] std::string ToString() const;
 
 
 	//! データの並びについて．
 	//! @n | R11 R12 R13 |
-	//! @n | R21 R22 R23 |   
+	//! @n | R21 R22 R23 |
 	//! @n | R31 R32 R33 |
 	//! @n
 	//! @n R11はelement[0][0]，R12はelement[0][1]，R32はelement[2][1]となる．

@@ -7,7 +7,7 @@
 #include <map>
 
 #include "cmdio_util.h"
-#include "implicit_metafunction.h"
+#include "implicit_metafunction_for_toml11.h"
 #include "string_util.h"
 #include "toml11_define.h"
 

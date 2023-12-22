@@ -597,9 +597,6 @@
     <ClInclude Include="interface_graph_searcher.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="implicit_metafunction.h">
-      <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
     <ClInclude Include="phantomx_mk2_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -608,6 +605,9 @@
     </ClInclude>
     <ClInclude Include="math_const.h">
       <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="implicit_metafunction_for_toml11.h">
+      <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -914,5 +914,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
