@@ -36,7 +36,7 @@ Vector2 Vector2::GetNormalized() const
 {
 	float length = GetLength();
 
-	if (math_util::IsEqual(length, 0))
+	if (math_util::IsEqual(length, 0.f))
 	{
 		return { 0,0 };
 	}

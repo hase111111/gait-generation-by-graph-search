@@ -19,7 +19,7 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
 {
 	for (size_t i = 0; i < kCandidateDirectionNum; i++)
 	{
-		const float rad = static_cast<float>(i) * 2.f * math_util::kFloatPi / static_cast<float>(kCandidateDirectionNum);
+		const float rad = static_cast<float>(i) * 2.f * MathConst<float>::kPi / static_cast<float>(kCandidateDirectionNum);
 
 		candidate_directions_[i] = Vector3(std::cos(rad), std::sin(rad), 0.0f);
 	}

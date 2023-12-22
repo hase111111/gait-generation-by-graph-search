@@ -43,17 +43,17 @@ int GenerateRandomNumber(const int min, const int max)
 float limitRangeAngle(const float angle)
 {
 	//atan2に合わせるため，角度を -π < angle < π にする (例えば 340°→-20°,-340°→20°)
-	float res = angle + kFloatPi;
+	float res = angle + MathConst<float>::kPi;
 
-	res = std::fmodf(res, 2.0 * kFloatPi);
+	res = std::fmodf(res, 2.0 * MathConst<float>::kPi);
 
 	if (res < 0)
 	{
-		res += kFloatPi;
+		res += MathConst<float>::kPi;
 	}
 	else
 	{
-		res -= kFloatPi;
+		res -= MathConst<float>::kPi;
 	}
 
 	return res;

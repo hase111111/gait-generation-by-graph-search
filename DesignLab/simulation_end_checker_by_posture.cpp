@@ -22,7 +22,7 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 	auto now = ToEulerXYZ(node.quat);
 
 	float error_x = std::abs(now.x_angle - goal_euler_.x_angle);
-	error_x = (std::min)(error_x, 2 * math_util::kFloatPi - error_x);
+	error_x = (std::min)(error_x, 2 * MathConst<float>::kPi - error_x);
 
 	if (error_x > allowable_error_)
 	{
@@ -30,7 +30,7 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 	}
 
 	float error_y = std::abs(now.y_angle - goal_euler_.y_angle);
-	error_y = (std::min)(error_y, 2 * math_util::kFloatPi - error_y);
+	error_y = (std::min)(error_y, 2 * MathConst<float>::kPi - error_y);
 
 	if (error_y > allowable_error_)
 	{
@@ -38,7 +38,7 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 	}
 
 	float error_z = std::abs(now.z_angle - goal_euler_.z_angle);
-	error_z = (std::min)(error_z, 2 * math_util::kFloatPi - error_z);
+	error_z = (std::min)(error_z, 2 * MathConst<float>::kPi - error_z);
 
 	if (error_z > allowable_error_)
 	{

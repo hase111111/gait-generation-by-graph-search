@@ -24,7 +24,8 @@ Vector2 LineSegment2::GetIntersection(const LineSegment2& other) const
 
 	// t1, t2が0~1の範囲内にあるかならば，交点は線分上に存在する
 
-	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
+	if (t1 < 0.0f - MathConst<float>::kAllowableError || t1 > 1.0f + MathConst<float>::kAllowableError ||
+		t2 < 0.0f - MathConst<float>::kAllowableError || t2 > 1.0f + MathConst<float>::kAllowableError)
 	{
 		return Vector2{ 0, 0 };	//交点は線分の外
 	}
@@ -49,7 +50,8 @@ bool LineSegment2::HasIntersection(const LineSegment2& other) const
 
 	// t1, t2が0~1の範囲内にあるかならば，交点は線分上に存在する
 
-	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
+	if (t1 < 0.0f - MathConst<float>::kAllowableError || t1 > 1.0f + MathConst<float>::kAllowableError ||
+		t2 < 0.0f - MathConst<float>::kAllowableError || t2 > 1.0f + MathConst<float>::kAllowableError)
 	{
 		return false;	//交点は線分の外
 	}
@@ -89,7 +91,8 @@ bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other, Vector2* i
 
 	// t1, t2が0~1の範囲内にあるかならば，交点は線分上に存在する
 
-	if (t1 < 0.0f - math_util::kAllowableError || t1 > 1.0f + math_util::kAllowableError || t2 < 0.0f - math_util::kAllowableError || t2 > 1.0f + math_util::kAllowableError)
+	if (t1 < 0.0f - MathConst<float>::kAllowableError || t1 > 1.0f + MathConst<float>::kAllowableError ||
+		t2 < 0.0f - MathConst<float>::kAllowableError || t2 > 1.0f + MathConst<float>::kAllowableError)
 	{
 		return false;	//交点は線分の外
 	}

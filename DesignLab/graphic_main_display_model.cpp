@@ -152,7 +152,7 @@ void GraphicMainDisplayModel::MoveBody()
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
@@ -165,7 +165,7 @@ void GraphicMainDisplayModel::MoveBody()
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
@@ -178,7 +178,7 @@ void GraphicMainDisplayModel::MoveBody()
 	}
 	else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
 	{
-		float angle_speed = kComSpeed / 360.0f * 2.f * math_util::kFloatPi;
+		float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
 
 		if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
 		{
@@ -254,7 +254,7 @@ void GraphicMainDisplayModel::MoveLeg()
 
 					femur += speed;
 
-					femur = (femur + tibia - math_util::kFloatPi) > 0 ? femur - speed : femur;
+					femur = (femur + tibia - MathConst<float>::kPi) > 0 ? femur - speed : femur;
 					femur = PhantomXMkIIConst::kFemurAngleMax <= femur ? PhantomXMkIIConst::kFemurAngleMax : femur;
 					femur = PhantomXMkIIConst::kFemurAngleMin >= femur ? PhantomXMkIIConst::kFemurAngleMin : femur;
 				}
@@ -262,25 +262,25 @@ void GraphicMainDisplayModel::MoveLeg()
 				{
 					float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
 					tibia += spped;
-					tibia = (femur + tibia - math_util::kFloatPi) > 0 ? tibia - spped : tibia;
+					tibia = (femur + tibia - MathConst<float>::kPi) > 0 ? tibia - spped : tibia;
 					tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
 					tibia = PhantomXMkIIConst::kTibiaAngleMin >= tibia ? PhantomXMkIIConst::kTibiaAngleMin : tibia;
 				}
 
 				Vector3 leg_pos;
 
-				leg_pos += Vector3{ PhantomXMkIIConst::kCoxaLength * cos(coxa), PhantomXMkIIConst::kCoxaLength * sin(coxa), 0 };
+				leg_pos += Vector3{ PhantomXMkIIConst::kCoxaLength* cos(coxa), PhantomXMkIIConst::kCoxaLength* sin(coxa), 0 };
 
 				leg_pos += Vector3{
-					PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
-						PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
-						PhantomXMkIIConst::kFemurLength * sin(femur)
+					PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
+						PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
+						PhantomXMkIIConst::kFemurLength* sin(femur)
 				};
 
 				leg_pos += Vector3{
-					PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
-						PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
-						PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
+					PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
+						PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
 				};
 
 				robot_.leg_pos[i] = leg_pos;

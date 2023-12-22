@@ -20,9 +20,10 @@ namespace designlab::math_util
 //! @param [in] num2 比較する数字2つ目．
 //! @return bool 等しいならばtrue．
 template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
-constexpr bool IsEqual(const float num1, const float num2) noexcept
+constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
-	const float dif = num1 - num2;
+	const T dif = num1 - num2;
+
 	if (dif > 0)
 	{
 		return (dif <= MathConst<T>::kAllowableError);
@@ -92,23 +93,16 @@ int GenerateRandomNumber(int min, int max);
 
 //! @brief 角度をradからdegに変換する関数．
 //! @param [in] rad 角度[rad]．
-//! @return double 角度[deg]．
-constexpr double ConvertRadToDeg(const double rad) noexcept { return rad * 180.0 / kDoublePi; };
+//! @return 角度[deg]．
+template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
+constexpr T ConvertRadToDeg(const T rad) noexcept { return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / MathConst<T>::kPi; };
 
-//! @brief 角度をradからdegに変換する関数．
-//! @param [in] rad 角度[rad]．
-//! @return float 角度[deg]．
-constexpr float ConvertRadToDeg(const float rad) noexcept { return rad * 180.0f / kFloatPi; };
 
 //! @brief 角度をdegからradに変換する関数．
 //! @param [in] deg 角度[deg]．
-//! @return double 角度[rad]．
-constexpr double ConvertDegToRad(const double deg) noexcept { return deg * kDoublePi / 180.0; }
-
-//! @brief 角度をdegからradに変換する関数．
-//! @param [in] deg 角度[deg]．
-//! @return float 角度[rad]．
-constexpr float ConvertDegToRad(const float deg) noexcept { return deg * kFloatPi / 180.0f; }
+//! @return 角度[rad]．
+template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
+constexpr T ConvertDegToRad(const T deg) noexcept { return deg * MathConst<T>::kPi / (MathConst<T>::kRoundAngle / static_cast<T>(2)); }
 
 
 [[deprecated]]

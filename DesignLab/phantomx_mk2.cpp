@@ -91,13 +91,13 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const V
 		if (!PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle))
 		{
 			//範囲外ならば，180度回転させた時に範囲内にあるかを調べる．
-			if (PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle + math_util::kFloatPi))
+			if (PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle + MathConst<float>::kPi))
 			{
-				coxa_joint_angle += math_util::kFloatPi;
+				coxa_joint_angle += MathConst<float>::kPi;
 			}
-			else if (PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle - math_util::kFloatPi))
+			else if (PhantomXMkIIConst::IsVaildCoxaAngle(leg_index, coxa_joint_angle - MathConst<float>::kPi))
 			{
-				coxa_joint_angle -= math_util::kFloatPi;
+				coxa_joint_angle -= MathConst<float>::kPi;
 			}
 		}
 
@@ -121,19 +121,19 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const V
 			const float angle_ft = std::atan2(leg_pos.z - femur_joint_pos.z, (leg_pos.ProjectedXY() - femur_joint_pos.ProjectedXY()).GetLength());
 
 			// angle_ftの位相を180度回転する．-180度～180度の範囲にする．
-			float angle_ft_phase = angle_ft + math_util::kFloatPi;
-			angle_ft_phase = angle_ft_phase > math_util::kFloatPi ? angle_ft_phase - math_util::kFloatPi : angle_ft_phase;
+			float angle_ft_phase = angle_ft + MathConst<float>::kPi;
+			angle_ft_phase = angle_ft_phase > MathConst<float>::kPi ? angle_ft_phase - MathConst<float>::kPi : angle_ft_phase;
 
 			const Vector3 candidate_leg_pos = femur_joint_pos + Vector3{
-				(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) * std::cos(res.joint_angle[0]) * std::cos(angle_ft),
-					(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) * std::sin(res.joint_angle[0]) * std::cos(angle_ft),
-					(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) * std::sin(angle_ft)
+				(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)* std::cos(res.joint_angle[0])* std::cos(angle_ft),
+					(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)* std::sin(res.joint_angle[0])* std::cos(angle_ft),
+					(PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)* std::sin(angle_ft)
 			};
 
 			const Vector3 candidate_leg_pos_phase = femur_joint_pos + Vector3{
-				(PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) * std::cos(res.joint_angle[0]),
-					(PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) * std::sin(res.joint_angle[0]),
-					PhantomXMkIIConst::kFemurLength * std::sin(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::sin(angle_ft)
+				(PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))* std::cos(res.joint_angle[0]),
+					(PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))* std::sin(res.joint_angle[0]),
+					PhantomXMkIIConst::kFemurLength* std::sin(angle_ft_phase) + PhantomXMkIIConst::kTibiaLength * std::sin(angle_ft)
 			};
 
 			const float distance = (leg_pos - candidate_leg_pos).GetLength();
@@ -149,22 +149,22 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const V
 			else
 			{
 				angle_f = angle_ft_phase;
-				angle_t = -math_util::kFloatPi;
+				angle_t = -MathConst<float>::kPi;
 			}
 
 			res.joint_angle[1] = angle_f;
 			res.joint_angle[2] = angle_t;
 
 			res.joint_pos_leg_coordinate[2] = femur_joint_pos + Vector3{
-				PhantomXMkIIConst::kFemurLength * std::cos(angle_f) * std::cos(res.joint_angle[0]),
-					PhantomXMkIIConst::kFemurLength * std::cos(angle_f) * std::sin(res.joint_angle[0]),
-					PhantomXMkIIConst::kFemurLength * std::sin(angle_f)
+				PhantomXMkIIConst::kFemurLength* std::cos(angle_f)* std::cos(res.joint_angle[0]),
+					PhantomXMkIIConst::kFemurLength* std::cos(angle_f)* std::sin(res.joint_angle[0]),
+					PhantomXMkIIConst::kFemurLength* std::sin(angle_f)
 			};
 
 			res.joint_pos_leg_coordinate[3] = res.joint_pos_leg_coordinate[2] + Vector3{
-				PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) * std::cos(res.joint_angle[0]),
-					PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) * std::sin(res.joint_angle[0]),
-					PhantomXMkIIConst::kTibiaLength * std::sin(angle_f + angle_t)
+				PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)* std::cos(res.joint_angle[0]),
+					PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)* std::sin(res.joint_angle[0]),
+					PhantomXMkIIConst::kTibiaLength* std::sin(angle_f + angle_t)
 			};
 
 			res.is_in_range = false;	//範囲外であることを示す．
@@ -580,7 +580,7 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 			const float _tibia_angle = acos(
 				(math_util::Squared(PhantomXMkIIConst::kFemurLength) + math_util::Squared(PhantomXMkIIConst::kTibiaLength) - math_util::Squared(_im)) /
 				(2.0f * PhantomXMkIIConst::kFemurLength * PhantomXMkIIConst::kTibiaLength)
-			) - math_util::kFloatPi / 2.0f;
+			) - MathConst<float>::kPi / 2.0f;
 
 			//float im = sqrt(pow(fabs(IK_trueX), 2.0) + pow(fabs(LineEnd.z), 2.0));//femurから足先の距離
 			//float d1 = pow((float)L_FEMUR, 2.0) - pow((float)L_TIBIA, 2.0) + pow(fabs((float)im), 2.0);
@@ -599,12 +599,12 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 			//if(tibiaMaxs < tibia )break;
 
 			//運動学
-			const float _K_trueX = PhantomXMkIIConst::kFemurLength * cos(_femur_angle) + PhantomXMkIIConst::kTibiaLength * cos(_femur_angle + _tibia_angle - math_util::kFloatPi / 2.0f);
+			const float _K_trueX = PhantomXMkIIConst::kFemurLength * cos(_femur_angle) + PhantomXMkIIConst::kTibiaLength * cos(_femur_angle + _tibia_angle - MathConst<float>::kPi / 2.0f);
 
 			Vector3 _kinematics;
 			_kinematics.x = _K_trueX + PhantomXMkIIConst::kCoxaLength;
 			_kinematics.y = 0.0f;
-			_kinematics.z = -(PhantomXMkIIConst::kFemurLength * sin(_femur_angle) + PhantomXMkIIConst::kTibiaLength * sin(_femur_angle + _tibia_angle - math_util::kFloatPi / 2.0f));
+			_kinematics.z = -(PhantomXMkIIConst::kFemurLength * sin(_femur_angle) + PhantomXMkIIConst::kTibiaLength * sin(_femur_angle + _tibia_angle - MathConst<float>::kPi / 2.0f));
 
 			const float _Permission = (_kinematics - line_end).GetSquaredLength();
 

@@ -10,14 +10,14 @@ namespace
 // -π～πの範囲に収める
 float NormalizeAngle(float angle)
 {
-	while (angle > designlab::math_util::kFloatPi)
+	while (angle > designlab::MathConst<float>::kPi)
 	{
-		angle -= designlab::math_util::kFloatPi;
+		angle -= designlab::MathConst<float>::kPi;
 	}
 
-	while (angle < -designlab::math_util::kFloatPi)
+	while (angle < -designlab::MathConst<float>::kPi)
 	{
-		angle += designlab::math_util::kFloatPi;
+		angle += designlab::MathConst<float>::kPi;
 	}
 
 	return angle;

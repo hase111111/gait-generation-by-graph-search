@@ -9,11 +9,13 @@ namespace designlab
 template<typename T>
 struct MathConst {};
 
+
 template<>
 struct MathConst<float>
 {
 	static constexpr float kPi = 3.14159265358979323846f;
 	static constexpr float kAllowableError = 0.001f;
+	static constexpr float kRoundAngle = 360.0f;
 };
 
 template<>
@@ -21,6 +23,7 @@ struct MathConst<double>
 {
 	static constexpr double kPi = 3.14159265358979323846;
 	static constexpr double kAllowableError = 0.001;
+	static constexpr double kRoundAngle = 360.0;
 };
 
 
