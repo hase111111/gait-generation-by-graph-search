@@ -142,14 +142,14 @@
     <Filter Include="ソース ファイル\Common\TomlFileIO">
       <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\TomlFileIO\Result">
-      <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface">
       <UniqueIdentifier>{6335a7de-59b3-4cf8-94a6-1ea84bad89ff}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Common\Math\Test">
       <UniqueIdentifier>{6a9d6337-45a3-4609-9662-59b0fea63a0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\Result">
+      <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -352,16 +352,16 @@
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
     <ClInclude Include="simulation_result_record.h">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
     <ClInclude Include="graph_search_result_record.h">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
     <ClInclude Include="result_file_importer.h">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
@@ -612,6 +612,9 @@
     <ClInclude Include="asyncable_data_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
+    <ClInclude Include="implicit_metafunction_for_math_util.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -765,16 +768,16 @@
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="result_file_exporter.cpp">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClCompile>
     <ClCompile Include="simulation_result_record.cpp">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_result_record.cpp">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClCompile>
     <ClCompile Include="result_file_importer.cpp">
-      <Filter>ソース ファイル\Common\TomlFileIO\Result</Filter>
+      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClCompile>
     <ClCompile Include="model_loader.cpp">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>

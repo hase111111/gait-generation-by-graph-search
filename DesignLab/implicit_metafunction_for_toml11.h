@@ -1,5 +1,5 @@
-﻿#ifndef DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_
-#define DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_
+﻿#ifndef DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
+#define DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
 
 #include <iostream>
 #include <type_traits>
@@ -62,6 +62,14 @@ struct has_output_operator : public std::false_type {};
 template<typename T>
 struct has_output_operator<T, decltype(std::declval<std::ostream&>() << std::declval<T&>(), std::declval<void>())> : public std::true_type {};
 
+static_assert(has_input_operator<int>::value == true, "int型は入力オペレーターに対応している．");
+static_assert(has_input_operator<std::string>::value == true, "std::string型は入力オペレーターに対応している．");
+static_assert(has_input_operator<std::vector<int>>::value == false, "std::vector<int>型は入力オペレーターに対応していない．");
+
+static_assert(has_output_operator<int>::value == true, "int型は出力オペレーターに対応している．");
+static_assert(has_output_operator<std::string>::value == true, "std::string型は出力オペレーターに対応している．");
+static_assert(has_output_operator<std::vector<int>>::value == false, "std::vector<int>型は出力オペレーターに対応していない．");
+
 
 //! @brief vector型かどうかを判定するメタ関数．
 //! @details vector型でなければ，こちらが呼ばれる．
@@ -74,6 +82,12 @@ struct is_vector : std::false_type {};
 //! true_typeを継承する．
 template <typename T>
 struct is_vector<std::vector<T>> : std::true_type {};
+
+static_assert(is_vector<int>::value == false, "int型はvector型ではない．");
+static_assert(is_vector<std::string>::value == false, "std::string型はvector型ではない．");
+
+static_assert(is_vector<std::vector<int>>::value == true, "std::vector<int>型はvector型である．");
+static_assert(is_vector<std::vector<std::string>>::value == true, "std::vector<std::string>型はvector型である．");
 
 
 //! @brief toml11で使用可能な型かどうかを判定するメタ関数．toml11はvector型にも対応しているが，こちらでは除外する．
@@ -105,10 +119,24 @@ struct is_toml11_available_type_vector_type : std::false_type {};
 template <typename T>
 struct is_toml11_available_type_vector_type<std::vector<T>> : is_toml11_available_type_not_vector_type<T> {};
 
+static_assert(is_toml11_available_type_not_vector_type<int>::value == true, "int型はtoml11で使用可能な型である．");
+static_assert(is_toml11_available_type_not_vector_type<int*>::value == false, "int*型はtoml11で使用可能な型ではない．");
+static_assert(is_toml11_available_type_not_vector_type<std::vector<int>>::value == false, "std::vector<int>型はstd::vector型である．");
+
+static_assert(is_toml11_available_type_vector_type<int>::value == false, "int型はstd::vector型ではない．");
+static_assert(is_toml11_available_type_vector_type<int*>::value == false, "int*型はstd::vector型ではない．");
+static_assert(is_toml11_available_type_vector_type<std::vector<int>>::value == true, "std::vector<int>型はstd::vector型かつ，toml11で使用可能な型である．");
+static_assert(is_toml11_available_type_vector_type<std::vector<int*>>::value == false, "std::vector<*int>型はstd::vector型だが，toml11で使用可能な型でない．");
+
 
 //! @brief toml11で使用可能な型かどうかを判定するメタ関数．
 template <typename T>
 struct is_toml11_available_type : std::conditional_t<is_vector<T>::value, is_toml11_available_type_vector_type<T>, is_toml11_available_type_not_vector_type<T>> {};
+
+static_assert(is_toml11_available_type<int>::value == true, "int型はtoml11で使用可能な型である．");
+static_assert(is_toml11_available_type<int*>::value == false, "int*型はtoml11で使用可能な型ではない．");
+static_assert(is_toml11_available_type<std::vector<int>>::value == true, "std::vector<int>型はstd::vector型かつ，toml11で使用可能な型である．");
+static_assert(is_toml11_available_type<std::vector<int*>>::value == false, "std::vector<*int>型はstd::vector型だが，toml11で使用可能な型でない．");
 
 
 //! @brief 入力ストリームが実装されているvector型かどうかを判定するメタ関数．
@@ -150,4 +178,4 @@ struct is_vector_of_enum<std::vector<T>> : std::is_enum<T> {};
 }	// namespace designlab::impl
 
 
-#endif // DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_H_
+#endif // DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
