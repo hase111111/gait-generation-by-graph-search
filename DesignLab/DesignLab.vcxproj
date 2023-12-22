@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application_setting_record_vaildator.h" />
+    <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
     <ClInclude Include="designlab_string_util_test.h" />
     <ClInclude Include="devide_map_state_test.h" />

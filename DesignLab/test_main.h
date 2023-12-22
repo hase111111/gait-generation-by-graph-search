@@ -11,6 +11,7 @@
 
 
 //以下にテストコードが書かれたhファイルをインクルードすることで登録される．
+#include "asyncable_data_test.h"
 #include "designlab_string_util_test.h"
 #include "gait_pattern_graph_tree_test.h"
 #include "map_state_test.h"

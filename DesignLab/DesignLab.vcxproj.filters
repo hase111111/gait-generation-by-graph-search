@@ -609,6 +609,9 @@
     <ClInclude Include="implicit_metafunction_for_toml11.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
+    <ClInclude Include="asyncable_data_test.h">
+      <Filter>ソース ファイル\Common\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

@@ -1,7 +1,4 @@
-﻿//! @file asyncable_data.h
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
-
-#ifndef DESIGNLAB_ASYNCABLE_DATA_H_
+﻿#ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_
 
 #include <vector>
@@ -48,7 +45,7 @@ public:
 	//! @brief 値をコピーして返す．
 	//! @n この時，read lockをかける．
 	//! @n 当然，データの更新回数はインクリメントされない．
-	//! @return T 値のコピー
+	//! @return 値をそのまま返す．参照ではない．
 	T GetData() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -76,7 +73,7 @@ public:
 	//! @brief データの更新回数を返す．
 	//! @n この時，read lockをかける．
 	//! @n この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．
-	//! @return int データの更新回数
+	//! @return データの更新回数．
 	int GetUpdateCount() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -86,7 +83,7 @@ public:
 
 private:
 
-	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex
+	mutable boost::shared_mutex mtx_;	//!< ロック用のmutex．
 
 	T data_;
 
@@ -95,7 +92,7 @@ private:
 
 
 
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体 (vector版)
+//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体． (vector版)
 //! @details 
 //! vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
 //! こちらもコピー・ムーブは禁止．
@@ -115,7 +112,7 @@ public:
 	//! @brief 値をコピーして返す．
 	//! @n この時，read lockをかける．
 	//! @n 当然，データの更新回数はインクリメントされない．
-	//!	@return T 値のコピー．
+	//!	@return 値のコピー．
 	std::vector<T> GetData() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -175,7 +172,7 @@ public:
 
 	//! @brief sizeを返す．要素の数をsize_tで返す．
 	//! @n この時，read lockをかける．
-	//! @return size_t 要素の数．
+	//! @return 要素の数．
 	size_t GetSize() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
@@ -186,7 +183,7 @@ public:
 	//! @brief データの更新回数を返す．
 	//! @n この時，read lockをかける．
 	//! @n この値を調べて，データの更新回数が変わっているかを確認することで，データの更新が必要かを確認する．
-	//! @return int データの更新回数．
+	//! @return データの更新回数．
 	int GetUpdateCount() const
 	{
 		//読み取り用のロックをかける．このスコープ { } を抜けるまでロックがかかる．(つまりこの関数が終わるまで)
