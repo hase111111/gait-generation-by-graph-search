@@ -176,10 +176,10 @@ std::string Polygon2::ToString() const
 		res += "Vertex " + std::to_string(i) + " : " + GetVertex(i).ToString() + "\n";
 	}
 
-	res += "Max X : " + math_util::ConvertFloatToString(GetMaxX()) + "\n";
-	res += "Min X : " + math_util::ConvertFloatToString(GetMinX()) + "\n";
-	res += "Max Y : " + math_util::ConvertFloatToString(GetMaxY()) + "\n";
-	res += "Min Y : " + math_util::ConvertFloatToString(GetMinY()) + "\n";
+	res += "Max X : " + math_util::FloatingPointNumToString(GetMaxX()) + "\n";
+	res += "Min X : " + math_util::FloatingPointNumToString(GetMinX()) + "\n";
+	res += "Max Y : " + math_util::FloatingPointNumToString(GetMaxY()) + "\n";
+	res += "Min Y : " + math_util::FloatingPointNumToString(GetMinY()) + "\n";
 
 	res += "Convex :";
 	res += (IsConvex() ? "TRUE" : "FALSE");

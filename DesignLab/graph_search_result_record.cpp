@@ -29,7 +29,7 @@ std::string GraphSearchResultRecord::ToCsvString() const
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_pos[i] << ","; }
 	for (int i = 0; i < HexapodConst::kLegNum; i++) { stream << result_node.leg_reference_pos[i] << ","; }
 	stream << string_util::EnumToStringRemoveTopK(result_node.next_move) << ",";
-	stream << math_util::ConvertDoubleToString(computation_time) << ",";
+	stream << math_util::FloatingPointNumToString(computation_time) << ",";
 	stream << graph_search_result.ToString();
 
 	return stream.str();

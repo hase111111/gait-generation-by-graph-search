@@ -112,7 +112,7 @@ constexpr Vector2 operator *(float s, const Vector2& v)
 template <class Char>
 std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Vector2& v)
 {
-	return os << math_util::ConvertFloatToString(v.x) << Char(',') << math_util::ConvertFloatToString(v.y);
+	return os << math_util::FloatingPointNumToString(v.x) << Char(',') << math_util::FloatingPointNumToString(v.y);
 }
 
 template <class Char>

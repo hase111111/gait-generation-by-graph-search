@@ -68,9 +68,9 @@ std::string RotationMatrix3x3::ToString() const
 {
 	std::string res;
 
-	res += math_util::ConvertFloatToString(element[0][0]) + "," + math_util::ConvertFloatToString(element[0][1]) + "," + math_util::ConvertFloatToString(element[0][2]) + "\n";
-	res += math_util::ConvertFloatToString(element[1][0]) + "," + math_util::ConvertFloatToString(element[1][1]) + "," + math_util::ConvertFloatToString(element[1][2]) + "\n";
-	res += math_util::ConvertFloatToString(element[2][0]) + "," + math_util::ConvertFloatToString(element[2][1]) + "," + math_util::ConvertFloatToString(element[2][2]) + "\n";
+	res += math_util::FloatingPointNumToString(element[0][0]) + "," + math_util::FloatingPointNumToString(element[0][1]) + "," + math_util::FloatingPointNumToString(element[0][2]) + "\n";
+	res += math_util::FloatingPointNumToString(element[1][0]) + "," + math_util::FloatingPointNumToString(element[1][1]) + "," + math_util::FloatingPointNumToString(element[1][2]) + "\n";
+	res += math_util::FloatingPointNumToString(element[2][0]) + "," + math_util::FloatingPointNumToString(element[2][1]) + "," + math_util::FloatingPointNumToString(element[2][2]) + "\n";
 
 	return res;
 }

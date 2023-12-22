@@ -25,7 +25,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 ) const
 {
 	assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
-		   operation.operation_type == enums::RobotOperationType::kStraightMoveVector);	//ターゲットモードは直進である．
+		operation.operation_type == enums::RobotOperationType::kStraightMoveVector);	//ターゲットモードは直進である．
 
 	if (!graph.HasRoot())
 	{
@@ -59,9 +59,9 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 	std::vector<std::function<EvaluationResult(const int, const GaitPatternGraphTree&, const EvaluationValue&, const InitialValue&, EvaluationValue*)>> update_evaluation_value_func_vec
 	{
 		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
+			std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmoutOfMovement, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherStraightMove::UpdateEvalutionValueByStablyMargin, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5)
 	};
 
 	for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -119,10 +119,10 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
 std::string GraphSearcherStraightMove::EvaluationValue::ToString() const
 {
 	std::string result = "index:" + std::to_string(index) + "/";
-	result += "move_forward:" + math_util::ConvertFloatToString(move_forward, 3, 7) + "/";
-	result += "leg_rot:" + math_util::ConvertFloatToString(leg_rot, 3, 7) + "/";
-	result += "z_diff:" + math_util::ConvertFloatToString(z_diff, 3, 7) + "/";
-	result += "stably_margin:" + math_util::ConvertFloatToString(stably_margin, 3, 7);
+	result += "move_forward:" + math_util::FloatingPointNumToString(move_forward, 3, 7) + "/";
+	result += "leg_rot:" + math_util::FloatingPointNumToString(leg_rot, 3, 7) + "/";
+	result += "z_diff:" + math_util::FloatingPointNumToString(z_diff, 3, 7) + "/";
+	result += "stably_margin:" + math_util::FloatingPointNumToString(stably_margin, 3, 7);
 
 	return result;
 }

@@ -46,12 +46,12 @@ Vector2 Vector2::GetNormalized() const
 
 std::string Vector2::ToString() const
 {
-	return std::string("( x : ") + math_util::ConvertFloatToString(x) + std::string(", y : ") + math_util::ConvertFloatToString(y) + std::string(")");
+	return std::string("( x : ") + math_util::FloatingPointNumToString(x) + std::string(", y : ") + math_util::FloatingPointNumToString(y) + std::string(")");
 }
 
 std::string Vector2::ToCsvString() const
 {
-	return math_util::ConvertFloatToString(x) + std::string(",") + math_util::ConvertFloatToString(y);
+	return math_util::FloatingPointNumToString(x) + std::string(",") + math_util::FloatingPointNumToString(y);
 }
 
 } // namespace designlab

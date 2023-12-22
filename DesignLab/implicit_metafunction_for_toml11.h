@@ -63,11 +63,11 @@ template<typename T>
 struct has_output_operator<T, decltype(std::declval<std::ostream&>() << std::declval<T&>(), std::declval<void>())> : public std::true_type {};
 
 static_assert(has_input_operator<int>::value == true, "int型は入力オペレーターに対応している．");
-static_assert(has_input_operator<std::string>::value == true, "std::string型は入力オペレーターに対応している．");
+static_assert(has_input_operator<int*>::value == false, "int*型は入力オペレーターに対応していない．");
 static_assert(has_input_operator<std::vector<int>>::value == false, "std::vector<int>型は入力オペレーターに対応していない．");
 
 static_assert(has_output_operator<int>::value == true, "int型は出力オペレーターに対応している．");
-static_assert(has_output_operator<std::string>::value == true, "std::string型は出力オペレーターに対応している．");
+static_assert(has_output_operator<int*>::value == true, "int*型は出力オペレーターに対応している．");
 static_assert(has_output_operator<std::vector<int>>::value == false, "std::vector<int>型は出力オペレーターに対応していない．");
 
 

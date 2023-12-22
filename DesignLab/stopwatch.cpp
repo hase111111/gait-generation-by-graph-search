@@ -60,17 +60,17 @@ double Stopwatch::GetElapsedMicroSecond() const
 
 std::string Stopwatch::GetElapsedSecondsString() const
 {
-	return math_util::ConvertDoubleToString(GetElapsedSeconds()) + " [s]";
+	return math_util::FloatingPointNumToString(GetElapsedSeconds()) + " [s]";
 }
 
 std::string Stopwatch::GetElapsedMilliSecondString() const
 {
-	return math_util::ConvertDoubleToString(GetElapsedMilliSecond()) + " [ms]";
+	return math_util::FloatingPointNumToString(GetElapsedMilliSecond()) + " [ms]";
 }
 
 std::string Stopwatch::GetElapsedMicroSecondString() const
 {
-	return math_util::ConvertDoubleToString(GetElapsedMicroSecond()) + "[μs]";
+	return math_util::FloatingPointNumToString(GetElapsedMicroSecond()) + "[μs]";
 }
 
 

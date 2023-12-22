@@ -15,9 +15,9 @@ std::string EulerXYZ::ToString() const
 	std::string str;
 
 	str += "( x-axis: "
-		+ math_util::ConvertFloatToString(x_angle) + " [rad], y-axis : "
-		+ math_util::ConvertFloatToString(y_angle) + " [rad], z-axis: "
-		+ math_util::ConvertFloatToString(z_angle) + " [rad]) xyz-euler angles";
+		+ math_util::FloatingPointNumToString(x_angle) + " [rad], y-axis : "
+		+ math_util::FloatingPointNumToString(y_angle) + " [rad], z-axis: "
+		+ math_util::FloatingPointNumToString(z_angle) + " [rad]) xyz-euler angles";
 
 	return str;
 }
@@ -34,9 +34,9 @@ std::string EulerXYZ::ToStringDeg() const
 	std::string str;
 
 	str += "( x-axis: "
-		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(x_angle)) + " [deg], y-axis : "
-		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(y_angle)) + " [deg], z-axis: "
-		+ math_util::ConvertFloatToString(math_util::ConvertRadToDeg(z_angle)) + " [deg]) xyz-euler angles";
+		+ math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(x_angle)) + " [deg], y-axis : "
+		+ math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(y_angle)) + " [deg], z-axis: "
+		+ math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(z_angle)) + " [deg]) xyz-euler angles";
 
 	return str;
 }

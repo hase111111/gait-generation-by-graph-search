@@ -29,10 +29,10 @@ Quaternion Quaternion::MakeByAngleAxis(const float angle, const Vector3& axis)
 std::string Quaternion::ToString() const
 {
 	std::string str;
-	str += "( w: " + math_util::ConvertFloatToString(w) +
-		", x: " + math_util::ConvertFloatToString(v.x) +
-		", y: " + math_util::ConvertFloatToString(v.y) +
-		", z: " + math_util::ConvertFloatToString(v.z) + " )";
+	str += "( w: " + math_util::FloatingPointNumToString(w) +
+		", x: " + math_util::FloatingPointNumToString(v.x) +
+		", y: " + math_util::FloatingPointNumToString(v.y) +
+		", z: " + math_util::FloatingPointNumToString(v.z) + " )";
 	return str;
 }
 

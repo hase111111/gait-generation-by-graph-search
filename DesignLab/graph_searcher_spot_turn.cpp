@@ -20,7 +20,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 ) const
 {
 	assert(operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture ||
-		   operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis);
+		operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis);
 
 	if (!graph.HasRoot())
 	{
@@ -48,8 +48,8 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 	std::vector<std::function<EvaluationResult(const int, const GaitPatternGraphTree&, const EvaluationValue&, const InitialValue&, EvaluationValue*)>> update_evaluation_value_func_vec
 	{
 		std::bind(&GraphSearcherSpotTurn::UpdateEvalutionValueByZDiff, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByAmoutOfTurn, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
-		std::bind(&GraphSearcherSpotTurn::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByAmoutOfTurn, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
+			std::bind(&GraphSearcherSpotTurn::UpdateEvalutionValueByLegRot, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5),
 
 	};
 
@@ -108,9 +108,9 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
 std::string GraphSearcherSpotTurn::EvaluationValue::ToString() const
 {
 	std::string result = "index:" + std::to_string(index) + "/";
-	result += "turn:" + math_util::ConvertFloatToString(turn, 3, 7) + "/";
-	result += "leg_rot:" + math_util::ConvertFloatToString(leg_rot, 3, 7) + "/";
-	result += "z_diff:" + math_util::ConvertFloatToString(z_diff, 3, 7);
+	result += "turn:" + math_util::FloatingPointNumToString(turn, 3, 7) + "/";
+	result += "leg_rot:" + math_util::FloatingPointNumToString(leg_rot, 3, 7) + "/";
+	result += "z_diff:" + math_util::FloatingPointNumToString(z_diff, 3, 7);
 
 	return result;
 }

@@ -1,13 +1,8 @@
-﻿//! @file hexapod_const.h
-//! @brief Hexapodの定数をまとめたクラス．
-
-#ifndef DESIGNLAB_HEXAPOD_CONST_H_
+﻿#ifndef DESIGNLAB_HEXAPOD_CONST_H_
 #define DESIGNLAB_HEXAPOD_CONST_H_
 
-#include "math_util.h"
 
-
-namespace designlab 
+namespace designlab
 {
 
 //! @class HexapodConst

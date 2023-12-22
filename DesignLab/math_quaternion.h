@@ -140,7 +140,7 @@ constexpr Quaternion operator * (float s, const Quaternion& q) { return q * s; }
 template <class Char>
 inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Quaternion& q)
 {
-	os << math_util::ConvertFloatToString(q.w) << Char(',') << q.v;
+	os << math_util::FloatingPointNumToString(q.w) << Char(',') << q.v;
 
 	return os;
 }

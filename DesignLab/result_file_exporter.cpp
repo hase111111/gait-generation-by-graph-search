@@ -270,17 +270,17 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecord& recode
 		}
 	}
 
-	ofs << "最大探索時間," << math_util::ConvertDoubleToString(max_time) << ",[msec]" << std::endl;
-	ofs << "最小探索時間," << math_util::ConvertDoubleToString(min_time) << ",[msec]" << std::endl;
-	ofs << "総合探索時間," << math_util::ConvertDoubleToString(average_calculator.GetSum().value_or(-1.f)) << ",[msec]" << std::endl;
-	ofs << "平均探索時間," << math_util::ConvertDoubleToString(average_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
-	ofs << "分散," << math_util::ConvertDoubleToString(average_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
-	ofs << "標準偏差," << math_util::ConvertDoubleToString(average_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "最大探索時間," << math_util::FloatingPointNumToString(max_time) << ",[msec]" << std::endl;
+	ofs << "最小探索時間," << math_util::FloatingPointNumToString(min_time) << ",[msec]" << std::endl;
+	ofs << "総合探索時間," << math_util::FloatingPointNumToString(average_calculator.GetSum().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "平均探索時間," << math_util::FloatingPointNumToString(average_calculator.GetAverage().value_or(-1.f)) << ",[msec]" << std::endl;
+	ofs << "分散," << math_util::FloatingPointNumToString(average_calculator.GetVariance().value_or(-1.f)) << ",[msec^2]" << std::endl;
+	ofs << "標準偏差," << math_util::FloatingPointNumToString(average_calculator.GetStandardDeviation().value_or(-1.f)) << ",[msec]" << std::endl;
 
 	const double time_1sigma_plus = average_calculator.GetAverage().value_or(-1.f) + average_calculator.GetStandardDeviation().value_or(-1.f);
 	const double time_1sigma_minus = (std::max)(average_calculator.GetAverage().value_or(-1.f) - average_calculator.GetStandardDeviation().value_or(-1.f), 0.0);
 	ofs << "全データの約68%は" <<
-		math_util::ConvertDoubleToString(time_1sigma_plus) << " [msec]以下で" << math_util::ConvertDoubleToString(time_1sigma_minus) << " [msec]以上です．" <<
+		math_util::FloatingPointNumToString(time_1sigma_plus) << " [msec]以下で" << math_util::FloatingPointNumToString(time_1sigma_minus) << " [msec]以上です．" <<
 		std::endl << std::endl;
 
 
@@ -306,12 +306,12 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecord& recode
 		const double y_move_average = y_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
 		const double z_move_average = z_move_sum / static_cast<double>(recoder.graph_search_result_recoder.size() - 1);
 
-		ofs << "X方向総移動距離," << math_util::ConvertDoubleToString(x_move_sum) << ",[mm]" << std::endl;
-		ofs << "Y方向総移動距離," << math_util::ConvertDoubleToString(y_move_sum) << ",[mm]" << std::endl;
-		ofs << "Z方向総移動距離," << math_util::ConvertDoubleToString(z_move_sum) << ",[mm]" << std::endl;
-		ofs << "X方向平均移動距離," << math_util::ConvertDoubleToString(x_move_average) << ",[mm/動作]" << std::endl;
-		ofs << "Y方向平均移動距離," << math_util::ConvertDoubleToString(y_move_average) << ",[mm/動作]" << std::endl;
-		ofs << "Z方向平均移動距離," << math_util::ConvertDoubleToString(z_move_average) << ",[mm/動作]" << std::endl;
+		ofs << "X方向総移動距離," << math_util::FloatingPointNumToString(x_move_sum) << ",[mm]" << std::endl;
+		ofs << "Y方向総移動距離," << math_util::FloatingPointNumToString(y_move_sum) << ",[mm]" << std::endl;
+		ofs << "Z方向総移動距離," << math_util::FloatingPointNumToString(z_move_sum) << ",[mm]" << std::endl;
+		ofs << "X方向平均移動距離," << math_util::FloatingPointNumToString(x_move_average) << ",[mm/動作]" << std::endl;
+		ofs << "Y方向平均移動距離," << math_util::FloatingPointNumToString(y_move_average) << ",[mm/動作]" << std::endl;
+		ofs << "Z方向平均移動距離," << math_util::FloatingPointNumToString(z_move_average) << ",[mm/動作]" << std::endl;
 	}
 
 	ofs.close();

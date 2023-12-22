@@ -1,16 +1,22 @@
 ﻿#ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
 
+#include <iomanip>
+#include <random>
+#include <sstream>
 #include <string>
 #include <vector>
 
 #include "cassert_define.h"
 #include "math_const.h"
+#include "implicit_metafunction_for_math_util.h"
 
 
 
-//! @namespacse designlab::math_util 基本的な計算を行う関数をまとめた名前空間．
+//! @namespacse designlab::math_util
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
+//! @details 
+//! この名前空間にある関数は，基本的にconstexprである．そのため，コンパイル時に計算が行われる．
 namespace designlab::math_util
 {
 
@@ -19,7 +25,7 @@ namespace designlab::math_util
 //! @param [in] num1 比較する数字1つ目．
 //! @param [in] num2 比較する数字2つ目．
 //! @return 等しいならばtrue．
-template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
+template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
 constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
 	const T dif = num1 - num2;
@@ -80,32 +86,29 @@ T ApproachTarget(const T& current, const T& target, float rate)
 //! @param [in] min 乱数の最小値．
 //! @param [in] max 乱数の最大値．
 //! @return 生成した乱数．
-double GenerateRandomNumber(double min, double max);
+//! @tparam T 算術型．int, float, doubleなど．
+template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
+T GenerateRandomNumber(T min, T max)
+{
+	assert(min < max);	//min < max でなければならない．
 
-//! @brief 指定した範囲内の乱数を生成する．
-//! @param [in] min 乱数の最小値．
-//! @param [in] max 乱数の最大値．
-//! @return 生成した乱数．
-float GenerateRandomNumber(float min, float max);
-
-//! @brief 指定した範囲内の乱数を生成する．
-//! @param [in] min 乱数の最小値．
-//! @param [in] max 乱数の最大値．
-//! @return 生成した乱数．
-int GenerateRandomNumber(int min, int max);
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(min, max);
+	return (T)dis(gen);
+}
 
 
 //! @brief 角度をradからdegに変換する関数．
 //! @param [in] rad 角度[rad]．
 //! @return 角度[deg]．
-template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
+template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
 constexpr T ConvertRadToDeg(const T rad) noexcept { return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / MathConst<T>::kPi; };
-
 
 //! @brief 角度をdegからradに変換する関数．
 //! @param [in] deg 角度[deg]．
 //! @return 角度[rad]．
-template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
+template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
 constexpr T ConvertDegToRad(const T deg) noexcept { return deg * MathConst<T>::kPi / (MathConst<T>::kRoundAngle / static_cast<T>(2)); }
 
 
@@ -122,15 +125,17 @@ constexpr int kWidth = 10;	//!< 文字列の幅．
 //! @param [in] digit 小数点以下の桁数．
 //! @param [in] width 文字列の幅．
 //! @return 変換した文字列．
-std::string ConvertFloatToString(const float num, const int digit = kDigit, const int width = kWidth);
+//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
+template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
+std::string FloatingPointNumToString(const T num, const int digit = kDigit, const int width = kWidth)
+{
+	std::ostringstream ss;
 
-//! @brief 小数を文字列に変換する関数．
-//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．
-//! @param [in] num 変換する小数．
-//! @param [in] digit 小数点以下の桁数．
-//! @param [in] width 文字列の幅．
-//! @return 変換した文字列．
-std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
+	ss << std::fixed << std::setprecision(digit);
+	ss << std::setw(width) << std::setfill(' ') << num;
+
+	return ss.str();
+}
 
 
 }	// namespace designlab::math_util

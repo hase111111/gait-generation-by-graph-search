@@ -99,9 +99,9 @@ struct EulerXYZ final
 template <class Char>
 inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const EulerXYZ& r)
 {
-	os << math_util::ConvertFloatToString(r.x_angle) << Char(',') <<
-		math_util::ConvertFloatToString(r.y_angle) << Char(',') <<
-		math_util::ConvertFloatToString(r.z_angle);
+	os << math_util::FloatingPointNumToString(r.x_angle) << Char(',') <<
+		math_util::FloatingPointNumToString(r.y_angle) << Char(',') <<
+		math_util::FloatingPointNumToString(r.z_angle);
 
 	return os;
 }
