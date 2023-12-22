@@ -7,7 +7,7 @@
 #include "interface_simulation_end_checker.h"
 
 #include "math_euler.h"
-#include "designlab_quaternion.h"
+#include "math_quaternion.h"
 
 
 namespace designlab

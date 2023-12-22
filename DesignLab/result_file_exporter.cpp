@@ -8,7 +8,7 @@
 
 #include "average_calculator.h"
 #include "cmdio_util.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "map_file_exporter.h"
 #include "stopwatch.h"
 

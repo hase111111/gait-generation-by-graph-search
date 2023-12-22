@@ -1,6 +1,6 @@
 ﻿#include "devide_map_state.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

@@ -4,7 +4,7 @@
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
 
-#include "designlab_quaternion.h"
+#include "math_quaternion.h"
 #include "math_vector3.h"
 
 

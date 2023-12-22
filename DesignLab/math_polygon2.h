@@ -1,7 +1,4 @@
-﻿//! @file designlab_polygon2.h
-//! @brief 2次元の多角形を表す構造体
-
-#ifndef DESIGNLAB_POLYGON2_H_
+﻿#ifndef DESIGNLAB_POLYGON2_H_
 #define DESIGNLAB_POLYGON2_H_
 
 #include <array>
@@ -16,11 +13,9 @@
 namespace designlab
 {
 
-static constexpr int kMaxVertexNum = 6;	//!< 速度を早くするためにあらかじめ最大サイズを決定しておく．
-
 
 //! @struct designlab::Polygon2
-//! @brief 2次元の多角形を表す構造体
+//! @brief 2次元の多角形を表す構造体．
 //! @details 
 //! @n 頂点は反時計回り，或いは時計回りに並んでいる必要がある．
 //! そうでない場合はいくつかの関数が正常に動作しない．
@@ -30,7 +25,8 @@ static constexpr int kMaxVertexNum = 6;	//!< 速度を早くするためにあ�
 //! この値を変更する場合は，コード中のkMaxVertexNumの値を変更する必要がある．
 //! @n
 //! @n なお，コード中のmax関数，min関数については以下を参照．
-//! @n 参照 : https://cpprefjp.github.io/reference/algorithm/max.html
+//! @subsubsection 参照
+//! @li https://cpprefjp.github.io/reference/algorithm/max.html
 struct Polygon2 final
 {
 
@@ -39,31 +35,31 @@ struct Polygon2 final
 	Polygon2(const std::vector<Vector2>& vertex);
 
 
-	//! @brief 頂点を追加する関数
-	//! @param [in] v 追加する頂点
+	//! @brief 頂点を追加する関数．
+	//! @param [in] v 追加する頂点．
 	//! @note 他の頂点と重なっている場合でも追加する．
 	constexpr void AddVertex(const Vector2& v)
 	{
 		vertex[vertex_num] = v;
 		++vertex_num;
 
-		assert(vertex_num <= kMaxVertexNum);	// 頂点数は最大値を超えてはいけない
+		assert(vertex_num <= kMaxVertexNum);	// 頂点数は最大値を超えてはいけない．
 	}
 
 	//! @brief 頂点を追加する関数．他の頂点と重なっている場合は追加しない．
-	//! @param[in] v 追加する頂点の座標
-	//! @note 他の頂点と重なっている場合は追加しない．この処理の分だけ遅くなるので，重なることがない場合はaddVertexを使うこと
-	//! @return bool 追加できたかどうか，追加できた場合はtrue，追加できなかった場合はfalse
+	//! @param[in] v 追加する頂点の座標．
+	//! @note 他の頂点と重なっている場合は追加しない．この処理の分だけ遅くなるので，重なることがない場合はaddVertexを使うこと．
+	//! @return 追加できたかどうか，追加できた場合はtrue，追加できなかった場合はfalse．
 	bool AddVertexCheckForDuplicates(const Vector2& v);
 
 
-	//! @brief 頂点を削除する関数．遅いので多用するべきではない
-	//! @param [in] index 削除する頂点のインデックス
+	//! @brief 頂点を削除する関数．遅いので多用するべきではない．
+	//! @param [in] index 削除する頂点のインデックス．
 	//! @note 存在しない頂点を指定した場合は何もしない．
 	//! @note 削除した頂点のインデックスは変わるので注意．
 	void RemoveVertex(const int index);
 
-	//! @brief 1番最後の頂点を削除する関数
+	//! @brief 1番最後の頂点を削除する関数．
 	//! @note 頂点が1つもない場合は何もしない．
 	constexpr void RemoveLastVertex()
 	{
@@ -75,17 +71,17 @@ struct Polygon2 final
 		--vertex_num;
 	}
 
-	//! @brief 多角形をリセットする関数
+	//! @brief 多角形をリセットする関数．
 	//! @n 頂点を削除して，頂点数を0にする．
 	constexpr void Reset() { vertex_num = 0; }
 
-	//! @brief 多角形の頂点数を返す関数
-	//! @return int 多角形の頂点数
+	//! @brief 多角形の頂点数を返す関数．
+	//! @return 多角形の頂点数．
 	constexpr int GetVertexNum() const { return vertex_num; }
 
-	//! @brief 頂点の座標を返す関数
-	//! @param [in] i 頂点のインデックス
-	//! @return Vector2 頂点の座標
+	//! @brief 頂点の座標を返す関数．
+	//! @param [in] i 頂点のインデックス．
+	//! @return 頂点の座標．
 	//! @n 存在しない頂点を指定した場合は(0,0)を返す．
 	constexpr Vector2 GetVertex(const int i) const
 	{
@@ -98,8 +94,8 @@ struct Polygon2 final
 	}
 
 	//! @brief 頂点の座標を返す関数．std::optionalを使っているので，存在しない頂点を指定した場合はstd::nulloptを返す．
-	//! @param [in] i 頂点のインデックス
-	//! @return std::optional<Vector2> 頂点の座標
+	//! @param [in] i 頂点のインデックス．
+	//! @return 頂点の座標．
 	//! @n 存在しない頂点を指定した場合はstd::nulloptを返す．
 	constexpr std::optional<Vector2> GetVertexOpt(const int i) const
 	{
@@ -111,8 +107,8 @@ struct Polygon2 final
 		return vertex[i];
 	}
 
-	//! @brief 頂点の中で最大のx座標を返す関数
-	//! @return float 頂点の中で最大のx座標
+	//! @brief 頂点の中で最大のx座標を返す関数．
+	//! @return 頂点の中で最大のx座標．
 	constexpr float GetMaxX() const
 	{
 		float max_x = vertex[0].x;
@@ -125,8 +121,8 @@ struct Polygon2 final
 		return max_x;
 	}
 
-	//! @brief 頂点の中で最小のx座標を返す関数
-	//! @return float 頂点の中で最小のx座標
+	//! @brief 頂点の中で最小のx座標を返す関数．
+	//! @return 頂点の中で最小のx座標．
 	constexpr float GetMinX() const
 	{
 		float min_x = vertex[0].x;
@@ -139,8 +135,8 @@ struct Polygon2 final
 		return min_x;
 	}
 
-	//! @brief 頂点の中で最大のy座標を返す関数
-	//! @return float 頂点の中で最大のy座標
+	//! @brief 頂点の中で最大のy座標を返す関数．
+	//! @return 頂点の中で最大のy座標．
 	constexpr float GetMaxY() const
 	{
 		float max_y = vertex[0].y;
@@ -153,8 +149,8 @@ struct Polygon2 final
 		return max_y;
 	}
 
-	//! @brief 頂点の中で最小のy座標を返す関数
-	//! @return float 頂点の中で最小のy座標
+	//! @brief 頂点の中で最小のy座標を返す関数．
+	//! @return 頂点の中で最小のy座標．
 	constexpr float GetMinY() const
 	{
 		float min_y = vertex[0].y;
@@ -167,8 +163,8 @@ struct Polygon2 final
 		return min_y;
 	}
 
-	//! @brief 多角形が凸かどうか調べる関数
-	//! @return bool 凸ならtrue，凹ならfalse
+	//! @brief 多角形が凸かどうか調べる関数．
+	//! @return 凸ならtrue，凹ならfalse．
 	bool IsConvex() const;
 
 	//! @brief 点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．
@@ -186,9 +182,11 @@ struct Polygon2 final
 
 private:
 
-	std::array<Vector2, kMaxVertexNum> vertex;	//!< 頂点座標
+	static constexpr int kMaxVertexNum = 6;	//!< 速度を早くするためにあらかじめ最大サイズを決定しておく．
 
-	int vertex_num;					//!< 頂点数
+	std::array<Vector2, kMaxVertexNum> vertex;	//!< 頂点座標．
+
+	int vertex_num;	//!< 頂点数．
 };
 
 

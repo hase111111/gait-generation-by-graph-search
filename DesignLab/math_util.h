@@ -1,60 +1,43 @@
-﻿//! @file designlab_math_util.h
-//! @brief 基本的な計算を行う関数．
-
-#ifndef DESIGNLAB_MATH_UTIL_H_
+﻿#ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
 
 #include <string>
 #include <vector>
 
 #include "cassert_define.h"
+#include "math_const.h"
 
 
-//! @namespace designlab
-//! @brief DesignLabの名前空間．
-//! @details このプロジェクトで作成した関数は全てこの名前空間内に入れる．
-//! @n グローバルな空間に関数を入れると，名前の衝突が起こる可能性がある．
-namespace designlab
-{
-//! @namespacse math_util 基本的な計算を行う関数をまとめた名前空間．
+
+//! @namespacse designlab::math_util 基本的な計算を行う関数をまとめた名前空間．
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
-namespace math_util
+namespace designlab::math_util
 {
-
-constexpr double kDoublePi = 3.141592653589793;		//!< double型の円周率．
-constexpr float kFloatPi = 3.141592653589793f;		//!< float型の円周率．
-
-constexpr double kDoubleAllowableError = 0.001;									//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
-constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
-
 
 //! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
+//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
 //! @param [in] num1 比較する数字1つ目．
 //! @param [in] num2 比較する数字2つ目．
 //! @return bool 等しいならばtrue．
+template <typename T, typename = std::enable_if_t<std::is_same<T, float>::value || std::is_same<T, double>::value>>
 constexpr bool IsEqual(const float num1, const float num2) noexcept
 {
 	const float dif = num1 - num2;
-	if (dif > 0) { return (dif <= kAllowableError); }
-	else { return (dif >= -kAllowableError); }
-}
-
-//! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
-//! @param [in] num1 比較する数字1つ目． 
-//! @param [in] num2 比較する数字2つ目．
-//! @return bool 等しいならばtrue．
-constexpr bool IsEqual(const double num1, const double num2) noexcept
-{
-	const double dif = num1 - num2;
-	if (dif > 0) { return (dif <= kDoubleAllowableError); }
-	else { return (dif >= -kDoubleAllowableError); }
+	if (dif > 0)
+	{
+		return (dif <= MathConst<T>::kAllowableError);
+	}
+	else
+	{
+		return (dif >= -MathConst<T>::kAllowableError);
+	}
 }
 
 //! @brief 2乗した値を返す関数．
 //! @n 整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．
 //! @param [in] num 2乗する数．
 //! @return T 2乗した値． 
-template <typename T>
+template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr T Squared(const T num) noexcept { return num * num; }
 
 //! @brief 3辺で三角形が作れるか調べる関数．
@@ -62,7 +45,7 @@ constexpr T Squared(const T num) noexcept { return num * num; }
 //! @param [in] b 2辺目．
 //! @param [in] c 3辺目．
 //! @return bool 三角形が作れるならばtrue．
-template <typename T>
+template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 {
 	assert(a > 0);
@@ -136,7 +119,7 @@ constexpr int kDigit = 3;	//!< 小数点以下の桁数．
 constexpr int kWidth = 10;	//!< 文字列の幅．
 
 //! @brief 小数を文字列に変換する関数．
-//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する
+//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．
 //! @param [in] num 変換する小数．
 //! @param [in] digit 小数点以下の桁数．
 //! @param [in] width 文字列の幅．
@@ -144,16 +127,15 @@ constexpr int kWidth = 10;	//!< 文字列の幅．
 std::string ConvertFloatToString(const float num, const int digit = kDigit, const int width = kWidth);
 
 //! @brief 小数を文字列に変換する関数．
-//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する
+//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．
 //! @param [in] num 変換する小数．
 //! @param [in] digit 小数点以下の桁数．
 //! @param [in] width 文字列の幅．
 //! @return std::string 変換した文字列．
 std::string ConvertDoubleToString(const double num, const int digit = kDigit, const int width = kWidth);
 
-}	// namespace math_util
 
-}	// namespace designlab
+}	// namespace designlab::math_util
 
 
 #endif	// DESIGNLAB_MATH_UTIL_H_

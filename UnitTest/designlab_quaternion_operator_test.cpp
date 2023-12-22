@@ -1,11 +1,11 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../Designlab/designlab_quaternion.h"
+#include "../Designlab/math_quaternion.h"
 
 
 namespace designlab::test::common::math
 {
-	// ‘ã“ü‰‰Zq = AssignmentOperator 
+	// ä»£å…¥æ¼”ç®—å­ = AssignmentOperator 
 	TEST(QuaternionTest, AssignmentOperatorTest)
 	{
 		const Quaternion q(1.0f, 2.0f, 3.0f, 4.0f);
@@ -16,7 +16,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(q2.v.z, 4.0f);
 	}
 
-	// ’P€‰‰Zq = UnaryOperator
+	// å˜é …æ¼”ç®—å­ = UnaryOperator
 	TEST(QuaternionTest, UnaryPulsOperatorTest)
 	{
 		const Quaternion q(1.0f, 2.0f, 3.0f, 4.0f);

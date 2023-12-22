@@ -8,7 +8,7 @@
 
 #include <memory>
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "devide_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_vaild_checker.h"

@@ -1,6 +1,6 @@
-﻿#include "designlab_polygon2.h"
+﻿#include "math_polygon2.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

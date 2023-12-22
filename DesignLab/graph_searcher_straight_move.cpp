@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "cassert_define.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
 

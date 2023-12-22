@@ -8,7 +8,7 @@
 #include <memory>
 #include <vector>
 
-#include "designlab_polygon2.h"
+#include "math_polygon2.h"
 #include "discrete_com_pos.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"

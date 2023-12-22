@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "leg_state.h"
 
 

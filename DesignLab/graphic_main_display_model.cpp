@@ -1,7 +1,7 @@
 ﻿#include "graphic_main_display_model.h"
 
 #include "camera_dragger.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "dxlib_camera.h"
 #include "dxlib_gui_camera.h"
 #include "dxlib_gui_camera_parameter_displayer.h"

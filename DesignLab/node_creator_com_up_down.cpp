@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cfloat>
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "graph_search_const.h"
 #include "hexapod_const.h"
 #include "leg_state.h"

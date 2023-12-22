@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_math_util.h"
+#include "../DesignLab/math_util.h"
 
 
 namespace dlm = designlab::math_util;
@@ -10,11 +10,11 @@ namespace designlab::test::common::math
 {
 	TEST(MathUtilTest, GenerateRandomNumberTestNumInRangeCaseOfDouble)
 	{
-		// —”‚ğ•Ô‚·ƒƒ\ƒbƒh‚ÌƒeƒXƒgD
-		// —”‚È‚Ì‚ÅCƒeƒXƒg‚Í‚ ‚Ü‚èˆÓ–¡‚ª‚È‚¢‹C‚ª‚·‚é...‚æ‚¢•û–@‚Í‚È‚ñ‚¶‚á‚ç‚Ù‚¢D
-		// ‚Æ‚è‚ ‚¦‚¸Cs‰ñ”‚ğ‘‚â‚µ‚ÄCŠm”F‚·‚é•ûj‚Å‚¢‚«‚Ü‚·D
+		// ä¹±æ•°ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆï¼
+		// ä¹±æ•°ãªã®ã§ï¼Œãƒ†ã‚¹ãƒˆã¯ã‚ã¾ã‚Šæ„å‘³ãŒãªã„æ°—ãŒã™ã‚‹...ã‚ˆã„æ–¹æ³•ã¯ãªã‚“ã˜ã‚ƒã‚‰ã»ã„ï¼
+		// ã¨ã‚Šã‚ãˆãšï¼Œè©¦è¡Œå›æ•°ã‚’å¢—ã‚„ã—ã¦ï¼Œç¢ºèªã™ã‚‹æ–¹é‡ã§ã„ãã¾ã™ï¼
 
-		constexpr int kTestNum = 10000;	//s‰ñ”
+		constexpr int kTestNum = 10000;	//è©¦è¡Œå›æ•°
 		constexpr double kMin = -10.45;
 		constexpr double kMax = 234.47;
 
@@ -25,18 +25,18 @@ namespace designlab::test::common::math
 			// LT = Less Than <
 			// GT = Greater Than >
 
-			EXPECT_LT(kMin, _res) << "Å¬’l‚ğ‰º‰ñ‚Á‚Ä‚¢‚Ü‚·D";
-			EXPECT_GT(kMax, _res) << "Å‘å’l‚ğã‰ñ‚Á‚Ä‚¢‚Ü‚·D";
+			EXPECT_LT(kMin, _res) << "æœ€å°å€¤ã‚’ä¸‹å›ã£ã¦ã„ã¾ã™ï¼";
+			EXPECT_GT(kMax, _res) << "æœ€å¤§å€¤ã‚’ä¸Šå›ã£ã¦ã„ã¾ã™ï¼";
 		}
 	}
 
 	TEST(MathUtilTest, GenerateRandomNumberTestNumInRangeCaseOfFloat)
 	{
-		// —”‚ğ•Ô‚·ƒƒ\ƒbƒh‚ÌƒeƒXƒgD
-		// —”‚È‚Ì‚ÅCƒeƒXƒg‚Í‚ ‚Ü‚èˆÓ–¡‚ª‚È‚¢‹C‚ª‚·‚é...‚æ‚¢•û–@‚Í‚È‚ñ‚¶‚á‚ç‚Ù‚¢D
-		// ‚Æ‚è‚ ‚¦‚¸Cs‰ñ”‚ğ‘‚â‚µ‚ÄCŠm”F‚·‚é•ûj‚Å‚¢‚«‚Ü‚·D
+		// ä¹±æ•°ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆï¼
+		// ä¹±æ•°ãªã®ã§ï¼Œãƒ†ã‚¹ãƒˆã¯ã‚ã¾ã‚Šæ„å‘³ãŒãªã„æ°—ãŒã™ã‚‹...ã‚ˆã„æ–¹æ³•ã¯ãªã‚“ã˜ã‚ƒã‚‰ã»ã„ï¼
+		// ã¨ã‚Šã‚ãˆãšï¼Œè©¦è¡Œå›æ•°ã‚’å¢—ã‚„ã—ã¦ï¼Œç¢ºèªã™ã‚‹æ–¹é‡ã§ã„ãã¾ã™ï¼
 
-		constexpr int kTestNum = 10000;	//s‰ñ”
+		constexpr int kTestNum = 10000;	//è©¦è¡Œå›æ•°
 		constexpr float kMin = -10.45f;
 		constexpr float kMax = 234.47f;
 
@@ -47,18 +47,18 @@ namespace designlab::test::common::math
 			// LT = Less Than <
 			// GT = Greater Than >
 
-			EXPECT_LT(kMin, _res) << "Å¬’l‚ğ‰º‰ñ‚Á‚Ä‚¢‚Ü‚·D";
-			EXPECT_GT(kMax, _res) << "Å‘å’l‚ğã‰ñ‚Á‚Ä‚¢‚Ü‚·D";
+			EXPECT_LT(kMin, _res) << "æœ€å°å€¤ã‚’ä¸‹å›ã£ã¦ã„ã¾ã™ï¼";
+			EXPECT_GT(kMax, _res) << "æœ€å¤§å€¤ã‚’ä¸Šå›ã£ã¦ã„ã¾ã™ï¼";
 		}
 	}
 
 	TEST(MathUtilTest, GenerateRandomNumberTestNumInRangeCaseOfInt)
 	{
-		// —”‚ğ•Ô‚·ƒƒ\ƒbƒh‚ÌƒeƒXƒgD
-		// —”‚È‚Ì‚ÅCƒeƒXƒg‚Í‚ ‚Ü‚èˆÓ–¡‚ª‚È‚¢‹C‚ª‚·‚é...‚æ‚¢•û–@‚Í‚È‚ñ‚¶‚á‚ç‚Ù‚¢D
-		// ‚Æ‚è‚ ‚¦‚¸Cs‰ñ”‚ğ‘‚â‚µ‚ÄCŠm”F‚·‚é•ûj‚Å‚¢‚«‚Ü‚·D
+		// ä¹±æ•°ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆï¼
+		// ä¹±æ•°ãªã®ã§ï¼Œãƒ†ã‚¹ãƒˆã¯ã‚ã¾ã‚Šæ„å‘³ãŒãªã„æ°—ãŒã™ã‚‹...ã‚ˆã„æ–¹æ³•ã¯ãªã‚“ã˜ã‚ƒã‚‰ã»ã„ï¼
+		// ã¨ã‚Šã‚ãˆãšï¼Œè©¦è¡Œå›æ•°ã‚’å¢—ã‚„ã—ã¦ï¼Œç¢ºèªã™ã‚‹æ–¹é‡ã§ã„ãã¾ã™ï¼
 
-		constexpr int kTestNum = 10000;	//s‰ñ”
+		constexpr int kTestNum = 10000;	//è©¦è¡Œå›æ•°
 		constexpr int kMin = -10;
 		constexpr int kMax = 234;
 
@@ -69,8 +69,8 @@ namespace designlab::test::common::math
 			// LT = Less Than <
 			// GT = Greater Than >
 
-			EXPECT_LT(kMin, _res) << "Å¬’l‚ğ‰º‰ñ‚Á‚Ä‚¢‚Ü‚·D";
-			EXPECT_GT(kMax, _res) << "Å‘å’l‚ğã‰ñ‚Á‚Ä‚¢‚Ü‚·D";
+			EXPECT_LT(kMin, _res) << "æœ€å°å€¤ã‚’ä¸‹å›ã£ã¦ã„ã¾ã™ï¼";
+			EXPECT_GT(kMax, _res) << "æœ€å¤§å€¤ã‚’ä¸Šå›ã£ã¦ã„ã¾ã™ï¼";
 		}
 	}
 }

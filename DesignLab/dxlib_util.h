@@ -8,7 +8,7 @@
 
 #include <Dxlib.h>
 
-#include "designlab_rotation_matrix.h"
+#include "math_rotation_matrix.h"
 #include "math_vector3.h"
 
 

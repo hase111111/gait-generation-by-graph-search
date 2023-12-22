@@ -5,7 +5,7 @@
 #define DESIGNLAB_LINE_SEGMENT2_H_
 
 #include "math_vector2.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

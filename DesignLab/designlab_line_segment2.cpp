@@ -1,7 +1,7 @@
 ﻿#include "designlab_line_segment2.h"
 
 #include "cassert_define.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

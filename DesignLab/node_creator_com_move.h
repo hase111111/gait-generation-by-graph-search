@@ -10,7 +10,7 @@
 
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
-#include "designlab_polygon2.h"
+#include "math_polygon2.h"
 #include "devide_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"

@@ -1,8 +1,8 @@
-﻿#include "designlab_rotation_matrix.h"
+﻿#include "math_rotation_matrix.h"
 
 #include <cmath>
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab
@@ -28,21 +28,10 @@ RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) c
 	return res;
 }
 
-EulerXYZ RotationMatrix3x3::ToEulerXYZ() const
-{
-	EulerXYZ res;
-
-	res.x_angle = std::atan2(element[2][1], element[2][2]);
-	res.y_angle = std::atan2(-element[2][0], std::sqrt(element[2][1] * element[2][1] + element[2][2] * element[2][2]));
-	res.z_angle = std::atan2(element[1][0], element[0][0]);
-
-	return res;
-}
-
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 {
-	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく
-	const float sin_angle = std::sin(angle);	// 同上
+	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく．
+	const float sin_angle = std::sin(angle);	// 同上．
 
 	return RotationMatrix3x3(
 		1.0f, 0.0f, 0.0f,
@@ -53,8 +42,8 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 {
-	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく
-	const float sin_angle = std::sin(angle);	// 同上
+	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく．
+	const float sin_angle = std::sin(angle);	// 同上．
 
 	return RotationMatrix3x3(
 		cos_angle, 0.0f, sin_angle,
@@ -65,8 +54,8 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixZ(const float angle)
 {
-	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく
-	const float sin_angle = std::sin(angle);	// 同上
+	const float cos_angle = std::cos(angle);	// cosは重いので，使うときはキャッシュしておく．
+	const float sin_angle = std::sin(angle);	// 同上．
 
 	return RotationMatrix3x3(
 		cos_angle, -sin_angle, 0.0f,

@@ -1,6 +1,6 @@
 ﻿#include "designlab_rot_converter.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

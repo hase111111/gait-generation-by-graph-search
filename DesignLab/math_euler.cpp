@@ -3,7 +3,7 @@
 #include <cmath>
 #include <sstream>
 
-#include "designlab_rotation_matrix.h"
+#include "math_rotation_matrix.h"
 #include "designlab_rot_converter.h"
 
 

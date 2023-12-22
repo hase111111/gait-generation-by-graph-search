@@ -1,6 +1,6 @@
 ﻿#include "stopwatch.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace sc = ::std::chrono;

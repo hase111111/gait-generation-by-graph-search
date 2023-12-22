@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_polygon2.h"
+#include "../DesignLab/math_polygon2.h"
 #include "../DesignLab/designlab_polygon2.cpp"
 
 
@@ -8,7 +8,7 @@ namespace designlab::test::common::math
 {
 	TEST(Polygon2Test, AddVertexTest)
 	{
-		//lŠpŒ`‚ğì¬‚µC‚»‚Ì’¸“_‚ÌÀ•W‚ğŠm”F‚·‚é
+		//å››è§’å½¢ã‚’ä½œæˆã—ï¼Œãã®é ‚ç‚¹ã®åº§æ¨™ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon1;
 		polygon1.AddVertex({ 0, 0 });
 		polygon1.AddVertex({ 1, 0 });
@@ -21,7 +21,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon1.GetVertex(2), designlab::Vector2(1, 1));
 		EXPECT_EQ(polygon1.GetVertex(3), designlab::Vector2(0, 1));
 
-		//6ŠpŒ`‚ğì¬‚µC‚»‚Ì’¸“_‚ÌÀ•W‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œãã®é ‚ç‚¹ã®åº§æ¨™ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -41,13 +41,13 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, AddVertexCheckForDuplicatesTestDonotAddDuplicates)
 	{
-		// d•¡‚·‚é’¸“_‚ğ’Ç‰Á‚µC‚»‚Ì’¸“_‚ÌÀ•W‚ğŠm”F‚·‚é
+		// é‡è¤‡ã™ã‚‹é ‚ç‚¹ã‚’è¿½åŠ ã—ï¼Œãã®é ‚ç‚¹ã®åº§æ¨™ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon1;
 		polygon1.AddVertexCheckForDuplicates({ 0, 0 });
 		polygon1.AddVertexCheckForDuplicates({ 1, 0 });
 		polygon1.AddVertexCheckForDuplicates({ 1, 1 });
 		polygon1.AddVertexCheckForDuplicates({ 0, 1 });
-		polygon1.AddVertexCheckForDuplicates({ 0, 0 });	//d•¡‚·‚é’¸“_
+		polygon1.AddVertexCheckForDuplicates({ 0, 0 });	//é‡è¤‡ã™ã‚‹é ‚ç‚¹
 
 		EXPECT_EQ(polygon1.GetVertexNum(), 4);
 		EXPECT_EQ(polygon1.GetVertex(0), designlab::Vector2(0, 0));
@@ -55,16 +55,16 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon1.GetVertex(2), designlab::Vector2(1, 1));
 		EXPECT_EQ(polygon1.GetVertex(3), designlab::Vector2(0, 1));
 
-		// ƒP[ƒX2	
+		// ã‚±ãƒ¼ã‚¹2	
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertexCheckForDuplicates({ 0, 0 });
-		polygon2.AddVertexCheckForDuplicates({ 0, 0 }); //d•¡‚·‚é’¸“_
+		polygon2.AddVertexCheckForDuplicates({ 0, 0 }); //é‡è¤‡ã™ã‚‹é ‚ç‚¹
 		polygon2.AddVertexCheckForDuplicates({ 1, 0 });
 		polygon2.AddVertexCheckForDuplicates({ 1, 1 });
-		polygon2.AddVertexCheckForDuplicates({ 1, 0 });	//d•¡‚·‚é’¸“_
+		polygon2.AddVertexCheckForDuplicates({ 1, 0 });	//é‡è¤‡ã™ã‚‹é ‚ç‚¹
 		polygon2.AddVertexCheckForDuplicates({ 0, 1 });
 		polygon2.AddVertexCheckForDuplicates({ -1, 1 });
-		polygon2.AddVertexCheckForDuplicates({ -1, 1 }); //d•¡‚·‚é’¸“_
+		polygon2.AddVertexCheckForDuplicates({ -1, 1 }); //é‡è¤‡ã™ã‚‹é ‚ç‚¹
 
 		EXPECT_EQ(polygon2.GetVertexNum(), 5);
 		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
@@ -76,7 +76,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, RemoveVertex)
 	{
-		//lŠpŒ`‚ğì¬‚µC’¸“_‚ğíœ‚·‚é
+		//å››è§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -101,7 +101,7 @@ namespace designlab::test::common::math
 		polygon.RemoveVertex(0);
 		EXPECT_EQ(polygon.GetVertexNum(), 0);
 
-		//‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚µ‚½ê‡‰½‚à‚µ‚È‚¢DlŠpŒ`‚ğì¬‚µC‘¶İ‚µ‚È‚¢’¸“_‚ğw’è‚·‚é
+		//å­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆä½•ã‚‚ã—ãªã„ï¼å››è§’å½¢ã‚’ä½œæˆã—ï¼Œå­˜åœ¨ã—ãªã„é ‚ç‚¹ã‚’æŒ‡å®šã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -122,7 +122,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon2.GetVertex(2), designlab::Vector2(1, 1));
 		EXPECT_EQ(polygon2.GetVertex(3), designlab::Vector2(0, 1));
 
-		polygon2.RemoveVertex(-1);		//•‰‚Ì’l‚ğw’è‚µ‚½ê‡‚à‚È‚É‚à‚µ‚È‚¢
+		polygon2.RemoveVertex(-1);		//è² ã®å€¤ã‚’æŒ‡å®šã—ãŸå ´åˆã‚‚ãªã«ã‚‚ã—ãªã„
 		EXPECT_EQ(polygon2.GetVertexNum(), 4);
 		EXPECT_EQ(polygon2.GetVertex(0), designlab::Vector2(0, 0));
 		EXPECT_EQ(polygon2.GetVertex(1), designlab::Vector2(1, 0));
@@ -132,7 +132,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, RemoveLastVertex)
 	{
-		//lŠpŒ`‚ğì¬‚µC’¸“_‚ğíœ‚·‚é
+		//å››è§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -157,7 +157,7 @@ namespace designlab::test::common::math
 		polygon.RemoveLastVertex();
 		EXPECT_EQ(polygon.GetVertexNum(), 0);
 
-		//6ŠpŒ`‚ğì¬‚µC’¸“_‚ğíœ‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹ã‚’å‰Šé™¤ã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -177,11 +177,11 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, GetVertexNum)
 	{
-		//’¸“_‚ª‚È‚¢‘½ŠpŒ`‚ğì¬‚µC’¸“_”‚ğŠm”F‚·‚é
+		//é ‚ç‚¹ãŒãªã„å¤šè§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹æ•°ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		EXPECT_EQ(polygon2.GetVertexNum(), 0);
 
-		//4ŠpŒ`‚ğì¬‚µC’¸“_”‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹æ•°ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -190,12 +190,12 @@ namespace designlab::test::common::math
 
 		EXPECT_EQ(polygon.GetVertexNum(), 4);
 
-		//’¸“_‚ğ‘S‚Äíœ‚µC’¸“_”‚ğŠm”F‚·‚é
+		//é ‚ç‚¹ã‚’å…¨ã¦å‰Šé™¤ã—ï¼Œé ‚ç‚¹æ•°ã‚’ç¢ºèªã™ã‚‹
 		polygon.Reset();
 
 		EXPECT_EQ(polygon.GetVertexNum(), 0);
 
-		//6ŠpŒ`‚ğì¬‚µC’¸“_”‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œé ‚ç‚¹æ•°ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -206,7 +206,7 @@ namespace designlab::test::common::math
 
 		EXPECT_EQ(polygon3.GetVertexNum(), 6);
 
-		//’¸“_‚ğíœ‚µC’¸“_”‚ğŠm”F‚·‚é
+		//é ‚ç‚¹ã‚’å‰Šé™¤ã—ï¼Œé ‚ç‚¹æ•°ã‚’ç¢ºèªã™ã‚‹
 		polygon3.RemoveVertex(0);
 		EXPECT_EQ(polygon3.GetVertexNum(), 5);
 		polygon3.RemoveVertex(0);
@@ -223,7 +223,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, GetVertex)
 	{
-		//4ŠpŒ`‚ğì¬‚µC‚»‚Ì’¸“_‚ÌÀ•W‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œãã®é ‚ç‚¹ã®åº§æ¨™ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -235,7 +235,7 @@ namespace designlab::test::common::math
 		EXPECT_EQ(polygon.GetVertex(2), designlab::Vector2(1, 1));
 		EXPECT_EQ(polygon.GetVertex(3), designlab::Vector2(0, 1));
 
-		//6ŠpŒ`‚ğì¬‚µC‚»‚Ì’¸“_‚ÌÀ•W‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œãã®é ‚ç‚¹ã®åº§æ¨™ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -254,7 +254,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, IsConvexRightTurn)
 	{
-		//4ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -263,7 +263,7 @@ namespace designlab::test::common::math
 
 		EXPECT_TRUE(polygon.IsConvex());
 
-		//6ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, -0.5f });
 		polygon2.AddVertex({ 1, 0 });
@@ -274,7 +274,7 @@ namespace designlab::test::common::math
 
 		EXPECT_TRUE(polygon2.IsConvex());
 
-		//“Ê‘½ŠpŒ`‚Å‚È‚¢‘½ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//å‡¸å¤šè§’å½¢ã§ãªã„å¤šè§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -284,7 +284,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FALSE(polygon3.IsConvex());
 
-		//’¸“_”‚ª3–¢–‚Ì‘½ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//é ‚ç‚¹æ•°ãŒ3æœªæº€ã®å¤šè§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon4;
 		polygon4.AddVertex({ 0, 0 });
 		polygon4.AddVertex({ 1, 0 });
@@ -294,7 +294,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, IsConvexLeftTurn)
 	{
-		//4ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 0, 1 });
@@ -303,7 +303,7 @@ namespace designlab::test::common::math
 
 		EXPECT_TRUE(polygon.IsConvex());
 
-		//6ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, -0.5f });
 		polygon2.AddVertex({ -1, 0 });
@@ -314,7 +314,7 @@ namespace designlab::test::common::math
 
 		EXPECT_TRUE(polygon2.IsConvex());
 
-		//“Ê‘½ŠpŒ`‚Å‚È‚¢‘½ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//å‡¸å¤šè§’å½¢ã§ãªã„å¤šè§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 0, 1 });
@@ -325,7 +325,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FALSE(polygon3.IsConvex());
 
-		//’¸“_”‚ª3–¢–‚Ì‘½ŠpŒ`‚ğì¬‚µC“Ê‘½ŠpŒ`‚©‚Ç‚¤‚©‚ğŠm”F‚·‚é
+		//é ‚ç‚¹æ•°ãŒ3æœªæº€ã®å¤šè§’å½¢ã‚’ä½œæˆã—ï¼Œå‡¸å¤šè§’å½¢ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon4;
 		polygon4.AddVertex({ 0, 0 });
 		polygon4.AddVertex({ 1, 0 });

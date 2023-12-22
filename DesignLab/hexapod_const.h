@@ -4,7 +4,7 @@
 #ifndef DESIGNLAB_HEXAPOD_CONST_H_
 #define DESIGNLAB_HEXAPOD_CONST_H_
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab 

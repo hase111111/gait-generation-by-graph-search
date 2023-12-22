@@ -5,7 +5,7 @@
 #include <Dxlib.h>
 
 #include "dxlib_util.h"
-#include "designlab_polygon2.h"
+#include "math_polygon2.h"
 #include "leg_state.h"
 
 

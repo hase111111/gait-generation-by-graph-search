@@ -1,6 +1,6 @@
-#include "pch.h"
+﻿#include "pch.h"
 
-#include "../Designlab/designlab_quaternion.h"
+#include "../Designlab/math_quaternion.h"
 #include "../Designlab/designlab_quaternion.cpp"
 
 

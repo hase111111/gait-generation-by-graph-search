@@ -1,6 +1,6 @@
 ﻿#include "node_initializer.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
 

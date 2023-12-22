@@ -7,7 +7,7 @@
 
 #include <Dxlib.h>
 
-#include "designlab_quaternion.h"
+#include "math_quaternion.h"
 
 
 namespace designlab::enums

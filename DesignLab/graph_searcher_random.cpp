@@ -1,6 +1,6 @@
 ﻿#include "graph_searcher_random.h"
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 
 
 namespace designlab

@@ -1,50 +1,50 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_polygon2.h"
+#include "../DesignLab/math_polygon2.h"
 
 
 namespace designlab::test::common::math
 {
-	//IsInsideŠÖ”‚ÌƒeƒXƒg(‰E‰ñ‚è)
+	//IsInsideé–¢æ•°ã®ãƒ†ã‚¹ãƒˆ(å³å›ã‚Š)
 	TEST(Polygon2Test, IsInsideRightTurn)
 	{
-		//4ŠpŒ`‚ğì¬‚µC“à•”‚É‚ ‚é“_‚ÆŠO•”‚É‚ ‚é“_‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œå†…éƒ¨ã«ã‚ã‚‹ç‚¹ã¨å¤–éƒ¨ã«ã‚ã‚‹ç‚¹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
 		polygon.AddVertex({ 1, 1 });
 		polygon.AddVertex({ 0, 1 });
 
-		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.5f }));		//“à•”‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.5f }));		//å†…éƒ¨ã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 0.3f, 0.7f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.25f, 0.45f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.8f, 0.95f }));
 
-		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.0f }));		//•Ó‚Ìã‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.0f }));		//è¾ºã®ä¸Šã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 0.5f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.5f, 1.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.5f }));
 
-		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.0f }));		//’¸“_‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.0f }));		//é ‚ç‚¹ã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 0.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 1.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.0f, 1.0f }));
 
-		EXPECT_FALSE(polygon.IsInside({ 1.5f, 1.5f }));		//ŠO•”‚É‚ ‚é“_
+		EXPECT_FALSE(polygon.IsInside({ 1.5f, 1.5f }));		//å¤–éƒ¨ã«ã‚ã‚‹ç‚¹
 		EXPECT_FALSE(polygon.IsInside({ -0.5f, 1.5f }));
 		EXPECT_FALSE(polygon.IsInside({ 1.5f, -0.5f }));
 		EXPECT_FALSE(polygon.IsInside({ -0.5f, -0.5f }));
 
-		EXPECT_FALSE(polygon.IsInside({ 0.0f, -0.5f }));	//•Ó‚Ì‰„’·üã‚É‚ ‚é“_
+		EXPECT_FALSE(polygon.IsInside({ 0.0f, -0.5f }));	//è¾ºã®å»¶é•·ç·šä¸Šã«ã‚ã‚‹ç‚¹
 		EXPECT_FALSE(polygon.IsInside({ 0.0f, 1.5f }));
 
-		EXPECT_FALSE(polygon.IsInside({ 10000.0f, 10000.0f }));	//‚©‚È‚èŠO•”‚É‚ ‚é“_
+		EXPECT_FALSE(polygon.IsInside({ 10000.0f, 10000.0f }));	//ã‹ãªã‚Šå¤–éƒ¨ã«ã‚ã‚‹ç‚¹
 		EXPECT_FALSE(polygon.IsInside({ -10000.0f, 10000.0f }));
 		EXPECT_FALSE(polygon.IsInside({ 10000.0f, -10000.0f }));
 		EXPECT_FALSE(polygon.IsInside({ -10000.0f, -10000.0f }));
 
 
-		//6ŠpŒ`‚ğì¬‚µC“à•”‚É‚ ‚é“_‚ÆŠO•”‚É‚ ‚é“_‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œå†…éƒ¨ã«ã‚ã‚‹ç‚¹ã¨å¤–éƒ¨ã«ã‚ã‚‹ç‚¹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, -0.5f });
 		polygon2.AddVertex({ 1, 0 });
@@ -59,7 +59,7 @@ namespace designlab::test::common::math
 		EXPECT_TRUE(polygon2.IsInside({ 0.8f, 0.95f }));
 		EXPECT_FALSE(polygon2.IsInside({ 1.5f, 0.5f }));
 
-		//’¸“_‚ª2ˆÈ‰º‚Ì‘½ŠpŒ`‚Å‚Í•K‚¸¸”s‚·‚éD
+		//é ‚ç‚¹ãŒ2ä»¥ä¸‹ã®å¤šè§’å½¢ã§ã¯å¿…ãšå¤±æ•—ã™ã‚‹ï¼
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -68,37 +68,37 @@ namespace designlab::test::common::math
 
 	}
 
-	//IsInsideŠÖ”‚ÌƒeƒXƒg(¶‰ñ‚è)
+	//IsInsideé–¢æ•°ã®ãƒ†ã‚¹ãƒˆ(å·¦å›ã‚Š)
 	TEST(Polygon2Test, IsInsideLeftTurn)
 	{
-		//4ŠpŒ`‚ğì¬‚µC“à•”‚É‚ ‚é“_‚ÆŠO•”‚É‚ ‚é“_‚ğŠm”F‚·‚é
+		//4è§’å½¢ã‚’ä½œæˆã—ï¼Œå†…éƒ¨ã«ã‚ã‚‹ç‚¹ã¨å¤–éƒ¨ã«ã‚ã‚‹ç‚¹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 0, 1 });
 		polygon.AddVertex({ 1, 1 });
 		polygon.AddVertex({ 1, 0 });
 
-		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.5f }));		//“à•”‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.5f }));		//å†…éƒ¨ã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 0.3f, 0.7f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.25f, 0.45f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.8f, 0.95f }));
 
-		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.0f }));		//•Ó‚Ìã‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.5f, 0.0f }));		//è¾ºã®ä¸Šã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 0.5f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.5f, 1.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.5f }));
 
-		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.0f }));		//’¸“_‚É‚ ‚é“_
+		EXPECT_TRUE(polygon.IsInside({ 0.0f, 0.0f }));		//é ‚ç‚¹ã«ã‚ã‚‹ç‚¹
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 0.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 1.0f, 1.0f }));
 		EXPECT_TRUE(polygon.IsInside({ 0.0f, 1.0f }));
 
-		EXPECT_FALSE(polygon.IsInside({ 1.5f, 1.5f }));		//ŠO•”‚É‚ ‚é“_
+		EXPECT_FALSE(polygon.IsInside({ 1.5f, 1.5f }));		//å¤–éƒ¨ã«ã‚ã‚‹ç‚¹
 		EXPECT_FALSE(polygon.IsInside({ -0.5f, 1.5f }));
 		EXPECT_FALSE(polygon.IsInside({ 1.5f, -0.5f }));
 		EXPECT_FALSE(polygon.IsInside({ -0.5f, -0.5f }));
 
-		EXPECT_FALSE(polygon.IsInside({ 0.0f, -0.5f }));	//•Ó‚Ì‰„’·üã‚É‚ ‚é“_
+		EXPECT_FALSE(polygon.IsInside({ 0.0f, -0.5f }));	//è¾ºã®å»¶é•·ç·šä¸Šã«ã‚ã‚‹ç‚¹
 		EXPECT_FALSE(polygon.IsInside({ 0.0f, 1.5f }));
 
 		EXPECT_FALSE(polygon.IsInside({ 10000.0f, 100000.0f }));
@@ -107,7 +107,7 @@ namespace designlab::test::common::math
 		EXPECT_FALSE(polygon.IsInside({ -10000.0f, -10000.0f }));
 
 
-		//6ŠpŒ`‚ğì¬‚µC“à•”‚É‚ ‚é“_‚ÆŠO•”‚É‚ ‚é“_‚ğŠm”F‚·‚é
+		//6è§’å½¢ã‚’ä½œæˆã—ï¼Œå†…éƒ¨ã«ã‚ã‚‹ç‚¹ã¨å¤–éƒ¨ã«ã‚ã‚‹ç‚¹ã‚’ç¢ºèªã™ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, -0.5f });
 		polygon2.AddVertex({ -1, 0 });
@@ -122,7 +122,7 @@ namespace designlab::test::common::math
 		EXPECT_TRUE(polygon2.IsInside({ 0.8f, 0.95f }));
 		EXPECT_FALSE(polygon2.IsInside({ 1.5f, 0.5f }));
 
-		//’¸“_‚ª2ˆÈ‰º‚Ì‘½ŠpŒ`‚Å‚Í•K‚¸¸”s‚·‚éD
+		//é ‚ç‚¹ãŒ2ä»¥ä¸‹ã®å¤šè§’å½¢ã§ã¯å¿…ãšå¤±æ•—ã™ã‚‹ï¼
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });

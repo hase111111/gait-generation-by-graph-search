@@ -2,9 +2,9 @@
 
 #include <DxLib.h>
 
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "designlab_rot_converter.h"
-#include "designlab_rotation_matrix.h"
+#include "math_rotation_matrix.h"
 #include "dxlib_util.h"
 #include "model_loader.h"
 #include "phantomx_mk2_const.h"

@@ -1,13 +1,13 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_polygon2.h"
+#include "../DesignLab/math_polygon2.h"
 
 
 namespace designlab::test::common::math
 {
 	TEST(Polygon2Test, GetMaxXTest)
 	{
-		//OŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//ä¸‰è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -15,7 +15,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon.GetMaxX(), 1.0f);
 
-		//lŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å››è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -24,13 +24,13 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon2.GetMaxX(), 1.0f);
 
-		//æ‚Ù‚Ç‚Ì4ŠpŒ`‚É“_‚ğ’Ç‰Á‚µ‚ÄCXÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®4è§’å½¢ã«ç‚¹ã‚’è¿½åŠ ã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon2.AddVertex({ 2, 0.5 });
 		polygon2.AddVertex({ -5, 0.5 });
 
 		EXPECT_FLOAT_EQ(polygon2.GetMaxX(), 2.0f);
 
-		//6ŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//6è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -41,17 +41,17 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon3.GetMaxX(), 1.0f);
 
-		//æ‚Ù‚Ç‚Ì6ŠpŒ`‚©‚ç“_‚ğíœ‚µ‚ÄCXÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®6è§’å½¢ã‹ã‚‰ç‚¹ã‚’å‰Šé™¤ã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon3.RemoveLastVertex();
 		polygon3.RemoveLastVertex();
 
 		EXPECT_FLOAT_EQ(polygon3.GetMaxX(), 1.0f);
 	}
 
-	//GetMinX‚ÌƒeƒXƒg
+	//GetMinXã®ãƒ†ã‚¹ãƒˆ
 	TEST(Polygon2Test, GetMinXTest)
 	{
-		//OŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//ä¸‰è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -59,7 +59,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon.GetMinX(), 0.0f);
 
-		//lŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å››è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -68,13 +68,13 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon2.GetMinX(), 0.0f);
 
-		//æ‚Ù‚Ç‚Ì4ŠpŒ`‚É“_‚ğ’Ç‰Á‚µ‚ÄCXÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®4è§’å½¢ã«ç‚¹ã‚’è¿½åŠ ã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon2.AddVertex({ 2, 0.5 });
 		polygon2.AddVertex({ -5, 0.5 });
 
 		EXPECT_FLOAT_EQ(polygon2.GetMinX(), -5.0f);
 
-		//6ŠpŒ`‚ğ¶¬‚µ‚ÄCXÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//6è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -85,17 +85,17 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon3.GetMinX(), -1.0f);
 
-		//æ‚Ù‚Ç‚Ì6ŠpŒ`‚©‚ç“_‚ğíœ‚µ‚ÄCXÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®6è§’å½¢ã‹ã‚‰ç‚¹ã‚’å‰Šé™¤ã—ã¦ï¼ŒXåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon3.RemoveLastVertex();
 		polygon3.RemoveLastVertex();
 
 		EXPECT_FLOAT_EQ(polygon3.GetMinX(), 0.0f);
 	}
 
-	//GetMaxY‚ÌƒeƒXƒg
+	//GetMaxYã®ãƒ†ã‚¹ãƒˆ
 	TEST(Polygon2Test, GetMaxYTest)
 	{
-		//OŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//ä¸‰è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -103,7 +103,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon.GetMaxY(), 1.0f);
 
-		//lŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å››è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -112,13 +112,13 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon2.GetMaxY(), 1.0f);
 
-		//æ‚Ù‚Ç‚Ì4ŠpŒ`‚É“_‚ğ’Ç‰Á‚µ‚ÄCYÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®4è§’å½¢ã«ç‚¹ã‚’è¿½åŠ ã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon2.AddVertex({ 2, 0.5 });
 		polygon2.AddVertex({ -5, 0.5 });
 
 		EXPECT_FLOAT_EQ(polygon2.GetMaxY(), 1.0f);
 
-		//6ŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//6è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -129,7 +129,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon3.GetMaxY(), 1.0f);
 
-		//æ‚Ù‚Ç‚Ì6ŠpŒ`‚©‚ç“_‚ğíœ‚µ‚ÄCYÀ•W‚ÌÅ‘å’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®6è§’å½¢ã‹ã‚‰ç‚¹ã‚’å‰Šé™¤ã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon3.RemoveLastVertex();
 		polygon3.RemoveLastVertex();
 
@@ -138,7 +138,7 @@ namespace designlab::test::common::math
 
 	TEST(Polygon2Test, GetMinYTest)
 	{
-		//OŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//ä¸‰è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon;
 		polygon.AddVertex({ 0, 0 });
 		polygon.AddVertex({ 1, 0 });
@@ -146,7 +146,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon.GetMinY(), 0.0f);
 
-		//lŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å››è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon2;
 		polygon2.AddVertex({ 0, 0 });
 		polygon2.AddVertex({ 1, 0 });
@@ -155,13 +155,13 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon2.GetMinY(), 0.0f);
 
-		//æ‚Ù‚Ç‚Ì4ŠpŒ`‚É“_‚ğ’Ç‰Á‚µ‚ÄCYÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®4è§’å½¢ã«ç‚¹ã‚’è¿½åŠ ã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon2.AddVertex({ 2, 0.5 });
 		polygon2.AddVertex({ -5, 0.5 });
 
 		EXPECT_FLOAT_EQ(polygon2.GetMinY(), 0.0f);
 
-		//6ŠpŒ`‚ğ¶¬‚µ‚ÄCYÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//6è§’å½¢ã‚’ç”Ÿæˆã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		designlab::Polygon2 polygon3;
 		polygon3.AddVertex({ 0, 0 });
 		polygon3.AddVertex({ 1, 0 });
@@ -172,7 +172,7 @@ namespace designlab::test::common::math
 
 		EXPECT_FLOAT_EQ(polygon3.GetMinY(), 0.0f);
 
-		//æ‚Ù‚Ç‚Ì6ŠpŒ`‚©‚ç“_‚ğíœ‚µ‚ÄCYÀ•W‚ÌÅ¬’l‚ğ‹‚ß‚é
+		//å…ˆã»ã©ã®6è§’å½¢ã‹ã‚‰ç‚¹ã‚’å‰Šé™¤ã—ã¦ï¼ŒYåº§æ¨™ã®æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹
 		polygon3.RemoveLastVertex();
 		polygon3.RemoveLastVertex();
 

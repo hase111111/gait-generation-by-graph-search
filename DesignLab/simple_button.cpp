@@ -5,7 +5,7 @@
 #include <Dxlib.h>
 
 #include "cassert_define.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "designlab_string_util.h"
 #include "font_loader.h"
 

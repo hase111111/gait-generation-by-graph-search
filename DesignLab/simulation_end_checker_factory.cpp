@@ -1,7 +1,7 @@
 ﻿#include "simulation_end_checker_factory.h"
 
 #include "cassert_define.h"
-#include "designlab_quaternion.h"
+#include "math_quaternion.h"
 #include "designlab_rot_converter.h"
 #include "simulation_end_checker_by_goal_tape.h"
 #include "simulation_end_checker_by_position.h"

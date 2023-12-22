@@ -62,4 +62,43 @@ TEST_SUITE("Vector3")
 			CHECK(actual == expected);
 		}
 	}
+
+	TEST_CASE("Cross_他のベクトルを引数に渡したとき_自身×他のベクトルの外積が返るべき")
+	{
+		SUBCASE("(1,0,0)と(0,1,0)を引数に渡したとき_(0,0,1)が返るべき")
+		{
+			const auto v1 = Vector3(1, 0, 0);
+			const auto v2 = Vector3(0, 1, 0);
+			const auto actual = v1.Cross(v2);
+			const auto expected = Vector3(0, 0, 1);
+			CHECK(actual == expected);
+		}
+
+		SUBCASE("(0,1,0)と(0,0,1)を引数に渡したとき_(1,0,0)が返るべき")
+		{
+			const auto v1 = Vector3(0, 1, 0);
+			const auto v2 = Vector3(0, 0, 1);
+			const auto actual = v1.Cross(v2);
+			const auto expected = Vector3(1, 0, 0);
+			CHECK(actual == expected);
+		}
+
+		SUBCASE("(0,0,1)と(1,0,0)を引数に渡したとき_(0,1,0)が返るべき")
+		{
+			const auto v1 = Vector3(0, 0, 1);
+			const auto v2 = Vector3(1, 0, 0);
+			const auto actual = v1.Cross(v2);
+			const auto expected = Vector3(0, 1, 0);
+			CHECK(actual == expected);
+		}
+
+		SUBCASE("(0,0,1)と(0,1,0)を引数に渡したとき_(-1,0,0)が返るべき")
+		{
+			const auto v1 = Vector3(0, 0, 1);
+			const auto v2 = Vector3(0, 1, 0);
+			const auto actual = v1.Cross(v2);
+			const auto expected = Vector3(-1, 0, 0);
+			CHECK(actual == expected);
+		}
+	}
 }

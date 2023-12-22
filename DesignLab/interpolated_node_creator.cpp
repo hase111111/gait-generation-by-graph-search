@@ -1,7 +1,7 @@
 ﻿#include "interpolated_node_creator.h"
 
 #include "cassert_define.h"
-#include "designlab_math_util.h"
+#include "math_util.h"
 #include "hexapod_const.h"
 
 
