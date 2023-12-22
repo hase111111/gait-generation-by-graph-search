@@ -606,6 +606,9 @@
     <ClInclude Include="math_vector3_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
+    <ClInclude Include="math_const.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

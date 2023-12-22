@@ -48,6 +48,7 @@
     <ClInclude Include="map_file_exporter.h" />
     <ClInclude Include="map_file_importer.h" />
     <ClInclude Include="map_state_test.h" />
+    <ClInclude Include="math_const.h" />
     <ClInclude Include="math_vector3_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
