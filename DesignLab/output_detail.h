@@ -1,7 +1,4 @@
-﻿//! @file output_detail.h
-//! @brief designlab::enums::OutputDetail 
-
-#ifndef DESIGNLAB_OUTPUT_DETAIL_H_
+﻿#ifndef DESIGNLAB_OUTPUT_DETAIL_H_
 #define DESIGNLAB_OUTPUT_DETAIL_H_
 
 
@@ -20,7 +17,7 @@ enum class OutputDetail : int
 	kDebug,			//!< デバッグ時のみ出力，一番優先度が低い．
 };
 
-}
+}	// namespace designlab::enums
 
 
 #endif	// DESIGNLAB_OUTPUT_DETAIL_H_

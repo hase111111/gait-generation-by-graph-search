@@ -5,7 +5,7 @@
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "map_file_importer.h"
 
 

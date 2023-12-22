@@ -1,7 +1,4 @@
-﻿//! @file designlab_string_util.h
-//! @brief 文字列を扱う関数をまとめた名前空間．
-
-#ifndef	DESIGNLAB_STRING_UTIL_H_
+﻿#ifndef	DESIGNLAB_STRING_UTIL_H_
 #define	DESIGNLAB_STRING_UTIL_H_
 
 #include <string>
@@ -14,11 +11,11 @@ namespace designlab::string_util
 {
 
 //! @brief 文字列を分割する関数．指定した文字で文字列を分割する．
-//! @n 分割した結果，空文字列が含まれる場合は，空文字列を含めて返す．
-//! @n 最後が区切り文字で終わる場合は，それを無視して返す．
+//! @n 分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す．
+//! @n 最後が区切り文字で終わる場合は，それを無視する．
 //! @param [in] str 分割する文字列．
-//! @param [in] delim 分割する文字，あるいは文字列．
-//! @return std::vector<std::string> 分割した文字列．
+//! @param [in] delim 区切り文字，あるいは文字列．
+//! @return 分割した文字列．
 std::vector<std::string> Split(const std::string& str, const std::string& delim);
 
 //! @brief enumを文字列に変換する関数．
@@ -35,7 +32,7 @@ std::vector<std::string> Split(const std::string& str, const std::string& delim)
 //! @n と書く．
 //! @n このため，この関数はその先頭のkを除去する機能を提供し，Color::kRed を渡すと "Red" という文字列を返す．
 //! @n
-//! @n 参考
+//! @subsubsection 参考
 //! @li https://marycore.jp/prog/cpp/std-string-split/
 //! @li https://marycore.jp/prog/cpp/std-string-find-search/#find%EF%BC%8Frfind
 //! 

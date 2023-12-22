@@ -27,7 +27,7 @@ void CmdIOUtil::SetOutputLimit(const enums::OutputDetail limit)
 
 	if (!is_initialized)
 	{
-		//これを記述しておくと実行速度が早くなる．そのかわりprintfを使用できない．詳しはReferenceを参照
+		//これを記述しておくと実行速度が早くなる．そのかわりprintfを使用できない．詳しはReferenceを参照．
 		std::cin.tie(&std::cout);
 		std::ios_base::sync_with_stdio(true);
 
@@ -46,8 +46,8 @@ void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
 	assert(is_initialized);	// SetOutputLimitを呼んでから使用すること.
 
 
-	// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または
-	// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合
+	// 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合　または，
+	// 出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合．
 
 	if ((detail <= output_limit && do_output) || (detail == enums::OutputDetail::kSystem && !do_output))
 	{
@@ -57,7 +57,7 @@ void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
 
 void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail detail)
 {
-	//改行ごとに文字列を取り出す
+	//改行ごとに文字列を取り出す．
 	std::stringstream ss(str);
 	std::string line;
 
@@ -84,7 +84,7 @@ void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail d
 
 void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail detail)
 {
-	//改行ごとに文字列を取り出す
+	//改行ごとに文字列を取り出す．
 	std::stringstream ss(str);
 	std::string line;
 
@@ -159,7 +159,7 @@ void CmdIOUtil::WaitAnyKey(const std::string& str)
 {
 	Output(str, enums::OutputDetail::kSystem);
 
-	//何かキーを押すまで待機
+	//何かキーを押すまで待機．
 	system("PAUSE");
 }
 
@@ -177,7 +177,7 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num, con
 
 	try
 	{
-		res = std::stoi(input_str);	// 入力された文字列をint型に変換
+		res = std::stoi(input_str);	// 入力された文字列をint型に変換．
 
 		if (res < min || res > max)
 		{
@@ -191,7 +191,7 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num, con
 	}
 	catch (...)
 	{
-		// stoiで例外が発生した場合，ここに処理が飛ぶ
+		// stoiで例外が発生した場合，ここに処理が飛ぶ．
 
 		Output(
 			"入力された値「" + input_str + "」は評価できません．デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",

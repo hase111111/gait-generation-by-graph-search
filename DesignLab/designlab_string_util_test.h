@@ -2,7 +2,7 @@
 
 #include <doctest.h>
 
-#include "designlab_string_util.h"
+#include "string_util.h"
 
 
 TEST_SUITE("namespace string_util")

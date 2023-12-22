@@ -8,7 +8,7 @@
 #include <string>
 
 #include "boot_mode.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "display_quality.h"
 #include "output_detail.h"
 #include "toml_serialize_macro.h"

@@ -3,7 +3,7 @@
 #include <magic_enum.hpp>
 
 #include "math_rot_converter.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "font_loader.h"
 
 

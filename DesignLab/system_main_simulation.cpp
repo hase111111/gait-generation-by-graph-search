@@ -7,7 +7,7 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 #include "dead_lock_checker.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "map_creator_for_simulation.h"
 
 

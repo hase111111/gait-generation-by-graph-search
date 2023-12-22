@@ -18,7 +18,7 @@ public:
 
 	//! @brief TOMLファイルのデータの検証を行う．
 	//! @param[in] toml_data TOMLファイルのデータ．
-	//! @return std::tuple<bool, std::string> 検証結果．1つ目の要素は検証結果，2つ目の要素は検証結果の詳細．
+	//! @return std::tuple<bool, std::string> 検証結果．1つ目の要素は検証結果，2つ目の要素は検証失敗の理由．
 	virtual std::tuple<bool, std::string> Validate(const T& toml_data) const = 0;
 };
 

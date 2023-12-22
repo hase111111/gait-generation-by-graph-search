@@ -1,7 +1,4 @@
-﻿//! @file cmdio_util.h
-//! @brief cout，cinを使ったコマンドライン入出力を行うクラス．
-
-#ifndef DESIGNLAB_CMDIO_UTIL_H_
+﻿#ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
 
 #include <string>
@@ -14,7 +11,7 @@ namespace designlab
 {
 
 //! @class CmdIOUtil
-//! @brief cout，cinを使ったコマンドライン入出力を行うクラス．
+//! @brief 標準入出力のstd::cout，std::cinを使ったコマンドライン入出力を行うシングルトンクラス．
 //! @details シングルトンクラスのため，インスタンス化はできない．
 //! 実行時には，以下のように使う．
 //! @code
@@ -51,70 +48,72 @@ public:
 
 	//! @brief コマンドラインに文字を出力する関数．
 	//! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
-	//! @n 必ずSetOutputLimit()を呼び出してから使うこと．
+	//! @n 必ず SetOutputLimit() を呼び出してから使うこと．
 	//! @param [in] str 出力する文字列
 	//! @param [in] detail 出力する文字列の詳細
 	static void Output(const std::string& str, enums::OutputDetail detail);
 
-	//! @brief 中央に文字を出力する関数．文字列が長すぎる場合は普通に出力される．
-	//! @param [in] str 出力する文字列
-	//! @param [in] detail 出力する文字列の詳細
+	//! @brief 中央に文字を出力する関数．文字列が長すぎる場合は普通に左詰めで出力される．
+	//! @param [in] str 出力する文字列．
+	//! @param [in] detail 出力する文字列の詳細．
 	static void OutputCenter(const std::string& str, enums::OutputDetail detail);
 
-	//! @brief 右端に文字を出力する関数．文字列が長すぎる場合は普通に出力される．
-	//! @param [in] str 出力する文字列
-	//! @param [in] detail 出力する文字列の詳細
+	//! @brief 右端に文字を出力する関数．文字列が長すぎる場合は普通に左詰めで出力される．
+	//! @param [in] str 出力する文字列．
+	//! @param [in] detail 出力する文字列の詳細．
 	static void OutputRight(const std::string& str, enums::OutputDetail detail);
 
 
 	//! @brief コマンドラインで改行をする関数．
 	//! @param [in] num 改行する回数．0以下の値を入れると何もしない．
-	//! @param [in] detail 出力する文字列の詳細
+	//! @param [in] detail 出力する文字列の詳細．
 	static void OutputNewLine(int num, enums::OutputDetail detail);
 
 	//! @brief コマンドラインに水平線を出力する関数．
-	//! @param [in] line_visual 水平線の見た目．'-'ならば水平線，'='ならば二重水平線
+	//! @param [in] line_visual 水平線の見た目．'-'ならば水平線，'='ならば二重水平線．
 	//! @n 2文字以上の文字列を入れると動作しない．
-	//! @param [in] detail 出力する文字列の詳細
+	//! @param [in] detail 出力する文字列の詳細．
 	static void OutputHorizontalLine(const std::string& line_visual, enums::OutputDetail detail);
 
 	//! @brief コマンドラインにこのソフトのタイトルを出力する関数．
-	//! @n 必ず，OutputDetailがkSystemで出力される．
-	//! @param [in] str 出力する文字列
-	//! @param [in] output_copy_right コピーライトを出力するかどうか (デフォルトではfalse)
+	//! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
+	//! @param [in] str 出力する文字列．
+	//! @param [in] output_copy_right コピーライトを出力するか． (デフォルトではfalse)
 	static void OutputTitle(const std::string& title_name, bool output_copy_right = false);
 
 
 	//! @brief 入力待ちをする関数．
-	//! @param [in] str 入力待ちをする際に出力する文字列
+	//! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
+	//! @param [in] str 入力待ちをする際に出力する文字列．
 	static void WaitAnyKey(const std::string& str = "入力を待っています．");
 
-	//! @brief 整数を入力する関数．
-	//! @n 必ず，OutputDetailがkSystemで出力される．
-	//! @param [in] min 入力する整数の最小値
-	//! @param [in] max 入力する整数の最大値
-	//! @param [in] default_num デフォルトで入力する整数
-	//! @param [in] str 入力待ちをする際に出力する文字列
-	//! @return int 入力された整数
+	//! @brief 整数を入力させる関数．
+	//! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
+	//! @param [in] min 入力する整数の最小値．
+	//! @param [in] max 入力する整数の最大値．
+	//! @param [in] default_num デフォルトで入力する整数．
+	//! @param [in] str 入力待ちをする際に出力する文字列．
+	//! @return 入力された整数．
 	static int InputInt(int min, int max, int default_num, const std::string& str = "整数を入力してください．");
 
-	//! @brief yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る．
-	//! @n 必ず，OutputDetailがkSystemで出力される．
-	//! @param [in] str 入力待ちをする際に出力する文字列
-	//! @return bool yesならばtrue，noならばfalse
+	//! @brief yesかnoを入力させる関数．返り値でyesならtrue，noならfalseを返す．
+	//! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
+	//! @param [in] str 入力待ちをする際に出力する文字列．
+	//! @retval true 入力されたのがyesならばtrue．
+	//! @retval false 入力されたのがnoならばfalse．
 	static bool InputYesNo(const std::string& str = "よろしいですか？");
 
 private:
 
 	static constexpr int kHorizontalLineLength = 100; //!< 水平線の長さ．
 
-	// 出力制限，この値未満のメッセージの出力は行われない
+	// 出力制限，この値未満のメッセージの出力は行われない．
 	static enums::OutputDetail output_limit;
 
-	// falseの場合，出力を行わない(システムメッセージは除く)
+	// falseの場合，出力を行わない(システムメッセージは除く)．
 	static bool do_output;
 
-	// 初期化を既に行ったかどうか
+	// 初期化を既に行ったかどうか．
 	static bool is_initialized;
 
 };

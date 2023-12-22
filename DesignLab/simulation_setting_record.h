@@ -7,7 +7,7 @@
 #include <string>
 
 #include "math_euler.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "math_vector3.h"
 #include "hexapod_next_move.h"
 #include "toml_serialize_macro.h"

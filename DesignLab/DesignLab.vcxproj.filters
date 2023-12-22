@@ -387,13 +387,13 @@
     <ClInclude Include="gait_pattern_generator_revaluation.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_string_util.h">
+    <ClInclude Include="string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="math_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_array_util.h">
+    <ClInclude Include="array_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="com_selecter_hato.h">
@@ -791,7 +791,7 @@
     <ClCompile Include="gait_pattern_generator_revaluation.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_string_util.cpp">
+    <ClCompile Include="string_util.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
     <ClCompile Include="math_rot_converter.cpp">

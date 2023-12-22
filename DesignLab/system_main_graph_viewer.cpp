@@ -8,7 +8,7 @@
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "gait_pattern_generator_basic.h"
 #include "graph_search_const.h"
 #include "node_initializer.h"

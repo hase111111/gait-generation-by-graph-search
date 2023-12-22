@@ -51,14 +51,14 @@
     <ClInclude Include="math_const.h" />
     <ClInclude Include="math_vector3_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
-    <ClInclude Include="designlab_array_util.h" />
+    <ClInclude Include="array_util.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selecter.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="average_calculator.h" />
     <ClInclude Include="math_rotation_matrix.h" />
     <ClInclude Include="math_rot_converter.h" />
-    <ClInclude Include="designlab_string_util.h" />
+    <ClInclude Include="string_util.h" />
     <ClInclude Include="devide_map_state.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
@@ -202,7 +202,7 @@
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="node_creator_com_move.cpp" />
     <ClCompile Include="math_rot_converter.cpp" />
-    <ClCompile Include="designlab_string_util.cpp" />
+    <ClCompile Include="string_util.cpp" />
     <ClCompile Include="devide_map_state.cpp" />
     <ClCompile Include="node_creator_builder_rot_test.cpp" />
     <ClCompile Include="node_initializer.cpp" />

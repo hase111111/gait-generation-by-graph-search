@@ -2,12 +2,12 @@
 
 #include <boost/thread.hpp>
 
+#include "array_util.h"
 #include "cassert_define.h"
 #include "cmdio_util.h"
-#include "designlab_array_util.h"
-#include "designlab_string_util.h"
 #include "graph_search_const.h"
 #include "map_state.h"
+#include "string_util.h"
 
 
 namespace designlab
@@ -23,12 +23,12 @@ GaitPatternGeneratorThread::GaitPatternGeneratorThread(
 	graph_searcher_ptr_(std::move(graph_searcher_ptr)),
 	graph_tree_{ 1000 },
 	graph_tree_array_(MakeArray<GaitPatternGraphTree>(
-	GaitPatternGraphTree{ max_node_num / kThreadNum },
-	GaitPatternGraphTree{ max_node_num / kThreadNum },
-	GaitPatternGraphTree{ max_node_num / kThreadNum },
-	GaitPatternGraphTree{ max_node_num / kThreadNum },
-	GaitPatternGraphTree{ max_node_num / kThreadNum },
-	GaitPatternGraphTree{ max_node_num / kThreadNum }
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum },
+		GaitPatternGraphTree{ max_node_num / kThreadNum }
 	)),
 	max_depth_(max_depth)
 {
@@ -95,12 +95,12 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodebyGraphSearch(
 
 			thread_group.create_thread(
 				boost::bind(
-				&GraphTreeCreator::CreateGraphTree,
-				graph_tree_creator_ptr_.get(),
-				1,
-				max_depth_,
-				&graph_tree_array_[i]
-			)
+					&GraphTreeCreator::CreateGraphTree,
+					graph_tree_creator_ptr_.get(),
+					1,
+					max_depth_,
+					&graph_tree_array_[i]
+				)
 			);
 		}
 	}

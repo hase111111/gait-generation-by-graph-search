@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-#include "designlab_string_util.h"
+#include "string_util.h"
 
 
 namespace designlab

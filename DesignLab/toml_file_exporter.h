@@ -7,8 +7,8 @@
 #include <map>
 
 #include "cmdio_util.h"
-#include "designlab_string_util.h"
 #include "implicit_metafunction.h"
+#include "string_util.h"
 #include "toml11_define.h"
 
 
@@ -29,32 +29,32 @@ public:
 	void Export(const std::string& file_path, const T& data)
 	{
 		const toml::basic_value<toml::preserve_comments, std::map> value(data);
-		std::string res_str = toml::format(value);	// 設定を文字列に変換
+		std::string res_str = toml::format(value);	// 設定を文字列に変換．
 
-		InsertNewLine(&res_str);	// @#をみたら，改行を挿入する
+		InsertNewLine(&res_str);	// #をみたら，改行を挿入する．
 
-		IndentTable(&res_str);	// Tableの中身をインデントする
+		IndentTable(&res_str);		// Tableの中身をインデントする．
 
 		std::ofstream ofs;
 		ofs.open(file_path);
 
-		// ファイルが開けなかったら何もしない
+		// ファイルが開けなかったら何もしない．
 		if (!ofs)
 		{
 			CmdIOUtil::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path, enums::OutputDetail::kSystem);
 			return;
 		}
 
-		ofs.write(res_str.c_str(), res_str.length());	// ファイルに書き込む
+		ofs.write(res_str.c_str(), res_str.length());	// ファイルに書き込む．
 
-		ofs.close();	// ファイルを閉じる
+		ofs.close();	// ファイルを閉じる．
 
 		CmdIOUtil::Output("TOMLファイルを出力しました．file_path : " + file_path, enums::OutputDetail::kSystem);
 	}
 
 private:
 
-	//! @brief @#をみたら，改行を挿入する
+	//! @brief @#をみたら，改行を挿入する．
 	void InsertNewLine(std::string* str)
 	{
 		if (str == nullptr)
@@ -82,8 +82,8 @@ private:
 		*str = res_str;
 	}
 
-	//! @brief Tableの中身をインデントする
-	//! @param [in/out] str インデントする文字列
+	//! @brief Tableの中身をインデントする．
+	//! @param [in,out] str インデントする文字列．
 	void IndentTable(std::string* str)
 	{
 		if (str == nullptr)

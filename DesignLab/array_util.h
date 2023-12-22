@@ -1,7 +1,4 @@
-﻿//! @file designlab_array_util.h
-//! @brief std::arrayを初期化する関数．
-
-#ifndef DESIGNLAB_ARRAY_UTIL_H_
+﻿#ifndef DESIGNLAB_ARRAY_UTIL_H_
 #define DESIGNLAB_ARRAY_UTIL_H_
 
 #include <array>

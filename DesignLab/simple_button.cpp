@@ -6,7 +6,7 @@
 
 #include "cassert_define.h"
 #include "math_util.h"
-#include "designlab_string_util.h"
+#include "string_util.h"
 #include "font_loader.h"
 
 
