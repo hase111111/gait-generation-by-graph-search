@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector2.h"
+#include "../DesignLab/math_vector2.h"
 
 
 namespace dl = ::designlab;
@@ -8,7 +8,7 @@ namespace dl = ::designlab;
 
 namespace 
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
 	dl::Vector2 MakeVec2(const float x, const float y)
 	{
@@ -44,8 +44,8 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec = std::get<0>(data);
 			const float expected = std::get<1>(data);
 
-			std::string test_discription = " GetLength ³‰ğ‚Í : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + std::to_string(vec.GetLength());
+			std::string test_discription = " GetLength æ­£è§£ã¯ : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + std::to_string(vec.GetLength());
 
 			EXPECT_FLOAT_EQ(expected, vec.GetLength()) << test_discription;
 		}
@@ -67,8 +67,8 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec = std::get<0>(data);
 			const float expected = std::get<1>(data);
 
-			std::string test_discription = " GetSquaredLength ³‰ğ‚Í : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + std::to_string(vec.GetSquaredLength());
+			std::string test_discription = " GetSquaredLength æ­£è§£ã¯ : \n " + ToString(vec) + " = " + std::to_string(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + std::to_string(vec.GetSquaredLength());
 
 			EXPECT_FLOAT_EQ(expected, vec.GetSquaredLength()) << test_discription;
 		}
@@ -76,7 +76,7 @@ namespace designlab::test::common::math
 
 	TEST(Vector2Test, DotTest)
 	{
-		// vec1 E vec2 = expected ‚Ì‡‚Ìƒ^ƒvƒ‹
+		// vec1 ãƒ» vec2 = expected ã®é †ã®ã‚¿ãƒ—ãƒ«
 		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
 			{ MakeVec2(3.0f, 4.0f),		MakeVec2(1.0f, 1.0f),	7.0f },
 			{ MakeVec2(1.0f, 1.0f),		MakeVec2(1.0f, 1.0f),	2.0f},
@@ -92,8 +92,8 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec2 = std::get<1>(data);
 			const float expected = std::get<2>(data);
 
-			std::string test_discription = " Dot ³‰ğ‚Í : \n " + ToString(vec1) + "E" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + std::to_string(vec1.Dot(vec2));
+			std::string test_discription = " Dot æ­£è§£ã¯ : \n " + ToString(vec1) + "ãƒ»" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + std::to_string(vec1.Dot(vec2));
 
 			EXPECT_FLOAT_EQ(expected, vec1.Dot(vec2)) << test_discription;
 		}
@@ -101,7 +101,7 @@ namespace designlab::test::common::math
 
 	TEST(Vector2Test, CrossTest)
 	{
-		// vec1 ~ vec2 = expected ‚Ì‡‚Ìƒ^ƒvƒ‹
+		// vec1 Ã— vec2 = expected ã®é †ã®ã‚¿ãƒ—ãƒ«
 		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
 			{ MakeVec2(3.f, 4.f), MakeVec2(1.f, 1.f), -1.f},
 			{ MakeVec2(1.f, 1.f), MakeVec2(1.f, 1.f), 0.f},
@@ -117,17 +117,17 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec2 = std::get<1>(data);
 			const float expected = std::get<2>(data);
 
-			std::string test_discription = " Cross ³‰ğ‚Í : \n " + ToString(vec1) + "~" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + std::to_string(vec1.Cross(vec2));
+			std::string test_discription = " Cross æ­£è§£ã¯ : \n " + ToString(vec1) + "Ã—" + ToString(vec2) + " = " + std::to_string(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + std::to_string(vec1.Cross(vec2));
 
 			EXPECT_FLOAT_EQ(expected, vec1.Cross(vec2)) << test_discription;
 		}
 	}
 
-	//distanceFromŠÖ”‚ÌƒeƒXƒg
+	//distanceFromé–¢æ•°ã®ãƒ†ã‚¹ãƒˆ
 	TEST(Vector2Test, GetDistanceFromTest)
 	{
-		// vec1 ‚Æ vec2 ‚Ì‹——£ = expected ‚Ì‡‚Ìƒ^ƒvƒ‹
+		// vec1 ã¨ vec2 ã®è·é›¢ = expected ã®é †ã®ã‚¿ãƒ—ãƒ«
 		std::vector<std::tuple<dl::Vector2, dl::Vector2, float>> testcase_list = {
 			{ MakeVec2(3.f, 4.f), MakeVec2(1.f, 1.f), 3.60555128f },
 			{ MakeVec2(1.f, 1.f), MakeVec2(1.f, 1.f), 0.0f },
@@ -145,8 +145,8 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec2 = std::get<1>(data);
 			const float expected = std::get<2>(data);
 
-			std::string test_discription = " GetDistanceFrom ³‰ğ‚Í : \n " + ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Ì‹——£ = " + std::to_string(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + std::to_string(vec1.GetDistanceFrom(vec2));
+			std::string test_discription = " GetDistanceFrom æ­£è§£ã¯ : \n " + ToString(vec1) + "ã¨" + ToString(vec2) + "ã®è·é›¢ = " + std::to_string(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + std::to_string(vec1.GetDistanceFrom(vec2));
 
 			EXPECT_FLOAT_EQ(expected, vec1.GetDistanceFrom(vec2)) << test_discription;
 		}
@@ -167,8 +167,8 @@ namespace designlab::test::common::math
 			const dl::Vector2 vec = std::get<0>(data);
 			const dl::Vector2 expected = std::get<1>(data);
 
-			std::string test_discription = " GetNormalized ³‰ğ‚Í : \n " + ToString(vec) + " = " + ToString(expected) + "\n";
-			test_discription += " ÀÛ‚Í :" + ToString(vec.GetNormalized());
+			std::string test_discription = " GetNormalized æ­£è§£ã¯ : \n " + ToString(vec) + " = " + ToString(expected) + "\n";
+			test_discription += " å®Ÿéš›ã¯ :" + ToString(vec.GetNormalized());
 
 			EXPECT_EQ(expected, vec.GetNormalized()) << test_discription;
 		}
@@ -178,10 +178,10 @@ namespace designlab::test::common::math
 	{
 		const auto zero_vec = MakeVec2(0.0f, 0.0f);	
 
-		EXPECT_EQ(MakeVec2(0.0f, 0.0f).GetNormalized(), zero_vec) << "—ëƒxƒNƒgƒ‹‚Í³‹K‰»‚µ‚Ä‚à—ëƒxƒNƒgƒ‹‚Æ‚È‚è‚Ü‚·D";
+		EXPECT_EQ(MakeVec2(0.0f, 0.0f).GetNormalized(), zero_vec) << "é›¶ãƒ™ã‚¯ãƒˆãƒ«ã¯æ­£è¦åŒ–ã—ã¦ã‚‚é›¶ãƒ™ã‚¯ãƒˆãƒ«ã¨ãªã‚Šã¾ã™ï¼";
 
-		EXPECT_EQ(MakeVec2(0.0001f, 0.00001f).GetNormalized(), zero_vec) << "ÀÛ‚É—ë‚Å‚È‚­‚Æ‚àC—ë‚É\•ª‹ß‚¢ê‡—ëƒxƒNƒgƒ‹‚Æ‚İ‚È‚µ‚Ü‚·D";
-		EXPECT_EQ(MakeVec2(-0.0001f, -0.00001f).GetNormalized(), zero_vec) << "ÀÛ‚É—ë‚Å‚È‚­‚Æ‚àC—ë‚É\•ª‹ß‚¢ê‡—ëƒxƒNƒgƒ‹‚Æ‚İ‚È‚µ‚Ü‚·D";
+		EXPECT_EQ(MakeVec2(0.0001f, 0.00001f).GetNormalized(), zero_vec) << "å®Ÿéš›ã«é›¶ã§ãªãã¨ã‚‚ï¼Œé›¶ã«ååˆ†è¿‘ã„å ´åˆé›¶ãƒ™ã‚¯ãƒˆãƒ«ã¨ã¿ãªã—ã¾ã™ï¼";
+		EXPECT_EQ(MakeVec2(-0.0001f, -0.00001f).GetNormalized(), zero_vec) << "å®Ÿéš›ã«é›¶ã§ãªãã¨ã‚‚ï¼Œé›¶ã«ååˆ†è¿‘ã„å ´åˆé›¶ãƒ™ã‚¯ãƒˆãƒ«ã¨ã¿ãªã—ã¾ã™ï¼";
 	}
 
 	TEST(Vector2Test, IsZeroTest)

@@ -1,6 +1,6 @@
-#include "pch.h"
+﻿#include "pch.h"
 
-#include "../DesignLab/designlab_euler.h"
+#include "../DesignLab/math_euler.h"
 #include "../DesignLab/designlab_euler.cpp"
 
 

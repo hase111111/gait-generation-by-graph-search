@@ -27,8 +27,7 @@ bool ComSelecterHato::GetComFromPolygon(const designlab::Polygon2& polygon, cons
 	for (int i = 0; i < polygon.GetVertexNum(); ++i)
 	{
 		Vector2 edge = polygon.GetVertex(i) - polygon.GetVertex((i + 1) % polygon.GetVertexNum());
-		edge.GetNormalized();
-		edge_vec[i] = edge;
+		edge_vec[i] = edge.GetNormalized();
 	}
 
 	//候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，その点を重心として採用する．

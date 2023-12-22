@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_euler.h"
+#include "../DesignLab/math_euler.h"
 
 
 namespace dl = ::designlab;
@@ -9,7 +9,7 @@ namespace dlm = ::designlab::math_util;
 
 namespace designlab::test::common::math
 {
-	//‘ã“ü‰‰Zq = AssignmentOperator
+	//ä»£å…¥æ¼”ç®—å­ = AssignmentOperator
 
 	TEST(EulerXYZTest, AssignmentOperatorTest)
 	{
@@ -22,7 +22,7 @@ namespace designlab::test::common::math
 		EXPECT_FLOAT_EQ(euler_copy.z_angle, 3.f);
 	}
 
-	//“™†‰‰Zq == EqualityOperator
+	//ç­‰å·æ¼”ç®—å­ == EqualityOperator
 
 	TEST(EulerXYZTest, EqualityOperatorTest)
 	{
@@ -40,7 +40,7 @@ namespace designlab::test::common::math
 		EXPECT_FALSE(euler != euler_copy);
 	}
 
-	//æZ‰‰Zq * MultiplicationOperator
+	//ä¹—ç®—æ¼”ç®—å­ * MultiplicationOperator
 
 	TEST(EulerXYZTest, MultiplicationOperatorTest)
 	{

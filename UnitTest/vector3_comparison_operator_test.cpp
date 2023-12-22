@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector3.h"
+#include "../DesignLab/math_vector3.h"
 
 
 namespace dl = ::designlab;
@@ -8,9 +8,9 @@ namespace dl = ::designlab;
 
 namespace
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
-	//! @brief —^‚¦‚ç‚ê‚½’l‚©‚çVector3‚ğì¬‚·‚é
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‹ã‚‰Vector3ã‚’ä½œæˆã™ã‚‹
 	dl::Vector3 MakeVec3(float x, float y, float z)
 	{
 		dl::Vector3 vec;
@@ -21,7 +21,7 @@ namespace
 		return vec;
 	}
 
-	//! @brief Vector3‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
+	//! @brief Vector3ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
 	std::string ToString(const dl::Vector3& vec)
 	{
 		std::stringstream ss;
@@ -50,12 +50,12 @@ namespace designlab::test::common::math
 		{
 			if (expected == true)
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_TRUE(vec1 == vec2) << error_case_message;
 			}
 			else
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚­‚È‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ããªã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_FALSE(vec1 == vec2) << error_case_message;
 			}
 		}
@@ -78,12 +78,12 @@ namespace designlab::test::common::math
 		{
 			if (expected == true)
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚­‚È‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ããªã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_TRUE(vec1 != vec2) << error_case_message;
 			}
 			else
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_FALSE(vec1 != vec2) << error_case_message;
 			}
 		}
@@ -91,7 +91,7 @@ namespace designlab::test::common::math
 
 	TEST(Vector3Test, ComparisonLessThanOperatorTest)
 	{
-		//”äŠr‰‰Zq‚ÍƒxƒNƒgƒ‹‚Ì’·‚³‚ğ—p‚¢‚Ä”äŠr‚ğs‚¤D
+		//æ¯”è¼ƒæ¼”ç®—å­ã¯ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ã‚’ç”¨ã„ã¦æ¯”è¼ƒã‚’è¡Œã†ï¼
 		// < less than
 
 		EXPECT_TRUE(MakeVec3(0.f, 0.f, 0.f)		< MakeVec3(5.f, 10.f, -6.f));

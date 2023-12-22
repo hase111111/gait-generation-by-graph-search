@@ -9,7 +9,7 @@
 #include <Dxlib.h>
 
 #include "designlab_rotation_matrix.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 
 
 //! @namespace designlab::dxlib_util

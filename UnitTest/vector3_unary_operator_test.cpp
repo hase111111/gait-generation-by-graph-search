@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector3.h"
+#include "../DesignLab/math_vector3.h"
 
 
 namespace dl = ::designlab;
@@ -8,9 +8,9 @@ namespace dl = ::designlab;
 
 namespace
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
-	//! @brief —^‚¦‚ç‚ê‚½’l‚©‚çVector3‚ğì¬‚·‚é
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‹ã‚‰Vector3ã‚’ä½œæˆã™ã‚‹
 	dl::Vector3 MakeVec3(const float x, const  float y, const float z)
 	{
 		dl::Vector3 vec;
@@ -25,7 +25,7 @@ namespace
 
 namespace designlab::test::common::math
 {
-	// ’P€‰‰Zq = Unary Operator
+	// å˜é …æ¼”ç®—å­ = Unary Operator
 
 	TEST(Vector3Test, UnaryPlusOperatorTest)
 	{

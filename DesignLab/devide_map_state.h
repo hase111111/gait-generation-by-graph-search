@@ -5,7 +5,7 @@
 #define DESIGNLAB_DEVIDE_MAP_STATE_H_
 
 #include "map_state.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 
 
 namespace designlab

@@ -6,7 +6,7 @@
 
 #include "interface_simulation_end_checker.h"
 
-#include "designlab_euler.h"
+#include "math_euler.h"
 #include "designlab_quaternion.h"
 
 

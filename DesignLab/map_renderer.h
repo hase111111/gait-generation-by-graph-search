@@ -5,7 +5,7 @@
 #define DESIGNLAB_MAP_RENDERER_H_
 
 #include "devide_map_state.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "interface_dxlib_node_setter.h"
 #include "interface_dxlib_3d_renderer.h"
 #include "map_state.h"

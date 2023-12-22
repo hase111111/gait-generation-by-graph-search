@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector3.h"
+#include "../DesignLab/math_vector3.h"
 
 
 namespace dl = ::designlab;
@@ -8,9 +8,9 @@ namespace dl = ::designlab;
 
 namespace 
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
-	//! @brief —^‚¦‚ç‚ê‚½’l‚©‚çVector3‚ğì¬‚·‚é
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‹ã‚‰Vector3ã‚’ä½œæˆã™ã‚‹
 	dl::Vector3 MakeVec3(float x, float y, float z)
 	{
 		dl::Vector3 vec;
@@ -21,7 +21,7 @@ namespace
 		return vec;
 	}
 
-	//! @brief —^‚¦‚ç‚ê‚½’l‚©‚çVector2‚ğì¬‚·‚é
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‹ã‚‰Vector2ã‚’ä½œæˆã™ã‚‹
 	dl::Vector2 MakeVec2(float x, float y)
 	{
 		dl::Vector2 vec;
@@ -31,7 +31,7 @@ namespace
 		return vec;
 	}
 
-	//! @brief Vector3‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
+	//! @brief Vector3ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
 	std::string ToString(const dl::Vector3& vec)
 	{
 		std::stringstream ss;
@@ -40,7 +40,7 @@ namespace
 		return ss.str();
 	}
 
-	//! @brief Vector2‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
+	//! @brief Vector2ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
 	std::string ToString(const dl::Vector2& vec)
 	{
 		std::stringstream ss;
@@ -68,7 +68,7 @@ namespace designlab::test::common::math
 
 		for (const auto& [vec, length] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Ì’·‚³‚Ì“ñæ‚Í³‚µ‚­‚Í" + std::to_string(length) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã®é•·ã•ã®äºŒä¹—ã¯æ­£ã—ãã¯" + std::to_string(length) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_FLOAT_EQ(vec.GetSquaredLength(), length) << error_case_message;
 		}
 	}
@@ -87,7 +87,7 @@ namespace designlab::test::common::math
 
 		for (const auto & [vec, length] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Ì’·‚³‚Í³‚µ‚­‚Í" + std::to_string(length) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã®é•·ã•ã¯æ­£ã—ãã¯" + std::to_string(length) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_FLOAT_EQ(vec.GetLength(), length) << error_case_message;
 		}
 	}
@@ -108,7 +108,7 @@ namespace designlab::test::common::math
 
 		for (const auto & [vec, other, distance] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Æ" + ToString(other) + "‚Ì‹——£‚Í³‚µ‚­‚Í" + std::to_string(distance) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã¨" + ToString(other) + "ã®è·é›¢ã¯æ­£ã—ãã¯" + std::to_string(distance) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_FLOAT_EQ(vec.GetDistanceFrom(other), distance) << error_case_message;
 		}
 	}
@@ -129,24 +129,24 @@ namespace designlab::test::common::math
 
 		for (const auto& [vec, normalized_vec] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Ì³‹K‰»‚Í³‚µ‚­‚Í" + ToString(normalized_vec) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã®æ­£è¦åŒ–ã¯æ­£ã—ãã¯" + ToString(normalized_vec) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec.GetNormalized(), normalized_vec) << error_case_message;
 
-			ASSERT_FLOAT_EQ(normalized_vec.GetNormalized().GetLength(), 1.f) << "ƒeƒXƒgƒP[ƒX" + ToString(vec) + "‚Ì“š‚¦‚ÌƒxƒNƒgƒ‹‚Ì’·‚³‚ª1‚Å‚Í‚ ‚è‚Ü‚¹‚ñD";
-			EXPECT_FLOAT_EQ(vec.GetNormalized().GetLength(), 1.f) << ToString(vec) + "‚Ì³‹K‰»‚³‚ê‚½ƒxƒNƒgƒ‹‚Ì’·‚³‚Í1‚É‚È‚éD";
+			ASSERT_FLOAT_EQ(normalized_vec.GetNormalized().GetLength(), 1.f) << "ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹" + ToString(vec) + "ã®ç­”ãˆã®ãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ãŒ1ã§ã¯ã‚ã‚Šã¾ã›ã‚“ï¼";
+			EXPECT_FLOAT_EQ(vec.GetNormalized().GetLength(), 1.f) << ToString(vec) + "ã®æ­£è¦åŒ–ã•ã‚ŒãŸãƒ™ã‚¯ãƒˆãƒ«ã®é•·ã•ã¯1ã«ãªã‚‹ï¼";
 		}
 	}
 
 	TEST(Vector3Test, GetNormalizedTestZeroVecTransToZeroVec) 
 	{
 		dl::Vector3 zero_vec = MakeVec3(0.f, 0.f, 0.f);
-		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "’·‚³‚ª0‚ÌƒxƒNƒgƒ‹‚ğ“n‚³‚ê‚é‚ÆC‚»‚Ì‚Ü‚Ü0ƒxƒNƒgƒ‹‚ğ•Ô‚µ‚Ü‚·D";
+		EXPECT_EQ(zero_vec.GetNormalized(), zero_vec) << "é•·ã•ãŒ0ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ¸¡ã•ã‚Œã‚‹ã¨ï¼Œãã®ã¾ã¾0ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¿”ã—ã¾ã™ï¼";
 	}
 
 	TEST(Vector3Test, IsZeroTest)
 	{
 		dl::Vector3 zero_vec = MakeVec3(0.f, 0.f, 0.f);
-		EXPECT_TRUE(zero_vec.IsZero()) << "’·‚³‚ª0‚ÌƒxƒNƒgƒ‹‚ğ“n‚³‚ê‚é‚Ætrue‚É‚È‚éD";
+		EXPECT_TRUE(zero_vec.IsZero()) << "é•·ã•ãŒ0ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ¸¡ã•ã‚Œã‚‹ã¨trueã«ãªã‚‹ï¼";
 
 		std::vector<dl::Vector3> false_data_list{
 			MakeVec3(-10.f, 0.f, 0.f),
@@ -163,7 +163,7 @@ namespace designlab::test::common::math
 
 		for (const auto& vec : false_data_list)
 		{
-			EXPECT_FALSE(vec.IsZero()) << ToString(vec) + "‚Í’·‚³‚ª0‚Å‚Í‚È‚¢‚Ì‚Åfalse‚É‚È‚éD";
+			EXPECT_FALSE(vec.IsZero()) << ToString(vec) + "ã¯é•·ã•ãŒ0ã§ã¯ãªã„ã®ã§falseã«ãªã‚‹ï¼";
 		}
 	}
 
@@ -182,7 +182,7 @@ namespace designlab::test::common::math
 
 		for (const auto& [vec, other, dot] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Æ" + ToString(other) + "‚Ì“àÏ‚Í³‚µ‚­‚Í" + std::to_string(dot) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã¨" + ToString(other) + "ã®å†…ç©ã¯æ­£ã—ãã¯" + std::to_string(dot) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_FLOAT_EQ(vec.Dot(other), dot) << error_case_message;
 		}
 	}
@@ -198,7 +198,7 @@ namespace designlab::test::common::math
 
 		for (const auto& [vec, other, cross] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚Æ" + ToString(other) + "‚ÌŠOÏ‚Í³‚µ‚­‚Í" + ToString(cross) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã¨" + ToString(other) + "ã®å¤–ç©ã¯æ­£ã—ãã¯" + ToString(cross) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec.Cross(other), cross) << error_case_message;
 		}
 	}
@@ -214,7 +214,7 @@ namespace designlab::test::common::math
 
 		for (const auto& [vec, projected_vec] : testcase_list)
 		{
-			std::string error_case_message = ToString(vec) + "‚ğXY•½–Ê‚ÉË‰e‚µ‚½ƒxƒNƒgƒ‹‚Í³‚µ‚­‚Í" + ToString(projected_vec) + "‚Å‚ ‚éD";
+			std::string error_case_message = ToString(vec) + "ã‚’XYå¹³é¢ã«å°„å½±ã—ãŸãƒ™ã‚¯ãƒˆãƒ«ã¯æ­£ã—ãã¯" + ToString(projected_vec) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec.ProjectedXY(), projected_vec) << error_case_message;
 		}
 	}

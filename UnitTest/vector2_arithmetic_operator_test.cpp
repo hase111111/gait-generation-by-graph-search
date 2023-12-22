@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector2.h"
+#include "../DesignLab/math_vector2.h"
 
 
 namespace dl = ::designlab;
@@ -8,7 +8,7 @@ namespace dl = ::designlab;
 
 namespace
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
 	dl::Vector2 MakeVec2(const float x, const float y)
 	{
@@ -43,8 +43,8 @@ namespace designlab::test::common::math
 			const dl::Vector2& vec2 = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" + 
-				" " + ToString(vec2) + "‚Ì˜a‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" + 
+				" " + ToString(vec2) + "ã®å’Œã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec1 + vec2, expected) << error_case_message;
 		}
 	}
@@ -64,8 +64,8 @@ namespace designlab::test::common::math
 			const dl::Vector2& vec2 = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + ToString(vec2) + "‚Ì˜a‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + ToString(vec2) + "ã®å’Œã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 
 			vec1 += vec2;
 
@@ -88,8 +88,8 @@ namespace designlab::test::common::math
 			const dl::Vector2& vec2 = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + ToString(vec2) + "‚Ì·‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + ToString(vec2) + "ã®å·®ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec1 - vec2, expected) << error_case_message;
 		}
 	}
@@ -109,8 +109,8 @@ namespace designlab::test::common::math
 			const dl::Vector2& vec2 = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + ToString(vec2) + "‚Ì·‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + ToString(vec2) + "ã®å·®ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 
 			vec1 -= vec2;
 
@@ -133,15 +133,15 @@ namespace designlab::test::common::math
 			const float s = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + std::to_string(s) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + std::to_string(s) + "ã®ç©ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec1 * s, expected) << error_case_message;
 		}
 	}
 
 	TEST(Vector2Test, MultiplyOperatorTestScalarFirst)
 	{
-		// vec, scalar, expected ‚Ì‡”Ô‚Ìƒ^ƒvƒ‹‚ğ“n‚·
+		// vec, scalar, expected ã®é †ç•ªã®ã‚¿ãƒ—ãƒ«ã‚’æ¸¡ã™
 		std::vector<std::tuple<dl::Vector2, float, dl::Vector2>> testcase_list{
 			{ MakeVec2(1, 2), 3.f, MakeVec2(3, 6)},
 			{ MakeVec2(0.4f, 0.9f), 10.f, MakeVec2(4.f, 9.f) },
@@ -155,8 +155,8 @@ namespace designlab::test::common::math
 			const float s = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + std::to_string(s) + "‚Æ\n" +
-				" " + ToString(vec1) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + std::to_string(s) + "ã¨\n" +
+				" " + ToString(vec1) + "ã®ç©ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(s * vec1, expected) << error_case_message;
 		}
 	}
@@ -176,8 +176,8 @@ namespace designlab::test::common::math
 			const float s = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + std::to_string(s) + "‚ÌÏ‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + std::to_string(s) + "ã®ç©ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 
 			vec1 *= s;
 
@@ -200,8 +200,8 @@ namespace designlab::test::common::math
 			const float s = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + std::to_string(s) + "‚Ì¤‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + std::to_string(s) + "ã®å•†ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 			EXPECT_EQ(vec1 / s, expected) << error_case_message;
 		}
 	}
@@ -221,8 +221,8 @@ namespace designlab::test::common::math
 			const float s = std::get<1>(i);
 			const dl::Vector2& expected = std::get<2>(i);
 
-			std::string error_case_message = " " + ToString(vec1) + "‚Æ\n" +
-				" " + std::to_string(s) + "‚Ì¤‚Í\n ³‚µ‚­‚Í" + ToString(expected) + "‚Å‚ ‚éD";
+			std::string error_case_message = " " + ToString(vec1) + "ã¨\n" +
+				" " + std::to_string(s) + "ã®å•†ã¯\n æ­£ã—ãã¯" + ToString(expected) + "ã§ã‚ã‚‹ï¼";
 
 			vec1 /= s;
 

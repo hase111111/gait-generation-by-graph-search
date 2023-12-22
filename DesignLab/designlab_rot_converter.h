@@ -4,7 +4,7 @@
 #ifndef DESIGNLAB_ROT_CONVERTER_H_
 #define DESIGNLAB_ROT_CONVERTER_H_
 
-#include "designlab_euler.h"
+#include "math_euler.h"
 #include "designlab_quaternion.h"
 #include "designlab_rotation_matrix.h"
 

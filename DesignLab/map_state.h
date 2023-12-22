@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "cassert_define.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 
 
 namespace designlab

@@ -7,7 +7,7 @@
 #include <array>
 #include <vector>
 
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "hexapod_const.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"

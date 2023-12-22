@@ -1,4 +1,4 @@
-﻿#include "designlab_euler.h"
+﻿#include "math_euler.h"
 
 #include <cmath>
 #include <sstream>

@@ -148,6 +148,9 @@
     <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface">
       <UniqueIdentifier>{6335a7de-59b3-4cf8-94a6-1ea84bad89ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\Math\Test">
+      <UniqueIdentifier>{6a9d6337-45a3-4609-9662-59b0fea63a0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leg_state.h">
@@ -186,10 +189,10 @@
     <ClInclude Include="graphic_main_display_model.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_vector2.h">
+    <ClInclude Include="math_vector2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_vector3.h">
+    <ClInclude Include="math_vector3.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_polygon2.h">
@@ -231,7 +234,7 @@
     <ClInclude Include="graph_search_const.h">
       <Filter>ソース ファイル\GaitPatternGenerator\Common</Filter>
     </ClInclude>
-    <ClInclude Include="designlab_euler.h">
+    <ClInclude Include="math_euler.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="designlab_quaternion.h">
@@ -600,6 +603,9 @@
     <ClInclude Include="phantomx_mk2_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="math_vector3_test.h">
+      <Filter>ソース ファイル\Common\Math\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -632,7 +638,7 @@
     <ClCompile Include="graphic_main_display_model.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_vector3.cpp">
+    <ClCompile Include="math_vector3.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
@@ -668,7 +674,7 @@
     <ClCompile Include="stopwatch.cpp">
       <Filter>ソース ファイル\Common</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_euler.cpp">
+    <ClCompile Include="math_euler.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="designlab_quaternion.cpp">
@@ -737,7 +743,7 @@
     <ClCompile Include="graph_search_const.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\Common</Filter>
     </ClCompile>
-    <ClCompile Include="designlab_vector2.cpp">
+    <ClCompile Include="math_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="designlab_math_util.cpp">

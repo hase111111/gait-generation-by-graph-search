@@ -2,7 +2,7 @@
 
 #include <Dxlib.h>
 
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "graphic_const.h"
 
 

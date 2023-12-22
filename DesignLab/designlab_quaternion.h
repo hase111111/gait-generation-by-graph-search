@@ -8,9 +8,9 @@
 #include <string>
 
 #include "cassert_define.h"
-#include "designlab_euler.h"
+#include "math_euler.h"
 #include "designlab_math_util.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 
 
 namespace designlab

@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector2.h"
+#include "../DesignLab/math_vector2.h"
 
 
 namespace dl = ::designlab;
@@ -8,9 +8,9 @@ namespace dl = ::designlab;
 
 namespace
 {
-	// ƒeƒXƒg—p‚Ìƒwƒ‹ƒp[ŠÖ”
+	// ãƒ†ã‚¹ãƒˆç”¨ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
 
-	//! @brief —^‚¦‚ç‚ê‚½’l‚©‚çVector2‚ğì¬‚·‚é
+	//! @brief ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‹ã‚‰Vector2ã‚’ä½œæˆã™ã‚‹
 	dl::Vector2 MakeVec2(const float x, const float y)
 	{
 		dl::Vector2 vec;
@@ -20,7 +20,7 @@ namespace
 		return vec;
 	}
 
-	//! @brief Vector2‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
+	//! @brief Vector2ã‚’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
 	std::string ToString(const dl::Vector2& vec)
 	{
 		std::stringstream ss;
@@ -53,12 +53,12 @@ namespace designlab::test::common::math
 
 			if (expected == true)
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_TRUE(vec1 == vec2) << error_case_message;
 			}
 			else
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚­‚È‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ããªã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_FALSE(vec1 == vec2) << error_case_message;
 			}
 		}
@@ -85,12 +85,12 @@ namespace designlab::test::common::math
 
 			if (expected == true)
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚­‚È‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ããªã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_TRUE(vec1 != vec2) << error_case_message;
 			}
 			else
 			{
-				std::string error_case_message = ToString(vec1) + "‚Æ" + ToString(vec2) + "‚Í“™‚µ‚¢‚Í‚¸‚Å‚ ‚éD";
+				std::string error_case_message = ToString(vec1) + "ã¨" + ToString(vec2) + "ã¯ç­‰ã—ã„ã¯ãšã§ã‚ã‚‹ï¼";
 				EXPECT_FALSE(vec1 != vec2) << error_case_message;
 			}
 		}

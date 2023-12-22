@@ -4,7 +4,7 @@
 #ifndef DESIGNLAB_LINE_SEGMENT2_H_
 #define DESIGNLAB_LINE_SEGMENT2_H_
 
-#include "designlab_vector2.h"
+#include "math_vector2.h"
 #include "designlab_math_util.h"
 
 

@@ -1,7 +1,4 @@
-﻿//! @file interface_graph_searcher.h
-//! @brief グラフ探索の処理のインターフェース．
-
-#ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
+﻿#ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 #define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 
 #include <memory>

@@ -1,7 +1,4 @@
-﻿//! @file file_tree.h
-//! @brief ファイルツリーを作成するクラス．
-
-#ifndef DESIGNLAB_FILE_TREE_H_
+﻿#ifndef DESIGNLAB_FILE_TREE_H_
 #define DESIGNLAB_FILE_TREE_H_
 
 #include <string>

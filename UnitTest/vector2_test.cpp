@@ -1,7 +1,7 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_vector2.h"
-#include "../DesignLab/designlab_vector2.cpp"	//‚Ç‚±‚©1‚Â‚Ìƒtƒ@ƒCƒ‹‚ÅCcppƒtƒ@ƒCƒ‹‚ğƒCƒ“ƒNƒ‹[ƒh‚·‚é•K—v‚ª‚ ‚é
+#include "../DesignLab/math_vector2.h"
+#include "../DesignLab/designlab_vector2.cpp"	//ã©ã“ã‹1ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã§ï¼Œcppãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã™ã‚‹å¿…è¦ãŒã‚ã‚‹
 
 
 namespace dl = ::designlab;
@@ -11,53 +11,53 @@ namespace designlab::test::common::math
 {
 	TEST(Vector2Test, DefaultConstructorShouldZeroVec)
 	{
-		//ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg
+		//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ
 		dl::Vector2 vec;
 
-		std::string str = "ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‰Šú‰»‚·‚é‚Æ(0,0)‚Æ‚È‚é";
+		std::string str = "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§åˆæœŸåŒ–ã™ã‚‹ã¨(0,0)ã¨ãªã‚‹";
 		EXPECT_FLOAT_EQ(vec.x, 0.f) << str;
 		EXPECT_FLOAT_EQ(vec.y, 0.f) << str;
 	}
 
 	TEST(Vector2Test, ConstructorTest)
 	{
-		//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg
+		//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ
 		dl::Vector2 vec(1.f, 2.f);
 
-		std::string str = "ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í—^‚¦‚ç‚ê‚½’l‚ÅCVector2‚ğì¬‚·‚é";
+		std::string str = "ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ä¸ãˆã‚‰ã‚ŒãŸå€¤ã§ï¼ŒVector2ã‚’ä½œæˆã™ã‚‹";
 		EXPECT_FLOAT_EQ(vec.x, 1.f) << str;
 		EXPECT_FLOAT_EQ(vec.y, 2.f) << str;
 	}
 
 	TEST(Vector2Test, CopyConstructorTest)
 	{
-		//ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg
+		//ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ
 		dl::Vector2 vec(1.f, 2.f);
 		dl::Vector2 vec2(vec);
 
-		std::string str = "ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í—^‚¦‚ç‚ê‚½’l‚ğƒRƒs[‚µ‚ÄCVector2‚ğì¬‚·‚é";
+		std::string str = "ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ï¼ŒVector2ã‚’ä½œæˆã™ã‚‹";
 		EXPECT_FLOAT_EQ(vec2.x, 1.f) << str;
 		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
 	}
 
 	TEST(Vector2Test, MoveConstructorTest)
 	{
-		//ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg
+		//ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ
 		dl::Vector2 vec(1.f, 2.f);
 		dl::Vector2 vec2(std::move(vec));
 
-		std::string str = "ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í—^‚¦‚ç‚ê‚½’l‚ğƒ€[ƒu‚µ‚ÄCVector2‚ğì¬‚·‚é";
+		std::string str = "ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‚’ãƒ ãƒ¼ãƒ–ã—ã¦ï¼ŒVector2ã‚’ä½œæˆã™ã‚‹";
 		EXPECT_FLOAT_EQ(vec2.x, 1.f) << str;
 		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
 	}
 
 	TEST(Vector2Test, AssignmentOperatorTest)
 	{
-		// Assignment Operator = ‘ã“ü‰‰Zq
+		// Assignment Operator = ä»£å…¥æ¼”ç®—å­
 		dl::Vector2 vec(1.f, 2.f);
 		dl::Vector2 vec2 = vec;
 
-		std::string str = "‘ã“ü‰‰Zq‚Í—^‚¦‚ç‚ê‚½’l‚ğ‘ã“ü‚µ‚ÄCVector2‚ğì¬‚·‚é";
+		std::string str = "ä»£å…¥æ¼”ç®—å­ã¯ä¸ãˆã‚‰ã‚ŒãŸå€¤ã‚’ä»£å…¥ã—ã¦ï¼ŒVector2ã‚’ä½œæˆã™ã‚‹";
 		EXPECT_FLOAT_EQ(vec2.x, 1.f) << str;
 		EXPECT_FLOAT_EQ(vec2.y, 2.f) << str;
 	}

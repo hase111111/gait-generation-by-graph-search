@@ -1,6 +1,6 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
-#include "../DesignLab/designlab_euler.h"
+#include "../DesignLab/math_euler.h"
 
 
 namespace dl = ::designlab;
@@ -28,8 +28,8 @@ namespace designlab::test::common::math
 
 	TEST(EulerXYZTest, RotateVector3TestCaseOfOneAxisRotation)
 	{
-		//_xyzEulerŠe‚Í y = 90 [deg] ‚ÅƒWƒ“ƒoƒ‹ƒƒbƒN‚ª”­¶‚·‚éD
-		// y = 90 [deg]‚Ì•t‹ß‚Å³Šm‚ÉŒvZ‚Å‚«‚È‚­‚È‚é‰Â”\«‚ª‚‚¢‚Ì‚ÅƒeƒXƒg‚µ‚È‚¢D
+		//_xyzEulerå„ã¯ y = 90 [deg] ã§ã‚¸ãƒ³ãƒãƒ«ãƒ­ãƒƒã‚¯ãŒç™ºç”Ÿã™ã‚‹ï¼
+		// y = 90 [deg]ã®ä»˜è¿‘ã§æ­£ç¢ºã«è¨ˆç®—ã§ããªããªã‚‹å¯èƒ½æ€§ãŒé«˜ã„ã®ã§ãƒ†ã‚¹ãƒˆã—ãªã„ï¼
 
 		std::vector<std::tuple<dl::EulerXYZ, dl::Vector3, dl::Vector3>> testcase_list{
 			

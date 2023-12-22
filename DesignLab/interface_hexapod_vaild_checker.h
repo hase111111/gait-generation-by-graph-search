@@ -6,7 +6,7 @@
 
 #include <array>
 
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "devide_map_state.h"
 #include "hexapod_const.h"
 #include "leg_state.h"

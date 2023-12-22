@@ -48,6 +48,7 @@
     <ClInclude Include="map_file_exporter.h" />
     <ClInclude Include="map_file_importer.h" />
     <ClInclude Include="map_state_test.h" />
+    <ClInclude Include="math_vector3_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="designlab_array_util.h" />
     <ClInclude Include="asyncable_data.h" />
@@ -93,7 +94,7 @@
     <ClInclude Include="graphic_main_display_model.h" />
     <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_straight_move.h" />
-    <ClInclude Include="designlab_euler.h" />
+    <ClInclude Include="math_euler.h" />
     <ClInclude Include="graph_tree_creator.h" />
     <ClInclude Include="interface_map_creator.h" />
     <ClInclude Include="interface_node_creator_builder.h" />
@@ -142,7 +143,7 @@
     <ClInclude Include="simulation_map_parameter_validator_test.h" />
     <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
-    <ClInclude Include="designlab_vector2.h" />
+    <ClInclude Include="math_vector2.h" />
     <ClInclude Include="dead_lock_checker.h" />
     <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
@@ -157,7 +158,7 @@
     <ClInclude Include="robot_operation.h" />
     <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator_for_simulation.h" />
-    <ClInclude Include="designlab_vector3.h" />
+    <ClInclude Include="math_vector3.h" />
     <ClInclude Include="robot_operator_factory.h" />
     <ClInclude Include="robot_operator_for_gpg.h" />
     <ClInclude Include="robot_operator_fixed.h" />
@@ -208,14 +209,14 @@
     <ClCompile Include="node_creator_com_up_down.cpp" />
     <ClCompile Include="designlab_quaternion.cpp" />
     <ClCompile Include="designlab_rotation_matrix.cpp" />
-    <ClCompile Include="designlab_vector2.cpp" />
+    <ClCompile Include="math_vector2.cpp" />
     <ClCompile Include="dxlib_gui_display_node_switcher.cpp" />
     <ClCompile Include="file_tree.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
     <ClCompile Include="graphic_main_graph_viewer.cpp" />
     <ClCompile Include="graphic_main_display_model.cpp" />
     <ClCompile Include="graph_searcher_straight_move.cpp" />
-    <ClCompile Include="designlab_euler.cpp" />
+    <ClCompile Include="math_euler.cpp" />
     <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_record.cpp" />
     <ClCompile Include="graph_tree_creator.cpp" />
@@ -264,7 +265,7 @@
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
-    <ClCompile Include="designlab_vector3.cpp" />
+    <ClCompile Include="math_vector3.cpp" />
     <ClCompile Include="robot_operator_factory.cpp" />
     <ClCompile Include="robot_operator_for_gpg.cpp" />
     <ClCompile Include="robot_operator_fixed.cpp" />

@@ -8,7 +8,7 @@
 #include <memory>
 
 #include "dxlib_camera.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"

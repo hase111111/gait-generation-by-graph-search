@@ -1,7 +1,4 @@
-﻿//! @file stopwatch.h
-//! @brief 自作の時間計測クラス．
-
-#ifndef DESIGNLAB_STOPWATCH_H_
+﻿#ifndef DESIGNLAB_STOPWATCH_H_
 #define DESIGNLAB_STOPWATCH_H_
 
 #include <chrono>
@@ -15,7 +12,14 @@ namespace designlab
 //! @brief 時間計測用のクラス．
 //! @details
 //! Start関数を呼び出してからEnd関数を呼び出すまでの経過時間を計測する．
-//! @n 実はコンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．
+//! コンストラクタにて現在時刻で初期化するので，Start関数を呼ばずとも計測開始できる．
+//! @code
+//! designlab::Stopwatch stopwatch;
+//! stopwatch.Start();
+//! // 何か処理
+//! stopwatch.End();
+//! std::cout << stopwatch.GetElapsedSeconds() << std::endl;
+//! @endcode
 class Stopwatch final
 {
 public:
@@ -33,43 +37,43 @@ public:
 
 	//! @brief 経過時間を秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @return double 計測結果(秒)．
+	//! @return 計測結果(秒)．
 	double GetElapsedSeconds() const;
 
 	//! @brief 計測結果をミリ秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @return double 計測結果(ミリ秒)．
+	//! @return 計測結果(ミリ秒)．
 	double GetElapsedMilliSecond() const;
 
 	//! @brief 計測結果をマイクロ秒で取得．
 	//! @n start()とend()を呼び出してからこの関数を呼ぶ．
-	//! @n (このレベルのオーダーで精度出せるのか...?)．
-	//! @return double  計測結果(マイクロ秒)．
+	//! @note このレベルのオーダーで精度を出せない可能性があるため注意．
+	//! @return 計測結果(マイクロ秒)．
 	double GetElapsedMicroSecond() const;
 
 
 	//! @brief 経過時間を秒で表した文字列を取得する．
-	//! @return std::string 経過時間．
+	//! @return 経過時間(秒)．
 	std::string GetElapsedSecondsString() const;
 
 	//! @brief 経過時間をミリ秒で表した文字列を取得する．
-	//! @return std::string 経過時間．
+	//! @return 経過時間(ミリ秒)．
 	std::string GetElapsedMilliSecondString() const;
 
 	//! @brief 経過時間をマイクロ秒で表した文字列を取得する．
-	//! @return std::string 経過時間．
+	//! @return 経過時間(マイクロ秒)．
 	std::string GetElapsedMicroSecondString() const;
 
 
 	//! @brief 現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．
-	//! @return std::string 現在の日時．
+	//! @return YYYYMMDD_HH_MM 形式の文字列．
 	std::string GetNowTimeString() const;
 
 private:
 
-	std::chrono::system_clock::time_point start_time_;		//!< 測定開始時間
+	std::chrono::system_clock::time_point start_time_;		//!< 測定開始時間．
 
-	std::chrono::system_clock::time_point end_time_;		//!< 測定終了時間	
+	std::chrono::system_clock::time_point end_time_;		//!< 測定終了時間．
 };
 
 }	// namespace designlab

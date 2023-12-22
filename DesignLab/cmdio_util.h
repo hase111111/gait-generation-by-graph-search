@@ -1,5 +1,5 @@
 ﻿//! @file cmdio_util.h
-//! @brief コマンドラインに文字を出力する関数．
+//! @brief cout，cinを使ったコマンドライン入出力を行うクラス．
 
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
@@ -13,15 +13,26 @@
 namespace designlab
 {
 
-
+//! @class CmdIOUtil
+//! @brief cout，cinを使ったコマンドライン入出力を行うクラス．
+//! @details シングルトンクラスのため，インスタンス化はできない．
+//! 実行時には，以下のように使う．
+//! @code
+//! // 出力の許可範囲を設定
+//! CmdIOUtil::SetOutputLimit(enums::OutputDetail::kDebug);
+//! // 出力を行うかどうかを設定
+//! CmdIOUtil::DoOutput(true);
+//! // 出力
+//! CmdIOUtil::Output("Hello World!", enums::OutputDetail::kInfo);
+//! @endcode
 class CmdIOUtil final
 {
 public:
 
-	CmdIOUtil() = delete;					//!< インスタンス化させない
-	CmdIOUtil(const CmdIOUtil&) = delete;	//!< コピーコンストラクタを禁止
-	CmdIOUtil& operator=(const CmdIOUtil&) = delete;	//!< コピー代入演算子を禁止
-	CmdIOUtil(CmdIOUtil&&) = delete;		//!< ムーブコンストラクタを禁止
+	explicit CmdIOUtil() = delete;			//!< インスタンス化させない．
+	CmdIOUtil(const CmdIOUtil&) = delete;	//!< コピーコンストラクタを禁止．
+	CmdIOUtil& operator=(const CmdIOUtil&) = delete;	//!< コピー代入演算子を禁止．
+	CmdIOUtil(CmdIOUtil&&) = delete;		//!< ムーブコンストラクタを禁止．
 
 
 	//! @brief 出力するメッセージをどこまで許可するかを設定する関数．

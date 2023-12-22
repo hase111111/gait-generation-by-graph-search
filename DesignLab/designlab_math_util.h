@@ -11,7 +11,7 @@
 
 
 //! @namespace designlab
-//! @brief DesignLabの名前空間
+//! @brief DesignLabの名前空間．
 //! @details このプロジェクトで作成した関数は全てこの名前空間内に入れる．
 //! @n グローバルな空間に関数を入れると，名前の衝突が起こる可能性がある．
 namespace designlab
@@ -21,17 +21,17 @@ namespace designlab
 namespace math_util
 {
 
-constexpr double kDoublePi = 3.141592653589793;		//!< double型の円周率
-constexpr float kFloatPi = 3.141592653589793f;		//!< float型の円周率
+constexpr double kDoublePi = 3.141592653589793;		//!< double型の円周率．
+constexpr float kFloatPi = 3.141592653589793f;		//!< float型の円周率．
 
 constexpr double kDoubleAllowableError = 0.001;									//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
 constexpr float kAllowableError = static_cast<float>(kDoubleAllowableError);	//!< これ以上小さい値は0とみなす．allowable error，許容誤差のこと．小数点3桁未満の誤差を無視する．
 
 
 //! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
-//! @param [in] num1 比較する数字1つ目 
-//! @param [in] num2 比較する数字2つ目
-//! @return bool 等しいならばtrue 
+//! @param [in] num1 比較する数字1つ目．
+//! @param [in] num2 比較する数字2つ目．
+//! @return bool 等しいならばtrue．
 constexpr bool IsEqual(const float num1, const float num2) noexcept
 {
 	const float dif = num1 - num2;
@@ -40,9 +40,9 @@ constexpr bool IsEqual(const float num1, const float num2) noexcept
 }
 
 //! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
-//! @param [in] num1 比較する数字1つ目 
-//! @param [in] num2 比較する数字2つ目
-//! @return bool 等しいならばtrue 
+//! @param [in] num1 比較する数字1つ目． 
+//! @param [in] num2 比較する数字2つ目．
+//! @return bool 等しいならばtrue．
 constexpr bool IsEqual(const double num1, const double num2) noexcept
 {
 	const double dif = num1 - num2;

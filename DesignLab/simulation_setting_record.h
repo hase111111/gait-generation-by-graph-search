@@ -6,9 +6,9 @@
 
 #include <string>
 
-#include "designlab_euler.h"
+#include "math_euler.h"
 #include "designlab_string_util.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "hexapod_next_move.h"
 #include "toml_serialize_macro.h"
 

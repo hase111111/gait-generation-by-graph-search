@@ -18,10 +18,10 @@
 #include <magic_enum.hpp>
 #include <strconv2.h>
 
-#include "designlab_euler.h"
+#include "math_euler.h"
 #include "designlab_impl.h"
 #include "designlab_quaternion.h"
-#include "designlab_vector3.h"
+#include "math_vector3.h"
 #include "toml11_define.h"
 
 
