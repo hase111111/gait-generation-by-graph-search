@@ -1,6 +1,4 @@
-﻿//! @file math_euler.h
-//! @brief XYZオイラー角を用いた回転を表す構造体．
-
+﻿
 #ifndef DESIGNLAB_MATH_EULER_H_
 #define DESIGNLAB_MATH_EULER_H_
 
@@ -15,83 +13,94 @@ namespace designlab
 
 //! @struct designlab::EulerXYZ
 //! @brief XYZオイラー角を用いた回転を表す構造体．
-//! @details 
+//! @details
 //! XYZオイラー角によって回転を表現する．単位は [rad]．
 //! ロール(X軸)，ピッチ(Y軸)，ヨー(Z軸)はそれぞれ右ねじの方向に回転する．
 //! @n
 //! @subsubsection 参考資料
 //! @li https://watako-lab.com/2019/01/23/roll_pitch_yaw/
-//! 
-//! @note 計算時間がかなり掛かるので，速度を考えるならばクォータニオン(四元数)を用いた回転を推奨する．
+//!
+//! @note 計算時間がかなり掛かるので，
+//! 速度を考えるならばクォータニオン(四元数)を用いた回転を推奨する．
 //! @see Quaternion
 struct EulerXYZ final
 {
-	constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {};		//!< コンストラクタ．0,0,0 で初期化する．
-	constexpr EulerXYZ(const float x, const float y, const float z) : x_angle(x), y_angle(y), z_angle(z) {};
-	constexpr EulerXYZ(const EulerXYZ& other) = default;
-	constexpr EulerXYZ(EulerXYZ&& other) noexcept = default;
-	constexpr EulerXYZ& operator =(const EulerXYZ& other) = default;
+    //! @brief デフォルトコンストラクタでは 0,0,0 で初期化する．
+    constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {}
 
-	~EulerXYZ() = default;
+    constexpr EulerXYZ(const float x, const float y, const float z) :
+        x_angle(x), y_angle(y), z_angle(z) {}
 
-	constexpr EulerXYZ operator *(const float s) const noexcept { return { x_angle * s, y_angle * s, z_angle * s }; }
+    constexpr EulerXYZ(const EulerXYZ& other) = default;
+    constexpr EulerXYZ(EulerXYZ&& other) noexcept = default;
+    constexpr EulerXYZ& operator =(const EulerXYZ& other) = default;
 
+    ~EulerXYZ() = default;
 
-	constexpr bool operator ==(const EulerXYZ& other) const noexcept
-	{
-		return (
-			math_util::IsEqual(x_angle, other.x_angle) &&
-			math_util::IsEqual(y_angle, other.y_angle) &&
-			math_util::IsEqual(z_angle, other.z_angle)
-			);
-	}
-	constexpr bool operator !=(const EulerXYZ& other) const noexcept { return !(*this == other); }
+    constexpr EulerXYZ operator *(const float s) const noexcept
+    {
+        return { x_angle * s, y_angle * s, z_angle * s };
+    }
 
 
-	//! @brief オイラー角を 単位 [deg] で初期化する．
-	//! @param [in] x X軸周りの回転．[deg]
-	//! @param [in] y Y軸周りの回転．[deg]
-	//! @param [in] z Z軸周りの回転．[deg]
-	constexpr void SetDeg(const float x, const float y, const float z)
-	{
-		x_angle = math_util::ConvertDegToRad(x);
-		y_angle = math_util::ConvertDegToRad(y);
-		z_angle = math_util::ConvertDegToRad(z);
-	}
+    constexpr bool operator ==(const EulerXYZ& other) const noexcept
+    {
+        return (
+            math_util::IsEqual(x_angle, other.x_angle) &&
+            math_util::IsEqual(y_angle, other.y_angle) &&
+            math_util::IsEqual(z_angle, other.z_angle));
+    }
 
-	//! @brief オイラー角を文字列に変換する．
-	//! 単位は ラジアン [rad]．
-	//! @return std::string オイラー角を表す文字列．
-	[[nodiscard]] std::string ToString() const;
-
-	//! @brief オイラー角をCsv形式の文字列に変換する．カンマ区切り．
-	//! 単位は ラジアン [rad]．
-	//! @return std::string オイラー角を表す文字列．
-	[[nodiscard]] std::string ToCsvString() const;
-
-	//! @brief オイラー角を文字列に変換する．
-	//! 単位は 度 [deg]．
-	//! @return std::string オイラー角を表す文字列．
-	[[nodiscard]] std::string ToStringDeg() const;
-
-	//! @brief オイラー角を 単位[deg] で作成する．
-	//! @param [in] x X軸周りの回転．[deg]．
-	//! @param [in] y Y軸周りの回転．[deg]．
-	//! @param [in] z Z軸周りの回転．[deg]．
-	//! @return EulerXYZ オイラー角．
-	[[nodiscard]] static constexpr EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
-	{
-		return EulerXYZ{
-			math_util::ConvertDegToRad(x),
-			math_util::ConvertDegToRad(y),
-			math_util::ConvertDegToRad(z)
-		};
-	}
+    constexpr bool operator !=(const EulerXYZ& other) const noexcept
+    {
+        return !(*this == other);
+    }
 
 
-	float x_angle;	//!< X 軸周りの回転 [rad]．
-	float y_angle;	//!< Y 軸周りの回転 [rad]．
-	float z_angle;	//!< Z 軸周りの回転 [rad]．
+    //! @brief オイラー角を 単位 [deg] で初期化する．
+    //! @param [in] x X軸周りの回転．[deg]
+    //! @param [in] y Y軸周りの回転．[deg]
+    //! @param [in] z Z軸周りの回転．[deg]
+    constexpr void SetDeg(const float x, const float y, const float z)
+    {
+        x_angle = math_util::ConvertDegToRad(x);
+        y_angle = math_util::ConvertDegToRad(y);
+        z_angle = math_util::ConvertDegToRad(z);
+    }
+
+    //! @brief オイラー角を文字列に変換する．
+    //! 単位は ラジアン [rad]
+    //! @return std::string オイラー角を表す文字列．
+    [[nodiscard]] std::string ToString() const;
+
+    //! @brief オイラー角をCsv形式の文字列に変換する．カンマ区切り．
+    //! 単位は ラジアン [rad]
+    //! @return std::string オイラー角を表す文字列．
+    [[nodiscard]] std::string ToCsvString() const;
+
+    //! @brief オイラー角を文字列に変換する．
+    //! 単位は 度 [deg]．
+    //! @return std::string オイラー角を表す文字列．
+    [[nodiscard]] std::string ToStringDeg() const;
+
+    //! @brief オイラー角を 単位[deg] で作成する．
+    //! @param [in] x X軸周りの回転．[deg]
+    //! @param [in] y Y軸周りの回転．[deg]
+    //! @param [in] z Z軸周りの回転．[deg]
+    //! @return EulerXYZ オイラー角．
+    [[nodiscard]] static constexpr
+        EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
+    {
+        return EulerXYZ{
+          math_util::ConvertDegToRad(x),
+          math_util::ConvertDegToRad(y),
+          math_util::ConvertDegToRad(z)
+        };
+    }
+
+    float x_angle;  //!< X 軸周りの回転 [rad]
+    float y_angle;  //!< Y 軸周りの回転 [rad]
+    float z_angle;  //!< Z 軸周りの回転 [rad]
 };
 
 
@@ -99,19 +108,19 @@ struct EulerXYZ final
 template <class Char>
 inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const EulerXYZ& r)
 {
-	os << math_util::FloatingPointNumToString(r.x_angle) << Char(',') <<
-		math_util::FloatingPointNumToString(r.y_angle) << Char(',') <<
-		math_util::FloatingPointNumToString(r.z_angle);
+    os << math_util::FloatingPointNumToString(r.x_angle) << Char(',') <<
+        math_util::FloatingPointNumToString(r.y_angle) << Char(',') <<
+        math_util::FloatingPointNumToString(r.z_angle);
 
-	return os;
+    return os;
 }
 
-//入力ストリーム
+//! @brief 入力ストリーム
 template <class Char>
 inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, EulerXYZ& r)
 {
-	Char unused;
-	return is >> unused >> r.x_angle >> unused >> r.y_angle >> unused >> r.z_angle >> unused;
+    Char unused;
+    return is >> unused >> r.x_angle >> unused >> r.y_angle >> unused >> r.z_angle >> unused;
 }
 
 
@@ -121,7 +130,7 @@ inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Euler
 //! @return Vector3 回転した後の位置ベクトル．
 [[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_MATH_EULER_H_
+#endif  // DESIGNLAB_MATH_EULER_H_
