@@ -1,4 +1,9 @@
 ﻿
+//! @file math_const.h
+//! @author hasegawa
+//! @copyright 埼玉大学 設計工学研究室 2023-2024
+//! @date December 2023
+
 #ifndef DESIGNLAB_MATH_CONST_H_
 #define DESIGNLAB_MATH_CONST_H_
 
@@ -10,9 +15,9 @@ namespace designlab
 template<typename T>
 struct MathConst
 {
-    // Tがfloat でも double でもない場合，エラーを出す．
+    // Tが float でも double でもない場合，エラーを出す．
     static_assert(std::is_same<T, float>::value || std::is_same<T, double>::value,
-                  "T は float とdouble 型にのみ提供されます．");
+                  "T は float と double 型にのみ提供されます．");
 };
 
 

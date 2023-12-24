@@ -37,7 +37,7 @@ std::vector<std::string> Split(const std::string& str, const std::string& delim)
 //! @li https://marycore.jp/prog/cpp/std-string-find-search/#find%EF%BC%8Frfind
 //! 
 //! @param [in] enum_value enumの要素．
-//! @return std::string enumの要素を文字列にしたもの．
+//! @return enumの要素を文字列にしたもの．
 //! @tparam T enum型．
 template <typename T>
 std::string EnumToStringRemoveTopK(const T& enum_value)
@@ -58,7 +58,7 @@ std::string EnumToStringRemoveTopK(const T& enum_value)
 
 //! @brief enum型を渡すと，その要素を列挙した文字列を返す関数．
 //! @param [in] separator 列挙した文字列の区切り文字．
-//! @return std::string enumの要素を列挙した文字列．
+//! @return enumの要素を列挙した文字列．
 //! @tparam T enum型．
 template <typename T>
 std::string EnumValuesToString(const std::string separator)
@@ -89,7 +89,7 @@ std::string EnumValuesToString(const std::string separator)
 
 //! @brief enum型を渡すと，その要素と値を変換したものを列挙した文字列を返す関数．
 //! @param [in] separator 列挙した文字列の区切り文字．
-//! @return std::string enumの要素と値を変換したものを列挙した文字列．
+//! @return enumの要素と値を変換したものを列挙した文字列．
 //! @tparam T enum型．
 template <typename T, typename = std::enable_if_t<std::is_enum<T>::value>>
 std::string EnumEntriesToString(const std::string separator)

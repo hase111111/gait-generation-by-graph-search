@@ -177,7 +177,7 @@ struct Polygon2 final
 
 
     //! @brief 多角形のデータを文字列で出力する
-    //! @return std::string 多角形のデータを文字列で出力したもの
+    //! @return 多角形のデータを文字列で出力したもの
     std::string ToString() const;
 
 private:
