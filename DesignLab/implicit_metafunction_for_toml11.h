@@ -1,7 +1,13 @@
-﻿#ifndef DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
-#define DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
+﻿
+/// @file      implicit_metafunction_for_toml11.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#ifndef DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_
+#define DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_
 
 #include <iostream>
+#include <string>
 #include <type_traits>
 #include <vector>
 
@@ -48,7 +54,9 @@ struct has_input_operator : public std::false_type {};
 //! @details 入力ストリームが実装されていれば，こちらが呼ばれる．
 //! true_typeを継承する．
 template<typename T>
-struct has_input_operator<T, decltype(std::declval<std::istream&>() >> std::declval<T&>(), std::declval<void>())> : public std::true_type {};
+struct has_input_operator<T,
+    decltype(std::declval<std::istream&>() >> std::declval<T&>(), std::declval<void>())> :
+    public std::true_type {};
 
 //! @brief 出力ストリームが実装されているか判断するメタ関数．
 //! @details 出力ストリームが実装されていなければ，こちらが呼ばれる．
@@ -60,15 +68,23 @@ struct has_output_operator : public std::false_type {};
 //! @details 出力ストリームが実装されていれば，こちらが呼ばれる．
 //! true_typeを継承する．
 template<typename T>
-struct has_output_operator<T, decltype(std::declval<std::ostream&>() << std::declval<T&>(), std::declval<void>())> : public std::true_type {};
+struct has_output_operator<T,
+    decltype(std::declval<std::ostream&>() << std::declval<T&>(), std::declval<void>())> :
+    public std::true_type {};
 
-static_assert(has_input_operator<int>::value == true, "int型は入力オペレーターに対応している．");
-static_assert(has_input_operator<int*>::value == false, "int*型は入力オペレーターに対応していない．");
-static_assert(has_input_operator<std::vector<int>>::value == false, "std::vector<int>型は入力オペレーターに対応していない．");
+static_assert(has_input_operator<int>::value == true,
+              "int型は入力オペレーターに対応している．");
+static_assert(has_input_operator<int*>::value == false,
+              "int*型は入力オペレーターに対応していない．");
+static_assert(has_input_operator<std::vector<int>>::value == false,
+              "std::vector<int>型は入力オペレーターに対応していない．");
 
-static_assert(has_output_operator<int>::value == true, "int型は出力オペレーターに対応している．");
-static_assert(has_output_operator<int*>::value == true, "int*型は出力オペレーターに対応している．");
-static_assert(has_output_operator<std::vector<int>>::value == false, "std::vector<int>型は出力オペレーターに対応していない．");
+static_assert(has_output_operator<int>::value == true,
+              "int型は出力オペレーターに対応している．");
+static_assert(has_output_operator<int*>::value == true,
+              "int*型は出力オペレーターに対応している．");
+static_assert(has_output_operator<std::vector<int>>::value == false,
+              "std::vector<int>型は出力オペレーターに対応していない．");
 
 
 //! @brief vector型かどうかを判定するメタ関数．
@@ -83,60 +99,78 @@ struct is_vector : std::false_type {};
 template <typename T>
 struct is_vector<std::vector<T>> : std::true_type {};
 
-static_assert(is_vector<int>::value == false, "int型はvector型ではない．");
-static_assert(is_vector<std::string>::value == false, "std::string型はvector型ではない．");
+static_assert(is_vector<int>::value == false, "int型は vector型ではない．");
+static_assert(is_vector<std::string>::value == false, "std::string型は vector型ではない．");
 
-static_assert(is_vector<std::vector<int>>::value == true, "std::vector<int>型はvector型である．");
-static_assert(is_vector<std::vector<std::string>>::value == true, "std::vector<std::string>型はvector型である．");
+static_assert(is_vector<std::vector<int>>::value == true,
+              "std::vector<int>型は vector型である．");
+static_assert(is_vector<std::vector<std::string>>::value == true,
+              "std::vector<std::string>型は vector型である．");
 
 
-//! @brief toml11で使用可能な型かどうかを判定するメタ関数．toml11はvector型にも対応しているが，こちらでは除外する．
+//! @brief toml11で使用可能な型かどうかを判定するメタ関数．
+//! toml11は vector型にも対応しているが，こちらでは除外する．
 template <typename T>
 struct is_toml11_available_type_not_vector_type
 {
 private:
+    template <typename U, typename = decltype(toml::get<U>(std::declval<toml::value>()))>
+    static std::true_type test(int);
 
-	template <typename U, typename = decltype(toml::get<U>(std::declval<toml::value>()))>
-	static std::true_type test(int);
-
-	template <typename>
-	static std::false_type test(...);
+    template <typename>
+    static std::false_type test(...);
 
 public:
-
-	//! @brief toml11 で使用可能な型ならばtrue．toml11はvector型にも対応しているが，こちらでは除外する．
-	static constexpr bool value = decltype(test<T>(0))::value && !is_vector<T>::value;
-
+    //! @brief toml11 で使用可能な型ならば true．
+    //! toml11は vector型にも対応しているが，こちらでは除外する．
+    static constexpr bool value = decltype(test<T>(0))::value && !is_vector<T>::value;
 };
 
-//! @brief toml11で使用可能な型かどうかを判定するメタ関数．vector型の場合はこちらを使用して判定する．
+//! @brief toml11で使用可能な型かどうかを判定するメタ関数．
+//! vector型の場合はこちらを使用して判定する．
 //! @details toml11で使用可能な型ならば，こちらが呼ばれる．
 template <typename T>
 struct is_toml11_available_type_vector_type : std::false_type {};
 
-//! @brief toml11で使用可能な型かどうかを判定するメタ関数．vector型の場合はこちらを使用して判定する．
+//! @brief toml11で使用可能な型かどうかを判定するメタ関数．
+//! vector型の場合はこちらを使用して判定する．
 //! @details toml11で使用可能な型ならば，こちらが呼ばれる．
 template <typename T>
-struct is_toml11_available_type_vector_type<std::vector<T>> : is_toml11_available_type_not_vector_type<T> {};
+struct is_toml11_available_type_vector_type<std::vector<T>> :
+    is_toml11_available_type_not_vector_type<T> {};
 
-static_assert(is_toml11_available_type_not_vector_type<int>::value == true, "int型はtoml11で使用可能な型である．");
-static_assert(is_toml11_available_type_not_vector_type<int*>::value == false, "int*型はtoml11で使用可能な型ではない．");
-static_assert(is_toml11_available_type_not_vector_type<std::vector<int>>::value == false, "std::vector<int>型はstd::vector型である．");
+static_assert(is_toml11_available_type_not_vector_type<int>::value == true,
+              "int型は toml11で使用可能な型である．");
+static_assert(is_toml11_available_type_not_vector_type<int*>::value == false,
+              "int*型は toml11で使用可能な型ではない．");
+static_assert(is_toml11_available_type_not_vector_type<std::vector<int>>::value == false,
+              "std::vector<int>型は std::vector型である．");
 
-static_assert(is_toml11_available_type_vector_type<int>::value == false, "int型はstd::vector型ではない．");
-static_assert(is_toml11_available_type_vector_type<int*>::value == false, "int*型はstd::vector型ではない．");
-static_assert(is_toml11_available_type_vector_type<std::vector<int>>::value == true, "std::vector<int>型はstd::vector型かつ，toml11で使用可能な型である．");
-static_assert(is_toml11_available_type_vector_type<std::vector<int*>>::value == false, "std::vector<*int>型はstd::vector型だが，toml11で使用可能な型でない．");
+static_assert(is_toml11_available_type_vector_type<int>::value == false,
+              "int型は std::vector型ではない．");
+static_assert(is_toml11_available_type_vector_type<int*>::value == false,
+              "int*型は std::vector型ではない．");
+static_assert(is_toml11_available_type_vector_type<std::vector<int>>::value == true,
+              "std::vector<int>型は std::vector型かつ，toml11で使用可能な型である．");
+static_assert(is_toml11_available_type_vector_type<std::vector<int*>>::value == false,
+              "std::vector<*int>型は std::vector型だが，toml11で使用可能な型でない．");
 
 
 //! @brief toml11で使用可能な型かどうかを判定するメタ関数．
 template <typename T>
-struct is_toml11_available_type : std::conditional_t<is_vector<T>::value, is_toml11_available_type_vector_type<T>, is_toml11_available_type_not_vector_type<T>> {};
+struct is_toml11_available_type :
+    std::conditional_t<is_vector<T>::value,
+    is_toml11_available_type_vector_type<T>,
+    is_toml11_available_type_not_vector_type<T>> {};
 
-static_assert(is_toml11_available_type<int>::value == true, "int型はtoml11で使用可能な型である．");
-static_assert(is_toml11_available_type<int*>::value == false, "int*型はtoml11で使用可能な型ではない．");
-static_assert(is_toml11_available_type<std::vector<int>>::value == true, "std::vector<int>型はstd::vector型かつ，toml11で使用可能な型である．");
-static_assert(is_toml11_available_type<std::vector<int*>>::value == false, "std::vector<*int>型はstd::vector型だが，toml11で使用可能な型でない．");
+static_assert(is_toml11_available_type<int>::value == true,
+              "int型は toml11で使用可能な型である．");
+static_assert(is_toml11_available_type<int*>::value == false,
+              "int*型は toml11で使用可能な型ではない．");
+static_assert(is_toml11_available_type<std::vector<int>>::value == true,
+              "std::vector<int>型は std::vector型かつ，toml11で使用可能な型である．");
+static_assert(is_toml11_available_type<std::vector<int*>>::value == false,
+              "std::vector<*int>型は std::vector型だが，toml11で使用可能な型でない．");
 
 
 //! @brief 入力ストリームが実装されているvector型かどうかを判定するメタ関数．
@@ -175,7 +209,7 @@ struct is_vector_of_enum : std::false_type {};
 template <typename T>
 struct is_vector_of_enum<std::vector<T>> : std::is_enum<T> {};
 
-}	// namespace designlab::impl
+}  // namespace designlab::impl
 
 
-#endif // DESIGNLAB_IMPLIMPLICIT_METAFUNCTION_FOR_TOML11_H_
+#endif  // DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_

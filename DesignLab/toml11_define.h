@@ -1,5 +1,8 @@
-﻿//! @file toml11_define.h
-//! @brief ライブラリのtoml11の設定を行うためのヘッダファイル．
+﻿
+/// @file      toml11_define.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @brief ライブラリの toml11の設定を行うためのヘッダファイル．
 //! @n #include <toml.hpp>はこのプロジェクトの中では書かず，このファイルをインクルードすること．
 
 #ifndef DESIGNLAB_TOML11_DEFINE_H_
@@ -14,4 +17,4 @@
 #include <toml.hpp>
 
 
-#endif // DESIGNLAB_TOML11_DEFINE_H_
+#endif  // DESIGNLAB_TOML11_DEFINE_H_

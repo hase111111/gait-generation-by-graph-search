@@ -111,7 +111,7 @@ private:
     };
 
 
-    // now_camera_state_の値で，カメラの位置と姿勢をdxlibの関数でセットする	
+    // now_camera_state_の値で，カメラの位置と姿勢を dxlib の関数でセットする	
     void SetCameraPosAndRot();
 
 

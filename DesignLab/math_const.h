@@ -1,8 +1,7 @@
 ﻿
-//! @file math_const.h
-//! @author hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023-2024
-//! @date December 2023
+/// @file      math_const.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_CONST_H_
 #define DESIGNLAB_MATH_CONST_H_

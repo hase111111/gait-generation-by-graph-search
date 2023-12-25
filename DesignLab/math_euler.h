@@ -1,8 +1,7 @@
 ﻿
-//! @file math_euler.h
-//! @author hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023-2024
-//! @date December 2023
+/// @file      math_euler.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_EULER_H_
 #define DESIGNLAB_MATH_EULER_H_
@@ -33,10 +32,10 @@ struct EulerXYZ final
     //! @brief デフォルトコンストラクタでは 0,0,0 で初期化する．
     constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {}
 
-    //! @brief オイラー角を 単位 ラジアン [rad] で初期化する．
-    //! @param [] x
-    //! @param [] y
-    //! @param [] z
+    /// @brief rad単位で初期化する．
+    /// @param[in] x X軸周りの回転．[rad]
+    /// @param[in] y Y軸周りの回転．[rad]
+    /// @param[in] z Z軸周りの回転．[rad]
     constexpr EulerXYZ(const float x, const float y, const float z) :
         x_angle(x), y_angle(y), z_angle(z) {}
 
@@ -67,9 +66,9 @@ struct EulerXYZ final
 
 
     //! @brief オイラー角を 単位 度 [deg] で初期化する．
-    //! @param [in] x X軸周りの回転．[deg]
-    //! @param [in] y Y軸周りの回転．[deg]
-    //! @param [in] z Z軸周りの回転．[deg]
+    //! @param[in] x X軸周りの回転．[deg]
+    //! @param[in] y Y軸周りの回転．[deg]
+    //! @param[in] z Z軸周りの回転．[deg]
     constexpr void SetDeg(const float x, const float y, const float z)
     {
         x_angle = math_util::ConvertDegToRad(x);
@@ -93,9 +92,9 @@ struct EulerXYZ final
     [[nodiscard]] std::string ToStringDeg() const;
 
     //! @brief オイラー角を 単位[deg] で作成する．
-    //! @param [in] x X軸周りの回転．[deg]
-    //! @param [in] y Y軸周りの回転．[deg]
-    //! @param [in] z Z軸周りの回転．[deg]
+    //! @param[in] x X軸周りの回転．[deg]
+    //! @param[in] y Y軸周りの回転．[deg]
+    //! @param[in] z Z軸周りの回転．[deg]
     //! @return オイラー角．
     [[nodiscard]] static constexpr
         EulerXYZ MakeEulerXYZDeg(const float x, const float y, const float z)
@@ -134,8 +133,8 @@ inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Euler
 
 
 //! @brief 回転させたベクトルを返す．三角関数の処理が多く重たいので注意．
-//! @param [in] vec 位置ベクトル．
-//! @param [in] rot 回転ベクトル．
+//! @param[in] vec 位置ベクトル．
+//! @param[in] rot 回転ベクトル．
 //! @return 回転した後の位置ベクトル．
 [[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 

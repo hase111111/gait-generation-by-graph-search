@@ -1,5 +1,10 @@
-﻿#ifndef DESIGNLAB_POLYGON2_H_
-#define DESIGNLAB_POLYGON2_H_
+﻿
+/// @file      math_polygon2.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#ifndef DESIGNLAB_MATH_POLYGON2_H_
+#define DESIGNLAB_MATH_POLYGON2_H_
 
 #include <array>
 #include <optional>
@@ -13,10 +18,9 @@
 namespace designlab
 {
 
-
 //! @struct designlab::Polygon2
 //! @brief 2次元の多角形を表す構造体．
-//! @details 
+//! @details
 //! @n 頂点は反時計回り，或いは時計回りに並んでいる必要がある．
 //! そうでない場合はいくつかの関数が正常に動作しない．
 //! @n
@@ -24,37 +28,38 @@ namespace designlab
 //! これは動作の高速化のために確保した配列のサイズを固定しているためである．
 //! この値を変更する場合は，コード中のkMaxVertexNumの値を変更する必要がある．
 //! @n
-//! @n なお，コード中のmax関数，min関数については以下を参照．
+//! @n なお，コード中の max 関数，min関数については以下を参照．
 //! @subsubsection 参照
 //! @li https://cpprefjp.github.io/reference/algorithm/max.html
 struct Polygon2 final
 {
+    constexpr Polygon2() : vertex_num(0) {}
 
-    constexpr Polygon2() : vertex_num(0) {};
-
-    Polygon2(const std::vector<Vector2>& vertex);
+    explicit Polygon2(const std::vector<Vector2>& vertex);
 
 
     //! @brief 頂点を追加する関数．
-    //! @param [in] v 追加する頂点．
+    //! @param[in] v 追加する頂点．
     //! @note 他の頂点と重なっている場合でも追加する．
     constexpr void AddVertex(const Vector2& v)
     {
         vertex[vertex_num] = v;
         ++vertex_num;
 
-        assert(vertex_num <= kMaxVertexNum);	// 頂点数は最大値を超えてはいけない．
+        assert(vertex_num <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．
     }
 
     //! @brief 頂点を追加する関数．他の頂点と重なっている場合は追加しない．
     //! @param[in] v 追加する頂点の座標．
-    //! @note 他の頂点と重なっている場合は追加しない．この処理の分だけ遅くなるので，重なることがない場合はaddVertexを使うこと．
-    //! @return 追加できたかどうか，追加できた場合はtrue，追加できなかった場合はfalse．
+    //! @note 他の頂点と重なっている場合は追加しない．
+    //! この処理の分だけ遅くなるので，重なることがない場合は AddVertex を使うこと．
+    //! @retval true 追加できた，
+    //! @retval false 追加できなかった．
     bool AddVertexCheckForDuplicates(const Vector2& v);
 
 
     //! @brief 頂点を削除する関数．遅いので多用するべきではない．
-    //! @param [in] index 削除する頂点のインデックス．
+    //! @param[in] index 削除する頂点のインデックス．
     //! @note 存在しない頂点を指定した場合は何もしない．
     //! @note 削除した頂点のインデックスは変わるので注意．
     void RemoveVertex(const int index);
@@ -80,7 +85,7 @@ struct Polygon2 final
     constexpr int GetVertexNum() const { return vertex_num; }
 
     //! @brief 頂点の座標を返す関数．
-    //! @param [in] i 頂点のインデックス．
+    //! @param[in] i 頂点のインデックス．
     //! @return 頂点の座標．
     //! @n 存在しない頂点を指定した場合は(0,0)を返す．
     constexpr Vector2 GetVertex(const int i) const
@@ -93,10 +98,10 @@ struct Polygon2 final
         return vertex[i];
     }
 
-    //! @brief 頂点の座標を返す関数．std::optionalを使っているので，存在しない頂点を指定した場合はstd::nulloptを返す．
-    //! @param [in] i 頂点のインデックス．
-    //! @return 頂点の座標．
-    //! @n 存在しない頂点を指定した場合はstd::nulloptを返す．
+    //! @brief 頂点の座標を返す関数．std::optional を使っているので，
+    //! 存在しない頂点を指定した場合は std::nullopt を返す．
+    //! @param[in] i 頂点のインデックス．
+    //! @return 頂点の座標．存在しない頂点を指定した場合は std::nullopt を返す．
     constexpr std::optional<Vector2> GetVertexOpt(const int i) const
     {
         if (i < 0 || i >= GetVertexNum())
@@ -164,12 +169,14 @@ struct Polygon2 final
     }
 
     //! @brief 多角形が凸かどうか調べる関数．
-    //! @return 凸ならtrue，凹ならfalse．
+    //! @retval true 凸．
+    //! @retval false 凹．
     bool IsConvex() const;
 
-    //! @brief 点が多角形の内部にあるかどうか調べる関数．多角形が凸でない場合は正しく判定できない．
-    //! @param [in] point 調べる点
-    //! @return bool 内部にあるならtrue，外部にあるならfalse
+    //! @brief 点が多角形の内部にあるかどうか調べる関数．
+    //! 多角形が凸でない場合は正しく判定できない．
+    //! @param[in] point 調べる点
+    //! @return bool 内部にあるなら true，外部にあるなら false
     //! @note 点が時計回り，反時計回りのいずれかの順番で頂点が並んでいる必要がある．
     //! @note 点が多角形の辺上にある場合は内部にあると判定する．
     //! @note 多角形が凸でない場合は正しく判定できない．
@@ -181,16 +188,16 @@ struct Polygon2 final
     std::string ToString() const;
 
 private:
+    //! 速度を早くするためにあらかじめ最大サイズを決定しておく．
+    static constexpr int kMaxVertexNum = 6;
 
-    static constexpr int kMaxVertexNum = 6;	//!< 速度を早くするためにあらかじめ最大サイズを決定しておく．
+    std::array<Vector2, kMaxVertexNum> vertex;  //!< 頂点座標．
 
-    std::array<Vector2, kMaxVertexNum> vertex;	//!< 頂点座標．
-
-    int vertex_num;	//!< 頂点数．
+    int vertex_num;  //!< 頂点数．
 };
 
 
-// 出力ストリーム
+//! 出力ストリーム．
 template <class Char>
 inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Polygon2& poly)
 {
@@ -199,7 +206,7 @@ inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const
     return os;
 }
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_POLYGON2_H_
+#endif  // DESIGNLAB_MATH_POLYGON2_H_

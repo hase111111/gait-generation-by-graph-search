@@ -1,4 +1,9 @@
-﻿#ifndef DESIGNLAB_MATH_UTIL_H_
+﻿
+/// @file      math_util.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
 
 #include <iomanip>
@@ -13,132 +18,140 @@
 
 
 
-//! @namespacse designlab::math_util
+//! @namespace designlab::math_util
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
-//! @details 
-//! この名前空間にある関数は，基本的にconstexprである．そのため，コンパイル時に計算が行われる．
+//! @details
+//! この名前空間にある関数は，基本的に constexprである．そのため，コンパイル時に計算が行われる．
 namespace designlab::math_util
 {
 
 //! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
-//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
-//! @param [in] num1 比較する数字1つ目．
-//! @param [in] num2 比較する数字2つ目．
-//! @return 等しいならばtrue．
+//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
+//! @param[in] num1 比較する数字1つ目．
+//! @param[in] num2 比較する数字2つ目．
+//! @retval true 等しい．または，誤差の範囲で等しい．
+//! @retval false 等しくない．誤差の範囲外．
 template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
 constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
-	const T dif = num1 - num2;
+    const T dif = num1 - num2;
 
-	if (dif > 0)
-	{
-		return (dif <= MathConst<T>::kAllowableError);
-	}
-	else
-	{
-		return (dif >= -MathConst<T>::kAllowableError);
-	}
+    if (dif > 0)
+    {
+        return (dif <= MathConst<T>::kAllowableError);
+    }
+    else
+    {
+        return (dif >= -MathConst<T>::kAllowableError);
+    }
 }
 
 
 //! @brief 2乗した値を返す関数．
-//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
-//! @param [in] num 2乗する数．
-//! @return T 2乗した値． 
+//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
+//! @param[in] num 2乗する数．
+//! @return T 2乗した値．
 template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr T Squared(const T num) noexcept { return num * num; }
 
 
 //! @brief 3辺で三角形が作れるか調べる関数．
-//! @param [in] a 1辺目．
-//! @param [in] b 2辺目．
-//! @param [in] c 3辺目．
-//! @return bool 三角形が作れるならばtrue．
+//! @param[in] a 1辺目．
+//! @param[in] b 2辺目．
+//! @param[in] c 3辺目．
+//! @return bool 三角形が作れるならば true．
 template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 {
-	assert(a > 0);
-	assert(b > 0);
-	assert(c > 0);
-	return (a + b > c && b + c > a && c + a > b);
+    assert(a > 0);
+    assert(b > 0);
+    assert(c > 0);
+    return (a + b > c && b + c > a && c + a > b);
 }
 
 
 //! @brief 目標値に値を近づける関数．
 //! 描画用なので，線形でなく，適当に値を近づける．そのため，計算に使いたいなら作り直すこと．
-//! @param [in] current 現在の値．
-//! @param [in] target 目標値．
-//! @param [in] rate 近づける割合．0 ～ 1の値を取る．
+//! @param[in] current 現在の値．
+//! @param[in] target 目標値．
+//! @param[in] rate 近づける割合．0 ～ 1の値を取る．
 //! @return 近づけた値．
 template <typename T>
 T ApproachTarget(const T& current, const T& target, float rate)
 {
-	assert(0 <= rate);
-	assert(rate <= 1);	//0 <= rate <= 1 でなければならない
+    assert(0 <= rate);
+    assert(rate <= 1);  // 0 <= rate <= 1 でなければならない．
 
-	if (current == target) { return current; }
+    if (current == target) { return current; }
 
-	return static_cast<T>(current * (1 - rate) + target * rate);
+    return static_cast<T>(current * (1 - rate) + target * rate);
 }
 
 
 //! @brief 指定した範囲内の乱数を生成する．
-//! @param [in] min 乱数の最小値．
-//! @param [in] max 乱数の最大値．
+//! @param[in] min 乱数の最小値．
+//! @param[in] max 乱数の最大値．
 //! @return 生成した乱数．
 //! @tparam T 算術型．int, float, doubleなど．
 template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 T GenerateRandomNumber(T min, T max)
 {
-	assert(min < max);	//min < max でなければならない．
+    assert(min < max);  // min < max でなければならない．
 
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_real_distribution<> dis(min, max);
-	return (T)dis(gen);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(min, max);
+    return (T)dis(gen);
 }
 
 
-//! @brief 角度をradからdegに変換する関数．
-//! @param [in] rad 角度[rad]．
-//! @return 角度[deg]．
+//! @brief 角度を [rad]から [deg] に変換する関数．
+//! @param[in] rad 単位 [rad]．
+//! @return 単位 [deg]．
 template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
-constexpr T ConvertRadToDeg(const T rad) noexcept { return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / MathConst<T>::kPi; };
+constexpr T ConvertRadToDeg(const T rad) noexcept
+{
+    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / MathConst<T>::kPi;
+}
 
-//! @brief 角度をdegからradに変換する関数．
-//! @param [in] deg 角度[deg]．
+//! @brief 角度を [deg] から [rad] に変換する関数．
+//! @param[in] deg 角度[deg]．
 //! @return 角度[rad]．
 template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
-constexpr T ConvertDegToRad(const T deg) noexcept { return deg * MathConst<T>::kPi / (MathConst<T>::kRoundAngle / static_cast<T>(2)); }
+constexpr T ConvertDegToRad(const T deg) noexcept
+{
+    return deg * MathConst<T>::kPi / (MathConst<T>::kRoundAngle / static_cast<T>(2));
+}
 
 
 [[deprecated]]
 float limitRangeAngle(const float angle);
 
 
-constexpr int kDigit = 3;	//!< 小数点以下の桁数．
-constexpr int kWidth = 10;	//!< 文字列の幅．
+constexpr int kDigit = 3;   //!< 小数点以下の桁数．
+constexpr int kWidth = 10;  //!< 文字列の幅．
 
 //! @brief 小数を文字列に変換する関数．
 //! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．
-//! @param [in] num 変換する小数．
-//! @param [in] digit 小数点以下の桁数．
-//! @param [in] width 文字列の幅．
+//! @param[in] num 変換する小数．
+//! @param[in] digit 小数点以下の桁数．
+//! @param[in] width 文字列の幅．
 //! @return 変換した文字列．
-//! @tparam T floatかdoubleのみを想定している．その他の型を使用する場合エラーが出る．
+//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
 template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
-std::string FloatingPointNumToString(const T num, const int digit = kDigit, const int width = kWidth)
+std::string FloatingPointNumToString(const T num,
+                                     const int digit = kDigit, const int width = kWidth)
 {
-	std::ostringstream ss;
+    std::ostringstream ss;
 
-	ss << std::fixed << std::setprecision(digit);
-	ss << std::setw(width) << std::setfill(' ') << num;
+    ss << std::fixed << std::setprecision(digit);
+    ss << std::setw(width) << std::setfill(' ') << num;
 
-	return ss.str();
+    return ss.str();
 }
 
 
-}	// namespace designlab::math_util
+}  // namespace designlab::math_util
 
 
-#endif	// DESIGNLAB_MATH_UTIL_H_
+#endif  // DESIGNLAB_MATH_UTIL_H_

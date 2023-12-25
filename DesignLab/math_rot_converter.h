@@ -1,4 +1,9 @@
-﻿#ifndef DESIGNLAB_MATH_ROT_CONVERTER_H_
+﻿
+/// @file      math_rot_converter.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#ifndef DESIGNLAB_MATH_ROT_CONVERTER_H_
 #define DESIGNLAB_MATH_ROT_CONVERTER_H_
 
 #include "math_euler.h"
@@ -14,9 +19,9 @@ namespace designlab
 //! @return クォータニオン．
 [[nodiscard]] Quaternion ToQuaternion(const RotationMatrix3x3& rot);
 
-//! @brief クォータニオンからXYZオイラー角への変換．
-//! @param[in] q クォータニオン．
-//! @return XYZオイラー角．
+//! @brief オイラー角からクォータニオンへの変換．
+//! @param[in] e オイラー角．
+//! @return クォータニオン．
 [[nodiscard]] Quaternion ToQuaternion(const EulerXYZ& e);
 
 //! @brief クォータニオンから回転角行列への変換．
@@ -34,13 +39,13 @@ namespace designlab
 //! @return XYZオイラー角．
 [[nodiscard]] EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot);
 
-//! @brief 回転角行列からクォータニオンへの変換．
-//! @param[in] e XYZオイラー角．
-//! @return クォータニオン．
+//! @brief クォータニオンからXYZオイラー角への変換．
+//! @param[in] q クォータニオン．
+//! @return オイラー角．
 [[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
 
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_MATH_ROT_CONVERTER_H_
+#endif  // DESIGNLAB_MATH_ROT_CONVERTER_H_
