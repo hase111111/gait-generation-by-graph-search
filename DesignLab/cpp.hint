@@ -4,3 +4,4 @@
 #define TEST_CASE(name) DOCTEST_TEST_CASE(name)
 #define SUBCASE(name) DOCTEST_SUBCASE(name)
 #define CHECK(__VA_ARGS__) DOCTEST_CHECK(__VA_ARGS__)
+#define TEST_SUITE("math_

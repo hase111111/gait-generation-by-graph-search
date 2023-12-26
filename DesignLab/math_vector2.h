@@ -97,6 +97,12 @@ struct Vector2 final
         return math_util::IsEqual(x, 0.0f) && math_util::IsEqual(y, 0.0f);
     }
 
+    //! @brief このベクトルを正規化する．
+    //! @n 絶対値が0のベクトルの場合，そのまま0ベクトルになる．
+    //! @attention この関数は，このベクトルの値を変更する． GetNormalized() は値を変更しない．
+    //! 間違えないようにすること．
+    void Normalize() noexcept { *this = GetNormalized(); }
+
 
     //! @brief 零ベクトルを返す．静的な関数なので Vector2::GetZeroVec() と呼ぶことができる．
     //! @return 零ベクトル．
