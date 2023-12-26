@@ -11,7 +11,7 @@
 #include "com_candidate_polygon_maker.h"
 #include "com_selecter_hato.h"
 #include "math_polygon2.h"
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
 #include "interface_hexapod_vaild_checker.h"
@@ -27,7 +27,7 @@ class NodeCreatorComMove final : public INodeCreator
 public:
 
 	NodeCreatorComMove(
-		const DevideMapState& devide_map,
+		const DividedMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -43,7 +43,7 @@ private:
 	const ComCandidatePolygonMaker maker_;	//!< 候補地点を含む多角形を作成するクラス．
 	const ComSelecterHato selecter_;		//!< 多角形から最適な地面を選択するクラス．
 
-	const DevideMapState map_;				//!< 地面の状態を格納したクラス．
+	const DividedMapState map_;				//!< 地面の状態を格納したクラス．
 	const enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

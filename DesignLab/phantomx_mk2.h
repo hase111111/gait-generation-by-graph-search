@@ -67,7 +67,7 @@ public:
 	bool IsStable(const leg_func::LegStateBit& leg_state,
 		const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
-	bool IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const override;
+	bool IsBodyInterferingWithGround(const RobotStateNode& node, const DividedMapState& devide_map) const override;
 
 private:
 

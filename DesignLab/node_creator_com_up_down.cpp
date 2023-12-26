@@ -14,7 +14,7 @@ namespace designlab
 {
 
 NodeCreatorComUpDown::NodeCreatorComUpDown(
-	const DevideMapState& devide_map,
+	const DividedMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,

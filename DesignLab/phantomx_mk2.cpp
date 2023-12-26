@@ -481,7 +481,7 @@ bool PhantomXMkII::IsStable(const leg_func::LegStateBit& leg_state, const std::a
 	return CalculateStabilityMargin(leg_state, leg_pos) > kStableMargin;
 }
 
-bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const
+bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const DividedMapState& devide_map) const
 {
 	//重心の干渉を調べる．
 	{

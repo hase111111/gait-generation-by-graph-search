@@ -1,4 +1,7 @@
 ﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
 #include "math_line_segment2.h"
 
 #include "cassert_define.h"

@@ -14,7 +14,7 @@ namespace designlab
 {
 
 NodeCreatorLegUpDown::NodeCreatorLegUpDown(
-	const DevideMapState& devide_map,
+	const DividedMapState& devide_map,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -145,10 +145,10 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotSta
 	int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
 
 	//値がdevide mapの範囲外にあるときは丸める．
-	max_x_dev = DevideMapState::ClampDevideMapIndex(max_x_dev);
-	min_x_dev = DevideMapState::ClampDevideMapIndex(min_x_dev);
-	max_y_dev = DevideMapState::ClampDevideMapIndex(max_y_dev);
-	min_y_dev = DevideMapState::ClampDevideMapIndex(min_y_dev);
+	max_x_dev = DividedMapState::ClampDevideMapIndex(max_x_dev);
+	min_x_dev = DividedMapState::ClampDevideMapIndex(min_x_dev);
+	max_y_dev = DividedMapState::ClampDevideMapIndex(max_y_dev);
+	min_y_dev = DividedMapState::ClampDevideMapIndex(min_y_dev);
 
 	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 	Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．

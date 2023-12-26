@@ -9,7 +9,7 @@ namespace designlab
 {
 
 NodeCreatorComMove::NodeCreatorComMove(
-	const DevideMapState& map, 
+	const DividedMapState& map, 
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,

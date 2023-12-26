@@ -23,7 +23,7 @@ NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 }
 
 void NodeCreatorBuilderHato::Build(
-	const DevideMapState& map,
+	const DividedMapState& map,
 	std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
 	assert(node_creator != nullptr);	// node_creatorがnullptrでない．

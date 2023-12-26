@@ -1,5 +1,7 @@
-﻿//! @file simulation_result_record.h
-//! @brief シミュレーションの結果を記録するクラス．
+﻿
+/// @file      simulation_result_record.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SIMULATION_RESULT_RECORD_H_
 #define DESIGNLAB_SIMULATION_RESULT_RECORD_H_
@@ -18,13 +20,13 @@ namespace designlab::enums
 //! @brief シミュレーション全体の結果を表す列挙型．
 enum class SimulationResult
 {
-	kSuccess,						//!< 目標座標，姿勢を満たし，シミュレーションに成功した．
-	kFailureByGraphSearch,			//!< グラフ探索に失敗しため，シミュレーションに失敗した．
-	kFailureByLoopMotion,			//!< 動作がループしてしまったため，シミュレーションに失敗した．
-	kFailureByNodeLimitExceeded,	//!< ノード数の上限に達したため，シミュレーションに失敗した．
+    kSuccess,                       //!< 目標座標，姿勢を満たし，シミュレーションに成功した．
+    kFailureByGraphSearch,          //!< グラフ探索に失敗しため，シミュレーションに失敗した．
+    kFailureByLoopMotion,           //!< 動作がループしてしまったため，シミュレーションに失敗した．
+    kFailureByNodeLimitExceeded,    //!< ノード数の上限に達したため，シミュレーションに失敗した．
 };
 
-}	// namespace designlab::enums
+}  // namespace designlab::enums
 
 
 namespace designlab
@@ -35,20 +37,20 @@ namespace designlab
 //! @details 変数をたくさん宣言させたくないので作成した．
 struct SimulationResultRecord final
 {
-	//! @brief このクラスのデータをcsvファイルに出力する用の形式で文字列に変換する．
-	//! @return csvファイルに出力する用の形式の文字列．
-	std::string ToCsvString() const;
+    //! @brief このクラスのデータを，csvファイルに出力する用の形式で文字列に変換する．
+    //! @return csvファイルに出力する用の形式の文字列．
+    std::string ToCsvString() const;
 
 
-	//!< グラフ探索の結果を格納する構造体の配列．
-	std::vector<GraphSearchResultRecord> graph_search_result_recoder;
+    //!< グラフ探索の結果を格納する構造体の配列．
+    std::vector<GraphSearchResultRecord> graph_search_result_recoder;
 
-	MapState map_state;					//!< 最新の地面の状態．
+    MapState map_state;  //!< 最新の地面の状態．
 
-	enums::SimulationResult simulation_result;	//!< シミュレーション全体の結果．
+    enums::SimulationResult simulation_result;  //!< シミュレーション全体の結果．
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_SIMULATION_RESULT_RECORD_H_
+#endif  // DESIGNLAB_SIMULATION_RESULT_RECORD_H_

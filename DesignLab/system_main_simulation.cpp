@@ -102,7 +102,7 @@ void SystemMainSimulation::Main()
 
 			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
 
-			const GraphSearchResult result_state = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
+			const GraphSearchResult result_state = gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
 
 			timer_.End();			//タイマーストップ
 

@@ -1,4 +1,8 @@
-﻿#include "simulation_result_record.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "simulation_result_record.h"
 
 #include <sstream>
 
@@ -12,29 +16,30 @@ namespace designlab
 
 std::string SimulationResultRecord::ToCsvString() const
 {
-	//シミュレーションの最終的な結果の出力
-	std::stringstream ss;
-	ss << "Simulation Result," << string_util::EnumToStringRemoveTopK(simulation_result) << std::endl;
-	ss << std::endl;
+    // シミュレーションの最終的な結果の出力．
+    std::stringstream ss;
+    ss << "Simulation Result," <<
+        string_util::EnumToStringRemoveTopK(simulation_result) << std::endl;
+    ss << std::endl;
 
-	ss << GraphSearchResultRecord::GetCsvHeader() << std::endl;
+    ss << GraphSearchResultRecord::GetCsvHeader() << std::endl;
 
-	const size_t kLength = graph_search_result_recoder.size();
+    const size_t kLength = graph_search_result_recoder.size();
 
-	for (size_t i = 0; i < kLength; i++)
-	{
-		ss << i << ",";
+    for (size_t i = 0; i < kLength; i++)
+    {
+        ss << i << ",";
 
-		//グラフ探索の結果の出力
-		ss << graph_search_result_recoder[i].ToCsvString() << ",";
+        // グラフ探索の結果の出力．
+        ss << graph_search_result_recoder[i].ToCsvString() << ",";
 
-		ss << std::endl;
-	}
+        ss << std::endl;
+    }
 
 
-	ss << std::endl;
+    ss << std::endl;
 
-	return ss.str();
+    return ss.str();
 }
 
-} // namespace designlab
+}  // namespace designlab

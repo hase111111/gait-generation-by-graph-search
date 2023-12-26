@@ -29,7 +29,7 @@ public:
 
 	//! @brief ノード生成クラスを初期化する．
 	//! @param[in] map_state マップの状態．
-	void Init(const DevideMapState& map_state);
+	void Init(const DividedMapState& map_state);
 
 	//! @brief 歩容パターングラフを作成する．
 	//! @param[in] start_depth 作成するグラフの開始深さ．

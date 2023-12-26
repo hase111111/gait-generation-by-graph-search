@@ -8,7 +8,7 @@
 
 #include <memory>
 
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
 #include "interface_hexapod_vaild_checker.h"
@@ -23,7 +23,7 @@ class NodeCreatorComUpDown final : public INodeCreator
 {
 public:
 	NodeCreatorComUpDown(
-		const DevideMapState& devide_map,
+		const DividedMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -44,7 +44,7 @@ private:
 	static constexpr float MARGIN = 10.0f;		//脚を伸ばし切らないようにするためのマージン[mm]．数値は先輩のプログラムからとってきたのでなぜこの数値が良いのかはわからない．
 
 
-	const DevideMapState map_;
+	const DividedMapState map_;
 
 	const enums::HexapodMove next_move_;	//!< 次の動作．
 

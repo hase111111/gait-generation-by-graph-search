@@ -8,7 +8,7 @@
 
 #include <memory>
 
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "hexapod_next_move.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
@@ -26,7 +26,7 @@ class NodeCreatorLegUpDown2d final : public INodeCreator
 public:
 
 	NodeCreatorLegUpDown2d(
-		const DevideMapState& devide_map,
+		const DividedMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
@@ -47,7 +47,7 @@ private:
 
 	const float kLegMargin;		//!< これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
 
-	const DevideMapState map_;	//!< マップの状態．
+	const DividedMapState map_;	//!< マップの状態．
 
 	const enums::HexapodMove next_move_;	//!< 次の動作．
 

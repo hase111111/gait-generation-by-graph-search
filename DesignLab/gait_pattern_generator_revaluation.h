@@ -1,8 +1,10 @@
-﻿//! @file gait_pattern_generator_revaluation.h
-//! @brief 再評価手法を実装したクラス．
+﻿
+/// @file      gait_pattern_generator_revaluation.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#ifndef GAIT_PATTERN_GENERATOR_REVALUATION_H_
-#define GAIT_PATTERN_GENERATOR_REVALUATION_H_
+#ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
+#define DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
 
 #include <memory>
 #include <vector>
@@ -20,33 +22,29 @@ namespace designlab
 class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator
 {
 public:
+    //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの．
+    //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの．
+    GaitPatternGeneratorRevaluation(
+      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
+      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr);
 
-	//! @param[in] gait_pattern_generator_ptr 通常時に使用するもの．
-	//! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの．
-	GaitPatternGeneratorRevaluation(
-		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-		std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr
-	);
-
-	~GaitPatternGeneratorRevaluation() = default;
+    ~GaitPatternGeneratorRevaluation() = default;
 
 
-	GraphSearchResult GetNextNodebyGraphSearch(
-		const RobotStateNode& current_node,
-		const MapState& map,
-		const RobotOperation& operation,
-		RobotStateNode* output_node
-	) override;
+    GraphSearchResult GetNextNodeByGraphSearch(
+      const RobotStateNode& current_node,
+      const MapState& map,
+      const RobotOperation& operation,
+      RobotStateNode* output_node) override;
 
 private:
+    bool IsValidNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
-	bool IsVaildNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
-
-	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
-	const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_revaluation_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_revaluation_ptr_;
 };
 
-}	//	namespace designlab
+}  // namespace designlab
 
 
-#endif	//	GAIT_PATTERN_GENERATOR_REVALUATION_H_
+#endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_

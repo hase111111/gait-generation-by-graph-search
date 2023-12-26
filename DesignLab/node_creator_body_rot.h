@@ -9,7 +9,7 @@
 #include <memory>
 
 #include "math_util.h"
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_vaild_checker.h"
 
@@ -24,7 +24,7 @@ class NodeCreatorBodyRot final : public INodeCreator
 public:
 
 	NodeCreatorBodyRot(
-		const DevideMapState& devide_map,
+		const DividedMapState& devide_map,
 		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
 		const Vector3& rot_axis,
@@ -63,7 +63,7 @@ private:
 
 	const std::array<float, kBodyYawRotAngleDivNum> candiate_angle_ = CreateCandiateAngle();
 
-	const DevideMapState map_;		//!< 地面の状態を格納したクラス．
+	const DividedMapState map_;		//!< 地面の状態を格納したクラス．
 	const enums::HexapodMove next_move_;	//!< 次の動作．
 
 	const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

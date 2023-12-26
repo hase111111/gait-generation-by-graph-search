@@ -7,7 +7,7 @@
 #include <array>
 
 #include "math_vector3.h"
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
 #include "robot_state_node.h"
@@ -60,7 +60,7 @@ public:
 	//! @param [in] node ロボットの状態．
 	//! @param [in] devide_map 地面の状態．
 	//! @return bool 胴体が地面と干渉していればtrue．干渉していなければfalse．
-	virtual bool IsBodyInterferingWithGround(const RobotStateNode& node, const DevideMapState& devide_map) const = 0;
+	virtual bool IsBodyInterferingWithGround(const RobotStateNode& node, const DividedMapState& devide_map) const = 0;
 };
 
 }	// namespace designlab

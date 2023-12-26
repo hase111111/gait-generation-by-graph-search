@@ -399,7 +399,7 @@
     <ClInclude Include="com_selecter_hato.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
-    <ClInclude Include="devide_map_state.h">
+    <ClInclude Include="divided_map_state.h">
       <Filter>ソース ファイル\Map</Filter>
     </ClInclude>
     <ClInclude Include="node_initializer.h">
@@ -812,7 +812,7 @@
     <ClCompile Include="com_selecter_hato.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
-    <ClCompile Include="devide_map_state.cpp">
+    <ClCompile Include="divided_map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
     <ClCompile Include="node_initializer.cpp">

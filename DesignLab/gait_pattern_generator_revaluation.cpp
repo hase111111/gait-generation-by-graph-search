@@ -1,4 +1,10 @@
-﻿#include "gait_pattern_generator_revaluation.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "gait_pattern_generator_revaluation.h"
+
+#include <utility>
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
@@ -6,84 +12,56 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
+
 namespace designlab
 {
 
 GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
-	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr
-) :
-	gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
-	gait_pattern_generator_revaluation_ptr_(std::move(gait_pattern_generator_revaluation_ptr))
+    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
+    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr) :
+    gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
+    gait_pattern_generator_revaluation_ptr_(std::move(gait_pattern_generator_revaluation_ptr))
 {
-	assert(gait_pattern_generator_ptr_ != nullptr);	// gait_pattern_generator_ptr_はnullptrでない
-	assert(gait_pattern_generator_revaluation_ptr_ != nullptr);	// gait_pattern_generator_revaluation_ptr_はnullptrでない
+    // gait_pattern_generator_ptr_ は nullptrでない．
+    assert(gait_pattern_generator_ptr_ != nullptr);
+
+    // gait_pattern_generator_revaluation_ptr_ は nullptrでない．
+    assert(gait_pattern_generator_revaluation_ptr_ != nullptr);
 }
 
-GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodebyGraphSearch(
-	const RobotStateNode& current_node,
-	const MapState& map_state,
-	const RobotOperation& operation,
-	RobotStateNode* output_node
+GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
+  const RobotStateNode& current_node,
+  const MapState& map_state,
+  const RobotOperation& operation,
+  RobotStateNode* output_node
 )
 {
-	assert(output_node != nullptr);	// output_nodeはnullptrでない
+    assert(output_node != nullptr);  // output_nodeは nullptrでない
 
-	const GraphSearchResult result = gait_pattern_generator_ptr_->GetNextNodebyGraphSearch(current_node, map_state, operation, output_node);
+    const GraphSearchResult result =
+        gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(current_node,
+                                                              map_state,
+                                                              operation,
+                                                              output_node);
 
-	if (result.result != enums::Result::kSuccess)
-	{
-		// グラフ探索に失敗した場合は終了．
-		return result;
-	}
+    if (result.result != enums::Result::kSuccess)
+    {
+        // グラフ探索に失敗した場合は終了．
+        return result;
+    }
 
-	//成功した場合は，逆運動学計算で脚軌道生成が可能であるか確認する．
+    // 成功した場合は，逆運動学計算で脚軌道生成が可能であるか確認する．
 
-	//! @todo 続きを書こう！
+    //! @todo 正常に動作しないため，一時凍結．後で修正する．
 
-	return result;
+    return result;
 }
 
-bool GaitPatternGeneratorRevaluation::IsVaildNode([[maybe_unused]] const RobotStateNode& current_node, [[maybe_unused]] const RobotStateNode& next_node) const
+bool GaitPatternGeneratorRevaluation::IsValidNode(
+    [[maybe_unused]] const RobotStateNode& current_node,
+    [[maybe_unused]] const RobotStateNode& next_node) const
 {
-	////逆運動学で間接角度を計算する
-	////間接角度が範囲内に収まっているかを確認する
-	//std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
-
-	////現在のノードの間接角度を計算する
-	//hexapod_state_calculator_ptr_->CalculateAllJointState(current_node, &joint_state);
-
-	////解が正しいか確かめる
-	//if (!hexapod_state_calculator_ptr_->IsVaildJointState(current_node, joint_state))
-	//{
-	//	return false;
-	//}
-
-	////次のノードの間接角度を計算する
-	//hexapod_state_calculator_ptr_->CalculateAllJointState(next_node, &joint_state);
-
-	////解が正しいか確かめる
-	//if (!hexapod_state_calculator_ptr_->IsVaildJointState(next_node, joint_state))
-	//{
-	//	return false;
-	//}
-
-	//std::vector<RobotStateNode> interpolated_node;
-
-	//interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node, &interpolated_node);
-
-	//for (const auto &i : interpolated_node)
-	//{
-	//	hexapod_state_calculator_ptr_->CalculateAllJointState(i, &joint_state);
-
-	//	//解が正しいか確かめる
-	//	if (!hexapod_state_calculator_ptr_->IsVaildJointState(i, joint_state))
-	//	{
-	//		return false;
-	//	}
-	//}
-
-	return true;
+    return true;
 }
 
-} // namespace designlab
+}  // namespace designlab

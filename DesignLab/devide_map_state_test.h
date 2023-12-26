@@ -2,7 +2,7 @@
 
 #include "doctest.h"
 
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 
 using namespace designlab;
 

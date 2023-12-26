@@ -1,5 +1,7 @@
-﻿//! @file devide_map_state.h
-//! @brief マップを格子状に分割して管理するクラス．
+﻿
+/// @file      divided_map_state.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DEVIDE_MAP_STATE_H_
 #define DESIGNLAB_DEVIDE_MAP_STATE_H_
@@ -11,17 +13,17 @@
 namespace designlab
 {
 
-//! @class DevideMapState
+//! @class DividedMapState
 //! @brief マップを格子状に分割して管理するクラス．
 //! @details 処理を軽くするために，マップが存在する領域を長方形に切り分けて，その中に存在する脚設置可能点を集めたものが devided_map_point_．
 //! @n devide_mapの要素は https://atcoder.jp/contests/APG4b/tasks/APG4b_t の 「1次元の配列を多次元配列として使う」の要領で並んでいる．
 //! @n 座標はグローバル座標である．
-class DevideMapState final
+class DividedMapState final
 {
 public:
 
     //! @param [in] min_z マップの最低のZ座標．
-    explicit DevideMapState(float min_z = MapState::kMapMinZ);
+    explicit DividedMapState(float min_z = MapState::kMapMinZ);
 
     //! @brief Devideマップのデータを初期化する．
     //! @n マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．

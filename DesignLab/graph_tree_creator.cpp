@@ -15,7 +15,7 @@ GraphTreeCreator::GraphTreeCreator(std::unique_ptr<INodeCreatorBuilder>&& node_c
 	assert(node_creator_builder_ptr_ != nullptr);
 }
 
-void GraphTreeCreator::Init(const DevideMapState& map_state)
+void GraphTreeCreator::Init(const DividedMapState& map_state)
 {
 	// 現在持っているノード生成クラスを全て削除する．
 	node_creator_map_.clear();

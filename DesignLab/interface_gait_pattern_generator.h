@@ -1,5 +1,7 @@
-﻿//! @file interface_pass_finder.h
-//! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース．
+﻿
+/// @file      interface_gait_pattern_generator.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
 #define DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
@@ -12,39 +14,37 @@
 #include "robot_operation.h"
 
 
-namespace designlab 
+namespace designlab
 {
 
 //! @class IGaitPatternGenerator
 //! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース．
-//! @details 
+//! @details
 //! @n 波東さんのプログラムで言うところのPassFindingクラス．
-//! @n 実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @n 継承をするクラスのデストラクタはvirtualにしておく．
-//! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html
+//! 実体は作成できないのでこれを継承してたクラスを使うこと．
+//! @n 継承をするクラスのデストラクタは virtualにしておく．
+//! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html (アクセス日 2023/12/27)
 class IGaitPatternGenerator
 {
 public:
+    IGaitPatternGenerator() = default;
+    virtual ~IGaitPatternGenerator() = default;
 
-	IGaitPatternGenerator() = default;
-	virtual ~IGaitPatternGenerator() = default;
 
-
-	//! @brief グラフ探索を行い，次の動作として最適なノードを返す．
-	//! @param [in] current_node 現在のロボットの状態を表すノード．親ノードを渡す必要がある．
-	//! @param [in] map 現在のマップの状態．
-	//!	@param [in] operation 目標．
-	//! @param [out] output_node 結果のノード．
-	//! @return GraphSearchResult グラフ探索の結果を返す．成功か失敗か．
-	virtual GraphSearchResult GetNextNodebyGraphSearch(
-		const RobotStateNode& current_node,
-		const MapState& map,
-		const RobotOperation& operation,
-		RobotStateNode* output_node
-	) = 0;
+    //! @brief グラフ探索を行い，次の動作として最適なノードを返す．
+    //! @param[in] current_node 現在のロボットの状態を表すノード．親ノードを渡す必要がある．
+    //! @param[in] map 現在のマップの状態．
+    //! @param[in] operation 目標．
+    //! @param[out] output_node 結果のノード．
+    //! @return グラフ探索の結果を返す．成功か失敗か．
+    virtual GraphSearchResult GetNextNodeByGraphSearch(
+      const RobotStateNode& current_node,
+      const MapState& map,
+      const RobotOperation& operation,
+      RobotStateNode* output_node) = 0;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
+#endif  // DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_

@@ -63,7 +63,7 @@
     <ClInclude Include="math_rotation_matrix.h" />
     <ClInclude Include="math_rot_converter.h" />
     <ClInclude Include="string_util.h" />
-    <ClInclude Include="devide_map_state.h" />
+    <ClInclude Include="divided_map_state.h" />
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="boot_mode.h" />
@@ -207,7 +207,7 @@
     <ClCompile Include="node_creator_com_move.cpp" />
     <ClCompile Include="math_rot_converter.cpp" />
     <ClCompile Include="string_util.cpp" />
-    <ClCompile Include="devide_map_state.cpp" />
+    <ClCompile Include="divided_map_state.cpp" />
     <ClCompile Include="node_creator_builder_rot_test.cpp" />
     <ClCompile Include="node_initializer.cpp" />
     <ClCompile Include="com_selecter_hato.cpp" />

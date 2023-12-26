@@ -7,7 +7,7 @@
 #include <memory>
 
 #include "application_setting_record.h"
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "dxlib_3d_renderer_group.h"
 #include "dxlib_node_setter_group.h"
 #include "dxlib_gui_updater.h"
@@ -55,7 +55,7 @@ private:
 	const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
 	MapState map_state_;				//!< マップの状態を保持するクラス．
-	DevideMapState devide_map_state_;	//!< 分割したマップの状態を保持するクラス．
+	DividedMapState devide_map_state_;	//!< 分割したマップの状態を保持するクラス．
 	RobotStateNode robot_;				//!< ロボットの状態．
 
 	int devide_map_tile_index_{ 0 };	//!< 脚を接地しているデバイドマップのインデックス．

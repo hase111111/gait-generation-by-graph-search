@@ -7,7 +7,7 @@
 #include <map>
 #include <memory>
 
-#include "devide_map_state.h"
+#include "divided_map_state.h"
 #include "hexapod_next_move.h"
 #include "interface_node_creator.h"
 #include "interface_hexapod_coordinate_converter.h"
@@ -33,7 +33,7 @@ public:
 	//! @n key:HexapodMove, value:INodeCreator．
 	//! つまり，ロボットの動作に対応するINodeCreatorを格納する必要がある．
 	virtual void Build(
-		const DevideMapState& map,
+		const DividedMapState& map,
 		std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const = 0;
 };
 
