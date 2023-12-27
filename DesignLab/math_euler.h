@@ -1,7 +1,7 @@
 ﻿
-/// @file      math_euler.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      math_euler.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_EULER_H_
 #define DESIGNLAB_MATH_EULER_H_
@@ -32,10 +32,10 @@ struct EulerXYZ final
     //! @brief デフォルトコンストラクタでは 0,0,0 で初期化する．
     constexpr EulerXYZ() : x_angle(0.f), y_angle(0.f), z_angle(0.f) {}
 
-    /// @brief rad単位で初期化する．
-    /// @param[in] x X軸周りの回転．[rad]
-    /// @param[in] y Y軸周りの回転．[rad]
-    /// @param[in] z Z軸周りの回転．[rad]
+    //! @brief rad単位で初期化する．
+    //! @param[in] x X軸周りの回転．[rad]
+    //! @param[in] y Y軸周りの回転．[rad]
+    //! @param[in] z Z軸周りの回転．[rad]
     constexpr EulerXYZ(const float x, const float y, const float z) :
         x_angle(x), y_angle(y), z_angle(z) {}
 

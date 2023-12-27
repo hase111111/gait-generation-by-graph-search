@@ -95,7 +95,7 @@ namespace
 			dl::Vector3{ 0.f, -120.f, -120.f }, dl::Vector3{ 0.f,-120.f,-120.f }, dl::Vector3{ 0.f,-120.f,-120.f },
 			dl::Vector3{ 0.f, 120.f, -120.f }, dl::Vector3{ 0.f,120.f,-120.f }, dl::Vector3{ 0.f,120.f,-120.f }
 		};
-		test_node.global_center_of_mass = dl::Vector3{ 100.f, 0.f, 0.f };
+		test_node.center_of_mass_global_coord = dl::Vector3{ 100.f, 0.f, 0.f };
 		test_node.quat = { 1.0f, 0.f, 0.f, 0.0f };
 
 		test_node.next_move = HexapodMove::kLegHierarchyChange;
@@ -338,7 +338,7 @@ namespace designlab::test::node::node_creator
 
 				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
 				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.center_of_mass_global_coord, test_node.center_of_mass_global_coord) << error_message << "重心位置は変化しません．\n_";
 				EXPECT_EQ(j.quat, test_node.quat) << error_message << "姿勢は変化しません．\n_";
 
 			}
@@ -366,7 +366,7 @@ namespace designlab::test::node::node_creator
 
 				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
 				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.center_of_mass_global_coord, test_node.center_of_mass_global_coord) << error_message << "重心位置は変化しません．\n_";
 				EXPECT_EQ(j.quat, test_node.quat) << error_message << "姿勢は変化しません．\n_";
 
 			}
@@ -394,7 +394,7 @@ namespace designlab::test::node::node_creator
 
 				EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
 				EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
-				EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+				EXPECT_EQ(j.center_of_mass_global_coord, test_node.center_of_mass_global_coord) << error_message << "重心位置は変化しません．\n_";
 				EXPECT_EQ(j.quat, test_node.quat) << error_message << "姿勢は変化しません．\n_";
 
 			}
@@ -422,7 +422,7 @@ namespace designlab::test::node::node_creator
 
 			EXPECT_EQ(j.leg_pos, test_node.leg_pos) << error_message << "脚位置は変化しません．\n_";
 			EXPECT_EQ(j.leg_reference_pos, test_node.leg_reference_pos) << error_message << "脚の基準位置は変化しません．\n_";
-			EXPECT_EQ(j.global_center_of_mass, test_node.global_center_of_mass) << error_message << "重心位置は変化しません．\n_";
+			EXPECT_EQ(j.center_of_mass_global_coord, test_node.center_of_mass_global_coord) << error_message << "重心位置は変化しません．\n_";
 			EXPECT_EQ(j.quat, test_node.quat) << error_message << "姿勢は変化しません．\n_";
 
 		}

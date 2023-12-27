@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "result_file_exporter.h"
 
@@ -363,8 +363,8 @@ bool ResultFileExporter::OutputResultDetail(const SimulationResultRecord& record
         {
             RobotStateNode current_node = recorder.graph_search_result_recoder[i].result_node;
             RobotStateNode next_node = recorder.graph_search_result_recoder[i + 1].result_node;
-            designlab::Vector3 com_dif = next_node.global_center_of_mass -
-                current_node.global_center_of_mass;
+            designlab::Vector3 com_dif = next_node.center_of_mass_global_coord -
+                current_node.center_of_mass_global_coord;
 
             x_move_sum += com_dif.x;
             y_move_sum += com_dif.y;

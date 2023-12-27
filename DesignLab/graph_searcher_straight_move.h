@@ -1,7 +1,7 @@
 ﻿
-/// @file      graph_searcher_straight_move.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      graph_searcher_straight_move.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_STRAIGHT_MOVE_H_
 #define DESIGNLAB_GRAPH_SEARCHER_STRAIGHT_MOVE_H_

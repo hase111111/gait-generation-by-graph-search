@@ -1,7 +1,7 @@
 ﻿
-/// @file      math_polygon2.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      math_polygon2.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_POLYGON2_H_
 #define DESIGNLAB_MATH_POLYGON2_H_

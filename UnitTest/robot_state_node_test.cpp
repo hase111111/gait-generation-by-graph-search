@@ -20,7 +20,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.leg_state.to_ullong(), 0);
 		EXPECT_EQ(node.leg_pos, zero_leg_pos);
 		EXPECT_EQ(node.leg_reference_pos, zero_leg_pos);
-		EXPECT_EQ(node.global_center_of_mass, zero_vec);
+		EXPECT_EQ(node.center_of_mass_global_coord, zero_vec);
 		EXPECT_EQ(node.quat, zero_quat);
 		EXPECT_EQ(node.next_move, HexapodMove::kComUpDown);
 		EXPECT_EQ(node.parent_index, -1);
@@ -52,7 +52,7 @@ namespace designlab::test::node
 			dl::Vector3{ 31.f, 32.f, 33.f },
 			dl::Vector3{ 34.f, 35.f, 36.f }
 		);
-		const auto global_center_of_mass = dl::Vector3{ 37.f, 38.f, 39.f };
+		const auto center_of_mass_global_coord = dl::Vector3{ 37.f, 38.f, 39.f };
 		const auto quat = dl::Quaternion{};
 		const HexapodMove next_move = HexapodMove::kComUpDown;
 		const int parent_index = 43;
@@ -62,7 +62,7 @@ namespace designlab::test::node
 			leg_state,
 			leg_pos,
 			leg_reference_pos,
-			global_center_of_mass,
+			center_of_mass_global_coord,
 			quat,
 			next_move,
 			parent_index,
@@ -72,7 +72,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.leg_state, leg_state);
 		EXPECT_EQ(node.leg_pos, leg_pos);
 		EXPECT_EQ(node.leg_reference_pos, leg_reference_pos);
-		EXPECT_EQ(node.global_center_of_mass, global_center_of_mass);
+		EXPECT_EQ(node.center_of_mass_global_coord, center_of_mass_global_coord);
 		EXPECT_EQ(node.quat, quat);
 		EXPECT_EQ(node.next_move, next_move);
 		EXPECT_EQ(node.parent_index, parent_index);

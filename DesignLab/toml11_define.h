@@ -1,7 +1,7 @@
 ﻿
-/// @file      toml11_define.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      toml11_define.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 //! @brief ライブラリの toml11の設定を行うためのヘッダファイル．
 //! @n #include <toml.hpp>はこのプロジェクトの中では書かず，このファイルをインクルードすること．
 

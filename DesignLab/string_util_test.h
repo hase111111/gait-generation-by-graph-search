@@ -1,7 +1,7 @@
 ﻿
-/// @file      string_util_test.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      string_util_test.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_STRING_UTIL_TEST_H_
 #define DESIGNLAB_STRING_UTIL_TEST_H_

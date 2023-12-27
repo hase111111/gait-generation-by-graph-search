@@ -296,7 +296,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_, "重心位置");
 
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
-		" %s", display_node_.global_center_of_mass.ToString().c_str());
+		" %s", display_node_.center_of_mass_global_coord.ToString().c_str());
 
 	// 回転を表示する
 	DrawFormatStringToHandle(text_pos_x, text_pos_y_min + text_interval_y * (text_line++), text_color, font_handle_,
@@ -489,7 +489,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 		text_color,
 		font_handle_,
 		"重心 %s",
-		display_node_.global_center_of_mass.ToString().c_str()
+		display_node_.center_of_mass_global_coord.ToString().c_str()
 	);
 
 	++text_line;
@@ -503,7 +503,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 			font_handle_,
 			"%s %s",
 			leg_name[i].c_str(),
-			converter_ptr_->ConvertLegToGlobalCoordinate(display_node_.leg_pos[i], i, display_node_.global_center_of_mass, display_node_.quat, true).ToString().c_str()
+			converter_ptr_->ConvertLegToGlobalCoordinate(display_node_.leg_pos[i], i, display_node_.center_of_mass_global_coord, display_node_.quat, true).ToString().c_str()
 		);
 	}
 }

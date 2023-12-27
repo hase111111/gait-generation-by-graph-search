@@ -1,5 +1,7 @@
-﻿//! @file interface_node_creator_builder
-//! @brief INodeCreatorを生成するためのビルダークラス．
+﻿
+//! @file      interface_node_creator_builder.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
 #define DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
@@ -23,21 +25,20 @@ namespace designlab
 class INodeCreatorBuilder
 {
 public:
+    INodeCreatorBuilder() = default;
+    virtual ~INodeCreatorBuilder() = default;
 
-	INodeCreatorBuilder() = default;
-	virtual ~INodeCreatorBuilder() = default;
-
-	//! @brief INodeCreatorを生成する．
-	//! @param [in] map 分割されたマップ．
-	//! @param [out] node_creator INodeCreatorを格納するmap．
-	//! @n key:HexapodMove, value:INodeCreator．
-	//! つまり，ロボットの動作に対応するINodeCreatorを格納する必要がある．
-	virtual void Build(
-		const DividedMapState& map,
-		std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const = 0;
+    //! @brief INodeCreatorを生成する．
+    //! @param[in] map 分割されたマップ．
+    //! @param[out] node_creator INodeCreatorを格納するmap．
+    //! @n key : HexapodMove, value : INodeCreator．
+    //! つまり，ロボットの動作に対応する INodeCreator を格納する必要がある．
+    virtual void Build(
+      const DividedMapState& map,
+      std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const = 0;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
+#endif  // DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_

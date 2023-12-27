@@ -152,7 +152,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
 	// 重心を表示する
 	DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-					 "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.global_center_of_mass.x, node.global_center_of_mass.y, node.global_center_of_mass.z);
+					 "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.center_of_mass_global_coord.x, node.center_of_mass_global_coord.y, node.center_of_mass_global_coord.z);
 
 	//遊脚か接地脚か
 	std::string str = "";

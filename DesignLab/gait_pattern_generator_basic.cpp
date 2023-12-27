@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "gait_pattern_generator_basic.h"
 
@@ -49,7 +49,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
                       enums::OutputDetail::kDebug);
 
     DividedMapState devide_map;
-    devide_map.Init(map_state, current_node.global_center_of_mass);
+    devide_map.Init(map_state, current_node.center_of_mass_global_coord);
 
     graph_tree_creator_ptr_->Init(devide_map);
 

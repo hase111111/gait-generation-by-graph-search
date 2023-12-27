@@ -1,4 +1,8 @@
-﻿#include "node_creator_leg_up_down.h"
+﻿
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "node_creator_leg_up_down.h"
 
 #include <algorithm>
 
@@ -14,273 +18,308 @@ namespace designlab
 {
 
 NodeCreatorLegUpDown::NodeCreatorLegUpDown(
-	const DividedMapState& devide_map,
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-	const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-	enums::HexapodMove next_move
+  const DividedMapState& divided_map,
+  const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+  const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+  const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+  enums::HexapodMove next_move
 ) :
-	kLegMargin(20),
-	kHighMargin(5),
-	map_(devide_map),
-	converter_ptr_(converter_ptr),
-	presenter_ptr_(presenter_ptr),
-	checker_ptr_(checker_ptr),
-	next_move_(next_move)
+    kLegMargin(20),
+    kHighMargin(5),
+    map_(divided_map),
+    converter_ptr_(converter_ptr),
+    presenter_ptr_(presenter_ptr),
+    checker_ptr_(checker_ptr),
+    next_move_(next_move)
 {
 };
 
 
 
-void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int current_num, std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int current_num,
+                                  std::vector<RobotStateNode>* output_graph) const
 {
-	//脚の遊脚・接地によって生じるとりうる重心をcomtypeとして仕分けている．(詳しくはcom_type.hを参照)．
-	// vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で通常のvectorとは違う挙動をするので，boost::dynamic_bitset<>を使用する．
-	boost::dynamic_bitset<> is_able_leg_ground_pattern(com_func::GetLegGroundPatternNum());
+    // 脚の遊脚・接地によって生じるとりうる重心を com type として仕分けている．
+    // (詳しくは com_type.h を参照)．
+    // vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で，
+    // 通常の vector とは違う挙動をするので，boost::dynamic_bitset<>を使用する．
+    boost::dynamic_bitset<> is_able_leg_ground_pattern(com_func::GetLegGroundPatternNum());
 
-	is_able_leg_ground_pattern.set();	//全てtrueにする．
-
-
-	//まず離散化された重心位置から取り得ない接地パターンを除外する．
-	com_func::RemoveLegGroundPatternFromCom(leg_func::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
+    is_able_leg_ground_pattern.set();  // 全て true にする．
 
 
-	//次に脚が地面に接地可能か調べる．
-	bool is_groundable_leg[HexapodConst::kLegNum];			//脚が設置可能ならばtrueになる．既に接地しているならばtrueになる．
-	Vector3 ground_pos[HexapodConst::kLegNum];	//脚が接地する座標．
-
-	for (int i = 0; i < HexapodConst::kLegNum; i++) { ground_pos[i] = current_node.leg_pos[i]; }
-
-	for (int i = 0; i < HexapodConst::kLegNum; i++)
-	{
-		if (leg_func::IsGrounded(current_node.leg_state, i))
-		{
-			//すでに接地している脚は接地可能に決まっているのでtrueにする．
-			is_groundable_leg[i] = true;
-			ground_pos[i] = current_node.leg_pos[i];
-		}
-		else
-		{
-			//現在遊脚中の脚は自身の脚状態で接地できるか検討する．
-			Vector3 res_ground_pos;
-
-			if (IsGroundableLeg(i, current_node, &res_ground_pos))
-			{
-				is_groundable_leg[i] = true;	//接地可能にする．
-				ground_pos[i] = res_ground_pos;
-			}
-			else
-			{
-				is_groundable_leg[i] = false;	//接地不可能にする．
-				com_func::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
-			}
-		}
-	}
+    // まず離散化された重心位置から取り得ない接地パターンを除外する．
+    com_func::RemoveLegGroundPatternFromCom(
+        leg_func::GetDiscreteComPos(current_node.leg_state), &is_able_leg_ground_pattern);
 
 
-	//子ノードを生成する．
-	for (int i = 0; i < com_func::GetLegGroundPatternNum(); i++)
-	{
-		//その重心タイプが可能であれば，追加する
-		if (is_able_leg_ground_pattern[i])
-		{
-			RobotStateNode res_node = current_node;
+    // 次に脚が地面に接地可能か調べる．
 
-			res_node.ChangeToNextNode(current_num, next_move_);
+    // 脚が設置可能ならば true になる．既に接地しているならば true になる．
+    bool is_groundable_leg[HexapodConst::kLegNum];
+    Vector3 ground_pos[HexapodConst::kLegNum];  // 脚が接地する座標．
+
+    for (int i = 0; i < HexapodConst::kLegNum; i++)
+    {
+        ground_pos[i] = current_node.leg_pos[i];
+    }
+
+    for (int i = 0; i < HexapodConst::kLegNum; i++)
+    {
+        if (leg_func::IsGrounded(current_node.leg_state, i))
+        {
+            // すでに接地している脚は接地可能に決まっているので true にする．
+            is_groundable_leg[i] = true;
+            ground_pos[i] = current_node.leg_pos[i];
+        }
+        else
+        {
+            // 現在遊脚中の脚は自身の脚状態で接地できるか検討する．
+            Vector3 res_ground_pos;
+
+            if (IsGroundableLeg(i, current_node, &res_ground_pos))
+            {
+                is_groundable_leg[i] = true;  // 接地可能にする．
+                ground_pos[i] = res_ground_pos;
+            }
+            else
+            {
+                is_groundable_leg[i] = false;  // 接地不可能にする．
+                com_func::RemoveLegGroundPatternFromNotGroundableLeg(
+                    i, &is_able_leg_ground_pattern);
+            }
+        }
+    }
 
 
-			//遊脚・接地を書き換える．
-			leg_func::LegGroundedBit new_is_ground = com_func::GetLegGroundedBitFromLegGroundPatternIndex(i);
+    // 子ノードを生成する．
+    for (int i = 0; i < com_func::GetLegGroundPatternNum(); i++)
+    {
+        // その重心タイプが可能であれば，追加する
+        if (is_able_leg_ground_pattern[i])
+        {
+            RobotStateNode res_node = current_node;
 
-			leg_func::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
+            res_node.ChangeToNextNode(current_num, next_move_);
 
 
-			//脚位置を書き換える．
-			for (int j = 0; j < HexapodConst::kLegNum; j++)
-			{
-				if (new_is_ground[j])
-				{
-					res_node.leg_pos[j] = ground_pos[j];
+            // 遊脚・接地を書き換える．
+            leg_func::LegGroundedBit new_is_ground =
+                com_func::GetLegGroundedBitFromLegGroundPatternIndex(i);
 
-					res_node.leg_reference_pos[j] = ground_pos[j];
-				}
-				else
-				{
-					res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoodinate(j);
+            leg_func::ChangeAllLegGround(new_is_ground, &res_node.leg_state);
 
-					res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
-					res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;
-				}
-			}
 
-			if (checker_ptr_->IsStable(res_node.leg_state, res_node.leg_pos))
-			{
-				(*output_graph).push_back(res_node);
-			}
+            // 脚位置を書き換える．
+            for (int j = 0; j < HexapodConst::kLegNum; j++)
+            {
+                if (new_is_ground[j])
+                {
+                    res_node.leg_pos[j] = ground_pos[j];
 
-		}	//if is_able_leg_ground_pattern[i]
+                    res_node.leg_reference_pos[j] = ground_pos[j];
+                }
+                else
+                {
+                    res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoodinate(j);
 
-	}	//for i
+                    res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
+                    res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;
+                }
+            }
 
+            if (checker_ptr_->IsStable(res_node.leg_state, res_node.leg_pos))
+            {
+                (*output_graph).push_back(res_node);
+            }
+        }  // if is_able_leg_ground_pattern[i]
+    }  // for i
 }
 
 
-bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num, const RobotStateNode& current_node, Vector3* output_ground_pos) const
+bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
+                                           const RobotStateNode& current_node,
+                                           Vector3* output_ground_pos) const
 {
-	//for文の中のcontinueについては http://www9.plala.or.jp/sgwr-t/c/sec06-7.html を参照．
-
-	//脚座標がdevide mapでどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-	const Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
-		current_node.leg_reference_pos[now_leg_num],
-		now_leg_num,
-		current_node.global_center_of_mass,
-		current_node.quat,
-		true
-	);
+    // 脚座標がマップのどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
+    const Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
+      current_node.leg_reference_pos[now_leg_num],
+      now_leg_num,
+      current_node.center_of_mass_global_coord,
+      current_node.posture,
+      true);
 
 
-	int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
-	int min_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) - 2;
-	int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
-	int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
+    int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
+    int min_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) - 2;
+    int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
+    int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
 
-	//値がdevide mapの範囲外にあるときは丸める．
-	max_x_dev = DividedMapState::ClampDevideMapIndex(max_x_dev);
-	min_x_dev = DividedMapState::ClampDevideMapIndex(min_x_dev);
-	max_y_dev = DividedMapState::ClampDevideMapIndex(max_y_dev);
-	min_y_dev = DividedMapState::ClampDevideMapIndex(min_y_dev);
+    // 値がマップの範囲外にあるときは丸める．
+    max_x_dev = DividedMapState::ClampDevideMapIndex(max_x_dev);
+    min_x_dev = DividedMapState::ClampDevideMapIndex(min_x_dev);
+    max_y_dev = DividedMapState::ClampDevideMapIndex(max_y_dev);
+    min_y_dev = DividedMapState::ClampDevideMapIndex(min_y_dev);
 
-	//devide map内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
-	Vector3 candidate_pos;	//現在の脚位置に合致する候補座標群．
-	bool is_candidate_pos = false;		//候補座標が存在するかどうか．
+    // マップ内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる．
 
-	//範囲内の点を全て調べる．
-	for (int x = min_x_dev; x < max_x_dev; x++)
-	{
-		for (int y = min_y_dev; y < max_y_dev; y++)
-		{
-			const int kPosNum = map_.GetPointNum(x, y);
+    Vector3 candidate_pos;  // 現在の脚位置に合致する候補座標群．
+    bool is_candidate_pos = false;  // 候補座標が存在するかどうか．
 
-			for (int n = 0; n < kPosNum; n++)
-			{
-				Vector3 map_point_pos = map_.GetPointPos(x, y, n);	//脚設置可能点の座標を取り出す．
-				map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(
-					map_point_pos,
-					now_leg_num,
-					current_node.global_center_of_mass,
-					current_node.quat,
-					true
-				);
+    // 範囲内の点を全て調べる．
+    for (int x = min_x_dev; x < max_x_dev; x++)
+    {
+        for (int y = min_y_dev; y < max_y_dev; y++)
+        {
+            const int kPosNum = map_.GetPointNum(x, y);
 
-				//脚位置を更新したノードを作成する．
-				RobotStateNode new_node = current_node;
+            for (int n = 0; n < kPosNum; n++)
+            {
+                // 脚設置可能点の座標を取り出す．
+                Vector3 map_point_pos = map_.GetPointPos(x, y, n);
+                map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(
+                  map_point_pos,
+                  now_leg_num,
+                  current_node.center_of_mass_global_coord,
+                  current_node.posture,
+                  true);
 
-				new_node.leg_pos[now_leg_num] = map_point_pos;
+                // 脚位置を更新したノードを作成する．
+                RobotStateNode new_node = current_node;
 
-
-				//前の候補地点と比較して，より良い候補地点の時のみ実行すする
-				if (is_candidate_pos)
-				{
-					//反対方向をむいている場合は候補地点として採用しない．
-					if (new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(candidate_pos.ProjectedXY()) * new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(map_point_pos.ProjectedXY()) < 0)
-					{
-						continue;
-					}
-
-					//現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
-					if (map_point_pos.ProjectedXY().Cross(candidate_pos.ProjectedXY()) * map_point_pos.ProjectedXY().Cross(new_node.leg_reference_pos[now_leg_num].ProjectedXY()) < 0)
-					{
-						continue;
-					}
-				}
-
-				leg_func::ChangeGround(now_leg_num, true, &new_node.leg_state);
-
-				if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num])) { continue; }	//脚が範囲外ならば追加せずに続行．
-
-				if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }	//候補座標として，適していないならば追加せずに続行．
-
-				is_candidate_pos = true;
-				candidate_pos = map_point_pos;
-			}
-
-		}	//for y
-
-	}	//for x
+                new_node.leg_pos[now_leg_num] = map_point_pos;
 
 
-	//候補点を全列挙したのち，候補点が一つもなければfalse
-	if (!is_candidate_pos) { return false; }
+                // 前の候補地点と比較して，より良い候補地点の時のみ実行すする
+                if (is_candidate_pos)
+                {
+                    // 反対方向をむいている場合は候補地点として採用しない．
+                    if (new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(
+                        candidate_pos.ProjectedXY()) *
+                        new_node.leg_reference_pos[now_leg_num].ProjectedXY().Cross(
+                        map_point_pos.ProjectedXY()) < 0)
+                    {
+                        continue;
+                    }
 
-	//存在するなら，その中で最も適したものを結果として返し，true
-	(*output_ground_pos) = candidate_pos;
+                    // 現在の脚位置と候補地点の間に障害物がある場合は候補地点として採用しない．
+                    if (map_point_pos.ProjectedXY().Cross(
+                        candidate_pos.ProjectedXY()) *
+                        map_point_pos.ProjectedXY().Cross(
+                        new_node.leg_reference_pos[now_leg_num].ProjectedXY()) < 0)
+                    {
+                        continue;
+                    }
+                }
 
-	return true;
+                leg_func::ChangeGround(now_leg_num, true, &new_node.leg_state);
+
+                // 脚が範囲外ならば追加せずに続行．
+                if (!checker_ptr_->IsLegInRange(now_leg_num, new_node.leg_pos[now_leg_num]))
+                {
+                    continue;
+                }
+
+                // 候補座標として，適していないならば追加せずに続行．
+                if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }
+
+                is_candidate_pos = true;
+                candidate_pos = map_point_pos;
+            }
+        }
+    }
+
+
+    // 候補点を全列挙したのち，候補点が一つもなければfalse
+    if (!is_candidate_pos) { return false; }
+
+    // 存在するなら，その中で最も適したものを結果として返し，true
+    (*output_ground_pos) = candidate_pos;
+
+    return true;
 }
-
-//! @todo この関数はもっと綺麗に書けるはず．
 
 bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
 {
-	const enums::DiscreteLegPos _leg_state = leg_func::GetDiscreteLegPos(_node.leg_state, leg_index);		//脚位置を取得(1～7)
+    const enums::DiscreteLegPos discrete_leg_pos =
+        leg_func::GetDiscreteLegPos(_node.leg_state, leg_index);  // 脚位置を取得(1～7)
 
-	//まず最初に脚位置4のところにないか確かめる．
-	if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() < math_util::Squared(kLegMargin))
-	{
-		if (_leg_state == enums::DiscreteLegPos::kCenter) { return true; }
-		else { return false; }
-	}
-	else
-	{
-		if (_leg_state == enums::DiscreteLegPos::kCenter) { return false; }
-	}
+    // まず最初に脚位置4のところにないか確かめる．
+    if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() <
+        math_util::Squared(kLegMargin))
+    {
+        if (discrete_leg_pos == enums::DiscreteLegPos::kCenter)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (discrete_leg_pos == enums::DiscreteLegPos::kCenter)
+        {
+            return false;
+        }
+    }
 
-	//脚位置4と比較して前か後ろか
-	if (_node.leg_reference_pos[leg_index].ProjectedXY().Cross(_node.leg_pos[leg_index].ProjectedXY()) * _node.leg_pos[leg_index].ProjectedXY().Cross({ 1,0 }) > 0)
-	{
-		//前
-		if (_leg_state == enums::DiscreteLegPos::kLowerBack || _leg_state == enums::DiscreteLegPos::kBack || _leg_state == enums::DiscreteLegPos::kUpperBack)
-		{
-			return false;
-		}
-	}
-	else
-	{
-		//後ろ
-		if (_leg_state == enums::DiscreteLegPos::kLowerFront || _leg_state == enums::DiscreteLegPos::kFront || _leg_state == enums::DiscreteLegPos::kUpperFront)
-		{
-			return false;
-		}
-	}
+    // 脚位置4と比較して前か後ろか．
+    if (_node.leg_reference_pos[leg_index].ProjectedXY()
+        .Cross(_node.leg_pos[leg_index].ProjectedXY()) *
+        _node.leg_pos[leg_index].ProjectedXY().Cross({ 1, 0 }) > 0)
+    {
+        // 前．
+        if (discrete_leg_pos == enums::DiscreteLegPos::kLowerBack ||
+            discrete_leg_pos == enums::DiscreteLegPos::kBack ||
+            discrete_leg_pos == enums::DiscreteLegPos::kUpperBack)
+        {
+            return false;
+        }
+    }
+    else
+    {
+        // 後ろ．
+        if (discrete_leg_pos == enums::DiscreteLegPos::kLowerFront ||
+            discrete_leg_pos == enums::DiscreteLegPos::kFront ||
+            discrete_leg_pos == enums::DiscreteLegPos::kUpperFront)
+        {
+            return false;
+        }
+    }
 
 
-	//脚位置4と比較して上か下か
-	if (_leg_state == enums::DiscreteLegPos::kLowerFront || _leg_state == enums::DiscreteLegPos::kLowerBack)
-	{
-		//脚位置4と比較して下
-		if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
-		{
-			return true;
-		}
-	}
-	else if (_leg_state == enums::DiscreteLegPos::kUpperFront || _leg_state == enums::DiscreteLegPos::kUpperBack)
-	{
-		//脚位置4と比較して上
-		if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
-		{
-			return true;
-		}
-	}
-	else
-	{
-		//脚位置4と同じくらい
-		if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <= kHighMargin)
-		{
-			return true;
-		}
-	}
+    // 脚位置4と比較して上か下か．
+    if (discrete_leg_pos == enums::DiscreteLegPos::kLowerFront ||
+        discrete_leg_pos == enums::DiscreteLegPos::kLowerBack)
+    {
+        // 脚位置4と比較して下．
+        if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
+        {
+            return true;
+        }
+    }
+    else if (discrete_leg_pos == enums::DiscreteLegPos::kUpperFront ||
+             discrete_leg_pos == enums::DiscreteLegPos::kUpperBack)
+    {
+        // 脚位置4と比較して上．
+        if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
+        {
+            return true;
+        }
+    }
+    else
+    {
+        // 脚位置4と同じくらい．
+        if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <=
+            kHighMargin)
+        {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
-}	//namespace designlab
+}  // namespace designlab

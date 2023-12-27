@@ -18,7 +18,7 @@ MapRenderer::MapRenderer() :
 
 void MapRenderer::SetNode(const RobotStateNode& pos)
 {
-	hexapod_pos_ = pos.global_center_of_mass;
+	hexapod_pos_ = pos.center_of_mass_global_coord;
 
 	devide_map_.Init(map_, hexapod_pos_);
 }

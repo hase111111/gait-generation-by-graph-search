@@ -36,7 +36,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.leg_state, changeed.leg_state) << error_mes;
 		EXPECT_EQ(node.leg_pos, changeed.leg_pos) << error_mes;
 		EXPECT_EQ(node.leg_reference_pos, changeed.leg_reference_pos) << error_mes;
-		EXPECT_EQ(node.global_center_of_mass, changeed.global_center_of_mass) << error_mes;
+		EXPECT_EQ(node.center_of_mass_global_coord, changeed.center_of_mass_global_coord) << error_mes;
 		EXPECT_EQ(node.quat, changeed.quat) << error_mes;
 		EXPECT_EQ(node.next_move, changeed.next_move) << error_mes;
 	}
@@ -72,7 +72,7 @@ namespace designlab::test::node
 		EXPECT_EQ(node.leg_state, changeed.leg_state) << error_mes;
 		EXPECT_EQ(node.leg_pos, changeed.leg_pos) << error_mes;
 		EXPECT_EQ(node.leg_reference_pos, changeed.leg_reference_pos) << error_mes;
-		EXPECT_EQ(node.global_center_of_mass, changeed.global_center_of_mass) << error_mes;
+		EXPECT_EQ(node.center_of_mass_global_coord, changeed.center_of_mass_global_coord) << error_mes;
 		EXPECT_EQ(node.quat, changeed.quat) << error_mes;
 	}
 }

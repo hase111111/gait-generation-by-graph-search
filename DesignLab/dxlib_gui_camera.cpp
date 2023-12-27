@@ -81,7 +81,7 @@ void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int
 
 void DxlibGuiCamera::SetNode(const RobotStateNode& node)
 {
-	camera_->SetTargetPos(node.global_center_of_mass);
+	camera_->SetTargetPos(node.center_of_mass_global_coord);
 }
 
 void DxlibGuiCamera::Update()

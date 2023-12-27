@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "gait_pattern_generator_switch_move.h"
 

@@ -1,7 +1,7 @@
 ﻿
-/// @file      toml_data_validator_always_true.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      toml_data_validator_always_true.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
 #define DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_

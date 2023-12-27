@@ -1,7 +1,7 @@
 ﻿
-/// @file      interface_gait_pattern_generator.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      interface_gait_pattern_generator.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
 #define DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_

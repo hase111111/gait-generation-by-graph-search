@@ -10,17 +10,17 @@ namespace
 // -π～πの範囲に収める
 float NormalizeAngle(float angle)
 {
-	while (angle > designlab::MathConst<float>::kPi)
-	{
-		angle -= designlab::MathConst<float>::kPi;
-	}
+    while (angle > designlab::MathConst<float>::kPi)
+    {
+        angle -= designlab::MathConst<float>::kPi;
+    }
 
-	while (angle < -designlab::MathConst<float>::kPi)
-	{
-		angle += designlab::MathConst<float>::kPi;
-	}
+    while (angle < -designlab::MathConst<float>::kPi)
+    {
+        angle += designlab::MathConst<float>::kPi;
+    }
 
-	return angle;
+    return angle;
 }
 }
 
@@ -248,63 +248,63 @@ RobotOperatorForGpg::RobotOperatorForGpg() : global_route_{
 
 RobotOperation RobotOperatorForGpg::Init() const
 {
-	return RobotOperation();
+    return RobotOperation();
 }
 
 RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 {
-	//まず，現在の重心位置から最も近い点を探す
-	int most_near_index = 0;
-	float distance = 100000.f;
+    //まず，現在の重心位置から最も近い点を探す
+    int most_near_index = 0;
+    float distance = 100000.f;
 
-	for (int i = 0; i < global_route_.size(); ++i)
-	{
-		if (distance > global_route_[i].ProjectedXY().GetDistanceFrom(node.global_center_of_mass.ProjectedXY()))
-		{
-			distance = global_route_[i].ProjectedXY().GetDistanceFrom(node.global_center_of_mass.ProjectedXY());
+    for (int i = 0; i < global_route_.size(); ++i)
+    {
+        if (distance > global_route_[i].ProjectedXY().GetDistanceFrom(node.center_of_mass_global_coord.ProjectedXY()))
+        {
+            distance = global_route_[i].ProjectedXY().GetDistanceFrom(node.center_of_mass_global_coord.ProjectedXY());
 
-			most_near_index = i;
-		}
-	}
+            most_near_index = i;
+        }
+    }
 
-	std::cout << "most_near_index: " << most_near_index << std::endl;
+    std::cout << "most_near_index: " << most_near_index << std::endl;
 
-	//次の地点への角度を計算する
-	const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.quat).z_angle);
-	const Vector3 diff_vector = global_route_[most_near_index - 1] - global_route_[most_near_index];
-	const float target_angle = NormalizeAngle(atan2(diff_vector.y, diff_vector.x));
-	const float rot_dif = target_angle - euler_z_angle;
+    //次の地点への角度を計算する
+    const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
+    const Vector3 diff_vector = global_route_[most_near_index - 1] - global_route_[most_near_index];
+    const float target_angle = NormalizeAngle(atan2(diff_vector.y, diff_vector.x));
+    const float rot_dif = target_angle - euler_z_angle;
 
-	std::cout << "target_angle : " << math_util::ConvertRadToDeg(target_angle) << "/ now_angle : " << math_util::ConvertRadToDeg(euler_z_angle) << std::endl;
+    std::cout << "target_angle : " << math_util::ConvertRadToDeg(target_angle) << "/ now_angle : " << math_util::ConvertRadToDeg(euler_z_angle) << std::endl;
 
-	if (abs(rot_dif) > kAllowableAngleError)
-	{
-		RobotOperation operation;
-		operation.operation_type = enums::RobotOperationType::kSpotTurnLastPosture;
-		operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
+    if (abs(rot_dif) > kAllowableAngleError)
+    {
+        RobotOperation operation;
+        operation.operation_type = enums::RobotOperationType::kSpotTurnLastPosture;
+        operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
 
-		std::cout << "target_quat : " << operation.spot_turn_last_posture_;
-		std::cout << "/ now_quat : " << node.quat << std::endl;
-		return operation;
-	}
+        std::cout << "target_quat : " << operation.spot_turn_last_posture_;
+        std::cout << "/ now_quat : " << node.posture << std::endl;
+        return operation;
+    }
 
-	const int loop_num = 10;
-	Vector3 target_vector;
+    const int loop_num = 10;
+    Vector3 target_vector;
 
-	for (int i = 0; i < loop_num; i++)
-	{
-		if (most_near_index - i < 0) { break; }
+    for (int i = 0; i < loop_num; i++)
+    {
+        if (most_near_index - i < 0) { break; }
 
-		target_vector += (global_route_[most_near_index - i] - node.global_center_of_mass) * (float)(i + 1);
-	}
+        target_vector += (global_route_[most_near_index - i] - node.center_of_mass_global_coord) * (float)(i + 1);
+    }
 
-	std::cout << "target_vector: " << target_vector << "/ normalized" << target_vector.GetNormalized() << std::endl;
+    std::cout << "target_vector: " << target_vector << "/ normalized" << target_vector.GetNormalized() << std::endl;
 
-	RobotOperation operation;
-	operation.operation_type = enums::RobotOperationType::kStraightMoveVector;
-	operation.straight_move_vector_ = (Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
+    RobotOperation operation;
+    operation.operation_type = enums::RobotOperationType::kStraightMoveVector;
+    operation.straight_move_vector_ = (Vector3{ target_vector.x,target_vector.y,0 }).GetNormalized();
 
-	return operation;
+    return operation;
 }
 
 } // namespace designlab

@@ -1,7 +1,7 @@
 ﻿
-/// @file      asyncable_data.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      asyncable_data.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_

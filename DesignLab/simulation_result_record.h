@@ -1,7 +1,7 @@
 ﻿
-/// @file      simulation_result_record.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      simulation_result_record.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SIMULATION_RESULT_RECORD_H_
 #define DESIGNLAB_SIMULATION_RESULT_RECORD_H_

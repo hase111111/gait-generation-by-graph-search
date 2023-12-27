@@ -1,7 +1,7 @@
 ﻿
-/// @file      result_file_importer.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      result_file_importer.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_RESULT_FILE_IMPORTER_H_
 #define DESIGNLAB_RESULT_FILE_IMPORTER_H_

@@ -1,7 +1,7 @@
 ﻿
-/// @file      output_detail.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      output_detail.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_OUTPUT_DETAIL_H_
 #define DESIGNLAB_OUTPUT_DETAIL_H_

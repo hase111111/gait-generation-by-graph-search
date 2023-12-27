@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "graph_search_result_record.h"
 
@@ -41,8 +41,8 @@ std::string GraphSearchResultRecord::ToCsvString() const
     stream << string_util::EnumToStringRemoveTopK(
         leg_func::GetDiscreteComPos(result_node.leg_state)) << ",";
 
-    stream << result_node.global_center_of_mass << ",";
-    stream << result_node.quat << ",";
+    stream << result_node.center_of_mass_global_coord << ",";
+    stream << result_node.posture << ",";
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {

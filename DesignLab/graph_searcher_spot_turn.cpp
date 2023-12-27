@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "graph_searcher_spot_turn.h"
 
@@ -158,7 +158,7 @@ float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
     {
         const float z = min_z + (max_z - min_z) / static_cast<float>(div) * static_cast<float>(i);
 
-        Vector3 pos = node.global_center_of_mass;
+        Vector3 pos = node.center_of_mass_global_coord;
         pos += target_position;
         pos.z += z;
 
@@ -167,12 +167,12 @@ float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {
-            std::cout << node.global_center_of_mass.z + z << std::endl;
-            return node.global_center_of_mass.z + z;
+            std::cout << node.center_of_mass_global_coord.z + z << std::endl;
+            return node.center_of_mass_global_coord.z + z;
         }
     }
 
-    return node.global_center_of_mass.z;
+    return node.center_of_mass_global_coord.z;
 }
 
 GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationValueByLegRot(
@@ -229,7 +229,7 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
     assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
 
     const float result =
-        abs(tree.GetNode(index).global_center_of_mass.z - init_value.target_z_value);
+        abs(tree.GetNode(index).center_of_mass_global_coord.z - init_value.target_z_value);
 
     if (result < max_evaluation_value.z_diff)
     {
@@ -260,7 +260,7 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
 
     // 最終姿勢を表すクォータニオンとの差分を計算する
     const Quaternion target_quat = init_value.target_quat;
-    const Quaternion current_quat = tree.GetNode(index).quat;
+    const Quaternion current_quat = tree.GetNode(index).posture;
 
     const Quaternion target_to_current = current_quat.GetInverse() * target_quat;
 

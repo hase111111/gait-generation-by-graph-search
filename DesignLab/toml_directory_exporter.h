@@ -1,7 +1,7 @@
 ﻿
-/// @file      toml_directory_exporter.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      toml_directory_exporter.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
 #define DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_

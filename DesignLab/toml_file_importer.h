@@ -1,7 +1,7 @@
 ﻿
-/// @file      toml_file_importer.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      toml_file_importer.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_

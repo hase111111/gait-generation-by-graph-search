@@ -1,6 +1,6 @@
 ﻿
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "graph_searcher_straight_move.h"
 
@@ -46,7 +46,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
     if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
     {
         init_value.normalized_move_direction = (operation.straight_move_position_ -
-                                                graph.GetRootNode().global_center_of_mass);
+                                                graph.GetRootNode().center_of_mass_global_coord);
         init_value.normalized_move_direction.z = 0.0f;
         init_value.normalized_move_direction = init_value.normalized_move_direction.GetNormalized();
     }
@@ -178,7 +178,7 @@ float GraphSearcherStraightMove::InitTargetZValue(
     {
         const float z = min_z + (max_z - min_z) / static_cast<float>(div) * static_cast<float>(i);
 
-        Vector3 pos = node.global_center_of_mass;
+        Vector3 pos = node.center_of_mass_global_coord;
         pos += target_position;
         pos.z += z;
 
@@ -187,11 +187,11 @@ float GraphSearcherStraightMove::InitTargetZValue(
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {
-            return node.global_center_of_mass.z + z;
+            return node.center_of_mass_global_coord.z + z;
         }
     }
 
-    return node.global_center_of_mass.z;
+    return node.center_of_mass_global_coord.z;
 }
 
 GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByAmountOfMovement(
@@ -208,7 +208,7 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
     assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
 
     const Vector3 root_to_current =
-        tree.GetNode(index).global_center_of_mass - tree.GetRootNode().global_center_of_mass;
+        tree.GetNode(index).center_of_mass_global_coord - tree.GetRootNode().center_of_mass_global_coord;
 
     // root_to_current の init_value.normalized_move_direction 方向の成分を取り出す．
     const float result = root_to_current.Dot(init_value.normalized_move_direction);
@@ -311,7 +311,7 @@ GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEva
     assert(candidate != nullptr);  // candidate が nullptrでないことを確認する．
 
     const float result = abs(
-        tree.GetNode(index).global_center_of_mass.z - init_value.target_z_value);
+        tree.GetNode(index).center_of_mass_global_coord.z - init_value.target_z_value);
 
     if (result < max_evaluation_value.z_diff)
     {

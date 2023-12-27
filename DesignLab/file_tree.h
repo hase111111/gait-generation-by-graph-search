@@ -1,7 +1,7 @@
 ﻿
-/// @file      file_tree.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      file_tree.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_FILE_TREE_H_
 #define DESIGNLAB_FILE_TREE_H_

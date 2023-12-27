@@ -1,5 +1,7 @@
-﻿//! @file node_initializer.h
-//! @brief ノードの初期化を行うクラス．
+﻿
+//! @file      node_initializer.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_NODE_INITIALIZER_H_
 #define DESIGNLAB_NODE_INITIALIZER_H_
@@ -16,18 +18,18 @@ namespace designlab
 class NodeInitializer final
 {
 public:
-	NodeInitializer(const Vector3& pos, enums::HexapodMove move);
+    NodeInitializer(const Vector3& pos, enums::HexapodMove move);
 
-	//! @brief ノードの初期化を行う．
-	//! @return RobotStateNode 初期化されたノード．
-	RobotStateNode InitNode() const;
+    //! @brief ノードの初期化を行う．
+    //! @return 初期化されたノード．
+    RobotStateNode InitNode() const;
 
 private:
-	Vector3 pos_;
-	enums::HexapodMove move_;
+    Vector3 pos_;
+    enums::HexapodMove move_;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_NODE_INITIALIZER_H_
+#endif  // DESIGNLAB_NODE_INITIALIZER_H_

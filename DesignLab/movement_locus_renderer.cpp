@@ -36,7 +36,7 @@ void MovementLocusRenderer::SetMoveLocusPoint(const std::vector<RobotStateNode>&
 
 	for (const auto& i : locus)
 	{
-		move_locus_point_.push_back(i.global_center_of_mass);
+		move_locus_point_.push_back(i.center_of_mass_global_coord);
 	}
 }
 

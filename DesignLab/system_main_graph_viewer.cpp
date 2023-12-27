@@ -165,7 +165,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 	RobotStateNode fake_result_node;
 
 	DividedMapState devide_map;
-	devide_map.Init(map_state_, parent_node.global_center_of_mass);
+	devide_map.Init(map_state_, parent_node.center_of_mass_global_coord);
 
 	GaitPatternGraphTree graph_tree(1000000);
 	graph_tree.Reset();

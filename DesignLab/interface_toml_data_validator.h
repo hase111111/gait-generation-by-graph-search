@@ -1,7 +1,7 @@
 ﻿
-/// @file      interface_toml_data_validator.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      interface_toml_data_validator.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
 #define DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_

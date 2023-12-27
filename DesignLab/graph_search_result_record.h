@@ -1,7 +1,7 @@
 ﻿
-/// @file      graph_search_result_record.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      graph_search_result_record.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
 #define DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_

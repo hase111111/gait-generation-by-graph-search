@@ -10,7 +10,7 @@ SimulationEndCheckerByGoalTape::SimulationEndCheckerByGoalTape(const float goal_
 
 bool SimulationEndCheckerByGoalTape::IsEnd(const RobotStateNode& node) const
 {
-	if (node.global_center_of_mass.x > kGoalTape)
+	if (node.center_of_mass_global_coord.x > kGoalTape)
 	{
 		return true;
 	}

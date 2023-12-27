@@ -1,7 +1,7 @@
 ﻿
-/// @file      stopwatch.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      stopwatch.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_STOPWATCH_H_
 #define DESIGNLAB_STOPWATCH_H_

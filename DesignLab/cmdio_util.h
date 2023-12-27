@@ -1,7 +1,7 @@
 ﻿
-/// @file      cmdio_util.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      cmdio_util.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_

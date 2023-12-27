@@ -1,7 +1,7 @@
 ﻿
-/// @file      divided_map_state.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      divided_map_state.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DEVIDE_MAP_STATE_H_
 #define DESIGNLAB_DEVIDE_MAP_STATE_H_
