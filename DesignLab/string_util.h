@@ -18,8 +18,8 @@ namespace designlab::string_util
 //! @brief 文字列を分割する関数．指定した文字で文字列を分割する．
 //! @n 分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す．
 //! @n 最後が区切り文字で終わる場合は，それを無視する．
-//! @param [in] str 分割する文字列．
-//! @param [in] delim 区切り文字，あるいは文字列．
+//! @param[in] str 分割する文字列．
+//! @param[in] delim 区切り文字，あるいは文字列．
 //! @return 分割した文字列．
 std::vector<std::string> Split(const std::string& str, const std::string& delim);
 
@@ -43,7 +43,7 @@ std::vector<std::string> Split(const std::string& str, const std::string& delim)
 //! @li https://marycore.jp/prog/cpp/std-string-find-search/#find%EF%BC%8Frfind
 //! (アクセス日 2023/12/26)
 //!
-//! @param [in] enum_value enumの要素．
+//! @param[in] enum_value enumの要素．
 //! @return enumの要素を文字列にしたもの．
 //! @tparam T enum型．
 template <typename T>

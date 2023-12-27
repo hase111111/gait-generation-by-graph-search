@@ -30,7 +30,7 @@ public:
     //! 空文字ならば全てのファイルを対象とする．
     //! @param[in] keyword ファイル名に含まれるキーワード．
     //! 空文字ならば全てのファイルを対象とする．
-    //! @param [out] output 選択されたファイルのパス．
+    //! @param[out] output 選択されたファイルのパス．
     //! @retval true ファイルが選択された．
     //! @retval false ファイルが選択されなかった．
     bool SelectFile(const std::string& path, int max_depth,
@@ -64,7 +64,7 @@ private:
     //! @param[in] extension ファイルの拡張子( ".txt" ".csv" など)
     //! 空文字ならば全てのファイルを対象とする．
     //! @param[in] keyword ファイル名に含まれるキーワード，空文字ならば全てのファイルを対象とする．
-    //! @return FileTreeData ファイルツリーのデータ．
+    //! @return ファイルツリーのデータ．
     FileTreeData MakeFileTree(const std::string& path, int max_depth,
                               const std::string& extension, const std::string keyword) const;
 
@@ -72,7 +72,7 @@ private:
     //! @n ファイルツリーのデータを再帰的に出力する．
     //! @param[in] tree ファイルツリーのデータ．
     //! @param[in] depth ディレクトリの階層の深さ．
-    //! @param[in] not_display_empty 空のディレクトリを表示しないならばtrueを指定する．
+    //! @param[in] not_display_empty 空のディレクトリを表示しないならば trueを指定する．
     //! @param[in] file_count ファイルの番号を割り当てるためのカウンタ．
     void OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty,
                         int* file_count) const;
