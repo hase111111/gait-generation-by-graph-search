@@ -171,16 +171,16 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num,
       true);
 
 
-    int max_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) + 2;
-    int min_x_dev = map_.GetDevideMapIndexX(kGlobalLegbasePos.x) - 2;
-    int max_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) + 2;
-    int min_y_dev = map_.GetDevideMapIndexY(kGlobalLegbasePos.y) - 2;
+    int max_x_dev = map_.GetDividedMapIndexX(kGlobalLegbasePos.x) + 2;
+    int min_x_dev = map_.GetDividedMapIndexX(kGlobalLegbasePos.x) - 2;
+    int max_y_dev = map_.GetDividedMapIndexY(kGlobalLegbasePos.y) + 2;
+    int min_y_dev = map_.GetDividedMapIndexY(kGlobalLegbasePos.y) - 2;
 
     // 値がマップの範囲外にあるときは丸める．
-    max_x_dev = DividedMapState::ClampDevideMapIndex(max_x_dev);
-    min_x_dev = DividedMapState::ClampDevideMapIndex(min_x_dev);
-    max_y_dev = DividedMapState::ClampDevideMapIndex(max_y_dev);
-    min_y_dev = DividedMapState::ClampDevideMapIndex(min_y_dev);
+    max_x_dev = DividedMapState::ClampDividedMapIndex(max_x_dev);
+    min_x_dev = DividedMapState::ClampDividedMapIndex(min_x_dev);
+    max_y_dev = DividedMapState::ClampDividedMapIndex(max_y_dev);
+    min_y_dev = DividedMapState::ClampDividedMapIndex(min_y_dev);
 
     // マップ内を全探索して，現在の脚位置(離散化した物)に適した脚設置可能点が，存在するか調べる．
     Vector3 candidate_pos;  // 現在の脚位置に合致する候補座標群．

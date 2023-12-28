@@ -212,8 +212,8 @@ void GraphicMainDisplayModel::MoveLeg()
                   robot_.leg_reference_pos[i], i, robot_.center_of_mass_global_coord, robot_.posture, true
                 );
 
-                int map_x = devide_map_state_.GetDevideMapIndexX(global.x);
-                int map_y = devide_map_state_.GetDevideMapIndexY(global.y);
+                int map_x = devide_map_state_.GetDividedMapIndexX(global.x);
+                int map_y = devide_map_state_.GetDividedMapIndexY(global.y);
 
                 if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { map_x++; }
                 else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { map_x--; }

@@ -44,8 +44,8 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 
     if (map_.IsInMap(current_node.center_of_mass_global_coord))
     {
-        const int kMapX = map_.GetDevideMapIndexX(current_node.center_of_mass_global_coord.x);
-        const int kMapY = map_.GetDevideMapIndexY(current_node.center_of_mass_global_coord.y);
+        const int kMapX = map_.GetDividedMapIndexX(current_node.center_of_mass_global_coord.x);
+        const int kMapY = map_.GetDividedMapIndexY(current_node.center_of_mass_global_coord.y);
         map_highest_z = map_.GetTopZ(kMapX, kMapY);
     }
 
@@ -58,8 +58,8 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 
         if (map_.IsInMap(kCoxaVec))
         {
-            const int kCoxaX = map_.GetDevideMapIndexX(kCoxaVec.x);
-            const int kCoxaY = map_.GetDevideMapIndexY(kCoxaVec.y);
+            const int kCoxaX = map_.GetDividedMapIndexX(kCoxaVec.x);
+            const int kCoxaY = map_.GetDividedMapIndexY(kCoxaVec.y);
             map_highest_z = (std::max)(map_.GetTopZ(kCoxaX, kCoxaY), map_highest_z);
         }
     }

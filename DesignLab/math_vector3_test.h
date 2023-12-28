@@ -395,6 +395,7 @@ TEST_SUITE("Vector3::Normalize")
 TEST_SUITE("Vector3::ProjectedXY")
 {
     using designlab::Vector3;
+    using designlab::Vector2;
 
     TEST_CASE("実行時，XY平面に投射されたベクトルが返るべき")
     {

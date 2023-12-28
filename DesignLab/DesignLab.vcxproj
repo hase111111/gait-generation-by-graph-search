@@ -25,7 +25,7 @@
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
     <ClInclude Include="math_vector2_test.h" />
     <ClInclude Include="string_util_test.h" />
-    <ClInclude Include="devide_map_state_test.h" />
+    <ClInclude Include="divided_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
     <ClInclude Include="dxlib_gui_camera_parameter_displayer.h" />
     <ClInclude Include="dxlib_gui_terminal.h" />

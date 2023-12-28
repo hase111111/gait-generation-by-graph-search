@@ -498,7 +498,7 @@
     <ClInclude Include="map_file_exporter.h">
       <Filter>ソース ファイル\Map\FileIo</Filter>
     </ClInclude>
-    <ClInclude Include="devide_map_state_test.h">
+    <ClInclude Include="divided_map_state_test.h">
       <Filter>ソース ファイル\Map\Test</Filter>
     </ClInclude>
     <ClInclude Include="map_creator_by_csv.h">

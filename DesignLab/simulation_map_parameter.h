@@ -152,23 +152,23 @@ public:
     enums::SimulationMapMode mode{ enums::SimulationMapMode::kFlat };
     unsigned int option{ 0 };  //!< マップ生成のオプションを指定するbit．
 
-    float base_z{ 0.0f };  //!< マップの基準となるZ座標．
-    float map_max_x{ 2600.f };  //!< マップのX座標の最大値．
-    float map_min_x{ -400.f };  //!< マップのX座標の最小値．
-    float map_max_y{ 2000.f };  //!< マップのY座標の最大値．
-    float map_min_y{ -2000.f };  //!< マップのY座標の最小値．
-    float map_start_rough_x{ 400.f };  //!< 不整地が始まるX座標．
+    float base_z{ 0.0f };               //!< マップの基準となるZ座標．
+    float map_max_x{ 2600.f };          //!< マップのX座標の最大値．
+    float map_min_x{ -400.f };          //!< マップのX座標の最小値．
+    float map_max_y{ 2000.f };          //!< マップのY座標の最大値．
+    float map_min_y{ -2000.f };         //!< マップのY座標の最小値．
+    float map_start_rough_x{ 400.f };   //!< 不整地が始まるX座標．
 
     //! 各種模様や穴を作成する際，これで指定したマス分の1辺を持つ正方形状にあなをあける．
     int stripe_interval{ 5 };
 
-    int hole_rate{ 20 };  //!< 不整地上の足場を除外する割合。ホール率[%]
-    float step_height{ 100.f };  //!< 段差高さ[mm]．負の値にすると下りの階段になる．
-    float step_length{ 600.f };  //!< 階段の奥行[mm]
-    float slope_angle{ 10.f };  //!< 斜面の傾斜角[deg]
-    float tilt_angle{ 5.f };  //!< 地形を傾ける角度[deg]
-    float routh_max_height{ 30.f };  //!< デコボコな地形の最大高さ[mm]
-    float routh_min_height{ -30.f };  //!< デコボコな地形の最小高さ[mm]
+    int hole_rate{ 20 };                //!< 不整地上の足場を除外する割合。ホール率[%]
+    float step_height{ 100.f };         //!< 段差高さ[mm]．負の値にすると下りの階段になる．
+    float step_length{ 600.f };         //!< 階段の奥行[mm]
+    float slope_angle{ 10.f };          //!< 斜面の傾斜角[deg]
+    float tilt_angle{ 5.f };            //!< 地形を傾ける角度[deg]
+    float routh_max_height{ 30.f };     //!< デコボコな地形の最大高さ[mm]
+    float routh_min_height{ -30.f };    //!< デコボコな地形の最小高さ[mm]
 };
 
 

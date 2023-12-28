@@ -14,6 +14,7 @@
 TEST_SUITE("math_util::IsEqual")
 {
     using designlab::math_util::IsEqual;
+    using designlab::MathConst;
 
     TEST_CASE_TEMPLATE("値が等しい時，trueを返すべき", T, float, double)
     {

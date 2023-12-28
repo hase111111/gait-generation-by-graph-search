@@ -1,4 +1,8 @@
-﻿#include "map_file_exporter.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "map_file_exporter.h"
 
 #include <fstream>
 
@@ -8,28 +12,29 @@
 namespace designlab
 {
 
-bool MapFileExporter::ExportMap(const std::string& file_path, const MapState& map_state) const noexcept
+bool MapFileExporter::ExportMap(const std::string& file_path,
+                                const MapState& map_state) const noexcept
 {
-	// ファイルを開く
-	std::ofstream ofs(file_path);
+    // ファイルを開く．
+    std::ofstream ofs(file_path);
 
-	// ファイルが開けないならばfalseを返す．
-	if (not ofs.is_open())
-	{
-		CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
+    // ファイルが開けないならば false を返す．
+    if (!ofs.is_open())
+    {
+        CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
 
-		return false;
-	}
+        return false;
+    }
 
-	// ファイルを1行ずつ書き込む．
-	const size_t map_point_size = map_state.GetMapPointSize();
+    // ファイルを1行ずつ書き込む．
+    const size_t map_point_size = map_state.GetMapPointSize();
 
-	for (size_t i = 0; i < map_point_size; ++i)
-	{
-		ofs << map_state.GetMapPoint(i) << std::endl;
-	}
+    for (size_t i = 0; i < map_point_size; ++i)
+    {
+        ofs << map_state.GetMapPoint(i) << std::endl;
+    }
 
-	return true;
+    return true;
 }
 
-} // namespace designlab
+}  // namespace designlab

@@ -487,7 +487,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
     {
         const float top_z = (std::max)(
           devide_map.GetMapMinZ(),
-          devide_map.GetTopZ(devide_map.GetDevideMapIndexX(node.center_of_mass_global_coord.x), devide_map.GetDevideMapIndexY(node.center_of_mass_global_coord.y))
+          devide_map.GetTopZ(devide_map.GetDividedMapIndexX(node.center_of_mass_global_coord.x), devide_map.GetDividedMapIndexY(node.center_of_mass_global_coord.y))
           );
 
         if (top_z != devide_map.GetMapMinZ() && top_z + GetGroundHeightMarginMin() > node.center_of_mass_global_coord.z)
@@ -507,7 +507,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
             if (devide_map.IsInMap(coxa_pos_global_coord))
             {
                 const float coxa_top_z = (std::max)(
-                  devide_map.GetTopZ(devide_map.GetDevideMapIndexX(coxa_pos_global_coord.x), devide_map.GetDevideMapIndexY(coxa_pos_global_coord.y)),
+                  devide_map.GetTopZ(devide_map.GetDividedMapIndexX(coxa_pos_global_coord.x), devide_map.GetDividedMapIndexY(coxa_pos_global_coord.y)),
                   devide_map.GetMapMinZ()
                   );
 
@@ -526,7 +526,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
         if (devide_map.IsInMap(leg_pos_global_coord))
         {
             const float leg_top_z = (std::max)(
-              devide_map.GetTopZ(devide_map.GetDevideMapIndexX(leg_pos_global_coord.x), devide_map.GetDevideMapIndexY(leg_pos_global_coord.y)),
+              devide_map.GetTopZ(devide_map.GetDividedMapIndexX(leg_pos_global_coord.x), devide_map.GetDividedMapIndexY(leg_pos_global_coord.y)),
               devide_map.GetMapMinZ()
               );
 
