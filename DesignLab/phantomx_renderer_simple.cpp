@@ -127,9 +127,9 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
         {
             unsigned int color = kJointColor;
 
-            if (j == 0 && !PhantomXMkIIConst::IsVaildCoxaAngle(i, draw_joint_state_[i].joint_angle[0])) { color = kColorErrorJoint; }
-            if (j == 1 && !PhantomXMkIIConst::IsVaildFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
-            if (j == 2 && !PhantomXMkIIConst::IsVaildTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
+            if (j == 0 && !PhantomXMkIIConst::IsValidCoxaAngle(i, draw_joint_state_[i].joint_angle[0])) { color = kColorErrorJoint; }
+            if (j == 1 && !PhantomXMkIIConst::IsValidFemurAngle(draw_joint_state_[i].joint_angle[1])) { color = kColorErrorJoint; }
+            if (j == 2 && !PhantomXMkIIConst::IsValidTibiaAngle(draw_joint_state_[i].joint_angle[2])) { color = kColorErrorJoint; }
 
             VECTOR pos = dxlib_util::ConvertToDxlibVec(
               converter_ptr_->ConvertLegToGlobalCoordinate(

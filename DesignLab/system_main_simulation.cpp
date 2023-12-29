@@ -1,7 +1,13 @@
-﻿#include "system_main_simulation.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "system_main_simulation.h"
+
+#include <format>
+#include <utility>
 
 #include <boost/thread.hpp>
-
 #include <magic_enum.hpp>
 
 #include "cassert_define.h"
@@ -15,255 +21,292 @@ namespace designlab
 {
 
 SystemMainSimulation::SystemMainSimulation(
-	std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-	std::unique_ptr<IMapCreator>&& map_creator_ptr,
-	std::unique_ptr<ISimulationEndChecker>&& simu_end_checker_ptr,
-	std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
-	std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
-	const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
+  std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
+  std::unique_ptr<IMapCreator>&& map_creator_ptr,
+  std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
+  std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
+  std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
+  const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
-	gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
-	map_creator_ptr_(std::move(map_creator_ptr)),
-	simu_end_checker_ptr_(std::move(simu_end_checker_ptr)),
-	robot_operator_ptr_(std::move(robot_operator_ptr)),
-	node_initializer_ptr_(std::move(node_initializer_ptr)),
-	broker_ptr_(broker_ptr),
-	setting_ptr_(setting_ptr)
+    gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
+    map_creator_ptr_(std::move(map_creator_ptr)),
+    simulation_end_checker_ptr_(std::move(simulation_end_checker_ptr)),
+    robot_operator_ptr_(std::move(robot_operator_ptr)),
+    node_initializer_ptr_(std::move(node_initializer_ptr)),
+    broker_ptr_(broker_ptr),
+    setting_ptr_(setting_ptr)
 {
-	assert(gait_pattern_generator_ptr_ != nullptr);
-	assert(map_creator_ptr_ != nullptr);
-	assert(simu_end_checker_ptr_ != nullptr);
-	assert(robot_operator_ptr_ != nullptr);
-	assert(broker_ptr_ != nullptr);
-	assert(setting_ptr_ != nullptr);
+    assert(gait_pattern_generator_ptr_ != nullptr);
+    assert(map_creator_ptr_ != nullptr);
+    assert(simulation_end_checker_ptr_ != nullptr);
+    assert(robot_operator_ptr_ != nullptr);
+    assert(broker_ptr_ != nullptr);
+    assert(setting_ptr_ != nullptr);
 
-	//結果をファイルに出力するクラスを初期化する．
-	result_exporter_.Init();
+    // 結果をファイルに出力するクラスを初期化する．
+    result_exporter_.Init();
 
-	//マップを生成する．
-	map_state_ = map_creator_ptr_->InitMap();
+    // マップを生成する．
+    map_state_ = map_creator_ptr_->InitMap();
 
-	//仲介人にマップを渡す．
-	broker_ptr_->map_state.SetData(map_state_);
+    // 仲介人にマップを渡す．
+    broker_ptr_->map_state.SetData(map_state_);
 }
 
 
 void SystemMainSimulation::Main()
 {
-	CmdIOUtil::OutputTitle("シミュレーションモード");	//コマンドラインにタイトルを表示する．
-	OutputSetting();								//コマンドラインに設定を表示する．
+    using enum enums::OutputDetail;
+    using enum enums::Result;
+    using string_util::EnumToStringRemoveTopK;
 
-	DeadLockChecker dead_lock_checker;
+    // コマンドラインにタイトルを表示する．
+    CmdIOUtil::OutputTitle("シミュレーションモード");
+    OutputSetting();  // コマンドラインに設定を表示する．
 
-	//シミュレーションを行う回数分ループする．
-	for (int i = 0; i < kSimurateNum; i++)
-	{
-		RobotStateNode current_node = node_initializer_ptr_->InitNode();	//現在のノードの状態を格納する変数．
+    DeadLockChecker dead_lock_checker;
 
-		RobotOperation operation = robot_operator_ptr_->Init();		//目標地点を決定する．
+    // シミュレーションを行う回数分ループする．
+    for (int i = 0; i < kSimulationNum; i++)
+    {
+        // 現在のノードの状態を格納する変数．
+        RobotStateNode current_node = node_initializer_ptr_->InitNode();
+        RobotOperation operation = robot_operator_ptr_->Init();  // 目標地点を決定する．
 
-		//シミュレーションの結果を格納する変数．
-		SimulationResultRecord record;
+        // シミュレーションの結果を格納する変数．
+        SimulationResultRecord record;
 
-		record.graph_search_result_recoder.push_back(
-			GraphSearchResultRecord{ current_node , 0, {enums::Result::kSuccess,""} }
-		);
+        record.graph_search_result_recoder.push_back(
+          GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
 
+        CmdIOUtil::Output(std::format(
+            "シミュレーション{}回目を開始します",
+            std::to_string(i + 1)),
+            kSystem);
+        CmdIOUtil::OutputNewLine(1, kSystem);
+        CmdIOUtil::Output("[初期ノードの状態]", kInfo);
+        CmdIOUtil::Output(current_node.ToString(), kInfo);
+        CmdIOUtil::OutputNewLine(1, kInfo);
 
-		CmdIOUtil::Output("シミュレーション" + std::to_string(i + 1) + "回目を開始します", enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-		CmdIOUtil::Output("[初期ノードの状態]", enums::OutputDetail::kInfo);
-		CmdIOUtil::Output(current_node.ToString(), enums::OutputDetail::kInfo);
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kInfo);
+        if (setting_ptr_->do_step_execution_each_simulation)
+        {
+            CmdIOUtil::OutputNewLine(1, kSystem);
 
-		if (setting_ptr_->do_step_execution_each_simulation)
-		{
-			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-
-			if (!CmdIOUtil::InputYesNo("シミュレーションを開始しますか"))
-			{
-				break;
-			}
-		}
-
-
-		if (setting_ptr_->do_gui_display) { broker_ptr_->graph.PushBack(current_node); }	//グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
-
-
-		//最大歩容生成回数分までループする．
-		for (int j = 0; j < kGaitPatternGenerationLimit; j++)
-		{
-			current_node.ChangeLootNode();
-
-			operation = robot_operator_ptr_->Update(current_node);	//目標地点を更新する．
-
-			timer_.Start();			//タイマースタート
-
-			RobotStateNode result_node;		//グラフ探索の結果を格納する変数．
-
-			const GraphSearchResult result_state = gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(current_node, map_state_, operation, &result_node);		//グラフ探索を行う．
-
-			timer_.End();			//タイマーストップ
-
-			// ノード，計算時間，結果を格納する．
-			record.graph_search_result_recoder.push_back(
-				GraphSearchResultRecord{ result_node , timer_.GetElapsedMilliSecond(), result_state }
-			);
+            if (!CmdIOUtil::InputYesNo("シミュレーションを開始しますか"))
+            {
+                break;
+            }
+        }
 
 
-			//グラフ探索に失敗
-			if (result_state.result != enums::Result::kSuccess)
-			{
-				record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;	//シミュレーションの結果を格納する変数を失敗に更新する．
-
-				CmdIOUtil::Output(
-					"シミュレーションに失敗しました．SimulationResult = " +
-					string_util::EnumToStringRemoveTopK(record.simulation_result) +
-					"/ GraphSearch = " +
-					result_state.ToString(),
-					enums::OutputDetail::kSystem
-				);
-
-				break;	//次の歩容が生成できなかったら，このループを抜け，次のシミュレーションへ進む．
-			}
+        if (setting_ptr_->do_gui_display)
+        {
+            // グラフィックが有効ならば，仲介人に最初のノードの状態を通達する．
+            broker_ptr_->graph.PushBack(current_node);
+        }
 
 
-			current_node = result_node;		//次の歩容が生成できているならば，ノードを更新する．
+        // 最大歩容生成回数分までループする．
+        for (int j = 0; j < kGaitPatternGenerationLimit; j++)
+        {
+            current_node.ChangeLootNode();
 
-			if (setting_ptr_->do_gui_display) { broker_ptr_->graph.PushBack(current_node); }			//グラフィックが有効ならば仲介人に結果を通達する．
+            operation = robot_operator_ptr_->Update(current_node);  // 目標地点を更新する．
 
-			CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kInfo);
-			CmdIOUtil::Output("[ シミュレーション" + std::to_string(i + 1) + "回目 / 歩容生成" + std::to_string(j + 1) + "回目 ] ", enums::OutputDetail::kInfo);	//現在のシミュレーションの回数をコマンドラインに出力する．
-			CmdIOUtil::Output(current_node.ToString(), enums::OutputDetail::kInfo);	//現在のノードの状態をコマンドラインに出力する．
-			CmdIOUtil::OutputHorizontalLine("-", enums::OutputDetail::kInfo);
+            timer_.Start();  // タイマースタート．
 
-			dead_lock_checker.AddNode(current_node);													//動作チェッカーにもノードを通達する．
+            RobotStateNode result_node;  // グラフ探索の結果を格納する変数．
 
-			//動作がループして失敗
-			if (dead_lock_checker.IsDeadLock())
-			{
-				record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;	//シミュレーションの結果を格納する変数を失敗に更新する．
+            // グラフ探索を行う．
+            const GraphSearchResult result_state =
+                gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(
+                    current_node, map_state_, operation, &result_node);
 
-				CmdIOUtil::Output(
-					"シミュレーションに失敗しました．SimulationResult = " +
-					string_util::EnumToStringRemoveTopK(record.simulation_result) +
-					"/ GraphSearch = " +
-					result_state.ToString(),
-					enums::OutputDetail::kSystem
-				);
+            timer_.End();  // タイマーストップ．
 
-				break;	//動作がループしてしまっているならば，ループを一つ抜け，次のシミュレーションへ進む．
-			}
+            // ノード，計算時間，結果を格納する．
+            record.graph_search_result_recoder.push_back(
+              GraphSearchResultRecord{ result_node ,
+                                       timer_.GetElapsedMilliSecond(),
+                                       result_state });
 
-			//成功時の処理
-			if (simu_end_checker_ptr_->IsEnd(current_node))
-			{
-				record.simulation_result = enums::SimulationResult::kSuccess;	//シミュレーションの結果を格納する変数を成功に更新する．
+            // グラフ探索に失敗．
+            if (result_state.result != kSuccess)
+            {
+                // シミュレーションの結果を格納する変数を失敗に更新する．
+                record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;
 
-				CmdIOUtil::Output(
-					"シミュレーションに成功しました．SimulationResult = " +
-					string_util::EnumToStringRemoveTopK(record.simulation_result),
-					enums::OutputDetail::kSystem
-				);
+                CmdIOUtil::Output(std::format(
+                    "シミュレーションに失敗しました．SimulationResult = {}"
+                    "/ GraphSearch = {}",
+                    EnumToStringRemoveTopK(record.simulation_result),
+                    result_state.ToString()),
+                    kSystem);
 
-				break;	//成功したら，このループを抜け，次のシミュレーションへ進む．
-			}
+                // 次の歩容が生成できなかったら，このループを抜け，
+                // 次のシミュレーションへ進む．
+                break;
+            }
 
-			//ステップ実行にしているならば，ここで一時停止する．
-			if (setting_ptr_->do_step_execution_each_gait)
-			{
-				CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-				CmdIOUtil::WaitAnyKey("キー入力で次の歩容を生成します");
-			}
+            // 次の歩容が生成できているならば，ノードを更新する．
+            current_node = result_node;
 
-		}	//歩容生成のループ終了
+            if (setting_ptr_->do_gui_display)
+            {
+                // グラフィックが有効ならば仲介人に結果を通達する．
+                broker_ptr_->graph.PushBack(current_node);
+            }
 
-		record.map_state = map_state_;					//シミュレーションの結果を格納する変数にマップの状態を格納する．
-		result_exporter_.PushSimulationResult(record);	//シミュレーションの結果をファイルに出力する．
-		result_exporter_.ExportLatestNodeList();		//最新のノードリストをファイルに出力する．
-		result_exporter_.ExportLatestMapState();		//最新のマップ状態をファイルに出力する．
+            CmdIOUtil::OutputNewLine(1, kInfo);
+            CmdIOUtil::Output(std::format(
+                "[ シミュレーション{}回目 / 歩容生成{}回目 ]",
+                std::to_string(i + 1),
+                std::to_string(j + 1)),
+                kInfo);
+            CmdIOUtil::Output(current_node.ToString(), kInfo);
+            CmdIOUtil::OutputHorizontalLine("-", kInfo);
 
-		broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);	//仲介人にシミュレーション終了を通達する．
+            // 動作チェッカーにもノードを通達する．
+            dead_lock_checker.AddNode(current_node);
 
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+            if (dead_lock_checker.IsDeadLock())
+            {
+                // 動作がループして失敗した時．
+                // シミュレーションの結果を格納する変数を失敗に更新する．
 
-	}	//シミュレーションのループ終了
+                record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;
+
+                CmdIOUtil::Output(std::format(
+                    "シミュレーションに失敗しました．"
+                    "SimulationResult = {} / GraphSearch = {}",
+                    EnumToStringRemoveTopK(record.simulation_result),
+                    result_state.ToString()),
+                    kSystem);
+
+                // 動作がループしてしまっているならば，
+                // ループを一つ抜け，次のシミュレーションへ進む．
+                break;
+            }
+
+            // 成功時の処理．
+            if (simulation_end_checker_ptr_->IsEnd(current_node))
+            {
+                // シミュレーションの結果を格納する変数を成功に更新する．
+                record.simulation_result = enums::SimulationResult::kSuccess;
+
+                CmdIOUtil::Output(std::format(
+                    "シミュレーションに成功しました．SimulationResult = {}",
+                    EnumToStringRemoveTopK(record.simulation_result)),
+                    kSystem);
+
+                break;  // 成功したら，このループを抜け，次のシミュレーションへ進む．
+            }
+
+            // ステップ実行にしているならば，ここで一時停止する．
+            if (setting_ptr_->do_step_execution_each_gait)
+            {
+                CmdIOUtil::OutputNewLine(1, kSystem);
+                CmdIOUtil::WaitAnyKey("キー入力で次の歩容を生成します");
+            }
+        }  // 歩容生成のループ終了．
+
+        record.map_state = map_state_;  // 結果を格納する変数にマップの状態を格納する．
+        result_exporter_.PushSimulationResult(record);  // 結果をファイルに出力する．
+        result_exporter_.ExportLatestNodeList();  // 最新のノードリストをファイルに出力する．
+        result_exporter_.ExportLatestMapState();  // 最新のマップ状態をファイルに出力する．
+
+        // 仲介人にシミュレーション終了を通達する．
+        broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);
+
+        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    }  // シミュレーションのループ終了
 
 
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-	CmdIOUtil::Output("シミュレーション終了", enums::OutputDetail::kSystem);
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::Output("シミュレーション終了", enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
-	result_exporter_.ExportResult();	//シミュレーションの結果を全てファイルに出力する．
-	result_exporter_.ExportAllResultDetail();
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    // シミュレーションの結果を全てファイルに出力する．
+    result_exporter_.ExportResult();
+    result_exporter_.ExportAllResultDetail();
+    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-	CmdIOUtil::Output("シミュレーションを終了します", enums::OutputDetail::kSystem);
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::Output("シミュレーションを終了します", enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 }
 
 
 void SystemMainSimulation::OutputSetting() const
 {
-	CmdIOUtil::Output("[設定]", enums::OutputDetail::kSystem);
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    using enum enums::OutputDetail;
+
+    CmdIOUtil::Output("[設定]", kSystem);
+    CmdIOUtil::OutputNewLine(1, kSystem);
 
 
-	if (setting_ptr_->do_cmd_output)
-	{
-		CmdIOUtil::Output("・コマンドラインへの出力を行います", enums::OutputDetail::kSystem);
+    if (setting_ptr_->do_cmd_output)
+    {
+        CmdIOUtil::Output("・コマンドラインへの出力を行います", kSystem);
 
-		std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
-		CmdIOUtil::Output("　　・priorityが" + output_str + "以上のもののみ出力されます", enums::OutputDetail::kSystem);
-	}
-	else
-	{
-		std::string output_str = magic_enum::enum_name(enums::OutputDetail::kSystem).data();
-		CmdIOUtil::Output("・コマンドラインへの出力を行いません．(priorityが" + output_str + "のものは例外的に出力されます)", enums::OutputDetail::kSystem);
-	}
+        const std::string output_str =
+            magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
 
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+        CmdIOUtil::Output(std::format("　　・priorityが{}以上のもののみ出力されます",
+                          output_str), kSystem);
+    }
+    else
+    {
+        const std::string output_str =
+            magic_enum::enum_name(kSystem).data();
 
+        CmdIOUtil::Output(std::format(
+            "・コマンドラインへの出力を行いません．"
+            "(priorityが{}のものは例外的に出力されます)", output_str),
+            kSystem);
+    }
 
-	if (setting_ptr_->do_step_execution_each_simulation)
-	{
-		CmdIOUtil::Output("・シミュレーションをステップ実行します", enums::OutputDetail::kSystem);
-	}
-	else
-	{
-		CmdIOUtil::Output("・シミュレーションをステップ実行しません", enums::OutputDetail::kSystem);
-	}
-
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, kSystem);
 
 
-	if (setting_ptr_->do_step_execution_each_gait)
-	{
-		CmdIOUtil::Output("・各歩容をステップ実行します", enums::OutputDetail::kSystem);
-	}
-	else
-	{
-		CmdIOUtil::Output("・各歩容をステップ実行しません", enums::OutputDetail::kSystem);
-	}
+    if (setting_ptr_->do_step_execution_each_simulation)
+    {
+        CmdIOUtil::Output("・シミュレーションをステップ実行します", kSystem);
+    }
+    else
+    {
+        CmdIOUtil::Output("・シミュレーションをステップ実行しません", kSystem);
+    }
 
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::OutputNewLine(1, kSystem);
 
-	if (setting_ptr_->do_gui_display)
-	{
-		CmdIOUtil::Output("・GUIを表示します", enums::OutputDetail::kSystem);
-	}
-	else
-	{
-		CmdIOUtil::Output("・GUIを表示しません", enums::OutputDetail::kSystem);
-	}
 
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-	CmdIOUtil::OutputHorizontalLine("-", enums::OutputDetail::kSystem);
-	CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    if (setting_ptr_->do_step_execution_each_gait)
+    {
+        CmdIOUtil::Output("・各歩容をステップ実行します", kSystem);
+    }
+    else
+    {
+        CmdIOUtil::Output("・各歩容をステップ実行しません", kSystem);
+    }
+
+    CmdIOUtil::OutputNewLine(1, kSystem);
+
+    if (setting_ptr_->do_gui_display)
+    {
+        CmdIOUtil::Output("・GUIを表示します", kSystem);
+    }
+    else
+    {
+        CmdIOUtil::Output("・GUIを表示しません", kSystem);
+    }
+
+    CmdIOUtil::OutputNewLine(1, kSystem);
+    CmdIOUtil::OutputHorizontalLine("-", kSystem);
+    CmdIOUtil::OutputNewLine(1, kSystem);
 }
 
-}	//namespace designlab
+}  // namespace designlab

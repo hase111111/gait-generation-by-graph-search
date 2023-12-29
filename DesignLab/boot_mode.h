@@ -1,6 +1,7 @@
-﻿//! @file boot_mode.h
-//! @brief 起動モードを表す列挙型．
-
+﻿
+/// @file      boot_mode.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_
@@ -11,16 +12,16 @@ namespace designlab::enums
 
 //! @enum BootMode
 //! @brief 起動モードを表す列挙型．
-//! @see BootModeSelecter
+//! @see BootModeSelector
 enum class BootMode : int
 {
-	kSimulation = 0,//!< シミュレーションモード．
-	kViewer,		//!< ビューワーモード．
-	kDisplayModel,	//!< ディスプレイモード．
-	kResultViewer	//!< リザルトビューワーモード．
+    kSimulation = 0,    //!< シミュレーションモード．
+    kViewer,            //!< ビューワーモード．
+    kDisplayModel,      //!< ディスプレイモード．
+    kResultViewer       //!< リザルトビューワーモード．
 };
 
-}	// namespace designlab::enums
+}  // namespace designlab::enums
 
 
-#endif	// DESIGNLAB_BOOT_MODE_H_
+#endif  // DESIGNLAB_BOOT_MODE_H_

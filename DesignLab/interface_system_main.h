@@ -1,5 +1,7 @@
-﻿//! @file interface_system_main.h
-//! @brief プログラムの面の処理のインターフェース．
+﻿
+/// @file      interface_system_main.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
 #define DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
@@ -13,14 +15,13 @@ namespace designlab
 class ISystemMain
 {
 public:
+    virtual ~ISystemMain() = default;
 
-	virtual ~ISystemMain() = default;
-
-	//! @brief 主要な処理を行う関数．
-	virtual void Main() = 0;
+    //! @brief 主要な処理を行う関数．
+    virtual void Main() = 0;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
+#endif  // DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_

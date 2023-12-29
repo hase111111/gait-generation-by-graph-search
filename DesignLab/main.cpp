@@ -11,7 +11,7 @@
 
 #include "application_setting_record.h"
 #include "application_setting_record_vaildator.h"
-#include "boot_mode_selecter.h"
+#include "boot_mode_selector.h"
 #include "cmdio_util.h"
 #include "gait_pattern_generator_switch_move.h"
 #include "gait_pattern_generator_thread.h"
@@ -79,7 +79,7 @@ int main()
 
 		if (application_setting_record->ask_about_modes)
 		{
-			BootModeSelecter boot_mode_selecter;
+			BootModeSelector boot_mode_selecter;
 
 			boot_mode_selecter.SetDefaultBootMode(application_setting_record->default_mode);	//デフォルトの起動モードを設定する
 			boot_mode = boot_mode_selecter.SelectBootMode();		//起動モードを選択する
@@ -577,7 +577,7 @@ int main()
 //! }
 //! @endcode
 //! @see designlab::enums::BootMode
-//! @see designlab::BootModeSelecter
+//! @see designlab::BootModeSelector
 //! @n
 //! 
 //! @anchor anchor_struct

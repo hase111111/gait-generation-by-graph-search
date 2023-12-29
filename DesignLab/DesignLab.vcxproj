@@ -57,7 +57,7 @@
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="array_util.h" />
     <ClInclude Include="asyncable_data.h" />
-    <ClInclude Include="boot_mode_selecter.h" />
+    <ClInclude Include="boot_mode_selector.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="average_calculator.h" />
     <ClInclude Include="math_rotation_matrix.h" />
@@ -194,7 +194,7 @@
     <ClCompile Include="map_file_exporter.cpp" />
     <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
-    <ClCompile Include="boot_mode_selecter.cpp" />
+    <ClCompile Include="boot_mode_selector.cpp" />
     <ClCompile Include="node_creator_builder_turn_spot.cpp" />
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="node_creator_com_move_straight.cpp" />

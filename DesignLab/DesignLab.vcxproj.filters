@@ -366,7 +366,7 @@
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="boot_mode_selecter.h">
+    <ClInclude Include="boot_mode_selector.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_renderer_simple.h">
@@ -788,7 +788,7 @@
     <ClCompile Include="model_loader.cpp">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="boot_mode_selecter.cpp">
+    <ClCompile Include="boot_mode_selector.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="phantomx_renderer_simple.cpp">

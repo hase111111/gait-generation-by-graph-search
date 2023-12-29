@@ -81,5 +81,6 @@ charset = utf-8-bom
 
 
 # 辞書
+spelling_use_default_exclusion_dictionary = true
 spelling_error_severity = warning
 spelling_exclusion_path = .\exclusion.dic
