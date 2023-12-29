@@ -414,7 +414,7 @@
     <ClInclude Include="interface_hexapod_state_presenter.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
-    <ClInclude Include="interface_hexapod_vaild_checker.h">
+    <ClInclude Include="interface_hexapod_posture_validator.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_body_rot.h">

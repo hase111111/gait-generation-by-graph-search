@@ -12,7 +12,7 @@
 #include "math_util.h"
 #include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 #include "interface_node_creator.h"
 
 
@@ -27,7 +27,7 @@ public:
     NodeCreatorBodyRot(
       const DividedMapState& devide_map,
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-      const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
       const Vector3& rot_axis,
       enums::HexapodMove next_move);
 
@@ -74,7 +74,7 @@ private:
     const enums::HexapodMove next_move_;  //!< 次の動作．
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
-    const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
     Vector3 rot_axis_;  //!< 回転軸．
 

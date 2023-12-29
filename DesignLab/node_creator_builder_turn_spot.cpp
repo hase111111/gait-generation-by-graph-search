@@ -20,7 +20,7 @@ namespace designlab
 NodeCreatorBuilderTurnSpot::NodeCreatorBuilderTurnSpot(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-  const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
+  const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
     checker_ptr_(checker_ptr)

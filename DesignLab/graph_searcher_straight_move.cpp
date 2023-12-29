@@ -17,7 +17,7 @@ namespace designlab
 {
 
 GraphSearcherStraightMove::GraphSearcherStraightMove(
-    const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
     checker_ptr_(checker_ptr)
 {
 }

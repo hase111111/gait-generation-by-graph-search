@@ -19,7 +19,7 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     const int pos_y,
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-    const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr
 ) :
     window_x_(pos_x),
     window_y_(pos_y),

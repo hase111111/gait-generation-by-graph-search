@@ -11,7 +11,7 @@
 #include <string>
 
 #include "interface_graph_searcher.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 
 
 namespace designlab
@@ -22,7 +22,7 @@ namespace designlab
 class GraphSearcherSpotTurn final : public IGraphSearcher
 {
 public:
-    explicit GraphSearcherSpotTurn(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
+    explicit GraphSearcherSpotTurn(const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
     std::tuple<GraphSearchResult, int, int> SearchGraphTree(
       const GaitPatternGraphTree& graph,
@@ -82,7 +82,7 @@ private:
                                                   EvaluationValue* candiate) const;
 
 
-    const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
 }  // namespace designlab

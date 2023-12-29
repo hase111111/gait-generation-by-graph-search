@@ -15,7 +15,7 @@
 #include "graphic_data_broker.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 #include "mouse.h"
 
 
@@ -27,35 +27,35 @@ namespace designlab
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:
-	GraphicMainGraphViewer(
-		const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-		const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-		const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-	);
+    GraphicMainGraphViewer(
+      const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+      const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+      const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
+    );
 
-	~GraphicMainGraphViewer() = default;
+    ~GraphicMainGraphViewer() = default;
 
-	bool Update() override;
+    bool Update() override;
 
-	void Draw() const override;
+    void Draw() const override;
 
 private:
 
-	const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
-	const std::shared_ptr<Mouse> mouse_ptr_;
+    const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
+    const std::shared_ptr<Mouse> mouse_ptr_;
 
-	const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
+    const std::unique_ptr<GraphViewerGUIController> gui_controller_ptr_;
 
-	Dxlib3dRendererGroup renderer_group_;
-	DxlibGuiUpdater gui_updater_;
-	DxlibNodeSetterGroup node_setter_group_;
+    Dxlib3dRendererGroup renderer_group_;
+    DxlibGuiUpdater gui_updater_;
+    DxlibNodeSetterGroup node_setter_group_;
 
-	std::vector<RobotStateNode> graph_;
-	size_t display_node_index_{ 0 };
+    std::vector<RobotStateNode> graph_;
+    size_t display_node_index_{ 0 };
 
-	int graph_update_count_{ 0 };
+    int graph_update_count_{ 0 };
 };
 
 } // namespace designlab

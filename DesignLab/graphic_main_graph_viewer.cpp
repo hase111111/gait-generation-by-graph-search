@@ -22,7 +22,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 	const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
 	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
 	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+	const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
 	const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
 ) :
 	broker_ptr_(broker_ptr),

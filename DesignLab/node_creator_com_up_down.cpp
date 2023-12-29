@@ -21,7 +21,7 @@ NodeCreatorComUpDown::NodeCreatorComUpDown(
   const DividedMapState& divided_map,
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-  const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+  const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
   enums::HexapodMove next_move
 ) :
     map_(divided_map),
@@ -53,7 +53,7 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
     {
         // 脚の先端の座標を求める．
         const designlab::Vector3 kCoxaVec = converter_ptr_->ConvertRobotToGlobalCoordinate(
-          presenter_ptr_->GetLegBasePosRobotCoodinate(i), current_node.center_of_mass_global_coord,
+          presenter_ptr_->GetLegBasePosRobotCoordinate(i), current_node.center_of_mass_global_coord,
             current_node.posture, true);
 
         if (map_.IsInMap(kCoxaVec))

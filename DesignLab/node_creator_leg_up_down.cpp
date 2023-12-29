@@ -21,7 +21,7 @@ NodeCreatorLegUpDown::NodeCreatorLegUpDown(
   const DividedMapState& divided_map,
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-  const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+  const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
   enums::HexapodMove next_move
 ) :
     kLegMargin(20),
@@ -121,7 +121,7 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
                 }
                 else
                 {
-                    res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoodinate(j);
+                    res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoordinate(j);
 
                     res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
                     res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;

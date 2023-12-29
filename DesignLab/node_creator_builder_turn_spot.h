@@ -23,7 +23,7 @@ public:
     NodeCreatorBuilderTurnSpot(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-      const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr);
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
     void Build(
       const DividedMapState& map,
@@ -32,7 +32,7 @@ public:
 private:
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
-    const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
 }  // namespace designlab

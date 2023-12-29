@@ -14,7 +14,7 @@
 #include "interface_node_creator.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 
 
 namespace designlab

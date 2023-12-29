@@ -81,7 +81,7 @@
     <ClInclude Include="interface_hexapod_coordinate_converter.h" />
     <ClInclude Include="interface_hexapod_joint_calculator.h" />
     <ClInclude Include="interface_hexapod_state_presenter.h" />
-    <ClInclude Include="interface_hexapod_vaild_checker.h" />
+    <ClInclude Include="interface_hexapod_posture_validator.h" />
     <ClInclude Include="simulation_end_checker_by_position.h" />
     <ClInclude Include="simulation_end_checker_by_posture.h" />
     <ClInclude Include="simulation_end_checker_factory.h" />

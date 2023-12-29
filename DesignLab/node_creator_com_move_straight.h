@@ -14,7 +14,7 @@
 #include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 #include "interface_node_creator.h"
 
 
@@ -30,7 +30,7 @@ public:
       const DividedMapState& devide_map,
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-      const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
       enums::HexapodMove next_move);
 
     ~NodeCreatorComMoveStraight() = default;
@@ -49,7 +49,7 @@ private:
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
-    const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
     std::array<Vector3, kCandidateDirectionNum> candidate_directions_;  //!< 候補となる移動方向．
 };

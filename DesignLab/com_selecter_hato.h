@@ -13,7 +13,7 @@
 #include "com_type.h"
 #include "math_polygon2.h"
 #include "math_vector3.h"
-#include "interface_hexapod_vaild_checker.h"
+#include "interface_hexapod_posture_validator.h"
 #include "robot_state_node.h"
 
 
@@ -34,7 +34,7 @@ namespace designlab
 class ComSelecterHato final
 {
 public:
-    explicit ComSelecterHato(const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr) :
+    explicit ComSelecterHato(const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
         checker_ptr_(checker_ptr)
     {
     };
@@ -63,7 +63,7 @@ private:
     bool IsInMargin(const Polygon2& polygon,
                     const std::vector<Vector2>& edge_vec, const Vector2& candidate_point) const;
 
-    const std::shared_ptr<const IHexapodVaildChecker> checker_ptr_;
+    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
 }  // namespace designlab

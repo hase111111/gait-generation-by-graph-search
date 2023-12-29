@@ -219,11 +219,11 @@ HexapodJointState PhantomXMkII::CalculateJointState(const int leg_index, const V
     return res;
 }
 
-bool PhantomXMkII::IsVaildAllJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept
+bool PhantomXMkII::IsValidAllJointState(const RobotStateNode& node, const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept
 {
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        if (!IsVaildJointState(i, node.leg_pos[i], joint_state[i]))
+        if (!IsValidJointState(i, node.leg_pos[i], joint_state[i]))
         {
             return false;
         }
@@ -232,7 +232,7 @@ bool PhantomXMkII::IsVaildAllJointState(const RobotStateNode& node, const std::a
     return true;
 }
 
-bool PhantomXMkII::IsVaildJointState(const int leg_index, const Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept
+bool PhantomXMkII::IsValidJointState(const int leg_index, const Vector3& leg_pos, const HexapodJointState& joint_state) const noexcept
 {
     assert(joint_state.joint_pos_leg_coordinate.size() == 4);
     assert(joint_state.joint_angle.size() == 3);
@@ -282,11 +282,11 @@ Vector3 PhantomXMkII::ConvertGlobalToLegCoordinate(
 
     if (consider_rot)
     {
-        return RotateVector3(converted_position - center_of_mass_global, robot_quat.GetConjugate()) - GetLegBasePosRobotCoodinate(leg_index);
+        return RotateVector3(converted_position - center_of_mass_global, robot_quat.GetConjugate()) - GetLegBasePosRobotCoordinate(leg_index);
     }
     else
     {
-        return converted_position - center_of_mass_global - GetLegBasePosRobotCoodinate(leg_index);
+        return converted_position - center_of_mass_global - GetLegBasePosRobotCoordinate(leg_index);
     }
 }
 
@@ -303,11 +303,11 @@ Vector3 PhantomXMkII::ConvertLegToGlobalCoordinate(
 
     if (consider_rot)
     {
-        return RotateVector3(converted_position + GetLegBasePosRobotCoodinate(leg_index), robot_quat) + center_of_mass_global;
+        return RotateVector3(converted_position + GetLegBasePosRobotCoordinate(leg_index), robot_quat) + center_of_mass_global;
     }
     else
     {
-        return converted_position + GetLegBasePosRobotCoodinate(leg_index) + center_of_mass_global;
+        return converted_position + GetLegBasePosRobotCoordinate(leg_index) + center_of_mass_global;
     }
 }
 
@@ -329,16 +329,16 @@ Vector3 PhantomXMkII::ConvertRobotToGlobalCoordinate(
 
 Vector3 PhantomXMkII::ConvertRobotToLegCoordinate(const Vector3& converted_position, const int leg_index) const
 {
-    return converted_position - GetLegBasePosRobotCoodinate(leg_index);
+    return converted_position - GetLegBasePosRobotCoordinate(leg_index);
 }
 
 Vector3 PhantomXMkII::ConvertLegToRobotCoordinate(const Vector3& converted_position, const int leg_index) const
 {
-    return converted_position + GetLegBasePosRobotCoodinate(leg_index);
+    return converted_position + GetLegBasePosRobotCoordinate(leg_index);
 }
 
 
-Vector3 PhantomXMkII::GetFreeLegPosLegCoodinate(const int leg_index) const noexcept
+Vector3 PhantomXMkII::GetFreeLegPosLegCoordinate(const int leg_index) const noexcept
 {
     //leg_indexは 0～5 である．
     assert(0 <= leg_index);
@@ -347,7 +347,7 @@ Vector3 PhantomXMkII::GetFreeLegPosLegCoodinate(const int leg_index) const noexc
     return free_leg_pos_leg_coordinate_[leg_index];
 }
 
-Vector3 PhantomXMkII::GetLegBasePosRobotCoodinate(const int leg_index) const noexcept
+Vector3 PhantomXMkII::GetLegBasePosRobotCoordinate(const int leg_index) const noexcept
 {
     //leg_indexは 0～5 である．
     assert(0 <= leg_index);
@@ -363,7 +363,7 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const Vector3& leg_pos) con
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    if (GetFreeLegPosLegCoodinate(leg_index).z < leg_pos.z) { return false; }
+    if (GetFreeLegPosLegCoordinate(leg_index).z < leg_pos.z) { return false; }
 
     const Vector2 leg_pos_xy = leg_pos.ProjectedXY();	//投射した脚先座標をえる．
 
@@ -407,7 +407,7 @@ bool PhantomXMkII::IsLegInterfering(const std::array<Vector3, HexapodConst::kLeg
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        joint_pos_xy[i] = GetLegBasePosRobotCoodinate(i).ProjectedXY();
+        joint_pos_xy[i] = GetLegBasePosRobotCoordinate(i).ProjectedXY();
         leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
     }
 
@@ -445,7 +445,7 @@ float PhantomXMkII::CalculateStabilityMargin(const leg_func::LegStateBit& leg_st
     {
         if (leg_func::IsGrounded(leg_state, i))
         {
-            ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLegBasePosRobotCoodinate(i).ProjectedXY();
+            ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() + GetLegBasePosRobotCoordinate(i).ProjectedXY();
             ground_leg_pos_num++;
         }
     }
@@ -501,7 +501,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
         //脚の根元の座標(グローバル)を取得する．
         {
             const Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
-              GetLegBasePosRobotCoodinate(i), node.center_of_mass_global_coord, node.posture, true
+              GetLegBasePosRobotCoordinate(i), node.center_of_mass_global_coord, node.posture, true
             );
 
             if (devide_map.IsInMap(coxa_pos_global_coord))
@@ -520,7 +520,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
 
         //脚先の座標(グローバル)を取得する．
         Vector3 leg_pos_global_coord = ConvertLegToGlobalCoordinate(
-          GetFreeLegPosLegCoodinate(i), i, node.center_of_mass_global_coord, node.posture, true
+          GetFreeLegPosLegCoordinate(i), i, node.center_of_mass_global_coord, node.posture, true
         );
 
         if (devide_map.IsInMap(leg_pos_global_coord))
@@ -530,7 +530,7 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node, const
               devide_map.GetMapMinZ()
               );
 
-            if (leg_top_z != devide_map.GetMapMinZ() && leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoodinate(i).z > leg_pos_global_coord.z)
+            if (leg_top_z != devide_map.GetMapMinZ() && leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoordinate(i).z > leg_pos_global_coord.z)
             {
                 return true;
             }

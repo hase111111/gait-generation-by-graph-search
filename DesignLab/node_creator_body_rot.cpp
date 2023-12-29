@@ -11,7 +11,7 @@ namespace designlab
 NodeCreatorBodyRot::NodeCreatorBodyRot(
     const DividedMapState& divided_map,
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-    const std::shared_ptr<const IHexapodVaildChecker>& checker_ptr,
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
     const ::designlab::Vector3& rot_axis,
     enums::HexapodMove next_move) :
     map_(divided_map),

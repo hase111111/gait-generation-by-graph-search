@@ -9,25 +9,25 @@ namespace designlab
 {
 
 std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > HexapodRendererBuilder::Build(
-	const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-	const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-	const enums::DisplayQuality display_quality
+  const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+  const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+  const enums::DisplayQuality display_quality
 )
 {
-	//! @todo IHexapodのtypeを見て、適切なrendererを返す
+    //! @todo IHexapodのtypeを見て、適切なrendererを返す
 
-	if (display_quality == enums::DisplayQuality::kHigh)
-	{
-		const auto renderer = std::make_shared<PhantomXRendererModel>(converter_ptr, calculator_ptr);
+    if (display_quality == enums::DisplayQuality::kHigh)
+    {
+        const auto renderer = std::make_shared<PhantomXRendererModel>(converter_ptr, calculator_ptr);
 
-		return { renderer , renderer };
-	}
-	else
-	{
-		const auto renderer = std::make_shared<PhantomXRendererSimple>(converter_ptr, calculator_ptr, display_quality);
+        return { renderer , renderer };
+    }
+    else
+    {
+        const auto renderer = std::make_shared<PhantomXRendererSimple>(converter_ptr, calculator_ptr, display_quality);
 
-		return { renderer , renderer };
-	}
+        return { renderer , renderer };
+    }
 }
 
-} // namespace designlab
+}  // namespace designlab
