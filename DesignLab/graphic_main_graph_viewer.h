@@ -1,18 +1,20 @@
-﻿//! @file graphic_main_graph_viewer.h
-//! @brief GraphViewerの画面を表示するクラス．
+﻿
+/// @file      graphic_main_graph_viewer.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
 
-#include "interface_graphic_main.h"
-
 #include <memory>
+#include <vector>
 
 #include "dxlib_3d_renderer_group.h"
 #include "dxlib_gui_updater.h"
 #include "dxlib_node_setter_group.h"
 #include "graph_viewer_gui_controller.h"
 #include "graphic_data_broker.h"
+#include "interface_graphic_main.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
@@ -32,8 +34,7 @@ public:
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-    );
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 
     ~GraphicMainGraphViewer() = default;
 
@@ -42,7 +43,6 @@ public:
     void Draw() const override;
 
 private:
-
     const std::shared_ptr<const GraphicDataBroker> broker_ptr_;
     const std::shared_ptr<Mouse> mouse_ptr_;
 
@@ -58,7 +58,7 @@ private:
     int graph_update_count_{ 0 };
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
+#endif  // DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_

@@ -1,10 +1,13 @@
-﻿//! @file graph_viewer_gui_controller.h
-//! @brief グラフのノードのデータを表示するGUIのコントローラークラス．
+﻿
+/// @file      graph_viewer_gui_controller.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
 #define DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
 
 #include <memory>
+#include <utility>
 #include <vector>
 
 #include "application_setting_record.h"
@@ -20,40 +23,44 @@ namespace designlab
 class GraphViewerGUIController final
 {
 public:
-	GraphViewerGUIController(const std::vector<RobotStateNode>* const graph_ptr, size_t* const display_node_index_ptr,
-							 const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
-	~GraphViewerGUIController() = default;
+    GraphViewerGUIController(
+        const std::vector<RobotStateNode>* const graph_ptr,
+        size_t* const display_node_index_ptr,
+        const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 
-	void Update();
+    ~GraphViewerGUIController() = default;
 
-	void Draw() const;
+    void Update();
 
-	void UpdateGraphNodeDepthData();
+    void Draw() const;
+
+    void UpdateGraphNodeDepthData();
 
 private:
+    void DrawGraphData() const;
+    void DrawNodeControlPanel() const;
+    void DrawNodeData(const RobotStateNode& node) const;
 
-	void DrawGraphData() const;
-	void DrawNodeControllPanel() const;
-	void DrawNodeData(const RobotStateNode& node) const;
+    void InputNumber();
+    void ChangeDisplayNodeIndex();
+    void UpdateChildrenList();
 
-	void InputNumber();
-	void ChangeDisplayNodeIndex();
-	void UpdateChildrenList();
+    const std::vector<RobotStateNode>* const graph_ptr_;
 
-	const std::vector<RobotStateNode>* const graph_ptr_;
-
-	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
+    const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
 
-	size_t* const display_node_index_ptr_;
-	std::pair<int, std::vector<int>> childen_list_ = std::make_pair<int, std::vector<int>>(-1, {});	//!< 子ノードのリスト．
-	int display_children_list_index_ = 0;	//!< 表示する子ノードのリストのインデックス．
+    size_t* const display_node_index_ptr_;
 
-	std::vector<int> graph_node_depth_data_;	//!< 各深さごとのノード数のデータ．
-	int input_number_ = -1;	//!< 入力された数値．
+    //! 子ノードのリスト．
+    std::pair<int, std::vector<int>> children_list_ = { -1, {} };
+    int display_children_list_index_ = 0;  //!< 表示する子ノードのリストのインデックス．
+
+    std::vector<int> graph_node_depth_data_;  //!< 各深さごとのノード数のデータ．
+    int input_number_ = -1;  //!< 入力された数値．
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
+#endif  // DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_

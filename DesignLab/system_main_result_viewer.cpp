@@ -57,7 +57,7 @@ void SystemMainResultViewer::Main()
             // データを仲介人に渡す．
             broker_ptr_->graph.SetData(graph);
             broker_ptr_->map_state.SetData(map_state);
-            broker_ptr_->simu_end_index.SetData({ graph.size() - 1 });
+            broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
             // データを表示する．
             CmdIOUtil::Output("データを表示します．", kSystem);

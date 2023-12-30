@@ -217,7 +217,7 @@ void SystemMainSimulation::Main()
         result_exporter_.ExportLatestMapState();  // 最新のマップ状態をファイルに出力する．
 
         // 仲介人にシミュレーション終了を通達する．
-        broker_ptr_->simu_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);
+        broker_ptr_->simulation_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);
 
         CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
         CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);

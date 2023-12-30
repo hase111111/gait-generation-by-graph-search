@@ -35,36 +35,36 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
 
     buttons_.push_back(
         std::make_unique<SimpleButton>(
-            "基本情報",
-            10 + button_size_x / 2,
-            gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
-            button_size_x,
-            button_size_y
-        )
+        "基本情報",
+        10 + button_size_x / 2,
+        gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
+        button_size_x,
+        button_size_y
+    )
     );
 
     buttons_.back()->SetActivateFunction([this]() {display_type_ = DisplayMode::kDefualt; });
 
     buttons_.push_back(
         std::make_unique<SimpleButton>(
-            "joint",
-            (10 + button_size_x / 2) + (10 + button_size_x),
-            gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
-            button_size_x,
-            button_size_y
-        )
+        "joint",
+        (10 + button_size_x / 2) + (10 + button_size_x),
+        gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
+        button_size_x,
+        button_size_y
+    )
     );
 
     buttons_.back()->SetActivateFunction([this]() {display_type_ = DisplayMode::kJointState; });
 
     buttons_.push_back(
         std::make_unique<SimpleButton>(
-            "脚先座標",
-            (10 + button_size_x / 2) + (10 + button_size_x) * 2,
-            gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
-            button_size_x,
-            button_size_y
-        )
+        "脚先座標",
+        (10 + button_size_x / 2) + (10 + button_size_x) * 2,
+        gui_top_pos_y_ + kHeight - button_size_y / 2 - 10,
+        button_size_x,
+        button_size_y
+    )
     );
 
     buttons_.back()->SetActivateFunction([this]() {display_type_ = DisplayMode::kGlobalPos; });
@@ -83,11 +83,11 @@ void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsig
     const int past_y = gui_top_pos_y_;
 
     if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-    else if (option & kDxlibGuiAnchorMidleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
+    else if (option & kDxlibGuiAnchorMiddleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
     else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
 
     if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-    else if (option & kDxlibGuiAnchorMidleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
+    else if (option & kDxlibGuiAnchorMiddleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
     else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
 
     const int diff_x = gui_left_pos_x_ - past_x;
@@ -95,7 +95,7 @@ void DxlibGuiNodeDisplayer::SetPos(const int pos_x, const int pos_y, const unsig
 
     for (auto& button : buttons_)
     {
-        button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, kDxlibGuiAnchorMidleXMidleY);
+        button->SetPos(button->GetPosMiddleX() + diff_x, button->GetPosMiddleY() + diff_y, kDxlibGuiAnchorMiddleXMiddleY);
     }
 
     if (this_is_first_time)

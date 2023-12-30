@@ -1,4 +1,8 @@
-﻿#include "graphic_main_display_model.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "graphic_main_display_model.h"
 
 #include "camera_dragger.h"
 #include "math_util.h"
@@ -22,20 +26,19 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-) :
+  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     mouse_ptr_(std::make_shared<Mouse>()),
     calculator_ptr_(calculator_ptr),
     converter_ptr_(converter_ptr)
 {
-    NodeInitializer node_initializer{ Vector3{0.f,0.f,30.f}, enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
     robot_ = node_initializer.InitNode();
 
     const SimulationMapParameter messanger;
     MapCreatorForSimulation map_creator(messanger);
 
     map_state_ = map_creator.InitMap();
-    devide_map_state_.Init(map_state_, {});
+    divided_map_state_.Init(map_state_, {});
 
     const auto camera = std::make_shared<DxlibCamera>();
     const auto camera_gui = std::make_shared<DxlibGuiCamera>(setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
@@ -80,7 +83,8 @@ bool GraphicMainDisplayModel::Update()
 
     mouse_ptr_->Update();
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LSHIFT) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RSHIFT) > 0)
+    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LSHIFT) > 0 ||
+        Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RSHIFT) > 0)
     {
         MoveBody();
     }
@@ -111,42 +115,48 @@ void GraphicMainDisplayModel::MoveBody()
     if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetUpVec() * kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetUpVec() * kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetUpVec() * -kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetUpVec() * -kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetLeftVec() * kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetLeftVec() * kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetLeftVec() * -kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetLeftVec() * -kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetFrontVec() * kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetFrontVec() * kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
     {
         Vector3 com =
-            robot_.center_of_mass_global_coord + RotateVector3(Vector3::GetFrontVec() * -kComSpeed, robot_.posture);
+            robot_.center_of_mass_global_coord +
+            RotateVector3(Vector3::GetFrontVec() * -kComSpeed, robot_.posture);
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
@@ -159,7 +169,8 @@ void GraphicMainDisplayModel::MoveBody()
             angle_speed *= -1.f;
         }
 
-        Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetFrontVec()) * robot_.posture;
+        Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed,
+                                                     Vector3::GetFrontVec()) * robot_.posture;
 
         robot_.ChangePosture(converter_ptr_, rot);
     }
@@ -172,7 +183,8 @@ void GraphicMainDisplayModel::MoveBody()
             angle_speed *= -1.f;
         }
 
-        Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetLeftVec()) * robot_.posture;
+        Quaternion rot = Quaternion::MakeByAngleAxis(angle_speed, Vector3::GetLeftVec()) *
+            robot_.posture;
 
         robot_.ChangePosture(converter_ptr_, rot);
     }
@@ -200,37 +212,76 @@ void GraphicMainDisplayModel::MoveLeg()
     {
         if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
         {
-            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0) { robot_.leg_pos[i].z += kSpeed; }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0) { robot_.leg_pos[i].z -= kSpeed; }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0) { robot_.leg_pos[i].y += kSpeed; }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0) { robot_.leg_pos[i].y -= kSpeed; }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0) { robot_.leg_pos[i].x += kSpeed; }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0) { robot_.leg_pos[i].x -= kSpeed; }
+            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
+            {
+                robot_.leg_pos[i].z += kSpeed;
+            }
+            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
+            {
+                robot_.leg_pos[i].z -= kSpeed;
+            }
+            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
+            {
+                robot_.leg_pos[i].y += kSpeed;
+            }
+            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
+            {
+                robot_.leg_pos[i].y -= kSpeed;
+            }
+            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
+            {
+                robot_.leg_pos[i].x += kSpeed;
+            }
+            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
+            {
+                robot_.leg_pos[i].x -= kSpeed;
+            }
             else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
             {
-                Vector3 global = converter_ptr_->ConvertLegToGlobalCoordinate(
-                  robot_.leg_reference_pos[i], i, robot_.center_of_mass_global_coord, robot_.posture, true
-                );
+                Vector3 global =
+                    converter_ptr_->ConvertLegToGlobalCoordinate(
+                    robot_.leg_reference_pos[i],
+                    i,
+                    robot_.center_of_mass_global_coord,
+                    robot_.posture,
+                    true);
 
-                int map_x = devide_map_state_.GetDividedMapIndexX(global.x);
-                int map_y = devide_map_state_.GetDividedMapIndexY(global.y);
+                int map_x = divided_map_state_.GetDividedMapIndexX(global.x);
+                int map_y = divided_map_state_.GetDividedMapIndexY(global.y);
 
-                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0) { map_x++; }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0) { map_x--; }
-                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0) { map_y++; }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0) { map_y--; }
+                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0)
+                {
+                    map_x++;
+                }
+                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0)
+                {
+                    map_x--;
+                }
+                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0)
+                {
+                    map_y++;
+                }
+                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0)
+                {
+                    map_y--;
+                }
 
-                Vector3 map_pos = devide_map_state_.GetPointPos(map_x, map_y, devide_map_tile_index_ % devide_map_state_.GetPointNum(map_x, map_y));
-                ++devide_map_tile_index_;
+                Vector3 map_pos = divided_map_state_.GetPointPos(
+                    map_x, map_y,
+                    divided_map_tile_index_ % divided_map_state_.GetPointNum(map_x, map_y));
+
+                ++divided_map_tile_index_;
 
                 robot_.leg_pos[i] = converter_ptr_->ConvertGlobalToLegCoordinate(
-                  map_pos, i, robot_.center_of_mass_global_coord, robot_.posture, true
-                );
+                  map_pos, i, robot_.center_of_mass_global_coord, robot_.posture, true);
             }
 
-            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0 || Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
+            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0 ||
+                Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0 ||
+                Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
             {
-                std::array<HexapodJointState, HexapodConst::kLegNum> res = calculator_ptr_->CalculateAllJointState(robot_);
+                std::array<HexapodJointState, HexapodConst::kLegNum> res =
+                    calculator_ptr_->CalculateAllJointState(robot_);
 
                 float coxa = res[i].joint_angle[0];
                 float femur = res[i].joint_angle[1];
@@ -238,7 +289,9 @@ void GraphicMainDisplayModel::MoveLeg()
 
                 if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0)
                 {
-                    const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+                    const float speed =
+                        Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ?
+                        kAngleSpeed : kAngleSpeed * -1.f;
 
                     coxa += speed;
 
@@ -250,7 +303,8 @@ void GraphicMainDisplayModel::MoveLeg()
                 }
                 else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0)
                 {
-                    const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+                    const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ?
+                        kAngleSpeed : kAngleSpeed * -1.f;
 
                     femur += speed;
 
@@ -260,16 +314,19 @@ void GraphicMainDisplayModel::MoveLeg()
                 }
                 else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
                 {
-                    float spped = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
-                    tibia += spped;
-                    tibia = (femur + tibia - MathConst<float>::kPi) > 0 ? tibia - spped : tibia;
+                    float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+                    tibia += speed;
+                    tibia = (femur + tibia - MathConst<float>::kPi) > 0 ? tibia - speed : tibia;
                     tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
                     tibia = PhantomXMkIIConst::kTibiaAngleMin >= tibia ? PhantomXMkIIConst::kTibiaAngleMin : tibia;
                 }
 
                 Vector3 leg_pos;
 
-                leg_pos += Vector3{ PhantomXMkIIConst::kCoxaLength * cos(coxa), PhantomXMkIIConst::kCoxaLength * sin(coxa), 0 };
+                leg_pos += Vector3{
+                    PhantomXMkIIConst::kCoxaLength * cos(coxa),
+                    PhantomXMkIIConst::kCoxaLength * sin(coxa),
+                    0 };
 
                 leg_pos += Vector3{
                   PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
@@ -289,4 +346,4 @@ void GraphicMainDisplayModel::MoveLeg()
     }
 }
 
-} // namespace designlab
+}  // namespace designlab

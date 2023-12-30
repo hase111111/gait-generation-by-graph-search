@@ -1,8 +1,10 @@
-﻿//! @file graphic_main_display_model.h
-//! @brief MapState や IHexapodRenderer が動作しているかテストを行うためのクラス．
+﻿
+/// @file      graphic_main_display_model.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#ifndef DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_
-#define DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_
+#ifndef DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
+#define DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
 
 #include <memory>
 
@@ -31,8 +33,8 @@ public:
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-    );
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
+
     ~GraphicMainDisplayModel() = default;
 
     bool Update() override;
@@ -40,28 +42,27 @@ public:
     void Draw() const override;
 
 private:
-
     void MoveBody();
 
     void MoveLeg();
 
-    std::shared_ptr<Mouse> mouse_ptr_;			//!< マウスの位置を制御するクラス．
+    std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの位置を制御するクラス．
 
-    DxlibGuiUpdater gui_updater_;				//!< GUIの更新を行うクラス．
-    DxlibNodeSetterGroup node_setter_group_;	//!< ノードの設定を行うクラス．
-    Dxlib3dRendererGroup render_group_;			//!< 描画を行うクラス．
+    DxlibGuiUpdater gui_updater_;  //!< GUIの更新を行うクラス．
+    DxlibNodeSetterGroup node_setter_group_;  //!< ノードの設定を行うクラス．
+    Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス．
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
-    MapState map_state_;				//!< マップの状態を保持するクラス．
-    DividedMapState devide_map_state_;	//!< 分割したマップの状態を保持するクラス．
-    RobotStateNode robot_;				//!< ロボットの状態．
+    MapState map_state_;  //!< マップの状態を保持するクラス．
+    DividedMapState divided_map_state_;  //!< 分割したマップの状態を保持するクラス．
+    RobotStateNode robot_;  //!< ロボットの状態．
 
-    int devide_map_tile_index_{ 0 };	//!< 脚を接地しているデバイドマップのインデックス．
+    int divided_map_tile_index_{ 0 };  //!< 脚を接地しているデバイドマップのインデックス．
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_GRAPHIC_DISPLAY_MODEL_H_
+#endif  // DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_

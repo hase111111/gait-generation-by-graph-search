@@ -1,5 +1,7 @@
-﻿//! @file interface_dxlib_node_setter.h
-//! @brief DxLibのGuiやRendererでノードのセットを行うためのインターフェース．
+﻿
+/// @file      interface_dxlib_node_setter.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
 #define DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
@@ -15,15 +17,14 @@ namespace designlab
 class IDxlibNodeSetter
 {
 public:
-	virtual ~IDxlibNodeSetter() = default;
+    virtual ~IDxlibNodeSetter() = default;
 
-	//! @brief ノードをセットする．
-	//! @param node ノード番号．
-	virtual void SetNode(const RobotStateNode& node) = 0;
-
+    //! @brief ノードをセットする．
+    //! @param node ノード番号．
+    virtual void SetNode(const RobotStateNode& node) = 0;
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
+#endif  // DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
