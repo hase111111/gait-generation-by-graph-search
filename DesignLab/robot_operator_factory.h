@@ -1,5 +1,7 @@
-﻿//! @file robot_operator_factory.h
-//! @brief TargetUpdaterを生成するファクトリクラス．
+﻿
+/// @file      robot_operator_factory.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
 #define DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
@@ -18,14 +20,14 @@ namespace designlab
 class RobotOperatorFactory final
 {
 public:
-
-	//! @brief 設定ファイルからTargetUpdaterを生成する．
-	//! @param [in] setting 設定ファイルのデータ．
-	//! @return std::unique_ptr<IRobotOperator> 生成したTargetUpdater．
-	static std::unique_ptr<IRobotOperator> Create(const SimulationSettingRecord& setting);
+    //! @brief 設定ファイルからTargetUpdaterを生成する．
+    //! @param[in] setting 設定ファイルのデータ．
+    //! @return  生成したTargetUpdater．
+    static std::unique_ptr<IRobotOperator> Create(
+        const SimulationSettingRecord& setting);
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
+#endif  // DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_

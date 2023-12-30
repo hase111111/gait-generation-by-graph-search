@@ -1,10 +1,13 @@
-﻿//! @file system_main_graph_viewer.h
-//! @brief グラフを表示するシステムのメインクラス．
+﻿
+/// @file      system_main_graph_viewer.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
 
 #include <memory>
+#include <vector>
 
 #include "application_setting_record.h"
 #include "graphic_data_broker.h"
@@ -20,57 +23,55 @@ namespace designlab
 
 //! @class SystemMainGraphViewer
 //! @brief グラフを表示するシステムのメインクラス．
-//! @details この研究の手法では木構造のグラフを作成する．
+//! @details
+//! この研究の手法では木構造のグラフを作成する．
 //! どのようなグラフが作成されるかを確認するために，このグラフを表示するシステムを作成した．
 class SystemMainGraphViewer final : public ISystemMain
 {
 public:
+    SystemMainGraphViewer(
+      std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
+      std::unique_ptr<IMapCreator>&& map_creator,
+      const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
 
-	SystemMainGraphViewer(
-		std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
-		std::unique_ptr<IMapCreator>&& map_creator,
-		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-	);
-
-	//! @brief メイン関数
-	void Main() override;
+    void Main() override;
 
 private:
-
-	//! @brief グラフを作成する．
-	//! @param [in] parent 親ノード
-	//! @param [out] graph 作成したグラフ
-	void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
-
-
-	//! @brief グラフのステータスを表示する．
-	//! @n 全ノード数，木の深さ，各深さごとのノード数を表示する．
-	//! @param [in] graph グラフ
-	void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
+    //! @brief グラフを作成する．
+    //! @param[in] parent 親ノード．
+    //! @param[out] graph 作成したグラフ．
+    void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
 
 
+    //! @brief グラフのステータスを表示する．
+    //! @n 全ノード数，木の深さ，各深さごとのノード数を表示する．
+    //! @param[in] graph グラフ
+    void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
-	//! @brief グラフの中から1つのノードを選択する．グラフが空の場合は，初期状態のノードを返す．
-	//! @param [in] graph グラフ
-	//! @return RobotStateNode 選択されたノード
-	RobotStateNode SelectNodeByInput(const std::vector<RobotStateNode>& graph) const;
 
 
-	const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
+    //! @brief グラフの中から1つのノードを選択する．
+    //! グラフが空の場合は，初期状態のノードを返す．
+    //! @param[in] graph グラフ．
+    //! @return 選択されたノード．
+    RobotStateNode SelectNodeByInput(const std::vector<RobotStateNode>& graph) const;
 
-	const std::unique_ptr<IMapCreator> map_creator_ptr_;
 
-	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
+    const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
 
-	const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
+    const std::unique_ptr<IMapCreator> map_creator_ptr_;
 
-	MapState map_state_;
+    const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-	Stopwatch stopwatch_;
+    const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
+
+    MapState map_state_;
+
+    Stopwatch stopwatch_;
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
+#endif  // DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_

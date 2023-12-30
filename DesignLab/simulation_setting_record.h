@@ -97,33 +97,50 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
       "EndChecker", "終了条件についての設定です．",
       "RobotOperator", "ロボットの操作方法の設定です．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_create_mode, "Map", "マップの作成方法を設定します．( \"" +
-                          string_util::EnumValuesToString<enums::MapCreateMode>("\" / \"") + "\" )");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(simulation_map_param_file_name, "Map",
-                          "マップの作成方法がシミュレーション専用マップを出力するモード ( " +
-                          string_util::EnumToStringRemoveTopK(kForSimulation) +
-                          " ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_file_name, "Map", "マップの作成方法がファイルから読み込むモード ( " +
-                          string_util::EnumToStringRemoveTopK(kFromFile) +
-                          " ) の場合，マップの csvファイルの名前を設定します．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        map_create_mode, "Map",
+        std::format("マップの作成方法を設定します．( \"{}\" )",
+        string_util::EnumValuesToString<enums::MapCreateMode>("\" / \"")));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        simulation_map_param_file_name, "Map",
+        std::format("マップの作成方法がシミュレーション専用マップを出力するモード"
+        " ( {} ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．",
+        string_util::EnumToStringRemoveTopK(kForSimulation)));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        map_file_name, "Map",
+        std::format("マップの作成方法がファイルから読み込むモード ( {} ) の場合，"
+        "マップの csvファイルの名前を設定します．",
+        string_util::EnumToStringRemoveTopK(kFromFile)));
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(end_check_mode, "EndChecker", "どのような方法で終了させるかを設定します．( \"" +
-                          string_util::EnumValuesToString<enums::SimulationEndCheckMode>("\" / \"") + "\" )");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(goal_tape_position_x, "EndChecker", "終了条件がゴールテープに到達したか ( " +
-                          string_util::EnumToStringRemoveTopK(kGoalTape) +
-                          " ) の場合，ゴールテープのx座標を設定します．[mm]");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture, "EndChecker", "終了条件が目標姿勢となったか ( " +
-                          string_util::EnumToStringRemoveTopK(kPosture) +
-                          " ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture_allowable_error_deg, "EndChecker", "終了条件が目標姿勢となったか ( " +
-                          string_util::EnumToStringRemoveTopK(kPosture) +
-                          " ) の場合，目標の姿勢の角度の許容誤差を設定します．[deg]");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position, "EndChecker", "終了条件が目的の座標に到達したか ( " +
-                          string_util::EnumToStringRemoveTopK(kPosition) +
-                          " ) の場合，目標の座標を設定します．[mm]");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position_allowable_error, "EndChecker", "終了条件が目的の座標に到達したか ( " +
-                          string_util::EnumToStringRemoveTopK(kPosition) +
-                          " ) の場合，目標の座標の許容誤差を設定します．[mm]");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        end_check_mode, "EndChecker",
+        std::format("どのような方法で終了させるかを設定します．( \"{}\" )",
+        string_util::EnumValuesToString<enums::SimulationEndCheckMode>("\" / \"")));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        goal_tape_position_x, "EndChecker",
+        std::format("終了条件がゴールテープに到達したか ( {} ) の場合，"
+        "ゴールテープのx座標を設定します．[mm]",
+        string_util::EnumToStringRemoveTopK(kGoalTape)));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        target_posture, "EndChecker",
+        std::format("終了条件が目標姿勢となったか ( {} ) の場合，"
+        "目標の姿勢(xyzオイラー角)を設定します．[deg]",
+        string_util::EnumToStringRemoveTopK(kPosture)));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        target_posture_allowable_error_deg, "EndChecker",
+        std::format("終了条件が目標姿勢となったか ( {} ) の場合，"
+        "目標の姿勢の角度の許容誤差を設定します．[deg]",
+        string_util::EnumToStringRemoveTopK(kPosture)));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        target_position, "EndChecker",
+        std::format("終了条件が目的の座標に到達したか ( {} ) の場合，"
+        "目標の座標を設定します．[mm]",
+        string_util::EnumToStringRemoveTopK(kPosition)));
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        target_position_allowable_error, "EndChecker",
+        std::format("終了条件が目的の座標に到達したか ( {} ) の場合，"
+        "目標の座標の許容誤差を設定します．[mm]",
+        string_util::EnumToStringRemoveTopK(kPosition)));
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         operate_mode, "RobotOperator",

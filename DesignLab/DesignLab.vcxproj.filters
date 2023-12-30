@@ -543,7 +543,7 @@
     <ClInclude Include="simulation_end_checker_by_position.h">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_record_vaildator.h">
+    <ClInclude Include="application_setting_record_validator.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
     <ClInclude Include="interface_robot_operator.h">
@@ -896,7 +896,7 @@
     <ClCompile Include="simulation_end_checker_by_position.cpp">
       <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClCompile>
-    <ClCompile Include="application_setting_record_vaildator.cpp">
+    <ClCompile Include="application_setting_record_validator.cpp">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClCompile>
     <ClCompile Include="robot_operator_for_gpg.cpp">

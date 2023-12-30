@@ -1,8 +1,10 @@
-﻿//! @file robot_operator_fixed.h
-//! @brief ターゲットの更新をせず，初期化時のみに更新するクラス．
+﻿
+/// @file      robot_operator_fixed.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#ifndef DESIGNLAB_TARGET_UPDATER_ONCE_H_
-#define DESIGNLAB_TARGET_UPDATER_ONCE_H_
+#ifndef DESIGNLAB_ROBOT_OPERATOR_FIXED_H_
+#define DESIGNLAB_ROBOT_OPERATOR_FIXED_H_
 
 #include "interface_robot_operator.h"
 
@@ -11,27 +13,25 @@ namespace designlab
 {
 
 //! @class RobotOperatorFixed
-//! @brief ターゲットの更新をせず，初期化時のみに更新するクラス．
+//! @brief 命令の更新をせず，初期化時の命令を送り続けるクラス．
 class RobotOperatorFixed : public IRobotOperator
 {
 public:
+    RobotOperatorFixed() = delete;
 
-	RobotOperatorFixed() = delete;
+    //! @brief コンストラクタで指定した命令を常に返す．
+    //! @param[in] operation ロボットへ送る命令.
+    explicit RobotOperatorFixed(const RobotOperation& operation);
 
-	//! @brief コンストラクタで指定したターゲットを常に返す．
-	//! @param[in] target ターゲット.
-	RobotOperatorFixed(const RobotOperation& target);
+    RobotOperation Init() const override;
 
-	RobotOperation Init() const override;
-
-	RobotOperation Update(const RobotStateNode& state) override;
+    RobotOperation Update(const RobotStateNode& state) override;
 
 private:
-
-	const RobotOperation operation_;
+    const RobotOperation operation_;
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_TARGET_UPDATER_ONCE_H_
+#endif  // DESIGNLAB_ROBOT_OPERATOR_FIXED_H_

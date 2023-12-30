@@ -1,5 +1,7 @@
-﻿//! @file robot_operator_for_gpg.h
-//! @brief global path generator を行うための仮置きクラス．
+﻿
+/// @file      robot_operator_for_gpg.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
 #define DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
@@ -18,18 +20,17 @@ namespace designlab
 class RobotOperatorForGpg final : public IRobotOperator
 {
 public:
+    RobotOperatorForGpg();
 
-	RobotOperatorForGpg();
+    RobotOperation Init() const override;
 
-	RobotOperation Init() const override;
-
-	RobotOperation Update(const RobotStateNode& node) override;
+    RobotOperation Update(const RobotStateNode& node) override;
 
 private:
+    //!< 目標角度と現在の角度の許容誤差．
+    static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };
 
-	static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };	//!< 目標角度と現在の角度の許容誤差．
-
-	std::vector<Vector3> global_route_;	//!< グローバルパス．
+    std::vector<Vector3> global_route_;  //!< グローバルパス．
 };
 
 }  // namespace designlab

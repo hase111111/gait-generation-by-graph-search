@@ -37,7 +37,7 @@ enums::BootMode BootModeSelector::SelectBootMode()
 
         const std::string boot_mode_name = string_util::EnumToStringRemoveTopK(boot_mode);
 
-        CmdIOUtil::Output(std::format("{} : {}", std::to_string(i), boot_mode_name),
+        CmdIOUtil::Output(std::format("{} : {}", i, boot_mode_name),
                           output_detail);
     }
 

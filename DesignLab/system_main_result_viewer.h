@@ -1,5 +1,7 @@
-﻿//! @file system_main_result_viewer.h
-//! @brief 結果を表示するシステムのクラス．
+﻿
+/// @file      system_main_result_viewer.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
 #define DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
@@ -21,22 +23,20 @@ namespace designlab
 class SystemMainResultViewer final : public ISystemMain
 {
 public:
-	SystemMainResultViewer(
-		const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-		const std::shared_ptr<const ApplicationSettingRecord> setting_ptr
-	);
+    SystemMainResultViewer(
+      const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+      const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
 
 
-	void Main() override;
+    void Main() override;
 
 private:
+    ResultFileImporter result_importer_;
 
-	ResultFileImporter result_importer_;
-
-	const std::shared_ptr<GraphicDataBroker> broker_ptr_;
+    const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
+#endif  // DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_

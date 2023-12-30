@@ -1,5 +1,7 @@
-﻿//! @file robot_operator_for_path.h
-//! @brief 指定した中継地点を通るようにロボットを動かすクラス．
+﻿
+/// @file      robot_operator_for_path.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
 #define DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
@@ -18,22 +20,21 @@ namespace designlab
 class RobotOperatorForPath final : public IRobotOperator
 {
 public:
+    explicit RobotOperatorForPath(const std::vector<Vector3>& path);
 
-	RobotOperatorForPath(const std::vector<Vector3>& path);
+    RobotOperation Init() const override;
 
-	RobotOperation Init() const override;
-
-	RobotOperation Update(const RobotStateNode& node) override;
+    RobotOperation Update(const RobotStateNode& node) override;
 
 private:
+    //! 目標角度と現在の角度の許容誤差．
+    static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };
 
-	static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };	//!< 目標角度と現在の角度の許容誤差．
-
-	std::vector<Vector3> global_route_;	//!< グローバルパス．
-	int most_near_index_{ 0 };
+    std::vector<Vector3> global_route_;  //!< グローバルパス．
+    int most_near_index_{ 0 };
 };
 
 }  // namespace designlab
 
 
-#endif  // DESIGNLAB_ROBOT_OPERATOR_FREE_H_
+#endif  // DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_

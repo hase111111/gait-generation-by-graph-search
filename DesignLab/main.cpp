@@ -10,7 +10,7 @@
 #if ! defined (DESIGNLAB_USE_TEST)
 
 #include "application_setting_record.h"
-#include "application_setting_record_vaildator.h"
+#include "application_setting_record_validator.h"
 #include "boot_mode_selector.h"
 #include "cmdio_util.h"
 #include "gait_pattern_generator_switch_move.h"
@@ -43,202 +43,202 @@
 
 int main()
 {
-	using namespace designlab;
+    using namespace designlab;
 
-	//コンソールが表示されるまで待つ．これをやらないとcoutの表示がおかしくなる．
-	//たぶん一度に大量にcoutするとおかしくなるのだろうが，なんか変なつくりだからどーにかできないかね？
-	Sleep(100);
+    //コンソールが表示されるまで待つ．これをやらないとcoutの表示がおかしくなる．
+    //たぶん一度に大量にcoutするとおかしくなるのだろうが，なんか変なつくりだからどーにかできないかね？
+    Sleep(100);
 
-	//まずは，設定ファイルを読み込む
-	CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
+    //まずは，設定ファイルを読み込む
+    CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
 
-	TomlDirectoryExporter toml_file_setupper;
-	toml_file_setupper.Export();
-	TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordVaildator>());
-	const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));	// 読み込んだ設定ファイルを記録するクラスに記録する
-
-
-	//次に，コマンドラインの出力を設定する
-	CmdIOUtil::DoOutput(application_setting_record->do_cmd_output);
-	CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
-
-	CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する
+    TomlDirectoryExporter toml_file_setupper;
+    toml_file_setupper.Export();
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
+    const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));	// 読み込んだ設定ファイルを記録するクラスに記録する
 
 
-	//GUIを別のスレッドで実行する．このスレッドへはGraphicDataBrokerを通してデータを渡す．
-	GraphicSystem graphic_system(application_setting_record);
+    //次に，コマンドラインの出力を設定する
+    CmdIOUtil::DoOutput(application_setting_record->do_cmd_output);
+    CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
 
-	boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);	//グラフィックシステムを別スレッドで実行する．
-
-
-	//処理を実行する
-	while (true)
-	{
-		//起動モードを選択する
-		enums::BootMode boot_mode = application_setting_record->default_mode;
-
-		if (application_setting_record->ask_about_modes)
-		{
-			BootModeSelector boot_mode_selecter;
-
-			boot_mode_selecter.SetDefaultBootMode(application_setting_record->default_mode);	//デフォルトの起動モードを設定する
-			boot_mode = boot_mode_selecter.SelectBootMode();		//起動モードを選択する
-		}
+    CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);	//タイトルを表示する
 
 
-		//選択が終わったら，選択されたモードに応じてシステムを作成する
-		auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+    //GUIを別のスレッドで実行する．このスレッドへはGraphicDataBrokerを通してデータを渡す．
+    GraphicSystem graphic_system(application_setting_record);
 
-		TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
-		const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
-		auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
-
-		auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderHato>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-		auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-
-		auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));
-		auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
-
-		auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-		auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2);
-
-		std::unique_ptr<ISystemMain> system_main;
-
-		switch (boot_mode)
-		{
-			case enums::BootMode::kSimulation:
-			{
-				//シミュレーションシステムクラスを作成する．
-
-				auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
-				auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
-				auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
-
-				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
-				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
-
-				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
-				auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
-				auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
-				auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
-
-				system_main = std::make_unique<SystemMainSimulation>(
-					std::move(gait_pattern_generator),
-					std::move(map_creator),
-					std::move(simu_end_checker),
-					std::move(robot_operator),
-					std::move(node_initializer),
-					graphic_data_broker,
-					application_setting_record
-				);
-
-				auto graphic_main = std::make_unique<GraphicMainBasic>(
-					graphic_data_broker,
-					phantomx_mk2,
-					phantomx_mk2,
-					phantomx_mk2,
-					application_setting_record
-				);
-
-				graphic_system.ChangeGraphicMain(std::move(graphic_main));
-
-				break;
-			}
-			case enums::BootMode::kViewer:
-			{
-				//グラフビューアシステムクラスを作成する．
-
-				TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
-				const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
-
-				auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
-
-				system_main = std::make_unique<SystemMainGraphViewer>(
-					std::move(graph_tree_creator_straight),
-					std::move(map_creator),
-					graphic_data_broker,
-					application_setting_record
-				);
-
-				std::unique_ptr<IGraphicMain> graphic_main_viewer = std::make_unique<GraphicMainGraphViewer>(
-					graphic_data_broker,
-					phantomx_mk2,
-					phantomx_mk2,
-					phantomx_mk2,
-					application_setting_record
-				);
-
-				graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
-
-				break;
-			}
-			case enums::BootMode::kDisplayModel:
-			{
-				std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainDisplayModel>(
-					phantomx_mk2,
-					phantomx_mk2,
-					phantomx_mk2,
-					application_setting_record
-				);
-
-				graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
-
-				break;
-			}
-			case enums::BootMode::kResultViewer:
-			{
-				//結果表示システムクラスを作成する．
-				system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record);
-
-				std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
-					graphic_data_broker,
-					phantomx_mk2,
-					phantomx_mk2,
-					phantomx_mk2,
-					application_setting_record
-				);
-
-				graphic_system.ChangeGraphicMain(std::move(graphic_main));
-
-				break;
-			}
-			default:
-			{
-				assert(false);	//無効なモードが指定された．
-				break;
-			}
-		}
-
-		//システムを実行する
-		if (system_main)
-		{
-			system_main->Main();
-		}
-		else
-		{
-			CmdIOUtil::Output("SystemMainクラスがありません．"
-							  "(GraphicSystemしか使用しない場合はこのメッセージが表示されることがあります．)", enums::OutputDetail::kSystem);
-		}
+    boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);	//グラフィックシステムを別スレッドで実行する．
 
 
-		//もう一度実行するかどうかを選択する
-		CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    //処理を実行する
+    while (true)
+    {
+        //起動モードを選択する
+        enums::BootMode boot_mode = application_setting_record->default_mode;
 
-		if (!CmdIOUtil::InputYesNo("アプリケーションを続行しますか？"))
-		{
-			break;
-		}
+        if (application_setting_record->ask_about_modes)
+        {
+            BootModeSelector boot_mode_selecter;
 
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-		CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-	}
+            boot_mode_selecter.SetDefaultBootMode(application_setting_record->default_mode);	//デフォルトの起動モードを設定する
+            boot_mode = boot_mode_selecter.SelectBootMode();		//起動モードを選択する
+        }
 
-	CmdIOUtil::Output("Dxlibの終了を待っています．GUIの×ボタンを押してください．", enums::OutputDetail::kSystem);
-	graphic_thread.join();
 
-	return 0;
+        //選択が終わったら，選択されたモードに応じてシステムを作成する
+        auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+
+        TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
+        const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+        auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
+
+        auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderHato>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+        auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+
+        auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));
+        auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
+
+        auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
+        auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2);
+
+        std::unique_ptr<ISystemMain> system_main;
+
+        switch (boot_mode)
+        {
+            case enums::BootMode::kSimulation:
+            {
+                //シミュレーションシステムクラスを作成する．
+
+                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
+                auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
+                auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
+
+                TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
+                const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+
+                auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
+                auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
+                auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
+                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
+
+                system_main = std::make_unique<SystemMainSimulation>(
+                  std::move(gait_pattern_generator),
+                  std::move(map_creator),
+                  std::move(simu_end_checker),
+                  std::move(robot_operator),
+                  std::move(node_initializer),
+                  graphic_data_broker,
+                  application_setting_record
+                );
+
+                auto graphic_main = std::make_unique<GraphicMainBasic>(
+                  graphic_data_broker,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  application_setting_record
+                );
+
+                graphic_system.ChangeGraphicMain(std::move(graphic_main));
+
+                break;
+            }
+            case enums::BootMode::kViewer:
+            {
+                //グラフビューアシステムクラスを作成する．
+
+                TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
+                const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+
+                auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
+
+                system_main = std::make_unique<SystemMainGraphViewer>(
+                  std::move(graph_tree_creator_straight),
+                  std::move(map_creator),
+                  graphic_data_broker,
+                  application_setting_record
+                );
+
+                std::unique_ptr<IGraphicMain> graphic_main_viewer = std::make_unique<GraphicMainGraphViewer>(
+                  graphic_data_broker,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  application_setting_record
+                );
+
+                graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
+
+                break;
+            }
+            case enums::BootMode::kDisplayModel:
+            {
+                std::unique_ptr<IGraphicMain> graphic_main_test = std::make_unique<GraphicMainDisplayModel>(
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  application_setting_record
+                );
+
+                graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
+
+                break;
+            }
+            case enums::BootMode::kResultViewer:
+            {
+                //結果表示システムクラスを作成する．
+                system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record);
+
+                std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
+                  graphic_data_broker,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  phantomx_mk2,
+                  application_setting_record
+                );
+
+                graphic_system.ChangeGraphicMain(std::move(graphic_main));
+
+                break;
+            }
+            default:
+            {
+                assert(false);	//無効なモードが指定された．
+                break;
+            }
+        }
+
+        //システムを実行する
+        if (system_main)
+        {
+            system_main->Main();
+        }
+        else
+        {
+            CmdIOUtil::Output("SystemMainクラスがありません．"
+                      "(GraphicSystemしか使用しない場合はこのメッセージが表示されることがあります．)", enums::OutputDetail::kSystem);
+        }
+
+
+        //もう一度実行するかどうかを選択する
+        CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+
+        if (!CmdIOUtil::InputYesNo("アプリケーションを続行しますか？"))
+        {
+            break;
+        }
+
+        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    }
+
+    CmdIOUtil::Output("Dxlibの終了を待っています．GUIの×ボタンを押してください．", enums::OutputDetail::kSystem);
+    graphic_thread.join();
+
+    return 0;
 }
 
 #endif 

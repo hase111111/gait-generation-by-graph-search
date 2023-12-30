@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application_setting_record_vaildator.h" />
+    <ClInclude Include="application_setting_record_validator.h" />
     <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="implicit_metafunction_for_math_util.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
@@ -177,7 +177,7 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application_setting_record_vaildator.cpp" />
+    <ClCompile Include="application_setting_record_validator.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
     <ClCompile Include="dxlib_gui_terminal.cpp" />

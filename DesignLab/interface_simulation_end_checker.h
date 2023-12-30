@@ -1,5 +1,7 @@
-﻿//! @file interface_simulation_end_checker.h
-//! @brief シミュレーションの終了を判定するクラスのインターフェース．
+﻿
+/// @file      interface_simulation_end_checker.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
 #define DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
@@ -15,15 +17,15 @@ namespace designlab
 class ISimulationEndChecker
 {
 public:
-	virtual ~ISimulationEndChecker() = default;
+    virtual ~ISimulationEndChecker() = default;
 
-	//! @brief シミュレーションの終了を判定する．
-	//! @param[in] node ロボットの状態．
-	//! @return シミュレーションを終了するならtrue．
-	virtual bool IsEnd(const RobotStateNode& node) const = 0;
+    //! @brief シミュレーションの終了を判定する．
+    //! @param[in] node ロボットの状態．
+    //! @return シミュレーションを終了するなら true．
+    virtual bool IsEnd(const RobotStateNode& node) const = 0;
 };
 
-}	// namespace designlab
+}  // namespace designlab
 
 
-#endif	// DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
+#endif  // DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_

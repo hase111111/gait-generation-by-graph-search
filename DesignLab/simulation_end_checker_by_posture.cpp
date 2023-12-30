@@ -1,4 +1,8 @@
-﻿#include "simulation_end_checker_by_posture.h"
+﻿
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "simulation_end_checker_by_posture.h"
 
 #include "math_rot_converter.h"
 
@@ -18,7 +22,7 @@ SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
 
 bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 {
-    //角度を取得し，誤差を計算
+    // 角度を取得し，誤差を計算．
     auto now = ToEulerXYZ(node.posture);
 
     float error_x = std::abs(now.x_angle - goal_euler_.x_angle);
@@ -48,4 +52,4 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
     return true;
 }
 
-} // namespace designlab
+}  // namespace designlab

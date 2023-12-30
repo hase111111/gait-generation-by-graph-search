@@ -1,5 +1,7 @@
-﻿//! @file interface_robot_operator.h
-//! @brief ロボットの動作を決定する処理のインターフェース．
+﻿
+/// @file      interface_robot_operator.h
+/// @author    hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
 #define DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
@@ -16,20 +18,19 @@ namespace designlab
 class IRobotOperator
 {
 public:
+    virtual ~IRobotOperator() = default;
 
-	virtual ~IRobotOperator() = default;
+    //! @brief ロボットの動作を初期化する．
+    //! @return ロボットの動作．
+    virtual RobotOperation Init() const = 0;
 
-	//! @brief ロボットの動作を初期化する．
-	//! @return RobotOperation ロボットの動作．
-	virtual RobotOperation Init() const = 0;
-
-	//! @brief ロボットの動作を更新する．
-	//! @param[in] state ロボットの現在の状態．
-	//! @return RobotOperation ロボットの動作．
-	virtual RobotOperation Update(const RobotStateNode& state) = 0;
+    //! @brief ロボットの動作を更新する．
+    //! @param[in] state ロボットの現在の状態．
+    //! @return ロボットの動作．
+    virtual RobotOperation Update(const RobotStateNode& state) = 0;
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
+#endif  // DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
