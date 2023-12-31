@@ -1,10 +1,14 @@
-﻿#include "dxlib_gui_camera_parameter_displayer.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "dxlib_gui_camera_parameter_displayer.h"
 
 #include <magic_enum.hpp>
 
+#include "font_loader.h"
 #include "math_rot_converter.h"
 #include "string_util.h"
-#include "font_loader.h"
 
 
 namespace designlab
@@ -13,8 +17,7 @@ namespace designlab
 DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer(
   const int window_x,
   const int window_y,
-  const std::shared_ptr<DxlibCamera> camera_ptr
-) :
+  const std::shared_ptr<DxlibCamera> camera_ptr) :
     window_x_(window_x),
     window_y_(window_y),
     camera_ptr_(camera_ptr)
@@ -32,13 +35,31 @@ void DxlibGuiCameraParameterDisplayer::SetPos(const int pos_x, const int pos_y, 
     const int past_x = gui_left_pos_x_;
     const int past_y = gui_top_pos_y_;
 
-    if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-    else if (option & kDxlibGuiAnchorMiddleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-    else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
+    if (option & kDxlibGuiAnchorLeft)
+    {
+        gui_left_pos_x_ = pos_x;
+    }
+    else if (option & kDxlibGuiAnchorMiddleX)
+    {
+        gui_left_pos_x_ = pos_x - kWidth / 2;
+    }
+    else if (option & kDxlibGuiAnchorRight)
+    {
+        gui_left_pos_x_ = pos_x - kWidth;
+    }
 
-    if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-    else if (option & kDxlibGuiAnchorMiddleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-    else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+    if (option & kDxlibGuiAnchorTop)
+    {
+        gui_top_pos_y_ = pos_y;
+    }
+    else if (option & kDxlibGuiAnchorMiddleY)
+    {
+        gui_top_pos_y_ = pos_y - kHeight / 2;
+    }
+    else if (option & kDxlibGuiAnchorBottom)
+    {
+        gui_top_pos_y_ = pos_y - kHeight;
+    }
 
     const int diff_x = gui_left_pos_x_ - past_x;
     const int diff_y = gui_top_pos_y_ - past_y;
@@ -57,7 +78,7 @@ void DxlibGuiCameraParameterDisplayer::SetPos(const int pos_x, const int pos_y, 
 
 void DxlibGuiCameraParameterDisplayer::Update()
 {
-    // ボタンを更新する
+    // ボタンを更新する．
     for (auto& i : button_)
     {
         i->Update();
@@ -71,10 +92,10 @@ void DxlibGuiCameraParameterDisplayer::Update()
 
 void DxlibGuiCameraParameterDisplayer::Draw() const
 {
-    // 枠
+    // 枠．
     DrawBackground();
 
-    // ボタンを描画する
+    // ボタンを描画する．
     for (const auto& i : button_)
     {
         i->Draw();
@@ -101,7 +122,7 @@ void DxlibGuiCameraParameterDisplayer::SetVisible(const bool visible)
 void DxlibGuiCameraParameterDisplayer::ClickedAction(const int cursor_x, const int cursor_y,
                            const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-    // ボタンを更新する
+    // ボタンを更新する．
     for (auto& i : button_)
     {
         if (i->CursorOnGui(cursor_x, cursor_y))
@@ -114,7 +135,10 @@ void DxlibGuiCameraParameterDisplayer::ClickedAction(const int cursor_x, const i
 
 bool DxlibGuiCameraParameterDisplayer::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
-    if (!IsVisible()) { return false; }
+    if (!IsVisible())
+    {
+        return false;
+    }
 
     return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
         (gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
@@ -122,7 +146,10 @@ bool DxlibGuiCameraParameterDisplayer::CursorOnGui(const int cursor_x, const int
 
 bool DxlibGuiCameraParameterDisplayer::IsDraggable(const int cursor_x, const int cursor_y) const
 {
-    if (!IsVisible()) { return false; }
+    if (!IsVisible())
+    {
+        return false;
+    }
 
     return (gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth) &&
         (gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight);
@@ -205,4 +232,4 @@ bool DxlibGuiCameraParameterDisplayer::IsInWindow() const
         0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
 
-} // namespace designlab
+}  // namespace designlab

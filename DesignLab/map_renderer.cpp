@@ -1,4 +1,8 @@
-﻿#include "map_renderer.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "map_renderer.h"
 
 #include <Dxlib.h>
 
@@ -9,55 +13,53 @@ namespace designlab
 {
 
 MapRenderer::MapRenderer() :
-	kColorGray(GetColor(80, 80, 80)),
-	kColorLightGray(GetColor(160, 160, 160)),
-	kColorDarkGray(GetColor(40, 40, 40)),
-	kCubeSize(15.f)
+    kColorGray(GetColor(80, 80, 80)),
+    kColorLightGray(GetColor(160, 160, 160)),
+    kColorDarkGray(GetColor(40, 40, 40)),
+    kCubeSize(15.f)
 {
 }
 
 void MapRenderer::SetNode(const RobotStateNode& pos)
 {
-	hexapod_pos_ = pos.center_of_mass_global_coord;
+    hexapod_pos_ = pos.center_of_mass_global_coord;
 
-	devide_map_.Init(map_, hexapod_pos_);
+    divided_map_.Init(map_, hexapod_pos_);
 }
 
 void MapRenderer::SetMapState(const MapState& map)
 {
-	map_ = map;
+    map_ = map;
 
-	devide_map_.Init(map_, hexapod_pos_);
+    divided_map_.Init(map_, hexapod_pos_);
 }
 
 
 void MapRenderer::Draw() const
 {
-	size_t kSize = map_.GetMapPointSize();
+    size_t kSize = map_.GetMapPointSize();
 
-	for (size_t i = 0; i < kSize; i++)
-	{
-		dxlib_util::DrawCube3DWithTopPos(
-			dxlib_util::ConvertToDxlibVec(map_.GetMapPoint(i)),
-			kCubeSize,
-			kColorDarkGray
-		);
-	}
+    for (size_t i = 0; i < kSize; i++)
+    {
+        dxlib_util::DrawCube3DWithTopPos(
+          dxlib_util::ConvertToDxlibVec(map_.GetMapPoint(i)),
+          kCubeSize,
+          kColorDarkGray);
+    }
 
-	for (int i = 0; i < 30; i++)
-	{
-		for (int j = 0; j < 30; j++)
-		{
-			for (int k = 0; k < devide_map_.GetPointNum(i, j); k++)
-			{
-				dxlib_util::DrawCube3DWithTopPos(
-					dxlib_util::ConvertToDxlibVec(devide_map_.GetPointPos(i, j, k)),
-					kCubeSize,
-					(i + j) % 2 == 0 ? kColorLightGray : kColorGray
-				);
-			}
-		}
-	}
+    for (int i = 0; i < 30; i++)
+    {
+        for (int j = 0; j < 30; j++)
+        {
+            for (int k = 0; k < divided_map_.GetPointNum(i, j); k++)
+            {
+                dxlib_util::DrawCube3DWithTopPos(
+                  dxlib_util::ConvertToDxlibVec(divided_map_.GetPointPos(i, j, k)),
+                  kCubeSize,
+                  (i + j) % 2 == 0 ? kColorLightGray : kColorGray);
+            }
+        }
+    }
 }
 
-} // namespace designlab
+}  // namespace designlab

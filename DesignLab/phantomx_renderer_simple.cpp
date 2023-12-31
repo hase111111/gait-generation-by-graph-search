@@ -22,8 +22,6 @@ PhantomXRendererSimple::PhantomXRendererSimple(
     kColorJoint(GetColor(100, 100, 200)),
     kColorLiftedJoint(GetColor(200, 100, 100)),
     kColorLegBase(GetColor(100, 200, 100)),
-    kColorKineLeg(GetColor(45, 45, 100)),
-    kColorKineJoint(GetColor(60, 60, 115)),
     kColorErrorText(GetColor(32, 32, 32)),
     kColorErrorJoint(GetColor(180, 180, 64)),
     kCapsuleDivNum(6),

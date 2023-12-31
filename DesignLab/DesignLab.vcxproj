@@ -117,7 +117,7 @@
     <ClInclude Include="hexapod_next_move.h" />
     <ClInclude Include="gait_pattern_generator_revaluation.h" />
     <ClInclude Include="phantomx_mk2_const.h" />
-    <ClInclude Include="phantomx_renderer_model.h" />
+    <ClInclude Include="phantomx_mk2_renderer_model.h" />
     <ClInclude Include="phantomx_renderer_simple.h" />
     <ClInclude Include="interface_gait_pattern_generator.h" />
     <ClInclude Include="interface_graph_searcher.h" />
@@ -153,7 +153,7 @@
     <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
     <ClInclude Include="system_main_result_viewer.h" />
-    <ClInclude Include="robot_graund_point_renderer.h" />
+    <ClInclude Include="robot_ground_point_renderer.h" />
     <ClInclude Include="simulation_result_record.h" />
     <ClInclude Include="application_setting_record.h" />
     <ClInclude Include="singleton.h" />
@@ -230,7 +230,7 @@
     <ClCompile Include="movement_locus_renderer.cpp" />
     <ClCompile Include="node_creator_builder_hato.cpp" />
     <ClCompile Include="gait_pattern_generator_revaluation.cpp" />
-    <ClCompile Include="phantomx_renderer_model.cpp" />
+    <ClCompile Include="phantomx_mk2_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
     <ClCompile Include="simulation_end_checker_by_goal_tape.cpp" />
     <ClCompile Include="simulation_end_checker_by_position.cpp" />
@@ -265,7 +265,7 @@
     <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
     <ClCompile Include="system_main_result_viewer.cpp" />
-    <ClCompile Include="robot_graund_point_renderer.cpp" />
+    <ClCompile Include="robot_ground_point_renderer.cpp" />
     <ClCompile Include="simulation_result_record.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />

@@ -1,4 +1,8 @@
-﻿#include "dxlib_gui_display_node_switcher.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "dxlib_gui_display_node_switcher.h"
 
 #include <algorithm>
 
@@ -25,7 +29,7 @@ DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, con
     const int kButtonLeftX = button_width / 2 + gui_left_pos_x_ + 10;
     const int kButtonTopY = button_width / 2 + gui_top_pos_y_ + kTitleBarHeight + 100;
 
-    //各種ボタンを作成する
+    // 各種ボタンを作成する．
     button_.push_back(std::make_unique<SimpleButton>("<<", kButtonLeftX, kButtonTopY, button_width, button_width));
     button_.back()->SetActivateFunction([this]() { MoveMostPrevNode(); });
 
@@ -42,28 +46,25 @@ DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, con
     button_.back()->SetActivateFunction([this]() { MoveMostNextNode(); });
 
     button_.push_back(
-      std::make_unique<SimpleButton>("↓", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width), button_width, button_width)
-    );
+      std::make_unique<SimpleButton>("↓", kButtonLeftX + (button_interval + button_width) * 3, kButtonTopY + (button_interval + button_width), button_width, button_width));
+
     button_.back()->SetActivateFunction([this]()
                       {
-                            if (animation_speed_ > kAnimeSpeedMin)
-                            {
-                                --animation_speed_;
-                            }
-                      }
-    );
+                          if (animation_speed_ > kAnimeSpeedMin)
+                          {
+                              --animation_speed_;
+                          }
+                      });
 
     button_.push_back(
-      std::make_unique<SimpleButton>("↑", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY + (button_interval + button_width), button_width, button_width)
-    );
+      std::make_unique<SimpleButton>("↑", kButtonLeftX + (button_interval + button_width) * 4, kButtonTopY + (button_interval + button_width), button_width, button_width));
     button_.back()->SetActivateFunction([this]()
                       {
-                            if (animation_speed_ < kAnimeSpeedMax)
-                            {
-                                ++animation_speed_;
-                            }
-                      }
-    );
+                          if (animation_speed_ < kAnimeSpeedMax)
+                          {
+                              ++animation_speed_;
+                          }
+                      });
 
     button_.push_back(std::make_unique<SimpleButton>("Prev Simu", kButtonLeftX + (button_interval + button_width) * 1, kButtonTopY + (button_interval + button_width) * 2,
                       button_width * 2, button_width));
@@ -81,18 +82,37 @@ DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x, con
     button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
-void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y, const unsigned int option, const bool this_is_first_time)
+void DxlibGuiDisplayNodeSwitcher::SetPos(const int pos_x, const int pos_y,
+                                         const unsigned int option, const bool this_is_first_time)
 {
     const int past_x = gui_left_pos_x_;
     const int past_y = gui_top_pos_y_;
 
-    if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-    else if (option & kDxlibGuiAnchorMiddleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-    else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
+    if (option & kDxlibGuiAnchorLeft)
+    {
+        gui_left_pos_x_ = pos_x;
+    }
+    else if (option & kDxlibGuiAnchorMiddleX)
+    {
+        gui_left_pos_x_ = pos_x - kWidth / 2;
+    }
+    else if (option & kDxlibGuiAnchorRight)
+    {
+        gui_left_pos_x_ = pos_x - kWidth;
+    }
 
-    if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-    else if (option & kDxlibGuiAnchorMiddleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-    else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+    if (option & kDxlibGuiAnchorTop)
+    {
+        gui_top_pos_y_ = pos_y;
+    }
+    else if (option & kDxlibGuiAnchorMiddleY)
+    {
+        gui_top_pos_y_ = pos_y - kHeight / 2;
+    }
+    else if (option & kDxlibGuiAnchorBottom)
+    {
+        gui_top_pos_y_ = pos_y - kHeight;
+    }
 
     const int diff_x = gui_left_pos_x_ - past_x;
     const int diff_y = gui_top_pos_y_ - past_y;
@@ -113,19 +133,22 @@ void DxlibGuiDisplayNodeSwitcher::SetGraphData(const size_t node_num, const std:
 {
     all_node_num_ = node_num;
 
-    simu_end_index_.clear();
+    simulation_end_index_.clear();
 
-    simu_end_index_ = simu_end_index;
+    simulation_end_index_ = simu_end_index;
 }
 
 
 size_t DxlibGuiDisplayNodeSwitcher::GetDisplayNodeNum() const
 {
     // 範囲外の値を返さないようにする．
-    if (display_node_num_ > all_node_num_ && all_node_num_ != 0) { return all_node_num_ - 1; }
+    if (display_node_num_ > all_node_num_ && all_node_num_ != 0)
+    {
+        return all_node_num_ - 1;
+    }
 
 
-    // 範囲内の値ならば，そのまま返す
+    // 範囲内の値ならば，そのまま返す．
     return display_node_num_;
 }
 
@@ -134,13 +157,13 @@ void DxlibGuiDisplayNodeSwitcher::Update()
 {
     ++counter_;
 
-    // 自動再生を行う
+    // 自動再生を行う．
     if (do_auto_animation_ && counter_ % (180 / animation_speed_) == 0)
     {
         MoveNextNode();
     }
 
-    // ボタンを更新する
+    // ボタンを更新する．
     for (auto& i : button_)
     {
         i->Update();
@@ -156,13 +179,13 @@ void DxlibGuiDisplayNodeSwitcher::Draw() const
 {
     DrawBackground();
 
-    // ボタンを描画する
+    // ボタンを描画する．
     for (const auto& i : button_)
     {
         i->Draw();
     }
 
-    //文字を描画する
+    // 文字を描画する．
     const int text_left_x = gui_left_pos_x_ + 10;
 
     const unsigned int text_color = GetColor(0, 0, 0);
@@ -176,8 +199,7 @@ void DxlibGuiDisplayNodeSwitcher::Draw() const
       simulation_num_ + 1,
       GetAllSimulationNum(),
       display_node_num_,
-      all_node_num_
-    );
+      all_node_num_);
 
     int start_node_num = 0;
     int end_node_num = 0;
@@ -185,27 +207,50 @@ void DxlibGuiDisplayNodeSwitcher::Draw() const
     if (simulation_num_ == 0)
     {
         start_node_num = 0;
-        if (!simu_end_index_.empty()) { end_node_num = static_cast<int>(simu_end_index_[0]); }
-        else { end_node_num = static_cast<int>(all_node_num_ - 1); }
+
+        if (!simulation_end_index_.empty())
+        {
+            end_node_num = static_cast<int>(simulation_end_index_[0]);
+        }
+        else
+        {
+            end_node_num = static_cast<int>(all_node_num_ - 1);
+        }
     }
-    else if (simulation_num_ == static_cast<int>(simu_end_index_.size()))
+    else if (simulation_num_ == static_cast<int>(simulation_end_index_.size()))
     {
-        start_node_num = static_cast<int>(simu_end_index_[simulation_num_ - 1] + 1);
+        start_node_num = static_cast<int>(simulation_end_index_[simulation_num_ - 1] + 1);
         end_node_num = static_cast<int>(all_node_num_ - 1);
     }
     else
     {
-        start_node_num = static_cast<int>(simu_end_index_[simulation_num_ - 1] + 1);
-        end_node_num = static_cast<int>(simu_end_index_[simulation_num_]);
+        start_node_num = static_cast<int>(simulation_end_index_[simulation_num_ - 1] + 1);
+        end_node_num = static_cast<int>(simulation_end_index_[simulation_num_]);
     }
 
-    DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 30, text_color, font_handle_, "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
+    DrawFormatStringToHandle(text_left_x,
+                             gui_top_pos_y_ + kTitleBarHeight + 30,
+                             text_color,
+                             font_handle_,
+                             "表示ノード : %d (%d～%d)", display_node_num_, start_node_num, end_node_num, all_node_num_ - 1);
 
-    DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 50, text_color, font_handle_, "全ノード : %d ", all_node_num_ - 1);
+    DrawFormatStringToHandle(text_left_x,
+                             gui_top_pos_y_ + kTitleBarHeight + 50,
+                             text_color,
+                             font_handle_,
+                             "全ノード : %d ", all_node_num_ - 1);
 
-    DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 70, text_color, font_handle_, do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
+    DrawFormatStringToHandle(text_left_x,
+                             gui_top_pos_y_ + kTitleBarHeight + 70,
+                             text_color,
+                             font_handle_,
+                             do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
 
-    DrawFormatStringToHandle(text_left_x, gui_top_pos_y_ + kTitleBarHeight + 150, text_color, font_handle_, "アニメーションの\n     速度変更");
+    DrawFormatStringToHandle(text_left_x,
+                             gui_top_pos_y_ + kTitleBarHeight + 150,
+                             text_color,
+                             font_handle_,
+                             "アニメーションの\n     速度変更");
 }
 
 void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
@@ -227,7 +272,7 @@ void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
 void DxlibGuiDisplayNodeSwitcher::ClickedAction(const int cursor_x, const int cursor_y,
                         const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-    // ボタンを更新する
+    // ボタンを更新する．
     for (auto& i : button_)
     {
         if (i->CursorOnGui(cursor_x, cursor_y))
@@ -262,14 +307,14 @@ void DxlibGuiDisplayNodeSwitcher::DraggedAction(const int cursor_dif_x, const in
 
 void DxlibGuiDisplayNodeSwitcher::MoveMostPrevNode()
 {
-    //候補
+    // 候補．
     size_t candidate = 0;
 
-    for (size_t i = 0; i < simu_end_index_.size(); i++)
+    for (size_t i = 0; i < simulation_end_index_.size(); i++)
     {
-        if (simu_end_index_[i] < display_node_num_)
+        if (simulation_end_index_[i] < display_node_num_)
         {
-            candidate = simu_end_index_[i] + 1;
+            candidate = simulation_end_index_[i] + 1;
         }
         else
         {
@@ -282,9 +327,9 @@ void DxlibGuiDisplayNodeSwitcher::MoveMostPrevNode()
 
 void DxlibGuiDisplayNodeSwitcher::MovePrevNode()
 {
-    for (size_t i = 0; i < simu_end_index_.size(); i++)
+    for (size_t i = 0; i < simulation_end_index_.size(); i++)
     {
-        if (simu_end_index_[i] + 1 == display_node_num_)
+        if (simulation_end_index_[i] + 1 == display_node_num_)
         {
             return;
         }
@@ -297,14 +342,14 @@ void DxlibGuiDisplayNodeSwitcher::MovePrevNode()
 
 void DxlibGuiDisplayNodeSwitcher::MoveMostNextNode()
 {
-    //候補
+    // 候補．
     size_t candidate = all_node_num_ - 1;
 
-    for (size_t i = 0; i < simu_end_index_.size(); i++)
+    for (size_t i = 0; i < simulation_end_index_.size(); i++)
     {
-        if (simu_end_index_[i] >= display_node_num_)
+        if (simulation_end_index_[i] >= display_node_num_)
         {
-            candidate = simu_end_index_[i];
+            candidate = simulation_end_index_[i];
             break;
         }
     }
@@ -314,9 +359,9 @@ void DxlibGuiDisplayNodeSwitcher::MoveMostNextNode()
 
 void DxlibGuiDisplayNodeSwitcher::MoveNextNode()
 {
-    for (size_t i = 0; i < simu_end_index_.size(); i++)
+    for (size_t i = 0; i < simulation_end_index_.size(); i++)
     {
-        if (simu_end_index_[i] == display_node_num_)
+        if (simulation_end_index_[i] == display_node_num_)
         {
             return;
         }
@@ -329,53 +374,59 @@ void DxlibGuiDisplayNodeSwitcher::MoveNextNode()
 
 void DxlibGuiDisplayNodeSwitcher::MovePrevSimulation()
 {
-    //前のシミュレーションへ移動する
+    // 前のシミュレーションへ移動する．
     --simulation_num_;
 
     simulation_num_ = static_cast<size_t>((std::max)(static_cast<int>(simulation_num_), 0));
 
-    //ノードをそのシミュレーションの最初のノードに移動する
+    // ノードをそのシミュレーションの最初のノードに移動する．
     if (simulation_num_ == 0)
     {
         display_node_num_ = 0;
     }
     else
     {
-        display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
+        display_node_num_ = simulation_end_index_[simulation_num_ - 1] + 1;
     }
 }
 
 void DxlibGuiDisplayNodeSwitcher::MoveNextSimulation()
 {
-    //次のシミュレーションへ移動する
+    // 次のシミュレーションへ移動する．
     ++simulation_num_;
 
 
     simulation_num_ = static_cast<size_t>((std::min)(static_cast<int>(simulation_num_), GetAllSimulationNum() - 1));
 
 
-    //ノードをそのシミュレーションの最初のノードに移動する
+    // ノードをそのシミュレーションの最初のノードに移動する．
     if (simulation_num_ == 0)
     {
         display_node_num_ = 0;
     }
     else
     {
-        display_node_num_ = simu_end_index_[simulation_num_ - 1] + 1;
+        display_node_num_ = simulation_end_index_[simulation_num_ - 1] + 1;
     }
 }
 
 int DxlibGuiDisplayNodeSwitcher::GetAllSimulationNum() const
 {
-    int all_simu_num = 1;
+    int all_simulation_num = 1;
 
-    if (!simu_end_index_.empty())
+    if (!simulation_end_index_.empty())
     {
-        if (simu_end_index_.back() == all_node_num_ - 1) { all_simu_num = (int)simu_end_index_.size(); }
-        else { all_simu_num = (int)simu_end_index_.size() + 1; }
+        if (simulation_end_index_.back() == all_node_num_ - 1)
+        {
+            all_simulation_num = static_cast<int>(simulation_end_index_.size());
+        }
+        else
+        {
+            all_simulation_num = static_cast<int>(simulation_end_index_.size()) + 1;
+        }
     }
 
-    return all_simu_num;
+    return all_simulation_num;
 }
 
 void DxlibGuiDisplayNodeSwitcher::DrawBackground() const
@@ -412,4 +463,4 @@ bool DxlibGuiDisplayNodeSwitcher::IsInWindow() const
         0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
 
-} // namespace designlab
+}  // namespace designlab

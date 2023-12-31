@@ -1,4 +1,8 @@
-﻿#include "graphic_const.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "graphic_const.h"
 
 #include <Dxlib.h>
 
@@ -6,7 +10,7 @@
 namespace designlab
 {
 
-const std::string GraphicConst::kWindowName = "HexapodGraphic";
+const char GraphicConst::kWindowName[] = "HexapodGraphic";
 
 const int GraphicConst::kColorBit = 32;
 
@@ -18,4 +22,4 @@ const float GraphicConst::kCameraToTargetMax = 10000.0f;
 
 const float GraphicConst::kCameraToTargetMin = 10.0f;
 
-} // namespace designlab
+}  // namespace designlab

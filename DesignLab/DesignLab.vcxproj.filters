@@ -285,7 +285,7 @@
     <ClInclude Include="boot_mode.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="robot_graund_point_renderer.h">
+    <ClInclude Include="robot_ground_point_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_gui_display_node_switcher.h">
@@ -375,7 +375,7 @@
     <ClInclude Include="display_quality.h">
       <Filter>ソース ファイル\Graphic\Common</Filter>
     </ClInclude>
-    <ClInclude Include="phantomx_renderer_model.h">
+    <ClInclude Include="phantomx_mk2_renderer_model.h">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2_const.h">
@@ -731,7 +731,7 @@
     <ClCompile Include="system_main_simulation.cpp">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="robot_graund_point_renderer.cpp">
+    <ClCompile Include="robot_ground_point_renderer.cpp">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_gui_display_node_switcher.cpp">
@@ -794,7 +794,7 @@
     <ClCompile Include="phantomx_renderer_simple.cpp">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
-    <ClCompile Include="phantomx_renderer_model.cpp">
+    <ClCompile Include="phantomx_mk2_renderer_model.cpp">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClCompile>
     <ClCompile Include="graph_tree_creator.cpp">

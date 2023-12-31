@@ -1,4 +1,8 @@
-﻿#include "dxlib_gui_camera.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "dxlib_gui_camera.h"
 
 #include <string>
 
@@ -15,15 +19,15 @@ DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y, const std
     window_y_(window_y),
     camera_(camera)
 {
-    const int button_distance = 10;	//!< ボタン同士の間隔
-    const int button_size = 60;		//!< ボタンのサイズ
+    const int button_distance = 10;  //!< ボタン同士の間隔．
+    const int button_size = 60;  //!< ボタンのサイズ．
 
     const int button_range = button_size + button_distance;
     const int left_pos_x = gui_left_pos_x_ + button_range / 2 + 15;
     const int top_pos_y = gui_top_pos_y_ + button_range / 2 + 40;
 
     button_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", left_pos_x, top_pos_y, button_size, button_size));
-    button_.back()->SetActivateFunction([this]() { camera_->InitCaneraTargetLength(); });
+    button_.back()->SetActivateFunction([this]() { camera_->InitCameraTargetLength(); });
 
     button_.push_back(std::make_unique<SimpleButton>("Front", left_pos_x + button_range, top_pos_y, button_size, button_size));
     button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(enums::CameraViewMode::kFrontView); });
@@ -56,13 +60,31 @@ void DxlibGuiCamera::SetPos(const int pos_x, const int pos_y, const unsigned int
     const int past_x = gui_left_pos_x_;
     const int past_y = gui_top_pos_y_;
 
-    if (option & kDxlibGuiAnchorLeft) { gui_left_pos_x_ = pos_x; }
-    else if (option & kDxlibGuiAnchorMiddleX) { gui_left_pos_x_ = pos_x - kWidth / 2; }
-    else if (option & kDxlibGuiAnchorRight) { gui_left_pos_x_ = pos_x - kWidth; }
+    if (option & kDxlibGuiAnchorLeft)
+    {
+        gui_left_pos_x_ = pos_x;
+    }
+    else if (option & kDxlibGuiAnchorMiddleX)
+    {
+        gui_left_pos_x_ = pos_x - kWidth / 2;
+    }
+    else if (option & kDxlibGuiAnchorRight)
+    {
+        gui_left_pos_x_ = pos_x - kWidth;
+    }
 
-    if (option & kDxlibGuiAnchorTop) { gui_top_pos_y_ = pos_y; }
-    else if (option & kDxlibGuiAnchorMiddleY) { gui_top_pos_y_ = pos_y - kHeight / 2; }
-    else if (option & kDxlibGuiAnchorBottom) { gui_top_pos_y_ = pos_y - kHeight; }
+    if (option & kDxlibGuiAnchorTop)
+    {
+        gui_top_pos_y_ = pos_y;
+    }
+    else if (option & kDxlibGuiAnchorMiddleY)
+    {
+        gui_top_pos_y_ = pos_y - kHeight / 2;
+    }
+    else if (option & kDxlibGuiAnchorBottom)
+    {
+        gui_top_pos_y_ = pos_y - kHeight;
+    }
 
     const int diff_x = gui_left_pos_x_ - past_x;
     const int diff_y = gui_top_pos_y_ - past_y;
@@ -86,13 +108,13 @@ void DxlibGuiCamera::SetNode(const RobotStateNode& node)
 
 void DxlibGuiCamera::Update()
 {
-    //各ボタンの処理
+    // 各ボタンの処理．
     for (auto& button : button_)
     {
         button->Update();
     }
 
-    //カメラの更新
+    // カメラの更新．
     camera_->Update();
 
     if (!IsInWindow())
@@ -105,7 +127,7 @@ void DxlibGuiCamera::Draw() const
 {
     DrawBackground();
 
-    //全てのボタンの描画
+    // 全てのボタンの描画．
     for (auto& button : button_)
     {
         button->Draw();
@@ -132,7 +154,7 @@ void DxlibGuiCamera::SetVisible(const bool visible)
 void DxlibGuiCamera::ClickedAction(const int cursor_x, const int cursor_y,
                    const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
 {
-    //各ボタンの処理
+    // 各ボタンの処理．
     for (auto& button : button_)
     {
         if (button->CursorOnGui(cursor_x, cursor_y))
@@ -144,7 +166,10 @@ void DxlibGuiCamera::ClickedAction(const int cursor_x, const int cursor_y,
 
 bool DxlibGuiCamera::CursorOnGui(const int cursor_x, const int cursor_y) const noexcept
 {
-    if (!IsVisible()) { return false; }
+    if (!IsVisible())
+    {
+        return false;
+    }
 
     return gui_left_pos_x_ < cursor_x && cursor_x < gui_left_pos_x_ + kWidth &&
         gui_top_pos_y_ < cursor_y && cursor_y < gui_top_pos_y_ + kHeight;
@@ -152,7 +177,10 @@ bool DxlibGuiCamera::CursorOnGui(const int cursor_x, const int cursor_y) const n
 
 bool DxlibGuiCamera::IsDraggable(int cursor_x, int cursor_y) const
 {
-    if (!IsVisible()) { return false; }
+    if (!IsVisible())
+    {
+        return false;
+    }
 
     return CursorOnGui(cursor_x, cursor_y);
 }
@@ -220,4 +248,4 @@ bool DxlibGuiCamera::IsInWindow() const
         0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
 
-}	// namespace designlab
+}  // namespace designlab

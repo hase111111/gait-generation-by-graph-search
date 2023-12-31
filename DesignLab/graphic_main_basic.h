@@ -26,7 +26,7 @@
 #include "movement_locus_renderer.h"
 #include "mouse.h"
 #include "robot_state_node.h"
-#include "robot_graund_point_renderer.h"
+#include "robot_ground_point_renderer.h"
 #include "stability_margin_renderer.h"
 
 
@@ -75,7 +75,7 @@ private:
     MovementLocusRenderer movement_locus_renderer_;
 
     //!< ロボットの足先の位置を表示するクラス．
-    RobotGraundPointRenderer robot_graund_point_renderer_;
+    RobotGroundPointRenderer robot_graund_point_renderer_;
 
     //!< マップを表示するクラス．
     std::shared_ptr<MapRenderer> map_renderer_ptr_;

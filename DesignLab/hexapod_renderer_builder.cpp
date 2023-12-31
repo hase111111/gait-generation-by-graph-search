@@ -1,7 +1,11 @@
-﻿#include "hexapod_renderer_builder.h"
+﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+
+#include "hexapod_renderer_builder.h"
 
 #include "phantomx_mk2.h"
-#include "phantomx_renderer_model.h"
+#include "phantomx_mk2_renderer_model.h"
 #include "phantomx_renderer_simple.h"
 
 
@@ -14,17 +18,21 @@ std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> 
   const enums::DisplayQuality display_quality
 )
 {
-    //! @todo IHexapodのtypeを見て、適切なrendererを返す
+    //! @todo IHexapodの type を見て、適切な renderer を返す．
 
     if (display_quality == enums::DisplayQuality::kHigh)
     {
-        const auto renderer = std::make_shared<PhantomXRendererModel>(converter_ptr, calculator_ptr);
+        const auto renderer =
+            std::make_shared<PhantomXMkIIRendererModel>(converter_ptr, calculator_ptr);
 
         return { renderer , renderer };
     }
     else
     {
-        const auto renderer = std::make_shared<PhantomXRendererSimple>(converter_ptr, calculator_ptr, display_quality);
+        const auto renderer =
+            std::make_shared<PhantomXRendererSimple>(converter_ptr,
+                                                     calculator_ptr,
+                                                     display_quality);
 
         return { renderer , renderer };
     }

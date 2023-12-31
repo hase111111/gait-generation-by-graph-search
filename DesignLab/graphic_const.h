@@ -1,5 +1,7 @@
-﻿//! @file graphic_const.h
-//! @brief 画像表示処理用の定数クラス．
+﻿
+/// @file      graphic_const.h
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_CONST_H_
 #define DESIGNLAB_GRAPHIC_CONST_H_
@@ -14,32 +16,27 @@ namespace designlab
 
 //! @class GraphicConst
 //! @brief 画像表示処理用の定数クラス．
-//! @details 定数クラスの詳細はdefine.hを参照．
-//! @n カメラに関する値を変更する時は慎重に行うこと，下げすぎると何も見えなくなるし，上げすぎると尋常じゃなく重くなる．
-//! @n 値を編集したい場合は graphic_const.cpp を編集すること．
 class GraphicConst final
 {
 public:
+    //! コンストラクタを削除して，実体を生成できないようにする．
+    GraphicConst() = delete;
+    GraphicConst(const GraphicConst& other) = delete;
+    GraphicConst(GraphicConst&& other) = delete;
+    GraphicConst& operator=(const GraphicConst& other) = delete;
 
-	//コンストラクタを削除して，実体を生成できないようにする．
-	GraphicConst() = delete;
-	GraphicConst(GraphicConst& other) = delete;
-	GraphicConst(GraphicConst&& other) = delete;
-	GraphicConst& operator=(GraphicConst& other) = delete;
+    static const char kWindowName[];  //!< ウィンドウの名前．
+    static const int kColorBit;  //!< 色を表現するビット数．通常32で良いが軽くするなら16にする．
 
+    static const int kBackColorRed;     //!< ウィンドウ背景色． 赤色成分．0～255の範囲で指定．
+    static const int kBackColorGreen;   //!< ウィンドウ背景色． 緑色成分．0～255の範囲で指定．
+    static const int kBackColorBlue;    //!< ウィンドウ背景色． 青色成分．0～255の範囲で指定．
 
-	const static std::string kWindowName;	//!< ウィンドウの名前．
-	const static int kColorBit;				//!< 色を表現するbit数．通常32で良いが軽くするなら16にする．
-
-	const static int kBackColorRed;		//!< ウィンドウ背景色． 赤色成分．0～255の範囲で指定．
-	const static int kBackColorGreen;	//!< ウィンドウ背景色． 緑色成分．0～255の範囲で指定．
-	const static int kBackColorBlue;	//!< ウィンドウ背景色． 青色成分．0～255の範囲で指定．
-
-	const static float kCameraToTargetMax;	//!< カメラと注視目標の最大距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
-	const static float kCameraToTargetMin;	//!< カメラと注視目標の最小距離．CAMERA_FARとCAMERA_NEARの間の値じゃないとなにも表示されなくなる．
+    static const float kCameraToTargetMax;  //!< カメラと注視目標の最大距離．
+    static const float kCameraToTargetMin;  //!< カメラと注視目標の最小距離．
 };
 
-} // namespace designlab
+}  // namespace designlab
 
 
-#endif // DESIGNLAB_GRAPHIC_CONST_H_
+#endif  // DESIGNLAB_GRAPHIC_CONST_H_

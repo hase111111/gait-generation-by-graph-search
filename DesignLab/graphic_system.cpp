@@ -85,7 +85,7 @@ bool GraphicSystem::MyDxlibInit()
     SetOutApplicationLogValidFlag(FALSE);
 
     // タイトルを変更．ウィンドウの左上に表示されるもの．
-    SetMainWindowText(GraphicConst::kWindowName.c_str());
+    SetMainWindowText(GraphicConst::kWindowName);
 
     // ウィンドウサイズを自由に変更できないようにする．
     SetWindowSizeChangeEnableFlag(FALSE);
