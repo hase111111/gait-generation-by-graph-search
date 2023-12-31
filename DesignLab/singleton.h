@@ -1,7 +1,7 @@
 ﻿
-/// @file      singleton.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      singleton.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SINGLETON_H_
 #define DESIGNLAB_SINGLETON_H_

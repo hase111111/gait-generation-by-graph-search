@@ -1,7 +1,7 @@
 ﻿
-/// @file      display_quality.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      display_quality.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DISPLAY_QUALITY_H_
 #define DESIGNLAB_DISPLAY_QUALITY_H_

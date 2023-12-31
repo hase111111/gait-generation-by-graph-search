@@ -1,6 +1,6 @@
 ﻿
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "phantomx_mk2_renderer_model.h"
 

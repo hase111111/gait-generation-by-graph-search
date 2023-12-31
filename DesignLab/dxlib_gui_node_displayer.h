@@ -1,7 +1,7 @@
 ﻿
-/// @file      dxlib_gui_node_displayer.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      dxlib_gui_node_displayer.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
 #define DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_

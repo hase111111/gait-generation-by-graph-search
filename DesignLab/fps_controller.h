@@ -1,7 +1,7 @@
 ﻿
-/// @file      fps_controller.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      fps_controller.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_FPS_CONTROLLER_H_
 #define DESIGNLAB_FPS_CONTROLLER_H_

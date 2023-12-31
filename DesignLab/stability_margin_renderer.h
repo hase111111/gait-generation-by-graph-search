@@ -1,7 +1,7 @@
 ﻿
-/// @file      stability_margin_renderer.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      stability_margin_renderer.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
 #define DESIGNLAB_STABILITY_MARGIN_RENDERER_H_

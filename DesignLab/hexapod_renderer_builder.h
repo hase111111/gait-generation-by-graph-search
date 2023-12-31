@@ -1,7 +1,7 @@
 ﻿
-/// @file      hexapod_renderer_builder.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      hexapod_renderer_builder.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
 #define DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_

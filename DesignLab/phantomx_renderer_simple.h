@@ -1,7 +1,7 @@
 ﻿
-/// @file      phantomx_renderer_simple.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      phantomx_renderer_simple.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_

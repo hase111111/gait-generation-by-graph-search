@@ -1,7 +1,7 @@
 ﻿
-/// @file      mouse.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      mouse.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MOUSE_H_
 #define DESIGNLAB_MOUSE_H_

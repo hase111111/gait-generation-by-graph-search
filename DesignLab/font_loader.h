@@ -1,7 +1,7 @@
 ﻿
-/// @file      font_loader.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      font_loader.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_FONT_LOADER_H_
 #define DESIGNLAB_FONT_LOADER_H_

@@ -1,7 +1,7 @@
 ﻿
-/// @file      dxlib_util.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      dxlib_util.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_UTIL_H_
 #define DESIGNLAB_DXLIB_UTIL_H_

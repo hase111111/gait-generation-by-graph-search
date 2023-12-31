@@ -1,7 +1,7 @@
 ﻿
-/// @file      dxlib_gui_display_node_switcher.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      dxlib_gui_display_node_switcher.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
 #define DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
