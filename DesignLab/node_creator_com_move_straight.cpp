@@ -4,6 +4,8 @@
 
 #include "node_creator_com_move_straight.h"
 
+#include <numbers>
+
 
 namespace designlab
 {
@@ -23,7 +25,7 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
 {
     for (size_t i = 0; i < kCandidateDirectionNum; i++)
     {
-        const float rad = static_cast<float>(i) * 2.f * MathConst<float>::kPi /
+        const float rad = static_cast<float>(i) * 2.f * std::numbers::pi_v<float> /
             static_cast<float>(kCandidateDirectionNum);
 
         candidate_directions_[i] = Vector3(std::cos(rad), std::sin(rad), 0.0f);

@@ -6,15 +6,17 @@
 #ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
 
+#include <concepts>
 #include <iomanip>
+#include <numbers>
 #include <random>
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #include "cassert_define.h"
 #include "math_const.h"
-#include "implicit_metafunction_for_math_util.h"
 
 
 
@@ -31,7 +33,7 @@ namespace designlab::math_util
 //! @param[in] num2 比較する数字2つ目．
 //! @retval true 等しい．または，誤差の範囲で等しい．
 //! @retval false 等しくない．誤差の範囲外．
-template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
+template <::std::floating_point T>
 constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
     const T dif = num1 - num2;
@@ -108,19 +110,19 @@ T GenerateRandomNumber(T min, T max)
 //! @brief 角度を [rad]から [deg] に変換する関数．
 //! @param[in] rad 単位 [rad]．
 //! @return 単位 [deg]．
-template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
+template <::std::floating_point T>
 constexpr T ConvertRadToDeg(const T rad) noexcept
 {
-    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / MathConst<T>::kPi;
+    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / std::numbers::pi_v<float>;
 }
 
 //! @brief 角度を [deg] から [rad] に変換する関数．
 //! @param[in] deg 角度[deg]．
 //! @return 角度[rad]．
-template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
+template <::std::floating_point T>
 constexpr T ConvertDegToRad(const T deg) noexcept
 {
-    return deg * MathConst<T>::kPi / (MathConst<T>::kRoundAngle / static_cast<T>(2));
+    return deg * std::numbers::pi_v<float> / (MathConst<T>::kRoundAngle / static_cast<T>(2));
 }
 
 
@@ -138,7 +140,7 @@ constexpr int kWidth = 10;  //!< 文字列の幅．
 //! @param[in] width 文字列の幅．
 //! @return 変換した文字列．
 //! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
-template <typename T, typename = std::enable_if_t<impl::is_float_or_double<T>::value>>
+template <::std::floating_point T>
 std::string FloatingPointNumToString(const T num,
                                      const int digit = kDigit, const int width = kWidth)
 {

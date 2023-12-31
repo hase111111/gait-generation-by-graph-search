@@ -6,6 +6,8 @@
 #ifndef DESIGNLAB_MATH_UTIL_TEST_H_
 #define DESIGNLAB_MATH_UTIL_TEST_H_
 
+#include <numbers>
+
 #include <doctest.h>
 
 #include "math_util.h"
@@ -122,27 +124,27 @@ TEST_SUITE("math_util::ConvertRadToDeg")
 
     TEST_CASE_TEMPLATE("0 [rad] ～ 3.14 [rad]の範囲の値が渡された時，0 [deg] ～ 360 [deg]の範囲で変換すべき", T, float, double)
     {
-        T rad1 = T(MathConst<T>::kPi / 6);
+        T rad1 = T(std::numbers::pi_v<float> / 6);
         T expected_deg1 = T(30.0);
         CHECK(ConvertRadToDeg(rad1) == doctest::Approx(expected_deg1));
 
-        T rad2 = T(MathConst<T>::kPi / 4);
+        T rad2 = T(std::numbers::pi_v<float> / 4);
         T expected_deg2 = T(45.0);
         CHECK(ConvertRadToDeg(rad2) == doctest::Approx(expected_deg2));
 
-        T rad3 = T(MathConst<T>::kPi / 3);
+        T rad3 = T(std::numbers::pi_v<float> / 3);
         T expected_deg3 = T(60.0);
         CHECK(ConvertRadToDeg(rad3) == doctest::Approx(expected_deg3));
 
-        T rad4 = T(MathConst<T>::kPi / 2);
+        T rad4 = T(std::numbers::pi_v<float> / 2);
         T expected_deg4 = T(90.0);
         CHECK(ConvertRadToDeg(rad4) == doctest::Approx(expected_deg4));
 
-        T rad5 = T(MathConst<T>::kPi);
+        T rad5 = T(std::numbers::pi_v<float>);
         T expected_deg5 = T(180.0);
         CHECK(ConvertRadToDeg(rad5) == doctest::Approx(expected_deg5));
 
-        T rad6 = T(MathConst<T>::kPi * 2);
+        T rad6 = T(std::numbers::pi_v<float> *2);
         T expected_deg6 = T(360.0);
         CHECK(ConvertRadToDeg(rad6) == doctest::Approx(expected_deg6));
     }

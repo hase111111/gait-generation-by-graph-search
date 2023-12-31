@@ -4,22 +4,26 @@
 
 #include "robot_operator_for_path.h"
 
+#include <numbers>
+
 #include "math_rot_converter.h"
 
 
 namespace
 {
+//! @todo あとで消す．
+
 // -π～πの範囲に収める．
 float NormalizeAngle(float angle)
 {
-    while (angle > designlab::MathConst<float>::kPi)
+    while (angle > std::numbers::pi_v<float>)
     {
-        angle -= designlab::MathConst<float>::kPi;
+        angle -= std::numbers::pi_v<float>;
     }
 
-    while (angle < -designlab::MathConst<float>::kPi)
+    while (angle < -std::numbers::pi_v<float>)
     {
-        angle += designlab::MathConst<float>::kPi;
+        angle += std::numbers::pi_v<float>;
     }
 
     return angle;

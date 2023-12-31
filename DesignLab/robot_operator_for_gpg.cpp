@@ -6,6 +6,7 @@
 
 #include <format>
 #include <iostream>
+#include <numbers>
 
 #include "cmdio_util.h"
 #include "math_rot_converter.h"
@@ -17,14 +18,14 @@ namespace
 // -π～πの範囲に収める
 float NormalizeAngle(float angle)
 {
-    while (angle > designlab::MathConst<float>::kPi)
+    while (angle > std::numbers::pi_v<float>)
     {
-        angle -= designlab::MathConst<float>::kPi;
+        angle -= std::numbers::pi_v<float>;
     }
 
-    while (angle < -designlab::MathConst<float>::kPi)
+    while (angle < -std::numbers::pi_v<float>)
     {
-        angle += designlab::MathConst<float>::kPi;
+        angle += std::numbers::pi_v<float>;
     }
 
     return angle;

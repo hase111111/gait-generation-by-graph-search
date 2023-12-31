@@ -4,6 +4,8 @@
 
 #include "graphic_main_display_model.h"
 
+#include <numbers>
+
 #include "camera_dragger.h"
 #include "math_util.h"
 #include "dxlib_camera.h"
@@ -162,7 +164,7 @@ void GraphicMainDisplayModel::MoveBody()
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
     {
-        float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
+        float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
         if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
         {
@@ -176,7 +178,7 @@ void GraphicMainDisplayModel::MoveBody()
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) > 0)
     {
-        float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
+        float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
         if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
         {
@@ -190,7 +192,7 @@ void GraphicMainDisplayModel::MoveBody()
     }
     else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
     {
-        float angle_speed = kComSpeed / 360.0f * 2.f * MathConst<float>::kPi;
+        float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
         if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
         {
@@ -308,7 +310,7 @@ void GraphicMainDisplayModel::MoveLeg()
 
                     femur += speed;
 
-                    femur = (femur + tibia - MathConst<float>::kPi) > 0 ? femur - speed : femur;
+                    femur = (femur + tibia - std::numbers::pi_v<float>) > 0 ? femur - speed : femur;
                     femur = PhantomXMkIIConst::kFemurAngleMax <= femur ? PhantomXMkIIConst::kFemurAngleMax : femur;
                     femur = PhantomXMkIIConst::kFemurAngleMin >= femur ? PhantomXMkIIConst::kFemurAngleMin : femur;
                 }
@@ -316,7 +318,7 @@ void GraphicMainDisplayModel::MoveLeg()
                 {
                     float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
                     tibia += speed;
-                    tibia = (femur + tibia - MathConst<float>::kPi) > 0 ? tibia - speed : tibia;
+                    tibia = (femur + tibia - std::numbers::pi_v<float>) > 0 ? tibia - speed : tibia;
                     tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
                     tibia = PhantomXMkIIConst::kTibiaAngleMin >= tibia ? PhantomXMkIIConst::kTibiaAngleMin : tibia;
                 }
@@ -324,20 +326,20 @@ void GraphicMainDisplayModel::MoveLeg()
                 Vector3 leg_pos;
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kCoxaLength * cos(coxa),
-                    PhantomXMkIIConst::kCoxaLength * sin(coxa),
-                    0 };
+                    PhantomXMkIIConst::kCoxaLength* cos(coxa),
+                        PhantomXMkIIConst::kCoxaLength* sin(coxa),
+                        0 };
 
                 leg_pos += Vector3{
-                  PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
-                    PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
-                    PhantomXMkIIConst::kFemurLength * sin(femur)
+                    PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
+                        PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
+                        PhantomXMkIIConst::kFemurLength* sin(femur)
                 };
 
                 leg_pos += Vector3{
-                  PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
-                    PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
-                    PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
+                    PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
                 };
 
                 robot_.leg_pos[i] = leg_pos;
