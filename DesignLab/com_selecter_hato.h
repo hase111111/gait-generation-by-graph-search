@@ -1,6 +1,6 @@
 ﻿
 //! @file      com_selecter_hato.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_COM_SELECTER_HATO_H_

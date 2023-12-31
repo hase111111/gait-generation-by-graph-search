@@ -1,6 +1,6 @@
 ﻿
 //! @file      math_polygon2.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_POLYGON2_H_

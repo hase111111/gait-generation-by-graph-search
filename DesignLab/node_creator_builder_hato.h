@@ -1,6 +1,6 @@
 ﻿
 //! @file      node_creator_builder_hato.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_

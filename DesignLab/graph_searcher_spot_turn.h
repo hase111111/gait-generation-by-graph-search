@@ -1,6 +1,6 @@
 ﻿
 //! @file      graph_searcher_spot_turn.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_

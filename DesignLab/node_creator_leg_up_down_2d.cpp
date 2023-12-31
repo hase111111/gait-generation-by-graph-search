@@ -1,5 +1,5 @@
 ﻿
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "node_creator_leg_up_down_2d.h"

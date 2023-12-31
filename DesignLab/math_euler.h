@@ -1,6 +1,6 @@
 ﻿
 //! @file      math_euler.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_EULER_H_

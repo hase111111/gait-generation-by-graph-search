@@ -1,7 +1,7 @@
 ﻿
-/// @file      map_file_exporter.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      map_file_exporter.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MAP_FILE_EXPORTER_H_
 #define DESIGNLAB_MAP_FILE_EXPORTER_H_

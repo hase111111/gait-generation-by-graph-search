@@ -1,6 +1,6 @@
 ﻿
 //! @file      cassert_define.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 //! @brief デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．
 //! @details

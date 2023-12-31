@@ -1,6 +1,6 @@
 ﻿
 //! @file      node_creator_leg_hierarchy.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_

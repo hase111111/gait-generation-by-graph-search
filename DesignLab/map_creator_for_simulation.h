@@ -1,7 +1,7 @@
 ﻿
-/// @file      map_creator_for_simulation.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      map_creator_for_simulation.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MAP_CREATOR_FOR_SIMULATION_H_
 #define DESIGNLAB_MAP_CREATOR_FOR_SIMULATION_H_

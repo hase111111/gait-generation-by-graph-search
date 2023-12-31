@@ -1,6 +1,6 @@
 ﻿
 //! @file      result_file_exporter.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_RESULT_FILE_EXPORTER_H_

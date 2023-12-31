@@ -1,6 +1,6 @@
 ﻿
 //! @file      discrete_leg_pos.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DISCRETE_LEG_POS_H_

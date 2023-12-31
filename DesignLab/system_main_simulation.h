@@ -1,7 +1,7 @@
 ﻿
-/// @file      system_main_simulation.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      system_main_simulation.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
 #define DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_

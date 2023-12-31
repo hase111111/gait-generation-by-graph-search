@@ -1,6 +1,6 @@
 ﻿
 //! @file      graph_search_const.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_CONST_H_

@@ -1,7 +1,7 @@
 ﻿
-/// @file      map_creator_by_csv.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      map_creator_by_csv.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MAP_CREATOR_BY_CSV_H_
 #define DESIGNLAB_MAP_CREATOR_BY_CSV_H_

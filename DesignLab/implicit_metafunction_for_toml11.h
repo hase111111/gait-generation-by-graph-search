@@ -1,6 +1,6 @@
 ﻿
 //! @file      implicit_metafunction_for_toml11.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_

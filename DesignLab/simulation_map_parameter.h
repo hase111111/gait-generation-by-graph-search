@@ -1,7 +1,7 @@
 ﻿
-/// @file      simulation_map_parameter.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      simulation_map_parameter.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
 #define DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

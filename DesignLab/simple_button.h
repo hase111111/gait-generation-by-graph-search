@@ -1,7 +1,7 @@
 ﻿
-/// @file      simple_button.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      simple_button.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_SIMPLE_BUTTON_H_
 #define DESIGNLAB_SIMPLE_BUTTON_H_

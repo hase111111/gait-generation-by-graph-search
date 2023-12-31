@@ -1,7 +1,7 @@
 ﻿
-/// @file      average_calculator.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      average_calculator.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_AVERAGE_CALCULATOR_H_
 #define DESIGNLAB_AVERAGE_CALCULATOR_H_

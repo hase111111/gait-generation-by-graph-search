@@ -1,7 +1,7 @@
 ﻿
-/// @file      application_setting_record.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      application_setting_record.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_H_
@@ -65,25 +65,25 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
 {
     const std::vector<std::string> kFileDescription{
         "If this file is garbled, the problem is most likely due to character encoding.",
-        "This file is written in utf - 8, and can be read by installing VS Code and "
-        "configuring it to automatically detect the character encoding.",
-        "This file is written in the TOML format. Just google it and you'll find easy "
-        "to understand information on the wiki, so try looking it up.",
-        "This file is a file for describing program settings.",
-        "This file can also be edited with a text editor such as Notepad.",
-        "If you want to change the simulation conditions, try changing them from here."
-        "Lines starting with a sharp are comments. They do not affect the program."
-        "Following description is written in Japanese. ",
-        "",
-        "このファイルが文字化けしている場合は，文字コードの問題が考えられます．",
-        "このファイルは utf-8 で記述されており，VS Code をインストールし，"
-        "文字コードを自動で検出するように設定することで読み込むことができます．",
-        "このファイルはTOML形式で記述されています．"
-        "ググれば wiki に分かりやすい情報が載っているので，調べてみてください．",
-        "このファイルはプログラムの設定を記述するファイルです．",
-        "このファイルはメモ帳などのテキストエディタでも編集することができます．",
-        "シミュレーション条件を変更したい場合は，ここから変更してみてください．",
-        "シャープから始まる行はコメントです．プログラムに影響を与えることはありません．",
+            "This file is written in utf - 8, and can be read by installing VS Code and "
+            "configuring it to automatically detect the character encoding.",
+            "This file is written in the TOML format. Just google it and you'll find easy "
+            "to understand information on the wiki, so try looking it up.",
+            "This file is a file for describing program settings.",
+            "This file can also be edited with a text editor such as Notepad.",
+            "If you want to change the simulation conditions, try changing them from here."
+            "Lines starting with a sharp are comments. They do not affect the program."
+            "Following description is written in Japanese. ",
+            "",
+            "このファイルが文字化けしている場合は，文字コードの問題が考えられます．",
+            "このファイルは utf-8 で記述されており，VS Code をインストールし，"
+            "文字コードを自動で検出するように設定することで読み込むことができます．",
+            "このファイルはTOML形式で記述されています．"
+            "ググれば wiki に分かりやすい情報が載っているので，調べてみてください．",
+            "このファイルはプログラムの設定を記述するファイルです．",
+            "このファイルはメモ帳などのテキストエディタでも編集することができます．",
+            "シミュレーション条件を変更したい場合は，ここから変更してみてください．",
+            "シャープから始まる行はコメントです．プログラムに影響を与えることはありません．",
     };
 
     DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE(kFileDescription);

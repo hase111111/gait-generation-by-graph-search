@@ -1,7 +1,7 @@
 ﻿
-/// @file      graphic_system.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      graphic_system.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_

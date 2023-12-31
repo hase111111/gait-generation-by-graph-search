@@ -1,6 +1,6 @@
 ﻿
 //! @file      string_util.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_STRING_UTIL_H_

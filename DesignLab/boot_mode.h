@@ -1,7 +1,7 @@
 ﻿
-/// @file      boot_mode.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      boot_mode.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_

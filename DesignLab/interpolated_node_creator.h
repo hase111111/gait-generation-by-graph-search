@@ -1,6 +1,6 @@
 ﻿
 //! @file      interpolated_node_creator.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_

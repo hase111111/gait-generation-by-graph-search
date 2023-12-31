@@ -1,6 +1,6 @@
 ﻿
 //! @file      gait_pattern_generator_revaluation.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_

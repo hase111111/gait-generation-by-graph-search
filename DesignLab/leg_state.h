@@ -1,6 +1,6 @@
 ﻿
 //! @file      leg_state.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_LEG_STATE_H_

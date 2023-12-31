@@ -1,7 +1,7 @@
 ﻿
-/// @file      interface_dxlib_clickable.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      interface_dxlib_clickable.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_
 #define DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_

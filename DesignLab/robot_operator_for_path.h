@@ -1,7 +1,7 @@
 ﻿
-/// @file      robot_operator_for_path.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      robot_operator_for_path.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
 #define DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_

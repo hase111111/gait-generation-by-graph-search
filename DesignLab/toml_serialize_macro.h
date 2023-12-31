@@ -1,6 +1,6 @@
 ﻿
 //! @file      toml_serialize_macro.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
 //! @details

@@ -1,6 +1,6 @@
 ﻿
 //! @file      interface_node_creator_builder.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_

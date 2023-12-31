@@ -1,7 +1,7 @@
 ﻿
-/// @file      interface_map_creator.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file      interface_map_creator.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_MAP_CREATOR_H_
 #define DESIGNLAB_INTERFACE_MAP_CREATOR_H_

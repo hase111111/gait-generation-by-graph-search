@@ -1,6 +1,6 @@
 ﻿
 //! @file      math_rotation_matrix.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_ROTATION_MATRIX_H_

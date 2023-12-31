@@ -1,6 +1,6 @@
 ﻿
 //! @file      math_line_segment2.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_MATH_LINE_SEGMENT2_H_

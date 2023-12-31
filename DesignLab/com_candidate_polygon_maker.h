@@ -1,6 +1,6 @@
 ﻿
 //! @file      com_candidate_polygon_maker.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_

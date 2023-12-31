@@ -1,6 +1,6 @@
 ﻿
 //! @file      interface_graph_searcher.h
-//! @author    hasegawa
+//! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
