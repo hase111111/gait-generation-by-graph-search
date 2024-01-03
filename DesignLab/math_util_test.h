@@ -67,7 +67,7 @@ TEST_SUITE("math_util::Squared")
         CHECK(Squared(T(5)) == T(25));
         CHECK(Squared(T(-5)) == T(25));
         CHECK(Squared(T(15)) == T(225));
-        CHECK(Squared(T(1462)) == T(2137444));
+        CHECK(Squared(T(-1462)) == T(2137444));
     }
 }
 
@@ -172,5 +172,62 @@ TEST_SUITE("math_util::ConvertDegToRad")
         CHECK(ConvertDegToRad(T(3.580986)) == doctest::Approx(T(0.0625)));
     }
 }
+
+TEST_SUITE("math_util::LimitRangeAngleDeg")
+{
+    using designlab::math_util::LimitRangeAngleDeg;
+
+    TEST_CASE_TEMPLATE("[-180 [deg], 180 [deg] )の範囲の値が渡された時，そのまま返すべき", T, float, double)
+    {
+        CHECK(LimitRangeAngleDeg(T(-180.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(-179.0)) == T(-179.0));
+        CHECK(LimitRangeAngleDeg(T(-90.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(-1.0)) == T(-1.0));
+        CHECK(LimitRangeAngleDeg(T(0.0)) == T(0.0));
+        CHECK(LimitRangeAngleDeg(T(1.0)) == T(1.0));
+        CHECK(LimitRangeAngleDeg(T(90.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(179.0)) == T(179.0));
+    }
+
+    TEST_CASE_TEMPLATE("-180 [deg]未満の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
+    {
+        CHECK(LimitRangeAngleDeg(T(-181.0)) == T(179.0));
+        CHECK(LimitRangeAngleDeg(T(-270.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(-360.0)) == T(0.0));
+        CHECK(LimitRangeAngleDeg(T(-361.0)) == T(-1.0));
+        CHECK(LimitRangeAngleDeg(T(-450.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(-540.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(-541.0)) == T(179.0));
+        CHECK(LimitRangeAngleDeg(T(-630.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(-720.0)) == T(0.0));
+        CHECK(LimitRangeAngleDeg(T(-721.0)) == T(-1.0));
+        CHECK(LimitRangeAngleDeg(T(-810.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(-900.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(-901.0)) == T(179.0));
+        CHECK(LimitRangeAngleDeg(T(-990.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(-1080.0)) == T(0.0));
+    }
+
+    TEST_CASE_TEMPLATE("180 [deg]以上の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
+    {
+        CHECK(LimitRangeAngleDeg(T(180.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(181.0)) == T(-179.0));
+        CHECK(LimitRangeAngleDeg(T(270.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(360.0)) == T(0.0));
+        CHECK(LimitRangeAngleDeg(T(361.0)) == T(1.0));
+        CHECK(LimitRangeAngleDeg(T(450.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(540.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(541.0)) == T(-179.0));
+        CHECK(LimitRangeAngleDeg(T(630.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(720.0)) == T(0.0));
+        CHECK(LimitRangeAngleDeg(T(721.0)) == T(1.0));
+        CHECK(LimitRangeAngleDeg(T(810.0)) == T(90.0));
+        CHECK(LimitRangeAngleDeg(T(900.0)) == T(-180.0));
+        CHECK(LimitRangeAngleDeg(T(901.0)) == T(-179.0));
+        CHECK(LimitRangeAngleDeg(T(990.0)) == T(-90.0));
+        CHECK(LimitRangeAngleDeg(T(1080.0)) == T(0.0));
+    }
+}
+
 
 #endif  // DESIGNLAB_MATH_UTIL_TEST_H_

@@ -28,16 +28,8 @@ public:
     explicit PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record);
 
 
-    std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(
-        const RobotStateNode& node) const noexcept override;
-
     HexapodJointState CalculateJointState(const int leg_index,
                                           const Vector3& leg_pos) const noexcept override;
-
-    bool IsValidAllJointState(
-        const RobotStateNode& node,
-        const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state)
-        const noexcept override;
 
     bool IsValidJointState(const int leg_index, const Vector3& leg_pos,
                            const HexapodJointState& joint_state) const noexcept override;
@@ -73,9 +65,6 @@ public:
 
 
     bool IsLegInRange(int leg_index, const Vector3& leg_pos) const override;
-
-    bool IsAllLegInRange(const leg_func::LegStateBit leg_state,
-                         const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
     bool IsLegInterfering(const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 

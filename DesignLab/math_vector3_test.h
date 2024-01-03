@@ -6,16 +6,24 @@
 #ifndef DESIGNLAB_MATH_VECTOR3_TEST_H_
 #define DESIGNLAB_MATH_VECTOR3_TEST_H_
 
-#include "doctest.h"
+#include <doctest.h>
+
+#include <format>
+#include <string>
+#include <tuple>
+#include <utility>
+#include <vector>
 
 #include "math_vector3.h"
 
 
-TEST_SUITE("Vector3::Constructor")
+
+TEST_SUITE("Vector3")
 {
     using designlab::Vector3;
+    using designlab::Vector2;
 
-    TEST_CASE("デフォルトコンストラクタを呼んだ時，0ベクトルになるべき")
+    TEST_CASE("DefaultConstructorTest_ShouldBeZeroVector")
     {
         const auto v = Vector3();
         const float expected = 0.0f;
@@ -24,7 +32,7 @@ TEST_SUITE("Vector3::Constructor")
         CHECK(v.z == expected);
     }
 
-    TEST_CASE("引数に値を渡した時，渡した値がベクトルの要素になるべき")
+    TEST_CASE("ConstructorTest")
     {
         const auto v = Vector3(1, 2, 3);
         CHECK(v.x == 1);
@@ -32,7 +40,7 @@ TEST_SUITE("Vector3::Constructor")
         CHECK(v.z == 3);
     }
 
-    TEST_CASE("コピーコンストラクタを呼んだ時，コピー元と同じ値になるべき")
+    TEST_CASE("CopyConstructorTest")
     {
         const auto v1 = Vector3(1, 2, 3);
         const auto v2 = Vector3(v1);
@@ -41,7 +49,7 @@ TEST_SUITE("Vector3::Constructor")
         CHECK(v2.z == v1.z);
     }
 
-    TEST_CASE("ムーブコンストラクタを呼んだ時，ムーブ元と同じ値になるべき")
+    TEST_CASE("MoveConstructorTest")
     {
         Vector3 v1 = Vector3(1, 2, 3);
         const Vector3 v2 = Vector3(std::move(v1));
@@ -49,262 +57,234 @@ TEST_SUITE("Vector3::Constructor")
         CHECK(v2.y == 2);
         CHECK(v2.z == 3);
     }
-}
 
-TEST_SUITE("Vector3::Cross")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("他のベクトルを渡した時，自身×他のベクトルの外積が返るべき")
+    TEST_CASE("AssignmentOperatorTest")
     {
-        SUBCASE("(1,0,0)と(0,1,0)を引数に渡したとき，(0,0,1)が返るべき")
+        auto v = Vector3(1, 2, 3);
+
+        CHECK(v.x == 1);
+        CHECK(v.y == 2);
+        CHECK(v.z == 3);
+    }
+
+    TEST_CASE("ArithmeticOperatorTest")
+    {
+        SUBCASE("Addition")
         {
-            const auto v1 = Vector3(1, 0, 0);
-            const auto v2 = Vector3(0, 1, 0);
-            const auto actual = v1.Cross(v2);
-            const auto expected = Vector3(0, 0, 1);
-            CHECK(actual == expected);
+            constexpr auto v1 = Vector3(1, 2, 3);
+            constexpr auto v2 = Vector3(4, 5, 6);
+            constexpr auto actual = v1 + v2;
+            constexpr auto expected = Vector3(5, 7, 9);
+
+            CHECK_EQ(actual, expected);
         }
 
-        SUBCASE("(0,1,0)と(0,0,1)を引数に渡したとき，(1,0,0)が返るべき")
+        SUBCASE("Subtraction")
         {
-            const auto v1 = Vector3(0, 1, 0);
-            const auto v2 = Vector3(0, 0, 1);
-            const auto actual = v1.Cross(v2);
-            const auto expected = Vector3(1, 0, 0);
-            CHECK(actual == expected);
+            constexpr auto v1 = Vector3(1, 2, 3);
+            constexpr auto v2 = Vector3(4, 5, 6);
+            constexpr auto actual = v1 - v2;
+            constexpr auto expected = Vector3(-3, -3, -3);
+
+            CHECK_EQ(actual, expected);
         }
 
-        SUBCASE("(0,0,1)と(1,0,0)を引数に渡したとき，(0,1,0)が返るべき")
+        SUBCASE("Multiplication_WhenScalarIsFirst")
         {
-            const auto v1 = Vector3(0, 0, 1);
-            const auto v2 = Vector3(1, 0, 0);
-            const auto actual = v1.Cross(v2);
-            const auto expected = Vector3(0, 1, 0);
-            CHECK(actual == expected);
+            constexpr auto v = Vector3(1, 2, 3);
+            constexpr auto s = 2.0f;
+            constexpr auto actual = s * v;
+            constexpr auto expected = Vector3(2, 4, 6);
+
+            CHECK_EQ(actual, expected);
         }
 
-        SUBCASE("(0,0,1)と(0,1,0)を引数に渡したとき，(-1,0,0)が返るべき")
+        SUBCASE("Multiplication_WhenScalarIsSecond")
         {
-            const auto v1 = Vector3(0, 0, 1);
-            const auto v2 = Vector3(0, 1, 0);
-            const auto actual = v1.Cross(v2);
-            const auto expected = Vector3(-1, 0, 0);
-            CHECK(actual == expected);
+            constexpr auto v = Vector3(1, 2, 3);
+            constexpr auto s = 2.0f;
+            constexpr auto actual = v * s;
+            constexpr auto expected = Vector3(2, 4, 6);
+
+            CHECK_EQ(actual, expected);
+        }
+
+        SUBCASE("Division")
+        {
+            constexpr auto v1 = Vector3(1, 2, 3);
+            constexpr auto v2 = 2.0f;
+            constexpr auto actual = v1 / v2;
+            constexpr auto expected = Vector3(0.5f, 1.0f, 1.5f);
+
+            CHECK_EQ(actual, expected);
         }
     }
-}
 
-TEST_SUITE("Vector3::Dot")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("他のベクトルを渡した時，自身×他のベクトルの内積が返るべき")
+    TEST_CASE("UnaryOperatorTest")
     {
-        SUBCASE("(1,0,0)と(0,1,0)を引数に渡したとき，0が返るべき")
+        SUBCASE("Plus")
         {
-            const auto v1 = Vector3(1, 0, 0);
-            const auto v2 = Vector3(0, 1, 0);
-            const auto actual = v1.Dot(v2);
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
+            constexpr auto v = Vector3(1, 2, 3);
+            constexpr auto actual = +v;
+            constexpr auto expected = Vector3(1, 2, 3);
+
+            CHECK_EQ(actual, expected);
         }
 
-        SUBCASE("(0,1,0)と(0,0,1)を引数に渡したとき，0が返るべき")
+        SUBCASE("Minus")
         {
-            const auto v1 = Vector3(0, 1, 0);
-            const auto v2 = Vector3(0, 0, 1);
-            const auto actual = v1.Dot(v2);
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
-        }
+            constexpr auto v = Vector3(1, 2, 3);
+            constexpr auto actual = -v;
+            constexpr auto expected = Vector3(-1, -2, -3);
 
-        SUBCASE("(0,0,1)と(1,0,0)を引数に渡したとき，0が返るべき")
-        {
-            const auto v1 = Vector3(0, 0, 1);
-            const auto v2 = Vector3(1, 0, 0);
-            const auto actual = v1.Dot(v2);
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
-        }
-
-        SUBCASE("(0,0,1)と(0,1,0)を引数に渡したとき，0が返るべき")
-        {
-            const auto v1 = Vector3(0, 0, 1);
-            const auto v2 = Vector3(0, 1, 0);
-            const auto actual = v1.Dot(v2);
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
-        }
-
-        SUBCASE("(5,-3,10)と(2,-1,-2)を引数に渡したとき，-7が返るべき")
-        {
-            const auto v1 = Vector3(5, -3, 10);
-            const auto v2 = Vector3(2, -1, -2);
-            const auto actual = v1.Dot(v2);
-            const auto expected = -7.0f;
-            CHECK(actual == expected);
+            CHECK_EQ(actual, expected);
         }
     }
-}
 
-TEST_SUITE("Vector3::GetDistanceFrom")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("他のベクトルを渡した時，そのベクトルとの距離が返るべき")
+    TEST_CASE("CrossTest")
     {
-        SUBCASE("(1,0,0)に(0,1,0)を渡した時，1.414214fが返るべき")
-        {
-            const auto v1 = Vector3(1, 0, 0);
-            const auto v2 = Vector3(0, 1, 0);
-            const auto actual = v1.GetDistanceFrom(v2);
-            const auto expected = 1.414214f;
-            CHECK(actual == doctest::Approx(expected));
-        }
+        const struct { Vector3 v1; Vector3 v2; Vector3 expected; }
+        table[] = {
+            {Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)},
+            {Vector3(0, 1, 0), Vector3(0, 0, 1), Vector3(1, 0, 0)},
+            {Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(0, 1, 0)},
+            {Vector3(0, 0, 1), Vector3(0, 1, 0), Vector3(-1, 0, 0)},
+        };
 
-        SUBCASE("(0,1,0)に(0,0,1)を渡した時，1.414214fが返るべき")
+        for (auto [v1, v2, expected] : table)
         {
-            const auto v1 = Vector3(0, 1, 0);
-            const auto v2 = Vector3(0, 0, 1);
-            const auto actual = v1.GetDistanceFrom(v2);
-            const auto expected = 1.414214f;
-            CHECK(actual == doctest::Approx(expected));
-        }
+            const auto actual = v1.Cross(v2);
 
-        SUBCASE("(26, -30, 105)に(10, 0, 5)を渡した時，105.621967fが返るべき")
-        {
-            const auto v1 = Vector3(26.f, -30.f, 105.f);
-            const auto v2 = Vector3(10.f, 0, 5.f);
-            const auto actual = v1.GetDistanceFrom(v2);
-            const auto expected = 105.621967f;
-            CHECK(actual == doctest::Approx(expected));
+            INFO(std::format("v1 = ({}, {}, {})", v1.x, v1.y, v1.z));
+            INFO(std::format("v2 = ({}, {}, {})", v2.x, v2.y, v2.z));
+            CHECK_EQ(actual, expected);
         }
+    }
 
-        SUBCASE("(10, 0, 5)に(26, -30, 105)を渡した時，105.621967fが返るべき")
-        {
-            const auto v1 = Vector3(10.f, 0, 5.f);
-            const auto v2 = Vector3(26.f, -30.f, 105.f);
-            const auto actual = v1.GetDistanceFrom(v2);
-            const auto expected = 105.621967f;
-            CHECK(actual == doctest::Approx(expected));
-        }
+    TEST_CASE("DotTest")
+    {
+        const struct { Vector3 v1; Vector3 v2; float expected; }
+        table[] = {
+            {Vector3(1, 0, 0), Vector3(1, 0, 0), 1.0f},
+            {Vector3(1, 0, 0), Vector3(0, 1, 0), 0.0f},
+            {Vector3(1, 0, 0), Vector3(0, 0, 1), 0.0f},
+            {Vector3(0, 1, 0), Vector3(1, 0, 0), 0.0f},
+            {Vector3(0, 1, 0), Vector3(0, 1, 0), 1.0f},
+            {Vector3(0, 1, 1), Vector3(0, 1, 1), 2.0f},
+            {Vector3(3, 7, 5), Vector3(2, 11, 13), 148.0f},
+            {Vector3(-2, 5, -7), Vector3(1, -11, 6), -99.0f},
+        };
 
-        SUBCASE("(0.2, 1, -3)に(-4.4, 1.4, 31.6)を渡した時，34.906732fが返るべき")
+        for (auto [v1, v2, expected] : table)
         {
-            const auto v1 = Vector3(0.2f, 1.f, -3.f);
-            const auto v2 = Vector3(-4.4f, 1.4f, 31.6f);
-            const auto actual = v1.GetDistanceFrom(v2);
-            const auto expected = 34.906732f;
+            const auto actual = v1.Dot(v2);
+
+            INFO(std::format("v1 = ({}, {}, {})", v1.x, v1.y, v1.z));
+            INFO(std::format("v2 = ({}, {}, {})", v2.x, v2.y, v2.z));
             CHECK(actual == doctest::Approx(expected));
         }
     }
-}
 
-TEST_SUITE("Vector3::GetLength")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("実行時，長さが返るべき")
+    TEST_CASE("GetDistanceFromTest")
     {
-        SUBCASE("(3,5,2)で実行時，6.164414fが返るべき")
+        const struct { Vector3 v1; Vector3 v2; float expected; }
+        table[] = {
+            {Vector3(1, 0, 0), Vector3(0, 1, 0), 1.414214f},
+            {Vector3(0, 1, 0), Vector3(0, 0, 1), 1.414214f},
+            {Vector3(26.f, -30.f, 105.f), Vector3(10.f, 0, 5.f), 105.621967f},
+            {Vector3(10.f, 0, 5.f), Vector3(26.f, -30.f, 105.f), 105.621967f},
+            {Vector3(0.2f, 1.f, -3.f), Vector3(-4.4f, 1.4f, 31.6f), 34.906732f},
+        };
+
+        for (auto [v1, v2, expected] : table)
         {
-            const auto v = Vector3(3, 5, 2);
+            const auto actual = v1.GetDistanceFrom(v2);
+
+            INFO(std::format("v1 = ({}, {}, {})", v1.x, v1.y, v1.z));
+            INFO(std::format("v2 = ({}, {}, {})", v2.x, v2.y, v2.z));
+            CHECK(actual == doctest::Approx(expected));
+        }
+    }
+
+    TEST_CASE("GetLengthTest")
+    {
+        const struct { Vector3 v; float expected; }
+        table[] = {
+            {Vector3(1, 0, 0), 1.0f},
+            {Vector3(0, 1, 0), 1.0f},
+            {Vector3(0, 0, 1), 1.0f},
+            {Vector3(1, 1, 1), 1.732051f},
+            {Vector3(-1, -1, -1), 1.732051f},
+        };
+
+        for (auto [v, expected] : table)
+        {
             const auto actual = v.GetLength();
-            const auto expected = 6.164414f;
-            CHECK(actual == expected);
-        }
 
-        SUBCASE("(0,0,0)で実行時，0が返るべき")
-        {
-            const auto v = Vector3(0, 0, 0);
-            const auto actual = v.GetLength();
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
-        }
-
-        SUBCASE("(-3,-5,-2)で実行時，6.164414fが返るべき")
-        {
-            const auto v = Vector3(-3, -5, -2);
-            const auto actual = v.GetLength();
-            const auto expected = 6.164414f;
-            CHECK(actual == expected);
+            INFO(std::format("v = ({}, {}, {})", v.x, v.y, v.z));
+            CHECK(actual == doctest::Approx(expected));
         }
     }
-}
 
-TEST_SUITE("Vector3::GetNormalized")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("実行時，正規化されたベクトルを返すべき")
+    TEST_CASE("GetNormalizedTest_WhenZeroVectorIsPassed_ShouldBeZeroVector")
     {
-        SUBCASE("(3,5,2)で実行時，(0.486664,0.811107,0.324443)が返るべき")
+        const auto v1 = Vector3(0, 0, 0);
+        const auto actual1 = v1.GetNormalized();
+        const auto expected1 = Vector3(0, 0, 0);
+
+        CHECK(actual1 == expected1);
+        CHECK(actual1.GetLength() == doctest::Approx(0.0f));
+
+        const auto v2 = Vector3::GetZeroVec();
+        const auto actual2 = v2.GetNormalized();
+        const auto expected2 = Vector3(0, 0, 0);
+
+        CHECK(actual2 == expected2);
+        CHECK(actual2.GetLength() == doctest::Approx(0.0f));
+    }
+
+    TEST_CASE("GetNormalizedTest_WhenNonZeroVectorIsPassed_ShouldBeNormalizedVector")
+    {
+        const struct { Vector3 v; Vector3 expected; }
+        table[] = {
+                    {Vector3(1, 0, 0), Vector3(1, 0, 0)},
+                    {Vector3(0, 1, 0), Vector3(0, 1, 0)},
+                    {Vector3(0, 0, 1), Vector3(0, 0, 1)},
+                    {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
+                    {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
+        };
+
+        for (auto [v, expected] : table)
         {
-            const auto actual = Vector3(3, 5, 2).GetNormalized();
-            const auto expected = Vector3(0.486664f, 0.811107f, 0.324443f);
+            const auto actual = v.GetNormalized();
 
-            CHECK(actual == expected);
-            CHECK(actual.GetLength() == doctest::Approx(1.0f));
-        }
-
-        SUBCASE("(0,0,0)で実行時，(0,0,0)が返るべき")
-        {
-            const auto actual = Vector3(0, 0, 0).GetNormalized();
-            const auto expected = Vector3(0, 0, 0);
-
-            CHECK(actual == expected);
-            CHECK(actual.GetLength() == doctest::Approx(0.0f));
-        }
-
-        SUBCASE("(-3,-5,-2)で実行時，(-0.486664,-0.811107,-0.324443)が返るべき")
-        {
-            const auto actual = Vector3(-3, -5, -2).GetNormalized();
-            const auto expected = Vector3(-0.486664f, -0.811107f, -0.324443f);
-
+            INFO(std::format("v = ({}, {}, {})", v.x, v.y, v.z));
             CHECK(actual == expected);
             CHECK(actual.GetLength() == doctest::Approx(1.0f));
         }
     }
-}
 
-TEST_SUITE("Vector3::GetSquaredLength")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("実行時，長さの2乗が返るべき")
+    TEST_CASE("GetSquaredLengthTest")
     {
-        SUBCASE("(3,5,2)で実行時，38.0fが返るべき")
-        {
-            const auto v = Vector3(3, 5, 2);
-            const auto actual = v.GetSquaredLength();
-            const auto expected = 38.0f;
-            CHECK(actual == expected);
-        }
+        const struct { Vector3 v; float expected; }
+        table[] = {
+                    {Vector3(1, 0, 0), 1.0f},
+                    {Vector3(0, 1, 0), 1.0f},
+                    {Vector3(0, 0, 1), 1.0f},
+                    {Vector3(1, 1, 1), 3.0f},
+                    {Vector3(-1, -1, -1), 3.0f},
+        };
 
-        SUBCASE("(0,0,0)で実行時，0が返るべき")
+        for (auto [v, expected] : table)
         {
-            const auto v = Vector3(0, 0, 0);
             const auto actual = v.GetSquaredLength();
-            const auto expected = 0.0f;
-            CHECK(actual == expected);
-        }
 
-        SUBCASE("(-3,-5,-2)で実行時，38.0fが返るべき")
-        {
-            const auto v = Vector3(-3, -5, -2);
-            const auto actual = v.GetSquaredLength();
-            const auto expected = 38.0f;
-            CHECK(actual == expected);
+            INFO(std::format("v = ({}, {}, {})", v.x, v.y, v.z));
+            CHECK(actual == doctest::Approx(expected));
         }
     }
-}
 
-TEST_SUITE("Vector3::IsZero")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("零ベクトルを渡した時，trueが返るべき")
+    TEST_CASE("IsZeroTest_WhenZeroVectorIsPassed_ShouldBeTrue")
     {
         const auto v1 = Vector3(0, 0, 0);
 
@@ -315,111 +295,102 @@ TEST_SUITE("Vector3::IsZero")
         CHECK(v2.IsZero());
     }
 
-    TEST_CASE("零ベクトルでないベクトルを渡した時，falseが返るべき")
+    TEST_CASE("IsZeroTest_WhenNonZeroVectorIsPassed_ShouldBeFalse")
     {
-        SUBCASE("(1,0,0)を渡した時，falseが返るべき")
+        SUBCASE("When (1,0,0) is passed, should be false")
         {
             const auto v = Vector3(1, 0, 0);
 
             CHECK_FALSE(v.IsZero());
         }
 
-        SUBCASE("(0,1,0)を渡した時，falseが返るべき")
+        SUBCASE("When (0,1,0) is passed, should be false")
         {
             const auto v = Vector3(0, 1, 0);
 
             CHECK_FALSE(v.IsZero());
         }
 
-        SUBCASE("(0,0,1)を渡した時，falseが返るべき")
+        SUBCASE("When (0,0,1) is passed, should be false")
         {
             const auto v = Vector3(0, 0, 1);
 
             CHECK_FALSE(v.IsZero());
         }
 
-        SUBCASE("(1,1,1)を渡した時，falseが返るべき")
+        SUBCASE("When (1,1,1) is passed, should be false")
         {
             const auto v = Vector3(1, 1, 1);
 
             CHECK_FALSE(v.IsZero());
         }
 
-        SUBCASE("(-1,-1,-1)を渡した時，falseが返るべき")
+        SUBCASE("When (-1,-1,-1) is passed, should be false")
         {
             const auto v = Vector3(-1, -1, -1);
 
             CHECK_FALSE(v.IsZero());
         }
     }
-}
 
-TEST_SUITE("Vector3::Normalize")
-{
-    using designlab::Vector3;
-
-    TEST_CASE("実行時，正規化されたベクトルになるべき")
+    TEST_CASE("IsZeroTest_WhenEpsilonIsPassed_ShouldBeTrue")
     {
-        SUBCASE("(3,5,2)で実行時，(0.486664,0.811107,0.324443)が返るべき")
+        const auto v1 = Vector3(0.0000001f, 0.0000001f, 0.0000001f);
+
+        CHECK(v1.IsZero());
+    }
+
+    TEST_CASE("NormalizeTest_WhenZeroVectorIsPassed_ShouldBeZeroVector")
+    {
+        auto v1 = Vector3(0, 0, 0);
+        v1.Normalize();
+
+        CHECK(v1 == Vector3(0, 0, 0));
+        CHECK(v1.GetLength() == doctest::Approx(0.0f));
+
+        auto v2 = Vector3::GetZeroVec();
+        v2.Normalize();
+
+        CHECK(v2 == Vector3(0, 0, 0));
+        CHECK(v2.GetLength() == doctest::Approx(0.0f));
+    }
+
+    TEST_CASE("NormalizeTest_WhenNonZeroVectorIsPassed_ShouldBeNormalizedVector")
+    {
+        const struct { Vector3 v; Vector3 expected; }
+        table[] = {
+                    {Vector3(1, 0, 0), Vector3(1, 0, 0)},
+                    {Vector3(0, 1, 0), Vector3(0, 1, 0)},
+                    {Vector3(0, 0, 1), Vector3(0, 0, 1)},
+                    {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
+                    {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
+        };
+
+        for (auto [v, expected] : table)
         {
-            auto actual = Vector3(3, 5, 2);
+            auto actual = v;
             actual.Normalize();
-            const auto expected = Vector3(0.486664f, 0.811107f, 0.324443f);
 
-            CHECK(actual == expected);
-            CHECK(actual.GetLength() == doctest::Approx(1.0f));
-        }
-
-        SUBCASE("(0,0,0)で実行時，(0,0,0)が返るべき")
-        {
-            auto actual = Vector3(0, 0, 0);
-            actual.Normalize();
-            const auto expected = Vector3(0, 0, 0);
-
-            CHECK(actual == expected);
-            CHECK(actual.GetLength() == doctest::Approx(0.0f));
-        }
-
-        SUBCASE("(-3,-5,-2)で実行時，(-0.486664,-0.811107,-0.324443)が返るべき")
-        {
-            auto actual = Vector3(-3, -5, -2);
-            actual.Normalize();
-            const auto expected = Vector3(-0.486664f, -0.811107f, -0.324443f);
-
+            INFO(std::format("v = ({}, {}, {})", v.x, v.y, v.z));
             CHECK(actual == expected);
             CHECK(actual.GetLength() == doctest::Approx(1.0f));
         }
     }
-}
 
-TEST_SUITE("Vector3::ProjectedXY")
-{
-    using designlab::Vector3;
-    using designlab::Vector2;
-
-    TEST_CASE("実行時，XY平面に投射されたベクトルが返るべき")
+    TEST_CASE("ProjectedXYTest")
     {
-        SUBCASE("(1,2,3)で実行時，(1,2)が返るべき")
-        {
-            const auto v = Vector3(1, 2, 3);
-            const auto actual = v.ProjectedXY();
-            const auto expected = Vector2(1, 2);
-            CHECK(actual == expected);
-        }
+        const struct { Vector3 v; Vector2 expected; }
+        table[] = {
+                      {Vector3(0, 0, 0), Vector2(0, 0)},
+                      {Vector3(1, 2, 3), Vector2(1, 2)},
+                      {Vector3(-1, -2, -3), Vector2(-1, -2)},
+        };
 
-        SUBCASE("(0,0,0)で実行時，(0,0)が返るべき")
+        for (auto [v, expected] : table)
         {
-            const auto v = Vector3(0, 0, 0);
             const auto actual = v.ProjectedXY();
-            const auto expected = Vector2(0, 0);
-            CHECK(actual == expected);
-        }
 
-        SUBCASE("(-1,-2,-3)で実行時，(-1,-2)が返るべき")
-        {
-            const auto v = Vector3(-1, -2, -3);
-            const auto actual = v.ProjectedXY();
-            const auto expected = Vector2(-1, -2);
+            INFO(std::format("v = ({}, {}, {})", v.x, v.y, v.z));
             CHECK(actual == expected);
         }
     }

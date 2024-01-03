@@ -52,8 +52,19 @@ public:
     //! @param[in] node ノードの情報．
     //! @return 全ての関節の状態．
     [[nodiscard]]
-    virtual std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(
-        const RobotStateNode& node) const noexcept = 0;
+    std::array<HexapodJointState, HexapodConst::kLegNum> CalculateAllJointState(
+        const RobotStateNode& node) const noexcept
+    {
+        std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
+
+        // 計算を行う．
+        for (int i = 0; i < HexapodConst::kLegNum; i++)
+        {
+            joint_state[i] = CalculateJointState(i, node.leg_pos[i]);
+        }
+
+        return joint_state;
+    }
 
     //! @brief 指定した脚の関節のグローバル座標と，角度を計算する．
     //! @n 重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．
@@ -73,8 +84,19 @@ public:
     //! @param[in] joint_state 関節の状態．
     //! @return 計算が正しくできているならば true を返す．
     [[nodiscard]]
-    virtual bool IsValidAllJointState(const RobotStateNode& node,
-      const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept = 0;
+    bool IsValidAllJointState(const RobotStateNode& node,
+      const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept
+    {
+        for (int i = 0; i < HexapodConst::kLegNum; i++)
+        {
+            if (!IsValidJointState(i, node.leg_pos[i], joint_state[i]))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     //! @brief 指定した脚のHexapodJointStateが正しく計算できているかを調べる．
     //! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値は false になる．

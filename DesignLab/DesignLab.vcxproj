@@ -259,7 +259,6 @@
     <ClCompile Include="map_creator_for_simulation.cpp" />
     <ClCompile Include="map_renderer.cpp" />
     <ClCompile Include="mouse.cpp" />
-    <ClCompile Include="math_util.cpp" />
     <ClCompile Include="dead_lock_checker.cpp" />
     <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />

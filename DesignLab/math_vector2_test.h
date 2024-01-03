@@ -8,7 +8,7 @@
 
 #include <utility>
 
-#include "doctest.h"
+#include <doctest.h>
 
 #include "math_vector2.h"
 

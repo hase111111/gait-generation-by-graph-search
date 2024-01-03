@@ -758,9 +758,6 @@
     <ClCompile Include="math_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="math_util.cpp">
-      <Filter>ソース ファイル\Common\Math</Filter>
-    </ClCompile>
     <ClCompile Include="node_creator_builder_hato.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>

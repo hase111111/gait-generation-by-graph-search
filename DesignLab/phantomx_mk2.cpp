@@ -48,21 +48,6 @@ PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) 
 {
 }
 
-
-std::array<HexapodJointState, HexapodConst::kLegNum>
-PhantomXMkII::CalculateAllJointState(const RobotStateNode& node) const noexcept
-{
-    std::array<HexapodJointState, HexapodConst::kLegNum> joint_state;
-
-    // 計算を行う．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        joint_state[i] = CalculateJointState(i, node.leg_pos[i]);
-    }
-
-    return joint_state;
-}
-
 HexapodJointState PhantomXMkII::CalculateJointState(
     const int leg_index, const Vector3& leg_pos) const noexcept
 {
@@ -237,11 +222,11 @@ HexapodJointState PhantomXMkII::CalculateJointState(
         const float arccos_arg = arccos_upper / arccos_lower;
 
 
-        const float fumur_joint_angle =
+        const float femur_joint_angle =
             std::acos(arccos_arg) +
             std::atan2(femur_to_leg_z, femur_to_leg_x);
 
-        res.joint_angle[1] = fumur_joint_angle;
+        res.joint_angle[1] = femur_joint_angle;
     }
 
     // tibia jointの計算．
@@ -275,21 +260,6 @@ HexapodJointState PhantomXMkII::CalculateJointState(
     res.is_in_range = true;
 
     return res;
-}
-
-bool PhantomXMkII::IsValidAllJointState(
-    const RobotStateNode& node,
-    const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept
-{
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (!IsValidJointState(i, node.leg_pos[i], joint_state[i]))
-        {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 bool PhantomXMkII::IsValidJointState(const int leg_index,
@@ -483,20 +453,6 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const Vector3& leg_pos) con
         leg_pos_xy.GetSquaredLength())
     {
         return false;
-    }
-
-    return true;
-}
-
-bool PhantomXMkII::IsAllLegInRange(const leg_func::LegStateBit leg_state,
-                                   const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const
-{
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (leg_func::IsGrounded(leg_state, i) && !IsLegInRange(i, leg_pos[i]))
-        {
-            return false;
-        }
     }
 
     return true;
@@ -762,7 +718,7 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
 
 #ifdef  MAX_LEG_RADIUS
                 // 脚を置く位置が遠すぎるとトルクが足りなくて
-                // 沈み込みが激しいから200までにした2020/11/09hato
+                // 沈み込みが激しいから200までにした2020/11/09 hato
                 if (iz <= 115)
                 {
                     res[iz] = MAX_LEG_RADIUS;

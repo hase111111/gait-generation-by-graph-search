@@ -7,13 +7,14 @@
 #define DESIGNLAB_MATH_UTIL_H_
 
 #include <concepts>
-#include <iomanip>
 #include <numbers>
 #include <random>
 #include <sstream>
 #include <string>
 #include <type_traits>
 #include <vector>
+
+#include <iomanip>
 
 #include "cassert_define.h"
 #include "math_const.h"
@@ -125,9 +126,21 @@ constexpr T ConvertDegToRad(const T deg) noexcept
     return deg * std::numbers::pi_v<float> / (MathConst<T>::kRoundAngle / static_cast<T>(2));
 }
 
+//! @brief 角度を -180° ～ 180° の範囲に収める関数．
+//! @param[in] angle 角度 [deg]．
+//! @return 角度 [-180°, 180°)．
+template <::std::floating_point T>
+T LimitRangeAngleDeg(T angle)
+{
+    angle = fmod(angle + MathConst<T>::kRoundAngle / 2, MathConst<T>::kRoundAngle);
 
-[[deprecated]]
-float limitRangeAngle(const float angle);
+    if (angle < 0.0)
+    {
+        angle += MathConst<T>::kRoundAngle;
+    }
+
+    return angle - MathConst<T>::kRoundAngle / 2;
+}
 
 
 constexpr int kDigit = 3;   //!< 小数点以下の桁数．

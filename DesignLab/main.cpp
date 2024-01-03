@@ -128,14 +128,14 @@ int main()
                 const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
-                auto simu_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
+                auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
                 auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
                 auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),
                   std::move(map_creator),
-                  std::move(simu_end_checker),
+                  std::move(simulation_end_checker),
                   std::move(robot_operator),
                   std::move(node_initializer),
                   graphic_data_broker,
@@ -307,8 +307,8 @@ int main()
 //! @li 列挙体の要素 "k" + パスカルケース (kMyEnumElement)
 //! @li マクロ アッパースネークケース (MY_MACRO)
 //!
-//! また，変数名をローマ字で書いたり，過度に省略したりするのは禁止．
-//! (例えば int getsuyoubi; とか std::string tkg;など．)
+//! また，変数名をローマ字で書いたり，過度に省略したりするのは控えるべき．
+//! (例えば int sushi; とか std::string tkg;など．寿司は仕方ないが...)
 //! 固有名詞は全部書く，逆に init (初期化)や num (ナンバー)などよく使うものは省略すべき．
 //! func(関数)等は見ればわかるので書かないように CalcFunc() → Calc()
 //! 多少長くなっても何しているか分かりやすいほうが見やすなる．(特に関数において)．
