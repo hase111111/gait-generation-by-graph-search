@@ -73,7 +73,7 @@ void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail d
         {
             std::string space;
 
-            for (int i = 0; i < (kHorizontalLineLength - line.length()) / 2; i++)
+            for (int i = 0; i < (kHorizontalLineLength - static_cast<int>(line.length())) / 2; i++)
             {
                 space += " ";
             }
@@ -99,7 +99,7 @@ void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail de
         {
             std::string space;
 
-            for (int i = 0; i < kHorizontalLineLength - line.length(); i++)
+            for (int i = 0; i < kHorizontalLineLength - static_cast<int>(line.length()); i++)
             {
                 space += " ";
             }

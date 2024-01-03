@@ -153,7 +153,8 @@ struct Quaternion final
     //! @param[in] rad_angle 回転角θ [rad]
     //! @param[in] axis 回転軸．
     //! @return 指定された回転軸周りに回転したクォータニオン．
-    static [[nodiscard]] Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
+    [[nodiscard]]
+    static Quaternion MakeByAngleAxis(float rad_angle, const Vector3& axis);
 
 
     //! @brief クォータニオンを文字列に変換する．

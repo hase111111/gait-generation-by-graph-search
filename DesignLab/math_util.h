@@ -39,14 +39,8 @@ constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
     const T dif = num1 - num2;
 
-    if (dif > 0)
-    {
-        return (dif <= MathConst<T>::kAllowableError);
-    }
-    else
-    {
-        return (dif >= -MathConst<T>::kAllowableError);
-    }
+    return (dif <= MathConst<T>::kAllowableError &&
+            dif >= -MathConst<T>::kAllowableError);
 }
 
 

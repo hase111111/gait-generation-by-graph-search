@@ -13,13 +13,13 @@ RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) c
 {
     RotationMatrix3x3 res;
 
-    for (int i = 0; i < 3; i++)
+    for (size_t i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (size_t j = 0; j < 3; j++)
         {
             res.element[i][j] = 0.0f;
 
-            for (int k = 0; k < 3; k++)
+            for (size_t k = 0; k < 3; k++)
             {
                 res.element[i][j] += element[i][k] * other.element[k][j];
             }

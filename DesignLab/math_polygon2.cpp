@@ -14,7 +14,7 @@ Polygon2::Polygon2(const std::vector<Vector2>& vertex)
 {
     assert(vertex.size() <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．
 
-    for (int i = 0; i < vertex.size(); ++i)
+    for (int i = 0; i < static_cast<int>(vertex.size()); ++i)
     {
         AddVertex(vertex[i]);
     }
@@ -24,13 +24,13 @@ bool Polygon2::AddVertexCheckForDuplicates(const Vector2& v)
 {
     for (int i = 0; i < vertex_num; i++)
     {
-        if (vertex[i] == v)
+        if (vertex[static_cast<size_t>(i)] == v)
         {
             return false;
         }
     }
 
-    vertex[vertex_num] = v;
+    vertex[static_cast<size_t>(vertex_num)] = v;
     ++vertex_num;
 
     assert(vertex_num <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．

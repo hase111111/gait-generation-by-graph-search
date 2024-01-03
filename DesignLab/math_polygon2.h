@@ -33,7 +33,9 @@ namespace designlab
 //! @li https://cpprefjp.github.io/reference/algorithm/max.html
 struct Polygon2 final
 {
-    constexpr Polygon2() : vertex_num(0) {}
+    constexpr Polygon2() : vertex_num(0)
+    {
+    }
 
     explicit Polygon2(const std::vector<Vector2>& vertex);
 
@@ -43,7 +45,7 @@ struct Polygon2 final
     //! @note 他の頂点と重なっている場合でも追加する．
     constexpr void AddVertex(const Vector2& v)
     {
-        vertex[vertex_num] = v;
+        vertex[static_cast<size_t>(vertex_num)] = v;
         ++vertex_num;
 
         assert(vertex_num <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．
@@ -78,11 +80,17 @@ struct Polygon2 final
 
     //! @brief 多角形をリセットする関数．
     //! @n 頂点を削除して，頂点数を0にする．
-    constexpr void Reset() { vertex_num = 0; }
+    constexpr void Reset()
+    {
+        vertex_num = 0;
+    }
 
     //! @brief 多角形の頂点数を返す関数．
     //! @return 多角形の頂点数．
-    constexpr int GetVertexNum() const { return vertex_num; }
+    constexpr int GetVertexNum() const
+    {
+        return vertex_num;
+    }
 
     //! @brief 頂点の座標を返す関数．
     //! @param[in] i 頂点のインデックス．
@@ -95,7 +103,7 @@ struct Polygon2 final
             return Vector2{ 0, 0 };
         }
 
-        return vertex[i];
+        return vertex[static_cast<size_t>(i)];
     }
 
     //! @brief 頂点の座標を返す関数．std::optional を使っているので，
@@ -109,7 +117,7 @@ struct Polygon2 final
             return std::nullopt;
         }
 
-        return vertex[i];
+        return vertex[static_cast<size_t>(i)];
     }
 
     //! @brief 頂点の中で最大のx座標を返す関数．
@@ -120,7 +128,7 @@ struct Polygon2 final
 
         for (int i = 1; i < GetVertexNum(); ++i)
         {
-            max_x = (std::max)(max_x, vertex[i].x);
+            max_x = (std::max)(max_x, vertex[static_cast<size_t>(i)].x);
         }
 
         return max_x;
@@ -134,7 +142,7 @@ struct Polygon2 final
 
         for (int i = 1; i < GetVertexNum(); ++i)
         {
-            min_x = (std::min)(min_x, vertex[i].x);
+            min_x = (std::min)(min_x, vertex[static_cast<size_t>(i)].x);
         }
 
         return min_x;
@@ -148,7 +156,7 @@ struct Polygon2 final
 
         for (int i = 1; i < GetVertexNum(); ++i)
         {
-            max_y = (std::max)(max_y, vertex[i].y);
+            max_y = (std::max)(max_y, vertex[static_cast<size_t>(i)].y);
         }
 
         return max_y;
@@ -162,7 +170,7 @@ struct Polygon2 final
 
         for (int i = 1; i < GetVertexNum(); ++i)
         {
-            min_y = (std::min)(min_y, vertex[i].y);
+            min_y = (std::min)(min_y, vertex[static_cast<size_t>(i)].y);
         }
 
         return min_y;

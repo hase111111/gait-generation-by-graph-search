@@ -52,12 +52,12 @@ bool FileTree::SelectFile(const std::string& path, int max_depth,
                                 "ファイルを選択してください．整数で入力してください．");
 
         CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-        CmdIOUtil::Output("選択したファイルは" + file_list[select_index] + "です．",
+        CmdIOUtil::Output("選択したファイルは" + file_list[static_cast<size_t>(select_index)] + "です．",
                           enums::OutputDetail::kSystem);
 
         if (CmdIOUtil::InputYesNo("よろしいですか？"))
         {
-            *output = file_list[select_index];
+            *output = file_list[static_cast<size_t>(select_index)];
             break;
         }
 
