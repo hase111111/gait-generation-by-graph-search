@@ -151,7 +151,7 @@ void CmdIOUtil::OutputTitle(const std::string& title_name, bool output_copy_righ
 
     if (output_copy_right)
     {
-        OutputRight("Coprright 2015 - 2023 埼玉大学 設計工学研究室  ", detail);
+        OutputRight("Copyright 2015 - 2023 埼玉大学 設計工学研究室  ", detail);
         OutputNewLine(1, detail);
     }
 
