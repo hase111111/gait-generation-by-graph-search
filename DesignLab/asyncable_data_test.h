@@ -1,29 +1,36 @@
-﻿#pragma once
+﻿
+/// @file      asyncable_data_test.h
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+
+#ifndef DESIGNLAB_ASYNCABLE_DATA_TEST_H_
+#define DESIGNLAB_ASYNCABLE_DATA_TEST_H_
 
 #include <doctest.h>
 
 #include "asyncable_data.h"
 
 
-TEST_SUITE("AsyncableData::GetUpdateCount")
+TEST_SUITE("AsyncableData")
 {
-    using namespace designlab;
+    using designlab::AsyncableData;
 
-    TEST_CASE_TEMPLATE("値の更新をしていない時，更新回数は0となるべき", T, int, float, double)
+    TEST_CASE_TEMPLATE("GetUpdateCountTest_WhenValueIsNotUpdated_ShouldBeZeroForUpdateCount",
+                       T, int, float, double, unsigned int)
     {
-        SUBCASE("初期化時，更新回数は0となるべき")
+        SUBCASE("WhenInitialized")
         {
             AsyncableData<T> data;
             CHECK(data.GetUpdateCount() == 0);
         }
 
-        SUBCASE("初期化時に値を渡した時，更新回数は0となるべき")
+        SUBCASE("WhenValueIsPassedUponInitialization")
         {
             AsyncableData<T> data(1);
             CHECK(data.GetUpdateCount() == 0);
         }
 
-        SUBCASE("データを読み込んだ時，更新回数は0のままであるべき")
+        SUBCASE("WhenOnlyReadingValues")
         {
             AsyncableData<T> data(1);
             CHECK(data.GetUpdateCount() == 0);
@@ -32,9 +39,10 @@ TEST_SUITE("AsyncableData::GetUpdateCount")
         }
     }
 
-    TEST_CASE_TEMPLATE("値を更新した時，更新回数が増加するべき", T, int, float, double)
+    TEST_CASE_TEMPLATE("GetUpdateCountTest_WhenValueIsUpdated_ShouldIncrementUpdateCount",
+                       T, int, float, double, unsigned int)
     {
-        SUBCASE("値の更新を1回した時，更新回数は1となるべき")
+        SUBCASE("WhenValueIsUpdatedOnce_ShouldUpdateCountBeOne")
         {
             AsyncableData<T> data;
             CHECK(data.GetUpdateCount() == 0);
@@ -43,23 +51,19 @@ TEST_SUITE("AsyncableData::GetUpdateCount")
             CHECK(data.GetUpdateCount() == 1);
         }
 
-        SUBCASE("値の更新を2回した時，更新回数は2となるべき")
+        SUBCASE("WhenValueIsUpdatedTwice_ShouldUpdateCountBeTwo")
         {
             AsyncableData<T> data;
             CHECK(data.GetUpdateCount() == 0);
 
             data.SetData(1);
-            data.SetData(-1);
+            data.SetData(5);
             CHECK(data.GetUpdateCount() == 2);
         }
     }
-}
 
-TEST_SUITE("AsyncableData::GetUpdateCount")
-{
-    using namespace designlab;
-
-    TEST_CASE_TEMPLATE("値をセットした時，セットしたデータを取得可能になるべき", T, int, float, double)
+    TEST_CASE_TEMPLATE("GetDataTest_WhenValueIsSet_ShouldBeAbleToRetrieveSetValue",
+                       T, int, float, double, unsigned int)
     {
         AsyncableData<T> data;
 
@@ -67,8 +71,10 @@ TEST_SUITE("AsyncableData::GetUpdateCount")
         data.SetData(act1);
         CHECK(data.GetData() == act1);
 
-        T act2 = static_cast<T>(-385);
+        T act2 = static_cast<T>(5);
         data.SetData(act2);
         CHECK(data.GetData() == act2);
     }
 }
+
+#endif  // DESIGNLAB_ASYNCABLE_DATA_TEST_H_

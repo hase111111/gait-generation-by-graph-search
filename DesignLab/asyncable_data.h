@@ -106,7 +106,8 @@ private:
 
 
 
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体． (vector版)
+//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体．
+//! (vector版)
 //! @details
 //! vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
 //! こちらもコピー・ムーブは禁止．
@@ -117,10 +118,9 @@ public:
     AsyncableData() : data_({}), update_count_(0) {}
     explicit AsyncableData(const std::vector<T>& data) : data_(data), update_count_(0) {}
 
-    //!< コピー・ムーブは禁止
-    AsyncableData(const AsyncableData&) = delete;
-    AsyncableData& operator=(const AsyncableData&) = delete;
-    AsyncableData(AsyncableData&&) = delete;
+    AsyncableData(const AsyncableData&) = delete;   //!< コピーは禁止．
+    AsyncableData& operator=(const AsyncableData&) = delete;   //!< コピー代入は禁止．
+    AsyncableData(AsyncableData&&) = delete;    //!< ムーブは禁止．
 
     //! @brief 値をコピーして返す．
     //! @n この時，read lockをかける．
