@@ -8,7 +8,7 @@
     end_check_mode = "kGoalTape" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
-    goal_tape_position_x = 2000.0
+    goal_tape_position_x = 100000.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
     target_position = "   500, 500, 0"
@@ -28,16 +28,16 @@
     initial_move = "kComMove"
     
     #シミュレーション開始時のロボットの位置を設定します．[mm]
-    initial_positions = "     0.000,     0.000,     30.000"
+    initial_positions = " 2910,430,40"
     
 #マップについての設定です．
 [Map]
     
     #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kForSimulation"
+    map_create_mode = "kFromFile" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップのcsvファイルの名前を設定します．
-    map_file_name = "map_state.csv"
+    map_file_name = "MMCunevenness-170-10.csv"
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述したtomlファイルの名前を設定します．
     simulation_map_param_file_name = "simulation_map.toml"
@@ -49,7 +49,7 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kFixed" 
+    operate_mode = "kForGloabalPathGenerate" 
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
