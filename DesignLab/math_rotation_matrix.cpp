@@ -1,4 +1,7 @@
 ﻿
+/// @author    Hasegawa
+/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+
 #include "math_rotation_matrix.h"
 
 #include <cmath>

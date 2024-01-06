@@ -18,7 +18,8 @@ namespace designlab
 struct LineSegment2 final
 {
     LineSegment2() = default;
-    constexpr LineSegment2(const Vector2& start, const Vector2& end) : start(start), end(end) {}
+    constexpr LineSegment2(const Vector2& start, const Vector2& end) :
+        start(start), end(end) {}
     constexpr LineSegment2(float start_x, float start_y, float end_x, float end_y) :
         start(start_x, start_y), end(end_x, end_y) {}
     constexpr LineSegment2(const LineSegment2& other) = default;

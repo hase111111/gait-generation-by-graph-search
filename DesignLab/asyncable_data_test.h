@@ -21,21 +21,24 @@ TEST_SUITE("AsyncableData")
         SUBCASE("WhenInitialized")
         {
             AsyncableData<T> data;
-            CHECK(data.GetUpdateCount() == 0);
+            CHECK_EQ(data.GetUpdateCount(), 0);
         }
 
         SUBCASE("WhenValueIsPassedUponInitialization")
         {
             AsyncableData<T> data(1);
-            CHECK(data.GetUpdateCount() == 0);
+            CHECK_EQ(data.GetUpdateCount(), 0);
         }
 
         SUBCASE("WhenOnlyReadingValues")
         {
             AsyncableData<T> data(1);
-            CHECK(data.GetUpdateCount() == 0);
-            CHECK(data.GetData() == 1);
-            CHECK(data.GetUpdateCount() == 0);
+
+            T act = data.GetData();
+
+            CHECK_EQ(data.GetUpdateCount(), 0);
+
+            CHECK_EQ(act, 1);   // 警告の抑制．
         }
     }
 
@@ -45,20 +48,20 @@ TEST_SUITE("AsyncableData")
         SUBCASE("WhenValueIsUpdatedOnce_ShouldUpdateCountBeOne")
         {
             AsyncableData<T> data;
-            CHECK(data.GetUpdateCount() == 0);
+            CHECK_EQ(data.GetUpdateCount(), 0);
 
             data.SetData(1);
-            CHECK(data.GetUpdateCount() == 1);
+            CHECK_EQ(data.GetUpdateCount(), 1);
         }
 
         SUBCASE("WhenValueIsUpdatedTwice_ShouldUpdateCountBeTwo")
         {
             AsyncableData<T> data;
-            CHECK(data.GetUpdateCount() == 0);
+            CHECK_EQ(data.GetUpdateCount(), 0);
 
             data.SetData(1);
             data.SetData(5);
-            CHECK(data.GetUpdateCount() == 2);
+            CHECK_EQ(data.GetUpdateCount(), 2);
         }
     }
 
@@ -69,11 +72,11 @@ TEST_SUITE("AsyncableData")
 
         T act1 = static_cast<T>(1);
         data.SetData(act1);
-        CHECK(data.GetData() == act1);
+        CHECK_EQ(data.GetData(), act1);
 
         T act2 = static_cast<T>(5);
         data.SetData(act2);
-        CHECK(data.GetData() == act2);
+        CHECK_EQ(data.GetData(), act2);
     }
 }
 

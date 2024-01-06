@@ -6,9 +6,9 @@
 #ifndef DESIGNLAB_MATH_UTIL_TEST_H_
 #define DESIGNLAB_MATH_UTIL_TEST_H_
 
-#include <numbers>
-
 #include <doctest.h>
+
+#include <numbers>
 
 #include "math_util.h"
 

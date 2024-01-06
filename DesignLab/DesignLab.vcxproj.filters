@@ -618,6 +618,12 @@
     <ClInclude Include="math_vector2_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
+    <ClInclude Include="math_rotation_matrix_test.h">
+      <Filter>ソース ファイル\Common\Math\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="math_line_segment2_test.h">
+      <Filter>ソース ファイル\Common\Math\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

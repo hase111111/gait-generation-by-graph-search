@@ -6,12 +6,13 @@
 #ifndef DESIGNLAB_STRING_UTIL_TEST_H_
 #define DESIGNLAB_STRING_UTIL_TEST_H_
 
+#include <doctest.h>
+
 #include <string>
 #include <vector>
 
-#include "doctest.h"
-
 #include "string_util.h"
+
 
 
 TEST_SUITE("string_util::Split")
