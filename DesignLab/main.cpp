@@ -14,6 +14,7 @@
 #include "application_setting_record_validator.h"
 #include "boot_mode_selector.h"
 #include "cmdio_util.h"
+#include "gait_pattern_generator_basic.h"
 #include "gait_pattern_generator_switch_move.h"
 #include "gait_pattern_generator_thread.h"
 #include "graph_tree_creator.h"

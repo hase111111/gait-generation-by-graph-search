@@ -26,8 +26,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
   const GaitPatternGraphTree& graph,
   const RobotOperation& operation,
   [[maybe_unused]] const DividedMapState& divided_map_state,
-  const int max_depth
-) const
+  const int max_depth) const
 {
     // ターゲットモードは直進である．
     assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
@@ -61,9 +60,6 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
                                                  divided_map_state,
                                                  init_value.normalized_move_direction);
 
-    std::cout << "init_value.target_z_value:" << init_value.target_z_value << std::endl;
-
-
     // Calc などの関数を vector に格納する．
     std::vector<std::function<EvaluationResult(const int,
                                                const GaitPatternGraphTree&,
@@ -75,17 +71,17 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
         std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
         std::placeholders::_5),
 
-        std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmountOfMovement, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5),
+            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmountOfMovement, this,
+            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
+            std::placeholders::_5),
 
-        std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByLegRot, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5),
+            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByLegRot, this,
+            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
+            std::placeholders::_5),
 
-        std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByStablyMargin, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5)
+            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByStablyMargin, this,
+            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
+            std::placeholders::_5)
     };
 
     for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -135,8 +131,9 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTr
     // index が範囲外ならば失敗．
     if (max_evaluation_value.index < 0 || max_evaluation_value.index >= graph.GetGraphSize())
     {
-        std::string error_message = "最大評価値のインデックスが範囲外です．" +
-            std::to_string(max_evaluation_value.index);
+        std::string error_message = "最大評価値のインデックスが範囲外です．"
+            "最高評価ノードのインデックス : " + std::to_string(max_evaluation_value.index) +
+            "グラフのサイズ" + std::to_string(graph.GetGraphSize());
 
         const GraphSearchResult result = { enums::Result::kFailure, error_message };
 

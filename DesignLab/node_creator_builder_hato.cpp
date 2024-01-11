@@ -68,7 +68,7 @@ void NodeCreatorBuilderHato::Build(
       checker_ptr_,
       enums::HexapodMove::kComMove);
 
-    (*node_creator)[enums::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
+    (*node_creator)[enums::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
       map,
       converter_ptr_,
       presenter_ptr_,

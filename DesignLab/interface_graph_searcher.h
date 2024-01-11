@@ -31,12 +31,12 @@ public:
     virtual ~IGraphSearcher() = default;
 
     //! @brief グラフを受け取り，その中から最適な次の動作を出力する．
-    //! @param [in] graph グラフ木．
-    //! @param [in] operation 目標姿勢，方向．
-    //! @param [in] max_depth 探索する最大深さ．
-    //! @param [in] divided_map_state 分割されたマップの状態．
-    //! @return グラフ探索の結果，選択されたノード(深さ1)の index，
-    //! 最高評価ノード(深さ max_depth) の indexのタプル．
+    //! @param[in] graph グラフ木．
+    //! @param[in] operation 目標姿勢，方向．
+    //! @param[in] divided_map_state 分割されたマップの状態．
+    //! @param[in] max_depth 探索する最大深さ．
+    //! @return グラフ探索の結果，選択されたノード(深さ1)のインデックス，
+    //! 最高評価ノード(深さ max_depth) のインデックスのタプル．
     virtual std::tuple<GraphSearchResult, int, int> SearchGraphTree(
       const GaitPatternGraphTree& graph,
       const RobotOperation& operation,

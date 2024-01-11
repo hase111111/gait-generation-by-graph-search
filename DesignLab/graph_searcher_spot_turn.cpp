@@ -23,8 +23,7 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
   const GaitPatternGraphTree& graph,
   const RobotOperation& operation,
   [[maybe_unused]] const DividedMapState& divided_map_state,
-  const int max_depth
-) const
+  const int max_depth) const
 {
     assert(operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture ||
       operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis);
@@ -63,13 +62,13 @@ std::tuple<GraphSearchResult, int, int> GraphSearcherSpotTurn::SearchGraphTree(
         std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
         std::placeholders::_5),
 
-        std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByAmountOfTurn, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5),
+            std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByAmountOfTurn, this,
+            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
+            std::placeholders::_5),
 
-        std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByLegRot, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5),
+            std::bind(&GraphSearcherSpotTurn::UpdateEvaluationValueByLegRot, this,
+            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
+            std::placeholders::_5),
     };
 
     for (int i = 0; i < graph.GetGraphSize(); i++)
@@ -180,8 +179,7 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
   const GaitPatternGraphTree& tree,
   const EvaluationValue& max_evaluation_value,
   [[maybe_unused]] const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
+  EvaluationValue* candidate) const
 {
     assert(0 <= index && index < tree.GetGraphSize());  // indexが範囲内であることを確認する．
     assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
@@ -222,8 +220,7 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
   const GaitPatternGraphTree& tree,
   const EvaluationValue& max_evaluation_value,
   const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
+  EvaluationValue* candidate) const
 {
     assert(0 <= index && index < tree.GetGraphSize());  // index が範囲内であることを確認する．
     assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
@@ -245,15 +242,12 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
     return EvaluationResult::kNotUpdate;
 }
 
-
-
 GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationValueByAmountOfTurn(
   const int index,
   const GaitPatternGraphTree& tree,
   const EvaluationValue& max_evaluation_value,
   const InitialValue& init_value,
-  EvaluationValue* candiate
-) const
+  EvaluationValue* candidate) const
 {
     const float target_weight = 100000.f;  // 方向指定の際のターゲットの重み．
 
@@ -272,12 +266,12 @@ GraphSearcherSpotTurn::EvaluationResult GraphSearcherSpotTurn::UpdateEvaluationV
 
     if (result > max_evaluation_value.turn + margin)
     {
-        (*candiate).turn = result;
+        (*candidate).turn = result;
         return EvaluationResult::kUpdate;
     }
     else if (abs(result - max_evaluation_value.turn) < margin)
     {
-        (*candiate).turn = result;
+        (*candidate).turn = result;
         return EvaluationResult::kEqual;
     }
 

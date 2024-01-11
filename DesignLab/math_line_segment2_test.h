@@ -101,7 +101,87 @@ TEST_SUITE("LineSegment2")
         }
     }
 
+    TEST_CASE("GetIntersectionTest_WhenHasIntersection_ReturnIntersection")
+    {
+        struct { LineSegment2 line1; LineSegment2 line2; Vector2 expected; }
+        test_table[] = {
+            { LineSegment2(0.f, 0.f, 1.f, 1.f), LineSegment2(0.f, 1.f, 1.f, 0.f), Vector2(0.5f, 0.5f) },
+            { LineSegment2(1.f, 0.f, 1.f, 1.f), LineSegment2(0.f, 1.f, 1.f, 1.f), Vector2(1.0f, 1.f) },
+            { LineSegment2(0.f, 0.f, 1.f, 3.f), LineSegment2(0.f, 3.f, 1.f, 0.f), Vector2(0.5f, 1.5f) },
+            { LineSegment2(0.f, 0.f, 2.f, 2.f), LineSegment2(0.f, 2.f, 2.f, 0.f), Vector2(1.0f, 1.0f) },
+        };
 
+        for (const auto& t : test_table)
+        {
+            const auto intersection = t.line1.GetIntersection(t.line2);
+
+            INFO("line1 start : " << t.line1.start << ", end : " << t.line1.end);
+            INFO("line2 start : " << t.line2.start << ", end : " << t.line2.end);
+
+            CHECK_EQ(intersection, t.expected);
+        }
+    }
+
+    TEST_CASE("GetIntersectionTest_WhenNotHasIntersection_ReturnZeroVector")
+    {
+        struct { LineSegment2 line1; LineSegment2 line2; }
+        test_table[] = {
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(1.0f, 0.0f, 2.0f, 1.0f) },
+            { LineSegment2(1.0f, 0.0f, 1.0f, 1.0f), LineSegment2(2.0f, 0.0f, 2.0f, 1.0f) },
+            { LineSegment2(1.0f, 0.0f, 0.0f, 1.0f), LineSegment2(0.0f, 0.0f, 0.4f, 0.4f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(-2.0f, -2.0f, -3.0f, -3.0f) },
+        };
+
+        for (const auto& t : test_table)
+        {
+            const auto intersection = t.line1.GetIntersection(t.line2);
+
+            INFO("line1 start : " << t.line1.start << ", end : " << t.line1.end);
+            INFO("line2 start : " << t.line2.start << ", end : " << t.line2.end);
+
+            CHECK_EQ(intersection, Vector2(0.0f, 0.0f));
+        }
+    }
+
+    TEST_CASE("GetIntersectionTest_WhenParallel_ReturnZeroVector")
+    {
+        struct { LineSegment2 line1; LineSegment2 line2; }
+        test_table[] = {
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(0.0f, 1.0f, 1.0f, 2.0f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(1.0f, 1.0f, 2.0f, 2.0f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(-1.0f, -1.0f, 0.0f, 0.0f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(-2.0f, -2.0f, -1.0f, -1.0f) },
+        };
+
+        for (const auto& t : test_table)
+        {
+            const auto intersection = t.line1.GetIntersection(t.line2);
+
+            INFO("line1 start : " << t.line1.start << ", end : " << t.line1.end);
+            INFO("line2 start : " << t.line2.start << ", end : " << t.line2.end);
+
+            CHECK_EQ(intersection, Vector2(0.0f, 0.0f));
+        }
+    }
+
+    TEST_CASE("HasIntersectionTest_WhenHasIntersection_ReturnTrue")
+    {
+        struct { LineSegment2 line1; LineSegment2 line2; }
+        test_table[] = {
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(0.0f, 1.0f, 1.0f, 0.0f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 0.0f), LineSegment2(0.0f, 0.0f, 0.0f, 1.0f) },
+            { LineSegment2(0.0f, 0.0f, 1.0f, 1.0f), LineSegment2(0.0f, 0.0f, 1.0f, 2.0f) },
+            { LineSegment2(0.0f, 0.0f, 2.0f, 2.0f), LineSegment2(0.0f, 2.0f, 2.0f, 0.0f) },
+        };
+
+        for (const auto& t : test_table)
+        {
+            INFO("line1 start : " << t.line1.start << ", end : " << t.line1.end);
+            INFO("line2 start : " << t.line2.start << ", end : " << t.line2.end);
+
+            CHECK(t.line1.HasIntersection(t.line2));
+        }
+    }
 }
 
 

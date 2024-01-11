@@ -29,6 +29,8 @@ public:
     //! @param[in] graph_tree_creator グラフ探索を行う木構造のグラフを作成するクラス．
     //! unique_ptrで渡す．
     //! @param[in] graph_searcher グラフ探索を行うクラス．unique_ptrで渡す．
+    //! @param[in] max_depth グラフ探索の最大深さ．
+    //! @param[in] max_node_num グラフ探索の最大ノード数．
     GaitPatternGeneratorThread(
       std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
       std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
@@ -56,7 +58,9 @@ private:
     //! グラフ探索を行うクラス．
     const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;
 
-    GaitPatternGraphTree graph_tree_;
+    GaitPatternGraphTree graph_tree_;  //!< このグラフに深さ1までのノードを追加する．
+
+    //! 深さ2以上のノードは並列に探索するため，スレッドごとにグラフを持つ．
     std::array<GaitPatternGraphTree, kThreadNum> graph_tree_array_;
 
     const int max_depth_;  //!< グラフ探索の最大深さ．
