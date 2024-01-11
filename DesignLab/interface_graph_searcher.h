@@ -38,10 +38,10 @@ public:
     //! @return グラフ探索の結果，選択されたノード(深さ1)のインデックス，
     //! 最高評価ノード(深さ max_depth) のインデックスのタプル．
     virtual std::tuple<GraphSearchResult, int, int> SearchGraphTree(
-      const GaitPatternGraphTree& graph,
-      const RobotOperation& operation,
-      const DividedMapState& divided_map_state,
-      int max_depth) const = 0;
+        const GaitPatternGraphTree& graph,
+        const RobotOperation& operation,
+        const DividedMapState& divided_map_state,
+        int max_depth) const = 0;
 };
 
 }  // namespace designlab

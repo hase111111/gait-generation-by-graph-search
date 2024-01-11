@@ -142,14 +142,14 @@
     <Filter Include="ソース ファイル\Common\TomlFileIO">
       <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface">
-      <UniqueIdentifier>{6335a7de-59b3-4cf8-94a6-1ea84bad89ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common\Math\Test">
       <UniqueIdentifier>{6a9d6337-45a3-4609-9662-59b0fea63a0e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\GaitPatternGenerator\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Test">
+      <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -594,9 +594,6 @@
     <ClInclude Include="robot_operator_for_path.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="phantomx_mk2_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -623,6 +620,15 @@
     </ClInclude>
     <ClInclude Include="math_line_segment2_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graph_searcher.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_search_evaluator.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_search_evaluator_test.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -922,6 +928,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_search_evaluator.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
