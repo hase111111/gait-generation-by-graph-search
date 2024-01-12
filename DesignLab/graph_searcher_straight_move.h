@@ -9,6 +9,7 @@
 #include <memory>
 #include <tuple>
 #include <string>
+#include <vector>
 
 #include "interface_graph_searcher.h"
 #include "interface_hexapod_posture_validator.h"
@@ -21,80 +22,54 @@ namespace designlab
 //! @brief グラフ探索を行い，直進する動作を評価するクラス．
 class GraphSearcherStraightMove final : public IGraphSearcher
 {
+    using Tag = GraphSearchEvaluationValue::Tag;
+
 public:
     explicit GraphSearcherStraightMove(
         const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
-    std::tuple<GraphSearchResult, int, int> SearchGraphTree(
-      const GaitPatternGraphTree& graph,
-      const RobotOperation& operation,
-      const DividedMapState& devide_map_state,
-      int max_depth) const override;
+    std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> SearchGraphTree(
+        const GaitPatternGraphTree& graph,
+        const RobotOperation& operation,
+        const DividedMapState& divided_map_state,
+        int max_depth) const override;
+
+    std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> SearchGraphTreeVector(
+        const std::vector<GaitPatternGraphTree>& graph_vector,
+        const RobotOperation& operation,
+        const DividedMapState& divided_map_state,
+        int max_depth) const override;
 
 private:
-    static constexpr float kMaxEvaluationValue = 1000000.0f;
-    static constexpr float kMinEvaluationValue = -1000000.0f;
+    static constexpr Tag kTagMoveForward = 0;
+    static constexpr Tag kTagLegRot = 1;
+    static constexpr Tag kTagStablyMargin = 2;
+    static constexpr Tag kTagZDiff = 3;
 
 
-    enum class EvaluationResult : int
-    {
-        kUpdate,
-        kEqual,
-        kNotUpdate,
-    };
-
-    struct EvaluationValue final
-    {
-        int index{ -1 };
-        float move_forward{ kMinEvaluationValue };
-        float leg_rot{ kMinEvaluationValue };
-        float stably_margin{ kMinEvaluationValue };
-        float z_diff{ kMaxEvaluationValue };
-
-        std::string ToString() const;
-    };
-
-    struct InitialValue final
-    {
-        Vector3 normalized_move_direction;
-
-        float target_z_value;
-    };
+    GraphSearchEvaluator InitializeEvaluator() const;
 
     float InitTargetZValue(const RobotStateNode& node,
                            const DividedMapState& devide_map_state,
                            const Vector3& move_direction) const;
 
-    EvaluationResult UpdateEvaluationValueByAmountOfMovement(
-        int index,
-        const GaitPatternGraphTree& tree,
-        const EvaluationValue& max_evaluation_value,
-        const InitialValue& init_value,
-        EvaluationValue* candiate) const;
+    float GetMoveForwardEvaluationValue(
+        const RobotStateNode& node,
+        const RobotStateNode& root_node,
+        const Vector3& normalized_move_direction) const;
 
-    EvaluationResult UpdateEvaluationValueByLegRot(
-        int index,
-        const GaitPatternGraphTree& tree,
-        const EvaluationValue& max_evaluation_value,
-        const InitialValue& init_value,
-        EvaluationValue* candiate) const;
+    float GetLegRotEvaluationValue(
+        const RobotStateNode& node,
+        const RobotStateNode& root_node) const;
 
-    EvaluationResult UpdateEvaluationValueByStablyMargin(
-        int index,
-        const GaitPatternGraphTree& tree,
-        const EvaluationValue& max_evaluation_value,
-        const InitialValue& init_value,
-        EvaluationValue* candiate) const;
-
-    EvaluationResult UpdateEvaluationValueByZDiff(
-        int index,
-        const GaitPatternGraphTree& tree,
-        const EvaluationValue& max_evaluation_value,
-        const InitialValue& init_value,
-        EvaluationValue* candiate) const;
+    float GetZDiffEvaluationValue(
+        const RobotStateNode& node,
+        const float target_z_value) const;
 
 
     const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+
+    GraphSearchEvaluator evaluator_;
 };
 
 }  // namespace designlab

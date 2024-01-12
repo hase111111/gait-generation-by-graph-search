@@ -18,144 +18,155 @@ namespace designlab
 
 GraphSearcherStraightMove::GraphSearcherStraightMove(
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
-    checker_ptr_(checker_ptr)
+    checker_ptr_(checker_ptr),
+    evaluator_(InitializeEvaluator())
 {
 }
 
-std::tuple<GraphSearchResult, int, int> GraphSearcherStraightMove::SearchGraphTree(
-  const GaitPatternGraphTree& graph,
-  const RobotOperation& operation,
-  [[maybe_unused]] const DividedMapState& divided_map_state,
-  const int max_depth) const
+std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherStraightMove::SearchGraphTree(
+    const GaitPatternGraphTree& graph,
+    const RobotOperation& operation,
+    const DividedMapState& divided_map_state,
+    const int max_depth) const
 {
     // ターゲットモードは直進である．
     assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
-      operation.operation_type == enums::RobotOperationType::kStraightMoveVector);
+           operation.operation_type == enums::RobotOperationType::kStraightMoveVector);
 
     if (!graph.HasRoot())
     {
         const GraphSearchResult result = { enums::Result::kFailure, "ルートノードがありません．" };
-        return { result, -1, -1 };
+        return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
     // 初期化．
-    EvaluationValue max_evaluation_value;
-    InitialValue init_value;
+    Vector3 normalized_move_direction;
 
     if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
     {
-        init_value.normalized_move_direction = (operation.straight_move_position_ -
+        normalized_move_direction = (operation.straight_move_position_ -
                                                 graph.GetRootNode().center_of_mass_global_coord);
-        init_value.normalized_move_direction.z = 0.0f;
-        init_value.normalized_move_direction = init_value.normalized_move_direction.GetNormalized();
+        normalized_move_direction.z = 0.0f;
+        normalized_move_direction = normalized_move_direction.GetNormalized();
     }
     else
     {
-        init_value.normalized_move_direction = operation.straight_move_vector_;
-        init_value.normalized_move_direction.z = 0.0f;
-        init_value.normalized_move_direction = init_value.normalized_move_direction.GetNormalized();
+        normalized_move_direction = operation.straight_move_vector_;
+        normalized_move_direction.z = 0.0f;
+        normalized_move_direction = normalized_move_direction.GetNormalized();
     }
 
-    init_value.target_z_value = InitTargetZValue(graph.GetRootNode(),
-                                                 divided_map_state,
-                                                 init_value.normalized_move_direction);
+    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, normalized_move_direction);
 
-    // Calc などの関数を vector に格納する．
-    std::vector<std::function<EvaluationResult(const int,
-                                               const GaitPatternGraphTree&,
-                                               const EvaluationValue&,
-                                               const InitialValue&,
-                                               EvaluationValue*)>> update_evaluation_value_func_vec
-    {
-        std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByZDiff, this,
-        std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-        std::placeholders::_5),
 
-            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByAmountOfMovement, this,
-            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-            std::placeholders::_5),
-
-            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByLegRot, this,
-            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-            std::placeholders::_5),
-
-            std::bind(&GraphSearcherStraightMove::UpdateEvaluationValueByStablyMargin, this,
-            std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4,
-            std::placeholders::_5)
-    };
+    GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
+    int max_evaluation_value_index = -1;
 
     for (int i = 0; i < graph.GetGraphSize(); i++)
     {
         // 最大深さのノードのみを評価する．
-        if (graph.GetNode(i).depth == max_depth)
+        if (graph.GetNode(i).depth != max_depth) { continue; }
+
+        // 評価値を計算する．
+        GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
+
+        candidate_evaluation_value.value.at(kTagMoveForward) = GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(), normalized_move_direction);
+        candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
+        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
+
+        // 評価値を比較する．
+        if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
         {
-            EvaluationValue candidate_evaluation_value;
-            candidate_evaluation_value.index = i;
-
-            bool do_update = false;
-
-            for (size_t j = 0; j < update_evaluation_value_func_vec.size(); ++j)
-            {
-                const EvaluationResult result =
-                    update_evaluation_value_func_vec[j](i,
-                                                        graph,
-                                                        max_evaluation_value,
-                                                        init_value,
-                                                        &candidate_evaluation_value);
-
-                if (max_evaluation_value.index != -1)
-                {
-                    if (result == EvaluationResult::kUpdate)
-                    {
-                        do_update = true;
-                    }
-
-                    if (!do_update && result == EvaluationResult::kNotUpdate)
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    do_update = true;
-                }
-            }
-
-            if (do_update)
-            {
-                max_evaluation_value = candidate_evaluation_value;
-            }
+            max_evaluation_value = candidate_evaluation_value;
+            max_evaluation_value_index = i;
         }
     }
 
-    // index が範囲外ならば失敗．
-    if (max_evaluation_value.index < 0 || max_evaluation_value.index >= graph.GetGraphSize())
+    // インデックスが範囲外ならば失敗．
+    if (max_evaluation_value_index < 0 ||
+        graph.GetGraphSize() <= max_evaluation_value_index)
     {
-        std::string error_message = "最大評価値のインデックスが範囲外です．"
-            "最高評価ノードのインデックス : " + std::to_string(max_evaluation_value.index) +
-            "グラフのサイズ" + std::to_string(graph.GetGraphSize());
-
-        const GraphSearchResult result = { enums::Result::kFailure, error_message };
-
-        return { result, -1, -1 };
+        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
+        return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
-    const GraphSearchResult result = { enums::Result::kSuccess, max_evaluation_value.ToString() };
+    const GraphSearchResult result = { enums::Result::kSuccess, "" };
 
-    return { result,
-        graph.GetParentNodeIndex(max_evaluation_value.index, 1),
-        max_evaluation_value.index };
+    return { result, max_evaluation_value, graph.GetParentNode(max_evaluation_value_index, 1) };
 }
 
-std::string GraphSearcherStraightMove::EvaluationValue::ToString() const
+std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherStraightMove::SearchGraphTreeVector(
+    const std::vector<GaitPatternGraphTree>& graph_vector,
+    const RobotOperation& operation,
+    const DividedMapState& divided_map_state,
+    int max_depth) const
 {
-    std::string result = "index:" + std::to_string(index) + "/";
-    result += "move_forward:" + math_util::FloatingPointNumToString(move_forward, 3, 7) + "/";
-    result += "leg_rot:" + math_util::FloatingPointNumToString(leg_rot, 3, 7) + "/";
-    result += "z_diff:" + math_util::FloatingPointNumToString(z_diff, 3, 7) + "/";
-    result += "stably_margin:" + math_util::FloatingPointNumToString(stably_margin, 3, 7);
+    std::vector<std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode>> result_vector;
+    result_vector.resize(graph_vector.size());
 
-    return result;
+    for (size_t i = 0; i < graph_vector.size(); i++)
+    {
+        // グラフ探索の結果を格納する．
+        result_vector[i] = SearchGraphTree(graph_vector[i], operation, divided_map_state, max_depth);
+    }
+
+    // 最大評価値を持つものを探す．
+    GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
+    int max_evaluation_value_index = -1;
+
+    for (int i = 0; i < result_vector.size(); i++)
+    {
+        const auto& [result, evaluation_value, _] = result_vector[i];
+
+        // 失敗しているものは無視する．
+        if (result.result != enums::Result::kSuccess)
+        {
+            continue;
+        }
+
+        // 評価値を比較する．
+        if (evaluator_.LeftIsBetter(evaluation_value, max_evaluation_value))
+        {
+            // 上回っている場合は更新する．
+            max_evaluation_value = evaluation_value;
+            max_evaluation_value_index = i;
+        }
+    }
+
+    // インデックスが範囲外ならば失敗．
+    if (max_evaluation_value_index < 0 || result_vector.size() <= max_evaluation_value_index)
+    {
+        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
+        return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
+    }
+
+    return result_vector[max_evaluation_value_index];
+}
+
+GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
+{
+    GraphSearchEvaluator::EvaluationMethod move_forward_method =
+    {
+        .is_lower_better = false,
+        .margin = 7.5f,
+    };
+
+    GraphSearchEvaluator::EvaluationMethod leg_rot_method =
+    {
+        .is_lower_better = false,
+        .margin = 0.0f,
+    };
+
+    GraphSearchEvaluator::EvaluationMethod z_diff_method =
+    {
+        .is_lower_better = true,
+        .margin = 0.0f,
+    };
+
+    GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
+                             { kTagZDiff, kTagMoveForward, kTagLegRot });
+
+    return ret;
 }
 
 float GraphSearcherStraightMove::InitTargetZValue(
@@ -167,7 +178,7 @@ float GraphSearcherStraightMove::InitTargetZValue(
 
     const Vector3 target_position = move_direction * move_length;
 
-    const int div = 50;
+    const int div = 60;
     const float min_z = -150.0f;
     const float max_z = 150.0f;
 
@@ -191,137 +202,55 @@ float GraphSearcherStraightMove::InitTargetZValue(
     return node.center_of_mass_global_coord.z;
 }
 
-GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByAmountOfMovement(
-  const int index,
-  const GaitPatternGraphTree& tree,
-  const EvaluationValue& max_evaluation_value,
-  const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
+float GraphSearcherStraightMove::GetMoveForwardEvaluationValue(
+    const RobotStateNode& node,
+    const RobotStateNode& root_node,
+    const Vector3& normalized_move_direction) const
 {
     // 正規化されていることを確認する．
-    assert(math_util::IsEqual(init_value.normalized_move_direction.GetSquaredLength(), 1.f));
-    assert(0 <= index && index < tree.GetGraphSize());  // index が範囲内であることを確認する．
-    assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
+    assert(math_util::IsEqual(normalized_move_direction.GetSquaredLength(), 1.f));
 
-    const Vector3 root_to_current =
-        tree.GetNode(index).center_of_mass_global_coord - tree.GetRootNode().center_of_mass_global_coord;
+    const Vector3 root_to_current = node.center_of_mass_global_coord - root_node.center_of_mass_global_coord;
 
-    // root_to_current の init_value.normalized_move_direction 方向の成分を取り出す．
-    const float result = root_to_current.Dot(init_value.normalized_move_direction);
-    const float margin = 7.5f;
+    // root_to_current の normalized_move_direction 方向の成分を取り出す．
+    const float result = root_to_current.Dot(normalized_move_direction);
 
-    if (max_evaluation_value.move_forward + margin < result)
-    {
-        (*candidate).move_forward = result;
-        return EvaluationResult::kUpdate;
-    }
-    else if (abs(max_evaluation_value.move_forward - result) < margin)
-    {
-        (*candidate).move_forward = result;
-        return EvaluationResult::kEqual;
-    }
+    return result;
 
-    return EvaluationResult::kNotUpdate;
+    // const float margin = 7.5f;
 }
 
-GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByLegRot(
-  const int index,
-  const GaitPatternGraphTree& tree,
-  const EvaluationValue& max_evaluation_value,
-  [[maybe_unused]] const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
+float GraphSearcherStraightMove::GetLegRotEvaluationValue(
+    const RobotStateNode& node,
+    const RobotStateNode& root_node) const
 {
-    assert(0 <= index && index < tree.GetGraphSize());  // indexが範囲内であることを確認する．
-    assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
-
     float result = 0.0f;
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        if (leg_func::IsGrounded(tree.GetNode(index).leg_state, i))
+        if (leg_func::IsGrounded(node.leg_state, i))
         {
-            result += (tree.GetNode(index).leg_pos[i].ProjectedXY() -
-                       tree.GetRootNode().leg_pos[i].ProjectedXY()).GetLength();
+            result += (node.leg_pos[i].ProjectedXY() -
+                       root_node.leg_pos[i].ProjectedXY()).GetLength();
         }
         else
         {
-            result += (tree.GetNode(index).leg_pos[i] - tree.GetRootNode().leg_pos[i]).GetLength();
+            result += (node.leg_pos[i] - root_node.leg_pos[i]).GetLength();
         }
     }
 
-    const float margin = 10.0f;
+    return result;
 
-    if (max_evaluation_value.leg_rot + margin < result)
-    {
-        (*candidate).leg_rot = result;
-        return EvaluationResult::kUpdate;
-    }
-    else if (abs(max_evaluation_value.leg_rot - result) < margin)
-    {
-        (*candidate).leg_rot = result;
-        return EvaluationResult::kEqual;
-    }
-
-    return EvaluationResult::kNotUpdate;
+    // const float margin = 10.0f;
 }
 
-GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByStablyMargin(
-  const int index,
-  const GaitPatternGraphTree& tree,
-  const EvaluationValue& max_evaluation_value,
-  [[maybe_unused]] const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
+float GraphSearcherStraightMove::GetZDiffEvaluationValue(
+    const RobotStateNode& node,
+    const float target_z_value) const
 {
-    assert(0 <= index && index < tree.GetGraphSize());  // indexが範囲内であることを確認する．
-    assert(candidate != nullptr);  // candidate が nullptr でないことを確認する．
+    const float result = abs(node.center_of_mass_global_coord.z - target_z_value);
 
-    const float result =
-        checker_ptr_->CalculateStabilityMargin(tree.GetNode(index).leg_state,
-                                               tree.GetNode(index).leg_pos);
-
-    if (max_evaluation_value.stably_margin < result)
-    {
-        (*candidate).stably_margin = result;
-        return EvaluationResult::kUpdate;
-    }
-    else if (max_evaluation_value.stably_margin == result)
-    {
-        (*candidate).stably_margin = result;
-        return EvaluationResult::kEqual;
-    }
-
-    return EvaluationResult::kNotUpdate;
-}
-
-GraphSearcherStraightMove::EvaluationResult GraphSearcherStraightMove::UpdateEvaluationValueByZDiff(
-  const int index,
-  const GaitPatternGraphTree& tree,
-  const EvaluationValue& max_evaluation_value,
-  [[maybe_unused]] const InitialValue& init_value,
-  EvaluationValue* candidate
-) const
-{
-    assert(0 <= index && index < tree.GetGraphSize());  // indexが範囲内であることを確認する．
-    assert(candidate != nullptr);  // candidate が nullptrでないことを確認する．
-
-    const float result = abs(
-        tree.GetNode(index).center_of_mass_global_coord.z - init_value.target_z_value);
-
-    if (result < max_evaluation_value.z_diff)
-    {
-        (*candidate).z_diff = result;
-        return EvaluationResult::kUpdate;
-    }
-    else if (result == max_evaluation_value.z_diff)
-    {
-        (*candidate).z_diff = result;
-        return EvaluationResult::kEqual;
-    }
-
-    return EvaluationResult::kNotUpdate;
+    return result;
 }
 
 }  // namespace designlab

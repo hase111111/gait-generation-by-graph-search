@@ -62,6 +62,16 @@ public:
                       const GraphSearchEvaluationValue& right,
                       bool return_true_case_of_equal = true) const;
 
+    //! @brief 2つの評価値を比較する．左側の評価値が良い場合は true を返す．
+    //! @param[in] left 左側の評価値．
+    //! @param[in] right 右側の評価値．
+    //! @param[in] tag 評価値を比較する際に用いる Tag．
+    //! @param[in] return_true_case_of_equal 左右の評価値が等しい場合に true を返すかどうか．
+    bool LeftIsBetterWithTag(const GraphSearchEvaluationValue& left,
+                             const GraphSearchEvaluationValue& right,
+                             Tag tag,
+                             bool return_true_case_of_equal = true) const;
+
     //! @brief 評価値を初期化する．
     //! 自身の持つ評価方法を用いて，評価値を初期化する．
     //! @return 初期化された評価値．

@@ -12,6 +12,7 @@
 #include "graph_search_const.h"
 #include "map_state.h"
 
+
 namespace designlab
 {
 
@@ -43,9 +44,6 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
     assert(graph_searcher_ptr_ != nullptr);
 
     // 初期化処理を行う．
-    CmdIOUtil::Output("グラフ探索中を開始します．まずは初期化します．\n",
-                      enums::OutputDetail::kDebug);
-
     DividedMapState divided_map;
     divided_map.Init(map_state, current_node.center_of_mass_global_coord);
 
@@ -53,45 +51,28 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
 
 
     // グラフ探索をするための，歩容パターングラフを生成する
-    CmdIOUtil::Output("初期化が終了しました．グラフ木を作成します．", enums::OutputDetail::kDebug);
-
     graph_tree_.Reset();
     graph_tree_.AddNode(current_node);
 
-    const GraphSearchResult create_result = graph_tree_creator_ptr_->CreateGraphTree(
-        0,
-        max_depth_,
-        &graph_tree_);
+    const GraphSearchResult create_result = graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
     if (create_result.result != enums::Result::kSuccess)
     {
-        CmdIOUtil::Output("グラフ木の作成に失敗しました．", enums::OutputDetail::kDebug);
         return create_result;
     }
 
-    CmdIOUtil::Output("グラフ木の作成が終了しました．", enums::OutputDetail::kDebug);
-    CmdIOUtil::Output("グラフのサイズ" + std::to_string(graph_tree_.GetGraphSize()),
-                      enums::OutputDetail::kDebug);
-
 
     // グラフ探索を行う
-    CmdIOUtil::Output("グラフ木を評価します．", enums::OutputDetail::kDebug);
-
-    const auto [search_result, next_node_index, _] =
-        graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, divided_map, max_depth_);
+    const auto [search_result, _, next_node] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, divided_map, max_depth_);
 
     if (search_result.result != enums::Result::kSuccess)
     {
-        CmdIOUtil::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
         return search_result;
     }
 
-    (*output_node) = graph_tree_.GetNode(next_node_index);
+    (*output_node) = next_node;
 
-    CmdIOUtil::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．",
-                      enums::OutputDetail::kDebug);
-
-    return { enums::Result::kSuccess, std::string("") };
+    return { enums::Result::kSuccess, "" };
 }
 
 }  // namespace designlab

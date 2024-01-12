@@ -5,7 +5,7 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kGoalTape" 
+    end_check_mode = "kPosture" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 1200.0
@@ -28,7 +28,7 @@
     initial_move = "kComMove"
     
     #シミュレーション開始時のロボットの位置を設定します．[mm]
-    initial_positions = " 10, 0, 30"
+    initial_positions = " 0, 0, 30"
     
 #マップについての設定です．
 [Map]

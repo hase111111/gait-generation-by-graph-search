@@ -37,18 +37,18 @@ void NodeCreatorBodyRot::Create(const RobotStateNode& current_node,
             continue;
         }
 
-        bool is_vaild = true;
+        bool is_valid = true;
 
         for (int j = 0; j < HexapodConst::kLegNum; j++)
         {
             if (!checker_ptr_->IsLegInRange(j, node.leg_pos[j]))
             {
-                is_vaild = false;
+                is_valid = false;
                 break;
             }
         }
 
-        if (!is_vaild) { continue; }
+        if (!is_valid) { continue; }
 
         node.ChangeToNextNode(current_num, next_move_);
 

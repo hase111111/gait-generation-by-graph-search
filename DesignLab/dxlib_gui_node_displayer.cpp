@@ -26,8 +26,7 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     const int pos_y,
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr
-) :
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
     window_x_(pos_x),
     window_y_(pos_y),
     converter_ptr_(converter_ptr),
@@ -559,6 +558,23 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
             display_node_.center_of_mass_global_coord,
             display_node_.posture,
             true).ToString().c_str());
+    }
+
+    ++text_line;
+
+    // 脚先の付け根からの距離を表示する．
+    for (int i = 0; i < HexapodConst::kLegNum; i++)
+    {
+        DrawFormatStringToHandle(
+                    text_pos_x + kWidth / 2 * (i % 2),
+                    text_pos_y_min + text_interval_y * text_line,
+                    text_color,
+                    font_handle_,
+                    "%s %f",
+                    leg_name[i].c_str(),
+                    display_node_.leg_pos[i].ProjectedXY().GetLength());
+
+        if (i % 2 == 1) { ++text_line; }
     }
 }
 

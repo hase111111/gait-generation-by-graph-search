@@ -10,7 +10,7 @@ namespace designlab
 {
 
 GraphSearchEvaluator::GraphSearchEvaluator(const std::map<GraphSearchEvaluationValue::Tag, EvaluationMethod>& evaluation_method_map,
-                                           const std::vector<Tag>& evaluation_priority_list) :
+    const std::vector<Tag>& evaluation_priority_list) :
     evaluation_method_map_(evaluation_method_map),
     evaluation_priority_list_(evaluation_priority_list)
 {
@@ -22,8 +22,8 @@ GraphSearchEvaluator::GraphSearchEvaluator(const std::map<GraphSearchEvaluationV
 }
 
 bool GraphSearchEvaluator::LeftIsBetter(const GraphSearchEvaluationValue& left,
-                                        const GraphSearchEvaluationValue& right,
-                                        const bool return_true_case_of_equal) const
+    const GraphSearchEvaluationValue& right,
+    const bool return_true_case_of_equal) const
 {
     // 優先的に評価を行う Tag から順に比較する．
     for (const auto& tag : evaluation_priority_list_)
@@ -37,7 +37,7 @@ bool GraphSearchEvaluator::LeftIsBetter(const GraphSearchEvaluationValue& left,
         assert(evaluation_method.margin >= 0.0f);  // margin は負の値にはできない．
 
         // margin 以下の違いは無視する．
-        if (std::abs(left_value - right_value) < evaluation_method.margin)
+        if (std::abs(left_value - right_value) <= evaluation_method.margin)
         {
             // 次の要素を比較する．
             continue;
@@ -61,6 +61,32 @@ bool GraphSearchEvaluator::LeftIsBetter(const GraphSearchEvaluationValue& left,
     // ここまで来た場合は，全ての要素が等しいと判断されたということ．
     // その場合は，return_true_case_of_equal に従って返す．
     return return_true_case_of_equal;
+}
+
+bool GraphSearchEvaluator::LeftIsBetterWithTag(const GraphSearchEvaluationValue& left, const GraphSearchEvaluationValue& right, Tag tag, bool return_true_case_of_equal) const
+{
+    // 可読性のため，変数に格納する．
+    const float& left_value = left.value.at(tag);
+    const float& right_value = right.value.at(tag);
+
+    const auto& evaluation_method = evaluation_method_map_.at(tag);
+
+    assert(evaluation_method.margin >= 0.0f);  // margin は負の値にはできない．
+
+    // margin 以下の違いは無視する．
+    if (std::abs(left_value - right_value) <= evaluation_method.margin)
+    {
+        return return_true_case_of_equal;
+    }
+
+    if (left_value < right_value)
+    {
+        return evaluation_method.is_lower_better;
+    }
+    else
+    {
+        return !evaluation_method.is_lower_better;
+    }
 }
 
 GraphSearchEvaluationValue GraphSearchEvaluator::InitializeEvaluationValue() const

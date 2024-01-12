@@ -183,9 +183,6 @@
     <ClInclude Include="dead_lock_checker.h">
       <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
-    <ClInclude Include="graph_searcher_random.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_display_model.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
@@ -655,9 +652,6 @@
     </ClCompile>
     <ClCompile Include="dead_lock_checker.cpp">
       <Filter>ソース ファイル\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="graph_searcher_random.cpp">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_display_model.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>

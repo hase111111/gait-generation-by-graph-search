@@ -21,68 +21,49 @@ namespace designlab
 //! @brief グラフ探索を行い，直進する動作を評価するクラス．
 class GraphSearcherSpotTurn final : public IGraphSearcher
 {
+    using Tag = GraphSearchEvaluationValue::Tag;
+
 public:
     explicit GraphSearcherSpotTurn(const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
-    std::tuple<GraphSearchResult, int, int> SearchGraphTree(
-      const GaitPatternGraphTree& graph,
-      const RobotOperation& operation,
-      const DividedMapState& devide_map_state,
-      int max_depth) const override;
+    std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> SearchGraphTree(
+        const GaitPatternGraphTree& graph,
+        const RobotOperation& operation,
+        const DividedMapState& divided_map_state,
+        int max_depth) const override;
+
+    std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> SearchGraphTreeVector(
+        const std::vector<GaitPatternGraphTree>& graph_vector,
+        const RobotOperation& operation,
+        const DividedMapState& divided_map_state,
+        int max_depth) const override;
 
 private:
-    static constexpr float kMaxEvaluationValue = 1000000.0f;
-    static constexpr float kMinEvaluationValue = -1000000.0f;
+    static constexpr Tag kTagAmountOfTurn = 0;
+    static constexpr Tag kTagLegRot = 1;
+    static constexpr Tag kTagZDiff = 2;
 
 
-    enum class EvaluationResult : int
-    {
-        kUpdate,
-        kEqual,
-        kNotUpdate,
-    };
+    GraphSearchEvaluator InitializeEvaluator() const;
 
-    struct EvaluationValue final
-    {
-        int index{ -1 };
-        float turn{ kMinEvaluationValue };
-        float leg_rot{ kMinEvaluationValue };
-        float z_diff{ kMaxEvaluationValue };
+    float InitTargetZValue(const RobotStateNode& node, const DividedMapState& devide_map_state, const Vector3& move_direction) const;
 
-        std::string ToString() const;
-    };
+    float GetAmountOfTurnEvaluationValue(
+        const RobotStateNode& node,
+        const Quaternion& target_quat) const;
 
-    struct InitialValue final
-    {
-        Quaternion target_quat;
+    float GetLegRotEvaluationValue(
+        const RobotStateNode& node,
+        const RobotStateNode& root_node) const;
 
-        float target_z_value;
-    };
-
-    float InitTargetZValue(const RobotStateNode& node,
-                           const DividedMapState& devide_map_state,
-                           const Vector3& move_direction) const;
-
-    EvaluationResult UpdateEvaluationValueByAmountOfTurn(int index,
-                                                         const GaitPatternGraphTree& tree,
-                                                         const EvaluationValue& max_evaluation_value,
-                                                         const InitialValue& init_value,
-                                                         EvaluationValue* candiate) const;
-
-    EvaluationResult UpdateEvaluationValueByLegRot(int index,
-                                                   const GaitPatternGraphTree& tree,
-                                                   const EvaluationValue& max_evaluation_value,
-                                                   const InitialValue& init_value,
-                                                   EvaluationValue* candiate) const;
-
-    EvaluationResult UpdateEvaluationValueByZDiff(int index,
-                                                  const GaitPatternGraphTree& tree,
-                                                  const EvaluationValue& max_evaluation_value,
-                                                  const InitialValue& init_value,
-                                                  EvaluationValue* candiate) const;
+    float GetZDiffEvaluationValue(
+        const RobotStateNode& node,
+        const float target_z_value) const;
 
 
     const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+
+    GraphSearchEvaluator evaluator_;
 };
 
 }  // namespace designlab

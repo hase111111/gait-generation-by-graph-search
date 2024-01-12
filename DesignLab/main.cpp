@@ -45,17 +45,19 @@
 
 int main()
 {
+    // int main内では designlab:: を省略できる．
+    // 推奨されない書き方だが，可読性のため，ここでのみ使用する．
     using namespace designlab;
     using enum enums::OutputDetail;
 
     // まずは，設定ファイルを読み込む
-    designlab::CmdIOUtil::SetOutputLimit(designlab::enums::OutputDetail::kSystem);
+    CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
 
-    designlab::TomlDirectoryExporter toml_directory_exporter;
+    TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-    designlab::TomlFileImporter<designlab::ApplicationSettingRecord> application_setting_importer(
-        std::make_unique<designlab::ApplicationSettingRecordValidator>());
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
+        std::make_unique<ApplicationSettingRecordValidator>());
 
     // 読み込んだ設定ファイルをクラスに記録する．
     const auto application_setting_record =
@@ -100,8 +102,8 @@ int main()
         auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
         TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
-        const PhantomXMkIIParameterRecord parameter_record =
-            parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+        const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+
         auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
 
         auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderHato>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
