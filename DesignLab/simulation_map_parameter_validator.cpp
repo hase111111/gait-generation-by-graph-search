@@ -16,7 +16,7 @@ std::tuple<bool, std::string> SimulationMapParameterValidator::Validate(
         return { false, kErrMesPerforatedRange };
     }
 
-    if (toml_data.routh_min_height > toml_data.routh_max_height)
+    if (toml_data.rough_min_height > toml_data.rough_max_height)
     {
         return { false, kErrMesRoughnessMaxMin };
     }

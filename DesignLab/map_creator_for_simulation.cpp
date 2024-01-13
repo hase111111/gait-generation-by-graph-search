@@ -60,6 +60,16 @@ MapState MapCreatorForSimulation::InitMap()
             CreateLatticePointMap(&map_data);
             break;
         }
+        case enums::SimulationMapMode::kCircle:
+        {
+            CreateCircleMap(&map_data);
+            break;
+        }
+        case enums::SimulationMapMode::kDonut:
+        {
+            CreateDonutMap(&map_data);
+            break;
+        }
         default:
         {
             // 異常な値が入力されたら，平面のマップを生成する．
@@ -336,6 +346,72 @@ void MapCreatorForSimulation::CreateLatticePointMap(std::vector<Vector3>* map) c
     }
 }
 
+void MapCreatorForSimulation::CreateCircleMap(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    // 円が存在する範囲に脚設置可能点を敷き詰める．
+    // その後，円の外側の脚設置可能点を削除する．
+
+    const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
+    const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
+    const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
+    const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+
+    for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x)
+    {
+        for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y)
+        {
+            // ロボットの正面方向．
+            const float x_pos = x_min + x * MapState::kMapPointDistance;
+
+            // ロボットの側面方向．
+            const float y_pos = y_min + y * MapState::kMapPointDistance;
+
+            // 脚設置可能点を追加する．
+            const float distance = Vector2(x_pos, y_pos).GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+
+            if (distance <= messenger_.circle_radius)
+            {
+                map->push_back({ x_pos, y_pos, messenger_.base_z });
+            }
+        }
+    }
+}
+
+void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    // ドーナツが存在する範囲に脚設置可能点を敷き詰める．
+    // その後，ドーナツの外側の脚設置可能点を削除する．
+
+    const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
+    const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
+    const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
+    const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+
+    for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x)
+    {
+        for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y)
+        {
+            // ロボットの正面方向．
+            const float x_pos = x_min + x * MapState::kMapPointDistance;
+
+            // ロボットの側面方向．
+            const float y_pos = y_min + y * MapState::kMapPointDistance;
+
+            // 脚設置可能点を追加する．
+            const float distance = Vector2(x_pos, y_pos).GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+
+            if (messenger_.donut_radius <= distance && distance <= messenger_.circle_radius)
+            {
+                map->push_back({ x_pos, y_pos, messenger_.base_z });
+            }
+        }
+    }
+}
+
 void MapCreatorForSimulation::ChangeMapToPerforated(std::vector<Vector3>* map) const
 {
     assert(map != nullptr);  // map が nullptr でないことを確認する．
@@ -483,8 +559,8 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
     {
         // ランダムなZ座標を入れる．
         change_z_length.push_back(math_util::GenerateRandomNumber(
-            messenger_.routh_min_height,
-            messenger_.routh_max_height));
+            messenger_.rough_min_height,
+            messenger_.rough_max_height));
     }
 
     for (auto& i : *map)

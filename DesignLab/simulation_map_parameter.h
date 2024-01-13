@@ -26,6 +26,8 @@ enum class SimulationMapMode : int
     kDiagonalStripe,  //!< 斜めじまの面を生成する．
     kMesh,  //!< 格子状の面を生成する．網目状の地形ともいっていい．
     kLatticePoint,  //!< 格子点の面を生成する．網目状の逆．
+    kCircle,  //!< 円形の面を生成する．
+    kDonut,  //!< ドーナツ状の面を生成する．
 };
 
 //! @enum SimulationMapOption
@@ -144,8 +146,8 @@ public:
     {
         assert(height_min < height_max);
 
-        routh_min_height = height_min;
-        routh_max_height = height_max;
+        rough_min_height = height_min;
+        rough_max_height = height_max;
     }
 
     //!< マップ生成のモードを指定する列挙体．
@@ -167,8 +169,12 @@ public:
     float step_length{ 600.f };         //!< 階段の奥行[mm]
     float slope_angle{ 10.f };          //!< 斜面の傾斜角[deg]
     float tilt_angle{ 5.f };            //!< 地形を傾ける角度[deg]
-    float routh_max_height{ 30.f };     //!< デコボコな地形の最大高さ[mm]
-    float routh_min_height{ -30.f };    //!< デコボコな地形の最小高さ[mm]
+    float rough_max_height{ 30.f };     //!< デコボコな地形の最大高さ[mm]
+    float rough_min_height{ -30.f };    //!< デコボコな地形の最小高さ[mm]
+
+    Vector3 circle_center{ 0.f, 0.f, 0.f };  //!< 円 / ドーナツの中心座標．
+    float circle_radius{ 1000.f };           //!< 円 / ドーナツの半径．
+    float donut_radius{ 200.f };             //!< ドーナツの内側の半径．
 };
 
 
@@ -181,61 +187,52 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(mode,
         DESIGNLAB_TOML11_NO_TABLE,
         "生成するマップの種類．(\"" +
-        ::designlab::string_util::EnumValuesToString<enums::SimulationMapMode>("\" / \"") +
+        string_util::EnumValuesToString<enums::SimulationMapMode>("\" / \"") +
         "\")");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(option,
         DESIGNLAB_TOML11_NO_TABLE,
         "マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( " +
-        ::designlab::string_util::EnumEntriesToString<enums::SimulationMapOption>(" / ") +
+        string_util::EnumEntriesToString<enums::SimulationMapOption>(" / ") +
         " )");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(base_z,
-        "Basic", "マップの基準となるZ座標．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_x,
-        "Basic", "マップのX座標の最大値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_x,
-        "Basic", "マップのX座標の最小値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_y,
-        "Basic", "マップのY座標の最大値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_y,
-        "Basic", "マップのY座標の最小値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_start_rough_x,
-        "Basic", "不整地が始まるX座標．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(base_z, "Basic", "マップの基準となるZ座標．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_x, "Basic", "マップのX座標の最大値．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_x, "Basic", "マップのX座標の最小値．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_max_y, "Basic", "マップのY座標の最大値．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_min_y, "Basic", "マップのY座標の最小値．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_start_rough_x, "Basic", "不整地が始まるX座標．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(stripe_interval,
-        "Stripe", "各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ"
-                  "正方形状にあなをあける．0より大きくすること．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(stripe_interval, "Stripe",
+        "各種模様や穴を作成する際，これで指定したマス分(1マス20[mm])の1辺を持つ"
+        "正方形状にあなをあける．0より大きくすること．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(hole_rate,
-        "Perforated", "不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(hole_rate, "Perforated", "不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_height,
-        "Step", "段差高さ[mm]．負の値にすると下りの階段になる．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_length,
-        "Step", "階段の奥行[mm]．正の値にすること．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_height, "Step", "段差高さ[mm]．負の値にすると下りの階段になる．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_length, "Step", "階段の奥行[mm]．正の値にすること．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_angle,
-        "Slope", "斜面の傾斜角[deg]．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_angle, "Slope", "斜面の傾斜角[deg]．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(tilt_angle,
-        "Tilt", "地形を傾ける角度[deg]．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(tilt_angle, "Tilt", "地形を傾ける角度[deg]．");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(routh_max_height,
-        "Rough", "デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(routh_min_height,
-        "Rough", "デコボコな地形の最小高さ[mm]");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(rough_max_height, "Rough", "デコボコな地形の最大高さ[mm]．最小値より大きい値にすること．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(rough_min_height, "Rough", "デコボコな地形の最小高さ[mm]");
+
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_center, "Circle", "円 / ドーナツの中心座標．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_radius, "Circle", "円 / ドーナツの半径．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(donut_radius, "Circle", "ドーナツの内側の半径．");
 };
 
 }  // namespace designlab
 
 
 DESIGNLAB_TOML11_SERIALIZE(
-  designlab::SimulationMapParameter,
-  mode, option,
-  base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
-  stripe_interval,
-  hole_rate, step_height, step_length, slope_angle, tilt_angle, routh_max_height, routh_min_height
-);
+    designlab::SimulationMapParameter,
+    mode, option,
+    base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
+    stripe_interval,
+    hole_rate, step_height, step_length, slope_angle, tilt_angle, rough_max_height, rough_min_height,
+    circle_center, circle_radius, donut_radius);
 
 
 #endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
