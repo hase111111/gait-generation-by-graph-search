@@ -4,6 +4,7 @@
 
 #include "node_initializer.h"
 
+#include "math_rot_converter.h"
 #include "math_util.h"
 #include "leg_state.h"
 #include "phantomx_mk2_const.h"
@@ -12,8 +13,10 @@
 namespace designlab
 {
 
-NodeInitializer::NodeInitializer(const Vector3& pos, enums::HexapodMove move) :
-    pos_(pos), move_(move)
+NodeInitializer::NodeInitializer(const Vector3& pos, const EulerXYZ& posture, enums::HexapodMove move) :
+    pos_(pos),
+    posture_(posture),
+    move_(move)
 {
 }
 
@@ -45,7 +48,7 @@ RobotStateNode NodeInitializer::InitNode() const
     res.center_of_mass_global_coord = pos_;
 
     // ロールピッチヨーで回転を表現する．ロボットの重心を中心にして回転する．
-    res.posture = Quaternion::MakeByAngleAxis(0.f, Vector3::GetUpVec());
+    res.posture = ToQuaternion(posture_);
 
     res.next_move = move_;
     res.parent_index = -1;

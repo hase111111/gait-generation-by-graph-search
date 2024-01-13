@@ -5,13 +5,13 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kPosture" 
+    end_check_mode = "kPosture"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 1200.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
-    target_position = "   500, 500, 0"
+    target_position = "     0.000,     0.000,     0.000"
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標の許容誤差を設定します．[mm]
     target_position_allowable_error = 50.0
@@ -27,19 +27,22 @@
     #シミュレーション開始時のロボットの歩容を設定します．( "kNone" / "kLegUpDown" / "kLegHierarchyChange" / "kComMove" / "kComUpDown" / "kBodyPitchRot" / "kBodyYawRot" )
     initial_move = "kComMove"
     
-    #シミュレーション開始時のロボットの位置を設定します．[mm]
-    initial_positions = " 0, 0, 100"
+    #シミュレーション開始時のロボットの位置を設定します．[mm]．地面にめり込んでいる場合には機能しないため，注意すること．
+    initial_positions = "     0.000,    0.000,     30.000"
+    
+    #シミュレーション開始時のロボットの姿勢を設定します．[deg]．地面にめり込んでいる場合には機能しないため，注意すること．
+    initial_posture = "     0.000,     0.000,     0.000"
     
 #マップについての設定です．
 [Map]
     
     #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kForSimulation" 
+    map_create_mode = "kForSimulation"
     
-    #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップのcsvファイルの名前を設定します．
-    map_file_name = "MMCunevenness-170-10.csv"
+    #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
+    map_file_name = "map_state.csv"
     
-    #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述したtomlファイルの名前を設定します．
+    #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．
     simulation_map_param_file_name = "simulation_map.toml"
     
 #ロボットの操作方法の設定です．
@@ -49,11 +52,11 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kFixed" 
+    operate_mode = "kFixed"
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
-    "  1200.000,     0.000,     0.000",
-    "0, 0, 0",
+    "     0.000,     0.000,     0.000",
+    "  1000.000,     0.000,     0.000",
     ]
     

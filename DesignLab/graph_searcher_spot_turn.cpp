@@ -152,7 +152,7 @@ GraphSearchEvaluator GraphSearcherSpotTurn::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 10.0f,
+        .margin = 5.0f,
     };
 
     GraphSearchEvaluator ret({ {kTagAmountOfTurn, amount_of_turn_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },

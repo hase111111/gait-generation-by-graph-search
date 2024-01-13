@@ -133,7 +133,9 @@ int main()
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
                 auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
-                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
+                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
+                                                                          simulation_setting_record.initial_posture,
+                                                                          simulation_setting_record.initial_move);
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),

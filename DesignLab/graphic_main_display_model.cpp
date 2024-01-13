@@ -33,7 +33,7 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     calculator_ptr_(calculator_ptr),
     converter_ptr_(converter_ptr)
 {
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
     robot_ = node_initializer.InitNode();
 
     const SimulationMapParameter messanger;

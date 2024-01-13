@@ -18,15 +18,17 @@ namespace designlab
 class NodeInitializer final
 {
 public:
-    NodeInitializer(const Vector3& pos, enums::HexapodMove move);
+    NodeInitializer(const Vector3& pos, const EulerXYZ& posture_,
+                    enums::HexapodMove move);
 
     //! @brief ノードの初期化を行う．
     //! @return 初期化されたノード．
     RobotStateNode InitNode() const;
 
 private:
-    Vector3 pos_;
-    enums::HexapodMove move_;
+    const Vector3 pos_;
+    const EulerXYZ posture_;
+    const enums::HexapodMove move_;
 };
 
 }  // namespace designlab
