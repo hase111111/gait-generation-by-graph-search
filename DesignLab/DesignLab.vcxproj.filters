@@ -330,7 +330,7 @@
     <ClInclude Include="interface_node_creator_builder.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_hato.h">
+    <ClInclude Include="node_creator_builder_straight_move.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
@@ -393,7 +393,7 @@
     <ClInclude Include="array_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="com_selecter_hato.h">
+    <ClInclude Include="com_selector.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="divided_map_state.h">
@@ -764,7 +764,7 @@
     <ClCompile Include="math_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_hato.cpp">
+    <ClCompile Include="node_creator_builder_straight_move.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="math_rotation_matrix.cpp">
@@ -809,7 +809,7 @@
     <ClCompile Include="math_rot_converter.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="com_selecter_hato.cpp">
+    <ClCompile Include="com_selector.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
     <ClCompile Include="divided_map_state.cpp">

@@ -11,7 +11,7 @@
 #include "node_creator_com_move.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
-#include "node_creator_leg_up_down.h"
+#include "node_creator_leg_up_down_2d.h"
 
 
 namespace designlab
@@ -38,17 +38,17 @@ void NodeCreatorBuilderTurnSpot::Build(
       enums::DiscreteLegPos::kBack,
       enums::DiscreteLegPos::kCenter,
       enums::DiscreteLegPos::kFront,
-      enums::DiscreteLegPos::kLowerBack,
-      enums::DiscreteLegPos::kLowerFront,
-      enums::DiscreteLegPos::kUpperBack,
-      enums::DiscreteLegPos::kUpperFront
+      // enums::DiscreteLegPos::kLowerBack,
+      // enums::DiscreteLegPos::kLowerFront,
+      // enums::DiscreteLegPos::kUpperBack,
+      // enums::DiscreteLegPos::kUpperFront
     };
 
     (*node_creator)[enums::HexapodMove::kLegHierarchyChange] =
         std::make_unique<NodeCreatorLegHierarchy>(enums::HexapodMove::kLegUpDown,
                                                   hierarchy_list);
 
-    (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+    (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown2d>(
       map,
       converter_ptr_,
       presenter_ptr_,

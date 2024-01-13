@@ -2,7 +2,7 @@
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#include "node_creator_builder_hato.h"
+#include "node_creator_builder_straight_move.h"
 
 #include <vector>
 
@@ -18,7 +18,7 @@
 namespace designlab
 {
 
-NodeCreatorBuilderHato::NodeCreatorBuilderHato(
+NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
@@ -28,7 +28,7 @@ NodeCreatorBuilderHato::NodeCreatorBuilderHato(
 {
 }
 
-void NodeCreatorBuilderHato::Build(
+void NodeCreatorBuilderStraightMove::Build(
   const DividedMapState& map,
   std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {

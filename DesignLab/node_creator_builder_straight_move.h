@@ -1,10 +1,10 @@
 ﻿
-//! @file      node_creator_builder_hato.h
+//! @file      node_creator_builder_straight_move.h
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#ifndef DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
-#define DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
+#ifndef DESIGNLAB_NODE_CREATOR_BUILDER_STRAIGHT_MOVE_H_
+#define DESIGNLAB_NODE_CREATOR_BUILDER_STRAIGHT_MOVE_H_
 
 #include <map>
 #include <memory>
@@ -15,12 +15,12 @@
 namespace designlab
 {
 
-//! @class NodeCreatorBuilderHato
+//! @class NodeCreatorBuilderStraightMove
 //! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
-class NodeCreatorBuilderHato final : public INodeCreatorBuilder
+class NodeCreatorBuilderStraightMove final : public INodeCreatorBuilder
 {
 public:
-    NodeCreatorBuilderHato(
+    NodeCreatorBuilderStraightMove(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
@@ -38,4 +38,4 @@ private:
 }  // namespace designlab
 
 
-#endif  // DESIGNLAB_NODE_CREATOR_BUILDER_HATO_H_
+#endif  // DESIGNLAB_NODE_CREATOR_BUILDER_STRAIGHT_MOVE_H_
