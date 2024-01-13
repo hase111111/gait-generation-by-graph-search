@@ -18,49 +18,27 @@ namespace designlab
 {
 
 NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
-  const DividedMapState& devide_map,
+  const DividedMapState& divided_map,
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
   enums::HexapodMove next_move) :
     kLegMargin(20),
-    map_(devide_map),
+    map_(divided_map),
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
     checker_ptr_(checker_ptr),
     next_move_(next_move)
 {
+    assert(converter_ptr_ != nullptr);
+    assert(presenter_ptr_ != nullptr);
+    assert(checker_ptr_ != nullptr);
 };
 
 void NodeCreatorLegUpDown2d::Create(const RobotStateNode& current_node,
                                     int current_node_index,
                                     std::vector<RobotStateNode>* output_graph) const
 {
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 0) == enums::DiscreteLegPos::kFront);
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 1) == enums::DiscreteLegPos::kFront);
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 2) == enums::DiscreteLegPos::kFront);
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 3) == enums::DiscreteLegPos::kFront);
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 4) == enums::DiscreteLegPos::kFront);
-    assert(
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kBack ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kCenter ||
-      leg_func::GetDiscreteLegPos(current_node.leg_state, 5) == enums::DiscreteLegPos::kFront);
-
     // 脚の遊脚・接地によって生じるとりうる重心を com type として仕分けている．
     // (詳しくは com_type.h を参照)．
     // vector<bool>を使用したいが，vector<bool>はテンプレートの特殊化で
@@ -263,14 +241,12 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num,
     return true;
 }
 
-bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_index) const
+bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, const int leg_index) const
 {
-    const enums::DiscreteLegPos discrete_leg_pos =
-        leg_func::GetDiscreteLegPos(node.leg_state, leg_index);  // 脚位置を取得．
+    const enums::DiscreteLegPos discrete_leg_pos = ConvertTo2D(leg_func::GetDiscreteLegPos(node.leg_state, leg_index));  // 脚位置を取得．
 
     // まず最初に脚位置4のところにないか確かめる．
-    if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() <
-        math_util::Squared(kLegMargin))
+    if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() < math_util::Squared(kLegMargin))
     {
         if (discrete_leg_pos == enums::DiscreteLegPos::kCenter)
         {
@@ -290,9 +266,7 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_in
     }
 
     // 脚位置4と比較して前か後ろか．
-    if (node.leg_reference_pos[leg_index].ProjectedXY()
-        .Cross(node.leg_pos[leg_index].ProjectedXY()) *
-        node.leg_pos[leg_index].ProjectedXY().Cross({ 1, 0 }) > 0)
+    if (node.leg_reference_pos[leg_index].ProjectedXY().Cross(node.leg_pos[leg_index].ProjectedXY()) * node.leg_pos[leg_index].ProjectedXY().Cross({ 1, 0 }) > 0)
     {
         // 前．
         if (discrete_leg_pos == enums::DiscreteLegPos::kBack)
@@ -310,6 +284,41 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, int leg_in
     }
 
     return true;
+}
+
+enums::DiscreteLegPos NodeCreatorLegUpDown2d::ConvertTo2D(enums::DiscreteLegPos leg_pos) const
+{
+    switch (leg_pos)
+    {
+        case enums::DiscreteLegPos::kBack:
+        case enums::DiscreteLegPos::kCenter:
+        case enums::DiscreteLegPos::kFront:
+        {
+            // 2Dの場合はそのまま返す．
+            return leg_pos;
+        }
+
+        case enums::DiscreteLegPos::kLowerBack:
+        case enums::DiscreteLegPos::kUpperBack:
+        {
+            // 3Dの場合は2Dに変換する．
+            return enums::DiscreteLegPos::kBack;
+        }
+
+        case enums::DiscreteLegPos::kLowerFront:
+        case enums::DiscreteLegPos::kUpperFront:
+        {
+            // 同様に，3Dの場合は2Dに変換する．
+            return enums::DiscreteLegPos::kFront;
+        }
+
+        default:
+        {
+            // ここに来た場合はアサートを発生させる．
+            assert(false);
+            return enums::DiscreteLegPos::kCenter;
+        }
+    }
 }
 
 }  // namespace designlab

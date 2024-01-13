@@ -9,6 +9,7 @@
 #include <memory>
 #include <vector>
 
+#include "discrete_leg_pos.h"
 #include "divided_map_state.h"
 #include "hexapod_next_move.h"
 #include "interface_hexapod_coordinate_converter.h"
@@ -55,6 +56,7 @@ private:
     //! これらを利用して候補点が離散化した脚位置に適しているか調べる．
     bool IsAbleLegPos(const RobotStateNode& node, int leg_num) const;
 
+    enums::DiscreteLegPos ConvertTo2D(enums::DiscreteLegPos leg_pos) const;
 
     const float kLegMargin;  //!< これだけ動かせば現在の脚位置でも届くのならば，脚位置4判定となる．
 
