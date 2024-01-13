@@ -89,7 +89,7 @@
     <ClInclude Include="simulation_end_checker_by_posture.h" />
     <ClInclude Include="simulation_end_checker_factory.h" />
     <ClInclude Include="simulation_map_parameter.h" />
-    <ClInclude Include="node_creator_builder_rot_test.h" />
+    <ClInclude Include="node_creator_builder_turn.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="com_selector.h" />
     <ClInclude Include="node_creator_com_up_down.h" />
@@ -211,7 +211,7 @@
     <ClCompile Include="math_rot_converter.cpp" />
     <ClCompile Include="string_util.cpp" />
     <ClCompile Include="divided_map_state.cpp" />
-    <ClCompile Include="node_creator_builder_rot_test.cpp" />
+    <ClCompile Include="node_creator_builder_turn.cpp" />
     <ClCompile Include="node_initializer.cpp" />
     <ClCompile Include="com_selector.cpp" />
     <ClCompile Include="node_creator_com_up_down.cpp" />

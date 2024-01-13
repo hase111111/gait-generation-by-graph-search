@@ -417,7 +417,7 @@
     <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_rot_test.h">
+    <ClInclude Include="node_creator_builder_turn.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="font_loader.h">
@@ -821,7 +821,7 @@
     <ClCompile Include="node_creator_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_rot_test.cpp">
+    <ClCompile Include="node_creator_builder_turn.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="font_loader.cpp">

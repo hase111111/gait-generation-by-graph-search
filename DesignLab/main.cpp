@@ -24,7 +24,7 @@
 #include "graphic_main_graph_viewer.h"
 #include "graphic_main_display_model.h"
 #include "graphic_system.h"
-#include "node_creator_builder_rot_test.h"
+#include "node_creator_builder_turn.h"
 #include "node_creator_builder_turn_spot.h"
 #include "node_creator_builder_straight_move.h"
 #include "map_creator_factory.h"
