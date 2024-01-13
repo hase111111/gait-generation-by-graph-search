@@ -11,6 +11,7 @@
 #include <string>
 
 #include "interface_graph_searcher.h"
+#include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_posture_validator.h"
 
 
@@ -24,7 +25,9 @@ class GraphSearcherSpotTurn final : public IGraphSearcher
     using Tag = GraphSearchEvaluationValue::Tag;
 
 public:
-    explicit GraphSearcherSpotTurn(const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+    GraphSearcherSpotTurn(
+        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+        const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
     std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> SearchGraphTree(
         const GaitPatternGraphTree& graph,
@@ -46,7 +49,7 @@ private:
 
     GraphSearchEvaluator InitializeEvaluator() const;
 
-    float InitTargetZValue(const RobotStateNode& node, const DividedMapState& devide_map_state, const Vector3& move_direction) const;
+    float InitTargetZValue(const RobotStateNode& node, const DividedMapState& devide_map_state, const Quaternion& target_quat) const;
 
     float GetAmountOfTurnEvaluationValue(
         const RobotStateNode& node,
@@ -61,6 +64,7 @@ private:
         const float target_z_value) const;
 
 
+    const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
     GraphSearchEvaluator evaluator_;

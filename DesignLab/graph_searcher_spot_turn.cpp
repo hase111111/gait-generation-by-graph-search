@@ -14,7 +14,9 @@ namespace designlab
 {
 
 GraphSearcherSpotTurn::GraphSearcherSpotTurn(
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
+    converter_ptr_(converter_ptr),
     checker_ptr_(checker_ptr),
     evaluator_(InitializeEvaluator())
 {
@@ -47,7 +49,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         assert(false);
     }
 
-    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, { 0, 0, 0 });
+    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, target_quat);
 
 
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
@@ -65,11 +67,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 
         candidate_evaluation_value.value.at(kTagAmountOfTurn) = GetAmountOfTurnEvaluationValue(graph.GetNode(i), target_quat);
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagAmountOfTurn)) { continue; }
-
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
-
         candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
 
         // 評価値を比較する．
@@ -154,7 +152,7 @@ GraphSearchEvaluator GraphSearcherSpotTurn::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 0.0f,
+        .margin = 10.0f,
     };
 
     GraphSearchEvaluator ret({ {kTagAmountOfTurn, amount_of_turn_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
@@ -165,12 +163,8 @@ GraphSearchEvaluator GraphSearcherSpotTurn::InitializeEvaluator() const
 
 float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
                                               const DividedMapState& divided_map_state,
-                                              const Vector3& move_direction) const
+                                              const Quaternion& target_quat) const
 {
-    const float move_length = 100.0f;
-
-    const Vector3 target_position = move_direction * move_length;
-
     const int div = 50;
     const float min_z = -150.0f;
     const float max_z = 150.0f;
@@ -180,11 +174,11 @@ float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
         const float z = min_z + (max_z - min_z) / static_cast<float>(div) * static_cast<float>(i);
 
         Vector3 pos = node.center_of_mass_global_coord;
-        pos += target_position;
         pos.z += z;
 
         RobotStateNode temp_node = node;
         temp_node.ChangeGlobalCenterOfMass(pos, false);
+        temp_node.ChangePosture(converter_ptr_, target_quat);
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {

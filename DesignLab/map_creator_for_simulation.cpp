@@ -571,12 +571,12 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
         }
 
         // マスで区切るとどこに位置するかを調べる．
-        const int cell_pos_x = static_cast<int>(
-            (i.x - messenger_.map_start_rough_x) / MapState::kMapPointDistance) /
+        const int cell_pos_x = static_cast<int>((i.x - messenger_.map_start_rough_x) /
+            MapState::kMapPointDistance) /
             messenger_.stripe_interval;
 
-        const int cell_pos_y = static_cast<int>(
-            (i.y - messenger_.map_min_y) / MapState::kMapPointDistance) /
+        const int cell_pos_y = static_cast<int>((i.y - messenger_.map_min_y) /
+            MapState::kMapPointDistance) /
             messenger_.stripe_interval;
 
         const int cell_index = cell_pos_x * cell_num_y + cell_pos_y;

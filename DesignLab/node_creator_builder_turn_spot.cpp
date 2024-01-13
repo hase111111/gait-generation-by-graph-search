@@ -44,9 +44,7 @@ void NodeCreatorBuilderTurnSpot::Build(
       // enums::DiscreteLegPos::kUpperFront
     };
 
-    (*node_creator)[enums::HexapodMove::kLegHierarchyChange] =
-        std::make_unique<NodeCreatorLegHierarchy>(enums::HexapodMove::kLegUpDown,
-                                                  hierarchy_list);
+    (*node_creator)[enums::HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(enums::HexapodMove::kLegUpDown, hierarchy_list);
 
     (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown2d>(
       map,
@@ -60,7 +58,7 @@ void NodeCreatorBuilderTurnSpot::Build(
       converter_ptr_,
       checker_ptr_,
       Vector3::GetUpVec(),
-      enums::HexapodMove::kLegHierarchyChange);
+      enums::HexapodMove::kComUpDown);
 
     (*node_creator)[enums::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
       map,
