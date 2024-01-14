@@ -1,5 +1,5 @@
 #生成するマップの種類．("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kMesh" / "kLatticePoint" / "kCircle" / "kDonut")
-mode = "kDonut"
+mode = "kCircle"
 
 #マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 )
 option = 8
@@ -51,7 +51,7 @@ option = 8
 [Slope]
     
     #斜面の傾斜角[deg]．
-    slope_angle = 10.0
+    slope_angle = 0.0
 
 [Step]
     
@@ -69,5 +69,5 @@ option = 8
 [Tilt]
     
     #地形を傾ける角度[deg]．
-    tilt_angle = 5.0
+    tilt_angle = 15.0
     

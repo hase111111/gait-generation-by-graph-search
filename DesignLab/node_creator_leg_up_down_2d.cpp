@@ -240,7 +240,7 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node, const int 
     const enums::DiscreteLegPos discrete_leg_pos = ConvertTo2D(leg_func::GetDiscreteLegPos(node.leg_state, leg_index));  // 脚位置を取得．
 
     // まず最初に脚位置4のところにないか確かめる．
-    if ((node.leg_reference_pos[leg_index] - node.leg_pos[leg_index]).GetSquaredLength() < math_util::Squared(kLegMargin))
+    if ((node.leg_reference_pos[leg_index].ProjectedXY() - node.leg_pos[leg_index].ProjectedXY()).GetSquaredLength() < math_util::Squared(kLegMargin))
     {
         if (discrete_leg_pos == enums::DiscreteLegPos::kCenter)
         {

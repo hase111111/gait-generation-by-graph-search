@@ -146,26 +146,26 @@ GraphSearchEvaluator GraphSearcherSpotTurn::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod leg_rot_method =
     {
         .is_lower_better = false,
-        .margin = 0.0f,
+        .margin = 50.0f,
     };
 
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 5.0f,
+        .margin = 1.0f,
     };
 
     GraphSearchEvaluator ret({ {kTagAmountOfTurn, amount_of_turn_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
-                             { kTagZDiff, kTagAmountOfTurn, kTagLegRot });
+                             { kTagAmountOfTurn, kTagLegRot, kTagZDiff, });
 
     return ret;
 }
 
 float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
                                               const DividedMapState& divided_map_state,
-                                              const Quaternion& target_quat) const
+                                              [[maybe_unused]] const Quaternion& target_quat) const
 {
-    const int div = 50;
+    const int div = 60;
     const float min_z = -150.0f;
     const float max_z = 150.0f;
 
@@ -182,6 +182,7 @@ float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {
+            std::cout << "z = " << node.center_of_mass_global_coord.z + z << std::endl;
             return node.center_of_mass_global_coord.z + z;
         }
     }
