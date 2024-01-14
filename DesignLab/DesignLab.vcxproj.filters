@@ -627,6 +627,9 @@
     <ClInclude Include="graph_search_evaluator_test.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
     </ClInclude>
+    <ClInclude Include="graph_searcher_turn.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -924,6 +927,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="graph_search_evaluator.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_searcher_turn.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>

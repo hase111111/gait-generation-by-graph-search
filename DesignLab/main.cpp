@@ -56,13 +56,10 @@ int main()
     TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
-        std::make_unique<ApplicationSettingRecordValidator>());
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
 
     // 読み込んだ設定ファイルをクラスに記録する．
-    const auto application_setting_record =
-        std::make_shared<const ApplicationSettingRecord>(
-        application_setting_importer.ImportOrUseDefault("./settings.toml"));
+    const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));
 
 
     // 次に，コマンドラインの出力を設定する．

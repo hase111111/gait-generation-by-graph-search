@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="application_setting_record_validator.h" />
     <ClInclude Include="asyncable_data_test.h" />
+    <ClInclude Include="graph_searcher_turn.h" />
     <ClInclude Include="graph_search_evaluator.h" />
     <ClInclude Include="graph_search_evaluator_test.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
+    <ClCompile Include="graph_searcher_turn.cpp" />
     <ClCompile Include="graph_search_evaluator.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="main.cpp" />
