@@ -74,6 +74,9 @@ private:
     //! 生成されたマップをデコボコにする．
     void ChangeMapToRough(std::vector<Vector3>* map) const;
 
+    //! 生成されたマップに放射状の穴をあける．
+    void ChangeMapToRadial(std::vector<Vector3>* map) const;
+
 
     const SimulationMapParameter messenger_;  //!< マップ生成のモードを指定する列挙体．
 };

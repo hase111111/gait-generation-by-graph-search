@@ -46,6 +46,7 @@ enum class SimulationMapOption : unsigned int
     kSlope = 1 << 2,        //!< スロープ状の地形に変化させる．
     kTilt = 1 << 3,         //!< 縦軸を中心軸として回転させた地形に変化させる．
     kRough = 1 << 4,        //!< 凸凹の地形に変化させる．
+    kRadiation = 1 << 5,    //!< 放射状の地形に変化させる．
 };
 
 }  // namespace designlab::enums
@@ -175,6 +176,11 @@ public:
     Vector3 circle_center{ 0.f, 0.f, 0.f };  //!< 円 / ドーナツの中心座標．
     float circle_radius{ 1000.f };           //!< 円 / ドーナツの半径．
     float donut_radius{ 200.f };             //!< ドーナツの内側の半径．
+
+    Vector2 radial_center{ 0.f, 0.f };  //!< 放射状の地形の中心座標．
+    int radial_division{ 10 };  //!< 放射状の地形の分割数．
+    int radial_hole_rate{ 100 };  //!< 放射状の地形のホール率[%]．
+    float radial_angle_offset{ 0.0 };  //!< 放射状の地形の角度オフセット[deg]．
 };
 
 
@@ -221,6 +227,11 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter)
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_center, "Circle", "円 / ドーナツの中心座標．");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_radius, "Circle", "円 / ドーナツの半径．");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(donut_radius, "Circle", "ドーナツの内側の半径．");
+
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(radial_center, "Radial", "放射状の地形の中心座標．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(radial_division, "Radial", "放射状の地形の分割数．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(radial_hole_rate, "Radial", "放射状の地形のホール率[%]．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(radial_angle_offset, "Radial", "放射状の地形の角度オフセット[deg]．");
 };
 
 }  // namespace designlab
@@ -232,7 +243,8 @@ DESIGNLAB_TOML11_SERIALIZE(
     base_z, map_max_x, map_min_x, map_max_y, map_min_y, map_start_rough_x,
     stripe_interval,
     hole_rate, step_height, step_length, slope_angle, tilt_angle, rough_max_height, rough_min_height,
-    circle_center, circle_radius, donut_radius);
+    circle_center, circle_radius, donut_radius,
+    radial_center, radial_division, radial_hole_rate, radial_angle_offset);
 
 
 #endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

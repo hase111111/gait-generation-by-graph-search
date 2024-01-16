@@ -110,6 +110,12 @@ MapState MapCreatorForSimulation::InitMap()
         ChangeMapToRough(&map_data);
     }
 
+    if (messenger_.option & static_cast<unsigned int>(enums::SimulationMapOption::kRadiation))
+    {
+        // 放射状に穴をあける．
+        ChangeMapToRadial(&map_data);
+    }
+
     return MapState(map_data);
 }
 
@@ -585,6 +591,43 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
         if (0 <= cell_index && cell_index < change_z_length.size())
         {
             i.z += change_z_length[cell_index];
+        }
+    }
+}
+
+void MapCreatorForSimulation::ChangeMapToRadial(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    const float divided_angle = std::numbers::pi_v<float> / messenger_.radial_division;
+
+    for (auto itr = (*map).begin(); itr != (*map).end();)
+    {
+        // 放射状の穴あけの中心からの角度を計算する．
+        const float angle = atan2((*itr).y - messenger_.radial_center.y, (*itr).x - messenger_.radial_center.x) +
+            std::numbers::pi_v<float> +math_util::ConvertDegToRad(messenger_.radial_angle_offset);
+
+        if (static_cast<int>(angle / divided_angle) % 2 == 1)
+        {
+            const int i = static_cast<int>(angle / divided_angle);  // 何番目の角度かを計算する．
+            const float angle_dif = angle - i * divided_angle;      // 何番目の角度からの差を計算する．
+
+            // 角度の差がホール率より小さい場合は消す．
+            if (angle_dif < divided_angle * messenger_.radial_hole_rate / 100)
+            {
+                // 脚設置可能点を消してイテレータを更新する．
+                itr = (*map).erase(itr);
+            }
+            else
+            {
+                // 消さないならば次へ移動する．
+                itr++;
+            }
+        }
+        else
+        {
+            // 消さないならば次へ移動する．
+            itr++;
         }
     }
 }

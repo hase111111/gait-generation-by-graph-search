@@ -1,8 +1,8 @@
 #生成するマップの種類．("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kMesh" / "kLatticePoint" / "kCircle" / "kDonut")
-mode = "kCircle"
+mode = "kFlat"
 
-#マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 )
-option = 8
+#マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 / kRadiation = 32 )
+option = 4
 
 [Basic]
     
@@ -22,23 +22,40 @@ option = 8
     map_min_y = -2000.0
     
     #不整地が始まるX座標．
-    map_start_rough_x = -2000.0
+    map_start_rough_x = 400.0
 
 [Circle]
     
-    #円の中心座標．
+    #円 / ドーナツの中心座標．
     circle_center = "     0.000,     0.000,     0.000"
     
-    #円の半径．
+    #円 / ドーナツの半径．
     circle_radius = 1000.0
     
-    #ドーナツの半径．
+    #ドーナツの内側の半径．
     donut_radius = 200.0
 
 [Perforated]
     
     #不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．
     hole_rate = 20
+
+[Radial]
+    
+    #放射状の地形の角度オフセット[deg]．
+    radial_angle_offset = 7.5
+    
+    #放射状の地形の中心座標．
+    radial_center = "     0.000,     0.000"
+    
+    #放射状の地形の分割数．
+    radial_division = 12
+    
+    #放射状の地形のホール率[%]．
+    radial_hole_rate = 100
+
+#12 , 7.5[deg]
+# 1 , 15.0[deg] 15%
 
 [Rough]
     
@@ -51,15 +68,15 @@ option = 8
 [Slope]
     
     #斜面の傾斜角[deg]．
-    slope_angle = 0.0
+    slope_angle = 10.0
 
 [Step]
     
     #段差高さ[mm]．負の値にすると下りの階段になる．
-    step_height = 100.0
+    step_height = 130.0
     
     #階段の奥行[mm]．正の値にすること．
-    step_length = 600.0
+    step_length = 2000.0
 
 [Stripe]
     
@@ -69,5 +86,5 @@ option = 8
 [Tilt]
     
     #地形を傾ける角度[deg]．
-    tilt_angle = 15.0
+    tilt_angle = 10.0
     

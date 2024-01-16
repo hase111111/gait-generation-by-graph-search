@@ -5,7 +5,7 @@
 [EndChecker]
     
     #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kPosture"
+    end_check_mode = "kGoalTape"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
     goal_tape_position_x = 1200.0
@@ -28,7 +28,7 @@
     initial_move = "kLegHierarchyChange"
     
     #シミュレーション開始時のロボットの位置を設定します．[mm]．地面にめり込んでいる場合には機能しないため，注意すること．
-    initial_positions = "     0.000,    0.000,     130.000"
+    initial_positions = "     0.000,    0.000,     160.000"
     
     #シミュレーション開始時のロボットの姿勢を設定します．[deg]．地面にめり込んでいる場合には機能しないため，注意すること．
     initial_posture = "     0.000,     0.000,     0.000"
@@ -52,11 +52,13 @@
     fixed_operate_file_name = "robot_operator.toml"
     
     #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kFixed"
+    operate_mode = "kForPath"
     
     #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
     path_points = [
     "     0.000,     0.000,     0.000",
-    "  1000.000,     0.000,     0.000",
+    "  1150.000,     0.000,     0.000",
+    "  1000.000,   500.000,     0.000",
+    "  1500.000,   500.000,     0.000",
     ]
     

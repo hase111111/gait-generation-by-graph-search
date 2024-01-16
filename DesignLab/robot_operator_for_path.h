@@ -28,7 +28,7 @@ public:
 
 private:
     //! 目標角度と現在の角度の許容誤差．
-    static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };
+    static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(1.2f) };
 
     std::vector<Vector3> global_route_;  //!< グローバルパス．
     int most_near_index_{ 0 };
