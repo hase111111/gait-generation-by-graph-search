@@ -53,21 +53,13 @@ int main()
     using enum enums::OutputDetail;
 
     // まずは，設定ファイルを読み込む
-<<<<<<< HEAD
     CmdIOUtil::SetOutputLimit(kSystem);
-=======
-    CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
->>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
 
     TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-<<<<<<< HEAD
-    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
-        std::make_unique<ApplicationSettingRecordValidator>());
-=======
     TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
->>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
+
 
     // 読み込んだ設定ファイルをクラスに記録する．
     const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));

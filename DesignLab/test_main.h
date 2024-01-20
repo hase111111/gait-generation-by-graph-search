@@ -9,12 +9,7 @@
 
 
 // ↓テストを使用しない場合コメントアウトすること．
-<<<<<<< HEAD
 //#define DESIGNLAB_USE_TEST
-=======
-// #define DESIGNLAB_USE_TEST
->>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
-
 
 
 #if defined(DESIGNLAB_USE_TEST)

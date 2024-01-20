@@ -151,6 +151,12 @@
     <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Test">
       <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\SerialCommunication">
+      <UniqueIdentifier>{c320f2ea-8590-44db-93d8-ce8c6b7a84e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\RobotControl">
+      <UniqueIdentifier>{06cb33da-eddd-4c1e-bda0-3c6604b38800}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leg_state.h">
@@ -630,6 +636,18 @@
     <ClInclude Include="graph_searcher_turn.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
+    <ClInclude Include="serial_communication_thread.h">
+      <Filter>ソース ファイル\SerialCommunication</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main_robot_control.h">
+      <Filter>ソース ファイル\System\RobotControl</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_robot_control.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_main_robot_control.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -931,6 +949,18 @@
     </ClCompile>
     <ClCompile Include="graph_searcher_turn.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="serial_communication_thread.cpp">
+      <Filter>ソース ファイル\SerialCommunication</Filter>
+    </ClCompile>
+    <ClCompile Include="system_main_robot_control.cpp">
+      <Filter>ソース ファイル\System\RobotControl</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib_gui_robot_control.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic_main_robot_control.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -36,7 +36,7 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     assert(converter_ptr_ != nullptr);
     assert(calculator_ptr_ != nullptr);
 
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, {0.f, 0.f, 0.f}, enums::HexapodMove::kNone };
     robot_ = node_initializer.InitNode();
 
     const SimulationMapParameter map_param;

@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClInclude Include="application_setting_record_validator.h" />
     <ClInclude Include="asyncable_data_test.h" />
+    <ClInclude Include="dxlib_gui_robot_control.h" />
+    <ClInclude Include="graphic_main_robot_control.h" />
     <ClInclude Include="graph_searcher_turn.h" />
     <ClInclude Include="graph_search_evaluator.h" />
     <ClInclude Include="graph_search_evaluator_test.h" />
@@ -28,6 +30,7 @@
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
+    <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="application_setting_record.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
+    <ClInclude Include="system_main_robot_control.h" />
     <ClInclude Include="system_main_simulation.h" />
     <ClInclude Include="system_main_graph_viewer.h" />
     <ClInclude Include="robot_operation.h" />
@@ -183,11 +187,13 @@
     <ClCompile Include="application_setting_record_validator.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
+    <ClCompile Include="dxlib_gui_robot_control.cpp" />
     <ClCompile Include="dxlib_gui_terminal.cpp" />
     <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="gait_pattern_generator_switch_move.cpp" />
     <ClCompile Include="gait_pattern_generator_thread.cpp" />
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
+    <ClCompile Include="graphic_main_robot_control.cpp" />
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="graph_searcher_turn.cpp" />
@@ -205,6 +211,7 @@
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
     <ClCompile Include="robot_operator_for_path.cpp" />
+    <ClCompile Include="serial_communication_thread.cpp" />
     <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_dragger.cpp" />
     <ClCompile Include="dxlib_gui_camera.cpp" />
@@ -271,6 +278,7 @@
     <ClCompile Include="robot_ground_point_renderer.cpp" />
     <ClCompile Include="simulation_result_record.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />
+    <ClCompile Include="system_main_robot_control.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="math_vector3.cpp" />
