@@ -142,20 +142,14 @@
     <Filter Include="ソース ファイル\Common\TomlFileIO">
       <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface">
-      <UniqueIdentifier>{6335a7de-59b3-4cf8-94a6-1ea84bad89ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common\Math\Test">
       <UniqueIdentifier>{6a9d6337-45a3-4609-9662-59b0fea63a0e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\GaitPatternGenerator\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\System\RobotControl">
-      <UniqueIdentifier>{734bb496-6071-46e4-a44c-afd105bdcc9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\SerialCommunication">
-      <UniqueIdentifier>{80405478-2290-4484-8e43-8633bfd50f9a}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Test">
+      <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -188,9 +182,6 @@
     </ClInclude>
     <ClInclude Include="dead_lock_checker.h">
       <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_searcher_random.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_display_model.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
@@ -339,7 +330,7 @@
     <ClInclude Include="interface_node_creator_builder.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_hato.h">
+    <ClInclude Include="node_creator_builder_straight_move.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
@@ -402,7 +393,7 @@
     <ClInclude Include="array_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="com_selecter_hato.h">
+    <ClInclude Include="com_selector.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClInclude>
     <ClInclude Include="divided_map_state.h">
@@ -426,7 +417,7 @@
     <ClInclude Include="node_creator_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_rot_test.h">
+    <ClInclude Include="node_creator_builder_turn.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="font_loader.h">
@@ -600,9 +591,6 @@
     <ClInclude Include="robot_operator_for_path.h">
       <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="phantomx_mk2_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
@@ -630,17 +618,17 @@
     <ClInclude Include="math_line_segment2_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
-    <ClInclude Include="system_main_robot_control.h">
-      <Filter>ソース ファイル\System\RobotControl</Filter>
+    <ClInclude Include="interface_graph_searcher.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="serial_communication_thread.h">
-      <Filter>ソース ファイル\SerialCommunication</Filter>
+    <ClInclude Include="graph_search_evaluator.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_main_robot_control.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+    <ClInclude Include="graph_search_evaluator_test.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
     </ClInclude>
-    <ClInclude Include="dxlib_gui_robot_control.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    <ClInclude Include="graph_searcher_turn.h">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -667,9 +655,6 @@
     </ClCompile>
     <ClCompile Include="dead_lock_checker.cpp">
       <Filter>ソース ファイル\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="graph_searcher_random.cpp">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
     <ClCompile Include="graphic_main_display_model.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
@@ -782,7 +767,7 @@
     <ClCompile Include="math_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_hato.cpp">
+    <ClCompile Include="node_creator_builder_straight_move.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="math_rotation_matrix.cpp">
@@ -827,7 +812,7 @@
     <ClCompile Include="math_rot_converter.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="com_selecter_hato.cpp">
+    <ClCompile Include="com_selector.cpp">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
     </ClCompile>
     <ClCompile Include="divided_map_state.cpp">
@@ -839,7 +824,7 @@
     <ClCompile Include="node_creator_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_rot_test.cpp">
+    <ClCompile Include="node_creator_builder_turn.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="font_loader.cpp">
@@ -941,17 +926,11 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="graphic_main_robot_control.cpp">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
+    <ClCompile Include="graph_search_evaluator.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
-    <ClCompile Include="serial_communication_thread.cpp">
-      <Filter>ソース ファイル\SerialCommunication</Filter>
-    </ClCompile>
-    <ClCompile Include="system_main_robot_control.cpp">
-      <Filter>ソース ファイル\System\RobotControl</Filter>
-    </ClCompile>
-    <ClCompile Include="dxlib_gui_robot_control.cpp">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    <ClCompile Include="graph_searcher_turn.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

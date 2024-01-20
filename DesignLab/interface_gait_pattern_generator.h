@@ -34,14 +34,14 @@ public:
     //! @brief グラフ探索を行い，次の動作として最適なノードを返す．
     //! @param[in] current_node 現在のロボットの状態を表すノード．親ノードを渡す必要がある．
     //! @param[in] map 現在のマップの状態．
-    //! @param[in] operation 目標．
-    //! @param[out] output_node 結果のノード．
+    //! @param[in] operation ロボットの動作．
+    //! @param[out] output_node_ptr 結果のノードを代入するポインタ．
     //! @return グラフ探索の結果を返す．成功か失敗か．
     virtual GraphSearchResult GetNextNodeByGraphSearch(
       const RobotStateNode& current_node,
       const MapState& map,
       const RobotOperation& operation,
-      RobotStateNode* output_node) = 0;
+      RobotStateNode* output_node_ptr) = 0;
 };
 
 }  // namespace designlab

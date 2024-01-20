@@ -1,13 +1,14 @@
 #設定によってはこのファイルは参照されないため注意．
 
-#ロボットの操作方法を設定します．( kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis )
-operation_type = "kStraightMoveVector"
+#ロボットの操作方法を設定します．( kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn )
+operation_type = "kSpotTurnLastPosture"
 
 [Param]
     
     #指定した姿勢になるまでその場で旋回する設定の場合に参照される値．
+    #spot_turn_last_posture_ = "     0.707,     0.000,     0.000,     -0.707"
     spot_turn_last_posture_ = "     0.000,     0.000,     0.000,     1.000"
-    
+
     #指定した軸周り(右ねじの方向)にその場で旋回する設定の場合に参照される値．
     spot_turn_rot_axis = "     0.000,     0.000,     1.000"
     
@@ -16,4 +17,13 @@ operation_type = "kStraightMoveVector"
     
     #指定した方向へ直進する設定の場合に参照される値．
     straight_move_vector_ = "     1.000,     0.000,     0.000"
+    
+    #指定した中心を中心に旋回する設定の場合に参照される値．
+    turn_center = "     0.000,     0.000"
+    
+    #指定した方向に旋回する設定の場合に参照される値．
+    turn_clockwise = true
+    
+    #指定した半径で旋回する設定の場合に参照される値．
+    turn_radius = 1000.0
     

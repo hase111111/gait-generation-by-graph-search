@@ -21,13 +21,13 @@
   <ItemGroup>
     <ClInclude Include="application_setting_record_validator.h" />
     <ClInclude Include="asyncable_data_test.h" />
-    <ClInclude Include="dxlib_gui_robot_control.h" />
-    <ClInclude Include="graphic_main_robot_control.h" />
+    <ClInclude Include="graph_searcher_turn.h" />
+    <ClInclude Include="graph_search_evaluator.h" />
+    <ClInclude Include="graph_search_evaluator_test.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
-    <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
@@ -90,9 +90,9 @@
     <ClInclude Include="simulation_end_checker_by_posture.h" />
     <ClInclude Include="simulation_end_checker_factory.h" />
     <ClInclude Include="simulation_map_parameter.h" />
-    <ClInclude Include="node_creator_builder_rot_test.h" />
+    <ClInclude Include="node_creator_builder_turn.h" />
     <ClInclude Include="node_initializer.h" />
-    <ClInclude Include="com_selecter_hato.h" />
+    <ClInclude Include="com_selector.h" />
     <ClInclude Include="node_creator_com_up_down.h" />
     <ClInclude Include="math_quaternion.h" />
     <ClInclude Include="dxlib_gui_display_node_switcher.h" />
@@ -111,10 +111,9 @@
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="model_loader.h" />
     <ClInclude Include="movement_locus_renderer.h" />
-    <ClInclude Include="node_creator_builder_hato.h" />
+    <ClInclude Include="node_creator_builder_straight_move.h" />
     <ClInclude Include="dxlib_gui_node_displayer.h" />
     <ClInclude Include="output_detail.h" />
-    <ClInclude Include="graph_searcher_random.h" />
     <ClInclude Include="gait_pattern_generator_basic.h" />
     <ClInclude Include="graph_search_result_record.h" />
     <ClInclude Include="graph_viewer_gui_controller.h" />
@@ -162,7 +161,6 @@
     <ClInclude Include="application_setting_record.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stability_margin_renderer.h" />
-    <ClInclude Include="system_main_robot_control.h" />
     <ClInclude Include="system_main_simulation.h" />
     <ClInclude Include="system_main_graph_viewer.h" />
     <ClInclude Include="robot_operation.h" />
@@ -185,15 +183,15 @@
     <ClCompile Include="application_setting_record_validator.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
-    <ClCompile Include="dxlib_gui_robot_control.cpp" />
     <ClCompile Include="dxlib_gui_terminal.cpp" />
     <ClCompile Include="font_loader.cpp" />
     <ClCompile Include="gait_pattern_generator_switch_move.cpp" />
     <ClCompile Include="gait_pattern_generator_thread.cpp" />
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
-    <ClCompile Include="graphic_main_robot_control.cpp" />
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
+    <ClCompile Include="graph_searcher_turn.cpp" />
+    <ClCompile Include="graph_search_evaluator.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_creator_by_csv.cpp" />
@@ -207,7 +205,6 @@
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
     <ClCompile Include="robot_operator_for_path.cpp" />
-    <ClCompile Include="serial_communication_thread.cpp" />
     <ClCompile Include="simple_button.cpp" />
     <ClCompile Include="camera_dragger.cpp" />
     <ClCompile Include="dxlib_gui_camera.cpp" />
@@ -216,9 +213,9 @@
     <ClCompile Include="math_rot_converter.cpp" />
     <ClCompile Include="string_util.cpp" />
     <ClCompile Include="divided_map_state.cpp" />
-    <ClCompile Include="node_creator_builder_rot_test.cpp" />
+    <ClCompile Include="node_creator_builder_turn.cpp" />
     <ClCompile Include="node_initializer.cpp" />
-    <ClCompile Include="com_selecter_hato.cpp" />
+    <ClCompile Include="com_selector.cpp" />
     <ClCompile Include="node_creator_com_up_down.cpp" />
     <ClCompile Include="math_quaternion.cpp" />
     <ClCompile Include="math_rotation_matrix.cpp" />
@@ -236,7 +233,7 @@
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
-    <ClCompile Include="node_creator_builder_hato.cpp" />
+    <ClCompile Include="node_creator_builder_straight_move.cpp" />
     <ClCompile Include="gait_pattern_generator_revaluation.cpp" />
     <ClCompile Include="phantomx_mk2_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />
@@ -247,7 +244,6 @@
     <ClCompile Include="simulation_map_parameter_validator.cpp" />
     <ClCompile Include="stopwatch.cpp" />
     <ClCompile Include="dxlib_gui_node_displayer.cpp" />
-    <ClCompile Include="graph_searcher_random.cpp" />
     <ClCompile Include="gait_pattern_generator_basic.cpp" />
     <ClCompile Include="graph_viewer_gui_controller.cpp" />
     <ClCompile Include="phantomx_renderer_simple.cpp" />
@@ -275,7 +271,6 @@
     <ClCompile Include="robot_ground_point_renderer.cpp" />
     <ClCompile Include="simulation_result_record.cpp" />
     <ClCompile Include="stability_margin_renderer.cpp" />
-    <ClCompile Include="system_main_robot_control.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
     <ClCompile Include="math_vector3.cpp" />

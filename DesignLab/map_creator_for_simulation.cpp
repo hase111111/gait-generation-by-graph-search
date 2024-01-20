@@ -60,6 +60,16 @@ MapState MapCreatorForSimulation::InitMap()
             CreateLatticePointMap(&map_data);
             break;
         }
+        case enums::SimulationMapMode::kCircle:
+        {
+            CreateCircleMap(&map_data);
+            break;
+        }
+        case enums::SimulationMapMode::kDonut:
+        {
+            CreateDonutMap(&map_data);
+            break;
+        }
         default:
         {
             // 異常な値が入力されたら，平面のマップを生成する．
@@ -98,6 +108,12 @@ MapState MapCreatorForSimulation::InitMap()
     {
         // デコボコにする．
         ChangeMapToRough(&map_data);
+    }
+
+    if (messenger_.option & static_cast<unsigned int>(enums::SimulationMapOption::kRadiation))
+    {
+        // 放射状に穴をあける．
+        ChangeMapToRadial(&map_data);
     }
 
     return MapState(map_data);
@@ -336,6 +352,72 @@ void MapCreatorForSimulation::CreateLatticePointMap(std::vector<Vector3>* map) c
     }
 }
 
+void MapCreatorForSimulation::CreateCircleMap(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    // 円が存在する範囲に脚設置可能点を敷き詰める．
+    // その後，円の外側の脚設置可能点を削除する．
+
+    const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
+    const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
+    const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
+    const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+
+    for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x)
+    {
+        for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y)
+        {
+            // ロボットの正面方向．
+            const float x_pos = x_min + x * MapState::kMapPointDistance;
+
+            // ロボットの側面方向．
+            const float y_pos = y_min + y * MapState::kMapPointDistance;
+
+            // 脚設置可能点を追加する．
+            const float distance = Vector2(x_pos, y_pos).GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+
+            if (distance <= messenger_.circle_radius)
+            {
+                map->push_back({ x_pos, y_pos, messenger_.base_z });
+            }
+        }
+    }
+}
+
+void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    // ドーナツが存在する範囲に脚設置可能点を敷き詰める．
+    // その後，ドーナツの外側の脚設置可能点を削除する．
+
+    const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
+    const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
+    const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
+    const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+
+    for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x)
+    {
+        for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y)
+        {
+            // ロボットの正面方向．
+            const float x_pos = x_min + x * MapState::kMapPointDistance;
+
+            // ロボットの側面方向．
+            const float y_pos = y_min + y * MapState::kMapPointDistance;
+
+            // 脚設置可能点を追加する．
+            const float distance = Vector2(x_pos, y_pos).GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+
+            if (messenger_.donut_radius <= distance && distance <= messenger_.circle_radius)
+            {
+                map->push_back({ x_pos, y_pos, messenger_.base_z });
+            }
+        }
+    }
+}
+
 void MapCreatorForSimulation::ChangeMapToPerforated(std::vector<Vector3>* map) const
 {
     assert(map != nullptr);  // map が nullptr でないことを確認する．
@@ -483,8 +565,8 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
     {
         // ランダムなZ座標を入れる．
         change_z_length.push_back(math_util::GenerateRandomNumber(
-            messenger_.routh_min_height,
-            messenger_.routh_max_height));
+            messenger_.rough_min_height,
+            messenger_.rough_max_height));
     }
 
     for (auto& i : *map)
@@ -495,12 +577,12 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
         }
 
         // マスで区切るとどこに位置するかを調べる．
-        const int cell_pos_x = static_cast<int>(
-            (i.x - messenger_.map_start_rough_x) / MapState::kMapPointDistance) /
+        const int cell_pos_x = static_cast<int>((i.x - messenger_.map_start_rough_x) /
+            MapState::kMapPointDistance) /
             messenger_.stripe_interval;
 
-        const int cell_pos_y = static_cast<int>(
-            (i.y - messenger_.map_min_y) / MapState::kMapPointDistance) /
+        const int cell_pos_y = static_cast<int>((i.y - messenger_.map_min_y) /
+            MapState::kMapPointDistance) /
             messenger_.stripe_interval;
 
         const int cell_index = cell_pos_x * cell_num_y + cell_pos_y;
@@ -509,6 +591,43 @@ void MapCreatorForSimulation::ChangeMapToRough(std::vector<Vector3>* map) const
         if (0 <= cell_index && cell_index < change_z_length.size())
         {
             i.z += change_z_length[cell_index];
+        }
+    }
+}
+
+void MapCreatorForSimulation::ChangeMapToRadial(std::vector<Vector3>* map) const
+{
+    assert(map != nullptr);  // map が nullptr でないことを確認する．
+
+    const float divided_angle = std::numbers::pi_v<float> / messenger_.radial_division;
+
+    for (auto itr = (*map).begin(); itr != (*map).end();)
+    {
+        // 放射状の穴あけの中心からの角度を計算する．
+        const float angle = atan2((*itr).y - messenger_.radial_center.y, (*itr).x - messenger_.radial_center.x) +
+            std::numbers::pi_v<float> +math_util::ConvertDegToRad(messenger_.radial_angle_offset);
+
+        if (static_cast<int>(angle / divided_angle) % 2 == 1)
+        {
+            const int i = static_cast<int>(angle / divided_angle);  // 何番目の角度かを計算する．
+            const float angle_dif = angle - i * divided_angle;      // 何番目の角度からの差を計算する．
+
+            // 角度の差がホール率より小さい場合は消す．
+            if (angle_dif < divided_angle * messenger_.radial_hole_rate / 100)
+            {
+                // 脚設置可能点を消してイテレータを更新する．
+                itr = (*map).erase(itr);
+            }
+            else
+            {
+                // 消さないならば次へ移動する．
+                itr++;
+            }
+        }
+        else
+        {
+            // 消さないならば次へ移動する．
+            itr++;
         }
     }
 }

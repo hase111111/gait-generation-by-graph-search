@@ -27,12 +27,12 @@ PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) 
     kFreeLegHeight(parameter_record.free_leg_height),
     kStableMargin(parameter_record.stable_margin),
     free_leg_pos_leg_coordinate_({ {
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[0]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[0]), kFreeLegHeight},
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[1]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[1]), kFreeLegHeight},
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[2]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[2]), kFreeLegHeight},
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[3]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[3]), kFreeLegHeight},
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[4]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[4]), kFreeLegHeight},
-        {170 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[5]), 170 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[5]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[0]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[0]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[1]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[1]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[2]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[2]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[3]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[3]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[4]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[4]), kFreeLegHeight},
+        {160 * cos(PhantomXMkIIConst::kCoxaDefaultAngle[5]), 160 * sin(PhantomXMkIIConst::kCoxaDefaultAngle[5]), kFreeLegHeight},
     } }),
     leg_base_pos_robot_coordinate_({ {
         { PhantomXMkIIConst::kCoxaBaseOffsetX, -PhantomXMkIIConst::kCoxaBaseOffsetY, PhantomXMkIIConst::kCoxaBaseOffsetZ },   // 脚0 右上．

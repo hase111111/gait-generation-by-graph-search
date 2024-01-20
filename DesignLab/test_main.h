@@ -9,7 +9,11 @@
 
 
 // ↓テストを使用しない場合コメントアウトすること．
+<<<<<<< HEAD
 //#define DESIGNLAB_USE_TEST
+=======
+// #define DESIGNLAB_USE_TEST
+>>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
 
 
 
@@ -25,6 +29,7 @@
 #include "asyncable_data_test.h"
 #include "divided_map_state_test.h"
 #include "gait_pattern_graph_tree_test.h"
+#include "graph_search_evaluator_test.h"
 #include "map_state_test.h"
 #include "math_line_segment2_test.h"
 #include "math_rotation_matrix_test.h"

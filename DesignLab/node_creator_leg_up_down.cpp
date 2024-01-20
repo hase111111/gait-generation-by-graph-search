@@ -123,8 +123,8 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
                 {
                     res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoordinate(j);
 
-                    res_node.leg_reference_pos[j].x = res_node.leg_pos[j].x;
-                    res_node.leg_reference_pos[j].y = res_node.leg_pos[j].y;
+                    res_node.leg_reference_pos[j].x = presenter_ptr_->GetFreeLegPosLegCoordinate(j).x;
+                    res_node.leg_reference_pos[j].y = presenter_ptr_->GetFreeLegPosLegCoordinate(j).y;
                 }
             }
 
@@ -142,7 +142,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
                                            Vector3* output_ground_pos) const
 {
     // 脚座標がマップのどこに当たるか調べて，そのマスの2つ上と2つ下の範囲内を全て探索する．
-    const Vector3 kGlobalLegbasePos = converter_ptr_->ConvertLegToGlobalCoordinate(
+    const Vector3 global_leg_base_pos = converter_ptr_->ConvertLegToGlobalCoordinate(
       current_node.leg_reference_pos[now_leg_num],
       now_leg_num,
       current_node.center_of_mass_global_coord,
@@ -150,10 +150,10 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
       true);
 
 
-    int max_x_dev = map_.GetDividedMapIndexX(kGlobalLegbasePos.x) + 2;
-    int min_x_dev = map_.GetDividedMapIndexX(kGlobalLegbasePos.x) - 2;
-    int max_y_dev = map_.GetDividedMapIndexY(kGlobalLegbasePos.y) + 2;
-    int min_y_dev = map_.GetDividedMapIndexY(kGlobalLegbasePos.y) - 2;
+    int max_x_dev = map_.GetDividedMapIndexX(global_leg_base_pos.x) + 2;
+    int min_x_dev = map_.GetDividedMapIndexX(global_leg_base_pos.x) - 2;
+    int max_y_dev = map_.GetDividedMapIndexY(global_leg_base_pos.y) + 2;
+    int min_y_dev = map_.GetDividedMapIndexY(global_leg_base_pos.y) - 2;
 
     // 値がマップの範囲外にあるときは丸める．
     max_x_dev = DividedMapState::ClampDividedMapIndex(max_x_dev);
@@ -230,10 +230,10 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
     }
 
 
-    // 候補点を全列挙したのち，候補点が一つもなければfalse
+    // 候補点を全列挙したのち，候補点が一つもなければ false．
     if (!is_candidate_pos) { return false; }
 
-    // 存在するなら，その中で最も適したものを結果として返し，true
+    // 存在するなら，その中で最も適したものを結果として返し，true．
     (*output_ground_pos) = candidate_pos;
 
     return true;

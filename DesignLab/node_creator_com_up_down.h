@@ -37,7 +37,7 @@ public:
                 std::vector<RobotStateNode>* output_graph) const override;
 
 private:
-    static constexpr int kDiscretization = 5;  //!< 離散化数．最大位置を最小位置を何分割するのか．
+    static constexpr int kDiscretization = 6;  //!< 離散化数．最大位置を最小位置を何分割するのか．
 
     //! 脚を伸ばし切らないようにするためのマージン[mm]．
     //! @todo この値は消す．

@@ -61,26 +61,47 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
         most_near_index_++;
     }
 
-    if (most_near_index_ >= global_route_.size())
+    if (most_near_index_ > 0 &&
+        (global_route_[most_near_index_ - 1].ProjectedXY() - node.center_of_mass_global_coord.ProjectedXY()).GetLength() < 100.f)
     {
-        most_near_index_ = 0;
+        // 旋回によって，most_near_index_の方を向く．
+        const auto diff = global_route_[most_near_index_].ProjectedXY() -
+            node.center_of_mass_global_coord.ProjectedXY();
+
+        const float angle = atan2(diff.y, diff.x);
+        const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
+        const float rot_dif = angle - euler_z_angle;
+
+        if (abs(rot_dif) > kAllowableAngleError)
+        {
+            RobotOperation operation;
+            operation.operation_type = kSpotTurnLastPosture;
+            operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(angle, Vector3::GetUpVec());
+
+            return operation;
+        }
     }
 
-    const auto diff = global_route_[most_near_index_].ProjectedXY() -
-        node.center_of_mass_global_coord.ProjectedXY();
+    //if (most_near_index_ >= global_route_.size())
+    //{
+    //    most_near_index_ = 0;
+    //}
 
-    const float angle = atan2(diff.y, diff.x);
-    const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
-    const float rot_dif = angle - euler_z_angle;
+    //const auto diff = global_route_[most_near_index_].ProjectedXY() -
+    //    node.center_of_mass_global_coord.ProjectedXY();
 
-    if (abs(rot_dif) > kAllowableAngleError)
-    {
-        RobotOperation operation;
-        operation.operation_type = kSpotTurnLastPosture;
-        operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(angle, Vector3::GetUpVec());
+    //const float angle = atan2(diff.y, diff.x);
+    //const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
+    //const float rot_dif = angle - euler_z_angle;
 
-        return operation;
-    }
+    //if (abs(rot_dif) > kAllowableAngleError)
+    //{
+    //    RobotOperation operation;
+    //    operation.operation_type = kSpotTurnLastPosture;
+    //    operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(angle, Vector3::GetUpVec());
+
+    //    return operation;
+    //}
 
     RobotOperation operation_straight;
 

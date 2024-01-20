@@ -5,6 +5,7 @@
 #include "gait_pattern_generator_thread.h"
 
 #include <algorithm>
+#include <format>
 #include <string>
 #include <utility>
 
@@ -22,42 +23,37 @@ namespace designlab
 {
 
 GaitPatternGeneratorThread::GaitPatternGeneratorThread(
-  std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
-  std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
-  const int max_depth,
-  const int max_node_num
-) :
+    std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
+    std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
+    const int max_depth,
+    const int max_node_num) :
     graph_tree_creator_ptr_(std::move(graph_tree_creator_ptr)),
     graph_searcher_ptr_(std::move(graph_searcher_ptr)),
     graph_tree_{ 1000 },
-    graph_tree_array_(MakeArray<GaitPatternGraphTree>(
-    GaitPatternGraphTree{ max_node_num / kThreadNum },
-    GaitPatternGraphTree{ max_node_num / kThreadNum },
-    GaitPatternGraphTree{ max_node_num / kThreadNum },
-    GaitPatternGraphTree{ max_node_num / kThreadNum },
-    GaitPatternGraphTree{ max_node_num / kThreadNum },
-    GaitPatternGraphTree{ max_node_num / kThreadNum })),
+    graph_tree_array_(InitializeGraphTreeArray(kThreadNum, max_node_num)),
     max_depth_(max_depth)
 {
+    assert(graph_tree_creator_ptr_ != nullptr);
+    assert(graph_searcher_ptr_ != nullptr);
+    assert(max_depth_ > 0);
+    assert(max_node_num > 0);
+    assert(graph_tree_array_.size() == kThreadNum);
 }
 
 GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
-  const RobotStateNode& current_node,
-  const MapState& map_state,
-  const RobotOperation& operation,
-  RobotStateNode* output_node
-)
+    const RobotStateNode& current_node,
+    const MapState& map_state,
+    const RobotOperation& operation,
+    RobotStateNode* output_node)
 {
     assert(current_node.IsLootNode());
     assert(output_node != nullptr);
-    assert(graph_tree_creator_ptr_ != nullptr);
-    assert(graph_searcher_ptr_ != nullptr);
 
     // 初期化処理を行う．
-    DividedMapState devide_map;
-    devide_map.Init(map_state, current_node.center_of_mass_global_coord);
+    DividedMapState divided_map;
+    divided_map.Init(map_state, current_node.center_of_mass_global_coord);
 
-    graph_tree_creator_ptr_->Init(devide_map);
+    graph_tree_creator_ptr_->Init(divided_map);
 
     // グラフ探索をするための，歩容パターングラフを生成する．
     graph_tree_.Reset();
@@ -70,27 +66,27 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
     CmdIOUtil::Output("深さ1までグラフ木の生成が終了しました．",
                       enums::OutputDetail::kDebug);
-    CmdIOUtil::Output("グラフ木のノード数は" +
-                      std::to_string(graph_tree_.GetGraphSize()) + "です．",
+    CmdIOUtil::Output(std::format("グラフ木のノード数は{}です．", graph_tree_.GetGraphSize()),
                       enums::OutputDetail::kDebug);
 
-    // 深さ0のノードを arrayにコピーする
+    // 深さ0のノードを配列にコピーする．
     for (int i = 0; i < kThreadNum; i++)
     {
         graph_tree_array_[i].Reset();
         graph_tree_array_[i].AddNode(current_node);
     }
 
-    // 深さ1のノードを arrayにコピーする
+    // 深さ1のノードを配列に分けてコピーする．
     for (int i = 1; i < graph_tree_.GetGraphSize(); i++)
     {
         if (graph_tree_.GetNode(i).depth == 1)
         {
+            // i を kThreadNum で割った余り番目の配列にコピーする．
             graph_tree_array_[i % kThreadNum].AddNode(graph_tree_.GetNode(i));
         }
     }
 
-    // threadを分けて，最大深さまで探索する．
+    // スレッドを分けて，最大深さまで探索する．
     boost::thread_group thread_group;
 
     for (size_t i = 0; i < kThreadNum; i++)
@@ -113,50 +109,22 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
         }
     }
 
-    thread_group.join_all();
+    thread_group.join_all();  // 全てのスレッドが終了するまで待機する．
 
     CmdIOUtil::Output("グラフ木の生成が終了しました．\n", enums::OutputDetail::kDebug);
 
     for (size_t i = 0; i < kThreadNum; i++)
     {
-        std::string thread_num = std::to_string(i);
-        CmdIOUtil::Output("スレッド" + std::to_string(i) +
-                          "で作成したノード数は" +
-                          std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．",
+        CmdIOUtil::Output(std::format("スレッド{}で作成したノード数は{}です．", i, graph_tree_array_[i].GetGraphSize()),
                           enums::OutputDetail::kDebug);
     }
 
 
     // グラフ探索を行う．
-    std::array<std::tuple<GraphSearchResult, int, int>, kThreadNum> search_result_array;
+    CmdIOUtil::Output("グラフ木を評価します．", enums::OutputDetail::kDebug);
 
-    for (size_t i = 0; i < kThreadNum; i++)
-    {
-        CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索を開始します．",
-                          enums::OutputDetail::kDebug);
-
-        search_result_array[i] = graph_searcher_ptr_->SearchGraphTree(
-          graph_tree_array_[i],
-          operation,
-          devide_map,
-          max_depth_);
-
-        CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索が終了しました．",
-                          enums::OutputDetail::kDebug);
-        CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索の結果は" +
-                          std::get<0>(search_result_array[i]).ToString() + "です．",
-                          enums::OutputDetail::kDebug);
-        CmdIOUtil::Output("[" + std::to_string(i) + "]グラフ探索の結果のノードは" +
-                          std::to_string(std::get<2>(search_result_array[i])) + "です．",
-                          enums::OutputDetail::kDebug);
-    }
-
-    // 各スレッドごとの探索結果を統合する．
-    AppendGraphTree(search_result_array);
-
-    // 統合されたグラフを，再び探索する．
-    const auto [search_result, next_node_index, _] =
-        graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, devide_map, max_depth_);
+    const auto [search_result, _, next_node] =
+        graph_searcher_ptr_->SearchGraphTreeVector(graph_tree_array_, operation, divided_map, max_depth_);
 
     if (search_result.result != enums::Result::kSuccess)
     {
@@ -164,70 +132,24 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
         return search_result;
     }
 
+    (*output_node) = next_node;
+
     CmdIOUtil::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．",
                       enums::OutputDetail::kDebug);
 
-    (*output_node) = graph_tree_.GetNode(next_node_index);
-
-    return { enums::Result::kSuccess, "" + search_result.message };
+    return { enums::Result::kSuccess, std::string("") };
 }
 
-void GaitPatternGeneratorThread::AppendGraphTree(
-  const std::array<std::tuple<GraphSearchResult, int, int>, kThreadNum>& search_result_array
-)
+std::vector<GaitPatternGraphTree> GaitPatternGeneratorThread::InitializeGraphTreeArray(const int thread_num, const int max_node_num) const
 {
-    const RobotStateNode root_node = graph_tree_.GetRootNode();
-    graph_tree_.Reset();
-    graph_tree_.AddNode(root_node);
+    std::vector<GaitPatternGraphTree> graph_tree_array;
 
-    for (size_t i = 0; i < kThreadNum; i++)
+    for (int i = 0; i < thread_num; i++)
     {
-        const auto [search_result, _, next_node_index] = search_result_array[i];
-
-        // 条件を満たしていない場合は，次のスレッドの結果を見る．
-        if (search_result.result != enums::Result::kSuccess) { continue; }
-
-        if (graph_tree_array_[i].GetNode(next_node_index).depth != max_depth_) { continue; }
-
-
-        // 追加するノードを格納する．
-        std::vector<RobotStateNode> add_node;
-
-        add_node.push_back(graph_tree_array_[i].GetNode(next_node_index));
-
-        while (add_node.back().depth != 0)
-        {
-            add_node.push_back(graph_tree_array_[i].GetNode(add_node.back().parent_index));
-        }
-
-        if (add_node.size() != max_depth_ + 1) { continue; }
-
-        // 深さ順にソートする．0から最も深いノードまでの順番になる．
-        std::sort(add_node.begin(), add_node.end(),
-                  [](const RobotStateNode& a, const RobotStateNode& b)
-                  { return a.depth < b.depth; });
-
-        // 追加するノードを graph_tree_に格納する．
-        for (size_t j = 1; j < max_depth_ + 1; ++j)
-        {
-            // add_nodeの中から，深さjのノードを graph_tree_に格納する．
-            if (add_node[j].depth == 1)
-            {
-                add_node[j].parent_index = 0;
-            }
-            else
-            {
-                add_node[j].parent_index = graph_tree_.GetGraphSize() - 1;
-            }
-
-            graph_tree_.AddNode(add_node[j]);
-        }
+        graph_tree_array.emplace_back(max_node_num / thread_num);
     }
 
-    CmdIOUtil::Output("グラフ木の統合が終了しました．", enums::OutputDetail::kDebug);
-    CmdIOUtil::Output(
-        "グラフ木のノード数は" + std::to_string(graph_tree_.GetGraphSize()) + "です．",
-        enums::OutputDetail::kDebug);
+    return graph_tree_array;
 }
 
 }  // namespace designlab

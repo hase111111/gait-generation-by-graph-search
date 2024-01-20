@@ -1,10 +1,10 @@
 ﻿
-//! @file      graph_searcher_spot_turn.h
+//! @file      graph_searcher_turn.h
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#ifndef DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
-#define DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
+#ifndef DESIGNLAB_GRAPH_SEARCHER_TURN_H_
+#define DESIGNLAB_GRAPH_SEARCHER_TURN_H_
 
 #include <memory>
 #include <tuple>
@@ -18,14 +18,14 @@
 namespace designlab
 {
 
-//! @class GraphSearcherSpotTurn
+//! @class GraphSearcherTurn
 //! @brief グラフ探索を行い，直進する動作を評価するクラス．
-class GraphSearcherSpotTurn final : public IGraphSearcher
+class GraphSearcherTurn final : public IGraphSearcher
 {
     using Tag = GraphSearchEvaluationValue::Tag;
 
 public:
-    GraphSearcherSpotTurn(
+    GraphSearcherTurn(
         const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
         const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
@@ -73,4 +73,4 @@ private:
 }  // namespace designlab
 
 
-#endif  // DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
+#endif  // DESIGNLAB_GRAPH_SEARCHER_TURN_H_

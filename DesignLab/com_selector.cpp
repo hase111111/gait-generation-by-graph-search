@@ -2,7 +2,7 @@
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#include "com_selecter_hato.h"
+#include "com_selector.h"
 
 #include <algorithm>
 #include <iostream>
@@ -14,7 +14,7 @@
 namespace designlab
 {
 
-bool ComSelecterHato::GetComFromPolygon(const Polygon2& polygon,
+bool ComSelector::GetComFromPolygon(const Polygon2& polygon,
                                         const RobotStateNode& current_node,
                                         Vector3* output_com) const
 {
@@ -106,7 +106,7 @@ bool ComSelecterHato::GetComFromPolygon(const Polygon2& polygon,
 }
 
 
-bool ComSelecterHato::MakeComCandidatePoint(
+bool ComSelector::MakeComCandidatePoint(
     const designlab::Polygon2& polygon,
     std::pair<bool, designlab::Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
@@ -142,7 +142,7 @@ bool ComSelecterHato::MakeComCandidatePoint(
 }
 
 
-bool ComSelecterHato::IsInMargin(const Polygon2& polygon,
+bool ComSelector::IsInMargin(const Polygon2& polygon,
                                  const std::vector<Vector2>& edge_vec,
                                  const Vector2& candidate_point) const
 {

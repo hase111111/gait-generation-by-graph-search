@@ -14,6 +14,7 @@
 #include "application_setting_record_validator.h"
 #include "boot_mode_selector.h"
 #include "cmdio_util.h"
+#include "gait_pattern_generator_basic.h"
 #include "gait_pattern_generator_switch_move.h"
 #include "gait_pattern_generator_thread.h"
 #include "graph_tree_creator.h"
@@ -24,9 +25,9 @@
 #include "graphic_main_display_model.h"
 #include "graphic_main_robot_control.h"
 #include "graphic_system.h"
-#include "node_creator_builder_hato.h"
-#include "node_creator_builder_rot_test.h"
+#include "node_creator_builder_turn.h"
 #include "node_creator_builder_turn_spot.h"
+#include "node_creator_builder_straight_move.h"
 #include "map_creator_factory.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -46,22 +47,30 @@
 
 int main()
 {
+    // int main内では designlab:: を省略できる．
+    // 推奨されない書き方だが，可読性のため，ここでのみ使用する．
     using namespace designlab;
     using enum enums::OutputDetail;
 
     // まずは，設定ファイルを読み込む
+<<<<<<< HEAD
     CmdIOUtil::SetOutputLimit(kSystem);
+=======
+    CmdIOUtil::SetOutputLimit(enums::OutputDetail::kSystem);
+>>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
 
     TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
+<<<<<<< HEAD
     TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
         std::make_unique<ApplicationSettingRecordValidator>());
+=======
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
+>>>>>>> e8d12b439fa8af6d1621547be0c4f91e8e45741b
 
     // 読み込んだ設定ファイルをクラスに記録する．
-    const auto application_setting_record =
-        std::make_shared<const ApplicationSettingRecord>(
-        application_setting_importer.ImportOrUseDefault("./settings.toml"));
+    const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));
 
 
     // 次に，コマンドラインの出力を設定する．
@@ -101,18 +110,18 @@ int main()
         auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
         TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
-        const PhantomXMkIIParameterRecord parameter_record =
-            parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+        const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
+
         auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
 
-        auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderHato>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+        auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
         auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
 
         auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));
         auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
 
         auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-        auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2);
+        auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2, phantomx_mk2);
 
         std::unique_ptr<ISystemMain> system_main;
 
@@ -122,8 +131,8 @@ int main()
             {
                 // シミュレーションシステムクラスを作成する．
 
-                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 30000000);
-                auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
+                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 10000000);
+                auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 50000000);
                 auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
                 TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
@@ -132,7 +141,9 @@ int main()
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
                 auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
-                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions, simulation_setting_record.initial_move);
+                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
+                                                                          simulation_setting_record.initial_posture,
+                                                                          simulation_setting_record.initial_move);
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),

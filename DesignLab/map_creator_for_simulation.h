@@ -53,6 +53,12 @@ private:
     //! 網目模様の穴が開いたマップを生成する．
     void CreateLatticePointMap(std::vector<Vector3>* map) const;
 
+    //! 円形のマップを生成する．
+    void CreateCircleMap(std::vector<Vector3>* map) const;
+
+    //! ドーナツ型のマップを生成する．
+    void CreateDonutMap(std::vector<Vector3>* map) const;
+
     //! 生成されたマップにランダムな穴をあける．
     void ChangeMapToPerforated(std::vector<Vector3>* map) const;
 
@@ -67,6 +73,9 @@ private:
 
     //! 生成されたマップをデコボコにする．
     void ChangeMapToRough(std::vector<Vector3>* map) const;
+
+    //! 生成されたマップに放射状の穴をあける．
+    void ChangeMapToRadial(std::vector<Vector3>* map) const;
 
 
     const SimulationMapParameter messenger_;  //!< マップ生成のモードを指定する列挙体．

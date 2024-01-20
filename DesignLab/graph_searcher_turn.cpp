@@ -2,36 +2,33 @@
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#include "graph_searcher_straight_move.h"
+#include "graph_searcher_turn.h"
 
-#include <functional>
 #include <vector>
 
 #include "cassert_define.h"
-#include "math_util.h"
 #include "graph_search_const.h"
-#include "leg_state.h"
 
 
 namespace designlab
 {
 
-GraphSearcherStraightMove::GraphSearcherStraightMove(
+GraphSearcherTurn::GraphSearcherTurn(
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
+    converter_ptr_(converter_ptr),
     checker_ptr_(checker_ptr),
     evaluator_(InitializeEvaluator())
 {
 }
 
-std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherStraightMove::SearchGraphTree(
+std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherTurn::SearchGraphTree(
     const GaitPatternGraphTree& graph,
     const RobotOperation& operation,
     const DividedMapState& divided_map_state,
     const int max_depth) const
 {
-    // ターゲットモードは直進である．
-    assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
-           operation.operation_type == enums::RobotOperationType::kStraightMoveVector);
+    assert(operation.operation_type == enums::RobotOperationType::kTurn);
 
     if (!graph.HasRoot())
     {
@@ -40,23 +37,18 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     }
 
     // 初期化．
-    Vector3 normalized_move_direction;
+    Quaternion target_quat;
 
-    if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
+    if (operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
     {
-        normalized_move_direction = (operation.straight_move_position_ -
-                                                graph.GetRootNode().center_of_mass_global_coord);
-        normalized_move_direction.z = 0.0f;
-        normalized_move_direction = normalized_move_direction.GetNormalized();
+        target_quat = operation.spot_turn_last_posture_;
     }
     else
     {
-        normalized_move_direction = operation.straight_move_vector_;
-        normalized_move_direction.z = 0.0f;
-        normalized_move_direction = normalized_move_direction.GetNormalized();
+        assert(false);
     }
 
-    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, normalized_move_direction);
+    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, target_quat);
 
 
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
@@ -65,17 +57,16 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     for (int i = 0; i < graph.GetGraphSize(); i++)
     {
         // 最大深さのノードのみを評価する．
-        if (graph.GetNode(i).depth != max_depth) { continue; }
+        if (graph.GetNode(i).depth != max_depth)
+        {
+            continue;
+        }
 
         // 評価値を計算する．
         GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 
-        candidate_evaluation_value.value.at(kTagMoveForward) = GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(), normalized_move_direction);
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagMoveForward)) { continue; }
-
+        candidate_evaluation_value.value.at(kTagAmountOfTurn) = GetAmountOfTurnEvaluationValue(graph.GetNode(i), target_quat);
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
-
         candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
 
         // 評価値を比較する．
@@ -87,8 +78,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     }
 
     // インデックスが範囲外ならば失敗．
-    if (max_evaluation_value_index < 0 ||
-        graph.GetGraphSize() <= max_evaluation_value_index)
+    if (max_evaluation_value_index < 0 || graph.GetGraphSize() <= max_evaluation_value_index)
     {
         const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
@@ -96,22 +86,22 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     const GraphSearchResult result = { enums::Result::kSuccess, "" };
 
-    return { result, max_evaluation_value, graph.GetParentNode(max_evaluation_value_index, 1) };
+    return { result, max_evaluation_value, graph.GetParentNode(max_evaluation_value_index, 1), };
 }
 
-std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherStraightMove::SearchGraphTreeVector(
+std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphSearcherTurn::SearchGraphTreeVector(
     const std::vector<GaitPatternGraphTree>& graph_vector,
     const RobotOperation& operation,
     const DividedMapState& divided_map_state,
     int max_depth) const
 {
     std::vector<std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode>> result_vector;
-    result_vector.resize(graph_vector.size());
 
-    for (size_t i = 0; i < graph_vector.size(); i++)
+    for (const auto& graph : graph_vector)
     {
-        // グラフ探索の結果を格納する．
-        result_vector[i] = SearchGraphTree(graph_vector[i], operation, divided_map_state, max_depth);
+        const auto result = SearchGraphTree(graph, operation, divided_map_state, max_depth);
+
+        result_vector.push_back(result);
     }
 
     // 最大評価値を持つものを探す．
@@ -120,25 +110,22 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     for (int i = 0; i < result_vector.size(); i++)
     {
-        const auto& [result, evaluation_value, _] = result_vector[i];
+        const auto& [result, evaluation_value, _] = result_vector.at(i);
 
-        // 失敗しているものは無視する．
         if (result.result != enums::Result::kSuccess)
         {
             continue;
         }
 
-        // 評価値を比較する．
         if (evaluator_.LeftIsBetter(evaluation_value, max_evaluation_value))
         {
-            // 上回っている場合は更新する．
             max_evaluation_value = evaluation_value;
             max_evaluation_value_index = i;
         }
     }
 
     // インデックスが範囲外ならば失敗．
-    if (max_evaluation_value_index < 0 || result_vector.size() <= max_evaluation_value_index)
+    if (max_evaluation_value_index < 0 || max_evaluation_value_index >= result_vector.size())
     {
         const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
@@ -147,12 +134,12 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     return result_vector[max_evaluation_value_index];
 }
 
-GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
+GraphSearchEvaluator GraphSearcherTurn::InitializeEvaluator() const
 {
-    GraphSearchEvaluator::EvaluationMethod move_forward_method =
+    GraphSearchEvaluator::EvaluationMethod amount_of_turn_method =
     {
         .is_lower_better = false,
-        .margin = 7.5f,
+        .margin = 0.0f,
     };
 
     GraphSearchEvaluator::EvaluationMethod leg_rot_method =
@@ -164,25 +151,20 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 0.0f,
+        .margin = 5.0f,
     };
 
-    GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
-                             { kTagZDiff, kTagMoveForward, kTagLegRot });
+    GraphSearchEvaluator ret({ {kTagAmountOfTurn, amount_of_turn_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
+                             { kTagZDiff, kTagAmountOfTurn, kTagLegRot });
 
     return ret;
 }
 
-float GraphSearcherStraightMove::InitTargetZValue(
-    const RobotStateNode& node,
-    const DividedMapState& divided_map_state,
-    const Vector3& move_direction) const
+float GraphSearcherTurn::InitTargetZValue(const RobotStateNode& node,
+                                              const DividedMapState& divided_map_state,
+                                              const Quaternion& target_quat) const
 {
-    const float move_length = 100.0f;
-
-    const Vector3 target_position = move_direction * move_length;
-
-    const int div = 60;
+    const int div = 50;
     const float min_z = -150.0f;
     const float max_z = 150.0f;
 
@@ -191,11 +173,11 @@ float GraphSearcherStraightMove::InitTargetZValue(
         const float z = min_z + (max_z - min_z) / static_cast<float>(div) * static_cast<float>(i);
 
         Vector3 pos = node.center_of_mass_global_coord;
-        pos += target_position;
         pos.z += z;
 
         RobotStateNode temp_node = node;
         temp_node.ChangeGlobalCenterOfMass(pos, false);
+        temp_node.ChangePosture(converter_ptr_, target_quat);
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {
@@ -206,25 +188,21 @@ float GraphSearcherStraightMove::InitTargetZValue(
     return node.center_of_mass_global_coord.z;
 }
 
-float GraphSearcherStraightMove::GetMoveForwardEvaluationValue(
+float GraphSearcherTurn::GetAmountOfTurnEvaluationValue(
     const RobotStateNode& node,
-    const RobotStateNode& root_node,
-    const Vector3& normalized_move_direction) const
+    const Quaternion& target_quat) const
 {
-    // 正規化されていることを確認する．
-    assert(math_util::IsEqual(normalized_move_direction.GetSquaredLength(), 1.f));
+    // 目標姿勢を Qt，現在の姿勢を Qc とする．
+    // Qt = Qc * Qd となるような Qd を求める．
+    // Qd = Qc^-1 * Qt となる．
 
-    const Vector3 root_to_current = node.center_of_mass_global_coord - root_node.center_of_mass_global_coord;
+    // 最終姿勢を表すクォータニオンとの差分を計算する．
+    const Quaternion target_to_current = node.posture.GetConjugate() * target_quat;
 
-    // root_to_current の normalized_move_direction 方向の成分を取り出す．
-    const float result = root_to_current.Dot(normalized_move_direction);
-
-    return result;
-
-    // const float margin = 7.5f;
+    return target_to_current.w;
 }
 
-float GraphSearcherStraightMove::GetLegRotEvaluationValue(
+float GraphSearcherTurn::GetLegRotEvaluationValue(
     const RobotStateNode& node,
     const RobotStateNode& root_node) const
 {
@@ -245,16 +223,15 @@ float GraphSearcherStraightMove::GetLegRotEvaluationValue(
 
     return result;
 
-    // const float margin = 10.0f;
+    // const float margin = 50.0f;
 }
 
-float GraphSearcherStraightMove::GetZDiffEvaluationValue(
+float GraphSearcherTurn::GetZDiffEvaluationValue(
     const RobotStateNode& node,
     const float target_z_value) const
 {
-    const float result = abs(node.center_of_mass_global_coord.z - target_z_value);
-
-    return result;
+    return abs(node.center_of_mass_global_coord.z - target_z_value);
 }
+
 
 }  // namespace designlab

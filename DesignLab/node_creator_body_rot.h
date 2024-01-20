@@ -39,10 +39,10 @@ public:
 
 private:
     //! ロボットのヨー軸周りの回転角度．
-    static constexpr float kBodyYawRotAngleMax = math_util::ConvertDegToRad(10.f);
+    static constexpr float kBodyYawRotAngleMax = math_util::ConvertDegToRad(20.f);
 
     //! ロボットのヨー軸周りの回転角度．
-    static constexpr float kBodyYawRotAngleMin = math_util::ConvertDegToRad(-10.f);
+    static constexpr float kBodyYawRotAngleMin = math_util::ConvertDegToRad(-20.f);
 
     //! ロボットのヨー軸周りの回転角度の分割数（奇数にすること）．
     static constexpr int kBodyYawRotAngleDivNum = 21;

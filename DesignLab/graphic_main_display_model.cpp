@@ -15,10 +15,13 @@
 #include "dxlib_util.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
-#include "map_creator_for_simulation.h"
+#include "map_creator_factory.h"
 #include "map_renderer.h"
 #include "node_initializer.h"
+#include "simulation_setting_record.h"
+#include "toml_file_importer.h"
 #include "phantomx_mk2_const.h"
+#include "world_grid_renderer.h"
 
 
 namespace designlab
@@ -33,13 +36,14 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     calculator_ptr_(calculator_ptr),
     converter_ptr_(converter_ptr)
 {
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
     robot_ = node_initializer.InitNode();
 
-    const SimulationMapParameter messanger;
-    MapCreatorForSimulation map_creator(messanger);
+    TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
+    const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+    auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 
-    map_state_ = map_creator.InitMap();
+    map_state_ = map_creator->InitMap();
     divided_map_state_.Init(map_state_, {});
 
     const auto camera = std::make_shared<DxlibCamera>();
@@ -62,6 +66,8 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     map_renderer->SetMapState(map_state_);
     map_renderer->SetNode(robot_);
 
+    const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
+
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
@@ -76,6 +82,7 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
 
     render_group_.Register(hexapod_renderer);
     render_group_.Register(map_renderer);
+    render_group_.Register(world_grid_renderer);
 }
 
 

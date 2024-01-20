@@ -16,45 +16,36 @@ namespace designlab
 {
 
 GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
-  std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straight_ptr,
-  std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot_ptr) :
+    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straight_ptr,
+    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot_ptr) :
     gait_pattern_generator_for_straight_ptr_(std::move(gait_pattern_generator_for_straight_ptr)),
     gait_pattern_generator_for_turn_spot_ptr_(std::move(gait_pattern_generator_for_turn_spot_ptr))
 {
 }
 
 GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
-  const RobotStateNode& current_node,
-  const MapState& map,
-  const RobotOperation& operation,
-  RobotStateNode* output_node
-)
+    const RobotStateNode& current_node,
+    const MapState& map,
+    const RobotOperation& operation,
+    RobotStateNode* output_node)
 {
-    if (operation.operation_type == enums::RobotOperationType::kStraightMoveVector ||
-        operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
+    using enum enums::RobotOperationType;
+
+    if (operation.operation_type == kStraightMoveVector || operation.operation_type == kStraightMovePosition)
     {
-        return gait_pattern_generator_for_straight_ptr_->GetNextNodeByGraphSearch(
-          current_node,
-          map,
-          operation,
-          output_node);
+        return gait_pattern_generator_for_straight_ptr_->GetNextNodeByGraphSearch(current_node, map,
+                                                                                  operation, output_node);
     }
-    else if (operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis ||
-             operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
+    else if (operation.operation_type == kSpotTurnRotAxis || operation.operation_type == kSpotTurnLastPosture)
     {
-        return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodeByGraphSearch(
-          current_node,
-          map,
-          operation,
-          output_node);
+        return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodeByGraphSearch(current_node, map,
+                                                                                   operation, output_node);
     }
     else
     {
         assert(false);
 
-        std::string error_message = "存在していない動作種別です。";
-
-        return { enums::Result::kFailure, error_message };
+        return { enums::Result::kFailure, "存在していない動作が指定されました．" };
     }
 }
 

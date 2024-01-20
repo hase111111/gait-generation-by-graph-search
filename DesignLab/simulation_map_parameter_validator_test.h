@@ -67,8 +67,8 @@ TEST_SUITE("SimulationMapParameterValidator::Validate")
         SUBCASE("不整地の最小値が最大値より大きい時，falseを返すべき")
         {
             SimulationMapParameter parameter;
-            parameter.routh_min_height = 10.f;
-            parameter.routh_max_height = -10.f;
+            parameter.rough_min_height = 10.f;
+            parameter.rough_max_height = -10.f;
             const auto [result, _] = validator.Validate(parameter);
 
             CHECK_FALSE(result);
@@ -78,8 +78,8 @@ TEST_SUITE("SimulationMapParameterValidator::Validate")
         {
             // 境界値テスト．
             SimulationMapParameter parameter;
-            parameter.routh_min_height = 10.f;
-            parameter.routh_max_height = 10.f;
+            parameter.rough_min_height = 10.f;
+            parameter.rough_max_height = 10.f;
             const auto [result, _] = validator.Validate(parameter);
 
             CHECK(result);

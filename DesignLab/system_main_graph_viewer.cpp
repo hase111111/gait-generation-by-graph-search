@@ -64,7 +64,7 @@ void SystemMainGraphViewer::Main()
     // ノードを初期化する．
     CmdIOUtil::Output("ノードを初期化する．", kSystem);
 
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
     RobotStateNode first_node = node_initializer.InitNode();
     std::vector<RobotStateNode> graph;
 
@@ -278,7 +278,7 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
     {
         CmdIOUtil::Output("グラフが空なので，初期状態のノードを返す", kSystem);
 
-        NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, enums::HexapodMove::kNone };
+        NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
         RobotStateNode first_node = node_initializer.InitNode();
 
         return first_node;
