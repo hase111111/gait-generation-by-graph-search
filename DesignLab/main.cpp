@@ -22,6 +22,7 @@
 #include "graphic_main_basic.h"
 #include "graphic_main_graph_viewer.h"
 #include "graphic_main_display_model.h"
+#include "graphic_main_robot_control.h"
 #include "graphic_system.h"
 #include "node_creator_builder_hato.h"
 #include "node_creator_builder_rot_test.h"
@@ -31,6 +32,7 @@
 #include "simulation_end_checker_factory.h"
 #include "system_main_graph_viewer.h"
 #include "system_main_result_viewer.h"
+#include "system_main_robot_control.h"
 #include "system_main_simulation.h"
 #include "toml_file_importer.h"
 #include "toml_directory_exporter.h"
@@ -48,13 +50,13 @@ int main()
     using enum enums::OutputDetail;
 
     // まずは，設定ファイルを読み込む
-    designlab::CmdIOUtil::SetOutputLimit(designlab::enums::OutputDetail::kSystem);
+    CmdIOUtil::SetOutputLimit(kSystem);
 
-    designlab::TomlDirectoryExporter toml_directory_exporter;
+    TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-    designlab::TomlFileImporter<designlab::ApplicationSettingRecord> application_setting_importer(
-        std::make_unique<designlab::ApplicationSettingRecordValidator>());
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
+        std::make_unique<ApplicationSettingRecordValidator>());
 
     // 読み込んだ設定ファイルをクラスに記録する．
     const auto application_setting_record =
@@ -208,6 +210,21 @@ int main()
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main));
 
+                break;
+            }
+            case enums::BootMode::kRobotControl:
+            {
+                system_main = std::make_unique<SystemMainRobotControl>();
+
+                std::unique_ptr<IGraphicMain> graphic_main_robot_control =
+                    std::make_unique<GraphicMainRobotControl>(
+                    graphic_data_broker,
+                    phantomx_mk2,
+                    phantomx_mk2,
+                    phantomx_mk2,
+                    application_setting_record);
+
+                graphic_system.ChangeGraphicMain(std::move(graphic_main_robot_control));
                 break;
             }
             default:

@@ -18,7 +18,8 @@ enum class BootMode : int
     kSimulation = 0,    //!< シミュレーションモード．
     kViewer,            //!< ビューワーモード．
     kDisplayModel,      //!< ディスプレイモード．
-    kResultViewer       //!< リザルトビューワーモード．
+    kResultViewer,      //!< リザルトビューワーモード．
+    kRobotControl,      //!< ロボットコントロールモード．
 };
 
 }  // namespace designlab::enums
