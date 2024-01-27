@@ -12,6 +12,7 @@
 #include "divided_map_state.h"
 #include "dxlib_node_setter_group.h"
 #include "dxlib_gui_updater.h"
+#include "dxlib_gui_display_node_switcher.h"
 #include "dxlib_3d_renderer_group.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
@@ -49,11 +50,15 @@ private:
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
+    std::shared_ptr<DxlibGuiDisplayNodeSwitcher> display_node_switch_gui_;
     MapState map_state_;  //!< マップの状態を保持するクラス．
     DividedMapState divided_map_state_;  //!< 分割したマップの状態を保持するクラス．
-    RobotStateNode robot_;  //!< ロボットの状態．
+
+    std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列．
 
     const std::shared_ptr<GraphicDataBroker> broker_;
+
+    int graph_update_count_{ 0 };
 };
 
 }  // namespace designlab

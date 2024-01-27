@@ -123,8 +123,8 @@ int main()
             {
                 // シミュレーションシステムクラスを作成する．
 
-                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 10000000);
-                auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 5, 50000000);
+                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 20000000);
+                auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
                 auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
                 TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
@@ -217,15 +217,10 @@ int main()
             }
             case enums::BootMode::kRobotControl:
             {
-                system_main = std::make_unique<SystemMainRobotControl>();
+                system_main = std::make_unique<SystemMainRobotControl>(graphic_data_broker);
 
                 std::unique_ptr<IGraphicMain> graphic_main_robot_control =
-                    std::make_unique<GraphicMainRobotControl>(
-                    graphic_data_broker,
-                    phantomx_mk2,
-                    phantomx_mk2,
-                    phantomx_mk2,
-                    application_setting_record);
+                    std::make_unique<GraphicMainRobotControl>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main_robot_control));
                 break;

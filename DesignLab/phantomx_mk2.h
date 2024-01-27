@@ -100,6 +100,8 @@ private:
     const float kFreeLegHeight;  //!< 重心から見た遊脚高さ[mm]．
     const float kStableMargin;   //!< 静的安全余裕．
 
+    const float kMinLegDistance;  //! 脚先どうしの最小距離[mm]．
+
     //! 脚の付け根から脚先までの最大距離[mm]．
     //! 脚の付け根と重心のz方向の距離の差をインデックスにする．
     std::array<float, kMaxLegRSize> kMaxLegRArray;

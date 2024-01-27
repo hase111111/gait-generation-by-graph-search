@@ -152,7 +152,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod move_forward_method =
     {
         .is_lower_better = false,
-        .margin = 7.5f,
+        .margin = 0.0f,
     };
 
     GraphSearchEvaluator::EvaluationMethod leg_rot_method =

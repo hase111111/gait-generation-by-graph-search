@@ -9,59 +9,153 @@
 #include <boost/thread.hpp>
 
 #include "cmdio_util.h"
+#include "file_tree.h"
 #include "serial_communication_thread.h"
 
 
 namespace designlab
 {
 
-SystemMainRobotControl::SystemMainRobotControl()
+SystemMainRobotControl::SystemMainRobotControl(const std::shared_ptr<GraphicDataBroker>& broker_ptr) :
+    broker_ptr_(broker_ptr)
 {
 }
 
 void SystemMainRobotControl::Main()
 {
-    SerialCommunicationThread serial_communication_thread;
+    using enum enums::OutputDetail;
 
-    // シリアル通信のスレッドを立ち上げる．
-    boost::thread serial_communication_thread_(boost::bind(&SerialCommunicationThread::Loop,
-                                               &serial_communication_thread));
+    CmdIOUtil::OutputTitle("Result Viewer System");
 
     while (true)
     {
-        // シリアル通信のスレッドが終了していたら，プログラムを終了する．
-        if (!serial_communication_thread_.joinable())
+        // ファイルツリーを表示し，ファイルを選択する．
+        FileTree file_tree;
+
+        std::string res_path;
+
+        if (!file_tree.SelectFile(kResultFileDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
         {
-            CmdIOUtil::Output("シリアル通信のスレッドが終了しました．", enums::OutputDetail::kError);
+            CmdIOUtil::Output("該当のデータがありませんでした．終了します．", kSystem);
+
             break;
         }
 
-        if (serial_communication_thread.IsEnd())
+        // ファイルを読み込む．
+
+        std::vector<RobotStateNode> graph;  // データを受け取るための変数．
+        MapState map_state;
+
+        if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state))
         {
-            CmdIOUtil::Output("シリアル通信のスレッドは終了しています．", enums::OutputDetail::kError);
+            RemoveDoNotMoveNode(&graph);
+            DivideSwingAndStance(&graph);
+
+            // データを仲介人に渡す．
+            broker_ptr_->graph.SetData(graph);
+            broker_ptr_->map_state.SetData(map_state);
+            broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
+
+            // データを表示する．
+            CmdIOUtil::Output("データを表示します．", kSystem);
+            CmdIOUtil::OutputNewLine(1, kSystem);
+            CmdIOUtil::WaitAnyKey();
+            CmdIOUtil::OutputNewLine(1, kSystem);
+            CmdIOUtil::OutputHorizontalLine("=", kSystem);
+        }
+        else
+        {
+            CmdIOUtil::Output("ファイルの読み込みに失敗しました．終了します．", kSystem);
+        }
+
+        // 終了するかどうかを選択
+
+        if (CmdIOUtil::InputYesNo("このモードを終了しますか？"))
+        {
+            CmdIOUtil::OutputNewLine(1, kSystem);
+
             break;
         }
 
-        // シリアル通信のスレッドが終了していない場合は，キー入力を受け付ける．
-        const auto val = CmdIOUtil::InputInt(0, 1, 1, "終了する場合は0，データの送信をする場合は1を入力してください．");
+        CmdIOUtil::OutputNewLine(1, kSystem);
+    }
+};
 
-        // キー入力に応じて，シリアル通信のスレッドにメッセージを送信する．
-        if (val == 0)
+void SystemMainRobotControl::RemoveDoNotMoveNode(std::vector<RobotStateNode>* graph_ptr)
+{
+    // 脚先の座標のみを確認し，変更がない場合は削除する．
+    std::optional<RobotStateNode> prev_pos = std::nullopt;
+
+    for (auto itr = graph_ptr->begin(); itr != graph_ptr->end();)
+    {
+        if (prev_pos.has_value() && itr->leg_pos == prev_pos->leg_pos)
         {
-            serial_communication_thread.EndThread();
-            break;
+            itr = graph_ptr->erase(itr);
         }
-        else if (val == 1)
+        else
         {
-            const auto str = serial_communication_thread.GetAllReadData();
-            CmdIOUtil::Output(std::format("受信したデータ : {}個", str.size()), enums::OutputDetail::kInfo);
+            prev_pos = *itr;
+            ++itr;
         }
     }
+}
 
-    // 通信のスレッドを待つ．
-    serial_communication_thread_.join();
+void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr)
+{
+    // 脚先の座標のみを確認し，変更がない場合は削除する．
+    std::optional<RobotStateNode> prev_pos = std::nullopt;
 
-    CmdIOUtil::Output("SystemMainRobotControl::Main() is finished．", enums::OutputDetail::kInfo);
-};
+    for (auto itr = graph_ptr->begin(); itr != graph_ptr->end(); ++itr)
+    {
+        // 前回のノードがないならば，更新して次へ．
+        if (!prev_pos.has_value())
+        {
+            prev_pos = *itr;
+            continue;
+        }
+
+        // 脚先の座標のZ座標，つまり高さが変化しているかどうかを確認する．
+        int swing_leg_num = 0;
+        int stance_leg_num = 0;
+
+        for (int i = 0; i < HexapodConst::kLegNum; i++)
+        {
+            if (!leg_func::IsGrounded(prev_pos.value().leg_state, i) && leg_func::IsGrounded((*itr).leg_state, i))
+            {
+                ++stance_leg_num;
+            }
+
+            if (leg_func::IsGrounded(prev_pos.value().leg_state, i) && !leg_func::IsGrounded((*itr).leg_state, i))
+            {
+                ++swing_leg_num;
+            }
+        }
+
+        // 遊脚・接地を分ける．
+        if (swing_leg_num > 0 && stance_leg_num > 0)
+        {
+            RobotStateNode stance_node = prev_pos.value();
+
+            for (int i = 0; i < HexapodConst::kLegNum; i++)
+            {
+                // 前に遊脚，現在支持脚の場合のみ処理をする．
+                if (!leg_func::IsGrounded(prev_pos.value().leg_state, i) && leg_func::IsGrounded((*itr).leg_state, i))
+                {
+                    // 脚位置の変更
+                    stance_node.leg_pos[i] = (*itr).leg_pos[i];
+
+                    // 脚の状態の変更
+                    leg_func::ChangeGround(i, true, &stance_node.leg_state);
+                }
+            }
+
+            // ノードを挿入する．
+            itr = graph_ptr->insert(itr, stance_node);
+        }
+
+        prev_pos = *itr;
+    }
+}
+
 
 } // namespace designlab

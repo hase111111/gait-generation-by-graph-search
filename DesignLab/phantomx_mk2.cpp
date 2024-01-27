@@ -44,7 +44,8 @@ PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) 
     } }),
     kMaxLegRArray(InitMaxLegR()),
     kMinLegPosXY(InitMinLegPosXY()),
-    kMaxLegPosXY(InitMaxLegPosXY())
+    kMaxLegPosXY(InitMaxLegPosXY()),
+    kMinLegDistance(50.0)
 {
 }
 
@@ -127,26 +128,26 @@ HexapodJointState PhantomXMkII::CalculateJointState(
                 angle_ft_phase - std::numbers::pi_v<float> : angle_ft_phase;
 
             const Vector3 candidate_leg_pos = femur_joint_pos + Vector3{
-                (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
-                    std::cos(res.joint_angle[0])* std::cos(angle_ft),
+                (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
+                    std::cos(res.joint_angle[0]) * std::cos(angle_ft),
 
-                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
-                    std::sin(res.joint_angle[0])* std::cos(angle_ft),
+                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
+                    std::sin(res.joint_angle[0]) * std::cos(angle_ft),
 
-                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
+                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
                     std::sin(angle_ft)
             };
 
             const Vector3 candidate_leg_pos_phase = femur_joint_pos + Vector3{
-                (PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) +
-                PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))*
+                (PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) +
+                PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) *
                     std::cos(res.joint_angle[0]),
 
-                    (PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) +
-                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))*
+                    (PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) +
+                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::sin(angle_ft_phase) +
+                    PhantomXMkIIConst::kFemurLength * std::sin(angle_ft_phase) +
                     PhantomXMkIIConst::kTibiaLength * std::sin(angle_ft)
             };
 
@@ -170,23 +171,23 @@ HexapodJointState PhantomXMkII::CalculateJointState(
             res.joint_angle[2] = angle_t;
 
             res.joint_pos_leg_coordinate[2] = femur_joint_pos + Vector3{
-                PhantomXMkIIConst::kFemurLength* std::cos(angle_f)*
+                PhantomXMkIIConst::kFemurLength * std::cos(angle_f) *
                     std::cos(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::cos(angle_f)*
+                    PhantomXMkIIConst::kFemurLength * std::cos(angle_f) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::sin(angle_f)
+                    PhantomXMkIIConst::kFemurLength * std::sin(angle_f)
             };
 
             res.joint_pos_leg_coordinate[3] = res.joint_pos_leg_coordinate[2] + Vector3{
-                PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)*
+                PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) *
                     std::cos(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)*
+                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kTibiaLength* std::sin(angle_f + angle_t)
+                    PhantomXMkIIConst::kTibiaLength * std::sin(angle_f + angle_t)
             };
 
             res.is_in_range = false;  // 範囲外であることを示す．
@@ -464,23 +465,31 @@ bool PhantomXMkII::IsLegInterfering(
     // 重心を原点とした，座標系において，脚の干渉を調べる．
 
     // 脚の干渉を調べる．
-    Vector2 leg_pos_xy[HexapodConst::kLegNum];
-    Vector2 joint_pos_xy[HexapodConst::kLegNum];
+    Vector2 leg_pos_xy[HexapodConst::kLegNum];  // 脚先の座標(ロボット座標系)．
+    Vector2 joint_pos_xy[HexapodConst::kLegNum];  // 脚の根元の座標(ロボット座標系)．
 
+    // 脚の根元の座標(ロボット座標系)を取得する．
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         joint_pos_xy[i] = GetLegBasePosRobotCoordinate(i).ProjectedXY();
-        leg_pos_xy[i] = leg_pos[i].ProjectedXY() + joint_pos_xy[i];
+        leg_pos_xy[i] = ConvertLegToRobotCoordinate(leg_pos[i], i).ProjectedXY();
     }
 
     // 隣の脚との干渉を調べる．
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
+        // 脚が交差しているか調べる．
         LineSegment2 line1(joint_pos_xy[i], leg_pos_xy[i]);
         LineSegment2 line2(joint_pos_xy[(i + 1) % HexapodConst::kLegNum],
                            leg_pos_xy[(i + 1) % HexapodConst::kLegNum]);
 
         if (line1.HasIntersection(line2)) { return true; }
+
+        // 脚先の距離を確認する．
+        if (leg_pos_xy[i].GetDistanceFrom(leg_pos_xy[(i + 1) % HexapodConst::kLegNum]) < kMinLegDistance)
+        {
+            return true;
+        }
     }
 
     return false;

@@ -6,9 +6,12 @@
 #ifndef DESIGNLAB_SYSTEM_MAIN_ROBOT_CONTROL_H_
 #define DESIGNLAB_SYSTEM_MAIN_ROBOT_CONTROL_H_
 
-#include "interface_system_main.h"
+#include <string>
+#include <memory>
 
 #include "graphic_data_broker.h"
+#include "interface_system_main.h"
+#include "result_file_importer.h"
 
 
 namespace designlab
@@ -17,11 +20,24 @@ namespace designlab
 class SystemMainRobotControl final : public ISystemMain
 {
 public:
-    SystemMainRobotControl();
+    SystemMainRobotControl(const std::shared_ptr<GraphicDataBroker>& broker_ptr);
     ~SystemMainRobotControl() = default;
 
     void Main() override;
 
+private:
+
+    //! @brief ノードのうち，移動しないノードを削除する．
+    void RemoveDoNotMoveNode(std::vector<RobotStateNode>* graph_ptr);
+
+    //! @brief ノードのうち，脚の上下運動を行うノードを，遊脚と接地に分ける．
+    void DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr);
+
+    ResultFileImporter result_importer_;
+
+    const std::shared_ptr<GraphicDataBroker> broker_ptr_;
+
+    const std::string kResultFileDirectoryPath{ "robot_control" };  //!< ファイルを読み込むディレクトリのパス．
 };
 
 }  // namespace designlab

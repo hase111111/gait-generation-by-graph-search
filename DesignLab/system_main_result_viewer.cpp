@@ -5,6 +5,7 @@
 #include "system_main_result_viewer.h"
 
 #include <filesystem>
+#include <optional>
 #include <vector>
 
 #include <boost/thread.hpp>

@@ -30,14 +30,12 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     mouse_ptr_(std::make_shared<Mouse>()),
     broker_(broker),
     converter_ptr_(converter_ptr),
-    calculator_ptr_(calculator_ptr)
+    calculator_ptr_(calculator_ptr),
+    display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>(setting_ptr->window_size_x, setting_ptr->window_size_y))
 {
     assert(broker_ != nullptr);
     assert(converter_ptr_ != nullptr);
     assert(calculator_ptr_ != nullptr);
-
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, {0.f, 0.f, 0.f}, enums::HexapodMove::kNone };
-    robot_ = node_initializer.InitNode();
 
     const SimulationMapParameter map_param;
     MapCreatorForSimulation map_creator(map_param);
@@ -66,8 +64,9 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
 
     const auto map_renderer = std::make_shared<MapRenderer>();
     map_renderer->SetMapState(map_state_);
-    map_renderer->SetNode(robot_);
+    map_renderer->SetNode(RobotStateNode{});
 
+    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), 1);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
@@ -80,6 +79,7 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     node_setter_group_.Register(node_display_gui);
     node_setter_group_.Register(hexapod_node_setter);
     node_setter_group_.Register(map_renderer);
+    node_setter_group_.Register(robot_control_gui);
 
     render_group_.Register(hexapod_renderer);
     render_group_.Register(map_renderer);
@@ -93,7 +93,23 @@ bool GraphicMainRobotControl::Update()
 
     gui_updater_.Activate(mouse_ptr_);
 
-    node_setter_group_.SetNode(robot_);
+    if (!graph_.empty())
+    {
+        // 表示するノードを取得する．
+        size_t display_node_index_ = display_node_switch_gui_->GetDisplayNodeNum();
+
+        // ノードの情報を設定するGUIに情報を伝達する．
+        node_setter_group_.SetNode(graph_.at(display_node_index_));
+    }
+
+    if (broker_->graph.GetUpdateCount() != graph_update_count_)
+    {
+        graph_update_count_ = broker_->graph.GetUpdateCount();
+
+        graph_ = broker_->graph.GetData();
+
+        display_node_switch_gui_->SetGraphData(graph_.size(), { graph_.size() - 1 });
+    }
 
     return true;
 }

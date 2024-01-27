@@ -16,7 +16,7 @@ static constexpr int kBaudRate = 9600;  // ボーレート．Arduino側と合わ
 
 // COMポートの名前．
 static constexpr std::string kComName[] = { "", "COM1", "COM2", "COM3", "COM4",
-                                            "COM5", "COM6", "COM7" , "COM8", "COM9",
+                                            "COM5", "COM6", "\\\\.\\COM7" , "COM8", "COM9",
                                             "\\\\.\\COM10", "\\\\.\\COM11", "\\\\.\\COM12", "\\\\.\\COM13" };
 }
 
@@ -130,7 +130,7 @@ std::vector<std::string> SerialCommunicationThread::GetReadData(const int num) c
 bool SerialCommunicationThread::Initialize()
 {
     // 通信を開始する．Windowsでは CreateFile で COMポートを開く．
-    serial_handle_ = CreateFile("COM5", GENERIC_READ | GENERIC_WRITE,
+    serial_handle_ = CreateFile(kComName[7].c_str(), GENERIC_READ | GENERIC_WRITE,
                                 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (serial_handle_ == INVALID_HANDLE_VALUE)
@@ -230,7 +230,7 @@ bool SerialCommunicationThread::Write()
     }
 
     // 書き込みデータがない場合は，即座に終了する．
-    if (write_data_.empty())
+    if (write_data_ == "")
     {
         return true;
     }
@@ -251,7 +251,7 @@ bool SerialCommunicationThread::Write()
     }
 
     // 書き込みデータをクリアする．
-    write_data_.clear();
+    write_data_ = "";
 
     return true;
 }

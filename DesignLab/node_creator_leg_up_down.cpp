@@ -223,6 +223,12 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
                 // 候補座標として，適していないならば追加せずに続行．
                 if (!IsAbleLegPos(new_node, now_leg_num)) { continue; }
 
+                // 脚先が干渉しないか調べる．
+                if (checker_ptr_->IsLegInterfering(new_node.leg_pos))
+                {
+                    continue;
+                }
+
                 is_candidate_pos = true;
                 candidate_pos = map_point_pos;
             }

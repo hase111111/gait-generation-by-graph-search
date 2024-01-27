@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 
+#include <boost/thread.hpp>
+
 #include "dxlib_camera.h"
 #include "math_vector3.h"
 #include "interface_dxlib_clickable.h"
@@ -20,6 +22,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
+#include "serial_communication_thread.h"
 #include "simple_button.h"
 
 
@@ -31,7 +34,8 @@ namespace designlab
 class DxlibGuiRobotControl final :
     public IDxlibGui,
     public IDxlibClickable,
-    public IDxlibDraggable
+    public IDxlibDraggable,
+    public IDxlibNodeSetter
 {
 public:
     DxlibGuiRobotControl() = delete;  //!< デフォルトコンストラクタは生成できない．
@@ -43,6 +47,8 @@ public:
                          const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
                          const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
                          const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+
+    ~DxlibGuiRobotControl();
 
     //! @brief GUIの位置を設定する．
     //! @n Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる．
@@ -88,9 +94,14 @@ public:
 
     void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
+    void SetNode(const RobotStateNode& node) override
+    {
+        node_ = node;
+    }
+
 private:
-    static constexpr int kWidth{ 245 };  //!< GUIの横幅．
-    static constexpr int kHeight{ 410 };  //!< GUIの縦幅．
+    static constexpr int kWidth{ 400 };  //!< GUIの横幅．
+    static constexpr int kHeight{ 600 };  //!< GUIの縦幅．
     static constexpr int kTitleBarHeight{ 32 };  //!< タイトルバーの高さ．
 
 
@@ -102,6 +113,7 @@ private:
 
     bool IsInWindow() const;
 
+    std::string GetSerialData() const;
 
     int gui_left_pos_x_{ 0 };  //!< GUIの左端の位置．
     int gui_top_pos_y_{ 0 };   //!< GUIの上端の位置．
@@ -121,8 +133,15 @@ private:
     std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;  //!< 順運動学を計算するクラスへのポインタ．
     std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;  //!< 姿勢の妥当性を確認するクラスへのポインタ．
 
+    SerialCommunicationThread serial_communication_;  //!< シリアル通信を行うクラス．
+    std::unique_ptr<boost::thread> serial_communication_thread_ptr_;  //!< シリアル通信を行うスレッドへのポインタ．
+
     const int kFontSize{ 16 };  //!< フォントのサイズ．
     const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };  //!< フォントへのパス．
+
+    RobotStateNode node_;  //!< ロボットの状態．
+    bool auto_update_flag_{ false };  //!< 自動更新のフラグ．
+    int counter_{ 0 };  //!< カウンタ．
 };
 
 }  // namespace designlab
