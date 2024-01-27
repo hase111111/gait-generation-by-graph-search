@@ -13,8 +13,8 @@ namespace designlab
 {
 
 MapRenderer::MapRenderer() :
-    kColorGray(GetColor(80, 80, 80)),
-    kColorLightGray(GetColor(160, 160, 160)),
+    kColorGray(GetColor(180, 80, 80)),
+    kColorLightGray(GetColor(200, 160, 160)),
     kColorDarkGray(GetColor(40, 40, 40)),
     kCubeSize(15.f)
 {

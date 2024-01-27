@@ -648,6 +648,9 @@
     <ClInclude Include="graphic_main_robot_control.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
+    <ClInclude Include="approximated_motion_range_render.h">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -961,6 +964,9 @@
     </ClCompile>
     <ClCompile Include="graphic_main_robot_control.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="approximated_motion_range_render.cpp">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

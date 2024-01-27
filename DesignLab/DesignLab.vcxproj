@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application_setting_record_validator.h" />
+    <ClInclude Include="approximated_motion_range_render.h" />
     <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="dxlib_gui_robot_control.h" />
     <ClInclude Include="graphic_main_robot_control.h" />
@@ -185,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="application_setting_record_validator.cpp" />
+    <ClCompile Include="approximated_motion_range_render.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />
     <ClCompile Include="dxlib_gui_camera_parameter_displayer.cpp" />
     <ClCompile Include="dxlib_gui_robot_control.cpp" />
