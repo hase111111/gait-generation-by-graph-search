@@ -12,6 +12,7 @@
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
 #include "node_creator_leg_up_down.h"
+#include "node_creator_leg_up_down_radius.h"
 #include "node_creator_body_rot.h"
 
 
@@ -54,7 +55,7 @@ void NodeCreatorBuilderStraightMove::Build(
         std::make_unique<NodeCreatorLegHierarchy>(enums::HexapodMove::kLegUpDown,
                                                   hierarchy_list);
 
-    (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+    (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDownRadius>(
       map,
       converter_ptr_,
       presenter_ptr_,
@@ -68,7 +69,7 @@ void NodeCreatorBuilderStraightMove::Build(
       checker_ptr_,
       enums::HexapodMove::kComMove);
 
-    (*node_creator)[enums::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
+    (*node_creator)[enums::HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
       map,
       converter_ptr_,
       presenter_ptr_,

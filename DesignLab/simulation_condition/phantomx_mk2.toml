@@ -2,10 +2,10 @@
 [Body]
     
     #地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
-    body_lifting_height_max = 180.0
+    body_lifting_height_max = 160.0
     
     #地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-    body_lifting_height_min = 50.0
+    body_lifting_height_min = 30.0
 
 [CoxaRange]
     

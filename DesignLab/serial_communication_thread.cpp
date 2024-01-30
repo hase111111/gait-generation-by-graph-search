@@ -1,5 +1,5 @@
 ﻿
-/// @author    hasegawa
+/// @author    Hasegawa
 /// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #include "serial_communication_thread.h"

@@ -2,7 +2,7 @@
 //! @author    Hasegawa
 //! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
 
-#include "node_creator_leg_up_down.h"
+#include "node_creator_leg_up_down_radius.h"
 
 #include <algorithm>
 
@@ -18,15 +18,14 @@
 namespace designlab
 {
 
-NodeCreatorLegUpDown::NodeCreatorLegUpDown(
+NodeCreatorLegUpDownRadius::NodeCreatorLegUpDownRadius(
   const DividedMapState& divided_map,
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
   enums::HexapodMove next_move
 ) :
-    kLegMargin(20),
-    kHighMargin(5),
+    kLegMargin(10),
     map_(divided_map),
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
@@ -37,7 +36,7 @@ NodeCreatorLegUpDown::NodeCreatorLegUpDown(
 
 
 
-void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int current_num,
+void NodeCreatorLegUpDownRadius::Create(const RobotStateNode& current_node, const int current_num,
                                   std::vector<RobotStateNode>* output_graph) const
 {
     // 脚の遊脚・接地によって生じるとりうる重心を com type として仕分けている．
@@ -138,7 +137,7 @@ void NodeCreatorLegUpDown::Create(const RobotStateNode& current_node, const int 
 }
 
 
-bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
+bool NodeCreatorLegUpDownRadius::IsGroundableLeg(const int now_leg_num,
                                            const RobotStateNode& current_node,
                                            Vector3* output_ground_pos) const
 {
@@ -211,13 +210,6 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
                     {
                         continue;
                     }
-
-                    //// 候補地点より，胴体から遠い場合は候補地点として採用しない．
-                    //if ((candidate_pos - new_node.leg_reference_pos[now_leg_num]).ProjectedXY().GetSquaredLength() <
-                    //    (map_point_pos - new_node.leg_reference_pos[now_leg_num]).ProjectedXY().GetSquaredLength())
-                    //{
-                    //    continue;
-                    //}
                 }
 
                 leg_func::ChangeGround(now_leg_num, true, &new_node.leg_state);
@@ -253,13 +245,13 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
     return true;
 }
 
-bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
+bool NodeCreatorLegUpDownRadius::IsAbleLegPos(const RobotStateNode& _node, const int leg_index) const
 {
     const enums::DiscreteLegPos discrete_leg_pos =
         leg_func::GetDiscreteLegPos(_node.leg_state, leg_index);  // 脚位置を取得(1～7)
 
     // まず最初に脚位置4のところにないか確かめる．
-    if ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() <
+    if ((_node.leg_reference_pos[leg_index].ProjectedXY() - _node.leg_pos[leg_index].ProjectedXY()).GetSquaredLength() <
         math_util::Squared(kLegMargin))
     {
         if (discrete_leg_pos == enums::DiscreteLegPos::kCenter)
@@ -304,12 +296,13 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
     }
 
 
-    // 脚位置4と比較して上か下か．
+    // 脚位置4と半径を比較して上か下か．
     if (discrete_leg_pos == enums::DiscreteLegPos::kLowerFront ||
         discrete_leg_pos == enums::DiscreteLegPos::kLowerBack)
     {
         // 脚位置4と比較して下．
-        if (_node.leg_reference_pos[leg_index].z - kHighMargin >= _node.leg_pos[leg_index].z)
+        if (_node.leg_reference_pos[leg_index].ProjectedXY().GetSquaredLength() -
+            _node.leg_pos[leg_index].ProjectedXY().GetSquaredLength() - kLegMargin > 0)
         {
             return true;
         }
@@ -318,7 +311,8 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
              discrete_leg_pos == enums::DiscreteLegPos::kUpperBack)
     {
         // 脚位置4と比較して上．
-        if (_node.leg_reference_pos[leg_index].z + kHighMargin <= _node.leg_pos[leg_index].z)
+        if (_node.leg_pos[leg_index].ProjectedXY().GetSquaredLength() -
+            _node.leg_reference_pos[leg_index].ProjectedXY().GetSquaredLength() - kLegMargin > 0)
         {
             return true;
         }
@@ -326,8 +320,8 @@ bool NodeCreatorLegUpDown::IsAbleLegPos(const RobotStateNode& _node, const int l
     else
     {
         // 脚位置4と同じくらい．
-        if (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) <=
-            kHighMargin)
+        if (std::abs(_node.leg_reference_pos[leg_index].ProjectedXY().GetSquaredLength() -
+            _node.leg_pos[leg_index].ProjectedXY().GetSquaredLength()) < kLegMargin)
         {
             return true;
         }

@@ -80,7 +80,7 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
         {
             // 三平方の定理を使って，脚接地地点から重心位置をどれだけ上げられるか考える．
             const float edge_c =
-                PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength - kMargin;
+                PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength;
             const float edge_b =
                 current_node.leg_pos[i].ProjectedXY().GetLength() - PhantomXMkIIConst::kCoxaLength;
 

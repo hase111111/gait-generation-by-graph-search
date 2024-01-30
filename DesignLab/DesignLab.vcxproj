@@ -31,6 +31,7 @@
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
+    <ClInclude Include="node_creator_leg_up_down_radius.h" />
     <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
+    <ClCompile Include="node_creator_leg_up_down_radius.cpp" />
     <ClCompile Include="robot_operator_for_path.cpp" />
     <ClCompile Include="serial_communication_thread.cpp" />
     <ClCompile Include="simple_button.cpp" />

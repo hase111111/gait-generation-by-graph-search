@@ -39,10 +39,6 @@ public:
 private:
     static constexpr int kDiscretization = 6;  //!< 離散化数．最大位置を最小位置を何分割するのか．
 
-    //! 脚を伸ばし切らないようにするためのマージン[mm]．
-    //! @todo この値は消す．
-    static constexpr float kMargin = 10.0f;
-
     // グローバル座標の重心の最低位置と最高位置から，重心を上下に変化させたノードを追加する．
     void pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, int current_num,
                                  float high, float low,
