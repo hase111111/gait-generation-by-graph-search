@@ -16,7 +16,7 @@ MapRenderer::MapRenderer() :
     kColorGray(GetColor(180, 80, 80)),
     kColorLightGray(GetColor(200, 160, 160)),
     kColorDarkGray(GetColor(40, 40, 40)),
-    kCubeSize(15.f)
+    kCubeSize(20.f)
 {
 }
 

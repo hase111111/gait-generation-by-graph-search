@@ -34,10 +34,15 @@ public:
                                                        const RobotStateNode& next_node) const;
 
 private:
+    static constexpr float kInterpolatedDistance = 1;  //!< 補間する距離 [mm]．
+
     static constexpr int kGroundInterpolatedNodeNum = 10;  //!< 脚が接地する際の補間ノード数．
     static constexpr int kBodyMoveInterpolatedNodeNum = 10;  //!< 胴体が移動する際の補間ノード数．
     static constexpr int kFreeInterpolatedNodeNum = 10;  //!< 脚が遊脚する際の補間ノード数．
 
+    //! @brief 補間が必要ないかどうかを判定する．
+    //! 重心座標の変化と，脚の接地点の変化，ロボットの姿勢の変化を調べて，
+    //! 変化がないならば，補間が必要ないと判定する．
     //! @return 補間が必要ないならば trueを返す．
     bool IsNoChange(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
@@ -66,6 +71,9 @@ private:
 
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+
+
+    static_assert(kGroundInterpolatedNodeNum > 0, "kGroundInterpolatedNodeNum must be positive.");
 };
 
 }  // namespace designlab

@@ -202,7 +202,9 @@ int main()
             {
                 // 結果表示システムクラスを作成する．
                 system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker,
-                                                                       application_setting_record);
+                                                                       application_setting_record,
+                                                                       phantomx_mk2,
+                                                                       phantomx_mk2);
 
                 std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
                   graphic_data_broker,

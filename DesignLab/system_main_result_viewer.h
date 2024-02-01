@@ -11,6 +11,8 @@
 
 #include "application_setting_record.h"
 #include "graphic_data_broker.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
 #include "interface_system_main.h"
 #include "result_file_importer.h"
 
@@ -25,7 +27,9 @@ class SystemMainResultViewer final : public ISystemMain
 public:
     SystemMainResultViewer(
       const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-      const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
+      const std::shared_ptr<const ApplicationSettingRecord> setting_ptr,
+      const std::shared_ptr<const IHexapodJointCalculator> joint_calculator,
+      const std::shared_ptr<const IHexapodCoordinateConverter> converter);
 
 
     void Main() override;
@@ -34,6 +38,12 @@ private:
     ResultFileImporter result_importer_;
 
     const std::shared_ptr<GraphicDataBroker> broker_ptr_;
+
+    const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_;
+
+    const std::shared_ptr<const IHexapodCoordinateConverter> converter_;
+
+    void OutputErrorLegPos(const std::string& file, const std::vector<RobotStateNode>& nodes);
 };
 
 }  // namespace designlab

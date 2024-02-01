@@ -149,7 +149,8 @@ bool GraphicMainBasic::Update()
             node_setter_group_.SetNode(graph_.at(display_node_index_));
         }
 
-        if (interpolated_anime_start_count_ <= counter_ &&
+        if (interpolated_node_.size() > 0 &&
+            interpolated_anime_start_count_ <= counter_ &&
             counter_ < interpolated_anime_start_count_ + kInterpolatedAnimeCount)
         {
             // アニメーション中は interpolated_node_ の補完されたノードを表示する．

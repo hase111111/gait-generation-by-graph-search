@@ -24,7 +24,7 @@ std::vector<RobotStateNode>  InterpolatedNodeCreator::CreateInterpolatedNode(
 {
     if (IsNoChange(current_node, next_node))
     {
-        return { current_node };
+        return { };  // 空のvectorを返す．
     }
 
     if (IsBodyRot(current_node, next_node))
@@ -84,25 +84,23 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedN
 {
     std::vector<RobotStateNode> res;
 
-    for (int i = 0; i < kBodyMoveInterpolatedNodeNum; i++)
+    const Vector3 dif = next_node.center_of_mass_global_coord - current_node.center_of_mass_global_coord;
+
+    if (dif.GetLength() < kInterpolatedDistance) { return {}; }
+
+    int cnt = 1;
+
+    while (kInterpolatedDistance * static_cast<float>(cnt) < dif.GetLength())
     {
         RobotStateNode temp_node = current_node;
-        const float ex = (static_cast<float>(i) + 1.0f) /
-            (static_cast<float>(kBodyMoveInterpolatedNodeNum));
 
         temp_node.ChangeGlobalCenterOfMass(
-          temp_node.center_of_mass_global_coord +
-            (next_node.center_of_mass_global_coord - temp_node.center_of_mass_global_coord) * ex,
+          temp_node.center_of_mass_global_coord + dif.GetNormalized() * kInterpolatedDistance * static_cast<float>(cnt),
           true);
 
-        // for (int j = 0; j < HexapodConst::kLegNum; j++)
-        // {
-        //    temp_node.leg_pos[j] = temp_node.leg_pos[j] +
-        //                           (next_node.leg_pos[j] -
-        //                           temp_node.leg_pos[j]) * ex;
-        // }
-
         res.push_back(temp_node);
+
+        cnt++;
     }
 
     return res;
