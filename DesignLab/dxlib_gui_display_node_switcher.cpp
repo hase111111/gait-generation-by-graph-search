@@ -158,7 +158,7 @@ void DxlibGuiDisplayNodeSwitcher::Update()
     ++counter_;
 
     // 自動再生を行う．
-    if (do_auto_animation_ && counter_ % (180 / animation_speed_) == 0)
+    if (do_auto_animation_ && !in_animation_)
     {
         MoveNextNode();
     }
@@ -244,7 +244,7 @@ void DxlibGuiDisplayNodeSwitcher::Draw() const
                              gui_top_pos_y_ + kTitleBarHeight + 70,
                              text_color,
                              font_handle_,
-                             do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止", animation_speed_);
+                             do_auto_animation_ == true ? "自動再生 : 再生/速度%d" : "自動再生 : 停止/速度%d", animation_speed_);
 
     DrawFormatStringToHandle(text_left_x,
                              gui_top_pos_y_ + kTitleBarHeight + 150,

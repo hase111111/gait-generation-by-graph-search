@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "interface_hexapod_coordinate_converter.h"
+#include "math_util.h"
 #include "robot_state_node.h"
 
 
@@ -34,11 +35,10 @@ public:
                                                        const RobotStateNode& next_node) const;
 
 private:
-    static constexpr float kInterpolatedDistance = 1;  //!< 補間する距離 [mm]．
+    static constexpr float kInterpolatedDistance = 0.1f;  //!< 補間する距離 [mm]．
+    static constexpr float kInterpolatedAngle = math_util::ConvertDegToRad(0.1f);  //!< 補間する角度 [rad]．
 
-    static constexpr int kGroundInterpolatedNodeNum = 10;  //!< 脚が接地する際の補間ノード数．
-    static constexpr int kBodyMoveInterpolatedNodeNum = 10;  //!< 胴体が移動する際の補間ノード数．
-    static constexpr int kFreeInterpolatedNodeNum = 10;  //!< 脚が遊脚する際の補間ノード数．
+    static constexpr int kBodyMoveInterpolatedNodeNum = 100;  //!< 胴体が移動する際の補間ノード数．
 
     //! @brief 補間が必要ないかどうかを判定する．
     //! 重心座標の変化と，脚の接地点の変化，ロボットの姿勢の変化を調べて，
@@ -71,9 +71,6 @@ private:
 
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
-
-
-    static_assert(kGroundInterpolatedNodeNum > 0, "kGroundInterpolatedNodeNum must be positive.");
 };
 
 }  // namespace designlab

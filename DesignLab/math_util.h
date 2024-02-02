@@ -60,9 +60,9 @@ constexpr T Squared(const T num) noexcept { return num * num; }
 template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
 constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 {
-    assert(a > 0);
-    assert(b > 0);
-    assert(c > 0);
+    assert(a >= 0);
+    assert(b >= 0);
+    assert(c >= 0);
     return (a + b > c && b + c > a && c + a > b);
 }
 

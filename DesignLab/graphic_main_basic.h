@@ -75,7 +75,7 @@ private:
     MovementLocusRenderer movement_locus_renderer_;
 
     //!< ロボットの足先の位置を表示するクラス．
-    RobotGroundPointRenderer robot_graund_point_renderer_;
+    RobotGroundPointRenderer robot_ground_point_renderer_;
 
     //!< マップを表示するクラス．
     std::shared_ptr<MapRenderer> map_renderer_ptr_;
@@ -87,17 +87,17 @@ private:
 
     std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列．
 
-    size_t display_node_index_;  //!< 描画しているノード．
+    size_t display_node_index_{ 0 };  //!< 描画しているノード．
 
-    int counter_;  //!< このクラスが実行されてから何回 update 関数が呼ばれたかカウントする．
+    int counter_{ 0 };  //!< このクラスが実行されてから何回 update 関数が呼ばれたかカウントする．
 
     std::vector<RobotStateNode> interpolated_node_;  //!< 補間されたノードを記録する配列．
 
-    int interpolated_anime_start_count_;  //!< 補間されたノードを表示し始めるカウント．
+    int interpolated_anime_start_count_{ 0 };  //!< 補間されたノードを表示し始めるカウント．
 
 
-    int graph_update_count;  //!< 処理部でのグラフの更新回数．
-    int map_update_count;  //!< 処理部でのマップの更新回数．
+    int graph_update_count{ 0 };  //!< 処理部でのグラフの更新回数．
+    int map_update_count{ 0 };  //!< 処理部でのマップの更新回数．
 };
 
 }  // namespace designlab

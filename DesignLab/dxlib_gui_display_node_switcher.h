@@ -78,6 +78,10 @@ public:
 
     void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
+
+    void InAnimation(const bool in_animation) { in_animation_ = in_animation; }
+    int GetAnimeSpeed() const { return animation_speed_; }
+
 private:
     static constexpr int kWidth{ 275 };  //!< GUIの幅．
     static constexpr int kHeight{ 282 };  //!< GUIの高さ．
@@ -137,6 +141,8 @@ private:
     const int kFontSize{ 16 };  //!< フォントのサイズ
     const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };  //!< フォントへのパス
     const int font_handle_;  //!< フォントのハンドル
+
+    bool in_animation_{ false };  //!< アニメーション中か．
 };
 
 }  // namespace designlab
