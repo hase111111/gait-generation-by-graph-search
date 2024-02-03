@@ -88,6 +88,8 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyMoveInterpolatedN
 
     if (dif.GetLength() < kInterpolatedDistance) { return {}; }
 
+    if (dif.GetLength() > kBodyMoveMaxInterpolatedDistance) { return {}; }
+
     int cnt = 1;
 
     while (kInterpolatedDistance * static_cast<float>(cnt) < dif.GetLength())
@@ -139,7 +141,7 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
     {
         std::vector<int> ground_move_index = GetGroundMoveIndex(current_node, next_node);
 
-        // 接地脚の平行移動．まずは，半径方向への移動を行う．
+        // 接地脚の平行移動．
         while (true)
         {
             RobotStateNode temp_node = res.empty() ? current_node : res.back();
@@ -148,6 +150,32 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
 
             for (const auto& i : ground_move_index)
             {
+                // 角度方向に移動．
+                const float angle_current = atan2(temp_node.leg_pos[i].y, temp_node.leg_pos[i].x);
+                const float angle_next = atan2(next_node.leg_pos[i].y, next_node.leg_pos[i].x);
+
+                if (angle_current > angle_next + kInterpolatedAngle)
+                {
+                    const float length = temp_node.leg_pos[i].ProjectedXY().GetLength();
+                    temp_node.leg_pos[i].x = length * cos(angle_current - kInterpolatedAngle);
+                    temp_node.leg_pos[i].y = length * sin(angle_current - kInterpolatedAngle);
+                    is_end = false;
+                }
+                else if (angle_current < angle_next - kInterpolatedAngle)
+                {
+                    const float length = temp_node.leg_pos[i].ProjectedXY().GetLength();
+                    temp_node.leg_pos[i].x = length * cos(angle_current + kInterpolatedAngle);
+                    temp_node.leg_pos[i].y = length * sin(angle_current + kInterpolatedAngle);
+                    is_end = false;
+                }
+                else
+                {
+                    const float length = temp_node.leg_pos[i].ProjectedXY().GetLength();
+                    temp_node.leg_pos[i].x = length * cos(angle_next);
+                    temp_node.leg_pos[i].y = length * sin(angle_next);
+                }
+
+                // 半径方向に移動．
                 const float length_current = temp_node.leg_pos[i].ProjectedXY().GetLength();
                 const float length_next = next_node.leg_pos[i].ProjectedXY().GetLength();
 
@@ -170,44 +198,6 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
                     const float angle = atan2(temp_node.leg_pos[i].y, temp_node.leg_pos[i].x);
                     temp_node.leg_pos[i].x = length_next * cos(angle);
                     temp_node.leg_pos[i].y = length_next * sin(angle);
-                }
-            }
-
-            res.push_back(temp_node);
-
-            if (is_end) { break; }
-        }
-
-        // 接地脚の平行移動．次に，角度方向への移動を行う．
-        while (true)
-        {
-            RobotStateNode temp_node = res.back();
-
-            bool is_end = true;
-
-            for (const auto& i : ground_move_index)
-            {
-                const float angle_current = atan2(temp_node.leg_pos[i].y, temp_node.leg_pos[i].x);
-                const float angle_next = atan2(next_node.leg_pos[i].y, next_node.leg_pos[i].x);
-
-                if (angle_current > angle_next + kInterpolatedAngle)
-                {
-                    const float length = temp_node.leg_pos[i].ProjectedXY().GetLength();
-                    temp_node.leg_pos[i].x = length * cos(angle_current - kInterpolatedAngle);
-                    temp_node.leg_pos[i].y = length * sin(angle_current - kInterpolatedAngle);
-                    is_end = false;
-                }
-                else if (angle_current < angle_next - kInterpolatedAngle)
-                {
-                    const float length = temp_node.leg_pos[i].ProjectedXY().GetLength();
-                    temp_node.leg_pos[i].x = length * cos(angle_current + kInterpolatedAngle);
-                    temp_node.leg_pos[i].y = length * sin(angle_current + kInterpolatedAngle);
-                    is_end = false;
-                }
-                else
-                {
-                    temp_node.leg_pos[i].x = next_node.leg_pos[i].x;
-                    temp_node.leg_pos[i].y = next_node.leg_pos[i].y;
                 }
             }
 
@@ -286,15 +276,16 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
             if (is_end) { break; }
         }
 
-        // 接地脚の平行移動．次に，角度方向への移動を行う．
+        // 接地脚の平行移動．
         while (true)
         {
-            RobotStateNode temp_node = res.back();
+            RobotStateNode temp_node = res.empty() ? current_node : res.back();
 
             bool is_end = true;
 
             for (const auto& i : free_move_index)
             {
+                // 角度方向に移動．
                 const float angle_current = atan2(temp_node.leg_pos[i].y, temp_node.leg_pos[i].x);
                 const float angle_next = atan2(next_node.leg_pos[i].y, next_node.leg_pos[i].x);
 
@@ -318,21 +309,8 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
                     temp_node.leg_pos[i].x = length * cos(angle_next);
                     temp_node.leg_pos[i].y = length * sin(angle_next);
                 }
-            }
 
-            res.push_back(temp_node);
-
-            if (is_end) { break; }
-        }
-
-        while (true)
-        {
-            RobotStateNode temp_node = res.back();
-
-            bool is_end = true;
-
-            for (const auto& i : free_move_index)
-            {
+                // 半径方向に移動．
                 const float length_current = temp_node.leg_pos[i].ProjectedXY().GetLength();
                 const float length_next = next_node.leg_pos[i].ProjectedXY().GetLength();
 
@@ -352,8 +330,9 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateLegMoveInterpolatedNo
                 }
                 else
                 {
-                    temp_node.leg_pos[i].x = next_node.leg_pos[i].x;
-                    temp_node.leg_pos[i].y = next_node.leg_pos[i].y;
+                    const float angle = atan2(temp_node.leg_pos[i].y, temp_node.leg_pos[i].x);
+                    temp_node.leg_pos[i].x = length_next * cos(angle);
+                    temp_node.leg_pos[i].y = length_next * sin(angle);
                 }
             }
 
