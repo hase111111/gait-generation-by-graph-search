@@ -1,7 +1,7 @@
 #設定によってはこのファイルは参照されないため注意．
 
 #ロボットの操作方法を設定します．( kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn )
-operation_type = "kSpotTurnLastPosture" 
+operation_type = "kStraightMovePosition" 
 
 [Param]
     

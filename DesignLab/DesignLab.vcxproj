@@ -28,6 +28,7 @@
     <ClInclude Include="graph_search_evaluator.h" />
     <ClInclude Include="graph_search_evaluator_test.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
+    <ClInclude Include="interpolate_validator.h" />
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="graph_searcher_turn.cpp" />
     <ClCompile Include="graph_search_evaluator.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
+    <ClCompile Include="interpolate_validator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_creator_by_csv.cpp" />
     <ClCompile Include="map_creator_factory.cpp" />

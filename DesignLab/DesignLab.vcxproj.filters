@@ -651,6 +651,12 @@
     <ClInclude Include="approximated_motion_range_render.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
+    <ClInclude Include="interpolate_validator.h">
+      <Filter>ソース ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down_radius.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -967,6 +973,12 @@
     </ClCompile>
     <ClCompile Include="approximated_motion_range_render.cpp">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="interpolate_validator.cpp">
+      <Filter>ソース ファイル\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_leg_up_down_radius.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
