@@ -24,14 +24,14 @@ std::string SimulationResultRecord::ToCsvString() const
 
     ss << GraphSearchResultRecord::GetCsvHeader() << std::endl;
 
-    const size_t kLength = graph_search_result_recoder.size();
+    const size_t kLength = graph_search_result_recorder.size();
 
     for (size_t i = 0; i < kLength; i++)
     {
         ss << i << ",";
 
         // グラフ探索の結果の出力．
-        ss << graph_search_result_recoder[i].ToCsvString() << ",";
+        ss << graph_search_result_recorder[i].ToCsvString() << ",";
 
         ss << std::endl;
     }

@@ -15,7 +15,6 @@
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_creator_for_simulation.h"
-#include "map_renderer.h"
 #include "node_initializer.h"
 #include "phantomx_mk2_const.h"
 
@@ -31,7 +30,8 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     broker_(broker),
     converter_ptr_(converter_ptr),
     calculator_ptr_(calculator_ptr),
-    display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>(setting_ptr->window_size_x, setting_ptr->window_size_y))
+    display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>(setting_ptr->window_size_x, setting_ptr->window_size_y)),
+    map_renderer_(std::make_shared<MapRenderer>())
 {
     assert(broker_ != nullptr);
     assert(converter_ptr_ != nullptr);
@@ -62,9 +62,8 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     const auto [hexapod_renderer, hexapod_node_setter] =
         HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_, setting_ptr->gui_display_quality);
 
-    const auto map_renderer = std::make_shared<MapRenderer>();
-    map_renderer->SetMapState(map_state_);
-    map_renderer->SetNode(RobotStateNode{});
+    map_renderer_->SetMapState(map_state_);
+    map_renderer_->SetNode(RobotStateNode{});
 
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), 1);
     gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
@@ -78,11 +77,11 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     node_setter_group_.Register(camera_gui);
     node_setter_group_.Register(node_display_gui);
     node_setter_group_.Register(hexapod_node_setter);
-    node_setter_group_.Register(map_renderer);
+    node_setter_group_.Register(map_renderer_);
     node_setter_group_.Register(robot_control_gui);
 
     render_group_.Register(hexapod_renderer);
-    render_group_.Register(map_renderer);
+    render_group_.Register(map_renderer_);
 }
 
 bool GraphicMainRobotControl::Update()
@@ -109,6 +108,17 @@ bool GraphicMainRobotControl::Update()
         graph_ = broker_->graph.GetData();
 
         display_node_switch_gui_->SetGraphData(graph_.size(), { graph_.size() - 1 });
+    }
+
+    if (broker_->map_state.GetUpdateCount() != map_update_count_)
+    {
+        map_update_count_ = broker_->map_state.GetUpdateCount();
+
+        map_state_ = broker_->map_state.GetData();
+
+        divided_map_state_.Init(map_state_, {});
+
+        map_renderer_->SetMapState(map_state_);
     }
 
     return true;

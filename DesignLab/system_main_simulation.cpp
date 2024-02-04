@@ -77,7 +77,7 @@ void SystemMainSimulation::Main()
         // シミュレーションの結果を格納する変数．
         SimulationResultRecord record;
 
-        record.graph_search_result_recoder.push_back(GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
+        record.graph_search_result_recorder.push_back(GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
 
         CmdIOUtil::Output(std::format("シミュレーション{}回目を開始します", std::to_string(i + 1)), kSystem);
         CmdIOUtil::SpacedOutput(std::format("[初期ノードの状態]\n{}", current_node.ToString()), kInfo);
@@ -117,7 +117,7 @@ void SystemMainSimulation::Main()
             timer_.End();  // タイマーストップ．
 
             // ノード，計算時間，結果を格納する．
-            record.graph_search_result_recoder.push_back(GraphSearchResultRecord{ result_node, timer_.GetElapsedMilliSecond(), result_state });
+            record.graph_search_result_recorder.push_back(GraphSearchResultRecord{ result_node, timer_.GetElapsedMilliSecond(), result_state });
 
             // グラフ探索に失敗．
             if (result_state.result != kSuccess)

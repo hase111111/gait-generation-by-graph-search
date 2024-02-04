@@ -43,7 +43,7 @@ struct SimulationResultRecord final
 
 
     //!< グラフ探索の結果を格納する構造体の配列．
-    std::vector<GraphSearchResultRecord> graph_search_result_recoder;
+    std::vector<GraphSearchResultRecord> graph_search_result_recorder;
 
     MapState map_state;  //!< 最新の地面の状態．
 

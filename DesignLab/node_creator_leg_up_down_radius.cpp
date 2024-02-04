@@ -85,8 +85,7 @@ void NodeCreatorLegUpDownRadius::Create(const RobotStateNode& current_node, cons
             else
             {
                 is_groundable_leg[i] = false;  // 接地不可能にする．
-                com_func::RemoveLegGroundPatternFromNotGroundableLeg(
-                    i, &is_able_leg_ground_pattern);
+                com_func::RemoveLegGroundPatternFromNotGroundableLeg(i, &is_able_leg_ground_pattern);
             }
         }
     }

@@ -30,6 +30,9 @@ private:
     //! @brief ノードのうち，移動しないノードを削除する．
     void RemoveDoNotMoveNode(std::vector<RobotStateNode>* graph_ptr);
 
+    //! @brief 胴体の平行移動を連続して行うノードをまとめる．
+    void MergeContinuousMove(std::vector<RobotStateNode>* graph_ptr);
+
     //! @brief ノードのうち，脚の上下運動を行うノードを，遊脚と接地に分ける．
     void DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr);
 

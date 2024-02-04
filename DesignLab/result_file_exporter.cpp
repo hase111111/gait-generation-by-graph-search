@@ -5,8 +5,8 @@
 #include "result_file_exporter.h"
 
 #include <algorithm>
-#include <format>
 #include <filesystem>
+#include <format>
 #include <map>
 
 #include <magic_enum.hpp>
@@ -25,6 +25,8 @@ namespace sf = ::std::filesystem;  // 長すぎるので，filesystemの名前�
 
 
 const std::string ResultFileConst::kDirectoryPath = sf::current_path().string() + "\\result";
+
+const std::string ResultFileConst::kLegDirectoryName = "leg_pos";
 
 const std::string ResultFileConst::kNodeListName = "node_list";
 
@@ -80,6 +82,9 @@ void ResultFileExporter::Export() const
     // シミュレーション全体の結果を出力する．
     ExportSuccessfulCount(output_folder_path);
 
+    // 脚の位置を出力する．
+    ExportEachLegPos(output_folder_path);
+
     CmdIOUtil::Output("結果の出力が完了しました．", kInfo);
 }
 
@@ -124,7 +129,7 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const
             return;
         }
 
-        for (const auto& j : result_list_.back().graph_search_result_recoder)
+        for (const auto& j : result_list_.back().graph_search_result_recorder)
         {
             ofs << j.result_node << "\n";  // ノードを出力する．
         }
@@ -191,18 +196,18 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
 
         // 時間の統計を出力する．
 
-        double max_time = recorder.graph_search_result_recoder[1].computation_time;
+        double max_time = recorder.graph_search_result_recorder[1].computation_time;
 
         double min_time = max_time;
 
         AverageCalculator<double> average_calculator;
 
         // 最初のノードは除く(計算時間0で固定のため)
-        if (recorder.graph_search_result_recoder.size() > 1)
+        if (recorder.graph_search_result_recorder.size() > 1)
         {
-            for (size_t j = 1; j < recorder.graph_search_result_recoder.size(); ++j)
+            for (size_t j = 1; j < recorder.graph_search_result_recorder.size(); ++j)
             {
-                const double time = recorder.graph_search_result_recoder[j].computation_time;
+                const double time = recorder.graph_search_result_recorder[j].computation_time;
 
                 if (time > max_time) { max_time = time; }
 
@@ -249,16 +254,16 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
 
 
         // 移動距離の統計を出力する．
-        if (recorder.graph_search_result_recoder.size() > 1)
+        if (recorder.graph_search_result_recorder.size() > 1)
         {
             float x_move_sum = 0.0f;
             float y_move_sum = 0.0f;
             float z_move_sum = 0.0f;
 
-            for (size_t j = 0; j != recorder.graph_search_result_recoder.size() - 1; ++j)
+            for (size_t j = 0; j != recorder.graph_search_result_recorder.size() - 1; ++j)
             {
-                RobotStateNode current_node = recorder.graph_search_result_recoder[j].result_node;
-                RobotStateNode next_node = recorder.graph_search_result_recoder[j + 1].result_node;
+                RobotStateNode current_node = recorder.graph_search_result_recorder[j].result_node;
+                RobotStateNode next_node = recorder.graph_search_result_recorder[j + 1].result_node;
                 Vector3 com_dif = next_node.center_of_mass_global_coord - current_node.center_of_mass_global_coord;
 
                 x_move_sum += com_dif.x;
@@ -267,13 +272,13 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
             }
 
             const double x_move_average = x_move_sum /
-                static_cast<double>(recorder.graph_search_result_recoder.size() - 1);
+                static_cast<double>(recorder.graph_search_result_recorder.size() - 1);
 
             const double y_move_average = y_move_sum /
-                static_cast<double>(recorder.graph_search_result_recoder.size() - 1);
+                static_cast<double>(recorder.graph_search_result_recorder.size() - 1);
 
             const double z_move_average = z_move_sum /
-                static_cast<double>(recorder.graph_search_result_recoder.size() - 1);
+                static_cast<double>(recorder.graph_search_result_recorder.size() - 1);
 
             ofs << "X方向総移動距離," << math_util::FloatingPointNumToString(x_move_sum) <<
                 ",[mm]" << std::endl;
@@ -341,6 +346,46 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
     ofs << std::format("デッドロックに陥った, {} \n", result_count[kFailureByLoopMotion]);
 
     ofs << std::format("ノード数制限を超えた, {} \n", result_count[kFailureByNodeLimitExceeded]);
+}
+
+void ResultFileExporter::ExportEachLegPos(const std::string& path) const
+{
+    // ディレクトリを作成する．
+    std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
+
+    if (!sf::exists(leg_pos_dir_path))
+    {
+        sf::create_directory(leg_pos_dir_path);
+    }
+
+    // ファイルを作成する．
+    for (size_t i = 0; i < result_list_.size(); ++i)
+    {
+        for (int j = 0; j < HexapodConst::kLegNum; j++)
+        {
+            std::string output_file_name = std::format("{}\\simulation{}_leg{}.csv", leg_pos_dir_path, i + 1, j + 1);
+
+            std::ofstream ofs(output_file_name);
+
+            // ファイルが作成できなかった場合は，なにも出力しない．
+            if (!ofs)
+            {
+                CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+                return;
+            }
+
+            Vector3 past_pos;
+
+            for (const auto& recorder : result_list_[i].graph_search_result_recorder)
+            {
+                if (recorder.result_node.leg_pos[j] == past_pos) { continue; }
+
+                past_pos = recorder.result_node.leg_pos[j];
+
+                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," << recorder.result_node.leg_pos[j].z << "\n";
+            }
+        }
+    }
 }
 
 }  // namespace designlab

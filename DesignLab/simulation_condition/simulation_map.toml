@@ -16,13 +16,13 @@ option = 0
     map_max_y = 2000.0
     
     #マップのX座標の最小値．
-    map_min_x = -400.0
+    map_min_x = -800.0
     
     #マップのY座標の最小値．
     map_min_y = -2000.0
     
     #不整地が始まるX座標．
-    map_start_rough_x = 400.0
+    map_start_rough_x = 300.0
 
 [Circle]
     

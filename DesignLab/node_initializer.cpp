@@ -48,7 +48,7 @@ RobotStateNode NodeInitializer::InitNode() const
     res.center_of_mass_global_coord = pos_;
 
     // 座標をランダマイズする．
-    res.center_of_mass_global_coord.x += math_util::GenerateRandomNumber(-30.f, 30.f);
+    res.center_of_mass_global_coord.x += math_util::GenerateRandomNumber(20.f, 30.f);
     res.center_of_mass_global_coord.y += math_util::GenerateRandomNumber(-30.f, 30.f);
 
     // ロールピッチヨーで回転を表現する．ロボットの重心を中心にして回転する．

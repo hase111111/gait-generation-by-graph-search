@@ -49,6 +49,7 @@ void SystemMainRobotControl::Main()
         if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state))
         {
             RemoveDoNotMoveNode(&graph);
+            MergeContinuousMove(&graph);
             DivideSwingAndStance(&graph);
 
             // データを仲介人に渡す．
@@ -94,6 +95,42 @@ void SystemMainRobotControl::RemoveDoNotMoveNode(std::vector<RobotStateNode>* gr
         }
         else
         {
+            prev_pos = *itr;
+            ++itr;
+        }
+    }
+}
+
+void SystemMainRobotControl::MergeContinuousMove(std::vector<RobotStateNode>* graph_ptr)
+{
+    // 胴体の平行移動を連続して行うノードをまとめる．
+    std::optional<RobotStateNode> prev_pos = std::nullopt;
+
+    bool prv_is_body_move = false;
+
+    for (auto itr = graph_ptr->begin(); itr != graph_ptr->end();)
+    {
+        if (prev_pos.has_value() &&
+            (*itr).center_of_mass_global_coord != prev_pos.value().center_of_mass_global_coord &&
+            (*itr).center_of_mass_global_coord.z == prev_pos.value().center_of_mass_global_coord.z)
+        {
+            prev_pos = *itr;
+
+            if (prv_is_body_move)
+            {
+                (*(itr - 1)) = *itr;
+                itr = graph_ptr->erase(itr);
+                prv_is_body_move = false;
+            }
+            else
+            {
+                prv_is_body_move = true;
+                ++itr;
+            }
+        }
+        else
+        {
+            prv_is_body_move = false;
             prev_pos = *itr;
             ++itr;
         }

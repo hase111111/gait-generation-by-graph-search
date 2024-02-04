@@ -22,7 +22,9 @@ class ResultFileConst final
 public:
     static const std::string kDirectoryPath;    //!< 出力先ディレクトリ(フォルダ)名．
 
-    static const std::string kSuccessfulCount;  //!< シミュレーションの成功回数をまとめたファイルの名前．   
+    static const std::string kLegDirectoryName;  //!< 出力先ディレクトリ(フォルダ)名．
+
+    static const std::string kSuccessfulCount;  //!< シミュレーションの成功回数をまとめたファイルの名前．
 
     static const std::string kDetailFileName;  //!< ファイル名 ( 人間が見る用 )
 
@@ -36,6 +38,7 @@ public:
 
 //! @class ResultFileExporter
 //! @brief 結果をファイルに出力するクラス．
+//! @n シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた．
 class ResultFileExporter final
 {
 public:
@@ -75,7 +78,7 @@ private:
     //! 必ずInit()を呼び出してから呼び出すこと．
     void ExportSuccessfulCount(const std::string& path) const;
 
-
+    void ExportEachLegPos(const std::string& path) const;
 
     std::vector<SimulationResultRecord> result_list_;  //!< シミュレーション結果のリスト．
 };

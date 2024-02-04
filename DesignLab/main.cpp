@@ -123,7 +123,7 @@ int main()
             {
                 // シミュレーションシステムクラスを作成する．
 
-                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 20000000);
+                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 20000000);
                 auto pass_finder_turn_spot = std::make_unique<GaitPatternGeneratorThread>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 10000000);
                 auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(pass_finder_straight), std::move(pass_finder_turn_spot));
 
@@ -136,6 +136,7 @@ int main()
                 auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
                                                                           simulation_setting_record.initial_posture,
                                                                           simulation_setting_record.initial_move);
+
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),

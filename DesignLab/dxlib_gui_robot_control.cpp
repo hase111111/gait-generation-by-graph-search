@@ -292,7 +292,10 @@ std::string DxlibGuiRobotControl::GetSerialData() const
         send_data[i * 8 + 2] = static_cast<std::uint8_t>(leg_y & 0x000000ff);
         send_data[i * 8 + 3] = static_cast<std::uint8_t>((leg_y & 0x0000ff00) >> 8);
 
-        const std::uint32_t leg_z = abs(static_cast<int>(node_.leg_pos[i].z));
+        // zに補正をかける．
+        float leg_z_pos = node_.leg_pos[i].z;
+        if (-30 >= leg_z_pos && leg_z_pos >= -45) { leg_z_pos = -45; }
+        const std::uint32_t leg_z = abs(static_cast<int>(leg_z_pos));
 
         send_data[i * 8 + 4] = static_cast<std::uint8_t>(leg_z & 0x000000ff);
         send_data[i * 8 + 5] = static_cast<std::uint8_t>((leg_z & 0x0000ff00) >> 8);

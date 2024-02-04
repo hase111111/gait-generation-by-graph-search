@@ -19,6 +19,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
+#include "map_renderer.h"
 #include "map_state.h"
 #include "mouse.h"
 
@@ -58,7 +59,10 @@ private:
 
     const std::shared_ptr<GraphicDataBroker> broker_;
 
+    const std::shared_ptr<MapRenderer> map_renderer_;  //!< マップを描画するクラス．
+
     int graph_update_count_{ 0 };
+    int map_update_count_{ 0 };
 };
 
 }  // namespace designlab
