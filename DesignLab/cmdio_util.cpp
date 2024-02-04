@@ -61,6 +61,13 @@ void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
     }
 }
 
+void CmdIOUtil::SpacedOutput(const std::string& str, enums::OutputDetail detail)
+{
+    OutputNewLine(1, detail);
+    Output(str, detail);
+    OutputNewLine(1, detail);
+}
+
 void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail detail)
 {
     // 改行ごとに文字列を取り出す．
@@ -188,9 +195,9 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num, con
         if (res < min || res > max)
         {
             Output(
-              "入力された値「" + input_str + "」は範囲外です．"
-              "デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
-              enums::OutputDetail::kSystem);
+                "入力された値「" + input_str + "」は範囲外です．"
+                "デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
+                enums::OutputDetail::kSystem);
 
             res = default_num;
         }
@@ -200,9 +207,9 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num, con
         // 整数値への変換で例外が発生した場合，ここに処理が飛ぶ．
 
         Output(
-          "入力された値「" + input_str + "」は評価できません．"
-          "デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
-          enums::OutputDetail::kSystem);
+            "入力された値「" + input_str + "」は評価できません．"
+            "デフォルトの値，「" + std::to_string(default_num) + "」を使用します．",
+            enums::OutputDetail::kSystem);
 
         res = default_num;
     }
@@ -234,6 +241,60 @@ bool CmdIOUtil::InputYesNo(const std::string& str)
 
         Output("入力された値「" + input_str + "」は評価できません．"
                "y / nで入力してください．", enums::OutputDetail::kSystem);
+    }
+}
+
+std::string CmdIOUtil::InputDirName(const std::string& str)
+{
+    Output(str, enums::OutputDetail::kSystem);
+
+    const std::vector<std::string> invalid_chars = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+    const int kMaxDirNameLength = 255;
+
+    while (true)
+    {
+        std::string input_str;
+        std::cout << ">>" << std::flush;
+        std::cin >> input_str;
+
+        bool is_invalid = true;
+
+        for (const auto& invalid_char : invalid_chars)
+        {
+            if (input_str.find(invalid_char) != std::string::npos)
+            {
+                Output("ディレクトリ名には以下の文字を含めることができません．"
+                       "「\\ / : * ? \" < > |」", enums::OutputDetail::kSystem);
+                is_invalid = false;
+                break;
+            }
+        }
+
+        if (input_str.find(" ") != std::string::npos)
+        {
+            Output("ディレクトリ名には空白を含めることができません．", enums::OutputDetail::kSystem);
+            is_invalid = false;
+        }
+
+        if (input_str.length() > kMaxDirNameLength)
+        {
+            Output("ディレクトリ名は" + std::to_string(kMaxDirNameLength) + "文字以下で入力してください．",
+                   enums::OutputDetail::kSystem);
+            is_invalid = false;
+        }
+
+        if (input_str.length() == 0)
+        {
+            Output("ディレクトリ名を入力してください．", enums::OutputDetail::kSystem);
+            is_invalid = false;
+        }
+
+        if (is_invalid)
+        {
+            return input_str;
+        }
+
+        Output("ディレクトリ名を再入力してください．", enums::OutputDetail::kSystem);
     }
 }
 

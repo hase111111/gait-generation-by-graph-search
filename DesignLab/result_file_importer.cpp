@@ -5,6 +5,7 @@
 #include "result_file_importer.h"
 
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <sstream>
 
@@ -62,7 +63,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
 bool ResultFileImporter::ImportNodeList(
     const std::string& file_path,
-    [[maybe_unused]] std::vector<RobotStateNode>* node_list) const
+    std::vector<RobotStateNode>* node_list) const
 {
     // ファイルを開く．
     std::ifstream ifs(file_path);
@@ -136,7 +137,7 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
 
     for (const auto& i : str_list)
     {
-        designlab::Vector3 point;
+        Vector3 point;
         std::stringstream ss(i);
 
         try
@@ -147,7 +148,8 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
         }
         catch (...)
         {
-            // 何もしない．
+            CmdIOUtil::Output(std::format("読み込むことのできない行があったため無視します．「{}」", ss.str()),
+                              enums::OutputDetail::kWarning);
         }
     }
 

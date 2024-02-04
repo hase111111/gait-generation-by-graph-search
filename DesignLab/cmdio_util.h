@@ -57,6 +57,12 @@ public:
     //! @param[in] detail 出力する文字列の詳細
     static void Output(const std::string& str, enums::OutputDetail detail);
 
+    //! @brief コマンドラインに文字を出力する関数．
+    //! @n 前と後ろに改行を挿入する．
+    //! @param[in] str 出力する文字列
+    //! @param[in] detail 出力する文字列の詳細
+    static void SpacedOutput(const std::string& str, enums::OutputDetail detail);
+
     //! @brief 中央に文字を出力する関数．文字列が長すぎる場合は普通に左詰めで出力される．
     //! @param[in] str 出力する文字列．
     //! @param[in] detail 出力する文字列の詳細．
@@ -107,6 +113,15 @@ public:
     //! @retval true 入力されたのが yes ならば true．
     //! @retval false 入力されたのが no ならば false．
     static bool InputYesNo(const std::string& str = "よろしいですか？");
+
+    //! @brief ディレクトリ名を入力させる関数．
+    //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
+    //! @n ディレクトリ名には次の文字は使えない．
+    //! @n \ / : * ? " < > |
+    //! @n ディレクトリ名は空白を含めることができない．
+    //! @param[in] str 入力待ちをする際に出力する文字列．
+    //! @return 入力されたディレクトリ名．
+    static std::string InputDirName(const std::string& str = "ディレクトリ名を入力してください．(英数字を推奨します)");
 
 private:
     static constexpr int kHorizontalLineLength = 100;  //!< 水平線の長さ．

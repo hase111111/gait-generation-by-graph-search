@@ -38,7 +38,6 @@ private:
     static constexpr float kInterpolatedDistance = 0.15f;  //!< 補間する距離 [mm]．
     static constexpr float kInterpolatedAngle = math_util::ConvertDegToRad(0.1f);  //!< 補間する角度 [rad]．
 
-    static constexpr int kBodyMoveInterpolatedNodeNum = 100;  //!< 胴体が移動する際の補間ノード数．
     static constexpr float kBodyMoveMaxInterpolatedDistance = 200.0f;  //!< これ以上の距離を移動する場合は，補間を行わない．
 
     //! @brief 補間が必要ないかどうかを判定する．

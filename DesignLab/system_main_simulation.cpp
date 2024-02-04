@@ -45,7 +45,7 @@ SystemMainSimulation::SystemMainSimulation(
     assert(setting_ptr_ != nullptr);
 
     // 結果をファイルに出力するクラスを初期化する．
-    result_exporter_.Init();
+    result_exporter_.CreateRootDirectory();
 
     // マップを生成する．
     map_state_ = map_creator_ptr_->InitMap();
@@ -77,17 +77,10 @@ void SystemMainSimulation::Main()
         // シミュレーションの結果を格納する変数．
         SimulationResultRecord record;
 
-        record.graph_search_result_recoder.push_back(
-          GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
+        record.graph_search_result_recoder.push_back(GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
 
-        CmdIOUtil::Output(std::format(
-            "シミュレーション{}回目を開始します",
-            std::to_string(i + 1)),
-            kSystem);
-        CmdIOUtil::OutputNewLine(1, kSystem);
-        CmdIOUtil::Output("[初期ノードの状態]", kInfo);
-        CmdIOUtil::Output(current_node.ToString(), kInfo);
-        CmdIOUtil::OutputNewLine(1, kInfo);
+        CmdIOUtil::Output(std::format("シミュレーション{}回目を開始します", std::to_string(i + 1)), kSystem);
+        CmdIOUtil::SpacedOutput(std::format("[初期ノードの状態]\n{}", current_node.ToString()), kInfo);
 
         if (setting_ptr_->do_step_execution_each_simulation)
         {
@@ -119,17 +112,12 @@ void SystemMainSimulation::Main()
             RobotStateNode result_node;  // グラフ探索の結果を格納する変数．
 
             // グラフ探索を行う．
-            const GraphSearchResult result_state =
-                gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(
-                    current_node, map_state_, operation, &result_node);
+            const GraphSearchResult result_state = gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(current_node, map_state_, operation, &result_node);
 
             timer_.End();  // タイマーストップ．
 
             // ノード，計算時間，結果を格納する．
-            record.graph_search_result_recoder.push_back(
-              GraphSearchResultRecord{ result_node ,
-                                       timer_.GetElapsedMilliSecond(),
-                                       result_state });
+            record.graph_search_result_recoder.push_back(GraphSearchResultRecord{ result_node, timer_.GetElapsedMilliSecond(), result_state });
 
             // グラフ探索に失敗．
             if (result_state.result != kSuccess)
@@ -137,12 +125,9 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を失敗に更新する．
                 record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;
 
-                CmdIOUtil::Output(std::format(
-                    "シミュレーションに失敗しました．SimulationResult = {}"
-                    "/ GraphSearch = {}",
-                    EnumToStringRemoveTopK(record.simulation_result),
-                    result_state.ToString()),
-                    kSystem);
+                CmdIOUtil::Output(std::format("シミュレーションに失敗しました．SimulationResult = {}/ GraphSearch = {}",
+                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString()),
+                                  kSystem);
 
                 // 次の歩容が生成できなかったら，このループを抜け，
                 // 次のシミュレーションへ進む．
@@ -158,13 +143,7 @@ void SystemMainSimulation::Main()
                 broker_ptr_->graph.PushBack(current_node);
             }
 
-            CmdIOUtil::OutputNewLine(1, kInfo);
-            CmdIOUtil::Output(std::format(
-                "[ シミュレーション{}回目 / 歩容生成{}回目 ]",
-                std::to_string(i + 1),
-                std::to_string(j + 1)),
-                kInfo);
-            CmdIOUtil::Output(current_node.ToString(), kInfo);
+            CmdIOUtil::SpacedOutput(std::format("[ シミュレーション{}回目 / 歩容生成{}回目 ]\n{}", i + 1, j + 1, current_node.ToString()), kInfo);
             CmdIOUtil::OutputHorizontalLine("-", kInfo);
 
             // 動作チェッカーにもノードを通達する．
@@ -177,12 +156,8 @@ void SystemMainSimulation::Main()
 
                 record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;
 
-                CmdIOUtil::Output(std::format(
-                    "シミュレーションに失敗しました．"
-                    "SimulationResult = {} / GraphSearch = {}",
-                    EnumToStringRemoveTopK(record.simulation_result),
-                    result_state.ToString()),
-                    kSystem);
+                CmdIOUtil::Output(std::format("シミュレーションに失敗しました．SimulationResult = {} / GraphSearch = {}",
+                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString()), kSystem);
 
                 // 動作がループしてしまっているならば，
                 // ループを一つ抜け，次のシミュレーションへ進む．
@@ -195,10 +170,7 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を成功に更新する．
                 record.simulation_result = enums::SimulationResult::kSuccess;
 
-                CmdIOUtil::Output(std::format(
-                    "シミュレーションに成功しました．SimulationResult = {}",
-                    EnumToStringRemoveTopK(record.simulation_result)),
-                    kSystem);
+                CmdIOUtil::Output(std::format("シミュレーションに成功しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result)), kSystem);
 
                 break;  // 成功したら，このループを抜け，次のシミュレーションへ進む．
             }
@@ -212,31 +184,24 @@ void SystemMainSimulation::Main()
         }  // 歩容生成のループ終了．
 
         record.map_state = map_state_;  // 結果を格納する変数にマップの状態を格納する．
-        result_exporter_.PushSimulationResult(record);  // 結果をファイルに出力する．
-        result_exporter_.ExportLatestNodeList();  // 最新のノードリストをファイルに出力する．
-        result_exporter_.ExportLatestMapState();  // 最新のマップ状態をファイルに出力する．
+        result_exporter_.PushSimulationResult(record);  // 結果を追加する．
 
         // 仲介人にシミュレーション終了を通達する．
         broker_ptr_->simulation_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);
 
-        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-        CmdIOUtil::OutputHorizontalLine("=", enums::OutputDetail::kSystem);
-        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputNewLine(1, kSystem);
+        CmdIOUtil::OutputHorizontalLine("=", kSystem);
+        CmdIOUtil::OutputNewLine(1, kSystem);
     }  // シミュレーションのループ終了
 
 
-    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-    CmdIOUtil::Output("シミュレーション終了", enums::OutputDetail::kSystem);
-    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-
     // シミュレーションの結果を全てファイルに出力する．
-    result_exporter_.ExportResult();
-    result_exporter_.ExportAllResultDetail();
-    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    if (CmdIOUtil::InputYesNo("結果を出力しますか？"))
+    {
+        result_exporter_.Export();
+    }
 
-    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-    CmdIOUtil::Output("シミュレーションを終了します", enums::OutputDetail::kSystem);
-    CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+    CmdIOUtil::SpacedOutput("シミュレーションを終了します", kSystem);
 }
 
 

@@ -113,6 +113,8 @@ std::vector<RobotStateNode> InterpolatedNodeCreator::CreateBodyRotInterpolatedNo
 {
     std::vector<RobotStateNode> res;
 
+    constexpr int kBodyMoveInterpolatedNodeNum = 100;  //!< 胴体が移動する際の補間ノード数．
+
     for (int i = 0; i < kBodyMoveInterpolatedNodeNum; i++)
     {
         RobotStateNode temp_node = current_node;
