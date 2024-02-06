@@ -85,6 +85,9 @@ void ResultFileExporter::Export() const
     // 脚の位置を出力する．
     ExportEachLegPos(output_folder_path);
 
+    // 成功したシミュレーションのみを出力する．
+    ExportAllLegPosOnlySuccessful(output_folder_path);
+
     CmdIOUtil::Output("結果の出力が完了しました．", kInfo);
 }
 
@@ -374,18 +377,104 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
                 return;
             }
 
-            Vector3 past_pos;
+            std::optional<Vector3> past_pos;
 
             for (const auto& recorder : result_list_[i].graph_search_result_recorder)
             {
-                if (recorder.result_node.leg_pos[j] == past_pos) { continue; }
+                // 変化がない場合はスキップする．
+                if (past_pos.has_value() && recorder.result_node.leg_pos[j] == past_pos) { continue; }
+
+                // 高さが変化している and 平行に移動している場合は中継点も出力する．
+                if (past_pos.has_value() &&
+                    recorder.result_node.leg_pos[j].z != past_pos.value().z &&
+                    recorder.result_node.leg_pos[j].ProjectedXY() != past_pos.value().ProjectedXY())
+                {
+                    if (recorder.result_node.leg_pos[j].z < past_pos.value().z)
+                    {
+                        // 接地時
+                        ofs << recorder.result_node.leg_pos[j].GetLength() << "," << past_pos.value().z << ", ground relay point\n";
+                    }
+                    else
+                    {
+                        // 遊脚時
+                        ofs << past_pos.value().GetLength() << "," << recorder.result_node.leg_pos[j].z << ", lift relay point\n";
+                    }
+                }
+
+                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," <<
+                    recorder.result_node.leg_pos[j].z << "," <<
+                    magic_enum::enum_name(recorder.result_node.next_move) << "\n";
 
                 past_pos = recorder.result_node.leg_pos[j];
-
-                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," << recorder.result_node.leg_pos[j].z << "\n";
             }
         }
     }
+}
+
+void ResultFileExporter::ExportAllLegPosOnlySuccessful(const std::string& path) const
+{
+    // ディレクトリを作成する．
+    std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
+
+    if (!sf::exists(leg_pos_dir_path))
+    {
+        sf::create_directory(leg_pos_dir_path);
+    }
+
+    // ファイルを作成する．
+
+    for (int j = 0; j < HexapodConst::kLegNum; ++j)
+    {
+        std::string output_file_name = std::format("{}\\all_simulation_leg{}.csv", leg_pos_dir_path, j + 1);
+
+        std::ofstream ofs(output_file_name);
+
+        // ファイルが作成できなかった場合は，なにも出力しない．
+        if (!ofs)
+        {
+            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+            return;
+        }
+
+        for (int k = 0; k < result_list_.size(); ++k)
+        {
+            if (result_list_[k].simulation_result != enums::SimulationResult::kSuccess) { continue; }
+
+            std::optional<Vector3> past_pos;
+
+            for (const auto& recorder : result_list_[k].graph_search_result_recorder)
+            {
+                // 変化がない場合はスキップする．
+                if (past_pos.has_value() && recorder.result_node.leg_pos[j] == past_pos) { continue; }
+
+                // 高さが変化している and 平行に移動している場合は中継点も出力する．
+                if (past_pos.has_value() &&
+                    recorder.result_node.leg_pos[j].z != past_pos.value().z &&
+                    recorder.result_node.leg_pos[j].ProjectedXY() != past_pos.value().ProjectedXY())
+                {
+                    if (recorder.result_node.leg_pos[j].z < past_pos.value().z)
+                    {
+                        // 接地時
+                        ofs << recorder.result_node.leg_pos[j].GetLength() << "," << past_pos.value().z << ", ground relay point\n";
+                    }
+                    else
+                    {
+                        // 遊脚時
+                        ofs << past_pos.value().GetLength() << "," << recorder.result_node.leg_pos[j].z << ", lift relay point\n";
+                    }
+                }
+
+                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," <<
+                    recorder.result_node.leg_pos[j].z << "," <<
+                    magic_enum::enum_name(recorder.result_node.next_move) << "\n";
+
+                past_pos = recorder.result_node.leg_pos[j];
+            }
+        }
+
+        ofs.close();
+    }
+
 }
 
 }  // namespace designlab

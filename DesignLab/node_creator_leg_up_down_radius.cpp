@@ -120,7 +120,7 @@ void NodeCreatorLegUpDownRadius::Create(const RobotStateNode& current_node, cons
                 }
                 else
                 {
-                    res_node.leg_pos[j] = presenter_ptr_->GetFreeLegPosLegCoordinate(j);
+                    res_node.leg_pos[j].z = presenter_ptr_->GetFreeLegPosLegCoordinate(j).z;
 
                     res_node.leg_reference_pos[j].x = presenter_ptr_->GetFreeLegPosLegCoordinate(j).x;
                     res_node.leg_reference_pos[j].y = presenter_ptr_->GetFreeLegPosLegCoordinate(j).y;

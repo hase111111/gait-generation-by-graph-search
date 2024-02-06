@@ -78,7 +78,13 @@ private:
     //! 必ずInit()を呼び出してから呼び出すこと．
     void ExportSuccessfulCount(const std::string& path) const;
 
+    //! @brief 脚先座標をファイルに出力する．
+    //! @param[in] path 出力先のファイルパス．
     void ExportEachLegPos(const std::string& path) const;
+
+    //! @brief 成功したシミュレーションのみの脚先座標をファイルに出力する．
+    //! @param[in] path 出力先のファイルパス．
+    void ExportAllLegPosOnlySuccessful(const std::string& path) const;
 
     std::vector<SimulationResultRecord> result_list_;  //!< シミュレーション結果のリスト．
 };

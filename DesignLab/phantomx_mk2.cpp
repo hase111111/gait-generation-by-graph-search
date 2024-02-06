@@ -128,26 +128,26 @@ HexapodJointState PhantomXMkII::CalculateJointState(
                 angle_ft_phase - std::numbers::pi_v<float> : angle_ft_phase;
 
             const Vector3 candidate_leg_pos = femur_joint_pos + Vector3{
-                (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
-                    std::cos(res.joint_angle[0])* std::cos(angle_ft),
+                (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
+                    std::cos(res.joint_angle[0]) * std::cos(angle_ft),
 
-                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
-                    std::sin(res.joint_angle[0])* std::cos(angle_ft),
+                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
+                    std::sin(res.joint_angle[0]) * std::cos(angle_ft),
 
-                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength)*
+                    (PhantomXMkIIConst::kFemurLength + PhantomXMkIIConst::kTibiaLength) *
                     std::sin(angle_ft)
             };
 
             const Vector3 candidate_leg_pos_phase = femur_joint_pos + Vector3{
-                (PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) +
-                PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))*
+                (PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) +
+                PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) *
                     std::cos(res.joint_angle[0]),
 
-                    (PhantomXMkIIConst::kFemurLength* std::cos(angle_ft_phase) +
-                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft))*
+                    (PhantomXMkIIConst::kFemurLength * std::cos(angle_ft_phase) +
+                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_ft)) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::sin(angle_ft_phase) +
+                    PhantomXMkIIConst::kFemurLength * std::sin(angle_ft_phase) +
                     PhantomXMkIIConst::kTibiaLength * std::sin(angle_ft)
             };
 
@@ -171,23 +171,23 @@ HexapodJointState PhantomXMkII::CalculateJointState(
             res.joint_angle[2] = angle_t;
 
             res.joint_pos_leg_coordinate[2] = femur_joint_pos + Vector3{
-                PhantomXMkIIConst::kFemurLength* std::cos(angle_f)*
+                PhantomXMkIIConst::kFemurLength * std::cos(angle_f) *
                     std::cos(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::cos(angle_f)*
+                    PhantomXMkIIConst::kFemurLength * std::cos(angle_f) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kFemurLength* std::sin(angle_f)
+                    PhantomXMkIIConst::kFemurLength * std::sin(angle_f)
             };
 
             res.joint_pos_leg_coordinate[3] = res.joint_pos_leg_coordinate[2] + Vector3{
-                PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)*
+                PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) *
                     std::cos(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kTibiaLength* std::cos(angle_f + angle_t)*
+                    PhantomXMkIIConst::kTibiaLength * std::cos(angle_f + angle_t) *
                     std::sin(res.joint_angle[0]),
 
-                    PhantomXMkIIConst::kTibiaLength* std::sin(angle_f + angle_t)
+                    PhantomXMkIIConst::kTibiaLength * std::sin(angle_f + angle_t)
             };
 
             res.is_in_range = false;  // 範囲外であることを示す．
@@ -586,46 +586,38 @@ bool PhantomXMkII::IsBodyInterferingWithGround(const RobotStateNode& node,
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         // 脚の根元の座標(グローバル)を取得する．
-        {
-            const Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
-                GetLegBasePosRobotCoordinate(i),
-                node.center_of_mass_global_coord,
-                node.posture,
-                true);
-
-            if (devide_map.IsInMap(coxa_pos_global_coord))
-            {
-                const float coxa_top_z = (std::max)(
-                    devide_map.GetTopZ(devide_map.GetDividedMapIndexX(coxa_pos_global_coord.x),
-                    devide_map.GetDividedMapIndexY(coxa_pos_global_coord.y)),
-                    devide_map.GetMapMinZ());
-
-                if (coxa_top_z != devide_map.GetMapMinZ() &&
-                    coxa_top_z + GetGroundHeightMarginMin() > coxa_pos_global_coord.z)
-                {
-                    return true;
-                }
-            }
-        }
-
-        // 脚先の座標(グローバル)を取得する．
-        Vector3 leg_pos_global_coord = ConvertLegToGlobalCoordinate(
-            GetFreeLegPosLegCoordinate(i),
-            i,
+        const Vector3 coxa_pos_global_coord = ConvertRobotToGlobalCoordinate(
+            GetLegBasePosRobotCoordinate(i),
             node.center_of_mass_global_coord,
             node.posture,
             true);
 
+        if (devide_map.IsInMap(coxa_pos_global_coord))
+        {
+            const float coxa_top_z = (std::max)(
+                devide_map.GetTopZ(devide_map.GetDividedMapIndexX(coxa_pos_global_coord.x), devide_map.GetDividedMapIndexY(coxa_pos_global_coord.y)),
+                devide_map.GetMapMinZ());
+
+            if (coxa_top_z != devide_map.GetMapMinZ() &&
+                coxa_top_z + GetGroundHeightMarginMin() - MathConst<float>::kAllowableError > coxa_pos_global_coord.z)
+            {
+                return true;
+            }
+        }
+
+        // 脚先の座標(グローバル)を取得する．
+        const Vector3 leg_pos_global_coord = leg_func::IsGrounded(node.leg_state, i) ?
+            ConvertLegToGlobalCoordinate(GetFreeLegPosLegCoordinate(i), i, node.center_of_mass_global_coord, node.posture, true) :
+            ConvertLegToGlobalCoordinate(node.leg_pos[i], i, node.center_of_mass_global_coord, node.posture, true);
+
         if (devide_map.IsInMap(leg_pos_global_coord))
         {
             const float leg_top_z = (std::max)(
-                devide_map.GetTopZ(devide_map.GetDividedMapIndexX(leg_pos_global_coord.x),
-                devide_map.GetDividedMapIndexY(leg_pos_global_coord.y)),
+                devide_map.GetTopZ(devide_map.GetDividedMapIndexX(leg_pos_global_coord.x), devide_map.GetDividedMapIndexY(leg_pos_global_coord.y)),
                 devide_map.GetMapMinZ());
 
             if (leg_top_z != devide_map.GetMapMinZ() &&
-                leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoordinate(i).z >
-                leg_pos_global_coord.z)
+                leg_top_z + GetGroundHeightMarginMin() + GetFreeLegPosLegCoordinate(i).z - MathConst<float>::kAllowableError > leg_pos_global_coord.z)
             {
                 return true;
             }
@@ -738,7 +730,7 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
     }
 
     return res;
-}
+                }
 
 std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMinLegPosXY() const
 {
@@ -766,4 +758,4 @@ std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMaxLegPosXY() const
     return res;
 }
 
-}  // namespace designlab
+            }  // namespace designlab
