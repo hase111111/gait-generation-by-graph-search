@@ -86,7 +86,7 @@ void ResultFileExporter::Export() const
     ExportEachLegPos(output_folder_path);
 
     // 成功したシミュレーションのみを出力する．
-    ExportAllLegPosOnlySuccessful(output_folder_path);
+    ExportEachLegPosAllSuccessfulSimulation(output_folder_path);
 
     CmdIOUtil::Output("結果の出力が完了しました．", kInfo);
 }
@@ -329,7 +329,7 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
         return;
     }
 
-    ofs << "シミュレーション数" << result_list_.size() << "\n";
+    ofs << "シミュレーション数, " << result_list_.size() << "\n";
 
     // 成功したシミュレーション数を数える．
     std::map<enums::SimulationResult, int> result_count;
@@ -411,7 +411,7 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
     }
 }
 
-void ResultFileExporter::ExportAllLegPosOnlySuccessful(const std::string& path) const
+void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::string& path) const
 {
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;

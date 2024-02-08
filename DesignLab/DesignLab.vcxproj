@@ -32,6 +32,7 @@
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
+    <ClInclude Include="node_creator_builder_body_rot.h" />
     <ClInclude Include="node_creator_leg_up_down_radius.h" />
     <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selector.cpp" />
+    <ClCompile Include="node_creator_builder_body_rot.cpp" />
     <ClCompile Include="node_creator_builder_turn_spot.cpp" />
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="node_creator_com_move_straight.cpp" />

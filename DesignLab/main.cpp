@@ -28,6 +28,7 @@
 #include "node_creator_builder_turn.h"
 #include "node_creator_builder_turn_spot.h"
 #include "node_creator_builder_straight_move.h"
+#include "node_creator_builder_body_rot.h"
 #include "map_creator_factory.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -107,6 +108,7 @@ int main()
         auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
 
         auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+        //auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderBodyRot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
         auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
 
         auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));

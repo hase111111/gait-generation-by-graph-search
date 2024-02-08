@@ -657,6 +657,9 @@
     <ClInclude Include="node_creator_leg_up_down_radius.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_builder_body_rot.h">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -979,6 +982,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_leg_up_down_radius.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_builder_body_rot.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

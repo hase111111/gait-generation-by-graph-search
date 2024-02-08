@@ -6,7 +6,9 @@
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
 
+#include <format>
 #include <string>
+#include <xstring>
 
 #include "boot_mode.h"
 #include "output_detail.h"
@@ -56,6 +58,32 @@ public:
     //! @param[in] str 出力する文字列
     //! @param[in] detail 出力する文字列の詳細
     static void Output(const std::string& str, enums::OutputDetail detail);
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
+    //! @n 必ず SetOutputLimit() を呼び出してから使うこと．
+    //! @param[in] str 出力する文字列
+    //! @param[in] detail 出力する文字列の詳細
+    //! @param[in] args 出力する文字列に埋め込む変数
+    template <typename... Args>
+    static void FormatOutput(enums::OutputDetail detail, const std::format_string<Args...> str, Args&&... args)
+    {
+        const std::string formatted_str = std::format(str, std::forward<Args>(args)...);
+        Output(formatted_str, detail);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
+    //! @n 必ず SetOutputLimit() を呼び出してから使うこと．
+    //! @param[in] str 出力する文字列
+    //! @param[in] detail 出力する文字列の詳細
+    //! @param[in] args 出力する文字列に埋め込む変数
+    template <typename... Args>
+    static void SpacedFormatOutput(enums::OutputDetail detail, const std::format_string<Args...> str, Args&&... args)
+    {
+        const std::string formatted_str = std::format(str, std::forward<Args>(args)...);
+        SpacedOutput(formatted_str, detail);
+    }
 
     //! @brief コマンドラインに文字を出力する関数．
     //! @n 前と後ろに改行を挿入する．

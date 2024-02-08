@@ -4,7 +4,6 @@
 
 #include "system_main_simulation.h"
 
-#include <format>
 #include <utility>
 
 #include <boost/thread.hpp>
@@ -79,8 +78,8 @@ void SystemMainSimulation::Main()
 
         record.graph_search_result_recorder.push_back(GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
 
-        CmdIOUtil::Output(std::format("シミュレーション{}回目を開始します", std::to_string(i + 1)), kSystem);
-        CmdIOUtil::SpacedOutput(std::format("[初期ノードの状態]\n{}", current_node.ToString()), kInfo);
+        CmdIOUtil::FormatOutput(kSystem, "シミュレーション{}回目を開始します", i + 1);
+        CmdIOUtil::SpacedFormatOutput(kInfo, "[初期ノードの状態]\n{}", current_node.ToString());
 
         if (setting_ptr_->do_step_execution_each_simulation)
         {
@@ -125,9 +124,8 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を失敗に更新する．
                 record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;
 
-                CmdIOUtil::Output(std::format("シミュレーションに失敗しました．SimulationResult = {}/ GraphSearch = {}",
-                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString()),
-                                  kSystem);
+                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {}/ GraphSearch = {}",
+                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString());
 
                 // 次の歩容が生成できなかったら，このループを抜け，
                 // 次のシミュレーションへ進む．
@@ -143,7 +141,7 @@ void SystemMainSimulation::Main()
                 broker_ptr_->graph.PushBack(current_node);
             }
 
-            CmdIOUtil::SpacedOutput(std::format("[ シミュレーション{}回目 / 歩容生成{}回目 ]\n{}", i + 1, j + 1, current_node.ToString()), kInfo);
+            CmdIOUtil::SpacedFormatOutput(kInfo, "[ シミュレーション{}回目 / 歩容生成{}回目 ]\n{}", i + 1, j + 1, current_node.ToString());
             CmdIOUtil::OutputHorizontalLine("-", kInfo);
 
             // 動作チェッカーにもノードを通達する．
@@ -156,8 +154,8 @@ void SystemMainSimulation::Main()
 
                 record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;
 
-                CmdIOUtil::Output(std::format("シミュレーションに失敗しました．SimulationResult = {} / GraphSearch = {}",
-                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString()), kSystem);
+                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {} / GraphSearch = {}",
+                                  EnumToStringRemoveTopK(record.simulation_result), result_state.ToString());
 
                 // 動作がループしてしまっているならば，
                 // ループを一つ抜け，次のシミュレーションへ進む．
@@ -170,9 +168,18 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を成功に更新する．
                 record.simulation_result = enums::SimulationResult::kSuccess;
 
-                CmdIOUtil::Output(std::format("シミュレーションに成功しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result)), kSystem);
+                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに成功しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
 
                 break;  // 成功したら，このループを抜け，次のシミュレーションへ進む．
+            }
+
+            // forの最後のループであるならば，失敗したことを通達する．
+            if (j == kGaitPatternGenerationLimit - 1)
+            {
+                // シミュレーションの結果を格納する変数を失敗に更新する．
+                record.simulation_result = enums::SimulationResult::kFailureByNodeLimitExceeded;
+
+                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
             }
 
             // ステップ実行にしているならば，ここで一時停止する．
@@ -217,21 +224,15 @@ void SystemMainSimulation::OutputSetting() const
     {
         CmdIOUtil::Output("・コマンドラインへの出力を行います", kSystem);
 
-        const std::string output_str =
-            magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
+        const std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
 
-        CmdIOUtil::Output(std::format("　　・priorityが{}以上のもののみ出力されます",
-                          output_str), kSystem);
+        CmdIOUtil::FormatOutput(kSystem, "　　・priorityが{}以上のもののみ出力されます", output_str);
     }
     else
     {
-        const std::string output_str =
-            magic_enum::enum_name(kSystem).data();
+        const std::string output_str = magic_enum::enum_name(kSystem).data();
 
-        CmdIOUtil::Output(std::format(
-            "・コマンドラインへの出力を行いません．"
-            "(priorityが{}のものは例外的に出力されます)", output_str),
-            kSystem);
+        CmdIOUtil::FormatOutput(kSystem, "・コマンドラインへの出力を行いません．(priorityが{}のものは例外的に出力されます)", output_str);
     }
 
     CmdIOUtil::OutputNewLine(1, kSystem);
