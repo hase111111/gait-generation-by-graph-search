@@ -50,7 +50,8 @@ public:
       std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
       std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
       const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
+      const std::shared_ptr<ResultFileExporter>& result_exporter_ptr);
 
 
     //! @brief いままで int mainで行われた処理をまとめたもの．
@@ -88,11 +89,11 @@ private:
     //! 設定ファイルの内容を格納する構造体．
     const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
+    const std::shared_ptr<ResultFileExporter> result_exporter_ptr_;  //!< 結果をファイルに出力するクラス．
+
     MapState map_state_;    //!< 地形の状態．
 
     Stopwatch timer_;       //!< 時間計測用のクラス．
-
-    ResultFileExporter result_exporter_;  //!< 結果をファイルに出力するクラス．
 };
 
 }  // namespace designlab

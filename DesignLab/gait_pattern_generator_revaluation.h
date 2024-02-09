@@ -11,6 +11,9 @@
 
 #include "graph_tree_creator.h"
 #include "interface_gait_pattern_generator.h"
+#include "interface_hexapod_coordinate_converter.h"
+#include "interface_hexapod_joint_calculator.h"
+#include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
 
@@ -26,7 +29,9 @@ public:
     //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの．
     GaitPatternGeneratorRevaluation(
       std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr);
+      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr,
+      const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+      const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator_ptr);
 
     ~GaitPatternGeneratorRevaluation() = default;
 
@@ -42,6 +47,11 @@ private:
 
     const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
     const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_revaluation_ptr_;
+
+    const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+    const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_ptr_;
+
+    InterpolatedNodeCreator interpolated_node_creator_;
 };
 
 }  // namespace designlab

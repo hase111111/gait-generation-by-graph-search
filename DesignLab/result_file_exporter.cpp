@@ -37,6 +37,9 @@ const std::string ResultFileConst::kDetailFileName = "simulation_result_detail";
 const std::string ResultFileConst::kSuccessfulCount = "simulation_successful_count";
 
 
+ResultFileExporter::ResultFileExporter(const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr) : calculator_ptr_(calculator_ptr) {}
+
+
 void ResultFileExporter::CreateRootDirectory()
 {
     using enum enums::OutputDetail;
@@ -85,8 +88,14 @@ void ResultFileExporter::Export() const
     // 脚の位置を出力する．
     ExportEachLegPos(output_folder_path);
 
+    // 脚の位置を出力する．
+    ExportAllLegPos(output_folder_path);
+
     // 成功したシミュレーションのみを出力する．
     ExportEachLegPosAllSuccessfulSimulation(output_folder_path);
+
+    // 成功したシミュレーションのみを出力する．
+    ExportAllLegPosAllSuccessfulSimulation(output_folder_path);
 
     CmdIOUtil::Output("結果の出力が完了しました．", kInfo);
 }
@@ -377,35 +386,123 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
                 return;
             }
 
+            ofs << GetHeader() << "\n";
+
             std::optional<Vector3> past_pos;
 
             for (const auto& recorder : result_list_[i].graph_search_result_recorder)
             {
+                const Vector3 current_pos = recorder.result_node.leg_pos[j];
+
                 // 変化がない場合はスキップする．
-                if (past_pos.has_value() && recorder.result_node.leg_pos[j] == past_pos) { continue; }
+                if (past_pos.has_value() && current_pos == past_pos) { continue; }
 
                 // 高さが変化している and 平行に移動している場合は中継点も出力する．
                 if (past_pos.has_value() &&
-                    recorder.result_node.leg_pos[j].z != past_pos.value().z &&
-                    recorder.result_node.leg_pos[j].ProjectedXY() != past_pos.value().ProjectedXY())
+                    current_pos.z != past_pos.value().z &&
+                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
                 {
-                    if (recorder.result_node.leg_pos[j].z < past_pos.value().z)
+                    if (current_pos.z < past_pos.value().z)
                     {
-                        // 接地時
-                        ofs << recorder.result_node.leg_pos[j].GetLength() << "," << past_pos.value().z << ", ground relay point\n";
+                        const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
+                        // 接地時．
+                        ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
                     else
                     {
-                        // 遊脚時
-                        ofs << past_pos.value().GetLength() << "," << recorder.result_node.leg_pos[j].z << ", lift relay point\n";
+                        const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
+                        // 遊脚時．
+                        ofs << past_pos.value().GetLength() << "," << current_pos.z << ",true,l," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
                 }
 
-                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," <<
-                    recorder.result_node.leg_pos[j].z << "," <<
-                    magic_enum::enum_name(recorder.result_node.next_move) << "\n";
+                const auto joint_state = calculator_ptr_->CalculateJointState(j, current_pos);
 
-                past_pos = recorder.result_node.leg_pos[j];
+                ofs << current_pos.ProjectedXY().GetLength() << "," <<
+                    current_pos.z << ",false," << GetLegChangeStatus(past_pos, current_pos) << "," <<
+                    std::boolalpha << calculator_ptr_->IsValidJointState(j, current_pos, joint_state) << "\n";
+
+                past_pos = current_pos;
+            }
+        }
+    }
+}
+
+void ResultFileExporter::ExportAllLegPos(const std::string& path) const
+{
+    // ディレクトリを作成する．
+    std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
+
+    if (!sf::exists(leg_pos_dir_path))
+    {
+        sf::create_directory(leg_pos_dir_path);
+    }
+
+    for (size_t i = 0; i < result_list_.size(); ++i)
+    {
+        std::string output_file_name = std::format("{}\\simulation{}_all_leg.csv", leg_pos_dir_path, i + 1);
+
+        std::ofstream ofs(output_file_name);
+
+        // ファイルが作成できなかった場合は，なにも出力しない．
+        if (!ofs)
+        {
+            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+            return;
+        }
+
+        ofs << GetHeader() << "\n";
+
+        for (int j = 0; j < HexapodConst::kLegNum; j++)
+        {
+            std::optional<Vector3> past_pos;
+
+            for (const auto& recorder : result_list_[i].graph_search_result_recorder)
+            {
+                const Vector3 current_pos = recorder.result_node.leg_pos[j];
+
+                // 変化がない場合はスキップする．
+                if (past_pos.has_value() && current_pos == past_pos) { continue; }
+
+                // 高さが変化している and 平行に移動している場合は中継点も出力する．
+                if (past_pos.has_value() &&
+                    current_pos.z != past_pos.value().z &&
+                   current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
+                {
+                    if (current_pos.z < past_pos.value().z)
+                    {
+                        const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
+                        // 接地時
+                        ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," <<
+                            std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) <<
+                            "," << j << "\n";
+                    }
+                    else
+                    {
+                        const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
+                        // 遊脚時
+                        ofs << past_pos.value().GetLength() << "," << current_pos.z << ",true,l," <<
+                            std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) <<
+                            "," << j << "\n";
+                    }
+                }
+
+                const auto joint_state = calculator_ptr_->CalculateJointState(j, current_pos);
+
+                ofs << current_pos.ProjectedXY().GetLength() << "," << current_pos.z << ",false," <<
+                    GetLegChangeStatus(past_pos, current_pos) << "," <<
+                    std::boolalpha << calculator_ptr_->IsValidJointState(j, current_pos, joint_state) <<
+                    "," << j << "\n";
+
+                past_pos = current_pos;
             }
         }
     }
@@ -436,6 +533,8 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
             return;
         }
 
+        ofs << GetHeader() << "\n";
+
         for (int k = 0; k < result_list_.size(); ++k)
         {
             if (result_list_[k].simulation_result != enums::SimulationResult::kSuccess) { continue; }
@@ -444,37 +543,141 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
 
             for (const auto& recorder : result_list_[k].graph_search_result_recorder)
             {
+                const Vector3 current_pos = recorder.result_node.leg_pos[j];
+
                 // 変化がない場合はスキップする．
-                if (past_pos.has_value() && recorder.result_node.leg_pos[j] == past_pos) { continue; }
+                if (past_pos.has_value() && current_pos == past_pos) { continue; }
 
                 // 高さが変化している and 平行に移動している場合は中継点も出力する．
                 if (past_pos.has_value() &&
-                    recorder.result_node.leg_pos[j].z != past_pos.value().z &&
-                    recorder.result_node.leg_pos[j].ProjectedXY() != past_pos.value().ProjectedXY())
+                    current_pos.z != past_pos.value().z &&
+                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
                 {
-                    if (recorder.result_node.leg_pos[j].z < past_pos.value().z)
+                    if (current_pos.z < past_pos.value().z)
                     {
+                        const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
                         // 接地時
-                        ofs << recorder.result_node.leg_pos[j].GetLength() << "," << past_pos.value().z << ", ground relay point\n";
+                        ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
                     else
                     {
+                        const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
+                        const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
+
                         // 遊脚時
-                        ofs << past_pos.value().GetLength() << "," << recorder.result_node.leg_pos[j].z << ", lift relay point\n";
+                        ofs << past_pos.value().GetLength() << "," << current_pos.z << ",true,l," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
                 }
 
-                ofs << recorder.result_node.leg_pos[j].ProjectedXY().GetLength() << "," <<
-                    recorder.result_node.leg_pos[j].z << "," <<
-                    magic_enum::enum_name(recorder.result_node.next_move) << "\n";
+                const auto joint_state = calculator_ptr_->CalculateJointState(j, current_pos);
 
-                past_pos = recorder.result_node.leg_pos[j];
+                ofs << current_pos.ProjectedXY().GetLength() << "," <<
+                    current_pos.z << ",false," << GetLegChangeStatus(past_pos, current_pos) << "," <<
+                    std::boolalpha << calculator_ptr_->IsValidJointState(j, current_pos, joint_state) << "\n";
+
+                past_pos = current_pos;
             }
         }
 
         ofs.close();
     }
 
+}
+
+void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(const std::string& path) const
+{
+    // ディレクトリを作成する．
+    std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
+
+    if (!sf::exists(leg_pos_dir_path))
+    {
+        sf::create_directory(leg_pos_dir_path);
+    }
+
+    std::string output_file_name = std::format("{}\\all_simulation_all_leg.csv", leg_pos_dir_path);
+
+    std::ofstream ofs(output_file_name);
+
+    // ファイルが作成できなかった場合は，なにも出力しない．
+    if (!ofs)
+    {
+        CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+        return;
+    }
+
+    ofs << GetHeader() << "\n";
+
+    for (int j = 0; j < HexapodConst::kLegNum; ++j)
+    {
+        for (int k = 0; k < result_list_.size(); ++k)
+        {
+            if (result_list_[k].simulation_result != enums::SimulationResult::kSuccess) { continue; }
+
+            for (int l = 0; l < HexapodConst::kLegNum; ++l)
+            {
+                std::optional<Vector3> past_pos;
+
+                for (const auto& recorder : result_list_[k].graph_search_result_recorder)
+                {
+                    const Vector3 current_pos = recorder.result_node.leg_pos[l];
+
+                    // 変化がない場合はスキップする．
+                    if (past_pos.has_value() && current_pos == past_pos) { continue; }
+
+                    // 高さが変化している and 平行に移動している場合は中継点も出力する．
+                    if (past_pos.has_value() &&
+                        current_pos.z != past_pos.value().z &&
+                        current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
+                    {
+                        if (current_pos.z < past_pos.value().z)
+                        {
+                            const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
+                            const auto joint_state = calculator_ptr_->CalculateJointState(l, relay_point);
+
+                            // 接地時
+                            ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(l, relay_point, joint_state) << "," << l << "\n";
+                        }
+                        else
+                        {
+                            const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
+                            const auto joint_state = calculator_ptr_->CalculateJointState(l, relay_point);
+
+                            // 遊脚時
+                            ofs << past_pos.value().GetLength() << "," << current_pos.z << ",true,l," << std::boolalpha << calculator_ptr_->IsValidJointState(l, relay_point, joint_state) << "," << l << "\n";
+                        }
+                    }
+
+                    const auto joint_state = calculator_ptr_->CalculateJointState(l, current_pos);
+
+                    ofs << current_pos.ProjectedXY().GetLength() << "," << current_pos.z << ",false," << GetLegChangeStatus(past_pos, current_pos) << "," << std::boolalpha << calculator_ptr_->IsValidJointState(l, current_pos, joint_state) << "," << l << "\n";
+
+                    past_pos = current_pos;
+                }
+            }
+        }
+
+        ofs.close();
+    }
+}
+
+std::string ResultFileExporter::GetHeader() const
+{
+    return "x,z,relay,string,error,index";
+}
+
+std::string ResultFileExporter::GetLegChangeStatus(const std::optional<Vector3>& past, const Vector3& current) const
+{
+    if (!past.has_value()) { return "f"; }
+
+    if (math_util::IsEqual(past.value().z, current.z)) { return "b"; }
+
+    if (past.value().z > current.z) { return "g"; }
+
+    if (past.value().z < current.z) { return "l"; }
+
+    return "o";
 }
 
 }  // namespace designlab

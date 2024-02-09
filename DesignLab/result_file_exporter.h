@@ -7,9 +7,11 @@
 #define DESIGNLAB_RESULT_FILE_EXPORTER_H_
 
 #include <fstream>
+#include <memory>
 #include <string>
 #include <vector>
 
+#include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
 #include "simulation_result_record.h"
 
@@ -42,7 +44,7 @@ public:
 class ResultFileExporter final
 {
 public:
-    ResultFileExporter() = default;
+    ResultFileExporter(const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr);
 
     //! @brief resultフォルダがなければ作成する．また，フォルダ名を指定する．
     void CreateRootDirectory();
@@ -89,7 +91,15 @@ private:
     //! @param[in] path 出力先のファイルパス．
     void ExportEachLegPosAllSuccessfulSimulation(const std::string& path) const;
 
+    void ExportAllLegPosAllSuccessfulSimulation(const std::string& path) const;
+
+    std::string GetHeader() const;
+
+    std::string GetLegChangeStatus(const std::optional<Vector3>& past, const Vector3& current) const;
+
     std::vector<SimulationResultRecord> result_list_;  //!< シミュレーション結果のリスト．
+
+    const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;  //!< 計算機のポインタ．
 };
 
 }  // namespace designlab

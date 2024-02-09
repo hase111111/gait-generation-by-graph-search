@@ -26,15 +26,16 @@ SystemMainSimulation::SystemMainSimulation(
   std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
   std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
   const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-) :
+  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
+  const std::shared_ptr<ResultFileExporter>& result_exporter_ptr) :
     gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
     map_creator_ptr_(std::move(map_creator_ptr)),
     simulation_end_checker_ptr_(std::move(simulation_end_checker_ptr)),
     robot_operator_ptr_(std::move(robot_operator_ptr)),
     node_initializer_ptr_(std::move(node_initializer_ptr)),
     broker_ptr_(broker_ptr),
-    setting_ptr_(setting_ptr)
+    setting_ptr_(setting_ptr),
+    result_exporter_ptr_(result_exporter_ptr)
 {
     assert(gait_pattern_generator_ptr_ != nullptr);
     assert(map_creator_ptr_ != nullptr);
@@ -44,7 +45,7 @@ SystemMainSimulation::SystemMainSimulation(
     assert(setting_ptr_ != nullptr);
 
     // 結果をファイルに出力するクラスを初期化する．
-    result_exporter_.CreateRootDirectory();
+    result_exporter_ptr_->CreateRootDirectory();
 
     // マップを生成する．
     map_state_ = map_creator_ptr_->InitMap();
@@ -191,7 +192,7 @@ void SystemMainSimulation::Main()
         }  // 歩容生成のループ終了．
 
         record.map_state = map_state_;  // 結果を格納する変数にマップの状態を格納する．
-        result_exporter_.PushSimulationResult(record);  // 結果を追加する．
+        result_exporter_ptr_->PushSimulationResult(record);  // 結果を追加する．
 
         // 仲介人にシミュレーション終了を通達する．
         broker_ptr_->simulation_end_index.PushBack(broker_ptr_->graph.GetSize() - 1);
@@ -205,7 +206,7 @@ void SystemMainSimulation::Main()
     // シミュレーションの結果を全てファイルに出力する．
     if (CmdIOUtil::InputYesNo("結果を出力しますか？"))
     {
-        result_exporter_.Export();
+        result_exporter_ptr_->Export();
     }
 
     CmdIOUtil::SpacedOutput("シミュレーションを終了します", kSystem);

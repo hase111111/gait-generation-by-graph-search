@@ -138,7 +138,7 @@ int main()
                 auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
                                                                           simulation_setting_record.initial_posture,
                                                                           simulation_setting_record.initial_move);
-
+                auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),
@@ -147,7 +147,8 @@ int main()
                   std::move(robot_operator),
                   std::move(node_initializer),
                   graphic_data_broker,
-                  application_setting_record);
+                  application_setting_record,
+                  result_exporter);
 
                 auto graphic_main = std::make_unique<GraphicMainBasic>(
                   graphic_data_broker,
