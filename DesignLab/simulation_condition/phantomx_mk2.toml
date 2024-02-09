@@ -21,7 +21,7 @@
     max_leg_range = 250.0
     
     #脚の付け根から脚先までの最小距離[mm]
-    min_leg_range = 120.0
+    min_leg_range = 130.0
 
 [Other]
     
