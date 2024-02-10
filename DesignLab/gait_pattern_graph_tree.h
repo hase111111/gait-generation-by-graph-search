@@ -120,6 +120,37 @@ public:
     //! @brief グラフをリセットする．
     constexpr void Reset() { graph_size_ = 0; }
 
+    //! @brief 指定したノードの重心の上下移動軌跡を返す．
+    //! @param[in] index 参照したいノードのインデックス．
+    //! 最大ノード数を超える数を指定するとアサーションに引っかかる．
+    //! @return 指定したノードの重心の上下移動軌跡．
+    [[nodiscard]]
+    std::vector<float> GetCoMVerticalTrajectory(const int index) const
+    {
+        assert(0 <= index);
+        assert(index < graph_size_);
+        std::vector<float> com_vertical_trajectory_reverse;
+
+        // 現在のノードから根ノードまでの重心の上下移動軌跡を取得する．
+        for (int i = index; i != -1; i = nodes_[i].parent_index)
+        {
+            if (com_vertical_trajectory_reverse.empty() ||
+                com_vertical_trajectory_reverse.back() != nodes_[i].center_of_mass_global_coord.z)
+            {
+                com_vertical_trajectory_reverse.push_back(nodes_[i].center_of_mass_global_coord.z);
+            }
+        }
+
+        // 根ノードから現在のノードまでの重心の上下移動軌跡を取得する．
+        std::vector<float> com_vertical_trajectory(com_vertical_trajectory_reverse.size());
+        for (int i = 0; i < com_vertical_trajectory_reverse.size(); ++i)
+        {
+            com_vertical_trajectory[i] = com_vertical_trajectory_reverse[com_vertical_trajectory_reverse.size() - 1 - i];
+        }
+
+        return com_vertical_trajectory;
+    }
+
 private:
     std::vector<RobotStateNode> nodes_;  //!< グラフのデータ．
 

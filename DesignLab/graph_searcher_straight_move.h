@@ -63,7 +63,7 @@ private:
         const RobotStateNode& root_node) const;
 
     float GetZDiffEvaluationValue(
-        const RobotStateNode& node,
+        const std::vector<float>& com_trajectory,
         const float target_z_value) const;
 
 

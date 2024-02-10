@@ -65,14 +65,21 @@ void NodeCreatorComMove::Create(const RobotStateNode& current_node,
 
             next_node.ChangeToNextNode(current_num, next_move_);  // 深さや親ノードを変更する
 
-            if (
-              checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) &&
-              !checker_ptr_->IsBodyInterferingWithGround(next_node, map_)
-            )
+            if (checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) &&
+                !checker_ptr_->IsBodyInterferingWithGround(next_node, map_))
             {
                 (*output_graph).push_back(next_node);
             }
         }
+    }
+
+    // 結果が空だったら現在姿勢をそのまま追加する．
+    if ((*output_graph).empty())
+    {
+        RobotStateNode next_node = current_node;
+        next_node.ChangeToNextNode(current_num, next_move_);
+
+        (*output_graph).push_back(next_node);
     }
 }
 

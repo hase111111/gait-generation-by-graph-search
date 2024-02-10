@@ -133,8 +133,8 @@ int main()
             {
                 // シミュレーションシステムクラスを作成する．
 
-                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);
-                auto pass_finder_straight_revaluation = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight_revaluation), std::move(graph_searcher_straight_revaluation), 4, 20000000);
+                auto pass_finder_straight = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 20000000);
+                auto pass_finder_straight_revaluation = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight_revaluation), std::move(graph_searcher_straight_revaluation), 5, 20000000);
                 auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorRevaluation>(std::move(pass_finder_straight), std::move(pass_finder_straight_revaluation), phantomx_mk2, phantomx_mk2);
 
                 TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;

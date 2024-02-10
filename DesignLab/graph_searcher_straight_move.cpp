@@ -63,9 +63,14 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
     int max_evaluation_value_index = -1;
+    int log_depth = 0;
+    enums::HexapodMove log_move = enums::HexapodMove::kNone;
 
     for (int i = 0; i < graph.GetGraphSize(); i++)
     {
+        log_depth = log_depth < graph.GetNode(i).depth ? graph.GetNode(i).depth : log_depth;
+        log_move = log_depth == graph.GetNode(i).depth ? graph.GetNode(i).next_move : log_move;
+
         // 最大深さのノードのみを評価する．
         if (graph.GetNode(i).depth != max_depth) { continue; }
 
@@ -78,7 +83,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
         // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
 
-        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
+        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetCoMVerticalTrajectory(i), target_z_value);
 
         // 評価値を比較する．
         if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
@@ -91,10 +96,20 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     }
 
     // インデックスが範囲外ならば失敗．
-    if (max_evaluation_value_index < 0 ||
-        graph.GetGraphSize() <= max_evaluation_value_index)
+    if (graph.GetGraphSize() <= max_evaluation_value_index)
     {
         const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
+        return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
+    }
+
+    if (max_evaluation_value_index < 0)
+    {
+        const GraphSearchResult result =
+        {
+            enums::Result::kFailure,
+            std::format("葉ノードが存在しません．最大深さ : {}，動作 : {}", log_depth, string_util::EnumToStringRemoveTopK(log_move))
+        };
+
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
@@ -168,11 +183,11 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 0.5f,
+        .margin = 0.f,
     };
 
     GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
-                             { kTagZDiff, kTagMoveForward, kTagLegRot });
+                             { kTagMoveForward,kTagZDiff,  kTagLegRot });
 
     return ret;
 }
@@ -253,10 +268,18 @@ float GraphSearcherStraightMove::GetLegRotEvaluationValue(
 }
 
 float GraphSearcherStraightMove::GetZDiffEvaluationValue(
-    const RobotStateNode& node,
+    const std::vector<float>& com_trajectory,
     const float target_z_value) const
 {
-    const float result = abs(node.center_of_mass_global_coord.z - target_z_value);
+    float result = abs(com_trajectory.back() - target_z_value);
+
+    if (com_trajectory.size() == 3)
+    {
+        if ((com_trajectory[0] - com_trajectory[1]) * (com_trajectory[0] - com_trajectory[2]) <= 0)
+        {
+            result += abs(com_trajectory[0] - com_trajectory[1]);
+        }
+    }
 
     return result;
 }
