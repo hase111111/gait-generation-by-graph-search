@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "cassert_define.h"
+#include "cmdio_util.h"
 #include "math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
@@ -58,6 +59,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, normalized_move_direction);
 
+    CmdIOUtil::FormatOutput(enums::OutputDetail::kDebug, "target_z_value = {}", target_z_value);
 
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
     int max_evaluation_value_index = -1;
@@ -71,16 +73,18 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 
         candidate_evaluation_value.value.at(kTagMoveForward) = GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(), normalized_move_direction);
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagMoveForward)) { continue; }
+        // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagMoveForward)) { continue; }
 
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
-        if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
+        // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
 
         candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
 
         // 評価値を比較する．
         if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
         {
+            // 上回っている場合は更新する．
+            CmdIOUtil::FormatOutput(enums::OutputDetail::kDebug, "max_evaluation_value = {}", max_evaluation_value.value[kTagZDiff]);
             max_evaluation_value = candidate_evaluation_value;
             max_evaluation_value_index = i;
         }
@@ -164,7 +168,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     GraphSearchEvaluator::EvaluationMethod z_diff_method =
     {
         .is_lower_better = true,
-        .margin = 0.0f,
+        .margin = 0.5f,
     };
 
     GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
@@ -182,7 +186,7 @@ float GraphSearcherStraightMove::InitTargetZValue(
 
     const Vector3 target_position = move_direction * move_length;
 
-    const int div = 60;
+    const int div = 300;
     const float min_z = -150.0f;
     const float max_z = 150.0f;
 
