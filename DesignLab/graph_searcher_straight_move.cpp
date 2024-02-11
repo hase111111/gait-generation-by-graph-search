@@ -66,6 +66,8 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     int log_depth = 0;
     enums::HexapodMove log_move = enums::HexapodMove::kNone;
 
+    GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
+
     for (int i = 0; i < graph.GetGraphSize(); i++)
     {
         log_depth = log_depth < graph.GetNode(i).depth ? graph.GetNode(i).depth : log_depth;
@@ -75,15 +77,14 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         if (graph.GetNode(i).depth != max_depth) { continue; }
 
         // 評価値を計算する．
-        GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
-
         candidate_evaluation_value.value.at(kTagMoveForward) = GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(), normalized_move_direction);
         // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagMoveForward)) { continue; }
 
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
         // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
 
-        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetCoMVerticalTrajectory(i), target_z_value);
+        // candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetCoMVerticalTrajectory(i), target_z_value);
+        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue({ graph.GetNode(i).center_of_mass_global_coord.z }, target_z_value);
 
         // 評価値を比較する．
         if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
@@ -187,7 +188,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     };
 
     GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
-                             { kTagMoveForward,kTagZDiff,  kTagLegRot });
+                             { kTagZDiff, kTagMoveForward, kTagLegRot });
 
     return ret;
 }

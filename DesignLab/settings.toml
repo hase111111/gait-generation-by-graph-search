@@ -33,13 +33,13 @@
 [Output]
     
     #コマンドラインに出力する際，どこまで許可するかを設定します．( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
-    cmd_output_detail = "kInfo" 
+    cmd_output_detail = "kSystem" 
     
     #コマンドラインに出力するかどうかを設定します．( true / false )
     do_cmd_output = true
     
     #GUIを表示するかどうかを設定します．( true / false )
-    do_gui_display = true
+    do_gui_display = false
     
     #GUIを表示する際，どこまで許可するかを設定します．( "kLow" / "kMedium" / "kHigh" )
     gui_display_quality = "kMedium" 
