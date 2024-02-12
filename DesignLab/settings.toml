@@ -39,10 +39,10 @@
     do_cmd_output = true
     
     #GUIを表示するかどうかを設定します．( true / false )
-    do_gui_display = false
+    do_gui_display = true
     
     #GUIを表示する際，どこまで許可するかを設定します．( "kLow" / "kMedium" / "kHigh" )
-    gui_display_quality = "kMedium" 
+    gui_display_quality = "kHigh" 
     
     #グラフィカルウィンドウのFPSを設定します．15 ～ 60の範囲．推奨値は60です．
     window_fps = 60

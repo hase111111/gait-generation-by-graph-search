@@ -83,8 +83,8 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
         // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value, max_evaluation_value, kTagLegRot)) { continue; }
 
-        // candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetCoMVerticalTrajectory(i), target_z_value);
-        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue({ graph.GetNode(i).center_of_mass_global_coord.z }, target_z_value);
+        candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetCoMVerticalTrajectory(i), target_z_value);
+        //candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue({ graph.GetNode(i).center_of_mass_global_coord.z }, target_z_value);
 
         // 評価値を比較する．
         if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
@@ -188,7 +188,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const
     };
 
     GraphSearchEvaluator ret({ {kTagMoveForward, move_forward_method}, {kTagLegRot, leg_rot_method}, {kTagZDiff, z_diff_method} },
-                             { kTagZDiff, kTagMoveForward, kTagLegRot });
+                             { kTagZDiff,  kTagMoveForward, kTagLegRot });
 
     return ret;
 }

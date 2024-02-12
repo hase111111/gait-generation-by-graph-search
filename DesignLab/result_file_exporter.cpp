@@ -141,7 +141,7 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const
             return;
         }
 
-        for (const auto& j : result_list_.back().graph_search_result_recorder)
+        for (const auto& j : result_list_[i].graph_search_result_recorder)
         {
             ofs << j.result_node << "\n";  // ノードを出力する．
         }
