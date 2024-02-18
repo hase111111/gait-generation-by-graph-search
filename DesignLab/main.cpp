@@ -135,12 +135,13 @@ int main()
 
                 auto gait_pattern_generator_straight =
                     std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);
-                auto gait_pattern_generator_straight_revaluation =
-                    std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight_revaluation), std::move(graph_searcher_straight_revaluation), 4, 20000000);
+                //auto gait_pattern_generator_straight_revaluation =
+                //    std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight_revaluation), std::move(graph_searcher_straight_revaluation), 4, 20000000);
 
                 // auto gait_pattern_generator =
                 //  std::make_unique<GaitPatternGeneratorRevaluation>(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_straight_revaluation), phantomx_mk2, phantomx_mk2);
-                // auto gait_pattern_generator_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 20000000);
+                auto gait_pattern_generator_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 20000000);
+                auto gait_pattern_generator_switch_move = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_turn_spot));
 
                 TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
                 const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
@@ -154,7 +155,7 @@ int main()
                 auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
 
                 system_main = std::make_unique<SystemMainSimulation>(
-                  std::move(gait_pattern_generator_straight),
+                  std::move(gait_pattern_generator_switch_move),
                   std::move(map_creator),
                   std::move(simulation_end_checker),
                   std::move(robot_operator),

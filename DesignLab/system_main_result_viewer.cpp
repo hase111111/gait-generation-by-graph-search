@@ -60,7 +60,7 @@ void SystemMainResultViewer::Main()
         if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state))
         {
             // 異常値を出力する．
-            OutputErrorLegPos(res_path, graph);
+            // OutputErrorLegPos(res_path, graph);
 
             // データを仲介人に渡す．
             broker_ptr_->graph.SetData(graph);

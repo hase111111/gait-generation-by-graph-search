@@ -38,18 +38,20 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     }
 
     // 初期化．
-    Quaternion target_quat;
+    Quaternion target_quaternion;
 
     if (operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
     {
-        target_quat = operation.spot_turn_last_posture_;
+        target_quaternion = operation.spot_turn_last_posture_;
     }
     else
     {
-        assert(false);
+        // 回転軸周りに20deg回転クォータニオンを作成する．
+        const auto rot_quaternion = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(20.0f), operation.spot_turn_rot_axis);
+        target_quaternion = rot_quaternion * graph.GetRootNode().posture;
     }
 
-    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, target_quat);
+    const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, target_quaternion);
 
 
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
@@ -66,7 +68,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         // 評価値を計算する．
         GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 
-        candidate_evaluation_value.value.at(kTagAmountOfTurn) = GetAmountOfTurnEvaluationValue(graph.GetNode(i), target_quat);
+        candidate_evaluation_value.value.at(kTagAmountOfTurn) = GetAmountOfTurnEvaluationValue(graph.GetNode(i), target_quaternion);
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
         candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
 
@@ -182,7 +184,7 @@ float GraphSearcherSpotTurn::InitTargetZValue(const RobotStateNode& node,
 
         if (!checker_ptr_->IsBodyInterferingWithGround(temp_node, divided_map_state))
         {
-            std::cout << "z = " << node.center_of_mass_global_coord.z + z << std::endl;
+            // std::cout << "z = " << node.center_of_mass_global_coord.z + z << std::endl;
             return node.center_of_mass_global_coord.z + z;
         }
     }

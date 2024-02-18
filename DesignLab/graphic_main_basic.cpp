@@ -70,7 +70,7 @@ GraphicMainBasic::GraphicMainBasic(
 
     render_group_.Register(map_renderer_ptr_);
     render_group_.Register(hexapod_renderer);
-    render_group_.Register(stability_margin_renderer);
+    // render_group_.Register(stability_margin_renderer);
     render_group_.Register(world_grid_renderer);
 
     node_setter_group_.Register(map_renderer_ptr_);
@@ -185,7 +185,7 @@ void GraphicMainBasic::Draw() const
     // 移動軌跡を描画する．
     movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
-    robot_ground_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
+    // robot_ground_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
     // 2DのGUIの描画．
     gui_updater_.Draw();

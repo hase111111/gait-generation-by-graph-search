@@ -7,7 +7,7 @@
 #define DESIGNLAB_NODE_INITIALIZER_H_
 
 #include "robot_state_node.h"
-
+#include "map_state.h"
 
 namespace designlab
 {
@@ -24,6 +24,9 @@ public:
     //! @brief ノードの初期化を行う．
     //! @return 初期化されたノード．
     RobotStateNode InitNode() const;
+
+    //! @brief 地形に適した初期姿勢を設定する．
+    RobotStateNode InitNodeForTerrain(const RobotStateNode& node, const MapState map) const;
 
 private:
     const Vector3 pos_;

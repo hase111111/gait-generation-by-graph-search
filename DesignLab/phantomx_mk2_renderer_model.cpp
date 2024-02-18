@@ -75,6 +75,15 @@ void PhantomXMkIIRendererModel::DrawBody() const
     MV1SetPosition(body_model_handle, dxlib_util::ConvertToDxlibVec(draw_node_.center_of_mass_global_coord));
 
     MV1DrawModel(body_model_handle);
+
+    // 胴体の正面に目印のために球を描画する．
+    const VECTOR sphere_pos = dxlib_util::ConvertToDxlibVec(RotateVector3({ PhantomXMkIIConst::kCoxaBaseOffsetX - 20.f, 0.f, 0.f }, draw_node_.posture) + draw_node_.center_of_mass_global_coord);
+    const float sphere_radius = 30.f;
+    const int sphere_div_num = 16;
+    const unsigned int sphere_color = GetColor(255, 0, 0);
+    const unsigned int spec_color = GetColor(255, 255, 255);
+
+    DrawSphere3D(sphere_pos, sphere_radius, sphere_div_num, sphere_color, spec_color, TRUE);
 }
 
 void PhantomXMkIIRendererModel::DrawCoxaLink(const int leg_index) const
@@ -137,7 +146,7 @@ void PhantomXMkIIRendererModel::DrawFemurLink(const int leg_index) const
 
     // リンクが曲がっているため，簡単のために回転軸を結ぶように仮想的なリンクを使っている．
     // そのため，仮想的なリンクの角度を補正する必要がある．
-    const float virtual_link_offset_angle = math_util::ConvertDegToRad(12.5f);
+    constexpr float virtual_link_offset_angle = math_util::ConvertDegToRad(12.5f);
 
     const Quaternion thign_def_quat =
         Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetLeftVec()) *

@@ -55,6 +55,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         normalized_move_direction = operation.straight_move_vector_;
         normalized_move_direction.z = 0.0f;
         normalized_move_direction = normalized_move_direction.GetNormalized();
+        normalized_move_direction = normalized_move_direction.GetLength() == 0.0f ? Vector3::GetFrontVec() : normalized_move_direction;
     }
 
     const float target_z_value = InitTargetZValue(graph.GetRootNode(), divided_map_state, normalized_move_direction);

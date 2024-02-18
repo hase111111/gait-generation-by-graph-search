@@ -37,7 +37,7 @@ public:
                 std::vector<RobotStateNode>* output_graph) const override;
 
 private:
-    static constexpr int kDiscretization = 10;  //!< 離散化数．最大位置を最小位置を何分割するのか．
+    static constexpr int kDiscretization = 7;  //!< 離散化数．最大位置を最小位置を何分割するのか．
 
     // グローバル座標の重心の最低位置と最高位置から，重心を上下に変化させたノードを追加する．
     void pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, int current_num,

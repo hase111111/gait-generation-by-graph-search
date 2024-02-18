@@ -72,6 +72,7 @@ void SystemMainSimulation::Main()
     {
         // 現在のノードの状態を格納する変数．
         RobotStateNode current_node = node_initializer_ptr_->InitNode();
+
         RobotOperation operation = robot_operator_ptr_->Init();  // 目標地点を決定する．
 
         // シミュレーションの結果を格納する変数．
