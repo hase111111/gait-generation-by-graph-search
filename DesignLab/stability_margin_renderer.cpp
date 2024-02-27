@@ -35,7 +35,7 @@ void StabilityMarginRenderer::Draw() const
     Vector3 polygon_sum{ 0, 0, 0 };  // 多角形の頂点の合計，重心を求めるために使用する
 
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
+    for (int i = 0; i < HexapodConst::kLegNum; ++i)
     {
         if (leg_func::IsGrounded(node_.leg_state, i))
         {
@@ -55,7 +55,7 @@ void StabilityMarginRenderer::Draw() const
 
 
     // 多角形を描画する．
-    for (size_t i = 0; i < polygon.size(); i++)
+    for (size_t i = 0; i < polygon.size(); ++i)
     {
         const VECTOR poly[3] = {
           dxlib_util::ConvertToDxlibVec(polygon[i]),
