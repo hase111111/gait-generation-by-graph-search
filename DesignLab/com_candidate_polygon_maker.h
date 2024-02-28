@@ -1,7 +1,7 @@
 ﻿
 //! @file      com_candidate_polygon_maker.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
 #define DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
@@ -24,7 +24,10 @@ namespace designlab
 //! @see ComCandidatePolygonMaker
 struct ComPosAndPolygon
 {
-    ComPosAndPolygon() : com_pos(enums::DiscreteComPos::kFront), polygon(), is_able(false) {}
+    ComPosAndPolygon() :
+        com_pos(enums::DiscreteComPos::kFront),
+        polygon(),
+        is_able(false) {}
 
     enums::DiscreteComPos com_pos;  //!< 離散化された重心位置．
     Polygon2 polygon;  //!< 重心位置を含む多角形．
@@ -34,10 +37,8 @@ struct ComPosAndPolygon
 
 //! @class ComCandidatePolygonMaker
 //! @brief 重心位置の候補地点を示す多角形を作成するクラス．
-//! @details 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する．
-//! @n 手法は波東さんの卒業研究を参考にしているため，詳細はそちらを参照のこと．
-//! 当然だが，その手法ではロボットの姿勢変更を考慮していないのでこのクラスを使用する場合は，
-//! ロボットの回転・旋回は行うことができない
+//! @details
+//! 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する．
 class ComCandidatePolygonMaker final
 {
 public:
@@ -48,16 +49,18 @@ public:
         const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
 
-    //! @brief 現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する．
-    //! @param [in] node 現在のロボットの状態を表すノード．
-    //! @param [out] output_poly 重心位置の候補地点を示す多角形．
-    void MakeCandidatePolygon(const RobotStateNode& node,
-                              std::array<ComPosAndPolygon, kMakePolygonNum>* output_poly) const;
+    //! @brief 現在のロボットの状態を表すノードから，
+    //! 重心位置の候補地点を示す多角形を作成する．
+    //! @param[in] node 現在のロボットの状態を表すノード．
+    //! @param[out] output_poly 重心位置の候補地点を示す多角形．
+    void MakeCandidatePolygon(
+        const RobotStateNode& node,
+        std::array<ComPosAndPolygon, kMakePolygonNum>* output_poly) const;
 
 
 private:
-    //! 多角形のチェックを行う場合は trueにする．
-    //! 重いので falseにしたいが，深さ5までなら問題なし．
+    //! 多角形のチェックを行う場合は true にする．
+    //! 重いので false にしたいが，深さ5までなら問題なし．
     static constexpr bool kDoCheckPolygon = true;
 
 
@@ -68,8 +71,9 @@ private:
 
     //! @brief 重心位置の候補地点を示す多角形を作成する．
     //! 中心周りの図形は3角形を用いて表現する．
-    void MakeCandidateTriangle(const std::array<Vector2, HexapodConst::kLegNum>& leg_pos,
-                               ComPosAndPolygon* output) const;
+    void MakeCandidateTriangle(
+        const std::array<Vector2, HexapodConst::kLegNum>& leg_pos,
+        ComPosAndPolygon* output) const;
 
     //! @brief 正しい多角形が生成されているかを確認する．
     //! @param [in] _poly 確認する多角形．

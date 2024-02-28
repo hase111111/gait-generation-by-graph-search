@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "leg_state.h"
 
@@ -12,8 +12,7 @@ namespace designlab::leg_func
 LegStateBit MakeLegStateBit(
   const enums::DiscreteComPos discrete_com_pos,
   const std::array<bool, HexapodConst::kLegNum>& is_ground,
-  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos
-)
+  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos)
 {
     LegStateBit res = 0;
 

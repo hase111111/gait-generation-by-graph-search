@@ -1,12 +1,12 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "node_creator_com_move.h"
 
-#include "math_util.h"
 #include "graph_search_const.h"
 #include "leg_state.h"
+#include "math_util.h"
 
 
 namespace designlab
@@ -17,8 +17,7 @@ NodeCreatorComMove::NodeCreatorComMove(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const enums::HexapodMove next_move
-) :
+  const enums::HexapodMove next_move) :
     map_(map),
     maker_(converter_ptr),
     selector_(checker_ptr),

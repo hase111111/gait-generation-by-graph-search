@@ -247,11 +247,11 @@ TEST_SUITE("Vector3")
     {
         const struct { Vector3 v; Vector3 expected; }
         table[] = {
-                    {Vector3(1, 0, 0), Vector3(1, 0, 0)},
-                    {Vector3(0, 1, 0), Vector3(0, 1, 0)},
-                    {Vector3(0, 0, 1), Vector3(0, 0, 1)},
-                    {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
-                    {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
+            {Vector3(1, 0, 0), Vector3(1, 0, 0)},
+            {Vector3(0, 1, 0), Vector3(0, 1, 0)},
+            {Vector3(0, 0, 1), Vector3(0, 0, 1)},
+            {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
+            {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
         };
 
         for (auto [v, expected] : table)
@@ -359,11 +359,11 @@ TEST_SUITE("Vector3")
     {
         const struct { Vector3 v; Vector3 expected; }
         table[] = {
-                    {Vector3(1, 0, 0), Vector3(1, 0, 0)},
-                    {Vector3(0, 1, 0), Vector3(0, 1, 0)},
-                    {Vector3(0, 0, 1), Vector3(0, 0, 1)},
-                    {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
-                    {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
+            {Vector3(1, 0, 0), Vector3(1, 0, 0)},
+            {Vector3(0, 1, 0), Vector3(0, 1, 0)},
+            {Vector3(0, 0, 1), Vector3(0, 0, 1)},
+            {Vector3(1, 1, 1), Vector3(0.577350f, 0.577350f, 0.577350f)},
+            {Vector3(-1, -1, -1), Vector3(-0.577350f, -0.577350f, -0.577350f)},
         };
 
         for (auto [v, expected] : table)

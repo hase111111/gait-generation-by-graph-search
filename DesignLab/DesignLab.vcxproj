@@ -33,6 +33,7 @@
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
     <ClInclude Include="node_creator_builder_body_rot.h" />
+    <ClInclude Include="node_creator_leg_hierarchy_test.h" />
     <ClInclude Include="node_creator_leg_up_down_radius.h" />
     <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />

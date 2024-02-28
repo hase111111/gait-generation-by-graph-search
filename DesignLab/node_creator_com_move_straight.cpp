@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "node_creator_com_move_straight.h"
 
@@ -15,15 +15,14 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  enums::HexapodMove next_move
-) :
+  enums::HexapodMove next_move) :
     map_(divided_map),
     next_move_(next_move),
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
     checker_ptr_(checker_ptr)
 {
-    for (size_t i = 0; i < kCandidateDirectionNum; i++)
+    for (size_t i = 0; i < kCandidateDirectionNum; ++i)
     {
         const float rad = static_cast<float>(i) * 2.f * std::numbers::pi_v<float> /
             static_cast<float>(kCandidateDirectionNum);
@@ -40,13 +39,13 @@ void NodeCreatorComMoveStraight::Create(const RobotStateNode& current_node,
 
     std::array<Vector3, kCandidateDirectionNum> candidate_directions_rotated;
 
-    for (size_t i = 0; i < kCandidateDirectionNum; i++)
+    for (size_t i = 0; i < kCandidateDirectionNum; ++i)
     {
         candidate_directions_rotated[i] = RotateVector3(candidate_directions_[i],
                                                         current_node.posture);
     }
 
-    for (size_t i = 0; i < kCandidateDirectionNum; i++)
+    for (size_t i = 0; i < kCandidateDirectionNum; ++i)
     {
         bool is_able = false;
 

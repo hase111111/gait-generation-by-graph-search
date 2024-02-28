@@ -1,7 +1,7 @@
 ﻿
 //! @file      com_selector.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_COM_SELECTOR_H_
 #define DESIGNLAB_COM_SELECTOR_H_
@@ -21,7 +21,7 @@ namespace designlab
 {
 
 //! @class ComSelector
-//! @brief 波東さんのプログラムにおける CCC の処理と同様の処理を行い，重心を求めるクラス．
+//! @brief 重心の候補領域から重心位置を選択するクラス．
 //! @details 重心位置の決め方は波東さんのプログラムに準拠している．
 //! @n まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ．
 //! @n 次に多角形の中に入っていない点を除外する．

@@ -45,7 +45,8 @@ private:
     {
         FileTreeData() : path(""), directory({}), file({}) {}
 
-        FileTreeData(const std::string& _path, const std::vector<FileTreeData>& _directory,
+        FileTreeData(const std::string& _path,
+                     const std::vector<FileTreeData>& _directory,
                      const std::vector<std::string>& _file) :
             path(_path),
             directory(_directory),
@@ -63,16 +64,19 @@ private:
     //! @param[in] max_depth ファイルツリーの深さ，-1ならば無限に行う．
     //! @param[in] extension ファイルの拡張子( ".txt" ".csv" など)
     //! 空文字ならば全てのファイルを対象とする．
-    //! @param[in] keyword ファイル名に含まれるキーワード，空文字ならば全てのファイルを対象とする．
+    //! @param[in] keyword ファイル名に含まれるキーワード，
+    //! 空文字ならば全てのファイルを対象とする．
     //! @return ファイルツリーのデータ．
-    FileTreeData MakeFileTree(const std::string& path, int max_depth,
-                              const std::string& extension, const std::string keyword) const;
+    FileTreeData MakeFileTree(
+        const std::string& path, int max_depth,
+        const std::string& extension, const std::string keyword) const;
 
     //! @brief ファイルツリーをコマンドラインへ出力する．
     //! @n ファイルツリーのデータを再帰的に出力する．
     //! @param[in] tree ファイルツリーのデータ．
     //! @param[in] depth ディレクトリの階層の深さ．
-    //! @param[in] not_display_empty 空のディレクトリを表示しないならば trueを指定する．
+    //! @param[in] not_display_empty 空のディレクトリを表示しないならば
+    //!  true を指定する．
     //! @param[in] file_count ファイルの番号を割り当てるためのカウンタ．
     void OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty,
                         int* file_count) const;

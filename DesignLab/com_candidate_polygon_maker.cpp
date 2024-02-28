@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "com_candidate_polygon_maker.h"
 
@@ -19,10 +19,11 @@ ComCandidatePolygonMaker::ComCandidatePolygonMaker(
 }
 
 void ComCandidatePolygonMaker::MakeCandidatePolygon(
-    const RobotStateNode& node, std::array<ComPosAndPolygon, kMakePolygonNum>* output_poly) const
+    const RobotStateNode& node,
+    std::array<ComPosAndPolygon, kMakePolygonNum>* output_poly) const
 {
-    assert(converter_ptr_ != nullptr);  // nullptrでないことを確認する．
-    assert(output_poly != nullptr);  // nullptrでないことを確認する．
+    assert(converter_ptr_ != nullptr);  // nullptr でないことを確認する．
+    assert(output_poly != nullptr);  // nullptr でないことを確認する．
 
     // XY平面に射影した脚位置を算出する．(グローバル座標系)
     std::array<Vector2, HexapodConst::kLegNum> leg_pos_xy;
@@ -31,7 +32,11 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(
     {
         // 脚位置(グローバル座標)をXY平面に射影する．
         leg_pos_xy[i] = converter_ptr_->ConvertLegToGlobalCoordinate(
-            node.leg_pos[i], i, node.center_of_mass_global_coord, node.posture, true).ProjectedXY();
+            node.leg_pos[i],
+            i,
+            node.center_of_mass_global_coord,
+            node.posture,
+            true).ProjectedXY();
     }
 
     // 中心を囲むように4角形を作成する．
@@ -76,7 +81,8 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(
 }
 
 void ComCandidatePolygonMaker::MakeCandidateBox(
-    const std::array<Vector2, HexapodConst::kLegNum>& leg_pos, const int start_leg_num,
+    const std::array<Vector2, HexapodConst::kLegNum>& leg_pos,
+    const int start_leg_num,
     Polygon2* output_poly) const
 {
     // 脚位置を線で結ぶ．この交点から重心候補地点が存在する多角形を求める．
@@ -169,13 +175,15 @@ void ComCandidatePolygonMaker::MakeCandidateTriangle(
     return;
 }
 
-bool ComCandidatePolygonMaker::IsAblePolygon(const Polygon2& _poly) const
+bool ComCandidatePolygonMaker::IsAblePolygon(const Polygon2& poly) const
 {
     // 生成されるのは 3 or 4 or 5角形のみ．
-    if (_poly.GetVertexNum() == 3 || _poly.GetVertexNum() == 4 || _poly.GetVertexNum() == 5)
+    if (poly.GetVertexNum() == 3 ||
+        poly.GetVertexNum() == 4 ||
+        poly.GetVertexNum() == 5)
     {
         // 凸多角形であるかを確認する．
-        if (_poly.IsConvex())
+        if (poly.IsConvex())
         {
             return true;
         }

@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "com_selector.h"
 
@@ -14,9 +14,10 @@
 namespace designlab
 {
 
-bool ComSelector::GetComFromPolygon(const Polygon2& polygon,
-                                        const RobotStateNode& current_node,
-                                        Vector3* output_com) const
+bool ComSelector::GetComFromPolygon(
+    const Polygon2& polygon,
+    const RobotStateNode& current_node,
+    Vector3* output_com) const
 {
     std::pair<bool, Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
@@ -54,7 +55,7 @@ bool ComSelector::GetComFromPolygon(const Polygon2& polygon,
         const Vector3 dif = after_move_com_pos - current_node.center_of_mass_global_coord;
         const Vector3 real_dif = RotateVector3(dif, current_node.posture.GetConjugate());
 
-        for (int j = 0; j < HexapodConst::kLegNum; j++)
+        for (int j = 0; j < HexapodConst::kLegNum; ++j)
         {
             if (leg_func::IsGrounded(current_node.leg_state, j))
             {
@@ -107,8 +108,8 @@ bool ComSelector::GetComFromPolygon(const Polygon2& polygon,
 
 
 bool ComSelector::MakeComCandidatePoint(
-    const designlab::Polygon2& polygon,
-    std::pair<bool, designlab::Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
+    const Polygon2& polygon,
+    std::pair<bool, Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
     // 波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る．
     const float kMinX = polygon.GetMinX();

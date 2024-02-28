@@ -1,7 +1,7 @@
 ﻿
 //! @file      discrete_com_pos.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_DISCRETE_COM_POS_H_
 #define DESIGNLAB_DISCRETE_COM_POS_H_

@@ -1,7 +1,7 @@
 ﻿
 //! @file      gait_pattern_graph_tree_test.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_
 #define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_

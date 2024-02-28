@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "node_creator_com_up_down.h"
 
@@ -22,8 +22,7 @@ NodeCreatorComUpDown::NodeCreatorComUpDown(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  enums::HexapodMove next_move
-) :
+  enums::HexapodMove next_move) :
     map_(divided_map),
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
@@ -44,16 +43,17 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 
     if (map_.IsInMap(current_node.center_of_mass_global_coord))
     {
-        const int kMapX = map_.GetDividedMapIndexX(current_node.center_of_mass_global_coord.x);
-        const int kMapY = map_.GetDividedMapIndexY(current_node.center_of_mass_global_coord.y);
-        map_highest_z = map_.GetTopZ(kMapX, kMapY);
+        const int map_index_x = map_.GetDividedMapIndexX(current_node.center_of_mass_global_coord.x);
+        const int map_index_y = map_.GetDividedMapIndexY(current_node.center_of_mass_global_coord.y);
+        map_highest_z = map_.GetTopZ(map_index_x, map_index_y);
     }
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         // 脚の先端の座標を求める．
-        const designlab::Vector3 kCoxaVec = converter_ptr_->ConvertRobotToGlobalCoordinate(
-          presenter_ptr_->GetLegBasePosRobotCoordinate(i), current_node.center_of_mass_global_coord,
+        const Vector3 kCoxaVec = converter_ptr_->ConvertRobotToGlobalCoordinate(
+            presenter_ptr_->GetLegBasePosRobotCoordinate(i),
+            current_node.center_of_mass_global_coord,
             current_node.posture, true);
 
         if (map_.IsInMap(kCoxaVec))
@@ -87,9 +87,8 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
             const float edge_a = sqrt(math_util::Squared(edge_c) - math_util::Squared(edge_b));
 
             // 接地脚の最大重心高さの中から一番小さいものを全体の最大重心位置として記録する．_aは脚の接地点からどれだけ上げられるかを表しているので，グローバル座標に変更する．
-            highest_body_pos_z = (std::min)(edge_a +
-                                            current_node.center_of_mass_global_coord.z +
-                                            current_node.leg_pos[i].z, highest_body_pos_z);
+            highest_body_pos_z = (std::min)(
+                edge_a + current_node.center_of_mass_global_coord.z + current_node.leg_pos[i].z, highest_body_pos_z);
         }
     }
 
@@ -99,56 +98,53 @@ void NodeCreatorComUpDown::Create(const RobotStateNode& current_node, const int 
 }
 
 
-void NodeCreatorComUpDown::pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node,
-                                                   const int current_num,
-                                                   const float high,
-                                                   const float low,
-                                                   std::vector<RobotStateNode>* output_graph) const
+void NodeCreatorComUpDown::pushNodeByMaxAndMinPosZ(
+    const RobotStateNode& current_node, const int current_num, const float high,
+    const float low, std::vector<RobotStateNode>* output_graph) const
 {
     // 重心を変化させたものを追加する．変化量が一番少ないノードは削除する．
+
+    // 最大と最小の間を分割する．
+    const float kDivZ = (high - low) / static_cast<float>(kDiscretization);
+
+    // 分割した分新しいノードを追加する．
+    for (int i = 0; i < kDiscretization + 1; ++i)
     {
-        // 最大と最小の間を分割する．
-        const float kDivZ = (high - low) / static_cast<float>(kDiscretization);
+        bool is_valid = true;
+
+        RobotStateNode new_node = current_node;
+
+        // 重心の位置を変更する．
+        Vector3 new_com = current_node.center_of_mass_global_coord;
+        new_com.z = low + kDivZ * i;
+
+        new_node.ChangeGlobalCenterOfMass(new_com, true);
 
 
-        // 分割した分新しいノードを追加する．
-        for (int i = 0; i < kDiscretization + 1; i++)
+        for (int j = 0; j < HexapodConst::kLegNum; j++)
         {
-            bool is_valid = true;
-
-            RobotStateNode new_node = current_node;
-
-            // 重心の位置を変更する．
-            designlab::Vector3 new_com = current_node.center_of_mass_global_coord;
-            new_com.z = low + kDivZ * i;
-
-            new_node.ChangeGlobalCenterOfMass(new_com, true);
-
-
-            for (int j = 0; j < HexapodConst::kLegNum; j++)
+            if (!checker_ptr_->IsLegInRange(j, new_node.leg_pos[j]))
             {
-                if (!checker_ptr_->IsLegInRange(j, new_node.leg_pos[j])) { is_valid = false; }
+                is_valid = false;
             }
+        }
 
-            // current_numを親とする，新しいノードに変更する
-            new_node.ChangeToNextNode(current_num, next_move_);
+        // current_numを親とする，新しいノードに変更する
+        new_node.ChangeToNextNode(current_num, next_move_);
 
-            // ノードを追加する．
-            if (is_valid)
-            {
-                (*output_graph).emplace_back(new_node);
-            }
+        // ノードを追加する．
+        if (is_valid)
+        {
+            (*output_graph).emplace_back(new_node);
         }
     }
 
     // 重心の変化が一切ないものを追加する．
-    {
-        RobotStateNode same_node = current_node;
+    RobotStateNode same_node = current_node;
 
-        same_node.ChangeToNextNode(current_num, next_move_);
+    same_node.ChangeToNextNode(current_num, next_move_);
 
-        (*output_graph).emplace_back(same_node);
-    }
+    (*output_graph).emplace_back(same_node);
 }
 
 }  // namespace designlab

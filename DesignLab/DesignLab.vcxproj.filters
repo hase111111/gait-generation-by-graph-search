@@ -157,6 +157,9 @@
     <Filter Include="ソース ファイル\System\RobotControl">
       <UniqueIdentifier>{06cb33da-eddd-4c1e-bda0-3c6604b38800}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger\Test">
+      <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leg_state.h">
@@ -659,6 +662,9 @@
     </ClInclude>
     <ClInclude Include="node_creator_builder_body_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_hierarchy_test.h">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

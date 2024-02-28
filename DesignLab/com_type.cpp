@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #include "com_type.h"
 
@@ -11,9 +11,11 @@
 #include "cassert_define.h"
 
 
-// com_func 内の関数は実際に処理を行う際に計算を行うと遅くなるため，初期化時に一度だけ呼び出して，結果を保存しておく．
+// com_func 内の関数は実際に処理を行う際に計算を行うと遅くなるため，
+// 初期化時に一度だけ呼び出して，結果を保存しておく．
 // その値を呼び出すことで速度を上げている．
-// このように無名名前空間の中に変数を宣言することで，このファイル内でのみ使用可能になる．こうしてできた変数に結果を保存する．
+// このように無名名前空間の中に変数を宣言することで，
+// このファイル内でのみ使用可能になる．こうしてできた変数に結果を保存する．
 // アクセスするには，先頭に::をつける．
 //! @todo クラスにするべき.
 namespace
@@ -118,7 +120,8 @@ bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
     // indexから遊脚のパターンを取得する．
     try
     {
-        leg_ground_pattern = ::kLegGroundedPatternMap.right.at(leg_ground_pattern_index);
+        leg_ground_pattern =
+            ::kLegGroundedPatternMap.right.at(leg_ground_pattern_index);
     }
     catch (...)
     {
@@ -137,7 +140,8 @@ bool IsLegPairFree(int leg_index, int leg_ground_pattern_index)
     }
 }
 
-//! @brief 重心位置から使用不可能な接地パターンを作成する関数．初期化時に一度だけ呼び出す．
+//! @brief 重心位置から使用不可能な接地パターンを作成する関数．
+//! 初期化時に一度だけ呼び出す．
 std::unordered_map<DiscreteComPos, std::vector<int>> MakeLegGroundedPatternBanList()
 {
     std::unordered_map<DiscreteComPos, std::vector<int>> res;
@@ -267,7 +271,9 @@ void RemoveLegGroundPatternFromNotGroundableLeg(int not_groundable_leg_index,
     }
 }
 
-void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index, boost::dynamic_bitset<>* output)
+void RemoveLegGroundPatternFromNotFreeLeg(
+    int not_lift_leg_index,
+    boost::dynamic_bitset<>* output)
 {
     assert(output != nullptr);
     assert((*output).size() == GetLegGroundPatternNum());

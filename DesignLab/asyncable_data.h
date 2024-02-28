@@ -1,7 +1,7 @@
 ﻿
 //! @file      asyncable_data.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_
@@ -19,7 +19,8 @@ namespace designlab
 {
 
 //! @class AsyncableData
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
+//! @brief
+//! 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
 //! @details
 //! この構造体は，データの更新回数とデータをまとめて扱うためのクラス．
 //! 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで，
@@ -29,16 +30,20 @@ namespace designlab
 //!
 //! @subsubsection [非同期処理について]
 //! @n 非同期処理 (並列・同時に処理を行うこと) を行う際に，
-//! 一つのにデータに同じタイミングで操作すると危険(未定義処理になり，成功か失敗かが不定になる)．
+//! 一つのにデータに同じタイミングで操作すると危険(未定義処理になり，
+//! 成功か失敗かが不定になる)．
 //! このクラスはそれを防ぐために boost::shared_mutex を使用している．
 //! このクラス内では read lock, write lockを使っている．
 //! @subsubsection 参考
-//! @li https://iorate.hatenablog.com/entry/20130222/1361538198  (アクセス日 2023/12/25)
-//! @li https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10 (アクセス日 2023/12/25)
+//! @li https://iorate.hatenablog.com/entry/20130222/1361538198
+//!     (アクセス日 2023/12/25)
+//! @li https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10
+//!     (アクセス日 2023/12/25)
 //!
 //! @n メンバのm_mtxについている mutable は， constなメンバ関数
-//! (メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表す．
-//! 通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)は有効的．
+//! (メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表
+//! す．通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)
+//! は有効的．
 //! @tparam T 非同期処理を行うデータ．代入を行うことができる型を指定すること．
 //! @todo C++20では concept を使うことで，代入を行うことができる型を指定できる．
 //! アップデートしたらそれを使用するように変更する．
@@ -106,21 +111,29 @@ private:
 
 
 
-//! @brief 非同期処理を行う際に，データの更新回数とデータをまとめて扱うための構造体．
-//! (vector版)
+//! @brief 非同期処理を行う際に，
+//! データの更新回数とデータをまとめて扱うための構造体．( vector 版)
 //! @details
-//! vector版のAsyncableData．vectorを入れてAsyncableDataを作成すると，こちらが呼ばれる．
+//! vector 版の AsyncableData．
+//! vector を入れて AsyncableData を作成すると，こちらが呼ばれる．
 //! こちらもコピー・ムーブは禁止．
 template <typename T>
 class AsyncableData <std::vector<T> > final
 {
 public:
     AsyncableData() : data_({}), update_count_(0) {}
-    explicit AsyncableData(const std::vector<T>& data) : data_(data), update_count_(0) {}
+    explicit AsyncableData(const std::vector<T>& data) :
+        data_(data),
+        update_count_(0) {}
 
-    AsyncableData(const AsyncableData&) = delete;   //!< コピーは禁止．
-    AsyncableData& operator=(const AsyncableData&) = delete;   //!< コピー代入は禁止．
-    AsyncableData(AsyncableData&&) = delete;    //!< ムーブは禁止．
+    //! コピーは禁止．
+    AsyncableData(const AsyncableData&) = delete;
+
+    //! コピー代入は禁止．
+    AsyncableData& operator=(const AsyncableData&) = delete;
+
+    //! ムーブは禁止．
+    AsyncableData(AsyncableData&&) = delete;
 
     //! @brief 値をコピーして返す．
     //! @n この時，read lockをかける．

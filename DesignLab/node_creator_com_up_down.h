@@ -1,7 +1,7 @@
 ﻿
 //! @file      node_creator_com_up_down.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_COM_UP_DOWN_H_
 #define DESIGNLAB_NODE_CREATOR_COM_UP_DOWN_H_
@@ -37,12 +37,13 @@ public:
                 std::vector<RobotStateNode>* output_graph) const override;
 
 private:
-    static constexpr int kDiscretization = 7;  //!< 離散化数．最大位置を最小位置を何分割するのか．
+    //! 離散化数．最大位置を最小位置を何分割するのか．
+    static constexpr int kDiscretization = 7;
 
     // グローバル座標の重心の最低位置と最高位置から，重心を上下に変化させたノードを追加する．
-    void pushNodeByMaxAndMinPosZ(const RobotStateNode& current_node, int current_num,
-                                 float high, float low,
-                                 std::vector<RobotStateNode>* output_graph) const;
+    void pushNodeByMaxAndMinPosZ(
+        const RobotStateNode& current_node, int current_num, float high, float low,
+        std::vector<RobotStateNode>* output_graph) const;
 
     const DividedMapState map_;
 

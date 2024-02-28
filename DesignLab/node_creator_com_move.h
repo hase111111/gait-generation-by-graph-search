@@ -1,7 +1,7 @@
 ﻿
 //! @file      node_creator_com_move.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
 #define DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
@@ -11,12 +11,12 @@
 
 #include "com_candidate_polygon_maker.h"
 #include "com_selector.h"
-#include "math_polygon2.h"
 #include "divided_map_state.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_state_presenter.h"
 #include "interface_hexapod_posture_validator.h"
 #include "interface_node_creator.h"
+#include "math_polygon2.h"
 
 
 namespace designlab
@@ -41,7 +41,9 @@ public:
 
 
 private:
-    const ComCandidatePolygonMaker maker_;  //!< 候補地点を含む多角形を作成するクラス．
+    //! 候補地点を含む多角形を作成するクラス．
+    const ComCandidatePolygonMaker maker_;
+
     const ComSelector selector_;  //!< 多角形から最適な地面を選択するクラス．
 
     const DividedMapState map_;  //!< 地面の状態を格納したクラス．

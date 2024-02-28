@@ -1,7 +1,7 @@
 ﻿
 //! @file      leg_state.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
 
 #ifndef DESIGNLAB_LEG_STATE_H_
 #define DESIGNLAB_LEG_STATE_H_
@@ -16,7 +16,9 @@
 
 
 //! @namespace designlab::leg_func
-//! @brief このプログラムでは脚状態をビット(28bit)の情報で表す．そのデータを処理するための関数．
+//! @brief
+//! このプログラムでは脚状態をビット(28bit)の情報で表す．
+//! そのデータを処理するための関数．
 //! @details
 //! 脚状態って言ってるけど離散化された重心位置も入ってる．
 //! @n 1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地．　残り3bitで離散化した脚位置．
@@ -24,7 +26,7 @@
 //! 後ろにあるならば4より小さい数字．
 //! @n
 //! @subsubsection [離散化した脚位置]
-//! 7___3 (0は使わない)
+//! @n 7___3 (0は使わない)
 //! @n 6_4_2
 //! @n 5___1
 //! @n
@@ -33,7 +35,8 @@
 //! @n 1111　　　　　1111　1111　1111　1111　1111　1111
 //! @n
 //! @n 脚は右前脚を0として時計回りに 0 ～ 5 ．
-//! @n 定数は基本的には編集しないように．脚の離散化方法を変更する時以外編集する必要はないはず．
+//! @n 定数は基本的には編集しないように．
+//! 脚の離散化方法を変更する時以外編集する必要はないはず．
 namespace designlab::leg_func
 {
 
@@ -47,7 +50,8 @@ constexpr int kComPosBitNum = 4;  //!< 重心パターンを表すビット数�
 //! 脚状態を保存するビット数．28bit．
 constexpr int kLegStateBitNum = HexapodConst::kLegNum * kLegPosBitNum + kComPosBitNum;
 
-using LegStateBit = std::bitset<kLegStateBitNum>;  //!< 脚状態を保存する型．28bitのビット型．
+//! 脚状態を保存する型．28bitのビット型．
+using LegStateBit = std::bitset<kLegStateBitNum>;
 
 //! 脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．
 using LegGroundedBit = std::bitset<HexapodConst::kLegNum>;
@@ -58,9 +62,6 @@ using LegGroundedBit = std::bitset<HexapodConst::kLegNum>;
 
 //! 脚位置は4bitの下位三桁で管理されるので，そこをマスクする．
 constexpr LegStateBit kLegPosMaskBit(0b0111);
-
-//! 脚が接地しているかを表すビットをマスクする．(接地しているならば1．遊脚ならば0．)
-constexpr LegStateBit kLegGrouededMaskBit(0b1000);
 
 //! 脚状態は4bitで管理されるので，そこをマスクする．
 constexpr LegStateBit kLegStateMaskBit(0b1111);
@@ -76,15 +77,15 @@ constexpr LegStateBit kComStateMaskBit = (0b1111 << kShiftToComNum);
 
 //! @brief 脚状態を作成して返す関数．脚状態は重心パターン，
 //! 脚の接地・遊脚，離散化した脚位置のデータが含まれる．
-//! @param [in] discrete_com_pos どの重心パターンか．詳しくは com_type.h に記述．
-//! @param [in] is_ground 脚が接地しているかを表す bool型の配列．
+//! @param[in] discrete_com_pos どの重心パターンか．詳しくは com_type.h に記述．
+//! @param[in] is_ground 脚が接地しているかを表す bool型の配列．
 //! 接地しているならば true．遊脚しているならば false．
-//! @param [in] discretized_leg_pos 離散化した脚位置を表す変数．
+//! @param[in] leg_pos 離散化した脚位置を表す変数．
 //! @return LegStateBit 作成した脚状態を返す．
 LegStateBit MakeLegStateBit(
   enums::DiscreteComPos discrete_com_pos,
   const std::array<bool, HexapodConst::kLegNum>& is_ground,
-  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos);
+  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& leg_pos);
 
 
 //! @brief 脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる．
@@ -114,7 +115,8 @@ int GetLiftedLegNum(const LegStateBit& leg_state);
 //! @brief 接地している脚の脚番号0～5を，引数で参照渡しする関数．
 //! @param[in] leg_state 現在の脚状態．
 //! @param[out] res_index 接地している脚の脚番号を格納する変数．空であること．
-void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index);
+void GetGroundedLegIndexByVector(
+    const LegStateBit& leg_state, std::vector<int>* res_index);
 
 //! @brief 遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．
 //! @param[in] leg_state 現在の脚状態．
