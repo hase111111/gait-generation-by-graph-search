@@ -6,6 +6,7 @@
 #ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_
 
+#include <concepts>
 #include <filesystem>
 #include <fstream>
 #include <memory>
@@ -23,14 +24,17 @@
 namespace designlab
 {
 
+//! @brief FromTomlを持つか判定するコンセプト．
+//! @n toml::from<T>::from_toml()が定義されているかどうかを判定する．
+//! @n また，デフォルトコンストラクタが実装されているかどうかも判定する．
+template <typename T> concept
+HasFromToml = std::is_default_constructible_v<T> && impl::has_from_toml<T>::value;
+
 //! @class TomlFileImporter
 //! @brief tomlファイルを読み込んで構造体に変換するテンプレートクラス．
 //! @tparam T 変換先の構造体．デフォルトコンストラクタが実装されていること．
 //! toml::from<T>()が定義されている必要がある．
-template <typename T,
-    typename = std::enable_if_t<
-    std::is_default_constructible_v<T>&& impl::has_from_toml<T>::value>
->
+template <HasFromToml T>
 class TomlFileImporter final
 {
 public:
@@ -59,8 +63,8 @@ public:
 
         if (do_output_message_)
         {
-            CmdIOUtil::Output("データの検証に成功しました．", enums::OutputDetail::kSystem);
-            CmdIOUtil::Output("読み込みは正常に完了しました．", enums::OutputDetail::kSystem);
+            CmdIOUtil::Output("Successfully verified the data.", enums::OutputDetail::kSystem);
+            CmdIOUtil::Output("Loading completed successfully.", enums::OutputDetail::kSystem);
             CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
         }
 
