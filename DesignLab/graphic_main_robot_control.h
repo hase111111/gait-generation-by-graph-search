@@ -1,7 +1,7 @@
 ﻿
-/// @file      graphic_main_robot_control.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      graphic_main_robot_control.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
 #define DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_

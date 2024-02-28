@@ -1,7 +1,7 @@
 ﻿
 //! @file      map_state_test.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MAP_STATE_TEST_H_
 #define DESIGNLAB_MAP_STATE_TEST_H_

@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "node_creator_leg_up_down.h"
 
@@ -212,7 +212,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
                         continue;
                     }
 
-                    //// 候補地点より，胴体から遠い場合は候補地点として採用しない．
+                    //!/ 候補地点より，胴体から遠い場合は候補地点として採用しない．
                     //if ((candidate_pos - new_node.leg_reference_pos[now_leg_num]).ProjectedXY().GetSquaredLength() <
                     //    (map_point_pos - new_node.leg_reference_pos[now_leg_num]).ProjectedXY().GetSquaredLength())
                     //{

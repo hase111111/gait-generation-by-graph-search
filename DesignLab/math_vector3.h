@@ -1,7 +1,8 @@
 ﻿
 //! @file      math_vector3.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MATH_VECTOR3_H_
 #define DESIGNLAB_MATH_VECTOR3_H_
@@ -19,11 +20,13 @@ namespace designlab
 //! @struct Vector3
 //! @brief 3次元の位置ベクトルを表す構造体．
 //! @details
-//! 座標系はロボットの進行方向にXの正，ロボットの上向きにZの正，右手座標系にYをとっている．
+//! 座標系はロボットの進行方向にXの正，ロボットの上向きにZの正，
+//! 右手座標系にYをとっている．
 //! @n
 //! @n ヘッダファイル内に実装を書くのは個人的には避けたいのだが，
 //! constexpr関数を使う場合，このようにする必要がある．
-//! constexpr関数はコンパイル時に値を計算できることを，コンパイラに伝えるためのものである．
+//! constexpr関数はコンパイル時に値を計算できることを，
+//! コンパイラに伝えるためのものである．
 //! (C言語のマクロのような動作ができる)
 //! 実行速度が大切なプロジェクトであるため，このように処理を記述する．
 //! @n
@@ -39,9 +42,15 @@ struct Vector3 final
     constexpr Vector3() : x(0.f), y(0.f), z(0.f) {}
     constexpr Vector3(const float x_pos, const float y_pos, const float z_pos) :
         x(x_pos), y(y_pos), z(z_pos) {}
-    constexpr Vector3(const Vector3& other) = default;                  //!< コピーコンストラクタ．
-    constexpr Vector3(Vector3&& other) noexcept = default;              //!< ムーブコンストラクタ．
-    constexpr Vector3& operator = (const Vector3& other) = default;     //!< 代入演算子．
+
+    //! コピーコンストラクタ．
+    constexpr Vector3(const Vector3& other) = default;
+
+    //! ムーブコンストラクタ．
+    constexpr Vector3(Vector3&& other) noexcept = default;
+
+    //! 代入演算子．
+    constexpr Vector3& operator = (const Vector3& other) = default;
 
     ~Vector3() = default;
 
@@ -49,45 +58,67 @@ struct Vector3 final
     //! @brief 2つのベクトルが等しいかどうかを返す．誤差を許容する．
     constexpr bool operator == (const Vector3& v) const noexcept
     {
-        if (math_util::IsEqual(v.x, x) && math_util::IsEqual(v.y, y) && math_util::IsEqual(v.z, z))
+        if (math_util::IsEqual(v.x, x) &&
+            math_util::IsEqual(v.y, y) &&
+            math_util::IsEqual(v.z, z))
         {
             return true;
         }
 
         return false;
     }
+
     constexpr bool operator != (const Vector3& other) const noexcept
     {
         return !(*this == other);
     }
+
     bool operator < (const Vector3& other) const noexcept
     {
         // 長さで比較する．
         return GetLength() < other.GetLength();
     }
-    bool operator > (const Vector3& other) const noexcept { return other < *this; }
-    bool operator <= (const Vector3& other) const noexcept { return !(*this > other); }
-    bool operator >= (const Vector3& other) const noexcept { return !(*this < other); }
+
+    bool operator > (const Vector3& other) const noexcept
+    {
+        return other < *this;
+    }
+
+    bool operator <= (const Vector3& other) const noexcept
+    {
+        return !(*this > other);
+    }
+
+    bool operator >= (const Vector3& other) const noexcept
+    {
+        return !(*this < other);
+    }
 
     // 算術演算子，ベクトル同士の掛け算(内積・外積)はメンバ関数として実装する．
     constexpr Vector3 operator +() const noexcept { return *this; }
+
     constexpr Vector3 operator -() const noexcept { return { -x, -y, -z }; }
+
     constexpr Vector3 operator +(const Vector3& other) const noexcept
     {
         return { x + other.x , y + other.y, z + other.z };
     }
+
     constexpr Vector3 operator -(const Vector3& other) const noexcept
     {
         return { x - other.x , y - other.y, z - other.z };
     }
+
     constexpr Vector3 operator *(const float num) const noexcept
     {
         return { x * num, y * num, z * num };
     }
+
     constexpr Vector3 operator /(const float num) const
     {
         return { x / num, y / num, z / num };
     }
+
     Vector3& operator += (const Vector3& other) noexcept;
     Vector3& operator -= (const Vector3& other) noexcept;
     Vector3& operator *= (const float num) noexcept;
@@ -104,7 +135,8 @@ struct Vector3 final
 
     //! @brief ベクトルの長さを返す．
     //! @return ベクトルの長さ．
-    //! @note sqrt(ルートの計算)が重いので，GetSquaredLength でいいならそちらを使うべき．
+    //! @note sqrt(ルートの計算)が重いので，
+    //! GetSquaredLength でいいならそちらを使うべき．
     [[nodiscard]] inline float GetLength() const noexcept
     {
         return std::sqrt(GetSquaredLength());
@@ -120,7 +152,8 @@ struct Vector3 final
 
     //! @brief 自分×引数 の外積の結果を返す．
     //! @param[in] other 外積の掛け算：後ろのベクトル．
-    //! @return 外積の結果．このベクトル→引数へ回転する右ねじが進む方向のベクトルが出力される．
+    //! @return 外積の結果．
+    //! このベクトル→引数へ回転する右ねじが進む方向のベクトルが出力される．
     [[nodiscard]] constexpr Vector3 Cross(const Vector3& other) const noexcept
     {
         return Vector3{ y * other.z - z * other.y,
@@ -159,32 +192,42 @@ struct Vector3 final
 
     //! @brief このベクトルを正規化する．
     //! @n 絶対値が0のベクトルの場合，そのまま0ベクトルになる．
-    //! @attention この関数は，このベクトルの値を変更する． GetNormalized() は値を変更しない．
+    //! @attention この関数は，このベクトルの値を変更する．
+    //! GetNormalized() は値を変更しない．
     //! 間違えないようにすること．
     void Normalize() noexcept { *this = GetNormalized(); }
 
     //! @brief XY平面に射影したベクトルを返す．
     //! @return XY平面に射影したベクトル．
-    [[nodiscard]] constexpr Vector2 ProjectedXY() const noexcept { return { x, y }; }
+    [[nodiscard]]
+    constexpr Vector2 ProjectedXY() const noexcept { return { x, y }; }
 
-    //! @brief 正面に進む単位ベクトルを返す．静的な関数なので，Vector3::GetFrontVec() と呼び出せる．
+    //! @brief 正面に進む単位ベクトルを返す．
+    //! 静的な関数なので，Vector3::GetFrontVec() と呼び出せる．
     //! @code
     //! Vector3 vec = Vector3::GetFrontVec();
     //! @endcode
     //! @return 正面方向の単位ベクトル，xの正方向．
-    [[nodiscard]] constexpr static Vector3 GetFrontVec() noexcept { return { 1, 0, 0 }; }
+    [[nodiscard]]
+    constexpr static Vector3 GetFrontVec() noexcept { return { 1, 0, 0 }; }
 
-    //! @brief 左に進む単位ベクトルを返す．静的な関数なので，Vector3::GetLeftVec() と呼び出せる．
+    //! @brief 左に進む単位ベクトルを返す．
+    //! 静的な関数なので，Vector3::GetLeftVec() と呼び出せる．
     //! @return 左方向の単位ベクトル，yの正方向．
-    [[nodiscard]] constexpr static Vector3 GetLeftVec() noexcept { return { 0, 1, 0 }; }
+    [[nodiscard]]
+    constexpr static Vector3 GetLeftVec() noexcept { return { 0, 1, 0 }; }
 
-    //! @brief 上に進む単位ベクトルを返す．静的な関数なので，Vector3::GetUpVec() と呼び出せる．
+    //! @brief 上に進む単位ベクトルを返す．
+    //! 静的な関数なので，Vector3::GetUpVec() と呼び出せる．
     //! @return 上方向の単位ベクトル，zの正方向．
-    [[nodiscard]] constexpr static Vector3 GetUpVec() noexcept { return { 0, 0, 1 }; }
+    [[nodiscard]]
+    constexpr static Vector3 GetUpVec() noexcept { return { 0, 0, 1 }; }
 
-    //! @brief 零ベクトルを返す．静的な関数なので，Vector3::GetZeroVec() と呼び出せる．
+    //! @brief 零ベクトルを返す．
+    //! 静的な関数なので，Vector3::GetZeroVec() と呼び出せる．
     //! @return 零ベクトル．
-    [[nodiscard]] constexpr static Vector3 GetZeroVec() noexcept { return { 0, 0, 0 }; }
+    [[nodiscard]]
+    constexpr static Vector3 GetZeroVec() noexcept { return { 0, 0, 0 }; }
 
 
     //! @brief このベクトルを文字列にして返す．
@@ -227,31 +270,44 @@ std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Vector
 
 //! 入力ストリーム．
 template <class Char>
-inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Vector3& v)
+inline std::basic_istream<Char>& operator >>(
+    std::basic_istream<Char>& is, Vector3& v)
 {
-    Char unused;
+    Char unused = 0;
     return is >> v.x >> unused >> v.y >> unused >> v.z;
 }
 
 
-// 正規化直行座標系となっているか確認する，条件を満たさないならばコンパイルが通らない．
-static_assert(math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetLeftVec()), 0.f),
-              "FrontVecとLeftVecの内積が0でない．");
-static_assert(math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetUpVec()), 0.f),
-              "FrontVecとUpVecの内積が0でない．");
-static_assert(math_util::IsEqual(Vector3::GetLeftVec().Dot(Vector3::GetUpVec()), 0.f),
-              "LeftVecとUpVecの内積が0でない．");
-static_assert(math_util::IsEqual(Vector3::GetFrontVec().GetSquaredLength(), 1.f),
-              "FrontVecが正規化されていない．");
-static_assert(math_util::IsEqual(Vector3::GetLeftVec().GetSquaredLength(), 1.f),
-              "LeftVecが正規化されていない．");
-static_assert(math_util::IsEqual(Vector3::GetUpVec().GetSquaredLength(), 1.f),
-              "UpVecが正規化されていない．");
+// 正規化直行座標系となっているか確認する，
+// 条件を満たさないならばコンパイルが通らない．
+static_assert(
+    math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetLeftVec()), 0.f),
+    "The dot product of FrontVec and LeftVec is not zero.");
+
+static_assert(
+    math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetUpVec()), 0.f),
+    "The dot product of FrontVec and UpVec is not zero.");
+
+static_assert(
+    math_util::IsEqual(Vector3::GetLeftVec().Dot(Vector3::GetUpVec()), 0.f),
+    "The dot product of LeftVec and UpVec is not zero.");
+
+static_assert(
+    math_util::IsEqual(Vector3::GetFrontVec().GetSquaredLength(), 1.f),
+    "FrontVec is not normalized.");
+
+static_assert(
+    math_util::IsEqual(Vector3::GetLeftVec().GetSquaredLength(), 1.f),
+    "LeftVec is not normalized.");
+
+static_assert(
+    math_util::IsEqual(Vector3::GetUpVec().GetSquaredLength(), 1.f),
+    "UpVec is not normalized.");
 
 // 0ベクトルが返ってくるか確認する．
-static_assert(Vector3::GetZeroVec().x == 0.f, "0ベクトルでない．");
-static_assert(Vector3::GetZeroVec().y == 0.f, "0ベクトルでない．");
-static_assert(Vector3::GetZeroVec().z == 0.f, "0ベクトルでない．");
+static_assert(Vector3::GetZeroVec().x == 0.f, "It is not a 0 vector.");
+static_assert(Vector3::GetZeroVec().y == 0.f, "It is not a 0 vector.");
+static_assert(Vector3::GetZeroVec().z == 0.f, "It is not a 0 vector.");
 
 }  // namespace designlab
 

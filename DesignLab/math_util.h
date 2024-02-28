@@ -1,7 +1,8 @@
 ﻿
 //! @file      math_util.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MATH_UTIL_H_
 #define DESIGNLAB_MATH_UTIL_H_
@@ -24,12 +25,17 @@
 //! @namespace designlab::math_util
 //! @brief 基本的な計算を行う関数をまとめた名前空間．
 //! @details
-//! この名前空間にある関数は，基本的に constexprである．そのため，コンパイル時に計算が行われる．
+//! この名前空間にある関数は，基本的に constexprである．
+//! そのため，コンパイル時に計算が行われる．
 namespace designlab::math_util
 {
 
-//! @brief C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．
-//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
+template <typename T> concept Arithmetic = std::is_arithmetic_v<T>;
+
+//! @brief C++において，小数同士の計算は誤差が出てしまう．
+//! 誤差込みで値が等しいか調べる．
+//! @tparam T float か double のみを想定している．
+//! その他の型を使用する場合エラーが出る．
 //! @param[in] num1 比較する数字1つ目．
 //! @param[in] num2 比較する数字2つ目．
 //! @retval true 等しい．または，誤差の範囲で等しい．
@@ -45,10 +51,11 @@ constexpr bool IsEqual(const T num1, const T num2) noexcept
 
 
 //! @brief 2乗した値を返す関数．
-//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
+//! @tparam T float か double のみを想定している．
+//! その他の型を使用する場合エラーが出る．
 //! @param[in] num 2乗する数．
 //! @return T 2乗した値．
-template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
+template <Arithmetic T>
 constexpr T Squared(const T num) noexcept { return num * num; }
 
 
@@ -56,8 +63,8 @@ constexpr T Squared(const T num) noexcept { return num * num; }
 //! @param[in] a 1辺目．
 //! @param[in] b 2辺目．
 //! @param[in] c 3辺目．
-//! @return bool 三角形が作れるならば true．
-template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
+//! @return 三角形が作れるならば true．
+template <Arithmetic T>
 constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 {
     assert(a >= 0);
@@ -68,7 +75,8 @@ constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept
 
 
 //! @brief 目標値に値を近づける関数．
-//! 描画用なので，線形でなく，適当に値を近づける．そのため，計算に使いたいなら作り直すこと．
+//! 描画用なので，線形でなく，適当に値を近づける．
+//! そのため，計算に使いたいなら作り直すこと．
 //! @param[in] current 現在の値．
 //! @param[in] target 目標値．
 //! @param[in] rate 近づける割合．0 ～ 1の値を取る．
@@ -90,7 +98,7 @@ T ApproachTarget(const T& current, const T& target, float rate)
 //! @param[in] max 乱数の最大値．
 //! @return 生成した乱数．
 //! @tparam T 算術型．int, float, doubleなど．
-template <typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
+template <Arithmetic T>
 T GenerateRandomNumber(T min, T max)
 {
     assert(min < max);  // min < max でなければならない．
@@ -108,7 +116,8 @@ T GenerateRandomNumber(T min, T max)
 template <::std::floating_point T>
 constexpr T ConvertRadToDeg(const T rad) noexcept
 {
-    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / std::numbers::pi_v<float>;
+    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) /
+        std::numbers::pi_v<float>;
 }
 
 //! @brief 角度を [deg] から [rad] に変換する関数．
@@ -117,7 +126,8 @@ constexpr T ConvertRadToDeg(const T rad) noexcept
 template <::std::floating_point T>
 constexpr T ConvertDegToRad(const T deg) noexcept
 {
-    return deg * std::numbers::pi_v<float> / (MathConst<T>::kRoundAngle / static_cast<T>(2));
+    return deg * std::numbers::pi_v<float> /
+        (MathConst<T>::kRoundAngle / static_cast<T>(2));
 }
 
 //! @brief 角度を -180° ～ 180° の範囲に収める関数．
@@ -141,15 +151,17 @@ constexpr int kDigit = 3;   //!< 小数点以下の桁数．
 constexpr int kWidth = 10;  //!< 文字列の幅．
 
 //! @brief 小数を文字列に変換する関数．
-//! @n C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．
+//! @n C++ では C のフォーマットのように
+//! %3.3f とかで小数を文字列に変換できないため自作する．
 //! @param[in] num 変換する小数．
 //! @param[in] digit 小数点以下の桁数．
 //! @param[in] width 文字列の幅．
 //! @return 変換した文字列．
-//! @tparam T float か double のみを想定している．その他の型を使用する場合エラーが出る．
+//! @tparam T float か double のみを想定している．
+//! その他の型を使用する場合エラーが出る．
 template <::std::floating_point T>
-std::string FloatingPointNumToString(const T num,
-                                     const int digit = kDigit, const int width = kWidth)
+std::string FloatingPointNumToString(
+    const T num, const int digit = kDigit, const int width = kWidth)
 {
     std::ostringstream ss;
 

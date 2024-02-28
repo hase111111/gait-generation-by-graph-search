@@ -1,7 +1,7 @@
 ﻿
-/// @file      node_creator_leg_hierarchy_test.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      node_creator_leg_hierarchy_test.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_TEST_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_TEST_H_

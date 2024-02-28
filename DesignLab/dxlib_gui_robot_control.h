@@ -1,7 +1,7 @@
 ﻿
-/// @file      dxlib_gui_robot_control.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      dxlib_gui_robot_control.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
 #define DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_

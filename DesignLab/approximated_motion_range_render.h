@@ -1,7 +1,7 @@
 ﻿
-/// @file      approximated_motion_range_render.h
-/// @author    hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      approximated_motion_range_render.h
+//! @author    hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_APPROXIMATED_MOTION_RANGE_RENDER_H_
 #define DESIGNLAB_APPROXIMATED_MOTION_RANGE_RENDER_H_

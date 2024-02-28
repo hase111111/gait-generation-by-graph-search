@@ -1,7 +1,7 @@
 ﻿
-/// @file      serial_communication_thread.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      serial_communication_thread.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_SERIAL_COMMUNICATION_THREAD_H_
 #define DESIGNLAB_SERIAL_COMMUNICATION_THREAD_H_

@@ -1,7 +1,7 @@
 ﻿
 //! @file      toml_serialize_macro.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
 //! @details
 //! TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．

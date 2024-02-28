@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "cmdio_util.h"
 
@@ -8,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include <magic_enum.hpp>
 
@@ -50,9 +52,10 @@ void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
 {
     assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
-
-    // 出力を許可している　かつ　出力する文字列の詳細が設定ファイルで許可されている場合
-    // または，出力を許可していない　かつ　出力する文字列の詳細がシステムメッセージの場合．
+    // 出力を許可している　かつ
+    // 出力する文字列の詳細が設定ファイルで許可されている場合
+    // または，出力を許可していない　かつ
+    // 出力する文字列の詳細がシステムメッセージの場合．
 
     if ((detail <= output_limit && do_output) ||
         (detail == enums::OutputDetail::kSystem && !do_output))
@@ -68,7 +71,8 @@ void CmdIOUtil::SpacedOutput(const std::string& str, enums::OutputDetail detail)
     OutputNewLine(1, detail);
 }
 
-void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::OutputCenter(
+    const std::string& str, const enums::OutputDetail detail)
 {
     // 改行ごとに文字列を取り出す．
     std::stringstream ss(str);
@@ -80,7 +84,10 @@ void CmdIOUtil::OutputCenter(const std::string& str, const enums::OutputDetail d
         {
             std::string space;
 
-            for (int i = 0; i < (kHorizontalLineLength - static_cast<int>(line.length())) / 2; i++)
+            const int space_num = (kHorizontalLineLength -
+                static_cast<int>(line.length())) / 2;
+
+            for (int i = 0; i < space_num; ++i)
             {
                 space += " ";
             }
@@ -106,7 +113,10 @@ void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail de
         {
             std::string space;
 
-            for (int i = 0; i < kHorizontalLineLength - static_cast<int>(line.length()); i++)
+            const int space_num = kHorizontalLineLength -
+                static_cast<int>(line.length());
+
+            for (int i = 0; i < space_num; ++i)
             {
                 space += " ";
             }
@@ -175,7 +185,8 @@ void CmdIOUtil::WaitAnyKey(const std::string& str)
     system("PAUSE");
 }
 
-int CmdIOUtil::InputInt(const int min, const int max, const int default_num, const std::string& str)
+int CmdIOUtil::InputInt(const int min, const int max,
+                        const int default_num, const std::string& str)
 {
     assert(min <= max);  // 最小値は最大値より小さい．
 

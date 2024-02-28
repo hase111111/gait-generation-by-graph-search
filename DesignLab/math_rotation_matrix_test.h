@@ -1,7 +1,8 @@
 ﻿
-/// @file      math_rotation_matrix_test.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      math_rotation_matrix_test.h
+//! @author    Hasegawa
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_
 #define DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_

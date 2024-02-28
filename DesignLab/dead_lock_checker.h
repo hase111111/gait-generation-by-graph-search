@@ -1,7 +1,7 @@
 ﻿
 //! @file      dead_lock_checker.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_DEAD_LOCK_CHECKER_H_
 #define DESIGNLAB_DEAD_LOCK_CHECKER_H_

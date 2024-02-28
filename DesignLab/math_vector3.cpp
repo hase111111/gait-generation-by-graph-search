@@ -1,6 +1,11 @@
 ﻿
+//! @author    Hasegawa
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
+
 #include "math_vector3.h"
 
+#include <format>
 #include <sstream>
 
 #include "math_util.h"
@@ -25,9 +30,10 @@ Vector3 Vector3::GetNormalized() const noexcept
 
 std::string Vector3::ToString() const
 {
-    return std::string("( x : ") + math_util::FloatingPointNumToString(x) +
-        std::string(", y : ") + math_util::FloatingPointNumToString(y) +
-        std::string(", z : ") + math_util::FloatingPointNumToString(z) + std::string(")");
+    return std::format("( x : {}, y : {}, z : {} )",
+        math_util::FloatingPointNumToString(x),
+        math_util::FloatingPointNumToString(y),
+        math_util::FloatingPointNumToString(z));
 }
 
 std::string Vector3::ToCsvString() const

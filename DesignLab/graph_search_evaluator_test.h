@@ -1,7 +1,7 @@
 ﻿
-/// @file      graph_search_evaluator_test.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      graph_search_evaluator_test.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_
 #define DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_

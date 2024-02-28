@@ -1,4 +1,8 @@
 ﻿
+//! @author    Hasegawa
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
+
 #include "math_rot_converter.h"
 
 #include "math_util.h"
@@ -11,7 +15,8 @@ Quaternion ToQuaternion(const RotationMatrix3x3& rot)
 {
     Quaternion q;
 
-    q.w = sqrt(1.0f + rot.element[0][0] + rot.element[1][1] + rot.element[2][2]) / 2.0f;
+    q.w = sqrt(1.0f + rot.element[0][0] +
+        rot.element[1][1] + rot.element[2][2]) / 2.0f;
 
     const float w4 = (4.0f * q.w);
     q.v.x = (rot.element[2][1] - rot.element[1][2]) / w4;
@@ -93,7 +98,8 @@ EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot)
 {
     float x = std::atan2(rot.element[2][1], rot.element[2][2]);
     float y = std::atan2(-rot.element[2][0],
-        std::sqrt(rot.element[2][1] * rot.element[2][1] + rot.element[2][2] * rot.element[2][2]));
+        std::sqrt(rot.element[2][1] * rot.element[2][1] +
+                         rot.element[2][2] * rot.element[2][2]));
     float z = std::atan2(rot.element[1][0], rot.element[0][0]);
 
     return EulerXYZ{ x, y, z };

@@ -1,6 +1,6 @@
 ﻿
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #include "graph_tree_creator.h"
 
@@ -79,7 +79,7 @@ void GraphTreeCreator::MakeNewNodesByCurrentNode(const RobotStateNode& current_n
 
         // assert(false && "ノード生成クラスが登録されていない．");
 
-        //// 定義されていないならば，同じノードをそのまま追加する．
+        //!/ 定義されていないならば，同じノードをそのまま追加する．
         // RobotStateNode new_node = current_node;
 
         // new_node.ChangeToNextNode(current_num, current_node.next_move);

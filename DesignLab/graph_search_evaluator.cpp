@@ -1,6 +1,6 @@
 ﻿
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #include "cassert_define.h"
 #include "graph_search_evaluator.h"

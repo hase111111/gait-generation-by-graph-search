@@ -1,7 +1,7 @@
 ﻿
 //! @file      simulation_end_checker_by_position.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SIMULATION_END_CHECKER_BY_POSITION_H_
 #define DESIGNLAB_SIMULATION_END_CHECKER_BY_POSITION_H_

@@ -1,7 +1,7 @@
 ﻿
 //! @file      cassert_define.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 //! @brief デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．
 //! @details
 //! Visual Studioでは，デバッグモードではアサートを有効化し，

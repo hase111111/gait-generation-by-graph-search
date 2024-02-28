@@ -1,7 +1,7 @@
 ﻿
 //! @file      node_creator_leg_up_down_2d.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_2D_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_2D_H_

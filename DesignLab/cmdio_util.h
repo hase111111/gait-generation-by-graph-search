@@ -1,7 +1,8 @@
 ﻿
 //! @file      cmdio_util.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_
@@ -9,7 +10,6 @@
 #include <format>
 #include <string>
 #include <utility>
-#include <xstring>
 
 #include "boot_mode.h"
 #include "output_detail.h"
@@ -19,7 +19,8 @@ namespace designlab
 {
 
 //! @class CmdIOUtil
-//! @brief 標準入出力の std::cout，std::cinを使ったコマンドライン入出力を行うシングルトンクラス．
+//! @brief 標準入出力の std::cout，std::cinを使った
+//! コマンドライン入出力を行うシングルトンクラス．
 //! @details シングルトンクラスのため，インスタンス化はできない．
 //! 実行時には，以下のように使う．
 //! @code
@@ -41,7 +42,8 @@ public:
 
     //! @brief 出力するメッセージをどこまで許可するかを設定する関数．
     //! @n この関数を呼び出してから出ないと，他の関数を使えない．
-    //! @n 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか)はされない．
+    //! @n 例えば kError に設定すると，kError 未満の出力( kInfo とか kDebug とか
+    //! はされない．
     //! @n 逆に kDebug に設定すると，すべての出力がされる．
     //! @n 1度呼び出したら，プログラム終了まで設定は有効となる．
     //! @param[in] limit 出力するメッセージをどこまで許可するか
@@ -61,15 +63,59 @@ public:
     static void Output(const std::string& str, enums::OutputDetail detail);
 
     //! @brief コマンドラインに文字を出力する関数．
+    //! Debug用の出力．
+    //! @param[in] str 出力する文字列
+    static inline void DebugOutput(const std::string& str)
+    {
+        Output(str, enums::OutputDetail::kDebug);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! Info用の出力．
+    //! @param[in] str 出力する文字列
+    static inline void InfoOutput(const std::string& str)
+    {
+        Output(str, enums::OutputDetail::kInfo);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! Warning用の出力．
+    //! @param[in] str 出力する文字列
+    static inline void WarningOutput(const std::string& str)
+    {
+        Output(str, enums::OutputDetail::kWarning);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! Error用の出力．
+    //! @param[in] str 出力する文字列
+    static inline void ErrorOutput(const std::string& str)
+    {
+        Output(str, enums::OutputDetail::kError);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
+    //! System用の出力．
+    //! @param[in] str 出力する文字列
+    static inline void SystemOutput(const std::string& str)
+    {
+        Output(str, enums::OutputDetail::kSystem);
+    }
+
+    //! @brief コマンドラインに文字を出力する関数．
     //! @n SetOutputLimit() で設定した出力の許可範囲内であれば出力される．
     //! @n 必ず SetOutputLimit() を呼び出してから使うこと．
     //! @param[in] str 出力する文字列
     //! @param[in] detail 出力する文字列の詳細
     //! @param[in] args 出力する文字列に埋め込む変数
     template <typename... Args>
-    static void FormatOutput(enums::OutputDetail detail, const std::format_string<Args...> str, Args&&... args)
+    static void FormatOutput(
+        enums::OutputDetail detail,
+        const std::format_string<Args...> str,
+        Args&&... args)
     {
-        const std::string formatted_str = std::format(str, std::forward<Args>(args)...);
+        const std::string formatted_str =
+            std::format(str, std::forward<Args>(args)...);
         Output(formatted_str, detail);
     }
 
@@ -80,9 +126,13 @@ public:
     //! @param[in] detail 出力する文字列の詳細
     //! @param[in] args 出力する文字列に埋め込む変数
     template <typename... Args>
-    static void SpacedFormatOutput(enums::OutputDetail detail, const std::format_string<Args...> str, Args&&... args)
+    static void SpacedFormatOutput(
+        enums::OutputDetail detail,
+        const std::format_string<Args...> str,
+        Args&&... args)
     {
-        const std::string formatted_str = std::format(str, std::forward<Args>(args)...);
+        const std::string formatted_str =
+            std::format(str, std::forward<Args>(args)...);
         SpacedOutput(formatted_str, detail);
     }
 
@@ -92,12 +142,14 @@ public:
     //! @param[in] detail 出力する文字列の詳細
     static void SpacedOutput(const std::string& str, enums::OutputDetail detail);
 
-    //! @brief 中央に文字を出力する関数．文字列が長すぎる場合は普通に左詰めで出力される．
+    //! @brief 中央に文字を出力する関数．
+    //! 文字列が長すぎる場合は普通に左詰めで出力される．
     //! @param[in] str 出力する文字列．
     //! @param[in] detail 出力する文字列の詳細．
     static void OutputCenter(const std::string& str, enums::OutputDetail detail);
 
-    //! @brief 右端に文字を出力する関数．文字列が長すぎる場合は普通に左詰めで出力される．
+    //! @brief 右端に文字を出力する関数．
+    //! 文字列が長すぎる場合は普通に左詰めで出力される．
     //! @param[in] str 出力する文字列．
     //! @param[in] detail 出力する文字列の詳細．
     static void OutputRight(const std::string& str, enums::OutputDetail detail);
@@ -112,19 +164,22 @@ public:
     //! @param[in] line_visual 水平線の見た目．'-'ならば水平線，'='ならば二重水平線．
     //! @n 2文字以上の文字列を入れると動作しない．
     //! @param[in] detail 出力する文字列の詳細．
-    static void OutputHorizontalLine(const std::string& line_visual, enums::OutputDetail detail);
+    static void OutputHorizontalLine(
+        const std::string& line_visual, enums::OutputDetail detail);
 
     //! @brief コマンドラインにこのソフトのタイトルを出力する関数．
     //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
     //! @param[in] str 出力する文字列．
-    //! @param[in] output_copy_right コピーライトを出力するか． (デフォルトでは false )
-    static void OutputTitle(const std::string& title_name, bool output_copy_right = false);
+    //! @param[in] output_copy_right コピーライトを出力するか．
+    //! (デフォルトでは false )
+    static void OutputTitle(
+        const std::string& title_name, bool output_copy_right = false);
 
 
     //! @brief 入力待ちをする関数．
     //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
     //! @param[in] str 入力待ちをする際に出力する文字列．
-    static void WaitAnyKey(const std::string& str = "入力を待っています．");
+    static void WaitAnyKey(const std::string& str = "Waiting for input.");
 
     //! @brief 整数を入力させる関数．
     //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
@@ -134,14 +189,14 @@ public:
     //! @param[in] str 入力待ちをする際に出力する文字列．
     //! @return 入力された整数．
     static int InputInt(int min, int max, int default_num,
-                        const std::string& str = "整数を入力してください．");
+                        const std::string& str = "Please enter an integer.");
 
     //! @brief yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す．
     //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
     //! @param[in] str 入力待ちをする際に出力する文字列．
     //! @retval true 入力されたのが yes ならば true．
     //! @retval false 入力されたのが no ならば false．
-    static bool InputYesNo(const std::string& str = "よろしいですか？");
+    static bool InputYesNo(const std::string& str = "Are you sure?");
 
     //! @brief ディレクトリ名を入力させる関数．
     //! @n 出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．
@@ -150,7 +205,8 @@ public:
     //! @n ディレクトリ名は空白を含めることができない．
     //! @param[in] str 入力待ちをする際に出力する文字列．
     //! @return 入力されたディレクトリ名．
-    static std::string InputDirName(const std::string& str = "ディレクトリ名を入力してください．(英数字を推奨します)");
+    static std::string InputDirName(const std::string& str =
+        "Enter a directory name. (Japanese is not recommended).");
 
 private:
     static constexpr int kHorizontalLineLength = 100;  //!< 水平線の長さ．

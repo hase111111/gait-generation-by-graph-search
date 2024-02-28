@@ -1,7 +1,7 @@
 ﻿
 //! @file      graphic_main_basic.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
 #define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_

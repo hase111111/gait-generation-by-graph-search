@@ -1,7 +1,7 @@
 ﻿
-/// @file      interpolate_validator.h
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file      interpolate_validator.h
+//! @author    Hasegawa
+//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
 
 #ifndef DESIGNLAB_INTERPOLATE_VALIDATOR_H_
 #define DESIGNLAB_INTERPOLATE_VALIDATOR_H_

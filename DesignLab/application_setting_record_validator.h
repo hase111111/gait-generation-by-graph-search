@@ -1,7 +1,7 @@
 ﻿
 //! @file      application_setting_record_validator.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_

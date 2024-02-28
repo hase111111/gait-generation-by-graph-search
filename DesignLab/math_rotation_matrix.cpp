@@ -1,6 +1,7 @@
 ﻿
-/// @author    Hasegawa
-/// @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @author    Hasegawa
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "math_rotation_matrix.h"
 
@@ -34,7 +35,8 @@ RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) c
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 {
-    const float cos_angle = std::cos(angle);  // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので，使うときはキャッシュしておく．
+    const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);  // 同上．
 
     return RotationMatrix3x3(
@@ -45,7 +47,8 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 {
-    const float cos_angle = std::cos(angle);  // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので，使うときはキャッシュしておく．
+    const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);  // 同上．
 
     return RotationMatrix3x3(
@@ -56,7 +59,8 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixZ(const float angle)
 {
-    const float cos_angle = std::cos(angle);  // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので，使うときはキャッシュしておく．
+    const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);  // 同上．
 
     return RotationMatrix3x3(
@@ -88,9 +92,12 @@ Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot)
 {
     Vector3 res;
 
-    res.x = rot.element[0][0] * vec.x + rot.element[0][1] * vec.y + rot.element[0][2] * vec.z;
-    res.y = rot.element[1][0] * vec.x + rot.element[1][1] * vec.y + rot.element[1][2] * vec.z;
-    res.z = rot.element[2][0] * vec.x + rot.element[2][1] * vec.y + rot.element[2][2] * vec.z;
+    res.x = rot.element[0][0] * vec.x +
+        rot.element[0][1] * vec.y + rot.element[0][2] * vec.z;
+    res.y = rot.element[1][0] * vec.x +
+        rot.element[1][1] * vec.y + rot.element[1][2] * vec.z;
+    res.z = rot.element[2][0] * vec.x +
+        rot.element[2][1] * vec.y + rot.element[2][2] * vec.z;
 
     return res;
 }

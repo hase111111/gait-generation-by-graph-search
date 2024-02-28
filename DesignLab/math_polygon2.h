@@ -1,7 +1,8 @@
 ﻿
 //! @file      math_polygon2.h
 //! @author    Hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MATH_POLYGON2_H_
 #define DESIGNLAB_MATH_POLYGON2_H_
