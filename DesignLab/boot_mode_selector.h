@@ -1,7 +1,8 @@
 ﻿
 //! @file      boot_mode_selector.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_BOOT_MODE_SELECTOR_H_
 #define DESIGNLAB_BOOT_MODE_SELECTOR_H_
@@ -44,7 +45,7 @@ private:
     // enums::BootMode が int 型に変換可能か確かめる．
     static_assert(
         std::is_same<std::underlying_type<enums::BootMode>::type, int>::value,
-        "enums::BootMode は int 型に変換できない．");
+        "'BootMode' must be able to convert to int type.");
 };
 
 }  // namespace designlab

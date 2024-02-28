@@ -20,7 +20,7 @@ namespace designlab
 //! グラフ探索を用いてロボットの歩容生成をしていると，
 //! 最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある．
 //! それを探知して，歩容生成に失敗していることを通達するクラス．
-//! @subsubsection [deque(デック)について]
+//! @b [deque(デック)について]
 //! std::vectorの亜種．
 //! vectorとの違いとして，先頭と末尾の要素の追加・削除が高速である．
 //! @n 参考 : https://cpprefjp.github.io/reference/deque/deque.html (アクセス日 2023/12/27)

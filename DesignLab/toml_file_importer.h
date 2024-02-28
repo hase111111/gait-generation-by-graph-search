@@ -1,7 +1,8 @@
 ﻿
 //! @file      toml_file_importer.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_
@@ -38,7 +39,8 @@ template <HasFromToml T>
 class TomlFileImporter final
 {
 public:
-    TomlFileImporter() : validator_(std::make_unique<TomlDataValidatorAlwaysTrue<T>>()) {}
+    TomlFileImporter() :
+        validator_(std::make_unique<TomlDataValidatorAlwaysTrue<T>>()) {}
 
     explicit TomlFileImporter(std::unique_ptr<ITomlDataValidator<T>>&& validator) :
         validator_(std::move(validator)) {}
@@ -63,8 +65,8 @@ public:
 
         if (do_output_message_)
         {
-            CmdIOUtil::Output("Successfully verified the data.", enums::OutputDetail::kSystem);
-            CmdIOUtil::Output("Loading completed successfully.", enums::OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("Successfully verified the data.");
+            CmdIOUtil::SystemOutput("Loading completed successfully.");
             CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
         }
 
@@ -73,7 +75,8 @@ public:
 
     //! @brief 指定したファイルパスのファイルを読み込み，構造体に変換する．
     //! 読込に失敗した場合は，デフォルトの構造体を返す．
-    //! また，読込に失敗した場合には，デフォルトの構造体をファイルに出力するかどうかをユーザに問う．
+    //! また，読込に失敗した場合には，
+    //! デフォルトの構造体をファイルに出力するかどうかをユーザに問う．
     //! @param file_path 読み込むファイルのパス．
     //! @return 読み込んだ構造体．
     T ImportOrUseDefault(const std::string& file_path) const
@@ -82,13 +85,13 @@ public:
 
         if (data.has_value()) { return data.value(); }
 
-        if (CmdIOUtil::InputYesNo("デフォルトのファイルを出力しますか"))
+        if (CmdIOUtil::InputYesNo("Do you want to output a default file?"))
         {
             TomlFileExporter<T> exporter;
             exporter.Export(file_path, T());
         }
 
-        CmdIOUtil::Output("デフォルトのデータを使用します．", enums::OutputDetail::kSystem);
+        CmdIOUtil::SystemOutput("Use default data.");
         CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
 
         return T();
@@ -100,17 +103,16 @@ private:
         if (do_output_message_)
         {
             CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-            CmdIOUtil::Output("[" + string_util::GetTypeName(*this) + "]",
-                              enums::OutputDetail::kSystem);
-            CmdIOUtil::Output("ファイルを読み込みます．file_path : " + file_path,
-                              enums::OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("[" + string_util::GetTypeName(*this) + "]");
+            CmdIOUtil::SystemOutput("Loads a file. file_path : " +
+                                    file_path);
         }
 
         if (!std::filesystem::exists(file_path))
         {
             if (do_output_message_)
             {
-                CmdIOUtil::Output("ファイルが存在しません．", enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("The file does not exist.");
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
             }
 
@@ -124,13 +126,13 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::Output("設定ファイルが見つかりました．パースを開始します．",
-                              enums::OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("The file found. Start parsing.");
         }
 
         try
         {
-            std::ifstream ifs(file_path, std::ios::binary);  // バイナリモードで読み込む．
+            // バイナリモードで読み込む．
+            std::ifstream ifs(file_path, std::ios::binary);
 
             *toml_value = toml::parse(ifs, file_path);
         }
@@ -138,11 +140,10 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::Output("設定ファイルのパースに失敗しました．",
-                                  enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("File parsing failed.");
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-                CmdIOUtil::Output("<パースに失敗した箇所>", enums::OutputDetail::kSystem);
-                CmdIOUtil::Output(err.what(), enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("< Rows that failed to parse >");
+                CmdIOUtil::SystemOutput(err.what());
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
             }
 
@@ -156,8 +157,8 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::Output("設定ファイルのパースに成功しました．データをシリアライズします．",
-                              enums::OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("The file was successfully parsed. "
+                                    "Serialize data.");
         }
 
         try
@@ -168,8 +169,7 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::Output("データのシリアライズに失敗しました．",
-                                  enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("Data serialization failed.");
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
             }
 
@@ -183,8 +183,8 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::Output("データのシリアライズに成功しました．データの検証を開始します．",
-                              enums::OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("Data serialization succeeded. "
+                                    "Start data validation.");
         }
 
         const auto [is_valid, error_message] = validator_->Validate(data);
@@ -193,10 +193,10 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::Output("データの検証に失敗しました．", enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("Data validation failed.");
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
-                CmdIOUtil::Output("<検証に失敗した理由>", enums::OutputDetail::kSystem);
-                CmdIOUtil::Output(error_message, enums::OutputDetail::kSystem);
+                CmdIOUtil::SystemOutput("<Reasons for Failure to Verify>");
+                CmdIOUtil::SystemOutput(error_message);
                 CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
             }
 

@@ -18,6 +18,8 @@
 namespace designlab
 {
 
+template <typename T> concept CopyAssignable = std::is_copy_assignable<T>::value;
+
 //! @class AsyncableData
 //! @brief
 //! 非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．
@@ -28,13 +30,14 @@ namespace designlab
 //! @n また，値の参照と変更を行う際にミューテックスを用いて，
 //! 同時に変更されることを防ぐ．ミューテックスについては以下を参照．
 //!
-//! @subsubsection [非同期処理について]
+//! @b [非同期処理について]
 //! @n 非同期処理 (並列・同時に処理を行うこと) を行う際に，
 //! 一つのにデータに同じタイミングで操作すると危険(未定義処理になり，
 //! 成功か失敗かが不定になる)．
 //! このクラスはそれを防ぐために boost::shared_mutex を使用している．
 //! このクラス内では read lock, write lockを使っている．
-//! @subsubsection 参考
+//!
+//! @b [参考]
 //! @li https://iorate.hatenablog.com/entry/20130222/1361538198
 //!     (アクセス日 2023/12/25)
 //! @li https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10
@@ -45,9 +48,7 @@ namespace designlab
 //! す．通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合)
 //! は有効的．
 //! @tparam T 非同期処理を行うデータ．代入を行うことができる型を指定すること．
-//! @todo C++20では concept を使うことで，代入を行うことができる型を指定できる．
-//! アップデートしたらそれを使用するように変更する．
-template <typename T, typename = std::enable_if_t<std::is_copy_assignable<T>::value> >
+template <CopyAssignable T>
 class AsyncableData final
 {
 public:

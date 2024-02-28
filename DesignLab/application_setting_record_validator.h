@@ -1,7 +1,8 @@
 ﻿
 //! @file      application_setting_record_validator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
@@ -22,14 +23,16 @@ namespace designlab
 //! @n バリデータとは，バリデーションを行う機能，またはソフトウェアのことである．
 //! @n バリデータでは，入力されたデータが仕様にそって適切に記述されているかを判断し，
 //! 不適切な箇所があった場合にはエラーとして通知する．
-class ApplicationSettingRecordValidator final : public ITomlDataValidator<ApplicationSettingRecord>
+class ApplicationSettingRecordValidator final :
+    public ITomlDataValidator<ApplicationSettingRecord>
 {
 public:
     ApplicationSettingRecordValidator();
 
     //! @brief 設定ファイルの内容を検証する．
     //! @param[in] setting_record 設定ファイルの内容．
-    //! @return 検証結果．1つ目の要素が true ならば検証成功．2つ目の要素が検証失敗の理由．
+    //! @return 検証結果．1つ目の要素が true ならば検証成功．
+    //! 2つ目の要素が検証失敗の理由．
     std::tuple<bool, std::string> Validate(
         const ApplicationSettingRecord& setting_record) const override;
 

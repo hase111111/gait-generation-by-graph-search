@@ -3,60 +3,50 @@
 #This file is written in the TOML format. Just google it and you'll find easy to understand information on the wiki, so try looking it up.
 #This file is a file for describing program settings.
 #This file can also be edited with a text editor such as Notepad.
-#If you want to change the simulation conditions, try changing them from here.Lines starting with a sharp are comments. They do not affect the program.Following description is written in Japanese. 
-#
-#このファイルが文字化けしている場合は，文字コードの問題が考えられます．
-#このファイルはutf-8で記述されており，VS Codeをインストールし，文字コードを自動で検出するように設定することで読み込むことができます．
-#このファイルはTOML形式で記述されています．ググればwikiに分かりやすい情報が載っているので，調べてみてください．
-#このファイルはプログラムの設定を記述するファイルです．
-#このファイルはメモ帳などのテキストエディタでも編集することができます．
-#シミュレーション条件を変更したい場合は，ここから変更してみてください．
-#シャープから始まる行はコメントです．プログラムに影響を与えることはありません．
+#If you want to change the simulation conditions, try changing them from here.Lines starting with a sharp are comments. They do not affect the program.
 
 
-#プログラムの起動モードの設定です
+#Setting the mode in which the program is to be run
 [Mode]
     
-    #起動時に実行モードについて質問をするようにします．( true / false )
+    #Ask the user about the run mode at startup. ( true / false )
     ask_about_modes = true
     
-    #起動時のデフォルトの実行モードを設定します．( "kSimulation" / "kViewer" / "kDisplayTest" / "kResultViewer" )
+    #Sets the default run mode at startup. ( "kSimulation" / "kViewer" / "kDisplayModel" / "kResultViewer" / "kRobotControl" )
     default_mode = "kSimulation"
     
-    #1動作ごとにステップ実行をするかどうかを設定します．( true / false )
+    #Ask if you want to continue with each move. ( true / false )
     do_step_execution_each_gait = false
     
-    #1シミュレーションごとにステップ実行をするかどうかを設定します．( true / false )
+    #Ask if you want to continue with each simulation. ( true / false )
     do_step_execution_each_simulation = true
     
-#プログラムの出力の設定です
+#Program output settings.
 [Output]
     
-    #コマンドラインに出力する際，どこまで許可するかを設定します．( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
-    cmd_output_detail = "kSystem" 
+    #How much output is allowed on the command line. ( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
+    cmd_output_detail = "kInfo"
     
-    #コマンドラインに出力するかどうかを設定します．( true / false )
+    #Output characters to the command line. ( true / false )
     do_cmd_output = true
     
-    #GUIを表示するかどうかを設定します．( true / false )
+    #Display GUI. ( true / false )
     do_gui_display = true
     
-    #GUIを表示する際，どこまで許可するかを設定します．( "kLow" / "kMedium" / "kHigh" )
-    gui_display_quality = "kHigh" 
+    #GUI Image Quality．( "kLow" / "kMedium" / "kHigh" )
+    gui_display_quality = "kHigh"
     
-    #グラフィカルウィンドウのFPSを設定します．15 ～ 60の範囲．推奨値は60です．
+    #Sets FPS. The range is from 15 to 60. The recommended value is 60.
     window_fps = 60
     
-    #グラフィカルウィンドウの横幅を設定します．512 ～ 1920の範囲．推奨値は1600です．
+    #Sets the width of the GUI. The range is from 512 to 1920. The recommended value is 1600.
     window_size_x = 1600
     
-    #グラフィカルウィンドウの縦幅を設定します．288 ～ 1080の範囲．推奨値は900です．
+    #Sets the height of the GUI. The range is from 288 to 1080. The recommended value is 900.
     window_size_y = 900
     
-#ver major.minor.patch の順で記述されます．特に使う予定はないデータだけれど一応用意しておく．
+#The order is major.minor.patch.
 [Verion]
-    
-    #メジャーバージョンは大きな更新があったときに変えます．
     version_major = 0
     version_minor = 5
     version_patch = 0

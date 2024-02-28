@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "application_setting_record_validator.h"
 
@@ -11,18 +12,29 @@ namespace designlab
 {
 
 ApplicationSettingRecordValidator::ApplicationSettingRecordValidator() :
-    kErrorMesForWindowWidthGeMin(std::format("ウィンドウの幅は{}以上の値を設定してください．",
-                                 ApplicationSettingRecord::kWindowWidthMin)),
-    kErrorMesForWindowWidthLeMax(std::format("ウィンドウの幅は{}以下の値を設定してください．",
-                                 ApplicationSettingRecord::kWindowWidthMax)),
-    kErrorMesForWindowHeightGeMin(std::format("ウィンドウの高さは{}以上の値を設定してください．",
-                                  ApplicationSettingRecord::kWindowHeightMin)),
-    kErrorMesForWindowHeightLeMax(std::format("ウィンドウの高さは{}以下の値を設定してください．",
-                                  ApplicationSettingRecord::kWindowHeightMax)),
-    kErrorMesForFpsGeMin(std::format("FPSは{}以上の値を設定してください．",
-                         ApplicationSettingRecord::kFpsMin)),
-    kErrorMesForFpsLeMax(std::format("FPSは{}以下の値を設定してください．",
-                         ApplicationSettingRecord::kFpsMax))
+    kErrorMesForWindowWidthGeMin(std::format(
+    "The window width should be set to a value greater than or equal to {}.",
+    ApplicationSettingRecord::kWindowWidthMin)),
+
+    kErrorMesForWindowWidthLeMax(std::format(
+    "The window width should be set to a value less than or equal to {}.",
+    ApplicationSettingRecord::kWindowWidthMax)),
+
+    kErrorMesForWindowHeightGeMin(std::format(
+    "The window height should be set to a value greater than or equal to {}.",
+    ApplicationSettingRecord::kWindowHeightMin)),
+
+    kErrorMesForWindowHeightLeMax(std::format(
+    "The window height should be set to a value less than or equal to {}.",
+    ApplicationSettingRecord::kWindowHeightMax)),
+
+    kErrorMesForFpsGeMin(std::format(
+    "FPS should be set to a value greater than {}.",
+    ApplicationSettingRecord::kFpsMin)),
+
+    kErrorMesForFpsLeMax(std::format(
+    "FPS should be set to a value less than or equal to {}.",
+    ApplicationSettingRecord::kFpsMax))
 {
 }
 

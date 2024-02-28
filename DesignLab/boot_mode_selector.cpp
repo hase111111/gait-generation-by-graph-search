@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "boot_mode_selector.h"
 
@@ -28,24 +29,25 @@ enums::BootMode BootModeSelector::SelectBootMode()
     // kSystem にすると、設定にかかわらず必ず表示される．
     const enums::OutputDetail output_detail = enums::OutputDetail::kSystem;
 
-    CmdIOUtil::Output("起動モードを選択してください", output_detail);
+    CmdIOUtil::Output("Select the mode to run.", output_detail);
 
     // 起動モードの名前を表示する．
     for (int i = 0; i < kBootModeNum; i++)
     {
         const enums::BootMode boot_mode = static_cast<enums::BootMode>(i);
 
-        const std::string boot_mode_name = string_util::EnumToStringRemoveTopK(boot_mode);
+        const std::string boot_mode_name =
+            string_util::EnumToStringRemoveTopK(boot_mode);
 
-        CmdIOUtil::Output(std::format("{} : {}", i, boot_mode_name),
-                          output_detail);
+        CmdIOUtil::FormatOutput(output_detail, "{} : {}", i, boot_mode_name);
     }
 
 
-    std::string default_mode_name = string_util::EnumToStringRemoveTopK(default_mode_);
+    const std::string default_mode_name =
+        string_util::EnumToStringRemoveTopK(default_mode_);
 
-    CmdIOUtil::Output(std::format("other : デフォルトのモード ( {} )", default_mode_name),
-                      output_detail);
+    CmdIOUtil::FormatOutput(output_detail, "other : default mode ( {} )",
+                            default_mode_name);
 
 
     CmdIOUtil::OutputNewLine(1, output_detail);
@@ -64,8 +66,8 @@ enums::BootMode BootModeSelector::SelectBootMode()
     {
         // 入力が不正な場合はデフォルトのモードを返す．
 
-        CmdIOUtil::Output("入力が不正です。デフォルトのモードを選択します。",
-                          enums::OutputDetail::kSystem);
+        CmdIOUtil::Output("Input value is invalid. Run default mode.",
+                          output_detail);
 
         return default_mode_;
     }

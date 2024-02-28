@@ -1,7 +1,8 @@
 ﻿
 //! @file      system_main_simulation.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
 #define DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
