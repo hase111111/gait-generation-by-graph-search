@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "dxlib_gui_robot_control.h"
 
@@ -158,15 +159,14 @@ void DxlibGuiRobotControl::SetVisible(const bool visible)
     }
 }
 
-void DxlibGuiRobotControl::ClickedAction(const int cursor_x, const int cursor_y,
-                   const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
+void DxlibGuiRobotControl::ClickedAction(const DxlibMouseState& state)
 {
     // 各ボタンの処理．
     for (auto& button : button_)
     {
-        if (button->CursorOnGui(cursor_x, cursor_y))
+        if (button->CursorOnGui(state.cursor_x, state.cursor_y))
         {
-            button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
+            button->ClickedAction(state);
         }
     }
 }
@@ -255,7 +255,7 @@ void DxlibGuiRobotControl::DrawString() const
 
     for (auto i = read_data.rbegin(); i != read_data.rend(); ++i)
     {
-        std::string str = "[" + std::to_string(read_data.size() - (10 - display_num)) + "] ";
+        std::string str = "[" + std::to_string(static_cast<int>(read_data.size()) - (10 - display_num)) + "] ";
         str += *i;
 
         DrawFormatStringToHandle(gui_left_pos_x_ + 10, text_top_y + text_interval_y * (text_line++), str_color, font_handle_, "%s", str.c_str());
@@ -278,7 +278,7 @@ std::string DxlibGuiRobotControl::GetSerialData() const
     // ノードの値から，脚先座標をシリアル通信で送信する．
     // float を int に変換したのち，
     // 64 byte に収まるように，int_8型 * 2 に変換する．
-    std::uint8_t send_data[64];
+    std::uint8_t send_data[64] = {};
 
     for (size_t i = 0; i < HexapodConst::kLegNum; i++)
     {

@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "dxlib_gui_display_node_switcher.h"
 
@@ -269,15 +270,14 @@ void DxlibGuiDisplayNodeSwitcher::SetVisible(const bool visible)
 }
 
 
-void DxlibGuiDisplayNodeSwitcher::ClickedAction(const int cursor_x, const int cursor_y,
-                        const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count, [[maybe_unused]] const int right_pushing_count)
+void DxlibGuiDisplayNodeSwitcher::ClickedAction(const DxlibMouseState& state)
 {
     // ボタンを更新する．
     for (auto& i : button_)
     {
-        if (i->CursorOnGui(cursor_x, cursor_y))
+        if (i->CursorOnGui(state.cursor_x, state.cursor_y))
         {
-            i->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
+            i->ClickedAction(state);
             break;
         }
     }

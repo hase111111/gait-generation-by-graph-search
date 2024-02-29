@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "dxlib_gui_updater.h"
 
@@ -312,12 +313,12 @@ void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse
     {
         if ((*i).second->CursorOnGui(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
         {
-            (*i).second->ClickedAction(
+            (*i).second->ClickedAction({
                 mouse_ptr->GetCursorPosX(),
                 mouse_ptr->GetCursorPosY(),
                 mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT),
                 mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE),
-                mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT));
+                mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT) });
 
             break;
         }

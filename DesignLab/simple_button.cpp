@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "simple_button.h"
 
@@ -110,14 +111,13 @@ void SimpleButton::Draw() const
     }
 }
 
-void SimpleButton::ClickedAction(
-    [[maybe_unused]] const int cursor_x, [[maybe_unused]] const int cursor_y,
-    const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count,
-    [[maybe_unused]] const int right_pushing_count)
+void SimpleButton::ClickedAction(const DxlibMouseState& state)
 {
     target_color_blue_ = 64;
 
-    if (click_function_ && visible_ && left_pushing_count == 1)
+    if (click_function_ &&
+        visible_ &&
+        state.left_pushing_count == 1)
     {
         now_color_blue_ = 128;
 

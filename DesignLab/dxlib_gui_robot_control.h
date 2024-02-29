@@ -1,7 +1,8 @@
 ﻿
 //! @file      dxlib_gui_robot_control.h
 //! @author    hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
 #define DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
@@ -74,9 +75,7 @@ public:
         return visible_;
     }
 
-    void ClickedAction(int cursor_x, int cursor_y,
-                       int left_pushing_count, int middle_pushing_count,
-                       int right_pushing_count) override;
+    void ClickedAction(const DxlibMouseState& state) override;
 
     bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
 

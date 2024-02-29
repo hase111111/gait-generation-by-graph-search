@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "dxlib_gui_terminal.h"
 
@@ -97,17 +98,16 @@ bool DxlibGuiTerminal::IsVisible() const
     return true;
 }
 
-void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
-                   const int left_pushing_count, const int middle_pushing_count, const int right_pushing_count)
+void DxlibGuiTerminal::ClickedAction(const DxlibMouseState& state)
 {
     bool is_clicked = false;
 
     // 各ボタンの処理．
     for (auto& button : button_list_)
     {
-        if (button->CursorOnGui(cursor_x, cursor_y))
+        if (button->CursorOnGui(state.cursor_x, state.cursor_y))
         {
-            button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
+            button->ClickedAction(state);
             is_clicked = true;
             break;
         }
@@ -120,7 +120,7 @@ void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
     }
 
     // ターミナルの処理．
-    if (left_pushing_count == 1 && is_closed_)
+    if (state.left_pushing_count == 1 && is_closed_)
     {
         is_closed_ = false;
 
@@ -130,7 +130,7 @@ void DxlibGuiTerminal::ClickedAction(const int cursor_x, const int cursor_y,
             button->SetVisible(true);
         }
     }
-    else if (left_pushing_count == 1 && !is_closed_)
+    else if (state.left_pushing_count == 1 && !is_closed_)
     {
         is_closed_ = true;
 

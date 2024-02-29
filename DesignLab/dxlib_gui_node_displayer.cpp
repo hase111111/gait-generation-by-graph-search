@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "dxlib_gui_node_displayer.h"
 
@@ -198,16 +199,14 @@ void DxlibGuiNodeDisplayer::SetVisible(const bool visible)
     }
 }
 
-void DxlibGuiNodeDisplayer::ClickedAction(const int cursor_x, const int cursor_y,
-    const int left_pushing_count, [[maybe_unused]] const int middle_pushing_count,
-    [[maybe_unused]] const int right_pushing_count)
+void DxlibGuiNodeDisplayer::ClickedAction(const DxlibMouseState& state)
 {
-    if (!is_dragging_ && left_pushing_count > 0)
+    if (!is_dragging_ && state.left_pushing_count > 0)
     {
         is_dragging_ = true;
     }
 
-    if (is_dragging_ && left_pushing_count == 0)
+    if (is_dragging_ && state.left_pushing_count == 0)
     {
         is_dragging_ = false;
     }
@@ -215,9 +214,9 @@ void DxlibGuiNodeDisplayer::ClickedAction(const int cursor_x, const int cursor_y
     // ボタンの処理を行う．
     for (auto& button : buttons_)
     {
-        if (button->CursorOnGui(cursor_x, cursor_y))
+        if (button->CursorOnGui(state.cursor_x, state.cursor_y))
         {
-            button->ClickedAction(cursor_x, cursor_y, left_pushing_count, middle_pushing_count, right_pushing_count);
+            button->ClickedAction(state);
             break;  // 1度に1つのボタンしか処理しない．
         }
     }

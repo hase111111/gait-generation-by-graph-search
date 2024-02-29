@@ -63,9 +63,7 @@ public:
         return visible_;
     }
 
-    void ClickedAction(int cursor_x, int cursor_y,
-                       int left_pushing_count,
-                       int middle_pushing_count, int right_pushing_count) override;
+    void ClickedAction(const DxlibMouseState& state) override;
 
     bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
 

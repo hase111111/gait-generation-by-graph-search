@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_dxlib_draggable.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
 #define DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
@@ -24,7 +25,7 @@ public:
     virtual bool IsDraggable(int cursor_x, int cursor_y) const = 0;
 
     //! @brief ドラッグ中かどうかを取得する．
-    //! @return ドラッグ中ならばtrue．
+    //! @return ドラッグ中ならば true．
     virtual bool IsDragged() const = 0;
 
     //! @brief ドラッグ中かどうかを設定する．
@@ -37,7 +38,8 @@ public:
     //! @param[in] cursor_dif_y 前回のフレームからのマウスカーソルのY座標の差分．
     //! @param[in] mouse_key_bit 押されているマウスのボタン，Dxlib の定数，
     //! MOUSE_INPUT_LEFT などで指定する．
-    virtual void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) = 0;
+    virtual void DraggedAction(
+        int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) = 0;
 };
 
 }  // namespace designlab

@@ -1,7 +1,8 @@
 ﻿
 //! @file      dxlib_gui_node_displayer.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
 #define DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
@@ -54,9 +55,7 @@ public:
 
     inline bool IsVisible() const override { return visible_; }
 
-    void ClickedAction(int cursor_x, int cursor_y,
-                       int left_pushing_count, int middle_pushing_count,
-                       int right_pushing_count) override;
+    void ClickedAction(const DxlibMouseState& state) override;
 
     bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override;
 
