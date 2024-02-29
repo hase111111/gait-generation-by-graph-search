@@ -65,7 +65,8 @@ void DxlibGuiUpdater::Draw() const
 }
 
 
-void DxlibGuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
+void DxlibGuiUpdater::RegisterGui(
+    const std::shared_ptr<IDxlibGui> gui_ptr, int priority)
 {
     assert(gui_ptr != nullptr);
 
@@ -90,7 +91,8 @@ void DxlibGuiUpdater::RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int 
     gui_ptrs_[p] = gui_ptr;
 }
 
-void DxlibGuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
+void DxlibGuiUpdater::RegisterClickable(
+    const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority)
 {
     assert(clickable_ptr != nullptr);
 
@@ -115,7 +117,8 @@ void DxlibGuiUpdater::RegisterClickable(const std::shared_ptr<IDxlibClickable> c
     clickable_ptrs_[p] = clickable_ptr;
 }
 
-void DxlibGuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
+void DxlibGuiUpdater::RegisterDraggable(
+    const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority)
 {
     assert(draggable_ptr != nullptr);
 
@@ -140,7 +143,8 @@ void DxlibGuiUpdater::RegisterDraggable(const std::shared_ptr<IDxlibDraggable> d
     draggable_ptrs_[p] = draggable_ptr;
 }
 
-void DxlibGuiUpdater::RegisterWheelHandler(const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority)
+void DxlibGuiUpdater::RegisterWheelHandler(
+    const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority)
 {
     assert(wheel_handler_ptr != nullptr);
 
@@ -181,14 +185,19 @@ void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse
 
     for (auto i = clickable_ptrs_.rbegin(); i != clickable_ptrs_.rend(); ++i)
     {
-        if ((*i).second->CursorOnGui(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
+        if ((*i).second->CursorOnGui(
+            mouse_ptr->GetCursorPosX(),
+            mouse_ptr->GetCursorPosY()))
         {
             (*i).second->ClickedAction({
-                mouse_ptr->GetCursorPosX(),
-                mouse_ptr->GetCursorPosY(),
-                mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT),
-                mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE),
-                mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT) });
+                .cursor_x = mouse_ptr->GetCursorPosX(),
+                .cursor_y = mouse_ptr->GetCursorPosY(),
+                .left_pushing_count =
+                    mouse_ptr->GetPressingCount(MOUSE_INPUT_LEFT),
+                .middle_pushing_count =
+                    mouse_ptr->GetReleasingCount(MOUSE_INPUT_MIDDLE),
+                .right_pushing_count =
+                    mouse_ptr->GetPressingCount(MOUSE_INPUT_RIGHT) });
 
             break;
         }
@@ -199,14 +208,16 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
 {
     unsigned int mouse_key{ 0 };
     int pressing_count{ 0 };
-    std::array<unsigned int, 3> mouse_keys = { MOUSE_INPUT_LEFT, MOUSE_INPUT_MIDDLE, MOUSE_INPUT_RIGHT };
+    std::array<unsigned int, 3> mouse_keys = {
+        MOUSE_INPUT_LEFT, MOUSE_INPUT_MIDDLE, MOUSE_INPUT_RIGHT };
 
     for (auto i : mouse_keys)
     {
         if (mouse_ptr->GetPressingCount(i) > 0)
         {
             mouse_key += i;
-            pressing_count = (std::max)(mouse_ptr->GetPressingCount(i), pressing_count);
+            pressing_count =
+                (std::max)(mouse_ptr->GetPressingCount(i), pressing_count);
         }
     }
 
@@ -226,7 +237,9 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
         // 左クリックが押された瞬間，ドラッグを開始する
         for (auto i = draggable_ptrs_.rbegin(); i != draggable_ptrs_.rend(); ++i)
         {
-            if ((*i).second->IsDraggable(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
+            if ((*i).second->IsDraggable(
+                mouse_ptr->GetCursorPosX(),
+                mouse_ptr->GetCursorPosY()))
             {
                 (*i).second->SetDragged(true);
                 now_dragging_gui_key_ = (*i).first;
@@ -237,9 +250,11 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
     else if (pressing_count > 0)
     {
         // 左クリックが押され続けているならばドラッグ判定を行う．
-        if (now_dragging_gui_key_.has_value() && draggable_ptrs_.count(now_dragging_gui_key_.value()) == 1)
+        if (now_dragging_gui_key_.has_value() &&
+            draggable_ptrs_.count(now_dragging_gui_key_.value()) == 1)
         {
-            draggable_ptrs_[now_dragging_gui_key_.value()]->DraggedAction(mouse_ptr->GetDiffPosX(), mouse_ptr->GetDiffPosY(), mouse_key);
+            draggable_ptrs_[now_dragging_gui_key_.value()]->DraggedAction(
+                mouse_ptr->GetDiffPosX(), mouse_ptr->GetDiffPosY(), mouse_key);
         }
     }
     else
@@ -248,7 +263,8 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
     }
 }
 
-void DxlibGuiUpdater::ActivateWheelHandler(const std::shared_ptr<const Mouse> mouse_ptr)
+void DxlibGuiUpdater::ActivateWheelHandler(
+    const std::shared_ptr<const Mouse> mouse_ptr)
 {
     if (mouse_ptr->GetWheelRot() == 0) { return; }
 
@@ -257,7 +273,9 @@ void DxlibGuiUpdater::ActivateWheelHandler(const std::shared_ptr<const Mouse> mo
 
     for (auto i = wheel_handler_ptrs_.rbegin(); i != wheel_handler_ptrs_.rend(); ++i)
     {
-        if ((*i).second->CanHandleWheel(mouse_ptr->GetCursorPosX(), mouse_ptr->GetCursorPosY()))
+        if ((*i).second->CanHandleWheel(
+            mouse_ptr->GetCursorPosX(),
+            mouse_ptr->GetCursorPosY()))
         {
             (*i).second->RotMouseWheel(mouse_ptr->GetWheelRot());
             break;

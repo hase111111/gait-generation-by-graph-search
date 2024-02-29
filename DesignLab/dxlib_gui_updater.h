@@ -44,6 +44,7 @@ template <typename T>
 concept IsDxlibUpdatable = (IsDxlibGui<T> || IsDxlibClickable<T> ||
     IsDxlibDraggable<T> || IsDxlibWheelHandler<T>);
 
+
 //! @class DxlibGuiUpdater
 //! @brief クリック判定を行うクラス．
 //! @details 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
@@ -58,10 +59,11 @@ public:
     static constexpr int kTopPriority{ 1000000 };   //!< 最も優先的に処理される．
 
     //! @brief UpdateとDrawを行うGUIを登録する．
-    //! @n IDxlibClickableまたは，IDxlibDraggable, 
+    //! @n IDxlibClickableまたは，IDxlibDraggable,
     //! IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
     //! @param[in] gui_ptr UpdateとDrawを行うGUIのポインタ．
-    //! @param[in] priority GUIの優先度．これが高いほど優先的にUpdateとDrawが行われる．
+    //! @param[in] priority GUIの優先度．
+    //! これが高いほど優先的にUpdateとDrawが行われる．
     //! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
     template <IsDxlibUpdatable T>
     void Register(const std::shared_ptr<T>& gui_ptr, int priority)
@@ -106,7 +108,11 @@ private:
     //! @brief 優先度と判定の順番を管理する構造体．
     struct Priority final
     {
-        constexpr Priority(const int p, const int o) noexcept : priority(p), order(o) {}
+        constexpr Priority(const int p, const int o) noexcept :
+            priority(p),
+            order(o)
+        {
+        }
 
         //! @brief mapでの優先度の比較に使用する．
         //! @n 優先度を比較し，優先度が同じならば追加された順番で比較する．
@@ -127,9 +133,12 @@ private:
     };
 
     void RegisterGui(const std::shared_ptr<IDxlibGui> gui_ptr, int priority);
-    void RegisterClickable(const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority);
-    void RegisterDraggable(const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority);
-    void RegisterWheelHandler(const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority);
+    void RegisterClickable(
+        const std::shared_ptr<IDxlibClickable> clickable_ptr, int priority);
+    void RegisterDraggable(
+        const std::shared_ptr<IDxlibDraggable> draggable_ptr, int priority);
+    void RegisterWheelHandler(
+        const std::shared_ptr<IDxlibWheelHandler> wheel_handler_ptr, int priority);
 
     void UpdateGui();
 
@@ -142,7 +151,8 @@ private:
     std::map<Priority, std::shared_ptr<IDxlibDraggable> > draggable_ptrs_;
     std::map<Priority, std::shared_ptr<IDxlibWheelHandler> > wheel_handler_ptrs_;
 
-    std::optional<Priority> now_dragging_gui_key_{ std::nullopt };  //!< ドラッグ中のGUIの優先度と順番，未ドラッグ時はstd::nullopt．
+    //! ドラッグ中のGUIの優先度と順番，未ドラッグ時はstd::nullopt．
+    std::optional<Priority> now_dragging_gui_key_{ std::nullopt };
 
     bool is_terminal_opened_{ false };  //!< Terminal が開かれているかどうか．
 };
