@@ -1,6 +1,7 @@
 ﻿
 //! @author    hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "graphic_main_robot_control.h"
 
@@ -21,11 +22,12 @@
 namespace designlab
 {
 
-GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDataBroker>& broker,
-                                                 const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-                                                 const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-                                                 const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-                                                 const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+GraphicMainRobotControl::GraphicMainRobotControl(
+    const std::shared_ptr<GraphicDataBroker>& broker,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     mouse_ptr_(std::make_shared<Mouse>()),
     broker_(broker),
     converter_ptr_(converter_ptr),
@@ -65,12 +67,12 @@ GraphicMainRobotControl::GraphicMainRobotControl(const std::shared_ptr<GraphicDa
     map_renderer_->SetMapState(map_state_);
     map_renderer_->SetNode(RobotStateNode{});
 
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(robot_control_gui), 1);
+    gui_updater_.Register(display_node_switch_gui_, 1);
+    gui_updater_.Register(camera_parameter_gui, 1);
+    gui_updater_.Register(camera_dragger, 0);
+    gui_updater_.Register(node_display_gui, 1);
+    gui_updater_.Register(camera_gui, 1);
+    gui_updater_.Register(robot_control_gui, 1);
 
     gui_updater_.OpenTerminal();
 

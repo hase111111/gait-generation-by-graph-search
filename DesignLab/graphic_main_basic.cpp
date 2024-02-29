@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "graphic_main_basic.h"
 
@@ -60,11 +61,11 @@ GraphicMainBasic::GraphicMainBasic(
     const auto stability_margin_renderer = std::make_shared<StabilityMarginRenderer>(converter_ptr);
     const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
 
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(display_node_switch_gui_), DxlibGuiUpdater::kTopPriority);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), DxlibGuiUpdater::kTopPriority);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), DxlibGuiUpdater::kTopPriority);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), DxlibGuiUpdater::kTopPriority);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), DxlibGuiUpdater::kBottomPriority);
+    gui_updater_.Register(display_node_switch_gui_, DxlibGuiUpdater::kTopPriority);
+    gui_updater_.Register(camera_parameter_gui, DxlibGuiUpdater::kTopPriority);
+    gui_updater_.Register(camera_gui, DxlibGuiUpdater::kTopPriority);
+    gui_updater_.Register(node_display_gui, DxlibGuiUpdater::kTopPriority);
+    gui_updater_.Register(camera_dragger, DxlibGuiUpdater::kBottomPriority);
 
     gui_updater_.OpenTerminal();
 

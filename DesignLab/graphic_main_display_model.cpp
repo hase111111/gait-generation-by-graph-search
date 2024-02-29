@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "graphic_main_display_model.h"
 
@@ -72,10 +73,10 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     const auto approximated_motion_range_render =
         std::make_shared<ApproximatedMotionRangeRender>(checker_ptr, converter_ptr);
 
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_parameter_gui), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibDraggable>>(camera_dragger), 0);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(node_display_gui), 1);
-    gui_updater_.Register(static_cast<std::shared_ptr<IDxlibGui>>(camera_gui), 1);
+    gui_updater_.Register(camera_parameter_gui, 1);
+    gui_updater_.Register(camera_dragger, 0);
+    gui_updater_.Register(node_display_gui, 1);
+    gui_updater_.Register(camera_gui, 1);
 
     gui_updater_.OpenTerminal();
 
@@ -339,20 +340,20 @@ void GraphicMainDisplayModel::MoveLeg()
                 Vector3 leg_pos;
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kCoxaLength * cos(coxa),
-                        PhantomXMkIIConst::kCoxaLength * sin(coxa),
+                    PhantomXMkIIConst::kCoxaLength* cos(coxa),
+                        PhantomXMkIIConst::kCoxaLength* sin(coxa),
                         0 };
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
-                        PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
-                        PhantomXMkIIConst::kFemurLength * sin(femur)
+                    PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
+                        PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
+                        PhantomXMkIIConst::kFemurLength* sin(femur)
                 };
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
-                        PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
-                        PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
+                    PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
                 };
 
                 robot_.leg_pos[i] = leg_pos;

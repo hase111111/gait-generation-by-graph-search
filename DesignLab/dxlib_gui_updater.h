@@ -11,6 +11,7 @@
 #include <memory>
 #include <optional>
 
+#include "cassert_define.h"
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_gui.h"
@@ -21,10 +22,33 @@
 namespace designlab
 {
 
+//! @brief IDxlibGuiを継承しているかどうかを判定する．
+template <typename T>
+concept IsDxlibGui = std::is_base_of<IDxlibGui, T>::value;
+
+//! @brief IDxlibClickableを継承しているかどうかを判定する．
+template <typename T>
+concept IsDxlibClickable = std::is_base_of<IDxlibClickable, T>::value;
+
+//! @brief IDxlibDraggableを継承しているかどうかを判定する．
+template <typename T>
+concept IsDxlibDraggable = std::is_base_of<IDxlibDraggable, T>::value;
+
+//! @brief IDxlibWheelHandlerを継承しているかどうかを判定する．
+template <typename T>
+concept IsDxlibWheelHandler = std::is_base_of<IDxlibWheelHandler, T>::value;
+
+//! @brief IDxlibGui, IDxlibClickable, IDxlibDraggable,
+//! IDxlibWheelHandlerのうちいずれかを継承しているかどうかを判定する．
+template <typename T>
+concept IsDxlibUpdatable = (IsDxlibGui<T> || IsDxlibClickable<T> ||
+    IsDxlibDraggable<T> || IsDxlibWheelHandler<T>);
+
 //! @class DxlibGuiUpdater
 //! @brief クリック判定を行うクラス．
 //! @details 一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する．
-//! @n 優先度が高いものから順にクリック判定を行い，クリックされたらそのGUIの Activate 関数を実行する．
+//! @n 優先度が高いものから順にクリック判定を行い，
+//! クリックされたらそのGUIの Activate 関数を実行する．
 //! @n 同様に，ドラッグ判定，ホイール操作判定も行う．
 //! @n 神クラスになっている感は否めないが，また問題が起きたら修正する．
 class DxlibGuiUpdater final
@@ -34,32 +58,34 @@ public:
     static constexpr int kTopPriority{ 1000000 };   //!< 最も優先的に処理される．
 
     //! @brief UpdateとDrawを行うGUIを登録する．
-    //! @n IDxlibClickableまたは，IDxlibDraggable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
+    //! @n IDxlibClickableまたは，IDxlibDraggable, 
+    //! IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
     //! @param[in] gui_ptr UpdateとDrawを行うGUIのポインタ．
     //! @param[in] priority GUIの優先度．これが高いほど優先的にUpdateとDrawが行われる．
     //! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
-    void Register(const std::shared_ptr<IDxlibGui>& gui_ptr, int priority);
+    template <IsDxlibUpdatable T>
+    void Register(const std::shared_ptr<T>& gui_ptr, int priority)
+    {
+        assert(kBottomPriority <= priority);
+        assert(priority <= kTopPriority);
 
-    //! @brief クリック可能なGUIを登録する．
-    //! @n IDxlibGuiまたは，IDxlibDraggable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
-    //! @param[in] clickable_ptr クリック可能なGUIのポインタ．
-    //! @param[in] priority クリック入力の優先度．これが高いほど優先的にクリックの判定がされる．
-    //! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
-    void Register(const std::shared_ptr<IDxlibClickable>& clickable_ptr, int priority);
-
-    //! @brief ドラッグ可能なGUIを登録する．
-    //! @n IDxlibGuiまたは，IDxlibClickable,IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．
-    //! @param[in] draggable_ptr ドラッグ可能なGUIのポインタ．
-    //! @param[in] priority ドラッグ入力の優先度．これが高いほど優先的にドラッグの判定がされる．
-    //! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
-    void Register(const std::shared_ptr<IDxlibDraggable>& draggable_ptr, int priority);
-
-    //! @brief ホイール操作を行うGUIを登録する．
-    //! @n IDxlibGuiまたは，IDxlibClickable,IDxlibDraggableを継承している場合は，それらも同時に登録する．
-    //! @param[in] wheel_handler_ptr ホイール操作を行うGUIのポインタ．
-    //! @param[in] priority ホイール操作の優先度．これが高いほど優先的にホイール操作の判定がされる．
-    //! @n メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること．
-    void Register(const std::shared_ptr<IDxlibWheelHandler>& wheel_handler_ptr, int priority);
+        if constexpr (IsDxlibGui<T>)
+        {
+            RegisterGui(gui_ptr, priority);
+        }
+        if constexpr (IsDxlibClickable<T>)
+        {
+            RegisterClickable(gui_ptr, priority);
+        }
+        if constexpr (IsDxlibDraggable<T>)
+        {
+            RegisterDraggable(gui_ptr, priority);
+        }
+        if constexpr (IsDxlibWheelHandler<T>)
+        {
+            RegisterWheelHandler(gui_ptr, priority);
+        }
+    }
 
     //! @brief Terminalを開く.
     //! @n 他のGUIをRegisterした後に呼び出すこと．
