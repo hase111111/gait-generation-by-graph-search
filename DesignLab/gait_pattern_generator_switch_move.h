@@ -1,7 +1,8 @@
 ﻿
 //! @file      gait_pattern_generator_switch_move.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
@@ -38,8 +39,8 @@ public:
       RobotStateNode* output_node) override;
 
 private:
-    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_for_straight_ptr_;
-    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_for_turn_spot_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gpg_for_straight_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gpg_for_turn_spot_ptr_;
 };
 
 }  // namespace designlab

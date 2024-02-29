@@ -1,7 +1,8 @@
 ﻿
 //! @file      result_file_importer.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_RESULT_FILE_IMPORTER_H_
 #define DESIGNLAB_RESULT_FILE_IMPORTER_H_
@@ -33,7 +34,8 @@ public:
 
 
 private:
-    bool ImportNodeList(const std::string& file_path, std::vector<RobotStateNode>* node_list) const;
+    bool ImportNodeList(const std::string& file_path,
+                        std::vector<RobotStateNode>* node_list) const;
 
     bool ImportMapState(const std::string& file_path, MapState* map_state) const;
 };

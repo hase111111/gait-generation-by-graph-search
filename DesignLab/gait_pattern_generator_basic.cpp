@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "gait_pattern_generator_basic.h"
 
@@ -54,7 +55,8 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
     graph_tree_.Reset();
     graph_tree_.AddNode(current_node);
 
-    const GraphSearchResult create_result = graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
+    const GraphSearchResult create_result =
+        graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
     if (create_result.result != enums::Result::kSuccess)
     {
@@ -63,7 +65,9 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
 
 
     // グラフ探索を行う
-    const auto [search_result, _, next_node] = graph_searcher_ptr_->SearchGraphTree(graph_tree_, operation, divided_map, max_depth_);
+    const auto [search_result, _, next_node] =
+        graph_searcher_ptr_->SearchGraphTree(
+            graph_tree_, operation, divided_map, max_depth_);
 
     if (search_result.result != enums::Result::kSuccess)
     {

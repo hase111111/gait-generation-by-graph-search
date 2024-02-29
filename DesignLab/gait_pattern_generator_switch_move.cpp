@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "gait_pattern_generator_switch_move.h"
 
@@ -16,11 +17,13 @@ namespace designlab
 {
 
 GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
-    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straight_ptr,
-    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot_ptr) :
-    gait_pattern_generator_for_straight_ptr_(std::move(gait_pattern_generator_for_straight_ptr)),
-    gait_pattern_generator_for_turn_spot_ptr_(std::move(gait_pattern_generator_for_turn_spot_ptr))
+    std::unique_ptr<IGaitPatternGenerator>&& gpg_for_straight_ptr,
+    std::unique_ptr<IGaitPatternGenerator>&& gpg_for_turn_spot_ptr) :
+    gpg_for_straight_ptr_(std::move(gpg_for_straight_ptr)),
+    gpg_for_turn_spot_ptr_(std::move(gpg_for_turn_spot_ptr))
 {
+    assert(gpg_for_straight_ptr_);
+    assert(gpg_for_turn_spot_ptr_);
 }
 
 GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
@@ -31,21 +34,24 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
 {
     using enum enums::RobotOperationType;
 
-    if (operation.operation_type == kStraightMoveVector || operation.operation_type == kStraightMovePosition)
+    if (operation.operation_type == kStraightMoveVector ||
+        operation.operation_type == kStraightMovePosition)
     {
-        return gait_pattern_generator_for_straight_ptr_->GetNextNodeByGraphSearch(current_node, map,
-                                                                                  operation, output_node);
+        return gpg_for_straight_ptr_->GetNextNodeByGraphSearch(
+            current_node, map, operation, output_node);
     }
-    else if (operation.operation_type == kSpotTurnRotAxis || operation.operation_type == kSpotTurnLastPosture)
+    else if (operation.operation_type == kSpotTurnRotAxis ||
+             operation.operation_type == kSpotTurnLastPosture)
     {
-        return gait_pattern_generator_for_turn_spot_ptr_->GetNextNodeByGraphSearch(current_node, map,
-                                                                                   operation, output_node);
+        return gpg_for_turn_spot_ptr_->GetNextNodeByGraphSearch(
+            current_node, map, operation, output_node);
     }
     else
     {
         assert(false);
 
-        return { enums::Result::kFailure, "存在していない動作が指定されました．" };
+        return { enums::Result::kFailure,
+            "A non-existent behavior was specified." };
     }
 }
 

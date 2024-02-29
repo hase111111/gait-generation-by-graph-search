@@ -1,7 +1,8 @@
 ﻿
 //! @file      system_main_graph_viewer.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
 #define DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
@@ -25,7 +26,8 @@ namespace designlab
 //! @brief グラフを表示するシステムのメインクラス．
 //! @details
 //! この研究の手法では木構造のグラフを作成する．
-//! どのようなグラフが作成されるかを確認するために，このグラフを表示するシステムを作成した．
+//! どのようなグラフが作成されるかを確認するために，
+//! このグラフを表示するプログラムを作成した．
 class SystemMainGraphViewer final : public ISystemMain
 {
 public:
@@ -41,7 +43,8 @@ private:
     //! @brief グラフを作成する．
     //! @param[in] parent 親ノード．
     //! @param[out] graph 作成したグラフ．
-    void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
+    void CreateGraph(const RobotStateNode parent,
+                     std::vector<RobotStateNode>* graph);
 
 
     //! @brief グラフのステータスを表示する．

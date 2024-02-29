@@ -1,10 +1,10 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "gait_pattern_generator_thread.h"
 
-#include <algorithm>
 #include <format>
 #include <string>
 #include <utility>
@@ -64,10 +64,10 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
     if (create_result.result != enums::Result::kSuccess) { return create_result; }
 
-    CmdIOUtil::Output("深さ1までグラフ木の生成が終了しました．",
-                      enums::OutputDetail::kDebug);
-    CmdIOUtil::Output(std::format("グラフ木のノード数は{}です．", graph_tree_.GetGraphSize()),
-                      enums::OutputDetail::kDebug);
+    CmdIOUtil::DebugOutput("Graph tree generation has been completed to depth 1.");
+    CmdIOUtil::FormatOutput(enums::OutputDetail::kDebug,
+                            "The number of nodes in the graph tree is {}.",
+                            graph_tree_.GetGraphSize());
 
     // 深さ0のノードを配列にコピーする．
     for (int i = 0; i < kThreadNum; i++)
@@ -93,11 +93,13 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     {
         if (graph_tree_array_[i].GetGraphSize() > 1)
         {
-            CmdIOUtil::Output("スレッド" + std::to_string(i) + "でグラフ木の生成を開始します．",
-                              enums::OutputDetail::kDebug);
-            CmdIOUtil::Output("スレッド" + std::to_string(i) + "で探索するノード数は" +
-                              std::to_string(graph_tree_array_[i].GetGraphSize()) + "です．",
-                              enums::OutputDetail::kDebug);
+            CmdIOUtil::FormatOutput(
+                enums::OutputDetail::kDebug,
+                "Starts graph tree generation in thread {}.", i);
+            CmdIOUtil::FormatOutput(
+                enums::OutputDetail::kDebug,
+                "The number of nodes explored in thread {} is {}.",
+                i, graph_tree_array_[i].GetGraphSize());
 
             thread_group.create_thread(
               boost::bind(
@@ -111,36 +113,41 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
     thread_group.join_all();  // 全てのスレッドが終了するまで待機する．
 
-    CmdIOUtil::Output("グラフ木の生成が終了しました．\n", enums::OutputDetail::kDebug);
+    CmdIOUtil::DebugOutput("Graph tree generation is complete.\n");
 
     for (size_t i = 0; i < kThreadNum; i++)
     {
-        CmdIOUtil::Output(std::format("スレッド{}で作成したノード数は{}です．", i, graph_tree_array_[i].GetGraphSize()),
-                          enums::OutputDetail::kDebug);
+        CmdIOUtil::FormatOutput(
+            enums::OutputDetail::kDebug,
+            "The number of nodes created in thread {} is {}.",
+            i, graph_tree_array_[i].GetGraphSize());
     }
 
 
     // グラフ探索を行う．
-    CmdIOUtil::Output("グラフ木を評価します．", enums::OutputDetail::kDebug);
+    CmdIOUtil::DebugOutput("Evaluates graph trees.");
 
     const auto [search_result, _, next_node] =
-        graph_searcher_ptr_->SearchGraphTreeVector(graph_tree_array_, operation, divided_map, max_depth_);
+        graph_searcher_ptr_->SearchGraphTreeVector(
+            graph_tree_array_, operation, divided_map, max_depth_);
 
     if (search_result.result != enums::Result::kSuccess)
     {
-        CmdIOUtil::Output("グラフ木の評価に失敗しました．", enums::OutputDetail::kDebug);
+        CmdIOUtil::DebugOutput("Failed to evaluate the graph tree.");
         return search_result;
     }
 
     (*output_node) = next_node;
 
-    CmdIOUtil::Output("グラフ木の評価が終了しました．グラフ探索に成功しました．",
-                      enums::OutputDetail::kDebug);
+    CmdIOUtil::DebugOutput(
+        "Graph tree evaluation is completed. Graph search succeeded.");
 
     return { enums::Result::kSuccess, std::string("") };
 }
 
-std::vector<GaitPatternGraphTree> GaitPatternGeneratorThread::InitializeGraphTreeArray(const int thread_num, const int max_node_num) const
+std::vector<GaitPatternGraphTree>
+GaitPatternGeneratorThread::InitializeGraphTreeArray(
+    const int thread_num, const int max_node_num) const
 {
     std::vector<GaitPatternGraphTree> graph_tree_array;
 

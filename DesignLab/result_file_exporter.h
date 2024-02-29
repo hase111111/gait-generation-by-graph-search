@@ -1,7 +1,8 @@
 ﻿
 //! @file      result_file_exporter.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_RESULT_FILE_EXPORTER_H_
 #define DESIGNLAB_RESULT_FILE_EXPORTER_H_
@@ -22,13 +23,17 @@ namespace designlab
 class ResultFileConst final
 {
 public:
-    static const std::string kDirectoryPath;    //!< 出力先ディレクトリ(フォルダ)名．
+    //! 出力先ディレクトリ(フォルダ)名．
+    static const std::string kDirectoryPath;
 
-    static const std::string kLegDirectoryName;  //!< 出力先ディレクトリ(フォルダ)名．
+    //! 出力先ディレクトリ(フォルダ)名．
+    static const std::string kLegDirectoryName;
 
-    static const std::string kSuccessfulCount;  //!< シミュレーションの成功回数をまとめたファイルの名前．
+    //! シミュレーションの成功回数をまとめたファイルの名前．
+    static const std::string kSuccessfulCount;
 
-    static const std::string kDetailFileName;  //!< ファイル名 ( 人間が見る用 )
+    //! ファイル名 ( 人間が見る用 )
+    static const std::string kDetailFileName;
 
     //! ノードリストのファイル名 (プログラムの読み込み用)
     static const std::string kNodeListName;
@@ -44,7 +49,8 @@ public:
 class ResultFileExporter final
 {
 public:
-    ResultFileExporter(const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr);
+    ResultFileExporter(
+        const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr);
 
     //! @brief resultフォルダがなければ作成する．また，フォルダ名を指定する．
     void CreateRootDirectory();
@@ -95,11 +101,14 @@ private:
 
     std::string GetHeader() const;
 
-    std::string GetLegChangeStatus(const std::optional<Vector3>& past, const Vector3& current) const;
+    std::string GetLegChangeStatus(
+        const std::optional<Vector3>& past, const Vector3& current) const;
 
-    std::vector<SimulationResultRecord> result_list_;  //!< シミュレーション結果のリスト．
+    //! シミュレーション結果のリスト．
+    std::vector<SimulationResultRecord> result_list_;
 
-    const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;  //!< 計算機のポインタ．
+    //! 計算機のポインタ．
+    const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 };
 
 }  // namespace designlab

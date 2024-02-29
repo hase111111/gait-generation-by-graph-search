@@ -1,13 +1,15 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "result_file_exporter.h"
 
-#include <algorithm>
-#include <filesystem>
 #include <format>
 #include <map>
+
+#include <algorithm>
+#include <filesystem>
 
 #include <magic_enum.hpp>
 
@@ -24,7 +26,8 @@ namespace designlab
 namespace sf = ::std::filesystem;  // 長すぎるので，filesystemの名前空間を短縮する．
 
 
-const std::string ResultFileConst::kDirectoryPath = sf::current_path().string() + "\\result";
+const std::string ResultFileConst::kDirectoryPath =
+sf::current_path().string() + "\\" + "result";
 
 const std::string ResultFileConst::kLegDirectoryName = "leg_pos";
 
@@ -37,7 +40,11 @@ const std::string ResultFileConst::kDetailFileName = "simulation_result_detail";
 const std::string ResultFileConst::kSuccessfulCount = "simulation_successful_count";
 
 
-ResultFileExporter::ResultFileExporter(const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr) : calculator_ptr_(calculator_ptr) {}
+ResultFileExporter::ResultFileExporter(
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr) :
+    calculator_ptr_(calculator_ptr)
+{
+}
 
 
 void ResultFileExporter::CreateRootDirectory()
@@ -47,7 +54,9 @@ void ResultFileExporter::CreateRootDirectory()
     // 結果出力先フォルダがなければ作成する．
     if (!sf::exists(ResultFileConst::kDirectoryPath))
     {
-        CmdIOUtil::Output(std::format("結果出力先フォルダ {} が存在しないので作成します．", ResultFileConst::kDirectoryPath), kInfo);
+        CmdIOUtil::FormatOutput(kInfo,
+            "結果出力先フォルダ {} が存在しないので作成します．",
+            ResultFileConst::kDirectoryPath);
 
         sf::create_directory(ResultFileConst::kDirectoryPath);
     }
@@ -109,7 +118,9 @@ std::string ResultFileExporter::MakeOutputDirectory() const
     const auto input_result = CmdIOUtil::InputDirName();
 
     Stopwatch stopwatch;
-    const std::string folder_name = std::format("{}\\{}_{}", ResultFileConst::kDirectoryPath, input_result, stopwatch.GetNowTimeString());
+    const std::string folder_name = std::format("{}\\{}_{}",
+        ResultFileConst::kDirectoryPath,
+        input_result, stopwatch.GetNowTimeString());
 
     // 指定されたフォルダを作成する．
     if (!sf::exists(folder_name))
@@ -200,7 +211,7 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
             return;
         }
 
-        const auto recorder = result_list_[i];
+        const SimulationResultRecord recorder = result_list_[i];
 
         // 結果を出力する．
         ofs << recorder.ToCsvString() << std::endl;
@@ -555,7 +566,8 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
                 {
                     if (current_pos.z < past_pos.value().z)
                     {
-                        const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
+                        const Vector3 relay_point = { current_pos.x, current_pos.y, past_pos.value().z };
+
                         const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
 
                         // 接地時
@@ -583,11 +595,14 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
 
         ofs.close();
     }
-
 }
 
-void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(const std::string& path) const
+void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
+    const std::string& path) const
 {
+    using enum designlab::enums::OutputDetail;
+    using enum designlab::enums::SimulationResult;
+
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
 
@@ -596,14 +611,16 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(const std::strin
         sf::create_directory(leg_pos_dir_path);
     }
 
-    std::string output_file_name = std::format("{}\\all_simulation_all_leg.csv", leg_pos_dir_path);
+    std::string output_file_name =
+        std::format("{}\\all_simulation_all_leg.csv", leg_pos_dir_path);
 
     std::ofstream ofs(output_file_name);
 
     // ファイルが作成できなかった場合は，なにも出力しない．
     if (!ofs)
     {
-        CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+        CmdIOUtil::FormatOutput(kError,
+            "ファイル {} を作成できませんでした．", output_file_name);
         return;
     }
 
@@ -613,7 +630,7 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(const std::strin
     {
         for (int k = 0; k < result_list_.size(); ++k)
         {
-            if (result_list_[k].simulation_result != enums::SimulationResult::kSuccess) { continue; }
+            if (result_list_[k].simulation_result != kSuccess) { continue; }
 
             for (int l = 0; l < HexapodConst::kLegNum; ++l)
             {

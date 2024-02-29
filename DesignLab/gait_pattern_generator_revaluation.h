@@ -1,7 +1,8 @@
 ﻿
 //! @file      gait_pattern_generator_revaluation.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
@@ -28,8 +29,8 @@ public:
     //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの．
     //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの．
     GaitPatternGeneratorRevaluation(
-      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr,
+      std::unique_ptr<IGaitPatternGenerator>&& gpg_ptr,
+      std::unique_ptr<IGaitPatternGenerator>&& gpg_revaluation_ptr,
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator_ptr);
 
@@ -45,8 +46,8 @@ public:
 private:
     bool IsValidNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
-    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
-    const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_revaluation_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gpg_ptr_;
+    const std::unique_ptr<IGaitPatternGenerator> gpg_revaluation_ptr_;
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_ptr_;

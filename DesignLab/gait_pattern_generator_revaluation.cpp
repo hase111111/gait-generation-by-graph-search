@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "gait_pattern_generator_revaluation.h"
 
@@ -21,17 +22,17 @@ GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
     std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_revaluation_ptr,
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator_ptr) :
-    gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
-    gait_pattern_generator_revaluation_ptr_(std::move(gait_pattern_generator_revaluation_ptr)),
+    gpg_ptr_(std::move(gait_pattern_generator_ptr)),
+    gpg_revaluation_ptr_(std::move(gait_pattern_generator_revaluation_ptr)),
     converter_ptr_(converter_ptr),
     joint_calculator_ptr_(joint_calculator_ptr),
     interpolated_node_creator_{ converter_ptr }
 {
-    // gait_pattern_generator_ptr_ は nullptrでない．
-    assert(gait_pattern_generator_ptr_ != nullptr);
+    // gpg_ptr_ は nullptrでない．
+    assert(gpg_ptr_ != nullptr);
 
-    // gait_pattern_generator_revaluation_ptr_ は nullptrでない．
-    assert(gait_pattern_generator_revaluation_ptr_ != nullptr);
+    // gpg_revaluation_ptr_ は nullptrでない．
+    assert(gpg_revaluation_ptr_ != nullptr);
 
     // converter_ptr_ は nullptrでない．
     assert(converter_ptr_ != nullptr);
@@ -44,13 +45,13 @@ GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
   const RobotStateNode& current_node,
   const MapState& map_state,
   const RobotOperation& operation,
-  RobotStateNode* output_node
-)
+  RobotStateNode* output_node)
 {
     assert(output_node != nullptr);  // output_nodeは nullptrでない
 
     const GraphSearchResult result =
-        gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(current_node, map_state, operation, output_node);
+        gpg_ptr_->GetNextNodeByGraphSearch(
+            current_node, map_state, operation, output_node);
 
     if (result.result != enums::Result::kSuccess)
     {
@@ -66,7 +67,8 @@ GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
     }
 
     // 逆運動学計算で脚軌道生成が不可能な場合は，再評価を行う．
-    return gait_pattern_generator_revaluation_ptr_->GetNextNodeByGraphSearch(current_node, map_state, operation, output_node);
+    return gpg_revaluation_ptr_->GetNextNodeByGraphSearch(
+            current_node, map_state, operation, output_node);
 }
 
 bool GaitPatternGeneratorRevaluation::IsValidNode(
@@ -83,11 +85,13 @@ bool GaitPatternGeneratorRevaluation::IsValidNode(
     }
 
     // 次に補間ノードを生成する．
-    const std::vector<RobotStateNode> interpolated_node = interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node);
+    const std::vector<RobotStateNode> interpolated_node =
+        interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node);
 
     for (const auto& node : interpolated_node)
     {
-        const auto joint_interpolated = joint_calculator_ptr_->CalculateAllJointState(node);
+        const auto joint_interpolated =
+            joint_calculator_ptr_->CalculateAllJointState(node);
 
         if (!joint_calculator_ptr_->IsValidAllJointState(node, joint_interpolated))
         {

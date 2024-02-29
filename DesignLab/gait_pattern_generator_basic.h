@@ -1,7 +1,8 @@
 ﻿
 //! @file      gait_pattern_generator_basic.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
@@ -25,8 +26,8 @@ namespace designlab
 class GaitPatternGeneratorBasic final : public IGaitPatternGenerator
 {
 public:
-    //! @param[in] graph_tree_creator グラフ探索を行う木構造のグラフを作成するクラス．
-    //! unique_ptrで渡す．
+    //! @param[in] graph_tree_creator グラフ探索を行う木構造のグラフを
+    //! 作成するクラス．unique_ptrで渡す．
     //! @param[in] graph_searcher グラフ探索を行うクラス．unique_ptrで渡す．
     //! @param[in] max_depth グラフ探索の最大深さ．
     //! @param[in] max_node_num グラフ探索の最大ノード数．

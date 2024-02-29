@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_gait_pattern_generator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
 #define DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
@@ -23,7 +24,10 @@ namespace designlab
 //! @n 波東さんのプログラムで言うところのPassFindingクラス．
 //! 実体は作成できないのでこれを継承してたクラスを使うこと．
 //! @n 継承をするクラスのデストラクタは virtualにしておく．
-//! @n 参考 https://www.yunabe.jp/docs/cpp_virtual_destructor.html (アクセス日 2023/12/27)
+//!
+//! 参考
+//! @li C++ でデストラクタを virtual にしなくてはならない条件と理由
+//! https://www.yunabe.jp/docs/cpp_virtual_destructor.html (アクセス日 2023/12/27)
 class IGaitPatternGenerator
 {
 public:
@@ -32,7 +36,8 @@ public:
 
 
     //! @brief グラフ探索を行い，次の動作として最適なノードを返す．
-    //! @param[in] current_node 現在のロボットの状態を表すノード．親ノードを渡す必要がある．
+    //! @param[in] current_node 現在のロボットの状態を表すノード．
+    //! 親ノードを渡す必要がある．
     //! @param[in] map 現在のマップの状態．
     //! @param[in] operation ロボットの動作．
     //! @param[out] output_node_ptr 結果のノードを代入するポインタ．

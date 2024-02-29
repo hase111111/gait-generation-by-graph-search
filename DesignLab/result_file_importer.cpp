@@ -1,13 +1,15 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "result_file_importer.h"
 
-#include <filesystem>
 #include <format>
 #include <fstream>
 #include <sstream>
+
+#include <filesystem>
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
@@ -18,9 +20,9 @@ namespace fs = ::std::filesystem;
 namespace designlab
 {
 
-bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
-                                                   std::vector<RobotStateNode>* node_list,
-                                                   MapState* map_state) const
+bool ResultFileImporter::ImportNodeListAndMapState(
+    const std::string& file_path, std::vector<RobotStateNode>* node_list,
+    MapState* map_state) const
 {
     // 引数の確認．
     assert(node_list != nullptr);
@@ -32,7 +34,7 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
     // ファイルが存在するかどうかを確認．ないならば falseを返す．
     if (!fs::exists(file_path))
     {
-        CmdIOUtil::Output("NodeListファイルが存在しませんでした．", enums::OutputDetail::kError);
+        CmdIOUtil::ErrorOutput("The 'NodeList' file did not exist.");
         return false;
     }
 
@@ -46,16 +48,15 @@ bool ResultFileImporter::ImportNodeListAndMapState(const std::string& file_path,
 
     if (!fs::exists(map_file_path))
     {
-        CmdIOUtil::Output("MapStateファイルが存在しませんでした．",
-                          enums::OutputDetail::kError);
+        CmdIOUtil::ErrorOutput("The MapState file did not exist.");
         return false;
     }
 
 
-    if (!ImportNodeList(file_path, node_list) || !ImportMapState(map_file_path, map_state))
+    if (!ImportNodeList(file_path, node_list) ||
+        !ImportMapState(map_file_path, map_state))
     {
-        CmdIOUtil::Output("ファイル読み込み中にエラーが発生しました．",
-                          enums::OutputDetail::kError);
+        CmdIOUtil::ErrorOutput("An error occurred while loading the file.");
     }
 
     return true;
@@ -71,7 +72,7 @@ bool ResultFileImporter::ImportNodeList(
     // ファイルが開けないならば falseを返す．
     if (!ifs.is_open())
     {
-        CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kSystem);
+        CmdIOUtil::SystemOutput("Could not open the file.");
 
         return false;
     }
@@ -104,7 +105,8 @@ bool ResultFileImporter::ImportNodeList(
     return true;
 }
 
-bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* map_state) const
+bool ResultFileImporter::ImportMapState(
+    const std::string& file_path, MapState* map_state) const
 {
     assert(map_state != nullptr);
 
@@ -114,7 +116,7 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
     // ファイルが開けないならば falseを返す．
     if (!ifs.is_open())
     {
-        CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kSystem);
+        CmdIOUtil::SystemOutput("Could not open the file.");
 
         return false;
     }
@@ -148,8 +150,10 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path, MapState* 
         }
         catch (...)
         {
-            CmdIOUtil::Output(std::format("読み込むことのできない行があったため無視します．「{}」", ss.str()),
-                              enums::OutputDetail::kWarning);
+            CmdIOUtil::FormatOutput(
+                enums::OutputDetail::kWarning,
+                "読み込むことのできない行があったため無視します．「{}」",
+                ss.str());
         }
     }
 
