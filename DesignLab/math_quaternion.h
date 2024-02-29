@@ -24,32 +24,47 @@ namespace designlab
 //! @details クォータニオンは，スカラー成分とベクトル成分からなる．
 //! 四元数とも呼ばれる．
 //! @subsubsection 参考
-//! @li https://zenn.dev/mebiusbox/books/132b654aa02124/viewer/2966c7
-//! @li https://www.sports-sensing.com/brands/labss/motionmeasurement/motion_biomechanics/quaternion04.html#:~:text=%E3%82%AF%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%8B%E3%82%AA%E3%83%B3%EF%BC%88quaternion%EF%BC%89%E3%81%AF%E5%9B%9B%E5%85%83,%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E7%8F%BE%E3%81%97%E3%81%BE%E3%81%99%EF%BC%8E
-//! @li https://www.f-sp.com/entry/2017/06/30/221124
+//! @li Zenn クォータニオン
+//! https://zenn.dev/mebiusbox/books/132b654aa02124/viewer/2966c7
+//! ( アクセス日 2024/2/29 )
+//! @li SPORTS SENSING，運動計測概説>クォータニオン4：クォータニオンの演算
+//! https://www.sports-sensing.com/brands/labss/motionmeasurement/
+//! ( アクセス日 2024/2/29 )
+//! @li F_ クォータニオンと回転
+//! https://www.f-sp.com/entry/2017/06/30/221124
+//! ( アクセス日 2024/2/29 )
 struct Quaternion final
 {
     //! @brief 1 + {0,0,0}で初期化する，
     constexpr Quaternion() : w(1.0f), v(0.0f, 0.0f, 0.0f) {}
 
-    //! @brief スカラー成分とベクトル成分を指定して初期化する．ノルムが1になるように代入すること，
+    //! @brief スカラー成分とベクトル成分を指定して初期化する．
+    //! ノルムが1になるように代入すること，
     //! @n 使用は非推奨，MakeByAngleAxisを使うこと．
     //! @param[in] w_ スカラー成分．
     //! @param[in] x_ ベクトル成分のx成分．
     //! @param[in] y_ ベクトル成分のy成分．
     //! @param[in] z_ ベクトル成分のz成分．
-    constexpr Quaternion(const float w_, const float x_, const float y_, const float z_) :
-        w(w_), v(x_, y_, z_) {}
+    constexpr Quaternion(const float w_,
+        const float x_, const float y_, const float z_) :
+        w(w_),
+        v(x_, y_, z_) {}
 
-    //! @brief スカラー成分とベクトル成分を指定して初期化する．ノルムが1になるように代入すること，
+    //! @brief スカラー成分とベクトル成分を指定して初期化する．
+    //! ノルムが1になるように代入すること，
     //! @n 使用は非推奨，MakeByAngleAxisを使うこと．
     //! @param[in] w_ スカラー成分．
     //! @param[in] v_ ベクトル成分．
     constexpr Quaternion(const float w_, const Vector3& v_) : w(w_), v(v_) {}
 
-    constexpr Quaternion(const Quaternion& q) = default;            //!< コピーコンストラクタ．
-    constexpr Quaternion(Quaternion&& q) noexcept = default;        //!< ムーブコンストラクタ．
-    constexpr Quaternion& operator =(const Quaternion& q) = default;    //!< コピー代入演算子．
+    //! コピーコンストラクタ．
+    constexpr Quaternion(const Quaternion& q) = default;
+
+    //! ムーブコンストラクタ．
+    constexpr Quaternion(Quaternion&& q) noexcept = default;
+
+    //! コピー代入演算子．
+    constexpr Quaternion& operator =(const Quaternion& q) = default;
 
     constexpr Quaternion operator + () const noexcept { return *this; }
     constexpr Quaternion operator - () const noexcept { return { -w, -v }; }
@@ -84,42 +99,68 @@ struct Quaternion final
     {
         return (w < q.w) || (w == q.w && v < q.v);
     }
-    bool operator > (const Quaternion& other) const noexcept { return other < *this; }
-    bool operator <= (const Quaternion& other) const noexcept { return !(*this > other); }
-    bool operator >= (const Quaternion& other) const noexcept { return !(*this < other); }
+    bool operator > (const Quaternion& other) const noexcept
+    {
+        return other < *this;
+    }
+
+    bool operator <= (const Quaternion& other) const noexcept
+    {
+        return !(*this > other);
+    }
+
+    bool operator >= (const Quaternion& other) const noexcept
+    {
+        return !(*this < other);
+    }
 
 
     //! @brief クォータニオンの内積を返す．
     //! クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．
     //! @param[in] other 内積を求めるクォータニオン．
     //! @return 内積．
-    [[nodiscard]] constexpr float Dot(Quaternion other) const noexcept
+    [[nodiscard]]
+    constexpr float Dot(Quaternion other) const noexcept
     {
         return w * other.w + v.Dot(other.v);
     }
 
     //! @brief クォータニオンの共役を返す．
     //! 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの
-    //! @n q = w + xi + yj + zk とすると，qの共役は w - xi - yj - zk となる．回転は逆方向になる
+    //! @n q = w + xi + yj + zk とすると，
+    //! qの共役は w - xi - yj - zk となる．回転は逆方向になる
     //! @return 共役クォータニオン
-    [[nodiscard]] constexpr Quaternion GetConjugate() const noexcept { return { w, -v }; }
+    [[nodiscard]]
+    constexpr Quaternion GetConjugate() const noexcept { return { w, -v }; }
 
     //! @brief クォータニオンの長さの2乗を返す(ノルムの2乗)．
     //! @n クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．
     //! @return 長さの2乗．
-    [[nodiscard]] constexpr float GetLengthSquared() const noexcept { return w * w + v.Dot(v); }
+    [[nodiscard]]
+    constexpr float GetLengthSquared() const noexcept
+    {
+        return w * w + v.Dot(v);
+    }
 
     //! @brief クォータニオンのノルムを返す．
     //! @n ノルムとは，ベクトルの大きさのこと．
     //! クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．
     //! @return ノルム．
-    [[nodiscard]] inline float GetNorm() const noexcept { return std::sqrt(GetLengthSquared()); }
+    [[nodiscard]]
+    inline float GetNorm() const noexcept
+    {
+        return std::sqrt(GetLengthSquared());
+    }
 
     //! @brief クォータニオンの逆数を返す．
     //! @n クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの．
     //! @n q^-1 = q* / |q|^2
     //! @return 逆数．
-    [[nodiscard]] inline Quaternion GetInverse() const { return GetConjugate() * (1 / GetNorm()); }
+    [[nodiscard]]
+    inline Quaternion GetInverse() const
+    {
+        return GetConjugate() * (1 / GetNorm());
+    }
 
     //! @brief 正規化したクォータニオンを返す．
     //! @n クォータニオンの正規化とは，ノルムを1にすることを表す．
@@ -130,7 +171,8 @@ struct Quaternion final
     //! @brief 他のクォータニオンとの距離の2乗を返す．
     //! クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める．
     //! @return 距離の2乗．
-    [[nodiscard]] constexpr float GetDistanceSquared(const Quaternion& q) const noexcept
+    [[nodiscard]]
+    constexpr float GetDistanceSquared(const Quaternion& q) const noexcept
     {
         return (*this - q).GetLengthSquared();
     }
@@ -177,7 +219,8 @@ constexpr Quaternion operator * (float s, const Quaternion& q) { return q * s; }
 
 //! 出力ストリーム．
 template <class Char>
-inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Quaternion& q)
+inline std::basic_ostream<Char>& operator <<(
+    std::basic_ostream<Char>& os, const Quaternion& q)
 {
     os << math_util::FloatingPointNumToString(q.w) << Char(',') << q.v;
 
@@ -186,18 +229,21 @@ inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const
 
 //! 入力ストリーム．
 template <class Char>
-inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Quaternion& q)
+inline std::basic_istream<Char>& operator >>(
+    std::basic_istream<Char>& is, Quaternion& q)
 {
-    Char unused;
+    Char unused = 0;
     return is >> unused >> q.w >> unused >> q.v;
 }
 
 //! @brief 3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．
 //! @param[in] vec 回転させるベクトル．
 //! @param[in] q 回転させるクォータニオン．
-//! @n 正規化クォータニオンならば，共役と逆数が等しいので，計算量を減らすことができる．
+//! @n 正規化クォータニオンならば，共役と逆数が等しいので，
+//! 計算量を減らすことができる．
 //! @return 回転後のベクトル．
-[[nodiscard]] constexpr Vector3 RotateVector3(const Vector3& vec, const Quaternion& q)
+[[nodiscard]]
+constexpr Vector3 RotateVector3(const Vector3& vec, const Quaternion& q)
 {
     // 回転させるベクトルをスカラーが0のクオータニオンに変換．
     const Quaternion p{ 0, vec.x, vec.y, vec.z };

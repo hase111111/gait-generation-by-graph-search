@@ -22,8 +22,12 @@ namespace designlab
 //! @details
 //! 回転行列については以下の参考資料を確認すること．
 //! @subsubsection 参考
-//! @li https://w3e.kanazawa-it.ac.jp/math/category/gyouretu/senkeidaisu/henkan-tex.cgi?target=/math/category/gyouretu/senkeidaisu/rotation_matrix.html
-//! @li https://programming-surgeon.com/script/euler-angle/
+//! @li ３次元における回転座標変換行列
+//! https://rikei-tawamure.com/entry/2019/11/04/184049
+//! ( アクセス日 2024/2/29 )
+//! @li 回転角度と回転行列　オイラー角とは
+//! https://programming-surgeon.com/script/euler-angle/
+//! ( アクセス日 2024/2/29 )
 struct RotationMatrix3x3 final
 {
     //! @brief 単位行列を生成する．
@@ -87,8 +91,8 @@ struct RotationMatrix3x3 final
 //! @param[in] vec 回転させるベクトル．
 //! @param[in] rot 回転行列．
 //! @return 回転させたベクトル．
-[[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot);
-
+[[nodiscard]]
+Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot);
 
 }  // namespace designlab
 

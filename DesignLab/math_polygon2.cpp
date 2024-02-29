@@ -5,6 +5,7 @@
 
 #include "math_polygon2.h"
 
+#include "cassert_define.h"
 #include "math_util.h"
 
 
@@ -174,7 +175,8 @@ std::string Polygon2::ToString() const
 
     for (int i = 0; i < GetVertexNum(); ++i)
     {
-        res += "Vertex " + std::to_string(i) + " : " + GetVertex(i).ToString() + "\n";
+        res += "Vertex " + std::to_string(i) + " : " +
+            GetVertex(i).ToString() + "\n";
     }
 
     res += "Max X : " + math_util::FloatingPointNumToString(GetMaxX()) + "\n";

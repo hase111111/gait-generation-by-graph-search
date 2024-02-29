@@ -74,7 +74,9 @@ Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, const flo
     }
 
     const float theta = acosf(dot);  // 角度．
-    if (math_util::IsEqual(theta, 0.f)) { return q1; }  // 角度が0の場合は，q1を返す．
+
+    // 角度が0の場合は，q1を返す．
+    if (math_util::IsEqual(theta, 0.f)) { return q1; }
 
     const float sin_theta = sinf(theta);  // sin(θ)
     const float sin_theta_inv = 1 / sin_theta;  // 1 / sin(θ)

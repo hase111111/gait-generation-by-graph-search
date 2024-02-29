@@ -19,7 +19,9 @@ namespace designlab
 //! @brief 2次元の位置ベクトルを表す構造体．
 //! @details
 //! @subsubsection 参考
-//! @li https://qiita.com/Reputeless/items/96226cfe1282a014b147
+//! @li Vec2 クラスを作る 
+//! https://qiita.com/Reputeless/items/96226cfe1282a014b147
+//! ( アクセス日 2024/2/29 )
 //!
 //! 本当はテンプレート構造体にするべき．
 //! しかし，実用的に使用するのは2次元，3次元程度であるため，

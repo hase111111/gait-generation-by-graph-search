@@ -31,7 +31,9 @@ namespace designlab
 //! @n
 //! @n なお，コード中の max 関数，min関数については以下を参照．
 //! @subsubsection 参照
-//! @li https://cpprefjp.github.io/reference/algorithm/max.html
+//! @li cpprefjp std::max
+//!     https://cpprefjp.github.io/reference/algorithm/max.html
+//!     ( アクセス日 2024/2/29 )
 struct Polygon2 final
 {
     constexpr Polygon2() : vertex_num(0)
@@ -208,7 +210,8 @@ private:
 
 //! 出力ストリーム．
 template <class Char>
-inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Polygon2& poly)
+inline std::basic_ostream<Char>& operator <<(
+    std::basic_ostream<Char>& os, const Polygon2& poly)
 {
     os << poly.ToString();
 

@@ -32,7 +32,10 @@ struct LineSegment2 final
         return start == other.start && end == other.end;
     }
 
-    constexpr bool operator!=(const LineSegment2& other) const { return !(*this == other); }
+    constexpr bool operator!=(const LineSegment2& other) const
+    {
+        return !(*this == other);
+    }
 
 
     //! @brief 線分の長さを求める関数．
@@ -50,7 +53,8 @@ struct LineSegment2 final
     constexpr bool IsParallel(const LineSegment2& other) const
     {
         // 外積が0なら平行．
-        return math_util::IsEqual((end - start).Cross(other.end - other.start), 0.0f);
+        return math_util::IsEqual(
+            (end - start).Cross(other.end - other.start), 0.0f);
     }
 
     //! @brief 他の線分との交点を求める．
@@ -72,7 +76,8 @@ struct LineSegment2 final
     //! @param[out] intersection 交点．
     //! @retval true 交点が1つだけある．
     //! @retval false 交点がない，または線分が重なっていて交点が無限にある．
-    bool CheckAndGetIntersection(const LineSegment2& other, Vector2* intersection) const;
+    bool CheckAndGetIntersection(const LineSegment2& other,
+                                 Vector2* intersection) const;
 
 
     Vector2 start;  //!< 線分の始点．

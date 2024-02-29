@@ -31,11 +31,18 @@ namespace designlab
 //! 実行速度が大切なプロジェクトであるため，このように処理を記述する．
 //! @n
 //! @subsubsection 参考
-//! @li https://qiita.com/Reputeless/items/96226cfe1282a014b147
-//! @li https://qiita.com/KRiver1/items/ef7731467b5ca83850cb
-//! @li "細かい話"のコンストラクタの項 https://atcoder.jp/contests/apg4b/tasks/APG4b_ab?lang=ja
-//! @li 比較演算子の実装 https://programming.pc-note.net/cpp/operator2.html
-//! @li 衝突判定 http://marupeke296.com/COL_main.html
+//! @li C++、constexprのまとめ
+//! https://qiita.com/KRiver1/items/ef7731467b5ca83850cb
+//! ( アクセス日 2024/2/29 )
+//! @li AB - 3.04.構造体>細かい話>コンストラクタ
+//! https://atcoder.jp/contests/apg4b/tasks/APG4b_ab?lang=ja
+//! ( アクセス日 2024/2/29 )
+//! @li 非クラス関数による演算子オーバーロード
+//! https://programming.pc-note.net/cpp/operator2.html
+//! ( アクセス日 2024/2/29 )
+//! @li 衝突判定編
+//! http://marupeke296.com/COL_main.html
+//! ( アクセス日 2024/2/29 )
 struct Vector3 final
 {
     //!< デフォルトコンストラクタ．(0,0,0)で初期化される．

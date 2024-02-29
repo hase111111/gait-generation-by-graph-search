@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include <memory>
 
@@ -60,11 +61,14 @@ int main()
     TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
+        std::make_unique<ApplicationSettingRecordValidator>());
 
 
     // 読み込んだ設定ファイルをクラスに記録する．
-    const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));
+    const auto application_setting_record =
+        std::make_shared<const ApplicationSettingRecord>(
+            application_setting_importer.ImportOrUseDefault("./settings.toml"));
 
 
     // 次に，コマンドラインの出力を設定する．
@@ -72,10 +76,12 @@ int main()
     CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
 
     // タイトルを表示する．
-    CmdIOUtil::OutputTitle("グラフ探索による6脚歩行ロボットの自由歩容計画", true);
+    CmdIOUtil::OutputTitle("Free Gait Planning for a "
+                           "Hexapod Walking Robot by Graph Search", true);
 
 
-    // GUIを別のスレッドで実行する．このスレッドへはGraphicDataBrokerを通してデータを渡す．
+    // GUIを別のスレッドで実行する．
+    // このスレッドへはGraphicDataBrokerを通してデータを渡す．
     GraphicSystem graphic_system(application_setting_record);
 
     // グラフィックシステムを別スレッドで実行する．
