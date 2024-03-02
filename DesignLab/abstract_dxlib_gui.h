@@ -80,6 +80,8 @@ public:
         int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
 protected:
+    void DrawBackground(const std::string& str) const;
+
     std::vector<std::unique_ptr<SimpleButton>> button_;  //!< ボタンのリスト．
 
     static constexpr int kTitleBarHeight{ 32 };  //!< タイトルバーの高さ．
@@ -98,6 +100,8 @@ protected:
 
     int init_pos_x_{ 0 };  //!< SetされたGUIの左上のX座標．
     int init_pos_y_{ 0 };  //!< SetされたGUIの左上のY座標．
+
+    int font_handle_{ -1 };  //!< フォントハンドル．
 };
 
 }  // namespace designlab

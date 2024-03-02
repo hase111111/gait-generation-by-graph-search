@@ -5,14 +5,20 @@
 
 #include "abstract_dxlib_gui.h"
 
+#include <string>
+
 #include <DxLib.h>
+
+#include "font_loader.h"
 
 
 namespace designlab
 {
+
 AbstractDxlibGui::AbstractDxlibGui(int width, int height) :
     width_(width),
-    height_(height)
+    height_(height),
+    font_handle_(FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft"))
 {
 }
 
@@ -127,6 +133,48 @@ void AbstractDxlibGui::DraggedAction(
     SetPos(gui_left_pos_x_ + cursor_dif_x,
            gui_top_pos_y_ + cursor_dif_y,
            kDxlibGuiAnchorLeftTop);
+}
+
+void AbstractDxlibGui::DrawBackground(const std::string& str) const
+{
+    const unsigned int base_color = GetColor(255, 255, 255);
+    const unsigned int frame_color = GetColor(30, 30, 30);
+    const unsigned int alpha = 200;
+
+    const int frame_width = 1;
+
+    SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
+
+    DrawBox(gui_left_pos_x_ - frame_width,
+            gui_top_pos_y_ - frame_width,
+            gui_left_pos_x_ + width_ + frame_width,
+            gui_top_pos_y_ + height_ + frame_width,
+            frame_color, TRUE);
+    DrawBox(gui_left_pos_x_,
+            gui_top_pos_y_,
+            gui_left_pos_x_ + width_,
+            gui_top_pos_y_ + height_,
+            base_color, TRUE);
+
+    DrawBox(gui_left_pos_x_,
+            gui_top_pos_y_,
+            gui_left_pos_x_ + width_,
+            gui_top_pos_y_ + kTitleBarHeight,
+            base_color, TRUE);
+    DrawBox(gui_left_pos_x_ - frame_width,
+            gui_top_pos_y_ - frame_width,
+            gui_left_pos_x_ + width_ + frame_width,
+            gui_top_pos_y_ + kTitleBarHeight + frame_width,
+            frame_color, FALSE);
+
+
+    const int text_pos_x = gui_left_pos_x_ + 10;
+    const int text_pos_y = gui_top_pos_y_ + 10;
+    const unsigned int text_color = GetColor(10, 10, 10);
+    DrawFormatStringToHandle(
+        text_pos_x, text_pos_y, text_color, font_handle_, str.c_str());
+
+    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
 }  // namespace designlab

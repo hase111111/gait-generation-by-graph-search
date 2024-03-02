@@ -51,8 +51,6 @@ private:
         kGlobalPos,     //!< グローバル座標
     };
 
-    void DrawBackground() const;
-
     void DrawNodeInfo() const;
 
     void DrawJointInfo() const;
