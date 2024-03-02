@@ -1,7 +1,8 @@
 ﻿
 //! @file      graphic_const.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_CONST_H_
 #define DESIGNLAB_GRAPHIC_CONST_H_
@@ -26,11 +27,19 @@ public:
     GraphicConst& operator=(const GraphicConst& other) = delete;
 
     static const char kWindowName[];  //!< ウィンドウの名前．
-    static const int kColorBit;  //!< 色を表現するビット数．通常32で良いが軽くするなら16にする．
 
-    static const int kBackColorRed;     //!< ウィンドウ背景色． 赤色成分．0～255の範囲で指定．
-    static const int kBackColorGreen;   //!< ウィンドウ背景色． 緑色成分．0～255の範囲で指定．
-    static const int kBackColorBlue;    //!< ウィンドウ背景色． 青色成分．0～255の範囲で指定．
+    //! 色を表現するビット数．通常32で良いが軽くするなら16にする．
+    static const int kColorBit;
+
+
+    //! ウィンドウ背景色． 赤色成分．0～255の範囲で指定．
+    static const int kBackColorRed;
+
+    //! ウィンドウ背景色． 緑色成分．0～255の範囲で指定．
+    static const int kBackColorGreen;
+
+    //! ウィンドウ背景色． 青色成分．0～255の範囲で指定．
+    static const int kBackColorBlue;
 
     static const float kCameraToTargetMax;  //!< カメラと注視目標の最大距離．
     static const float kCameraToTargetMin;  //!< カメラと注視目標の最小距離．

@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "font_loader.h"
 

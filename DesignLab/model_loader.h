@@ -1,7 +1,8 @@
 ﻿
 //! @file      model_loader.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_MODEL_LOADER_H_
 #define DESIGNLAB_MODEL_LOADER_H_
@@ -36,7 +37,8 @@ class ModelLoader final : public Singleton<ModelLoader>
 {
 public:
     //! @brief Dxlibは3Dモデルを描画する際に，モデルのハンドルを指定する．
-    //! @n モデルがまだ読み込まれていない場合は，モデルを読み込んでから，ハンドル番号を返す．
+    //! @n モデルがまだ読み込まれていない場合は，
+    //! モデルを読み込んでから，ハンドル番号を返す．
     //! @n すでに読み込みずみのモデルを読み込んだ場合は，ハンドル番号を返す．
     //! @param[in] file_path モデルのファイルパス.
     //! @return モデルのハンドル番号．失敗したら-1を返す．成功値は正の値．

@@ -1,7 +1,8 @@
 ﻿
 //! @file      font_loader.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_FONT_LOADER_H_
 #define DESIGNLAB_FONT_LOADER_H_
@@ -19,7 +20,7 @@ namespace designlab
 //! @brief Dxlibのフォントを読み込むクラス．
 //! @details シングルトンクラスであり，FontLoader::GetIns()でインスタンスを取得する．
 //! @n 呼び出すときは以下のようにする．
-//! @code 
+//! @code
 //! //例
 //! int font_handle = FontLoader::GetIns()->GetFontHandle("font/consola.ttf");
 //!
@@ -30,8 +31,10 @@ class FontLoader final : public Singleton<FontLoader>
 {
 public:
     //! @brief Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する．
-    //! @n この関数では，フォントのファイルパスを指定すると，フォントのハンドル番号を返す．
-    //! @n フォントがまだ読み込まれていない場合は，フォントを読み込んでから，ハンドル番号を返す．
+    //! @n この関数では，フォントのファイルパスを指定すると，
+    //! フォントのハンドル番号を返す．
+    //! @n フォントがまだ読み込まれていない場合は，
+    //! フォントを読み込んでから，ハンドル番号を返す．
     //! @n すでに読み込みずみのフォントを読み込んだ場合は，ハンドル番号を返す．
     //! @attention コンストラクタでフォントの読み込みを行うと，
     //! Dxlibの初期化前に呼び出されるため，失敗する可能性がある．

@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "dxlib_util.h"
 
@@ -41,19 +42,28 @@ void SetZBufferEnable()
 }
 
 
-void DrawCube3D(const VECTOR& center_pos, const float side_len, const unsigned int color)
+void DrawCube3D(const VECTOR& center_pos,
+                const float side_len, const unsigned int color)
 {
     // 立方体は8つの頂点を持つので，それらの座標を計算する．
     const std::array<VECTOR, 8> vertex =
     {
-        VGet(center_pos.x - side_len / 2, center_pos.y - side_len / 2, center_pos.z - side_len / 2),
-        VGet(center_pos.x + side_len / 2, center_pos.y - side_len / 2, center_pos.z - side_len / 2),
-        VGet(center_pos.x + side_len / 2, center_pos.y - side_len / 2, center_pos.z + side_len / 2),
-        VGet(center_pos.x - side_len / 2, center_pos.y - side_len / 2, center_pos.z + side_len / 2),
-        VGet(center_pos.x - side_len / 2, center_pos.y + side_len / 2, center_pos.z - side_len / 2),
-        VGet(center_pos.x + side_len / 2, center_pos.y + side_len / 2, center_pos.z - side_len / 2),
-        VGet(center_pos.x + side_len / 2, center_pos.y + side_len / 2, center_pos.z + side_len / 2),
-        VGet(center_pos.x - side_len / 2, center_pos.y + side_len / 2, center_pos.z + side_len / 2)
+        VGet(center_pos.x - side_len / 2, center_pos.y - side_len / 2,
+             center_pos.z - side_len / 2),
+        VGet(center_pos.x + side_len / 2, center_pos.y - side_len / 2,
+             center_pos.z - side_len / 2),
+        VGet(center_pos.x + side_len / 2, center_pos.y - side_len / 2,
+             center_pos.z + side_len / 2),
+        VGet(center_pos.x - side_len / 2, center_pos.y - side_len / 2,
+             center_pos.z + side_len / 2),
+        VGet(center_pos.x - side_len / 2, center_pos.y + side_len / 2,
+             center_pos.z - side_len / 2),
+        VGet(center_pos.x + side_len / 2, center_pos.y + side_len / 2,
+             center_pos.z - side_len / 2),
+        VGet(center_pos.x + side_len / 2, center_pos.y + side_len / 2,
+             center_pos.z + side_len / 2),
+        VGet(center_pos.x - side_len / 2, center_pos.y + side_len / 2,
+             center_pos.z + side_len / 2)
     };
 
     // 3D描画の関数は3角形を基本単位とするので，
@@ -80,7 +90,8 @@ void DrawCube3D(const VECTOR& center_pos, const float side_len, const unsigned i
 }
 
 
-void DrawCube3DWithTopPos(const VECTOR& top_pos, const float side_len, const unsigned int color)
+void DrawCube3DWithTopPos(
+    const VECTOR& top_pos, const float side_len, const unsigned int color)
 {
     DrawCube3D(VSub(top_pos, VGet(0, 0, side_len / 2)), side_len, color);
 }

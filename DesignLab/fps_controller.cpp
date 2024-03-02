@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "fps_controller.h"
 
@@ -72,7 +73,8 @@ void FpsController::DrawFps() const
 {
     if (!TargetFpsIsValid())
     {
-        printfDx("FPS:%dは推奨されません．(FPSの調整は行われません．)\n", kTargetFpsValue);
+        printfDx("FPS:%dは推奨されません．(FPSの調整は行われません．)\n",
+                 kTargetFpsValue);
         return;
     }
 
@@ -114,7 +116,8 @@ bool FpsController::CheckNeedSkipDrawScreen(int* time) const
         return true;
     }
 
-    int actually_took_time = GetNowCount() - time_list_.back();  // 実際にかかった時間を求める．
+    // 実際にかかった時間を求める．
+    int actually_took_time = GetNowCount() - time_list_.back();
 
     // 計算上かかるべき時間 - 実際にかかった時間　はすなわち待つべき時間．
     int wait_time = kOneFrameTime - actually_took_time;

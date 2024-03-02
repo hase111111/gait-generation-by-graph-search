@@ -1,7 +1,8 @@
 ﻿
 //! @file      display_quality.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_DISPLAY_QUALITY_H_
 #define DESIGNLAB_DISPLAY_QUALITY_H_

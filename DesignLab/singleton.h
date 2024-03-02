@@ -1,7 +1,8 @@
 ﻿
 //! @file      singleton.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SINGLETON_H_
 #define DESIGNLAB_SINGLETON_H_
@@ -14,18 +15,20 @@ namespace designlab
 //! @brief Singletonクラス作成のためのテンプレートクラス．
 //! @details
 //! このクラスを継承すると Singleton クラスになる．
-//! Singleton クラスとは，C言語でいうところのグローバル変数（どこからでも変更できる変数）である．
+//! Singleton クラスとは，C言語でいうところのグローバル変数
+//! （どこからでも変更できる変数）である．
 //! 多用するとプログラムが複雑になりがちなので，グラフ探索では絶対に使わないこと．
-//! このプロジェクトでは画像表示クラスでキーボードとマウスの入力を管理するために使用している．
-//! @subsubsection 参考
-//! @li https://dixq.net/rp2/
+//!
+//! 参考
+//! @li 龍神録2プログラミングの館 https://dixq.net/rp2/ ( アクセス日 2024/3/2 )
 //! @see FontLoader
 template <typename _T>
 class Singleton
 {
 public:
     //! @brief インスタンスを取得する．
-    //! @n このクラスを継承したクラスは クラス名::getIns()-> の形式でメンバ関数を呼び出す．
+    //! @n このクラスを継承したクラスは
+    //! クラス名::getIns()-> の形式でメンバ関数を呼び出す．
     //! @return _T* インスタンスのポインタ．
     static _T* GetIns()
     {
