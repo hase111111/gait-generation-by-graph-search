@@ -19,7 +19,10 @@ namespace designlab
 {
 
 //! @class AbstractDxlibGui
-//! @brief Dxlibを使ったGUIの抽象クラス
+//! @brief Dxlibを使ったGUIの抽象クラス．
+//! @details
+//! このクラスは，Dxlibを使ったGUIの抽象クラスである．
+//! このクラスを継承して，GUIを作成する．
 class AbstractDxlibGui :
     public IDxlibGui,
     public IDxlibClickable,
