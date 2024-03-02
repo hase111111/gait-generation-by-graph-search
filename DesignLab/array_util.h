@@ -1,7 +1,8 @@
 ﻿
 //! @file      array_util.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_ARRAY_UTIL_H_
 #define DESIGNLAB_ARRAY_UTIL_H_

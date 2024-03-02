@@ -44,10 +44,11 @@ public:
     //! @brief コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．
     //! @param[in] window_x ウィンドウの横幅．
     //! @param[in] window_y ウィンドウの縦幅．
-    DxlibGuiRobotControl(int window_x, int window_y,
-                         const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-                         const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-                         const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+    DxlibGuiRobotControl(
+        int window_x, int window_y,
+        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+        const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+        const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
     ~DxlibGuiRobotControl();
 
@@ -58,10 +59,12 @@ public:
     //! @param[in] pos_y GUIのy座標．
     //! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．
     //! defaultでは左上を起点とする．
-    //! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する．defaultでは false．
-    //! trueを指定すると，GUIの位置を設定するだけでなく，GUIの初期位置を更新する．
+    //! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する．
+    //! defaultでは false．trueを指定すると，GUIの位置を設定するだけでなく，
+    //! GUIの初期位置を更新する．
     void SetPos(int pos_x, int pos_y,
-                unsigned int option = kDxlibGuiAnchorLeftTop, bool this_is_first_time = false);
+                unsigned int option = kDxlibGuiAnchorLeftTop,
+                bool this_is_first_time = false);
 
 
     void Update() override;
@@ -91,7 +94,8 @@ public:
         is_dragging_ = is_dragged;
     };
 
-    void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
+    void DraggedAction(
+        int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
 
     void SetNode(const RobotStateNode& node) override
     {
@@ -128,12 +132,19 @@ private:
 
     std::vector<std::unique_ptr<SimpleButton>> button_;  //!< ボタンのリスト．
 
-    std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;  //!< 座標変換を行うクラスへのポインタ．
-    std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;  //!< 順運動学を計算するクラスへのポインタ．
-    std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;  //!< 姿勢の妥当性を確認するクラスへのポインタ．
+    //! 座標変換を行うクラスへのポインタ．
+    std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+
+    //! 順運動学を計算するクラスへのポインタ．
+    std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
+
+    //! 姿勢の妥当性を確認するクラスへのポインタ．
+    std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
     SerialCommunicationThread serial_communication_;  //!< シリアル通信を行うクラス．
-    std::unique_ptr<boost::thread> serial_communication_thread_ptr_;  //!< シリアル通信を行うスレッドへのポインタ．
+
+    //!  シリアル通信を行うスレッドへのポインタ．
+    std::unique_ptr<boost::thread> serial_communication_thread_ptr_;
 
     const int kFontSize{ 16 };  //!< フォントのサイズ．
     const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };  //!< フォントへのパス．
