@@ -1,7 +1,8 @@
 ﻿
 //! @file      graphic_main_display_model.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
 #define DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
@@ -17,6 +18,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
+#include "keyboard.h"
 #include "map_state.h"
 #include "robot_state_node.h"
 
@@ -59,7 +61,10 @@ private:
     DividedMapState divided_map_state_;  //!< 分割したマップの状態を保持するクラス．
     RobotStateNode robot_;  //!< ロボットの状態．
 
-    int divided_map_tile_index_{ 0 };  //!< 脚を接地しているデバイドマップのインデックス．
+    Keyboard keyboard_;  //!< キーボードの入力を制御するクラス．
+
+    //!< 脚を接地しているデバイドマップのインデックス．
+    int divided_map_tile_index_{ 0 };
 };
 
 }  // namespace designlab

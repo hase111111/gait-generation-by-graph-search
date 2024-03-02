@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "application_setting_record.h"
+#include "keyboard.h"
 #include "robot_state_node.h"
 
 //! @todo 仮置きのはずが，本実装になっているので，後で直す
@@ -49,6 +50,7 @@ private:
 
     const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
+    Keyboard keyboard_;
 
     size_t* const display_node_index_ptr_;
 

@@ -33,6 +33,8 @@ void GraphViewerGUIController::Update()
     InputNumber();
     UpdateChildrenList();
     ChangeDisplayNodeIndex();
+
+    keyboard_.Update();
 }
 
 
@@ -201,7 +203,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 void GraphViewerGUIController::InputNumber()
 {
     // Cキーでリセット．
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) == 1)
+    if (keyboard_.GetPressingCount(KEY_INPUT_C) == 1)
     {
         input_number_ = -1;
         return;
@@ -210,43 +212,43 @@ void GraphViewerGUIController::InputNumber()
     // 数字入力．
     int input_number = -1;
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_0) == 1)
+    if (keyboard_.GetPressingCount(KEY_INPUT_0) == 1)
     {
         input_number = 0;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_1) == 1)
     {
         input_number = 1;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_2) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_2) == 1)
     {
         input_number = 2;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_3) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_3) == 1)
     {
         input_number = 3;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_4) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_4) == 1)
     {
         input_number = 4;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_5) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_5) == 1)
     {
         input_number = 5;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_6) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_6) == 1)
     {
         input_number = 6;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_7) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_7) == 1)
     {
         input_number = 7;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_8) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_8) == 1)
     {
         input_number = 8;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_9) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_9) == 1)
     {
         input_number = 9;
     }
@@ -273,27 +275,27 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
         return;
     }
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) == 1)
+    if (keyboard_.GetPressingCount(KEY_INPUT_DOWN) == 1)
     {
         (*display_node_index_ptr_)--;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_UP) == 1)
     {
         (*display_node_index_ptr_)++;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RETURN) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_RETURN) == 1)
     {
         (*display_node_index_ptr_) = input_number_;
         input_number_ = -1;
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) == 1)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_P) == 1)
     {
         if (graph_ptr_->size() > *display_node_index_ptr_)
         {
             (*display_node_index_ptr_) = graph_ptr_->at(*display_node_index_ptr_).parent_index;
         }
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) == 1 &&
+    else if (keyboard_.GetPressingCount(KEY_INPUT_LEFT) == 1 &&
              !children_list_.second.empty())
     {
         display_children_list_index_--;
@@ -307,7 +309,7 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
 
         (*display_node_index_ptr_) = children_list_.second.at(display_children_list_index_);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) == 1 &&
+    else if (keyboard_.GetPressingCount(KEY_INPUT_RIGHT) == 1 &&
              !children_list_.second.empty())
     {
         display_children_list_index_++;
@@ -339,7 +341,7 @@ void GraphViewerGUIController::UpdateChildrenList()
         return;
     }
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_U) == 1)
+    if (keyboard_.GetPressingCount(KEY_INPUT_U) == 1)
     {
         children_list_.first = static_cast<int>(*display_node_index_ptr_);
         children_list_.second.clear();

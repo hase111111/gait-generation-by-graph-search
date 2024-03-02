@@ -99,8 +99,8 @@ bool GraphicMainDisplayModel::Update()
 
     mouse_ptr_->Update();
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LSHIFT) > 0 ||
-        Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RSHIFT) > 0)
+    if (keyboard_.GetPressingCount(KEY_INPUT_LSHIFT) > 0 ||
+        keyboard_.GetPressingCount(KEY_INPUT_RSHIFT) > 0)
     {
         MoveBody();
     }
@@ -112,6 +112,8 @@ bool GraphicMainDisplayModel::Update()
     gui_updater_.Activate(mouse_ptr_);
 
     node_setter_group_.SetNode(robot_);
+
+    keyboard_.Update();
 
     return true;
 }
@@ -128,7 +130,7 @@ void GraphicMainDisplayModel::MoveBody()
 {
     const float kComSpeed = 1.1f;
 
-    if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
+    if (keyboard_.GetPressingCount(KEY_INPUT_Q) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -136,7 +138,7 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_E) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -144,7 +146,7 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_A) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -152,7 +154,7 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_D) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -160,7 +162,7 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_W) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -168,7 +170,7 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_S) > 0)
     {
         Vector3 com =
             robot_.center_of_mass_global_coord +
@@ -176,11 +178,11 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangeGlobalCenterOfMass(com, false);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_R) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_R) > 0)
     {
         float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
-        if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
+        if (keyboard_.GetPressingCount(KEY_INPUT_I) > 0)
         {
             angle_speed *= -1.f;
         }
@@ -190,11 +192,11 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangePosture(converter_ptr_, rot);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_P) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_P) > 0)
     {
         float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
-        if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
+        if (keyboard_.GetPressingCount(KEY_INPUT_I) > 0)
         {
             angle_speed *= -1.f;
         }
@@ -204,11 +206,11 @@ void GraphicMainDisplayModel::MoveBody()
 
         robot_.ChangePosture(converter_ptr_, rot);
     }
-    else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Y) > 0)
+    else if (keyboard_.GetPressingCount(KEY_INPUT_Y) > 0)
     {
         float angle_speed = kComSpeed / 360.0f * 2.f * std::numbers::pi_v<float>;
 
-        if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0)
+        if (keyboard_.GetPressingCount(KEY_INPUT_I) > 0)
         {
             angle_speed *= -1.f;
         }
@@ -226,33 +228,33 @@ void GraphicMainDisplayModel::MoveLeg()
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_1 + i) > 0)
+        if (keyboard_.GetPressingCount(KEY_INPUT_1 + i) > 0)
         {
-            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_Q) > 0)
+            if (keyboard_.GetPressingCount(KEY_INPUT_Q) > 0)
             {
                 robot_.leg_pos[i].z += kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_E) > 0)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_E) > 0)
             {
                 robot_.leg_pos[i].z -= kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_A) > 0)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_A) > 0)
             {
                 robot_.leg_pos[i].y += kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_D) > 0)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_D) > 0)
             {
                 robot_.leg_pos[i].y -= kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_W) > 0)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_W) > 0)
             {
                 robot_.leg_pos[i].x += kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_S) > 0)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_S) > 0)
             {
                 robot_.leg_pos[i].x -= kSpeed;
             }
-            else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_M) == 1)
+            else if (keyboard_.GetPressingCount(KEY_INPUT_M) == 1)
             {
                 Vector3 global =
                     converter_ptr_->ConvertLegToGlobalCoordinate(
@@ -265,19 +267,19 @@ void GraphicMainDisplayModel::MoveLeg()
                 int map_x = divided_map_state_.GetDividedMapIndexX(global.x);
                 int map_y = divided_map_state_.GetDividedMapIndexY(global.y);
 
-                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_UP) > 0)
+                if (keyboard_.GetPressingCount(KEY_INPUT_UP) > 0)
                 {
                     map_x++;
                 }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_DOWN) > 0)
+                else if (keyboard_.GetPressingCount(KEY_INPUT_DOWN) > 0)
                 {
                     map_x--;
                 }
-                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_LEFT) > 0)
+                if (keyboard_.GetPressingCount(KEY_INPUT_LEFT) > 0)
                 {
                     map_y++;
                 }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_RIGHT) > 0)
+                else if (keyboard_.GetPressingCount(KEY_INPUT_RIGHT) > 0)
                 {
                     map_y--;
                 }
@@ -292,9 +294,9 @@ void GraphicMainDisplayModel::MoveLeg()
                   map_pos, i, robot_.center_of_mass_global_coord, robot_.posture, true);
             }
 
-            if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0 ||
-                Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0 ||
-                Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
+            if (keyboard_.GetPressingCount(KEY_INPUT_C) > 0 ||
+                keyboard_.GetPressingCount(KEY_INPUT_F) > 0 ||
+                keyboard_.GetPressingCount(KEY_INPUT_T) > 0)
             {
                 std::array<HexapodJointState, HexapodConst::kLegNum> res =
                     calculator_ptr_->CalculateAllJointState(robot_);
@@ -303,10 +305,10 @@ void GraphicMainDisplayModel::MoveLeg()
                 float femur = res[i].joint_angle[1];
                 float tibia = res[i].joint_angle[2];
 
-                if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_C) > 0)
+                if (keyboard_.GetPressingCount(KEY_INPUT_C) > 0)
                 {
                     const float speed =
-                        Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ?
+                        keyboard_.GetPressingCount(KEY_INPUT_I) > 0 ?
                         kAngleSpeed : kAngleSpeed * -1.f;
 
                     coxa += speed;
@@ -317,9 +319,9 @@ void GraphicMainDisplayModel::MoveLeg()
                     coxa = PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMin >= coxa ?
                         PhantomXMkIIConst::kCoxaDefaultAngle[i] + PhantomXMkIIConst::kCoxaAngleMin : coxa;
                 }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_F) > 0)
+                else if (keyboard_.GetPressingCount(KEY_INPUT_F) > 0)
                 {
-                    const float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ?
+                    const float speed = keyboard_.GetPressingCount(KEY_INPUT_I) > 0 ?
                         kAngleSpeed : kAngleSpeed * -1.f;
 
                     femur += speed;
@@ -328,9 +330,9 @@ void GraphicMainDisplayModel::MoveLeg()
                     femur = PhantomXMkIIConst::kFemurAngleMax <= femur ? PhantomXMkIIConst::kFemurAngleMax : femur;
                     femur = PhantomXMkIIConst::kFemurAngleMin >= femur ? PhantomXMkIIConst::kFemurAngleMin : femur;
                 }
-                else if (Keyboard::GetIns()->GetPressingCount(KEY_INPUT_T) > 0)
+                else if (keyboard_.GetPressingCount(KEY_INPUT_T) > 0)
                 {
-                    float speed = Keyboard::GetIns()->GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
+                    float speed = keyboard_.GetPressingCount(KEY_INPUT_I) > 0 ? kAngleSpeed : kAngleSpeed * -1.f;
                     tibia += speed;
                     tibia = (femur + tibia - std::numbers::pi_v<float>) > 0 ? tibia - speed : tibia;
                     tibia = PhantomXMkIIConst::kTibiaAngleMax <= tibia ? PhantomXMkIIConst::kTibiaAngleMax : tibia;
@@ -340,20 +342,20 @@ void GraphicMainDisplayModel::MoveLeg()
                 Vector3 leg_pos;
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kCoxaLength* cos(coxa),
-                        PhantomXMkIIConst::kCoxaLength* sin(coxa),
+                    PhantomXMkIIConst::kCoxaLength * cos(coxa),
+                        PhantomXMkIIConst::kCoxaLength * sin(coxa),
                         0 };
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kFemurLength* cos(coxa)* cos(femur),
-                        PhantomXMkIIConst::kFemurLength* sin(coxa)* cos(femur),
-                        PhantomXMkIIConst::kFemurLength* sin(femur)
+                    PhantomXMkIIConst::kFemurLength * cos(coxa) * cos(femur),
+                        PhantomXMkIIConst::kFemurLength * sin(coxa) * cos(femur),
+                        PhantomXMkIIConst::kFemurLength * sin(femur)
                 };
 
                 leg_pos += Vector3{
-                    PhantomXMkIIConst::kTibiaLength* cos(coxa)* cos(femur + tibia),
-                        PhantomXMkIIConst::kTibiaLength* sin(coxa)* cos(femur + tibia),
-                        PhantomXMkIIConst::kTibiaLength* sin(femur + tibia)
+                    PhantomXMkIIConst::kTibiaLength * cos(coxa) * cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength * sin(coxa) * cos(femur + tibia),
+                        PhantomXMkIIConst::kTibiaLength * sin(femur + tibia)
                 };
 
                 robot_.leg_pos[i] = leg_pos;
