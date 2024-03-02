@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="abstract_dxlib_gui.h" />
     <ClInclude Include="application_setting_record_validator.h" />
     <ClInclude Include="approximated_motion_range_render.h" />
     <ClInclude Include="asyncable_data_test.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="world_grid_renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="abstract_dxlib_gui.cpp" />
     <ClCompile Include="application_setting_record_validator.cpp" />
     <ClCompile Include="approximated_motion_range_render.cpp" />
     <ClCompile Include="dxlib_3d_renderer_group.cpp" />

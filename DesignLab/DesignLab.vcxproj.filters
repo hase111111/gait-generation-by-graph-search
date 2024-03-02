@@ -666,6 +666,9 @@
     <ClInclude Include="node_creator_leg_hierarchy_test.h">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger\Test</Filter>
     </ClInclude>
+    <ClInclude Include="abstract_dxlib_gui.h">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -991,6 +994,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_builder_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="abstract_dxlib_gui.cpp">
+      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

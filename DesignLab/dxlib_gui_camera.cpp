@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "dxlib_gui_camera.h"
 
@@ -14,7 +15,8 @@
 namespace designlab
 {
 
-DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y, const std::shared_ptr<DxlibCamera> camera) :
+DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y,
+                               const std::shared_ptr<DxlibCamera> camera) :
     window_x_(window_x),
     window_y_(window_y),
     camera_(camera)
@@ -26,8 +28,10 @@ DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y, const std
     const int left_pos_x = gui_left_pos_x_ + button_range / 2 + 15;
     const int top_pos_y = gui_top_pos_y_ + button_range / 2 + 40;
 
-    button_.push_back(std::make_unique<SimpleButton>("Reset\nZoom", left_pos_x, top_pos_y, button_size, button_size));
-    button_.back()->SetActivateFunction([this]() { camera_->InitCameraTargetLength(); });
+    button_.push_back(std::make_unique<SimpleButton>(
+        "Reset\nZoom", left_pos_x, top_pos_y, button_size, button_size));
+    button_.back()->SetActivateFunction(
+        [this]() { camera_->InitCameraTargetLength(); });
 
     button_.push_back(std::make_unique<SimpleButton>("Front", left_pos_x + button_range, top_pos_y, button_size, button_size));
     button_.back()->SetActivateFunction([this]() { camera_->SetCameraViewMode(enums::CameraViewMode::kFrontView); });

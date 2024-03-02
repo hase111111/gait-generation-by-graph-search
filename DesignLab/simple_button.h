@@ -1,7 +1,8 @@
 ﻿
 //! @file      simple_button.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SIMPLE_BUTTON_H_
 #define DESIGNLAB_SIMPLE_BUTTON_H_
@@ -30,7 +31,8 @@ public:
     //! @param[in] y_pos ボタンのy座標．ボタンの中心座標．
     //! @param[in] x_size ボタンの横幅．
     //! @param[in] y_size ボタンの縦幅．
-    //! @param[in] fit_size ボタンのサイズをテキストに合わせるかどうか．defaultでは false．
+    //! @param[in] fit_size ボタンのサイズをテキストに合わせるかどうか．
+    //! defaultでは false．
     SimpleButton(const std::string& text,
                  int x_pos, int y_pos, int x_size, int y_size,
                  bool fit_size = false);
@@ -90,9 +92,11 @@ private:
     const int kFontSize{ 16 };  //!< フォントのサイズ
     const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };  //!< フォントへのパス
 
-    std::vector<std::string> text_;  //!< ボタンに書かれているテキスト，複数行に対応．
+    //! ボタンに書かれているテキスト，複数行に対応．
+    std::vector<std::string> text_;
 
-    int now_color_blue_{ 0 };  //!< クリック時，あるいはマウスが乗ったときにボタンの色を変える．
+    //! クリック時，あるいはマウスが乗ったときにボタンの色を変える．
+    int now_color_blue_{ 0 };
     int target_color_blue_{ 0 };  //!< そのための色の目標値と現在値．
 
     bool visible_{ true };  //!< ボタンの表示を行うかどうか．
@@ -100,7 +104,8 @@ private:
     int pos_middle_x, pos_middle_y;  //!< ボタンの座標，中心座標．
     const int kSizeX, kSizeY;  //!< ボタンの横幅と縦幅
 
-    std::function<void()> click_function_;  //!< ボタンがクリックされたときに実行される関数．
+    //! ボタンがクリックされたときに実行される関数．
+    std::function<void()> click_function_;
 };
 
 }  // namespace designlab
