@@ -1,7 +1,8 @@
 ﻿
 //! @file      dxlib_camera.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_DXLIB_CAMERA_H_
 #define DESIGNLAB_DXLIB_CAMERA_H_

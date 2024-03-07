@@ -1,7 +1,8 @@
 ﻿
 //! @file      camera_dragger.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_CAMERA_DRAGGER_H_
 #define DESIGNLAB_CAMERA_DRAGGER_H_
@@ -22,9 +23,11 @@ class CameraDragger final : public IDxlibDraggable, public IDxlibWheelHandler
 {
 public:
     //! @param[in] camera_manager カメラの状態を管理するクラスをポインタで受け取る．
-    CameraDragger(const std::shared_ptr<DxlibCamera> camera);
+    explicit CameraDragger(const std::shared_ptr<DxlibCamera> camera);
 
-    bool IsDraggable([[maybe_unused]] int cursor_x, [[maybe_unused]] int cursor_y) const override
+    bool IsDraggable(
+        [[maybe_unused]] int cursor_x,
+        [[maybe_unused]] int cursor_y) const override
     {
         // カメラの操作はどこをクリックしても可能．
         return true;
@@ -34,9 +37,13 @@ public:
 
     void SetDragged(bool is_dragged) override { is_dragged_ = is_dragged; };
 
-    void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override;
+    void DraggedAction(
+        int cursor_dif_x, int cursor_dif_y,
+        unsigned int mouse_key_bit) override;
 
-    bool CanHandleWheel([[maybe_unused]] int cursor_x, [[maybe_unused]] int cursor_y) const override
+    bool CanHandleWheel(
+        [[maybe_unused]] int cursor_x,
+        [[maybe_unused]] int cursor_y) const override
     {
         // カメラの操作はどこをクリックしても可能．
         return true;
@@ -51,9 +58,11 @@ private:
 
     const float kCameraTargetMoveSpeed{ 3.f };  //!< カメラの注視点の移動速度．
 
-    const double kMouseMoveMargin{ 0.5 };  //!< マウスの移動量がこの量以下ならば0とみなす．
+    //! マウスの移動量がこの量以下ならば0とみなす．
+    const double kMouseMoveMargin{ 0.5 };
 
-    const std::shared_ptr<DxlibCamera> camera_ptr_;  //!< カメラの状態を管理するクラスのポインタ．
+    //! カメラの状態を管理するクラスのポインタ．
+    const std::shared_ptr<DxlibCamera> camera_ptr_;
 
     bool is_dragged_{ false };  //!< ドラッグ中かどうかのフラグ．
 };

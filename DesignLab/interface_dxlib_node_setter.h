@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_dxlib_node_setter.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
 #define DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_

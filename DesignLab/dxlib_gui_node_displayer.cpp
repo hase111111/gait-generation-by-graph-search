@@ -33,7 +33,6 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     calculator_ptr_(calculator_ptr),
     checker_ptr_(checker_ptr),
     display_type_(DisplayMode::kDefualt),
-    font_handle_(FontLoader::GetIns()->GetFontHandle(kFontPath)),
     window_x_(pos_x),
     window_y_(pos_y)
 {
@@ -148,7 +147,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
 
     const int text_pos_x = gui_left_pos_x_ + 10;
     const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
-    const int text_interval_y = kFontSize + 4;
+    const int text_interval_y = 20;
 
     const std::array<std::string, HexapodConst::kLegNum> leg_name = {
         "右前", "右中", "右後", "左後", "左中", "左前" };
@@ -522,7 +521,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
     const unsigned int text_color = GetColor(10, 10, 10);
     const int text_pos_x = gui_left_pos_x_ + 10;
     const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
-    const int text_interval_y = kFontSize + 4;
+    const int text_interval_y = 20;
     const std::array<std::string, HexapodConst::kLegNum> leg_name = {
         "右前", "右中", "右後", "左後", "左中", "左前" };
 

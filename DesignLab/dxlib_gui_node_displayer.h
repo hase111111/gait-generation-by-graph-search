@@ -67,12 +67,10 @@ private:
     const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
     RobotStateNode display_node_;  //!< 表示するノード．
-    std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;  //!< 関節の角度．
-    DisplayMode display_type_;  //!< 表示する情報の種類．
 
-    const int kFontSize{ 16 };  //!< フォントのサイズ．
-    const std::string kFontPath{ "font/Yu_Gothic_UI.dft" };  //!< フォントへのパス．
-    int font_handle_;  //!< フォントのハンドル．
+    //! 関節の角度．
+    std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;
+    DisplayMode display_type_;  //!< 表示する情報の種類．
 
     //! GUIの右下座標．
     const int window_x_, window_y_;

@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_dxlib_wheel_handler.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
 #define DESIGNLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_

@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "graph_viewer_gui_controller.h"
 
@@ -19,8 +20,10 @@
 namespace designlab
 {
 
-GraphViewerGUIController::GraphViewerGUIController(const std::vector<RobotStateNode>* const p_graph, size_t* const p_display_node_index,
-                           const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+GraphViewerGUIController::GraphViewerGUIController(
+    const std::vector<RobotStateNode>* const p_graph,
+    size_t* const p_display_node_index,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     graph_ptr_(p_graph),
     display_node_index_ptr_(p_display_node_index),
     setting_ptr_(setting_ptr)
@@ -60,7 +63,8 @@ void GraphViewerGUIController::DrawGraphData() const
 
     // 枠
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-    DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
+    DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY,
+            kBaseColor, TRUE);
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
     const unsigned int kTextColor = GetColor(10, 10, 10);
@@ -68,22 +72,27 @@ void GraphViewerGUIController::DrawGraphData() const
     // テキスト
     if (graph_ptr_->size() == 0)
     {
-        DrawString(kBoxMinX + 10, kBoxMinY + 10, "ノード数 : 0", kTextColor);
-        DrawString(kBoxMinX + 10, kBoxMinY + 30, "グラフを生成してください", kTextColor);
+        DrawString(kBoxMinX + 10, kBoxMinY + 10,
+                   "ノード数 : 0", kTextColor);
+        DrawString(kBoxMinX + 10, kBoxMinY + 30,
+                   "グラフを生成してください", kTextColor);
     }
     else
     {
-        DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "総ノード数:%d", graph_ptr_->size());
-        DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "表示ノード:%d番", *display_node_index_ptr_);
+        DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor,
+                         "総ノード数:%d", graph_ptr_->size());
+        DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor,
+                         "表示ノード:%d番", *display_node_index_ptr_);
 
         // 深さごとのノードの数．
         for (size_t i = 0; i < graph_node_depth_data_.size(); i++)
         {
-            DrawFormatString(kBoxMinX + 10,
-                             kBoxMinY + 50 + 20 * static_cast<int>(i),
-                             kTextColor,
-                             "　(深さ%dのノード:%d)",
-                             static_cast<int>(i), static_cast<int>(graph_node_depth_data_.at(i)));
+            DrawFormatString(
+                kBoxMinX + 10,
+                kBoxMinY + 50 + 20 * static_cast<int>(i),
+                kTextColor,
+                "　(深さ%dのノード:%d)",
+                static_cast<int>(i), static_cast<int>(graph_node_depth_data_.at(i)));
         }
     }
 }
@@ -99,20 +108,43 @@ void GraphViewerGUIController::DrawNodeControlPanel() const
 
     // 枠
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-    DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY, kBaseColor, TRUE);
+    DrawBox(kBoxMinX, kBoxMinY,
+            kBoxMinX + kBoxSizeX, kBoxMinY + kBoxSizeY,
+            kBaseColor, TRUE);
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
     const unsigned int kTextColor = GetColor(10, 10, 10);
 
     // テキスト
-    DrawFormatString(kBoxMinX + 10, kBoxMinY + 10, kTextColor, "input ( C でクリア)");
-    if (input_number_ < 0) DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　数字を入力してください");
-    else DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor, "　%d", input_number_);
+    DrawFormatString(kBoxMinX + 10, kBoxMinY + 10,
+                     kTextColor, "input ( C でクリア)");
+
+    if (input_number_ < 0)
+    {
+        DrawFormatString(
+            kBoxMinX + 10, kBoxMinY + 30,
+            kTextColor, "　数字を入力してください");
+    }
+    else
+    {
+        DrawFormatString(
+            kBoxMinX + 10, kBoxMinY + 30,
+            kTextColor, "　%d", input_number_);
+    }
 
     if (graph_ptr_->size() > *display_node_index_ptr_)
     {
-        DrawFormatString(kBoxMinX + 10, kBoxMinY + 60, kTextColor, "%d番ノードの親ノード:%d番", *display_node_index_ptr_, graph_ptr_->at(*display_node_index_ptr_).parent_index);
-        DrawFormatString(kBoxMinX + 10, kBoxMinY + 90, kTextColor, "%d番ノードの子ノード数:%d個", children_list_.first, children_list_.second.size());
+        DrawFormatString(
+            kBoxMinX + 10, kBoxMinY + 60, kTextColor,
+            "%d番ノードの親ノード:%d番",
+            *display_node_index_ptr_,
+            graph_ptr_->at(*display_node_index_ptr_).parent_index);
+
+        DrawFormatString(
+            kBoxMinX + 10, kBoxMinY + 90, kTextColor,
+            "%d番ノードの子ノード数:%d個",
+            children_list_.first,
+            children_list_.second.size());
 
         std::string str = children_list_.second.size() == 0 ? "None" : "　";
 
@@ -132,18 +164,20 @@ void GraphViewerGUIController::DrawNodeControlPanel() const
             }
         }
 
-        DrawFormatString(kBoxMinX + 10, kBoxMinY + 110, kTextColor, "%d番ノードの子ノードリスト", children_list_.first);
+        DrawFormatString(
+            kBoxMinX + 10, kBoxMinY + 110,
+            kTextColor,
+            "%d番ノードの子ノードリスト", children_list_.first);
         DrawFormatString(kBoxMinX + 10, kBoxMinY + 130, kTextColor, str.c_str());
-        // DrawFormatString(kBoxMinX + 10, kBoxMinY + 230, kTextColor, "　(子ノードリストの更新は U )");
-        // DrawFormatString(kBoxMinX + 10, kBoxMinY + 250, kTextColor, "　(上下キーでノード移動)");
-        // DrawFormatString(kBoxMinX + 10, kBoxMinY + 270, kTextColor, "　(左右キーで表示する子ノード切り替え)");
-        // DrawFormatString(kBoxMinX + 10, kBoxMinY + 290, kTextColor, "　(Zキーでカメラ表示を切り替え)");
     }
 }
 
 
 void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 {
+    using leg_func::GetDiscreteComPos;
+    using leg_func::GetDiscreteLegPos;
+
     const int kBoxSizeX = 400;
     const int KBoxSizeY = 300;
     const int kBoxMinX = setting_ptr_->window_size_x - 25 - kBoxSizeX;
@@ -153,7 +187,11 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
     // 枠．
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
-    DrawBox(kBoxMinX, kBoxMinY, kBoxMinX + kBoxSizeX, kBoxMinY + KBoxSizeY, kBoxColor, TRUE);
+
+    DrawBox(
+        kBoxMinX, kBoxMinY,
+        kBoxMinX + kBoxSizeX, kBoxMinY + KBoxSizeY, kBoxColor, TRUE);
+
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
     // テキスト．
@@ -164,13 +202,28 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
     int text_line = 0;
 
-    DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "重心：%d，脚位置：%d,%d,%d,%d,%d,%d", leg_func::GetDiscreteComPos(node.leg_state),
-             leg_func::GetDiscreteLegPos(node.leg_state, 0), leg_func::GetDiscreteLegPos(node.leg_state, 1), leg_func::GetDiscreteLegPos(node.leg_state, 2),
-             leg_func::GetDiscreteLegPos(node.leg_state, 3), leg_func::GetDiscreteLegPos(node.leg_state, 4), leg_func::GetDiscreteLegPos(node.leg_state, 5));
+    DrawFormatString(
+        kTextXPos,
+        kTextYMinPos + kTextYInterval * (text_line++),
+        kTextColor,
+        "重心：%d，脚位置：%d,%d,%d,%d,%d,%d",
+        GetDiscreteComPos(node.leg_state),
+        GetDiscreteLegPos(node.leg_state, 0),
+        GetDiscreteLegPos(node.leg_state, 1),
+        GetDiscreteLegPos(node.leg_state, 2),
+        GetDiscreteLegPos(node.leg_state, 3),
+        GetDiscreteLegPos(node.leg_state, 4),
+        GetDiscreteLegPos(node.leg_state, 5));
 
     // 重心を表示する．
-    DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-             "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)", node.center_of_mass_global_coord.x, node.center_of_mass_global_coord.y, node.center_of_mass_global_coord.z);
+    DrawFormatString(
+        kTextXPos,
+        kTextYMinPos + kTextYInterval * (text_line++),
+        kTextColor,
+        "重心位置(x:%5.3f,y:%5.3f,z:%5.3f)",
+        node.center_of_mass_global_coord.x,
+        node.center_of_mass_global_coord.y,
+        node.center_of_mass_global_coord.z);
 
     // 遊脚か接地脚か．
     std::string str = "";
@@ -185,18 +238,35 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
             str += "遊脚,";
         }
     }
-    DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor, "脚の状態：%s", str.c_str());
+
+    DrawFormatString(
+        kTextXPos,
+        kTextYMinPos + kTextYInterval * (text_line++),
+        kTextColor,
+        "脚の状態：%s",
+        str.c_str());
 
     // 脚の位置を表示する．
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-                 "%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)", i, node.leg_pos[i].x, node.leg_pos[i].y, node.leg_pos[i].z);
+        DrawFormatString(
+            kTextXPos,
+            kTextYMinPos + kTextYInterval * (text_line++),
+            kTextColor,
+            "%d番脚の位置(x:%5.3f,y:%5.3f,z:%5.3f)",
+            i, node.leg_pos[i].x,
+            node.leg_pos[i].y,
+            node.leg_pos[i].z);
     }
 
     // 深さと次の動作を表示する．
-    DrawFormatString(kTextXPos, kTextYMinPos + kTextYInterval * (text_line++), kTextColor,
-             "深さ：%d, 次の動作 : %s", node.depth, static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
+    DrawFormatString(
+        kTextXPos,
+        kTextYMinPos + kTextYInterval * (text_line++),
+        kTextColor,
+        "深さ：%d, 次の動作 : %s",
+        node.depth,
+        static_cast<std::string>(magic_enum::enum_name(node.next_move)).c_str());
 }
 
 
@@ -292,7 +362,8 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
     {
         if (graph_ptr_->size() > *display_node_index_ptr_)
         {
-            (*display_node_index_ptr_) = graph_ptr_->at(*display_node_index_ptr_).parent_index;
+            (*display_node_index_ptr_) =
+                graph_ptr_->at(*display_node_index_ptr_).parent_index;
         }
     }
     else if (keyboard_.GetPressingCount(KEY_INPUT_LEFT) == 1 &&
@@ -302,12 +373,15 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
 
         if (display_children_list_index_ < 0)
         {
-            display_children_list_index_ = static_cast<int>(children_list_.second.size()) - 1;
+            display_children_list_index_ =
+                static_cast<int>(children_list_.second.size()) - 1;
         }
 
-        display_children_list_index_ = display_children_list_index_ < 0 ? 0 : display_children_list_index_;
+        display_children_list_index_ =
+            (display_children_list_index_ < 0) ? 0 : display_children_list_index_;
 
-        (*display_node_index_ptr_) = children_list_.second.at(display_children_list_index_);
+        (*display_node_index_ptr_) =
+            children_list_.second.at(display_children_list_index_);
     }
     else if (keyboard_.GetPressingCount(KEY_INPUT_RIGHT) == 1 &&
              !children_list_.second.empty())
@@ -319,7 +393,8 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex()
             display_children_list_index_ = 0;
         }
 
-        (*display_node_index_ptr_) = children_list_.second.at(display_children_list_index_);
+        (*display_node_index_ptr_) =
+            children_list_.second.at(display_children_list_index_);
     }
 
 
@@ -369,7 +444,8 @@ void GraphViewerGUIController::UpdateGraphNodeDepthData()
 
         for (size_t i = 0; i < graph_ptr_->size(); ++i)
         {
-            graph_node_depth_data_.at(static_cast<size_t>(graph_ptr_->at(i).depth))++;
+            const auto index = static_cast<size_t>(graph_ptr_->at(i).depth);
+            graph_node_depth_data_.at(index)++;
         }
     }
 }

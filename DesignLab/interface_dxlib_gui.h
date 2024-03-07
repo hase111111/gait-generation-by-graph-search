@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_dxlib_gui.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_DXLIB_GUI_H_
 #define DESIGNLAB_INTERFACE_DXLIB_GUI_H_
@@ -17,15 +18,32 @@ constexpr unsigned int kDxlibGuiAnchorTop = 1 << 3;
 constexpr unsigned int kDxlibGuiAnchorMiddleY = 1 << 4;
 constexpr unsigned int kDxlibGuiAnchorBottom = 1 << 5;
 
-constexpr unsigned int kDxlibGuiAnchorLeftTop = kDxlibGuiAnchorLeft | kDxlibGuiAnchorTop;
-constexpr unsigned int kDxlibGuiAnchorLeftMiddleY = kDxlibGuiAnchorLeft | kDxlibGuiAnchorMiddleY;
-constexpr unsigned int kDxlibGuiAnchorLeftBottom = kDxlibGuiAnchorLeft | kDxlibGuiAnchorBottom;
-constexpr unsigned int kDxlibGuiAnchorMiddleXTop = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorTop;
-constexpr unsigned int kDxlibGuiAnchorMiddleXMiddleY = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorMiddleY;
-constexpr unsigned int kDxlibGuiAnchorMiddleXBottom = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorBottom;
-constexpr unsigned int kDxlibGuiAnchorRightTop = kDxlibGuiAnchorRight | kDxlibGuiAnchorTop;
-constexpr unsigned int kDxlibGuiAnchorRightMiddleY = kDxlibGuiAnchorRight | kDxlibGuiAnchorMiddleY;
-constexpr unsigned int kDxlibGuiAnchorRightBottom = kDxlibGuiAnchorRight | kDxlibGuiAnchorBottom;
+constexpr unsigned int
+kDxlibGuiAnchorLeftTop = kDxlibGuiAnchorLeft | kDxlibGuiAnchorTop;
+
+constexpr unsigned int
+kDxlibGuiAnchorLeftMiddleY = kDxlibGuiAnchorLeft | kDxlibGuiAnchorMiddleY;
+
+constexpr unsigned int
+kDxlibGuiAnchorLeftBottom = kDxlibGuiAnchorLeft | kDxlibGuiAnchorBottom;
+
+constexpr unsigned int
+kDxlibGuiAnchorMiddleXTop = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorTop;
+
+constexpr unsigned int
+kDxlibGuiAnchorMiddleXMiddleY = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorMiddleY;
+
+constexpr unsigned int
+kDxlibGuiAnchorMiddleXBottom = kDxlibGuiAnchorMiddleX | kDxlibGuiAnchorBottom;
+
+constexpr unsigned int
+kDxlibGuiAnchorRightTop = kDxlibGuiAnchorRight | kDxlibGuiAnchorTop;
+
+constexpr unsigned int
+kDxlibGuiAnchorRightMiddleY = kDxlibGuiAnchorRight | kDxlibGuiAnchorMiddleY;
+
+constexpr unsigned int
+kDxlibGuiAnchorRightBottom = kDxlibGuiAnchorRight | kDxlibGuiAnchorBottom;
 
 
 //! @class IDxlibGui

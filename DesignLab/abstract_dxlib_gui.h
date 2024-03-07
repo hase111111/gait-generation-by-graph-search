@@ -8,6 +8,7 @@
 #define DESIGNLAB_ABSTRACT_DXLIB_GUI_H_
 
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "interface_dxlib_clickable.h"

@@ -1,7 +1,8 @@
 ﻿
 //! @file      graph_viewer_gui_controller.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
 #define DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
@@ -56,7 +57,9 @@ private:
 
     //! 子ノードのリスト．
     std::pair<int, std::vector<int>> children_list_ = { -1, {} };
-    int display_children_list_index_ = 0;  //!< 表示する子ノードのリストのインデックス．
+
+    //! 表示する子ノードのリストのインデックス．
+    int display_children_list_index_ = 0;
 
     std::vector<int> graph_node_depth_data_;  //!< 各深さごとのノード数のデータ．
     int input_number_ = -1;  //!< 入力された数値．
