@@ -50,7 +50,7 @@ public:
         // ファイルが開けなかったら何もしない．
         if (!ofs)
         {
-            CmdIOUtil::Output("TOMLファイルの出力に失敗しました．file_path : " + file_path,
+            CmdIOUtil::Output("Failed to output TOML file. File_path : " + file_path,
                               enums::OutputDetail::kSystem);
             return;
         }
@@ -59,7 +59,7 @@ public:
 
         ofs.close();  // ファイルを閉じる．
 
-        CmdIOUtil::Output("TOMLファイルを出力しました．file_path : " + file_path,
+        CmdIOUtil::Output("TOML files are output. File_path : " + file_path,
                           enums::OutputDetail::kSystem);
     }
 
@@ -79,7 +79,10 @@ private:
 
         for (const auto& s : split_str)
         {
-            if (s.size() != 0 && s[0] == '#' && past_first_char != '#' && past_first_char != ' ')
+            if (s.size() != 0 &&
+                s[0] == '#' &&
+                past_first_char != '#' &&
+                past_first_char != ' ')
             {
                 res_str += "\n";
             }

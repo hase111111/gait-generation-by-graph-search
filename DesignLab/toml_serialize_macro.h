@@ -1,11 +1,13 @@
 ﻿
 //! @file      toml_serialize_macro.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
 //! @details
 //! TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
-//! もともとのほうでは enum型を取り扱うことができなかったが，このマクロでは取り扱うことができる．
+//! もともとのほうでは enum型を取り扱うことができなかったが，
+//! このマクロでは取り扱うことができる．
 //! また，クラスの説明を追加することができる．
 
 #ifndef DESIGNLAB_TOML_SERIALIZE_MACRO_H_
@@ -32,7 +34,8 @@
 //! @namespace designlab::toml_func
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うための関数群．
 //! @details
-//! ここで定義されている関数は，tomlファイルのシリアライズ/デシリアライズを行うための関数である．
+//! ここで定義されている関数は，
+//! tomlファイルのシリアライズ/デシリアライズを行うための関数である．
 //! @n 他のファイルから呼び出すことを想定していないので，
 //! このように奥まった名前空間に配置している．
 //! @n C#の internal がC++にもあればこのような処理を書かなくともすむが，
@@ -47,7 +50,11 @@ struct Toml11Description final
     //! テーブルがない場合に指定する文字列．
     static const char kNoTable[];
 
-    Toml11Description(const std::string& t, const std::string& d) : table_name(t), description(d) {}
+    Toml11Description(const std::string& t, const std::string& d) :
+        table_name(t),
+        description(d)
+    {
+    }
 
     std::string table_name;  //!< テーブル名．
     std::string description;  //!< 説明，tomlファイルにはコメントとして追加される．
@@ -125,7 +132,8 @@ typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
 template <typename T, typename Enable = void>
 struct GetTomlValueImpl;
 
-//! @brief tomlファイルから値を取得するための関数を特殊化するために暗黙的に呼ばれる構造体．
+//! @brief tomlファイルから値を取得するための関数を
+//! 特殊化するために暗黙的に呼ばれる構造体．
 //! @tparam T toml11に対応している型．
 //! @details 型の条件によって，Get関数を特殊化する．
 //! @see GetTomlValue
