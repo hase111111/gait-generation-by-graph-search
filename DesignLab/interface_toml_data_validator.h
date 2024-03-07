@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_toml_data_validator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
 #define DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_

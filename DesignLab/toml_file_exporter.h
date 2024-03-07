@@ -1,7 +1,8 @@
 ﻿
 //! @file      toml_file_exporter.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_TOML_FILE_EXPORTER_H_
 #define DESIGNLAB_TOML_FILE_EXPORTER_H_
@@ -24,7 +25,8 @@ namespace designlab
 //! @class TomlFileExporter
 //! @brief TOMLファイルを出力するテンプレートクラス．
 //! @tparam T 出力するデータの型．
-//! 条件として，デフォルトコンストラクタを持つことと，toml::into<T>()が定義されていることが必要．
+//! 条件として，デフォルトコンストラクタを持つことと，
+//! toml::into<T>()が定義されていることが必要．
 template <typename T, typename = std::enable_if_t<
     std::is_default_constructible_v<T>&& impl::has_into_toml<T>::value> >
 class TomlFileExporter final
