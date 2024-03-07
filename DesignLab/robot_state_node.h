@@ -1,7 +1,8 @@
 ﻿
 //! @file      robot_state_node.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_ROBOT_STATE_NODE_H_
 #define DESIGNLAB_ROBOT_STATE_NODE_H_
@@ -33,7 +34,8 @@ namespace designlab
 //! @n すなわちロボットの現在の状態を表している．
 //! しかし，脚の関節角度など一部の情報を持ってはいない．
 //! @n これは実時間内に，グラフ探索を終えるための工夫である．
-//! @n 先行研究のプログラムに比べて大きく内容を変更したが，基本的な構造は同じである．
+//! @n 先行研究のプログラムに比べて大きく内容を変更したが，
+//! 基本的な構造は同じである．
 //! また，ロボットの座標系は通例，進行方向をXの正，ロボットの真上をZの正，
 //! y軸は右手座標系でとる．
 //! このプログラムもそのように統一する．
@@ -91,16 +93,20 @@ struct RobotStateNode final
 
     //! @brief 重心位置を変更する関数．
     //! @param[in] new_com 新しい重心位置．グローバル座標系．
-    //! @param[in] do_change_leg_base_pos 遊脚中の脚の接地基準地点の座標を変更するかどうか
+    //! @param[in] do_change_leg_base_pos
+    //! 遊脚中の脚の接地基準地点の座標を変更するかどうか
     //! @details 脚位置は脚の付け根からの相対座標で表現されている．
-    //! @n 遊脚している脚は一緒に移動するが，接地脚は移動しないため座標を変更してやる必要がある．
+    //! @n 遊脚している脚は一緒に移動するが，
+    //! 接地脚は移動しないため座標を変更してやる必要がある．
     void ChangeGlobalCenterOfMass(const designlab::Vector3& new_com,
                                   bool do_change_leg_base_pos);
 
     //! @brief クォータニオンを変更し，胴体を回転させる関数．
+    //! @param[in] converter_ptr 座標変換クラスのポインタ．
     //! @param[in] new_posture 新しい姿勢．単位クォータニオン．
-    void ChangePosture(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-                    const designlab::Quaternion& new_posture);
+    void ChangePosture(
+        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+        const designlab::Quaternion& new_posture);
 
     //! @brief 自身を根ノードに変更する関数．
     //! @n depthを0に，parent_numを-1に初期化する．
@@ -115,8 +121,9 @@ struct RobotStateNode final
     //! @n 深さを一つ深くして，親と次の動作を設定する．
     //! @param[in] parent_index_ 親ノードの番号.
     //! @param[in] next_move_ 次の動作．
-    constexpr void ChangeToNextNode(const int parent_index_,
-                                    const enums::HexapodMove next_move_)
+    constexpr void ChangeToNextNode(
+        const int parent_index_,
+        const enums::HexapodMove next_move_)
     {
         ++depth;
         parent_index = parent_index_;
@@ -157,16 +164,27 @@ struct RobotStateNode final
         for (int i = 0; i < HexapodConst::kLegNum; i++)
         {
             if (leg_pos[i] != other.leg_pos[i]) { return false; }
-            // if (leg_reference_pos[i] != other.leg_reference_pos[i]) { return false; }
+
+            // if (leg_reference_pos[i] != other.leg_reference_pos[i])
+            // {
+            //  return false;
+            // }
         }
 
-        if (center_of_mass_global_coord != other.center_of_mass_global_coord) { return false; }
+        if (center_of_mass_global_coord != other.center_of_mass_global_coord)
+        {
+            return false;
+        }
+
         if (posture != other.posture) { return false; }
 
         return true;
     }
 
-    constexpr bool operator != (const RobotStateNode& other) { return !(*this == other); }
+    constexpr bool operator != (const RobotStateNode& other)
+    {
+        return !(*this == other);
+    }
 
 
     //! [4 byte] 脚状態，重心パターンを bitで表す．旧名 leg_con．
@@ -186,10 +204,12 @@ struct RobotStateNode final
     Quaternion posture;
 
 
-    //! [4 byte] 次の動作を代入する．元のプログラムでは int debug が担っていた仕事を行う．
+    //! [4 byte] 次の動作を代入する．
+    //! 元のプログラムでは int debug が担っていた仕事を行う．
     enums::HexapodMove next_move;
 
-    //! [4 byte] 自身の親が vector 配列のどこにいるのかを記録する．親がいないなら負の値をとる．
+    //! [4 byte] 自身の親が vector 配列のどこにいるのかを記録する．
+    //! 親がいないなら負の値をとる．
     int parent_index;
 
     //! [4 byte] 自身の深さ．一番上の親が深さ0となる．
@@ -198,7 +218,8 @@ struct RobotStateNode final
 
 
 template <class Char>
-std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const RobotStateNode& value)
+std::basic_ostream<Char>& operator <<(
+    std::basic_ostream<Char>& os, const RobotStateNode& value)
 {
     os << value.leg_state.to_string() << ",";
 

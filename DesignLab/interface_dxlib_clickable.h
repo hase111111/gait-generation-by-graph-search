@@ -15,6 +15,10 @@
 namespace designlab
 {
 
+//! @struct DxlibMouseState
+//! @brief マウスの状態を表す構造体．
+//! @details IDxlibClickable に渡される．
+//! パラメータが大量にあるため，構造体にまとめている．
 struct DxlibMouseState final
 {
     //! マウスカーソルのX座標．左端を0とし，右に正の値をとる．

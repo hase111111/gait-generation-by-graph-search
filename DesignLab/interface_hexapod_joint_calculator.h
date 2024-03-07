@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_hexapod_joint_calculator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
@@ -79,13 +80,16 @@ public:
         const int leg_index, const Vector3& leg_pos) const noexcept = 0;
 
     //! @brief HexapodJointStateが正しく計算できているかを調べる．
-    //! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値は false になる．
+    //! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，
+    //! 戻り値は false になる．
     //! @param[in] node ノードの情報．
     //! @param[in] joint_state 関節の状態．
     //! @return 計算が正しくできているならば true を返す．
     [[nodiscard]]
-    bool IsValidAllJointState(const RobotStateNode& node,
-      const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state) const noexcept
+    bool IsValidAllJointState(
+        const RobotStateNode& node,
+        const std::array<HexapodJointState, HexapodConst::kLegNum>& joint_state)
+        const noexcept
     {
         for (int i = 0; i < HexapodConst::kLegNum; i++)
         {
@@ -99,14 +103,16 @@ public:
     }
 
     //! @brief 指定した脚のHexapodJointStateが正しく計算できているかを調べる．
-    //! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値は false になる．
+    //! @n 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，
+    //! 戻り値は false になる．
     //! @param[in] leg_index 脚のインデックス．
     //! @param[in] leg_pos 脚先座標，脚座標系．
     //! @param[in] joint_state 関節の状態．
     //! @return 計算が正しくできているならば true を返す．
     [[nodiscard]]
-    virtual bool IsValidJointState(const int leg_index, const Vector3& leg_pos,
-                                   const HexapodJointState& joint_state) const noexcept = 0;
+    virtual bool IsValidJointState(
+        const int leg_index, const Vector3& leg_pos,
+        const HexapodJointState& joint_state) const noexcept = 0;
 };
 
 }  // namespace designlab

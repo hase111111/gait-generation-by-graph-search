@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_hexapod_posture_validator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_POSTURE_VALIDATOR_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_POSTURE_VALIDATOR_H_
@@ -19,7 +20,8 @@ namespace designlab
 {
 
 //! @class IHexapodPostureValidator
-//! @brief 6脚ロボットが有効な姿勢をとっているかをチェックする処理のインターフェース．
+//! @brief 6脚ロボットが有効な姿勢をとっているかを
+//! チェックする処理のインターフェース．
 class IHexapodPostureValidator
 {
 public:
@@ -61,7 +63,8 @@ public:
         const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const = 0;
 
     //! @brief 安定余裕(Stability Margin)を計算する．
-    //! 詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい．
+    //! 詳しくは「不整地における歩行機械の静的安定性評価基準」
+    //! という論文を読んで欲しい．
     //! @n 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．
     //! @param[in] leg_state 脚の状態．bitで表現される，遊脚・接地脚の情報を持つ．
     //! @param[in] leg_pos 脚座標系における脚先の座標の配列．

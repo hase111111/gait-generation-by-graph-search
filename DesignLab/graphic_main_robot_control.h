@@ -1,12 +1,14 @@
 ﻿
-//! @file      graphic_main_robot_control.h
-//! @author    hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+/// @file      graphic_main_robot_control.h
+/// @author    hasegawa
+/// @copyright (C) 2023 Design Engineering Laboratory,
+/// Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
 #define DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
 
 #include <memory>
+#include <vector>
 
 #include "application_setting_record.h"
 #include "divided_map_state.h"
@@ -27,14 +29,17 @@
 namespace designlab
 {
 
+//! @class GraphicMainRobotControl
+//! @brief ロボットの制御を行うGUIの処理，描画を行うクラス．
 class GraphicMainRobotControl final : public IGraphicMain
 {
 public:
-    GraphicMainRobotControl(const std::shared_ptr<GraphicDataBroker>& broker,
-                            const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-                            const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-                            const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-                            const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
+    GraphicMainRobotControl(
+        const std::shared_ptr<GraphicDataBroker>& broker,
+        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+        const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+        const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+        const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
     ~GraphicMainRobotControl() = default;
 
 
@@ -61,8 +66,8 @@ private:
 
     const std::shared_ptr<MapRenderer> map_renderer_;  //!< マップを描画するクラス．
 
-    int graph_update_count_{ 0 };
-    int map_update_count_{ 0 };
+    int graph_update_count_{ 0 };  //!< グラフの更新回数．
+    int map_update_count_{ 0 };  //!< マップの更新回数．
 };
 
 }  // namespace designlab

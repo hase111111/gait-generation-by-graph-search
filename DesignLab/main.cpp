@@ -504,7 +504,7 @@ int main()
 //! C++には constexprという機能があり，これを使うとコンパイル時に定数を計算してくれるため，
 //! 実行時の負荷が減る．
 //! 使用可能であるならばこれを使うべき．
-//! @see PhantomXMkIIConst
+//! @see designlab::PhantomXMkIIConst
 //!
 //! @anchor anchor_array
 //! @section ●配列について

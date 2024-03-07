@@ -36,6 +36,10 @@ inline VECTOR ConvertToDxlibVec(const Vector3& vec)
     return VGet(vec.x, -vec.y, vec.z);
 }
 
+//! @brief このプログラムで使用しているMatrixを，
+//! Dxlibの行列を示すMATRIXに変換する．
+//! @param[in] mat 変換前の行列．
+//! @return 変換後の行列．
 inline MATRIX ConvertToDxlibMat(const RotationMatrix3x3& mat)
 {
     return {

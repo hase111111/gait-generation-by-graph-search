@@ -1,11 +1,13 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #include "phantomx_mk2.h"
 
-#include <cmath>
 #include <numbers>
+
+#include <cmath>
 
 #include "cassert_define.h"
 #include "math_line_segment2.h"
@@ -118,9 +120,9 @@ HexapodJointState PhantomXMkII::CalculateJointState(
         {
             // そもそも脚先が脚の付け根から届かない場合，一番近い位置まで脚を伸ばす．
 
-            const float angle_ft =
-                std::atan2(leg_pos.z - femur_joint_pos.z,
-                           (leg_pos.ProjectedXY() - femur_joint_pos.ProjectedXY()).GetLength());
+            const float angle_ft = std::atan2(
+                leg_pos.z - femur_joint_pos.z,
+                (leg_pos.ProjectedXY() - femur_joint_pos.ProjectedXY()).GetLength());
 
             // angle_ftの位相を180度回転する．-180度～180度の範囲にする．
             float angle_ft_phase = angle_ft + std::numbers::pi_v<float>;
@@ -730,7 +732,7 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
     }
 
     return res;
-                }
+}
 
 std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMinLegPosXY() const
 {
@@ -758,4 +760,4 @@ std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMaxLegPosXY() const
     return res;
 }
 
-            }  // namespace designlab
+}  // namespace designlab
