@@ -202,7 +202,8 @@ struct GetTomlValueImpl<T,
     static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v,
                  const std::string& var_str)
     {
-        std::vector<std::string> str_vec = toml::find<std::vector<std::string>>(*v, var_str);
+        std::vector<std::string> str_vec =
+            toml::find<std::vector<std::string>>(*v, var_str);
 
         T temp{};
 
@@ -220,13 +221,15 @@ struct GetTomlValueImpl<T,
 };
 
 //! @brief ユーザーが直接呼ぶ関数．
-//! GetTomlValueImpl を利用してテンプレートの型を解決し，それに応じたGet関数を呼び出す．
+//! GetTomlValueImpl を利用してテンプレートの型を解決し，
+//! それに応じたGet関数を呼び出す．
 //! @tparam T 取得する値の型．
 //! @param[in] v tomlファイルのデータ．
 //! @param[in] var_str 取得する変数の名前．
 //! @return 取得した値．
 template <typename T>
-T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map> v, const std::string& var_str)
+T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map> v,
+               const std::string& var_str)
 {
     return GetTomlValueImpl<T>::Get(&v, var_str);
 }
@@ -235,63 +238,70 @@ T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map> v, const s
 
 
 //! @def DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE
-//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
+//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．
+//! 他のファイルから呼び出さないこと．
 //! @n tomlファイルからクラスのメンバ変数を取得する．
 //! @param VAR_NAME 変数名．
-#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)                             \
-{                                                                                                 \
-  const std::string table_str = desc.VAR_NAME.table_name;                                         \
-                                                                                                  \
-  if (table_str == ::designlab::toml_func::Toml11Description::kNoTable) {                         \
-    obj.VAR_NAME =                                                                                \
-        ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(v_,                          \
-                                                                     TOML11_STRINGIZE(VAR_NAME)); \
-  }                                                                                               \
-  else                                                                                            \
-  {                                                                                               \
-    obj.VAR_NAME =                                                                                \
-        ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(v_[table_str],               \
-                                                                     TOML11_STRINGIZE(VAR_NAME)); \
-  }                                                                                               \
+#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)      \
+{                                                                          \
+    const std::string table_str = desc.VAR_NAME.table_name;                \
+                                                                           \
+    if (table_str == ::designlab::toml_func::Toml11Description::kNoTable)  \
+    {                                                                      \
+        obj.VAR_NAME =                                                     \
+            ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(  \
+                v_,                                                        \
+                TOML11_STRINGIZE(VAR_NAME));                               \
+    }                                                                      \
+    else                                                                   \
+    {                                                                      \
+        obj.VAR_NAME =                                                     \
+            ::designlab::toml_func::GetTomlValue<decltype(obj.VAR_NAME)>(  \
+                v_[table_str],                                             \
+                TOML11_STRINGIZE(VAR_NAME));                               \
+    }                                                                      \
 }
 
 
 
 //! @def DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE
-//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
+//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．
+//! 他のファイルから呼び出さないこと．
 //! @n クラスのメンバ変数を tomlファイルに追加する．
-//! @param VAR_NAME 変数名．
-#define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME)                   \
-if (desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::kNoTable) {  \
-  if (v.count(desc.VAR_NAME.table_name) == 0)                                           \
-  {                                                                                     \
-    v[desc.VAR_NAME.table_name] = toml::table{};                                        \
-  }                                                                                     \
-                                                                                        \
-  ::designlab::toml_func::SetTomlValue(&v[desc.VAR_NAME.table_name],                    \
-    TOML11_STRINGIZE(VAR_NAME), obj.VAR_NAME);                                          \
-}                                                                                       \
-else                                                                                    \
-{                                                                                       \
-    ::designlab::toml_func::SetTomlValue(&v, TOML11_STRINGIZE(VAR_NAME), obj.VAR_NAME); \
+//! @param VAR 変数名．
+#define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR)                  \
+if (desc.VAR.table_name != ::designlab::toml_func::Toml11Description::kNoTable) { \
+    if (v.count(desc.VAR.table_name) == 0)                                        \
+    {                                                                             \
+        v[desc.VAR.table_name] = toml::table{};                                   \
+    }                                                                             \
+                                                                                  \
+    ::designlab::toml_func::SetTomlValue(&v[desc.VAR.table_name],                 \
+        TOML11_STRINGIZE(VAR), obj.VAR);                                          \
+}                                                                                 \
+else                                                                              \
+{                                                                                 \
+    ::designlab::toml_func::SetTomlValue(                                         \
+        &v, TOML11_STRINGIZE(VAR), obj.VAR);                                      \
 }
 
 
 //! @def DESIGNLAB_SUB_MACRO_ADD_COMMENT
-//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．他のファイルから呼び出さないこと．
-//! @n tomlファイルの要素にクラスの説明を追加する．もし，説明の用意がなければ説明を追加しない．
-//! @param VAR_NAME 変数名．
-#define DESIGNLAB_SUB_MACRO_ADD_COMMENT(VAR_NAME)                                       \
-if (desc.VAR_NAME.description != "") {                                                  \
-  if (desc.VAR_NAME.table_name != ::designlab::toml_func::Toml11Description::kNoTable)  \
-  {                                                                                     \
-    v[desc.VAR_NAME.table_name][#VAR_NAME].comments().                                  \
-      push_back(desc.VAR_NAME.description);                                             \
-  }                                                                                     \
-  else                                                                                  \
-  {                                                                                     \
-    v[#VAR_NAME].comments().push_back(desc.VAR_NAME.description);                       \
-  }                                                                                     \
+//! @brief DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ．
+//! 他のファイルから呼び出さないこと．
+//! @n tomlファイルの要素にクラスの説明を追加する．
+//! もし，説明の用意がなければ説明を追加しない．
+//! @param VN 変数名．
+#define DESIGNLAB_SUB_MACRO_ADD_COMMENT(VN)                                        \
+if (desc.VN.description != "") {                                                   \
+    if (desc.VN.table_name != ::designlab::toml_func::Toml11Description::kNoTable) \
+    {                                                                              \
+        v[desc.VN.table_name][#VN].comments().push_back(desc.VN.description);      \
+    }                                                                              \
+    else                                                                           \
+    {                                                                              \
+        v[#VN].comments().push_back(desc.VN.description);                          \
+    }                                                                              \
 }
 
 
@@ -345,7 +355,9 @@ const std::vector<std::string> table_name_description_vec = {};
 //! @param TABLE テーブル名．
 //! @param DESCRIPTION 説明．
 #define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION) \
-const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, sjis_to_utf8(DESCRIPTION)}
+const ::designlab::toml_func::Toml11Description VARIABLE{                       \
+    TABLE, sjis_to_utf8(DESCRIPTION)                                            \
+}
 
 //! @def DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION
 //! @brief ファイルの説明を追加したくない場合には，このマクロで変数を追加する．
@@ -363,7 +375,8 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! @def DESIGNLAB_TOML11_SERIALIZE
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
 //! @n TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
-//! @n もともとのほうでは enum型を取り扱うことができなかったが，このマクロでは取り扱うことができる．
+//! @n もともとのほうでは enum型を取り扱うことができなかったが，
+//! このマクロでは取り扱うことができる．
 //! @n また，クラスの説明を追加することができる．
 //! @n 注意点として，このクラスを使用する場合は，
 //! 必ずDESIGNLAB_TOML11_DESCRIPTION_CLASSを用意する必要がある．
@@ -393,8 +406,10 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //!     "enum", "This is Enum Table.");
 //!
 //!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(data, "number", "This is data");
-//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(str, DESIGNLAB_TOML11_NO_TABLE, "This is str");
-//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(enum_data, "enum", "This is enum_data");
+//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+//!         str, DESIGNLAB_TOML11_NO_TABLE, "This is str");
+//!     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+//!         enum_data, "enum", "This is enum_data");
 //! };
 //!
 //! DESIGNLAB_TOML11_SERIALIZE(Sample, data, str, enum_data);
@@ -402,57 +417,60 @@ const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, ""}
 //! @param NAME クラス名．クラスの型を指定する．
 //! @param ... クラスのメンバ変数．過不足なく，全て指定する必要がある．
 //! 可変長引数なので複数指定することができる．
-#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)                                                   \
-namespace toml                                                                                  \
-{                                                                                               \
-template<>                                                                                      \
-struct from<NAME>                                                                               \
-{                                                                                               \
-  static_assert(std::is_class<NAME>::value,                                                     \
-    "第1引数はクラスか構造体である必要があります．");                                           \
-  static_assert(std::is_default_constructible<NAME>::value,                                     \
-    "第1引数はデフォルトコンストラクタを持つ必要があります．");                                 \
-                                                                                                \
-  template<typename C, template<typename ...> class T,                                          \
-       template<typename ...> class A>                                                          \
-  static NAME from_toml(basic_value<C, T, A>& v)                                                \
-  {                                                                                             \
-    ::toml::basic_value<toml::preserve_comments, std::map> v_ = v;                              \
-    NAME obj;                                                                                   \
-    NAME##Description desc;                                                                     \
-    TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)   \
-    return obj;                                                                                 \
-  }                                                                                             \
-};                                                                                              \
-                                                                                                \
-template<>                                                                                      \
-struct into<NAME>                                                                               \
-{                                                                                               \
-  static value into_toml(const NAME& obj)                                                       \
-  {                                                                                             \
-    ::toml::basic_value<toml::preserve_comments, std::map> v = ::toml::table{};                 \
-                                                                                                \
-    NAME##Description desc;                                                                     \
-                                                                                                \
-    for (const auto i : desc.file_description_vec)                                              \
-    {                                                                                           \
-      v.comments().push_back(i);                                                                \
-    }                                                                                           \
-                                                                                                \
-    for (int i = 0; i < desc.table_name_description_vec.size(); ++i)                            \
-    {                                                                                           \
-      v[desc.table_name_description_vec[i]] = ::toml::table{};                                  \
-      v[desc.table_name_description_vec[i]].comments().                                         \
-        push_back(desc.table_name_description_vec[i + 1]);                                      \
-      ++i;                                                                                      \
-    }                                                                                           \
-                                                                                                \
-    TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE, __VA_ARGS__)   \
-    TOML11_FOR_EACH_VA_ARGS(DESIGNLAB_SUB_MACRO_ADD_COMMENT, __VA_ARGS__)                       \
-    return v;                                                                                   \
-  }                                                                                             \
-};                                                                                              \
-                                                                                                \
+#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)                                   \
+namespace toml                                                                  \
+{                                                                               \
+template<>                                                                      \
+struct from<NAME>                                                               \
+{                                                                               \
+  static_assert(std::is_class<NAME>::value,                                     \
+    "第1引数はクラスか構造体である必要があります．");                           \
+  static_assert(std::is_default_constructible<NAME>::value,                     \
+    "第1引数はデフォルトコンストラクタを持つ必要があります．");                 \
+                                                                                \
+  template<typename C, template<typename ...> class T,                          \
+       template<typename ...> class A>                                          \
+  static NAME from_toml(basic_value<C, T, A>& v)                                \
+  {                                                                             \
+    ::toml::basic_value<toml::preserve_comments, std::map> v_ = v;              \
+    NAME obj;                                                                   \
+    NAME##Description desc;                                                     \
+    TOML11_FOR_EACH_VA_ARGS(                                                    \
+        DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)       \
+    return obj;                                                                 \
+  }                                                                             \
+};                                                                              \
+                                                                                \
+template<>                                                                      \
+struct into<NAME>                                                               \
+{                                                                               \
+  static value into_toml(const NAME& obj)                                       \
+  {                                                                             \
+    ::toml::basic_value<toml::preserve_comments, std::map> v = ::toml::table{}; \
+                                                                                \
+    NAME##Description desc;                                                     \
+                                                                                \
+    for (const auto i : desc.file_description_vec)                              \
+    {                                                                           \
+      v.comments().push_back(i);                                                \
+    }                                                                           \
+                                                                                \
+    for (int i = 0; i < desc.table_name_description_vec.size(); ++i)            \
+    {                                                                           \
+      v[desc.table_name_description_vec[i]] = ::toml::table{};                  \
+      v[desc.table_name_description_vec[i]].comments().                         \
+        push_back(desc.table_name_description_vec[i + 1]);                      \
+      ++i;                                                                      \
+    }                                                                           \
+                                                                                \
+    TOML11_FOR_EACH_VA_ARGS(                                                    \
+        DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE, __VA_ARGS__)       \
+    TOML11_FOR_EACH_VA_ARGS(                                                    \
+        DESIGNLAB_SUB_MACRO_ADD_COMMENT, __VA_ARGS__)                           \
+    return v;                                                                   \
+  }                                                                             \
+};                                                                              \
+                                                                                \
 }  // namespace toml
 
 
