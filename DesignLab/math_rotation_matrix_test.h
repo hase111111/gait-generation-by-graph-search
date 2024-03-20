@@ -95,7 +95,7 @@ TEST_SUITE("RotationMatrix3x3")
     {
         using designlab::math_util::ConvertDegToRad;
 
-        const float angle = ConvertDegToRad(30.0f);
+        constexpr float angle = ConvertDegToRad(30.0f);
 
         const RotationMatrix3x3 rot_mat = RotationMatrix3x3::CreateRotationMatrixX(angle);
 
@@ -119,7 +119,7 @@ TEST_SUITE("RotationMatrix3x3")
     {
         using designlab::math_util::ConvertDegToRad;
 
-        const float angle = ConvertDegToRad(30.0f);
+        constexpr float angle = ConvertDegToRad(30.0f);
 
         const RotationMatrix3x3 rot_mat = RotationMatrix3x3::CreateRotationMatrixY(angle);
 
@@ -143,7 +143,7 @@ TEST_SUITE("RotationMatrix3x3")
     {
         using designlab::math_util::ConvertDegToRad;
 
-        const float angle = ConvertDegToRad(30.0f);
+        constexpr float angle = ConvertDegToRad(30.0f);
 
         const RotationMatrix3x3 rot_mat = RotationMatrix3x3::CreateRotationMatrixZ(angle);
 
