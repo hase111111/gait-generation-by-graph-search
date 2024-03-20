@@ -1,7 +1,8 @@
 ﻿
 //! @file      phantomx_mk2.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_PHANTOMX_MK2_H_
 #define DESIGNLAB_PHANTOMX_MK2_H_
@@ -28,11 +29,12 @@ public:
     explicit PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record);
 
 
-    HexapodJointState CalculateJointState(const int leg_index,
-                                          const Vector3& leg_pos) const noexcept override;
+    HexapodJointState CalculateJointState(
+        const int leg_index, const Vector3& leg_pos) const noexcept override;
 
-    bool IsValidJointState(const int leg_index, const Vector3& leg_pos,
-                           const HexapodJointState& joint_state) const noexcept override;
+    bool IsValidJointState(
+        const int leg_index, const Vector3& leg_pos,
+        const HexapodJointState& joint_state) const noexcept override;
 
 
     Vector3 ConvertGlobalToLegCoordinate(
@@ -50,9 +52,11 @@ public:
         const Vector3& center_of_mass_global, const Quaternion& robot_quat,
         const bool consider_rot) const override;
 
-    Vector3 ConvertRobotToLegCoordinate(const Vector3& converted_position, int leg_index) const;
+    Vector3 ConvertRobotToLegCoordinate(
+        const Vector3& converted_position, int leg_index) const;
 
-    Vector3 ConvertLegToRobotCoordinate(const Vector3& converted_position, int leg_index) const;
+    Vector3 ConvertLegToRobotCoordinate(
+        const Vector3& converted_position, int leg_index) const;
 
 
     Vector3 GetFreeLegPosLegCoordinate(int leg_index) const noexcept override;
@@ -66,7 +70,8 @@ public:
 
     bool IsLegInRange(int leg_index, const Vector3& leg_pos) const override;
 
-    bool IsLegInterfering(const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
+    bool IsLegInterfering(
+        const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
     float CalculateStabilityMargin(const leg_func::LegStateBit& leg_state,
       const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
@@ -74,8 +79,9 @@ public:
     bool IsStable(const leg_func::LegStateBit& leg_state,
       const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const override;
 
-    bool IsBodyInterferingWithGround(const RobotStateNode& node,
-                                     const DividedMapState& devide_map) const override;
+    bool IsBodyInterferingWithGround(
+        const RobotStateNode& node,
+        const DividedMapState& devide_map) const override;
 
 private:
     static constexpr int kMaxLegRSize{ 200 };   //!< kMaxLegRの配列のサイズ．

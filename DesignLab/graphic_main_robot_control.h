@@ -42,7 +42,6 @@ public:
         const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr);
     ~GraphicMainRobotControl() = default;
 
-
     bool Update() override;
     void Draw() const override;
 

@@ -26,8 +26,7 @@ GraphicMainBasic::GraphicMainBasic(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr
-) :
+  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     kNodeGetCount(setting_ptr->window_fps * 2),
     kInterpolatedAnimeCount(1),
     broker_ptr_(broker_ptr),

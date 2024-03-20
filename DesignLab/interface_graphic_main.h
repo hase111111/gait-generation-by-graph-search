@@ -1,7 +1,8 @@
 ﻿
 //! @file      interface_graphic_main.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_
 #define DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_
@@ -22,12 +23,15 @@ public:
     IGraphicMain() = default;
     virtual ~IGraphicMain() = default;
 
-    //! @brief 描画画面の更新を行う．純粋仮想関数のため，継承先では必ず override する必要がある．
-    //! @return bool ループを抜け，グラフィックの表示を終了するならば false をかえす．
+    //! @brief 描画画面の更新を行う．純粋仮想関数のため，
+    //! 継承先では必ず override する必要がある．
+    //! @return ループを抜け，
+    //! グラフィックの表示を終了するならば false をかえす．
     virtual bool Update() = 0;
 
     //! @brief 描画を行う．
-    //! ここでは描画系の処理のみを行い内部のデータを更新しないため const を付けている．
+    //! ここでは描画系の処理のみを行い内部のデータを
+    //! 更新しないため const を付けている．
     virtual void Draw() const = 0;
 };
 

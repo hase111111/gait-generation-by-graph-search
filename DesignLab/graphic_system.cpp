@@ -1,6 +1,7 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #include "graphic_system.h"
 
@@ -17,7 +18,8 @@
 namespace designlab
 {
 
-GraphicSystem::GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr) :
+GraphicSystem::GraphicSystem(
+    const std::shared_ptr<const ApplicationSettingRecord> setting_ptr) :
     setting_ptr_(setting_ptr),
     fps_controller_{ setting_ptr != nullptr ? setting_ptr->window_fps : 60 }
 {
@@ -61,7 +63,8 @@ void GraphicSystem::Main()
     MyDxlibFinalize();
 }
 
-void GraphicSystem::ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr)
+void GraphicSystem::ChangeGraphicMain(
+    std::unique_ptr<IGraphicMain>&& graphic_main_ptr)
 {
     // mutexで排他制御を行う．GraphicMainを切り替える際に，
     // Main を呼んでしまうとエラーが発生する可能性があるため，それを抑制する．
@@ -157,7 +160,8 @@ bool GraphicSystem::Loop()
     // GUI画面への標準出力をリセットする．
     clsDx();
 
-    // 処理を行う．graphic_main_ptr_が false ならば( nullであるならば)，処理を行わない．
+    // 処理を行う．graphic_main_ptr_が false ならば，
+    // ( nullであるならば)，処理を行わない．
     if (graphic_main_ptr_ != nullptr)
     {
         if (!graphic_main_ptr_->Update()) { return false; }
@@ -185,7 +189,7 @@ bool GraphicSystem::Loop()
         }
     }
 
-    // FPSを一定に保つために待つ．
+    // FPS を一定に保つために待つ．
     fps_controller_.Wait();
 
     return true;

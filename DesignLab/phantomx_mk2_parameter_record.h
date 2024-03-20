@@ -1,7 +1,8 @@
 ﻿
 //! @file      phantomx_mk2_parameter_record.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_
 #define DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_
@@ -43,24 +44,29 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(PhantomXMkIIParameterRecord)
     DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(body_lifting_height_min, "Body",
-        "地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．");
+        "Height at which the body is lifted from the ground [mm]. "
+        "The minimum height can be lowered to this level.");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(body_lifting_height_max, "Body",
-        "地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．");
+        "Height at which the body is lifted from the ground [mm]. "
+        "The maximum height can be raised to this level.");
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(movable_coxa_angle_min_deg, "CoxaRange",
-        "脚の可動範囲の最小値[deg]");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(movable_coxa_angle_max_deg, "CoxaRange",
-        "脚の可動範囲の最大値[deg]");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        movable_coxa_angle_min_deg, "CoxaRange",
+        "Minimum leg movement range [deg].");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+        movable_coxa_angle_max_deg, "CoxaRange",
+        "Maximum leg range of motion [deg].");
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(min_leg_range, "LegRange",
-        "脚の付け根から脚先までの最小距離[mm]");
+        "Minimum distance from the base of the leg to the tip of the leg [mm].");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(max_leg_range, "LegRange",
-        "脚の付け根から脚先までの最大距離[mm]");
+        "Maximum distance from the base of the leg to the tip of the leg [mm].");
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(free_leg_height, "Other",
-        "重心から見た遊脚高さ[mm]．");
+        "Height of the swing leg from the center of gravity [mm].");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(stable_margin, "Other",
-        "静的安全余裕．15mm程度が妥当な値となる．(先行研究より，MAXで40mm程度)");
+        "Static safety margin: 15mm is a reasonable value. "
+        "(Based on previous studies, max is about 40 mm.)");
 };
 
 }  // namespace designlab

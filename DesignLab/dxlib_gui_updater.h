@@ -151,7 +151,7 @@ private:
     std::map<Priority, std::shared_ptr<IDxlibDraggable> > draggable_ptrs_;
     std::map<Priority, std::shared_ptr<IDxlibWheelHandler> > wheel_handler_ptrs_;
 
-    //! ドラッグ中のGUIの優先度と順番，未ドラッグ時はstd::nullopt．
+    //! ドラッグ中のGUIの優先度と順番，未ドラッグ時は std::nullopt．
     std::optional<Priority> now_dragging_gui_key_{ std::nullopt };
 
     bool is_terminal_opened_{ false };  //!< Terminal が開かれているかどうか．

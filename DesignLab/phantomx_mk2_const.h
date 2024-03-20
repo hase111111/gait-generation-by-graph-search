@@ -1,7 +1,8 @@
 ﻿
 //! @file      phantomx_mk2_const.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//!  Saitama University All right reserved.
 
 #ifndef DESIGNLAB_PHANTOMX_MK2_CONST_H_
 #define DESIGNLAB_PHANTOMX_MK2_CONST_H_
@@ -23,7 +24,8 @@ namespace designlab
 //! float coxa_angle_min = PhantomXMkIIConst::kCoxaAngleMin;
 //! @endcode
 //! として呼び出す．
-//! 簡単のため値をここにまとめたが，むやみにここの値を参照せずに PhantomXMkII を使うこと．
+//! 簡単のため値をここにまとめたが，
+//! むやみにここの値を参照せずに PhantomXMkII を使うこと．
 //! @n 座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
 class PhantomXMkIIConst final
 {
@@ -119,12 +121,19 @@ public:
     };
 
 
-    static_assert(kCoxaAngleMin < kCoxaAngleMax, "kCoxaAngleMax > Minである必要があります．");
-    static_assert(kFemurAngleMin < kFemurAngleMax, "kFemurAngleMax > Minである必要があります．");
-    static_assert(kTibiaAngleMin < kTibiaAngleMax, "kTibiaAngleMax > Minである必要があります．");
-    static_assert(kCoxaLength > 0.f, "kCoxaLength，Coxa Linkの長さは正である必要があります．");
-    static_assert(kFemurLength > 0.f, "kFemurLength，Femur Linkの長さは正である必要があります．");
-    static_assert(kTibiaLength > 0.f, "kTibiaLength，Tibia Linkの長さは正である必要があります．");
+    static_assert(kCoxaAngleMin < kCoxaAngleMax,
+                  "kCoxaAngleMax > Min is required.");
+    static_assert(kFemurAngleMin < kFemurAngleMax,
+                  "kFemurAngleMax > Min is required.");
+    static_assert(kTibiaAngleMin < kTibiaAngleMax,
+                  "kTibiaAngleMax > Min is required.");
+
+    static_assert(kCoxaLength > 0.f,
+                  "kCoxaLength and Coxa Link must be positive.");
+    static_assert(kFemurLength > 0.f,
+                  "kFemurLength and Femur Link must be positive.");
+    static_assert(kTibiaLength > 0.f,
+                  "kTibiaLength and Tibia Link must be positive.");
 };
 
 }  // namespace designlab

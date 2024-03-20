@@ -1,7 +1,8 @@
 ﻿
 //! @file      graphic_system.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_
@@ -44,7 +45,8 @@ namespace designlab
 //! @subsubsection [Dxlibの注意]
 //! 注意として，Dxlib系の関数は 真偽を大文字の TRUE と FALSE を使って表すので，
 //! 従来の true falseを使用しないようにすること．
-//! (実際には小文字の方でも動くが，バージョンの更新によって動かなくなる可能性があるので
+//! (実際には小文字の方でも動くが，
+//! バージョンの更新によって動かなくなる可能性があるので，
 //! Dxlibに組み込まれているものを使うのが無難．)
 //! また，Dxlibはエラーが出たときに - 1 を返す関数が非常に多い．
 //! そのため例えば if (DxLib_Init() == false) と書いても
@@ -62,21 +64,27 @@ namespace designlab
 //!     //エラー処理
 //! }
 //! @endcode
-//! これは bool型 がデフォルトで存在しないC言語でも使用することができるようにするための配慮であり，
+//! これは bool型 がデフォルトで存在しないC言語でも
+//! 使用することができるようにするための配慮であり，
 //! C++で書かれている本コードにおいては混乱の元でしかない．
 //! Dxlibのエラーは bool ではなく，int型の負の値ということを覚えておくこと．
 //! @n
-//! @n また，Dxlibは2窓できないので，MyDxlibInit に失敗する場合はバックグラウンドで
-//! Dxlib が動いている可能性がある．(例えば MyDxlibFinalize が呼ばれず，終了できていないときなど)
-//! その場合はタスクマネージャーから dxlib を落とすことで，実行することが可能になる．
+//! @n また，Dxlibは2窓できないので，
+//! MyDxlibInit に失敗する場合はバックグラウンドで
+//! Dxlib が動いている可能性がある．
+//! (例えば MyDxlibFinalize が呼ばれず，終了できていないときなど)
+//! その場合はタスクマネージャーから dxlib を落とすことで，
+//! 実行することが可能になる．
 class GraphicSystem final
 {
 public:
-    //! @param [in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
-    explicit GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
+    //! @param[in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
+    explicit GraphicSystem(
+        const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
 
 
-    //! @brief ウィンドウの表示を行う関数．boost::thread にこの関数を渡して並列処理を行う．
+    //! @brief ウィンドウの表示を行う関数．
+    //! boost::thread にこの関数を渡して並列処理を行う．
     //! @n メンバ関数の MyDxlibInit 関数に失敗した場合，終了する．
     void Main();
 
@@ -91,7 +99,8 @@ private:
     bool MyDxlibInit();
 
     //! @brief GraphicSystem クラスの while ループの中で毎フレーム呼ばれる処理．
-    //! @return ループを続けるか．falseならばループを抜ける．異常が起きた場合も false を返す．
+    //! @return ループを続けるか．falseならばループを抜ける．
+    //! 異常が起きた場合も false を返す．
     bool Loop();
 
     //! @brief Dxlibの終了処理を行う．
