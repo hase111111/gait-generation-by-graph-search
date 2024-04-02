@@ -151,7 +151,7 @@ RobotOperation RobotOperatorForGpg::Init() const
 
 RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
     using enum enums::RobotOperationType;
 
     // まず，現在の重心位置から最も近い点を探す．

@@ -23,7 +23,7 @@ SystemMainRobotControl::SystemMainRobotControl(const std::shared_ptr<GraphicData
 
 void SystemMainRobotControl::Main()
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::OutputTitle("Result Viewer System");
 

@@ -57,7 +57,7 @@ SystemMainSimulation::SystemMainSimulation(
 
 void SystemMainSimulation::Main()
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
     using enum enums::Result;
     using string_util::EnumToStringRemoveTopK;
 
@@ -216,7 +216,7 @@ void SystemMainSimulation::Main()
 
 void SystemMainSimulation::OutputSetting() const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::Output("[設定]", kSystem);
     CmdIOUtil::OutputNewLine(1, kSystem);

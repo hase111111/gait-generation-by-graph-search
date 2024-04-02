@@ -54,7 +54,7 @@ struct ApplicationSettingRecord final
     bool do_cmd_output{ true };  //!< コマンドラインに出力するかどうか．
 
     //! コマンドラインに出力する際，どこまで許可するか．
-    enums::OutputDetail cmd_output_detail{ enums::OutputDetail::kInfo };
+    OutputDetail cmd_output_detail{ OutputDetail::kInfo };
 
     bool do_gui_display{ true };  //!< GUIを表示するかどうか．
 
@@ -116,7 +116,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         cmd_output_detail, "Output",
         std::format("How much output is allowed on the command line. ( \"{}\" )",
-        string_util::EnumValuesToString<enums::OutputDetail>("\" / \"")));
+        string_util::EnumValuesToString<OutputDetail>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         do_gui_display, "Output", "Display GUI. ( true / false )");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(

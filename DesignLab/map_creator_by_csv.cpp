@@ -29,7 +29,7 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path) : map_file_pa
             std::format("map fileが存在しません．ファイルのパスは{}です．({}のコンストラクタ)",
                         map_file_path_, string_util::GetTypeName(*this));
 
-        CmdIOUtil::Output(error_mes, enums::OutputDetail::kError);
+        CmdIOUtil::Output(error_mes, OutputDetail::kError);
 
         assert(false);
     }

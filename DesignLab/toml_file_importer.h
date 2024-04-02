@@ -67,7 +67,7 @@ public:
         {
             CmdIOUtil::SystemOutput("Successfully verified the data.");
             CmdIOUtil::SystemOutput("Loading completed successfully.");
-            CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+            CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
         }
 
         return data;
@@ -92,7 +92,7 @@ public:
         }
 
         CmdIOUtil::SystemOutput("Use default data.");
-        CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+        CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
 
         return T();
     }
@@ -102,7 +102,7 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+            CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
             CmdIOUtil::SystemOutput("[" + string_util::GetTypeName(*this) + "]");
             CmdIOUtil::SystemOutput("Loads a file. file_path : " +
                                     file_path);
@@ -113,7 +113,7 @@ private:
             if (do_output_message_)
             {
                 CmdIOUtil::SystemOutput("The file does not exist.");
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
             }
 
             return false;
@@ -141,10 +141,10 @@ private:
             if (do_output_message_)
             {
                 CmdIOUtil::SystemOutput("File parsing failed.");
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
                 CmdIOUtil::SystemOutput("< Rows that failed to parse >");
                 CmdIOUtil::SystemOutput(err.what());
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
             }
 
             return false;
@@ -170,7 +170,7 @@ private:
             if (do_output_message_)
             {
                 CmdIOUtil::SystemOutput("Data serialization failed.");
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
             }
 
             return false;
@@ -194,10 +194,10 @@ private:
             if (do_output_message_)
             {
                 CmdIOUtil::SystemOutput("Data validation failed.");
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
                 CmdIOUtil::SystemOutput("<Reasons for Failure to Verify>");
                 CmdIOUtil::SystemOutput(error_message);
-                CmdIOUtil::OutputNewLine(1, enums::OutputDetail::kSystem);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
             }
 
             return false;

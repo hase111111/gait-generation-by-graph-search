@@ -45,8 +45,7 @@ constexpr bool IsEqual(const T num1, const T num2) noexcept
 {
     const T dif = num1 - num2;
 
-    return (dif <= MathConst<T>::kAllowableError &&
-            dif >= -MathConst<T>::kAllowableError);
+    return (dif <= MathConst<T>::kAllowableError && dif >= -MathConst<T>::kAllowableError);
 }
 
 
@@ -116,8 +115,7 @@ T GenerateRandomNumber(T min, T max)
 template <::std::floating_point T>
 constexpr T ConvertRadToDeg(const T rad) noexcept
 {
-    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) /
-        std::numbers::pi_v<float>;
+    return rad * (MathConst<T>::kRoundAngle / static_cast<T>(2)) / std::numbers::pi_v<float>;
 }
 
 //! @brief 角度を [deg] から [rad] に変換する関数．
@@ -126,8 +124,7 @@ constexpr T ConvertRadToDeg(const T rad) noexcept
 template <::std::floating_point T>
 constexpr T ConvertDegToRad(const T deg) noexcept
 {
-    return deg * std::numbers::pi_v<float> /
-        (MathConst<T>::kRoundAngle / static_cast<T>(2));
+    return deg * std::numbers::pi_v<float> / (MathConst<T>::kRoundAngle / static_cast<T>(2));
 }
 
 //! @brief 角度を -180° ～ 180° の範囲に収める関数．

@@ -1,14 +1,13 @@
 ﻿
 //! @file      output_detail.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_OUTPUT_DETAIL_H_
 #define DESIGNLAB_OUTPUT_DETAIL_H_
 
 
-namespace designlab::enums
+namespace designlab
 {
 
 //! @enum OutputDetail
@@ -23,7 +22,7 @@ enum class OutputDetail : int
     kDebug,         //!< デバッグ時のみ出力，一番優先度が低い．
 };
 
-}  // namespace designlab::enums
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_OUTPUT_DETAIL_H_

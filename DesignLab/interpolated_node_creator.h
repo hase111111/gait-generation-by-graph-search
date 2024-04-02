@@ -1,7 +1,8 @@
 ﻿
 //! @file      interpolated_node_creator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory,
+//! Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
 #define DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
@@ -23,16 +24,13 @@ namespace designlab
 class InterpolatedNodeCreator final
 {
 public:
-    explicit InterpolatedNodeCreator(
-        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
-
+    explicit InterpolatedNodeCreator(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
     //! @brief ノード間を補間する．
     //! @param[in] node 現在のノード．
     //! @param[in] next_node 次のノード．
     //! @return 補間されたノード．
-    std::vector<RobotStateNode> CreateInterpolatedNode(const RobotStateNode& node,
-                                                       const RobotStateNode& next_node) const;
+    std::vector<RobotStateNode> CreateInterpolatedNode(const RobotStateNode& node, const RobotStateNode& next_node) const;
 
 private:
     static constexpr float kInterpolatedDistance = 0.15f;  //!< 補間する距離 [mm]．
@@ -52,22 +50,17 @@ private:
     //! @return 胴体が回転するなら trueを返す．
     bool IsBodyRot(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
-    std::vector<RobotStateNode> CreateBodyMoveInterpolatedNode(
-        const RobotStateNode& current_node, const RobotStateNode& next_node) const;
+    std::vector<RobotStateNode> CreateBodyMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
-    std::vector<RobotStateNode> CreateBodyRotInterpolatedNode(
-        const RobotStateNode& current_node, const RobotStateNode& next_node) const;
+    std::vector<RobotStateNode> CreateBodyRotInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
     //! @brief 接地動作をする脚の indexを取得する．
-    std::vector<int> GetGroundMoveIndex(const RobotStateNode& current_node,
-                                        const RobotStateNode& next_node) const;
+    std::vector<int> GetGroundMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
     //! @brief 遊脚動作をする脚の indexを取得する．
-    std::vector<int> GetFreeMoveIndex(const RobotStateNode& current_node,
-                                      const RobotStateNode& next_node) const;
+    std::vector<int> GetFreeMoveIndex(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
-    std::vector<RobotStateNode> CreateLegMoveInterpolatedNode(
-        const RobotStateNode& current_node, const RobotStateNode& next_node) const;
+    std::vector<RobotStateNode> CreateLegMoveInterpolatedNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
 
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

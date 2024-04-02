@@ -9,7 +9,7 @@
 
 // ↓テストを使用しない場合コメントアウトすること．
 
-//#define DESIGNLAB_USE_TEST
+// #define DESIGNLAB_USE_TEST
 
 
 #if defined(DESIGNLAB_USE_TEST)

@@ -65,7 +65,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     if (create_result.result != enums::Result::kSuccess) { return create_result; }
 
     CmdIOUtil::DebugOutput("Graph tree generation has been completed to depth 1.");
-    CmdIOUtil::FormatOutput(enums::OutputDetail::kDebug,
+    CmdIOUtil::FormatOutput(OutputDetail::kDebug,
                             "The number of nodes in the graph tree is {}.",
                             graph_tree_.GetGraphSize());
 
@@ -94,10 +94,10 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
         if (graph_tree_array_[i].GetGraphSize() > 1)
         {
             CmdIOUtil::FormatOutput(
-                enums::OutputDetail::kDebug,
+                OutputDetail::kDebug,
                 "Starts graph tree generation in thread {}.", i);
             CmdIOUtil::FormatOutput(
-                enums::OutputDetail::kDebug,
+                OutputDetail::kDebug,
                 "The number of nodes explored in thread {} is {}.",
                 i, graph_tree_array_[i].GetGraphSize());
 
@@ -118,7 +118,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     for (size_t i = 0; i < kThreadNum; i++)
     {
         CmdIOUtil::FormatOutput(
-            enums::OutputDetail::kDebug,
+            OutputDetail::kDebug,
             "The number of nodes created in thread {} is {}.",
             i, graph_tree_array_[i].GetGraphSize());
     }

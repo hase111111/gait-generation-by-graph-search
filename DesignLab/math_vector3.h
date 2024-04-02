@@ -31,24 +31,21 @@ namespace designlab
 //! 実行速度が大切なプロジェクトであるため，このように処理を記述する．
 //! @n
 //! @subsubsection 参考
-//! @li C++、constexprのまとめ
-//! https://qiita.com/KRiver1/items/ef7731467b5ca83850cb
-//! ( アクセス日 2024/2/29 )
-//! @li AB - 3.04.構造体>細かい話>コンストラクタ
-//! https://atcoder.jp/contests/apg4b/tasks/APG4b_ab?lang=ja
-//! ( アクセス日 2024/2/29 )
-//! @li 非クラス関数による演算子オーバーロード
-//! https://programming.pc-note.net/cpp/operator2.html
-//! ( アクセス日 2024/2/29 )
-//! @li 衝突判定編
-//! http://marupeke296.com/COL_main.html
-//! ( アクセス日 2024/2/29 )
+//! @li C++、constexprのまとめ https://qiita.com/KRiver1/items/ef7731467b5ca83850cb ( アクセス日 2024/2/29 )
+//! @li AB - 3.04.構造体>細かい話>コンストラクタ https://atcoder.jp/contests/apg4b/tasks/APG4b_ab?lang=ja ( アクセス日 2024/2/29 )
+//! @li 非クラス関数による演算子オーバーロード https://programming.pc-note.net/cpp/operator2.html ( アクセス日 2024/2/29 )
+//! @li 衝突判定編 http://marupeke296.com/COL_main.html ( アクセス日 2024/2/29 )
 struct Vector3 final
 {
     //!< デフォルトコンストラクタ．(0,0,0)で初期化される．
     constexpr Vector3() : x(0.f), y(0.f), z(0.f) {}
+
     constexpr Vector3(const float x_pos, const float y_pos, const float z_pos) :
-        x(x_pos), y(y_pos), z(z_pos) {}
+        x(x_pos),
+        y(y_pos),
+        z(z_pos)
+    {
+    }
 
     //! コピーコンストラクタ．
     constexpr Vector3(const Vector3& other) = default;
@@ -65,9 +62,7 @@ struct Vector3 final
     //! @brief 2つのベクトルが等しいかどうかを返す．誤差を許容する．
     constexpr bool operator == (const Vector3& v) const noexcept
     {
-        if (math_util::IsEqual(v.x, x) &&
-            math_util::IsEqual(v.y, y) &&
-            math_util::IsEqual(v.z, z))
+        if (math_util::IsEqual(v.x, x) && math_util::IsEqual(v.y, y) && math_util::IsEqual(v.z, z))
         {
             return true;
         }
@@ -163,9 +158,7 @@ struct Vector3 final
     //! このベクトル→引数へ回転する右ねじが進む方向のベクトルが出力される．
     [[nodiscard]] constexpr Vector3 Cross(const Vector3& other) const noexcept
     {
-        return Vector3{ y * other.z - z * other.y,
-            z * other.x - x * other.z,
-            x * other.y - y * other.x };
+        return Vector3{ y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x };
     }
 
     //! @brief 別のベクトルと，このベクトルの距離を返す．
@@ -187,9 +180,7 @@ struct Vector3 final
     //! @note 誤差を許容する．
     [[nodiscard]] constexpr bool IsZero() const noexcept
     {
-        if (math_util::IsEqual(x, 0.0f) &&
-            math_util::IsEqual(y, 0.0f) &&
-            math_util::IsEqual(z, 0.0f))
+        if (math_util::IsEqual(x, 0.0f) && math_util::IsEqual(y, 0.0f) && math_util::IsEqual(z, 0.0f))
         {
             return true;
         }
@@ -277,8 +268,7 @@ std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const Vector
 
 //! 入力ストリーム．
 template <class Char>
-inline std::basic_istream<Char>& operator >>(
-    std::basic_istream<Char>& is, Vector3& v)
+inline std::basic_istream<Char>& operator >>(std::basic_istream<Char>& is, Vector3& v)
 {
     Char unused = 0;
     return is >> v.x >> unused >> v.y >> unused >> v.z;
@@ -287,29 +277,17 @@ inline std::basic_istream<Char>& operator >>(
 
 // 正規化直行座標系となっているか確認する，
 // 条件を満たさないならばコンパイルが通らない．
-static_assert(
-    math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetLeftVec()), 0.f),
-    "The dot product of FrontVec and LeftVec is not zero.");
+static_assert(math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetLeftVec()), 0.f), "The dot product of FrontVec and LeftVec is not zero.");
 
-static_assert(
-    math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetUpVec()), 0.f),
-    "The dot product of FrontVec and UpVec is not zero.");
+static_assert(math_util::IsEqual(Vector3::GetFrontVec().Dot(Vector3::GetUpVec()), 0.f), "The dot product of FrontVec and UpVec is not zero.");
 
-static_assert(
-    math_util::IsEqual(Vector3::GetLeftVec().Dot(Vector3::GetUpVec()), 0.f),
-    "The dot product of LeftVec and UpVec is not zero.");
+static_assert(math_util::IsEqual(Vector3::GetLeftVec().Dot(Vector3::GetUpVec()), 0.f), "The dot product of LeftVec and UpVec is not zero.");
 
-static_assert(
-    math_util::IsEqual(Vector3::GetFrontVec().GetSquaredLength(), 1.f),
-    "FrontVec is not normalized.");
+static_assert(math_util::IsEqual(Vector3::GetFrontVec().GetSquaredLength(), 1.f), "FrontVec is not normalized.");
 
-static_assert(
-    math_util::IsEqual(Vector3::GetLeftVec().GetSquaredLength(), 1.f),
-    "LeftVec is not normalized.");
+static_assert(math_util::IsEqual(Vector3::GetLeftVec().GetSquaredLength(), 1.f), "LeftVec is not normalized.");
 
-static_assert(
-    math_util::IsEqual(Vector3::GetUpVec().GetSquaredLength(), 1.f),
-    "UpVec is not normalized.");
+static_assert(math_util::IsEqual(Vector3::GetUpVec().GetSquaredLength(), 1.f), "UpVec is not normalized.");
 
 // 0ベクトルが返ってくるか確認する．
 static_assert(Vector3::GetZeroVec().x == 0.f, "It is not a 0 vector.");

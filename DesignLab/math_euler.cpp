@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "math_euler.h"
 
@@ -36,14 +35,14 @@ std::string EulerXYZ::ToCsvString() const
 
 std::string EulerXYZ::ToStringDeg() const
 {
+    using math_util::FloatingPointNumToString;
+    using math_util::ConvertRadToDeg;
+
     std::string str;
 
-    str += "( x-axis: " +
-        math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(x_angle)) +
-        " [deg], y-axis : " +
-        math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(y_angle)) +
-        " [deg], z-axis: " +
-        math_util::FloatingPointNumToString(math_util::ConvertRadToDeg(z_angle)) +
+    str += "( x-axis: " + FloatingPointNumToString(ConvertRadToDeg(x_angle)) + " [deg], y-axis : " +
+        FloatingPointNumToString(ConvertRadToDeg(y_angle)) +
+        " [deg], z-axis: " + FloatingPointNumToString(ConvertRadToDeg(z_angle)) +
         " [deg]) xyz-euler angles";
 
     return str;

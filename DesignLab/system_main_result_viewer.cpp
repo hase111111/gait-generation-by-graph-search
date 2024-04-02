@@ -33,7 +33,7 @@ SystemMainResultViewer::SystemMainResultViewer(
 
 void SystemMainResultViewer::Main()
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::OutputTitle("Result Viewer System");
 
@@ -94,14 +94,14 @@ void SystemMainResultViewer::Main()
 
 void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const std::vector<RobotStateNode>& nodes)
 {
-    CmdIOUtil::Output("異常値のデータを出力します", enums::OutputDetail::kSystem);
+    CmdIOUtil::Output("異常値のデータを出力します", OutputDetail::kSystem);
 
     // 後ろの .csv を削除する
     std::string file_name = file.substr(0, file.size() - 4);
 
     const std::string output_path = file_name + "_error_leg_pos.txt";
 
-    CmdIOUtil::Output("出力先: " + output_path, enums::OutputDetail::kSystem);
+    CmdIOUtil::Output("出力先: " + output_path, OutputDetail::kSystem);
 
     // すでにファイルが存在する場合は削除する．
     if (std::filesystem::exists(output_path))

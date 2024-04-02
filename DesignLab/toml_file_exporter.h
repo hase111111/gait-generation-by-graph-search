@@ -51,7 +51,7 @@ public:
         if (!ofs)
         {
             CmdIOUtil::Output("Failed to output TOML file. File_path : " + file_path,
-                              enums::OutputDetail::kSystem);
+                              OutputDetail::kSystem);
             return;
         }
 
@@ -60,7 +60,7 @@ public:
         ofs.close();  // ファイルを閉じる．
 
         CmdIOUtil::Output("TOML files are output. File_path : " + file_path,
-                          enums::OutputDetail::kSystem);
+                          OutputDetail::kSystem);
     }
 
 private:

@@ -49,7 +49,7 @@ ResultFileExporter::ResultFileExporter(
 
 void ResultFileExporter::CreateRootDirectory()
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     // 結果出力先フォルダがなければ作成する．
     if (!sf::exists(ResultFileConst::kDirectoryPath))
@@ -70,7 +70,7 @@ void ResultFileExporter::PushSimulationResult(const SimulationResultRecord& resu
 
 void ResultFileExporter::Export() const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     // 結果出力先フォルダがなければ終了する．
     if (!sf::exists(ResultFileConst::kDirectoryPath))
@@ -112,7 +112,7 @@ void ResultFileExporter::Export() const
 
 std::string ResultFileExporter::MakeOutputDirectory() const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::Output("フォルダ名を入力してください．", kInfo);
     const auto input_result = CmdIOUtil::InputDirName();
@@ -134,7 +134,7 @@ std::string ResultFileExporter::MakeOutputDirectory() const
 
 void ResultFileExporter::ExportEachNodeList(const std::string& path) const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::Output("NodeListを出力します．", kInfo);
 
@@ -167,7 +167,7 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const
 
 void ResultFileExporter::ExportEachMapState(const std::string& path) const
 {
-    using enum designlab::enums::OutputDetail;
+    using enum designlab::OutputDetail;
 
     CmdIOUtil::Output("MapStateを出力します．", kInfo);
 
@@ -193,7 +193,7 @@ void ResultFileExporter::ExportEachMapState(const std::string& path) const
 
 void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) const
 {
-    using enum designlab::enums::OutputDetail;
+    using enum designlab::OutputDetail;
 
     CmdIOUtil::Output("シミュレーション詳細を出力します．", kInfo);
 
@@ -332,7 +332,7 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
 
 void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
 {
-    using enum designlab::enums::OutputDetail;
+    using enum designlab::OutputDetail;
     using enum designlab::enums::SimulationResult;
 
     CmdIOUtil::Output(std::format("シミュレーション全体の結果を出力します．シミュレーション数 : {}", result_list_.size()), kInfo);
@@ -393,7 +393,7 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
             // ファイルが作成できなかった場合は，なにも出力しない．
             if (!ofs)
             {
-                CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+                CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
                 return;
             }
 
@@ -462,7 +462,7 @@ void ResultFileExporter::ExportAllLegPos(const std::string& path) const
         // ファイルが作成できなかった場合は，なにも出力しない．
         if (!ofs)
         {
-            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
             return;
         }
 
@@ -540,7 +540,7 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
         // ファイルが作成できなかった場合は，なにも出力しない．
         if (!ofs)
         {
-            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), enums::OutputDetail::kError);
+            CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
             return;
         }
 
@@ -600,7 +600,7 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
 void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
     const std::string& path) const
 {
-    using enum designlab::enums::OutputDetail;
+    using enum designlab::OutputDetail;
     using enum designlab::enums::SimulationResult;
 
     // ディレクトリを作成する．

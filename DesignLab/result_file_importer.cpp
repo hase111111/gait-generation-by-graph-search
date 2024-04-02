@@ -151,7 +151,7 @@ bool ResultFileImporter::ImportMapState(
         catch (...)
         {
             CmdIOUtil::FormatOutput(
-                enums::OutputDetail::kWarning,
+                OutputDetail::kWarning,
                 "読み込むことのできない行があったため無視します．「{}」",
                 ss.str());
         }

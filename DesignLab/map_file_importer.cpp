@@ -22,7 +22,7 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
     // ファイルが開けないならば false を返す．
     if (!ifs.is_open())
     {
-        CmdIOUtil::Output("ファイルを開けませんでした．", enums::OutputDetail::kError);
+        CmdIOUtil::Output("ファイルを開けませんでした．", OutputDetail::kError);
 
         return std::nullopt;
     }
@@ -46,7 +46,7 @@ std::optional<MapState> MapFileImporter::ImportMap(const std::string& file_path)
         catch (...)
         {
             CmdIOUtil::Output("読み込むことができないデータがあったため無視します.",
-                              enums::OutputDetail::kWarning);
+                              OutputDetail::kWarning);
         }
     }
 

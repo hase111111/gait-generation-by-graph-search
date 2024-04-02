@@ -53,7 +53,7 @@ int main()
     // int main内では designlab:: を省略できる．
     // 推奨されない書き方だが，可読性のため，ここでのみ使用する．
     using namespace designlab;
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     // まずは，設定ファイルを読み込む
     CmdIOUtil::SetOutputLimit(kSystem);

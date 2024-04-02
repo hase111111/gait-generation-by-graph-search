@@ -51,7 +51,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
 
 void SystemMainGraphViewer::Main()
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     // 早期リターン．
     if (!graph_tree_creator_ptr_)
@@ -172,7 +172,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 {
     assert(graph != nullptr);
 
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::OutputNewLine(1, kSystem);
     CmdIOUtil::Output("グラフ木を作成する", kSystem);
@@ -220,7 +220,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 
 void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::OutputNewLine(1, kSystem);
     CmdIOUtil::OutputHorizontalLine("=", kSystem);
@@ -270,7 +270,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
     const std::vector<RobotStateNode>& graph) const
 {
-    using enum enums::OutputDetail;
+    using enum OutputDetail;
 
     CmdIOUtil::OutputNewLine(1, kSystem);
     CmdIOUtil::Output("ノードを選択する", kSystem);

@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "cmdio_util.h"
 
@@ -14,20 +13,20 @@
 #include <magic_enum.hpp>
 
 #include "cassert_define.h"
-
+#include "string_util.h"
 
 namespace designlab
 {
 
 
-enums::OutputDetail CmdIOUtil::output_limit = enums::OutputDetail::kSystem;
+OutputDetail CmdIOUtil::output_limit = OutputDetail::kSystem;
 
 bool CmdIOUtil::do_output = true;
 
 bool CmdIOUtil::is_initialized = false;
 
 
-void CmdIOUtil::SetOutputLimit(const enums::OutputDetail limit)
+void CmdIOUtil::SetOutputLimit(const OutputDetail limit)
 {
     output_limit = limit;
 
@@ -48,31 +47,55 @@ void CmdIOUtil::DoOutput(const bool do_output_)
 }
 
 
-void CmdIOUtil::Output(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
 {
     assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
-    // 出力を許可している　かつ
-    // 出力する文字列の詳細が設定ファイルで許可されている場合
-    // または，出力を許可していない　かつ
-    // 出力する文字列の詳細がシステムメッセージの場合．
+    // 出力を許可している かつ 出力する文字列の詳細が設定ファイルで許可されている場合
+    // または，出力を許可していない　かつ 出力する文字列の詳細がシステムメッセージの場合．
 
-    if ((detail <= output_limit && do_output) ||
-        (detail == enums::OutputDetail::kSystem && !do_output))
+    if ((detail <= output_limit && do_output) || (detail == OutputDetail::kSystem && !do_output))
     {
-        std::cout << str << std::endl;
+        if (str == "")
+        {
+            std::cout << std::endl;
+            return;
+        }
+
+        // システムメッセージでない場合は，タグをつける．
+        const std::string tag = (detail == OutputDetail::kSystem ? "" : " [" + string_util::EnumToStringRemoveTopK(detail) + "] ");
+
+        if (detail == OutputDetail::kError) { std::cout << "\x1b[31m"; }  // 赤色．
+        if (detail == OutputDetail::kWarning) { std::cout << "\x1b[33m"; }  // 黄色．
+        if (detail == OutputDetail::kInfo) { std::cout << "\x1b[36m"; }  // シアン．
+
+        std::cout << tag;
+
+        // タグと同じ長さの空白を出力する．
+        const std::string space(tag.size(), ' ');
+
+        // 改行ごとに文字列を取り出す．
+        const auto line = string_util::Split(str, "\n");
+
+        for (size_t i = 0; i < line.size(); i++)
+        {
+            if (i != 0) { std::cout << space; }
+
+            std::cout << line[i] << std::endl;
+        }
+
+        std::cout << "\x1b[0m";  // 色をリセット．
     }
 }
 
-void CmdIOUtil::SpacedOutput(const std::string& str, enums::OutputDetail detail)
+void CmdIOUtil::SpacedOutput(const std::string& str, OutputDetail detail)
 {
     OutputNewLine(1, detail);
     Output(str, detail);
     OutputNewLine(1, detail);
 }
 
-void CmdIOUtil::OutputCenter(
-    const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::OutputCenter(const std::string& str, const OutputDetail detail)
 {
     // 改行ごとに文字列を取り出す．
     std::stringstream ss(str);
@@ -84,8 +107,7 @@ void CmdIOUtil::OutputCenter(
         {
             std::string space;
 
-            const int space_num = (kHorizontalLineLength -
-                static_cast<int>(line.length())) / 2;
+            const int space_num = (kHorizontalLineLength - static_cast<int>(line.length())) / 2;
 
             for (int i = 0; i < space_num; ++i)
             {
@@ -101,7 +123,7 @@ void CmdIOUtil::OutputCenter(
     }
 }
 
-void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail detail)
+void CmdIOUtil::OutputRight(const std::string& str, const OutputDetail detail)
 {
     // 改行ごとに文字列を取り出す．
     std::stringstream ss(str);
@@ -113,8 +135,7 @@ void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail de
         {
             std::string space;
 
-            const int space_num = kHorizontalLineLength -
-                static_cast<int>(line.length());
+            const int space_num = kHorizontalLineLength - static_cast<int>(line.length());
 
             for (int i = 0; i < space_num; ++i)
             {
@@ -131,7 +152,7 @@ void CmdIOUtil::OutputRight(const std::string& str, const enums::OutputDetail de
 }
 
 
-void CmdIOUtil::OutputNewLine(const int num, const enums::OutputDetail detail)
+void CmdIOUtil::OutputNewLine(const int num, const OutputDetail detail)
 {
     if (num <= 0) { return; }
 
@@ -141,8 +162,7 @@ void CmdIOUtil::OutputNewLine(const int num, const enums::OutputDetail detail)
     }
 }
 
-void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual,
-                                     const enums::OutputDetail detail)
+void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual, const OutputDetail detail)
 {
     if (line_visual.size() != 1) { return; }
 
@@ -158,7 +178,7 @@ void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual,
 
 void CmdIOUtil::OutputTitle(const std::string& title_name, bool output_copy_right)
 {
-    enums::OutputDetail detail = enums::OutputDetail::kSystem;
+    OutputDetail detail = OutputDetail::kSystem;
 
     OutputNewLine(1, detail);
     OutputHorizontalLine("=", detail);
@@ -179,7 +199,7 @@ void CmdIOUtil::OutputTitle(const std::string& title_name, bool output_copy_righ
 
 void CmdIOUtil::WaitAnyKey(const std::string& str)
 {
-    Output(str, enums::OutputDetail::kSystem);
+    Output(str, OutputDetail::kSystem);
 
     // 何かキーを押すまで待機．
     system("PAUSE");
@@ -190,7 +210,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
 {
     assert(min <= max);  // 最小値は最大値より小さい．
 
-    FormatOutput(enums::OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
+    FormatOutput(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
 
     std::string input_str;
     std::cout << ">>" << std::flush;
@@ -204,10 +224,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
 
         if (res < min || res > max)
         {
-            FormatOutput(enums::OutputDetail::kSystem,
-                "The entered value '{}' is out of range. "
-                "Use the default value, '{}'.",
-                input_str, default_num);
+            FormatOutput(OutputDetail::kSystem, "The entered value '{}' is out of range. Use the default value, '{}'.", input_str, default_num);
 
             res = default_num;
         }
@@ -215,10 +232,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
     catch (...)
     {
         // 整数値への変換で例外が発生した場合，ここに処理が飛ぶ．
-        FormatOutput(enums::OutputDetail::kSystem,
-            "The entered value '{}' cannot be evaluated. "
-            "Use the default value, '{}'.",
-            input_str, default_num);
+        FormatOutput(OutputDetail::kSystem, "The entered value '{}' cannot be evaluated. Use the default value, '{}'.", input_str, default_num);
 
         res = default_num;
     }
@@ -228,7 +242,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
 
 bool CmdIOUtil::InputYesNo(const std::string& str)
 {
-    Output(str + " ( y / n ) ", enums::OutputDetail::kSystem);
+    Output(str + " ( y / n ) ", OutputDetail::kSystem);
 
     while (true)
     {
@@ -237,36 +251,25 @@ bool CmdIOUtil::InputYesNo(const std::string& str)
         std::cin >> input_str;
 
 
-        if (input_str == "y" ||
-            input_str == "yes" ||
-            input_str == "Y" ||
-            input_str == "Yes" ||
-            input_str == "YES")
+        if (input_str == "y" || input_str == "yes" || input_str == "Y" || input_str == "Yes" || input_str == "YES")
         {
             return true;
         }
-        else if (input_str == "n" ||
-                 input_str == "no" ||
-                 input_str == "N" ||
-                 input_str == "No" ||
-                 input_str == "NO")
+        else if (input_str == "n" || input_str == "no" || input_str == "N" || input_str == "No" || input_str == "NO")
         {
             return false;
         }
 
-        FormatOutput(enums::OutputDetail::kSystem,
-            "The entered value '{}' cannot be evaluated. "
-            "Enter 'y' or 'n'.", input_str);
+        FormatOutput(OutputDetail::kSystem, "The entered value '{}' cannot be evaluated. Enter 'y' or 'n'.", input_str);
     }
 }
 
 std::string CmdIOUtil::InputDirName(const std::string& str)
 {
-    Output(str, enums::OutputDetail::kSystem);
+    Output(str, OutputDetail::kSystem);
 
-    const std::vector<std::string> invalid_chars = {
-        "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-    const int kMaxDirNameLength = 255;
+    const std::vector<std::string> invalid_chars = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+    constexpr int kMaxDirNameLength = 255;
 
     while (true)
     {
@@ -280,9 +283,7 @@ std::string CmdIOUtil::InputDirName(const std::string& str)
         {
             if (input_str.find(invalid_char) != std::string::npos)
             {
-                SystemOutput("Directory names cannot contain "
-                             "the following characters : "
-                             "\\ / : * ? \" < > |");
+                SystemOutput("Directory names cannot contain the following characters : \\ / : * ? \" < > |");
                 is_invalid = false;
                 break;
             }
@@ -296,10 +297,7 @@ std::string CmdIOUtil::InputDirName(const std::string& str)
 
         if (input_str.length() > kMaxDirNameLength)
         {
-            FormatOutput(enums::OutputDetail::kSystem,
-                "The entered value '{}' is too long. "
-                "Enter a value of {} characters or less.",
-                input_str, kMaxDirNameLength);
+            FormatOutput(OutputDetail::kSystem, "The entered value '{}' is too long. Enter a value of {} characters or less.", input_str, kMaxDirNameLength);
             is_invalid = false;
         }
 

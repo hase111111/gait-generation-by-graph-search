@@ -27,7 +27,7 @@ BootModeSelector::BootModeSelector() :
 enums::BootMode BootModeSelector::SelectBootMode()
 {
     // kSystem にすると、設定にかかわらず必ず表示される．
-    const enums::OutputDetail output_detail = enums::OutputDetail::kSystem;
+    const OutputDetail output_detail = OutputDetail::kSystem;
 
     CmdIOUtil::Output("Select the mode to run.", output_detail);
 
