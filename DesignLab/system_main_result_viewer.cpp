@@ -44,10 +44,9 @@ void SystemMainResultViewer::Main()
 
         std::string res_path;
 
-        if (!file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1,
-            "csv", ResultFileConst::kNodeListName, &res_path))
+        if (!file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
         {
-            CmdIOUtil::Output("該当のデータがありませんでした．終了します．", kSystem);
+            CmdIOUtil::Output("No data were found. Terminate.", kError);
 
             break;
         }
@@ -68,7 +67,7 @@ void SystemMainResultViewer::Main()
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
             // データを表示する．
-            CmdIOUtil::Output("データを表示します．", kSystem);
+            CmdIOUtil::Output("Displays data.", kSystem);
             CmdIOUtil::OutputNewLine(1, kSystem);
             CmdIOUtil::WaitAnyKey();
             CmdIOUtil::OutputNewLine(1, kSystem);
@@ -76,12 +75,12 @@ void SystemMainResultViewer::Main()
         }
         else
         {
-            CmdIOUtil::Output("ファイルの読み込みに失敗しました．終了します．", kSystem);
+            CmdIOUtil::Output("Failed to read the file. Exit.", kError);
         }
 
         // 終了するかどうかを選択
 
-        if (CmdIOUtil::InputYesNo("このモードを終了しますか？"))
+        if (CmdIOUtil::InputYesNo("Do you want to exit this mode?"))
         {
             CmdIOUtil::OutputNewLine(1, kSystem);
 

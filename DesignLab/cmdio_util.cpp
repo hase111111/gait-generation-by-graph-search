@@ -73,6 +73,7 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
         if (detail == OutputDetail::kError) { std::cout << "\x1b[31m"; }  // 赤色．
         if (detail == OutputDetail::kWarning) { std::cout << "\x1b[33m"; }  // 黄色．
         if (detail == OutputDetail::kInfo) { std::cout << "\x1b[36m"; }  // シアン．
+        if (detail == OutputDetail::kDebug) { std::cout << "\x1b[32m"; }  // 緑色．
 
 #endif  // DESIGNLAB_USE_COLOR_OUTPUT
 
@@ -87,6 +88,11 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
         for (size_t i = 0; i < line.size(); i++)
         {
             if (i != 0) { std::cout << space; }
+
+            if (detail != OutputDetail::kSystem)
+            {
+                std::cout << "| ";
+            }
 
             std::cout << line[i] << std::endl;
         }
