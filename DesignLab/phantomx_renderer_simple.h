@@ -31,7 +31,7 @@ public:
     PhantomXRendererSimple(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-      enums::DisplayQuality display_quality);
+      DisplayQuality display_quality);
 
     void SetNode(const RobotStateNode& node) override;
 
@@ -74,7 +74,7 @@ private:
     //! 描画するロボットのジョイントの状態．
     std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;
 
-    enums::DisplayQuality display_quality_;  //!< 描画品質．
+    DisplayQuality display_quality_;  //!< 描画品質．
 };
 
 }  // namespace designlab

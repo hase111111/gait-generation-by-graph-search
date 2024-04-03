@@ -15,12 +15,12 @@ namespace designlab
 std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > HexapodRendererBuilder::Build(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-  const enums::DisplayQuality display_quality
+  const DisplayQuality display_quality
 )
 {
     //! @todo IHexapodの type を見て、適切な renderer を返す．
 
-    if (display_quality == enums::DisplayQuality::kHigh)
+    if (display_quality == DisplayQuality::kHigh)
     {
         const auto renderer =
             std::make_shared<PhantomXMkIIRendererModel>(converter_ptr, calculator_ptr);

@@ -1,8 +1,7 @@
 ﻿
 //! @file      application_setting_record.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_H_
@@ -59,7 +58,7 @@ struct ApplicationSettingRecord final
     bool do_gui_display{ true };  //!< GUIを表示するかどうか．
 
     //! GUIを表示する際，どこまで許可するか．
-    enums::DisplayQuality gui_display_quality{ enums::DisplayQuality::kHigh };
+    DisplayQuality gui_display_quality{ DisplayQuality::kHigh };
 
     int window_size_x{ 1600 };  //!< グラフィカルウィンドウの横幅．
     int window_size_y{ 900 };   //!< グラフィカルウィンドウの縦幅．
@@ -122,7 +121,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         gui_display_quality, "Output",
         std::format("GUI Image Quality．( \"{}\" )",
-        string_util::EnumValuesToString<enums::DisplayQuality>("\" / \"")));
+        string_util::EnumValuesToString<DisplayQuality>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         window_size_x, "Output",
         std::format("Sets the width of the GUI. The range is from {} to {}. "

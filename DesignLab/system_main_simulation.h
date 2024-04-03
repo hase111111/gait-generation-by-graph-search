@@ -1,8 +1,7 @@
 ﻿
 //! @file      system_main_simulation.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
 #define DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
@@ -45,14 +44,14 @@ public:
     //! @param[in] broker_ptr グラフィックデータを別スレッドに送るための構造体．
     //! @param[in] setting_ptr 設定ファイルの内容を格納する構造体．
     SystemMainSimulation(
-      std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-      std::unique_ptr<IMapCreator>&& map_creator_ptr,
-      std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
-      std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
-      std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
-      const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
-      const std::shared_ptr<ResultFileExporter>& result_exporter_ptr);
+        std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
+        std::unique_ptr<IMapCreator>&& map_creator_ptr,
+        std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
+        std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
+        std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
+        const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+        const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
+        const std::shared_ptr<ResultFileExporter>& result_exporter_ptr);
 
 
     //! @brief いままで int mainで行われた処理をまとめたもの．

@@ -33,7 +33,7 @@ public:
     static std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > Build(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-      enums::DisplayQuality display_quality);
+      DisplayQuality display_quality);
 };
 
 }  // namespace designlab

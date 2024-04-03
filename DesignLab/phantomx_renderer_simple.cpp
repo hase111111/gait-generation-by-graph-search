@@ -14,7 +14,7 @@ namespace designlab
 PhantomXRendererSimple::PhantomXRendererSimple(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-  enums::DisplayQuality display_quality
+  DisplayQuality display_quality
 ) :
     kColorBody(GetColor(23, 58, 235)),
     kColorLeg(GetColor(23, 58, 235)),

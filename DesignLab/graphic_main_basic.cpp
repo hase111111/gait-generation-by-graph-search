@@ -39,7 +39,7 @@ GraphicMainBasic::GraphicMainBasic(
     map_state_(broker_ptr->map_state.GetData()),
     graph_({})
 {
-    if (setting_ptr->gui_display_quality == enums::DisplayQuality::kHigh)
+    if (setting_ptr->gui_display_quality == DisplayQuality::kHigh)
     {
         movement_locus_renderer_.SetIsHighQuality(true);
     }

@@ -20,14 +20,14 @@ namespace designlab
 {
 
 SystemMainSimulation::SystemMainSimulation(
-  std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-  std::unique_ptr<IMapCreator>&& map_creator_ptr,
-  std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
-  std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
-  std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
-  const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
-  const std::shared_ptr<ResultFileExporter>& result_exporter_ptr) :
+    std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
+    std::unique_ptr<IMapCreator>&& map_creator_ptr,
+    std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
+    std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
+    std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
+    const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
+    const std::shared_ptr<ResultFileExporter>& result_exporter_ptr) :
     gait_pattern_generator_ptr_(std::move(gait_pattern_generator_ptr)),
     map_creator_ptr_(std::move(map_creator_ptr)),
     simulation_end_checker_ptr_(std::move(simulation_end_checker_ptr)),

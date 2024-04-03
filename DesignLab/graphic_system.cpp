@@ -126,7 +126,7 @@ bool GraphicSystem::MyDxlibInit()
 
     // 3D関連の初期化を行う．
     if (setting_ptr_ != nullptr &&
-        setting_ptr_->gui_display_quality == enums::DisplayQuality::kHigh)
+        setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
     {
         dxlib_util::InitDxlib3DSetting(true);
     }

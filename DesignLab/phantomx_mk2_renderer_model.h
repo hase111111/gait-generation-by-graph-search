@@ -59,7 +59,7 @@ private:
 
     //! 描画するロボットのジョイントの状態．
     std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;
-    enums::DisplayQuality display_quality_;  //!< 描画品質．
+    DisplayQuality display_quality_;  //!< 描画品質．
 };
 
 }  // namespace designlab
