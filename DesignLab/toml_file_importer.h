@@ -1,8 +1,7 @@
 ﻿
 //! @file      toml_file_importer.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
 #define DESIGNLAB_TOML_FILE_IMPORTER_H_
@@ -28,8 +27,9 @@ namespace designlab
 //! @brief FromTomlを持つか判定するコンセプト．
 //! @n toml::from<T>::from_toml()が定義されているかどうかを判定する．
 //! @n また，デフォルトコンストラクタが実装されているかどうかも判定する．
-template <typename T> concept
-HasFromToml = std::is_default_constructible_v<T> && impl::has_from_toml<T>::value;
+template <typename T>
+concept HasFromToml = std::is_default_constructible_v<T> && impl::has_from_toml<T>::value;
+
 
 //! @class TomlFileImporter
 //! @brief tomlファイルを読み込んで構造体に変換するテンプレートクラス．
@@ -39,11 +39,9 @@ template <HasFromToml T>
 class TomlFileImporter final
 {
 public:
-    TomlFileImporter() :
-        validator_(std::make_unique<TomlDataValidatorAlwaysTrue<T>>()) {}
+    TomlFileImporter() : validator_(std::make_unique<TomlDataValidatorAlwaysTrue<T>>()) {}
 
-    explicit TomlFileImporter(std::unique_ptr<ITomlDataValidator<T>>&& validator) :
-        validator_(std::move(validator)) {}
+    explicit TomlFileImporter(std::unique_ptr<ITomlDataValidator<T>>&& validator) : validator_(std::move(validator)) {}
 
 
     //! @brief 指定したファイルパスのファイルを読み込み，構造体に変換する．
@@ -51,6 +49,12 @@ public:
     //! @return 読み込んだ構造体．失敗した場合は std::nulloptを返す．
     std::optional<T> Import(const std::string& file_path) const
     {
+        if (do_output_message_)
+        {
+            CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+            CmdIOUtil::SystemOutput("Loads a file. file_path : " + file_path);
+        }
+
         if (!FileIsExist(file_path)) { return std::nullopt; }
 
         toml::value toml_value;
@@ -65,7 +69,6 @@ public:
 
         if (do_output_message_)
         {
-            CmdIOUtil::SystemOutput("Successfully verified the data.");
             CmdIOUtil::SystemOutput("Loading completed successfully.");
             CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
         }
@@ -102,21 +105,23 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
-            CmdIOUtil::SystemOutput("[" + string_util::GetTypeName(*this) + "]");
-            CmdIOUtil::SystemOutput("Loads a file. file_path : " +
-                                    file_path);
+            CmdIOUtil::InfoOutput("Check if the file exists. ");
         }
 
         if (!std::filesystem::exists(file_path))
         {
             if (do_output_message_)
             {
-                CmdIOUtil::SystemOutput("The file does not exist.");
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+                CmdIOUtil::ErrorOutput("The file does not exist.");
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
             }
 
             return false;
+        }
+
+        if (do_output_message_)
+        {
+            CmdIOUtil::InfoOutput("The file found.");
         }
 
         return true;
@@ -126,7 +131,7 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::SystemOutput("The file found. Start parsing.");
+            CmdIOUtil::InfoOutput("Start parsing.");
         }
 
         try
@@ -140,14 +145,19 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::SystemOutput("File parsing failed.");
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
-                CmdIOUtil::SystemOutput("< Rows that failed to parse >");
-                CmdIOUtil::SystemOutput(err.what());
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+                CmdIOUtil::ErrorOutput("File parsing failed.");
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+                CmdIOUtil::ErrorOutput("< Rows that failed to parse >");
+                CmdIOUtil::ErrorOutput(err.what());
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
             }
 
             return false;
+        }
+
+        if (do_output_message_)
+        {
+            CmdIOUtil::InfoOutput("File parsing succeeded.");
         }
 
         return true;
@@ -157,8 +167,7 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::SystemOutput("The file was successfully parsed. "
-                                    "Serialize data.");
+            CmdIOUtil::InfoOutput("Serialize data.");
         }
 
         try
@@ -169,11 +178,16 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::SystemOutput("Data serialization failed.");
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+                CmdIOUtil::ErrorOutput("Data serialization failed.");
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
             }
 
             return false;
+        }
+
+        if (do_output_message_)
+        {
+            CmdIOUtil::InfoOutput("Data serialization succeeded.");
         }
 
         return true;
@@ -183,8 +197,7 @@ private:
     {
         if (do_output_message_)
         {
-            CmdIOUtil::SystemOutput("Data serialization succeeded. "
-                                    "Start data validation.");
+            CmdIOUtil::InfoOutput("Start data validation.");
         }
 
         const auto [is_valid, error_message] = validator_->Validate(data);
@@ -193,14 +206,19 @@ private:
         {
             if (do_output_message_)
             {
-                CmdIOUtil::SystemOutput("Data validation failed.");
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
-                CmdIOUtil::SystemOutput("<Reasons for Failure to Verify>");
-                CmdIOUtil::SystemOutput(error_message);
-                CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+                CmdIOUtil::ErrorOutput("Data validation failed.");
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+                CmdIOUtil::ErrorOutput("<Reasons for Failure to Verify>");
+                CmdIOUtil::ErrorOutput(error_message);
+                CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
             }
 
             return false;
+        }
+
+        if (do_output_message_)
+        {
+            CmdIOUtil::InfoOutput("Data validation succeeded.");
         }
 
         return true;

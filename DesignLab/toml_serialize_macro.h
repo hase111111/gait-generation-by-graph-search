@@ -1,8 +1,7 @@
 ﻿
 //! @file      toml_serialize_macro.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 //! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
 //! @details
 //! TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
@@ -73,8 +72,7 @@ std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_ve
 //! @param value 追加する値．
 template <typename T>
 typename std::enable_if<impl::is_toml11_available_type<T>::value>::type
-SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
-             const std::string& str, const T& value)
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& str, const T& value)
 {
     (*v)[str] = value;
 }
@@ -85,10 +83,8 @@ SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
 //! @param str 追加する変数の名前．
 //! @param value 追加する値．
 template <typename T>
-typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    std::is_enum<T>::value>::type
-    SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& str, const T& value)
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& std::is_enum<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& str, const T& value)
 {
     (*v)[str] = static_cast<std::string>(magic_enum::enum_name(value));
 }
@@ -100,10 +96,8 @@ typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
 //! @param str 追加する変数の名前．
 //! @param value 追加する値．
 template <typename T>
-typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    impl::has_output_operator<T>::value>::type
-    SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& str, const T& value)
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::has_output_operator<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& str, const T& value)
 {
     std::stringstream ss;
     ss << value;
@@ -111,10 +105,8 @@ typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
 }
 
 template <typename T>
-typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    impl::is_vector_of_has_output_operator<T>::value>::type
-    SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& str, const T& value)
+typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_has_output_operator<T>::value>::type
+SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& str, const T& value)
 {
     std::vector<std::string> str_vec(value.size());
 
@@ -138,11 +130,9 @@ struct GetTomlValueImpl;
 //! @details 型の条件によって，Get関数を特殊化する．
 //! @see GetTomlValue
 template <typename T>
-struct GetTomlValueImpl < T,
-    typename std::enable_if<impl::is_toml11_available_type<T>::value> ::type >
+struct GetTomlValueImpl < T, typename std::enable_if<impl::is_toml11_available_type<T>::value> ::type >
 {
-    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& var_str)
+    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& var_str)
     {
         return toml::find<T>(*v, var_str);
     }
@@ -152,17 +142,14 @@ struct GetTomlValueImpl < T,
 //! @tparam T enum型．
 //! @details enum型の値を magic_enumで文字列に変換してから取得する．
 template <typename T>
-struct GetTomlValueImpl<T,
-    typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    std::is_enum<T>::value>::type>
+struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_type<T>::value&& std::is_enum<T>::value>::type>
 {
     //! @brief tomlファイルから値を取得するための関数．
     //! @details enum型の値を magic_enumで文字列から変換して取得する．
     //! @param[in] v tomlファイルのデータ．
     //! @param[in] var_str 取得する変数の名前．
     //! @return T 取得した値．
-    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& var_str)
+    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& var_str)
     {
         std::string str = toml::find<std::string>(*v, var_str);
         return magic_enum::enum_cast<T>(str).value();
@@ -173,17 +160,14 @@ struct GetTomlValueImpl<T,
 //! @tparam T 入力オペレータを実装している型．
 //! @details 値をストリームを用いて文字列に変換してから取得する．
 template <typename T>
-struct GetTomlValueImpl<T,
-    typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    impl::has_input_operator<T>::value>::type>
+struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::has_input_operator<T>::value>::type>
 {
     //! @brief tomlファイルから値を取得するための関数．
     //! @details ストリームを用いて文字列から変換して取得する．
     //! @param[in] v tomlファイルのデータ．
     //! @param[in] var_str 取得する変数の名前．
     //! @return T 取得した値．
-    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& var_str)
+    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& var_str)
     {
         std::string str = toml::find<std::string>(*v, var_str);
         std::stringstream ss;
@@ -195,15 +179,11 @@ struct GetTomlValueImpl<T,
 };
 
 template <typename T>
-struct GetTomlValueImpl<T,
-    typename std::enable_if<!impl::is_toml11_available_type<T>::value&&
-    impl::is_vector_of_has_input_operator<T>::value>::type>
+struct GetTomlValueImpl<T, typename std::enable_if<!impl::is_toml11_available_type<T>::value&& impl::is_vector_of_has_input_operator<T>::value>::type>
 {
-    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v,
-                 const std::string& var_str)
+    static T Get(::toml::basic_value<toml::preserve_comments, std::map>* v, const std::string& var_str)
     {
-        std::vector<std::string> str_vec =
-            toml::find<std::vector<std::string>>(*v, var_str);
+        std::vector<std::string> str_vec = toml::find<std::vector<std::string>>(*v, var_str);
 
         T temp{};
 
@@ -228,8 +208,7 @@ struct GetTomlValueImpl<T,
 //! @param[in] var_str 取得する変数の名前．
 //! @return 取得した値．
 template <typename T>
-T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map> v,
-               const std::string& var_str)
+T GetTomlValue(::toml::basic_value<toml::preserve_comments, std::map> v, const std::string& var_str)
 {
     return GetTomlValueImpl<T>::Get(&v, var_str);
 }

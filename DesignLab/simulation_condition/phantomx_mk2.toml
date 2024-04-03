@@ -1,6 +1,6 @@
 
 [Body]
-    
+
     #地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
     body_lifting_height_max = 160.0
     

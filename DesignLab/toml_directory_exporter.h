@@ -1,8 +1,7 @@
 ﻿
 //! @file      toml_directory_exporter.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//!  Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
 #define DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_

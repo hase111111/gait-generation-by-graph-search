@@ -1,8 +1,7 @@
 ﻿
 //! @file      toml_data_validator_always_true.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//!  Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
 #define DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
@@ -24,11 +23,9 @@ template <typename T>
 class TomlDataValidatorAlwaysTrue final : public ITomlDataValidator<T>
 {
 public:
-    std::tuple<bool, std::string> Validate(
-        [[maybe_unused]] const T& toml_data) const override
+    std::tuple<bool, std::string> Validate([[maybe_unused]] const T& toml_data) const override
     {
-        CmdIOUtil::SystemOutput(
-            "(No validation is performed in the current configuration.)");
+        CmdIOUtil::InfoOutput("(No validation is performed in the current configuration.)");
         return { true, "" };
     }
 };
