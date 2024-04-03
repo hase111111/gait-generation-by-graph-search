@@ -32,7 +32,7 @@ GraphSearchResult GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
     const RobotOperation& operation,
     RobotStateNode* output_node)
 {
-    using enum enums::RobotOperationType;
+    using enum RobotOperationType;
 
     if (operation.operation_type == kStraightMoveVector ||
         operation.operation_type == kStraightMovePosition)

@@ -14,9 +14,7 @@
 #include "toml_serialize_macro.h"
 
 
-//! @namespace designlab::enums
-//! @brief 列挙体をまとめた名前空間．
-namespace designlab::enums
+namespace designlab
 {
 
 //! @enum RobotOperationType
@@ -43,11 +41,6 @@ enum class RobotOperationType : int
     kTurn,                  //!< 旋回中心と，旋回半径と，旋回方向を与えて旋回させる．
 };
 
-}  // namespace designlab::enums
-
-
-namespace designlab
-{
 
 //! @struct RobotOperation
 //! @brief 探索において目標となる座標や角度，評価する値についてまとめた構造体．
@@ -56,13 +49,13 @@ namespace designlab
 struct RobotOperation final
 {
     //!< 目標方向．正規化されたベクトル．
-    Vector3 straight_move_vector_{ 1.f, 0.f, 0.f };
+    Vector3 straight_move_vector{ 1.f, 0.f, 0.f };
 
     //!< 目標位置（グローバル座標）．
-    Vector3 straight_move_position_{ 10000.f, 0.f, 0.f };
+    Vector3 straight_move_position{ 10000.f, 0.f, 0.f };
 
     //!< 目標姿勢 ( posture )
-    Quaternion spot_turn_last_posture_{ Quaternion::MakeByAngleAxis(0, Vector3::GetUpVec()) };
+    Quaternion spot_turn_last_posture{ Quaternion::MakeByAngleAxis(0, Vector3::GetUpVec()) };
 
     //!< 旋回時の回転軸．右ねじの回転．
     Vector3 spot_turn_rot_axis{ Vector3::GetUpVec() };
@@ -75,38 +68,29 @@ struct RobotOperation final
 
 
     //!< どうやって目標を評価するか．
-    enums::RobotOperationType operation_type{ kStraightMovePosition };
+    RobotOperationType operation_type{ kStraightMovePosition };
 
 private:
-    using enum enums::RobotOperationType;
+    using enum RobotOperationType;
 };
 
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(RobotOperation)
 {
-    DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(
-        "設定によってはこのファイルは参照されないため注意．");
+    DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION("Note that this file is not referenced by some settings.");
 
     DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();
 
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(straight_move_vector_, "Param",
-                                              "指定した方向へ直進する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(straight_move_position_, "Param",
-                                              "指定した座標へ直進する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(spot_turn_last_posture_, "Param",
-                                              "指定した姿勢になるまでその場で旋回する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(spot_turn_rot_axis, "Param",
-                                              "指定した軸周り(右ねじの方向)にその場で旋回する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_center, "Param",
-                                              "指定した中心を中心に旋回する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_radius, "Param",
-                                              "指定した半径で旋回する設定の場合に参照される値．");
-    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_clockwise, "Param",
-                                              "指定した方向に旋回する設定の場合に参照される値．");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(straight_move_vector, "Param", "The value that is referenced when the setting is to go straight in the specified direction.");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(straight_move_position, "Param", "The value that is referred to when the setting is to go straight to the specified coordinates.");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(spot_turn_last_posture, "Param", "The value that is referenced when setting the camera to turn on the spot until it reaches the specified posture.");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(spot_turn_rot_axis, "Param", "The value referred to when setting up in-situ turning around the specified axis (in the direction of right-hand threads).");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_center, "Param", "The value referred to when setting the rotation around the specified center.");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_radius, "Param", "The value referenced in the case of a setup that turns at a specified radius.");
+    DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(turn_clockwise, "Param", "The value that is referenced when the setting is to turn in the specified direction.");
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(operation_type, DESIGNLAB_TOML11_NO_TABLE,
-                                              std::format("ロボットの操作方法を設定します．( {} )",
-                                              string_util::EnumValuesToString<enums::RobotOperationType>(" / ")));
+                                              std::format("This is the setting of the robot's operation method. ({})", string_util::EnumValuesToString<RobotOperationType>(" / ")));
 };
 
 }  // namespace designlab
@@ -114,7 +98,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(RobotOperation)
 
 DESIGNLAB_TOML11_SERIALIZE(
     designlab::RobotOperation,
-    straight_move_vector_, straight_move_position_, spot_turn_last_posture_,
+    straight_move_vector, straight_move_position, spot_turn_last_posture,
     spot_turn_rot_axis, operation_type,
     turn_center, turn_radius, turn_clockwise);
 

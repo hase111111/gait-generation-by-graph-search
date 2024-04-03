@@ -152,7 +152,7 @@ RobotOperation RobotOperatorForGpg::Init() const
 RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 {
     using enum OutputDetail;
-    using enum enums::RobotOperationType;
+    using enum RobotOperationType;
 
     // まず，現在の重心位置から最も近い点を探す．
     int most_near_index = 0;
@@ -160,8 +160,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 
     for (int i = 0; i < global_route_.size(); ++i)
     {
-        const float now_distance = global_route_[i].ProjectedXY().GetDistanceFrom(
-            node.center_of_mass_global_coord.ProjectedXY());
+        const float now_distance = global_route_[i].ProjectedXY().GetDistanceFrom(node.center_of_mass_global_coord.ProjectedXY());
 
         if (min_distance > now_distance)
         {
@@ -188,8 +187,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
     {
         RobotOperation operation;
         operation.operation_type = kSpotTurnLastPosture;
-        operation.spot_turn_last_posture_ =
-            Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
+        operation.spot_turn_last_posture = Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
 
         CmdIOUtil::Output(std::format("target_angle : {} / now_angle : {}",
                           math_util::ConvertRadToDeg(target_angle),
@@ -217,7 +215,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 
     RobotOperation operation;
     operation.operation_type = kStraightMoveVector;
-    operation.straight_move_vector_ = Vector3(target_vector.x, target_vector.y, 0).GetNormalized();
+    operation.straight_move_vector = Vector3(target_vector.x, target_vector.y, 0).GetNormalized();
 
     return operation;
 }

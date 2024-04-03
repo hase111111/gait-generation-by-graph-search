@@ -31,8 +31,8 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     const int max_depth) const
 {
     // ターゲットモードは直進である．
-    assert(operation.operation_type == enums::RobotOperationType::kStraightMovePosition ||
-           operation.operation_type == enums::RobotOperationType::kStraightMoveVector);
+    assert(operation.operation_type == RobotOperationType::kStraightMovePosition ||
+           operation.operation_type == RobotOperationType::kStraightMoveVector);
 
     if (!graph.HasRoot())
     {
@@ -43,16 +43,16 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     // 初期化．
     Vector3 normalized_move_direction;
 
-    if (operation.operation_type == enums::RobotOperationType::kStraightMovePosition)
+    if (operation.operation_type == RobotOperationType::kStraightMovePosition)
     {
-        normalized_move_direction = (operation.straight_move_position_ -
+        normalized_move_direction = (operation.straight_move_position -
                                                 graph.GetRootNode().center_of_mass_global_coord);
         normalized_move_direction.z = 0.0f;
         normalized_move_direction = normalized_move_direction.GetNormalized();
     }
     else
     {
-        normalized_move_direction = operation.straight_move_vector_;
+        normalized_move_direction = operation.straight_move_vector;
         normalized_move_direction.z = 0.0f;
         normalized_move_direction = normalized_move_direction.GetNormalized();
         normalized_move_direction = normalized_move_direction.GetLength() == 0.0f ? Vector3::GetFrontVec() : normalized_move_direction;

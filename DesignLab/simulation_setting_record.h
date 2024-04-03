@@ -55,8 +55,7 @@ struct SimulationSettingRecord final
     std::string map_file_name{ "map_state.csv" };
 
 
-    enums::SimulationEndCheckMode end_check_mode{
-        enums::SimulationEndCheckMode::kGoalTape };
+    enums::SimulationEndCheckMode end_check_mode{ enums::SimulationEndCheckMode::kGoalTape };
 
     float goal_tape_position_x{ 1200.0f };
 

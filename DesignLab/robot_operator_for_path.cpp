@@ -45,15 +45,15 @@ RobotOperation RobotOperatorForPath::Init() const
 {
     RobotOperation operation;
 
-    operation.operation_type = enums::RobotOperationType::kStraightMoveVector;
-    operation.straight_move_vector_ = Vector3::GetFrontVec();
+    operation.operation_type = RobotOperationType::kStraightMoveVector;
+    operation.straight_move_vector = Vector3::GetFrontVec();
 
     return operation;
 }
 
 RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
 {
-    using enum enums::RobotOperationType;
+    using enum RobotOperationType;
 
     if ((global_route_[most_near_index_].ProjectedXY() - node.center_of_mass_global_coord.ProjectedXY()).GetLength() < 150.f)
     {
@@ -75,7 +75,7 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
         {
             RobotOperation operation;
             operation.operation_type = kSpotTurnLastPosture;
-            operation.spot_turn_last_posture_ = Quaternion::MakeByAngleAxis(angle, Vector3::GetUpVec());
+            operation.spot_turn_last_posture = Quaternion::MakeByAngleAxis(angle, Vector3::GetUpVec());
 
             return operation;
         }
@@ -108,11 +108,11 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
 
     if (most_near_index_ == 0)
     {
-        operation_straight.straight_move_vector_ = (global_route_[most_near_index_] - node.center_of_mass_global_coord).GetNormalized();
+        operation_straight.straight_move_vector = (global_route_[most_near_index_] - node.center_of_mass_global_coord).GetNormalized();
     }
     else
     {
-        operation_straight.straight_move_vector_ = (global_route_[most_near_index_] - global_route_[most_near_index_ - 1]).GetNormalized();
+        operation_straight.straight_move_vector = (global_route_[most_near_index_] - global_route_[most_near_index_ - 1]).GetNormalized();
     }
 
     return operation_straight;

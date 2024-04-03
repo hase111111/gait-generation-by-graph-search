@@ -28,8 +28,8 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     const DividedMapState& divided_map_state,
     const int max_depth) const
 {
-    assert(operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture ||
-           operation.operation_type == enums::RobotOperationType::kSpotTurnRotAxis);
+    assert(operation.operation_type == RobotOperationType::kSpotTurnLastPosture ||
+           operation.operation_type == RobotOperationType::kSpotTurnRotAxis);
 
     if (!graph.HasRoot())
     {
@@ -40,9 +40,9 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     // 初期化．
     Quaternion target_quaternion;
 
-    if (operation.operation_type == enums::RobotOperationType::kSpotTurnLastPosture)
+    if (operation.operation_type == RobotOperationType::kSpotTurnLastPosture)
     {
-        target_quaternion = operation.spot_turn_last_posture_;
+        target_quaternion = operation.spot_turn_last_posture;
     }
     else
     {
