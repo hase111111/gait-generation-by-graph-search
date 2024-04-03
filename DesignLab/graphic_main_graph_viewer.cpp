@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "graphic_main_graph_viewer.h"
 
@@ -24,11 +23,11 @@ namespace designlab
 {
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(
-  const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-  const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-  const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-  const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+    const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     broker_ptr_(broker_ptr),
     mouse_ptr_(std::make_shared<Mouse>()),
     graph_({}),
@@ -36,7 +35,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 {
     assert(broker_ptr_ != nullptr);
 
-    // 適当なノードを生成して，描画クラスを初期化する
+    // 適当なノードを生成して，描画クラスを初期化する．
     NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
     RobotStateNode init_node = node_initializer.InitNode();
 

@@ -1,7 +1,6 @@
 ﻿
 //! @author    hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "graphic_main_robot_control.h"
 

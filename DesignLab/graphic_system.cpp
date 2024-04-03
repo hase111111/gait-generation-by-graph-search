@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "graphic_system.h"
 
@@ -107,8 +106,7 @@ bool GraphicSystem::MyDxlibInit()
     SetUseDirectInputFlag(TRUE);
 
     // ウィンドウの横幅，縦幅，カラーを設定する．
-    SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y,
-                 GraphicConst::kColorBit);
+    SetGraphMode(setting_ptr_->window_size_x, setting_ptr_->window_size_y, GraphicConst::kColorBit);
 
     // DX ライブラリ初期化処理．
     if (DxLib_Init() < 0)
@@ -121,12 +119,10 @@ bool GraphicSystem::MyDxlibInit()
     SetDrawScreen(DX_SCREEN_BACK);
 
     // 背景色の設定
-    SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen,
-                       GraphicConst::kBackColorBlue);
+    SetBackgroundColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorGreen, GraphicConst::kBackColorBlue);
 
     // 3D関連の初期化を行う．
-    if (setting_ptr_ != nullptr &&
-        setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
+    if (setting_ptr_ != nullptr && setting_ptr_->gui_display_quality == DisplayQuality::kHigh)
     {
         dxlib_util::InitDxlib3DSetting(true);
     }

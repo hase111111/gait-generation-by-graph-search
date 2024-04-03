@@ -1,8 +1,7 @@
 ﻿
 //! @file      graphic_system.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_
@@ -79,8 +78,7 @@ class GraphicSystem final
 {
 public:
     //! @param[in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
-    explicit GraphicSystem(
-        const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
+    explicit GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
 
 
     //! @brief ウィンドウの表示を行う関数．
