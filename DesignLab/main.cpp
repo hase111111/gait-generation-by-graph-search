@@ -76,8 +76,7 @@ int main()
     CmdIOUtil::SetOutputLimit(application_setting_record->cmd_output_detail);
 
     // タイトルを表示する．
-    CmdIOUtil::OutputTitle("Free Gait Planning for a "
-                           "Hexapod Walking Robot by Graph Search", true);
+    CmdIOUtil::OutputTitle("Free Gait Planning for a Hexapod Walking Robot by Graph Search", true);
 
 
     // GUIを別のスレッドで実行する．
@@ -263,19 +262,13 @@ int main()
         {
             system_main->Main();
         }
-        else
-        {
-            CmdIOUtil::Output("SystemMainクラスがありません．"
-                              "(GraphicSystemしか使用しない場合は"
-                              "このメッセージが表示されることがあります．)", kSystem);
-        }
 
 
         // もう一度実行するかどうかを選択する．
         CmdIOUtil::OutputHorizontalLine("=", kSystem);
         CmdIOUtil::OutputNewLine(1, kSystem);
 
-        if (!CmdIOUtil::InputYesNo("アプリケーションを続行しますか？"))
+        if (!CmdIOUtil::InputYesNo("Continue?"))
         {
             break;
         }
@@ -285,7 +278,7 @@ int main()
         CmdIOUtil::OutputNewLine(1, kSystem);
     }
 
-    CmdIOUtil::Output("Dxlibの終了を待っています．GUIの×ボタンを押してください．", kSystem);
+    CmdIOUtil::Output("Waiting for Dxlib to exit; press the X button on the GUI.", kSystem);
     graphic_thread.join();
 
     return 0;
