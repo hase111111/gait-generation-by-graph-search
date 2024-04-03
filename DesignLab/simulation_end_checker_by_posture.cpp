@@ -13,9 +13,8 @@ namespace designlab
 {
 
 SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
-  const::designlab::Quaternion& goal_orientation,
-  const float allowable_error
-) :
+    const Quaternion& goal_orientation,
+    const float allowable_error) :
     goal_orientation_(goal_orientation),
     goal_euler_(ToEulerXYZ(goal_orientation)),
     allowable_error_(allowable_error)

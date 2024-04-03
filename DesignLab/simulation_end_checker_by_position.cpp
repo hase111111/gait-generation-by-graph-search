@@ -9,9 +9,8 @@ namespace designlab
 {
 
 SimulationEndCheckerByPosition::SimulationEndCheckerByPosition(
-  const Vector3& goal_position,
-  const float allowable_error
-) :
+    const Vector3& goal_position,
+    const float allowable_error) :
     goal_position_(goal_position),
     allowable_error_(allowable_error)
 {

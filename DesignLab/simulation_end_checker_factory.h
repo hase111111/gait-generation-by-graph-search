@@ -23,8 +23,7 @@ public:
     //! @brief シミュレーションの終了を判定するクラスを生成する．
     //! @param[in] record シミュレーションの終了を判定する際の設定．
     //! @return シミュレーションの終了を判定するクラスのインスタンス．
-    static std::unique_ptr<ISimulationEndChecker> Create(
-        const SimulationSettingRecord& record);
+    static std::unique_ptr<ISimulationEndChecker> Create(const SimulationSettingRecord& record);
 };
 
 }  // namespace designlab
