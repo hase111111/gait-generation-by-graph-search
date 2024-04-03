@@ -1,8 +1,7 @@
 ﻿
 //! @file      interface_gait_pattern_generator.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
 #define DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
@@ -26,8 +25,7 @@ namespace designlab
 //! @n 継承をするクラスのデストラクタは virtualにしておく．
 //!
 //! 参考
-//! @li C++ でデストラクタを virtual にしなくてはならない条件と理由
-//! https://www.yunabe.jp/docs/cpp_virtual_destructor.html (アクセス日 2023/12/27)
+//! @li C++ でデストラクタを virtual にしなくてはならない条件と理由 https://www.yunabe.jp/docs/cpp_virtual_destructor.html (アクセス日 2023/12/27)
 class IGaitPatternGenerator
 {
 public:

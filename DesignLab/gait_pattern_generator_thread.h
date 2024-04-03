@@ -1,8 +1,7 @@
 ﻿
 //! @file      gait_pattern_generator_thread.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_
@@ -53,8 +52,7 @@ private:
     static constexpr int kThreadNum = 6;  //!< スレッド数．
 
 
-    std::vector<GaitPatternGraphTree> InitializeGraphTreeArray(
-        int thread_num, int max_node_num) const;
+    std::vector<GaitPatternGraphTree> InitializeGraphTreeArray(int thread_num, int max_node_num) const;
 
     //! グラフ探索を行う木構造のグラフを作成するクラス．
     const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
