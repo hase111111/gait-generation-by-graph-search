@@ -18,13 +18,13 @@ namespace designlab
 {
 
 BootModeSelector::BootModeSelector() :
-    kBootModeNum(static_cast<int>(magic_enum::enum_count<enums::BootMode>())),
-    default_mode_(enums::BootMode::kSimulation)
+    kBootModeNum(static_cast<int>(magic_enum::enum_count<BootMode>())),
+    default_mode_(BootMode::kSimulation)
 {
 }
 
 
-enums::BootMode BootModeSelector::SelectBootMode()
+BootMode BootModeSelector::SelectBootMode()
 {
     // kSystem にすると、設定にかかわらず必ず表示される．
     const OutputDetail output_detail = OutputDetail::kSystem;
@@ -34,7 +34,7 @@ enums::BootMode BootModeSelector::SelectBootMode()
     // 起動モードの名前を表示する．
     for (int i = 0; i < kBootModeNum; i++)
     {
-        const enums::BootMode boot_mode = static_cast<enums::BootMode>(i);
+        const BootMode boot_mode = static_cast<BootMode>(i);
 
         const std::string boot_mode_name =
             string_util::EnumToStringRemoveTopK(boot_mode);
@@ -58,9 +58,9 @@ enums::BootMode BootModeSelector::SelectBootMode()
     const int input = CmdIOUtil::InputInt(0, kBootModeNum - 1, default_mode_num);
 
     // 受け取った値を magic_enum の enum_cast で BootMode に変換する．
-    if (magic_enum::enum_cast<enums::BootMode>(input).has_value())
+    if (magic_enum::enum_cast<BootMode>(input).has_value())
     {
-        return magic_enum::enum_cast<enums::BootMode>(input).value();
+        return magic_enum::enum_cast<BootMode>(input).value();
     }
     else
     {

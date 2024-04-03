@@ -42,7 +42,7 @@ struct ApplicationSettingRecord final
     bool ask_about_modes{ true };
 
     //! デフォルトの起動モード．
-    enums::BootMode default_mode{ enums::BootMode::kSimulation };
+    BootMode default_mode{ BootMode::kSimulation };
 
     //! 1シミュレーションごとにステップ実行をするかどうか．
     bool do_step_execution_each_simulation{ true };
@@ -102,7 +102,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         default_mode, "Mode",
         std::format("Sets the default run mode at startup. ( \"{}\" )",
-        string_util::EnumValuesToString<enums::BootMode>("\" / \"")));
+        string_util::EnumValuesToString<BootMode>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         do_step_execution_each_simulation, "Mode",
         "Ask if you want to continue with each simulation. ( true / false )");

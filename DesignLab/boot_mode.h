@@ -1,14 +1,13 @@
 ﻿
 //! @file      boot_mode.h
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_
 
 
-namespace designlab::enums
+namespace designlab
 {
 
 //! @enum BootMode
@@ -23,7 +22,7 @@ enum class BootMode : int
     kRobotControl,      //!< ロボットコントロールモード．
 };
 
-}  // namespace designlab::enums
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_BOOT_MODE_H_

@@ -92,7 +92,7 @@ int main()
     while (true)
     {
         // 起動モードを選択する．
-        enums::BootMode boot_mode = application_setting_record->default_mode;
+        BootMode boot_mode = application_setting_record->default_mode;
 
         if (application_setting_record->ask_about_modes)
         {
@@ -135,7 +135,7 @@ int main()
 
         switch (boot_mode)
         {
-            case enums::BootMode::kSimulation:
+            case BootMode::kSimulation:
             {
                 // シミュレーションシステムクラスを作成する．
 
@@ -181,7 +181,7 @@ int main()
 
                 break;
             }
-            case enums::BootMode::kViewer:
+            case BootMode::kViewer:
             {
                 // グラフビューアシステムクラスを作成する．
 
@@ -209,7 +209,7 @@ int main()
 
                 break;
             }
-            case enums::BootMode::kDisplayModel:
+            case BootMode::kDisplayModel:
             {
                 std::unique_ptr<IGraphicMain> graphic_main_test =
                     std::make_unique<GraphicMainDisplayModel>(
@@ -222,7 +222,7 @@ int main()
 
                 break;
             }
-            case enums::BootMode::kResultViewer:
+            case BootMode::kResultViewer:
             {
                 // 結果表示システムクラスを作成する．
                 system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker,
@@ -241,7 +241,7 @@ int main()
 
                 break;
             }
-            case enums::BootMode::kRobotControl:
+            case BootMode::kRobotControl:
             {
                 system_main = std::make_unique<SystemMainRobotControl>(graphic_data_broker);
 
@@ -640,7 +640,7 @@ int main()
 //!     return error_value::kErrorValue;
 //! }
 //! @endcode
-//! @see designlab::enums::BootMode
+//! @see designlab::BootMode
 //! @see designlab::BootModeSelector
 //! @n
 //!
