@@ -39,6 +39,9 @@ void CmdIOUtil::SetOutputLimit(const OutputDetail limit)
 
         is_initialized = true;
     }
+
+    // 出力の許可範囲を設定したことを通知．
+    FormatOutput(OutputDetail::kSystem, "Output limit is set to '{}'.", string_util::EnumToStringRemoveTopK(output_limit));
 }
 
 void CmdIOUtil::DoOutput(const bool do_output_)
@@ -65,9 +68,13 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
         // システムメッセージでない場合は，タグをつける．
         const std::string tag = (detail == OutputDetail::kSystem ? "" : " [" + string_util::EnumToStringRemoveTopK(detail) + "] ");
 
+#if defined(DESIGNLAB_USE_COLOR_OUTPUT)
+
         if (detail == OutputDetail::kError) { std::cout << "\x1b[31m"; }  // 赤色．
         if (detail == OutputDetail::kWarning) { std::cout << "\x1b[33m"; }  // 黄色．
         if (detail == OutputDetail::kInfo) { std::cout << "\x1b[36m"; }  // シアン．
+
+#endif  // DESIGNLAB_USE_COLOR_OUTPUT
 
         std::cout << tag;
 
@@ -84,7 +91,10 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
             std::cout << line[i] << std::endl;
         }
 
+#if defined(DESIGNLAB_USE_COLOR_OUTPUT)
         std::cout << "\x1b[0m";  // 色をリセット．
+#endif  // DESIGNLAB_USE_COLOR_OUTPUT
+
     }
 }
 
