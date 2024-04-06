@@ -19,7 +19,7 @@ class NodeInitializer final
 {
 public:
     NodeInitializer(const Vector3& pos, const EulerXYZ& posture_,
-                    enums::HexapodMove move);
+                    HexapodMove move);
 
     //! @brief ノードの初期化を行う．
     //! @return 初期化されたノード．
@@ -31,7 +31,7 @@ public:
 private:
     const Vector3 pos_;
     const EulerXYZ posture_;
-    const enums::HexapodMove move_;
+    const HexapodMove move_;
 };
 
 }  // namespace designlab

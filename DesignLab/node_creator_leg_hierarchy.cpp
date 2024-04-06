@@ -11,7 +11,7 @@ namespace designlab
 {
 
 NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(
-    const enums::HexapodMove next_move,
+    const HexapodMove next_move,
     const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list) :
     next_move_(next_move),
     discrete_leg_pos_list_(discrete_leg_pos_list)

@@ -13,7 +13,7 @@ NodeCreatorBodyRot::NodeCreatorBodyRot(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
     const ::designlab::Vector3& rot_axis,
-    enums::HexapodMove next_move) :
+    HexapodMove next_move) :
     map_(divided_map),
     next_move_(next_move),
     converter_ptr_(converter_ptr),

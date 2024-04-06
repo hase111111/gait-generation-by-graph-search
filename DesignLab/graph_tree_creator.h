@@ -51,7 +51,7 @@ private:
                                    std::vector<RobotStateNode>* output_graph_ptr) const;
 
     //! ノード生成クラスのマップ．
-    std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;
+    std::map<HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;
 
     //! ノード生成クラスのビルダー．
     const std::unique_ptr<INodeCreatorBuilder> node_creator_builder_ptr_;

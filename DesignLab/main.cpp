@@ -61,14 +61,11 @@ int main()
     TomlDirectoryExporter toml_directory_exporter;
     toml_directory_exporter.Export();
 
-    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(
-        std::make_unique<ApplicationSettingRecordValidator>());
+    TomlFileImporter<ApplicationSettingRecord> application_setting_importer(std::make_unique<ApplicationSettingRecordValidator>());
 
 
     // 読み込んだ設定ファイルをクラスに記録する．
-    const auto application_setting_record =
-        std::make_shared<const ApplicationSettingRecord>(
-            application_setting_importer.ImportOrUseDefault("./settings.toml"));
+    const auto application_setting_record = std::make_shared<const ApplicationSettingRecord>(application_setting_importer.ImportOrUseDefault("./settings.toml"));
 
 
     // 次に，コマンドラインの出力を設定する．
@@ -112,22 +109,14 @@ int main()
         const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
 
         auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
-        PhantomXMkIIParameterRecord parameter_record_revaluation = parameter_record;
-        parameter_record_revaluation.min_leg_range += 10.0f;
-        auto phantomx_mk2_revaluation = std::make_shared<PhantomXMkII>(parameter_record_revaluation);
 
         auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto node_creator_builder_straight_revaluation = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2_revaluation, phantomx_mk2_revaluation, phantomx_mk2_revaluation);
-
-        // auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderBodyRot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
         auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
 
         auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));
-        auto graph_tree_creator_straight_revaluation = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight_revaluation));
         auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
 
         auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-        auto graph_searcher_straight_revaluation = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2_revaluation);
         auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2, phantomx_mk2);
 
         std::unique_ptr<ISystemMain> system_main;
@@ -138,18 +127,11 @@ int main()
             {
                 // シミュレーションシステムクラスを作成する．
 
-                auto gait_pattern_generator_straight =
-                    std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);
-                //auto gait_pattern_generator_straight_revaluation =
-                //    std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight_revaluation), std::move(graph_searcher_straight_revaluation), 4, 20000000);
-
-                // auto gait_pattern_generator =
-                //  std::make_unique<GaitPatternGeneratorRevaluation>(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_straight_revaluation), phantomx_mk2, phantomx_mk2);
+                auto gait_pattern_generator_straight = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);
                 auto gait_pattern_generator_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 20000000);
                 auto gait_pattern_generator_switch_move = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_turn_spot));
 
-                TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
-                const SimulationSettingRecord simulation_setting_record = simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+                const SimulationSettingRecord simulation_setting_record = TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
@@ -169,12 +151,7 @@ int main()
                   application_setting_record,
                   result_exporter);
 
-                auto graphic_main = std::make_unique<GraphicMainBasic>(
-                  graphic_data_broker,
-                  phantomx_mk2,
-                  phantomx_mk2,
-                  phantomx_mk2,
-                  application_setting_record);
+                auto graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main));
 
@@ -197,12 +174,7 @@ int main()
                     application_setting_record);
 
                 std::unique_ptr<IGraphicMain> graphic_main_viewer =
-                    std::make_unique<GraphicMainGraphViewer>(
-                        graphic_data_broker,
-                        phantomx_mk2,
-                        phantomx_mk2,
-                        phantomx_mk2,
-                        application_setting_record);
+                    std::make_unique<GraphicMainGraphViewer>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
 
@@ -224,17 +196,9 @@ int main()
             case BootMode::kResultViewer:
             {
                 // 結果表示システムクラスを作成する．
-                system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker,
-                                                                       application_setting_record,
-                                                                       phantomx_mk2,
-                                                                       phantomx_mk2);
+                system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record, phantomx_mk2, phantomx_mk2);
 
-                std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(
-                  graphic_data_broker,
-                  phantomx_mk2,
-                  phantomx_mk2,
-                  phantomx_mk2,
-                  application_setting_record);
+                std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main));
 

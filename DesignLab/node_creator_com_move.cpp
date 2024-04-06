@@ -17,7 +17,7 @@ NodeCreatorComMove::NodeCreatorComMove(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const enums::HexapodMove next_move) :
+  const HexapodMove next_move) :
     map_(map),
     maker_(converter_ptr),
     selector_(checker_ptr),

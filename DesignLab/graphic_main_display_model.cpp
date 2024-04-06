@@ -38,7 +38,7 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     calculator_ptr_(calculator_ptr),
     converter_ptr_(converter_ptr)
 {
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
+    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), HexapodMove::kNone };
     robot_ = node_initializer.InitNode();
 
     TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;

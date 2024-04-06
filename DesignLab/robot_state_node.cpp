@@ -178,7 +178,7 @@ RobotStateNode RobotStateNode::FromString(const std::string& str)
             std::stof(data[cnt++]), std::stof(data[cnt++]), std::stof(data[cnt++]) };
 
         // 次動作．
-        res.next_move = magic_enum::enum_cast<enums::HexapodMove>(data[cnt++]).value();
+        res.next_move = magic_enum::enum_cast<HexapodMove>(data[cnt++]).value();
 
         // 親ノードの番号．
         res.parent_index = std::stoi(data[cnt++]);

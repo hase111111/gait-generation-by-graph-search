@@ -31,10 +31,10 @@ NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
 
 void NodeCreatorBuilderStraightMove::Build(
   const DividedMapState& map,
-  std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
+  std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
     using enum enums::DiscreteLegPos;
-    using enum enums::HexapodMove;
+    using enum HexapodMove;
 
     assert(node_creator != nullptr);  // node_creator が nullptr でない．
     assert(node_creator->size() == 0);  // node_creator は空でなければならない．
@@ -49,16 +49,16 @@ void NodeCreatorBuilderStraightMove::Build(
       kLowerBack, kLowerFront, kUpperBack, kUpperFront
     };
 
-    (*node_creator)[enums::HexapodMove::kLegHierarchyChange] =
+    (*node_creator)[HexapodMove::kLegHierarchyChange] =
         std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-    (*node_creator)[enums::HexapodMove::kLegUpDown] =
+    (*node_creator)[HexapodMove::kLegUpDown] =
         std::make_unique<NodeCreatorLegUpDownRadius>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
-    (*node_creator)[enums::HexapodMove::kComUpDown] =
+    (*node_creator)[HexapodMove::kComUpDown] =
         std::make_unique<NodeCreatorComUpDown>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
-    (*node_creator)[enums::HexapodMove::kComMove] =
+    (*node_creator)[HexapodMove::kComMove] =
         std::make_unique<NodeCreatorComMove>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 

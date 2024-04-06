@@ -35,7 +35,7 @@ public:
     //! つまり，ロボットの動作に対応する INodeCreator を格納する必要がある．
     virtual void Build(
       const DividedMapState& map,
-      std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const = 0;
+      std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const = 0;
 };
 
 }  // namespace designlab

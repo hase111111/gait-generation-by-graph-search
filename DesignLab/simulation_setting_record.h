@@ -79,7 +79,7 @@ struct SimulationSettingRecord final
 
     EulerXYZ initial_posture{ 0.f, 0.f, 0.f };
 
-    enums::HexapodMove initial_move{ enums::HexapodMove::kComMove };
+    HexapodMove initial_move{ HexapodMove::kComMove };
 };
 
 
@@ -88,7 +88,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
     using enum enums::MapCreateMode;
     using enum enums::RobotOperateMode;
     using enum enums::SimulationEndCheckMode;
-    using enum enums::HexapodMove;
+    using enum HexapodMove;
 
     DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(
         "シミュレーションを行う際の設定はこのファイルで設定します．");
@@ -153,7 +153,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
                                               "地面にめり込んでいる場合には機能しないため，注意すること．");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_move, "Initial",
                                               std::format("シミュレーション開始時のロボットの歩容を設定します．( \"{}\" )",
-                                              string_util::EnumValuesToString<enums::HexapodMove>("\" / \"")));
+                                              string_util::EnumValuesToString<HexapodMove>("\" / \"")));
 };
 
 }  // namespace designlab

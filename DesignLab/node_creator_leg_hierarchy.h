@@ -25,7 +25,7 @@ public:
     //! @param[in] next_move 次の動作．
     //! @param[in] discrete_leg_pos_list 離散化された脚位置のリスト．
     NodeCreatorLegHierarchy(
-        enums::HexapodMove next_move,
+        HexapodMove next_move,
         const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list);
 
     ~NodeCreatorLegHierarchy() = default;
@@ -56,7 +56,7 @@ private:
                           std::vector<RobotStateNode>* output_nodes) const;
 
 
-    const enums::HexapodMove next_move_;  //!< 次の動作．
+    const HexapodMove next_move_;  //!< 次の動作．
 
     //! 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
     const std::vector<enums::DiscreteLegPos> discrete_leg_pos_list_;

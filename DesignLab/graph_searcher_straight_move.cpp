@@ -65,7 +65,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
     int max_evaluation_value_index = -1;
     int log_depth = 0;
-    enums::HexapodMove log_move = enums::HexapodMove::kNone;
+    HexapodMove log_move = HexapodMove::kNone;
 
     GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 

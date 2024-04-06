@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "system_main_graph_viewer.h"
 
@@ -27,10 +26,10 @@ namespace designlab
 {
 
 SystemMainGraphViewer::SystemMainGraphViewer(
-  std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
-  std::unique_ptr<IMapCreator>&& map_creator,
-  const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+    std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
+    std::unique_ptr<IMapCreator>&& map_creator,
+    const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     graph_tree_creator_ptr_(std::move(graph_tree_creator)),
     map_creator_ptr_(std::move(map_creator)),
     broker_ptr_(broker_ptr),
@@ -41,7 +40,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
     assert(broker_ptr_ != nullptr);
     assert(setting_ptr_ != nullptr);
 
-    CmdIOUtil::OutputTitle("グラフ確認モード");  // タイトルを表示する．
+    CmdIOUtil::OutputTitle("Graph Viewer Mode");  // タイトルを表示する．
 
     map_state_ = map_creator_ptr_->InitMap();
 
@@ -53,22 +52,11 @@ void SystemMainGraphViewer::Main()
 {
     using enum OutputDetail;
 
-    // 早期リターン．
-    if (!graph_tree_creator_ptr_)
-    {
-        CmdIOUtil::Output("グラフ木作成クラスが初期化されていないため終了します", kError);
-        return;
-    }
-
-    CmdIOUtil::Output("別スレッドでGUIを起動する．", kInfo);
-
     // ノードを初期化する．
-    CmdIOUtil::Output("ノードを初期化する．", kSystem);
+    CmdIOUtil::InfoOutput("Initializes a node.");
 
-    NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
-    RobotStateNode first_node = node_initializer.InitNode();
+    RobotStateNode first_node = NodeInitializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ {}, HexapodMove::kComUpDown }.InitNode();
     std::vector<RobotStateNode> graph;
-
 
     while (true)
     {
@@ -167,8 +155,7 @@ void SystemMainGraphViewer::Main()
 }
 
 
-void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
-                                        std::vector<RobotStateNode>* graph)
+void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph)
 {
     assert(graph != nullptr);
 
@@ -196,12 +183,13 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 
     stopwatch_.Start();
 
-    GraphSearchResult result =
-        graph_tree_creator_ptr_->CreateGraphTree(0, 5, &graph_tree);
+    const GraphSearchResult result = graph_tree_creator_ptr_->CreateGraphTree(0, 5, &graph_tree);
 
     stopwatch_.End();
 
     // グラフ探索の結果を取得する．
+    (*graph).clear();
+
     for (int i = 0; i < graph_tree.GetGraphSize(); i++)
     {
         (*graph).push_back(graph_tree.GetNode(i));
@@ -211,23 +199,21 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
     // グラフ探索の結果を表示する．
     CmdIOUtil::OutputNewLine(1, kSystem);
     CmdIOUtil::Output("グラフ探索終了", kSystem);
-    CmdIOUtil::Output(std::format("グラフ探索にかかった時間 : {}",
-                      stopwatch_.GetElapsedMilliSecondString()), kSystem);
+    CmdIOUtil::Output(std::format("グラフ探索にかかった時間 : {}", stopwatch_.GetElapsedMilliSecondString()), kSystem);
 
-    CmdIOUtil::Output(std::format("グラフ探索結果 : {}",
-                      string_util::EnumToStringRemoveTopK(result.result)), kSystem);
+    CmdIOUtil::Output(std::format("グラフ探索結果 : {}", string_util::EnumToStringRemoveTopK(result.result)), kSystem);
 }
 
 void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>& graph) const
 {
-    using enum OutputDetail;
+    const OutputDetail detail = OutputDetail::kInfo;
 
-    CmdIOUtil::OutputNewLine(1, kSystem);
-    CmdIOUtil::OutputHorizontalLine("=", kSystem);
-    CmdIOUtil::OutputNewLine(1, kSystem);
-    CmdIOUtil::Output("グラフの状態を表示します．", kSystem);
-    CmdIOUtil::OutputNewLine(1, kSystem);
-    CmdIOUtil::Output("グラフのノードの数 : " + std::to_string(graph.size()), kSystem);
+    CmdIOUtil::OutputNewLine(1, detail);
+    CmdIOUtil::OutputHorizontalLine("=", detail);
+    CmdIOUtil::OutputNewLine(1, detail);
+    CmdIOUtil::Output("グラフの状態を表示します．", detail);
+    CmdIOUtil::OutputNewLine(1, detail);
+    CmdIOUtil::Output("グラフのノードの数 : " + std::to_string(graph.size()), detail);
 
 
     if (graph.size() > 0)
@@ -236,8 +222,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
         std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);
 
-        CmdIOUtil::Output(std::format("SystemMainGraphViewer : グラフ探索の最大深さ : {}",
-                          GraphSearchConst::kMaxDepth), kSystem);
+        CmdIOUtil::Output(std::format("SystemMainGraphViewer : グラフ探索の最大深さ : {}", GraphSearchConst::kMaxDepth), detail);
 
         for (const auto& i : graph)
         {
@@ -253,18 +238,18 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
         for (const auto& i : depth_num)
         {
-            CmdIOUtil::Output(std::format("・深さ {} : {}", depth_cnt, i), kSystem);
+            CmdIOUtil::FormatOutput(detail, "- depth {} : {}", depth_cnt, i);
             depth_cnt++;
         }
     }
     else
     {
-        CmdIOUtil::Output("グラフが空なので，深さごとのノード数を表示できません．", kSystem);
+        CmdIOUtil::Output("グラフが空なので，深さごとのノード数を表示できません．", detail);
     }
 
-    CmdIOUtil::OutputNewLine(1, kSystem);
-    CmdIOUtil::OutputHorizontalLine("=", kSystem);
-    CmdIOUtil::OutputNewLine(1, kSystem);
+    CmdIOUtil::OutputNewLine(1, detail);
+    CmdIOUtil::OutputHorizontalLine("=", detail);
+    CmdIOUtil::OutputNewLine(1, detail);
 }
 
 RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
@@ -279,7 +264,7 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
     {
         CmdIOUtil::Output("グラフが空なので，初期状態のノードを返す", kSystem);
 
-        NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), enums::HexapodMove::kNone };
+        NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), HexapodMove::kNone };
         RobotStateNode first_node = node_initializer.InitNode();
 
         return first_node;

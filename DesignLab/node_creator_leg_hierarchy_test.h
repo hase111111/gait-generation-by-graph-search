@@ -18,7 +18,7 @@ TEST_SUITE("NodeCreatorLegHierarchyTest")
 {
     using designlab::NodeCreatorLegHierarchy;
     using designlab::RobotStateNode;
-    using designlab::enums::HexapodMove;
+    using designlab::HexapodMove;
     using designlab::HexapodConst;
     using designlab::enums::DiscreteLegPos;
     using designlab::enums::DiscreteComPos;

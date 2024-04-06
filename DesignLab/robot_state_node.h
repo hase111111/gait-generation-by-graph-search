@@ -60,7 +60,7 @@ struct RobotStateNode final
         leg_reference_pos{ leg_pos },
         center_of_mass_global_coord{},
         posture{},
-        next_move(enums::HexapodMove::kComUpDown),
+        next_move(HexapodMove::kComUpDown),
         parent_index(kNoParentIndex),
         depth(0)
     {
@@ -72,7 +72,7 @@ struct RobotStateNode final
       const std::array<Vector3, HexapodConst::kLegNum>& ref_pos,
       const Vector3& com,
       const Quaternion& q,
-      const enums::HexapodMove move,
+      const HexapodMove move,
       const int parent,
       const int d) :
         leg_state(state),
@@ -123,7 +123,7 @@ struct RobotStateNode final
     //! @param[in] next_move_ 次の動作．
     constexpr void ChangeToNextNode(
         const int parent_index_,
-        const enums::HexapodMove next_move_)
+        const HexapodMove next_move_)
     {
         ++depth;
         parent_index = parent_index_;
@@ -206,7 +206,7 @@ struct RobotStateNode final
 
     //! [4 byte] 次の動作を代入する．
     //! 元のプログラムでは int debug が担っていた仕事を行う．
-    enums::HexapodMove next_move;
+    HexapodMove next_move;
 
     //! [4 byte] 自身の親が vector 配列のどこにいるのかを記録する．
     //! 親がいないなら負の値をとる．

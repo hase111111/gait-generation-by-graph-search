@@ -42,8 +42,7 @@ private:
     //! @brief グラフを作成する．
     //! @param[in] parent 親ノード．
     //! @param[out] graph 作成したグラフ．
-    void CreateGraph(const RobotStateNode parent,
-                     std::vector<RobotStateNode>* graph);
+    void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
 
 
     //! @brief グラフのステータスを表示する．

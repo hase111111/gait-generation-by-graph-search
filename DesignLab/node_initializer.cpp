@@ -14,7 +14,7 @@
 namespace designlab
 {
 
-NodeInitializer::NodeInitializer(const Vector3& pos, const EulerXYZ& posture, enums::HexapodMove move) :
+NodeInitializer::NodeInitializer(const Vector3& pos, const EulerXYZ& posture, HexapodMove move) :
     pos_(pos),
     posture_(posture),
     move_(move)

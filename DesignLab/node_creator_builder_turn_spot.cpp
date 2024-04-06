@@ -31,7 +31,7 @@ NodeCreatorBuilderTurnSpot::NodeCreatorBuilderTurnSpot(
 
 void NodeCreatorBuilderTurnSpot::Build(
   const DividedMapState& map,
-  std::map<enums::HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
+  std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
 {
     assert(node_creator != nullptr);  // node_creator が nullptr でない．
     assert(node_creator->size() == 0);  // node_creator は空でなければならない．
@@ -46,28 +46,28 @@ void NodeCreatorBuilderTurnSpot::Build(
       enums::DiscreteLegPos::kUpperFront
     };
 
-    (*node_creator)[enums::HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(enums::HexapodMove::kLegUpDown, hierarchy_list);
+    (*node_creator)[HexapodMove::kLegHierarchyChange] = std::make_unique<NodeCreatorLegHierarchy>(HexapodMove::kLegUpDown, hierarchy_list);
 
-    (*node_creator)[enums::HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDownRadius>(
+    (*node_creator)[HexapodMove::kLegUpDown] = std::make_unique<NodeCreatorLegUpDownRadius>(
       map,
       converter_ptr_,
       presenter_ptr_,
       checker_ptr_,
-      enums::HexapodMove::kComUpDown);
+      HexapodMove::kComUpDown);
 
-    (*node_creator)[enums::HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+    (*node_creator)[HexapodMove::kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
       map,
       converter_ptr_,
       presenter_ptr_,
       checker_ptr_,
-      enums::HexapodMove::kBodyYawRot);
+      HexapodMove::kBodyYawRot);
 
-    (*node_creator)[enums::HexapodMove::kBodyYawRot] = std::make_unique<NodeCreatorBodyRot>(
+    (*node_creator)[HexapodMove::kBodyYawRot] = std::make_unique<NodeCreatorBodyRot>(
       map,
       converter_ptr_,
       checker_ptr_,
       Vector3::GetUpVec(),
-      enums::HexapodMove::kLegHierarchyChange);
+      HexapodMove::kLegHierarchyChange);
 }
 
 }  // namespace designlab

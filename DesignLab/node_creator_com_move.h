@@ -32,7 +32,7 @@ public:
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-      enums::HexapodMove next_move);
+      HexapodMove next_move);
 
     ~NodeCreatorComMove() = default;
 
@@ -47,7 +47,7 @@ private:
     const ComSelector selector_;  //!< 多角形から最適な地面を選択するクラス．
 
     const DividedMapState map_;  //!< 地面の状態を格納したクラス．
-    const enums::HexapodMove next_move_;  //!< 次の動作．
+    const HexapodMove next_move_;  //!< 次の動作．
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

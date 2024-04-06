@@ -22,7 +22,7 @@ NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
   const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  enums::HexapodMove next_move) :
+  HexapodMove next_move) :
     kLegMargin(20),
     map_(divided_map),
     converter_ptr_(converter_ptr),

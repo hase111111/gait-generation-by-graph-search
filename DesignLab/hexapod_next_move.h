@@ -7,7 +7,7 @@
 #define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_
 
 
-namespace designlab::enums
+namespace designlab
 {
 
 //! @enum HexapodMove
@@ -24,7 +24,7 @@ enum class HexapodMove : int
     kBodyYawRot,            //!< ヨー軸周りの回転．
 };
 
-}  // namespace designlab::enums
+}  // namespace designlab
 
 
 #endif  // DESIGNLAB_HEXAPOD_NEXT_MOVE_H_
