@@ -40,10 +40,10 @@ public:
     void Draw() const override;
 
 private:
-    const unsigned int kColorGray;
-    const unsigned int kColorLightGray;
-    const unsigned int kColorDarkGray;
-    const float kCubeSize;
+    const unsigned int color_gray_;
+    const unsigned int color_light_gray_;
+    const unsigned int color_dark_gray_;
+    const float cube_size_;
 
     MapState map_;
     DividedMapState divided_map_;

@@ -669,6 +669,15 @@
     <ClInclude Include="abstract_dxlib_gui.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="graph_com_plotter.h">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="loop_util.h">
+      <Filter>ソース ファイル\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="loop_util_test.h">
+      <Filter>ソース ファイル\Common\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -997,6 +1006,9 @@
     </ClCompile>
     <ClCompile Include="abstract_dxlib_gui.cpp">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_com_plotter.cpp">
+      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

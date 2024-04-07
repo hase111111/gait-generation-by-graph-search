@@ -25,11 +25,14 @@
     <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="dxlib_gui_robot_control.h" />
     <ClInclude Include="graphic_main_robot_control.h" />
+    <ClInclude Include="graph_com_plotter.h" />
     <ClInclude Include="graph_searcher_turn.h" />
     <ClInclude Include="graph_search_evaluator.h" />
     <ClInclude Include="graph_search_evaluator_test.h" />
     <ClInclude Include="implicit_metafunction_for_toml11.h" />
     <ClInclude Include="interpolate_validator.h" />
+    <ClInclude Include="loop_util.h" />
+    <ClInclude Include="loop_util_test.h" />
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
@@ -202,6 +205,7 @@
     <ClCompile Include="gait_pattern_generator_thread.cpp" />
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
     <ClCompile Include="graphic_main_robot_control.cpp" />
+    <ClCompile Include="graph_com_plotter.cpp" />
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="graph_searcher_turn.cpp" />

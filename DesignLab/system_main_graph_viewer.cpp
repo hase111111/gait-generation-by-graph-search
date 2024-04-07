@@ -66,9 +66,9 @@ void SystemMainGraphViewer::Main()
         {
             // グラフがない場合，
 
-            CmdIOUtil::Output("まだグラフを生成していません．", kSystem);
+            CmdIOUtil::Output("No graphs have been generated yet.", kSystem);
 
-            if (CmdIOUtil::InputYesNo("グラフを作成しますか？"))
+            if (CmdIOUtil::InputYesNo("Do you want to create a graph?"))
             {
                 CreateGraph(first_node, &graph);  // グラフを作成する．
 
@@ -78,7 +78,7 @@ void SystemMainGraphViewer::Main()
             else
             {
                 // 終了するか質問する．
-                if (CmdIOUtil::InputYesNo("終了しますか？"))
+                if (CmdIOUtil::InputYesNo("Do you wish to terminate?"))
                 {
                     break;
                 }
@@ -88,8 +88,7 @@ void SystemMainGraphViewer::Main()
         {
             // グラフがある場合．
 
-            CmdIOUtil::Output("グラフを操作します．", kSystem);
-            CmdIOUtil::Output("操作メニューを表示します．", kSystem);
+            CmdIOUtil::Output("Displays the operation menu.", kSystem);
 
             // 操作メニューを表示する．
 
@@ -211,9 +210,9 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
     CmdIOUtil::OutputNewLine(1, detail);
     CmdIOUtil::OutputHorizontalLine("=", detail);
     CmdIOUtil::OutputNewLine(1, detail);
-    CmdIOUtil::Output("グラフの状態を表示します．", detail);
+    CmdIOUtil::Output("Displays the status of the graph.", detail);
     CmdIOUtil::OutputNewLine(1, detail);
-    CmdIOUtil::Output("グラフのノードの数 : " + std::to_string(graph.size()), detail);
+    CmdIOUtil::FormatOutput(detail, "Number of nodes in the graph : {}", graph.size());
 
 
     if (graph.size() > 0)
@@ -222,7 +221,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
         std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);
 
-        CmdIOUtil::Output(std::format("SystemMainGraphViewer : グラフ探索の最大深さ : {}", GraphSearchConst::kMaxDepth), detail);
+        CmdIOUtil::Output(std::format("Maximum depth of graph search : {}", GraphSearchConst::kMaxDepth), detail);
 
         for (const auto& i : graph)
         {
