@@ -1,7 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
 
 #include "graphic_main_basic.h"
 
@@ -22,11 +21,11 @@ namespace designlab
 {
 
 GraphicMainBasic::GraphicMainBasic(
-  const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
-  const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-  const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
-  const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
-  const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
+    const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr) :
     kNodeGetCount(setting_ptr->window_fps * 2),
     kInterpolatedAnimeCount(1),
     broker_ptr_(broker_ptr),

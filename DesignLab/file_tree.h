@@ -33,9 +33,7 @@ public:
     //! @param[out] output 選択されたファイルのパス．
     //! @retval true ファイルが選択された．
     //! @retval false ファイルが選択されなかった．
-    bool SelectFile(const std::string& path, int max_depth,
-                    const std::string& extension, const std::string keyword,
-                    std::string* output) const;
+    bool SelectFile(const std::string& path, int max_depth, const std::string& extension, const std::string keyword, std::string* output) const;
 
 private:
     //! @struct FileTreeData
@@ -45,9 +43,10 @@ private:
     {
         FileTreeData() : path(""), directory({}), file({}) {}
 
-        FileTreeData(const std::string& _path,
-                     const std::vector<FileTreeData>& _directory,
-                     const std::vector<std::string>& _file) :
+        FileTreeData(
+            const std::string& _path,
+            const std::vector<FileTreeData>& _directory,
+            const std::vector<std::string>& _file) :
             path(_path),
             directory(_directory),
             file(_file)
@@ -75,11 +74,9 @@ private:
     //! @n ファイルツリーのデータを再帰的に出力する．
     //! @param[in] tree ファイルツリーのデータ．
     //! @param[in] depth ディレクトリの階層の深さ．
-    //! @param[in] not_display_empty 空のディレクトリを表示しないならば
-    //!  true を指定する．
+    //! @param[in] not_display_empty 空のディレクトリを表示しないならば true を指定する．
     //! @param[in] file_count ファイルの番号を割り当てるためのカウンタ．
-    void OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty,
-                        int* file_count) const;
+    void OutputFileTree(const FileTreeData& tree, int depth, bool not_display_empty, int* file_count) const;
 
     //! @brief ファイルツリーのデータから，ファイルのリストを作成する．
     //! @param[in] tree ファイルツリーのデータ．
